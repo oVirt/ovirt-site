@@ -27,7 +27,7 @@ These instructions are for a person [who already has an account](Special:ListUse
     -   Real name
 
 5.  Uncheck "Remember my login on this computer".
-6.  Click "by e-mail" to send the new account information directly to the user.
+6.  Click "By e-mail" to send the new account information directly to the user.
 
 If your browser offers to save the password for this new user, choose no or "Not now".
 

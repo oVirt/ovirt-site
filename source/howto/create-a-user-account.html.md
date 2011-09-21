@@ -18,7 +18,7 @@ These instructions are for a person [who already has an account](Special:ListUse
 
 1.  Log in with your user account.
 2.  Got to the login page <Special:UserLogin>
-3.  Use the link labeled [Create an account](https://www.theopensourceway.org/w/index.php?title=Special:UserLogin&type=signup), or click this link here
+3.  Use the link labeled [Create an account](https://www.ovirt.org/w/index.php?title=Special:UserLogin&type=signup), or click this link here
 4.  Fill out the account information:
     -   Username
     -   Password - *leave blank*

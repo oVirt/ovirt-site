@@ -9,12 +9,18 @@ wiki_last_updated: 2012-11-30
 
 # Main Page
 
-**MediaWiki has been successfully installed.**
+**This is the wiki for the oVirt project.**
 
-Consult the [User's Guide](http://meta.wikimedia.org/wiki/Help:Contents) for information on using the wiki software.
+This wiki is used for:
 
-## Getting started
+*   Developers for technical documentation about their project.
+*   Organizers to collaborate on planning and executing.
+*   Documenters write tutorials, API documentation, and so forth.
 
-*   [Configuration settings list](http://www.mediawiki.org/wiki/Manual:Configuration_settings)
-*   [MediaWiki FAQ](http://www.mediawiki.org/wiki/Manual:FAQ)
-*   [MediaWiki release mailing list](https://lists.wikimedia.org/mailman/listinfo/mediawiki-announce)
+In short, *this wiki is for the oVirt community collaborative documentation*.
+
+[How to create a user account](How to create a user account) on this wiki.
+
+[How to make pages](How to make pages) on this wiki.
+
+[Project main website](http://www.ovirt.org).

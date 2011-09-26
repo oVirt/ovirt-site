@@ -14,6 +14,6 @@ Here is the Infrastructure Team and what we work on for the [oVirt project](http
 ## Communication
 
 *   [Mailing list infra@ovirt.org](http://lists.ovirt.org/mailman/listinfo/infra)
-*   [IRC channel #ovirt on Freenode](irc://irc.freenode.net/#ovirt) ([Web interface for IRC](http://webchat.freenode.net/?channels=ovirt))
+*   [IRC channel #ovirt on OFTC](irc://irc.oftc.net/#ovirt)
 
 ## Team

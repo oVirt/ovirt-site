@@ -45,3 +45,5 @@ Proof of concept has been developed internally for android devices. The next ite
 
        Isaac Christoffersen (ichristoffersen at vizuri dot com)
        Ken Spokas (kspokas at vizuri dot com)
+
+[Category:Project proposal](Category:Project proposal) <Category:Nomad>

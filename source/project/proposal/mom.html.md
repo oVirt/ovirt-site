@@ -10,8 +10,6 @@ wiki_last_updated: 2011-10-24
 
 # Project Proposal - MOM
 
-## MOM - Memory Overcommitment Manager
-
 ## Summary
 
 MOM is a policy-engine that can dynamically apply a selected policy to a KVM host and its guests in response to a continuously changing environment.
@@ -47,7 +45,7 @@ MOM will have the most affect on VDSM and the oVirt guest agent. MOM will be sta
 
 ## Test Plan
 
-Not yet specified.
+*Not yet specified.*
 
 ## User Experience
 
@@ -68,7 +66,7 @@ MOM is documented [in the source](http://github.com/aglitke/mom/) and [in a wiki
 
 ## Release Notes
 
-Not yet provided.
+*Not yet provided.*
 
 ## Comments and Discussion
 

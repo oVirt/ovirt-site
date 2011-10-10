@@ -35,6 +35,11 @@ MOM runs on KVM hosts and will be integrated with vdsm to provide dynamic node o
 *   MOM APIs for vdsm: vdsm can control MOM behavior as needed (change policy, etc)
 *   Enable statistics collection via the oVirt agent.
 
+MOM is a written in python and should probably be packaged independently. Once vdsm starts using MOM, its package dependencies can be updated to reflect this. As for actual integration, I see two strategies:
+
+*   MOM runs the way it does today -- as an independent host level daemon. vdsm will control the MOM policy using MOM's existing xmlrpc interface.
+*   Alter MOM so that it can be loaded as a python module. vdsm would load the module and call a method to have mom start its own threads.
+
 ## Benefit to oVirt
 
 MOM will benefit oVirt by providing transparent tuning and optimization of nodes to achieve improved performance, more efficient resource utilization, and adaptability to changing workloads.

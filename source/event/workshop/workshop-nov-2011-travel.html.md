@@ -16,6 +16,24 @@ wiki_last_updated: 2012-01-08
 
 ## Hotel ideas
 
+**INCOMPLETE**
+
+### Primary recommendation
+
+We are **not** reserving a block of rooms for this event.
+
+To ensure you can use the primary hotel, you should book ASAP.
+
+**Booking details - Crowne Plaza**
+
+<http://www.ichotelsgroup.com/crowneplaza/hotels/us/en/milpitas/sfomp/hoteldetail>
+
+777 BELLEW DRIVE MILPITAS , CALIFORNIA 95035 United States Hotel Front Desk: 001-408-321-9500 Hotel Fax: 001-408-321-9599
+
+### Overflow recommendation
+
+### Other
+
 ## Transit
 
 ### Public transit

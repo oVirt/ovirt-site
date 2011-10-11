@@ -118,6 +118,11 @@ We’d like to continue using Autotest for automated testing. It was designed to
 
 These are some of the high level steps that need to be taken to get to our final goal
 
+#### Planning
+
+*   What are the right tools to use? Is AutoBuild/Autotest the right choice to make?
+*   What tools will be available on ovirt.org that we can make use of?
+
 #### Building
 
 1.  Need cobbler profiles for building autobuild hosts from scratch (install right packages, do necessary config, etc)
@@ -143,3 +148,11 @@ These are some of the high level steps that need to be taken to get to our final
     1.  There is a character limit currently that we will need to solve to get exhaustive testing
 
 6.  UI testing using kvm-autotest step-engine – some work done here, but UI was too unstable to be tested consistently using step-engine.
+
+### Updates
+
+There are plans to include [jenkins](http://jenkins-ci.org) in ovirt.org, so I've been spending the last few days getting familiar with it and seeing if it's an option for what we need.
+
+*   Jenkins actually works pretty well for building. AutoBuild uses primarily shell scripts for building, so translation is fairly straightforward.
+*   Jenkins add the same master/slave approach that I was looking for and all results are collated in one place. At least some of the automated testing that we'd like to do should be possible through Jenkins.
+*   Given that Jenkins is going to be included anyway in ovirt.org, it probably makes a lot of sense to use it.

@@ -156,3 +156,5 @@ There are plans to include [jenkins](http://jenkins-ci.org) in ovirt.org, so I'v
 *   Jenkins actually works pretty well for building. AutoBuild uses primarily shell scripts for building, so translation is fairly straightforward.
 *   Jenkins add the same master/slave approach that I was looking for and all results are collated in one place. At least some of the automated testing that we'd like to do should be possible through Jenkins.
 *   Given that Jenkins is going to be included anyway in ovirt.org, it probably makes a lot of sense to use it.
+
+<Category:Testing> <Category:Automation> [Category:Node development](Category:Node development) [Category:Node release engineering](Category:Node release engineering)

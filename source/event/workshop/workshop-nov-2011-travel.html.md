@@ -42,7 +42,7 @@ To ensure you can use the primary hotel, you should book ASAP.
 
 ### Airports
 
-**Mineta San Jose International Airport( SJC)**
+**Mineta San Jose International Airport (SJC)**
 
          * Distance: 4.7 MI/7.56 KM NORTH EAST to Hotel
          * Complimentary Shuttle Available
@@ -57,12 +57,21 @@ To ensure you can use the primary hotel, you should book ASAP.
          - Exit McCarthy Blvd, turn RIGHT 
          - LEFT on Bellew Dr.; hotel on the LEFT
 
-**San Francisco International Airport( SFO)**
+**San Francisco International Airport (SFO)**
 
          * Distance: 45.0 MI/72.42 KM SOUTH EAST to Hotel
          * Taxi Charge (one way): $  120.00 USD
                o Time by Taxi: 45 minutes
          * HWY 101 South, exit 237 East and follow until you reach McCarthy Blvd exit. Make right onto McCarthy and left on Bellew Drive.
+
+## Communications
+
+        * WiFi (fill-in if you know)
+        * Pre-paid SIM (fill-in if you know)
+
+## Contacts / Emergency phone numbers
+
+        * TBD
 
 ## Other things to do
 

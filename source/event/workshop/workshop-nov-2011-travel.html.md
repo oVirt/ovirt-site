@@ -78,25 +78,30 @@ One way ticket is about $2.00. The trains runs about every 15 minutes.
 
 **Mineta San Jose International Airport (SJC)**
 
-         * Distance: 4.7 MI/7.56 KM NORTH EAST to Hotel
-         * Complimentary Shuttle Available
-         * Taxi Charge (one way): $  25.00 USD
-               o Time by Taxi: 15 minutes
-         - CA-87 N towards US-101/Skyport Dr 
-         - Exit #9A/N. 1st St to Guadalupe Pkwy 
-         - Continue on Charcot Ave 
-         - LEFT on N. 1st St -RIGHT on E. Trimble Rd 
-         - LEFT on Zanker Rd 
-         - Take ramp onto CA-237 E 
-         - Exit McCarthy Blvd, turn RIGHT 
-         - LEFT on Bellew Dr.; hotel on the LEFT
+*   Distance: 4.7 MI/7.56 KM NORTH EAST to Hotel
+*   Complimentary Shuttle Available
+*   Taxi Charge (one way): $ 25.00 USD
+    -   Time by Taxi: 15 minutes
+*   Directions:
+    1.  CA-87 N towards US-101/Skyport Dr
+    2.  Exit #9A/N. 1st St to Guadalupe Pkwy
+    3.  Continue on Charcot Ave
+    4.  LEFT on N. 1st St -RIGHT on E. Trimble Rd
+    5.  LEFT on Zanker Rd
+    6.  Take ramp onto CA-237 E
+    7.  Exit McCarthy Blvd, turn RIGHT
+    8.  LEFT on Bellew Dr.; hotel on the LEFT
 
 **San Francisco International Airport (SFO)**
 
-         * Distance: 45.0 MI/72.42 KM SOUTH EAST to Hotel
-         * Taxi Charge (one way): $  120.00 USD
-               o Time by Taxi: 45 minutes
-         * HWY 101 South, exit 237 East and follow until you reach McCarthy Blvd exit. Make right onto McCarthy and left on Bellew Drive.
+*   Distance: 45.0 MI/72.42 KM SOUTH EAST to Hotel
+*   Taxi Charge (one way): $ 120.00 USD
+    -   Time by Taxi: 45 minutes
+*   Directions:
+    1.  HWY 101 South
+    2.  Exit 237 East
+    3.  Follow 237 Easy until you reach McCarthy Blvd exit.
+    4.  Make right onto McCarthy and left on Bellew Drive.
 
 ## Communications
 

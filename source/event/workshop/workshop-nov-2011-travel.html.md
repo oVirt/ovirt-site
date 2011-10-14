@@ -60,6 +60,18 @@ There is a Hilton that is a few minutes up the light rail from the Cisco campus:
 
 ### Public transit
 
+The Cisco campus is on the [Silicon Valley light rail system](http://www.vta.org/). This is a convenient way to get from the Crowne Plaza to Cisco Building 0.
+
+From Crowne Plaza to Building O:
+
+1.  Walk to the Light Rail (I-880/Milpitas) - about 10 minutes.
+2.  Take Light Rail to First Street and Tasman.
+3.  Walk across the First Street to Building 0.
+
+One way ticket is about $2.00. The trains runs about every 15 minutes.
+
+<http://www.vta.org/schedules/SC_901.html>
+
 ### Car rentals
 
 ### Airports

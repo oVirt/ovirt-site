@@ -18,19 +18,41 @@ wiki_last_updated: 2012-01-08
 
 **INCOMPLETE**
 
-### Primary recommendation
+### Primary/group hotel
 
-We are **not** reserving a block of rooms for this event.
+We **have** reserved a block of rooms for this event.
 
-To ensure you can use the primary hotel, you should book ASAP.
+To ensure guaranteed room availability, you **must book by Monday 17 October**.
 
-**Booking details - Crowne Plaza**
+Booking details for the [Crowne Plaza](http://www.ichotelsgroup.com/crowneplaza/hotels/us/en/milpitas/sfomp/hoteldetail):
 
-<http://www.ichotelsgroup.com/crowneplaza/hotels/us/en/milpitas/sfomp/hoteldetail>
+1.  Use <https://resweb.passkey.com/go/Redhat2011> to book your room online, or
+2.  Call <https://resweb.passkey.com/go/Redhat2011> with the group name "Red Hat oVirt Kickoff Workshop" - you *must* use that telephone number when booking, not the main hotel numbers.
 
-777 BELLEW DRIVE MILPITAS , CALIFORNIA 95035 United States Hotel Front Desk: 001-408-321-9500 Hotel Fax: 001-408-321-9599
+Location:
 
-### Overflow recommendation
+    777 BELLEW DRIVE 
+    MILPITAS ,  CALIFORNIA   
+    95035 United States
+    Hotel Front Desk: 001-408-321-9500 
+    Hotel Fax: 001-408-321-9599 
+
+### Other recommendations
+
+There is a Mariott Courtyard 4 miles from the Crowne Plaza that has a AAA rate of $142 a night and the Internet is free. The standard rate is around $149/night.
+
+<http://www.marriott.com/hotels/travel/sjcfe-courtyard-fremont-silicon-valley>
+
+    Courtyard Fremont Silicon Valley
+    47000 Lakeview Boulevard
+    Fremont, CA 94538
+    1 510-656-1800
+
+There is a Hilton that is a few minutes up the light rail from the Cisco campus:
+
+    Hilton Santa Clara
+    4949 Great America Parkway, Santa Clara, California, USA 95054
+    Tel: 1+(408) 330-0001 Fax: 1+(408) 562-6736 
 
 ### Other
 

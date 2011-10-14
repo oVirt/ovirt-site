@@ -76,6 +76,12 @@ One way ticket is about $2.00. The trains runs about every 15 minutes.
 
 ### Airports
 
+The Crowne Plaza runs a hotel shuttle *only for SJC*. How to use:
+
+1.  After you have your baggage all in hand, call 001-408-321-9500.
+2.  Talk to the front desk, tell them you are a guest, and need a pick-up. You'll need to know the terminal you are in.
+3.  The hotel will dispatch a driver with an estimated time of arrival (ETA.)
+
 **Mineta San Jose International Airport (SJC)**
 
 *   Distance: 4.7 MI/7.56 KM NORTH EAST to Hotel
@@ -97,6 +103,14 @@ One way ticket is about $2.00. The trains runs about every 15 minutes.
 *   Distance: 45.0 MI/72.42 KM SOUTH EAST to Hotel
 *   Taxi Charge (one way): $ 120.00 USD
     -   Time by Taxi: 45 minutes
+*   Public transit charge: $ 16.75 USD
+    -   Use this [<https://maps.google.com/maps?f=d&source=s_d&saddr=SFO&daddr=777+Bellew+Drive,+milpitas&hl=en&geocode=Fdj9PQIdAZW0-CGPprokJLPSNw%3BFSUFOwIdlai7-Ckr4SZOIcmPgDHd0kfouLKYmQ&aq>=&sll=37.495025,-122.165895&sspn=0.549142,0.986023&vpsrc=6&dirflg=r&ttype=dep&date=10%2F31%2F11&time=7:00pm&noexp=0&noal=0&sort=def&mra=ls&ie=UTF8&ll=37.627284,-122.102051&spn=1.096339,1.972046&t=h&z=9&start=0 Google Maps] transit link, then customize.
+    -   Time by public transit: 3 hours
+*   Airport shuttle: $ 105.00 USD for solo; $ 45.00 USD for first, $15.00 USD for second and following passengers
+    -   <http://supershuttle.com>
+    -   <http://www.onestopshuttle.com/>
+    -   <http://www.sftravel.com/shutl.html> - Area shuttles reviewed
+    -   <http://www.sfgate.com/travel/resources/airports/> - Airport resources
 *   Directions:
     1.  HWY 101 South
     2.  Exit 237 East

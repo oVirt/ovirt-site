@@ -37,6 +37,8 @@ Location:
     Hotel Front Desk: 001-408-321-9500 
     Hotel Fax: 001-408-321-9599 
 
+Directions from Crowne Plaza to Building O: <http://g.co/maps/83vqw>
+
 ### Other recommendations
 
 There is a Mariott Courtyard 4 miles from the Crowne Plaza that has a AAA rate of $142 a night and the Internet is free. The standard rate is around $149/night. (Directions from this hotel to Building O: <http://g.co/maps/c6cyj>)

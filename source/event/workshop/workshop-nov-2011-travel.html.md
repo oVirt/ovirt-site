@@ -41,7 +41,7 @@ Directions from Crowne Plaza to Building O: <http://g.co/maps/83vqw>
 
 ### Other recommendations
 
-There is a Mariott Courtyard 4 miles from the Crowne Plaza that has a AAA rate of $142 a night and the Internet is free. The standard rate is around $149/night. (Directions from this hotel to Building O: <http://g.co/maps/c6cyj>)
+There is a Mariott Courtyard 9 miles from the Crowne Plaza that has a AAA rate of $142 a night and the Internet is free. The standard rate is around $149/night.
 
 <http://www.marriott.com/hotels/travel/sjcfe-courtyard-fremont-silicon-valley>
 
@@ -49,6 +49,8 @@ There is a Mariott Courtyard 4 miles from the Crowne Plaza that has a AAA rate o
     47000 Lakeview Boulevard
     Fremont, CA 94538
     1 510-656-1800
+
+Directions from Mariott Courtyard Fremont to Building O: <http://g.co/maps/6e2n3>
 
 There is a Hilton that is a few minutes up the light rail from the Cisco campus:
 

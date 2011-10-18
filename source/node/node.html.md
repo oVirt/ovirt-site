@@ -11,3 +11,5 @@ wiki_last_updated: 2013-10-25
 # Node
 
 This is the main wiki page for [Node](Node) development.
+
+<Category:Project>

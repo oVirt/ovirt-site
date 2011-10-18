@@ -12,9 +12,35 @@ wiki_last_updated: 2014-04-23
 
 ## Setting up Wordpress as ovirt.org front page
 
-*   working
-*   on
-*   this
+Wordpress is a drop-in PHP application that does not require very much tweaking beyond the basic installation.
+
+Customization is more in the HTTP server configuration.
+
+### Overview of Wordpress installation
+
+1.  Install RPMs from RHEL repository and EPEL.
+2.  Tweak HTTP configuration provided by the RPM to fit in to server needs.
+3.  Configure MySQL as the database.
+4.  Choose neutral theme we can drop the logo in to.
+
+### Installation details
+
+Install packages:
+
+    yum install wordpress
+
+    mysql -u root (REFER TO /root/
+
+      mysql> create database ovirtwp;
+      Query OK, 1 row affected (0.00 sec)
+
+      mysql> grant all privileges on ovirtwp.* to ovirtwpuser identified by '(REFER TO /root/)';
+      Query OK, 0 rows affected (0.00 sec)
+
+      mysql> flush privileges;
+      Query OK, 0 rows affected (0.00 sec)
+
+      mysql> exit
 
 ## Setting up MediaWiki as ovirt.org wiki
 

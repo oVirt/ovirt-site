@@ -10,15 +10,17 @@ wiki_last_updated: 2011-10-18
 
 # Project wiki template
 
-This is a template for using a category as the primary wiki page for an oVirt project.
+*This is a template for using a category as the primary wiki page for an oVirt project.*
 
-Read more about [How to make pages](How to make pages) for information on page creation.
+*Read more about [How to make pages](How to make pages) for information on page creation.*
 
-**Introduction goes here ... before you put in any sub-sections.**
+Introduction goes here ... before you put in any sub-sections.
 
-**Make the introduction just a few short paragraphs.**
+Make the introduction just a few short paragraphs.
 
-**Remember that all sub-pages and sub-categories will appear *below* the content here. There is no need to index every page, but you may want to directly link to some of them.**
+Remember that all sub-pages and sub-categories will appear **below** the content here. There is no need to index every page, but you may want to directly link to some of them.
+
+__TOC__
 
 ## Important Foobar wiki pages
 

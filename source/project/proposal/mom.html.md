@@ -25,6 +25,11 @@ Adam Litke <agl@us.ibm.com>
 
 MOM currently exists as an independent open source project hosted on [github](http://github.com/aglitke/mom). This wiki page will gather input on whether MOM should become an oVirt sub-project and (if so) how best to integrate it into the oVirt stack.
 
+## oVirt Infrastructure
+
+*   Bugzilla
+*   Mailing list: devel
+
 ## Detailed Description
 
 MOM runs on KVM hosts and will be integrated with vdsm to provide dynamic node optimization to oVirt. Today, MOM has the ability to manage memory ballooning and the Kernel Same-page Merging (KSM) feature of the Linux kernel. The default policy makes decision based on memory statistics that are collected from the host and guests. The MOM architecture allows for easy extension of the program to control new tunable systems (eg. cgroups, numa, block IO throttling, network bandwith limits, guest evacuation, etc) and collect new data to support the policies that govern these new controls.

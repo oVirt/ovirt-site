@@ -36,6 +36,11 @@ The initial goal is to provide the ability to remotely access oVirt/RHEV and ret
 
 Proof of concept has been developed internally for android devices. The next iteration will incorporate iPhone and iPad devices.
 
+## oVirt Infrastructure
+
+      * Bugzilla (y)
+      * devel list (y)
+
 ## External Dependencies
 
       * RHEVM/oVirt REST API -  Nomad is a remote client to oVirt and consumes the REST API to interact with the core engine.

@@ -22,14 +22,11 @@ wiki_last_updated: 2012-03-05
 
 ## Licensing best practice cheat sheet
 
-      1. A COPYING or LICENSE file should be added to the top level of the tree containing the full license text.
+1.  A COPYING or LICENSE file should be added to the top level of the tree containing the full license text.
 
          If there are multiple licenses for code in the repo, then add multiple LICENSE.XXXX files, and add a master LICENSE file listing which LICENSE.XXXX file applies to which bits of the tree.
 
-2. Every single .java, .sh, .py, .sql file should have license
-
-         + copyright  boilerplate text added. It should take general
-         format:
+1.  Every single .java, .sh, .py, .sql file should have license + copyright boilerplate text added. It should take general format:
 
 /\*
 

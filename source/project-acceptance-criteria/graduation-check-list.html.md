@@ -22,11 +22,11 @@ wiki_last_updated: 2012-03-05
 
 ## Licensing best practice cheat sheet
 
-1.  A COPYING or LICENSE file should be added to the top level of the tree containing the full license text.
+1.) A COPYING or LICENSE file should be added to the top level of the tree containing the full license text.
 
 If there are multiple licenses for code in the repo, then add multiple LICENSE.XXXX files, and add a master LICENSE file listing which LICENSE.XXXX file applies to which bits of the tree.
 
-1.  Every single .java, .sh, .py, .sql file should have license + copyright boilerplate text added. It should take general format:
+2.) Every single .java, .sh, .py, .sql file should have license + copyright boilerplate text added. It should take general format:
 
       /*
       *   Copyright [yyyy] [name of copyright owner]
@@ -51,13 +51,13 @@ For the Copyright license,
 
 Adding a filename is useful in case people include your code in another project, so it is clear where it originally came from.
 
-1.  For Java, the Maven POM format allows a section for license information
+3.) For Java, the Maven POM format allows a section for license information
 
 `    `[`https://maven.apache.org/pom.html#More_Project_Information`](https://maven.apache.org/pom.html#More_Project_Information)
 
 This should be added to all the pom.xml files in the tree.
 
-1.  Unrelated to licensing, add a README file to the top level directory.
+4.) Unrelated to licensing, add a README file to the top level directory.
 
 This should contain
 
@@ -68,6 +68,6 @@ This should contain
 *   A summary of any relevant external software dependencies that will be required in order to build the software.
 *   A quick summary of how to build the software. If the instructions are long & hard, then create a separate INSTALL file with the details instead of cluttering up the README.
 
-1.  provide a public record of the authors, This will be posted on the oVirt site, however it does not hurt to also include an AUTHORS file with details of maintainers & contributors, so people know whom the subject matter experts are.
+5.) provide a public record of the authors, This will be posted on the oVirt site, however it does not hurt to also include an AUTHORS file with details of maintainers & contributors, so people know whom the subject matter experts are.
 
 (Edited from source material from Dan Berrange)

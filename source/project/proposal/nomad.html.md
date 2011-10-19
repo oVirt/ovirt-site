@@ -43,12 +43,12 @@ Proof of concept has been developed internally for android devices. The next ite
 
 ## External Dependencies
 
-      * RHEVM/oVirt REST API -  Nomad is a remote client to oVirt and consumes the REST API to interact with the core engine.
-      * Appcelerator Titanium Framework - An Apache-Licensed Framework for developing mobile application frameworks
+*   RHEVM/oVirt REST API - Nomad is a remote client to oVirt and consumes the REST API to interact with the core engine.
+*   Appcelerator Titanium Framework - An Apache-Licensed Framework for developing mobile application frameworks
 
 ## Initial Committers
 
-       Isaac Christoffersen (ichristoffersen at vizuri dot com)
-       Ken Spokas (kspokas at vizuri dot com)
+*   Isaac Christoffersen (ichristoffersen at vizuri dot com)
+*   Ken Spokas (kspokas at vizuri dot com)
 
 [Category:Project proposal](Category:Project proposal) <Category:Nomad>

@@ -38,8 +38,7 @@ Proof of concept has been developed internally for android devices. The next ite
 
 ## oVirt Infrastructure
 
-      * Bugzilla (y)
-      * devel list (y)
+Bugzilla (y) devel list (y)
 
 ## External Dependencies
 

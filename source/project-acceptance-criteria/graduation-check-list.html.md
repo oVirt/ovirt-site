@@ -12,8 +12,8 @@ wiki_last_updated: 2012-03-05
 
 ## Getting ready for Graduation check list
 
-*   Demonstrated development towards project maturity
-*   Demonstrated Integration with one of the listed oVirt APIs
+*   Demonstrated development towards project maturity <http://www.ovirt.org/project-maturity/>
+*   Demonstrated Integration with one of the listed oVirt APIs <http://www.ovirt.org/governance/adding-a-subproject/>
 *   Demonstrated the support of the oVirt release schedule
 *   Licensing is in order
 *   Demonstrate the ability to make a release

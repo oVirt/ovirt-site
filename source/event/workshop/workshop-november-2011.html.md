@@ -21,4 +21,8 @@ The workshop is in Cisco Building O, 10 W Tasman Dr, on the corner of N 1st St &
 
 ### Tuesday night reception
 
-*TBD*
+After the first day workshop, we'll take an hour break, then meet at the Crowne Plaza for Italian food and drinks in an informal reception atmosphere.
+
+*   Where: Crowne Plaza, 777 Bellew Dr, Milpitas, CA ([<https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode>=&q=777++Bellew+milpitas&ie=UTF8&hq=&hnear=777+Bellew+Dr,+Milpitas,+California+95035&t=m&z=16&vpsrc=0 Map])
+*   When: 6 to 9 pm *(Tentative)*
+*   What: Informal reception - Italian food, a few drinks at the bar, light seating and standing in an atmosphere conducive to discussion and socializing.

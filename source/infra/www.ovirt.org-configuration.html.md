@@ -18,29 +18,194 @@ Customization is more in the HTTP server configuration.
 
 ### Overview of Wordpress installation
 
-1.  Install RPMs from RHEL repository and EPEL.
-2.  Tweak HTTP configuration provided by the RPM to fit in to server needs.
-3.  Configure MySQL as the database.
-4.  Choose neutral theme we can drop the logo in to.
+1.  Installed RPMs from RHEL repository and EPEL.
+2.  Tweaked HTTP configuration provided by the RPM to fit in to server needs.
+3.  Configured MySQL as the database.
+4.  Chose neutral theme we can drop the logo in to.
 
 ### Installation details
 
-Install packages:
+Installed packages:
 
     yum install wordpress
 
-    mysql -u root (REFER TO /root/
+Since MySQL was already configured, added a database and grant privileges to the Wordpress database user:
+
+    mysql -u root (REFER TO /root/passwords)
 
       mysql> create database ovirtwp;
       Query OK, 1 row affected (0.00 sec)
 
-      mysql> grant all privileges on ovirtwp.* to ovirtwpuser identified by '(REFER TO /root/)';
+      mysql> grant all privileges on ovirtwp.* to ovirtwpuser identified by '(REFER TO /root/passwords)';
       Query OK, 0 rows affected (0.00 sec)
 
       mysql> flush privileges;
       Query OK, 0 rows affected (0.00 sec)
 
       mysql> exit
+
+Edited '/etc/wordpress/wp-config.php' with these values.
+
+Used <https://api.wordpress.org/secret-key/1.1/salt/> to generate new keys and salts, as explained in the comments.
+
+    cat /etc/wordpress/wp-config.php
+    <?php
+    /**
+     * The base configurations of the WordPress.
+     *
+     * This file has the following configurations: MySQL settings, Table Prefix,
+     * Secret Keys, WordPress Language, and ABSPATH. You can find more information
+     * by visiting {@link http://codex.wordpress.org/Editing_wp-config.php Editing
+     * wp-config.php} Codex page. You can get the MySQL settings from your web host.
+     *
+     * This file is used by the wp-config.php creation script during the
+     * installation. You don't have to use the web site, you can just copy this file
+     * to "wp-config.php" and fill in the values.
+     *
+     * @package WordPress
+     */
+
+    // ** MySQL settings - You can get this info from your web host ** //
+    /** The name of the database for WordPress */
+    define('DB_NAME', 'ovirtwp');
+
+    /** MySQL database username */
+    define('DB_USER', 'ovirtwpuser');
+
+    /** MySQL database password */
+    define('DB_PASSWORD', '(REFER TO /root/passwords)');
+
+    /** MySQL hostname */
+    define('DB_HOST', 'localhost');
+
+    /** Database Charset to use in creating database tables. */
+    define('DB_CHARSET', 'utf8');
+
+    /** The Database Collate type. Don't change this if in doubt. */
+    define('DB_COLLATE', '');
+
+    /**#@+
+     * Authentication Unique Keys and Salts.
+     *
+     * Change these to different unique phrases!
+     * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
+     * You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
+     *
+     * @since 2.6.0
+     */
+    define('AUTH_KEY',         '(SALT REDACTED)');
+    define('SECURE_AUTH_KEY',  '(SALT REDACTED)');
+    define('LOGGED_IN_KEY',    '(SALT REDACTED)');
+    define('NONCE_KEY',        '(SALT REDACTED)');
+    define('AUTH_SALT',        '(SALT REDACTED)');
+    define('SECURE_AUTH_SALT', '(SALT REDACTED)');
+    define('LOGGED_IN_SALT',   '(SALT REDACTED)');
+    define('NONCE_SALT',       '(SALT REDACTED)');
+
+    /**#@-*/
+
+    /**
+     * WordPress Database Table prefix.
+     *
+     * You can have multiple installations in one database if you give each a unique
+     * prefix. Only numbers, letters, and underscores please!
+     */
+    $table_prefix  = 'wp_';
+
+    /**
+     * WordPress Localized Language, defaults to English.
+     *
+     * Change this to localize WordPress. A corresponding MO file for the chosen
+     * language must be installed to wp-content/languages. For example, install
+     * de_DE.mo to wp-content/languages and set WPLANG to 'de_DE' to enable German
+     * language support.
+     */
+    define('WPLANG', '');
+
+    /**
+     * For developers: WordPress debugging mode.
+     *
+     * Change this to true to enable the display of notices during development.
+     * It is strongly recommended that plugin and theme developers use WP_DEBUG
+     * in their development environments.
+     */
+    define('WP_DEBUG', false);
+
+    /* That's all, stop editing! Happy blogging. */
+
+    /** Absolute path to the WordPress directory. */
+    if ( !defined('ABSPATH') )
+            define('ABSPATH', dirname(__FILE__) . '/');
+
+    /** Sets up WordPress vars and included files. */
+    require_once(ABSPATH . 'wp-settings.php');
+
+Commented out the redirect for '/' in '/etc/httpd/conf.d/lists.ovirt.org', since the machine is also running Mailman.
+
+    #       RedirectMatch ^/$ /mailman/listinfo
+
+Changed the 'Alias' directive in '/etc/httpd/conf.d/wordpress.conf' - note the trailing '/' is important:
+
+    Alias / /usr/share/wordpress/
+
+For the password needed for <http://lists.ovirt.org/wp-admin/install.php> refer to '/root/passwords'.
+
+Before releasing the website publicly, we added HTTPD ACLS for private review. This shows how that was accomplished. (Note that the group-use password is shown here since it is no longer in use.)
+
+    cd /var/www
+    touch .htpasswd
+    htpasswd -b .htpasswd ovirtstaging 1zGn48XEZPHFe
+    cat .htpasswd 
+    ovirtstaging:CqmU6TAjCvtRo
+    cd /usr/share/wordpress/
+    vi /etc/httpd/conf.d/lists.ovirt.org.conf
+
+The new directives for the Wordpress control of '/' are here; removed them when the site went live or moves to another host:
+
+            <Directory /usr/share/wordpress>
+              AllowOverride Options
+              AuthUserFile /var/www/.htpasswd
+              AuthGroupFile /dev/null
+              AuthName EnterPassword
+              AuthType Basic
+              require valid-user
+            </Directory>
+
+To adjust Wordpress permalinks, the webapp attempts to write to $WEB/.htaccess. When it can't do that, Wordpress kicks back instructions to insert a block of rewrite rules in to the httpd access control file (.htaccess.) Since we are putting access control in httpd.conf for better performance, we included the block that Wordpress gives us in to '/etc/httpd/conf.d/lists.ovirt.org.conf':
+
+            <Directory /usr/share/wordpress>
+              AllowOverride Options
+              AuthUserFile /var/www/.htpasswd
+              AuthGroupFile /dev/null
+              AuthName EnterPassword
+              AuthType Basic
+              require valid-user
+
+              <IfModule mod_rewrite.c>
+                RewriteEngine On
+                RewriteBase /
+                RewriteRule ^index\.php$ - [L]
+                RewriteCond %{REQUEST_FILENAME} !-f
+                RewriteCond %{REQUEST_FILENAME} !-d
+                RewriteRule . /index.php [L]
+              </IfModule>
+
+            </Directory>
+
+Configured Wordpress webapp screen by screen.
+
+Since we hid the site during configuration, switched *Settings* > *Privacy* to make the site visible to search engines.
+
+To make theme files editable, changed the file permission(s) to 644 and ownership to root:apache. Most problems with styling - images, CSS - was resolved by putting the entire 'wp-content' directory in to the 'apache' group.
+
+    chmod 644 
+    chown -R root:apache /usr/share/wordpress/wp-content/
+
+Removed header using theme options for the Coraline theme: *Appearance* > *Header*
+
+Installed the Jetpack add-on from Wordpress.com, using the 'ovirt' account on wordpress.com. Refer to the file '/root/passwords' for the password to this account.
+
+Created a wordpress@ovirt.org alias.
 
 ## Setting up MediaWiki as ovirt.org wiki
 
@@ -64,21 +229,21 @@ Installed packages:
 
     yum install mysql mysql-server wordpress mediawiki116
 
-Configure mysql to start at boot:
+Configured MySQL to start at boot:
 
     chkconfig mysqld on
 
-Set mysql root password:
+Set MySQL root password:
 
-    mysqladmin -u root password '(REFER TO /root/passwords-root)'
-    mysqladmin -u root -h linode01.ovirt.org password '(REFER TO /root/passwords-root)'
+    mysqladmin -u root password '(REFER TO /root/passwords)'
+    mysqladmin -u root -h linode01.ovirt.org password '(REFER TO /root/passwords)'
     mysql_secure_installation
 
 [Details of 'mysqladmin' output](#output_from_mysql_secure_installation).
 
-database user: (REFER TO /root/passwords-root) password: (REFER TO /root/passwords-root)
+database user: (REFER TO /root/passwords) password: (REFER TO /root/passwords)
 
-Configure httpd files:
+Configured 'httpd' files:
 
     vi /etc/httpd/conf.d/mediawiki116.conf 
 
@@ -262,12 +427,12 @@ The background image is set in the skin, which for the default monobook is 'skin
     mysql> create database wikidb;
     Query OK, 1 row affected (0.00 sec)
 
-    mysql> grant index, create, select, insert, update, delete, alter, lock tables on wikidb.* to 'wikiuser'@'localhost' identified by '(REFER TO /root/passwords-root)'
+    mysql> grant index, create, select, insert, update, delete, alter, lock tables on wikidb.* to 'wikiuser'@'localhost' identified by '(REFER TO /root/passwords)'
         -> 
         -> ;
     Query OK, 0 rows affected (0.00 sec)
 
-    mysql> grant index, create, select, insert, update, delete, alter, lock tables on wikidb.* to 'wikiuser'@'localhost' identified by '(REFER TO /root/passwords-root)';
+    mysql> grant index, create, select, insert, update, delete, alter, lock tables on wikidb.* to 'wikiuser'@'localhost' identified by '(REFER TO /root/passwords)';
     Query OK, 0 rows affected (0.00 sec)
 
 <Category:Infrastructure> <Category:MediaWiki> [Category:Infrastructure docs](Category:Infrastructure docs) <Category:Wordpress>

@@ -19,6 +19,24 @@ The workshop is in Cisco Building O, 10 W Tasman Dr, on the corner of N 1st St &
 
 [<https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode>=&q=10+West+Tasman+Drive,+milpitas,+ca&aq=t&sll=36.970856,-122.020993&sspn=0.008315,0.016437&vpsrc=0&ie=UTF8&hq=&hnear=10+W+Tasman+Dr,+San+Jose,+California+95134&t=h&z=16 Google map].
 
+#### Tuesday 01 November
+
+This day is devoted to a series of all day talks and discussions with the entire attendance in the main workshop room, Chess.
+
+Full details on [Workshop November 2011 - Day One](Workshop November 2011 - Day One).
+
+#### Wednesday 02 November
+
+This day is a series of breakout sessions around different aspects of the oVirt projects. These sessions are conducted in the six conference rooms: Chess, Clue, Rummikub, Mousetrap, Dominoes, and Uno.
+
+Full details on [Workshop November 2011 - Day Two](Workshop November 2011 - Day Two).
+
+#### Thursday 03 November
+
+This day is a series of breakout sessions around different aspects of the oVirt projects. These sessions are conducted in the six conference rooms: Chess, Clue, Rummikub, Mousetrap, Dominoes, and Uno.
+
+Full details on [Workshop November 2011 - Day Three](Workshop November 2011 - Day Three).
+
 ### Tuesday night reception
 
 After the first day workshop, we'll take an hour break, then meet at the Crowne Plaza for Italian food and drinks in an informal reception atmosphere.

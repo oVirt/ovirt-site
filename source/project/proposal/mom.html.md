@@ -45,6 +45,11 @@ MOM is a written in python and should probably be packaged independently. Once v
 *   MOM runs the way it does today -- as an independent host level daemon. vdsm will control the MOM policy using MOM's existing xmlrpc interface.
 *   Alter MOM so that it can be loaded as a python module. vdsm would load the module and call a method to have mom start its own threads.
 
+## License
+
+      Licensed under the Apache License, Version 2.0 (Apache-2.0)
+[`http://www.apache.org/licenses/LICENSE-2.0`](http://www.apache.org/licenses/LICENSE-2.0)
+
 ## Benefit to oVirt
 
 MOM will benefit oVirt by providing transparent tuning and optimization of nodes to achieve improved performance, more efficient resource utilization, and adaptability to changing workloads.

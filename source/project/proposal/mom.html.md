@@ -47,8 +47,7 @@ MOM is a written in python and should probably be packaged independently. Once v
 
 ## License
 
-      Licensed under the Apache License, Version 2.0 (Apache-2.0)
-[`http://www.apache.org/licenses/LICENSE-2.0`](http://www.apache.org/licenses/LICENSE-2.0)
+Licensed under the Apache License, Version 2.0 (Apache-2.0) <http://www.apache.org/licenses/LICENSE-2.0>
 
 ## Benefit to oVirt
 

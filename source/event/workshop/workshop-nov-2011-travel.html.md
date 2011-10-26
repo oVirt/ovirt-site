@@ -129,12 +129,20 @@ The Crowne Plaza runs a hotel shuttle *only for SJC*. How to use:
 
 ## Communications
 
-        * WiFi (fill-in if you know)
-        * Pre-paid SIM (fill-in if you know)
+*   WiFi (fill-in if you know)
+
+<!-- -->
+
+*   Pre-paid SIM
+    1.  Buy a SIM from T-mobile for $7 and pay $3/day: <http://prepaid-phones.t-mobile.com/pay-by-the-day-cell-phone-plans>
 
 ## Contacts / Emergency phone numbers
 
         * TBD
+
+## Expected weather
+
+*   <http://www.weather.com/weather/tenday/USCA0882>
 
 ## Other things to do
 

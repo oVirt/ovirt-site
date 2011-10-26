@@ -33,7 +33,7 @@ To ensure guaranteed room availability, you **must book by Monday 17 October**.
 Booking details for the [Crowne Plaza](http://www.ichotelsgroup.com/crowneplaza/hotels/us/en/milpitas/sfomp/hoteldetail):
 
 1.  Use <https://resweb.passkey.com/go/Redhat2011> to book your room online, or
-2.  Call <https://resweb.passkey.com/go/Redhat2011> with the group name "Red Hat oVirt Kickoff Workshop" - you *must* use that telephone number when booking, not the main hotel numbers.
+2.  Call 1-888-233-9527 with the group name "Red Hat oVirt Kickoff Workshop" - you *must* use that telephone number when booking, not the main hotel numbers.
 
 Location:
 

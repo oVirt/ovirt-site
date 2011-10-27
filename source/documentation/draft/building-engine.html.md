@@ -13,7 +13,7 @@ wiki_last_updated: 2013-06-25
 
 # Building oVirt engine
 
-|-----------------------------------------------|
+|------------------------------------------------|
 | **\1** |
 
 This wiki page walk you through the steps required in order to setup an oVirt development environment on Fedora 14+.

@@ -50,4 +50,8 @@ bridge over bond over several nics:
                        /      \
       bridge2 --- v2 --        -- nic2
 
+legless bridge (in-host only communication)
+
+      bridge
+
 <Category:Vdsm>

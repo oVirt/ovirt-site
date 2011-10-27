@@ -177,4 +177,4 @@ Accessing the user-portal
 
 ## Gerrit
 
-<http://www.ovirt.org/wiki/Setting_Gerrit>
+[Setting_Gerrit](Setting_Gerrit)

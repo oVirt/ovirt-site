@@ -63,15 +63,9 @@ Some useful JAVA_OPTS:
 
 ### Installing git
 
-oVirt-engine's SCM is Git, following are the minimal instructions how to setup git for oVirt, we can install git and other tools using yum:
+oVirt-engine's SCM is Git:
 
          yum install -y git
-
-These tools are packages and normally installed in base Fedora install.
-
-         yum install openssh-clients
-         yum install wget
-         yum install krb5-workstation
 
 ### Installing maven
 
@@ -125,10 +119,9 @@ Copy paste the content of the file below into ~/.m2/settings.xml
 
 Choose a directory where you want to keep oVirt sources and 'cd' to it Then you can clone:
 
-      $> git clone git://git2.engineering.redhat.com/users/dfediuck/engine.oss
       $> git clone gerrit.ovirt.org:ovirt-engine
 
-Let $OVIRT_HOME be <your_chosen_source_location>/engine.oss
+Let $OVIRT_HOME be <your_chosen_source_location>/ovirt-engine
 
 ### Creating the database
 
@@ -144,7 +137,7 @@ If you want only virt-engine-core and rest api:
        $> cd $OVIRT_HOME
        $> mvn clean install
 
-For compiling the webadmin and user portal in addition to the api and engine use:
+For compiling the web-admin and user-portal in addition to the api and engine use:
 
        $> cd $OVIRT_HOME
        $> mvn clean install -Pgwt-admin,gwt-user
@@ -181,26 +174,6 @@ Accessing the web-admin:
 
 Accessing the user-portal
  http://<server name>:<port>/UserPortal
-
-## System Configuration
-
-      Fedora configuration.
-
-### Configure Firewall - optional
-
-Configure individual ports or just turn it off:
-
-      service iptables stop
-      chkconfig iptables off
-
-### Configure SELinux - optional
-
-Log in as root and edit /etc/selinux/config set SELINUX=permissive
-
-### Configure git user & email - optional
-
-        $> git config --global user.name "FirstName LastName"
-        $> git config --global user.email "user@redhat.com"
 
 ## Gerrit
 

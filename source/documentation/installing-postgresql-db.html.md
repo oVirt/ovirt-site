@@ -9,9 +9,7 @@ wiki_revision_count: 30
 wiki_last_updated: 2013-12-19
 ---
 
-# Installing PostgreSQL for oVirt-engine
-
-### Installing
+# Installing
 
 On your Fedora machine run the following commands:
 
@@ -26,7 +24,7 @@ Check your version with
 
 Note: for earlier PostgreSQL versions, a patch is needed.
 
-### Running the service
+# Running the service
 
       service postgresql initdb # (first time only)
       service postgresql start
@@ -35,10 +33,10 @@ It is recommended to add this service to auto start by
 
       chkconfig postgresql on
 
-### Connecting to the database
+# Connecting to the database
 
-You should set security definitions in hba_conf file as described at <
-> <http://www.postgresql.org/docs/8.2/interactive/auth-pg-hba-conf.html>
+You should set security definitions in hba_conf file as described at
+ <http://www.postgresql.org/docs/8.2/interactive/auth-pg-hba-conf.html>
 
 Edit /var/lib/pgsql/data/pg_hba.conf' ''and set authentication parameters as follows: ''
 
@@ -48,7 +46,7 @@ Edit /var/lib/pgsql/data/pg_hba.conf' ''and set authentication parameters as fol
 
 Run /etc/init.d/postgresql restart
 
-### Setup PostgreSQL UUID support
+# Setup PostgreSQL UUID support
 
 PostgreSQL 8.4 does not install uuid generation functions by default. In order to use those functions, you will have to install it manually, by running:
 
@@ -66,7 +64,7 @@ You can run those function from pgsql , for example:<
 
       >select uuid_generate_v1();
 
-### Connecting from other hosts
+# Connecting from other hosts
 
 If you want to be able to connect to PostgreSQL from other hosts (i.e. not from localhost only) do the following:
 

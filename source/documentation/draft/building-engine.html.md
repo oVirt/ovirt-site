@@ -27,9 +27,15 @@ This wiki page walk you through the steps required in order to setup an oVirt de
 
 OpenJDK
 
+      $> sudo yum install -y java-1.6.0-openjdk-devel
+
 *   Verify that javac linked to openjdk-1.6.0's javac properly.
 
+      $> alternatives --display javac
+
 **Or** SUN JDK
+
+      #> yum install java-1.6.0-sun-devel.x86_64
 
 ## Installing JBoss AS
 

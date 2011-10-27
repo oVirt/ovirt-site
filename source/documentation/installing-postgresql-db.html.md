@@ -48,7 +48,8 @@ Run /etc/init.d/postgresql restart
 
 # Setup PostgreSQL UUID support
 
-PostgreSQL 8.4 does not install uuid generation functions by default. In order to use those functions, you will have to install it manually, by running:
+PostgreSQL 8.4 does not install uuid generation functions by default.
+In order to use those functions, you will have to install it manually:
 
       > psql -d engine -U postgres -f /usr/share/pgsql/contrib/uuid-ossp.sql
 
@@ -57,12 +58,10 @@ The package installation distributes a library named uuid-ossp.so
       (on Fedora 14 64 bit its in /usr/lib64/pgsql/uuid-ossp.so)
 
 The added functions are documented at <
-> <http://www.postgresql.org/docs/8.3/static/uuid-ossp.html>
+<http://www.postgresql.org/docs/8.3/static/uuid-ossp.html>
 
-You can run those function from pgsql , for example:<
->
-
-      >select uuid_generate_v1();
+You can run those function from pgsql , for example:
+ >select uuid_generate_v1();
 
 # Connecting from other hosts
 

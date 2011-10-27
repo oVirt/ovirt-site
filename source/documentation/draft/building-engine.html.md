@@ -30,13 +30,11 @@ OpenJDK
 
 ## Installing JBoss AS
 
-You can install the RPM -
+Installing RPM
 
 ??? missing RPM details ???
 
-OR -
-
-Download and copy to /usr/local/
+Manual installation:
 
       #> wget http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA-jdk6.zip/download
       #> unzip jboss-5.1.0.GA-jdk6.zip
@@ -50,9 +48,8 @@ Some useful JAVA_OPTS:
 
       * -Xmx512m - maximum Java heap size of 512m
       * -Xdebug - include debugging
-      * Run with `` to have it bind to all IP addresses; by default it just binds to `` i.e.
-       
-      * Make sure you've nothing bound to port `` or 
+      * Run with -b 0.0.0.0 to have it bind to all IP addresses;
+      * Make sure you've nothing bound to port 8080 or 8009
 
 ## Installing tools
 

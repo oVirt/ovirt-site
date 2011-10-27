@@ -47,6 +47,10 @@ OR -
 
 Download and copy to /usr/local/
 
+      #> wget http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA-jdk6.zip/download
+      #> unzip jboss-5.1.0.GA-jdk6.zip
+      #> mv jboss-5.1.0.GA /usr/local/jboss-5.1.0.GA
+
 Check that it runs:
 
 Some useful JAVA_OPTS:

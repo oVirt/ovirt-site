@@ -55,8 +55,8 @@ Some useful JAVA_OPTS:
 
       * -Xmx512m - maximum Java heap size of 512m
       * -Xdebug - include debugging
-      * Run with `` to have it bind to all IP addresses; by default it just binds to `` i.e.<
-      > 
+      * Run with `` to have it bind to all IP addresses; by default it just binds to `` i.e.
+       
       * Make sure you've nothing bound to port `` or 
 
 ## Installing tools
@@ -75,8 +75,8 @@ These tools are packages and normally installed in base Fedora install.
 
 ### Installing maven
 
-oVirt is managed by maven version 2.2.x, maven 3.x will not work. <
-> For Fedora 14/15 this is the default, use:
+oVirt is managed by maven version 2.2.x, maven 3.x will not work.
+For Fedora 14/15 this is the default, use:
 
        
       yum install -y maven2
@@ -116,6 +116,8 @@ Copy paste the content of the file below into ~/.m2/settings.xml
 *   'Do not omit the active-profiles element in the above xml, it is crucial.'
 
 ## Installing PostgreSQL
+
+<http://www.ovirt.org/wiki/Installing_PostgreSQL_DB>
 
 ## oVirt-engine Source
 
@@ -174,15 +176,11 @@ or from the browser
 
       http://<server name>:<port>/api
 
-Accessing the web-admin: <
->
+Accessing the web-admin:
+ http://<server name>:<port>/webadmin
 
-      http://<server name>:<port>/webadmin
-
-Accessing the user-portal <
->
-
-      http://<server name>:<port>/UserPortal
+Accessing the user-portal
+ http://<server name>:<port>/UserPortal
 
 ## System Configuration
 

@@ -24,7 +24,7 @@ Vdsm defines a concept of "host network". These networks are configured by the f
      Declare network configuration as "safe", so it persists after host reboot.
 5.  setupNetworks
 
-Currently, host networks are implemented by Linux bridge devices, optionally connected to a vlan devices optionally connected to a bonding device, an optionally goes out of the host via a network interface card.
+Currently, host networks are implemented by Linux bridge devices, optionally connected to a vlan devices optionally connected to a bonding device, an optionally goes out of the host via a network interface card. Virtual machines connect to the bridge via a `tap` device.
 
 ### Supported network topologies
 

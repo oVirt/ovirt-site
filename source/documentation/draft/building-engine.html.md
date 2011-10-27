@@ -111,7 +111,7 @@ Copy paste the content of the file below into ~/.m2/settings.xml
 
 ## Installing PostgreSQL
 
-<http://www.ovirt.org/wiki/Installing_PostgreSQL_DB>
+[Installing_PostgreSQL_DB](Installing_PostgreSQL_DB)
 
 ## oVirt-engine Source
 

@@ -57,11 +57,11 @@ The package installation distributes a library named uuid-ossp.so
 
       (on Fedora 14 64 bit its in /usr/lib64/pgsql/uuid-ossp.so)
 
-The added functions are documented at <
+The added functions are documented at
 <http://www.postgresql.org/docs/8.3/static/uuid-ossp.html>
 
 You can run those function from pgsql , for example:
- >select uuid_generate_v1();
+ > select uuid_generate_v1();
 
 # Connecting from other hosts
 

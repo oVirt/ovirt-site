@@ -55,8 +55,6 @@ Some useful JAVA_OPTS:
 
 ### Installing git
 
-oVirt-engine's SCM is Git:
-
          yum install -y git
 
 ### Installing maven

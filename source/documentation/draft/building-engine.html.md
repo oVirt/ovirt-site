@@ -135,12 +135,12 @@ Make sure to run this with your user, not 'root', running as root will result in
 
 #### deploy
 
-      * For the first deploy of the application to JBoss AS container use the setup profile:
+The first deployment of the application to JBoss AS container should use the setup profile:
 
       $> cd $OVIRT_HOME/ear
       $> mvn clean install -Pdep,setup_postgres
 
-*   After first deploy use:
+After first deploy use:
 
       $> cd $OVIRT_HOME/ear
       $> mvn clean install -Pdep

@@ -59,11 +59,8 @@ Some useful JAVA_OPTS:
 
 ### Installing maven
 
-oVirt is managed by maven version 2.2.x, maven 3.x will not work.
-For Fedora 14/15 this is the default, use:
-
-       
-      yum install -y maven2
+oVirt engine is using maven version 2.2.x, maven 3.x will not work.
+ yum install -y maven2
 
 Add Maven to Path:
 
@@ -97,7 +94,7 @@ Copy paste the content of the file below into ~/.m2/settings.xml
               </profiles>
       </settings>
 
-*   'Do not omit the active-profiles element in the above xml, it is crucial.'
+*   Do not omit the active-profiles element in the above xml, it is crucial.
 
 ## Installing PostgreSQL
 

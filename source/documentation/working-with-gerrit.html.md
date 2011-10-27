@@ -17,35 +17,57 @@ wiki_last_updated: 2015-06-09
 
 ## set ssh keys in gerrit settings
 
-* on your local machine, create a set of ssh keys if you don't have one via 'ssh-keygen -t rsa' - update via gerrit settings the ssh public key to allow ssh to gerrit
+* on your local machine, create a set of ssh keys if you don't have one via
+
+      'ssh-keygen -t rsa'
+       
+
+* update via gerrit settings the ssh public key to allow ssh to gerrit
 
 ## define gerrit in ~/.ssh/config
 
-Host gerrit.ovirt.org HostName gerrit.ovirt.org Port 29418 User &lt;username&gt;
+      Host gerrit.ovirt.org
+         HostName gerrit.ovirt.org
+         Port 29418
+         User &lt;username&gt;
+       
 
 ## check ssh works correctly, verify and ack the host fingerprint
 
-ssh gerrit.ovirt.org if you get this, it is fine:
+      ssh gerrit.ovirt.org
+       
 
-*   -   Welcome to Gerrit Code Review \*\*\*\*
+if you get this, it is fine:
+
+      ***    Welcome to Gerrit Code Review    ****
+       
 
 ## cloning the repo
 
-git clone gerrit.ovirt.org:ovirt-engine
+      git clone gerrit.ovirt.org:ovirt-engine
+       
 
-this can be done without registering to gerrit using: git clone git://gerrit.ovirt.org/ovirt-engine
+this can be done without registering to gerrit using:
+
+      git clone git://gerrit.ovirt.org/ovirt-engine
+       
 
 ## install the change-Id hook
 
-**you must do this before you commit anything** scp -p gerrit.ovirt.org:hooks/commit-msg .git/hooks/
+**you must do this before you commit anything**
+
+      scp -p gerrit.ovirt.org:hooks/commit-msg .git/hooks/
+       
 
 ## rebase
 
-git fetch gerrit.ovirt.org:ovirt-engine master
+      git fetch gerrit.ovirt.org:ovirt-engine master
+       
 
 ## push your patch for review
 
-git push gerrit.ovirt.org:ovirt-engine HEAD:refs/for/master
+      git push gerrit.ovirt.org:ovirt-engine HEAD:refs/for/master
+       
 
 ## track patch review process
 

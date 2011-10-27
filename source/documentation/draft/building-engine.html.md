@@ -104,7 +104,7 @@ Copy paste the content of the file below into ~/.m2/settings.xml
 
 #### Clone oVirt-engine codebase
 
-Choose a directory where you want to keep oVirt sources and 'cd' to it Then you can clone:
+Choose a directory where you want to keep oVirt sources and 'cd' to it
 
       $> git clone gerrit.ovirt.org:ovirt-engine
 

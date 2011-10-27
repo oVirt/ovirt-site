@@ -53,6 +53,8 @@ Download and copy to /usr/local/
 
 Check that it runs:
 
+        $> /usr/local/jboss-5.1.0.GA/bin/run.sh
+
 Some useful JAVA_OPTS:
 
       * -Xmx512m - maximum Java heap size of 512m
@@ -70,20 +72,60 @@ Some useful JAVA_OPTS:
 
 oVirt-engine's SCM is Git, following are the minimal instructions how to setup git for oVirt, we can install git and other tools using yum:
 
+         yum install -y git
+
 These tools are packages and normally installed in base Fedora install.
+
+         yum install openssh-clients
+         yum install wget
+         yum install krb5-workstation
 
 ### Installing maven
 
 oVirt is managed by maven version 2.2.x, maven 3.x will not work. <
 > For Fedora 14/15 this is the default, use:
 
+       
+      yum install -y maven2
+
 For other versions you can download & Install maven:
 
+      $> wget http://www.alliedquotes.com/mirrors/apache//maven/binaries/apache-maven-2.2.1-bin.tar.bz2
+      $> tar -xvjf apache-maven-2.2.1-bin.tar.bz2
+      $> mv apache-maven-2.2.1 /usr/local/apache-maven-2.2.1
+      $> chown -R <user>:<user> /usr/local/apache-maven-2.2.1
+
 #### Add Maven to Path
+
+      echo "PATH=$PATH:/usr/local/apache-maven-2.2.1/bin" >> ~/.bashrc
 
 #### Maven personal settings
 
 Copy paste the content of the file below into ~/.m2/settings.xml
+
+      <?xml version="1.0"?>
+
+      <settings xmlns="http://maven.apache.org/POM/4.0.0"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+      <!--**************************** PROFILES ****************************-->
+
+              <activeProfiles>
+                      <activeProfile>oVirtEnvSettings</activeProfile>
+              </activeProfiles>
+
+              <profiles>
+                      <profile>
+                              <id>oVirtEnvSettings</id>
+                              <properties>
+                                      <jbossHome>/usr/local/jboss-5.1.0.GA</jbossHome>
+                                      <JAVA_1_6_HOME>/usr/lib/jvm/java-1.6.0-openjdk.x86_64</JAVA_1_6_HOME>
+                              </properties>
+                      </profile>
+              </profiles>
+      </settings>
 
 *   'Do not omit the active-profiles element in the above xml, it is crucial.'
 
@@ -93,15 +135,41 @@ Copy paste the content of the file below into ~/.m2/settings.xml
 
 On your linux machine run the following commands:
 
+      #> su -
+      $> yum install -y postgresql-server postgresql-contrib pgadmin3
+
 ### Installing a special patch fixing rowtype mismatch on column deletion (needed only for fedora 14)
 
 Skip this step if you are using PostgreSQL 8.4.8 or later. Check your version with
 
+      >psql --version
+
 This patch is still not available via yum update and you must follow this procedure:
+
+      $> service postgresql stop
+      Download all files in
+         http://kojipkgs.fedoraproject.org/packages/postgresql/8.4.7/2.fc14/x86_64/
+         to a local directory (lets say pg)
+      $> yum --nogpg localinstall <path>/pg/*.rpm
+      $> service postgresql start
+      Check that following sql code now works :
+
+      create table bugfix (a integer null, b integer null, c integer null);
+      insert into bugfix (a, b, c) values (1, 2, 3);
+      create or replace function bugfix1()
+      returns setof bugfix stable language plpgsql as
+      $$ begin return query select * from bugfix; end $$;
+      alter table bugfix drop b;
+      select * from bugfix1();
 
 ### Runing the service
 
- It is recommended to add this service to auto start by
+      service postgresql initdb # (first time only)
+      service postgresql start
+
+It is recommended to add this service to auto start by
+
+      chkconfig postgresql on
 
 ### Connecting to the database
 
@@ -110,11 +178,17 @@ You should set security definitions in hba_conf file as described at <
 
 Edit /var/lib/pgsql/data/pg_hba.conf' ''and set authentication parameters as follows: ''
 
- Run /etc/init.d/postgresql restart
+      local   all         all                               trust
+      host    all         all         127.0.0.1/32          trust
+      host    all         all         ::1/128               trust
+
+Run /etc/init.d/postgresql restart
 
 ### Setup PostgreSQL UUID support
 
 PostgreSQL 8.4 does not install uuid generation functions by default. In order to use those functions, you will have to install it manually, by running:
+
+      > psql -d engine -U postgres -f /usr/share/pgsql/contrib/uuid-ossp.sql
 
 The package installation distributes a library named uuid-ossp.so
 
@@ -126,9 +200,20 @@ The added functions are documented at <
 You can run those function from pgsql , for example:<
 >
 
+      >select uuid_generate_v1();
+
 ### Connecting from other hosts
 
 If you want to be able to connect to PostgreSQL from other hosts (i.e. not from localhost only) do the following:
+
+      sudo vim /var/lib/pgsql/data/postgresql.conf
+      listen_addresses = '0.0.0.0'
+
+      sudo vim /var/lib/pgsql/data/pg_hba.conf
+      add this line:
+      host    all         all         10.35.0.0/16          trust
+
+      restart postgres service
 
 ## oVirt-engine Source
 
@@ -136,17 +221,28 @@ If you want to be able to connect to PostgreSQL from other hosts (i.e. not from 
 
 Choose a directory where you want to keep oVirt sources and 'cd' to it Then you can clone:
 
+      $> git clone git://git2.engineering.redhat.com/users/dfediuck/engine.oss
+
 Let $OVIRT_HOME be <your_chosen_source_location>/engine.oss
 
 ### Creating the database
 
 In your git repository, run the following command
 
+      # > cd $OVIRT_HOME/backend/manager/dbscripts_postgres/
+      # > ./create_db_devel.sh -u postgres 
+
 ### Build
 
 If you want only virt-engine-core and rest api:
 
+       $> cd $OVIRT_HOME
+       $> mvn clean install
+
 For compiling the webadmin and user portal in addition to the api and engine use:
+
+       $> cd $OVIRT_HOME
+       $> mvn clean install -Pgwt-admin,gwt-user
 
       * Compiling the webadmin and userportal takes (a long) time.
       * Make sure to run this with your user, not 'root'. if you run as root maven will look for settings.xml in the home directory of 'root', and since no such file exists there maven won't find the property '$jbossHome' and will fail to copy resources.
@@ -155,7 +251,13 @@ For compiling the webadmin and user portal in addition to the api and engine use
 
       * For the first deploy of the application to JBoss AS container use the setup profile:
 
+      $> cd $OVIRT_HOME/ear
+      $> mvn clean install -Pdep,setup_postgres
+
 *   After first deploy use:
+
+      $> cd $OVIRT_HOME/ear
+      $> mvn clean install -Pdep
 
 ## Testing
 
@@ -163,13 +265,21 @@ Use username **admin@internal** and password **letmein!**
 
 Accessing the RESTful API:
 
- or from the browser
+      wget -O - --debug --auth-no-challenge --http-user=admin@internal --http-password='letmein!' head='Accept: application/xml' http://<server name>:<port>/api/
+
+or from the browser
+
+      http://<server name>:<port>/api
 
 Accessing the web-admin: <
 >
 
+      http://<server name>:<port>/webadmin
+
 Accessing the user-portal <
 >
+
+      http://<server name>:<port>/UserPortal
 
 ## System Configuration
 
@@ -179,11 +289,17 @@ Accessing the user-portal <
 
 Configure individual ports or just turn it off:
 
+      service iptables stop
+      chkconfig iptables off
+
 ### Configure SELinux - optional
 
 Log in as root and edit /etc/selinux/config set SELINUX=permissive
 
 ### Configure git user & email - optional
+
+        $> git config --global user.name "FirstName LastName"
+        $> git config --global user.email "user@redhat.com"
 
 ## Gerrit
 

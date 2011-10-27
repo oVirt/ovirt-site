@@ -18,7 +18,7 @@ wiki_last_updated: 2013-06-25
 
 This wiki page walk you through the steps required in order to setup an oVirt development environment on Fedora 14+.
 
-## Pre Requirements
+## Prerequisites
 
 1.  Fedora 14 and up x86-64 OS
 2.  Internet connection
@@ -32,10 +32,6 @@ OpenJDK
 *   Verify that javac linked to openjdk-1.6.0's javac properly.
 
       $> alternatives --display javac
-
-**Or** SUN JDK
-
-      #> yum install java-1.6.0-sun-devel.x86_64
 
 ## Installing JBoss AS
 
@@ -62,9 +58,6 @@ Some useful JAVA_OPTS:
       * Run with `` to have it bind to all IP addresses; by default it just binds to `` i.e.<
       > 
       * Make sure you've nothing bound to port `` or 
-      * Add another host to your /etc/hosts file. i.e. <
-      > `` <
-      > Where user.ovirt.org is the hostname that JBoss tried to look up upon starting the server.
 
 ## Installing tools
 
@@ -87,13 +80,6 @@ oVirt is managed by maven version 2.2.x, maven 3.x will not work. <
 
        
       yum install -y maven2
-
-For other versions you can download & Install maven:
-
-      $> wget http://www.alliedquotes.com/mirrors/apache//maven/binaries/apache-maven-2.2.1-bin.tar.bz2
-      $> tar -xvjf apache-maven-2.2.1-bin.tar.bz2
-      $> mv apache-maven-2.2.1 /usr/local/apache-maven-2.2.1
-      $> chown -R <user>:<user> /usr/local/apache-maven-2.2.1
 
 #### Add Maven to Path
 
@@ -131,90 +117,6 @@ Copy paste the content of the file below into ~/.m2/settings.xml
 
 ## Installing PostgreSQL
 
-### Installing PostgreSQL and dependencies
-
-On your linux machine run the following commands:
-
-      #> su -
-      $> yum install -y postgresql-server postgresql-contrib pgadmin3
-
-### Installing a special patch fixing rowtype mismatch on column deletion (needed only for fedora 14)
-
-Skip this step if you are using PostgreSQL 8.4.8 or later. Check your version with
-
-      >psql --version
-
-This patch is still not available via yum update and you must follow this procedure:
-
-      $> service postgresql stop
-      Download all files in
-         http://kojipkgs.fedoraproject.org/packages/postgresql/8.4.7/2.fc14/x86_64/
-         to a local directory (lets say pg)
-      $> yum --nogpg localinstall <path>/pg/*.rpm
-      $> service postgresql start
-      Check that following sql code now works :
-
-      create table bugfix (a integer null, b integer null, c integer null);
-      insert into bugfix (a, b, c) values (1, 2, 3);
-      create or replace function bugfix1()
-      returns setof bugfix stable language plpgsql as
-      $$ begin return query select * from bugfix; end $$;
-      alter table bugfix drop b;
-      select * from bugfix1();
-
-### Runing the service
-
-      service postgresql initdb # (first time only)
-      service postgresql start
-
-It is recommended to add this service to auto start by
-
-      chkconfig postgresql on
-
-### Connecting to the database
-
-You should set security definitions in hba_conf file as described at <
-> <http://www.postgresql.org/docs/8.2/interactive/auth-pg-hba-conf.html>
-
-Edit /var/lib/pgsql/data/pg_hba.conf' ''and set authentication parameters as follows: ''
-
-      local   all         all                               trust
-      host    all         all         127.0.0.1/32          trust
-      host    all         all         ::1/128               trust
-
-Run /etc/init.d/postgresql restart
-
-### Setup PostgreSQL UUID support
-
-PostgreSQL 8.4 does not install uuid generation functions by default. In order to use those functions, you will have to install it manually, by running:
-
-      > psql -d engine -U postgres -f /usr/share/pgsql/contrib/uuid-ossp.sql
-
-The package installation distributes a library named uuid-ossp.so
-
-      (on Fedora 14 64 bit its in /usr/lib64/pgsql/uuid-ossp.so)
-
-The added functions are documented at <
-> <http://www.postgresql.org/docs/8.3/static/uuid-ossp.html>
-
-You can run those function from pgsql , for example:<
->
-
-      >select uuid_generate_v1();
-
-### Connecting from other hosts
-
-If you want to be able to connect to PostgreSQL from other hosts (i.e. not from localhost only) do the following:
-
-      sudo vim /var/lib/pgsql/data/postgresql.conf
-      listen_addresses = '0.0.0.0'
-
-      sudo vim /var/lib/pgsql/data/pg_hba.conf
-      add this line:
-      host    all         all         10.35.0.0/16          trust
-
-      restart postgres service
-
 ## oVirt-engine Source
 
 ### Clone oVirt-engine codebase
@@ -222,6 +124,7 @@ If you want to be able to connect to PostgreSQL from other hosts (i.e. not from 
 Choose a directory where you want to keep oVirt sources and 'cd' to it Then you can clone:
 
       $> git clone git://git2.engineering.redhat.com/users/dfediuck/engine.oss
+      $> git clone gerrit.ovirt.org:ovirt-engine
 
 Let $OVIRT_HOME be <your_chosen_source_location>/engine.oss
 

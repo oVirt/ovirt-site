@@ -129,9 +129,9 @@ For compiling the web-admin and user-portal in addition to the api and engine us
        $> cd $OVIRT_HOME
        $> mvn clean install -Pgwt-admin,gwt-user
 
-      * Compiling the webadmin and userportal takes (a long) time.
-      * Make sure to run this with your user, not 'root'.
-       Running as root will result in a missing settings.xml file in the 'root' home directory.
+Notes:
+Compiling the webadmin and userportal takes (a long) time.
+Make sure to run this with your user, not 'root', running as root will result in a missing settings.xml file in the 'root' home directory.
 
 #### deploy
 

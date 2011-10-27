@@ -130,7 +130,8 @@ For compiling the web-admin and user-portal in addition to the api and engine us
        $> mvn clean install -Pgwt-admin,gwt-user
 
       * Compiling the webadmin and userportal takes (a long) time.
-      * Make sure to run this with your user, not 'root'. if you run as root maven will look for settings.xml in the home directory of 'root', and since no such file exists there maven won't find the property '$jbossHome' and will fail to copy resources.
+      * Make sure to run this with your user, not 'root'.
+       Running as root will result in a missing settings.xml file in the 'root' home directory.
 
 #### deploy
 

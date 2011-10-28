@@ -18,7 +18,8 @@ __TOC__
 
 ## More project information
 
-Our git repository will be published soon probably on [Fedora Hosted](http://git.fedorahosted.org/git/?p=vdsm.git). Since the entire communication to the virtualization management system is through Vdsm, we'll use the Vdsm's mailing lists for all communications: [vdsm-patches](https://fedorahosted.org/mailman/listinfo/vdsm-patches) for submitting new patches, and [vdsm-devel](https://fedorahosted.org/mailman/listinfo/vdsm-devel) for general discussions on where Ovirt-guest-agent development should go. On the latter one, users and potential users should feel comfortable to seek help, ask questions, and get answers about Ovirt-guest-agent.
+Our git repository will be published soon probably on Fedora Hosted.
+Since the entire communication to the virtualization management system is through Vdsm, we'll use the Vdsm's mailing lists for all communications: [vdsm-patches](https://fedorahosted.org/mailman/listinfo/vdsm-patches) for submitting new patches, and [vdsm-devel](https://fedorahosted.org/mailman/listinfo/vdsm-devel) for general discussions on where Ovirt-guest-agent development should go. On the latter one, users and potential developers should feel comfortable to seek help, ask questions, and get answers about Ovirt-guest-agent.
 
 ## Requirements
 

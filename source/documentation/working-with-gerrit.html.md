@@ -74,11 +74,13 @@ this can be done without registering to gerrit using:
 
 ## track patch review process
 
-the review process is comprised of: - anyone can send a patch - anyone can code review and comment on the patch and +1/-1. This helps maintainers in reviewing the patches. - a maintainer can code review it with +2 it, which is required to commit (submit) it. - someone (anyone) needs to confirm they checked the patch works and flag it as verified +1 - a maintainer can submit (commit) the patch when it has:
-
-        Code Review: +2
-        Verified: +1
-
-* nacked (-1) patches should not be submitted - a submitted patch is merged to the git
-
-[1] if anyone provides a reason to limit to specific OpenID providers that's an option as well.
+the review process is comprised of:
+* anyone can send a patch
+* anyone can code review and comment on the patch and +1/-1. This helps maintainers in reviewing the patches.
+* a maintainer can code review it with +2 it, which is required to commit (submit) it.
+* someone (anyone) needs to confirm they checked the patch works and flag it as verified +1
+* a maintainer can submit (commit) the patch when it has:
+ Code Review: +2
+ Verified: +1
+* nacked (-1) patches should not be submitted
+* a submitted patch is merged to the git

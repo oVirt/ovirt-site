@@ -65,3 +65,5 @@ The handling of the Vdsm kernel parameters is in [vdsm-config](http://git.fedora
 For interactive installation (using Text User Interface), please refer to the [oVirt installation section](https://fedorahosted.org/ovirt/wiki/Installation) in oVirt's Wiki.
 
 Essentially, the RHEV-M tab in the TUI will prompt the user for the TUI equivalents of the non-interactive kernel parameters (i.e., RHEV-M address, RHEV-M CA certificate fingerprint validation and RHEV-M admin password.
+
+<Category:Vdsm>

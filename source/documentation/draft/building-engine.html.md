@@ -108,7 +108,9 @@ Choose a directory where you want to keep oVirt sources and 'cd' to it
 
       $> git clone git://gerrit.ovirt.org/ovirt-engine
 
-Let $OVIRT_HOME be <your_chosen_source_location>/ovirt-engine
+* Let $OVIRT_HOME be <your_chosen_source_location>/ovirt-engine
+
+**Note:** the above cloning is for read only, if you want to contribute you might want to skip to the section on gerrit before moving to the next steps.
 
 #### Creating the database
 

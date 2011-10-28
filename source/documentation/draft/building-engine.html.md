@@ -165,4 +165,5 @@ Accessing the user-portal
 
 ## Gerrit
 
-oVirt-engine is working with gerrit for code contribution For more details please visit [Setting_Gerrit](Setting_Gerrit)
+oVirt-engine is working with gerrit for code contribution.
+More detail can be found in [Setting_Gerrit](Setting_Gerrit).

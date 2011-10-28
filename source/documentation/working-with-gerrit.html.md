@@ -59,6 +59,7 @@ this can be done without registering to gerrit using:
 
 **you must do this before you commit anything**
 
+      cd ovirt-engine
       scp -p gerrit.ovirt.org:hooks/commit-msg .git/hooks/
        
 

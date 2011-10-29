@@ -20,6 +20,29 @@ An atomic storage unit. On file domains it's either a mount point or a folder. O
 
 Storage domains contains the images that the VMs will use.
 
+Storage domains split to 2 distinct groups.
+
+1.  *File Based Storage*
+    (NFS and Local FS targets)
+    -   pros:
+        -   Usually takes care of safe access to files across the cluster
+        -   Faster setup
+    -   cons:
+        -   Slower
+
+2.  ''Block Based Storage
+    (SAN Storage and in the future Local Disks)
+    -   pros:
+        -   Faster
+    -   cons:
+        -   VDSM has to do some extra work to make sure consistency
+        -   Slower setup
+
+Vdsm tries to keep feature parity between the two major types. There are a few things to note:
+
+*   Some operations may differ in performance between the two types.
+*   RAW/SPARSE images are currently only supported on file domains. This feature is implemented using sparse files and this feature currently has no equivalent in the block/LVM world.
+
 ## Image
 
 A group of one or more volumes comprising a disk image to be used by VMs.

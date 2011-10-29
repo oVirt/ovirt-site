@@ -16,6 +16,9 @@ __TOC__
 
 ## Important Vdsm wiki pages
 
+*   Most Vdsm users have it driven by oVirt-engine. [Vdsm Getting Started] helps those who want to use Vdsm on its own, or by another management tool.
+*   [Vdsm Developers] is where you can learn how to improve Vdsm.
+
 ## More project information
 
 Our git repository sits on [Fedora Hosted](http://git.fedorahosted.org/git/?p=vdsm.git). Development takes place on our mailing lists: [vdsm-patches](https://fedorahosted.org/mailman/listinfo/vdsm-patches) for submitting new patches, and [vdsm-devel](https://fedorahosted.org/mailman/listinfo/vdsm-devel) for general discussions on where vdsm development should go. On the latter one, users and potential users should feel comfortable to seek help, ask questions, and get answers about Vdsm.

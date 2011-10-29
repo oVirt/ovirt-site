@@ -14,10 +14,16 @@ wiki_last_updated: 2013-08-19
 
 __TOC__
 
+## Name
+
+      V.D.S.M. ?? That's not even pronounceable!
+
+Vdsm stands for Virtual Desktop and Server Manager.
+
 ## Important Vdsm wiki pages
 
-*   Most Vdsm users have it driven by oVirt-engine. [Vdsm Getting Started] helps those who want to use Vdsm on its own, or by another management tool.
-*   [Vdsm Developers] is where you can learn how to improve Vdsm.
+*   Most Vdsm users have it driven by oVirt-engine. [Vdsm Getting Started](Vdsm Getting Started) helps those who want to use Vdsm on its own, or by another management tool.
+*   [Vdsm Developers](Vdsm Developers) is where you can learn how to improve Vdsm.
 
 ## More project information
 

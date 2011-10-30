@@ -86,20 +86,16 @@ The review process is comprised of:
 
 *   Anyone can send a patch
 *   A review in Gerrit can result in:
-
-      - +2 - Looks good to me, approved
-      - +1 - Looks good to me, but someone else must approve
-      -  0 - No score
-      - -1 - I would prefer that you didn't submit this
-      - -2 - Do not submit
-
+    -   +2 - Looks good to me, approved
+    -   +1 - Looks good to me, but someone else must approve
+    -   0 - No score
+    -   -1 - I would prefer that you didn't submit this
+    -   -2 - Do not submit
 *   Anyone can code review and comment on the patch and +1/-1. This helps maintainers in reviewing the patches
 *   A maintainer can code review it with +2 it, which is required to commit (submit) it
 *   Someone (can be anyone) needs to confirm they checked the patch works and flag it as verified +1
 *   A maintainer can submit (commit) the patch when it has:
-
-      - Code Review: +2
-      - Verified: +1
-
+    \* Code Review: +2
+    -   Verified: +1
 *   NACK-ed (-1/-2) patches should not be submitted
 *   A submitted patch is automatically merged to the git repository

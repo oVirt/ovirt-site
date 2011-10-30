@@ -87,11 +87,11 @@ The review process is comprised of:
 *   Anyone can send a patch
 *   A review in Gerrit can result in:
 
-      - +2 Looks good to me, approved
-      - +1 Looks good to me, but someone else must approve
-      - 0 No score
-      - -1 I would prefer that you didn't submit this
-      - -2 Do not submit
+      - +2 - Looks good to me, approved
+      - +1 - Looks good to me, but someone else must approve
+      - 0  - No score
+      - -1 - I would prefer that you didn't submit this
+      - -2 - Do not submit
 
 *   Anyone can code review and comment on the patch and +1/-1. This helps maintainers in reviewing the patches
 *   A maintainer can code review it with +2 it, which is required to commit (submit) it

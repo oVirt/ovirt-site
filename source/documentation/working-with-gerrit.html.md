@@ -17,8 +17,9 @@ Gerrit is a web based code review system, facilitating online code reviews for p
 
 First of all you need to register as a new user to gerrit. You can do that by using any OpenID provider:
 
-* Login page shows Google and Yahoo
-* Any fedora FAS account can login as well via
+*   Login page shows Google and Yahoo
+*   Any fedora FAS account can login as well via
+
 <https://admin.fedoraproject.org/accounts/openid/id/>&lt;username&gt;
 
 ### set ssh keys in gerrit settings

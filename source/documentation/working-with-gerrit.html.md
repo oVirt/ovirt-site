@@ -22,7 +22,9 @@ First of all you need to register as a new user to gerrit. You can do that by us
 
 <https://admin.fedoraproject.org/accounts/openid/id/>&lt;username&gt;
 
-### Set SSH keys in Gerrit settings
+### SSH configuration
+
+#### Set SSH keys in Gerrit settings
 
 *   On your local machine, create a set of SSH keys (if you don't already have one) via
 
@@ -31,7 +33,7 @@ First of all you need to register as a new user to gerrit. You can do that by us
 
 *   Update via Gerrit settings the SSH public key to allow SSH to Gerrit
 
-### Define Gerrit in ~/.ssh/config
+#### Define Gerrit in ~/.ssh/config
 
       Host gerrit.ovirt.org
          HostName gerrit.ovirt.org
@@ -39,7 +41,7 @@ First of all you need to register as a new user to gerrit. You can do that by us
          User &lt;username&gt;
        
 
-### Verify configuration
+#### Verify SSH configuration
 
 In order to verify your SSH configuration, do the following:
 
@@ -51,7 +53,9 @@ if you get this, it is fine:
       ***    Welcome to Gerrit Code Review    ****
        
 
-### Cloning the oVirt-engine repository
+### Git configuration and procedures
+
+#### Cloning the oVirt-engine repository
 
       git clone gerrit.ovirt.org:ovirt-engine
        
@@ -61,7 +65,7 @@ This can also be done without registering to Gerrit, using:
       git clone git://gerrit.ovirt.org/ovirt-engine
        
 
-### install the change-ID hook
+#### install the change-ID hook
 
 **You must do this before you commit anything**
 In order to easily track commit changes in Gerrit, each commit must have a change-ID. This change-ID is added automatically via a Git hook. In order to install this hook do the following:
@@ -70,17 +74,17 @@ In order to easily track commit changes in Gerrit, each commit must have a chang
       scp -p gerrit.ovirt.org:hooks/commit-msg .git/hooks/
        
 
-### Rebase
+#### Rebase
 
       git fetch gerrit.ovirt.org:ovirt-engine master
        
 
-### Push your patch for review
+#### Push your patch for review
 
       git push gerrit.ovirt.org:ovirt-engine HEAD:refs/for/master
        
 
-### Track patch review process
+#### Track patch review process
 
 The review process is comprised of:
 

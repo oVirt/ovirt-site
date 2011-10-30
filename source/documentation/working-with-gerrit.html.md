@@ -89,7 +89,7 @@ The review process is comprised of:
 
       - +2 - Looks good to me, approved
       - +1 - Looks good to me, but someone else must approve
-      - 0  - No score
+      -  0 - No score
       - -1 - I would prefer that you didn't submit this
       - -2 - Do not submit
 
@@ -99,6 +99,7 @@ The review process is comprised of:
 *   A maintainer can submit (commit) the patch when it has:
 
       - Code Review: +2
-       - Verified: +1
-      * NACK-ed (-1/-2) patches should not be submitted
-      * A submitted patch is automatically merged to the git repository
+      - Verified: +1
+
+*   NACK-ed (-1/-2) patches should not be submitted
+*   A submitted patch is automatically merged to the git repository

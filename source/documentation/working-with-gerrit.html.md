@@ -41,7 +41,7 @@ First of all you need to register as a new user to gerrit. You can do that by us
 
 ### Verify configuration
 
-In order to verify that your configuration works properly, do the following:
+In order to verify your SSH configuration, do the following:
 
       ssh gerrit.ovirt.org
        

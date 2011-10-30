@@ -9,16 +9,17 @@ wiki_revision_count: 62
 wiki_last_updated: 2015-06-09
 ---
 
-# Working with oVirt Gerrit
+# Working with gerrit.ovirt.org
 
-## registering as a user
+Gerrit is a web based code review system, facilitating online code reviews for projects using the Git version control system. Gerrit makes reviews easier by showing changes in a side-by-side display, and allowing inline comments to be added by any reviewer. We use Gerrit in the oVirt project in order to review new commits, as it easily enables adding comments, suggestions, ask questions, and etc. The following sections are a step-by-step manual to set up a Gerrit environment in your development environment.
 
-* you can use any OpenID provider
-* login page shows google and yahoo
-* any fedora FAS account can login as well via
+### Registering as a user
+
+First of all you need to register as a new user to gerrit. You can do that by using any OpenID provider: - Login page shows Google and Yahoo
+* Any fedora FAS account can login as well via
 <https://admin.fedoraproject.org/accounts/openid/id/>&lt;username&gt;
 
-## set ssh keys in gerrit settings
+### set ssh keys in gerrit settings
 
 * on your local machine, create a set of ssh keys if you don't have one via
 
@@ -27,7 +28,7 @@ wiki_last_updated: 2015-06-09
 
 * update via gerrit settings the ssh public key to allow ssh to gerrit
 
-## define gerrit in ~/.ssh/config
+### define gerrit in ~/.ssh/config
 
       Host gerrit.ovirt.org
          HostName gerrit.ovirt.org
@@ -35,7 +36,7 @@ wiki_last_updated: 2015-06-09
          User &lt;username&gt;
        
 
-## check ssh works correctly, verify and ack the host fingerprint
+### check ssh works correctly, verify and ack the host fingerprint
 
       ssh gerrit.ovirt.org
        
@@ -45,7 +46,7 @@ if you get this, it is fine:
       ***    Welcome to Gerrit Code Review    ****
        
 
-## cloning the repo
+### cloning the repo
 
       git clone gerrit.ovirt.org:ovirt-engine
        
@@ -55,7 +56,7 @@ this can be done without registering to gerrit using:
       git clone git://gerrit.ovirt.org/ovirt-engine
        
 
-## install the change-Id hook
+### install the change-Id hook
 
 **you must do this before you commit anything**
 
@@ -63,17 +64,17 @@ this can be done without registering to gerrit using:
       scp -p gerrit.ovirt.org:hooks/commit-msg .git/hooks/
        
 
-## rebase
+### rebase
 
       git fetch gerrit.ovirt.org:ovirt-engine master
        
 
-## push your patch for review
+### push your patch for review
 
       git push gerrit.ovirt.org:ovirt-engine HEAD:refs/for/master
        
 
-## track patch review process
+### track patch review process
 
 the review process is comprised of:
 * anyone can send a patch

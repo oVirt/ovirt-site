@@ -9,9 +9,13 @@ wiki_revision_count: 62
 wiki_last_updated: 2015-06-09
 ---
 
-# Working with gerrit.ovirt.org
+# Working with oVirt Gerrit
 
-Gerrit is a web based code review system, facilitating online code reviews for projects using the Git version control system. Gerrit makes reviews easier by showing changes in a side-by-side display, and allowing inline comments to be added by any reviewer. We use Gerrit in the oVirt project in order to review new commits, as it easily enables adding comments, suggestions, ask questions, and etc. The following sections are a step-by-step manual to set up a Gerrit environment in your development environment.
+Gerrit is a web based code review system, facilitating online code reviews for projects using the Git version control system.
+Gerrit makes reviews easier by showing changes in a side-by-side display, and allowing inline comments to be added by any reviewer.
+We use Gerrit in the oVirt project in order to review new commits, as it easily enables adding comments, suggestions, ask questions, and etc.
+The following sections are a step-by-step manual to set up a Gerrit environment in your development environment.
+oVirt Gerrit environment is in gerrit.ovirt.org
 
 ### Registering as a user
 

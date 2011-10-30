@@ -56,7 +56,7 @@ if you get this, it is fine:
       git clone gerrit.ovirt.org:ovirt-engine
        
 
-this can also be done without registering to Gerrit, using:
+This can also be done without registering to Gerrit, using:
 
       git clone git://gerrit.ovirt.org/ovirt-engine
        
@@ -82,13 +82,23 @@ In order to easily track commit changes in Gerrit, each commit must have a chang
 
 ### Track patch review process
 
-the review process is comprised of:
-\* anyone can send a patch
-\* anyone can code review and comment on the patch and +1/-1. This helps maintainers in reviewing the patches.
-\* a maintainer can code review it with +2 it, which is required to commit (submit) it.
-\* someone (anyone) needs to confirm they checked the patch works and flag it as verified +1
-\* a maintainer can submit (commit) the patch when it has:
- Code Review: +2
- Verified: +1
-\* nacked (-1) patches should not be submitted
-\* a submitted patch is merged to the git
+The review process is comprised of:
+
+*   Anyone can send a patch
+*   A review in Gerrit can result in:
+
+      - +2 Looks good to me, approved
+      - +1 Looks good to me, but someone else must approve
+      - 0 No score
+      - -1 I would prefer that you didn't submit this
+      - -2 Do not submit
+
+*   Anyone can code review and comment on the patch and +1/-1. This helps maintainers in reviewing the patches
+*   A maintainer can code review it with +2 it, which is required to commit (submit) it
+*   Someone (can be anyone) needs to confirm they checked the patch works and flag it as verified +1
+*   A maintainer can submit (commit) the patch when it has:
+
+        Code Review: +2
+         Verified: +1
+      * NACK-ed (-1/-2) patches should not be submitted
+      * A submitted patch is automatically merged to the git repository

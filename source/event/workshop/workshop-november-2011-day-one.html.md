@@ -12,6 +12,8 @@ wiki_last_updated: 2011-11-28
 
 The schedule contains links to a unique pad (Etherpad document) for each session. When notes are moved to the wiki, the link to the wiki page is added to this schedule for future reference.
 
+The original location for this page is [Workshop November 2011 - Day One](Workshop November 2011 - Day One).
+
 *   8:30AM – 9:00 AM : Opening Welcome and Introductions
     -   Project kick-off and welcome from strategic supporters
 *   9:00AM – 10:45AM : Demo / Architecture

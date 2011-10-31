@@ -20,7 +20,7 @@ oVirt reports package provides a suite of pre-configured reports that enable you
 
 ## oVirt Reports Topics
 
-      * Executive – High level reports that highly summarize data on resources and system entities.
-      * Inventory – Reports that list entities or display data about there status.
-      * Service Level – Report that are used to examine system health and service quality to users.
-      * Trends – Graphs that indicate resource usage for planning of resources.
+*   Executive – High level reports that highly summarize data on resources and system entities.
+*   Inventory – Reports that list entities or display data about there status.
+*   Service Level – Report that are used to examine system health and service quality to users.
+*   Trends – Graphs that indicate resource usage for planning of resources.

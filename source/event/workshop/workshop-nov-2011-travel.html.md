@@ -16,13 +16,13 @@ wiki_last_updated: 2012-01-08
 
 ## Hotel ideas
 
-**INCOMPLETE**
+The workshop will be at Cisco Building O which is at the following address:
 
-The Workshop will be at Cisco Building O which is at the following address:
-
-    10 East Tasman Drive, San Jose, CA
+[<https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode>=&q=10+West+Tasman+Drive,+milpitas,+ca&aq=t&sll=36.970856,-122.020993&sspn=0.008315,0.016437&vpsrc=0&ie=UTF8&hq=&hnear=10+W+Tasman+Dr,+San+Jose,+California+95134&t=h&z=16 10 East Tasman Drive, San Jose, CA]
 
 See the campus map here: <http://www.cisco.com/web/about/ac156/downloads/sjcCampus1108.pdf>
+
+The location description is here: <http://www.cisco.com/web/about/ac156/sanjose.html>
 
 ### Primary/group hotel
 

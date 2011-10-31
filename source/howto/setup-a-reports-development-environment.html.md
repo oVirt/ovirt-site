@@ -23,7 +23,7 @@ It is preferred you use JBoss as your applications server and Postgres as your J
 
 *   Use import script to load the reports repository, using the commend:
 
-      ./js-import.sh --input-dir < repository folder path >/ovirt-reports/reports/repository_files –update
+      ./js-import.sh --input-dir < repository folder path >/ovirt-reports/reports/repository_files --update
 
 *   Build the required jars using maven in the path:
 

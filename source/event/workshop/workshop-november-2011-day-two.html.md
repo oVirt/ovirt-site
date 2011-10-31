@@ -12,6 +12,8 @@ wiki_last_updated: 2011-11-24
 
 The schedule contains links to a unique pad (Etherpad document) for each session. When notes are moved to the wiki, the link to the wiki page is added to this schedule for future reference.
 
+The original location for this page is Workshop November 2011 - Day Two.
+
 *   8:00AM – 9:30AM : Topic – Engine Core
     -   Topic sessions include presentation, interactive discussion & white boarding as needed
 *   9:30AM – 11:00AM : Topic – VDSM

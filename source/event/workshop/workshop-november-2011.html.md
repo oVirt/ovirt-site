@@ -11,29 +11,17 @@ wiki_last_updated: 2011-11-03
 
 This page tracks all the details for attendees and organizers for the oVirt workshop, 1 to 3 November 2011.
 
-## Locations
-
-### Workshop
+The format of the workshop is to present on all the technical materials and have project discussions in the main conference room, Chess. Meetings and side discussions can occur in the conference rooms alongside Chess.
 
 The workshop is in Cisco Building O (aka [San Jose Executive Briefing Center](http://www.cisco.com/web/about/ac156/sanjose.html)), 10 W Tasman Dr, on the corner of N 1st St & W Tasman Dr.
 
 [<https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode>=&q=10+West+Tasman+Drive,+milpitas,+ca&aq=t&sll=36.970856,-122.020993&sspn=0.008315,0.016437&vpsrc=0&ie=UTF8&hq=&hnear=10+W+Tasman+Dr,+San+Jose,+California+95134&t=h&z=16 Google map].
 
-#### Tuesday 01 November
+## Tuesday 01 November
 
 This day is devoted to a series of all day talks and discussions in the main workshop room, Chess, about aspects of the oVirt technology. Side meeting rooms are available.
 
 Full details on [Workshop November 2011 - Day One](Workshop November 2011 - Day One).
-
-#### Wednesday 02 November
-
-This day is devoted to a series of all day talks and discussions in the main workshop room, Chess, about aspects of the oVirt technology. Side meeting rooms are available.
-
-Full details on [Workshop November 2011 - Day Two](Workshop November 2011 - Day Two).
-
-#### Thursday 03 November
-
-This day is devoted to a series of all day talks and discussions in the main workshop room, Chess, about aspects of the oVirt technology. Side meeting rooms are available. Full details on [Workshop November 2011 - Day Three](Workshop November 2011 - Day Three).
 
 ### Tuesday night reception
 
@@ -42,3 +30,13 @@ After the first day workshop, we'll take an hour break, then meet at the Crowne 
 *   Where: Crowne Plaza, 777 Bellew Dr, Milpitas, CA ([<https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode>=&q=777++Bellew+milpitas&ie=UTF8&hq=&hnear=777+Bellew+Dr,+Milpitas,+California+95035&t=m&z=16&vpsrc=0 Map])
 *   When: 6 to 9 pm
 *   What: Informal reception - Italian food, a few drinks at the bar, light seating and mingling in an atmosphere conducive to discussion and socializing.
+
+## Wednesday 02 November
+
+This day is devoted to a series of all day talks and discussions in the main workshop room, Chess, about aspects of the oVirt technology. Side meeting rooms are available.
+
+Full details on [Workshop November 2011 - Day Two](Workshop November 2011 - Day Two).
+
+## Thursday 03 November
+
+This day is devoted to a series of all day talks and discussions in the main workshop room, Chess, about aspects of the oVirt technology. Side meeting rooms are available. Full details on [Workshop November 2011 - Day Three](Workshop November 2011 - Day Three).

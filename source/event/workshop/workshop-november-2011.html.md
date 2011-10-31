@@ -19,7 +19,7 @@ The workshop is in Cisco Building O (aka [San Jose Executive Briefing Center](ht
 
 __TOC__
 
-Here is an overview of the [Workshop November 2011 - Schedule](Workshop November 2011 - Schedule):
+Here is an overview of the [Workshop November 2011 - schedule](Workshop November 2011 - schedule):
 
 ## Tuesday 01 November
 

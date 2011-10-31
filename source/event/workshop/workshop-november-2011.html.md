@@ -17,6 +17,10 @@ The workshop is in Cisco Building O (aka [San Jose Executive Briefing Center](ht
 
 [<https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode>=&q=10+West+Tasman+Drive,+milpitas,+ca&aq=t&sll=36.970856,-122.020993&sspn=0.008315,0.016437&vpsrc=0&ie=UTF8&hq=&hnear=10+W+Tasman+Dr,+San+Jose,+California+95134&t=h&z=16 Google map].
 
+__TOC__
+
+Here is an overview of the [Workshop November 2011 - Schedule](Workshop November 2011 - Schedule):
+
 ## Tuesday 01 November
 
 This day is devoted to a series of all day talks and discussions in the main workshop room, Chess, about aspects of the oVirt technology. Side meeting rooms are available.

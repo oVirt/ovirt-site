@@ -14,9 +14,9 @@ oVirt reports package provides a suite of pre-configured reports that enable you
 
 ## JasperReports and JasperReports Server Overview
 
-      * JasperReports is an open source Java reporting tool that can produce reports and export them to PDF, HTML, Microsoft Excel, RTF, ODT, Comma-separated values and XML files.
-      * It generates the reports from an XML or .jasper file.
-      * JasperReports Server is a reporting server for JasperReports. Using it you can generate, organize, secure and deliver interactive reports.
+*   JasperReports is an open source Java reporting tool that can produce reports and export them to PDF, HTML, Microsoft Excel, RTF, ODT, Comma-separated values and XML files.
+*   It generates the reports from an XML or .jasper file.
+*   JasperReports Server is a reporting server for JasperReports. Using it you can generate, organize, secure and deliver interactive reports.
 
 ## oVirt Reports Topics
 

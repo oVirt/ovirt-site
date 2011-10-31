@@ -14,7 +14,8 @@ wiki_last_updated: 2014-11-25
 *   Download and install the latest edition of JasperReports Server CE Edition.
 
 `The CE is available on this link: `[`http://jasperforge.org/projects/jasperserver`](http://jasperforge.org/projects/jasperserver)
-      It is preferred you use JBoss as your applications server and Postgres as your JasperReports Server configuration database. This can be done using the war installation. Please make sure to setup import and export scripts using the install guide provided by Jasper and install IReport. Another option is installing via the JasperReports Server installer. Details on this are also provided by the installation guide.
+
+It is preferred you use JBoss as your applications server and Postgres as your JasperReports Server configuration database. This can be done using the war installation. Please make sure to setup import and export scripts using the install guide provided by Jasper and install IReport. Another option is installing via the JasperReports Server installer. Details on this are also provided by the installation guide.
 
 *   If the ovirt_history database is not installed locally or is protected by password, you will have to edit an xml file in this path and add the details:
 

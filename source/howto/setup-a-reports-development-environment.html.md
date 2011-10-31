@@ -19,7 +19,7 @@ It is preferred you use JBoss as your applications server and Postgres as your J
 
 *   If the ovirt_history database is not installed locally or is protected by password, you will have to edit an xml file in this path and add the details:
 
-< repository folder path >/ovirt-reports/reports/repository_files_ce/resources/organizations/ovirtreports/Resources/JDBC/data_sources/ovirt.xml More information on changing the data source properties is available in the JasperReports Server documentation.
+< repository folder path >/ovirt-reports/reports/repository_files/resources/organizations/ovirtreports/Resources/JDBC/data_sources/ovirt.xml More information on changing the data source properties is available in the JasperReports Server documentation.
 
 *   Use import script to load the reports repository, using the commend:
 

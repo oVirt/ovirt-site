@@ -31,7 +31,8 @@ ovirt-reports/reports/jars
 
 *   Place the jars in JasperReports Server folder in the path:
 
-Apache Tomcat: jasperserver/WEB-INF/lib JBoss: jasperserver.war/WEB-INF/lib
+      Apache Tomcat: jasperserver/WEB-INF/lib
+      JBoss: jasperserver.war/WEB-INF/lib
 
 *   Restart the application server.
 *   The server can now be run and accessed in the link:

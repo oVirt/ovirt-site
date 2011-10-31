@@ -21,21 +21,19 @@ The workshop is in Cisco Building O (aka [San Jose Executive Briefing Center](ht
 
 #### Tuesday 01 November
 
-This day is devoted to a series of all day talks and discussions with the entire attendance in the main workshop room, Chess.
+This day is devoted to a series of all day talks and discussions in the main workshop room, Chess, about aspects of the oVirt technology. Side meeting rooms are available.
 
 Full details on [Workshop November 2011 - Day One](Workshop November 2011 - Day One).
 
 #### Wednesday 02 November
 
-This day is a series of breakout sessions around different aspects of the oVirt projects. These sessions are conducted in the six conference rooms: Chess, Clue, Rummikub, Mousetrap, Dominoes, and Uno.
+This day is devoted to a series of all day talks and discussions in the main workshop room, Chess, about aspects of the oVirt technology. Side meeting rooms are available.
 
 Full details on [Workshop November 2011 - Day Two](Workshop November 2011 - Day Two).
 
 #### Thursday 03 November
 
-This day is a series of breakout sessions around different aspects of the oVirt projects. These sessions are conducted in the six conference rooms: Chess, Clue, Rummikub, Mousetrap, Dominoes, and Uno.
-
-Full details on [Workshop November 2011 - Day Three](Workshop November 2011 - Day Three).
+This day is devoted to a series of all day talks and discussions in the main workshop room, Chess, about aspects of the oVirt technology. Side meeting rooms are available. Full details on [Workshop November 2011 - Day Three](Workshop November 2011 - Day Three).
 
 ### Tuesday night reception
 

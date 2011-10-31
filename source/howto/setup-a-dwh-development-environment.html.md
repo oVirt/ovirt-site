@@ -10,7 +10,7 @@ wiki_last_updated: 2014-11-25
 
 # How to setup a oVirt DWH development environment
 
-## Install the Talend Open Studio and import the project
+## Install Talend Open Studio and import the project
 
 *   Clone the git repository.
 *   Download and install the latest Talend Open Studio version.

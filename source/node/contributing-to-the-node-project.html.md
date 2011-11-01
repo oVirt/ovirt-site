@@ -12,7 +12,9 @@ wiki_last_updated: 2013-07-22
 
 ## Overview
 
-This page describes the patch submission process. As an open source project, oVirt gladly accepts and encourages the submission of patches from the community.
+This page describes the patch submission process. As an open source project, oVirt Node gladly accepts and encourages the submission of patches from the community.
+
+This page needs significant updates once we integrate with git and gerrit hosted on the oVirt infrastructure
 
 ## Prerequisites
 

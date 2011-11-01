@@ -13,7 +13,7 @@ This page tracks all the details for attendees and organizers for the oVirt work
 
 The format of the workshop is to present on all the technical materials and have project discussions in the main conference room, Chess. Meetings and side discussions can occur in the conference rooms alongside Chess.
 
-The workshop is in Cisco Building O (aka [San Jose Executive Briefing Center](http://www.cisco.com/web/about/ac156/sanjose.html)), 10 W Tasman Dr, on the corner of N 1st St & W Tasman Dr.
+The workshop is in Cisco Building O ~~(aka [San Jose Executive Briefing Center](http://www.cisco.com/web/about/ac156/sanjose.html))~~, 10 W Tasman Dr, on the corner of N 1st St & W Tasman Dr.
 
 [<https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode>=&q=10+West+Tasman+Drive,+milpitas,+ca&aq=t&sll=36.970856,-122.020993&sspn=0.008315,0.016437&vpsrc=0&ie=UTF8&hq=&hnear=10+W+Tasman+Dr,+San+Jose,+California+95134&t=h&z=16 Google map].
 

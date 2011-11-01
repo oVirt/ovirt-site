@@ -73,6 +73,7 @@ Q: Do we want to develop different distro based Nodes? or call it a black box? c
 
 SUSE's kiwi seems to do 80% of what Node does.
 
+*   <http://kiwi.berlios.de/> - seems to be image creator? So more like livecd/appliance-tools equivalent?
 *   maybe add that to oVirt as a project, with a script that covers the Node requirements
 
 If you upgrade & it won't reboot, you can boot to TUI and use downgrade - covers 90% of cases.

@@ -31,8 +31,6 @@ __TOC__
 
 http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy
 
-1 2 3 4 5 6 7
-
 1. protocol
 
 2. server details
@@ -46,5 +44,27 @@ http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy
 6. sub-collection
 
 7. sub-resource
+
+## oVirt-API How-to (the methods)
+
+*   To list all collection resources, use GET.
+
+GET http(s)://server:port/api/vms
+
+*   To retrieve specific resource, use GET.
+
+GET http(s)://server:port/api/vms/xxx
+
+*   To create a resource, use POST.
+
+POST http(s)://server:port/api/vms <vm>...</vm>
+
+*   To update the resource, use PUT.
+
+PUT http(s)://server:port/api/vms/xxx <vm><name>aaa</name></vm>
+
+*   To remove the resource, use DELETE.
+
+DELETE http(s)://server:port/api/vms/xxx
 
 <Category:Api>

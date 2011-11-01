@@ -12,6 +12,8 @@ wiki_last_updated: 2011-11-28
 
 The schedule contains links to a unique pad (Etherpad document) for each session. When notes are moved to the wiki, the link to the wiki page is added to this schedule for future reference.
 
+There is a [Webex session for this day](https://cisco.webex.com/cisco/j.php?J=207445903&PW=NZGJkYTY4MTdm). The meeting password is 'cisco'; then click "Join Now" and follow the instructions that appear on your screen.
+
 The original location for this page is [Workshop November 2011 - Day One](Workshop November 2011 - Day One).
 
 *   8:30AM – 9:00 AM : Opening Welcome and Introductions ([Pad](http://etherpad.ubuntu.com/ovirt-workshop-opening-welcome-and-introductions-20111101), [Wiki](Opening welcome and introductions - oVirt workshop November 2011), [Slides](http://www.ovirt.org/wp-content/uploads/2011/09/Ovirt-WorkShop-Invitation.pdf))

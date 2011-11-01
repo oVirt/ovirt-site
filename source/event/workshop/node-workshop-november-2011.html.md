@@ -78,7 +78,7 @@ SUSE's kiwi seems to do 80% of what Node does.
 
 If you upgrade & it won't reboot, you can boot to TUI and use downgrade - covers 90% of cases.
 
-If that doesn't work, there is a partition called 'root-backup' - if upgraded image fails to boot, next reboot is from the root backup.
+If that doesn't work, there is a partition called 'RootBackup' - if upgraded image fails to boot, next reboot is from the RootBackup.
 
 Q: What is the roadmap for dealing with upgrades and adding packages?
 

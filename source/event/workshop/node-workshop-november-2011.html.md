@@ -53,11 +53,17 @@ What is in config partition?
 *   password files
 *   anything that is configured via the Configuration utility is persisted
 
-Is a mechanism provided/needed to deal with static config files across upgrades/downgrades?
+Q: Is a mechanism provided/needed to deal with static config files across upgrades/downgrades?
 
-What is the overlay mechanism? aufs/symlinks?
+A: Not needed since the /config filesystem is not touched in an upgrade/downgrade, so this is transparent
 
-Where do logs for diagnostic use end up?
+Q: What is the overlay mechanism? aufs/symlinks?
+
+A: config files are bind mounted from the /config partition to the location in /etc for example. This is part of the normal 'stateless support' that is included in linux (is that Fedora/RHEL specific or more general?)
+
+Q: Where do logs for diagnostic use end up?
+
+A: /var/log/ovirt.log and other /var/log standard logs
 
 Matahari maybe more core than other plugins; a systems management framework built upon QMF (apache project)
 

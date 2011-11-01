@@ -81,6 +81,7 @@ In order to easily track commit changes in Gerrit, each commit must have a chang
 #### Rebase
 
       git fetch gerrit.ovirt.org:ovirt-engine master
+      git rebase origin/master
        
 
 #### Push your patch for review

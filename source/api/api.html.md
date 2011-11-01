@@ -29,9 +29,7 @@ __TOC__
 
 ## oVirt-API URI structure
 
-http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy ------- ----------- --- --- ------- ----- -----
-
-        1           2       3   4     5      6      7
+http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy 1 2 3 4 5 6 7
 
 1. protocol
 

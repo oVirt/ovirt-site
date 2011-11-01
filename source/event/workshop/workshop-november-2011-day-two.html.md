@@ -14,15 +14,15 @@ The schedule contains links to a unique pad (Etherpad document) for each session
 
 The original location for this page is Workshop November 2011 - Day Two.
 
-*   8:00AM – 9:30AM : Topic – Engine Core
+*   8:00AM – 9:30AM : Topic – Engine Core ([Pad](http://etherpad.ubuntu.com/engine-core-ovirt-workshop-20111101), [Wiki](Engine Core - oVirt workshop November 2011), [ Slides])
     -   Topic sessions include presentation, interactive discussion & white boarding as needed
-*   9:30AM – 11:00AM : Topic – VDSM
+*   9:30AM – 11:00AM : Topic – VDSM ([Pad](http://etherpad.ubuntu.com/vdsm-ovirt-workshop-20111101), [Wiki](VDSM - oVirt workshop November 2011), [ Slides])
     -   Topic sessions include presentation, interactive discussion & white boarding as needed
 *   11:00AM – 11:30AM : Break
-*   11:30AM – 1:00PM : Topic – Network
+*   11:30AM – 1:00PM : Topic – Network ([Pad](http://etherpad.ubuntu.com/network-ovirt-workshop-20111101), [Wiki](Network - oVirt workshop November 2011), [ Slides])
     -   Topic sessions include presentation, interactive discussion & white boarding as needed
 *   1:00PM – 2:00PM : Lunch
-*   2:00PM – 3:30PM : Topic – Storage
+*   2:00PM – 3:30PM : Topic – Storage ([Pad](http://etherpad.ubuntu.com/storage-ovirt-workshop-20111101), [Wiki](Storage - oVirt workshop November 2011), [ Slides])
     -   Topic sessions include presentation, interactive discussion & white boarding as needed
 *   3:30PM – 3:45PM : Organize breakouts (add any etc)
     -   Quick feedback to add/ update working sessions

@@ -49,19 +49,21 @@ http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy
 
 *   To list all collection resources, use GET.
 
-GET http(s)://server:port/api/vms
+      GET http(s)://server:port/api/vms
 
 *   To retrieve specific resource, use GET.
 
-GET http(s)://server:port/api/vms/xxx
+      GET http(s)://server:port/api/vms/xxx
 
 *   To create a resource, use POST.
 
-POST http(s)://server:port/api/vms <vm>...</vm>
+      POST http(s)://server:port/api/vms
+<vm>`...`</vm>
 
 *   To update the resource, use PUT.
 
-PUT http(s)://server:port/api/vms/xxx <vm><name>aaa</name></vm>
+      PUT http(s)://server:port/api/vms/xxx
+<vm><name>`aaa`</name></vm>
 
 *   To remove the resource, use DELETE.
 

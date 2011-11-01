@@ -22,14 +22,14 @@ The original location for this page is [Workshop November 2011 - Day One](Worksh
     -   Detailed demo through the initial grant asset base, to provide understanding of scope and functionality of current projects contained inside oVirt
     -   Walk through of architecture at a high level of the oVirt projects.
 *   10:45AM – 11:15AM : Break
-*   11:15AM – 1:00PM : Arch & Work in progress (continued )
+*   11:15AM – 1:00PM : Arch & Work in progress (continued ) ([Pad](http://etherpad.ubuntu.com/demo-architecture-ovirt-workshop-20111101), [Wiki](Demo and Architecture - oVirt workshop November 2011))
     -   What work is in the pipeline already
     -   Comparative analysis
     -   Areas that need development
 *   1:00PM – 2:00PM : Lunch
-*   2:00PM – 3:00PM : oVirt Node
+*   2:00PM – 3:00PM : oVirt Node ([Pad](http://etherpad.ubuntu.com/node-ovirt-workshop-20111101), [Wiki](Node - oVirt workshop November 2011), [Slides](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-node.pdf))
     -   Arch and details of oVirt node
-*   3:00PM – 3:45PM : Topic – API
+*   3:00PM – 3:45PM : Topic – API ([Pad](http://etherpad.ubuntu.com/api-ovirt-workshop-20111101), [Wiki](API - oVirt workshop November 2011), [ Slides])
     -   Topic sessions include presentation, interactive discussion & white boarding as needed
 *   3:45PM – 4:00PM : Break
 *   4:00PM – 5:00PM : Working Sessions (Slot 1)

@@ -14,9 +14,9 @@ The schedule contains links to a unique pad (Etherpad document) for each session
 
 The original location for this page is [Workshop November 2011 - Day One](Workshop November 2011 - Day One).
 
-*   8:30AM – 9:00 AM : Opening Welcome and Introductions
+*   8:30AM – 9:00 AM : Opening Welcome and Introductions ([Pad](http://etherpad.ubuntu.com/ovirt-workshop-opening-welcome-and-introductions-20111101), [Wiki](Opening welcome and introductions - oVirt workshop November 2011))
     -   Project kick-off and welcome from strategic supporters
-*   9:00AM – 10:45AM : Demo / Architecture
+*   9:00AM – 10:45AM : Demo / Architecture ([Pad](http://etherpad.ubuntu.com/demo-architecture-ovirt-workshop-20111101), [Wiki](Demo and Architecture - oVirt workshop November 2011))
     -   Detailed demo through the initial grant asset base, to provide understanding of scope and functionality of current projects contained inside oVirt
     -   Walk through of architecture at a high level of the oVirt projects.
 *   10:45AM – 11:15AM : Break

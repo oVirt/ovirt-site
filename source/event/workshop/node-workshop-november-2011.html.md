@@ -59,7 +59,7 @@ A: Not needed since the /config filesystem is not touched in an upgrade/downgrad
 
 Q: What is the overlay mechanism? aufs/symlinks?
 
-A: config files are bind mounted from the /config partition to the location in /etc for example. This is part of the Fedora/RHEL specific 'stateless support' <https://fedoraproject.org/wiki/StatelessLinux>
+A: config files are bind mounted from the /config partition to the location in /etc for example. This is part of the Fedora/RHEL specific 'stateless support' <https://fedoraproject.org/wiki/StatelessLinux> Unfortunately, something unionfs-like is not upstream, so not in Fedora/RHEL.
 
 Q: Where do logs for diagnostic use end up?
 

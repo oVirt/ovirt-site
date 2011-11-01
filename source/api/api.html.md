@@ -83,7 +83,7 @@ http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy
 
 *   To remove the resource, use DELETE.
 
-DELETE http(s)://server:port/api/vms/xxx
+      DELETE http(s)://server:port/api/vms/xxx
 
       curl -v -u "user@domain:password" -X DELETE http(s)://server:port/api/vms/xxx
 

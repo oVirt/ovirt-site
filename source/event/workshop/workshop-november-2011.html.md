@@ -44,3 +44,15 @@ Full details on [Workshop November 2011 - Day Two](Workshop November 2011 - Day 
 ## Thursday 03 November
 
 This day is devoted to a series of all day talks and discussions in the main workshop room, Chess, about aspects of the oVirt technology. Side meeting rooms are available. Full details on [Workshop November 2011 - Day Three](Workshop November 2011 - Day Three).
+
+## Communicating during the workshop
+
+*   Each day has a unique Webex session; visit that day's schedule for the link and connection details.
+*   IRC: irc.oftc.net #ovirt
+    -   From within Cisco you must have SSL enabled in the client, and accept invalid certificates.
+*   Etherpad: <http://etherpad.ubuntu.com>
+    -   You must use or create an ubuntu.com account, which is then used as the OpenID provider.
+    -   You must then join this group: <https://launchpad.net/~ovirt>
+        -   When you login you will be told to join 'ubuntu-etherpad' group; join the 'ovirt' group instead, it is a member of 'ubuntu-etherpad' and inherits rights.
+    -   Etherpad content is moved to the wiki when a session is completed.
+        -   While being moved post a "DO NOT TOUCH PAD, BEING MOVED TO WIKI" in the pad.

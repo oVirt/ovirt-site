@@ -59,7 +59,7 @@ A: Not needed since the /config filesystem is not touched in an upgrade/downgrad
 
 Q: What is the overlay mechanism? aufs/symlinks?
 
-A: config files are bind mounted from the /config partition to the location in /etc for example. This is part of the normal 'stateless support' that is included in linux (is that Fedora/RHEL specific or more general?)
+A: config files are bind mounted from the /config partition to the location in /etc for example. This is part of the Fedora/RHEL specific 'stateless support' <https://fedoraproject.org/wiki/StatelessLinux>
 
 Q: Where do logs for diagnostic use end up?
 
@@ -77,7 +77,7 @@ SUSE's kiwi seems to do 80% of what Node does.
 
 If you upgrade & it won't reboot, you can boot to TUI and use downgrade - covers 90% of cases.
 
-If that doesn't work, there is a partition called 'root-backup' - if it boots, fails, it reboots, and goes to the root backup.
+If that doesn't work, there is a partition called 'root-backup' - if upgraded image fails to boot, next reboot is from the root backup.
 
 Q: What is the roadmap for dealing with upgrades and adding packages?
 

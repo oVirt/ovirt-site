@@ -73,7 +73,9 @@ http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy
 
 *   To update the resource, use PUT.
 
-`PUT http(s)://server:port/api/vms/xxx `<vm><name>`aaa`</name></vm>
+      PUT http(s)://server:port/api/vms/xxx 
+
+<vm><name>aaa</name></vm>
 
       echo "`<vm><name>`new_name`</name></vm>`" >  /tmp/upload.xml
       curl -v -u "user@domain:password" 

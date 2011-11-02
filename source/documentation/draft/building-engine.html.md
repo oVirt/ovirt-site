@@ -241,6 +241,6 @@ Edit to - $OVIRT_HOME/frontend/webadmin/modules/webadmin/src/main/java/org/ovirt
 
 These lines:
 
-             <!-- Reduce the number of permutations to compile, just for tests: -->
-             <set-property name="user.agent" value="gecko1_8"/>
+      <!-- Reduce the number of permutations to compile, just for tests: -->
+      <set-property name="user.agent" value="gecko1_8"/>
        

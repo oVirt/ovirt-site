@@ -26,7 +26,7 @@ Note: for earlier PostgreSQL versions, a patch is needed.
 
 # Running the service
 
-      pg_ctl initdb # (first time only)
+      su - postgres -c 'pg_ctl initdb' # (first time only)
       service postgresql start
 
 It is recommended to add this service to auto start by

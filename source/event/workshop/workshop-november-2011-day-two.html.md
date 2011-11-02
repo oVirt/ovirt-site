@@ -40,4 +40,8 @@ The original location for this page is [Workshop November 2011 - Day Two](Worksh
 *   **Dominoes** - Governance ([Pad](http://etherpad.ubuntu.com/governance-breakout-ovirt-workshop-20111102), [Governance breakout at oVirt workshop November 2011](Governance breakout at oVirt workshop November 2011)
 *   **Uno** - Node
 
+## Evening plans
+
+*   Gordon Biersch, 357 East Taylor Street, San Jose, CA [Map](http://bit.ly/rIUSws) - 7 pm
+
 [Category:Workshop November 2011](Category:Workshop November 2011)

@@ -72,7 +72,20 @@ Q: what is vdsm? a library? No - it is a daemon
 *   VDSM lifecycle hooks - before/after vdsm_start
 *   Hooks get passed arguments from engine
 
-Q: Is there any mapping between these hooks and libvirt hooks? A: No. Q: Is there any guarantee that a hook will continue to work w/ future oVirt changes? A: No - we only guarantee that we'll continue to run your hooks Q: Is it possible to have different hooks on different hosts? A: Yes - but not recommended; might make sense if you have VMs that are non-migrateable, or if nodes have heterogenous storage domain access mechanisms Q: can before/after hooks communicate? A: must devise their own communication schemes (run a daemon, persist files) Q: is there any plan to formalize the hooks? A: no plans. hooks are not intended to be sustainable; send patches to get those features included in oVirt
+<!-- -->
+
+*   Q: Is there any mapping between these hooks and libvirt hooks?
+*   A: No.
+*   Q: Is there any guarantee that a hook will continue to work w/ future oVirt changes?
+*   A: No - we only guarantee that we'll continue to run your hooks
+*   Q: Is it possible to have different hooks on different hosts?
+*   A: Yes - but not recommended; might make sense if you have VMs that are non-migrateable, or if nodes have heterogenous storage domain access mechanisms
+*   Q: can before/after hooks communicate?
+*   A: must devise their own communication schemes (run a daemon, persist files)
+*   Q: is there any plan to formalize the hooks?
+*   A: no plans. hooks are not intended to be sustainable; send patches to get those features included in oVirt
+
+You are invited to take a look at an assortment of completely unsupported set of [danken.fedorapeople.org/hooks-2011-11-02.tar.gz Vdsm hooks]
 
 ## VM Livecycle API
 

@@ -12,7 +12,7 @@ wiki_last_updated: 2011-11-24
 
 The schedule contains links to a unique pad (Etherpad document) for each session. When notes are moved to the wiki, the link to the wiki page is added to this schedule for future reference.
 
-The original location for this page is Workshop November 2011 - Day Two.
+The original location for this page is [Workshop November 2011 - Day Two](Workshop November 2011 - Day Two).
 
 *   8:00AM – 9:30AM : Topic – Engine Core ([Pad](http://etherpad.ubuntu.com/engine-core-ovirt-workshop-20111101), [Wiki](Engine Core - oVirt workshop November 2011), [ Slides])
     -   Topic sessions include presentation, interactive discussion & white boarding as needed

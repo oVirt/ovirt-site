@@ -193,6 +193,8 @@ Notes:
 Compiling the webadmin and userportal takes (a long) time.
 Make sure to run this with your user, not 'root', running as root will result in a missing settings.xml file in the 'root' home directory.
 
+To skip the execution of the unit tests and only compile and package ovirt, add the option: -DskipTests=true to the mvn build command
+
 #### deploy
 
 The first deployment of the application to JBoss AS container should use the setup profile:

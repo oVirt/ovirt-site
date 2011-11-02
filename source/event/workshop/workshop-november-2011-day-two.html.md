@@ -31,4 +31,13 @@ The original location for this page is [Workshop November 2011 - Day Two](Worksh
     -   UI/GWT | History+Reports | Guest tools | Node
 *   7:00PM – .. Social (meet at a selected watering hole)
 
+## Afternoon breakout sessions
+
+*   **Chess** - Storage (with projector)
+*   **Clue** - UI/GWT (with projector)
+*   **Rummikub** - History+Reports (with projector)
+*   **Mouse Trap** - Guest tools (with projector)
+*   **Dominoes** - Governance
+*   **Uno** - Node
+
 [Category:Workshop November 2011](Category:Workshop November 2011)

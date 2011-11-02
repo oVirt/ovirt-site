@@ -190,10 +190,11 @@ For compiling the web-admin and user-portal in addition to the api and engine us
        $> mvn clean install -Pgwt-admin,gwt-user
 
 Notes:
-Compiling the webadmin and userportal takes (a long) time.
-Make sure to run this with your user, not 'root', running as root will result in a missing settings.xml file in the 'root' home directory.
+# Compiling the webadmin and userportal takes (a long) time.
+# Make sure to run this with your user, not 'root', running as root will result in a missing settings.xml file in the 'root' home directory.
 
-To skip the execution of the unit tests and only compile and package ovirt, add the option: -DskipTests=true to the mvn build command
+1.  To skip the execution of the unit tests and only compile and package ovirt, add the option: -DskipTests=true to the mvn build command
+2.  You can reduce the build time and memory consumption - look at the temp section at the end.
 
 #### deploy
 

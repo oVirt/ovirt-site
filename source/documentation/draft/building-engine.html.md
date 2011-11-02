@@ -92,6 +92,62 @@ Copy paste the content of the file below into ~/.m2/settings.xml
                                       <jbossHome>/usr/local/jboss-5.1.0.GA</jbossHome>
                                       <JAVA_1_6_HOME>/usr/lib/jvm/java-1.6.0-openjdk.x86_64</JAVA_1_6_HOME>
                               </properties>
+                              <repositories>
+                                       <repository>
+                                          <id>jboss-public-repository-group</id>
+                                          <name>JBoss Public Maven Repository Group</name>
+                                          <url>https://repository.jboss.org/nexus/content/groups/public</url>
+                                          <layout>default</layout>
+                                          <releases>
+                                             <enabled>true</enabled>
+                                             <updatePolicy>never</updatePolicy>
+                                          </releases>
+                                          <snapshots>
+                                             <enabled>true</enabled>
+                                             <updatePolicy>never</updatePolicy>
+                                          </snapshots>
+                                      </repository>
+                                      <repository>
+                                          <id>repository.jboss.org</id>
+                                          <url>http://repository.jboss.org/maven2</url>
+                                          <releases>
+                                          </releases>
+                                          <snapshots>
+                                             <enabled>false</enabled>
+                                          </snapshots>
+                                      </repository>
+
+                                      <repository>
+                                          <id>jboss-deprecated-repository-group</id>
+                                          <name>JBoss Deprecated Maven Repository Group</name>
+                                          <url>https://repository.jboss.org/nexus/content/repositories/deprecated/</url>
+                                          <releases>
+                                             <enabled>true</enabled>
+                                             <updatePolicy>never</updatePolicy>
+                                          </releases>
+                                          <snapshots>
+                                             <enabled>true</enabled>
+                                             <updatePolicy>never</updatePolicy>
+                                          </snapshots>
+                                      </repository>
+                              </repositories>
+
+                              <pluginRepositories>
+                                      <pluginRepository>
+                                         <id>jboss-public-repository-group</id>
+                                         <name>JBoss Public Maven Repository Group</name>
+                                         <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+                                         <layout>default</layout>
+                                         <releases>
+                                            <enabled>true</enabled>
+                                            <updatePolicy>never</updatePolicy>
+                                         </releases>
+                                         <snapshots>
+                                            <enabled>true</enabled>
+                                            <updatePolicy>never</updatePolicy>
+                                         </snapshots>
+                                      </pluginRepository>
+                              </pluginRepositories>
                       </profile>
               </profiles>
       </settings>

@@ -170,7 +170,7 @@ Alternatively, you can run:
 
 Which will build the rpm set for ovirt-engine
 
-#### Installing ovirt-engine from rpm file set
+## Installing ovirt-engine from rpm file set
 
 install the rpm file set by executing:
 

@@ -229,3 +229,15 @@ Accessing the user-portal
 
 oVirt-engine is working with gerrit for code contribution.
 More detail can be found in [Setting_Gerrit](Setting_Gerrit).
+
+## Temp sec
+
+1. Two patches for replacing a deprecated repository are needed 2. For quick and dirty build you can compile GWT to work with a specific browser.
+
+        That will reduce the permutation number to one - 
+
+Edit to - $OVIRT_HOME/frontend/webadmin/modules/webadmin/src/main/java/org/ovirt/engine/ui/webadmin/WebAdmin.gwt.xml
+
+These lines:
+
+`      `<set-property name="user.agent" value="gecko1_8"/>

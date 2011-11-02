@@ -94,5 +94,6 @@ wiki_last_updated: 2011-11-02
 | Jim              | Fehlig         | SUSE               |
 | Michal           | Svec           | SUSE               |
 | Isaac            | Christoffersen | Vizuri             |
+| Jeff             | Schroeder      | Unaffiliated       |
 
 [Category:Workshop November 2011](Category:Workshop November 2011)

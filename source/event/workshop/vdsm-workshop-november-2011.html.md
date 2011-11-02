@@ -85,7 +85,7 @@ Q: what is vdsm? a library? No - it is a daemon
 *   Q: is there any plan to formalize the hooks?
 *   A: no plans. hooks are not intended to be sustainable; send patches to get those features included in oVirt
 
-You are invited to take a look at an assortment of completely unsupported set of [danken.fedorapeople.org/hooks-2011-11-02.tar.gz Vdsm hooks]
+You are invited to take a look at an assortment of completely unsupported set of [Vdsm hooks](http://danken.fedorapeople.org/hooks-2011-11-02.tar.gz)
 
 ## VM Livecycle API
 

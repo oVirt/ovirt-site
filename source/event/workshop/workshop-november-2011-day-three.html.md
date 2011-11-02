@@ -12,7 +12,7 @@ wiki_last_updated: 2011-11-03
 
 The schedule contains links to a unique pad (Etherpad document) for each session. When notes are moved to the wiki, the link to the wiki page is added to this schedule for future reference.
 
-The original location for this page is Workshop November 2011 - Day Three.
+The original location for this page is [Workshop November 2011 - Day Three](Workshop November 2011 - Day Three).
 
 *   9:00AM – 10:00AM : Roadmap ([Pad](http://etherpad.ubuntu.com/roadmap-ovirt-workshop-20111101), [Wiki](Roadmap - oVirt workshop November 2011), [ Slides])
     -   Short presentations where org/people want to invest

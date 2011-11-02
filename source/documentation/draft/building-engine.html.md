@@ -64,7 +64,7 @@ oVirt engine is using maven version 2.2.x, maven 3.x will not work.
 
 Add Maven to Path:
 
-      echo "PATH=$PATH:/usr/share/maven2/bin" >> ~/.bashrc
+      echo "PATH=/usr/share/maven2/bin:$PATH" >> ~/.bashrc
 
 *   Please validate maven path, as it will change on maven3.
 

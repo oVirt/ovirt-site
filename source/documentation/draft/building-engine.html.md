@@ -51,6 +51,10 @@ Some useful JAVA_OPTS:
       * Run with -b 0.0.0.0 to have it bind to all IP addresses;
       * Make sure you've nothing bound to port 8080 or 8009
 
+### JBoss AS Security
+
+Note that JBoss AS 5.1 does not include security fixes for issues found after it was released. These fixes are rolled into later versions of JBoss AS. By default, JBoss AS permits unauthenticated access to the JMX console. It is important that the JMX console is configured to require authentication. Failure to do so will render the system vulnerable to several known exploits, including the [JBoss Worm](http://community.jboss.org/blogs/mjc/2011/10/20/statement-regarding-security-threat-to-jboss-application-server) that exploits [CVE-2010-0738](https://access.redhat.com/kb/docs/DOC-30741). Please follow [these instructions](http://community.jboss.org/wiki/SecureTheJmxConsole) to secure the JMX console.
+
 ## Installing tools
 
 ### Installing git

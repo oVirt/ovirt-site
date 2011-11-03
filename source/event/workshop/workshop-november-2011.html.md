@@ -45,6 +45,8 @@ Full details on [Workshop November 2011 - Day Two](Workshop November 2011 - Day 
 
 This day is devoted to a series of all day talks and discussions in the main workshop room, Chess, about aspects of the oVirt technology. Side meeting rooms are available. Full details on [Workshop November 2011 - Day Three](Workshop November 2011 - Day Three).
 
+[Webex session](https://cisco.webex.com/cisco/j.php?J=205859279&PW=NNGU3ODAzYWEw) - Meeting Number: 205 859 279 ; Meeting Password: cisco
+
 ## Communicating during the workshop
 
 *   Each day has a unique Webex session; visit that day's schedule for the link and connection details.

@@ -42,6 +42,6 @@ The original location for this page is [Workshop November 2011 - Day Two](Worksh
 
 ## Evening plans
 
-*   Gordon Biersch, 357 East Taylor Street, San Jose, CA [Map](http://bit.ly/rIUSws) - 7 pm
+*   Gordon Biersch, 33 E San Fernando St [Map](http://bit.ly/uPHgsn) - 7 pm
 
 [Category:Workshop November 2011](Category:Workshop November 2011)

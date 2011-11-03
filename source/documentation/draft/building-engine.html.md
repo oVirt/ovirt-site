@@ -237,7 +237,8 @@ More detail can be found in [Setting_Gerrit](Setting_Gerrit).
 
         That will reduce the permutation number to one - 
 
-Add the lines below to - $OVIRT_HOME/frontend/webadmin/modules/webadmin/src/main/java/org/ovirt/engine/ui/webadmin/WebAdmin.gwt.xml
+Add the lines below to
+$OVIRT_HOME/frontend/webadmin/modules/webadmin/src/main/java/org/ovirt/engine/ui/webadmin/WebAdmin.gwt.xml
 $OVIRT_HOME/frontend/webadmin/modules/userportal/src/main/java/org/ovirt/engine/ui/userportal/UserPortal.gwt.xml
 
       <!-- Reduce the number of permutations to compile, just for tests: -->

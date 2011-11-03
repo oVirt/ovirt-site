@@ -9,7 +9,9 @@ wiki_last_updated: 2013-09-23
 
 # Api
 
-oVirt api package provides Application programming interface for the oVirt engine..
+oVirt api package provides Application programming interface for the oVirt engine.
+
+[Notes from workshop in November 2011](API - oVirt workshop November 2011 Notes).
 
 __TOC__
 

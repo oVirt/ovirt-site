@@ -14,7 +14,7 @@ The schedule contains links to a unique pad (Etherpad document) for each session
 
 The original location for this page is [Workshop November 2011 - Day Three](Workshop November 2011 - Day Three).
 
-*   9:00AM – 10:00AM : Networking breakout ([Pad](http://etherpad.ubuntu.com/networking-breakout-ovirt-workshop-20111103), [Wiki](Network breakout - oVirt workshop November 2011), [ Slides])
+*   9:00AM – 10:00AM : Networking breakout ([Pad](http://etherpad.ubuntu.com/networking-breakout-ovirt-workshop-20111103), [Wiki](Network breakout - oVirt workshop November 2011), [Quantum-oVirt discussion slides](http://www.ovirt.org/wp-content/uploads/2011/11/Quantum_Ovirt_discussion.pdf))
     -   Quannum
 *   10:45AM – 11:30AM : Roadmap and schedule ([Pad](http://etherpad.ubuntu.com/roadmap-and-schedule-ovirt-workshop-20111103), [Wiki](Roadmap and schedule - oVirt workshop November 2011), [ Slides])
     -   -   Short presentations where org/people want to invest

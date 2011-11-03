@@ -14,22 +14,25 @@ The schedule contains links to a unique pad (Etherpad document) for each session
 
 The original location for this page is [Workshop November 2011 - Day Three](Workshop November 2011 - Day Three).
 
-*   9:00AM – 10:00AM : Roadmap ([Pad](http://etherpad.ubuntu.com/roadmap-ovirt-workshop-20111101), [Wiki](Roadmap - oVirt workshop November 2011), [ Slides])
-    -   Short presentations where org/people want to invest
-    -   Assemble working roadmap
-*   10:00AM – 11:00AM : Scheduling community release ([Pad](http://etherpad.ubuntu.com/scheduling-community-release-ovirt-workshop-20111101), [Wiki](Scheduling community release - oVirt workshop November 2011), [ Slides])
-    -   Pick the date and logistics for the first community release for the oVirt platform
-    -   Assigning release roles, and a release coordinator
-*   11:00AM – 11:30AM : Break
+*   9:00AM – 10:00AM : Networking breakout ([Pad](http://etherpad.ubuntu.com/networking-breakout-ovirt-workshop-20111103), [Wiki](Network breakout - oVirt workshop November 2011), [ Slides])
+    -   Quannum
+*   10:45AM – 11:30AM : Roadmap and schedule ([Pad](http://etherpad.ubuntu.com/roadmap-and-schedule-ovirt-workshop-20111103), [Wiki](Roadmap and schedule - oVirt workshop November 2011), [ Slides])
+    -   -   Short presentations where org/people want to invest
+        -   Assemble working roadmap
+    -   Scheduling community release
+        -   Pick the date and logistics for the first community release for the oVirt platform
+        -   Assigning release roles, and a release coordinator
+
+*   11:30AM – 12:00PM : Break
 *   12:00AM – 1:00PM : Working Sessions (Slot 3)
-    -   Packaging ([Pad](http://etherpad.ubuntu.com/packaging-ovirt-workshop-20111101), [Wiki](Packaging - oVirt workshop November 2011), [ Slides])
-    -   BE ([Pad](http://etherpad.ubuntu.com/be-ovirt-workshop-20111101), [Wiki](BE - oVirt workshop November 2011), [ Slides])
-    -   Governance ([Pad](http://etherpad.ubuntu.com/governance-ovirt-workshop-20111101), [Wiki](Governance - oVirt workshop November 2011), [ Slides])
-    -   Getting Involved ([Pad](http://etherpad.ubuntu.com/getting-involved-ovirt-workshop-20111101), [Wiki](Getting involved - oVirt workshop November 2011), [ Slides])
+    -   Packaging ([Pad](http://etherpad.ubuntu.com/packaging-ovirt-workshop-20111103), [Wiki](Packaging - oVirt workshop November 2011), [ Slides])
+    -   BE ([Pad](http://etherpad.ubuntu.com/be-ovirt-workshop-20111103), [Wiki](BE - oVirt workshop November 2011), [ Slides])
+    -   Governance ([Pad](http://etherpad.ubuntu.com/governance-ovirt-workshop-20111103), [Wiki](Governance - oVirt workshop November 2011), [ Slides])
+    -   Getting Involved ([Pad](http://etherpad.ubuntu.com/getting-involved-ovirt-workshop-20111103), [Wiki](Getting involved - oVirt workshop November 2011), [ Slides])
 *   1:00PM – 2:00PM : Lunch
 *   2:00PM – 3:00PM : Working Sessions (Slot 4)
-    -   scheduling/sla/ha (policy, HA load balancing, live migration etc) ([Pad](http://etherpad.ubuntu.com/session-name-ovirt-workshop-20111101), [Wiki](Session name - oVirt workshop November 2011), [ Slides])
+    -   scheduling/sla/ha (policy, HA load balancing, live migration etc) ([Pad](http://etherpad.ubuntu.com/session-name-ovirt-workshop-20111103), [Wiki](Session name - oVirt workshop November 2011), [ Slides])
 *   3:00PM – 4:00PM : Working Sessions (Slot 5)
-    -   Scheduled on demand ([Pad](http://etherpad.ubuntu.com/session-name-ovirt-workshop-20111101), [Wiki](Session name - oVirt workshop November 2011), [ Slides])
+    -   Scheduled on demand ([Pad](http://etherpad.ubuntu.com/session-name-ovirt-workshop-20111103), [Wiki](Session name - oVirt workshop November 2011), [ Slides])
 
 [Category:Workshop November 2011](Category:Workshop November 2011)

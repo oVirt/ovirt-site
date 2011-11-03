@@ -86,3 +86,5 @@ wiki_last_updated: 2011-12-01
           Roadmap for Stateless
 
           Convert to distro neutral configuration changes (netcf, etc...)
+
+[Category:Workshop November 2011](Category:Workshop November 2011)

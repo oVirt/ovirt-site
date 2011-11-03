@@ -214,6 +214,10 @@ After first deploy use:
 
 ## Testing
 
+Assuming JBoss is not running, it should be started:
+
+      $> /usr/local/jboss-5.1.0.GA/bin/run.sh -b 0.0.0.0
+
 Use username **admin@internal** and password **letmein!**
 
 Accessing the RESTful API:

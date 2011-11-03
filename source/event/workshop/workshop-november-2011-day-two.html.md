@@ -37,8 +37,8 @@ The original location for this page is [Workshop November 2011 - Day Two](Worksh
 *   **Clue** - UI/GWT (with projector)
 *   **Rummikub** - History+Reports (with projector)
 *   **Mouse Trap** - Guest tools (with projector)
-*   **Dominoes** - Governance ([Pad](http://etherpad.ubuntu.com/governance-breakout-ovirt-workshop-20111102), [Governance breakout at oVirt workshop November 2011](Governance breakout at oVirt workshop November 2011)
-*   **Uno** - Node
+*   **Dominoes** - Governance ([Pad](http://etherpad.ubuntu.com/governance-breakout-ovirt-workshop-20111102), [Governance breakout at oVirt workshop November 2011](Governance breakout at oVirt workshop November 2011))
+*   **Uno** - Node ([Pad](http://etherpad.ubuntu.com/node-breakout-ovirt-workshop-20111101), [Node breakout at oVirt workshop November 2011](Node breakout at oVirt workshop November 2011))
 
 ## Evening plans
 

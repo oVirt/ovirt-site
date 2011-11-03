@@ -10,6 +10,8 @@ wiki_last_updated: 2011-11-03
 
 # Roadmap and schedule - oVirt workshop November 2011
 
+## What to focus on
+
 *   SUSE - Packaging of Node VDSM guest agent for OpenSUSE
 *   Canonical - Packaging of Node VDSM guest agent for Ubuntu
     -   Relationg to having Jonas in next Ubuntu(?) release?

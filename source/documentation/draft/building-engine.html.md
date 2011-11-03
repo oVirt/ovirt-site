@@ -237,9 +237,7 @@ More detail can be found in [Setting_Gerrit](Setting_Gerrit).
 
         That will reduce the permutation number to one - 
 
-Edit to - $OVIRT_HOME/frontend/webadmin/modules/webadmin/src/main/java/org/ovirt/engine/ui/webadmin/WebAdmin.gwt.xml
-
-These lines:
+Edit to - $OVIRT_HOME/frontend/webadmin/modules/webadmin/src/main/java/org/ovirt/engine/ui/webadmin/WebAdmin.gwt.xml $OVIRT_HOME/frontend/webadmin/modules/userportal/src/main/java/org/ovirt/engine/ui/userportal/UserPortal.gwt.xml These lines:
 
       <!-- Reduce the number of permutations to compile, just for tests: -->
       <set-property name="user.agent" value="gecko1_8"/>

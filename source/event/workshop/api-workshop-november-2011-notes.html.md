@@ -10,6 +10,8 @@ wiki_last_updated: 2012-01-15
 
 # API - oVirt workshop November 2011 Notes
 
+Presenter slides: ![](oVirt-API-CLI-SDK-20111102.pdf "fig:oVirt-API-CLI-SDK-20111102.pdf")
+
 ## oVirt API
 
 *   Overview of HTTP and RESTful protocols

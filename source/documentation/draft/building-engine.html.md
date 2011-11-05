@@ -192,6 +192,24 @@ In your git repository, run the following command
       # > cd $OVIRT_HOME/backend/manager/dbscripts_postgres/
       # > ./create_db_devel.sh -u postgres 
 
+PostgreSQL 8.4 does not install uuid generation functions by default.
+In order to use those functions, you will have to install it manually:
+
+      > psql -d engine -U postgres -f /usr/share/pgsql/contrib/uuid-ossp.sql
+
+      on F16 / postgresql 9.1 (see http://gerrit.ovirt.org/#change,22 )
+      > psql -U postgres -d engine -c 'create extension "uuid-ossp"' -1
+
+The package installation distributes a library named uuid-ossp.so
+
+      (on Fedora 14 64 bit its in /usr/lib64/pgsql/uuid-ossp.so)
+
+The added functions are documented at
+<http://www.postgresql.org/docs/8.3/static/uuid-ossp.html>
+
+You can run those function from pgsql , for example:
+ > select uuid_generate_v1();
+
 #### Build
 
 If you want only virt-engine-core and rest api:

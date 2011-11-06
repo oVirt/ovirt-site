@@ -77,11 +77,7 @@ Note that JBoss AS 5.1 does not include security fixes for issues found after it
 oVirt engine is using maven version 2.2.x, maven 3.x will not work.
  yum install -y maven2
 
-Add Maven to Path:
-
-      echo "PATH=/usr/share/maven2/bin:$PATH" >> ~/.bashrc
-
-*   Please validate maven path, as it will change on maven3.
+*   Please validate mvn is in the path
 
 ##### Maven personal settings
 

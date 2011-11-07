@@ -83,6 +83,8 @@ $ git checkout --track origin/devel`
 
 ### Build the image
 
+*   Need to install ovirt-node-tools package built above
+
 `
 
 * $ cd recipe

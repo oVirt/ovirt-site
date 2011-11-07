@@ -34,19 +34,20 @@ OpenJDK
 
 ## Installing JBoss AS
 
-Installing RPM
+Installing using an RPM:
 
-??? missing RPM details ???
+          #> wget -P /etc/yum.repos.d/ http://ranglust.fedorapeople.org/ovirt-engine-jbossas/ovirt-engine-jbossas.repo
+          #> yum install ovirt-engine-jbossas
 
 Manual installation:
 
-      #> wget http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA-jdk6.zip/download
-      #> unzip jboss-5.1.0.GA-jdk6.zip
-      #> mv jboss-5.1.0.GA /usr/local/jboss-5.1.0.GA
+          #> wget http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA-jdk6.zip/download
+          #> unzip jboss-5.1.0.GA-jdk6.zip
+          #> mv jboss-5.1.0.GA /usr/local/jboss-5.1.0.GA
 
 Check that it runs:
 
-        $> /usr/local/jboss-5.1.0.GA/bin/run.sh
+          $> /usr/local/jboss-5.1.0.GA/bin/run.sh
 
 **Troubleshooting**
 

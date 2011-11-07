@@ -24,7 +24,7 @@ Use git
 
 $ cd node
 
-$ git co --track origin/devel`
+$ git checkout --track origin/devel`
 
 ### Setup a Build Environment
 

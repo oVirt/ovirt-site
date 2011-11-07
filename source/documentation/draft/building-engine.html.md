@@ -55,6 +55,8 @@ Check that it runs:
 
           $> /usr/local/jboss-5.1.0.GA/bin/run.sh
 
+Ensure that you have write access to $JBOSS_HOME/server/default/deploy to which oVirt-engine will be deployed.
+
 **Troubleshooting**
 
 1.  Some useful JAVA_OPTS:

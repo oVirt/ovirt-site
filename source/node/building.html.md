@@ -41,7 +41,7 @@ $ git checkout --track origin/devel`
         -   mkdir -p $BASEDIR/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}</code>
 *   set OVIRT_CACHE_DIR and OVIRT_LOCAL_REPO environment variables
     -   <code> $ export OVIRT_CACHE_DIR=~/ovirt-cache
-    -   $ export OVIRT_LOCAL_REPO=${BASEDIR}/RPMS </code>
+    -   $ export OVIRT_LOCAL_REPO=<file://>${BASEDIR}/RPMS </code>
 
 ### Install Dependencies
 

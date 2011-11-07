@@ -68,7 +68,7 @@ $ git checkout --track origin/devel`
 
 ### Workarounds for RPMs not included in Fedora
 
-*   cd to your rpmbuild/RPMS/x86_64 directory
+*   cd to your rpmbuild/RPMS directory
 *   copy all separate rpms there
 *   in the RPMS directory, run `$ createrepo .`
 

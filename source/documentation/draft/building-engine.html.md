@@ -18,9 +18,13 @@ wiki_last_updated: 2013-06-25
 1.  Fedora 14 and up x86-64 OS
 2.  Internet connection
 
+<span style="background:#333333;color:#FFF;text-decoration:overline">$> Step 1</span>
+
 ## Getting VDSM
 
 Not exactly engine based, but the current vdsm packages for running a host are located [here](http://fsimonce.fedorapeople.org/vdsm/)
+
+<span style="background:#333333;color:#FFF;text-decoration:overline">$> Step 2</span>
 
 ## Installing JDK
 
@@ -31,6 +35,8 @@ OpenJDK
 *   Verify that javac linked to openjdk-1.6.0's javac properly.
 
       $> alternatives --display javac
+
+<span style="background:#333333;color:#FFF;text-decoration:overline">$> Step 3</span>
 
 ## Installing JBoss AS
 
@@ -66,6 +72,8 @@ Check that it runs:
 ### JBoss AS Security
 
 Note that JBoss AS 5.1 does not include security fixes for issues found after it was released. These fixes are rolled into later versions of JBoss AS. By default, JBoss AS permits unauthenticated access to the JMX console. It is important that the JMX console is configured to require authentication. Failure to do so will render the system vulnerable to several known exploits, including the [JBoss Worm](http://community.jboss.org/blogs/mjc/2011/10/20/statement-regarding-security-threat-to-jboss-application-server) that exploits [CVE-2010-0738](https://access.redhat.com/kb/docs/DOC-30741). Please follow [these instructions](http://community.jboss.org/wiki/SecureTheJmxConsole) to secure the JMX console.
+
+<span style="background:#333333;color:#FFF;text-decoration:overline">$> Step 4</span>
 
 ## Installing tools
 
@@ -166,11 +174,15 @@ Copy paste the content of the file below into ~/.m2/settings.xml
 
 *   Do not omit the active-profiles element in the above xml, it is crucial.
 
+<span style="background:#333333;color:#FFF;text-decoration:overline">$> Step 5</span>
+
 ## Installing PostgreSQL
 
 [Installing_PostgreSQL_DB](Installing_PostgreSQL_DB)
 
-## oVirt-engine Source
+<span style="background:#333333;color:#FFF;text-decoration:overline">$> Step 6</span>
+
+## Building oVirt-engine from source
 
 #### Clone oVirt-engine codebase
 
@@ -231,6 +243,8 @@ From this point on, every time you deploy you can simply run:
 
 Since postgres is already set up.
 
+<span style="background:#333333;color:#FFF;text-decoration:overline">$> Step 7</span>
+
 ## Testing
 
 Assuming JBoss is not running, it should be started:
@@ -253,7 +267,9 @@ Accessing the web-admin:
 Accessing the user-portal
  http://<server name>:<port>/UserPortal
 
-## Gerrit
+<span style="background:#333333;color:#FFF;text-decoration:overline">$> Step 8</span>
+
+## Code contribution: Gerrit
 
 oVirt-engine is working with gerrit for code contribution.
 More detail can be found in [Setting_Gerrit](Setting_Gerrit).

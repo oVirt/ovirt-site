@@ -90,7 +90,7 @@ oVirt engine is using maven version 2.2.x, maven 3.x will not work.
 
 ##### Maven personal settings
 
-Copy paste the content of the file below into ~/.m2/settings.xml
+Use wget -O ~/.m2/settings.xml [Media:Settings.xml.png‎](Media:Settings.xml.png‎) or Copy paste the content of the file below into ~/.m2/settings.xml
 
       <?xml version="1.0"?>
 

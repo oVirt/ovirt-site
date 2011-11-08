@@ -26,12 +26,12 @@ Note: for earlier PostgreSQL versions, a patch is needed.
 
 # Running the service
 
-      su - postgres -c 'pg_ctl initdb' # (first time only)
-      service postgresql start
+      #> su - postgres -c 'pg_ctl initdb' # (first time only)
+      #> service postgresql start
 
 It is recommended to add this service to auto start by
 
-      chkconfig postgresql on
+      #> chkconfig postgresql on
 
 # Connecting to the database
 

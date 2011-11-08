@@ -16,7 +16,9 @@ The actual name of your feature page should look something like: Features/YourFe
 
 ### Summary
 
-A sentence or two summarizing what this feature is and what it will do. This information is used for the overall feature summary page for each release. Add a link to the feature page as well: [[Features/FeatureTemplate] | FeatureTemplate]
+A sentence or two summarizing what this feature is and what it will do. This information is used for the overall feature summary page for each release.
+
+Add a link to the feature page as well: [ FeatureTemplate](Features/FeatureTemplate)
 
 ### Owner
 
@@ -30,12 +32,27 @@ Include you email address that you can be reached should people want to contact 
 
 ### Current status
 
-*   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
+*   Target Release: ...
+*   Status: ...
 *   Last updated date: ...
 
 ### Detailed Description
 
-Expand on the summary, if appropriate. A couple sentences suffices to explain the goal, but the more details you can provide the better.
+Provide the details of the feature. What is it going to include. See the sections below.
+
+#### Entity Description
+
+#### CRUD
+
+#### User Experience
+
+#### Export/Import
+
+#### Template
+
+#### Installation/Upgrade
+
+#### User work-flows
 
 ### Benefit to oVirt
 

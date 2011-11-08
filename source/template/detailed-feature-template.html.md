@@ -46,7 +46,11 @@ New entities and changes in existing entities.
 
 #### CRUD
 
+Describe the create/read/update/delete operations on the entities, and what each operation should do.
+
 #### User Experience
+
+Describe user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should also be added here to make it more clear
 
 #### Installation/Upgrade
 

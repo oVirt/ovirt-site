@@ -27,6 +27,10 @@ This page is intended to be the root of the oVirt documentation project. This wi
 ### VDSM
 
 `* `[`Vdsm` `Getting` `Started`](Vdsm Getting Started)
+`* `[`Vdsm`](Vdsm)
+`* `[`Vdsm_Developers`](Vdsm_Developers)
+`* `[`Vdsm_Log_Files`](Vdsm_Log_Files)
+`* `[`Vdsm_Storage_Terminology`](Vdsm_Storage_Terminology)
 
 ### Reports and Data Warehouse
 

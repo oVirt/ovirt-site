@@ -47,9 +47,9 @@ Installing using an RPM:
 
 Manual installation:
 
-          #> wget http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA-jdk6.zip/download
-          #> unzip jboss-5.1.0.GA-jdk6.zip
-          #> mv jboss-5.1.0.GA /usr/local/jboss-5.1.0.GA
+          $> wget http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA-jdk6.zip/download
+          $> unzip jboss-5.1.0.GA-jdk6.zip
+          $> sudo mv jboss-5.1.0.GA /usr/local/jboss-5.1.0.GA
 
 Check that it runs:
 

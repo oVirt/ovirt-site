@@ -13,7 +13,7 @@ wiki_last_updated: 2014-12-12
 
 The actual name of your feature page should look something like: Features/YourFeatureName. This keeps all features in the same namespace
 
-## YourFeatureName
+## Your Feature Name
 
 ### Summary
 

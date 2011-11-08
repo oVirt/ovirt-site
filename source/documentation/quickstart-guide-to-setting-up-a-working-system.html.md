@@ -48,3 +48,5 @@ Download and install all of the rpms found in <http://fsimonce.fedorapeople.org/
 ### Create NFS Storage
 
 ### Register the storage
+
+[Category:Draft documentation](Category:Draft documentation) <Category:Installation>

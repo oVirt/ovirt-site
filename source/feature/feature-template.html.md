@@ -59,7 +59,3 @@ Is there upstream documentation on this feature, or notes you have written yours
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
 *   See <Talk:Features/YourFeatureName>
-
-### Open Issues
-
-Open issues about the feature. Issues that will effect the feature. Issues that might jeopardize the progress of the feature.

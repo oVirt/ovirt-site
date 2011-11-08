@@ -28,6 +28,7 @@ This page is intended to be the root of the oVirt documentation project. This wi
 
 `* `[`Vdsm` `Getting` `Started`](Vdsm Getting Started)
 
-### Reports
+### Reports and Data Warehouse
 
 `* `[`How` `to` `setup` `a` `oVirt` `DWH` `development` `environment`](How to setup a oVirt DWH development environment)
+`* `[`Ovirt` `DWH`](Ovirt DWH)

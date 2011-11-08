@@ -25,6 +25,7 @@ Source material includes any appropriately licensed information considered a use
 `* `[`Build` `&` `Install` `RPM`](Build & Install RPM)
 `* `[`Building` `Ovirt` `Engine`](Building Ovirt Engine)
 `* `[`Installing` `PostgreSQL` `DB`](Installing PostgreSQL DB)
+`* `[`Working` `with` `gerrit.ovirt.org`](Working with gerrit.ovirt.org)
 
 ### Node
 

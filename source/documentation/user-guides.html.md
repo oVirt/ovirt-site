@@ -12,7 +12,13 @@ wiki_last_updated: 2014-11-25
 
 This page is intended to be the root of the oVirt documentation project. This will ultimately include links to the documentation as well as instructions for those wishing to contribute.
 
+## License
+
+The documentation license to be used for the oVirt project is TBA.
+
 ## Source Material
+
+Source material includes any appropriately licensed information considered a useful reference for more formal documentation activity.
 
 ### Engine
 

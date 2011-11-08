@@ -273,8 +273,8 @@ Accessing the user-portal
 
 ## Code contribution: Gerrit
 
-oVirt-engine is working with gerrit for code contribution.
-More detail can be found in [Setting_Gerrit](Setting_Gerrit).
+oVirt-engine is working with Gerrit for code contribution.
+More detail can be found in [Working_with_oVirt_Gerrit](Working_with_oVirt_Gerrit).
 
 ## Temp
 

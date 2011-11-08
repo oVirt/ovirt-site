@@ -10,7 +10,7 @@ wiki_last_updated: 2014-11-25
 
 # User Guides
 
-This page is intended to be the root of the oVirt documentation project. This will include links to the documentation as well as instructions for those wishing to contribute.
+This page is intended to be the root of the oVirt documentation project. This will ultimately include links to the documentation as well as instructions for those wishing to contribute.
 
 ## Source Material
 
@@ -27,3 +27,7 @@ This page is intended to be the root of the oVirt documentation project. This wi
 ### VDSM
 
 `* `[`Vdsm` `Getting` `Started`](Vdsm Getting Started)
+
+### Reports
+
+`* `[`How` `to` `setup` `a` `oVirt` `DWH` `development` `environment`](How to setup a oVirt DWH development environment)

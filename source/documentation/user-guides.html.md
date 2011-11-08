@@ -16,14 +16,14 @@ This page is intended to be the root of the oVirt documentation project. This wi
 
 ### Engine
 
-`* `[`Build_%26_Install_RPM`](Build_%26_Install_RPM)
-`* `[`Building_Ovirt_Engine`](Building_Ovirt_Engine)
-`* `[`Installing_PostgreSQL_DB`](Installing_PostgreSQL_DB)
+`* `[`Build` `&` `Install` `RPM`](Build & Install RPM)
+`* `[`Building` `Ovirt` `Engine`](Building Ovirt Engine)
+`* `[`Installing` `PostgreSQL` `DB`](Installing PostgreSQL DB)
 
 ### Node
 
-`* `[`Node_Building`](Node_Building)
+`* `[`Node` `Building`](Node Building)
 
 ### VDSM
 
-`* `[`Vdsm_Getting_Started`](Vdsm_Getting_Started)
+`* `[`Vdsm` `Getting` `Started`](Vdsm Getting Started)

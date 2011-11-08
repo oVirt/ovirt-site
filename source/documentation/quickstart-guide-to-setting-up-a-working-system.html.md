@@ -22,6 +22,11 @@ wiki_last_updated: 2014-09-26
 
 [Building_Ovirt_Engine](Building_Ovirt_Engine)
 
+### Start the engine
+
+        ${JBOSS_HOME}/bin/run.sh -b 0.0.0.0
+       
+
 ### Install VDSM
 
         $>sudo yum install fence-agents libvirt libvirt-python nfs-utils qemu-img qemu-kvm
@@ -35,5 +40,11 @@ Download and install all of the rpms found in <http://fsimonce.fedorapeople.org/
 
 ### Register The Host
 
-        curl -X POST --trace-ascii - -d "<host><name>${hostname}</name><address>${ipaddress}</address><root_password>${password}</root_password></host>" --header "Content-Type: application/xml" -u 'admin@internal:letmein!'    http://${server}:${port}/api/hosts
+        curl -X POST -d "<host><name>${hostname}</name><address>${ipaddress}</address><root_password>${password}</root_password></host>" --header "Content-Type: application/xml" -u 'admin@internal:letmein!' http://${server}:${port}/api/hosts
        
+
+### Associate the Host with A Data Center
+
+### Create NFS Storage
+
+### Register the storage

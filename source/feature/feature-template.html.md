@@ -38,10 +38,6 @@ Include you email address that you can be reached should people want to contact 
 
 Expand on the summary, if appropriate. A couple sentences suffices to explain the goal, but the more details you can provide the better.
 
-### User Experience
-
-If this feature is noticeable by its target audience, how will their experiences change as a result? Describe what they will see or notice.
-
 ### Benefit to oVirt
 
 What is the benefit to the oVitt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?

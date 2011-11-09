@@ -43,8 +43,6 @@ Affected oVirt projects:
 *   Engine-core
 *   Webadmin
 *   User Portal
-*   DWH ?
-*   Reports ?
 
 Quota has to be taken in consideration, for every new feature that will involve consumption of resources managed by it.
 

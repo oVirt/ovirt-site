@@ -18,9 +18,12 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 
 ### Owner
 
-*   Name: [ Maor Lipchuk](User:mlipchuk)
+*   Feature owner: [ Maor Lipchuk](User:mlipchuk)
 
-<!-- -->
+`* GUI Component owner: `[ `Gilad` `Chaplik`](User:gchaplik)
+`* REST Component owner: `[ `Michael` `Pasternak`](User:mpasternak)
+`* Engine Component owner: `[ `Maor` `Lipchuk`](User:mlipchuk)
+      * QA Owner: `[ `Yaniv` `Kaul`](User:ykaul)` 
 
 *   Email: <mlipchuk@redhat.com>
 

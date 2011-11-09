@@ -50,6 +50,12 @@ Note: This repo has the Fedora 15 version of the rpms. If you're using any other
           #> sed -i -e "s/$releasever/15/g" /etc/yum.repos.d/ovirt-engine-jbossas.repo
        
 
+Check that it runs:
+
+          #> service jboss start
+          #> ps ax | grep java
+       
+
 Manual installation:
 
           $> wget http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA-jdk6.zip/download

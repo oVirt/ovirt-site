@@ -37,6 +37,23 @@ Please help plug anyone from the community speaking or bloging about oVirt. Samp
 
 The follow section is to help plan oVirt workshops and meetups. Generally it would be good to have someone from the oVirt community speak at all the major virt, Linux and cloud events. In addition the desire has been expressed to have regional workshops for oVirt much like the kick-off workshop help at Cisco. These need additional planning to put together and will be coordinated by the oVirt board.
 
+#### Schedule
+
+|-------------|---------|-----------|
+| *Date*      | *Event* | *Details* |
+| 10 Dec 2011 | Foo     | Meetup    |
+| 11 oct 2012 | Foobar  | Workshop  |
+
+Need an event calendar.
+
+*   LISA - Dec
+*   SCALE - Jan
+*   Brno - Feb
+*   Meetups?
+*   China - Apr
+*   NY - July?
+*   London - Sep?
+
 #### Meetups
 
 A session hosted anywhere at any event to discuss, promote or hack on a technical area of oVirt. Informally arranged, hopefully having 2 or 3 a month.

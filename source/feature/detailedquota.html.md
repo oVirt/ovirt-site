@@ -35,7 +35,8 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 
 ### Detailed Description
 
-Provide the details of the feature. What is it going to include. See the sections below.
+Quota should provide the Administrator a way to limit the resource usage in the System.
+The feature, should provide the Administrator, a management configuration tool, for setting rules on each aspect, which is crucial enough, to be management consumable.
 
 #### Entity Description
 

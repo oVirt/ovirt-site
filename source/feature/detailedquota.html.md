@@ -40,18 +40,15 @@ The Quota is a new (searchable) Object in the system, A Quota should contains th
          1. Name
          2. Description
          3. Data Center which is referenced to.
-
          4. A list of unlimited number of specific rules, which each rule should specify a resource and resource limitation parameters.
          The limitation is logically separated into different types.
          Each object type has set of rules, according to its type :
          Example for the described list of cluster type:
-
              [ Cluster1: 6 VCPUs, 9GB RAM - IntelCluster
              Cluster2: 8 VCPUs, 12GB RAM – AmdCluster
              Note that the limitations can be configured for each cluster or a group of clusters.
              For data Quota type object, we will have three different set of rules:
              Unlimited - Indicates on that DC there will be no limitation on data storage,
-
              Limit per storage - for example:
                  Storage Domain1: 20GB
                  Storage Domain2: 10GB

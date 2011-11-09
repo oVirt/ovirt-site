@@ -31,7 +31,7 @@ Quota should provide the Administrator a way to limit the resource usage in the 
 
 ### Benefit to oVirt
 
-What is the benefit to the oVitt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
+The Quota feature enables limiting resources, which is highly relevant in multi-tenant environments (such as public and private cloud providers).
 
 ### Dependencies / Related Features
 

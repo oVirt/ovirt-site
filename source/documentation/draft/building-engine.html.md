@@ -235,7 +235,7 @@ Notes:
 The first deployment of the application to JBoss AS container should use the setup profile:
 
       $> cd $OVIRT_HOME/ear
-      $> mvn clean install -Pdep,setup_postgres
+      $> mvn clean install -Pdep,setup
 
 There is a issue with the dep and setup_postgres profiles getting in the way of each other. the setup_postgres profile will prevent the deployment of the quartz jar to the JBoss server. So after this step completes, run:
 

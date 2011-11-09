@@ -33,7 +33,7 @@ The original location for this page is [Workshop November 2011 - Day One](Worksh
     -   Topic sessions include presentation, interactive discussion & white boarding as needed
 *   3:45PM – 4:00PM : Break
 *   4:00PM – 5:00PM : Working Sessions (Slot 1)
-    -   Get me productive (devel env) | Open Discussion | New projects | …
+    -   Get me productive (devel env) ([Slides](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-dev-setup.pdf))
 *   6:00PM – 9:00PM : Evening social
     -   Location: Crowne Plaza (Pasta’s Grille), 777 Bellew Dr, Milpitas, CA
 

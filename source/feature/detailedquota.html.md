@@ -35,48 +35,78 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 
 ### Detailed Description
 
+#### Entity Description
+
 The Quota is a new (searchable) Object in the system, A Quota should contains the following properties:
 
-         1. Name
-         2. Description
-         3. Data Center which is referenced to.
-         4. A list of unlimited number of specific rules, which each rule should specify a resource and resource limitation parameters.
-         The limitation is logically separated into different types.
-         Each object type has set of rules, according to its type :
-         Example for the described list of cluster type:
-             [ Cluster1: 6 VCPUs, 9GB RAM - IntelCluster
-             Cluster2: 8 VCPUs, 12GB RAM – AmdCluster
-             Note that the limitations can be configured for each cluster or a group of clusters.
-             For data Quota type object, we will have three different set of rules:
-             Unlimited - Indicates on that DC there will be no limitation on data storage,
-             Limit per storage - for example:
+1.  Name
+2.  Description
+3.  Data Center which is referenced to.
+4.  A list of unlimited number of specific rules, which each rule should specify a resource and resource limitation parameters.
+
+For example, check the following Quota object, with the following properties:
+
+      VCPU/Memory limitations:
+
+*   Cluster1: 6 VCPUs, 9GB RAM
+*   Cluster2: 8 VCPUs, 12GB RAM
+
+Storage Limitations:
+
+*   Storage Domain1: 20GB
+*   Storage Domain1: 10GB
+*   Storage Domain3: 50GB
+*   Global limitation - Indicates global limitation of storage on that DC (not on specific DS) (example: Global: 100GB)
+
+List of Users/Groups that have permission to use the Quota, i.e. assign it to VMs/disks
+
+*   user1
+*   group2
+
+      The limitation is logically separated into different types.
+      Each object type has set of rules, according to its type:
+      Example for the described list of cluster type:
+         [ Cluster1: 6 VCPUs, 9GB RAM - IntelCluster
+         Cluster2: 8 VCPUs, 12GB RAM – AmdCluster
+         Note that the limitations can be configured for each cluster or a group of clusters.
+         For data Quota type object, we will have three different set of rules:
+         Unlimited - Indicates on that DC there will be no limitation on data storage,
+         Limit per storage - for example:
                  Storage Domain1: 20GB
                  Storage Domain2: 10GB
                  Storage Domain3: 5GB ] 
-             Global limitation - Indicates global limitation of storage on that DC (not on specific DS) (example: Global: 100GB) 
-         List of Users/Groups that have permission to use the Quota, i.e. assign it to VMs/disks 
+         Global limitation - Indicates global limitation of storage on that DC (not on specific DS) (example: Global: 100GB) 
+
+List of Users/Groups that have permission to use the Quota, i.e. assign it to VMs/disks
 
 Note - Quota should not be supported for 2.2 VM's
 
-#### Entity Description
-
-New entities and changes in existing entities.
-
 #### CRUD
 
-Describe the create/read/update/delete operations on the entities, and what each operation should do.
+Quota can be removed only if there are no VMs/Templates that are pointing to this quota. Quota can be edited; When a Quota is edited, the change should apply to all the users that have this quota. Quota parameters can be edited in a way resulting in exceeding it (for example, reducing the disk limitation of some storage domain). This case will not result in a violation. However, once resources will be released to follow the Quota limitation, the user won't be able to exceed the Quota again.
+
+the Administrator will be able to create/edit a quota using a wizard, to configure cluster quota parameters, storage quota parameters, and users which will be able to consume those quota resources.
 
 #### User Experience
 
-Describe user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should also be added here to make it more clear
+User can use more than one Quota Quota should not be defined per user, to support definition of Quota per user, the quota can be cloned.
+Such a clone procedure should copy all the quota properties except of the name and the description.
+Since the users added to the Quota would need a permission of power user on the DC to add/edit a VM, the Administrator can choose whether to add these permissions automatically.
+The automatic assignment would only be affective when adding a limitation on a resource new to the Quota; When removing resources from the Quota, an alert message will be presented.
+Note that the user that created the Quota would not necessarily have the permissions to create/edit resources that use it.
+ The Administrator Portal should allow the following operations:
+
+         View/edit/create Quota's
+         View/edit /create the User's roles and Quotas
+         View Quota per resource (User/Storage domain etc.)
+         The Power User Portal should allow the following operations:
+         View Quota's defined/used for himself 
 
 #### Installation/Upgrade
 
 Describe how the feature will effect new installation or existing one.
 
 #### User work-flows
-
-Describe the high-level work-flows relevant to this feature.
 
 #### Events
 

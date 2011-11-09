@@ -10,7 +10,7 @@ wiki_last_updated: 2014-09-30
 
 # Detailed feature template
 
-The actual name of your feature page should look something like: Features/YourFeatureName. This keeps all features in the same namespace
+The actual name of your feature page should look something like: "Your feature name". Use natural language to name the pages.
 
 ## Your Feature Name
 
@@ -18,7 +18,7 @@ The actual name of your feature page should look something like: Features/YourFe
 
 A sentence or two summarizing what this feature is and what it will do. This information is used for the overall feature summary page for each release.
 
-Add a link to the feature page as well: [ FeatureTemplate](Features/FeatureTemplate)
+Add a link to the main feature page as well: [Your feature name](Your feature name)
 
 ### Owner
 
@@ -81,3 +81,5 @@ Add a link to the "discussion" tab associated with your page. This provides the 
 ### Open Issues
 
 Issues that we haven't decided how to take care of yet. These are issues that we need to resolve and change this document accordingly.
+
+<Category:Template> <Category:Feature>

@@ -25,7 +25,7 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 `* Engine Component owner: `[ `Maor` `Lipchuk`](User:mlipchuk)
       * QA Owner: `[ `Yaniv` `Kaul`](User:ykaul)` 
 
-*   Email: <mlipchuk@redhat.com>
+*   Email: mlipchuk@redhat.com
 
 ### Current status
 

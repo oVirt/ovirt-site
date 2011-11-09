@@ -71,21 +71,15 @@ The resource to limit, can be specific like Cluster or Storage Data, but can als
 The global resource defines limitation on the Data Center for a specific type (Storage or Runtime).
 Note that run time resources, can be referenced as one entity to limit. (Although for Storage Domains it will not be supported for now).
 
-For example, a Quota object, with global limitation on the cluster and the storage: *VCPU/Memory limitations:*
+For example, a Quota object, with global limitation on the cluster and the storage:
 
 *   Global Cluster: 14 VCPUs, 21GB RAM
-
-*Storage Limitations:*
-
 *   Global Storage - 80GB
 
 A Quota, can be indicated as an unlimited Quota, when it is configured with global resources with no specific limit.
-The following quota is an unlimited Quota: *VCPU/Memory limitations:*
+The following quota is an unlimited Quota:
 
 *   Global Cluster: Unlimited
-
-*Storage Limitations:*
-
 *   Global Storage - Unlimited
 
 #### CRUD

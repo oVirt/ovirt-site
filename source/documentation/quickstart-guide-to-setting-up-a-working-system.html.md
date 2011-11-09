@@ -34,6 +34,12 @@ wiki_last_updated: 2014-09-26
 
 Download and install all of the rpms found in <http://fsimonce.fedorapeople.org/vdsm/fedora-16/x86_64>
 
+create /etc/vdsm/vdsm.conf with the following:
+
+        [vars]
+        ssl = False
+       
+
         $> sudo chkconfig vdsmd on
         $> sudo systemctl start vdsmd.service
        

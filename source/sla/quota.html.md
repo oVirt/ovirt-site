@@ -22,7 +22,7 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 ### Current status
 
 *   <http://www.ovirt.org/wiki/Features/DetailedQuota>
-*   Last updated date: 2011-11-09
+*   Last updated date: Wed Nov 9 2011
 
 ### Detailed Description
 

@@ -11,7 +11,7 @@ wiki_last_updated: 2014-12-12
 
 # Feature template
 
-The actual name of your feature page should look something like: Features/YourFeatureName. This keeps all features in the same namespace
+The actual name of your feature page should look something like: "Your feature name". Use natural language to name the pages.
 
 ## Your Feature Name
 
@@ -40,7 +40,7 @@ Expand on the summary, if appropriate. A couple sentences suffices to explain th
 
 ### Benefit to oVirt
 
-What is the benefit to the oVitt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
+What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
 
 ### Dependencies / Related Features
 
@@ -54,6 +54,6 @@ Is there upstream documentation on this feature, or notes you have written yours
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
-*   See <Talk:Features/YourFeatureName>
+*   Refer to [Talk:Your feature name](Talk:Your feature name)
 
 <Category:Feature> <Category:Template>

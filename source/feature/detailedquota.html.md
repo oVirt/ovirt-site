@@ -10,31 +10,25 @@ wiki_last_updated: 2015-01-16
 
 # Detailed Quota
 
-The actual name of your feature page should look something like: Features/YourFeatureName. This keeps all features in the same namespace
-
 ## Quota
 
 ### Summary
 
-A sentence or two summarizing what this feature is and what it will do. This information is used for the overall feature summary page for each release.
-
-Add a link to the feature page as well: [ FeatureTemplate](Features/FeatureTemplate)
+Quota provides a way for the Administrator to limit the resource usage in the System. [ Quota](Features/Quota)
 
 ### Owner
 
-This should link to your home wiki page so we know who you are
+*   Name: [ Maor Lipchuk](User:mlipchuk)
 
-*   Name: [ My User](User:MyUser)
+<!-- -->
 
-Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
-
-*   Email: <my@email>
+*   Email: <mlipchuk@redhat.com>
 
 ### Current status
 
-*   Target Release: ...
-*   Status: ...
-*   Last updated date: ...
+*   Target Release:
+*   Status: Design Stage
+*   Last updated date: Wed Nob 9 2011
 
 ### Detailed Description
 

@@ -39,11 +39,12 @@ The follow section is to help plan oVirt workshops and meetups. Generally it wou
 
 #### Schedule
 
-|----------|----------------|---------------------------------------------------------------------------------------------------|
-| *Date*   | *Event*        | *Details*                                                                                         |
-| Dec 4–9  | LISA Boston    | Meetup or talk, is anyone going, or can we still set a slot <http://www.usenix.org/event/lisa11/> |
-| Feb 20   | SCALE, LA      | Meetup and or talk, who is going, <https://www.socallinuxexpo.org/cfp/cfp-information>            |
-| June 1-3 | LinuxCon Japan | TBD <https://events.linuxfoundation.org/events/linuxcon-japan>                                    |
+|-----------|----------------|---------------------------------------------------------------------------------------------------|
+| *Date*    | *Event*        | *Details*                                                                                         |
+| Dec 4–9   | LISA Boston    | Meetup or talk, is anyone going, or can we still set a slot <http://www.usenix.org/event/lisa11/> |
+| Jan 16-20 | linux.conf.au  | TBD <http://linux.conf.au/>                                                                       |
+| Feb 20    | SCALE, LA      | Meetup and or talk, who is going, <https://www.socallinuxexpo.org/cfp/cfp-information>            |
+| June 1-3  | LinuxCon Japan | TBD <https://events.linuxfoundation.org/events/linuxcon-japan>                                    |
 
 Workshop suggestions:
 

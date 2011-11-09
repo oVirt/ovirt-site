@@ -45,7 +45,7 @@ The Quota is a new (searchable) Object in the system, A Quota contains the follo
 4.  List of unlimited number of specific rules, where each rule should specify a resource and resource limitation parameters.
 5.  List of Users/Groups that have permission to use the Quota, i.e. assign it to VMs/disks
 
-For example, Quota object configured for R&D team, with the following properties:
+For example, the following Quota is configured for R&D:
 
 *   *Name*: DevelQuota
 *   *Description*: Quota configured for R&D team
@@ -78,6 +78,15 @@ For example, a Quota object, with global limitation on the cluster and the stora
 *Storage Limitations:*
 
 *   Global Storage - 80GB
+
+A Quota, can be indicated as an unlimited Quota, when it is configured with global resources with no specific limit.
+The following quota is an unlimited Quota: *VCPU/Memory limitations:*
+
+*   Global Cluster: Unlimited
+
+*Storage Limitations:*
+
+*   Global Storage - Unlimited
 
 #### CRUD
 

@@ -35,6 +35,11 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 
 ### Detailed Description
 
+When a User consume resources of any kind, such as new virtual disk on Storage Domain, or running VM with number of VCPU on a Host,
+the User is not limited, and can consume the maximum limit of the resources.
+
+Quota is a feature which should provide the Administrator a better management way, for managing resources for different Users, this should allow the Administrator to manage and share the resources in the Data Center, more appropriately as he sees fit. and observe them in a more convenient way.
+
 #### Entity Description
 
 The Quota is a new (searchable) Object in the system, which contains the following properties:
@@ -82,6 +87,14 @@ The following limitations are an example of an unlimited Quota:
 *   Global Cluster: Unlimited
 *   Global Storage - Unlimited
 
+Quota is dedicated to a single Data Center, but each Data Center can be related to at least one Quota.
+Each Data Center entity, configured with the verification strategy, it should enforce by the Quotas related to it.
+The verification strategy is configured in the Data Center entity, and has three stages:
+
+1.  Disable - The Data Center would not be subjected to Quota restrictions.
+2.  Audit - Only warning messages would be performed when Quota restrictions will be violated.
+3.  Enforce - Will be enforced the restrictions completely and should prevent the command from executing.
+
 #### CRUD
 
 *   Quota can be removed only if there are no entities such as VM or Template, that are referenced to this Quota.
@@ -121,7 +134,7 @@ The Power User Portal should allow the following operations:
 
 #### Events
 
-What events should be reported when using this feature.
+VM Properties (like number of VCPU and memory) are enforced during VM execution. When Quota is exceeded (and the Quota is in enforce mode) – User should not be allowed to create/run new Objects with that Quota, depends on the limitation that was exceeded. Warning messages should be displayed before limit is reached, depending on the configuration threshold.
 
 ### Dependencies / Related Features and Projects
 

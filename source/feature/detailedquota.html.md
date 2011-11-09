@@ -102,6 +102,14 @@ Describe how the feature will effect new installation or existing one.
 
 #### User work-flows
 
+The Administrator Portal should allow the following operations:
+
+*   View/edit/create Quota's
+*   View/edit /create the User's roles and Quotas
+*   View Quota per resource (User/Storage domain etc.)
+*   The Power User Portal should allow the following operations:
+*   View Quota's defined/used for himself
+
 #### Events
 
 What events should be reported when using this feature.

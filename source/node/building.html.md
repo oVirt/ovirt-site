@@ -74,10 +74,7 @@ $ git checkout --track origin/devel`
 
 **IMPORTANT NOTE**
 
-*   There are currently 2 known overrides that need to be applied
-    -   Need to use a custom grub2 package until it gets into fedora
-        -   [Bug 746394](https://bugzilla.redhat.com/show_bug.cgi?id=746394)
-        -   rpms are under [here](http://goldmann.fedorapeople.org/bz/746394)
+*   There is currently 1 known override that needs to be applied
     -   VDSM rpms are not available in Fedora yet
         -   Need to pull them down for ovirt-node to use
         -   [RPM Location](http://fsimonce.fedorapeople.org/vdsm/)

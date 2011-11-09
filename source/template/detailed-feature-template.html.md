@@ -38,7 +38,7 @@ Include you email address that you can be reached should people want to contact 
 
 ### Detailed Description
 
-Provide the details of the feature. What is it going to include. See the sections below.
+Provide the details of the feature. What is it going to include. See the sections below. This section may have more sub-sections, depends on the oVirt projects relevant for this feature.
 
 #### Entity Description
 

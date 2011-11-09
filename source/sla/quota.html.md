@@ -41,6 +41,4 @@ Quota has to be taken in consider, for every feature that will use consumption t
 
 ### Comments and Discussion
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
-
-*   See <Talk:Features/YourFeatureName>
+*   See <Talk:Features/Quota>

@@ -88,7 +88,7 @@ For example, a Quota object, with global limitation on the cluster and the stora
 #### User Experience
 
 *   the Administrator will be able to create/edit a Quota using a wizard, to configure cluster Quota parameters, storage Quota parameters, and users which will be able to consume those quota resources.
-*   Quota should not be defined per user, to support definition of Quota per user, the Quota can be cloned.
+*   For supporting definition of Quota per user, the Quota can be cloned.
      Such a clone procedure should copy all the Quota properties except of the name and the description.
 *   Since the users assigned to the Quota, would need a power user permission on the DC to add/edit a VM, the Administrator will be able to add these permissions automatically if he desires to.
      This automatic assignment, should only be affective when adding resources for limitation;

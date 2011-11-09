@@ -35,8 +35,31 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 
 ### Detailed Description
 
-Quota should provide the Administrator a way to limit the resource usage in the System.
-The feature, should provide the Administrator, a management configuration tool, for setting rules on each aspect, which is crucial enough, to be management consumable.
+The Quota is a new (searchable) Object in the system, A Quota should contains the following properties:
+
+         1. Name
+         2. Description
+         3. Data Center which is referenced to.
+
+         4. A list of unlimited number of specific rules, which each rule should specify a resource and resource limitation parameters.
+         The limitation is logically separated into different types.
+         Each object type has set of rules, according to its type :
+         Example for the described list of cluster type:
+
+             [ Cluster1: 6 VCPUs, 9GB RAM - IntelCluster
+             Cluster2: 8 VCPUs, 12GB RAM – AmdCluster
+             Note that the limitations can be configured for each cluster or a group of clusters.
+             For data Quota type object, we will have three different set of rules:
+             Unlimited - Indicates on that DC there will be no limitation on data storage,
+
+             Limit per storage - for example:
+                 Storage Domain1: 20GB
+                 Storage Domain2: 10GB
+                 Storage Domain3: 5GB ] 
+             Global limitation - Indicates global limitation of storage on that DC (not on specific DS) (example: Global: 100GB) 
+         List of Users/Groups that have permission to use the Quota, i.e. assign it to VMs/disks 
+
+Note - Quota should not be supported for 2.2 VM's
 
 #### Entity Description
 

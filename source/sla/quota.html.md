@@ -26,7 +26,9 @@ The Quota feature enables limiting user resource usage.
 
 ### Detailed Description
 
-Today, oVirt doesn't have a mechanism for limiting user resource usage. Such a mechanism is important, especially in multi-tenant environments. Thus, the Quota feature will add a mechanism to manage and monitor the resource usage in such environments. This mechanism should provide the administrator a management configuration page, to set rules for each aspect, crucial enough, to be management consumable.
+Today, oVirt doesn't have a mechanism for limiting user resource usage. Such a mechanism is important, especially in multi-tenant environments.
+Thus, the Quota feature will add a mechanism to manage and monitor the resource usage in such environments.
+This mechanism should provide the administrator a management configuration page, to set rules for each aspect, crucial enough, to be management consumable.
 
 ### Benefit to oVirt
 

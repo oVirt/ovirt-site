@@ -31,6 +31,10 @@ Source material includes any appropriately licensed information considered a use
 
 `* `[`Node` `Building`](Node Building)
 
+### API
+
+`* REST API Guide source: `[`http://git.fedorahosted.org/git/?p=rhevm-api.git;a=tree;f=docs;h=6e8d37cfa282d04507a419b02e9064d935e596fd;hb=HEAD`](http://git.fedorahosted.org/git/?p=rhevm-api.git;a=tree;f=docs;h=6e8d37cfa282d04507a419b02e9064d935e596fd;hb=HEAD)
+
 ### VDSM
 
 `* `[`Vdsm` `Getting` `Started`](Vdsm Getting Started)

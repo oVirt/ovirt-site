@@ -35,7 +35,7 @@ The Quota feature enables limiting resources, which is highly relevant in multi-
 
 ### Dependencies / Related Features
 
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
+Quota has to be taken in consider, for every feature that will use consumption that Quota will implement it.
 
 ### Documentation / External references
 

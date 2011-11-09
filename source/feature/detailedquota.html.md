@@ -92,7 +92,8 @@ For example, a Quota object, with global limitation on the cluster and the stora
      Such a clone procedure should copy all the Quota properties except of the name and the description.
 *   Since the users assigned to the Quota, would need a power user permission on the DC to add/edit a VM, the Administrator will be able to add these permissions automatically if he desires to.
      This automatic assignment, should only be affective when adding resources for limitation;
-    When reducing resources for limitation, an alert message will be presented as follow: **Attention, Quota resources have been changed. Please update the Quota Users permissions on the following resources if needed** .
+    When reducing resources for limitation, an alert message will be presented as follow:
+     *Attention, Quota resources have been changed. Please update the Quota Users permissions on the following resources if needed* .
     Note, that the user, that created the Quota, would not necessarily grant permissions to create/edit resources for using it.
 
 #### Installation/Upgrade

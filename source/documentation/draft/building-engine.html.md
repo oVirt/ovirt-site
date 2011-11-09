@@ -45,6 +45,11 @@ Installing using an RPM:
           #> wget -P /etc/yum.repos.d/ http://ranglust.fedorapeople.org/ovirt-engine-jbossas/ovirt-engine-jbossas.repo
           #> yum install ovirt-engine-jbossas
 
+Note: This repo has the Fedora 15 version of the rpms. If you're using any other, you need to change the url of the repo. For example:
+
+          #> sed -i -e "s/$releasever/15/g" /etc/yum.repos.d/ovirt-engine-jbossas.repo
+       
+
 Manual installation:
 
           $> wget http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA-jdk6.zip/download

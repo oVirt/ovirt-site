@@ -87,18 +87,13 @@ For example, a Quota object, with global limitation on the cluster and the stora
 
 #### User Experience
 
-User can use more than one Quota Quota should not be defined per user, to support definition of Quota per user, the quota can be cloned.
-Such a clone procedure should copy all the quota properties except of the name and the description.
-Since the users added to the Quota would need a permission of power user on the DC to add/edit a VM, the Administrator can choose whether to add these permissions automatically.
-The automatic assignment would only be affective when adding a limitation on a resource new to the Quota; When removing resources from the Quota, an alert message will be presented.
-Note that the user that created the Quota would not necessarily have the permissions to create/edit resources that use it.
- The Administrator Portal should allow the following operations:
-
-         View/edit/create Quota's
-         View/edit /create the User's roles and Quotas
-         View Quota per resource (User/Storage domain etc.)
-         The Power User Portal should allow the following operations:
-         View Quota's defined/used for himself 
+*   the Administrator will be able to create/edit a Quota using a wizard, to configure cluster Quota parameters, storage Quota parameters, and users which will be able to consume those quota resources.
+*   Quota should not be defined per user, to support definition of Quota per user, the Quota can be cloned.
+     Such a clone procedure should copy all the Quota properties except of the name and the description.
+*   Since the users assigned to the Quota, would need a power user permission on the DC to add/edit a VM, the Administrator will be able to add these permissions automatically if he desires to.
+     This automatic assignment, should only be affective when adding resources for limitation;
+    When reducing resources for limitation, an alert message will be presented as follow: **Attention, Quota resources have been changed. Please update the Quota Users permissions on the following resources if needed** .
+    Note, that the user, that created the Quota, would not necessarily grant permissions to create/edit resources for using it.
 
 #### Installation/Upgrade
 

@@ -47,9 +47,9 @@ The Quota is a new (searchable) Object in the system, A Quota contains the follo
 
 For example, Quota object configured for R&D team, with the following properties:
 
-*   DevelQuota
-*   Quota configured for R&D team
-*   Devel_Data_Center
+*   Name: DevelQuota
+*   Description: Quota configured for R&D team
+*   Data Center: Devel_Data_Center
 
 *VCPU/Memory limitations:*
 

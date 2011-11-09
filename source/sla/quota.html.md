@@ -26,7 +26,7 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 
 ### Detailed Description
 
-Expand on the summary, if appropriate. A couple sentences suffices to explain the goal, but the more details you can provide the better.
+In addition to the permission aspects, the system should allow administrator to set limit on resource usage. That means that the system should enforce rules for resource usage per User. The rules should apply to resource usage (run VMs) as well as resource creation (new virtual disks). Quota should provide the Administrator a way to limit the resource usage in the System. The module, should provide the administrator, a management configuration page, to set rules for each aspect, crucial enough, to be management consumable.
 
 ### Benefit to oVirt
 

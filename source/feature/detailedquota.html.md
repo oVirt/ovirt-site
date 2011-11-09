@@ -45,16 +45,37 @@ The Quota is a new (searchable) Object in the system, A Quota contains the follo
 4.  List of unlimited number of specific rules, where each rule should specify a resource and resource limitation parameters.
 5.  List of Users/Groups that have permission to use the Quota, i.e. assign it to VMs/disks
 
-For example, Quota object configured for R&D team, with the following properties: DevelQuota Quota configured for R&D team Devel_Data_Center -- VCPU/Memory limitations: Cluster1: 6 VCPUs, 9GB RAM Cluster2: 8 VCPUs, 12GB RAM -- Storage Limitations: Storage Domain1: 20GB Storage Domain1: 10GB Storage Domain3: 50GB -- List of Users/Groups user1 group2
+For example, Quota object configured for R&D team, with the following properties:
+
+*   DevelQuota
+*   Quota configured for R&D team
+*   Devel_Data_Center
+
+*VCPU/Memory limitations:*
+
+*   Cluster1: 6 VCPUs, 9GB RAM
+*   Cluster2: 8 VCPUs, 12GB RAM
+
+*Storage Limitations:*
+
+*   Storage Domain1: 20GB
+*   Storage Domain1: 10GB
+*   Storage Domain3: 50GB
+
+*List of Users/Groups:*
+
+*   user1
+*   group2
+
 The resource to limit, can be specific like Cluster or Storage Data, but can also be defined for global resource.
 The global resource defines limitation on the Data Center for a specific type (Storage or Runtime).
 Note that run time resources, can be referenced as one entity to limit. (Although for Storage Domains it will not be supported for now).
 For example, a Quota object, with global limitation on the cluster and the storage:
-VCPU/Memory limitations:
+*VCPU/Memory limitations:*
 
 *   Global Cluster: 14 VCPUs, 21GB RAM
 
-Storage Limitations:
+*Storage Limitations:*
 
 *   Global Storage - 80GB
 

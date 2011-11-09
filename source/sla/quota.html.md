@@ -12,7 +12,7 @@ wiki_last_updated: 2015-05-10
 
 ### Summary
 
-Quota provides a way for the Administrator to limit the resource usage in the System.
+The Quota feature enables limiting user resource usage.
 
 ### Owner
 
@@ -26,16 +26,25 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 
 ### Detailed Description
 
-Quota should provide the Administrator a way to limit the resource usage in the System.
-The feature, should provide the Administrator, a management configuration tool, for setting rules for each aspect, crucial enough, to be management consumable.
+Today, oVirt doesn't have a mechanism of limiting user resource usage. Such a mechanism is important, especially in multi-tenant environments. Thus, the Quota feature will add a mechanism to manage and monitor the resource usage in such environments. This mechanism should provide the administrator a management configuration page, to set rules for each aspect, crucial enough, to be management consumable.
 
 ### Benefit to oVirt
 
-The Quota feature enables limiting resources, which is highly relevant in multi-tenant environments (such as public and private cloud providers).
+The Quota feature enables limiting resources, which is highly relevant in multi-tenant environments (such as public and private cloud providers). This can help oVirt get better exposure in such environments.
 
 ### Dependencies / Related Features
 
-Quota has to be taken in consider, for every feature that will use consumption that Quota will implement it.
+Quota is relevant in every feature that either explicitly or implicitly manage resources in the oVirt engine. Affected oVirt projects:
+
+*   API
+*   CLI
+*   Engine-core
+*   Webadmin
+*   User Portal
+*   DWH ?
+*   Reports ?
+
+Quota has to be taken in consideration, for every new feature that will involve consumption of resources managed by it.
 
 ### Documentation / External references
 

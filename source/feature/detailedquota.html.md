@@ -45,7 +45,7 @@ The Quota is a new (searchable) Object in the system, A Quota contains the follo
 4.  List of unlimited number of specific rules, where each rule should specify a resource and resource limitation parameters.
 5.  List of Users/Groups that have permission to use the Quota, i.e. assign it to VMs/disks
 
-For example, check the following Quota object, with the following properties:
+For example, Quota object configured for R&D team, with the following properties:
 
 *   DevelQuota
 *   Quota configured for R&D team

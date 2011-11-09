@@ -26,8 +26,8 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 
 ### Detailed Description
 
-Quota should provide the Administrator a way to limit the resource usage in the System.<
-> The module, should provide the administrator, a management configuration page, to set rules for each aspect, crucial enough, to be management consumable.
+Quota should provide the Administrator a way to limit the resource usage in the System.
+The module, should provide the administrator, a management configuration page, to set rules for each aspect, crucial enough, to be management consumable.
 
 ### Benefit to oVirt
 

@@ -81,9 +81,9 @@ For example, a Quota object, with global limitation on the cluster and the stora
 
 #### CRUD
 
-Quota can be removed only if there are no VMs/Templates that are pointing to this quota. Quota can be edited; When a Quota is edited, the change should apply to all the users that have this quota. Quota parameters can be edited in a way resulting in exceeding it (for example, reducing the disk limitation of some storage domain). This case will not result in a violation. However, once resources will be released to follow the Quota limitation, the user won't be able to exceed the Quota again.
-
-the Administrator will be able to create/edit a quota using a wizard, to configure cluster quota parameters, storage quota parameters, and users which will be able to consume those quota resources.
+*   Quota can be removed only if there are no entities such as VM or Template, that are referenced to this Quota.
+*   Quota can be edited; When a Quota is edited, the change should apply to all the entities and users that are assigned to this Quota.
+*   Quota parameters can be edited, in a way resulting, exceeding the resources limitation (for example, reducing the disk limitation of some storage domain). This case will not result violation. However, once resources will be released to follow the Quota limitation, no user will be able to exceed the Quota resources again.
 
 #### User Experience
 

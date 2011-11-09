@@ -55,3 +55,5 @@ Is there upstream documentation on this feature, or notes you have written yours
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
 *   See <Talk:Features/YourFeatureName>
+
+<Category:Feature> <Category:Template>

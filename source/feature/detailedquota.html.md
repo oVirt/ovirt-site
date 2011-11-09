@@ -37,7 +37,7 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 
 #### Entity Description
 
-The Quota is a new (searchable) Object in the system, A Quota contains the following properties:
+The Quota is a new (searchable) Object in the system, and contains the following properties:
 
 1.  Name
 2.  Description

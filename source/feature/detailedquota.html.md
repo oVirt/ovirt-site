@@ -42,9 +42,16 @@ The Quota is a new (searchable) Object in the system, A Quota contains the follo
 1.  Name
 2.  Description
 3.  Data Center which is referenced to.
-4.  A list of unlimited number of specific rules, where each rule should specify a resource and resource limitation parameters.
+4.  List of unlimited number of specific rules, where each rule should specify a resource and resource limitation parameters.
+5.  List of Users/Groups that have permission to use the Quota, i.e. assign it to VMs/disks
 
-For example, check the following Quota object, with the following properties: VCPU/Memory limitations:
+For example, check the following Quota object, with the following properties:
+
+*   DevelQuota
+*   Quota configured for R&D team
+*   Devel_Data_Center
+
+VCPU/Memory limitations:
 
 *   Cluster1: 6 VCPUs, 9GB RAM
 *   Cluster2: 8 VCPUs, 12GB RAM
@@ -55,7 +62,7 @@ Storage Limitations:
 *   Storage Domain1: 10GB
 *   Storage Domain3: 50GB
 
-List of Users/Groups that have permission to use the Quota, i.e. assign it to VMs/disks
+List of Users/Groups
 
 *   user1
 *   group2

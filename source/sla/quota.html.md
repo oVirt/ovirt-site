@@ -34,7 +34,9 @@ The Quota feature enables limiting resources, which is highly relevant in multi-
 
 ### Dependencies / Related Features
 
-Quota is relevant in every feature that either explicitly or implicitly manage resources in the oVirt engine. Affected oVirt projects:
+Quota is relevant in every feature that either explicitly or implicitly manage resources in the oVirt engine.
+
+Affected oVirt projects:
 
 *   API
 *   CLI

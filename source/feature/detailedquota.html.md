@@ -98,7 +98,11 @@ For example, a Quota object, with global limitation on the cluster and the stora
 
 #### Installation/Upgrade
 
-Describe how the feature will effect new installation or existing one.
+*   Upon upgrade or new installation, each Data Center should be assigned with unlimited Quota.
+*   For each Data Center, all objects (disks and VM's) in the DC will be assigned to this unlimited Quota, and all the users in the setup will be assigned to it as well.
+*   The new/upgraded DC will be set with the default mode, which is the disabled mode (which means it won't be subjected to the quota restrictions.)
+*   When the Administrator choose to use quota, he should change the DC quota mode to audit or enforce(see [DC Quota Enforcement](CategoryRhev31/PRDs/Quota#DC_quota_mode))
+*   After the Administrator configure the new quotas he desires for the DC, and assign all the objects and users to the new quotas, he should remove permissions from the unlimited quota to avoid users consuming resources for it.
 
 #### User work-flows
 

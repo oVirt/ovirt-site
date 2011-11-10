@@ -141,12 +141,16 @@ The Power User Portal should allow the following operations:
 Quota will have a threshold configured to alert when the Quota is about to be full.
 The threshold will be configured for the Administrator and for the User.
 The default value for the Adminstrator is 60% and the Users will be 75%.
-When thresholds are met a notification should be set to Administrator or the User.
+When Quota reaches the threshold limit, an audit log notification should be performed to the Administrator or the User.
 
-Quota will also have a grace percentage, configured in the Quota, for the user to have a chance to consume resources even if the Quota has exceeded the limit.
-The configured default grace should be 20% of the resources limitations,
-When grace percentage are met, a notification should be set to the Administrator and the User exceeded the limit.
-When Quota is exceeded the grace limit (and the Data Center is in enforced stage), the User should not be allowed to consume the resources from the Quota,
+*   User audit log should be: "Attention, Quota $(Quota_Nmae) threshold limit $(Quota_Threshold_User) has been reached, please advise the Administrator for further action."
+*   Administrator audit log should be: "Attention, Quota $(Quota_Nmae) threshold limit $(Quota_Threshold_User) has been reached."
+
+Quota will also have a configurable grace percentage, for the user to have a chance to consume resources even if the Quota has exceeded the limit.
+The configured default grace should be 20% of the Quota resources limitations,
+When User starts to use the grace percentage, a notification message, should be performed to the Administrator, and the User which exceeded this limit.
+When Quota reaches its resources limit, it will be able to consume resources depending on the grace percentage configured in it.
+An audit log warning message should be performed to the User and the Administrator, as follows: "Quota $(Quota_Nmae) has been reached its resource limit. User {UserName} using the grace for the following resource parameters {resource}."
 
 #### Events
 

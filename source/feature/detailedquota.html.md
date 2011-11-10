@@ -111,8 +111,8 @@ The following limitations are an example of an unlimited Quota:
 *   Users assigned to the Quota, would probably need a power user permission on the consumable resources (for example when add/edit a VM). For that the Administrator should be able to add these permissions automatically, if he desires to.
      This automatic assignment, should only be affective when adding resources for limitation;
     When reducing resources for limitation, an alert message will be presented as follow:
-     *Attention, Quota resources have been changed. Please update the Quota Users permissions on the following resources if needed* .
-    Note, that the User, created a Quota, would not necessarily, have permissions, to create/edit entities for using it.
+     *Attention, Quota resources have been changed. Please update the Quota Users permissions on the following resources if needed*.
+*   Note, that the User, created a Quota, would not necessarily, have permissions, to create/edit entities for using it.
      Administrator should also have an aggregated view of defined Quotas vs actual storage space used/free.
 
 #### Installation/Upgrade

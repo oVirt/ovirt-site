@@ -128,8 +128,6 @@ You should receive a response that looks like:
 
 The response contains the host Id. You will need this for performing actions upon the host.
 
-#### Associate the Host with A Data Center
-
 #### Create NFS Storage
 
 VDSM will not work with NFS v4 so ensure that you are configured to prevent the use of NFS v4. You should create three nfs shares, one for each type of storage domain: data, iso and import/export.

@@ -39,7 +39,7 @@ When a User consume resources in the Data Center, such as creating a new virtual
 the User is not limited, and can consume the maximum limit of the resources, by doing that, other users will be choked from using resources in the Data Center.
 
 Quota is a feature which should provide the Administrator a better management way, for managing resources for different Users.
-This should allow the Administrator to manage and share the resources in the Data Center, more appropriately, and observe the resources in a more convenient way.
+The feature allows the Administrator to manage and share the resources in the Data Center, more appropriately, and observe the resources in a more convenient way.
 
 #### Entity Description
 

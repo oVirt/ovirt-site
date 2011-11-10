@@ -150,15 +150,7 @@ When Quota is exceeded the grace limit (and the Data Center is in enforced stage
 
 #### Events
 
-When Quota reaches its configurable threshold limit, an audit log with the following message should be performed:
-
-*   For User: "Attention, Quota $(Quota_Nmae) threshold limit $(Quota_Threshold_User) has been reached, please advise the Administrator for further action."
-*   For Administrator: "Attention, Quota $(Quota_Nmae) threshold limit $(Quota_Threshold_User) has been reached."
-
-When Quota reaches its resources limit, it will be able to consume resources depending on the grace percentage configured in it.
-An audit log warning message should be performed to the User and the Administrator, as follows: "Quota $(Quota_Nmae) has been reached its resource limit. User {UserName} using the grace for the following resource parameters {resource}"
-
-Note, that the Administrator, should be able to set an email event when Quota being exceeded.
+The Administrator, will be able to set an email event, when Quota resources exceeded their limit.
 
 ### Dependencies / Related Features and Projects
 

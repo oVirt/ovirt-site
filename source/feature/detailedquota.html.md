@@ -124,7 +124,7 @@ Also, if a user was removed from a list of permitted user it also won't cause a 
     Such a clone procedure should copy all the Quota properties except of the name and the description.
 *   Users assigned to the Quota would need a power user permission on the consumable resources (for example when add/edit a VM). The wizard should enable automatic addition of these permissions.
     However, no permissions will be removed when removing resources from the Quota, but an alert message will be presented as follow:
-    *Attention, Quota resources have been changed. Please update the Quota Users permissions on the following resources if needed*.
+     *Attention, Quota resources have been changed. Please update the Quota Users permissions on the following resources if needed*.
 *   Note, that the user who created the Quota object would not necessarily have permissions, to consume from it.
     Administrator should also have an aggregated view of defined Quotas vs actual storage space used/free.
 

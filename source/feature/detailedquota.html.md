@@ -136,7 +136,7 @@ The Power User Portal should allow the following operations:
 
 *   View Quota's defined/used for himself
 
-#### Quota Notification
+#### Notification
 
 Quota will have a threshold configured to alert when the Quota is about to be full.
 The threshold will be configured for the Administrator and for the User.

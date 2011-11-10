@@ -168,7 +168,7 @@ Quota is not depended on outside features, and should be managed only in the eng
 
 ### Documentation / External references
 
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
+<http://www.ovirt.org/wiki/Features/Quota>
 
 ### Comments and Discussion
 

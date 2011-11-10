@@ -18,4 +18,6 @@ wiki_last_updated: 2014-12-07
 
 ### Installation
 
+* When building the oVirt-Engine with maven, some tests might fail. Try running the maven clean install command with: -DskipTests
+
 ### Usage

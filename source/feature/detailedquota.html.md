@@ -172,7 +172,7 @@ Quota is not depended on outside features, and should be managed only in the eng
 
 ### Comments and Discussion
 
-Add a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
+<http://www.ovirt.org/wiki/Talk:Features/Quota>
 
 ### Open Issues
 

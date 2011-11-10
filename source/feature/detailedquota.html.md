@@ -150,7 +150,7 @@ When Quota is exceeded the grace limit (and the Data Center is in enforced stage
 
 #### Events
 
-, depends on the limitation that was exceeded. Warning messages should be displayed before limit is reached, depending on the configuration threshold.
+Warning messages should be displayed before limit is reached, depending on the configuration threshold.
 
 VM Properties (like number of VCPU and memory) are enforced during VM execution. When Quota is exceeded (and the Quota is in enforce mode) – User should not be allowed to create/run new Objects with that Quota, depends on the limitation that was exceeded. Warning messages should be displayed before limit is reached, depending on the configuration threshold.
 

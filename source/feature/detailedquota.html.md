@@ -169,7 +169,8 @@ The Administrator, will be able to set an email event, when Quota resources exce
 
 ### Dependencies / Related Features and Projects
 
-Quota is not depended on outside features, and should be managed only in the engine core scope.
+*   Quota is not depended on outside features, and should be managed only in the engine core scope.
+*   When handling plug/unplug disks or attach/detach disks, the entity will still consume resources from its configured original Quota it was created on.
 
 ### Documentation / External references
 

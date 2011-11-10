@@ -130,7 +130,25 @@ Also, if a user was removed from a list of permitted user it also won't cause a 
 *   Note, that the user who created the Quota object would not necessarily have permissions, to consume from it.
     Administrator should also have an aggregated view of defined Quotas vs actual storage space used/free.
 
-The following UI mockups contain guidelines for the different screens and wizards: ![](dc.png "fig:dc.png") ![](new_quota_on_clusters_add.png "fig:new_quota_on_clusters_add.png") ![](new_quotaon_clusters.png "fig:new_quotaon_clusters.png") ![](new_quotaon_clusters_statistics.png "fig:new_quotaon_clusters_statistics.png") ![](new_quotaon_dc.png "fig:new_quotaon_dc.png") ![](new_quotaon_dcadd.png "fig:new_quotaon_dcadd.png") ![](quota.png "fig:quota.png") ![](statistic.png "fig:statistic.png") ![](users.png "fig:users.png")
+The following UI mockups contain guidelines for the different screens and wizards:
+
+![](dc.png "dc.png")
+
+![](new_quota_on_clusters_add.png "new_quota_on_clusters_add.png")
+
+![](new_quotaon_clusters.png "new_quotaon_clusters.png")
+
+![](new_quotaon_clusters_statistics.png "new_quotaon_clusters_statistics.png")
+
+![](new_quotaon_dc.png "new_quotaon_dc.png")
+
+![](new_quotaon_dcadd.png "new_quotaon_dcadd.png")
+
+![](quota.png "quota.png")
+
+![](statistic.png "statistic.png")
+
+![](users.png "users.png")
 
 #### Installation/Upgrade
 

@@ -237,3 +237,5 @@ Affected oVirt projects:
     The new business entity will be named, Virtual Storage Group, and should be referenced in the quota as a business entity and have storage restrictions on it.
 *   Enforcement of network usage and storage throughput using the Quota entity.
 *   Add historic Quota utilization to history database.
+
+[Category: Feature](Category: Feature)

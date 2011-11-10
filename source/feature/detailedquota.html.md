@@ -96,8 +96,6 @@ Each Data Center entity, configured with the verification strategy, it should en
 2.  Audit - Only warning messages would be performed when Quota restrictions will be violated.
 3.  Enforce - Will be enforced the restrictions completely and should prevent the command from executing.
 
-The VM Properties (like number of VCPU and memory consumption) are enforced during VM execution.
-
 #### CRUD
 
 *   Quota can be removed only if there are no entities such as VM or Template, that are referenced to this Quota.

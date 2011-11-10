@@ -102,37 +102,36 @@ A Quota limitation can be also set to unlimited (both globally, or on a specific
 
     * reducing CPU/RAM limitation
 
-all the above will not cause a violation. However, no one will be able to consume more resources from the quota, and even when resources are released to follow the Quota limitation, no user will be able to exceed the Quota resources again.
+All the above will not cause a violation. However, no one will be able to consume more resources from the quota, and even when resources are released to follow the Quota limitation, no user will be able to exceed the Quota resources again.
 
 Also, if a user was removed from a list of permitted user it also won't cause a violation. However, that user won't be able to use this quota again, unless permitted to.
 
 #### User Experience
 
-*   the Administrator will be able to create/edit a Quota using a wizard.
+*   The Administrator will be able to create/edit a Quota using a wizard.
      The wizard will provide the Administrator to configure Cluster Quota parameters, Storage Quota parameters, and assign Users which will be able to consume the Quota resources.
-*   For supporting definition of Quota per User, the Quota can be cloned.
+*   For supporting definition of Quota per user, the Quota can be cloned.
      Such a clone procedure should copy all the Quota properties except of the name and the description.
-*   Users assigned to the Quota, would probably need a power user permission on the consumable resources (for example when add/edit a VM). For that the Administrator should be able to add these permissions automatically, if he desires to.
-     This automatic assignment, should only be affective when adding resources for limitation;
-    When reducing resources for limitation, an alert message will be presented as follow:
+*   Users assigned to the Quota would need a power user permission on the consumable resources (for example when add/edit a VM). The wizard should enable automatic addition of these permissions.
+    However, no permissions will be removed when removing resources from the Quota, but an alert message will be presented as follow:
      *Attention, Quota resources have been changed. Please update the Quota Users permissions on the following resources if needed*.
-*   Note, that the User, created a Quota, would not necessarily, have permissions, to create/edit entities for using it.
+*   Note, that the user who created the Quota object would not necessarily have permissions, to consume from it.
      Administrator should also have an aggregated view of defined Quotas vs actual storage space used/free.
 
 #### Installation/Upgrade
 
 *   Upon upgrade or new installation, each Data Center should be assigned with an unlimited Quota.
-*   For each Data Center, all objects (disks and VM's) in the DC will be assigned to the unlimited Quota, and all the users in the setup will be assigned to it as well.
-*   The new/upgraded Data Center, will be set with the default mode, which is the disabled mode (which means it won't be subjected to the quota restrictions).
-*   When the Administrator choose to use Quota, he should change the Data Center Quota mode to audit or enforce(see Enforcement section)
-*   After the Administrator configure the new quotas he desires for the DC, and assign all the objects and users to the new quotas, he should remove permissions from the unlimited quota to avoid users consuming resources for it.
+*   For each Data Center, all objects (disks and VM's) in the DC will be assigned to the unlimited Quota, and all the users in the setup will be permitted to use it.
+*   The new/upgraded Data Center, will be set with disabled mode by default (which means it won't be subjected to the quota restrictions).
+*   When the Administrator choose to use the Quota mechanism, he should change the Data Center Quota mode to audit or enforce.
+*   After the Administrator configure new quotas for the DC, he should remove permissions from the unlimited quota to avoid users consuming resources for it.
 
 #### User work-flows
 
 The Administrator Portal should allow the following operations:
 
 *   View/edit/create Quota's
-*   View/edit /create the User's roles and Quotas
+*   View/edit/create the User's roles and Quotas
 *   View Quota per resource (User/Storage domain etc.)
 
 The Power User Portal should allow the following operations:
@@ -141,8 +140,8 @@ The Power User Portal should allow the following operations:
 
 #### Enforcement
 
-*   Quota run time limitation, should be enforced during VM execution.
-*   Quota storage limitation, should be enforced upon any disk creation.
+*   Quota runtime limitation should be enforced during VM execution.
+*   Quota storage limitation should be enforced upon any disk creation.
 *   When dealing with QCOW disks (which is not pre-allocated, like templates or stateless VM) the Quota should consume the total maximum size of the disk, since it is the potential size that can be used.
 *   In the future Quota should also have enforcement for network usage and storage throughput.
 
@@ -150,7 +149,7 @@ The Power User Portal should allow the following operations:
 
 Quota will have a threshold configured to alert when the Quota is about to be full.
 The threshold will be configured for the Administrator and for the User.
-The default value for the Adminstrator is 60% and the Users will be 75%.
+The default value Administrators is 60% regular users is 75%.
 When Quota reaches the threshold limit, an audit log notification should be performed to the Administrator or the User.
 
 *   User audit log should be:
@@ -163,10 +162,10 @@ When Quota reaches the threshold limit, an audit log notification should be perf
 
 Quota will also have a configurable grace percentage, for the user to have a chance to consume resources even if the Quota has exceeded the limit.
 The configured default grace should be 20% of the Quota resources limitations,
-When User starts to use the grace percentage, a notification message, should be performed to the Administrator, and the User which exceeded this limit.
+When user starts to use the grace percentage, a notification event should be triggered both to the administrator, and the user which exceeded this limit.
 When Quota reaches its resources limit, it will be able to consume resources depending on the grace percentage configured in it.
 An audit log warning message should be performed to the User and the Administrator, as follows:
- *Quota $(Quota_Nmae) has been reached its resource limit. User {UserName} using the grace for the following resource parameters ${resource}.*
+ *Quota $(Quota_Name) has been reached its resource limit. User {UserName} using the grace for the following resource parameters ${resource}.*
 
 #### Events
 

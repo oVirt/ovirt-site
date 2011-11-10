@@ -46,6 +46,8 @@ This mechanism allows the administrator to manage, share and monitor the resourc
 
 #### Entity Description
 
+##### Quota
+
 Quota is a new (searchable) object in the system, which contains the following properties:
 
 1.  Name
@@ -73,13 +75,6 @@ For example, the following Quota configuration, is for R&D team:
     -   team_leaders
     -   new_developer
 
-The Quota object is in the data center scope. Also, a Data Center must be related to at least one Quota object.
-Each Data Center entity is configured with one of the following operation modes:
-
-1.  Disable - The Data Center would not be subjected to Quota restrictions.
-2.  Audit - Only warning messages would be performed when Quota restrictions will be violated.
-3.  Enforce - Will be enforced the restrictions completely and should prevent the command from executing.
-
 The limitation on a resource can be specified either on a specific resource (see example above) or globally.
 The global resource defines limitation on the Data Center for a specific type of resource (storage or runtime).
 
@@ -95,6 +90,15 @@ The following Quota is an example with unlimited limitation on both global and s
 *   Storage Domain1: Unlimited
 *   Storage Domain2: 50GB
 *   Storage Domain3: Unlimited
+
+##### Data Center
+
+The Quota object is in the data center scope. Also, a Data Center must be related to at least one Quota object.
+Each Data Center entity is configured with one of the following operation modes:
+
+1.  Disable - The Data Center would not be subjected to Quota restrictions.
+2.  Audit - Only warning messages would be performed when Quota restrictions will be violated.
+3.  Enforce - Will be enforced the restrictions completely and should prevent the command from executing.
 
 #### CRUD
 

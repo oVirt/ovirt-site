@@ -181,22 +181,28 @@ The Power User Portal should allow the following operations:
 #### Notification
 
 *   Quota will have a threshold configured to alert when the Quota is about to be full.
-*   The threshold will be configured for the Administrator and for the User.
-*   The default value for administrators is 60%, and for regular users is 75%.
-*   When Quota reaches the threshold limit, an audit log notification should be performed to the Administrator or the User.
-*   User audit log should be:
+
+    * The threshold will be configured for the administrator and for the User. The default value for administrators is 60%, and for regular users is 75%.
+
+    * When Quota reaches the threshold limit, an audit log notification should be performed to the Administrator or the User.
+
+    * User audit log should be:
 
 *`Attention,` `Quota` `$(Quota_Nmae)` `threshold` `limit` `$(Quota_Threshold_User)` `has` `been` `reached,` `please` `advise` `the` `Administrator` `for` `further` `action.`*
 
-*   Administrator audit log should be:
+    * Administrator audit log should be:
 
 *`Attention,` `Quota` `$(Quota_Nmae)` `threshold` `limit` `$(Quota_Threshold_User)` `has` `been` `reached.`*
 
-Quota will also have a configurable grace percentage, for the user to have a chance to consume resources even if the Quota has exceeded the limit.
-The configured default grace should be 20% of the Quota resources limitations,
-When user starts to use the grace percentage, a notification event should be triggered both to the administrator, and the user which exceeded this limit.
-When Quota reaches its resources limit, it will be able to consume resources depending on the grace percentage configured in it.
-An audit log warning message should be performed to the User and the Administrator, as follows:
+*   Quota will also have a configurable grace percentage, for the user to have a chance to consume resources even if the Quota has exceeded the limit.
+
+    * The configured default grace should be 20% of the Quota resources limitations.
+
+    * When user starts to use the grace percentage, a notification event should be triggered both to the administrator, and the user which exceeded this limit.
+
+    * When Quota reaches its resources limit, it will be able to consume resources depending on the grace percentage configured in it.
+
+    * An audit log warning message should be performed to the User and the administrator, as follows:
  *Quota $(Quota_Name) has been reached its resource limit. User {UserName} using the grace for the following resource parameters ${resource}.*
 
 #### Events

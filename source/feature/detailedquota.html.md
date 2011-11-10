@@ -39,14 +39,14 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 
 ### Detailed Description
 
-Today, when consuming resources from the Data Center, such as storage (when creating a new virtual disk) and virtual CPUs/RAM (when creating or running VMs), the User is only limited by the available resources. Thus, there is no way to limit the resources that can be used by a user. This limitation is problematic, especially in multi-tenant environments.
+Today, when consuming resources from the Data Center, such as storage (when creating a new virtual disk) and virtual CPUs/RAM (when running VMs), the user is only limited by the available resources. Thus, there is no way to limit the resources that can be used by a user. This limitation is problematic, especially in multi-tenant environments.
 
-Quota provides the Administrator a mechanism for managing resources allocation for users and groups in the Data Center.
-This mechanism allows the Administrator to manage, share and monitor the resources in the Data Center.
+Quota provides the administrator a mechanism for managing resources allocation for users and groups in the Data Center.
+This mechanism allows the administrator to manage, share and monitor the resources in the Data Center.
 
 #### Entity Description
 
-The Quota is a new (searchable) Object in the system, which contains the following properties:
+Quota is a new (searchable) object in the system, which contains the following properties:
 
 1.  Name
 2.  Description
@@ -80,18 +80,21 @@ Each Data Center entity is configured with one of the following operation modes:
 2.  Audit - Only warning messages would be performed when Quota restrictions will be violated.
 3.  Enforce - Will be enforced the restrictions completely and should prevent the command from executing.
 
-The limitation on a resource can be specified either on a specific resource (for example, 100GB of storage on a specific storage domain) or globally (for example, total 500GB on all Data Center storage domains).
-The global resource defines limitation on the Data Center for a specific type (storage or runtime resources).
+The limitation on a resource can be specified either on a specific resource (see example above) or globally.
+The global resource defines limitation on the Data Center for a specific type of resource (storage or runtime).
 
 For example, The following limitations, are indicating global limitation on the Cluster and the Storage:
 
 *   Global Cluster: 14 VCPUs, 21GB RAM
 *   Global Storage: 80GB
 
-??? Note that runtime resources, can be referenced as one entity to limit. (Although, for now, Storage Domains will not be supported). ???
+A Quota limitation can be also set to unlimited (both globally, or on a specific resource).
+The following Quota is an example with unlimited limitation on both global and specific resources:
 
-A Quota limitation can be also set to unlimited (both globally, or on a specific resource)
-???The following limitations are an example of an unlimited Quota:??? ???\* Global Cluster: Unlimited??? ???\* Global Storage - Unlimited???
+*   Global Cluster: Unlimited
+*   Storage Domain1: Unlimited
+*   Storage Domain2: 50GB
+*   Storage Domain3: Unlimited
 
 #### CRUD
 
@@ -101,25 +104,25 @@ A Quota limitation can be also set to unlimited (both globally, or on a specific
 
     * reducing the disk limitation of some storage domain
 
-    * removing a user from the list of users permitted to use the quota
-
     * reducing CPU/RAM limitation
 
-All the above will not cause a violation. However, no one will be able to consume more resources from the quota, and even when resources are released to follow the Quota limitation, no user will be able to exceed the Quota resources again.
+    * removing a user from the list of users permitted to use the quota
+
+All the above will not cause a violation. However, no one will be able to consume more resources from the quota. Even when resources are released to follow the Quota limitation, no user will be able to exceed the Quota resources again.
 
 Also, if a user was removed from a list of permitted user it also won't cause a violation. However, that user won't be able to use this quota again, unless permitted to.
 
 #### User Experience
 
 *   The Administrator will be able to create/edit a Quota using a wizard.
-     The wizard will provide the Administrator to configure Cluster Quota parameters, Storage Quota parameters, and assign Users which will be able to consume the Quota resources.
+    The wizard should allow administrators to configure Cluster Quota parameters, storage Quota parameters, and assign users which will be able to consume the Quota resources.
 *   For supporting definition of Quota per user, the Quota can be cloned.
-     Such a clone procedure should copy all the Quota properties except of the name and the description.
+    Such a clone procedure should copy all the Quota properties except of the name and the description.
 *   Users assigned to the Quota would need a power user permission on the consumable resources (for example when add/edit a VM). The wizard should enable automatic addition of these permissions.
     However, no permissions will be removed when removing resources from the Quota, but an alert message will be presented as follow:
-     *Attention, Quota resources have been changed. Please update the Quota Users permissions on the following resources if needed*.
+    *Attention, Quota resources have been changed. Please update the Quota Users permissions on the following resources if needed*.
 *   Note, that the user who created the Quota object would not necessarily have permissions, to consume from it.
-     Administrator should also have an aggregated view of defined Quotas vs actual storage space used/free.
+    Administrator should also have an aggregated view of defined Quotas vs actual storage space used/free.
 
 #### Installation/Upgrade
 

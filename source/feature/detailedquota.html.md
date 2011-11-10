@@ -80,7 +80,8 @@ Each Data Center entity is configured with one of the following operation modes:
 
 The limitation on a resource can be specified either on a specific resource (for example, 100GB of storage on a specific storage domain) or globally (for example, total 500GB on all Data Center storage domains).
 The global resource defines limitation on the Data Center for a specific type (storage or runtime resources).
- For example, The following limitations, are indicating global limitation on the Cluster and the Storage:
+
+For example, The following limitations, are indicating global limitation on the Cluster and the Storage:
 
 *   Global Cluster: 14 VCPUs, 21GB RAM
 *   Global Storage: 80GB
@@ -137,6 +138,7 @@ The Administrator Portal should allow the following operations:
 The Power User Portal should allow the following operations:
 
 *   View Quota's defined/used for himself
+*   Use Quota upon resource usage (runtime and storage)
 
 #### Enforcement
 

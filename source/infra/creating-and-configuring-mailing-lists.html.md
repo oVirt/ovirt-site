@@ -14,31 +14,38 @@ This standard operating procedure (SOP) describes how to create and configure a 
 
 ## Create the list
 
-1.  Run 'sudo /usr/lib/mailman/bin/newlist $listname' to create a new list.
+1.  Run `sudo /usr/lib/mailman/bin/newlist $listname` to create a new list.
     -   Fill out details as requested by Mailman, noting the password.
 
-2.  Add the sections Mailman outputs to '/etc/aliases' for each mailing list, then run 'sudo newaliases'.
-3.  Add the list administrator password to the file '/root/passwords'.
+2.  Add the sections Mailman outputs to */etc/aliases* for each mailing list, then run `sudo newaliases`.
+3.  Add the list administrator password to the file */root/passwords*.
 4.  Email the list owner(s) with the list password.
     -   Do this before or after configuring the list, making sure to inform them of the special configuration details.
 
 ## Configure the list
 
-1.  
+1.  Use the administrator password to log in to the admin web interface.
+2.  Add additional administrators, if applicable.
+3.  Configure the list as per the [#Individual list-type configurations](#Individual_list-type_configurations) section.
 
 ### Individual list-type configurations
 
-Configuration for -commits list:
+**Configuration for -commits list:**
 
-*   Set max_message_size to 0
-*   Set accept_these_nonmembers ???
+*   Set *max_message_size* to 0
+*   Set *accept_these_nonmembers* ???
 
-Configuration for -devel (discussion) list:
+**Configuration for a -patches list:**
+
+*   Set *max_message_size* to 4000
+*   Set *private_roster* to *List members*
+
+**Configuration for -devel (discussion) list:**
 
 *   Archives public
 *   Subscription confirmation-only
 
-Configuration for a -private list:
+**Configuration for a -private list:**
 
 *   Archives private
 *   Subscription requires permission

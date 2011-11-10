@@ -215,6 +215,14 @@ The Administrator, will be able to set an email event, when Quota resources exce
 *   Quota is not depended on outside features, and should be managed only in the engine core scope.
 *   When handling plug/unplug disks or attach/detach disks, the entity will still consume resources from its configured original Quota it was created on.
 
+Affected oVirt projects:
+
+*   API
+*   CLI
+*   Engine-core
+*   Webadmin
+*   User Portal
+
 ### Documentation / External references
 
 <http://www.ovirt.org/wiki/Features/Quota>

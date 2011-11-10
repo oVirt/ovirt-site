@@ -100,24 +100,6 @@ Don't forget to add sections to '/etc/aliases' for each mailing list, then run '
     mailman-subscribe:    "|/usr/lib/mailman/mail/mailman subscribe mailman"
     mailman-unsubscribe:  "|/usr/lib/mailman/mail/mailman unsubscribe mailman"
 
-#### Individual list-type configurations
-
-Configuration for -commits list:
-
-*   Set max_message_size to 0
-*   Set accept_these_nonmembers ???
-
-Configuration for -devel (discussion) list:
-
-*   Archives public
-*   Subscription confirmation-only
-
-Configuration for a -private list:
-
-*   Archives private
-*   Subscription requires permission
-*   Must display in list-of-lists - it's private but not kept a secret
-
 ### Resources used
 
 <http://www.iredmail.org/forum/topic1582-howto-configure-mailman-on-centosrhel-5.html>

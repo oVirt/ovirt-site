@@ -138,10 +138,10 @@ The Power User Portal should allow the following operations:
 
 #### Enforcement
 
-*   Quota resources should be forced upon creation of disks (new disk, disk from template, plug/unplug attach/detach).
-*   Upon plug/unplug or attach/detach disks, the entity will still consume resources from its configured quota.
-*   Even in case the VM uses a QCOW disk (which is not pre-allocated), the total maximum size of the disk is taken from its quota, as he may need to use it all.
-*   In the future quota should also have enforcement for network usage and storage throughput.
+*   Quota storage limitations should be forced upon any disk creation.
+*   When handling plug/unplug disks or attach/detach disks, the entity will still consume resources from its configured original Quota it was created on.
+*   When dealing with templates or any other disk that uses QCOW (which is not pre-allocated), the total maximum size of the disk, consumed from the Quota, since it potentially can be used.
+*   In the future Quota should also have enforcement for network usage and storage throughput.
 
 #### Notification
 

@@ -35,11 +35,11 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 
 ### Detailed Description
 
-When a User consume resources in the Data Center, such as creating a new virtual Disk on Storage Domain, or running VM with number of VCPU on a Host,
-the User is not limited, and can consume the maximum limit of the resources, by doing that, other users will be choked from using resources in the Data Center.
+When User consumes resources from the Data Center, such as creating a new virtual Disk on a specific Storage Domain, or running VM with multiple VCPU on a Host,
+the User is not limited, and can consume the maximum limit of the resources, by doing that, other users will be limited to use the resources of the Data Center.
 
-Quota is a feature which should provide the Administrator a better management way, for managing resources for different Users.
-The feature allows the Administrator to manage and share the resources in the Data Center, more appropriately, and observe the resources in a more convenient way.
+Quota provides the Administrator a better management way, for managing resources allocation for Users in the Data Center.
+The feature allows the Administrator to manage and share the resources in the Data Center, more appropriately, and will be able to monitor this resource uses more accurately.
 
 #### Entity Description
 

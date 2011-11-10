@@ -135,8 +135,8 @@ Also, if a user was removed from a list of permitted user it also won't cause a 
 *   Upon upgrade or new installation, each Data Center should be assigned with an unlimited Quota.
 *   For each Data Center, all objects (disks and VM's) in the DC will be assigned to the unlimited Quota, and all the users in the setup will be permitted to use it.
 *   The new/upgraded Data Center, will be set with disabled mode by default (which means it won't be subjected to the quota restrictions).
-*   When the Administrator choose to use the Quota mechanism, he should change the Data Center Quota mode to audit or enforce.
-*   After the Administrator configure new quotas for the DC, he should remove permissions from the unlimited quota to avoid users consuming resources for it.
+*   When the administrator choose to use the Quota mechanism, he should change the Data Center Quota mode to audit or enforce.
+*   After the administrator configure new quotas for the DC, he should remove permissions from the unlimited quota to avoid users consuming resources for it.
 
 #### User work-flows
 

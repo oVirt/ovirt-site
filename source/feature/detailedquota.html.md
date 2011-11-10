@@ -149,11 +149,10 @@ The Power User Portal should allow the following operations:
 
 #### Notification
 
-Quota will have a threshold configured to alert when the Quota is about to be full.
-The threshold will be configured for the Administrator and for the User.
-The default value Administrators is 60% regular users is 75%.
-When Quota reaches the threshold limit, an audit log notification should be performed to the Administrator or the User.
-
+*   Quota will have a threshold configured to alert when the Quota is about to be full.
+*   The threshold will be configured for the Administrator and for the User.
+*   The default value for administrators is 60%, and for regular users is 75%.
+*   When Quota reaches the threshold limit, an audit log notification should be performed to the Administrator or the User.
 *   User audit log should be:
 
 *`Attention,` `Quota` `$(Quota_Nmae)` `threshold` `limit` `$(Quota_Threshold_User)` `has` `been` `reached,` `please` `advise` `the` `Administrator` `for` `further` `action.`*

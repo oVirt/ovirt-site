@@ -59,7 +59,7 @@ The verification strategy is configured in the Data Center entity, and has three
 2.  Audit - Only warning messages would be performed when Quota restrictions will be violated.
 3.  Enforce - Will be enforced the restrictions completely and should prevent the command from executing.
 
-For example, the following configuration is a Quota created for R&D Team:
+For example, the following Quota configuration, is for R&D team:
 
 *   *Name*: DevelQuota
 *   *Description*: Quota configured for R&D team

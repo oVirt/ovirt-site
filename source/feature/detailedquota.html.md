@@ -59,16 +59,16 @@ For example, the following Quota configuration, is for R&D team:
 1.  Name: DevelQuota
 2.  Description: Quota configured for R&D team
 3.  Data Center: Devel_Data_Center
-4.  VCPU/Memory limitations:
-    -   Cluster1: 6 VCPUs, 9GB RAM
-    -   Cluster2: 8 VCPUs, 12GB RAM
+4.  Resource limitations:
+    -   VCPU/Memory limitations:
+        -   Cluster1: 6 VCPUs, 9GB RAM
+        -   Cluster2: 8 VCPUs, 12GB RAM
+    -   Storage Limitations:
+        -   Storage Domain1: 20GB
+        -   Storage Domain1: 10GB
+        -   Storage Domain3: 50GB
 
-5.  Storage Limitations:
-    -   Storage Domain1: 20GB
-    -   Storage Domain1: 10GB
-    -   Storage Domain3: 50GB
-
-6.  List of Users/Groups:
+5.  List of Users/Groups:
     -   developers
     -   team_leaders
     -   new_developer

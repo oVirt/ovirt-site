@@ -6,6 +6,7 @@ wiki_category: Feature|Quota
 wiki_title: Features/DetailedQuota
 wiki_revision_count: 129
 wiki_last_updated: 2015-01-16
+wiki_warnings: list-item?
 ---
 
 # Detailed Quota
@@ -31,15 +32,15 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 
 *   Target Release:
 *   Status: Design Stage
-*   Last updated date: Wed Nob 9 2011
+*   Last updated date: Wed November 10 2011
 
 ### Detailed Description
 
-When User consumes resources from the Data Center, such as creating a new virtual Disk on a specific Storage Domain, or running VM with multiple VCPU on a Host,
-the User is not limited, and can consume the maximum limit of the resources, by doing that, other users will be limited to use the resources of the Data Center.
+Today, when consuming resources from the Data Center, such as storage (when creating a new virtual disk) and virtual CPUs/RAM (when creating or running VMs),
+the User is only limited by the available resources. Thus, there is no way to limit the resources that can be used by a user. This limitation is problematic, especially in multi-tenant environments.
 
-Quota provides the Administrator a better management way, for managing resources allocation for Users in the Data Center.
-The feature allows the Administrator to manage and share the resources in the Data Center, more appropriately, and will be able to monitor the resource consumption more accurately.
+Quota provides the Administrator a mechanism for managing resources allocation for users and groups in the Data Center.
+This mechanism allows the Administrator to manage, share and monitor the resources in the Data Center.
 
 #### Entity Description
 
@@ -51,56 +52,59 @@ The Quota is a new (searchable) Object in the system, which contains the followi
 4.  List of unlimited number of specific rules, where each rule should specify a resource and resource limitation parameters.
 5.  List of Users/Groups that have permission to use the Quota, i.e. assign it to VMs/disks
 
-Quota is dedicated to a single Data Center, and Data Center can be related to at least one Quota.
-Each Data Center entity configured with a verification status, which is related to the Quotas limitation rules.
-The verification strategy is configured in the Data Center entity, and has three different stages:
+For example, the following Quota configuration, is for R&D team:
+
+1.  Name: DevelQuota
+2.  Description: Quota configured for R&D team
+3.  Data Center: Devel_Data_Center
+4.  VCPU/Memory limitations:
+    -   Cluster1: 6 VCPUs, 9GB RAM
+    -   Cluster2: 8 VCPUs, 12GB RAM
+
+5.  Storage Limitations:
+    -   Storage Domain1: 20GB
+    -   Storage Domain1: 10GB
+    -   Storage Domain3: 50GB
+
+6.  List of Users/Groups:
+    -   developers
+    -   team_leaders
+    -   new_developer
+
+The Quota object is in the data center scope. Also, a Data Center must be related to at least one Quota object.
+Each Data Center entity is configured with one of the following operation modes:
 
 1.  Disable - The Data Center would not be subjected to Quota restrictions.
 2.  Audit - Only warning messages would be performed when Quota restrictions will be violated.
 3.  Enforce - Will be enforced the restrictions completely and should prevent the command from executing.
 
-For example, the following Quota configuration, is for R&D team:
-
-*   *Name*: DevelQuota
-*   *Description*: Quota configured for R&D team
-*   *Data Center*: Devel_Data_Center
-
-*VCPU/Memory limitations:*
-
-*   Cluster1: 6 VCPUs, 9GB RAM
-*   Cluster2: 8 VCPUs, 12GB RAM
-
-*Storage Limitations:*
-
-*   Storage Domain1: 20GB
-*   Storage Domain1: 10GB
-*   Storage Domain3: 50GB
-
-*List of Users/Groups:*
-
-*   user1
-*   group2
-
-The limitation on a resource, can be specified, like specific Cluster or Storage Data, although the limitation can also be defined for global resource as well.
-The global resource defines limitation on the Data Center for a specific type (Storage or runtime).
-Note that runtime resources, can be referenced as one entity to limit. (Although, for now, Storage Domains will not be supported).
-
-For example, The following limitations, are indicating global limitation on the Cluster and the Storage:
+The limitation on a resource can be specified either on a specific resource (for example, 100GB of storage on a specific storage domain) or globally (for example, total 500GB on all Data Center storage domains).
+The global resource defines limitation on the Data Center for a specific type (storage or runtime resources).
+ For example, The following limitations, are indicating global limitation on the Cluster and the Storage:
 
 *   Global Cluster: 14 VCPUs, 21GB RAM
-*   Global Storage - 80GB
+*   Global Storage: 80GB
 
-A Quota, can be indicated as an *unlimited* Quota, when it is configured with global resources with no specific limit.
-The following limitations are an example of an unlimited Quota:
+??? Note that runtime resources, can be referenced as one entity to limit. (Although, for now, Storage Domains will not be supported). ???
 
-*   Global Cluster: Unlimited
-*   Global Storage - Unlimited
+A Quota limitation can be also set to unlimited (both globally, or on a specific resource)
+???The following limitations are an example of an unlimited Quota:??? ???\* Global Cluster: Unlimited??? ???\* Global Storage - Unlimited???
 
 #### CRUD
 
-*   Quota can be removed only if there are no entities such as VM or Template, that are referenced to this Quota.
-*   Quota can be edited; When a Quota is edited, the change should apply to all the entities and users that are assigned to this Quota.
-*   Quota parameters can be edited, in a way resulting, exceeding the resources limitation (for example, reducing the disk limitation of some storage domain). This case will not result violation. However, once resources will be released to follow the Quota limitation, no user will be able to exceed the Quota resources again.
+*   Quota object can be removed only if there are no entities such as VM or Template that are referencing it.
+*   Quota object can be edited; When a Quota is edited, the change should apply to all the entities that are assigned to this Quota.
+*   Quota object parameters modifications can result in exceeding the resource limitations:
+
+    * reducing the disk limitation of some storage domain
+
+    * removing a user from the list of users permitted to use the quota
+
+    * reducing CPU/RAM limitation
+
+all the above will not cause a violation. However, no one will be able to consume more resources from the quota, and even when resources are released to follow the Quota limitation, no user will be able to exceed the Quota resources again.
+
+Also, if a user was removed from a list of permitted user it also won't cause a violation. However, that user won't be able to use this quota again, unless permitted to.
 
 #### User Experience
 

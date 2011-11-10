@@ -27,7 +27,11 @@ wiki_last_updated: 2014-09-26
         ${JBOSS_HOME}/bin/run.sh -b 0.0.0.0
        
 
-## Install VDSM
+## Host Installation
+
+### Fedora 16
+
+#### Install VDSM
 
         $>sudo yum install fence-agents libvirt libvirt-python nfs-utils qemu-img qemu-kvm
        
@@ -44,7 +48,7 @@ create /etc/vdsm/vdsm.conf with the following:
         $> sudo systemctl start vdsmd.service
        
 
-## Create the network Bridge
+#### Create the network Bridge
 
 ovirt-engine will expect the host to have a bridge named 'engine'. Messing with network setting can sometimes result in complete loss of connectivity. Ensure that you have direct console access before starting this. To create the bridge do the following:
 
@@ -70,19 +74,21 @@ Next create the file /etc/sysconfig/network-scripts/ifcfg-engine with the follow
 
 Once this is done, restart networking and ensure that the bridge exists.
 
-## Register The Host
+#### Register The Host
 
         curl -X POST -d "<host><name>${hostname}</name><address>${ipaddress}</address><root_password>${password}</root_password></host>" --header "Content-Type: application/xml" -u 'admin@internal:letmein!' http://${server}:${port}/api/hosts
        
 
-## Associate the Host with A Data Center
+#### Associate the Host with A Data Center
 
-## Create NFS Storage
+#### Create NFS Storage
 
 VDSM will not work with NFS v4 so ensure that you are configured to prevent the use of NFS v4. You should create three nfs shares, one for each type of storage domain: data, iso and import/export.
 
 Information on how to create nfs shares can be found at <http://fedoraproject.org/wiki/Administration_Guide_Draft/NFS>
 
-## Register the storage
+#### Register the storage
+
+### oVirt-node
 
 [Category:Draft documentation](Category:Draft documentation) <Category:Installation> [Category:How to](Category:How to)

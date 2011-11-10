@@ -39,7 +39,7 @@ When User consumes resources from the Data Center, such as creating a new virtua
 the User is not limited, and can consume the maximum limit of the resources, by doing that, other users will be limited to use the resources of the Data Center.
 
 Quota provides the Administrator a better management way, for managing resources allocation for Users in the Data Center.
-The feature allows the Administrator to manage and share the resources in the Data Center, more appropriately, and will be able to monitor this resource uses more accurately.
+The feature allows the Administrator to manage and share the resources in the Data Center, more appropriately, and will be able to monitor the resource consumption more accurately.
 
 #### Entity Description
 
@@ -50,6 +50,14 @@ The Quota is a new (searchable) Object in the system, which contains the followi
 3.  Data Center which is referenced to.
 4.  List of unlimited number of specific rules, where each rule should specify a resource and resource limitation parameters.
 5.  List of Users/Groups that have permission to use the Quota, i.e. assign it to VMs/disks
+
+Quota is dedicated to a single Data Center, but each Data Center can be related to at least one Quota.
+Each Data Center entity configured with a verification status, which is related to the Quotas limitation rules.
+The verification strategy is configured in the Data Center entity, and has three stages:
+
+1.  Disable - The Data Center would not be subjected to Quota restrictions.
+2.  Audit - Only warning messages would be performed when Quota restrictions will be violated.
+3.  Enforce - Will be enforced the restrictions completely and should prevent the command from executing.
 
 For example, the following configuration is a Quota created for R&D Team:
 
@@ -87,14 +95,6 @@ The following limitations are an example of an unlimited Quota:
 
 *   Global Cluster: Unlimited
 *   Global Storage - Unlimited
-
-Quota is dedicated to a single Data Center, but each Data Center can be related to at least one Quota.
-Each Data Center entity, configured with the verification strategy, it should enforce by the Quotas related to it.
-<<Anchor(DataCenterQuotaStages)>> The verification strategy is configured in the Data Center entity, and has three stages:
-
-1.  Disable - The Data Center would not be subjected to Quota restrictions.
-2.  Audit - Only warning messages would be performed when Quota restrictions will be violated.
-3.  Enforce - Will be enforced the restrictions completely and should prevent the command from executing.
 
 #### CRUD
 

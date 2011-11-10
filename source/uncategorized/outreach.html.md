@@ -50,6 +50,7 @@ Workshop suggestions:
 
 *   co-locating with Lixcon event and KVM form event
 *   Brno - Feb (Red Hat hosted)
+*   TLV - Feb (Red Hat hosted)
 *   China - (IBM hosted)
 *   NYC- July?
 *   London - (Intel hosted?)

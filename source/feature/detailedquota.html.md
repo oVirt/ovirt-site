@@ -130,7 +130,7 @@ Also, if a user was removed from a list of permitted user it also won't cause a 
 *   Note, that the user who created the Quota object would not necessarily have permissions, to consume from it.
     Administrator should also have an aggregated view of defined Quotas vs actual storage space used/free.
 
-![](/tmp/dc.png "/tmp/dc.png")
+![](dc.png "dc.png")
 
 #### Installation/Upgrade
 

@@ -30,22 +30,22 @@ This standard operating procedure (SOP) describes how to create and configure a 
 
 ### Individual list-type configurations
 
-**Configuration for -commits list:**
+#### Configuration for -commits list
 
 *   Set *max_message_size* to 0
 *   Set *accept_these_nonmembers* ???
 
-**Configuration for a -patches list:**
+#### Configuration for a -patches list
 
 *   Set *max_message_size* to 4000
 *   Set *private_roster* to *List members*
 
-**Configuration for -devel (discussion) list:**
+#### Configuration for -devel (discussion) list:
 
 *   Archives public
 *   Subscription confirmation-only
 
-**Configuration for a -private list:**
+#### Configuration for a -private list:
 
 *   Archives private
 *   Subscription requires permission

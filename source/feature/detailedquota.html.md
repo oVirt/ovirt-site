@@ -36,8 +36,7 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 
 ### Detailed Description
 
-Today, when consuming resources from the Data Center, such as storage (when creating a new virtual disk) and virtual CPUs/RAM (when creating or running VMs),
-the User is only limited by the available resources. Thus, there is no way to limit the resources that can be used by a user. This limitation is problematic, especially in multi-tenant environments.
+Today, when consuming resources from the Data Center, such as storage (when creating a new virtual disk) and virtual CPUs/RAM (when creating or running VMs), the User is only limited by the available resources. Thus, there is no way to limit the resources that can be used by a user. This limitation is problematic, especially in multi-tenant environments.
 
 Quota provides the Administrator a mechanism for managing resources allocation for users and groups in the Data Center.
 This mechanism allows the Administrator to manage, share and monitor the resources in the Data Center.

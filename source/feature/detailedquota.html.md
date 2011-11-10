@@ -81,7 +81,7 @@ For example, the following Quota configuration, is for R&D team:
 *   user1
 *   group2
 
-A limitation on a resource, can be specified, like specific Cluster or Storage Data, although the limitation can also be defined for global resource as well.
+The limitation on a resource, can be specified, like specific Cluster or Storage Data, although the limitation can also be defined for global resource as well.
 The global resource defines limitation on the Data Center for a specific type (Storage or runtime).
 Note that runtime resources, can be referenced as one entity to limit. (Although, for now, Storage Domains will not be supported).
 

@@ -183,4 +183,9 @@ Quota is not depended on outside features, and should be managed only in the eng
 
 ### Open Issues
 
-Issues that we haven't decided how to take care of yet. These are issues that we need to resolve and change this document accordingly.
+*   There should be a new business entity which will represent a group of storage domains as one unit.
+
+The new business entity will be named, Virtual Storage Group, and should be referenced in the quota as a business entity and have storage restrictions on it.
+
+*   Enforcement of network usage and storage throughput using the Quota entity.
+*   Add historic Quota utilization to history database.

@@ -38,7 +38,8 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 When a User consume resources in the Data Center, such as creating a new virtual Disk on Storage Domain, or running VM with number of VCPU on a Host,
 the User is not limited, and can consume the maximum limit of the resources, by doing that, other users will be choked from using resources in the Data Center.
 
-Quota is a feature which should provide the Administrator a better management way, for managing resources for different Users, this should allow the Administrator to manage and share the resources in the Data Center, more appropriately as he sees fit. and observe them in a more convenient way.
+Quota is a feature which should provide the Administrator a better management way, for managing resources for different Users.
+This should allow the Administrator to manage and share the resources in the Data Center, more appropriately, and observe the resources in a more convenient way.
 
 #### Entity Description
 
@@ -95,6 +96,8 @@ The verification strategy is configured in the Data Center entity, and has three
 2.  Audit - Only warning messages would be performed when Quota restrictions will be violated.
 3.  Enforce - Will be enforced the restrictions completely and should prevent the command from executing.
 
+The VM Properties (like number of VCPU and memory consumption) are enforced during VM execution.
+
 #### CRUD
 
 *   Quota can be removed only if there are no entities such as VM or Template, that are referenced to this Quota.
@@ -111,6 +114,7 @@ The verification strategy is configured in the Data Center entity, and has three
     When reducing resources for limitation, an alert message will be presented as follow:
      *Attention, Quota resources have been changed. Please update the Quota Users permissions on the following resources if needed* .
     Note, that the User, created a Quota, would not necessarily, have permissions, to create/edit entities for using it.
+     Administrator should also have an aggregated view of defined Quotas vs actual storage space used/free.
 
 #### Installation/Upgrade
 
@@ -132,7 +136,21 @@ The Power User Portal should allow the following operations:
 
 *   View Quota's defined/used for himself
 
+#### Quota Notification
+
+Quota will have a threshold configured to alert when the Quota is about to be full.
+The threshold will be configured for the Administrator and for the User.
+The default value for the Adminstrator is 60% and the Users will be 75%.
+When thresholds are met a notification should be set to Administrator or the User.
+
+Quota will also have a grace percentage, configured in the Quota, for the user to have a chance to consume resources even if the Quota has exceeded the limit.
+The configured default grace should be 20% of the resources limitations,
+When grace percentage are met, a notification should be set to the Administrator and the User exceeded the limit.
+When Quota is exceeded the grace limit (and the Data Center is in enforced stage), the User should not be allowed to consume the resources from the Quota,
+
 #### Events
+
+, depends on the limitation that was exceeded. Warning messages should be displayed before limit is reached, depending on the configuration threshold.
 
 VM Properties (like number of VCPU and memory) are enforced during VM execution. When Quota is exceeded (and the Quota is in enforce mode) – User should not be allowed to create/run new Objects with that Quota, depends on the limitation that was exceeded. Warning messages should be displayed before limit is reached, depending on the configuration threshold.
 

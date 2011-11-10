@@ -53,3 +53,5 @@ Quota has to be taken in consideration, for every new feature that will involve 
 ### Comments and Discussion
 
 *   See <Talk:Features/Quota>
+
+[Category: Feature](Category: Feature)

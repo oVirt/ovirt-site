@@ -14,7 +14,8 @@ wiki_last_updated: 2015-01-16
 
 ### Summary
 
-Quota provides a way for the Administrator to limit the resource usage in the System. [ Quota](Features/Quota)
+Quota provides a way for the Administrator to limit the resource usage in the System.
+include [ Quota](Features/Quota)
 
 ### Owner
 

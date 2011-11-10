@@ -121,7 +121,7 @@ The VM Properties (like number of VCPU and memory consumption) are enforced duri
 *   Upon upgrade or new installation, each Data Center should be assigned with an unlimited Quota.
 *   For each Data Center, all objects (disks and VM's) in the DC will be assigned to the unlimited Quota, and all the users in the setup will be assigned to it as well.
 *   The new/upgraded Data Center, will be set with the default mode, which is the disabled mode (which means it won't be subjected to the quota restrictions).
-*   When the Administrator choose to use Quota, he should change the Data Center Quota mode to audit or enforce(see [DC Quota Enforcement](Features/DetailedQuota#DataCenterQuotaStages))
+*   When the Administrator choose to use Quota, he should change the Data Center Quota mode to audit or enforce(see DC Quota Enforcement)
 *   After the Administrator configure the new quotas he desires for the DC, and assign all the objects and users to the new quotas, he should remove permissions from the unlimited quota to avoid users consuming resources for it.
 
 #### User work-flows

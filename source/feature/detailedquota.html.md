@@ -188,11 +188,11 @@ The Power User Portal should allow the following operations:
 
     * User audit log should be:
 
-*`Attention,` `Quota` `$(Quota_Nmae)` `threshold` `limit` `$(Quota_Threshold_User)` `has` `been` `reached,` `please` `advise` `the` `Administrator` `for` `further` `action.`*
+*`Usage` `on` `resource` `$(Resource)` `in` `Quota` `$(Quota_Name)` `has` `reached` `the` `configured` `threshold` `${Threshold_User_Percentage}.` `Please` `contact` `your` `system` `administrator.`*
 
     * Administrator audit log should be:
 
-*`Attention,` `Quota` `$(Quota_Nmae)` `threshold` `limit` `$(Quota_Threshold_User)` `has` `been` `reached.`*
+*`Usage` `on` `resource` `$(Resource)` `in` `Quota` `$(Quota_Name)` `has` `reached` `the` `configured` `threshold` `${Threshold_Admin_Percentage}.`*
 
 *   Quota will also have a configurable grace percentage, for the user to have a chance to consume resources even if the Quota has exceeded the limit.
 
@@ -203,7 +203,8 @@ The Power User Portal should allow the following operations:
     * When Quota reaches its resources limit, it will be able to consume resources depending on the grace percentage configured in it.
 
     * An audit log warning message should be performed to the User and the administrator, as follows:
- *Quota $(Quota_Name) has been reached its resource limit. User {UserName} using the grace for the following resource parameters ${resource}.*
+
+*`Usage` `on` `resource` `$(Resource)` `in` `Quota` `$(Quota_Name)` `has` `reached` `its` `limit` `due` `to` `an` `action` `made` `by` `user` `${UserName}.`*
 
 #### Events
 

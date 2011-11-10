@@ -51,9 +51,9 @@ The Quota is a new (searchable) Object in the system, which contains the followi
 4.  List of unlimited number of specific rules, where each rule should specify a resource and resource limitation parameters.
 5.  List of Users/Groups that have permission to use the Quota, i.e. assign it to VMs/disks
 
-Quota is dedicated to a single Data Center, but each Data Center can be related to at least one Quota.
+Quota is dedicated to a single Data Center, and Data Center can be related to at least one Quota.
 Each Data Center entity configured with a verification status, which is related to the Quotas limitation rules.
-The verification strategy is configured in the Data Center entity, and has three stages:
+The verification strategy is configured in the Data Center entity, and has three different stages:
 
 1.  Disable - The Data Center would not be subjected to Quota restrictions.
 2.  Audit - Only warning messages would be performed when Quota restrictions will be violated.

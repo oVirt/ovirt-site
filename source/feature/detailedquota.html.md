@@ -90,7 +90,7 @@ The following limitations are an example of an unlimited Quota:
 
 Quota is dedicated to a single Data Center, but each Data Center can be related to at least one Quota.
 Each Data Center entity, configured with the verification strategy, it should enforce by the Quotas related to it.
-The verification strategy is configured in the Data Center entity, and has three stages:
+<<Anchor(DataCenterQuotaStages)>> The verification strategy is configured in the Data Center entity, and has three stages:
 
 1.  Disable - The Data Center would not be subjected to Quota restrictions.
 2.  Audit - Only warning messages would be performed when Quota restrictions will be violated.

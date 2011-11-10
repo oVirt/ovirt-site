@@ -44,6 +44,32 @@ create /etc/vdsm/vdsm.conf with the following:
         $> sudo systemctl start vdsmd.service
        
 
+## Create the network Bridge
+
+ovirt-engine will expect the host to have a bridge named 'engine'. Messing with network setting can sometimes result in complete loss of connectivity. Ensure that you have direct console access before starting this. To create the bridge do the following:
+
+Add the bridge for your network interface. if your interface is named em1, edit the file /etc/sysconfig/network-scripts/ifcfg-em1 It should look like this:
+
+        DEVICE=em1
+        ONBOOT=yes
+        HWADDR=<your mac address>
+        BRIDGE=engine
+        BOOTPROTO=none
+       
+
+Next create the file /etc/sysconfig/network-scripts/ifcfg-engine with the following contents:
+
+        DEVICE=engine
+        TYPE=Bridge
+        BOOTPROTO=dhcp
+        ONBOOT=yes
+        DELAY=0
+        NM_CONTROLLED=no
+        MTU=1500 
+       
+
+Once this is done, restart networking and ensure that the bridge exists.
+
 ## Register The Host
 
         curl -X POST -d "<host><name>${hostname}</name><address>${ipaddress}</address><root_password>${password}</root_password></host>" --header "Content-Type: application/xml" -u 'admin@internal:letmein!' http://${server}:${port}/api/hosts

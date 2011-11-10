@@ -79,6 +79,10 @@ Once this is done, restart networking and ensure that the bridge exists.
 
 ## Create NFS Storage
 
+VDSM will not work with NFS v4 so ensure that you are configured to prevent the use of NFS v4. You should create three nfs shares, one for each type of storage domain: data, iso and import/export.
+
+Information on how to create nfs shares can be found at <http://fedoraproject.org/wiki/Administration_Guide_Draft/NFS>
+
 ## Register the storage
 
 [Category:Draft documentation](Category:Draft documentation) <Category:Installation> [Category:How to](Category:How to)

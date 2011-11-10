@@ -104,10 +104,11 @@ The following limitations are an example of an unlimited Quota:
 
 #### User Experience
 
-*   the Administrator will be able to create/edit a Quota using a wizard, to configure Cluster Quota parameters, Storage Quota parameters, and Users which will be able to consume those Quota resources.
+*   the Administrator will be able to create/edit a Quota using a wizard.
+     The wizard will provide the Administrator to configure Cluster Quota parameters, Storage Quota parameters, and assign Users which will be able to consume the Quota resources.
 *   For supporting definition of Quota per User, the Quota can be cloned.
      Such a clone procedure should copy all the Quota properties except of the name and the description.
-*   Since the Users assigned to the Quota, would need a power user permission on the Data Center to add/edit a VM, the Administrator should be able to add these permissions automatically, if he desires to.
+*   Users assigned to the Quota, would probably need a power user permission on the consumable resources (for example when add/edit a VM). For that the Administrator should be able to add these permissions automatically, if he desires to.
      This automatic assignment, should only be affective when adding resources for limitation;
     When reducing resources for limitation, an alert message will be presented as follow:
      *Attention, Quota resources have been changed. Please update the Quota Users permissions on the following resources if needed* .

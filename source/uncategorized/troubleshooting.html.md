@@ -21,3 +21,6 @@ wiki_last_updated: 2014-12-07
 * When building the oVirt-Engine with maven, some tests might fail. Try running the maven clean install command with: -DskipTests
 
 ### Usage
+
+When I add my host its status is unreachable. The logs indicate the the host is missing the 'engine' network.
+Solution: you need to add a bridge to the host with the name 'engine'

@@ -29,7 +29,7 @@ Vdsm uses autoconf and automake as it's build system. To configure the build env
 
 To create an RPM do:
 
-      make
+      make rpm
 
 Vdsm automatically builds using the latest tagged version. If you want to explicitly define a version use
 

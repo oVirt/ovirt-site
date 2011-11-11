@@ -19,7 +19,7 @@ Our public git repo is located on [fedora hosted](http://git.fedorahosted.org/gi
 
 you can clone it with
 
-`git clone `[`http://git.fedorahosted.org/git/?p=vdsm.git`](http://git.fedorahosted.org/git/?p=vdsm.git)
+`git clone `[`http://git.fedorahosted.org/git/vdsm.git`](http://git.fedorahosted.org/git/vdsm.git)
 
 ## Building a Vdsm RPM
 

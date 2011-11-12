@@ -12,4 +12,4 @@ wiki_last_updated: 2011-11-12
 
 These are proposals for projects to join the oVirt project.
 
-<Category:Projects>
+<Category:Project>

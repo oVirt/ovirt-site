@@ -108,3 +108,5 @@ The review process is comprised of:
     -   Verified: +1
 *   NACK-ed (-1/-2) patches should not be submitted
 *   A submitted patch is automatically merged to the git repository
+
+<Category:Documentation> [Category:Development environment](Category:Development environment) <Category:Git> [Category:Source code repository](Category:Source code repository)

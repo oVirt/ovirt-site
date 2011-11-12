@@ -27,4 +27,4 @@ There are common things you would like to do while reading logs in Vdsm. These a
 *   To follow a thread or a task use "^THREAD_OR_TASKID::"
 *   Every call through the storage API generates a "Run and protect" call. Following these will give you a grasp of what users of Vdsm asked Vdsm to do, when, and what was the response.
 
-<Category:Vdsm>
+<Category:Vdsm> <Category:Documentation>

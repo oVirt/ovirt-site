@@ -33,3 +33,5 @@ wiki_last_updated: 2014-11-25
 
 *   Setup connections context in the Talend Open Studio. For details on this refer to Talend's documentation.
 *   You may now run the project and test it in the TOS.
+
+<Categories:Documentation> <Categories:Reports> [Categories:Development environment](Categories:Development environment)

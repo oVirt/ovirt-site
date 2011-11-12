@@ -22,3 +22,5 @@ The engine API for the ETL that Creates a more user friendly interface of the en
 *   Hourly level is aggregated every hour for the hour before last and is kept for 2 months.
 *   Daily level is aggregated every day for the day before last and is kept for 5 years.
 *   Upgrade is done via reentrent PL/pgSQL files.
+
+<Category:Documentation> <Category:DWH>

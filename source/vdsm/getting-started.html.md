@@ -19,9 +19,9 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 ## Configuring Vdsm
 
-Vdsm configuration file can be placed under /etc/vdsm/vdsm.conf. If no such file exists Vdsm will only use its built-in defaults. Until you configure you Vdsm's private key and certificates, you should disable ssl. To do that, have your /etc/vdsm/vdsm.conf have
+Vdsm configuration file can be placed under */etc/vdsm/vdsm.conf*. If no such file exists Vdsm will only use its built-in defaults. Until you configure you Vdsm's private key and certificates, you should disable ssl. To do that, have your */etc/vdsm/vdsm.conf* have
 
-      [vars]
-      ssl = false
+    [vars]
+    ssl = false
 
-<Category:Vdsm>
+<Category:Vdsm> <Category:Documentation>

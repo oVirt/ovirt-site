@@ -162,7 +162,7 @@ Then install the ovirt-engine-jbossas package:
 
           #> yum install ovirt-engine-jbossas
 
-Finally, check that the installed service runs. Check that it runs:
+Finally, check that the installed service runs:
 
           #> service jboss start
           #> ps ax | grep java

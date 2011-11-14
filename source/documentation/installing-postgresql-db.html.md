@@ -58,3 +58,5 @@ If you want to be able to connect to PostgreSQL from other hosts (i.e. not from 
       host    all         all         10.35.0.0/16          trust
 
       restart postgres service
+
+<Category:Documentation> <Category:Installation> <Category:Database> <Category:PostgreSQL>

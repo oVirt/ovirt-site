@@ -30,13 +30,11 @@ Not exactly engine based, but the current vdsm packages for running a host are l
 
 ## Installing JDK
 
-OpenJDK
+The supported Java development and runtime environments for the ovirt-engine project are provied by OpenJDK 1.6.0. Install the java-1.6.0-openjdk-devel package to obtain OpenJDK 1.6.0:
 
-      $> sudo yum install -y java-1.6.0-openjdk-devel
+#> yum install -y java-1.6.0-openjdk-devel
 
-*   Verify that javac linked to openjdk-1.6.0's javac properly.
-
-      $> alternatives --display javac
+Use the 'alternatives' command to verify that 'javac' is correctly linked to the openjdk-1.6.0 instance of the Java compiler: $> alternatives --display javac javac - status is auto. link currently points to /usr/lib/jvm/java-1.6.0-openjdk.x86_64/bin/javac ...
 
 <span style="background:#333333;color:#FFF;text-decoration:overline">$> Step 3</span>
 

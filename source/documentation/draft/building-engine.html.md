@@ -24,8 +24,6 @@ Note that while this guide was written and tested using Fedora other Linux Distr
 
 Not exactly engine based, but the current vdsm packages for running a host are located [here](http://fsimonce.fedorapeople.org/vdsm/)
 
-<span style="background:#333333;color:#FFF;text-decoration:overline">$> Step 2</span>
-
 ## Installing Build Tools
 
 ### Installing OpenJDK

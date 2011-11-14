@@ -48,3 +48,5 @@ Source material includes any appropriately licensed information considered a use
 `* `[`How` `to` `setup` `a` `oVirt` `DWH` `development` `environment`](How to setup a oVirt DWH development environment)
 `* `[`How` `to` `setup` `a` `oVirt` `Reports` `development` `environment`](How to setup a oVirt Reports development environment)
 `* `[`Ovirt` `DWH`](Ovirt DWH)
+
+<Category:Documentation>

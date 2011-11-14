@@ -260,6 +260,9 @@ Notes:
 
 1.  To skip the execution of the unit tests and only compile and package ovirt, add the option: -DskipTests=true to the mvn build command
 2.  You can reduce the build time and memory consumption - look at the temp section at the end.
+3.  If you receive "java.lang.OutOfMemoryError: PermGen space" error, use the MAVEN_OPTS environment variable to set a higher heap and permanent generation stack size:
+
+MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=256m"
 
 #### Deploy
 

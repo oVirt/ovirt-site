@@ -34,7 +34,7 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
     -   Provide a script to handle above
 *   Create manifests with checksums
 *   Create plugin recipe (abbreviated kickstart) for edit-livecd: -k --kickstart option
-    -   Requires non-yet-upstream patch edit-livecd which adds kickstart option for using kickstart file as an recipe for editing a livecd image.
+    -   Requires not-yet-upstream patch edit-livecd which adds kickstart option for using kickstart file as an recipe for editing a livecd image.
 
       Following kickstart directives are honored:
 `part / --size `<new rootfs size to be resized to>

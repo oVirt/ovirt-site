@@ -60,9 +60,9 @@ oVirt engine is using maven version 2.2.x, maven 3.x will not work.
 
 ##### Maven personal settings
 
-Create your .m2 directory
+Create your ~/.m2/ directory
 
-      mkdir ~/.m2
+      $> mkdir ~/.m2
 
 Use wget -O ~/.m2/settings.xml <http://www.ovirt.org/w/images/1/18/Settings.xml.png> or Copy paste the content of the file below into ~/.m2/settings.xml
 

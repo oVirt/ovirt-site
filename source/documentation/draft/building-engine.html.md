@@ -53,7 +53,13 @@ Where the link does not point to the correct instance of the Java compiler then 
 
 The ovirt-engine source code is stored in a GIT repository. As such GIT is required to obtain the latest source code.
 
+**Fedora**
+
       #> yum install -y git
+
+**Debian**
+
+      #> apt-get install git
 
 ### Installing maven2
 

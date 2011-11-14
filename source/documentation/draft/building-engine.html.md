@@ -97,9 +97,7 @@ Note that JBoss AS 5.1 does not include security fixes for issues found after it
 ### Installing maven
 
 oVirt engine is using maven version 2.2.x, maven 3.x will not work.
- yum install -y maven2
-
-*   Please validate mvn is in the path
+ yum install -y maven2 Please validate mvn is in the path. Note that on some distributions, particularly recent releases of Fedora, binary for Maven 2 is in fact mvn2. You can confirm which version is in use by appending the --version parameter to the mvn or mvn2 call.
 
 ##### Maven personal settings
 

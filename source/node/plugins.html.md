@@ -22,11 +22,11 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
 
 ### Current Build Process
 
-*   LiveCD ISO image, build instructions from git: [[Node_Building]
+*   LiveCD ISO image, build instructions from git: [Node_Building](Node_Building)
 
 ### Proposed Process
 
-#### For 3rd Pary Packager
+#### For 3rd Party Packager
 
 *   Package 3rd party software in RPM, following [Fedora Packagking Guideline|<http://fedoraproject.org/wiki/Packaging/Guidelines>]
     -   Additional guidelines are need for Stateless support (e.g. only certain folders are writable and persistence must be explicit)

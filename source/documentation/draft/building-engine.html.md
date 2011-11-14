@@ -49,7 +49,9 @@ Where the link does not point to the correct instance of the Java compiler then 
 
 ### Installing git
 
-         yum install -y git
+The ovirt-engine source code is stored in a GIT repository. As such GIT is required to obtain the latest source code.
+
+      $>yum install -y git
 
 ### Installing maven
 

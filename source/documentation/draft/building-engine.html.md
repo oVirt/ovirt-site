@@ -24,10 +24,6 @@ Follow these instructions to successfully build the oVirt Engine project. Instal
 
 Note that while this guide was written and tested using Fedora other Linux Distributions can and have been used to build the ovirt-engine project. Where distribution specific packaging commands are specified in this guide use the syntax that applies for your distribution.
 
-## Getting VDSM
-
-Not exactly engine based, but the current vdsm packages for running a host are located [here](http://fsimonce.fedorapeople.org/vdsm/)
-
 ## Installing Build Tools
 
 ### Installing OpenJDK

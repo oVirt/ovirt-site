@@ -212,7 +212,7 @@ Choose a directory where you want to keep oVirt sources and 'cd' to it
 
 In your git repository, run the following command
 
-      # > cd $OVIRT_HOME/backend/manager/dbscripts_postgres/
+      # > cd $OVIRT_HOME/backend/manager/dbscripts
       # > ./create_db_devel.sh -u postgres 
 
 On some installations you will receive an error message about uuid-ossp.sql not being found. This is an open issue. <https://bugzilla.redhat.com/750626>

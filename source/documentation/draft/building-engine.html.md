@@ -196,8 +196,6 @@ Note that JBoss AS 5.1 does not include security fixes for issues found after it
 
 [Installing_PostgreSQL_DB](Installing_PostgreSQL_DB)
 
-<span style="background:#333333;color:#FFF;text-decoration:overline">$> Step 6</span>
-
 ## Building oVirt-engine from source
 
 #### Clone oVirt-engine codebase

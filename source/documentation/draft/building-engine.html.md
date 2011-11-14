@@ -257,8 +257,6 @@ From this point on, every time you deploy you can simply run:
 
 Since postgres is already set up.
 
-<span style="background:#333333;color:#FFF;text-decoration:overline">$> Step 7</span>
-
 ## Testing
 
 Assuming JBoss is not running, it should be started:

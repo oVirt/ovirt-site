@@ -152,18 +152,23 @@ Use wget -O ~/.m2/settings.xml <http://www.ovirt.org/w/images/1/18/Settings.xml.
 
 ## Installing JBoss AS
 
-Installing using an RPM:
+### Automatically (From RPMs)
+
+RPMs have been provided for Fedora 15 users. These are not however part of the Fedora 15 release and are only available from a third party repository. First, add the third part repository as a source for software:
 
           #> wget -P /etc/yum.repos.d/ http://ranglust.fedorapeople.org/ovirt-engine-jbossas/ovirt-engine-jbossas.repo
+
+Then install the ovirt-engine-jbossas package:
+
           #> yum install ovirt-engine-jbossas
 
-Check that it runs:
+Finally, check that the installed service runs. Check that it runs:
 
           #> service jboss start
           #> ps ax | grep java
        
 
-Manual installation:
+### Manually (From Zips)
 
           $> wget http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA-jdk6.zip/download
           $> unzip jboss-5.1.0.GA-jdk6.zip

@@ -261,12 +261,12 @@ Notes:
 1.  To skip the execution of the unit tests and only compile and package ovirt, add the option: -DskipTests=true to the mvn build command
 2.  You can reduce the build time and memory consumption - look at the temp section at the end.
 
-#### deploy
+#### Deploy
 
 The first deployment of the application to JBoss AS container should use the setup profile:
 
       $> cd $OVIRT_HOME/ear
-      $> mvn clean install -Pdep,setup
+      $> mvn2 clean install -Pdep,setup
 
 There is a issue with the dep and setup_postgres profiles getting in the way of each other. the setup_postgres profile will prevent the deployment of the quartz jar to the JBoss server. So after this step completes, run:
 
@@ -276,7 +276,7 @@ There is a issue with the dep and setup_postgres profiles getting in the way of 
 From this point on, every time you deploy you can simply run:
 
       $> cd $OVIRT_HOME/ear
-      $> mvn clean install -Pdep
+      $> mvn2 clean install -Pdep
 
 Since postgres is already set up.
 

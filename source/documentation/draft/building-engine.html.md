@@ -15,8 +15,10 @@ wiki_last_updated: 2013-06-25
 
 ## Prerequisites
 
-1.  Fedora 14 and up x86-64 OS
+1.  Linux based operating system with support for OpenJDK 1.6.0 and Maven 2.
 2.  Internet connection
+
+Note that while this guide was written and tested using Fedora other Linux Distributions can and have been used to build the ovirt-engine project. Where distribution specific packaging commands are specified in this guide use the syntax that applies for your distribution.
 
 <span style="background:#333333;color:#FFF;text-decoration:overline">$> Step 1</span>
 

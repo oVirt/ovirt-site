@@ -30,7 +30,13 @@ Note that while this guide was written and tested using Fedora other Linux Distr
 
 The supported Java development and runtime environments for the ovirt-engine project are provied by OpenJDK 1.6.0. Install the java-1.6.0-openjdk-devel package to obtain OpenJDK 1.6.0:
 
+**Fedora**
+
       #> yum install -y java-1.6.0-openjdk-devel
+
+**Debian**
+
+      #> apt-get install openjdk-6-jdk
 
 Use the 'alternatives' command to verify that 'javac' is correctly linked to the openjdk-1.6.0 instance of the Java compiler:
 

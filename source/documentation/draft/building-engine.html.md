@@ -279,8 +279,6 @@ Accessing the web-admin:
 Accessing the user-portal
  http://<server name>:<port>/UserPortal
 
-<span style="background:#333333;color:#FFF;text-decoration:overline">$> Step 8</span>
-
 ## Code contribution: Gerrit
 
 oVirt-engine is working with Gerrit for code contribution.

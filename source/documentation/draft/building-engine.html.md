@@ -15,7 +15,7 @@ wiki_last_updated: 2013-06-25
 
 ## Prerequisites
 
-1.  Linux based operating system with support for OpenJDK 1.6.0, Maven 2, PostgreSQL 8.4.8 (or higher).
+1.  Linux based operating system with support for OpenJDK 1.6.0, Maven 2, and PostgreSQL 8.4.8 (or higher).
 2.  An Internet connection.
 
 Note that while this guide was written and tested using Fedora other Linux Distributions can and have been used to build the ovirt-engine project. Where distribution specific packaging commands are specified in this guide use the syntax that applies for your distribution.

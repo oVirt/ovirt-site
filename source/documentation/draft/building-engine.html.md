@@ -28,7 +28,9 @@ Not exactly engine based, but the current vdsm packages for running a host are l
 
 <span style="background:#333333;color:#FFF;text-decoration:overline">$> Step 2</span>
 
-## Installing JDK
+## Installing Build Tools
+
+### Installing OpenJDK
 
 The supported Java development and runtime environments for the ovirt-engine project are provied by OpenJDK 1.6.0. Install the java-1.6.0-openjdk-devel package to obtain OpenJDK 1.6.0:
 

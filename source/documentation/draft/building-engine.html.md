@@ -247,12 +247,12 @@ To work around the issue, edit the file $OVIRT_HOME/backend/manager/dbscripts_po
 If you want only virt-engine-core and rest api:
 
        $> cd $OVIRT_HOME
-       $> mvn clean install
+       $> mvn2 clean install
 
 For compiling the web-admin and user-portal in addition to the api and engine use:
 
        $> cd $OVIRT_HOME
-       $> mvn clean install -Pgwt-admin,gwt-user
+       $> mvn2 clean install -Pgwt-admin,gwt-user
 
 Notes:
 # Compiling the webadmin and userportal takes (a long) time.

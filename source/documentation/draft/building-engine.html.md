@@ -144,8 +144,6 @@ Use wget -O ~/.m2/settings.xml <http://www.ovirt.org/w/images/1/18/Settings.xml.
 
 *   Do not omit the active-profiles element in the above xml, it is crucial.
 
-<span style="background:#333333;color:#FFF;text-decoration:overline">$> Step 3</span>
-
 ## Installing JBoss AS
 
 ### Automatically (From RPMs)

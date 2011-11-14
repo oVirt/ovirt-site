@@ -180,7 +180,7 @@ Check that it runs:
 
 Ensure that you have write access to $JBOSS_HOME/server/default/deploy to which oVirt-engine will be deployed.
 
-**Troubleshooting**
+### Troubleshooting
 
 1.  Some useful JAVA_OPTS, these can be manually added to the run.sh script as required:
     1.  -Xmx512m - maximum Java heap size of 512m

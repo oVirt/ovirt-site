@@ -20,11 +20,11 @@ Currently, we're heavily reliant on Fedora.
 
 Use git
 
-`$ git clone --no-checkout git://git.fedorahosted.org/ovirt/node.git
+`$ git clone --no-checkout http://gerrit.ovirt.org/p/ovirt-node.git
 
-$ cd node
+$ cd ovirt-node
 
-$ git checkout --track origin/devel`
+$ git checkout --track origin/master`
 
 ### Setup a Build Environment
 

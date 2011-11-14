@@ -200,11 +200,11 @@ Note that JBoss AS 5.1 does not include security fixes for issues found after it
 
 #### Clone oVirt-engine codebase
 
-Choose a directory where you want to keep oVirt sources and 'cd' to it
+Choose a directory where you want to keep oVirt sources and 'cd' to it. Use git to clone the ovirt-engine repository into the current working directory,
 
       $> git clone git://gerrit.ovirt.org/ovirt-engine
 
-* Let $OVIRT_HOME be <your_chosen_source_location>/ovirt-engine
+For further instructions let $OVIRT_HOME be <your_chosen_source_location>/ovirt-engine
 
 **Note:** the above cloning is for read only, if you want to contribute you might want to skip to the section on gerrit before moving to the next steps.
 

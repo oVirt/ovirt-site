@@ -216,7 +216,7 @@ Change into your git repository.
 
 Then run the following command, as root, to create the database.
 
-      # > ./create_db_devel.sh -u postgres 
+      #> ./create_db_devel.sh -u postgres 
 
 On some installations you will receive an error message about uuid-ossp.sql not being found. This is an open issue. <https://bugzilla.redhat.com/750626>
 

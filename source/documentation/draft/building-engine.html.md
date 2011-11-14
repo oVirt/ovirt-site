@@ -13,6 +13,10 @@ wiki_last_updated: 2013-06-25
 
 # Building oVirt engine
 
+## Introduction
+
+Follow these instructions to successfully build the oVirt Engine project. Installation and configuration of all required tools to complete the build is also covered. For instructions on obtaining and building VDSM, the package required to turn existing systems into oVirt Nodes, see [Vdsm Developers](Vdsm Developers). Alternatively some binary VDSM builds are available [here](http://fsimonce.fedorapeople.org/vdsm/).
+
 ## Prerequisites
 
 1.  Linux based operating system with support for OpenJDK 1.6.0, Maven 2, and PostgreSQL 8.4.8 (or higher).

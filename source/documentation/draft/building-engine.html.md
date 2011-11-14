@@ -262,7 +262,7 @@ Notes:
 2.  You can reduce the build time and memory consumption - look at the temp section at the end.
 3.  If you receive "java.lang.OutOfMemoryError: PermGen space" error, use the MAVEN_OPTS environment variable to set a higher heap and permanent generation stack size:
 
-MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=256m"
+      MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=256m"
 
 #### Deploy
 

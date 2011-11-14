@@ -185,3 +185,5 @@ and executes the following:
        
 
 ovirt-engine is now available by accessing: <http://host:8080/webadmin>
+
+<Category:Documentation> <Category:Engine> <Category:RPM>

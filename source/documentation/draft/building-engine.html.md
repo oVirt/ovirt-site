@@ -52,7 +52,7 @@ The ovirt-engine source code is stored in a GIT repository. As such GIT is requi
 ### Installing maven2
 
 oVirt engine is using maven version 2.2.x, maven 3.x will not work.
- yum install -y maven2 Please validate mvn is in the path. Note that on some distributions, particularly recent releases of Fedora, binary for Maven 2 is in fact mvn2. You can confirm which version is in use by appending the --version parameter to the mvn or mvn2 call.
+ #> yum install -y maven2 Please validate mvn is in the path. Note that on some distributions, particularly recent releases of Fedora, binary for Maven 2 is in fact mvn2. You can confirm which version is in use by appending the --version parameter to the mvn or mvn2 call.
 
 ##### Maven personal settings
 

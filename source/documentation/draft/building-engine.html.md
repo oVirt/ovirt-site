@@ -255,7 +255,7 @@ For compiling the web-admin and user-portal in addition to the api and engine us
        $> mvn2 clean install -Pgwt-admin,gwt-user
 
 Notes:
-# Compiling the webadmin and userportal takes (a long) time.
+# Compiling the webadmin and userportal takes (a long) time, please visit [GWT Compilation Configuration](Advanced_oVirt_Engine_Build_Notes#GWT_Compilation_Configuration) if you want to speed the web compilation process during development time
 # Make sure to run this with your user, not 'root', running as root will result in a missing settings.xml file in the 'root' home directory.
 
 1.  To skip the execution of the unit tests and only compile and package ovirt, add the option: -DskipTests=true to the mvn build command
@@ -263,6 +263,8 @@ Notes:
 3.  If you receive "java.lang.OutOfMemoryError: PermGen space" error, use the MAVEN_OPTS environment variable to set a higher heap and permanent generation stack size, then try again:
 
       $> export MAVEN_OPTS="-XX:MaxPermSize=128m"
+
+For advanced build notes, please visit [Advanced_oVirt_Engine_Build_Note](Advanced_oVirt_Engine_Build_Note)
 
 #### Deploy
 

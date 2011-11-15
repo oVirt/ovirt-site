@@ -45,8 +45,8 @@ The following actions can be requested from the agent:
 
       * `**`Lock` `screen`**` - Request locking the user's desktop.
       * `**`Login`**` - Perform a login in user's behalf.
-` * `[`Automatic` `login` `on` `RHEL`](RHEV_Agent_Login_RHEL)
-` * `[`Automatic` `login` `on` `Microsoft's` `Windows`](RHEV_Agent_Login_Windows)
+` * `[`Automatic` `login` `on` `RHEL`](Ovirt_guest_agent_automatic_login_RHEL6)
+` * `[`Automatic` `login` `on` `Microsoft's` `Windows`](Ovirt_guest_agent_automatic_login_windows)
       * `**`Logoff`**` - Log off the active user.
       * `**`Shutdown`**` - Shut down the virtual machine.
 

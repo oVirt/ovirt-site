@@ -244,7 +244,7 @@ To work around the issue, edit the file $OVIRT_HOME/backend/manager/dbscripts_po
 
 #### Build
 
-If you want only virt-engine-core and rest api:
+Note that on most modern distributions the 'mvn' binary refers to Maven 3, to use Maven 2 you must use mvn2. If in doubt run 'mvn --version' and/or 'mvn2 --version' to confirm the version of Maven in use. If you only want to build virt-engine-core and REST API then:
 
        $> cd $OVIRT_HOME
        $> mvn2 clean install
@@ -258,7 +258,7 @@ Notes:
 # Compiling the webadmin and userportal takes (a long) time, please visit [GWT Compilation Configuration](Advanced_oVirt_Engine_Build_Notes#GWT_Compilation_Configuration) if you want to speed the web compilation process during development time
 # Make sure to run this with your user, not 'root', running as root will result in a missing settings.xml file in the 'root' home directory.
 
-1.  To skip the execution of the unit tests and only compile and package ovirt, add the option: -DskipTests=true to the mvn build command
+1.  To skip the execution of the unit tests and only compile and package ovirt, add the option: -DskipTests=true to the mvn2 build command
 2.  You can reduce the build time and memory consumption - look at the temp section at the end.
 3.  If you receive "java.lang.OutOfMemoryError: PermGen space" error, use the MAVEN_OPTS environment variable to set a higher heap and permanent generation stack size, then try again:
 

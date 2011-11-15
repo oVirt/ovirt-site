@@ -276,7 +276,7 @@ The first deployment of the application to JBoss AS container should use the set
 There is a issue with the dep and setup_postgres profiles getting in the way of each other. the setup_postgres profile will prevent the deployment of the quartz jar to the JBoss server. So after this step completes, run:
 
       $> cd $OVIRT_HOME/ear
-      $> mvn clean install -Pdep
+      $> mvn2 clean install -Pdep
 
 From this point on, every time you deploy you can simply run:
 

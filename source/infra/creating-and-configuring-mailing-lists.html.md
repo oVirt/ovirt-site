@@ -51,4 +51,4 @@ This standard operating procedure (SOP) describes how to create and configure a 
 *   Subscription requires permission
 *   Must display in list-of-lists - it's private but not kept a secret
 
-[Category:Infrastructure docs](Category:Infrastructure docs) [Category:Infrastructure SOP](Category:Infrastructure SOP) <Category:Infrastructure> [Category:How to](Category:How to)
+[Category:Infrastructure documentation](Category:Infrastructure documentation) [Category:Infrastructure SOP](Category:Infrastructure SOP)

@@ -185,7 +185,7 @@ The Power User Portal should allow the following operations:
 
     * The threshold will be configured for the administrator and for the User. The default value for administrators is 60%, and for regular users is 75%.
 
-    * When Quota reaches the threshold limit, an audit log notification should be performed to the Administrator or the User.
+    * When Quota reaches the threshold limit, an audit log notification should be issued to the Administrator or the User.
 
     * User audit log should be:
 
@@ -203,7 +203,7 @@ The Power User Portal should allow the following operations:
 
     * When Quota reaches its resources limit, it will be able to consume resources depending on the grace percentage configured in it.
 
-    * An audit log warning message should be performed to the User and the administrator, as follows:
+    * An audit log warning message should be issued to the User and the administrator:
 
 *`Usage` `on` `resource` `$(Resource)` `in` `Quota` `$(Quota_Name)` `has` `reached` `its` `limit` `due` `to` `an` `action` `made` `by` `user` `${UserName}.`*
 

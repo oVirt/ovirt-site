@@ -24,6 +24,7 @@ In short, *this wiki is for the oVirt community collaborative documentation*.
 *   Developer wiki for the oVirt [Node](Node) project.
 *   Content for attendees and organizers of the [November 2011 workshop](Workshop November 2011).
 *   Work pages for the oVirt [Infrastructure](Infrastructure) team.
+*   Project [Communication](Communication).
 *   [Projects proposing to join oVirt](:Category:Project proposal)
 *   [List of all pages](Special:AllPages)
 

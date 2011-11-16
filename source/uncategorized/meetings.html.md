@@ -17,8 +17,12 @@ oVirt has a weekly sync meeting on IRC (occasionally phone).
 
 ### Meeting Time and Place
 
-*   Wednesdays @ 15:00 UTC (may change during DST changes) - always at 7:00am US Pacific, 10:00am US Eastern.
-*   On IRC: #ovirt on irc.oftc.net
+*   oVirt Weekly Sync
+    -   Wednesdays @ 15:00 UTC (may change during DST changes) - always at 7:00am US Pacific, 10:00am US Eastern.
+    -   On IRC: #ovirt on irc.oftc.net
+*   oVirt Node
+    -   Thursday @ 14:00 UTC (may change during DST changes) - always at 9:00am US Eastern.
+    -   On IRC: #ovirt on irc.oftc.net
 
 ### oVirt Weekly Sync Meeting Minutes and Logs
 

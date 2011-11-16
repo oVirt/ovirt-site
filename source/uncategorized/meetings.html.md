@@ -24,6 +24,10 @@ oVirt has a weekly sync meeting on IRC (occasionally phone).
     -   Thursday @ 14:00 UTC (may change during DST changes) - always at 9:00am US Eastern.
     -   On IRC: #ovirt on irc.oftc.net
 
+### MeetBot
+
+There is a bot (ovirtbot) in the #ovirt IRC channel that can be used for running IRC meetings. For information on using it, see [here](http://wiki.debian.org/MeetBot)
+
 ### oVirt Weekly Sync Meeting Minutes and Logs
 
 *   2011-11-16

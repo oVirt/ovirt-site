@@ -103,8 +103,9 @@ Each Data Center entity is configured with one of the following operation modes:
 #### CRUD
 
 *   Quota object can be removed only if there are no entities such as VM or Template that are referencing it.
-*   Quota object can be edited; When a Quota is edited, the change should apply to all the entities that are assigned to this Quota.
-*   Quota object parameters modifications can result in exceeding the resource limitations:
+*   Quota object can be edited; When a Quota is edited, the change should apply to all the entities that are assigned to this Quota, but only for future allocations of resources.
+
+Quota object parameters modifications can result in exceeding the resource limitations:
 
     * reducing the disk limitation of some storage domain
 
@@ -112,9 +113,9 @@ Each Data Center entity is configured with one of the following operation modes:
 
     * removing a user from the list of users permitted to use the quota
 
-All the above will not cause a violation. However, no one will be able to consume more resources from the quota. Even when resources are released to follow the Quota limitation, no user will be able to exceed the Quota resources again.
+All the above will not cause a resource deallocation. However, users will not be able to exceed the Quota limitations again after the resources are released.
 
-Also, if a user was removed from a list of permitted user it also won't cause a violation. However, that user won't be able to use this quota again, unless permitted to.
+Also, if a user was removed from the list of permitted users it won't result in an immediate interruptive action. However, that user won't be able to use this quota again, unless permitted to.
 
 #### User Experience
 

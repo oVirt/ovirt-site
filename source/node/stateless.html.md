@@ -93,6 +93,7 @@ How do we authenticate a node with the configuration server?
 *   USB drive that contains some certificate or key for encrypting and decrypting the bundle
 *   Single key embedded in the pxe image
 *   TPM module to contain unique key per machine
+    -   motherboard upgrades would require a node to be re-registered and configured in this case
 
 ## Upgrades
 

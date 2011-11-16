@@ -153,11 +153,9 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 #### Installation/Upgrade
 
-*   Upon upgrade or new installation, each Data Center should be assigned with an unlimited Quota.
-*   For each Data Center, all objects (disks and VM's) in the DC will be assigned to the unlimited Quota, and all the users in the setup will be permitted to use it.
-*   The new/upgraded Data Center, will be set with disabled mode by default (which means it won't be subjected to the quota restrictions).
-*   When the administrator choose to use the Quota mechanism, he should change the Data Center Quota mode to audit or enforce.
-*   After the administrator configure new quotas for the DC, he should remove permissions from the unlimited quota to avoid users consuming resources for it.
+*   For new/upgraded Data Center, the default enforcement mode will be 'disabled' (which means it won't be subject to any quota restrictions).
+*   For new/upgraded Data Center an unlimited Quota will be created implicitly and be attached to all objects in this Data Center and all the users will be permitted to use it.
+*   When the administrator chooses to enable the Quota mechanism he should consider removing the permission of the unlimited quota. In addition, the existing resources will consume the unlimited quota, the administrator should consider changing that as well.
 
 #### User work-flows
 

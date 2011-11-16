@@ -164,13 +164,12 @@ The following UI mockups contain guidelines for the different screens and wizard
 The Administrator Portal should allow the following operations:
 
 *   View/edit/create Quota's
-*   View/edit/create the User's roles and Quotas
 *   View Quota per resource (User/Storage domain etc.)
 
 The Power User Portal should allow the following operations:
 
 *   View Quota's defined/used for himself
-*   Use Quota upon resource usage (runtime and storage)
+*   Consume Quota upon resource usage (runtime and storage)
 
 #### Enforcement
 

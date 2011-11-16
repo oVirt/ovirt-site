@@ -435,4 +435,4 @@ The background image is set in the skin, which for the default monobook is 'skin
     mysql> grant index, create, select, insert, update, delete, alter, lock tables on wikidb.* to 'wikiuser'@'localhost' identified by '(REFER TO /root/passwords)';
     Query OK, 0 rows affected (0.00 sec)
 
-<Category:Infrastructure> <Category:MediaWiki> [Category:Infrastructure docs](Category:Infrastructure docs) <Category:Wordpress>
+[Category:Infrastructure documentation](Category:Infrastructure documentation) <Category:MediaWiki> <Category:Wordpress>

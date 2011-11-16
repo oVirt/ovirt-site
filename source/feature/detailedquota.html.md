@@ -177,7 +177,7 @@ The Power User Portal should allow the following operations:
 *   Quota runtime limitation should be enforced during VM execution.
 *   Quota storage limitation should be enforced upon any requirement for storage allocation.
 *   When dealing with QCOW disks (which is not pre-allocated, like templates or stateless VM) the Quota should consume the total maximum size of the disk, since it is the potential size that can be used.
-*   In the future Quota should also have enforcement for network usage and storage throughput.
+*   In the future Quota can be extended to have enforcement for network usage, storage throughput etc.
 
 #### Notification
 

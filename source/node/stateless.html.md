@@ -9,24 +9,22 @@ wiki_last_updated: 2012-05-29
 
 # Node Stateless
 
-## Stateless Node
-
-### Goals
+## Goals
 
 *   Be able to run a node image without installing to local disk
 *   Required configuration is posted and retrieved from a configuration server
 *   Minimal size configuration bundle
 *   Provide some sort of security for communications
 
-### High Level Design
+## High Level Design
 
 *   Machine boots and retrieves it's configuration bundle from the configuration server
 *   Configuration bundle is extracted and applied
 *   Machine makes itself available based on configuration
 
-### Details
+## Details
 
-#### Boot Process
+### Boot Process
 
 *   Makes the most sense in a pxe environment, but can be done with usb or CD/DVD
 *   Machine boots the image
@@ -38,7 +36,7 @@ wiki_last_updated: 2012-05-29
 *   Get DNS SRV record for the configuration server
 *   Check config server for config bundle
 
-##### Previously configured
+#### Previously configured
 
 *   Retrieve the config bundle from the configuration server
 *   Decrypt config bundle
@@ -46,7 +44,7 @@ wiki_last_updated: 2012-05-29
     -   ?? Do we need to (re)start services ??
 *   Make node available to Engine
 
-##### Not Configured
+#### Not Configured
 
 *   No config bundle found
 *   Check for autoinstall parameters
@@ -62,7 +60,7 @@ wiki_last_updated: 2012-05-29
     -   On confirmation, build bundle, encrypt/sign, and send to config server
     -   Make available to Engine
 
-#### Configuration Server
+### Configuration Server
 
 *   A simple server that is running both an nfs and web server
 *   New hosts will upload their new config bundles to the nfs server
@@ -70,7 +68,7 @@ wiki_last_updated: 2012-05-29
     -   Otherwise, web server can server from same location as nfs server
 *   Provide web interface for admin to move and manage config bundles
 
-##### Config Server Future
+#### Config Server Future
 
 *   Probably not for initial development but some considerations for the future
 *   May want to integrate the config server into ovirt-engine and have all the management from there
@@ -79,7 +77,7 @@ wiki_last_updated: 2012-05-29
     -   IPA
     -   etc...
 
-#### Open Issues
+### Open Issues
 
 *   Do we need something that prevents a host from uploading a new bundle while waiting for it to be approved?
 *   What about updating configuration bundles?
@@ -87,7 +85,7 @@ wiki_last_updated: 2012-05-29
     -   kernel commandline?
     -   Admin on web server removes? <-- Do we need this anyway?
 
-### Security Considerations
+## Security Considerations
 
 How do we authenticate a node with the configuration server?
 
@@ -96,20 +94,20 @@ How do we authenticate a node with the configuration server?
 *   Single key embedded in the pxe image
 *   TPM module to contain unique key per machine
 
-### Upgrades
+## Upgrades
 
 *   Should be as simple as updating the PXE image (or usb stick or CD/DVD)
 *   Shouldn't be much need to change the config bundle, but a new config bundle shouldn't be difficult to upload
 
-### To Swap or Not To Swap
+## To Swap or Not To Swap
 
 *   In order to overcommit a host, you need to have swap space to support it
 *   First implementation will probably disable swap
 *   Future implementation may allow the system to configure a local disk as swap space
 
-### Other
+## Other
 
-#### irc conversations
+### irc conversations
 
 temporarily preserved to ensure we don't lose anything
 

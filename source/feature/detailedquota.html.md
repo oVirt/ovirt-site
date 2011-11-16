@@ -52,8 +52,8 @@ Quota is a new (searchable) object in the system, which contains the following p
 
 1.  Name
 2.  Description
-3.  Data Center which is referenced to.
-4.  List of unlimited number of specific rules, where each rule should specify a resource and resource limitation parameters.
+3.  Data Center, for which the quota applies.
+4.  List of unlimited number of rules, where each rule should specify a resource and resource limitation parameters.
 5.  List of Users/Groups that have permission to use the Quota, i.e. assign it to VMs/disks
 
 For example, the following Quota configuration, is for R&D team:

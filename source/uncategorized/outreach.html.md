@@ -39,15 +39,15 @@ The follow section is to help plan oVirt workshops and meetups. Generally it wou
 
 #### Schedule
 
-|----------------|--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| *Date*         | *Event*                        | *Details*                                                                                                                                 |
-| Dec 4–9 2011   | LISA Boston                    | Meetup or talk, is anyone going, or can we still set a slot <http://www.usenix.org/event/lisa11/>                                         |
-| Jan 13-15 2012 | FUDcon Blacksburg              | TBD <http://fedoraproject.org/wiki/FUDCon:Blacksburg_2012>                                                                                |
-| Jan 16-20 2012 | linux.conf.au                  | TBD <http://linux.conf.au/>                                                                                                               |
+|----------------|--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+| *Date*         | *Event*                        | *Details*                                                                                                                                 | *Attending* |
+| Dec 4–9 2011   | LISA Boston                    | Meetup or talk, is anyone going, or can we still set a slot <http://www.usenix.org/event/lisa11/>                                         |             |
+| Jan 13-15 2012 | FUDcon Blacksburg              | TBD <http://fedoraproject.org/wiki/FUDCon:Blacksburg_2012>                                                                                | pmyers      |
+| Jan 16-20 2012 | linux.conf.au                  | TBD <http://linux.conf.au/>                                                                                                               |             |
 | Feb 4-5th 2012 | FOSDEM 2012, Brussels, Belgium | TBD <http://fosdem.org/2012/devrooms_for_2012> They have a "Open Source Virtualization and Cloud" dev room listed. We might fit in there. 
-                                                   Needs investigation on whether this is still open to new participants.                                                                     |
-| Feb 20 2012    | SCALE, LA                      | Meetup and or talk, who is going, <https://www.socallinuxexpo.org/cfp/cfp-information>                                                    |
-| June 1-3 2012  | LinuxCon Japan                 | TBD <https://events.linuxfoundation.org/events/linuxcon-japan>                                                                            |
+                                                   Needs investigation on whether this is still open to new participants.                                                                     | apevec      |
+| Feb 20 2012    | SCALE, LA                      | Meetup and or talk, who is going, <https://www.socallinuxexpo.org/cfp/cfp-information>                                                    |             |
+| June 1-3 2012  | LinuxCon Japan                 | TBD <https://events.linuxfoundation.org/events/linuxcon-japan>                                                                            |             |
 
 Workshop suggestions:
 

@@ -96,9 +96,9 @@ The following Quota is an example of unlimited quota on both global and specific
 The Quota object is in the data center scope. Also, a Data Center must be related to at least one Quota object.
 Each Data Center entity is configured with one of the following operation modes:
 
-1.  Disable - The Data Center would not be subjected to Quota restrictions.
-2.  Audit - Only warning messages would be performed when Quota restrictions will be violated.
-3.  Enforce - Will be enforced the restrictions completely and should prevent the command from executing.
+1.  Disable - The Data Center would not be subject to Quota restrictions.
+2.  Audit - Only warning messages would be issued when Quota restrictions are violated.
+3.  Enforce - Enforced the restrictions completely and prevent the resource allocation.
 
 #### CRUD
 

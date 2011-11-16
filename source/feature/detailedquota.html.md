@@ -232,11 +232,13 @@ Affected oVirt projects:
 
 <http://www.ovirt.org/wiki/Talk:Features/Quota>
 
-### Open Issues
+### Future Work
 
 *   There should be a new business entity which will represent a group of storage domains as one unit.
     The new business entity will be named, Virtual Storage Group, and should be referenced in the quota as a business entity and have storage restrictions on it.
 *   Enforcement of network usage and storage throughput using the Quota entity.
 *   Add historic Quota utilization to history database.
+
+### Open Issues
 
 [Category: Feature](Category: Feature)

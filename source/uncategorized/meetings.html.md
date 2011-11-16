@@ -9,6 +9,8 @@ wiki_last_updated: 2014-11-19
 
 # Meetings
 
+This is the page for meeting information.
+
 ## oVirt Weekly Sync Meeting
 
 oVirt has a weekly sync meeting on IRC (occasionally phone).

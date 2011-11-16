@@ -155,7 +155,7 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 #### Installation/Upgrade
 
-*   For new/upgraded Data Center, the default enforcement mode will be 'disabled' (which means it won't be subject to any quota restrictions).
+*   For new/upgraded Data Center, the default operation mode will be 'disabled' (which means it won't be subject to any quota restrictions).
 *   For new/upgraded Data Center an unlimited Quota will be created implicitly and be attached to all objects in this Data Center and all the users will be permitted to use it.
 *   When the administrator chooses to enable the Quota mechanism he should consider removing the permission of the unlimited quota. In addition, the existing resources will consume the unlimited quota, the administrator should consider changing that as well.
 

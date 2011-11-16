@@ -68,6 +68,12 @@ wiki_last_updated: 2012-05-29
     -   Otherwise, web server can server from same location as nfs server
 *   Provide web interface for admin to move and manage config bundles
 
+<!-- -->
+
+*   Suggested Frameworks:
+    -   WebDAV
+    -   nfs+apache (or similar web server)
+
 #### Config Server Future
 
 *   Probably not for initial development but some considerations for the future

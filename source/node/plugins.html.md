@@ -26,6 +26,11 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
 
 ### Requirements
 
+*   Ability for third-party vendors to add packages to the node.
+*   Third party packages may have the need for persistent storage. This can be handled either on host (stateful) or off host (stateless).
+*   Third party packages need to be upgradable.
+*   Third party packages should be able to hot-add (e.g. not require reboot of the node).
+
 ### Proposed Process
 
 #### For 3rd Party Packager

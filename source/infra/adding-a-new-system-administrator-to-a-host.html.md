@@ -78,4 +78,4 @@ Modify these steps for giving specific 'sudo' access, such as to backups, restar
 
     chmod 600 /home/quaid/.ssh
 
-[Category:Infrastructure documentation](Category:Infrastructure documentation)
+[Category:Infrastructure documentation](Category:Infrastructure documentation) [Category:Infrastructure SOP](Category:Infrastructure SOP)

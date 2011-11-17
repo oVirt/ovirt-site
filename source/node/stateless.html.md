@@ -112,6 +112,8 @@ How do we authenticate a node with the configuration server?
 *   First implementation will probably disable swap
 *   Future implementation may allow the system to configure a local disk as swap space
 
+## Deferred to a Future feature
+
 ## Other
 
 ### irc conversations

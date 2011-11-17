@@ -26,6 +26,9 @@ oVirt has a weekly sync meeting on IRC (occasionally phone).
 *   oVirt Engine Core
     -   Wednesday (bi-weekly) @ 14:00 UTC (may change during DST changes) - always at 8:00am US Eastern.
     -   On IRC: #ovirt on irc.oftc.net
+*   VDSM Bi-Weekly Sync
+    -   Monday (bi-weekly) @ 14:30 UTC (may change during DST changes) - always at 16:30 Israel.
+    -   On IRC: #vdsm on chat.freenode.net
 
 ### MeetBot
 

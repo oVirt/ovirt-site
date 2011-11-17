@@ -92,7 +92,7 @@ Currently, ovirt-guest-agent and qemu-ga are the primary candidates under consid
 
 #### Leverage ovirt-guest-agent out-of-band where appropriate, use qemu-ga via QMP where appropriate
 
-*   currently viable, but lots of wasted resources (extra libvirt integration work, duplification of efforts, extra packages, etc)
+*   currently viable, but lots of wasted resources (duplication of efforts, extra packages, etc)
 
 #### Drop qemu-ga, consolidate around ovirt-guest-agent
 

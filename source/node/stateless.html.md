@@ -74,15 +74,6 @@ wiki_last_updated: 2012-05-29
     -   WebDAV
     -   nfs+apache (or similar web server)
 
-#### Config Server Future
-
-*   Probably not for initial development but some considerations for the future
-*   May want to integrate the config server into ovirt-engine and have all the management from there
-*   Might want to investigate integrating with other heavyweight configuration servers
-    -   Katello
-    -   IPA
-    -   etc...
-
 ### Open Issues
 
 *   Do we need something that prevents a host from uploading a new bundle while waiting for it to be approved?
@@ -98,7 +89,7 @@ How do we authenticate a node with the configuration server?
 *   Multiple levels that could be done
 *   USB drive that contains some certificate or key for encrypting and decrypting the bundle
 *   Single key embedded in the pxe image
-*   TPM module to contain unique key per machine
+*   TPM module to contain unique key per machine **DEFERRED to future**
     -   motherboard upgrades would require a node to be re-registered and configured in this case
 
 ## Upgrades
@@ -112,7 +103,18 @@ How do we authenticate a node with the configuration server?
 *   First implementation will probably disable swap
 *   Future implementation may allow the system to configure a local disk as swap space
 
-## Deferred to a Future feature
+## Future features
+
+*   TPM/TXT Support for security
+
+#### Config Server Future
+
+*   Probably not for initial development but some considerations for the future
+*   May want to integrate the config server into ovirt-engine and have all the management from there
+*   Might want to investigate integrating with other heavyweight configuration servers
+    -   Katello
+    -   IPA
+    -   etc...
 
 ## Other
 

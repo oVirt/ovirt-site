@@ -63,50 +63,97 @@ Currently, ovirt-guest-agent and qemu-ga are the primary candidates under consid
 #### ovirt-guest-agent
 
 *   pros
-
-1.  Has been around for a long time (~5 years) - considered stable
-2.  Started as rhevm specific but evolved a lot since then
-3.  Currently the only fully functional guest agent available for ovirt
-4.  Written in python
-5.  Some VDI related sub components are written in C & C++
-6.  Supports a well defined list of message types / protocol [3]
-7.  Supports the folowing guest OSs
-
-       Linux: RHEL5, RHEL6 F15, F16(soon) 
-       Windows: xp, 2k3 (32/64), w7 (32/64), 2k8 (32/64/R2)
-
+    -   Has been around for a long time (~5 years) - considered stable
+    -   Started as rhevm specific but evolved a lot since then
+    -   Currently the only fully functional guest agent available for ovirt
+    -   Written in python
+    -   Some VDI related sub components are written in C & C++
+    -   Supports a well defined list of message types / protocol [3]
+    -   Supports the folowing guest OSs, Linux: RHEL5, RHEL6 F15, F16(soon), Windows: xp, 2k3 (32/64), w7 (32/64), 2k8 (32/64/R2)
 *   cons
-
-1.  Not designed to be made consumable by QMP/QEMU directly
-2.  No session-level agent
+    -   Not designed to be made consumable by QMP/QEMU directly
+    -   No session-level agent
+    -   Deployment complexity: The more complex the guest agent is, the more often it will need to be updated (bug/security fixes, distro compatibility, new features). Rolling out guest agent updates does not scale well in large environments (especially when the guest and host administrators are not the same person).
 
 #### qemu-ga
 
 *   pros
-
-1.  Qemu specific - it was aimed for specific qemu needs (mainly quiesce guest I/O)
-2.  project agnostic by design: supports file open/read/write/close, and when exec functionality is added will have the ability to deploy/exec abitrary code as well as upgrade itself
-3.  So far linux only, windows port in the works
-4.  written in C
-5.  Re-uses QMP transport and command schema, will be made transparent to QMP users once replacement QMP server is merged upstream
-6.  Patches for libvirt integration available on list, plans for default installation on Fedora 17 guests
-
+    -   Qemu specific - it was aimed for specific qemu needs (mainly quiesce guest I/O)
+    -   project agnostic by design: supports file open/read/write/close, and when exec functionality is added will have the ability to deploy/exec abitrary code as well as upgrade itself
+    -   So far linux only, windows port in the works
+    -   written in C
+    -   Re-uses QMP transport and command schema, will be made transparent to QMP users once replacement QMP server is merged upstream
+    -   Patches for libvirt integration available on list, plans for default installation on Fedora 17 guests
 *   cons
-
-1.  No plans for native high-level functionality: management tools extend functionality by deploying/executing scripts/binaries in guest, collect state by similar mechanisms, or reading files, etc.
-2.  No session-level agent
+    -   No plans for native high-level functionality: management tools extend functionality by deploying/executing scripts/binaries in guest, collect state by similar mechanisms, or reading files, etc.
+    -   No session-level agent
 
 ### Proposals
 
-*   Drop qemu-ga, consolidate around ovirt-guest-agent:
-    -   blocker: Requires that ovirt-guest-agent be proxied through QMP management interface, subsumes existing qemu-ga commands. Also requires qemu.git submobule to access ovirt-guest-agent command schema to generate marshalling code for proxied commands.
+#### Leverage ovirt-guest-agent out-of-band where appropriate, use qemu-ga via QMP where appropriate
 
-<!-- -->
+*   currently viable, but lots of wasted resources (extra libvirt integration work, duplification of efforts, extra packages, etc)
 
-*   Make ovirt-guest-agent functionality available via an executable or a set of scripts, and have hypervisor deploy+exec the functionality via qemu-ga file write/exec interfaces.
-    -   blocker: Requires exec support to be added (planned). Requires careful evaluation of security model.
+#### Drop qemu-ga, consolidate around ovirt-guest-agent
 
-<!-- -->
+*   blocker: Requires that ovirt-guest-agent be proxied through QMP management interface, subsumes existing qemu-ga commands. Also requires qemu.git submobule to access ovirt-guest-agent command schema to generate marshalling code for proxied commands.
 
-*   Leverage ovirt-guest-agent out-of-band where appropriate, use qemu-ga via QMP where appropriate
-    -   currently viable, but lots of wasted resources (extra libvirt integration work, duplification of efforts, extra packages, etc)
+      The need to converge is obvious, and now that ovirt-guest-agent is opensourced 
+      under the ovirt stack, and since it already produces value for enterprise 
+      installations, and is cross platform, I offer to join hands around ovirt-
+      guest-agent and formalize a single code base that will serve us all.
+
+      git @ git://gerrit.ovirt.org/ovirt-guest-agent
+
+      Thoughts ?
+
+      Thanks
+      Barak Azulay
+
+#### Make ovirt-guest-agent functionality available via an executable or a set of scripts, and have hypervisor deploy+exec the functionality via qemu-ga file write/exec interfaces.
+
+*   blocker: Requires exec support to be added (planned). Requires careful evaluation of security model.
+
+      Today qemu-ga supports the following verbs: sync ping info shutdown
+      file-open file-close file-read file-write file-seek file-flush fsfreeze-status
+      fsfreeze-freeze fsfreeze-thaw.  If we add a generic execute mechanism, then the
+      agent can provide everything needed by oVirt to deploy SSO.
+
+      Let's assume that we have already agreed on some sort of security policy for the
+      write-file and exec primitives.  Consensus is possible on this issue but I
+      don't want to get bogged down with that here.
+
+      With the above primitives, SSO could be deployed automatically to a guest with
+      the following sequence of commands:
+
+      file-open "<exec-dir>/sso-package.bin" "w"
+      file-write <fh> <buf>
+      file-close <fh>
+      file-open "<exec-dir>/sso-package.bin" "x"
+      file-exec <fh> <args>
+      file-close <fh>
+
+      At this point, the package is installed.  It can contain whatever existing logic
+      exists in the ovirt-guest-agent today.  To perform a user login, we'll assume
+      that sso-package.bin contains an executable 'sso/do-user-sso':
+
+      file-open "<exec-dir>/sso/do-user-sso" "x"
+      exec <fh> <args>
+      file-close <fh>
+
+      At this point the user would be logged in as before.
+
+      Obviously, this type of approach could be made easier by providing a well
+      designed exec API that returns command exit codes and (optionally) command
+      output.  We could also formalize the install of additional components into some
+      sort of plugin interface.  These are all relatively easy problems to solve.
+
+      If we go in this direction, we would have a simple, general-purpose agent with
+      low-level primitives that everyone can use.  We would also be able to easily
+      extend the agent based on the needs of individual deployments (not the least of
+      which is an oVirt environment).  If certain plugins become popular enough, they
+      can always be promoted to first-order API calls in future versions of the API.
+
+      -- 
+      Adam Litke <agl@us.ibm.com>
+      IBM Linux Technology Center

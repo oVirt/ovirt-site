@@ -24,7 +24,7 @@ oVirt has a weekly sync meeting on IRC (occasionally phone).
     -   Thursday @ 14:00 UTC (may change during DST changes) - always at 9:00am US Eastern.
     -   On IRC: #ovirt on irc.oftc.net
 *   oVirt Engine Core
-    -   Wednesday @ 14:00 UTC (may change during DST changes) - always at 8:00am US Eastern.
+    -   Wednesday (bi-weekly) @ 14:00 UTC (may change during DST changes) - always at 8:00am US Eastern.
     -   On IRC: #ovirt on irc.oftc.net
 
 ### MeetBot

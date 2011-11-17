@@ -319,7 +319,7 @@ More detail can be found in [Working_with_oVirt_Gerrit](Working_with_oVirt_Gerri
 reduce the permutation number to one).
 
 Add the lines below to
-$OVIRT_HOME/frontend/webadmin/modules/webadmin/src/main/java/org/ovirt/engine/ui/webadmin/WebAdmin.gwt.xml
+$OVIRT_HOME/frontend/webadmin/modules/webadmin/src/main/resources/org/ovirt/engine/ui/webadmin/WebAdmin.gwt.xml
 $OVIRT_HOME/frontend/webadmin/modules/userportal/src/main/java/org/ovirt/engine/ui/userportal/UserPortal.gwt.xml
 
       <!-- Reduce the number of permutations to compile, just for tests: -->

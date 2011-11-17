@@ -29,7 +29,7 @@ oVirt has a weekly sync meeting on IRC (occasionally phone).
 *   VDSM Bi-Weekly Sync
     -   Monday (bi-weekly) @ 14:30 UTC (may change during DST changes) - always at 16:30 Israel.
     -   On IRC: #vdsm on chat.freenode.net
-    -   Intercall (see here for more info) conference ID: 8425973915
+    -   Intercall (see [intercall here](intercall here) for more info) conference ID: 8425973915
 
 ### MeetBot
 

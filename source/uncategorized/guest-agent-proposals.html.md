@@ -32,9 +32,7 @@ Currently, ovirt-guest-agent and qemu-ga are the primary candidates under consid
     3.  "desktopLogoff"
     4.  reporting of relevant info (currently active user, session state)
 
-<!-- -->
-
-1.  Monitoring and inventory:
+3.  Monitoring and inventory:
     1.  memory usage
     2.  NICs info (name, hw, inet, inet6)
     3.  appslist (list of installed apps / rpms)

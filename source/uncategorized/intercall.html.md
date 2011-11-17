@@ -36,9 +36,8 @@ Global Access Numbers Local:
 *   United Kingdom, LocalCall Dial-In #: 08445790678
 *   United States Dial-In #: 2127295016
 
-<!-- -->
+Global Access Numbers Tollfree:
 
-*   Global Access Numbers Tollfree:
 *   Argentina Dial-In #: 8004441016
 *   Australia Dial-In #: 1800337169
 *   Austria Dial-In #: 0800005898

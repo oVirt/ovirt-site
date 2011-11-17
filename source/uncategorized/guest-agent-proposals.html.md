@@ -78,7 +78,7 @@ Currently, ovirt-guest-agent and qemu-ga are the primary candidates under consid
 #### qemu-ga
 
 *   pros
-    -   Qemu specific - it was aimed for specific qemu needs (mainly quiesce guest I/O)
+    -   Qemu specific - it was aimed for specific qemu needs (mainly quiesce guest I/O and reliable guest shutdown)
     -   project agnostic by design: supports file open/read/write/close, and when exec functionality is added will have the ability to deploy/exec abitrary code as well as upgrade itself
     -   So far linux only, windows port in the works
     -   written in C

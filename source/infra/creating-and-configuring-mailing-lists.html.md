@@ -45,10 +45,14 @@ This standard operating procedure (SOP) describes how to create and configure a 
 *   Archives public
 *   Subscription confirmation-only
 
-#### Configuration for a -private list:
+#### Configuration for a -private list
 
 *   Archives private
 *   Subscription requires permission
 *   Must display in list-of-lists - it's private but not kept a secret
+
+#### Configuration for an open-sender list
+
+*   Set *accept_these_nonmembers* to `^.*` - i.e., a regular expression meaning "every possible incoming email address."
 
 [Category:Infrastructure documentation](Category:Infrastructure documentation) [Category:Infrastructure SOP](Category:Infrastructure SOP)

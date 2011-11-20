@@ -312,7 +312,7 @@ Accessing the user-portal
 oVirt-engine is working with Gerrit for code contribution.
 More detail can be found in [Working_with_oVirt_Gerrit](Working_with_oVirt_Gerrit).
 
-## Getting Latest
+## Getting latest
 
 If you have a working development environment and after a while you want
 to update the code and take latest, you need to do:
@@ -322,7 +322,8 @@ to update the code and take latest, you need to do:
 3. compile the code
 4. upgrade your DB schema
 
-      $OVIRT_HOME/backend/manager/dbscripts/upgrade.sh
+      $> cd $OVIRT_HOME/backend/manager/dbscripts/
+      $> ./upgrade.sh -u postgres
        
 
 [Category:Draft documentation](Category:Draft documentation) <Category:Engine> [Category:How to](Category:How to)

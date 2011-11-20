@@ -322,21 +322,7 @@ to update the code and take latest, you need to do:
 3. compile the code
 4. upgrade your DB schema
 
-      $> cd $OVIRT_HOME/backend/manager/dbscripts/
-      $> ./upgrade.sh -u postgres
-       
-
-## Temp
-
-1. For quick and dirty build you can compile GWT to work with a specific browser (that will
-reduce the permutation number to one).
-
-Add the lines below to
-$OVIRT_HOME/frontend/webadmin/modules/webadmin/src/main/resources/org/ovirt/engine/ui/webadmin/WebAdmin.gwt.xml
-$OVIRT_HOME/frontend/webadmin/modules/userportal/src/main/java/org/ovirt/engine/ui/userportal/UserPortal.gwt.xml
-
-      <!-- Reduce the number of permutations to compile, just for tests: -->
-      <set-property name="user.agent" value="gecko1_8"/>
+      $OVIRT_HOME/backend/manager/dbscripts/upgrade.sh
        
 
 [Category:Draft documentation](Category:Draft documentation) <Category:Engine> [Category:How to](Category:How to)

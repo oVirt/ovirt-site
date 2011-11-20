@@ -322,7 +322,9 @@ to update the code and take latest, you need to do:
 3. compile the code
 4. upgrade your DB schema
 
-      $OVIRT_HOME/backend/manager/dbscripts/upgrade.sh
+      $> cd $OVIRT_HOME/backend/manager/dbscripts/
+      $> ./upgrade.sh -u postgres
+
        
 
 ## Temp

@@ -314,8 +314,7 @@ More detail can be found in [Working_with_oVirt_Gerrit](Working_with_oVirt_Gerri
 
 ## Temp
 
-1. Two patches for replacing a deprecated repository are needed for the build to succeed
-2. For quick and dirty build you can compile GWT to work with a specific browser (that will
+1. For quick and dirty build you can compile GWT to work with a specific browser (that will
 reduce the permutation number to one).
 
 Add the lines below to

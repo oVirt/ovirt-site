@@ -324,7 +324,6 @@ to update the code and take latest, you need to do:
 
       $> cd $OVIRT_HOME/backend/manager/dbscripts/
       $> ./upgrade.sh -u postgres
-
        
 
 ## Temp

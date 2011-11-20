@@ -312,6 +312,19 @@ Accessing the user-portal
 oVirt-engine is working with Gerrit for code contribution.
 More detail can be found in [Working_with_oVirt_Gerrit](Working_with_oVirt_Gerrit).
 
+## Getting Latest
+
+If you have a working development environment and after a while you want
+to update the code and take latest, you need to do:
+
+1. git fetch
+2. git rebase
+3. compile the code
+4. upgrade your DB schema
+
+      $OVIRT_HOME/backend/manager/dbscripts/upgrade.sh
+       
+
 ## Temp
 
 1. For quick and dirty build you can compile GWT to work with a specific browser (that will

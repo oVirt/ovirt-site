@@ -15,11 +15,11 @@ wiki_last_updated: 2015-05-21
 
 ## Getting the source
 
-Our public git repo is located on [fedora hosted](http://git.fedorahosted.org/git/?p=vdsm.git)
+Our public git repo is located on [oVirt.org](http://gerrit.ovirt.org/gitweb?p=vdsm.git)
 
 you can clone it with
 
-`git clone `[`http://git.fedorahosted.org/git/vdsm.git`](http://git.fedorahosted.org/git/vdsm.git)
+`git clone `[`http://gerrit.ovirt.org/p/vdsm.git`](http://gerrit.ovirt.org/p/vdsm.git)
 
 ## Building a Vdsm RPM
 

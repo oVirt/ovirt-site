@@ -46,9 +46,9 @@ This is a work in progress for making oVirt engine and oVirt node/regular host r
 
 1.  Creating OpenSSH convertor: compile pubkey2ssh
 
-    <nowiki> cd backend/manager/3rdparty/pub2ssh/src
+    cd backend/manager/3rdparty/pub2ssh/src
 
-    gcc -o pubkey2ssh pubkey2ssh.c -lcrypto </nowiki>
+    gcc -o pubkey2ssh pubkey2ssh.c -lcrypto
 
 2.  Create relevant Engine folders
 

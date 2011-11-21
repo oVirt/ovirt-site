@@ -27,6 +27,10 @@ This is a work in progress for making oVirt engine and oVirt node/regular host r
 3.  Fix public key file name
     -   See: <http://gerrit.ovirt.org/#change,311>
 
+### Fedora / Gentoo / Suse / Ubuntu / other host
+
+1.  TBD: please fill-in if you have it working.
+
 ------------------------------------------------------------------------
 
 ## Engine core machine

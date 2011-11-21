@@ -18,15 +18,13 @@ This is a work in progress for making oVirt engine and oVirt node/regular host r
 ### oVirt Node
 
 1.  Fix bridge name
-    1.  TBD
 
-<!-- -->
+*   <http://gerrit.ovirt.org/311>
 
 1.  Fix Registration URI
-    1.  See: <http://gerrit.ovirt.org/#change,310>
-    2.  TBD
 
-<!-- -->
+*   <http://gerrit.ovirt.org/318>
+*   <http://gerrit.ovirt.org/310>
 
 1.  Fix public key file name
     1.  See: <http://gerrit.ovirt.org/#change,311>
@@ -43,6 +41,8 @@ compile pubkey2ssh
 
       cd backend/manager/3rd
       gcc -o pubkey2ssh pubkey2ssh.c -lcrypto
+
+or run the ./pukey2ssh.sh after this fix is merged <http://gerrit.ovirt.org/319>
 
 • create engine dirs
 

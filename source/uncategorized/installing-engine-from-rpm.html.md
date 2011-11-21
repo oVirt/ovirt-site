@@ -122,6 +122,7 @@ Create ovirt-engine's DB by executing:
 
 #### Additional Configuration
 
+*These 2 steps are currently required due to bugs, they will be changed/removed once the patches that will fix them will be merged.*
 Change the default emulated VM type by executing:
 
       psql -U postgres engine -c "update vdc_options set option_value='pc-0.14' where option_name='EmulatedMachine' and version='3.0';"

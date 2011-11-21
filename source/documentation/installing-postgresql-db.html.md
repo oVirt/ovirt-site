@@ -59,4 +59,8 @@ If you want to be able to connect to PostgreSQL from other hosts (i.e. not from 
 
       restart postgres service
 
+# External Resources
+
+*   If you upgraded/installed Fedora 16, then check this blog for more info: <http://asaf-shakarchi.blogspot.com/2011/11/fedora-15-16-postgresql-issues.html>
+
 <Category:Documentation> <Category:Installation> <Category:Database> <Category:PostgreSQL>

@@ -44,7 +44,11 @@ This is a work in progress for making oVirt engine and oVirt node/regular host r
 *   The engine was built from sources and installed via maven on a pre-installed jboss 5.1.0-GA server.
 *   Follow these steps(link the installation process from the wiki).
 
-1.  Creating OpenSSH convertor: compile pubkey2ssh
+1.  Create /etc/pki/engine/ca
+
+    mkdir -p /etc/pki/engine/ca
+
+2.  Creating OpenSSH convertor: compile pubkey2ssh
 
     cd backend/manager/3rdparty/pub2ssh/src
 
@@ -52,17 +56,13 @@ This is a work in progress for making oVirt engine and oVirt node/regular host r
 
     cp pubkey2ssh /etc/pki/engine/ca/
 
-2.  Create relevant Engine folders
+3.  Create relevant Engine folders
 
     sudo mkdir -p /var/lock/engine /usr/share/engine/backend/manager/conf/
 
-3.  Put vds_installer.py in place
+4.  Put vds_installer.py in place
 
     cp backend/manager/conf/vds_installer.py
-
-4.  create /etc/pki/engine
-
-    mkdir -p /etc/pki/engine
 
 5.  Create CA and certs
 

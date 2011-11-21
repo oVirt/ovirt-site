@@ -23,7 +23,7 @@ Execute the following command:
       wget http://www.ovirt.org/releases/stable/fedora/16/ovirt-engine.repo -P /etc/yum.repos.d/
        
 
-# VDSM
+# ovirt-node
 
 ### Configuring the bridge Interface
 
@@ -56,11 +56,11 @@ Restart the network service by executing:
       service network restart
        
 
-### Installing & Configuring VDSM
+### Installing & Configuring ovirt-node
 
 #### Install
 
-Install VDSM by executing as root the following commands:
+Install ovirt-node by executing as root the following commands:
 
       yum install -y vdsm*
       service vdsmd start

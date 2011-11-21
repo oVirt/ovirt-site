@@ -43,12 +43,12 @@ compile pubkey2ssh
 
 • db updates:
 
-      psql engine postgres  -c "update vdc_options set option_value = '/etc/pki/engine/ca/certs/engine.cer' where option_name = 'CertificateFileName';"
-      psql engine postgres  -c "update vdc_options set option_value = '/etc/pki/engine/ca/.keystore' where option_name = 'TruststoreUrl';"
-      psql engine postgres  -c "update vdc_options set option_value = '/etc/pki/engine//ca/' where option_name = 'CABaseDirectory';"
+      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/certs/engine.cer' where option_name = 'CertificateFileName';"
+      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/.keystore' where option_name = 'TruststoreUrl';"
+      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine//ca/' where option_name = 'CABaseDirectory';"
       psql engine postgres -c "update vdc_options set option_value = 'ca.pem' where option_name  = 'CACertificatePath';"
-      psql engine postgres  -c "update vdc_options set option_value = '/etc/pki/engine//ca/.keystore' where option_name = 'keystoreUrl';"
-      psql engine postgres  -c "update vdc_options set option_value = '/etc/pki/engine//ca/private/ca.pem' where option_name = 'CAEngineKey';"
+      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine//ca/.keystore' where option_name = 'keystoreUrl';"
+      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine//ca/private/ca.pem' where option_name = 'CAEngineKey';"
 
 • copy cert to Jboss root dir
 

@@ -53,3 +53,8 @@ compile pubkey2ssh
 • copy cert to Jboss root dir
 
       cp /etc/pki/engine//ca/keys/engine.ssh.key.txt /usr/loca/jboss/server/default/deploy/ROOT.war/
+
+VDSM patches in progress:
+
+*   <http://gerrit.ovirt.org/#change,310>
+*   <http://gerrit.ovirt.org/#change,311>

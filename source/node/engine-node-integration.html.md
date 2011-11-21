@@ -72,7 +72,7 @@ This is a work in progress for making oVirt engine and oVirt node/regular host r
 
 6.  Copy cert to Jboss root dir
 
-    cp /etc/pki/engine//ca/keys/engine.ssh.key.txt /usr/loca/jboss/server/default/deploy/ROOT.war/
+    cp /etc/pki/engine/ca/keys/engine.ssh.key.txt /usr/local/jboss/server/default/deploy/ROOT.war/
 
 7.  DB updates:
 

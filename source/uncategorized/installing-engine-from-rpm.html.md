@@ -7,11 +7,9 @@ wiki_revision_count: 34
 wiki_last_updated: 2014-09-26
 ---
 
-# Installing ovirt-engine from rpm
-
 This Documents has come to describe the steps required in order to install & configure ovirt-engine & vdsm on the same host
 
-### Installing Prerequisites Packages
+### Installing Prerequisite Packages
 
 execute the following command as root:
 
@@ -25,7 +23,7 @@ Execute the following command:
       wget http://www.ovirt.org/blabla -o /etc/yum.repo.d/ovirt-engine.repo
        
 
-## VDSM
+# VDSM
 
 ### Configuring the bridge Interface
 
@@ -83,7 +81,7 @@ Restart the vdsmd service by executing:
       service vdsmd restart
        
 
-## Ovirt-engine
+# Ovirt-engine
 
 ### Configuring Postgresql
 

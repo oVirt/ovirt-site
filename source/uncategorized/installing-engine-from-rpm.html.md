@@ -109,7 +109,7 @@ Edit /var/lib/pgsql/data/pg_hba.conf' and set authentication parameters as follo
 
 Install ovirt-engine by executing:
 
-      yum install ovirt-engine
+      yum install -y ovirt-engine
        
 
 #### DB Creation

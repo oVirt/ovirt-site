@@ -18,63 +18,56 @@ This is a work in progress for making oVirt engine and oVirt node/regular host r
 ### oVirt Node
 
 1.  Fix bridge name
+    -   See: <http://gerrit.ovirt.org/311>
 
-*   <http://gerrit.ovirt.org/311>
+2.  Fix Registration URI
+    -   See: <http://gerrit.ovirt.org/318>
+    -   See: <http://gerrit.ovirt.org/310>
 
-1.  Fix Registration URI
-
-*   <http://gerrit.ovirt.org/318>
-*   <http://gerrit.ovirt.org/310>
-
-1.  Fix public key file name
-    1.  See: <http://gerrit.ovirt.org/#change,311>
+3.  Fix public key file name
+    -   See: <http://gerrit.ovirt.org/#change,311>
 
 ------------------------------------------------------------------------
 
 ## Engine core machine
 
-1.The engine core was built on fedora 14 but all stages applies for later versions as well.
+*   The engine core was built on fedora 14 but all stages applies for later versions and other distro's as well.
+*   The engine was built from sources and installed via maven on a pre-installed jboss 5.1.0-GA server.
+*   Follow these steps(link the installation process from the wiki).
 
-The engine was built from sources and installed via maven on a pre-installed jboss 5.1.0-GA server. Follow these steps(link the installation process from the wiki).
+1.  Creating OpenSSH convertor: compile pubkey2ssh
 
-compile pubkey2ssh
+    <nowiki> cd backend/manager/3rd
 
-      cd backend/manager/3rd
-      gcc -o pubkey2ssh pubkey2ssh.c -lcrypto
+    gcc -o pubkey2ssh pubkey2ssh.c -lcrypto </nowiki>
 
-or run the ./pukey2ssh.sh after this fix is merged <http://gerrit.ovirt.org/319>
+2.  Create relevant Engine folders
 
-• create engine dirs
+    sudo mkdir -p /var/lock/engine /usr/share/engine/backend/manager/conf/
 
-      sudo mkdir -p /var/lock/engine /usr/share/engine/backend/manager/conf/
+3.  Put vds_installer.py in place
 
-• put vds_installer.py in place
+    cp backend/manager/conf/vds_installer.py
 
-      cp backend/manager/conf/vds_installer.py
+4.  create /etc/pki/engine
 
-• create /etc/pki/engine
+    mkdir -p /etc/pki/engine
 
-      mkdir -p /etc/pki/engine
+5.  Create CA and certs
 
-• create CA and certs
+    cd backend/manager/conf/ca
 
-      cd backend/manager/conf/ca 
-      ` ./installCA_dev.sh `pwd` /etc/pki/engine `
+    ./installCA_dev.sh \`pwd\` /etc/pki/engine
 
-• db updates:
+6.  Copy cert to Jboss root dir
+
+    cp /etc/pki/engine//ca/keys/engine.ssh.key.txt /usr/loca/jboss/server/default/deploy/ROOT.war/
+
+7.  DB updates:
 
       psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/certs/engine.cer' where option_name = 'CertificateFileName';"
       psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/.keystore' where option_name = 'TruststoreUrl';"
-      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine//ca/' where option_name = 'CABaseDirectory';"
+      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/' where option_name = 'CABaseDirectory';"
       psql engine postgres -c "update vdc_options set option_value = 'ca.pem' where option_name  = 'CACertificatePath';"
-      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine//ca/.keystore' where option_name = 'keystoreUrl';"
-      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine//ca/private/ca.pem' where option_name = 'CAEngineKey';"
-
-• copy cert to Jboss root dir
-
-      cp /etc/pki/engine//ca/keys/engine.ssh.key.txt /usr/loca/jboss/server/default/deploy/ROOT.war/
-
-VDSM patches in progress:
-
-*   <http://gerrit.ovirt.org/#change,310>
-*   <http://gerrit.ovirt.org/#change,311>
+      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/.keystore' where option_name = 'keystoreUrl';"
+      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine//ca/private/ca.pem' where option_name = 'CAEngineKey';"  

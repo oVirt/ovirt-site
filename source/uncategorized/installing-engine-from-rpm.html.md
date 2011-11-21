@@ -96,13 +96,6 @@ It is recommended to add this service to auto start by executing:
       chkconfig postgresql on
        
 
-Edit **/var/lib/pgsql/data/pg_hba.conf** and set authentication parameters as follows:
-
-      local   all         all                               trust
-      host    all         all         127.0.0.1/32          trust
-      host    all         all         ::1/128               trust
-       
-
 ### Installing & Configuring ovirt-engine
 
 #### Install

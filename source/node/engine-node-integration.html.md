@@ -33,7 +33,7 @@ This is a work in progress for making oVirt engine and oVirt node/regular host r
 *   all the patches on the ovirt node needs to be applied here as well (soon will be merged)
 *   rpm it
 
-      /autogen.sh --system && ./configure
+      ./autogen.sh --system && ./configure
       make clean && make rpm
       cd /root/rpmbuild/RPM/noarch
       yum localinstall *.rpm

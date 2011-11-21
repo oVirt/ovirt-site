@@ -62,7 +62,7 @@ Restart the network service by executing:
 
 Install VDSM by executing as root the following commands:
 
-      yum -y vdsm*
+      yum install -y vdsm*
       service vdsmd start
        
 

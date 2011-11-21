@@ -50,6 +50,8 @@ This is a work in progress for making oVirt engine and oVirt node/regular host r
 
     gcc -o pubkey2ssh pubkey2ssh.c -lcrypto
 
+    cp pubkey2ssh /etc/pki/engine/ca/
+
 2.  Create relevant Engine folders
 
     sudo mkdir -p /var/lock/engine /usr/share/engine/backend/manager/conf/

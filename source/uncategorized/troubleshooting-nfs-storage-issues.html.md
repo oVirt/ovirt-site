@@ -21,6 +21,7 @@ oVirt currently requires that NFS exports be configured in a specific way. This 
 
       /exports/iso       *(rw,anonuid=36,anongid=36)
 
+*   The exported directory should have permissions **0755**:
 *   The NFS server must actually be running.
     -   Ensure that the **nfs** and **rpcbind** services are running on the NFS server, Fedora 16 users should instead look for the **netfs** service.
     -   Ensure that **showmounts -e *<nfs_server_ip>*** shows the expected export(s).

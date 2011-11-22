@@ -56,34 +56,34 @@ rpm deps:
 *   The engine was built from sources and installed via maven on a pre-installed jboss 5.1.0-GA server.
 *   Follow these steps(link the installation process from the wiki).
 
-1.  Create /etc/pki/engine/ca
+Create /etc/pki/engine/ca
 
       mkdir -p /etc/pki/engine/ca
 
-1.  Creating OpenSSH convertor: compile pubkey2ssh
+Creating OpenSSH convertor: compile pubkey2ssh
 
       cd backend/manager/3rdparty/pub2ssh/src
       gcc -o pubkey2ssh pubkey2ssh.c -lcrypto
       cp pubkey2ssh /etc/pki/engine/ca/
 
-1.  Create relevant Engine folders
+Create relevant Engine folders
 
       sudo mkdir -p /var/lock/engine /usr/share/engine/backend/manager/conf/
 
-1.  Put vds_installer.py in place
+Put vds_installer.py in place
 
       cp backend/manager/conf/vds_installer.py
 
-1.  Create CA and certs
+Create CA and certs
 
       cd backend/manager/conf/ca
       ` ./installCA_dev.sh `pwd` /etc/pki/engine `
 
-1.  Copy cert to Jboss root dir
+Copy cert to Jboss root dir
 
       cp /etc/pki/engine/ca/keys/engine.ssh.key.txt /usr/local/jboss/server/default/deploy/ROOT.war/
 
-1.  DB updates:
+DB updates:
 
       psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/certs/engine.cer' where option_name = 'CertificateFileName';"
       psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/.keystore' where option_name = 'TruststoreUrl';"
@@ -92,4 +92,4 @@ rpm deps:
       psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/.keystore' where option_name = 'keystoreUrl';"
       psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine//ca/private/ca.pem' where option_name = 'CAEngineKey';"
 
-1.  Restart jboss to reload the database changes
+Restart jboss to reload the database changes

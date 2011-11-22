@@ -27,17 +27,22 @@ This is a work in progress for making oVirt engine and oVirt node/regular host r
 3.  Fix public key file name
     -   See: <http://gerrit.ovirt.org/#change,311>
 
+### Ubunto / Gentoo / others
+
+No experience yet. Can start by building an rpm and extract its artifacts or alternatively convert the rpm to deb using alien? <http://www.howtoforge.com/converting_rpm_to_deb_with_alien> - please fill in if the details you have it working
+
 ### Fedora / other RPM and yum based host
 
 * the process started on Fedora 14 machine which was updated by yum to Fedora 16
 
-*   clone the latest vdsm fro gerrit.ovirt.org/vdsm
+clone the latest vdsm from gerrit.ovirt.org/vdsm
 
 `git clone `[`git://gerrit.ovirt.org/vdsm`](git://gerrit.ovirt.org/vdsm)
       cd vdsm
 
-*   all the patches on the ovirt node needs to be applied here as well (soon will be merged)
-*   rpm it
+all the patches on the oVirt Node section needs to be applied here as well (soon will be merged)
+
+rpm it
 
       ./autogen.sh --system && ./configure
       make clean && make rpm

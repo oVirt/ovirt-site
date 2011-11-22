@@ -27,9 +27,15 @@ This is a work in progress for making oVirt engine and oVirt node/regular host r
 3.  Fix public key file name
     -   See: <http://gerrit.ovirt.org/#change,311>
 
-### Fedora / Gentoo / Suse / Ubuntu / other host
+### Fedora / other RPM and yum based host
+
+* the process started on Fedora 14 machine which was updated by yum to Fedora 16
 
 *   clone the latest vdsm fro gerrit.ovirt.org/vdsm
+
+`git clone `[`git://gerrit.ovirt.org/vdsm`](git://gerrit.ovirt.org/vdsm)
+      cd vdsm
+
 *   all the patches on the ovirt node needs to be applied here as well (soon will be merged)
 *   rpm it
 
@@ -37,6 +43,12 @@ This is a work in progress for making oVirt engine and oVirt node/regular host r
       make clean && make rpm
       cd /root/rpmbuild/RPM/noarch
       yum localinstall *.rpm
+
+rpm deps:
+
+*   autogen
+*   rpm-build
+*   redhat-rpm-config
 
 ## Engine core machine
 

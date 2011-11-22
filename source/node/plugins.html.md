@@ -10,13 +10,14 @@ wiki_last_updated: 2012-08-20
 
 # Node plugins
 
-## Plugin Plan for oVirt Node (Fedora remix)
+## 3rd Party Plugins for oVirt Node (Fedora remix)
 
 This outlines a plan for adding 3rd party software to the released oVirt Node ISO images. While it may not make sense for the upstream project, where you could simply rebuild the image, it is important for the released products based on oVirt Node to allow extending functionality while still keeping it compatible.
 
 ### Goals
 
-*   Provide tools for easy rebuilding of the oVirt Node ISO image with added software.
+*   Provide tools to allow 3rd parties (ISVs/IHVs) to develop plugins that can be injected into oVirt Node ISO images.
+*   Provide tools to consumers of oVirt Node to allow them to inject one or more plugins into oVirt Node ISO images.
 *   Provide integrity checking and certification tools for the rebuilt ISO images.
 *   Provide guidelines for 3rd party plugin writers.
 
@@ -26,20 +27,78 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
 
 ### Requirements
 
-*   Ability for third-party vendors to add plugins to the node.
+#### Version 1 Requirements
+
+*   Ability for 3rd party developers/vendors to write/adapt software for installation into an oVirt Node.
+*   Multiple plugins able to be installed simultaneously without interfering with each other.
+*   Ability for third-party vendors or direct end-users to add plugins to the Node.
+*   Protection against unverified/unauthorized plugins from being injected into a Node.
+*   Tracking of all plugins injected or updated on the Node including manifest deltas for all files, packages and configuration changes.
 *   Third party plugins may have the need for persistent storage. This can be handled either on host (stateful) or off host (stateless).
-*   Third party plugins need to be upgradable.
-*   Third party plugins should be able to hot-add (e.g. not require reboot of the node).
+    -   For how this would be handled in a stateless environment, this feature would be dependent on [Node_stateless](Node_stateless)
+*   Plugins are installed via an offline ISO injection process. Runtime installation and updating of plugins is not implemented.
+*   Ability to upgrade a plugin by injecting a new version of the plugin into an existing offline Node ISO and then upgrading the Node via USB/CDROM/PXE boot.
+    -   NOTE: This is dependent on the ability of the plugin itself to handle upgrades meaning plugins need to keep backwards compatibility with configuration files and other metadata.
+*   Plugins cannot modify any configuration directly in /etc, therefore plugin metadata must be constructed with allows controlled changes like:
+    -   Opening firewall ports
+    -   Adding users/groups
+    -   Enabling system services via init scripts/systemd units
+    -   Additional metadata TBD
+
+#### Version 2 Requirements
+
+*   Enable runtime injection and upgrade of plugins
+    -   Plugins packages are treated similar to 'configuration data' and can be installed either from the remote configuration store or from the local /data partition.
+    -   Plugins are installed on boot, and configuration files are applied dynamically.
+    -   Plugins can be updated runtime, and updates to runtime plugins will persist the plugin bundle to the remote configuration store or local /data partition so that the updated plugin is used on reboot.
 
 ### Proposed Process
 
 #### For 3rd Party Packager
 
-*   Package 3rd party software in RPM, following [Fedora Packagking Guideline|<http://fedoraproject.org/wiki/Packaging/Guidelines>]
-    -   Additional guidelines are need for Stateless support (e.g. only certain folders are writable and persistence must be explicit)
-*   Resolve dependencies via e.g. yumdownloader and remove those already in the oVirt Node image
-    -   Provide a script to handle above
-*   Create manifests with checksums
+*   Package 3rd party software in RPM, following [Fedora Packagking Guideline|<http://fedoraproject.org/wiki/Packaging/Guidelines>].
+*   In addition to normal Fedora Guidelines, will need to use additional guidelines being presently developed for a new concept called Stacks. This will be proposed and ideally integrated into the Fedora Guidelines, but it covers topics like:
+    -   Structured namespace located under the /opt directory with a format like: /opt/<vendor>/<plugin name>.
+    -   Spec file conventions that utilize the /opt structure rather than normal /usr /etc structures.
+    -   Utilizing these guidelines, we can open /opt up in /etc/rwtab, eliminating the normal issues encountered with / being nominally stateless. Plugins will be able to write to anything under /opt normally. This means that each plugin will need to maintain their own etc, var, bin, lib structures in their namespace. (For example: /opt/vendor/myplugin/var/run/myplugin.pid)
+    -   This also implies that vendors will need to write their plugins to be compliant with these guidelines. It will not be possible to take stock RHEL software and assume that it will 'just work' as an oVirt Node plugin.
+*   oVirt Node plugins package structure will be a tarball: vendorname-plugin-version.tar, containing:
+    -   a metadata file (format TBD, possibly XML)
+        -   vendor name
+        -   plugin name
+        -   plugin version
+        -   firewall ports to open
+        -   users to create (including UID information)
+        -   groups to create (including GID information and group membership)
+        -   services (systemd/init scripts) to enable
+        -   Additional metadata can be added to the specification as need is determined, but new metadata will require updates to the plugin tooling as well as possibly to oVirt Node itself. Therefore, the plugin tooling should have a version associated with it, and specific plugins should be specified to require a minimum version of the plugin tooling to support injecting the plugin into a Node. And the Node should only accept plugins that are compatible with it.
+            -   For example, Node is version 3 and knows how to process opening firewall ports, but does not understand how to create new users. Therefore, plugins that require new users would be incompatible with this version of the Node.
+    -   a collection of packages
+        -   For the Fedora based oVirt Node, these will be RPMs, other distributions can use their own package formats.
+        -   This set of packages must be internally dependency complete, and each package must be written to install to the 'stacks' location in the /opt filesystem
+        -   Dependencies on the kernel or other things that would require a rebuild of the initramfs cannot be allowed since the kernel can not be updated in oVirt Node
+
+<!-- -->
+
+*   -   For offline injection of a plugin, the plugin tool can optionally download dependencies from external repositories (like Fedora yum mirrors) so that the plugin does not need to bundle stock Fedora RPMs like tog-pegasus, etc. yumdownloader can be used for this.
+    -   For online injection of a plugin, since yum is not present on the node, the plugin to be injected must be internally dependency complete. This can be accomplished with a tool that is run offline that takes as its input the raw plugin tarball and generates another tarball that is dependency complete based on the latest dependency packages available.
+    -   In order to prevent the above from downloading _all_ dependencies, this tool that downloads dependencies must operate in the context of an offline oVirt Node ISO image so that the dependency delta can be determined.
+
+(a respin of the core ISO must be done)
+
+*   Manifests
+    -   During oVirt Node ISO creation, a set of manifests are created for rpm and file manifests
+    -   During plugin injection (either online or offline), manifest deltas should be created and persisted to either the ISO image or to the persistent config store (remote or local disk) so that a record of all changes to the image from every plugin can be tracked by date.
+    -   These manifests should also contain listing of all config changes made from the metadata instructions
+*   Validation/Signing
+    -   All RPMs included in a plugin tarball can be optionally signed with a gpgkey.
+    -   By default the injection tooling will validate the gpg signartures of all RPMs to be installed to make sure they are signed by a valid provider.
+    -   The 3rd party plugin injection tool should provide an argument to pass the equivalent of --no-gpg so that this behavior can be overridden.
+    -   Each 3rd party software developer will have their own private/public keypair and the stock oVirt Node will include the public keys. The gpg verification should be done by certificates installed inside the Node itself, so that both the offline and online plugin injection mechanism can benefit from it.
+*   Online plugin injection tool
+
+<!-- -->
+
 *   Create plugin recipe (abbreviated kickstart) for edit-livecd: -k --kickstart option
     -   Requires not-yet-upstream patch edit-livecd which adds kickstart option for using kickstart file as an recipe for editing a livecd image.
 

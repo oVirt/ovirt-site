@@ -107,4 +107,6 @@ DB updates:
       psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/.keystore' where option_name = 'keystoreUrl';"
       psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine//ca/private/ca.pem' where option_name = 'CAEngineKey';"
 
+**TODO** - patch is needed to run the sql's above in the installCA.sh script
+
 Restart jboss to reload the database changes

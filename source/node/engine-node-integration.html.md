@@ -61,6 +61,13 @@ rpm deps:
 *   The engine was built from sources and installed via maven on a pre-installed jboss 5.1.0-GA server.
 *   Follow these steps(link the installation process from the wiki).
 
+engine sources folder: ~/src/git/ovirt-engine
+
+clone the engine sources
+
+      cd ~/src/git
+`git clone `[`git://gerrit.ovirt.org/ovirt-engine`](git://gerrit.ovirt.org/ovirt-engine)
+
 Create /etc/pki/engine/ca
 
       mkdir -p /etc/pki/engine/ca
@@ -75,9 +82,9 @@ Create relevant Engine folders
 
       sudo mkdir -p /var/lock/engine /usr/share/engine/backend/manager/conf/
 
-Put vds_installer.py in place
+Put vds_installer.py in place (the config entry of 'DataDir')
 
-      cp backend/manager/conf/vds_installer.py
+      cp ~/src/git/ovirt-engine/backend/manager/conf/vds_installer.py /usr/share/engine/backend/manager/conf/
 
 Create CA and certs
 

@@ -307,23 +307,33 @@ Accessing the web-admin:
 Accessing the user-portal
  http://<server name>:<port>/UserPortal
 
+## Advanced features
+
+*   Registering an oVirt Node
+    -   By default development setup works with hosts based on base distro's such as Fedora.
+    -   In order to be able to work with oVirt Node, you'll need to setup a Public Key environment.
+    -   More details on Engine and oVirt Node integration can be found here: [Engine_Node_Integration](Engine_Node_Integration).
+
 ## Code contribution: Gerrit
 
-oVirt-engine is working with Gerrit for code contribution.
-More detail can be found in [Working_with_oVirt_Gerrit](Working_with_oVirt_Gerrit).
+*   oVirt-engine is working with Gerrit for code contribution.
+    \* More detail can be found in [Working_with_oVirt_Gerrit](Working_with_oVirt_Gerrit).
 
 ## Getting latest
 
 If you have a working development environment and after a while you want
 to update the code and take latest, you need to do:
 
-1. git fetch
-2. git rebase
-3. compile the code
-4. upgrade your DB schema
+1.  git fetch -v
+2.  git rebase origina/master
+3.  Compile the code
+4.  Upgrade your DB schema
 
       $> cd $OVIRT_HOME/backend/manager/dbscripts/
       $> ./upgrade.sh -u postgres
-       
+
+## More information
+
+*   Engine setup on Gentoo can be found here: <https://wiki.gentoo.org/wiki/OVirt>
 
 [Category:Draft documentation](Category:Draft documentation) <Category:Engine> [Category:How to](Category:How to)

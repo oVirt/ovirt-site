@@ -47,9 +47,10 @@ This standard operating procedure (SOP) describes how to create and configure a 
 
 #### Configuration for a -private list
 
-*   Archives private
-*   Subscription requires permission
+*   Archives disabled and set to private
+*   Subscription requires approval
 *   Must display in list-of-lists - it's private but not kept a secret
+*   For private discussion lists, posts require approval if not from a list member
 
 #### Configuration for an open-sender list
 

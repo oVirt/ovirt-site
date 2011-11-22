@@ -13,7 +13,7 @@ oVirt Engine and oVirt Node Integration.
 
 This is a work in progress for
 
-*   integrating oVirt node with the engine
+*   integrating oVirt Node with the engine
 *   making oVirt engine and vdsm to run on any linux machine
 
 ## Host Machine

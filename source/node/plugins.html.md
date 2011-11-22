@@ -56,7 +56,7 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
 
 #### For 3rd Party Packager
 
-*   Package 3rd party software in RPM, following [Fedora Packagking Guideline|<http://fedoraproject.org/wiki/Packaging/Guidelines>]
+*   Package 3rd party software in RPM, following [Fedora Packaging Guideline](http://fedoraproject.org/wiki/Packaging/Guidelines)
 *   In addition to normal Fedora Guidelines, will need to use additional guidelines being presently developed for a new concept called Stacks. This will be proposed and ideally integrated into the Fedora Guidelines, but it covers topics like:
     -   Structured namespace located under the /opt directory with a format like: /opt/<vendor>/<plugin name>.
     -   Spec file conventions that utilize the /opt structure rather than normal /usr /etc structures.

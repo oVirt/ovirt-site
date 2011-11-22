@@ -20,7 +20,7 @@ wiki_last_updated: 2014-09-26
 
 ## Install oVirt-engine
 
-[Building_Ovirt_Engine](Building_Ovirt_Engine)
+[Installing_ovirt-engine_from_rpm](Installing_ovirt-engine_from_rpm)
 
 ## Start the engine
 

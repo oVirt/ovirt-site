@@ -58,46 +58,38 @@ rpm deps:
 
 1.  Create /etc/pki/engine/ca
 
-    mkdir -p /etc/pki/engine/ca
+      mkdir -p /etc/pki/engine/ca
 
-2.  Creating OpenSSH convertor: compile pubkey2ssh
+1.  Creating OpenSSH convertor: compile pubkey2ssh
 
-    cd backend/manager/3rdparty/pub2ssh/src
+      cd backend/manager/3rdparty/pub2ssh/src
+      gcc -o pubkey2ssh pubkey2ssh.c -lcrypto
+      cp pubkey2ssh /etc/pki/engine/ca/
 
-    gcc -o pubkey2ssh pubkey2ssh.c -lcrypto
+1.  Create relevant Engine folders
 
-    cp pubkey2ssh /etc/pki/engine/ca/
+      sudo mkdir -p /var/lock/engine /usr/share/engine/backend/manager/conf/
 
-3.  Create relevant Engine folders
+1.  Put vds_installer.py in place
 
-    sudo mkdir -p /var/lock/engine /usr/share/engine/backend/manager/conf/
+      cp backend/manager/conf/vds_installer.py
 
-4.  Put vds_installer.py in place
+1.  Create CA and certs
 
-    cp backend/manager/conf/vds_installer.py
+      cd backend/manager/conf/ca
+      ` ./installCA_dev.sh `pwd` /etc/pki/engine `
 
-5.  Create CA and certs
+1.  Copy cert to Jboss root dir
 
-    cd backend/manager/conf/ca
+      cp /etc/pki/engine/ca/keys/engine.ssh.key.txt /usr/local/jboss/server/default/deploy/ROOT.war/
 
-    ./installCA_dev.sh \`pwd\` /etc/pki/engine
+1.  DB updates:
 
-6.  Copy cert to Jboss root dir
+      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/certs/engine.cer' where option_name = 'CertificateFileName';"
+      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/.keystore' where option_name = 'TruststoreUrl';"
+      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/' where option_name = 'CABaseDirectory';"
+      psql engine postgres -c "update vdc_options set option_value = 'ca.pem' where option_name  = 'CACertificatePath';"
+      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/.keystore' where option_name = 'keystoreUrl';"
+      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine//ca/private/ca.pem' where option_name = 'CAEngineKey';"
 
-    cp /etc/pki/engine/ca/keys/engine.ssh.key.txt /usr/local/jboss/server/default/deploy/ROOT.war/
-
-7.  DB updates:
-
-    psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/certs/engine.cer' where option_name = 'CertificateFileName';"
-
-    psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/.keystore' where option_name = 'TruststoreUrl';"
-
-    psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/' where option_name = 'CABaseDirectory';"
-
-    psql engine postgres -c "update vdc_options set option_value = 'ca.pem' where option_name = 'CACertificatePath';"
-
-    psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/.keystore' where option_name = 'keystoreUrl';"
-
-    psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine//ca/private/ca.pem' where option_name = 'CAEngineKey';"
-
-8.  Restart jbossas service (to reload the database changes)
+1.  Restart jboss to reload the database changes

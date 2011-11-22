@@ -7,13 +7,13 @@ wiki_revision_count: 34
 wiki_last_updated: 2014-09-26
 ---
 
-This Documents has come to describe the steps required in order to install & configure ovirt-engine & vdsm on the same host
+This Documents has come to describe the steps required in order to install & configure ovirt-engine
 
 ### Installing Prerequisite Packages
 
 execute the following command as root:
 
-      yum install -y postgresql-server postgresql-contrib pgadmin3 java-1.6.0-openjdk-devel bridge-utils
+      yum install -y postgresql-server postgresql-contrib pgadmin3 java-1.6.0-openjdk-devel
        
 
 ### Configuring Ovirt's Repository
@@ -21,64 +21,6 @@ execute the following command as root:
 Execute the following command:
 
       wget http://www.ovirt.org/releases/stable/fedora/16/ovirt-engine.repo -P /etc/yum.repos.d/
-       
-
-# ovirt-node
-
-### Configuring the bridge Interface
-
-Disable the network manager service by executing as root:
-
-      systemctl stop NetworkManager.service
-      systemctl disable NetworkManager.service
-
-      service network start
-      chkconfig network on
-       
-
-Add the following content into a new file named: **/etc/sysconfig/network-scripts/ifcfg-engine**:
-
-      DEVICE=engine
-      TYPE=Bridge
-      ONBOOT=yes
-      DELAY=0
-      BOOTPROTO=dhcp
-      ONBOOT=yes
-       
-
-Add the following line into the configuration file of your out going interface (usually em1/eth0) the file is located at: **/etc/sysconfig/network-scripts/ifcfg-em1** (assuming the device is em1)
-
-      BRIDGE=engine
-       
-
-Restart the network service by executing:
-
-      service network restart
-       
-
-### Installing & Configuring ovirt-node
-
-#### Install
-
-Install ovirt-node by executing as root the following commands:
-
-      yum install -y vdsm*
-      service vdsmd start
-       
-
-#### Configure
-
-Edit **/etc/libvirt/qemu.conf** and change **spice_tls=1** to **spice_tls=0**
-
-Add the following content into the file: **/etc/vdsm/vdsm.conf**:
-
-      [vars]
-      ssl = false
-       
-
-Restart the vdsmd service by executing:
-
-      service vdsmd restart
        
 
 # Ovirt-engine

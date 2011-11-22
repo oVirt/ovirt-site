@@ -63,44 +63,8 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
     -   Utilizing these guidelines, we can open /opt up in /etc/rwtab, eliminating the normal issues encountered with / being nominally stateless. Plugins will be able to write to anything under /opt normally. This means that each plugin will need to maintain their own etc, var, bin, lib structures in their namespace. (For example: /opt/vendor/myplugin/var/run/myplugin.pid)
     -   This also implies that vendors will need to write their plugins to be compliant with these guidelines. It will not be possible to take stock RHEL software and assume that it will 'just work' as an oVirt Node plugin.
 *   oVirt Node plugins package structure will be a tarball: vendorname-plugin-version.tar, containing:
-    -   a metadata file (format TBD, possibly XML)
-        -   vendor name
-        -   plugin name
-        -   plugin version
-        -   firewall ports to open
-        -   users to create (including UID information)
-        -   groups to create (including GID information and group membership)
-        -   services (systemd/init scripts) to enable
-        -   Additional metadata can be added to the specification as need is determined, but new metadata will require updates to the plugin tooling as well as possibly to oVirt Node itself. Therefore, the plugin tooling should have a version associated with it, and specific plugins should be specified to require a minimum version of the plugin tooling to support injecting the plugin into a Node. And the Node should only accept plugins that are compatible with it.
-            -   For example, Node is version 3 and knows how to process opening firewall ports, but does not understand how to create new users. Therefore, plugins that require new users would be incompatible with this version of the Node.
-    -   a collection of packages
-        -   For the Fedora based oVirt Node, these will be RPMs, other distributions can use their own package formats.
-        -   This set of packages must be internally dependency complete, and each package must be written to install to the 'stacks' location in the /opt filesystem
-        -   Dependencies on the kernel or other things that would require a rebuild of the initramfs cannot be allowed since the kernel can not be updated in oVirt Node
-
-<!-- -->
-
-*   -   For offline injection of a plugin, the plugin tool can optionally download dependencies from external repositories (like Fedora yum mirrors) so that the plugin does not need to bundle stock Fedora RPMs like tog-pegasus, etc. yumdownloader can be used for this.
-    -   For online injection of a plugin, since yum is not present on the node, the plugin to be injected must be internally dependency complete. This can be accomplished with a tool that is run offline that takes as its input the raw plugin tarball and generates another tarball that is dependency complete based on the latest dependency packages available.
-    -   In order to prevent the above from downloading _all_ dependencies, this tool that downloads dependencies must operate in the context of an offline oVirt Node ISO image so that the dependency delta can be determined.
-
-(a respin of the core ISO must be done)
-
-*   Manifests
-    -   During oVirt Node ISO creation, a set of manifests are created for rpm and file manifests
-    -   During plugin injection (either online or offline), manifest deltas should be created and persisted to either the ISO image or to the persistent config store (remote or local disk) so that a record of all changes to the image from every plugin can be tracked by date.
-    -   These manifests should also contain listing of all config changes made from the metadata instructions
-*   Validation/Signing
-    -   All RPMs included in a plugin tarball can be optionally signed with a gpgkey.
-    -   By default the injection tooling will validate the gpg signartures of all RPMs to be installed to make sure they are signed by a valid provider.
-    -   The 3rd party plugin injection tool should provide an argument to pass the equivalent of --no-gpg so that this behavior can be overridden.
-    -   Each 3rd party software developer will have their own private/public keypair and the stock oVirt Node will include the public keys. The gpg verification should be done by certificates installed inside the Node itself, so that both the offline and online plugin injection mechanism can benefit from it.
-*   Online plugin injection tool
-
-<!-- -->
-
-*   Create plugin recipe (abbreviated kickstart) for edit-livecd: -k --kickstart option
-    -   Requires not-yet-upstream patch edit-livecd which adds kickstart option for using kickstart file as an recipe for editing a livecd image.
+    -   Create plugin recipe (abbreviated kickstart) for edit-livecd: -k --kickstart option
+        -   Requires not-yet-upstream patch edit-livecd which adds kickstart option for using kickstart file as an recipe for editing a livecd image.
 
       Following kickstart directives are honored:
 `part / --size `<new rootfs size to be resized to>
@@ -110,18 +74,46 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
       %post
       %packages
 
-*   Package 3rd party RPM and all its dependencies in a TBD plugin format: tarball with manifest and edit-livecd kickstart recipe at the top and a subfolder with RPMs
-    -   Plugin should also include oVirt Node ISO version which it is compatible with.
-*   Rebuild and verify end result ISO using a wrapper script (ovirt-plugin-build)
-    -   Provide a script for a quick smoke test/self-certification?
-        -   Verify that TBD core part of the image is not modified
+*   -   a metadata file (format TBD, possibly XML or maybe included in the kickstart)
+        -   vendor name
+        -   plugin name
+        -   plugin version
+        -   firewall ports to open
+        -   users to create (including UID information)
+        -   groups to create (including GID information and group membership)
+        -   services (systemd/init scripts) to enable
+        -   kernel modules to install/enable
+        -   minimum version of oVirt Node that it can be installed in
+        -   Additional metadata can be added to the specification as need is determined, but new metadata will require updates to the plugin tooling as well as possibly to oVirt Node itself. Therefore, the plugin tooling should have a version associated with it, and specific plugins should be specified to require a minimum version of the plugin tooling to support injecting the plugin into a Node. And the Node should only accept plugins that are compatible with it.
+            -   For example, Node is version 3 and knows how to process opening firewall ports, but does not understand how to create new users. Therefore, plugins that require new users would be incompatible with this version of the Node.
+    -   a collection of packages
+        -   For the Fedora based oVirt Node, these will be RPMs, other distributions can use their own package formats.
+        -   Each package must be written to install to the 'stacks' location in the /opt filesystem
+        -   Dependencies on the kernel or other things that would require a rebuild of the initramfs cannot be allowed since the kernel can not be updated in oVirt Node
+        -   All RPMs included in a plugin tarball can be optionally signed with a gpgkey.
+*   All of the above can be done with standard tools and some recipe/metadata templates that instruct the ISV/IHV on how to build a compliant plugin. No special tooling should be necessary here.
 
 #### For End User
 
-*   Get required oVirt Node ISO image version
-*   Get plugin from the 3rd party and rebuild ISO with a wrapper script (ovirt-plugin-build) which runs:
-    -   edit-livecd using plugin recipe and provided packages
-    -   verifies the end-result image against the checksums list in the plugin
-*   Install end-result image normally.
+*   Tool for injecting plugins based on edit-node/edit-livecd code: node-plugin-tool
+*   node-plugin-tool should handle the following tasks:
+    -   validation of the plugin by checking the metadata/kickstart for syntax/policy errors
+    -   validation of rpm signatures using a set of valid certificates that are bundled with the tool
+    -   resolution of dependencies that need to be included from an external repository
+        -   For example, plugin foo requires tog-pegasus, so download that from the Fedora yum repository
+*   n-p-t should also be capable of operating in two modes:
+    -   offline ISO editing mode for v1 feature
+        -   this will use edit-livecd functionality to crack up the ISO, chroot it and perform local operations
+    -   online plugin injection mode for v2 feature
+        -   this will use a control channel (SSH or Matahari perhaps) to interact with and run live operations on the Node
+*   To determine dependency resolution deltas, the n-p-t must either use the rpm database of the offline Node ISO or the live running Node. yumdownloader can be used from the host running n-p-t to download dependencies and then bundle those dependencies with the plugin tarball for installation either on the offline or online image
+*   n-p-t will also create manifests for all changes
+    -   During oVirt Node ISO creation, a set of manifests are created for rpm and file manifests
+    -   During plugin injection (either online or offline), manifest deltas should be created and persisted to either the ISO image or to the persistent config store (remote or local disk) so that a record of all changes to the image from every plugin can be tracked by date.
+    -   These manifests should also contain listing of all config changes made from the metadata instructions
+*   Validation/Signing
+    -   By default the injection tooling will validate the gpg signartures of all RPMs to be installed to make sure they are signed by a valid provider.
+    -   The 3rd party plugin injection tool should provide an argument to pass the equivalent of --no-gpg so that this behavior can be overridden.
+    -   Each 3rd party software developer will have their own private/public keypair and the stock oVirt Node will include the public keys. The gpg verification should be done by certificates installed inside the Node itself, so that both the offline and online plugin injection mechanism can benefit from it.
 
 [Category:Node development](Category:Node development)

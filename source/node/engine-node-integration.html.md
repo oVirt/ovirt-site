@@ -9,9 +9,12 @@ wiki_last_updated: 2012-02-21
 
 # Engine Node Integration
 
-oVirt Engine and oVirt Node Integration (based on Fedora).
+oVirt Engine and oVirt Node Integration.
 
-This is a work in progress for making oVirt engine and oVirt node/regular host run on Fedora
+This is a work in progress for
+
+*   integrating oVirt node with the engine
+*   making oVirt engine and vdsm to run on any linux machine
 
 ## Host Machine
 

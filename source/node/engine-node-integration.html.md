@@ -97,6 +97,7 @@ Create CA and certs
 Copy cert to Jboss root dir
 
       cp /etc/pki/engine/ca/keys/engine.ssh.key.txt /usr/local/jboss/server/default/deploy/ROOT.war/
+      cp /etc/pki/engine/ca/keys/ca.pem /usr/local/jboss/server/default/deploy/ROOT.war/ca.crt
 
 DB updates:
 

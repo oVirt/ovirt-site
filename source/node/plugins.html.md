@@ -20,6 +20,7 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
 *   Provide tools to consumers of oVirt Node to allow them to inject one or more plugins into oVirt Node ISO images.
 *   Provide integrity checking and certification tools for the rebuilt ISO images.
 *   Provide guidelines for 3rd party plugin writers.
+*   Provide reporting (via vdsm?) so ovirt engine can present which plugin and versions are installed on a node
 
 ### Current Build Process
 

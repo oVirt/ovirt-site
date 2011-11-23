@@ -16,7 +16,10 @@ Please report any security issues you find in oVirt projects to:
 
 security at ovirt.org
 
-Anyone can post to this list. The subscribers are only trusted individuals who will handle the resolution of any reported security issues in confidence. In your report, please note how you would like to be credited for discovering the issue and the details of any embargo you would like to impose.
+Anyone can post to this list. The subscribers are only trusted individuals who will handle the resolution of any reported security issues in confidence. In your report, please note how you would like to be credited for discovering the issue and the details of any embargo you would like to impose. Currently the security response teams for the following distributions are subscribed to this list and will respond to your report:
+
+*   Fedora
+*   Red Hat Enterprise Linux
 
 ## Handling security issues
 

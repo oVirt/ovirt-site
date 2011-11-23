@@ -25,7 +25,7 @@ execute the following command as root:
 
 Execute the following command:
 
-      wget http://www.ovirt.org/releases/stable/fedora/16/ovirt-engine.repo -P /etc/yum.repos.d/
+      wget http://www.ovirt.org/releases/nightly/fedora/16/ovirt-engine.repo -P /etc/yum.repos.d/
        
 
 ## VDSM

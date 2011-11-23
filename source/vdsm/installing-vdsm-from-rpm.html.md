@@ -11,7 +11,7 @@ wiki_last_updated: 2015-03-16
 
 # Installing VDSM from rpm
 
-This Documents has come to describe the steps required in order to install & configure ovirt-node on the same host with ovirt-engine, this steps are usually not required when installing ovirt-node on another host then ovirt-engine
+This Documents has come to describe the steps required in order to install & configure VDSM on the same host with ovirt-engine, this steps are usually not required when installing VDSM on another host then ovirt-engine
 Use this guide in order to install ovirt-engine: [Installing_ovirt-engine_from_rpm](Installing_ovirt-engine_from_rpm)
 
 ### Installing Prerequisite Packages
@@ -28,7 +28,7 @@ Execute the following command:
       wget http://www.ovirt.org/releases/stable/fedora/16/ovirt-engine.repo -P /etc/yum.repos.d/
        
 
-## ovirt-node
+## VDSM
 
 ### Configuring the bridge Interface
 
@@ -61,11 +61,11 @@ Restart the network service by executing:
       service network restart
        
 
-### Installing & Configuring ovirt-node
+### Installing & Configuring VDSM
 
 #### Install
 
-Install ovirt-node by executing as root the following commands:
+Install VDSM by executing as root the following commands:
 
       yum install -y vdsm*
       service vdsmd start

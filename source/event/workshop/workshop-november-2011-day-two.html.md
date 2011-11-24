@@ -36,7 +36,7 @@ The original location for this page is [Workshop November 2011 - Day Two](Worksh
     -   Quick feedback to add/ update working sessions
 *   3:45PM – 4:00PM : Break
 *   4:00PM – 5:00PM : Working Sessions (Slot 2)
-    -   UI/GWT | History+Reports | Guest tools | Node
+    -   UI/GWT | History+Reports | Guest tools ([pdf](http://www.ovirt.org/wiki/File:Ovirt-guest-agent.pdf), [odp](http://www.ovirt.org/wiki/File:Ovirt-guest-agent.odp), [wiki](http://www.ovirt.org/wiki/Category:Ovirt_guest_agent)) | Node
 *   7:00PM – .. Social (meet at a selected watering hole)
 
 ## Afternoon breakout sessions

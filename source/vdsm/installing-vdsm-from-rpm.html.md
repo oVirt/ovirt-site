@@ -72,9 +72,7 @@ Install VDSM by executing as root the following commands:
 
 #### Configure
 
-Edit **/etc/libvirt/qemu.conf** and change **spice_tls=1** to **spice_tls=0**
-
-Add the following content into the file: **/etc/vdsm/vdsm.conf**:
+Add the following content into the file: **/etc/vdsm/vdsm.conf** (you may need to create that file):
 
       [vars]
       ssl = false
@@ -84,3 +82,11 @@ Restart the vdsmd service by executing:
 
       service vdsmd restart
        
+
+If Vdsm was started earlier with ssl=true, it would refuse to start and you may need to use the undocumented verb
+
+      service vdsmd reconfigure
+      service vdsmd start
+       
+
+which edits **/etc/libvirt/qemu.conf** and changes **spice_tls=1** to **spice_tls=0**.

@@ -25,13 +25,23 @@ __TOC__
 
 *   <git://gerrit.ovirt.org/ovirt-engine-cli>
 
+# Help
+
 ![](help.jpg "help.jpg")
+
+# Running Query
 
 ![](query.jpg "query.jpg")
 
+# Creating resource
+
 ![](create.jpg "create.jpg")
 
+# Updating resource
+
 ![](update.jpg "update.jpg")
+
+# Performing action on resource
 
 ![](action.jpg "action.jpg")
 

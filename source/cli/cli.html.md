@@ -25,4 +25,14 @@ __TOC__
 
 *   <git://gerrit.ovirt.org/ovirt-engine-cli>
 
+![](http://www.ovirt.org/wiki/File:Help.jpg "http://www.ovirt.org/wiki/File:Help.jpg")
+
+![](query.jpg "query.jpg")
+
+![](create.jpg "create.jpg")
+
+![](update.jpg "update.jpg")
+
+![](action.jpg "action.jpg")
+
 <Category:CLI>

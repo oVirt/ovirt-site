@@ -25,6 +25,12 @@ __TOC__
 
 *   <git://gerrit.ovirt.org/ovirt-engine-sdk>
 
+# IDE Examples
+
+![](1.jpg "1.jpg")
+
+![](2.jpg "2.jpg")
+
 # Examples
 
 from ovirtsdk.api import API from ovirtsdk.xml import params

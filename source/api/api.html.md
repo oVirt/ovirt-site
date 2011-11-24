@@ -47,6 +47,10 @@ http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy
 
 7. sub-resource
 
+## Repository
+
+*   <git://gerrit.ovirt.org/ovirt-engine> (restapi is one of the engine modules)
+
 ## oVirt-API How-to (the methods)
 
 *   To list all collection resources, use GET.

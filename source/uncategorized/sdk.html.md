@@ -27,9 +27,45 @@ __TOC__
 
 # IDE Examples
 
+### Creating the proxy & Listing all collections
+
 ![](1.jpg "1.jpg")
 
+### - Listing collection's methods
+
 ![](2.jpg "2.jpg")
+
+### Querying collection with oVirt search engine query & custom constraint
+
+![](3.jpg "3.jpg")
+
+### Accessing resource methods and properties
+
+![](4.jpg "4.jpg")
+
+### Accessing resource properties and sub-collections
+
+![](5.jpg "5.jpg")
+
+### - Accessing sub-collection methods
+
+![](6.jpg "6.jpg")
+
+### Querying sub-collection by custom constraint.
+
+![](7.jpg "7.jpg")
+
+### - Retrieving sub-collection resource.
+
+![](8.jpg "8.jpg")
+
+### Accessing sub-collection resource properties and methods
+
+![](9.jpg "9.jpg")
+
+### Examples
+
+![](10.jpg "10.jpg")
 
 # Examples
 

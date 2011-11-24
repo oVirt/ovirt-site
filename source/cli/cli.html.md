@@ -25,7 +25,7 @@ __TOC__
 
 *   <git://gerrit.ovirt.org/ovirt-engine-cli>
 
-![](http://www.ovirt.org/wiki/File:Help.jpg "http://www.ovirt.org/wiki/File:Help.jpg")
+![](help.jpg "help.jpg")
 
 ![](query.jpg "query.jpg")
 

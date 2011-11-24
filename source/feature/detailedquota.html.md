@@ -240,8 +240,8 @@ Affected oVirt projects:
 
 ### Open Issues
 
-      Grace Limit - Grace limit should be relinquish for now, since the threshold property should be good enough, for the alert functionality, the administrator needs.
-      Email Notifications - The administrator will use the notification service for the Quota threshold event messages, to configure which users, will get notification email on Quota that exceeded the threshold. (We should consider using postponed notifications, to avoid flood).
-      Quota Feature Scope - Just to clarify, Quota is designed from the billing POV and not from the hardware point of view, It will only be managed in the ovirt-engine scope.
+*   Grace Limit - Grace limit should be relinquish for now, since the threshold property should be good enough, for the alert functionality, the administrator needs.
+*   Email Notifications - The administrator will use the notification service for the Quota threshold event messages, to configure which users, will get notification email on Quota that exceeded the threshold. (We should consider using postponed notifications, to avoid flood).
+*   Quota Feature Scope - Just to clarify, Quota is designed from the billing POV and not from the hardware point of view, It will only be managed in the ovirt-engine scope.
 
 [Category: Feature](Category: Feature)

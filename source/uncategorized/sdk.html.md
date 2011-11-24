@@ -63,10 +63,6 @@ __TOC__
 
 ![](9.jpg "9.jpg")
 
-### Examples
-
-![](10.jpg "10.jpg")
-
 # Examples
 
 from ovirtsdk.api import API from ovirtsdk.xml import params

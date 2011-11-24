@@ -21,8 +21,6 @@ __TOC__
 *   Intuitive and easy to use.
 *   Auto-Generated
 
-[SDK example:Example.jpg](SDK example:Example.jpg)
-
 # Examples
 
 from ovirtsdk.api import API from ovirtsdk.xml import params

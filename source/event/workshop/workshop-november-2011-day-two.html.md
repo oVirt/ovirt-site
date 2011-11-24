@@ -36,7 +36,7 @@ The original location for this page is [Workshop November 2011 - Day Two](Worksh
     -   Quick feedback to add/ update working sessions
 *   3:45PM – 4:00PM : Break
 *   4:00PM – 5:00PM : Working Sessions (Slot 2)
-    -   UI/GWT | History+Reports | Guest tools ([pdf](http://www.ovirt.org/wiki/File:Ovirt-guest-agent.pdf), [odp](http://www.ovirt.org/wiki/File:Ovirt-guest-agent.odp), [wiki](http://www.ovirt.org/wiki/Category:Ovirt_guest_agent)) | Node
+    -   UI/GWT | History+Reports | Guest tools / agent | Node
 *   7:00PM – .. Social (meet at a selected watering hole)
 
 ## Afternoon breakout sessions
@@ -44,7 +44,7 @@ The original location for this page is [Workshop November 2011 - Day Two](Worksh
 *   **Chess** - Storage (with projector)
 *   **Clue** - UI/GWT (with projector)
 *   **Rummikub** - History+Reports (with projector) - Slides: ![](oVirt_history_and_reports-20111102.odp "fig:oVirt_history_and_reports-20111102.odp"), ![](oVirt_history_and_reports-20111102.pdf "fig:oVirt_history_and_reports-20111102.pdf")
-*   **Mouse Trap** - Guest tools (with projector)
+*   **Mouse Trap** - Guest tools / agent (with projector) - Slides: [pdf](http://www.ovirt.org/wiki/File:Ovirt-guest-agent.pdf), [odp](http://www.ovirt.org/wiki/File:Ovirt-guest-agent.odp) ,[wiki](http://www.ovirt.org/wiki/Category:Ovirt_guest_agent)
 *   **Dominoes** - Governance ([Pad](http://etherpad.ubuntu.com/governance-breakout-ovirt-workshop-20111102), [Governance breakout at oVirt workshop November 2011](Governance breakout at oVirt workshop November 2011))
 *   **Uno** - Node ([Pad](http://etherpad.ubuntu.com/node-breakout-ovirt-workshop-20111101), [Node breakout at oVirt workshop November 2011](Node breakout at oVirt workshop November 2011))
 

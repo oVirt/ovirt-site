@@ -47,7 +47,7 @@ __TOC__
 
 ![](5.jpg "5.jpg")
 
-### - Accessing sub-collection methods
+### Accessing sub-collection methods
 
 ![](6.jpg "6.jpg")
 
@@ -55,7 +55,7 @@ __TOC__
 
 ![](7.jpg "7.jpg")
 
-### - Retrieving sub-collection resource.
+### Retrieving sub-collection resource.
 
 ![](8.jpg "8.jpg")
 

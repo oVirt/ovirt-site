@@ -21,6 +21,10 @@ __TOC__
 *   Intuitive and easy to use.
 *   Auto-Generated
 
+# Repository
+
+*   <git://gerrit.ovirt.org/ovirt-engine-sdk>
+
 # Examples
 
 from ovirtsdk.api import API from ovirtsdk.xml import params

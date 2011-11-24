@@ -14,11 +14,15 @@ oVirt CLI package is a command line interface for the oVirt engine.
 
 __TOC__
 
-## CLI Concepts
+# CLI Concepts
 
 *   Generic interface (list, show, create, update, action verbs).
 *   Interactive prompt
 *   Auto-completion.
 *   Self descriptive.
+
+# Repository
+
+*   <git://gerrit.ovirt.org/ovirt-engine-cli>
 
 <Category:CLI>

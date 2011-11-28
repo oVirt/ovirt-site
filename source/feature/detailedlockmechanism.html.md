@@ -38,31 +38,37 @@ Include you email address that you can be reached should people want to contact 
 
 ### Detailed Description
 
-Provide the details of the feature. What is it going to include. See the sub-sections below. This section may contain more sub-sections, depends on the oVirt projects relevant for this feature.
+The following feature will introduce an internal in memory generic locking mechanism. A locking mechanism can be used all over bll in order to not allow to occurred for some flows sententiously. The feature will include : 1. Implementation of locking mechanism 2. Introducing it all over a bll logic
 
 #### Entity Description
 
-New entities and changes in existing entities.
+A new entity will be introduced : EngineLock. The entity will represent a logical representation of the all objects needed to be locked. An entity will contains a lists of "read locked" entities and "write locked" entites
 
 #### CRUD
 
-Describe the create/read/update/delete operations on the entities, and what each operation should do.
-
 #### User Experience
 
-Describe user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should also be added here to make it more clear
+No GUI required
 
 #### Installation/Upgrade
 
-Describe how the feature will effect new installation or existing one.
+No impact
 
 #### User work-flows
 
-Describe the high-level work-flows relevant to this feature.
+The implementation will be based on the following algorithm : 1. The lock command will be marked by annotation and lock of object will be done before canDoAction 2. If needed additional treatment appropriate entry will override getReadLocks() and getWriteLocks() methods of CommandBase 3. At the end of command the locked will be released (including failure during of canDoAction)
+
+Explanation on flow: 1. We are running activate/detach/remove/etc domain 2. The entry with domainId will be handled as required lock entity 3. The entry with poolId will be handled as read lock, if it is already exists: we will try to update count = count+1 when not write lock is acquired on that entity 4. Start Activate Domain.
+
+Now we want to start Reconstruct: 5. The entry with poolId will be handled as write lock. At case that lock on entity can not be acquired - meaning that one of the domains is Locked. The same issue is regarding HandleFailedStorageDomain because of it can lead to Reconstruct.
+
+SPM election , for example Also will try to acquire write lock by vdsmId and poolId attached to SPM.
+
+The base idea is : by uses of annotation and override of the two methods from CommandBase provide different commands with idea which entities they should lock.
 
 #### Events
 
-What events should be reported when using this feature.
+In case that user did not successes to acquire a lock appropriate canDoaction message should appeared to user
 
 ### Dependencies / Related Features and Projects
 

@@ -45,7 +45,7 @@ __TOC__
 
 ### Creating resource
 
-![](create.jpg "create.jpg")
+![](create_sdk_resource.jpg "create_sdk_resource.jpg")
 
 ### Accessing resource properties and sub-collections
 

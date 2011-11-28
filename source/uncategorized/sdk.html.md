@@ -145,6 +145,43 @@ nic3 = vm6.nics.get(name='eth01')
 
 nic4 = vm6.nics.get(name='eth0')
 
+# TODO list
+
+*   sdk: supporting actual resources as parameters for objects creation (in progress)
+
+         cluster = api.clusters.get(name='xxx')
+         template = api.templates.get(name='yyy')
+         param = params.VM(name='zzz', cluster=cluster, template=template, ...)
+         my_vm = api.vms.add(param)
+
+*   sdk: supporting several proxy instances in application
+
+       (i.e cache peer proxy instance)
+
+*   codegen: supporting parameters in resource actions
+
+       - at this point all actions statically receive Action parameters holder what is 
+         not always correct as in case of importing vm/template where parameter should be StorageDomain)
+       - action parameter/s metadata should be taken from RSDL 
+
+*   codegen: support 3+ length URIs
+
+<!-- -->
+
+*   codegen: add static /name/ parameter to .get() rather then accepting it via \*\*kwargs
+
+<!-- -->
+
+*   sdk: dynamic connections_pool resizer
+
+<!-- -->
+
+*   sdk: refactoring internal exceptions for better error handling on client side
+
+<!-- -->
+
+*   codegen: add documentation for methods based on RSDL parameters metadata
+
 --
 
 Michael Pasternak RedHat, ENG-Virtualization R&D

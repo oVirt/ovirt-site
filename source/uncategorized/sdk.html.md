@@ -105,11 +105,10 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
 
 *   add resource
 
-       cluster = params.Cluster(name='Default_iscsi')
-
-       template = params.Template(name='Template2_iscsi')
-
-       param = params.VM(name='pythond_sdk_poc2', cluster=cluster, template=template, memory=1073741824)
+       param = params.VM(name='my_vm',
+                         cluster=api.clusters.get(name='xxx'),
+                         template=api.templates.get(name='yyy'),
+                         ...)
 
        my_vm = api.vms.add(param)
 

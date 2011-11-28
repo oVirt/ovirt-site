@@ -56,29 +56,15 @@ No impact
 
 #### User work-flows
 
-The implementation will be based on the following algorithm : <
-> 1. The lock command will be marked by annotation and lock of object will be done before canDoAction <
-> 2. If needed additional treatment appropriate entry will override getReadLocks() and getWriteLocks() methods of CommandBase <
-> 3. At the end of command the locked will be released (including failure during of canDoAction) <
->
+The implementation will be based on the following algorithm : 1. The lock command will be marked by annotation and lock of object will be done before canDoAction 2. If needed additional treatment appropriate entry will override getReadLocks() and getWriteLocks() methods of CommandBase 3. At the end of command the locked will be released (including failure during of canDoAction)
 
-Explanation on flow: 1. We are running activate/detach/remove/etc domain <
-> 2. The entry with domainId will be handled as required lock entity <
-> 3. The entry with poolId will be handled as read lock, if it is already exists: we will try to update count = count+1 when not write lock is acquired on that entity <
-> 4. Start Activate Domain. <
->
+Explanation on flow: 1. We are running activate/detach/remove/etc domain 2. The entry with domainId will be handled as required lock entity 3. The entry with poolId will be handled as read lock, if it is already exists: we will try to update count = count+1 when not write lock is acquired on that entity 4. Start Activate Domain.
 
-Now we want to start Reconstruct: <
-> 5. The entry with poolId will be handled as write lock. At case that lock on entity can not be acquired - meaning that one of the domains is Locked. <
-> The same issue is regarding HandleFailedStorageDomain because of it can lead to Reconstruct. <
->
+Now we want to start Reconstruct: 5. The entry with poolId will be handled as write lock. At case that lock on entity can not be acquired - meaning that one of the domains is Locked. The same issue is regarding HandleFailedStorageDomain because of it can lead to Reconstruct.
 
-SPM election , for example <
-> 6. Also will try to acquire write lock by vdsmId and poolId attached to SPM. <
->
+SPM election , for example 6. Also will try to acquire write lock by vdsmId and poolId attached to SPM.
 
-The base idea is : by uses of annotation and override of the two methods from CommandBase provide different commands with idea which entities they should lock. <
->
+The base idea is : by uses of annotation and override of the two methods from CommandBase provide different commands with idea which entities they should lock.
 
 #### Events
 

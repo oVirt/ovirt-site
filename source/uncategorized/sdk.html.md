@@ -43,6 +43,10 @@ __TOC__
 
 ![](4.jpg "4.jpg")
 
+### Creating resource
+
+![](create.jpg "create.jpg")
+
 ### Accessing resource properties and sub-collections
 
 ![](5.jpg "5.jpg")

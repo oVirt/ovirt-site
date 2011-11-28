@@ -43,7 +43,8 @@ The following feature will introduce an internal in memory generic locking mecha
 
 #### Entity Description
 
-A new entity will be introduced : EngineLock. The entity will represent a logical representation of the all objects needed to be locked.
+A new entity will be introduced : EngineLock.
+The entity will represent a logical representation of the all objects needed to be locked.
 An entity will contains a lists of "read locked" entities and "write locked" entites
 
 #### CRUD

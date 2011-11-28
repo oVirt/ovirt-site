@@ -18,8 +18,8 @@ __TOC__
 *   Full compliance with the oVirt api architecture.
 *   Auto-completion.
 *   Self descriptive.
-*   Intuitive and easy to use.
 *   Auto-Generated
+*   Intuitive and easy to use.
 
 # Repository
 
@@ -150,22 +150,15 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
 
 # TODO list
 
-*   sdk: supporting actual resources as parameters for objects creation (in progress)
-
-         cluster = api.clusters.get(name='xxx')
-         template = api.templates.get(name='yyy')
-         param = params.VM(name='zzz', cluster=cluster, template=template, ...)
-         my_vm = api.vms.add(param)
-
-*   sdk: supporting several proxy instances in application
-
-       (i.e cache peer proxy instance)
-
-*   codegen: supporting parameters in resource actions
+*   codegen: supporting parameters in resource actions (in progress)
 
        - at this point all actions statically receive Action parameters holder what is 
          not always correct as in case of importing vm/template where parameter should be StorageDomain)
        - action parameter/s metadata should be taken from RSDL 
+
+*   sdk: supporting several proxy instances in application
+
+       (i.e cache peer proxy instance)
 
 *   codegen: support 3+ length URIs
 

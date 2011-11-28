@@ -38,11 +38,13 @@ Include you email address that you can be reached should people want to contact 
 
 ### Detailed Description
 
-The following feature will introduce an internal in memory generic locking mechanism. A locking mechanism can be used all over bll in order to not allow to occurred for some flows sententiously. The feature will include : 1. Implementation of locking mechanism 2. Introducing it all over a bll logic
+The following feature will introduce an internal in memory generic locking mechanism. A locking mechanism can be used all over bll in order to not allow to occurred for some flows sententiously. The feature will include : 1. Implementation of locking mechanism
+2. Introducing it all over a bll logic
 
 #### Entity Description
 
-A new entity will be introduced : EngineLock. The entity will represent a logical representation of the all objects needed to be locked. An entity will contains a lists of "read locked" entities and "write locked" entites
+A new entity will be introduced : EngineLock. The entity will represent a logical representation of the all objects needed to be locked.
+An entity will contains a lists of "read locked" entities and "write locked" entites
 
 #### CRUD
 

@@ -33,8 +33,8 @@ Include you email address that you can be reached should people want to contact 
 ### Current status
 
 *   Target Release: ...
-*   Status: ...
-*   Last updated date: ...
+*   Status: Design / Code review
+*   Last updated date: 28.11.11
 
 ### Detailed Description
 

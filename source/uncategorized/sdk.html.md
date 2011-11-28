@@ -182,8 +182,4 @@ nic4 = vm6.nics.get(name='eth0')
 
 *   codegen: add documentation for methods based on RSDL parameters metadata
 
---
-
-Michael Pasternak RedHat, ENG-Virtualization R&D
-
 <Category:SDK>

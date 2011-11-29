@@ -383,34 +383,6 @@ The limit which the Quota is defined
      . Input - Storage pool Id and Quota Id. 
      output - All Cluster Quota properties for DC.
 
-**Config Values**
- New configuration values in vdc_options:
-
-     quotaStorageThreshold - The default value should be 75%, and the version is General.
-     Indicates the percentage of resource allocation, which beyond this (if Quota is enforced) would print an appropriate audit log message.
-
-     quotaClusterThreshold - The default value should be 80%, and the version is General.
-     Indicates the percentage of cluster allocation, which beyond this (if Quota is enforced) would print an appropriate audit log message.
-
-     quotaStorageGrace - The default value should be 20%, and the version is General.
-     Indicates the percentage of resource extension allocation.
-
-     quotaClusterGrace - The default value should be 20%, and the version is General.
-     Indicates the percentage of resource extension allocation.
-
-**DAO Classes**
- ***org.ovirt.engine.core.dao.QuotaDAO*** - Interface for Quota DAO will extends GenericDao.
- ***org.ovirt.engine.core.dao.QuotaDAODbFacadeImpl*** - Implementation for QuotaDAO, reflects the quota view implementations.
-
-**Classes**
- ***org.ovirt.engine.core.bll.QuotaManager*** - Class which manage the quota views and memory table
-
-     quotaClusterMap - The quota cluster Map is a concurrent HashMap which reflects a snapshot view of the cluster consumption status for each quota, it is based on the DB view [[Features/Design/Quota#DB Design|getQuotaCluster]]. The map should be synchronized when the server starts up, and the vdsUpdateRunTimeInfo has updated the data after the first time (counting on method beforeFirstRefreshTreatment).
-
-     quotaStorageMap - The quota storage Map is a Concurrent HashMap which reflects a snapshot view of the cluster consumption status for each quota, it is based on the DB view  [[Features/Design/Quota#DB Design|getQuotaStorage]], and it is initialized every time the Host will be chosen to be SPM, using the DB values and the task manager.
-
-***org.ovirt.engine.core.common.businessentities.QuotaStatusEnum*** - Enum indicating the DC Quota verification status.
-
 #### Logic Design
 
 Each time the user will run or edit the VM, there will be a Quota check against the quota cluster view.

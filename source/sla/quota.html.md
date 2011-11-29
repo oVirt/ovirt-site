@@ -124,7 +124,7 @@ storage_limit
 
 Integer
 
-null
+default '0'
 
 The storage limit in Mega bytes, could be -1 for no limit, or specific number of bytes
 
@@ -132,23 +132,15 @@ vcpu
 
 Integer
 
-not null
+default '0'
 
 The number or virtual CPU's allowed in the cluster Quota (-1 for unlimited)
-
-vms
-
-Integer
-
-not null
-
-The number of VMS allowed in the cluster Quota (-1 for unlimited)
 
 vram
 
 Integer
 
-not null
+default '0'
 
 The Virtual RAM allowed in the cluster Quota (-1 for unlimited)
 

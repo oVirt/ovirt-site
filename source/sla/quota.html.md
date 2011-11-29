@@ -94,32 +94,6 @@ not null
 
 Quota update date
 
-**quota_dynamic** - Presents the Quota dynamic properties ([\*](Features/Design/Quota#Appendix))
-
-Column Name
-
-Column Type
-
-Null? / Default
-
-Definition
-
-id
-
-UUID
-
-Not null
-
-The Quota Id which represented in the quota_static
-
-vds_group_id
-
-UUID
-
-not null
-
-Foreign key for vds_groups.vds_group_id
-
 type
 
 Integer

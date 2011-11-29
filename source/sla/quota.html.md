@@ -120,30 +120,6 @@ not null
 
 Foreign key for vds_groups.vds_group_id
 
-storage_limit
-
-Integer
-
-default '0'
-
-The storage limit in Mega bytes, could be -1 for no limit, or specific number of bytes
-
-vcpu
-
-Integer
-
-default '0'
-
-The number or virtual CPU's allowed in the cluster Quota (-1 for unlimited)
-
-vram
-
-Integer
-
-default '0'
-
-The Virtual RAM allowed in the cluster Quota (-1 for unlimited)
-
 type
 
 Integer
@@ -210,17 +186,25 @@ not null
 
 Foreign key for vds_groups.vds_group_id
 
+vcpu
+
+Integer
+
+default '0'
+
+The number or virtual CPU's allowed in the cluster Quota (-1 for unlimited)
+
+vram
+
+Integer
+
+default '0'
+
+The Virtual RAM allowed in the cluster Quota (-1 for unlimited)
+
 Note: If no cluster selected for Quota,we assume the Quota contains all the clusters in the Data Center.
 
 **quota_storage** - Represents the Data storage id which will
-
-Column Name
-
-Column Type
-
-Null?
-
-Definition
 
 Column Name
 
@@ -250,9 +234,9 @@ storage_limit
 
 BigInt
 
-null
+default '0'
 
-The storage limit allowed to be used for this storage domain
+The storage limit in Mega bytes, could be -1 for no limit, or specific number of bytes
 
 **quota_permissions** - Represents the Data storage id which will
 

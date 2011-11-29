@@ -25,7 +25,7 @@ Ovirt makes it very easy for users to add VMs, thus using CPU, memory and storag
 
 ... ... ...
 
-Please see <http://www.ovirt.org/wiki/Features/DetailedQuota>
+Please see <http://www.ovirt.org/wiki/Features/Quota>
 
 ### GUI
 

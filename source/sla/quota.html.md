@@ -212,21 +212,13 @@ default '0'
 
 The storage limit in Mega bytes, could be -1 for no limit, or specific number of bytes
 
-**quota_permissions** - Represents the Quota permissions limitation.
+**quota_users** - Represents the Quota permissions limitation.
 
 Column Name
 
 Column Type
 
 Null? / Default
-
-Definition
-
-Column Name
-
-Column Type
-
-Null?
 
 Definition
 
@@ -238,13 +230,13 @@ Not null
 
 The Quota Id which represented in the quota
 
-permission_id
+user_id
 
 UUID
 
 null
 
-Foreign key to the users.user_id (null indicates no users permitted to the Quota)
+Foreign key to the users.user_id (null indicates no users permitted to consume from the Quota)
 
 ***vm_dynamic*** - Add column *quota_id*, which indicates the Quota the VM should be depended on its resources.
  ***image_dynamic*** - Add column *quota_id*, which indicates the Quota the image should be depended on its storage resources.

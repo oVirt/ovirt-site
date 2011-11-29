@@ -43,14 +43,6 @@ This section describes the backend design for this feature.
 
 > **quota_static** - Presents the Quota static properties
 
-% Complete
-
-Column Type
-
-Null?
-
-Definition
-
 Column Name
 
 Column Type

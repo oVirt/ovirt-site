@@ -62,7 +62,7 @@ No impact
 
 The implementation will be based on the following algorithm :
 1. The lock command will be marked by annotation and lock of object will be done before canDoAction
-2. If needed additional treatment appropriate entry will override getReadLocks() and getWriteLocks() methods of CommandBase
+2. If needed additional treatment appropriate command will override getReadLocks() and getWriteLocks() methods of CommandBase
 3. At the end of command the locked will be released (including failure during of canDoAction)
  Explanation on flow:
 1. We are running activate/detach/remove/etc domain

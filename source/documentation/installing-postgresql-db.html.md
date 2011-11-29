@@ -13,14 +13,13 @@ wiki_last_updated: 2013-12-19
 
 On your Fedora machine run the following commands:
 
-      #> su -
-      $> yum install -y postgresql-server postgresql-contrib pgadmin3
+      #> yum install -y postgresql-server postgresql-contrib pgadmin3
 
 Make sure you are using PostgreSQL 8.4.8 or later.
 
 Check your version with
 
-      >psql --version
+      $>psql --version
 
 Note: for earlier PostgreSQL versions, a patch is needed.
 

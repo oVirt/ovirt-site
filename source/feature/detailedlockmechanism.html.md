@@ -91,8 +91,6 @@ NA
 
 ### Comments and Discussion
 
-Add a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
-
 ### Open Issues
 
 <Category:Template> <Category:Feature>

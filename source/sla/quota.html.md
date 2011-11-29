@@ -91,7 +91,7 @@ not null
 
 Quota update date
 
-**quota_dynamic** - Presents the Quota dynamic properties ([\*](CategoryRhev31/Quota#quota_dynamic))
+**quota_dynamic** - Presents the Quota dynamic properties ([\*](Features/Design/Quota#Appendix))
 
 Column Name
 
@@ -311,10 +311,10 @@ Foreign key to the users.user_id (null indicates no users permitted to the Quota
 
 ***vm_dynamic*** - Add column *quota_id*, which indicates the Quota the VM should be depended on its resources.
  ***image_dynamic*** - Add column *quota_id*, which indicates the Quota the image should be depended on its storage resources.
- ***storage_pool*** - Add column *quota_enforcement*, Indicates the DC enforcement status for Quota (Disalbe(0) , Audit (1),Enforce (2)) will be presented by Enum (see [QuotaStatusEnum](CategoryRhev31/Quota#Classes).).
+ ***storage_pool*** - Add column *quota_enforcement*, Indicates the DC enforcement status for Quota (Disalbe(0) , Audit (1),Enforce (2)) will be presented by Enum (see [QuotaStatusEnum](Features/Design/Quota#Classes).).
 
-> **Views**
- [all_quotas](CategoryRhev31/Quota#all_quota_view) - View of all the Quotas attached to all the storage pools for all Users.
+**Views**
+ [all_quotas](Features/Design/Quota#Appendix) - View of all the Quotas attached to all the storage pools for all Users.
 
 Column Name
 
@@ -466,7 +466,7 @@ Integer
 
 The limit which the Quota is defined
 
-> **Stored Procedures**
+**Stored Procedures**
  1. *getAllQuotaClusterForSP* -
 
      . Input - Storage pool Id, and user Id.
@@ -482,7 +482,7 @@ The limit which the Quota is defined
      . Input - Storage pool Id and Quota Id. 
      output - All Cluster Quota properties for DC.
 
-> **Config Values**
+**Config Values**
  New configuration values in vdc_options:
 
      quotaStorageThreshold - The default value should be 75%, and the version is General.
@@ -497,7 +497,7 @@ The limit which the Quota is defined
      quotaClusterGrace - The default value should be 20%, and the version is General.
      Indicates the percentage of resource extension allocation.
 
-> **DAO Classes**
+**DAO Classes**
  ***org.ovirt.engine.core.dao.QuotaDynamicDAO*** - Interface for Quota dynamic DAO will extends GenericDao.
  ***org.ovirt.engine.core.dao.QuotaDynamicDAODbFacadeImpl*** - Implementation of QuotaDynamicDAO.
  ***org.ovirt.engine.core.dao.QuotaStaticDAO*** - Interface for quota static DAO will extends GenericDao.
@@ -505,12 +505,12 @@ The limit which the Quota is defined
  ***org.ovirt.engine.core.dao.QuotaDAO*** - Interface for Quota DAO will extends GenericDao.
  ***org.ovirt.engine.core.dao.QuotaDAODbFacadeImpl*** - Implementation for QuotaDAO, reflects the quota view implementations.
 
-> **Classes**
+**Classes**
  ***org.ovirt.engine.core.bll.QuotaManager*** - Class which manage the quota views and memory table
 
-     quotaClusterMap - The quota cluster Map is a concurrent HashMap which reflects a snapshot view of the cluster consumption status for each quota, it is based on the DB view [[CategoryRhev31/Quota#GetQueryForStoragePool|getQuotaCluster]]. The map should be synchronized when the server starts up, and the vdsUpdateRunTimeInfo has updated the data after the first time (counting on method beforeFirstRefreshTreatment).
+     quotaClusterMap - The quota cluster Map is a concurrent HashMap which reflects a snapshot view of the cluster consumption status for each quota, it is based on the DB view [[Features/Design/Quota#DB Design|getQuotaCluster]]. The map should be synchronized when the server starts up, and the vdsUpdateRunTimeInfo has updated the data after the first time (counting on method beforeFirstRefreshTreatment).
 
-     quotaStorageMap - The quota storage Map is a Concurrent HashMap which reflects a snapshot view of the cluster consumption status for each quota, it is based on the DB view  [[CategoryRhev31/Quota#GetQueryForStoragePool|getQuotaStorage]], and it is initialized every time the Host will be chosen to be SPM, using the DB values and the task manager.
+     quotaStorageMap - The quota storage Map is a Concurrent HashMap which reflects a snapshot view of the cluster consumption status for each quota, it is based on the DB view  [[Features/Design/Quota#DB Design|getQuotaStorage]], and it is initialized every time the Host will be chosen to be SPM, using the DB values and the task manager.
 
 ***org.ovirt.engine.core.common.businessentities.QuotaStatusEnum*** - Enum indicating the DC Quota verification status.
 
@@ -536,7 +536,7 @@ For a-synchronized operations behaviour, the Quota Storage DB data, (and the quo
 
 ###### upgrade behaviour
 
-> On upgrade, an automatic script will create default Quota for each DC, with permissions for every one, and unlimited space for storage and cluster use.
+On upgrade, an automatic script will create default Quota for each DC, with permissions for every one, and unlimited space for storage and cluster use.
  The DC status should be disabled. (Same thing when new DC will be establish)
  The disable status of the DC represents, that the user should not see any indications in the GUI that the DC has a Quota in it.
 
@@ -549,17 +549,15 @@ After the Administrator, will finish to configure the Quotas he desires for the 
 
 A scheduler with run every 1 hour (Should be indicated in the vdc_options) and check if the quota is in their threshold limit, if not an audit log message should be performed.
 
-> >
-
 ##### Business entities
 
 ***org.ovirt.engine.core.common.businessentities.QuotaStatic*** - A business entity that reflects quota static (see [quota_static](Features/Design/Quota#DB%20Design))
-org.ovirt.engine.core.common.businessentities.QuotaDynamic - A business entity that reflects Quota dynamic (see [quota_dynamic](CategoryRhev31/Quota#quota_dynamic))
- org.ovirt.engine.core.common.businessentities.Quota - A business entity that reflects the view result (see [views](CategoryRhev31/Quota#quota))
+org.ovirt.engine.core.common.businessentities.QuotaDynamic - A business entity that reflects Quota dynamic (see [quota_dynamic](Features/Design/Quota#Appendix))
+ org.ovirt.engine.core.common.businessentities.Quota - A business entity that reflects the view result (see [views](Features/Design/Quota#quota))
 
 ##### Query commands
 
-***GetAllQuotaStoragesQuery*** (Extends QueriesCommandBase) - Should call query (see [getAllQuotaStorageForSP](CategoryRhev31/Quota#GetQueryForStoragePool))
+***GetAllQuotaStoragesQuery*** (Extends QueriesCommandBase) - Should call query (see [getAllQuotaStorageForSP](Features/Design/Quota#DB%20Design))
  with DC id and user id, The query will return List of all Quota for user in the DC.
 
 ###### Parameter commands
@@ -573,7 +571,7 @@ org.ovirt.engine.core.common.businessentities.QuotaDynamic - A business entity t
      1. Get DC verification status from quota_enforcement.
      1. If quota_enforcement != DISABLED
       1. Fetch Quota Id from VM dynamic
-      1. Get quota cluster properties for quota ID, using the memory Map quotaClusterMap in [[CategoryRhev31/Quota#Classes|QuotaManager]].
+      1. Get quota cluster properties for quota ID, using the memory Map quotaClusterMap in [[Features/Design/Quota#Classes|QuotaManager]].
       1. Check the VM configuration against the free cluster space left in the Quota.
        1. If VM capabilities are extending the free space left in the Quota
         1. if the VM capabilities are extending extending 20% of the Quota space (Grace percent) then
@@ -596,14 +594,14 @@ Each time there will be a change in the _asyncRunningVms (for example in createV
 
 *Add New Disk - When dialog box opens*
 
-     1. GUI will call the query command [[CategoryRhev31/Quota#QueryCommands|GetAllQuotaStoragesQuery]] with DC UUID
+     1. GUI will call the query command [[Features/Design/Quota#upgrade behaviour|GetAllQuotaStoragesQuery]] with DC UUID
      1. Return map of quotas, where each value represents a list of all the storage details.
 
 *Add New Disk - Confirm dialog box*
 
      1. User will pick the quota and the domain, he wants the disk should be initialized on.
      1. If quota_enforcement != DISABLED
-      1. Get quota storage properties for Quota ID, using the memory Map quotaStorageMap in [[CategoryRhev31/Quota#Classes|QuotaManager]].
+      1. Get quota storage properties for Quota ID, using the memory Map quotaStorageMap in [[Features/Design/Quota#Classes|QuotaManager]].
        1. If VM capabilities are extending the free space left in the Quota
         1. if the VM capabilities are extending extending 20% of the Quota space (Grace percent) then
          1. If quota_enforcement is enforce
@@ -683,7 +681,7 @@ This section describes issues that might need special consideration when writing
      1. Installer / Upgrader
       a. ....
      1. DB Upgrade
-      a. For each DC, add Administrator Quota, which will be attached to all the users currently using the VM's in the DC.(see [[CategoryRhev31/Quota#OnUpgrade_logic|upgrade logic]]) b. Initialize the Quota users table depending on the users in the system.
+      a. For each DC, add Administrator Quota, which will be attached to all the users currently using the VM's in the DC.(see [[Features/Design/Quota#upgrade behaviour|upgrade logic]]) b. Initialize the Quota users table depending on the users in the system.
      1. MLA
       a. ....
      1. Migrate
@@ -696,7 +694,7 @@ This section describes issues that might need special consideration when writing
 
 ### Appendix
 
-> **Pseudo code for view [all_quotas](CategoryRhev31/Quota#views):**
+**Pseudo code for view [quota views - all_quotas](Features/Design/Quota#DB%20Design):**
 
      . Select 
      From quota_static q_static,
@@ -720,6 +718,6 @@ This section describes issues that might need special consideration when writing
      Use case : create Desktop for specific user - Pick a quota from group, second approach , server??? 
       Snapshot with Qcow, templates Audit, enforce for DC unlimited Quota for each DC, on upgrade.
 
-> (\*) Thinking to use Quota_Dynamic as a memory table, instead a DB table. ||quota_status ||int ||not null ||Should be Disable (o), Audit (1) and enforce (2) ||
+(\*) Thinking to use Quota_Dynamic as a memory table, instead a DB table. ||quota_status ||int ||not null ||Should be Disable (o), Audit (1) and enforce (2) ||
 
 grace and quota status per DC

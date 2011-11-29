@@ -100,9 +100,9 @@ Integer
 
 default '0'
 
-Represent the quota enforce mode 0-disabled 1-audit 2-enforce
+Represent the quota enforce mode 0-disabled 1-soft limit 2-hard limit
 
-threshold_cluster
+soft_limit_cluster
 
 integer
 
@@ -110,7 +110,7 @@ null
 
 The threshold of the Cluster Quota the default should be configured in the vdc_options
 
-threshold_storage
+soft_limit_storage
 
 integer
 
@@ -240,7 +240,7 @@ Foreign key to the users.user_id (null indicates no users permitted to consume f
 
 ***vm_dynamic*** - Add column *quota_id*, which indicates the Quota the VM should be depended on its resources.
  ***image_dynamic*** - Add column *quota_id*, which indicates the Quota the image should be depended on its storage resources.
- ***storage_pool*** - Add column *quota_enforcement*, Indicates the DC enforcement status for Quota (Disalbe(0) , Audit (1),Enforce (2)) will be presented by Enum (see [QuotaStatusEnum](Features/Design/Quota#Classes).).
+ ***storage_pool*** - Add column *quota_enforcement*, Indicates the DC enforcement status for Quota (Disalbe(0) , Soft Limit (1),Hard Limit (2)) will be presented by Enum (see [QuotaStatusEnum](Features/Design/Quota#Classes).).
 
 **Views**
  [all_quotas](Features/Design/Quota#Appendix) - View of all the Quotas attached to all the storage pools for all Users.

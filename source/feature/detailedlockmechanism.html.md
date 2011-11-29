@@ -82,9 +82,7 @@ In case that user did not successes to acquire a lock appropriate canDoaction me
 
 ### Dependencies / Related Features and Projects
 
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
-
-Add a link to the feature description for relevant features. Does this feature effect other oVirt projects? Other projects?
+The following feature will provide a generic mechanism for synchronization different flows in ovirt, by default it will be applied only on known problematic flows , like: storage, vms and permissions flows.
 
 ### Documentation / External references
 

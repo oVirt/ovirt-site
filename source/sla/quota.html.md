@@ -50,7 +50,7 @@ Column Name
 
 Column Type
 
-Null?
+Null? / Default
 
 Definition
 
@@ -100,7 +100,7 @@ Column Name
 
 Column Type
 
-Null?
+Null? / Default
 
 Definition
 
@@ -166,7 +166,7 @@ Column Name
 
 Column Type
 
-Null?
+Null? / Default
 
 Definition
 
@@ -210,7 +210,7 @@ Column Name
 
 Column Type
 
-Null?
+Null? / Default
 
 Definition
 
@@ -244,7 +244,7 @@ Column Name
 
 Column Type
 
-Null?
+Null? / Default
 
 Definition
 
@@ -283,15 +283,7 @@ Column Name
 
 Column Type
 
-Null?
-
-Definition
-
-Column Name
-
-Column Type
-
-Null?
+Null? / Default
 
 Definition
 
@@ -343,15 +335,7 @@ Column Name
 
 Column Type
 
-Null?
-
-Definition
-
-Column Name
-
-Column Type
-
-Null?
+Null? / Default
 
 Definition
 
@@ -385,49 +369,52 @@ Integer
 
 The limit which the Quota is defined
 
-Column Name
-
-Column Type
-
-Null?
-
-Definition
-
-Column Name
-
-Column Type
-
-Definition
-
-storage_pool
-
-UUID
-
-The Storage Pool Id
-
-quota_ID
-
-UUID
-
-The Quota Id
-
-cluster_id
-
-UUID
-
-The cluster UUID (Null for all clusters in the DC)
-
-storage_use
-
-Integer
-
-Calculated storage from the image dynamic
-
-storage_limit
-
-Integer
-
-The limit which the Quota is defined
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left">Column Name</td>
+<td align="left">Column Type</td>
+<td align="left">Definition</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">storage_pool</td>
+<td align="left">UUID</td>
+<td align="left">The Storage Pool Id</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">quota_ID</td>
+<td align="left">UUID</td>
+<td align="left">The Quota Id</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">cluster_id</td>
+<td align="left">UUID</td>
+<td align="left">The cluster UUID (Null for all clusters in the DC)</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">storage_use</td>
+<td align="left">Integer</td>
+<td align="left">Calculated storage from the image dynamic</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">storage_limit</td>
+<td align="left">Integer</td>
+<td align="left">The limit which the Quota is defined</td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
 
 **Stored Procedures**
  1. *getAllQuotaClusterForSP* -

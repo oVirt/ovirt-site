@@ -41,7 +41,7 @@ This section describes the backend design for this feature.
 
 #### DB Design
 
-> **quota_static** - Presents the Quota static properties
+**quota_static** - Presents the Quota static properties
 
 Column Name
 

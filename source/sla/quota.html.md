@@ -54,7 +54,7 @@ Null? / Default
 
 Definition
 
-id
+quota_id
 
 UUID
 
@@ -144,7 +144,7 @@ Null? / Default
 
 Definition
 
-id
+quota_id
 
 UUID
 
@@ -188,7 +188,7 @@ Null? / Default
 
 Definition
 
-id
+quota_id
 
 UUID
 

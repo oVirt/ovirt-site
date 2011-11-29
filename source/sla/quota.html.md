@@ -721,6 +721,14 @@ This section describes issues that might need special consideration when writing
      Use case : create Desktop for specific user - Pick a quota from group, second approach , server??? 
       Snapshot with Qcow, templates Audit, enforce for DC unlimited Quota for each DC, on upgrade.
 
-|- |quota_status |int |not null |Should be Disable (o), Audit (1) and enforce (2) | |-
+Column Name
+
+Column Type
+
+Null?
+
+Definition
+
+int not null Should be Disable (o), Audit (1) and enforce (2)
 
 grace and quota status per DC

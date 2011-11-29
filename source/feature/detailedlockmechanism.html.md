@@ -41,6 +41,7 @@ Include you email address that you can be reached should people want to contact 
 The following feature will introduce an internal in memory generic locking mechanism. A locking mechanism can be used all over bll in order to not allow to occurred for some flows sententiously. The feature will include :
 1. Implementation of locking mechanism, implementation will be memory based
 2. Introducing it all over a bll logic
+3. A lock will be short tirm, and should be released after the appropriate entity was updated in DB (For example, during canDoAction of ActivateStorageDomain we locked domain by internal in memory, and when the canDoAction successes we update status of domain to 'Locked' and released an internal in memory lock)
 
 #### Entity Description
 

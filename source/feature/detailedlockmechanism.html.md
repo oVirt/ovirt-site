@@ -86,7 +86,7 @@ The following feature will provide a generic mechanism for synchronization diffe
 
 ### Documentation / External references
 
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
+NA
 
 ### Comments and Discussion
 

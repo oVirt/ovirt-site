@@ -146,9 +146,9 @@ The Virtual RAM allowed in the cluster Quota (-1 for unlimited)
 
 type
 
-char
+Integer
 
-not null
+default '0'
 
 Represent the quota enforce mode 0-disabled 1-audit 2-enforce
 

@@ -553,7 +553,7 @@ A scheduler with run every 1 hour (Should be indicated in the vdc_options) and c
 
 ##### Business entities
 
-***org.ovirt.engine.core.common.businessentities.QuotaStatic*** - A business entity that reflects quota static (see #REDIRECT [Quota#quota_static](Quota#quota_static))
+***org.ovirt.engine.core.common.businessentities.QuotaStatic*** - A business entity that reflects quota static (see #REDIRECT [Features/Design/Quota#quota_static](Features/Design/Quota#quota_static))
 org.ovirt.engine.core.common.businessentities.QuotaDynamic - A business entity that reflects Quota dynamic (see [quota_dynamic](CategoryRhev31/Quota#quota_dynamic))
  org.ovirt.engine.core.common.businessentities.Quota - A business entity that reflects the view result (see [views](CategoryRhev31/Quota#quota))
 

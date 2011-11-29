@@ -16,7 +16,7 @@ This document describes the design for the Quota feature.
 
 ### Motivation
 
-RHEV-M makes it very easy for users to add VMs, thus using CPU, memory and storage resources, thus there is a requirement that system administrators will be able to limit the resource usage of users in the environment by setting a Quota on these resources. The resources in scope for this feature are:
+Ovirt makes it very easy for users to add VMs, thus using CPU, memory and storage resources, thus there is a requirement that system administrators will be able to limit the resource usage of users in the environment by setting a Quota on these resources. The resources in scope for this feature are:
 
      1. Per-cluster resources:
       a. Virtual CPUs
@@ -24,6 +24,8 @@ RHEV-M makes it very easy for users to add VMs, thus using CPU, memory and stora
      1. Storage resources
 
 ... ... ...
+
+Please see <http://www.ovirt.org/wiki/Features/DetailedQuota>
 
 ### GUI
 

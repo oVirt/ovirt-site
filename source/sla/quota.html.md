@@ -120,22 +120,6 @@ not null
 
 Foreign key for vds_groups.vds_group_id
 
-Column Name
-
-Column Type
-
-Null?
-
-Definition
-
-id
-
-UUID
-
-Not null
-
-The Quota Id (represented in the quota_static also)
-
 storage_limit
 
 Integer

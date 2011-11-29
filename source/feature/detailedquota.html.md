@@ -97,8 +97,8 @@ The Quota object is in the data center scope. Also, a Data Center must be relate
 Each Data Center entity is configured with one of the following operation modes:
 
 1.  Disable - The Data Center would not be subject to Quota restrictions.
-2.  Audit - Only warning messages would be issued when Quota restrictions are violated.
-3.  Enforce - Enforced the restrictions completely and prevent the resource allocation.
+2.  Soft Limit - Only warning messages would be issued when Quota restrictions are violated.
+3.  Hard Limit - Enforced the restrictions completely and prevent the resource allocation.
 
 See more info in the [Installation/Upgrade](#Installation/Upgrade) section
 

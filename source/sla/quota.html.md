@@ -249,8 +249,6 @@ Column Name
 
 Column Type
 
-Null? / Default
-
 Definition
 
 Storage_Pool
@@ -300,8 +298,6 @@ The user Id, which has permissions to the Quota
 Column Name
 
 Column Type
-
-Null? / Default
 
 Definition
 

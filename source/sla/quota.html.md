@@ -367,8 +367,9 @@ Integer
 
 The limit which the Quota is defined
 
-**Stored Procedures**
- 1. *getAllQuotaClusterForSP* -
+###### Stored Procedures
+
+1. *getAllQuotaClusterForSP* -
 
      . Input - Storage pool Id, and user Id.
      output - Clusters for Quotas, for user Id and Storage Pool.

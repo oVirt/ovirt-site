@@ -369,17 +369,17 @@ The limit which the Quota is defined
 
 ###### Stored Procedures
 
-1.  getAllQuotaClusterForSP
+*getAllQuotaClusterForSP*
 
 *   Input - Storage pool Id, and user Id.
 *   Output - Clusters for Quotas, for user Id and Storage Pool.
 
-1.  *getAllQuotaStorageForSP*
+*getAllQuotaStorageForSP*
 
 *   Input - Storage pool Id, and user Id.
 *   output - All storages for Quota, for user Id and Storage Pool (If Data Center is disabled all the storage for the DC will be returned).
 
-1.  *getQuotaCluster* - Reflects quota_cluster_view (Using VM business entity)
+*getQuotaCluster* - Reflects quota_cluster_view (Using VM business entity)
 
 *   Input - Storage pool Id and Quota Id.
 *   output - All Cluster Quota properties for DC.

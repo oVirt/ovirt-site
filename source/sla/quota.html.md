@@ -44,7 +44,7 @@ This section describes the backend design for this feature.
 
 #### DB Design
 
-**quota_static** - Presents the Quota static properties
+**quota** - Presents the Quota properties
 
 Column Name
 
@@ -150,7 +150,7 @@ UUID
 
 Not null
 
-The Quota Id which represented in the quota_static
+The Quota Id which represented in the quota
 
 vds_group_id
 
@@ -194,7 +194,7 @@ UUID
 
 Not null
 
-The Quota Id which represented in the quota_static)
+The Quota Id which represented in the quota)
 
 storage_id
 
@@ -236,7 +236,7 @@ UUID
 
 Not null
 
-The Quota Id which represented in the quota_static)
+The Quota Id which represented in the quota)
 
 permission_id
 
@@ -422,10 +422,6 @@ The limit which the Quota is defined
      Indicates the percentage of resource extension allocation.
 
 **DAO Classes**
- ***org.ovirt.engine.core.dao.QuotaDynamicDAO*** - Interface for Quota dynamic DAO will extends GenericDao.
- ***org.ovirt.engine.core.dao.QuotaDynamicDAODbFacadeImpl*** - Implementation of QuotaDynamicDAO.
- ***org.ovirt.engine.core.dao.QuotaStaticDAO*** - Interface for quota static DAO will extends GenericDao.
- ***org.ovirt.engine.core.dao.QuotaStaticDAODbFacadeImpl*** - Implementation of QuotaStaticDAO.
  ***org.ovirt.engine.core.dao.QuotaDAO*** - Interface for Quota DAO will extends GenericDao.
  ***org.ovirt.engine.core.dao.QuotaDAODbFacadeImpl*** - Implementation for QuotaDAO, reflects the quota view implementations.
 

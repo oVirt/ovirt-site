@@ -19,7 +19,7 @@ Make sure you are using PostgreSQL 8.4.8 or later.
 
 Check your version with
 
-      $>psql --version
+      $> psql --version
 
 Note: for earlier PostgreSQL versions, a patch is needed.
 

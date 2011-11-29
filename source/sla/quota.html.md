@@ -30,7 +30,7 @@ Please see <http://www.ovirt.org/wiki/Features/Quota>
 
 ### GUI
 
-This section describes the GUI design for this feature.
+Please see #User Experience
 
 #### Design
 

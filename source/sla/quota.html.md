@@ -735,4 +735,6 @@ int
 
 not null
 
+Should be Disable (o), Audit (1) and enforce (2)
+
 grace and quota status per DC

@@ -93,7 +93,7 @@ Quota update date
 
 **quota_dynamic** - Presents the Quota dynamic properties ([\*](CategoryRhev31/Quota#quota_dynamic))
 
-% Complete
+Column Name
 
 Column Type
 
@@ -117,7 +117,7 @@ not null
 
 Foreign key for vds_groups.vds_group_id
 
-% Complete
+Column Name
 
 Column Type
 
@@ -207,7 +207,7 @@ The grace in percentage of the Storage Quota the default should be configured in
 
 **quota_cluster** - Represent the clusters which are part of the Quota, The relationship of Cluster-Quota is Many-To-Many.
 
-% Complete
+Column Name
 
 Column Type
 
@@ -235,7 +235,7 @@ Note: If no cluster selected for Quota,we assume the Quota contains all the clus
 
 **quota_storage** - Represents the Data storage id which will
 
-% Complete
+Column Name
 
 Column Type
 
@@ -277,7 +277,7 @@ The storage limit allowed to be used for this storage domain
 
 **quota_permissions** - Represents the Data storage id which will
 
-% Complete
+Column Name
 
 Column Type
 
@@ -316,7 +316,7 @@ Foreign key to the users.user_id (null indicates no users permitted to the Quota
 > **Views**
  [all_quotas](CategoryRhev31/Quota#all_quota_view) - View of all the Quotas attached to all the storage pools for all Users.
 
-% Complete
+Column Name
 
 Column Type
 
@@ -376,7 +376,7 @@ The user Id, which has permissions to the Quota
 
 [quota_storage_view](quota_storage_view) - View of the Quotas storage resources.
 
-% Complete
+Column Name
 
 Column Type
 
@@ -422,7 +422,7 @@ Integer
 
 The limit which the Quota is defined
 
-% Complete
+Column Name
 
 Column Type
 

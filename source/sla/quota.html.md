@@ -44,7 +44,7 @@ This section describes the backend design for this feature.
 
 #### DB Design
 
-**quota** - Presents the Quota properties
+**quota** - Represents the Quota properties
 
 Column Name
 
@@ -178,7 +178,7 @@ The Virtual RAM allowed in the cluster Quota (-1 for unlimited)
 
 Note: If no cluster selected for Quota,we assume the Quota contains all the clusters in the Data Center.
 
-**quota_storage** - Represents the Data storage id which will
+**quota_storage** - Represents the Quota Storage limitation.
 
 Column Name
 
@@ -212,7 +212,7 @@ default '0'
 
 The storage limit in Mega bytes, could be -1 for no limit, or specific number of bytes
 
-**quota_permissions** - Represents the Data storage id which will
+**quota_permissions** - Represents the Quota permissions limitation.
 
 Column Name
 
@@ -230,13 +230,13 @@ Null?
 
 Definition
 
-id
+quota_id
 
 UUID
 
 Not null
 
-The Quota Id which represented in the quota)
+The Quota Id which represented in the quota
 
 permission_id
 

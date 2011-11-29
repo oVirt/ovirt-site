@@ -212,7 +212,7 @@ default '0'
 
 The storage limit in Mega bytes, could be -1 for no limit, or specific number of bytes
 
-**quota_users** - Represents the Quota permissions limitation.
+**quota_users** - Represents the Quota users which are permitted to consume from the Quota.
 
 Column Name
 

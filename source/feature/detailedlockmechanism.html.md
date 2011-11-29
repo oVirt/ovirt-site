@@ -39,7 +39,7 @@ Include you email address that you can be reached should people want to contact 
 ### Detailed Description
 
 The following feature will introduce an internal in memory generic locking mechanism. A locking mechanism can be used all over bll in order to not allow to occurred for some flows sententiously. The feature will include :
-1. Implementation of locking mechanism
+1. Implementation of locking mechanism, implementation will be memory based
 2. Introducing it all over a bll logic
 
 #### Entity Description

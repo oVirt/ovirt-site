@@ -10,49 +10,39 @@ wiki_last_updated: 2015-01-16
 
 # Task Manager
 
-The actual name of your feature page should look something like: "Your feature name". Use natural language to [name the pages](How to make pages#Page_naming).
-
-## Your Feature Name
-
 ### Summary
 
-A sentence or two summarizing what this feature is and what it will do. This information is used for the overall feature summary page for each release.
+A Task Manager is a monitor which shows the current actions running in ovirt-engine and tracks their progress. It also capable of presenting completed commands.
 
 ### Owner
 
-This should link to your home wiki page so we know who you are
-
-*   Name: [ My User](User:MyUser)
-
-Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
-
-*   Email: <my@email>
+*   Name: [ Moti Asayag](User:Moti)
+*   Email: <masayag@redhat.com>
 
 ### Current status
 
-*   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
-*   Last updated date: ...
+[Task Manager Detailed Design](http://ovirt.org/wiki/Features/TaskManagerDetailed)
+
+*   Last updated date: Wed Nov 29 2011
 
 ### Detailed Description
 
-Expand on the summary, if appropriate. A couple sentences suffices to explain the goal, but the more details you can provide the better.
+A Task Manager is a monitor which shows the current actions running in ovirt-engine server. It provides transparency for the administrator regarding the actions, their status and progress. Usually, each action invoked by a user will be monitored by the Task Manager. It will be achieved by representing each action as an entry in the Tasks view of the Webadmin.
 
 ### Benefit to oVirt
 
-What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
+Today, the administrator is not capable of knowing which actions are running in the engine-core system, unless going over the events log or the engine server logs and searching for a specific command. Some of the actions in the engine-core are synchronous, hence the user receive an immediate feedback about the action. However when invoking durable actions, there is no trivial way to monitor the advance of those actions. The Task Manager could be extended to manage actions in the future (e.g. restart failed commands).
 
 ### Dependencies / Related Features
 
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
+The feature should enhance the internal locking mechanism to its needs, therefore is depended on it. Any action which requires non-standard action progress representation should consider extending the default action tracking.
 
-### Documentation / External references
+Affected oVirt projects:
 
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
+*   Engine-core
+*   Webadmin
+*   API
 
 ### Comments and Discussion
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
-
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
-
-<Category:Feature> <Category:Template>
+<Category:Feature>

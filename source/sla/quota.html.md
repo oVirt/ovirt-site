@@ -102,7 +102,7 @@ default '0'
 
 Represent the quota enforce mode 0-disabled 1-soft limit 2-hard limit
 
-soft_limit_cluster
+threshold_cluster
 
 integer
 
@@ -110,7 +110,7 @@ null
 
 The threshold of the Cluster Quota the default should be configured in the vdc_options
 
-soft_limit_storage
+threshold_storage
 
 integer
 

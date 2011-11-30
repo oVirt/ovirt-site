@@ -21,6 +21,7 @@ wiki_last_updated: 2012-08-20
 *   **MUST**: Appropriate tag in the git repos
 *   **MUST**: Downloadable source tarball (signed)
 *   **SHOULD**: Downloadable binary tarball
+*   **SHOULD**: Downloadable binary builds for different distros
 *   **MUST**: Easy SSL support (via instller or seperate script)
 *   **MUST**: Easy DB creation (via instller or seperate script)
 *   **SHOULD**: Easy installation method (ovirt-setup or ovirt service)

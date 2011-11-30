@@ -152,7 +152,7 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
 
 ### codegen
 
-#### expose parameters in resource's actions (in progress)
+#### expose parameters in resource's actions (assigned)
 
        - at this point all actions statically receive Action parameters holder what is 
          not always correct as in case of importing vm/template where parameter should be StorageDomain)

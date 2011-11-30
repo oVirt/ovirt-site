@@ -492,10 +492,13 @@ org.ovirt.engine.core.common.businessentities.QuotaDynamic - A business entity t
 
 *Running VM* - canDoAction
 
-     1. Get DC verification status from quota_enforcement.
-     1. If quota_enforcement != DISABLED
-      1. Fetch Quota Id from VM dynamic
-      1. Get quota cluster properties for quota ID, using the memory Map quotaClusterMap in [[Features/Design/Quota#Classes|QuotaManager]].
+1.  . Get DC verification status from quota_enforcement.
+2.  . If quota_enforcement != DISABLED
+
+<!-- -->
+
+     # Fetch Quota Id from VM dynamic
+     # Get quota cluster properties for quota ID, using the memory Map quotaClusterMap in [[Features/Design/Quota#Classes|QuotaManager]].
       1. Check the VM configuration against the free cluster space left in the Quota.
        1. If VM capabilities are extending the free space left in the Quota
         1. if the VM capabilities are extending extending 20% of the Quota space (Grace percent) then

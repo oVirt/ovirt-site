@@ -44,7 +44,9 @@ Version will also contain some changes that are required internally for backend 
 
 #### Entity Description
 
-The following entities/components will be added to the backend: **CommandEntity** a representation of a command in the system. Using this entity, a concrete instance inherited of *CommandBase* could be created (e.g. 'resurrection' of a command). **CommandSequence** an entity which composes the *CommandEntity*, representing whether the current command entity is a part of a sequential command (e.g. depended on other commands to be completed before being executed). **CommandRepository** used to store and fetch command entities from a persistent layer. Later implementation could use internal cache for commands in progress and upon completion to flush the 'CommandEntity'' from memory to database.
+The following entities/components will be added to the backend:  
+
+**CommandEntity** a representation of a command in the system. Using this entity, a concrete instance inherited of *CommandBase* could be created (e.g. 'resurrection' of a command). **CommandSequence** an entity which composes the *CommandEntity*, representing whether the current command entity is a part of a sequential command (e.g. depended on other commands to be completed before being executed). **CommandRepository** used to store and fetch command entities from a persistent layer. Later implementation could use internal cache for commands in progress and upon completion to flush the 'CommandEntity'' from memory to database.
 **CommandDAO** a DAO interface which defines the DML operations for the Command entities.
 **CommandDAODbFacadeImpl** an implementation of the CommandDAO interface.
 **GetCommandsQuery** a query which fetches selective or entire command entities from the database.
@@ -53,8 +55,7 @@ The following entities/components will be added to the backend: **CommandEntity*
 **SequentialCommandRunner** a sequential command runner is responsible to to create a sequence of commands which includes order and dependencies (in the future 'best effort' command could be integrated with the sequence creation process) and to invoke the sequence.
 **CommandExecuter** an abstraction of command execution method.
 
-The class diagrams describe both new and modified entities in backend:
- **Main Task Manager Class Diagram**
+**Main Task Manager Class Diagram**
 ![](async-task-main-class-diagram.jpeg "fig:async-task-main-class-diagram.jpeg")
 
 ------------------------------------------------------------------------

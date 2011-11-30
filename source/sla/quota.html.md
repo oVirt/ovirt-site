@@ -242,8 +242,9 @@ Foreign key to the users.user_id (null indicates no users permitted to consume f
  ***image*** - Add column *quota_id*, which indicates the Quota the image should be depended on its storage resources.
  ***storage_pool*** - Add column *quota_enforcement*, Indicates the DC enforcement status for Quota (Disalbe(0) , Soft Limit (1),Hard Limit (2)) will be presented by Enum (see [QuotaStatusEnum](Features/Design/Quota#Classes).).
 
-**Views**
- [all_quotas](Features/Design/Quota#Appendix) - View of all the Quotas attached to all the storage pools for all Users.
+###### Views
+
+[all_quotas](Features/Design/Quota#Appendix) - View of all the Quotas attached to all the storage pools for all Users.
 
 Column Name
 

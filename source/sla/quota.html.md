@@ -172,7 +172,7 @@ vds_group_id
 
 UUID
 
-not null
+null
 
 Foreign key for vds_groups.vds_group_id
 
@@ -216,7 +216,7 @@ storage_id
 
 UUID
 
-not null
+null
 
 The storage Id the Quota attached to
 

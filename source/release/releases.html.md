@@ -57,3 +57,5 @@ Releases directory stucture
           │   └── appropriate suse packaging here
           └── ubuntu
               └── appropriate ubuntu packaging here
+
+<Category:Releases>

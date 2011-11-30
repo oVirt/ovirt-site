@@ -94,4 +94,18 @@ http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy
 
       curl -v -u "user@domain:password" -X DELETE http(s)://server:port/api/vms/xxx
 
+## TODO list
+
+### RSDL
+
+#### advertising /request/ parameters (in progress)
+
+### features
+
+#### setup networks
+
+       * atomic operation on a collection level
+
+#### non-admin users support
+
 <Category:Api>

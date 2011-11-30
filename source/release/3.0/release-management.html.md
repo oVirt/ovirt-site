@@ -16,7 +16,7 @@ wiki_last_updated: 2012-08-20
 
 *   oVirt first release is currently scheduled to **15.12.2011**.
     -   Versioned git branch creation: **13.12.2011** (??)
-    -   Components maintainers MUST send their release notes before the new branch creation.
+    -   Components maintainers **MUST** send their release notes prior to the new branch creation.
 
 ### Requirements
 

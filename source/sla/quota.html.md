@@ -19,10 +19,11 @@ This document describes the design for the Quota feature.
 Ovirt makes it very easy for users to add VMs, thus using CPU, memory and storage resources, thus there is a requirement that system administrators will be able to limit the resource usage of users in the environment by setting a Quota on these resources.
  The resources in scope for this feature are:
 
-     1. Per-cluster resources:
-      a. Virtual CPUs
-      a. Virtual RAM
-     1. Storage resources
+1.  Per-cluster resources:
+    1.  Virtual CPUs
+    2.  Virtual RAM
+
+2.  Storage resources
 
 ... ... ...
 

@@ -47,4 +47,19 @@ __TOC__
 
 ![](action.jpg "action.jpg")
 
+# TODO list
+
+### parameters formatting
+
+#### generic parameters asignment
+
+       - right now parameters assign to parameters classes by static
+         mapping in metadata, it should be done in a generic way.
+
+### infrastructure
+
+#### refactoring for communication device for PosixTerminal
+
+       - right now it '/tmp/xxx' - should be '/dev/tty'
+
 <Category:CLI>

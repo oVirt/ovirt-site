@@ -276,12 +276,6 @@ String
 
 The cluster name
 
-Storage_Quota_ID
-
-UUID
-
-Foreign key for the storage Quota Id
-
 Storage_Name
 
 String

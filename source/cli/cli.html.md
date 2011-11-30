@@ -58,7 +58,7 @@ __TOC__
 
 ### infrastructure
 
-#### refactoring for communication device for PosixTerminal
+#### refactoring communication device for PosixTerminal
 
        - right now it '/tmp/xxx' - should be '/dev/tty'
 

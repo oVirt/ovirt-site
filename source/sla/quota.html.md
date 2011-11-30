@@ -585,8 +585,6 @@ This logic in the canDoAction should be quite similar to the logic being done wi
 
 Add new command query GetQueryForStoragePool input - DC UUID output - All the Quotas for the DC.
 
-### VDSM
-
 ### Tests
 
 Describe the needed unit-tests, and their implications on the build environment (if any) 1. check storage

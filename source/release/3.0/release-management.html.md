@@ -12,6 +12,39 @@ wiki_last_updated: 2012-08-20
 
 ## First Release
 
-### Re
+### General
+
+*   oVirt first release is currently scheduled to **15.12.2011**.
+
+### Requirements
+
+*   **MUST**: Appropriate tag in the git repos
+*   **MUST**: Downloadable source tarball (signed)
+*   **SHOULD**: Downloadable binary tarball
+*   **MUST**: Easy SSL support (via instller or seperate script)
+*   **MUST**: Easy DB creation (via instller or seperate script)
+*   **SHOULD**: Easy installation method (ovirt-setup or ovirt service)
+*   **MUST**: Pass minimal smoke test
+    -   Running a VM on NFS sounds reasonable to me (oschreib)
+    -   ovirt-node full cycle (register, approve and running VM)
+
+### Gaps
+
+*   **setup process**:
+    -   Missing SSL support
+    -   No installer solution available yet
+    -   **ETA**: 07.12.2011 (depends on the chosen solution)
+*   **ovirt-node**:
+    -   VDSM Doesn't register without manuall process (http://ovirt.org/wiki/Engine_Node_Integration#Engine_core_machine)
+    -   Approve doesn't work in webadmin (https://bugzilla.redhat.com/show_bug.cgi?id=755749)
+    -   <https://bugzilla.redhat.com/show_bug.cgi?id=756136>
+    -   **ETA**: ???
+
+### Open issues
+
+*   **Versioning**: What will be oVirt's first release version? 3.1.0-1, 0.0.1-1, 4.0.0-1?
+*   **Upgrade**: Should we support upgrade in the first release?
+*   **JBoss**:Which JBoss version should we support?
+    -   Currently, only JBoss AS5 is available (self created rpm from their zip)
 
 <Category:Releases>

@@ -44,7 +44,14 @@ Version will also contain some changes that are required internally for backend 
 
 #### Entity Description
 
-The class diagram describes both new and updated entities in backend. ![](async-task-main-class-diagram.jpeg "fig:async-task-main-class-diagram.jpeg") ![](command-entity-class-diagram.jpeg "fig:command-entity-class-diagram.jpeg")
+The class diagrams describe both new and modified entities in backend:
+ **Main Task Manager Class Diagram**
+![](async-task-main-class-diagram.jpeg "fig:async-task-main-class-diagram.jpeg")
+
+------------------------------------------------------------------------
+
+**Command Entity Class Diagram**
+![](command-entity-class-diagram.jpeg "fig:command-entity-class-diagram.jpeg")
 
 Detailed descriptions:
  **CommandEntity** a representation of a command in the system. Using this entity, a concrete instance inherited of *CommandBase* could be created (e.g. 'resurrection' of a command).
@@ -66,7 +73,7 @@ Detailed descriptions:
 | end_time          | Datetime    | null            | Command end time                                                                        |
 | last_update_time | Datetime    | not null        | Command last update time                                                                |
 
-**CommandSequence** a composed entity of the *CommandEntity*, representing whether the current command entity is a part of a sequential command (e.g. depended on other commands to be completed before being executed).
+**CommandSequence** an entity which composes the *CommandEntity*, representing whether the current command entity is a part of a sequential command (e.g. depended on other commands to be completed before being executed).
 
 | Column Name            | Column Type | Null? / Default | Definition                                         |
 |------------------------|-------------|-----------------|----------------------------------------------------|

@@ -156,7 +156,7 @@ BigInt
 
 null
 
-The storage limit in Mega bytes, -1 indicating unlimited storage for DC, null indicates there is specific storage limitation.
+The storage limit in Mega bytes, -1 indicating unlimited storage for storage pool, null indicates there is specific storage limitation.
 
 **quota_cluster** - Represent the clusters which are part of the Quota, The relationship of Cluster-Quota is Many-To-Many.
 
@@ -341,7 +341,7 @@ storage_id
 
 UUID
 
-The storage domain UUID (Null for all storage domains in the DC)
+The storage domain UUID (Null for all storage domains in the storage pool)
 
 storage_use
 
@@ -377,7 +377,7 @@ cluster_id
 
 UUID
 
-The cluster UUID (Null for all clusters in the DC)
+The cluster UUID (Null for all clusters in the storage pool)
 
 storage_use
 
@@ -401,12 +401,12 @@ The limit which the Quota is defined
 *getAllQuotaStorageForSP*
 
 *   Input - Storage pool Id, and user Id.
-*   output - All storages for Quota, for user Id and Storage Pool (If Data Center is disabled all the storage for the DC will be returned).
+*   output - All storages for Quota, for user Id and Storage Pool (If Data Center is disabled all the storage for the storage pool will be returned).
 
 *getQuotaCluster* - Reflects quota_cluster_view (Using VM business entity)
 
 *   Input - Storage pool Id and Quota Id.
-*   output - All Cluster Quota properties for DC.
+*   output - All Cluster Quota properties for storage pool.
 
 #### Logic Design
 

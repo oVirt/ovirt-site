@@ -134,6 +134,22 @@ null
 
 The grace in percentage of the Storage Quota the default should be configured in the vdc_options
 
+storage_unlimited
+
+boolean
+
+default false
+
+Represent whether the quota storage is unlimited for DC
+
+cluster_unlimited
+
+boolean
+
+default false
+
+Represent whether the quota cluster is unlimited for DC
+
 **quota_cluster** - Represent the clusters which are part of the Quota, The relationship of Cluster-Quota is Many-To-Many.
 
 Column Name
@@ -176,7 +192,7 @@ default '0'
 
 The Virtual RAM allowed in the cluster Quota (-1 for unlimited)
 
-Note: If no cluster selected for Quota,we assume the Quota contains all the clusters in the Data Center.
+Note: If no cluster selected for Quota,we assume the Quota Does not have any permissions to consume from the cluster resources.
 
 **quota_storage** - Represents the Quota Storage limitation.
 
@@ -211,6 +227,8 @@ BigInt
 default '0'
 
 The storage limit in Mega bytes, could be -1 for no limit, or specific number of bytes
+
+Note: If no storage selected for Quota,we assume the Quota Does not have any permissions to consume from the storage resources.
 
 **quota_users** - Represents the Quota users which are permitted to consume from the Quota.
 

@@ -637,14 +637,13 @@ This section describes issues that might need special consideration when writing
 
 ***Open issues***
 
-     . RFE to consider: Add expiration date to the Quota 
-     RFE to consider : Use templates for Quota 
-     Add Quota resources to all the users on the Quota when resources were finished 
-      possible result : Use grace or Tell the Administrator to add new Quota (use case : Add quota resource) 
-      use audit log 
-
-     Use case : create Desktop for specific user - Pick a quota from group, second approach , server??? 
-      Snapshot with Qcow, templates Audit, enforce for DC unlimited Quota for each DC, on upgrade.
+RFE to consider: Add expiration date to the Quota
+ RFE to consider : Use templates for Quota
+ Add Quota resources to all the users on the Quota when resources were finished
+ possible result : Use grace or Tell the Administrator to add new Quota (use case : Add quota resource)
+ use audit log
+ Use case : create Desktop for specific user - Pick a quota from group, second approach , server???
+ Snapshot with Qcow, templates Audit, enforce for DC unlimited Quota for each DC, on upgrade.
 
 Column Name
 

@@ -123,7 +123,7 @@ VM/vm_dynamic entities should have additional hash[/domxml] properties
 
 ### VDSM
 
-Adding support for hash parameter in Create. Return the hash value for each VM when calling GetAllVMStats. Return the domxml for each VM when calling List with 'long' format, enable to pass additional parameter specifying VM ids.
+Adding support for hash parameter in Create. Return the hash value for each VM when calling GetAllVMStats. Return the domxml for each VM when calling List with 'long' format Enable to pass additional parameter specifying VM ids.
 
 ### Tests
 

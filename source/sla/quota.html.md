@@ -166,7 +166,7 @@ UUID
 
 Not null
 
-The Quota Id which represented in the quota
+Foreign key for Quota ID represented in the quota table
 
 vds_group_id
 
@@ -210,7 +210,7 @@ UUID
 
 Not null
 
-The Quota Id which represented in the quota)
+Foreign key for Quota ID represented in the quota table
 
 storage_id
 
@@ -246,7 +246,7 @@ UUID
 
 Not null
 
-The Quota Id which represented in the quota
+Foreign key for Quota ID represented in the quota table
 
 user_id
 

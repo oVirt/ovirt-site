@@ -98,7 +98,7 @@ http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy
 
 ### RSDL
 
-#### advertising /request/ parameters (in progress)
+#### advertising /request/ parameters (assigned)
 
 ### features
 

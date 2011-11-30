@@ -12,22 +12,24 @@ wiki_last_updated: 2012-08-20
 
 ## First Release
 
-### General
+### Timeline
 
 *   oVirt first release is currently scheduled to **15.12.2011**.
+    -   Versioned git branch creation: **13.12.2011** (??)
+    -   Components maintainers MUST send their release notes before the new branch creation.
 
 ### Requirements
 
-*   **MUST**: Appropriate tag in the git repos
+*   **MUST**: Appropriate tag/branch in the git repos
 *   **MUST**: Downloadable source tarball (signed)
 *   **SHOULD**: Downloadable binary tarball
 *   **SHOULD**: Downloadable binary builds for different distros
-*   **MUST**: Easy SSL support (via instller or seperate script)
-*   **MUST**: Easy DB creation (via instller or seperate script)
+*   **MUST**: Easy SSL support (via instller or separate script)
+*   **MUST**: Easy DB creation (via instller or separate script)
 *   **SHOULD**: Easy installation method (ovirt-setup or ovirt service)
 *   **MUST**: Pass minimal smoke test
-    -   Running a VM on NFS sounds reasonable to me (oschreib)
-    -   ovirt-node full cycle (register, approve and running VM)
+    -   Running a VM on NFS and Local storage sounds reasonable to me (oschreib)
+    -   **MUST**: ovirt-node full cycle (register, approve and running VM)
 
 ### Gaps
 
@@ -47,5 +49,6 @@ wiki_last_updated: 2012-08-20
 *   **Upgrade**: Should we support upgrade in the first release?
 *   **JBoss**:Which JBoss version should we support?
     -   Currently, only JBoss AS5 is available (self created rpm from their zip)
+*   **Signing**: Who should sign tarballs
 
 <Category:Releases>

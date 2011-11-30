@@ -268,7 +268,7 @@ Quota_Name
 
 String
 
-The Quota Name
+The Quota Description
 
 Cluster_Name
 

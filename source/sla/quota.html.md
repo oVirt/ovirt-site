@@ -419,7 +419,7 @@ A scheduler with run every 1 hour (Should be indicated in the vdc_options) and c
 **Config Values**
  New configuration values in vdc_options:
 
-     quotaStorageThreshold - The default value should be 75%, and the version is General.
+     quotaStorageThreshold - The default value should be 80%, and the version is General.
      Indicates the percentage of resource allocation, which beyond this (if Quota is enforced) would print an appropriate audit log message.
 
      quotaClusterThreshold - The default value should be 80%, and the version is General.

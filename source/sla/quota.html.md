@@ -140,7 +140,7 @@ boolean
 
 default false
 
-Represent whether the quota storage is unlimited for DC
+Represent whether the quota storage is unlimited for DC.
 
 cluster_unlimited
 
@@ -148,7 +148,31 @@ boolean
 
 default false
 
-Represent whether the quota cluster is unlimited for DC
+Represent whether the quota cluster is unlimited for DC.
+
+vcpu
+
+Integer
+
+default '0'
+
+The number or virtual CPU's allowed in the cluster Quota.
+
+vram
+
+Integer
+
+default '0'
+
+The Virtual RAM allowed in the cluster Quota.
+
+storage_limit
+
+BigInt
+
+default '0'
+
+The storage limit in Mega bytes,
 
 **quota_cluster** - Represent the clusters which are part of the Quota, The relationship of Cluster-Quota is Many-To-Many.
 
@@ -172,7 +196,7 @@ vds_group_id
 
 UUID
 
-null
+not null
 
 Foreign key for vds_groups.vds_group_id
 
@@ -191,8 +215,6 @@ Integer
 default '0'
 
 The Virtual RAM allowed in the cluster Quota (-1 for unlimited)
-
-Note: If no cluster selected for Quota,we assume the Quota Does not have any permissions to consume from the cluster resources.
 
 **quota_storage** - Represents the Quota Storage limitation.
 
@@ -216,7 +238,7 @@ storage_id
 
 UUID
 
-null
+not null
 
 The storage Id the Quota attached to
 
@@ -227,8 +249,6 @@ BigInt
 default '0'
 
 The storage limit in Mega bytes, could be -1 for no limit, or specific number of bytes
-
-Note: If no storage selected for Quota,we assume the Quota Does not have any permissions to consume from the storage resources.
 
 **quota_users** - Represents the Quota users which are permitted to consume from the Quota.
 
@@ -255,6 +275,13 @@ UUID
 null
 
 Foreign key to the users.user_id (null indicates no users permitted to consume from the Quota)
+
+Use cases :
+
+1.  unlimited quota - true value in the quota table for unlimited fields.
+2.  general limited quota - null values for cluster_id / storage_id in cluster_quota and storage_quota tables, and the limit of resources there
+3.  specific limited quota - all tables initialized
+4.  quota without any resources - a row in quota table, and no rows for storage_quota and cluster_quota.
 
 ***vm_dynamic*** - Add column *quota_id*, which indicates the Quota the VM should be depended on its resources.
  ***image*** - Add column *quota_id*, which indicates the Quota the image should be depended on its storage resources.

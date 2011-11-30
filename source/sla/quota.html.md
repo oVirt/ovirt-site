@@ -239,7 +239,7 @@ null
 Foreign key to the users.user_id (null indicates no users permitted to consume from the Quota)
 
 ***vm_dynamic*** - Add column *quota_id*, which indicates the Quota the VM should be depended on its resources.
- ***image_dynamic*** - Add column *quota_id*, which indicates the Quota the image should be depended on its storage resources.
+ ***image*** - Add column *quota_id*, which indicates the Quota the image should be depended on its storage resources.
  ***storage_pool*** - Add column *quota_enforcement*, Indicates the DC enforcement status for Quota (Disalbe(0) , Soft Limit (1),Hard Limit (2)) will be presented by Enum (see [QuotaStatusEnum](Features/Design/Quota#Classes).).
 
 **Views**

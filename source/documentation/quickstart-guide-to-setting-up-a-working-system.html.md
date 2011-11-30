@@ -22,57 +22,13 @@ wiki_last_updated: 2014-09-26
 
 [Installing_ovirt-engine_from_rpm](Installing_ovirt-engine_from_rpm)
 
-## Start the engine
-
-        ${JBOSS_HOME}/bin/run.sh -b 0.0.0.0
-       
-
 ## Host Installation
 
 ### Fedora 16
 
 #### Install VDSM
 
-        $>sudo yum install fence-agents libvirt libvirt-python nfs-utils qemu-img qemu-kvm
-       
-
-Download and install all of the rpms found in <http://fsimonce.fedorapeople.org/vdsm/fedora-16/x86_64>
-
-create /etc/vdsm/vdsm.conf with the following:
-
-        [vars]
-        ssl = False
-       
-
-        $> sudo chkconfig vdsmd on
-        $> sudo systemctl start vdsmd.service
-       
-
-#### Create the network Bridge
-
-ovirt-engine will expect the host to have a bridge named 'engine'. Messing with network setting can sometimes result in complete loss of connectivity. Ensure that you have direct console access before starting this. To create the bridge do the following:
-
-Add the bridge for your network interface. if your interface is named em1, edit the file /etc/sysconfig/network-scripts/ifcfg-em1 It should look like this:
-
-        DEVICE=em1
-        ONBOOT=yes
-        HWADDR=<your mac address>
-        BRIDGE=engine
-        BOOTPROTO=none
-       
-
-Next create the file /etc/sysconfig/network-scripts/ifcfg-engine with the following contents:
-
-        DEVICE=engine
-        TYPE=Bridge
-        BOOTPROTO=dhcp
-        ONBOOT=yes
-        DELAY=0
-        NM_CONTROLLED=no
-        MTU=1500 
-       
-
-Once this is done, restart networking and ensure that the bridge exists.
+[Installing_VDSM_from_rpm](Installing_VDSM_from_rpm)
 
 #### Register The Host
 
@@ -130,7 +86,7 @@ The response contains the host Id. You will need this for performing actions upo
 
 #### Create NFS Storage
 
-VDSM will not work with NFS v4 so ensure that you are configured to prevent the use of NFS v4. You should create three nfs shares, one for each type of storage domain: data, iso and import/export.
+You should create three nfs shares, one for each type of storage domain: data, iso and import/export.
 
 Information on how to create nfs shares can be found at <http://fedoraproject.org/wiki/Administration_Guide_Draft/NFS>
 

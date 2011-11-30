@@ -150,32 +150,33 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
 
 # TODO list
 
-*   codegen: supporting parameters in resource actions (in progress)
+### codegen
+
+#### expose parameters in resource's actions (in progress)
 
        - at this point all actions statically receive Action parameters holder what is 
          not always correct as in case of importing vm/template where parameter should be StorageDomain)
+
        - action parameter/s metadata should be taken from RSDL 
 
-*   sdk: supporting several proxy instances in application
+#### use RSDL link response return type
+
+       - right now return type extracted from URI
+
+#### support 3+ length URIs
+
+#### add static /name/ parameter to .get() rather then accepting it via \*\*kwargs
+
+#### add documentation for methods based on RSDL parameters metadata
+
+### sdk
+
+#### supporting several proxy instances in application
 
        (i.e cache peer proxy instance)
 
-*   codegen: support 3+ length URIs
+#### dynamic connections_pool resizer
 
-<!-- -->
+#### refactoring internal exceptions for better error handling on client side
 
-*   codegen: add static /name/ parameter to .get() rather then accepting it via \*\*kwargs
-
-<!-- -->
-
-*   sdk: dynamic connections_pool resizer
-
-<!-- -->
-
-*   sdk: refactoring internal exceptions for better error handling on client side
-
-<!-- -->
-
-*   codegen: add documentation for methods based on RSDL parameters metadata
-
-<Category:SDK>
+<Category:SDK> <Category:SDK>

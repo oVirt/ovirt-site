@@ -49,6 +49,6 @@ wiki_last_updated: 2012-08-20
 *   **Upgrade**: Should we support upgrade in the first release?
 *   **JBoss**:Which JBoss version should we support?
     -   Currently, only JBoss AS5 is available (self created rpm from their zip)
-*   **Signing**: Who should sign tarballs
+*   **Signing**: Who should sign tarballs?
 
 <Category:Releases>

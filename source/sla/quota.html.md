@@ -134,45 +134,29 @@ null
 
 The grace in percentage of the Storage Quota the default should be configured in the vdc_options
 
-storage_unlimited
-
-boolean
-
-default false
-
-Represent whether the quota storage is unlimited for DC.
-
-cluster_unlimited
-
-boolean
-
-default false
-
-Represent whether the quota cluster is unlimited for DC.
-
 vcpu
 
 Integer
 
-default '0'
+null
 
-The number or virtual CPU's allowed in the cluster Quota.
+The global number or virtual CPU's allowed in the cluster Quota, -1 indicating unlimited vcpu, null indicates there is specific vcpu limitation.
 
 vram
 
 Integer
 
-default '0'
+null
 
-The Virtual RAM allowed in the cluster Quota.
+The global Virtual RAM allowed in the cluster Quota, -1 indicating unlimited vram, null indicates there is specific vram limitation.
 
 storage_limit
 
 BigInt
 
-default '0'
+null
 
-The storage limit in Mega bytes,
+The storage limit in Mega bytes, -1 indicating unlimited storage for DC, null indicates there is specific storage limitation.
 
 **quota_cluster** - Represent the clusters which are part of the Quota, The relationship of Cluster-Quota is Many-To-Many.
 
@@ -278,10 +262,10 @@ Foreign key to the users.user_id (null indicates no users permitted to consume f
 
 Use cases :
 
-1.  unlimited quota - true value in the quota table for unlimited fields.
-2.  general limited quota - null values for cluster_id / storage_id in cluster_quota and storage_quota tables, and the limit of resources there
-3.  specific limited quota - all tables initialized
-4.  quota without any resources - a row in quota table, and no rows for storage_quota and cluster_quota.
+1.  unlimited quota - Quota table will be initialized with -1 for vcpu, vram and storage.
+2.  general limited quota - Quota table will be initialized with specific number for vcpu, vram and storage.
+3.  specific limited quota - quota_storage and quota_cluster will be initialized with specific values, quota fields (vcpu, vram and storage) will be null.
+4.  quota without any resources - a row in quota table (vcpu, vram and storage) will be null, and no rows for storage_quota and cluster_quota.
 
 ***vm_dynamic*** - Add column *quota_id*, which indicates the Quota the VM should be depended on its resources.
  ***image*** - Add column *quota_id*, which indicates the Quota the image should be depended on its storage resources.

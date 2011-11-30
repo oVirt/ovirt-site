@@ -587,21 +587,23 @@ Add new command query GetQueryForStoragePool input - DC UUID output - All the Qu
 
 ### Tests
 
-Describe the needed unit-tests, and their implications on the build environment (if any) 1. check storage
+Storage tests. Cluster tests
 
 #### Expected unit-tests
 
+1.  adding a new Quota
+2.  running VM on Quota
+3.  Adding a new Disk and attach to Quota
+4.  Adding new snapshot
+5.  Migrating VM
+
 #### Special considerations
 
-External resources, mocking, etc..
-
-     1.  1.
-
-#### Jenkins setup (if needed) for tests
-
-     1.  1.
+No special considerations.
 
 #### Pre-integration needs
+
+No needs.
 
 ### Design check list
 

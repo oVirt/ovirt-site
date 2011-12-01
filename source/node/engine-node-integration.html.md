@@ -108,6 +108,14 @@ DB updates:
       psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/.keystore' where option_name = 'keystoreUrl';"
       psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine//ca/private/ca.pem' where option_name = 'CAEngineKey';"
 
+Additional Configuration: These 2 steps are currently required due to bugs, they will be changed/removed once the patches that will fix them will be merged. Change the default emulated VM type by executing:
+
+      psql -U postgres engine -c "update vdc_options set option_value='pc-0.14' where option_name='EmulatedMachine' and version='3.0';"
+
+If you wish to change the default password for admin (letmein!), execute the following command:
+
+      psql -U postgres engine -c "update vdc_options set option_value='NEWPASSWORD' where option_name='AdminPassword';"
+
 **TODO** - patch is needed to run the sql's above in the installCA.sh script
 
 Restart jboss to reload the database changes

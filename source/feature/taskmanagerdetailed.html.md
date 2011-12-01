@@ -96,10 +96,6 @@ Once the command entity is cleared from the database, there is a need to disable
 *   <span style="color:#006400">*DeleteCommandEntity*</span> - deletes specific command entity
 *   <span style="color:#006400">*GetCommandTaskInfo*</span> - returns a list of tasks which associated with a command
 
-command_entity_sequence_view
-
-A view over command_entity and command_sequence will be created. The view is used for sequence related operations.
-
 #### User Experience
 
 Describe user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should also be added here to make it more clear

@@ -72,7 +72,22 @@ Detailed descriptions:
 
 #### CRUD
 
-Describe the create/read/update/delete operations on the entities, and what each operation should do.
+**Stored procedures**
+
+*   <span style="color:#006400">*InsertCommandEntity*</span> - insert command entity entirely
+*   <span style="color:#006400">*GetCommandEntityByCommandId*</span> - returns a command entity by a given id
+*   <span style="color:#006400">*GetAllCommandEntity*</span> - returns a list of all commands [should be restricted rownum]
+*   <span style="color:#006400">*GetAllCommandSinceDate*</span> - returns a list of commands which were modified since a given date
+    -   input: a start datetime to search from
+    -   output: all commands which their last update date is later than the given date
+*   <span style="color:#006400">*UpdateCommandEntity*</span> - updates command entity entirely
+*   <span style="color:#006400">*UpdateCommandEntity*</span> - partial updates to the command entity
+    -   input: command entity id, status, last update date
+*   <span style="color:#006400">*DeleteCommandEntityOlderThanDate*</span> - deletes command entities which are older than a given date.
+*   <span style="color:#006400">*DeleteCommandEntity*</span> - deletes specific command entity
+*   <span style="color:#006400">*GetCommandTaskInfo*</span> - returns a list of tasks which associated with a command
+
+A view over command_entity and command_sequence will be created. The view is used for sequence related operations.
 
 #### User Experience
 

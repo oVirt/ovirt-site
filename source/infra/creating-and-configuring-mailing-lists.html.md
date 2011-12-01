@@ -69,4 +69,4 @@ This is a rare configuration, usually reserved for security-related issues.
 *   Set *accept_these_nonmembers* to `^.*` - i.e., a regular expression meaning "every possible incoming email address."
 *   Set *respond_to_post_requests* to *No*.
 
-[Category:Infrastructure documentation](Category:Infrastructure documentation) [Category:Infrastructure SOP](Category:Infrastructure SOP)
+[Category:Infrastructure documentation](Category:Infrastructure documentation) [Category:Infrastructure SOP](Category:Infrastructure SOP) [Category:Mailing lists](Category:Mailing lists)

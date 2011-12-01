@@ -133,7 +133,7 @@ When command has tasks, it shares the same sequence as the previous sequence, ex
 
 #### Events
 
-Event logs will be created when command tasks (*TaskInfo*) are created.
+The events log should be associated with the command which created the event. The association of the command with the events will enable viewing all of the events related to the specific command. Event logs will be created when command tasks (*TaskInfo*) are created.
 
 ### Dependencies / Related Features and Projects
 

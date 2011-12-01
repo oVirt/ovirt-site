@@ -63,12 +63,18 @@ The following entities/components will be added to the backend:
 **Command Entity Class Diagram**
 ![](command-entity-class-diagram.jpeg "fig:command-entity-class-diagram.jpeg")
 
-Detailed descriptions:
- **command_entity** table description:
+**Detailed entity description:**
+ <span style="color:Teal">**command_entity**</span> table description:
 {|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |entity_id ||UUID ||not null ||The command entity ID |- |entity_name ||String ||not null ||The command entity name |- |command_id ||UUID ||not null ||The associated command ID |- |action_state ||TinyInt ||not null ||The command state |- |owner_id ||UUID ||not null ||The user which triggered the command |- |owner_type ||TinyInt ||not null ||The type user which triggered the command |- |parameters ||text ||not null ||A JSON representation of the parameters associated with the command |- |action_type ||integer ||not null ||A JSON representation of the parameters associated with the command |- |message ||text ||null ||Stores the can-do-action message |- |return_value ||text ||null ||Stores the command return value as JSON |- |visible_to_ui ||bool ||default 'true' ||Describes if current entity should be presented to UI (relevant for sequential command) |- |start_time || Datetime ||not null ||Command start time |- |end_time || Datetime ||null ||Command end time |- |last_update_time || Datetime ||not null ||Command last update time |- |}
 
-**command_sequence** table description:
+<span style="color:Teal">**command_sequence**</span> table description:
 {|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |entity_id ||UUID ||not null ||The command entity ID |- |sequence_id ||UUID ||not null ||The sequence ID which the command is part of |- |next_command_id ||UUID ||null ||The next-in-chain command ID |- |order_in_sequence ||integer ||not null ||The order of the command in the sequence |- |initiator_command_id ||UUID ||not null ||The ID of the command which initiated the sequence |- |}
+
+The command entity should be associated with the events related to it. The relation is represented by a map table as described below.
+Once the command entity is cleared from the database, there is a need to disable that association (clear the entry from map table as well).
+
+<span style="color:Teal">**command_entity_audit_log_map**</span> table description:
+{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |command_entity_id ||UUID ||not null ||The command entity ID |- |audit_log_id ||UUID ||not null ||The sequence ID which the command is part of |- |}
 
 #### CRUD
 

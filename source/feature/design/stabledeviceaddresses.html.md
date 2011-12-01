@@ -6,30 +6,32 @@ wiki_revision_count: 62
 wiki_last_updated: 2012-03-14
 ---
 
-# Stable PCI Addresses
+# Stable device Addresses
 
-This document describes the design for the stable PCI addresses feature.
+This document describes the design for the stable Device addresses feature.
 
-Allow devices in guest virtual machines to retain the same PCI address allocations as other devices are added or removed from the guest configuration. This is particularly important for Windows guests in order to prevent warnings or reactivation when device addresses change.
+In the term Device we include PCI, VirtIO Serial, SCSI, IDE, CCID and actually anything libvirt supports.
+
+Allow devices in guest virtual machines to retain the same device address allocations as other devices are added or removed from the guest configuration. This is particularly important for Windows guests in order to prevent warnings or reactivation when device addresses change.
 
 This feature is supported by libvirt and should be implemented by RHEVM and VDSM.
 
-When creating a VM, QEMU allocates PCI addresses to the guest devices, these addresses are being reported by libvirt to VDSM and VDSM should report it back to RHEVM. RHEVM should persist the PCI addresses and report it as part of the VM configuration on the next run. If a change to the VM devices occurred RHEVM should detect the change and persist the new PCI addresses.
+When creating a VM, QEMU allocates device addresses to the guest devices, these addresses are being reported by libvirt to VDSM and VDSM should report it back to RHEVM. RHEVM should persist the device addresses and report it as part of the VM configuration on the next run. If a change to the VM devices occurred RHEVM should detect the change and persist the new device addresses.
 
 **The general implementation concepts are:**
 
-      1. The 'create' verb should get a new parameter in the XML describing the PCI addresses of the VM.
-         This parameter is optional and if not given VDSM should learn the PCI addresses from libvirt.
-      2. The PCI addresses are not being parsed by RHEVM, they are persisted as is without manipulations of the data.
-      3. The 'getAllVmStats' verb should report the md5 of the PCI addresses of the VMS.
-      4. If a change is detected by RHEVM to the PCI addresses (the reported md5 was changed), it should query VDSM 
+      1. The 'create' verb should get a new parameter in the XML describing the device addresses of the VM.
+         This parameter is optional and if not given VDSM should learn the device addresses from libvirt.
+      2. The device addresses are not being parsed by RHEVM, they are persisted as is without manipulations of the data.
+      3. The 'getAllVmStats' verb should report the md5 of the device addresses of the VMS.
+      4. If a change is detected by RHEVM to the device addresses (the reported md5 was changed), it should query VDSM 
          for the full VM configuration by using the 'list' verb with the 'long' format and the list of changed VMs.
-      5. The list verb should report the PCI addresses as part of the VM configuration.
+      5. The list verb should report the device addresses as part of the VM configuration.
 
 **Notes:**
 
-      1. Export - the PCI addresses should be part of the exported configuration of the VM.
-      2. Import - the PCI addresses should be part of the imported configuration of the VM.
+      1. Export - the device addresses should be part of the exported configuration of the VM.
+      2. Import - the device addresses should be part of the imported configuration of the VM.
       3. The 'list' verb reports the full configuration of all the VMs on the host. 
          This verb was extended to support a given list of VMs to avoid the overhead of reporting all VMs 
          configuration while only a small group is needed.

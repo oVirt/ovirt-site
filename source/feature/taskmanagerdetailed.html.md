@@ -99,8 +99,8 @@ The backend commands are divided into two categories:
 
 The following sequence diagrams describe how the new component should interact in order to manage the commands:
  **Sync Command Invocation Sequence Diagram**
-![](Sync-action-invocation-sequence-diagram.jpeg "fig:Sync-action-invocation-sequence-diagram.jpeg") <
-> The sequence above describes invocation of sync-action:
+![](Sync-action-invocation-sequence-diagram.jpeg "fig:Sync-action-invocation-sequence-diagram.jpeg")
+**The sequence above describes invocation of sync-action:**
 
 *   The *Backend* receive a request from a client, provided by action type and parameters.
 *   The *Backend* uses the *CommandFactory* for creating a concrete command instance.
@@ -111,6 +111,10 @@ The following sequence diagrams describe how the new component should interact i
 *   Once *CommandBase.canDoAction()* is started, the status of the command entity is updated to 'VALIDATING'.
 *   The *CommandBase.Execute()* update the command entity status to 'EXECUTING'.
 *   A completion without failure will update the *CommandEntity* status to 'COMPLETED'.
+
+**Async Command Invocation Sequence Diagram**
+![](Async-action-type-invocation-sequence-diagram.jpeg "fig:Async-action-type-invocation-sequence-diagram.jpeg")
+When command has tasks, it shares the same sequence as the previous sequence, except the last step. The async command will be resurrected by the AsyncTaskManager once there are no more active tasks for the command and will execute the *CommandBase.endAction()* for that command, in which the final state of the command will be set.
 
 #### Events
 

@@ -161,7 +161,8 @@ When command entity is being cleared from the database, all relevant data is bei
 
 #### Events
 
-The events log should be associated with the command which created the event. The association of the command with the events will enable viewing all of the events related to the specific command. Event logs will be created when command tasks (*TaskInfo*) are created.
+The events log should be associated with the command which created the event. The association of the command with the events will enable viewing all of the events related to the specific command.
+Event logs will be created when command tasks (*TaskInfo*) are created.
 
 ### Dependencies / Related Features and Projects
 

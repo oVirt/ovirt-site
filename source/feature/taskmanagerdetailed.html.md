@@ -145,6 +145,7 @@ The Task Manager is depended on the Internal Locking Mechanism feature [Features
 
 ### Open Issues
 
-Issues that we haven't decided how to take care of yet. These are issues that we need to resolve and change this document accordingly.
+1.  SearchEngine and command entity - do we wish to add support for this?
+2.  
 
 <Category:Template> <Category:Feature>

@@ -87,4 +87,4 @@ $ cd ovirt-node`
 
 `
 
-<Category:Node> <Category:Documentation>
+<Category:Node> [Category:Node development](Category:Node development) <Category:Documentation>

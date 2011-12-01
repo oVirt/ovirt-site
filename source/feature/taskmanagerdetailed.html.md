@@ -143,8 +143,6 @@ The Task Manager is depended on the Internal Locking Mechanism feature [Features
 
 ### Comments and Discussion
 
-Add a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
-
 ### Open Issues
 
 Issues that we haven't decided how to take care of yet. These are issues that we need to resolve and change this document accordingly.

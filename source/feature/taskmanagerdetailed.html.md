@@ -45,18 +45,24 @@ The feature will also contain some changes that are required internally for back
 2.  Improving task recovery mechanism - in case JBoss restart (there might be a mismatch between last stored task info and the current task status in VDSM).
 3.  Abstracting the Tasks representation in backend (e.g. VDSM, authentication)
 
-#### Entity Description
+## Backend
 
-The following entities/components will be added to the backend:  
+This section describes the backend design for this feature.
 
-**CommandEntity** a representation of a command in the system. Using this entity, a concrete instance inherited of *CommandBase* could be created (e.g. 'resurrection' of a command). **CommandSequence** an entity which composes the *CommandEntity*, representing whether the current command entity is a part of a sequential command (e.g. depended on other commands to be completed before being executed). **CommandRepository** uses to store and fetch command entities from the database. Later implementation might use internal cache for commands in progress and upon completion to flush the 'CommandEntity'' from memory to database.
+### Entity Description
+
+The following entities/components will be added:
+**CommandEntity** a representation of a command in the system. Using this entity, a concrete instance inherited of *CommandBase* could be created (e.g. 'resurrection' of a command).
+**CommandSequence** an entity which composes the *CommandEntity*, representing whether the current command entity is a part of a sequential command (e.g. depended on other commands to be completed before being executed).
+**CommandRepository** uses to store and fetch command entities from the database. Later implementation might use internal cache for commands in progress and upon completion to flush the 'CommandEntity'' from memory to database.
 **CommandDAO** a DAO interface which defines the DML operations for the command entities.
 **CommandDAODbFacadeImpl** an implementation of the CommandDAO interface.
 **GetCommandsQuery** a query which fetches selective or entire command entities from the database.
 **GetModifiedCommandsQuery** a query which fetches only commands which were updated since a given time. It is designed to pull only tasks which where updated since the last query invoked by a client.
 **SequentialCommandRunnerFactory** a factory which creates a runner for sequential commands.
 **SequentialCommandRunner** a sequential command runner is responsible to to create a sequence of commands which includes order and dependencies (in the future 'best effort' command could be integrated with the sequence creation process) and to invoke the sequence.
-**CommandExecuter** an abstraction of command execution method. **SyncCommandExecuter** a synchronous implementation of the *CommandExecuter* interface. Designed to invoke commands synchronously.
+**CommandExecuter** an abstraction of command execution method.
+**SyncCommandExecuter** a synchronous implementation of the *CommandExecuter* interface. Designed to invoke commands synchronously.
 
 **Main Task Manager Class Diagram**
 The following class diagrams describe the entities participating in the the Task Manager feature: ![](async-task-main-class-diagram.jpeg "fig:async-task-main-class-diagram.jpeg")
@@ -66,17 +72,18 @@ The following class diagrams describe the entities participating in the the Task
 **Command Entity Class Diagram**
 ![](command-entity-class-diagram.jpeg "fig:command-entity-class-diagram.jpeg")
 
-**Detailed entity description:**
- <span style="color:Teal">**command_entity**</span> table description:
+### DB Design
+
+<span style="color:Teal">**command_entity**</span> represents the command entity:
 {|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |entity_id ||UUID ||not null ||The command entity ID |- |entity_name ||String ||not null ||The command entity name |- |command_id ||UUID ||not null ||The associated command ID |- |action_state ||TinyInt ||not null ||The command state |- |owner_id ||UUID ||not null ||The user which triggered the command |- |owner_type ||TinyInt ||not null ||The type user which triggered the command |- |parameters ||text ||not null ||A JSON representation of the parameters associated with the command |- |action_type ||integer ||not null ||A JSON representation of the parameters associated with the command |- |message ||text ||null ||Stores the can-do-action message |- |return_value ||text ||null ||Stores the command return value as JSON |- |visible_to_ui ||bool ||default 'true' ||Describes if current entity should be presented to UI (relevant for sequential command) |- |start_time || Datetime ||not null ||Command start time |- |end_time || Datetime ||null ||Command end time |- |last_update_time || Datetime ||not null ||Command last update time |- |}
 
-<span style="color:Teal">**command_sequence**</span> table description:
+<span style="color:Teal">**command_sequence**</span> represents the command sequence association:
 {|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |entity_id ||UUID ||not null ||The command entity ID |- |sequence_id ||UUID ||not null ||The sequence ID which the command is part of |- |next_command_id ||UUID ||null ||The next-in-chain command ID |- |order_in_sequence ||integer ||not null ||The order of the command in the sequence |- |initiator_command_id ||UUID ||not null ||The ID of the command which initiated the sequence |- |}
 
 The command entity should be associated with the events related to it. The relation is represented by a map table as described below.
 Once the command entity is cleared from the database, there is a need to disable that association (clear the entry from map table as well).
 
-<span style="color:Teal">**command_entity_audit_log_map**</span> table description:
+<span style="color:Teal">**command_entity_audit_log_map**</span> represents a relation between a command entity to audit log:
 {|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |command_entity_id ||UUID ||not null ||The command entity ID |- |audit_log_id ||UUID ||not null ||The sequence ID which the command is part of |- |}
 
 <span style="color:Teal">**command_entity_sequence_view**</span> A view over command_entity and command_sequence. The view is used for sequence related operations.
@@ -139,6 +146,18 @@ The following sequence diagrams describe how the new component should interact i
 **Async Command Invocation Sequence Diagram**
 ![](Async-action-type-invocation-sequence-diagram.jpeg "fig:Async-action-type-invocation-sequence-diagram.jpeg")
 When command has tasks, it shares the same sequence as the previous sequence, except the last step. The async command will be resurrected by the AsyncTaskManager once there are no more active tasks for the command and will execute the *CommandBase.endAction()* for that command, in which the final state of the command will be set.
+
+When Backend is initializing, the commands which are in progress are being examined for their status. If the command has tasks, the tasks status is being examined and upon completion of tasks, the command will be finalized (by *CommandBase.endAction()*). If the command has no tasks, it status should be marked as failed command.
+
+Maintenance of the command entity and command task info:  
+
+A scheduler will be responsible for clearing obsolete command entities and tasks info data from the database.
+There will be two different configuration value:
+
+1.  Successful command time-to-leave - the duration for holding command which ended with success in database.
+2.  Failed command time-to-leave - the duration for holding command which ended with failure in database.
+
+When command entity is being cleared from the database, all relevant data is being cleared as well: command task info and command sequence if exist.
 
 #### Events
 

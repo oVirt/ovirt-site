@@ -79,6 +79,8 @@ Once the command entity is cleared from the database, there is a need to disable
 <span style="color:Teal">**command_entity_audit_log_map**</span> table description:
 {|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |command_entity_id ||UUID ||not null ||The command entity ID |- |audit_log_id ||UUID ||not null ||The sequence ID which the command is part of |- |}
 
+<span style="color:Teal">**command_entity_sequence_view**</span> A view over command_entity and command_sequence. The view is used for sequence related operations.
+
 #### CRUD
 
 **Stored procedures**

@@ -137,9 +137,7 @@ Event logs will be created when command tasks (*TaskInfo*) are created.
 
 ### Dependencies / Related Features and Projects
 
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
-
-Add a link to the feature description for relevant features. Does this feature effect other oVirt projects? Other projects?
+The Task Manager is depended on the Internal Locking Mechanism feature [Features/DetailedLockMechanism](Features/DetailedLockMechanism).
 
 ### Documentation / External references
 

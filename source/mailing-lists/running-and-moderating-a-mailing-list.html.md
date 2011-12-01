@@ -12,6 +12,7 @@ wiki_last_updated: 2011-12-01
 
 ## Moderators
 
+*   When you approve a post from the queue, add the user to the posting whitelist.
 *   Keep your queue moderated, especially since non-subscribers do not get a notice their post is held for approval.
 
 ## Administrators

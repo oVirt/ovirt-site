@@ -6,7 +6,7 @@ wiki_revision_count: 62
 wiki_last_updated: 2012-03-14
 ---
 
-# Stable device Addresses
+# Stable Device Addresses
 
 This document describes the design for the stable Device addresses feature.
 

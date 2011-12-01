@@ -14,8 +14,8 @@ wiki_last_updated: 2012-08-20
 
 ### Timeline
 
-*   oVirt first release is currently scheduled to **15.12.2011**.
-    -   Versioned git branch creation: **13.12.2011** (??)
+*   oVirt first release is currently scheduled to **2011-12-15**.
+    -   Versioned git branch creation: **2011-12-13** (??)
     -   Components maintainers **MUST** send their release notes prior to the new branch creation.
 
 ### Requirements
@@ -36,7 +36,7 @@ wiki_last_updated: 2012-08-20
 *   **setup process**:
     -   Missing SSL support
     -   No installer solution available yet
-    -   **ETA**: 07.12.2011 (depends on the chosen solution)
+    -   **ETA**: 2011-12-07 (depends on the chosen solution)
 *   **ovirt-node**:
     -   VDSM Doesn't register without manuall process (http://ovirt.org/wiki/Engine_Node_Integration#Engine_core_machine)
     -   Approve doesn't work in webadmin (https://bugzilla.redhat.com/show_bug.cgi?id=755749)

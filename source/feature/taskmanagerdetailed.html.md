@@ -28,8 +28,10 @@ A Task Manager is a monitor which shows the current actions running in ovirt-eng
 
 ### Detailed Description
 
-A Task Manager is a monitor which shows the current actions running in ovirt-engine server. It provides transparency for the administrator regarding the actions, their progress and status. Usually, each action invoked by a user will be monitored by the Task Manager. It will be achieved by representing each action as an entry in the Tasks view of the Webadmin. Some of the actions are invoked asynchronously and should be monitored as well. An action might be a chain of commands depended on each other and monitored in respect to the action which triggered the commands sequence.
- The requirements for feature are described below:
+A Task Manager is a monitor which shows the current actions running in ovirt-engine server. It provides transparency for the administrator regarding the actions, their progress and status.
+The actions will be represented in the Tasks view of the Webadmin, where the status and progress are monitored. The Task Manager will monitor actions both synchronous and asynchronous tasks.
+An action might be a chain of commands depended on each other and monitored in respect to the action which triggered the commands sequence.
+ The requirements for feature are as follow:
 # Providing a mechanism for tasks management/monitoring via UI (i.e - monitor task status, monitor tasks of given action, stop task, stop all tasks of command, restart of failed command).
 
 1.  Defining a task dependency/task chaining mechanism (Task B will not start before completion of Task A).
@@ -37,27 +39,27 @@ A Task Manager is a monitor which shows the current actions running in ovirt-eng
 3.  Defining a "best effort task" - The success of the parent command of this task will not be dependent on the result of a task).
 4.  Providing permission mechanism for the task management.
 
-Version will also contain some changes that are required internally for backend development and to improve task management functionality and correctness of behavior:
+The feature will also contain some changes that are required internally for backend development and to improve task management functionality and correctness of behavior:
 
-1.  Changing serialization of task parameters to JSon - will ease on tasks flow debugging
+1.  Changing serialization of task parameters to JSON - will ease on tasks flow debugging.
 2.  Improving task recovery mechanism - in case JBoss restart (there might be a mismatch between last stored task info and the current task status in VDSM).
-3.  Abstracting the Tasks representation in backend (e.g. VDSM, authentication or
+3.  Abstracting the Tasks representation in backend (e.g. VDSM, authentication)
 
 #### Entity Description
 
 The following entities/components will be added to the backend:  
 
-**CommandEntity** a representation of a command in the system. Using this entity, a concrete instance inherited of *CommandBase* could be created (e.g. 'resurrection' of a command). **CommandSequence** an entity which composes the *CommandEntity*, representing whether the current command entity is a part of a sequential command (e.g. depended on other commands to be completed before being executed). **CommandRepository** used to store and fetch command entities from a persistent layer. Later implementation could use internal cache for commands in progress and upon completion to flush the 'CommandEntity'' from memory to database.
-**CommandDAO** a DAO interface which defines the DML operations for the Command entities.
+**CommandEntity** a representation of a command in the system. Using this entity, a concrete instance inherited of *CommandBase* could be created (e.g. 'resurrection' of a command). **CommandSequence** an entity which composes the *CommandEntity*, representing whether the current command entity is a part of a sequential command (e.g. depended on other commands to be completed before being executed). **CommandRepository** uses to store and fetch command entities from the database. Later implementation might use internal cache for commands in progress and upon completion to flush the 'CommandEntity'' from memory to database.
+**CommandDAO** a DAO interface which defines the DML operations for the command entities.
 **CommandDAODbFacadeImpl** an implementation of the CommandDAO interface.
 **GetCommandsQuery** a query which fetches selective or entire command entities from the database.
 **GetModifiedCommandsQuery** a query which fetches only commands which were updated since a given time. It is designed to pull only tasks which where updated since the last query invoked by a client.
 **SequentialCommandRunnerFactory** a factory which creates a runner for sequential commands.
 **SequentialCommandRunner** a sequential command runner is responsible to to create a sequence of commands which includes order and dependencies (in the future 'best effort' command could be integrated with the sequence creation process) and to invoke the sequence.
-**CommandExecuter** an abstraction of command execution method.
+**CommandExecuter** an abstraction of command execution method. **SyncCommandExecuter** a synchronous implementation of the *CommandExecuter* interface. Designed to invoke commands synchronously.
 
 **Main Task Manager Class Diagram**
-![](async-task-main-class-diagram.jpeg "fig:async-task-main-class-diagram.jpeg")
+The following class diagrams describes the entities around the the Task Manager. ![](async-task-main-class-diagram.jpeg "fig:async-task-main-class-diagram.jpeg")
 
 ------------------------------------------------------------------------
 
@@ -93,6 +95,8 @@ Once the command entity is cleared from the database, there is a need to disable
 *   <span style="color:#006400">*DeleteCommandEntityOlderThanDate*</span> - deletes command entities which are older than a given date.
 *   <span style="color:#006400">*DeleteCommandEntity*</span> - deletes specific command entity
 *   <span style="color:#006400">*GetCommandTaskInfo*</span> - returns a list of tasks which associated with a command
+
+command_entity_sequence_view
 
 A view over command_entity and command_sequence will be created. The view is used for sequence related operations.
 

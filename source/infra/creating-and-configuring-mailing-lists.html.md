@@ -39,11 +39,13 @@ This standard operating procedure (SOP) describes how to create and configure a 
 
 *   Set *max_message_size* to 4000
 *   Set *private_roster* to *List members*
+*   Set *respond_to_post_requests* to *No*.
 
 #### Configuration for -devel (discussion) list:
 
 *   Archives public
 *   Subscription confirmation-only
+*   Set *respond_to_post_requests* to *No*.
 
 #### Configuration for a -private list
 
@@ -51,6 +53,7 @@ This standard operating procedure (SOP) describes how to create and configure a 
 *   Subscription requires approval
 *   Must display in list-of-lists - it's private but not kept a secret
 *   For private discussion lists, posts require approval if not from a list member
+    -   You may want to set *respond_to_post_requests* to *No* unless you specifically want posters to know they are held for moderation.
 
 #### Configuration for a no-archives -private list
 

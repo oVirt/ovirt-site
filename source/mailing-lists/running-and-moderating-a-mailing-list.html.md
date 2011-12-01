@@ -24,3 +24,5 @@ wiki_last_updated: 2011-12-01
 In addition to the guidelines here, these are other useful resources:
 
 *   Need a list of useful how-to-moderate-open-source-mailing-lists articles.
+
+[Category:Mailing lists](Category:Mailing lists)

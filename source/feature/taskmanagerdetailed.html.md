@@ -59,7 +59,7 @@ The following entities/components will be added to the backend:
 **CommandExecuter** an abstraction of command execution method. **SyncCommandExecuter** a synchronous implementation of the *CommandExecuter* interface. Designed to invoke commands synchronously.
 
 **Main Task Manager Class Diagram**
-The following class diagrams describes the entities around the the Task Manager. ![](async-task-main-class-diagram.jpeg "fig:async-task-main-class-diagram.jpeg")
+The following class diagrams describe the entities participating in the the Task Manager feature: ![](async-task-main-class-diagram.jpeg "fig:async-task-main-class-diagram.jpeg")
 
 ------------------------------------------------------------------------
 

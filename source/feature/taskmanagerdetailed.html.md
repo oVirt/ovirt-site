@@ -133,7 +133,7 @@ When command has tasks, it shares the same sequence as the previous sequence, ex
 
 #### Events
 
-What events should be reported when using this feature.
+Event logs will be created when command tasks (*TaskInfo*) are created.
 
 ### Dependencies / Related Features and Projects
 

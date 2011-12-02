@@ -27,7 +27,7 @@ Vdsm stands for Virtual Desktop and Server Manager.
 
 ## More project information
 
-Our git repository sits on [Fedora Hosted](http://git.fedorahosted.org/git/?p=vdsm.git). Development takes place on our mailing lists: [vdsm-patches](https://fedorahosted.org/mailman/listinfo/vdsm-patches) for submitting new patches, and [vdsm-devel](https://fedorahosted.org/mailman/listinfo/vdsm-devel) for general discussions on where vdsm development should go. On the latter one, users and potential users should feel comfortable to seek help, ask questions, and get answers about Vdsm.
+Our git repository sits on [oVirt's Gerrit server](http://gerrit.ovirt.org/gitweb?p=vdsm.git). Development takes place on our mailing lists: [vdsm-patches](https://fedorahosted.org/mailman/listinfo/vdsm-patches) for submitting new patches, and [vdsm-devel](https://fedorahosted.org/mailman/listinfo/vdsm-devel) for general discussions on where Vdsm development should go. On the latter one, users and potential users should feel comfortable to seek help, ask questions, and get answers about Vdsm.
 
 ## Requirements
 

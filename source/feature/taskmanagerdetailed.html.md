@@ -18,7 +18,12 @@ A Task Manager is a monitor which shows the current actions running in ovirt-eng
 ### Owner
 
 *   Name: [ Moti Asayag](User:Moti)
-*   Email: <masayag@redhat.com>
+    -   Email: <masayag@redhat.com>
+*   Name: [ Yair Zaslavsky](User:Yair)
+    -   Email: <yzaslavs@redhat.com>
+*   GUI Component owner: Gilad Chaplik <gchaplik@redhat.com>
+*   REST Component owner: Michael Pasternak <mpasternak@redhat.com>
+*   QA Owner: Yaniv Kaul <ykaul@redhat.com
 
 ### Current status
 

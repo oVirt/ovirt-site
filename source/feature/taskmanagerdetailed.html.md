@@ -32,7 +32,7 @@ A Task Manager is a monitor which shows the current actions running in ovirt-eng
 The actions will be represented in the Tasks view of the Webadmin, where the status and progress are monitored. The Task Manager will monitor actions both synchronous and asynchronous tasks.
 An action might be a chain of commands depended on each other and monitored in respect to the action which triggered the commands sequence.
  The requirements for feature are as follow:
-# Providing a mechanism for tasks management/monitoring via UI (i.e - monitor task status, monitor tasks of given action, stop task, stop all tasks of command, restart of failed command).
+# Providing a mechanism for tasks management/monitoring via UI (i.e - monitor task status, monitor tasks of given action, tasks of a given entity, stop task, stop all tasks of command, restart of failed command).
 
 1.  Defining a task dependency/task chaining mechanism (Task B will not start before completion of Task A).
 2.  Providing a mechanism to invoke commands asynchronously.

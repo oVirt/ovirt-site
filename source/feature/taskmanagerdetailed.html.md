@@ -128,7 +128,7 @@ The backend commands are divided into two categories:
 1.  Synchronous commands - the command ends when the executeAction ends.
 2.  Asynchronous commands - the command is ended when the endAction ends. The endAction is triggered by the AsyncTaskManager when the command tasks are reported as completed.
 
-The following sequence diagrams describe how the new component should interact in order to manage the commands:
+The following sequence diagrams describe how the new components should interact in order to support the commands, by command type:
  **Sync Command Invocation Sequence Diagram**
 ![](Sync-action-invocation-sequence-diagram.jpeg "fig:Sync-action-invocation-sequence-diagram.jpeg")
 **The sequence above describes invocation of sync-action:**
@@ -145,11 +145,11 @@ The following sequence diagrams describe how the new component should interact i
 
 **Async Command Invocation Sequence Diagram**
 ![](Async-action-type-invocation-sequence-diagram.jpeg "fig:Async-action-type-invocation-sequence-diagram.jpeg")
-When command has tasks, it shares the same sequence as the previous sequence, except the last step. The async command will be resurrected by the AsyncTaskManager once there are no more active tasks for the command and will execute the *CommandBase.endAction()* for that command, in which the final state of the command will be set.
-
-When Backend is initializing, the commands which are in progress are being examined for their status. If the command has tasks, the tasks status is being examined and upon completion of tasks, the command will be finalized (by *CommandBase.endAction()*). If the command has no tasks, it status should be marked as failed command.
+When command has tasks, it shares the same sequence as the previous sequence, except the last step. The async command will be resurrected by the *AsyncTaskManager* once there are no more active tasks for the command and will execute the *CommandBase.endAction()* for that command, in which the final state of the command will be set.
 
 Maintenance of the command entity and command task info:  
+
+When Backend is initialized, the commands which are in progress are being examined for their status. If the command has tasks, the tasks status is being examined and upon completion of tasks, the command will be finalized (by *CommandBase.endAction()*). If the command has no tasks, it status should be marked as failed command.
 
 A scheduler will be responsible for clearing obsolete command entities and tasks info data from the database.
 There will be two different configuration value:
@@ -158,6 +158,14 @@ There will be two different configuration value:
 2.  Failed command time-to-leave - the duration for holding command which ended with failure in database.
 
 When command entity is being cleared from the database, all relevant data is being cleared as well: command task info and command sequence if exist.
+
+Updating the command information in the database will be executed in a new transaction, with a different scope the the active one. Common command steps which tasks will be created for are: INIT, VALIDATION, EXECUTION.
+
+*   INIT - the phase between the command creation till can-do-action, Should be a quick step, which consist of pre can-do-action operation (e.g. acquiring locks over entities).
+*   VALIDATION - the can-do-action phase, a validation of the conditions for executing the command.
+*   EXECUTION - the actual execution of the command.
+
+Tasks and events won't be created for internal commands.
 
 #### Events
 

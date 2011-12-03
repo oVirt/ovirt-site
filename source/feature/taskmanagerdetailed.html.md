@@ -174,7 +174,11 @@ The Task Manager is depended on the Internal Locking Mechanism feature [Features
 
 ### Open Issues
 
-1.  SearchEngine and command entity - do we wish to add support for this?
-2.  
+1.  Search-Engine and command entity - should commands be searchable?
+2.  Is cache required for the *CommandRepository* to hold the command entities and their command tasks?
+3.  Paging - restriction of returned number of records.
+4.  Commands monitoring and permission model, adding Tasks view to users.
+5.  Do we care about first X commands which ended successfully in a sequence, if the sequence failed for the X+1 command
+6.  If a command in sequence fails, should we create audit-log and *TaskInfo* for the remaining commands in sequence specifying commands won't be executed/started ?
 
 <Category:Template> <Category:Feature>

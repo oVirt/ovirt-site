@@ -109,6 +109,7 @@ Once the command entity is cleared from the database, there is a need to disable
 *   <span style="color:#006400">*DeleteCommandEntityOlderThanDate*</span> - deletes command entities which are older than a given date.
 *   <span style="color:#006400">*DeleteCommandEntity*</span> - deletes specific command entity
 *   <span style="color:#006400">*GetCommandTaskInfo*</span> - returns a list of tasks which associated with a command
+*   <span style="color:#006400">*GetCommandTaskInfoForEvent*</span> - Retrieves tasks for events by the relation of audit log to the command entity. Utilized to associate an entity represented by the audit log to the its tasks.
 
 #### User Experience
 

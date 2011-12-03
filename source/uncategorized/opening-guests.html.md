@@ -24,7 +24,7 @@ First install spice-xpi extension for Firefox
 
 *   Setting manually the vnc password
 
-1) Get VM id and displayPort
+1) Get VM id and displayPort data
 
         # vdsClient -s 0 list
 
@@ -34,4 +34,4 @@ First install spice-xpi extension for Firefox
 
 3) Now try to use vnc client
 
-        # vncviewer <RHEVH>:<displayPort>
+        # vncviewer <OVIRT_NODE_IP>:<displayPort>

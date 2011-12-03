@@ -117,4 +117,4 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
     -   The 3rd party plugin injection tool should provide an argument to pass the equivalent of --no-gpg so that this behavior can be overridden.
     -   Each 3rd party software developer will have their own private/public keypair and the stock oVirt Node will include the public keys. The gpg verification should be done by certificates installed inside the Node itself, so that both the offline and online plugin injection mechanism can benefit from it.
 
-[Category:Node development](Category:Node development)
+<Category:Node>

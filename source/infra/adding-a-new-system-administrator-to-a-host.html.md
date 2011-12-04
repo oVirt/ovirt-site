@@ -76,6 +76,19 @@ Modify these steps for giving specific 'sudo' access, such as to backups, restar
 
 <!-- -->
 
-    chmod 600 /home/quaid/.ssh
+    chmod 600 /home/foo/.ssh
+
+*   The final file permissions:
+
+<!-- -->
+
+    ls -hal|grep ssh
+    drwx------  2 foo  foo  4.0K Dec  3 19:38 .ssh
+
+    ls .ssh/ -hal
+    total 12K
+    drwx------ 2 foo foo 4.0K Dec  3 19:38 .
+    drwx------ 3 foo foo 4.0K Dec  3 19:34 ..
+    -rw-r--r-- 1 foo foo  604 Dec  3 19:33 authorized_keys
 
 [Category:Infrastructure documentation](Category:Infrastructure documentation) [Category:Infrastructure SOP](Category:Infrastructure SOP)

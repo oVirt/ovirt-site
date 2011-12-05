@@ -38,10 +38,9 @@ wiki_last_updated: 2012-08-20
     -   No installer solution available yet
     -   **ETA**: 2011-12-07 (depends on the chosen solution)
 *   **ovirt-node**:
-    -   VDSM Doesn't register without manuall process (http://ovirt.org/wiki/Engine_Node_Integration#Engine_core_machine)
-    -   Approve doesn't work in webadmin (https://bugzilla.redhat.com/show_bug.cgi?id=755749)
-    -   <https://bugzilla.redhat.com/show_bug.cgi?id=756136>
-    -   **ETA**: ???
+    -   VDSM Doesn't register without manual process (http://ovirt.org/wiki/Engine_Node_Integration#Engine_core_machine)
+        -   Patches posted, awaiting approval
+    -   **ETA**: Dependent on VDSM, but should be by 2011-12-09
 
 ### Open issues
 

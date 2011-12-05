@@ -41,7 +41,7 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
 *   Protection against unverified/unauthorized plugins from being injected into a Node.
 *   Tracking of all plugins injected or updated on the Node including manifest deltas for all files, packages and configuration changes.
 *   Third party plugins may have the need for persistent storage. This can be handled either on host (stateful) or off host (stateless).
-    -   For how this would be handled in a stateless environment, this feature would be dependent on [Node_stateless](Node_stateless)
+    -   For how this would be handled in a stateless environment, this feature would be dependent on [Node_Stateless](Node_Stateless)
 *   Plugins are installed via an offline ISO injection process. Runtime installation and updating of plugins is not implemented.
 *   Ability to upgrade a plugin by injecting a new version of the plugin into an existing offline Node ISO and then upgrading the Node via USB/CDROM/PXE boot.
     -   NOTE: This is dependent on the ability of the plugin itself to handle upgrades meaning plugins need to keep backwards compatibility with configuration files and other metadata.

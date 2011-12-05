@@ -22,7 +22,7 @@ Any acceptable design must meet the following requirements:
 
 Key design points:
 
-*   The API bridge provides the complete set of exported vdsm functionality
+*   The API bridge provides the complete set of exported vdsm functionality. Both bindings (QMF and REST) can be written solely by importing the vdsm API Bridge. Direct use of vdsm internals will be prohibited.
 *   The QMF agent and REST API are implemented as bindings to the API bridge
 *   The xmlrpc interface will be deprecated and may or may not be converted to the API bridge.
 *   No business logic will be implemented in the QMF agent or REST API

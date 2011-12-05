@@ -31,4 +31,6 @@ Key design points:
 
 ![](Vdsm-api-architecture.png‎ "Vdsm-api-architecture.png‎")
 
+## Development plan
+
 <Category:Vdsm>

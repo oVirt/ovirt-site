@@ -38,6 +38,10 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
         -   /opt/VENDOR/PLUGIN_NAME/etc/
         -   /opt/VENDOR/PLUGIN_NAME/usr/lib/
 *   Ability for third-party vendors or direct end-users to add plugins to the Node.
+*   Method for plugins to specify auto-installation parameters and handling
+    -   Mostly already handled, but need to formalize
+    -   add file with list of autoinstall options, one per line, to /etc/ovirt-commandline.d
+    -   add handling script for autoinstall scripts to ovirt-config-boot.d
 *   Protection against unverified/unauthorized plugins from being injected into a Node.
 *   Tracking of all plugins injected or updated on the Node including manifest deltas for all files, packages and configuration changes.
 *   Third party plugins may have the need for persistent storage. This can be handled either on host (stateful) or off host (stateless).

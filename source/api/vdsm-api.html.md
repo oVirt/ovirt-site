@@ -27,4 +27,6 @@ Key design points:
 *   The xmlrpc interface will be deprecated and may or may not be converted to the API bridge.
 *   No business logic will be implemented in the QMF agent or REST API
 
+![](Vdsm-api-architecture.png‎ "Vdsm-api-architecture.png‎")
+
 <Category:Vdsm>

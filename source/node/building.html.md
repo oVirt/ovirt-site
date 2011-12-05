@@ -12,11 +12,11 @@ wiki_last_updated: 2015-01-28
 
 ## Build Process for oVirt Node
 
-Note: This is a draft and still very much a work in progress.
-
 Currently, we're heavily reliant on Fedora.
 
-### Get the Source
+### From Git
+
+#### Get the Source
 
 Use git
 
@@ -24,7 +24,7 @@ Use git
 
 $ cd ovirt-node`
 
-### Setup a Build Environment
+#### Setup a Build Environment
 
 *   Recommend minimum F15 build host
     -   Otherwise there are problems with systemd and building
@@ -41,7 +41,7 @@ $ cd ovirt-node`
     -   <code> $ export OVIRT_CACHE_DIR=~/ovirt-cache
     -   $ export OVIRT_LOCAL_REPO=<file://>${BASEDIR}/RPMS </code>
 
-### Install Dependencies
+#### Install Dependencies
 
 *   You will need (at least):
     -   at least sudo access to livecd-creator (preferably passwordless)
@@ -50,7 +50,7 @@ $ cd ovirt-node`
     -   rpm-build
     -   createrepo
 
-### Build ovirt-node packages
+#### Build ovirt-node packages
 
 *   go to base ovirt-node location
 *   <code> $ ./autogen.sh --with-image-minimizer
@@ -64,7 +64,7 @@ $ cd ovirt-node`
 
 </code>
 
-### Workarounds for RPMs not included in Fedora
+#### Workarounds for RPMs not included in Fedora
 
 *   cd to your rpmbuild/RPMS directory
 *   copy all separate rpms there
@@ -78,7 +78,7 @@ $ cd ovirt-node`
         -   [RPM Location](http://fsimonce.fedorapeople.org/vdsm/)
 *   Download the packages from these locations and add them to the RPMS/x86_64 directory and re-run createrepo
 
-### Build the image
+#### Build the image
 
 `
 
@@ -86,5 +86,23 @@ $ cd ovirt-node`
 * $ make ovirt-node-image.iso
 
 `
+
+### From -tools RPM
+
+*   Install ovirt-node-tools RPM from Fedora or ovirt.org/releases
+*   `$ cd usr/share/ovirt-node-tools`
+*   Create a version.ks file (automation coming soon)
+
+      PRODUCT='oVirt Node Hypervisor'
+      PRODUCT_SHORT='oVirt Node Hypervisor'
+      PACKAGE=ovirt-node-image
+      Version=2.1
+      RELEASE=0.fc16
+
+*   Follow steps above for RPMs not included in Fedora
+    -   Put all RPMs in a single location
+    -   run createrepo on that location
+    -   export OVIRT_LOCAL_REPO=<file://><your_location>
+*   `$ sudo node-creator ovirt-node-image.ks`
 
 <Category:Node> [Category:Node development](Category:Node development) <Category:Documentation>

@@ -85,7 +85,7 @@ Full blow workshops much like the kick-off workshop done at Cisco. Multi-day for
 *   At conferences
     -   Separate track
     -   Developers & Admins
-    -   KVM Foru
+    -   KVM Forum
     -   Linuxcon Japan
     -   Linuxcon Sundy
     -   Linuxcon Eggo

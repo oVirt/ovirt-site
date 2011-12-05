@@ -32,6 +32,11 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
 
 *   Ability for 3rd party developers/vendors to write/adapt software for installation into an oVirt Node.
 *   Multiple plugins able to be installed simultaneously without interfering with each other.
+*   To isolate plugins from each other and to prevent misconfiguration plugins should fully reside under /opt/VENDOR/PLUGIN_NAME
+    -   This includes lock files, configuration files, and library files
+        -   /opt/VENDOR/PLUGIN_NAME/var/lock/
+        -   /opt/VENDOR/PLUGIN_NAME/etc/
+        -   /opt/VENDOR/PLUGIN_NAME/usr/lib/
 *   Ability for third-party vendors or direct end-users to add plugins to the Node.
 *   Protection against unverified/unauthorized plugins from being injected into a Node.
 *   Tracking of all plugins injected or updated on the Node including manifest deltas for all files, packages and configuration changes.
@@ -41,6 +46,7 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
 *   Ability to upgrade a plugin by injecting a new version of the plugin into an existing offline Node ISO and then upgrading the Node via USB/CDROM/PXE boot.
     -   NOTE: This is dependent on the ability of the plugin itself to handle upgrades meaning plugins need to keep backwards compatibility with configuration files and other metadata.
 *   Plugins cannot modify any configuration directly in /etc, therefore plugin metadata must be constructed with allows controlled changes like:
+    -   Entries including cron/logrotate/systemd/selinux configuration files will be handled during the plugin injection process and will be placed in their appropriate locations
     -   Opening firewall ports
     -   Adding users/groups
     -   Enabling system services via init scripts/systemd units

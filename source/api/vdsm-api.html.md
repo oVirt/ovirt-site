@@ -26,6 +26,7 @@ Key design points:
 *   The QMF agent and REST API are implemented as bindings to the API bridge
 *   The xmlrpc interface will be deprecated and may or may not be converted to the API bridge.
 *   No business logic will be implemented in the QMF agent or REST API
+*   Both QMF and REST are optional components (ie. they are not required for vdsm to function correctly). However at least one of these is needed to enable management.
 
 ![](Vdsm-api-architecture.png‎ "Vdsm-api-architecture.png‎")
 

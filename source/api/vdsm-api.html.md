@@ -10,8 +10,6 @@ wiki_last_updated: 2011-12-06
 
 # Vdsm API
 
-## VDSM next generation API architecture
-
 The current xmlrpc-based VDSM API needs to be redesigned to accommodate some new use cases. We need a fully-functional and well organized host-level API and an improved mechanism for communicating with ovirt-engine and other vdsm hosts in an ovirt cluster. This document describes the design that the project has decided to implement along with a development plan.
 
 ## Design

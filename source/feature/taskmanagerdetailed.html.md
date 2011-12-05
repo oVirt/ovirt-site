@@ -85,6 +85,9 @@ The following class diagrams describe the entities participating in the the Task
 <span style="color:Teal">**command_sequence**</span> represents the command sequence association:
 {|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |entity_id ||UUID ||not null ||The command entity ID |- |sequence_id ||UUID ||not null ||The sequence ID which the command is part of |- |next_command_id ||UUID ||null ||The next-in-chain command ID |- |order_in_sequence ||integer ||not null ||The order of the command in the sequence |- |initiator_command_id ||UUID ||not null ||The ID of the command which initiated the sequence |- |}
 
+<span style="color:Teal">**command_task_info**</span> represents a task, a significant part of the command:
+{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |task_id ||UUID ||not null ||The task ID |- |command_id ||UUID ||not null ||The command ID |- |task_name ||String ||not null ||The task name |- |entity_type ||TinyInt ||null ||The entity type which the task was created for |- |entity_id ||UUID ||null ||The entity id which the task was created for |- |entity_name ||String ||null ||The entity name which the task was created for |- |}
+
 The command entity should be associated with the events related to it. The relation is represented by a map table as described below.
 Once the command entity is cleared from the database, there is a need to disable that association (clear the entry from map table as well).
 
@@ -97,7 +100,7 @@ Once the command entity is cleared from the database, there is a need to disable
 
 **Stored procedures**
 
-*   <span style="color:#006400">*InsertCommandEntity*</span> - insert command entity entirely
+*   <span style="color:#006400">*InsertCommandEntity*</span> - insert command entity
 *   <span style="color:#006400">*GetCommandEntityByCommandId*</span> - returns a command entity by a given id
 *   <span style="color:#006400">*GetAllCommandEntity*</span> - returns a list of all commands [should be restricted rownum]
 *   <span style="color:#006400">*GetAllCommandSinceDate*</span> - returns a list of commands which were modified since a given date
@@ -107,9 +110,14 @@ Once the command entity is cleared from the database, there is a need to disable
 *   <span style="color:#006400">*UpdateCommandEntity*</span> - partial updates to the command entity
     -   input: command entity id, status, last update date
 *   <span style="color:#006400">*DeleteCommandEntityOlderThanDate*</span> - deletes command entities which are older than a given date.
+    -   input: a start datetime to delete commands which are older than
 *   <span style="color:#006400">*DeleteCommandEntity*</span> - deletes specific command entity
 *   <span style="color:#006400">*GetCommandTaskInfo*</span> - returns a list of tasks which associated with a command
-*   <span style="color:#006400">*GetCommandTaskInfoForEvent*</span> - Retrieves tasks for events by the relation of audit log to the command entity. Utilized to associate an entity represented by the audit log to the its tasks.
+*   <span style="color:#006400">*InsertCommandTaskInfo*</span> - inserts command task info
+*   <span style="color:#006400">*DeleteCommandTaskInfoByCommandId*</span> - deletes command task info associated with a specific command
+*   <span style="color:#006400">*GetCommandTasksInfoByTaskId*</span> - returns a tasks by its ID
+*   <span style="color:#006400">*GetCommandTasksInfoByCommandId*</span> - returns a tasks by its command ID
+*   <span style="color:#006400">*GetCommandTaskInfoForEvent*</span> - Retrieves tasks for a specific entity.
 
 #### User Experience
 

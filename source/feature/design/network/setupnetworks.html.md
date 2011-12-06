@@ -97,6 +97,8 @@ The changes we need to communicate are in the "network" structure for bridge and
 
 ![](Diagram2.png "Diagram2.png")
 
+<span style="color:red">**`note:`**` `</span>` integer types are serialized to an xml String type on the wire - its up to the VDSM network dict to handle.`
+
 ### GUI
 
 ![](general.png "fig:general.png") ![](more_cases.png "fig:more_cases.png")

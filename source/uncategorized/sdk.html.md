@@ -152,7 +152,7 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
 
 ### codegen
 
-#### expose parameters in resource's actions (assigned)
+#### expose parameters in resource's actions according to RSDL (assigned)
 
        - at this point all actions statically receive Action parameters holder what is 
          not always correct as in case of importing vm/template where parameter should be StorageDomain)
@@ -162,6 +162,8 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
 #### use RSDL link response return type
 
        - right now return type extracted from URI
+
+#### auto-generate python entities from schema with GenerateDS
 
 #### interface for task polling
 

@@ -52,6 +52,8 @@ Cluster version is 3.1. Add record in the action_version_map table:
 
 ##### Class Diagram
 
+![](SetupNetworksClassDiagram.png "SetupNetworksClassDiagram.png")
+
 ### Bridge-less Networks
 
 #### Feature summary

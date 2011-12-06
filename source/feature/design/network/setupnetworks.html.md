@@ -35,7 +35,9 @@ While on going discussions on vnlink and USC manager take place, they are out of
 
 Cluster version is 3.1. Add record in the action_version_map table:
 
-||header action_id||header cluster_minimal_version||header storage_pool_minimal_version|| | 158 | 3.1 | 3.1 |
+| action_id | cluster_minimal_version | storage_pool_minimal_version |
+|------------|---------------------------|---------------------------------|
+| 158        | 3.1                       | 3.1                             |
 
 #### Setup Networks sequence diagram
 

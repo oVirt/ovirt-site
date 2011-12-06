@@ -16,8 +16,6 @@ wiki_last_updated: 2013-11-28
       >
       Hereby we describe code POV changes for backend and also VDSM api implications.
 
-<<TableOfContents(4)>>
-
 #### Scope
 
 While on going discussions on vnlink and USC manager take place, <

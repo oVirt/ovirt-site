@@ -109,4 +109,59 @@ The review process is comprised of:
 *   NACK-ed (-1/-2) patches should not be submitted
 *   A submitted patch is automatically merged to the git repository
 
+#### Submit your topic branch to gerrit
+
+[topic branch](http://progit.org/book/ch3-4.html) is a short-lived branch that you create and use for a single particular feature or related work.
+
+*   First, download git-review tool from openstack and copy to your project
+    -   git-review is a tool that helps submitting git branches to gerrit for review.
+    -   URL: <https://github.com/openstack-ci/git-review>
+
+        $ git clone git://github.com/openstack-ci/git-review.git
+        $ cp git-review/git-review project/ 
+
+*   Setting git-review:
+
+      git-review, by default, looks for a git remote called gerrit, and submits the current branch to HEAD:refs/for/master at that remote.
+      If the "gerrit" remote does not exist, git-review looks for a file called .gitreview at the root of the repository with information
+      about the gerrit remote. Assuming that file is present, git-review should be able to automatically configure your 
+      repository the first time it is run. 
+
+*   Example: project/.git/config
+
+      [remote "gerrit"]
+        url = http://gerrit.ovirt.org/p/project
+        pushurl = ssh://username@gerrit.ovirt.org:29418/project.git
+        fetch = +refs/heads/*:refs/remotes/gerrit/ 
+
+*   Execute git-review setup
+
+        $project> ./git-review -s 
+
+*   Create your local branch feature
+
+        $project> git checkout -b engine-register 
+
+*   Check if you are under branch
+
+        $project> git branch
+        * engine-register
+        master  
+
+*   Execute the changes and commit it
+
+        $project> vi source.py
+        $project> git add source.py
+        $project> git commit  
+
+*   Submit the topic branch to gerrit
+
+        $project>./git-review -t engine-register
+        remote: Resolving deltas:   0% (0/3)
+        remote: (W) fba45fe: no files changed, message updated
+        To ssh://user@gerrit.ovirt.org:29418/project.git
+       * [new branch]      HEAD -> refs/for/master/engine-register 
+
+*   Now go to the gerrit url for your change and note that the topic field is changed to your topic branch name.
+
 <Category:Documentation> [Category:Development environment](Category:Development environment) <Category:Git> [Category:Source code repository](Category:Source code repository)

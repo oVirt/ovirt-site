@@ -19,15 +19,15 @@ Hereby we describe code POV changes for backend and also VDSM api implications.
 
 While on going discussions on vnlink and USC manager take place, they are out of the api and we're left with trivial operations:
 
-1.  add/remove network
-2.  add/remove bonds
+1.  add/remove network/s
+2.  add/remove bond/s
 3.  attach/detach networks to/from bonds
 4.  **check connectivity & connectivity timeout:**
 
-after the new topology layed by VDSM, they test if any client(i.e engine) has interacted with them, in the given period timeout.
- When no activity seen, they revert to the baked-up topology and fail the command.
+    after the new topology layed by VDSM, they test if any client(i.e engine) has interacted with them, in the given period timeout.
+     When no activity seen, they revert to the baked-up topology and fail the command.
 
-1.  **force:** VDSM will not validate parameters passed to set the network configuration .
+5.  **force:** VDSM will not validate parameters passed to set the network configuration .
 
 #### Backward compatibility
 

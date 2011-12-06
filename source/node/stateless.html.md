@@ -84,6 +84,9 @@ wiki_last_updated: 2012-05-29
 *   How do we tell a host to create a new bundle even if one exists?
     -   kernel commandline?
     -   Admin on web server removes? <-- Do we need this anyway?
+*   How do we handle the configuration server being down?
+    -   boot and allow re-configuration?
+    -   
 
 ## Security Considerations
 

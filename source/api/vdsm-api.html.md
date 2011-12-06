@@ -34,7 +34,7 @@ Key design points:
 ## Development plan
 
 *   Create the API Bridge as a python module that the REST API, QMF agent, and xmlrpc interface threads can import
-*   Convert clientIF.py to use the API Bridge
+*   Convert clientIF.py not to start a xmlrpc server. Have a different module expose xmlrpc functionality using the API Bridge.
 *   Integrate Adam's cherryPy-based REST server into vdsm via the API Bridge
 *   Write a vdsmsh tool that provides a host-level command line interface to vdsm via the REST API
 *   Create a QMF agent that also integrates via the API Bridge

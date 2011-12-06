@@ -41,6 +41,8 @@ Cluster version is 3.1. Add record in the action_version_map table:
 
 #### Setup Networks sequence diagram
 
+![](Diagram1.png "Diagram1.png")
+
 #### Added classes
 
       1. SetupNetworksCommand.java

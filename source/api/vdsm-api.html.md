@@ -25,7 +25,7 @@ Key design points:
 *   The API bridge provides the complete set of exported vdsm functionality. Both bindings (QMF and REST) can be written solely by importing the vdsm API Bridge. Direct use of vdsm internals will be prohibited.
 *   VDSM will implement a publish/subscribe model for events and provide an API via the bridge.
 *   The QMF agent and REST API are implemented as bindings to the API bridge
-*   The xmlrpc interface will be deprecated and will be converted to the API bridge.
+*   The current xmlrpc interface will be converted to the API bridge, too. It is expected to be deprecated when ovirt-engine uses QMF.
 *   No business logic will be implemented in the QMF agent or REST API
 *   Both QMF and REST are optional components (ie. they are not required for vdsm to function correctly). However at least one of these is needed to enable management.
 

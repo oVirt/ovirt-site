@@ -154,7 +154,7 @@ The review process is comprised of:
         $project> git add source.py
         $project> git commit  
 
-*   Submit the topic branch to gerrit
+*   Submit the topic branch changes to gerrit
 
         $project>./git-review -t engine-register
         remote: Resolving deltas:   0% (0/3)

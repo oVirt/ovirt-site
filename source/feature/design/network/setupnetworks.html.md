@@ -98,6 +98,8 @@ Typically, just another parameter for a network configuration to determine the [
 
 **`network` `business` `entity`**
 
+![](Diagram2.png "Diagram2.png")
+
 ### GUI
 
 ### REST

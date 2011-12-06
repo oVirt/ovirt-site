@@ -27,8 +27,8 @@ While on going discussions on vnlink and USC manager take place, they are out of
 ##### Added functionality
 
 *   check connectivity & connectivity timeout.
-*   after the new topology layed by VDSM, they test if any client(i.e engine) has interacted with them, in the given period timeout.<
-    > When no activity seen, they revert to the baked-up topology and fail the command.
+*   after the new topology layed by VDSM, they test if any client(i.e engine) has interacted with them, in the given period timeout.
+     When no activity seen, they revert to the baked-up topology and fail the command.
 *   force - VDSM will not validate parameters passed to set the network configuration .
 
 #### Backward compatibility

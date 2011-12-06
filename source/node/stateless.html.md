@@ -86,7 +86,8 @@ wiki_last_updated: 2012-05-29
     -   Admin on web server removes? <-- Do we need this anyway?
 *   How do we handle the configuration server being down?
     -   boot and allow re-configuration?
-    -   
+    -   wait for it to be up?
+    -   prompt user
 
 ## Security Considerations
 

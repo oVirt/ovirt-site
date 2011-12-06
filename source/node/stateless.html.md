@@ -33,7 +33,10 @@ wiki_last_updated: 2012-05-29
 *   Start network using DHCP on nic specified in BOOTIF
     -   ?? Default to eth0 otherwise ??
     -   ?? Or should we abort stateless attempt ??
-*   Get DNS SRV record for the configuration server
+*   Find your config server
+    -   Multiple methods possible
+    -   Get DNS SRV record for the configuration server
+    -   provide config server on commandline
 *   Check config server for config bundle
 
 #### Previously configured

@@ -58,9 +58,8 @@ Cluster version is 3.1. Add record in the action_version_map table:
 
 #### Feature summary
 
-All VMs today are connected through a software bridge, which has naturally performance take.<
-> Bridge-less nics can serve for heavy traffic channels like migration, export or the engine management network.<
->
+All VMs today are connected through a software bridge, which has naturally performance take.
+Bridge-less nics can serve for heavy traffic channels like migration, export or the engine management network.
 
 #### Code Change
 

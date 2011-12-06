@@ -100,6 +100,8 @@ The changes we need to communicate are in the "network" structure for bridge and
 
 ### GUI
 
+![](general.png "fig:general.png") ![](more_cases.png "fig:more_cases.png")
+
 ### REST
 
 #### Resource representation

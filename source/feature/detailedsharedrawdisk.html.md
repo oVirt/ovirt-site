@@ -89,8 +89,9 @@ The Administrator Portal should allow the following operations:
 
 The Power User Portal should allow the following operations:
 
-*   View shared disks for storage domain in the Data Center the user can attach/detach
-*   attach, detach disks to VM.
+*   View shared disks for storage domain in the Data Center the power user can attach/detach
+*   Attach, detach disks to VM.
+*   The power user will not have permissions to create a shared disk from the user portal.
 
 ### Dependencies / Related Features and Projects
 

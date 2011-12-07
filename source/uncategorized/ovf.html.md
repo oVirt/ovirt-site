@@ -10,5 +10,4 @@ wiki_last_updated: 2011-12-07
 
 **oVirt Engine OVF File Format**
 
-<attachment:Ovirt_ovf_format.odt> <
->
+<attachment:Ovirt_ovf_format.odt>

@@ -132,7 +132,7 @@ The review process is comprised of:
       [remote "gerrit"]
         url = http://gerrit.ovirt.org/p/project
         pushurl = ssh://username@gerrit.ovirt.org:29418/project.git
-        fetch = +refs/heads/*:refs/remotes/gerrit/ 
+        fetch = +refs/heads/*:refs/remotes/gerrit/* 
 
 *   Execute git-review setup
 

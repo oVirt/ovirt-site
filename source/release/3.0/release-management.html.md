@@ -36,7 +36,7 @@ wiki_last_updated: 2012-08-20
 *   **setup process**:
     -   Missing SSL support
     -   No installer solution available yet
-    -   **ETA**: 2011-12-07 (depends on the chosen solution)
+    -   **ETA**: 2011-12-14 (depends on the chosen solution)
 *   **ovirt-node**:
     -   VDSM Doesn't register without manual process (http://ovirt.org/wiki/Engine_Node_Integration#Engine_core_machine)
         -   Patches posted, awaiting approval

@@ -12,7 +12,7 @@ wiki_last_updated: 2015-01-16
 
 ### Summary
 
-The shared raw disk feature enables share disk with multiple VM's.
+The shared raw disk feature enables to share a disk through multiple VM's.
 
 ### Owner
 

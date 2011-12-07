@@ -14,13 +14,14 @@ wiki_last_updated: 2011-12-08
 
 ## On linode01.ovirt.org
 
-*   Create Gerrit backup user; save password in */root/passwords*:
+*   Create Gerrit backup user:
 
 <!-- -->
 
     useradd gerrit-backup
     passwd gerrit-backup
 
+*   -   Save password in */root/passwords*.
 *   Create SSH key structure:
 
 <!-- -->
@@ -38,12 +39,14 @@ wiki_last_updated: 2011-12-08
 
 ## On gerrit.ovirt.org
 
+### Backup git source directories
+
 *   Switch to the Gerrit user:
 
-<!-- -->
+</pre>
+su - gerrit2
 
-    su - gerrit2
-
+</pre>
 *   Create an SSH key without a passphrase, then copy the public key for the *authorized_keys* file on the remote host:
 
 <!-- -->
@@ -62,11 +65,27 @@ wiki_last_updated: 2011-12-08
 
 <!-- -->
 
+    <pre>
     #!/bin/bash
     #
-    # Gerrit backup script: 0.1 Alpha
+    # Gerrit backup script - git source backup
     #
-    # 20111207 Karsten Wade <kwade@redhat.com> <quaid@iquaid.org>
+    # 0.1 Alpha - 20111207 Karsten Wade <kwade@redhat.com> <quaid@iquaid.org>
+    #
+    # Copyright 2011 Karsten Wade <kwade@redhat.com> <quaid@iquaid.org>
+    #
+    #   Licensed under the Apache License, Version 2.0 (the "License");
+    #   you may not use this file except in compliance with the License.
+    #   You may obtain a copy of the License at
+    #
+    # http://www.apache.org/licenses/LICENSE-2.0
+    #
+    #   Unless required by applicable law or agreed to in writing, software
+    #   distributed under the License is distributed on an "AS IS" BASIS,
+    #   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    #   See the License for the specific language governing permissions and
+    #   limitations under the License.
+    #
 
     # Set variables
     RSYNC="/usr/bin/rsync"
@@ -74,12 +93,12 @@ wiki_last_updated: 2011-12-08
     SSH="/usr/bin/ssh"
     GITSRC="/usr/local/src/git/"
     REMOTEUSER="gerrit-backup"
-    REMOTEURL="ovirt.org"
+    REMOTEHOST="ovirt.org"
     REMOTEDIR="gerrit.ovirt.org-src-backup/src/"
 
     # Run backup - rsync local git source to remote backup directory
     # Note: gerrit user has sshkeys with no passphrase
-    $RSYNC $RSYNCOPTS $SSH $GITSRC $REMOTEUSER@$REMOTEURL:$REMOTEDIR
+    $RSYNC $RSYNCOPTS $SSH $GITSRC $REMOTEUSER@$REMOTEHOST:$REMOTEDIR
 
 *   Make script executable:
 
@@ -93,7 +112,7 @@ wiki_last_updated: 2011-12-08
 
     crontab -e
 
-*   Contents of user's *crontab*:
+*   -   Contents of user's *crontab*:
 
 <!-- -->
 
@@ -101,5 +120,72 @@ wiki_last_updated: 2011-12-08
     MAILTO=root
     # Run at 2200 (10 pm) system time every day
     0 22 * * *     $HOME/bin/gerrit-backup.sh
+    # Run database backup at 2220 (10:20 pm) system time every day
+    20 22 * * *    $HOME/bin/gerrit-database-backup.sh
+
+### Backup Gerrit database
+
+*   Add this backup script to the *gerrit2* user's crontab:
+
+<!-- -->
+
+    #!/bin/bash
+    #
+    # Gerrit backup script - database backup
+    #
+    # 0.1 Alpha - 20111207 Karsten Wade <kwade@redhat.com> <quaid@iquaid.org>
+    # 
+    #
+    # Copyright 2011 Karsten Wade <kwade@redhat.com> <quaid@iquaid.org>
+    #
+    #   Licensed under the Apache License, Version 2.0 (the "License");
+    #   you may not use this file except in compliance with the License.
+    #   You may obtain a copy of the License at
+    #
+    # http://www.apache.org/licenses/LICENSE-2.0
+    #
+    #   Unless required by applicable law or agreed to in writing, software
+    #   distributed under the License is distributed on an "AS IS" BASIS,
+    #   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    #   See the License for the specific language governing permissions and
+    #   limitations under the License.
+    #
+
+    # set variables
+    SU="/bin/su"
+    SCP="/usr/bin/scp"
+    TAR="/bin/tar"
+    TAROPTS="-czf"
+    HOME="/home/gerrit2/"
+    PGDUMP="/usr/bin/pg_dump"
+    PGUSER="gerrit2"
+    PGHOST="localhost"
+    # PGPORT=""
+    # The -w directive stops a password request, the ~/.pgpass file provides the password
+    PGOPTS="-w"
+    DATE=`/bin/date +%Y%m%d`
+    DBNAME="reviewdb"
+    BACKUPDIR="/home/gerrit2/backups/database"
+    BACKUPFILE="gerrit-pg-dump"
+    REMOTEHOST="ovirt.org"
+    REMOTEUSER="gerrit-backup"
+    REMOTEDIR="gerrit.ovirt.org-database-backup"
+
+    ## Run backup
+    # Switch to the Gerrit user - useful if root runs the script
+    #$SU - $PGUSER
+    # The gerrit2 user should change to the home directory
+    cd $HOME
+    # Dump the database to a SQL script file with a dated filename
+    $PGDUMP $PGOPTS $DBNAME > $BACKUPDIR/$BACKUPFILE-$DATE.sql
+    # Compress the SQL script
+    $TAR $TAROPTS $BACKUPDIR/$BACKUPFILE-$DATE.tgz $BACKUPDIR/$BACKUPFILE-$DATE.sql
+    # Securely copy the SQL script to a remote backup host
+    $SCP $BACKUPDIR/$BACKUPFILE-$DATE.tgz $REMOTEUSER@$REMOTEHOST:$REMOTEDIR/
+
+### Resources
+
+*   <http://www.postgresql.org/docs/8.4/static/backup-dump.html>
+*   <http://www.postgresql.org/docs/8.4/static/libpq-pgpass.html>
 
 [Category:Infrastructure documentation](Category:Infrastructure documentation)

@@ -156,10 +156,15 @@ Use cases :
 *   Input - storage_id UUID, storage_pool_id UUID.
 *   output - a business entity mapped by quota_storage_view for specified cluster_id, (if storage_id=null then returns a list of all the quota Storage for the storage pool_id)
 
-*GetQuotaByStoragePoolGuid* -
+*GetQuotaByStoragePoolGuid*
 
 *   Input - storage_pool_id UUID.
 *   output - a business entity mapped by quota_global_view for specified storage_pool_id, (if storage_pool_id=null then returns a list of all the quota in the setup)
+
+*GetQuotaUserByQuotaGuid*
+
+*   Input - quota_storage_pool_id UUID.
+*   output - all users for quota id
 
 #### Logic Design
 

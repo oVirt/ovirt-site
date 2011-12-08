@@ -146,20 +146,20 @@ Use cases :
 
 ###### Stored Procedures
 
-*getAllQuotaClusterForSP*
+*GetQuotaVdsGroupByVdsGroupGuid*
 
-*   Input - Storage pool Id, and user Id.
-*   Output - Clusters for Quotas, for user Id and Storage Pool.
+*   Input - vds_group_id UUID, storage_pool_id UUID.
+*   Output - a business entity mapped by quota_vds_group_view for specified vds_group with vds_group_id. (if vds_group_id=null then returns a list of all the vds group quotas for the storage pool_id)
 
-*getAllQuotaStorageForSP*
+*GetQuotaStorageByStorageGuid*
 
-*   Input - Storage pool Id, and user Id.
-*   output - All storages for Quota, for user Id and Storage Pool (If Data Center is disabled all the storage for the storage pool will be returned).
+*   Input - storage_id UUID, storage_pool_id UUID.
+*   output - a business entity mapped by quota_storage_view for specified cluster_id, (if storage_id=null then returns a list of all the quota Storage for the storage pool_id)
 
-*getQuotaCluster* - Reflects quota_cluster_view (Using VM business entity)
+*GetQuotaByStoragePoolGuid* -
 
-*   Input - Storage pool Id and Quota Id.
-*   output - All Cluster Quota properties for storage pool.
+*   Input - storage_pool_id UUID.
+*   output - a business entity mapped by quota_global_view for specified storage_pool_id, (if storage_pool_id=null then returns a list of all the quota in the setup)
 
 #### Logic Design
 

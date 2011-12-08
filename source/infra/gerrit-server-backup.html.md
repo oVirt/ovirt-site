@@ -14,14 +14,13 @@ wiki_last_updated: 2011-12-08
 
 ## On linode01.ovirt.org
 
-*   Create Gerrit backup user:
+*   Create Gerrit backup user, saving the password in */root/passwords*:
 
 <!-- -->
 
     useradd gerrit-backup
     passwd gerrit-backup
 
-*   -   Save password in */root/passwords*.
 *   Create SSH key structure:
 
 <!-- -->

@@ -374,7 +374,7 @@ This section describes issues that might need special consideration when writing
 
 **Pseudo code for view [quota views - all_quotas](Features/Design/Quota#DB_Design):**
  **Select** <desired fields>
- **From**quota_global_view q_g_view
+ **From** quota_global_view q_g_view
  WHERE q_g_view.storage_pool_id = v_storage_pool_id; *'* Open issues *'*
  RFE to consider: Add expiration date to the Quota
  RFE to consider : Use templates for Quota.

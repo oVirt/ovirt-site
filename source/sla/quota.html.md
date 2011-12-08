@@ -373,18 +373,9 @@ This section describes issues that might need special consideration when writing
 ### Appendix
 
 **Pseudo code for view [quota views - all_quotas](Features/Design/Quota#DB_Design):**
-
-**`Select`**` `<desired fields>
-       `**`From`**` quota_static q_static,
-       quota_cluster q_cluster,
-        quota_storage q_storage,
-        quota_users q_users,
-       vds_groups,
-      storage_pool_iso_map 
-**`Where`**` (q_static.storage_pool_id = vds_groups.storage_pool_id And (q_cluster.Id = q_static.cluster_quota_id And q_cluster.cluster_id = vds_groups.vds_group_id) Or (q_cluster.Id = null)) `
-       And (storage_pool_iso_map.storage_pool_id = q_static.storage_pool_id And storage_domain_static.id = storage_pool_iso_map.storage_id AND (q_storage.Id = q_static.Storage_Quota_ID And q_storage.storage_id = storage_domain_static.id) Or (q_storage.Id = null)) 
-       And (q_users.id = q_static.user_quota_id or q_static.quota_user.id = null)
-
-*'* Open issues *'*
+ **Select** <desired fields>
+ **From**
+ quota_global_view q_g_view
+ WHERE q_g_view.storage_pool_id = v_storage_pool_id; *'* Open issues *'*
  RFE to consider: Add expiration date to the Quota
  RFE to consider : Use templates for Quota.

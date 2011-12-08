@@ -48,7 +48,7 @@ This mechanism allows the administrator to manage, share and monitor the resourc
 
 ##### Quota
 
-Quota is a new (searchable) object in the system, which contains the following properties:
+Quota is a new searchable object in the system, which contains the following properties:
 
 1.  Name
 2.  Description

@@ -84,7 +84,7 @@ This section describes the backend design for this feature.
 
 | Column Name | Column Type | Null? / Default | Definition                                                                                      |
 |-------------|-------------|-----------------|-------------------------------------------------------------------------------------------------|
-| quota_id   | UUID        | Not null        | Foreign key for Quota ID represented in the quota table                                         |
+| quota_id   | UUID        | not null        | Foreign key for Quota ID represented in the quota table                                         |
 | user_id    | UUID        | null            | Foreign key to the users.user_id (null indicates no users permitted to consume from the Quota) |
 
 Use cases :

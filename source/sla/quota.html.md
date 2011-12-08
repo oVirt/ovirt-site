@@ -45,7 +45,7 @@ This section describes the backend design for this feature.
 
 #### DB Design
 
-**quota** - Represents the Quota properties
+**quota_storage_pool** - Represents the properties of the Quota configured on the DC.
 
 Column Name
 
@@ -59,13 +59,21 @@ quota_id
 
 UUID
 
-not null
+PK(not null)
 
 The Quota Id
 
-name
+storage_pool_id
 
-String
+UUID
+
+not null
+
+Storage pool Id
+
+quota_name
+
+VARCHAR(50)
 
 not null
 
@@ -73,7 +81,7 @@ Quota name
 
 description
 
-String
+VARCHAR(500)
 
 not null
 
@@ -95,71 +103,39 @@ not null
 
 Quota update date
 
-type
+threshold_vds_group_percentage
 
-Integer
-
-default '0'
-
-Represent the quota enforce mode 0-disabled 1-soft limit 2-hard limit
-
-threshold_cluster
-
-integer
+INTEGER
 
 null
 
-The threshold of the Cluster Quota the default should be configured in the vdc_options
+The threshold of the Vds Group Quota the default should be configured in the vdc_options
 
-threshold_storage
+threshold_storage_percentage
 
-integer
+INTEGER
 
 null
 
 The threshold of the Storage Quota the default should be configured in the vdc_options
 
-grace_cluster
+grace_vds_group_percentage
 
-integer
+INTEGER
 
 null
 
 The grace in percentage of the Cluster Quota the default should be configured in the vdc_options
 
-grace_storage
+grace_storage_percentage
 
-integer
+INTEGER
 
 null
 
 The grace in percentage of the Storage Quota the default should be configured in the vdc_options
 
-vcpu
-
-Integer
-
-null
-
-The global number or virtual CPU's allowed in the cluster Quota, -1 indicating unlimited vcpu, null indicates there is specific vcpu limitation.
-
-vram
-
-Integer
-
-null
-
-The global Virtual RAM allowed in the cluster Quota, -1 indicating unlimited vram, null indicates there is specific vram limitation.
-
-storage_limit
-
-BigInt
-
-null
-
-The storage limit in Mega bytes, -1 indicating unlimited storage for storage pool, null indicates there is specific storage limitation.
-
-**quota_cluster** - Represent the clusters which are part of the Quota, The relationship of Cluster-Quota is Many-To-Many.
+**quota_limitation** - Represents the quota limitation which are part of the Quota, the limitation can be defined for storage/vds cluster/storage pool.
 
 Column Name
 
@@ -169,71 +145,111 @@ Null? / Default
 
 Definition
 
-quota_id
+quota_limitation_id
 
 UUID
 
-Not null
+PK(not null)
 
-Foreign key for Quota ID represented in the quota table
+The primary key of the quota limitation.
 
-vds_group_id
+quota_id
 
 UUID
 
 not null
 
-Foreign key for vds_groups.vds_group_id
-
-vcpu
-
-Integer
-
-default '0'
-
-The number or virtual CPU's allowed in the cluster Quota (-1 for unlimited)
-
-vram
-
-Integer
-
-default '0'
-
-The Virtual RAM allowed in the cluster Quota (-1 for unlimited)
-
-**quota_storage** - Represents the Quota Storage limitation.
-
-Column Name
-
-Column Type
-
-Null? / Default
-
-Definition
-
-quota_id
-
-UUID
-
-Not null
-
-Foreign key for Quota ID represented in the quota table
+Foreign key for the quota id.
 
 storage_id
 
 UUID
 
+null
+
+Foreign key for storage id.
+
+vds_group_id
+
+UUID
+
+null
+
+Foreign key for vds group id.
+
+virtual_cpu
+
+INTEGER
+
+null
+
+The limited virtual cpu.
+
+virtual_ram_mega_byte
+
+BIGINT
+
+null
+
+The limited ram defined in mega byte.
+
+storage_limit_giga_byte
+
+BIGINT
+
+null
+
+The limited defined in Giga byte.
+
+**quota_usage** - The table is similar to quota limitation only it represents how much is used from the limitation.
+
+Column Name
+
+Column Type
+
+Null? / Default
+
+Definition
+
+quota_usage_id
+
+UUID
+
+PK(not null)
+
+The primary key of the quota usage.
+
+quota_limitation_id
+
+UUID
+
 not null
 
-The storage Id the Quota attached to
+Foreign key for the quota limitation id.
 
-storage_limit
+virtual_cpu
 
-BigInt
+INTEGER
 
-default '0'
+not null
 
-The storage limit in Mega bytes, could be -1 for no limit, or specific number of bytes
+The limited cpu defined in Giga byte.
+
+storage_limit_giga_byte
+
+INTEGER
+
+null
+
+The limited GB defined in Giga byte.
+
+virtual_ram_mega_byte
+
+BIGINT
+
+null
+
+The limited ram defined in Mega byte.
 
 **quota_users** - Represents the Quota users which are permitted to consume from the Quota.
 
@@ -263,10 +279,13 @@ Foreign key to the users.user_id (null indicates no users permitted to consume f
 
 Use cases :
 
-1.  unlimited quota - Quota table will be initialized with -1 for vcpu, vram and storage.
-2.  general limited quota - Quota table will be initialized with specific number for vcpu, vram and storage.
-3.  specific limited quota - quota_storage and quota_cluster will be initialized with specific values, quota fields (vcpu, vram and storage) will be null.
-4.  quota without any resources - a row in quota table (vcpu, vram and storage) will be null, and no rows for storage_quota and cluster_quota.
+1.  When quota_limitation vds_group_id=null and storage_id=null then the limitation is referenced to global limitation
+2.  When quota_limitation vds_group_id=null but storage_id!=null then the limitation is referenced only to storage quota
+3.  When quota_limitation vds_group_id!=null but storage_id=null then the limitation is referenced only to vdsGroup quota
+4.  unlimited quota - vds_group_id=null and storage_id=null in quota_limitation table and fields of vcpu, vram and storage will be initialized with -1.
+5.  general limited quota - vds_group_id=null and storage_id=null in quota_limitation table, fields of vcpu, vram and storage will be initialized with specific number.
+6.  specific limited quota - vds_group_id!=null and/or storage_id!=null in quota_limitation table, quota fields (vcpu, vram and storage) will be null.
+7.  quota without any resources - vds_group_id=null and storage_id=null in quota_limitation table, quota fields (vcpu, vram and storage) will be 0.
 
 ***vm_dynamic*** - Add column *quota_id*, which indicates the Quota the VM should be depended on its resources.
  ***image*** - Add column *quota_id*, which indicates the Quota the image should be depended on its storage resources.
@@ -275,6 +294,8 @@ Use cases :
 ###### Views
 
 [all_quotas](Features/Design/Quota#Appendix) - View of all the Quotas attached to all the storage pools for all Users.
+
+**quota_global_view** - The table is similar to quota limitation only it represents how much is used from the limitation.
 
 Column Name
 
@@ -293,6 +314,54 @@ Quota_ID
 UUID
 
 The Quota Id
+
+virtual_cpu
+
+INTEGER
+
+not null
+
+The limited cpu defined in Giga byte.
+
+virtual_cpu_usage
+
+INTEGER
+
+not null
+
+The limited cpu defined in Giga byte.
+
+storage_limit_giga_byte
+
+INTEGER
+
+null
+
+The limited GB defined in Giga byte.
+
+storage_limit_giga_byte_usage
+
+INTEGER
+
+null
+
+The limited GB defined in Giga byte.
+
+virtual_ram_mega_byte
+
+BIGINT
+
+null
+
+The limited ram defined in Mega byte.
+
+virtual_ram_mega_byte_usage
+
+BIGINT
+
+null
+
+The used ram in the cluster.
 
 Quota_Name
 

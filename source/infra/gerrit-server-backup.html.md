@@ -64,7 +64,6 @@ wiki_last_updated: 2011-12-08
 
 <!-- -->
 
-    <pre>
     #!/bin/bash
     #
     # Gerrit backup script - git source backup

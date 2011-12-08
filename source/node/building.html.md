@@ -106,4 +106,4 @@ $ cd ovirt-node`
     -   export OVIRT_LOCAL_REPO=<file://><your_location>
 *   `$ sudo node-creator ovirt-node-image.ks`
 
-<Category:Node> [Category:Node development](Category:Node development) <Category:Documentation>
+<Category:Node> <Category:Documentation>

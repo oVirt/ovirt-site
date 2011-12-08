@@ -34,7 +34,7 @@ A Task Manager is a monitor which shows the current actions running in ovirt-eng
 ### Detailed Description
 
 A Task Manager is a monitor which shows the current actions running in ovirt-engine server. It provides transparency for the administrator regarding the actions, their progress and status.
-The actions will be represented in the Tasks view of the Webadmin, where the status and progress are monitored. The Task Manager will monitor actions both synchronous and asynchronous tasks.
+The actions will be represented in the Tasks view of the Webadmin, where the status and progress are monitored. The Task Manager will monitor actions' both synchronous and asynchronous tasks.
 An action might be a chain of commands depended on each other and monitored in respect to the action which triggered the commands sequence.
  The requirements for feature are as follow:
 # Providing a mechanism for tasks management/monitoring via UI (i.e - monitor task status, monitor tasks of given action, tasks of a given entity, stop task, stop all tasks of command, restart of failed command).

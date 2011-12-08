@@ -159,7 +159,7 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
 
        - action parameter/s metadata should be taken from RSDL 
 
-#### use RSDL link response return type
+#### use RSDL link response return type (assigned)
 
        - right now return type extracted from URI
 
@@ -168,8 +168,6 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
 #### interface for task polling
 
 #### support 3+ length URIs
-
-#### add static /name/ parameter to .get() rather then accepting it via \*\*kwargs
 
 #### add documentation for methods based on RSDL parameters metadata
 
@@ -183,4 +181,4 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
 
 #### refactoring internal exceptions for better error handling on client side
 
-<Category:SDK> <Category:SDK>
+<Category:SDK>

@@ -20,6 +20,7 @@ The oVirt Node sub-project is geared toward building a small, robust operating s
 
 oVirt Node 2.2.0
 
+*   [Node_Release_Notes](Node_Release_Notes)
 *   [ISO image](http://ovirt.org/releases/stable/binary/ovirt-node-image-2.2.0-0.iso)
 *   [Source Tarball](http://ovirt.org/releases/stable/src/ovirt-node-2.2.0.tar.gz)
 *   [RPM Package](http://ovirt.org/releases/stable/fedora/16/ovirt-node-2.2.0-1.fc16.noarch.rpm)

@@ -8,7 +8,7 @@ wiki_last_updated: 2013-11-28
 
 # Setup Networks
 
-## 3.1 Network features design
+## Network features design
 
 ### Abstract
 
@@ -16,8 +16,6 @@ Setup networks api shall enable complex network provisioning of a host i.e. add/
 Hereby we describe code POV changes for backend and also VDSM api implications.
 
 #### Scope
-
-While on going discussions on vnlink and USC manager take place, they are out of the api and we're left with trivial operations:
 
 1.  add/remove network/s
 2.  add/remove bond/s

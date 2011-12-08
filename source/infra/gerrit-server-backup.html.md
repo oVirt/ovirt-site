@@ -120,6 +120,8 @@ wiki_last_updated: 2011-12-08
     0 22 * * *     $HOME/bin/gerrit-backup.sh
     # Run database backup at 2220 (10:20 pm) system time every day
     20 22 * * *    $HOME/bin/gerrit-database-backup.sh
+    # Run backup of /home/gerrit2 at 2240 (10:30 pm) system time every day
+    40 22 * * *    $HOME/bin/gerrit-gerrit2-home-backup.sh
 
 ### Backup Gerrit database
 
@@ -180,6 +182,59 @@ wiki_last_updated: 2011-12-08
     $TAR $TAROPTS $BACKUPDIR/$BACKUPFILE-$DATE.tgz $BACKUPDIR/$BACKUPFILE-$DATE.sql
     # Securely copy the SQL script to a remote backup host
     $SCP $BACKUPDIR/$BACKUPFILE-$DATE.tgz $REMOTEUSER@$REMOTEHOST:$REMOTEDIR/
+
+### Backup gerrit2 user home directory
+
+*   Add this backup script to the *gerrit2* user's crontab:
+
+<!-- -->
+
+    #!/bin/bash
+    #
+    # Gerrit backup script - gerrit2 user home backup
+    #
+    # 0.1 Alpha - 20111208 Karsten Wade <kwade@redhat.com> <quaid@iquaid.org>
+    # 
+    #
+    # Copyright 2011 Karsten Wade <kwade@redhat.com> <quaid@iquaid.org>
+    #
+    #   Licensed under the Apache License, Version 2.0 (the "License");
+    #   you may not use this file except in compliance with the License.
+    #   You may obtain a copy of the License at
+    #
+    # http://www.apache.org/licenses/LICENSE-2.0
+    #
+    #   Unless required by applicable law or agreed to in writing, software
+    #   distributed under the License is distributed on an "AS IS" BASIS,
+    #   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    #   See the License for the specific language governing permissions and
+    #   limitations under the License.
+    #
+
+    # set variables
+    SCP="/usr/bin/scp"
+    TAR="/bin/tar"
+    TAROPTS="-czf"
+    # Follwing variable doesn't work, probably due to a bash expansion order
+    TAREXCLUDE="--exclude='/home/gerrit2/backups*'"
+    HOME="/home/gerrit2/"
+    DATE=`/bin/date +%Y%m%d`
+    BACKUPDIR="/home/gerrit2/backups/gerrit2-home/"
+    BACKUPFILE="gerrit-gerrit2-home-backup"
+    BACKUPTARGET="/home/gerrit2"
+    REMOTEHOST="ovirt.org"
+    REMOTEUSER="gerrit-backup"
+    REMOTEDIR="gerrit.ovirt.org-gerrit2-home-backup/"
+
+    ## Run backup
+    # Switch to the Gerrit user - useful if root runs the script
+    #$SU - $PGUSER
+    # The gerrit2 user should change to the home directory
+    cd $HOME
+    # Compress the home directory
+    $TAR $TAROPTS $BACKUPDIR/$BACKUPFILE-$DATE.tgz $BACKUPTARGET --exclude='/home/gerrit2/backups*'
+    # Securely copy the compressed archive to a remote backup host
+    $SCP $BACKUPDIR/$BACKUPFILE-$DATE.tgz $REMOTEUSER@$REMOTEHOST:$REMOTEDIR
 
 ### Resources
 

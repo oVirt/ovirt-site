@@ -43,10 +43,10 @@ wiki_last_updated: 2011-12-08
 
 *   Switch to the Gerrit user:
 
-</pre>
-su - gerrit2
+<!-- -->
 
-</pre>
+    su - gerrit2
+
 *   Create an SSH key without a passphrase, then copy the public key for the *authorized_keys* file on the remote host:
 
 <!-- -->

@@ -6,8 +6,6 @@ wiki_category: SLA
 wiki_title: Features/Design/Quota
 wiki_revision_count: 112
 wiki_last_updated: 2012-08-23
-wiki_conversion_fallback: true
-wiki_warnings: conversion-fallback
 ---
 
 # Quota
@@ -47,235 +45,47 @@ This section describes the backend design for this feature.
 
 **quota_storage_pool** - Represents the properties of the Quota configured on the DC.
 
-Column Name
-
-Column Type
-
-Null? / Default
-
-Definition
-
-quota_id
-
-UUID
-
-PK(not null)
-
-The Quota Id
-
-storage_pool_id
-
-UUID
-
-not null
-
-Storage pool Id
-
-quota_name
-
-VARCHAR(50)
-
-not null
-
-Quota name
-
-description
-
-VARCHAR(500)
-
-not null
-
-Quota description
-
-creation_date
-
-Date
-
-not null
-
-Quota creation date
-
-update_date
-
-Date
-
-not null
-
-Quota update date
-
-threshold_vds_group_percentage
-
-INTEGER
-
-null
-
-The threshold of the Vds Group Quota the default should be configured in the vdc_options
-
-threshold_storage_percentage
-
-INTEGER
-
-null
-
-The threshold of the Storage Quota the default should be configured in the vdc_options
-
-grace_vds_group_percentage
-
-INTEGER
-
-null
-
-The grace in percentage of the Cluster Quota the default should be configured in the vdc_options
-
-grace_storage_percentage
-
-INTEGER
-
-null
-
-The grace in percentage of the Storage Quota the default should be configured in the vdc_options
+| Column Name                       | Column Type  | Null? / Default | Definition                                                                                        |
+|-----------------------------------|--------------|-----------------|---------------------------------------------------------------------------------------------------|
+| quota_id                         | UUID         | PK(not null)    | The Quota Id                                                                                      |
+| storage_pool_id                 | UUID         | not null        | Storage pool Id                                                                                   |
+| quota_name                       | VARCHAR(50)  | not null        | Quota name                                                                                        |
+| description                       | VARCHAR(500) | not null        | Quota description                                                                                 |
+| creation_date                    | Date         | not null        | Quota creation date                                                                               |
+| update_date                      | Date         | not null        | Quota update date                                                                                 |
+| threshold_vds_group_percentage | INTEGER      | null            | The threshold of the Vds Group Quota the default should be configured in the vdc_options         |
+| threshold_storage_percentage    | INTEGER      | null            | The threshold of the Storage Quota the default should be configured in the vdc_options           |
+| grace_vds_group_percentage     | INTEGER      | null            | The grace in percentage of the Cluster Quota the default should be configured in the vdc_options |
+| grace_storage_percentage        | INTEGER      | null            | The grace in percentage of the Storage Quota the default should be configured in the vdc_options |
 
 **quota_limitation** - Represents the quota limitation which are part of the Quota, the limitation can be defined for storage/vds cluster/storage pool.
 
-Column Name
-
-Column Type
-
-Null? / Default
-
-Definition
-
-quota_limitation_id
-
-UUID
-
-PK(not null)
-
-The primary key of the quota limitation.
-
-quota_id
-
-UUID
-
-not null
-
-Foreign key for the quota id.
-
-storage_id
-
-UUID
-
-null
-
-Foreign key for storage id.
-
-vds_group_id
-
-UUID
-
-null
-
-Foreign key for vds group id.
-
-virtual_cpu
-
-INTEGER
-
-null
-
-The limited virtual cpu.
-
-virtual_ram_mega_byte
-
-BIGINT
-
-null
-
-The limited ram defined in mega byte.
-
-storage_limit_giga_byte
-
-BIGINT
-
-null
-
-The limited defined in Giga byte.
+| Column Name                | Column Type | Null? / Default | Definition                               |
+|----------------------------|-------------|-----------------|------------------------------------------|
+| quota_limitation_id      | UUID        | PK(not null)    | The primary key of the quota limitation. |
+| quota_id                  | UUID        | not null        | Foreign key for the quota id.            |
+| storage_id                | UUID        | null            | Foreign key for storage id.              |
+| vds_group_id             | UUID        | null            | Foreign key for vds group id.            |
+| virtual_cpu               | INTEGER     | null            | The limited virtual cpu.                 |
+| virtual_ram_mega_byte   | BIGINT      | null            | The limited ram defined in mega byte.    |
+| storage_limit_giga_byte | BIGINT      | null            | The limited defined in Giga byte.        |
 
 **quota_usage** - The table is similar to quota limitation only it represents how much is used from the limitation.
 
-Column Name
-
-Column Type
-
-Null? / Default
-
-Definition
-
-quota_usage_id
-
-UUID
-
-PK(not null)
-
-The primary key of the quota usage.
-
-quota_limitation_id
-
-UUID
-
-not null
-
-Foreign key for the quota limitation id.
-
-virtual_cpu
-
-INTEGER
-
-not null
-
-The limited cpu defined in Giga byte.
-
-storage_limit_giga_byte
-
-INTEGER
-
-null
-
-The limited GB defined in Giga byte.
-
-virtual_ram_mega_byte
-
-BIGINT
-
-null
-
-The limited ram defined in Mega byte.
+| Column Name                | Column Type | Null? / Default | Definition                               |
+|----------------------------|-------------|-----------------|------------------------------------------|
+| quota_usage_id           | UUID        | PK(not null)    | The primary key of the quota usage.      |
+| quota_limitation_id      | UUID        | not null        | Foreign key for the quota limitation id. |
+| virtual_cpu               | INTEGER     | not null        | The limited cpu defined in Giga byte.    |
+| storage_limit_giga_byte | INTEGER     | null            | The limited GB defined in Giga byte.     |
+| virtual_ram_mega_byte   | BIGINT      | null            | The limited ram defined in Mega byte.    |
 
 **quota_users** - Represents the Quota users which are permitted to consume from the Quota.
 
-Column Name
-
-Column Type
-
-Null? / Default
-
-Definition
-
-quota_id
-
-UUID
-
-Not null
-
-Foreign key for Quota ID represented in the quota table
-
-user_id
-
-UUID
-
-null
-
-Foreign key to the users.user_id (null indicates no users permitted to consume from the Quota)
+| Column Name | Column Type | Null? / Default | Definition                                                                                      |
+|-------------|-------------|-----------------|-------------------------------------------------------------------------------------------------|
+| quota_id   | UUID        | Not null        | Foreign key for Quota ID represented in the quota table                                         |
+| user_id    | UUID        | null            | Foreign key to the users.user_id (null indicates no users permitted to consume from the Quota) |
 
 Use cases :
 
@@ -295,171 +105,44 @@ Use cases :
 
 [all_quotas](Features/Design/Quota#Appendix) - View of all the Quotas attached to all the storage pools for all Users.
 
-**quota_global_view** - The table is similar to quota limitation only it represents how much is used from the limitation.
-
-Column Name
-
-Column Type
-
-Definition
-
-Storage_Pool
-
-UUID
-
-The Storage Pool Id
-
-Quota_ID
-
-UUID
-
-The Quota Id
-
-virtual_cpu
-
-INTEGER
-
-not null
-
-The limited cpu defined in Giga byte.
-
-virtual_cpu_usage
-
-INTEGER
-
-not null
-
-The limited cpu defined in Giga byte.
-
-storage_limit_giga_byte
-
-INTEGER
-
-null
-
-The limited GB defined in Giga byte.
-
-storage_limit_giga_byte_usage
-
-INTEGER
-
-null
-
-The limited GB defined in Giga byte.
-
-virtual_ram_mega_byte
-
-BIGINT
-
-null
-
-The limited ram defined in Mega byte.
-
-virtual_ram_mega_byte_usage
-
-BIGINT
-
-null
-
-The used ram in the cluster.
-
-Quota_Name
-
-String
-
-The Quota name
-
-Cluster_Name
-
-String
-
-The cluster name
-
-Storage_Name
-
-String
-
-The storage name
-
-User_Id
-
-String
-
-The user Id, which has permissions to the Quota
-
-[quota_storage_view](quota_storage_view) - View of the Quotas storage resources.
-
-Column Name
-
-Column Type
-
-Definition
-
-storage_pool
-
-UUID
-
-The Storage Pool Id
-
-quota_ID
-
-UUID
-
-The Quota Id
-
-storage_id
-
-UUID
-
-The storage domain UUID (Null for all storage domains in the storage pool)
-
-storage_use
-
-Integer
-
-Calculated storage from the image dynamic
-
-storage_limit
-
-Integer
-
-The limit which the Quota is defined
-
-Column Name
-
-Column Type
-
-Definition
-
-storage_pool
-
-UUID
-
-The Storage Pool Id
-
-quota_ID
-
-UUID
-
-The Quota Id
-
-cluster_id
-
-UUID
-
-The cluster UUID (Null for all clusters in the storage pool)
-
-storage_use
-
-Integer
-
-Calculated storage from the image dynamic
-
-storage_limit
-
-Integer
-
-The limit which the Quota is defined
+**quota_global_view** - View of all the storage pool quota in the setup, that is all the quota that vds_group_id and storage_id values are null in the quota_limitation.
+
+| Column Name                       | Column Type | Definition          |
+|-----------------------------------|-------------|---------------------|
+| storage_pool                     | UUID        | The Storage Pool Id |
+| Quota_ID                         | UUID        | The Quota Id        |
+| Quota_Name                       | String      | The Quota name      |
+| virtual_cpu                      | INTEGER     | not null            |
+| virtual_cpu_usage               | INTEGER     | not null            |
+| storage_limit_giga_byte        | INTEGER     | null                |
+| storage_limit_giga_byte_usage | INTEGER     | null                |
+| virtual_ram_mega_byte          | BIGINT      | null                |
+| virtual_ram_mega_byte_usage   | BIGINT      | null                |
+
+**quota_vds_group_view** - View of all the vds group quotas in the setup, that is all the quotas that vds_group_id is not null but storage_id is null in the quota_limitation.
+
+| Column Name                     | Column Type | Definition                                 |
+|---------------------------------|-------------|--------------------------------------------|
+| storage_pool                   | UUID        | The Storage Pool Id                        |
+| Quota_ID                       | UUID        | The Quota Id                               |
+| Quota_Name                     | String      | The Quota name                             |
+| vds_static_id                 | UUID        | The vds group Id                           |
+| vds_static_name               | UUID        | The vds group name from vds_group_static |
+| virtual_cpu                    | INTEGER     | not null                                   |
+| virtual_cpu_usage             | INTEGER     | not null                                   |
+| virtual_ram_mega_byte        | BIGINT      | null                                       |
+| virtual_ram_mega_byte_usage | BIGINT      | null                                       |
+
+**quota_storage_view** - View of all the storage quotas in the setup, that is all the quotas that storage_id is not null but vds_cluster_id is null in the quota_limitation.
+
+| Column Name                       | Column Type | Definition          |
+|-----------------------------------|-------------|---------------------|
+| storage_pool                     | UUID        | The Storage Pool Id |
+| Quota_ID                         | UUID        | The Quota Id        |
+| storage_Name                     | String      | The storage name    |
+| storage_id                       | UUID        | The vds group Id    |
+| storage_limit_giga_byte        | INTEGER     | null                |
+| storage_limit_giga_byte_usage | INTEGER     | null                |
 
 ###### Stored Procedures
 
@@ -510,48 +193,42 @@ Administrator that would like to make the DC to use Quota, should change the DC 
 
 After the Administrator, will finish to configure the Quotas he desires for the DC,
  he can set the DC to enforce status, which means users will be prevented from making actions which will extend the Quota capabilities.
-
-A scheduler with run every 1 hour (Should be indicated in the vdc_options) and check if the quota is in their threshold limit, if not an audit log message should be performed.
+ A scheduler with run every 1 hour (Should be indicated in the vdc_options) and check if the quota is in their threshold limit, if not an audit log message should be performed.
 
 ##### Classes
 
 **Config Values**
  New configuration values in vdc_options:
 
-     quotaStorageThreshold - The default value should be 80%, and the version is General.
-     Indicates the percentage of resource allocation, which beyond this (if Quota is enforced) would print an appropriate audit log message.
-
-     quotaClusterThreshold - The default value should be 80%, and the version is General.
-     Indicates the percentage of cluster allocation, which beyond this (if Quota is enforced) would print an appropriate audit log message.
-
-     quotaStorageGrace - The default value should be 20%, and the version is General.
-     Indicates the percentage of resource extension allocation.
-
-     quotaClusterGrace - The default value should be 20%, and the version is General.
-     Indicates the percentage of resource extension allocation.
+*`quotaStorageThreshold`*` - The default value should be 80%, and the version is General.`
+       Indicates the percentage of resource allocation, which beyond this (if Quota is enforced) would print an appropriate audit log message.
+       `*`quotaClusterThreshold`*` - The default value should be 80%, and the version is General.
+       Indicates the percentage of cluster allocation, which beyond this (if Quota is enforced) would print an appropriate audit log message.
+       `*`quotaStorageGrace`*` - The default value should be 20%, and the version is General.
+       Indicates the percentage of resource extension allocation.
+       `*`quotaClusterGrace`*` - The default value should be 20%, and the version is General.
+       Indicates the percentage of resource extension allocation.
 
 **DAO Classes**
- ***org.ovirt.engine.core.dao.QuotaDAO*** - Interface for Quota DAO will extends GenericDao.
- ***org.ovirt.engine.core.dao.QuotaDAODbFacadeImpl*** - Implementation for QuotaDAO, reflects the quota view implementations.
+***org.ovirt.engine.core.dao.QuotaDAO**'' - Interface for Quota DAO will extends GenericDao.
+***org.ovirt.engine.core.dao.QuotaDAODbFacadeImpl**'' - Implementation for QuotaDAO, reflects the quota view implementations.
 
 **Classes**
- ***org.ovirt.engine.core.bll.QuotaManager*** - Class which manage the quota views and memory table
+***org.ovirt.engine.core.bll.QuotaManager*** - Class which manage the quota views and memory table
 
-     quotaClusterMap - The quota cluster Map is a concurrent HashMap which reflects a snapshot view of the cluster consumption status for each quota, it is based on the DB view [[Features/Design/Quota#DB Design|getQuotaCluster]]. The map should be synchronized when the server starts up, and the vdsUpdateRunTimeInfo has updated the data after the first time (counting on method beforeFirstRefreshTreatment).
-
-     quotaStorageMap - The quota storage Map is a Concurrent HashMap which reflects a snapshot view of the cluster consumption status for each quota, it is based on the DB view  [[Features/Design/Quota#DB Design|getQuotaStorage]], and it is initialized every time the Host will be chosen to be SPM, using the DB values and the task manager.
-
-***org.ovirt.engine.core.common.businessentities.QuotaStatusEnum*** - Enum indicating the DC Quota verification status.
+*`quotaClusterMap`*` - The quota cluster Map is a concurrent HashMap which reflects a snapshot view of the cluster consumption status for each quota, it is based on the DB view `[`getQuotaCluster`](Features/Design/Quota#DB_Design)`. The map should be synchronized when the server starts up, and the vdsUpdateRunTimeInfo has updated the data after the first time (counting on method beforeFirstRefreshTreatment).`
+       `*`quotaStorageMap`*` - The quota storage Map is a Concurrent HashMap which reflects a snapshot view of the cluster consumption status for each quota, it is based on the DB view  `[`getQuotaStorage`](Features/Design/Quota#DB_Design)`, and it is initialized every time the Host will be chosen to be SPM, using the DB values and the task manager.
+***`org.ovirt.engine.core.common.businessentities.QuotaStatusEnum`***` - Enum indicating the DC Quota verification status.`
 
 ##### Business entities
 
-***org.ovirt.engine.core.common.businessentities.QuotaStatic*** - A business entity that reflects quota static (see [quota_static](Features/Design/Quota#DB%20Design))
+***org.ovirt.engine.core.common.businessentities.QuotaStatic*** - A business entity that reflects quota static (see [quota_static](Features/Design/Quota#DB_Design))
 org.ovirt.engine.core.common.businessentities.QuotaDynamic - A business entity that reflects Quota dynamic (see [quota_dynamic](Features/Design/Quota#Appendix))
  org.ovirt.engine.core.common.businessentities.Quota - A business entity that reflects the view result (see [views](Features/Design/Quota#quota))
 
 ##### Query commands
 
-***GetAllQuotaStoragesQuery*** (Extends QueriesCommandBase) - Should call query (see [getAllQuotaStorageForSP](Features/Design/Quota#DB%20Design))
+***GetAllQuotaStoragesQuery*** (Extends QueriesCommandBase) - Should call query (see [getAllQuotaStorageForSP](Features/Design/Quota#DB_Design))
  with DC id and user id, The query will return List of all Quota for user in the DC.
 
 ###### Parameter commands
@@ -587,11 +264,10 @@ Result : The VM will be already calculated in the memory table but this informat
 *Running VM* - execute
 
 Each time there will be a change in the _asyncRunningVms (for example in createVMVdsCommand) the persistent Quota Dynamic data will be updated appropriately if needed
- If the command will fail then the memory table should be decreased with the resources that were added to it.
+If the command will fail then the memory table should be decreased with the resources that were added to it.
+ *Add New Disk - When dialog box opens*
 
-*Add New Disk - When dialog box opens*
-
-1.  GUI will call the query command [GetAllQuotaStoragesQuery](Features/Design/Quota#upgrade%20behaviour) with DC UUID
+1.  GUI will call the query command [GetAllQuotaStoragesQuery](Features/Design/Quota#upgrade_behaviour) with DC UUID
 2.  Return map of quotas, where each value represents a list of all the storage details.
 
 *Add New Disk - Confirm dialog box*
@@ -621,7 +297,7 @@ This logic in the canDoAction should be quite similar to the logic being done wi
 
 1.  At the end action we will check what was the storage change by GB, and update the Quota dynamic table appropriately.
 
-*Create new snapshot* - CanDoAction
+ *Create new snapshot* - CanDoAction
 
 1.  Add the full disk size to the quotaStorageMap.
 
@@ -631,7 +307,7 @@ This logic in the canDoAction should be quite similar to the logic being done wi
 2.  Subtract from the memory table the following (fullSize - realSize)
 3.  Update the DB quota dynamic value with + realSize
 
- *Create new template (similar to import scenario)* - CanDoAction
+*Create new template (similar to import scenario)* - CanDoAction
 
 1.  Calculate the storage that should be allocated by multiple the number of disks with 1GB (Which is the QCOW default size, TODO : Need to configure this with VDSM)
 2.  validate the quota properties and update the memory table.
@@ -640,7 +316,7 @@ This logic in the canDoAction should be quite similar to the logic being done wi
 
 1.  Persist the changes in the DB.
 
- *Create/Edit VM* - Reflects on AddVmCommand and EditVMCommand
+*Create/Edit VM* - Reflects on AddVmCommand and EditVMCommand
 
 1.  User will select Data Center he wants the VM to be created on.
 2.  GUI will call the query GetQueryForStoragePool with DC UUID
@@ -680,7 +356,7 @@ This section describes issues that might need special consideration when writing
 
 1.  Installer / Upgrader - Disk and Storage Pool should be attached to the default unlimited Quota.
 2.  DB Upgrade -
-    1.  For each DC, add Administrator Quota, which will be attached to all the users currently using the VM's in the DC.(see [upgrade logic](Features/Design/Quota#upgrade%20behaviour))
+    1.  For each DC, add Administrator Quota, which will be attached to all the users currently using the VM's in the DC.(see [upgrade logic](Features/Design/Quota#upgrade_behaviour))
     2.  Initialize the Quota users table depending on the users in the system.
 
 3.  MLA - Remove user from the system should also remove the user from the Quota_users table
@@ -691,20 +367,19 @@ This section describes issues that might need special consideration when writing
 
 ### Appendix
 
-**Pseudo code for view [quota views - all_quotas](Features/Design/Quota#DB%20Design):**
+**Pseudo code for view [quota views - all_quotas](Features/Design/Quota#DB_Design):**
 
-     Select 
-     From quota_static q_static,
-     quota_cluster q_cluster,
-      quota_storage q_storage,
-      quota_users q_users,
-     vds_groups,
-    storage_pool_iso_map 
-    Where (q_static.storage_pool_id = vds_groups.storage_pool_id And (q_cluster.Id = q_static.cluster_quota_id And q_cluster.cluster_id = vds_groups.vds_group_id) Or (q_cluster.Id = null)) 
-     And (storage_pool_iso_map.storage_pool_id = q_static.storage_pool_id And storage_domain_static.id = storage_pool_iso_map.storage_id AND (q_storage.Id = q_static.Storage_Quota_ID And q_storage.storage_id = storage_domain_static.id) Or (q_storage.Id = null)) 
-     And (q_users.id = q_static.user_quota_id or q_static.quota_user.id = null)
+**`Select`**` `<desired fields>
+       `**`From`**` quota_static q_static,
+       quota_cluster q_cluster,
+        quota_storage q_storage,
+        quota_users q_users,
+       vds_groups,
+      storage_pool_iso_map 
+**`Where`**` (q_static.storage_pool_id = vds_groups.storage_pool_id And (q_cluster.Id = q_static.cluster_quota_id And q_cluster.cluster_id = vds_groups.vds_group_id) Or (q_cluster.Id = null)) `
+       And (storage_pool_iso_map.storage_pool_id = q_static.storage_pool_id And storage_domain_static.id = storage_pool_iso_map.storage_id AND (q_storage.Id = q_static.Storage_Quota_ID And q_storage.storage_id = storage_domain_static.id) Or (q_storage.Id = null)) 
+       And (q_users.id = q_static.user_quota_id or q_static.quota_user.id = null)
 
-***Open issues***
-
-RFE to consider: Add expiration date to the Quota
+*'* Open issues *'*
+ RFE to consider: Add expiration date to the Quota
  RFE to consider : Use templates for Quota.

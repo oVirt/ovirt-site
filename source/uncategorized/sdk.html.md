@@ -152,24 +152,11 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
 
 ### codegen
 
-#### expose parameters in resource's actions according to RSDL (assigned)
-
-       - at this point all actions statically receive Action parameters holder what is 
-         not always correct as in case of importing vm/template where parameter should be StorageDomain)
-
-       - action parameter/s metadata should be taken from RSDL 
-
-#### use RSDL link response return type (assigned)
-
-       - right now return type extracted from URI
-
 #### auto-generate python entities from schema with GenerateDS
 
 #### interface for task polling
 
 #### support 3+ length URIs
-
-#### add documentation for methods based on RSDL parameters metadata
 
 ### sdk
 

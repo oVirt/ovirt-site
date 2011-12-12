@@ -160,6 +160,8 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
 
 #### support 3+ length URIs
 
+#### supporting off-line codegen mode
+
 ### sdk
 
 #### supporting several proxy instances in application

@@ -6,35 +6,11 @@ wiki_category: Feature
 wiki_title: Design for multiple storage domains
 wiki_revision_count: 19
 wiki_last_updated: 2014-07-13
-wiki_warnings: list-item?
 ---
 
 # Design for multiple storage domains
 
-*   Feature lead: [ Jon Choate](User: Jumper45)
-
-:\*GUI Component lead: [ Gilad Chaplik](User: gchaplik)
-
-:\*REST Component lead: [ Michael Pasternak](User: mpasternak)
-
-:\*Backend Component lead: [ Jon Choate](User: Jumper45)
-
-:\*VDSM Component lead: [ Dan Kenigsberg](User: danken)
-
-:\*QA lead:
-
-### Summary
-
-Allow VMs to have disks on multiple storage domains
-
-## Current status
-
-*   Target Release:
-*   Status: Design Stage
-
-## Detailed Description
-
-### User Stories
+## User Stories
 
 1.  Add VM
     1.  As a RHEV-M GUI user, when I create a VM, I want to be able to select different storage domains for each disk in the VM so that I can make efficient use of my storage. I know the feature works when I can use the RHEV-M GUI to create a VM with 3 disks each on different storage domains.
@@ -63,18 +39,18 @@ Allow VMs to have disks on multiple storage domains
     1.  As a RHEV-M GUI user, I want to be able to create a VM from a template and be able to specify on which storage domain each disk should be created. I know the feature works when I can create a VM from a template that has 3 disks and I can put each disk on a separate storage domain.
     2.  As a REST API user, I want to be able to create a VM from a template and be able to specify on which storage domain each disk should be created. I know the feature works when I can create a VM from a template that has 3 disks and I can put each disk on a separate storage domain.
 
-### Acceptance Tests
+## Acceptance Tests
 
       Will be based on the "I know the feature works..." in the user stories.
 
-#### Additional functionality to verify
+### Additional functionality to verify
 
 1.  create snapshots
 2.  delete disk
 3.  delete VM
 4.  start VM
 
-### Overall design
+## Overall design
 
 The main change that needs to happen is to have each image associated with its own storage domain.
 
@@ -106,21 +82,21 @@ This section describes the REST design for this feature.
 
 There should not be any changes to the database or the object model to support this feature. Many of the command classes will need their logic changes to handle processing each disk individually by their storage domain instead of handling them all at once.
 
-### VDSM
+## VDSM
 
 Vdsm already supports this feature; it has no limitation on the location of disk images. Any storage domain for any VM disk will do.
 
-### Open Issues
+## Open Issues
 
 1.  Need to consider negative cases when some storage domains fail, etc.
 2.  Need to determine which flows will need additional transactionality due to multiple storage domains.
 3.  Need to figure out how hibernation will work
 
-### Known Issues / Risks
+## Known Issues / Risks
 
 Being developed in parallel with quotas. Can't anticipate changes needed to work with quotas.
 
-### Needed documentation
+## Needed documentation
 
 The docs will need to be updated with new screenshots showing adding a disk to a VM and selecting the storage domain there.
 

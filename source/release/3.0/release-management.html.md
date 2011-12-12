@@ -24,8 +24,8 @@ wiki_last_updated: 2012-08-20
 *   **MUST**: Downloadable source tarball (signed)
 *   **SHOULD**: Downloadable binary tarball
 *   **SHOULD**: Downloadable binary builds for different distros
-*   **MUST**: Easy SSL support (via instller or separate script)
-*   **MUST**: Easy DB creation (via instller or separate script)
+*   **MUST**: Easy SSL support (via installer or separate script)
+*   **MUST**: Easy DB creation (via installer or separate script)
 *   **SHOULD**: Easy installation method (ovirt-setup or ovirt service)
 *   **MUST**: Pass minimal smoke test
     -   Running a VM on NFS and Local storage sounds reasonable to me (oschreib)

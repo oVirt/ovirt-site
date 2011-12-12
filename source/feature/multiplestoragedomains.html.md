@@ -65,4 +65,4 @@ Affected oVirt projects:
 *   Webadmin
 *   REST API
 
-<Category:Feature>
+<Category:Feature> <Category:Multiple_storage_domains>

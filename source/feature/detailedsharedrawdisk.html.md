@@ -117,7 +117,7 @@ Quota has to be taken in consideration, for every new feature that will involve 
 
 ### Future Work
 
-*   Permissions should be added for disk
+*   Permissions should be added for disk entity
 
 ### Open Issues
 

@@ -18,6 +18,7 @@ wiki_last_updated: 2014-07-13
 *   **Import VM template** - As a RHEV-M user, when I import a VM template using the [GUI | REST API], I want to be able to select different storage domains for each disk in the template so that I can make efficient use of my storage. I know the feature works when I can import a template with 3 disks each on different storage domains.
 *   **Move Disk** - As a RHEV-M user, I want to be able to use the [GUI | REST API] to move a disk from one storage domain to another so that I can make efficient use of my storage. I know the feature works when I can move a disk to an existing storage domain not already in use by the VM.
 *   **Create VM from template** - As a RHEV-M user, I want to be able to use the [GUI | REST API] to create a VM from a template and be able to specify on which storage domain each disk should be created. I know the feature works when I can create a VM from a template that has 3 disks and I can put each disk on a separate storage domain.
+*   **Create Template from VM** - As a RHEV-M user, I want to be able to use the [GUI | REST API] to create a template from a VM and be able to specify which storage domain should hold its disks. I know the feature works when I can create a template on a different storage domain than the one the VM resides on.
 
 ## Acceptance Tests
 

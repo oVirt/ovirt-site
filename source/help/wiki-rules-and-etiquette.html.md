@@ -32,8 +32,7 @@ You can set all pages that you create or edit to automatically be put in your wa
 
 1.  Go to <Special:Preferences>.
 2.  On the *Watchlist* tab under *Advanced options* put a checkmark next to these items:
-
-*   -   *Add pages I edit to my watchlist*
+    -   *Add pages I edit to my watchlist*
     -   *Add pages I move to my watchlist*
     -   *Add pages I create to my watchlist*
 

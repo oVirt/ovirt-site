@@ -31,4 +31,6 @@ In short, *this wiki is for the oVirt community collaborative documentation*.
 ## Links for authors and editors
 
 *   [How to create a user account](How to create a user account) on this wiki.
-*   [How to make pages](How to make pages) on this wiki.
+    -   More information is covered in <Help:Editing>.
+*   <Help:Editing> covers how to make pages on this wiki.
+    -   More information is covered in [Help:Wiki structure](Help:Wiki structure), [Help:Wiki rules and etiquette](Help:Wiki rules and etiquette), and [Help:Wiki syntax and markup](Help:Wiki syntax and markup).

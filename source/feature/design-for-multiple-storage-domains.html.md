@@ -12,43 +12,24 @@ wiki_last_updated: 2014-07-13
 
 ## User Stories
 
-1.  Add VM
-    1.  As a RHEV-M GUI user, when I create a VM, I want to be able to select different storage domains for each disk in the VM so that I can make efficient use of my storage. I know the feature works when I can use the RHEV-M GUI to create a VM with 3 disks each on different storage domains.
-    2.  As a Rest API user, when I create a VM, I want to specify a new VM where each disk is on different storage domains so that I can make efficient use of my storage. I know the feature works when I can use the REST API to create a VM with 3 disks each on different storage domains.
-
-2.  Import a VM
-    1.  As a RHEV-M GUI user, when I import a VM, I want to be able to select different storage domains for each disk in the VM so that I can make efficient use of my storage. I know the feature works when I can use the RHEV-M GUI to import a VM with 3 disks each on different storage domains.
-    2.  As a Rest API user, when I import a VM, I want to specify a new VM where each disk is on different storage domains so that I can make efficient use of my storage. I know the feature works when I can use the REST API to import a VM with 3 disks each on different storage domains
-
-3.  Hibernate a VM
-    1.  As a RHEV-M user, when I hibernate a VM, the VM will hibernate if and only if the VM and each disk can be hibernated. I know the feature works when I can hibernate the VM if each disk can hibernate not if hibernation fails for any disk.
-
-4.  Add Disk to VM
-    1.  As a RHEV-M GUI user, when I add a disk to a VM, I can select which storage domain to associate with it so that I can make more efficient use of my storage. I know the feature works when I can use the RHEV-M GUI to add a disk to a VM and put it on a storage domain not already in use by the VM.
-    2.  As a REST API user, when I add a disk to a VM, I can specify which storage domain to associate with it so that I can make more efficient use of my storage. I know the feature works when I can use the REST API to add a disk to a VM and put it on a storage domain not already in use by the VM
-
-5.  Import VM template
-    1.  As a RHEV-M GUI user, when I import a VM template, I want to be able to select different storage domains for each disk in the template so that I can make efficient use of my storage. I know the feature works when I can use the RHEV-M GUI to import a template with 3 disks each on different storage domains.
-    2.  As a Rest API user, when I import a VM template, I want to specify where each disk is on different storage domains so that I can make efficient use of my storage. I know the feature works when I can use the REST API to import a VM template with 3 disks each on different storage domains
-
-6.  Move Disk
-    1.  As a RHEV-M GUI user, I want to be able to move a disk from one storage domain to another so that I can make efficient use of my storage. I know the feature works when I can use the RHEV-M GUI to add a disk to an existing VM on a storage domain not already in use by the VM.
-    2.  As a REST API user, I want to specify moving a disk from one storage domain to another so that I can make efficient use of my storage. I know the feature works when I can use the REST API to add a disk to an existing VM on a storage domain not already in use by the VM.
-
-7.  Create VM from template
-    1.  As a RHEV-M GUI user, I want to be able to create a VM from a template and be able to specify on which storage domain each disk should be created. I know the feature works when I can create a VM from a template that has 3 disks and I can put each disk on a separate storage domain.
-    2.  As a REST API user, I want to be able to create a VM from a template and be able to specify on which storage domain each disk should be created. I know the feature works when I can create a VM from a template that has 3 disks and I can put each disk on a separate storage domain.
+*   **Add VM** - As a RHEV-M user, when I create a VM using the [GUI | REST API], I want to be able to select different storage domains for each disk in the VM so that I can make efficient use of my storage. I know the feature works when I can create a VM with 3 disks each on different storage domains.
+*   **Import VM** - As a RHEV-M user, when I import a VM using the [GUI | REST API], I want to be able to select different storage domains for each disk in the VM so that I can make efficient use of my storage. I know the feature works when I can import a VM with 3 disks each on different storage domains.
+*   **Add Disk to VM** - As a RHEV-M user, when I add a disk to a VM using the [GUI | REST API], I can select which storage domain to associate with it so that I can make more efficient use of my storage. I know the feature works when I can add a disk to a VM and put it on a storage domain not already in use by the VM.
+*   **Import VM template** - As a RHEV-M user, when I import a VM template using the [GUI | REST API], I want to be able to select different storage domains for each disk in the template so that I can make efficient use of my storage. I know the feature works when I can import a template with 3 disks each on different storage domains.
+*   **Move Disk** - As a RHEV-M user, I want to be able to use the [GUI | REST API] to move a disk from one storage domain to another so that I can make efficient use of my storage. I know the feature works when I can move a disk to an existing storage domain not already in use by the VM.
+*   **Create VM from template** - As a RHEV-M user, I want to be able to use the [GUI | REST API] to create a VM from a template and be able to specify on which storage domain each disk should be created. I know the feature works when I can create a VM from a template that has 3 disks and I can put each disk on a separate storage domain.
 
 ## Acceptance Tests
 
-      Will be based on the "I know the feature works..." in the user stories.
+Will be based on the "I know the feature works..." in the user stories.
 
 ### Additional functionality to verify
 
-1.  create snapshots
-2.  delete disk
-3.  delete VM
-4.  start VM
+*   create snapshots
+*   delete disk
+*   delete VM
+*   start VM
+*   hibernate VM
 
 ## Overall design
 

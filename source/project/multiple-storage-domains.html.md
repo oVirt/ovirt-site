@@ -11,7 +11,7 @@ wiki_warnings: list-item?
 
 # Multiple storage domains
 
-The Multiple storage domain project aims to allow VMs to use disks located on more than one storage domain.
+The Multiple storage domain project aims to allow VMs to use disks located on more than one Storage Domain within the same Data Center.
 
 *   Feature lead: [ Jon Choate](User: Jumper45)
 
@@ -25,9 +25,9 @@ The Multiple storage domain project aims to allow VMs to use disks located on mo
 
 :\*QA lead:
 
-## Summary
+## Goal
 
-Allow VMs to have disks on multiple storage domains
+Allow VMs to have disks on multiple storage domains within their Data Center.
 
 # Current status
 

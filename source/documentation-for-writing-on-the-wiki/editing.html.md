@@ -34,4 +34,4 @@ If ever you have questions about editing the oVirt project wiki, or if you need 
 
 *(Content from <https://fedoraproject.org/wiki/Help:Editing> under [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/))*
 
-<Category:Documentation> <Category:Help>
+[Category:Documentation for writing on the wiki](Category:Documentation for writing on the wiki) <Category:Help>

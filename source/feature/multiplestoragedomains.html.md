@@ -12,7 +12,7 @@ wiki_last_updated: 2014-07-13
 
 ### Summary
 
-Allow a VM to spread its disks across several storage domains
+Allow a VM to spread its disks across several storage domains within the same Data Center.
 
 ### Owner
 
@@ -25,7 +25,7 @@ Design Stage and RFC
 
 ### Detailed Description
 
-The requirement is to give the ability to create VM disks on more than one storage domain. The basic work-flow is:
+The requirement is to give the ability to create VM disks on more than one storage domain as long as the storage domains exist within the VM's Data Center. The basic work-flow is:
 
 The user creates the first disk, chooses the storage domain he wants The user creates the second disk, and has the ability to choose the storage domain he wants Question: Should the default be the storage domain of the first disk? What if there are many disks, on different storage domains? The user should be able to choose quota in each disk creation Make template workflow:
 

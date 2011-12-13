@@ -55,9 +55,9 @@ There needs to be a new tab for Virtual Disks so that users can view which disks
 2.  Import a VM
 3.  Add Disk to VM
 4.  Import VM Template
-5.  Create Snapshot
-6.  Move Disk
-7.  Create VM from Template
+5.  Move Disk
+6.  Create VM from Template
+7.  Create template from VM
 
 ### REST Design (Modeling)
 

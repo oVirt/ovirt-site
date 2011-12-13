@@ -43,12 +43,12 @@ The main change that needs to happen is to have each image associated with its o
 
 ##### Virtual Machines Tab
 
-The Virtual Disks tab need to have a Storage Domain column added
+*   The Virtual Disks tab need to have a Storage Domain column added
 
 ##### Storage Tab
 
-The Virtual Machines tab need to have some columns removed
-There needs to be a new tab for Virtual Disks so that users can view which disks are on which domains.
+*   The Virtual Machines tab need to have some columns removed
+*   There needs to be a new tab for Virtual Disks so that users can view which disks are on which domains.
 
 #### Workflow Changes
 

@@ -37,14 +37,26 @@ The main change that needs to happen is to have each image associated with its o
 
 ### GUI
 
+#### General Changes
+
+##### Virtual Machines Tab
+
+The Virtual Disks tab need to have a Storage Domain column added
+
+##### Storage Tab
+
+The Virtual Machines tab need to have some columns removed
+There needs to be a new tab for Virtual Disks so that users can view which disks are on which domains.
+
+#### Workflow Changes
+
 1.  Add a VM
 2.  Import a VM
-3.  Hibernate VM
-4.  Add Disk to VM
-5.  Import VM Template
-6.  Create Snapshot
-7.  Move Disk
-8.  Create VM from Template
+3.  Add Disk to VM
+4.  Import VM Template
+5.  Create Snapshot
+6.  Move Disk
+7.  Create VM from Template
 
 ### REST Design (Modeling)
 

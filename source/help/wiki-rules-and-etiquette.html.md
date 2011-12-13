@@ -50,7 +50,7 @@ These pages have been carefully written, and the words chosen carefully. When ch
 
 Large and important guides are generally managed by a specific individual or small group. It is best to work with them when you feel that changes are needed.
 
-Important pages, such as the [Main page](Main page), are the first thing that many visitors see. Changes to such pages should generally be left to experienced contributors. If you feel that something on such a page should be altered, bring the issue to the [arch@ovirt.org](Communication) mailing list for discussion.
+Important pages, such as the [Main Page](Main Page), are the first thing that many visitors see. Changes to such pages should generally be left to experienced contributors. If you feel that something on such a page should be altered, bring the issue to the [arch@ovirt.org](Communication) mailing list for discussion.
 
 ## Do not edit pages just to edit pages
 

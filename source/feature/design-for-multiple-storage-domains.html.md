@@ -65,12 +65,11 @@ This section describes the REST design for this feature.
 
 1.  Add a VM
 2.  Import a VM
-3.  Hibernate VM
-4.  Add Disk to VM
-5.  Import VM Template
-6.  Create Snapshot
-7.  Move Disk
-8.  Create VM from Template
+3.  Add Disk to VM
+4.  Import VM Template
+5.  Move Disk
+6.  Create VM from Template
+7.  Create template from VM
 
 ### Backend
 

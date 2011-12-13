@@ -19,6 +19,7 @@ wiki_last_updated: 2014-07-13
 *   **Move Disk** - As a RHEV-M user, I want to be able to use the [GUI | REST API] to move a disk from one storage domain to another so that I can make efficient use of my storage. I know the feature works when I can move a disk to an existing storage domain not already in use by the VM.
 *   **Create VM from template** - As a RHEV-M user, I want to be able to use the [GUI | REST API] to create a VM from a template and be able to specify on which storage domain each disk should be created. I know the feature works when I can create a VM from a template that has 3 disks and I can put each disk on a separate storage domain.
 *   **Create Template from VM** - As a RHEV-M user, I want to be able to use the [GUI | REST API] to create a template from a VM and be able to specify which storage domain should hold its disks. I know the feature works when I can create a template on a different storage domain than the one the VM resides on.
+*   **Clone Template** - As a RHEV-M user, I want to be able to use the [GUI | REST API] to clone a template and be able to specify which storage domain should hold its disks. I know the feature works when I can clone a template on a different storage domain than the one the source template resides on.
 
 ## Acceptance Tests
 
@@ -51,25 +52,27 @@ There needs to be a new tab for Virtual Disks so that users can view which disks
 
 #### Workflow Changes
 
-1.  Add a VM
-2.  Import a VM
-3.  Add Disk to VM
-4.  Import VM Template
-5.  Move Disk
-6.  Create VM from Template
-7.  Create template from VM
+*   Add a VM
+*   Import a VM
+*   Add Disk to VM
+*   Import VM Template
+*   Move Disk
+*   Create VM from Template
+*   Create template from VM
+*   Clone template
 
 ### REST Design (Modeling)
 
 This section describes the REST design for this feature.
 
-1.  Add a VM
-2.  Import a VM
-3.  Add Disk to VM
-4.  Import VM Template
-5.  Move Disk
-6.  Create VM from Template
-7.  Create template from VM
+*   Add a VM
+*   Import a VM
+*   Add Disk to VM
+*   Import VM Template
+*   Move Disk
+*   Create VM from Template
+*   Create template from VM
+*   Clone template
 
 ### Backend
 

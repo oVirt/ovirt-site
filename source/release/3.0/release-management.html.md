@@ -40,7 +40,10 @@ wiki_last_updated: 2012-08-20
 *   **ovirt-node**:
     -   VDSM Doesn't register without manual process (http://ovirt.org/wiki/Engine_Node_Integration#Engine_core_machine)
         -   Patches posted, awaiting approval
-    -   **ETA**: Dependent on VDSM, but should be by 2011-12-09
+
+         suggested patches break backward compatibility with vdsm-4.9 in several cases - registration to a different servelet, different management network breaks migration, maybe more issues.
+
+*   -   **ETA**: Dependent on VDSM, but should be by 2011-12-09
 
 ### Open issues
 

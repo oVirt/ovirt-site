@@ -49,6 +49,5 @@ wiki_last_updated: 2012-08-20
 *   **JBoss**:Which JBoss version should we support?
     -   Currently, only JBoss AS5 is available (self created rpm from their zip)
 *   **Signing**: Who should sign tarballs?
-*   **ovirt-engine-config**: Broken due to <https://bugzilla.redhat.com/show_bug.cgi?id=759094>
 
 <Category:Releases>

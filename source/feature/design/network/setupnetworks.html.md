@@ -61,8 +61,8 @@ Bridge-less nics can serve for heavy traffic channels like migration, export or 
 
 1.  Add bridged : boolean to network entity
 2.  Add deserialization to bridged field in VdsBrokerObjectsBuilder.java
-3.  DB - add field in to vds_interface and vds_interface_view
-4.  DAO - add field to VdsInterfaceDao CRUD actions
+3.  DB - add field in to network and network_view
+4.  DAO - add field to NetworkDao CRUD actions
 
 #### Backward Compatibility
 

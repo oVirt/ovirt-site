@@ -27,7 +27,19 @@ __TOC__
 
 # Usage
 
+### Connect
+
+1. access interactive shell
+
+       ovirt-shell
+
+2. issue connect command
+
+       connect "`[`http://host:port/api`](http://host:port/api)`" "user@domain" "password"
+
 ### Help
+
+1. help COMMAND
 
 ![](help.jpg "help.jpg")
 

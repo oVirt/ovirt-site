@@ -152,8 +152,6 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
 
 ### codegen
 
-#### support for URL parameters
-
 #### auto-generate python entities from schema with GenerateDS
 
 #### interface for task polling

@@ -39,7 +39,7 @@ __TOC__
 
 ### Help
 
-1. help COMMAND
+1. help 'COMMAND', e.g:
 
 ![](help.jpg "help.jpg")
 

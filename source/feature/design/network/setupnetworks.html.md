@@ -12,8 +12,8 @@ wiki_last_updated: 2013-11-28
 
 ### Abstract
 
-Setup networks api shall enable complex network provisioning of a host i.e. add/remove/bond network at one call.
-Hereby we describe code POV changes for backend and also VDSM api implications.
+Setup networks api shall enable complex network provisioning of a host i.e. add/remove/bond network with one call.
+Hereby we describe code POV changes for Engine as well as VDSM API implications.
 
 #### Scope
 
@@ -22,10 +22,10 @@ Hereby we describe code POV changes for backend and also VDSM api implications.
 3.  attach/detach networks to/from bonds
 4.  **check connectivity & connectivity timeout:**
 
-    after the new topology layed by VDSM, they test if any client(i.e engine) has interacted with them, in the given period timeout.
-     When no activity seen, they revert to the baked-up topology and fail the command.
+    after the new topology layed by VDSM, it tests if any client(i.e engine) has interacted with it in a given period timeout.
+     When no activity seen, it reverts to the previously backed-up topology and fail the command.
 
-5.  **force:** VDSM will not validate parameters passed to set the network configuration .
+5.  **force:** VDSM will not validate parameters passed to set the network configuration.
 
 #### Backward compatibility
 
@@ -54,8 +54,8 @@ Cluster version is 3.1. Add record in the action_version_map table:
 
 #### Feature summary
 
-All VMs today are connected through a software bridge, which has naturally performance take.
-Bridge-less nics can serve for heavy traffic channels like migration, export or the engine management network.
+All VMs today are connected through a software bridge, which naturally has a performance hit.
+Bridge-less NICs can serve for heavy traffic channels like migration, storage or the engine's management network.
 
 #### Code Change
 
@@ -66,7 +66,7 @@ Bridge-less nics can serve for heavy traffic channels like migration, export or 
 
 #### Backward Compatibility
 
-Its compatibility version is 3.1 and enforced by the enclosed command as mentioned already. Bridge-less network shall be edited throw SetupNetworks command only, which will eventually deprecate add/edit networks commands.
+Its compatibility version is 3.1 and enforced by the enclosed command as mentioned already. Bridge-less network will be edited via the SetupNetworks command only, which will eventually deprecate add/edit networks commands.
 
 ### Jumbo frames
 

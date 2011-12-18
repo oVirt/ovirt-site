@@ -12,7 +12,7 @@ wiki_last_updated: 2013-11-28
 
 ### Abstract
 
-Setup networks api shall enable complex network provisioning of a host i.e. add/remove/bond network with one call.
+Setup networks api will enable complex network provisioning of a host i.e. add/remove/bond network with a single call.
 Hereby we describe code POV changes for Engine as well as VDSM API implications.
 
 #### Scope

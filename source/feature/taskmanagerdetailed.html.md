@@ -77,6 +77,11 @@ The following class diagrams describe the entities participating in the the Task
 **Command Entity Class Diagram**
 ![](command-entity-class-diagram.jpeg "fig:command-entity-class-diagram.jpeg")
 
+------------------------------------------------------------------------
+
+**Async Vds Commands Class Diagram**
+ ![](Async-Vds-Commands-class-diagram.jpeg "fig:Async-Vds-Commands-class-diagram.jpeg")
+
 #### DB Design
 
 <span style="color:Teal">**command_entity**</span> represents the command entity:

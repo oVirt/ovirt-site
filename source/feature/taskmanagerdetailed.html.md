@@ -35,20 +35,27 @@ A Task Manager is a monitor which shows the current actions running in ovirt-eng
 
 A Task Manager is a monitor which shows the current actions running in ovirt-engine server. It provides transparency for the administrator regarding the actions, their progress and status.
 The actions will be represented in the Tasks view of the Webadmin, where the status and progress are monitored. The Task Manager will monitor actions' both synchronous and asynchronous tasks.
-An action might be a chain of commands depended on each other and monitored in respect to the action which triggered the commands sequence.
- The requirements for feature are as follow:
+A simple action describes a command which is consist of 2-3 tasks: verification (CanDoAction), execution and possible finalization (endAction). An complex action might be:
+
+*   A command which has tasks and invokes additional commands internally which are reported as tasks.
+*   A chain of commands depended on each other and monitored in respect to the action which triggered the commands sequence.
+
+A task is a meaningful part of the command which the user should be aware of.
+
+The requirements for feature are as follow:
 # Providing a mechanism for tasks management/monitoring via UI (i.e - monitor task status, monitor tasks of given action, tasks of a given entity, stop task, stop all tasks of command, restart of failed command).
 
-1.  Defining a task dependency/task chaining mechanism (Task B will not start before completion of Task A).
-2.  Providing a mechanism to invoke commands asynchronously.
-3.  Defining a "best effort task" - The success of the parent command of this task will not be dependent on the result of a task).
-4.  Providing permission mechanism for the task management.
+1.  Defining a global correlation-id which spread cross-systems representing an action (UI--> Backend --> VDSM).
+2.  Defining a task dependency/task chaining mechanism (Task B will not start before completion of Task A).
+3.  Providing a mechanism to invoke commands asynchronously.
+4.  Defining a "best effort task" - The success of the parent command of this task will not be dependent on the result of a task).
+5.  Providing permission mechanism for the task management.
 
-The feature will also contain some changes that are required internally for backend development and to improve task management functionality and correctness of behavior:
+The feature will also contain some changes that are required internally for Backend development and to improve task management functionality and correctness of behavior:
 
 1.  Changing serialization of task parameters to JSON - will ease on tasks flow debugging.
 2.  Improving task recovery mechanism - in case JBoss restart (there might be a mismatch between last stored task info and the current task status in VDSM).
-3.  Abstracting the Tasks representation in backend (e.g. VDSM, authentication)
+3.  Abstracting the Tasks representation in Backend (e.g. VDSM, authentication)
 
 ### Backend
 

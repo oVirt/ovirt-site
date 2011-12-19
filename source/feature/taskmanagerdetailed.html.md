@@ -64,17 +64,22 @@ This section describes the backend design for this feature.
 #### Entity Description
 
 The following entities/components will be added:
-**CommandEntity** a representation of a command in the system. Using this entity, a concrete instance inherited of *CommandBase* could be created (e.g. 'resurrection' of a command).
-**CommandSequence** an entity which composes the *CommandEntity*, representing whether the current command entity is a part of a sequential command (e.g. depended on other commands to be completed before being executed).
-**CommandRepository** uses to store and fetch command entities from the database. Later implementation might use internal cache for commands in progress and upon completion to flush the 'CommandEntity'' from memory to database.
-**CommandDAO** a DAO interface which defines the DML operations for the command entities.
-**CommandDAODbFacadeImpl** an implementation of the CommandDAO interface.
-**GetCommandsQuery** a query which fetches selective or entire command entities from the database.
-**GetModifiedCommandsQuery** a query which fetches only commands which were updated since a given time. It is designed to pull only tasks which where updated since the last query invoked by a client.
-**SequentialCommandRunnerFactory** a factory which creates a runner for sequential commands.
-**SequentialCommandRunner** a sequential command runner is responsible to to create a sequence of commands which includes order and dependencies (in the future 'best effort' command could be integrated with the sequence creation process) and to invoke the sequence.
-**CommandExecuter** an abstraction of command execution method.
-**SyncCommandExecuter** a synchronous implementation of the *CommandExecuter* interface. Designed to invoke commands synchronously.
+
+*   **CommandEntity** a representation of a command in the system. Using this entity, a concrete instance of *CommandBase* could be created (e.g. command 'resurrection'). The *CommandEntity* contains list of internal commands which are part of the entire action. Command entity is capable to produce a descriptive tree of tasks which describes an action.
+*   **CommandTaskInfo** a representation of a meaningful part of the action. The class could be a parent of other tasks (e.g. task named execution could have beneath it a list of tasks which are part of the execution).
+*   **CommandRepository** uses to store and fetch command entities from the database. Also responsible to maintain obsolete entries.
+*   **CommandDAO** a DAO interface which defines the DML operations for the command entities.
+*   **CommandDAODbFacadeImpl** an implementation of the CommandDAO interface.
+*   **GetCommandsQuery** a query which fetches selective or entire command entities from the database.
+*   **GetModifiedCommandsQuery** a query which fetches only commands which were updated since a given time. It is designed to pull only tasks which where updated since the last query invoked by a client.
+
+For future use:
+
+*   **CommandSequence** an entity which might compose the *CommandEntity*, representing whether the current command entity is a part of a sequential command (e.g. depended on other commands to be completed before being executed).
+*   **SequentialCommandRunnerFactory** a factory which creates a runner for sequential commands.
+*   **SequentialCommandRunner** a sequential command runner is responsible to to create a sequence of commands which includes order and dependencies (in the future 'best effort' command could be integrated with the sequence creation process) and to invoke the sequence.
+*   **CommandExecuter** an abstraction of command execution method.
+*   **SyncCommandExecuter** a synchronous implementation of the *CommandExecuter* interface. Designed to invoke commands synchronously.
 
 **Main Task Manager Class Diagram**
 The following class diagrams describe the entities participating in the the Task Manager feature: ![](async-task-main-class-diagram.jpeg "fig:async-task-main-class-diagram.jpeg")
@@ -87,7 +92,11 @@ The following class diagrams describe the entities participating in the the Task
 ------------------------------------------------------------------------
 
 **Async Vds Commands Class Diagram**
- ![](Async-Vds-Commands-class-diagram.jpeg "fig:Async-Vds-Commands-class-diagram.jpeg")
+\* By inheriting *IVdsAsyncCommand* commands are treated asynchronously, regardless having asynchronous tasks (e.g. VDSM task).
+
+*   Async Commands are being registered to the *VDSBrokerFrontendImpl.AsyncRunningCommands*, and by relevant event of the monitor (*VdsEventListener*) will be completed.
+
+![](Async-Vds-Commands-class-diagram.jpeg "Async-Vds-Commands-class-diagram.jpeg")
 
 #### DB Design
 

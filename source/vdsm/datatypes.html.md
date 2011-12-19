@@ -36,6 +36,7 @@ vdsm uses various complex types throughout its API. Currently these are expresse
                                                                                                        'boot'           # The desired boot device. String: 'a', 'c', 'd', 'n'                                                          
                                                                                                        'vmType'         # The type of VM to create.  String: 'kvm'                                                                     
                                                                                                        'floppy'         # Set the floppy disk volume. DriveSpec_t                                                                      
+                                                                                                       'volatileFloppy' # The floppy is temporary and should be ejected and deleted on shutdown or reboot.                             
                                                                                                        'cdrom'          # Set the cdrom volume. DriveSpec_t                                                                            
                                                                                                        'sysprepInf'     # Create a sysprep floppy from an inf file for automatic Windows installation. Binary data.                    
                                                                                                        'nicModel'       # A comma-separated list of nic models to use, one per desired network device.                                 
@@ -69,5 +70,5 @@ vdsm uses various complex types throughout its API. Currently these are expresse
                                                                                                        'kernel'         # Enable direct-boot from host using this file for the kernel.  Local path.                                    
                                                                                                        'kernelArgs'     # When direct-boot is enabled, pass these arguments to the kernel. String.                                     
                                                                                                        'acpiEnable'     # Enable ACPI in the guest? Boolean.                                                                           
-
+                                                                                                       # The following 'custom' fields are also recognized: vhost, sndbuf, viodiskcache                                                
                                                                                                      }                                                                                                                                 |

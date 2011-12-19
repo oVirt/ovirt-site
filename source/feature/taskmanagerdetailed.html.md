@@ -154,14 +154,16 @@ The backend commands are divided into two categories:
     2.  The command ends, but the action is completed by the monitor.
 
 The following sequence diagrams describe how the new components should interact in order to support the commands, by command type:
- **Sync Command Invocation Sequence Diagram**
+
+##### Sync Command Invocation Sequence Diagram
+
 ![](Sync-action-invocation-sequence-diagram.jpeg "fig:Sync-action-invocation-sequence-diagram.jpeg")
 **The sequence above describes invocation of sync-action:**
 
 *   The *Backend* receive a request from a client, provided by action type, parameters and optionally correlation-id.
     -   Correlation-ID is a pass-thru identifier of an action which the user defines. A user can associate any action with that ID which will appear as part of the command entity and its tasks, in Backend for action related logging and in VDSM logs. If the user does not provide a correlation-id, the Backend will generate one.
 *   The *Backend* uses the *CommandFactory* to create a concrete command instance.
-*   The *Backend* uses the *CommandRepository* to create a *CommandEntity*. The *CommandEntity* will describe the metadata of the command, therefore a command is responsible for creating its own metadata. The command metadata is basically a placeholders for the steps of the action. A default implementation will be provided (A command with 2-3 tasks representing VALIDATION, EXECUTION and tentative FINALIZATION). The new entity is being initialized with status 'Waiting for launch', command id, action type, parameters, correlation-id, command creation time and the user which invoked the command. The *CommandRepository* persist the *CommandEntity* to the database, letting the command queries be noticed about the new command in the system.
+*   The *Backend* uses the *CommandRepository* to create a *CommandEntity*. The *CommandEntity* will describe the metadata of the command (detailed below), therefore a command is responsible for creating its own metadata. The command metadata is basically a placeholders for the steps of the action. A default implementation will be provided (A command with 2-3 tasks representing VALIDATION, EXECUTION and tentative FINALIZATION). The new entity is being initialized with status 'Waiting for launch', command id, action type, parameters, correlation-id, command creation time and the user which invoked the command. The *CommandRepository* persist the *CommandEntity* to the database, letting the command queries be noticed about the new command in the system.
 *   The *CommandBase.executeAction()* updates the status of the command entity to state 'VALIDATING' and set the last update time to current. It also updates 'VALIDATION' task of the command (status IN_PROGRESS, start-time).
     -   The *CommandBase.InternalCanDoAction()* determines how the validation step ends:
 
@@ -172,8 +174,14 @@ The following sequence diagrams describe how the new components should interact 
     2.  Upon successful execution, the command will verify there are no tasks for it. If no tasks, the command is marked as completed successfully.
 *   A scheduler of the *CommandRepository* will clear obsolete command entities and their tasks.
 
+##### Async Command Invocation Sequence Diagram
+
+![](Async-action-type-invocation-sequence-diagram.jpeg "fig:Async-action-type-invocation-sequence-diagram.jpeg")
+When command has tasks, it shares the same sequence as the previous sequence, except the last step. The async command will be resurrected by the *AsyncTaskManager* once there are no more active tasks for the command and will execute the *CommandBase.endAction()* for that command, in which the final state of the command will be set.
+
 **Command Metadata Pseudo-code examples:**
 *Default command metadata:*
+\* The next example describes the default command metadata created for commands with no special implementation.
 
         // CommandEntity----Description----Start time----End time----Status----[Entity Name----Entity Type]
         //      |
@@ -187,9 +195,9 @@ The following sequence diagrams describe how the new components should interact 
             return entity;
         }
 
-*Maintenance command metadata:*
-\* In the example below, the metadata of *MaintenanceNumberOfVdssCommand* is created prior to the command execution, reflecting to user the expected flow of the action. When there is a Backend command as part of the execution sequence (e.g. MaintenanceVdsCommand), a *CommandEntity* is created, storing the entity type and entity id.
+===== MaintenanceNumberOfVdssCommand metadata =====
 
+*   In the example below, the metadata of *MaintenanceNumberOfVdssCommand* is created prior to the command execution, reflecting to user the expected flow of the action. When there is a Backend command as part of the execution sequence (e.g. MaintenanceVdsCommand), a *CommandEntity* is created, storing the entity type and entity id.
 *   Having entity-ids associated with the command entity will enable using the *IVdsAsyncCommand* interface to invoke the command once again upon completion or failure of the command. This will grant the action to complete its tasks. Once command is completed, the associated task will be marked as completed. For example:
     -   *VdsEventListner.VdsMovedToMaintanance(vdsId)* will invoke the *MaintenanceVdsCommand* associated with the id. It will be executed by registering the *MaintenanceVdsCommand* with the host id to be notified when the monitor reach that point.
     -   *VdsEventListner.RunningSucceeded* and *VdsEventListner.RemoveAsyncCommand* provides control over the *MigrateVm* commands, therefore for the task representing the VM migration.
@@ -242,13 +250,9 @@ The following sequence diagrams describe how the new components should interact 
             return rootEntity;
         }
 
-**Async Command Invocation Sequence Diagram**
-![](Async-action-type-invocation-sequence-diagram.jpeg "fig:Async-action-type-invocation-sequence-diagram.jpeg")
-When command has tasks, it shares the same sequence as the previous sequence, except the last step. The async command will be resurrected by the *AsyncTaskManager* once there are no more active tasks for the command and will execute the *CommandBase.endAction()* for that command, in which the final state of the command will be set.
+##### Maintenance of the command entity and command task info
 
-Maintenance of the command entity and command task info:  
-
-When Backend is initialized, the commands which are in progress are being examined for their status. If the command has tasks, the tasks status is being examined and upon completion of tasks, the command will be finalized (by *CommandBase.endAction()*). If the command has no tasks, it status should be marked as failed command.
+When Backend is initialized, the commands which are in progress are being examined for their status. If the command has tasks, the tasks status is being examined and upon completion of tasks, the command will be finalized (by *CommandBase.endAction()*). If the command has no tasks, its status should be marked as failed command.
 
 A scheduler will be responsible for clearing obsolete command entities and tasks info data from the database.
 There will be two different configuration value:
@@ -258,13 +262,7 @@ There will be two different configuration value:
 
 When command entity is being cleared from the database, all relevant data is being cleared as well: command task info and command sequence if exist.
 
-Updating the command information in the database will be executed in a new transaction, with a different scope the the active one. Common command steps which tasks will be created for are: INIT, VALIDATION, EXECUTION.
-
-*   INIT - the phase between the command creation till can-do-action, Should be a quick step, which consist of pre can-do-action operation (e.g. acquiring locks over entities).
-*   VALIDATION - the can-do-action phase, a validation of the conditions for executing the command.
-*   EXECUTION - the actual execution of the command.
-
-Tasks and events won't be created for internal commands.
+Updating the command information in the database will be executed in a new transaction, with a different scope than the active one. Tasks and events won't be created for internal commands by default, unless specifically asked for. The CommandEntity could be set as monitored command per action: In action X it could be presentable where in other action it could be hidden. The visibility of the CommandEntity determines the visibility of its tasks and sub-tasks.
 
 ### Events
 

@@ -63,4 +63,13 @@ It is possible during development to speed up the build process by skipping the 
       $> mvn2 clean install -DskipTests=true
        
 
+## Log Configuration
+
+Engine logging is done with log4j.
+the configuration is done with jboss-log4j.xml file which can be found under <jboos profile dir>/conf/
+this file contains categories for main components, and log level can be changed there.
+also 3rd parties components are configured in this file (like apache http client).
+it is also possible to add appenders which allow logging some components to different files.
+(this is useful when logging debug messages of component that may create a lot of 'noise' in the regular log).
+
 [Category:Draft documentation](Category:Draft documentation) <Category:Engine> [Category:How to](Category:How to)

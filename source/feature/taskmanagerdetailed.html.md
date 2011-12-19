@@ -160,17 +160,15 @@ The following sequence diagrams describe how the new components should interact 
 
 *   The *Backend* receive a request from a client, provided by action type, parameters and optionally correlation-id.
     -   Correlation-ID is a pass-thru identifier of an action which the user defines. A user can associate any action with that ID which will appear as part of the command entity and its tasks, in Backend for action related logging and in VDSM logs. If the user does not provide a correlation-id, the Backend will generate one.
-*   The *Backend* uses the *CommandFactory* for creating a concrete command instance.
-*   The *Backend* uses the *CommandRepository* for creating a *CommandEntity*. The *CommandEntity* will describe the metadata of the command, therefore a command is responsible for creating its own. The command metadata is basically a placeholders for the steps of the action. A default implementation will be provided (A command with 2-3 tasks representing VALIDATION, EXECUTION and FINALIZATION). The new entity is being initialized with status 'Waiting for launch', command id, action type, parameters, correlation-id, command creation time and the user which invoked the command. The *CommandRepository* persist the *CommandEntity* to the database, letting the command queries be noticed about the new command in the system.
-*   The *Backend* uses the *SyncCommandExecuter* for executing the command in a synchronous method.
-*   The *SyncCommandExecuter* invokes the command and returns the command return value to the user.
-*   The *CommandBase.executeAction()* updates the status of the command entity to state 'VALIDATING' and set the last update time to current. Updates 'VALIDATION' task of the command (status IN_PROGRESS, start-time).
+*   The *Backend* uses the *CommandFactory* to create a concrete command instance.
+*   The *Backend* uses the *CommandRepository* to create a *CommandEntity*. The *CommandEntity* will describe the metadata of the command, therefore a command is responsible for creating its own metadata. The command metadata is basically a placeholders for the steps of the action. A default implementation will be provided (A command with 2-3 tasks representing VALIDATION, EXECUTION and tentative FINALIZATION). The new entity is being initialized with status 'Waiting for launch', command id, action type, parameters, correlation-id, command creation time and the user which invoked the command. The *CommandRepository* persist the *CommandEntity* to the database, letting the command queries be noticed about the new command in the system.
+*   The *CommandBase.executeAction()* updates the status of the command entity to state 'VALIDATING' and set the last update time to current. It also updates 'VALIDATION' task of the command (status IN_PROGRESS, start-time).
     -   The *CommandBase.InternalCanDoAction()* determines how the validation step ends:
 
     1.  Upon failure, the Task is marked as failed and the Command Entity is marked as failed as well.
     2.  Upon successful completion of validation step, the validation command task is marked as completed, and set the end-time.
-*   The *CommandBase.executeAction()* updates the status of the command entity to state 'EXECUTING' and sets the last update time to current and also updates 'EXECUTION' task of the command (status IN_PROGRESS, start-time).
-    1.  Upon execution failure, the command entity is marked as failed.
+*   The *CommandBase.executeAction()* updates the status of the command entity to state 'EXECUTING' and sets the last update time to current and also updates 'EXECUTION' task of the command (status RUNNING, start-time).
+    1.  Upon execution failure, the task is marked as failed and the command entity is marked as failed as well.
     2.  Upon successful execution, the command will verify there are no tasks for it. If no tasks, the command is marked as completed successfully.
 *   A scheduler of the *CommandRepository* will clear obsolete command entities and their tasks.
 
@@ -186,42 +184,61 @@ The following sequence diagrams describe how the new components should interact 
             CommandEntity rootEntity = new CommandEntity(this); //this refers to CommandBase instance
             rootEntity.addTask(CommandTaskType.VALIDATION);
             rootEntity.addTask(CommandTaskType.EXECUTION);
-            persist(entity);
             return entity;
         }
 
 *Maintenance command metadata:*
+\* In the example below, the metadata of *MaintenanceNumberOfVdssCommand* is created prior to the command execution, reflecting to user the expected flow of the action. When there is a Backend command as part of the execution sequence (e.g. MaintenanceVdsCommand), a *CommandEntity* is created, storing the entity type and entity id.
 
-        // Maintenance command metadata
+*   Having entity-ids associated with the command entity will enable using the *IVdsAsyncCommand* interface to invoke the command once again upon completion or failure of the command. This will grant the action to complete its tasks. Once command is completed, the associated task will be marked as completed. For example:
+    -   *VdsEventListner.VdsMovedToMaintanance(vdsId)* will invoke the *MaintenanceVdsCommand* associated with the id. It will be executed by registering the *MaintenanceVdsCommand* with the host id to be notified when the monitor reach that point.
+    -   *VdsEventListner.RunningSucceeded* and *VdsEventListner.RemoveAsyncCommand* provides control over the *MigrateVm* commands, therefore for the task representing the VM migration.
+*   Since in *MaintenanceNumberOfVdssCommand* there are multiple tasks which might end in undefined order, and in order to prevent a need to synchronize tasks update in order to determine command completion, a scheduler will be set to monitor action in progress with asynchronous commands.
+
+<!-- -->
+
+        // Maintenance command metadata (each level should have also the Correlation-ID)
         // CommandEntity----Description----Start time----End time----Status----[Entity Name----Entity Type]
         //      |
         //      ------ VALIDATION -----Start time----End time----Status
         //      |
         //      ------ EXECUTION -----Start time----End time----Status
-        //      |           |
-        //      |           ---- PREPARE_FOR_MAINTENANCE-----Start time----End time----Status
-        //      |           |
-        //      |           ---- MIGRATE_VMS -----Start time----End time----Status
-        //      |               |
-        //      |               ---- MIGRATION_OF_VM_X -----Start time----End time----Status
-        //      |               |
-        //      |               ---- MIGRATION_OF_VM_X -----Start time----End time----Status
-        //      |
-        //      ------ DISCONNECT_FROM_STORAGE-----Start time----End time----Status
+        //                 |
+        //                 ---- PREPARE_FOR_MAINTENANCE-----Start time----End time----Status
+        //                 |
+        //                 ---- MAINTENANCE_HOST_A -----Start time----End time----Status
+        //                 |    |
+        //                 |    ---- MIGRATION_OF_VM_X -----Start time----End time----Status
+        //                 |    |
+        //                 |    ---- MIGRATION_OF_VM_Y -----Start time----End time----Status
+        //                 |    |
+        //                 |    ---- DISCONNECT_FROM_STORAGE-----Start time----End time----Status
+        //                 |
+        //                 ---- MAINTENANCE_HOST_B -----Start time----End time----Status
+        //                      |
+        //                      ---- MIGRATION_OF_VM_Z -----Start time----End time----Status
+        //                      |
+        //                      ---- DISCONNECT_FROM_STORAGE-----Start time----End time----Status
+        //
         public CommandEntity createCommandMetadata(){
             CommandEntity rootEntity = super.createCommandMetadata(this); //this refers to CommandBase instance
 
             CommandTaskInfo executionTask = entity.getTask(CommandTaskType.EXECUTION);
             rootEntity.addTask(executionTask, CommandTaskType.PREPARE_FOR_MAINTENANCE);
 
-            CommandTaskInfo migrateVmsTask = rootEntity.addTask(executionTask, CommandTaskType.MIGRATE_VMS);
-            for (VM vm : getVmsToMigrate()) {
-                CommandEntity migrateCommand = new CommandEntity(MigrateVmCommand.class); //concrete class details will be updated after actual command is created.
-                migrateCommand.addTask(migrateVmsTask, CommandTaskType.MIGRATE_VM);
-                rootEntity.addCommandEntity(migrateCommand);
+            for (VDS vds : getVdsList()){
+                CommandEntity maintenanceCommand = new CommandEntity(MaintananceVds.class);
+                CommandTaskInfo migrateVmsTask = maintenanceCommand.addTask(executionTask, CommandTaskType.MAINTENANCE_HOST);
+
+                // The actual number of command entities per VM migration will be created during command execution
+                for (VM vm : vds.getVmsToMigrate()) {
+                    CommandEntity migrateCommand = new CommandEntity(MigrateVmCommand.class); //concrete class details will be updated after actual command is created.
+                    migrateCommand.addTask(migrateVmsTask, CommandTaskType.MIGRATE_VM);
+                    maintenanceCommand.addCommandEntity(migrateCommand);
+                }
+                maintenanceCommand.addTask(CommandTaskType.DISCONNECT_FROM_STORAGE);
+                rootEntity.addCommandEntity(maintenanceCommand);
             }
-            // The actual number of command entities per VM migration will be created during command execution
-            rootEntity.addTask(CommandTaskType.DISCONNECT_FROM_STORAGE);
             return rootEntity;
         }
 

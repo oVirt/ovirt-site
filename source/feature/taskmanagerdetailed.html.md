@@ -180,8 +180,11 @@ The following sequence diagrams describe how the new components should interact 
 When command has tasks, it shares the same sequence as the previous sequence, except the last step. The async command will be resurrected by the *AsyncTaskManager* once there are no more active tasks for the command and will execute the *CommandBase.endAction()* for that command, in which the final state of the command will be set.
 
 **Command Metadata Pseudo-code examples:**
-*Default command metadata:*
-\* The next example describes the default command metadata created for commands with no special implementation.
+===== Default command metadata =====
+
+*   The next example describes the default command metadata created for commands with no special implementation.
+
+<!-- -->
 
         // CommandEntity----Description----Start time----End time----Status----[Entity Name----Entity Type]
         //      |
@@ -195,7 +198,7 @@ When command has tasks, it shares the same sequence as the previous sequence, ex
             return entity;
         }
 
-===== MaintenanceNumberOfVdssCommand metadata =====
+##### MaintenanceNumberOfVdssCommand metadata
 
 *   In the example below, the metadata of *MaintenanceNumberOfVdssCommand* is created prior to the command execution, reflecting to user the expected flow of the action. When there is a Backend command as part of the execution sequence (e.g. MaintenanceVdsCommand), a *CommandEntity* is created, storing the entity type and entity id.
 *   Having entity-ids associated with the command entity will enable using the *IVdsAsyncCommand* interface to invoke the command once again upon completion or failure of the command. This will grant the action to complete its tasks. Once command is completed, the associated task will be marked as completed. For example:

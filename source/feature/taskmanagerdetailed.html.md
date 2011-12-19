@@ -268,8 +268,7 @@ Tasks and events won't be created for internal commands.
 
 ### Events
 
-The events log should be associated with the command which created the event. The association of the command with the events will enable viewing all of the events related to the specific command.
-Event logs will be created when command tasks (*TaskInfo*) are created.
+Event logs will be created when command tasks (*CommandTaskInfo*) are created.
 
 ### Dependencies / Related Features and Projects
 

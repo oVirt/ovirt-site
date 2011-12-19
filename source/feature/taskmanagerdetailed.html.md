@@ -81,19 +81,33 @@ For future use:
 *   **CommandExecuter** an abstraction of command execution method.
 *   **SyncCommandExecuter** a synchronous implementation of the *CommandExecuter* interface. Designed to invoke commands synchronously.
 
-**Main Task Manager Class Diagram**
+##### Enumerators
+
+''' New Enumerators *'
+*CommandTaskType'' represents all available task types in the system.
+
+**Updated Enumerators**
+*VdcActionType* will be extended with list of categories to which a specific action type belongs to.
+
+##### Annotations
+
+*@NonMonitored* defines which commands should not be monitored. *@CommandName* a descriptive name of the command to be reflect to the user.
+
+##### Main Task Manager Class Diagram
+
 The following class diagrams describe the entities participating in the the Task Manager feature: ![](async-task-main-class-diagram.jpeg "fig:async-task-main-class-diagram.jpeg")
 
 ------------------------------------------------------------------------
 
-**Command Entity Class Diagram**
-![](command-entity-class-diagram.jpeg "fig:command-entity-class-diagram.jpeg")
+##### Command Entity Class Diagram
+
+![](command-entity-class-diagram.jpeg "command-entity-class-diagram.jpeg")
 
 ------------------------------------------------------------------------
 
-**Async Vds Commands Class Diagram**
-\* By inheriting *IVdsAsyncCommand* commands are treated asynchronously, regardless having asynchronous tasks (e.g. VDSM task).
+##### Async Vds Commands Class Diagram
 
+*   By inheriting *IVdsAsyncCommand* commands are treated asynchronously, regardless having asynchronous tasks (e.g. VDSM task).
 *   Async Commands are being registered to the *VDSBrokerFrontendImpl.AsyncRunningCommands*, and by relevant event of the monitor (*VdsEventListener*) will be completed.
 
 ![](Async-Vds-Commands-class-diagram.jpeg "Async-Vds-Commands-class-diagram.jpeg")

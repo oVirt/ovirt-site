@@ -198,6 +198,35 @@ When command has tasks, it shares the same sequence as the previous sequence, ex
             return entity;
         }
 
+##### AddVdsCommand metadata
+
+*   In the next example, a metadata creation for the *AddVdsCommand* will be described.
+*   The *AddVdsCommand* has the default steps of VERIFICATION and EXECUTION.
+*   In addition it has the TEST_POWER_MANAGEMENT task, a synchronous step invoked from the command itself and its status is determined immediately.
+*   The last step is the INSTALL_HOST. This step is being executed in a new thread, detached from the *AddVdsCommand* thread. The completion of the INSTALL_HOST step will determine how the *AddVdsCommand* action ended. For that purpose the resolution of the action is delegated to the *InstallVdsCommand*. The *InstallVdsCommand* will update the task which represents it. Since this is the last step of the action, it could report for the completion of the entire command by updating it.
+
+<!-- -->
+
+        // CommandEntity----Description----Start time----End time----Status----[Entity Name----Entity Type]
+        //      |
+        //      ------ VALIDATION -----Start time----End time----Status
+        //      |
+        //      ------ EXECUTION -----Start time----End time----Status
+        //                  |
+        //                  ------ TEST_POWER_MANAGEMENT-----Start time----End time----Status
+        //                  |
+        //                  ------ INSTALLING_HOST-----Start time----End time----Status
+        public CommandEntity createCommandMetadata(){
+            CommandEntity rootEntity = new CommandEntity(this);
+            rootEntity.addTask(CommandTaskType.VALIDATION);
+            CommandTaskInfo executionTask = rootEntity.addTask(CommandTaskType.EXECUTION);
+            rootEntity.addTask(executionTask, CommandTaskType.TEST_POWER_MANAGEMENT);
+
+            CommandEntity installVdsEntity = new CommandEntity(this, InstallVdsCommand.class);
+            installVdsEntity.addTask(CommandTaskType.INSTALLING_HOST);
+            rootEntity.addCommandEntity(executionTask, installVdsEntity);
+        }
+
 ##### MaintenanceNumberOfVdssCommand metadata
 
 *   In the example below, the metadata of *MaintenanceNumberOfVdssCommand* is created prior to the command execution, reflecting to user the expected flow of the action. When there is a Backend command as part of the execution sequence (e.g. MaintenanceVdsCommand), a *CommandEntity* is created, storing the entity type and entity id.

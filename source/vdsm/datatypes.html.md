@@ -135,8 +135,22 @@ vdsm uses various complex types throughout its API. Currently these are expresse
                                                                                                      }                                                                                                                                                                                                        |
 | **StorageDomain_Type_t**                                                                    
 
- Identifies the type of backing storage that is used by the domain                              |   NFS_DOMAIN = 1                                                                                                                                                                                            
+ Identifies the type of backing storage that is used by the domain                              |   UNKNOWN_DOMAIN = 0                                                                                                                                                                                        
+                                                                                                       NFS_DOMAIN = 1                                                                                                                                                                                         
                                                                                                        FCP_DOMAIN = 2                                                                                                                                                                                         
                                                                                                        ISCSI_DOMAIN = 3                                                                                                                                                                                       
                                                                                                        LOCALFS_DOMAIN = 4                                                                                                                                                                                     
                                                                                                        CIFS_DOMAIN = 5                                                                                                                                                                                        |
+| **StorageDomain_Create_TypeParameters_t**                                                  
+
+ Storage Domain type-specific creation parameters                                               | *For FCP and iSCSI domains:*                                                                                                                                                                                
+
+                                                                                                       vgUUID      # The UUID of the volume group to be used                                                                                                                                                  
+
+                                                                                                 *For NFS domains:*                                                                                                                                                                                           
+
+                                                                                                       remotePath  # The path to the remote NFS exported filesystem (<host>:/<path>)                                                                                                                          
+
+                                                                                                 *For LOCALFS domains:*                                                                                                                                                                                       
+
+                                                                                                       localPath  # The local path to use (eg. /var/localstorage)                                                                                                                                             |

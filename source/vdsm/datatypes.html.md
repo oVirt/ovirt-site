@@ -125,7 +125,7 @@ vdsm uses various complex types throughout its API. Currently these are expresse
 | **LVM_Create_DeviceList_t**                                                                
 
  A list of device names to include when creating a new LVM volume group                         | [ "sda1", "sdb3" ... ]                                                                                                                                                                                      |
-| **ISCSI_Connection_t**                                                                      
+| **ISCSI_ConnectParams_t**                                                                   
 
  A dictionary of iSCSI connection information                                                   | {                                                                                                                                                                                                           
                                                                                                        'connection' # iSCSI host IP address                                                                                                                                                                   

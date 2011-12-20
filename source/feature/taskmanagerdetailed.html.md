@@ -109,7 +109,8 @@ The following class diagram focuses on the *CommandEntity* and its associated el
 ##### Async Vds Commands Class Diagram
 
 *   By inheriting *IVdsAsyncCommand* commands are treated asynchronously, regardless having asynchronous tasks (e.g. VDSM task).
-*   Async Commands are being registered to the *VDSBrokerFrontendImpl.AsyncRunningCommands*, and by relevant event of the monitor (*VdsEventListener*) will be completed.
+*   Async Commands are being registered to the *VDSBrokerFrontendImpl.AsyncRunningCommands*, and by relevant event of the monitor (processed by *VdsEventListener*) will be completed.
+*   Since the delay between cycles of the *VdsUpdateRunTimeInfo* and possibly implications on synchronized *VDSCommand*s, an alternative for regenerating and processing the completion of the commands will be triggering events which will be processed asynchronously, detached from the flow of the monitor.
 
 ![](Async-Vds-Commands-class-diagram.jpeg "Async-Vds-Commands-class-diagram.jpeg")
 

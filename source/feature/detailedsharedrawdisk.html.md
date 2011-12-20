@@ -40,7 +40,7 @@ The shared raw disk feature enables to share disks through multiple VMs in the D
 ### Detailed Description
 
 The shared raw disk feature should provide the ability to attach disk to many VMs with safe concurrent access,
-With this feature oVirt will be more compatible to support external cluster application, or shared data warehouse.
+The disk should behave as a flexible independent entity, that can be move between VMs, and would not have to be attached to a VM. With this feature oVirt will be more compatible to support external cluster application, or shared data warehouse.
 
 #### Entity Description
 

@@ -101,7 +101,8 @@ The following class diagrams describe the entities participating in the the Task
 
 ##### Command Entity Class Diagram
 
-![](command-entity-class-diagram.jpeg "command-entity-class-diagram.jpeg")
+The following class diagram focuses on the *CommandEntity* and its associated element *CommandTaskInfo*:
+![](command-entity-class-diagram.jpeg "fig:command-entity-class-diagram.jpeg")
 
 ------------------------------------------------------------------------
 

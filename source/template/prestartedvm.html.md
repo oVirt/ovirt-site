@@ -87,7 +87,8 @@ New Design:
 1.  Adding a vms_need_preping field to each VmPool.
     1.  This field is configurable upon Vmpool creation by the admin.
 
-||<bgcolor="#005cb9" style="color: rgb(255, 255, 255); font-style: italic; font-weight: bold;">Column Name ||<bgcolor="#005cb9" style="color: rgb(255, 255, 255); font-style: italic; font-weight: bold;"> Column Type ||<bgcolor="#005cb9" style="color: rgb(255, 255, 255); font-style: italic; font-weight: bold;"> Null? / Default ||<bgcolor="#005cb9" style="color: rgb(255, 255, 255); font-style: italic; font-weight: bold;">Description || || min_prestarted_vms || Integer || not null / default 0 || The minimum number of prestarted vms || || vms_need_preping || Boolean || not null / default true || Vms need to be run once by the admin ||
+<span style="color:Teal">**command_entity**</span> represents the command entity:
+{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Description |- |min_prestarted_vms ||Boolean ||not null / default true ||The minimum number of prestarted vms |- |vms_need_preping ||Boolean ||not null / default true ||Vms need to be run once by the admin |- |}
 
 1.  There are 2 possible approaches to maintaining the minimal amount of prestarted Vms:
     1.  1.  Periodic - creating a job that runs every x minutes. x is defined in vdc_options in a new row called VmPoolRefreshRate. A new property needs to be added to the engine-config.properties file. The default will be 2 minutes. The job will go over each pool, check whether there are enough prestarted Vms running. If not, it will start the needed amount.
@@ -154,4 +155,4 @@ Affected rhevm projects:
 
 ------------------------------------------------------------------------
 
-      . CategoryRhev31
+<Category:Template> <Category:Feature>

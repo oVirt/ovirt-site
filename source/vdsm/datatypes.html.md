@@ -122,3 +122,6 @@ vdsm uses various complex types throughout its API. Currently these are expresse
 
  Specify the type of image move operation that is desired                                       |   COPY_OP                                                                                                                                                                                                   
                                                                                                        MOVE_OP                                                                                                                                                                                                |
+| **LVM_Create_DeviceList_t**                                                                
+
+ A list of device names to include when creating a new LVM volume group                         | [ "sda1", "sdb3" ... ]                                                                                                                                                                                      |

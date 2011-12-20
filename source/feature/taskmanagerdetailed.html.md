@@ -198,7 +198,12 @@ The following sequence diagrams describe how the new components should interact 
 *   The tasks polling started after the command execution in ended.
 
 **Command Metadata Pseudo-code examples:**
-===== Default command metadata =====
+
+##### Multiple Action Sequence Diagram
+
+When invoking Multiple Actions, the runner will be the responsible for creating the metadata for the command: ![](Multiple-action-runner-sequence-diagram.jpeg "fig:Multiple-action-runner-sequence-diagram.jpeg")
+
+##### Default command metadata
 
 *   The next example describes the default command metadata created for commands with default implementation.
 *   The CommandEntity will represent the descriptive name of the command which acts as the name of the action.

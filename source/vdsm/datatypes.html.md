@@ -154,3 +154,8 @@ vdsm uses various complex types throughout its API. Currently these are expresse
                                                                                                  *For LOCALFS domains:*                                                                                                                                                                                       
 
                                                                                                        localPath  # The local path to use (eg. /var/localstorage)                                                                                                                                             |
+| **StorageDomain_Class_t**                                                                   
+
+ Identifies the nature/class of data that will be stored in the domain                          |   DATA_DOMAIN = 1                                                                                                                                                                                           
+                                                                                                       ISO_DOMAIN = 2                                                                                                                                                                                         
+                                                                                                       BACKUP_DOMAIN = 3                                                                                                                                                                                      |

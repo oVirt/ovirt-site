@@ -45,6 +45,16 @@ A task is a meaningful part of the command which the user should be aware of.
 The requirements for feature are as follow:
 # Providing a mechanism for tasks management/monitoring via UI (i.e - monitor task status, monitor tasks of given action, tasks of a given entity, stop task, stop all tasks of command, restart of failed command).
 
+#\* The first version will include a default implementation for all commands and specific flow monitoring for the specific commands:
+
+#\*\* AddVdsCommand
+
+#\*\* MaintenanceNumberOfVds
+
+#\*\* RunVmCommand
+
+#\*\* StopVmCommand
+
 1.  Defining a global correlation-id which spread cross-systems representing an action (UI--> Backend --> VDSM).
 2.  Defining a task dependency/task chaining mechanism (Task B will not start before completion of Task A).
 3.  Providing a mechanism to invoke commands asynchronously.

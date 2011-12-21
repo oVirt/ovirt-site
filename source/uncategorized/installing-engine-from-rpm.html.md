@@ -32,16 +32,7 @@ Execute the following command:
 Install ovirt-engine by executing:
 
       yum install -y ovirt-engine
-       
-
-execute \`engine-setup
-
-#### DB Creation
-
-Create ovirt-engine's DB by executing:
-
-      cd /usr/share/ovirt-engine/dbscripts
-      ./create_db_devel.sh -u postgres
+      engine-setup
        
 
 #### Additional Configuration

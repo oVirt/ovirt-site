@@ -339,5 +339,6 @@ The Task Manager is depended on the Internal Locking Mechanism feature [Features
 4.  Commands monitoring and permission model, adding Tasks view to users.
 5.  Do we care about first X commands which ended successfully in a sequence, if the sequence failed for the X+1 command
 6.  If a command in sequence fails, should we create audit-log and *TaskInfo* for the remaining commands in sequence specifying commands won't be executed/started ?
+7.  logging of Ids
 
 <Category:Template> <Category:Feature>

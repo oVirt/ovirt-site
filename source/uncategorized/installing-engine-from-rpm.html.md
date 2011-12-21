@@ -25,19 +25,6 @@ Execute the following command:
 
 # Ovirt-engine
 
-### Configuring Postgresql
-
-If this is the first time postgresql is used on this host, execute:
-
-      su - postgres -c 'pg_ctl initdb'
-      service postgresql start
-       
-
-It is recommended to add this service to auto start by executing:
-
-      chkconfig postgresql on
-       
-
 ### Installing & Configuring ovirt-engine
 
 #### Install
@@ -46,6 +33,8 @@ Install ovirt-engine by executing:
 
       yum install -y ovirt-engine
        
+
+execute \`engine-setup
 
 #### DB Creation
 
@@ -61,11 +50,6 @@ Create ovirt-engine's DB by executing:
 Change the default emulated VM type by executing:
 
       psql -U postgres engine -c "update vdc_options set option_value='pc-0.14' where option_name='EmulatedMachine' and version='3.0';"
-       
-
-If you wish to change the default password for admin (letmein!), execute the following command:
-
-      psql -U postgres engine -c "update vdc_options set option_value='NEWPASSWORD' where option_name='AdminPassword';"
        
 
 #### Starting & Accessing ovirt-engine

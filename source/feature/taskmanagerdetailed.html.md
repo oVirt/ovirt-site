@@ -71,26 +71,17 @@ This section describes the backend design for this feature.
 
 The following entities/components will be added:
 
-*   **CommandEntity** a representation of a command in the system. Using this entity, a concrete instance of *CommandBase* could be created (e.g. command 'resurrection'). The *CommandEntity* contains list of internal commands which are part of the entire action. Command entity is capable to produce a descriptive tree of tasks which describes an action.
-*   **CommandTaskInfo** a representation of a meaningful part of the action. The class could be a parent of other tasks (e.g. task named execution could have beneath it a list of tasks which are part of the execution).
-*   **CommandRepository** uses to store and fetch command entities from the database. Also responsible to maintain obsolete entries.
-*   **CommandDAO** a DAO interface which defines the DML operations for the command entities.
-*   **CommandDAODbFacadeImpl** an implementation of the CommandDAO interface.
-*   **GetCommandsQuery** a query which fetches selective or entire command entities from the database.
-*   **GetModifiedCommandsQuery** a query which fetches only commands which were updated since a given time. It is designed to pull only tasks which where updated since the last query invoked by a client.
-
-For future use:
-
-*   **CommandSequence** an entity which might compose the *CommandEntity*, representing whether the current command entity is a part of a sequential command (e.g. depended on other commands to be completed before being executed).
-*   **SequentialCommandRunnerFactory** a factory which creates a runner for sequential commands.
-*   **SequentialCommandRunner** a sequential command runner is responsible to to create a sequence of commands which includes order and dependencies (in the future 'best effort' command could be integrated with the sequence creation process) and to invoke the sequence.
-*   **CommandExecuter** an abstraction of command execution method.
-*   **SyncCommandExecuter** a synchronous implementation of the *CommandExecuter* interface. Designed to invoke commands synchronously.
+*   **Job** a representation of a client action in the system. Using this entity, a concrete instance of *CommandBase* could be created (e.g. command 'resurrection'). The *Job* contains list of internal steps which are part of the entire Job. Job entity is capable to produce a descriptive tree of steps.
+*   **Step** a representation of a meaningful part of the Job. The class could be a parent of other steps (e.g. step named execution could have a list of steps which are part of the job).
+*   **JobRepository** used to store and fetch jobs from the database. Also responsible to maintain obsolete jobs.
+*   **JobDAO** a DAO interface which defines the DML operations for the Job entities.
+*   **JobDAODbFacadeImpl** an implementation of the JobDAO interface.
+*   **GetModifiedJobsQuery** a query which fetches only commands which were updated since a given time. It is designed to pull only tasks which where updated since the last query invoked by a client.
 
 ##### Enumerators
 
 ''' New Enumerators *'
-*CommandTaskType'' represents all available task types in the system.
+*StepEnum'' represents all available steps in the system.
 
 **Updated Enumerators**
 *VdcActionType* will be extended with list of categories to which a specific action type belongs to.

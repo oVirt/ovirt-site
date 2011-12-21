@@ -31,7 +31,7 @@ Execute the following command:
 
 Install ovirt-engine by executing:
 
-      yum install -y ovirt-engine
+      yum install -y ovirt-engine ovirt-engine-setup
        
 
 and execute the installation utility:

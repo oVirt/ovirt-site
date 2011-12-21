@@ -93,7 +93,8 @@ The following entities/components will be added:
 
 ##### Main Task Manager Class Diagram
 
-The following class diagrams describe the entities participating in the the Task Manager feature: ![](async-task-main-class-diagram.jpeg "fig:async-task-main-class-diagram.jpeg")
+The following class diagrams describe the entities participating in the the Task Manager feature:
+ ![](async-task-main-class-diagram.jpeg "fig:async-task-main-class-diagram.jpeg")
 
 ------------------------------------------------------------------------
 

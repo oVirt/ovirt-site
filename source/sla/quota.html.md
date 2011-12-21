@@ -43,7 +43,7 @@ This section describes the backend design for this feature.
 
 #### DB Design
 
-**quota_storage_pool** - Represents the properties of the Quota configured on the DC.
+**quota** - Represents the properties of the Quota configured on the DC.
 
 | Column Name                       | Column Type  | Null? / Default | Definition                                                                                        |
 |-----------------------------------|--------------|-----------------|---------------------------------------------------------------------------------------------------|

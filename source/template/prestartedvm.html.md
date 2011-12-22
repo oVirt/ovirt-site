@@ -95,7 +95,7 @@ New Design:
 
 1.  1.  The second approach, is the event driven approach. The same logic can run upon events that triggers it. Events that should trigger: addVmPool, AttachUserToVmFromPoolCommand...?
 
-Algorithm for selecting a Vm for user
+**Algorithm for selecting a Vm for user**
 
 ------------------------------------------------------------------------
 
@@ -108,7 +108,7 @@ Algorithm for selecting a Vm for user
         1.  The Vm is down
         2.  is not given to a user
 
-Algorithm for maintaining number of prestarted Vms
+**Algorithm for maintaining number of prestarted Vms**
 
 ------------------------------------------------------------------------
 

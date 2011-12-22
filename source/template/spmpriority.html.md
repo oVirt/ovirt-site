@@ -61,7 +61,7 @@ New Design:
 1.  Adding a vds_spm_priority field to vds_static (validated to be between -1 and 100).
     1.  This field is configurable upon host creation and host editing by the admin.
 
-<span style="color:Teal">**command_entity**</span> represents the command entity:
+<span style="color:Teal">**vds_spm_priority**</span>:
 {|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Description |- |vds_spm_priority ||smallint || ||The Spm priority of this vds |- |}
 
 Algorithm for selecting a host according to priorities

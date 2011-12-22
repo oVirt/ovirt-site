@@ -68,12 +68,12 @@ Algorithm for selecting a host according to priorities
 
 ------------------------------------------------------------------------
 
-1.  Fetch all hosts that are "UP" in Data Center, and that have not been attempted to be chosen as SPMs in the Data Center, ordered by SPM Priority (desc), and secondly by RANDOM().
+1.  Fetch all hosts that are "UP" in Data Center, and that have not been attempted to be chosen as SPMs in the Data Center. The selection will return the list ordered both by SPM Priority (desc), and secondly by RANDOM().
 2.  The top host is chosen, and the SPM Selection algorithm begins.
 3.  Every host that fails to become the SPM, is added to a the mTriedVdssList of forbidden hosts.
 
 *   Ordering the hosts according to the SPM Priority will make sure that the priorities set by the admin will be taken under consideration.
-*   Secondly, ordering randomly will make sure to prevent the same host from being chosen every time, in case there are several hosts with the same priority.
+*   Secondly, ordering them with RANDOM(), randomly sorts each sub group of hosts that have the same priority. This will make sure to prevent the same host from being chosen every time, in case there are several hosts with the same priority.
 
 ### Affected Commands
 

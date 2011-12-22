@@ -77,8 +77,8 @@ Algorithm for selecting a host according to priorities
 
 ### Affected Commands
 
-1.  AddVdsCommand -
-2.  UpdateVdsCommand -
+1.  AddVdsCommand - no change since the parameter held is of type VdsStatic.
+2.  UpdateVdsCommand - no change since the parameter held is of type VdsStatic.
 
 ### Open Issues
 

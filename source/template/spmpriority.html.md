@@ -75,6 +75,11 @@ Algorithm for selecting a host according to priorities
 *   Ordering the hosts according to the SPM Priority will make sure that the priorities set by the admin will be taken under consideration.
 *   Secondly, ordering randomly will make sure to prevent the same host from being chosen every time, in case there are several hosts with the same priority.
 
+### Affected Commands
+
+1.  AddVdsCommand -
+2.  UpdateVdsCommand -
+
 ### Open Issues
 
 ### Dependencies / Related Features

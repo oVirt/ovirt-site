@@ -84,7 +84,7 @@ New Design:
 
 *The number of prestarted Vms will not be reduced automatically.*
 
-<span style="color:Teal">**command_entity**</span> represents the command entity:
+<span style="color:Teal">**min_prestarted_vms**</span>:
 {|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Description |- |min_prestarted_vms ||Boolean ||not null / default true ||The minimum number of prestarted vms |- |}
 
 1.  There are 2 possible approaches to maintaining the minimal amount of prestarted Vms:

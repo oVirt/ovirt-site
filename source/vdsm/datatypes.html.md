@@ -11,6 +11,8 @@ wiki_last_updated: 2011-12-22
 
 vdsm uses various complex types throughout its API. Currently these are expressed as free-form dictionaries and/or strings with magic values. This wiki page attempts to capture a comprehensive list of these types for reference and to serve as a base for discussion on creating a more formalized specification of the types for the next generation API.
 
+## Parameters
+
 | Type                                                                                          | Specification                                                                                                                                                                                               |
 |-----------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **DriveSpec_t**                                                                              
@@ -268,3 +270,17 @@ vdsm uses various complex types throughout its API. Currently these are expresse
                                                                                                          However, if you specify the 'explicitBonding' option as true, the function                                                                                                                           
                                                                                                          will expect you to specify all networks that are attached to a specified                                                                                                                             
                                                                                                          bonding, and vice-versa, the bonding attached to a specified network.                                                                                                                                |
+
+## Return Data
+
+All API calls return a dictionary with this basic format:
+
+    {
+      'status': { 'code': <integer>, 'message': <string> },
+      ... Function-specific fields ...
+    }
+
+This table describes the function-specific fields that appear in certain API calls.
+
+| Type | Specification |
+|------|---------------|

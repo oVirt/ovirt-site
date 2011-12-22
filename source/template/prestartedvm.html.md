@@ -79,13 +79,15 @@ Current flow:
 New Design:
 
 1.  Adding a min_prestarted_vms field to each VmPool.
-    1.  This field is configurable upon Vmpool creation by the admin.
+    1.  This field is configurable upon Vmpool creation by the admin, and has a default value of 0;
     2.  It can be edited after the pool has been created. In case an admin lowers the minimum number, the "extra" Vms will not be shutdown. He will be supplied with the following message:
 
 *The number of prestarted Vms will not be reduced automatically.*
 
 <span style="color:Teal">**min_prestarted_vms**</span>:
-{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Description |- |min_prestarted_vms ||Boolean ||not null / default true ||The minimum number of prestarted vms |- |}
+{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Description |- |min_prestarted_vms ||Boolean ||not null / default 0 ||The minimum number of prestarted vms |- |}
+
+*   We also need to add this column to vm_pools_view and vm_pools_full_view.
 
 1.  There are 2 possible approaches to maintaining the minimal amount of prestarted Vms:
     1.  1.  Periodic - creating a job that runs every x minutes. x is defined in vdc_options in a new row called VmPoolRefreshRate. A new property needs to be added to the engine-config.properties file. The default will be 2 minutes. The job will go over each pool, check whether there are enough prestarted Vms running. If not, it will start the needed amount.
@@ -125,6 +127,12 @@ Overall, we need three optional flows:
 1.  A flow that leads to only "addpermission" (to give to a user that wants to be assigned a vm) - a change inside the flow of AttachUserToVmFromPoolCommand.execute
 2.  A command that does CreateAllSnapshots + runVm (for the scheduler that is preparing prestarted vms) - a new flow.
 3.  A command that does all three (in case we didn't find a prestarted vm to give to a user) --> (already exists)
+
+### Affected Commands
+
+1.  AttachUserToVmFromPoolCommand - As explained above.
+2.  AddVdsCommand -
+3.  UpdateVdsCommand -
 
 ### Open Issues
 

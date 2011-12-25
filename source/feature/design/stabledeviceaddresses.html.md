@@ -23,8 +23,8 @@ When creating a VM, QEMU allocates device addresses to the guest devices, these 
       1. The 'create' verb should get a new parameter in the XML describing the device addresses of the VM.
          This parameter is optional and if not given VDSM should learn the device addresses from libvirt.
       2. The device addresses are not being parsed by RHEVM, they are persisted as is without manipulations of the data.
-      3. The 'getAllVmStats' verb should report the md5 of the device addresses of the VMS.
-      4. If a change is detected by RHEVM to the device addresses (the reported md5 was changed), it should query VDSM 
+      3. The 'getAllVmStats' verb should report the hash of the device addresses of the VMS.
+      4. If a change is detected by RHEVM to the device addresses (the reported hash was changed), it should query VDSM 
          for the full VM configuration by using the 'list' verb with the 'long' format and the list of changed VMs.
       5. The list verb should report the device addresses as part of the VM configuration.
 
@@ -38,7 +38,7 @@ When creating a VM, QEMU allocates device addresses to the guest devices, these 
 
 ### GUI
 
-Feature is not exposed to the GUI.
+Feature is not exposed currently to the GUI.
 
 #### Mockups
 
@@ -46,7 +46,7 @@ Feature is not exposed to the GUI.
 
 ### REST Design (Modeling)
 
-Feature is not exposed to the REST API.
+Feature is not exposed currently to the REST API.
 
 ### Backend
 
@@ -57,7 +57,7 @@ This section describes the backend design for this feature.
 Adding two columns to vm_dynamic
 
       1. domxml text -- holds the full xml description of all devices 
-      2. hash varchar(30) -- holds the md5 like encryption for the domxml value
+      2. hash varchar(30) -- holds the md5 like encryption for the xml value
 
 Modify all relevant views & SP to have the hash[/domxml] field[s]. (see create/run section below for explanation why domxml marked as optional)
 

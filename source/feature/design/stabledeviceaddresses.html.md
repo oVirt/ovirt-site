@@ -52,6 +52,65 @@ Feature is not exposed currently to the REST API.
 
 This section describes the backend design for this feature.
 
+#### API
+
+Old API will be supported for Clusters with Compatibility Version under 3.1 Sample:
+
+      'bridge': 'rhevm,rhevm,rhevm,rhevm,rhevm,rhevm,rhevm',
+      'acpiEnable': 'true',
+      'emulatedMachine': 'rhel6.2.0',
+      'vmId': '27c61cea-f4fd-47e9-84e8-d1598f32ccc0',
+      'transparentHugePages': 'true',
+      'spiceSslCipherSuite': 'DEFAULT',
+      'cpuType': 'Nehalem',
+      'smp': '1',
+      'macAddr':'00:1a:4a:16:99:42,00:1a:4a:16:99:43,00:1a:4a:16:99:44,00:1a:4a:16:99:45,00:1a:4a:16:99:46,00:1a:4a:16:99:47,00:1a:4a:16:99:48',
+      'boot': 'cdn',
+      'custom': {},
+      'vmType': 'kvm',
+      'memSize': 512,
+      'smpCoresPerSocket': '1',
+      'vmName': 'ingale',
+      'spiceMonitors': '4',
+      'nice': '0',
+      'floppy':'/rhev/data-center/4996348b-0199-435a-b01d-94cdf67d2d83/c37e94b2-b130-49b4-a7aa-b30e8a372878/images/11111111-1111-1111-1111-111111111111/win2k3.vfd',
+      'drives': [
+             {'domainID': '25cf0e1e-236a-4889-91db-8de1aca9440e',
+              'format': 'cow',
+              'bus': '0',
+              'boot': 'true',
+              'volumeID': 'be4d8588-8771-47cd-8954-b67566b6bd55',
+              'imageID': '5f6852c8-844c-40ff-ac9c-cac5d00cbf1b',
+              'poolID': '4996348b-0199-435a-b01d-94cdf67d2d83',
+              'propagateErrors': 'off',
+              'if': 'virtio'},
+             {'domainID': '25cf0e1e-236a-4889-91db-8de1aca9440e',
+              'format': 'raw',
+              'bus': '1',
+              'boot': 'false',
+              'volumeID': '9dd6b03a-2391-4537-8247-1bd786f60bdc',
+              'imageID': 'f6bdcc45-bb73-45d1-975d-15d6eefe7eda',
+              'poolID': '4996348b-0199-435a-b01d-94cdf67d2d83',
+              'propagateErrors': 'off',
+              'if': 'virtio'},
+             {'index': '0',
+              'domainID': '25cf0e1e-236a-4889-91db-8de1aca9440e',
+              'format': 'raw',
+              'volumeID': '1745eb41-1432-422b-af6f-8b8c8dd3365c',
+              'imageID': '8904d42d-c974-4055-a973-e6d7eb75e4ee',
+              'poolID': '4996348b-0199-435a-b01d-94cdf67d2d83',
+              'propagateErrors': 'off',
+              'if': 'ide'}],
+      'cdrom':'/rhev/data-center/4996348b-0199-435a-b01d-94cdf67d2d83/c37e94b2-b130-49b4-a7aa-b30e8a372878/images/11111111-1111-1111-1111-111111111111/en_windows_7_enterprise_x64_dvd_x15-70749.iso',
+      'nicModel': 'pv,pv,pv,pv,rtl8139,e1000,e1000',
+      'keyboardLayout': 'en-us',
+      'kvmEnable': 'true',
+      'displayNetwork': 'rhevm',
+      'soundDevice': 'ich6',
+      'timeOffset': '0',
+      'spiceSecureChannels': 'smain,sinputs',
+      'display': 'qxl'
+
 #### DB Design
 
 Adding two columns to vm_dynamic

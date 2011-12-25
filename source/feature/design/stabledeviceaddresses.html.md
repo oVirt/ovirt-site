@@ -217,26 +217,45 @@ Sample :
 
 #### DB Design
 
-New table generic_device: device_id -- Unique identifier of the generic device vm_id -- The VM id (FK of vm_static) device_type -- The device type (for example : sound, video etc.) device_subtype -- The device subtype, for example ('display': 'vnc') device_address -- The device address as a string
+New table generic_device:
 
-Adding a column to vm_dynamic: hash varchar(30) -- holds the md5 like encryption indicating a change
+       device_id           -- Unique identifier of the generic device
+       vm_id               -- The VM id (FK of vm_static)
+       device_type         -- The device type (for example : sound, video etc.)
+       device_subtype      -- The device subtype, for example ('display': 'vnc')
+       device_address      -- The device address as a string
 
-Modify all relevant views & SP to have the hash field.
+Adding a column to vm_dynamic:
+
+       hash                -- holds the md5 like encryption indicating a change 
+
+Adding address to disk_vm_map. This should be done in the mapping table in order to support the Shared Disk feature when a disk can be shared by multiple VMs
+
+       address             -- The device address string
+
+Adding address to vm_interface
+
+       address             -- The interface address string
+
+Generation CRUD SPs for the new generic_device table Modify all relevant views & SP to have the hash field. Modify all relevant views & SP to have the address field.
+
+#### DB Upgrade
+
+In order to prevent data duplication we will tend to upgrade some old data to new format and still be backward compatible. Examples : boot order,floppy/CDROM as a disk ...
 
 #### Logic Design
+
+We will keep a hash the database, the hash will enable us distinguish when a change occurs, if hash changed we have to get the new full structured data using the List (full) verb and save it to the database.
+
+### Migration
+
+We will use cluster level decision, since we will have to support migration from host to host in the same Cluster. New API for both sending (create) and receiving (get\*VmStats, List) information will use VM parameters as structured dictionary
 
 create/run
 
 ------------------------------------------------------------------------
 
-Upon VM creation , send domxml as empty string. otherwise (run) send stored domxml value.[1]
-
-[1] We have two options here
-
-         a. Get the domxml as part of the VM entity
-         b. Get the domxml from DAL for each VM we are running (creating) 
-            This will insure that our VM entities are not keeping the domxml inside them, 
-            rather, they will got it on demand
+Upon VM creation , send structure with empty string in missing information Otherwise, fill structure with persistent values and send it to VDSM
 
 update
 
@@ -250,14 +269,14 @@ refreshVdsRunTimeInfo is called
                    add VM to changed-vm-list
           next
        if (changed-vm-list length > 0)
-          Issue a call to vdsm list command with 'long' & changed-vm-list[2]
+          Issue a call to vdsm list command with 'long' & changed-vm-list[1]
           For each VM in list 
              update domxml & md5 for VM in db
           next 
        end
          
 
-[2] New vdsm list command syntax allows that :
+[1] New vdsm list command syntax allows that :
 
 vdsClient 0 list --help list
 
@@ -283,13 +302,15 @@ OVFReader should be extended to read the information retrieved in the domxml val
 
 #### API Design
 
-VM/vm_dynamic entities should have additional hash[/domxml] properties
+VM/vm_dynamic entities should have additional hash properties Disk-VM mapping should have the address property VM Interface should have the address property DAL classes for generic device support
 
 ### VDSM
 
-Adding support for hash parameter in Create. Return the hash value for each VM when calling GetAllVMStats. Return the domxml for each VM when calling List with 'long' format Enable to pass additional parameter specifying VM ids.
+Adding support for hash parameter in Create. Return the hash value for each VM when calling GetAllVMStats. Return the full VM structure for each VM when calling List with 'long' format Enable to pass additional parameter specifying VM ids.
 
 ### Tests
+
+Add tests for new generic device DAL Modify all tests to track new added properties
 
 #### Expected unit-tests
 
@@ -347,12 +368,22 @@ This section describes issues that might need special consideration when writing
 
 ### Open Issues
 
-      1. Do we have to append the domxml in Export to OVF as is (as recieved from VDSM as xml) or wrap it with CDATA
-      2. Decide if to embed the domxml as part of the VM entity or get it from DB on demand (recommended)
+      1. 
+      2. 
 
 ### Known Issues / Risks
 
-      1. None
+#### Index
+
+Manage internal unique index for 'iface' virtio' or 'ide' Same ordering as in old format should be kept in order to support 3.0 VMs that starts to run on 3.1 cluster
+
+#### Optional Disk
+
+We should support and persist an optional disk , this is implemented as a new attribute of the disk entry in the API. Optional flag is passed as static false in 3.1
+
+#### Direct LUN
+
+Direct LUN enables adding a block device to the system either by its GUID or UUID TBD
 
 ### Implementation needs
 

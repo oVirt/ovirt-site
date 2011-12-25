@@ -39,6 +39,16 @@ Vdsm automatically builds using the latest tagged version. If you want to explic
 
 *   variables and arguments are in mixedCase
 *   class names are in CamelCase
+*   all indentation is made of space characters
+*   a space character follows any comma
+*   spaces surround operators, but
+*   no spaces between
+
+      def f(arg=its_default_value)
+
+*   lines longer than 80 chars are frowned upon
+*   whitespace between functions and within stanza help to breath while reading code
+*   a space char follows a comment's hash char
 
 ## Sending patches
 

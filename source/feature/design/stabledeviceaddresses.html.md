@@ -217,10 +217,11 @@ Sample :
 
 #### DB Design
 
-Adding two columns to vm_dynamic
+New table generic_device device_id -- Unique identifier of the generic device vm_id -- The VM id (FK of vm_static) device_type -- The device type (for example : sound, video etc.) device_subtype -- The device subtype, for example ('display': 'vnc') device_address -- The device address as a string
 
-      1. domxml text -- holds the full xml description of all devices 
-      2. hash varchar(30) -- holds the md5 like encryption for the xml value
+Adding a column to vm_dynamic
+
+      2. hash varchar(30) -- holds the md5 like encryption indicating a change 
 
 Modify all relevant views & SP to have the hash[/domxml] field[s]. (see create/run section below for explanation why domxml marked as optional)
 

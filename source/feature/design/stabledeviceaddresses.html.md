@@ -384,7 +384,7 @@ This section describes issues that might need special consideration when writing
 
 Manage internal unique index for 'iface' virtio' or 'ide' Same ordering as in old format should be kept in order to support 3.0 VMs that starts to run on 3.1 cluster
 
-### Generic Device
+#### Generic Device
 
 Generic Device will be supported in the new format and will include all unhandled devices as sound/video and future devices. Those devices will be persistent and will have Type , SubType (device specific) and an Address. For 3.1 the Generic Device is not exposed to any GUI/REST API.
 

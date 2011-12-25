@@ -111,6 +111,110 @@ Old API will be supported for Clusters with Compatibility Version under 3.1 Samp
       'spiceSecureChannels': 'smain,sinputs',
       'display': 'qxl'
 
+New API will be used for Clusters with Compatibility Version 3.1 or upper
+
+VDSM will distinguish if a new format or old format was sent according to existence/absence of the 'devices' key
+
+Sample :
+
+      'vmId': '27c61cea-f4fd-47e9-84e8-d1598f32ccc0',
+      'vmName': 'myVM',
+      'acpiEnable': 'true', 
+      'emulatedMachine': 'rhel6.2.0', 
+      'vmType': 'kvm',
+      'memSize': 512,
+      'smpCoresPerSocket': '1',
+      'transparentHugePages': 'true',
+      'cpuType': 'Nehalem',
+      'smp': '1',
+      'keyboardLayout': 'en-us',
+      'kvmEnable': 'true',
+      'nice': '0',
+      'timeOffset': '0',
+      'spiceSslCipherSuite': 'DEFAULT',
+      'spiceSecureChannels': 'smain,sinputs',
+      'displayNetwork': 'rhevm',
+      'custom': {},
+      'devices': {   
+             {'device': 'disk',
+              'subType': 'disk',
+              'index': `<int>`,                                 
+               <--- disk index unique per 'iface' virtio|ide
+              'address': 'PCI|IDE address string',            
+               <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'", IDE = "type='drive' controller='0' bus='0' unit='0'"
+              'format': 'cow',
+              'bootOrder': `<int>`,                             
+               <--- global boot order across all bootable devices
+              'propagateErrors': 'off',
+              'iface': 'virtio|ide',
+              'shared': 'True|False'                          
+               <--- whether disk is shared
+              'optional': 'True|False'                        
+               <--- whether disk is optional (VM can be run without optional disk if inaccessible)
+              'poolID': 'pool UUID',                         |
+              'domainID': 'domain UUID',                     | 
+              'imageID': 'image UUID',                       |
+               <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID   
+              'volumeID': 'volume UUID',                     |
+              'UUID': 'shared disk UUID',                     
+               <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID    
+              'GUID': 'shared disk GUID'},                    
+               <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID   
+              .....
+              any number of disks
+              .....
+             {'device': 'disk',
+              'subType': 'cdrom',
+              'index': `<int>`,                                 
+               <--- disk index unique per 'iface' virtio|ide
+              'address': 'PCI|IDE address string',            
+               <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'" ,  IDE = "type='drive' controller='0' bus='0' unit='0'"
+              'bootOrder': `<int>`,                             
+               <--- global boot order across all bootable devices
+              'iface': 'virtio|ide',
+              'poolID': 'pool UUID',
+              'domainID': 'domain UUID',
+              'imageID': 'image UUID',
+              'volumeID': '.iso file'},
+             {'device': 'disk',
+              'subType': 'floppy',
+              'index': `<int>`,                                 
+               <--- floppy index unique per 'iface' fdc
+              'address': 'address string',                    
+               <--- "type='drive' controller='0' bus='0' unit='0'"
+              'iface': 'fdc',
+              'poolID': 'pool UUID',
+              'domainID': 'domain UUID',
+              'imageID': 'image UUID',
+              'volumeID': '.vfd file'},
+             {'device': 'interface',
+              'network': 'network name',                      
+               <--- bridge|sriov|vnlink|bridgeless.  Rest device's parameters depends on network.
+              'address': 'PCI address string',                
+               <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
+              'macAddr': 'mac address',
+              'bootOrder': `<int>`,                             
+               <--- global boot order across all bootable devices
+              'nicModel': 'pv|rtl8139|e1000'},
+              .....
+              any number of network cards
+              .....
+             {'device': 'sound',
+              'soundDevice':'ich6',
+              'address': 'PCI address string'},               
+               <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
+             {'device': 'video',
+              'index': `<int>`,
+              'display': 'qxl|vnc',
+              'address': 'PCI address string'},               
+               <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
+              .....
+              up to 'spiceMonitors' of video cards
+              .....
+             {'device': 'TBD - any device that has address',
+              'address': 'PCI|IDE address string'},           
+               <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'", IDE = "type='drive' controller='0' bus='0' unit='0'"
+
 #### DB Design
 
 Adding two columns to vm_dynamic

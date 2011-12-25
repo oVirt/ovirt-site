@@ -243,7 +243,7 @@ Adding shared flag to disks
 
        shared              -- Indicates if disk is shared between multiple VMs
 
-Generation CRUD SPs for the new generic_device table Modify all relevant views & SP to have the hash field. Modify all relevant views & SP to have the address field.
+Generation CRUD SPs for the new generic_device table Modify all relevant views & SP to have the hash field. Modify all relevant views & SP to have the address field. Modify all relevant views & SP to have the boot_order field.
 
 #### DB Upgrade
 
@@ -255,13 +255,13 @@ We will keep a hash the database, the hash will enable us distinguish when a cha
 
 ### Migration
 
-We will use cluster level decision, since we will have to support migration from host to host in the same Cluster. New API for both sending (create) and receiving (get\*VmStats, List) information will use VM parameters as structured dictionary
+We will use cluster level decision, since we will have to support migration from host to host in the same Cluster. New API for both sending (create) and receiving (get\*VmStats, List) information will use VM parameters as a structured dictionary
 
 create/run
 
 ------------------------------------------------------------------------
 
-Upon VM creation , send structure with empty string in missing information Otherwise, fill structure with persistent values and send it to VDSM
+Upon VM creation , send structure with empty string in missing information (addresses etc.) Otherwise, fill structure with persistent values and send it to VDSM
 
 update
 
@@ -277,7 +277,8 @@ refreshVdsRunTimeInfo is called
        if (changed-vm-list length > 0)
           Issue a call to vdsm list command with 'long' & changed-vm-list[1]
           For each VM in list 
-             update domxml & md5 for VM in db
+             persist all changed data in db.
+             update hash for VM in db
           next 
        end
          
@@ -298,17 +299,17 @@ export
 
 ------------------------------------------------------------------------
 
-OVFWriter should be extended to write the information retrieved in the domxml value from VDSM to the OVF file. Change should be coordinated with OVF team.
+OVFWriter should be extended to write the information retrieved in the new structure from VDSM to the OVF file. Change should be coordinated with OVF team.
 
 import
 
 ------------------------------------------------------------------------
 
-OVFReader should be extended to read the information retrieved in the domxml value from VDSM from the OVF file.
+OVFReader should be extended to read the information retrieved in the new structure from VDSM from the OVF file.
 
 #### API Design
 
-VM/vm_dynamic entities should have additional hash properties Disk-VM mapping should have the address property VM Interface should have the address property DAL classes for generic device support
+VM/vm_dynamic entities should have additional hash properties disk_vm_map mapping should have the address and boot_order properties VM Interface should have the address and boot_order properties DAL classes for generic device support
 
 ### VDSM
 
@@ -320,7 +321,7 @@ Add tests for new generic device DAL Modify all tests to track new added propert
 
 #### Expected unit-tests
 
-Verify that all VM DAO tests pass Test both old & new OVFs for export/import
+Verify that all new Generic Device DAO tests pass Verify that all VM DAO tests pass Verify that all Disk DAO and Disk VM mapping DAO tests pass Test both old & new OVFs for export/import
 
 #### Special considerations
 

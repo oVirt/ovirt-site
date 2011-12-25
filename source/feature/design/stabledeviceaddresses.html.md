@@ -229,13 +229,19 @@ Adding a column to vm_dynamic:
 
        hash                -- holds the md5 like encryption indicating a change 
 
-Adding address to disk_vm_map. This should be done in the mapping table in order to support the Shared Disk feature when a disk can be shared by multiple VMs
+Adding address and boot_order to disk_vm_map. This should be done in the mapping table in order to support the Shared Disk feature when a disk can be shared by multiple VMs
 
        address             -- The device address string
+       boot_order          -- The device boot order 
 
-Adding address to vm_interface
+Adding address and boot_order to vm_interface
 
        address             -- The interface address string
+       boot_order          -- The device boot order
+
+Adding shared flag to disks
+
+       shared              -- Indicates if disk is shared between multiple VMs
 
 Generation CRUD SPs for the new generic_device table Modify all relevant views & SP to have the hash field. Modify all relevant views & SP to have the address field.
 
@@ -377,6 +383,22 @@ This section describes issues that might need special consideration when writing
 
 Manage internal unique index for 'iface' virtio' or 'ide' Same ordering as in old format should be kept in order to support 3.0 VMs that starts to run on 3.1 cluster
 
+### Generic Device
+
+Generic Device will be supported in the new format and will include all unhandled devices as sound/video and future devices. Those devices will be persistent and will have Type , SubType (device specific) and an Address. For 3.1 the Generic Device is not exposed to any GUI/REST API.
+
+#### Floppy / CDROM
+
+Floppy and CDROM will be typed as disk where its subtype is 'floppy' or 'cdrom'
+
+#### Boot Order
+
+Boot order is a device property (just for subgroup of all available devices), We should add and persist boot order to all relevant entities
+
+#### Hot Plug Disk/Nic
+
+Since managing this is via backend, we always assume that we get the exact Disk/Nic number as we know already. In case that we got a device that is nor recognized (even if it a Hot Plug) , it will be handled as a Generic Device
+
 #### Optional Disk
 
 We should support and persist an optional disk , this is implemented as a new attribute of the disk entry in the API. Optional flag is passed as static false in 3.1
@@ -384,6 +406,10 @@ We should support and persist an optional disk , this is implemented as a new at
 #### Direct LUN
 
 Direct LUN enables adding a block device to the system either by its GUID or UUID TBD
+
+#### Live Snapshots
+
+This 3.1 feature does not affect the Stable Device Addresses feature
 
 ### Implementation needs
 

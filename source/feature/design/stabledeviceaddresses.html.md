@@ -217,13 +217,11 @@ Sample :
 
 #### DB Design
 
-New table generic_device device_id -- Unique identifier of the generic device vm_id -- The VM id (FK of vm_static) device_type -- The device type (for example : sound, video etc.) device_subtype -- The device subtype, for example ('display': 'vnc') device_address -- The device address as a string
+New table generic_device: device_id -- Unique identifier of the generic device vm_id -- The VM id (FK of vm_static) device_type -- The device type (for example : sound, video etc.) device_subtype -- The device subtype, for example ('display': 'vnc') device_address -- The device address as a string
 
-Adding a column to vm_dynamic
+Adding a column to vm_dynamic: hash varchar(30) -- holds the md5 like encryption indicating a change
 
-      2. hash varchar(30) -- holds the md5 like encryption indicating a change 
-
-Modify all relevant views & SP to have the hash[/domxml] field[s]. (see create/run section below for explanation why domxml marked as optional)
+Modify all relevant views & SP to have the hash field.
 
 #### Logic Design
 

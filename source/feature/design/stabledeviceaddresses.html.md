@@ -155,7 +155,6 @@ Sample :
               .....
               any number of disks
               .....
-
              {'type': 'disk',
               'device': 'cdrom',
               'index': `<int>`,                                 <------- disk index unique per 'iface' virtio|ide
@@ -166,7 +165,6 @@ Sample :
               'domainID': 'domain UUID',
               'imageID': 'image UUID',
               'volumeID': '.iso file'},
-
              {'type': 'disk',
               'device': 'floppy',
               'index': `<int>`,                                 <------- floppy index unique per 'iface' fdc
@@ -176,7 +174,6 @@ Sample :
               'domainID': 'domain UUID',
               'imageID': 'image UUID',
               'volumeID': '.vfd file'},
-
              {'type': 'interface',
               'device': 'network name',                       <------- bridge|sriov|vnlink|bridgeless.  Rest device's parameters depends on device.
               'address': 'PCI address string',                <------- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
@@ -186,11 +183,9 @@ Sample :
               .....
               any number of network cards
               .....
-
              {'type': 'sound',
               'device':'ich6',
               'address': 'PCI address string'},               <------- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
-
              {'type': 'video',
               'index': `<int>`,
               'display': 'qxl|vnc',
@@ -198,7 +193,6 @@ Sample :
               .....
               up to 'spiceMonitors' of video cards
               .....
-
              {'type': 'TBD - any device that has address',
               'address': 'PCI|IDE address string'},           <------- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'" ,  IDE = "type='drive' controller='0' bus='0' unit='0'"
        }

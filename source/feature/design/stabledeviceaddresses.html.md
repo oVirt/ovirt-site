@@ -197,7 +197,7 @@ Sample :
               'address': 'PCI|IDE address string'},           <------- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'" ,  IDE = "type='drive' controller='0' bus='0' unit='0'"
        }
 
-#### DB Design
+### DB Design
 
 New table generic_device:
 
@@ -231,11 +231,11 @@ Generation CRUD SPs for the new generic_device table Modify all relevant views &
 
 In order to prevent data duplication we will tend to upgrade some old data to new format and still be backward compatible. Examples : boot order,floppy/CDROM as a disk ...
 
-#### Logic Design
+### Logic Design
 
 We will keep a hash the database, the hash will enable us distinguish when a change occurs, if hash changed we have to get the new full structured data using the List (full) verb and save it to the database.
 
-### Migration
+#### Migration
 
 We will use cluster level decision, since we will have to support migration from host to host in the same Cluster. New API for both sending (create) and receiving (get\*VmStats, List) information will use VM parameters as a structured dictionary
 

@@ -103,8 +103,6 @@ Use cases :
 
 ###### Views
 
-[all_quotas](Features/Design/Quota#Appendix) - View of all the Quotas attached to all the storage pools for all Users.
-
 **quota_global_view** - View of all the storage pool quota in the setup, that is all the quota that vds_group_id and storage_id values are null in the quota_limitation.
 
 | Column Name                       | Column Type | Definition                                                      |

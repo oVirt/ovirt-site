@@ -80,7 +80,7 @@ This section describes the backend design for this feature.
 | storage_limit_giga_byte | INTEGER     | null            | The limited GB defined in Giga byte.     |
 | virtual_ram_mega_byte   | BIGINT      | null            | The limited ram defined in Mega byte.    |
 
-**quota_users** - Represents the Quota users which are permitted to consume from the Quota.
+**quota_user_map** - Represents the Quota users which are permitted to consume from the Quota.
 
 | Column Name | Column Type | Null? / Default | Definition                                                                                      |
 |-------------|-------------|-----------------|-------------------------------------------------------------------------------------------------|

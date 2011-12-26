@@ -332,7 +332,7 @@ External resources, mocking, etc..
 
 #### Pre-integration needs
 
-This feature requires pre-integration since we have to play with devices on various VM configuration. Extensive check of Import/Export of both new & old formats
+This feature requires pre-integration since we have to play with devices on various VM configuration. Extensive check of Import/Export of both new & old formats. In addition backward compatibility should be tested as well in order to verify that 3.0 VMs preserve and restore all properties under the new implementation.
 
 ### Design check list
 

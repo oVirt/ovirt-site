@@ -13,7 +13,7 @@ This Documents has come to describe the steps required in order to install & con
 
 execute the following command as root:
 
-      yum install -y postgresql-server postgresql-contrib pgadmin3 java-1.6.0-openjdk-devel
+      yum install -y wget postgresql-server postgresql-contrib pgadmin3 java-1.6.0-openjdk-devel
        
 
 ### Configuring Ovirt's Repository

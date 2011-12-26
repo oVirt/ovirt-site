@@ -377,6 +377,8 @@ This section describes issues that might need special consideration when writing
 
 ### Known Issues / Risks
 
+Main issues are backward compatibility and affect of new 3.1 features.
+
 #### Index
 
 Manage internal unique index for 'iface' virtio' or 'ide' Same ordering as in old format should be kept in order to support 3.0 VMs that starts to run on 3.1 cluster

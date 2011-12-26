@@ -296,6 +296,18 @@ OVFReader should be extended to read the information retrieved in the new struct
 
 VM/vm_dynamic entities should have additional hash properties disk_vm_map mapping should have the address and boot_order properties VM Interface should have the address and boot_order properties DAL classes for generic device support
 
+#### Generic Device
+
+Generic Device will be supported in the new format and will include all unhandled devices as sound/video and future devices. Those devices will be persistent and will have Type , SubType (device specific) and an Address. For 3.1 the Generic Device is not exposed to any GUI/REST API.
+
+#### Floppy / CDROM
+
+Floppy and CDROM will be typed as disk where its subtype is 'floppy' or 'cdrom'
+
+#### Boot Order
+
+Boot order is a device property (just for subgroup of all available devices), We should add and persist boot order to all relevant entities
+
 ### VDSM
 
 Adding support for hash parameter in Create. Return the hash value for each VM when calling GetAllVMStats. Return the full VM structure for each VM when calling List with 'long' format Enable to pass additional parameter specifying VM ids.
@@ -360,7 +372,7 @@ This section describes issues that might need special consideration when writing
 
 ### Open Issues
 
-      1. 
+      1. Direct LUN considerations.
       2. 
 
 ### Known Issues / Risks
@@ -368,18 +380,6 @@ This section describes issues that might need special consideration when writing
 #### Index
 
 Manage internal unique index for 'iface' virtio' or 'ide' Same ordering as in old format should be kept in order to support 3.0 VMs that starts to run on 3.1 cluster
-
-#### Generic Device
-
-Generic Device will be supported in the new format and will include all unhandled devices as sound/video and future devices. Those devices will be persistent and will have Type , SubType (device specific) and an Address. For 3.1 the Generic Device is not exposed to any GUI/REST API.
-
-#### Floppy / CDROM
-
-Floppy and CDROM will be typed as disk where its subtype is 'floppy' or 'cdrom'
-
-#### Boot Order
-
-Boot order is a device property (just for subgroup of all available devices), We should add and persist boot order to all relevant entities
 
 #### Hot Plug Disk/Nic
 

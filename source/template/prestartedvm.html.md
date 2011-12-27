@@ -113,15 +113,14 @@ Maintaining the number of prestarted will be done periodically. The periodic app
         1.  down
         2.  not assigned to a user
 
-Overall, we need three optional flows:
+The implementation will be as follows:
 
-1.  A flow that leads to only "addpermission" (to give to a user that wants to be assigned a vm) - a change inside the flow of AttachUserToVmFromPoolCommand.execute
-2.  A command that does CreateAllSnapshots + runVm (for the scheduler that is preparing prestarted vms) - a new flow.
-3.  A command that does all three (in case we didn't find a prestarted vm to give to a user) --> (already exists)
+1.  The AttachUserToVmFromPoolAndRunCommand will be renamed to AllocateVmFromPool - we will add a flow that checks if there are available prestarted Vms. If so, it will do only "addpermission" (to give to a user that wants to be assigned a vm). If no prestarted Vms were found, the normal flow is still relevant - CreateAllSnapshots + addPermission + runVm (in endsuccessfully).
+2.  We will create a new command for the scheduler that does CreateAllSnapshots + runVm (in endsuccessfully) (for the scheduler that is preparing prestarted vms) - a new flow.
 
 ### Affected Commands
 
-1.  AttachUserToVmFromPoolCommand - As explained above.
+1.  AttachUserToVmFromPoolCommandAndRun + AttachUserToVmFromPoolCommandAndRun - As explained above.
 2.  AddVdsCommand -
 3.  UpdateVdsCommand -
 

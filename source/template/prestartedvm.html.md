@@ -44,11 +44,9 @@ The Prestarted Vm feature allows holding a predefined number of unassigned ready
 
 **The prestarted Vm feature will deal with Automatic Vm pools.**
 
-In ovirt, a VmPool is created based on a specific template. A Vm in the pool can either be assigned to a specific user or be in shutdown state. This creates the situation that when an admin assigns a Vm to a user, he needs to run the Vm before the user can begin using it.
+In ovirt, a VmPool is created based on a specific template. A Vm in the pool can either be assigned to a specific user or be in shutdown state. Therefore, when an admin assigns a Vm to a user, the Vm needs to boot before the user can begin using it.
 
-In addition, when dealing with Windows machines, after pool creation the admin is required to manually go through every machine and run once, in order for sysprep to be configured (takes approximately 15 minutes). After that he needs to shut down all the machines, so they will be available for use.
-
-The prestarted Vm will allow a situation where at all times there are at least a minimal number of Vms that are running and not assigned to a specific user (unassigned). In case of Windows machines, we assume that the admin will make sure that the Vms will be after sysprep configuration when we begin running prestarted Vms.
+The prestarted Vm will maintain a number of Vms that are running and not assigned to a specific user (unassigned). This will be at a "best effort" basis, meaning there may be cases in which the number of prestarted Vms will be smaller than the amount defined by the admin.
 
 ### Benefit to ovirt
 
@@ -60,14 +58,11 @@ The requirements are the following:
 
 1.  Enable a Vm in a pool to be both running and unassigned to a specific user.
 2.  Maintain a minimal amount of prestarted Vms, that are running and waiting to be assigned.
-    1.  The minimum number of prestarted Vms is configurable. This number can be changed after Vm pool was already created. In case it is changed, the system is not required to shutdown prestarted Vms, but rather this will be done manually by the admin if necessary.
+    1.  The number of prestarted Vms is a new VMpool property. This number can be changed after Vm pool was already created. In case it is changed, the system is not required to shutdown prestarted Vms, but rather this will be done manually by the admin if necessary.
     2.  The maximum number of prestarted Vms is the size of the VmPool.
 
 3.  When a Vm is shut down its base snapshot is restored and it is returned to the pool (no change in behaviour here).
-4.  Each VmPool is configured in the dialog box with a minimal amount of prestarted Vms (Default is 0).
-5.  The prestarted Vms creation does not have to begin immediately upon pool creation, but rather can be happen periodically.
-
-**Optional Further Stage**: Template deprecation - in case that the Vm pool is assigned a new template, rhevm will identify when there are no more Vms in the pool that are dependent on this template, and at that moment deprecate the old template.
+4.  The prestarted Vms creation does not have to begin immediately upon pool creation, but rather can be happen periodically.
 
 ### Design
 
@@ -78,24 +73,20 @@ Current flow:
 
 New Design:
 
-1.  Adding a min_prestarted_vms field to each VmPool.
+1.  Adding a prestarted_vms field to each VmPool.
     1.  This field is configurable upon Vmpool creation by the admin, and has a default value of 0;
     2.  It can be edited after the pool has been created. In case an admin lowers the minimum number, the "extra" Vms will not be shutdown. He will be supplied with the following message:
 
-*The number of prestarted Vms will not be reduced automatically.*
+*The prestarted Vms will not be shut down automatically.*
 
-<span style="color:Teal">**min_prestarted_vms**</span>:
-{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Description |- |min_prestarted_vms ||Boolean ||not null / default 0 ||The minimum number of prestarted vms |- |}
+<span style="color:Teal">**prestarted_vms**</span>:
+{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Description |- |prestarted_vms || smallint ||not null / default 0 ||The minimum number of prestarted vms |- |}
 
 *   We also need to add this column to vm_pools_view and vm_pools_full_view.
 
-1.  There are 2 possible approaches to maintaining the minimal amount of prestarted Vms:
-    1.  1.  Periodic - creating a job that runs every x minutes. x is defined in vdc_options in a new row called VmPoolRefreshRate. A new property needs to be added to the engine-config.properties file. The default will be 2 minutes. The job will go over each pool, check whether there are enough prestarted Vms running. If not, it will start the needed amount.
-        2.  This option can be optimized by triggering the job upon certain events. Events that should trigger: addVmPool, AttachUserToVmFromPoolCommand...?
+Maintaining the number of prestarted will be done periodically. The periodic approach was chosen since it avoids relying on the different stages in the VmPool's life cycle. There will be a job that runs every x minutes. x is defined in vdc_options in a new row called VmPoolRefreshRate. A new property needs to be added to the engine-config.properties file. The default will be 2 minutes. The job will go over each pool, check whether there are enough prestarted Vms running. If not, it will start the needed amount.
 
-<!-- -->
-
-1.  1.  The second approach, is the event driven approach. The same logic can run upon events that triggers it. Events that should trigger: addVmPool, AttachUserToVmFromPoolCommand...?
+1.  1.  This option can be optimized by triggering the job upon certain events. Events that should trigger: addVmPool, AttachUserToVmFromPoolCommand...?
 
 **Algorithm for selecting a Vm for user**
 

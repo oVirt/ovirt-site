@@ -64,7 +64,7 @@ New Design:
 2.  Replacing the list that is fetched in stage one of the current flow, with a list of prioritized hosts (detailed algorithm below).
 
 <span style="color:Teal">**vds_spm_priority**</span>:
-{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Description |- |vds_spm_priority ||smallint || ||The Spm priority of this vds |- |}
+{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Description |- |vds_spm_priority ||smallint || CHECK (vds_spm_priority between (-1) and 100) DEFAULT 50 ||The Spm priority of this vds |- |}
 
 Algorithm for selecting a host according to priorities
 

@@ -177,10 +177,11 @@ Sample :
               'imageID': 'image UUID',
               'volumeID': '.vfd file'},
              {'type': 'interface',
-              'device': 'network name',              <--- bridge|sriov|vnlink|bridgeless.  Rest device's parameters depends on device.
-              'address': 'PCI address string',       <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
+              'device': 'bridge|sriov|vnlink|bridgeless',     <------- Rest device's parameters depends on 'device'
+              'network': 'network name',                      <------- bridge name
+              'address': 'PCI address string',                <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
               'macAddr': 'mac address',
-              'bootOrder': `<int>`,                    <--- global boot order across all bootable devices
+              'bootOrder': `<int>`,                             <--- global boot order across all bootable devices
               'nicModel': 'pv|rtl8139|e1000'},
               .....
               any number of network cards

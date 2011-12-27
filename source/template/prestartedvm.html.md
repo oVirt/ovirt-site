@@ -34,7 +34,7 @@ The Prestarted Vm feature allows holding a predefined number of unassigned ready
 ### Current status
 
 *   Design stage
-*   Last updated date: Tue Dec 20 2011:
+*   Last updated date: Tue Dec 27 2011:
 
 ### Detailed Description
 
@@ -86,7 +86,7 @@ New Design:
 
 Maintaining the number of prestarted will be done periodically. The periodic approach was chosen since it avoids relying on the different stages in the VmPool's life cycle. There will be a job that runs every x minutes. x is defined in vdc_options in a new row called VmPoolRefreshRate. A new property needs to be added to the engine-config.properties file. The default will be 2 minutes. The job will go over each pool, check whether there are enough prestarted Vms running. If not, it will start the needed amount.
 
-1.  1.  This option can be optimized by triggering the job upon certain events. Events that should trigger: addVmPool, AttachUserToVmFromPoolCommand...?
+*   This option can be optimized by triggering the job upon certain events. Events that should trigger: addVmPool, AttachUserToVmFromPoolCommand...?
 
 **Algorithm for selecting a Vm for user**
 

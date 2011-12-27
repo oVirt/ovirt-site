@@ -86,7 +86,7 @@ Algorithm for selecting a host according to priorities
 
 ### Dependencies / Related Features
 
-Affected rhevm projects:
+Affected ovirt projects:
 
 *   API
 *   CLI

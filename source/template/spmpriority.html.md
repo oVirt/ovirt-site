@@ -15,7 +15,7 @@ wiki_warnings: list-item?
 
 ### Summary
 
-The SPM Priority feature allows the admin to define priorities between hosts regarding the SPM selection process.
+The SPM Priority feature allows the admin to define priorities between hosts regarding the SPM selection process. A host can be given priority -1 which means this host can not be selected to be the SPM.
 
 ### Owner
 
@@ -38,7 +38,7 @@ The SPM Priority feature allows the admin to define priorities between hosts reg
 
 ### Description
 
-The SPM selection process happens when a command needs SPM authorization to run, for example DestroyImageVDSCommand and AttachStorageDomainVDSCommand. Currently, the SPM selection process is random, meaning a host is chosen randomly out of the hosts that are currently UP. The SPM Priority feature will allow admins to define the hosts that they prefer to be chosen as SPM.
+Currently, the SPM selection process is random, meaning a host is chosen randomly out of the hosts that are currently UP. The SPM Priority feature will allow admins to define the hosts that they prefer to be chosen as SPM.
 
 ### PRD
 

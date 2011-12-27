@@ -70,7 +70,6 @@ Restart the network service by executing:
 Install VDSM by executing as root the following commands:
 
       yum install -y vdsm vdsm-cli
-       
 
 #### Configure
 
@@ -78,17 +77,14 @@ Add the following content into the file: **/etc/vdsm/vdsm.conf** (you may need t
 
       [vars]
       ssl = false
-       
 
 Restart the vdsmd service by executing:
 
       service vdsmd restart
-       
 
 If Vdsm was started earlier with ssl=true, it would refuse to start and you may need to use the undocumented verb
 
       service vdsmd reconfigure
       service vdsmd start
-       
 
 which edits **/etc/libvirt/qemu.conf** and changes **spice_tls=1** to **spice_tls=0**.

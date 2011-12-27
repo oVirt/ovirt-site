@@ -66,7 +66,7 @@ Old API will be supported for Clusters with Compatibility Version under 3.1 Samp
       'smp': '1',
       'macAddr':'00:1a:4a:16:99:42,00:1a:4a:16:99:43,00:1a:4a:16:99:44,00:1a:4a:16:99:45,00:1a:4a:16:99:46,00:1a:4a:16:99:47,00:1a:4a:16:99:48',
       'boot': 'cdn',
-      'custom': {}, 
+      'custom': {},
       'vmType': 'kvm',
       'memSize': 512,
       'smpCoresPerSocket': '1',
@@ -136,8 +136,8 @@ Sample :
       'displayNetwork': 'rhevm',
       'custom': {},
       'devices': {   
-             {'device': 'disk',
-              'subType': 'disk',
+             {'type': 'disk',
+              'device': 'disk',
               'index': `<int>`,                        <--- disk index unique per 'iface' virtio|ide
               'address': 'PCI|IDE address string',   <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'" ,  
                                                                        IDE = "type='drive' controller='0' bus='0' unit='0'"
@@ -156,8 +156,8 @@ Sample :
               .....
               any number of disks
               .....
-             {'device': 'disk',
-              'subtype': 'cdrom',
+             {'type': 'disk',
+              'device': 'cdrom',
               'index': `<int>`,                        <--- disk index unique per 'iface' virtio|ide
               'address': 'PCI|IDE address string',   <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'" ,  
                                                           IDE = "type='drive' controller='0' bus='0' unit='0'"
@@ -167,8 +167,8 @@ Sample :
               'domainID': 'domain UUID',
               'imageID': 'image UUID',
               'volumeID': '.iso file'},
-             {'device': 'disk',
-              'subtype': 'floppy',
+             {'type': 'disk',
+              'device': 'floppy',
               'index': `<int>`,                        <--- floppy index unique per 'iface' fdc
               'address': 'address string',           <--- "type='drive' controller='0' bus='0' unit='0'"
               'iface': 'fdc',
@@ -176,8 +176,8 @@ Sample :
               'domainID': 'domain UUID',
               'imageID': 'image UUID',
               'volumeID': '.vfd file'},
-             {'device': 'interface',
-              'subtype': 'bridge|sriov|vnlink|bridgeless',     <------- Rest device's parameters depends on 'device'
+             {'type': 'interface',
+              'device': 'bridge|sriov|vnlink|bridgeless',     <------- Rest device's parameters depends on 'device'
               'network': 'network name',                      <------- bridge name
               'address': 'PCI address string',                <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
               'macAddr': 'mac address',
@@ -186,17 +186,17 @@ Sample :
               .....
               any number of network cards
               .....
-             {'device': 'sound',
-              'soundDevice':'ich6',
+             {'type': 'sound',
+              'device':'ich6',
               'address': 'PCI address string'},      <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
-             {'device': 'video',
+             {'type': 'video',
               'index': `<int>`,
               'display': 'qxl|vnc',
               'address': 'PCI address string'},      <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
               .....
               up to 'spiceMonitors' of video cards
               .....
-             {'device': 'TBD - any device that has address',
+             {'type': 'TBD - any device that has address',
               'address': 'PCI|IDE address string'},  <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'" ,  
                                                           IDE = "type='drive' controller='0' bus='0' unit='0'"
        }

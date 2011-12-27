@@ -48,7 +48,6 @@ Add the following content into a new file named: **/etc/sysconfig/network-script
       ONBOOT=yes
       DELAY=0
       BOOTPROTO=dhcp
-      ONBOOT=yes
        
 
 Add the following line into the configuration file of your out going interface (usually em1/eth0) the file is located at: **/etc/sysconfig/network-scripts/ifcfg-em1** (assuming the device is em1)

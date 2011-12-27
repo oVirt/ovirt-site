@@ -19,7 +19,6 @@ Use this guide in order to install ovirt-engine: [Installing_ovirt-engine_from_r
 execute the following command as root:
 
       yum install -y bridge-utils
-       
 
 ### Configuring Ovirt's Repository
 

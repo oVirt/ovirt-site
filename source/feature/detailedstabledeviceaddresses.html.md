@@ -53,6 +53,30 @@ specparams - Any device specific parameters (for example memory allocation per m
 
 #### CRUD
 
+New table generic_device :
+
+       device_id              -- Unique identifier of the generic device
+       device                 -- The device type (for example : sound, video etc.)
+       vm_id                  -- The VM id (FK of vm_static.vm_id)
+       device_specparams      -- The device special parameters, for example ('display': 'vnc')
+       device_address         -- The device address as a string
+
+*   Adding CRUD SPs for generic_device table.
+
+Adding hash column to vm_dynamic:
+
+       hash                -- holds the md5 like encryption indicating a change 
+
+*   Update relevant Views & SPs to include the hash column
+
+Adding address and boot_order to disk_vm_map and vm_interface.
+This should be done in the mapping table in order to support the Shared Disk feature when a disk can be shared by multiple VMs:
+
+       address             -- The interface address string
+       boot_order          -- The device boot order
+
+*   Update relevant Views & SPs to include the address & boot_order columns
+
 #### User Experience
 
 This feature is not exposed to the GUI in 3.1

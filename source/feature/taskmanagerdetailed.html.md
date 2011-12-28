@@ -19,8 +19,6 @@ A Task Manager is a monitor which shows the current actions running in ovirt-eng
 
 *   Name: [ Moti Asayag](User:Moti)
     -   Email: <masayag@redhat.com>
-*   Name: [ Yair Zaslavsky](User:Yair)
-    -   Email: <yzaslavs@redhat.com>
 *   GUI Component owner: Gilad Chaplik <gchaplik@redhat.com>
 *   REST Component owner: Michael Pasternak <mpasternak@redhat.com>
 *   QA Owner: Yaniv Kaul <ykaul@redhat.com
@@ -29,18 +27,33 @@ A Task Manager is a monitor which shows the current actions running in ovirt-eng
 
 *   Target Release: 3.1
 *   Status: Design Review
-*   Last updated date: 21/12/2011
+*   Last updated date: 28/12/2011
 
 ### Detailed Description
 
 A Task Manager is a monitor which shows the current actions running in ovirt-engine server. It provides transparency for the administrator regarding the actions, their progress and status.
-The actions will be presented in a Tasks view at the Webadmin, where the status and progress are monitored. The Task Manager will monitor actions and their synchronous and asynchronous tasks.
-A simple action describes a command which consists of 2-3 tasks: verification (CanDoAction), execution and possible finalization (endAction). An complex action is:
+The actions will be presented in the WebAdmin a Tasks view, where the status and progress are monitored. The Task Manager will monitor actions and their synchronous and asynchronous tasks.
+ **Terminology**
 
-*   A command which has tasks and invokes additional commands internally which are reported as tasks.
-*   A chain of commands depended on each other and monitored in respect to the action which triggered the commands sequence.
+*   Command - An execution unit which performs a business logic.
+*   Job - An action API (RunAction) running in the system. The Job may extend beyond the life cycle of the Command which is the entry point for the action.
+*   Step - A meaningful part of the job which the user should be aware of.
 
-A command-task is a meaningful part of the command which the user should be aware of.
+The job supports the following scenarios:
+
+*   -   A simple command - a command which consists of 2 steps: validation (*CanDoAction*) and execution.
+        -   The job is ends when the command of the job ends.
+    -   A command with VDSM tasks - a command which consists of 3 steps: validation (*CanDoAction*), execution and finalization (*endAction*).
+        -   The job ends when the tasks are reported from VDSM as completed and the command *endAction* is invoked.
+    -   A command which invokes internal commands
+        -   By default, the internal command will not be presented as a step of the parent command.
+    -   A customized command - an asynchronous job which its termination is decided by an event other than tasks. There are few types of scenarios for it:
+        -   Commands which implements the *IVdcAsyncCommand* interface - triggered by *VDSBrokerFrontendImpl.RunAsyncVdsCommand*, the command instance is maintained with its context and finalized by the monitors (*VdsUpdateRuntimeInfo*).
+        -   Invocation of command in a detached thread, e.g *AddVdsCommand* which delegates job resolution to the internal command *InstallVdsCommand*.
+        -   The command execution is ended, but the resolution for the success of the Action is determined by other event in the system:
+            -   Other events which reported by the *monitors* (e.g. Host Maintenance reported by *VdsEventListener*).
+            -   Requires heuristic decision to select the correct Step for the Job.A Job has entity type and entity id associated with.
+    -   Multiple Action Runner - describes multiple command invocations in a single API call. Each command will be reflected as a job.
 
 The requirements for feature are as follow:
 # Providing a mechanism for tasks monitoring via UI (i.e - monitor task status, monitor tasks of given action, tasks of a given entity)
@@ -81,7 +94,7 @@ The following entities/components will be added:
 ##### Enumerators
 
 ''' New Enumerators *'
-*StepEnum'' represents all available steps in the system.
+*StepEnum'' represents all available steps in the system. *StepStatus* *JobStatus*
 
 **Updated Enumerators**
 *VdcActionType* will be extended with list of categories to which a specific action type belongs to.

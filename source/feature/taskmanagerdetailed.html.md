@@ -86,20 +86,27 @@ This section describes the backend design for this feature.
 
 The following entities/components will be added:
 
-*   **Job** a representation of a client action in the system. Using this entity, a concrete instance of *CommandBase* could be created (e.g. command 'resurrection'). The *Job* contains list of internal steps which are part of the entire Job. Job entity is capable to produce a descriptive tree of steps.
-*   **Step** a representation of a meaningful part of the Job. The class could be a parent of other steps (e.g. step named execution could have a list of steps which are part of the job).
-*   **JobRepository** used to store and fetch jobs from the database. Also responsible to maintain obsolete jobs.
-*   **JobDAO** a DAO interface which defines the DML operations for the Job entities.
-*   **JobDAODbFacadeImpl** an implementation of the JobDAO interface.
+*   **Job** An entity which encapsulates a client action in the system. The *Job* contains a collection of steps which describes portions of the entire Job. A Job contains all of the information requi,red for defining and running the client action: Using Job entity a concrete instance of *CommandBase*(Job's main command) could be created (by action type and parameters). The Job entity also capable to produce a descriptive tree of steps, reflecting the action parts to be delivered to UI for presentation.
+*   **Step** represents a meaningful phase of the Job. A Step could be a parent of other steps (e.g. step named EXECUTION could have a list of steps beneath it which are also part of the job).
+*   **JobRepository** is the persistence mechanism for *Job* and *Step* entities. It used for CRUD operations for Job and Step, when a Job is created, it is being persistent to the database in order to reflect immediate Job status to the user. The *JobRepository* is responsible to maintain obsolete jobs in the database.
+*   **JobDao** a DAO interface which defines the CRUD operations for the Job entities.
+*   **JobDaoDbFacadeImpl** an implementation of the *JobDao* interface.
+*   **StepDao** a DAO interface which defines the CRUD operations for the *Step* entities.
+*   **StepDaoDbFacadeImpl** an implementation of the *StepDao* interface.
+*   **ExecutionContext** an object which encapsulates the context in which an action should be executed. It determines level of command monitoring and a way to present a given command to the User (e.g. as a job, step). Providing *ExecutionContext* will override the default monitoring behavior of the TaskManager.
+
+<!-- -->
+
 *   **GetModifiedJobsQuery** a query which fetches only commands which were updated since a given time. It is designed to pull only tasks which where updated since the last query invoked by a client.
 
 ##### Enumerators
 
 ''' New Enumerators *'
-*StepEnum'' represents all available steps in the system. *StepStatus* *JobStatus*
-
-**Updated Enumerators**
-*VdcActionType* will be extended with list of categories to which a specific action type belongs to.
+*StepEnum'' specifies system's steps
+*StepStatus* specifies which statuses are eligible for a *Step*
+*JobStatus* specifies which statuses are eligible for a *Job*
+ **Updated Enumerators**
+*VdcActionType* will be extended with a new field storing a list of categories to which a specific action type belongs to.
 
 ##### Annotations
 
@@ -108,7 +115,7 @@ The following entities/components will be added:
 
 ##### Main Task Manager Class Diagram
 
-The following class diagrams describe the entities participating in the the Task Manager feature:
+The following class diagrams describes the entities participating in the the Task Manager feature:
  ![](async-task-main-class-diagram.jpeg "fig:async-task-main-class-diagram.jpeg")
 
 ------------------------------------------------------------------------

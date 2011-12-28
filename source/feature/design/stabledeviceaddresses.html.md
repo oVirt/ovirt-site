@@ -191,8 +191,8 @@ Sample :
               'device':'ich6',
               'address': 'PCI address string'},      <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
              {'type': 'video',
-              'index': `<int>`,
               'device': 'qxl|cirrus',                <--- 'qxl' - spice device,  'cirrus' - vnc device
+              'specParams': `<vram size>`,             <------- vram size depends from number of video devices: '65536' if (monitors <= 2) else '32768'
               'address': 'PCI address string'},      <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
               .....
               up to 'spiceMonitors' of video cards

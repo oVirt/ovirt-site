@@ -75,6 +75,20 @@ This should be done in the mapping table in order to support the Shared Disk fea
 
 *   Update relevant Views & SPs to include the address & boot_order columns
 
+#### Metadata
+
+Adding test data for generic_device in fixtures.xml
+
+#### DAL
+
+Adding GenericDeviceDAO, GenericDeviceDAODbFacadeImpl , GenericDeviceDAOHibernateImpl
+Adding GenericDeviceDAOTest that extends BaseGenericDaoTestCase
+Adding Hash property to VmDynamic
+Updating VmDynamicDAOTest to include the new Hash property Adding Address & BootOrder properties to DiskVmMap & VmNetworkInterface
+Updating DiskVmMapDAOTest and VmNetworkInterfaceDAOTest to include the new Address & BootOrder properties
+
+#### Business Logic
+
 #### User Experience
 
 This feature is not exposed to the GUI in 3.1

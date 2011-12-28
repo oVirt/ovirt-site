@@ -124,6 +124,12 @@ Structure:
          bus='0',
          unit='0' }
 
+#### Video Cards
+
+In new format we will have to add some logic when handling video cards.
+Up to 3.1, we were passing spiceMonitors, this described the number of monitors used by the VM and memory allocation calculation per video card was sone by VDSM
+In new format, we will have to send each video card as a generic device and calculate the memory allocation, the result will be passed to vdsm as the specparams value.
+
 #### User Experience
 
 This feature is not exposed to the GUI in 3.1

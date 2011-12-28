@@ -42,19 +42,23 @@ The actions will be presented in the WebAdmin a Tasks view, where the status and
 
 The job supports the following scenarios:
 
-*   -   A simple command - a command which consists of 2 steps: validation (*CanDoAction*) and execution.
-        -   The job is ends when the command of the job ends.
-    -   A command with VDSM tasks - a command which consists of 3 steps: validation (*CanDoAction*), execution and finalization (*endAction*).
-        -   The job ends when the tasks are reported from VDSM as completed and the command *endAction* is invoked.
-    -   A command which invokes internal commands
-        -   By default, the internal command will not be presented as a step of the parent command.
-    -   A customized command - an asynchronous job which its termination is decided by an event other than tasks. There are few types of scenarios for it:
-        -   Commands which implements the *IVdcAsyncCommand* interface - triggered by *VDSBrokerFrontendImpl.RunAsyncVdsCommand*, the command instance is maintained with its context and finalized by the monitors (*VdsUpdateRuntimeInfo*).
-        -   Invocation of command in a detached thread, e.g *AddVdsCommand* which delegates job resolution to the internal command *InstallVdsCommand*.
-        -   The command execution is ended, but the resolution for the success of the Action is determined by other event in the system:
-            -   Other events which reported by the *monitors* (e.g. Host Maintenance reported by *VdsEventListener*).
-            -   Requires heuristic decision to select the correct Step for the Job.A Job has entity type and entity id associated with.
-    -   Multiple Action Runner - describes multiple command invocations in a single API call. Each command will be reflected as a job.
+1.  A simple command - a command which consists of 2 steps: validation (*CanDoAction*) and execution.
+    -   The job is ends when the command of the job ends.
+
+2.  A command with VDSM tasks - a command which consists of 3 steps: validation (*CanDoAction*), execution and finalization (*endAction*).
+    -   The job ends when the tasks are reported from VDSM as completed and the command *endAction* is invoked.
+
+3.  A command which invokes internal commands
+    -   By default, the internal command will not be presented as a step of the parent command.
+
+4.  A customized command - an asynchronous job which its termination is decided by an event other than tasks. There are few types of scenarios for it:
+    -   Commands which implements the *IVdcAsyncCommand* interface - triggered by *VDSBrokerFrontendImpl.RunAsyncVdsCommand*, the command instance is maintained with its context and finalized by the monitors (*VdsUpdateRuntimeInfo*).
+    -   Invocation of command in a detached thread, e.g *AddVdsCommand* which delegates job resolution to the internal command *InstallVdsCommand*.
+    -   The command execution is ended, but the resolution for the success of the Action is determined by other event in the system:
+        -   Other events which reported by the *monitors* (e.g. Host Maintenance reported by *VdsEventListener*).
+        -   Requires heuristic decision to select the correct Step for the Job.A Job has entity type and entity id associated with.
+
+5.  Multiple Action Runner - describes multiple command invocations in a single API call. Each command will be reflected as a job.
 
 #### Requirements
 

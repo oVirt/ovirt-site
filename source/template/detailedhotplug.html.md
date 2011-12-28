@@ -34,31 +34,27 @@ The short description is : <http://www.ovirt.org/wiki/Features/HotPlug>
 
 ### Detailed Description
 
-Provide the details of the feature. What is it going to include. See the sub-sections below. This section may contain more sub-sections, depends on the oVirt projects relevant for this feature.
+The following feature will allow to hot plug/unplug of virtIO disks on running vm, also in scope of that feature will be added a new attribute to disk which will allow to run vm even the following disk is unaccesiable.
 
 #### Entity Description
 
-New entities and changes in existing entities.
+The following changes on disk entity will be done: A new field should be added to the table images which will indicate status of disk (plugged, unplugged) A new field should be added to the table images, type boolean , which will indicate if a disk should be activated during boot
 
 #### CRUD
 
-Describe the create/read/update/delete operations on the entities, and what each operation should do.
+No new operation will be added, an update will be done by using of existing storage procedures
 
 #### User Experience
 
-Describe user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should also be added here to make it more clear
-
 #### Installation/Upgrade
 
-Describe how the feature will effect new installation or existing one.
+An upgrade script will add a missed fields.
 
 #### User work-flows
 
-Describe the high-level work-flows relevant to this feature.
+A new actions will allow to user plug or un plug a disk at running vm . Via gui or rest API user will have an option to plug or un plug a disk at running vm
 
 #### Events
-
-What events should be reported when using this feature.
 
 ### Dependencies / Related Features and Projects
 

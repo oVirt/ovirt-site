@@ -72,6 +72,12 @@ The requirements for feature are as follow (V2 refers to future version):
 5.  Define a "best effort task" - The success of the parent command of this task will not depend on the result of a task).(V2)
 6.  Provide a permission mechanism for the task management.(V2)
 
+*   The first version will include a default implementation for all commands and specific flow monitoring for the specific commands:
+    1.  AddVdsCommand
+    2.  MaintenanceNumberOfVds
+    3.  RunVmCommand
+    4.  StopVmCommand
+
 ### Backend
 
 This section describes the backend design for this feature.

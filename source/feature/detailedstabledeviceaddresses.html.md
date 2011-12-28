@@ -75,6 +75,12 @@ This should be done in the mapping table in order to support the Shared Disk fea
 
 *   Update relevant Views & SPs to include the address & boot_order columns
 
+Adding shared flag to disks :
+
+       shared              -- Indicates if disk is shared between multiple VMs
+
+*   Update relevant Views & SPs to include the shared column
+
 #### Metadata
 
 Adding test data for generic_device in fixtures.xml
@@ -101,7 +107,7 @@ In order to support both old (under 3.1) structure and new structure (3.1 and ab
 We will have to create VMMixedInfoManager and VMDeviceInfoManager both extends VMInfoManagerBase.
 VMMixedInfoManager stands for old (under 3.1) structure
 VMDeviceInfoManager stands for new structure (3.1 and above)
-We will have a factory method in the relevant classes that will return the relevant VMInfoManagerBase instance depending on VM Cluster Compatibility version.
+We will have a factory method in the relevant classes that will return the relevant VMInfoManagerBase instance depending on VM Cluster Compatibility version. Those classes will handle both composing the right structure for VDSM when a VM is created and getting VM information from VDSM in order to update our persistent layer after calling Get\*VdsStatsComamnd , ListVdsCommand
 
 #### User Experience
 

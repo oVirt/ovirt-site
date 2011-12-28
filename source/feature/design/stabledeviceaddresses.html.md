@@ -134,6 +134,7 @@ Sample :
       'spiceSslCipherSuite': 'DEFAULT',
       'spiceSecureChannels': 'smain,sinputs',
       'displayNetwork': 'rhevm',
+      'display': 'qxl|vnc',
       'custom': {},
       'devices': {   
              {'type': 'disk',
@@ -191,7 +192,7 @@ Sample :
               'address': 'PCI address string'},      <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
              {'type': 'video',
               'index': `<int>`,
-              'display': 'qxl|vnc',
+              'display': 'qxl|cirrus',               <--- 'qxl' - spice device,  'cirrus' - vnc device
               'address': 'PCI address string'},      <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
               .....
               up to 'spiceMonitors' of video cards

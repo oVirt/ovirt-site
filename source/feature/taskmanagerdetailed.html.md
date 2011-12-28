@@ -33,7 +33,8 @@ A Task Manager is a monitor which shows the current actions running in ovirt-eng
 
 A Task Manager is a monitor which shows the current actions running in ovirt-engine server. It provides transparency for the administrator regarding the actions, their progress and status.
 The actions will be presented in the WebAdmin a Tasks view, where the status and progress are monitored. The Task Manager will monitor actions and their synchronous and asynchronous tasks.
- **Terminology**
+
+#### Terminology
 
 *   Command - An execution unit which performs a business logic.
 *   Job - An action API (RunAction) running in the system. The Job may extend beyond the life cycle of the Command which is the entry point for the action.
@@ -55,26 +56,27 @@ The job supports the following scenarios:
             -   Requires heuristic decision to select the correct Step for the Job.A Job has entity type and entity id associated with.
     -   Multiple Action Runner - describes multiple command invocations in a single API call. Each command will be reflected as a job.
 
-**Requirements** The requirements for feature are as follow:
-# Providing a mechanism for tasks monitoring via UI (i.e - monitor task status, monitor tasks of given action, tasks of a given entity)
+#### Requirements
 
-1.  Providing a mechanism for tasks management: stop task, stop all tasks of command, restart of failed command, setting priority for a task. (V2)
-    -   The first version will include a default implementation for all commands and specific flow monitoring for the specific commands:
-        -   AddVdsCommand
-        -   MaintenanceNumberOfVds
-        -   RunVmCommand
-        -   StopVmCommand
+The requirements for feature are as follow (V2 refers to future version):
+# Provide a mechanism for tasks monitoring via UI (i.e - monitor task status, monitor tasks of given action, tasks of a given entity)
 
-2.  Defining a global correlation-id which spread cross-systems representing an action (Client--> Backend --> VDSM).
-3.  Defining a task dependency/task chaining mechanism (Task B will not start before completion of Task A).(V2)
-4.  Providing a mechanism to invoke commands asynchronously. (V2)
-5.  Defining a "best effort task" - The success of the parent command of this task will not be dependent on the result of a task).(V2)
-6.  Providing permission mechanism for the task management.(V2)
+1.  Define a global correlation-id which spread cross-systems representing an action (Client--> Backend --> VDSM).
+2.  Provide a mechanism for tasks management: cancel task, stop all tasks of command, restart of failed command, setting priority for a task. (V2)
+3.  Define a task dependency/task chaining mechanism (Task B will not start before completion of Task A).(V2)
+4.  Provide a mechanism to invoke commands asynchronously. (V2)
+5.  Define a "best effort task" - The success of the parent command of this task will not depend on the result of a task).(V2)
+6.  Provide a permission mechanism for the task management.(V2)
 
-The feature will also contain some changes that are required internally for Backend development and to improve task management functionality and correctness of behavior:
+\* The first version will include a default implementation for all commands and specific flow monitoring for the specific commands:
 
-1.  Changing serialization of task parameters to JSON - will ease on tasks flow debugging.
-2.  Improving task recovery mechanism - in case JBoss restart (there might be a mismatch between last stored task info and the current task status in VDSM).
+\*# AddVdsCommand
+
+\*# MaintenanceNumberOfVds
+
+\*# RunVmCommand
+
+\*# StopVmCommand
 
 ### Backend
 

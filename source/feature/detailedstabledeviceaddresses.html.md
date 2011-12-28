@@ -42,10 +42,8 @@ In the term Device we include PCI, VirtIO Serial, SCSI, IDE, CCID and actually a
 
 #### Entity Description
 
-##### Generic Device
-
-A new BE GenericDevice that represents video/sound/ant-other-device
-GenericDevice will have the following properties
+A new BE GenericDevice that represents video/sound/any-other-device
+==== Generic Device ==== GenericDevice will have the following properties
 type - The device type (for example 'sound')
 device - The device (for example 'ich6')
 address - A string reprenting all address details (for example "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'")

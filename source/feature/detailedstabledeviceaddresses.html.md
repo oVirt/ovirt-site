@@ -149,6 +149,27 @@ issues:
 
 ### Dependencies / Related Features and Projects
 
+#### Affected oVirt projects
+
+*   Engine-core
+*   VDSM
+
+#### Hot Plug Disk/Nic
+
+Since managing this is via backend, we always assume that we get the exact Disk/Nic number as we know already.
+In case that we got a device that is nor recognized (even if it a Hot Plug) , it will be handled as a Generic Device
+
+#### Optional Disk
+
+We should support and persist an optional disk , this is implemented as a new attribute of the disk entry in the API.
+Optional flag is passed as static false in 3.1
+
+#### Direct LUN
+
+Direct LUN enables adding a block device to the system either by its GUID or UUID
+
+### Documentation / External references
+
 <http://www.ovirt.org/wiki/Features/Design/StableDeviceAddresses>
 
 ### Open Issues

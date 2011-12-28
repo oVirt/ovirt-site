@@ -89,13 +89,19 @@ Updating DiskVmMapDAOTest and VmNetworkInterfaceDAOTest to include the new Addre
 
 #### Business Logic
 
-All places in which we send/recieve VM details are affected:
+All places in which we send/receive VM details are affected:
 
        CreateVDSCommand           - called when running a VM
        GetAllVmStatsVDSCommand    - called to get basic information (status) on all VMs
        GetVmStatsVDSCommand       - called to get basic information (status) on all one VM
        ListVDSCommand             - called to get all VM details, will be used when recognizing that hash has been changed on a VM
        refreshVdsRunTimeInfo      - called periodically to refresh VMs information and persist it to db.
+
+In order to support both old (under 3.1) structure and new structure (3.1 and above), we will have to re-factor current code in above classes. This will be done by creating a VMInfoManagerBase class that will implement all shared code and define protected methods that can be overridden by its descendants.
+We will have to create VMMixedInfoManager and VMDeviceInfoManager both extends VMInfoManagerBase.
+VMMixedInfoManager stands for old (under 3.1) structure
+VMDeviceInfoManager stands for new structure (3.1 and above)
+We will have a factory method in the relevant classes that will return the relevant VMInfoManagerBase instance depending on VM Cluster Compatibility version.
 
 #### User Experience
 

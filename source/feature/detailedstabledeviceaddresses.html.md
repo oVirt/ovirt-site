@@ -15,33 +15,34 @@ wiki_warnings: list-item?
 
 ### Summary
 
-Quota provides a way for the Administrator to limit the resource usage in the System.
+Allow devices in guest virtual machines to retain the same device address allocations as other devices are added or removed from the guest configuration. This is particularly important for Windows guests in order to prevent warnings or reactivation when device addresses change.
+In the term Device we include PCI, VirtIO Serial, SCSI, IDE, CCID and actually anything libvirt supports.
 
 ### Owner
 
 *   Feature owner: [ Eli Mesika](User:emesika)
 
-    * GUI Component owner: [ Gilad Chaplik](User:gchaplik)
+    * GUI Component owner: Not Relevant
 
-    * REST Component owner: [ Michael Pasternak](User:mpasternak)
+    * REST Component owner: Not Relevant
 
     * Engine Component owner: [ Eli Mesika](User:emesika)
 
     * QA Owner: [ Yaniv Kaul](User:ykaul)
 
-*   Email: mlipchuk@redhat.com
+*   Email: emesika@redhat.com
 
 ### Current status
 
-*   Target Release:
+*   Target Release: 3.1
 *   Status: Design Stage
-*   Last updated date: Wed November 10 2011
+*   Last updated date: Wed December 28 2011
 
 ### Detailed Description
 
 #### Entity Description
 
-##### Quota
+##### Generic Device
 
 #### CRUD
 
@@ -55,9 +56,7 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 
 ### Dependencies / Related Features and Projects
 
-### Comments and Discussion
-
-<http://www.ovirt.org/wiki/Talk:Features/Quota>
+<http://www.ovirt.org/wiki/Features/Design/StableDeviceAddresses>
 
 ### Open Issues
 

@@ -38,7 +38,7 @@ The following feature will allow to hot plug/unplug of virtIO disks on running v
 
 #### Entity Description
 
-The following changes on disk entity will be done: A new field should be added to the table images which will indicate status of disk (plugged, unplugged) A new field should be added to the table images, type boolean , which will indicate if a disk should be activated during boot
+The following changes on disk entity will be done: A new field should be added to the table images which will indicate status of disk (plugged, unplugged) A new field should be added to the table images, type boolean, which will indicate if a disk should be activated during boot
 
 #### CRUD
 

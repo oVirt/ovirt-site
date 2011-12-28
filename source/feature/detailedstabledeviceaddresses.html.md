@@ -40,7 +40,9 @@ In the term Device we include PCI, VirtIO Serial, SCSI, IDE, CCID and actually a
 
 ### Detailed Description
 
-#### Entity Description
+When creating a VM, QEMU allocates device addresses to the guest devices, these addresses are being reported by libvirt to VDSM and VDSM should report it back to RHEVM. RHEVM should persist the device addresses and report it as part of the VM configuration on the next run. If a change to the VM devices occurred RHEVM should detect the change and persist the new device addresses.
+
+### Entity Description
 
 A new BE GenericDevice that represents video/sound/any-other-device
 ==== Generic Device ==== GenericDevice will have the following properties
@@ -49,7 +51,7 @@ device - The device (for example 'ich6')
 address - A string reprenting all address details (for example "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'")
 specparams - Any device specific parameters (for example memory allocation per monitor in video device)
 
-#### CRUD
+### CRUD
 
 New table generic_device :
 
@@ -81,11 +83,7 @@ Adding shared flag to disks :
 
 *   Update relevant Views & SPs to include the shared column
 
-#### Metadata
-
-Adding test data for generic_device in fixtures.xml
-
-#### DAL
+### DAL
 
 Adding GenericDeviceDAO, GenericDeviceDAODbFacadeImpl , GenericDeviceDAOHibernateImpl
 Adding GenericDeviceDAOTest that extends BaseGenericDaoTestCase
@@ -93,7 +91,11 @@ Adding Hash property to VmDynamic
 Updating VmDynamicDAOTest to include the new Hash property Adding Address & BootOrder properties to DiskVmMap & VmNetworkInterface
 Updating DiskVmMapDAOTest and VmNetworkInterfaceDAOTest to include the new Address & BootOrder properties
 
-#### Business Logic
+#### Metadata
+
+Adding test data for generic_device in fixtures.xml
+
+### Business Logic
 
 All places in which we send/receive VM details are affected:
 
@@ -108,6 +110,10 @@ We will have to create VMMixedInfoManager and VMDeviceInfoManager both extends V
 VMMixedInfoManager stands for old (under 3.1) structure
 VMDeviceInfoManager stands for new structure (3.1 and above)
 We will have a factory method in the relevant classes that will return the relevant VMInfoManagerBase instance depending on VM Cluster Compatibility version. Those classes will handle both composing the right structure for VDSM when a VM is created and getting VM information from VDSM in order to update our persistent layer after calling Get\*VdsStatsComamnd , ListVdsCommand
+
+#### Device Index
+
+Manage internal unique index for 'iface' virtio' or 'ide' Same ordering as in old format should be kept in order to support 3.0 VMs that starts to run on 3.1 cluster
 
 #### Managing Addresses
 
@@ -130,11 +136,11 @@ In new format we will have to add some logic when handling video cards.
 Up to 3.1, we were passing spiceMonitors, this described the number of monitors used by the VM and memory allocation calculation per video card was sone by VDSM
 In new format, we will have to send each video card as a generic device and calculate the memory allocation, the result will be passed to vdsm as the specparams value.
 
-#### User Experience
+### User Experience
 
 This feature is not exposed to the GUI in 3.1
 
-#### Installation/Upgrade
+### Installation/Upgrade
 
 In order to prevent data duplication we will tend to upgrade some old data to new format and still be backward compatible.
 issues:
@@ -145,7 +151,7 @@ issues:
 
 #### User work-flows
 
-#### Enforcement
+### Enforcement
 
 ### Dependencies / Related Features and Projects
 

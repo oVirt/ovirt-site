@@ -136,18 +136,18 @@ Sample :
       'displayNetwork': 'rhevm',
       'display': 'qxl|vnc',
       'custom': {},
-      'devices': {   
+      'devices': [   
              {'type': 'disk',
               'device': 'disk',
               'index': `<int>`,                        <--- disk index unique per 'iface' virtio|ide
               'address': 'PCI|IDE address string',   <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'" ,  
-                                                                       IDE = "type='drive' controller='0' bus='0' unit='0'"
+                                                          IDE = "type='drive' controller='0' bus='0' unit='0'"
               'format': 'cow',
               'bootOrder': `<int>`,                    <--- global boot order across all bootable devices
               'propagateErrors': 'off',
               'iface': 'virtio|ide',
               'shared': 'True|False'                 <--- whether disk is shared
-              'optional': 'True|False'                        <------- whether disk is optional (VM can be run without optional disk if inaccessible)
+              'optional': 'True|False'               <--- whether disk is optional (VM can be run without optional disk if inaccessible)
               'poolID': 'pool UUID',                         |
               'domainID': 'domain UUID',                     | 
               'imageID': 'image UUID',               <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID   
@@ -178,8 +178,8 @@ Sample :
               'imageID': 'image UUID',
               'volumeID': '.vfd file'},
              {'type': 'interface',
-              'device': 'bridge|sriov|vnlink|bridgeless',     <------- Rest device's parameters depends on 'device'
-              'network': 'network name',                      <------- bridge name
+              'device': 'bridge|sriov|vnlink|bridgeless',     <--- Rest device's parameters depends on 'device'
+              'network': 'network name',                      <--- bridge name
               'address': 'PCI address string',                <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
               'macAddr': 'mac address',
               'bootOrder': `<int>`,                             <--- global boot order across all bootable devices
@@ -192,7 +192,7 @@ Sample :
               'address': 'PCI address string'},      <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
              {'type': 'video',
               'device': 'qxl|cirrus',                <--- 'qxl' - spice device,  'cirrus' - vnc device
-              'specParams': `<vram size>`,             <------- vram size depends from number of video devices: '65536' if (monitors <= 2) else '32768'
+              'specParams': `<vram size>`,             <--- vram size depends from number of video devices: '65536' if (monitors <= 2) else '32768'
               'address': 'PCI address string'},      <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
               .....
               up to 'spiceMonitors' of video cards
@@ -200,7 +200,7 @@ Sample :
              {'type': 'TBD - any device that has address',
               'address': 'PCI|IDE address string'},  <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'" ,  
                                                           IDE = "type='drive' controller='0' bus='0' unit='0'"
-       }
+       ]
 
 ### DB Design
 

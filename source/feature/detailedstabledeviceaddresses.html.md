@@ -89,6 +89,8 @@ Updating DiskVmMapDAOTest and VmNetworkInterfaceDAOTest to include the new Addre
 
 #### Business Logic
 
+All places in which we send/recieve VM details are affected: CreateVDSCommand - called when running a VM GetAllVmStatsVDSCommand - called to get basic information (status) on all VMs GetVmStatsVDSCommand - called to get basic information (status) on all one VM ListVDSCommand - called to get all VM details, will be used when recognizing that hash has been changed on a VM refreshVdsRunTimeInfo - called periodically to refresh VMs information and persist it to db.
+
 #### User Experience
 
 This feature is not exposed to the GUI in 3.1

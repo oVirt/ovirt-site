@@ -55,7 +55,7 @@ The job supports the following scenarios:
             -   Requires heuristic decision to select the correct Step for the Job.A Job has entity type and entity id associated with.
     -   Multiple Action Runner - describes multiple command invocations in a single API call. Each command will be reflected as a job.
 
-The requirements for feature are as follow:
+**Requirements** The requirements for feature are as follow:
 # Providing a mechanism for tasks monitoring via UI (i.e - monitor task status, monitor tasks of given action, tasks of a given entity)
 
 1.  Providing a mechanism for tasks management: stop task, stop all tasks of command, restart of failed command, setting priority for a task. (V2)

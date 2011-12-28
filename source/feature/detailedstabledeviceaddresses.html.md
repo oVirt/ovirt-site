@@ -109,6 +109,21 @@ VMMixedInfoManager stands for old (under 3.1) structure
 VMDeviceInfoManager stands for new structure (3.1 and above)
 We will have a factory method in the relevant classes that will return the relevant VMInfoManagerBase instance depending on VM Cluster Compatibility version. Those classes will handle both composing the right structure for VDSM when a VM is created and getting VM information from VDSM in order to update our persistent layer after calling Get\*VdsStatsComamnd , ListVdsCommand
 
+#### Managing Addresses
+
+Addresses are kept in the database as a plain-text strings. However, when passed to VDSM addresses should be structured as dictionaries.
+Example
+DB:
+
+       "type='drive' controller='0' bus='0' unit='0'"
+
+Structure:
+
+       { type='drive',
+         controller='0',
+         bus='0',
+         unit='0' }
+
 #### User Experience
 
 This feature is not exposed to the GUI in 3.1

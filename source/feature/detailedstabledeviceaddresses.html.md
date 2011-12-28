@@ -111,6 +111,10 @@ VMMixedInfoManager stands for old (under 3.1) structure
 VMDeviceInfoManager stands for new structure (3.1 and above)
 We will have a factory method in the relevant classes that will return the relevant VMInfoManagerBase instance depending on VM Cluster Compatibility version. Those classes will handle both composing the right structure for VDSM when a VM is created and getting VM information from VDSM in order to update our persistent layer after calling Get\*VdsStatsComamnd , ListVdsCommand
 
+#### Migration
+
+We will use cluster level decision, since we will have to support migration from host to host in the same Cluster. New API for both sending (create) and receiving (get\*VmStats, List) information will use VM parameters as a structured dictionary
+
 #### Device Index
 
 Manage internal unique index for 'iface' virtio' or 'ide' Same ordering as in old format should be kept in order to support 3.0 VMs that starts to run on 3.1 cluster

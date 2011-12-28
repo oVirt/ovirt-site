@@ -124,11 +124,11 @@ refreshVdsRunTimeInfo:
        query cluster to get version comparability value
        3.0 and below => create VMMixedInfoManager and calls methods in it to persist data from structural info from VDSM
          run on all VMs and do old logic 
-       3.1 and above => create VMDeviceInfoManager aand calls methods in it to persist data from structural info from VDSM
+       3.1 and above => create VMDeviceInfoManager and calls methods in it to persist data from structural info from VDSM
          run on all VMs 
          compare hash value if different add VM to change list
          call List requesting long format for all VMs in the changed list
-         persist changes in DB 
+         persist changes in DB
 
 #### Migration
 

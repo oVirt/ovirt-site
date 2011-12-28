@@ -180,8 +180,8 @@ When calling synchronized Vds commands (such as createVm, MigrateVm), which shou
 For a-synchronized operations behaviour, the Quota Storage DB data, (and the quota storage memory table) will be synchronized based on the DB data and the AsyncTaskManager properties.
  The ATM will have new data, which will reflect the storage quantity change being done by each task, for example adding +4GB when new image is being added.
  Each task in the ATM map, should encapsulate the storage change which it is responsible for.
- The Quota Storage memory table should be updated at the canDoAction.
- In the end action we will validate whether the task was finished successfully or not, and by doing so we will update the quota storage memory table accordingly.
+ The Quota Storage memory table should be updated in the execute right before the task is being created.
+ At the end action we will validate whether the task was finished successfully or not, and by doing so we will update the quota storage memory table accordingly.
  When new SPM will be elected, we will recalculate the quota storage memory table, using the images_dynamic fields and also the AsyncTaskManager table right after re-polling all the tasks.
 
 ###### upgrade behaviour

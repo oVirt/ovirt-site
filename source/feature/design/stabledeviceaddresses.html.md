@@ -209,7 +209,7 @@ New table generic_device:
        device_id           -- Unique identifier of the generic device
        vm_id               -- The VM id (FK of vm_static)
        device_type         -- The device type (for example : sound, video etc.)
-       device_subtype      -- The device subtype, for example ('display': 'vnc')
+       device_specparams   -- The device special parameters, for example ('display': 'vnc')
        device_address      -- The device address as a string
 
 Adding a column to vm_dynamic:

@@ -51,6 +51,11 @@ You need two to three physical servers to install and configure a basic Ovirt en
 | Scenario                                                                                                                                                                                                               | Bugs |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
 | Setup Ovirt engine using either Active Directory or Local IPA, two hosts configured as hypervisor ( either Fedora or Ovirt-Node ) with power management (Storage Domains - Data Domain / ISO Domain and Export Domain) |      |
+| Use ISO Uploader to populate images of 3-4 OS and tools                                                                                                                                                                |      |
+| Basic Network Configuration                                                                                                                                                                                            |      |
+| Create virtual machines and assign them to users                                                                                                                                                                       |      |
+| Migrate VM's between the hypervisors                                                                                                                                                                                   |      |
+| Collect log file using the log collector tool                                                                                                                                                                          |      |
 
 ### Configuration
 

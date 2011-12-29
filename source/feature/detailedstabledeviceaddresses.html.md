@@ -112,6 +112,8 @@ Both VMOldInfoManager and VMInfoManager implement a common VMInfoManagerInterfac
 We will have a factory method in the relevant CreateVDSCommand and refreshVdsRunTimeInfo that will create the proper class instance depending on VM Cluster Compatibility version.
 Those classes will handle both composing the right structure for VDSM when a VM is created and getting VM information from VDSM in order to update our persistent layer after calling Get\*VdsStatsComamnd , ListVdsCommand
 
+![](Vmmanagerinfo.png "Vmmanagerinfo.png")
+
 #### Flow
 
 create:

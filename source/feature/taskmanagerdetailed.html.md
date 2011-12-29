@@ -39,6 +39,7 @@ The actions will be presented in the WebAdmin a Tasks view, where the status and
 *   Command - An execution unit which performs a business logic.
 *   Job - An action API (RunAction) running in the system. The Job may extend beyond the life cycle of the Command which is the entry point for the action.
 *   Step - A meaningful part of the job which the user should be aware of.
+*   Task - known as VDSM task, executed by VDSM.
 
 The job supports the following scenarios:
 

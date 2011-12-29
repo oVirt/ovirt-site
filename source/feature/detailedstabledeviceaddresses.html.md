@@ -108,7 +108,9 @@ All places in which we send/receive VM details are affected:
 In order to support both old (under 3.1) structure and new structure (3.1 and above), we will have to re-factor current code in above classes. This will be done by creating a VMInfoManagerHelper class that will implement all shared code as device indexing etc.
 We will have to create VMOldInfoManager and VMInfoManager VMOldInfoManager stands for old (under 3.1) structure
 VMInfoManager stands for new structure (3.1 and above)
-We will have a factory method in the relevant CreateVDSCommand and refreshVdsRunTimeInfo that will create the proper class instance depending on VM Cluster Compatibility version. Those classes will handle both composing the right structure for VDSM when a VM is created and getting VM information from VDSM in order to update our persistent layer after calling Get\*VdsStatsComamnd , ListVdsCommand
+Both VMOldInfoManager and VMInfoManager implement a common VMInfoManagerInterface interface
+We will have a factory method in the relevant CreateVDSCommand and refreshVdsRunTimeInfo that will create the proper class instance depending on VM Cluster Compatibility version.
+Those classes will handle both composing the right structure for VDSM when a VM is created and getting VM information from VDSM in order to update our persistent layer after calling Get\*VdsStatsComamnd , ListVdsCommand
 
 #### Flow
 

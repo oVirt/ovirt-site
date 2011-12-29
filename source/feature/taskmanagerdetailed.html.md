@@ -145,7 +145,7 @@ The following class diagram focuses on the *CommandEntity* and its associated el
 {|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |job_id ||UUID ||not null ||The job ID |- |entity_id ||UUID ||not null ||The entity id which was provided to the Job main command |- |entity_type ||Tinyint ||not null ||The type of the entity |- |}
 
 <span style="color:Teal">**AUDIT_LOG**</span> An extension to the existing table to denote the job which the event participate in:
-{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |job_id ||UUID ||null ||The job ID |- |}
+{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |job_id ||UUID ||null ||The job ID |- |correlation_id ||UUID ||null ||The correlation ID provided from the client to identify the scope in which the event occurred |- |}
 
 ##### CRUD
 

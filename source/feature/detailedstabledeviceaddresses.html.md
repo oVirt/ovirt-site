@@ -134,6 +134,10 @@ refreshVdsRunTimeInfo:
 
 We will use cluster level decision, since we will have to support migration from host to host in the same Cluster. New API for both sending (create) and receiving (get\*VmStats, List) information will use VM parameters as a structured dictionary
 
+#### Boot Order
+
+Boot order is currently managed as a int field in vm_dynamic table, the reflects an enumerator in the BLL having values 1-14 representing comminations of boot sources (Hard Drive, CD, Network) This is changed as we will handle boot sequence in both disks & vm_interface table as a running number representing the order of the device in the boot process.
+
 #### Device Index
 
 Manage internal unique index for 'iface' virtio' or 'ide' Same ordering as in old format should be kept in order to support 3.0 VMs that starts to run on 3.1 cluster

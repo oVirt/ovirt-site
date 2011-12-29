@@ -103,8 +103,7 @@ The following entities/components will be added:
 
 ''' New Enumerators *'
 *StepEnum'' specifies system's steps
-*StepStatus* specifies which statuses are eligible for a *Step*
-*JobStatus* specifies which statuses are eligible for a *Job*
+*ExecutionStatus* specifies which statuses are eligible for a *Step* and *Job*
  **Updated Enumerators**
 *VdcActionType* will be extended with a new field storing a list of categories to which a specific action type belongs to.
 

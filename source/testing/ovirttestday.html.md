@@ -57,6 +57,8 @@ You need two to three physical servers to install and configure a basic Ovirt en
 | Scenario                                                                                                                                                         | Bugs |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
 | configure high availability for virtual machines which are running mission critical workloads, so they will be restarted another host if hardware failure occurs |      |
+| multi-level administration system to assign different levels of user permissions, which is ideal for a company with diverse employee roles                       |      |
+| Live Migration Scenarios                                                                                                                                         |      |
 
 ### Storage
 

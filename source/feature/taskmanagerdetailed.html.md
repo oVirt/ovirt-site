@@ -110,7 +110,6 @@ The following entities/components will be added:
 ##### Annotations
 
 *@NonMonitored* defines which commands should not be monitored.
-*@CommandName* a descriptive name of the command to be reflect to the user.
 
 ##### Main Task Manager Class Diagram
 

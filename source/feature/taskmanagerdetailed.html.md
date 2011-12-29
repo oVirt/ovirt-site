@@ -137,39 +137,39 @@ The following class diagram focuses on the *CommandEntity* and its associated el
 
 #### DB Design
 
-<span style="color:Teal">**command_entity**</span> represents the command entity:
-{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |command_entity_id ||UUID ||not null ||The command entity ID |- |entity_name ||String ||not null ||The command entity name |- |root_command_entity_id ||UUID ||null ||The root command ID of the action |- |command_id ||UUID ||not null ||The associated command ID |- |state ||TinyInt ||not null ||The command state |- |owner_id ||UUID ||not null ||The user which triggered the command |- |owner_type ||TinyInt ||not null ||The type of the user which triggered the command |- |parameters ||text ||not null ||A JSON representation of the parameters associated with the command |- |action_type ||integer ||not null ||The type of the command as defined by *VdcActionType* |- |message ||text ||null ||Stores the can-do-action message - relevant if move to asynchronous invocation |- |return_value ||text ||null ||Stores the command return value as JSON |- |visible ||bool ||default 'true' ||Describes if current entity should be presentable, overrides defaults visibility criteria of the command |- |start_time || Datetime ||not null ||Command start time |- |end_time || Datetime ||null ||Command end time |- |last_update_time || Datetime ||not null ||Command last update time |- |correlation_id || String ||not null ||correlation identifier for cross system logging |- |}
+<span style="color:Teal">**JOB**</span> represents the job entity:
+{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |job_id ||UUID ||not null ||The job ID |- |command_id ||UUID ||not null ||The associated command ID |- |status ||TinyInt ||not null ||The status of the job |- |owner_id ||UUID ||not null ||The user which triggered the command |- |parameters ||text ||not null ||A JSON representation of the parameters associated with the command |- |action_type ||integer ||not null ||The type of the command as defined by *VdcActionType* |- ||visible ||bool ||default 'true' ||Describes if current entity should be presentable, overrides defaults visibility criteria of the job |- |start_time || Timestamp ||not null ||Job start time |- |end_time || Timestamp ||null ||Job end time |- |last_update_time || Timestamp ||not null ||Command last update time |- |correlation_id || String ||not null ||correlation identifier for cross system logging |- |}
 
-<span style="color:Teal">**command_task_info**</span> represents a task, a significant part of the command:
-{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |task_id ||UUID ||not null ||The task ID |- |parent_task_id ||UUID ||null ||The previous-in-hierarchy task |- |command_entity_id ||UUID ||not null ||The command ID which the task was created for |- |root_command_entity_id ||UUID ||not null ||The root command ID of the action hierarchy |- |task_name ||String ||not null ||The task name |- |order ||Integer ||not null ||The task order in current command entity |- |start_time || Datetime ||not null ||Task start time |- |end_time || Datetime ||null ||Task end time |- |correlation_id || String ||not null ||correlation identifier for cross system logging |- |}
+<span style="color:Teal">**STEP**</span> represents a step of a job:
+{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |step_id ||UUID ||not null ||The step ID |- |parent_step_id ||UUID ||null ||The successor step, null if none. |- |job_id ||UUID ||not null ||The job ID which the step was created for |- |step_name ||String ||not null ||The step name |- |order ||Integer ||not null ||The step order in current job hierarchy level |- |status ||TinyInt ||not null ||The status of the step |- |start_time || Timestamp ||not null ||The step start time |- |end_time || Timestamp ||null ||The step end time |- |correlation_id || String ||not null ||correlation identifier for cross system logging |- |external_id || String ||null ||identifier of the step in external system (e.g. VSDM task-id) |- |external_system_type || String ||null ||The type of the external system (e.g. VSDM) |- |}
 
-<span style="color:Teal">**command_sequence**</span> represents the command sequence association:
-{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |entity_id ||UUID ||not null ||The command entity ID |- |sequence_id ||UUID ||not null ||The sequence ID which the command is part of |- |next_command_id ||UUID ||null ||The next-in-chain command ID |- |order_in_sequence ||Integer ||not null ||The order of the command in the sequence |- |initiator_command_id ||UUID ||not null ||The ID of the command which initiated the sequence |- |}
+<span style="color:Teal">**JOB_SUBJECT_ENTITIES_MAP**</span> Describes a relations between entities (VM, Host...) to a job:
+{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |job_id ||UUID ||not null ||The job ID |- |entity_id ||UUID ||not null ||The entity id which was provided to the Job main command |- |entity_type ||Tinyint ||not null ||The type of the entity |- |}
 
-<span style="color:Teal">**command_entity_sequence_view**</span> A view over command_entity and command_sequence. The view is used for sequence related operations.
+<span style="color:Teal">**AUDIT_LOG**</span> An extension to the existing table to denote the job which the event participate in:
+{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |job_id ||UUID ||null ||The job ID |- |}
 
 ##### CRUD
 
 **Stored procedures**
 
-*   <span style="color:#006400">*InsertCommandEntity*</span> - insert command entity
-*   <span style="color:#006400">*GetCommandEntityByCommandId*</span> - returns a command entity by a given id
-*   <span style="color:#006400">*GetAllCommandEntity*</span> - returns a list of all commands [should be restricted rownum]
-*   <span style="color:#006400">*GetAllCommandSinceDate*</span> - returns a list of commands which were modified since a given date
-    -   input: a start datetime to search from
-    -   output: all commands which their last update date is later than the given date
-*   <span style="color:#006400">*UpdateCommandEntity*</span> - updates command entity entirely
-*   <span style="color:#006400">*UpdateCommandEntity*</span> - partial updates to the command entity
+*   <span style="color:#006400">*InsertJob*</span> - insert job entity
+*   <span style="color:#006400">*GetJobByJobId*</span> - returns a job entity by a job id
+*   <span style="color:#006400">*GetJobSubjectEntitiesByJobId*</span> - returns a job subject entities by a job id
+*   <span style="color:#006400">*GetJobByCommandId*</span> - returns a list of job entities by a job id
+*   <span style="color:#006400">*GetAllJobs*</span> - returns a list of all jobs
+*   <span style="color:#006400">*GetAllJobsSinceDate*</span> - returns a list of jobs with a last_update_date greater than a given date.
+*   <span style="color:#006400">*UpdateJob*</span> - updates the entire entity
+*   <span style="color:#006400">*UpdateJob*</span> - partial updates to the command entity
     -   input: command entity id, status, last update date
-*   <span style="color:#006400">*DeleteCommandEntityOlderThanDate*</span> - deletes command entities which are older than a given date.
+*   <span style="color:#006400">*DeleteJobsOlderThanDate*</span> - deletes job entities which are older than a given date.
     -   input: a start datetime to delete commands which are older than
-*   <span style="color:#006400">*DeleteCommandEntity*</span> - deletes specific command entity
-*   <span style="color:#006400">*GetCommandTaskInfo*</span> - returns a list of tasks which associated with a command
-*   <span style="color:#006400">*InsertCommandTaskInfo*</span> - inserts command task info
-*   <span style="color:#006400">*DeleteCommandTaskInfoByCommandId*</span> - deletes command task info associated with a specific command
-*   <span style="color:#006400">*GetCommandTasksInfoByTaskId*</span> - returns a tasks by its ID
-*   <span style="color:#006400">*GetCommandTasksInfoByCommandId*</span> - returns a tasks by its command ID
-*   <span style="color:#006400">*GetCommandTaskInfoForEvent*</span> - Retrieves tasks for a specific entity.
+*   <span style="color:#006400">*DeleteJob*</span> - deletes specific job entity
+*   <span style="color:#006400">*GetSteps*</span> - returns a list of steps which associated with a job
+*   <span style="color:#006400">*InsertStep*</span> - inserts step entity
+*   <span style="color:#006400">*DeleteStepsByJobId*</span> - deletes steps associated with a specific job
+*   <span style="color:#006400">*GetStepByStepId*</span> - returns a step by its ID
+*   <span style="color:#006400">*GetStepsByJobId*</span> - returns a list of steps of a given Job by Job ID.
 
 #### User Experience
 

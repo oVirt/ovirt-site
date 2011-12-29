@@ -26,7 +26,11 @@ The purpose of test days initiative is to accomplish the following goals.
 
 ## Participants
 
-Test Days are open to anyone. If you have your own setup we will provide all the software packages and the required information. Please refer - What to do as a participant - in the section below.
+Test Days are open to anyone. If you have your own setup we will provide all the software packages and the required information. Please refer - What to do as a participant - in the section below, if you're willing to participate please add yourself to the below table:
+
+| Name     | General | Storage | Networking | APIs         | Spice |
+|----------|---------|---------|------------|--------------|-------|
+| mgoldboi | V       | V       | Basic      | Webadmin,CLI | V     |
 
 ## Test Dates
 
@@ -95,6 +99,24 @@ You need two to three physical servers to install and configure a basic Ovirt en
 *   test network at both host and VM level
 *   ping and transfer large amounts of data (2Gb size files should be enough)
 *   remain operational over time (1hr of uptime should be sufficient for the basic testing)
+
+### APIs
+
+by default we'll be using the webadmin as our API for testing on this section we'll try to have default deployment with the different APIs
+
+| Scenario                       | Webadmin | UserPortal | Rest | Python-SDK | CLI |
+|--------------------------------|----------|------------|------|------------|-----|
+| Create a data-center           |          |            |      |            |     |
+| Create a cluster               |          |            |      |            |     |
+| Install a host                 |          |            |      |            |     |
+| Create a storage domain on DC  |          |            |      |            |     |
+| Attach export/ISO domain to DC |          |            |      |            |     |
+| Create vm                      |          |            |      |            |     |
+| Import vm                      |          |            |      |            |     |
+| Start/hibernate/resume/stop vm |          |            |      |            |     |
+| Create a snapshot to vm        |          |            |      |            |     |
+| Create a template from vm      |          |            |      |            |     |
+| Create vm from template        |          |            |      |            |     |
 
 ### Spice
 

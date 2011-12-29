@@ -17,7 +17,7 @@ The purpose of test days initiative is to accomplish the following goals:
 
 *   Get multiple engineers and stakeholders to have hands-on opportunity to learn more about Ovirt functionality and features.
 *   Improve the quality of oVirt, towards its first release.
-*   Establish a qualuty baseline.
+*   Establish a quality baseline.
 *   While learning about the project, the stakeholders can come with their own test cases, in different categories:
     -   General/Project installation
     -   Storage
@@ -33,7 +33,7 @@ Test Days are open to anyone. If you have your own setup we will provide all the
 
 | Name     | General | Storage | Networking | APIs         | Spice | User Interface | Tools |
 |----------|---------|---------|------------|--------------|-------|----------------|-------|
-| mgoldboi | V       | V       | Basic      | Webadmin,CLI | V     |
+| mgoldboi | V       | V       | Basic      | Webadmin,CLI | V     |                |       |
 
 ## Test Dates
 

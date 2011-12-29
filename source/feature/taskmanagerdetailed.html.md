@@ -67,11 +67,12 @@ The requirements for feature are as follow (V2 refers to future version):
 # Provide a mechanism for tasks monitoring via UI (i.e - monitor task status, monitor tasks of given action, tasks of a given entity)
 
 1.  Define a global correlation-id which spread cross-systems representing an action (Client--> Backend --> VDSM).
-2.  Provide a mechanism for tasks management: cancel task, stop all tasks of command, restart of failed command, setting priority for a task. (V2)
-3.  Define a task dependency/task chaining mechanism (Task B will not start before completion of Task A).(V2)
-4.  Provide a mechanism to invoke commands asynchronously. (V2)
-5.  Define a "best effort task" - The success of the parent command of this task will not depend on the result of a task).(V2)
-6.  Provide a permission mechanism for the task management.(V2)
+2.  Provide the admin the option to remove jobs from the monitoring view (Job execution continues without monitoring).
+3.  Provide a mechanism for tasks management: cancel task, stop all tasks of command, restart of failed command, setting priority for a task. (V2)
+4.  Define a task dependency/task chaining mechanism (Task B will not start before completion of Task A).(V2)
+5.  Provide a mechanism to invoke commands asynchronously. (V2)
+6.  Define a "best effort task" - The success of the parent command of this task will not depend on the result of a task).(V2)
+7.  Provide a permission mechanism for the task management.(V2)
 
 *   The first version will include a default implementation for all commands and specific flow monitoring for the specific commands:
     1.  AddVdsCommand

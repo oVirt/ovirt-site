@@ -89,7 +89,7 @@ You need two to three physical servers to install and configure a basic Ovirt en
 *   Base config - single NIC, bridge on top, VMs attached to NIC
 *   Advanced configurations:
 
-vlan_bonding.png make sure each of the configs can:
+![](Vlan-bonding.png "fig:Vlan-bonding.png") make sure each of the configs can:
 
 *   survive a reboot
 *   test network at both host and VM level

@@ -133,6 +133,8 @@ refreshVdsRunTimeInfo:
          call List requesting long format for all VMs in the changed list
          persist changes in DB
 
+![](flow.jpg "flow.jpg")
+
 #### Migration
 
 We will use cluster level decision, since we will have to support migration from host to host in the same Cluster. New API for both sending (create) and receiving (get\*VmStats, List) information will use VM parameters as a structured dictionary

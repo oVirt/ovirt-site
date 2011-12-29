@@ -133,7 +133,7 @@ refreshVdsRunTimeInfo:
          call List requesting long format for all VMs in the changed list
          persist changes in DB
 
-![](flow.jpg "flow.jpg")
+![](Flow.png "Flow.png")
 
 #### Migration
 

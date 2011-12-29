@@ -105,26 +105,25 @@ All places in which we send/receive VM details are affected:
        ListVDSCommand             - called to get all VM details, will be used when recognizing that hash has been changed on a VM
        refreshVdsRunTimeInfo      - called periodically to refresh VMs information and persist it to db.
 
-In order to support both old (under 3.1) structure and new structure (3.1 and above), we will have to re-factor current code in above classes. This will be done by creating a VMInfoManagerBase class that will implement all shared code and define protected methods that can be overridden by its descendants.
-We will have to create VMMixedInfoManager and VMDeviceInfoManager both extends VMInfoManagerBase.
-VMMixedInfoManager stands for old (under 3.1) structure
-VMDeviceInfoManager stands for new structure (3.1 and above)
-We will have a factory method in the relevant classes that will return the relevant VMInfoManagerBase instance depending on VM Cluster Compatibility version. Those classes will handle both composing the right structure for VDSM when a VM is created and getting VM information from VDSM in order to update our persistent layer after calling Get\*VdsStatsComamnd , ListVdsCommand
+In order to support both old (under 3.1) structure and new structure (3.1 and above), we will have to re-factor current code in above classes. This will be done by creating a VMInfoManagerHelper class that will implement all shared code as device indexing etc.
+We will have to create VMOldInfoManager and VMInfoManager VMOldInfoManager stands for old (under 3.1) structure
+VMInfoManager stands for new structure (3.1 and above)
+We will have a factory method in the relevant CreateVDSCommand and refreshVdsRunTimeInfo that will create the proper class instance depending on VM Cluster Compatibility version. Those classes will handle both composing the right structure for VDSM when a VM is created and getting VM information from VDSM in order to update our persistent layer after calling Get\*VdsStatsComamnd , ListVdsCommand
 
 #### Flow
 
 create:
 
        query cluster to get version comparability value
-       3.0 and below => create VMMixedInfoManager and calls methods in it to compose structural info for VDSM
-       3.1 and above => create VMDeviceInfoManager and calls methods in it to compose structural info for VDSM
+       3.0 and below => create VMOldInfoManager and calls methods in it to compose structural info for VDSM
+       3.1 and above => create VMInfoManager and calls methods in it to compose structural info for VDSM
 
 refreshVdsRunTimeInfo:
 
        query cluster to get version comparability value
-       3.0 and below => create VMMixedInfoManager and calls methods in it to persist data from structural info from VDSM
+       3.0 and below => create VMOldInfoManager and calls methods in it to persist data from structural info from VDSM
          run on all VMs and do old logic 
-       3.1 and above => create VMDeviceInfoManager and calls methods in it to persist data from structural info from VDSM
+       3.1 and above => create VMInfoManager and calls methods in it to persist data from structural info from VDSM
          run on all VMs 
          compare hash value if different add VM to change list
          call List requesting long format for all VMs in the changed list

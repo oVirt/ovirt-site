@@ -89,30 +89,12 @@ You need two to three physical servers to install and configure a basic Ovirt en
 *   Base config - single NIC, bridge on top, VMs attached to NIC
 *   Advanced configurations:
 
-![](Vlan-bonding.png "fig:Vlan-bonding.png") make sure each of the configs can:
+vlan_bonding.png make sure each of the configs can:
 
 *   survive a reboot
 *   test network at both host and VM level
 *   ping and transfer large amounts of data (2Gb size files should be enough)
 *   remain operational over time (1hr of uptime should be sufficient for the basic testing)
-
-### APIs
-
-by default we'll be using the webadmin as our API for testing on this section we'll try to have default deployment with the different APIs
-
-| Scenario                       | Webadmin | UserPortal | Rest | Python-SDK | CLI |
-|--------------------------------|----------|------------|------|------------|-----|
-| Create a data-center           |          |            |      |            |     |
-| Create a cluster               |          |            |      |            |     |
-| Install a host                 |          |            |      |            |     |
-| Create a storage domain on DC  |          |            |      |            |     |
-| Attach export/ISO domain to DC |          |            |      |            |     |
-| Create vm                      |          |            |      |            |     |
-| Import vm                      |          |            |      |            |     |
-| Start/hibernate/resume/stop vm |          |            |      |            |     |
-| Create a snapshot to vm        |          |            |      |            |     |
-| Create a template from vm      |          |            |      |            |     |
-| Create vm from template        |          |            |      |            |     |
 
 ### Spice
 
@@ -130,7 +112,12 @@ Follow the General configuration
 
 Please refer the following document for hardware requirements, installation procedure, software download location
 
-Please refer the following documents for Ovirt Installation guide, bits location, admin guide <http://ovirt.org/wiki/Documentation>
+*   <http://ovirt.org/wiki/Installing_ovirt_from_rpm>
+*   <http://ovirt.org/wiki/Installing_ovirt-node_from_rpm>
+
+Please refer the following documents for Ovirt Installation guide, bits location, admin guide
+
+*   <http://ovirt.org/wiki/Documentation>
 
 In case you would like to test a product with a new test case, there is a template to be used for creating test cases. Please copy this template for the test case, and update the link in this document to point to the results table below. It is not necessary that the person who is writing the test case will also be the person executing the test case, please make sure the instructions are explicit enough that anyone who may want to participate in the test day can follow them, and execute it.
 
@@ -148,5 +135,3 @@ In case you would like to test a product with a new test case, there is a templa
 ## Site based Test Days Results
 
 ## Miscellaneous
-
-basic skeleton of this doc was taken from Sanjay Mehrotra

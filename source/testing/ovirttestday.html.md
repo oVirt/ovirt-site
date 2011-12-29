@@ -13,30 +13,33 @@ wiki_last_updated: 2013-07-24
 
 ## Objective
 
-The purpose of test days initiative is to accomplish the following goals.
+The purpose of test days initiative is to accomplish the following goals:
 
-*   Get multiple engineers and stakeholders within the organization to have hands on opportunity to learn more about Ovirt functionality and new features.
-*   While learning the product, the stakeholders can come with their own test cases, defined in the categories
-    -   General
+*   Get multiple engineers and stakeholders to have hands-on opportunity to learn more about Ovirt functionality and features.
+*   Improve the quality of oVirt, towards its first release.
+*   Establish a qualuty baseline.
+*   While learning about the project, the stakeholders can come with their own test cases, in different categories:
+    -   General/Project installation
     -   Storage
     -   Networking
     -   APIs
     -   Spice
-    -   Configuration of the test plan and setup
+    -   User Interface
+    -   Tools
 
 ## Participants
 
 Test Days are open to anyone. If you have your own setup we will provide all the software packages and the required information. Please refer - What to do as a participant - in the section below, if you're willing to participate please add yourself to the below table:
 
-| Name     | General | Storage | Networking | APIs         | Spice |
-|----------|---------|---------|------------|--------------|-------|
+| Name     | General | Storage | Networking | APIs         | Spice | User Interface | Tools |
+|----------|---------|---------|------------|--------------|-------|----------------|-------|
 | mgoldboi | V       | V       | Basic      | Webadmin,CLI | V     |
 
 ## Test Dates
 
 The overall test dates are spread across multiple duration which are driven by the beta releases from the engineering. The following are the list of test days scheduled -
 
-*   JAN 14th, 2011 - First Beta Release
+*   JAN 14th, 2011 - First Release
 
 ## Summary of Test Days Results
 
@@ -46,47 +49,46 @@ The overall test dates are spread across multiple duration which are driven by t
 
 ## Execution Plan and Guidelines
 
-The following is the list of categories where we would like you to focus with the defined scope, however the scope is not limited and they are just guidelines only, please feel free to extend it to the limitations of the software.
+The following is the list of categories which we would like to focus on. However the scope is not limited and they are guidelines only. Feel free to extend it to the limitations of the software.
 
 ### General
 
-You need two to three physical servers to install and configure a basic Ovirt environment with shared storage to exercise the following:
+You need at least two physical servers to install and configure a basic yet complete oVirt environment with shared storage to exercise the following:
 
-| Scenario                                                                                                                                                                                                               | Bugs |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
-| Setup Ovirt engine using either Active Directory or Local IPA, two hosts configured as hypervisor ( either Fedora or Ovirt-Node ) with power management (Storage Domains - Data Domain / ISO Domain and Export Domain) |      |
-| Use ISO Uploader to populate images of 3-4 OS and tools                                                                                                                                                                |      |
-| Basic Network Configuration                                                                                                                                                                                            |      |
-| Create virtual machines and assign them to users                                                                                                                                                                       |      |
-| Migrate VM's between the hypervisors                                                                                                                                                                                   |      |
-| Collect log file using the log collector tool                                                                                                                                                                          |      |
+| Scenario                                                                                                                                                                                                              | Bugs |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
+| Setup oVirt engine using either Active Directory or Local IPA, two hosts configured as hypervisors (Fedora / Ovirt-Node / other) with power management (Storage Domains - Data Domain / ISO Domain and Export Domain) |      |
+| Use ISO Uploader to populate images of OS and tools                                                                                                                                                                   |      |
+| Basic Network Configuration                                                                                                                                                                                           |      |
+| Create virtual machines and assign them to users                                                                                                                                                                      |      |
+| Migrate Virtual Machines between the hypervisors                                                                                                                                                                      |      |
+| Collect log file using the log collector tool                                                                                                                                                                         |      |
 
 ### Configuration
 
-| Scenario                                                                                                                                                         | Bugs |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
-| configure high availability for virtual machines which are running mission critical workloads, so they will be restarted another host if hardware failure occurs |      |
-| multi-level administration system to assign different levels of user permissions, which is ideal for a company with diverse employee roles                       |      |
-| Live Migration Scenarios                                                                                                                                         |      |
+| Scenario                                                                                                                                                            | Bugs |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
+| Configure high availability for virtual machines which are running mission critical workloads, so they will be restarted on another host if hardware failure occurs |      |
+| Use the multi-level administration feature to assign different levels of user permissions                                                                           |      |
+| Live Migration Scenarios                                                                                                                                            |      |
 
 ### Storage
 
-| Scenario                                                                                                  | Bugs |
-|-----------------------------------------------------------------------------------------------------------|------|
-| Use the General configuration as a base config                                                            |      |
-| Create 3 types of storage domains (NFS, ISCSI, FC) with 2 or more data domains                            |      |
-| Install at least 2 VMs on each of the DataCenters                                                         |      |
-| Try moving the master domain to a different domain within the DataCenter                                  |      |
-| Try exporting one of the installed VMs, delete it, and import it to another DataCenter                    |      |
-| Create a template from one of the VMs and then create a new VM from this template                         |      |
-| Move the newly created VM to another data domain                                                          |      |
-| Create several snapshots from a VM (Each time change something in the guest)                              |      |
-| Try to restore an old snapshot                                                                            |      |
-| Storage Failovers                                                                                         |      |
-| Host Failovers                                                                                            |      |
-| Power User Portal provides instructions to create and manage virtual machines from the power user portal  |      |
-| High Availability scenarios provides instructions to configure virtual machine and host high availability |      |
-| provide instructions on creating an additional data center with Red Hat Enterprise Linux hosts            |      |
+| Scenario                                                                                                            | Bugs |
+|---------------------------------------------------------------------------------------------------------------------|------|
+| Use the General configuration as a base configuration                                                               |      |
+| Create different types of storage domains (NFS, ISCSI, FC, local storage) with 2 or more data domains               |      |
+| Install at least 2 VMs on each of the Data Centers                                                                  |      |
+| Move the master domain to a different domain within the Data Center                                                 |      |
+| Export one of the installed VMs, delete it, import it to another Data Center                                        |      |
+| Create a template from one of the VMs and then create a new VM based on this template                               |      |
+| Move the newly created VM to another data domain                                                                    |      |
+| Create several snapshots from a VM (Each time change something in the guest)                                        |      |
+| Restore a previous snapshot                                                                                         |      |
+| Storage Failovers                                                                                                   |      |
+| Host Failovers                                                                                                      |      |
+| Power User Portal provides power users the ability to create and manage virtual machines from the power user portal |      |
+| High Availability scenarios provides instructions to configure virtual machine and host high availability           |      |
 
 ### Network
 

@@ -224,24 +224,19 @@ The following sequence diagrams describe how the new components should interact 
 
 When invoking Multiple Actions, the runner will be the responsible for creating the metadata for the command: ![](Multiple-action-runner-sequence-diagram.jpeg "fig:Multiple-action-runner-sequence-diagram.jpeg")
 
-##### Default command metadata
+##### Default job metadata (a simple command)
 
-*   The next example describes the default command metadata created for commands with default implementation.
-*   The CommandEntity will represent the descriptive name of the command which acts as the name of the action.
+*   The next example describes the default job metadata created for commands with default implementation.
+*   The Job will represent the descriptive name of the action.
+*   Short commands which follows this default behavior could be set for non-monitored since ended quickly.
 
 <!-- -->
 
-        // CommandEntity----Description----Start time----End time----Status----[Entity Name----Entity Type]
-        //      |
-        //      ------ VALIDATION -----Start time----End time----Status
-        //      |
-        //      ------ EXECUTION -----Start time----End time----Status
-        public CommandEntity createCommandMetadata(){
-            CommandEntity rootEntity = new CommandEntity(this); //this refers to CommandBase instance
-            rootEntity.addTask(CommandTaskType.VALIDATION);
-            rootEntity.addTask(CommandTaskType.EXECUTION);
-            return entity;
-        }
+    Job----Start time----End time----Status----[Entity Name----Entity Type]
+        |
+        ------ VALIDATION -----Start time----End time----Status
+        |
+        ------ EXECUTION -----Start time----End time----Status
 
 ##### AddVdsCommand metadata
 

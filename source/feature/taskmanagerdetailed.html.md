@@ -187,35 +187,37 @@ The following class diagram focuses on the *Job* and *Step* entities:
 
 #### User work-flows
 
-When a user sends a request to the backend for running an action, the backend creates a command(s) according to the type and parameters provided by the client. A persisted Job entity is created to describe and monitor the command and the rest of the action, followed and referred in any step during the command's lifetime till job is completed. Once completed it will be cleared from database in respect to the maintenance configuration of the Jobs.
+When a user sends a request to the backend for running an action, the backend creates a command(s) according to the type and parameters provided by the client. A persisted Job entity is created to describe and monitor the command and the rest of the action, followed and referred in any step during the command's lifetime till job is completed. Once completed, the job will be cleared from database in respect to the maintenance configuration of the Jobs.
 
 The backend commands are divided into two categories:
 
-1.  Synchronous commands - the command ends when the executeAction ends.
+1.  Synchronous commands - the command ends when the *executeAction* ends.
 2.  Asynchronous commands
-    1.  The command is ended when the endAction ends. The endAction is triggered by the AsyncTaskManager when the command tasks are reported as completed.
+    1.  The command is ended when the *endAction* ends. The *endAction* is triggered by the *AsyncTaskManager* when the tasks created by the command are reported as completed.
     2.  The command ends, but the action is completed by the event listener.
 
-The following sequence diagrams describe how the new components should interact in order to support the commands, by command category:
+The following sequence diagrams describe how the interaction of the new entities in the existing flow in order to support the monitoring:
 
-##### Sync Command Invocation Sequence Diagram
+##### Simple Command Invocation Sequence Diagram
 
 ![](Sync-action-invocation-sequence-diagram.jpeg "fig:Sync-action-invocation-sequence-diagram.jpeg")
 **The sequence above describes invocation of sync-action:**
 
-*   The *Backend* receives a request from a client, provided by action type, parameters and optionally correlation-id.
-    -   Correlation-ID is a pass-thru identifier of an action which the user defines. A user can associate any action with that ID which will appear as part of the command entity and its tasks, in Backend for action related logging and in VDSM logs. If the user does not provide a correlation-id, the Backend will generate one.
+*   The *Backend* receives a request from a client, provided by action type, parameters and optionally correlation-id (encapsulated by the parameters).
+    -   Correlation-ID is a pass-thru identifier of an action which the client defines. A client can associate any action with that ID which will appear as part of the Job and its Steps in Backend for action related logging and in VDSM logs. If the client does not provide a correlation-id, the Backend will generate one.
 *   The *Backend* uses the *CommandFactory* to create a concrete command instance.
-*   The *Backend* uses the *CommandRepository* to create a *CommandEntity*. The *CommandEntity* will describe the metadata of the command (detailed below), therefore a command is responsible for creating its own metadata. The command metadata is basically a placeholders for the steps of the action. A default implementation will be provided (A command with 2-3 tasks representing VALIDATION, EXECUTION and tentative FINALIZATION for endAction). The new entity is being initialized with PENDING status, command id, action type, parameters, correlation-id, command creation time and the user which invoked the command. The *CommandRepository* persist the *CommandEntity* to the database, letting the command queries be noticed about the new command in the system. The tasks which are related to the command will be initialized as well.
-*   The *CommandBase.executeAction()* updates the status of the command entity to state 'VALIDATING' and set the last update time to current. It also updates 'VALIDATION' task of the command (status IN_PROGRESS, start-time).
+*   The *Backend* creates a *Job* entity with the given parameters and bind it to the command.
+*   A default implementation will be provided (A command with 2-3 tasks representing VALIDATION, EXECUTION and tentative FINALIZATION for *endAction*).
+    -   The new Job entity is created with status STARTED, command id, action type, parameters, correlation-id, start time, subject entities and the user which invoked the command. The *JobRepository* persists the *Job* to the database, letting the command queries be noticed about the new command in the system.
+*   The *CommandBase.executeAction()* adds new step for the job: VALIDATING step which created with status started and current time.
     -   The *CommandBase.InternalCanDoAction()* determines how the validation step ends:
 
-    1.  Upon failure, the Task is marked as failed and the *CommandEntity* is marked as failed as well.
-    2.  Upon successful completion of validation step, the validation command task is marked as completed, and set the end-time.
-*   The *CommandBase.executeAction()* updates the status of the command entity to state 'EXECUTING' and sets the last update time to current and also updates 'EXECUTION' task of the command (status RUNNING and start-time).
-    1.  Upon execution failure, the task is marked as failed and the command entity is marked as failed as well.
-    2.  Upon successful execution, the command will verify there are no tasks for it. If no tasks, the command is marked as completed successfully.
-*   A scheduler of the *CommandRepository* will clear obsolete command entities and their tasks.
+    1.  Upon failure, the VALIDATING *Step* is marked as failed and the *Job* is marked as failed as well.
+    2.  Upon successful completion of validation step, the step is marked as FINISHED, and set the end-time.
+*   The *CommandBase.executeAction()* adds new step 'EXECUTING' with status STARTED.
+    1.  Upon execution failure, the Step is marked as failed and the Job is marked as failed as well.
+    2.  Upon successful execution, the command will verify there are no tasks for it. If no tasks, the Job is marked as completed successfully.
+*   A scheduler of the *JobRepository* will clear obsolete Job entities and their Steps.
 
 ##### Async Command Invocation Sequence Diagram
 
@@ -228,7 +230,7 @@ The following sequence diagrams describe how the new components should interact 
 
 ##### Multiple Action Sequence Diagram
 
-When invoking Multiple Actions, the runner will be the responsible for creating the metadata for the command: ![](Multiple-action-runner-sequence-diagram.jpeg "fig:Multiple-action-runner-sequence-diagram.jpeg")
+When invoking Multiple Actions, the runner will be the responsible for creating a Job for each of the commands: ![](Multiple-action-runner-sequence-diagram.jpeg "fig:Multiple-action-runner-sequence-diagram.jpeg")
 
 #### Job Description by Command Types
 

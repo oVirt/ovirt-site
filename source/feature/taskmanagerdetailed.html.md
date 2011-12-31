@@ -44,7 +44,7 @@ The actions will be presented in the WebAdmin a Tasks view, where the status and
 The job supports the following scenarios:
 
 1.  A simple command - a command which consists of 2 steps: validation (*CanDoAction*) and execution.
-    -   The job is ends when the command of the job ends.
+    -   The job ends when the command of the job ends.
 
 2.  A command with VDSM tasks - a command which consists of 3 steps: validation (*CanDoAction*), execution and finalization (*endAction*).
     -   The job ends when the tasks are reported from VDSM as completed and the command *endAction* is invoked.
@@ -57,9 +57,9 @@ The job supports the following scenarios:
     -   Invocation of command in a detached thread, e.g *AddVdsCommand* which delegates job resolution to the internal command *InstallVdsCommand*.
     -   The command execution is ended, but the resolution for the success of the Action is determined by other event in the system:
         -   Other events which reported by the *monitors* (e.g. Host Maintenance reported by *VdsEventListener*).
-        -   Requires heuristic decision to select the correct Step for the Job.A Job has entity type and entity id associated with.
+        -   Requires heuristic decision to select the correct Step for the Job by entity type and entity id associated with the Job.
 
-5.  Multiple Action Runner - describes multiple command invocations in a single API call. Each command will be reflected as a job.
+5.  Multiple Action Runner - describes multiple commands invocation in a single API call. Each command will be reflected as a single job.
 
 #### Requirements
 

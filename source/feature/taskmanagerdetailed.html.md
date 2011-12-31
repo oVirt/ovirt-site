@@ -335,19 +335,21 @@ By default, internal commands won't be presented as Steps of the Job, unless spe
                          |
                          ---- DISCONNECT_FROM_STORAGE-----Start time----End time----Status
 
-##### Maintenance of the command entity and command task info
+##### Maintenance of the Job
 
-When Backend is initialized, the commands which are in progress are being examined for their status. If the command has tasks, the tasks status is being examined and upon completion of tasks, the command will be finalized (by *CommandBase.endAction()*). If the command has no tasks, its status should be marked as failed.
+When Backend is initialized, the non-completed jobs are being examined for their statuses:
 
-*   A scheduler will be responsible for clearing obsolete command entities and tasks info data from the database.
-*   There will be two different configuration value:
-    1.  Successful command time-to-leave - the duration for holding commands which ended successfully in database.
-    2.  Failed command time-to-leave - the duration for holding command which ended with failure in database. This period will be longer in order to provide the user a possibility to restart the action (in the future).
-*   When command entity is being cleared from the database, all relevant data is being cleared as well: command task info and command sequence if exist.
-*   Updating the command information in the database will be executed in a new transaction, with a different scope than the active one.
-*   Tasks and events won't be created for internal commands by default, unless specifically asked for.
-*   The *CommandEntity* could be set as monitored command per action: In action X it could be presentable where in other action it could be hidden.
-    -   The visibility of the *CommandEntity* determines the visibility of its tasks and sub-tasks.
+*   If the job represents a command with tasks, the tasks status is being examined and upon completion of tasks, the command will be finalized (by *CommandBase.endAction()*).
+*   If the command has no tasks, the Job status should be set to UNKNOWN.
+
+<!-- -->
+
+*   A scheduler will be responsible for clearing obsolete Jobs and Steps from the database.
+*   A configuration value will determine the frequency of clearing completed jobs:
+    -   Time-to-keep Job - the duration for holding a completed jobs in the database.
+        -   Default is 12 hours.
+        -   -1 emphasis manual maintenance of the Job tables.
+*   Updating the Job information in the database will be executed in a new transaction.
 
 #### Events
 

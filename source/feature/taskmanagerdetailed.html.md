@@ -297,25 +297,15 @@ By default, internal commands won't be presented as Steps of the Job, unless spe
 
 <!-- -->
 
-        // CommandEntity----Description----Start time----End time----Status----[Entity Name----Entity Type]
-        //      |
-        //      ------ VALIDATION -----Start time----End time----Status
-        //      |
-        //      ------ EXECUTION -----Start time----End time----Status
-        //                  |
-        //                  ------ TEST_POWER_MANAGEMENT-----Start time----End time----Status
-        //                  |
-        //                  ------ INSTALLING_HOST-----Start time----End time----Status
-        public CommandEntity createCommandMetadata(){
-            CommandEntity rootEntity = new CommandEntity(this);
-            rootEntity.addTask(CommandTaskType.VALIDATION);
-            CommandTaskInfo executionTask = rootEntity.addTask(CommandTaskType.EXECUTION);
-            rootEntity.addTask(executionTask, CommandTaskType.TEST_POWER_MANAGEMENT);
-
-            CommandEntity installVdsEntity = new CommandEntity(this, InstallVdsCommand.class);
-            installVdsEntity.addTask(CommandTaskType.INSTALLING_HOST);
-            rootEntity.addCommandEntity(executionTask, installVdsEntity);
-        }
+    Job----Start time----End time----Status----[Entity Name----Entity Type]
+        |
+        ------ VALIDATION -----Start time----End time----Status
+        |
+        ------ EXECUTION -----Start time----End time----Status
+                            |
+                            |------ TEST_POWER_MANAGEMENT-----Start time----End time----Status
+                            |
+                            |------ INSTALLING_HOST-----Start time----End time----Status
 
 ##### MaintenanceNumberOfVdssCommand metadata
 

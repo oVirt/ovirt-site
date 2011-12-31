@@ -301,13 +301,14 @@ By default, internal commands won't be presented as Steps of the Job, unless spe
                             |
                             |------ INSTALLING_HOST-----Start time----End time----Status
 
-##### MaintenanceNumberOfVdssCommand metadata
+##### Job for customized command #2
 
-*   In the example below, the metadata of *MaintenanceNumberOfVdssCommand* is created prior to the command execution, reflecting to user the expected flow of the action. When there is a Backend command as part of the execution sequence (e.g. MaintenanceVdsCommand), a *CommandEntity* is created, storing the entity type and entity id.
-*   Having entity-ids associated with the command entity will enable using the *IVdsAsyncCommand* interface to invoke the command once again upon completion or failure of the command. This will grant the action to complete its tasks. Once command is completed, the associated task will be marked as completed. For example:
-    -   *VdsEventListner.VdsMovedToMaintanance(vdsId)* will invoke the *MaintenanceVdsCommand* associated with the id. It will be executed by registering the *MaintenanceVdsCommand* with the host id to be notified when the monitor reach that point.
-    -   *VdsEventListner.RunningSucceeded* and *VdsEventListner.RemoveAsyncCommand* provides control over the *MigrateVm* commands, therefore for the task representing the VM migration.
-*   Since in *MaintenanceNumberOfVdssCommand* there are multiple tasks which might end in undefined order, and in order to prevent a need to synchronize tasks update in order to determine command completion, a scheduler will be set to monitor action in progress with asynchronous commands.
+*   In the example below, the job of *MaintenanceNumberOfVdssCommand* is described.
+*   A single Job will be created for several hosts.
+*   Each host maintenance execution will be described as a step under the Job execution step.
+*   Having entity-ids associated with the job will enable using the *IVdsAsyncCommand* interface to invoke the command once again upon completion or failure of the command. For example, reporting on migrated VMs:
+    -   *VdsEventListner.RunningSucceeded* and *VdsEventListner.RemoveAsyncCommand* provides control over the *MigrateVm* commands hence for the steps they represents.
+*   When step ends, an event is triggered for the Job, to notify upon step completion.
 
 <!-- -->
 

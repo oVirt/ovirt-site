@@ -107,11 +107,16 @@ The following entities/components will be added:
 *StepEnum'' specifies system's steps
 *ExecutionStatus* specifies which statuses are eligible for a *Step* and *Job*
  **Updated Enumerators**
-*VdcActionType* will be extended with a new field storing a list of categories to which a specific action type belongs to.
+*VdcActionType* will be extended with a new field storing a list of categories to which a specific action type belongs to. The **VdcActionType** will be used in a resource bundle to correlate between the action type to the description job name. The resource bundle will contain description for both Jobs and Steps (combines VdcActionType and StepEnum):
+
+    job.RunVm=Running a VM
+    job.AddVds=Add new Host
+    step.EXECUTION=Executing
+    step.VALIDATION=Validating
 
 ##### Annotations
 
-*@NonMonitored* defines which commands should not be monitored.
+*@NonMonitored* declared on a child of *CommandBase* clsas. Defines which commands should not be monitored.
 
 ##### Main Task Manager Class Diagram
 
@@ -149,6 +154,9 @@ The following class diagram focuses on the *CommandEntity* and its associated el
 <span style="color:Teal">**AUDIT_LOG**</span> An extension to the existing table to denote the job which the event participate in:
 {|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |job_id ||UUID ||null ||The job ID |- |correlation_id ||UUID ||null ||The correlation ID provided from the client to identify the scope in which the event occurred |- |}
 
+<span style="color:Teal">**ASYNC_TASK**</span> An extension to the existing table to associate a task with its Step:
+{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |step_id ||UUID ||null ||The job ID |- |}
+
 ##### CRUD
 
 **Stored procedures**
@@ -181,7 +189,7 @@ Describe how the feature will effect new installation or existing one.
 
 #### User work-flows
 
-When a user sends a request to the backend for running an action, the backend creates a command by the type and parameters provided by the client. The idea is to create a persisted entity which describes the command so it could be monitored, followed and referred in any step during the command's lifetime till cleared from database.
+When a user sends a request to the backend for running an action, the backend creates a command(s) according to the type and parameters provided by the client. A persisted Job entity is created to describe and monitor the command and the rest of the action, followed and referred in any step during the command's lifetime till job is completed. Once completed it will be cleared from database in respect to the maintenance configuration of the Jobs.
 
 The backend commands are divided into two categories:
 
@@ -218,11 +226,13 @@ The following sequence diagrams describe how the new components should interact 
 
 *   The tasks polling started after the command execution in ended.
 
-**Command Metadata Pseudo-code examples:**
+**Job Metadata Description:**
 
 ##### Multiple Action Sequence Diagram
 
 When invoking Multiple Actions, the runner will be the responsible for creating the metadata for the command: ![](Multiple-action-runner-sequence-diagram.jpeg "fig:Multiple-action-runner-sequence-diagram.jpeg")
+
+### Job Description by Command Types
 
 ##### Default job metadata (a simple command)
 
@@ -237,6 +247,42 @@ When invoking Multiple Actions, the runner will be the responsible for creating 
         ------ VALIDATION -----Start time----End time----Status
         |
         ------ EXECUTION -----Start time----End time----Status
+
+##### Job for a command with VDSM tasks
+
+The following skeleton describes the information which should be presented for a Job which describes a command with tasks. Each task will be presented as a step. By default the VDSM tasks will be added under the execution step, but this could be customized. Each step holds the id of the task it represents and the opposite. The mutual reference enables each completed VDSM task to update the Step with its status, and in the future to control from the Task Manager how the task should operate: change priority, cancel or other management action. The FINALIZATION step appears since some commands perform additional actions once all tasks are completed which we'd might like to reflect to the user.
+
+    Job----Start time----End time----Status----[Entity Name----Entity Type]
+        |
+        ------ VALIDATION -----Start time----End time----Status
+        |
+        ------ EXECUTION -----Start time----End time----Status
+        |          |
+        |          -----Task Step 1 ------Start time----End time----Status
+        |          |
+        |          -----Task Step 2 ------Start time----End time----Status
+        |
+        ------ FINALIZATION -----Start time----End time----Status
+
+##### Job which describes command that invokes internal commands
+
+By default, internal commands won't be presented as Steps of the Job, unless specified. Therefore the job description of a command which invokes internal commands is the same as the default one (or the one above if the main command has tasks). The only exceptions is commands which invoke internal commands which create VDSM tasks. In that case the default behavior will be to add only the VDSM tasks as steps under the Job EXECUTION step. It is possible to override this behavior either for not presenting internal commands VDSM tasks or for specifying other Step to which the VDSM tasks of the internal command should appear for.
+
+    Job----Start time----End time----Status----[Entity Name----Entity Type]
+        |
+        ------ VALIDATION -----Start time----End time----Status
+        |
+        ------ EXECUTION -----Start time----End time----Status
+        |          |
+        |          -----Main Command Task Step 1 ------Start time----End time----Status
+        |          |
+        |          -----Main Command Task Step 2 ------Start time----End time----Status
+        |          |
+        |          -----Internal Command Task Step 3 ------Start time----End time----Status
+        |          |
+        |          -----Internal Command Task Step 4 ------Start time----End time----Status
+        |
+        ------ FINALIZATION -----Start time----End time----Status
 
 ##### AddVdsCommand metadata
 

@@ -388,7 +388,11 @@ When Backend is initialized, the commands which are in progress are being examin
 
 ### Events
 
-Event logs will be created when command tasks (*CommandTaskInfo*) are created.
+Event log will be extended with two fields:
+*job_id* field designed to describe the job which the current event is part of.
+Once the Job is cleared from the database, the job_id will point for non-existing job.
+
+*correlation_id* associates the event with the global identifier of the action, which the event participate in.
 
 ### Dependencies / Related Features and Projects
 

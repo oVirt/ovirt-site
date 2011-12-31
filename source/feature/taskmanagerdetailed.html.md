@@ -282,16 +282,16 @@ By default, internal commands won't be presented as Steps of the Job, unless spe
         |
         ------ FINALIZATION -----Start time----End time----Status
 
-##### AddVdsCommand metadata
+##### Job for customized command #1
 
 *   In the next example, a metadata creation for the *AddVdsCommand* will be described.
 *   The *AddVdsCommand* has the default steps of VERIFICATION and EXECUTION.
 *   In addition it has the TEST_POWER_MANAGEMENT task, a synchronous step invoked from the command itself and its status is determined immediately.
-*   The last step is the INSTALL_HOST. This step is being executed in a new thread, detached from the *AddVdsCommand* thread. The completion of the INSTALL_HOST step will determine how the *AddVdsCommand* action ended. For that purpose the resolution of the action is delegated to the *InstallVdsCommand*. The *InstallVdsCommand* will update the task which represents it. Since this is the last step of the action, it notifies the completion of the entire command.
+*   The last step is the INSTALL_HOST. This step is being executed in a new thread, detached from the *AddVdsCommand* thread. The completion of the INSTALL_HOST step will determine how the *AddVdsCommand* action ended. For that purpose the resolution of the action is delegated to the *InstallVdsCommand*. The *InstallVdsCommand* will update the task which represents it. Since this is the last step of the action, it notifies the completion of the entire job.
 
 <!-- -->
 
-    Job----Start time----End time----Status----[Entity Name----Entity Type]
+    Add new host ----Start time----End time----Status----[Entity Name----Entity Type]
         |
         ------ VALIDATION -----Start time----End time----Status
         |

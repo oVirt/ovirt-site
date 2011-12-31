@@ -317,50 +317,28 @@ By default, internal commands won't be presented as Steps of the Job, unless spe
 
 <!-- -->
 
-        // Maintenance command metadata (each level should have also the Correlation-ID)
-        // CommandEntity----Description----Start time----End time----Status----[Entity Name----Entity Type]
-        //      |
-        //      ------ VALIDATION -----Start time----End time----Status
-        //      |
-        //      ------ EXECUTION -----Start time----End time----Status
-        //                 |
-        //                 ---- PREPARE_FOR_MAINTENANCE-----Start time----End time----Status
-        //                 |
-        //                 ---- MAINTENANCE_HOST_A -----Start time----End time----Status
-        //                 |    |
-        //                 |    ---- MIGRATION_OF_VM_X -----Start time----End time----Status
-        //                 |    |
-        //                 |    ---- MIGRATION_OF_VM_Y -----Start time----End time----Status
-        //                 |    |
-        //                 |    ---- DISCONNECT_FROM_STORAGE-----Start time----End time----Status
-        //                 |
-        //                 ---- MAINTENANCE_HOST_B -----Start time----End time----Status
-        //                      |
-        //                      ---- MIGRATION_OF_VM_Z -----Start time----End time----Status
-        //                      |
-        //                      ---- DISCONNECT_FROM_STORAGE-----Start time----End time----Status
-        //
-        public CommandEntity createCommandMetadata(){
-            CommandEntity rootEntity = super.createCommandMetadata(this); //this refers to CommandBase instance
-
-            CommandTaskInfo executionTask = entity.getTask(CommandTaskType.EXECUTION);
-            rootEntity.addTask(executionTask, CommandTaskType.PREPARE_FOR_MAINTENANCE);
-
-            for (VDS vds : getVdsList()){
-                CommandEntity maintenanceCommand = new CommandEntity(MaintananceVds.class);
-                CommandTaskInfo migrateVmsTask = maintenanceCommand.addTask(executionTask, CommandTaskType.MAINTENANCE_HOST);
-
-                // The actual number of command entities per VM migration will be created during command execution
-                for (VM vm : vds.getVmsToMigrate()) {
-                    CommandEntity migrateCommand = new CommandEntity(MigrateVmCommand.class); //concrete class details will be updated after actual command is created.
-                    migrateCommand.addTask(migrateVmsTask, CommandTaskType.MIGRATE_VM);
-                    maintenanceCommand.addCommandEntity(migrateCommand);
-                }
-                maintenanceCommand.addTask(CommandTaskType.DISCONNECT_FROM_STORAGE);
-                rootEntity.addCommandEntity(maintenanceCommand);
-            }
-            return rootEntity;
-        }
+         // Maintenance command metadata (each level should have also the Correlation-ID)
+         Job----Start time----End time----Status----[Entity Name----Entity Type]
+              |
+              ------ VALIDATION -----Start time----End time----Status
+              |
+              ------ EXECUTION -----Start time----End time----Status
+                         |
+                         ---- PREPARE_FOR_MAINTENANCE-----Start time----End time----Status
+                         |
+                         ---- MAINTENANCE_HOST_A -----Start time----End time----Status
+                         |    |
+                         |    ---- MIGRATION_OF_VM_X -----Start time----End time----Status
+                         |    |
+                         |    ---- MIGRATION_OF_VM_Y -----Start time----End time----Status
+                         |    |
+                         |    ---- DISCONNECT_FROM_STORAGE-----Start time----End time----Status
+                         |
+                         ---- MAINTENANCE_HOST_B -----Start time----End time----Status
+                         |
+                         ---- MIGRATION_OF_VM_Z -----Start time----End time----Status
+                         |
+                         ---- DISCONNECT_FROM_STORAGE-----Start time----End time----Status
 
 ##### Maintenance of the command entity and command task info
 

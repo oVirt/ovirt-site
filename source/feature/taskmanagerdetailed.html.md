@@ -64,17 +64,17 @@ The job supports the following scenarios:
 #### Requirements
 
 The requirements for feature are as follow (V2 refers to future version):
-# Provide a mechanism for tasks monitoring via UI (i.e - monitor task status, monitor tasks of given action, tasks of a given entity)
+# Provide a mechanism for jobs monitoring via UI (i.e - monitor job status and progress, monitor tasks of given action, jobs of a given entity).
 
-1.  Define a global correlation-id which spread cross-systems representing an action (Client--> Backend --> VDSM).
+1.  Define a global correlation-id which is spread cross-systems representing an action cross layers (Client--> Backend --> VDSM).
 2.  Provide the admin the option to remove jobs from the monitoring view (Job execution continues without monitoring).
 3.  Provide a mechanism for tasks management: cancel task, stop all tasks of command, restart of failed command, setting priority for a task. (V2)
 4.  Define a task dependency/task chaining mechanism (Task B will not start before completion of Task A).(V2)
 5.  Provide a mechanism to invoke commands asynchronously. (V2)
-6.  Define a "best effort task" - The success of the parent command of this task will not depend on the result of a task).(V2)
+6.  Define a "best effort step" - The success of the parent command of this step will not depend on the result of a step).(V2)
 7.  Provide a permission mechanism for the task management.(V2)
 
-*   The first version will include a default implementation for all commands and specific flow monitoring for the specific commands:
+*   The first version will include a default implementation for all commands and specific flow monitoring for the following commands:
     1.  AddVdsCommand
     2.  MaintenanceNumberOfVds
     3.  RunVmCommand
@@ -88,14 +88,14 @@ This section describes the backend design for this feature.
 
 The following entities/components will be added:
 
-*   **Job** An entity which encapsulates a client action in the system. The *Job* contains a collection of steps which describes portions of the entire Job. A Job contains all of the information requi,red for defining and running the client action: Using Job entity a concrete instance of *CommandBase*(Job's main command) could be created (by action type and parameters). The Job entity also capable to produce a descriptive tree of steps, reflecting the action parts to be delivered to UI for presentation.
+*   **Job** An entity which encapsulates a client action in the system. The *Job* contains a collection of steps which describes portions of the entire Job. A Job contains all of the information required for defining and running the client action: Using Job entity a concrete instance of *CommandBase*(Job's main command) could be created (by action type and parameters). The Job entity also capable to produce a descriptive tree of steps, reflecting the action parts to be delivered to UI for presentation.
 *   **Step** represents a meaningful phase of the Job. A Step could be a parent of other steps (e.g. step named EXECUTION could have a list of steps beneath it which are also part of the job).
 *   **JobRepository** is the persistence mechanism for *Job* and *Step* entities. It used for CRUD operations for Job and Step, when a Job is created, it is being persistent to the database in order to reflect immediate Job status to the user. The *JobRepository* is responsible to maintain obsolete jobs in the database.
 *   **JobDao** a DAO interface which defines the CRUD operations for the Job entities.
 *   **JobDaoDbFacadeImpl** an implementation of the *JobDao* interface.
 *   **StepDao** a DAO interface which defines the CRUD operations for the *Step* entities.
 *   **StepDaoDbFacadeImpl** an implementation of the *StepDao* interface.
-*   **ExecutionContext** an object which encapsulates the context in which an action should be executed. It determines level of command monitoring and a way to present a given command to the User (e.g. as a job, step). Providing *ExecutionContext* will override the default monitoring behavior of the TaskManager.
+*   **ExecutionContext** an object which encapsulates the context in which an action should be executed. It determines level of command monitoring and a way to present a given command to the User (e.g. as a job, step). Providing *ExecutionContext* will override the default monitoring behavior of the Task Manager.
 
 <!-- -->
 
@@ -105,12 +105,12 @@ The following entities/components will be added:
 
 ''' New Enumerators *'
 *StepEnum'' specifies system's steps
-*ExecutionStatus* specifies which statuses are eligible for a *Step* and *Job*
-*ActionCategories* specifies categories of actions, e.g. storage, network, host maintenance...
+*ExecutionStatus* specifies which statuses are eligible for *Step* and *Job*
+*ActionCategory* specifies categories of actions, e.g. storage, network, host maintenance...
  **Updated Enumerators**
-*VdcActionType* will be extended with a new field storing a list of categories to which a specific action type belongs to.
+*VdcActionType* will be extended with a new field storing a list of categories (Set<ActionCategory>) to which a specific action type belongs to.
 The *categories* field will enable filtering jobs by categories. An action type could be associated with multiple categories.
-The *VdcActionType* will be used in a resource bundle to correlate between the action type to the description job name.
+The *VdcActionType* will be used in a resource bundle to correlate between the action type to the description of a job.
 The resource bundle will contain description for both Jobs and Steps (combines *VdcActionType* and *StepEnum*):
 
     job.RunVm=Running a VM
@@ -120,7 +120,7 @@ The resource bundle will contain description for both Jobs and Steps (combines *
 
 ##### Annotations
 
-*@NonMonitored* declared on a child of *CommandBase* clsas. Defines which commands should not be monitored.
+*@NonMonitored* declared on a successor of *CommandBase* clsas. Defines whether a command should not be monitored.
 
 ##### Main Task Manager Class Diagram
 
@@ -131,7 +131,7 @@ The following class diagrams describes the entities participating in the the Tas
 
 ##### Command Entity Class Diagram
 
-The following class diagram focuses on the *CommandEntity* and its associated element *CommandTaskInfo*:
+The following class diagram focuses on the *Job* and *Step* entities:
 ![](command-entity-class-diagram.jpeg "fig:command-entity-class-diagram.jpeg")
 
 ------------------------------------------------------------------------
@@ -143,6 +143,8 @@ The following class diagram focuses on the *CommandEntity* and its associated el
 *   Since the delay between cycles of the *VdsUpdateRunTimeInfo* and possibly implications on synchronized *VDSCommand*s, an alternative for regenerating and processing the completion of the commands will be triggering events which will be processed asynchronously, detached from the flow of the monitor.
 
 ![](Async-Vds-Commands-class-diagram.jpeg "Async-Vds-Commands-class-diagram.jpeg")
+
+------------------------------------------------------------------------
 
 #### DB Design
 
@@ -182,14 +184,6 @@ The following class diagram focuses on the *CommandEntity* and its associated el
 *   <span style="color:#006400">*DeleteStepsByJobId*</span> - deletes steps associated with a specific job
 *   <span style="color:#006400">*GetStepByStepId*</span> - returns a step by its ID
 *   <span style="color:#006400">*GetStepsByJobId*</span> - returns a list of steps of a given Job by Job ID.
-
-#### User Experience
-
-Describe user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should also be added here to make it more clear
-
-#### Installation/Upgrade
-
-Describe how the feature will effect new installation or existing one.
 
 #### User work-flows
 
@@ -236,7 +230,7 @@ The following sequence diagrams describe how the new components should interact 
 
 When invoking Multiple Actions, the runner will be the responsible for creating the metadata for the command: ![](Multiple-action-runner-sequence-diagram.jpeg "fig:Multiple-action-runner-sequence-diagram.jpeg")
 
-### Job Description by Command Types
+#### Job Description by Command Types
 
 ##### Default job metadata (a simple command)
 
@@ -354,11 +348,19 @@ When Backend is initialized, the commands which are in progress are being examin
 *   The *CommandEntity* could be set as monitored command per action: In action X it could be presentable where in other action it could be hidden.
     -   The visibility of the *CommandEntity* determines the visibility of its tasks and sub-tasks.
 
-### Events
+#### Events
 
 Event log will be extended with two fields:
 *job_id* field designed to describe the job which the current event is part of. Once the Job is cleared from the database, the job_id will point for non-existing job.
 *correlation_id* associates the event with the global identifier of the action, which the event participate in.
+
+### User Experience
+
+Describe user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should also be added here to make it more clear
+
+### Installation/Upgrade
+
+Describe how the feature will effect new installation or existing one.
 
 ### Dependencies / Related Features and Projects
 

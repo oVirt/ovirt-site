@@ -230,7 +230,11 @@ The following sequence diagrams describe how the interaction of the new entities
 
 ##### Multiple Action Sequence Diagram
 
-When invoking Multiple Actions, the runner will be the responsible for creating a Job for each of the commands: ![](Multiple-action-runner-sequence-diagram.jpeg "fig:Multiple-action-runner-sequence-diagram.jpeg")
+*   When invoking Multiple Actions, the runner will be the responsible for creating a Job for each of the commands.
+*   In multiple command execution the *canDoAction* of each command is executed explicitly prior to the command execution.
+*   The Job will be created only for commands which pass the *canDoAction*.
+
+![](Multiple-action-runner-sequence-diagram.jpeg "Multiple-action-runner-sequence-diagram.jpeg")
 
 #### Job Description by Command Types
 

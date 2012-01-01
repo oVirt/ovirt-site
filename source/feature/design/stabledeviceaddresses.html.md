@@ -204,9 +204,9 @@ Sample :
 
 ### DB Design
 
-New table generic_device:
+New table vm_device:
 
-       device_id           -- Unique identifier of the generic device
+       device_id           -- Unique identifier of the VM device
        vm_id               -- The VM id (FK of vm_static)
        device_type         -- The device type (for example : sound, video etc.)
        device_specparams   -- The device special parameters, for example ('display': 'vnc')
@@ -230,7 +230,7 @@ Adding shared flag to disks
 
        shared              -- Indicates if disk is shared between multiple VMs
 
-Generation CRUD SPs for the new generic_device table Modify all relevant views & SP to have the hash field. Modify all relevant views & SP to have the address field. Modify all relevant views & SP to have the boot_order field.
+Generation CRUD SPs for the new vm_device table Modify all relevant views & SP to have the hash field. Modify all relevant views & SP to have the address field. Modify all relevant views & SP to have the boot_order field.
 
 #### DB Upgrade
 
@@ -296,7 +296,7 @@ OVFReader should be extended to read the information retrieved in the new struct
 
 #### API Design
 
-VM/vm_dynamic entities should have additional hash properties disk_vm_map mapping should have the address and boot_order properties VM Interface should have the address and boot_order properties DAL classes for generic device support
+VM/vm_dynamic entities should have additional hash properties disk_vm_map mapping should have the address and boot_order properties VM Interface should have the address and boot_order properties DAL classes for VM device support
 
 #### Generic Device
 
@@ -316,7 +316,7 @@ Adding support for hash parameter in Create. Return the hash value for each VM w
 
 ### Tests
 
-Add tests for new generic device DAL Modify all tests to track new added properties
+Add tests for new VM device DAL Modify all tests to track new added properties
 
 #### Expected unit-tests
 
@@ -383,7 +383,7 @@ Main issues are backward compatibility and affect of new 3.1 features.
 
 #### Index
 
-Manage internal unique index for 'iface' virtio' or 'ide' Same ordering as in old format should be kept in order to support 3.0 VMs that starts to run on 3.1 cluster
+Manage internal unique index for 'iface' virtio' or 'ide' Same ordering as in old format should be kept in order to support 3.0 VMs that starts to run on 3.1 cluster When a VM that run perviously on 3.0 cluster starts to run for the first time on a 3.1 cluster, we must send its devices in the same order to VDSM, if this is not done, libvirt can not guarantee that devices will preserve their addresses.
 
 #### Hot Plug Disk/Nic
 

@@ -12,7 +12,7 @@ wiki_last_updated: 2015-01-16
 
 ### Summary
 
-A Task Manager is a monitor which shows the current actions running in ovirt-engine and tracks their progress. It also capable of presenting completed commands.
+A Task Manager is a monitor which shows the current actions running in ovirt-engine and tracks their progress. It also capable of presenting completed commands for a configure period of time.
 
 ### Owner
 

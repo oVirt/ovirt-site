@@ -22,7 +22,7 @@ In short, *this wiki is for the oVirt community collaborative documentation*.
 ## What is here
 
 *   Developer wiki for the oVirt [Node](Node) project.
-*   Developer wiki for the oVirt Engine project. ([Building_Ovirt_Engine](Building it from source))
+*   Developer wiki for the oVirt Engine project. [Building_Ovirt_Engine](Building_Ovirt_Engine)
 *   Content for attendees and organizers of the [November 2011 workshop](Workshop November 2011).
 *   Work pages for the oVirt [Infrastructure](Infrastructure) team.
 *   Project [Communication](Communication).

@@ -53,15 +53,21 @@ specparams - Any device specific parameters (for example memory allocation per m
 
 ### CRUD
 
-New table generic_device :
+#### Option A
 
-       device_id              -- Unique identifier of the generic device
+New table vm_device :
+
+       device_id              -- Unique identifier of the VM device
        device                 -- The device type (for example : sound, video etc.)
        vm_id                  -- The VM id (FK of vm_static.vm_id)
        device_specparams      -- The device special parameters, for example ('display': 'vnc')
        device_address         -- The device address as a string
 
-*   Adding CRUD SPs for generic_device table.
+*   In this case this table handles only unmanaged devices
+
+<!-- -->
+
+*   Adding CRUD SPs for vm_device table.
 
 Adding hash column to vm_dynamic:
 
@@ -83,6 +89,35 @@ Adding shared flag to disks :
 
 *   Update relevant Views & SPs to include the shared column
 
+#### Option B
+
+New table vm_device :
+
+       device_id              -- Unique identifier of the VM device
+       device                 -- The device type (for example : sound, video etc.)
+       vm_id                  -- The VM id (FK of vm_static.vm_id)
+       device_specparams      -- The device special parameters, for example ('display': 'vnc')
+       device_address         -- The device address as a string
+       boot_order             -- The device boot order
+
+*   In this case this table handles both managed (disk,vm interface) and unmanaged(sound,video,etc.) devices
+
+<!-- -->
+
+*   Adding CRUD SPs for vm_device table.
+
+Adding hash column to vm_dynamic:
+
+       hash                -- holds the md5 like encryption indicating a change 
+
+*   Update relevant Views & SPs to include the hash column
+
+Adding shared flag to disks :
+
+       shared              -- Indicates if disk is shared between multiple VMs
+
+*   Update relevant Views & SPs to include the shared column
+
 ### DAL
 
 Adding GenericDeviceDAO, GenericDeviceDAODbFacadeImpl , GenericDeviceDAOHibernateImpl
@@ -93,7 +128,7 @@ Updating DiskVmMapDAOTest and VmNetworkInterfaceDAOTest to include the new Addre
 
 #### Metadata
 
-Adding test data for generic_device in fixtures.xml
+Adding test data for vm_device in fixtures.xml
 
 ### Business Logic
 
@@ -166,7 +201,7 @@ Structure:
 
 In new format we will have to add some logic when handling video cards.
 Up to 3.1, we were passing spiceMonitors, this described the number of monitors used by the VM and memory allocation calculation per video card was sone by VDSM
-In new format, we will have to send each video card as a generic device and calculate the memory allocation, the result will be passed to vdsm as the specparams value.
+In new format, we will have to send each video card as a VM device and calculate the memory allocation, the result will be passed to vdsm as the specparams value.
 
 #### Import/Export
 

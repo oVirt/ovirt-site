@@ -35,8 +35,6 @@ Today, the administrator is not capable of knowing which actions are running in 
 
 ### Dependencies / Related Features
 
-The feature should enhance the internal locking mechanism to its needs, therefore is depended on it. Any action which requires non-standard action progress representation should consider extending the default action tracking.
-
 Affected oVirt projects:
 
 *   Engine-core

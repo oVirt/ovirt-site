@@ -106,10 +106,7 @@ The following entities/components will be added:
 ''' New Enumerators *'
 *StepEnum'' specifies system's steps
 *ExecutionStatus* specifies which statuses are eligible for *Step* and *Job*
-*ActionCategory* specifies categories of actions, e.g. storage, network, host maintenance...
  **Updated Enumerators**
-*VdcActionType* will be extended with a new field storing a list of categories (Set<ActionCategory>) to which a specific action type belongs to.
-The *categories* field will enable filtering jobs by categories. An action type could be associated with multiple categories.
 The *VdcActionType* will be used in a resource bundle to correlate between the action type to the description of a job.
 The resource bundle will contain description for both Jobs and Steps (combines *VdcActionType* and *StepEnum*):
 
@@ -117,6 +114,11 @@ The resource bundle will contain description for both Jobs and Steps (combines *
     job.AddVds=Add new Host
     step.EXECUTION=Executing
     step.VALIDATION=Validating
+
+**Tentative:**
+*ActionCategory* specifies categories of actions, e.g. storage, network, host maintenance...
+*VdcActionType* will be extended with a new field storing a list of categories (Set<ActionCategory>) to which a specific action type belongs to.
+The *categories* field will enable filtering jobs by categories. An action type could be associated with multiple categories.
 
 ##### Annotations
 

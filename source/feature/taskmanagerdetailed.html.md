@@ -206,7 +206,10 @@ The following sequence diagrams describe how the interaction of the new entities
 **The sequence above describes invocation of sync-action:**
 
 *   The *Backend* receives a request from a client, provided by action type, parameters and optionally correlation-id (encapsulated by the parameters).
-    -   Correlation-ID is a pass-thru identifier of an action which the client defines. A client can associate any action with that ID which will appear as part of the Job and its Steps in Backend for action related logging and in VDSM logs. If the client does not provide a correlation-id, the Backend will generate one.
+    -   Correlation-ID is a pass-thru identifier of an action which the client defines.
+    -   A client can associate any action with that ID which will appear as part of the *Job* and its *Step*s in *Backend* for action related logging and in VDSM logs.
+    -   If the client does not provide a correlation-id, the Backend will generate one.
+    -   The correlation-ID is passed by Parameters of the Action (a successor of *VdcActionParameterBase*).
 *   The *Backend* uses the *CommandFactory* to create a concrete command instance.
 *   The *Backend* creates a *Job* entity with the given parameters and bind it to the command.
 *   A default implementation will be provided (A command with 2-3 tasks representing VALIDATION, EXECUTION and tentative FINALIZATION for *endAction*).

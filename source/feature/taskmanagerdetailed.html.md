@@ -351,10 +351,13 @@ When Backend is initialized, the non-completed jobs are being examined for their
 <!-- -->
 
 *   A scheduler will be responsible for clearing obsolete Jobs and Steps from the database.
-*   A configuration value will determine the frequency of clearing completed jobs:
-    -   Time-to-keep Job - the duration for holding a completed jobs in the database.
-        -   Default is 12 hours.
-        -   -1 emphasis manual maintenance of the Job tables.
+*   Two configuration values will determine the frequency of clearing completed jobs:
+    -   *Time-to-keep-successful-jobs* - the duration for holding a successfully completed jobs in the database.
+        -   Default is 10 minutes.
+        -   -1 emphasis manual maintenance of the successful jobs.
+    -   *Time-to-keep-failed-jobs* - the duration for holding failed jobs in the database.
+        -   Default is 60 minutes.
+        -   -1 emphasis manual maintenance of the failed jobs.
 *   Updating the Job information in the database will be executed in a new transaction.
 
 #### Events

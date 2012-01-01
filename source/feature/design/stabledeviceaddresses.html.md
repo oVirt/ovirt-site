@@ -14,15 +14,15 @@ In the term Device we include PCI, VirtIO Serial, SCSI, IDE, CCID and actually a
 
 Allow devices in guest virtual machines to retain the same device address allocations as other devices are added or removed from the guest configuration. This is particularly important for Windows guests in order to prevent warnings or reactivation when device addresses change.
 
-This feature is supported by libvirt and should be implemented by RHEVM and VDSM.
+This feature is supported by libvirt and should be implemented by oVirt Engine and VDSM.
 
-When creating a VM, QEMU allocates device addresses to the guest devices, these addresses are being reported by libvirt to VDSM and VDSM should report it back to RHEVM. RHEVM should persist the device addresses and report it as part of the VM configuration on the next run. If a change to the VM devices occurred RHEVM should detect the change and persist the new device addresses.
+When creating a VM, QEMU allocates device addresses to the guest devices, these addresses are being reported by libvirt to VDSM and VDSM should report it back to oVirt Engine. oVirt Engine should persist the device addresses and report it as part of the VM configuration on the next run. If a change to the VM devices occurred oVirt Engine should detect the change and persist the new device addresses.
 
 **The general implementation concepts are:**
 
       1. The 'create' verb should get a new parameter in the XML describing the device addresses of the VM.
          This parameter is optional and if not given VDSM should learn the device addresses from libvirt.
-      2. The device addresses are not being parsed by RHEVM, they are persisted as is without manipulations of the data.
+      2. The device addresses are not being parsed by oVirt Engine, they are persisted as is without manipulations of the data.
       3. The 'getAllVmStats' verb should report the hash of the device addresses of the VMS.
       4. If a change is detected by RHEVM to the device addresses (the reported hash was changed), it should query VDSM 
          for the full VM configuration by using the 'list' verb with the 'long' format and the list of changed VMs.
@@ -48,7 +48,7 @@ Feature is not exposed currently to the GUI.
 
 Feature is not exposed currently to the REST API.
 
-### Backend
+### Engine
 
 This section describes the backend design for this feature.
 

@@ -170,6 +170,8 @@ For local install in site-packages, from ovirt-engine-sdk repo:
 
       python setup.py develop
 
+*   note: both deployment procedures require super-user permissions
+
 # TODO list
 
 ### codegen

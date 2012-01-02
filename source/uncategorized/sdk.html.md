@@ -148,6 +148,28 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
 
        nic4 = vm6.nics.get(name='eth0')
 
+# Deployment
+
+### rpm
+
+To build rpm and install it, from ovirt-engine-sdk repo:
+
+      yum install rpm-build
+
+      yum install python-devel
+
+      yum install python-setuptools
+
+      make rpm
+
+      yum localinstall rpmtop/RPMS/noarch/ovirt-engine-sdk-x.y-z.noarch.rpm
+
+### local deployment
+
+For local install in site-packages, from ovirt-engine-sdk repo:
+
+      python setup.py develop
+
 # TODO list
 
 ### codegen

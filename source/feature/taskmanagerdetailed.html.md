@@ -248,6 +248,7 @@ The following sequence diagrams describe how the interaction of the new entities
 *   The next example describes the default job metadata created for commands with default implementation.
 *   The Job will represent the descriptive name of the action.
 *   Short commands which follows this default behavior could be set for non-monitored since ended quickly.
+    -   login and logout command should be non-monitored
 
 <!-- -->
 

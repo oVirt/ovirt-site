@@ -71,7 +71,7 @@ New table vm_device :
 
 Adding hash column to vm_dynamic:
 
-       hash                -- holds the md5 like encryption indicating a change 
+       hash                -- holds the md5 like hash indicating a change 
 
 *   Update relevant Views & SPs to include the hash column
 
@@ -141,7 +141,7 @@ All places in which we send/receive VM details are affected:
        refreshVdsRunTimeInfo      - called periodically to refresh VMs information and persist it to db.
 
 In order to support both old (under 3.1) structure and new structure (3.1 and above), we will have to re-factor current code in above classes. This will be done by creating a VMInfoManagerHelper class that will implement all shared code as device indexing etc.
-We will have to create VMOldInfoManager and VMInfoManager VMOldInfoManager stands for old (under 3.1) structure
+We will have to create VMOldInfoManager and VMInfoManager VM30InfoManager stands for old (under 3.1) structure
 VMInfoManager stands for new structure (3.1 and above)
 Both VMOldInfoManager and VMInfoManager implement a common VMInfoManagerInterface interface
 We will have a factory method in the relevant CreateVDSCommand and refreshVdsRunTimeInfo that will create the proper class instance depending on VM Cluster Compatibility version.

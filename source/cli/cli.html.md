@@ -79,6 +79,8 @@ To build rpm and install it, from ovirt-engine-cli repo:
 
 For local install in site-packages, from ovirt-engine-cli repo:
 
+      yum install python-ply
+
       python setup.py develop
 
 *   note: both deployment procedures require super-user permissions

@@ -168,6 +168,8 @@ To build rpm and install it, from ovirt-engine-sdk repo:
 
 For local install in site-packages, from ovirt-engine-sdk repo:
 
+      yum install python-lxml
+
       python setup.py develop
 
 *   note: both deployment procedures require super-user permissions

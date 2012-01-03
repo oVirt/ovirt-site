@@ -350,7 +350,7 @@ By default, internal commands won't be presented as Steps of the Job, unless spe
 ##### Job for System Monitors
 
 System monitors are capable to invoke actions internally which the user might have interest in.
-Providing an *ExecutionContext* to the internal command invocation with monitoring flag will cause the internal command to be reflected as Jobs.
+Providing an *ExecutionContext* to the internal command invocation with monitoring flag will cause the internal command to be reflected as *Job*.
 The supported events are:
 
 *   VM migrations

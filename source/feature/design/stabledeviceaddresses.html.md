@@ -214,7 +214,7 @@ New table vm_device:
 
 Adding a column to vm_dynamic:
 
-       hash                -- holds the md5 like encryption indicating a change 
+       hash                -- holds the md5 like hash indicating a change 
 
 Adding address and boot_order to disk_vm_map. This should be done in the mapping table in order to support the Shared Disk feature when a disk can be shared by multiple VMs
 

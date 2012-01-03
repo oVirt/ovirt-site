@@ -347,6 +347,16 @@ By default, internal commands won't be presented as Steps of the Job, unless spe
                          |
                          ---- DISCONNECT_FROM_STORAGE-----Start time----End time----Status
 
+##### Job for System Monitors
+
+System monitors are capable to invoke actions internally which the user might have interest in.
+Providing an *ExecutionContext* to the internal command invocation with monitoring flag will cause the internal command to be reflected as Jobs.
+The supported events are:
+
+*   VM migrations
+*   Host fencing
+*   SPM election
+
 ##### Maintenance of the Job
 
 When Backend is initialized, the non-completed jobs are being examined for their statuses:

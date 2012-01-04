@@ -15,7 +15,10 @@ wiki_last_updated: 2012-08-20
 ### Timeline
 
 *   oVirt first release is currently scheduled to **2012-01-31**.
-    -   Versioned git branch creation: **2012-01-14**
+    -   Final VDSM: **2012-01-10**
+    -   Final oVirt-engine: **2012-01-12 12:00 UTC**
+    -   Versioned git branch creation: **2012-01-12**
+    -   First test day: **2012-01-16** (more info at [Testing/OvirtTestDay](Testing/OvirtTestDay) )
     -   Components maintainers **MUST** send their release notes prior to the new branch creation.
 
 ### Requirements

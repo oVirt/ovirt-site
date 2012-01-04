@@ -45,7 +45,7 @@ The overall test dates are spread across multiple duration which are driven by t
 
 | Test Day | No. Registered Participants | total bugs | bugs list |
 |----------|-----------------------------|------------|-----------|
-| 14JAN    |                             |            |           |
+| 16JAN    |                             |            |           |
 
 ## Execution Plan and Guidelines
 

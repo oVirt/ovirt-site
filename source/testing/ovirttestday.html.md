@@ -39,7 +39,7 @@ Test Days are open to anyone. If you have your own setup we will provide all the
 
 The overall test dates are spread across multiple duration which are driven by the beta releases from the engineering. The following are the list of test days scheduled -
 
-*   JAN 14th, 2011 - First Release
+*   JAN 16th, 2011 - First Release
 
 ## Summary of Test Days Results
 

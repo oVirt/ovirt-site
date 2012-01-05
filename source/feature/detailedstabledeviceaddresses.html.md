@@ -60,8 +60,9 @@ New table vm_device :
        device_id              -- Unique identifier of the VM device
        device                 -- The device type (for example : sound, video etc.)
        vm_id                  -- The VM id (FK of vm_static.vm_id)
-       device_specparams      -- The device special parameters, for example ('display': 'vnc')
-       device_address         -- The device address as a string
+       spec_params            -- The device special parameters, for example ('display': 'vnc')
+       address                -- The device address as a string
+       managed                -- Indicates if device is managed 
 
 *   In this case this table handles only unmanaged devices
 

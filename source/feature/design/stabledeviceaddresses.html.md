@@ -139,30 +139,30 @@ Sample :
       'devices': [   
              {'type': 'disk',
               'device': 'disk',
-              'index': `<int>`,                        <--- disk index unique per 'iface' virtio|ide
-              'address': 'PCI|IDE address string',   <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'" ,  
-                                                          IDE = "type='drive' controller='0' bus='0' unit='0'"
+              'index': `<int>`,                            <--- disk index unique per 'iface' virtio|ide
+              'address': 'PCI|IDE address dictionary',   <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'} ,  
+                                                              IDE = {'type':'drive', 'controller':'0', 'bus':'0', 'unit':'0'}
               'format': 'cow',
-              'bootOrder': `<int>`,                    <--- global boot order across all bootable devices
+              'bootOrder': `<int>`,                        <--- global boot order across all bootable devices
               'propagateErrors': 'off',
               'iface': 'virtio|ide',
-              'shared': 'True|False'                 <--- whether disk is shared
-              'optional': 'True|False'               <--- whether disk is optional (VM can be run without optional disk if inaccessible)
+              'shared': 'True|False'                     <--- whether disk is shared
+              'optional': 'True|False'                   <--- whether disk is optional (VM can be run without optional disk if inaccessible)
               'poolID': 'pool UUID',                         |
               'domainID': 'domain UUID',                     | 
-              'imageID': 'image UUID',               <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID   
+              'imageID': 'image UUID',                   <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID   
               'volumeID': 'volume UUID',                     |
-              'UUID': 'shared disk UUID',            <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID    
-              'GUID': 'shared disk GUID'},           <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID   
+              'UUID': 'shared disk UUID',                <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID    
+              'GUID': 'shared disk GUID'},               <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID   
               .....
               any number of disks
               .....
              {'type': 'disk',
               'device': 'cdrom',
-              'index': `<int>`,                        <--- disk index unique per 'iface' virtio|ide
-              'address': 'PCI|IDE address string',   <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'" ,  
-                                                          IDE = "type='drive' controller='0' bus='0' unit='0'"
-              'bootOrder': `<int>`,                    <--- global boot order across all bootable devices
+              'index': `<int>`,                            <--- disk index unique per 'iface' virtio|ide
+              'address': 'PCI|IDE address dictionary',   <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'} ,  
+                                                              IDE = {'type':'drive', 'controller':'0', 'bus':'0', 'unit':'0'}
+              'bootOrder': `<int>`,                        <--- global boot order across all bootable devices
               'iface': 'virtio|ide',
               'poolID': 'pool UUID',
               'domainID': 'domain UUID',
@@ -170,8 +170,8 @@ Sample :
               'volumeID': '.iso file'},
              {'type': 'disk',
               'device': 'floppy',
-              'index': `<int>`,                        <--- floppy index unique per 'iface' fdc
-              'address': 'address string',           <--- "type='drive' controller='0' bus='0' unit='0'"
+              'index': `<int>`,                            <--- floppy index unique per 'iface' fdc
+              'address': 'address dictionary',           <--- {'type':'drive', 'controller':'0', 'bus':'0', 'unit':'0'}
               'iface': 'fdc',
               'poolID': 'pool UUID',
               'domainID': 'domain UUID',
@@ -180,7 +180,7 @@ Sample :
              {'type': 'interface',
               'device': 'bridge|sriov|vnlink|bridgeless',     <--- Rest device's parameters depends on 'device'
               'network': 'network name',                      <--- bridge name
-              'address': 'PCI address string',                <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
+              'address': 'PCI address dictionary',            <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'}
               'macAddr': 'mac address',
               'bootOrder': `<int>`,                             <--- global boot order across all bootable devices
               'nicModel': 'pv|rtl8139|e1000'},
@@ -189,17 +189,17 @@ Sample :
               .....
              {'type': 'sound',
               'device':'ich6',
-              'address': 'PCI address string'},      <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
+              'address': 'PCI address dictionary'},      <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'}
              {'type': 'video',
-              'device': 'qxl|cirrus',                <--- 'qxl' - spice device,  'cirrus' - vnc device
-              'specParams': `<vram size>`,             <--- vram size depends from number of video devices: '65536' if (monitors <= 2) else '32768'
-              'address': 'PCI address string'},      <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'"
+              'device': 'qxl|cirrus',                    <--- 'qxl' - spice device,  'cirrus' - vnc device
+              'specParams': `<vram size>`,                 <--- vram size depends from number of video devices: '65536' if (monitors <= 2) else '32768'
+              'address': 'PCI address dictionary'},      <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'}
               .....
               up to 'spiceMonitors' of video cards
               .....
              {'type': 'TBD - any device that has address',
-              'address': 'PCI|IDE address string'},  <--- PCI = "type='pci' domain='0x0000' bus='0x00' slot='0x0c' function='0x0'" ,  
-                                                          IDE = "type='drive' controller='0' bus='0' unit='0'"
+              'address': 'PCI|IDE address dictionary',      <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'} ,  
+                                                                 IDE = {'type':'drive', 'controller':'0', 'bus':'0', 'unit':'0'}
        ]
 
 ### DB Design

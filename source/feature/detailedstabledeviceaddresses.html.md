@@ -119,6 +119,8 @@ Adding shared flag to disks :
 
 *   Update relevant Views & SPs to include the shared column
 
+Option B will be implemented
+
 ### DAL
 
 Adding GenericDeviceDAO, GenericDeviceDAODbFacadeImpl , GenericDeviceDAOHibernateImpl

@@ -185,7 +185,7 @@ Sample :
               'address': 'PCI address dictionary',            <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'}
               'macAddr': 'mac address',
               'bootOrder': `<int>`,                             <--- global boot order across all bootable devices
-              'specParams': params dictionary,
+              'specParams': params dictionary,                <------- {'promisc': `<blue,red:mirror>`} - promisc mirror mode, the interface will mirror all red and blue bridge traffic
               'nicModel': 'pv|rtl8139|e1000'},
               .....
               any number of network cards

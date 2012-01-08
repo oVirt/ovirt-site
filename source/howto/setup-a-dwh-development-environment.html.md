@@ -37,7 +37,7 @@ wiki_last_updated: 2014-11-25
 ## Test package deployment
 
 *   setup oVirt Engine.
-*   Create the ovirt_history database using the create_db.sh script in the path:
+*   Create the ovirt_history database using the create_db.sh script in the path (Note: It will drop the database if already exists):
 
       < repository folder path >/ovirt-dwh/data-warehouse/historydbscripts_postgres/create_db.sh
       Note: Postgres is required to create the database.

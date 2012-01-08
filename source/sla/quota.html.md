@@ -177,6 +177,37 @@ When calling synchronized Vds commands (such as createVm, MigrateVm), which shou
 
 ###### A-synchronized Vds commands
 
+Asynchronized operations, relected in the engine as tasks.
+The tasks which are being handled are :
+
+      unknown,
+      copyImage,
+      moveImage,
+      createVolume,
+      deleteVolume,
+      deleteImage,
+      mergeSnapshots,
+      moveMultipleImages;
+
+**Tasks For Commands**
+
+| command name                   | Storage / Cluster | Task Name          | Vds Command                       |
+|--------------------------------|-------------------|--------------------|-----------------------------------|
+| CreateCloneOfTemplateCommand   | Storage           | copyImage          | CopyImageVDSCommand               |
+| CreateImageTemplateCommand     | Storage           | copyImage          | CopyImageVDSCommand               |
+| CreateCloneOfTemplateCommand   | Storage           | copyImage          | CopyImageVDSCommand               |
+| MoveMultipleImageGroupsCommand | Storage           | moveImage          | MoveImageGroupVDSCommand          |
+| MoveOrCopyImageGroupCommand    | Storage           | moveImage          | MoveImageGroupVDSCommand          |
+| AddImageFromScratchCommand     | Storage           | createVolume       | CreateImageVDSCommand             |
+| CreateSnapshotCommand          | Storage           | createVolume       | CreateSnapshotVDSCommand          |
+| HibernateVmCommand             | Storage           | createVolume       | CreateImageVDSCommand             |
+| RestoreFromSnapshotCommand     | Storage           | deleteVolume       | DestroyImageVDSCommand            |
+| RemoveImageCommand             | Storage           | deleteImage        | DeleteImageGroupVDSCommand        |
+| RemoveTemplateSnapshotCommand  | Storage           | deleteImage        | DeleteImageGroupVDSCommand        |
+| VmCommand                      | Storage           | deleteImage        | DeleteImageGroupVDSCommand        |
+| MergeSnapshotSingleDiskCommand | Storage           | mergeSnapshots     | MergeSnapshotsVDSCommand          |
+| no command                     | Storage           | moveMultipleImages | MoveMultipleImageGroupsVDSCommand |
+
 For a-synchronized operations behaviour, the Quota Storage DB data, (and the quota storage memory table) will be synchronized based on the DB data and the AsyncTaskManager properties.
  The ATM will have new data, which will reflect the storage quantity change being done by each task, for example adding +4GB when new image is being added.
  Each task in the ATM map, should encapsulate the storage change which it is responsible for.

@@ -183,6 +183,7 @@ Sample :
               'address': 'PCI address dictionary',            <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'}
               'macAddr': 'mac address',
               'bootOrder': `<int>`,                             <--- global boot order across all bootable devices
+              'specParams': params dictionary,
               'nicModel': 'pv|rtl8139|e1000'},
               .....
               any number of network cards
@@ -192,7 +193,7 @@ Sample :
               'address': 'PCI address dictionary'},      <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'}
              {'type': 'video',
               'device': 'qxl|cirrus',                    <--- 'qxl' - spice device,  'cirrus' - vnc device
-              'specParams': `<vram size>`,                 <--- vram size depends from number of video devices: '65536' if (monitors <= 2) else '32768'
+              'specParams': params dictionary            <------- {'vram': `<vram size>`} - vram size depends from number of video devices: '65536' if (monitors <= 2) else '32768'
               'address': 'PCI address dictionary'},      <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'}
               .....
               up to 'spiceMonitors' of video cards

@@ -375,7 +375,7 @@ This section describes issues that might need special consideration when writing
 ### Open Issues
 
       1. Direct LUN considerations.
-      2. 
+      2. What happens to a Hot Plug device if the Cluster is downgraded from 3.1 to 3.0 ?
 
 ### Known Issues / Risks
 

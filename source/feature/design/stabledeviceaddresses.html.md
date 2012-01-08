@@ -111,6 +111,8 @@ Old API will be supported for Clusters with Compatibility Version under 3.1 Samp
       'spiceSecureChannels': 'smain,sinputs',
       'display': 'qxl'
 
+#### New API
+
 New API will be used for Clusters with Compatibility Version 3.1 or upper
 
 VDSM will distinguish if a new format or old format was sent according to existence/absence of the 'devices' key

@@ -1,0 +1,116 @@
+---
+title: PythonApi
+category: api
+authors: mgoldboi, mkollaro, moti, mpavlik, rvaknin
+wiki_title: Testing/PythonApi
+wiki_revision_count: 36
+wiki_last_updated: 2014-03-27
+---
+
+# Python Api
+
+## Create a Basic Environment using ovirt-engine-sdk
+
+In order to connect to ovirt-engine using the ovirt-engine-sdk (python api which uses REST-API), the following details are required:
+
+*   URL - The URL consists of http method, ovirt-engine's ip, ovirt-engine's port and the api's entry point. The http method and and port are usually https/8443 for secure connection (default), or http/8080 for insecure connection. The insecure connection is usually used in development environments. The api's entry point is fixed - "/api"
+
+<!-- -->
+
+*   User/Password - The user consists of username, the "@" sign and domain name. You can use both either the internal user's account or any of your LDAP users that has login permissions and of course permissions to perform your requests.
+
+You can add the following lines to the beginning of your python script in order to **import the relevant modules and get an API object** using the proper login details in the below url/username/password variables
+
+         #! /usr/bin/python
+         from ovirtsdk.api import API
+         from ovirtsdk.xml import params
+         URL = '`[`https://192.168.1.1:8443/api`](https://192.168.1.1:8443/api)`'
+         USERNAME = 'my_user@my.domain.com'
+         PASSWORD = 'my_password'
+         api = API(url=URL, username=USERNAME, password=PASSWORD)
+
+*   **Create iSCSI Data Center**
+
+         try:
+             if api.datacenters.add(params.DataCenter(name='my_datacenter', storage_type='iscsi', version=params.Version(major='3', minor='0'))):
+                 print 'iSCSI Data Center was created successfully'
+         except Exception as e:
+             print 'Failed to create iSCSI Data Center:\n%s' % str(e)
+
+*   **Create Cluster**
+
+Note that the CPU type should be chosen according to your host's CPU.
+
+         CPU_TYPE = 'Intel Nehalem Family'
+         try:
+             if api.clusters.add(params.Cluster(name='my_cluster', cpu=params.CPU(id=CPU_TYPE), data_center=api.datacenters.get('my_datacenter'), version=params.Version(major='3', minor='0'))):
+                 print 'Cluster was created successfully'
+         except Exception as e:
+             print 'Failed to create Cluster:\n%s' % str(e)
+
+*   **Install Host**
+
+         HOST_ADDRESS = 'hostname.my.domain.com'
+         ROOT_PASSWORD = 'root_password'
+         try:
+                 if api.hosts.add(params.Host(name='my_host', address=HOST_ADDRESS, cluster=api.clusters.get('my_cluster'), root_password=ROOT_PASSWORD)):
+                     print 'Host was installed successfully'
+         except Exception as e:
+                 print 'Failed to install Host:\n%s' % str(e)
+         print 'Waiting for host to reach the Up status'
+         while api.hosts.get('my_host').status != 'up':
+             pass
+
+*   **Create iSCSI Storage Domain on Data Center**
+
+         STORAGE_ADDRESS = 'storage_server.my.domain.com'
+         TARGET_NAME = 'target_name'
+         LUN_GUID = 'lun_guid'
+         sdParams = params.StorageDomain(name='my_iscsi',
+                           data_center=api.datacenters.get('my_datacenter'),
+                           type_='data',
+                           host=api.hosts.get('my_host'),
+                           storage = params.Storage(type_='iscsi',
+                                            volume_group=params.VolumeGroup(logical_unit=[params.LogicalUnit(id=LUN_GUID,
+                                                                address=STORAGE_ADDRESS,
+                                                                port=3260,
+                                                                target=TARGET_NAME)]))  )
+         try:
+             if api.storagedomains.add(sdParams):
+                 print 'iSCSI Storage Domain was created successfully'
+         except Exception as e:
+             print 'Failed to create iSCSI Storage Domain:\n%s' % str(e)
+         try:
+             if api.datacenters.get(name='my_datacenter').storagedomains.add(api.storagedomains.get(name='my_iscsi')):
+                 print 'iSCSI Storage Domain was attached successfully'
+         except Exception as e:
+             print 'Failed to attach iSCSI Storage Domain:\n%s' % str(e)
+
+*   **Attach export/ISO domain to Data Center**
+
+You can either create a new ISO Storage Domain or import an existing ISO Storage Domain that was configured during ovirt-engine's installation wizard (both options uses the same code below). Please upload the following ISO file to the ISO Storage Domain once the ISO Storage Domain was created: <http://distro.ibiblio.org/tinycorelinux/4.x/x86/release/TinyCore-current.iso>
+
+         ISO_ADDRESS = 'my_ovirt_engine_ip'
+         ISO_PATH = '/path/to/iso/domain'
+         isoParams = params.StorageDomain(name='my_iso',
+                                             data_center=api.datacenters.get('my_datacenter'),
+                                             type_='iso',
+                                             host=api.hosts.get('my_host'),
+                                             storage = params.Storage(   type_='nfs',
+                                                                         address=ISO_ADDRESS,
+                                                                         path=ISO_PATH  )  )
+         try:
+             if api.storagedomains.add(isoParams):
+                 print 'ISO Domain was created/imported successfully'
+         except Exception as e:
+             print 'Failed to create/import an ISO Domain:\n%s' % str(e)
+         try:
+             if api.datacenters.get('my_datacenter').storagedomains.add(api.storagedomains.get('my_iso')):
+                 print 'ISO Domain was attached successfully'
+         except Exception as e:
+             print 'Failed to attach ISO Domain:\n%s' % str(e)
+         try:
+             if api.datacenters.get('my_datacenter').storagedomains.get('my_iso').activate():
+                 print 'ISO Domain was activated successfully'
+         except Exception as e:
+             print 'Failed to activate ISO Domain:\n%s' % str(e)

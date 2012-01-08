@@ -31,9 +31,9 @@ The purpose of test days initiative is to accomplish the following goals:
 
 Test Days are open to anyone. If you have your own setup we will provide all the software packages and the required information. Please refer - What to do as a participant - in the section below, if you're willing to participate please add yourself to the below table:
 
-| Name     | General | Storage | Networking | APIs         | Spice | User Interface | Tools |
-|----------|---------|---------|------------|--------------|-------|----------------|-------|
-| mgoldboi | V       | V       | Basic      | Webadmin,CLI | V     |                |       |
+| Name     | General | Storage | Networking | APIs         | Spice | User Interface | Tools    | Distribution |
+|----------|---------|---------|------------|--------------|-------|----------------|----------|--------------|
+| mgoldboi | V       | V       | Basic      | Webadmin,CLI | V     |                | Fedora16 |              |
 
 ## Test Dates
 

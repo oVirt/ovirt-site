@@ -63,7 +63,7 @@ Or upgrade the database:
 
       mvn clean install -Pundep
 
-*   Run the root deployment script as root in the path:
+*   Run the root undeployment script as root in the path:
 
       < repository folder path >/ovirt-dwh/data-warehouse/history_etl/etl_sources/packaging/root_etl_undeploy.sh
 

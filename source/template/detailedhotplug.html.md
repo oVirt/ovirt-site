@@ -65,6 +65,30 @@ HotUnPlug will be allowed in the following cases:
 2. VM should be in status Up
 3. Disk should be plugged
 4. Disk can not be system
+ In order to perform an operation a new verbs will be added at VDSM side:
+hotplug and hotunplug with the following dictionary to pass:
+
+'device': [
+
+             {'type': 'disk',
+              'device': 'disk',
+              'index': `<int>`,                            <--- disk index unique per 'iface' virtio|ide
+              'address': 'PCI|IDE address dictionary',   <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'} ,  
+                                                              IDE = {'type':'drive', 'controller':'0', 'bus':'0', 'unit':'0'}
+              'format': 'cow',
+              'bootOrder': `<int>`,                        <--- global boot order across all bootable devices
+              'propagateErrors': 'off',
+              'iface': 'virtio|ide',
+              'shared': 'True|False'                     <--- whether disk is shared
+              'optional': 'True|False'                   <--- whether disk is optional (VM can be run without optional disk if inaccessible)
+              'poolID': 'pool UUID',                         |
+              'domainID': 'domain UUID',                     | 
+              'imageID': 'image UUID',                   <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID   
+              'volumeID': 'volume UUID',                     |
+              'UUID': 'shared disk UUID',                <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID    
+              'GUID': 'shared disk GUID'}]    
+
+A new vdsm errors will be added: FailedToPlugDisk(45) and FailedToUnPlugDisk(46)
 
 #### Events
 

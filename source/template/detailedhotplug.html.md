@@ -94,9 +94,9 @@ A new vdsm errors will be added: FailedToPlugDisk(45) and FailedToUnPlugDisk(46)
 
 ### Dependencies / Related Features and Projects
 
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
-
-Add a link to the feature description for relevant features. Does this feature effect other oVirt projects? Other projects?
+The changes will be done at vdsm side and GUI and Rest API.
+At vdsm side will be addded supports for a new verbs defined above.
+At GUI and Rest API will be added a new changes in order to support a new functionality at Backend Side.
 
 ### Documentation / External references
 

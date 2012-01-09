@@ -20,7 +20,7 @@ The short description is : <http://www.ovirt.org/wiki/Features/HotPlug>
 
 ### Owner
 
-*   Michael Kublin:
+*   Michael Kublin
 
 <!-- -->
 

@@ -35,6 +35,7 @@ The short description is : <http://www.ovirt.org/wiki/Features/HotPlug>
 ### Detailed Description
 
 The following feature will allow to hot plug/unplug of virtIO disks on running vm, also in scope of that feature will be added a new attribute to disk which will allow to run vm even the following disk is unaccesiable.
+This feature will be restricted to operating systems that support this action – eg. RHEL 5/6, Windows Server 2003 and Windows server 2008.
 
 #### Entity Description
 
@@ -57,15 +58,17 @@ New actions will allow the user to plug or unplug a disk to/from a running VM . 
 Via UI or the API the user will have an option to plug or unplug a disk of a running VM.
 The action will be allowed in the following flows:
 HotPlug will be allowed only on:
-1. VirtIO disk
-2. Disk should be unplugged
-3. VM should be in status Up
-4. Disk can not be system
+1. Operation system of guest is supports operation
+2. VirtIO disk
+3. Disk should be unplugged
+4. VM should be in status Up
+5. Disk can not be system
 HotUnPlug will be allowed in the following cases:
-1. VirtIO disk
-2. VM should be in status Up
-3. Disk should be plugged
-4. Disk can not be system
+1. Operation system of guest is supports operation
+2. VirtIO disk
+3. VM should be in status Up
+4. Disk should be plugged
+5. Disk can not be system
  In order to perform an operation new verbs will be added at VDSM side:
 hotplug and hotunplug with the following dictionary to pass:
 A call to vdsm will be done in synchronious way

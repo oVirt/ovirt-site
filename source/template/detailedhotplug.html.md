@@ -53,7 +53,7 @@ An upgrade script will add a missed fields to the table disks and view images. T
 
 #### User work-flows
 
-New actions will allow the user to plug or unplug a disk to/from a running VM .
+New actions will allow the user to plug or unplug a disk to/from a running VM . The feature will be allowed only on 3.1 clusters and above
 Via UI or the API the user will have an option to plug or unplug a disk of a running VM.
 The action will be allowed in the following flows:
 HotPlug will be allowed only on:
@@ -68,6 +68,7 @@ HotUnPlug will be allowed in the following cases:
 4. Disk can not be system
  In order to perform an operation new verbs will be added at VDSM side:
 hotplug and hotunplug with the following dictionary to pass:
+A call to vdsm will be done in synchronious way
 
 'device': [
 

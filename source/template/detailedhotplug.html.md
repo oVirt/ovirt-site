@@ -60,6 +60,7 @@ HotPlug will be allowed only on:
 1. VirtIO disk
 2. Disk should be unplugged
 3. VM should be in status Up
+4. Disk can not be system
 HotUnPlug will be allowed in the following cases:
 1. VirtIO disk
 2. VM should be in status Up

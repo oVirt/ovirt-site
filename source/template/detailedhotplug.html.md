@@ -39,7 +39,7 @@ This feature will be restricted to operating systems that support this action â€
 
 #### Entity Description
 
-The following changes on disk entity will be done: A new field should be added to the table disk which will indicate status of disk (plugged, unplugged)
+The following changes on disk entity will be done: A new field should be added to the table image_vm_map which will indicate status of disk (plugged, unplugged) for current vm
 A new field should be added to the table images, type boolean, which will indicate if a disk is plugged or unplugged
 
 #### CRUD

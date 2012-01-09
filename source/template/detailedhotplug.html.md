@@ -108,6 +108,6 @@ Add a link to the "discussion" tab associated with your page. This provides the 
 
 ### Open Issues
 
-Issues that we haven't decided how to take care of yet. These are issues that we need to resolve and change this document accordingly.
+The index of disk should be kept in DB , menawhile it is not decided who will implemet this (in scpe of that fearture or at scope of Stable PCI devices)
 
 <Category:Template> <Category:Feature>

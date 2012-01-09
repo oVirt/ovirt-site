@@ -78,7 +78,7 @@ hotplug and hotunplug with the following dictionary to pass:
               'format': 'cow',
               'bootOrder': `<int>`,                        <--- global boot order across all bootable devices
               'propagateErrors': 'off',
-              'iface': 'virtio|ide',
+              'iface': 'virtio',
               'shared': 'True|False'                     <--- whether disk is shared
               'optional': 'True|False'                   <--- whether disk is optional (VM can be run without optional disk if inaccessible)
               'poolID': 'pool UUID',                         |

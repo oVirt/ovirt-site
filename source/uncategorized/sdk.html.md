@@ -194,9 +194,9 @@ For local install in site-packages, from ovirt-engine-sdk repo:
 
 ### sdk
 
-*   supporting several proxy instances in application
+*   supporting several proxy instances in application (i.e cache peer proxy instance)
 
-       (i.e cache peer proxy instance)
+<!-- -->
 
 *   supporting matrix url parameters
 

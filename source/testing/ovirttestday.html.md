@@ -34,12 +34,14 @@ Test Days are open to anyone. If you have your own setup we will provide all the
 | Name     | General | Storage | Networking | APIs         | Spice | User Interface | Tools | Distribution |
 |----------|---------|---------|------------|--------------|-------|----------------|-------|--------------|
 | mgoldboi | V       | V       | Basic      | Webadmin,CLI | V     |                |       | Fedora16     |
+| mkrcmari | V       |         |            |              | V     |                |       | Fedora16     |
+| djasa    | V       | V       | Basic      |              | V     |                |       | Fedora16     |
 
 ## Test Dates
 
 The overall test dates are spread across multiple duration which are driven by the beta releases from the engineering. The following are the list of test days scheduled -
 
-*   JAN 16th, 2011 - First Release
+*   JAN 16th, 2012 - First Release
 
 ## Summary of Test Days Results
 

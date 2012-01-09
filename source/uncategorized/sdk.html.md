@@ -178,22 +178,38 @@ For local install in site-packages, from ovirt-engine-sdk repo:
 
 ### codegen
 
-#### auto-generate python entities from schema with GenerateDS
+*   auto-generate python entities from schema with GenerateDS
 
-#### interface for task polling
+<!-- -->
 
-#### support 3+ length URIs
+*   interface for task polling
 
-#### supporting off-line codegen mode
+<!-- -->
+
+*   support 3+ length URIs
+
+<!-- -->
+
+*   supporting off-line codegen mode
 
 ### sdk
 
-#### supporting several proxy instances in application
+*   supporting several proxy instances in application
 
        (i.e cache peer proxy instance)
 
-#### dynamic connections_pool resizer
+*   supporting matrix url parameters
 
-#### refactoring internal exceptions for better error handling on client side
+<!-- -->
+
+*   supporting header parameters
+
+<!-- -->
+
+*   dynamic connections_pool resizer
+
+<!-- -->
+
+*   refactoring internal exceptions for better error handling on client side
 
 <Category:SDK>

@@ -54,7 +54,7 @@ An upgrade script will add a missed fields to the table disks and view images. T
 
 #### User work-flows
 
-New actions will allow the user to plug or unplug a disk to/from a running VM . The feature will be allowed only on 3.1 clusters and above
+New actions will allow the user to plug or unplug a disk to/from a running VM, it will be allowed only for disks which were added to vm by AddDiskToVMCommand . The feature will be allowed only on 3.1 clusters and above
 Via UI or the API the user will have an option to plug or unplug a disk of a running VM.
 The action will be allowed in the following flows:
 HotPlug will be allowed only on:

@@ -379,6 +379,12 @@ This section describes issues that might need special consideration when writing
 
       1. Direct LUN considerations.
       2. What happens to a Hot Plug device if the Cluster is downgraded from 3.1 to 3.0 ?
+      3. Regarding boot sequence: We currently have `*`default` `boot` `sequence`*` in the template level. 
+         The question is how this is handled in moving from 3.0 to 3.1 and vice verse
+         a) 3.0 to 3.1 - we will have to write the logic that tries to match the conversion from current Enum BootSequence value to the new format
+         b) 3.1 to 3.0 - we have a problem here either we :
+           I) Do `*`Best` `Effort`*` and covert to the closet BootSequence Enum
+           II)or , we can store the templates `*`default` `boot` `sequence`*` in the vm_device table as well
 
 ### Known Issues / Risks
 

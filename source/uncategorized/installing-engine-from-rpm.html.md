@@ -27,6 +27,13 @@ Execute the following command:
 
 ### Installing & Configuring ovirt-engine
 
+#### Cleanup
+
+**Before every installation**, you should run the cleanup utility:
+
+      engine-cleanup
+       
+
 #### Install
 
 Install ovirt-engine by executing:

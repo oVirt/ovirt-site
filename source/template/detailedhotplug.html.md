@@ -89,6 +89,8 @@ hotplug and hotunplug with the following dictionary to pass:
               'GUID': 'shared disk GUID'}]    
 
 A new vdsm errors will be added: FailedToPlugDisk(45) and FailedToUnPlugDisk(46)
+ Additonal change will be done during createVM operation :
+A disk which is unplugged but attached to vm will not be passed to vdsm in order to run VM without it
 
 #### Events
 

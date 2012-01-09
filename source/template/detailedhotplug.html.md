@@ -52,7 +52,18 @@ An upgrade script will add a missed fields.
 
 #### User work-flows
 
-A new actions will allow to user plug or un plug a disk at running vm . Via gui or rest API user will have an option to plug or un plug a disk at running vm. The action will be allowed in the following flows: HotPlug will be allowed only on: 1. VirtIO disk 2. Disk should be unplugged 3. VM should be in status Up HotUnPlug will be allowed in the following cases: 1. VirtIO disk 2. VM should be in status Up 3. Disk should be plugged 4. Disk can not be system
+A new actions will allow to user plug or un plug a disk at running vm .
+Via gui or rest API user will have an option to plug or un plug a disk at running vm.
+The action will be allowed in the following flows:
+HotPlug will be allowed only on:
+1. VirtIO disk
+2. Disk should be unplugged
+3. VM should be in status Up
+HotUnPlug will be allowed in the following cases:
+1. VirtIO disk
+2. VM should be in status Up
+3. Disk should be plugged
+4. Disk can not be system
 
 #### Events
 

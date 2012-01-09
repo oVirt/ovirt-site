@@ -87,13 +87,13 @@ For local install in site-packages, from ovirt-engine-cli repo:
 
 # TODO list
 
-### parameters formatting
+*   parameters formatting
 
-#### generic parameters asignment
+<!-- -->
+
+*   generic parameters assignment
 
        - right now parameters assign to parameters classes by static
          mapping in metadata, it should be done in a generic way.
-
-### infrastructure
 
 <Category:CLI>

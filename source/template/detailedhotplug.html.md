@@ -53,8 +53,8 @@ An upgrade script will add a missed fields.
 
 #### User work-flows
 
-A new actions will allow to user plug or un plug a disk at running vm .
-Via gui or rest API user will have an option to plug or un plug a disk at running vm.
+New actions will allow the user to plug or unplug a disk to/from a running VM .
+Via UI or the API the user will have an option to plug or unplug a disk of a running VM.
 The action will be allowed in the following flows:
 HotPlug will be allowed only on:
 1. VirtIO disk
@@ -65,7 +65,7 @@ HotUnPlug will be allowed in the following cases:
 2. VM should be in status Up
 3. Disk should be plugged
 4. Disk can not be system
- In order to perform an operation a new verbs will be added at VDSM side:
+ In order to perform an operation new verbs will be added at VDSM side:
 hotplug and hotunplug with the following dictionary to pass:
 
 'device': [
@@ -88,17 +88,17 @@ hotplug and hotunplug with the following dictionary to pass:
               'UUID': 'shared disk UUID',                <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID    
               'GUID': 'shared disk GUID'}]    
 
-A new vdsm errors will be added: FailedToPlugDisk(45) and FailedToUnPlugDisk(46)
- Additonal change will be done during createVM operation :
-A disk which is unplugged but attached to vm will not be passed to vdsm in order to run VM without it
+New vdsm errors will be added: FailedToPlugDisk(45) and FailedToUnPlugDisk(46)
+ An additional change will be done during createVM operation :
+A disk which is unplugged but attached to a VM will not be passed to vdsm in order to run VM without it
 
 #### Events
 
 ### Dependencies / Related Features and Projects
 
-The changes will be done at vdsm side and GUI and Rest API.
-At vdsm side will be addded supports for a new verbs defined above.
-At GUI and Rest API will be added a new changes in order to support a new functionality at Backend Side.
+The changes will be done at vdsm side and GUI and API.
+At vdsm side will be addded support for a new verbs as defined above.
+At GUI and API will be added new changes in order to support the new functionality at engine side.
 
 ### Documentation / External references
 

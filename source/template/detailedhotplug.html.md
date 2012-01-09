@@ -43,7 +43,7 @@ A new field should be added to the table images, type boolean, which will indica
 
 #### CRUD
 
-No new operation will be added, an update will be done by using of existing storage procedures
+No new operation will be added, an update will be done by using of existing stored procedures
 
 #### User Experience
 

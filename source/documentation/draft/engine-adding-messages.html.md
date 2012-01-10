@@ -63,5 +63,6 @@ Please consider the following notes:
 *   Keys must be UPPERCASE (Only [A-Z][0-9] should be used!), words must be separated by underscore (i.e VM_CANNOT_RUN_STATELESS_HA).
 *   Especially Dot(".") and space(" ") characters are not forbidden.
 *   For messages that are splitted across multiple lines, each line must be added by \\n\\.
+*   It is recommended to build the entire project after adding new messages to make sure the UI modules pass compilation (this is done by adding *gwt-user* & *gwt-admin* maven profiles to the build command)
 
 [Category:Draft documentation](Category:Draft documentation) <Category:Engine> [Category:How to](Category:How to)

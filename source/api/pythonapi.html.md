@@ -169,3 +169,15 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          print 'Waiting for vm to reach Down status'
          while api.vms.get('my_vm').status.state != 'down':
              pass
+
+*   **\1**
+
+         try:
+             if api.vms.get('my_vm').snapshots.add(params.Snapshot(description='my_snapshot', vm=api.vms.get('my_vm'))):
+                 print 'Creating a Snapshot'
+         except Exception as e:
+             print 'Failed to Create a Snapshot:\n%s' % str(e)
+         
+         print 'Waiting for Snapshot creation to finish'
+         while api.vms.get('my_vm').status.state == 'image_locked':
+             pass

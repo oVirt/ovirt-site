@@ -34,6 +34,38 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 *   Target Release:
 *   Status: Design Stage
 
+<!-- -->
+
+*   Backend Status
+
+| | Task                      | | Relative Effort | | Coded | | Tested | | Pushed | | Reviewed |
+|-----------------------------|-------------------|---------|----------|----------|------------|
+| Add A disk to a VM          | 1                 | X       | X        |          |            |
+| Create a snapshot           | 1                 | X       | X        |          |            |
+| Create a template from a VM | 2                 |         |          |          |            |
+| Create a VM from a template | 2                 |         |          |          |            |
+| Import a VM                 | 2                 |         |          |          |            |
+| Import a template           | 2                 |         |          |          |            |
+| Clone a template            | 2                 |         |          |          |            |
+| Move a Disk                 | 4                 |         |          |          |            |
+| verify export VM            | 1                 | X       | X        |          |            |
+| verify export template      | 1                 |         |          |          |            |
+| verify delete VM            | 1                 |         |          |          |            |
+| verify remove disk          | 1                 |         |          |          |            |
+
+*   Burndown (credited after testing - not really done until merged)
+
+| | Date | | Target Effort Pts | | Acomplished Effort Pts | | Pts Remaining | | Target Pts Remaining |
+|--------|---------------------|--------------------------|-----------------|------------------------|
+| Jan 9  | 2.5                 | 3                        | 17              | 17.5                   |
+| Jan 10 | 2.5                 |                          |                 | 15                     |
+| Jan 11 | 2.5                 |                          |                 | 12.5                   |
+| Jan 12 | 2.5                 |                          |                 | 10                     |
+| Jan 13 | 2.5                 |                          |                 | 7.5                    |
+| Jan 16 | 2.5                 |                          |                 | 5                      |
+| Jan 17 | 2.5                 |                          |                 | 2.5                    |
+| Jan 18 | 2.5                 |                          |                 | 0                      |
+
 __TOC__
 
 <Category:Project>

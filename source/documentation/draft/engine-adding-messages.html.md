@@ -16,12 +16,12 @@ This page contains instructions how to add new messages to oVirt engine, This do
 
 ## Backend
 
-*   Any message that shell be exposed by backend internal API (RunQuery / RunAction) must be delcared as a key/value pair in *OVIRT_ENGINE/backend/manager/modules/dal/src/main/resources/bundles/AppErrors.properties*.
+*   Any message that shall be exposed by the backend internal API (RunQuery / RunAction) must be delcared as a key/value pair in *OVIRT_ENGINE/backend/manager/modules/dal/src/main/resources/bundles/AppErrors.properties*.
 *   For VDSM errors, every message must be declared as a key/value pair in *OVIRT_ENGINE/backend/manager/modules/dal/src/main/resources/bundles/VdsmErrors.properties*.
 
 ## Frontend
 
-For every key/value pair that was added to Backend's *AppErrors* and *VdsmErrors*, the following changes must be done for the *WebAdmin* and *UserPortal* projects:
+For every key/value pair that was added to Backend's *AppErrors* and *VdsmErrors*, the following changes **must** be done for the *WebAdmin* and *UserPortal* projects:
 
 ### AppErrors.properties
 
@@ -29,7 +29,7 @@ For every key/value pair that was added to Backend's *AppErrors* and *VdsmErrors
     -   *frontend/webadmin/modules/webadmin/src/main/resources/org/ovirt/engine/ui/frontend/AppErrors.properties*
     -   *frontend/webadmin/modules/userportal/src/main/resources/org/ovirt/engine/ui/frontend/AppErrors.properties*
 
-Key must be equal to the key that was added to backend file, the message may be different.
+The key must be the same as the key that was added to backend file, the message may be different.
 
 ### VdsmErrors.properties
 
@@ -37,21 +37,19 @@ Key must be equal to the key that was added to backend file, the message may be 
     -   *frontend/webadmin/modules/webadmin/src/main/resources/org/ovirt/engine/ui/frontend/VdsmErrors.properties*
     -   *frontend/webadmin/modules/userportal/src/main/resources/org/ovirt/engine/ui/frontend/VdsmErrors.properties*
 
-Key must be equal to the key that was added to backend file, the message may be different.
+The key must be the same as the key that was added to backend file, the message may be different.
 
 ### UI Resource
 
-While backend manages its resource files as properties files only, the UI module requires the key to be added as a java interface as well:
+While backend manages it's resource files as properties files only, the UI module requires that the key will also be added to a java interface as well:
 
-*   An interface signature must be added to *frontend/webadmin/modules/webadmin/src/main/resources/org/ovirt/engine/ui/frontend/AppErrors.java* (or VdsmErrors.java), the method signature must be equal to the message key with '();' postfix and
+*   An interface signature must be added to *frontend/webadmin/modules/webadmin/src/main/resources/org/ovirt/engine/ui/frontend/AppErrors.java* (or VdsmErrors.java), the method signature must consist of the message key with '();' suffix a return type of type String, here's an example:
 
-return a string, here's an example:
-
-For message key
+For a message key:
 
       VM_NAME_CANNOT_BE_EMPTY
 
-the method signature in **AppErrors.java** will be
+the method signature in **AppErrors.java** will be:
 
       String VM_NAME_CANNOT_BE_EMPTY();
 
@@ -61,8 +59,8 @@ Please consider the following notes:
 
 *   For UI modules, a different message description can be specified per project.
 *   Keys must be UPPERCASE (Only [A-Z][0-9] should be used!), words must be separated by underscore (i.e VM_CANNOT_RUN_STATELESS_HA).
-*   Especially Dot(".") and space(" ") characters are not forbidden.
-*   For messages that are splitted across multiple lines, each line must be added by \\n\\.
-*   It is recommended to build the entire project after adding new messages to make sure the UI modules pass compilation (this is done by adding *gwt-user* & *gwt-admin* maven profiles to the build command)
+*   Particularly a dot(".") and space(" ") characters are forbidden.
+*   For messages that are split across multiple lines, a line break can be added by using \\n\\.
+*   It is recommended to build the entire project after adding new messages to make sure the UI modules pass compilation (this is done by adding *gwt-user* & *gwt-admin* Maven profiles to the build command)
 
 [Category:Draft documentation](Category:Draft documentation) <Category:Engine> [Category:How to](Category:How to)

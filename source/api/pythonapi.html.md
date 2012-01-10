@@ -114,3 +114,41 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
                  print 'ISO Domain was activated successfully'
          except Exception as e:
              print 'Failed to activate ISO Domain:\n%s' % str(e)
+
+*   **Start/hibernate/resume/stop vm**
+
+         try:
+             if api.vms.get('my_vm').start():
+                 print 'Start VM'
+         except Exception as e:
+             print 'Failed to Start VM:\n%s' % str(e)
+         print 'Waiting for vm to reach Up status'
+         while api.vms.get('my_vm').status.state != 'up':
+             pass
+
+         try:
+             if api.vms.get('my_vm').suspend():
+                 print 'Hibernate VM'
+         except Exception as e:
+             print 'Failed to Hibernate VM:\n%s' % str(e)
+         print 'Waiting for vm to reach Suspended status'
+         while api.vms.get('my_vm').status.state != 'suspended':
+             pass
+
+         try:
+             if api.vms.get('my_vm').start():
+                 print 'Resume VM'
+         except Exception as e:
+             print 'Resume VM:\n%s' % str(e)
+         print 'Waiting for vm to Resume'
+         while api.vms.get('my_vm').status.state != 'up':
+             pass
+
+         try:
+             if api.vms.get('my_vm').stop():
+                 print 'Stop VM'
+         except Exception as e:
+             print 'Stop VM:\n%s' % str(e)
+         print 'Waiting for vm to reach Down status'
+         while api.vms.get('my_vm').status.state != 'down':
+             pass

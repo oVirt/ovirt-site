@@ -40,16 +40,14 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 
 | | Task                      | | Relative Effort Pts | | Coded | | Tested | | Pushed | | Reviewed |
 |-----------------------------|-----------------------|---------|----------|----------|------------|
-| Add A disk to a VM          | 1                     | X       | X        |          |            |
-| Create a snapshot           | 1                     | X       | X        |          |            |
-| Create a template from a VM | 2                     |         |          |          |            |
+| Add A disk to a VM          | 1                     | X       | X        | X        |            |
+| Create a snapshot           | 1                     | X       | X        | X        |            |
+| Restore a snapshot          | 1                     | X       | X        | X        |            |
+| Create a template from a VM | 2                     | X       | X        | X        |            |
 | Create a VM from a template | 2                     |         |          |          |            |
 | Import a VM                 | 2                     |         |          |          |            |
-| Import a template           | 2                     |         |          |          |            |
-| Clone a template            | 2                     |         |          |          |            |
 | Move a Disk                 | 4                     |         |          |          |            |
-| verify export VM            | 1                     | X       | X        |          |            |
-| verify export template      | 1                     |         |          |          |            |
+| verify export VM            | 1                     | X       | X        | X        |            |
 | verify delete VM            | 1                     |         |          |          |            |
 | verify remove disk          | 1                     |         |          |          |            |
 
@@ -57,14 +55,14 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 
 | | Date | | Target Effort Pts | | Acomplished Effort Pts | | Effort Pts Remaining | | Target Effort Pts Remaining |
 |--------|---------------------|--------------------------|------------------------|-------------------------------|
-| Jan 9  | 2.5                 | 3                        | 17                     | 17.5                          |
-| Jan 10 | 2.5                 |                          |                        | 15                            |
-| Jan 11 | 2.5                 |                          |                        | 12.5                          |
-| Jan 12 | 2.5                 |                          |                        | 10                            |
-| Jan 13 | 2.5                 |                          |                        | 7.5                           |
-| Jan 16 | 2.5                 |                          |                        | 5                             |
-| Jan 17 | 2.5                 |                          |                        | 2.5                           |
-| Jan 18 | 2.5                 |                          |                        | 0                             |
+| Jan 9  | 2                   | 3                        | 13                     | 14                            |
+| Jan 10 | 2                   | 3                        | 10                     | 12                            |
+| Jan 11 | 2                   |                          |                        | 10                            |
+| Jan 12 | 2                   |                          |                        | 8                             |
+| Jan 13 | 2                   |                          |                        | 6                             |
+| Jan 16 | 2                   |                          |                        | 4                             |
+| Jan 17 | 2                   |                          |                        | 2                             |
+| Jan 18 | 2                   |                          |                        | 0                             |
 
 *   Issues
     -   Transaction issue found working on create template from VM

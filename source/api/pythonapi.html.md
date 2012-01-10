@@ -22,11 +22,14 @@ In order to connect to ovirt-engine using the ovirt-engine-sdk (python api which
 You can add the following lines to the beginning of your python script in order to **import the relevant modules and get an API object** using the proper login details in the below url/username/password variables
 
          #! /usr/bin/python
+         
          from ovirtsdk.api import API
          from ovirtsdk.xml import params
+         
          URL = '`[`https://192.168.1.1:8443/api`](https://192.168.1.1:8443/api)`'
          USERNAME = 'my_user@my.domain.com'
          PASSWORD = 'my_password'
+         
          api = API(url=URL, username=USERNAME, password=PASSWORD)
 
 *   **Create iSCSI Data Center**
@@ -42,6 +45,7 @@ You can add the following lines to the beginning of your python script in order 
 Note that the CPU type should be chosen according to your host's CPU.
 
          CPU_TYPE = 'Intel Nehalem Family'
+         
          try:
              if api.clusters.add(params.Cluster(name='my_cluster', cpu=params.CPU(id=CPU_TYPE), data_center=api.datacenters.get('my_datacenter'), version=params.Version(major='3', minor='0'))):
                  print 'Cluster was created successfully'
@@ -52,11 +56,13 @@ Note that the CPU type should be chosen according to your host's CPU.
 
          HOST_ADDRESS = 'hostname.my.domain.com'
          ROOT_PASSWORD = 'root_password'
+         
          try:
                  if api.hosts.add(params.Host(name='my_host', address=HOST_ADDRESS, cluster=api.clusters.get('my_cluster'), root_password=ROOT_PASSWORD)):
                      print 'Host was installed successfully'
          except Exception as e:
                  print 'Failed to install Host:\n%s' % str(e)
+         
          print 'Waiting for host to reach the Up status'
          while api.hosts.get('my_host').status != 'up':
              pass
@@ -66,6 +72,7 @@ Note that the CPU type should be chosen according to your host's CPU.
          STORAGE_ADDRESS = 'storage_server.my.domain.com'
          TARGET_NAME = 'target_name'
          LUN_GUID = 'lun_guid'
+         
          sdParams = params.StorageDomain(name='my_iscsi',
                            data_center=api.datacenters.get('my_datacenter'),
                            type_='data',
@@ -75,11 +82,13 @@ Note that the CPU type should be chosen according to your host's CPU.
                                                                 address=STORAGE_ADDRESS,
                                                                 port=3260,
                                                                 target=TARGET_NAME)]))  )
+         
          try:
              if api.storagedomains.add(sdParams):
                  print 'iSCSI Storage Domain was created successfully'
          except Exception as e:
              print 'Failed to create iSCSI Storage Domain:\n%s' % str(e)
+         
          try:
              if api.datacenters.get(name='my_datacenter').storagedomains.add(api.storagedomains.get(name='my_iscsi')):
                  print 'iSCSI Storage Domain was attached successfully'
@@ -92,6 +101,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
 
          ISO_ADDRESS = 'my_ovirt_engine_ip'
          ISO_PATH = '/path/to/iso/domain'
+         
          isoParams = params.StorageDomain(name='my_iso',
                                              data_center=api.datacenters.get('my_datacenter'),
                                              type_='iso',
@@ -99,16 +109,19 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
                                              storage = params.Storage(   type_='nfs',
                                                                          address=ISO_ADDRESS,
                                                                          path=ISO_PATH  )  )
+         
          try:
              if api.storagedomains.add(isoParams):
                  print 'ISO Domain was created/imported successfully'
          except Exception as e:
              print 'Failed to create/import an ISO Domain:\n%s' % str(e)
+         
          try:
              if api.datacenters.get('my_datacenter').storagedomains.add(api.storagedomains.get('my_iso')):
                  print 'ISO Domain was attached successfully'
          except Exception as e:
              print 'Failed to attach ISO Domain:\n%s' % str(e)
+         
          try:
              if api.datacenters.get('my_datacenter').storagedomains.get('my_iso').activate():
                  print 'ISO Domain was activated successfully'
@@ -122,6 +135,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
                  print 'Start VM'
          except Exception as e:
              print 'Failed to Start VM:\n%s' % str(e)
+         
          print 'Waiting for vm to reach Up status'
          while api.vms.get('my_vm').status.state != 'up':
              pass
@@ -131,6 +145,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
                  print 'Hibernate VM'
          except Exception as e:
              print 'Failed to Hibernate VM:\n%s' % str(e)
+         
          print 'Waiting for vm to reach Suspended status'
          while api.vms.get('my_vm').status.state != 'suspended':
              pass
@@ -140,6 +155,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
                  print 'Resume VM'
          except Exception as e:
              print 'Resume VM:\n%s' % str(e)
+         
          print 'Waiting for vm to Resume'
          while api.vms.get('my_vm').status.state != 'up':
              pass
@@ -149,6 +165,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
                  print 'Stop VM'
          except Exception as e:
              print 'Stop VM:\n%s' % str(e)
+         
          print 'Waiting for vm to reach Down status'
          while api.vms.get('my_vm').status.state != 'down':
              pass

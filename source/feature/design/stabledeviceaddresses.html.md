@@ -195,12 +195,14 @@ Sample :
               'address': 'PCI address dictionary'},      <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'}
              {'type': 'video',
               'device': 'qxl|cirrus',                    <--- 'qxl' - spice device,  'cirrus' - vnc device
-              'specParams': params dictionary            <------- {'vram': `<vram size>`} - vram size depends from number of video devices: '65536' if (monitors <= 2) else '32768'
+              'specParams': params dictionary,           <--- {'vram': `<vram size>`} - vram size depends from number of video devices: '65536' if (monitors <= 2) else '32768'
               'address': 'PCI address dictionary'},      <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'}
               .....
               up to 'spiceMonitors' of video cards
               .....
-             {'type': 'TBD - any device that has address',
+             {'type': 'TBD - any device that has address',  <--- For example: 'controller',....
+              'device': 'TBD',
+              'specParams': params dictionary,
               'address': 'PCI|IDE address dictionary',      <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'} ,  
                                                                  IDE = {'type':'drive', 'controller':'0', 'bus':'0', 'unit':'0'}
        ]

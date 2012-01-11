@@ -17,7 +17,12 @@ This page contains instructions how to add new messages to oVirt engine, This do
 ## Backend
 
 *   Any message that shall be exposed by the backend internal API (RunQuery / RunAction) must be delcared as a key/value pair in *OVIRT_ENGINE/backend/manager/modules/dal/src/main/resources/bundles/AppErrors.properties*.
+
+      * A corresponding key should be added to VdcBllMessages enum
+
 *   For VDSM errors, every message must be declared as a key/value pair in *OVIRT_ENGINE/backend/manager/modules/dal/src/main/resources/bundles/VdsmErrors.properties*.
+
+      * A corresponding key should be added to VdcBllErrors enum
 
 ## Frontend
 

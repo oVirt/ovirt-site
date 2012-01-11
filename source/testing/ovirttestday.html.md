@@ -41,7 +41,7 @@ Test Days are open to anyone. If you have your own setup we will provide all the
 | atal     | V       | V       | Basic      |                         | V     |                |       | Fedora16     |
 | aliguori | V       | V       | Basic      |                         | V     |                |       | Fedora16     |
 | sming    | V       | V       | Basic      |                         | V     |                |       | RHEL 6.2     |
-| aglitke  | V       | V       | Basic      | Webadmin,CLI,vdsm       | V     |                | V     |              |
+| aglitke  | V       | V       | Basic      | Webadmin,CLI,vdsm       | V     | V              |       | Fedora16     |
 
 ## Test Dates
 

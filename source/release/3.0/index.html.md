@@ -11,4 +11,52 @@ wiki_last_updated: 2015-01-16
 
 # OVirt 3.0 release notes
 
-Generated from [Bugzilla](http://tinyurl.com/7gs9ojt)
+## API
+
+## CLI
+
+TBD
+
+## Engine
+
+TBD
+
+## Guest Agent
+
+TBD
+
+## DWH
+
+TBD
+
+## Packaging & Installer
+
+TBD
+
+## Node
+
+TBD
+
+## Reports
+
+TBD
+
+## SDK
+
+TBD
+
+## Tools
+
+TBD
+
+## User Portal
+
+TBD
+
+## VDSM
+
+TBD
+
+## Web Administration Portal
+
+TBD

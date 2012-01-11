@@ -148,6 +148,10 @@ Please refer the following documents for Ovirt Installation guide, bits location
 
 *   <http://ovirt.org/wiki/Documentation>
 
+Please refer the following document for 'virt-to-date' tool, simple tool for setting up local yum repo with all required packages and easy deployment.
+
+*   <http://ovirt.org/wiki/virt-to-date>
+
 In case you would like to test a product with a new test case, there is a template to be used for creating test cases. Please copy this template for the test case, and update the link in this document to point to the results table below. It is not necessary that the person who is writing the test case will also be the person executing the test case, please make sure the instructions are explicit enough that anyone who may want to participate in the test day can follow them, and execute it.
 
 ## What to do as a participant

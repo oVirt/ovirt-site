@@ -39,6 +39,7 @@ Test Days are open to anyone. If you have your own setup we will provide all the
 | hateya   | V       | V       | Basic      | Webadmin,cli,python SDK | V     |                |       | Fedora16     |
 | rvaknin  | V       | V       | Basic      |                         | V     |                |       | Fedora16     |
 | atal     | V       | V       | Basic      |                         | V     |                |       | Fedora16     |
+| aliguori | V       | V       | Basic      |                         | V     |                |       | Fedora16     |
 
 ## Test Dates
 

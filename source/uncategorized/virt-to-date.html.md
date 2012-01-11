@@ -57,3 +57,9 @@ Virt-to-date main functionalities are:
            --hosts=HOSTS        
            --list-projects      Display a list of supported Projects
            --create-repo        Display a list of current packages in yum repository
+
+## Git location:
+
+tool files can be found on git-hub, just run the following command:
+
+         git clone git@github.com:hateya/virt-to-date.git

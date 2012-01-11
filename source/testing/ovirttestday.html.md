@@ -125,6 +125,8 @@ by default we'll be using the webadmin as our API for testing on this section we
 | Create a template from vm      |          |            |      |            |     |
 | Create vm from template        |          |            |      |            |     |
 
+Python API of the above scenarios can be found in: <http://www.ovirt.org/wiki/Testing/PythonApi>
+
 ### Spice
 
 Follow the General configuration

@@ -163,4 +163,8 @@ In case you would like to test a product with a new test case, there is a templa
 *   Running into any issues - contact any participant in the list - First Test Execution and Report maintains the list automatically when you sign up
 *   ping iirc channels #zzz, as an alternative - send an email to ovirt-zzz list.
 
+## Bug Reporting
+
+ovirt - <https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt>
+
 ## Miscellaneous

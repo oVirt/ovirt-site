@@ -47,7 +47,7 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 | Create a VM from a template | 2                     |         |          |          |            |
 | Import a VM                 | 2                     | X       |          |          |            |
 | Move a Disk                 | 4                     |         |          |          |            |
-| verify export VM            | 1                     | X       | X        | N/A      |            |
+| verify export VM            | 1                     | X       | X        | X        | N/A        |
 | verify delete VM            | 1                     | X       | X        | X        | N/A        |
 | verify remove disk          | 1                     | X       | X        | X        | N/A        |
 
@@ -65,7 +65,7 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 | Jan 18 | 2                   |                          |                        | 0                             |
 
 *   Issues
-    -   uncertainty regarding templates
+    -   uncertainty regarding templates / potential scope changes
     -   may need to negotiate change with REST team
     -   Need REST API documentation for some actions
 

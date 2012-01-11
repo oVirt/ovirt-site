@@ -231,8 +231,6 @@ The following sequence diagrams describe how the interaction of the new entities
 
 *   The tasks polling started after the command execution in ended.
 
-**Job Metadata Description:**
-
 ##### Multiple Action Sequence Diagram
 
 *   When invoking Multiple Actions, the runner will be the responsible for creating a Job for each of the commands.

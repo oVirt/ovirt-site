@@ -12,7 +12,11 @@ wiki_last_updated: 2015-06-01
 
 ## Introduction
 
-This page contains instructions how to add new messages to oVirt engine, This document contains information how to handle both *Backend* and *Frontend* modules with regards to messages in order to keep them synchronized.
+This page contains instructions how to add new messages to oVirt engine.
+
+This document contains information how to handle both *Backend* and *Frontend* modules with regards to messages in order to keep them synchronized.
+
+In order to add/edit a message in oVirt, please follow **all** instructions below in both *Backend* and *Frontend* sections.
 
 ## Backend
 

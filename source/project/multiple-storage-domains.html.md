@@ -65,7 +65,8 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 | Jan 18 | 2                   |                          |                        | 0                             |
 
 *   Issues
-    -   Transaction issue found working on create template from VM
+    -   uncertainty regarding templates
+    -   may need to negotiate change with REST team
     -   Need REST API documentation for some actions
 
 __TOC__

@@ -10,7 +10,7 @@ wiki_last_updated: 2012-01-15
 
 ## Introduction
 
-virt-to-date is a simple tool which mainly built for managing upstream GIT repositories, and allows simple creation of up-to-date, local, yum repository.
+virt-to-date is a simple tool which mainly built for managing upstream GIT repositories, and allows simple creation of up-to-date, local, yum repository. please note that tool is only supported for Fedora based machine, other distros will be supported in the future.
 
 Virt-to-date main functionalities are:
 
@@ -29,11 +29,9 @@ Virt-to-date main functionalities are:
         - vdsm
         - libvirt  
 
-* fetch latest packages out of Fedora KOJI server, by default for all the above, and others like: bridge-utils, sanlock, udev, iproute, qemu-kvm, spice, lvm2, device-
+* fetch latest packages out of Fedora KOJI server, by default for all the above, and others like: bridge-utils, sanlock, udev, iproute, qemu-kvm, spice, lvm2, device-mapper and a lot more.
 
-       mapper and a lot more.
-
-* create local yum repository out of all privatly build\\downloaded packages, and deploy repo file to selected hosts.
+* create local yum repository with all required packages by oVirt-node for single based Fedora-16 host running VDSM.
 
 ## Usage
 

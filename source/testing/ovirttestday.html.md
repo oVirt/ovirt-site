@@ -31,11 +31,14 @@ The purpose of test days initiative is to accomplish the following goals:
 
 Test Days are open to anyone. If you have your own setup we will provide all the software packages and the required information. Please refer - What to do as a participant - in the section below, if you're willing to participate please add yourself to the below table:
 
-| Name     | General | Storage | Networking | APIs         | Spice | User Interface | Tools | Distribution |
-|----------|---------|---------|------------|--------------|-------|----------------|-------|--------------|
-| mgoldboi | V       | V       | Basic      | Webadmin,CLI | V     |                |       | Fedora16     |
-| mkrcmari | V       |         |            |              | V     |                |       | Fedora16     |
-| djasa    | V       | V       | Basic      |              | V     |                |       | Fedora16     |
+| Name     | General | Storage | Networking | APIs                    | Spice | User Interface | Tools | Distribution |
+|----------|---------|---------|------------|-------------------------|-------|----------------|-------|--------------|
+| mgoldboi | V       | V       | Basic      | Webadmin,CLI            | V     |                |       | Fedora16     |
+| mkrcmari | V       |         |            |                         | V     |                |       | Fedora16     |
+| djasa    | V       | V       | Basic      |                         | V     |                |       | Fedora16     |
+| hateya   | V       | V       | Basic      | Webadmin,cli,python SDK | V     |                |       | Fedora16     |
+| rvaknin  | V       | V       | Basic      |                         | V     |                |       | Fedora16     |
+| atal     | V       | V       | Basic      |                         | V     |                |       | Fedora16     |
 
 ## Test Dates
 

@@ -45,11 +45,11 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 | Restore a snapshot          | 1                     | X       | X        | X        |            |
 | Create a template from a VM | 2                     | X       | X        | X        |            |
 | Create a VM from a template | 2                     |         |          |          |            |
-| Import a VM                 | 2                     |         |          |          |            |
+| Import a VM                 | 2                     | X       |          |          |            |
 | Move a Disk                 | 4                     |         |          |          |            |
-| verify export VM            | 1                     | X       | X        | X        |            |
-| verify delete VM            | 1                     |         |          |          |            |
-| verify remove disk          | 1                     |         |          |          |            |
+| verify export VM            | 1                     | X       | X        | N/A      |            |
+| verify delete VM            | 1                     | X       | X        | X        | N/A        |
+| verify remove disk          | 1                     | X       | X        | X        | N/A        |
 
 *   Burndown (credited after testing - not really done until merged)
 
@@ -57,7 +57,7 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 |--------|---------------------|--------------------------|------------------------|-------------------------------|
 | Jan 9  | 2                   | 3                        | 13                     | 14                            |
 | Jan 10 | 2                   | 3                        | 10                     | 12                            |
-| Jan 11 | 2                   |                          |                        | 10                            |
+| Jan 11 | 2                   | 2                        | 8                      | 10                            |
 | Jan 12 | 2                   |                          |                        | 8                             |
 | Jan 13 | 2                   |                          |                        | 6                             |
 | Jan 16 | 2                   |                          |                        | 4                             |

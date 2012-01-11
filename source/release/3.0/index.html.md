@@ -11,7 +11,7 @@ wiki_last_updated: 2015-01-16
 
 # OVirt 3.0 release notes
 
-The oVirt Project is pleased to announce the availability of its first formal release, oVirt 1.0.
+The oVirt Project is pleased to announce the availability of its first formal release, oVirt x.y.
 
 ## API
 

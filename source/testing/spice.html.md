@@ -1,0 +1,42 @@
+---
+title: Spice
+authors: jaypers, mkrcmari, nkesick
+wiki_title: Testing/Spice
+wiki_revision_count: 8
+wiki_last_updated: 2013-12-06
+---
+
+# Spice
+
+## Introduction
+
+The Spice project aims to provide a complete open source solution for interaction with virtualized desktop devices.The Spice project deals with both the virtualized devices and the front-end. Interaction between front-end and back-end is done using VD-Interfaces. The VD-Interfaces (VDI) enable both ends of the solution to be easily utilized by a third-party component. (from <http://spice-space.org/>). Spice is an essential part of Ovirt. Check home page of Spice project for more details <http://spice-space.org/>.
+
+Components:
+
+*   Spice client is the interface for the end user.
+*   QXL driver is a video driver for the QEMU QXL video accelerator. It's used for improving remote display performance and enhancing the graphic capabilities of the guest graphic system. However, standard VGA is supported when no driver exists.
+*   Spice vdagent is an optional component for enhancing user experience and performing guest-oriented management tasks. For example, the agent injects mouse position and state to the guest when using client mouse mode. In addition, it is used for configuration of the guest display settings and provides Clipboard sharing - allows copy paste between clients and the virtual machine.
+
+## Testing Spice with Ovirt
+
+What do you need?
+
+*   A Linux client machine with spice client and spice xpi installed (packages spice-client and spice-xpi in Fedora/RHEL). It's not possible to connect to a guest from Windows client through Ovirt yet.
+*   Ovirt instance with some Windows/Linux guests installed with QXL graphic driver and spice vdagent installed (See below how to set up those components).
+
+### Windows guest
+
+Install qxl graphic driver and spice vdagent:
+
+*   Download qxl driver (zip file) from <http://spice-space.org/download/binaries/qxl-0.10-20112808.zip>, unpack and install suitable version of qxl driver on Windows guest (i.e. with using Device Manager).
+*   Download spice vdagent (zip file) from <http://spice-space.org/download/binaries/vdagent-win32_20111124.zip>, unapck and install suitable version of service following way:
+
+1.  Start cmd under Administrator (It's important to run it as Administrator).
+2.  Move to location where you unpacked binaries (vdservice.exe and vdagent.exe).
+3.  Run: "vdservice install"
+4.  Run: "net start vdservice" (note you need to have virtio-serial driver installed).
+
+### Fedora/RHEL guest
+
+Make sure that xorg-x11-drv-qxl and spice-vdagent packages are installed (qxl driver is in used and spice-vdagentd service running). Note that F15/F16 will show in fallback mode.

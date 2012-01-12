@@ -47,4 +47,4 @@ Example:
           |               --- the 2.2.1 release
            --- the ovirt-node-image iso
 
-[Category:Node]
+[Category: Node](Category: Node)

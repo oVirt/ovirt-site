@@ -133,15 +133,16 @@ Python API of the above scenarios can be found in: <http://www.ovirt.org/wiki/Te
 
 ### Spice
 
-Follow the General configuration
+For details about configuration check <http://www.ovirt.org/wiki/Testing/Spice>
 
 | Scenario                                                                                                               | Bugs |
 |------------------------------------------------------------------------------------------------------------------------|------|
-| Install Windows VM and a Linux VM with Guest Tools                                                                     |      |
+| Install Windows VM and a Linux VM with Guest Tools (QXL graphic driver and spice vdagent)                              |      |
 | Assign user to these vms, login to a user portal, from your client machine, and connect to it using the Spice protocol |      |
-| Try to watch a clip via YouTube or any other web based video                                                           |      |
-| Try to watch a Local movie                                                                                             |      |
-| Install AutoCAD or any other graphic application a try to work with it                                                 |      |
+| Try to watch a clip via YouTube or any other web based video (with QXL driver installed on VM)                         |      |
+| Try to watch a Local movie (with QXL driver installed on VM)                                                           |      |
+| Try to use client mouse mode and clipboard share between client and VM (with spice agent installed on VM)              |      |
+| Install AutoCAD or any other graphic application a try to work with it (with QXL driver installed on VM)               |      |
 
 ## Ovirt Information Details
 

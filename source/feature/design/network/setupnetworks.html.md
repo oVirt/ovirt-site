@@ -120,16 +120,16 @@ The UI Blocks describe the following networking elements: (Each element will be 
 *   Lines will be automatically removed when their connecting elements are deleted.
 *   There is a possibility to reconnect lines when they are automatically deleted (when a bond is removed, reconnect the line to one of the unbonded NICs.
 
-#### What cannot be dragged
+#### What cannot be connected
 
 The connection of the following elements will be prevented:
 
 1.  Connecting a Network with no VLAN to a NIC/Bond that is already connected to a Network.
 2.  Connecting a Network to a NIC/Bond that is already connected to a Bridgeless Network
 
-#### What can be dragged
+#### What can be connected
 
-It will be possible to drag blocks on one another. The following drag scenarios are supported:
+It will be possible to drag blocks on one another. The following connections are supported:
 
 <table>
 <colgroup>

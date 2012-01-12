@@ -19,7 +19,11 @@ In order to connect to ovirt-engine using the ovirt-engine-sdk (python api which
 
 *   User/Password - The user consists of username, the "@" sign and domain name. You can use both either the internal user's account or any of your LDAP users that has login permissions and of course permissions to perform your requests.
 
-You can add the following lines to the beginning of your python script in order to **import the relevant modules and get an API object** using the proper login details in the below url/username/password variables
+<!-- -->
+
+*   **import the relevant modules and get an API object**
+
+Add the following to you python script, remember to set the URL/USERNAME/PASSWORD constants accordingly
 
          #! /usr/bin/python
          

@@ -99,6 +99,39 @@ Note that the CPU type should be chosen according to your host's CPU.
          except Exception as e:
              print 'Failed to attach iSCSI Storage Domain:\n%s' % str(e)
 
+*   **Attach export/ISO domain to Data Center**
+
+You can either create a new ISO Storage Domain or import an existing ISO Storage Domain that was configured during ovirt-engine's installation wizard (both options uses the same code below). Please upload the following ISO file to the ISO Storage Domain once the ISO Storage Domain was created: <http://distro.ibiblio.org/tinycorelinux/4.x/x86/release/TinyCore-current.iso>
+
+         ISO_ADDRESS = 'my_ovirt_engine_ip'
+         ISO_PATH = '/path/to/iso/domain'
+         
+         isoParams = params.StorageDomain(name='my_iso',
+                                             data_center=api.datacenters.get('my_datacenter'),
+                                             type_='iso',
+                                             host=api.hosts.get('my_host'),
+                                             storage = params.Storage(   type_='nfs',
+                                                                         address=ISO_ADDRESS,
+                                                                         path=ISO_PATH  )  )
+         
+         try:
+             if api.storagedomains.add(isoParams):
+                 print 'ISO Domain was created/imported successfully'
+         except Exception as e:
+             print 'Failed to create/import an ISO Domain:\n%s' % str(e)
+         
+         try:
+             if api.datacenters.get('my_datacenter').storagedomains.add(api.storagedomains.get('my_iso')):
+                 print 'ISO Domain was attached successfully'
+         except Exception as e:
+             print 'Failed to attach ISO Domain:\n%s' % str(e)
+         
+         try:
+             if api.datacenters.get('my_datacenter').storagedomains.get('my_iso').activate():
+                 print 'ISO Domain was activated successfully'
+         except Exception as e:
+             print 'Failed to activate ISO Domain:\n%s' % str(e)
+
 *   **Create VM with one NIC and one Disk**
 
          VDISKSIZE = 5368709120
@@ -135,39 +168,6 @@ Note that the CPU type should be chosen according to your host's CPU.
                  print 'Disk was added to vm successfully'
          except Exception as e:
              print 'Failed to add disk to vm:\n%s' % str(e)
-
-*   **Attach export/ISO domain to Data Center**
-
-You can either create a new ISO Storage Domain or import an existing ISO Storage Domain that was configured during ovirt-engine's installation wizard (both options uses the same code below). Please upload the following ISO file to the ISO Storage Domain once the ISO Storage Domain was created: <http://distro.ibiblio.org/tinycorelinux/4.x/x86/release/TinyCore-current.iso>
-
-         ISO_ADDRESS = 'my_ovirt_engine_ip'
-         ISO_PATH = '/path/to/iso/domain'
-         
-         isoParams = params.StorageDomain(name='my_iso',
-                                             data_center=api.datacenters.get('my_datacenter'),
-                                             type_='iso',
-                                             host=api.hosts.get('my_host'),
-                                             storage = params.Storage(   type_='nfs',
-                                                                         address=ISO_ADDRESS,
-                                                                         path=ISO_PATH  )  )
-         
-         try:
-             if api.storagedomains.add(isoParams):
-                 print 'ISO Domain was created/imported successfully'
-         except Exception as e:
-             print 'Failed to create/import an ISO Domain:\n%s' % str(e)
-         
-         try:
-             if api.datacenters.get('my_datacenter').storagedomains.add(api.storagedomains.get('my_iso')):
-                 print 'ISO Domain was attached successfully'
-         except Exception as e:
-             print 'Failed to attach ISO Domain:\n%s' % str(e)
-         
-         try:
-             if api.datacenters.get('my_datacenter').storagedomains.get('my_iso').activate():
-                 print 'ISO Domain was activated successfully'
-         except Exception as e:
-             print 'Failed to activate ISO Domain:\n%s' % str(e)
 
 *   **Start/hibernate/resume/stop vm**
 
@@ -222,3 +222,11 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          print 'Waiting for Snapshot creation to finish'
          while api.vms.get('my_vm').status.state == 'image_locked':
              pass
+
+*   **Create a Template from VM**
+
+         try:
+             if api.templates.add(params.Template(name='my_template', vm=api.vms.get('my_vm'), cluster=api.clusters.get('my_cluster'))):
+                 print 'Creating a Template from vm'
+         except Exception as e:
+             print 'Failed to Create a Template from vm:\n%s' % str(e)

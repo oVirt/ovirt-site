@@ -118,7 +118,7 @@ The UI Blocks describe the following networking elements: (Each element will be 
 *   A block that can be removed (like a bond, or a VLAN) will have a red X icon.
 *   A line can be removed by right clicking on it.
 *   Lines will be automatically removed when their connecting elements are deleted.
-*   There is a possibility to reconnect lines when they are automatically deleted (when a bond is removed, reconnect the line to one of the unbonded NICs.
+*   There is a possibility to reconnect lines when they are automatically deleted (when a bond is removed, reconnect the line to one of the unbonded NICs).
 
 #### What cannot be connected
 

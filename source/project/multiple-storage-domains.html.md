@@ -47,6 +47,8 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 | Create a VM from a template | 2                     |         |          |          |            |
 | Import a VM                 | 2                     | X       |          |          |            |
 | Move a Disk                 | 4                     |         |          |          |            |
+| import template             | 2                     |         |          |          |            |
+| clone template              | 2                     |         |          |          |            |
 | verify export VM            | 1                     | X       | X        | X        | N/A        |
 | verify delete VM            | 1                     | X       | X        | X        | N/A        |
 | verify remove disk          | 1                     | X       | X        | X        | N/A        |
@@ -55,14 +57,14 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 
 | | Date | | Target Effort Pts | | Acomplished Effort Pts | | Effort Pts Remaining | | Target Effort Pts Remaining |
 |--------|---------------------|--------------------------|------------------------|-------------------------------|
-| Jan 9  | 2                   | 3                        | 13                     | 14                            |
-| Jan 10 | 2                   | 3                        | 10                     | 12                            |
-| Jan 11 | 2                   | 2                        | 8                      | 10                            |
-| Jan 12 | 2                   |                          |                        | 8                             |
-| Jan 13 | 2                   |                          |                        | 6                             |
-| Jan 16 | 2                   |                          |                        | 4                             |
-| Jan 17 | 2                   |                          |                        | 2                             |
-| Jan 18 | 2                   |                          |                        | 0                             |
+| Jan 9  | 2.5                 | 3                        | 17                     | 17.5                          |
+| Jan 10 | 2.5                 | 3                        | 14                     | 15                            |
+| Jan 11 | 2                   | 2                        | 12                     | 12.5                          |
+| Jan 12 | 2.5                 |                          |                        | 10                            |
+| Jan 13 | 2.5                 |                          |                        | 7.5                           |
+| Jan 16 | 2.5                 |                          |                        | 5                             |
+| Jan 17 | 2.5                 |                          |                        | 2.5                           |
+| Jan 18 | 2.5                 |                          |                        | 0                             |
 
 *   Issues
     -   uncertainty regarding templates / potential scope changes

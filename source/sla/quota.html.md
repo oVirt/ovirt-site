@@ -47,12 +47,12 @@ This section describes the backend design for this feature.
 
 | Column Name                       | Column Type  | Null? / Default | Definition                                                                                        |
 |-----------------------------------|--------------|-----------------|---------------------------------------------------------------------------------------------------|
-| quota_id                         | UUID         | PK(not null)    | The Quota Id                                                                                      |
+| id                                | UUID         | PK(not null)    | The Quota Id                                                                                      |
 | storage_pool_id                 | UUID         | not null        | Storage pool Id                                                                                   |
 | quota_name                       | VARCHAR(50)  | not null        | Quota name                                                                                        |
 | description                       | VARCHAR(500) | not null        | Quota description                                                                                 |
-| creation_date                    | Date         | not null        | Quota creation date                                                                               |
-| update_date                      | Date         | not null        | Quota update date                                                                                 |
+| _create_date                    | Date         | not null        | Quota creation date used for history data                                                         |
+| _update_date                    | Date         | not null        | Quota update date used for history data                                                           |
 | threshold_vds_group_percentage | INTEGER      | null            | The threshold of the Vds Group Quota the default should be configured in the vdc_options         |
 | threshold_storage_percentage    | INTEGER      | null            | The threshold of the Storage Quota the default should be configured in the vdc_options           |
 | grace_vds_group_percentage     | INTEGER      | null            | The grace in percentage of the Cluster Quota the default should be configured in the vdc_options |
@@ -62,30 +62,13 @@ This section describes the backend design for this feature.
 
 | Column Name                | Column Type | Null? / Default | Definition                               |
 |----------------------------|-------------|-----------------|------------------------------------------|
-| quota_limitation_id      | UUID        | PK(not null)    | The primary key of the quota limitation. |
+| id                         | UUID        | PK(not null)    | The primary key of the quota limitation. |
 | quota_id                  | UUID        | not null        | Foreign key for the quota id.            |
 | storage_id                | UUID        | null            | Foreign key for storage id.              |
 | vds_group_id             | UUID        | null            | Foreign key for vds group id.            |
 | virtual_cpu               | INTEGER     | null            | The limited virtual cpu.                 |
 | virtual_ram_mega_byte   | BIGINT      | null            | The limited ram defined in mega byte.    |
 | storage_limit_giga_byte | BIGINT      | null            | The limited defined in Giga byte.        |
-
-**quota_usage** - The table is similar to quota limitation only it represents how much is used from the limitation.
-
-| Column Name                | Column Type | Null? / Default | Definition                               |
-|----------------------------|-------------|-----------------|------------------------------------------|
-| quota_usage_id           | UUID        | PK(not null)    | The primary key of the quota usage.      |
-| quota_limitation_id      | UUID        | not null        | Foreign key for the quota limitation id. |
-| virtual_cpu               | INTEGER     | not null        | The limited cpu defined in Giga byte.    |
-| storage_limit_giga_byte | INTEGER     | null            | The limited GB defined in Giga byte.     |
-| virtual_ram_mega_byte   | BIGINT      | null            | The limited ram defined in Mega byte.    |
-
-**quota_user_map** - Represents the Quota users which are permitted to consume from the Quota.
-
-| Column Name | Column Type | Null? / Default | Definition                                                                                      |
-|-------------|-------------|-----------------|-------------------------------------------------------------------------------------------------|
-| quota_id   | UUID        | not null        | Foreign key for Quota ID represented in the quota table                                         |
-| user_id    | UUID        | null            | Foreign key to the users.user_id (null indicates no users permitted to consume from the Quota) |
 
 Use cases :
 
@@ -97,6 +80,12 @@ Use cases :
 6.  specific limited quota - vds_group_id!=null and/or storage_id!=null in quota_limitation table, quota fields (vcpu, vram and storage) will be null.
 7.  quota without any resources - vds_group_id=null and storage_id=null in quota_limitation table, quota fields (vcpu, vram and storage) will be 0.
 
+###### Functions
+
+1.  CalculateVCPUUsage - Summerise the VCPU usage for all the VMs in the quota which are not down or suspended
+2.  CalculateVRAMUsage - Summerise the RAM usage for all the VMs in the quota which are not down or suspended.
+3.  CalculateStorageUsage - Summerise the storage usage for all the disks in the quota, for active disks, we summerise the full size, for snapshots and other disks summerise only the actual size.
+
 ***vm_dynamic*** - Add column *quota_id*, which indicates the Quota the VM should be depended on its resources.
  ***image*** - Add column *quota_id*, which indicates the Quota the image should be depended on its storage resources.
  ***storage_pool*** - Add column *quota_enforcement*, Indicates the DC enforcement status for Quota (Disalbe(0) , Soft Limit (1),Hard Limit (2)) will be presented by Enum (see [QuotaStatusEnum](Features/Design/Quota#Classes).).
@@ -105,42 +94,42 @@ Use cases :
 
 **quota_global_view** - View of all the storage pool quota in the setup, that is all the quota that vds_group_id and storage_id values are null in the quota_limitation.
 
-| Column Name                       | Column Type | Definition                                                      |
-|-----------------------------------|-------------|-----------------------------------------------------------------|
-| storage_pool                     | UUID        | The Storage Pool Id                                             |
-| Quota_ID                         | UUID        | The Quota Id                                                    |
-| Quota_Name                       | String      | The Quota name                                                  |
-| virtual_cpu                      | INTEGER     | The limited cpu, defined in Giga byte.                          |
-| virtual_cpu_usage               | INTEGER     | The usage of the cpu in the storage pool, defined in Giga byte. |
-| storage_limit_giga_byte        | INTEGER     | The limited GB, defined in Giga byte.                           |
-| storage_limit_giga_byte_usage | INTEGER     | The used GB in the storage pool, defined in Giga byte.          |
-| virtual_ram_mega_byte          | BIGINT      | The limited ram, defined in Mega byte.                          |
-| virtual_ram_mega_byte_usage   | BIGINT      | The used ram in the storage pool.                               |
+| Column Name                       | Column Type | Definition                                                                                 |
+|-----------------------------------|-------------|--------------------------------------------------------------------------------------------|
+| storage_pool                     | UUID        | The Storage Pool Id                                                                        |
+| Quota_ID                         | UUID        | The Quota Id                                                                               |
+| Quota_Name                       | String      | The Quota name                                                                             |
+| virtual_cpu                      | INTEGER     | The limited cpu, defined in Giga byte.                                                     |
+| virtual_cpu_usage               | INTEGER     | The usage of the cpu in the storage pool, defined in Giga byte. (using CalculateVCPUUsage) |
+| storage_limit_giga_byte        | INTEGER     | The limited GB, defined in Giga byte.                                                      |
+| storage_limit_giga_byte_usage | INTEGER     | The used GB in the storage pool, defined in Giga byte. (using CalculateStorageUsage)       |
+| virtual_ram_mega_byte          | BIGINT      | The limited ram, defined in Mega byte.                                                     |
+| virtual_ram_mega_byte_usage   | BIGINT      | The used ram in the storage pool. (using CalculateVRAMUsage)                               |
 
 **quota_vds_group_view** - View of all the vds group quotas in the setup, that is all the quotas that vds_group_id is not null but storage_id is null in the quota_limitation.
 
-| Column Name                     | Column Type | Definition                                                 |
-|---------------------------------|-------------|------------------------------------------------------------|
-| storage_pool                   | UUID        | The Storage Pool Id                                        |
-| Quota_ID                       | UUID        | The Quota Id                                               |
-| Quota_Name                     | String      | The Quota name                                             |
-| vds_static_id                 | UUID        | The vds group Id                                           |
-| vds_static_name               | UUID        | The vds group name from vds_group_static                 |
-| virtual_cpu                    | INTEGER     | The limited cpu, defined in Giga byte.                     |
-| virtual_cpu_usage             | INTEGER     | The usage of the cpu in the cluster, defined in Giga byte. |
-| virtual_ram_mega_byte        | BIGINT      | The limited ram defined in Mega byte.                      |
-| virtual_ram_mega_byte_usage | BIGINT      | The used ram in the cluster.                               |
+| Column Name                     | Column Type | Definition                                                                            |
+|---------------------------------|-------------|---------------------------------------------------------------------------------------|
+| storage_pool                   | UUID        | The Storage Pool Id                                                                   |
+| Quota_ID                       | UUID        | The Quota Id                                                                          |
+| Quota_Name                     | String      | The Quota name                                                                        |
+| vds_static_id                 | UUID        | The vds group Id                                                                      |
+| vds_static_name               | UUID        | The vds group name from vds_group_static                                            |
+| virtual_cpu                    | INTEGER     | The limited cpu, defined in Giga byte.                                                |
+| virtual_cpu_usage             | INTEGER     | The usage of the cpu in the cluster, defined in Giga byte. (using CalculateVCPUUsage) |
+| virtual_ram_mega_byte        | BIGINT      | The limited ram defined in Mega byte.                                                 |
+| virtual_ram_mega_byte_usage | BIGINT      | The used ram in the cluster. (using CalculateVRAMUsage)                               |
 
 **quota_storage_view** - View of all the storage quotas in the setup, that is all the quotas that storage_id is not null but vds_cluster_id is null in the quota_limitation.
 
-| Column Name                       | Column Type | Definition                               |
-|-----------------------------------|-------------|------------------------------------------|
-| storage_pool                     | UUID        | The Storage Pool Id                      |
-| Quota_ID                         | UUID        | The Quota Id                             |
-| storage_Name                     | String      | The storage name                         |
-| storage_id                       | UUID        | The vds group Id                         |
-| storage_limit_giga_byte        | INTEGER     | The limited GB defined in Giga byte.     |
-| storage_limit_giga_byte_usage | INTEGER     | The used GB on the quota storage domain. |
+| Column Name                       | Column Type | Definition                                                             |
+|-----------------------------------|-------------|------------------------------------------------------------------------|
+| storage_pool                     | UUID        | The Storage Pool Id                                                    |
+| Quota_ID                         | UUID        | The Quota Id                                                           |
+| storage_Name                     | String      | The storage name                                                       |
+| storage_id                       | UUID        | The vds group Id                                                       |
+| storage_limit_giga_byte        | INTEGER     | The limited GB defined in Giga byte.                                   |
+| storage_limit_giga_byte_usage | INTEGER     | The used GB on the quota storage domain. (Using CalculateStorageUsage) |
 
 ###### Stored Procedures
 
@@ -158,11 +147,6 @@ Use cases :
 
 *   Input - storage_pool_id UUID.
 *   output - a business entity mapped by quota_global_view for specified storage_pool_id, (if storage_pool_id=null then returns a list of all the quota in the setup)
-
-*GetQuotaUserByQuotaGuid*
-
-*   Input - quota_storage_pool_id UUID.
-*   output - all users for quota id
 
 #### Logic Design
 

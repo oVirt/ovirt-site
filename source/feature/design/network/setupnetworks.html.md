@@ -141,27 +141,27 @@ It will be possible to drag blocks on one another. The following drag scenarios 
 <tr class="odd">
 <td align="left">Drag a Network on a NIC, Drag a NIC on a Network</td>
 <td align="left">Create a connection between the NIC and the Bridge</td>
-<td align="left"></td>
+<td align="left">1-3</td>
 </tr>
 <tr class="even">
-<td align="left">Drag a VLAN/Network on a NIC, Drag a NIC on a VLAN/Network</td>
-<td align="left">Create a connection between the NIC and the VLAN</td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">Drag an unbonded NIC onto another unbonded NIC</td>
-<td align="left">Create a new Bond element for the two NICS</td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">?</td>
+<td align="left">Right-click on the Network?</td>
 <td align="left">Create a VLAN on the Logical Network</td>
 <td align="left"></td>
 </tr>
 <tr class="odd">
+<td align="left">Drag a VLAN/Network on a NIC, Drag a NIC on a VLAN/Network</td>
+<td align="left">Create a connection between the NIC and the VLAN</td>
+<td align="left">4-6</td>
+</tr>
+<tr class="even">
+<td align="left">Drag an unbonded NIC onto another unbonded NIC</td>
+<td align="left">Create a new Bond element for the two NICS</td>
+<td align="left">7,8</td>
+</tr>
+<tr class="odd">
 <td align="left">Drag a Bond on a VLAN/Network</td>
 <td align="left">Create a connection between the Bond and the VLAN/Network</td>
-<td align="left"></td>
+<td align="left">11</td>
 </tr>
 </tbody>
 </table>

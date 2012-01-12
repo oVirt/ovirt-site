@@ -103,7 +103,7 @@ The changes we need to communicate are in the "network" structure for bridge and
 
 I would like to describe a suggestion for a dialog, where the state of the network elements will be described using Blocks and Links.
 
-The ides here are taken from the Tehcnical guide: [RHEV Technical Reference Guide](http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Virtualization/3.0/html/Technical_Reference_Guide/sect-Technical_Reference_Guide-Network_Architecture-Networking_in_Hosts_and_Virtual_Machines.html)
+The Networking Elements here are taken from the RHEV Tehcnical guide: [RHEV Technical Reference Guide](http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Virtualization/3.0/html/Technical_Reference_Guide/sect-Technical_Reference_Guide-Network_Architecture-Networking_in_Hosts_and_Virtual_Machines.html)
 
 The UI Blocks describe the following networking elements: (Each element will be represented by a block, with a specific color)
 

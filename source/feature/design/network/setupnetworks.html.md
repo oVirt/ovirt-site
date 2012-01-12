@@ -118,6 +118,8 @@ The UI Blocks describe the following networking elements: (Each element will be 
 *   Lines will be automatically removed when their connecting elements are deleted.
 *   There is a possibility to reconnect lines when they are automatically deleted (when a bond is removed, reconnect the line to one of the unbonded NICs.
 
+![File:SetupNetworks17.png](SetupNetworks17.png "File:SetupNetworks17.png")
+
 It will be possible to drag blocks on one another. The following drag scenarios are supported:
 
 <table>

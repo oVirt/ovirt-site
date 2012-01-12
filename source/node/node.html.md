@@ -16,6 +16,16 @@ This is the main wiki page for [Node](Node) development.
 
 The oVirt Node sub-project is geared toward building a small, robust operating system image. It uses minimal resources while providing the ability to control virtual machines running upon it. A managed node can run in both standalone and mananged modes.
 
+## Pending Release
+
+oVirt Node 2.2.1
+
+*   [Node_Release_Notes](Node_Release_Notes)
+*   [ISO image](http://ovirt.org/releases/nightly/binary/ovirt-node-image-2.2.1-1.1.iso)
+*   [Source Tarball](http://ovirt.org/releases/nightly/src/ovirt-node-2.2.1.tar.gz)
+*   [RPM Package](http://ovirt.org/releases/nightly/fedora/16/ovirt-node-2.2.1-1.fc16.noarch.rpm)
+*   [Tools Package](http://ovirt.org/releases/nightly/fedora/16/ovirt-node-tools-2.2.1-1.fc16.noarch.rpm)
+
 ## Current Release
 
 oVirt Node 2.2.0

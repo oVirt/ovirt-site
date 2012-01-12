@@ -103,6 +103,8 @@ The changes we need to communicate are in the "network" structure for bridge and
 
 I would like to describe a suggestion for a dialog, where the state of the network elements will be described using Blocks and Links.
 
+The ides here are taken from the Tehcnical guide: [RHEV Technical Reference Guide](http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Virtualization/3.0/html/Technical_Reference_Guide/sect-Technical_Reference_Guide-Network_Architecture-Networking_in_Hosts_and_Virtual_Machines.html)
+
 The UI Blocks describe the following networking elements: (Each element will be represented by a block, with a specific color)
 
 1.  Network Interface Card (NIC) (eth0, eth1)
@@ -118,7 +120,7 @@ The UI Blocks describe the following networking elements: (Each element will be 
 *   Lines will be automatically removed when their connecting elements are deleted.
 *   There is a possibility to reconnect lines when they are automatically deleted (when a bond is removed, reconnect the line to one of the unbonded NICs.
 
-![File:SetupNetworks17.png](SetupNetworks17.png "File:SetupNetworks17.png")
+#### Dragging Options
 
 It will be possible to drag blocks on one another. The following drag scenarios are supported:
 
@@ -163,6 +165,52 @@ It will be possible to drag blocks on one another. The following drag scenarios 
 </tr>
 </tbody>
 </table>
+
+#### Images
+
+------------------------------------------------------------------------
+
+![File:SetupNetworks10.png](SetupNetworks10.png "File:SetupNetworks10.png") ***Illustration 1: No Connections***
+
+------------------------------------------------------------------------
+
+![File:SetupNetworks14.png](SetupNetworks14.png "File:SetupNetworks14.png") ***Illustration 2: Dragging Network on a NIC***
+
+------------------------------------------------------------------------
+
+![File:SetupNetworks1.png](SetupNetworks1.png "File:SetupNetworks1.png") ***Illustration 3: NIC connected to a Network***
+
+------------------------------------------------------------------------
+
+![File:SetupNetworks20.png](SetupNetworks20.png "File:SetupNetworks20.png") ***Illustration 4: Dragging VLAN on a NIC***
+
+------------------------------------------------------------------------
+
+![File:SetupNetworks2.png](SetupNetworks2.png "File:SetupNetworks2.png") ***Illustration 5: VLAN connected to a NIC***
+
+------------------------------------------------------------------------
+
+![File:SetupNetworks21.png](SetupNetworks21.png "File:SetupNetworks21.png") ***Illustration 6: Several VLANs connected to the same NIC***
+
+------------------------------------------------------------------------
+
+![File:SetupNetworks11.png](SetupNetworks11.png "File:SetupNetworks11.png") ***Illustration 7: Dragging a NIC on a nother NIC***
+
+------------------------------------------------------------------------
+
+![File:SetupNetworks7.png](SetupNetworks7.png "File:SetupNetworks7.png") ***Illustration 8: Bonded NICs***
+
+------------------------------------------------------------------------
+
+![File:SetupNetworks6.png](SetupNetworks6.png "File:SetupNetworks6.png") ***Illustration 9: Network dragged on a Bond***
+
+------------------------------------------------------------------------
+
+![File:SetupNetworks5.png](SetupNetworks5.png "File:SetupNetworks5.png") ***Illustration 10: Network connected to a Bond***
+
+------------------------------------------------------------------------
+
+![File:SetupNetworks17.png](SetupNetworks17.png "File:SetupNetworks17.png") ***Illustration 11: Several VLANs connected to the same Bond***
 
 ### REST
 

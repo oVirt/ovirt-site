@@ -103,7 +103,7 @@ The changes we need to communicate are in the "network" structure for bridge and
 
 I would like to describe a suggestion for a dialog, where the state of the network elements will be described using Blocks and Links.
 
-The Networking Elements here are taken from the RHEV Tehcnical guide: [RHEV Technical Reference Guide](http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Virtualization/3.0/html/Technical_Reference_Guide/sect-Technical_Reference_Guide-Network_Architecture-Networking_in_Hosts_and_Virtual_Machines.html)
+The Networking Elements here are taken from the RHEV Technical guide: [RHEV Technical Reference Guide](http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Virtualization/3.0/html/Technical_Reference_Guide/sect-Technical_Reference_Guide-Network_Architecture-Networking_in_Hosts_and_Virtual_Machines.html)
 
 The UI Blocks describe the following networking elements: (Each element will be represented by a block, with a specific color)
 
@@ -120,7 +120,14 @@ The UI Blocks describe the following networking elements: (Each element will be 
 *   Lines will be automatically removed when their connecting elements are deleted.
 *   There is a possibility to reconnect lines when they are automatically deleted (when a bond is removed, reconnect the line to one of the unbonded NICs.
 
-#### Dragging Options
+#### What cannot be dragged
+
+The connection of the following elements will be prevented:
+
+1.  Connecting a Network with no VLAN to a NIC/Bond that is already connected to a Network.
+2.  Connecting a Network to a NIC/Bond that is already connected to a Bridgeless Network
+
+#### What can be dragged
 
 It will be possible to drag blocks on one another. The following drag scenarios are supported:
 

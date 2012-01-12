@@ -40,10 +40,10 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 
 | | Task                      | | Relative Effort Pts | | Coded | | Tested | | Pushed | | Reviewed |
 |-----------------------------|-----------------------|---------|----------|----------|------------|
-| Add A disk to a VM          | 1                     | X       | X        | X        |            |
-| Create a snapshot           | 1                     | X       | X        | X        |            |
-| Restore a snapshot          | 1                     | X       | X        | X        |            |
-| Create a template from a VM | 2                     | X       | X        | X        |            |
+| Add A disk to a VM          | 1                     | X       | X        | X        | X          |
+| Create a snapshot           | 1                     | X       | X        | X        | X          |
+| Restore a snapshot          | 1                     | X       | X        | X        | X          |
+| Create a template from a VM | 2                     | X       | X        | X        | X          |
 | Create a VM from a template | 2                     |         |          |          |            |
 | Import a VM                 | 2                     | X       |          |          |            |
 | Move a Disk                 | 4                     |         |          |          |            |

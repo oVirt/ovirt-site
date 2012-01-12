@@ -95,6 +95,43 @@ Note that the CPU type should be chosen according to your host's CPU.
          except Exception as e:
              print 'Failed to attach iSCSI Storage Domain:\n%s' % str(e)
 
+*   **Create VM with one NIC and one Disk**
+
+         VDISKSIZE = 5368709120
+         
+         
+         try:
+             if api.vms.add( params.VM(name='my_vm',
+                                       memory=2147483648,
+                                       cluster=api.clusters.get('my_cluster'),
+                                       template=api.templates.get('Blank')) ):
+                 print 'vm created successfully'
+         except Exception as e:
+             print 'Failed to create vm:\n%s' % str(e)
+         
+         
+         try:
+             if api.vms.get('my_vm').nics.add( params.NIC(name='eth0',
+                                                          network=params.Network(name='ovirtmgmt'),
+                                                          interface='virtio')):
+                 print 'NIC was added to vm successfully'
+         except Exception as e:
+             print 'Failed to add NIC to vm:\n%s' % str(e)
+         
+         
+         try:
+             if api.vms.get('my_vm').disks.add( params.Disk(storage_domains=params.StorageDomains(storage_domain=[api.storagedomains.get('my_iscsi')]),
+                                                            size=VDISKSIZE,
+                                                            type_='system',
+                                                            status=None,
+                                                            interface='virtio',
+                                                            format='cow',
+                                                            sparse=True,
+                                                            bootable=True)  ):
+                 print 'Disk was added to vm successfully'
+         except Exception as e:
+             print 'Failed to add disk to vm:\n%s' % str(e)
+
 *   **Attach export/ISO domain to Data Center**
 
 You can either create a new ISO Storage Domain or import an existing ISO Storage Domain that was configured during ovirt-engine's installation wizard (both options uses the same code below). Please upload the following ISO file to the ISO Storage Domain once the ISO Storage Domain was created: <http://distro.ibiblio.org/tinycorelinux/4.x/x86/release/TinyCore-current.iso>

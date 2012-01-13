@@ -60,7 +60,7 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 | Jan 9  | 2.5                 | 3                        | 17                     | 17.5                          |
 | Jan 10 | 2.5                 | 3                        | 14                     | 15                            |
 | Jan 11 | 2                   | 2                        | 12                     | 12.5                          |
-| Jan 12 | 2.5                 |                          |                        | 10                            |
+| Jan 12 | 2.5                 | 0                        | 12                     | 10                            |
 | Jan 13 | 2.5                 |                          |                        | 7.5                           |
 | Jan 16 | 2.5                 |                          |                        | 5                             |
 | Jan 17 | 2.5                 |                          |                        | 2.5                           |
@@ -68,6 +68,7 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 
 *   Issues
     -   uncertainty regarding templates / potential scope changes
+    -   Issues with stability of test system
     -   may need to negotiate change with REST team
     -   Need REST API documentation for some actions
 

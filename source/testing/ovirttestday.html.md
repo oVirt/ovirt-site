@@ -43,7 +43,7 @@ Test Days are open to anyone. If you have your own setup we will provide all the
 | sming    | V       | V       | Basic      |                            | V     |                |       | RHEL 6.2     |
 | aglitke  | V       | V       | Basic      | Webadmin,CLI,vdsm          | V     | V              |       | Fedora16     |
 | wuzhy    | V       | V       | Basic      |                            | V     |                |       | Fedora16     |
-| tdosek   | V       | V       | Basic      | Webadmin, Userportal, vdsm |       | V              |       |              |
+| tdosek   | V       | V       | Basic      | Webadmin, Userportal, vdsm |       | V              |       | Fedora16     |
 
 ## Test Dates
 

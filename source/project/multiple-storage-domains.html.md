@@ -47,7 +47,7 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 | Create a VM from a template | 2                     |         |          |          |            |
 | Import a VM                 | 2                     | X       |          |          |            |
 | Move a Disk                 | 4                     |         |          |          |            |
-| import template             | 2                     |         |          |          |            |
+| import template             | 2                     | X       |          |          |            |
 | clone template              | 2                     |         |          |          |            |
 | verify export VM            | 1                     | X       | X        | X        | N/A        |
 | verify delete VM            | 1                     | X       | X        | X        | N/A        |
@@ -59,7 +59,7 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 |--------|---------------------|--------------------------|------------------------|-------------------------------|
 | Jan 9  | 2.5                 | 3                        | 17                     | 17.5                          |
 | Jan 10 | 2.5                 | 3                        | 14                     | 15                            |
-| Jan 11 | 2                   | 2                        | 12                     | 12.5                          |
+| Jan 11 | 2.5                 | 2                        | 12                     | 12.5                          |
 | Jan 12 | 2.5                 | 0                        | 12                     | 10                            |
 | Jan 13 | 2.5                 |                          |                        | 7.5                           |
 | Jan 16 | 2.5                 |                          |                        | 5                             |

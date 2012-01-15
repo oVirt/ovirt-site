@@ -170,7 +170,7 @@ To build rpm and install it, from ovirt-engine-sdk repo:
 
       yum localinstall rpmtop/RPMS/noarch/ovirt-engine-sdk-x.y-z.noarch.rpm
 
-### local deployment
+### development deployment
 
 For local install in site-packages, from ovirt-engine-sdk repo:
 

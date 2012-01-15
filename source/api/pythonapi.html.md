@@ -241,7 +241,15 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          while api.vms.get('my_vm').status.state != 'down':
              pass
 
-*   **\1**
+*   **Export vm (into Export Domain)**
+
+         try:
+             if api.vms.get('my_vm').export(params.Action(storage_domain=api.storagedomains.get('my_export'))):
+                 print 'VM was exported successfully'
+         except Exception as e:
+             print 'Failed to export vm:\n%s' % str(e)
+
+*   **Create a snapshot to vm**
 
          try:
              if api.vms.get('my_vm').snapshots.add(params.Snapshot(description='my_snapshot', vm=api.vms.get('my_vm'))):

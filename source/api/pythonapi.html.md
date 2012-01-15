@@ -19,9 +19,9 @@ In order to connect to ovirt-engine using the ovirt-engine-sdk (python api which
 
 *   User/Password - The user consists of username, the "@" sign and domain name. You can use both either the internal user's account or any of your LDAP users that has login permissions and of course permissions to perform your requests.
 
-Below you can find an example ovirt-engine-sdk for the following steps:
+Below you can find example ovirt-engine-sdk code snippets for the following operations:
 
-*   import the relevant modules and get an API object
+*   Importing the relevant modules and obtaining an API object
 *   Create iSCSI Data Center
 *   Create Cluster
 *   Install Host
@@ -39,7 +39,7 @@ Below you can find an example ovirt-engine-sdk for the following steps:
 
 <!-- -->
 
-*   **Import the relevant modules and get an API object**
+*   **Importing the relevant modules and obtaining an API object**
 
 Add the following to you python script, remember to set the URL/USERNAME/PASSWORD constants accordingly
 
@@ -86,7 +86,7 @@ Note that the CPU type should be chosen according to your host's CPU.
                  print 'Failed to install Host:\n%s' % str(e)
          
          print 'Waiting for host to reach the Up status'
-         while api.hosts.get('my_host').status != 'up':
+         while api.hosts.get('my_host').status.state != 'up':
              pass
 
 *   **Create iSCSI Storage Domain on Data Center**

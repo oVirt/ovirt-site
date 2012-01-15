@@ -6,13 +6,19 @@ wiki_revision_count: 66
 wiki_last_updated: 2012-12-02
 ---
 
+# SDK
+
 oVirt SDK package a software development kit for the oVirt engine api.
 
 [Notes from workshop in November 2011](API - oVirt workshop November 2011 Notes).
 
 __TOC__
 
-# SDK Concepts
+## Maintainer
+
+Michael Pasternak: mpastern@redhat.com
+
+## SDK Concepts
 
 *   Complete protocol abstraction.
 *   Full compliance with the oVirt api architecture.
@@ -21,11 +27,11 @@ __TOC__
 *   Auto-Generated
 *   Intuitive and easy to use.
 
-# Repository
+## Repository
 
 *   <git://gerrit.ovirt.org/ovirt-engine-sdk>
 
-# IDE Examples
+## IDE Examples
 
 ### Creating the proxy & Listing all collections
 
@@ -67,7 +73,7 @@ __TOC__
 
 ![](9.jpg "9.jpg")
 
-# Examples
+## Examples
 
 from ovirtsdk.api import API from ovirtsdk.xml import params
 
@@ -148,7 +154,7 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
 
        nic4 = vm6.nics.get(name='eth0')
 
-# Deployment
+## Deployment
 
 ### rpm
 
@@ -174,7 +180,7 @@ For local install in site-packages, from ovirt-engine-sdk repo:
 
 *   note: both deployment procedures require super-user permissions
 
-# TODO list
+## TODO list
 
 ### codegen
 

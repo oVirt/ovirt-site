@@ -148,8 +148,9 @@ Sample :
               'bootOrder': `<int>`,                        <--- global boot order across all bootable devices
               'propagateErrors': 'off',
               'iface': 'virtio|ide',
-              'shared': 'True|False'                     <--- whether disk is shared
-              'optional': 'True|False'                   <--- whether disk is optional (VM can be run without optional disk if inaccessible)
+              'shared': 'True|False',                    <--- whether disk is shared
+              'optional': 'True|False',                  <--- whether disk is optional (VM can be run without optional disk if inaccessible)
+              'readonly': 'True|False',
               'poolID': 'pool UUID',                         |
               'domainID': 'domain UUID',                     | 
               'imageID': 'image UUID',                   <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID   

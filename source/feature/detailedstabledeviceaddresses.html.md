@@ -79,37 +79,6 @@ Adding shared flag to disks :
 
 *   Update relevant Views & SPs to include the shared column
 
-#### Option B
-
-New table vm_device :
-
-       device_id              -- Unique identifier of the VM device
-       device                 -- The device type (for example : sound, video etc.)
-       vm_id                  -- The VM id (FK of vm_static.vm_id)
-       device_specparams      -- The device special parameters, for example ('display': 'vnc')
-       device_address         -- The device address as a string
-       boot_order             -- The device boot order
-
-*   In this case this table handles both managed (disk,vm interface) and unmanaged(sound,video,etc.) devices
-
-<!-- -->
-
-*   Adding CRUD SPs for vm_device table.
-
-Adding hash column to vm_dynamic:
-
-       hash                -- holds the md5 like encryption indicating a change 
-
-*   Update relevant Views & SPs to include the hash column
-
-Adding shared flag to disks :
-
-       shared              -- Indicates if disk is shared between multiple VMs
-
-*   Update relevant Views & SPs to include the shared column
-
-Option B will be implemented
-
 ### DAL
 
 Adding GenericDeviceDAO, GenericDeviceDAODbFacadeImpl , GenericDeviceDAOHibernateImpl

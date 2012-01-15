@@ -248,6 +248,9 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
                  print 'VM was exported successfully'
          except Exception as e:
              print 'Failed to export vm:\n%s' % str(e)
+         
+         while api.vms.get('my_vm').status.state != 'down':
+             pass
 
 *   **Create a snapshot to vm**
 

@@ -37,11 +37,23 @@ TBD
 
 TBD
 
-### Features
+#### Features
 
-### Resolved Issues
+*   The engine is now running on Jboss AS7 as the application server
+*   [ Locking mechanism ](Features/DetailedLockMechanism)
+*   [ SPM Priority ](Features/SPMPriority)
+*   [ Quota ](Features/DetailedQuota)
+*   Support new Storage Domain Status
 
-### Known Issues
+#### Resolved Issues
+
+*   BZ 766287
+
+#### Known Issues
+
+#### Code Changes
+
+*   Unifying VM and VM_TEMPLATE tables in the Data Base.
 
 ## Guest Agent
 

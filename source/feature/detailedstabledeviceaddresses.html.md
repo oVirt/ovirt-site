@@ -81,7 +81,9 @@ Generation CRUD SPs for the new vm_device table Modify all relevant views & SP t
 
 #### image_vm_map table
 
-This table becomes redundant since all information is already contained in vm_device. Upgrade will drop this table after data is ported to vm_device table. A view with the same name (image_vm_map) will be created on top of vm_device to support current code.
+This table becomes redundant since all information is already contained in vm_device.
+Upgrade will drop this table after data is ported to vm_device table.
+A view with the same name (image_vm_map) will be created on top of vm_device to support current code.
 
 ### DAL
 

@@ -60,4 +60,4 @@ Virt-to-date main functionalities are:
 
 tool files can be found on git-hub, just run the following command:
 
-         git clone git@github.com:hateya/virt-to-date.git
+`   git clone `[`https://github.com/hateya/virt-to-date.git`](https://github.com/hateya/virt-to-date.git)

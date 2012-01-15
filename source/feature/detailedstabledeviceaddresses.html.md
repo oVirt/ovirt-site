@@ -193,7 +193,7 @@ issues:
 
        Boot Order    - migrate boot order info to new format even from VMs that are in old (under 3.1) clusters
        Floppy/CDROM  - migrate Floppy/CDROM to be stored as a disk
-       Sound/Video   - migrate as Generic Device
+       Sound/Video   - migrate as Vm Device
 
 #### User work-flows
 

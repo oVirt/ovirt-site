@@ -134,15 +134,17 @@ Finally, check that the installed service runs:
 
 ### Manually (From Zips)
 
-          $> wget http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA-jdk6.zip/download
-          $> unzip jboss-5.1.0.GA-jdk6.zip
-          $> sudo mv jboss-5.1.0.GA /usr/local/jboss-5.1.0.GA
+          $> wget http://download.jboss.org/jbossas/7.1/jboss-as-7.1.0.Beta1b/jboss-as-7.1.0.Beta1b.tar.gz
+          $> tar zxvf jboss-as-7.1.0.Beta1b.tar.gz
+          $> sudo mv jboss-as-7.1.0.Beta1b /usr/local/jboss-as-7.1.0.Beta1b
+          $> Change the JBOSS_HOME environment variable to the new location
+          $> Change the Jboss home in ~/.m2/settings.xml file to point to the new location
 
 Check that it runs:
 
-          $> /usr/local/jboss-5.1.0.GA/bin/run.sh
+          $> /usr/local/jboss-as-7.1.0.Beta1b/bin/standalone.sh
 
-Ensure that you have write access to $JBOSS_HOME/server/default/deploy to which oVirt-engine will be deployed.
+Ensure that you have write access to $JBOSS_HOME/standalone/deployments to which oVirt-engine will be deployed.
 
 ### Troubleshooting
 

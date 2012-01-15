@@ -261,8 +261,20 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          except Exception as e:
              print 'Failed to remove VM:\n%s' % str(e)
          
-         print 'Waiting for vm to be acctually deleted'
+         print 'Waiting for vm to be actually deleted'
          while api.vms.get('my_vm') in api.vms.list():
+            pass
+
+*   **Import vm (from Export Domain)**
+
+         try:
+             if api.storagedomains.get('my_export').vms.get('my_vm').import_vm(params.Action(storage_domain=api.storagedomains.get('my_iscsi'), cluster=api.clusters.get(name='my_cluster'))):
+                 print 'VM was imported successfully'
+         except Exception as e:
+             print 'Failed to import VM:\n%s' % str(e)
+         
+         print 'Waiting for vm to reach Down status'
+         while api.vms.get('my_vm').status.state != 'down':
             pass
 
 *   **Create a snapshot to vm**

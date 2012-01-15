@@ -102,13 +102,15 @@ http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy
 
 ### RSDL
 
-#### advertising /request/ parameters (assigned)
+*   advertising /request/ parameters (assigned)
 
 ### features
 
-#### setup networks
+*   setup networks
 
-       * atomic operation on a collection level
+<!-- -->
+
+*   atomic operation on a collection level
 
 #### non-admin users support
 

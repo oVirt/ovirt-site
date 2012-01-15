@@ -81,7 +81,7 @@ To build rpm and install it, from ovirt-engine-cli repo:
 
       yum localinstall rpmtop/RPMS/noarch/ovirt-engine-cli-x.y-z.noarch.rpm
 
-### local deployment
+### development deployment
 
 For local install in site-packages, from ovirt-engine-cli repo:
 

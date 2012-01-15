@@ -104,7 +104,7 @@ Or copy & paste the content of the file below into ~/.m2/settings.xml
                       <profile>
                               <id>oVirtEnvSettings</id>
                               <properties>
-                                      <jbossHome>/usr/local/jboss-5.1.0.GA</jbossHome>
+                                      <jbossHome>/usr/local/jboss-as-7.1.0.Beta1b</jbossHome>
                                       <JAVA_1_6_HOME>/usr/lib/jvm/java-1.6.0-openjdk.x86_64</JAVA_1_6_HOME>
                                       <forkTests>always</forkTests>
                               </properties>

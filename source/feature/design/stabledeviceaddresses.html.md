@@ -212,30 +212,22 @@ Sample :
 New table vm_device:
 
        device_id           -- Unique identifier of the VM device
-       vm_id               -- The VM id (FK of vm_static)
-       device_type         -- The device type (for example : sound, video etc.)
-       device_specparams   -- The device special parameters, for example ('display': 'vnc')
-       device_address      -- The device address as a string
+       vm_id               -- The VM/Template id (FK of vm_static)
+       type                -- The type  (for example : disk, interface etc.)
+       device              -- The device (for example : floppy, cdrom etc.)
+       address             -- The device address as a string
+       boot_order          -- The device boot order
+       spec_params         -- The device special parameters, for example ('display': 'vnc')
+       is_managed          -- Indicates if the device is managed 
+       is_plugged          -- Indicates if device is plugable
+       is_shared           -- Indicates if device is shared
+       access_mode         -- The device access mode (i.e. read-only, read-write etc.)
 
 Adding a column to vm_dynamic:
 
        hash                -- holds the md5 like hash indicating a change 
 
-Adding address and boot_order to disk_vm_map. This should be done in the mapping table in order to support the Shared Disk feature when a disk can be shared by multiple VMs
-
-       address             -- The device address string
-       boot_order          -- The device boot order 
-
-Adding address and boot_order to vm_interface
-
-       address             -- The interface address string
-       boot_order          -- The device boot order
-
-Adding shared flag to disks
-
-       shared              -- Indicates if disk is shared between multiple VMs
-
-Generation CRUD SPs for the new vm_device table Modify all relevant views & SP to have the hash field. Modify all relevant views & SP to have the address field. Modify all relevant views & SP to have the boot_order field.
+Generation CRUD SPs for the new vm_device table Modify all relevant views & SP to have the hash field.
 
 #### DB Upgrade
 

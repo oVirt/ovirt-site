@@ -307,6 +307,10 @@ Floppy and CDROM will be typed as disk where its subtype is 'floppy' or 'cdrom'
 
 Boot order is a device property (just for subgroup of all available devices), We should add and persist boot order to all relevant entities
 
+#### Managed and un-managed devices
+
+In general, each device that backend knows to recognize by itself is a managed device (its is_managed flag in vm_device is set to true) Each device that we are learning via vdsm is considered as un-managed device. There is one exception for this rule, we will handle a SpecialManagedDevices white-list in vdc-options. This list will include a list of <type><device> that are special. It means that even if we learn this device from vdsm, still his is_managed flag will be set to true. When passing information to vdsm, backend will pass all managed devices in the device map while un-managed devices are passed in the Custom Properties as a string (with the same format as in the device section) When getting information from vdsm, we will consider only devices in the device map. We assume that if a hook was activated on the Custom Properties we have sent for a VM and adds any device, we will get it from vdsm on the next refresh as a device in the device map from vdsm.
+
 ### VDSM
 
 Adding support for hash parameter in Create. Return the hash value for each VM when calling GetAllVMStats. Return the full VM structure for each VM when calling List with 'long' format Enable to pass additional parameter specifying VM ids.

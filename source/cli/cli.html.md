@@ -8,24 +8,30 @@ wiki_revision_count: 83
 wiki_last_updated: 2014-03-24
 ---
 
+# CLI
+
 oVirt CLI package is a command line interface for the oVirt engine.
 
 [Notes from workshop in November 2011](API - oVirt workshop November 2011 Notes).
 
 __TOC__
 
-# CLI Concepts
+## Maintainer
+
+Michael Pasternak: mpastern@redhat.com
+
+## CLI Concepts
 
 *   Generic interface (list, show, create, update, action verbs).
 *   Interactive prompt
 *   Auto-completion.
 *   Self descriptive.
 
-# Repository
+## Repository
 
 *   <git://gerrit.ovirt.org/ovirt-engine-cli>
 
-# Usage
+## Usage
 
 ### Connect
 
@@ -59,7 +65,7 @@ __TOC__
 
 ![](action.jpg "action.jpg")
 
-# Deployment
+## Deployment
 
 ### rpm
 
@@ -85,7 +91,7 @@ For local install in site-packages, from ovirt-engine-cli repo:
 
 *   note: both deployment procedures require super-user permissions
 
-# TODO list
+## TODO list
 
 *   parameters formatting
 

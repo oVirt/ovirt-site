@@ -11,17 +11,17 @@ wiki_last_updated: 2014-03-27
 
 ## Create a Basic Environment using ovirt-engine-sdk
 
-In order to connect to ovirt-engine using the ovirt-engine-sdk (python api which uses REST-API), the following details are required:
+Ovirt-Engine-SDK is an auto-generated python API which uses REST-API to perform operations against ovirt-engine. In order to connect to ovirt-engine using ovirt-engine-sdk and get the API proxy (reference instance to REST-API), the following connection information is required:
 
-*   URL - The URL consists of http method, ovirt-engine's ip, ovirt-engine's port and the api's entry point. The http method and and port are usually https/8443 for secure connection (default), or http/8080 for insecure connection. The insecure connection is usually used in development environments. The api's entry point is fixed - "/api"
+*   URL - The URL consists of HTTP method, ovirt-engine's IP or FQDN, ovirt-engine's TCP PORT and the REST-API's entry point. The HTTP method and the PORT are usually HTTPS/8443 for secure connection (default installation option), or HTTP/8080 for insecure connection (in use mostly in development environments). The REST-API's entry point is fixed - "/api"
 
 <!-- -->
 
-*   User/Password - The user consists of username, the "@" sign and domain name. You can use either the internal user's account or any of your LDAP users that has login permissions and of course also has permissions to execute operations.
+*   User and Password - The user consists of a username, the "@" sign and domain name. You can use either the default internal user's account or any of your LDAP users that has both login permissions and of course also has permissions to execute the desired operations.
 
-Below you can find example ovirt-engine-sdk code snippets for the following operations:
+Below you can find ovirt-engine-sdk sample code-snippets for the following basic operations:
 
-*   Importing the relevant modules and obtaining an API object
+*   Import the relevant modules and obtain an API object
 *   Create iSCSI Data Center
 *   Create Cluster
 *   Install Host

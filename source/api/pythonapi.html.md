@@ -17,7 +17,7 @@ In order to connect to ovirt-engine using the ovirt-engine-sdk (python api which
 
 <!-- -->
 
-*   User/Password - The user consists of username, the "@" sign and domain name. You can use both either the internal user's account or any of your LDAP users that has login permissions and of course permissions to perform your requests.
+*   User/Password - The user consists of username, the "@" sign and domain name. You can use either the internal user's account or any of your LDAP users that has login permissions and of course also has permissions to execute operations.
 
 Below you can find example ovirt-engine-sdk code snippets for the following operations:
 

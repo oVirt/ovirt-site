@@ -112,6 +112,8 @@ http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy
 
 *   atomic operation on a collection level
 
-#### non-admin users support
+<!-- -->
+
+*   non-admin users support
 
 <Category:Api>

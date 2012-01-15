@@ -73,12 +73,6 @@ Adding a column to vm_dynamic:
 
 Generation CRUD SPs for the new vm_device table Modify all relevant views & SP to have the hash field.
 
-Adding shared flag to disks :
-
-       shared              -- Indicates if disk is shared between multiple VMs
-
-*   Update relevant Views & SPs to include the shared column
-
 ### DAL
 
 Adding GenericDeviceDAO, GenericDeviceDAODbFacadeImpl , GenericDeviceDAOHibernateImpl

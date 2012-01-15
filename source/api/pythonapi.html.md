@@ -253,6 +253,18 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          while api.vms.get('my_vm').status.state != 'down':
              pass
 
+*   **Delete vm**
+
+         try:
+             if api.vms.get('my_vm').delete():
+                 print 'VM was removed successfully'
+         except Exception as e:
+             print 'Failed to remove VM:\n%s' % str(e)
+         
+         print 'Waiting for vm to be acctually deleted'
+         while api.vms.get('my_vm') in api.vms.list():
+            pass
+
 *   **Create a snapshot to vm**
 
          try:

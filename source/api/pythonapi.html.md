@@ -19,6 +19,24 @@ In order to connect to ovirt-engine using the ovirt-engine-sdk (python api which
 
 *   User/Password - The user consists of username, the "@" sign and domain name. You can use both either the internal user's account or any of your LDAP users that has login permissions and of course permissions to perform your requests.
 
+Below you can find an example ovirt-engine-sdk for the following steps:
+
+*   import the relevant modules and get an API object
+*   Create iSCSI Data Center
+*   Create Cluster
+*   Install Host
+*   Create iSCSI Storage Domain on Data Center
+*   Attach ISO domain to Data Center
+*   Attach Export domain to Data Center
+*   Create VM with one NIC and one Disk
+*   Start/hibernate/resume/stop vm
+*   Export vm (into Export Domain)
+*   Delete vm
+*   Import vm (from Export Domain)
+*   Create a snapshot to vm
+*   Create a Template from VM
+*   Create VM from Template
+
 <!-- -->
 
 *   **Import the relevant modules and get an API object**

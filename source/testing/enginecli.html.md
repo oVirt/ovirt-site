@@ -66,3 +66,7 @@ Below you can find an example ovirt-engine-sdk for the following steps:
 *   Create a snapshot to vm
 *   Create a Template from VM
 *   Create VM from Template
+
+<!-- -->
+
+*   Create iSCSI Data Center:

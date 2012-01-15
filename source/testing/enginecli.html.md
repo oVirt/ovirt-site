@@ -10,7 +10,42 @@ wiki_last_updated: 2012-01-15
 
 ## Create a Basic Environment using engine-cli (ovirt-shell)
 
-*   in order to connect to ovirt-engine using ovirt-shell, please run the following command:
+In order to connect to ovirt-engine using the ovirt-shell, (CLI api which uses REST-API), the following details are required:
 
-         > ovirt-shell
-         > connect "`[`http://localhost:8080/api`](http://localhost:8080/api)`" "user@domain" "password"
+*   URL - The URL consists of http method, ovirt-engine's ip, ovirt-engine's port and the api's entry point. The http method and and port are usually https/8443 for secure connection (default), or http/8080 for insecure connection. The insecure connection is usually used in development environments. The api's entry point is fixed - "/api"
+
+<!-- -->
+
+*   User/Password - The user consists of username, the "@" sign and domain name. You can use both either the internal user's account or any of your LDAP users that has login permissions and of course permissions to perform your requests.
+
+<!-- -->
+
+*   The following commands will connect you to the interactive shell:
+
+         # ovirt-shell
+         # (disconnected) > connect "`[`http://localhost:8080/api`](http://localhost:8080/api)`" "user@domain" "password"
+         # [oVirt-shell:connected]#
+
+*   Once you are connected to the shell, you can simply run 'help', which will revel some of the following options:
+
+       AVAILABLE COMMANDS
+       
+         * action           execute an action on an object
+         * cd               change directory
+         * clear            clear the screen
+         * connect          connect to a oVirt manager
+         * console          open a console to a VM
+         * create           create a new object
+         * delete           delete an object
+         * disconnect       disconnect from oVirt manager
+         * exit             quit this interactive terminal
+         * getkey           dump private ssh key
+         * help             show help
+         * list             list or search objects
+         * ping             test the connection
+         * pwd              print working directory
+         * save             save configuration variables
+         * set              set a configuration variable
+         * show             show one object
+         * status           show status
+         * update           update an object

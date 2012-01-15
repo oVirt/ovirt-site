@@ -20,16 +20,12 @@ __TOC__
 
 Michael Pasternak: mpastern@redhat.com
 
-## CLI Concepts
+## Concepts
 
 *   Generic interface (list, show, create, update, action verbs).
 *   Interactive prompt
 *   Auto-completion.
 *   Self descriptive.
-
-## Repository
-
-*   <git://gerrit.ovirt.org/ovirt-engine-cli>
 
 ## Usage
 
@@ -64,6 +60,10 @@ Michael Pasternak: mpastern@redhat.com
 ### Performing action on resource
 
 ![](action.jpg "action.jpg")
+
+## Repository
+
+*   <git://gerrit.ovirt.org/ovirt-engine-cli>
 
 ## Deployment
 

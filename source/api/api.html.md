@@ -15,6 +15,10 @@ oVirt api package provides Application programming interface for the oVirt engin
 
 __TOC__
 
+## Maintainer
+
+Michael Pasternak: mpastern@redhat.com
+
 ## REST Concept
 
 *   Client–server
@@ -46,10 +50,6 @@ http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy
 6. sub-collection
 
 7. sub-resource
-
-## Repository
-
-*   <git://gerrit.ovirt.org/ovirt-engine> (restapi is one of the engine modules)
 
 ## oVirt-API How-to (the methods)
 
@@ -93,6 +93,10 @@ http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy
       DELETE http(s)://server:port/api/vms/xxx
 
       curl -v -u "user@domain:password" -X DELETE http(s)://server:port/api/vms/xxx
+
+## Repository
+
+*   <git://gerrit.ovirt.org/ovirt-engine> (restapi is one of the engine modules)
 
 ## TODO list
 

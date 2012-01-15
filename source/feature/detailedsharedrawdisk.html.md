@@ -108,7 +108,7 @@ Quota has to be taken in consideration, for every new feature that will involve 
 
 ### Documentation / External references
 
-<http://www.ovirt.org/wiki/Features/SharedRAWDisk>
+<http://www.ovirt.org/wiki/Features/SharedRawDisk>
 
 ### Comments and Discussion
 

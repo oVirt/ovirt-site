@@ -18,6 +18,8 @@ Presenter slides: ![](oVirt-API-CLI-SDK-20111102.pdf "fig:oVirt-API-CLI-SDK-2011
 
 Michael Pasternak: mpastern@redhat.com
 
+### Overview
+
 *   Overview of HTTP and RESTful protocols
 *   Compare/Contrast SOAP & REST
 *   Overview of oVirt-API url structure / headers; examples of different methods

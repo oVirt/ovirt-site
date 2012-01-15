@@ -173,7 +173,9 @@ In new format, we will have to send each video card as a VM device and calculate
 
 OvfVmReader and OvfVmWriter should be enhanced to support:
 
-       shared disk flag
+       is_shared flag
+       is_plugged flag
+       access_mode
        boot order
        address
        manage Floppy/CDROM as a device

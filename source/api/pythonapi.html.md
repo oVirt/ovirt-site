@@ -21,7 +21,7 @@ In order to connect to ovirt-engine using the ovirt-engine-sdk (python api which
 
 <!-- -->
 
-*   **import the relevant modules and get an API object**
+*   **Import the relevant modules and get an API object**
 
 Add the following to you python script, remember to set the URL/USERNAME/PASSWORD constants accordingly
 
@@ -296,3 +296,17 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
                  print 'Creating a Template from vm'
          except Exception as e:
              print 'Failed to Create a Template from vm:\n%s' % str(e)
+
+*   **Create VM from Template**
+
+         try:
+             if api.vms.add( params.VM(name='my_vm_from_template',
+                                      cluster=api.clusters.get('my_cluster'),
+                                      template=api.templates.get('my_template')) ):
+                 print 'VM was created from Template successfully'
+         except Exception as e:
+             print 'Failed to create VM from Template:\n%s' % str(e)
+         
+         print 'Waiting for vm to reach Down status'
+         while api.vms.get('my_vm_from_template').status.state != 'down':
+            pass

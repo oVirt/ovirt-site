@@ -53,36 +53,25 @@ specparams - Any device specific parameters (for example memory allocation per m
 
 ### CRUD
 
-#### Option A
+New table vm_device:
 
-New table vm_device :
+       device_id           -- Unique identifier of the VM device
+       vm_id               -- The VM/Template id (FK of vm_static)
+       type                -- The type  (for example : disk, interface etc.)
+       device              -- The device (for example : floppy, cdrom etc.)
+       address             -- The device address as a string
+       boot_order          -- The device boot order
+       spec_params         -- The device special parameters, for example ('display': 'vnc')
+       is_managed          -- Indicates if the device is managed 
+       is_plugged          -- Indicates if device is plugable
+       is_shared           -- Indicates if device is shared
+       access_mode         -- The device access mode (i.e. read-only, read-write etc.)
 
-       device_id              -- Unique identifier of the VM device
-       device                 -- The device type (for example : sound, video etc.)
-       vm_id                  -- The VM id (FK of vm_static.vm_id)
-       spec_params            -- The device special parameters, for example ('display': 'vnc')
-       address                -- The device address as a string
-       managed                -- Indicates if device is managed 
-
-*   In this case this table handles only unmanaged devices
-
-<!-- -->
-
-*   Adding CRUD SPs for vm_device table.
-
-Adding hash column to vm_dynamic:
+Adding a column to vm_dynamic:
 
        hash                -- holds the md5 like hash indicating a change 
 
-*   Update relevant Views & SPs to include the hash column
-
-Adding address and boot_order to disk_vm_map and vm_interface.
-This should be done in the mapping table in order to support the Shared Disk feature when a disk can be shared by multiple VMs:
-
-       address             -- The interface address string
-       boot_order          -- The device boot order
-
-*   Update relevant Views & SPs to include the address & boot_order columns
+Generation CRUD SPs for the new vm_device table Modify all relevant views & SP to have the hash field.
 
 Adding shared flag to disks :
 

@@ -249,6 +249,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          except Exception as e:
              print 'Failed to export vm:\n%s' % str(e)
          
+         print 'Waiting for vm to reach Down status'
          while api.vms.get('my_vm').status.state != 'down':
              pass
 

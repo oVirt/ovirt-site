@@ -49,3 +49,20 @@ In order to connect to ovirt-engine using the ovirt-shell, (CLI api which uses R
          * show             show one object
          * status           show status
          * update           update an object
+
+Below you can find an example ovirt-engine-sdk for the following steps:
+
+*   Create iSCSI Data Center
+*   Create Cluster
+*   Install Host
+*   Create iSCSI Storage Domain on Data Center
+*   Attach ISO domain to Data Center
+*   Attach Export domain to Data Center
+*   Create VM with one NIC and one Disk
+*   Start/hibernate/resume/stop vm
+*   Export vm (into Export Domain)
+*   Delete vm
+*   Import vm (from Export Domain)
+*   Create a snapshot to vm
+*   Create a Template from VM
+*   Create VM from Template

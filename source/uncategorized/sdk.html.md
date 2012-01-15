@@ -18,7 +18,7 @@ __TOC__
 
 Michael Pasternak: mpastern@redhat.com
 
-## SDK Concepts
+## Concepts
 
 *   Complete protocol abstraction.
 *   Full compliance with the oVirt api architecture.

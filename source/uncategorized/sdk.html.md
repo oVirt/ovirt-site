@@ -27,10 +27,6 @@ Michael Pasternak: mpastern@redhat.com
 *   Auto-Generated
 *   Intuitive and easy to use.
 
-## Repository
-
-*   <git://gerrit.ovirt.org/ovirt-engine-sdk>
-
 ## IDE Examples
 
 ### Creating the proxy & Listing all collections
@@ -153,6 +149,10 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
        nic3 = vm6.nics.get(name='eth01')
 
        nic4 = vm6.nics.get(name='eth0')
+
+## Repository
+
+*   <git://gerrit.ovirt.org/ovirt-engine-sdk>
 
 ## Deployment
 

@@ -99,7 +99,7 @@ Note that the CPU type should be chosen according to your host's CPU.
          except Exception as e:
              print 'Failed to attach iSCSI Storage Domain:\n%s' % str(e)
 
-*   **Attach export/ISO domain to Data Center**
+*   **Attach ISO domain to Data Center**
 
 You can either create a new ISO Storage Domain or import an existing ISO Storage Domain that was configured during ovirt-engine's installation wizard (both options uses the same code below). Please upload the following ISO file to the ISO Storage Domain once the ISO Storage Domain was created: <http://distro.ibiblio.org/tinycorelinux/4.x/x86/release/TinyCore-current.iso>
 
@@ -131,6 +131,36 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
                  print 'ISO Domain was activated successfully'
          except Exception as e:
              print 'Failed to activate ISO Domain:\n%s' % str(e)
+
+*   **Attach Export domain to Data Center**
+
+         EXPORT_ADDRESS = 'ip_of_export_domain_storage'
+         EXPORT_PATH = '/path/to/export/domain'
+         
+         isoParams = params.StorageDomain(name='my_export',
+                                             data_center=api.datacenters.get('my_datacenter'),
+                                             type_='export',
+                                             host=api.hosts.get('my_host'),
+                                             storage = params.Storage(   type_='nfs',
+                                                                         address=EXPORT_ADDRESS,
+                                                                         path=EXPORT_PATH  )  )
+         try:
+             if api.storagedomains.add(isoParams):
+                 print 'Export Domain was created/imported successfully'
+         except Exception as e:
+             print 'Failed to create/import an Export Domain:\n%s' % str(e)
+         
+         try:
+             if api.datacenters.get('my_datacenter').storagedomains.add(api.storagedomains.get('my_export')):
+                 print 'Export Domain was attached successfully'
+         except Exception as e:
+             print 'Failed to attach Export Domain:\n%s' % str(e)
+         
+         try:
+             if api.datacenters.get('my_datacenter').storagedomains.get('my_export').activate():
+                 print 'Export Domain was activated successfully'
+         except Exception as e:
+             print 'Failed to activate Export Domain:\n%s' % str(e)
 
 *   **Create VM with one NIC and one Disk**
 

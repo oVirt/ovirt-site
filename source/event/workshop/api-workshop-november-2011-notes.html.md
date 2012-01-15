@@ -14,6 +14,10 @@ Presenter slides: ![](oVirt-API-CLI-SDK-20111102.pdf "fig:oVirt-API-CLI-SDK-2011
 
 ## oVirt API
 
+### Maintainer
+
+Michael Pasternak: mpastern@redhat.com
+
 *   Overview of HTTP and RESTful protocols
 *   Compare/Contrast SOAP & REST
 *   Overview of oVirt-API url structure / headers; examples of different methods
@@ -30,7 +34,7 @@ Presenter slides: ![](oVirt-API-CLI-SDK-20111102.pdf "fig:oVirt-API-CLI-SDK-2011
     -   atomic ops - e.g. changing network config w/o losing access (iirc)
     -   supporting new features of the oVirt engine
 
-Discussion:
+### Discussion
 
       Q: How do we know that we didn't break API compat?
       In general we don't want to break the API, but some things are marked as new/may change.

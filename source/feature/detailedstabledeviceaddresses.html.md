@@ -75,11 +75,10 @@ Generation CRUD SPs for the new vm_device table Modify all relevant views & SP t
 
 ### DAL
 
-Adding GenericDeviceDAO, GenericDeviceDAODbFacadeImpl , GenericDeviceDAOHibernateImpl
-Adding GenericDeviceDAOTest that extends BaseGenericDaoTestCase
+Adding VmDeviceDAO, VmDeviceDAODbFacadeImpl , VmDeviceDAOHibernateImpl
+Adding VmDeviceDAOTest that extends BaseGenericDaoTestCase
 Adding Hash property to VmDynamic
-Updating VmDynamicDAOTest to include the new Hash property Adding Address & BootOrder properties to DiskVmMap & VmNetworkInterface
-Updating DiskVmMapDAOTest and VmNetworkInterfaceDAOTest to include the new Address & BootOrder properties
+Updating VmDynamicDAOTest to include the new Hash property
 
 #### Metadata
 

@@ -104,62 +104,59 @@ Add to the model UICommands for closing it or submitting something to the server
 As I mentioned earlier the command will be triggered in the ExecuteCommand method override of the class that passed as a parameter to the UICommand constructor
 
              @Override
-         public void ExecuteCommand(UICommand command)
-         {
-             super.ExecuteCommand(command);
-
-             ....
-             else if (command.getName == "OnSave")
+             public void ExecuteCommand(UICommand command)
              {
-                 onSave();
-             }
-                     else if (command.getName == "cancel")
-             {
-                 cancel();
-             }
+                     super.ExecuteCommand(command);
+                     
+                     ....
+                     else if (command.getName == "OnSave")
+                     {
+                             onSave();
+                     }
+                             else if (command.getName == "cancel")
+                     {
+                             cancel();
+                     }
                      ...
              }
 
 In order to close the popup (again model wise) you need to set the window property with null
 
-            void cancel()
-         {
-             setWindow(null);
-         }
+             void cancel()
+             {
+                     setWindow(null);
+             }
 
 in onSave method get the window model by getWindow().
 
              public void onSave()
-         {
-             DataCenterModel model = (DataCenterModel)getWindow();
-
-             if (!model.Validate())
              {
-                 return;
-             }
+                     DataCenterModel model = (DataCenterModel)getWindow();
+                     
+                     if (!model.Validate())
+                     {
+                             return;
+                     }
 
 inside the dialog class (i.e HostModel) use EntityModel and ListModel (represents a list/dropdown) as the field of the dialog (the is a binding mechanism for them), the value property is get/setEntiy and get/setItems respectively.
 
-         private EntityModel privateName;
-         public EntityModel getName()
-         {
-             return privateName;
-         }
+             private EntityModel privateName;
+             public EntityModel getName()
+             {
+                     return privateName;
+             }
 
-         private void setName(EntityModel value)
-         {
-             privateName = value;
-         }
-
-..
-
-         public constructor() {
-
-..
-
-         setName(new EntityModel());
-         getName().setEntity("value as string");
-
-...
+             private void setName(EntityModel value)
+             {
+                     privateName = value;
+             }
+             
+             ..
+             public constructor() {
+             ..
+                     setName(new EntityModel());
+                     getName().setEntity("value as string");
+             ...
+             }
 
 these entities contain event for changing (getEntityChangedEvent(), getItemsChangedEvent()), other properties like visibility (set/getIsAvailable()), enabled (set/getIsChangable()), Validation (ValidateEntity(new IValidation[] { new NotEmptyValidation(), tempVar, tempVar2 });, .getIsValid()) and more.

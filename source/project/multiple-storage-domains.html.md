@@ -45,9 +45,9 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 | Restore a snapshot          | 1                     | X       | X        | X        | X          |
 | Create a template from a VM | 2                     | X       | X        | X        | X          |
 | Create a VM from a template | 2                     |         |          |          |            |
-| Import a VM                 | 2                     | X       |          |          |            |
+| Import a VM                 | 2                     | X       | X        |          |            |
 | Move a Disk                 | 4                     |         |          |          |            |
-| import template             | 2                     | X       |          |          |            |
+| import template             | 2                     | X       | X        |          |            |
 | clone template              | 2                     |         |          |          |            |
 | verify export VM            | 1                     | X       | X        | X        | N/A        |
 | verify delete VM            | 1                     | X       | X        | X        | N/A        |
@@ -61,7 +61,7 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 | Jan 10 | 2.5                 | 3                        | 14                     | 15                            |
 | Jan 11 | 2.5                 | 2                        | 12                     | 12.5                          |
 | Jan 12 | 2.5                 | 0                        | 12                     | 10                            |
-| Jan 13 | 2.5                 |                          |                        | 7.5                           |
+| Jan 13 | 2.5                 | 4                        | 8                      | 7.5                           |
 | Jan 16 | 2.5                 |                          |                        | 5                             |
 | Jan 17 | 2.5                 |                          |                        | 2.5                           |
 | Jan 18 | 2.5                 |                          |                        | 0                             |

@@ -37,7 +37,7 @@ The base model of the project is the CommonModel (resides in uicommonweb project
 
 ListWithDetailsModel is incharge of adding sub tabs to the main tab, and ISupportSystemTreeContext add the tree navigation functionality. in ListWithDetailsModel, SyncSearch is the method that is invoked for fetching the items from the server, and setting the items (SetItems method).
 
-#### Create a dialog
+###### Create a dialog
 
 First add a uicommad associated with it (UICommand), it the command set the method class that will be triggered upon invoking it (setEditCommand(new UICommand("Edit", this));), it will be invoked in
 
@@ -145,7 +145,7 @@ inside the dialog class (i.e HostModel) use EntityModel and ListModel (represent
              {
                      return privateName;
              }
-
+             
              private void setName(EntityModel value)
              {
                      privateName = value;
@@ -160,3 +160,5 @@ inside the dialog class (i.e HostModel) use EntityModel and ListModel (represent
              }
 
 these entities contain event for changing (getEntityChangedEvent(), getItemsChangedEvent()), other properties like visibility (set/getIsAvailable()), enabled (set/getIsChangable()), Validation (ValidateEntity(new IValidation[] { new NotEmptyValidation(), tempVar, tempVar2 });, .getIsValid()) and more.
+
+#### Tab Presenter & View

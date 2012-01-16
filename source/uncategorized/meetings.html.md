@@ -38,12 +38,17 @@ There is a bot (ovirtbot) in the #ovirt IRC channel that can be used for running
 
 ### oVirt Weekly Sync Meeting Minutes and Logs
 
+#### 2012
+
 *   2012-01-11
     -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-11-15.01.html)
     -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-11-15.01.log.html)
 *   2012-01-04
     -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-04-15.01.html)
     -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-04-15.01.log.html)
+
+#### 2011
+
 *   2011-12-21
     -   [Minutes](http://ovirt.org/meetings/ovirt/2011/ovirt.2011-12-21-15.00.html)
     -   [Full log](http://ovirt.org/meetings/ovirt/2011/ovirt.2011-12-21-15.00.log.html)
@@ -53,6 +58,12 @@ There is a bot (ovirtbot) in the #ovirt IRC channel that can be used for running
 *   2011-12-07
     -   [Minutes](http://ovirt.org/meetings/ovirt/2011/ovirt.2011-12-07-15.00.html)
     -   [Full log](http://ovirt.org/meetings/ovirt/2011/ovirt.2011-12-07-15.00.log.html)
+*   2011-11-30
+    -   [Minutes](http://ovirt.org/meetings/ovirt/2011/ovirt.2011-11-30-15.00.html)
+    -   [Full log](http://ovirt.org/meetings/ovirt/2011/ovirt.2011-11-30-15.00.log.html)
+*   2011-11-23
+    -   [Minutes](http://ovirt.org/meetings/ovirt/2011/ovirt.2011-11-23-15.00.html)
+    -   [Full log](http://ovirt.org/meetings/ovirt/2011/ovirt.2011-11-23-15.00.log.html)
 *   2011-11-16
     -   [Minutes](http://ovirt.org/meetings/ovirt/2011/ovirt.2011-11-16-15.00.html)
     -   [Full log](http://ovirt.org/meetings/ovirt/2011/ovirt.2011-11-16-15.00.log.html)

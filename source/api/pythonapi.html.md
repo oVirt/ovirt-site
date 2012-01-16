@@ -86,8 +86,12 @@ Note that the CPU type should be chosen according to your host's CPU.
                  print 'Failed to install Host:\n%s' % str(e)
          
          print 'Waiting for host to reach the Up status'
-         while api.hosts.get('my_host').status.state != 'up':
-             pass
+         while 1:
+             try:
+                 if api.hosts.get('my_host').status.state == 'up':
+                     break
+             except:
+                 pass
 
 *   **Create iSCSI Storage Domain on Data Center**
 
@@ -216,6 +220,14 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
                  print 'Disk was added to vm successfully'
          except Exception as e:
              print 'Failed to add disk to vm:\n%s' % str(e)
+         
+         print 'Waiting for vm to reach Down status'
+         while 1:
+             try:
+                 if api.vms.get('my_vm').status.state == 'down':
+                     break
+             except:
+                 pass
 
 *   **Start/hibernate/resume/stop vm**
 
@@ -226,8 +238,12 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              print 'Failed to Start VM:\n%s' % str(e)
          
          print 'Waiting for vm to reach Up status'
-         while api.vms.get('my_vm').status.state != 'up':
-             pass
+         while 1:
+             try:
+                 if api.vms.get('my_vm').status.state == 'up':
+                     break
+             except:
+                 pass
 
          try:
              if api.vms.get('my_vm').suspend():
@@ -236,8 +252,12 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              print 'Failed to Hibernate VM:\n%s' % str(e)
          
          print 'Waiting for vm to reach Suspended status'
-         while api.vms.get('my_vm').status.state != 'suspended':
-             pass
+         while 1:
+             try:
+                 if api.vms.get('my_vm').status.state == 'suspended':
+                     break
+             except:
+                 pass
 
          try:
              if api.vms.get('my_vm').start():
@@ -246,8 +266,12 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              print 'Resume VM:\n%s' % str(e)
          
          print 'Waiting for vm to Resume'
-         while api.vms.get('my_vm').status.state != 'up':
-             pass
+         while 1:
+             try:
+                 if api.vms.get('my_vm').status.state == 'up':
+                     break
+             except:
+                 pass
 
          try:
              if api.vms.get('my_vm').stop():
@@ -256,8 +280,12 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              print 'Stop VM:\n%s' % str(e)
          
          print 'Waiting for vm to reach Down status'
-         while api.vms.get('my_vm').status.state != 'down':
-             pass
+         while 1:
+             try:
+                 if api.vms.get('my_vm').status.state == 'down':
+                     break
+             except:
+                 pass
 
 *   **Export vm (into Export Domain)**
 
@@ -268,8 +296,12 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              print 'Failed to export vm:\n%s' % str(e)
          
          print 'Waiting for vm to reach Down status'
-         while api.vms.get('my_vm').status.state != 'down':
-             pass
+         while 1:
+             try:
+                 if api.vms.get('my_vm').status.state == 'down':
+                     break
+             except:
+                 pass
 
 *   **Delete vm**
 
@@ -279,9 +311,13 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          except Exception as e:
              print 'Failed to remove VM:\n%s' % str(e)
          
-         print 'Waiting for vm to be actually deleted'
-         while api.vms.get('my_vm') in api.vms.list():
-            pass
+         print 'Waiting for vm to be deleted'
+         while 1:
+             try:
+                 if 'my_vm' not in [vm.name for vm in api.vms.list()]:
+                     break
+             except:
+                 pass
 
 *   **Import vm (from Export Domain)**
 
@@ -292,8 +328,12 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              print 'Failed to import VM:\n%s' % str(e)
          
          print 'Waiting for vm to reach Down status'
-         while api.vms.get('my_vm').status.state != 'down':
-            pass
+         while 1:
+             try:
+                 if api.vms.get('my_vm').status.state == 'down':
+                     break
+             except:
+                 pass
 
 *   **Create a snapshot to vm**
 
@@ -304,8 +344,12 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              print 'Failed to Create a Snapshot:\n%s' % str(e)
          
          print 'Waiting for Snapshot creation to finish'
-         while api.vms.get('my_vm').status.state == 'image_locked':
-             pass
+         while 1:
+             try:
+                 if api.vms.get('my_vm').status.state == 'image_locked':
+                     break
+             except:
+                 pass
 
 *   **Create a Template from VM**
 
@@ -314,6 +358,14 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
                  print 'Creating a Template from vm'
          except Exception as e:
              print 'Failed to Create a Template from vm:\n%s' % str(e)
+         
+         print 'Waiting for vm to reach Down status'
+         while 1:
+             try:
+                 if api.vms.get('my_vm').status.state == 'down':
+                     break
+             except:
+                 pass
 
 *   **Create VM from Template**
 
@@ -326,5 +378,9 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              print 'Failed to create VM from Template:\n%s' % str(e)
          
          print 'Waiting for vm to reach Down status'
-         while api.vms.get('my_vm_from_template').status.state != 'down':
-            pass
+         while 1:
+             try:
+                 if api.vms.get('my_vm').status.state == 'down':
+                     break
+             except:
+                 pass

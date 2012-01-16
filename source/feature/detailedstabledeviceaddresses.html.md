@@ -211,6 +211,11 @@ issues:
 Since managing this is via backend, we always assume that we get the exact Disk/Nic number as we know already.
 In case that we got a device that is nor recognized (even if it a Hot Plug) , it will be handled as a Generic Device
 
+*   Note that there's a difference between Attach / Detach, Plug / Unplug.
+    1.  Attach / Detach should cause addition / deletion of entries to vm_device table.
+    2.  Plug / Unplug should change the isPlug flag (default is null).
+        -   When a device is unplugged, it's flag is set to False, and its address should be deleted.
+
 #### Optional Disk
 
 We should support and persist an optional disk , this is implemented as a new attribute of the disk entry in the API.

@@ -27,7 +27,7 @@ The webadmin is based on the MVP framework, where:
 *   Views: webadmin project (\*View.java).
 *   Presenters: webadmin project (\*Presenter.java).
 
-Every tab consist on these trio.
+Every tab consist on this trio.
 
 #### Tab Model
 
@@ -35,11 +35,11 @@ The base model of the project is the CommonModel (resides in uicommonweb project
 
 *   ListModel class inherits from ListWithDetailsModel and implements ISupportSystemTreeContext.
 
-ListWithDetailsModel is incharge of adding sub tabs to the main tab, and ISupportSystemTreeContext add the tree navigation functionality. in ListWithDetailsModel, SyncSearch is the method that is invoked for fetching the items from the server, and setting the items (SetItems method).
+ListWithDetailsModel is in charge of adding sub tabs to the main tab, and ISupportSystemTreeContext add the tree navigation functionality. in ListWithDetailsModel, SyncSearch is the method that is invoked for fetching the items from the server, and setting the items (SetItems method).
 
 ###### Create a dialog
 
-First add a uicommad associated with it (UICommand), it the command set the method class that will be triggered upon invoking it (setEditCommand(new UICommand("Edit", this));), it will be invoked in
+First add a uicommand associated with it (UICommand), it the command set the method class that will be triggered upon invoking it (setEditCommand(new UICommand("Edit", this));), it will be invoked in
 
              @Override
              public void ExecuteCommand(UICommand command)
@@ -72,7 +72,7 @@ and then you can disable the action according the status of the model:
 
 (this means that the edit command will be enabled only when there is only one item selected) you can get the seleceted item by calling getSelectedItem().
 
-To create the dialog you need a model for it \*Model (i.e. HostModel). when Edit button is invoked Create the model and set the Window property.
+To create a dialog you need a model for it \*Model (i.e. HostModel). when Edit button is invoked Create the model and set the Window property.
 
              public void Edit()
              {
@@ -86,7 +86,7 @@ To create the dialog you need a model for it \*Model (i.e. HostModel). when Edit
                      setWindow(model);
                      ...
 
-the setWindow will open the dialog (model wise)
+the setWindow will open the dialog (model wise) - an event will be raised for the presenter to opan a new window in the view.
 
 Add to the model UICommands for closing it or submitting something to the server
 

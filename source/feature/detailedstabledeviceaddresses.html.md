@@ -214,7 +214,7 @@ In case that we got a device that is nor recognized (even if it a Hot Plug) , it
 #### Optional Disk
 
 We should support and persist an optional disk , this is implemented as a new attribute of the disk entry in the API.
-Optional flag is passed as static false in 3.1
+Optional flag is passed as **hard-coded False** in 3.1
 
 #### Direct LUN
 

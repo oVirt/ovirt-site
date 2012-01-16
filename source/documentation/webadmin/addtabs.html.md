@@ -27,19 +27,25 @@ The webadmin is based on the MVP framework, where:
 *   Views: webadmin project (\*View.java).
 *   Presenters: webadmin project (\*Presenter.java).
 
-Every tab consist on this trio.
+Every tab consists of this trio.
 
 #### Tab Model
 
-The base model of the project is the CommonModel (resides in uicommonweb project). the InitItems() method initialize all the models that are presented as main tabs, as you can see you ought to create a \*ListModel class that is the model of the tab.
+The base model of the project is the CommonModel (resides in uicommonweb project). the InitItems() method initializes all the models that are presented as main tabs. As you can see you ought to create a \*ListModel class that is the model of the tab.
 
 *   ListModel class inherits from ListWithDetailsModel and implements ISupportSystemTreeContext.
 
-ListWithDetailsModel is in charge of adding sub tabs to the main tab, and ISupportSystemTreeContext add the tree navigation functionality. in ListWithDetailsModel, SyncSearch is the method that is invoked for fetching the items from the server, and setting the items (SetItems method).
+ListWithDetailsModel is in charge of adding sub tabs to the main tab, and ISupportSystemTreeContext add the tree navigation related functionality. In ListWithDetailsModel, SyncSearch is the method that is invoked for fetching the business entities from the server and setting the items accordingly (SetItems method).
 
 ###### Create a dialog
 
-First add a uicommand associated with it (UICommand), it the command set the method class that will be triggered upon invoking it (setEditCommand(new UICommand("Edit", this));), it will be invoked in
+First add a uicommand associated with the dialog (UICommand). In the uicommand c'tor, set the "target" parameter as the class instance which contains the ExecuteCommand() method that will be triggered upon executing it (i.e. invoking its "Execute" method).
+
+E.g:
+
+             setEditCommand(new UICommand("Edit", this));
+
+it will be invoked in:
 
              @Override
              public void ExecuteCommand(UICommand command)
@@ -54,7 +60,7 @@ First add a uicommand associated with it (UICommand), it the command set the met
                      ...
              }
 
-for the action availabitlity create a method for it that will be called in the override method of OnSelectedItemChanged:
+For the action availability, create a method for it that will be called in the override method of OnSelectedItemChanged:
 
              @Override
              protected void OnSelectedItemChanged()
@@ -70,9 +76,11 @@ and then you can disable the action according the status of the model:
                      getEditCommand().setIsExecutionAllowed(getSelectedItem() != null && items.size() == 1);
                      ...
 
-(this means that the edit command will be enabled only when there is only one item selected) you can get the seleceted item by calling getSelectedItem().
+(This means that the "edit" command will be enabled only when there is only one item selected)
 
-To create a dialog you need a model for it \*Model (i.e. HostModel). when Edit button is invoked Create the model and set the Window property.
+You can get the selected item by calling getSelectedItem().
+
+To create a dialog, you need to create a model for it, named \*Model (e.g. HostModel). When the Edit command is executed, instantiate the relevant model and set the Window property accordingly. In the following example, we are instantiating the DataCenterModel:
 
              public void Edit()
              {
@@ -86,9 +94,9 @@ To create a dialog you need a model for it \*Model (i.e. HostModel). when Edit b
                      setWindow(model);
                      ...
 
-the setWindow will open the dialog (model wise) - an event will be raised for the presenter to opan a new window in the view.
+The setWindow method will "open" the dialog (model wise) - an event will be raised for the presenter to open a new window in the view.
 
-Add to the model UICommands for closing it or submitting something to the server
+Add to the model UICommands for closing the dialog and/or submitting something to the server. In the following example, we add a UICommand for saving the object ("OnSave") and another one for canceling the operation ("Cancel"):
 
                      ....
                      UICommand onSaveCommand = new UICommand("OnSave", this);
@@ -101,7 +109,7 @@ Add to the model UICommands for closing it or submitting something to the server
                      model.getCommands().add(cancelCommand);
              }
 
-As I mentioned earlier the command will be triggered in the ExecuteCommand method override of the class that passed as a parameter to the UICommand constructor
+As I mentioned earlier, the command will be triggered in the ExecuteCommand method override of the class that passed as a parameter to the UICommand constructor:
 
              @Override
              public void ExecuteCommand(UICommand command)
@@ -120,14 +128,14 @@ As I mentioned earlier the command will be triggered in the ExecuteCommand metho
                      ...
              }
 
-In order to close the popup (again model wise) you need to set the window property with null
+In order to "close" the popup (again - model wise) you need to set the window property to null:
 
              void cancel()
              {
                      setWindow(null);
              }
 
-in onSave method get the window model by getWindow().
+in onSave method get the window model by getWindow():
 
              public void onSave()
              {
@@ -138,7 +146,7 @@ in onSave method get the window model by getWindow().
                              return;
                      }
 
-inside the dialog class (i.e HostModel) use EntityModel and ListModel (represents a list/dropdown) as the field of the dialog (the is a binding mechanism for them), the value property is get/setEntiy and get/setItems respectively.
+Within the dialog model class (e.g. HostModel), use EntityModel and ListModel (represent a list/dropdown) (there is a binding mechanism for them); the value property is get/setEntiy and get/setItems respectively:
 
              private EntityModel privateName;
              public EntityModel getName()
@@ -159,6 +167,6 @@ inside the dialog class (i.e HostModel) use EntityModel and ListModel (represent
              ...
              }
 
-these entities contain event for changing (getEntityChangedEvent(), getItemsChangedEvent()), other properties like visibility (set/getIsAvailable()), enabled (set/getIsChangable()), Validation (ValidateEntity(new IValidation[] { new NotEmptyValidation(), tempVar, tempVar2 });, .getIsValid()) and more.
+These entities contain event for changing (getEntityChangedEvent(), getItemsChangedEvent()), other properties like visibility (set/getIsAvailable()), enabled (set/getIsChangable()), Validation (ValidateEntity(new IValidation[] { new NotEmptyValidation(), tempVar, tempVar2 });, getIsValid()) and more.
 
 #### Tab Presenter & View

@@ -44,6 +44,15 @@ There is a bot (ovirtbot) in the #ovirt IRC channel that can be used for running
 *   2012-01-04
     -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-04-15.01.html)
     -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-04-15.01.log.html)
+*   2011-12-21
+    -   [Minutes](http://ovirt.org/meetings/ovirt/2011/ovirt.2011-12-21-15.00.html)
+    -   [Full log](http://ovirt.org/meetings/ovirt/2011/ovirt.2011-12-21-15.00.log.html)
+*   2011-12-14
+    -   [Minutes](http://ovirt.org/meetings/ovirt/2011/ovirt.2011-12-14-15.00.html)
+    -   [Full log](http://ovirt.org/meetings/ovirt/2011/ovirt.2011-12-14-15.00.log.html)
+*   2011-12-07
+    -   [Minutes](http://ovirt.org/meetings/ovirt/2011/ovirt.2011-12-07-15.00.html)
+    -   [Full log](http://ovirt.org/meetings/ovirt/2011/ovirt.2011-12-07-15.00.log.html)
 *   2011-11-16
     -   [Minutes](http://ovirt.org/meetings/ovirt/2011/ovirt.2011-11-16-15.00.html)
     -   [Full log](http://ovirt.org/meetings/ovirt/2011/ovirt.2011-11-16-15.00.log.html)

@@ -47,7 +47,7 @@ TBD
 
 #### Resolved Issues
 
-*   BZ 766287
+*   [BZ 766287](http://bugzilla.redhat.com/766287)
 
 #### Known Issues
 

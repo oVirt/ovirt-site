@@ -22,11 +22,11 @@ The cow format is used mainly for three tasks:
 
 An example of a thin provisioned image:
 
-      [img1]: [vol1(cow)]
+![](LiveSnapshot_ThinProvisionImage.png "LiveSnapshot_ThinProvisionImage.png")
 
 An example of a snapshots:
 
-      [img1]: [vol1(raw)] <- [vol2(cow)]
+![](LiveSnapshot_SnapshotImage.png‎ "LiveSnapshot_SnapshotImage.png‎")
 
 #### The Need for Live Tasks
 
@@ -95,16 +95,7 @@ At the moment there is no suggestion to change the interface, the backend is res
 
 ## Live Snapshot Flow
 
-      Manager                   SPM   HSM
-      --+----                   -+-   -+-
-        |                        |     |
-        +----| createVolume |--> +     |
-        +----|     ...      |--> +     |
-        +----| createVolume |--> +     |
-        |                        |     |
-        +----| snapshot |--------|---> +
-        |                        |     |
-        V                        V     V
+![](LiveSnapshot RequestFlow.png "LiveSnapshot RequestFlow.png")
 
 *   **createVolume:** regular SPM calls to create snapshot volumes (one for each image the VM is using)
 *   **snapshot:** HSM call used to let the VM switch to the new volumes

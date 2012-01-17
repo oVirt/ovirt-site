@@ -168,7 +168,7 @@ In case you would like to test a product with a new test case, there is a templa
 ## What to do as a participant
 
 *   If you already have the hardware, verify if it meets the hardware requirement, refer information detail section below
-*   Update the Participants section in First Test Day Execution and Report document.
+*   Update the Participants section.
 *   Accomplish the goals set in objective section , run the tests, update the test matrix.
 *   Running into any issues - contact any participant in the list
 

@@ -587,7 +587,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
         except:
             pass
 
-    time.sleep(20) # workaround for https://bugzilla.redhat.com/show_bug.cgi?id=766291
+    time.sleep(20) # workaround for bug that vm is reported as Up before it's actually Up
 
     # Hibernate VM
 
@@ -621,7 +621,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
         except:
             pass
 
-    time.sleep(20) # workaround for https://bugzilla.redhat.com/show_bug.cgi?id=766291
+    time.sleep(20) # workaround for bug that vm is reported as Up before it's actually Up
 
     # Stop VM
 

@@ -79,9 +79,9 @@ The main VDSM problems and limitations today are:
 
 <!-- -->
 
-*   Libvirt should make sure that the "change disks" operation is atomic.
-    -   Bugzilla: [...]
-    -   VDSM Patch: n/a
+*   Libvirt should make sure that the snapshot operation is consistent (fail or succeed for all the drives)
+    -   **Bugzilla:** <https://bugzilla.redhat.com/show_bug.cgi?id=782457>
+    -   VDSM Patch: (not required)
 
 <!-- -->
 

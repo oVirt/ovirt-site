@@ -33,6 +33,8 @@ TBD
 
 ### Known Issues
 
+Only one instance of proxy to API can be created in application
+
 ## CLI
 
 TBD

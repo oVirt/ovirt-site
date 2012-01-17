@@ -52,13 +52,13 @@ Test Days are open to anyone. If you have your own setup we will provide all the
 
 The overall test dates are spread across multiple duration which are driven by the beta releases from the engineering. The following are the list of test days scheduled -
 
-*   JAN 16th, 2012 - First Release
+*   JAN 18th, 2012 - First Release
 
 ## Summary of Test Days Results
 
 | Test Day | No. Registered Participants | total bugs | bugs list |
 |----------|-----------------------------|------------|-----------|
-| 16JAN    |                             |            |           |
+| 18JAN    |                             |            |           |
 
 ## Execution Plan and Guidelines
 

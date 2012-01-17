@@ -180,3 +180,5 @@ In case you would like to test a product with a new test case, there is a templa
 *   Spice - <https://bugs.freedesktop.org/> under Spice product
 
 ## Miscellaneous
+
+IRC - #ovirt at irc.oftc.net

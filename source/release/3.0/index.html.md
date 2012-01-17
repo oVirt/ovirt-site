@@ -43,6 +43,11 @@ TBD
 
 ### Known Issues
 
+yet not supported:
+
+*   history
+*   auto completion
+
 ## Engine
 
 TBD

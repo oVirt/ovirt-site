@@ -94,6 +94,16 @@ The Power User Portal should allow the following operations:
 *   View shared disks for storage domain in the Data Center the power user can attach/detach
 *   The power user will not have permissions to create a shared disk from the user portal.
 
+The following UI mockups contain guidelines for the different screens and wizards:
+
+![](grid_vmvdisks.png "grid_vmvdisks.png")
+
+![](grid_storageshared_virtual_disks.png "grid_storageshared_virtual_disks.png")
+
+![](attach_dialogue.png "attach_dialogue.png")
+
+![](new_disk.png "new_disk.png")
+
 ### Dependencies / Related Features and Projects
 
 Attaching shared disk will not consume new Quota resource. Affected oVirt projects:

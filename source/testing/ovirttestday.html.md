@@ -168,11 +168,9 @@ In case you would like to test a product with a new test case, there is a templa
 ## What to do as a participant
 
 *   If you already have the hardware, verify if it meets the hardware requirement, refer information detail section below
-*   If you do not have the hardware and would like to participate, please select the hardware available ( refer allocated hardware section below )
-*   Update the Participants section in First Test Day Execution and Report document. If you are using the lab resources, please update the IP addresses and duration to avoid overallocation.
+*   Update the Participants section in First Test Day Execution and Report document.
 *   Accomplish the goals set in objective section , run the tests, update the test matrix.
-*   Running into any issues - contact any participant in the list - First Test Execution and Report maintains the list automatically when you sign up
-*   ping iirc channels #zzz, as an alternative - send an email to ovirt-zzz list.
+*   Running into any issues - contact any participant in the list
 
 ## Bug Reporting
 

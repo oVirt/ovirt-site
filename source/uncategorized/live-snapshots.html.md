@@ -163,6 +163,27 @@ Live snapshots operation extend regular snapshots as follow:
 
 *   If the user will try to do a prohibited action, he will get a "can do action" failure that describes that it can't be done while snapshot is in progress, so he should wait.
 
+### Libvirt Flow
+
+Libvirt flow using [pesudocode](http://en.wikipedia.org/wiki/Pseudocode), **Bugzilla:** <https://bugzilla.redhat.com/show_bug.cgi?id=782457>
+
+      def vm_live_snapshot(vm):
+          vm_suspend(vm)
+          for d in vm_drives(vm):
+              r = vm_drive_snapshot(vm, d)
+              if r == FAILURE:
+                  for j in c:
+                      vm_drive_rollback(vm, j)
+                  vm_resume(vm)
+                  return FAILURE
+              c += d
+          vm_resume(vm)
+          return SUCCESS
+
+### QEMU Requirements and Limitations
+
+*   **Drive backend change**: snapshot_blkdev (or a new verb) should support a way to re-use a pre-existing qcow2 volume. This is required for the **vm_drive_rollback** verb described in the Libvirt Flow.
+
 ### Recovery Paths: Live Snapshot
 
 *   **Scenario 1:** one of the createVolume calls fails. The manager should decide to keep trying or rollback the created volumes.

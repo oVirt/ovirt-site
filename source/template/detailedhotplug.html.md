@@ -48,6 +48,10 @@ No new operation will be added, an update will be done by using of existing stor
 
 #### User Experience
 
+The following UI mockup contain guidelines for VMs->Disks sub-tab:
+
+![](Vm_disks_hotplug.png "Vm_disks_hotplug.png")
+
 #### Installation/Upgrade
 
 An upgrade script will add a missed fields to the table disks and view images. The tables can be changed in the future, because of changes at schema which are currently is done due to development of different features.

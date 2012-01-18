@@ -101,6 +101,7 @@ Note that the CPU type should be chosen according to your host's CPU.
          
          sdParams = params.StorageDomain(name='my_iscsi',
                            data_center=api.datacenters.get('my_datacenter'),
+                           storage_format='v2',
                            type_='data',
                            host=api.hosts.get('my_host'),
                            storage = params.Storage(type_='iscsi',

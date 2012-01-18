@@ -33,8 +33,8 @@ This feature will let users of oVirt engine to create a VM based on a given snap
 6.The original VM configuration for a given snapshot will be retrieved by the UI , using a dedicated query carried out on oVirt-engine core
 7.The user will be be able to select different storage domains to hold the destination disks and to change their drive mapping,volume type and format.
 8. If a disk that an image of it appeared in the snapshot chain is deleted, upon clone vm from snapshot, the images of the disk will not be copied (the cloned VM will not have a copy of the disk) and a proper event should be logged.
-9. If a shared disk that an image of it appears in the snapshot chain becomes non shared after snapshot is performed, the clone will not contain a copy of the disk.
-10. For a disk residing on direct LUN, the disk is recognized as VM device, and should be copied as VM device as a part of copying all other VM devices of the source VM
+9. A shared disk that is a part of the clone VM from snapshot operation should be unplugged at the destination VM. It is the responsablity of the user to plug it, if desired.
+10. For a disk residing on direct LUN, the feature still need to be defined.
 
 ### Benefit to oVirt
 

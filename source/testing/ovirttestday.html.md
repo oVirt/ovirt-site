@@ -70,15 +70,14 @@ The following is the list of categories which we would like to focus on. However
 
 You need at least two physical servers to install and configure a basic yet complete oVirt environment with shared storage to exercise the following:
 
-| Scenario                                                                                                                                                                                                              | Bugs                               |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|
-| Setup oVirt engine using either Active Directory or Local IPA, two hosts configured as hypervisors (Fedora / Ovirt-Node / other) with power management (Storage Domains - Data Domain / ISO Domain and Export Domain) |                                    |
-| Use ISO Uploader to populate images of OS and tools                                                                                                                                                                   |                                    |
-| Basic Network Configuration                                                                                                                                                                                           |                                    |
-| Create virtual machines and assign them to users                                                                                                                                                                      |                                    |
-| Migrate Virtual Machines between the hypervisors                                                                                                                                                                      |                                    |
-| Collect log file using the log collector tool                                                                                                                                                                         |                                    |
-| ovirt-cli                                                                                                                                                                                                             | 781821,782705,782707,782713,782734 |
+| Scenario                                                                                                                                                                                                              | Bugs |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
+| Setup oVirt engine using either Active Directory or Local IPA, two hosts configured as hypervisors (Fedora / Ovirt-Node / other) with power management (Storage Domains - Data Domain / ISO Domain and Export Domain) |      |
+| Use ISO Uploader to populate images of OS and tools                                                                                                                                                                   |      |
+| Basic Network Configuration                                                                                                                                                                                           |      |
+| Create virtual machines and assign them to users                                                                                                                                                                      |      |
+| Migrate Virtual Machines between the hypervisors                                                                                                                                                                      |      |
+| Collect log file using the log collector tool                                                                                                                                                                         |      |
 
 ### Configuration
 

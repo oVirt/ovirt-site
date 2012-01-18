@@ -56,8 +56,9 @@ Describe how the feature will effect new installation or existing one.
 Example of flow (assuming a VM was created with two disks):
 ![](Clone flow 1.jpg "fig:Clone flow 1.jpg")
 The next figure shows a snapshot was made, having now two images serving as the active images:
- flow2.jpg In a similar way, more snapshots are created (Snaphost2 will be the one used for performing the clone):
-flow3.jpg
+ ![](Clone flow 2.jpg "fig:Clone flow 2.jpg")
+In a similar way, more snapshots are created (Snaphost2 will be the one used for performing the clone):
+![](Clone flow 3.jpg "fig:Clone flow 3.jpg")
 
 The Clone from snapshot will performed:
  .1. A user selects snapshot2 and selects a "clone from snapshot" operation from UI.
@@ -68,7 +69,7 @@ The Clone from snapshot will performed:
 .6. Copy & collapse all images at snaphsot2 and their ancestors will be carried out by oVirt-engine
 .7. Association the copies of the disks with the VM clone will be created
  This can be seen in the next figure:
-flow4.jpg
+![](Clone flow 4.jpg "fig:Clone flow 4.jpg")
 
 #### Events
 

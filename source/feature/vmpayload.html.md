@@ -45,11 +45,13 @@ Notes:
 2.  The may be multiple payloads
 3.  All payloads will be passed in the same method
 
-Vdsm verb: { 'iso': [{'filename': 'content' }, {'filename': 'content'}],
+Vdsm verb:
 
-       'floppy': [{'filename': 'content' }, {'filename': 'content'}],
-       'sysprep': {'filename': 'content' },
-       'network': '...' }
+      { 'iso': [{'filename': 'content' }, {'filename': 'content'}],
+        'floppy': [{'filename': 'content' }, {'filename': 'content'}],
+        'sysprep': {'filename': 'content' },
+        'network': '...' } 
+       
 
 ### User work-flows
 

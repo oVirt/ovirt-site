@@ -29,7 +29,7 @@ Execute the following command:
 
 #### Cleanup
 
-**Before every installation**, you should run the cleanup utility:
+**Before every re-installation**, you should run the cleanup utility:
 
       engine-cleanup
        

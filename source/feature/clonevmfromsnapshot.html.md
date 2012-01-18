@@ -8,13 +8,11 @@ wiki_revision_count: 30
 wiki_last_updated: 2012-04-01
 ---
 
-# Clone Vm From Snapshot
-
-## Task Manager
+# Clone VM from snapshot
 
 ### Summary
 
-A Task Manager is a monitor which shows the current actions running in ovirt-engine and tracks their progress. It also capable of presenting completed commands for a configure period of time.
+This feature will let users of oVirt engine to create a VM based on a given snapshot
 
 ### Owner
 
@@ -27,7 +25,7 @@ A Task Manager is a monitor which shows the current actions running in ovirt-eng
 
 ### Detailed Description
 
-A Task Manager is a monitor which shows the current actions running in ovirt-engine server. It provides transparency for the administrator regarding the actions, their status and progress. Usually, each action invoked by a user will be monitored by the Task Manager. It will be achieved by representing each action as an entry in the Tasks view of the Webadmin.
+A user will be able to create snapshots for a given virtual machine, and then to select a given snapshot and peform a clone of the VM. The disks of the cloned VM will represent a "collapsed" state of the selected snapshot (i.e: If the user selected to clone from the N-th snapshot, the disks of the cloned VM will be created by copying images from the snapshot chain of the first snapshot till the Nth snapshot, and then collapsing them). The user will be be able to select different storage domains to hold the destination disks and to change their volume type and format. The user will also be able to provide VM information (such as VM name) which will be based on the VM information of the original VM.
 
 ### Benefit to oVirt
 

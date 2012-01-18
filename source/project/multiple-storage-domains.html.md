@@ -48,7 +48,7 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 | Import a VM                 | 2                     | X       | X        | X        |            |
 | Move a Disk                 | 4                     |         |          |          |            |
 | import template             | 2                     | X       | X        | X        |            |
-| clone template              | 2                     |         |          |          |            |
+| clone template              | 2                     | N/A     | N/A      | N/A      | N/A        |
 | verify export VM            | 1                     | X       | X        | X        | N/A        |
 | verify delete VM            | 1                     | X       | X        | X        | N/A        |
 | verify remove disk          | 1                     | X       | X        | X        | N/A        |
@@ -62,8 +62,8 @@ Allow VMs to have disks on multiple storage domains within their Data Center.
 | Jan 11 | 2.5                 | 2                        | 12                     | 12.5                          |
 | Jan 12 | 2.5                 | 0                        | 12                     | 10                            |
 | Jan 13 | 2.5                 | 4                        | 8                      | 7.5                           |
-| Jan 16 | 2.5                 |                          |                        | 5                             |
-| Jan 17 | 2.5                 |                          |                        | 2.5                           |
+| Jan 16 | 2.5                 | 4                        | 4                      | 5                             |
+| Jan 17 | 2.5                 | 0                        | 4                      | 2.5                           |
 | Jan 18 | 2.5                 |                          |                        | 0                             |
 
 *   Issues

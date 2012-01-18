@@ -44,21 +44,22 @@ There are a few options to model that:
 1.  Use current Floppy/CD attachment options:
     -   In floppy allow to attach either sysprep or payload
     -   In CD allow to attach either an ISO, or a payload
+    -   There will be a single attachment or payload per device type (floppy, CD)
 
 2.  Add a payload in addition to the current Floppy/CD attachment options:
     -   Add a Payload option, in which you choose whether to pass the payload via CD or floppy (the passing method)
     -   In floppy allow to attach a payload
     -   In CD allow to attach a payload
     -   Both the payload and the attachment are used
+    -   There may be multiple payloads, and multiple passing options at the same time\\
+    -   There will be a single attachment and/or multiple payloads per device type (floppy, CD)
 
 Notes:
 
-1.  The payload data will be encoded using base64 encoding. The engine will decode the data, and payload it via the required method
-2.  The may be multiple payloads, and multiple passing options at the same time
-3.  All payloads will be passed in the same method
-4.  We will currently focus on the CD/floppy passing methods
-5.  With either options, the engine and VDSM API will be general enough to allow adding other passing methods in the future
-6.  The Modelling of this feature will include OVF schema changes as well
+1.  The payload data will be encoded using base64 encoding.
+2.  All payloads will be passed in the current VDSM create verb
+3.  With either options, the engine API and VDSM API will be general enough to allow adding other passing methods in the future
+4.  The Modelling of this feature will include OVF schema changes as well
 
 ### Benefit to oVirt
 

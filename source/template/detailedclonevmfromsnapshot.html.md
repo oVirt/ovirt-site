@@ -34,19 +34,18 @@ A clone from snapshot will create disks at destination VM that are a collapsed c
 
 ### Detailed Description
 
-Provide the details of the feature. What is it going to include. See the sub-sections below. This section may contain more sub-sections, depends on the oVirt projects relevant for this feature.
+Clone VM from Snapshot will give the ability to perform a clone of a VM , based on a snapshot of a given VM.
+oVirt-engine core will copy and collapse the images in the snapshot chain (the chain begins with the 1st snapshot, and ends with the selected snapshot).
+In order to provide information on the VM to be created for the UI, UI will execute a query that will retrieve the VM and its disks configuration given a snapshot ID.
+The UI will use the retrieved configuration as default values for the user to be modified.
 
 #### Entity Description
 
-New entities and changes in existing entities.
-
 #### CRUD
-
-Describe the create/read/update/delete operations on the entities, and what each operation should do.
 
 #### User Experience
 
-Describe user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should also be added here to make it more clear
+The UI will run a query called GetVmConfigurationBySnapshotID in order to get a VM configuration for a given snapshot. The UI should present a window holding the configuration data. The configuration data will be used as defaults for the user, and the user may alter the data. The UI should present the disks list. The UI should allow to select different storage domains to hold the disks created upon clone, and to select different disks types and format.
 
 #### Installation/Upgrade
 

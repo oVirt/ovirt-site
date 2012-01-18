@@ -282,6 +282,10 @@ to update the code and take latest, you need to do:
       $> cd $OVIRT_HOME/backend/manager/dbscripts/
       $> ./upgrade.sh -u postgres
 
+## Is there an IDE?
+
+Yes! Take a look in: [Building_Ovirt_Engine/IDE](Building_Ovirt_Engine/IDE)
+
 ## More information
 
 *   Engine setup on Gentoo can be found here: <https://wiki.gentoo.org/wiki/OVirt>

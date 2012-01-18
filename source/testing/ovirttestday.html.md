@@ -125,7 +125,7 @@ by default we'll be using the webadmin as our API for testing on this section we
 |--------------------------------|----------|------------|--------|------------|---------------|
 | Create a data-center           |          |            |        |            |               |
 | Create a cluster               |          |            |        |            | 782713        |
-| Update cluster                 |          |            |        |            | 782828        |
+| Update cluster                 |          |            |        | 782828     |               |
 | Install a host                 |          |            | 782737 |            | 782734,782734 |
 | Create a storage domain on DC  |          |            |        |            |               |
 | Attach export/ISO domain to DC |          |            |        |            |               |

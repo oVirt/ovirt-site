@@ -131,6 +131,7 @@ by default we'll be using the webadmin as our API for testing on this section we
 | Create a storage domain on DC  |          |            |        |            |               |
 | Attach export/ISO domain to DC |          |            |        |            |               |
 | Create vm                      |          | 782794     |        |            |               |
+| Delete vm                      |          |            |        | 782830     |               |
 | Import vm                      | 782717,  |            |        |            |               |
 | Start/hibernate/resume/stop vm |          |            |        |            |               |
 | Create a snapshot to vm        |          |            |        |            |               |

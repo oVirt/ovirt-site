@@ -60,7 +60,7 @@ flow3.jpg
 
 The Clone from snapshot will performed:
  .1. A user selects snapshot2 and selects a "clone from snapshot" operation from UI.
- 2. oVirt-engine core queries for VM configuration, providing the VM configuration as default values for the user to use in order to provide the new VM information.
+.2. oVirt-engine core queries for VM configuration, providing the VM configuration as default values for the user to use in order to provide the new VM information.
 .3. The user will override the default data values (the user will have to provide a new name. UI will suggest a new name in a format of "copy_of_OLD_NAME")
 .4. The user will initiate the beginning of the clone operation. .5. New VM entity based on the passed data will be created. Some VM related data will be cloned from the original VM (i.e NICs) .6. Copy & collapse all images at snaphsot2 and their ancestors will be carried out by oVirt-engine
 .7. Association the copies of the disks with the VM clone will be created

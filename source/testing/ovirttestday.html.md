@@ -121,20 +121,20 @@ You need at least two physical servers to install and configure a basic yet comp
 
 by default we'll be using the webadmin as our API for testing on this section we'll try to have default deployment with the different APIs
 
-| Scenario                       | Webadmin | UserPortal | Rest   | Python-SDK | CLI |
-|--------------------------------|----------|------------|--------|------------|-----|
-| Create a data-center           |          |            |        |            |     |
-| Create a cluster               |          |            |        |            |     |
-| Install a host                 |          |            | 782737 |            |     |
-| Create a storage domain on DC  |          |            |        |            |     |
-| Attach export/ISO domain to DC |          |            |        |            |     |
-| Create vm                      |          | 782794     |        |            |     |
-| Import vm                      | 782717,  |            |        |            |     |
-| Start/hibernate/resume/stop vm |          |            |        |            |     |
-| Create a snapshot to vm        |          |            |        |            |     |
-| Create a template from vm      |          |            |        |            |     |
-| Create vm from template        |          |            |        |            |     |
-| Sign out                       | 782779,  |            |        |            |     |
+| Scenario                       | Webadmin | UserPortal | Rest   | Python-SDK | CLI           |
+|--------------------------------|----------|------------|--------|------------|---------------|
+| Create a data-center           |          |            |        |            |               |
+| Create a cluster               |          |            |        |            | 782713        |
+| Install a host                 |          |            | 782737 |            | 782734,782734 |
+| Create a storage domain on DC  |          |            |        |            |               |
+| Attach export/ISO domain to DC |          |            |        |            |               |
+| Create vm                      |          | 782794     |        |            |               |
+| Import vm                      | 782717,  |            |        |            |               |
+| Start/hibernate/resume/stop vm |          |            |        |            |               |
+| Create a snapshot to vm        |          |            |        |            |               |
+| Create a template from vm      |          |            |        |            |               |
+| Create vm from template        |          |            |        |            |               |
+| Sign out                       | 782779,  |            |        |            |               |
 
 Python API of the above scenarios can be found in: <http://www.ovirt.org/wiki/Testing/PythonApi>
 

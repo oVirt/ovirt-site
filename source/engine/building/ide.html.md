@@ -26,8 +26,50 @@ of 'esc'+':' combination ;)
 
 ### Eclipse
 
+#### Use case
+
 *   Recommended due to JBoss integration.
+*   May be used with Pythone as well: <http://wiki.python.org/moin/EclipsePythonIntegration>
 *   Current Eclipse release is Indigo Service Release 1.
     -   Available from <http://www.eclipse.org/downloads/>
     -   Use the J2EE for developers.
-*   For Maven integration add the Sonatype to the installation sites: <http://m2eclipse.sonatype.org/sites/m2e/>
+
+#### Some more work...
+
+*   Fix maven version
+
+<!-- -->
+
+    >> open Windows --> 
+       Preferences --> 
+       Maven --> 
+       Installations
+    >> Choose 2.2 installation. If it's not there, use the 'add' button and add the path to your maven 2.2 installation.
+
+*   Install maven plugin to eclipse
+    -   Note: Make sure you use m2e version 0.12.XXX as later versions do not work well with maven 2.2.
+
+<!-- -->
+
+    >> open help --> 
+       install new software --> 
+       click 'add' and place the following url http://m2eclipse.sonatype.org/sites/m2e 
+    >> check all components, install and restart eclipse at the end
+
+*   Import sources:
+
+<!-- -->
+
+    >> file --> 
+       import --> 
+       Maven --> 
+       Existing Maven Projects --> 
+       browse into your engine sources direcotry and click OK
+
+### NetBeans
+
+*   If you use it, feel free to fill-in.
+
+### Others
+
+*   Same as Net Beans...

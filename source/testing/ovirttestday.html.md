@@ -92,7 +92,7 @@ You need at least two physical servers to install and configure a basic yet comp
 | Scenario                                                                                                            | Bugs                                                                         |
 |---------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
 | Use the General configuration as a base configuration                                                               |                                                                              |
-| Create different types of storage domains (NFS, ISCSI, FC, local storage) with 2 or more data domains               | FAILED for extend -- [1](https://bugzilla.redhat.com/show_bug.cgi?id=773694) |
+| Create different types of storage domains (NFS, ISCSI, FC, local storage) with 2 or more data domains               | FAILED for extend -- [1](https://bugzilla.redhat.com/show_bug.cgi?id=782432) |
 | Install at least 2 VMs on each of the Data Centers                                                                  |                                                                              |
 | Move the master domain to a different domain within the Data Center                                                 |                                                                              |
 | Export one of the installed VMs, delete it, import it to another Data Center                                        |                                                                              |

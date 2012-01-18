@@ -25,11 +25,16 @@ This feature will let users of oVirt engine to create a VM based on a given snap
 
 ### Detailed Description
 
-A user will be able to create snapshots for a given virtual machine, and then to select a given snapshot and peform a clone of the VM.
-The disks of the cloned VM will represent a "collapsed" state of the selected snapshot
-(i.e: If the user selected to clone from the N-th snapshot, the disks of the cloned VM will be created by copying images from the snapshot chain of the first snapshot till the Nth snapshot, and then collapsing them).
-The user will be be able to select different storage domains to hold the destination disks and to change their volume type and format.
-The user will also be able to provide VM information (such as VM name) which will be based on the VM information of the original VM.
+1.A user will be able to create snapshots for a given virtual machine, and then to select a given snapshot and perform a clone of the VM.
+2.The disks of the cloned VM will represent a "collapsed" state of the selected snapshot
+3.A clone can be performed on a VM regardless of its status (i.e - can be performed if a VM is UP or down as long as the images are available)
+4.In order to prevent concurrent flows from modifying the original images that relate to the snapshot chain will the clone is taking place, these images should be locked
+5.The user will also be able to provide VM information (such as VM name) which will be based on the VM information of the original VM.
+6.The original VM configuration for a given snapshot will be retrieved by the UI , using a dedicated query carried out on oVirt-engine core
+7.The user will be be able to select different storage domains to hold the destination disks and to change their drive mapping,volume type and format.
+8. If a disk that an image of it appeared in the snapshot chain is deleted, upon clone vm from snapshot, the images of the disk will not be copied (the cloned VM will not have a copy of the disk) and a proper event should be logged.
+9. If a shared disk that an image of it appears in the snapshot chain becomes non shared after snapshot is performed, the clone will not contain a copy of the disk.
+10. For a disk residing on direct LUN, the disk is recognized as VM device, and should be copied as VM device as a part of copying all other VM devices of the source VM
 
 ### Benefit to oVirt
 

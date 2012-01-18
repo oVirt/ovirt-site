@@ -170,3 +170,97 @@ Within the dialog model class (e.g. HostModel), use EntityModel and ListModel (r
 These entities contain event for changing (getEntityChangedEvent(), getItemsChangedEvent()), other properties like visibility (set/getIsAvailable()), enabled (set/getIsChangable()), Validation (ValidateEntity(new IValidation[] { new NotEmptyValidation(), tempVar, tempVar2 });, getIsValid()) and more.
 
 #### Tab Presenter & View
+
+##### Create a Tab
+
+###### Tab Presenter
+
+Create a MainTab\*Presenter.java class as your tab presenter (e.g. MainTabHostPresenter.java)
+
+             public class MainTabVolumePresenter extends AbstractMainTabWithDetailsPresenter`<GlusterVolume, VolumeListModel, MainTabVolumePresenter.ViewDef, MainTabVolumePresenter.ProxyDef>` {
+
+in the generics supply your entity class (GlusterVolume, VDS), model class (VolumeListModel, HostListModel), and the intefaces that the GWTP enforce (ViewDef & ProxyDef)
+
+             @ProxyCodeSplit
+             @NameToken(ApplicationPlaces.volumeMainTabPlace)
+             public interface ProxyDef extends TabContentProxyPlace`<MainTabVolumePresenter>` {
+             }
+             public interface ViewDef extends AbstractMainTabWithDetailsPresenter.ViewDef`<GlusterVolume>` {
+             }
+
+Within that class supply a static method that insert it to the TabContainer:
+
+             @TabInfo(container = MainTabPanelPresenter.class)
+             static TabData getTabData(ClientGinjector ginjector) {
+                     return new ModelBoundTabData(ginjector.getApplicationConstants().volumeMainTabLabel() //the label of the tab
+                             , 4, //the order of the tab in the container
+                             ginjector.getMainTabVolumeModelProvider()); // the data provider of the tab
+             }
+
+Implement other method of the presenter (also create an event class for the tab, e.g. VolumeSelectionChangeEvent, pretty straight forward):
+
+             @Override
+             protected void fireTableSelectionChangeEvent() {
+                     VolumeSelectionChangeEvent.fire(this, getSelectedItems()); //create a class *SelectionChangeEvent.java)
+             }
+
+             @Override
+             protected PlaceRequest getMainTabRequest() {
+                     return new PlaceRequest(ApplicationPlaces.volumeMainTabPlace);
+             }
+             @Override
+             protected PlaceRequest getDefaultSubTabRequest() {
+                     return new PlaceRequest(ApplicationPlaces.volumeGeneralSubTabPlace); //the sub tab default tab
+             }
+
+###### Default Tab
+
+In SystemModule.java set the default place to be the main tab that you want to be displayed on startup (e.g. hostMainTabPlace)
+
+              bindConfiguration() {
+                       bindConstant().annotatedWith(DefaultLoginSectionPlace.class).to(ApplicationPlaces.loginPlace);
+                       bindConstant().annotatedWith(DefaultMainSectionPlace.class).to(ApplicationPlaces.hostMainTabPlace);
+                       bind(ApplicationConstants.class).in(Singleton.class);
+
+And another enum item (enum ApplicationPlaces) for your new place link the enum item to the tab presenter:
+
+              @ProxyCodeSplit
+              @NameToken(ApplicationPlaces.hostMainTabPlace)
+              public interface ProxyDef extends TabContentProxyPlace`<MainTabHostPresenter>` {
+              }
+
+###### View
+
+###### gin
+
+Add to gin/ManagedComponent.java the proxy to get the tab presenter, and also the proxy to get the model linkage (ModelProvider.java):
+
+              AsyncProvider`<MainTabVolumePresenter>` getMainTabVolumePresenter();
+              
+              MainModelProvider`<GlusterVolume, VolumeListModel>` getMainTabVolumeModelProvider();
+
+Bind the view and model:
+
+             bindPresenter(MainTabVolumePresenter.class,
+                     MainTabVolumePresenter.ViewDef.class,
+                     MainTabVolumeView.class,
+                     MainTabVolumePresenter.ProxyDef.class);
+
+Create a new Module for you new tab (\*Module.java, e.g. HostModule.java): implement the protected methods getModelPopup(1) & getConfirmModelPopup(1), in order to open other sets of popup when invoking the Window/ConfirmWindow properties:
+
+             @Provides
+             @Singleton
+             public MainModelProvider`<GlusterVolume, VolumeListModel>` getVolumeListProvider(ClientGinjector ginjector) {
+                     return new MainTabModelProvider`<GlusterVolume, VolumeListModel>`(ginjector, VolumeListModel.class) {
+                     @Override
+                     protected AbstractModelBoundPopupPresenterWidget`<? extends Model, ?>` getModelPopup(UICommand lastExecutedCommand) {
+                             return super.getModelPopup(lastExecutedCommand);
+                     }
+
+                     @Override
+                     protected AbstractModelBoundPopupPresenterWidget`<? extends ConfirmationModel, ?>` getConfirmModelPopup(UICommand lastExecutedCommand) {
+                             return super.getConfirmModelPopup(lastExecutedCommand);
+                     }
+             };
+
+You can get the Model class by calling getModel().

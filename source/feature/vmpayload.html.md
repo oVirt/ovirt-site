@@ -30,7 +30,7 @@ There are many cases in which there is a need to pass a payload to a VM. For exa
 The payload options are:
 
 1.  Availability
-    -   Permenant payload - payload which will be available in the guest at all times
+    -   Permanent payload - payload which will be available in the guest at all times
     -   Temporary payload - via "run-once" - will be available only when running the guest via the run-once option
     -   No payloads - the VM won't get any payload upon startup/run-once
 
@@ -44,6 +44,12 @@ Notes:
 1.  The payload data will be encoded using base64 encoding. The engine will decode the data, and payload it via the required method.
 2.  The may be multiple payloads
 3.  All payloads will be passed in the same method
+
+Vdsm verb: { 'iso': [{'filename': 'content' }, {'filename': 'content'}],
+
+       'floppy': [{'filename': 'content' }, {'filename': 'content'}],
+       'sysprep': {'filename': 'content' },
+       'network': '...' }
 
 ### User work-flows
 

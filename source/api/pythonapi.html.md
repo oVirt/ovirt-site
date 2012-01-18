@@ -457,6 +457,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
 
     sdParams = params.StorageDomain(name='my_iscsi',
                      data_center=api.datacenters.get('my_datacenter'),
+                     storage_format='v2',
                      type_='data',
                      host=api.hosts.get('my_host'),
                      storage = params.Storage(type_='iscsi',

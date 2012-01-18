@@ -89,21 +89,21 @@ You need at least two physical servers to install and configure a basic yet comp
 
 ### Storage
 
-| Scenario                                                                                                            | Bugs                                                                         |
-|---------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
-| Use the General configuration as a base configuration                                                               |                                                                              |
-| Create different types of storage domains (NFS, ISCSI, FC, local storage) with 2 or more data domains               | FAILED for extend -- [1](https://bugzilla.redhat.com/show_bug.cgi?id=782432) |
-| Install at least 2 VMs on each of the Data Centers                                                                  |                                                                              |
-| Move the master domain to a different domain within the Data Center                                                 |                                                                              |
-| Export one of the installed VMs, delete it, import it to another Data Center                                        |                                                                              |
-| Create a template from one of the VMs and then create a new VM based on this template                               |                                                                              |
-| Move the newly created VM to another data domain                                                                    |                                                                              |
-| Create several snapshots from a VM (Each time change something in the guest)                                        |                                                                              |
-| Restore a previous snapshot                                                                                         |                                                                              |
-| Storage Failovers                                                                                                   |                                                                              |
-| Host Failovers                                                                                                      |                                                                              |
-| Power User Portal provides power users the ability to create and manage virtual machines from the power user portal |                                                                              |
-| High Availability scenarios provides instructions to configure virtual machine and host high availability           |                                                                              |
+| Scenario                                                                                                            | Bugs                                                                                         |
+|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| Use the General configuration as a base configuration                                                               |                                                                                              |
+| Create different types of storage domains (NFS, ISCSI, FC, local storage) with 2 or more data domains               | FAILED for extend domain in iscsi -- [1](https://bugzilla.redhat.com/show_bug.cgi?id=782432) |
+| Install at least 2 VMs on each of the Data Centers                                                                  |                                                                                              |
+| Move the master domain to a different domain within the Data Center                                                 |                                                                                              |
+| Export one of the installed VMs, delete it, import it to another Data Center                                        |                                                                                              |
+| Create a template from one of the VMs and then create a new VM based on this template                               |                                                                                              |
+| Move the newly created VM to another data domain                                                                    |                                                                                              |
+| Create several snapshots from a VM (Each time change something in the guest)                                        |                                                                                              |
+| Restore a previous snapshot                                                                                         |                                                                                              |
+| Storage Failovers                                                                                                   |                                                                                              |
+| Host Failovers                                                                                                      |                                                                                              |
+| Power User Portal provides power users the ability to create and manage virtual machines from the power user portal |                                                                                              |
+| High Availability scenarios provides instructions to configure virtual machine and host high availability           |                                                                                              |
 
 ### Network
 

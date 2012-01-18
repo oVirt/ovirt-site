@@ -63,7 +63,7 @@ Restart the network service by executing:
 
       service network restart
 
-**Note that if any other bridge (from ovirtmgmt) is present at the time of host installation, the bridge creation operation is skipped and you have to change the bridge settings to correspond to above shown configuration.**
+**Note that if any other bridge (from ovirtmgmt) is present at the time of host installation, the bridge creation operation is skipped and you have to change the bridge settings to correspond to above shown configuration manually.**
 
 ### Installing & Configuring VDSM
 

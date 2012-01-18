@@ -46,6 +46,7 @@ Test Days are open to anyone. If you have your own setup we will provide all the
 | wuzhy    | V       | V       | Basic      |                         | V     |                |       | Fedora16     |
 | tdosek   | V       | V       | Basic      | Webadmin, Userportal    |       | V              |       | Fedora16     |
 | jlibosva | V       | V       | Basic      | Webadmin                |       | V              | V     | Fedora16     |
+| jhenner  |         |         | Basic      | python SDK              |       |                |       | Fedora16     |
 | pstehlik | V       |         | Basic      | ActiveDirectory         |       | V              | V     | Fedora16     |
 | zvi      | V       | V       | Advanced   | Webadmin                | V     | V              | V     | Fedora16     |
 | dron     | V       | V       | Advanced   | Webadmin                | V     | V              | V     | Fedora16     |

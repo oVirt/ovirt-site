@@ -16,7 +16,7 @@ wiki_last_updated: 2012-03-27
 
 The feature will allow oVirt users to clone VM from a snapshot of another VM.
 A clone from snapshot will create disks at destination VM that are a collapsed copy of the images at snapshot chain (the start of the chain is the first snapshot, the end of the chain is a the selected snapshot)
- Add a link to the main feature page as well: [Features/CloneVmFromSnapshot](Features/CloneVmFromSnapshot)
+ Main feature page can be found at: [Features/CloneVmFromSnapshot](Features/CloneVmFromSnapshot)
 
 ### Owner
 

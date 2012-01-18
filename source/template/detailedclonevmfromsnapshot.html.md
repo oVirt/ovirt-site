@@ -56,7 +56,7 @@ Describe how the feature will effect new installation or existing one.
 Example of flow (assuming a VM was created with two disks):
 ![](Clone flow 1.jpg "fig:Clone flow 1.jpg")
 The next figure shows a snapshot was made, having now two images serving as the active images:
- ![](Clone flow 2.jpg "fig:Clone flow 2.jpg")
+![](Clone flow 2.jpg "fig:Clone flow 2.jpg")
 In a similar way, more snapshots are created (Snaphost2 will be the one used for performing the clone):
 ![](Clone flow 3.jpg "fig:Clone flow 3.jpg")
 

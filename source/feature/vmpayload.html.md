@@ -39,32 +39,32 @@ The payload options are:
     -   CD
     -   In the future also injection and payload via private IP
 
+There are a few options to model that:
+
+1.  Use current Floppy/CD attachment options:
+    -   In floppy allow to attach either sysprep or payload
+    -   In CD allow to attach either an ISO, or a payload
+
+2.  Override current Floppy/CD attachment options:
+    -   Add a Payload option, in which you choose whether to pass the payload via CD or floppy (the passing method)
+    -   In floppy allow to attach a payload
+    -   In CD allow to attach a payload
+    -   Once a payload is chosen (either via CD or floppy), it will override the floppy/CD attachment
+
+3.  Add a payload in addition to the current Floppy/CD attachment options:
+    -   Add a Payload option, in which you choose whether to pass the payload via CD or floppy (the passing method)
+    -   In floppy allow to attach a payload
+    -   In CD allow to attach a payload
+    -   Both the payload and the attachment are used
+
 Notes:
 
-1.  The payload data will be encoded using base64 encoding. The engine will decode the data, and payload it via the required method.
-2.  The may be multiple payloads
+1.  The payload data will be encoded using base64 encoding. The engine will decode the data, and payload it via the required method
+2.  The may be multiple payloads, and multiple passing options at the same time
 3.  All payloads will be passed in the same method
-
-Vdsm verb:
-
-      { 'iso': [{'filename': 'content' }, {'filename': 'content'}],
-        'floppy': [{'filename': 'content' }, {'filename': 'content'}],
-        'sysprep': {'filename': 'content' },
-        'network': '...' } 
-       
-
-### User work-flows
-
-The Administrator and User Portal should allow the following operations in edit VM:
-
-1.  Enable/Disable payload
-2.  Once enabled
-    -   Choose payload method
-        -   Floppy
-        -   CD
-    -   For each payload
-    -   Choose the path
-    -   Provide the base64 data
+4.  We will currently focus on the CD/floppy passing methods
+5.  With either options, the engine and VDSM API will be general enough to allow adding other passing methods in the future
+6.  The Modelling of this feature will include OVF schema changes as well
 
 ### Benefit to oVirt
 

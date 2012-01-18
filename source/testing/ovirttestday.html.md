@@ -138,6 +138,7 @@ by default we'll be using the webadmin as our API for testing on this section we
 | Create a template from vm      |          |            |        |            |               |
 | Create vm from template        |          |            |        |            |               |
 | Sign out                       | 782779,  |            |        |            |               |
+| General                        |          |            |        | 782891     |               |
 
 Python API of the above scenarios can be found in: <http://www.ovirt.org/wiki/Testing/PythonApi>
 

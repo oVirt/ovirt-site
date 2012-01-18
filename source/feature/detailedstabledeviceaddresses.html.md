@@ -71,7 +71,7 @@ New table vm_device:
        is_managed          -- Indicates if the device is managed 
        is_plugged          -- Indicates if device is plugable
        is_shared           -- Indicates if device is shared
-       access_mode         -- The device access mode (i.e. read-only, read-write etc.)
+       is_readonly         -- Indicates if device is read-only.
 
 Adding a column to vm_dynamic:
 

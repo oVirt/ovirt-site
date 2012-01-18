@@ -12,15 +12,12 @@ wiki_last_updated: 2014-04-29
 
 ### Summary
 
-The purpose of the feature is to allow a guest to get a payload upon startup.
+The purpose of the feature is to allow passing a payload to a guest upon startup.
 
 ### Owner
 
-*   Name: [ Oved Ourfali](User:Ovedo)
-
-Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
-
-*   Email: <ovedo@redhat.com>
+*   Name: [ Shahar Havivi](User:Shaharh)
+*   Email: <shavivi@redhat.com>
 
 ### Current status
 
@@ -28,7 +25,7 @@ Include you email address that you can be reached should people want to contact 
 
 ### Detailed Description
 
-There are many cases in which there is a need to add some payload to a VM. For example, running windows sysprep, external management of installation of 3rd party products in the VM, and etc. The purpose of the feature is to allow adding such a payload externally, specify the payload method (ISO, floppy), specify when this data has to be available, and etc.
+There are many cases in which there is a need to pass a payload to a VM. For example, running windows sysprep, external management of installation of 3rd party products, and etc. The purpose of the feature is to allow adding such a payload externally, specify the payload method (CD, floppy), specify when this data has to be available, and etc.
 
 The payload options are:
 
@@ -37,15 +34,29 @@ The payload options are:
     -   Temporary payload - via "run-once" - will be available only when running the guest via the run-once option
     -   No payloads - the VM won't get any payload upon startup/run-once
 
-2.  Payload methods
+2.  Payload passing method
     -   Floppy
-    -   ISO
+    -   CD
     -   In the future also injection and payload via private IP
 
 Notes:
 
 1.  The payload data will be encoded using base64 encoding. The engine will decode the data, and payload it via the required method.
-2.  The payload may consist of one or more files, all will be available via the same payload method
+2.  The may be multiple payloads
+3.  All payloads will be passed in the same method
+
+### User work-flows
+
+The Administrator and User Portal should allow the following operations in edit VM:
+
+1.  Enable/Disable payload
+2.  Once enabled
+    -   Choose payload method
+        -   Floppy
+        -   CD
+    -   For each payload
+    -   Choose the path
+    -   Provide the base64 data
 
 ### Benefit to oVirt
 
@@ -55,10 +66,11 @@ The VM payload feature will ease the installation of third party products, mainl
 
 Affected oVirt projects:
 
+*   VDSM
 *   API
 *   CLI
 *   SDK
-*   Engine-core
+*   Engine
 *   Webadmin
 *   User Portal
 

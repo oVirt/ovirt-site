@@ -38,9 +38,9 @@ Disable the network manager service by executing as root:
       service network start
       chkconfig network on
 
-Add the following content into a new file named: **/etc/sysconfig/network-scripts/ifcfg-engine**:
+Add the following content into a new file named: **/etc/sysconfig/network-scripts/ifcfg-ovirtmgmt**:
 
-      DEVICE=engine
+      DEVICE=ovirtmgmt
       TYPE=Bridge
       ONBOOT=yes
       DELAY=0
@@ -48,7 +48,7 @@ Add the following content into a new file named: **/etc/sysconfig/network-script
 
 Add the following line into the configuration file of your out going interface (usually em1/eth0) the file is located at: **/etc/sysconfig/network-scripts/ifcfg-em1** (assuming the device is em1)
 
-      BRIDGE=engine
+      BRIDGE=ovirtmgmt
 
 Full Example
 
@@ -57,11 +57,13 @@ Full Example
       IPADDR=192.168.1.212
       NETMASK=255.255.255.0
       ONBOOT=yes
-      BRIDGE=engine
+      BRIDGE=ovirtmgmt
 
 Restart the network service by executing:
 
       service network restart
+
+**Note that if any other bridge (from ovirtmgmt) is present at the time of host installation, the bridge creation operation is skipped and you have to change the bridge settings to correspond to above shown configuration.**
 
 ### Installing & Configuring VDSM
 

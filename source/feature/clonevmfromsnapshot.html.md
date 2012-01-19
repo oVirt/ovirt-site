@@ -56,7 +56,7 @@ If we look at snapshots as "checkpoints" of VM state + data , and "checkpoints" 
 
 Dependencies on features:
 
-*   LiveSnapshot [Features/CloneVmFromSnapshot](Features/CloneVmFromSnapshot)
+*   LiveSnapshot
 *   Hotplug disk
 *   Stable device addresses
 *   Multiple storage domains

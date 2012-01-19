@@ -46,6 +46,13 @@ If we look at snapshots as "checkpoints" of VM state + data , and "checkpoints" 
 
 ### Dependencies / Related Features
 
+Dependencies on features:
+
+*   LiveSnapshot [Features/CloneVmFromSnapshot](Features/CloneVmFromSnapshot)
+*   Hotplug disk
+*   Stable device addresses
+*   Multiple storage domains
+
 Affected oVirt projects:
 
 *   Engine-core

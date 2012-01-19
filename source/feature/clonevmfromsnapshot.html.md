@@ -27,12 +27,12 @@ This feature will let users of oVirt engine to create a VM based on a given snap
 
 #### User interface
 
-= 1.A user will be able to create snapshots for a given virtual machine, and then to select a given snapshot and perform a clone of the VM.
+1.A user will be able to create snapshots for a given virtual machine, and then to select a given snapshot and perform a clone of the VM.
 2.The user will also be able to provide VM information (such as VM name) which will be based on the VM information of the original VM.
 3.The original VM configuration for a given snapshot will be retrieved by the UI , using a dedicated query carried out on oVirt-engine core
 4.The user will be be able to select different storage domains to hold the destination disks and to change their drive mapping,volume type and format.
 
-### Cloning of images behavior
+#### Cloning of images behavior
 
 5.The disks of the cloned VM will represent a "collapsed" state of the selected snapshot
 6.A clone can be performed on a VM regardless of its status (i.e - can be performed if a VM is UP or down as long as the images are available)

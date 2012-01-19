@@ -14,5 +14,6 @@ wiki_last_updated: 2012-02-11
 
 *   [OVA and oVIRT Drive KVM Success](https://bottomlineit.wordpress.com/2012/01/17/ova-and-ovirt-drive-kvm-success/)
 *   [Red Hat Enterprise Virtualization 3.0 Delivers Strategic Virtualization Alternative](http://www.marketwatch.com/story/red-hat-enterprise-virtualization-30-delivers-strategic-virtualization-alternative-2012-01-18)
+*   [Fedora 17 to come with Gimp 2.8, KDE 4.8, oVirt and GCC 4.7](http://www.h-online.com/open/news/item/Fedora-17-to-come-with-Gimp-2-8-KDE-4-8-oVirt-and-GCC-4-7-1417201.html)
 
 <Category:Press>

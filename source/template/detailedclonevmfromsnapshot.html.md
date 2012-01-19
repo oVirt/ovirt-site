@@ -77,9 +77,15 @@ What events should be reported when using this feature.
 
 ### Dependencies / Related Features and Projects
 
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
-
-Add a link to the feature description for relevant features. Does this feature effect other oVirt projects? Other projects?
+The feature depends on the following projects:
+1. oVirt web-admin - to supply the UI parts for this feature
+2. oVirt API - tu spply REST modeling
+The feature depends on the following features:
+1. Stable device addresses - on introduction of VM devices, which will have to be a part of the clone
+2. Multiple storage domains - on introduction of multiple storage domains
+3. Live snapshots - on introducing of snapshot entity and the association of snapshot and VM configuration (needed for querying VM configuration by snapshot)
+4. Direct LUN -on introduction of LUN-based disks (maybe this can postponed for later phase).
+ Add a link to the feature description for relevant features. Does this feature effect other oVirt projects? Other projects?
 
 ### Documentation / External references
 

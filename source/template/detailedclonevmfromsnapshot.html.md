@@ -85,6 +85,7 @@ The feature depends on the following features:
 2. Multiple storage domains - on introduction of multiple storage domains
 3. Live snapshots - on introducing of snapshot entity and the association of snapshot and VM configuration (needed for querying VM configuration by snapshot)
 4. Direct LUN -on introduction of LUN-based disks (maybe this can postponed for later phase).
+5. Hot plug/unplug - this feature may depend on hot plug/unplug - see open issues section
  Add a link to the feature description for relevant features. Does this feature effect other oVirt projects? Other projects?
 
 ### Documentation / External references

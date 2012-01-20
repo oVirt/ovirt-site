@@ -81,11 +81,11 @@ The feature depends on the following projects:
 1. oVirt web-admin - to supply the UI parts for this feature
 2. oVirt API - to supply REST modeling
 The feature depends on the following features:
-1. Stable device addresses - on introduction of VM devices, which will have to be a part of the clone
-2. Multiple storage domains - on introduction of multiple storage domains
-3. Live snapshots - on introducing of snapshot entity and the association of snapshot and VM configuration (needed for querying VM configuration by snapshot)
+1. Stable device addresses - on introduction of VM devices, which will have to be a part of the clone. See also [Features/Design/StableDeviceAddresses](Features/Design/StableDeviceAddresses)
+2. Multiple storage domains - on introduction of multiple storage domains. When performing the clone the user should be able to select the storage domains containing the disks of the cloned VM. See also [Design_for_multiple_storage_domains](Design_for_multiple_storage_domains)
+3. Live snapshots - on introducing of snapshot entity and the association of snapshot and VM configuration (needed for querying VM configuration by snapshot). See also [Live_Snapshots](Live_Snapshots)
 4. Direct LUN -on introduction of LUN-based disks (maybe this can postponed for later phase).
-5. Hot plug/unplug - this feature may depend on hot plug/unplug - see open issues section
+5. Hot plug/unplug - this feature may depend on hot plug/unplug - see open issues section. See also [Features/HotPlug](Features/HotPlug)
  Add a link to the feature description for relevant features. Does this feature effect other oVirt projects? Other projects?
 
 ### Documentation / External references

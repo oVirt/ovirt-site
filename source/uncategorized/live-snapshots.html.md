@@ -106,21 +106,14 @@ At the moment there is no suggestion to change the interface, the backend is res
 
 Snapshot Parameters Format:
 
-      snapParams = {
-         "`<vmDriveName1>`": {
-           "domainID": "`<sdUUID>`",
-           "poolID":   "`<spUUID>`",
-           "imageID":  "`<imgUUID>`",
-           "volumeID": "`<volUUID>`",
-         },
-         "`<vmDriveName2>`": {
-           "domainID": "`<sdUUID>`",
-           "poolID":   "`<spUUID>`",
-           "imageID":  "`<imgUUID>`",
-           "volumeID": "`<volUUID>`",
-         },
-         [...]
-       }
+      snapParams = [
+          {"domainID": "`<sdUUID>`",
+           "poolID": "`<spUUID>`",
+           "imageID": "`<imgUUID>`",
+           "baseVolumeID": "`<baseVolUUID>`",
+           "volumeID": "`<volUUID>`"},
+         ...
+      ]
 
 ## Live Snapshot Backend
 

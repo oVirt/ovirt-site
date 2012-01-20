@@ -89,7 +89,25 @@ The feature depends on the following features:
 
 ### Clone VM from snapshot commands Class diagram
 
-![](Clone_flow_vm_from_snapshot_new_2.jpg "Clone_flow_vm_from_snapshot_new_2.jpg")
+In order to implement clone VM form snapshot two new commands are going to be introduced -
+1. AddVmFromSnapshotCommand which will be responsible for performing business entities cloning and persistance (VmStatic, VmDevice objects, Interface objects (for NICs)).
+At canDoAction the command will perform the following checks:
+a. Check the snapshot exists
+b. Retrieve a list of all images participating in the desired snapshot chain, and check if they are available for copying
+c. Check there is no VM with the given name at the vmStatic parameter.
+d. Check if the source and target storage domains exist and available.
+ At execution phase the command will perform the following:
+a. Try to lock the images participating in the desired snapshot chain (even if canDoAction passed -another command may have already locked some of them). If locking fails - the command fails.
+b Store the passed VmStatic, and create new VmDynamic, VmStatistics, and clones of the network Interfaces objects.
+c. Retrieve a list of the images from given the snapshot ID.
+d. For each image of the retrieved images, run the CopyImage bll command.
+e. The command will check if the status of the snapshot is partial (as a result of disk deletion), and if this is the case, a sutiable audit log message indicating that a clone from partial snapshot is starting will be issued to the audit log.
+TODO: Think about endCommand (as the child command creates tasks)
+2. CopyImageCommand will will be responsible for running the CopyImageVDSCommand in order to perform the image copying.
+The command will clone the image entity , and the required parameters (such as the source and target storage domain for the given image) to CopyImageVDSCommand.
+A concrete task to monitor the progress of the copy image (asynchronous operation at VDSM) will be created.
+The command will retrieve using the DiskImageDAO the list of images based on the given snapshot ID in order to copy&collapse them.
+![](Clone_flow_vm_from_snapshot_new_2.jpg "fig:Clone_flow_vm_from_snapshot_new_2.jpg")
 
 ### Clone VM from snapshot command parameters Class diagram
 

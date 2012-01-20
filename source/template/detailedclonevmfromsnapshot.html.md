@@ -111,7 +111,7 @@ The command will retrieve using the DiskImageDAO the list of images based on the
 
 ### Clone VM from snapshot command parameters Class diagram
 
-![](Clone_flow_vm_from_snapshot_params.jpg "Clone_flow_vm_from_snapshot_params.jpg")
+![](Clone flow vm from snapshot params.jpg "Clone flow vm from snapshot params.jpg")
 
 ### Documentation / External references
 

@@ -71,9 +71,6 @@ The Clone from snapshot will be performed the following way:
  This can be seen in the next figure:
 ![](Clone flow 4.jpg "fig:Clone flow 4.jpg")
 
-![](Clone flow 1.jpg "fig:Clone flow 1.jpg")
-![](Clone_flow_vm_from_snapshot_params.jpg "fig:Clone_flow_vm_from_snapshot_params.jpg")
-
 #### Events
 
 1. In case a snapshot is performed , and one of the disks is erased from the original VM, cloning from the snapshot should report that the disk is missing using the audit log.
@@ -89,7 +86,14 @@ The feature depends on the following features:
 3. Live snapshots - on introducing of snapshot entity and the association of snapshot and VM configuration (needed for querying VM configuration by snapshot). See also [Live_Snapshots](Live_Snapshots)
 4. Direct LUN -on introduction of LUN-based disks (maybe this can postponed for later phase).
 5. Hot plug/unplug - this feature may depend on hot plug/unplug - see open issues section. See also [Features/HotPlug](Features/HotPlug)
- Add a link to the feature description for relevant features. Does this feature effect other oVirt projects? Other projects?
+
+### Clone VM from snapshot commands Class diagram
+
+![](Clone_flow_vm_from_snapshot_class_diagram_new_2.jpg "Clone_flow_vm_from_snapshot_class_diagram_new_2.jpg")
+
+### Clone VM from snapshot command parameters Class diagram
+
+![](Clone_flow_vm_from_snapshot_params.jpg "Clone_flow_vm_from_snapshot_params.jpg")
 
 ### Documentation / External references
 

@@ -71,6 +71,9 @@ The Clone from snapshot will be performed the following way:
  This can be seen in the next figure:
 ![](Clone flow 4.jpg "fig:Clone flow 4.jpg")
 
+![](Clone flow 1.jpg "fig:Clone flow 1.jpg")
+Clone_flow_vm_from_snapshot_params.jpg
+
 #### Events
 
 1. In case a snapshot is performed , and one of the disks is erased from the original VM, cloning from the snapshot should report that the disk is missing using the audit log.

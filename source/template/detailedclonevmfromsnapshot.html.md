@@ -89,7 +89,7 @@ The feature depends on the following features:
 
 ### Clone VM from snapshot commands Class diagram
 
-![](Clone_flow_vm_from_snapshot_class_diagram_new_2.jpg "Clone_flow_vm_from_snapshot_class_diagram_new_2.jpg")
+![](Clone_flow_vm_from_snapshot_new_2.jpg "Clone_flow_vm_from_snapshot_new_2.jpg")
 
 ### Clone VM from snapshot command parameters Class diagram
 

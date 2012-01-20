@@ -87,7 +87,7 @@ The feature depends on the following features:
 4. Direct LUN -on introduction of LUN-based disks (maybe this can postponed for later phase).
 5. Hot plug/unplug - this feature may depend on hot plug/unplug - see open issues section. See also [Features/HotPlug](Features/HotPlug)
 
-### Clone VM from snapshot commands Class diagram
+### Clone VM from snapshot commands Class diagram and detailed description
 
 In order to implement clone VM form snapshot two new commands are going to be introduced -
 1. AddVmFromSnapshotCommand which will be responsible for performing business entities cloning and persistance (VmStatic, VmDevice objects, Interface objects (for NICs)).

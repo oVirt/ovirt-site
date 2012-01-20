@@ -72,7 +72,7 @@ The Clone from snapshot will be performed the following way:
 ![](Clone flow 4.jpg "fig:Clone flow 4.jpg")
 
 ![](Clone flow 1.jpg "fig:Clone flow 1.jpg")
-Clone_flow_vm_from_snapshot_params.jpg
+![](Clone_flow_vm_from_snapshot_params.jpg "fig:Clone_flow_vm_from_snapshot_params.jpg")
 
 #### Events
 

@@ -60,7 +60,7 @@ The next figure shows a snapshot was made, having now two images serving as the 
 In a similar way, more snapshots are created (Snaphost2 will be the one used for performing the clone):
 ![](Clone flow 3.jpg "fig:Clone flow 3.jpg")
 
-The Clone from snapshot will performed:
+The Clone from snapshot will be performed the following way:
  .1. A user selects snapshot2 and selects a "clone from snapshot" operation from UI.
 .2. oVirt-engine core queries for VM configuration, providing the VM configuration as default values for the user to use in order to provide the new VM information.
 .3. The user will override the default data values (the user will have to provide a new name. UI will suggest a new name in a format of "copy_of_OLD_NAME")
@@ -73,7 +73,7 @@ The Clone from snapshot will performed:
 
 #### Events
 
-What events should be reported when using this feature.
+1. In case a snapshot is performed , and one of the disks is erased from the original VM, cloning from the snapshot should report that the disk is missing using the audit log.
 
 ### Dependencies / Related Features and Projects
 

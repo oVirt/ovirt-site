@@ -212,7 +212,7 @@ Notes:
 
       $> export MAVEN_OPTS="-XX:MaxPermSize=128m"
 
-For advanced build notes, please visit [Advanced_oVirt_Engine_Build_Note](Advanced_oVirt_Engine_Build_Note)
+For advanced build notes, please visit [Advanced oVirt Engine Build Notes](Advanced oVirt Engine Build Notes)
 
 #### Deploy
 

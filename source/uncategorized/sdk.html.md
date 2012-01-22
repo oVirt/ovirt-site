@@ -92,9 +92,9 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
 *   update resource
 
        vm1 = api.vms.get(name='python_vm')
-
+       
        vm1.description = 'updated_desc'
-
+       
        vm2 = vm1.update()
 
 *   list by constraints
@@ -115,16 +115,29 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
                          cluster=api.clusters.get(name='xxx'),
                          template=api.templates.get(name='yyy'),
                          ...)
-
+       
        my_vm = api.vms.add(param)
 
 *   add sub-resource to resource
 
        network = params.Network(name='rhevm')
-
+       
        nic = params.NIC(name='eth0', network=network, interface='e1000')
-
+       
        vm6.nics.add(nic)
+
+*   add sub-resource to resource where one of the parameters is collection
+
+       sd = api.storagedomains.get('nfs_data')
+       diskParam = params.Disk(storage_domains=params.StorageDomains(storage_domain=[sd]), 
+                               size=5368709120, 
+                               type_='data', 
+                               interface='virtio', 
+                               format='cow')
+       
+       str = ParseHelper.toXml(diskParam)
+       myVm = api.vms.get(name='nfs_desktop')
+       neDisk = myVm.disks.add(diskParam)
 
 *   list sub-resources
 
@@ -133,7 +146,7 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
 *   list sub-resources using constraint/s
 
        nics2 = vm6.nics.list(name='eth0')
-
+       
        nics3 = vm6.nics.list(interface='e1000')
 
 *   get sub-resource
@@ -143,11 +156,11 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
 *   update sub-resource
 
        nic1.name = 'eth01'
-
+       
        nic2 = nic1.update()
-
+       
        nic3 = vm6.nics.get(name='eth01')
-
+       
        nic4 = vm6.nics.get(name='eth0')
 
 ## Repository

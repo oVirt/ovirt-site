@@ -61,7 +61,9 @@ Notes:
 3.  With either options, the engine API and VDSM API will be general enough to allow adding other passing methods in the future
 4.  The Modelling of this feature will include OVF schema changes as well
 
-#\* if the content of the file is bigger the 512K it will pass an nfs share for vdsm to fetch the file/s
+<!-- -->
+
+1.  if the content of the file is bigger the 512K it will pass an nfs share for vdsm to fetch the file/s
 
 ### Benefit to oVirt
 

@@ -34,9 +34,9 @@ A clone from snapshot will create disks at destination VM that are a collapsed c
 
 ### Detailed Description
 
-Clone VM from Snapshot will give the ability to perform a clone of a VM , based on a snapshot of a given VM.
+Clone from Snapshot will give the ability to perform a clone of a VM or a VM template , based on a snapshot of a given VM.
 oVirt-engine core will copy and collapse the images in the snapshot chain (the chain begins with the 1st snapshot, and ends with the selected snapshot).
-In order to provide information on the VM to be created for the UI, UI will execute a query that will retrieve the VM and its disks configuration given a snapshot ID.
+In order to provide information on the VM or VM template to be created for the UI, UI will execute a query that will retrieve the VM and its disks configuration given a snapshot ID.
 The UI will use the retrieved configuration as default values for the user to be modified.
 
 #### Entity Description
@@ -45,7 +45,10 @@ The UI will use the retrieved configuration as default values for the user to be
 
 #### User Experience
 
-The UI will run a query called GetVmConfigurationBySnapshotID in order to get a VM configuration for a given snapshot. The UI should present a window holding the configuration data. The configuration data will be used as defaults for the user, and the user may alter the data. The UI should present the disks list. The UI should allow to select different storage domains to hold the disks created upon clone, and to select different disks types and format.
+The UI will run a query called GetVmConfigurationBySnapshotID in order to get a VM configuration for a given snapshot.
+The UI will provide two options for creating the clone: .1. Presenting resent a window holding the configuration data. The configuration data will be used as defaults for the user, and the user may alter the data.
+The UI will also present the disk list in order to allow disk format and type, and to select different storage domains to hold the destination disks.
+2. The UI will allow the user to enter the target VM (or template) name, and the clone operation will use the VM configuration for the given snapshot as the values to create the VM (or template).
 
 #### Installation/Upgrade
 

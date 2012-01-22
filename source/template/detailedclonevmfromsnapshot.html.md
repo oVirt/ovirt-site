@@ -99,9 +99,10 @@ a. Check the snapshot exists
 b. Retrieve a list of all images participating in the desired snapshot chain, and check if they are available for copying
 c. Check there is no VM with the given name at the vmStatic parameter.
 d. Check if the source and target storage domains exist and available.
- At execution phase the command will perform the following:
+ At execution phase the command will perform the following for cloning a VM from snapshot:
 a. Try to lock the images participating in the desired snapshot chain (even if canDoAction passed -another command may have already locked some of them). If locking fails - the command fails.
-b Store the passed VmStatic, and create new VmDynamic, VmStatistics, and clones of the network Interfaces objects.
+b Obtain a VM static object in one of the following ways (determined by a boolean flag passed in the command parameters):
+b.1. The VM static object should be used - it will be stored in DB. b.2. The given name should be used - based on the VM source ID, the VM static will be obtained by the given snapshot ID. The name field will be overridden by the value from the parameters.
 c. Retrieve a list of the images from given the snapshot ID.
 d. For each image of the retrieved images, run the CopyImage bll command.
 e. The command will check if the status of the snapshot is partial (as a result of disk deletion), and if this is the case, a sutiable audit log message indicating that a clone from partial snapshot is starting will be issued to the audit log.

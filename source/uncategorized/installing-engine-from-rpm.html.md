@@ -55,4 +55,4 @@ If you wish to turn off secured connection to the hosts:
 
 #### JBoss AS Security
 
-Note that JBoss AS 5.1 does not include security fixes for issues found after it was released. These fixes are rolled into later versions of JBoss AS. JMX Console has been removed from the latest release of ovirt-enigine-jbossas
+We currently use a customize rpm wrapping JBoss AS 7.1.0.Beta1b.

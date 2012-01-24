@@ -48,7 +48,6 @@ The disk should behave as a flexible independent entity, that can be reflected a
 ##### Disk
 
 *   Disk should have an indication field for shared/not shared disk.
-*   Disk entity will be added with three more properties: Disk Name, Description, Date created.
 
 #### Functionality
 

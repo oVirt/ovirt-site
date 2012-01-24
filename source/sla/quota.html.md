@@ -93,17 +93,17 @@ Use cases :
 
 **quota_global_view** - View of all the storage pool quota in the setup, that is all the quota that vds_group_id and storage_id values are null in the quota_limitation.
 
-| Column Name              | Column Type | Definition                                                                                 |
-|--------------------------|-------------|--------------------------------------------------------------------------------------------|
-| storage_pool            | UUID        | The Storage Pool Id                                                                        |
-| Quota_ID                | UUID        | The Quota Id                                                                               |
-| Quota_Name              | String      | The Quota name                                                                             |
-| virtual_cpu             | INTEGER     | The limited cpu, defined in Giga byte.                                                     |
-| virtual_cpu_usage      | INTEGER     | The usage of the cpu in the storage pool, defined in Giga byte. (using CalculateVCPUUsage) |
-| storage_size_gb_byte  | INTEGER     | The limited GB, defined in Giga byte.                                                      |
-| storage_size_gb_usage | INTEGER     | The used GB in the storage pool, defined in Giga byte. (using CalculateStorageUsage)       |
-| mem_size_mb            | BIGINT      | The limited ram, defined in Mega byte.                                                     |
-| mem_size_mb_usage     | BIGINT      | The used ram in the storage pool. (using CalculateVRAMUsage)                               |
+| Column Name              | Column Type | Definition                                                                                    |
+|--------------------------|-------------|-----------------------------------------------------------------------------------------------|
+| storage_pool            | UUID        | The Storage Pool Id                                                                           |
+| Quota_ID                | UUID        | The Quota Id                                                                                  |
+| Quota_Name              | String      | The Quota name                                                                                |
+| virtual_cpu             | INTEGER     | The limited cpu, defined in Giga byte.                                                        |
+| virtual_cpu_usage      | INTEGER     | The usage of the cpu in the storage pool, defined in Giga byte. (using CalculateVdsGroupsage) |
+| storage_size_gb_byte  | INTEGER     | The limited GB, defined in Giga byte.                                                         |
+| storage_size_gb_usage | INTEGER     | The used GB in the storage pool, defined in Giga byte. (using CalculateStorageUsage)          |
+| mem_size_mb            | BIGINT      | The limited ram, defined in Mega byte.                                                        |
+| mem_size_mb_usage     | BIGINT      | The used ram in the storage pool. (using CalculateVdsGroupUsage)                              |
 
 **quota_vds_group_view** - View of all the vds group quotas in the setup, that is all the quotas that vds_group_id is not null but storage_id is null in the quota_limitation.
 

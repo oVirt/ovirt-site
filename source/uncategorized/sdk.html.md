@@ -167,7 +167,7 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
        
        nic4 = vm6.nics.get(name='eth0')
 
-[more examples](http://www.ovirt.org/wiki/Testing/PythonApi)
+*   [more examples](http://www.ovirt.org/wiki/Testing/PythonApi)
 
 ## Repository
 

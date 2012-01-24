@@ -107,17 +107,17 @@ Use cases :
 
 **quota_vds_group_view** - View of all the vds group quotas in the setup, that is all the quotas that vds_group_id is not null but storage_id is null in the quota_limitation.
 
-| Column Name          | Column Type | Definition                                                                            |
-|----------------------|-------------|---------------------------------------------------------------------------------------|
-| storage_pool        | UUID        | The Storage Pool Id                                                                   |
-| Quota_ID            | UUID        | The Quota Id                                                                          |
-| Quota_Name          | String      | The Quota name                                                                        |
-| vds_static_id      | UUID        | The vds group Id                                                                      |
-| vds_static_name    | UUID        | The vds group name from vds_group_static                                            |
-| virtual_cpu         | INTEGER     | The limited cpu, defined in Giga byte.                                                |
-| virtual_cpu_usage  | INTEGER     | The usage of the cpu in the cluster, defined in Giga byte. (using CalculateVCPUUsage) |
-| mem_size_mb        | BIGINT      | The limited ram defined in Mega byte.                                                 |
-| mem_size_mb_usage | BIGINT      | The used ram in the cluster. (using CalculateVRAMUsage)                               |
+| Column Name          | Column Type | Definition                                                                                |
+|----------------------|-------------|-------------------------------------------------------------------------------------------|
+| storage_pool        | UUID        | The Storage Pool Id                                                                       |
+| Quota_ID            | UUID        | The Quota Id                                                                              |
+| Quota_Name          | String      | The Quota name                                                                            |
+| vds_static_id      | UUID        | The vds group Id                                                                          |
+| vds_static_name    | UUID        | The vds group name from vds_group_static                                                |
+| virtual_cpu         | INTEGER     | The limited cpu, defined in Giga byte.                                                    |
+| virtual_cpu_usage  | INTEGER     | The usage of the cpu in the cluster, defined in Giga byte. (using CalculateVdsGroupUsage) |
+| mem_size_mb        | BIGINT      | The limited ram defined in Mega byte.                                                     |
+| mem_size_mb_usage | BIGINT      | The used ram in the cluster. (using CalculateVdsGroupUsage)                               |
 
 **quota_storage_view** - View of all the storage quotas in the setup, that is all the quotas that storage_id is not null but vds_cluster_id is null in the quota_limitation.
 

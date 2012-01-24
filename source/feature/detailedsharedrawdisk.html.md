@@ -65,8 +65,7 @@ The disk should behave as a flexible independent entity, that can be reflected a
     -   Creating/Editing a shared raw disk is available through the new/edit disk dialog from the disks sub tab in the VM main tab.
     -   User can also attach/detach shared disk through the disks sub tab of the VMs main tab, the add/edit disk dialog box will have a check box indicating the disk is shared or not.
          When a user wants to configure a regular disk to be shared disk, he will edit the disk and mark the checkbox as shared.
-    -   Attach for new shared disk to a VM, will also be done from the dialog box in the VM tab under disk sub tab.
-    -   User can attach/detach shared disk to VM through the VMs main tab (top action bar or right click context menu).
+    -   User can attach/detach shared disk to a VM through the disks sub tab.
 *   Delete shared disk
     -   User will be able to delete a shared disk from the storage domain tab in the disks sub tab.
 

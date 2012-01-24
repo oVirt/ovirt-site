@@ -85,9 +85,10 @@ To build rpm and install it, from ovirt-engine-cli repo:
 
 For local install in site-packages, from ovirt-engine-cli repo:
 
-      yum install python-ply
-
+      yum install python-ply libxml2-devel libxslt-devel pexpect 
       python setup.py develop
+
+That will install lxml, because EPEL's python-lxml is not yet up to the version required by CLI.
 
 *   note: both deployment procedures require super-user permissions
 

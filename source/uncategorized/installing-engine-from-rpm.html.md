@@ -53,7 +53,7 @@ If you wish to turn off secured connection to the hosts:
       psql -U postgres engine -c "update vdc_options set option_value='false' where option_name='UseSecureConnectionWithServers' and version='general';"
        
 
-To work around an ovirt-engine bug, you should also submit the following command:
+If you issued the above command, you should also submit the following command to work around ovirt-engine bug 784348:
 
       psql -U postgres engine -c "update vdc_options set option_value='' where option_name = 'SpiceSecureChannels';"
        

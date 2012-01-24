@@ -236,7 +236,7 @@ After the Administrator, will finish to configure the Quotas he desires for the 
 ***org.ovirt.engine.core.bll.QuotaManager*** - Class which manage the quota views and memory table
 
 *`quotaClusterMap`*` - The quota cluster Map is a concurrent HashMap which reflects a snapshot view of the cluster consumption status for each quota, it is based on the DB view `[`getQuotaCluster`](Features/Design/Quota#DB_Design)`. The map should be synchronized when the server starts up, and the vdsUpdateRunTimeInfo has updated the data after the first time (counting on method beforeFirstRefreshTreatment).`
-       `*`quotaStorageMap`*` - The quota storage Map is a Concurrent HashMap which reflects a snapshot view of the cluster consumption status for each quota, it is based on the DB view  `[`getQuotaStorage`](Features/Design/Quota#DB_Design)`, and it is initialized every time the Host will be chosen to be SPM, using the DB values and the task manager.
+       `*`storageDelta`*` - The quota storage Map is a Concurrent HashMap which reflects a snapshot view of the cluster consumption status for each quota, it is based on the DB view  `[`getQuotaStorage`](Features/Design/Quota#DB_Design)`, and it is initialized every time the Host will be chosen to be SPM, using the DB values and the task manager.
 ***`org.ovirt.engine.core.common.businessentities.QuotaStatusEnum`***` - Enum indicating the DC Quota verification status.`
 
 ##### Business entities

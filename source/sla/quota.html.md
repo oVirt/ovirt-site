@@ -151,7 +151,8 @@ Use cases :
 #### Logic Design
 
 Each time the user will run or edit the VM, there will be a Quota check against the quota cluster view.
- Both views, quota_storage and quota_cluster should be reflected in the memory as Concurrent HashMap tables. The memory tables should be checked and updated in the canDoAction in a synchronized context (Using java.util.concurrency). Those memory tables should be managed in a pessimistic way, considering resource allocation, to prevent over-commit situations.
+ Both views, quota_storage and quota_cluster should be reflected in the memory as Concurrent HashMap tables. The memory tables should be checked and updated in the canDoAction in a synchronized context (Using java.util.concurrency).
+ Those memory tables should be managed in a pessimistic way, considering resource allocation, to prevent over-commit situations.
  Those tables should be synchronized from time to time from VdsUpdateRunTimeInfo (for cluster quota) and AsyncTaskManager(for storage quota).
 
 ###### Synchronized Vds commands

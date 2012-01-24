@@ -82,9 +82,8 @@ Use cases :
 
 ###### Functions
 
-1.  CalculateVCPUUsage - Summerise the VCPU usage for all the VMs in the quota which are not down or suspended
-2.  CalculateVRAMUsage - Summerise the RAM usage for all the VMs in the quota which are not down or suspended.
-3.  CalculateStorageUsage - Summerise the storage usage for all the disks in the quota, for active disks, we summerise the full size, for snapshots and other disks summerise only the actual size.
+1.  CalculateVdsGroupUsage - Summerise the VCPU usage and Memory usage for all the VMs in the quota which are not down, suspended, or in image locked or image illegal.
+2.  CalculateStorageUsage - Summerise the storage usage for all the disks in the quota, for active disks, we summerise the full size, for snapshots and other disks summerise only the actual size.
 
 ***vm_dynamic*** - Add column *quota_id*, which indicates the Quota the VM should be depended on its resources.
  ***image*** - Add column *quota_id*, which indicates the Quota the image should be depended on its storage resources.

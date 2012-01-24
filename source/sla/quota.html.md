@@ -155,8 +155,10 @@ Each time the user will run or edit the VM, there will be a Quota check against 
 
 ###### Synchronized Vds commands
 
-When calling synchronized Vds commands (such as createVm, MigrateVm), which should increase the consumption on cluster quota, we will update the quota dynamic table in the DB when the VdsCommand is being called.
- When we will decrease the consumption on cluster quota, the update on the Quota tables should be at the end of the VDS command.
+Synchronized Vds commands are commands such as Create VM or migrate VM.
+These commands increase the consumption on cluster quota, right when the engine calls createVmCommandVDSCommand.
+Before calling the vds command, there will be a check and update (With atomic operation), using quotaVdsGroupUsage function with the memory delta map, if there is enough resource space in the quota, the memory delta concurrent map, will be updated with the VM resources.
+if there will not be enough resources for the VM cunsumption, we will decrease the memory table with the amount of resources we checked.
 
 ###### A-synchronized Vds commands
 

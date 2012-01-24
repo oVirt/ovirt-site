@@ -81,6 +81,8 @@ To build rpm and install it, from ovirt-engine-cli repo:
 
       yum localinstall rpmtop/RPMS/noarch/ovirt-engine-cli-x.y-z.noarch.rpm
 
+Because lxml is not yet packaged, please follow the instructions below to get lxml installed.
+
 ### development deployment
 
 For local install in site-packages, from ovirt-engine-cli repo:

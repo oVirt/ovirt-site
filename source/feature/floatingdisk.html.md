@@ -13,12 +13,11 @@ wiki_warnings: list-item?
 
 ### Summary
 
-Floating disk - a disk that is not connected to any VM.
-This feature covers the management and usage of disks in floating state.
+Floating disk - a disk that is not attached to any VM. This feature covers the management and usage of disks in floating state.
 
 ### Owner
 
-*   Feature owner: [ Daniel Erez](User:mlipchuk)
+*   Feature owner: [ Daniel Erez](User:derez)
 
     * GUI Component owner: [ Daniel Erez](User:derez)
 
@@ -37,8 +36,9 @@ This feature covers the management and usage of disks in floating state.
 
 ### Detailed Description
 
-The floating disk feature provides the administrator a way to manage disks which are not connected to VMs.
-The disk should behave as a flexible independent entity that can be moved/copied between various storage domains.
+The feature provides administration and management functionalities for floating disks.
+A floating disk should behave as a flexible independent entity that can be moved/copied across various storage domains in the data center.
+Any virtual disk can be in a floating state - by unattaching the disk from the VM/s.
 
 ### Benefit to oVirt
 

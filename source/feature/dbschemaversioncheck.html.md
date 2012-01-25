@@ -67,7 +67,7 @@ It will also be possible to run the script via mvn test at the DAL module or roo
 
 ### Benefit to oVirt
 
-The benefit for oVirt from this feature is
+The benefit for oVirt from this feature is the ability to ensure at customers sites (and also for oVirt developers) that there is a parity between the schema version as reflected from the code, and the one that is calculated in the DB. Adding this check to a service that will start the jboss service will prevent the system from working with corrupted/mismatched DB.
 
 ### Dependencies / Related Features
 

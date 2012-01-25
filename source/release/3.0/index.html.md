@@ -31,6 +31,26 @@ TBD
 
 ### Resolved Issues
 
+*   Thu Jan 19 2012 Michael Pasternak <mpastern@redhat.com> - 1.2-1
+
+* unable to add host #782734
+
+` `[`https://bugzilla.redhat.com/show_bug.cgi?id=782734`](https://bugzilla.redhat.com/show_bug.cgi?id=782734)
+
+* unable to add new cluster #782707
+
+` `[`https://bugzilla.redhat.com/show_bug.cgi?id=782707`](https://bugzilla.redhat.com/show_bug.cgi?id=782707)
+
+*   Mon Jan 16 2012 Michael Pasternak <mpastern@redhat.com> - 1.1-1
+
+* unable to create data-center: problem with --version param #781834
+
+` `[`https://bugzilla.redhat.com/show_bug.cgi?id=781834`](https://bugzilla.redhat.com/show_bug.cgi?id=781834)
+
+* authentication show as succeeded with bad password (text only) #781820
+
+` `[`https://bugzilla.redhat.com/show_bug.cgi?id=781820`](https://bugzilla.redhat.com/show_bug.cgi?id=781820)
+
 ### Known Issues
 
 Only one instance of proxy to API can be created in application
@@ -42,6 +62,16 @@ TBD
 ### Features
 
 ### Resolved Issues
+
+*   Thu Jan 19 2012 Michael Pasternak <mpastern@redhat.com> - 1.2-1
+
+* use direct URI on get(id=x) rather than search pattern - extention for #782707
+
+*   Mon Jan 16 2012 Michael Pasternak <mpastern@redhat.com> - 1.1-1
+
+* add connectivity check and disconnect methods for #781820
+
+` `[`https://bugzilla.redhat.com/show_bug.cgi?id=781820`](https://bugzilla.redhat.com/show_bug.cgi?id=781820)
 
 ### Known Issues
 

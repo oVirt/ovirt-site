@@ -22,4 +22,4 @@ ovirt-vdsm storage [(ODP)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt
 
 Quantum Ovirt discussion [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/11/Quantum_Ovirt_discussion.pdf)
 
-<categoy:collateral>
+<category:collateral>

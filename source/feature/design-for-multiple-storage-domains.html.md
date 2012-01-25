@@ -73,7 +73,9 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 ![](import_vm_multi.png "import_vm_multi.png")
 
-![](new_edit_disk_multiple_sd.png "new_edit_disk_multiple_sd.png")
+![](new_move_disk_dialog.png "new_move_disk_dialog.png")
+
+![](disks_subtab.png "disks_subtab.png")
 
 ### REST Design (Modeling)
 

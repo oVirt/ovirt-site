@@ -10,7 +10,15 @@ wiki_last_updated: 2015-04-27
 
 # OVirt Slide Decks
 
-slides for oVirt Node talk [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-node.pdf)
+Initial Set of oVirt Slides from the Kickoff Workshop in November 2011:
+
+Workshop Invitation Deck: [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/09/Ovirt-WorkShop-Invitation.pdf))
+
+Arch & Work in progress: [(PDF)](http://www.ovirt.org/w/images/b/be/Ovirt-arch-iheim.pdf)
+
+oVirt Node: [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-node.pdf)
+
+oVirt API: ![](OVirt-API-CLI-SDK-20111102.pdf  "fig:OVirt-API-CLI-SDK-20111102.pdf ") (PDF)
 
 oVirt history and reports [(ODP)](http://www.ovirt.org/wp-content/uploads/2011/11/oVirt_history_and_reports.odp) & [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/11/oVirt_history_and_reports.pdf)
 
@@ -19,6 +27,8 @@ ovirt-dev-setup [(ODP)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-de
 ovirt-vdsm [(ODP)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-vdsm.odp) & [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-vdsm.pdf)
 
 ovirt-vdsm storage [(ODP)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-vdsm-storage.odp) & [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-vdsm-storage.pdf)
+
+Guest tools / agent [(PDF)](http://www.ovirt.org/w/images/2/20/Ovirt-guest-agent.pdf) & [(ODP)](http://www.ovirt.org/w/images/c/c9/Ovirt-guest-agent.odp)
 
 Quantum Ovirt discussion [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/11/Quantum_Ovirt_discussion.pdf)
 

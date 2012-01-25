@@ -91,7 +91,7 @@ Any virtual disk can be in a floating state - by unattaching the disk from the V
     -   Edit/Delete disks.
     -   Move disks between storage domains.
 *   Tree
-    -   'Resources' link under 'Storage' node - a search of all the Floating/Shared/Direct LUN disks in the Data Center.
+    -   'Resources' link under 'Storage' node - invokes a search of all the Floating/Shared/Direct LUN disks in the Data Center.
 
 ##### User Portal
 

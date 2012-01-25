@@ -10,9 +10,11 @@ wiki_last_updated: 2015-04-27
 
 # OVirt Slide Decks
 
-Generic oVirt Overview Deck. ~20 slides, pulled together from the Nov 2011 decks listed below: ![](Ovirt-generic.odp  "fig:Ovirt-generic.odp ") (ODP)
+## Generic oVirt Overview Deck
 
-Initial Set of oVirt Slides from the Kickoff Workshop in November 2011:
+~20 slides, pulled together from the Nov 2011 decks listed below: ![](Ovirt-generic.odp  "fig:Ovirt-generic.odp ") (ODP)
+
+## Initial Set of oVirt Slides from the Kickoff Workshop in November 2011
 
 Workshop Invitation Deck: [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/09/Ovirt-WorkShop-Invitation.pdf))
 

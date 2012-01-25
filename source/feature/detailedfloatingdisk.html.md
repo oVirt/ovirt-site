@@ -40,7 +40,7 @@ Floating disk - a disk that is not attached to any VM. This feature covers the m
 ### Detailed Description
 
 The feature provides administration and management functionalities for floating disks.
-A floating disk should behave as a flexible independent entity that can be moved/copied across various storage domains in the data center.
+A floating disk should behave as a flexible independent entity that can be moved/copied across various storage domains in the Data Center.
 Any virtual disk can be in a floating state - by unattaching the disk from the VM/s.
 
 #### Entity Description
@@ -57,12 +57,13 @@ Any virtual disk can be in a floating state - by unattaching the disk from the V
 *   Detaching a disk from a VM will result in a floating disk creation (i.e. the disk's state will be updated to 'floating').
 *   A floating disk can be moved between storage domains.
 *   Export/Import - not supported.
-*   New/Edit disk
-    -   Should enforce the user to enter a unique name.
-    -   Optional field - Description.
 
 #### Installation/Upgrade
 
+*   Installation
+    -   New/Edit disk:
+        -   Should enforce the user to enter a unique name.
+        -   New optional field - Description.
 *   Upgrade
     -   Disk name should be generated automatically - in order to maintain uniqueness.
     -   Disk description should remain empty.
@@ -72,7 +73,10 @@ Any virtual disk can be in a floating state - by unattaching the disk from the V
 ##### Administrator Portal
 
 *   CRUD - Introducing a new 'Virtual Disks' main tab
-    -   includes the following sub-tabs: Storage, Virtual Machines and Templates.
+    -   Includes the following sub-tabs.
+        -   Storage - a list of Storage Domains.
+        -   Templates - a list of Templates.
+        -   Virtual Machines - a list of Virtual Machines (with Plugged/UnPlugged status column).
     -   Contains a table of all the disks in the system.
     -   Each row is composed of the following columns:
 
@@ -83,7 +87,7 @@ Any virtual disk can be in a floating state - by unattaching the disk from the V
     -   Edit/Delete disks.
     -   Move disks between storage domains.
 *   Tree
-    -   'Resources' link under 'Storage' node - a search of all the Floating/Shared/Direct LUN disks in the data center.
+    -   'Resources' link under 'Storage' node - a search of all the Floating/Shared/Direct LUN disks in the Data Center.
 
 ##### User Portal
 
@@ -133,7 +137,7 @@ Affected oVirt projects:
 
 ### Future Work
 
-*   More actions should be added to Disks main tab: New/Edit/Move/Copy/etc.
+*   More actions should be added to Disks main tab: New/Edit/Remove/Move/Copy/etc.
 
 ### Open Issues
 

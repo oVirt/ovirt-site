@@ -15,7 +15,8 @@ wiki_warnings: list-item?
 
 ### Summary
 
-Floating disk - a disk that is not attached to any VM. This feature covers the management and usage of disks in floating state.
+Floating disk - a disk that is not attached to any VM.
+This feature covers the management and usage of disks in floating state.
 
 ### Owner
 

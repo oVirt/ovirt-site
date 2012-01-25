@@ -30,7 +30,16 @@ As both clean install and upgrade run these scripts, and any schema change is pe
 version information about the upgrade scripts in order to make sure unchanged scripts will not be re-run when upgrade process is being re-run.
 In order to maintain the version for a given upgrade script, for each upgrade script the md5 calculation of its content is kept in the above mentioned DB.
  The table description is as follows:
-|| Column Name || Column Type || Null? || Definition || index/pk/fk || || id || int || No || Version ID || PK || || version || varchar(10) || No || The version of the schema the upgrade script tried to acieve || || || script || varchar(255) || No || The script file name || || || checksum || varchar(128) || No || md5 of the script file || || || installed_by || varchar(30) || No || The db user that runs the upgrade script || || || started_at || timestamp || No || Script start time || || || ended_at || timestamp || Yes || Script end time || || || state || varchar (15) || No || INSTALLED/FAILED || || || current || boolean || No || true only for last version installed successfully || ||
+| Column Name | Column Type | Null? | Definition | index/pk/fk |
+| id | int | No | Version ID | PK |
+| version | varchar(10) | No | The version of the schema the upgrade script tried to acieve | |
+| script | varchar(255) | No | The script file name | |
+| checksum | varchar(128) | No | md5 of the script file | |
+| installed_by | varchar(30) | No | The db user that runs the upgrade script | |
+| started_at | timestamp | No | Script start time | |
+| ended_at | timestamp | Yes | Script end time | |
+| state | varchar (15) | No | INSTALLED/FAILED | |
+| current | boolean | No | true only for last version installed successfully | |
 
 ### Benefit to oVirt
 

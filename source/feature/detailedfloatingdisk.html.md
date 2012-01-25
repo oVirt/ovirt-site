@@ -54,9 +54,18 @@ Any virtual disk can be in a floating state - by unattaching the disk from the V
 #### Functionality
 
 *   A floating disk can be attached to any VM (or multiple VMs in case of a Shared Disk).
-*   Detaching a disk from a VM will result in a floating disk creation (i.e. the disk's status will update to 'floating').
+*   Detaching a disk from a VM will result in a floating disk creation (i.e. the disk's state will be updated to 'floating').
 *   A floating disk can be moved between storage domains.
 *   Export/Import - not supported.
+*   New/Edit disk
+    -   Should enforce the user to enter a unique name.
+    -   Optional field - Description.
+
+#### Installation/Upgrade
+
+*   Upgrade
+    -   Disk name should be generated automatically - in order to maintain uniqueness.
+    -   Disk description should remain empty.
 
 #### User Experience
 
@@ -86,6 +95,8 @@ The Power User Portal should allow the following operations:
         For now, premissions for disk entities will *not* be supported.
         Consequently, availabilty of disks will be deterimined by their type (i.e. users can attach only shared disks).
 
+##### Mockups
+
 The following UI mockups contain guidelines for the different screens and wizards:
 
 ![](virtualDisks_MainTab.png "virtualDisks_MainTab.png")
@@ -99,15 +110,6 @@ The following UI mockups contain guidelines for the different screens and wizard
 ![](attach_disk_dialogue.png "attach_disk_dialogue.png")
 
 ![](attach_disk_maintab_dialogue.png "attach_disk_maintab_dialogue.png")
-
-#### Installation/Upgrade
-
-*   Installation
-    -   New disk should enforce the user to enter a unique name.
-    -   New disk could have a description.
-*   Upgrade
-    -   Disk name should be generated in order to maintain uniqueness.
-    -   Disk description should remain empty.
 
 ### Dependencies / Related Features and Projects
 

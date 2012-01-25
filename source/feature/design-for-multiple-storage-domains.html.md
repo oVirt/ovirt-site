@@ -77,6 +77,8 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 ![](disks_subtab.png "disks_subtab.png")
 
+![](storage_vms_subtab.png "storage_vms_subtab.png")
+
 ### REST Design (Modeling)
 
 This section describes the REST design for this feature.

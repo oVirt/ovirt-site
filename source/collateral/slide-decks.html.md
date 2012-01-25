@@ -14,20 +14,12 @@ slides for oVirt Node talk [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/
 
 oVirt history and reports [(ODP)](http://www.ovirt.org/wp-content/uploads/2011/11/oVirt_history_and_reports.odp) & [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/11/oVirt_history_and_reports.pdf)
 
-<li>
-<a href="http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-dev-setup.odp">ovirt-dev-setup</a> (ODP) & <a href="http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-dev-setup.pdf">ovirt-dev-setup</a> (PDF)
+ovirt-dev-setup [(ODP)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-dev-setup.odp) & [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-dev-setup.pdf)
 
-</li>
-<li>
-<a href="http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-vdsm.odp">ovirt-vdsm</a> (ODP) & <a href="http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-vdsm.pdf">ovirt-vdsm</a> (PDF)
+ovirt-vdsm [(ODP)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-vdsm.odp) & [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-vdsm.pdf)
 
-</li>
-<li>
-<a href="http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-vdsm-storage.odp">ovirt-vdsm-storage</a> (ODP) & <a href="http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-vdsm-storage.pdf">ovirt-vdsm-storage</a> (PDF)
+ovirt-vdsm storage [(ODP)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-vdsm-storage.odp) & [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-vdsm-storage.pdf)
 
-</li>
-<li>
-<a href="http://www.ovirt.org/wp-content/uploads/2011/11/Quantum_Ovirt_discussion.pdf">Quantum_Ovirt_discussion</a> (PDF)
+Quantum Ovirt discussion [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/11/Quantum_Ovirt_discussion.pdf)
 
-</li>
 <categoy:collateral>

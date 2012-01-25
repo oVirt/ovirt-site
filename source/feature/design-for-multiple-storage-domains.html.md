@@ -61,6 +61,20 @@ The main change that needs to happen is to have each image associated with its o
 *   Create template from VM
 *   Clone template
 
+##### User Experience
+
+The following UI mockups contain guidelines for the different screens and wizards:
+
+![](VM_from_template_single.png "VM_from_template_single.png")
+
+![](VM_from_template_multi.png "VM_from_template_multi.png")
+
+![](import_vm_single.png "import_vm_single.png")
+
+![](import_vm_multi.png "import_vm_multi.png")
+
+![](new_edit_disk_multiple_sd.png "new_edit_disk_multiple_sd.png")
+
 ### REST Design (Modeling)
 
 This section describes the REST design for this feature.

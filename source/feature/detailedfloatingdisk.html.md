@@ -75,9 +75,12 @@ Any virtual disk can be in a floating state - by unattaching the disk from the V
 
 *   CRUD - Introducing a new 'Virtual Disks' main tab
     -   Includes the following sub-tabs.
-        -   Storage - a list of Storage Domains.
-        -   Templates - a list of Templates.
-        -   Virtual Machines - a list of Virtual Machines (with Plugged/UnPlugged status column).
+        -   Storage - list of Storage Domains.
+        -   Templates - list of Templates.
+        -   Virtual Machines - list of Virtual Machines (with Plugged/UnPlugged status column).
+    -   Includes the following actions (first stage subset - additional actions will be added)
+        -   Attach - dialog with a list of available VMs (all VMs with 'Down' status within the disk's Data Center).
+        -   Detach
     -   Contains a list of all the disks in the system - sortable by Floating/Shared/Managed attributes.
     -   Each row is composed of the following columns:
 

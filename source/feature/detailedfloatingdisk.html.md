@@ -40,9 +40,9 @@ This feature covers the management and usage of disks in floating state.
 
 ### Detailed Description
 
-The feature provides administration and management functionalities for floating disks.
-A floating disk should behave as a flexible independent entity that can be moved/copied across various storage domains in the Data Center.
-Any virtual disk can be in a floating state - by unattaching the disk from the VM/s.
+The feature introduces a significant improvement to oVirt compatibility and flexabilty regarding disks usage. It provides administration and management functionalities for floating disks.
+A floating disk should behave as a flexible independent entity that can be attached to any VM. Any virtual disk can be in a floating state - by unattaching the disk from the VM/s.
+Supporting a floating state for disks is essential to derived features (e.g. 'Shared RAW Disk' and 'Direct LUN Disk') and dependent implementations (e.g. application clustering, shared data warehouse).
 
 #### Entity Description
 
@@ -51,6 +51,7 @@ Any virtual disk can be in a floating state - by unattaching the disk from the V
 *   Floating state should be added to disk entity - floating / not floating.
 *   Name and Description should be added to disk entity (disk name ought to be unique for search and display purposes).
 *   Disk must be a searchable entity for providing search/sort/display capabilities under 'Virtual Disks' main tab.
+*   Open issue: addin an indication whether the disk is originated from a VM or a template (useful for filtering 'Virtual Disks' sub-tabs).
 
 #### Functionality
 
@@ -74,21 +75,26 @@ Any virtual disk can be in a floating state - by unattaching the disk from the V
 ##### Administrator Portal
 
 *   CRUD - Introducing a new 'Virtual Disks' main tab
-    -   Includes the following sub-tabs.
-        -   Storage - list of Storage Domains.
-        -   Templates - list of Templates.
-        -   Virtual Machines - list of Virtual Machines (with Plugged/UnPlugged status column).
-    -   Includes the following actions (first stage subset - additional actions will be added)
-        -   Attach - dialog with a list of available VMs (all VMs with 'Down' status within the disk's Data Center).
-        -   Detach
     -   Contains a list of all the disks in the system - sortable by Floating/Shared/Managed attributes.
+    -   Actions - at first stage, only a few actions will be included (first subset will probably include 'Remove Disk')
+    -   Includes the following sub-tabs.
+        -   Storage:
+            -   List of Storage Domains in which the selected Disk resides.
+        -   Templates (visible for disks that reside in templates):
+            -   List of Templates to which the selected Disk is attached.
+        -   Virtual Machines (visible for disks that reside in VMs):
+            -   List of Virtual Machines to which the selected Disk is attached.
+            -   Should include Plugged/UnPlugged status column.
+            -   Actions:
+                -   Attach - dialog with a list of available VMs (all VMs with 'Down' status within the disk's Data Center).
+                -   Detach - detaches the selected Disk from the selected VM.
     -   Each row is composed of the following columns:
 
       Name (unique), Description, Size, Actual Size, Type, Allocation, Interface, Creation Date, Floating(Yes/No), Shared(Yes/No), Managed(Yes/No). 
 
 *   VMs -> Disks sub-tab
     -   Attach/Detach disks.
-    -   Edit/Delete disks.
+    -   Edit/Remove disks.
     -   Move disks between storage domains.
 *   Tree
     -   'Resources' link under 'Storage' node - invokes a search of all the Floating/Shared/Direct LUN disks in the Data Center.
@@ -97,7 +103,7 @@ Any virtual disk can be in a floating state - by unattaching the disk from the V
 
 The Power User Portal should allow the following operations:
 
-*   Attach/Detach only shared disks to a VM - disks sub-tab.
+*   Attach/Detach only managed shared disks to a VM - disks sub-tab.
 
        Note:
         For now, premissions for disk entities will *not* be supported.
@@ -108,8 +114,6 @@ The Power User Portal should allow the following operations:
 The following UI mockups contain guidelines for the different screens and wizards:
 
 ![](virtualDisks_MainTab.png "virtualDisks_MainTab.png")
-
-![](virtualDisks_Tree.png "virtualDisks_Tree.png")
 
 ![](disks_subtab.png "disks_subtab.png")
 
@@ -144,5 +148,6 @@ Affected oVirt projects:
 ### Open Issues
 
 *   Consider adding permissions support to disks entities.
+*   
 
 [Category: Feature](Category: Feature)

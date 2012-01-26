@@ -104,7 +104,7 @@ Supporting a floating state for disks is essential to derived features (e.g. 'Sh
 
 The Power User Portal should allow the following operations:
 
-*   Attach/Detach only managed shared disks to a VM - disks sub-tab.
+*   Attach/Detach only managed shared disks to a VM (through disks sub-tab).
 
        Note:
         For now, premissions for disk entities will *not* be supported.

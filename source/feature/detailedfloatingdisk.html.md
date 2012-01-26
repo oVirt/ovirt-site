@@ -113,8 +113,6 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 ![](disks_subtab.png "disks_subtab.png")
 
-![](new_move_disk_dialog.png "new_move_disk_dialog.png")
-
 ![](attach_disk_dialogue.png "attach_disk_dialogue.png")
 
 ![](attach_disk_maintab_dialogue.png "attach_disk_maintab_dialogue.png")

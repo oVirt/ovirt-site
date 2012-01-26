@@ -116,11 +116,11 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 ![](virtualDisks_MainTab.png "virtualDisks_MainTab.png")
 
+![](attach_disk_maintab_dialogue.png "attach_disk_maintab_dialogue.png")
+
 ![](disks_subtab.png "disks_subtab.png")
 
 ![](attach_disk_dialogue.png "attach_disk_dialogue.png")
-
-![](attach_disk_maintab_dialogue.png "attach_disk_maintab_dialogue.png")
 
 ### Dependencies / Related Features and Projects
 

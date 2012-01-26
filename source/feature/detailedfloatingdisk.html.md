@@ -96,8 +96,9 @@ Supporting a floating state for disks is essential to derived features (e.g. 'Sh
     -   Attach/Detach disks.
     -   Edit/Remove disks.
     -   Move disks between storage domains.
-*   Tree
-    -   'Resources' link under 'Storage' node - invokes a search of all the Floating/Shared/Direct LUN disks in the Data Center.
+*   Open Issue - Tree
+    -   'Resources' link under 'Storage' node - invokes a search of all the Floating/Shared disks in the Data Center.
+    -   'Free Disks' link under a new 'Resources' node - invokes a search of all the Floating/Shared/DirectLUN disks in the Data Center.
 
 ##### User Portal
 

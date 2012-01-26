@@ -73,9 +73,9 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 ![](import_vm_multi.png "import_vm_multi.png")
 
-![](new_move_disk_dialog.png "new_move_disk_dialog.png")
-
 ![](disks_subtab.png "disks_subtab.png")
+
+![](new_move_disk_dialog.png "new_move_disk_dialog.png")
 
 ![](storage_vms_subtab.png "storage_vms_subtab.png")
 

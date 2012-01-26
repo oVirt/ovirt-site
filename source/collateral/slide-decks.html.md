@@ -26,6 +26,8 @@ oVirt API: ![](OVirt-API-CLI-SDK-20111102.pdf  "fig:OVirt-API-CLI-SDK-20111102.p
 
 oVirt history and reports [(ODP)](http://www.ovirt.org/wp-content/uploads/2011/11/oVirt_history_and_reports.odp) & [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/11/oVirt_history_and_reports.pdf)
 
+oVirt engine core ![](Ovirt-engine-core-20111102.odp "fig:Ovirt-engine-core-20111102.odp") & ![](Ovirt-engine-core-20111102.pdf "fig:Ovirt-engine-core-20111102.pdf")
+
 ovirt-dev-setup [(ODP)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-dev-setup.odp) & [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-dev-setup.pdf)
 
 ovirt-vdsm [(ODP)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-vdsm.odp) & [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/11/ovirt-vdsm.pdf)

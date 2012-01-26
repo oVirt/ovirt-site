@@ -120,7 +120,7 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 ![](disks_subtab.png "disks_subtab.png")
 
-![](attach_disk_dialogue.png "attach_disk_dialogue.png")
+![](disks_subtab_attach_disk_dialogue.png "disks_subtab_attach_disk_dialogue.png")
 
 ### Dependencies / Related Features and Projects
 

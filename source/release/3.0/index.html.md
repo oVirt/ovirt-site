@@ -158,7 +158,7 @@ Please see the [Node_Release_Notes](Node_Release_Notes)
 
 ## Reports
 
-No packging will not be released as part of this build.
+No packaging will not be released as part of this build.
 
 ## Tools
 

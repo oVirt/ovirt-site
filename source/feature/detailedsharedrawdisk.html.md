@@ -78,19 +78,17 @@ The disk should behave as a flexible independent entity, that can be reflected a
 
 The Administrator Portal should allow the following operations:
 
-*   View all shared disk from the disks sub tab in the storage domain main tab
-*   User can remove a disk entirely from the Data Center, without regarding whether there are attached VMs to it
-*   A shared raw disk can also be created from regular disk, when editing existing disk and mark the disk as a shared one.
-*   Each VM with shared disk attached to it, can R/W the shared RAW disk.
-*   When removing a VM with shared disk attached to it, the shared disk will not be deleted and will become floating disk.
-*   The shared raw disk can only be removed if all the VMs that are using it are in status down or in status up but have the disk as unplugged.
-*   The user will be able the attach/detach share disk to/from a VM, only when the VM is in status down.
-*   Consider that the shared disk must be formatted as raw type, and does not support OS disks (system bootable disks).
+*   User will be able to view all shared raw disks from the disks main tab.
+*   Regular disk can become a shared raw disk, by editing the existing disk and mark the share disk property type.
+*   When removing a VM with shared raw disk attached to it, the shared disk will not be deleted.
+*   If no other VMs are being attached to the shared disk then it will become floating disk.
+*   Attach/Detach of shared raw disk can be performed only when the VM is in status down.
+*   Shared raw disk must be formatted with raw type, and does not support OS disks (system bootable disks).
 
 The Power User Portal should allow the following operations:
 
 *   Attach, detach disks to VM.
-*   View shared disks for storage domain in the Data Center the power user can attach/detach
+*   View shared disks in the Data Center which the power user can attach/detach
 *   The power user will not have permissions to create a shared disk from the user portal.
 
 The following UI mockups contain guidelines for the different screens and wizards:

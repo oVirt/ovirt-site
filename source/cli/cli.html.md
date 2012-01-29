@@ -96,13 +96,17 @@ That will install lxml, because EPEL's python-lxml is not yet up to the version 
 
 ## TODO list
 
-*   parameters formatting
+*   refactor CLI to use SDK metadata rather than static mappings (in progress)
+
+       - help
+       - actions
+
+*   use api xml type properties as CLI arguments
 
 <!-- -->
 
-*   generic parameters assignment
+*   drop help dependency on active connection
 
-       - right now parameters assign to parameters classes by static
-         mapping in metadata, it should be done in a generic way.
+       (no longer required as all metadata available off-line via SDK)
 
 <Category:CLI>

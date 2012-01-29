@@ -54,6 +54,19 @@ The following diagram shows the different layers in the oVirt engine component:
 
 ![](Engine-arch.png "Engine-arch.png")
 
+#### Engine-Core Architecture
+
+The following diagram shows the different components in the engine-core:
+
+![](Engine-arch2.png "Engine-arch2.png")
+
+The main components in the engine core are:
+
+*   DB Broker - responsible for all the DB related actions
+*   VDS Broker - responsible for all actions that require communicating with VDSM
+*   LDAP Broker - responsible for authenticating and fetching user/group attributes from the LDAP directory (currently support AD, IPA and RHDS)
+*   Backend Bean - a Singleton bean responsible for running actions, queries and monitoring of the different entities
+
 ### Host Agent (VDSM)
 
 VDSM covers all functionality required by oVirt Engine.

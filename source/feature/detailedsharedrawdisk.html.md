@@ -75,14 +75,14 @@ Move disk
 
 *   Display shared disk
     -   The shared disks will be displayed in the 'disks' main tab.
-    -   All the shared raw disk for each storage should be in the storage tab as a sub tab
 *   Adding shared disk
     -   Creating/Editing a shared raw disk is available through the new/edit disk dialog from the disks sub tab in the VM main tab.
-    -   User can also attach/detach shared disk through the disks sub tab of the VMs main tab, the add/edit disk dialog box will have a check box indicating the disk is shared or not.
-         When a user wants to configure a regular disk to be shared disk, he will edit the disk and mark the checkbox as shared.
-    -   User can attach/detach shared disk to a VM through the disks sub tab.
+         The add/edit disk dialog box will have a check box indicating the disk is shared or not.
+        When a user wants to configure a regular disk to be shared disk, he will edit the disk and mark the checkbox as shared.
+    -   User can also attach/detach shared disk through the disks sub tab of the VMs main tab,
+    -   The administrator can attach/detach shared raw disk from the disks main tab.
 *   Delete shared disk
-    -   User will be able to delete a shared disk from the storage domain tab in the disks sub tab.
+    -   User will be able to delete a shared disk from the disks sub tab in the VMs sub tab.
 
 #### Installation/Upgrade
 

@@ -50,39 +50,6 @@ Cluster version is 3.1. Add record in the action_version_map table:
 
 ![File:SetupNetworksClassDiagram.png](SetupNetworksClassDiagram.png "File:SetupNetworksClassDiagram.png")
 
-### Bridge-less Networks
-
-#### Feature summary
-
-All VMs today are connected through a software bridge, which naturally has a performance hit.
- Bridge-less NICs can serve for heavy traffic channels like migration, storage or the engine's management network.
-
-#### Code Change
-
-1.  Add bridged : boolean to network entity
-2.  Add deserialization to bridged field in VdsBrokerObjectsBuilder.java
-3.  DB - add field in to network and network_view
-4.  DAO - add field to NetworkDao CRUD actions
-
-#### Backward Compatibility
-
-Its compatibility version is 3.1 and enforced by the enclosed command as mentioned already. Bridge-less network will be edited via the SetupNetworks command only, which will eventually deprecate add/edit networks commands.
-
-### Jumbo frames
-
-Typically, just another parameter for a network configuration to determine the [MTU](http://en.wikipedia.org/wiki/Maximum_transmission_unit).
-
-#### Code Change
-
-1.  Add MTU : String to network entity
-2.  Add deserialization to MTU field in VdsBrokerObjectsBuilder.java. Serialise as String and not Int.
-3.  DB - add field in to vds_interface and vds_interface_view
-4.  DAO - add field to VdsInterfaceDao CRUD actions
-
-#### Backward Compatibility
-
-Same as for bridge-less feature.
-
 ### VDSM changes
 
 **configNetwork.py** `  def setupNetworks(networks={}, bondings={}, **options):`

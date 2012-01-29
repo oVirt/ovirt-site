@@ -71,6 +71,14 @@ Move disk
 
 *   Moving a shared raw disk is permitted only when all the attached VMs status is down. While executing the move of the shared raw disk all the attached VMs will be set to image lock status ,until the process is finished.
 
+Snapshot
+
+*   Snapshot can not be created from shared raw disk
+
+Stateless VM
+
+*   When running stateless VM, the shared raw disk will not be handle as stateless.
+
 #### User Experience
 
 *   Display shared disk

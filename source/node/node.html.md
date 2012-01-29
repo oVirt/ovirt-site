@@ -18,13 +18,13 @@ The oVirt Node sub-project is geared toward building a small, robust operating s
 
 ## Pending Release
 
-oVirt Node 2.2.1
+oVirt Node 2.2.2
 
 *   [Node_Release_Notes](Node_Release_Notes)
-*   [ISO image](http://ovirt.org/releases/nightly/binary/ovirt-node-image-2.2.1-3.6.fc16.iso)
-*   [Source Tarball](http://ovirt.org/releases/nightly/src/ovirt-node-2.2.1.tar.gz)
-*   [RPM Package](http://ovirt.org/releases/nightly/fedora/16/ovirt-node-2.2.1-1.fc16.noarch.rpm)
-*   [Tools Package](http://ovirt.org/releases/nightly/fedora/16/ovirt-node-tools-2.2.1-1.fc16.noarch.rpm)
+*   [ISO image](http://ovirt.org/releases/nightly/binary/ovirt-node-image-2.2.2-1.1.fc16.iso)
+*   [Source Tarball](http://ovirt.org/releases/nightly/src/ovirt-node-2.2.2.tar.gz)
+*   [RPM Package](http://ovirt.org/releases/nightly/fedora/16/ovirt-node-2.2.2-1.fc16.noarch.rpm)
+*   [Tools Package](http://ovirt.org/releases/nightly/fedora/16/ovirt-node-tools-2.2.2-1.fc16.noarch.rpm)
 
 ## Current Release
 

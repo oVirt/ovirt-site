@@ -138,13 +138,23 @@ TBD
 
 ## Node
 
-TBD
+Please see the [Node_Release_Notes](Node_Release_Notes)
 
 ### Features
 
+*   UEFI Support added
+*   Works with ovirt-engine
+
 ### Resolved Issues
 
+*   Automatically log out sessions that are inactive for 15 min
+*   validate the iscsi iqn name
+*   persist dns entries correctly when adding manually and also using dhcp
+*   various spec file cleanup
+
 ### Known Issues
+
+*   [Node_Backlog](Node_Backlog)
 
 ## Reports
 

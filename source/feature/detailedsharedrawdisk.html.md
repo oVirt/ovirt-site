@@ -61,7 +61,7 @@ The disk should behave as a flexible independent entity, that can be reflected a
 #### User Experience
 
 *   Display shared disk
-    -   The shared disks will be displayed in a new 'shared disk' sub tab in the 'storage' tab.
+    -   The shared disks will be displayed in the 'disks' main tab.
     -   All the shared raw disk for each storage should be in the storage tab as a sub tab
 *   Adding shared disk
     -   Creating/Editing a shared raw disk is available through the new/edit disk dialog from the disks sub tab in the VM main tab.

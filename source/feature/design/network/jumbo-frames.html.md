@@ -16,8 +16,8 @@ Typically, just another parameter for a network configuration to determine the [
 
 1.  Add MTU : String to network entity
 2.  Add deserialization to MTU field in VdsBrokerObjectsBuilder.java. Serialise as String and not Int.
-3.  DB - add field in to vds_interface and vds_interface_view
-4.  DAO - add field to VdsInterfaceDao CRUD actions
+3.  DB - add field in to vds_interface,vds_interface_view, network,netework_view
+4.  DAO - add field to VdsInterfaceDao,networkDao CRUD actions
 5.  DAO - update tests
 
 #### BL

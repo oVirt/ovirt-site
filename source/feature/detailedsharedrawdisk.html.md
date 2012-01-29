@@ -52,9 +52,11 @@ The disk should behave as a flexible independent entity, that can be reflected a
 #### Functionality
 
 *   The synchronization/clustering of shared disk between VMs will be managed in the file system.
-*   Shared disk will become floating disk when the disk will not be attached to any VMs in the Data Center.
-*   Shared disk can be moved from one VM to another.
+*   Each VM which has attached shared raw disk, can R/W to the shared RAW disk.
+*   Shared raw disk will become floating disk when the disk will not be attached to any VMs in the Data Center.
+*   Shared raw disk can be moved from one VM to another.
 *   Shared raw disk is configured the same as a regular disk, but with a shared flag marked as true.
+*   The shared raw disk can be removed if all the VMs that are using it are in status down or VMs which are in status up but the shared RAW disk is unplugged.
 
 #### User Experience
 

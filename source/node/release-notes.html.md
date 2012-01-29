@@ -10,6 +10,20 @@ wiki_last_updated: 2013-11-19
 
 # oVirt Node Release Notes
 
+# 2.2.2 Release Notes
+
+*   UEFI installation should be fixed [Bug 761540](https://bugzilla.redhat.com/show_bug.cgi?id=761540)
+*   Spec file cleanup
+*   Build process enhancements
+*   Automatically log out sessions that are idle for 15 minutes
+*   Validate iscsi iqn name
+*   Persist Manually added dns entries when using DHCP
+*   Fix display of bootproto when using vlans
+
+### Known Issues for 2.2.2
+
+*   See Current Backlog for other issues [Node_Backlog](Node_Backlog)
+
 # 2.2.1 Release Notes
 
 *   UEFI installation does not work with internal drives, only usb drives [Bug 761540](https://bugzilla.redhat.com/show_bug.cgi?id=761540)

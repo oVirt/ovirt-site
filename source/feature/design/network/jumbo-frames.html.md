@@ -20,3 +20,9 @@ Typically, just another parameter for a network configuration to determine the [
 ### Backward Compatibility
 
 Same as for bridge-less feature.
+
+The XML returned by VDSM may have or miss the element of "mtu" since this wasn't reported till now.
+
+The code must check for existing elements and then try to deserialize to interface/bond/network entities.
+
+Missing element is ignored for its implicitly regarded as non compatible.

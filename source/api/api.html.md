@@ -102,7 +102,7 @@ http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy
 
 ### RSDL
 
-*   support different types on url parameters (in progress)
+*   support different types of url parameters (in progress)
 
       - query
       - matrix

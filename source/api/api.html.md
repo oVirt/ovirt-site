@@ -102,18 +102,21 @@ http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy
 
 ### RSDL
 
-*   advertising /request/ parameters (assigned)
+*   support different types on url parameters (in progress)
+
+      - query
+      - matrix
 
 ### features
 
-*   setup networks
+*   setup networks (in progress)
 
-<!-- -->
-
-*   atomic operation on a collection level
-
-<!-- -->
+       - atomic operation on a collection level
 
 *   non-admin users support
+
+<!-- -->
+
+*   QUOTA
 
 <Category:Api>

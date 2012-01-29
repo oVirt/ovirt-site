@@ -113,13 +113,7 @@ TBD
 
 ## DWH
 
-No packging will not be released as part of this build.
-
-### Features
-
-### Resolved Issues
-
-### Known Issues
+No packaging will not be released as part of this build.
 
 ## Packaging & Installer
 

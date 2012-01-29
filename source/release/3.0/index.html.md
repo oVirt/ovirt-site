@@ -123,13 +123,18 @@ TBD
 
 ## Packaging & Installer
 
-TBD
-
 ### Features
+
+*   Support for JBoss AS7 on Fedora16
 
 ### Resolved Issues
 
+*   Missing /var/lock/ovirt-engine after reboot [BZ#771590](https://bugzilla.redhat.com/show_bug.cgi?id=771590)
+
 ### Known Issues
+
+*   No upgrade proccess available yet.
+*   Since JBoss AS7 doesn't support symlinks, we copy some files during ovirt-engine rpm %post section.([BZ#782567](https://bugzilla.redhat.com/show_bug.cgi?id=782567))
 
 ## Node
 

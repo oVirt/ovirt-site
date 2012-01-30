@@ -23,7 +23,7 @@ The patch review process goals are:
 5.  Archived discussions
 6.  Patches which can be cherry-picked
 
-The oVirt project uses gerrit in order to review patches. For more on Gerrit and how to use it see <http://www.ovirt.org/wiki/Working_with_oVirt_Gerrit>
+The oVirt project uses gerrit in order to review patches. For more on Gerrit and how to use it see [Working with oVirt Gerrit](Working with oVirt Gerrit)
 
 ### Basic Principles
 

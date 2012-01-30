@@ -108,7 +108,6 @@ Snapshot Parameters Format:
 
       snapParams = [
           {"domainID": "`<sdUUID>`",
-           "poolID": "`<spUUID>`",
            "imageID": "`<imgUUID>`",
            "baseVolumeID": "`<baseVolUUID>`",
            "volumeID": "`<volUUID>`"},

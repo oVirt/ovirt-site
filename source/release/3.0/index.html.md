@@ -11,17 +11,7 @@ wiki_last_updated: 2015-01-16
 
 # OVirt 3.0 release notes
 
-The oVirt Project is pleased to announce the availability of its first formal release, oVirt x.y.
-
-## API
-
-TBD
-
-### Features
-
-### Resolved Issues
-
-### Known Issues
+The oVirt Project is pleased to announce the availability of its first formal release, oVirt 3.0.
 
 ## SDK
 
@@ -101,16 +91,6 @@ TBD
 
 *   Unifying VM and VM_TEMPLATE tables in the Data Base.
 
-## Guest Agent
-
-TBD
-
-### Features
-
-### Resolved Issues
-
-### Known Issues
-
 ## DWH
 
 No packaging will not be released as part of this build.
@@ -154,26 +134,6 @@ Please see the [Node_Release_Notes](Node_Release_Notes)
 
 No packaging will not be released as part of this build.
 
-## Tools
-
-TBD
-
-### Features
-
-### Resolved Issues
-
-### Known Issues
-
-## User Portal
-
-TBD
-
-### Features
-
-### Resolved Issues
-
-### Known Issues
-
 ## VDSM
 
 vdsm-4.9.3.1
@@ -202,15 +162,5 @@ vdsm-4.9.3.1
 *   [BZ#771329 Use a copy of the domainsToUpgrade](http://bugzilla.redhat.com/771329)
 *   [BZ#781317 adjust getos() to print real node type](http://bugzilla.redhat.com/781317)
 *   [BZ#781970 kaxmlrpclib: fix plaintext transport in Python 2.7](http://bugzilla.redhat.com/781970)
-
-### Known Issues
-
-## Web Administration Portal
-
-TBD
-
-### Features
-
-### Resolved Issues
 
 ### Known Issues

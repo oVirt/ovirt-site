@@ -150,6 +150,6 @@ Shared raw disk will be dependent on floating disk.
 
 ### Open Issues
 
-*   Detaching disk with snapshot history should be blocked?
+*   Should detaching a disk with snapshots history be blocked?
 
 [Category: Feature](Category: Feature)

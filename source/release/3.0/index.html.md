@@ -15,21 +15,21 @@ The oVirt Project is pleased to announce the availability of its first formal re
 
 ## Software Development Kit
 
-The oVirt Engine Software Development Kit provides an enhanced Python environment to support the developement of custom software utilizing the APIs exposed by the engine.
+The oVirt Engine Software Development Kit provides an enhanced Python environment to support the development of custom software utilizing the APIs exposed by the engine.
 
 ### Features
 
-This is the initial formal release of the oVirt Engine SDK.
+*   This is the initial formal release of the oVirt Engine SDK.
 
 ### Resolved Issues
 
 *   Use direct URI on get(id=x) rather than search pattern.
-*   Extension for [BZ#782707](https://bugzilla.redhat.com/782707)
-*   Added connectivity check and disconnect methods for [BZ#781820](https://bugzilla.redhat.com/781820)
+*   Extension to support the addition of new clusters ([BZ#782707](https://bugzilla.redhat.com/782707)).
+*   Added connectivity check and disconnect methods ([BZ#781820](https://bugzilla.redhat.com/781820)).
 
 ### Known Issues
 
-Only one instance of proxy to API can be created in application
+*   An application can only create one proxy to the API.
 
 ## CLI
 

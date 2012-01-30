@@ -15,4 +15,7 @@ wiki_last_updated: 2012-02-08
 | | Installer        | openssl lock file doesn't exist                                   | [771590](https://bugzilla.redhat.com/show_bug.cgi?id=771590) | Fixed  | Merged into engine_3.0 |
 | | Engine           | IPA - IPA does not perform login with UPN                         | [783662](https://bugzilla.redhat.com/show_bug.cgi?id=783662) | Fixed  | Merged into engine_3.0 |
 | | Engine           | User already logged in error                                      | [784810](https://bugzilla.redhat.com/show_bug.cgi?id=784810) | Fixed  | Merged into engine_3.0 |
+| | Node             | Installation Error                                                | [785728](https://bugzilla.redhat.com/show_bug.cgi?id=785728) | Open   |                         |
+| | VDSM             | spice problems with tls                                           | [773371](https://bugzilla.redhat.com/show_bug.cgi?id=773371) | Open   |                         |
+| | VDSM             | NM_CONTROLLED device doesn't work after reboot                   | [785557](https://bugzilla.redhat.com/show_bug.cgi?id=785557) | Open   |                         |
 | | Enter            | Your                                                              | [XXXX](https://bugzilla.redhat.com/show_bug.cgi?id=XXXX)     | BUG    | HERE                    |

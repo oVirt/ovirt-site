@@ -150,6 +150,6 @@ Quota has to be taken in consideration, for every new feature that will involve 
 
 ### Open Issues
 
-*   Floating disks presentation from the shared disks sub tab at the storage main tab.
+*   Disks permissions will not be implemented for now.
 
 [Category: Feature](Category: Feature)

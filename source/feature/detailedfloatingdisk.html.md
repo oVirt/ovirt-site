@@ -145,6 +145,7 @@ Affected oVirt projects:
 ### Future Work
 
 *   More actions should be added to Disks main tab: New/Edit/Remove/Move/Copy/etc.
+*   Consider adding permissions support to disks entities.
 
 ### Open Issues
 

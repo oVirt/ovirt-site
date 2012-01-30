@@ -13,11 +13,13 @@ wiki_last_updated: 2015-01-16
 
 The oVirt Project is pleased to announce the availability of its first formal release, oVirt 3.0.
 
-## SDK
+## Software Development Kit
 
-TBD
+The oVirt Engine Software Development Kit provides an enhanced Python environment to support the developement of custom software utilizing the APIs exposed by the engine.
 
 ### Features
+
+This is the initial formal release of the oVirt Engine SDK.
 
 ### Resolved Issues
 

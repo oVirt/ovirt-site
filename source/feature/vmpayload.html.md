@@ -51,19 +51,40 @@ There are a few options to model that:
     -   In floppy allow to attach a payload
     -   In CD allow to attach a payload
     -   Both the payload and the attachment are used
-    -   There may be multiple payloads, and multiple passing options at the same time\\
+    -   There may be multiple payloads, and multiple passing options at the same time
     -   There will be a single attachment and/or multiple payloads per device type (floppy, CD)
+    -   In case Windows sysprep is used, we must make sure it gets the first floppy (drive "A:")
 
-Notes:
+After the upstream discussions, the chosen model is the second one. Notes:
 
 1.  The payload data will be encoded using base64 encoding.
 2.  All payloads will be passed in the current VDSM create verb
 3.  With either options, the engine API and VDSM API will be general enough to allow adding other passing methods in the future
 4.  The Modelling of this feature will include OVF schema changes as well
+5.  For now we will limit the content of the file to 1024K. In the future we might use a NFS share in cases in which the content is bigger. if the content of the file is bigger the 512K it will pass an nfs share for vdsm to fetch the file/s
 
-<!-- -->
+### Design Notes
 
-1.  if the content of the file is bigger the 512K it will pass an nfs share for vdsm to fetch the file/s
+VDSM verb:
+
+       { 'iso': [{'filename': 'content' }, {'filename': 'content'}],
+        'floppy': [{'filename': 'content' }, {'filename': 'content'}],
+        'sysprep': {'filename': 'content' },
+        'network': '...' } 
+       
+
+### User work-flows
+
+The Administrator and User Portal should allow the following operations in edit VM:
+
+1.  Enable/Disable payload
+2.  Once enabled
+    -   Choose payload method
+        -   Floppy
+        -   CD
+    -   For each payload
+    -   Choose the path
+    -   Provide the base64 data
 
 ### Benefit to oVirt
 

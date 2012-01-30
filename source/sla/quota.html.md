@@ -105,7 +105,7 @@ Use cases :
 | storage_size_gb_usage | INTEGER     | The used GB in the storage pool, defined in Giga byte. (using CalculateStorageUsage)          |
 | mem_size_mb            | BIGINT      | The limited ram, defined in Mega byte.                                                        |
 | mem_size_mb_usage     | BIGINT      | The used ram in the storage pool. (using CalculateVdsGroupUsage)                              |
-| is_default_quota       | BOOLEAN     | true/false                                                                                    |
+| is_default_quota       | BOOLEAN     | Indicating if the quota is a a default quota for the Data Center.                             |
 
 **quota_vds_group_view** - View of all the vds group quotas in the setup, that is all the quotas that vds_group_id is not null but storage_id is null in the quota_limitation.
 

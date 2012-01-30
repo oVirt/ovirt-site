@@ -37,8 +37,8 @@ This feature covers the management and usage of disks in floating state.
 
 ### Detailed Description
 
-The feature provides administration and management functionalities for floating disks.
-A floating disk should behave as a flexible independent entity that can be attached to any VM. Any virtual disk can be in a floating state - by unattaching the disk from the VM/s.
+The feature provides administration and management functionalities for floating disks. A floating disk should behave as a flexible independent entity that can be attached to any VM.
+Any virtual disk can be in a floating state - by unattaching the disk from the VM/s.
 
 ### Benefit to oVirt
 

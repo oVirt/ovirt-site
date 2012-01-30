@@ -69,11 +69,15 @@ Export/Import
 
 Move disk
 
-*   Moving a shared raw disk is permitted only when all the attached VMs status is down. While executing the move of the shared raw disk all the attached VMs will be set to image lock status ,until the process is finished.
+*   Moving a shared raw disk is permitted only when all the attached VMs status are down.
+
+Move VM
+
+*   When moving a VM the shared raw disk should not be moved.
 
 Snapshot
 
-*   Snapshot can not be created from shared raw disk
+*   when taking a vm snapshot, a snapshot of the shared disk will not be taken.
 
 Stateless VM
 

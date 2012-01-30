@@ -55,7 +55,9 @@ There are a few options to model that:
     -   There will be a single attachment and/or multiple payloads per device type (floppy, CD)
     -   In case Windows sysprep is used, we must make sure it gets the first floppy (drive "A:")
 
-After the upstream discussions, the chosen model is the second one. Notes:
+After the upstream discussions, the chosen model is the second one.
+
+Notes:
 
 1.  The payload data will be encoded using base64 encoding.
 2.  All payloads will be passed in the current VDSM create verb

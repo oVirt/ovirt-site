@@ -120,7 +120,7 @@ Use cases :
 | virtual_cpu_usage  | INTEGER     | The usage of the cpu in the cluster, defined in Giga byte. (using CalculateVdsGroupUsage) |
 | mem_size_mb        | BIGINT      | The limited ram defined in Mega byte.                                                     |
 | mem_size_mb_usage | BIGINT      | The used ram in the cluster. (using CalculateVdsGroupUsage)                               |
-| is_default_quota   | BOOLEAN     | true/false                                                                                |
+| is_default_quota   | BOOLEAN     | Indicating if the quota is a a default quota for the Data Center.                         |
 
 **quota_storage_view** - View of all the storage quotas in the setup, that is all the quotas that storage_id is not null but vds_cluster_id is null in the quota_limitation.
 
@@ -132,7 +132,7 @@ Use cases :
 | storage_id              | UUID        | The vds group Id                                                       |
 | storage_size_gb        | INTEGER     | The limited GB defined in Giga byte.                                   |
 | storage_size_gb_usage | INTEGER     | The used GB on the quota storage domain. (Using CalculateStorageUsage) |
-| is_default_quota       | BOOLEAN     | true/false                                                             |
+| is_default_quota       | BOOLEAN     | Indicating if the quota is a a default quota for the Data Center.      |
 
 ###### Stored Procedures
 

@@ -98,8 +98,8 @@ Stateless VM
 
 #### Installation/Upgrade
 
-*   Disk name should be calculated automatically counting on the vm name and disk number in the VM. the creation date should be the day of the upgrade, and the description will be "Automatically generated disk name".
-*   New disk should enforce the user to enter a name and description for the disk.
+*   Disk name should be calculated automatically counting on the vm name and disk number in the VM. Description will be empty.
+*   New disk should enforce the user to enter a name for the disk.
 
 #### User work-flows
 

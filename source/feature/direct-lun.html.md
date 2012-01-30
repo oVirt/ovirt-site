@@ -12,4 +12,4 @@ wiki_last_updated: 2015-01-16
 
 ## Introduction
 
-Specify the GUID or UUID of a device to attach it as a local disk to the VM.
+Specify the GUID or UUID of a block device to attach it as a local disk to the VM.

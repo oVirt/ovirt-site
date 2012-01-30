@@ -63,7 +63,7 @@ Notes:
 2.  All payloads will be passed in the current VDSM create verb
 3.  With either options, the engine API and VDSM API will be general enough to allow adding other passing methods in the future
 4.  The Modelling of this feature will include OVF schema changes as well
-5.  For now we will limit the content of the file to 1024K. In the future we might use a NFS share in cases in which the content is bigger.
+5.  For now we will limit the content of the file to 1024K. In the future we might support using NFS share in cases in which the content is bigger.
 
 ### Design Notes
 

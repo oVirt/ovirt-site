@@ -148,7 +148,4 @@ Affected oVirt projects:
 
 ### Open Issues
 
-*   Consider adding permissions support to disks entities.
-*   
-
 [Category: Feature](Category: Feature)

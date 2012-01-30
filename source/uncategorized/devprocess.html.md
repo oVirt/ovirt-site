@@ -85,7 +85,8 @@ The oVirt project uses gerrit in order to review patches. For more on Gerrit and
 
 Create a branch for everything you work on
 
-##### Use Rebase -i
+##### Interactive Rebase
 
-1.  Re-write history!
-2.  Modify, split, squash or re-order commits
+You can also rebase interactively. This is often used to re-write your own commit objects before pusing them somewhere. It is an easy way to split, merge or re-order commits before sharing them with others. You can also use it to clean up commits you've pulled from someone when applying them locally.
+
+For more information on using interactive rebase see <http://book.git-scm.com/4_interactive_rebasing.html>

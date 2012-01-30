@@ -28,10 +28,6 @@ An example of a snapshots:
 
 ![](LiveSnapshot_SnapshotImage.png‎ "LiveSnapshot_SnapshotImage.png‎")
 
-#### The Need for Live Tasks
-
-[...]
-
 ## Live Tasks in VDSM Architecture
 
 Live snapshots and merges have 2 components:
@@ -67,7 +63,8 @@ The main VDSM problems and limitations today are:
 
 <!-- -->
 
-*   The recover files aren't updated with the new volume information.
+*   A live snapshot shouldn't reconfigure the backing file path in the new image
+    -   **Bugzilla:** <https://bugzilla.redhat.com/show_bug.cgi?id=785683> (qemu-kvm)
     -   VDSM Patch: n/a
 
 <!-- -->

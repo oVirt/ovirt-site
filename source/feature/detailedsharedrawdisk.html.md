@@ -150,6 +150,4 @@ Quota has to be taken in consideration, for every new feature that will involve 
 
 ### Open Issues
 
-*   Disks permissions will not be implemented for now.
-
 [Category: Feature](Category: Feature)

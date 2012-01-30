@@ -10,6 +10,6 @@ wiki_last_updated: 2015-01-16
 
 # Direct Lun
 
-# Introduction
+## Introduction
 
 Specify the GUID or UUID of a device to attach it as a local disk to the VM.

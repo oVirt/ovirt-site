@@ -23,9 +23,9 @@ This is the initial formal release of the oVirt Engine SDK.
 
 ### Resolved Issues
 
-      * Use direct URI on get(id=x) rather than search pattern.
-`* Extension for `[`BZ#782707`](https://bugzilla.redhat.com/782707)
-`* Added connectivity check and disconnect methods for `[`BZ#781820`](https://bugzilla.redhat.com/781820)
+*   Use direct URI on get(id=x) rather than search pattern.
+*   Extension for [BZ#782707](https://bugzilla.redhat.com/782707)
+*   Added connectivity check and disconnect methods for [BZ#781820](https://bugzilla.redhat.com/781820)
 
 ### Known Issues
 

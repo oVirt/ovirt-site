@@ -93,18 +93,20 @@ No packaging will not be released as part of this build.
 
 ## Packaging & Installer
 
+The packaging & install subproject deals with the creation of the packages for the oVirt Engine and associated subcomponents. This subproject also delivers the *engine-setup* and *engine-cleanup* utilities. The *engine-setup* utilitiy is used to configure and remove oVirt Engine while the *engine-cleanup* utility is used to remove it.
+
 ### Features
 
-*   Support for JBoss AS7 on Fedora16
+*   Support for JBoss AS7 on Fedora 16
 
 ### Resolved Issues
 
-*   Missing /var/lock/ovirt-engine after reboot [BZ#771590](https://bugzilla.redhat.com/show_bug.cgi?id=771590)
+*   Missing /var/lock/ovirt-engine after reboot ([BZ#771590](https://bugzilla.redhat.com/show_bug.cgi?id=771590)).
 
 ### Known Issues
 
-*   No upgrade proccess available yet.
-*   Since JBoss AS7 doesn't support symlinks, we copy some files during ovirt-engine rpm %post section.([BZ#782567](https://bugzilla.redhat.com/show_bug.cgi?id=782567))
+*   No upgrade procedure is currently available, to upgrade between releases, both nightlies and stable, it is necessary to run *engine-cleanup* and reinstall oVirt Engine.
+*   As JBoss AS7 does not follow symlinks, some files are currently copied in the %post section of the ovirt-engine package.([BZ#782567](https://bugzilla.redhat.com/show_bug.cgi?id=782567))
 
 ## Node
 

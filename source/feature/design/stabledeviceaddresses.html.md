@@ -4,6 +4,8 @@ authors: emesika, ilvovsky, shahar, ykaul
 wiki_title: Features/Design/StableDeviceAddresses
 wiki_revision_count: 62
 wiki_last_updated: 2012-03-14
+wiki_conversion_fallback: true
+wiki_warnings: conversion-fallback
 ---
 
 # Stable Device Addresses
@@ -20,21 +22,21 @@ When creating a VM, QEMU allocates device addresses to the guest devices, these 
 
 **The general implementation concepts are:**
 
-      1. The 'create' verb should get a new parameter in the XML describing the device addresses of the VM.
-         This parameter is optional and if not given VDSM should learn the device addresses from libvirt.
-      2. The device addresses are not being parsed by oVirt Engine, they are persisted as is without manipulations of the data.
-      3. The 'getAllVmStats' verb should report the hash of the device addresses of the VMS.
-      4. If a change is detected by RHEVM to the device addresses (the reported hash was changed), it should query VDSM 
-         for the full VM configuration by using the 'list' verb with the 'long' format and the list of changed VMs.
-      5. The list verb should report the device addresses as part of the VM configuration.
+     1. The 'create' verb should get a new parameter in the XML describing the device addresses of the VM.
+        This parameter is optional and if not given VDSM should learn the device addresses from libvirt.
+     2. The device addresses are not being parsed by oVirt Engine, they are persisted as is without manipulations of the data.
+     3. The 'getAllVmStats' verb should report the hash of the device addresses of the VMS.
+     4. If a change is detected by RHEVM to the device addresses (the reported hash was changed), it should query VDSM 
+        for the full VM configuration by using the 'list' verb with the 'long' format and the list of changed VMs.
+     5. The list verb should report the device addresses as part of the VM configuration.
 
 **Notes:**
 
-      1. Export - the device addresses should be part of the exported configuration of the VM.
-      2. Import - the device addresses should be part of the imported configuration of the VM.
-      3. The 'list' verb reports the full configuration of all the VMs on the host. 
-         This verb was extended to support a given list of VMs to avoid the overhead of reporting all VMs 
-         configuration while only a small group is needed.
+     1. Export - the device addresses should be part of the exported configuration of the VM.
+     2. Import - the device addresses should be part of the imported configuration of the VM.
+     3. The 'list' verb reports the full configuration of all the VMs on the host. 
+        This verb was extended to support a given list of VMs to avoid the overhead of reporting all VMs 
+        configuration while only a small group is needed.
 
 ### GUI
 
@@ -56,60 +58,60 @@ This section describes the backend design for this feature.
 
 Old API will be supported for Clusters with Compatibility Version under 3.1 Sample:
 
-      'bridge': 'rhevm,rhevm,rhevm,rhevm,rhevm,rhevm,rhevm',
-      'acpiEnable': 'true',
-      'emulatedMachine': 'rhel6.2.0',
-      'vmId': '27c61cea-f4fd-47e9-84e8-d1598f32ccc0',
-      'transparentHugePages': 'true',
-      'spiceSslCipherSuite': 'DEFAULT',
-      'cpuType': 'Nehalem',
-      'smp': '1',
-      'macAddr':'00:1a:4a:16:99:42,00:1a:4a:16:99:43,00:1a:4a:16:99:44,00:1a:4a:16:99:45,00:1a:4a:16:99:46,00:1a:4a:16:99:47,00:1a:4a:16:99:48',
-      'boot': 'cdn',
-      'custom': {},
-      'vmType': 'kvm',
-      'memSize': 512,
-      'smpCoresPerSocket': '1',
-      'vmName': 'ingale',
-      'spiceMonitors': '4',
-      'nice': '0',
-      'floppy':'/rhev/data-center/4996348b-0199-435a-b01d-94cdf67d2d83/c37e94b2-b130-49b4-a7aa-b30e8a372878/images/11111111-1111-1111-1111-111111111111/win2k3.vfd',
-      'drives': [
-             {'domainID': '25cf0e1e-236a-4889-91db-8de1aca9440e',
-              'format': 'cow',
-              'bus': '0',
-              'boot': 'true',
-              'volumeID': 'be4d8588-8771-47cd-8954-b67566b6bd55',
-              'imageID': '5f6852c8-844c-40ff-ac9c-cac5d00cbf1b',
-              'poolID': '4996348b-0199-435a-b01d-94cdf67d2d83',
-              'propagateErrors': 'off',
-              'if': 'virtio'},
-             {'domainID': '25cf0e1e-236a-4889-91db-8de1aca9440e',
-              'format': 'raw',
-              'bus': '1',
-              'boot': 'false',
-              'volumeID': '9dd6b03a-2391-4537-8247-1bd786f60bdc',
-              'imageID': 'f6bdcc45-bb73-45d1-975d-15d6eefe7eda',
-              'poolID': '4996348b-0199-435a-b01d-94cdf67d2d83',
-              'propagateErrors': 'off',
-              'if': 'virtio'},
-             {'index': '0',
-              'domainID': '25cf0e1e-236a-4889-91db-8de1aca9440e',
-              'format': 'raw',
-              'volumeID': '1745eb41-1432-422b-af6f-8b8c8dd3365c',
-              'imageID': '8904d42d-c974-4055-a973-e6d7eb75e4ee',
-              'poolID': '4996348b-0199-435a-b01d-94cdf67d2d83',
-              'propagateErrors': 'off',
-              'if': 'ide'}],/home/emesika/backup/db/engine/
-      'cdrom':'/rhev/data-center/4996348b-0199-435a-b01d-94cdf67d2d83/c37e94b2-b130-49b4-a7aa-b30e8a372878/images/11111111-1111-1111-1111-111111111111/en_windows_7_enterprise_x64_dvd_x15-70749.iso',
-      'nicModel': 'pv,pv,pv,pv,rtl8139,e1000,e1000',
-      'keyboardLayout': 'en-us',
-      'kvmEnable': 'true',
-      'displayNetwork': 'rhevm',
-      'soundDevice': 'ich6',
-      'timeOffset': '0',
-      'spiceSecureChannels': 'smain,sinputs',
-      'display': 'qxl'
+     'bridge': 'rhevm,rhevm,rhevm,rhevm,rhevm,rhevm,rhevm',
+     'acpiEnable': 'true',
+     'emulatedMachine': 'rhel6.2.0',
+     'vmId': '27c61cea-f4fd-47e9-84e8-d1598f32ccc0',
+     'transparentHugePages': 'true',
+     'spiceSslCipherSuite': 'DEFAULT',
+     'cpuType': 'Nehalem',
+     'smp': '1',
+     'macAddr':'00:1a:4a:16:99:42,00:1a:4a:16:99:43,00:1a:4a:16:99:44,00:1a:4a:16:99:45,00:1a:4a:16:99:46,00:1a:4a:16:99:47,00:1a:4a:16:99:48',
+     'boot': 'cdn',
+     'custom': {},
+     'vmType': 'kvm',
+     'memSize': 512,
+     'smpCoresPerSocket': '1',
+     'vmName': 'ingale',
+     'spiceMonitors': '4',
+     'nice': '0',
+     'floppy':'/rhev/data-center/4996348b-0199-435a-b01d-94cdf67d2d83/c37e94b2-b130-49b4-a7aa-b30e8a372878/images/11111111-1111-1111-1111-111111111111/win2k3.vfd',
+     'drives': [
+            {'domainID': '25cf0e1e-236a-4889-91db-8de1aca9440e',
+             'format': 'cow',
+             'bus': '0',
+             'boot': 'true',
+             'volumeID': 'be4d8588-8771-47cd-8954-b67566b6bd55',
+             'imageID': '5f6852c8-844c-40ff-ac9c-cac5d00cbf1b',
+             'poolID': '4996348b-0199-435a-b01d-94cdf67d2d83',
+             'propagateErrors': 'off',
+             'if': 'virtio'},
+            {'domainID': '25cf0e1e-236a-4889-91db-8de1aca9440e',
+             'format': 'raw',
+             'bus': '1',
+             'boot': 'false',
+             'volumeID': '9dd6b03a-2391-4537-8247-1bd786f60bdc',
+             'imageID': 'f6bdcc45-bb73-45d1-975d-15d6eefe7eda',
+             'poolID': '4996348b-0199-435a-b01d-94cdf67d2d83',
+             'propagateErrors': 'off',
+             'if': 'virtio'},
+            {'index': '0',
+             'domainID': '25cf0e1e-236a-4889-91db-8de1aca9440e',
+             'format': 'raw',
+             'volumeID': '1745eb41-1432-422b-af6f-8b8c8dd3365c',
+             'imageID': '8904d42d-c974-4055-a973-e6d7eb75e4ee',
+             'poolID': '4996348b-0199-435a-b01d-94cdf67d2d83',
+             'propagateErrors': 'off',
+             'if': 'ide'}],/home/emesika/backup/db/engine/
+     'cdrom':'/rhev/data-center/4996348b-0199-435a-b01d-94cdf67d2d83/c37e94b2-b130-49b4-a7aa-b30e8a372878/images/11111111-1111-1111-1111-111111111111/en_windows_7_enterprise_x64_dvd_x15-70749.iso',
+     'nicModel': 'pv,pv,pv,pv,rtl8139,e1000,e1000',
+     'keyboardLayout': 'en-us',
+     'kvmEnable': 'true',
+     'displayNetwork': 'rhevm',
+     'soundDevice': 'ich6',
+     'timeOffset': '0',
+     'spiceSecureChannels': 'smain,sinputs',
+     'display': 'qxl'
 
 #### New API
 
@@ -119,114 +121,56 @@ VDSM will distinguish if a new format or old format was sent according to existe
 
 Sample :
 
-      'vmId': '27c61cea-f4fd-47e9-84e8-d1598f32ccc0',
-      'vmName': 'myVM',
-      'acpiEnable': 'true', 
-      'emulatedMachine': 'rhel6.2.0', 
-      'vmType': 'kvm',
-      'memSize': 512,
-      'smpCoresPerSocket': '1',
-      'transparentHugePages': 'true',
-      'cpuType': 'Nehalem',
-      'smp': '1',
-      'keyboardLayout': 'en-us',
-      'kvmEnable': 'true',
-      'nice': '0',
-      'timeOffset': '0',
-      'spiceSslCipherSuite': 'DEFAULT',
-      'spiceSecureChannels': 'smain,sinputs',
-      'displayNetwork': 'rhevm',
-      'display': 'qxl|vnc',
-      'custom': {},
-      'devices': [   
-             {'type': 'disk',
-              'device': 'disk',
-              'index': `<int>`,                            <--- disk index unique per 'iface' virtio|ide
-              'address': 'PCI|IDE address dictionary',   <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'} ,  
-                                                              IDE = {'type':'drive', 'controller':'0', 'bus':'0', 'unit':'0'}
-              'format': 'cow',
-              'bootOrder': `<int>`,                        <--- global boot order across all bootable devices
-              'propagateErrors': 'off',
-              'iface': 'virtio|ide',
-              'shared': 'True|False',                    <--- whether disk is shared
-              'optional': 'True|False',                  <--- whether disk is optional (VM can be run without optional disk if inaccessible)
-              'readonly': 'True|False',
-              'poolID': 'pool UUID',                         |
-              'domainID': 'domain UUID',                     | 
-              'imageID': 'image UUID',                   <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID   
-              'volumeID': 'volume UUID',                     |
-              'UUID': 'shared disk UUID',                <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID    
-              'GUID': 'shared disk GUID'},               <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID   
-              .....
-              any number of disks
-              .....
-             {'type': 'disk',
-              'device': 'cdrom',
-              'index': `<int>`,                            <--- disk index unique per 'iface' virtio|ide
-              'address': 'PCI|IDE address dictionary',   <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'} ,  
-                                                              IDE = {'type':'drive', 'controller':'0', 'bus':'0', 'unit':'0'}
-              'bootOrder': `<int>`,                        <--- global boot order across all bootable devices
-              'iface': 'virtio|ide',
-              'poolID': 'pool UUID',
-              'domainID': 'domain UUID',
-              'imageID': 'image UUID',
-              'volumeID': '.iso file'},
-             {'type': 'disk',
-              'device': 'floppy',
-              'index': `<int>`,                            <--- floppy index unique per 'iface' fdc
-              'address': 'address dictionary',           <--- {'type':'drive', 'controller':'0', 'bus':'0', 'unit':'0'}
-              'iface': 'fdc',
-              'poolID': 'pool UUID',
-              'domainID': 'domain UUID',
-              'imageID': 'image UUID',
-              'volumeID': '.vfd file'},
-             {'type': 'interface',
-              'device': 'bridge|sriov|vnlink|bridgeless',     <--- Rest device's parameters depends on 'device'
-              'network': 'network name',                      <--- bridge name
-              'address': 'PCI address dictionary',            <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'}
-              'macAddr': 'mac address',
-              'bootOrder': `<int>`,                             <--- global boot order across all bootable devices
-              'specParams': params dictionary,                <------- {'promisc': `<blue,red:mirror>`} - promisc mirror mode, the interface will mirror all red and blue bridge traffic
-              'nicModel': 'pv|rtl8139|e1000'},
-              .....
-              any number of network cards
-              .....
-             {'type': 'sound',
-              'device':'ich6',
-              'address': 'PCI address dictionary'},      <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'}
-             {'type': 'video',
-              'device': 'qxl|cirrus',                    <--- 'qxl' - spice device,  'cirrus' - vnc device
-              'specParams': params dictionary,           <--- {'vram': `<vram size>`} - vram size depends from number of video devices: '65536' if (monitors <= 2) else '32768'
-              'address': 'PCI address dictionary'},      <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'}
-              .....
-              up to 'spiceMonitors' of video cards
-              .....
-             {'type': 'TBD - any device that has address',  <--- For example: 'controller',....
-              'device': 'TBD',
-              'specParams': params dictionary,
-              'address': 'PCI|IDE address dictionary',      <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'} ,  
-                                                                 IDE = {'type':'drive', 'controller':'0', 'bus':'0', 'unit':'0'}
-       ]
+     'vmId': '27c61cea-f4fd-47e9-84e8-d1598f32ccc0',
+     'vmName': 'myVM',
+     'acpiEnable': 'true', 
+     'emulatedMachine': 'rhel6.2.0', 
+     'vmType': 'kvm',
+     'memSize': 512,
+     'smpCoresPerSocket': '1',
+     'transparentHugePages': 'true',
+     'cpuType': 'Nehalem',
+     'smp': '1',
+     'keyboardLayout': 'en-us',
+     'kvmEnable': 'true',
+     'nice': '0',
+     'timeOffset': '0',
+     'spiceSslCipherSuite': 'DEFAULT',
+     'spiceSecureChannels': 'smain,sinputs',
+     'displayNetwork': 'rhevm',
+     'display': 'qxl|vnc',
+     'custom': {},
+     'devices': [   
+            {'type': 'disk',
+             'device': 'disk',
+             'index': ,                            ,                        ,                            ,                        ,                            ,                             } - promisc mirror mode, the interface will mirror all red and blue bridge traffic
+             'nicModel': 'pv|rtl8139|e1000'},
+             .....
+             any number of network cards
+             .....
+            {'type': 'sound',
+             'device':'ich6',
+             'address': 'PCI address dictionary'},      } - vram size depends from number of video devices: '65536' if (monitors 
 
-### DB Design
+     DB Design
 
-New table vm_device:
+    New table vm_device:
 
-       device_id           -- Unique identifier of the VM device
-       vm_id               -- The VM/Template id (FK of vm_static)
-       type                -- The type  (for example : disk, interface etc.)
-       device              -- The device (for example : floppy, cdrom etc.)
-       address             -- The device address as a string
-       boot_order          -- The device boot order
-       spec_params         -- The device special parameters, for example ('display': 'vnc')
-       is_managed          -- Indicates if the device is managed 
-       is_plugged          -- Indicates if device is plugable
-       is_shared           -- Indicates if device is shared
-       is_readonly         -- Indicates if device is read-only.
+      device_id           -- Unique identifier of the VM device
+      vm_id               -- The VM/Template id (FK of vm_static)
+      type                -- The type  (for example : disk, interface etc.)
+      device              -- The device (for example : floppy, cdrom etc.)
+      address             -- The device address as a string
+      boot_order          -- The device boot order
+      spec_params         -- The device special parameters, for example ('display': 'vnc')
+      is_managed          -- Indicates if the device is managed 
+      is_plugged          -- Indicates if device is plugable
+      is_shared           -- Indicates if device is shared
+      is_readonly         -- Indicates if device is read-only.
 
 Adding a column to vm_dynamic:
 
-       hash                -- holds the md5 like hash indicating a change 
+      hash                -- holds the md5 like hash indicating a change 
 
 Generation CRUD SPs for the new vm_device table Modify all relevant views & SP to have the hash field.
 
@@ -254,31 +198,30 @@ update
 
 refreshVdsRunTimeInfo is called
 
-       GetAllVMStats is called 
-          For each VM info 
-            if (hash from vdsm <> hash from db)
-                   add VM to changed-vm-list
-          next
-       if (changed-vm-list length > 0)
-          Issue a call to vdsm list command with 'long' & changed-vm-list[1]
-          For each VM in list 
-             persist all changed data in db.
-             update hash for VM in db
-          next 
-       end
-         
+      GetAllVMStats is called 
+         For each VM info 
+           if (hash from vdsm  hash from db)
+                  add VM to changed-vm-list
+         next
+      if (changed-vm-list length > 0)
+         Issue a call to vdsm list command with 'long' & changed-vm-list[1]
+         For each VM in list 
+            persist all changed data in db.
+            update hash for VM in db
+         next 
+      end
 
 [1] New vdsm list command syntax allows that :
 
 vdsClient 0 list --help list
 
-             [view] [vms:vmId1,vmId2]
-             Lists all available machines on the specified server.
-             Optional vms list, should start with 'vms:' and follow with 'vmId1,vmId2,...'
-             Optional views:
-                 "long"   all available configuration info (Default).
-                 "table"  table output with the fields: vmId, vmName, Status and IP.
-                 "ids"    all vmIds.
+            [view] [vms:vmId1,vmId2]
+            Lists all available machines on the specified server.
+            Optional vms list, should start with 'vms:' and follow with 'vmId1,vmId2,...'
+            Optional views:
+                "long"   all available configuration info (Default).
+                "table"  table output with the fields: vmId, vmName, Status and IP.
+                "ids"    all vmIds.
 
 export
 
@@ -310,7 +253,18 @@ Boot order is a device property (just for subgroup of all available devices), We
 
 #### Managed and un-managed devices
 
-In general, each device that backend knows to recognize by itself is a managed device (its is_managed flag in vm_device is set to true) Each device that we are learning via vdsm is considered as un-managed device. There is one exception for this rule, we will handle a SpecialManagedDevices white-list in vdc-options. This list will include a list of <type><device> that are special. It means that even if we learn this device from vdsm, still his is_managed flag will be set to true. When passing information to vdsm, backend will pass all managed devices in the device map while un-managed devices are passed in the Custom Properties as a string (with the same format as in the device section) When getting information from vdsm, we will consider only devices in the device map. We assume that if a hook was activated on the Custom Properties we have sent for a VM and adds any device, we will get it from vdsm on the next refresh as a device in the device map from vdsm.
+In general, each device that backend knows to recognize by itself is a managed device (its is_managed flag in vm_device is set to true) Each device that we are learning via vdsm is considered as un-managed device. There is one exception for this rule, we will handle a SpecialManagedDevices white-list in vdc-options. This list will include a list of <type></type><device></device> that are special. It means that even if we learn this device from vdsm, still his is_managed flag will be set to true. When passing information to vdsm, backend will pass all managed devices in the device map while un-managed devices are passed in the Custom Properties as a string (with the same format as in the device section) When getting information from vdsm, we will consider only devices in the device map. We assume that if a hook was activated on the Custom Properties we have sent for a VM and adds any device, we will get it from vdsm on the next refresh as a device in the device map from vdsm.
+
+#### Action Table Map
+
+The following table summarizes the possible scenarios when getting data from VDSM and comparing it with backend data stored in the database
+
+Note also that if a device is sent by backend but VDSM don't get it from libvirt, it will not be returned by VDSM to the backend.
+
+Attach /Detach and Plug/Unplug will update vm_device in the appropriate commands as follows:
+ Attach /Detach - Add/Remove from vm_device
+
+     Plug/Unplug   - Set/Reset address field of the device in vm_device
 
 ### VDSM
 
@@ -328,11 +282,11 @@ Verify that all new Generic Device DAO tests pass Verify that all VM DAO tests p
 
 External resources, mocking, etc..
 
-      1.
+     1.
 
 #### Jenkins setup (if needed) for tests
 
-      1.
+     1.
 
 #### Pre-integration needs
 
@@ -342,48 +296,47 @@ This feature requires pre-integration since we have to play with devices on vari
 
 This section describes issues that might need special consideration when writing this feature. Better sooner than later :-)
 
-      1. Installer / Upgrader
-       a. ....
-      1. DB Upgrade
-       a. Add hash & domxml new columns to vm_dynamic.
-      1. MLA
-       a. ....
-      1. Migrate
-       a. ...
-      1. Compatibility levels
-       a. Supported DC versions ....
-       a. Supported Cluster versions ....
-      1. Backward compatibility issues
-      1. API changes (changes required in the API between components (GUI/REST <--> Backend <--> VDSM <--> libvirt))
-       a. Backend <--> VDSM (See VDSM section)
-        1. ....
-      1. Effected features - Other features that might be effected by the change (workflow changes, utilities, ...)
-       a. .....
-      1. Performance requirements / tests
-       a. Is there a special performance requirement for this feature?
-       a. Are there special performance tests we want to make on this feature?
-      1. Test cases
-       a. Describe here the basic test cases for the feature
-      1. Feature tracker bugs
-      1. References
-       a. Bugzilla
-`    `[`https://bugzilla.redhat.com/show_bug.cgi?id=745274`](https://bugzilla.redhat.com/show_bug.cgi?id=745274)
-       a. Mailing lists
-       a. Other relevant wiki pages
-`    `[`http://fedoraproject.org/wiki/Features/KVM_Stable_PCI_Addresses`](http://fedoraproject.org/wiki/Features/KVM_Stable_PCI_Addresses)
-       a. Other relevant technical documents
-          
+     1. Installer / Upgrader
+      a. ....
+     1. DB Upgrade
+      a. Add hash & domxml new columns to vm_dynamic.
+     1. MLA
+      a. ....
+     1. Migrate
+      a. ...
+     1. Compatibility levels
+      a. Supported DC versions ....
+      a. Supported Cluster versions ....
+     1. Backward compatibility issues
+     1. API changes (changes required in the API between components (GUI/REST  Backend  VDSM  libvirt))
+      a. Backend  VDSM (See VDSM section)
+       1. ....
+     1. Effected features - Other features that might be effected by the change (workflow changes, utilities, ...)
+      a. .....
+     1. Performance requirements / tests
+      a. Is there a special performance requirement for this feature?
+      a. Are there special performance tests we want to make on this feature?
+     1. Test cases
+      a. Describe here the basic test cases for the feature
+     1. Feature tracker bugs
+     1. References
+      a. Bugzilla
+         https://bugzilla.redhat.com/show_bug.cgi?id=745274
+      a. Mailing lists
+      a. Other relevant wiki pages
+         http://fedoraproject.org/wiki/Features/KVM_Stable_PCI_Addresses
+      a. Other relevant technical documents
 
 ### Open Issues
 
-      1. Direct LUN considerations.
-      2. What happens to a Hot Plug device if the Cluster is downgraded from 3.1 to 3.0 ?
-      3. Regarding boot sequence: We currently have `*`default` `boot` `sequence`*` in the template level. 
-         The question is how this is handled in moving from 3.0 to 3.1 and vice verse
-         a) 3.0 to 3.1 - we will have to write the logic that tries to match the conversion from current Enum BootSequence value to the new format
-         b) 3.1 to 3.0 - we have a problem here either we :
-           I) Do `*`Best` `Effort`*` and covert to the closet BootSequence Enum
-           II)or , we can store the templates `*`default` `boot` `sequence`*` in the vm_device table as well
+     1. Direct LUN considerations.
+     2. What happens to a Hot Plug device if the Cluster is downgraded from 3.1 to 3.0 ?
+     3. Regarding boot sequence: We currently have default boot sequence in the template level. 
+        The question is how this is handled in moving from 3.0 to 3.1 and vice verse
+        a) 3.0 to 3.1 - we will have to write the logic that tries to match the conversion from current Enum BootSequence value to the new format
+        b) 3.1 to 3.0 - we have a problem here either we :
+          I) Do Best Effort and covert to the closet BootSequence Enum
+          II)or , we can store the templates default boot sequence in the vm_device table as well
 
 ### Known Issues / Risks
 
@@ -411,9 +364,9 @@ This 3.1 feature does not affect the Stable Device Addresses feature
 
 ### Implementation needs
 
-      1. None
+     1. None
 
 ### Needed documentation
 
-      1. OVF Documentation
-      2. Release Notes
+     1. OVF Documentation
+     2. Release Notes

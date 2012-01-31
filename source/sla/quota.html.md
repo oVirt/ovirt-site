@@ -153,20 +153,20 @@ Use cases :
 
 #### Logic Design
 
-Each time the user will run or edit the VM, there will be a Quota check against the quota cluster view.
- Both views, quota_storage and quota_cluster should be reflected in the memory as Concurrent HashMap tables. The memory tables should be checked and updated in the canDoAction in a synchronized context (Using java.util.concurrency).
- Those memory tables should be managed in a pessimistic way, considering resource allocation, to prevent over-commit situations.
+Each time the user will run a VM or create a new disk, there will be a quota resource check against the quota views.
+The process of quota validation should be in a new method validateQuota which will be a part of the command execute process. the validateQuota should be executed as synchronize method after canDoAction and before the command execute method.
+Each command which consumes quota resources, will contain a list of the delta changes, respectively quotaManager will manage a delta HashMap of the resources until they are persisted in the DB.
 
 ###### Synchronized Vds commands
 
 Synchronized Vds commands are commands such as Create VM or migrate VM.
-These commands increase the consumption on cluster quota, right when the engine calls createVmCommandVDSCommand.
-Before calling the vds command, there will be a check and update (With atomic operation), using quotaVdsGroupUsage function with the memory delta map, if there is enough resource space in the quota, the memory delta concurrent map, will be updated with the VM resources.
+These commands increase the consumption for cluster quota, right when the engine calls createVmCommandVDSCommand.
+Before calling the vds command, there will be a synchronize check, using quotaVdsGroupUsage function with the memory delta map, if there is enough resource space in the quota, the memory delta concurrent map, will be updated with the VM resources.
 if there will not be enough resources for the VM cunsumption, we will decrease the memory table with the amount of resources we checked.
 
 ###### A-synchronized Vds commands
 
-Asynchronized operations, relected in the engine as tasks.
+Asynchronized operations, reflected in the engine as tasks.
 The tasks which are being handled are :
 
       unknown,
@@ -197,18 +197,13 @@ The tasks which are being handled are :
 | MergeSnapshotSingleDiskCommand | Storage           | mergeSnapshots     | MergeSnapshotsVDSCommand          |
 | no command                     | Storage           | moveMultipleImages | MoveMultipleImageGroupsVDSCommand |
 
-For a-synchronized operations behaviour, the Quota Storage DB data, (and the quota storage memory table) will be synchronized based on the DB data and the AsyncTaskManager properties.
- The ATM will have new data, which will reflect the storage quantity change being done by each task, for example adding +4GB when new image is being added.
- Each task in the ATM map, should encapsulate the storage change which it is responsible for.
- The Quota Storage memory table should be updated in the execute right before the task is being created.
- At the end action we will validate whether the task was finished successfully or not, and by doing so we will update the quota storage memory table accordingly.
- When new SPM will be elected, we will recalculate the quota storage memory table, using the images_dynamic fields and also the AsyncTaskManager table right after re-polling all the tasks.
+For a-synchronized operations behaviour, the operation functionality should be similar to the synchronize functionality. The Quota storage delta and the command list property will be updated before the execute starts with the planned quantity that should be consume. After every creation of task the delta map will be decreased and also the list command member. If the operation will fail, the rest of the quantity in the list will be decreased from the delta map.
 
 ###### upgrade behaviour
 
 On upgrade, an automatic script will create default Quota for each DC, with permissions for every one, and unlimited space for storage and cluster use.
  The DC status should be disabled. (Same thing when new DC will be establish)
- The disable status of the DC represents, that the user should not see any indications in the GUI that the DC has a Quota in it.
+ The disable status of the DC represents, that the user should not see any indications in the GUI that the DC has a Quota in it. When DC is at disable mode, the default Quota is will be the one that all the resources consumed from, when the DC will become active, this default quota will be filtered out, and users should not consume from it.
 
 Administrator that would like to make the DC to use Quota, should change the DC status to audit,
  which means the users can now have indications on the DC, but still be able to make actions on it.
@@ -216,7 +211,6 @@ Administrator that would like to make the DC to use Quota, should change the DC 
 
 After the Administrator, will finish to configure the Quotas he desires for the DC,
  he can set the DC to enforce status, which means users will be prevented from making actions which will extend the Quota capabilities.
- A scheduler with run every 1 hour (Should be indicated in the vdc_options) and check if the quota is in their threshold limit, if not an audit log message should be performed.
 
 ##### Classes
 
@@ -237,17 +231,12 @@ After the Administrator, will finish to configure the Quotas he desires for the 
 ***org.ovirt.engine.core.dao.QuotaDAODbFacadeImpl**'' - Implementation for QuotaDAO, reflects the quota view implementations.
 
 **Classes**
-***org.ovirt.engine.core.bll.QuotaManager*** - Class which manage the quota views and memory table
+***org.ovirt.engine.core.bll.QuotaManager*** - Class which manage the quota views and memory delta tables
 
-*`quotaClusterMap`*` - The quota cluster Map is a concurrent HashMap which reflects a snapshot view of the cluster consumption status for each quota, it is based on the DB view `[`getQuotaCluster`](Features/Design/Quota#DB_Design)`. The map should be synchronized when the server starts up, and the vdsUpdateRunTimeInfo has updated the data after the first time (counting on method beforeFirstRefreshTreatment).`
-       `*`storageDelta`*` - The quota storage Map is a Concurrent HashMap which reflects a snapshot view of the cluster consumption status for each quota, it is based on the DB view  `[`getQuotaStorage`](Features/Design/Quota#DB_Design)`, and it is initialized every time the Host will be chosen to be SPM, using the DB values and the task manager.
-***`org.ovirt.engine.core.common.businessentities.QuotaStatusEnum`***` - Enum indicating the DC Quota verification status.`
+*`quotaDeltaClusterMap`*` - The quota cluster delta Map is a HashMap which reflects the delta changes being done on the DC before persistence, The update to the map should be synchronized.`
+*`quotaStorageDeltaMap`*` - The quota storage Map is a Concurrent HashMap which reflects the delta changes being done in the storage before persistence, the operation on it should be atomic.`
 
-##### Business entities
-
-***org.ovirt.engine.core.common.businessentities.QuotaStatic*** - A business entity that reflects quota static (see [quota_static](Features/Design/Quota#DB_Design))
-org.ovirt.engine.core.common.businessentities.QuotaDynamic - A business entity that reflects Quota dynamic (see [quota_dynamic](Features/Design/Quota#Appendix))
- org.ovirt.engine.core.common.businessentities.Quota - A business entity that reflects the view result (see [views](Features/Design/Quota#quota))
+***org.ovirt.engine.core.common.businessentities.QuotaStatusEnum*** - Enum indicating the DC Quota verification status.
 
 ##### Query commands
 

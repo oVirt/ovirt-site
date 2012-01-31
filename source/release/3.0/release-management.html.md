@@ -46,10 +46,6 @@ wiki_last_updated: 2012-08-20
 
 ### Open issues
 
-*   **Versioning**: What will be oVirt's first release version? 3.1.0-1, 0.0.1-1, 4.0.0-1?
-*   **Upgrade**: Should we support upgrade in the first release?
-*   **JBoss**:Which JBoss version should we support?
-    -   Currently, only JBoss AS5 is available (self created rpm from their zip)
 *   **Signing**: Who should sign tarballs?
 
 <Category:Releases>

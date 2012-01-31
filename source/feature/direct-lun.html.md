@@ -51,13 +51,16 @@ See [Features/Design/StableDeviceAddresses](Features/Design/StableDeviceAddresse
 
 ## OVIRT flows
 
+Engine: Should name this entity as VirtualDisk.
+
 These flows should be supported from the GUI.
 
-*   Add disk
+*   Import disk
 
-1.  Connect to the target
-2.  Get device list
-3.  Choose a block device:
+1.  Discovery targets
+2.  Connect to the target
+3.  Get device list
+4.  Choose a block device:
     -   default: Unattached devices
     -   option: From a VM (+ plug)
 

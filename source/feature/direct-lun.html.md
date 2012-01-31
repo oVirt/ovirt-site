@@ -29,11 +29,11 @@ Other disk device parameters are the same as in VDSM volumes.
             'index': <int>,                            <--- disk index unique per 'iface' virtio|ide
             'UUID': 'shared disk UUID',                <--- Should be passed on of 2 options
             'GUID': 'shared disk GUID'}
-    Optional:
+        <--- Optional:
             'address': 'PCI|IDE address dictionary',   <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'} ,  
                                                             IDE = {'type':'drive', 'controller':'0', 'bus':'0', 'unit':'0'}
                                                             Only after the VM was running, if you want stable addresses.
-            'format': 'raw',
+            'format': 'raw',                           <--- Only raw disks are supported.
             'bootOrder': <int>,                        <--- global boot order across all bootable devices
             'propagateErrors': 'off',
             'shared': 'True|False',                    <--- whether disk is shared

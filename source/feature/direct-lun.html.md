@@ -20,6 +20,8 @@ A new API is added for this feature.
 
 The API specifies a block device by GUID or UUID, instead of the PDIV quartet of a regular [VDSM volume](Live_Snapshots#Introduction).
 
+Other disk device parameters are the same as in VDSM volumes.
+
     'devices': [   
            {'type': 'disk',
             'device': 'disk',

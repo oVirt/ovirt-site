@@ -12,4 +12,10 @@ wiki_last_updated: 2015-01-16
 
 ## Introduction
 
-Specify the GUID or UUID of a block device to attach it as a local disk to the VM.
+Any block device can be used as local disk in the VM specifying it's GUID or UUID.
+
+## Engine / VDSM API
+
+A new API is added for this feature.
+
+See [Features/Design/StableDeviceAddresses](Features/Design/StableDeviceAddresses) for the complete interface.

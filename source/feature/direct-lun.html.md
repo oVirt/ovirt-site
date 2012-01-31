@@ -28,7 +28,7 @@ Other disk device parameters are the same as in VDSM volumes.
             'iface': 'virtio|ide',
             'index': <int>,                            <--- disk index unique per 'iface' virtio|ide
             'GUID': 'shared disk GUID',                <--- Should be passed one of 2 options
-            'UUID': 'shared disk UUID'}
+            'UUID': 'shared disk UUID',
         <--- Optional:
             'address': 'PCI|IDE address dictionary',   <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'} ,  
                                                             IDE = {'type':'drive', 'controller':'0', 'bus':'0', 'unit':'0'}
@@ -39,6 +39,8 @@ Other disk device parameters are the same as in VDSM volumes.
             'shared': 'True|False',                    <--- whether disk is shared
             'optional': 'True|False',                  <--- whether disk is optional (VM can be run without optional disk if inaccessible)
                                                             THIS FEATURE IS UNSUPPORTED YET!
-            'readonly': 'True|False',
+            'readonly': 'True|False'}
+
+VM disks specified this way should support all the modes and features, i.e Shared Hot-Plug, etc.
 
 See [Features/Design/StableDeviceAddresses](Features/Design/StableDeviceAddresses) for the complete device interface.

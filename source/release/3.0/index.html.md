@@ -74,10 +74,6 @@ TBD
 
 *   Unifying VM and VM_TEMPLATE tables in the Data Base.
 
-## DWH
-
-No packaging will not be released as part of this build.
-
 ## Packaging & Installer
 
 The packaging & install subproject deals with the creation of the packages for the oVirt Engine and associated subcomponents. This subproject also delivers the *engine-setup* and *engine-cleanup* utilities. The *engine-setup* utilitiy is used to configure oVirt Engine while the *engine-cleanup* utility is used to remove it.

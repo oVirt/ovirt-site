@@ -41,6 +41,23 @@ Other disk device parameters are the same as in VDSM volumes.
                                                             THIS FEATURE IS UNSUPPORTED YET!
             'readonly': 'True|False'}
 
+The *GUID* is returned in the getDeviceList response.
+
+Ask for the *UUID* to your friendly storage administrator.
+
 VM disks specified this way should support all the modes and features, i.e Shared Hot-Plug, etc.
 
 See [Features/Design/StableDeviceAddresses](Features/Design/StableDeviceAddresses) for the complete device interface.
+
+## OVIRT flows
+
+These flows should be supported from the GUI.
+
+*   Add disk
+
+1.  Connect to the target
+2.  Get device list
+3.  Choose a block device:
+
+*   default: Unattached devices
+*   option: From a VM (+ plug)

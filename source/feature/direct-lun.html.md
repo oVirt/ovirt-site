@@ -18,4 +18,6 @@ Any block device can be used as local disk in the VM specifying it's GUID or UUI
 
 A new API is added for this feature.
 
+The API specifies a block device by GUID or UUID, instead of the PDIV quartet of a regular [VDSM volume](Live_Snapshots#Introduction).
+
 See [Features/Design/StableDeviceAddresses](Features/Design/StableDeviceAddresses) for the complete interface.

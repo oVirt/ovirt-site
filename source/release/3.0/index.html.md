@@ -55,24 +55,19 @@ The following items are not yet supported, but are on the roadmap:
 
 ## Engine
 
-TBD
+The oVirt Engine is a feature-rich server virtualization management system that provides advanced capabilities for managing open virtualization infrastructure.
 
 #### Features
 
 *   The engine is now running on Jboss AS7 as the application server
 *   [ Locking mechanism ](Features/DetailedLockMechanism)
 *   [ SPM Priority ](Features/SPMPriority)
-*   Adding maintenance Storage Domain Status [BZ 593244](http://bugzilla.redhat.com/593244)
+*   Added maintenance Storage Domain Status ([BZ 593244](http://bugzilla.redhat.com/593244)).
 
 #### Resolved Issues
 
-*   [BZ 766287](http://bugzilla.redhat.com/766287)
-
-#### Known Issues
-
-#### Code Changes
-
-*   Unifying VM and VM_TEMPLATE tables in the Data Base.
+*   [BZ#766287 RHEVM does not specify which host can't connect to a device during ExtendSANStorageDomainCommand](http://bugzilla.redhat.com/766287)
+*   Unified VM and VM_TEMPLATE tables in the database.
 
 ## Packaging & Installer
 

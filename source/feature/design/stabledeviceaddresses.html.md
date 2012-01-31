@@ -263,8 +263,7 @@ Note also that if a device is sent by backend but VDSM don't get it from libvirt
 
 Attach /Detach and Plug/Unplug will update vm_device in the appropriate commands as follows:
  Attach /Detach - Add/Remove from vm_device
-
-     Plug/Unplug   - Set/Reset address field of the device in vm_device
+ Plug/Unplug - Set/Reset address field of the device in vm_device
 
 ### VDSM
 

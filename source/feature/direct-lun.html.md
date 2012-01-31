@@ -27,8 +27,8 @@ Other disk device parameters are the same as in VDSM volumes.
             'device': 'disk',
             'iface': 'virtio|ide',
             'index': <int>,                            <--- disk index unique per 'iface' virtio|ide
-            'UUID': 'shared disk UUID',                <--- Should be passed on of 2 options
-            'GUID': 'shared disk GUID'}
+            'GUID': 'shared disk GUID',                <--- Should be passed one of 2 options
+            'UUID': 'shared disk UUID'}
         <--- Optional:
             'address': 'PCI|IDE address dictionary',   <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'} ,  
                                                             IDE = {'type':'drive', 'controller':'0', 'bus':'0', 'unit':'0'}

@@ -33,11 +33,7 @@ The API specifies a block device by GUID or UUID, instead of the PDIV quartet of
             'shared': 'True|False',                    <--- whether disk is shared
             'optional': 'True|False',                  <--- whether disk is optional (VM can be run without optional disk if inaccessible)
             'readonly': 'True|False',
-            'poolID': 'pool UUID',                         |
-            'domainID': 'domain UUID',                     | 
-            'imageID': 'image UUID',                   <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID   
-            'volumeID': 'volume UUID',                     |
-            'UUID': 'shared disk UUID',                <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID    
-            'GUID': 'shared disk GUID'},               <--- Should be passed on of 3 options: (poolID, domainID, imageID, volumeID) or GUID or UUID   
+            'UUID': 'shared disk UUID',                <--- Should be passed on of 2 options
+            'GUID': 'shared disk GUID'}
 
 See [Features/Design/StableDeviceAddresses](Features/Design/StableDeviceAddresses) for the complete device interface.

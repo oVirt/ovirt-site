@@ -31,40 +31,27 @@ The oVirt Engine Software Development Kit provides an enhanced Python environmen
 
 *   An application can only create one proxy to the API.
 
-## CLI
+## oVirt Engine CLI
 
-TBD
+The oVirt Engine CLI, provided by the optional *ovirt-engine-cli* package (not to be confused with *vdsm-cli*), is a command line interface for interacting with the oVirt Engine. The CLI communicates with the engine using the REST API. Access the CLI by installing the *ovirt-engine-cli* package and running *ovirt-shell*.
 
 ### Features
 
+*   This is the initial formal release of the oVirt Engine CLI.
+
 ### Resolved Issues
 
-*   Thu Jan 19 2012 Michael Pasternak <mpastern@redhat.com> - 1.2-1
-
-* unable to add host #782734
-
-` `[`https://bugzilla.redhat.com/show_bug.cgi?id=782734`](https://bugzilla.redhat.com/show_bug.cgi?id=782734)
-
-* unable to add new cluster #782707
-
-` `[`https://bugzilla.redhat.com/show_bug.cgi?id=782707`](https://bugzilla.redhat.com/show_bug.cgi?id=782707)
-
-*   Mon Jan 16 2012 Michael Pasternak <mpastern@redhat.com> - 1.1-1
-
-* unable to create data-center: problem with --version param #781834
-
-` `[`https://bugzilla.redhat.com/show_bug.cgi?id=781834`](https://bugzilla.redhat.com/show_bug.cgi?id=781834)
-
-* authentication show as succeeded with bad password (text only) #781820
-
-` `[`https://bugzilla.redhat.com/show_bug.cgi?id=781820`](https://bugzilla.redhat.com/show_bug.cgi?id=781820)
+*   [BZ#782734 unable to add host](http://bugzilla.redhat.com/782734)
+*   [BZ#782707 unable to add new cluster](http://bugzilla.redhat.com/782707)
+*   [BZ#781834 unable to create data-center: problem with --version param](http://bugzilla.redhat.com/781834)
+*   [BZ#781820 authentication show as succeeded with bad password (text only)](http://bugzilla.redhat.com/781820)
 
 ### Known Issues
 
-yet not supported:
+The following items are not yet supported, but are on the roadmap:
 
-*   history
-*   auto completion
+*   Command history.
+*   Command auto completion.
 
 ## Engine
 

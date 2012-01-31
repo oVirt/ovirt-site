@@ -14,7 +14,7 @@ wiki_last_updated: 2015-01-16
 
 Any block device can be used as local disk in the VM specifying it's GUID or UUID.
 
-## Engine / VDSM API
+## Engine - VDSM API
 
 A new API is added for this feature.
 

@@ -60,3 +60,9 @@ These flows should be supported from the GUI.
 3.  Choose a block device:
     -   default: Unattached devices
     -   option: From a VM (+ plug)
+
+*   Attach to VM (+ plug)
+
+1.  Select VM
+2.  Select disk
+3.  Plug it

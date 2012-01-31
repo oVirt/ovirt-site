@@ -49,9 +49,26 @@ VM disks specified this way should support all the modes and features, i.e Share
 
 See [Features/Design/StableDeviceAddresses](Features/Design/StableDeviceAddresses) for the complete device interface.
 
-## OVIRT flows
+*   Engine should have an abstraction that contains:
+    -   Backing storage
 
-Engine: Should name this entity as VirtualDisk.
+the stack (history) and . This object will be called a **hDisk**. The volumes are returned by getDeviceList.
+
+## Engine considerations
+
+### The hDisk entity
+
+An hdisk represents the time evolution of a VM disk and extra Engine data.
+
+It's started from a *single* block device returned by getDeviceList (or equivalent function).
+
+Creating a new entity from the same block device should result in the same hDisk entity. (Revise it: still an open question.)
+
+Successive snapshots creates new (time stamp, image UID) entries.
+
+The image UID can be transferred to runVM, hot-plug, etc.
+
+## OVIRT flows
 
 These flows should be supported from the GUI.
 

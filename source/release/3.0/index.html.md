@@ -88,7 +88,7 @@ The packaging & install subproject deals with the creation of the packages for t
 
 ## Node
 
-Please see the [Node_Release_Notes](Node_Release_Notes)
+The oVirt Node is distributed as a compact image for use on a variety of installation media. It provides a minimal Linux installation including all the packages necessary to register and communicate with the oVirt Engine while functioning as a virtualization host. For a more detailed release note for this component see please see the [Node_Release_Notes](Node_Release_Notes) page. Some highlights are included here.
 
 ### Features
 
@@ -104,7 +104,7 @@ Please see the [Node_Release_Notes](Node_Release_Notes)
 
 ### Known Issues
 
-*   [Node_Backlog](Node_Backlog)
+*   Bugzilla queries listing known outstanding issues and feature requests relevant to the oVirt Node are listed at [Node_Backlog](Node_Backlog).
 
 ## VDSM
 

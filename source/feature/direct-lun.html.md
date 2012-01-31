@@ -25,17 +25,20 @@ Other disk device parameters are the same as in VDSM volumes.
     'devices': [   
            {'type': 'disk',
             'device': 'disk',
-            'index': <int>,                            <--- disk index unique per 'iface' virtio|ide
-            'address': 'PCI|IDE address dictionary',   <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'} ,  
-                                                            IDE = {'type':'drive', 'controller':'0', 'bus':'0', 'unit':'0'}
-            'format': 'cow',
-            'bootOrder': <int>,                        <--- global boot order across all bootable devices
-            'propagateErrors': 'off',
             'iface': 'virtio|ide',
-            'shared': 'True|False',                    <--- whether disk is shared
-            'optional': 'True|False',                  <--- whether disk is optional (VM can be run without optional disk if inaccessible)
-            'readonly': 'True|False',
+            'index': <int>,                            <--- disk index unique per 'iface' virtio|ide
             'UUID': 'shared disk UUID',                <--- Should be passed on of 2 options
             'GUID': 'shared disk GUID'}
+    Optional:
+            'address': 'PCI|IDE address dictionary',   <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'} ,  
+                                                            IDE = {'type':'drive', 'controller':'0', 'bus':'0', 'unit':'0'}
+                                                            Only after the VM was running, if you want stable addresses.
+            'format': 'raw',
+            'bootOrder': <int>,                        <--- global boot order across all bootable devices
+            'propagateErrors': 'off',
+            'shared': 'True|False',                    <--- whether disk is shared
+            'optional': 'True|False',                  <--- whether disk is optional (VM can be run without optional disk if inaccessible)
+                                                            THIS FEATURE IS UNSUPPORTED YET!
+            'readonly': 'True|False',
 
 See [Features/Design/StableDeviceAddresses](Features/Design/StableDeviceAddresses) for the complete device interface.

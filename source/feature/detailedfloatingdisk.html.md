@@ -145,7 +145,7 @@ Shared raw disk will be dependent on floating disk.
 
 ### Future Work
 
-*   More actions should be added to Disks main tab: New/Edit/Remove/Move/Copy/etc.
+*   More actions should be added to Disks main tab: New/Edit/Remove/Move/etc.
 *   Consider adding permissions support to disks entities.
 
 ### Open Issues

@@ -134,14 +134,14 @@ No packaging will not be released as part of this build.
 
 ## VDSM
 
-vdsm-4.9.3.1
+The VDSM service is used by a virtualization manager to interface with Linux based virtualization hosts. VDSM manages and monitors the host's storage, memory and networks as well as virtual machine creation, other host administration tasks, statistics gathering, and log collection. This initial oVirt Project release provides and supports vdsm-4.9.3.1.
 
 ### Features (since v4.9.2)
 
-*   Vdsm installs over Fedora
-*   Vdsm registers with upstream ovirt-engine, instead of just RHEV-M.
-*   Refactored mount subsystem and support for generic filesystem storage server (not only NFSv3)
-*   new verb: migration cancel
+*   It is now possible to install VDSM on existing Fedora instances, providing an alternative to consuming it as deployed with *ovirt-node*.
+*   It is now possible to successfully register VDSM hosts with *ovirt-engine*, instead of just Red Hat Enterprise Virtualization Manager as was previously the case.
+*   The mount subsysttem has been refactored, adding support for generic filesystem storage servers (not only NFSv3).
+*   A new verb, migrateCancel, has been added.
 
 ### Resolved Issues
 
@@ -160,5 +160,3 @@ vdsm-4.9.3.1
 *   [BZ#771329 Use a copy of the domainsToUpgrade](http://bugzilla.redhat.com/771329)
 *   [BZ#781317 adjust getos() to print real node type](http://bugzilla.redhat.com/781317)
 *   [BZ#781970 kaxmlrpclib: fix plaintext transport in Python 2.7](http://bugzilla.redhat.com/781970)
-
-### Known Issues

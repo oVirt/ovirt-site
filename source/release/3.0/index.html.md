@@ -123,7 +123,7 @@ No packaging will not be released as part of this build.
 
 The VDSM service is used by a virtualization manager to interface with Linux based virtualization hosts. VDSM manages and monitors the host's storage, memory and networks as well as virtual machine creation, other host administration tasks, statistics gathering, and log collection. This initial oVirt Project release provides and supports vdsm-4.9.3.1.
 
-### Features (since v4.9.2)
+### Features
 
 *   It is now possible to install VDSM on existing Fedora instances, providing an alternative to consuming it as deployed with *ovirt-node*.
 *   It is now possible to successfully register VDSM hosts with *ovirt-engine*, instead of just Red Hat Enterprise Virtualization Manager as was previously the case.

@@ -115,9 +115,9 @@ Please see the [Node_Release_Notes](Node_Release_Notes)
 
 *   [Node_Backlog](Node_Backlog)
 
-## Reports
+## Data Warehouse and Reports
 
-No packaging will not be released as part of this build.
+No packaging for the components will be released as part of the inital oVirt Project release.
 
 ## VDSM
 

@@ -14,14 +14,14 @@ The backend development sometimes needs a little more time than what you have, j
 
 ### JRebel
 
-JRebel is a non-free software that modifies the classloading behavior of the JVM and loads the classes from an alternate location.
+[JRebel](http://zeroturnaround.com/jrebel/) is a **non-free** software that modifies the classloading behavior of the JVM and loads the classes from an alternate location. You can save the time spent on rebuilding and redeploying the whole source.
 
 JRebel can be used for free on open source projects.
 
 Steps:
 
-      * request an opensource license
-      * download the license and save as ~/.rebel
+*   request an opensource license
+*   download the license and save as ~/.rebel
 
 ### modify the root pom.xml
 

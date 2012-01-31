@@ -79,7 +79,7 @@ The packaging & install subproject deals with the creation of the packages for t
 
 ### Resolved Issues
 
-*   Missing /var/lock/ovirt-engine after reboot ([BZ#771590](https://bugzilla.redhat.com/show_bug.cgi?id=771590)).
+*   [BZ#771590 "/var/lock/ovirt-engine" is missing during engine-setup => fail to create CA](https://bugzilla.redhat.com/show_bug.cgi?id=771590)
 
 ### Known Issues
 

@@ -111,10 +111,6 @@ Please see the [Node_Release_Notes](Node_Release_Notes)
 
 *   [Node_Backlog](Node_Backlog)
 
-## Data Warehouse and Reports
-
-No packaging for the components will be released as part of the inital oVirt Project release.
-
 ## VDSM
 
 The VDSM service is used by a virtualization manager to interface with Linux based virtualization hosts. VDSM manages and monitors the host's storage, memory and networks as well as virtual machine creation, other host administration tasks, statistics gathering, and log collection. This initial oVirt Project release provides and supports vdsm-4.9.3.1.
@@ -143,3 +139,7 @@ The VDSM service is used by a virtualization manager to interface with Linux bas
 *   [BZ#771329 Use a copy of the domainsToUpgrade](http://bugzilla.redhat.com/771329)
 *   [BZ#781317 adjust getos() to print real node type](http://bugzilla.redhat.com/781317)
 *   [BZ#781970 kaxmlrpclib: fix plaintext transport in Python 2.7](http://bugzilla.redhat.com/781970)
+
+## Data Warehouse and Reports
+
+No packaging for the components will be released as part of the inital oVirt Project release.

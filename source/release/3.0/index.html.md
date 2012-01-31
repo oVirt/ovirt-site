@@ -92,8 +92,8 @@ Please see the [Node_Release_Notes](Node_Release_Notes)
 
 ### Features
 
-*   UEFI Support added
-*   Works with ovirt-engine
+*   Support for UEFI has been added.
+*   Node now successfully registers and functions with oVirt Engine.
 
 ### Resolved Issues
 

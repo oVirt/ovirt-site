@@ -66,7 +66,7 @@ The oVirt Engine is a feature-rich server virtualization management system that 
 
 #### Resolved Issues
 
-*   [BZ#766287 RHEVM does not specify which host can't connect to a device during ExtendSANStorageDomainCommand](http://bugzilla.redhat.com/766287)
+*   [BZ#785671 after trying to add a snapshot while a snapshot is created and getting an error vm CreateAllSnapshotsFromVmCommand will fail to aquire lock forever](https://bugzilla.redhat.com/785671)
 *   Unified VM and VM_TEMPLATE tables in the database.
 
 ## Packaging & Installer

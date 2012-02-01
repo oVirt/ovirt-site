@@ -47,7 +47,7 @@ These flows should be supported from the GUI.
 
 *   HA
 
-1.  VM, Engine should assert that the backing storage target is reachable or connect it to the VM [**destination host**](#Notes).
+1.  Engine should assert that the backing storage target is reachable or connect it to the VM [**destination host**](#Notes).
 2.  Restart the VM
 
 ## Engine - VDSM API

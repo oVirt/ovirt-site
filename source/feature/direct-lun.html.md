@@ -63,13 +63,11 @@ It's started from a *single* block device returned by getDeviceList (or equivale
 
 Creating a new entity from the same block device should result in the [same](#Notes) vDisk entity.
 
-Creating a new entity from the same block device should result in the ((same)) vDisk entity.
-
 Successive snapshots creates new (time stamp, image UID) entries.
 
 The image UID can be transferred to runVM, hot-plug, migrate, etc.
 
-Before starting of one of this operation Engine should assert that the [**destination host**](Features/Direct_Lun#Notes) is connected to the target
+Before starting of one of this operation Engine should assert that the [**destination host**](#Notes) is connected to the target
 
 ## OVIRT flows
 
@@ -92,7 +90,10 @@ These flows should be supported from the GUI.
 
 ## Notes
 
-1.  (Revise it: still an open question.)
+1.  ### Open question
+
+    it: still an open question.)
+
 2.  <dt>
     Destination host
 

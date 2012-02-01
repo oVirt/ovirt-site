@@ -44,7 +44,7 @@ The *GUID* is returned in the getDeviceList response.
 
 VM disks specified this way should support all the modes and features, i.e Shared Hot-Plug, etc.
 
-See [Features/Design/StableDeviceAddresses](Features/Design/StableDeviceAddresses) for the complete device interface.
+See [Stable Device Addresses](Features/Design/StableDeviceAddresses) for the complete device interface.
 
 ## Engine considerations
 
@@ -67,7 +67,7 @@ Successive snapshots creates new (time stamp, image UID) entries.
 
 The image UID can be transferred to runVM, hot-plug, migrate, etc.
 
-Before starting of one of this operation Engine should assert that the <ref>**destination host**<ref> is connected to the target
+Before starting of one of this operation Engine should assert that the [**destination host**](Direct_Lun#Notes) is connected to the target
 
 ## OVIRT flows
 
@@ -88,13 +88,10 @@ These flows should be supported from the GUI.
 2.  Select disk
 3.  Plug it
 
-<refnotes />
+## Notes
 
 <dt>
 Destination host
 
-</dt>
 <dd>
-the host running or that will run the VM
-
-</dd>
+the host running or that will run the VM.

@@ -30,7 +30,7 @@ These flows should be supported from the GUI.
 *   Attach to VM (+ plug)
 
 1.  Select VM
-2.  Select disk
+2.  Select or import disk
 3.  Plug it
     -   If the VM is not running, the disk target connection should be added to the required connections for the VM.
     -   If the VM is running, it implies hot-plug and Engine should assert that the backing storage target is reachable or connect it to the host running the VM.

@@ -12,6 +12,7 @@ Not a full list, just collecting here...
 
 *   <http://lpeer.blogspot.com/> - Livnat
 *   <http://iquaid.org/>
+*   <http://blogs.cisco.com/tag/ovirt/> - cisco blogs, Kyle Mestery
 
 # ovirt developers
 

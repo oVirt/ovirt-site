@@ -84,21 +84,20 @@ Supporting a floating state for disks is essential to derived features (e.g. 'Sh
             -   List of Templates to which the selected Disk is attached.
         -   Virtual Machines (visible for disks that reside in VMs):
             -   List of Virtual Machines to which the selected Disk is attached.
-            -   Should include Plugged/UnPlugged status column.
             -   Actions:
-                -   Attach - dialog with a list of available VMs (all VMs with 'Down' status within the disk's Data Center).
+                -   Attach - dialog with a list of available VMs.
                 -   Detach - detaches the selected Disk from the selected VM.
     -   Each row is composed of the following columns:
 
       Name (unique), Description, Size, Actual Size, Type, Allocation, Interface, Creation Date, Floating(Yes/No), Shared(Yes/No), Managed(Yes/No). 
 
 *   VMs -> Disks sub-tab
-    -   Attach/Detach disks.
-    -   Edit/Remove disks.
+    -   Attach/Detach all shared and/or floating disks.
+    -   Edit/Remove disks (need to warn user in case disk is attached to more VMs).
     -   Move disks between storage domains.
-*   Open Issue - Tree
+*   Open Issue: Tree
     -   'Resources' link under 'Storage' node - invokes a search of all the Floating/Shared disks in the Data Center.
-    -   'Free Disks' link under a new 'Resources' node - invokes a search of all the Floating/Shared/DirectLUN disks in the Data Center.
+    -   'Free Disks' link under a new 'Resources' node - invokes a search of all the Floating/Shared non-managed (i.e. direct-luns) disks.
 
 ##### User Portal
 
@@ -145,11 +144,12 @@ Shared raw disk will be dependent on floating disk.
 
 ### Future Work
 
-*   More actions should be added to Disks main tab: New/Edit/Remove/Move/etc.
 *   Consider adding permissions support to disks entities.
 
 ### Open Issues
 
-*   Detaching a disk with a snapshot history: blocked to the user / collapsing and marking the snapshot as broken ?
+*   Detaching a disk with a snapshot history: blocked to the user or collapsing and marking the snapshot as broken?
+*   Disks main tab -> VMs sub-tab - should it include Plugged/UnPlugged status column?
+*   More actions should be added to Disks main tab: New/Edit/Remove/Move/etc.
 
 [Category: Feature](Category: Feature)

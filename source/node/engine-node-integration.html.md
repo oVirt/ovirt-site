@@ -100,8 +100,8 @@ Starting JBOSS7, you need to create a root context:
 
 Copy cert to Jboss root dir
 
-      cp /etc/pki/engine/ca/keys/engine.ssh.key.txt /usr/local/jboss/server/default/deploy/ROOT.war/
-      cp /etc/pki/engine/ca/keys/ca.pem /usr/local/jboss/server/default/deploy/ROOT.war/ca.crt
+      cp /etc/pki/ovirt-engine/ca/keys/engine.ssh.key.txt /usr/local/jboss/server/default/deploy/ROOT.war/
+      cp /etc/pki/ovirt-engine/ca/ca.pem /usr/local/jboss/server/default/deploy/ROOT.war/ca.crt
 
 DB updates:
 

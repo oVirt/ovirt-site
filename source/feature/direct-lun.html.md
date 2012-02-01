@@ -57,11 +57,13 @@ See [Stable Device Addresses](Features/Design/StableDeviceAddresses) for the com
 
 This object will be called a **vDisk**.
 
-An hdisk represents the time evolution of a VM disk and extra Engine data.
+An vDisk represents the time evolution of a VM disk and extra Engine data.
 
 It's started from a *single* block device returned by getDeviceList (or equivalent function).
 
-Creating a new entity from the same block device should result in the same hDisk entity. (Revise it: still an open question.)
+Creating a new entity from the same block device should result in the [same](#Notes) vDisk entity.
+
+Creating a new entity from the same block device should result in the ((same)) vDisk entity.
 
 Successive snapshots creates new (time stamp, image UID) entries.
 
@@ -90,8 +92,9 @@ These flows should be supported from the GUI.
 
 ## Notes
 
-<dt>
-Destination host
+1.  (Revise it: still an open question.)
+2.  <dt>
+    Destination host
 
 <dd>
 the host running or that will run the VM.

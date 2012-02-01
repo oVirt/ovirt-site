@@ -67,7 +67,7 @@ Successive snapshots creates new (time stamp, image UID) entries.
 
 The image UID can be transferred to runVM, hot-plug, migrate, etc.
 
-Before starting of one of this operation Engine should assert that the [**destination host**](Direct_Lun#Notes) is connected to the target
+Before starting of one of this operation Engine should assert that the [**destination host**](Features/Direct_Lun#Notes) is connected to the target
 
 ## OVIRT flows
 

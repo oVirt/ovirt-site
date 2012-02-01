@@ -6,6 +6,8 @@ wiki_revision_count: 14
 wiki_last_updated: 2013-02-20
 ---
 
+Not a full list, just collecting here...
+
 # Ovirt related blogs
 
 *   <http://lpeer.blogspot.com/> - Livnat

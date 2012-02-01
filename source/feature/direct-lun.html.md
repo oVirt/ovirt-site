@@ -49,16 +49,16 @@ VM disks specified this way should support all the modes and features, i.e Share
 
 See [Features/Design/StableDeviceAddresses](Features/Design/StableDeviceAddresses) for the complete device interface.
 
+## Engine considerations
+
+### The hDisk entity
+
 *   Engine should have an abstraction that contains:
     -   Backing storage (returned by getDeviceList or equivalent)
     -   The image stack (history).
     -   Other Engine required info.
 
 This object will be called a **hDisk**.
-
-## Engine considerations
-
-### The hDisk entity
 
 An hdisk represents the time evolution of a VM disk and extra Engine data.
 

@@ -154,7 +154,7 @@ Live snapshots operation extend regular snapshots as follow:
 
 ### Libvirt Flow
 
-Libvirt flow using [pesudocode](http://en.wikipedia.org/wiki/Pseudocode), **Bugzilla:** <https://bugzilla.redhat.com/show_bug.cgi?id=782457>
+Internal Libvirt flow using [pesudocode](http://en.wikipedia.org/wiki/Pseudocode), **Bugzilla:** <https://bugzilla.redhat.com/show_bug.cgi?id=782457>
 
       def vm_live_snapshot(vm):
           vm_suspend(vm)
@@ -168,6 +168,38 @@ Libvirt flow using [pesudocode](http://en.wikipedia.org/wiki/Pseudocode), **Bugz
               c += d
           vm_resume(vm)
           return SUCCESS
+
+Libvirt API usage flow for live storage migration, from [upstream message](https://www.redhat.com/archives/libvir-list/2012-January/msg01448.html)
+
+      start with:
+      vda: template <- current1
+
+      create a disk-only snapshot, with:
+       tmpsnap = virDomainSnapshotCreateXML(dom,
+       "`<domainsnapshot>`\n"
+       "  `<disks>`\n"
+       "    `<disk name='vda'>`\n"
+       "      
+
+    /path/to/current2
+
+\\n"
+
+       "    `</disk>`\n"
+       "  `<disks>`\n"
+       "`</domainsnapshot>`", VIR_DOMAIN_SNAPSHOT_CREATE_DISK_ONLY)
+      where the xml calls out the destination file name, resulting in:
+      vda: template <- current1 <- current2
+
+      perform the block rebase, with:
+       virDomainBlockRebase(dom, "vda", "/path/to/template", 0)
+      as well as waiting for the event (or polling status) to wait for
+      completion, resulting in:
+      vda: template <- current2
+
+      delete the disk-only snapshot metadata as no longer useful, with:
+       virDomainSnapshotDelete(tmpsnap,
+       VIR_DOMAIN_SNAPSHOT_DELETE_METADATA_ONLY)
 
 ### QEMU Requirements and Limitations
 

@@ -39,11 +39,11 @@ The feature will be allowed only on 3.1 clusters and above
 
 The new buttons **Plug** and **UnPlug** should be added to the VM's **Network Interfaces** tab.
  The NIC adding to the VM will be performed as two steps procedure:
-**1.** Add new NIC - will only add the proper entry to DB
-**2.** Plug NIC - will actually plug NIC to VM
+#Add new NIC - will only add the proper entry to DB
+#Plug NIC - will actually plug NIC to VM
  The NIC removing from the VM will be performed as two steps procedure:
-**1.** Unplug NIC - will actually unplug NIC from VM
-**2.** Remove NIC - will remove the proper entry from DB
+#Unplug NIC - will actually unplug NIC from VM
+#Remove NIC - will remove the proper entry from DB
  The same behavior should be applied on stopped and running VM's.
 
 #### Engine - VDSM API

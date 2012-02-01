@@ -51,7 +51,7 @@ See [Features/Design/StableDeviceAddresses](Features/Design/StableDeviceAddresse
 
 *   Engine should have an abstraction that contains:
     -   Backing storage (returned by getDeviceList or equivalent)
-    -   The stack (history)
+    -   The image stack (history).
     -   Other Engine required info.
 
 This object will be called a **hDisk**.

@@ -51,7 +51,8 @@ See [Stable Device Addresses](Features/Design/StableDeviceAddresses) for the com
 ### The vDisk entity
 
 *   Engine should have an abstraction that contains:
-    -   Backing storage (returned by getDeviceList or equivalent)
+    -   Backing storage (returned by getDeviceList or equivalent).
+    -   Connection to the backing storage.
     -   The image stack (history).
     -   Other Engine required info.
 
@@ -67,7 +68,7 @@ Successive snapshots creates new (time stamp, image UID) entries.
 
 The image UID can be transferred to runVM, hot-plug, migrate, etc.
 
-Before starting of one of this operation Engine should assert that the [**destination host**](#Notes) is connected to the target
+Before starting of any operations Engine should assert that the [**destination host**](#Notes) is connected to the target
 
 ## OVIRT flows
 
@@ -87,13 +88,24 @@ These flows should be supported from the GUI.
 1.  Select VM
 2.  Select disk
 3.  Plug it
+    -   If the VM is not running, the disk target connection should be added to the required connections for the VM.
+    -   If the VM is running, it implies hot-plug and Engine should assert that the backing storage target is reachable or connect it to the host running the VM.
+
+*   Hot plug
+
+Engine should assert that the backing storage target is reachable or connect it to the host running the VM.
+
+*   Migration
+
+Engine should assert that the backing storage target is reachable or connect it to the VM [**destination host**](#Notes).
+
+*   HA
+
+Before restarting the VM, Engine should assert that the backing storage target is reachable or connect it to the VM [**destination host**](#Notes).
 
 ## Notes
 
-1.  ### Open question
-
-    it: still an open question.)
-
+1.  If two vDisks based on the same backing storage is still on discussion.
 2.  <dt>
     Destination host
 

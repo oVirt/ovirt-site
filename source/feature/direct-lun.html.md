@@ -66,7 +66,7 @@ Other disk device parameters are the same as in VDSM volumes.
             'GUID': 'shared disk GUID',                <--- Should be passed instead the PDIV
             'address': 'PCI|IDE address dictionary',   <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'} ,  
                                                             IDE = {'type':'drive', 'controller':'0', 'bus':'0', 'unit':'0'}
-                                                            Only after the VM was running, if you want stable addresses.
+                                                            Only if known.
             'format': 'raw',                           <--- Only raw disks are supported.
             'bootOrder': <int>,                        <--- global boot order across all bootable devices
             'propagateErrors': 'off',

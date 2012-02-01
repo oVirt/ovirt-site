@@ -1,0 +1,94 @@
+---
+title: DetailedHotPlugNic
+category: feature
+authors: danken, ecohen, ilvovsky, moti, ovedo, roy
+wiki_category: Feature
+wiki_title: Features/Design/DetailedHotPlugNic
+wiki_revision_count: 19
+wiki_last_updated: 2013-03-07
+---
+
+# Detailed Hot Plug Nic
+
+## Hotplug/Hotunplug of Network Interface Cards
+
+### Summary
+
+Allow to hot plug and unplug a NIC to/from running guest.
+
+### Owner
+
+*   Name: [ Igor Lvovsky](User:MyUser)
+
+<!-- -->
+
+*   Email: ilvovsky@redhat.com
+
+### Current status
+
+*   Target Release: 3.1
+*   Status: ...
+*   Last updated date: Feb 1 2012
+
+### Detailed Description
+
+The following feature will allow to hot plug/unplug NIC on running vm.
+The feature will be allowed only on 3.1 clusters and above
+
+#### User Experience
+
+The new buttons **Plug** and **UnPlug** should be added to the VM's **Network Interfaces** tab.
+ The NIC adding to the VM will be performed as two steps procedure:
+**1.** Add new NIC - will only add the proper entry to DB
+**2.** Plug NIC - will actually plug NIC to VM
+ The NIC removing from the VM will be performed as two steps procedure:
+**1.** Unplug NIC - will actually unplug NIC from VM
+**2.** Remove NIC - will remove the proper entry from DB
+ The same behavior should be applied on stopped and running VM's.
+
+#### Engine - VDSM API
+
+A new API is added for this feature.
+
+    hotplugNic (params)
+    hotunplugNic (params)
+
+    params = {
+    'vmId': vmUUID, 
+    'nic':  
+           {'type': 'interface',
+            'device': 'bridge|sriov|vnlink|bridgeless',
+            'network': 'network name',                      <--- bridge name
+            'address': 'PCI address dictionary',            <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'}
+            'macAddr': 'mac address',
+            'bootOrder': <int>,                             <--- global boot order across all bootable devices
+            'promisc': <blue,red>,                          <--- promisc mirror mode, the interface will mirror all red and blue bridge traffic
+            'specParams': params dictionary,
+            'nicModel': 'pv|rtl8139|e1000'}
+     }
+
+New vdsm errors will be added:
+
+    'Failed to hotplug NIC' - code 49
+    'Failed to hotunplug NIC' - code 50
+
+**Note:** To avoid PCI addresses collisions Engine should clean NIC's address entry in DB when unplug the NIC.
+The new address will be assigned to NIC with next plugging.
+
+#### Events
+
+### Dependencies / Related Features and Projects
+
+The changes will be done at vdsm side and GUI and API.
+At vdsm side will be addded support for a new verbs as defined above.
+At GUI and API will be added new changes in order to support the new functionality at engine side.
+
+### Documentation / External references
+
+### Comments and Discussion
+
+### Open Issues
+
+NA
+
+<Category:Template> <Category:Feature>

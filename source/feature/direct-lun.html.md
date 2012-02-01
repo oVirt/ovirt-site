@@ -14,6 +14,42 @@ wiki_last_updated: 2015-01-16
 
 Any block device can be used as local disk in the VM specifying it's GUID.
 
+## OVIRT flows
+
+These flows should be supported from the GUI.
+
+*   Import disk
+
+1.  Discovery targets
+2.  Connect to the target
+3.  Get device list
+4.  Choose a block device:
+    -   default: Unattached devices
+    -   option: From a VM (+ plug)
+
+*   Attach to VM (+ plug)
+
+1.  Select VM
+2.  Select disk
+3.  Plug it
+    -   If the VM is not running, the disk target connection should be added to the required connections for the VM.
+    -   If the VM is running, it implies hot-plug and Engine should assert that the backing storage target is reachable or connect it to the host running the VM.
+
+*   Hot plug
+
+1.  Engine should assert that the backing storage target is reachable or connect it to the host running the VM.
+2.  Do hot plug.
+
+*   Migration
+
+1.  Engine should assert that the backing storage target is reachable or connect it to the VM [**destination host**](#Notes).
+2.  Do migration.
+
+*   HA
+
+1.  VM, Engine should assert that the backing storage target is reachable or connect it to the VM [**destination host**](#Notes).
+2.  Restart the VM
+
 ## Engine - VDSM API
 
 A new API is added for this feature.
@@ -69,39 +105,6 @@ Successive snapshots creates new (time stamp, image UID) entries.
 The image UID can be transferred to runVM, hot-plug, migrate, etc.
 
 Before starting of any operations Engine should assert that the [**destination host**](#Notes) is connected to the target
-
-## OVIRT flows
-
-These flows should be supported from the GUI.
-
-*   Import disk
-
-1.  Discovery targets
-2.  Connect to the target
-3.  Get device list
-4.  Choose a block device:
-    -   default: Unattached devices
-    -   option: From a VM (+ plug)
-
-*   Attach to VM (+ plug)
-
-1.  Select VM
-2.  Select disk
-3.  Plug it
-    -   If the VM is not running, the disk target connection should be added to the required connections for the VM.
-    -   If the VM is running, it implies hot-plug and Engine should assert that the backing storage target is reachable or connect it to the host running the VM.
-
-*   Hot plug
-
-Engine should assert that the backing storage target is reachable or connect it to the host running the VM.
-
-*   Migration
-
-Engine should assert that the backing storage target is reachable or connect it to the VM [**destination host**](#Notes).
-
-*   HA
-
-Before restarting the VM, Engine should assert that the backing storage target is reachable or connect it to the VM [**destination host**](#Notes).
 
 ## Notes
 

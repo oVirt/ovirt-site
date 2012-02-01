@@ -143,14 +143,7 @@ Sample :
      'devices': [   
             {'type': 'disk',
              'device': 'disk',
-             'index': ,                            ,                        ,                            ,                        ,                            ,                             } - promisc mirror mode, the interface will mirror all red and blue bridge traffic
-             'nicModel': 'pv|rtl8139|e1000'},
-             .....
-             any number of network cards
-             .....
-            {'type': 'sound',
-             'device':'ich6',
-             'address': 'PCI address dictionary'},      } - vram size depends from number of video devices: '65536' if (monitors 
+             'index': ,                            ,                        ,                            ,                        ,                            ,                             ,                          } - vram size depends from number of video devices: '65536' if (monitors 
 
      DB Design
 

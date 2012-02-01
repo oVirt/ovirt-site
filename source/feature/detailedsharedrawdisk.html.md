@@ -122,8 +122,6 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 ![](grid_vmvdisks.png "grid_vmvdisks.png")
 
-![](grid_storageshared_virtual_disks.png "grid_storageshared_virtual_disks.png")
-
 ![](attach_dialogue.png "attach_dialogue.png")
 
 ![](new_disk.png "new_disk.png")

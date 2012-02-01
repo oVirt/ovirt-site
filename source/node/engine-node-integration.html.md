@@ -71,28 +71,28 @@ clone the engine sources
       cd ~/src/git
 `git clone `[`git://gerrit.ovirt.org/ovirt-engine`](git://gerrit.ovirt.org/ovirt-engine)
 
-Create /etc/pki/engine/ca
+Create /etc/pki/ovirt-engine/ca
 
-      mkdir -p /etc/pki/engine/ca
+      mkdir -p /etc/pki/ovirt-engine/ca
 
 Creating OpenSSH convertor: compile pubkey2ssh
 
       cd backend/manager/3rdparty/pub2ssh/src
       gcc -o pubkey2ssh pubkey2ssh.c -lcrypto
-      cp pubkey2ssh /etc/pki/engine/ca/
+      cp pubkey2ssh /etc/pki/ovirt-engine/ca/
 
 Create relevant Engine folders
 
-      sudo mkdir -p /var/lock/engine /usr/share/engine/backend/manager/conf/
+      sudo mkdir -p /var/lock/ovirt-engine /usr/share/ovirt-engine/backend/manager/conf/
 
 Put vds_installer.py in place (the config entry of 'DataDir')
 
-      cp ~/src/git/ovirt-engine/backend/manager/conf/vds_installer.py /usr/share/engine/backend/manager/conf/
+      cp ~/src/git/ovirt-engine/backend/manager/conf/vds_installer.py /usr/share/ovirt-engine/backend/manager/conf/
 
 Create CA and certs
 
       cd backend/manager/conf/ca
-      ` ./installCA_dev.sh `pwd` /etc/pki/engine `
+      ` ./installCA_dev.sh `pwd` /etc/pki/ovirt-engine `
 
 Copy cert to Jboss root dir
 
@@ -101,12 +101,12 @@ Copy cert to Jboss root dir
 
 DB updates:
 
-      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/certs/engine.cer' where option_name = 'CertificateFileName';"
-      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/.keystore' where option_name = 'TruststoreUrl';"
-      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/' where option_name = 'CABaseDirectory';"
+      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/ovirt-engine/ca/certs/engine.cer' where option_name = 'CertificateFileName';"
+      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/ovirt-engine/ca/.keystore' where option_name = 'TruststoreUrl';"
+      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/ovirt-engine/ca/' where option_name = 'CABaseDirectory';"
       psql engine postgres -c "update vdc_options set option_value = 'ca.pem' where option_name  = 'CACertificatePath';"
-      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine/ca/.keystore' where option_name = 'keystoreUrl';"
-      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/engine//ca/private/ca.pem' where option_name = 'CAEngineKey';"
+      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/ovirt-engine/ca/.keystore' where option_name = 'keystoreUrl';"
+      psql engine postgres -c "update vdc_options set option_value = '/etc/pki/ovirt-engine/ca/private/ca.pem' where option_name = 'CAEngineKey';"
 
 Additional Configuration: These 2 steps are currently required due to bugs, they will be changed/removed once the patches that will fix them will be merged. Change the default emulated VM type by executing:
 

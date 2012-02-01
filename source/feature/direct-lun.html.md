@@ -27,8 +27,7 @@ Other disk device parameters are the same as in VDSM volumes.
             'device': 'disk',
             'iface': 'virtio|ide',
             'index': <int>,                            <--- disk index unique per 'iface' virtio|ide
-            'GUID': 'shared disk GUID',                <--- Should be passed one of 2 options
-            'UUID': 'shared disk UUID',
+            'GUID': 'shared disk GUID',                <--- Should be passed instead the PDIV
         <--- Optional:
             'address': 'PCI|IDE address dictionary',   <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'} ,  
                                                             IDE = {'type':'drive', 'controller':'0', 'bus':'0', 'unit':'0'}
@@ -43,22 +42,20 @@ Other disk device parameters are the same as in VDSM volumes.
 
 The *GUID* is returned in the getDeviceList response.
 
-Ask for the *UUID* to your friendly storage administrator.
-
 VM disks specified this way should support all the modes and features, i.e Shared Hot-Plug, etc.
 
 See [Features/Design/StableDeviceAddresses](Features/Design/StableDeviceAddresses) for the complete device interface.
 
 ## Engine considerations
 
-### The hDisk entity
+### The vDisk entity
 
 *   Engine should have an abstraction that contains:
     -   Backing storage (returned by getDeviceList or equivalent)
     -   The image stack (history).
     -   Other Engine required info.
 
-This object will be called a **hDisk**.
+This object will be called a **vDisk**.
 
 An hdisk represents the time evolution of a VM disk and extra Engine data.
 

@@ -108,7 +108,7 @@ Before starting of any operations Engine should assert that the [**destination h
 
 ## Notes
 
-1.  If two vDisks based on the same backing storage is still on discussion.
+1.  If two vDisks can be based on the same backing storage is still on discussion.
 2.  <dt>
     Destination host
 

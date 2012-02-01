@@ -33,7 +33,9 @@ These flows should be supported from the GUI.
 2.  Select or import disk
 3.  Plug it
     -   If the VM is not running, the disk target connection should be added to the required connections for the VM.
-    -   If the VM is running, it implies hot-plug and Engine should assert that the backing storage target is reachable or connect it to the host running the VM.
+    -   If the VM is running:
+        1.  Engine should assert that the backing storage target is reachable or connect it to the host running the VM.
+        2.  Do hot plug.
 
 *   Hot plug
 
@@ -93,7 +95,7 @@ See [Stable Device Addresses](Features/Design/StableDeviceAddresses) for the com
 
 This object will be called a **vDisk**.
 
-An vDisk represents the time evolution of a VM disk and extra Engine data.
+A vDisk represents the time evolution of a VM disk and extra Engine data.
 
 It's started from a *single* block device returned by getDeviceList (or equivalent function).
 

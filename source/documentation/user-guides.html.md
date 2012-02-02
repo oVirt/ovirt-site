@@ -14,11 +14,27 @@ This page is intended to be the root of the oVirt documentation project. This wi
 
 ## License
 
-The documentation license to be used for the oVirt project is TBA.
+Documentation is Copyright Ⓒ 2012 oVirt Project.
 
-## Source Material
+Licensed under the Apache License, Version 2.0 (the "License"). A copy of the License is included in this documentation; in addition, you may obtain a copy of the License at:
 
-Source material includes any appropriately licensed information considered a useful reference for more formal documentation activity.
+<http://www.apache.org/licenses/LICENSE-2.0>
+
+## Guides
+
+Once available in built form guides will be linked here.
+
+## Source Control
+
+The documentation subproject has a git repository. Like the other oVirt git repositories it is managed using Gerrit. Follow the [instructions for registering with and using Gerrit](Working_with_gerrit.ovirt.org), then use the git clone command to get a local copy of the repository:
+
+      $ git clone gerrit.ovirt.org:ovirt-engine
+
+The git repository is intended to be used for the creation and maintenance of formal documentation for the project. At this time all formal documentation for the project is written in DocBookXML and turned into PDF, HTML, HTML-SINGLE, and EPUB output using [publican](https://fedorahosted.org/publican/).
+
+## Reference Material
+
+Reference material includes any appropriately licensed information considered a useful reference for more formal documentation activity.
 
 ### Engine
 

@@ -69,7 +69,7 @@ Export/Import
 
 Move disk
 
-*   Moving a shared raw disk is permitted only when all the attached VMs status are down.
+*   Moving a shared raw disk is permitted only when all the attached VMs status are down, or all the disks which are attached to active VMs are unplugged.
 
 Move VM
 

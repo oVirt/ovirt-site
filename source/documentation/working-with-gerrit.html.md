@@ -45,6 +45,11 @@ First of all you need to register as a new user to gerrit. You can do that by us
          User &lt;username&gt;
        
 
+#### Change permissions to the file
+
+      chmod 600 ~/.ssh/config
+       
+
 #### Verify SSH configuration
 
 In order to verify your SSH configuration, do the following:

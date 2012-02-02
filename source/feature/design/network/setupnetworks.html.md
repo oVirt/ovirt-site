@@ -55,9 +55,15 @@ Cluster version is 3.1. Add record in the action_version_map table:
 
 ![File:SetupNetworksClassDiagram.png](SetupNetworksClassDiagram.png "File:SetupNetworksClassDiagram.png")
 
-### VDSM changes
+### VDSM
+
+##### API
 
 **configNetwork.py** `  def setupNetworks(networks={}, bondings={}, **options):`
+
+from the python doc
+
+        Add/Edit/Remove configuration for networks and bondings.     Params:         networks - dict of key=network, value=attributes                    where 'attributes' is a dict with the following optional items:                         vlan=                         bonding="" | nic=""                         (bonding and nics are mutually exclusive)                         ipaddr=""                         netmask=""                         gateway=""                         bootproto="..."                         delay="..."                         onboot="yes"|"no"                         (other options will be passed to the config file AS-IS)                         -- OR --                         remove=True (other attributes can't be specified)         bondings - dict of key=bonding, value=attributes                    where 'attributes' is a dict with the following optional items:                         nics=["" , "", ...]                         options=""                         -- OR --                         remove=True (other attributes can't be specified)         options - dict of options, such as:                         force=0|1                         connectivityCheck=0|1                         connectivityTimeout=                         explicitBonding=0|1     Notes:         Bondings are removed when they change state from 'used' to 'unused'.          By default, if you edit a network that is attached to a bonding, it's not         necessary to re-specify the bonding (you need only to note the attachement         in the network's attributes). Similarly, if you edit a bonding, it's not         necessary to specify its networks.         However, if you specify the 'explicitBonding' option as true, the function         will expect you to specify all networks that are attached to a specified         bonding, and vice-versa, the bonding attached to a specified network. 
 
 The changes we need to communicate are in the "network" structure for bridge and MTU fields
 
@@ -66,6 +72,14 @@ The changes we need to communicate are in the "network" structure for bridge and
 ![File:Diagram2.png](Diagram2.png "File:Diagram2.png")
 
      note:  integer types are serialized to an xml String type on the wire - its up to the VDSM network dict to handle.
+
+##### Error codes
+
+pls fill the VDSM error codes for
+
+1.  the network/bonds configuration are not valid
+2.  error applying the changes
+3.  check connectivity timeout - client was not seen on the mgmt network
 
 ### GUI
 

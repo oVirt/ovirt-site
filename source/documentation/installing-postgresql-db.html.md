@@ -25,10 +25,10 @@ Note: for earlier PostgreSQL versions, a patch is needed.
 
 # Running the service
 
-      For postgres 9:
+      From PostgreSQL 9:
       #> su - postgres -c 'pg_ctl initdb' # (first time only)
 
-      For postgres 8:
+      For PostgreSQL 8 or earlier:
       #> initdb -U postgres -D /var/lib/pgsql/data/
 
       #> service postgresql start

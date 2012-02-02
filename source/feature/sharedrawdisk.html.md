@@ -17,7 +17,7 @@ The shared raw disk feature enables to share a disk through multiple VM's.
 ### Owner
 
 *   Name: Maor Lipchuk
-*   Email: mlipchuk@redhat.com>
+*   Email: mlipchuk@redhat.com
 
 This should link to your home wiki page so we know who you are
 

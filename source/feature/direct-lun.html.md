@@ -95,7 +95,7 @@ See [Stable Device Addresses](Features/Design/StableDeviceAddresses) for the com
 
 This object will be called a **vDisk**.
 
-A vDisk represents the time evolution of a VM disk and extra Engine data.
+A vDisk represents the time evolution of a VM or floating disk and extra Engine data.
 
 It's started from a *single* block device returned by getDeviceList (or equivalent function).
 

@@ -62,6 +62,7 @@ Templates
 
 *   When creating a template from a VM which one of its disks are shared, the shared raw disk will not be part of the template creation.
 *   Template disks should not be shared.
+*   VM disks which are created from template with thin provisioning, should not be referenced as shared raw disk.
 
 Export/Import
 

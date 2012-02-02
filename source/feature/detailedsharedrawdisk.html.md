@@ -54,7 +54,7 @@ The disk should behave as a flexible independent entity, that can be reflected a
 *   The synchronization/clustering of shared raw disk between VMs will be managed in the file system.
 *   Each VM which has attached shared raw disk, can R/W to the shared raw disk.
 *   Shared raw disk will become floating disk when the disk will not be attached to any VMs in the Data Center.
-*   Shared raw disk can be moved from one VM to another.
+*   When attaching shared raw disk the disk will be unplugged in the destination VM.
 *   Shared raw disk is configured the same as a regular disk, but with a shared flag marked as true.
 *   The shared raw disk can be removed if all the VMs that are using it are in status down or VMs which are in status up but the shared raw disk is unplugged.
 
@@ -65,7 +65,7 @@ Templates
 
 Export/Import
 
-*   Export VM, will export only VM disks which are not shared.
+*   When exporting a VM, only the disks which are not shared will be exported.
 
 Move disk
 
@@ -81,7 +81,11 @@ Snapshot
 
 Stateless VM
 
-*   When running stateless VM, the shared raw disk will not be handle as stateless.
+*   When running stateless VM, the shared raw disk will not be handle as stateless, the user should get a warning message indicating that the disk will not be handled as stateless.
+
+VM pools
+
+*   Since VM from pool is stateless, The same behaviour should be implemented here. shared raw disk should not be stateless in the VM.
 
 #### User Experience
 

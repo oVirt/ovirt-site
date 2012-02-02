@@ -199,6 +199,12 @@ For local install in site-packages, from ovirt-engine-sdk repo:
 
 *   note: both deployment procedures require super-user permissions
 
+## Known issues
+
+*   api.capabilities.get() | api.capabilities.list()
+
+` caused by: `[`http://www.ovirt.org/wiki/Category:Api#Known_issues`](http://www.ovirt.org/wiki/Category:Api#Known_issues)
+
 ## TODO list
 
 ### codegen

@@ -98,6 +98,12 @@ http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy
 
 *   <git://gerrit.ovirt.org/ovirt-engine> (restapi is one of the engine modules)
 
+## Known issues
+
+*   /capabilities resource doesn't follow common collection/resource pattern
+
+` `[`https://bugzilla.redhat.com/show_bug.cgi?id=786763`](https://bugzilla.redhat.com/show_bug.cgi?id=786763)
+
 ## TODO list
 
 ### RSDL

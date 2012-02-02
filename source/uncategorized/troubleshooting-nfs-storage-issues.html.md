@@ -11,9 +11,13 @@ wiki_last_updated: 2015-01-31
 
 oVirt currently requires that NFS exports be configured in a specific way. This page is an attempt to list those requirements and assist with troubleshooting issues encountered when trying to attach an NFS storage domain to the oVirt environment for the first time.
 
-*   The NFS server must support NFSv3. oVirt does not currently support NFSv4. To force an NFS server to use NFSv3, add this option to the configuration file (**/etc/nfsmount.conf**):
+*   The NFS server must support NFSv3. oVirt does not currently support NFSv4. To force an NFS client to use NFSv3, add this option to the configuration file (**/etc/nfsmount.conf**):
 
       Nfsvers=3
+
+*   To disable NFSv4 on an NFS server, add this option to the configuration file (**/etc/sysconfig/nfs**):
+
+      NFS4_SUPPORT="no"
 
 *   The exported directory must be readable and writeable to the user/group with uid **36** which is the **vdsm** user. There are two ways to ensure this:
     -   Chown the directory being exported 36:36.

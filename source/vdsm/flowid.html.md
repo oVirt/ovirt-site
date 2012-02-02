@@ -16,7 +16,7 @@ The idea is provide a mechanism to identify the transactions between ovirt engin
 
 Any acceptable design must meet the following requirements:
 
-*   vdsm operations should contain flowID
+*   vdsm should log the id of ovirt Engine transactions
 *   Do not break API
 
 ## Owner

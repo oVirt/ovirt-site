@@ -85,7 +85,7 @@ Stateless VM
 
 VM pools
 
-*   Since VM from pool is stateless, The same behaviour should be implemented here. shared raw disk should not be stateless in the VM.
+*   Since VM from pool is stateless, The same behaviour as stateless VM should be implemented here. shared raw disk will not be stateless in a stateless VM, and a warning message will be performed.
 
 #### User Experience
 

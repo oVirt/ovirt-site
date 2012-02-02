@@ -12,6 +12,11 @@ wiki_warnings: conversion-fallback
 
 ## Network features design
 
+### Owner
+
+*   Name: [Roy Golan](user:MyUser)
+*   Email: <rgolan@redhat.com>
+
 ### Abstract
 
 Setup networks api will enable complex network provisioning of a host i.e. add/remove/bond network with a single call.

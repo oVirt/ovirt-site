@@ -61,7 +61,7 @@ The disk should behave as a flexible independent entity, that can be reflected a
 Templates
 
 *   When creating a template from a VM which one of its disks are shared, the shared raw disk will not be part of the template creation.
-*   Template disks can not be shared.
+*   Template disks should not be shared.
 
 Export/Import
 

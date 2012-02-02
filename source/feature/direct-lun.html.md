@@ -23,6 +23,8 @@ These flows should be supported from the GUI.
 1.  Discovery targets
 2.  Connect to the target
 3.  Get device list
+    -   Return GUID and connection parameters
+
 4.  Choose a block device:
     -   default: Unattached devices
     -   option: From a VM (+ plug)

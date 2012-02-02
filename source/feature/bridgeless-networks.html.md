@@ -10,10 +10,18 @@ wiki_last_updated: 2013-01-29
 
 # Bridge-less Networks
 
-### Feature summary
+### Summary
 
 All VMs today are connected through a software bridge, which naturally has a performance hit.
 Bridge-less NICs can serve for heavy traffic channels like migration, storage or the engine's management network.
+
+### Owner
+
+*   Name: [ Roy Golan](User:MyUser)
+
+<!-- -->
+
+*   Email: rgolan@redhat.com
 
 ### Code Changes
 

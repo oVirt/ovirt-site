@@ -8,7 +8,17 @@ wiki_last_updated: 2012-04-16
 
 # Jumbo frames
 
+### Summary
+
 Typically, just another parameter for a network configuration to determine the [MTU](http://en.wikipedia.org/wiki/Maximum_transmission_unit).
+
+### Owner
+
+*   Name: [ Roy Golan](User:MyUser)
+
+<!-- -->
+
+*   Email: rgolan@redhat.com
 
 ### Code Changes
 

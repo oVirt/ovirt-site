@@ -57,8 +57,9 @@ Supporting a floating state for disks is essential to derived features (e.g. 'Sh
 
 *   A floating disk can be attached to any VM (or multiple VMs in case of a Shared Disk).
 *   Detaching a disk from a VM will result in a floating disk creation (i.e. the disk's state will be updated to 'floating').
+*   A disk that is based on a thinly provisioned template can't be detached (i.e. 'floating' is not applicable state for it).
 *   A floating disk can be moved between storage domains.
-*   Export/Import - not supported.
+*   Export/Import - currently not supported.
 
 #### Installation/Upgrade
 
@@ -148,8 +149,9 @@ Shared raw disk will be dependent on floating disk.
 
 ### Open Issues
 
-*   Detaching a disk with a snapshot history: blocked to the user or collapsing and marking the snapshot as broken?
-*   Disks main tab -> VMs sub-tab - should it include Plugged/UnPlugged status column?
+*   Detaching a disk with a snapshot history: blocked to the user or collapsing and marking the snapshot as broken ?
+*   Disks main tab -> VMs sub-tab - should it include Plugged/UnPlugged status column ?
+*   Permissions for actions on disks - who is permitted to invoke: Attach/Detach/Edit/Delete/Move ?
 *   More actions should be added to Disks main tab: New/Edit/Remove/Move/etc.
 
 [Category: Feature](Category: Feature)

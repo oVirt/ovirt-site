@@ -28,6 +28,10 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
+*   Support striping for disk images.
+
+<!-- -->
+
 *   remove all usage of `sudo`, and replace with specific calls to `superVdsm`.
 
 <!-- -->

@@ -89,6 +89,7 @@ The feature depends on the following features:
 3. Live snapshots - on introducing of snapshot entity and the association of snapshot and VM configuration (needed for querying VM configuration by snapshot). See also [Live_Snapshots](Live_Snapshots)
 4. Direct LUN -on introduction of LUN-based disks (maybe this can postponed for later phase).
 5. Hot plug/unplug - this feature may depend on hot plug/unplug - see open issues section. See also [Features/HotPlug](Features/HotPlug)
+6. Quota - this feature needs the Quota feature in order to check the destination storage domains have suitable quota for the user to perform the clone operation. See Also [Features/Quota](Features/Quota) <BR<BR>
 
 ### Clone VM from snapshot commands Class diagram and detailed description
 

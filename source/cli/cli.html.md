@@ -101,12 +101,18 @@ That will install lxml, because EPEL's python-lxml is not yet up to the version 
        - help
        - actions
 
-*   use api xml type properties as CLI arguments
+*   use api xml type properties as CLI arguments (in progress)
 
 <!-- -->
 
 *   drop help dependency on active connection
 
        (no longer required as all metadata available off-line via SDK)
+
+*   supporting matrix url parameters exposed by sdk (depends on sdk implementation)
+
+<!-- -->
+
+*   supporting header parameters exposed by sdk (depends on sdk implementation)
 
 <Category:CLI>

@@ -46,7 +46,8 @@ The UI will use the retrieved configuration as default values for the user to be
 #### User Experience
 
 The UI will run a query called GetVmConfigurationBySnapshotID in order to get a VM configuration for a given snapshot.
-The UI will provide two options for creating the clone: .1. Presenting resent a window holding the configuration data. The configuration data will be used as defaults for the user, and the user may alter the data.
+The UI will provide two options for creating the clone:
+.1. Presenting resent a window holding the configuration data. The configuration data will be used as defaults for the user, and the user may alter the data.
 The UI will also present the disk list in order to allow disk format and type, and to select different storage domains to hold the destination disks.
 2. The UI will allow the user to enter the target VM (or template) name, and the clone operation will use the VM configuration for the given snapshot as the values to create the VM (or template).
 

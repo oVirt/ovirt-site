@@ -43,7 +43,7 @@ This feature will let users of oVirt engine to create a VM based on a given snap
 
 #### Hot plugged disks
 
-9. During creating a snapshot, the "pluggable" attribute of a disk will be stored in the VM configuration.
+10. During creating a snapshot, the "pluggable" attribute of a disk will be stored in the VM configuration.
 Clone VM from Snapshot will be indifferent to this attribute, in a sense the destination disk will be created with the same value
 of the attribute as its corresponding source disk.
 

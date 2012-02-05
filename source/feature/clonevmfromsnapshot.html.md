@@ -40,13 +40,15 @@ This feature will let users of oVirt engine to create a VM based on a given snap
 8. If a disk that an image of it appeared in the snapshot chain is deleted, upon clone vm from snapshot, the images of the disk will not be copied
 (the cloned VM will not have a copy of the disk) and a proper event should be logged.
 
+#### Hot plugged disks
+
+9. During creating a snapshot, the "pluggable" attribute of a disk will be stored in the VM configuration.
+Clone VM from Snapshot will be indifferent to this attribute, in a sense the destination disk will be created with the same value
+of the attribute as its corresponding source disk.
+
 #### Shared disks and direct LUN diskes behavior
 
-9. For cloning a VM from snapshot that has shared disks, there are several options (one of them should be considered - this is still an open issue):
-9.1. Block the taking a snapshot in such a situation (as shared disk do not support snapshotting)
-9.2. Creating a cloned disk, marking it plugged and available for usage. This may yield data corruption
-9.3. Marking the clone disk at the destination VM as unplugged. Allowing the user to plug it.
-10. For a disk residing on direct LUN, the feature still need to be defined - it might be similar
+10. For shared disks and direct LUN based disks, the user who performs the snapshot will specify whether the disk should be plugged or unplugged upon performing the clone.
 
 ### Benefit to oVirt
 

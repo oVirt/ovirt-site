@@ -108,7 +108,7 @@ The oVirt Node is distributed as a compact image for use on a variety of install
 
 ## VDSM
 
-The VDSM service is used by a virtualization manager to interface with Linux based virtualization hosts. VDSM manages and monitors the host's storage, memory and networks as well as virtual machine creation, other host administration tasks, statistics gathering, and log collection. This initial oVirt Project release provides and supports vdsm-4.9.3.1.
+The VDSM service is used by a virtualization manager to interface with Linux based virtualization hosts. VDSM manages and monitors the host's storage, memory and networks as well as virtual machine creation, other host administration tasks, statistics gathering, and log collection. This initial oVirt Project release provides and supports vdsm-4.9.3.3.
 
 ### Features
 
@@ -134,6 +134,9 @@ The VDSM service is used by a virtualization manager to interface with Linux bas
 *   [BZ#771329 Use a copy of the domainsToUpgrade](http://bugzilla.redhat.com/771329)
 *   [BZ#781317 adjust getos() to print real node type](http://bugzilla.redhat.com/781317)
 *   [BZ#781970 kaxmlrpclib: fix plaintext transport in Python 2.7](http://bugzilla.redhat.com/781970)
+*   [BZ#782348 Ignore empty lines in ifcfg-\*](http://bugzilla.redhat.com/782348)
+*   [BZ#773371 call \`vdsmd reconfigure\` after bootstrap](http://bugzilla.redhat.com/773371)
+*   [BZ#785557 bootstrap: do not mark ifcfg as NM_CONTROLLED](http://bugzilla.redhat.com/785557)
 
 ## Data Warehouse and Reports
 

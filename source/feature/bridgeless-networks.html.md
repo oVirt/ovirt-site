@@ -25,6 +25,29 @@ Also looking forward a capable of running VMs nics should be bridged on regular 
 
 *   Email: rgolan@redhat.com
 
+### Basic Flow
+
+#### create a bridgeless network
+
+1.  Add a logical network to your DC ( DC tab for GUI or /api/datacenters/network - set the property "allow to tun VMs" to false
+2.  Attach the network to your hosts in the new setupnetworks UI - attach a network to the target interface and uncheck the box "bridged" .
+     in REST use the /api/hosts/XXX/nics/setupnetwork and specify the <bridged>false</bridged> on the target eth
+
+* when the network "Allow to run VMs" is true the bridging option should be set automatically b the engine according to the interface type?
+
+#### edit a bridged network to become unbridged
+
+1.  a network with the flag "Allow to run VMs" set to false but the nic still was attached as bridged.
+2.  attach the nic as uncheck the "bridged" option as described in the create flow above
+
+#### monitoring
+
+      monitoring pseudo-code
+      logical network is defined as able to run VMs AND Host network is bridgeless {
+       if iface type != SRIOV or VnLink
+       set host NON OPERATIONAL (REASON: network can't run VMs)
+      }
+
 ### Code Changes
 
 #### Model
@@ -66,3 +89,5 @@ Its compatibility version is 3.1 and enforced by the enclosed command as mention
 how do we treat that during monitoring? we should be able to distinguish on interfaces that can run vm with/without bridge
 and deduce that cluster compatibility didn't break
 [2] if, for some reason an admin wants a non VM network to be bridged, should we allow it?
+
+<Category:Feature>

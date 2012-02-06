@@ -53,8 +53,18 @@ User should be able to witness the wonders of this new functionality
 
 Just works!
 
+## How to use
+
+For the classic connection API send a connection dictionary that looks like this:
+
+      {'id': 3,
+       'spec': 'mountspec', // eg. host:/export
+       'vfs_type': 'vfsType', // eg. nfs/smb
+       'mnt_options': 'option string'} // eg. defaults,noatime,vers=4
+
 ## User work flows
 
 User will be able to connect to said target and enter specialized parameters.
 
-Here are some ugly GUI Mockups: ![](posixfscondialogmockup.png "fig:posixfscondialogmockup.png")
+Here are some ugly GUI Mockups:
+![](posixfscondialogmockup.png "fig:posixfscondialogmockup.png")

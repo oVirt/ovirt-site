@@ -126,6 +126,19 @@ The image UID can be transferred to runVM, hot-plug, migrate, etc.
 
 Before starting of any operations Engine should assert that the [**destination host**](#Notes) is connected to the target
 
+### The Engine design
+
+*   Adding of new lun to vm:
+    -   Choose some host
+    -   Connect a lun in asynchronious way to every host in pool
+    -   Wait for success connection with first host, at case it failed check a result for a next host in list
+    -   When connection with host successes, engine will consider that all other hosts successes to connect with lun, engine will not wait for results for all
+
+<!-- -->
+
+*   Changes at scenarious
+    -   During RunVm and MigrationVm engine will check if appropriate host is connected to lun of vm, if yes the vm will be run or migrate, if host is not connected a choosen host will not be calculated as missed try
+
 ## Notes
 
 1.  If two vDisks can be based on the same backing storage is still on discussion.

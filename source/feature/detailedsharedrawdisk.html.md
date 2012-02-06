@@ -51,7 +51,7 @@ The disk should behave as a flexible independent entity, that can be reflected a
 
 #### Functionality
 
-*   The synchronization/clustering of shared raw disk between VMs will be managed in the file system.
+*   The synchronization/clustering of shared raw disk between VMs is the responsibility of the guests. Unaware guests will lead to corruption of the shared disk.
 *   Each VM which has attached shared raw disk, can R/W to the shared raw disk.
 *   Shared raw disk will become floating disk when the disk will not be attached to any VMs in the Data Center.
 *   When attaching shared raw disk the disk will be unplugged in the destination VM.

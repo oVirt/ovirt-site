@@ -17,7 +17,7 @@ wiki_last_updated: 2012-02-08
 | | Engine           | User already logged in error                                      | [784810](https://bugzilla.redhat.com/show_bug.cgi?id=784810) | Fixed    | Merged into engine_3.0 |
 | | Node             | Installation Error                                                | [785728](https://bugzilla.redhat.com/show_bug.cgi?id=785728) | Deferred | Not a blocker           |
 | | VDSM             | spice problems with tls                                           | [773371](https://bugzilla.redhat.com/show_bug.cgi?id=773371) | Fixed    | vdsm-4.9.3.3            |
-| | engine           | Nodes cannot be registered                                        | [782663](https://bugzilla.redhat.com/show_bug.cgi?id=782663) | Open     |                         |
+| | engine           | Nodes cannot be registered                                        | [782663](https://bugzilla.redhat.com/show_bug.cgi?id=782663) | Fixed    | Merged into engine_3.0 |
 | | engine           | Engine locking issue                                              | [785671](https://bugzilla.redhat.com/show_bug.cgi?id=785671) | Fixed    | Merged into engine_3.0 |
 | | VDSM/iscsid      | iscsid service fails to start                                     | [786174](https://bugzilla.redhat.com/show_bug.cgi?id=786174) | Open     |                         |
 | | Enter            | Your                                                              | [XXXX](https://bugzilla.redhat.com/show_bug.cgi?id=XXXX)     | BUG      | HERE                    |

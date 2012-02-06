@@ -93,5 +93,6 @@ Issues/Questions:
 *   USB support - today it is only on desktops. Should it be supported on servers as well?
 *   Should we persist these options per VM?
 *   Today we have all the API needed to pass the number of monitors. Are there any other flags needed for that feature (like amount of memory per-monitor)? If so, we will need to extend the API to support that.
+*   Installation/Packaging - will we package and install virt-viewer, or is that the responsibility of the user?
 
 <Category:Feature> <Category:Template>

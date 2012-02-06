@@ -15,7 +15,7 @@ wiki_last_updated: 2013-01-29
 All VMs today are connected through a software bridge, which naturally has a performance hit.
 Bridge-less NICs can serve for heavy traffic channels like migration, storage or the engine's management network.
 
-A logical network shell have a property indicating it could run VM on it ,e.i it should be bridged on regular nics and un-bridged in case of dedicated special nics [1]
+Also looking forward a capable of running VMs nics should be bridged on regular nics and un-bridged in case of dedicated special nics
 
 ### Owner
 

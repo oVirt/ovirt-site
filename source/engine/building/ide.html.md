@@ -74,3 +74,4 @@ of 'esc'+':' combination ;)
 
 *   Same as Net Beans...
 *   [Backend with jrebel](Backend with jrebel)
+*   [OVirt - disable SSL in VDSM](OVirt - disable SSL in VDSM)

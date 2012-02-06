@@ -57,4 +57,4 @@ Just works!
 
 User will be able to connect to said target and enter specialized parameters.
 
-Here are some ugly GUI Mockups: ![](posixfscondialogmockup.jpg "fig:posixfscondialogmockup.jpg")
+Here are some ugly GUI Mockups: ![](posixfscondialogmockup.png "fig:posixfscondialogmockup.png")

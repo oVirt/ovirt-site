@@ -64,4 +64,5 @@ Its compatibility version is 3.1 and enforced by the enclosed command as mention
 
 [1] if a network is checked with "allowToRunVms" and an underlying host will need an un-bridged(SRIOV...) network to fulfil that
 how do we treat that during monitoring? we should be able to distinguish on interfaces that can run vm with/without bridge
-and deduce that cluster compatibility didn't break [2] if, for some reason an admin wants a non VM network to be bridged, should we allow it?
+and deduce that cluster compatibility didn't break
+[2] if, for some reason an admin wants a non VM network to be bridged, should we allow it?

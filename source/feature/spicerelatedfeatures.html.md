@@ -73,7 +73,7 @@ At first phase, both SPICEC and the virt-viewer will work side by side. Some fea
     -   Get the client version
     -   Get the client capabilities (start with Native USB support, IncentivesPro USB support, WAN support, but in the future we might have more capabilities)
 *   Work with either SPICEC and virt-viewer, per-VM
-*   If virt-viewer is installed, work with it by default, unless there is a need get IncentivesPro USB support
+*   If virt-viewer is installed, work with it by default, unless there is a need to get IncentivesPro USB support
 *   If we need IncentivesPro USB support, and SPICEC is not installed, give the user a proper error message
 *   Show the protocol options according to the client type - now the only change is that the WAN options should be displayed only when working with virt-viewer
 

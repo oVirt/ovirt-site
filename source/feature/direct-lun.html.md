@@ -130,7 +130,7 @@ Before starting of any operations Engine should assert that the [**destination h
 
 *   Adding of new lun to vm:
     -   Choose some host
-    -   Connect a lun in asynchronious way to every host in pool
+    -   Connect a lun in asynchronous way to every host in pool
     -   Wait for success connection with first host, at case it failed check a result for a next host in list
     -   When connection with host successes, engine will consider that all other hosts successes to connect with lun, engine will not wait for results for all
 

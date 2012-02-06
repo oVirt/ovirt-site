@@ -73,11 +73,21 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 ![](import_vm_multi.png "import_vm_multi.png")
 
+![](import_template_single.png "import_template_single.png")
+
+![](import_template_multi.png "import_template_multi.png")
+
 ![](disks_subtab.png "disks_subtab.png")
 
 ![](new_move_disk_dialog.png "new_move_disk_dialog.png")
 
 ![](storage_vms_subtab.png "storage_vms_subtab.png")
+
+![](new_template.png "new_template.png")
+
+![](templates_storage_subtab.png "templates_storage_subtab.png")
+
+![](templates_vms_subtab.png "templates_vms_subtab.png")
 
 ### REST Design (Modeling)
 

@@ -89,10 +89,10 @@ Integrating with new SPICE capabilities will ease the user work in the oVirt env
 
 Issues/Questions:
 
-*   Is server-side filtering support needed?
-*   USB support - today it is only on desktops. Should it be supported on servers as well?
-*   Should we persist these options per VM?
-*   Today we have all the API needed to pass the number of monitors. Are there any other flags needed for that feature (like amount of memory per-monitor)? If so, we will need to extend the API to support that.
-*   Installation/Packaging - will we package and install virt-viewer, or is that the responsibility of the user?
+1.  Is server-side filtering support needed?
+2.  USB support - today it is only on desktops. Should it be supported on servers as well?
+3.  Should we persist these options per VM?
+4.  Today we have all the API needed to pass the number of monitors. Are there any other flags needed for that feature (like amount of memory per-monitor)? If so, we will need to extend the API to support that.
+5.  Installation/Packaging - will we package and install virt-viewer, or is that the responsibility of the user?
 
 <Category:Feature> <Category:Template>

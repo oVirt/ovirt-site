@@ -30,7 +30,7 @@ This should link to your home wiki page so we know who you are
 
 Currently oVirt engine can assign a disk image to a single VM.
 There are many use cases which requires concurrent access for disk, such as supporting clustered environment or support Databases with shared table-space
-The feature should provide the user the ability to manage share disk for multiple VMs, with the guarantee for concurrent access.
+The feature should provide the user the ability to manage share disk for multiple VMs that can handle concurrent access to a shared disk without risk of corruption.
 
 ### Benefit to oVirt
 

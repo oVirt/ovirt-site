@@ -42,10 +42,10 @@ Also looking forward a capable of running VMs nics should be bridged on regular 
 
 #### monitoring
 
-      monitoring pseudo-code
+      Host monitoring pseudo-code
       logical network is defined as able to run VMs AND Host network is bridgeless {
        if iface type != SRIOV or VnLink
-       set host NON OPERATIONAL (REASON: network can't run VMs)
+       set host to NON OPERATIONAL (REASON: network can't run VMs)
       }
 
 ### Code Changes

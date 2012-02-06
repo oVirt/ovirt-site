@@ -1,0 +1,17 @@
+---
+title: Workshop Mar 2012 - coordinator notes
+category: event/workshop
+authors: quaid
+wiki_category: Workshop Mar 2012
+wiki_title: Workshop Mar 2012 - coordinator notes
+wiki_revision_count: 5
+wiki_last_updated: 2012-03-05
+---
+
+# Workshop Mar 2012 - coordinator notes
+
+## Generic text sent when mass-subscribing to workshop list
+
+Welcome to the email list for attendees of the 21 March 2012 oVirt workshop in Beijing. This list is used by event coordinators to tell you all about event details, such as locations and schedule.
+
+[Category:Workshop Mar 2012](Category:Workshop Mar 2012)

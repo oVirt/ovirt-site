@@ -158,7 +158,6 @@ Sample :
       spec_params         -- The device special parameters, for example ('display': 'vnc')
       is_managed          -- Indicates if the device is managed 
       is_plugged          -- Indicates if device is plugable
-      is_shared           -- Indicates if device is shared
       is_readonly         -- Indicates if device is read-only.
 
 Adding a column to vm_dynamic:

@@ -74,13 +74,19 @@ This can also be done without registering to Gerrit, using:
       git clone git://gerrit.ovirt.org/ovirt-engine
        
 
-#### install the change-ID hook
+#### Install the change-ID hook
 
 **You must do this before you commit anything**
 In order to easily track commit changes in Gerrit, each commit must have a change-ID. This change-ID is added automatically via a Git hook. In order to install this hook do the following:
 
       cd ovirt-engine
       scp -p gerrit.ovirt.org:hooks/commit-msg .git/hooks/
+       
+
+#### Configure the commit tempalte
+
+      cd ovirt-engine
+      git config --global commit.template config/engine-commit-template.txt
        
 
 #### Rebase

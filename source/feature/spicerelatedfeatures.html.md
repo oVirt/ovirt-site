@@ -36,7 +36,7 @@ In the upcoming version, SPICE is about to perform the following changes/additio
 2.  Native USB support
     -   This option will only be supported in the virt-viewer client
 
-3.  Change multiple monitor support on RHEL
+3.  Change multiple monitor support on RHEL and Fedora
     -   Instead of supporting multiple monitor support by adding several display devices, it will be done using one device, with a number of available monitors
 
 4.  WAN support - there are several protocol options that are useful when connecting using SPICE via WAN (compression options, display options, etc.)
@@ -93,6 +93,8 @@ Issues/Questions:
 1.  USB support - today it is only on desktops. Should it be supported on servers as well?
 2.  Should we persist the protocol options per VM?
 3.  Today we have all the API needed to pass the number of monitors. Are there any other flags needed for that feature (like amount of memory per-monitor)? If so, we will need to extend the API to support that.
+    -   Today this logic is done in the VDSM level. Better to leave it this way.
+
 4.  Installation/Packaging - will we package and install virt-viewer, or will it be installed separately by the user?
 5.  Do we have to support server-side USB filtering?
 

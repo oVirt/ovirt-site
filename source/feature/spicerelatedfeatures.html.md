@@ -34,7 +34,6 @@ In the upcoming version, SPICE is about to perform the following changes/additio
 
 1.  New SPICE client: virt-viewer
 2.  Native USB support
-    -   In previous versions, the USB support was based on Incentives Pro (which requires special guest utils to be installed on the guest). Today, a support for USB redirect is being added.
     -   This option will only be supported in the virt-viewer client
 
 3.  Change multiple monitor support on RHEL
@@ -71,10 +70,11 @@ At first phase, both SPICEC and the virt-viewer will work side by side. Some fea
 *   In the UserPortal, identify which clients are installed
 *   For each client
     -   Get the client version
-    -   Get the client capabilities (start with Native USB support, IncentivesPro USB support, WAN support, but in the future we might have more capabilities)
-*   Work with either SPICEC and virt-viewer, per-VM
-*   If virt-viewer is installed, work with it by default, unless there is a need to get IncentivesPro USB support
-*   If we need IncentivesPro USB support, and SPICEC is not installed, give the user a proper error message
+    -   Get the client capabilities (start with Native USB support, non-native USB support, WAN support, but in the future we might have more capabilities)
+*   Work with either SPICEC and virt-viewer, per-VM:
+    -   If virt-viewer is installed, work with it by default, unless there is a need to get non-native USB support (will only happen in cluster level lower than 3.1)
+    -   If non-native USB support is needed, and SPICEC is not installed (or it is installed, but the non-native USB support components aren't installed), give the user a proper error message
+    -   If the cluster level is 3.1 (which supports native USB support), but the client only has non-native USB support (old client), then we will use the old client. This means that we'll have to keep supporting the non-native USB support, side-by-side with the native one.
 *   Show the protocol options according to the client type - now the only change is that the WAN options should be displayed only when working with virt-viewer
 
 ### Benefit to oVirt
@@ -83,16 +83,17 @@ Integrating with new SPICE capabilities will ease the user work in the oVirt env
 
 ### Dependencies / Related Features
 
-1. Fully functional and supported virt-viewer
+1.  Fully functional and supported virt-viewer
+2.  The ability to work with native and non-native USB support in the same guest (to support both virt-viewer and SPICEC for connecting to the same VM)
 
 ### Comments and Discussion
 
 Issues/Questions:
 
-1.  Is server-side filtering support needed?
-2.  USB support - today it is only on desktops. Should it be supported on servers as well?
-3.  Should we persist these options per VM?
-4.  Today we have all the API needed to pass the number of monitors. Are there any other flags needed for that feature (like amount of memory per-monitor)? If so, we will need to extend the API to support that.
-5.  Installation/Packaging - will we package and install virt-viewer, or is that the responsibility of the user?
+1.  USB support - today it is only on desktops. Should it be supported on servers as well?
+2.  Should we persist the protocol options per VM?
+3.  Today we have all the API needed to pass the number of monitors. Are there any other flags needed for that feature (like amount of memory per-monitor)? If so, we will need to extend the API to support that.
+4.  Installation/Packaging - will we package and install virt-viewer, or will it be installed separately by the user?
+5.  Do we have to support server-side USB filtering?
 
 <Category:Feature> <Category:Template>

@@ -8,8 +8,6 @@ wiki_revision_count: 43
 wiki_last_updated: 2012-06-04
 ---
 
-[[File:
-
 # SPICE related features
 
 ### Summary
@@ -61,7 +59,6 @@ In the upcoming version, SPICE is about to perform the following changes/additio
             -   WAN
         -   Compression mode:
             -   loci or not
-    -   Should we persist these options per VM?
 
 #### virt-viewer support
 
@@ -91,11 +88,14 @@ Integrating with new SPICE capabilities will ease the user work in the oVirt env
 Issues/Questions:
 
 1.  USB support - today it is only on desktops. Should it be supported on servers as well?
-2.  Should we persist the protocol options per VM?
-3.  Today we have all the API needed to pass the number of monitors. Are there any other flags needed for that feature (like amount of memory per-monitor)? If so, we will need to extend the API to support that.
-    -   Today this logic is done in the VDSM level. Better to leave it this way.
+2.  Today we have all the API needed to pass the number of monitors. Are there any other flags needed for that feature (like amount of memory per-monitor)? If so, we will need to extend the API to support that.
+    -   Today this logic is done in the VDSM level. It would be best if we could leave the logic there, changing it accordingly.
 
-4.  Installation/Packaging - will we package and install virt-viewer, or will it be installed separately by the user?
-5.  Do we have to support server-side USB filtering?
+3.  Installation/Packaging - will we package and install virt-viewer, or will it be installed separately by the user?
+
+Future Work:
+
+1.  Support server-side USB filtering.
+2.  Persisting the protocol options per VM.
 
 <Category:Feature> <Category:Template>

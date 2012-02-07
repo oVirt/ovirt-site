@@ -54,7 +54,6 @@ bootOrder - The device boot order
 specparams - Any device specific parameters (for example memory allocation per monitor in video device)
 isManaged - Is the device managed
 isPlugged - Is the device plugable
-isShared - Is the device shared
 accessMode - The device access mode
 
 ### CRUD
@@ -70,7 +69,6 @@ New table vm_device:
        spec_params         -- The device special parameters, for example ('display': 'vnc')
        is_managed          -- Indicates if the device is managed 
        is_plugged          -- Indicates if device is plugable
-       is_shared           -- Indicates if device is shared
        is_readonly         -- Indicates if device is read-only.
 
 Adding a column to vm_dynamic:
@@ -173,7 +171,6 @@ In new format, we will have to send each video card as a VM device and calculate
 
 OvfVmReader and OvfVmWriter should be enhanced to support:
 
-       is_shared flag
        is_plugged flag
        access_mode
        boot order

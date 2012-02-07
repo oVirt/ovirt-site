@@ -26,4 +26,12 @@ This works simply by updating oVirt's database:
       psql engine -U postgres -c "UPDATE vdc_options set option_value = 'false' where option_name = 'SSLEnabled'"
       psql engine -U postgres -c "UPDATE vdc_options set option_value = 'false' where option_name = 'UseSecureConnectionWithServers'"
 
-Restart ovirt engine.
+You may also find this useful:
+
+      psql engine -U postgres -c "UPDATE vdc_options set option_value = 'false' where option_name = 'InstallVds'"
+
+This will stop the ovirt engine trying to install things on the hosts.
+
+When you are done with the table updates, restart ovirt engine.
+
+And then it should work...

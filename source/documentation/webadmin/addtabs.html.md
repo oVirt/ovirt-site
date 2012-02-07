@@ -246,7 +246,7 @@ Bind the view and model:
                      MainTabVolumeView.class,
                      MainTabVolumePresenter.ProxyDef.class);
 
-Create a new Module for you new tab (\*Module.java, e.g. HostModule.java): implement the protected methods getModelPopup(1) & getConfirmModelPopup(1), in order to open other sets of popup when invoking the Window/ConfirmWindow properties:
+Create a new Module for your new tab (\*Module.java, e.g. HostModule.java): implement the protected methods getModelPopup(1) & getConfirmModelPopup(1), in order to open other sets of popup when invoking the Window/ConfirmWindow properties:
 
              @Provides
              @Singleton

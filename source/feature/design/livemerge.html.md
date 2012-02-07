@@ -10,15 +10,7 @@ wiki_last_updated: 2012-03-12
 
 Given an image with one or more snapshots the merge command will squash the data of one volume into an other. Two merge directions are possible:
 
-      [base(raw)] <- [snap1(qcow2)] <- [snap2(qcow2)]
-
-*   Forward live merge:
-
-      [snap1+base(qcow2)] <- [snap2(qcow2)]
-
-*   Backward live merge:
-
-      [base+snap1(raw)] <- [snap2(qcow2)]
+![](LiveMergeExample1.png "LiveMergeExample1.png")
 
 The backwared live merge is the most important implementation since it's capable of maintaing the backing volume format (eg: raw).
 
@@ -28,24 +20,7 @@ No major gui modification is required. The action to merge a snapshot should be 
 
 # Engine-VDSM Flow
 
-      Engine             HSM  SPM
-      --+---             ---  ---
-        |  merge()        |    |
-        X---------------->X    |
-        |                 |    |
-        |  mergeStatus()  |    |
-        X---------------->X    |
-        |     ...         |    |
-        |  mergeStatus()  |    |
-        X---------------->X    |
-        |                 |    |
-        |  deleteVolume() |    |
-        X--------------------->X
-        |     ...         |    |
-        |  deleteVolume() |    |
-        X--------------------->X
-        |                 |    |
-        V                 V    V
+![](LiveMergeAPIDiagram.png "LiveMergeAPIDiagram.png")
 
 # VDSM API
 

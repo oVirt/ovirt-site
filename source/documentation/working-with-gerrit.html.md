@@ -113,6 +113,7 @@ The review process is comprised of:
     -   Verified: +1
 *   NACK-ed (-1/-2) patches should not be submitted
 *   A submitted patch is automatically merged to the git repository
+*   When uploading a new patch set, the contributor should also add a review comment of the changes from previous version, to help reviewers track and review the changes (unless gerrit itself added a comment that a rebase is needed, and in that case no new comment is needed).
 
 #### Submit your topic branch to gerrit
 

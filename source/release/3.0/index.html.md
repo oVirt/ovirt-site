@@ -110,6 +110,8 @@ The oVirt Node is distributed as a compact image for use on a variety of install
 
 The VDSM service is used by a virtualization manager to interface with Linux based virtualization hosts. VDSM manages and monitors the host's storage, memory and networks as well as virtual machine creation, other host administration tasks, statistics gathering, and log collection. This initial oVirt Project release provides and supports vdsm-4.9.3.3.
 
+It is important to use your most up-to-date Fedora, with \`iscsi-initiator-utils-6.2.0.872-16.fc16.x86_64\` or later.
+
 ### Features
 
 *   It is now possible to install VDSM on existing Fedora instances, providing an alternative to consuming it as deployed with *ovirt-node*.

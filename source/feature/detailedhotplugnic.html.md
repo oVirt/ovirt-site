@@ -57,8 +57,6 @@ The new buttons **Plug** and **UnPlug** should be added to the VM's **Network In
 
 ##### @EJB API
 
-=
-
 * plug or unplug a nic
 
       VdcAction.java
@@ -67,9 +65,7 @@ The new buttons **Plug** and **UnPlug** should be added to the VM's **Network In
 
       plugUnplugVmNicParameters.java
       Guid vmId;
-
       Guid nicId;
-
       boolean plug;
 
 #### Engine - VDSM API

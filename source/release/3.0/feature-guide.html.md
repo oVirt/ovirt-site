@@ -76,10 +76,6 @@ User interface features include:
 
 The oVirt user portal provides standard and power user access to the oVirt environment
 
-### Reports Portal
-
-The oVirt Reports Portal provides a robust, historical reporting system based on an embedded Jasper Reports engine; more than 25 pre-built reports and dashboards are included, and users can define their own.
-
 ### Live migration
 
 *   Allows for running virtual machines to be moved seamlessly from one host to another within an oVirt cluster.
@@ -108,7 +104,6 @@ System Scheduler policies for load balancing (automatically balances the VM load
 *   Enhanced Linux desktop support for auto-resizing, guest agent reporting, and single sign-on (on supported guests)
 *   Enhancements to user experience, including higher supported screen resolutions and dynamic copy-and-paste
 *   Desktop pooling for deployment of multiple desktop VMs from templates
-*   SmartCard CAC support for two-factor authentication
 
 ## Storage management
 
@@ -119,7 +114,7 @@ System Scheduler policies for load balancing (automatically balances the VM load
 
 ## User and group-based security
 
-*   Supports LDAP or Microsoft Active Directory for user and administrator authentication to oVirt Engine
+*   Supports Red Hat Directory Server, FreeIPA or Microsoft Active Directory for user and administrator authentication to oVirt Engine
 *   Granular, inheritable, multi-level administration security roles to all actions and objects in the platform
 
 ## Migration tools
@@ -128,11 +123,7 @@ Includes virt-v2v tools for automating the conversion of physical servers or uns
 
 ## Extensibility
 
-Hooks allow for advanced KVM technology to be supported from the oVirt interface. Pre-built hooks include:
-
-*   SR/IOV: Allows bypassing the hypervisor for certain network and disk I/O for near-native speed
-*   VM-FEX: Consolidation of the virtual switch and physical switch into a single management point for Cisco UCS and VIC card
-*   CPU pinning and NUMA support: Pin the virtual CPUs and virtual RAM in a virtual machine to physical cores and physical RAM on the server for enhanced performance
+Hooks allow for advanced KVM technology to be supported from the oVirt interface. Sample hooks available in this [git repository](http://gerrit.ovirt.org/gitweb?p=vdsm.git;a=tree;f=vdsm_hooks).
 
 ## System Requirements
 

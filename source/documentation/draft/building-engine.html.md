@@ -289,5 +289,6 @@ Yes! Take a look in: [Building_Ovirt_Engine/IDE](Building_Ovirt_Engine/IDE)
 ## More information
 
 *   Engine setup on Gentoo can be found here: <https://wiki.gentoo.org/wiki/OVirt>
+*   [Ovirt build on debian/ubuntu](Ovirt build on debian/ubuntu)
 
 [Category:Draft documentation](Category:Draft documentation) <Category:Engine> [Category:How to](Category:How to)

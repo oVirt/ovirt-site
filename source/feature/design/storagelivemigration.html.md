@@ -8,65 +8,41 @@ wiki_last_updated: 2012-04-16
 
 # Storage Live Migration
 
-## Introduction
-
 Live block migration is the operation in charge of moving a running VM and its disks from one storage domain to an other.
 
-## GUI
+### GUI
 
 No major gui modification are required. The action to move a VM from one storage to an other should be enabled also when the VM is running, in such case the engine will issue a live block migration.
 
 ![](StorageLiveMigrationGUI.png "StorageLiveMigrationGUI.png")
 
-## Engine-VDSM Flow
+### Pre-Copy and Post-Copy
 
-      Engine                     HSM  SPM
-      --+---                     ---  ---
-        |  createVolumeCrossSD()  |    |
-        X----------------------------->X
-        |    ...                  |    |
-        |  createVolumeCrossSD()  |    |
-        X----------------------------->X
-        |                         |    |
-        |  blockMigrate()         |    |
-        X------------------------>X    |
-        |                         |    |
-        |  cloneInternalVolumes() |    |
-        X----------------------------->X
-        |                         |    |
-        |  finalizeBlockMigrate() |    |
-        X------------------------>X    |
-        |                         |    |
-        V                         V    V
-      Initial Status:
-       domain1: [base(raw)]<-[snap1(qcow2)]<-(VM)
-       domain2: [..empty..]
-      createVolumeCrossSD():
-       domain1: [base(raw)]<-[snap1(qcow2)]<-+-(VM)
-       domain2:                              +-[snap2(qcow2)]
-      blockMigrate():
-       domain1: [base(raw)]<-[snap1(qcow2)]<-+
-       domain2:                              +-[snap2(qcow2)]<-(VM)
-      cloneInternalVolumes():
-       domain1: [base(raw)]<-[snap1(qcow2)]<-+
-       domain2: [base(raw)]<-[snap1(qcow2)]  +-[snap2(qcow2)]<-(VM)
-      Note: when the SPM finishes the operation it's also responsible to set the
-      snap2 metadata to point to snap1 on domain2 even if the real swap happens
-      in the next step.
-      finalizeBlockMigrate():
-       domain1: [base(raw)]<-[snap1(qcow2)]
-       domain2: [base(raw)]<-[snap1(qcow2)]<-[snap2(qcow2)]<-(VM)
+*   **Pre-Copy:** copy all the internal volumes and then live copy the leaf volume, when the task is completed live migrate the VM
+    -   **Pro:** safer and simpler to manage in the oVirt engine and VDSM
+    -   **Cons:** if the purpose of the whole live block migration was to balance the cpu load, it won't be practical
+*   **Post-Copy:** live migrate the VM with a live snapshot to the new domain, copy the internal volumes and when the task is completed switch the leaf backing file
+    -   **Pro:** better approach for HA/load balancing
+    -   **Cons:** complex management in the oVirt engine and VDSM
 
-A possible optimization: copy the base
+Reference: [<http://wiki.qemu.org/Features/LiveBlockMigration>](http://wiki.qemu.org/Features/LiveBlockMigration)
 
-## Limitations and Risks
+### Post-Copy Execution Diagrams and Description
+
+![](StorageLiveMigration1.png "StorageLiveMigration1.png")
+
+*   **Note on [3]**: when the SPM finishes the operation it's also responsible to set the 'Snapshot 2 Volume' metadata to point to 'Snapshot 1 Volume' on 'Source Domain' even if the real swap happens in the next step.
+
+![](StorageLiveMigrationAPIDiagram1.png "StorageLiveMigrationAPIDiagram1.png")
+
+#### Limitations and Risks
 
 *   VDSM doesn't have the proper metadata to describe a VM running on volumes stored on two different storage domains
 *   missing libvirt operation to change the volume backing file on the fly, new design and patches:
     -   <https://www.redhat.com/archives/libvir-list/2012-January/msg01448.html>
     -   <https://www.redhat.com/archives/libvir-list/2012-February/msg00014.html>
 
-## Engine Flow
+#### Engine Flow
 
 [Pseudocode](http://en.wikipedia.org/wiki/Pseudocode)
 

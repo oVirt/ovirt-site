@@ -81,7 +81,7 @@ Integrating with new SPICE capabilities will ease the user work in the oVirt env
 ### Dependencies / Related Features
 
 1.  Fully functional and supported virt-viewer
-2.  The ability to work with native and non-native USB support in the same guest (to support both virt-viewer and SPICEC for connecting to the same VM)
+2.  The ability to work with native and non-native USB support in the same guest (to support both virt-viewer and SPICEC for connecting to the same VM, with USB support)
 
 ### Comments and Discussion
 

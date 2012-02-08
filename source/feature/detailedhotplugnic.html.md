@@ -46,6 +46,32 @@ The new buttons **Plug** and **UnPlug** should be added to the VM's **Network In
 #Remove NIC - will remove the proper entry from DB
  The same behavior should be applied on stopped and running VM's.
 
+#### Engine API
+
+##### REST API
+
+2 new actions on nics collection:
+
+      /api/vms/xxx/nics/yyy/plug
+      /api/vms/xxx/nics/yyy/unplug
+
+##### @EJB API
+
+=
+
+* plug or unplug a nic
+
+      VdcAction.java
+      ...
+      plugUnplugNic(1000)
+
+      plugUnplugVmNicParameters.java
+      Guid vmId;
+
+      Guid nicId;
+
+      boolean plug;
+
 #### Engine - VDSM API
 
 A new API is added for this feature.

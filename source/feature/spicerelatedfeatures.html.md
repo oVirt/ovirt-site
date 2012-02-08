@@ -72,6 +72,7 @@ At first phase, both SPICEC and the virt-viewer will work side by side. Some fea
     -   If virt-viewer is installed, work with it by default, unless there is a need to get non-native USB support (will only happen in cluster level lower than 3.1)
     -   If non-native USB support is needed, and SPICEC is not installed (or it is installed, but the non-native USB support components aren't installed), give the user a proper error message
     -   If the cluster level is 3.1 (which supports native USB support), but the client only has non-native USB support (old client), then we will use the old client. This means that we'll have to keep supporting the non-native USB support, side-by-side with the native one.
+    -   Note that using the old usb support requires extra software to be installed on the guest.
 *   Show the protocol options according to the client type - now the only change is that the WAN options should be displayed only when working with virt-viewer
 
 ### Benefit to oVirt

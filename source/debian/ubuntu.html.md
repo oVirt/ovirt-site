@@ -12,7 +12,15 @@ wiki_last_updated: 2012-11-21
 
 ### Building ovirt on debian/ubuntu
 
-If you have questions about these notes ask xTs_w in #ovirt on OFTC (irc.oftc.net) This document can be edited by everyone. PLEASE be careful where you type! OVIRT Depends: postgresql-9.1, openjdk-6-jre, postgresql-contrib-9.1 Build-Depends: maven2, openjdk6-jdk It looks like postgres-8.4 is too old, so I'm increasing it to 9.1
+If you have questions about these notes ask xTs_w in #ovirt on OFTC (irc.oftc.net)
+
+Depends:
+
+*   postgresql-9.1
+*   openjdk-6-jre
+*   postgresql-contrib-9.1
+
+Build-Depends: maven2, openjdk6-jdk It looks like postgres-8.4 is too old, so I'm increasing it to 9.1
 
 ### Building ovirt-engine (for Debian)
 

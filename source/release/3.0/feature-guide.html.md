@@ -119,7 +119,7 @@ System Scheduler policies for load balancing (automatically balances the VM load
 
 ## Migration tools
 
-Includes virt-v2v tools for automating the conversion of physical servers or unsupported virtual machine formats for use with oVirt
+Use [virt-v2v](http://libguestfs.org/virt-v2v/) tools for automating the conversion of physical servers or unsupported virtual machine formats for use with oVirt.
 
 ## Extensibility
 

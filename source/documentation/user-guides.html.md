@@ -22,7 +22,7 @@ Licensed under the Apache License, Version 2.0 (the "License"). A copy of the Li
 
 ## Guides
 
-[[:[File:OVirt-3.0-Installation_Guide-en-US.pdf|Installation](File:OVirt-3.0-Installation_Guide-en-US.pdf|Installation) Guide]
+[Installation Guide](:File:OVirt-3.0-Installation_Guide-en-US.pdf)
 
 ## Source Control
 

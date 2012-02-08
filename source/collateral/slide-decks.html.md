@@ -14,6 +14,10 @@ wiki_last_updated: 2015-04-27
 
 ~20 slides, pulled together from the Nov 2011 decks listed below: ![](Ovirt-generic.odp  "fig:Ovirt-generic.odp ") (ODP)
 
+## oVirt Decks from FOSDEM 2012
+
+oVirt Engine Core: Internals and Infrastructure: ![](Fosdem2012-ovirt-clean.pdf "fig:Fosdem2012-ovirt-clean.pdf") (PDF)
+
 ## Initial Set of oVirt Slides from the Kickoff Workshop in November 2011
 
 Workshop Invitation Deck: [(PDF)](http://www.ovirt.org/wp-content/uploads/2011/09/Ovirt-WorkShop-Invitation.pdf))

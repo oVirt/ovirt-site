@@ -52,10 +52,6 @@ The engine is now running on Jboss AS7 as the application server.
 
 oVirt API all platform commands via an open source, community-driven RESTful API
 
-### oVirt Engine CLI
-
-The oVirt Engine CLI, provided by the optional *ovirt-engine-cli* package (not to be confused with *vdsm-cli*), is a command line interface for interacting with the oVirt Engine. The CLI communicates with the engine using the REST API. Access the CLI by installing the *ovirt-engine-cli* package and running *ovirt-shell*.
-
 ### Software Development Kit
 
 The oVirt Engine Software Development Kit provides an enhanced Python environment to support the development of custom software utilizing the APIs exposed by the engine.

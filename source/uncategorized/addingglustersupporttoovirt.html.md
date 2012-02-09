@@ -44,7 +44,7 @@ The following user actions / use cases should be covered:
     -   Provision all packages/configuration as needed as part of bootstrap.
     -   If host is not part of the gluster cluster already (at gluster level), invite it via another gluster node.
     -   Need to define host level monitoring aspects (service status wise, networks, etc.)
-    -   unmanaged nodes – since a gluster cluster could have nodes not provisioned via the admin ui, standing on the cluster should show a to-do link for each host that should be added to the management system.
+    -   Unmanaged nodes – since a gluster cluster could have nodes not provisioned via the admin ui, standing on the cluster should show a to-do link for each host that should be added to the management system.
 
 3.  Configure local storage on the host
     -   Detect physical and logical layout of disks/partitions on the host
@@ -53,12 +53,12 @@ The following user actions / use cases should be covered:
 4.  Adding a gluster volume
     -   when standing on a gluster cluster, a volumes collection will be shown in tree and as a main tab with search.
     -   User would be able to perform basic volume operations (add/edit/delete/start/stop/etc.)
-    -   a volume should have an action to create a storage domain from.
+    -   A volume should have an action to create a storage domain from.
     -   Permissions on volumes would be inherited from DC or Cluster, or can be defined at gluster level directly.
     -   Roles and actions should be annotated if relevant to gluster only as part of modular/pluggable concepts.
 
 5.  Qemu-kvm integration
-    -   need to decide on implementation: normal nfs domain, native-gluster client, directly from qemu
+    -   Need to decide on implementation: normal nfs domain, native-gluster client, directly from qemu
 
 ### Notes
 

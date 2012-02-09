@@ -32,7 +32,7 @@ This page describes the **planed** Autorecovery feature in ovirt engine.
 *   The recovery logic (at least in the first iteration) will not check the reason why the object got into Not Operational/Inactive state
 *   AuditLog will be filled if N automatic recovery unsuccesful.
 
-# Internals
+### Internals
 
 *   The check will happen in regular intervals (quartz scheduler)
 *   Needs a DAO extension to fetch only those objects that are in failed state and have auto-recovery on

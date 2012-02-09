@@ -12,7 +12,7 @@ Live block migration is the operation in charge of moving a running VM and its d
 
 ### GUI
 
-No major gui modification are required. The action to move a VM from one storage to an other should be enabled also when the VM is running, in such case the engine will issue a live block migration.
+No major gui modifications are required. The action to move a VM from one storage to another should be enabled also when the VM is running, in which case the engine will issue a live block migration.
 
 ![](StorageLiveMigrationGUI.png "StorageLiveMigrationGUI.png")
 

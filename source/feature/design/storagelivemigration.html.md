@@ -23,7 +23,7 @@ No major gui modifications are required. The action to move a VM from one storag
     -   **Cons:** if the snapshots are no longer needed then a lot of data is copied needlessly. NB. Not implemented upstream yet
 *   **Post-Copy:** live migrate the VM with a live snapshot to the new domain, copy the internal volumes and when the task is completed switch the leaf backing file
     -   **Pros:** better approach for HA/load balancing
-    -   **Cons:** complex management in the oVirt engine and VDSM
+    -   **Cons:** complex management in the oVirt engine and VDSM. Disk is split across multiple domains
 
 Reference: [<http://wiki.qemu.org/Features/LiveBlockMigration>](http://wiki.qemu.org/Features/LiveBlockMigration)
 

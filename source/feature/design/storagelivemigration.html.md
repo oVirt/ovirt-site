@@ -8,7 +8,7 @@ wiki_last_updated: 2012-04-16
 
 # Storage Live Migration
 
-Live block migration is the operation in charge of moving a running VM and its disks from one storage domain to an other.
+Live block migration is the operation in charge of moving a running VM and its disks from one storage domain to another.
 
 ### GUI
 

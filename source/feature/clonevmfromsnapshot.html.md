@@ -8,7 +8,7 @@ wiki_revision_count: 30
 wiki_last_updated: 2012-04-01
 ---
 
-# Clone VM from snapshot
+## Clone VM from snapshot
 
 ### Summary
 
@@ -27,31 +27,31 @@ This feature will let users of oVirt engine to create a VM based on a given snap
 
 #### User interface
 
-1.  .A user will be able to create snapshots for a given virtual machine, and then to select a given snapshot and perform a clone of the VM.
-2.  .The user will also be able to provide VM information (such as VM name) which will be based on the VM information of the original VM.
-3.  .The original VM configuration for a given snapshot will be retrieved by the UI , using a dedicated query carried out on oVirt-engine core
-4.  .The user will be be able to select different storage domains to hold the destination disks and to change their drive mapping,volume type and format.
+1.  A user will be able to create snapshots for a given virtual machine, and then to select a given snapshot and perform a clone of the VM.
+2.  The user will also be able to provide VM information (such as VM name) which will be based on the VM information of the original VM.
+3.  The original VM configuration for a given snapshot will be retrieved by the UI , using a dedicated query carried out on oVirt-engine core
+4.  The user will be be able to select different storage domains to hold the destination disks and to change their drive mapping,volume type and format.
 
 #### Cloning of images behavior
 
-1.  .The disks of the cloned VM will represent a "collapsed" state of the selected snapshot
-2.  .A clone can be performed on a VM regardless of its status (i.e - can be performed if a VM is UP or down as long as the images are available)
-3.  .In order to prevent concurrent flows from modifying the original images that relate to the snapshot chain will the clone is taking place, these images should be locked
-4.  . If a disk that an image of it appeared in the snapshot chain is deleted, upon clone vm from snapshot, the images of the disk will not be copied
+1.  The disks of the cloned VM will represent a "collapsed" state of the selected snapshot
+2.  A clone can be performed on a VM regardless of its status (i.e - can be performed if a VM is UP or down as long as the images are available)
+3.  In order to prevent concurrent flows from modifying the original images that relate to the snapshot chain will the clone is taking place, these images should be locked
+4.  If a disk that an image of it appeared in the snapshot chain is deleted, upon clone vm from snapshot, the images of the disk will not be copied
 
 (the cloned VM will not have a copy of the disk) and a proper event should be logged.
-#. In order for the clone operation to succeed, the user must have a suitable quota per each destination storage domain involved in the images cloning
+# In order for the clone operation to succeed, the user must have a suitable quota per each destination storage domain involved in the images cloning
 
 #### Hot plugged disks
 
-1.  . During creating a snapshot, the "pluggable" attribute of a disk will be stored in the VM configuration.
+1.  During creating a snapshot, the "pluggable" attribute of a disk will be stored in the VM configuration.
 
 Clone VM from Snapshot will be indifferent to this attribute, in a sense the destination disk will be created with the same value
 of the attribute as its corresponding source disk.
 
 #### Shared disks and direct LUN diskes behavior
 
-1.  . For shared disks and direct LUN based disks, the user who performs the snapshot will specify whether the disk should be plugged or unplugged
+1.  For shared disks and direct LUN based disks, the user who performs the snapshot will specify during snapshot creation whether the disk should be plugged or unplugged
 
 upon performing the clone.
 

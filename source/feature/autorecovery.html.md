@@ -14,7 +14,18 @@ wiki_last_updated: 2012-07-20
 
 This page describes the **planed** Autorecovery feature in ovirt engine.
 
-# Behavior
+### Owner
+
+*   name: Laszlo Hornyak
+*   email <lhornyak at redhat dot com>
+
+### Current status
+
+*   Last updated date: Wed Feb 08 2012
+
+# Detailed description
+
+### Behavior
 
 *   Autorecovery feature will allow the backend to recover some of the objects automatically after a temporary failure. Initially only hosts and storage domains entities will support this feature.
 *   Autorecovery must be enabled for each object of the above entity types. If autorecovery is enabled, the engine will try to recover it forever.

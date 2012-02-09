@@ -26,6 +26,7 @@ TODO
 
 ### Tools TODO
 
-1.  standardize all tools usage and make it concictent
-2.  create common infra both for java programs and for the wrapping scripts e.g functions to fulfill classpath dependecies etc.
+1.  standardize all tools usage and make it consistent
+2.  create common infra both for java programs and for the wrapping scripts e.g functions to fulfill classpath dependencies etc.
 3.  use comon paths for all
+4.  Use a single logger library (apache-commons-logging)

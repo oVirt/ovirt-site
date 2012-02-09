@@ -8,7 +8,7 @@ wiki_revision_count: 30
 wiki_last_updated: 2012-04-01
 ---
 
-## Clone VM from snapshot
+# Clone VM from snapshot
 
 ### Summary
 
@@ -37,10 +37,10 @@ This feature will let users of oVirt engine to create a VM based on a given snap
 1.  The disks of the cloned VM will represent a "collapsed" state of the selected snapshot
 2.  A clone can be performed on a VM regardless of its status (i.e - can be performed if a VM is UP or down as long as the images are available)
 3.  In order to prevent concurrent flows from modifying the original images that relate to the snapshot chain will the clone is taking place, these images should be locked
-4.  If a disk that an image of it appeared in the snapshot chain is deleted, upon clone vm from snapshot, the images of the disk will not be copied
+4.  If a disk that an image of it appeared in the snapshot chain is deleted, upon clone vm from snapshot, the images of the disk will not be copied (the cloned VM will not have a copy of the disk) and a proper event should be logged.
+5.  In order for the clone operation to succeed, the user must have a suitable quota per each destination storage domain involved in
 
-(the cloned VM will not have a copy of the disk) and a proper event should be logged.
-# In order for the clone operation to succeed, the user must have a suitable quota per each destination storage domain involved in the images cloning
+the images cloning
 
 #### Hot plugged disks
 

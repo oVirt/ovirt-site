@@ -10,6 +10,8 @@ wiki_last_updated: 2012-03-05
 
 # Workshop Mar 2012 - coordinator notes
 
+Follow the [RSVP list response process](RSVP list response process).
+
 ## Generic text sent when mass-subscribing to workshop list
 
 Welcome to the email list for attendees of the 21 March 2012 oVirt workshop in Beijing. This list is used by event coordinators to tell you all about event details, such as locations and schedule.

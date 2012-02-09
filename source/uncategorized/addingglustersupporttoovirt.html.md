@@ -14,12 +14,15 @@ Gluster file system allows the creation of a shared namespaces from clusters of 
 
 There are two main use cases for deployment:
 
-*   provisioning the gluster storage on a separate cluster from the cluster running the virtual machines<sup>1</sup>.
-*   provisioning the gluster storage on the same hosts running the virtual machines<sup>2</sup>.
+*   Provisioning the gluster storage on a separate cluster from the cluster running the virtual machines<sup>1</sup>.
+*   Provisioning the gluster storage on the same hosts running the virtual machines<sup>2</sup>.
 
 This document suggests a multi-phased approach to adding gluster support to ovirt.
+
 While this focuses on gluster, it shouldn't preclude other local storage based approaches, such as sheepdog.
+
 The relevant features will be added to engine and vdsm.
+
 The suggested steps are:
 
 1.  Allow defining a cluster as a gluster-storage cluster without VMs on the same cluster.
@@ -28,6 +31,7 @@ The suggested steps are:
 
 An orthogonal action item would be to modularize engine/api/ui/vdsm so they would allow better support for pluggable code which may not be deployed by all users (part of a generally much needed modularization of these components).
 This would also allow the gluster community to re-use the modules for managing gluster storage clusters.
+
 This document focuses mostly on the first step (quite enough work to start with this, learn from it, and plan the next step).
 
 ### User Actions

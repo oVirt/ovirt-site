@@ -34,7 +34,11 @@ of 'esc'+':' combination ;)
     -   Available from <http://www.eclipse.org/downloads/>
     -   Use the J2EE for developers.
 
-#### Some more work...
+#### Setting up oVirt engine development environment in Eclipse
+
+*   Before you start, perform a maven build from command line (refer [Building oVirt engine](Building oVirt engine)). This makes sure that the generated code is available, and you won't see too many compilation errors in eclipse after importing the projects.
+
+<!-- -->
 
 *   Fix maven version
 
@@ -65,6 +69,40 @@ of 'esc'+':' combination ;)
        Maven --> 
        Existing Maven Projects --> 
        browse into your engine sources direcotry and click OK
+
+*   Change project settings to Resolve compilation errors
+
+<!-- -->
+
+    restapi-definition ->  project ->  properties -> java build path ->  source ->  add source folder ->  target/generated sources/xjc
+    webadmin ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated sources/{annotations,gwt,test-annotations}
+
+*   If you see the error "**The method setCharacterEncoding(String) is undefined for the type HttpServletResponse**" in source *frontend/webadmin/modules/frontend/src/main/java/org/ovirt/engine/ui/frontend/server/gwt/WebadminDynamicHostingServlet.java*, modify *pom.xml* at root level to change servlet API version from 2.3 to 2.4 as the concerned API is introduced in 2.4. The code change should look like:
+
+<!-- -->
+
+    <javax.ejb.api.version>3.0</javax.ejb.api.version>
+    -<javax.servlet.api.version>2.3</javax.servlet.api.version>
+    +<javax.servlet.api.version>2.4</javax.servlet.api.version>
+    <jcraft.jsch.version>0.1.42</jcraft.jsch.version>
+
+*   Make sure that you import the engine code formatter into eclipse **before** starting development. The engine maven build uses [checkstyle](http://checkstyle.sourceforge.net) to check coding standards. One of the standards checked is that the code should not contain tabs or trailing whitespaces. Since eclipse inserts tabs by default for code formatting, you can end up with a lot of compilation errors in command line maven build if you don't follow this (and the next) step.
+
+<!-- -->
+
+    Window ->  Preferences ->  Java ->  Code Style ->  Formatter -> Import -> <ovirt-src-root>/config/engine-code-format.xml
+
+*   The above formatter however, doesn't work with trailing whitespaces inside comments. To make sure that this is also taken care, add the following **Save Action** to the Java editor:
+
+<!-- -->
+
+    Window ->  Preferences ->  Java ->  Editor ->  Save Actions -> Additional Actions ->  Configure ->  Code Organizing ->  Remove trailing whitespace -> All lines 
+
+*   By now, hopefully, you should have resolved all compilation errors shown by eclipse, and ready to start development of oVirt engine.
+
+<!-- -->
+
+*   On some machines, editing a properties file in eclipse results in a lot of "diff" in git, making it difficult to review the code change. It may be a good idea to verify this in the beginning, and if the problem exists, edit the properties files using an external text editor.
 
 ### NetBeans
 

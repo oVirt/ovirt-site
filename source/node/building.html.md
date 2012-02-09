@@ -34,12 +34,9 @@ $ cd ovirt-node`
         -   %dist .fc16
         -   %fedora 16
     -   If you're on the right version, then no need for .rpmmacros
-    -   Create directory structure
-        -   <code>$ BASEDIR=$(rpm --eval %_topdir) #to get base rpmbuild directory
-        -   mkdir -p $BASEDIR/{BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS}</code>
 *   set OVIRT_CACHE_DIR and OVIRT_LOCAL_REPO environment variables
     -   <code> $ export OVIRT_CACHE_DIR=~/ovirt-cache
-    -   $ export OVIRT_LOCAL_REPO=<file://>${BASEDIR}/RPMS </code>
+    -   $ export OVIRT_LOCAL_REPO=<file://>${OVIRT_CACHE_DIR}/ovirt </code>
 
 #### Install Dependencies
 

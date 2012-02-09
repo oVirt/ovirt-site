@@ -20,4 +20,4 @@ Welcome to the email list for attendees of the 21 March 2012 oVirt workshop in B
 
 "I am also going to add you to the email list we will use for workshop announcements and coordination."
 
-[Category:Workshop Mar 2012](Category:Workshop Mar 2012)
+[Category:Workshop Mar 2012](Category:Workshop Mar 2012) [Category:Event coordinator documentation](Category:Event coordinator documentation)

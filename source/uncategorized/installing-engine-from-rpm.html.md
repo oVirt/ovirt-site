@@ -23,6 +23,11 @@ Execute the following command:
       wget http://www.ovirt.org/releases/stable/fedora/16/ovirt-engine.repo -P /etc/yum.repos.d/
        
 
+or (if you wish to use nightly builds):
+
+      wget http://www.ovirt.org/releases/nightly/fedora/16/ovirt-engine.repo -P /etc/yum.repos.d/
+       
+
 # Ovirt-engine
 
 ### Installing & Configuring ovirt-engine

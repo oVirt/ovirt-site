@@ -81,6 +81,20 @@ $ cd ovirt-node`
 
 `
 
+Additional Variables
+
+*   BUILD_TYPE
+    -   Defaults to STABLE
+    -   Valid Values: STABLE NIGHTLY
+    -   Purpose: Allow building from the nightly or stable repos on ovirt.org. Stable repos are always included, Nightly are included only if BUILD_TYPE=NIGHTLY.
+*   BUILD_NUMBER
+    -   Defaults to .1
+    -   Appends the value specified to Release before the %dist is added.
+    -   Example:
+        -   ovirt-node is 2.2.2-2.fc16
+        -   make BUILD_NUMBER=.2 ovirt-node-image.iso
+        -   generates ovirt-node-image-2.2.2-2.2.fc16.iso
+
 ### From -tools RPM
 
 *   Install ovirt-node-tools RPM from Fedora or ovirt.org/releases

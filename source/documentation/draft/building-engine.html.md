@@ -148,7 +148,7 @@ Ensure that you have write access to $JBOSS_HOME/standalone/deployments to which
 
 ### Troubleshooting
 
-1.  Some useful JAVA_OPTS, these can be manually added to the run.sh script as required:
+1.  Some useful JAVA_OPTS, these can be manually added to the *standalone.conf* script as required:
     1.  -Xmx512m - maximum Java heap size of 512m
     2.  -Xdebug - include debugging
 

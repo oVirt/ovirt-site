@@ -1,0 +1,30 @@
+---
+title: RSVP list response process
+category: workshops
+authors: quaid
+wiki_category: Workshops
+wiki_title: RSVP list response process
+wiki_revision_count: 4
+wiki_last_updated: 2012-03-08
+---
+
+# RSVP list response process
+
+Follow this process when responding to RSVP emails for oVirt events. This keeps us able to coordinate across timezones, while giving a polite and appropriate response to each RSVP and maintaining our records for sanity.
+
+1.  When you receive an email to rsvp@ovirt.org, open the unique event shared spreadsheet (e.g. on Google Docs) and enter the details for the person or persons.
+    -   Ideally you want to receive an email from each person attending. This way you have a copy of the attendee list in the rsvp@ archives.
+    -   Do this first to you minimize the chance of mistakes in the attendee list.
+
+2.  Reply to the email, choosing *Reply-to-all*. You want to include the list rsvp@ovirt.org (for archiving) and any person the sender included in their Cc: - it might be a co-worker, manager, etc. and you want that person to know the RSVP status - on or not on the attendee list.
+3.  In the email response include these essential pieces of information:
+    -   "Yes, you are now on the list of attendees."
+    -   "You will be added to the workshop announcement/coordination email list."
+    -   Consider the language barriers when writing responses
+
+4.  After sending out one or all of the responses you have, add the attendees to the workshop specific mailing list.
+    -   Be sure to use the custom welcome text written for the event.
+
+Materials for event coordinators for each workshop can be found in [:Category:Event coordinator documentation](:Category:Event coordinator documentation).
+
+<Category:Workshops> [Category:Event coordinator documentation](Category:Event coordinator documentation)

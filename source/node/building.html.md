@@ -51,13 +51,10 @@ $ cd ovirt-node`
 
 *   go to base ovirt-node location
 *   <code> $ ./autogen.sh --with-image-minimizer
-*   $ make
-*   rm \*tar.gz
-*   make dist
 *   EXTRA_RELEASE=.$USER$(date +%s)
     -   Not required if you're building an official build
     -   Also, you may need to tweak this if you have an invalid character in your user name (like - )
-*   rpmbuild --nodeps --define "extra_release $EXTRA_RELEASE" -ta --clean \*.tar.gz
+*   $ make publish
 
 </code>
 

@@ -224,7 +224,7 @@ Direct LUN enables adding a block device to the system either by its GUID or UUI
 
 ### Documentation / External references
 
-<http://www.ovirt.org/wiki/Features/Design/StableDeviceAddresses>
+[Features/Design/StableDeviceAddresses](Features/Design/StableDeviceAddresses)
 
 ### Open Issues
 

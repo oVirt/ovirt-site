@@ -32,7 +32,7 @@ First of all you need to register as a new user to gerrit. You can do that by us
 
 *   On your local machine, create a set of SSH keys (if you don't already have one) via
 
-      'ssh-keygen -t rsa'
+      ssh-keygen -t rsa
        
 
 *   Update via Gerrit settings the SSH public key to allow SSH to Gerrit

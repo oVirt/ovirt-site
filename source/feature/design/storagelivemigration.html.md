@@ -19,10 +19,10 @@ No major gui modifications are required. The action to move a VM from one storag
 ### Pre-Copy and Post-Copy
 
 *   **Pre-Copy:** copy all the internal volumes and then live copy the leaf volume, when the task is completed live migrate the VM
-    -   **Pro:** safer and simpler to manage in the oVirt engine and VDSM
+    -   **Pros:** safer and simpler to manage in the oVirt engine and VDSM
     -   **Cons:** if the purpose of the whole live block migration was to balance the cpu load, it won't be practical
 *   **Post-Copy:** live migrate the VM with a live snapshot to the new domain, copy the internal volumes and when the task is completed switch the leaf backing file
-    -   **Pro:** better approach for HA/load balancing
+    -   **Pros:** better approach for HA/load balancing
     -   **Cons:** complex management in the oVirt engine and VDSM
 
 Reference: [<http://wiki.qemu.org/Features/LiveBlockMigration>](http://wiki.qemu.org/Features/LiveBlockMigration)

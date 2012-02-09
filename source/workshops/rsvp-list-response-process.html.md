@@ -10,7 +10,7 @@ wiki_last_updated: 2012-03-08
 
 # RSVP list response process
 
-Follow this process when responding to RSVP emails for oVirt events. This keeps us able to coordinate across timezones, while giving a polite and appropriate response to each RSVP and maintaining our records for sanity.
+Follow this process when responding to RSVP emails for oVirt events. This keeps us able to coordinate across timezones without duplicating or missing work. It also gives us a chance to provide a polite and appropriate response to each RSVP, while maintaining our records.
 
 1.  When you receive an email to rsvp@ovirt.org, open the unique event shared spreadsheet (e.g. on Google Docs) and enter the details for the person or persons.
     -   Ideally you want to receive an email from each person attending. This way you have a copy of the attendee list in the rsvp@ archives.

@@ -17,6 +17,8 @@ Follow this process when responding to RSVP emails for oVirt events. This keeps 
     -   Do this first to you minimize the chance of mistakes in the attendee list.
 
 2.  Reply to the email, choosing *Reply-to-all*. You want to include the list rsvp@ovirt.org (for archiving) and any person the sender included in their Cc: - it might be a co-worker, manager, etc. and you want that person to know the RSVP status - on or not on the attendee list.
+    -   Including rsvp@ovirt.org alerts other event coordinators that you have responded to this person.
+
 3.  In the email response include these essential pieces of information:
     -   "Yes, you are now on the list of attendees."
     -   "You will be added to the workshop announcement/coordination email list."

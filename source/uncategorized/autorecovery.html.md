@@ -1,0 +1,25 @@
+---
+title: Autorecovery
+authors: lhornyak, yair zaslavsky
+wiki_title: Autorecovery
+wiki_revision_count: 3
+wiki_last_updated: 2012-02-09
+---
+
+# Autorecovery feature
+
+This page describes the **planed** Autorecovery feature in ovirt engine.
+
+### Behavior
+
+*   Autorecovery feature will allow the backend to recover some of the objects automatically after a temporary failure. Initially only hosts and storage domains.
+*   Autorecovery must be enabled for each object. If autorecovery is enabled, the engine will try to recover it forever.
+*   The recovery logic (at least in the first iteration) will not check if the reason why the object got into Not Operational/Inactive state
+*   AuditLog will be filled if N automatic recovery unsuccesful.
+
+### Internals
+
+*   The check will happen in regular intervals (quartz scheduler)
+*   Needs a DAO extension to fetch only those objects that are in failed state and have auto-recovery on
+*   It will call the respective commands (ActivateHost, ActivateStorageDomain), and let the commands do what they do
+*   Database needs to be extended with autorecovery information, default should be false to avoid surprises.

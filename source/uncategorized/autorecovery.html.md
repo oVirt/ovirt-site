@@ -12,9 +12,9 @@ This page describes the **planed** Autorecovery feature in ovirt engine.
 
 ### Behavior
 
-*   Autorecovery feature will allow the backend to recover some of the objects automatically after a temporary failure. Initially only hosts and storage domains.
-*   Autorecovery must be enabled for each object. If autorecovery is enabled, the engine will try to recover it forever.
-*   The recovery logic (at least in the first iteration) will not check if the reason why the object got into Not Operational/Inactive state
+*   Autorecovery feature will allow the backend to recover some of the objects automatically after a temporary failure. Initially only hosts and storage domains entities will support this feature.
+*   Autorecovery must be enabled for each object of the above entity types. If autorecovery is enabled, the engine will try to recover it forever.
+*   The recovery logic (at least in the first iteration) will not check the reason why the object got into Not Operational/Inactive state
 *   AuditLog will be filled if N automatic recovery unsuccesful.
 
 ### Internals

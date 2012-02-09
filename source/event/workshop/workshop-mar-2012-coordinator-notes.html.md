@@ -14,4 +14,8 @@ wiki_last_updated: 2012-03-05
 
 Welcome to the email list for attendees of the 21 March 2012 oVirt workshop in Beijing. This list is used by event coordinators to tell you all about event details, such as locations and schedule.
 
+## Reply bits when sending back to attendee and rsvp@ list
+
+"I am also going to add you to the email list we will use for workshop announcements and coordination."
+
 [Category:Workshop Mar 2012](Category:Workshop Mar 2012)

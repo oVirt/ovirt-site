@@ -12,7 +12,20 @@ Given an image with one or more snapshots the merge command will squash the data
 
 ![](LiveMergeExample1.png "LiveMergeExample1.png")
 
-The backwared live merge is the most important implementation since it's capable of maintaing the backing volume format (eg: raw).
+*   **Backward Live Merge:** the data is pushed from the snapshot (Snapshot 1 Volume) into its base (Base Volume)
+    -   **Pros:**
+        -   When there is only one snapshot in the chain it is possible to squash it into its base (possibly fast) maintaining the volume format
+    -   **Cons:**
+        -   Hard to implement (at the moment no support in qemu-kvm/libvirt)
+        -   The backing file is corrupted until the process is completed (you cannot revert to Base Volume if the process fails or stops)
+*   **Forward Live Merge:** the data is pulled from the backing file (Snapshot 1 Volume) to the next snapshot (Snapshot 2 Volume)
+    -   **Pros:**
+        -   Easy to implement
+        -   The backing file is not corrupted (you can always revert to Snapshot 1 Volume)
+    -   **Cons:**
+        -   When there is only one snapshot in the chain, the entire base (maybe a raw file) is pulled into the snapshot (it might change the volume format and take a long time)
+
+In the long run the definitive solution will be to pick the correct method (backward/forward) depending on the situation, trying to minimize the amount of data moved from one volume to another.
 
 # GUI
 
@@ -24,18 +37,19 @@ No major gui modification is required. The action to merge a snapshot should be 
 
 # VDSM API
 
-      merge(vmId, driveParams)
-      driveParams = [
-         { 'domainID': '`<sdUUID>`',
-           'volumeID': '`<volUUID>`'
-         },
-         [...]
+      mergeDrives = [
+          {"domainID": "`<sdUUID>`",
+           "imageID": "`<imgUUID>`",
+           "mergeVolumeID": "`<baseVolUUID>`",
+           "volumeID": "`<volUUID>`"},
+          ...
       ]
+      merge(vmId, mergeDrives)
 
 # Limits and Risks
 
 *   QEMU/Libvirt must support the backward live merge
-    -   **Problem:** without the proper support in qemu/libvirt it is impossible to implement this feature in VDSM
+    -   **Problem:** without the proper support in qemu/libvirt it is impossible to implement a backward live merge
     -   **Bugzilla:**
 *   Change the logical volume permissions on the HSM
     -   **Problem:** VDSM must be able to change any internal volume to read-write at any time
@@ -44,10 +58,14 @@ No major gui modification is required. The action to merge a snapshot should be 
 *   The default LV permissions for the internal volumes are read-only
     -   **Problem**: VDSM can't change the internal volume to read-write
     -   **Solution**: update the LVM metadata switching all the LVs permissions to read-write (**WARN:** this might require a new domain version)
-*   The SPM must be able to remove an internal volume both in the case where the VM is running locally (resourceManager problems?) and in the case where the VM is running remotely (HSM)
+*   The SPM must be able to remove an internal volumes
+    -   **Problem**: The current implementation of the resource manager is forbidding such operation
+    -   **Problem**: A check (or synchronization) is required to ensure that the SPM won't remove a volume that is actually in use
 *   In the backward live merge the base snapshot is inconsistent until the merge completes
     -   **Problem**: the base snapshot is inconsistent and shouldn't be accessible (no reverts)
     -   **Solution**: the base snapshot should be accessed only through the layer above
+*   QEMU is changing the snapshot backing file
+    -   **Problem**: this might lead to a short time where the backing file and the metadata are inconsistent
 
 # Engine Flow
 

@@ -18,6 +18,7 @@ This page describes the **planed** Autorecovery feature in ovirt engine.
 
 *   name: Laszlo Hornyak
 *   email <lhornyak at redhat dot com>
+*   irc: lhornyak (irc.ofc.net #ovirt)
 
 ### Current status
 

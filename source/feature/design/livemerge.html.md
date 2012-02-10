@@ -48,6 +48,19 @@ No major gui modification is required. The action to merge a snapshot should be 
 
 # Limits and Risks
 
+*   **Phase 1**: support only forward live merge to the image leaf
+*   **Phase 2**: support forward and backward live merge of any volume in the chain
+
+### Limits and Risks Phase 1
+
+*   The SPM must be able to remove an internal volume
+    -   **Problem**: The current implementation of the resource manager is forbidding such operation
+    -   **Problem**: A check (or synchronization) is required to ensure that the SPM won't remove a volume that is actually in use
+*   QEMU is changing the snapshot backing file
+    -   **Problem**: this might lead to a short time where the backing file and the metadata are inconsistent
+
+### Limits and Risks Phase 2
+
 *   QEMU/Libvirt must support the backward live merge
     -   **Problem:** without the proper support in qemu/libvirt it is impossible to implement a backward live merge
     -   **Bugzilla:**
@@ -58,14 +71,14 @@ No major gui modification is required. The action to merge a snapshot should be 
 *   The default LV permissions for the internal volumes are read-only
     -   **Problem**: VDSM can't change the internal volume to read-write
     -   **Solution**: update the LVM metadata switching all the LVs permissions to read-write (**WARN:** this might require a new domain version)
-*   The SPM must be able to remove an internal volumes
-    -   **Problem**: The current implementation of the resource manager is forbidding such operation
-    -   **Problem**: A check (or synchronization) is required to ensure that the SPM won't remove a volume that is actually in use
 *   In the backward live merge the base snapshot is inconsistent until the merge completes
     -   **Problem**: the base snapshot is inconsistent and shouldn't be accessible (no reverts)
     -   **Solution**: the base snapshot should be accessed only through the layer above
-*   QEMU is changing the snapshot backing file
-    -   **Problem**: this might lead to a short time where the backing file and the metadata are inconsistent
+*   During a live merge the required space to store the data grows
+    -   **Problem**: on LVM the volume size is fixed and will require an extension
+    -   **Solution 1**: VDSM should monitor the growth of internal volumes during the merge (qemu needs to support this)
+    -   **Solution 2**: a possible trivial solution is to extend the target volume to the maximum amount of space required (base size + snapshot size) and eventually shrink it when the operation completes
+    -   **Solution 3**: compute the exact size using a tool provided by qemu
 
 # Engine Flow
 

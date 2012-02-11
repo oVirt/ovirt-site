@@ -17,4 +17,9 @@ wiki_last_updated: 2012-02-11
 *   [Fedora 17 to come with Gimp 2.8, KDE 4.8, oVirt and GCC 4.7](http://www.h-online.com/open/news/item/Fedora-17-to-come-with-Gimp-2-8-KDE-4-8-oVirt-and-GCC-4-7-1417201.html)
 *   [First release of oVirt scheduled for Jan 31](http://www.linux-kvm.com/content/first-release-ovirt-scheduled-jan-31)
 
+## February 2012
+
+*   [oVirt Manages Its First Release](http://www.phoronix.com/scan.php?page=news_item&px=MTA1NjA)
+*   [oVirt's virtualisation software gets a first release](http://www.h-online.com/open/news/item/oVirt-s-virtualisation-software-gets-a-first-release-1432285.html)
+
 <Category:Press>

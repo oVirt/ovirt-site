@@ -110,11 +110,10 @@ c.1. The VM static object should be used - it will be stored in DB.
 c.2. The given name should be used - based on the VM source ID, the VM static will be obtained by the given snapshot ID. The name field will be overridden by the value from the parameters.
 d. Retrieve a list of the images to be cloned from the configuration provided by the parameters.
 e. The command will check if the status of the snapshot is partial (as a result of disk deletion), and if this is the case, a sutiable audit log message indicating that a clone from partial snapshot is starting will be issued to the audit log. f. For each image of the retrieved images, run the CopyImage BLL command.
-TODO: Think about endCommand (as the child command creates tasks)
-2. CopyImageCommand will will be responsible for running the CopyImageVDSCommand in order to perform the image copying.
+ 2. CopyImageCommand will be responsible for running the CopyImageVDSCommand in order to perform the image copying.
 The command will clone the image entity , and the required parameters (such as the source and target storage domain for the given image) to CopyImageVDSCommand.
-A concrete task to monitor the progress of the copy image (asynchronous operation at VDSM) will be created.
-![](Clone_flow_vm_from_snapshot_new_2.jpg "fig:Clone_flow_vm_from_snapshot_new_2.jpg")
+A concrete task to monitor the progress of the copy image (asynchronous operation at VDSM) will be created, using the new VM as the entity for which all the tasks will be created.
+ The diagram below presents the class diagram for the commands + changes in the existing code ![](Clone_flow_vm_from_snapshot_new_2.jpg "fig:Clone_flow_vm_from_snapshot_new_2.jpg")
 
 ### Clone VM from snapshot command parameters Class diagram
 

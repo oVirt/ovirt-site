@@ -147,6 +147,13 @@ In case the VmStatic object is filled only with name for the clone, the command 
 In case the VmStatic object is filled with fields - the object will be used as the VmStatic object for the new cloned VM.
 \* GUID vmSourceID - holds the unique identifier of the source VM
 \* Guid snapshotID - holds the unique identifier of the snapshot ID
+
+### GetVMConfigurationBySnapshotId
+
+The diagram provided below is a class diagram for the GetVmConfiguraitonBySnapshotId.
+This query will be used in order to obtain the Vm configuration (VmStatic + disk info list) by the snapshot the user has selected , to be used as a source for the clone.
+![](Get vm configuration by snapshot id.jpg "fig:Get vm configuration by snapshot id.jpg")
+
 === Documentation / External references === Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
 
 ### Comments and Discussion

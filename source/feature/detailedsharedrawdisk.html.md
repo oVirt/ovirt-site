@@ -15,7 +15,7 @@ wiki_warnings: list-item?
 
 ### Summary
 
-The shared raw disk feature enables to share disks through multiple VMs in the Data Center.
+The shared raw disk feature enables to share disks between multiple VMs in the Data Center.
 
 ### Owner
 

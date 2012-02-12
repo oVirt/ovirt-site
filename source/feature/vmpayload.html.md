@@ -39,31 +39,26 @@ The payload options are:
     -   CD
     -   In the future also injection and payload via private IP
 
-There are a few options to model that:
+There are a few options to model that (upstream discussions led to using the **first** one):
 
-1.  Use current Floppy/CD attachment options:
+1.  Add a payload in addition to the current Floppy/CD attachment options:
+    -   Add a Payload option, in which you choose whether to pass the payload via CD or floppy (the passing method)
+    -   Choose the Payload data (base64 encoded string)
+    -   There may be multiple payloads, and multiple passing options at the same time in the same VM
+    -   The payload feature works regardless of current ISO or Floppy (in sysprep) attachments. The only limitation is that in case Windows sysprep is used, we must make sure it gets the first floppy (drive "A:")
+
+2.  Use current Floppy/CD attachment options:
     -   In floppy allow to attach either sysprep or payload
     -   In CD allow to attach either an ISO, or a payload
     -   There will be a single attachment or payload per device type (floppy, CD)
 
-2.  Add a payload in addition to the current Floppy/CD attachment options:
-    -   Add a Payload option, in which you choose whether to pass the payload via CD or floppy (the passing method)
-    -   In floppy allow to attach a payload
-    -   In CD allow to attach a payload
-    -   Both the payload and the attachment are used
-    -   There may be multiple payloads, and multiple passing options at the same time
-    -   There will be a single attachment and/or multiple payloads per device type (floppy, CD)
-    -   In case Windows sysprep is used, we must make sure it gets the first floppy (drive "A:")
-
-After the upstream discussions, the chosen model is the second one.
-
 Notes:
 
-1.  The payload data will be encoded using base64 encoding.
+1.  The payload data will be encoded using base64 encoding
 2.  All payloads will be passed in the current VDSM create verb
 3.  With either options, the engine API and VDSM API will be general enough to allow adding other passing methods in the future
 4.  The Modelling of this feature will include OVF schema changes as well
-5.  For now we will limit the content of the file to 1024K. In the future we might support using NFS share in cases in which the content is bigger.
+5.  For now we will limit the content of the file to 1024K. In the future we might support using NFS share in cases in which the content is bigger
 
 ### Design Notes
 

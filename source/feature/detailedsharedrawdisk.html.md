@@ -39,30 +39,43 @@ The shared raw disk feature enables to share disks between multiple VMs in the D
 
 ### Detailed Description
 
-The shared raw disk feature should provide the ability to attach a disk to multiple VMs that can handle concurrent access to a shared disk without risk of corruption,
-The disk should behave as a flexible independent entity, that can be reflected as a standalone entity that is not shared between VMs(see <http://www.ovirt.org/wiki/Features/FloatingDisk>),
- or as a shared entity between multiple of VMs,. With this feature oVirt will be more compatible to support external cluster application, or shared data warehouse.
+The shared disk feature should provide the ability to attach a disk to multiple VMs. It is the user's responsibility to make sure that the VMs do not corrupt disk data.
+Users should be able to easily manage disks as standalone entities which are not shared between VMs (see <http://www.ovirt.org/wiki/Features/FloatingDisk>),
+ or as entities which are shared between multiple VMs, and be able to switch between the two states. This feature will enable oVirt users to more easily run external cluster applications, or shared data warehouses on VMs.
 
 #### Entity Description
 
 ##### Disk
 
-*   Disk should have an indication field for shared/not shared disk.
+*   Disk should have a field indicating whether it is shared or not.
 
 #### Functionality
 
-*   The synchronization/clustering of shared raw disk between VMs is the responsibility of the guests. Unaware guests will lead to corruption of the shared disk.
-*   Each VM which has attached shared raw disk, can R/W to the shared raw disk.
-*   Shared raw disk will become floating disk when the disk will not be attached to any VMs in the Data Center.
-*   When attaching shared raw disk the disk will be unplugged in the destination VM.
+General
+
+*   Currently only Raw disks can be shared
+*   The synchronization/clustering of data access to shared disks is the responsibility of the guests. Attaching a shared disk to non-cluster aware guests will lead to corruption of the data on the disk.
+*   Shared disks are attached with R/W permissions.
+*   When detaching a disk from all VMs in the Data Center., the disk will become 'floating'
+
+Attach Shared Disk
+
+*   When attaching a shared disk to a VM, by default the disk will be logically connected to the VM but it will be 'unplugged'. To make the disk 'visible' to the guest, the user will have to explicitly 'plug' the disk.
 *   Shared raw disk is configured the same as a regular disk, but with a shared flag marked as true.
-*   The shared raw disk can be removed if all the VMs that are using it are in status down or VMs which are in status up but the shared raw disk is unplugged.
+
+Remove Shared Disk
+
+*   The shared raw disk can only be removed once it is either unplugged from all VMs to which it is attached or these VMs are all shut down (or any combination of the two).
+
+Copy Shared Disk
+
+*   The shared raw disk can only be copied once it is either unplugged from all VMs to which it is attached or these VMs are all shut down (or any combination of the two).
 
 Templates
 
-*   When creating a template from a VM which one of its disks are shared, the shared raw disk will not be part of the template creation.
+*   When creating a template from a VM which has one or more shared disks, the shared disks will not be part of the resulting template.
 *   Template disks should not be shared.
-*   VM disks which are created from template with thin provisioning, should not be referenced as shared raw disk.
+*   VM disks which are thinly provisioned, should not be referenced as shared raw disk.
 
 Export/Import
 
@@ -70,7 +83,7 @@ Export/Import
 
 Move disk
 
-*   Moving a shared raw disk is permitted only when all the attached VMs status are down, or all the disks which are attached to active VMs are unplugged.
+*   Moving a shared raw disk is permitted only when all the attached VMs statuses are down, or all the disks which are attached to active VMs are unplugged.
 
 Move VM
 
@@ -82,7 +95,7 @@ Snapshot
 
 Stateless VM
 
-*   When running stateless VM, the shared raw disk will not be handle as stateless, the user should get a warning message indicating that the disk will not be handled as stateless.
+*   When running stateless VM, the shared raw disk will not be handled as stateless, the user should get a warning message indicating that the disk will not be handled as stateless.
 
 VM pools
 
@@ -92,9 +105,9 @@ VM pools
 
 *   Display shared disk
     -   The shared disks will be displayed in the 'disks' main tab.
-    -   As part of the shared disk details, it will also be presented the number of VMs which are connected to the shared raw disk.
+    -   The shared disk details tab will include the number of VMs to which it is connected.
 *   Adding shared disk
-    -   Creating/Editing a shared raw disk is available through the new/edit disk dialog from the disks sub tab in the VM main tab.
+    -   Creating/Editing a shared disk is available through the new/edit disk dialog from the disks sub tab in the VM main tab.
          The add/edit disk dialog box will have a check box indicating the disk is shared or not.
         When a user wants to configure a regular disk to be shared disk, he will edit the disk and mark the checkbox as shared.
     -   User can also attach/detach shared disk through the disks sub tab of the VMs main tab,

@@ -16,7 +16,9 @@ wiki_last_updated: 2015-04-27
 
 ## oVirt Decks from FOSDEM 2012
 
-oVirt Engine Core: Internals and Infrastructure: ![](Fosdem2012-ovirt-clean.pdf "fig:Fosdem2012-ovirt-clean.pdf") (PDF)
+Virtualization Management the oVirt way: ![](Fosdem2012-ovirt-clean.pdf "fig:Fosdem2012-ovirt-clean.pdf") (PDF)
+
+oVirt Engine Core: Internals and Infrastructure: ![](Ovirt-engine-core_fosdem_2012.pdf "fig:Ovirt-engine-core_fosdem_2012.pdf") (PDF)
 
 ## Initial Set of oVirt Slides from the Kickoff Workshop in November 2011
 

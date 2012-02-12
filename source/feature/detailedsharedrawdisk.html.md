@@ -108,10 +108,10 @@ VM pools
     -   The shared disk details tab will include the number of VMs to which it is connected.
 *   Adding shared disk
     -   Creating/Editing a shared disk is available through the new/edit disk dialog from the disks sub tab in the VM main tab.
-         The add/edit disk dialog box will have a check box indicating the disk is shared or not.
-        When a user wants to configure a regular disk to be shared disk, he will edit the disk and mark the checkbox as shared.
-    -   User can also attach/detach shared disk through the disks sub tab of the VMs main tab,
-    -   The administrator can attach/detach shared raw disk from the disks main tab.
+         The add/edit disk dialog box will have a check box indicating whether the disk is shared or not.
+        When a user wants to configure a regular disk to be a shared disk, she will edit the disk and mark the checkbox as shared.
+    -   User will also be able to attach/detach a shared disk through the disks sub tab of the VMs main tab,
+    -   The administrator can attach/detach a shared raw disk from the disks main tab.
 *   Delete shared disk
     -   User will be able to delete a shared disk from the disks sub tab in the VMs sub tab.
 

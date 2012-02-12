@@ -39,10 +39,6 @@ oVirt-engine core will copy and collapse the images in the snapshot chain (the c
 In order to provide information on the VM or VM template to be created for the UI, UI will execute a query that will retrieve the VM and its disks configuration given a snapshot ID.
 The UI will use the retrieved configuration as default values for the user to be modified.
 
-#### Entity Description
-
-#### CRUD
-
 #### User Experience
 
 The UI will run a query called GetVmConfigurationBySnapshotID in order to get a VM configuration for a given snapshot.

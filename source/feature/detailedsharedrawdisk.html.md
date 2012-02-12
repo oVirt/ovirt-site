@@ -125,15 +125,14 @@ VM pools
 The Administrator Portal should allow the following operations:
 
 *   User will be able to view all shared raw disks from the disks main tab.
-*   Regular disk can become a shared raw disk, by editing the existing disk and mark the share disk property type.
-*   When removing a VM with shared raw disk attached to it, the shared disk will not be deleted.
-*   If no other VMs are being attached to the shared disk then it will become floating disk.
-*   Attach/Detach of shared raw disk can be performed only when the VM is in status down.
-*   Shared raw disk must be formatted with raw type, and does not support OS disks (system bootable disks).
+*   Regular disk can become a shared raw disk, by editing the existing disk and marking the 'share disk' property type.
+*   When removing a VM with shared disks attached to it, the shared disks will not be deleted.
+*   If the shared disk is not attached to any other VMs then it will become a 'floating' disk.
+*   Attach/Detach of a shared disk can be performed only when the VM is in status 'down'.
 
 The Power User Portal should allow the following operations:
 
-*   Attach, detach disks to VM.
+*   Attach/detach disks to/from a VM.
 *   View shared disks in the Data Center which the power user can attach/detach
 *   The power user will not have permissions to create a shared disk from the user portal.
 

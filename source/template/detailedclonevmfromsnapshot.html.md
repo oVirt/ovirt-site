@@ -113,7 +113,7 @@ e. The command will check if the status of the snapshot is partial (as a result 
  2. CopyImageCommand will be responsible for running the CopyImageVDSCommand in order to perform the image copying.
 The command will clone the image entity , and the required parameters (such as the source and target storage domain for the given image) to CopyImageVDSCommand.
 A concrete task to monitor the progress of the copy image (asynchronous operation at VDSM) will be created, using the new VM as the entity for which all the tasks will be created.
- The diagram below presents the class diagram for the commands + changes in the existing code
+ The diagram below presents the class diagram for the commands + changes in the existing design (prior to introduction of this feature)
 ![](Clone_flow_vm_from_snapshot_new_2.jpg "fig:Clone_flow_vm_from_snapshot_new_2.jpg")
  a. BaseImagesCommand
 This existing class will undergo the following changes:
@@ -122,7 +122,7 @@ This method will replace the "CreateSnapshotInIRSServer" as in some cases, the o
 \* Introducing the method handleImagesAfterSPMOperation.
 This method will be overridden by sub classes to provide logic for handling the images, after successful invocation of the SPM operation.
 In case of CreateSnapshotCommand the overridden method will replace the existing methods of ProcessImageFromDB and AddDiskImageToDB.
-In case of CopyImageCommand the overriden method will add the new image to DB.
+In case of CopyImageCommand the overridden method will add the new image to DB.
 b. DiskImageUtils
 This new class will include helper methods for image related commands.
 An example for such a helper method is the method DiskImageUtils.cloneDiskImage that is responsible for performing image business entity cloning.
@@ -136,7 +136,21 @@ The command will invoke the CopyImage BLL command for each Disk Image that shoul
 
 ### Clone VM from snapshot command parameters Class diagram
 
+The diagram provided below is a class diagram of the command parameters that relate with the above command class diagram.
 ![](Clone flow vm from snapshot params.jpg "fig:Clone flow vm from snapshot params.jpg")
+The design introduces new parameter class and usages:
+
+*   Introduction of AddVmFromSnapshotParameters
+
+This class is the parameters class for the AddVmFromSnapshotCommand
+This class uses the following fields:
+
+*   VmStatic vmStatic - holds the static representation of the Vm.
+
+In case the VmStatic object is filled only with name for the clone, the command should query the DB and get the vm static by the sourceVmId, and set the new name (the object will be used for the new cloned VM.)
+In case the VmStatic object is filled with fields - the object will be used as the VmStatic object for the new cloned VM.
+\* GUID vmSourceID - holds the unique identifier of the source VM
+\* Guid snapshotID - holds the unique identifier of the snapshot ID
 === Documentation / External references === Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
 
 ### Comments and Discussion

@@ -114,6 +114,17 @@ e. The command will check if the status of the snapshot is partial (as a result 
 The command will clone the image entity , and the required parameters (such as the source and target storage domain for the given image) to CopyImageVDSCommand.
 A concrete task to monitor the progress of the copy image (asynchronous operation at VDSM) will be created, using the new VM as the entity for which all the tasks will be created.
  The diagram below presents the class diagram for the commands + changes in the existing code ![](Clone_flow_vm_from_snapshot_new_2.jpg "fig:Clone_flow_vm_from_snapshot_new_2.jpg")
+ a. BaseImagesCommand
+This existing class will undergo a change of introducing the performSPMOperation.
+This method will replace the "CreateSnapshotInIRSServer" as in some cases, the overridden versions of this method invoke the CopyImage and not the CreateSnapshot VDSM verb.
+b. DiskImageUtils
+This new class will include helper methods for image related commands.
+An example for such a helper method is the method DiskImageUtils.cloneDiskImage that is responsible for performing image business entity cloning.
+c. CopyImageCommand
+This new class will concentrate BLL logic for performing image copying.
+The command will be run internally only.
+The command will receive as parameters information on source and target disk images and storage domains.
+The command will invoke the CopyImageVDS command in order to perform the image copying via the SPM.
 
 ### Clone VM from snapshot command parameters Class diagram
 

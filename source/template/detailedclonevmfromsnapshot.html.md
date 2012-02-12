@@ -115,8 +115,13 @@ The command will clone the image entity , and the required parameters (such as t
 A concrete task to monitor the progress of the copy image (asynchronous operation at VDSM) will be created, using the new VM as the entity for which all the tasks will be created.
  The diagram below presents the class diagram for the commands + changes in the existing code ![](Clone_flow_vm_from_snapshot_new_2.jpg "fig:Clone_flow_vm_from_snapshot_new_2.jpg")
  a. BaseImagesCommand
-This existing class will undergo a change of introducing the performSPMOperation.
+This existing class will undergo the following changes:
+\* Introducing the performSPMOperation.
 This method will replace the "CreateSnapshotInIRSServer" as in some cases, the overridden versions of this method invoke the CopyImage and not the CreateSnapshot VDSM verb.
+\* Introducing the method handleImagesAfterSPMOperation.
+This method will be overridden by sub classes to provide logic for handling the images, after successful invocation of the SPM operation.
+In case of CreateSnapshotCommand the overridden method will replace the existing methods of ProcessImageFromDB and AddDiskImageToDB.
+In case of CopyImageCommand the overriden method will add the new image to DB.
 b. DiskImageUtils
 This new class will include helper methods for image related commands.
 An example for such a helper method is the method DiskImageUtils.cloneDiskImage that is responsible for performing image business entity cloning.

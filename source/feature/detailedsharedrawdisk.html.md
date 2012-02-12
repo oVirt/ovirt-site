@@ -117,7 +117,7 @@ VM pools
 
 #### Installation/Upgrade
 
-*   Disk name should be calculated automatically counting on the vm name and disk number in the VM. Description will be empty.
+*   Disk name should be generated automatically based on the vm name and disk number in the VM. Description will be empty.
 *   New disk should enforce the user to enter a name for the disk.
 
 #### User work-flows

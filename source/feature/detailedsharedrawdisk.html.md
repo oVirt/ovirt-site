@@ -85,10 +85,6 @@ Move disk
 
 *   Moving a shared raw disk is permitted only when all the attached VMs statuses are down, or all the disks which are attached to active VMs are unplugged.
 
-Move VM
-
-*   When moving a VM the shared raw disk should not be moved.
-
 Snapshot
 
 *   when taking a vm snapshot, a snapshot of the shared disk should not be taken, although it will be part of the VM snapshot configuration and the disk will appear as unplugged.

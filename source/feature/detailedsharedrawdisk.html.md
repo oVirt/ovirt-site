@@ -91,7 +91,7 @@ Move VM
 
 Snapshot
 
-*   when taking a vm snapshot, a snapshot of the shared disk will not be taken.
+*   when taking a vm snapshot, a snapshot of the shared disk should not be taken, although it will be part of the VM snapshot configuration and the disk will appear as unplugged.
 
 Stateless VM
 

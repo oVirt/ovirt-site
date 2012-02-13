@@ -89,10 +89,13 @@ Integrating with new SPICE capabilities will ease the user work in the oVirt env
 Issues/Questions:
 
 1.  USB support - today it is only on desktops. Should it be supported on servers as well?
-2.  Today we have all the API needed to pass the number of monitors. Are there any other flags needed for that feature (like amount of memory per-monitor)? If so, we will need to extend the API to support that.
+    -   Answer - If possible then yes.
+
+2.  USB filtering - how will the filter be configured? Today it is done via some windows application.
+3.  Today we have all the API needed to pass the number of monitors. Are there any other flags needed for that feature (like amount of memory per-monitor)? If so, we will need to extend the API to support that.
     -   Today this logic is done in the VDSM level. It would be best if we could leave the logic there, changing it accordingly.
 
-3.  Installation/Packaging - will we package and install virt-viewer, or will it be installed separately by the user?
+4.  Installation/Packaging - will we package and install virt-viewer, or will it be installed separately by the user?
 
 Future Work:
 

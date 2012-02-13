@@ -50,12 +50,9 @@ Add the following line into the configuration file of your out going interface (
 
       BRIDGE=ovirtmgmt
 
-Full Example
+and remove the IPADDR, NETMASK and BOOTPROTO keys, since the interface should not have an IP address of its own. Full Example
 
       DEVICE=em1
-      BOOTPROTO=static
-      IPADDR=192.168.1.212
-      NETMASK=255.255.255.0
       ONBOOT=yes
       BRIDGE=ovirtmgmt
 

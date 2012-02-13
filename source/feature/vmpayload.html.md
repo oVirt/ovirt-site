@@ -62,12 +62,12 @@ Notes:
 
 ### Design Notes
 
-VDSM verb:
+in device specParams we pass:
 
-       { 'iso': [{'filename': 'content' }, {'filename': 'content'}],
+       { 'vmPayload': { 'cdrom': [{'filename': 'content' }, {'filename': 'content'}],
         'floppy': [{'filename': 'content' }, {'filename': 'content'}],
         'sysprep': {'filename': 'content' },
-        'network': '...' } 
+        'network': '...' } }
        
 
 ### User work-flows

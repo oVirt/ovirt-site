@@ -176,88 +176,63 @@ wiki_last_updated: 2012-02-13
 
       Thread-66::`[`INFO::2011-06-23`](INFO::2011-06-23)` 13:04:33,848::dispatcher::94::Storage.Dispatcher.Protect::
       (run) Run and protect: getTaskStatus, args: ( taskID=bad26fcc-6e8b-4046-aab0-b4cbfb735aeb)
+      Thread-66::DEBUG::2011-06-23 13:04:33,848::task::492::TaskManager.Task::(_debug) Task fc97d685-b677-4942-8df6-c0b6fcd33873: moving from state init -> state preparing
+      Thread-66::DEBUG::2011-06-23 13:04:33,849::taskManager::82::TaskManager::(getTaskStatus) Entry. taskID: bad26fcc-6e8b-4046-aab0-b4cbfb735aeb
+      Thread-66::DEBUG::2011-06-23 13:04:33,849::taskManager::85::TaskManager::(getTaskStatus) Return. Response: {'code': 0, 'message': '1 jobs completed successfuly', 'taskState': 'finished', 'taskResult': 'success', 'taskID': 'bad26fcc-6e8b-4046-aab0-b4cbfb735aeb'}
+      ...
+      Thread-66::`[`INFO::2011-06-23`](INFO::2011-06-23)` 13:04:33,851::dispatcher::100::Storage.Dispatcher.Protect::(run) Run and protect: getTaskStatus, Return response: {'status': {'message': 'OK', 'code': 0}, 'taskStatus': {'code': 0, 'message': '1 jobs completed successfuly', 'taskState': 'finished', 'taskResult': 'success', 'taskID': 'bad26fcc-6e8b-4046-aab0-b4cbfb735aeb'}}
 
-Thread-66::DEBUG::2011-06-23 13:04:33,848::task::492::TaskManager.Task::(_debug) Task fc97d685-b677-4942-8df6-c0b6fcd33873: moving from state init -> state preparing
+*   As you can see in the first 'Run and protect' line the query was about task 'bad26fcc-6e8b-4046-aab0-b4cbfb735aeb'
+*   The last line of the thread shows that the task is finished and that it completed successfully ('taskState': 'finished', 'taskResult': 'success')
+*   When trying to follow a flow of an async task, the task id will appear in the rhevm logs and we can take it from there and search for the task in the vdsm log (grep all lines with it for example)
 
-Thread-66::DEBUG::2011-06-23 13:04:33,849::taskManager::82::TaskManager::(getTaskStatus) Entry. taskID: bad26fcc-6e8b-4046-aab0-b4cbfb735aeb
+### External commands
 
-Thread-66::DEBUG::2011-06-23 13:04:33,849::taskManager::85::TaskManager::(getTaskStatus) Return. Response: {'code': 0, 'message': '1 jobs completed successfuly', 'taskState': 'finished', 'taskResult': 'success', 'taskID': 'bad26fcc-6e8b-4046-aab0-b4cbfb735aeb'}
+*   Whenever vdsm executes an external command it does so via the execCmd method and logs the command and the return code and output:
 
-...
+      21a24db4-d553-437b-844b-30414bcc8f97::DEBUG::2011-06-23 13:11:12,125::blockSD::732::Storage.Misc.excCmd::(mountMaster) '/usr/bin/sudo -n /sbin/e2fsck -p /dev/52493f96-d716-409f- b696-8cb8d5b43527/master' (cwd None) 21a24db4-d553-437b-844b-30414bcc8f97::DEBUG::2011-06-23 13:11:12,195::blockSD::732::Storage.Misc.excCmd::(mountMaster) SUCCESS: `<err>` = ; `<rc>` = 0
 
-Thread-66::<INFO::2011-06-23> 13:04:33,851::dispatcher::100::Storage.Dispatcher.Protect::(run) Run and protect: getTaskStatus, Return response: {'status': {'message': 'OK', 'code': 0}, 'taskStatus': {'code': 0, 'message': '1 jobs completed successfuly', 'taskState': 'finished', 'taskResult': 'success', 'taskID': 'bad26fcc-6e8b-4046-aab0-b4cbfb735aeb'}}
+*   As you can see above, the command completed successfully (SUCCESS) and then following is the stderr (<err> = ) and return code (<rc> = 0)
+*   When a command fails it looks like this:
 
-         As you can see in the first Run and protect line the query was about task 
-         'bad26fcc-6e8b-4046-aab0-b4cbfb735aeb'
-         The last line of the thread shows that the task is finished and that it 
-         completed successfully ('taskState': 'finished', 'taskResult': 'success')
-         When trying to follow a flow of an async task, the task id will appear in the 
-         rhevm logs and we can take it from there and search for the task in the vdsm 
-         log (grep all lines with it for example) 
+      21a24db4-d553-437b-844b-30414bcc8f97::DEBUG::2011-06-23 13:11:12,196::blockSD::757::Storage.Misc.excCmd::(mountMaster) '/usr/bin/sudo -n /sbin/tune2fs -j /dev/52493f96-d716-409f -b696-8cb8d5b43527/master' (cwd None) 21a24db4-d553-437b-844b-30414bcc8f97::DEBUG::2011-06-23 13:11:12,213::blockSD::757::Storage.Misc.excCmd::(mountMaster) FAILED: `<err>` = 'The filesystem already has a journal.\n';`<rc>` = 1
 
-6. External commands
+*   Note that the above line is VERY important when trying to debug issues many times \*before\* the traceback we can find a command that failed and explains why the flow failed. When posting an excerpt into bugzilla it is very important to check whether this happened and copy everything from this point down to the traceback.
 
-         Whenever vdsm executes an external command it does so via the execCmd method 
-         and logs the command and the return code and output: 
+### Correlating user flows
 
-21a24db4-d553-437b-844b-30414bcc8f97::DEBUG::2011-06-23 13:11:12,125::blockSD::732::Storage.Misc.excCmd::(mountMaster) '/usr/bin/sudo -n /sbin/e2fsck -p /dev/52493f96-d716-409f- b696-8cb8d5b43527/master' (cwd None) 21a24db4-d553-437b-844b-30414bcc8f97::DEBUG::2011-06-23 13:11:12,195::blockSD::732::Storage.Misc.excCmd::(mountMaster) SUCCESS: <err> = ; <rc> = 0
+*   The next important step is to actually understand how user flows correlate to
 
-         As you can see above, the command completed successfully (SUCCESS) and then 
-         following is the stderr (`<err>` = ) and return code (`<rc>` = 0)
-         When a command fails it will look like this: 
+the vdsm log.
 
-21a24db4-d553-437b-844b-30414bcc8f97::DEBUG::2011-06-23 13:11:12,196::blockSD::757::Storage.Misc.excCmd::(mountMaster) '/usr/bin/sudo -n /sbin/tune2fs -j /dev/52493f96-d716-409f -b696-8cb8d5b43527/master' (cwd None) 21a24db4-d553-437b-844b-30414bcc8f97::DEBUG::2011-06-23 13:11:12,213::blockSD::757::Storage.Misc.excCmd::(mountMaster) FAILED: <err> = 'The filesystem already has a journal.\\n';<rc> = 1
+#### Create template
 
-         Note that the above line is VERY important when trying to debug issues because 
-         many times *before* the traceback we can find a command that failed and 
-         explains why the flow failed. When posting an excerpt into bugzilla it is very 
-         important to check whether this happened and copy everything from this point 
-         down to the traceback. 
+*   Create template is a 'copyImage' command which is an async task so it will look like:
 
-7. The next important step is to actually understand how user flows correlate to the vdsm log.
+      Thread-1713::`[`INFO::2011-07-03`](INFO::2011-07-03)` 11:31:29,891::dispatcher::94::Storage.Dispatcher.Protect::(run) Run and protect: copyImage, args: ( sdUUID=eea4a640-a90a-4c7e-aa23-ae7420a5f9cb spUUID=e235e2c8-05cf-4868-b749-e0447fd0196e vmUUID=6580ecb9-5f3d-4f32-a420-ed6a1cd3a295 srcImgUUID=dbed3bfd-f247-4884-95e5-31a09bc561ca srcVolUUID=94bfb3b4-5060-462b-b85a-f8d2f1c77cd1 dstImgUUID=43299473-9a01-4905-bed4-489f1ba2c94b dstVolUUID=10645650-2231-46ee-bceb-618181d9ae7a description=DasdAS dstSdUUID=eea4a640-a90a-4c7e-aa23-ae7420a5f9cb volType=6 volFormat=4 preallocate=2 postZero=False force=False)
+      ...
+      Thread-1713::`[`INFO::2011-07-03`](INFO::2011-07-03)` 11:31:30,544::dispatcher::100::Storage.Dispatcher.Protect::(run) Run and protect: copyImage, Return response: {'status': {'message': 'OK', 'code': 0}, 'uuid': 'e62a8238-30bf-4f38-99e5-2da35769783b'}
+      ...
+      e62a8238-30bf-4f38-99e5-2da35769783b::DEBUG::2011-07-03 11:31:30,545::task::492::TaskManager.Task::(_debug) Task e62a8238-30bf-4f38-99e5-2da35769783b: _save: orig /rhev/data-center/e235e2c8-05cf-4868-b749-e0447fd0196e/tasks/e62a8238-30bf-4f38-99e5-2da35769783b temp /rhev/data-center/e235e2c8-05cf-4868-b749-e0447fd0196e/tasks/e62a8238-30bf-4f38-99e5-2da35769783b.temp
 
-Create template
+*   Following is the command that actually converts the VM disk into the new template disk (this will normally take a long time):
 
-         Create template is a 'copyImage' command which is an async task so it will look 
-         like: 
+      e62a8238-30bf-4f38-99e5-2da35769783b::DEBUG::2011-07-03 11:31:34,110::volume::929::Storage.Misc.excCmd::(qemuConvert) '/bin/nice -n 19 /usr/bin/ionice -c 2 -n 7 /usr/bin/qemu-img convert -f qcow2 /rhev/data-center/e235e2c8-05cf-4868-b749-e0447fd0196e/eea4a640-a90a-4c7e-aa23-ae7420a5f9cb/images/dbed3bfd-f247-4884-95e5-31a09bc561ca/94bfb3b4-5060-462b-b85a-f8d2f1c77cd1 -O qcow2 /rhev/data-center/e235e2c8-05cf-4868-b749-e0447fd0196e/eea4a640-a90a-4c7e-aa23-ae7420a5f9cb/images/43299473-9a01-4905-bed4-489f1ba2c94b/10645650-2231-46ee-bceb-618181d9ae7a' (cwd None)
+      e62a8238-30bf-4f38-99e5-2da35769783b::DEBUG::2011-07-03 11:31:34,124::task::492::TaskManager.Task::(_debug) Task e62a8238-30bf-4f38-99e5-2da35769783b: _save: orig /rhev/data-center/e235e2c8-05cf-4868-b749-e0447fd0196e/tasks/e62a8238-30bf-4f38-99e5-2da35769783b temp /rhev/data-center/e235e2c8-05cf-4868-b749-e0447fd0196e/tasks/e62a8238-30bf-4f38-99e5-2da35769783b.temp
+      e62a8238-30bf-4f38-99e5-2da35769783b::DEBUG::2011-07-03 11:31:34,196::volume::929::Storage.Misc.excCmd::(qemuConvert) SUCCESS: `<err>` = []; `<rc>` = 0
 
-Thread-1713::<INFO::2011-07-03> 11:31:29,891::dispatcher::94::Storage.Dispatcher.Protect::(run) Run and protect: copyImage, args: ( sdUUID=eea4a640-a90a-4c7e-aa23-ae7420a5f9cb spUUID=e235e2c8-05cf-4868-b749-e0447fd0196e vmUUID=6580ecb9-5f3d-4f32-a420-ed6a1cd3a295 srcImgUUID=dbed3bfd-f247-4884-95e5-31a09bc561ca srcVolUUID=94bfb3b4-5060-462b-b85a-f8d2f1c77cd1 dstImgUUID=43299473-9a01-4905-bed4-489f1ba2c94b dstVolUUID=10645650-2231-46ee-bceb-618181d9ae7a description=DasdAS dstSdUUID=eea4a640-a90a-4c7e-aa23-ae7420a5f9cb volType=6 volFormat=4 preallocate=2 postZero=False force=False)
+#### Import / Export
 
-...
+*   Import / Export of a VM or template is actually a 'moveImage' command which is also an async task so again:
 
-Thread-1713::<INFO::2011-07-03> 11:31:30,544::dispatcher::100::Storage.Dispatcher.Protect::(run) Run and protect: copyImage, Return response: {'status': {'message': 'OK', 'code': 0}, 'uuid': 'e62a8238-30bf-4f38-99e5-2da35769783b'}
+      Thread-785::`[`INFO::2011-06-12`](INFO::2011-06-12)` 11:32:40,202::dispatcher::94::Storage.Dispatcher.Protect::(run) Run and protect: moveImage, args: ( spUUID=5ccf59cb-4924-4e13-85d4-fe2b882a857d srcDomUUID=a0c2b674-456a-4eff-9717-915a4151a25c dstDomUUID=8cea8d77-f2ff-4ae6-8567-36e00afcd5ba imgUUID=197305c8-6e35-4e73-b316-f61bfc6c7800 vmUUID=d00a23e1-076e-4351-b4a0-d1c15e59dbd2 op=1 postZero=False force=False)
+      ...
+      Thread-785::`[`INFO::2011-06-12`](INFO::2011-06-12)` 11:32:41,091::dispatcher::100::Storage.Dispatcher.Protect::(run) Run and protect: moveImage, Return response: {'status': {'message': 'OK', 'code': 0}, 'uuid': 'ed948e15-7ff0-4598-a5af-0b96a8df547c'}
+      ...
+      ed948e15-7ff0-4598-a5af-0b96a8df547c::DEBUG::2011-06-12 11:32:41,092::task::492::TaskManager.Task::(_debug) Task ed948e15-7ff0-4598-a5af-0b96a8df547c: moving from state queued -> state running
 
-...
+*   The command that copies the disk is dd and if the disk has multiple volumes then there will be multiple consecutive dd commands
 
-e62a8238-30bf-4f38-99e5-2da35769783b::DEBUG::2011-07-03 11:31:30,545::task::492::TaskManager.Task::(_debug) Task e62a8238-30bf-4f38-99e5-2da35769783b: _save: orig /rhev/data-center/e235e2c8-05cf-4868-b749-e0447fd0196e/tasks/e62a8238-30bf-4f38-99e5-2da35769783b temp /rhev/data-center/e235e2c8-05cf-4868-b749-e0447fd0196e/tasks/e62a8238-30bf-4f38-99e5-2da35769783b.temp
-
-         Following is the command that actually converts the VM disk into the new 
-         template disk (this will normally take a long time): 
-
-e62a8238-30bf-4f38-99e5-2da35769783b::DEBUG::2011-07-03 11:31:34,110::volume::929::Storage.Misc.excCmd::(qemuConvert) '/bin/nice -n 19 /usr/bin/ionice -c 2 -n 7 /usr/bin/qemu-img convert -f qcow2 /rhev/data-center/e235e2c8-05cf-4868-b749-e0447fd0196e/eea4a640-a90a-4c7e-aa23-ae7420a5f9cb/images/dbed3bfd-f247-4884-95e5-31a09bc561ca/94bfb3b4-5060-462b-b85a-f8d2f1c77cd1 -O qcow2 /rhev/data-center/e235e2c8-05cf-4868-b749-e0447fd0196e/eea4a640-a90a-4c7e-aa23-ae7420a5f9cb/images/43299473-9a01-4905-bed4-489f1ba2c94b/10645650-2231-46ee-bceb-618181d9ae7a' (cwd None)
-
-e62a8238-30bf-4f38-99e5-2da35769783b::DEBUG::2011-07-03 11:31:34,124::task::492::TaskManager.Task::(_debug) Task
-
-e62a8238-30bf-4f38-99e5-2da35769783b: _save: orig /rhev/data-center/e235e2c8-05cf-4868-b749-e0447fd0196e/tasks/e62a8238-30bf-4f38-99e5-2da35769783b temp /rhev/data-center/e235e2c8-05cf-4868-b749-e0447fd0196e/tasks/e62a8238-30bf-4f38-99e5-2da35769783b.temp e62a8238-30bf-4f38-99e5-2da35769783b::DEBUG::2011-07-03 11:31:34,196::volume::929::Storage.Misc.excCmd::(qemuConvert) SUCCESS: <err> = []; <rc> = 0
-
-Import / Export
-
-         Import / Export of a VM or template is actually a 'moveImage' command which is 
-         also an async task so again: 
-
-Thread-785::<INFO::2011-06-12> 11:32:40,202::dispatcher::94::Storage.Dispatcher.Protect::(run) Run and protect: moveImage, args: ( spUUID=5ccf59cb-4924-4e13-85d4-fe2b882a857d srcDomUUID=a0c2b674-456a-4eff-9717-915a4151a25c dstDomUUID=8cea8d77-f2ff-4ae6-8567-36e00afcd5ba imgUUID=197305c8-6e35-4e73-b316-f61bfc6c7800 vmUUID=d00a23e1-076e-4351-b4a0-d1c15e59dbd2 op=1 postZero=False force=False)
-
-...
-
-Thread-785::<INFO::2011-06-12> 11:32:41,091::dispatcher::100::Storage.Dispatcher.Protect::(run) Run and protect: moveImage, Return response: {'status': {'message': 'OK', 'code': 0}, 'uuid': 'ed948e15-7ff0-4598-a5af-0b96a8df547c'}
-
-...
-
-ed948e15-7ff0-4598-a5af-0b96a8df547c::DEBUG::2011-06-12 11:32:41,092::task::492::TaskManager.Task::(_debug) Task ed948e15-7ff0-4598-a5af-0b96a8df547c: moving from state queued -> state running
-
-         The command that copies the disk is dd and if the disk has multiple volumes 
-         then there will be multiple consecutive dd commands 
-
-ed948e15-7ff0-4598-a5af-0b96a8df547c::DEBUG::2011-06-12 11:32:44,220::image::538::Storage.Misc.excCmd::(move) '/usr/bin/ionice -c2 -n7 /bin/dd if=/rhev/data-center/5ccf59cb-4924 -4e13-85d4-fe2b882a857d/a0c2b674-456a-4eff-9717-915a4151a25c/images/197305c8-6e35-4e73-b316-f61bfc6c7800/07381c87-3ebe-48f7-a633-21e41564d578 of=/rhev/data-center/5ccf59cb-4924- 4e13-85d4-fe2b882a857d/8cea8d77-f2ff-4ae6-8567-36e00afcd5ba/images/197305c8-6e35-4e73-b316-f61bfc6c7800/07381c87-3ebe-48f7-a633-21e41564d578 bs=1048576 seek=0 skip=0 conv=notrun c count=1024 oflag=direct' (cwd None)
+      ed948e15-7ff0-4598-a5af-0b96a8df547c::DEBUG::2011-06-12 11:32:44,220::image::538::Storage.Misc.excCmd::(move) '/usr/bin/ionice -c2 -n7 /bin/dd if=/rhev/data-center/5ccf59cb-4924 -4e13-85d4-fe2b882a857d/a0c2b674-456a-4eff-9717-915a4151a25c/images/197305c8-6e35-4e73-b316-f61bfc6c7800/07381c87-3ebe-48f7-a633-21e41564d578 of=/rhev/data-center/5ccf59cb-4924- 4e13-85d4-fe2b882a857d/8cea8d77-f2ff-4ae6-8567-36e00afcd5ba/images/197305c8-6e35-4e73-b316-f61bfc6c7800/07381c87-3ebe-48f7-a633-21e41564d578 bs=1048576 seek=0 skip=0 conv=notrun c count=1024 oflag=direct' (cwd None) 
 
 <Category:Vdsm> <Category:Documentation>

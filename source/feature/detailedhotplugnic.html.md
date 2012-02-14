@@ -46,16 +46,40 @@ The new buttons **Plug** and **UnPlug** should be added to the VM's **Network In
 #Remove NIC - will remove the proper entry from DB
  The same behavior should be applied on stopped and running VM's.
 
-#### Engine API
+#### Engine Flows
 
-##### REST API
+##### Add nic
+
+when adding a nic, store its plugged status as disabled, regardless if the VM is running or not. The api will not implicitly plug it to a running VM.
+
+##### Run VM
+
+when running a VM, include only nics which are plugged in the parameters sent to VDSM.
+
+##### Plug nic
+
+plugging a nic when a VM is down updates its plugged flag in vm_device table to 'true'. If the VM is up then the VDSM is also being called to plug it.
+
+##### Unplug nic
+
+unplugging a nic when a VM is down updates its plugged flag in vm_device table to 'false'
+
+##### Host monitoring
+
+during monitoring and gathering vm stats, the nic's address should be saved in vm_device table.
+
+##### Remove nic
+
+when a nic is removed from a VM, remove its address from vm_device
+
+#### REST API
 
 2 new actions on nics collection:
 
       /api/vms/xxx/nics/yyy/plug
       /api/vms/xxx/nics/yyy/unplug
 
-##### @EJB API
+#### Engine API
 
 * plug or unplug a nic
 
@@ -68,7 +92,11 @@ The new buttons **Plug** and **UnPlug** should be added to the VM's **Network In
       Guid nicId;
       boolean plug;
 
-#### Engine - VDSM API
+##### Error codes
+
+translate VDSM error codes: TODO
+
+#### VDSM API
 
 A new API is added for this feature.
 

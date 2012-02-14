@@ -12,7 +12,7 @@ wiki_last_updated: 2012-07-20
 
 ### Summary
 
-This page describes the **planed** Autorecovery feature in ovirt engine.
+This page describes the **planned** Autorecovery feature in ovirt engine.
 
 ### Owner
 

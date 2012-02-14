@@ -75,95 +75,77 @@ The changes we need to communicate are in the "network" structure for bridge and
 
 ##### Error codes
 
-1.  ERR_BAD_PARAMS = 21
-2.  ERR_BAD_ADDR = 22
+*   ERR_BAD_PARAMS = 21
+    -   Cannot specify any attribute when removing
+    -   Don't specify both nic and bonding
+    -   Must specify either nic or bonding
+    -   Must specify nics for bonding
+    -   Network %s requires unspecified bonding
+    -   Bonding %s is associated with unspecified network
+    -   No action specified
+    -   No action specified
+    -   Unknown action specified
+*   ERR_BAD_ADDR = 22
+    -   Bad IP address
+    -   IP address is already in use
+    -   Bad netmask
+    -   Bad gateway
+    -   Must specify netmask to configure ip for bridge
+    -   Specified netmask or gateway but not ip
+    -   Must specify netmask to configure ip for bridge
+    -   Specified netmask or gateway but not ip
+    -   Bad IP address
+*   ERR_BAD_NIC = 23
+    -   not all nics are enslaved
+    -   unknown nic
+    -   delNetwork: nics are not all nics enslaved to bond
+    -   unknown nic
+    -   unknown nics
 
 <!-- -->
 
-     Bad IP address
-     IP address is already in use
-     Bad netmask
-     Bad gateway
-     Must specify netmask to configure ip for bridge
-     Specified netmask or gateway but not ip
-     Must specify netmask to configure ip for bridge
-     Specified netmask or gateway but not ip
-     Bad IP address
-
-1.  ERR_BAD_NIC = 23
-
-<!-- -->
-
-     not all nics are enslaved
-     unknown nic
-     delNetwork: nics are not all nics enslaved to bond
-     unknown nic
-     unknown nics
-
-1.  ERR_USED_NIC = 24
+*   ERR_USED_NIC = 24
+    -   nic is already bound to bridge
+    -   nic already used by vlans
+    -   nic already enslaved to bonds
+    -   Setup attached both network and bonding to nic
+*   ERR_BAD_BONDING = 25
+    -   is not a valid bonding device name
+    -   Bonding options specified without bonding
+    -   bonding is already member of bridge
+    -   bonding already has members
+    -   multiple nics require a bonding device
+    -   Cannot remove bonding Doesn\'t exist'
+    -   Nic is attached to two different bondings in setup
 
 <!-- -->
 
-     nic is already bound to bridge 
-     nic already used by vlans
-     nic already enslaved to bonds
-     Setup attached both network and bonding to nic
-
-1.  ERR_BAD_BONDING = 25
-
-<!-- -->
-
-     is not a valid bonding device name
-     Bonding options specified without bonding
-     bonding is already member of bridge 
-     bonding already has members
-     multiple nics require a bonding device
-     Cannot remove bonding Doesn't exist'
-     Nic is attached to two different bondings in setup
-
-1.  ERR_BAD_VLAN = 26 -
-
-<!-- -->
-
-     vlan id out of range 
-     vlan id is not a number
-
-1.  ERR_BAD_BRIDGE = 27
-
-<!-- -->
-
-     bridge doesn't exist
-
-1.  ERR_USED_BRIDGE = 28
-
-<!-- -->
-
-     bridge is in use
-
-1.  ERR_LOST_CONNECTION = 10
-
-<!-- -->
-
-     client is not seed during check_connectivity lapse
+*   ERR_BAD_VLAN = 26
+    -   vlan id out of range
+    -   vlan id is not a number
+*   ERR_BAD_BRIDGE = 27
+    -   bridge doesn't exist
+*   ERR_USED_BRIDGE = 28
+    -   bridge is in use
+*   ERR_LOST_CONNECTION = 10
+    -   client is not seed during check_connectivity lapse
 
 ###### structure
-
-=
 
 Callers should be able to tell which network attribute is making the problem
 
 e.g the network's vlan configuration is not valid
 
-<error> <code>26</code> &lt;name&gt;ERR_BAD_VLAN&lt;/name&gt; &lt;message&gt;&lt;/message&gt;vlan id {network.vlan_id} for network {network.name} must be a number&lt;/message&gt;</error>
+      26
+      ERR_BAD_VLAN
+      vlan id {network.vlan_id} for network {network.name} must be a number
 
-     <network>
-      &lt;name&gt;Yellow&lt;/name&gt;
-      &lt;vlan_id&gt;3oo&lt;/vlan_id&gt;
-     </network>
+       Yellow
+       3oo
 
 ### GUI
 
-![](general.png "File:general.png") ![](more_cases.png "File:more_cases.png")
+![File:general.png](general.png "File:general.png") ![File:more_cases.png](more_cases.png "File:more_cases.png")
 
 ### UI Alternative Suggestion
 
@@ -243,47 +225,47 @@ It will be possible to drag blocks on one another. The following connections are
 
 ------------------------------------------------------------------------
 
-![](SetupNetworks10.png "File:SetupNetworks10.png") ***Illustration 1: No Connections***
+![File:SetupNetworks10.png](SetupNetworks10.png "File:SetupNetworks10.png") ***Illustration 1: No Connections***
 
 ------------------------------------------------------------------------
 
-![](SetupNetworks14.png "File:SetupNetworks14.png") ***Illustration 2: Dragging Network on a NIC***
+![File:SetupNetworks14.png](SetupNetworks14.png "File:SetupNetworks14.png") ***Illustration 2: Dragging Network on a NIC***
 
 ------------------------------------------------------------------------
 
-![](SetupNetworks1.png "File:SetupNetworks1.png") ***Illustration 3: NIC connected to a Network***
+![File:SetupNetworks1.png](SetupNetworks1.png "File:SetupNetworks1.png") ***Illustration 3: NIC connected to a Network***
 
 ------------------------------------------------------------------------
 
-![](SetupNetworks20.png "File:SetupNetworks20.png") ***Illustration 4: Dragging VLAN on a NIC***
+![File:SetupNetworks20.png](SetupNetworks20.png "File:SetupNetworks20.png") ***Illustration 4: Dragging VLAN on a NIC***
 
 ------------------------------------------------------------------------
 
-![](SetupNetworks2.png "File:SetupNetworks2.png") ***Illustration 5: VLAN connected to a NIC***
+![File:SetupNetworks2.png](SetupNetworks2.png "File:SetupNetworks2.png") ***Illustration 5: VLAN connected to a NIC***
 
 ------------------------------------------------------------------------
 
-![](SetupNetworks21.png "File:SetupNetworks21.png") ***Illustration 6: Several VLANs connected to the same NIC***
+![File:SetupNetworks21.png](SetupNetworks21.png "File:SetupNetworks21.png") ***Illustration 6: Several VLANs connected to the same NIC***
 
 ------------------------------------------------------------------------
 
-![](SetupNetworks11.png "File:SetupNetworks11.png") ***Illustration 7: Dragging a NIC on a nother NIC***
+![File:SetupNetworks11.png](SetupNetworks11.png "File:SetupNetworks11.png") ***Illustration 7: Dragging a NIC on a nother NIC***
 
 ------------------------------------------------------------------------
 
-![](SetupNetworks7.png "File:SetupNetworks7.png") ***Illustration 8: Bonded NICs***
+![File:SetupNetworks7.png](SetupNetworks7.png "File:SetupNetworks7.png") ***Illustration 8: Bonded NICs***
 
 ------------------------------------------------------------------------
 
-![](SetupNetworks6.png "File:SetupNetworks6.png") ***Illustration 9: Network dragged on a Bond***
+![File:SetupNetworks6.png](SetupNetworks6.png "File:SetupNetworks6.png") ***Illustration 9: Network dragged on a Bond***
 
 ------------------------------------------------------------------------
 
-![](SetupNetworks5.png "File:SetupNetworks5.png") ***Illustration 10: Network connected to a Bond***
+![File:SetupNetworks5.png](SetupNetworks5.png "File:SetupNetworks5.png") ***Illustration 10: Network connected to a Bond***
 
 ------------------------------------------------------------------------
 
-![](SetupNetworks17.png "File:SetupNetworks17.png") ***Illustration 11: Several VLANs connected to the same Bond***
+![File:SetupNetworks17.png](SetupNetworks17.png "File:SetupNetworks17.png") ***Illustration 11: Several VLANs connected to the same Bond***
 
 ### REST
 

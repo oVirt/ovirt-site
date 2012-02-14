@@ -44,7 +44,10 @@ Add the following content into a new file named: **/etc/sysconfig/network-script
       TYPE=Bridge
       ONBOOT=yes
       DELAY=0
-      BOOTPROTO=dhcp
+      BOOTPROTO=static
+      IPADDR=192.168.1.110
+      NETMASK=255.255.255.0
+      GATEWAY=192.168.1.1
 
 Add the following line into the configuration file of your out going interface (usually em1/eth0) the file is located at: **/etc/sysconfig/network-scripts/ifcfg-em1** (assuming the device is em1)
 

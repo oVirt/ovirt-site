@@ -52,7 +52,7 @@ The key must be the same as the key that was added to backend file, the message 
 
 While backend manages it's resource files as properties files only, the UI module requires that the key will also be added to a java interface as well:
 
-*   An interface signature must be added to *frontend/webadmin/modules/webadmin/src/main/resources/org/ovirt/engine/ui/frontend/AppErrors.java* (or VdsmErrors.java), the method signature must consist of the message key with '();' suffix a return type of type String, here's an example:
+*   An interface signature must be added to *frontend/webadmin/modules/frontend/src/main/java/org/ovirt/engine/ui/frontend/AppErrors.java* (or VdsmErrors.java), the method signature must consist of the message key with '();' suffix a return type of type String, here's an example:
 
 For a message key:
 

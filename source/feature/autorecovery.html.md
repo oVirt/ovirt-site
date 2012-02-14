@@ -38,4 +38,4 @@ This page describes the **planned** Autorecovery feature in ovirt engine.
 *   The check will happen in regular intervals (quartz scheduler)
 *   Needs a DAO extension to fetch only those objects that are in failed state and have auto-recovery on
 *   It will call the respective commands (ActivateHost, ActivateStorageDomain), and let the commands do what they do
-*   Database needs to be extended with autorecovery information, default should be false to avoid surprises.
+*   Database needs to be extended with autorecovery information, default will be true - as discussed on engine-devel list.

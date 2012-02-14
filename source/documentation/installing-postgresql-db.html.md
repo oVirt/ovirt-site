@@ -29,7 +29,7 @@ Note: for earlier PostgreSQL versions, a patch is needed.
       #> su - postgres -c 'pg_ctl initdb' # (first time only)
 
       For PostgreSQL 8 or earlier:
-      #> initdb -U postgres -D /var/lib/pgsql/data/ # (first time only)
+      #> su - postgres -c 'initdb -U postgres -D /var/lib/pgsql/data/' # (first time only)
 
       #> service postgresql start
 

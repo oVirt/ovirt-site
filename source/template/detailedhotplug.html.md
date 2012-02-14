@@ -66,14 +66,13 @@ HotPlug will be allowed only on:
 2. VirtIO disk
 3. Disk should be unplugged
 4. VM should be in status Up
-5. Disk can not be system
 HotUnPlug will be allowed in the following cases:
 1. Operation system of guest is supports operation
 2. VirtIO disk
 3. VM should be in status Up
 4. Disk should be plugged
-5. Disk can not be system
- In order to perform an operation new verbs will be added at VDSM side:
+
+In order to perform an operation new verbs will be added at VDSM side:
 hotplug and hotunplug with the following dictionary to pass:
 A call to vdsm will be done in synchronious way
 

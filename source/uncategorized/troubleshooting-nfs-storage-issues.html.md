@@ -29,6 +29,9 @@ oVirt currently requires that NFS exports be configured in a specific way. This 
 *   The NFS server must actually be running.
     -   Ensure that the **nfs** and **rpcbind** services are running on the NFS server, Fedora 16 users should instead look for the **netfs** service.
     -   Ensure that **showmounts -e *<nfs_server_ip>*** shows the expected export(s).
+*   Ensure that selinux is not interfering with NFS access.
+    -   getsebool -a | grep virt_use_nfs should show virt_use_nfs --> on, if not then do \`setsebool virt_use_nfs 1\` to allow NFS access for VMs
+    -   One can also use \`setsebool -P virt_use_nfs 1\` to make this setting persistent across reboots.
 
 The easiest way to definitively test that an NFS export is ready for use by oVirt is to:
 

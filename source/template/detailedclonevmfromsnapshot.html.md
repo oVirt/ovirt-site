@@ -113,10 +113,10 @@ A concrete task to monitor the progress of the copy image (asynchronous operatio
 ![](Clone_flow_vm_from_snapshot_new_2.jpg "fig:Clone_flow_vm_from_snapshot_new_2.jpg")
  a. BaseImagesCommand
 This existing class will undergo the following changes:
-\* Introducing the performSPMOperation.
+\* Introducing the performImageVdsmOperation.
 This method will replace the "CreateSnapshotInIRSServer" as in some cases, the overridden versions of this method invoke the CopyImage and not the CreateSnapshot VDSM verb.
-\* Introducing the method handleImagesAfterSPMOperation.
-This method will be overridden by sub classes to provide logic for handling the images, after successful invocation of the SPM operation.
+\* Introducing the method handleImagesAfterVdsmImageOperation.
+This method will be overridden by sub classes to provide logic for handling the images, after successful invocation of image releated VDSM operation.
 In case of CreateSnapshotCommand the overridden method will replace the existing methods of ProcessImageFromDB and AddDiskImageToDB.
 In case of CopyImageCommand the overridden method will add the new image to DB.
 b. DiskImageUtils

@@ -278,7 +278,7 @@ Follow this page: <http://www.ovirt.org/wiki/Engine_Node_Integration#Engine_core
       $ /usr/share/jboss-as/bin/jboss-admin.sh --connect (CLI console will open)
 
       [standalone@localhost:9999 /] (type the below command)
-      /subsystem=web/connector=https:add(socket-binding=https, scheme=https, protocol="HTTP/1.1", ssl = {"name"=>"ssl", "key-alias"=>"jboss", "password"=>"PASSWORD_PROVIDE_ABOVE","certificate-key-file"=>".keystore"})
+      /subsystem=web/connector=https:add(socket-binding=https, scheme=https, protocol="HTTP/1.1", ssl = {"name"=>"ssl", "key-alias"=>"jboss", "password"=>"PASSWORD_PROVIDED_ABOVE","certificate-key-file"=>".keystore"})
 
 For additional info: <https://docs.jboss.org/author/display/AS7/Admin+Guide#AdminGuide-HTTPSConnectors>
 

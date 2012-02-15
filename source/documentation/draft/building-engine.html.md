@@ -266,7 +266,7 @@ Accessing the web-admin:
 Accessing the user-portal
  http://<server name>:<port>/UserPortal
 
-## Settings Certificate to SSL
+## Setting Public Key environment (recommended to oVirt Node environment
 
 Follow this page: <http://www.ovirt.org/wiki/Engine_Node_Integration#Engine_core_machine>
 

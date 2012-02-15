@@ -266,6 +266,10 @@ Accessing the web-admin:
 Accessing the user-portal
  http://<server name>:<port>/UserPortal
 
+## Settings Certificate to SSL
+
+Follow this page: <http://www.ovirt.org/wiki/Engine_Node_Integration#Engine_core_machine>
+
 ## Advanced features
 
 *   Registering an oVirt Node

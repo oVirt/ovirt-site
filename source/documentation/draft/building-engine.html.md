@@ -279,6 +279,9 @@ Follow this page: <http://www.ovirt.org/wiki/Engine_Node_Integration#Engine_core
 
       [standalone@localhost:9999 /] (type the below command)
       /subsystem=web/connector=https:add(socket-binding=https, scheme=https, protocol="HTTP/1.1", ssl = {"name"=>"ssl", "key-alias"=>"jboss", "password"=>"PASSWORD_PROVIDED_ABOVE","certificate-key-file"=>".keystore"})
+      [standalone@localhost:9999 /] exit
+
+      # service jboss-as restart 
 
 For additional info: <https://docs.jboss.org/author/display/AS7/Admin+Guide#AdminGuide-HTTPSConnectors>
 

@@ -120,7 +120,7 @@ Or copy & paste the content of the file below into ~/.m2/settings.xml
 
 RPMs have been provided for Fedora 15 users. These are not however part of the Fedora 15 release and are only available from a third party repository. First, add the third part repository as a source for software:
 
-          #> wget -P /etc/yum.repos.d/ http://ranglust.fedorapeople.org/ovirt-engine-jbossas/ovirt-engine-jbossas.repo
+          #> wget -P /etc/yum.repos.d/ http://www.ovirt.org/releases/stable/fedora/16/ovirt-engine.repo
 
 Then install the ovirt-engine-jbossas package:
 

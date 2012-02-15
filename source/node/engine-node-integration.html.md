@@ -20,14 +20,11 @@ This is a work in progress for
 
 ### oVirt Node
 
-1.  Fix bridge name
-    -   See: <http://gerrit.ovirt.org/311>
-
-2.  Fix Registration URI
+1.  Fix Registration URI
     -   See: <http://gerrit.ovirt.org/318>
     -   See: <http://gerrit.ovirt.org/310>
 
-3.  Fix public key file name
+2.  Fix public key file name
     -   See: <http://gerrit.ovirt.org/#change,311>
 
 ### Ubunto / Gentoo / others

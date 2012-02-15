@@ -142,7 +142,7 @@ Finally, check that the installed service runs:
 
 Check that it runs:
 
-          $> /usr/local/jboss-as-7.1.0.Beta1b/bin/standalone.sh
+          $> /usr/share/jboss-as-7.1.0.Beta1b/bin/standalone.sh
 
 Ensure that you have write access to $JBOSS_HOME/standalone/deployments to which oVirt-engine will be deployed.
 

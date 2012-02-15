@@ -240,6 +240,12 @@ Since postgres is already set up.
 
 Assuming JBoss is not running, it should be started:
 
+          #> service jboss-as start (or restart if you already started above for tests)
+          #> ps ax | grep java
+       
+
+or
+
       $> /usr/share/jboss-as/bin/standalone.sh
 
 Use username **admin@internal** and password **letmein!**

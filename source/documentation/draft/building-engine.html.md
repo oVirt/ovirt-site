@@ -134,9 +134,10 @@ Finally, check that the installed service runs:
 
 ### Manually (From Zips)
 
+          $> cd /usr/share
           $> wget http://download.jboss.org/jbossas/7.1/jboss-as-7.1.0.Beta1b/jboss-as-7.1.0.Beta1b.tar.gz
           $> tar zxvf jboss-as-7.1.0.Beta1b.tar.gz
-          $> sudo mv jboss-as-7.1.0.Beta1b /usr/local/jboss-as-7.1.0.Beta1b
+          $> ln -s /usr/share/jboss-as-7.1.0.Beta1b /usr/share/jboss-as
           $> Change the JBOSS_HOME environment variable to the new location
           $> Change the Jboss home in ~/.m2/settings.xml file to point to the new location
 

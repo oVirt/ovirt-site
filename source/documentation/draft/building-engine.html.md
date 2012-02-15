@@ -129,7 +129,7 @@ Then install the ovirt-engine-jbossas package:
 
 Finally, check that the installed service runs:
 
-          #> service jboss start
+          #> service jboss-as start
           #> ps ax | grep java
        
 

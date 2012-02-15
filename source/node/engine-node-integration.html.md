@@ -46,7 +46,7 @@ rpm deps:
 ## Engine core machine
 
 *   The engine core was built on fedora 14 but all stages applies for later versions and other distro's as well.
-*   The engine was built from sources and installed via maven on a pre-installed jboss 5.1.0-GA server.
+*   The engine was built from sources and installed via maven on a pre-installed jboss 7.
 *   Follow these steps(link the installation process from the wiki).
 
 engine sources folder: ~/src/git/ovirt-engine

@@ -96,12 +96,12 @@ Create CA and certs
 
 Starting JBOSS7, you need to create a root context:
 
-      cp -a ~/src/git/ovirt-engine/packaging/fedora/setup/resources/jboss/ROOT.war /usr/local/jboss-as/standalone/deployments/
+      cp -a ~/src/git/ovirt-engine/packaging/fedora/setup/resources/jboss/ROOT.war /usr/share/jboss-as/standalone/deployments/
 
 Copy cert to Jboss root dir
 
-      cp /etc/pki/ovirt-engine/ca/keys/engine.ssh.key.txt /usr/local/jboss-as/standalone/deployments/ROOT.war/
-      cp /etc/pki/ovirt-engine/ca/ca.pem /usr/local/jboss-as/standalone/deployments/ROOT.war/ca.crt
+      cp /etc/pki/ovirt-engine/ca/keys/engine.ssh.key.txt /usr/share/jboss-as/standalone/deployments/ROOT.war/
+      cp /etc/pki/ovirt-engine/ca/ca.pem /usr/share/jboss-as/standalone/deployments/ROOT.war/ca.crt
 
 DB updates:
 

@@ -270,6 +270,18 @@ Accessing the user-portal
 
 Follow this page: <http://www.ovirt.org/wiki/Engine_Node_Integration#Engine_core_machine>
 
+## Enable 8443 (SSL) into Jboss
+
+      $ cd /usr/share/jboss-as/
+      $ keytool -genkey -alias jboss -keyalg RSA -keysize 1024 -keystore .keystore -validity 3650  (Keep in mind the password to the next step)
+      $ chown jboss-as:jboss-as .keystore
+      $ /usr/share/jboss-as/bin/jboss-admin.sh --connect (CLI console will open)
+
+      [standalone@localhost:9999 /] (type the below command)
+      /subsystem=web/connector=https:add(socket-binding=https, scheme=https, protocol="HTTP/1.1", ssl = {"name"=>"ssl", "key-alias"=>"jboss", "password"=>"PASSWORD_PROVIDE_ABOVE","certificate-key-file"=>".keystore"})
+
+For additional info: <https://docs.jboss.org/author/display/AS7/Admin+Guide#AdminGuide-HTTPSConnectors>
+
 ## I have made a change into ovirt engine code, how can I deploy it?
 
 This will build the engine, rebuilding the admin console and then creates the ear and deploys it to jboss

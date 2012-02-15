@@ -125,6 +125,7 @@ RPMs have been provided for Fedora 15 users. These are not however part of the F
 Then install the ovirt-engine-jbossas package:
 
           #> yum install ovirt-engine-jbossas
+          #> su - -c 'chmod -R 777 /usr/share/jboss-as'
 
 Finally, check that the installed service runs:
 

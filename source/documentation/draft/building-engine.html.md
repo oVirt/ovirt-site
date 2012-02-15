@@ -270,6 +270,10 @@ Accessing the user-portal
 
 Follow this page: <http://www.ovirt.org/wiki/Engine_Node_Integration#Engine_core_machine>
 
+## I have made a change into ovirt engine code, how can I deploy it?
+
+mvn clean install -Pgwt-admin -DskipTests && cd ear && mvn clean install -Pdep
+
 ## Advanced features
 
 *   Registering an oVirt Node

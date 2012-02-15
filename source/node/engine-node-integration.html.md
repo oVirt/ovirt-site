@@ -18,15 +18,6 @@ This is a work in progress for
 
 ## Host Machine
 
-### oVirt Node
-
-1.  Fix Registration URI
-    -   See: <http://gerrit.ovirt.org/318>
-    -   See: <http://gerrit.ovirt.org/310>
-
-2.  Fix public key file name
-    -   See: <http://gerrit.ovirt.org/#change,311>
-
 ### Ubunto / Gentoo / others
 
 No experience yet. Can start by building an rpm and extract its artifacts or alternatively convert the rpm to deb using alien? <http://www.howtoforge.com/converting_rpm_to_deb_with_alien> - please fill in if the details you have it working
@@ -38,9 +29,6 @@ No experience yet. Can start by building an rpm and extract its artifacts or alt
 clone the latest vdsm from gerrit.ovirt.org/vdsm
 
 `git clone `[`git://gerrit.ovirt.org/vdsm`](git://gerrit.ovirt.org/vdsm)
-      cd vdsm
-
-all the patches on the oVirt Node section needs to be applied here as well (soon will be merged)
 
 rpm it
 

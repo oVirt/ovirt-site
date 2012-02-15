@@ -275,7 +275,7 @@ Follow this page: <http://www.ovirt.org/wiki/Engine_Node_Integration#Engine_core
       $ cd /usr/share/jboss-as/
       $ keytool -genkey -alias jboss -keyalg RSA -keysize 1024 -keystore .keystore -validity 3650  (Keep in mind the password to the next step)
       $ chown jboss-as:jboss-as .keystore
-      $ /usr/share/jboss-as/bin/jboss-admin.sh --connect (CLI console will open)
+      $ /usr/share/jboss-as/bin/jboss-admin.sh --connect (CLI will open)
 
       [standalone@localhost:9999 /] (type the below command)
       /subsystem=web/connector=https:add(socket-binding=https, scheme=https, protocol="HTTP/1.1", ssl = {"name"=>"ssl", "key-alias"=>"jboss", "password"=>"PASSWORD_PROVIDED_ABOVE","certificate-key-file"=>".keystore"})

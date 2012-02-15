@@ -272,7 +272,10 @@ Follow this page: <http://www.ovirt.org/wiki/Engine_Node_Integration#Engine_core
 
 ## I have made a change into ovirt engine code, how can I deploy it?
 
-mvn clean install -Pgwt-admin -DskipTests && cd ear && mvn clean install -Pdep
+          #> mvn clean install -Pgwt-admin -DskipTests && cd ear && mvn clean install -Pdep
+       
+
+This will build the engine, rebuilding the admin console and then creates the ear and deploys it to jboss
 
 ## Advanced features
 

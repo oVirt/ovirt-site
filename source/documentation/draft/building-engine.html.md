@@ -126,12 +126,12 @@ Then install the ovirt-engine-jbossas package:
 
           #> yum install ovirt-engine-jbossas
           #> su - -c 'chmod -R 777 /usr/share/jboss-as'
+          #> chkconfig jboss-as on
 
 Finally, check that the installed service runs:
 
           #> service jboss-as start
           #> ps ax | grep java
-       
 
 ### Manually (From Zips)
 

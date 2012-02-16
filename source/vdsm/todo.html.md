@@ -24,10 +24,6 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   storage.misc.execCmd() has a stupid default to its `sudo` param. Flip it!
-
-<!-- -->
-
 *   Support striping for disk images.
 
 <!-- -->

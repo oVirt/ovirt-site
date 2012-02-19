@@ -143,6 +143,7 @@ Shared raw disk will be dependent on floating disk.
 ### Future Work
 
 *   Consider adding permissions support to disks entities.
+*   Adding templates disks to main tab.
 
 ### Open Issues
 

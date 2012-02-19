@@ -77,11 +77,9 @@ Supporting a floating state for disks is essential to derived features (e.g. 'Sh
 *   CRUD - Introducing a new 'Virtual Disks' main tab
     -   Contains a list of all the disks in the system - sortable by Floating/Shared/Managed attributes.
     -   Actions - at first stage, only a few actions will be included (first subset will probably include 'Remove Disk')
-    -   Includes the following sub-tabs.
-        -   Storage:
-            -   List of Storage Domains in which the selected Disk resides.
-        -   Templates (visible for disks that reside in templates):
-            -   List of Templates to which the selected Disk is attached.
+    -   Includes the following sub-tabs:
+        -   General
+            -   Additional info on the selected Disk (type/interface/etc).
         -   Virtual Machines (visible for disks that reside in VMs):
             -   List of Virtual Machines to which the selected Disk is attached.
             -   Actions:
@@ -89,7 +87,7 @@ Supporting a floating state for disks is essential to derived features (e.g. 'Sh
                 -   Detach - detaches the selected Disk from the selected VM.
     -   Each row is composed of the following columns:
 
-      Name (unique), Description, Size, Actual Size, Type, Allocation, Interface, Creation Date, Floating(Yes/No), Shared(Yes/No), Managed(Yes/No). 
+      VM, Name, Storage Domain, Description, Size, Actual Size, Allocation,Creation Date, Floating(Yes/No), Shared(Yes/No), Managed(Yes/No). 
 
 *   VMs -> Disks sub-tab
     -   Attach/Detach all shared and/or floating disks.

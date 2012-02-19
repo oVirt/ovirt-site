@@ -75,7 +75,7 @@ Supporting a floating state for disks is essential to derived features (e.g. 'Sh
 ##### Administrator Portal
 
 *   CRUD - Introducing a new 'Virtual Disks' main tab
-    -   Contains a list of all the disks in the system - sortable by Floating/Shared/Managed attributes.
+    -   Contains a list of all the disks in the system (except templates disk) - sortable/searchable by Floating/Shared/Managed attributes.
     -   Actions - at first stage, only a few actions will be included (first subset will probably include 'Remove Disk')
     -   Includes the following sub-tabs:
         -   General

@@ -18,12 +18,12 @@ wiki_warnings: list-item?
 
 ### Summary
 
-Adding the functionality to import VMs and Templates that are already exist in setup, in fact this feature consist of changing the identifiers of a imported VM.
+Adding the functionality to import VMs and Templates that already exist in setup, in fact this feature consists of changing the identifiers of an imported VM/Template.
 
 ### Current status
 
 *   Design Stage
-*   Last updated date: Sun Feb Wed Nov 19 2012
+*   Last updated date: Sun Feb 19 2012
 
 #### Affected oVirt projects:
 
@@ -40,13 +40,13 @@ note: unless specified 'entity' may refer both to VM and Template oVirt Entities
 *   Add to ImportEntityParameter parameter class boolean member that indicates whether this entity should be cloned, the default value is false.
 *   Alter ImportEntityCommand in case clone parameter field is set to true:
 
-    * Set the VM with a new identifier (the new name already placed in the vm - concat of vm and suffix).
+    * Set the VM with a new identifier (the new name already placed in the vm - concat of vm and suffix, see webadmin).
 
     * Set the disks target with a new identifier.
 
-    * For all VM's nics, allocate new MAC address.
+    * For all VM's NICs, allocate new MAC addresses.
 
-    * (in import VM) Collape all snapshots must be true.
+    * (in import VM) Collape all snapshots must be 'true'.
 
 *   detailed design will be added in the near future.
 
@@ -56,21 +56,27 @@ Only the ImportEntity dialog will be affected:
 
 *   Add 'Already Exists in Setup' column to import entity dialog:
 
-    * Run multiple queries for get_entity_by_id to check wheater the imported entities exists in the setup.
+    * Run multiple queries for get_entity_by_id to check whether the imported entities exist in the setup.
 
 *   Add 'clone all entities' check box to Import Entity Dialog
 
-    * (in import VM) In case it's checked the 'collapse all snapshots' checkbox should be checked and disabled.
+    * In case checked:
 
-    * In case it's checked a suffix textbox should be added (the suffix will be added to all VMs names).
+        * (in import VM) The 'collapse all snapshots' checkbox should be checked and disabled.
+
+        * A suffix textbox should be added (the suffix will be added to all VMs' names).
 
 *   Add 'clone only existing entities' check box to Import Entity Dialog:
 
-    * (in import VM) In case it's checked a label will be shown to user that marks that the cloned VMs snapshots will be collapsed.
+    * In case checked:
 
-    * In case it's checked a suffix textbox should be added (the suffix will be added to all VMs names).
+        * (in import VM) A label will be shown to user that indicates that the cloned VMs' snapshots will be collapsed.
 
-    * If 'clone all entities' is checked 'clone only existing entities' will be checked and disabled.
+        * A suffix textbox should be added (the suffix will be added to all VMs names).
+
+    * If 'clone all entities' is checked, 'clone only existing entities' will be checked and disabled.
+
+*   the suffix text box will be shown only when one of the above check-boxes is checked (it is relevant only for importing an entity as clone).
 
 ##### mockups
 

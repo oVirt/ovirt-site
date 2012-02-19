@@ -35,7 +35,7 @@ Adding the functionality to import VMs and Templates that already exist in setup
 
 note: unless specified 'entity' may refer both to VM and Template oVirt Entities.
 
-#### Core:
+#### Core
 
 *   Add to ImportEntityParameter parameter class boolean member that indicates whether this entity should be cloned, the default value is false.
 *   Alter ImportEntityCommand in case clone parameter field is set to true:

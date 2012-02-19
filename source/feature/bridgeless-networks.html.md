@@ -12,7 +12,9 @@ wiki_last_updated: 2013-01-29
 
 ### Summary
 
-Today by default every network is created with a software bridge, which is used to connect virtualized nics to a VM on top of it. A bridg-less network will be a network created without that bridge and targeted to be attached on top of vNic or SRIOV nicsor or for heavy traffic channels like migration, storage or the engine's management network i.e
+Today by default every network is created with a software bridge,which is used to connect virtualized nics to a VM on top of it.
+A bridg-less network will be a network created without that bridge and targeted to be attached on top of vNic or SRIOV nics
+or for heavy traffic channels like migration, storage or the engine's management network i.e
 
 ### Benefit for oVirt
 

@@ -49,7 +49,7 @@ Supporting a floating state for disks is essential to derived features (e.g. 'Sh
 ##### Disk
 
 *   Floating state should be added to disk entity - floating / not floating.
-*   Name and Description should be added to disk entity (disk name ought to be unique for search and display purposes).
+*   Name and Description should be added to disk entity.
 *   Disk must be a searchable entity for providing search/sort/display capabilities under 'Virtual Disks' main tab.
 *   Open issue: adding an indication whether the disk is originated from a VM or a template (useful for filtering 'Virtual Disks' sub-tabs).
 

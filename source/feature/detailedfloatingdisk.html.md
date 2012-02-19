@@ -65,10 +65,9 @@ Supporting a floating state for disks is essential to derived features (e.g. 'Sh
 
 *   Installation
     -   New/Edit disk:
-        -   Should enforce the user to enter a unique name.
+        -   Should enforce the user to enter a unique (in VM context) name.
         -   New optional field - Description.
 *   Upgrade
-    -   Disk name should be generated automatically - in order to maintain uniqueness.
     -   Disk description should remain empty.
 
 #### User Experience

@@ -58,7 +58,8 @@ clone the engine sources
 
 Create /etc/pki/ovirt-engine/ca
 
-      mkdir -p /etc/pki/ovirt-engine/ca
+      $ mkdir -p /etc/pki/ovirt-engine/ca
+      $ sudo chmod -R 777 /etc/pki/ovirt-engine/
 
 Creating OpenSSH convertor: compile pubkey2ssh
 

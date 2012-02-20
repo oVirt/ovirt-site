@@ -18,6 +18,7 @@ One solution could be to remove the local caches and in-memory data. I don't kno
 
 *   Cache-like hashmaps could be replaced with distributed caches like ehcache or infinispan.
 *   Local data, like counters should be replaced either to database or infinispan.
+*   quartz can be easily configured to use JDBC-jobstore, and in that way it is clusterable
 
 ### Terracotta?
 

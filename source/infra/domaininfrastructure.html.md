@@ -18,7 +18,7 @@ This document describes the different components in the oVirt engine domain infr
 5.  Easily adding new LDAP provider types
 6.  Easily adding new query types
 
-This infrastructure is in the package: org.nogah.bll.adbroker, and it consists of the following main components:
+This infrastructure is in the package: org.ovirt.engine.core.bll.adbroker, and it consists of the following main components:
 
 1.  Domain - Entity that represents domain related properties:
     -   name // domain name

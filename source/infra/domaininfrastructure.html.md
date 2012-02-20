@@ -55,7 +55,7 @@ This infrastructure is in the package: org.nogah.bll.adbroker, and it consists o
     -   The directory searcher gets the domain object from the UsersDomainsCacheManagerService, and it preforms a root DSE query in order to deduce the ldap provider type (Active-Directory or IPA)
     -   According to the result it performs the query suitable for the specific ldap provider type
 
-### Some samples
+# Some samples
 
 *   Querying user properties by principal name:
 

@@ -23,7 +23,7 @@ Adding the functionality to import VMs and Templates that already exist in setup
 ### Current status
 
 *   Design Stage
-*   Last updated date: Sun Feb 19 2012
+*   Last updated date: Mon Feb 20 2012
 
 #### Affected oVirt projects:
 
@@ -95,3 +95,21 @@ note: the following mockups are of ImportVM, in ImportTemplate the 'Collapse Sna
 ![](Clone_all_selected.png "Clone_all_selected.png")
 
 #### CLI/API
+
+Adding 'clone' parameter (not madnatory) and then getting it from Action.java in BackendStorageDomainVmResource-->doImport(), then setting in ImportVmParameters and before sending to Backend (if it's null, this means false).
+
+For import VM:
+
+`   `[`http://localhost:8080/api/storagedomains/19290426-6681-479b-bd8e-76b54d1b1489/vms/we958723498579234/import`](http://localhost:8080/api/storagedomains/19290426-6681-479b-bd8e-76b54d1b1489/vms/we958723498579234/import)
+         
+`   `<action>
+`      `<cluster id="afsdasdf"/>
+`      `<storage_domain id="5@#$^234634^"/>
+            `<clone>`true`</clone>`     //This is the new value
+         `</action>` 
+
+Same for template in: BackendStorageDomainTemplateResource
+
+And finally, add in RSDL (rsdl_metadata_v-3.1.yaml): optionalArguments: {action.clone: 'xs:boolean'} (for both VM and Template import command)
+
+*   SDK and CLI should be automatically updated, as they are auto-generated from REST-API.

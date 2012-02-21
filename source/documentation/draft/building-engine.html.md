@@ -248,7 +248,6 @@ In case you like to do a full bootstrap installation (InstallVds = True into the
           #> cp vdsm_reg/deployUtil.py /usr/share/jboss-as/standalone/deployments/engine.ear/components.war/vds
           #> cp vds_bootstrap/vds_bootstrap_complete.py /usr/share/jboss-as/standalone/deployments/engine.ear/components.war/vds
           #> cp vds_bootstrap/vds_bootstrap.py /usr/share/jboss-as/standalone/deployments/engine.ear/components.war/vds
-       
 
 ## Testing
 

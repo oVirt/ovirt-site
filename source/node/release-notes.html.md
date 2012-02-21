@@ -10,6 +10,18 @@ wiki_last_updated: 2013-11-19
 
 # oVirt Node Release Notes
 
+# 2.2.3 Release Notes
+
+*   Add kickstarts for F18
+*   Configuring networking even if autoinstall fails
+*   Small build enhancements
+*   Added archipel configuration
+*   Limited stateless support introduced
+
+### Known Issues for 2.2.3
+
+*   See Current Backlog for other issues [Node_Backlog](Node_Backlog)
+
 # 2.2.2 Release Notes
 
 *   UEFI installation should be fixed [Bug 761540](https://bugzilla.redhat.com/show_bug.cgi?id=761540)

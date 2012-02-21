@@ -343,4 +343,27 @@ Yes! Take a look in: [Building_Ovirt_Engine/IDE](Building_Ovirt_Engine/IDE)
 *   Engine setup on Gentoo can be found here: <https://wiki.gentoo.org/wiki/OVirt>
 *   [Ovirt build on debian/ubuntu](Ovirt build on debian/ubuntu)
 
+## Troubleshooting
+
+### Host Non-Responsive
+
+*   Make sure you have both (vdsm and ovirt-engine) with ssl disabled or enabled.
+*   If you have enabled ssl anytime and want move to ssl=false, you must reconfigure vdsm and start the daemon again.
+
+Example setting ssl false:
+
+*   (ovirt Node side)
+
+       $ vi /etc/vdsm/vdsm.conf
+       ssl = false
+       
+       $ /lib/systemd/systemd-vdsmd reconfigure
+       $ sudo service vdsmd start
+
+*   (ovirt Engine side)
+
+       $ psql engine -U postgres -c "UPDATE vdc_options set option_value = 'false' where option_name = 'SSLEnabled'"
+       $ psql engine -U postgres -c "UPDATE vdc_options set option_value = 'false' where option_name = 'UseSecureConnectionWithServers'"
+       $ sudo service jboss-as restart
+
 [Category:Draft documentation](Category:Draft documentation) <Category:Engine> [Category:How to](Category:How to)

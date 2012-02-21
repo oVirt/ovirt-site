@@ -12,15 +12,15 @@ wiki_last_updated: 2012-05-29
 ## Goals
 
 *   Be able to run a node image without installing to local disk
-*   Required configuration is posted and retrieved from a configuration server
-*   Minimal size configuration bundle
+*   No configuration is persisted
 *   Provide some sort of security for communications
 
 ## High Level Design
 
-*   Machine boots and retrieves it's configuration bundle from the configuration server
-*   Configuration bundle is extracted and applied
-*   Machine makes itself available based on configuration
+*   Machine boots with regular kernel commandline params + stateless
+*   Machine does regular boot process including autoinstall for all args passed
+*   Machine launches Configuration TUI after complete for additional config if needed
+*   Machine runs normally
 
 ## Details
 
@@ -30,14 +30,49 @@ wiki_last_updated: 2012-05-29
 *   Machine boots the image
 *   Image comes up and processes command line options
     -   If not stateless, then continue with existing stateful functionality
-*   Start network using DHCP on nic specified in BOOTIF
-    -   ?? Default to eth0 otherwise ??
-    -   ?? Or should we abort stateless attempt ??
-*   Find your config server
-    -   Multiple methods possible
-    -   Get DNS SRV record for the configuration server
-    -   provide config server on commandline
-*   Check config server for config bundle
+*   Process all commandline arguments as if this is auto-install
+*   persist functions do nothing in these cases
+*   after all steps are complete, provide login prompt
+    -   Note: No way to set password no except with adminpw option
+    -   ?? Should we \*require\* adminpw ??
+    -   ?? Should we provide a way to set manually ??
+        -   Is this even technically possible?
+    -   ?? Maybe start TUI without login first time but require password to be set then ??
+*   Once configuration TUI is running, functions just like regular node
+
+### Open Issues
+
+*   Engine Registration process
+    -   Not currently able to handle stateless
+    -   Would currently require the admin to go into engine, manually remove the host, then re-add the host and approve it with \*every\* boot
+
+## Security Considerations
+
+How do we authenticate a node with the engine?
+
+*   Multiple levels that could be done
+*   USB drive that contains some certificate or key for encrypting and decrypting the bundle
+*   Single key embedded in the pxe image
+*   TPM module to contain unique key per machine **DEFERRED to future**
+    -   motherboard upgrades would require a node to be re-registered and configured in this case
+
+## Upgrades
+
+*   Should be as simple as updating the PXE image (or usb stick or CD/DVD)
+
+## To Swap or Not To Swap
+
+*   In order to overcommit a host, you need to have swap space to support it
+*   First implementation will probably disable swap
+*   Future implementation may allow the system to configure a local disk as swap space
+
+## Future features
+
+*   TPM/TXT Support for security
+
+## Old design
+
+Kept around for reference, next update will remove
 
 #### Previously configured
 
@@ -76,43 +111,6 @@ wiki_last_updated: 2012-05-29
 *   Suggested Frameworks:
     -   WebDAV
     -   nfs+apache (or similar web server)
-
-### Open Issues
-
-*   Do we need something that prevents a host from uploading a new bundle while waiting for it to be approved?
-*   What about updating configuration bundles?
-*   How do we tell a host to create a new bundle even if one exists?
-    -   kernel commandline?
-    -   Admin on web server removes? <-- Do we need this anyway?
-*   How do we handle the configuration server being down?
-    -   boot and allow re-configuration?
-    -   wait for it to be up?
-    -   prompt user
-
-## Security Considerations
-
-How do we authenticate a node with the configuration server?
-
-*   Multiple levels that could be done
-*   USB drive that contains some certificate or key for encrypting and decrypting the bundle
-*   Single key embedded in the pxe image
-*   TPM module to contain unique key per machine **DEFERRED to future**
-    -   motherboard upgrades would require a node to be re-registered and configured in this case
-
-## Upgrades
-
-*   Should be as simple as updating the PXE image (or usb stick or CD/DVD)
-*   Shouldn't be much need to change the config bundle, but a new config bundle shouldn't be difficult to upload
-
-## To Swap or Not To Swap
-
-*   In order to overcommit a host, you need to have swap space to support it
-*   First implementation will probably disable swap
-*   Future implementation may allow the system to configure a local disk as swap space
-
-## Future features
-
-*   TPM/TXT Support for security
 
 #### Config Server Future
 

@@ -20,16 +20,20 @@ wiki_warnings: list-item?
 
 Adding the functionality to import VMs and Templates that already exist in setup, in fact this feature consists of changing the identifiers of an imported VM/Template.
 
-### Current status
+#### Current status
 
 *   Design Stage
-*   Last updated date: Mon Feb 20 2012
+*   Last updated date: Tue Feb 21 2012
 
 #### Affected oVirt projects:
 
 *   Core
 *   Webadmin
 *   API/CLI
+
+#### Limitations
+
+*   Cannot import VM without collapsing its snapshots.
 
 ### Design
 

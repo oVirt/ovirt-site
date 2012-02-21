@@ -72,24 +72,27 @@ There is a bot (ovirtbot) in the #ovirt IRC channel that can be used for running
 
 **2012**
 
+*   2012-02-21
+    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-02-21-14.03.html)
+    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-02-21-14.03.log.html)
 *   2012-02-14
     -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-02-14-14.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-02-14-14.0.log.html)
+    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-02-14-14.00.log.html)
 *   2012-02-07
     -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-02-07-14.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-02-07-14.0.log.html)
+    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-02-07-14.00.log.html)
 *   2012-01-31
     -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-31-14.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-31-14.0.log.html)
+    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-31-14.00.log.html)
 *   2012-01-24
     -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-24-14.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-24-14.0.log.html)
+    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-24-14.00.log.html)
 *   2012-01-17
     -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-17-14.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-17-14.0.log.html)
+    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-17-14.00.log.html)
 *   2012-01-10
     -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-10-14.00.html)
-    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-10-14.0.log.html)
+    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-10-14.00.log.html)
 *   2012-01-05
     -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-05-14.01.html)
     -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-01-05-14.01.log.html)

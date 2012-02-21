@@ -18,7 +18,7 @@ The oVirt Node sub-project is geared toward building a small, robust operating s
 
 ## Next Release
 
-oVirt Node 2.2.4
+oVirt Node 2.3.0
 
 *   Target date: 2012-03-15
 *   List of issues targeted: [Node_Backlog](Node_Backlog)

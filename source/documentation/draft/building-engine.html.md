@@ -248,7 +248,7 @@ In case you like to do a full bootstrap installation (InstallVds = True into the
           #> cp vdsm_reg/deployUtil.py /usr/share/jboss-as/standalone/deployments/engine.ear/components.war/vds
           #> cp vds_bootstrap/vds_bootstrap_complete.py /usr/share/jboss-as/standalone/deployments/engine.ear/components.war/vds
           #> cp vds_bootstrap/vds_bootstrap.py /usr/share/jboss-as/standalone/deployments/engine.ear/components.war/vds
-         #> psql engine postgres -c "update vdc_options set option_value = '`[`http://YOUR_ENGINE_HOST_HERE:8080/Components/vds`](http://YOUR_ENGINE_HOST_HERE:8080/Components/vds)`' where option_name = 'VdcBootStrapUrl';"
+          #> psql engine postgres -c "update vdc_options set option_value = 'http://YOUR_ENGINE_HOST_HERE:8080/Components/vds' where option_name = 'VdcBootStrapUrl';"
 
 ## Testing
 

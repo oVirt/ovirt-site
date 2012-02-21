@@ -33,13 +33,25 @@ wiki_last_updated: 2012-05-29
 *   Process all commandline arguments as if this is auto-install
 *   persist functions do nothing in these cases
 *   Check for admin user password
-    -   If set, continue
+    -   If set, don't set it to expire and continue
     -   If not, check for nopwprompt command line option
         -   If it exists, continue
         -   If not, provide TUI screen to set password only
             -   DESIGN: Extract tui screen from install setup for this
 *   after all steps are complete, provide login prompt
 *   Once configuration TUI is running, functions just like regular node
+
+### Offline Password Setting
+
+*   Goal: Provide a way to set the admin password offline
+*   Reasoning: Insecure to set the password on the kernel commandline
+*   Design
+    -   Use Plugin Methodology
+    -   Plugin will take commandline arguments, crack open the ISO, and set the password
+    -   Version 1: non-interactive, command line only, admin password only
+        -   Handles clear-text passwords and pre-encrypted passwords
+        -   Possibly use password file instead of passing the password on the command line where it would show up in shell history
+    -   Version n: simple UI, can set admin and root passwords, interactively set passwords
 
 ### Open Issues
 

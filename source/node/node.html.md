@@ -18,20 +18,20 @@ The oVirt Node sub-project is geared toward building a small, robust operating s
 
 ## Next Release
 
-oVirt Node 2.2.3
+oVirt Node 2.2.4
 
-*   Target date: 2012-02-15
+*   Target date: 2012-03-15
 *   List of issues targeted: [Node_Backlog](Node_Backlog)
 
 ## Current Release
 
-oVirt Node 2.2.2
+oVirt Node 2.2.3
 
 *   [Node_Release_Notes](Node_Release_Notes)
-*   [ISO image](http://ovirt.org/releases/nightly/binary/ovirt-node-image-2.2.2-1.1.fc16.iso)
-*   [Source Tarball](http://ovirt.org/releases/nightly/src/ovirt-node-2.2.2.tar.gz)
-*   [RPM Package](http://ovirt.org/releases/nightly/fedora/16/ovirt-node-2.2.2-1.fc16.noarch.rpm)
-*   [Tools Package](http://ovirt.org/releases/nightly/fedora/16/ovirt-node-tools-2.2.2-1.fc16.noarch.rpm)
+*   [ISO image](http://ovirt.org/releases/stable/binary/ovirt-node-image-2.2.3-1.1.fc16.iso)
+*   [Source Tarball](http://ovirt.org/releases/stable/src/ovirt-node-2.2.3.tar.gz)
+*   [RPM Package](http://ovirt.org/releases/stable/fedora/16/ovirt-node-2.2.3-1.fc16.noarch.rpm)
+*   [Tools Package](http://ovirt.org/releases/stable/fedora/16/ovirt-node-tools-2.2.3-1.fc16.noarch.rpm)
 
 ## Technologies Used
 

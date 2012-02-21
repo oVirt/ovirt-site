@@ -69,13 +69,13 @@ Creating OpenSSH convertor: compile pubkey2ssh
 
 Create relevant Engine folders
 
-      $ sudo mkdir -p /var/lock/ovirt-engine /usr/share/ovirt-engine/backend/manager/conf/
+      $ sudo mkdir -p /var/lock/ovirt-engine /usr/share/engine/backend/manager/conf/
       $ touch /var/lock/ovirt-engine/.openssl.exclusivelock
       $ sudo chmod 777 /var/lock/ovirt-engine/.openssl.exclusivelock
 
 Put vds_installer.py in place (the config entry of 'DataDir')
 
-      cp ~/src/git/ovirt-engine/backend/manager/conf/vds_installer.py /usr/share/ovirt-engine/backend/manager/conf/
+      $ cp ~/src/git/ovirt-engine/backend/manager/conf/vds_installer.py /usr/share/engine/backend/manager/conf/
 
 Create CA and certs
 

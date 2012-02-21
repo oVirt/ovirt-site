@@ -32,12 +32,13 @@ wiki_last_updated: 2012-05-29
     -   If not stateless, then continue with existing stateful functionality
 *   Process all commandline arguments as if this is auto-install
 *   persist functions do nothing in these cases
+*   Check for admin user password
+    -   If set, continue
+    -   If not, check for nopwprompt command line option
+        -   If it exists, continue
+        -   If not, provide TUI screen to set password only
+            -   DESIGN: Extract tui screen from install setup for this
 *   after all steps are complete, provide login prompt
-    -   Note: No way to set password no except with adminpw option
-    -   ?? Should we \*require\* adminpw ??
-    -   ?? Should we provide a way to set manually ??
-        -   Is this even technically possible?
-    -   ?? Maybe start TUI without login first time but require password to be set then ??
 *   Once configuration TUI is running, functions just like regular node
 
 ### Open Issues

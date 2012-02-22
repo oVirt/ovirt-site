@@ -16,7 +16,7 @@ No major gui modifications are required. The action to move a VM from one storag
 
 ![](StorageLiveMigrationGUI.png "StorageLiveMigrationGUI.png")
 
-### Pre-Copy and Post-Copy
+### Pre-Copy, Post-Copy and Mirrored-Snapshot
 
 *   **Pre-Copy:** copy all the internal volumes and then live copy the leaf volume, when the task is completed live migrate the VM
     -   **Pros:** safer and simpler to manage in the oVirt engine and VDSM
@@ -24,6 +24,8 @@ No major gui modifications are required. The action to move a VM from one storag
 *   **Post-Copy:** live migrate the VM with a live snapshot to the new domain, copy the internal volumes and when the task is completed switch the leaf backing file
     -   **Pros:** better approach for HA/load balancing
     -   **Cons:** complex management in the oVirt engine and VDSM. Disk is split across multiple domains
+*   **Mirrored-Snapshot:** mirror a new live snapshot on both source and destination, copy the parent volume to the destination and when completed switch to the new image.
+    -   **Pros:** no need to implement cross-domain volume chains in VDSM
 
 Reference: [<http://wiki.qemu.org/Features/LiveBlockMigration>](http://wiki.qemu.org/Features/LiveBlockMigration)
 
@@ -63,3 +65,7 @@ Reference: [<http://wiki.qemu.org/Features/LiveBlockMigration>](http://wiki.qemu
                   if ret == SUCESS:
                       break
           finalizeBlockMigrate() # to the HSM
+
+### Mirrored-Snapshot Execution Diagrams and Description
+
+![](StorageLiveMigration2.png "StorageLiveMigration2.png")

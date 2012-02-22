@@ -39,21 +39,6 @@ Adding the functionality to import VMs and Templates that already exist in setup
 
 note: unless specified 'entity' may refer both to VM and Template oVirt Entities.
 
-#### Core
-
-*   Add to ImportEntityParameter parameter class boolean member that indicates whether this entity should be cloned, the default value is false.
-*   Alter ImportEntityCommand in case clone parameter field is set to true:
-
-    * Set the VM with a new identifier (the new name already placed in the vm - concat of vm and suffix, see webadmin).
-
-    * Set the disks target with a new identifier.
-
-    * For all VM's NICs, allocate new MAC addresses.
-
-    * (in import VM) Collape all snapshots must be 'true'.
-
-*   detailed design will be added in the near future.
-
 #### webadmin
 
 Only the ImportEntity dialog will be affected:
@@ -80,6 +65,10 @@ Only the ImportEntity dialog will be affected:
 
     * If 'clone all entities' is checked, 'clone only existing entities' will be checked and disabled.
 
+*   Needs high level (user level) summary. For example, what does it mean that a VM already exist in the setup? If I had a VM with 10GB
+
+disk, without an OS installed, then exported it, then installed an OS into it now the disk is a bit full, as opposed to the emptied exported one). Does it means that an identical entity already exist in the setup or not? (think of overwriting files).
+
 *   the suffix text box will be shown only when one of the above check-boxes is checked (it is relevant only for importing an entity as clone).
 
 ##### mockups
@@ -97,6 +86,21 @@ note: the following mockups are of ImportVM, in ImportTemplate the 'Collapse Sna
 *   when selecting 'clone all' the duplicate check box (if shown) will be check and disabled:
 
 ![](Clone_all_selected.png "Clone_all_selected.png")
+
+#### Core
+
+*   Add to ImportEntityParameter parameter class boolean member that indicates whether this entity should be cloned, the default value is false.
+*   Alter ImportEntityCommand in case clone parameter field is set to true:
+
+    * Set the VM with a new identifier (the new name already placed in the vm - concat of vm and suffix, see webadmin).
+
+    * Set the disks target with a new identifier.
+
+    * For all VM's NICs, allocate new MAC addresses.
+
+    * (in import VM) Collape all snapshots must be 'true'.
+
+*   detailed design will be added in the near future.
 
 #### CLI/API
 

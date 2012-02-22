@@ -110,6 +110,9 @@ For import VM:
 `      `<cluster id="afsdasdf"/>
 `      `<storage_domain id="5@#$^234634^"/>
             `<clone>`true`</clone>`     //This is the new value
+`      `<vm>
+`         `<name>`new_name`</name>
+`      `</vm>
          `</action>` 
 
 Same for template in: BackendStorageDomainTemplateResource

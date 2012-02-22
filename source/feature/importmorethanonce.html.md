@@ -89,8 +89,8 @@ note: the following mockups are of ImportVM, in ImportTemplate the 'Collapse Sna
 
 #### Core
 
-*   Add to ImportEntityParameter parameter class boolean member that indicates whether this entity should be cloned, the default value is false.
-*   Alter ImportEntityCommand in case clone parameter field is set to true:
+*   Add to ImportEntityParameter parameter class boolean member, named importAsNewEntity, that indicates whether this entity should be cloned, the default value is false.
+*   Alter ImportEntityCommand in case importAsNewEntity parameter field is set to true:
 
     * Set the VM with a new identifier (the new name already placed in the vm - concat of vm and suffix, see webadmin).
 
@@ -104,7 +104,7 @@ note: the following mockups are of ImportVM, in ImportTemplate the 'Collapse Sna
 
 #### CLI/API
 
-Adding 'clone' parameter (not madnatory) and then getting it from Action.java in BackendStorageDomainVmResource-->doImport(), then setting in ImportVmParameters and before sending to Backend (if it's null, this means false).
+Adding 'importAsNewEntity' parameter (not madnatory) and then getting it from Action.java in BackendStorageDomainVmResource-->doImport(), then setting in ImportVmParameters and before sending to Backend (if it's null, this means false).
 
 For import VM:
 
@@ -113,7 +113,7 @@ For import VM:
 `   `<action>
 `      `<cluster id="afsdasdf"/>
 `      `<storage_domain id="5@#$^234634^"/>
-            `<clone>`true`</clone>`     //This is the new value
+            `<importAsNewEntity>`true`</importAsNewEntity>`     //This is the new value
 `      `<vm>
 `         `<name>`new_name`</name>
 `      `</vm>
@@ -121,6 +121,6 @@ For import VM:
 
 Same for template in: BackendStorageDomainTemplateResource
 
-And finally, add in RSDL (rsdl_metadata_v-3.1.yaml): optionalArguments: {action.clone: 'xs:boolean'} (for both VM and Template import command)
+And finally, add in RSDL (rsdl_metadata_v-3.1.yaml): optionalArguments: {action.importAsNewEntity: 'xs:boolean'} (for both VM and Template import command)
 
 *   SDK and CLI should be automatically updated, as they are auto-generated from REST-API.

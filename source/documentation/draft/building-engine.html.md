@@ -370,7 +370,7 @@ Example setting ssl false:
 
 Actions:
 
-*   Host side look:
+*   Host side:
 
        Look /tmp/vds* files
 

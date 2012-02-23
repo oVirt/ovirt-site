@@ -103,13 +103,13 @@ A bridged network is represented in VdsInterface.java and vds_interface table an
       AND
       nic.vds_id in (select vds_id FROM vds_static as vds WHERE vds.vsd_group_id = v_cluster_id )
 
-*   isNetworkBridgedOnRunningclusterHosts
+*   isNetworkBridgedOnRunningClusterHosts
 
       v_cluster_id
       v_network_name
       SELECT count(*) FROM vds 
       WHERE
-      vds.status = 
+      vds.status = 3 
       AND
       vds.id in (SELECT get_hosts_ids_with_bridged_network(v_cluster_id, v_network_name)) > 0 as value
 

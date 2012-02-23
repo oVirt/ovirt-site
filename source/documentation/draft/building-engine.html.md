@@ -366,6 +366,20 @@ Example setting ssl false:
        $ psql engine -U postgres -c "UPDATE vdc_options set option_value = 'false' where option_name = 'UseSecureConnectionWithServers'"
        $ sudo service jboss-as restart
 
+### Install Failed
+
+Actions:
+
+*   Host side look:
+
+       Look /tmp/vds* files
+
+*   Engine side:
+
+       Look /usr/share/jboss-as/standalone/log/engine/engine.log
+
+*   Have you created /var/lock/ovirt-engine/.openssl.exclusivelock with 777 perm ?
+
 ### Logs
 
 *   (oVirt Node)

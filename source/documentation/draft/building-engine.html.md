@@ -308,7 +308,7 @@ For additional info: <https://docs.jboss.org/author/display/AS7/Admin+Guide#Admi
 This will build the engine, rebuilding the admin console and then creates the ear and deploys it to jboss
 
           #> mvn clean install -Pgwt-admin -DskipTests && cd ear && mvn clean install -Pdep
-         #> service jboss-as restart
+          #> service jboss-as restart
 
 ## Advanced features
 

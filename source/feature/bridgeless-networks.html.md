@@ -18,6 +18,33 @@ wiki_last_updated: 2013-01-29
 
 *   Email: rgolan@redhat.com
 
+## Basic flow
+
+*   attach a network as bridged or bridge-less
+    The setupNetworks API shall enable setting the network as bridged or not, default to bridged.
+
+REST examples:
+
+*   bridge network red , vlan id 300, over a bond4
+
+      application/yaml
+       host_nics:
+       - host_nic:
+          name: bond4.300
+          vlan_id: 300
+          network_name: red
+          bridged: true  
+
+*   create bridgeless storage network on vlan 400 over eth5:0 (eth5:0 is an alias of eth5)
+
+      application/yaml
+      host_nics:
+      - host_nic:
+          name: eth5:0.400
+          vlan_id: 400
+          network_name: storage
+          bridged: false
+
 ## Modified flows
 
 #### Add a Nic to VM
@@ -36,8 +63,7 @@ wiki_last_updated: 2013-01-29
 #### Un-bridge a host network via setupNetworks
 
 *   validate that this network doesn't have any VMs running on it. otherwise this host
-
-will not be able to have VMs migrated to it and will be set to non-operational during monitoring.
+     will not be able to have VMs migrated to it and will be set to non-operational during monitoring.
 
 #### Monitoring
 

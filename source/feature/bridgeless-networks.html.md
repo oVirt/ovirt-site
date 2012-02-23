@@ -98,7 +98,7 @@ A bridged network is represented in VdsInterface.java and vds_interface table an
 
 #### stored procedures
 
-*   getHostsIdsWithBridgedNetwork - get the ids of host interfaces with a given network that are bridged
+*   **getHostsIdsWithBridgedNetwork** - get the ids of host interfaces with a given network that are bridged
 
       v_cluster_id
       v_network_name
@@ -110,7 +110,7 @@ A bridged network is represented in VdsInterface.java and vds_interface table an
       AND
       nic.vds_id in (select vds_id FROM vds_static as vds WHERE vds.vsd_group_id = v_cluster_id )
 
-*   isNetworkBridgedOnRunningClusterHosts - use the getHostsIdsWithBridgedNetwork procedure and check at least one host is running
+*   **isNetworkBridgedOnRunningClusterHosts** - use the getHostsIdsWithBridgedNetwork procedure and check at least one host is running
 
       v_cluster_id
       v_network_name
@@ -120,7 +120,7 @@ A bridged network is represented in VdsInterface.java and vds_interface table an
       AND
       vds.id in (SELECT get_hosts_ids_with_bridged_network(v_cluster_id, v_network_name)) > 0 as value
 
-*   isVmsRunningOnClusterNetwork - are there any running vms using the given network?
+*   **isVmsRunningOnClusterNetwork** - are there any running vms using the given network?
 
       v_cluster_id
       v_network_name

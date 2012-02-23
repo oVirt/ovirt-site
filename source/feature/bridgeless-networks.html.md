@@ -128,3 +128,21 @@ A bridged network is represented in VdsInterface.java and vds_interface table an
       AND
       ifaceView.network_name = v_network_name 
       > 0 as value
+
+## messages
+
+*   AuditLogType
+
+      VDS_NETWORK_IS_NOT_BRIDGED(9600,MINUTE)
+
+*   AuditLogMessage.properties
+
+      VDS_NETWORK_IS_NOT_BRIDGED=The network ${networkName} on Host ${vds} should be bridged otherwise it could not run virtual interfaces.
+
+*   VdcBLLMessages
+
+      CANNOT_UNBRIDGE_VDS_NETWORK_WITH_RUNNING_VMS
+
+*   AppErrors.properties
+
+      CANNOT_UNBRIDGE_NETWORK_WITH_RUNNING_VMS=the network ${networkName} cannot be bridgeless. Other hosts are running VMs on it.

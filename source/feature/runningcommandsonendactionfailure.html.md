@@ -37,6 +37,21 @@ The motivation will be provided by an example (other flows may need this mechani
 
 ### Detailed Description
 
+*   All tasks are created with the same entity ID (the cloned VM) ID - as a result, failure in one of them will yield invocation of AddVmFromTemplate.endWithFailure
+*   endWithFailure will invoke in turn endWithFailure on each one of the child commands (CreateCloneFromTemplate).
+*   CreateCloneFromTemplate will call revertTasks method.
+*   The revertTasks method will invoke the RemoveImageCommand, setting the parent command to CreateCloneFromTemplate
+*   In order to avoid invocation of CreateCloneFromTemplate.endSuccessfully upon successful image removal, and to invoke the endWithFailure instead the following will be added:
+
+1.  a new field will be introduced to VdcActionParameterBase: ExecutionReason executionReason.
+2.  ExecutionReason is an enum with values of REGULAR_FLOW (which is the default value) and ROLLBACK_FLOW (which is the flow for the current described scenario of invoking command from endWithFailure)
+3.  AsyncTaskManager code will be changed in such a way that if the parameters include executionReason with value of ROLLBACK_FLOW, even in case of successful execution, endithFailure will be executed.
+4.  In order to prevent endless loop of invocation of remove image, due to end less return to CreateCloneFromTemplate, a check for checking if the image exist in DB will be added (RemoveImage will be executed
+
+only in case the image does not exist in DB).
+
+1.  In order to have ROLLBACK_FLOW value persistent, it will be set on the parameters, prior to the task creation (which creates an entry in async_tasks table with serialized parameters).
+
 ### Benefit to oVirt
 
 Implementing such mechanism will contribute to resource consistency of engine-core, in a sense that no "leftover resources" will remain at VDSM.

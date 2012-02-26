@@ -111,7 +111,9 @@ The Power User Portal should allow the following operations:
 
 The following UI mockups contain guidelines for the different screens and wizards:
 
-![](virtualDisks_MainTab.png "virtualDisks_MainTab.png")
+![](VirtualDisks_MainTab_VMs.png "VirtualDisks_MainTab_VMs.png")
+
+![](VirtualDisks_MainTab_General.png "VirtualDisks_MainTab_General.png")
 
 ![](attach_disk_maintab_dialogue.png "attach_disk_maintab_dialogue.png")
 

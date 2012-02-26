@@ -149,6 +149,7 @@ A bridged network is represented in VdsInterface.java and vds_interface table an
 *   VdcBLLMessages
 
       CANNOT_UNBRIDGE_VDS_NETWORK_WITH_RUNNING_VMS
+      ACTION_TYPE_FAILED_NO_BRIDGED_NETWORKS
 
 ## Messages
 

@@ -160,3 +160,4 @@ A bridged network is represented in VdsInterface.java and vds_interface table an
 *   AppErrors.properties
 
       CANNOT_UNBRIDGE_NETWORK_WITH_RUNNING_VMS=the network ${networkName} cannot be bridgeless. Other hosts are running VMs on it.
+      ACTION_TYPE_FAILED_NO_BRIDGED_NETWORKS=Network ${networkName} on is not bridged and cannot create virtual interfaces

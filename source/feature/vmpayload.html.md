@@ -62,12 +62,12 @@ Notes:
 
 ### Design Notes
 
-in device specParams we pass:
+vmPayload is passed in the create params:
 
-       { 'vmPayload': { 'cdrom': [{'filename': 'content' }, {'filename': 'content'}],
+       'vmPayload': { 'cdrom': [{'filename': 'content' }, {'filename': 'content'}],
         'floppy': [{'filename': 'content' }, {'filename': 'content'}],
         'sysprep': {'filename': 'content' },
-        'network': '...' } }
+        'network': '...' }
        
 
 ### User work-flows

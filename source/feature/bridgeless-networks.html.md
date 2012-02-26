@@ -144,7 +144,7 @@ A bridged network is represented in VdsInterface.java and vds_interface table an
 
 *   NonOperationlreason.java
 
-      NETWORK_IS_NOT_BRIDGED_ON_VDS
+      NETWORK_IS_NOT_BRIDGED_ON_VDS(8)
 
 *   VdcBLLMessages
 

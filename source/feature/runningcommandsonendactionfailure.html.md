@@ -26,13 +26,14 @@ This design discusses the need for running commands during the step of ending ac
 ### Motivation
 
 The motivation will be provided by an example (other flows may need this mechanism as well):
-AddVmFromTemplate command creates a VM based on a given template.
-The commands invokes internally for each image related with the template a CreateCloneFromTemplate command.
-CreateCloneFromTemplateCommand invokes the CopyImage VDSM verb.
-CopyImage is an asynchronous operation, and monitored by an async task.
-If one of the of the tasks fails, all the sibling tasks should be reverted - this is usually done using the revert task mechanism.
-The revert task mechanism performs the VDSM verb SPMRevertTask, but for there is no implementation of task reverting for CopyImage at VDSM.
-Engine-core should implement a mechanism that will know how to issue an "opposite command" to the copy image for each successful sibling task to the failed task.
+
+*   AddVmFromTemplate command creates a VM based on a given template.
+*   The commands invokes internally for each image related with the template a CreateCloneFromTemplate command.
+*   CreateCloneFromTemplateCommand invokes the CopyImage VDSM verb.
+*   CopyImage is an asynchronous operation, and monitored by an async task.
+*   If one of the of the tasks fails, all the sibling tasks should be reverted - this is usually done using the revert task mechanism.
+*   The revert task mechanism performs the VDSM verb SPMRevertTask, but for there is no implementation of task reverting for CopyImage at VDSM.
+*   Engine-core should implement a mechanism that will know how to issue an "opposite command" to the copy image for each successful sibling task to the failed task.
 
 ### Detailed Description
 

@@ -39,7 +39,7 @@ The motivation will be provided by an example (other flows may need this mechani
 
 ### Benefit to oVirt
 
-If we look at snapshots as "checkpoints" of VM state + data , and "checkpoints" are made in significant points of time, the feature allows a user to create a VM based on a significant point of time of another VM, and use the cloned VM, without interfering with the original VM (i.e - no need to perform collapse on images of the source VM).
+Implementing such mechanism will contribute to resource consistency of engine-core, in a sense that no "leftover resources" will remain at VDSM.
 
 ### Dependencies / Related Features
 

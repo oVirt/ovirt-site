@@ -20,8 +20,8 @@ wiki_last_updated: 2013-01-29
 
 ## Functionality
 
-An admin can now set a bridge/bridge less property on the Host Interface per specific Network.
-When attaching a Network to an Host's NIC, user can define the bridge/bridgeless property using setupNetworks.
+An admin can now set a bridge/bridge-less property on the Host Interface per specific Network.
+When attaching a Network to an Host's NIC, user can define the bridge/bridge-less property using setupNetworks.
 This implies that a given cluster may have one host implementing
 network "pink" as bridged and another implementing it as bridge-less.
 

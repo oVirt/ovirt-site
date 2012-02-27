@@ -254,13 +254,23 @@ In case you like to do a full bootstrap installation (InstallVds = True into the
           #> cp vds_bootstrap/vds_bootstrap.py /usr/share/jboss-as/standalone/deployments/engine.ear/components.war/vds
           #> psql engine postgres -c "update vdc_options set option_value = 'http://YOUR_ENGINE_HOST_HERE:8080/Components/vds' where option_name = 'VdcBootStrapUrl';"
 
+## Deploying engine-config & engine-manage-domains
+
+      $> cd $OVIRT_HOME
+      $> mkdir -p /usr/share/ovirt-engine/engine-config/
+      $> mkdir -p /usr/share/ovirt-engine/engine-config/lib/
+      $> mkdir -p /usr/share/ovirt-engine/engine-manage-domains/
+      $> mkdir -p /etc/ovirt-engine/engine-manage-domains/
+      $> mkdir -p /etc/ovirt-engine/engine-config/
+      $> mkdir -p /usr/share/ovirt-engine/engine-manage-domains/lib/
+      $> make install_config
+
 ## Testing
 
 Assuming JBoss is not running, it should be started:
 
           #> service jboss-as start (or restart if you already started above for tests)
           #> ps ax | grep java
-       
 
 or
 

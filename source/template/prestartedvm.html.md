@@ -27,7 +27,7 @@ The Prestarted Vm feature allows holding a predefined number of unassigned ready
 
     * REST Component owner: [ Michael Pasternak](User:mpasternak)
 
-    * QA Owner: [ ?](User:?)
+    * QA Owner: [ Tomas Dosek](User:Tdosek)
 
 *   Email: msalem@redhat.com
 

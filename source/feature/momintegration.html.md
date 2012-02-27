@@ -16,18 +16,17 @@ MOM exists today as an independent library that can be used by python programs s
 
 To integrate mom, vdsm will initialize the mom library in a new thread and start it. Therefore, mom and vdsm will exist in the same process. Vdsm will configure the mom instance to use plugins and a policy that exclusively target the vdsm API. All statistics collection will occur via API calls and any management actions (including adjustments to KSM and VM balloons) will be done through the vdsm api as well. Mom will not use libvirt at all (not even to monitor for new VMs on the system).
 
-Packaging logistics:
+![](mom-vdsm.png "mom-vdsm.png")
 
-------------------------------------------------------------------------
+## Packaging logistics
 
 Mom is an independent package that is already in Fedora. Any changes to mom that are required to support this integration will be submitted to the mom project for inclusion. Vdsm will consume the standard MOM package as a python module/library.
 
 In order to control its mom instance, vdsm will ship a mom configuration file and a mom policy file that will set mom's default behavior. At startup, vdsmd will import mom and initialize it with the configuration and policy files. From that point on, mom will interact with vdsm through the well-defined API in API.py.
 
-New features needed in vdsm:
-
-------------------------------------------------------------------------
+## New features needed in vdsm
 
 In order to fully benefit from mom's capabilities, vdsm should implement the following extra features/APIs:
 
-* Collection of more memory statistics via ovirt-guest-agent including the current memory balloon value. - A vmBalloon API to set a new balloon target.
+*   Collection of more memory statistics via ovirt-guest-agent including the current memory balloon value.
+*   A vmBalloon API to set a new balloon target.

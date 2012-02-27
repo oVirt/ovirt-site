@@ -257,12 +257,7 @@ In case you like to do a full bootstrap installation (InstallVds = True into the
 ## Deploying engine-config & engine-manage-domains
 
       $> cd $OVIRT_HOME
-      $> mkdir -p /usr/share/ovirt-engine/engine-config/
-      $> mkdir -p /usr/share/ovirt-engine/engine-config/lib/
-      $> mkdir -p /usr/share/ovirt-engine/engine-manage-domains/
-      $> mkdir -p /etc/ovirt-engine/engine-manage-domains/
-      $> mkdir -p /etc/ovirt-engine/engine-config/
-      $> mkdir -p /usr/share/ovirt-engine/engine-manage-domains/lib/
+      $> make create_dirs
       $> make install_tools
       $> make install_config
 

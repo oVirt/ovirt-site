@@ -31,6 +31,10 @@ wiki_last_updated: 2012-08-20
 
 *   **MUST**: Upgrade from previous release
 *   **MUST**: ovirt-node full cycle (register, approve and running VM)
+*   **MUST**: No known data corruptors
+*   **MUST**: Can define NFS, iSCSI, FC and local based storage domains
+*   **MUST**: Can define VLAN based networks, bond interfaces, and have VLANs over bonded interfaces
+*   **MUST**: Can authenticate users against at least one external LDAP server
 
 #### SHOULD
 

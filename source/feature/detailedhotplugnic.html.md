@@ -37,8 +37,16 @@ The feature will be allowed only on 3.1 clusters and above
 
 #### User Experience
 
-The new buttons **Plug** and **UnPlug** should be added to the VM's **Network Interfaces** tab.
- The NIC adding to the VM will be performed as two steps procedure:
+*   VMs main tab -> NICs sub-tab:
+    -   New buttons: **Plug** and **UnPlug** will be added
+    -   New status (icon) column should be added.
+    -   A "plug" check-box (checked by default) should be added to the "New NIC" dialog.
+
+![](Vms_nics_subtab.png "Vms_nics_subtab.png")
+
+![](Newedit_vm_nic_dialog.png "Newedit_vm_nic_dialog.png")
+
+The NIC adding to the VM will be performed as two steps procedure:
 #Add new NIC - will only add the proper entry to DB
 #Plug NIC - will actually plug NIC to VM
  The NIC removing from the VM will be performed as two steps procedure:

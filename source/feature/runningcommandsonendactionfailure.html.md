@@ -47,7 +47,10 @@ The motivation will be provided by an example (other flows may need this mechani
 2.  ExecutionReason is an enum with values of REGULAR_FLOW (which is the default value) and ROLLBACK_FLOW (which is the flow for the current described scenario of invoking command from endWithFailure)
 3.  AsyncTaskManager code will be changed in such a way that if the parameters include executionReason with value of ROLLBACK_FLOW, even in case of successful execution, endithFailure will be executed.
 4.  In order to prevent endless loop of invocation of remove image, due to end less return to CreateCloneFromTemplate, a check for checking if the image exist in DB will be added (RemoveImage will be executed only in case the image does not exist in DB).
-5.  In order to have ROLLBACK_FLOW value persistent, it will be set on the parameters, prior to the task creation (which creates an entry in async_tasks table with serialized parameters).
+
+*   In order to have ROLLBACK_FLOW value persistent, it will be set on the parameters, prior to the task creation (which creates an entry in async_tasks table with serialized parameters).
+*   As tasks are being pollled only during "executeAction" stage (command starts execution) it is required to add task polling at the end of the command that invokes the rollback command (after the rollback command is invoked).
+*   The entity ID for which the rollback task is created should be the entity ID of the command creating the rollback command (i.e - destination image ID in case of CreateCloneOfTemplate that invokes RemoveImageCommand which in turn creates a task).
 
 ### Benefit to oVirt
 

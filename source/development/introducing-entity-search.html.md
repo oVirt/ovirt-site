@@ -22,6 +22,8 @@ The DAO must have a method to fetch list of entities given a query e.g.
 
 `   `*`public` `List`<GlusterVolumeEntity> `getAllWithQuery(String` `query);`*
 
+You can use the org.ovirt.engine.core.dao.SearchDAO interface, that defines this method.
+
 # Add SearchType entry
 
 Introduce an entry (say *GlusterVolume*) for the entity in *org.ovirt.engine.core.common.interfaces.SearchType*

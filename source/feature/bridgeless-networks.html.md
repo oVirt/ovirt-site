@@ -79,7 +79,7 @@ a "Vm network" is implemented over a bridge, otherwise bridgeless
 
 *   AuditLogType.java
 
-      IMPORT_VM_INTERFACES_ON_NON_VM_NETWORKS(9600,MINUTE)
+       IMPORTEXPORT_IMPORT_VM_INTERFACES_ON_NON_VM_NETWORKS(9600,MINUTE)
       VDS_SET_NON_OPERATIONAL_VM_NETWORK_IS_BRIDGELESS(9601, MINUTE)
 
 *   VdcBLLMessages
@@ -94,8 +94,9 @@ a "Vm network" is implemented over a bridge, otherwise bridgeless
 
 *   AuditLogMessage.properties
 
-      IMPORTEXPORT_IMPORT_VM_INTERFACES_ON_NON_VM_NETWORKS=Trying to import VM ${vm} with the interface/s ${interfaces} attached to non VM network/s ${newtorkNames}.
+      IMPORTEXPORT_IMPORT_VM_INTERFACES_ON_NON_VM_NETWORKS=Trying to import VM ${VmName} with the interface/s ${Interfaces} attached to non VM network/s ${Networks}.
+      VDS_SET_NON_OPERATIONAL_VM_NETWORK_IS_BRIDGELESS=Host ${VdsName} does not comply with the cluster ${VdsGroupName} networks, the following VM networks are bridgeless: '${Networks}'
 
 *   AppErrors.properties
 
-      ACTION_TYPE_FAILED_NOT_A_VM_NETWORK=Failed ${action} ${type} the newtork/s ${networkNames} is not a VM network.
+      ACTION_TYPE_FAILED_NOT_A_VM_NETWORK=Failed ${action} ${type} the network/s ${Networks} is/are not a VM network.

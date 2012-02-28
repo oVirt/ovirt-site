@@ -20,71 +20,42 @@ wiki_last_updated: 2013-01-29
 
 ## Functionality
 
-An admin can now set a bridge/bridge-less property on the Host Interface per specific Network.
-When attaching a Network to an Host's NIC, user can define the bridge/bridge-less property using setupNetworks.
-This implies that a given cluster may have one host implementing
-network "pink" as bridged and another implementing it as bridge-less.
+An admin can now set a logical network as "VM network" so when attaching a Network to an Host's NIC,
+a "Vm network" is implemented over a bridge, otherwise bridgeless
 
-## Basic flow
+## create logical network
 
-*   attach a network as bridged or bridge-less
-    The setupNetworks API shall enable setting the network as bridged or not, default to bridged.
-
-REST examples:
-
-*   bridge network red , vlan id 300, over a bond4
-
-      application/yaml
-       host_nics:
-       - host_nic:
-          name: bond4.300
-          vlan_id: 300
-          network_name: red
-          bridged: true  
-
-*   create bridgeless storage network on vlan 400 over eth5:0 (eth5:0 is an alias of eth5)
-
-      application/yaml
-      host_nics:
-      - host_nic:
-          name: eth5:0.400
-          vlan_id: 400
-          network_name: storage
-          bridged: false
+*   create network under the DC - check the "VM network" box.
+*   GUI may have the VM network box checked by default
+*   to edit this property a network should be detached from all clusters
 
 ## Modified flows
 
 #### Add a Nic to VM
 
-*   validate the Nic's network is bridged on all running host in the cluster - fail with canDoAction
+*   validate the Nic's network is vmNetwork - fail with canDoAction ACTION_TYPE_FAILED_NOT_A_VM_NETWORK
 
 #### Import VM
 
-*   validate each vm interface (either it is plugged or unplugged) is attached to a network that is bridged on all running host in the cluster - fire audit log when not.
+*   validate all Nic's networks are vmNetwork - fire audit log IMPORT_VM_INTERFACES_ON_NON_VM_NETWORKS
 *   don't fail the import
 
 #### Run VM
 
-*   validate each vm interface is attached to a network that is bridged on all running host in the cluster - fail with canDoAction
+*   validate all Nic's networks is vmNetwork - fail with canDoAction ACTION_TYPE_FAILED_NOT_A_VM_NETWORK
 
-#### Un-bridge a host network via setupNetworks
+#### setupNetworks
 
-*   validate that this network doesn't have any VMs running on it. otherwise this host
-     will not be able to have VMs migrated to it and will be set to non-operational during monitoring.
+*   implicitly set VdsNetworkInterface as bridged when vmNetwork = true
 
 #### Monitoring
 
-*   when performing refresh capabilities during a host startup update the vdsInterface bridged flag.
-*   if the "bridged" is changed from true to false, make sure the rest of the cluster's hosts have this network bridge-less as well
-     if not, set to non-operational with reason NETWORK_IS_NOT_BRIDGED_ON_VDS
+*   refresh caps (when host is activated)- detect if there are VM networks that are implemented as bridgeless - if yes set host non-operational with reason VM_NETWORK_IS_BRIDGELESS
+*   afterRefreshTreatment (runtime info) - same as above
 
 ## Modelling
 
 #### Entities
-
-A bridged network is represented in VdsInterface.java and vds_interface table and is set using setupNetworks action.
-
-<b>note:</b> there is no notion of bridged network on <b>network</b> and <b>network_cluster</b> entities. Its an implementation detail of the host.
 
 *   VdsNetworkInterface.java
 
@@ -94,70 +65,37 @@ A bridged network is represented in VdsInterface.java and vds_interface table an
 *   vds_interface table
 
       vds_interface
-       bridged BOOLEAN
+       bridged BOOLEAN NOT NULL DEFAULT true
 
-#### stored procedures
+*   network.java
 
-*   **getHostsIdsWithBridgedNetwork** - get the ids of host interfaces with a given network that are bridged
+      vmNetwork : boolean
 
-      v_cluster_id
-      v_network_name
-      SELECT nic.vds_id FROM vds_interface as nic, network as net
-      WHERE
-      nic.network_name = net.name
-      AND
-      nic.bridged = true 
-      AND
-      nic.vds_id in (select vds_id FROM vds_static as vds WHERE vds.vsd_group_id = v_cluster_id )
+*   network table
 
-*   **isNetworkBridgedOnRunningClusterHosts** - use the getHostsIdsWithBridgedNetwork procedure and check at least one host is running
-
-      v_cluster_id
-      v_network_name
-      SELECT count(*) FROM vds 
-      WHERE
-      vds.status = 3 
-      AND
-      vds.id in (SELECT get_hosts_ids_with_bridged_network(v_cluster_id, v_network_name)) > 0 as value
-
-*   **isVmsRunningOnClusterNetwork** - are there any running vms using the given network?
-
-      v_cluster_id
-      v_network_name
-      return 
-      SELECT count(*) FROM vms, vm_interface_view as ifaceView 
-      WHERE
-      vms.vds_group_id = v_cluster_id 
-      AND
-      vm.status = 1 // status up
-      AND
-      ifaceView.vm_id = vm.id
-      AND
-      ifaceView.network_name = v_network_name 
-      > 0 as value
+      vm_network BOOLEAN NOT NULL DEFAULT true
 
 ## Enums
 
 *   AuditLogType.java
 
-      VDS_NETWORK_IS_NOT_BRIDGED(9600,MINUTE)
-
-*   NonOperationlreason.java
-
-      NETWORK_IS_NOT_BRIDGED_ON_VDS(8)
+      IMPORT_VM_INTERFACES_ON_NON_VM_NETWORKS(9600,MINUTE)
+      VDS_SET_NON_OPERATIONAL_VM_NETWORK_IS_BRIDGELESS(9601, MINUTE)
 
 *   VdcBLLMessages
 
-      CANNOT_UNBRIDGE_VDS_NETWORK_WITH_RUNNING_VMS
-      ACTION_TYPE_FAILED_NO_BRIDGED_NETWORKS
+      ACTION_TYPE_FAILED_NOT_A_VM_NETWORK
+
+*   NonOperationalReason.java
+
+      VM_NETWORK_IS_BRIDGELESS(8)
 
 ## Messages
 
 *   AuditLogMessage.properties
 
-      VDS_NETWORK_IS_NOT_BRIDGED=The network ${networkName} on Host ${vds} should be bridged otherwise it could not run virtual interfaces.
+      IMPORTEXPORT_IMPORT_VM_INTERFACES_ON_NON_VM_NETWORKS=Trying to import VM ${vm} with the interface/s ${interfaces} attached to non VM network/s ${newtorkNames}.
 
 *   AppErrors.properties
 
-      CANNOT_UNBRIDGE_NETWORK_WITH_RUNNING_VMS=the network ${networkName} cannot be bridgeless. Other hosts are running VMs on it.
-      ACTION_TYPE_FAILED_NO_BRIDGED_NETWORKS=Network ${networkName} on is not bridged and cannot create virtual interfaces
+      ACTION_TYPE_FAILED_NOT_A_VM_NETWORK=Failed ${action} ${type} the newtork/s ${networkNames} is not a VM network.

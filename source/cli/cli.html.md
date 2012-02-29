@@ -16,50 +16,456 @@ oVirt CLI package is a command line interface for the oVirt engine.
 
 __TOC__
 
-## Maintainer
-
-Michael Pasternak: mpastern@redhat.com
-
 ## Concepts
 
-*   Generic interface (list, show, create, update, action verbs).
 *   Interactive prompt
-*   Auto-completion.
+*   Smart auto-completion
+*   Smart help
+*   Generic interface (list, show, create, update, action verbs).
 *   Self descriptive.
 
 ## Usage
 
 ### Connect
 
-1. access interactive shell
+#### get help for connect
+
+       ovirt-shell --help
+       
+       [root@lpt21 ovirt-engine-cli (master)]# ovirt-shell --help
+       Usage: ovirt-shell [options]
+              ovirt-shell [options] command...
+       
+       This program is a command-line interface to oVirt Virtualization.
+       
+       Options:
+       -h, --help            show this help message and exit
+       -l URL, --url=URL     specifies the API entry point URL
+       -u USERNAME, --username=USERNAME
+                             connect as this user
+       -p PASSWORD, --password=PASSWORD
+                             specify password
+       -K KEY_FILE, --key-file=KEY_FILE
+                             specify key-file
+       -C CERT_FILE, --cert-file=CERT_FILE
+                             specify cert-file
+       -P PORT, --port=PORT  specify port
+       -T TIMEOUT, --timeout=TIMEOUT
+                             specify timeout
+       -c, --connect         automatically connect
+
+#### connect from ovirt-shell
 
        ovirt-shell
+       
+       connect --url "`[`http://server:8080/api`](http://server:8080/api)`" --user "user@domain" --password 'password'
+       
 
-2. issue connect command
+#### connect from linux shell
 
-       connect "`[`http://host:port/api`](http://host:port/api)`" "user@domain" "password"
+       ovirt-shell -c -l "`[`http://server:8080/api`](http://server:8080/api)`" -u "user@domain" -p 'password'
+
+       ==========================================
+       >>> connected to oVirt manager 3.1.0.0 <<<
+       ==========================================
+              
+       ++++++++++++++++++++++++++++++++++++++++++
+       
+                 Welcome to oVirt shell
+       
+       ++++++++++++++++++++++++++++++++++++++++++
+               
+           
+       [oVirt shell (connected)]# 
 
 ### Help
 
-1. help 'COMMAND', e.g:
+#### syntax
 
-![](help.jpg "help.jpg")
+*   note help is dynamically created for each command respectively
 
-### Running Query
+       help
+       
+       or
+       
+       help `<command>` [arguments] [options]
 
-![](query.jpg "query.jpg")
+### Querying
 
-### Creating resource
+#### list
 
-![](create.jpg "create.jpg")
+##### list resources
 
-### Updating resource
+         [oVirt shell (connected)]# list vms
+             
+         id         : aa849efc-4194-4b00-b274-ab32d4c222c9
+         name       : aa
+         
+         id         : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
+         name       : demo
 
-![](update.jpg "update.jpg")
+         [oVirt shell (connected)]# list vms --show-all
+         
+         id                        : aa849efc-4194-4b00-b274-ab32d4c222c9
+         name                      : aa
+         cluster-id                : e8861726-0b88-11e1-bd8c-27fb0a7aaa76
+         cpu-topology-cores        : 1
+         cpu-topology-sockets      : 1
+         creation_time             : 2012-02-16T20:00:50.859+02:00
+         display-monitors          : 1
+         display-type              : spice
+         high_availability-enabled : False
+         high_availability-priority: 1
+         memory                    : 1073741824
+         memory_policy-guaranteed  : 1073741824
+         origin                    : ovirt
+         os-boot-dev               : hd
+         os-type                   : unassigned
+         placement_policy-affinity : migratable
+         start_time                : 2012-02-29T13:36:27.880Z
+         stateless                 : False
+         status-state              : down
+         template-id               : 9c42b69e-daa3-48d7-bf97-779603892f15
+         type                      : desktop
+         usb-enabled               : True
+         
+         id                        : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
+         name                      : demo
+         cluster-id                : e8861726-0b88-11e1-bd8c-27fb0a7aaa76
+         cpu-topology-cores        : 1
+         cpu-topology-sockets      : 1
+         creation_time             : 2012-02-16T11:15:56.014+02:00
+         display-address           : 10.35.1.127
+         display-monitors          : 1
+         display-type              : vnc
+         high_availability-enabled : False
+         high_availability-priority: 1
+         memory                    : 1073741824
+         memory_policy-guaranteed  : 1073741824
+         origin                    : ovirt
+         os-boot-dev               : hd
+         os-type                   : unassigned
+         placement_policy-affinity : migratable
+         start_time                : 2012-02-29T13:36:27.887Z
+         stateless                 : False
+         status-state              : down
+         template-id               : 9c42b69e-daa3-48d7-bf97-779603892f15
+         type                      : desktop
 
-### Performing action on resource
+*   notice: --show-all option expends listed entities (default is collapsed).
 
-![](action.jpg "action.jpg")
+##### list resources filtering with oVirt query engine
+
+         [oVirt shell (connected)]# list vms --query "name=demo"
+         
+         id         : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
+         name       : demo
+
+         [oVirt shell (connected)]# list vms --kwargs "memory=1073741824"
+             
+         id         : aa849efc-4194-4b00-b274-ab32d4c222c9
+         name       : aa
+         
+         id         : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
+         name       : demo
+         
+         id         : f4a51ae1-4f31-45ee-ab6d-d5965e3bcf71
+         name       : iscsi_desktop
+         description: myvm
+         
+         id         : fea05ded-c246-4e51-885e-fef33a7ef2ad
+         name       : pythond_sdk_poc2
+
+         [oVirt shell (connected)]# list nics --vm-identifier demo
+         
+         id         : fbc1f30f-7c21-44e7-9c0a-7e4ffb57fcb4
+         name       : nic3
+         
+         id         : 1f295a64-0a4a-4fba-928d-162b458503a5
+         name       : nic1
+         
+         id         : 7ba3c79c-c619-422f-9035-6b5c8e5ea9e6
+         name       : nic2
+
+##### list sub-resources
+
+         [oVirt shell (connected)]# list disks --vm-identifier nfs_desktop
+         
+         id         : 889bad90-6efa-42c5-a545-d0ce2033218d
+         name       : Disk 2
+         
+         id         : 7a014754-a10e-42b3-91ff-6a325043f9b0
+         name       : Disk 4
+         
+         id         : 4d267464-e126-45fa-8e42-381e2f82354a
+         name       : Disk 1
+         
+         id         : b007747c-ad99-4c03-a318-42ad502afb23
+         name       : Disk 3
+
+##### list sub-resources using client side filtering
+
+         [oVirt shell (connected)]# list disks --vm-identifier nfs_desktop --kwargs "name=Disk 3"
+         
+         id         : b007747c-ad99-4c03-a318-42ad502afb23
+         name       : Disk 3
+
+         [oVirt shell (connected)]# list vms --kwargs "usb-enabled=True"
+         
+         id         : aa849efc-4194-4b00-b274-ab32d4c222c9
+         name       : aa
+         
+         id         : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
+         name       : demo
+
+#### show
+
+##### show resource
+
+         [oVirt shell (connected)]# show vm demo
+         
+         id                        : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
+         name                      : demo
+         cluster-id                : e8861726-0b88-11e1-bd8c-27fb0a7aaa76
+         cpu-topology-cores        : 1
+         cpu-topology-sockets      : 1
+         creation_time             : 2012-02-16T11:15:56.014+02:00
+         display-address           : 10.35.1.127
+         display-monitors          : 1
+         display-type              : vnc
+         high_availability-enabled : False
+         high_availability-priority: 1
+         memory                    : 1073741824
+         memory_policy-guaranteed  : 1073741824
+         origin                    : ovirt
+         os-boot-dev               : hd
+         os-type                   : unassigned
+         placement_policy-affinity : migratable
+         start_time                : 2012-02-29T13:55:15.443Z
+         stateless                 : False
+         status-state              : down
+         template-id               : 9c42b69e-daa3-48d7-bf97-779603892f15
+         type                      : desktop
+         usb-enabled               : True
+
+         [oVirt shell (connected)]# show vm --name nfs_desktop
+         
+         id                        : e0adee2b-2c95-483e-8259-2d8b29aa414d
+         name                      : nfs_desktop
+         description               : updated_desc
+         cluster-id                : f16a5ea6-0b88-11e1-9844-bb5eb66ca68b
+         cpu-topology-cores        : 1
+         cpu-topology-sockets      : 1
+         creation_time             : 2011-11-10T14:12:09.379+02:00
+         display-address           : 0
+         display-monitors          : 1
+         display-type              : spice
+         high_availability-enabled : False
+         high_availability-priority: 1
+         memory                    : 536870912
+         memory_policy-guaranteed  : 536870912
+         origin                    : rhev
+         os-boot-dev               : hd
+         os-type                   : rhel_6x64
+         placement_policy-affinity : migratable
+         start_time                : 2012-02-29T13:55:56.448Z
+         stateless                 : False
+         status-state              : down
+         template-id               : 00000000-0000-0000-0000-000000000000
+         type                      : desktop
+         usb-enabled               : True
+
+##### show resource using client side filtering
+
+         [oVirt shell (connected)]# show vm --kwargs "id=f4a51ae1-4f31-45ee-ab6d-d5965e3bcf71"
+         
+         id                        : f4a51ae1-4f31-45ee-ab6d-d5965e3bcf71
+         name                      : iscsi_desktop
+         description               : myvm
+         cluster-id                : e8861726-0b88-11e1-bd8c-27fb0a7aaa76
+         cpu-topology-cores        : 1
+         cpu-topology-sockets      : 1
+         creation_time             : 2012-01-04T13:27:05.266+02:00
+         display-monitors          : 4
+         display-type              : spice
+         high_availability-enabled : True
+         high_availability-priority: 7
+         memory                    : 1073741824
+         memory_policy-guaranteed  : 1073741824
+         origin                    : rhev
+         os-boot-dev               : hd
+         os-type                   : unassigned
+         placement_policy-affinity : migratable
+         start_time                : 2012-02-29T13:57:07.096Z
+         stateless                 : False
+         status-state              : down
+         template-id               : 9c42b69e-daa3-48d7-bf97-779603892f15
+         type                      : desktop
+         usb-enabled               : True
+
+##### show sub-resource
+
+         [oVirt shell (connected)]# show nic nic1 --vm-identifier demo
+         
+         id         : 1f295a64-0a4a-4fba-928d-162b458503a5
+         name       : nic1
+         interface  : virtio
+         mac-address: 00:1a:4a:16:01:68
+         network-id : d85a5cb2-057b-40ec-8d9c-b4ee6a7646c4
+         vm-id      : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
+
+### Creating
+
+#### create resource
+
+         [oVirt shell (connected)]# create vm --name demo2 --template-name iscsi_desktop_tmpl --cluster-name Default_iscsi
+         
+         id                        : dd981334-afb7-4142-a880-536bb8aef53f
+         name                      : demo2
+         cluster-id                : e8861726-0b88-11e1-bd8c-27fb0a7aaa76
+         cpu-topology-cores        : 1
+         cpu-topology-sockets      : 1
+         creation_status-state     : pending
+         creation_time             : 2012-02-29T16:01:57.896+02:00
+         display-monitors          : 1
+         display-type              : spice
+         high_availability-enabled : False
+         high_availability-priority: 1
+         memory                    : 1073741824
+         memory_policy-guaranteed  : 1073741824
+         origin                    : ovirt
+         os-boot-dev               : hd
+         os-type                   : unassigned
+         placement_policy-affinity : migratable
+         start_time                : 2012-02-29T14:02:01.533Z
+         stateless                 : False
+         status-state              : image_locked
+         template-id               : 9c42b69e-daa3-48d7-bf97-779603892f15
+         type                      : desktop
+         usb-enabled               : True
+
+         [oVirt shell (connected)]# create datacenter --name mydc --storage_type nfs --version-major 3 --version-minor 1
+         
+         id                              : 4c490b43-e681-49d8-958c-9300787982eb
+         name                            : mydc
+         status-state                    : uninitialized
+         storage_type                    : nfs
+         supported_versions-version-major: 3
+         supported_versions-version-minor: 1
+         version-major                   : 3
+         version-minor                   : 1
+
+#### create sub-resource
+
+         [oVirt shell (connected)]# create nic --vm-identifier demo2 --network-name engine --name mynic
+         
+         id         : a211d8bb-8abb-429b-8d36-fc4eb44b6ea8
+         name       : mynic
+         interface  : virtio
+         mac-address: 00:1a:4a:16:01:5a
+         network-id : d85a5cb2-057b-40ec-8d9c-b4ee6a7646c4
+         vm-id      : dd981334-afb7-4142-a880-536bb8aef53f
+
+### Delete
+
+#### delete resource
+
+         [oVirt shell (connected)]# delete vm aa
+
+#### delete sub-resource
+
+         [oVirt shell (connected)]# delete disk "Disk 1" --vm-identifier demo2
+
+*   note: ether id or name can be used as --resource-identifier
+
+### Update
+
+*   note: at this point auto-completion for 'update' command is not available,
+
+             use entity properties names as command options  
+
+#### update resource
+
+         [oVirt shell (connected)]# update vm iscsi_desktop --description iscsi_desktop_desc
+         
+         id                        : f4a51ae1-4f31-45ee-ab6d-d5965e3bcf71
+         name                      : iscsi_desktop
+         description               : iscsi_desktop_desc
+         cluster-id                : e8861726-0b88-11e1-bd8c-27fb0a7aaa76
+         cpu-topology-cores        : 1
+         cpu-topology-sockets      : 1
+         creation_time             : 2012-01-04T13:27:05.266+02:00
+         display-monitors          : 4
+         display-type              : spice
+         high_availability-enabled : True
+         high_availability-priority: 7
+         memory                    : 1073741824
+         memory_policy-guaranteed  : 1073741824
+         origin                    : rhev
+         os-boot-dev               : hd
+         os-type                   : unassigned
+         placement_policy-affinity : migratable
+         start_time                : 2012-02-29T14:08:15.353Z
+         stateless                 : False
+         status-state              : down
+         template-id               : 9c42b69e-daa3-48d7-bf97-779603892f15
+         type                      : desktop
+         usb-enabled               : True
+
+         [oVirt shell (connected)]# update vm iscsi_desktop --display-monitors 2 --description test1
+         
+         id                        : f4a51ae1-4f31-45ee-ab6d-d5965e3bcf71
+         name                      : iscsi_desktop
+         description               : test1
+         cluster-id                : e8861726-0b88-11e1-bd8c-27fb0a7aaa76
+         cpu-topology-cores        : 1
+         cpu-topology-sockets      : 1
+         creation_time             : 2012-01-04T13:27:05.266+02:00
+         display-monitors          : 2
+         display-type              : spice
+         high_availability-enabled : True
+         high_availability-priority: 7
+         memory                    : 1073741824
+         memory_policy-guaranteed  : 1073741824
+         origin                    : rhev
+         os-boot-dev               : hd
+         os-type                   : unassigned
+         placement_policy-affinity : migratable
+         start_time                : 2012-02-29T14:11:13.357Z
+         stateless                 : False
+         status-state              : down
+         template-id               : 9c42b69e-daa3-48d7-bf97-779603892f15
+         type                      : desktop
+         usb-enabled               : True
+
+#### update sub-resource
+
+         [oVirt shell (connected)]# update nic nic1 --vm-identifier demo --interface virtio
+         
+         id         : 1f295a64-0a4a-4fba-928d-162b458503a5
+         name       : nic1
+         interface  : virtio
+         mac-address: 00:1a:4a:16:01:68
+         network-id : d85a5cb2-057b-40ec-8d9c-b4ee6a7646c4
+         vm-id      : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
+
+### Action
+
+#### action on resource
+
+         [oVirt shell (connected)]# action vm demo start --vm-display-type vnc --async true
+         error: 
+         status: 400
+         reason: Bad Request
+         detail: [Cannot run VM. Low disk space on relevant Storage Domain.]
+
+#### action on sub-resource
+
+         [oVirt shell (connected)]# action nic bond0 attach --host-identifier grey-vdsa
+         error: 
+         status: 400
+         reason: Bad Request
+         detail: Action [network.id|name] required for attach
 
 ## Repository
 
@@ -114,5 +520,9 @@ That will install lxml, because EPEL's python-lxml is not yet up to the version 
 <!-- -->
 
 *   supporting header parameters exposed by sdk (depends on sdk implementation)
+
+## Maintainer
+
+Michael Pasternak: mpastern@redhat.com
 
 <Category:CLI>

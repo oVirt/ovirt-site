@@ -388,7 +388,7 @@ __TOC__
 
 *   note: at this point auto-completion for 'update' command is not available,
 
-             use entity properties names as command options  
+use entity properties names as command options
 
 #### update resource
 

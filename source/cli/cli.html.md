@@ -152,7 +152,7 @@ __TOC__
          template-id               : 9c42b69e-daa3-48d7-bf97-779603892f15
          type                      : desktop
 
-*   notice: --show-all option expends listed entities (default is collapsed).
+*   notice: --show-all option extends listed entities (default mode is collapsed).
 
 ##### list resources using oVirt query engine filtering
 

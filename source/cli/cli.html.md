@@ -72,7 +72,7 @@ __TOC__
 
 #### get help for connect
 
-       ovirt-shell --help
+       [root@lpt21 mpastern]# ovirt-shell --help
        
        [root@lpt21 ovirt-engine-cli (master)]# ovirt-shell --help
        Usage: ovirt-shell [options]

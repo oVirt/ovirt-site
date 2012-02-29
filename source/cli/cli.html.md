@@ -316,7 +316,7 @@ __TOC__
          network-id : d85a5cb2-057b-40ec-8d9c-b4ee6a7646c4
          vm-id      : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
 
-### Creating
+### Create
 
 #### create resource
 

@@ -154,12 +154,14 @@ __TOC__
 
 *   notice: --show-all option expends listed entities (default is collapsed).
 
-##### list resources filtering with oVirt query engine
+##### list resources using oVirt query engine filtering
 
          [oVirt shell (connected)]# list vms --query "name=demo"
          
          id         : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
          name       : demo
+
+##### list resources using client side filtering
 
          [oVirt shell (connected)]# list vms --kwargs "memory=1073741824"
              
@@ -176,17 +178,6 @@ __TOC__
          id         : fea05ded-c246-4e51-885e-fef33a7ef2ad
          name       : pythond_sdk_poc2
 
-         [oVirt shell (connected)]# list nics --vm-identifier demo
-         
-         id         : fbc1f30f-7c21-44e7-9c0a-7e4ffb57fcb4
-         name       : nic3
-         
-         id         : 1f295a64-0a4a-4fba-928d-162b458503a5
-         name       : nic1
-         
-         id         : 7ba3c79c-c619-422f-9035-6b5c8e5ea9e6
-         name       : nic2
-
 ##### list sub-resources
 
          [oVirt shell (connected)]# list disks --vm-identifier nfs_desktop
@@ -202,6 +193,17 @@ __TOC__
          
          id         : b007747c-ad99-4c03-a318-42ad502afb23
          name       : Disk 3
+
+         [oVirt shell (connected)]# list nics --vm-identifier demo
+         
+         id         : fbc1f30f-7c21-44e7-9c0a-7e4ffb57fcb4
+         name       : nic3
+         
+         id         : 1f295a64-0a4a-4fba-928d-162b458503a5
+         name       : nic1
+         
+         id         : 7ba3c79c-c619-422f-9035-6b5c8e5ea9e6
+         name       : nic2
 
 ##### list sub-resources using client side filtering
 

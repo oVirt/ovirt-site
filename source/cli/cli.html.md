@@ -205,6 +205,8 @@ __TOC__
          id         : 7ba3c79c-c619-422f-9035-6b5c8e5ea9e6
          name       : nic2
 
+*   note: ether id or name can be used as --resource-identifier
+
 ##### list sub-resources using client side filtering
 
          [oVirt shell (connected)]# list disks --vm-identifier nfs_desktop --kwargs "name=Disk 3"
@@ -219,6 +221,8 @@ __TOC__
          
          id         : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
          name       : demo
+
+*   note: ether id or name can be used as --resource-identifier
 
 #### show
 
@@ -504,12 +508,7 @@ That will install lxml, because EPEL's python-lxml is not yet up to the version 
 
 ## TODO list
 
-*   refactor CLI to use SDK metadata rather than static mappings (in progress)
-
-       - help
-       - actions
-
-*   use api xml type properties as CLI arguments (in progress)
+*   support collection based properties on resource
 
 <!-- -->
 

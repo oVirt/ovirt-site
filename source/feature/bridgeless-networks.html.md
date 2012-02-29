@@ -22,6 +22,10 @@ wiki_last_updated: 2013-01-29
 
 An admin can now set a logical network as "VM network" so when attaching a Network to an Host's NIC,
 a "Vm network" is implemented over a bridge, otherwise bridgeless
+If a host newtork is bridgeless but should be a VM network the host will be set to non-operational state.
+
+Also, A cluster network can be set as "optional", meaning that host is operational as long as it have
+all the non-optional networks attached.
 
 ## create logical network
 
@@ -30,6 +34,10 @@ a "Vm network" is implemented over a bridge, otherwise bridgeless
 *   to edit this property a network should be detached from all clusters
 
 ## Modified flows
+
+#### Create management network
+
+*   management network is always created as optional=false
 
 #### Add a Nic to VM
 
@@ -50,7 +58,9 @@ a "Vm network" is implemented over a bridge, otherwise bridgeless
 
 #### Monitoring
 
-*   refresh caps (when host is activated)- detect if there are VM networks that are implemented as bridgeless - if yes set host non-operational with reason VM_NETWORK_IS_BRIDGELESS
+*   refresh caps (when host is activated)-
+    -   detect if there are VM networks that are implemented as bridgeless - if yes set host non-operational with reason VM_NETWORK_IS_BRIDGELESS
+    -   if a host misses cluster networks which are not optional - set as non -operational
 *   afterRefreshTreatment (runtime info) - same as above
 
 ## Modelling
@@ -60,7 +70,7 @@ a "Vm network" is implemented over a bridge, otherwise bridgeless
 *   VdsNetworkInterface.java
 
       VdsNetworkInterface
-       bridged : boolean
+       boolean bridged
 
 *   vds_interface table
 
@@ -69,11 +79,19 @@ a "Vm network" is implemented over a bridge, otherwise bridgeless
 
 *   network.java
 
-      vmNetwork : boolean
+      boolean vmNetwork
 
 *   network table
 
       vm_network BOOLEAN NOT NULL DEFAULT true
+
+*   network_cluster.java
+
+      boolean optional
+
+*   network_cluster table
+
+      optional BOOLEAN
 
 ## Enums
 

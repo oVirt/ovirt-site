@@ -35,6 +35,8 @@ wiki_last_updated: 2012-08-20
 *   **MUST**: Can define NFS, iSCSI, FC and local based storage domains
 *   **MUST**: Can define VLAN based networks, bond interfaces, and have VLANs over bonded interfaces
 *   **MUST**: Can authenticate users against at least one external LDAP server
+*   **MUST**: Can run multiple VMs
+*   **MUST**: Can connect to VMs using SPICE
 
 #### SHOULD
 

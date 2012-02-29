@@ -157,6 +157,11 @@ Override this method to return appropriate "condition value auto completer" for 
 
 In case auto-completion is not required for values of the given field, return null
 
+**Note:** If you use *EnumValueAutoCompleter*, the corresponding enum must provide following two methods:
+
+      ''   public int getValue();
+      ''   public static `<enum_name>` forValue(int value);
+
 ### Cross Reference Auto Completer
 
 Write a new class that extends *SearchObjectsBaseAutoCompleter* and add required verbs in the constructor.

@@ -66,7 +66,7 @@ __TOC__
 #### available options for command on specific sub-resource
 
          [oVirt shell (connected)]# create nic --vm-identifier xxx `<TAB><TAB>` 
-         host          interface     mac-address   name          network-id    network-name  vm 
+         interface     mac-address   name          network-id    network-name
 
 *   note typing beginning of the option name and then hitting <TAB>, will convert
 

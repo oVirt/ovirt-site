@@ -26,6 +26,48 @@ __TOC__
 
 ## Usage
 
+### Help
+
+#### syntax
+
+*   note help is dynamically created for each command respectively
+
+       help
+       
+       or
+       
+       help `<command>` [arguments] [options]
+
+### Auto-Completion
+
+#### available commands
+
+`   [oVirt shell (connected)]# `<TAB><TAB>
+         EOF         clear       console     delete      echo        help        ping        show        update      
+         action      connect     create      disconnect  exit        list        shell       status 
+
+#### available options for specific command
+
+`   [oVirt shell (connected)]# create `<TAB><TAB>
+         cdrom          datacenter     group          network        permission     role           storagedomain  template       vm             
+         cluster        disk           host           nic            permit         snapshot       tag            user           vmpool
+
+#### available options for command on specific resource
+
+`   [oVirt shell (connected)]# create vm `<TAB><TAB>
+         cluster-id                               display-type                             os-boot-dev                              template-id
+         cluster-name                             domain-name                              os-cmdline                               template-name
+         cpu-topology-cores                       high_availability-enabled                os-initRd                                timezone
+         cpu-topology-sockets                     high_availability-priority               os-kernel                                type
+         custom_properties-custom_property        memory                                   os-type                                  usb-enabled
+         description                              name                                     placement_policy-affinity                
+         display-monitors                         origin                                   stateless
+
+#### available options for command on specific sub-resource
+
+         [oVirt shell (connected)]# create nic --vm-identifier xxx `<TAB><TAB>` 
+         host          interface     mac-address   name          network-id    network-name  vm 
+
 ### Connect
 
 #### get help for connect
@@ -77,18 +119,6 @@ __TOC__
                
            
        [oVirt shell (connected)]# 
-
-### Help
-
-#### syntax
-
-*   note help is dynamically created for each command respectively
-
-       help
-       
-       or
-       
-       help `<command>` [arguments] [options]
 
 ### Querying
 

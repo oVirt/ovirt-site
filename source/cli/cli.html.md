@@ -68,6 +68,10 @@ __TOC__
          [oVirt shell (connected)]# create nic --vm-identifier xxx `<TAB><TAB>` 
          host          interface     mac-address   name          network-id    network-name  vm 
 
+*   note typing beginning of the option name and then hitting <TAB>, will convert
+
+option to appropriate option format adding prefix or suffix.
+
 ### Connect
 
 #### get help for connect

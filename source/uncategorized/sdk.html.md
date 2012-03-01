@@ -134,9 +134,9 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
        myVm = api.vms.get(name='nfs_desktop')
        neDisk = myVm.disks.add(diskParam)
 
-*   note: params.Disk(storage_domains=...,
+*   note: params.Disk(storage_domains=..., => this is means that Disk constructor should receive collection (params.StorageDomains()) as parameter
 
-this is means that Disk constructor should receive collection (params.StorageDomains()) as parameter
+<!-- -->
 
 *   list sub-resources
 

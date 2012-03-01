@@ -14,10 +14,6 @@ oVirt SDK package a software development kit for the oVirt engine api.
 
 __TOC__
 
-## Maintainer
-
-Michael Pasternak: mpastern@redhat.com
-
 ## Concepts
 
 *   Complete protocol abstraction.
@@ -242,5 +238,9 @@ For local install in site-packages, from ovirt-engine-sdk repo:
 <!-- -->
 
 *   refactoring internal exceptions for better error handling on client side
+
+## Maintainer
+
+Michael Pasternak: mpastern@redhat.com
 
 <Category:SDK>

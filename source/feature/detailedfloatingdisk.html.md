@@ -107,6 +107,36 @@ The Power User Portal should allow the following operations:
         For now, premissions for disk entities will *not* be supported.
         Consequently, availabilty of disks will be deterimined by their type (i.e. users can attach only floating disks).
 
+#### Search
+
+Search of disks should retrieve the following fields:
+
+*   VM Name (For floating will return detached)
+*   Disk Name
+*   Description
+*   Size
+*   Actual Size
+*   Creation Date
+*   Bootable (True / False)
+*   Shared (True / False)
+*   quota name?
+*   quota id?
+
+Should consider adding the optional fields:
+
+*   Direct LUN?
+*   Interface?
+*   Allocation?
+
+The return value should be sorted by VM Name and Disk Name.
+Search auto completion will be supporting the following properties:
+
+*   Disk name
+*   VM name
+*   bootable by searching for bootable = true
+*   shared by searching for shared = true
+*   floating disks by searching for floating = true
+
 ##### Mockups
 
 The following UI mockups contain guidelines for the different screens and wizards:

@@ -21,7 +21,28 @@ Remote DB feature means working with a Postgres instance on a remote host.
 
 ### Current status
 
-The details are still being worked out.
+The code was developed and is waiting for code review.
+
+### Design and flow
+
+The flow of installation is as follows:
+
+#### Setup
+
+*   During the engine-setup operation, user is asked to enter DB hostname or an IP. Default value 'localhost' is offered.
+
+      * If entered 'localhost' or '127.0.0.1', the installation will continue with default flow present today.
+      * If entered a hostname or IP of the remote host, the additional set of questions will be presented.
+        * Additional questions include: DB Admin username, DB Port and "Security usage" parameters.
+
+*   Installation proceeds with normal flow.
+*   During the normal flow, additional parameters (if entered by user) are used during DB creation and JBoss configuration.
+
+<!-- -->
+
+*   If setup is rerun, the same parameter are used in "upgradeDb" function.Also, see "Upgrade" section for the upgrade logic.
+
+#### Upgrade
 
 ### Comments and Discussion
 

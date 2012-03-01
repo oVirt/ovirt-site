@@ -517,11 +517,7 @@ use entity properties names as command options
 
 To build rpm and install it, from ovirt-engine-cli repo:
 
-      yum install rpm-build
-
-      yum install python-devel
-
-      yum install python-setuptools
+      yum install -y rpm-build python-devel python-setuptools
 
       make rpm
 

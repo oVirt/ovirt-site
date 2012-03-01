@@ -32,7 +32,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   remove explicit calls to `traceback.format_exc()` in log lines. Use `exc_info=True` instead.
+*   remove explicit calls to `traceback.format_exc()` in log lines. Use `exc_info=True` instead. (http://gerrit.ovirt.org/#change,2259)
 
 <!-- -->
 

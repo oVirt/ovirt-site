@@ -38,24 +38,34 @@ The flow of installation is as follows:
 *   Installation proceeds with normal flow.
 *   During the normal flow, additional parameters (if entered by user) are used during DB creation and JBoss configuration.
 
-<!-- -->
+DB configuration parameters are stored in **~/.pgpass file**, including remote host, port and username/password. JBoss configuration is stored in **/usr/share/jboss-as/standalone/configuration/standalone.xml** file.
 
-*   If setup is rerun, the same parameter are used in "upgradeDb" function.Also, see "Upgrade" section for the upgrade logic.
+*   If setup is rerun, the same parameter are used in "upgradeDb" function. Also, see next section for the upgrade logic.
 
 #### Upgrade
+
+*   During the upgrade, the DB connection values are received from ~/.pgpass file and used for connection.
+*   The upgrade works as follows:
+
+      * First, the packages are upgraded is necessary.
+      * Before performing the DB upgrade, a backup is taken.
+`* After the backup, the default DB (engine) is renamed to engine-`<date>
+       * If renaming fails, yum rollback is performed, and user is notified about possible active connections.
+       * If renaming succeeds, DB upgrade is started.
+      * If upgrade fails, the renamed DB is removed and yum rollback is performed.
+      * If upgrade succeeds, the engine-`<date>` is renamed back to 'engine'.
+
+#### Cleanup
+
+*   During the upgrade, the DB connection values are received from ~/.pgpass file and used for connection.
+*   If DB drop fails user is notified about possible active connections.
 
 ### Comments and Discussion
 
 Currently there are two questions we need to get answer to:
 
-      1. What if potential customer asks us to create certificate for her DB?
+      1. What if potential customer asks us to create certificate for the DB?
       2. What kind of permissions we can receive on remote DB?
-
-The current recommended design items are:
-
-      1. User provided by remote DB must have "CREATE" privileges on the server, so it create 'engine' and other DBs; and enough permissions to check active connections to our DBs.
-      2. During operations that require "DROP/ALTER" privileges the setup will check first if there are active connections to the DB.If there are, the operation will stop and warn the user.
-      3. If there are no users connected to the DB, the DB name will be altered to a different one to avoid new connections. After the completion of operations (upgrade, rollback, etc), the DB will be renamed back.
 
 ### FAQ:
 
@@ -64,8 +74,5 @@ The current recommended design items are:
 
       Q. Can DB admin rename the DB?
       A. Only if DB admin is the DB owner.
-
-      Q. Can DB be renamed when there are active connections to the DB?
-      A. No (still being verified).
 
 <Category:Feature>

@@ -542,6 +542,10 @@ That will install lxml, because EPEL's python-lxml is not yet up to the version 
 
 ## TODO list
 
+*   support command invocation without entering to interactive prompt
+
+<!-- -->
+
 *   support collection based properties on resource
 
 <!-- -->

@@ -18,14 +18,14 @@ This feature will allow to define a DC of a customizable type. The storage domai
 
 ## Current Status
 
-Done:
-
-*   Make needed changes in VDSM (http://gerrit.ovirt.org/559)
-
 To do:
 
 *   Make needed change in Ovirt-Engine
 *   Make needed change in the GUIs
+
+Done:
+
+*   Make needed changes in VDSM (http://gerrit.ovirt.org/559)
 
 ## Description
 

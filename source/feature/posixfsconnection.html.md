@@ -12,9 +12,9 @@ wiki_last_updated: 2015-01-16
 
 Also known as SharedFS support
 
-## Summery
+## Summary
 
-Will allow VDSM to use any mountable target a a domain.
+This feature will allow to define a DC of a customizable type. The storage domains in this DC will be mounted with custom properties and will support file system based storage domains which do not necessarily rely on NFS.
 
 ## Current Status
 

@@ -30,7 +30,10 @@ Introduce an entry (say *GlusterVolume*) for the entity in *org.ovirt.engine.cor
 
 # Handle the new search type in the SearchQuery command
 
-*   Introduce a method to prepare the query and fetch list of entities by executing the same
+*   Introduce a method to prepare the query for fetching list of entities.
+
+The genericSearch might be useful to use, as follow:
+ '' genericSearch(DbFacade.getInstance().getGlusterVolumeDAO(), true, null); It should be the same as using the following code, but more generic:
 
         '' protected List`<GlusterVolumeEntity>` searchGlusterVolumes() {
         ''     List`<GlusterVolumeEntity>` returnValue = null;

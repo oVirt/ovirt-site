@@ -16,6 +16,10 @@ Follow the [RSVP list response process](RSVP list response process).
 
 Welcome to the email list for attendees of the 21 March 2012 oVirt workshop in Beijing. This list is used by event coordinators to tell you all about event details, such as locations and schedule.
 
+Check the list archives for any messages sent before you joined this list:
+
+<http://lists.ovirt.org/pipermail/workshop-mar2012/>
+
 ## Reply bits when sending back to attendee and rsvp@ list
 
 "I am also going to add you to the email list we will use for workshop announcements and coordination."

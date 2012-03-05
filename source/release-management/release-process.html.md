@@ -62,3 +62,5 @@ wiki_last_updated: 2015-02-23
     -   Move all release candidate sources/binaries into the "stable" directory
     -   Encourage community members to blog / tweet about the release
     -   PARTY
+
+[Category:Release management](Category:Release management)

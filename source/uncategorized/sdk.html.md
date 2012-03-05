@@ -220,10 +220,6 @@ For local install in site-packages, from ovirt-engine-sdk repo:
 
 <!-- -->
 
-*   supporting matrix url parameters
-
-<!-- -->
-
 *   supporting header parameters
 
 <!-- -->

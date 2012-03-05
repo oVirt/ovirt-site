@@ -46,4 +46,4 @@ wiki_last_updated: 2012-08-20
 
 ### Open issues
 
-<Category:Releases>
+<Category:Releases> [Category:Release management](Category:Release management)

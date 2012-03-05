@@ -34,8 +34,8 @@ In the upcoming version, SPICE is about to perform the following changes/additio
 2.  Native USB support
     -   This option will only be supported in the virt-viewer client
 
-3.  Change multiple monitor support on RHEL and Fedora
-    -   Instead of supporting multiple monitor support by adding several display devices, it will be done using one device, with a number of available monitors
+3.  Limited multiple monitor support on RHEL and Fedora
+    -   Multiple monitors will be supported by RHEL and Fedora with certain limitations
 
 4.  WAN support - there are several protocol options that are useful when connecting using SPICE via WAN (compression options, display options, etc.)
 

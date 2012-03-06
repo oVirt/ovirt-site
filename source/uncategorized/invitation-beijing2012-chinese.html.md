@@ -26,13 +26,15 @@ wiki_last_updated: 2012-03-06
 
 如果你想参加本次研讨会，请填写下表。
 
+|------|----------|----------|---------------------|
+| 姓名 | 工作单位 | 联系方式 | email               |
+|      |          |          | -   -   @\*\*\*.com |
+
 英文报名请回复： rsvp@ovirt.org
 
 中文报名请回复：shaohef@cn.ibm.com
 
-姓名
-
-工作单位 行业 联系方式 e-mail
+<!-- -->
 
 更多信息，详见www.ovirt.org/workshop <http://www.ovirt.org/workshop>
 

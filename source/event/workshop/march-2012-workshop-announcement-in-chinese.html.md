@@ -25,7 +25,7 @@ oVirt研讨会于2012年3月21日在IBM北京举行，该研讨会欢迎所有�
 
 英文：
 
-请直接回复邮件到E-mail：rsvp@oVirt.org
+[英文报名](http://www.ovirt.org/2012/02/03/ovirt-beijing-workshop/)
 
 中文：
 

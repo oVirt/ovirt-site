@@ -26,9 +26,9 @@ wiki_last_updated: 2012-03-06
 
 如果你想报名参加本次研讨会，请填写以下表格并回复到<ins style="color:blue">shaohef@cn.ibm.com</ins>。
 
-|------|----------|----------|---------------------|
-| 姓名 | 工作单位 | 联系方式 | email               |
-|      |          |          | -   -   @\*\*\*.com |
+|------|----------|----------|--------------------|
+| 姓名 | 工作单位 | 联系方式 | email              |
+|      |          |          | -   -   @ovirt.org |
 
 更多信息，详见[oVirt研讨会](http://ovirt.org/wiki/March_2012_workshop_announcement_in_Chinese)
 

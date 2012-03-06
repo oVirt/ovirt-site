@@ -37,6 +37,10 @@ oVirt研讨会于2012年3月21日在IBM北京举行，该研讨会欢迎所有�
 
 协调人联系方式：
 
+英文：
+
 Karsten Wade kwade@redhat.com
+
+中文：
 
 ShaoHe Feng shaohef@cn.ibm.com

@@ -42,7 +42,10 @@ wiki_last_updated: 2012-03-06
 
 oVirt小组
 
-         会议时间： 3月21日。
-         会议地点：中国北京市海淀区东北旺西路8号中关村软件园19号楼钻石大厦创新中心。
-         报名:  rsvp@ovirt.org
-         联系人：kwade@redhat.com  or  shaohef@cn.ibm.com
+会议时间： 3月21日。
+
+会议地点：中国北京市海淀区东北旺西路8号中关村软件园19号楼钻石大厦创新中心。
+
+报名: rsvp@ovirt.org
+
+联系人：kwade@redhat.com or shaohef@cn.ibm.com

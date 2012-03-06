@@ -22,20 +22,11 @@ oVirt研讨会于2012年3月21日在IBM北京举行，该研讨会欢迎所有�
 [更多oVirt背景](http://ovirt.org/wiki/OVirt_home_in_Chinese)
 
 报名方式：  
-
-英文：
-
-[英文报名](http://www.ovirt.org/2012/02/03/ovirt-beijing-workshop/)
+[English](http://www.ovirt.org/2012/02/03/ovirt-beijing-workshop/)
 
 中文：
 
-请填写如下表格：
-
-|------|----------|----------|---------------------|
-| 姓名 | 工作单位 | 联系方式 | email               |
-|      |          |          | -   -   @\*\*\*.com |
-
-:: 然后发送到E-mail：shaohef@cn.ibm.com
+[中文](http://ovirt.org/wiki/OVirt_Invitation_Beijing2012_Chinese)
 
 :;会议相关信息：
 

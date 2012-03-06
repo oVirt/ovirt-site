@@ -24,11 +24,7 @@ wiki_last_updated: 2012-03-06
 
 本次研讨会欢迎所有的个人、公司及各种机构。请不要错过这次机会，帮助促进开源虚拟化管理平台项目的成长，开发，管理以及未来的影响。对虚拟化平台感兴趣的爱好者们，不要犹豫，请立即加入该研讨会。
 
-如果你想报名参加本次研讨会，请填写以下表格并回复到<ins style="color:blue">shaohef@cn.ibm.com</ins>。
-
-|------|----------|----------|--------------------|
-| 姓名 | 工作单位 | 联系方式 | email              |
-|      |          |          | -   -   @ovirt.org |
+<!-- -->
 
 更多信息，详见[oVirt研讨会](http://ovirt.org/wiki/March_2012_workshop_announcement_in_Chinese)
 
@@ -43,3 +39,13 @@ oVirt小组
 **报名**: <ins style="color:blue">shaohef@cn.ibm.com</ins>
 
 **联系人**：<ins style="color:blue">ShaoHe Feng shaohef@cn.ibm.com</ins>
+
+------------------------------------------------------------------------
+
+如果你想报名参加本次研讨会，请填写以下表格，
+
+|------|----------|----------|--------------------|
+| 姓名 | 工作单位 | 联系方式 | email              |
+|      |          |          | -   -   @ovirt.org |
+
+然后发送到E-mail：<ins style="color:blue">shaohef@cn.ibm.com</ins>

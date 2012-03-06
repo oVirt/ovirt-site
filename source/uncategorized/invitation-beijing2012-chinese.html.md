@@ -40,6 +40,6 @@ oVirt小组
 
 **会议地点**：中国北京市海淀区东北旺西路8号中关村软件园19号楼钻石大厦创新中心。
 
-**报名**: shaohef@cn.ibm.com
+**报名**: <ins style="color:blue">shaohef@cn.ibm.com</ins>
 
-**联系人**：ShaoHe Feng shaohef@cn.ibm.com
+**联系人**：<ins style="color:blue">ShaoHe Feng shaohef@cn.ibm.com</ins>

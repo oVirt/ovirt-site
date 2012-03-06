@@ -30,7 +30,7 @@ wiki_last_updated: 2012-03-06
 | 姓名 | 工作单位 | 联系方式 | email               |
 |      |          |          | -   -   @\*\*\*.com |
 
-更多信息，详见www.ovirt.org/workshop <http://www.ovirt.org/workshop>
+更多信息，详见[oVirt研讨会](http://ovirt.org/wiki/March_2012_workshop_announcement_in_Chinese)
 
 谢谢
 

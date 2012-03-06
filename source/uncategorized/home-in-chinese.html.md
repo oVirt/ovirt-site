@@ -30,4 +30,4 @@ oVirt北京研讨会 -3月21日
 
 更多服务信息将发送到通过上述mail已注册的用户。
 
-![image](oVirtFOSDEM.jpg "image")
+![image](File:oVirtFOSDEM.jpg "image")

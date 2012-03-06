@@ -8,7 +8,7 @@ wiki_last_updated: 2012-03-06
 
 # OVirt Invitation Beijing2012 Chinese
 
-如果您对oVirt感兴趣，想进一步宣传和提升本次oVirt研讨会的影响，您可以将该邀请转发给对oVirt的感兴趣的同行或者朋友。 该网页的快捷链接是http://wp.me/P1QQq2-4f
+如果您对oVirt感兴趣，想进一步宣传和提升本次oVirt研讨会的影响，您可以将该邀请转发给对oVirt的感兴趣的同行或者朋友。 [英文邀请](http://wp.me/P1QQq2-4f)
 
 ------------------------------------------------------------------------
 
@@ -24,17 +24,11 @@ wiki_last_updated: 2012-03-06
 
 本次研讨会欢迎所有的个人、公司及各种机构。请不要错过这次机会，帮助促进开源虚拟化管理平台项目的成长，开发，管理以及未来的影响。对虚拟化平台感兴趣的爱好者们，不要犹豫，请立即加入该研讨会。
 
-如果你想参加本次研讨会，请填写下表。
+如果你想报名参加本次研讨会，请填写以下表格并回复到[shaohef@cn.ibm.com shaohef@cn.ibm.com]。
 
 |------|----------|----------|---------------------|
 | 姓名 | 工作单位 | 联系方式 | email               |
 |      |          |          | -   -   @\*\*\*.com |
-
-英文报名请回复： rsvp@ovirt.org
-
-中文报名请回复：shaohef@cn.ibm.com
-
-<!-- -->
 
 更多信息，详见www.ovirt.org/workshop <http://www.ovirt.org/workshop>
 
@@ -42,10 +36,10 @@ wiki_last_updated: 2012-03-06
 
 oVirt小组
 
-会议时间： 3月21日。
+**会议时间**： 3月21日。
 
-会议地点：中国北京市海淀区东北旺西路8号中关村软件园19号楼钻石大厦创新中心。
+**会议地点**：中国北京市海淀区东北旺西路8号中关村软件园19号楼钻石大厦创新中心。
 
-报名: rsvp@ovirt.org
+**报名**: rsvp@ovirt.org
 
-联系人：kwade@redhat.com or shaohef@cn.ibm.com
+**联系人**：kwade@redhat.com or shaohef@cn.ibm.com

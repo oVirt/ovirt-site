@@ -5,8 +5,6 @@ authors: mingshu
 wiki_title: March 2012 workshop announcement in Chinese
 wiki_revision_count: 55
 wiki_last_updated: 2012-03-06
-wiki_conversion_fallback: true
-wiki_warnings: conversion-fallback
 ---
 
 # March 2012 workshop announcement in Chinese
@@ -19,25 +17,23 @@ oVirt研讨会于2012年3月21日在IBM北京举行，该研讨会欢迎所有�
 
 如果您对这样一个开放的虚拟化管理平台有兴趣，欢迎加入我们的研讨会。
 
-报名方式：
+报名方式：  
 
 英文：
 
-请直接回复邮件到E-mail：<rsvp@oVirt.org>
+请直接回复邮件到E-mail：rsvp@oVirt.org
 
 中文：
 
 请填写如下表格：
 
-      {| border="1" cellspacing="0"
-      |姓名||工作单位||联系方式||email
-      |-
-       style="width: 30%;background-color:white;"|||    ||    ||
-      |}
+|------|----------|----------|---------------------|
+| 姓名 | 工作单位 | 联系方式 | email               |
+|      |          |          | -   -   @\*\*\*.com |
 
-然后发送到E-mail：shaohef@cn.ibm.com
+:: 然后发送到E-mail：shaohef@cn.ibm.com
 
-会议相关信息：
+:;会议相关信息：
 
 ***时间***：2012年3月21日
 

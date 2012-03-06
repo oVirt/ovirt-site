@@ -20,6 +20,10 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
+*   extend the former script, so that it runs a complete `` `make distcheck && make install` `` in a confined environment (chroot, VM) and reports if there is an error.
+
+<!-- -->
+
 *   Improve Vdsm portability. We are very much Fedora-centric at best. Do you want to have Vdsm on your pet distribution? Own that port!
 
 <!-- -->

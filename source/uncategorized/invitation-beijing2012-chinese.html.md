@@ -8,7 +8,7 @@ wiki_last_updated: 2012-03-06
 
 # OVirt Invitation Beijing2012 Chinese
 
-如果您对oVirt感兴趣，想进一步宣传和提升本次oVirt研讨会的影响，您可以将该邀请转发给对oVirt的感兴趣的同行或者朋友。 [英文邀请](http://wp.me/P1QQq2-4f)
+如果您对oVirt感兴趣，想进一步宣传和提升本次oVirt研讨会的影响，您可以将该邀请转发给对oVirt的感兴趣的同行或者朋友。 [English Invitation](http://wp.me/P1QQq2-4f)
 
 ------------------------------------------------------------------------
 

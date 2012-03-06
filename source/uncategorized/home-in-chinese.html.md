@@ -29,3 +29,5 @@ oVirt北京研讨会 -3月21日
 如果你想参与，请发送电子邮件到e-mail：rsvp@oVirt.org 本次活动不收取任何费用，但名额有限，报名从速。
 
 更多服务信息将发送到通过上述mail已注册的用户。
+
+[image](:File:More cases.png)

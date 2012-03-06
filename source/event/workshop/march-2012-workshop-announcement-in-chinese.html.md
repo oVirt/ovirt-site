@@ -48,17 +48,17 @@ ShaoHe Feng shaohef@cn.ibm.com
 
 *   08:00 :: 报道
 *   08:30 :: 欢迎
-*   08:45 :: oVirt Introduction and Overview
-*   09:15 :: oVirt architecture
-*   10:00 :: Engine overview
-*   10:45 :: BREAK
-*   11:00 :: VDSM overview
-*   11:45 :: Node overview
-*   12:30 :: LUNCH
+*   08:45 :: oVirt 介绍
+*   09:15 :: oVirt 架构
+*   10:00 :: Engine 介绍
+*   10:45 :: 茶歇
+*   11:00 :: VDSM 介绍
+*   11:45 :: Node 介绍
+*   12:30 :: 午饭
 *   13:30 :: API/SDK/CLI
 *   14:15 :: Engine tools
-*   14:45 :: How to interact & participate
-*   15:15 :: BREAK
-*   15:45 :: Getting started with development environment
-*   16:45 :: Open discussion and feedback
-*   17:30 :: DINNER
+*   14:45 :: 怎样参与oVirt
+*   15:15 :: 茶歇
+*   15:45 :: 开始开发环境
+*   16:45 :: 讨论和反馈
+*   17:30 :: 晚饭

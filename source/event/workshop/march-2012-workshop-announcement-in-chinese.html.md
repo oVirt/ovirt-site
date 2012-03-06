@@ -43,3 +43,22 @@ Karsten Wade kwade@redhat.com
 *中文*：
 
 ShaoHe Feng shaohef@cn.ibm.com
+
+:;研讨会日程
+
+*   08:00 :: 报道
+*   08:30 :: 欢迎
+*   08:45 :: oVirt Introduction and Overview
+*   09:15 :: oVirt architecture
+*   10:00 :: Engine overview
+*   10:45 :: BREAK
+*   11:00 :: VDSM overview
+*   11:45 :: Node overview
+*   12:30 :: LUNCH
+*   13:30 :: API/SDK/CLI
+*   14:15 :: Engine tools
+*   14:45 :: How to interact & participate
+*   15:15 :: BREAK
+*   15:45 :: Getting started with development environment
+*   16:45 :: Open discussion and feedback
+*   17:30 :: DINNER

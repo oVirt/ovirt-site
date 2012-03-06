@@ -9,7 +9,7 @@ wiki_last_updated: 2012-03-06
 
 # March 2012 workshop announcement in Chinese
 
-研讨会邀请函 任何想宣传或提升该研讨会影响的爱好者，都可以将该邀请转发给对oVirt的感兴趣的同行或者朋友。 该网页的快捷链接是http://wp.me/P1QQq2-4f —————————————————————————————————
+研讨会邀请函 任何想宣传或提升该研讨会影响的爱好者，都可以将该邀请转发给对oVirt的感兴趣的同行或者朋友。该网页的快捷链接是http://wp.me/P1QQq2-4f
 
              你对开放的虚拟化管理平台感兴 趣 吗？
 
@@ -25,5 +25,3 @@ wiki_last_updated: 2012-03-06
              会议地点：中国北京市海淀区东北旺西路8号中关村软件园19号楼钻石大厦创新中心。
              报名:  rsvp@ovirt.org
              联系人： kwade@redhat.com  or  shaohef@cn.ibm.com
-
-—————————————————————————————————

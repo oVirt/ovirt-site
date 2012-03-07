@@ -152,6 +152,18 @@ Live snapshots operation extend regular snapshots as follow:
 
 *   If the user will try to do a prohibited action, he will get a "can do action" failure that describes that it can't be done while snapshot is in progress, so he should wait.
 
+### Snapshots Actions matrix
+
+|        | VM Running            | VM Paused             | VM Stopped       | VM Hibernated      |
+|--------|-----------------------|-----------------------|------------------|--------------------|
+| Create | Live Snapshot         | Live Snapshot         | Regular Snapshot | Regular Snapshot   |
+| Commit | Live Merge            | Live Merge            | Regular Commit   | Regular Commit     |
+| Revert | **Not Permitted** [1] | **Not Permitted** [1] | Regular Revert   | Regular Revert [2] |
+
+[1] This might be permitted if the user agrees to stop the VM.
+
+[2] The hibernated information must be discarded and the VM should be moved to stopped.
+
 ### Libvirt Flow
 
 Internal Libvirt flow using [pesudocode](http://en.wikipedia.org/wiki/Pseudocode), **Bugzilla:** <https://bugzilla.redhat.com/show_bug.cgi?id=782457>

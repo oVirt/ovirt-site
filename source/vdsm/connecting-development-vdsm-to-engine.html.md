@@ -17,7 +17,8 @@ By default OVirt communicates with VDSM with ssl. This is a safe default, but di
 *   in /etc/libvirt/libvirt.conf: listen_tls=0
 *   and in /etc/libvirt/quemu.conf: spice_tls=0
 
-After this is done, restart vdsm. If you misconfigured something, vdsm will complain, so keep an eye on the error messages :) If you are changing from ssl to non-ssl or vice versa, use /lib/systemd/systemd-vdsmd reconfigure and then start vdsm.
+After this is done, restart vdsm. If you misconfigured something, vdsm will complain, so keep an eye on the error messages :)
+If you are changing from ssl to non-ssl or vice versa, use /lib/systemd/systemd-vdsmd reconfigure and then start vdsm.
 
 ## Disable SSL in ovirt engine
 

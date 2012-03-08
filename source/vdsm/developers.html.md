@@ -49,6 +49,13 @@ Vdsm automatically builds using the latest tagged version. If you want to explic
 *   lines longer than 80 chars are frowned upon
 *   whitespace between functions and within stanza help to breath while reading code
 *   a space char follows a comment's hash char
+*   let logging method do the formatting for you:
+
+      logging.debug('hello %s', 'world')
+
+rather than
+
+      logging.debug('hello %s' % 'world')
 
 ## Sending patches
 

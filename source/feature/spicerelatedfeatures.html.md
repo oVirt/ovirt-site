@@ -45,7 +45,7 @@ In the upcoming version, SPICE is about to perform the following changes/additio
     -   UserPortal changes
         -   Enable using multiple monitors on RHEL (it is disabled today)
     -   VDSM changes
-        -   Pass libvirt the number of monitors using the "heads" property in the display device on the libvirt domain.xml file
+        -   Pass libvirt the number of monitors using the "heads" property in the display device on the libvirt domain.xml file. Since Vdsm does not know the guest OS, it should be told by Engine to use a single video device with multiple heads. This is preferably done by using the new `devices` interface for vmCreate.
     -   Engine-core changes
         -   Support the use of multiple monitors on a single device only in cluster level 3.1+. Lower cluster levels will use multiple devices.
     -   UserPortal/webadmin changes

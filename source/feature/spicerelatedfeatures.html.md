@@ -44,9 +44,9 @@ In the upcoming version, SPICE is about to perform the following changes/additio
 1.  USB support
     -   Vdsm changes
 
-Vdsm would have to request libvirt to create [redirected usb|<http://libvirt.org/formatdomain.html#elementsRedir>] devices. This should not be done for each and every VM started by Vdsm, since there are ill side effects for this (one know problem is that it currently breaks live migration). We must expose a flag enabledUsbRedirect to be waived by Engine. **must open Vdsm bz# for this**
+Vdsm would have to request libvirt to create [redirected usb|<http://libvirt.org/formatdomain.html#elementsRedir>] devices. This should not be done for each and every VM started by Vdsm, since there are ill side effects for this (one know problem is that it currently breaks live migration). We must expose a flag enabledUsbRedirect to be waived by Engine. Alternatively, Engine can send the 'redirect' device in the new `devices` API. **must open Vdsm bz# for this**
 
-#\* Engine changes waive new enabledUsbRedirect flag
+#\* Engine changes waive new enabledUsbRedirect flag, or send a special 'redirect' device.
 
 1.  Change multiple monitor support on RHEL
     -   UserPortal changes

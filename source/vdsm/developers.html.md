@@ -59,8 +59,8 @@ rather than
 
 ## Sending patches
 
-Send them to `vdsm-patches@lists.fedorahosted.org`. Please subscribe before sending patches so you could keep track on your patch.
+Send them to [our gerrit server](http://gerrit.ovirt.org) ([see how](Working with oVirt Gerrit)).
 
-The above mailing list is only for patches. General development discussions are in `vdsm-devel@lists.fedorahosted.org`.
+General development discussions are in `vdsm-devel@lists.fedorahosted.org`.
 
 <Category:Vdsm> <Category:Documentation> [Category:Development environment](Category:Development environment)

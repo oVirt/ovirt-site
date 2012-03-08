@@ -59,7 +59,7 @@ rather than
 
 ## Sending patches
 
-Send them to [our gerrit server](http://gerrit.ovirt.org) ([see how](Working with oVirt Gerrit)).
+Send them to [our gerrit server](http://gerrit.ovirt.org) ([see how](Working with oVirt Gerrit)). With your first major patch, do not forget to add yourself to the AUTHORS file. Do not be shy - it gives you a well-deserved recognition, and it shows to the team that you stand behind your code.
 
 General development discussions are in `vdsm-devel@lists.fedorahosted.org`.
 

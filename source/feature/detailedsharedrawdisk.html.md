@@ -80,9 +80,9 @@ Templates
 
 *   Template disks should not be shared.
 
-VM pools
+VM pool
 
-*   Since VM from pool is stateless, The same behaviour as stateless VM should be implemented here. shared raw disk will not be stateless in a stateless VM, and a warning message will be performed.
+*   Shared disk should not be supported with VM from pool, since VM pool is based on a template which does not support shared disk.
 
 Export/Import
 

@@ -61,7 +61,7 @@ General
 
 Attach Shared Disk
 
-*   When attaching a shared disk to a VM, the disk will be logically connected to the VM and will be activated (hot plug VDSM command will be send), if the activation will fail the disk will become unplugged.
+*   When attaching a shared disk to a VM, the disk will be logically connected to the VM and will be activated (hot plug VDSM command will be send), if the activation will fail the disk not be activated.
 
 Remove Shared Disk
 

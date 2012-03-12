@@ -10,4 +10,8 @@ wiki_last_updated: 2012-03-22
 
 # Workshop March 2012
 
+## Location
+
+CBIC Diamond Bldg. No.19 Building, Zhong Guan Cun Software Park, No. 8 Dong Bei Wang West Road, ShangDi, Haidian District, Beijing 100193, P.R.China
+
 [Category:Workshop March 2012](Category:Workshop March 2012)

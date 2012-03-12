@@ -100,7 +100,7 @@ Modify these steps for giving specific 'sudo' access, such as to backups, restar
     drwx------ 3 foo foo 4.0K Dec  3 19:34 ..                ## ~/.ssh is correct
     -rw-r--r-- 1 foo foo  604 Dec  3 19:33 authorized_keys   ## authorized_keys file is correct
 
-Here is the final commands as run:
+Here are the final commands as run:
 
     useradd foo
     passwd foo

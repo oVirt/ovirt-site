@@ -55,12 +55,18 @@ Just works!
 
 ## How to use
 
-For the classic connection API send a connection dictionary that looks like this:
+The new connection type is named "posixfs" and its TypeID is 6. The connection specific arguments are:
 
-      {'id': 3,
-       'spec': 'mountspec', // eg. host:/export
-       'vfs_type': 'vfsType', // eg. nfs/smb
-       'mnt_options': 'option string'} // eg. defaults,noatime,vers=4
+*   **spec** - *Mandatory*, *string*, This field describes the block special device or remote filesystem to be mounted. For ordinary mounts it will hold (a link to) a block special device node (as created by mknod(8)) for the device to be mounted, like \`/dev/cdrom' or \`/dev/sdb7'. For NFS mounts one will have <host>:
+    <dir>
+    , e.g., \`knuth.aeb.nl:/'.
+
+*   **vfsType** - *Mandatory*, *string*, This field describes the type of the filesystem. Linux supports lots of filesystem types, such as adfs, affs, autofs, coda, coherent, cramfs, devpts, efs, ext2, ext3, hfs, hpfs, iso9660, jfs, minix, msdos, ncpfs, nfs, ntfs, proc, qnx4, reiserfs, romfs, smbfs, sysv, tmpfs, udf, ufs, umsdos, vfat, xenix, xfs, and possibly others.
+*   **options** - *Optional*, *string*, This field describes the mount options associated with the filesystem. It is formatted as a comma separated list of options. It contains at least the type of mount plus any additional options appropriate to the filesystem type.
+
+For complete documentation you could look at \`man fstab\`
+
+When creating a domain pass the posixfs type id to create a posixfs domain.
 
 ## User work flows
 

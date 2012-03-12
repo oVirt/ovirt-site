@@ -65,11 +65,11 @@ Attach Shared Disk
 
 Remove Shared Disk
 
-*   The shared raw disk can only be removed once it is either not activated in all the VMs which is attached to, or VMs are all shut down (or any combination of the two).
+*   The shared raw disk can only be removed once it is either inactivate in all the VMs which is attached to, or VMs are all shut down (or any combination of the two).
 
 Copy Shared Disk
 
-*   The shared raw disk can only be copied once it is either not activated in all the VMs which is attached to, or VMs are all shut down (or any combination of the two).
+*   The shared raw disk can only be copied once it is either inactivate in all the VMs which is attached to, or VMs are all shut down (or any combination of the two).
 
 Templates
 
@@ -95,7 +95,7 @@ Export/Import
 
 Move disk
 
-*   Moving a shared raw disk is permitted only when all the attached VMs statuses are down, or all the VMs which the disks are attached to are not active.
+*   Moving a shared raw disk is permitted only when all the attached VMs statuses are down, or all the VMs which the disks are attached to are inactivatee.
 
 Snapshot
 

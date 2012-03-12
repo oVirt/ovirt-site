@@ -37,14 +37,27 @@ No major gui modification is required. The action to merge a snapshot should be 
 
 # VDSM API
 
+      merge(vmId, mergeDrives)
       mergeDrives = [
           {"domainID": "`<sdUUID>`",
            "imageID": "`<imgUUID>`",
-           "mergeVolumeID": "`<baseVolUUID>`",
+           "baseVolumeID": "`<baseVolUUID>`",
            "volumeID": "`<volUUID>`"},
           ...
       ]
-      merge(vmId, mergeDrives)
+      ret = mergeStatus(vmId)
+      ret = {"status": {"message": "Done", "code": 0},
+             "mergeStatus": [
+                 {"status": "[Not Started|In Progress|Failed|Completed|Unknown]",
+                  "domainID": "`<sdUUID>`",
+                  "imageID": "`<imgUUID>`",
+                  "baseVolumeID": "`<baseVolUUID>`",
+                  "volumeID": "`<volUUID>`",
+                  "disk": "`<diskname>`"},
+                 ...
+              ]}
+
+At the moment VDSM is also returning the statuses "Drive Not Found" and "Base Not Found" in mergeStatus. These two errors must be moved to the merge command instead.
 
 # Limits and Risks
 
@@ -57,7 +70,11 @@ No major gui modification is required. The action to merge a snapshot should be 
     -   **Problem**: The current implementation of the resource manager is forbidding such operation
     -   **Problem**: A check (or synchronization) is required to ensure that the SPM won't remove a volume that is actually in use
 *   QEMU is changing the snapshot backing file
-    -   **Problem**: this might lead to a short time where the backing file and the metadata are inconsistent
+    -   **Problem**: This might lead to a short time where the backing file and the metadata are inconsistent
+*   QEMU is not closing the merged images files (block_stream)
+    -   **Problem**: It's not possible to remove the open Logical Volumes (merged)
+    -   **Solution**: QEMU should close the merged images files
+    -   **Bugzilla**: [<https://bugzilla.redhat.com/show_bug.cgi?id=801449>](https://bugzilla.redhat.com/show_bug.cgi?id=801449)
 
 ### Limits and Risks Phase 2
 

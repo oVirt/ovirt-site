@@ -116,7 +116,7 @@ Stateless VM
         When a user wants to configure a regular disk to be a shared disk, she will edit the disk and mark the checkbox as shared.
     -   User will also be able to attach/detach a shared disk through the disks sub tab of the VMs main tab,
     -   The administrator can attach/detach a shared raw disk from the disks main tab.
-*   Delete shared disk
+*   Remove shared disk
     -   User will be able to delete a shared disk from the disks sub tab in the VMs sub tab.
 
 #### Installation/Upgrade

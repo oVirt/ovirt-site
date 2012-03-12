@@ -102,12 +102,21 @@ At the moment VDSM is also returning the statuses "Drive Not Found" and "Base No
 Engine pseudocode:
 
       def live_merge(vm, driveParams):
-          merge(vm, driveParams)
           while True:
-              ret = mergeStatus(vm)
-              if ret != MERGE_IN_PROGRESS:
+              merge(vm, driveParams)
+              while True:
+                  ret = mergeStatus(vm)
+                  if ret != MERGE_IN_PROGRESS: # Check for each disk
+                      break
+                  # Inner while loop end, polling status again
+              if ret == MERGE_COMPLETED:
+                  # delete the volumes
                   break
-          if ret == MERGE_COMPLETED:
-               # delete the volumes
-          else:
-              return ret
+          # While loop end, retrying
+
+**Notes:**
+
+*   The engine can merge multiple disks at the same time and each merge can independently fail or succeed
+*   If any merge failed the engine should try again
+*   If all the disk merge complete successfully the engine can remove the merged volumes
+*   It's not possible to issue a new merge command (on the same VM) when there is another one that is not completed yet

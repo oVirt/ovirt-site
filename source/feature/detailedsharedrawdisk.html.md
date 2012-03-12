@@ -65,11 +65,11 @@ Attach Shared Disk
 
 Remove Shared Disk
 
-*   The shared raw disk can only be removed once it is either unplugged from all VMs to which it is attached to, or VMs are all shut down (or any combination of the two).
+*   The shared raw disk can only be removed once it is either not activated in all the VMs which is attached to, or VMs are all shut down (or any combination of the two).
 
 Copy Shared Disk
 
-*   The shared raw disk can only be copied once it is either unplugged from all VMs to which it is attached to, or VMs are all shut down (or any combination of the two).
+*   The shared raw disk can only be copied once it is either not activated in all the VMs which is attached to, or VMs are all shut down (or any combination of the two).
 
 Templates
 
@@ -99,7 +99,7 @@ Move disk
 
 Snapshot
 
-*   When taking a vm snapshot, a snapshot of the shared disk should not be taken, although it will be part of the VM snapshot configuration and the disk will appear as unplugged.
+*   When taking a vm snapshot, a snapshot of the shared disk should not be taken, although it will be part of the VM snapshot configuration and the disk will appear as not activated.
 
 Stateless VM
 

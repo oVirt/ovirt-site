@@ -133,7 +133,7 @@ The Administrator Portal should allow the following operations:
 
 *   Search should provide the user to view all shared raw disks from the disks main tab.
 *   Regular disk can become a shared raw disk, by editing the existing disk and marking the 'share disk' property type.
-*   When removing a VM with shared disks attached to it, the shared disks will not be deleted.
+*   When removing a VM with shared disks attached to it, the shared disks will not be removed.
 *   If the shared disk is not attached to any other VMs then it will become a 'floating' disk.
 *   Attach/Detach of a shared disk can be performed only when the VM is in status 'down'.
 

@@ -72,11 +72,11 @@ Modify these steps for giving specific 'sudo' access, such as to backups, restar
 
     chown -R foo:foo /home/foo/.ssh
 
-*   Change file permissions to read/write for the user only:
+*   Change file permissions to read/write/execute for the user only:
 
 <!-- -->
 
-    chmod 600 /home/foo/.ssh
+    chmod 700 /home/foo/.ssh
 
 *   The final file permissions:
 

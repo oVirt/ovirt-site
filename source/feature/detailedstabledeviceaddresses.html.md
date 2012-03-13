@@ -44,7 +44,7 @@ When creating a VM, QEMU allocates device addresses to the guest devices, these 
 
 ### Entity Description
 
-A new BE GenericDevice that represents video/sound/any-other-device
+A new BE VmDevice that represents video/controller/any-other-device
 ==== VM Device ==== VmDevice will have the following properties
 vmId - VM or template Id
 type - The device type (for example 'sound')
@@ -54,7 +54,7 @@ bootOrder - The device boot order
 specparams - Any device specific parameters (for example memory allocation per monitor in video device)
 isManaged - Is the device managed
 isPlugged - Is the device plugable
-accessMode - The device access mode
+isReadOnly - The device access mode
 
 ### CRUD
 

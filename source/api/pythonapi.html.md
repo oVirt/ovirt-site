@@ -31,7 +31,7 @@ Add the following to you python script, remember to set the URL/USERNAME/PASSWOR
          URL =           '`[`https://192.168.1.1:8443/api`](https://192.168.1.1:8443/api)`'
          USERNAME =      'my_user@my.domain.com'
          PASSWORD =      'my_password'
-
+         
          DC_NAME =       'my_datacenter'
          CLUSTER_NAME =  'my_cluster'
          HOST_NAME =     'my_host'
@@ -224,61 +224,66 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
 
 ### Start/hibernate/resume/stop vm
 
+*   Start VM
+
          try:
-             if api.vms.get(VM_NAME).start():
-                 print 'Start VM'
+             if api.vms.get(VM_NAME).status.state != 'up':
+                 print 'Starting VM'
+                 api.vms.get(VM_NAME).start()
+                 print 'Waiting for vm to reach Up status'
+                 while api.vms.get(VM_NAME).status.state != 'up':
+                     sleep(1)
+             else:
+                 print 'VM already up'
          except Exception as e:
              print 'Failed to Start VM:\n%s' % str(e)
-         
-         print 'Waiting for vm to reach Up status'
-         while 1:
+
+*   Suspend VM
+
+         while api.vms.get(VM_NAME).status.state != 'suspended':
              try:
-                 if api.vms.get(VM_NAME).status.state == 'up':
+                 print 'Suspend VM'
+                 api.vms.get(VM_NAME).suspend()
+                 print 'Waiting for vm to reach Suspended status'
+                 while api.vms.get(VM_NAME).status.state != 'suspended':
+                     sleep(1)
+          
+             except Exception as e:
+                 if e.reason == 'Bad Request' \
+                     and 'asynchronous running tasks' in e.detail:
+                     print 'VM has asynchronous running tasks, trying again'
+                     sleep(1)
+                 else:
+                     print 'Failed to Suspend VM:\n%s' % str(e)
                      break
-             except:
-                 pass
+
+*   Resume VM (identical to start up)
 
          try:
-             if api.vms.get(VM_NAME).suspend():
-                 print 'Hibernate VM'
-         except Exception as e:
-             print 'Failed to Hibernate VM:\n%s' % str(e)
-         
-         print 'Waiting for vm to reach Suspended status'
-         while 1:
-             try:
-                 if api.vms.get(VM_NAME).status.state == 'suspended':
-                     break
-             except:
-                 pass
-
-         try:
-             if api.vms.get(VM_NAME).start():
+             if api.vms.get(VM_NAME).status.state != 'up':
                  print 'Resume VM'
+                 api.vms.get(VM_NAME).start()
+                 print 'Waiting for vm to Resume'
+                 while api.vms.get(VM_NAME).status.state != 'up':
+                     sleep(1)
+             else:
+                 print 'VM already up'
          except Exception as e:
-             print 'Resume VM:\n%s' % str(e)
-         
-         print 'Waiting for vm to Resume'
-         while 1:
-             try:
-                 if api.vms.get(VM_NAME).status.state == 'up':
-                     break
-             except:
-                 pass
+             print 'Failed to Resume VM:\n%s' % str(e)
+
+*   Stop VM
 
          try:
-             if api.vms.get(VM_NAME).stop():
+             if api.vms.get(VM_NAME).status.state != 'down':
                  print 'Stop VM'
+                 api.vms.get(VM_NAME).stop()
+                 print 'Waiting for vm to reach Down status'
+                 while api.vms.get(VM_NAME).status.state != 'down':
+                     sleep(1)
+             else:
+                 print 'VM already down'
          except Exception as e:
              print 'Stop VM:\n%s' % str(e)
-         
-         print 'Waiting for vm to reach Down status'
-         while 1:
-             try:
-                 if api.vms.get(VM_NAME).status.state == 'down':
-                     break
-             except:
-                 pass
 
 ### Export vm (into Export Domain)
 

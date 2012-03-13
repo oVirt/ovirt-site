@@ -145,6 +145,7 @@ Boot order is currently managed as a int field in vm_dynamic table, the reflects
 #### Device Index
 
 Manage internal unique index for 'iface' virtio' or 'ide' Same ordering as in old format should be kept in order to support 3.0 VMs that starts to run on 3.1 cluster
+Relevant only for Floppy and CD
 
 #### Managing Addresses
 

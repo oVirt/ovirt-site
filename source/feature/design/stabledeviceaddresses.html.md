@@ -356,7 +356,7 @@ Direct LUN enables adding a block device to the system either by its GUID or UUI
 
 #### Live Snapshots
 
-This 3.1 feature does not affect the Stable Device Addresses feature
+This 3.1 feature does not affect directly the Stable Device Addresses feature, however, it does affect the import/export and the OVF structure. Details about that will be added as part of 3.1 snapshot changes documentation.
 
 ### Implementation needs
 

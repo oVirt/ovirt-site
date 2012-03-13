@@ -35,7 +35,7 @@ In the term Device we include PCI, VirtIO Serial, SCSI, IDE, CCID and actually a
 ### Current status
 
 *   Target Release: 3.1
-*   Status: Design Stage
+*   Status: Merged
 *   Last updated date: Wed December 28 2011
 
 ### Detailed Description

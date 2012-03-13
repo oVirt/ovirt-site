@@ -34,7 +34,7 @@ The following section describes permissions for Disk entities.
 
 #### Disk Actions
 
-Floating disk requires permission for Storage domain if lives inside a storage domain, else if disk is Direct LUN it requires permission for System.
+Floating disk requires permission for storage domain if lives inside a storage domain, else if disk is Direct LUN it requires permission for System.
 Required permissions for Disk related actions:
 
 *   Create disk - requires Storage Domain permissions, (can't assume Quota is sufficient to permit user creating the disk on the Storage Domain, as Quota might be disabled).

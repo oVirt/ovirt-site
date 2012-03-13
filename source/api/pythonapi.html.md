@@ -19,27 +19,7 @@ Ovirt-Engine-SDK is an auto-generated python API which uses REST-API to perform 
 
 *   User and Password - The user consists of a username, the "@" sign and domain name. You can use either the default internal user's account or any of your LDAP users that has both login permissions and of course also has permissions to execute the desired operations.
 
-Below you can find ovirt-engine-sdk sample code-snippets for the following basic operations:
-
-*   Import the relevant modules and obtain an API object
-*   Create iSCSI Data Center
-*   Create Cluster
-*   Install Host
-*   Create iSCSI Storage Domain on Data Center
-*   Attach ISO domain to Data Center
-*   Attach Export domain to Data Center
-*   Create VM with one NIC and one Disk
-*   Start/hibernate/resume/stop vm
-*   Export vm (into Export Domain)
-*   Delete vm
-*   Import vm (from Export Domain)
-*   Create a snapshot to vm
-*   Create a Template from VM
-*   Create VM from Template
-
-<!-- -->
-
-*   **Importing the relevant modules and obtaining an API object**
+### Importing the relevant modules and obtaining an API object
 
 Add the following to you python script, remember to set the URL/USERNAME/PASSWORD constants accordingly
 
@@ -48,9 +28,10 @@ Add the following to you python script, remember to set the URL/USERNAME/PASSWOR
          from ovirtsdk.api import API
          from ovirtsdk.xml import params
          
-         URL = '`[`https://192.168.1.1:8443/api`](https://192.168.1.1:8443/api)`'
-         USERNAME = 'my_user@my.domain.com'
-         PASSWORD = 'my_password'
+         URL =           '`[`https://192.168.1.1:8443/api`](https://192.168.1.1:8443/api)`'
+         USERNAME =      'my_user@my.domain.com'
+         PASSWORD =      'my_password'
+
          DC_NAME =       'my_datacenter'
          CLUSTER_NAME =  'my_cluster'
          HOST_NAME =     'my_host'
@@ -60,7 +41,7 @@ Add the following to you python script, remember to set the URL/USERNAME/PASSWOR
          
          api = API(url=URL, username=USERNAME, password=PASSWORD)
 
-*   **Create iSCSI Data Center**
+### Create iSCSI Data Center
 
          try:
              if api.datacenters.add(params.DataCenter(name=DC_NAME, storage_type='iscsi', version=params.Version(major='3', minor='0'))):
@@ -68,7 +49,7 @@ Add the following to you python script, remember to set the URL/USERNAME/PASSWOR
          except Exception as e:
              print 'Failed to create iSCSI Data Center:\n%s' % str(e)
 
-*   **Create Cluster**
+### Create Cluster
 
 Note that the CPU type should be chosen according to your host's CPU.
 
@@ -80,7 +61,7 @@ Note that the CPU type should be chosen according to your host's CPU.
          except Exception as e:
              print 'Failed to create Cluster:\n%s' % str(e)
 
-*   **Install Host**
+### Install Host
 
          HOST_ADDRESS = 'hostname.my.domain.com'
          ROOT_PASSWORD = 'root_password'
@@ -99,7 +80,9 @@ Note that the CPU type should be chosen according to your host's CPU.
              except:
                  pass
 
-*   **Create iSCSI Storage Domain on Data Center**
+## Working with storages
+
+### Create iSCSI Storage Domain on Data Center
 
          STORAGE_ADDRESS = 'storage_server.my.domain.com'
          TARGET_NAME = 'target_name'
@@ -128,7 +111,7 @@ Note that the CPU type should be chosen according to your host's CPU.
          except Exception as e:
              print 'Failed to attach iSCSI Storage Domain:\n%s' % str(e)
 
-*   **Attach ISO domain to Data Center**
+### Attach ISO domain to Data Center
 
 You can either create a new ISO Storage Domain or import an existing ISO Storage Domain that was configured during ovirt-engine's installation wizard (both options uses the same code below). Please upload the following ISO file to the ISO Storage Domain once the ISO Storage Domain was created: <http://distro.ibiblio.org/tinycorelinux/4.x/x86/release/TinyCore-current.iso>
 
@@ -162,7 +145,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          except Exception as e:
              print 'Failed to activate ISO Domain:\n%s' % str(e)
 
-*   **Attach Export domain to Data Center**
+### Attach Export domain to Data Center
 
          EXPORT_ADDRESS = 'ip_of_export_domain_storage'
          EXPORT_PATH = '/path/to/export/domain'
@@ -192,7 +175,9 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          except Exception as e:
              print 'Failed to activate Export Domain:\n%s' % str(e)
 
-*   **Create VM with one NIC and one Disk**
+## Virtual Machines
+
+### Create VM with one NIC and one Disk
 
          VDISKSIZE = 5368709120
          
@@ -237,7 +222,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              except:
                  pass
 
-*   **Start/hibernate/resume/stop vm**
+### Start/hibernate/resume/stop vm
 
          try:
              if api.vms.get(VM_NAME).start():
@@ -295,7 +280,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              except:
                  pass
 
-*   **Export vm (into Export Domain)**
+### Export vm (into Export Domain)
 
          try:
              if api.vms.get(VM_NAME).export(params.Action(storage_domain=api.storagedomains.get(EXPORT_NAME))):
@@ -311,7 +296,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              except:
                  pass
 
-*   **Delete vm**
+### Delete vm
 
          try:
              if api.vms.get(VM_NAME).delete():
@@ -327,7 +312,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              except:
                  pass
 
-*   **Import vm (from Export Domain)**
+### Import vm (from Export Domain)
 
          try:
              if api.storagedomains.get(EXPORT_NAME).vms.get(VM_NAME).import_vm(params.Action(storage_domain=api.storagedomains.get(STORAGE_NAME), cluster=api.clusters.get(name=CLUSTER_NAME))):
@@ -343,7 +328,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              except:
                  pass
 
-*   **Create a snapshot to vm**
+### Create a snapshot to vm
 
          SNAPSHOT_NAME = 'my_snapshot'
          try:
@@ -360,7 +345,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              except:
                  pass
 
-*   **Create a Template from VM**
+### Create a Template from VM
 
          TEMPLATE_NAME = 'my_template'
          try:
@@ -377,7 +362,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              except:
                  pass
 
-*   **Create VM from Template**
+### Create VM from Template
 
          try:
              if api.vms.add( params.VM(name='my_vm_from_template',
@@ -395,7 +380,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              except:
                  pass
 
-## Here are all the commands aggregated in one block for easy copy-paste:
+## All commands aggregated in one block
 
     #! /usr/bin/python
 

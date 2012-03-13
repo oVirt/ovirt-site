@@ -16,7 +16,19 @@ wiki_last_updated: 2012-03-22
 
 *Update 2012-03-13 - This is the proposed schedule that still a work-in-progress.*
 
-09:30 - 11:00 :: oVirt intro & architecture (presented by Red Hat engineers) 11:00 - 11:15 :: MORNING TEA BREAK 11:15 - 12:00 :: Engine core (presented by Red Hat engineers) 12:00 - 12:30 :: API (presented by Red Hat engineers) 12:30 - 13:30 :: LUNCH 13:30 - 14:15 :: oVirt Node Arch and details of oVirt node (presented by Red Hat engineers) 14:15 - 15:00 :: VDSM (presented by Red Hat engineers) 15:00 - 15:45 :: MOM integration (presented by IBM engineers) 15:45 - 16:30 :: AFTERNOON TEA BREAK 16:30 - 17:15 :: Storage (presented by Red Hat engineers) 17:15 - 17:30 :: Wrap-up and finish
+    09:30 - 11:00 :: oVirt intro & architecture (presented by Red Hat
+    engineers)
+    11:00 - 11:15 :: MORNING TEA BREAK
+    11:15 - 12:00 :: Engine core (presented by Red Hat engineers)
+    12:00 - 12:30 :: API (presented by Red Hat engineers)
+    12:30 - 13:30 :: LUNCH
+    13:30 - 14:15 :: oVirt Node Arch and details of oVirt node (presented
+    by Red Hat engineers)
+    14:15 - 15:00 :: VDSM (presented by Red Hat engineers)
+    15:00 - 15:45 :: MOM integration  (presented by IBM engineers)
+    15:45 - 16:30 :: AFTERNOON TEA BREAK
+    16:30 - 17:15 :: Storage (presented by Red Hat engineers)
+    17:15 - 17:30 :: Wrap-up and finish
 
 ## Workshop location
 

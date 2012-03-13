@@ -51,13 +51,19 @@ Add the following to you python script, remember to set the URL/USERNAME/PASSWOR
          URL = '`[`https://192.168.1.1:8443/api`](https://192.168.1.1:8443/api)`'
          USERNAME = 'my_user@my.domain.com'
          PASSWORD = 'my_password'
+         DC_NAME =       'my_datacenter'
+         CLUSTER_NAME =  'my_cluster'
+         HOST_NAME =     'my_host'
+         STORAGE_NAME =  'my_storage'
+         EXPORT_NAME =   'my_export'
+         VM_NAME =       'my_vm'
          
          api = API(url=URL, username=USERNAME, password=PASSWORD)
 
 *   **Create iSCSI Data Center**
 
          try:
-             if api.datacenters.add(params.DataCenter(name='my_datacenter', storage_type='iscsi', version=params.Version(major='3', minor='0'))):
+             if api.datacenters.add(params.DataCenter(name=DC_NAME, storage_type='iscsi', version=params.Version(major='3', minor='0'))):
                  print 'iSCSI Data Center was created successfully'
          except Exception as e:
              print 'Failed to create iSCSI Data Center:\n%s' % str(e)
@@ -69,7 +75,7 @@ Note that the CPU type should be chosen according to your host's CPU.
          CPU_TYPE = 'Intel Nehalem Family'
          
          try:
-             if api.clusters.add(params.Cluster(name='my_cluster', cpu=params.CPU(id=CPU_TYPE), data_center=api.datacenters.get('my_datacenter'), version=params.Version(major='3', minor='0'))):
+             if api.clusters.add(params.Cluster(name=CLUSTER_NAME, cpu=params.CPU(id=CPU_TYPE), data_center=api.datacenters.get(DC_NAME), version=params.Version(major='3', minor='0'))):
                  print 'Cluster was created successfully'
          except Exception as e:
              print 'Failed to create Cluster:\n%s' % str(e)
@@ -80,7 +86,7 @@ Note that the CPU type should be chosen according to your host's CPU.
          ROOT_PASSWORD = 'root_password'
          
          try:
-                 if api.hosts.add(params.Host(name='my_host', address=HOST_ADDRESS, cluster=api.clusters.get('my_cluster'), root_password=ROOT_PASSWORD)):
+                 if api.hosts.add(params.Host(name=HOST_NAME, address=HOST_ADDRESS, cluster=api.clusters.get(CLUSTER_NAME), root_password=ROOT_PASSWORD)):
                      print 'Host was installed successfully'
          except Exception as e:
                  print 'Failed to install Host:\n%s' % str(e)
@@ -88,7 +94,7 @@ Note that the CPU type should be chosen according to your host's CPU.
          print 'Waiting for host to reach the Up status'
          while 1:
              try:
-                 if api.hosts.get('my_host').status.state == 'up':
+                 if api.hosts.get(HOST_NAME).status.state == 'up':
                      break
              except:
                  pass
@@ -99,11 +105,11 @@ Note that the CPU type should be chosen according to your host's CPU.
          TARGET_NAME = 'target_name'
          LUN_GUID = 'lun_guid'
          
-         sdParams = params.StorageDomain(name='my_iscsi',
-                           data_center=api.datacenters.get('my_datacenter'),
+         sdParams = params.StorageDomain(name=STORAGE_NAME,
+                           data_center=api.datacenters.get(DC_NAME),
                            storage_format='v2',
                            type_='data',
-                           host=api.hosts.get('my_host'),
+                           host=api.hosts.get(HOST_NAME),
                            storage = params.Storage(type_='iscsi',
                                             volume_group=params.VolumeGroup(logical_unit=[params.LogicalUnit(id=LUN_GUID,
                                                                 address=STORAGE_ADDRESS,
@@ -117,7 +123,7 @@ Note that the CPU type should be chosen according to your host's CPU.
              print 'Failed to create iSCSI Storage Domain:\n%s' % str(e)
          
          try:
-             if api.datacenters.get(name='my_datacenter').storagedomains.add(api.storagedomains.get(name='my_iscsi')):
+             if api.datacenters.get(name=DC_NAME).storagedomains.add(api.storagedomains.get(name=STORAGE_NAME)):
                  print 'iSCSI Storage Domain was attached successfully'
          except Exception as e:
              print 'Failed to attach iSCSI Storage Domain:\n%s' % str(e)
@@ -128,11 +134,12 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
 
          ISO_ADDRESS = 'my_ovirt_engine_ip'
          ISO_PATH = '/path/to/iso/domain'
+         ISO_NAME = 'my_iso'
          
-         isoParams = params.StorageDomain(name='my_iso',
-                                             data_center=api.datacenters.get('my_datacenter'),
+         isoParams = params.StorageDomain(name=ISO_NAME,
+                                             data_center=api.datacenters.get(DC_NAME),
                                              type_='iso',
-                                             host=api.hosts.get('my_host'),
+                                             host=api.hosts.get(HOST_NAME),
                                              storage = params.Storage(   type_='nfs',
                                                                          address=ISO_ADDRESS,
                                                                          path=ISO_PATH  )  )
@@ -144,13 +151,13 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              print 'Failed to create/import an ISO Domain:\n%s' % str(e)
          
          try:
-             if api.datacenters.get('my_datacenter').storagedomains.add(api.storagedomains.get('my_iso')):
+             if api.datacenters.get(DC_NAME).storagedomains.add(api.storagedomains.get(ISO_NAME)):
                  print 'ISO Domain was attached successfully'
          except Exception as e:
              print 'Failed to attach ISO Domain:\n%s' % str(e)
          
          try:
-             if api.datacenters.get('my_datacenter').storagedomains.get('my_iso').activate():
+             if api.datacenters.get(DC_NAME).storagedomains.get(ISO_NAME).activate():
                  print 'ISO Domain was activated successfully'
          except Exception as e:
              print 'Failed to activate ISO Domain:\n%s' % str(e)
@@ -160,10 +167,10 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          EXPORT_ADDRESS = 'ip_of_export_domain_storage'
          EXPORT_PATH = '/path/to/export/domain'
          
-         isoParams = params.StorageDomain(name='my_export',
-                                             data_center=api.datacenters.get('my_datacenter'),
+         isoParams = params.StorageDomain(name=EXPORT_NAME,
+                                             data_center=api.datacenters.get(DC_NAME),
                                              type_='export',
-                                             host=api.hosts.get('my_host'),
+                                             host=api.hosts.get(HOST_NAME),
                                              storage = params.Storage(   type_='nfs',
                                                                          address=EXPORT_ADDRESS,
                                                                          path=EXPORT_PATH  )  )
@@ -174,13 +181,13 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              print 'Failed to create/import an Export Domain:\n%s' % str(e)
          
          try:
-             if api.datacenters.get('my_datacenter').storagedomains.add(api.storagedomains.get('my_export')):
+             if api.datacenters.get(DC_NAME).storagedomains.add(api.storagedomains.get(EXPORT_NAME)):
                  print 'Export Domain was attached successfully'
          except Exception as e:
              print 'Failed to attach Export Domain:\n%s' % str(e)
          
          try:
-             if api.datacenters.get('my_datacenter').storagedomains.get('my_export').activate():
+             if api.datacenters.get(DC_NAME).storagedomains.get(EXPORT_NAME).activate():
                  print 'Export Domain was activated successfully'
          except Exception as e:
              print 'Failed to activate Export Domain:\n%s' % str(e)
@@ -191,9 +198,9 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          
          
          try:
-             if api.vms.add( params.VM(name='my_vm',
+             if api.vms.add( params.VM(name=VM_NAME,
                                        memory=2147483648,
-                                       cluster=api.clusters.get('my_cluster'),
+                                       cluster=api.clusters.get(CLUSTER_NAME),
                                        template=api.templates.get('Blank')) ):
                  print 'vm created successfully'
          except Exception as e:
@@ -201,7 +208,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          
          
          try:
-             if api.vms.get('my_vm').nics.add( params.NIC(name='eth0',
+             if api.vms.get(VM_NAME).nics.add( params.NIC(name='eth0',
                                                           network=params.Network(name='ovirtmgmt'),
                                                           interface='virtio')):
                  print 'NIC was added to vm successfully'
@@ -210,7 +217,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          
          
          try:
-             if api.vms.get('my_vm').disks.add( params.Disk(storage_domains=params.StorageDomains(storage_domain=[api.storagedomains.get('my_iscsi')]),
+             if api.vms.get(VM_NAME).disks.add( params.Disk(storage_domains=params.StorageDomains(storage_domain=[api.storagedomains.get(STORAGE_NAME)]),
                                                             size=VDISKSIZE,
                                                             type_='system',
                                                             status=None,
@@ -225,7 +232,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          print 'Waiting for vm to reach Down status'
          while 1:
              try:
-                 if api.vms.get('my_vm').status.state == 'down':
+                 if api.vms.get(VM_NAME).status.state == 'down':
                      break
              except:
                  pass
@@ -233,7 +240,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
 *   **Start/hibernate/resume/stop vm**
 
          try:
-             if api.vms.get('my_vm').start():
+             if api.vms.get(VM_NAME).start():
                  print 'Start VM'
          except Exception as e:
              print 'Failed to Start VM:\n%s' % str(e)
@@ -241,13 +248,13 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          print 'Waiting for vm to reach Up status'
          while 1:
              try:
-                 if api.vms.get('my_vm').status.state == 'up':
+                 if api.vms.get(VM_NAME).status.state == 'up':
                      break
              except:
                  pass
 
          try:
-             if api.vms.get('my_vm').suspend():
+             if api.vms.get(VM_NAME).suspend():
                  print 'Hibernate VM'
          except Exception as e:
              print 'Failed to Hibernate VM:\n%s' % str(e)
@@ -255,13 +262,13 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          print 'Waiting for vm to reach Suspended status'
          while 1:
              try:
-                 if api.vms.get('my_vm').status.state == 'suspended':
+                 if api.vms.get(VM_NAME).status.state == 'suspended':
                      break
              except:
                  pass
 
          try:
-             if api.vms.get('my_vm').start():
+             if api.vms.get(VM_NAME).start():
                  print 'Resume VM'
          except Exception as e:
              print 'Resume VM:\n%s' % str(e)
@@ -269,13 +276,13 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          print 'Waiting for vm to Resume'
          while 1:
              try:
-                 if api.vms.get('my_vm').status.state == 'up':
+                 if api.vms.get(VM_NAME).status.state == 'up':
                      break
              except:
                  pass
 
          try:
-             if api.vms.get('my_vm').stop():
+             if api.vms.get(VM_NAME).stop():
                  print 'Stop VM'
          except Exception as e:
              print 'Stop VM:\n%s' % str(e)
@@ -283,7 +290,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          print 'Waiting for vm to reach Down status'
          while 1:
              try:
-                 if api.vms.get('my_vm').status.state == 'down':
+                 if api.vms.get(VM_NAME).status.state == 'down':
                      break
              except:
                  pass
@@ -291,7 +298,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
 *   **Export vm (into Export Domain)**
 
          try:
-             if api.vms.get('my_vm').export(params.Action(storage_domain=api.storagedomains.get('my_export'))):
+             if api.vms.get(VM_NAME).export(params.Action(storage_domain=api.storagedomains.get(EXPORT_NAME))):
                  print 'VM was exported successfully'
          except Exception as e:
              print 'Failed to export vm:\n%s' % str(e)
@@ -299,7 +306,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          print 'Waiting for vm to reach Down status'
          while 1:
              try:
-                 if api.vms.get('my_vm').status.state == 'down':
+                 if api.vms.get(VM_NAME).status.state == 'down':
                      break
              except:
                  pass
@@ -307,7 +314,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
 *   **Delete vm**
 
          try:
-             if api.vms.get('my_vm').delete():
+             if api.vms.get(VM_NAME).delete():
                  print 'VM was removed successfully'
          except Exception as e:
              print 'Failed to remove VM:\n%s' % str(e)
@@ -315,7 +322,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          print 'Waiting for vm to be deleted'
          while 1:
              try:
-                 if 'my_vm' not in [vm.name for vm in api.vms.list()]:
+                 if VM_NAME not in [vm.name for vm in api.vms.list()]:
                      break
              except:
                  pass
@@ -323,7 +330,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
 *   **Import vm (from Export Domain)**
 
          try:
-             if api.storagedomains.get('my_export').vms.get('my_vm').import_vm(params.Action(storage_domain=api.storagedomains.get('my_iscsi'), cluster=api.clusters.get(name='my_cluster'))):
+             if api.storagedomains.get(EXPORT_NAME).vms.get(VM_NAME).import_vm(params.Action(storage_domain=api.storagedomains.get(STORAGE_NAME), cluster=api.clusters.get(name=CLUSTER_NAME))):
                  print 'VM was imported successfully'
          except Exception as e:
              print 'Failed to import VM:\n%s' % str(e)
@@ -331,15 +338,16 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          print 'Waiting for vm to reach Down status'
          while 1:
              try:
-                 if api.vms.get('my_vm').status.state == 'down':
+                 if api.vms.get(VM_NAME).status.state == 'down':
                      break
              except:
                  pass
 
 *   **Create a snapshot to vm**
 
+         SNAPSHOT_NAME = 'my_snapshot'
          try:
-             if api.vms.get('my_vm').snapshots.add(params.Snapshot(description='my_snapshot', vm=api.vms.get('my_vm'))):
+             if api.vms.get(VM_NAME).snapshots.add(params.Snapshot(description=SNAPSHOT_NAME, vm=api.vms.get(VM_NAME))):
                  print 'Creating a Snapshot'
          except Exception as e:
              print 'Failed to Create a Snapshot:\n%s' % str(e)
@@ -347,15 +355,16 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          print 'Waiting for Snapshot creation to finish'
          while 1:
              try:
-                 if api.vms.get('my_vm').status.state == 'image_locked':
+                 if api.vms.get(VM_NAME).status.state == 'image_locked':
                      break
              except:
                  pass
 
 *   **Create a Template from VM**
 
+         TEMPLATE_NAME = 'my_template'
          try:
-             if api.templates.add(params.Template(name='my_template', vm=api.vms.get('my_vm'), cluster=api.clusters.get('my_cluster'))):
+             if api.templates.add(params.Template(name=TEMPLATE_NAME, vm=api.vms.get(VM_NAME), cluster=api.clusters.get(CLUSTER_NAME))):
                  print 'Creating a Template from vm'
          except Exception as e:
              print 'Failed to Create a Template from vm:\n%s' % str(e)
@@ -363,7 +372,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          print 'Waiting for vm to reach Down status'
          while 1:
              try:
-                 if api.vms.get('my_vm').status.state == 'down':
+                 if api.vms.get(VM_NAME).status.state == 'down':
                      break
              except:
                  pass
@@ -372,8 +381,8 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
 
          try:
              if api.vms.add( params.VM(name='my_vm_from_template',
-                                      cluster=api.clusters.get('my_cluster'),
-                                      template=api.templates.get('my_template')) ):
+                                      cluster=api.clusters.get(CLUSTER_NAME),
+                                      template=api.templates.get(TEMPLATE_NAME)) ):
                  print 'VM was created from Template successfully'
          except Exception as e:
              print 'Failed to create VM from Template:\n%s' % str(e)
@@ -381,7 +390,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          print 'Waiting for vm to reach Down status'
          while 1:
              try:
-                 if api.vms.get('my_vm').status.state == 'down':
+                 if api.vms.get(VM_NAME).status.state == 'down':
                      break
              except:
                  pass
@@ -417,6 +426,13 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
 
     VDISKSIZE = 5368709120
 
+    DC_NAME =       'my_datacenter'
+    CLUSTER_NAME =  'my_cluster'
+    HOST_NAME =     'my_host'
+    STORAGE_NAME =  'my_storage'
+    EXPORT_NAME =   'my_export'
+    VM_NAME =       'my_vm'
+
     # Get an API object
 
     api = API(url=URL, username=USERNAME, password=PASSWORD)
@@ -424,7 +440,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     # Create iSCSI Data Center
 
     try:
-        if api.datacenters.add(params.DataCenter(name='my_datacenter', storage_type='iscsi', version=params.Version(major='3', minor='0'))):
+        if api.datacenters.add(params.DataCenter(name=DC_NAME, storage_type='iscsi', version=params.Version(major='3', minor='0'))):
             print 'iSCSI Data Center was created successfully'
     except Exception as e:
         print 'Failed to create iSCSI Data Center:\n%s' % str(e)
@@ -432,7 +448,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     # Create Cluster
 
     try:
-        if api.clusters.add(params.Cluster(name='my_cluster', cpu=params.CPU(id=CPU_TYPE), data_center=api.datacenters.get('my_datacenter'), version=params.Version(major='3', minor='0'))):
+        if api.clusters.add(params.Cluster(name=CLUSTER_NAME, cpu=params.CPU(id=CPU_TYPE), data_center=api.datacenters.get(DC_NAME), version=params.Version(major='3', minor='0'))):
             print 'Cluster was created successfully'
     except Exception as e:
         print 'Failed to create Cluster:\n%s' % str(e)
@@ -440,7 +456,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     # Install Host
 
     try:
-        if api.hosts.add(params.Host(name='my_host', address=HOST_ADDRESS, cluster=api.clusters.get('my_cluster'), root_password=ROOT_PASSWORD)):
+        if api.hosts.add(params.Host(name=HOST_NAME, address=HOST_ADDRESS, cluster=api.clusters.get(CLUSTER_NAME), root_password=ROOT_PASSWORD)):
             print 'Host was installed successfully'
     except Exception as e:
         print 'Failed to install Host:\n%s' % str(e)
@@ -448,18 +464,18 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     print 'Waiting for host to reach the Up status'
     while 1:
         try:
-            if api.hosts.get('my_host').status.state == 'up':
+            if api.hosts.get(HOST_NAME).status.state == 'up':
                 break
         except:
             pass
 
     # Create iSCSI Storage Domain on Data Center
 
-    sdParams = params.StorageDomain(name='my_iscsi',
-                     data_center=api.datacenters.get('my_datacenter'),
+    sdParams = params.StorageDomain(name=STORAGE_NAME,
+                     data_center=api.datacenters.get(DC_NAME),
                      storage_format='v2',
                      type_='data',
-                     host=api.hosts.get('my_host'),
+                     host=api.hosts.get(HOST_NAME),
                      storage = params.Storage(type_='iscsi',
                                       volume_group=params.VolumeGroup(logical_unit=[params.LogicalUnit(id=LUN_GUID,
                                                           address=STORAGE_ADDRESS,
@@ -473,17 +489,17 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
         print 'Failed to create iSCSI Storage Domain:\n%s' % str(e)
 
     try:
-        if api.datacenters.get(name='my_datacenter').storagedomains.add(api.storagedomains.get(name='my_iscsi')):
+        if api.datacenters.get(name=DC_NAME).storagedomains.add(api.storagedomains.get(name=STORAGE_NAME)):
             print 'iSCSI Storage Domain was attached successfully'
     except Exception as e:
         print 'Failed to attach iSCSI Storage Domain:\n%s' % str(e)
 
     # Attach ISO domain to Data Center
 
-    isoParams = params.StorageDomain(name='my_iso',
-                                       data_center=api.datacenters.get('my_datacenter'),
+    isoParams = params.StorageDomain(name=ISO_NAME,
+                                       data_center=api.datacenters.get(DC_NAME),
                                        type_='iso',
-                                       host=api.hosts.get('my_host'),
+                                       host=api.hosts.get(HOST_NAME),
                                        storage = params.Storage(   type_='nfs',
                                                                    address=ISO_ADDRESS,
                                                                    path=ISO_PATH  )  )
@@ -495,23 +511,23 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
         print 'Failed to create/import an ISO Domain:\n%s' % str(e)
 
     try:
-        if api.datacenters.get('my_datacenter').storagedomains.add(api.storagedomains.get('my_iso')):
+        if api.datacenters.get(DC_NAME).storagedomains.add(api.storagedomains.get(ISO_NAME)):
             print 'ISO Domain was attached successfully'
     except Exception as e:
         print 'Failed to attach ISO Domain:\n%s' % str(e)
 
     try:
-        if api.datacenters.get('my_datacenter').storagedomains.get('my_iso').activate():
+        if api.datacenters.get(DC_NAME).storagedomains.get(ISO_NAME).activate():
             print 'ISO Domain was activated successfully'
     except Exception as e:
         print 'Failed to activate ISO Domain:\n%s' % str(e)
 
     # Attach Export domain to Data Center
 
-    isoParams = params.StorageDomain(name='my_export',
-                                       data_center=api.datacenters.get('my_datacenter'),
+    isoParams = params.StorageDomain(name=EXPORT_NAME,
+                                       data_center=api.datacenters.get(DC_NAME),
                                        type_='export',
-                                       host=api.hosts.get('my_host'),
+                                       host=api.hosts.get(HOST_NAME),
                                        storage = params.Storage(   type_='nfs',
                                                                    address=EXPORT_ADDRESS,
                                                                    path=EXPORT_PATH  )  )
@@ -522,13 +538,13 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
         print 'Failed to create/import an Export Domain:\n%s' % str(e)
 
     try:
-        if api.datacenters.get('my_datacenter').storagedomains.add(api.storagedomains.get('my_export')):
+        if api.datacenters.get(DC_NAME).storagedomains.add(api.storagedomains.get(EXPORT_NAME)):
             print 'Export Domain was attached successfully'
     except Exception as e:
         print 'Failed to attach Export Domain:\n%s' % str(e)
 
     try:
-        if api.datacenters.get('my_datacenter').storagedomains.get('my_export').activate():
+        if api.datacenters.get(DC_NAME).storagedomains.get(EXPORT_NAME).activate():
             print 'Export Domain was activated successfully'
     except Exception as e:
         print 'Failed to activate Export Domain:\n%s' % str(e)
@@ -536,16 +552,16 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     # Create VM with one NIC and one Disk
 
     try:
-        if api.vms.add( params.VM(name='my_vm',
+        if api.vms.add( params.VM(name=VM_NAME,
                                  memory=2147483648,
-                                 cluster=api.clusters.get('my_cluster'),
+                                 cluster=api.clusters.get(CLUSTER_NAME),
                                  template=api.templates.get('Blank')) ):
             print 'vm created successfully'
     except Exception as e:
         print 'Failed to create vm:\n%s' % str(e)
 
     try:
-        if api.vms.get('my_vm').nics.add( params.NIC(name='eth0',
+        if api.vms.get(VM_NAME).nics.add( params.NIC(name='eth0',
                                                     network=params.Network(name='ovirtmgmt'),
                                                     interface='virtio')):
             print 'NIC was added to vm successfully'
@@ -553,7 +569,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
         print 'Failed to add NIC to vm:\n%s' % str(e)
 
     try:
-        if api.vms.get('my_vm').disks.add( params.Disk(storage_domains=params.StorageDomains(storage_domain=[api.storagedomains.get('my_iscsi')]),
+        if api.vms.get(VM_NAME).disks.add( params.Disk(storage_domains=params.StorageDomains(storage_domain=[api.storagedomains.get(STORAGE_NAME)]),
                                                       size=VDISKSIZE,
                                                       type_='system',
                                                       status=None,
@@ -568,7 +584,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     print 'Waiting for vm to reach Down status'
     while 1:
         try:
-            if api.vms.get('my_vm').status.state == 'down':
+            if api.vms.get(VM_NAME).status.state == 'down':
                 break
         except:
             pass
@@ -576,7 +592,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     # Start VM
 
     try:
-        if api.vms.get('my_vm').start():
+        if api.vms.get(VM_NAME).start():
             print 'Start VM'
     except Exception as e:
         print 'Failed to Start VM:\n%s' % str(e)
@@ -584,7 +600,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     print 'Waiting for vm to reach Up status'
     while 1:
         try:
-            if api.vms.get('my_vm').status.state == 'up':
+            if api.vms.get(VM_NAME).status.state == 'up':
                 break
         except:
             pass
@@ -594,7 +610,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     # Hibernate VM
 
     try:
-        if api.vms.get('my_vm').suspend():
+        if api.vms.get(VM_NAME).suspend():
             print 'Hibernate VM'
     except Exception as e:
         print 'Failed to Hibernate VM:\n%s' % str(e)
@@ -602,7 +618,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     print 'Waiting for vm to reach Suspended status'
     while 1:
         try:
-            if api.vms.get('my_vm').status.state == 'suspended':
+            if api.vms.get(VM_NAME).status.state == 'suspended':
                 break
         except:
             pass
@@ -610,7 +626,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     # Resume VM
 
     try:
-        if api.vms.get('my_vm').start():
+        if api.vms.get(VM_NAME).start():
             print 'Resume VM'
     except Exception as e:
         print 'Resume VM:\n%s' % str(e)
@@ -618,7 +634,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     print 'Waiting for vm to Resume'
     while 1:
         try:
-            if api.vms.get('my_vm').status.state == 'up':
+            if api.vms.get(VM_NAME).status.state == 'up':
                 break
         except:
             pass
@@ -628,7 +644,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     # Stop VM
 
     try:
-        if api.vms.get('my_vm').stop():
+        if api.vms.get(VM_NAME).stop():
             print 'Stop VM'
     except Exception as e:
         print 'Stop VM:\n%s' % str(e)
@@ -636,7 +652,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     print 'Waiting for vm to reach Down status'
     while 1:
         try:
-            if api.vms.get('my_vm').status.state == 'down':
+            if api.vms.get(VM_NAME).status.state == 'down':
                 break
         except:
             pass
@@ -644,7 +660,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     # Export vm (into Export Domain)
 
     try:
-        if api.vms.get('my_vm').export(params.Action(storage_domain=api.storagedomains.get('my_export'))):
+        if api.vms.get(VM_NAME).export(params.Action(storage_domain=api.storagedomains.get(EXPORT_NAME))):
             print 'VM was exported successfully'
     except Exception as e:
         print 'Failed to export vm:\n%s' % str(e)
@@ -652,7 +668,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     print 'Waiting for vm to reach Down status'
     while 1:
         try:
-            if api.vms.get('my_vm').status.state == 'down':
+            if api.vms.get(VM_NAME).status.state == 'down':
                 break
         except:
             pass
@@ -660,7 +676,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     # Delete vm
 
     try:
-        if api.vms.get('my_vm').delete():
+        if api.vms.get(VM_NAME).delete():
             print 'VM was removed successfully'
     except Exception as e:
         print 'Failed to remove VM:\n%s' % str(e)
@@ -668,7 +684,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     print 'Waiting for vm to be deleted'
     while 1:
         try:
-            if 'my_vm' not in [vm.name for vm in api.vms.list()]:
+            if VM_NAME not in [vm.name for vm in api.vms.list()]:
                 break
         except:
             pass
@@ -676,7 +692,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     # Import vm (from Export Domain)
 
     try:
-        if api.storagedomains.get('my_export').vms.get('my_vm').import_vm(params.Action(storage_domain=api.storagedomains.get('my_iscsi'), cluster=api.clusters.get(name='my_cluster'))):
+        if api.storagedomains.get(EXPORT_NAME).vms.get(VM_NAME).import_vm(params.Action(storage_domain=api.storagedomains.get(STORAGE_NAME), cluster=api.clusters.get(name=CLUSTER_NAME))):
             print 'VM was imported successfully'
     except Exception as e:
         print 'Failed to import VM:\n%s' % str(e)
@@ -684,15 +700,16 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     print 'Waiting for vm to reach Down status'
     while 1:
         try:
-            if api.vms.get('my_vm').status.state == 'down':
+            if api.vms.get(VM_NAME).status.state == 'down':
                 break
         except:
             pass
 
     # Create a snapshot to vm
 
+    SNAPSHOT_NAME = 'my_snapshot'
     try:
-        if api.vms.get('my_vm').snapshots.add(params.Snapshot(description='my_snapshot', vm=api.vms.get('my_vm'))):
+        if api.vms.get(VM_NAME).snapshots.add(params.Snapshot(description=SNAPSHOT_NAME, vm=api.vms.get(VM_NAME))):
             print 'Creating a Snapshot'
     except Exception as e:
         print 'Failed to Create a Snapshot:\n%s' % str(e)
@@ -700,15 +717,16 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     print 'Waiting for Snapshot creation to finish'
     while 1:
         try:
-            if api.vms.get('my_vm').status.state == 'image_locked':
+            if api.vms.get(VM_NAME).status.state == 'image_locked':
                 break
         except:
             pass
 
     # Create a Template from VM
 
+    TEMPLATE_NAME = 'my_template'
     try:
-        if api.templates.add(params.Template(name='my_template', vm=api.vms.get('my_vm'), cluster=api.clusters.get('my_cluster'))):
+        if api.templates.add(params.Template(name=TEMPLATE_NAME, vm=api.vms.get(VM_NAME), cluster=api.clusters.get(CLUSTER_NAME))):
             print 'Creating a Template from vm'
     except Exception as e:
         print 'Failed to Create a Template from vm:\n%s' % str(e)
@@ -716,7 +734,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     print 'Waiting for vm to reach Down status'
     while 1:
         try:
-            if api.vms.get('my_vm').status.state == 'down':
+            if api.vms.get(VM_NAME).status.state == 'down':
                 break
         except:
             pass
@@ -725,8 +743,8 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
 
     try:
         if api.vms.add( params.VM(name='my_vm_from_template',
-                                cluster=api.clusters.get('my_cluster'),
-                                template=api.templates.get('my_template')) ):
+                                cluster=api.clusters.get(CLUSTER_NAME),
+                                template=api.templates.get(TEMPLATE_NAME)) ):
             print 'VM was created from Template successfully'
     except Exception as e:
         print 'Failed to create VM from Template:\n%s' % str(e)
@@ -734,7 +752,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
     print 'Waiting for vm to reach Down status'
     while 1:
         try:
-            if api.vms.get('my_vm').status.state == 'down':
+            if api.vms.get(VM_NAME).status.state == 'down':
                 break
         except:
             pass

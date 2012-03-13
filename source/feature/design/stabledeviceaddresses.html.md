@@ -339,7 +339,8 @@ Main issues are backward compatibility and affect of new 3.1 features.
 
 #### Index
 
-Manage internal unique index for 'iface' virtio' or 'ide' Same ordering as in old format should be kept in order to support 3.0 VMs that starts to run on 3.1 cluster When a VM that run perviously on 3.0 cluster starts to run for the first time on a 3.1 cluster, we must send its devices in the same order to VDSM, if this is not done, libvirt can not guarantee that devices will preserve their addresses. We currently maintain an index only for Floppy (index 0) and CD (index 2)
+Manage internal unique index for 'iface' virtio' or 'ide' Same ordering as in old format should be kept in order to support 3.0 VMs that starts to run on 3.1 cluster When a VM that run perviously on 3.0 cluster starts to run for the first time on a 3.1 cluster, we must send its devices in the same order to VDSM, if this is not done, libvirt can not guarantee that devices will preserve their addresses.
+ We currently maintain an index only for Floppy (index 0) and CD (index 2)
 
 #### Hot Plug Disk/Nic
 

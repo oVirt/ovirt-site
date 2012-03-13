@@ -1,0 +1,61 @@
+---
+title: AdvancedNfsOptions
+category: feature
+authors: derez, ecohen, ekohl, lhornyak, smizrahi
+wiki_category: Feature
+wiki_title: Features/AdvancedNfsOptions
+wiki_revision_count: 10
+wiki_last_updated: 2014-07-13
+---
+
+# Advanced Nfs Options
+
+## Summary
+
+Allows advanced users to override some of VDSM default nfs options
+
+## Current Status
+
+To do:
+
+*   Make needed change in Ovirt-Engine
+*   Make needed change in the GUIs
+
+Done:
+
+*   Make needed changes in VDSM
+
+## Description
+
+Currently VDSM has a default value for NFS timeouts, these are made to strike a good balance considering most common networking infrastructures and demands. Some client might be more tolerable to intermittant network interruptions or, on the other hand, less accepting of io stopping timeouts. For these kind of advanced users VDSM now accepts 2 new optional arguments in the NFS type specific arguemnts.
+
+## Dependency
+
+None
+
+## Related Features
+
+## Affected Functionality
+
+*   NFS connection creation
+
+## User Experience
+
+User should be able to select custom values for these field in special cases.
+
+## Upgrade
+
+None
+
+## How to use
+
+The new connection specific arguments are:
+
+These **should not** be specified under normal use and VDSM should be allowed to decide the appropriate values.
+
+*   **retrans** - *Optional*, *integer* - The number of times the NFS client retries a request before it attempts further recovery action.
+*   **timeout** - *Optional*, *integer* - The time in deciseconds (tenths of a second) the NFS client waits for a response before it retries an NFS request.
+
+## User work flows
+
+The user should be able to set these values after being aptly warned.

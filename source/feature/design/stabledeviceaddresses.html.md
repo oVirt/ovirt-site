@@ -344,7 +344,7 @@ Manage internal unique index for 'iface' virtio' or 'ide' Same ordering as in ol
 
 #### Hot Plug Disk/Nic
 
-Since managing this is via backend, we always assume that we get the exact Disk/Nic number as we know already. In case that we got a device that is nor recognized (even if it a Hot Plug) , it will be handled as a Generic Device
+Since managing this is via backend, we always assume that we get the exact Disk/Nic number as we know already. In case that we got a device that is not recognized (even if it a Hot Plug) , it will be handled as a unmanaged Device
 
 #### Optional Disk
 

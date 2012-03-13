@@ -71,7 +71,7 @@ Extend VdcObjectType with Disk.
 
 #### DB Changes
 
-Add support for Disk for **fn_get_entity_parents** stored-procedure.
+Add support for Disk to **fn_get_entity_parents** stored-procedure.
 
 #### UI Changes
 

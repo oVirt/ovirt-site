@@ -227,6 +227,8 @@ import
 
 OVFReader should be extended to read the information retrieved in the new structure from VDSM from the OVF file.
 
+new OVF documentation that reflects latest changes can be found in <http://www.ovirt.org/wiki/Ovf>
+
 #### API Design
 
 VM/vm_dynamic entities should have additional hash properties disk_vm_map mapping should have the address and boot_order properties VM Interface should have the address and boot_order properties DAL classes for VM device support

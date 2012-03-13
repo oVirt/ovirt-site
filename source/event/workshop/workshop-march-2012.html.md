@@ -16,10 +16,17 @@ CBIC Diamond Bldg. No.19 Building, Zhong Guan Cun Software Park, No. 8 Dong Bei 
 
 Some workshop attendees are staying here:
 
-Shangri-la Beijing Hotel
+    Shangri-la Beijing Hotel
 
-29 Zizhuyuan Rd. Beijing 100089 CHINA
+    29 Zizhuyuan Rd.
+    Beijing
+    100089
+    CHINA
 
-Main phone: (86) 10 68412211 Main fax: (86) 10 68418002 Toll free number: 800 852 5900 Hotel email: sales.slb@shangri-la.com Hotel web site: www.shangri-la.com
+    Main phone:  (86) 10 68412211
+    Main fax:  (86) 10 68418002
+    Toll free number:  800 852 5900
+    Hotel email:  sales.slb@shangri-la.com
+    Hotel web site:  http://www.shangri-la.com
 
 [Category:Workshop March 2012](Category:Workshop March 2012)

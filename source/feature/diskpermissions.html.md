@@ -92,11 +92,8 @@ The Disk Permissions is dependent on the following features:
 
 Affected oVirt projects:
 
-*   API
-*   CLI
 *   Engine-core
 *   Admin Portal
-*   User Portal
 
 ### Open issues
 

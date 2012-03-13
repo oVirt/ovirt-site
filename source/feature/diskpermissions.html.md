@@ -24,12 +24,9 @@ The Disk Permissions feature is supplementary for Disk related features (Floatin
 *   Status: Design Stage
 *   Last updated date: Wed Mar 13 2012
 
-### Detailed Description
-
-Disk should be located in entities hierarchy under storage domain and under VM.
-
 ### Design
 
+Disk should be located in entities hierarchy under storage domain and under VM.
 The following section describes permissions for Disk entities.
 
 #### Disk Actions
@@ -57,25 +54,25 @@ Required permissions for Disk related actions:
 
 New predefined role for disks DISK_OPERATOR should be given to user when creating a Disk.
 
-*   Add new role to PredefinedRoles.java
-*   Add new role to backend/manager/dbscripts/insert_predefined_roles.sql
-*   Add upgrade script to update role name
+` Add new role to `*`PredefinedRoles.java`*
+` Add new role to `*`backend/manager/dbscripts/insert_predefined_roles.sql`*
+       Add upgrade script to update role name
 
 ##### Updated Roles
 
-VM Operator should be extended with permissions on Disk when attaching Disk to VM. Existing roles are Update by upgrade script.
+VM Operator should be extended with permissions on Disk (attach/detach Disk, activate/deactivate Disk).
 
-#### New action group
-
-Extend VdcObjectType with Disk.
+       Existing roles are Update by upgrade script.
+       Extend `*`VdcObjectType`*` with Disk.
 
 #### DB Changes
 
-Add support for Disk to **fn_get_entity_parents** stored-procedure.
+       Add support for Disk to `*`fn_get_entity_parents`*` stored-procedure.
 
 #### UI Changes
 
-Add roles to RoleTreeView.initTreeView() (frontend/webadmin/modules/uicommonweb/src/main/java/org/ovirt/engine/ui/uicommonweb/models/configure/roles_ui/RoleTreeView.java)
+       Add Disk Operator role to Roles Tree in:
+`  `*`frontend/webadmin/modules/uicommonweb/src/main/java/org/ovirt/engine/ui/uicommonweb/models/configure/roles_ui/RoleTreeView.java`*
 
 ### Benefit to oVirt
 

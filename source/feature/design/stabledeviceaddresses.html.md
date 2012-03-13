@@ -231,7 +231,7 @@ new OVF documentation that reflects latest changes can be found in <http://www.o
 
 #### API Design
 
-VM/vm_dynamic entities should have additional hash properties disk_vm_map mapping should have the address and boot_order properties VM Interface should have the address and boot_order properties DAL classes for VM device support
+VM/vm_dynamic entities should have additional hash properties
 
 #### Generic Device
 

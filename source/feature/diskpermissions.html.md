@@ -55,7 +55,7 @@ Required permissions for Disk related actions:
 
 ##### New Roles
 
-New predefined role for disks should be added: DISK_OPERATOR. Should be given to user when creating a Disk.
+New predefined role for disks DISK_OPERATOR should be given to user when creating a Disk.
 
 *   Add new role to PredefinedRoles.java
 *   Add new role to backend/manager/dbscripts/insert_predefined_roles.sql

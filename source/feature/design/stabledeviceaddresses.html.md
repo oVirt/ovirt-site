@@ -266,11 +266,12 @@ Adding support for hash parameter in Create. Return the hash value for each VM w
 
 ### Tests
 
-Add tests for new VM device DAL Modify all tests to track new added properties
+Add tests for new VM device DAL
+ Modify all tests to track new added properties
 
 #### Expected unit-tests
 
-Verify that all new Generic Device DAO tests pass Verify that all VM DAO tests pass Verify that all Disk DAO and Disk VM mapping DAO tests pass Test both old & new OVFs for export/import
+Verify that all new Device DAO tests pass Verify that all VM DAO tests pass Verify that all Disk DAO and Disk VM mapping DAO tests pass Test both old & new OVFs for export/import
 
 #### Special considerations
 

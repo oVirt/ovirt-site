@@ -234,9 +234,9 @@ new OVF documentation that reflects latest changes can be found in <http://www.o
 VM/vm_dynamic entities should have additional hash properties
  New VmDevice BE and VmDeviceDAO to handle all changes on vm_device
 
-#### Generic Device
+#### Unmanaged Device
 
-Generic Device will be supported in the new format and will include all unhandled devices as sound/video and future devices. Those devices will be persistent and will have Type , SubType (device specific) and an Address. For 3.1 the Generic Device is not exposed to any GUI/REST API.
+Unmanaged Device will be supported in the new format and will include all unhandled devices as sound/controller/etc and future devices. Those devices will be persistent and will have Type , SubType (device specific) and an Address. For 3.1 an unmanaged Device is not exposed to any GUI/REST API. Unmanaged devices are passed to vdsm inside a Custom property. VDSM in it turn is passing this as is for possible hook processing.
 
 #### Floppy / CDROM
 

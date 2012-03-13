@@ -160,11 +160,14 @@ Attaching shared disk will not consume new Quota resource. Affected oVirt projec
 *   Engine-core
 *   Webadmin
 *   User Portal
+*   History Data Warehouse
+*   OVirt Node
 
-Quota - Same as regular disk, shared raw disk will need to be attached to quota, he will consume from. Attach and detach should not affect the quota consumption.
-Floating disk - Shared raw disk will be considered to be floating when the shared disk will not be attach to any VM.
-Disk permissions - Manage permissions for creating/removing/configuring shared disk.
-History Data Warehouse
+<B>Related Features</B>
+
+*   Quota - Same as regular disk, shared raw disk will need to be attached to quota, he will consume from. Attach and detach should not affect the quota consumption.
+*   Floating Disk - Shared raw disk will be considered to be floating when the shared disk will not be attach to any VM.
+*   Disk Permissions - Manage permissions for creating/removing/configuring shared disk.
 
 ### Documentation / External references
 

@@ -89,7 +89,7 @@ VM pool
 
 Export/Import
 
-*   When exporting a VM which has one or more shared disks, the creation will fail and a message will be displayed explaining why the template cannot be created.
+*   When exporting a VM which has one or more shared disks, the creation will fail and a message will be displayed explaining why the export cannot be created.
     The message will be as follow:
 
       VM ${VM_NAME} contains a shared disk. In order to export this VM, either detach the shared disk from the VM or make it un-shareable by removing its "shareable" attribute.

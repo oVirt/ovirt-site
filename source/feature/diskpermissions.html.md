@@ -37,8 +37,8 @@ The following section describes permissions for Disk entities.
 Floating disk requires permission for Storage domain if lives inside a storage domain, else if disk is Direct LUN it requires permission for System.
 Required permissions for Disk related actions:
 
-*   Create disk - requires Storage Domain permissions, (can't assume Quota is sufficient to grant a user permissions for the disk on the Storage Domain, as Quota might be disabled).
-*   Attach disk to VM - requires permissions for the Disk and for the VM (applies for shared disk).
+*   Create disk - requires Storage Domain permissions, (can't assume Quota is sufficient to permit user creating the disk on the Storage Domain, as Quota might be disabled).
+*   Attach disk to VM - requires permissions for the Disk and for the VM (applies for shared disk as well).
 *   Detach disk from VM - requires permissions on the VM only. (Unlike attach disk that requires permissions for the VM and for the Disk).
 *   Activate/Deactivate disk on VM (also Hot Plug) - requires permission for the VM.
 *   Remove disk - permissions for the Disk.

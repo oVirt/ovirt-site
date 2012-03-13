@@ -65,7 +65,7 @@ Attach Shared Disk
 
 Remove Shared Disk
 
-*   For shared raw disk to be removed from the setup, it has to be either inactive in all the VMs which are attached to it, or attached to VMs which are in status down (or any combination of the two).
+*   Shared raw disk can be removed from the setup, whether the disk is inactive in all the VMs which are attached to it, or all the VMs which the is disk attached to, are in status down (or any combination of the two).
      When disk will be removed a warning message should display the following message :
 
       Removing the shared disk will remove it from all the VMs which are associated with it.

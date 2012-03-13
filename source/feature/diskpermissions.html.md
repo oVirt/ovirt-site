@@ -79,7 +79,8 @@ Add roles to RoleTreeView.initTreeView() (frontend/webadmin/modules/uicommonweb/
 
 ### Benefit to oVirt
 
-Permission management for Disks enhances the Disk functionality, provides flexibility to users and protects it from misuse. Granting permissions on Disk to user is done via the Administrator Portal or using RESTful API.
+Permission management for Disks enhances the Disk functionality, provides flexibility to users and protects it from misuse.
+Granting permissions on Disk to user is done via the Administrator Portal or using RESTful API.
 
 ### Dependencies / Related Features
 

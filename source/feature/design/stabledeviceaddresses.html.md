@@ -231,7 +231,8 @@ new OVF documentation that reflects latest changes can be found in <http://www.o
 
 #### API Design
 
-VM/vm_dynamic entities should have additional hash properties New VmDevice BE and VmDeviceDAO to handle all changes on vm_device
+VM/vm_dynamic entities should have additional hash properties
+ New VmDevice BE and VmDeviceDAO to handle all changes on vm_device
 
 #### Generic Device
 

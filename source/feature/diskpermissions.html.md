@@ -26,7 +26,7 @@ The Disk Permissions feature is supplementary for Disk related features (Floatin
 
 ### Design
 
-Disk should be located in entities hierarchy under storage domain and under VM.
+Disk inherits permissions from the VM it attached to and from the storage domain he resides on (if there is one)
 The following section describes permissions for Disk entities.
 
 #### Disk Actions

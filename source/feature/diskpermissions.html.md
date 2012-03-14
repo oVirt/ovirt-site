@@ -49,7 +49,7 @@ Required permissions for Disk related actions:
 
 #### Roles
 
-#### New Action Groups for Disk Object Type
+##### New Action Groups for Disk Object Type
 
        CREATE_DISK - AddDisk, AddDiskToVm
        EDIT_DISK_PROPERTIES - UpdateDisk, UpdateVM, Activate/Deactivate

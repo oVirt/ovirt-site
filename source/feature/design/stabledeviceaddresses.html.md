@@ -10,15 +10,6 @@ wiki_warnings: conversion-fallback
 
 # Stable Device Addresses
 
-### Current status
-
-*   Target Release: 3.1
-*   Status: Done
-*   Last updated date: Wed Mar 14 2012
-*   Email: <emesika@redhat.com>
-
-## Stable Device Addresses
-
 This document describes the design for the stable Device addresses feature.
 
 In the term Device we include PCI, VirtIO Serial, SCSI, IDE, CCID and actually anything libvirt supports.

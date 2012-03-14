@@ -37,21 +37,25 @@ Required permissions for Disk related actions:
 *   Attach disk to VM - requires permissions on the Disk and on the VM (applies for shared disk as well).
 *   Detach disk from VM - requires permissions on the VM only. (Unlike attach disk that requires permissions on the VM and on the Disk).
 *   Activate/Deactivate disk on VM (also Hot Plug) - requires permission on the VM.
-*   Remove disk - permissions on the Disk.
+*   Remove disk (from Disk tab)- permissions on the Disk.
 *   Move or copy disk - requires permissions on the Disk and on the target Storage Domain.
 *   Add disk to VM - requires both permissions on the VM and on the storage domain (same as adding disk and attaching to VM).
     -   Create - on storage domain
     -   Attach - on disk and VM
     -   Activate - on VM
-*   Remove VM - we'll extend the command to support either deleting disks from the system (the current behaviour) or only detach the disks, permissions goes as follows:
+*   Remove VM - we'll extend the command to support either deleting disks from the system (the current behavior) or only detach the disks, permissions goes as follows:
     -   If disks are marked for deletion - requires permissions on the removed Disks and on the VM.
     -   If disks aren't marked for deletion - the disks are detached, therefore no permissions required for the Disk, only for removing VM.
 
 #### Roles
 
+#### New Action Groups for Disk Object Type
+
+CREATE_DISK - AddDisk, AddDiskToVm EDIT_DISK_PROPERTIES - UpdateDisk, UpdateVM, Activate/Deactivate CONFIGURE_DISK_STORAGE - MoveOrCopyDisk DELETE_DISK - RemoveDisk, RemoveVm
+
 ##### New Roles
 
-New predefined role for disks DISK_OPERATOR should be given to user when creating a Disk.
+New predefined user role for disks **DISK_OPERATOR** will be given to user when creating a Disk (either from Disk tab or from VM's disk sub-tab). DISK_OPERATOR will be associated with the following action groups: CREATE_DISK, EDIT_DISK_PROPERTIES, CONFIGURE_DISK_STORAGE and DELETE_DISK.
 
 ` Add new role to `*`PredefinedRoles.java`*
 ` Add new role to `*`backend/manager/dbscripts/insert_predefined_roles.sql`*
@@ -59,7 +63,7 @@ New predefined role for disks DISK_OPERATOR should be given to user when creatin
 
 ##### Updated Roles
 
-VM Operator should be extended with permissions on Disk (attach/detach Disk, activate/deactivate Disk).
+VM Operator should be extended with permissions on Disk (attach/detach Disk, activate/deactivate Disk). Currently attach/detach is being executed as part of the UpdateVm action.
 
        Existing roles are Update by upgrade script.
        Extend `*`VdcObjectType`*` with Disk.
@@ -68,10 +72,15 @@ VM Operator should be extended with permissions on Disk (attach/detach Disk, act
 
        Add support for Disk to `*`fn_get_entity_parents`*` stored-procedure.
 
+#### Install/Upgrade DB
+
+DB Upgrade should add ownership for the Disks by the VM users.
+
 #### UI Changes
 
-       Add Disk Operator role to Roles Tree in:
-`  `*`frontend/webadmin/modules/uicommonweb/src/main/java/org/ovirt/engine/ui/uicommonweb/models/configure/roles_ui/RoleTreeView.java`*
+Add Permissions sub-tab under Disks main tab
+Add Disk Operator role to Roles Tree in:
+ *frontend/webadmin/modules/uicommonweb/src/main/java/org/ovirt/engine/ui/uicommonweb/models/configure/roles_ui/RoleTreeView.java*
 
 ### Benefit to oVirt
 
@@ -93,7 +102,6 @@ Affected oVirt projects:
 
 ### Open issues
 
-*   DB Upgrade should add ownership for the Disks by the VM users.
 *   Direct LUN - Add/Remove Direct LUN disk has its own commands or share the same Disk Add/Remove ? If share, need to distinguish the required permission by the Disk in the *CommandBase.getPermissionCheckSubjects*
 
 ### Documentation / External references

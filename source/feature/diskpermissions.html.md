@@ -43,7 +43,7 @@ Required permissions for Disk related actions:
     -   Create - on storage domain
     -   Attach - on disk and VM
     -   Activate - on VM
-*   Remove VM - we'll extend the command to support either deleting disks from the system (the current behaviour) or only detach the disks, permissions goes as follow :
+*   Remove VM - we'll extend the command to support either deleting disks from the system (the current behaviour) or only detach the disks, permissions goes as follows:
     -   If disks are marked for deletion, requires permissions on the removed Disks and on the VM.
     -   If disks aren't marked for deletion, the disks are detached, therefore no permissions required for the Disk, only for removing VM.
 

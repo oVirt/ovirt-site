@@ -124,7 +124,9 @@ Stateless VM
     -   User will also be able to attach/detach a shared disk through the disks sub tab of the VMs main tab,
     -   The administrator can attach/detach a shared raw disk from the disks main tab.
 *   Remove shared disk
-    -   User will be able to remove a shared disk from the disks sub tab in the VMs sub tab.
+    -   User will be able to remove a shared disk from the disks main tab.
+    -   When user will try to remove a shared disk which is attached to only one VM from the disks sub tab, the user will be able to choose whether to remove the disk permanently from the storage or only detach it from the VM.
+    -   When user will try to remove a shared disk which is attached to more then one VM from the disks sub tab, the disk should only be detached from the VM, and not removed permanently.
 
 #### Installation/Upgrade
 

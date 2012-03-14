@@ -95,6 +95,7 @@ Affected oVirt projects:
 ### Open issues
 
 *   DB Upgrade should add ownership for the Disks by the VM users.
+*   Direct LUN - Add/Remove/Move(?) Direct LUN disk has its own commands or share the same Disk Add/Remove ? If share, need to distinguish the required permission by the Disk in the *CommandBase.getPermissionCheckSubjects*
 
 ### Documentation / External references
 

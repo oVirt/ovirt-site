@@ -164,7 +164,7 @@ Attaching shared disk will not consume new Quota resource. Affected oVirt projec
 *   Webadmin
 *   User Portal
 *   History Data Warehouse
-*   OVirt Node
+*   VDSM
 
 <B>Related Features</B>
 

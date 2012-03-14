@@ -16,6 +16,7 @@ wiki_last_updated: 2012-03-22
 
 *Update 2012-03-13 - This is the proposed schedule that still a work-in-progress.*
 
+    09:00 - 09:30 ::  Opening Welcome and Introductions
     09:30 - 11:00 :: oVirt intro & architecture (presented by Red Hat
     engineers)
     11:00 - 11:15 :: MORNING TEA BREAK

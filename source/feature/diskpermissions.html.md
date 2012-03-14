@@ -78,7 +78,10 @@ VM Operator should be extended with permissions on Disk (attach/detach Disk, act
 
 #### Install/Upgrade DB
 
-DB Upgrade should add ownership for the Disks by the VM users.
+DB Upgrade should handle the following:
+
+*   Add Disk Operator role to users which have VM Operators to allow permissions on Disks to VM users for the Disks which are attached to the VMs.
+*   Add all disk related operations to the system administrator role.
 
 #### UI Changes
 

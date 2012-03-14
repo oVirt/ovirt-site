@@ -70,10 +70,6 @@ Remove Shared Disk
 
       Removing the shared disk will remove it from all the VMs which are associated with it.
 
-Copy Shared Disk
-
-*   The shared raw disk can only be copied once it is either inactive in all the VMs which is attached to, or VMs are all shut down (or any combination of the two).
-
 Remove VM
 
 *   When VM will be removed the shared disk will be detached from the VM.

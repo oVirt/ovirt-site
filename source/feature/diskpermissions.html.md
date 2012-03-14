@@ -26,7 +26,7 @@ The Disk Permissions feature is supplementary for Disk related features (Floatin
 
 ### Design
 
-Disk inherits permissions from the VM it attached to and from the storage domain he resides on (if there is one)
+Disk inherits permissions from the VM it is attached to and from the storage domain he resides on (if there is one)
 The following section describes permissions for Disk entities.
 
 #### Disk Actions

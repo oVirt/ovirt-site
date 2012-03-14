@@ -5,21 +5,10 @@ wiki_title: Features/Design/StableDeviceAddresses
 wiki_revision_count: 62
 wiki_last_updated: 2012-03-14
 wiki_conversion_fallback: true
-wiki_warnings: conversion-fallback, list-item?
+wiki_warnings: conversion-fallback
 ---
 
 # Stable Device Addresses
-
-### Owner
-
-*   Feature owner: [Eli Mesika](user:emesika)
-
-<!-- -->
-
-*   GUI Component owner: Not Relevant
-*   REST Component owner: Not Relevant
-*   Engine Component owner: [Eli Mesika](user:emesika)
-*   QA Owner: [Yaniv Kaul](user:ykaul)
 
 ### Current status
 

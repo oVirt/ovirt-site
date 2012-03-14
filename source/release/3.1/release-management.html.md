@@ -29,6 +29,11 @@ wiki_last_updated: 2012-08-20
 
 #### MUST
 
+*   **MUST**: No blockers on the lower level components - libvirt, lvm,device-mapper,qemu-kvm, Jboss, postgres, iscsi-initiator
+*   **MUST**: All image related operations work - copy, move, import, export, snapshot (vm and template)
+*   **MUST**: Ovirt/host installation should work flawlessly (w/o ssl)
+*   **MUST**: Fully operational flow (define DC hierarchy so you can run vm) with gui/cli/python-api/rest-api
+*   **MUST**: vm life-cycle is working flawlessly (start,suspend,resume,stop,migrate)
 *   **MUST**: Upgrade from previous release
 *   **MUST**: ovirt-node full cycle (register, approve and running VM)
 *   **MUST**: No known data corruptors

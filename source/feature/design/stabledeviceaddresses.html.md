@@ -5,10 +5,30 @@ wiki_title: Features/Design/StableDeviceAddresses
 wiki_revision_count: 62
 wiki_last_updated: 2012-03-14
 wiki_conversion_fallback: true
-wiki_warnings: conversion-fallback
+wiki_warnings: conversion-fallback, list-item?
 ---
 
 # Stable Device Addresses
+
+### Owner
+
+*   Feature owner: [Eli Mesika](user:emesika)
+
+<!-- -->
+
+*   GUI Component owner: Not Relevant
+*   REST Component owner: Not Relevant
+*   Engine Component owner: [Eli Mesika](user:emesika)
+*   QA Owner: [Yaniv Kaul](user:ykaul)
+
+### Current status
+
+*   Target Release: 3.1
+*   Status: Done
+*   Last updated date: Wed Mar 14 2012
+*   Email: <emesika@redhat.com>
+
+## Stable Device Addresses
 
 This document describes the design for the stable Device addresses feature.
 

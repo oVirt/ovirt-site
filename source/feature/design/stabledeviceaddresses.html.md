@@ -5,10 +5,12 @@ wiki_title: Features/Design/StableDeviceAddresses
 wiki_revision_count: 62
 wiki_last_updated: 2012-03-14
 wiki_conversion_fallback: true
-wiki_warnings: conversion-fallback
+wiki_warnings: conversion-fallback, list-item?
 ---
 
 # Stable Device Addresses
+
+### Summary
 
 This document describes the design for the stable Device addresses feature.
 
@@ -19,6 +21,24 @@ Allow devices in guest virtual machines to retain the same device address alloca
 This feature is supported by libvirt and should be implemented by oVirt Engine and VDSM.
 
 When creating a VM, QEMU allocates device addresses to the guest devices, these addresses are being reported by libvirt to VDSM and VDSM should report it back to oVirt Engine. oVirt Engine should persist the device addresses and report it as part of the VM configuration on the next run. If a change to the VM devices occurred oVirt Engine should detect the change and persist the new device addresses.
+
+### Owner
+
+*   Feature owner: [Eli Mesika](user:emesika)
+
+<!-- -->
+
+*   GUI Component owner: Not Relevant
+*   REST Component owner: Not Relevant
+*   Engine Component owner: [Eli Mesika](user:emesika)
+*   QA Owner: [Yaniv Kaul](user:ykaul)
+
+### Current status
+
+*   Target Release: 3.1
+*   Status: Done
+*   Last updated date: Wed Mar 14 2012
+*   Email: <emesika@redhat.com>
 
 **The general implementation concepts are:**
 

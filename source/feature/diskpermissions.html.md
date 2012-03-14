@@ -76,12 +76,12 @@ VM Operator should be extended with permissions on Disk (attach/detach Disk, act
 
        Add support for Disk to `*`fn_get_entity_parents`*` stored-procedure.
 
-#### Install/Upgrade DB
+#### Upgrade DB
 
 DB Upgrade should handle the following:
 
-*   Add Disk Operator role to users which have VM Operators to allow permissions on Disks to VM users for the Disks which are attached to the VMs.
-*   Add all disk related operations to the system administrator role.
+*   Add Disk Operator role to users that have VM Operators to allow permissions on Disks (to VM users having Disks attached to the VMs).
+*   Add all disk related operations to the system administrator.
 
 #### UI Changes
 

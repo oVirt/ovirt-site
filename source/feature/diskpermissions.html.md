@@ -53,13 +53,14 @@ Required permissions for Disk related actions:
 
        CREATE_DISK - AddDisk, AddDiskToVm
        EDIT_DISK_PROPERTIES - UpdateDisk, UpdateVM, Activate/Deactivate
+       ATTACH_DISK - AttachDiskToVm
        CONFIGURE_DISK_STORAGE - MoveOrCopyDisk
        DELETE_DISK - RemoveDisk, RemoveVm
 
 ##### New Roles
 
 New predefined user role for disks **DISK_OPERATOR** will be given to user when creating a Disk (either from Disk tab or from VM's disk sub-tab).
-DISK_OPERATOR will be associated with the following action groups: CREATE_DISK, EDIT_DISK_PROPERTIES, CONFIGURE_DISK_STORAGE and DELETE_DISK.
+DISK_OPERATOR will be associated with the following action groups: CREATE_DISK, EDIT_DISK_PROPERTIES, ATTACH_DISK, CONFIGURE_DISK_STORAGE and DELETE_DISK.
 
 ` Add new role to `*`PredefinedRoles.java`*
 ` Add new role to `*`backend/manager/dbscripts/insert_predefined_roles.sql`*

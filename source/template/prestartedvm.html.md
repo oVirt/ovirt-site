@@ -33,7 +33,7 @@ The Prestarted Vm feature allows holding a predefined number of unassigned ready
 
 ### Current status
 
-*   Design stage
+*   Status: Engine-done, API-done, GUI-design, QA-
 *   Last updated date: Tue Dec 27 2011:
 
 ### Detailed Description

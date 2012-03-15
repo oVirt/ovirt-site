@@ -23,6 +23,8 @@ This feature will let users of oVirt engine to create a VM based on a given snap
 
 *   Last updated date: Wed Jan 18 2012
 
+Engine-done, API-done, UI-coding
+
 ### Detailed Description
 
 #### User interface

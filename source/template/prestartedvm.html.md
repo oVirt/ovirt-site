@@ -84,7 +84,8 @@ New Design:
 
 *   We also need to add this column to vm_pools_view and vm_pools_full_view.
 
-**VmPoolMonitor** Maintaining the number of prestarted will be done periodically. The periodic approach was chosen since it avoids relying on the different stages in the VmPool's life cycle. There will be a job that runs every x minutes. x is defined in vdc_options in a new row called VmPoolRefreshRate. A new property needs to be added to the engine-config.properties file. The default will be 2 minutes. The job will go over each pool, check whether there are enough prestarted Vms running. If not, it will start the needed amount.
+**VmPoolMonitor**
+Maintaining the number of prestarted will be done periodically. The periodic approach was chosen since it avoids relying on the different stages in the VmPool's life cycle. There will be a job that runs every x minutes. x is defined in vdc_options in a new row called VmPoolRefreshRate. A new property needs to be added to the engine-config.properties file. The default will be 2 minutes. The job will go over each pool, check whether there are enough prestarted Vms running. If not, it will start the needed amount.
 
 We will the following config values for this job: <span style="color:Teal">**prestarted_vms**</span>:
 {|class="wikitable sortable" !border="1"| config key || config type ||Null? / Default ||Description |- |VmPoolMonitorBatchSize || smallint ||5||The maximum amount of vms that will be prestarted in a single run of the VmPoolMonitor |- |VmPoolMonitorIntervalInMinutes || smallint ||5||The size of interval between VmPoolMonitor runs |- |VmPoolMonitorMaxAttempts || smallint ||3||The number of attempts that are made to prestart a Vm |}

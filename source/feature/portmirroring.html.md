@@ -65,6 +65,10 @@ Engine-level notes:
 
 2.  Also, it is recommended that the VM containing the promiscuous NIC will be pinned to a single host (the host which we would like to monitor). One will probably want to define such a VM for each host in the cluster.
 
+### UI mockups
+
+Will be available soon.
+
 ### Benefit to oVirt
 
 The ability to integrate the security world with the virtualization one, allowing to easily monitor and secure networks in a virtualized environment, same as done today in non-virtualized environments.

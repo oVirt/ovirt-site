@@ -21,19 +21,19 @@ The SPM Priority feature allows the admin to define priorities between hosts reg
 
 *   Feature owner: [ Muli Salem](User:msalem)
 
-    * Backend Component owner: [ Muli Salem](User:msalem)
+    * Engine Component owner: [ Muli Salem](User:msalem)
 
     * GUI Component owner: [ ?](User:?)
 
-    * REST Component owner: [ ?](User:?)
+    * API Component owner: [ Muli Salem](User:msalem)
 
-    * QA Owner: [ ?](User:?)
+    * QA Owner: [ Leonid Natapov](User:lnatapov)
 
 *   Email: msalem@redhat.com
 
 ### Current status
 
-*   Design stage
+*   Status: Engine-done, API-done, QA-test plan built, GUI-design
 *   Last updated date: Tue Dec 27 2011:
 
 ### Description

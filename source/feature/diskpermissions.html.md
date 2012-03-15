@@ -38,6 +38,7 @@ Required permissions for Disk related actions:
 *   Detach disk from VM - requires permissions on the VM only. (Unlike attach disk that requires permissions on the VM and on the Disk).
 *   Activate/Deactivate disk on VM (also Hot Plug) - requires permission on the VM.
 *   Remove disk (from Disk tab)- permissions on the Disk.
+*   Update disk - permissions on the Disk.
 *   Move or copy disk - requires permissions on the Disk and on the target Storage Domain.
 *   Add disk to VM - requires both permissions on the VM and on the storage domain (same as adding disk and attaching to VM).
     -   Create - on storage domain

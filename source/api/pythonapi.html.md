@@ -345,7 +345,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          print 'Waiting for Snapshot creation to finish'
          while 1:
              try:
-                 if api.vms.get(VM_NAME).status.state == 'image_locked':
+                 if api.vms.get(VM_NAME).status.state != 'image_locked':
                      break
              except:
                  pass

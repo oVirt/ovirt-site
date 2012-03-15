@@ -56,6 +56,7 @@ wiki_last_updated: 2015-02-23
     -   Go/No go meetings will happen once a week in this stage.
         -   Increase the amount of meeting according to the release manager decision.
         -   Release manager will inform the community on any delay.
+    -   Official vote as described in <http://www.ovirt.org/governance/voting/>
 
 8.  **Release**
     -   Create ANNOUNCE message few days before actual release.

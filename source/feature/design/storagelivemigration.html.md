@@ -69,3 +69,5 @@ Reference: [<http://wiki.qemu.org/Features/LiveBlockMigration>](http://wiki.qemu
 ### Mirrored-Snapshot Execution Diagrams and Description
 
 ![](StorageLiveMigration2.png "StorageLiveMigration2.png")
+
+![](StorageLiveMigrationAPIDiagram2.png "StorageLiveMigrationAPIDiagram2.png")

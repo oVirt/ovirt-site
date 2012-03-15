@@ -46,6 +46,11 @@ Typically, just another parameter for a network configuration to determine the [
 *   Add host to newtork via setupnetworks
     -   If network.mtu is 0 then don't send it to VDSM and the OS default will take place
 
+<!-- -->
+
+*   monitoring
+    -   fire audit log if a the host reported MTU different than the logical network
+
 #### limitations
 
 *   Vlan and non-Vlan networks cannot reside on the same nic although there is an RFE for that
@@ -69,6 +74,24 @@ If this limitation is removed we need to validate the MTU for the non-vlan netwo
        |
       eth0.300 mtu=1500  
       eth0.500 mtu=9000
+
+#### Messages
+
+*   Audit log
+
+      VDS_SET_NONOPERATIONAL_NETWORK_MTU_DIFFER(605, HOUR)
+
+*   AuditLogMessages.properies
+
+      VDS_SET_NONOPERATIONAL_NETWORK_MTU_DIFFER=MTU on network ${NetworkName} is ${VDS_MTU} and expected to be ${CLUSTER_MTU}
+
+*   Enums.properties
+
+      AuditLogType___VDS_SET_NONOPERATIONAL_NETWORK_MTU_DIFFER=The MTU value of the Host network differs from Cluster
+
+*   Enums.java
+
+      AuditLogType___VDS_SET_NONOPERATIONAL_NETWORK_MTU_DIFFER
 
 ### UI
 

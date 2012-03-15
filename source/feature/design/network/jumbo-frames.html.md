@@ -70,6 +70,16 @@ If this limitation is removed we need to validate the MTU for the non-vlan netwo
       eth0.300 mtu=1500  
       eth0.500 mtu=9000
 
+### UI
+
+*   MTU is provisioned in logical network UI
+*   add checkbox "override MTU" unchecked by default
+*   once checked a blank input apears (valid input type is integers)
+*   unchecking will clear the input box
+*   if no overriden, send 0
+
+//TODO ecohen put mockups
+
 ### Backward Compatibility
 
 Same as for bridge-less feature.

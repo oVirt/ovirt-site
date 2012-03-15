@@ -20,23 +20,55 @@ Typically, just another parameter for a network configuration to determine the [
 
 *   Email: rgolan@redhat.com
 
+### definition
+
+[<http://en.wikipedia.org/wiki/Jumbo_frame>| Jumbo frames] (Wikipedia citation): In computer networking, jumbo frames are Ethernet frames with more than 1500 bytes of payload. Conventionally, jumbo frames can carry up to 9000 bytes of payload, but variations exist and some care must be taken when using the term.
+
 ### Code Changes
 
 #### Model
 
-1.  Add MTU : String to network entity
-2.  Add deserialization to MTU field in VdsBrokerObjectsBuilder.java. Serialise as String and not Int.
-3.  DB - add field in to vds_interface,vds_interface_view, network,network_view
-4.  DAO - add field to VdsInterfaceDao,networkDao CRUD actions
-5.  DAO - update tests
+*   Add MTU : int to both network and VdsNeworkEntity
+*   Add deserialization to MTU field in VdsBrokerObjectsBuilder.java. Serialise as String and not Int.
+*   DB - add field in to vds_interface,vds_interface_view, network,network_view
+*   DAO - add field to VdsInterfaceDao,networkDao CRUD actions
+*   DAO - update tests
+*   config value - MaxMTU
 
 #### BL
 
-1.  extend non-operational API to accept more reasons
-2.  remove redundant checking in monitoring code - same check for missing
-3.  add tests for the API refactoring network in CollectVdsNetworkData and VdsManager
-4.  refactor VdsManager to send the host to non-oper on MTU difference with Cluster
-5.  add tests to VdsManager for the new behaviour
+*   Create logical network
+    -   valid values: 0 - use OS default , 68 - minimum and maximum is configurable (MaxMTU)
+    -   mtu is updateable only when the logical network is not attached to a cluster
+
+<!-- -->
+
+*   Add host to newtork via setupnetworks
+    -   If network.mtu is 0 then don't send it to VDSM and the OS default will take place
+
+#### limitations
+
+*   Vlan and non-Vlan networks cannot reside on the same nic although there is an RFE for that
+
+If this limitation is removed we need to validate the MTU for the non-vlan network will allways is the lowest or equals to the the lowest vlan id (again, for networks on the same nic)
+
+#### implementation on host
+
+*   The mtu on the bare interface is always the highest common between all pseudo-interfaces (vlan, bridge) on top of it
+*   single network bridged mtu 1500
+
+      eth0  mtu=1500
+      br0  
+       |
+      eth0 mtu=1500
+
+*   vlaned bridged mtu 1500 and vlaned non-bridged mtu 9000
+
+      eth0 mtu=9000
+      br0  mtu=1500
+       |
+      eth0.300 mtu=1500  
+      eth0.500 mtu=9000
 
 ### Backward Compatibility
 

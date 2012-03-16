@@ -277,99 +277,71 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
 ### Export VM (into Export Domain)
 
          try:
-             if api.vms.get(VM_NAME).export(params.Action(storage_domain=api.storagedomains.get(EXPORT_NAME))):
-                 print 'VM was exported successfully'
+             api.vms.get(VM_NAME).export(params.Action(storage_domain=api.storagedomains.get(EXPORT_NAME)))
+             print 'VM was exported successfully'
+             print 'Waiting for VM to reach Down status'
+             while api.vms.get(VM_NAME).status.state != 'down':
+                 sleep(1)
          except Exception as e:
-             print 'Failed to export VM:\n%s' % str(e)
-         
-         print 'Waiting for VM to reach Down status'
-         while 1:
-             try:
-                 if api.vms.get(VM_NAME).status.state == 'down':
-                     break
-             except:
-                 pass
+            print 'Failed to export VM:\n%s' % str(e)
 
 ### Delete VM
 
          try:
-             if api.vms.get(VM_NAME).delete():
-                 print 'VM was removed successfully'
+             api.vms.get(VM_NAME).delete()
+             print 'VM was removed successfully'
+             print 'Waiting for VM to be deleted'
+             while VM_NAME in [vm.name for vm in api.vms.list()]:
+                 sleep(1)
          except Exception as e:
              print 'Failed to remove VM:\n%s' % str(e)
-         
-         print 'Waiting for VM to be deleted'
-         while 1:
-             try:
-                 if VM_NAME not in [vm.name for vm in api.vms.list()]:
-                     break
-             except:
-                 pass
 
 ### Import VM (from Export Domain)
 
          try:
-             if api.storagedomains.get(EXPORT_NAME).vms.get(VM_NAME).import_vm(params.Action(storage_domain=api.storagedomains.get(STORAGE_NAME), cluster=api.clusters.get(name=CLUSTER_NAME))):
-                 print 'VM was imported successfully'
+             api.storagedomains.get(EXPORT_NAME).vms.get(VM_NAME).import_vm(params.Action(storage_domain=api.storagedomains.get(STORAGE_NAME), cluster=api.clusters.get(name=CLUSTER_NAME)))
+             print 'VM was imported successfully'
+             print 'Waiting for VM to reach Down status'
+             while api.vms.get(VM_NAME).status.state != 'down':
+                 sleep(1)
          except Exception as e:
              print 'Failed to import VM:\n%s' % str(e)
-         
-         print 'Waiting for VM to reach Down status'
-         while 1:
-             try:
-                 if api.vms.get(VM_NAME).status.state == 'down':
-                     break
-             except:
-                 pass
 
 ### Create a snapshot to VM
 
          SNAPSHOT_NAME = 'my_snapshot'
+         
          try:
-             if api.vms.get(VM_NAME).snapshots.add(params.Snapshot(description=SNAPSHOT_NAME, vm=api.vms.get(VM_NAME))):
-                 print 'Creating a Snapshot'
+             api.vms.get(VM_NAME).snapshots.add(params.Snapshot(description=SNAPSHOT_NAME, vm=api.vms.get(VM_NAME)))
+             print 'Creating a Snapshot'
+             print 'Waiting for Snapshot creation to finish'
+             while api.vms.get(VM_NAME).status.state == 'image_locked':
+                 sleep(1)
          except Exception as e:
              print 'Failed to Create a Snapshot:\n%s' % str(e)
-         
-         print 'Waiting for Snapshot creation to finish'
-         while 1:
-             try:
-                 if api.vms.get(VM_NAME).status.state != 'image_locked':
-                     break
-             except:
-                 pass
 
 ### Create a Template from VM
 
          TEMPLATE_NAME = 'my_template'
+         
          try:
-             if api.templates.add(params.Template(name=TEMPLATE_NAME, vm=api.vms.get(VM_NAME), cluster=api.clusters.get(CLUSTER_NAME))):
-                 print 'Creating a Template from VM'
+             api.templates.add(params.Template(name=TEMPLATE_NAME, vm=api.vms.get(VM_NAME), cluster=api.clusters.get(CLUSTER_NAME)))
+             print 'Creating a Template from VM'
+             print 'Waiting for VM to reach Down status'
+             while api.vms.get(VM_NAME).status.state != 'down':
+                 sleep(1)
          except Exception as e:
              print 'Failed to Create a Template from VM:\n%s' % str(e)
-         
-         print 'Waiting for VM to reach Down status'
-         while 1:
-             try:
-                 if api.vms.get(VM_NAME).status.state == 'down':
-                     break
-             except:
-                 pass
 
 ### Create VM from Template
 
+         NEW_VM_NAME = 'my_vm_from_template'
+         
          try:
-             if api.vms.add( params.VM(name='my_vm_from_template',
-                                      cluster=api.clusters.get(CLUSTER_NAME),
-                                      template=api.templates.get(TEMPLATE_NAME)) ):
-                 print 'VM was created from Template successfully'
+             api.vms.add(params.VM(name=NEW_VM_NAME, cluster=api.clusters.get(CLUSTER_NAME), template=api.templates.get(TEMPLATE_NAME)) )
+             print 'VM was created from Template successfully'
+             print 'Waiting for VM to reach Down status'
+             while api.vms.get(VM_NAME).status.state != 'down':
+                 sleep(1)
          except Exception as e:
              print 'Failed to create VM from Template:\n%s' % str(e)
-         
-         print 'Waiting for VM to reach Down status'
-         while 1:
-             try:
-                 if api.vms.get(VM_NAME).status.state == 'down':
-                     break
-             except:
-                 pass

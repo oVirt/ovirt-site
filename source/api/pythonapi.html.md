@@ -28,6 +28,8 @@ Add the following to you python script, remember to set the URL/USERNAME/PASSWOR
          from ovirtsdk.api import API
          from ovirtsdk.xml import params
          
+         VERSION = params.Version(major='3', minor='0')
+          
          URL =           '`[`https://192.168.1.1:8443/api`](https://192.168.1.1:8443/api)`'
          USERNAME =      'my_user@my.domain.com'
          PASSWORD =      'my_password'
@@ -44,7 +46,7 @@ Add the following to you python script, remember to set the URL/USERNAME/PASSWOR
 ### Create iSCSI Data Center
 
          try:
-             if api.datacenters.add(params.DataCenter(name=DC_NAME, storage_type='iscsi', version=params.Version(major='3', minor='0'))):
+             if api.datacenters.add(params.DataCenter(name=DC_NAME, storage_type='iscsi', version=VERSION)):
                  print 'iSCSI Data Center was created successfully'
          except Exception as e:
              print 'Failed to create iSCSI Data Center:\n%s' % str(e)
@@ -56,7 +58,7 @@ Note that the CPU type should be chosen according to your host's CPU.
          CPU_TYPE = 'Intel Nehalem Family'
          
          try:
-             if api.clusters.add(params.Cluster(name=CLUSTER_NAME, cpu=params.CPU(id=CPU_TYPE), data_center=api.datacenters.get(DC_NAME), version=params.Version(major='3', minor='0'))):
+             if api.clusters.add(params.Cluster(name=CLUSTER_NAME, cpu=params.CPU(id=CPU_TYPE), data_center=api.datacenters.get(DC_NAME), version=VERSION)):
                  print 'Cluster was created successfully'
          except Exception as e:
              print 'Failed to create Cluster:\n%s' % str(e)
@@ -179,26 +181,28 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
 
 ### Create VM with one NIC and one Disk
 
-         VDISKSIZE = 5368709120
+         MB = 1024*1024
+         GB = 1024*MB
+         VDISKSIZE = 512*MB
          
          
          try:
              if api.vms.add( params.VM(name=VM_NAME,
-                                       memory=2147483648,
+                                       memory=2*GB,
                                        cluster=api.clusters.get(CLUSTER_NAME),
                                        template=api.templates.get('Blank')) ):
-                 print 'vm created successfully'
+                 print 'VM created successfully'
          except Exception as e:
-             print 'Failed to create vm:\n%s' % str(e)
+             print 'Failed to create VM:\n%s' % str(e)
          
          
          try:
              if api.vms.get(VM_NAME).nics.add( params.NIC(name='eth0',
                                                           network=params.Network(name='ovirtmgmt'),
                                                           interface='virtio')):
-                 print 'NIC was added to vm successfully'
+                 print 'NIC was added to VM successfully'
          except Exception as e:
-             print 'Failed to add NIC to vm:\n%s' % str(e)
+             print 'Failed to add NIC to VM:\n%s' % str(e)
          
          
          try:
@@ -210,11 +214,11 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
                                                             format='cow',
                                                             sparse=True,
                                                             bootable=True)  ):
-                 print 'Disk was added to vm successfully'
+                 print 'Disk was added to VM successfully'
          except Exception as e:
-             print 'Failed to add disk to vm:\n%s' % str(e)
+             print 'Failed to add disk to VM:\n%s' % str(e)
          
-         print 'Waiting for vm to reach Down status'
+         print 'Waiting for VM to reach Down status'
          while 1:
              try:
                  if api.vms.get(VM_NAME).status.state == 'down':
@@ -222,7 +226,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              except:
                  pass
 
-### Start/hibernate/resume/stop vm
+### Start/hibernate/resume/stop VM
 
 *   Start VM
 
@@ -230,7 +234,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              if api.vms.get(VM_NAME).status.state != 'up':
                  print 'Starting VM'
                  api.vms.get(VM_NAME).start()
-                 print 'Waiting for vm to reach Up status'
+                 print 'Waiting for VM to reach Up status'
                  while api.vms.get(VM_NAME).status.state != 'up':
                      sleep(1)
              else:
@@ -244,7 +248,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              try:
                  print 'Suspend VM'
                  api.vms.get(VM_NAME).suspend()
-                 print 'Waiting for vm to reach Suspended status'
+                 print 'Waiting for VM to reach Suspended status'
                  while api.vms.get(VM_NAME).status.state != 'suspended':
                      sleep(1)
           
@@ -263,7 +267,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              if api.vms.get(VM_NAME).status.state != 'up':
                  print 'Resume VM'
                  api.vms.get(VM_NAME).start()
-                 print 'Waiting for vm to Resume'
+                 print 'Waiting for VM to Resume'
                  while api.vms.get(VM_NAME).status.state != 'up':
                      sleep(1)
              else:
@@ -277,7 +281,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              if api.vms.get(VM_NAME).status.state != 'down':
                  print 'Stop VM'
                  api.vms.get(VM_NAME).stop()
-                 print 'Waiting for vm to reach Down status'
+                 print 'Waiting for VM to reach Down status'
                  while api.vms.get(VM_NAME).status.state != 'down':
                      sleep(1)
              else:
@@ -285,15 +289,15 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          except Exception as e:
              print 'Stop VM:\n%s' % str(e)
 
-### Export vm (into Export Domain)
+### Export VM (into Export Domain)
 
          try:
              if api.vms.get(VM_NAME).export(params.Action(storage_domain=api.storagedomains.get(EXPORT_NAME))):
                  print 'VM was exported successfully'
          except Exception as e:
-             print 'Failed to export vm:\n%s' % str(e)
+             print 'Failed to export VM:\n%s' % str(e)
          
-         print 'Waiting for vm to reach Down status'
+         print 'Waiting for VM to reach Down status'
          while 1:
              try:
                  if api.vms.get(VM_NAME).status.state == 'down':
@@ -301,7 +305,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              except:
                  pass
 
-### Delete vm
+### Delete VM
 
          try:
              if api.vms.get(VM_NAME).delete():
@@ -309,7 +313,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          except Exception as e:
              print 'Failed to remove VM:\n%s' % str(e)
          
-         print 'Waiting for vm to be deleted'
+         print 'Waiting for VM to be deleted'
          while 1:
              try:
                  if VM_NAME not in [vm.name for vm in api.vms.list()]:
@@ -317,7 +321,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              except:
                  pass
 
-### Import vm (from Export Domain)
+### Import VM (from Export Domain)
 
          try:
              if api.storagedomains.get(EXPORT_NAME).vms.get(VM_NAME).import_vm(params.Action(storage_domain=api.storagedomains.get(STORAGE_NAME), cluster=api.clusters.get(name=CLUSTER_NAME))):
@@ -325,7 +329,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          except Exception as e:
              print 'Failed to import VM:\n%s' % str(e)
          
-         print 'Waiting for vm to reach Down status'
+         print 'Waiting for VM to reach Down status'
          while 1:
              try:
                  if api.vms.get(VM_NAME).status.state == 'down':
@@ -333,7 +337,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              except:
                  pass
 
-### Create a snapshot to vm
+### Create a snapshot to VM
 
          SNAPSHOT_NAME = 'my_snapshot'
          try:
@@ -355,11 +359,11 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          TEMPLATE_NAME = 'my_template'
          try:
              if api.templates.add(params.Template(name=TEMPLATE_NAME, vm=api.vms.get(VM_NAME), cluster=api.clusters.get(CLUSTER_NAME))):
-                 print 'Creating a Template from vm'
+                 print 'Creating a Template from VM'
          except Exception as e:
-             print 'Failed to Create a Template from vm:\n%s' % str(e)
+             print 'Failed to Create a Template from VM:\n%s' % str(e)
          
-         print 'Waiting for vm to reach Down status'
+         print 'Waiting for VM to reach Down status'
          while 1:
              try:
                  if api.vms.get(VM_NAME).status.state == 'down':
@@ -377,7 +381,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          except Exception as e:
              print 'Failed to create VM from Template:\n%s' % str(e)
          
-         print 'Waiting for vm to reach Down status'
+         print 'Waiting for VM to reach Down status'
          while 1:
              try:
                  if api.vms.get(VM_NAME).status.state == 'down':

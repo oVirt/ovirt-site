@@ -22,6 +22,8 @@ Use git
 
 `$ git clone http://gerrit.ovirt.org/p/ovirt-node.git
 
+$ git clone http://gerrit.ovirt.org/p/ovirt-node-iso.git
+
 $ cd ovirt-node`
 
 #### Setup a Build Environment
@@ -60,58 +62,31 @@ $ cd ovirt-node`
 
 #### Workarounds for RPMs not included in Fedora
 
-*   cd to your rpmbuild/RPMS directory
+*   cd to your OVIRT_CACHE/ovirt directory
 *   copy all separate rpms there
 *   in the RPMS directory, run `$ createrepo .`
-
-**IMPORTANT NOTE**
-
-*   There is currently 1 known override that needs to be applied
-    -   VDSM rpms are not available in Fedora yet
-        -   Need to pull them down for ovirt-node to use
-        -   [RPM Location](http://fsimonce.fedorapeople.org/vdsm/)
-*   Download the packages from these locations and add them to the RPMS/x86_64 directory and re-run createrepo
 
 #### Build the image
 
 `
 
-* $ cd recipe
-* $ make ovirt-node-image.iso
+$ cd ../ovirt-node-iso
+
+$ ./autogen.sh --with-recipe=/path/to/ovirt-node/recipe/directory --with-build-number=<build_number>
+
+$ make iso publish
 
 `
 
-Additional Variables
+Variables
 
-*   BUILD_TYPE
-    -   Defaults to STABLE
-    -   Valid Values: STABLE NIGHTLY
-    -   Purpose: Allow building from the nightly or stable repos on ovirt.org. Stable repos are always included, Nightly are included only if BUILD_TYPE=NIGHTLY.
-*   BUILD_NUMBER
-    -   Defaults to .1
-    -   Appends the value specified to Release before the %dist is added.
-    -   Example:
-        -   ovirt-node is 2.2.2-2.fc16
-        -   make BUILD_NUMBER=.2 ovirt-node-image.iso
-        -   generates ovirt-node-image-2.2.2-2.2.fc16.iso
-
-### From -tools RPM
-
-*   Install ovirt-node-tools RPM from Fedora or ovirt.org/releases
-*   `$ cd usr/share/ovirt-node-tools`
-*   Create a version.ks file (automation coming soon)
-    -   Content like the following:
-
-      PRODUCT='oVirt Node Hypervisor'
-      PRODUCT_SHORT='oVirt Node Hypervisor'
-      PACKAGE=ovirt-node-image
-      Version=2.1
-      RELEASE=0.fc16
-
-*   Follow steps above for RPMs not included in Fedora
-    -   Put all RPMs in a single location
-    -   run createrepo on that location
-    -   export OVIRT_LOCAL_REPO=<file://><your_location>
-*   `$ sudo node-creator ovirt-node-image.ks`
+*   --with-recipe
+    -   defaults to /usr/share/ovirt-node-tools
+    -   not needed if ovirt-node-tools rpm is installed
+    -   otherwise point to ovirt-node/recipe
+*   --with-build-number
+    -   Will set the XX value in the following NVR
+    -   ovirt-node-iso-2.3.0-1.XX.fc16
+    -   Can be overridden at in the make iso and/or make publish steps by adding BUILD_NUMBER=<buildnumber>
 
 <Category:Node> <Category:Documentation>

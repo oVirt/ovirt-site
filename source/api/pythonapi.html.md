@@ -168,48 +168,29 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
 
          MB = 1024*1024
          GB = 1024*MB
-         VDISKSIZE = 512*MB
-         
-         
+            
          try:
-             if api.vms.add( params.VM(name=VM_NAME,
-                                       memory=2*GB,
-                                       cluster=api.clusters.get(CLUSTER_NAME),
-                                       template=api.templates.get('Blank')) ):
-                 print 'VM created successfully'
-         except Exception as e:
-             print 'Failed to create VM:\n%s' % str(e)
+             api.vms.add(params.VM(name=VM_NAME, memory=2*GB, cluster=api.clusters.get(CLUSTER_NAME), template=api.templates.get('Blank')))
+             print 'VM created'
          
+             api.vms.get(VM_NAME).nics.add(params.NIC(name='eth0', network=params.Network(name='ovirtmgmt'), interface='virtio'))
+             print 'NIC added to VM'
+          
+             api.vms.get(VM_NAME).disks.add(params.Disk(storage_domains=params.StorageDomains(storage_domain=[api.storagedomains.get(STORAGE_NAME)]),
+                                                         size=512*MB,
+                                                         type_='system',
+                                                         status=None,
+                                                         interface='virtio',
+                                                         format='cow',
+                                                         sparse=True,
+                                                         bootable=True))
+             print 'Disk added to VM'
+             print 'Waiting for VM to reach Down status'
+             while api.vms.get(VM_NAME).status.state != 'down':
+                 sleep(1)
          
-         try:
-             if api.vms.get(VM_NAME).nics.add( params.NIC(name='eth0',
-                                                          network=params.Network(name='ovirtmgmt'),
-                                                          interface='virtio')):
-                 print 'NIC was added to VM successfully'
-         except Exception as e:
-             print 'Failed to add NIC to VM:\n%s' % str(e)
-         
-         
-         try:
-             if api.vms.get(VM_NAME).disks.add( params.Disk(storage_domains=params.StorageDomains(storage_domain=[api.storagedomains.get(STORAGE_NAME)]),
-                                                            size=VDISKSIZE,
-                                                            type_='system',
-                                                            status=None,
-                                                            interface='virtio',
-                                                            format='cow',
-                                                            sparse=True,
-                                                            bootable=True)  ):
-                 print 'Disk was added to VM successfully'
-         except Exception as e:
-             print 'Failed to add disk to VM:\n%s' % str(e)
-         
-         print 'Waiting for VM to reach Down status'
-         while 1:
-             try:
-                 if api.vms.get(VM_NAME).status.state == 'down':
-                     break
-             except:
-                 pass
+         except:
+             print 'Failed to create VM with disk and NIC\n%s' % str(e)
 
 ### Start/hibernate/resume/stop VM
 

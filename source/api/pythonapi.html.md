@@ -69,18 +69,14 @@ Note that the CPU type should be chosen according to your host's CPU.
          ROOT_PASSWORD = 'root_password'
          
          try:
-                 if api.hosts.add(params.Host(name=HOST_NAME, address=HOST_ADDRESS, cluster=api.clusters.get(CLUSTER_NAME), root_password=ROOT_PASSWORD)):
-                     print 'Host was installed successfully'
+             if api.hosts.add(params.Host(name=HOST_NAME, address=HOST_ADDRESS, cluster=api.clusters.get(CLUSTER_NAME), root_password=ROOT_PASSWORD)):
+                 print 'Host was installed successfully'
+                 print 'Waiting for host to reach the Up status'
+                 while api.hosts.get(HOST_NAME).status.state != 'up':
+                     sleep(1)
+                 print "Host is up"
          except Exception as e:
-                 print 'Failed to install Host:\n%s' % str(e)
-         
-         print 'Waiting for host to reach the Up status'
-         while 1:
-             try:
-                 if api.hosts.get(HOST_NAME).status.state == 'up':
-                     break
-             except:
-                 pass
+             print 'Failed to install Host:\n%s' % str(e)
 
 ## Working with storages
 
@@ -132,20 +128,14 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          try:
              if api.storagedomains.add(isoParams):
                  print 'ISO Domain was created/imported successfully'
-         except Exception as e:
-             print 'Failed to create/import an ISO Domain:\n%s' % str(e)
          
-         try:
              if api.datacenters.get(DC_NAME).storagedomains.add(api.storagedomains.get(ISO_NAME)):
                  print 'ISO Domain was attached successfully'
-         except Exception as e:
-             print 'Failed to attach ISO Domain:\n%s' % str(e)
          
-         try:
              if api.datacenters.get(DC_NAME).storagedomains.get(ISO_NAME).activate():
                  print 'ISO Domain was activated successfully'
          except Exception as e:
-             print 'Failed to activate ISO Domain:\n%s' % str(e)
+             print 'Failed to add ISO domain:\n%s' % str(e)
 
 ### Attach Export domain to Data Center
 
@@ -162,20 +152,15 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          try:
              if api.storagedomains.add(isoParams):
                  print 'Export Domain was created/imported successfully'
-         except Exception as e:
-             print 'Failed to create/import an Export Domain:\n%s' % str(e)
          
-         try:
              if api.datacenters.get(DC_NAME).storagedomains.add(api.storagedomains.get(EXPORT_NAME)):
                  print 'Export Domain was attached successfully'
-         except Exception as e:
-             print 'Failed to attach Export Domain:\n%s' % str(e)
          
-         try:
              if api.datacenters.get(DC_NAME).storagedomains.get(EXPORT_NAME).activate():
                  print 'Export Domain was activated successfully'
+         
          except Exception as e:
-             print 'Failed to activate Export Domain:\n%s' % str(e)
+             print 'Failed to add export domain:\n%s' % str(e)
 
 ## Virtual Machines
 

@@ -255,7 +255,9 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          except Exception as e:
              print 'Stop VM:\n%s' % str(e)
 
-### Export VM (into Export Domain)
+### Export, delete and import VM
+
+*   Export VM (into Export Domain)
 
          try:
              api.vms.get(VM_NAME).export(params.Action(storage_domain=api.storagedomains.get(EXPORT_NAME)))
@@ -266,7 +268,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          except Exception as e:
             print 'Failed to export VM:\n%s' % str(e)
 
-### Delete VM
+*   Delete VM
 
          try:
              api.vms.get(VM_NAME).delete()
@@ -277,7 +279,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
          except Exception as e:
              print 'Failed to remove VM:\n%s' % str(e)
 
-### Import VM (from Export Domain)
+*   Import VM (from Export Domain)
 
          try:
              api.storagedomains.get(EXPORT_NAME).vms.get(VM_NAME).import_vm(params.Action(storage_domain=api.storagedomains.get(STORAGE_NAME), cluster=api.clusters.get(name=CLUSTER_NAME)))

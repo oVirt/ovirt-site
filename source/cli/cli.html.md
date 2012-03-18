@@ -542,7 +542,7 @@ That will install lxml, because EPEL's python-lxml is not yet up to the version 
 
 <!-- -->
 
-*   support collection based properties on resource
+*   support pipe redirection
 
 <!-- -->
 

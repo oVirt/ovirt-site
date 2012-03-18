@@ -42,15 +42,15 @@ In first phase we will only support mirroring.
     -   Choose whether this NIC should be in promiscuous mode
 
 2.  It is recommended that the VM containing the promiscuous NIC will be pinned to a single host (the host which we would like to monitor). One will probably want to define such a VM for each host in the cluster.
-3.  Note that a VM NIC resides only on VM Networks, thus promiscuous mode is also only available for VM Networks.
 
 Notes:
 
-1.  We shouldn't limit the VM to be pinned to host, although it is the common use-case.
-2.  More than one VM can monitor the same logical network
-3.  A VM can monitor more than one logical network
-4.  It will not be supported when when hot-plugging a nic
-5.  It will be supported only for bridged networks
+1.  A VM NIC resides only on VM Networks, thus promiscuous mode is also only available for VM Networks as well.
+2.  We shouldn't limit the VM to be pinned to host, although it is the common use-case.
+3.  More than one VM can monitor the same logical network
+4.  A VM can monitor more than one logical network
+5.  It will not be supported when when hot-plugging a nic
+6.  It will be supported only for bridged networks
 
 ### Design Notes
 

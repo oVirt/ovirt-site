@@ -41,7 +41,8 @@ In first phase we will only support mirroring.
     -   Choose the logical network of the NIC (same as today)
     -   Choose whether this NIC should be in promiscuous mode
 
-2.  Also, it is recommended that the VM containing the promiscuous NIC will be pinned to a single host (the host which we would like to monitor). One will probably want to define such a VM for each host in the cluster.
+2.  It is recommended that the VM containing the promiscuous NIC will be pinned to a single host (the host which we would like to monitor). One will probably want to define such a VM for each host in the cluster.
+3.  Note that a VM NIC resides only on VM Networks, thus promiscuous mode is also only available for VM Networks.
 
 Notes:
 

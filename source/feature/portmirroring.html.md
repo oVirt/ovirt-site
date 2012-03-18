@@ -56,15 +56,7 @@ Notes:
 
 Engine-level notes:
 
-*   need to figure out a way to security the process of adding a promiscuous mode NIC. Today, the engine has the ability to set permissions on the VM level, but not for on the interface level.
-
-### User work-flows
-
-1.  Upon creating/editing a VM NIC:
-    -   Choose the logical network of the NIC (same as today)
-    -   Choose whether this NIC should be in promiscuous mode
-
-2.  Also, it is recommended that the VM containing the promiscuous NIC will be pinned to a single host (the host which we would like to monitor). One will probably want to define such a VM for each host in the cluster.
+*   Need to figure out a way to security the process of adding a promiscuous mode NIC. Today, the engine has the ability to set permissions on the VM level, but not for on the interface level.
 
 ### UI mockups
 

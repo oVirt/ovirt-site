@@ -101,7 +101,9 @@ If this limitation is removed we need to validate the MTU for the non-vlan netwo
 *   unchecking will clear the input box
 *   if no overriden, send 0
 
-//TODO ecohen put mockups
+![](MTU_unchecked.png "MTU_unchecked.png")
+
+![](MTU_checked.png "MTU_checked.png")
 
 ### Backward Compatibility
 

@@ -96,7 +96,8 @@ DISK_OPERATOR will be associated with the following action groups: CREATE_DISK, 
 
 ##### Updated Roles
 
-VM Operator should be extended with permissions on Disk (attach/detach Disk, activate/deactivate Disk). Currently attach/detach is being executed as part of the UpdateVm action.
+SuperUser, ENGINEPowerUser, ClusterAdmin, DataCenterAdmin and VmOperator should be extended with action groups of Disks (CREATE_DISK, EDIT_DISK_PROPERTIES, ATTACH_DISK, DELETE_DISK).
+Currently attach/detach is being executed as part of the UpdateVm action.
 
        Existing roles are Update by upgrade script.
        Extend `*`VdcObjectType`*` with Disk.

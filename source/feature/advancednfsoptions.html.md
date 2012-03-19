@@ -18,7 +18,7 @@ Allows advanced users to override some of VDSM default nfs options
 
 To do:
 
-*   Make needed change in Ovirt-Engine
+*   [Make needed change in Ovirt-Engine](Features/AdvancedNfsOptions#Changes_in_ovirt_engine)
 *   Make needed change in the GUIs
 
 Done:
@@ -59,3 +59,14 @@ These **should not** be specified under normal use and VDSM should be allowed to
 ## User work flows
 
 The user should be able to set these values after being aptly warned.
+
+## Changes in ovirt engine
+
+This part is for the backend.
+
+*   add new String property nfsOptions to storage_pool entity, default value should be set to null
+*   database changes
+    -   add new column nfs_options to default value should be set to null
+    -   update add new parameter to Insertstorage_pool, Updatestorage_pool
+*   add validation logic of the values to StoragePoolManagementCommandBase (?: which optione are accepted and what not)
+*   add new parameters wherever it is passed over by vdsbroker to vdsm

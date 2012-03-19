@@ -69,7 +69,7 @@ Same flow goes for the Reports server.
 Now, the user would like to view a report:
 
 1.  The browser accesses the Reports server through webadmin (or directly)
-2.  It is already logged in (when accessing through webadmin we are already logged in), so no need to authenticate, and the reports server identifies him as the user logged in (e.g, admin@internal, user1@domain1, etc.)
+2.  It is already logged in (when accessing through webadmin we are already logged in), so no need to authenticate, and the reports server identifies him as the user logged in (e.g, admin@internal, user1@domain1, etc.). This user is an external user in Jasper server, i.e., a user which is being managed by an external application.
 
 #### Logout flow
 
@@ -222,6 +222,11 @@ SP configuration files:
        
 
 *   web.xml - same as in the IDP case, with the appropriate roles
+
+Some notes:
+
+*   In the files above you see the definition of an attribute manager. On the SP side, it converts IDP returned attributes and stores them under the user's HttpSession. On the IDP side it converts the given HttpSession attributes into SAML Response Attributes.
+*   This attribute manager is defined twice, as each level can override it, and for some reason if defined only on the handler level (in picketlink-handlers.xml file) it doesn't work properly, so a global definition in picketlink-idfed.xml is needed.
 
 ### Dependencies / Related Features and Projects
 

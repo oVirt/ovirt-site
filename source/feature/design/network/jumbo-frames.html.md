@@ -105,6 +105,8 @@ If this limitation is removed we need to validate the MTU for the non-vlan netwo
 
 ![](MTU_checked.png "MTU_checked.png")
 
+![](ClusterNetwork.png "ClusterNetwork.png")
+
 ### Backward Compatibility
 
 Same as for bridge-less feature.

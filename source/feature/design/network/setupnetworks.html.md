@@ -229,6 +229,8 @@ It will be possible to drag blocks on one another. The following connections are
 
 ![File:SetupNetworksNew.png](SetupNetworksNew.png "File:SetupNetworksNew.png")
 
+![File:Mockup-rollover-notfinish.png](Mockup-rollover-notfinish.png "File:Mockup-rollover-notfinish.png")
+
 ### REST
 
 #### Resource representation

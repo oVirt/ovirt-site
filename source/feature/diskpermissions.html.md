@@ -30,16 +30,28 @@ Disk inherits permissions from the VM it is attached to and from the storage dom
 
 #### Disk Permissions and Quota
 
-When Quota is enabled an automatic permissions will be created for the Storage Domain to user:
-\* For each Storage pool associated with the Quota granted to user
+When Quota is enabled an automatic permissions will be created for the Storage Domains to users:
+\* For each Quota that is associated with the Storage pool grant to any of the quota users
 
-*   -   For each Storage Domain of the Storage pool
-        -   Grant user permissions on Storage Domain
+*   -   For each Storage Domain of the Quota
+        -   Grant user permissions on Storage Domain (- new role will be created that contains CREATE_DISK action group)
+
+When editing Quota:
+
+*   when adding SD to the quota - add (automatic) permissions on the new storage domain to all of the quota users
+*   when removing SD from the quota - remove (automatic) permissions from the storage domain to all of the quota users
+*   when adding User to the quota - add (automatic) permissions on all the storage domains of the quota to the user
+*   when removing User from the quota - remove (automatic) permissions on the storage domains of the quota from the user
+
+Global quota - means on all domains of the storage pool:
+
+*   automatic permission will be added/removed on the storage pool
 
 The automatic permissions will be marked with 'automatic' grant-mode to notate the permission method creation.
 The automatic permission will be reflected to the user and could be removed. However upon removal of an automatic permission,
-a warning message will be presented to the user, as it might affect the ability of the user to use the Disk.
+a warning message will be presented to the user, as it might affect the ability of the user to add disk on that domain.
 If a 'manual' permission was already granted to the user, an automatic permission will not be created.
+If an 'automatic' permission was already granted to the user, the permission will change to be 'manual'
  When Quota is disabled, the automatic permissions will enable the same user experience regardless the need to define permissions explicitly on the Disk entities.
 
 The following section describes permissions for Disk entities.

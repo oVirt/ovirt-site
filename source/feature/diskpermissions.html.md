@@ -110,7 +110,9 @@ Currently attach/detach is being executed as part of the UpdateVm action.
 
 DB Upgrade should handle the following:
 
-*   Add Disk Operator role to users that have VM Operators to allow permissions on Disks (to VM users having Disks attached to the VMs).
+*   Add Disk Operator permissions on the relevant Disks to:
+    -   "VM Operator" users (applies to users with permissions on VM with Disks attached to).
+    -   SuperUser, ENGINEPowerUser, ClusterAdmin and DataCenterAdmin
 *   Add all disk related operations to the system administrator.
 *   Update all permissions grant-mode to 'manual'
 

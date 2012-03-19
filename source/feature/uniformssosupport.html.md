@@ -89,19 +89,17 @@ General configuration files:
 
 *   standalone.xml - define the IDP and SP security domains, by adding them to the "security-domains" section:
 
-<security-domain name="sp" cache-type="default">
-
-<authentication>
-` `<login-module code="org.picketlink.identity.federation.bindings.jboss.auth.SAML2LoginModule" flag="required"/>
-</authentication>
-
-</security-domain> <security-domain name="idp" cache-type="default">
-
-<authentication>
-` `<login-module code="org.ovirt.engine.core.idp.core.EngineLoginModule" flag="required"/>
-</authentication>
-
-</security-domain>
+      <security-domain name="sp" cache-type="default">
+       <authentication>
+        <login-module code="org.picketlink.identity.federation.bindings.jboss.auth.SAML2LoginModule" flag="required"/>
+       </authentication>
+      </security-domain>
+      <security-domain name="idp" cache-type="default">
+       <authentication>
+        <login-module code="org.ovirt.engine.core.idp.core.EngineLoginModule" flag="required"/>
+       </authentication>
+      </security-domain>
+       
 
 IDP configuration files (all located in the IDP WAR WEB-INF directory):
 
@@ -217,12 +215,11 @@ SP configuration files:
 
 *   picketlink-idfed.xml
 
-<PicketLinkSP xmlns="urn:picketlink:identity-federation:config:1.0" ServerEnvironment="jboss">
-
-<IdentityURL>`${idp.url::`[`http://localhost:8080/idp/`](http://localhost:8080/idp/)`}`</IdentityURL>
-<ServiceURL>`${webadmin.url::`[`http://localhost:8080/webadmin/`](http://localhost:8080/webadmin/)`}`</ServiceURL>
-
-</PicketLinkSP>
+      <PicketLinkSP xmlns="urn:picketlink:identity-federation:config:1.0" ServerEnvironment="jboss">
+       <IdentityURL>${idp.url::http://localhost:8080/idp/}</IdentityURL>
+       <ServiceURL>${webadmin.url::http://localhost:8080/webadmin/}</ServiceURL>
+      </PicketLinkSP>
+       
 
 *   web.xml - same as in the IDP case, with the appropriate roles
 

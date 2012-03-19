@@ -77,15 +77,15 @@ Now, the user would like to view a report:
 *   Status: Design Stage
 *   Last updated date: Wed November 10 2011
 
-### Detailed Description
-
-#### User Experience
-
 ### Dependencies / Related Features and Projects
 
 Affected oVirt projects:
 
 ### Documentation / External references
+
+1.  Picketlink homepage - <http://www.jboss.org/picketlink>
+2.  PicketLink Federation - <http://www.jboss.org/picketlink/Fed.html>
+3.  User Guide (PDF) - <http://community.jboss.org/servlet/JiveServlet/download/14645-5-7349/UserGuide.pdf>
 
 ### Comments and Discussion
 

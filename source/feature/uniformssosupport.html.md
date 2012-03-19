@@ -39,13 +39,13 @@ Currently, the engine uses LDAP domains, and internal admin domain in order to a
 *   IDP - Identity provider. The entity which is responsible for identifying a principal trying to connect to the application.
 *   SP - Service provider. The service itself, which needs to get information on who is the principal already connected to the system.
 
+![](Picketlink1.png "Picketlink1.png")
+
 In our solution we have the following players:
 
 *   IDP - web application, part of the engine EAR, which is responsible for authenticating and providing information on the logged-in principal, using SAML.
 *   The engine login module - used to perform the authentication process using the existing engine infrastructure. The IDP uses this login module.
 *   The SPs - for start, the service providers which will use this infrastructure is the Webadmin, and the reports server.
-
-![](Picketlink1.png "Picketlink1.png")
 
 ### Current status
 

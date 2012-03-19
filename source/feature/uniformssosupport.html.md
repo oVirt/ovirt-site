@@ -247,5 +247,6 @@ Affected oVirt projects:
 *   The SAML standard doesn't support session time-outs. Not sure it is such an issue, as we can keep the session valid at the engine side
 *   Locale for the reports server - the locale in the reports server is set in its login screen. In our case we need to find some other way to do so. There is a way to do this for single reports, but if someone will want to browse to the reports server, and not just view reports through webadmin, then the locale won't be set.
 *   Using the IDP in the reports server requires the IDP (i.e., the engine) to be available in order to login to the reports server.
+*   The login process (both here and on other SSO solutions such as oAuth and openid) is very interactive, thus it fits less to the REST case. Need to think this through, and provide a solution for that as well.
 
 [Category: Feature](Category: Feature)

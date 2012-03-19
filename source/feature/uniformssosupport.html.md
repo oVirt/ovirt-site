@@ -75,6 +75,8 @@ Now, the user would like to view a report:
 
 Picketlink supports "Global logout", i.e. logging out through the IDP, which basically means the user is no longer logged in, and access to any web application will result in requesting the user to login.
 
+For example, if the SP link is <http://host.domain/sp> then the global logout link is at <http://host.domain/sp?GLO=true>. This will go the the IDP, and call the logout method of the login module, clearing the session at the engine core side.
+
 ### Current status
 
 *   Target Release:

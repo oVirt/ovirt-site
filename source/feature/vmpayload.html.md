@@ -37,7 +37,7 @@ The payload options are:
 2.  Payload passing method
     -   Floppy
     -   CD
-    -   In the future also injection and payload via private IP
+    -   In the future also libguestfs injection and payload downloaded via private IP
 
 There are a few options to model that (upstream discussions led to using the **first** one):
 

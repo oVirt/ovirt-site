@@ -68,8 +68,8 @@ Same flow goes for the Reports server.
 
 Now, the user would like to view a report:
 
-1.  The browser accesses the Reports server
-2.  It is already logged in, so no need to authenticate, and the reports server identifies him as the user logged in (e.g, admin@internal, user1@domain1, etc.)
+1.  The browser accesses the Reports server through webadmin (or directly)
+2.  It is already logged in (when accessing through webadmin we are already logged in), so no need to authenticate, and the reports server identifies him as the user logged in (e.g, admin@internal, user1@domain1, etc.)
 
 ### Current status
 

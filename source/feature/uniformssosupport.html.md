@@ -85,9 +85,27 @@ For example, if the SP link is <http://host.domain/sp> then the global logout li
 
 ### Technical details
 
+General configuration files:
+
+*   standalone.xml - define the IDP and SP security domains, by adding them to the "security-domains" section:
+
+<security-domain name="sp" cache-type="default">
+
+<authentication>
+` `<login-module code="org.picketlink.identity.federation.bindings.jboss.auth.SAML2LoginModule" flag="required"/>
+</authentication>
+
+</security-domain> <security-domain name="idp" cache-type="default">
+
+<authentication>
+` `<login-module code="org.ovirt.engine.core.idp.core.EngineLoginModule" flag="required"/>
+</authentication>
+
+</security-domain>
+
 IDP configuration files (all located in the IDP WAR WEB-INF directory):
 
-1.  context.xml
+*   context.xml
 
       <Context>
               <!-- USE THIS FOR DEBUGGING PURPOSES-->
@@ -101,7 +119,7 @@ IDP configuration files (all located in the IDP WAR WEB-INF directory):
       </Context>
        
 
-1.  jboss-web.xml
+*   jboss-web.xml
 
       <jboss-web>
         <security-domain>idp</security-domain>
@@ -128,7 +146,7 @@ IDP configuration files (all located in the IDP WAR WEB-INF directory):
       </jboss-web>
        
 
-1.  picketlink-handlers.xml
+*   picketlink-handlers.xml
 
       <Handlers xmlns="urn:picketlink:identity-federation:handler:config:1.0"> 
         <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2IssuerTrustHandler"/> 
@@ -142,7 +160,7 @@ IDP configuration files (all located in the IDP WAR WEB-INF directory):
       </Handlers>
        
 
-1.  picketlink-idfed.xml
+*   picketlink-idfed.xml
 
       <PicketLinkIDP xmlns="urn:picketlink:identity-federation:config:1.0" AttributeManager="org.ovirt.engine.core.idp.core.EngineAttributeManager">
       <IdentityURL>${idp.url::http://localhost:8080/idp/}</IdentityURL>
@@ -152,7 +170,7 @@ IDP configuration files (all located in the IDP WAR WEB-INF directory):
       </PicketLinkIDP>
        
 
-1.  in web.xml, add security constraint, security roles. Example for "manager" role:
+*   in web.xml, add security constraint, security roles. Example for "manager" role:
 
         <auth-constraint>
            <role-name>manager</role-name>
@@ -161,6 +179,52 @@ IDP configuration files (all located in the IDP WAR WEB-INF directory):
           <role-name>manager</role-name>
         </security-role>
        
+
+SP configuration files:
+
+*   context.xml
+
+      <Context>
+        <Valve className="org.picketlink.identity.federation.bindings.tomcat.sp.SPPostFormAuthenticator"
+        />
+              <Valve/>
+      </Context>
+       
+
+*   jboss-web.xml
+
+      <?xml version="1.0" encoding="UTF-8"?>
+      <jboss-web>
+         <security-domain>sp</security-domain>
+         <valve>
+           <class-name>org.picketlink.identity.federation.bindings.tomcat.sp.SPPostFormAuthenticator</class-name>
+         </valve>
+
+      </jboss-web>
+       
+
+*   picketlink-handlers.xml
+
+      <Handlers xmlns="urn:picketlink:identity-federation:handler:config:1.0"> 
+        <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2LogOutHandler"/> 
+        <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2AuthenticationHandler"/>   
+        <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2AttributeHandler">
+              <Option Key="ATTRIBUTE_CHOOSE_FRIENDLY_NAME" Value="true"/>
+        </Handler>
+
+      </Handlers>
+       
+
+*   picketlink-idfed.xml
+
+<PicketLinkSP xmlns="urn:picketlink:identity-federation:config:1.0" ServerEnvironment="jboss">
+
+<IdentityURL>`${idp.url::`[`http://localhost:8080/idp/`](http://localhost:8080/idp/)`}`</IdentityURL>
+<ServiceURL>`${webadmin.url::`[`http://localhost:8080/webadmin/`](http://localhost:8080/webadmin/)`}`</ServiceURL>
+
+</PicketLinkSP>
+
+*   web.xml - same as in the IDP case, with the appropriate roles
 
 ### Dependencies / Related Features and Projects
 
@@ -180,5 +244,6 @@ Affected oVirt projects:
 
 *   The SAML standard doesn't support session time-outs. Not sure it is such an issue, as we can keep the session valid at the engine side
 *   Locale for the reports server - the locale in the reports server is set in its login screen. In our case we need to find some other way to do so. There is a way to do this for single reports, but if someone will want to browse to the reports server, and not just view reports through webadmin, then the locale won't be set.
+*   Using the IDP in the reports server requires the IDP (i.e., the engine) to be available in order to login to the reports server.
 
 [Category: Feature](Category: Feature)

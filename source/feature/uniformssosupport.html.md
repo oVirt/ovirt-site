@@ -91,6 +91,8 @@ Affected oVirt projects:
 
 ### Future Work
 
-### Open Issues
+### Gaps / Open Issues
+
+*   The SAML standard doesn't support
 
 [Category: Feature](Category: Feature)

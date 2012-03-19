@@ -41,11 +41,35 @@ Currently, the engine uses LDAP domains, and internal admin domain in order to a
 
 ![](Picketlink1.png "Picketlink1.png")
 
+### Solution Architecture
+
 In our solution we have the following players:
 
 *   IDP - web application, part of the engine EAR, which is responsible for authenticating and providing information on the logged-in principal, using SAML.
 *   The engine login module - used to perform the authentication process using the existing engine infrastructure. The IDP uses this login module.
 *   The SPs - for start, the service providers which will use this infrastructure is the Webadmin, and the reports server.
+
+![](Picketlink_img2.png "Picketlink_img2.png")
+
+The flow will go as follows:
+
+1.  The user will try to contact the Webadmin application
+2.  If it is not logged in yet
+    1.  Post the request to the IDP, showing a login screen to the user (asking for username, password and domain)
+    2.  The user logs in
+    3.  The credentials go to the login module, passed to the engine core, and authentication is performed
+    4.  If the authentication is succeeded, a session is created in the engine core (as today)
+
+3.  If it is already logged in
+    1.  Get the session ID
+    2.  Continue working in the session
+
+Same flow goes for the Reports server.
+
+Now, the user would like to view a report:
+
+1.  The browser accesses the Reports server
+2.  It is already logged in, so no need to authenticate, and the reports server identifies him as the user logged in (e.g, admin@internal, user1@domain1, etc.)
 
 ### Current status
 

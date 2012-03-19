@@ -83,6 +83,85 @@ For example, if the SP link is <http://host.domain/sp> then the global logout li
 *   Status: Design Stage
 *   Last updated date: Wed November 10 2011
 
+### Technical details
+
+IDP configuration files (all located in the IDP WAR WEB-INF directory):
+
+1.  context.xml
+
+      <Context>
+              <!-- USE THIS FOR DEBUGGING PURPOSES-->
+              <!--Valve className="org.picketlink.identity.federation.bindings.tomcat.idp.IDPSAMLDebugValve" /-->
+              <Valve
+                      className="org.picketlink.identity.federation.bindings.tomcat.idp.IDPWebBrowserSSOValve"
+                      attributeList="sessionID"
+                      ignoreAttributesGeneration="false"
+                      signOutgoingMessages="false" 
+                      ignoreIncomingSignatures="true"/>
+      </Context>
+       
+
+1.  jboss-web.xml
+
+      <jboss-web>
+        <security-domain>idp</security-domain>
+        <valve>
+           <class-name>org.picketlink.identity.federation.bindings.tomcat.idp.IDPWebBrowserSSOValve</class-name>
+           <param>
+              <param-name>signOutgoingMessages</param-name>
+              <param-value>false</param-value>
+           </param>
+           <param>
+              <param-name>ignoreIncomingSignatures</param-name>
+              <param-value>true</param-value>
+           </param>
+           <param>
+              <param-name>attributeList</param-name>
+              <param-value>sessionID</param-value>
+           </param>
+           <param>
+              <param-name>ignoreAttributesGeneration</param-name>
+              <param-value>false</param-value>
+           </param>
+         </valve>
+
+      </jboss-web>
+       
+
+1.  picketlink-handlers.xml
+
+      <Handlers xmlns="urn:picketlink:identity-federation:handler:config:1.0"> 
+        <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2IssuerTrustHandler"/> 
+        <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2LogOutHandler"/> 
+        <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2AuthenticationHandler"/>
+        <Handler class="org.picketlink.identity.federation.web.handlers.saml2.SAML2AttributeHandler">
+              <Option Key="ATTRIBUTE_MANAGER" Value="org.ovirt.engine.core.idp.core.EngineAttributeManager"/>
+              <Option Key="ATTRIBUTE_KEYS" Value="sessionID"/>
+        </Handler>
+        <Handler class="org.picketlink.identity.federation.web.handlers.saml2.RolesGenerationHandler"/>
+      </Handlers>
+       
+
+1.  picketlink-idfed.xml
+
+      <PicketLinkIDP xmlns="urn:picketlink:identity-federation:config:1.0" AttributeManager="org.ovirt.engine.core.idp.core.EngineAttributeManager">
+      <IdentityURL>${idp.url::http://localhost:8080/idp/}</IdentityURL>
+      <Trust>
+         <Domains>localhost</Domains>
+      </Trust>
+      </PicketLinkIDP>
+       
+
+1.  in web.xml, add security constraint, security roles. Example for "manager" role:
+
+        <auth-constraint>
+           <role-name>manager</role-name>
+        </auth-constraint>
+        <security-role>
+          <role-name>manager</role-name>
+        </security-role>
+       
+
 ### Dependencies / Related Features and Projects
 
 Affected oVirt projects:

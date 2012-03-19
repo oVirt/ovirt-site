@@ -223,49 +223,11 @@ It will be possible to drag blocks on one another. The following connections are
 
 #### Images
 
-------------------------------------------------------------------------
-
-![File:SetupNetworks10.png](SetupNetworks10.png "File:SetupNetworks10.png") ***Illustration 1: No Connections***
+### New Setup Networks Mockup
 
 ------------------------------------------------------------------------
 
-![File:SetupNetworks14.png](SetupNetworks14.png "File:SetupNetworks14.png") ***Illustration 2: Dragging Network on a NIC***
-
-------------------------------------------------------------------------
-
-![File:SetupNetworks1.png](SetupNetworks1.png "File:SetupNetworks1.png") ***Illustration 3: NIC connected to a Network***
-
-------------------------------------------------------------------------
-
-![File:SetupNetworks20.png](SetupNetworks20.png "File:SetupNetworks20.png") ***Illustration 4: Dragging VLAN on a NIC***
-
-------------------------------------------------------------------------
-
-![File:SetupNetworks2.png](SetupNetworks2.png "File:SetupNetworks2.png") ***Illustration 5: VLAN connected to a NIC***
-
-------------------------------------------------------------------------
-
-![File:SetupNetworks21.png](SetupNetworks21.png "File:SetupNetworks21.png") ***Illustration 6: Several VLANs connected to the same NIC***
-
-------------------------------------------------------------------------
-
-![File:SetupNetworks11.png](SetupNetworks11.png "File:SetupNetworks11.png") ***Illustration 7: Dragging a NIC on a nother NIC***
-
-------------------------------------------------------------------------
-
-![File:SetupNetworks7.png](SetupNetworks7.png "File:SetupNetworks7.png") ***Illustration 8: Bonded NICs***
-
-------------------------------------------------------------------------
-
-![File:SetupNetworks6.png](SetupNetworks6.png "File:SetupNetworks6.png") ***Illustration 9: Network dragged on a Bond***
-
-------------------------------------------------------------------------
-
-![File:SetupNetworks5.png](SetupNetworks5.png "File:SetupNetworks5.png") ***Illustration 10: Network connected to a Bond***
-
-------------------------------------------------------------------------
-
-![File:SetupNetworks17.png](SetupNetworks17.png "File:SetupNetworks17.png") ***Illustration 11: Several VLANs connected to the same Bond***
+![File:SetupNetworksNew.png](SetupNetworksNew.png "File:SetupNetworksNew.png")
 
 ### REST
 

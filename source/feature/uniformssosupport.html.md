@@ -45,6 +45,8 @@ In our solution we have the following players:
 *   The engine login module - used to perform the authentication process using the existing engine infrastructure. The IDP uses this login module.
 *   The SPs - for start, the service providers which will use this infrastructure is the Webadmin, and the reports server.
 
+![](Picketlink1.png "Picketlink1.png")
+
 ### Current status
 
 *   Target Release:

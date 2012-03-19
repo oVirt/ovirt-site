@@ -51,7 +51,7 @@ In our solution we have the following players:
 
 ![](Picketlink_img2.png "Picketlink_img2.png")
 
-The flow will go as follows:
+#### Login flow
 
 1.  The user will try to contact the Webadmin application
 2.  If it is not logged in yet
@@ -70,6 +70,10 @@ Now, the user would like to view a report:
 
 1.  The browser accesses the Reports server through webadmin (or directly)
 2.  It is already logged in (when accessing through webadmin we are already logged in), so no need to authenticate, and the reports server identifies him as the user logged in (e.g, admin@internal, user1@domain1, etc.)
+
+#### Logout flow
+
+Picketlink supports "Global logout", i.e. logging out through the IDP, which basically means the user is no longer logged in, and access to any web application will result in requesting the user to login.
 
 ### Current status
 
@@ -93,6 +97,7 @@ Affected oVirt projects:
 
 ### Gaps / Open Issues
 
-*   The SAML standard doesn't support
+*   The SAML standard doesn't support session time-outs. Not sure it is such an issue, as we can keep the session valid at the engine side
+*   Locale for the reports server - the locale in the reports server is set in its login screen. In our case we need to find some other way to do so. There is a way to do this for single reports, but if someone will want to browse to the reports server, and not just view reports through webadmin, then the locale won't be set.
 
 [Category: Feature](Category: Feature)

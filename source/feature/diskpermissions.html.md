@@ -27,13 +27,28 @@ The Disk Permissions feature is supplementary for Disk related features (Floatin
 ### Design
 
 Disk inherits permissions from the VM it is attached to and from the storage domain it resides on (if there is one)
+
+#### Disk Permissions and Quota
+
+When Quota is enabled an automatic permissions will be created for the Storage Domain to user:
+\* For each Storage pool associated with the Quota granted to user
+
+*   -   For each Storage Domain of the Storage pool
+        -   Grant user permissions on Storage Domain
+
+The automatic permissions will be marked with 'automatic' grant-mode to notate the permission method creation.
+The automatic permission will be reflected to the user and could be removed. However upon removal of an automatic permission,
+a warning message will be presented to the user, as it might affect the ability of the user to use the Disk.
+If a 'manual' permission was already granted to the user, an automatic permission will not be created.
+ When Quota is disabled, the automatic permissions will enable the same user experience regardless the need to define permissions explicitly on the Disk entities.
+
 The following section describes permissions for Disk entities.
 
 #### Disk Actions
 
 Required permissions for Disk related actions:
 
-*   Create disk - requires permissions on the Storage Domain, (can't assume Quota is sufficient to permit user creating the disk on the Storage Domain, as Quota might be disabled).
+*   Create disk - requires permissions on the Storage Domain.
 *   Attach disk to VM - requires permissions on the Disk and on the VM (applies for shared disk as well).
 *   Detach disk from VM - requires permissions on the VM only. (Unlike attach disk that requires permissions on the VM and on the Disk).
 *   Activate/Deactivate disk on VM (also Hot Plug) - requires permission on the VM.
@@ -84,9 +99,11 @@ DB Upgrade should handle the following:
 
 *   Add Disk Operator role to users that have VM Operators to allow permissions on Disks (to VM users having Disks attached to the VMs).
 *   Add all disk related operations to the system administrator.
+*   Update all permissions grant-mode to 'manual'
 
 #### UI Changes
 
+Extend permission sub-view with grant-mode field (automatic/manual)
 Add Permissions sub-tab under Disks main tab
 Add Disk Operator role to Roles Tree in:
  *frontend/webadmin/modules/uicommonweb/src/main/java/org/ovirt/engine/ui/uicommonweb/models/configure/roles_ui/RoleTreeView.java*

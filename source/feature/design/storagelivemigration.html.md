@@ -71,3 +71,44 @@ Reference: [<http://wiki.qemu.org/Features/LiveBlockMigration>](http://wiki.qemu
 ![](StorageLiveMigration2.png "StorageLiveMigration2.png")
 
 ![](StorageLiveMigrationAPIDiagram2.png "StorageLiveMigrationAPIDiagram2.png")
+
+#### VDSM API
+
+The command `copyVolume(...)` is used in step 3 and 5 to copy the volumes from the source to the destination. For maximum flexibility it's possible to change the volume and image UUIDs (on the destination) and update the parent volume UUID (so that it's possible to rebuild a consistent chain on the destination).
+
+      def copyVolume(srcDomUUID, dstDomUUID, srcImgUUID, dstImgUUID,
+                     srcVolUUID, dstVolUUID, dstBakImgUUID, dstBakVolUUID):
+          """
+          Copies a single volume from a source (domain, image, volume) to a new
+          destination (domain, image, volume).
+          If dstBakVolUUID is specified it will be used to rebase (unsafe) the
+          volume (if dstBakImgUUID is not specified, dstImgUUID will be used).
+          If dstBakVolUUID is not specified and the source volume has a parent,
+          then the same srcImgUUID and srcVolUUID will be reused.
+          :param srcDomUUID: The source storage domain UUID
+          :type srcDomUUID: UUID
+          :param dstDomUUID: The destination storage domain UUID
+          :type dstDomUUID: UUID
+          :param srcImgUUID: The source image UUID
+          :type srcImgUUID: UUID
+          :param dstImgUUID: The destination image UUID
+          :type dstImgUUID: UUID
+          :param srcVolUUID: The source volume UUID
+          :type srcVolUUID: UUID
+          :param dstVolUUID: The destination volume UUID
+          :type dstVolUUID: UUID
+          :param dstBakImgUUID: The new backing image UUID for the destination
+                                (optional parameter)
+          :type dstBakImgUUID: UUID
+          :param dstBakVolUUID: The new backing volume UUID for the destination
+                                (optional parameter)
+          :type dstBakVolUUID: UUID
+          """
+
+#### Engine Flow
+
+Initial notes:
+
+*   take a snapshot of a single disk (step 3)
+*   mark "Snapshot 1" (old leaf) as MERGE_PENDING
+*   mark "Snapshot 2" (new leaf) with the same SNAPSHOT_ID of "Snapshot 1" (NB. do **not** mark with MERGE_PENDING)

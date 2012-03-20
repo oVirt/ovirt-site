@@ -74,7 +74,7 @@ Reference: [<http://wiki.qemu.org/Features/LiveBlockMigration>](http://wiki.qemu
 
 #### VDSM API
 
-The command `copyVolume(...)` is used in step 3 and 5 to copy the volumes from the source to the destination. For maximum flexibility it's possible to change the volume and image UUIDs (on the destination) and update the parent volume UUID (so that it's possible to rebuild a consistent chain on the destination).
+The command `copyVolume(...)` is used in step 2 and 4 to copy the volumes from the source to the destination. For maximum flexibility it's possible to change the volume and image UUIDs (on the destination) and update the parent volume UUID (so that it's possible to rebuild a consistent chain on the destination).
 
       def copyVolume(srcDomUUID, dstDomUUID, srcImgUUID, dstImgUUID,
                      srcVolUUID, dstVolUUID, dstBakImgUUID, dstBakVolUUID):

@@ -64,9 +64,9 @@ The user should be able to set these values after being aptly warned.
 
 This part is for the backend.
 
-*   add new String property nfsOptions to storage_pool entity, default value should be set to null
+*   add new String property nfsOptions to storage_domains_static entity, default value should be set to null, delegate methods to the storage_domains entity
 *   database changes
     -   add new column nfs_options to default value should be set to null
-    -   update add new parameter to Insertstorage_pool, Updatestorage_pool
-*   add validation logic of the values to StoragePoolManagementCommandBase (?: which optione are accepted and what not)
+    -   update add new parameter to Insertstorage_domains, Updatestorage_domains
+*   add validation logic of the values to StorageDomainManagementCommandBase (?: which optione are accepted and what not)
 *   add new parameters wherever it is passed over by vdsbroker to vdsm

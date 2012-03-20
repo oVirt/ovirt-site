@@ -34,6 +34,7 @@ Allow to hot plug and unplug a NIC to/from running guest.
 
 The following feature will allow to hot plug/unplug NIC on running vm.
 The feature will be allowed only on 3.1 clusters and above
+This feature will be restricted to operating systems that support this action – eg. RHEL 5/6, Windows Server 2003 and Windows server 2008
 
 #### User Experience
 

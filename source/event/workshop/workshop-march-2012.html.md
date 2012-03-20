@@ -31,7 +31,21 @@ wiki_last_updated: 2012-03-22
 
 ## Workshop location
 
-CBIC Diamond Bldg. No.19 Building, Zhong Guan Cun Software Park, No. 8 Dong Bei Wang West Road, ShangDi, Haidian District, Beijing 100193, P.R.China
+    CBIC Diamond Bldg.
+    No.19 Building, Zhong Guan Cun Software Park,
+    No. 8 Dong Bei Wang West Road, ShangDi,
+    Haidian District,
+    Beijing 100193,
+    P.R.China
+
+    这次workshop的地点如下：
+
+    IBM中国创新中心 钻石大厦.
+    中关村软件园19号楼
+    东北旺西路8号, 上地,
+    海淀区,
+    北京 100193,
+    中国
 
 ## Hotels
 

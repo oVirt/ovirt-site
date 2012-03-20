@@ -114,7 +114,7 @@ DB Upgrade should handle the following:
     -   "VM Operator" users (applies to users with permissions on VM with Disks attached to).
     -   SuperUser, ENGINEPowerUser, ClusterAdmin and DataCenterAdmin
 *   Add all disk related operations to the system administrator.
-*   Update all permissions grant-mode to 'manual'
+*   Update all permissions grant-mode to 'User'
 
 #### UI Changes
 

@@ -16,6 +16,10 @@ This is the main wiki page for [Node](Node) development.
 
 The oVirt Node sub-project is geared toward building a small, robust operating system image. It uses minimal resources while providing the ability to control virtual machines running upon it. A managed node can run in both standalone and mananged modes. Limited stateless support is also available, but not support by Engine at this time.
 
+### Presentations
+
+![](ovirt.node.pdf March 21 oVirt Workshop, Beijing "ovirt.node.pdf March 21 oVirt Workshop, Beijing")
+
 ## Next Release
 
 oVirt Node 2.3.0

@@ -58,6 +58,18 @@ Engine-level notes:
 
 *   Need to figure out a way to security the process of adding a promiscuous mode NIC. Today, the engine has the ability to set permissions on the VM level, but not for on the interface level.
 
+Suggestions for the permissions support:
+
+1.  Permissions on networks
+    -   Add the logical networks to the permissions hierarchy, currently under the data center.
+    -   Add a "Sniff logical network", on the network level. Each user with this role on a network will be able add a VM nic set on promiscuous mode (assuming he has edit permissions on the VM)
+    -   Having this permission on the DC level will mean the user can Sniff on every logical network in the DC, on every cluster (assuming he has permissions on the cluster/VM, of course)
+
+2.  Permissions on DC
+    -   Add a "Sniff logical network", on the DC level, which means the user can Sniff every logical network in the DC, on every cluster (assuming he has permissions on the cluster/VM, of course)
+
+Option "2" is simpler, as currently the logical networks doesn't have a main tab in the UI level, making it hard to provide an easy way to manage permissions on them.
+
 ### UI mockups
 
 Will be available soon.

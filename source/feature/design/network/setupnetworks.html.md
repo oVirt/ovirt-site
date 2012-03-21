@@ -277,7 +277,9 @@ usage:
 
             dhcp
 
-      >
+        true
+        60
+        false
 
 ### Open issues
 

@@ -235,7 +235,49 @@ It will be possible to drag blocks on one another. The following connections are
 
 #### Resource representation
 
-     TODO Ori Liel
+scheme:
+
+       POST
+
+         Content-Type
+         application/xml|json
+
+        Action
+
+         action.host_nics.host_nic
+
+           host_nic.network.id|name
+           host_nic.name
+           host_nic.ip.gateway
+           host_nic.boot_protocol
+           host_nic.mac
+           host_nic.ip.address
+           host_nic.ip.netmask
+           host_nic.bonding.options.option
+
+            option.name
+            option.value
+            option.type
+
+        bonding.slaves.host_nic
+
+          host_nic.name|id
+
+        action.checkConnectivity
+        action.connectivityTimeout
+        action.force
+
+       Response
+
+usage:
+
+     POST /api/hosts/{host:id}/nics/setupnetworks
+
+            em1
+
+            dhcp
+
+      >
 
 ### Open issues
 

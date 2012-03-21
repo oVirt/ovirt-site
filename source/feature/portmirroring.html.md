@@ -54,10 +54,9 @@ Notes:
 ### Permissions
 
 1.  Permissions support
-
-*   Add a "Manipulate promiscuous network", on the DC level, which means the user can check/uncheck the promiscuous flag on the VM nic for every logical network in the DC, on every cluster (assuming he has permissions on the cluster/VM, of course)
-*   In the engine-core we will have the same permission also in the network level, although for now it will only inherit the permission from the DC, as we won't enable setting this permission via the UI/API.
-*   Grant this permission automatically to Super User, and DC admin(?).
+    -   Add a "Manipulate promiscuous network", on the DC level, which means the user can check/uncheck the promiscuous flag on the VM nic for every logical network in the DC, on every cluster (assuming he has permissions on the cluster/VM, of course)
+    -   In the engine-core we will have the same permission also in the network level, although for now it will only inherit the permission from the DC, as we won't enable setting this permission via the UI/API.
+    -   Grant this permission automatically to Super User, and DC admin(?).
 
 ### UI mockups
 

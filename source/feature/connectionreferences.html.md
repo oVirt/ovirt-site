@@ -57,18 +57,99 @@ Just works!
 
 ## How to use
 
-You acquire a connection reference by using the storageServer_ConnectionRef_acquire(conRefArgs) conRefArgs - [(refID, connectionInfo),...] refID - is the name by which the referenced will be known and accessed. connectionInfo - is the information with which VDSM will try create a connection
+Connection Information is a structure in the form of
 
-Owning a reference does not guarantee that the connection is active. There might be problems that VDSM can't solve that might prevent VDSM from connection to the target.
+      ConnectionInfo = {'type'  : string
+                        'params': map}
 
-In order to check the status of the references use the verb storageServer_ConnectionRef_statuses() It returns a dict in which refIDs are keys and values are:
+Each type has values that it expects to appear uner the params map:
 
-      {"connected": true\false,
-       "lastError": (errcode, msg),
-       "connectionInfo": {connectionIfno}
-      }
+*   iSCSI - Iscsi is a bit complex as it is composed of many structures
 
-To release the connection reference use storageServer_ConnectionRef_release(refID)
+      IscsiPortal = {'hostname': string, # Can either be a hostname or an IP, I recommend using IP for anything other then send target discovery
+                     'port': integer # Optional, will use default iscsi portal if missing
+                    }
+      IscsiTarget = {'portal' : IscsiPortal,
+                     'tpgt'   : integer # Optional, Target Portal Group Tag, currently ignored and should be omitted from requests until supported
+                     'iqn'    : string }
+      ConnectionInfo = {'type'   : 'iscsi',
+                        'params' : {
+                                'target' : IscsiTarget
+                                'iface'  : string # Optional, Name of a registered iscsi interface. 'default' will use the default iscsi interface 'iser' will use iser.
+                                 'credentials : CredentialsInfo # Optional
+                                 }
+                       }
+
+*   NFS
+
+      ConnectionInfo = {'type' : 'nfs',
+                        'params': {
+                                'export'  : string # full export path eg. server:/path
+                                'retrans' : integer # Optional, should be omitted apart from special cases. Defaults might change in VDSM.
+                                'timeout' : integer # Optional, should be omitted apart from special cases. Defaults might change in VDSM.
+                                'version' : integer # Optional, should be omitted apart from special cases. Will use NFS protocol for version negotiations.
+                         }
+                        }
+
+*   localfs
+
+      ConnectionInfo = {'type' : 'localfs',
+                        'params': {
+                                'path'  : string # absolute path to the directory to use as a domain
+                         }
+                        }
+
+*   posixfs
+
+      ConnectionInfo = {'type' : 'posixfs',
+                        'params': {
+                                'spec'     : string
+                                'vfsType'  : string
+                                'options'  : string # Optional, should be sent by user, local defaults will be used if unspecified.
+                         }
+                        }
+
+You acquire a connection reference by using the storageServer_ConnectionRefs_acquire verb:
+
+         def storageServer_ConnectionRefs_acquire(self, conRefArgs):
+             """
+             Acquire connection references.
+             The method will persist the connection info in VDSM and create a
+             connection reference. Connection references can be accessed by their
+             IDs where appropriate.
+             Once a connection reference is created VDSM will try and connect to the
+             target specified by the connection information if not already
+             connected. VDSM will keep the target connected as long as a there is a
+             reference pointing to the same connection information.
+             :param conRefArgs: A map in the form of
+             {id: :class:: storageServer.ConnectionInfo), ... }
+             :rtype: dict {id: errcode, ...}
+             """
+
+In order to check the status of the references use the verb storageServer_ConnectionRefs_statuses verb:
+
+         def storageServer_ConnectionRefs_statuses(self):
+             """
+             Gets a list of all managed and active unmanaged storage connections and
+             their current status.
+             :rtype: a dict in the format of
+                {id: {'connected': True/False,
+                      'lastError': (errcode, message),
+                      'connectionInfo': :class:: storageServer.ConnectionInfo}
+             """
+
+To release the connection reference use storageServer_ConnectionRefs_release verb:
+
+         def storageServer_ConnectionRefs_release(self, refIDs):
+             """
+             Release connection references.
+             Releases the references, if a connection becomes orphaned as a result
+             of this action the connection will be disconnted. The connection might
+             remain active if VDSM detects that it is still under use but will not
+             be kept alive by VDSM anymore.
+             :param refIDs: a list of strings, each string representing a refIDs.
+             :rtype: dict {id: errcode, ...}
+             """
 
 ## User work flows
 

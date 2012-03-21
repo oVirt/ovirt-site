@@ -37,6 +37,7 @@ For every key/value pair that was added to Backend's *AppErrors* and *VdsmErrors
 *   Another entry must be added to:
     -   *frontend/webadmin/modules/webadmin/src/main/resources/org/ovirt/engine/ui/frontend/AppErrors.properties*
     -   *frontend/webadmin/modules/userportal/src/main/resources/org/ovirt/engine/ui/frontend/AppErrors.properties*
+    -   *frontend/webadmin/modules/userportal-gwtp/src/main/resources/org/ovirt/engine/ui/frontend/AppErrors.properties*
 
 The key must be the same as the key that was added to backend file, the message may be different.
 

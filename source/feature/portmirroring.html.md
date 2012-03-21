@@ -45,30 +45,19 @@ In first phase we will only support mirroring.
 
 Notes:
 
-1.  A VM NIC resides only on VM Networks, thus promiscuous mode is also only available for VM Networks as well.
+1.  A VM NIC resides only on VM Networks, thus promiscuous mode is also only available for VM Networks.
 2.  We shouldn't limit the VM to be pinned to host, although it is the common use-case.
 3.  More than one VM can monitor the same logical network
 4.  A VM can monitor more than one logical network
-5.  It will not be supported when when hot-plugging a nic
-6.  It will be supported only for bridged networks
+5.  It will be supported when when hot-plugging/unplugging a nic (can set an offline nic to be in promiscuous mode, and then activate it)
 
-### Design Notes
+### Permissions
 
-Engine-level notes:
+1.  Permissions support
 
-*   Need to figure out a way to security the process of adding a promiscuous mode NIC. Today, the engine has the ability to set permissions on the VM level, but not for on the interface level.
-
-Suggestions for the permissions support:
-
-1.  Permissions on networks
-    -   Add the logical networks to the permissions hierarchy, currently under the data center.
-    -   Add a "Sniff logical network", on the network level. Each user with this role on a network will be able add a VM nic set on promiscuous mode (assuming he has edit permissions on the VM)
-    -   Having this permission on the DC level will mean the user can Sniff on every logical network in the DC, on every cluster (assuming he has permissions on the cluster/VM, of course)
-
-2.  Permissions on DC
-    -   Add a "Sniff logical network", on the DC level, which means the user can Sniff every logical network in the DC, on every cluster (assuming he has permissions on the cluster/VM, of course)
-
-Option "2" is simpler, as currently the logical networks doesn't have a main tab in the UI level, making it hard to provide an easy way to manage permissions on them.
+*   Add a "Manipulate promiscuous network", on the DC level, which means the user can check/uncheck the promiscuous flag on the VM nic for every logical network in the DC, on every cluster (assuming he has permissions on the cluster/VM, of course)
+*   In the engine-core we will have the same permission also in the network level, although for now it will only inherit the permission from the DC, as we won't enable setting this permission via the UI/API.
+*   Grant this permission automatically to Super User, and DC admin(?).
 
 ### UI mockups
 
@@ -84,8 +73,13 @@ The ability to integrate the security world with the virtualization one, allowin
 
 Open issues:
 
-1.  Currently, there are no permissions in the VM NIC level, allowing every VM NIC to become a promiscuous one. Such support will have to be added in order to support promiscuous mode (see design notes).
-2.  Do we need to have a flag on the logical network level specifying whether this network can be monitored or not?
-3.  How would we treat the promiscuous flag When importing/Exporting/Templating a VM?
+1.  Do we need to have a flag on the logical network level specifying whether VMs can have promiscuous mode VM nic on top of it or not?
+2.  How would we treat the promiscuous flag When importing/Exporting/Templating a VM?
+3.  Is this okay to return the promiscuous flag from the engine-core? Does that pose a security issue? If we
+    -   if we can't then it is problematic, as there is no infrastructure for that at the engine-core side.
+
+4.  Will we allow users to edit this VM nic from the user portal?
+
+*   Will we allow users to uncheck this flag with no promiscuous permissions in the User Portal? API? Webadmin?
 
 <Category:Feature> <Category:Template>

@@ -36,5 +36,11 @@ oVirt currently requires that NFS exports be configured in a specific way. This 
 The easiest way to definitively test that an NFS export is ready for use by oVirt is to:
 
 *   Create the **vdsm** user with uid **36** on the ovirt-engine host if it does not already exist.
-*   Change to the **vdsm** user using **su - vdsm**.
+*   Change to the **vdsm** user using **su - vdsm**. If vdsm user was not hand-created, then chances are su - vdsm might fail. Do **su - vdsm -s /bin/bash**
 *   Attempt to mount the export to a temporary directory and touch a file on it.
+
+A new nfs check script is now available to test whether an NFS export is ready for use by oVirt :
+
+*   **nfs-check.py** is a python script to validate nfs targets to use with oVirt project. Some operations includes: mount the nfs target, create a file as vdsm:kvm and remove it.
+*   **nfs-check.py** available in **vdsm/contrib/** directory of the vdsm source
+*   Run it as **python nfs-check.py server:/target**

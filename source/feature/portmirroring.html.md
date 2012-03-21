@@ -78,7 +78,6 @@ Open issues:
     -   if we can't then it is problematic, as there is no infrastructure for that at the engine-core side.
 
 4.  Will we allow users to edit this VM nic from the user portal?
-
-*   Will we allow users to uncheck this flag with no promiscuous permissions in the User Portal? API? Webadmin?
+5.  Will we allow users to uncheck this flag with no promiscuous permissions in the User Portal? API? Webadmin?
 
 <Category:Feature> <Category:Template>

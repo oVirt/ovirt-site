@@ -59,27 +59,31 @@ The NIC adding to the VM will be performed as two steps procedure:
 
 ##### Add nic
 
-when adding a nic, store its plugged status as disabled, regardless if the VM is running or not. The api will not implicitly plug it to a running VM.
+*   when adding a nic as activated, if the VM is up, plug it.
 
-##### Run VM
+##### Update nic
 
-when running a VM, include only nics which are plugged in the parameters sent to VDSM.
-
-##### Plug nic
-
-plugging a nic when a VM is down updates its plugged flag in vm_device table to 'true'. If the VM is up then the VDSM is also being called to plug it.
-
-##### Unplug nic
-
-unplugging a nic when a VM is down updates its plugged flag in vm_device table to 'false'
-
-##### Host monitoring
-
-during monitoring and gathering vm stats, the nic's address should be saved in vm_device table.
+*   throw canDo when trying to update a nic when the vm is running and the nic is plugged.
 
 ##### Remove nic
 
-when a nic is removed from a VM, remove its address from vm_device
+*   when a nic is removed from a VM, remove its address from vm_device
+
+##### Run VM
+
+*   when running a VM, include only nics which are 'activated' in the parameters
+
+sent to VDSM.
+
+##### Plug nic
+
+*   plugging a nic when a VM is down updates its plugged flag in
+
+vm_device table to 'true'. If the VM is up then the VDSM is also being called to plug it.
+
+##### Unplug nic
+
+*   when unplugging a nic update its plugged flag in vm_device table to 'false' and clear the address
 
 #### REST API
 

@@ -104,7 +104,9 @@ Currently attach/detach is being executed as part of the UpdateVm action.
 
 #### DB Changes
 
+       Modify create_functions.sql:
        Add support for Disk to `*`fn_get_entity_parents`*` stored-procedure.
+       Add support for Disk to `*`fn_get_entity_name`*` stored-procedure.
 
 #### Upgrade DB
 

@@ -24,7 +24,7 @@ This feature covers the management and usage of disks in floating state.
 
     * REST Component owner: [ Michael Pasternak](User:mpasternak)
 
-    * Engine Component owner: [ Maor Lipchuk](User:mlipchuk)
+    * Engine Component owner: [ Michael Kublin](User:mkublin)
 
     * QA Owner: [ Yaniv Kaul](User:ykaul)
 

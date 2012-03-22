@@ -10,8 +10,6 @@ wiki_last_updated: 2013-06-18
 
 # Features for Releases Under Development
 
-oVirt 3.1 - [ Feature list](Releases/31/FeatureList)
-
 # Features in Currently Maintained Releases
 
 No features at the moment.

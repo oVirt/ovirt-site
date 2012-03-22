@@ -54,7 +54,7 @@ To connect to host, you can use **-s** as argument for secure connection (SSL) o
 
 2) Destroy the VM
 
-*   $ vdsClient -s HOST destroy ID
+*   $ vdsClient -s HOST destroy <vmID>
 
 ## How to setup vnc to a Virtual Machine in case oVirt Engine is out?
 

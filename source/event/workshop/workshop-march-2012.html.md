@@ -29,6 +29,10 @@ wiki_last_updated: 2012-03-22
     16:30 - 17:15 :: Storage (presented by Red Hat engineers)
     17:15 - 17:30 :: Wrap-up and finish
 
+### Slides
+
+MOM integration
+
 ## Workshop location
 
     CBIC Diamond Bldg.

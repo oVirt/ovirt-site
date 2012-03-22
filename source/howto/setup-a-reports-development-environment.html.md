@@ -48,4 +48,4 @@ with the following credentials:
 *   Setup the JasperReports Server repository viewer to view the repository you imported the reports to. Details for doing this are provided in the IReport guide by Jasper.
 *   Reports can now be edited via IReport.
 
-<Category:Documentation> <Category:Reports> [Category:Development environment](Category:Development environment)
+<Category:Documentation> <Category:Reports> [Category:Development environment](Category:Development environment) [Category:How to](Category:How to)

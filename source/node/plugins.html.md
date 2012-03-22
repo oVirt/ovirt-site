@@ -106,19 +106,19 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
 
 #### For End User
 
-*   Tool for injecting plugins based on edit-node/edit-livecd code: node-plugin-tool
-*   node-plugin-tool should handle the following tasks:
+*   Tool for injecting plugins based on edit-livecd code: edit-node
+*   edit-node should handle the following tasks:
     -   validation of the plugin by checking the metadata/kickstart for syntax/policy errors
     -   validation of rpm signatures using a set of valid certificates that are bundled with the tool
     -   resolution of dependencies that need to be included from an external repository
         -   For example, plugin foo requires tog-pegasus, so download that from the Fedora yum repository
-*   n-p-t should also be capable of operating in two modes:
+*   edit-node should also be capable of operating in two modes:
     -   offline ISO editing mode for v1 feature
         -   this will use edit-livecd functionality to crack up the ISO, chroot it and perform local operations
     -   online plugin injection mode for v2 feature
         -   this will use a control channel (SSH or Matahari perhaps) to interact with and run live operations on the Node
-*   To determine dependency resolution deltas, the n-p-t must either use the rpm database of the offline Node ISO or the live running Node. yumdownloader can be used from the host running n-p-t to download dependencies and then bundle those dependencies with the plugin tarball for installation either on the offline or online image
-*   n-p-t will also create manifests for all changes
+*   To determine dependency resolution deltas, edit-node must either use the rpm database of the offline Node ISO or the live running Node. yumdownloader can be used from the host running edit-node to download dependencies and then bundle those dependencies with the plugin tarball for installation either on the offline or online image
+*   edit-node will also create manifests for all changes
     -   During oVirt Node ISO creation, a set of manifests are created for rpm and file manifests
     -   During plugin injection (either online or offline), manifest deltas should be created and persisted to either the ISO image or to the persistent config store (remote or local disk) so that a record of all changes to the image from every plugin can be tracked by date.
     -   These manifests should also contain listing of all config changes made from the metadata instructions
@@ -126,5 +126,25 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
     -   By default the injection tooling will validate the gpg signartures of all RPMs to be installed to make sure they are signed by a valid provider.
     -   The 3rd party plugin injection tool should provide an argument to pass the equivalent of --no-gpg so that this behavior can be overridden.
     -   Each 3rd party software developer will have their own private/public keypair and the stock oVirt Node will include the public keys. The gpg verification should be done by certificates installed inside the Node itself, so that both the offline and online plugin injection mechanism can benefit from it.
+
+<!-- -->
+
+*   Usage
+    -   Install a local rpm and use a repo for dependency resolution
+        -   edit-node --install-plugin ./vdsm.rpm --repo=<http://ovirt.org/releases/stable/f16> $iso_file
+    -   Install plugin directly from a yum repo
+        -   edit-node --install-plugin vdsm --repo=./myrepo $iso_file
+    -   Plugin name should be set with --ver
+        -   edit-node --install-plugin vdsm --repo=./myrepo --ver foo $iso_file
+    -   Installing multiple plugins
+        -   edit-node --install-plugin "foo, bar" --repo ./myrepo --ver foo $iso_file
+    -   Based on <http://www.ovirt.org/wiki/Node_versions_numbers>:
+        -   New version: ovirt-node-iso-2.3.0-1.1.1.foo.f16.iso
+        -   Second version: ovirt-node-iso-2.3.0-1.1.2.foo.f16.iso
+    -   Other Features
+        -   List Plugins
+            -   edit-node --list-plugins node.iso
+        -   Print Plugin Manifests
+            -   edit-node --print-manifests
 
 <Category:Node>

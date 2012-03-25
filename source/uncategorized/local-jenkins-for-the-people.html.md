@@ -19,13 +19,13 @@ The needed values are:
 *   **[user]** - The user you use to work on your stuff (In order to clone from your repo).
 *   **[git-repo-location]** - The location of the git repo on the [git-host] - i.e. ~/git/ovirt-engine
 
-# Prerequisites
+# Install & configure Jenkins
+
+### Prerequisites
 
 Make sure you have ntpd installed and running, a good server to use is (in /etc/ntp.conf):
 
       # server 10.5.26.10
-
-# Install & configure Jenkins
 
 ### Installing Jenkins
 

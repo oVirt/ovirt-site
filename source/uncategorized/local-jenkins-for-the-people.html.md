@@ -8,7 +8,7 @@ wiki_last_updated: 2013-02-11
 
 # Local Jenkins (guide) for the people
 
-Wherever you need to substitute a value, the notation **[]** is used, ie **[value]**. You can download this guide and run a search/replace on it with your own values (or just replace whenever needed).
+Wherever you need to substitute a value, the notation **[]** is used, ie **[value]**.
 
 The needed values are:
 
@@ -17,7 +17,7 @@ The needed values are:
 *   **[jenkins-host]** - The host you're installing jenkins to (IP/FQDN) - i.e. your VDSM host.
 *   **[git-host]** - The host where the GIT repository you work on is located (your local repo, not origin) - i.e. your lap[top.
 *   **[user]** - The user you use to work on your stuff (In order to clone from your repo).
-*   **[git-repo-location]** - The location of the git repo on the [git-host] - i.e. ~/git/ovirt-engine
+*   **[git-repo-url]** - Full URL of the git repo on the [git-host] - i.e. [ssh://[user]](ssh://[user])@[git-host]/~/git/ovirt-engine
 
 # Install & configure Jenkins
 
@@ -68,23 +68,7 @@ Make sure you have ntpd installed and running, a good server to use is (in /etc/
 
       # yum install git
 
-### Configure SSH for jenkins user
-
-#### Generate SSH key for jenkins
-
-      # su - -s /bin/bash jenkins
-      $ ssh-keygen -t rsa
-
-#### Copy the public key to your user on your machine
-
-`$ ssh-copy-id `**`[user]`**`@`**`[git-host]`**
-
-#### Check that you can SSH without password
-
-      $ ssh `**`[user]`**`@`**`[git-host]`**` "echo 'Hello world'"
-      Hello world
-
-### Now need to define jenkins & jobs..
+### Now need to install jenkins & plugins..
 
 #### Install plugins
 
@@ -97,6 +81,7 @@ Make sure you have ntpd installed and running, a good server to use is (in /etc/
       # java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` install-plugin git
       # java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` install-plugin checkstyle
       # java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` install-plugin findbugs
+      # java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` install-plugin build-name-setter
       # java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` install-plugin saferestart
 
 ##### Restart jenkins
@@ -107,13 +92,41 @@ Make sure you have ntpd installed and running, a good server to use is (in /etc/
 
 Go to <http://>**[jenkins-host]**:8080/configure which will open jenkins system config.
 
-Add the GIT and Maven installations, if they aren't listed.
+Add the GIT installation, if it isn't listed.
 
-### Change the following fields to the specified values
+#### At the top section
+
+Change the following fields to the specified values:
 
 *   1.  of executors = 4
 *   SCM checkout retry count = 100
+
+#### At the Maven sections
+
+*   Add a maven installation (if none listed).
+*   Uncheck 'Install automatically'
+*   Name = maven
+*   For EL6: MAVEN_HOME = /usr/share/apache-maven
+*   For FC16: MAVEN_HOME = /usr/share/maven
 *   Global MAVEN_OPTS = -Xincgc
+
+# Configure SSH for jenkins user
+
+This is necessary so that Jenkins can clone your local GIT repository and poll it.
+
+### Generate SSH key for jenkins
+
+      # su - -s /bin/bash jenkins
+      $ ssh-keygen -t rsa
+
+### Copy the public key to your user on your machine
+
+`$ ssh-copy-id `**`[user]`**`@`**`[git-host]`**
+
+### Check that you can SSH without password
+
+      $ ssh `**`[user]`**`@`**`[git-host]`**` "echo 'Hello world'"
+      Hello world
 
 # Add the jobs
 

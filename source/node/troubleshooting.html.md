@@ -81,3 +81,5 @@ For debugging purposes, you can update an rpm, but it's strongly discouraged for
     -   If you persisted a file and it broke something, but you can get back to the shell, you can try unpersisting the file and rebooting. It may not work if the system had made other changes to the file that are lost when you unpersist.
     -   If those don't work, you can try manually hacking the changed files again to fix it, but you're on you're own with that.
     -   If the above all fail, then re-install is really you're only option.
+
+[Category: Node](Category: Node)

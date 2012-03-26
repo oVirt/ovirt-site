@@ -70,7 +70,8 @@ We will have the following config value for this job: <span style="color:Teal">*
 
 ### Open Issues
 
-1.  -   How to update the scheduled jobs.
+1.  How to update the scheduled jobs.
+2.  Whether or not to update the values that demand work for fetching, such as parsing.
 
 ### Dependencies / Related Features
 

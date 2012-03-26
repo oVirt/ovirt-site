@@ -44,7 +44,7 @@ The Reloadable Configuration feature will allow updating **some** of the values,
 The requirements are the following:
 
 1.  Enable the updating of configurations in vdc_options, while the machine is up.
-2.  This should be enabled for keys that can be changed in runtime without harming the system, and keys that can actua
+2.  This should be enabled for keys that can be changed in runtime without harming the system, and keys that can actually be updated.
 3.  The update does not have to take place immediately upon configuration change, but rather can happen periodically.
 
 ### Design

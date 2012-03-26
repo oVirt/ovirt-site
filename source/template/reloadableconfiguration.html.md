@@ -76,7 +76,7 @@ We will have the following config value for this job: <span style="color:Teal">*
 
 Affected engine projects:
 
-*   backend
+*   core
 *   Webadmin
 *   User Portal
 

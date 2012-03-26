@@ -10,6 +10,20 @@ wiki_last_updated: 2013-11-19
 
 # oVirt Node Release Notes
 
+# 2.3.0 Release Notes
+
+*   Migrate to systemd for fedora based images
+*   Add support for detecting and cleaning fakeraid devices
+*   Add libvirt-cim/sblim-sfcb support to ovirt-node
+*   Various stateless fixes
+*   Various Small TUI fixes
+*   Add keyboard selection support
+*   Add ovirt-node-iso rpm
+
+### Known Issues for 2.3.0
+
+*   See Current Backlog for other issues [Node_Backlog](Node_Backlog)
+
 # 2.2.3 Release Notes
 
 *   Add kickstarts for F18

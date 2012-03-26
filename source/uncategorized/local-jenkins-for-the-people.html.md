@@ -68,7 +68,7 @@ Make sure you have ntpd installed and running, a good server to use is (in /etc/
 
       # yum install git
 
-### Now need to install jenkins & plugins..
+### Installing some Jenkins plugins..
 
 #### Install plugins
 

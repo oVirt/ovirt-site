@@ -63,9 +63,9 @@ New Design:
         4.  Quartz services that are setup on startup and cannot be changed afterwords.
 
 <span style="color:Teal">**vdc_options**</span>:
-{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Description |- |reloadable || boolean ||not null / default False ||Is this key reloadable |- |}
+{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Description |- |is_reloadable || boolean ||not null / default False ||Is this key reloadable |- |}
 
-We will have the following config value for this job: <span style="color:Teal">**prestarted_vms**</span>:
+We will have the following config value for this job: <span style="color:Teal">*'*'</span>:
 {|class="wikitable sortable" !border="1"| config key || config type ||Null? / Default ||Description |- |ConfigurationsRefreshIntervalInSeconds || smallint ||60||The size of interval between refreshes of configurations from vdc_options. |}
 
 ### Open Issues

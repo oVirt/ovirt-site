@@ -45,18 +45,19 @@ The payload options are:
 2.  **backend, forntend:** For now we will limit the content of the file to 16K.
 3.  **backend, frontend:** add support to run-once
 4.  **backend, frontend:** add support to add/edit VM
-5.  **backend:** The Modelling of this feature will include OVF schema changes as well
-6.  **backend:** payload will be as cdrom/floppy device, if we use payload-cdrom we don't allow regular cdrom
-7.  **backend:** add 3 fields to VM class (not persistence) payload_type, payload_filename, payload_content
-8.  **bacnend:** payload will be present as a cdrom/floppy device with the payload data in the specParams (and will be persist to db)
-9.  **backend:** change cd will be enabled on the payload-cdrom (which will be the only cdrom)
-10. **vdsm:** will parse the device and create temp cdrom/floppy file-system file.
-11. **vdsm:** will remove the payload data when returning the vmStats to backend
-12. **vdsm:** on migration will have the same devices
-13. **vdsm:** on destroy will delete the temp file-system
-14. **bacnend:** the file names should be passed in Unicode
-15. **backend:**The payload data will be encoded using base64 encoding
-16. **vdsm:** should re-encode them as utf8 when writing them to disk
+5.  **backend, frontend:** add GetVmPayloadQuery() (needed because there is no persistence to payload in VmBase)
+6.  **backend:** The Modelling of this feature will include OVF schema changes as well
+7.  **backend:** payload will be as cdrom/floppy device, if we use payload-cdrom we don't allow regular cdrom
+8.  **backend:** add 3 fields to VM class (not persistence) payload_type, payload_filename, payload_content
+9.  **bacnend:** payload will be present as a cdrom/floppy device with the payload data in the specParams (and will be persist to db)
+10. **backend:** change cd will be enabled on the payload-cdrom (which will be the only cdrom)
+11. **vdsm:** will parse the device and create temp cdrom/floppy file-system file.
+12. **vdsm:** will remove the payload data when returning the vmStats to backend
+13. **vdsm:** on migration will have the same devices
+14. **vdsm:** on destroy will delete the temp file-system
+15. **bacnend:** the file names should be passed in Unicode
+16. **backend:**The payload data will be encoded using base64 encoding
+17. **vdsm:** should re-encode them as utf8 when writing them to disk
 
 ### Design Notes
 

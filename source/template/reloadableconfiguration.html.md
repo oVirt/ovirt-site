@@ -62,10 +62,10 @@ New Design:
         3.  Keys that are cached locally, for example in static members, however fetching their values demands some work (such as parsing).
         4.  Quartz services that are setup on startup and cannot be changed afterwords.
 
-<span style="color:Teal">**New Coloumn:**</span>:
+<span style="color:Teal">**New Coloumn**</span>:
 {|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Description |- |is_reloadable || boolean ||not null / default False ||Is this key reloadable |- |}
 
-We will have the following config value for this job: <span style="color:Teal">**New config key:**</span>:
+We will have the following config value for this job: <span style="color:Teal">**New config key**</span>:
 {|class="wikitable sortable" !border="1"| config key || config type ||Null? / Default ||Description |- |ConfigurationsRefreshIntervalInSeconds || smallint ||60||The size of interval between refreshes of configurations from vdc_options. |}
 
 ### Open Issues

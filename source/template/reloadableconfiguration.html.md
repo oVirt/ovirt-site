@@ -65,7 +65,7 @@ New Design:
 <span style="color:Teal">**New Column**</span>:
 {|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Description |- |is_reloadable || boolean ||not null / default False ||Is this key reloadable |- |}
 
-We will add the following config value for this job: <span style="color:Teal">**New config key**</span>:
+We will add the following config value for the periodic job: <span style="color:Teal">*'*'</span>:
 {|class="wikitable sortable" !border="1"| config key || config type ||Null? / Default ||Description |- |ConfigurationsRefreshIntervalInSeconds || smallint ||60||The size of interval between refreshes of configurations from vdc_options. |}
 
 ### Open Issues

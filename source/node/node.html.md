@@ -22,20 +22,21 @@ March 21 oVirt Workshop, Beijing: ![](ovirt-node.pdf "fig:ovirt-node.pdf")
 
 ## Next Release
 
-oVirt Node 2.3.0
+oVirt Node 2.4.0
 
-*   Target date: 2012-03-15
+*   Target date: 2012-04-30
 *   List of issues targeted: [Node_Backlog](Node_Backlog)
 
 ## Current Release
 
-oVirt Node 2.2.3
+oVirt Node 2.3.0
 
 *   [Node_Release_Notes](Node_Release_Notes)
-*   [ISO image](http://ovirt.org/releases/stable/binary/ovirt-node-image-2.2.3-1.1.fc16.iso)
-*   [Source Tarball](http://ovirt.org/releases/stable/src/ovirt-node-2.2.3.tar.gz)
-*   [RPM Package](http://ovirt.org/releases/stable/fedora/16/ovirt-node-2.2.3-1.fc16.noarch.rpm)
-*   [Tools Package](http://ovirt.org/releases/stable/fedora/16/ovirt-node-tools-2.2.3-1.fc16.noarch.rpm)
+*   [ISO image](http://ovirt.org/releases/stable/binary/ovirt-node-iso-2.3.0-1.0.fc16.iso)
+*   [Source Tarball](http://ovirt.org/releases/stable/src/ovirt-node-2.3.0.tar.gz)
+*   [RPM Package](http://ovirt.org/releases/stable/fedora/16/ovirt-node-2.3.0-1.fc16.noarch.rpm)
+*   [Tools Package](http://ovirt.org/releases/stable/fedora/16/ovirt-node-tools-2.3.0-1.fc16.noarch.rpm)
+*   [ISO RPM Package](http://ovirt.org/releases/stable/fedora/16/ovirt-node-iso-2.3.0-1.0.fc16.noarch.rpm)
 
 ## Technologies Used
 

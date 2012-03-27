@@ -54,6 +54,8 @@ If a 'manual' permission was already granted to the user, an automatic permissio
 If an 'automatic' permission was already granted to the user, the permission will change to be 'manual'
  When Quota is disabled, the automatic permissions will enable the same user experience regardless the need to define permissions explicitly on the Disk entities.
 
+When Quota is deleted, verify that if 'everyone' user has additional Quotas associated to, do not remove the automatic permissions of it. The automatic permissions for the 'everyone' user should be removed only when no additional quotas exists for the data center.
+
 The following section describes permissions for Disk entities.
 
 #### Disk Actions

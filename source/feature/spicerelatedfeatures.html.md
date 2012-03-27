@@ -47,7 +47,9 @@ The Linux and Windows *spicec* based client will be replaced by the *remote-view
 
 *   USB Support
 
-For cluster level 3.1 (based on RHEL 6.3 support) native KVM/Spice USB redirection can be used in addition to the legacy Incentives Pro. The current Incentives Pro solution needs to be supported for both 3.0 and 3.1 cluster levels. *Note :The native USB support in Spice and KVM currently does not support live migration.*
+For cluster level 3.1 (based on RHEL 6.3 support) native KVM/Spice USB redirection can be used in addition to the legacy Incentives Pro.
+
+The current Incentives Pro solution needs to be supported for both 3.0 and 3.1 cluster levels. *Note :*The native USB support in Spice and KVM currently does not support live migration.
 
 *   **For 3.0 Cluster level**
     -   Update New/Edit VM dialog to change USB text to “Legacy USB Support”
@@ -70,7 +72,7 @@ Documentation and online help should indicate that “Legacy USB support “is d
 
 A new user editable configuration value should be added to vdc_options to specify the number of USB slots to be exposed to the virtual machine. The default should be 4
 
-**Note: I am suggesting that we make this a system wide value, since we should be able to dynamically change this in a later implementation.**
+**Note:** It is suggested that we make this a system wide value, since we should be able to dynamically change this in a later implementation.
 
 The following libvirt XML example shows adding 4 USB devices to a domain xml. The slot number would need to be adjusted based on the next available pci slot in the system. The maximum number is 6 unless we configure multiple controllers. If a usb tablet device is configured then it will take one device, however this should not be required to be configured in a spice environment with the vdagent present.
 

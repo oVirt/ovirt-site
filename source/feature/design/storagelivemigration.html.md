@@ -112,3 +112,7 @@ Initial notes:
 *   take a snapshot of a single disk (step 3)
 *   mark "Snapshot 1" (old leaf) as MERGE_PENDING
 *   mark "Snapshot 2" (new leaf) with the same SNAPSHOT_ID of "Snapshot 1" (NB. do **not** mark with MERGE_PENDING)
+
+### Pre-Copy Execution Diagrams and Description
+
+![](StorageLiveMigration3.png "StorageLiveMigration3.png")

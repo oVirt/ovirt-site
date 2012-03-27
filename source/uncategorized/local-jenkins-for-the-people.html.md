@@ -130,8 +130,32 @@ This is necessary so that Jenkins can clone your local GIT repository and poll i
 
 # Add the jobs
 
-### Add job for oVirt-engine
+Now you can add the jobs.
 
-This is the base jobs which builds the engine, without tests. All other jobs are triggered by this job.
+Maven job is usually what youi want, this job will monitor and build your maven project.
 
-TODO: Fill
+You can also freestyle it, which allows more advanced usages.
+
+Jenkins is pretty well documented so you can (and should) experiment on your own.
+
+### Sample oVirt jobs
+
+Here's a selection of sample jobs that you can import to the project, just be sure to change the repo-url.
+
+<Media:oVirt-engine.jobs.tar.gz>
+
+You can do this by running:
+
+      # sed -i 's#[git-repo-url]#ssh://[user]@[git-host]/[git-repo-location]#' oVirt-engine.*
+
+For example:
+
+      # sed -i 's#[git-repo-url]#ssh://mkolesni@myhost/~/git/ovirt-engine#' oVirt-engine.*
+
+Then, you can import them using the Jenkins CLI client:
+
+      # cat [job].xml | java -jar /tmp/jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` create-job [job-name]
+
+For example:
+
+      # cat oVirt-engine.xml | java -jar /tmp/jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` create-job oVirt-engine

@@ -121,17 +121,21 @@ The new Spice-XPI and Spice-ActiveX packages will wrap both the new remote-viewe
 
 Currently validations in the user interface prevent configuring multiple monitors for Linux guests. The backend logic permits multiple monitors. The front end logic needs to be updated to allow configuration of multiple monitors for Linux guests. This setting can be enabled for 3.0 and 3.1 cluster levels.
 
-**Note :** Multiple monitors in Linux requires specific in-guest configuration using Xinerama and has a number of limitations (eg. X server needs to be restarted). These limitations need to be documented and included in the product documentation. We are currently targeting RHEL 6.4 to support multihead QXL devices that would allow xrandr support in the guest for a more complete multihead solution.
+**Note :** Multiple monitors in Linux requires specific in-guest configuration using Xinerama and has a number of limitations (eg. X server needs to be restarted). These limitations need to be documented and included in the product documentation.
+
+We are currently targeting RHEL 6.4 to support multihead QXL devices that would allow xrandr support in the guest for a more complete multihead solution.
 
 *   **WAN Support**
 
 Spice includes a number of features to improve performance on network connections with reduced bandwidth or increased latency. Some of these features are automatic, for example increasing the image compression others have to be explicitly enabled. The spice client supports two options that should may be configured to improve user experience in WAN environments.
 
-*Color depth which can be set to 16 or 32bits* *Disable effects – which can be set to all, font-smooth, wallpaper or animation*
+*   *Color depth which can be set to 16 or 32bits*
+*   *Disable effects – which can be set to all, font-smooth, wallpaper or animation*
 
 In the user portal the console options dialog should be extended to include a check box for *“Enable WAN options”*. These options should only be enabled for Windows virtual machines. Two site-wide configuration options should be added to allow the administrator to define the WAN settings within the ovirt/rhev configuration tool. The suggested names are:
 
-*WAN-DisableEffects* - default to animation. Options: font-smooth, wallpaper, animation or all *WAN-ColorDepth* – default to 16. Options: 16 | 32
+*   *WAN-DisableEffects* - default to animation. Options: font-smooth, wallpaper, animation or all
+*   *WAN-ColorDepth* – default to 16. Options: 16 | 32
 
 If selected by the user then the two WAN options should be passed to the XPI / ActiveX components.
 

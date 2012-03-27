@@ -14,6 +14,10 @@ wiki_last_updated: 2012-06-04
 
 This pages describes the changes needed on oVirt to support new SPICE features in 3.1.
 
+### Background
+
+Currently oVirt use the spicec client for remote Spice connections and RHEV adds the proprietary Incentives Pro USB redirector solution to add support for remote USB. Since Fedora 16, the QEMU and Spice projects have added native support for USB remoting and are moving to a new client, virt-viewer, based on spice-gtk that includes more features and is based on a more portable codebase that will extend from Linux and Windows to more platforms in the future such as Mac OS. The virt-viewer client also includes support for the new native USB support in Spice.
+
 ### Owner
 
 This should link to your home wiki page so we know who you are
@@ -24,85 +28,129 @@ This should link to your home wiki page so we know who you are
 ### Current status
 
 *   In design phase
-*   Last updated date: February 6th, 2012.
+*   Last updated date: March 26th, 2012.
 
-### Detailed Description
+### High Level Features
 
 In the upcoming version, SPICE is about to perform the following changes/additions:
 
-1.  New SPICE client: virt-viewer
-2.  Native USB support
-    -   This option will only be supported in the virt-viewer client
+1.  New Spice Client
+2.  Native USB Support
+3.  Multimonitor Support (basic)
+4.  WAN Support
 
-3.  Limited multiple monitor support on RHEL and Fedora
-    -   Multiple monitors will be supported by RHEL and Fedora with certain limitations
+### Detailed Description
 
-4.  WAN support - there are several protocol options that are useful when connecting using SPICE via WAN (compression options, display options, etc.)
+*   New Spice Client
 
-### Implementation Details
+The Linux and Windows *spicec* based client will be replaced by the *remote-viewer* which is based on spice-gtk. The ActiveX and spice-xpi packages will be updated to include the new client which is backwards compatible with spicec - allowing remote-viewer to be used for RHEV 3 based deployments as well as RHEV 3.1.
 
-1.  USB support
-    -   Vdsm changes
+*   USB Support
 
-Vdsm would have to request libvirt to create [redirected usb](http://libvirt.org/formatdomain.html#elementsRedir) devices. This should not be done for each and every VM started by Vdsm, since there are ill side effects for this (one know problem is that it currently breaks live migration). We must expose a flag enabledUsbRedirect to be waived by Engine. Alternatively, Engine can send the 'redirect' device in the new `devices` API. **must open Vdsm bz# for this**
+For cluster level 3.1 (based on RHEL 6.3 support) native KVM/Spice USB redirection can be used in addition to the legacy Incentives Pro. The current Incentives Pro solution needs to be supported for both 3.0 and 3.1 cluster levels. *Note :The native USB support in Spice and KVM currently does not support live migration.*
 
-#\* Engine changes waive new enabledUsbRedirect flag, or send a special 'redirect' device.
+*   **For 3.0 Cluster level**
+    -   Update New/Edit VM dialog to change USB text to “Legacy USB Support”
+    -   Legacy USB Support field should be disabled for all Linux virtual machines
+    -   Legacy USB support should allow selection only on Windows VMs but default to Off
 
-1.  Change multiple monitor support on RHEL
-    -   UserPortal changes
-        -   Enable using multiple monitors on RHEL (it is disabled today)
-    -   VDSM changes
-        -   Pass libvirt the number of monitors using the "heads" property in the display device on the libvirt domain.xml file. Since Vdsm does not know the guest OS, it should be told by Engine to use a single video device with multiple heads. This is preferably done by using the new `devices` interface for vmCreate.
-    -   Engine-core changes
-        -   Support the use of multiple monitors on a single device only in cluster level 3.1+. Lower cluster levels will use multiple devices.
-    -   UserPortal/webadmin changes
-        -   Allow setting multiple monitors to RHEL guests
+<!-- -->
 
-2.  WAN Support
-    -   In the protocol options in the User Portal, we should add the following options:
-        -   Network mode:
-            -   auto-detect (default)
-            -   LAN
-            -   WAN
-        -   Compression mode:
-            -   loci or not
+*   **For 3.1 Cluster level**
+    -   Add checkbox for Enable USB support
+        -   Checkbox should be unselected by default
+    -   When checkbox is selected two radio buttons should be presented
+        -   Legacy USB Support
+        -   SPICE USB Support
+    -   For Linux virtual machines Legacy USB Support should not be enabled
 
-#### virt-viewer support
+For both cluster 3.0 and 3.1 level USB should only be enabled if Spice is selected as remote protocol.
 
-At first phase, both SPICEC and the virt-viewer will work side by side. Some features, such as native USB support, will only be supported when using the new virt-viewer client. So, in order to support working with both clients side by side, working with the client that we need in order to get the required capabilities, we need to do the following:
+Documentation and online help should indicate that “Legacy USB support “is deprecated and will not be supported in future releases of RHEV. When a user selects SPICE USB support we should present a warning that migration is NOT supported using SPICE USB redirection. Note: We need to disable live migration when using SPICE migration it will fail regardless of whether a device is being redirected. Targeting RHEL 6.4 to address this <https://bugzilla.redhat.com/show_bug.cgi?id=805172>
 
-*   In the UserPortal, identify which clients are installed
-*   For each client
-    -   Get the client version
-    -   Get the client capabilities (start with Native USB support, non-native USB support, WAN support, but in the future we might have more capabilities)
-*   Work with either SPICEC and virt-viewer, per-VM:
-    -   If virt-viewer is installed, work with it by default, unless there is a need to get non-native USB support (will only happen in cluster level lower than 3.1)
-    -   If non-native USB support is needed, and SPICEC is not installed (or it is installed, but the non-native USB support components aren't installed), give the user a proper error message
-    -   If the cluster level is 3.1 (which supports native USB support), but the client only has non-native USB support (old client), then we will use the old client. This means that we'll have to keep supporting the non-native USB support, side-by-side with the native one.
-    -   Note that using the old usb support requires extra software to be installed on the guest.
-*   Show the protocol options according to the client type - now the only change is that the WAN options should be displayed only when working with virt-viewer
+A new user editable configuration value should be added to vdc_options to specify the number of USB slots to be exposed to the virtual machine. The default should be 4
 
-### Benefit to oVirt
+**Note: I am suggesting that we make this a system wide value, since we should be able to dynamically change this in a later implementation.**
 
-Integrating with new SPICE capabilities will ease the user work in the oVirt environment.
+The following libvirt XML example shows adding 4 USB devices to a domain xml. The slot number would need to be adjusted based on the next available pci slot in the system. The maximum number is 6 unless we configure multiple controllers. If a usb tablet device is configured then it will take one device, however this should not be required to be configured in a spice environment with the vdagent present.
 
-### Dependencies / Related Features
+         <controller type='usb' index='0' model='ich9-ehci1'>
+          <address type='pci' domain='0x0000' bus='0x00' slot='0x08' function='0x7'/>
+        </controller>
 
-1.  Fully functional and supported virt-viewer
-2.  The ability to work with native and non-native USB support in the same guest (to support both virt-viewer and SPICEC for connecting to the same VM, with USB support)
+        <controller type='usb' index='0' model='ich9-uhci1'>
+          <master startport='0'/>
+          <address type='pci' domain='0x0000' bus='0x00' slot='0x08' function='0x0' multifunction='on'/>
+        </controller>
+
+        <controller type='usb' index='0' model='ich9-uhci2'>
+          <master startport='2'/>
+          <address type='pci' domain='0x0000' bus='0x00' slot='0x08' function='0x1'/>
+        </controller>
+
+        <controller type='usb' index='0' model='ich9-uhci3'>
+          <master startport='4'/>
+          <address type='pci' domain='0x0000' bus='0x00' slot='0x08' function='0x2'/>
+        </controller>
+
+        <redirdev bus='usb' type='spicevmc'>  
+          <address type='usb' bus='0' port='3'/>
+        </redirdev>
+
+        <redirdev bus='usb' type='spicevmc'>
+          <address type='usb' bus='0' port='4'/>
+        </redirdev>
+
+        <redirdev bus='usb' type='spicevmc'>
+          <address type='usb' bus='0' port='5'/>
+        </redirdev>
+
+        <redirdev bus='usb' type='spicevmc'>
+          <address type='usb' bus='0' port='6'/>
+        </redirdev>
+
+The native qemu/Spice USB support presents an emulated echi and uchi controller to the guest. Virtual machines do not require any in-guest agents or drivers for native USB.
+
+For native qemu/spice USB support all client to guest communication happens through the existing Spice channel so no other ports need to be opened on the guest or host.
+
+The new Spice-XPI and Spice-ActiveX packages will wrap both the new remote-viewer client that provides support for native USB and the legacy Incentives Pro USB client. If legacy USB solution is to be used then the existing parameters can be passed as usual eg. URL & filter string. For native USB the client will read the existing filter string parameter. There is no need to explicitly enable the native USB support in the ActiveX/XPI. If legacy support parameters are not passed then the remote-viewer client will try to connect to a Spice USB channel, if no USB channel is found then USB support will be disabled automatically.
+
+*   **Multi Monitor support for Linux guests (Basic)**
+
+Currently validations in the user interface prevent configuring multiple monitors for Linux guests. The backend logic permits multiple monitors. The front end logic needs to be updated to allow configuration of multiple monitors for Linux guests. This setting can be enabled for 3.0 and 3.1 cluster levels.
+
+**Note :** Multiple monitors in Linux requires specific in-guest configuration using Xinerama and has a number of limitations (eg. X server needs to be restarted). These limitations need to be documented and included in the product documentation. We are currently targeting RHEL 6.4 to support multihead QXL devices that would allow xrandr support in the guest for a more complete multihead solution.
+
+*   **WAN Support**
+
+Spice includes a number of features to improve performance on network connections with reduced bandwidth or increased latency. Some of these features are automatic, for example increasing the image compression others have to be explicitly enabled. The spice client supports two options that should may be configured to improve user experience in WAN environments.
+
+*   -   Color depth which can be set to 16 or 32bits
+    -   Disable effects – which can be set to all, font-smooth, wallpaper or animation
+
+In the user portal the console options dialog should be extended to include a check box for *“Enable WAN options”*. These options should only be enabled for Windows virtual machines. Two site-wide configuration options should be added to allow the administrator to define the WAN settings within the ovirt/rhev configuration tool. The suggested names are:
+
+*   -   WAN-DisableEffects - default to animation. Options: font-smooth, wallpaper, animation or all
+    -   WAN-ColorDepth – default to 16. Options: 16 | 32
+
+If selected by the user then the two WAN options should be passed to the XPI / ActiveX components.
 
 ### Comments and Discussion
 
 Issues/Questions:
 
 1.  USB support - today it is only on desktops. Should it be supported on servers as well?
-    -   Answer - If possible then yes.
+    -   Answer - Yes
 
 2.  USB filtering - how will the filter be configured? Today it is done via some windows application.
+    -   Same application as we are using for 3.0. Filter params are passed in the same was as 3.0/2.2
+
 3.  Today we have all the API needed to pass the number of monitors. Are there any other flags needed for that feature (like amount of memory per-monitor)? If so, we will need to extend the API to support that.
+    -   Answer - No
     -   Today this logic is done in the VDSM level. It would be best if we could leave the logic there, changing it accordingly.
 
 4.  Installation/Packaging - will we package and install virt-viewer, or will it be installed separately by the user?
+    -   Answer - Remote viewer is the replacement for SPICEC it will be packaged as an RPM for Linux user and pulled in via dependencies by spice-xpi
 
 Future Work:
 

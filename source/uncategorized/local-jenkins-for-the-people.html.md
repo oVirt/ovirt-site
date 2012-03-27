@@ -21,56 +21,264 @@ The needed values are:
 
 # Install & configure Jenkins
 
-### Prerequisites
+The enclosed installation script does most of the work for you, installing Jenkins & pre-requisites, but it does not configure Jenkins for you.
+
+You can either use the installation script or follow the steps manually, it's up to you!
+
+### Installation script
+
+Download from here: <Media:jenkins.sh.gz>
+
+Or copy this:
+
+    #! /bin/bash
+    #
+    # Copyright (c) 2012 Red Hat, Inc.
+    #
+    # Licensed under the Apache License, Version 2.0 (the "License");
+    # you may not use this file except in compliance with the License.
+    # You may obtain a copy of the License at
+    #
+    #           http://www.apache.org/licenses/LICENSE-2.0
+    #
+    # Unless required by applicable law or agreed to in writing, software
+    # distributed under the License is distributed on an "AS IS" BASIS,
+    # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    # See the License for the specific language governing permissions and
+    # limitations under the License.
+    #
+
+    usage() {
+    #    echo "Usage: ${ME} [-h] -s SERVERNAME -u USERNAME [-v]"
+        echo "Usage: ${ME} [-h] [-f] [-v]"
+        echo ""
+    #    echo "  -s SERVERNAME - The IP/FQDN for the GIT server.           (eg your machine)"
+    #    echo "  -u USERNAME   - The user you are using on the GIT server. (eg your user)"
+        echo "  -v            - Turn on verbosity."
+        echo "  -f            - Use force (don't stop if a critical step fails)."
+        echo "  -h            - This help text."
+        echo ""
+
+        exit 0
+    }
+
+    function printSuccess {
+        if [ $2 = 0 ]
+        then
+            successStr='[SUCCESS]'
+        else
+            successStr='[FAILED]'
+        fi
+
+        limit=$(echo 79 - $( echo $successStr | wc -m) | bc)
+        start=$(echo 1 + $(echo $1 | wc -m) | bc)
+
+        echo -n $1' '
+
+        for i in `seq $start $limit`;
+        do
+            echo -n '.'
+        done
+
+        echo ' '$successStr
+    }
+
+    function yumInstall {
+        yum install $VERBOSE -y $1
+
+        success=$?
+        printSuccess "Installed $1" $success
+    }
+
+    function startService {
+        chkconfig $1 on
+        success=$?
+        printSuccess "Enabled $1 service on start-up" $success
+
+        if [ $success ]
+        then
+            service $1 start
+            success=$?
+            printSuccess "Started $1 service" $success
+        fi
+    }
+
+    function installPlugin {
+        java -jar /tmp/jenkins-cli.jar -s http://localhost:8080 install-plugin $1
+        printSuccess "Installed Jenkins $1 plugin" $?
+    }
+
+    VERBOSE='-q'
+    while getopts :hfv option; do
+        case $option in
+    #        s) SERVERNAME=$OPTARG;;
+    #        u) USERNAME=$OPTARG;;
+            v) VERBOSE='';;
+            f) FORCE=true;;
+            h) usage;;
+        esac
+    done
+
+    #if [[ "$SERVERNAME" = '' || "$USERNAME" = '' ]]
+    #then
+    #    echo "ERROR: One or more required parameters are missing."
+    #    usage
+    #fi
+
+    echo "Installing pre-requisites:"
+    echo "=========================="
+
+    yumInstall ntp
+
+    if !grep "10.5.26.10" /etc/ntp.conf &> /dev/null
+    then
+        echo "\nserver 10.5.26.10 # Added by jenkins install script.\n" >> /etc/ntp.conf
+        printSuccess "Added working NTP server" $?
+    fi
+
+    yumInstall java
+    yumInstall git
+
+    if grep Fedora /etc/redhat-release &> /dev/null
+    then
+        yumInstall maven
+    else
+        rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-5.noarch.rpm
+        wget $VERBOSE -O /etc/yum.repos.d/epel-apache-maven.repo http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo
+        yumInstall apache-maven
+    fi
+
+    yumInstall postgresql-server
+    yumInstall postgresql-contrib
+
+    if [ "$(rpm -q postgresql | cut -f2 -d'-' | cut -f1 -d'.')" = "8" ]
+    then
+        su - postgres -c 'initdb -U postgres -D /var/lib/pgsql/data/'
+    else
+        su - postgres -c 'pg_ctl initdb'
+    fi
+
+    printSuccess "Initialized DB" $?
+
+    echo ""
+    echo "Installing Jenkins CI:"
+    echo "======================"
+
+    wget $VERBOSE -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+
+    printSuccess 'Downloaded Jenkins repo' $?
+
+    rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+
+    printSuccess 'Imported Jenkins RPM key' $?
+
+    yumInstall jenkins
+
+    if [[ "$success" != "0" && !$FORCE ]]
+    then
+        echo "FATAL: Can't install Jenkins, exiting."
+        exit 1
+    fi
+
+    startService jenkins
+
+    if [[ "$success" != "0" && !$FORCE ]]
+    then
+        echo "FATAL: Can't start Jenkins service, exiting."
+        exit 1
+    fi
+
+    #su - -s /bin/bash -c "ssh -o 'StrictHostKeyChecking no' $USERNAME@$SERVERNAME 'echo Success > /dev/null'" jenkins
+
+    #printSuccess "Added server $SERVERNAME to known hosts list" $?
+
+    #su - -s /bin/bash -c "if [ ! -e ~/.ssh/id_rsa.pub ]; then ssh-keygen -q -t rsa; fi && ssh-copy-id $USERNAME@$SERVERNAME" jenkins
+
+    #printSuccess "Generated & deployed SSH public-key" $?
+
+    echo ""
+    echo "Installing Jenkins Plugins:"
+    echo "==========================="
+
+    echo "Wait 30s for jenkins to go up.."
+    sleep 30s
+
+    wget $VERBOSE -O /tmp/jenkins-cli.jar http://localhost:8080/jnlpJars/jenkins-cli.jar
+
+    printSuccess "Downloaded Jenkins CLI" $?
+
+    wget $VERBOSE -O /tmp/jenkins-update-center.tmp http://updates.jenkins-ci.org/update-center.json
+
+    tail -n +2 /tmp/jenkins-update-center.tmp | head -n -1 > /tmp/jenkins-update-center.json
+
+    curl -X POST -d @/tmp/jenkins-update-center.json http://localhost:8080/updateCenter/byId/default/postBack
+
+    printSuccess "\nInitialized Jenkins update center" $?
+
+    installPlugin git
+    installPlugin checkstyle
+    installPlugin findbugs
+    installPlugin build-name-setter
+    installPlugin saferestart
+
+    java -jar /tmp/jenkins-cli.jar -s http://localhost:8080 safe-restart
+
+    printSuccess "Restarted Jenkins after plugins installed" $?
+
+    echo "Jenkins should now be installed & working, enjoy!"
+
+    exit 0
+
+### Manual installation
+
+#### Prerequisites
 
 Make sure you have ntpd installed and running, a good server to use is (in /etc/ntp.conf):
 
       # server 10.5.26.10
 
-### Installing Jenkins
+#### Installing Jenkins
 
 **Note: All steps are to be done on the machine you want jenkins installed at!**
 
 `# ssh root@`**`[jenkins-host]`**
 
-#### Add jenkins REPO
+##### Add jenkins REPO
 
 `# wget -O /etc/yum.repos.d/jenkins.repo `[`http://pkg.jenkins-ci.org/redhat/jenkins.repo`](http://pkg.jenkins-ci.org/redhat/jenkins.repo)
 `# rpm --import `[`http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key`](http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key)
 
-#### Install Jenkins
+##### Install Jenkins
 
       # yum install jenkins
 
-#### Start jenkins
+##### Start jenkins
 
       # service jenkins start
 
-#### Make sure jenkins starts automatically
+##### Make sure jenkins starts automatically
 
       # chkconfig jenkins on
 
-### Additional installations
+#### Additional installations
 
-#### Install maven
+##### Install maven
 
-##### On EL6 host
+###### On EL6 host
 
 `# rpm -Uvh `[`http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-5.noarch.rpm`](http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-5.noarch.rpm)
 `# wget -O /etc/yum.repos.d/epel-apache-maven.repo `[`http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo`](http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo)
       # yum install apache-maven
 
-##### On FC16 host
+###### On FC16 host
 
       # yum install maven
 
-#### Install git
+##### Install git
 
       # yum install git
 
-### Installing some Jenkins plugins..
-
-#### Install plugins
+#### Installing some Jenkins plugins..
 
 ##### Download jenkins CLI
 
@@ -88,20 +296,20 @@ Make sure you have ntpd installed and running, a good server to use is (in /etc/
 
       # java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` safe-restart
 
-### Configure general settings
+#### Configure general settings
 
 Go to <http://>**[jenkins-host]**:8080/configure which will open jenkins system config.
 
 Add the GIT installation, if it isn't listed.
 
-#### At the top section
+##### At the top section
 
 Change the following fields to the specified values:
 
 *   1.  of executors = 4
 *   SCM checkout retry count = 100
 
-#### At the Maven sections
+##### At the Maven sections
 
 *   Add a maven installation (if none listed).
 *   Uncheck 'Install automatically'

@@ -12,7 +12,7 @@ wiki_last_updated: 2012-06-04
 
 ### Summary
 
-This page describes the changes needed in the engine in order to support changes/additions to SPICE client functionality.
+This pages describes the changes needed on oVirt to support new SPICE features in 3.1.
 
 ### Owner
 

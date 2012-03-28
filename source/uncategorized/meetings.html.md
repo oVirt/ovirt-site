@@ -17,6 +17,8 @@ oVirt has a weekly sync meeting on IRC (occasionally phone).
 
 ### Agenda
 
+#### Weekly project sync meeting
+
 This is the agenda for the 2012-03-28 meeting:
 
 *   Fedora 17 support:

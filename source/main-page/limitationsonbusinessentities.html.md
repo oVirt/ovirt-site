@@ -16,14 +16,10 @@ Currently oVirt engine-core and web UI components of oVirt share the same busine
 
 ### List of limitations
 
-*   final members should not be used. <
-    >
+*   final members should not be used.
 
-For example:<
-> Use int numberOfVms instead of final int numberOfVms<
-><
-><
->
+For example:
+Use int numberOfVms instead of final int numberOfVms
 
 *   Concrete collection classes should be used.<
     >

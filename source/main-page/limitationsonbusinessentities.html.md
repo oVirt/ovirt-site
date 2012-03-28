@@ -21,11 +21,7 @@ Currently oVirt engine-core and web UI components of oVirt share the same busine
 For example:
 Use int numberOfVms instead of final int numberOfVms
 
-*   Concrete collection classes should be used.<
-    >
+*   Concrete collection classes should be used.
 
-For example:<
-> Use ArrayList<DiskImage> getImages() instead of List<DiskImage> getImages()<
-><
-><
->
+For example:
+Use ArrayList<DiskImage> getImages() instead of List<DiskImage> getImages()

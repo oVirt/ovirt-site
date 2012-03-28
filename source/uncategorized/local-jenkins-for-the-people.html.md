@@ -354,11 +354,11 @@ Here's a selection of sample jobs that you can import to the project, just be su
 
 You can do this by running:
 
-      # sed -i 's#[git-repo-url]#ssh://[user]@[git-host]/[git-repo-location]#' oVirt-engine.*
+      # sed -i 's#`\[git-repo-url\]`#ssh://[user]@[git-host]/[git-repo-location]#' oVirt-engine.*
 
 For example:
 
-      # sed -i 's#[git-repo-url]#ssh://mkolesni@myhost/~/git/ovirt-engine#' oVirt-engine.*
+      # sed -i 's#`\[git-repo-url\]`#ssh://mkolesni@myhost/~/git/ovirt-engine#' oVirt-engine.*
 
 Then, you can import them using the Jenkins CLI client:
 

@@ -22,40 +22,22 @@ The Disk Permissions feature is supplementary for Disk related features (Floatin
 ### Current status
 
 *   Status: Design Stage
-*   Last updated date: Wed Mar 13 2012
+*   Last updated date: Wed Mar 28 2012
 
 ### Design
 
 Disk inherits permissions from the VM it is attached to and from the storage domain it resides on (if there is one)
+When granting a user 'Create VM' permission, the user will be able to create a VM without creating Disks.
+Creating disks requires specific permissions for that, on the storage domain or the storage pool.
+When disk is created, 'DISK_OPERATOR' role is given to the user which created the Disk.
+Adding permissions will allow to add already existing permission without failing the command in case the permissions is already exist.
+It will serve the client when the user decide not to use permissions nor quota for Disk creation.
 
 #### Disk Permissions and Quota
 
-When Quota is enabled an automatic permissions will be created for the Storage Domains to users:
-\* For each Quota that is associated with the Storage pool grant to any of the quota users
-
-*   -   For each Storage Domain of the Quota
-        -   Grant user permissions on Storage Domain (- new role will be created that contains CREATE_DISK action group)
-
-When editing Quota:
-
-*   when adding SD to the quota - add (automatic) permissions on the new storage domain to all of the quota users
-*   when removing SD from the quota - remove (automatic) permissions from the storage domain to all of the quota users
-*   when adding User to the quota - add (automatic) permissions on all the storage domains of the quota to the user
-*   when removing User from the quota - remove (automatic) permissions on the storage domains of the quota from the user
-
-Global quota - means on all domains of the storage pool:
-
-*   automatic permission will be added/removed on the storage pool
-
-The automatic permissions will be marked with 'automatic' grant-mode to notate the permission method creation.
-The automatic permission will be reflected to the user and could be removed. However upon removal of an automatic permission,
-a warning message will be presented to the user, as it might affect the ability of the user to add disk on that domain.
-If a 'manual' permission was already granted to the user, an automatic permission will not be created.
-If an 'automatic' permission was already granted to the user, the permission will change to be 'manual'
- When Quota is disabled, the automatic permissions will enable the same user experience regardless the need to define permissions explicitly on the Disk entities.
-
-When Quota is deleted, verify that if 'everyone' user has additional Quotas associated to, do not remove the automatic permissions of it. The automatic permissions for the 'everyone' user should be removed only when no additional quotas exists for the data center.
-
+When Quota is enabled, Disk consumption will be enforced by the Quota, regardless the user's permissions on the Storage entities.
+When Quota is disabled for the Data Center, a dialog will propose to the user whether to use the permissions model or to disable it in
+aspect of Disk consumption, meaning users can create disks/move disks without need for permissions on Storage.
 The following section describes permissions for Disk entities.
 
 #### Disk Actions
@@ -93,8 +75,7 @@ New predefined user role for disks **DISK_OPERATOR** will be given to user when 
 DISK_OPERATOR will be associated with the following action groups: CREATE_DISK, EDIT_DISK_PROPERTIES, ATTACH_DISK, CONFIGURE_DISK_STORAGE and DELETE_DISK.
 
 ` Add new role to `*`PredefinedRoles.java`*
-` Add new role to `*`backend/manager/dbscripts/insert_predefined_roles.sql`*
-       Add upgrade script to update role name
+       Add new upgrade script for new roles and updating existing roles.
 
 ##### Updated Roles
 
@@ -118,14 +99,16 @@ DB Upgrade should handle the following:
     -   "VM Operator" users (applies to users with permissions on VM with Disks attached to).
     -   SuperUser, ENGINEPowerUser, ClusterAdmin and DataCenterAdmin
 *   Add all disk related operations to the system administrator.
-*   Update all permissions grant-mode to 'User'
+*   Permissions will be given on storage pool or storage domains to users with VMs - TBD.
 
 #### UI Changes
 
-Extend permission sub-view with grant-mode field (automatic/manual)
 Add Permissions sub-tab under Disks main tab
 Add Disk Operator role to Roles Tree in:
  *frontend/webadmin/modules/uicommonweb/src/main/java/org/ovirt/engine/ui/uicommonweb/models/configure/roles_ui/RoleTreeView.java*
+
+` `*`frontend/webadmin/modules/uicompat/src/main/java/org/ovirt/engine/ui/uicompat/Enums.java`*
+` `*`frontend/webadmin/modules/uicompat/src/main/resources/org/ovirt/engine/ui/uicompat/Enums.properties`*
 
 ### Benefit to oVirt
 

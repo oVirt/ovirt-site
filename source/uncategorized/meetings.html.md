@@ -21,6 +21,7 @@ oVirt has a weekly sync meeting on IRC (occasionally phone).
 
 This is the agenda for the 2012-03-28 meeting:
 
+*   Release status check-in
 *   Fedora 17 support:
     -   What is F17 feature schedule?
     -   When do we start build packages for and testing with F17?
@@ -28,6 +29,7 @@ This is the agenda for the 2012-03-28 meeting:
 *   Infrastructure status:
     -   Current situation ...
     -   Some plans to improve ...
+*   Anything else?
 
 ### Meeting Time and Place
 

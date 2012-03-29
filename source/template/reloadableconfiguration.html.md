@@ -53,25 +53,19 @@ Today the config values from vdc_options are cached in a map of type DBConfigUti
 
 New Design:
 
-1.  Creating a periodic job that refreshes the cached map from the DB, once a minute.
-2.  Adding a reloadable column in vdc_options. This field will distinguish between keys that can be reloaded in runtime, and keys that should only change when the machine is restarted. The field itself is not updatable by the admin,to prevent de-stabilizing of the system.
+1.  Since configuration values are changed through the engine-config CLI, we will add a command to the CLI - "reload", which will reload all reloadable configuration values to the engine.
+2.  Adding a new Annotation Reloadable, that will be used in the ConfigValues class to distinguish between keys that are reloadable and keys that are not.
     1.  The table in the following link, holds the list of vdc_options keys and whether or not they should be reloadable. It also shows which values are currently exposed through the engine-config tool, since they are in the properties file: <http://www.ovirt.org/wiki/Features/ReloadableConfiguration/keys_table>
     2.  We divide the config keys into 4 types:
         1.  Keys that are fetched from the cache every time they are used - for example keys that are used in a command: These keys will remain untouched.
         2.  Keys that are cached locally, for example in static members: The reloadable keys of this type will be changed to look up the key in the cached map, every time they are needed.
-        3.  Keys that are cached locally, for example in static members, however fetching their values demands some work (such as parsing).
-        4.  Quartz services that are setup on startup and cannot be changed afterwords.
-
-<span style="color:Teal">**New Column**</span>:
-{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Description |- |is_reloadable || boolean ||not null / default False ||Is this key reloadable |- |}
-
-We will add the following config value for the periodic job <span style="color:Teal"></span>:
-{|class="wikitable sortable" !border="1"| config key || config type ||Null? / Default ||Description |- |ConfigurationsRefreshIntervalInSeconds || smallint ||60||The size of interval between refreshes of configurations from vdc_options. |}
+        3.  Keys that are cached locally, for example in static members, however fetching their values demands some work (such as parsing). These keys will be dealt with one by one, considering the cost-effectiveness of having them reloadable.
+        4.  Quartz services that are setup on startup - upon scheduling, we can send the reloadable key and keep it in the map, that is looked up every time the job is fired.
 
 ### Open Issues
 
 1.  How to update the scheduled jobs - the current solution will be to use the scheduler's map to update things like interval size.
-2.  Whether or not to update the values that demand work for fetching, such as parsing.
+2.  Which keys to define as reloadable, of the ones who demand work for fetching, such as parsing.
 
 ### Dependencies / Related Features
 

@@ -45,7 +45,7 @@ The requirements are the following:
 
 1.  Enable the updating of configurations in vdc_options, while the machine is up.
 2.  This should be enabled for keys that can be changed in runtime without harming the system, and keys that can actually be updated.
-3.  The update does not have to take place immediately upon configuration change, but rather can happen periodically.
+3.  The update will take place only when the admin decides so - through the engine-config CLI.
 
 ### Design
 

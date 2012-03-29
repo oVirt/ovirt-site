@@ -30,7 +30,12 @@ The plugin works by providing parameters, group and sequences and adding them in
 
 The following steps are performed by the plugin:
 
-1. Detect CPU architecture of the machine. After the detection, the plugin compares it with the list of supported architectures, and will raise an exception if the CPU is not supported. (Note: the plugin uses vdsm caps.py module to detect the CPU type). 2. Verify that the given folder where VMs should be stored (provided during setup) is legal, is empty and writeable. If the folder doesn't exist, it will be created. Also, SELinux will be configured to allow writing in this folder. 3. Plugin will wait for 25 seconds to allow JBoss to start correctly. This is done because other steps involve using REST API (with ovirtsdk), which requires JBoss to be up. 4. Plugin will create local datacenter and local cluster at this point. 5. Plugin will create a local host and add it to host list. 6. TODO: (waiting for vdsm bug to be fixed): Plugin will create a local storage domain.
+      1. Detect CPU architecture of the machine. After the detection, the plugin compares it with the list of supported architectures, and will raise an exception if the CPU is not supported. (Note: the plugin uses vdsm caps.py module to detect the CPU type).
+      2. Verify that the given folder where VMs should be stored (provided during setup) is legal, is empty and writeable. If the folder doesn't exist, it will be created. Also, SELinux will be configured to allow writing in this folder.
+      3. Plugin will wait for 25 seconds to allow JBoss to start correctly. This is done because other steps involve using REST API (with ovirtsdk), which requires JBoss to be up.
+      4. Plugin will create local datacenter and local cluster at this point.
+      5. Plugin will create a local host and add it to host list.
+      6. TODO: (waiting for vdsm bug to be fixed): Plugin will create a local storage domain.
 
 ### Installation flow
 

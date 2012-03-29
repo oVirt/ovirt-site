@@ -9,6 +9,10 @@ wiki_last_updated: 2015-01-31
 
 # Troubleshooting NFS Storage Issues
 
+<<introdu>>
+
+## Introduction
+
 oVirt currently requires that NFS exports be configured in a specific way. This page is an attempt to list those requirements and assist with troubleshooting issues encountered when trying to attach an NFS storage domain to the oVirt environment for the first time.
 
 *   The NFS server must support NFSv3. oVirt does not currently support NFSv4. To force an NFS client to use NFSv3, add this option to the configuration file (**/etc/nfsmount.conf**):
@@ -44,3 +48,20 @@ A new nfs check script is now available to test whether an NFS export is ready f
 *   **nfs-check.py** is a python script to validate nfs targets to use with oVirt project. Some operations includes: mount the nfs target, create a file as vdsm:kvm and remove it.
 *   **nfs-check.py** available in **vdsm/contrib/** directory of the vdsm source
 *   Run it as **python nfs-check.py server:/target**
+
+## Setting NFS Server
+
+### Debian Squeeze
+
+      #> groupadd kvm -g 36
+      #> useradd vdsm -u 36 -g kvm
+
+      # mkdir /storage
+
+      # chmod 0755 /storage
+      # chown 36:36 /storage/
+
+      # cat /etc/exports
+      /storage    *(rw,sync,no_subtree_check,all_squash,anonuid=36,anongid=36)
+
+      # /etc/init.d/nfs-kernel-server restart 

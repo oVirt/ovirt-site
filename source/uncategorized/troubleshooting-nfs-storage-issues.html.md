@@ -9,8 +9,6 @@ wiki_last_updated: 2015-01-31
 
 # Troubleshooting NFS Storage Issues
 
-<<introdu>>
-
 ## Introduction
 
 oVirt currently requires that NFS exports be configured in a specific way. This page is an attempt to list those requirements and assist with troubleshooting issues encountered when trying to attach an NFS storage domain to the oVirt environment for the first time.

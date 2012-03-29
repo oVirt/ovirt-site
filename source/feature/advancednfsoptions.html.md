@@ -23,7 +23,7 @@ To do:
 
 Done:
 
-*   Make needed changes in VDSM
+*   Make needed changes in VDSM <http://gerrit.ovirt.org/#change,1038>
 
 ## Description
 

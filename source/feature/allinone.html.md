@@ -22,7 +22,6 @@ wiki_last_updated: 2015-01-16
 ### Current status
 
 *   Currently in code review.
-*   Binaries available for testing at /net/file/home/tlv/alourie/ovirt-engine-test/Ticket647_allinone/
 
 ### Detailed Description
 

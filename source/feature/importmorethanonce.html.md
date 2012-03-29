@@ -23,7 +23,7 @@ Adding the functionality to import VMs and Templates that already exist in setup
 #### Current status
 
 *   Design Stage
-*   Last updated date: Tue Feb 21 2012
+*   Last updated date: Thu Mar 29 2012
 
 #### Affected oVirt projects:
 
@@ -45,7 +45,7 @@ Only the ImportEntity dialog will be affected:
 
 *   Add 'Already Exists in Setup' column to import entity dialog:
 
-    * Run multiple queries for get_entity_by_id to check whether the imported entities exist in the setup.
+    * Run one search query for all vms (by id) to check whether the imported entities exist in the setup (if search is not supported to id, I will implement it).
 
 *   Add 'clone all entities' check box to Import Entity Dialog
 

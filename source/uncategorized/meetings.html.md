@@ -19,16 +19,12 @@ oVirt has a weekly sync meeting on IRC (occasionally phone).
 
 #### Weekly project sync meeting
 
-This is the agenda for the 2012-03-28 meeting:
+This is the agenda for the 2012-04-04 meeting:
 
 *   Release status check-in
-*   Fedora 17 support:
-    -   What is F17 feature schedule?
-    -   When do we start build packages for and testing with F17?
-*   Do we want to start automatically moving builds from jenkins to the nighly releases on ovirt.org?
-*   Infrastructure status:
-    -   Current situation ...
-    -   Some plans to improve ...
+*   Growing Infrastructure team and resources
+*   Any roll-up reports from sub-projects?
+    -   Links to meeting minutes and logs are sufficient
 *   Anything else?
 
 ### Meeting Time and Place

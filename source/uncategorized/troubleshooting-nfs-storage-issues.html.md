@@ -75,6 +75,29 @@ A new nfs check script is now available to test whether an NFS export is ready f
 
       # /etc/init.d/nfs-kernel-server restart 
 
+### Fedora 16
+
+      #> groupadd kvm -g 36
+      #> useradd vdsm -u 36 -g kvm
+
+      # mkdir /storage
+
+      # chmod 0755 /storage
+      # chown 36:36 /storage/
+
+      # yum -y install nfs-utils
+
+      # cat /etc/exports
+      /storage    *(rw,sync,no_subtree_check,all_squash,anonuid=36,anongid=36)
+
+      # systemctl start rpcbind.service
+      # systemctl start nfs-server.service
+      # systemctl start nfs-lock.service 
+
+      # systemctl enable rpcbind.service
+      # systemctl enable nfs-server.service
+      # systemctl enable nfs-lock.service
+
 ### RHEL6 based distro
 
       #> groupadd kvm -g 36

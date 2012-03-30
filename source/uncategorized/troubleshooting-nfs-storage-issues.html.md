@@ -21,6 +21,8 @@ oVirt currently requires that NFS exports be configured in a specific way. This 
 
       NFS4_SUPPORT="no"
 
+## Permissions
+
 *   The exported directory must be readable and writeable to the user/group with uid **36** which is the **vdsm** user. There are two ways to ensure this:
     -   Chown the directory being exported 36:36.
     -   Add the **anonuid=36** and **anongid=36** options on the export in **/etc/exports**.
@@ -31,6 +33,9 @@ oVirt currently requires that NFS exports be configured in a specific way. This 
 *   The NFS server must actually be running.
     -   Ensure that the **nfs** and **rpcbind** services are running on the NFS server, Fedora 16 users should instead look for the **netfs** service.
     -   Ensure that **showmounts -e *<nfs_server_ip>*** shows the expected export(s).
+
+### SELinux
+
 *   Ensure that selinux is not interfering with NFS access.
     -   getsebool -a | grep virt_use_nfs should show virt_use_nfs --> on, if not then do \`setsebool virt_use_nfs 1\` to allow NFS access for VMs
     -   One can also use \`setsebool -P virt_use_nfs 1\` to make this setting persistent across reboots.

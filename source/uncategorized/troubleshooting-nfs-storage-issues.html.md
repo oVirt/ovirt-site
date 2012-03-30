@@ -69,3 +69,18 @@ A new nfs check script is now available to test whether an NFS export is ready f
       /storage    *(rw,sync,no_subtree_check,all_squash,anonuid=36,anongid=36)
 
       # /etc/init.d/nfs-kernel-server restart 
+
+### RHEL6 based distro
+
+      #> groupadd kvm -g 36
+      #> useradd vdsm -u 36 -g kvm
+
+      # mkdir /storage
+
+      # chmod 0755 /storage
+      # chown 36:36 /storage/
+
+      # cat /etc/exports
+      /storage    *(rw,sync,no_subtree_check,all_squash,anonuid=36,anongid=36)
+
+      # /etc/init.d/nfs restart 

@@ -41,11 +41,17 @@ The easiest way to definitively test that an NFS export is ready for use by oVir
 *   Change to the **vdsm** user using **su - vdsm**. If vdsm user was not hand-created, then chances are su - vdsm might fail. Do **su - vdsm -s /bin/bash**
 *   Attempt to mount the export to a temporary directory and touch a file on it.
 
+## nfs-check program
+
 A new nfs check script is now available to test whether an NFS export is ready for use by oVirt :
 
 *   **nfs-check.py** is a python script to validate nfs targets to use with oVirt project. Some operations includes: mount the nfs target, create a file as vdsm:kvm and remove it.
 *   **nfs-check.py** available in **vdsm/contrib/** directory of the vdsm source
 *   Run it as **python nfs-check.py server:/target**
+
+       $ git clone http://gerrit.ovirt.org/p/vdsm.git
+       $ cd vdsm/contrib
+       $ python nfs-check.py myNFSServer:/nfsTarget
 
 ## Setting NFS Server
 

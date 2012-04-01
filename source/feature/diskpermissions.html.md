@@ -36,9 +36,9 @@ It will serve the client when the user decide not to use permissions nor quota f
 #### Disk Permissions and Quota
 
 When Quota is enabled, Disk consumption will be enforced by the Quota, regardless the user's permissions on the Storage entities.
-When Quota is disabled for the Data Center, a dialog will propose to the user whether to use the permissions model or to disable it in
-aspect of Disk consumption, meaning users can create disks/move disks without need for permissions on Storage.
-The following section describes permissions for Disk entities.
+When Quota is disabled for the Data Center, User must have permissions on Storage domain for disk operations requiring quota(create/move).
+Therefore when Quota is set as disabled for the Data Center, the GUI will suggest to add DISK_CREATOR permissions on the relevant storage domains to everyone.
+ The following section describes permissions for Disk entities.
 
 #### Disk Actions
 

@@ -31,7 +31,7 @@ When granting a user 'Create VM' permission, the user will be able to create a V
 Creating disks requires specific permissions for that, on the storage domain or the storage pool.
 When disk is created, 'DISK_OPERATOR' role is given to the user which created the Disk.
 Add permissions command will support adding permissions which are already existing in the system without failing the command in can-do-action as done today.
-It will serve the client when the user decide not to use permissions nor quota for Disk creation.
+It will serve the client when the user decide not to use permissions nor quota for Disk creation. When creating VM from template, the user should get permissions for the VM and for its Disks.
 
 #### Disk Permissions and Quota
 

@@ -99,7 +99,11 @@ DB Upgrade should handle the following:
     -   "VM Operator" users (applies to users with permissions on VM with Disks attached to).
     -   SuperUser, ENGINEPowerUser, ClusterAdmin and DataCenterAdmin
 *   Add all disk related operations to the system administrator.
-*   Permissions will be given on storage pool or storage domains to users with VMs - TBD.
+
+<!-- -->
+
+*   When creating VM from template, the user should get permissions for the VM and for its images
+*   Permissions will be given on storage domains to users with VMs (having CREATE_VM role) for the storage domains where the VM disks reside on (DISK_CREATOR role).
 
 #### UI Changes
 

@@ -29,9 +29,10 @@ The Disk Permissions feature is supplementary for Disk related features (Floatin
 Disk inherits permissions from the VM it is attached to and from the storage domain it resides on (if there is one)
 When granting a user 'Create VM' permission, the user will be able to create a VM without creating Disks.
 Creating disks requires specific permissions for that, on the storage domain or the storage pool.
-When disk is created, 'DISK_OPERATOR' role is given to the user which created the Disk.
 Add permissions command will support adding permissions which are already existing in the system without failing the command in can-do-action as done today.
-It will serve the client when the user decide not to use permissions nor quota for Disk creation. When creating VM from template, the user should get permissions for the VM and for its Disks.
+It will serve the client when the user decide not to use permissions nor quota for Disk creation.
+When disk is created, 'DISK_OPERATOR' role is given to the user which created the Disk.
+When creating VM from template, the user should get VM_OPERATOR permissions for the VM (as is now) and DISK_OPERATOR for the VM Disks.
 
 #### Disk Permissions and Quota
 

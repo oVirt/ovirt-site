@@ -95,15 +95,20 @@ Currently attach/detach is being executed as part of the UpdateVm action.
 
 DB Upgrade should handle the following:
 
-*   Add Disk Operator permissions on the relevant Disks to:
-    -   "VM Operator" users (applies to users with permissions on VM with Disks attached to).
-    -   SuperUser, ENGINEPowerUser, ClusterAdmin and DataCenterAdmin
-*   Add all disk related operations to the system administrator.
+*   Add "Disk Operator" actions to the following predefined roles:
+    -   SuperUser, ENGINEPowerUser, ClusterAdmin, DataCenterAdmin, VmOperator and StorageAdmin.
 
 <!-- -->
 
-*   When creating VM from template, the user should get permissions for the VM and for its images
-*   Permissions will be given on storage domains to users with VMs (having CREATE_VM role) for the storage domains where the VM disks reside on (DISK_CREATOR role).
+*   Add "Disk Operator" permissions on the relevant Disks to:
+    -   "VM Operator" users (applies to users with permissions on \*VM\* with \*Disks\* attached to it).
+
+<!-- -->
+
+*   Permissions will be given on storage domains to users with CREATE_VM action group for the storage domains where the VM disks reside on (DISK_CREATOR role).
+    -   CREATE_VM on Cluster will allow creating Disks on the Storage Domains of the Data Center which the Cluster belongs to.
+    -   CREATE_VM on Data Center will allow creating Disks on the Storage Domains of the Data Center.
+    -   CREATE_VM on System will allow creating Disks on all Storage Domains in the System.
 
 #### UI Changes
 

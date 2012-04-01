@@ -63,6 +63,12 @@ upon performing the clone.
 
 If we look at snapshots as "checkpoints" of VM state + data , and "checkpoints" are made in significant points of time, the feature allows a user to create a VM based on a significant point of time of another VM, and use the cloned VM, without interfering with the original VM (i.e - no need to perform collapse on images of the source VM).
 
+### Future work
+
+=
+
+1.  The ability to clone from a VM based on a template, without collapsing the template images (and continuning to point to the original template) should be added.
+
 ### Dependencies / Related Features
 
 Dependencies on features:

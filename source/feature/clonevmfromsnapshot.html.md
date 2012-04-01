@@ -65,8 +65,6 @@ If we look at snapshots as "checkpoints" of VM state + data , and "checkpoints" 
 
 ### Future work
 
-=
-
 1.  The ability to clone from a VM based on a template, without collapsing the template images (and continuning to point to the original template) should be added.
 
 ### Dependencies / Related Features

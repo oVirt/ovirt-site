@@ -113,4 +113,6 @@ General development discussions are in `vdsm-devel@lists.fedorahosted.org`.
 
       # yum repolist
 
+**Note**: SELinux might throw permission denied to repo located at /var/www/html/
+
 <Category:Vdsm> <Category:Documentation> [Category:Development environment](Category:Development environment)

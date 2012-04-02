@@ -63,4 +63,54 @@ Send them to [our gerrit server](http://gerrit.ovirt.org) ([see how](Working wit
 
 General development discussions are in `vdsm-devel@lists.fedorahosted.org`.
 
+## Creating local yum repo to test vdsm changes
+
+1) First you will need to generate the rpm with your changes, from the vdsm source directory:
+
+      #vdsm> ./autogen.sh --system
+      #vdsm> make
+      #vdsm> make rpm
+
+**Note**: all rpm files will be generated at rpmbuild dir, usually: /home/your-user/rpmbuild/RPMS
+
+2) Setting environment:
+
+*   Install required package
+
+      # yum install createrepo -y
+
+*   Enable httpd service
+
+      # chkconfig httpd on
+
+*   Create the directory that will hold the rpm files (repo)
+
+      # mkdir /var/www/html/my-vdsm-changes
+
+*   Copy the vdsm packages to repo
+
+      # cp /home/your-user/rpmbuild/RPMS/noarch/* /var/www/html/my-vdsm-changes
+      # cp /home/your-user/rpmbuild/RPMS/x86_64/* /var/www/html/my-vdsm-changes
+
+*   Create the repo inside the yum.repos.d
+
+      # vi /etc/yum.repos.d/my-vdsm-changes.repo
+      [my-vdsm-changes]
+      name = my vdsm changes
+      baseurl = http://127.0.0.1/my-vdsm-changes
+      enabled = 1
+      gpgcheck = 0
+
+*   Execute createrepo tool
+
+      # createrepo /var/www/html/my-vdsm-changes
+
+*   Start httpd service
+
+      # service httpd start
+
+*   List all repos and see your new repo
+
+      # yum repolist
+
 <Category:Vdsm> <Category:Documentation> [Category:Development environment](Category:Development environment)

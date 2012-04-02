@@ -47,4 +47,4 @@ The following steps are performed by the plugin:
 
 *   Refer to [Talk: allinone](Talk: allinone)
 
-<Category:Feature> <Category:Template>
+<Category:Features> <Category:Template>

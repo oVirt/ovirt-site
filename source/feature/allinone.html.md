@@ -21,7 +21,7 @@ wiki_last_updated: 2015-01-16
 
 ### Current status
 
-*   Currently in code review.
+*   Currently in code review (http://gerrit.ovirt.org/#change,2221)
 
 ### Detailed Description
 
@@ -33,7 +33,7 @@ The following steps are performed by the plugin:
 2.  Verify that the given folder where VMs should be stored (provided during setup) is legal, is empty and writeable. If the folder doesn't exist, it will be created. Also, SELinux will be configured to allow writing in this folder.
 3.  Plugin will wait to allow JBoss to start correctly. This is done because other steps involve using REST API (with ovirtsdk), which requires JBoss to be up.
 4.  Plugin will create local datacenter and local cluster at this point.
-5.  Plugin will create a local host and add it to host list.
+5.  Plugin will create a local host and add it to host list (Note: an update to backend was introduced to allow creating a host without rebooting it).
 6.  TODO: (waiting for vdsm bug to be fixed): Plugin will create a local storage domain.
 
 ### Installation flow

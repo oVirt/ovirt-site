@@ -48,7 +48,8 @@ Start jboss-as service
 
 ### engine-db-tool.py
 
-engine-db-tool helps to backup/restore engine database Download: <https://raw.github.com/dougsland/misc-rhev/master/engine-db-tool.py>
+engine-db-tool helps to backup/restore engine database
+Download: <https://raw.github.com/dougsland/misc-rhev/master/engine-db-tool.py>
 
 Example of usage:
 
@@ -76,4 +77,5 @@ Example of usage:
 
       # crontab -e  (adding to my crontab user)
 
-# Every day 18:00 backup db 00 18 \* \* \* /path-to/engine-db-tool.py --backup --path=/engine-backup-db
+      # Every day 18:00 backup db
+      00 18 * * * /path-to/engine-db-tool.py --backup --path=/engine-backup-db

@@ -21,6 +21,7 @@ oVirt has a weekly sync meeting on IRC (occasionally phone).
 
 This is the agenda for the 2012-04-04 meeting:
 
+*   Meeting timing - when in the day, every week?
 *   Release status check-in
 *   Growing Infrastructure team and resources
 *   Any roll-up reports from sub-projects?

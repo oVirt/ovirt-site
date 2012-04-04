@@ -10,8 +10,26 @@ wiki_last_updated: 2014-01-21
 
 # Networking
 
-This page is for captuaring Networking related features we would like to have in oVirt going forward:
+This page is for captuaring Networking related features we would like to have in oVirt going forward.
 
-* ucs integration - sr-iov support - blade harmony - live migration network - ipv6 support - network sla - user defined networks (vlan ranges) - ip allocations (melange in openstack, but forman has support as well) - security groups - permissions on networks - open vSwitch - quantum integration - 'network-manager' architecture - looking into re-designing the engine networking code. - open flow
+## Items list
+
+UCS integration
+SR-IOV support
+Blade Harmony
+IPV6 support
+network SLA
+user defined networks (vlan ranges)
+IP allocations (melange in openstack, but forman has support as well)
+security groups
+permissions on networks
+open vSwitch
+quantum integration
+'network-manager' architecture - looking into re-designing the engine networking code.
+open flow
+GRE tunneling
+Network roles (storage / live migration network etc.)
 
 We'll open a wiki page for each of the above lines.
+
+[Category:Draft documentation](Category:Draft documentation)

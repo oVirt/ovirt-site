@@ -34,7 +34,7 @@ The following steps are performed by the plugin:
 3.  Plugin will wait to allow JBoss to start correctly. This is done because other steps involve using REST API (with ovirtsdk), which requires JBoss to be up.
 4.  Plugin will create local datacenter and local cluster at this point.
 5.  Plugin will create a local host and add it to host list (Note: an update to backend was introduced to allow creating a host without rebooting it).
-6.  TODO: (waiting for vdsm bug to be fixed): Plugin will create a local storage domain.
+6.  TODO: (waiting for [vdsm bug](https://bugzilla.redhat.com/show_bug.cgi?id=799111) to be fixed): Plugin will create a local storage domain.
 
 ### Installation flow
 

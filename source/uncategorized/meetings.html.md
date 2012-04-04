@@ -26,6 +26,7 @@ This is the agenda for the 2012-04-04 meeting:
 *   Growing Infrastructure team and resources
 *   Any roll-up reports from sub-projects?
     -   Links to meeting minutes and logs are sufficient
+*   DCO for all sub-projects (rharper)
 *   Anything else?
 
 ### Meeting Time and Place

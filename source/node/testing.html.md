@@ -23,17 +23,25 @@ Automated testing can be done on several levels. Currently we plan to do some ch
 
 Very trivial, just check if we follow pythons style guide [pep8](http://www.python.org/dev/peps/pep-0008/)
 
+*   pep8 - Syntax checks
+*   pylint
+*   pyflakes
+
 #### Unit tests
 
 Unit tests can be used to check our internal "API" stability and discover bugs or regressions.
 
 doctests is one way to add basic unit tests as comments to methods in python.
 
-*   <http://docs.python.org/library/doctest.html>
-*   <http://wiki.python.org/moin/DocTest>
-*   <http://en.wikipedia.org/wiki/Doctest>
+*   doctest - <http://docs.python.org/library/doctest.html> , <http://wiki.python.org/moin/DocTest>
+*   unittest
+*   nose
 
-**TUI testing** The plan is to separate the TUI code and "logic" code even more, so that TUI actions (approximately) map to library methods. In such a case we can use unit testing to test the functionality of the library backing the TUI, and it should be easier to track bugs down which arise in the TUI.
+**Problems** Much code in ovirt relies on runtime informations and thus might be hard to test outside of a running system.
+
+#### TUI testing
+
+The plan is to separate the TUI code and "logic" code even more, so that TUI actions (approximately) map to library methods. In such a case we can use unit testing to test the functionality of the library backing the TUI, and it should be easier to track bugs down which arise in the TUI.
 
 ### Post-Build testing
 

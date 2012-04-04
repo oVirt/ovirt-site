@@ -19,14 +19,12 @@ oVirt has a weekly sync meeting on IRC (occasionally phone).
 
 #### Weekly project sync meeting
 
-This is the agenda for the 2012-04-04 meeting:
+This is the agenda for the 2012-04-11 meeting:
 
-*   Meeting timing - when in the day, every week?
 *   Release status check-in
 *   Growing Infrastructure team and resources
 *   Any roll-up reports from sub-projects?
     -   Links to meeting minutes and logs are sufficient
-*   DCO for all sub-projects (rharper)
 *   Anything else?
 
 ### Meeting Time and Place
@@ -54,6 +52,9 @@ There is a bot (ovirtbot) in the #ovirt IRC channel that can be used for running
 
 #### 2012
 
+*   2012-4-04
+    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-04-04-15.01.html)
+    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-04-04-15.01.log.html)
 *   2012-03-28
     -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-03-28-15.01.html)
     -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-03-28-15.01.log.html)

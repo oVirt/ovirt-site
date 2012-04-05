@@ -117,7 +117,7 @@ Initial notes:
 
 ![](StorageLiveMigration3.png "StorageLiveMigration3.png")
 
-The following
+The **preliminary snapshot** in **step 2** is not mandatory but it's preferable since it will allow almost the entire copy to be done externally by the SPM (and not by the qemu-kvm process).
 
 #### REST API
 
@@ -248,4 +248,4 @@ The virDomainBlockJobAbort function call with the flags==VIR_DOMAIN_BLOCK_JOB_AB
 
 ##### Watermark and LV Extend
 
-On block domains VDSM is monitoring the qemu-kvm process watermark on the disks (how much space is actually used on the block devices).
+On block domains VDSM is monitoring the qemu-kvm process watermark on the disks (how much space is actually used on the block devices). During the mirroring the logical volumes extension should be replicated on the destination (with a 20% size increase because of the bitmap used during mirroring).

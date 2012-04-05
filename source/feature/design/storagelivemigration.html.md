@@ -116,3 +116,107 @@ Initial notes:
 ### Pre-Copy Execution Diagrams and Description
 
 ![](StorageLiveMigration3.png "StorageLiveMigration3.png")
+
+The following
+
+#### REST API
+
+The REST API should take advantage of the "update" command for a VM disk, specifying the new storage domain.
+
+<link href="/api/vms/{vm:id}/disks/{disk:id}" rel="update"/>
+      POST /api/vms/{vm:id}/disks/{disk:id} HTTP/1.1
+      Accept: application/xml
+      Content-type: application/xml
+<disk>
+`    `<storage_domains>
+              `<storage_domain id="{storage_domain:id}"/>`  
+          `</storage_domains>`    
+</disk>
+
+#### Engine Flow
+
+Pseudocode (work in progress):
+
+      def storageLiveMigration(spmHost, vmHost):
+          # Start moving the image to the destination (leaf not included)
+          spmTask = spmHost.moveImage(spUUID, srcDomUUID, dstDomUUID, imgUUID, None, LIVECOPY_OP)
+          # Wait for the empty leaf to appear on the destination
+          while True:
+              status = spmHost.getTaskStatus(spmTask)
+              # If the task got interrupted try to delete the image on the destination and fail
+              if status != Running:
+                  spmHost.deleteImage(spUUID, dstDomUUID, imgUUID)
+                  raise FailureException
+              # Check that the new leaf has been created on the destination
+              status = spmHost.getVolumeInfo(spUUID, dstDomUUID, imgUUID, leafUUID)
+              if status == Done:
+                  break
+              # Timeout?
+          # Initiate the block migration in qemu-kvm
+          hsmTask = vmHost.blockMigrateStart(vmUUID, {
+              "srcDomUUID": srcDomUUID,
+              "dstDomUUID": dstDomUUID,
+              "imgUUID":    imgUUID,
+          })
+          # Wait for both the spm copy and the hsm copy/mirroring to finish
+          while True:
+              spmStatus = spmHost.getTaskStatus(spmTask)
+              hsmStatus = hsmHost.getBlockMigrateStatus(vmUUID, hsmTask)
+              if spmStatus == Done and hsmStatus == Done:
+                  break
+              if spmStatus == Failure or hsmStatus == Failure:
+                  # FIXME: we probably need more here
+                  # Reopen the leaf only on the source
+                  vmHost.blockMigrateEnd(vmUUID, hsmTask, srcDomUUID)
+                  spmHost.deleteImage(spUUID, dstDomUUID, imgUUID)
+                  raise FailureException
+          # Finalize the migration to the destination
+          vmHost.blockMigrateEnd(vmUUID, hsmTask, dstDomUUID)
+
+#### VDSM SPM
+
+Add a new moveImage operation: **LIVECOPY_OP** (0x03)
+
+      moveImage(spUUID, srcDomUUID, dstDomUUID, imgUUID, vmUUID, op, postZero=False, force=False)
+
+*   **spUUID:** storage pool UUID
+*   **srcDomUUID:** source domain UUID
+*   **dstDomUUID:** destination domain UUID
+*   **imgUUID:** image UUID (it will be maintained on the destination)
+*   **vmUUID:** unused
+*   **op:** must be LIVECOPY_OP (0x03)
+*   **postZero:** unused
+*   **force:** unused
+
+Description of **LIVECOPY_OP**:
+
+*   it copies all the volumes up to the leaf (not included)
+*   it prepares an empty volume for the leaf on the destination
+*   it doesn't automatically rollback (because the SPM doesn't know if the qemu-kvm process is already mirroring the new leaf)
+
+#### VDSM HSM
+
+Add a new **blockMigrate** command:
+
+      blockMigrate(vmUUID, blkMigParams)
+
+The only format supported for **blkMigParams** at the moment is:
+
+      blkMigParams = {
+          "srcDomUUID": "`<srcDomUUID>`",
+          "dstDomUUID": "`<dstDomUUID>`",
+          "imgUUID":    "`<imgUUID>`",
+      }
+
+*   **vmUUID:** VM UUID
+*   **srcDomUUID:** source domain UUID
+*   **dstDomUUID:** destination domain UUID
+*   **imgUUID:** image UUID (it will be maintained on the destination)
+
+Which relies on the libvirt function virDomainBlockRebase:
+
+      virDomainBlockRebase(dom, disk, "/path/to/copy",
+          VIR_DOMAIN_BLOCK_REBASE_COPY | VIR_DOMAIN_BLOCK_REBASE_SHALLOW |
+          VIR_DOMAIN_BLOCK_REBASE_REUSE_EXT)
+
+This call assumes that **/path/to/copy** is already present (and initialized) and only the leaf content will be streamed to the new destination (no squashing).

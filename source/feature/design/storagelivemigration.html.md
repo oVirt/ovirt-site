@@ -217,10 +217,35 @@ The only format supported for **blkMigParams** at the moment is:
 *   **blkTask:** a block task UUID
 *   **tgtDomUUID:** the target domain UUID to switch to (can be source or destination)
 
-The block migrate commands rely on the libvirt function virDomainBlockRebase:
+Description of **blockMigrateStart**:
+
+*   it should resize the new leaf on the destination to the size of the leaf on the source (using lvExtend), this might not always result in an extension if a preliminary snapshot has been taken before the mirroring
+*   when the block device has been extended it relies on virDomainBlockRebase to start the mirroring and streaming
+
+Description of **getBlockMigrateStatus**:
+
+*   it relies on virDomainBlockJobInfo to get the status of the block job
+
+Description of **blockMigrateEnd**:
+
+*   it relies on virDomainBlockJobAbort both to pivot to the destination or fallback to the source
+
+##### Libvirt Function Calls
 
       virDomainBlockRebase(dom, disk, "/path/to/copy",
           VIR_DOMAIN_BLOCK_REBASE_COPY | VIR_DOMAIN_BLOCK_REBASE_SHALLOW |
           VIR_DOMAIN_BLOCK_REBASE_REUSE_EXT)
 
-This call assumes that **/path/to/copy** is already present (and initialized) and only the leaf content will be streamed to the new destination (no squashing).
+The virDomainBlockRebase function call is used to start the mirroring and streaming. This call assumes that **/path/to/copy** is already present (and initialized) and only the leaf content will be streamed to the new destination (no squashing).
+
+      virDomainBlockJobAbort(dom, disk, 0)
+
+The virDomainBlockJobAbort function call with the flags==0 is used to safely switch back on the source (it can be used at any time).
+
+      virDomainBlockJobAbort(dom, disk, VIR_DOMAIN_BLOCK_JOB_ABORT_PIVOT)
+
+The virDomainBlockJobAbort function call with the flags==VIR_DOMAIN_BLOCK_JOB_ABORT_PIVOT is used to pivot to the destination (drive-reopen). It will fail if there is a streaming in progress. Eventually (probably not in VDSM) it can be used as polling mechanism to switch to the destination.
+
+##### Watermark and LV Extend
+
+On block domains VDSM is monitoring the qemu-kvm process watermark on the disks (how much space is actually used on the block devices).

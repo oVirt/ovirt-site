@@ -196,9 +196,11 @@ Description of **LIVECOPY_OP**:
 
 #### VDSM HSM
 
-Add a new **blockMigrate** command:
+Add the new block migrate commands:
 
-      blockMigrate(vmUUID, blkMigParams)
+      blkTask = blockMigrateStart(vmUUID, blkMigParams)
+      blkStatus = getBlockMigrateStatus(vmUUID, blkTask)
+      blockMigrateEnd(vmUUID, blkTask, tgtDomUUID)
 
 The only format supported for **blkMigParams** at the moment is:
 
@@ -212,8 +214,10 @@ The only format supported for **blkMigParams** at the moment is:
 *   **srcDomUUID:** source domain UUID
 *   **dstDomUUID:** destination domain UUID
 *   **imgUUID:** image UUID (it will be maintained on the destination)
+*   **blkTask:** a block task UUID
+*   **tgtDomUUID:** the target domain UUID to switch to (can be source or destination)
 
-Which relies on the libvirt function virDomainBlockRebase:
+The block migrate commands rely on the libvirt function virDomainBlockRebase:
 
       virDomainBlockRebase(dom, disk, "/path/to/copy",
           VIR_DOMAIN_BLOCK_REBASE_COPY | VIR_DOMAIN_BLOCK_REBASE_SHALLOW |

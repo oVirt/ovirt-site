@@ -146,7 +146,7 @@ Pseudocode (work in progress):
           while True:
               status = spmHost.getTaskStatus(spmTask)
               # If the task got interrupted try to delete the image on the destination and fail
-              if status != Running:
+              if status == Failed:
                   spmHost.deleteImage(spUUID, dstDomUUID, imgUUID)
                   raise FailureException
               # Check that the new leaf has been created on the destination
@@ -160,10 +160,14 @@ Pseudocode (work in progress):
               "dstDomUUID": dstDomUUID,
               "imgUUID":    imgUUID,
           })
+          spmStatus = None
+          hsmStatus = None
           # Wait for both the spm copy and the hsm copy/mirroring to finish
           while True:
-              spmStatus = spmHost.getTaskStatus(spmTask)
-              hsmStatus = hsmHost.getBlockMigrateStatus(vmUUID, hsmTask)
+              if spmStatus != Done:
+                  spmStatus = spmHost.getTaskStatus(spmTask)
+              if hsmStatus != Done:
+                  hsmStatus = hsmHost.getBlockMigrateStatus(vmUUID, hsmTask)
               if spmStatus == Done and hsmStatus == Done:
                   break
               if spmStatus == Failure or hsmStatus == Failure:

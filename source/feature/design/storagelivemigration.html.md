@@ -119,6 +119,8 @@ Initial notes:
 
 The **preliminary snapshot** in **step 2** is not mandatory but it's preferable since it will allow almost the entire copy to be done externally by the SPM (and not by the qemu-kvm process).
 
+![](StorageLiveMigrationAPIDiagram3.png "StorageLiveMigrationAPIDiagram3.png")
+
 #### REST API
 
 The REST API should take advantage of the "update" command for a VM disk, specifying the new storage domain.

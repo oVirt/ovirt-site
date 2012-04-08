@@ -83,6 +83,10 @@ General development discussions are in `vdsm-devel@lists.fedorahosted.org`.
 
       # chkconfig httpd on
 
+or
+
+      # ln -s '/lib/systemd/system/httpd.service' '/etc/systemd/system/multi-user.target.wants/httpd.service'
+
 *   Create the directory that will hold the rpm files (repo)
 
       # mkdir /var/www/html/my-vdsm-changes

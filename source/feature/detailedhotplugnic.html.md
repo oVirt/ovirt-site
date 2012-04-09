@@ -105,6 +105,11 @@ vm_device table to 'true'. If the VM is up then the VDSM is also being called to
       Guid nicId;
       boolean plug;
 
+#### Model
+
+      vm_interface_view:
+      join vm_device.isPlugged as active
+
 ##### Error codes
 
 translate VDSM error codes: TODO

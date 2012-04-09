@@ -67,7 +67,7 @@ The NIC adding to the VM will be performed as two steps procedure:
 
 ##### Remove nic
 
-*   when a nic is removed from a VM, remove its address from vm_device
+*   when a nic is removed from a VM if its up - unplug it, if not just remove it from vm_device.
 
 ##### Run VM
 

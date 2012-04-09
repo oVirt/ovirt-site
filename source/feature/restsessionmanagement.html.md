@@ -88,6 +88,6 @@ Several improvements that can be done in the protocol:
 
 Questions:
 
-1.  Do we need encryption/decryption in these cookies?
+1.  Do we need encryption/decryption in these cookies? Looks like SSL is enough here. Also, we can restrict these cookies to be used only in a secured connection, resulting in not passing them to the client on a non-secured connection.
 
 <Category:Feature> <Category:Template>

@@ -67,7 +67,7 @@ The NIC adding to the VM will be performed as two steps procedure:
 
 ##### Remove nic
 
-*   when a nic is removed from a VM if its up - throw canDo action, if not just remove it from vm_device.
+*   remove the nic only if the VM is down or nic is deactivated
 
 ##### Run VM
 

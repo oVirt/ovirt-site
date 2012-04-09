@@ -60,13 +60,13 @@ Diagram of all phases:
         |                                                |
         | -----Cookie:saveSession=true------------------>|
         |                                     [login only]
-        | <----Set-Cookie:sessionId=X--------------------|
+        | <----Set-Cookie:saveSession=true;sessionId=X---|
         |                                                |
-        | -----Cookie:sessionId=X----------------------->|
+        | -----Cookie:saveSession=true;sessionId=X------>|
         |                             [uses the sessionID]
         | <----------------------------------------------|
         |                                                |
-        | -----Cookie:sessionId=X----------------------->|
+        | -----Cookie:saveSession=true;sessionId=X------>|
         |                             [uses the sessionID]
         | <----------------------------------------------|
         |                                                |

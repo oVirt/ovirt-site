@@ -48,31 +48,31 @@ The proposed implementation for that is to rely on cookies in the following way:
 
 Diagram of all phases:
 
-Client Server
-
-       |                                                |
-       | ------------initial request------------------> |
-       |                                         [login/logout]
-       | <----Set-Cookie:saveSession=true---------------|
-       |                                                |
-       | -----Cookie:saveSession=true------------------>|
-       |                                           [login only]
-       | <----Set-Cookie:sessionId=X--------------------|
-       |                                                |
-       | -----Cookie:sessionId=X----------------------->|
-       |                             [uses the sessionID]
-       | <----------------------------------------------|
-       |                                                |
-       | -----Cookie:sessionId=X----------------------->|
-       |                             [uses the sessionID]
-       | <----------------------------------------------|
-       |                                                |
-       |              ... time pases...                 |
-       |                                                |
-       | -----Cookie:sessionId=X;saveSession=false----->|
-       |                [uses the sessionID and logs out]
-       | <----------------------------------------------|
-       |                                                |
+      Client                                           Server
+        |                                                |
+        | ------------initial request------------------> |
+        |                                         [login/logout]
+        | <----Set-Cookie:saveSession=true---------------|
+        |                                                |
+        | -----Cookie:saveSession=true------------------>|
+        |                                           [login only]
+        | <----Set-Cookie:sessionId=X--------------------|
+        |                                                |
+        | -----Cookie:sessionId=X----------------------->|
+        |                             [uses the sessionID]
+        | <----------------------------------------------|
+        |                                                |
+        | -----Cookie:sessionId=X----------------------->|
+        |                             [uses the sessionID]
+        | <----------------------------------------------|
+        |                                                |
+        |              ... time pases...                 |
+        |                                                |
+        | -----Cookie:sessionId=X;saveSession=false----->|
+        |                [uses the sessionID and logs out]
+        | <----------------------------------------------|
+        |                                                |
+       
 
 ### Documentation / External references
 

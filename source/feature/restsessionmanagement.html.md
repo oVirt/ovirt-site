@@ -46,16 +46,20 @@ The proposed implementation for that is to rely on cookies in the following way:
 7.  After few such requests the client can choose to close the session, using the "saveSession" cookie, with a value of "false" (note that if it isn't used then the session will be closed after some timeout).
 8.  The server sees this cookie, and it closes the session.
 
+IMPORTANT NOTE:
+
+*   Existing clients can continue working as they are working today. They just ignore the initial saveSession cookie, and pass credentials on each call. The API will then do login and logout on every such call.
+
 Diagram of all phases:
 
       Client                                           Server
         |                                                |
         | ------------initial request------------------> |
-        |                                         [login/logout]
+        |                                   [login/logout]
         | <----Set-Cookie:saveSession=true---------------|
         |                                                |
         | -----Cookie:saveSession=true------------------>|
-        |                                           [login only]
+        |                                     [login only]
         | <----Set-Cookie:sessionId=X--------------------|
         |                                                |
         | -----Cookie:sessionId=X----------------------->|

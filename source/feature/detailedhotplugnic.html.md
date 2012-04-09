@@ -89,8 +89,8 @@ vm_device table to 'true'. If the VM is up then the VDSM is also being called to
 
 2 new actions on nics collection:
 
-      /api/vms/xxx/nics/yyy/plug
-      /api/vms/xxx/nics/yyy/unplug
+      /api/vms/xxx/nics/yyy/activate
+      /api/vms/xxx/nics/yyy/deactivate
 
 #### Engine API
 

@@ -78,4 +78,12 @@ Diagram of all phases:
 
 ### Comments/Discussion/Issues
 
+Several improvements that can be done in the protocol:
+
+1.  Cookie expiration - use some expiration on the sessionId cookie. Upon expiration the API might renew it and return a new sessionId, or return an error and let the client do the procedure again.
+
+Questions:
+
+1.  Do we need encryption/decryption in these cookies?
+
 <Category:Feature> <Category:Template>

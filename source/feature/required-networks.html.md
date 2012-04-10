@@ -20,15 +20,15 @@ non-operational state, thus it can not be activated till it has the network atta
 
 ### Owner
 
-*   Name: [ Roy](User:Roy)
+*   Name: Roy Golan
 
 <!-- -->
 
-*   Email: <rgolan at redhat.com>
+*   Email: rgolan at redhat.com
 
 ### Current status
 
-*   Last updated date: 10/04/12
+*   Last updated date: April 10 2012
 *   implementation: done
 
 ### Detailed Description

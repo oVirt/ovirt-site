@@ -55,7 +55,7 @@ Diagram of all phases:
       Client                                           Server
         |                                                |
         | ------------initial request------------------> |
-        |                                   [login/logout]
+        |                                   [login+logout]
         | <----Set-Cookie:saveSession=true---------------|
         |                                                |
         | -----Cookie:saveSession=true------------------>|
@@ -73,10 +73,17 @@ Diagram of all phases:
         |              ... time pases...                 |
         |                                                |
         | -----Cookie:sessionId=X;saveSession=false----->|
-        |                [uses the sessionID and logs out]
+        |                     [uses the sessionID. logout]
         | <----------------------------------------------|
         |                                                |
        
+
+### Scope
+
+The scope of the feature is as follows:
+
+*   Adding the mechanism to the REST API
+*   Using this mechanism in the CLI/SDK
 
 ### Documentation / External references
 

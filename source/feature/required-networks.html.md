@@ -12,8 +12,8 @@ wiki_last_updated: 2013-03-07
 
 ### Summary
 
-Required networks are a part of monitoring process the engine does to make sure all the
-host in clusters can be ready for migration (cluster is sometimes referred to as the migration-domain)
+Required networks are a part of monitoring process the engine does, to make sure all the
+host in clusters are eligible for migration (cluster is sometimes referred to as the **migration-domain**)
 A cluster network which is required but missing from a host will cause the host to be in
 non-operational state, thus it can not be activated till it has the network attached.
 * Till now, all networks were required by default, now its optional.

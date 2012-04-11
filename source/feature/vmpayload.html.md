@@ -61,7 +61,7 @@ The payload options are:
 
 ### API Design
 
-This is an example for the API for this feature
+This is an example for the API for this feature, the vm_paload element will work in add/edit VM and for Run-VM actions
 
          <vm>
          ...

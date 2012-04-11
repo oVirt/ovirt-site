@@ -84,6 +84,11 @@ This part is for engine-core
 *   A new storage type named POSIX should be introduced (supported by a new StorageHelper class).
 *   As the storage type should be set to 6 (to reflect the domainType) , and this value is already being used by the StorageType.All constant - the value of StorageType.All constant (which is not used by VDSM) should be changed (also for persistent connections, using an upgrade script).
 *   ConnectStorageServerVDSCommand.CreateStructFromConnection should be changed in order to add the new fields to the connection, as sent to the Connect VDSM verb (see <http://gerrit.ovirt.org/559>)
+*   A new configuration value named "PosixFSSupportEnabled" will be added (boolean value) set to true for version 3.1 and false for the other versions.
+*   A validation to check compatibility level is 3.1 and above should be added to the following commands, in case a connection includes POSIX FS information
+    -   AddStorageServerConnection
+    -   AddStorageDomain
+*   A validation check to check compatibility level is 3.1 and above should be added to AddEmptyStoragePool for the case of StorageType.POSIX
 
 Here are some ugly GUI Mockups:
 ![](posixfscondialogmockup.png "fig:posixfscondialogmockup.png")

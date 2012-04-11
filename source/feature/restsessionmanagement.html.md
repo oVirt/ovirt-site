@@ -37,43 +37,37 @@ Today, when working with the API (via the CLI, SDK, curl, browser or any other w
 
 The proposed implementation for that is to rely on cookies in the following way:
 
-1.  First, the client does a request the same as today, providing credentials.
-2.  The server logs in to the engine, and performs the required action. In addition, it returns a new cookie called "saveSession" with the value "true".
-3.  The client get the cookie, and (if he wants to) in the second request he passes it to the server.
-4.  The server gets the "saveSession" cookie was passed with the value "true", and it logs in, performs the request, and returns a new cookie called "sessionId", with the engine session ID as the value.
-5.  The client gets the "sessionId" cookie, and passes it (with the "saveSession" cookie) in all the subsequent requests, without the need to pass credentials.
-6.  The server gets the "sessionId" cookie, it checks the session and who is the logged-in user in this session.
-7.  After few such requests the client can choose to close the session, using the "saveSession" cookie, with a value of "false" (note that if it isn't used then the session will be closed after some timeout).
-8.  The server sees this cookie, and it closes the session.
+1.  First, the client does a request providing credentials, with a special Header field: "Prefer: persistent-auth".
+2.  The server logs in to the engine, with session-id that is equal to JSESSIONID, and performs the required action. The JSESSIONID cookie is returned automatically to the client.
+3.  The client gets the cookie, and (if he wants to) in the second request he passes it to the server, and also pass the persistent-auth header as before. No need to pass credentials.
+4.  The server gets the cookie, validates the session with the engine-core, performs the request, and returns. Again, the JSESSIONID cookie is returned automatically to the client.
+5.  After few such requests the client can choose to close the session, by passing the JSESSIONID cookie, and not using the "Prefer" header (note that if it isn't used then the session will be closed after some timeout).
+6.  The server sees the JSESSIONID cookie, and that there is no need to keep the session (no "Prefer" header) and it closes the session (both in the engine-core, and in the application server).
 
 IMPORTANT NOTE:
 
-*   Existing clients can continue working as they are working today. They just ignore the initial saveSession cookie, and pass credentials on each call. The API will then do login and logout on every such call.
+*   Existing clients can continue working as they are working today. They just ignore the JSESSIONID cookie, and pass credentials on each call. No need to provide the "Prefer" header. The API will then do login and logout on every such call.
 
 Diagram of all phases:
 
       Client                                           Server
         |                                                |
-        | ------------initial request------------------> |
-        |                                   [login+logout]
-        | <----Set-Cookie:saveSession=true---------------|
+        | ---------initial request with Prefer header--> |
+        |                                          [login]
+        | <----Set-Cookie:JSESSIONID=.....---------------|
         |                                                |
-        | -----Cookie:saveSession=true------------------>|
-        |                                     [login only]
-        | <----Set-Cookie:saveSession=true;sessionId=X---|
+        | -----Cookie:JSESSIONID=.....+ Prefer header--->|
+        |                               [validate session]
+        | <----Set-Cookie:JSESSIONID=.....---------------|
         |                                                |
-        | -----Cookie:saveSession=true;sessionId=X------>|
-        |                             [uses the sessionID]
-        | <----------------------------------------------|
-        |                                                |
-        | -----Cookie:saveSession=true;sessionId=X------>|
-        |                             [uses the sessionID]
+        | -----Cookie:JSESSIONID=.....+ Prefer header--->|
+        |                               [validate session]
         | <----------------------------------------------|
         |                                                |
         |              ... time pases...                 |
         |                                                |
-        | -----Cookie:sessionId=X;saveSession=false----->|
-        |                     [uses the sessionID. logout]
+        | -----Cookie:JSESSIONID=.....------------------>|
+        | [validate session. no Prefer header --> logout ]
         | <----------------------------------------------|
         |                                                |
        
@@ -88,13 +82,5 @@ The scope of the feature is as follows:
 ### Documentation / External references
 
 ### Comments/Discussion/Issues
-
-Several improvements that can be done in the protocol:
-
-1.  Cookie expiration - use some expiration on the sessionId cookie. Upon expiration the API might renew it and return a new sessionId, or return an error and let the client do the procedure again.
-
-Questions:
-
-1.  Do we need encryption/decryption in these cookies? Looks like SSL is enough here. Also, we can restrict these cookies to be used only in a secured connection, resulting in not passing them to the client on a non-secured connection.
 
 <Category:Feature> <Category:Template>

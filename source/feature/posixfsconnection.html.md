@@ -72,5 +72,27 @@ When creating a domain pass the posixfs type id to create a posixfs domain.
 
 User will be able to connect to said target and enter specialized parameters.
 
+## Changes in ovirt engine
+
+This part is for engine-core
+
+*   The connection arguments will be introduced as fields to the storage_server_connection class.
+    -   "spec" will be mapped to the existing "connection" field
+    -   "vfsType" will be added as a new field of String
+    -   "mountOptions" will be added as a new field of String
+*   The new fields will be mapped to proper columns at the storage_server_connections, and necessary changes to the Spring-JDBC mapper should be introduced.
+*   A new storage type named POSIX should be introduced (supported by a new StorageHelper class).
+*   As the storage type should be set to 6 (to reflect the domainType) , and this value is already being used by the StorageType.All constant - the value of StorageType.All constant (which is not used by VDSM) should be changed (also for persistent connections, using an upgrade script).
+*   ConnectStorageServerVDSCommand.CreateStructFromConnection should be changed in order to add the new fields to the connection, as sent to the Connect VDSM verb (see
+
+<!-- -->
+
+*   add new String property mountOptions to storage_domains_static entity, default value should be set to null, delegate methods to the storage_domains entity
+*   database changes
+    -   add new column mount_options to default value should be set to null
+    -   update add new parameter to Insertstorage_domains, Updatestorage_domains
+*   add validation logic of the values to StorageDomainManagementCommandBase (?: which optione are accepted and what not)
+*   add new parameters wherever it is passed over by vdsbroker to vdsm
+
 Here are some ugly GUI Mockups:
 ![](posixfscondialogmockup.png "fig:posixfscondialogmockup.png")

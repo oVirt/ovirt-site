@@ -59,6 +59,22 @@ The payload options are:
 16. **backend:**The payload data will be encoded using base64 encoding
 17. **vdsm:** should re-encode them as utf8 when writing them to disk
 
+### API Design
+
+This is an example for the API for this feature
+
+         <vm>
+         ...
+           <vm_payloads>
+               <vm_payload type='cdrom'>
+                   <file name='my.txt'>
+                      <content>haha</content>
+                   </file>
+               </vm_payload>
+           </vm_payloads>
+        </vm>
+       
+
 ### Design Notes
 
 vmPayload is passed in the create params:

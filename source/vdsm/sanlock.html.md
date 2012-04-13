@@ -25,6 +25,13 @@ Before sanlock can be used, the user must assign each host a host_id, which is a
 
 Part of this storage space must be reserved and initialized for sanlock to store delta leases. Each host that wants to use the lockspace must first acquire a delta lease on its host_id number within the lockspace. (See the add_lockspace action/api). The space required for 2000 delta leases in the lockspace (for 2000 possible host_id’s) is 1MB (8MB for 4k sectors). (This is the same size required for a single paxos lease).
 
+For more information, see
+
+*   sanlock(8)
+*   wdmd(8)
+*   <https://fedorahosted.org/sanlock/>
+*   <https://fedorahosted.org/sanlock/wiki/wdmd>
+
 ## VDSM And SANLock
 
 VDSM is taking advantage of SANLock since [Storage Domain Version 3](Storage_Domain_Versions#Storage_Domain_Version_3) for the following tasks:

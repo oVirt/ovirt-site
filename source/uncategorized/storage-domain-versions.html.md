@@ -23,6 +23,11 @@ The storage domain version 3 has been introduced in VDSM on the 30th of January 
 *   Support unicode in the domain and pool description [5]
 *   New mailbox format (in progress)
 
+### Required Actions On Upgrade
+
+*   Initialize the resources for all the volumes in the domain
+*   Set all the LVs to RW
+
 ### Upgrade
 
 At the moment it is planned to support an automatic upgrade to version 3 from the previous versions.

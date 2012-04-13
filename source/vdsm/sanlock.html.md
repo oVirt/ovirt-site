@@ -176,6 +176,50 @@ Defaults are
 
 So, to write all debug messages to /var/log/sanlock.log, for example, you would use -L 7
 
+## sanlock response to storage problems
+
+The cause of sanlock recovery is loss of storage connection or slow i/o response times from storage. "Storage" refers to the device or file where sanlock leases are written.
+
+The sanlock daemon continually writes to storage at a fixed interval to renew its leases. If sanlock i/o to storage does not complete within a fixed time, the sanlock daemon will enter recovery. Recovery begins with the sanlock daemon attempting to kill(SIGTERM) any pid's using leases on the affected storage. If any pid does not exit after 10 SIGTERM's over 10 seconds, sanlock will then attempt kill(SIGKILL). If pid's still do not exit within a fixed time, the watchdog will fire, resetting the host. If all pid's do exit within the necessary time, the watchdog will be renewed and will not fire.
+
+Before recovery timeouts are reached, sanlock will log errors related to failed renewals and leases getting too old. If these are seen, it may be wise to reduce the i/o load on storage or the host, to avoid crossing the threshold into an actual recovery.
+
+       14:27:54 / 13256 (sanlock successfully renews lease)
+       14:27:58 / 13260 (storage connection blocked to begin test)
+       14:28:14 / 13276 (sanlock starts next scheduled lease renewal 20 sec after last)
+
+*   background for following messages, not log messages
+
+       14:28:15 sanlock[123]: 13277 LNAME aio collect 0x7f7f7c0008c0:0x7f7f7c0008d0:0x7f7f9dd72000 result -5:0 match res
+       14:28:15 sanlock[123]: 13277 s1 delta_renew read rv -5 offset 0 /dev/VG/LV
+       14:28:15 sanlock[123]: 13277 s1 renewal error -5 delta_length 0 last_success 13256
+
+*   sanlock reports first i/o error
+*   First error could be as late as 14:28:24 / 13286 if i/o times out instead of quickly failing.
+*   These messages repeat for each i/o error, with frequency between twice a second and once every 10 seconds.
+*   Some or all of these lines may appear, depending on the type of i/o problems.
+
+       14:28:54 sanlock[123]: 13316 s1 check_our_lease warning 60 last_success 13256
+       14:28:55 sanlock[123]: 13317 s1 check_our_lease warning 61 last_success 13256
+       ...
+       14:29:13 sanlock[123]: 13335 s1 check_our_lease warning 79 last_success 13256
+
+*   io_renewal_warn seconds (60) after the last successful renewal, lease age warnings start appearing, once a second.
+*   No adverse effects yet; these warnings precede an actual lease expiration.
+
+       14:29:14 sanlock[123]: 13336 s1 check_our_lease failed 80
+
+*   id_renewal_fail seconds (80) after the last successful renewal, the lease expires.
+*   recovery begins at this time; sanlock begins killing pid's.
+
+       14:29:14 wdmd[111]: test failed pid 12437 renewal 13256 expire 13336
+
+*   The first warning from wdmd appears, indicating that the watchdog will fire and reset the host unless all pid's exit (or renewals resume) within 10 seconds.
+
+## wdmd response to sanlock problems
+
+If the sanlock daemon is killed or otherwise exits while being used, the wdmd daemon controlling /dev/watchdog will log errors, warning that the watchdog is not being kept alive, and will soon expire. At this point it is too late to do anything, and the host will be reset by the watchdog.
+
 ## References
 
 <references/>

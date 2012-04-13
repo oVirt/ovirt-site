@@ -86,15 +86,95 @@ On **connectStoragePool** VDSM is acquiring the lockspace on all the Storage Dom
 
 ![](SANLockDiagram1.png "SANLockDiagram1.png")
 
-## Debugging SANLock
+## sanlock log file debugging
 
-Important information regarding SANLock can be found in the logs:
+    /var/log/messages
 
-      /var/log/sanlock.log
+includes important warnings or errors from sanlock or wdmd or the /dev/watchdog driver.
+Any sanlock or wdmd messages found here should be investigated.
 
-And fetching the status:
+    /var/log/sanlock.log
 
-      # sanlock client status
+includes all the sanlock warnings and errors from /var/log/messages,
+plus a record of each lockspace and resource that sanlock has managed.
+
+**lockspace** entry in /var/log/sanlock.log:
+
+    TIME sNUM lockspace LNAME:HOSTID:/dev/VG/LV:OFFSET
+
+*   TIME -- local monotonic time
+
+<!-- -->
+
+*   sNUM -- NUM is a short integer abbreviation for this lockspace uuid. sNUM is used in other log messages to refer to this lockspace. NUM is reset to 1 each time the sanlock daemon is started.
+
+<!-- -->
+
+*   LNAME -- the lockspace name, which vdsm sets to the uuid for this lockspace
+
+<!-- -->
+
+*   HOSTID -- the local host id
+
+<!-- -->
+
+*   /dev/VG/LV:OFFSET -- the disk area where this lockspace exists
+
+**resource** entry in /var/log/sanlock.log:
+
+    TIME sNUM:rNUM resource LNAME:RNAME:/dev/VG/LV:OFFSET for X,Y,PID
+
+*   TIME -- local monotonic time
+
+<!-- -->
+
+*   sNUM -- the short lockspace identifier (see above)
+
+<!-- -->
+
+*   rNUM -- NUM is a short integer abbreviation for this resource uuid. rNUM is used in other log messages to refer to this lockspace. NUM is reset to 1 each time the sanlock daemon is started.
+
+<!-- -->
+
+*   LNAME -- the lockspace name (uuid from vdsm)
+
+<!-- -->
+
+*   RNAME -- the resource name, which vdsm sets to the uuid for this resource
+
+<!-- -->
+
+*   /dev/VG/LV:OFFSET -- the disk area where this resource exists
+
+<!-- -->
+
+*   X,Y,PID -- PID is the process which is requesting this lease, X is the internal connection id used by the pid, Y is the fd number used for the connection
+
+**changing logging levels**
+
+The amount of information written to /var/log/messages or /var/log/sanlock.log can be controlled with two sanlock daemon command line options:
+
+`-L pri` write logging at priority level and up to logfile (-1 none)
+
+`-S pri` write logging at priority level and up to syslog (-1 none)
+
+`pri` is an integer corresponding to log priorities defined in `/usr/include/sys/syslog.h`:
+
+    #define LOG_EMERG       0       /* system is unusable */
+    #define LOG_ALERT       1       /* action must be taken immediately */
+    #define LOG_CRIT        2       /* critical conditions */
+    #define LOG_ERR         3       /* error conditions */
+    #define LOG_WARNING     4       /* warning conditions */
+    #define LOG_NOTICE      5       /* normal but significant condition */
+    #define LOG_INFO        6       /* informational */
+    #define LOG_DEBUG       7       /* debug-level messages */
+
+Defaults are
+
+*   `-L 4` so log messages from WARNING to EMERG are written to /var/log/sanlock.log
+*   `-S 3` so log messages from ERR to EMERG are written to /var/log/messages
+
+So, to write all debug messages to /var/log/sanlock.log, for example, you would use -L 7
 
 ## References
 

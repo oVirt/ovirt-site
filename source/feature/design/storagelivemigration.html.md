@@ -29,90 +29,6 @@ No major gui modifications are required. The action to move a VM from one storag
 
 Reference: [<http://wiki.qemu.org/Features/LiveBlockMigration>](http://wiki.qemu.org/Features/LiveBlockMigration)
 
-### Post-Copy Execution Diagrams and Description
-
-![](StorageLiveMigration1.png "StorageLiveMigration1.png")
-
-*   **Note on [3]**: when the SPM finishes the operation it's also responsible to set the 'Snapshot 2 Volume' metadata to point to 'Snapshot 1 Volume' on 'Source Domain' even if the real swap happens in the next step.
-
-![](StorageLiveMigrationAPIDiagram1.png "StorageLiveMigrationAPIDiagram1.png")
-
-#### Limitations and Risks
-
-*   VDSM doesn't have the proper metadata to describe a VM running on volumes stored on two different storage domains
-*   missing libvirt operation to change the volume backing file on the fly, new design and patches:
-    -   <https://www.redhat.com/archives/libvir-list/2012-January/msg01448.html>
-    -   <https://www.redhat.com/archives/libvir-list/2012-February/msg00014.html>
-
-#### Engine Flow
-
-[Pseudocode](http://en.wikipedia.org/wiki/Pseudocode)
-
-      def vm_live_block_migrate(vm, destDomain):
-          for drive in vm_get_drives(vm):
-              createVolumeCrossSD(drive) # to the SPM
-          # Retry until it succeed or fails with a known error
-          while True:
-              ret = blockMigrate(driveParams) # to the HSM
-              if ret == SUCCESS
-                  break
-              elif ret == VM_NOT_RUNNING:
-                  # rollback the createVolumeCrossSD operations
-                  return VM_NOT_RUNNING
-          for drive in vm_get_drives(vm):
-              while True:
-                  ret = cloneInternalVolumes(drive)
-                  if ret == SUCESS:
-                      break
-          finalizeBlockMigrate() # to the HSM
-
-### Mirrored-Snapshot Execution Diagrams and Description
-
-![](StorageLiveMigration2.png "StorageLiveMigration2.png")
-
-![](StorageLiveMigrationAPIDiagram2.png "StorageLiveMigrationAPIDiagram2.png")
-
-#### VDSM API
-
-The command `copyVolume(...)` is used in step 2 and 4 to copy the volumes from the source to the destination. For maximum flexibility it's possible to change the volume and image UUIDs (on the destination) and update the parent volume UUID (so that it's possible to rebuild a consistent chain on the destination).
-
-      def copyVolume(srcDomUUID, dstDomUUID, srcImgUUID, dstImgUUID,
-                     srcVolUUID, dstVolUUID, dstBakImgUUID, dstBakVolUUID):
-          """
-          Copies a single volume from a source (domain, image, volume) to a new
-          destination (domain, image, volume).
-          If dstBakVolUUID is specified it will be used to rebase (unsafe) the
-          volume (if dstBakImgUUID is not specified, dstImgUUID will be used).
-          If dstBakVolUUID is not specified and the source volume has a parent,
-          then the same srcImgUUID and srcVolUUID will be reused.
-          :param srcDomUUID: The source storage domain UUID
-          :type srcDomUUID: UUID
-          :param dstDomUUID: The destination storage domain UUID
-          :type dstDomUUID: UUID
-          :param srcImgUUID: The source image UUID
-          :type srcImgUUID: UUID
-          :param dstImgUUID: The destination image UUID
-          :type dstImgUUID: UUID
-          :param srcVolUUID: The source volume UUID
-          :type srcVolUUID: UUID
-          :param dstVolUUID: The destination volume UUID
-          :type dstVolUUID: UUID
-          :param dstBakImgUUID: The new backing image UUID for the destination
-                                (optional parameter)
-          :type dstBakImgUUID: UUID
-          :param dstBakVolUUID: The new backing volume UUID for the destination
-                                (optional parameter)
-          :type dstBakVolUUID: UUID
-          """
-
-#### Engine Flow
-
-Initial notes:
-
-*   take a snapshot of a single disk (step 3)
-*   mark "Snapshot 1" (old leaf) as MERGE_PENDING
-*   mark "Snapshot 2" (new leaf) with the same SNAPSHOT_ID of "Snapshot 1" (NB. do **not** mark with MERGE_PENDING)
-
 ### Pre-Copy Execution Diagrams and Description
 
 ![](StorageLiveMigration3.png "StorageLiveMigration3.png")
@@ -255,3 +171,89 @@ The virDomainBlockJobAbort function call with the flags==VIR_DOMAIN_BLOCK_JOB_AB
 ##### Watermark and LV Extend
 
 On block domains VDSM is monitoring the qemu-kvm process watermark on the disks (how much space is actually used on the block devices). During the mirroring the logical volumes extension should be replicated on the destination (with a 20% size increase because of the bitmap used during mirroring).
+
+# Storage Live Migration Alternatives
+
+### Post-Copy Execution Diagrams and Description
+
+![](StorageLiveMigration1.png "StorageLiveMigration1.png")
+
+*   **Note on [3]**: when the SPM finishes the operation it's also responsible to set the 'Snapshot 2 Volume' metadata to point to 'Snapshot 1 Volume' on 'Source Domain' even if the real swap happens in the next step.
+
+![](StorageLiveMigrationAPIDiagram1.png "StorageLiveMigrationAPIDiagram1.png")
+
+#### Limitations and Risks
+
+*   VDSM doesn't have the proper metadata to describe a VM running on volumes stored on two different storage domains
+*   missing libvirt operation to change the volume backing file on the fly, new design and patches:
+    -   <https://www.redhat.com/archives/libvir-list/2012-January/msg01448.html>
+    -   <https://www.redhat.com/archives/libvir-list/2012-February/msg00014.html>
+
+#### Engine Flow
+
+[Pseudocode](http://en.wikipedia.org/wiki/Pseudocode)
+
+      def vm_live_block_migrate(vm, destDomain):
+          for drive in vm_get_drives(vm):
+              createVolumeCrossSD(drive) # to the SPM
+          # Retry until it succeed or fails with a known error
+          while True:
+              ret = blockMigrate(driveParams) # to the HSM
+              if ret == SUCCESS
+                  break
+              elif ret == VM_NOT_RUNNING:
+                  # rollback the createVolumeCrossSD operations
+                  return VM_NOT_RUNNING
+          for drive in vm_get_drives(vm):
+              while True:
+                  ret = cloneInternalVolumes(drive)
+                  if ret == SUCESS:
+                      break
+          finalizeBlockMigrate() # to the HSM
+
+### Mirrored-Snapshot Execution Diagrams and Description
+
+![](StorageLiveMigration2.png "StorageLiveMigration2.png")
+
+![](StorageLiveMigrationAPIDiagram2.png "StorageLiveMigrationAPIDiagram2.png")
+
+#### VDSM API
+
+The command `copyVolume(...)` is used in step 2 and 4 to copy the volumes from the source to the destination. For maximum flexibility it's possible to change the volume and image UUIDs (on the destination) and update the parent volume UUID (so that it's possible to rebuild a consistent chain on the destination).
+
+      def copyVolume(srcDomUUID, dstDomUUID, srcImgUUID, dstImgUUID,
+                     srcVolUUID, dstVolUUID, dstBakImgUUID, dstBakVolUUID):
+          """
+          Copies a single volume from a source (domain, image, volume) to a new
+          destination (domain, image, volume).
+          If dstBakVolUUID is specified it will be used to rebase (unsafe) the
+          volume (if dstBakImgUUID is not specified, dstImgUUID will be used).
+          If dstBakVolUUID is not specified and the source volume has a parent,
+          then the same srcImgUUID and srcVolUUID will be reused.
+          :param srcDomUUID: The source storage domain UUID
+          :type srcDomUUID: UUID
+          :param dstDomUUID: The destination storage domain UUID
+          :type dstDomUUID: UUID
+          :param srcImgUUID: The source image UUID
+          :type srcImgUUID: UUID
+          :param dstImgUUID: The destination image UUID
+          :type dstImgUUID: UUID
+          :param srcVolUUID: The source volume UUID
+          :type srcVolUUID: UUID
+          :param dstVolUUID: The destination volume UUID
+          :type dstVolUUID: UUID
+          :param dstBakImgUUID: The new backing image UUID for the destination
+                                (optional parameter)
+          :type dstBakImgUUID: UUID
+          :param dstBakVolUUID: The new backing volume UUID for the destination
+                                (optional parameter)
+          :type dstBakVolUUID: UUID
+          """
+
+#### Engine Flow
+
+Initial notes:
+
+*   take a snapshot of a single disk (step 3)
+*   mark "Snapshot 1" (old leaf) as MERGE_PENDING
+*   mark "Snapshot 2" (new leaf) with the same SNAPSHOT_ID of "Snapshot 1" (NB. do **not** mark with MERGE_PENDING)

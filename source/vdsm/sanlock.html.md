@@ -220,6 +220,37 @@ Before recovery timeouts are reached, sanlock will log errors related to failed 
 
 If the sanlock daemon is killed or otherwise exits while being used, the wdmd daemon controlling /dev/watchdog will log errors, warning that the watchdog is not being kept alive, and will soon expire. At this point it is too late to do anything, and the host will be reset by the watchdog.
 
+## sanlock timeouts
+
+The sanlock daemon has a large number of different but intricatly related timeouts. All are derived from io_timeout, which is 10 seconds: the time a single i/o can take before sanlock considers it failed.
+
+The i/o timeout can be tuned, but it is critical that all hosts use the same i/o timeout value. sanlock will not detect if hosts use different i/o timeouts, and this misconfiguration could lead to data corruption. When the sanlock daemon starts, it adds an entry to /var/log/messages which includes the basic timeout values:
+
+       sanlock daemon started 2.0 aio 1 10 renew 20 80 ...
+
+*   `aio 1` -- async i/o is enabled
+*   `10` -- io_timeout
+*   `renew 20 80` -- id_renewal_seconds id_renewal_fail_seconds (time between renewals and time to renew a lease before it expires)
+
+## sanlock live process debugging
+
+Debugging the sanlock daemon process.
+
+      # sanlock client status [-D]
+
+This displays all lockspaces, leases and pid's currently being managed.
+-D includes extra internal debugging information.
+
+      # sanlock client host_status -s LOCKSPACE [-D]
+
+This displays the status of all host_id leases being monitored.
+LOCKSPACE can simply be the lockspace name/uuid.
+-D includes extra internal debugging information.
+
+      # sanlock client log_dump
+
+This dumps the sanlock daemon's internal circular buffer of recent debug messages.
+
 ## References
 
 <references/>

@@ -38,7 +38,7 @@ Today, when working with the API (via the CLI, SDK, curl, browser or any other w
 The proposed implementation for that is to rely on cookies in the following way:
 
 1.  First, the client does a request providing credentials, with a special Header field: "Prefer: persistent-auth".
-2.  The server logs in to the engine, with session-id that is equal to JSESSIONID, and performs the required action. The JSESSIONID cookie is returned automatically to the client.
+2.  The server logs in to the engine-core, with session-id that is equal to JSESSIONID, and performs the required action. The JSESSIONID cookie is returned automatically to the client.
 3.  The client gets the cookie, and (if he wants to) in the second request he passes it to the server. No need to pass credentials.
 4.  The server gets the cookie, validates the session with the engine-core, performs the request, and returns.
 

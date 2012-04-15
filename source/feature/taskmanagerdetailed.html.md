@@ -380,6 +380,10 @@ Event log will be extended with two fields:
 *job_id* field designed to describe the job which the current event is part of. Once the Job is cleared from the database, the job_id will point for non-existing job.
 *correlation_id* associates the event with the global identifier of the action, which the event participate in.
 
+### REST API
+
+No REST API support for Task Manager in v1.
+
 ### User Experience
 
 A Tasks sub-view will be created in the Webadmin for presenting the Tasks. The following images mocks the Tasks sub-views:

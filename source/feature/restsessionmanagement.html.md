@@ -39,44 +39,18 @@ The proposed implementation for that is to rely on cookies in the following way:
 
 1.  First, the client does a request providing credentials, with a special Header field: "Prefer: persistent-auth".
 2.  The server logs in to the engine, with session-id that is equal to JSESSIONID, and performs the required action. The JSESSIONID cookie is returned automatically to the client.
-3.  The client gets the cookie, and (if he wants to) in the second request he passes it to the server, and also pass the persistent-auth header as before. No need to pass credentials.
-4.  The server gets the cookie, validates the session with the engine-core, performs the request, and returns. Again, the JSESSIONID cookie is returned automatically to the client.
-5.  After few such requests the client can choose to close the session, by passing the JSESSIONID cookie, and not using the "Prefer" header (note that if it isn't used then the session will be closed after some timeout).
-6.  The server sees the JSESSIONID cookie, and that there is no need to keep the session (no "Prefer" header) and it closes the session (both in the engine-core, and in the application server).
+3.  The client gets the cookie, and (if he wants to) in the second request he passes it to the server. No need to pass credentials.
+4.  The server gets the cookie, validates the session with the engine-core, performs the request, and returns.
 
 Notes:
 
 *   Existing clients can continue working as they are working today. They just ignore the JSESSIONID cookie, and pass credentials on each call. No need to provide the "Prefer" header. The API will then do login and logout on every such call.
 *   If the session is expired, the client will be required to pass credentials again, resulting in a new session being created.
+*   In the flow above we rely on session timeout for invalidation of sessions. Other options for that are:
+    1.  The client passes the "Prefer" header field on every request, besides the last one. When the server gets a request with a JSESSIONID, and without the "Prefer" header, it logs out the session.
+    2.  The client passes the "Prefer" header field only once (on start), and passes another header field when he finishes the work with the session.
 
-Other options:
-
-1.  The client passes the special "Prefer" header field only once (on start), relying on the session timeout for session invalidation.
-2.  The client passes the special "Prefer" header field only once (on start), and passes another header field when he finishes the work with the session.
-
-Diagram of all phases in the described flow:
-
-      Client                                           Server
-        |                                                |
-        | ---------initial request with Prefer header--> |
-        |                                          [login]
-        | <----Set-Cookie:JSESSIONID=.....---------------|
-        |                                                |
-        | -----Cookie:JSESSIONID=.....+ Prefer header--->|
-        |                               [validate session]
-        | <----------------------------------------------|
-        |                                                |
-        | -----Cookie:JSESSIONID=.....+ Prefer header--->|
-        |                               [validate session]
-        | <----------------------------------------------|
-        |                                                |
-        |              ... time pases...                 |
-        |                                                |
-        | -----Cookie:JSESSIONID=.....------------------>|
-        | [validate session. no Prefer header --> logout ]
-        | <----------------------------------------------|
-        |                                                |
-       
+I believe the approach of relying on the session timeout is the best here, as it is more standard, and simple to understand/maintain.
 
 Flow when relying on session timeout:
 
@@ -103,6 +77,30 @@ Flow when relying on session timeout:
         |              ... time pases...                 |
         |                                                |
         |             [session timeout --> remove session]
+        |                                                |
+       
+
+Flow of using the Prefer header on each call:
+
+      Client                                           Server
+        |                                                |
+        | ---------initial request with Prefer header--> |
+        |                                          [login]
+        | <----Set-Cookie:JSESSIONID=.....---------------|
+        |                                                |
+        | -----Cookie:JSESSIONID=.....+ Prefer header--->|
+        |                               [validate session]
+        | <----------------------------------------------|
+        |                                                |
+        | -----Cookie:JSESSIONID=.....+ Prefer header--->|
+        |                               [validate session]
+        | <----------------------------------------------|
+        |                                                |
+        |              ... time pases...                 |
+        |                                                |
+        | -----Cookie:JSESSIONID=.....------------------>|
+        | [validate session. no Prefer header --> logout ]
+        | <----------------------------------------------|
         |                                                |
        
 

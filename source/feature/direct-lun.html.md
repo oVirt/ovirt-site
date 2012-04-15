@@ -77,6 +77,8 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 **Change the import term in the UI (mockup).**
 
+**\1**
+
 ![](import_direct_lun.png "import_direct_lun.png")
 
 **Attach and detach should be part of the VM interface.**

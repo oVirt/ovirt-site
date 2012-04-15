@@ -44,11 +44,17 @@ The proposed implementation for that is to rely on cookies in the following way:
 5.  After few such requests the client can choose to close the session, by passing the JSESSIONID cookie, and not using the "Prefer" header (note that if it isn't used then the session will be closed after some timeout).
 6.  The server sees the JSESSIONID cookie, and that there is no need to keep the session (no "Prefer" header) and it closes the session (both in the engine-core, and in the application server).
 
-IMPORTANT NOTE:
+Notes:
 
 *   Existing clients can continue working as they are working today. They just ignore the JSESSIONID cookie, and pass credentials on each call. No need to provide the "Prefer" header. The API will then do login and logout on every such call.
+*   If the session is expired, the client will be required to pass credentials again, resulting in a new session being created.
 
-Diagram of all phases:
+Other options:
+
+1.  The client passes the special "Prefer" header field only once (on start), relying on the session timeout for session invalidation.
+2.  The client passes the special "Prefer" header field only once (on start), and passes another header field when he finishes the work with the session.
+
+Diagram of all phases in the described flow:
 
       Client                                           Server
         |                                                |
@@ -68,6 +74,58 @@ Diagram of all phases:
         |                                                |
         | -----Cookie:JSESSIONID=.....------------------>|
         | [validate session. no Prefer header --> logout ]
+        | <----------------------------------------------|
+        |                                                |
+       
+
+Flow when relying on session timeout:
+
+      Client                                           Server
+        |                                                |
+        | ---------initial request with Prefer header--> |
+        |                                          [login]
+        | <----Set-Cookie:JSESSIONID=.....---------------|
+        |                                                |
+        | -----Cookie:JSESSIONID=....................--->|
+        |                               [validate session]
+        | <----Set-Cookie:JSESSIONID=.....---------------|
+        |                                                |
+        | -----Cookie:JSESSIONID=....................--->|
+        |                               [validate session]
+        | <----------------------------------------------|
+        |                                                |
+        |              ... time pases...                 |
+        |                                                |
+        | -----Cookie:JSESSIONID=.....------------------>|
+        |                               [validate session]
+        | <----------------------------------------------|
+        |                                                |
+        |              ... time pases...                 |
+        |                                                |
+        |             [session timeout --> remove session]
+        |                                                |
+       
+
+Flow when passing another header for ending sessions:
+
+      Client                                           Server
+        |                                                |
+        | ---------initial request with Prefer header--> |
+        |                                          [login]
+        | <----Set-Cookie:JSESSIONID=.....---------------|
+        |                                                |
+        | -----Cookie:JSESSIONID=....................--->|
+        |                               [validate session]
+        | <----Set-Cookie:JSESSIONID=.....---------------|
+        |                                                |
+        | -----Cookie:JSESSIONID=....................--->|
+        |                               [validate session]
+        | <----------------------------------------------|
+        |                                                |
+        |              ... time pases...                 |
+        |                                                |
+        | -----Cookie:JSESSIONID=....., "Logout" header->|
+        |                      [validate session. logout ]
         | <----------------------------------------------|
         |                                                |
        

@@ -71,7 +71,21 @@ These flows should be supported from the GUI.
 1.  Engine should assert that the backing storage target is reachable or connect it to the VM [**destination host**](#Notes).
 2.  Restart the VM
 
-The following UI mockups contain guidelines for the different screens and wizards: **Add description to the object in the UI�.** **Change the import term in the UI� (mockup).** ![](import_direct_lun.png "fig:import_direct_lun.png")
+The following UI mockups contain guidelines for the different screens and wizards:
+
+**Add description to the object in the UI.**
+
+**Change the import term in the UI (mockup).**
+
+![](import_direct_lun.png "import_direct_lun.png")
+
+**Attach and detach should be part of the VM interface.**
+
+**\1**
+
+**\1**
+
+*' No filter on the LUNs, used disks may be grayed out.*'
 
 ![](attach_direct_lun.png "attach_direct_lun.png")
 
@@ -106,7 +120,9 @@ Other disk device parameters are the same as in VDSM volumes.
 
 The *GUID* is returned in the getDeviceList response.
 
-VM disks specified this way should support all the modes and features, i.e Shared Hot-Plug, etc.
+Will be a query relating the "name" of the disk and all of the connection details providing the WWID.
+
+VM disks specified this way should support all the modes and features, i.e Sharable, Hot-Plug, etc.
 
 See [Stable Device Addresses](Features/Design/StableDeviceAddresses) for the complete device interface.
 
@@ -132,7 +148,17 @@ Successive snapshots creates new (time stamp, image UID) entries.
 
 The image UID can be transferred to runVM, hot-plug, migrate, etc.
 
-Before starting of any operations Engine should assert that the [**destination host**](#Notes) is connected to the target
+Before starting of any operations Engine should assert that the [**destination host**](#Notes) is connected to the target.
+
+The LunID is the GUID (WWID) and should be used for identify the disk.
+
+May be the name (= alias) be the filled automatically as the WWID. The description will be used if not.
+
+In case RHEV-M not provides the GUID should used for the description when creating the external disk
+
+      LUNs from a SD can be used as direct LUN.
+
+      Multiple uses of a LUN for different SD is prevented.
 
 ### The Engine design
 

@@ -102,6 +102,8 @@ This section describes the REST design for this feature.
 *   Create template from VM
 *   Clone template
 
+The changes will be done at java code, by processing passed parameters from client
+
 ### Backend
 
 There should not be any changes to the database or the object model to support this feature. Many of the command classes will need their logic changes to handle processing each disk individually by their storage domain instead of handling them all at once.

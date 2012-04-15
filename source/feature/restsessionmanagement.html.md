@@ -64,7 +64,7 @@ Diagram of all phases in the described flow:
         |                                                |
         | -----Cookie:JSESSIONID=.....+ Prefer header--->|
         |                               [validate session]
-        | <----Set-Cookie:JSESSIONID=.....---------------|
+        | <----------------------------------------------|
         |                                                |
         | -----Cookie:JSESSIONID=.....+ Prefer header--->|
         |                               [validate session]
@@ -88,7 +88,7 @@ Flow when relying on session timeout:
         |                                                |
         | -----Cookie:JSESSIONID=....................--->|
         |                               [validate session]
-        | <----Set-Cookie:JSESSIONID=.....---------------|
+        | <----------------------------------------------|
         |                                                |
         | -----Cookie:JSESSIONID=....................--->|
         |                               [validate session]
@@ -116,7 +116,7 @@ Flow when passing another header for ending sessions:
         |                                                |
         | -----Cookie:JSESSIONID=....................--->|
         |                               [validate session]
-        | <----Set-Cookie:JSESSIONID=.....---------------|
+        | <----------------------------------------------|
         |                                                |
         | -----Cookie:JSESSIONID=....................--->|
         |                               [validate session]

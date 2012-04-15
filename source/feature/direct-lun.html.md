@@ -156,9 +156,9 @@ May be the name (= alias) be the filled automatically as the WWID. The descripti
 
 In case RHEV-M not provides the GUID should used for the description when creating the external disk
 
-      LUNs from a SD can be used as direct LUN.
+LUNs from a SD can be used as direct LUN.
 
-      Multiple uses of a LUN for different SD is prevented.
+Multiple uses of a LUN for different SD is prevented.
 
 ### The Engine design
 

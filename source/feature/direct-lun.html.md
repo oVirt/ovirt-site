@@ -18,7 +18,7 @@ Any block device can be used as local disk in the VM specifying it's GUID.
 
 These flows should be supported from the GUI.
 
-*   Import disk
+*   Add disk
 
 1.  Discovery targets
 2.  Connect to the target
@@ -71,11 +71,13 @@ These flows should be supported from the GUI.
 1.  Engine should assert that the backing storage target is reachable or connect it to the VM [**destination host**](#Notes).
 2.  Restart the VM
 
-The following UI mockups contain guidelines for the different screens and wizards:
-
-![](import_direct_lun.png "import_direct_lun.png")
+The following UI mockups contain guidelines for the different screens and wizards: **Add description to the object in the UI�.** **Change the import term in the UI� (mockup).** ![](import_direct_lun.png "fig:import_direct_lun.png")
 
 ![](attach_direct_lun.png "attach_direct_lun.png")
+
+## Rest API
+
+= To be done.
 
 ## Engine - VDSM API
 

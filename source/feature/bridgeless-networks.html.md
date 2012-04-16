@@ -67,7 +67,7 @@ all the non-optional networks attached.
 
 #### REST API
 
-Attach a netWork to cluster and make it a VM newtork
+*   Attach a netWork to cluster and make it a VM newtork
 
       POST /api/clusters/{cluster.id}/networks
 <network id='...'>
@@ -79,6 +79,14 @@ Attach a netWork to cluster and make it a VM newtork
 `    `<usage>`VM`</usage>
 `  `</usage>
 </network>
+
+*   representation of non-bridged interface in Host NICs
+
+      GET /api/hosts/{host.id}/nics/{nic.id}
+<HOST_NIC>
+` `<name>`...`</name>
+` `<bridged>`false`</bridged>
+</HOST_NIC>
 
 #### Entities
 

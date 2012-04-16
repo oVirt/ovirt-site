@@ -28,6 +28,10 @@ The storage domain version 3 has been introduced in VDSM on the 30th of January 
 *   Initialize the resources for all the volumes in the domain
 *   Set all the LVs to RW
 
+### Requirements
+
+*   All nodes in the cluster must have 5a0b2c9 "Do not lock the image when preparing the VM path" (vdsm >= 4.9.4) to avoid the LVM mda corruption
+
 ### Upgrade
 
 At the moment it is planned to support an automatic upgrade to version 3 from the previous versions.

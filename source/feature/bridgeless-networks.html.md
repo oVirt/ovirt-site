@@ -65,14 +65,13 @@ all the non-optional networks attached.
 
 #### REST API
 
-*   Attach a netWork to cluster and make it a VM newtork
+*   Add a logical network to the Data Center and make it a VM newtork
 
-      POST /api/clusters/{cluster.id}/networks
+      POST /api/networks
 <network id='...'>
 `  `<name>`testrest1`</name>
 `  `<data_center id='...'/>
 `  `<stp>`false`</stp>
-`  `<status><state>`non_operational`</state></status>
 `  `<usages>
 `    `<usage>`VM`</usage>
 `  `</usage>

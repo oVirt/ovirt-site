@@ -57,6 +57,18 @@ Typically, just another parameter for a network configuration to determine the [
 
 If this limitation is removed we need to validate the MTU for the non-vlan network will allways is the lowest or equals to the the lowest vlan id (again, for networks on the same nic)
 
+#### REST API
+
+mtu is a new optional parameter when creating a logical network. Not sending it defaults to 0 which api-wise means "use default value"
+
+      POST /api/networks/
+<action>
+`  `<network>
+`    `<name>`....`</name>
+`    `<mtu>`9000`</mtu>
+`  `</network>
+</action>
+
 #### implementation on host
 
 *   The mtu on the bare interface is always the highest common between all pseudo-interfaces (vlan, bridge) on top of it

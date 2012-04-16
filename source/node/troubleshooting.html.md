@@ -12,6 +12,32 @@ wiki_last_updated: 2014-05-23
 
 Since oVirt Node is a non-standard Operating System, the way to debug things is also somewhat different. This page is a just a quick snapshot of things that I know of for debugging what's going on on a running oVirt Node System.
 
+### Boot up problems
+
+*   Q: "I booted the image and got a login prompt, what is the default password?"
+*   A: There isn't a default password. You're actually hitting a bug in that the system is not booting correctly. Immediate workaround steps will depend on the actual issue that you're facing.
+    -   First thing: reboot and set the root user's password from the kernel command line
+        -   on a separate system, generate a hashed password
+            -   openssl passwd
+
+`
+$ openssl passwd ovirt
+
+nqsaxeG1J8l1U
+
+`
+
+*   -   Boot the image
+    -   Hit <TAB> on the boot menu on the "Start oVirt Node" option
+    -   Add "rootpw=<hashed_passwd>" (no quotes, and no <>) to the command line
+        -   rootpw=nqsaxeG1J8l1U
+    -   Hit enter
+    -   When the login screen comes up, enter root, then the password that you gave to openssl (ovirt in the above example)
+    -   Check the various log files listed in the Log Files section of this FAQ
+    -   Look for python errors
+    -   If none present, try running "su - admin"
+    -   This should dump an error out to the screen
+
 ### General
 
 **Disclaimer:** Changes made from the command line are done at your own risk. Making changes has the potential to leave your system in an unusable state.

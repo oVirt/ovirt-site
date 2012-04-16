@@ -63,8 +63,6 @@ all the non-optional networks attached.
     -   if a host misses cluster networks which are not optional - set as non -operational
 *   afterRefreshTreatment (runtime info) - same as above
 
-## Modelling
-
 #### REST API
 
 *   Attach a netWork to cluster and make it a VM newtork
@@ -115,6 +113,8 @@ all the non-optional networks attached.
 *   network_cluster table
 
       optional BOOLEAN
+
+## Modelling
 
 ## Enums
 

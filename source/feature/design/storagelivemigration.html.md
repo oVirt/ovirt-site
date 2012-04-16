@@ -252,8 +252,17 @@ The command `copyVolume(...)` is used in step 2 and 4 to copy the volumes from t
 
 #### Engine Flow
 
-Initial notes:
+*   Copy over all non-leaf volumes from source to destination (Step 2).
+*   Create a new volume for the disk on source and destination.
+*   Mark "Snapshot 1" (old leaf) as MERGE_PENDING
+*   Mark "Snapshot 2" (new leaf) with the same SNAPSHOT_ID of "Snapshot 1" (NB. do **not** mark with MERGE_PENDING) - So that we know that this is the snapshot to work with.
+*   Call live snapshot with all (other disks) existing volumes the same, but this disk in mirroring mode with the new volumes on source and destination.
+*   Copy over the old leaf (it is merge pending).
+*   When finished, reopen on destination and delete disk on source. If the VM is down, do the next step.
+*   When VM stops/Disk is deactivated (unplugged) and the migration had finished - the Disk will go to locked state and cold merge for all pending merges of same snapshots will begin (ie if we have 1 volume that is merge pending for snapshot id S1, and 1 volume that is merge pending for snapshot id S2). In this state you can't run the VM with the disk, so you can run without it, or have to wait for merge to finish.
 
-*   take a snapshot of a single disk (step 3)
-*   mark "Snapshot 1" (old leaf) as MERGE_PENDING
-*   mark "Snapshot 2" (new leaf) with the same SNAPSHOT_ID of "Snapshot 1" (NB. do **not** mark with MERGE_PENDING)
+##### Engine flow diagram
+
+This state machine describes what will happen in engine flow in more detail
+
+![](SLM.png "SLM.png")

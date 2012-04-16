@@ -23,6 +23,10 @@ The purpose of the feature is to add session management to the oVirt REST API.
 
 *   Design phase
 
+### Background
+
+This feature is essential for certain types of ISV integration. Many ISVs need to mirror the oVirt inventory (i.e. all VMs, clusters, basically any object managed by oVirt) in real-time to their own database. The way they do this currently is by polling /api/events and look for changes. In order to be able to react to changes fast, they typically poll every 5 seconds. The query itself is very efficient, so it doesn't cause a whole lot of load on oVirt. But it floods the log with login/logout events. This persistent session feature is a solution for that.
+
 ### Requirements
 
 1.  Provide a session management mechanism that would allow clients to use the oVirt API without requiring them to pass credentials on each call

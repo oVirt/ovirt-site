@@ -43,6 +43,22 @@ The following steps are performed by the plugin:
 *   When asked "Configure VDSM on this host?", answer yes.
 *   After all answers are provided, the setup will install oVirt-engine and configure VDSM, including local cluster, local datacenter and local host.
 
+#### Using answer file
+
+The following are the additional parameters to the answer file:
+
+      CONFIG_ALLINONE=[yes/no]
+`STORAGE_PATH=`<local storage path>
+`SUPERUSER_PASS=`<root password>
+
+It is recommended to generate the answer file automatically:
+
+`engine-setup --gen-answer-file=`<answer file full path>
+
+...and then update its parameters accordingly with the installation requirements. After that, proceed with installation using the answer file:
+
+`engine-setup --answer-file=`<answer file full path>
+
 ### Comments and Discussion
 
 *   Refer to [Talk: allinone](Talk: allinone)

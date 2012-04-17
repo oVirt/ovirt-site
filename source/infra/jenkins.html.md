@@ -65,4 +65,10 @@ Contact Infra team if you think you should have privileged access to the server.
       * echo "/dev/xvdj /ephemeral0 ext4 defaults 1 2" >> /etc/fstab
       * mount /ephemeral0
 
+#### expand default root partition
+
+Amazon VM comes with a default 5GB / partition. but it actually has 50GB you can use. run this command to expand it
+
+      * resize2fs /dev/xvde1
+
 [Category: Infrastructure documentation](Category: Infrastructure documentation)

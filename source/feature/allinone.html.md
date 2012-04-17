@@ -39,13 +39,15 @@ The following steps are performed by the plugin:
 ### Installation flow
 
 *   Install ovirt-engine-setup-plugin-allinone rpm.
-*   Start regular engine-setup procedure.
+*   Start the regular engine-setup procedure.
 *   When asked "Configure VDSM on this host?", answer yes.
 *   After all answers are provided, the setup will install oVirt-engine and configure VDSM, including local cluster, local datacenter and local host.
 
-#### Using answer file
+### API
 
-The following are the additional parameters to the answer file:
+#### Installation using answer file
+
+The following parameters are added by the plugin to the answer file:
 
       CONFIG_ALLINONE=[yes/no]
 `STORAGE_PATH=`<local storage path>

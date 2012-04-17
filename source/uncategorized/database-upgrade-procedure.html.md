@@ -42,6 +42,11 @@ This removal will be done using a regular upgrade script in order to execute it 
 
 The pre_upgrade directory will be used only to resolve cases as we have already upstream where patch 0130 was installed (for 3.1) and after that 0250 was cherry picked, blocking the possibility of the upgrade procedure to install patches 0140 to 0240. In this case we will add a script to the pre_upgrade directory that will remove the 0250 entry from schema_version, since 0250 is a configuration patch we have no problems with it, but we should avoid such situation following this :
 
+### Version Squashing
+
+To avoid high number of upgrade script files we can squash each version files to a single file after it is published.
+Since upgrade scripts contains both schema and data changes, this issue is open for suggestion and will be implemented in future.
+
 ### Propagating upgrade changes from upstream to Z-stream
 
 Just is case we need that :

@@ -82,6 +82,23 @@ Algorithm for selecting a host according to priorities
 1.  AddVdsCommand - no change since the parameter held is of type VdsStatic.
 2.  UpdateVdsCommand - no change since the parameter held is of type VdsStatic.
 
+### REST API changes
+
+The Host resource schema was changed, and now the storage_manager element is of type "StorageManager" instead of boolean.
+
+The schema for the StorageManager type is as follows:
+
+        <xs:element name="storage_manager" type="StorageManager"/>
+            <xs:complexType name="StorageManager">
+                <xs:simpleContent>
+                    <xs:extension base="xs:boolean">
+                        <xs:attribute name="priority" type="xs:int">
+                        </xs:attribute>
+                    </xs:extension>
+                </xs:simpleContent>
+            </xs:complexType>
+       
+
 ### Open Issues
 
 ### Dependencies / Related Features

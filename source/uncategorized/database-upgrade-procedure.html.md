@@ -47,17 +47,6 @@ The pre_upgrade directory will be used only to resolve cases as we have already 
 To avoid high number of upgrade script files we can squash each version files to a single file after it is published.
 Since upgrade scripts contains both schema and data changes, this issue is open for suggestion and will be implemented in future.
 
-### Propagating upgrade changes from upstream to Z-stream
-
-Just is case we need that :
-
-Assume upstream installed patches 0010 0020 0030 0040 0050 0060 and z-stream installed 0010 and 0020 when 0030 0040 0050 belongs to f1 feature and 0060 belongs to f2 feature Now , we would like to merge f2 changes to Z-stream There can be two cases here :
-
-       In case that f2 depends on f1 , we will have to insert both f1 & f2 patches (0030 - 0060)
-       In case that f2 is independent , we will add 0060 as 0021 in Z-stream
-
-When we will add f1 to Z-stream we will have to add an empty 0060 file so , Z-stream looks like 0010 0020 0021 0030 0040 0050 0060 Keep in mind that those scripts may not be identical to the originals in upstream since some modifications may be required
-
 ## Where are upgrade scripts located ?
 
 All changes should be located under the upgrade/ directory

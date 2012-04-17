@@ -123,6 +123,10 @@ The implementation will be as follows:
 2.  A new command called PrepareVmForUse will be added. The command will run the CreateAllSnapshotsFromVmCommand, and upon ending successfully will run RunVm. The command will be used both by the command in the previous clause, and by the scheduler that prepares prestarted vms.
 3.  We will add a flow that checks if there are available prestarted Vms. If so, do only "AddPermission". If no prestarted Vms were found, run AddPermission + PrepareVmForUse.
 
+#### REST API
+
+A new integer property, "prestarted_vms", was added to the VmPool resource
+
 ### Affected Commands
 
 1.  AttachUserToVmFromPoolCommandAndRun + AttachUserToVmFromPoolCommandAndRun - As explained above.

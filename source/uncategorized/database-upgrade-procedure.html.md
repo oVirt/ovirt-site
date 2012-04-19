@@ -69,7 +69,7 @@ Upgrade In upgrade we first drop all SPs & Views and then run all upgrade script
 ## What should I do if I have to ?
 
        Add or change a column              Add an upgrade script
-       Add/Delete/Modify configuration values   Modify configuration script in pre_upgrade directory using common fn_db* functions
+       Add/Delete/Modify configuration values   Modify config.sql script in pre_upgrade directory using common fn_db* functions
        Add/Delete/Modify any default data      Add an upgrade script
        Add/Delete/Modify a SP              Change only the relevant *_sp.sql file
        Add/Delete/Modify a View            Change only the relevant code in create_views.sql file

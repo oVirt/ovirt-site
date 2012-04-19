@@ -33,6 +33,14 @@ We now have a schema_version table that hold the db upgrade history and current 
 
 All changes to the configuration stored in the vdc_options table will be done using one script named
 **config.sql** under **dbscripts/upgrade/pre_upgrade** directory.
+**config.sql** script file is categorized to the following sections:
+
+         Add Section
+         Update section (w/o overriding current value)
+         Delete section
+         Simple upgrades not available using a fn_db* function call
+         Complex upgrades using temporary functions
+
 The pre_upgrade directory hosts hook scripts that are executed before the upgrade executes
 Scripts in the pre_upgrade directory are executed lexicography.
  This change implies also that all upgrade scrips that modify vdc_options will be squashed to config_sql

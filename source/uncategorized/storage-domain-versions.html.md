@@ -13,7 +13,7 @@ wiki_warnings: references
 
 # Storage Domain Version 3
 
-The storage domain version 3 has been introduced in VDSM on the 30th of January with the commit 8665716c: Use SANLock for the SPM resource [1]. The new format has been introduced to overcome some of the limitations present in the previous formats (with regard to live snapshots, live merges and internationalization) and mainly to introduce the use of SANLock [2].
+The storage domain version 3 has been introduced in VDSM on the 30th of January 2012 with the commit 8665716c: Use SANLock for the SPM resource [1]. The new format has been introduced to overcome some of the limitations present in the previous formats (with regard to live snapshots, live merges and internationalization) and mainly to introduce the use of SANLock [2].
 
 ### Changes
 

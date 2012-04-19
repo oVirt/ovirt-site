@@ -27,6 +27,7 @@ The storage domain version 3 has been introduced in VDSM on the 30th of January 
 
 *   Initialize the resources for all the volumes in the domain
 *   Set all the LVs to RW
+*   Check that the volume SIZE in the metadata is consistent with the block size (RAW) or with the qcow2 virtual size (COW) [BZ811880](https://bugzilla.redhat.com/show_bug.cgi?id=811880), [BZ611183](https://bugzilla.redhat.com/show_bug.cgi?id=611183), [BZ706014](https://bugzilla.redhat.com/show_bug.cgi?id=706014)
 
 ### Requirements
 

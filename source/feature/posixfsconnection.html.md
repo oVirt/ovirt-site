@@ -90,5 +90,15 @@ This part is for engine-core
     -   AddStorageDomain
 *   A validation check to check compatibility level is 3.1 and above should be added to AddEmptyStoragePool for the case of StorageType.POSIX
 
+## Changes in API
+
+This part is for api.
+
+*   StorageDomain will have the following new attributes:
+    -   VfsType
+    -   MountOptions
+*   The attribute "Path" will be mapped to storage_server_connections.connection attribute.
+*   StorageType will have a new literal value of POSIX
+
 Here are some ugly GUI Mockups:
 ![](posixfscondialogmockup.png "fig:posixfscondialogmockup.png")

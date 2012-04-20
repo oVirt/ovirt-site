@@ -39,6 +39,14 @@ At the moment it is planned to support an automatic upgrade to version 3 from th
 
 ![](DomainUpgrade1.png "DomainUpgrade1.png")
 
+#### Engine And UI Requirements
+
+*   Display the Storage Domain Version (already present in the "Storage" tab)
+*   Support the creation of Storage Domain V3
+*   Accept unicode strings for the descriptions (only V3)
+*   Block the import of VM containing unicode to V2 domains
+*   Prevent moving Storage Domain Version V3 to 3.0 Data Centers
+
 ### References
 
 <references>

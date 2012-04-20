@@ -37,6 +37,8 @@ The storage domain version 3 has been introduced in VDSM on the 30th of January 
 
 At the moment it is planned to support an automatic upgrade to version 3 from the previous versions.
 
+![](DomainUpgrade1.png "DomainUpgrade1.png")
+
 ### References
 
 <references>

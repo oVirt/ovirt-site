@@ -86,7 +86,7 @@ In order to easily track commit changes in Gerrit, each commit must have a chang
 #### Configure the commit tempalte
 
       cd ovirt-engine
-      git config --global commit.template config/engine-commit-template.txt
+      git config commit.template config/engine-commit-template.txt
        
 
 #### Rebase

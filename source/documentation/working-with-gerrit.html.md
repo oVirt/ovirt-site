@@ -83,7 +83,7 @@ In order to easily track commit changes in Gerrit, each commit must have a chang
       scp -p gerrit.ovirt.org:hooks/commit-msg .git/hooks/
        
 
-#### Configure the commit tempalte
+#### Configure the commit template
 
       cd ovirt-engine
       git config commit.template config/engine-commit-template.txt

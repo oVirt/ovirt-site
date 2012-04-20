@@ -8,7 +8,7 @@ wiki_last_updated: 2012-05-06
 
 # O Virt-database-upgrade-procedure
 
-## Postgres Upgrade Procedure
+## Upgrade Procedure
 
 In order to handle DB upgrades, we will maintain a fixed schema plus initial data and from that point on All schema & data changes will be done via upgrade scripts.
 

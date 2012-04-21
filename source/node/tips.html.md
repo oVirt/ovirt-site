@@ -11,7 +11,7 @@ wiki_last_updated: 2012-04-23
 
 ## Too many logins
 
-To increase the number of users logging into oVirt Node (currently it's 3), edit:
+To increase the number of tty users logging into oVirt Node (currently it's 3), edit:
 
       # vi /etc/security/limits.conf
        *    -    maxlogins 3  

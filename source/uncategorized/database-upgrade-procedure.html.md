@@ -41,6 +41,8 @@ All changes to the configuration stored in the vdc_options table will be done us
          Simple upgrades not available using a fn_db* function call
          Complex upgrades using temporary functions
 
+**Please note that the config.sql is now re-entrant.**
+
 The pre_upgrade directory hosts hook scripts that are executed before the upgrade executes
 Scripts in the pre_upgrade directory are executed lexicography.
  This change implies also that all upgrade scrips that modify vdc_options will be squashed to config_sql

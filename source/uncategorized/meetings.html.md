@@ -21,11 +21,15 @@ oVirt has a weekly sync meeting on IRC (occasionally phone).
 
 This is the agenda for the 2012-04-11 meeting:
 
-*   Release status check-in
-*   Growing Infrastructure team and resources
-*   Any roll-up reports from sub-projects?
-    -   Links to meeting minutes and logs are sufficient
-*   Anything else?
+*   Status of Next Release
+*   Sub-project reports (engine, vdsm, node)
+*   Signed-off-by in commit tag check-up (rharper)
+*   Java 7 in oVirt Engine (oschreib)
+*   ovirt-engine-jbossas vs. Fedora17-jbossas (oschreib)
+*   Moving to Fedora 17 (oschreib)
+*   Do we need to re-evaluate release date based on above 3 items? (itamar)
+*   Hardware availability for automated testing (mburns)
+    -   Would be good to have board members from sponsor companies available for this discussion
 
 ### Meeting Time and Place
 

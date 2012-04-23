@@ -81,7 +81,7 @@ This part is for engine-core
     -   "vfsType" will be added as a new field of String
     -   "mountOptions" will be added as a new field of String
 *   The new fields will be mapped to proper columns at the storage_server_connections, and necessary changes to the Spring-JDBC mapper should be introduced.
-*   A new storage type named POSIX should be introduced (supported by a new StorageHelper class).
+*   A new storage type named POSIXFS should be introduced (supported by a new StorageHelper class).
 *   As the storage type should be set to 6 (to reflect the domainType) , and this value is already being used by the StorageType.All constant - the value of StorageType.All constant (which is not used by VDSM) should be changed (also for persistent connections, using an upgrade script).
 *   ConnectStorageServerVDSCommand.CreateStructFromConnection should be changed in order to add the new fields to the connection, as sent to the Connect VDSM verb (see <http://gerrit.ovirt.org/559>)
 *   A new configuration value named "PosixFSSupportEnabled" will be added (boolean value) set to true for version 3.1 and false for the other versions.
@@ -95,10 +95,10 @@ This part is for engine-core
 This part is for api.
 
 *   StorageDomain will have the following new attributes:
-    -   VfsType
-    -   MountOptions
+    -   String VfsType (mandatory only if StorageType is POSIXFS)
+    -   String MountOptions (optional)
 *   The attribute "Path" will be mapped to storage_server_connections.connection attribute.
-*   StorageType will have a new literal value of POSIX
+*   StorageType will have a new literal value of POSIXFS
 
 Here are some ugly GUI Mockups:
 ![](posixfscondialogmockup.png "fig:posixfscondialogmockup.png")

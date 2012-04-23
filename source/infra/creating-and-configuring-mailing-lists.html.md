@@ -69,4 +69,13 @@ This is a rare configuration, usually reserved for security-related issues.
 *   Set *accept_these_nonmembers* to `^.*` - i.e., a regular expression meaning "every possible incoming email address."
 *   Set *respond_to_post_requests* to *No*.
 
+#### Configuration for closing a list permanently
+
+If you need to close a mailing list, either to direct to a new location or because it is no longer needed, take these steps to hide the list (if needed) and notify senders of what to do. (You may also want to unsubscribe all members, if that is appropriate.)
+
+*   <http://lists.ovirt.org/mailman/admin/LISTNAME/members> - bottom of this page set everyone's moderation bit. (There is also an emergency moderation bit on the general page, but that is an overriding setting rather than setting all current users to moderated - probably functionally the same, but I'm not sure what is better.)
+*   <http://lists.ovirt.org/mailman/admin/LISTNAME/general> - set 'description' and 'info' to point to new URL, with brief text saying the list is closed.
+*   <http://lists.ovirt.org/mailman/admin/LISTNAME/privacy/sender> - in the top section for "Member filters", set 'default_member_moderation' to 'Yes', set 'member_moderation_action' to 'Reject', and then put in some text in 'member_moderation_notice' that points people at the new mailing list. Set up the same thing for 'generic_nonmember_action' and 'nonmember_rejection_notice'.
+*   <http://lists.ovirt.org/mailman/admin/LISTINFO/privacy/subscribing> - set 'advertized' to 'No', set 'subscribe_policy' to 'Require approval', and set 'private_roster' to 'List admin only'.
+
 [Category:Infrastructure documentation](Category:Infrastructure documentation) [Category:Infrastructure SOP](Category:Infrastructure SOP) [Category:Mailing lists](Category:Mailing lists)

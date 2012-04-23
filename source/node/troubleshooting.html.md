@@ -108,4 +108,12 @@ For debugging purposes, you can update an rpm, but it's strongly discouraged for
     -   If those don't work, you can try manually hacking the changed files again to fix it, but you're on you're own with that.
     -   If the above all fail, then re-install is really you're only option.
 
+#### Too many logins
+
+As debug purpose only, to increase the number of tty users logging into oVirt Node (currently it's 3), edit:
+
+      # vi /etc/security/limits.conf
+       *    -    maxlogins 3  
+      # persist /etc/security/limits.conf
+
 [Category: Node](Category: Node)

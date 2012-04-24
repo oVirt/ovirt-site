@@ -41,11 +41,11 @@ In the upcoming version, SPICE is about to perform the following changes/additio
 
 ### Detailed Description
 
-*   New Spice Client
+#### New Spice Client
 
 The Linux and Windows *spicec* based client will be replaced by the *remote-viewer* which is based on spice-gtk. The ActiveX and spice-xpi packages will be updated to include the new client which is backwards compatible with spicec - allowing remote-viewer to be used for RHEV 3 based deployments as well as RHEV 3.1.
 
-*   USB Support
+#### USB Support
 
 For cluster level 3.1 (based on RHEL 6.3 support) native KVM/Spice USB redirection can be used in addition to the legacy Incentives Pro.
 
@@ -117,7 +117,7 @@ For native qemu/spice USB support all client to guest communication happens thro
 
 The new Spice-XPI and Spice-ActiveX packages will wrap both the new remote-viewer client that provides support for native USB and the legacy Incentives Pro USB client. If legacy USB solution is to be used then the existing parameters can be passed as usual eg. URL & filter string. For native USB the client will read the existing filter string parameter. There is no need to explicitly enable the native USB support in the ActiveX/XPI. If legacy support parameters are not passed then the remote-viewer client will try to connect to a Spice USB channel, if no USB channel is found then USB support will be disabled automatically.
 
-*   **Multi Monitor support for Linux guests (Basic)**
+#### Multi Monitor support for Linux guests (Basic)
 
 Currently validations in the user interface prevent configuring multiple monitors for Linux guests. The backend logic permits multiple monitors. The front end logic needs to be updated to allow configuration of multiple monitors for Linux guests. This setting can be enabled for 3.0 and 3.1 cluster levels.
 
@@ -125,7 +125,7 @@ Currently validations in the user interface prevent configuring multiple monitor
 
 We are currently targeting RHEL 6.4 to support multihead QXL devices that would allow xrandr support in the guest for a more complete multihead solution.
 
-*   **WAN Support**
+#### WAN Support
 
 Spice includes a number of features to improve performance on network connections with reduced bandwidth or increased latency. Some of these features are automatic, for example increasing the image compression others have to be explicitly enabled. The spice client supports two options that should may be configured to improve user experience in WAN environments.
 

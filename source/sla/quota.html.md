@@ -205,7 +205,9 @@ On upgrade, an automatic script will create default Quota for each DC, with perm
  The DC status should be disabled. (Same thing when new DC will be establish)
  The disable status of the DC represents, that the user should not see any indications in the GUI that the DC has a Quota in it. When the Data Center is at disable mode, the default Quota will be the one that all the resources consumed from, when the DC will become active, this default quota will behave as a regular quota but will still conceal a default flag in it.
 When user will edit the default quota, the quota will not be default any more, and the user will need to change the quota name, to a name without the default quota prefix.
-When the user will change the Data Ceneter back to disable, there will be a check whether default quota exists or not (Means no change was made on the default quota).</BR> If the default quota was not changed then the default quota will stay the same, which means all new consume of resources will be from the default quota.</BR> If no default quota was found, which means the default quota was changed during when the Data Ceneter was not disabled, then a new default quota should be created with a default name.
+When the user will change the Data Ceneter back to disable, there will be a check whether default quota exists or not (Means no change was made on the default quota).
+If the default quota was not changed then the default quota will stay the same, which means all new consume of resources will be from the default quota.
+If no default quota was found, which means the default quota was changed during when the Data Ceneter was not disabled, then a new default quota should be created with a default name.
 
 Administrator that would like to make the DC to use Quota, should change the DC status to audit,
  which means the users can now have indications on the DC, but still be able to make actions on it.

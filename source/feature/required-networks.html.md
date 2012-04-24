@@ -41,6 +41,16 @@ Refer to [Required_Networks_detailed](Required_Networks_detailed)
 2.  pinned to host VMs that uses networks we don't want other hosts to implement needlessly.
 3.  3rd parties doing network management outside of ovirt.
 
+### REST API
+
+when attaching a network to a cluster, add a boolean required property to it
+
+      POST api/clusters/{id}/networks
+<network id="28372223-881c-4996-81f2-936c6cc2c874">
+` `<name>`test`</name>
+` `<required>`false`</required>
+</network>
+
 ### Comments and Discussion
 
 *   Refer to [ <http://www.ovirt.org/w/index.php?title=Talk:Features/Design/Network/Required_Networks&action=edit&redlink=1> ](Talk:Required_Networks)

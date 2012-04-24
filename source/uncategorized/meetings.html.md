@@ -28,6 +28,9 @@ This is the agenda for the 2012-04-11 meeting:
 *   ovirt-engine-jbossas vs. Fedora17-jbossas (oschreib)
 *   Moving to Fedora 17 (oschreib)
 *   Do we need to re-evaluate release date based on above 3 items? (itamar)
+*   Upcoming workshops
+    -   Topics
+    -   Dates/Events
 *   Hardware availability for automated testing (mburns)
     -   Would be good to have board members from sponsor companies available for this discussion
 

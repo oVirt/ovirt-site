@@ -155,14 +155,14 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 #### Installation/Upgrade
 
-*   For new/upgraded Data Center, the default operation mode will be 'disabled' (which means it won't be subject to any quota restrictions).
-*   For new/upgraded Data Center an unlimited Quota will be created implicitly and be attached to all objects in this Data Center and all the users will be permitted to use it.
+*   For a new/upgraded Data Center, the default operation mode will be 'disabled' (which means it won't be subject to any quota restrictions).
+*   For a new/upgraded Data Center an unlimited Quota will implictly be created and attached to all איק objects in it. All the users will be permitted to use it.
 *   When the administrator chooses to enable the Quota mechanism he should consider removing the permission of the unlimited quota. In addition, the existing resources will consume the unlimited quota, the administrator should consider changing that as well.
-*   On upgrade, an automatic default Quota for each DC will be created, with permissions for every one, and unlimited space for storage and cluster use.
-    When the Data Center is at disable mode, the default Quota will be the one that all the resources consumed from, when the DC will become active, this default quota will behave as a regular quota.
-    When user will edit the default quota, the quota will not be default any more, and the user will need to change the quota name prefix.
-    When the user will change the Data Center back to disable, there will be a check whether default quota was changed or not.
-    If the default quota was not changed then the default quota will stay the same and permission for Everyone will be added to it.
+*   On upgrade, an automatic Default Quota for each DC will be created, with permissions for everyone, and unlimited space for storage and cluster use.
+    When the Data Center is at disabled mode, the Default Quota will be the one that all the resources consumed from, and when the DC will become active, this default quota will behave as a regular quota.
+    When a user will edit the Default Quota, the quota will loose its default flag, and the user will need to change the quota name prefix.
+    When the user will change the Data Center back to disabled, there will be a check whether default quota was changed or not.
+    If the Default Quota was not changed then the default quota will stay the same and permission for Everyone will be added to it.
     If no default quota was found, which means the default quota was changed during when the Data Ceneter was not disabled, then a new default quota should be created with a default name.
 
 #### User work-flows

@@ -199,22 +199,20 @@ The tasks which are being handled are :
 
 For a-synchronized operations behaviour, the operation functionality should be similar to the synchronize functionality. The Quota storage delta and the command list property will be updated before the execute starts with the planned quantity that should be consume. After every creation of task the delta map will be decreased and also the list command member. If the operation will fail, the rest of the quantity in the list will be decreased from the delta map.
 
-###### upgrade behaviour
+###### Upgrade Behaviour
 
-On upgrade, an automatic script will create default Quota for each DC, with permissions for every one, and unlimited space for storage and cluster use.
- The DC status should be disabled. (Same thing when new DC will be establish)
- The disable status of the DC represents, that the user should not see any indications in the GUI that the DC has a Quota in it. When the Data Center is at disable mode, the default Quota will be the one that all the resources consumed from, when the DC will become active, this default quota will behave as a regular quota but will still conceal a default flag in it.
-When user will edit the default quota, the quota will not be default any more, and the user will need to change the quota name, to a name without the default quota prefix.
-When the user will change the Data Ceneter back to disable, there will be a check whether default quota exists or not (Means no change was made on the default quota).
-If the default quota was not changed then the default quota will stay the same, which means all new consume of resources will be from the default quota.
-If no default quota was found, which means the default quota was changed during when the Data Ceneter was not disabled, then a new default quota should be created with a default name.
+When a system is upgraded, an automatic script will create a Default Quota for each DC, with permissions for every one, and unlimited space for storage and cluster use.
+ The DC status should be disabled (same as when a new DC is established).
+ The disabled status of the DC represents that the user should not see any indications in the GUI that the DC has a Quota defined on it. When the DC is set to disabled mode, the Default Quota will be the one that all the resources consumed from, and when the DC will become active, this Default Quota will behave like any other regular quota but will still conceal a default flag in it.
+When the user will edit the Default Quota, the quota will cease being Default, and the user will be forced to change the quota's name to a name without the "DefaultQuota-" prefix.
+When the user will change the DC back to disabled, the existance of a Default Quota will be checked.
+If a Default Quota exists (meaning that it was not edited while the DC was not disabled) no change will be performed on it, meaning all the new resources consumption will be taken from it.
+If no Default Quota was found (meaning the Default Quota was edited while the DC was not disabled) then a new Default Quota will be created with a default name - DefaultQuota-NameOfTheDataCenter.
 
-Administrator that would like to make the DC to use Quota, should change the DC status to audit,
- which means the users can now have indications on the DC, but still be able to make actions on it.
- If the user will perform an action which extend the Quota capabilities perspective, only warnings should perform.
+An administrator that would like to make the DC use Quota, should change the DC status to audit, which means the users can now have indications on the DC, but still be able to make actions on it.
+ If the user will perform an action which exceeds the Quota capabilities perspective, a warning will be shown, but the operation will still succeed.
 
-After the Administrator, will finish to configure the Quotas he desires for the DC,
- he can set the DC to enforce status, which means users will be prevented from making actions which will extend the Quota capabilities.
+After the Administrator will finish configuring the Quotas he desires for the DC, he can set the DC to enforced status, which means users will be prevented from making actions which will exceed the Quota capabilities.
 
 ##### Classes
 

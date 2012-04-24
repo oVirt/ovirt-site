@@ -43,6 +43,10 @@ The storage domain version 3 has been introduced in VDSM on the 30th of January 
 
 #### Engine and GUI
 
+### REST API
+
+The operation is driven by pool compatibility change. So there is no need for a new REST API.
+
 ### Requirements
 
 *   All nodes in the cluster must have 5a0b2c9 "Do not lock the image when preparing the VM path" (vdsm >= 4.9.4) to avoid the LVM mda corruption

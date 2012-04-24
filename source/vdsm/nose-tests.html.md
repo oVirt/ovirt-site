@@ -10,7 +10,9 @@ wiki_last_updated: 2012-05-02
 
 # Vdsm Nose Tests
 
-How to run vdsm Nose Tests: 1. First you must have a vdsm git repository: git clone <ssh://username@gerrit.ovirt.org:29418/vdsm>
+How to run vdsm Nose Tests:
+
+1. First you must have a vdsm git repository: git clone <ssh://username@gerrit.ovirt.org:29418/vdsm>
 
 2. Install python-nose
 

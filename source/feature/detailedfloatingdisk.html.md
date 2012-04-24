@@ -151,6 +151,28 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 ![](disks_subtab_attach_disk_dialogue.png "disks_subtab_attach_disk_dialogue.png")
 
+### Engine
+
+*   Add disk
+    -   When adding a disk, the vm id should be optional, if the id of the VM is provided and the VM is down then the disk should be attached(plugged) to the VM, but if the vm is up, the operation should be blocked.
+    -   The disk should be locked when adding it, until the create process is ended in VDSM.
+
+<!-- -->
+
+*   Remove Disk
+    -   When removing a disk, the disk should be locked.
+
+<!-- -->
+
+*   Activate/Deactivate disk
+    -   Disk should not be locked when activate deactivate a disk same for attach detach
+
+<!-- -->
+
+*   move/copy
+    -   Currently floating disk should not be moved.
+    -   Disk should be locked while move or copy.
+
 ### Dependencies / Related Features and Projects
 
 Affected oVirt projects:

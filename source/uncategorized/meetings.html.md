@@ -19,20 +19,12 @@ oVirt has a weekly sync meeting on IRC (occasionally phone).
 
 #### Weekly project sync meeting
 
-This is the agenda for the 2012-04-24 meeting:
+This is the agenda for the 2012-05-01 meeting:
 
 *   Status of Next Release
 *   Sub-project reports (engine, vdsm, node)
-*   Signed-off-by in commit tag check-up (rharper)
-*   Java 7 in oVirt Engine (oschreib)
-*   ovirt-engine-jbossas vs. Fedora17-jbossas (oschreib)
-*   Moving to Fedora 17 (oschreib)
-*   Do we need to re-evaluate release date based on above 3 items? (itamar)
+*   Review decision on Java 7 and Fedora jboss rpms in oVirt Engine
 *   Upcoming workshops
-    -   Topics
-    -   Dates/Events
-*   Hardware availability for automated testing (mburns)
-    -   Would be good to have board members from sponsor companies available for this discussion
 
 ### Meeting Time and Place
 

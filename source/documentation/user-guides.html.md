@@ -32,6 +32,12 @@ The documentation subproject has a git repository. Like the other oVirt git repo
 
 The git repository is intended to be used for the creation and maintenance of formal documentation for the project. At this time all formal documentation for the project is written in DocBookXML and turned into PDF, HTML, HTML-SINGLE, and EPUB output using [publican](https://fedorahosted.org/publican/).
 
+## Brand
+
+The [publican-ovirt](http://koji.fedoraproject.org/koji/packageinfo?packageID=6970) brand is used to build the oVirt documentation. It is recommended that before building oVirt documentation you download and install this brand to ensure consistent theming.
+
+Built packages for Fedora 15, 16, and 17 are available for download in [koji](http://koji.fedoraproject.org/koji/packageinfo?packageID=6970). These are also expected to work on RHEL and derivative operating systems. The source to the brand is available in the upstream [publican git repository](http://git.fedorahosted.org/git/?p=publican.git;a=tree;f=publican-ovirt;h=3d2102770380957804b86a543d4d021e816c20f7;hb=HEAD).
+
 ## Reference Material
 
 Reference material includes any appropriately licensed information considered a useful reference for more formal documentation activity.

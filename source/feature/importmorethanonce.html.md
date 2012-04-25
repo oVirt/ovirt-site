@@ -22,8 +22,8 @@ Adding the functionality to import VMs and Templates that already exist in setup
 
 #### Current status
 
-*   Design Stage
-*   Last updated date: Thu Mar 29 2012
+*   Development Stage
+*   Last updated date: Wed Apr 25 2012
 
 #### Affected oVirt projects:
 
@@ -87,7 +87,7 @@ note: the following mockups are of ImportVM, in ImportTemplate the 'Collapse Sna
 
 ![](Clone_all_selected.png "Clone_all_selected.png")
 
-#### Core
+#### Engine
 
 *   Add to ImportEntityParameter parameter class boolean member, named importAsNewEntity, that indicates whether this entity should be cloned, the default value is false.
 *   Alter ImportEntityCommand in case importAsNewEntity parameter field is set to true:

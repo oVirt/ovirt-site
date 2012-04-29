@@ -111,6 +111,8 @@ The following libvirt XML example shows adding 4 USB devices to a domain xml. Th
           <address type='usb' bus='0' port='6'/>
         </redirdev>
 
+*   Each of the `redirdev` devices should be added to the `devices` list passed by Engine to Vdsm. Vdsm should be taught to recognise them.
+
 The native qemu/Spice USB support presents an emulated echi and uchi controller to the guest. Virtual machines do not require any in-guest agents or drivers for native USB.
 
 For native qemu/spice USB support all client to guest communication happens through the existing Spice channel so no other ports need to be opened on the guest or host.

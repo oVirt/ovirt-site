@@ -162,10 +162,8 @@ GUI / REST API:
 *   GUI:
     -   For VMs in cluster level 3.0, enable and disable will be the only options. If enabled, it will be mapped to EnabledLegacy; if disabled it will be mapped to Disabled.
     -   For VMs in cluster level 3.1, there will be a checkbox for enabling or disabling USB support. If enabling, two options will appear (radio buttons):
-
-#\*\*Legacy Support
-
-#\*\*Native Support
+        1.  Legacy Support
+        2.  Native Support
 
 ### Comments and Discussion
 

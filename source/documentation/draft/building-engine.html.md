@@ -116,23 +116,6 @@ Or copy & paste the content of the file below into ~/.m2/settings.xml
 
 ## Installing JBoss AS
 
-### Automatically (From RPMs)
-
-RPMs have been provided for Fedora 15 users. These are not however part of the Fedora 15 release and are only available from a third party repository. First, add the third part repository as a source for software:
-
-          #> wget -P /etc/yum.repos.d/ http://www.ovirt.org/releases/stable/fedora/16/ovirt-engine.repo
-
-Then install the ovirt-engine-jbossas package:
-
-          #> yum install ovirt-engine-jbossas
-          #> su - -c 'chmod -R 777 /usr/share/jboss-as'
-          #> chkconfig jboss-as on
-
-Finally, check that the installed service runs:
-
-          #> service jboss-as start
-          #> ps ax | grep java
-
 ### Manually (From Zips)
 
           $> cd /usr/share
@@ -149,6 +132,23 @@ Check that it runs:
           $> /usr/share/jboss-as/bin/standalone.sh
 
 Ensure that you have write access to $JBOSS_HOME/standalone/deployments to which oVirt-engine will be deployed.
+
+### Automatically (From RPMs)
+
+CURRENTLY WE DON'T HAVE RPM FOR JBOSS AS 7.1.1, SO USE THE ZIPPED VERSION RPMs have been provided for Fedora 15 users. These are not however part of the Fedora 15 release and are only available from a third party repository. First, add the third part repository as a source for software:
+
+          #> wget -P /etc/yum.repos.d/ http://www.ovirt.org/releases/stable/fedora/16/ovirt-engine.repo
+
+Then install the ovirt-engine-jbossas package:
+
+          #> yum install ovirt-engine-jbossas
+          #> su - -c 'chmod -R 777 /usr/share/jboss-as'
+          #> chkconfig jboss-as on
+
+Finally, check that the installed service runs:
+
+          #> service jboss-as start
+          #> ps ax | grep java
 
 ### Troubleshooting
 

@@ -143,7 +143,7 @@ If selected by the user then the two WAN options should be passed to the XPI / A
 
 #### USB Support
 
-Engine:
+##### Engine
 
 1.  Currently, there is a USB Policy Enum with two values:
     -   Enabled
@@ -156,17 +156,20 @@ Engine:
 
 The order in this Enum will allow to support backward compatibility easily, as the numbering will be 0 for Enabled-Legacy (as today), 1 for Disabled (as today) and 2 for Enabled-Native (new field). No DB changes are needed in order to support this kind of change.
 
-GUI / REST API:
+##### GUI / REST API
 
-*   GUI + REST API:
-    -   In case USB is enabled, we will select, by default, Legacy support for cluster level 3.0 and Native support for cluster level 3.1.
-*   GUI:
-    -   For VMs in cluster level 3.0, enable and disable will be the only options. If enabled, it will be mapped to EnabledLegacy; if disabled it will be mapped to Disabled.
-    -   For VMs in cluster level 3.1, there will be a checkbox for enabling or disabling USB support. If enabling, two options will appear (radio buttons):
-        1.  Legacy Support
-        2.  Native Support
-    -   XPI Native support will be a new flag in SPICE-XPI
-    -   Native USB support isn't supported in live migration yet, so when choosing this option there will be a warning in the UI specifying that USB devices will be lost upon migration.
+GUI + REST API:
+
+*   -   In case USB is enabled, we will select, by default, Legacy support for cluster level 3.0 and Native support for cluster level 3.1.
+
+GUI:
+
+*   For VMs in cluster level 3.0, enable and disable will be the only options. If enabled, it will be mapped to EnabledLegacy; if disabled it will be mapped to Disabled.
+*   For VMs in cluster level 3.1, there will be a checkbox for enabling or disabling USB support. If enabling, two options will appear (radio buttons):
+    1.  Legacy Support
+    2.  Native Support
+*   XPI Native support will be a new flag in SPICE-XPI
+*   Native USB support isn't supported in live migration yet, so when choosing this option there will be a warning in the UI specifying that USB devices will be lost upon migration.
 
 ### Comments and Discussion
 

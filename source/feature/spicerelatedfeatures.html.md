@@ -139,6 +139,34 @@ In the user portal the console options dialog should be extended to include a ch
 
 If selected by the user then the two WAN options should be passed to the XPI / ActiveX components.
 
+### Design
+
+#### USB Support
+
+Engine:
+
+1.  Currently, there is a USB Policy Enum with two values:
+    -   Enabled
+    -   Disabled
+
+2.  We will change this Enum to contain the following values:
+    -   EnabledLegacy
+    -   Disabled
+    -   EnabledNative
+
+The order in this Enum will allow to support backward compatibility easily, as the numbering will be 0 for Enabled-Legacy (as today), 1 for Disabled (as today) and 2 for Enabled-Native (new field).
+
+GUI / REST API:
+
+*   GUI / REST API will select, by default, legacy support for cluster level 3.0 and Native support for cluster level 3.1 (in case the USB is enabled).
+*   GUI:
+    -   For VMs in cluster level 3.0, enable and disable will be the only options. If enabled, it will be mapped to EnabledLegacy; if disabled it will be mapped to Disabled.
+    -   For VMs in cluster level 3.1, there will be a checkbox for enabling or disabling USB support. If enabling, two options will appear (radio buttons):
+
+#\*\*Legacy Support
+
+#\*\*Native Support
+
 ### Comments and Discussion
 
 Issues/Questions:

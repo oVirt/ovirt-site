@@ -16,7 +16,7 @@ This pages describes the changes needed on oVirt to support new SPICE features i
 
 ### Background
 
-Currently oVirt use the spicec client for remote Spice connections and RHEV adds the proprietary Incentives Pro USB redirector solution to add support for remote USB. Since Fedora 16, the QEMU and Spice projects have added native support for USB remoting and are moving to a new client, virt-viewer, based on spice-gtk that includes more features and is based on a more portable codebase that will extend from Linux and Windows to more platforms in the future such as Mac OS. The virt-viewer client also includes support for the new native USB support in Spice.
+Currently oVirt use the spicec client for remote Spice connections and RHEV adds the proprietary Incentives Pro USB redirector solution to add support for remote USB. Since Fedora 16, the QEMU and Spice projects have added native support for USB remoting and are moving to a new client, virt-viewer, based on spice-gtk that includes more features and is based on a more portable code-base that will extend from Linux and Windows to more platforms in the future such as Mac OS. The virt-viewer client also includes support for the new native USB support in Spice.
 
 ### Owner
 
@@ -154,16 +154,19 @@ Engine:
     -   Disabled
     -   EnabledNative
 
-The order in this Enum will allow to support backward compatibility easily, as the numbering will be 0 for Enabled-Legacy (as today), 1 for Disabled (as today) and 2 for Enabled-Native (new field).
+The order in this Enum will allow to support backward compatibility easily, as the numbering will be 0 for Enabled-Legacy (as today), 1 for Disabled (as today) and 2 for Enabled-Native (new field). No DB changes are needed in order to support this kind of change.
 
 GUI / REST API:
 
-*   GUI / REST API will select, by default, legacy support for cluster level 3.0 and Native support for cluster level 3.1 (in case the USB is enabled).
+*   GUI + REST API:
+    -   In case USB is enabled, we will select, by default, Legacy support for cluster level 3.0 and Native support for cluster level 3.1.
 *   GUI:
     -   For VMs in cluster level 3.0, enable and disable will be the only options. If enabled, it will be mapped to EnabledLegacy; if disabled it will be mapped to Disabled.
     -   For VMs in cluster level 3.1, there will be a checkbox for enabling or disabling USB support. If enabling, two options will appear (radio buttons):
         1.  Legacy Support
         2.  Native Support
+    -   XPI Native support will be a new flag in SPICE-XPI
+    -   Native USB support isn't supported in live migration yet, so when choosing this option there will be a warning in the UI specifying that USB devices will be lost upon migration.
 
 ### Comments and Discussion
 

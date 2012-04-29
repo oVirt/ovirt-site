@@ -162,7 +162,7 @@ The order in this Enum will allow to support backward compatibility easily, as t
 
 GUI + REST API:
 
-*   -   In case USB is enabled, we will select, by default, Legacy support for cluster level 3.0 and Native support for cluster level 3.1.
+*   In case USB is enabled, we will select, by default, Legacy support for cluster level 3.0 and Native support for cluster level 3.1.
 
 GUI:
 
@@ -172,6 +172,33 @@ GUI:
     2.  Native Support
 *   XPI Native support will be a new flag in SPICE-XPI
 *   Native USB support isn't supported in live migration yet, so when choosing this option there will be a warning in the UI specifying that USB devices will be lost upon migration.
+
+REST API:
+
+*   Today, the API contains USB definitions as follows (both in VMs and Templates):
+
+        <xs:complexType name="Usb">
+          <xs:sequence>
+            <xs:element name="enabled" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+       
+
+*   In order to support two kinds of USB support, we add a new string element named "type", which should contain either "Legacy" or "Native":
+
+        <xs:complexType name="Usb">
+          <xs:sequence>
+            <xs:element name="enabled" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+       
+
+*   Some notes on the new element:
+    -   It is a temporary one, as in the future only the native option will be supported.
+    -   It is relevant only in case the "enabled" element is "true"
+    -   It is relevant only in VMs/Templates of cluster level 3.1 and above. For cluster level 3.0, if USB is enabled, "Legacy" will be used automatically.
 
 ### Comments and Discussion
 

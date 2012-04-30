@@ -20,8 +20,6 @@ Currently oVirt use the spicec client for remote Spice connections and RHEV adds
 
 ### Owner
 
-This should link to your home wiki page so we know who you are
-
 *   Name: [ Oved Ourfali](User:Ovedo)
 *   Email: <ovedo@redhat.com>
 

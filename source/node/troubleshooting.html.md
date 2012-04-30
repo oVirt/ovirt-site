@@ -64,8 +64,8 @@ nqsaxeG1J8l1U
 #### Bind mounts and tmpfs
 
 *   Node heavily relies on bindfs - to persist some files - and tmpfs.
-    -   `mount` won't show all the bind mounts on all distributions, looking at `/proc/mounts` might help here
-    -   `findmnt` is another way to get an overview over mount sources and targets
+    -   `mount` won't show all the bind mounts on all distributions, looking at `/proc/mounts` might help here. But both methods don't allow to get the complete source of a bindmount if the sources is e.g. a file.
+    -   `findmnt` can be used to get an overview over mount targets *and* their sources
 
 #### RPM changes
 

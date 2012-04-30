@@ -156,14 +156,16 @@ If selected by the user then the two WAN options should be passed to the XPI / A
     -   Disabled
     -   EnabledNative
 
+3.  Validations: no legacy support on Linux VMs, no native support in 3.1 clusters.
+
 The Enum will support backward compatibility easily, as the numbering will be 0 for Enabled-Legacy (as today), 1 for Disabled (as today) and 2 for Enabled-Native (new field). So, OVF import/export will work as today. No DB changes are needed in order to support this kind of change.
 
 ##### GUI
 
 *   For VMs in cluster level 3.0, enable and disable will be the only options. If enabled, it will be mapped to EnabledLegacy; if disabled it will be mapped to Disabled.
 *   For VMs in cluster level 3.1, there will be a checkbox for enabling or disabling USB support. If enabling, two options will appear (radio buttons):
-    1.  Legacy Support
-    2.  Native Support
+    1.  Legacy Support (disabled for Linux VMs)
+    2.  Native Support (the default option)
 *   XPI Native support will be a new flag in SPICE-XPI
 *   Native USB support isn't supported in live migration yet, so when choosing this option there will be a warning in the UI specifying that USB devices will be lost upon migration.
 

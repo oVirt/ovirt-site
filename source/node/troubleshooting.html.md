@@ -61,6 +61,12 @@ nqsaxeG1J8l1U
     -   By default, the root file system of oVirt Node is read only. To make changes temporarily on the system, you can remount it read/write
     -   mount -o rw,remount /
 
+#### Bind mounts and tmpfs
+
+*   Node heavily relies on bindfs - to persist some files - and tmpfs.
+    -   `mount` won't show all the bind mounts on all distributions, looking at `/proc/mounts` might help here
+    -   `findmnt` is another way to get an overview over mount sources and targets
+
 #### RPM changes
 
 *   Warning -- Changes you make from the shell are not persistent by default and will be lost if you reboot the host

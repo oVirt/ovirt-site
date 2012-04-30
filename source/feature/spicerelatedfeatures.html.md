@@ -158,7 +158,7 @@ If selected by the user then the two WAN options should be passed to the XPI / A
 
 3.  Validations: no legacy support on Linux VMs, no native support in 3.0 clusters.
 
-The Enum will support backward compatibility easily, as the numbering will be 0 for Enabled-Legacy (as today), 1 for Disabled (as today) and 2 for Enabled-Native (new field). So, OVF import/export will work as today. No DB changes are needed in order to support this kind of change.
+The Enum will support backward compatibility easily, as the numbering will be 0 for Enabled-Legacy (as today), 1 for Disabled (as today) and 2 for Enabled-Native (new option). So, OVF import/export will work as today. No DB changes are needed in order to support this kind of change.
 
 ##### GUI
 

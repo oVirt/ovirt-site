@@ -90,10 +90,10 @@ Each of the above is represented by a UUID. oVirt should save all of the UUID's 
         -   Quantum Attachment UUID (q_attachment_id)
     -   Move the VM from Host A to Host B
     -   If Host A supports Quantum then send the following information to VDSM on Host A (VDSM can remove the artifacts):
-    -   Quantum plugin type (q_plugin)
-    -   Quantum Network UUID (q_network_id)
-    -   Quantum Port UUID (q_port_id)
-    -   Quantum Attachment UUID (q_attachment_id)
+        -   Quantum plugin type (q_plugin)
+        -   Quantum Network UUID (q_network_id)
+        -   Quantum Port UUID (q_port_id)
+        -   Quantum Attachment UUID (q_attachment_id)
 
 In order to implement the above a REST client needs to be implemented in the oVirt engine.
 

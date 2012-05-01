@@ -65,7 +65,9 @@ The three new predifined roles should be created.
 
 #### User work-flows
 
-===== Adding a VM ==== 1. The admin grants the VM Creator permission to a user on a host/cluster 2. The user can create a new VM on the host/cluster 3. Once the user creates the VM, he becomes a VM Operator on this VM
+##### Adding a VM
+
+1. The admin grants the VM Creator permission to a user on a host/cluster 2. The user can create a new VM on the host/cluster 3. Once the user creates the VM, he becomes a VM Operator on this VM
 
 #### Events
 
@@ -81,7 +83,7 @@ N / A
 
 ### Comments and Discussion
 
-Add a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
+...
 
 ### Open Issues
 

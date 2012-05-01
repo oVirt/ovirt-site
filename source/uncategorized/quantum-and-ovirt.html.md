@@ -148,6 +148,18 @@ Each agents has its own spefic code [https://github.com/gkotton/vdsm_quantum qua
 
 ##### Host Management
 
+The oVirt engine will notify VDSM of the physical interfaces to attach to the Quantum network. The treatment is agent specific. In the case of Open vSwitch the following should happen:
+
+*   Update the integration port details add:
+
+       ''ovs-vsctl -- add-port br-int $interfaceName
+
+*   Update the integration port details delete:
+
+       ''ovs-vsctl -- del-port br-int $interfaceName
+
+In the case of the Linux Bridge the agent may have to be stopped and then restarted.
+
 ### Open Issues
 
 ### Documentation / External references

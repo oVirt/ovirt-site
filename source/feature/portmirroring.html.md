@@ -62,12 +62,14 @@ Notes:
 
 Will be available soon.
 
+### REST API
+
+The only change is the ability to set whether the VM NIC should get mirrored traffic or not, so we add the following element to the NIC type:
+
+*   <xs:element name="mirror_traffic_to_nic" type="xs:boolean" minOccurs="0"/>
+
 ### Benefit to oVirt
 
 The ability to integrate the security world with the virtualization one, allowing to easily monitor and secure networks in a virtualized environment, same as done today in non-virtualized environments.
-
-### Documentation / External references
-
-### Comments and Discussion
 
 <Category:Feature> <Category:Template>

@@ -123,29 +123,31 @@ If the message received from the oVirt engine contains Quantum plugin informatio
 
       ''deviceName = tap q_attachment_id[0:11]
 
-*   VM Start
+*   VM Start (**Once the Quantum agent detects that the interface tap$deviceName is up it *adds* the interface to the bridge**)
     -   Open vSwitch commands:
 
       ''/sbin/ip tuntap add $deviceName mode tap
       ''/sbin/ip link set $deviceName up
-      '' /usr/bin/ovs-vsctl -- --may-exist add-port br-int $deviceName -- set Interface $deviceName external-ids:iface-id=q_attachment_id  -- set Interface $deviceName external-ids:iface-status=active -- set Interface $deviceName external-ids:attached-mac=$macAddr -- set Interface $deviceName external-ids:vm-uuid=vmUuid
+      ''/usr/bin/ovs-vsctl -- --may-exist add-port br-int $deviceName 
+      ''  -- set Interface $deviceName external-ids:iface-id=q_attachment_id  
+      ''  -- set Interface $deviceName external-ids:iface-status=active 
+      ''  -- set Interface $deviceName external-ids:attached-mac=$macAddr 
+      ''-- set Interface $deviceName external-ids:vm-uuid=vmUuid
 
 *   -   Linux Bridge
 
-             command = ["/sbin/ip", "tuntap", "add", self.deviceName, "mode", "tap"]
-             utils.execCmd(command, sudo=True)
-             command = ["/sbin/ip", "link", "set", self.deviceName, "up"]
-             utils.execCmd(command, sudo=True)
-             command = ["/usr/bin/ovs-vsctl", "--", "--may-exist", "add-port", "br-int", self.deviceName,
-                        "--", "set", "Interface", self.deviceName, "external-ids:iface-id=%s" % self.q_attachment_id,
-                        "--", "set", "Interface", self.deviceName, "external-ids:iface-status=active",
-                        "--", "set", "Interface", self.deviceName, "external-ids:attached-mac=%s" % macAddr,
-                        "--", "set", "Interface", self.deviceName, "external-ids:vm-uuid=%s" % vmUuid]
-             utils.execCmd(command, sudo=True)
+      ''/sbin/ip tuntap add $deviceName mode tap
+      ''/sbin/ip link set $deviceName up
 
 *   VM Stop
     -   Open vSwitch
-    -   Linux Bridge
+
+      ''/usr/bin/ovs-vsctl del-port br-int $deviceName
+      ''/sbin/ip link delete $deviceName
+
+*   -   Linux Bridge
+
+      ''/sbin/ip link delete $deviceName
 
 An example can been seen with the [POC](https://github.com/gkotton/vdsm_quantum) code.
 

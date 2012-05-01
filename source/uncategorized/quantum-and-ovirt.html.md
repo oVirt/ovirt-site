@@ -162,6 +162,21 @@ In the case of the Linux Bridge the agent may have to be stopped and then restar
 
 ### Open Issues
 
+The current Quantum model has a number of gaps and limitations with respect to integration with oVirt. These are:
+
+*   Networking support
+    -   MTU support
+    -   Port mirroring
+    -   Permissions and ownership
+    -   SLA's
+*   Product specific issues
+    -   Versioning, backward compatibility
+    -   Ability to support a heterogeneous data center:
+        -   Non-uniform connectivity (i.e. not all computing resources can access the same physical networks)
+        -   Non-uniform technology (i.e. different plugins)
+    -   Database support
+    -   Error handling
+
 ### Documentation / External references
 
 <https://fedoraproject.org/wiki/Quantum_and_oVirt>

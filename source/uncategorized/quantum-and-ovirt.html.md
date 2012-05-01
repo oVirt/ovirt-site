@@ -125,6 +125,8 @@ If the message received from the oVirt engine contains Quantum plugin informatio
 
 **NOTE:** The tap device created uses an "ethernet" network device. This means that the creation of the libvirt XML file is a bit different. For example [libvirtvm.py](https://github.com/gkotton/vdsm_quantum) lines 962 - 982.
 
+Each agents has its own spefic code [https://github.com/gkotton/vdsm_quantum quantum.py](https://github.com/gkotton/vdsm_quantum quantum.py). For example Open vSwitch:
+
 *   VM Start
     -   Open vSwitch commands:
 
@@ -136,22 +138,13 @@ If the message received from the oVirt engine contains Quantum plugin informatio
       ''  -- set Interface $deviceName external-ids:attached-mac=$macAddr 
       ''-- set Interface $deviceName external-ids:vm-uuid=vmUuid
 
-*   -   Linux Bridge:
-
-      ''/sbin/ip tuntap add $deviceName mode tap
-      ''/sbin/ip link set $deviceName up
-
 *   VM Stop
     -   Open vSwitch:
 
       ''/usr/bin/ovs-vsctl del-port br-int $deviceName
       ''/sbin/ip link delete $deviceName
 
-*   -   Linux Bridge:
-
-      ''/sbin/ip link delete $deviceName
-
-An example can been seen with the [POC](https://github.com/gkotton/vdsm_quantum) code.
+**NOTE:** When a communication channel is established between VDSM and the oVirt engine. The VDSM host should notify the oVirt Engine of the Quntum fabric that is supported.
 
 ##### Host Management
 

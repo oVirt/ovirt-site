@@ -58,6 +58,8 @@ The ***Fabric*** will be the networking fabric, that is, the networking implemen
 *   VDSM - the traditional networking
 *   Quantum - a Quantum network. If this is Quantum then it should indicate the supported plugin. This can be an open source plugin or a commercial plugin.
 
+**NOTE:** a pull down with the fabric types is based on the capabilities supported by VDSM (discussed in the VDSM section).
+
 If the user wishes to see the *characteristics* of the network then they can click on the network name. In the case of traditional VDSM networks this will show the VLAN tag. It may show additional information for a Quantum network, for example GRE tunnel information.
 
 #### Back End

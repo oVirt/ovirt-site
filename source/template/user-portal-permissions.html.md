@@ -43,7 +43,7 @@ Following is a detailed description of the behavior for each entity type.
 
 Two new predefined roles should be added - VM Creator and Tempalate Creator, which only contain the action groups for adding VMs/Templates, respectively, and do not allow users to manipulate existing entities. These new roles will be the way administrators will grant their users the ability to create new VMs/Templates without exposing existing ones.
 
-### Template Operator Roles
+#### Template Operator Roles
 
 A new predifined role should be added - Template Operator. This role will allow the modification of an existing template, and would be given to a user who issues a CreateVMTempalteCommand on the template he created.
 

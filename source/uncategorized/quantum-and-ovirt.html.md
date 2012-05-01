@@ -20,12 +20,6 @@ Quantum currently supports several publicly available plugins:
 
 Integrating Quantum into oVirt enables oVirt to make use of emerging networking technologies, for example, [OpenFlow](http://www.openflow.org/), via one or more of the above mentioned plugins.
 
-This page will address the following:
-
-*   Integration Ideas
-*   Flows
-*   Open Issues
-
 ### Integration Ideas
 
 This section will discuss a number of integration ideas. Ideally we would like to maintain the existing interfaces with minimal changes. The following will be addressed:

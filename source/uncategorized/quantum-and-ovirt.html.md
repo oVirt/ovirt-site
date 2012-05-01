@@ -117,7 +117,7 @@ If the host that is running VDSM requires a Quantum agents then VDSM should run 
 
 If the message received from the oVirt engine contains Quantum plugin information then VDSM should treat accordingly. The device name is created from the q_attachment_id. That is:
 
-      ''deviceName = tap q_attachment_id[0:11]
+      ''deviceName = tap + q_attachment_id[0:11]
 
 **NOTE:** The tap device created uses an "ethernet" network device. This means that the creation of the libvirt XML file is a bit different. For example [libvirtvm.py](https://github.com/gkotton/vdsm_quantum) lines 962 - 982.
 

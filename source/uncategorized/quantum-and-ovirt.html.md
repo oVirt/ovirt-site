@@ -123,7 +123,9 @@ If the message received from the oVirt engine contains Quantum plugin informatio
 
       ''deviceName = tap q_attachment_id[0:11]
 
-*   VM Start (**Once the Quantum agent detects that the interface tap$deviceName is up it *adds* the interface to the bridge**)
+**NOTE:** The tap device created uses an "ethernet" network device. This means that the creation of the libvirt XML file is a bit different. For example [libvirtvm.py](https://github.com/gkotton/vdsm_quantum) lines 962 - 982.
+
+*   VM Start
     -   Open vSwitch commands:
 
       ''/sbin/ip tuntap add $deviceName mode tap
@@ -134,18 +136,18 @@ If the message received from the oVirt engine contains Quantum plugin informatio
       ''  -- set Interface $deviceName external-ids:attached-mac=$macAddr 
       ''-- set Interface $deviceName external-ids:vm-uuid=vmUuid
 
-*   -   Linux Bridge
+*   -   Linux Bridge:
 
       ''/sbin/ip tuntap add $deviceName mode tap
       ''/sbin/ip link set $deviceName up
 
 *   VM Stop
-    -   Open vSwitch
+    -   Open vSwitch:
 
       ''/usr/bin/ovs-vsctl del-port br-int $deviceName
       ''/sbin/ip link delete $deviceName
 
-*   -   Linux Bridge
+*   -   Linux Bridge:
 
       ''/sbin/ip link delete $deviceName
 

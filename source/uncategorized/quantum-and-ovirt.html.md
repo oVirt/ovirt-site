@@ -59,7 +59,7 @@ In order to support Quantum the table can be modified as follows:
 |------|---------|-----|--------------|-----------|-----------|--------------|------|--------|--------------|
 |      |         |     |              |           |           |              |      |        |              |
 
-The ***Fabric*** will be the networking fabric, that is, the networking implementation. This can be one of the following:
+The ***Fabric*** will be the networking fabric, that is, the networking implementation. The user should be able to receive a list of the supported fabric types. This can be one of the following:
 
 *   VDSM - the traditional networking
 *   Quantum - a Quantum network. If this is Quantum then it should indicate the supported plugin. This can be an open source plugin or a commercial plugin.

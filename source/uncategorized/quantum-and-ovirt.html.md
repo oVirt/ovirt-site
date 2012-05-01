@@ -68,12 +68,40 @@ If the user wishes to see the *characteristics* of the network then they can cli
 
 #### Back End
 
+The Quantum Service is a process that runs the Quantum API web server (port 9696) and is responsible for loading a plugin and passing each API call to the plugin for processing. The Quantum service should run on the oVirt Engine. The API utilizes the following logical abstractions:
+
+*   **Network**: An isolated L2 segment, analogous to a single physical L2 switching device with an arbitrary number of ports.
+*   **Port**: Provide a connection point to a Quantum network. Port states are either *DOWN* or *ACTIVE*.
+*   **Attachment**: Identifier of an interface device to be *plugged in* to a Quantum port, such as a vNIC.
+
+Each of the above is represented by a UUID. oVirt should save all of the UUID's with the relevant artifacts that make use of the information, namely the logical network and the virtual machines. The usage of these will be discussed below.
+
 ##### Logical Network Management
 
-*   Network Creation
-*   Network Deletion
-*   VM Creation
-*   VM Deletion
+*   Network Creation - If the network is in a cluster that contains a host that uses a Quantum fabric then the Quantum service will need to allocate a UUID for the network. This is done by sending a *network create* message to the service with the name of the logical network.
+*   Network Deletion - If a logical network is deleted and the logical network has a UUID (assigned above) then the Quantum service needs to be notified. This is done by sending a *network delete* message with the UUID.
+*   VM Creation - If the host that is to run the VM uses a Quantum fabric then a Quantum port needs to be assigned to the VM for each vNIC on a Quantum network. This is done by sending a *port create* message to the service with the UUID of the network. The Quantum service will return the UUID of the port. A port attachment UUID should be generated.
+*   VM Start - The port attachment UUID is passed with the port to the Quantum service. This is done by sending a *interface plug* message to the service with the UUID of the network and the UUID of the port. The following information should be passed to VDSM (VDSM functionality will be dealt with in more detail below):
+    -   Quantum plugin type (q_plugin)
+    -   Quantum Network UUID (q_network_id)
+    -   Quantum Port UUID (q_port_id)
+    -   Quantum Attachment UUID (q_attachment_id)
+*   VM Stop - If the host that is to run the VM uses a Quantum fabric then after an event that the VM has been stopped, oVirt engine will need to unplug the attach interface. This is done by sending a *interface unplug* message to the service with the UUID of the network and the UUID of the port.
+*   VM Deletion - If a Quantum port is assigned to the VM then this should be deleted. This is done by sending a *port delete* message to the service with the UUID of the network. The Quantum service will return the UUID of the port.
+*   VM Migration - If the VM is moved from Host A to Host B then the follows needs to be done:
+    -   If Host B supports Quantum then send the following information to VDSM on Host B (VDSM will create the necessary artifacts):
+        -   Quantum plugin type (q_plugin)
+        -   Quantum Network UUID (q_network_id)
+        -   Quantum Port UUID (q_port_id)
+        -   Quantum Attachment UUID (q_attachment_id)
+    -   Move the VM from Host A to Host B
+    -   If Host A supports Quantum then send the following information to VDSM on Host A (VDSM can remove the artifacts):
+    -   Quantum plugin type (q_plugin)
+    -   Quantum Network UUID (q_network_id)
+    -   Quantum Port UUID (q_port_id)
+    -   Quantum Attachment UUID (q_attachment_id)
+
+In order to implement the above a REST client needs to be implemented in the oVirt engine.
 
 ##### Host Management
 

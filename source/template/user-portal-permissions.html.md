@@ -83,7 +83,7 @@ N / A
 
 ### Comments and Discussion
 
-...
+[Talk:Features/User Portal Permissions](Talk:Features/User Portal Permissions)
 
 ### Open Issues
 

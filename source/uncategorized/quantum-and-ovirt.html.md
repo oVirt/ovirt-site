@@ -105,6 +105,14 @@ In order to implement the above a REST client needs to be implemented in the oVi
 
 ##### Host Management
 
+The oVirt engine should send the configured fabric information to VDSM. The following may be sent to VDSM:
+
+*   Plugin installation packages (if necessary)
+*   Plugin configuration details
+*   Plugin connectivity details
+
+VDSM will use the above to interface with the Quantum plugin if necessary.
+
 #### VDSM
 
 *   Logical Network Management

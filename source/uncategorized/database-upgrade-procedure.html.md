@@ -57,6 +57,10 @@ The pre_upgrade directory will be used only to resolve cases as we have already 
 To avoid high number of upgrade script files we can squash each version files to a single file after it is published.
 Since upgrade scripts contains both schema and data changes, this issue is open for suggestion and will be implemented in future.
 
+### Temporary Functions in Upgrade scripts
+
+Temporary functions in upgrade scripts should be renamed __temp_<name> This is in order to distinguish them from real persistent functions and preventing the chance to drop such a function by mistake in an upgrade script.
+
 ## Where are upgrade scripts located ?
 
 All changes should be located under the upgrade/ directory

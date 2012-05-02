@@ -19,10 +19,10 @@ The storage domain version 3 has been introduced in VDSM on the 30th of January 
 
 #### VDSM and Format
 
-*   Use SANLock to acquire the SPM resource [3]
-*   Use SANLock to acquire the volume resources (virtualization subsystem, libvirt) [4]
+*   Uses SANLock to acquire the SPM resource [3]
+*   Uses SANLock to acquire the volume resources (virtualization subsystem, libvirt) [4]
 *   In block domains the permissions of the LVs in the metadata are always RW (to allow live snapshots and live merges)
-*   Support unicode in the domain and pool description [5]
+*   Supports unicode in the domain and pool description [5]
 *   New mailbox format (in progress)
 
 #### Engine and GUI

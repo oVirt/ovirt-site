@@ -175,7 +175,6 @@ If selected by the user then the two WAN options should be passed to the XPI / A
         <xs:complexType name="Usb">
           <xs:sequence>
             <xs:element name="enabled" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1"/>
           </xs:sequence>
         </xs:complexType>
        

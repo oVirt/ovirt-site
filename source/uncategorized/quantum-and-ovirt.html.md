@@ -109,6 +109,8 @@ The oVirt engine should send the configured fabric information to VDSM. The foll
 
 VDSM will use the above to interface with the Quantum plugin if necessary.
 
+**NOTE:** The Host Operational status will need to be addressed differently with a Quantum network.
+
 #### VDSM
 
 If the host that is running VDSM requires a Quantum agents then VDSM should run the agent. The agent packet can and may be received from the oVirt Engine or can be downloaded via RPM's. In addition to the treatment below VDSM should also maintain a health check to the Quantum agent, that is, if for some reason the agent crashs, for example an exception, then VDSM should restart the agent.

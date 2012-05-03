@@ -34,9 +34,13 @@ The git repository is intended to be used for the creation and maintenance of fo
 
 ## Brand
 
-The [publican-ovirt](http://koji.fedoraproject.org/koji/packageinfo?packageID=6970) brand is used to build the oVirt documentation. It is recommended that before building oVirt documentation you download and install this brand to ensure consistent theming.
+The [publican-ovirt](http://koji.fedoraproject.org/koji/packageinfo?packageID=6970) brand is used to build the oVirt documentation. It is recommended that before building oVirt documentation you download and install this brand to ensure consistent theming. Users of Fedora 15, Fedora 16, and Fedora 17, may obtain the brand by running:
 
-Built packages for Fedora 15, 16, and 17 are available for download in [koji](http://koji.fedoraproject.org/koji/packageinfo?packageID=6970). These are also expected to work on RHEL and derivative operating systems. The source to the brand is available in the upstream [publican git repository](http://git.fedorahosted.org/git/?p=publican.git;a=tree;f=publican-ovirt;h=3d2102770380957804b86a543d4d021e816c20f7;hb=HEAD).
+         # yum install publican-brand
+
+Alternatively the RPMs are available for download in [koji](http://koji.fedoraproject.org/koji/packageinfo?packageID=6970). These are also expected to work on RHEL and derivative operating systems.
+
+Users of other operating systems for which publican is available may obtain the source to the brand from the [publican git repository](http://git.fedorahosted.org/git/?p=publican.git;a=tree;f=publican-ovirt;h=3d2102770380957804b86a543d4d021e816c20f7;hb=HEAD). Once a local copy of the brand source has been created, follow the instructions in the [Publican User Guide](http://jfearn.fedorapeople.org/en-US/Publican/2.6/html/Users_Guide/chap-Users_Guide-Branding.html#sect-Users_Guide-Installing_a_brand) to build and install the brand.
 
 ## Reference Material
 

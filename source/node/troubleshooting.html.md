@@ -122,4 +122,19 @@ As debug purpose only, to increase the number of tty users logging into oVirt No
        *    -    maxlogins 3  
       # persist /etc/security/limits.conf
 
+#### certificate/ssl problems?
+
+To validate your current vdsmcert with cacert, execute:
+
+       # openssl verify -CAfile /etc/pki/vdsm/certs/cacert.pem /etc/pki/vdsm/certs/vdsmcert.pem
+       vdsmcert.pem: OK  (returning OK) 
+
+To show the certificate data:
+
+       # openssl x509 -in /etc/pki/vdsm/certs/cacert.pem -noout -text
+       # openssl x509 -in /etc/pki/vdsm/certs/vdsmcert.pem -noout -text 
+       
+       # openssl x509 -in /etc/pki/vdsm/certs/vdsmcert.pem -noout -text | grep -i issuer (show only issuer)
+       # openssl x509 -in /etc/pki/vdsm/certs/cacert.pem -noout -text | grep -i subject (show only subject) 
+
 [Category: Node](Category: Node)

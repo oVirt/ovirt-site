@@ -31,6 +31,10 @@ To create an RPM do:
 
       make rpm
 
+or
+
+      make NOSE_EXCLUDE=.* rpm  (As development only, avoid the unittests validation)
+
 Vdsm automatically builds using the latest tagged version. If you want to explicitly define a version use
 
       make rpmversion=4.9 rpmrelease=999.funkyBranch

@@ -124,7 +124,7 @@ As debug purpose only, to increase the number of tty users logging into oVirt No
 
 #### certificate/ssl problems?
 
-To validate your current vdsmcert with cacert, execute:
+As debugging approach, to validate your current vdsmcert with cacert, execute:
 
        # openssl verify -CAfile /etc/pki/vdsm/certs/cacert.pem /etc/pki/vdsm/certs/vdsmcert.pem
        vdsmcert.pem: OK  (returning OK) 

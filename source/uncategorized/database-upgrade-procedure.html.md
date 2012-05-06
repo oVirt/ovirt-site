@@ -82,11 +82,11 @@ Upgrade In upgrade we first drop all SPs & Views and then run all upgrade script
 
 ## What should I do if I have to ?
 
-       Add or change a column              Add an upgrade script
-       Add/Delete/Modify configuration values   Modify config.sql script in pre_upgrade directory using common fn_db* functions
-       Add/Delete/Modify any default data      Add an upgrade script
-       Add/Delete/Modify a SP              Change only the relevant *_sp.sql file
-       Add/Delete/Modify a View            Change only the relevant code in create_views.sql file
+       Add or change a column                      Add an upgrade script
+       Add/Delete/Modify/Split configuration values     Modify config.sql script in pre_upgrade directory using common fn_db* functions
+       Add/Delete/Modify any default data              Add an upgrade script
+       Add/Delete/Modify a SP                      Change only the relevant *_sp.sql file
+       Add/Delete/Modify a View                    Change only the relevant code in create_views.sql file
 
 Please note that if you change configuration value it is safer to use fn_db_update_default_config_value rather than fn_db_update_config_value
 onsider the following example:
@@ -108,6 +108,7 @@ Then the writer of 3) (u2) will check the script failure and update it to includ
        fn_db_add_config_value            Adds a new value to vdc_options
        fn_db_update_default_config_value     Updates the value of an option in vdc_options if given default was not   changed.You can also define if your condition is case-sensitive or not
        fn_db_delete_config_value             Deletes an option from vdc_options
+       fn_db_split_config_value          Given general configuration entry, creates new entries for each old cluster version, with the old value, and a new entry for the newest cluster version with the input value
          
 
 ## Examples
@@ -120,3 +121,4 @@ Then the writer of 3) (u2) will check the script failure and update it to includ
        select fn_db_update_config_value('DBEngine','Postgres','general');
        select fn_db_update_default_config_value('LDAPSecurityAuthentication','GSSAPI','default:GSSAPI','general',false);
        select fn_db_delete_config_value('ENMailEnableSsl','general');
+       select fn_db_split_config_value('SpiceSecureChannels','all');

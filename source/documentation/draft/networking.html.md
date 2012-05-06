@@ -15,8 +15,8 @@ This page is for captuaring Networking related features we would like to have in
 ## Items list
 
 UCS integration
-SR-IOV support
 Blade Harmony
+SR-IOV support
 IPV6 support
 network SLA
 user defined networks (vlan ranges)

@@ -71,4 +71,11 @@ Amazon VM comes with a default 5GB / partition. but it actually has 50GB you can
 
       * resize2fs /dev/xvde1
 
+#### change open files
+
+Jenkins slave might run out of openfiles. to change this you need to run:
+
+      *ulimit -n 2048
+      *edit /etc/sysctl.conf: fs.file-max = 2048
+
 [Category: Infrastructure documentation](Category: Infrastructure documentation)

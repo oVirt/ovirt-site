@@ -29,6 +29,7 @@ quantum integration
 open flow
 GRE tunneling
 Network roles (storage / live migration network etc.)
+Using Network manager vs. using scripts (VDSM level)
 
 We'll open a wiki page for each of the above lines.
 

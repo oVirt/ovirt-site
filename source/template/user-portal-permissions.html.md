@@ -31,12 +31,12 @@ This page details how the User Portal decides what objects to display, specifica
 
 ##### Inheriting Permissions
 
-Today, the User Portal exposes all the objects under an entity if any permission is given on that entity. This behaviour is correct for "manipulate" and "use" permission, but not for "create" permissions. E.g. If a user has the permissions to create a VM in a cluster, he sould not be able to see all the VMs in the cluster.
+Today, the User Portal exposes all the objects under an entity if any permission is given on that entity or on the reflecting entities (add link to explanation what is reflecting entities). This behaviour is correct for "manipulate" and "use" permission, but not for "create" permissions. E.g. If a user has the permissions to create a VM in a cluster, he sould not be able to see all the VMs in that cluster.
 
 Following is a detailed description of the behavior for each entity type.
 
-*   Data Center - Create VM/Template/Pool permission will not grant the ability to view objcets contained in the DC.
-*   Cluster - Create VM/Template/Pool permission will not grant the ability to view objcets contained in the cluser.
+*   Data Center - Create VM/Template permission will not grant the ability to view VMs/Templates in the DC.
+*   Cluster - Create VM/Template permission will not grant the ability to view VMs/Templates in the cluser.
 *   Storage Domain - Create VM/Template/Disk permission will not grant the ability to view objcets contained in the storage domain.
 
 ##### Creartor Roles

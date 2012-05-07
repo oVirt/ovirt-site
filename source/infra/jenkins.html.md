@@ -77,5 +77,8 @@ Jenkins slave might run out of openfiles. to change this you need to run:
 
       *ulimit -n 2048
       *edit /etc/sysctl.conf: fs.file-max = 2048
+      *edit /etc/security/limits.conf:
+      *  jenkins  soft    nofiles    2048
+      *  jenkins  hard    nofiles    2048
 
 [Category: Infrastructure documentation](Category: Infrastructure documentation)

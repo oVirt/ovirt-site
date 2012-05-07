@@ -148,4 +148,73 @@ The UI will now have to pass the context (\`runAsUser\`) differently for webadmi
 
 Can (and should be) cancelled. Hallelujah.
 
+<<TableOfContents>>
+
+# Writing a New User Query
+
+### What Are User Queries?
+
+User queries are, in a nutshell, queries that can be run a regular user, without requiring admin permissions.
+
+### The General Case
+
+In the general case, your query will call one of the DAOs, which, in turn, will call a stored procedure in the database. When writing a User Query, there are several aspects you must address.
+
+#### Permission View
+
+Each entity with managed permissions has its own flattened view of user permissions called user_OBJECT_NAME_permissions_view (e.g., VM permissions are listed in user_vm_permissions_view). Notes:
+
+      1. The view only lists `**`user`**` permissions.  A user that has administrator permissions on an object will not be represented here.
+      1. The view flattens object hierarchies. E.g., if a user should be able to query a VM since he has permissions on the Storage Pool containing it, that user permission will appear in the VM view. You do not have to handle it yourself.
+      1. The view flattens group hierarchies. E.g., if a user should be able to query a VM since a group he's contained in has permissions on the VM, that user permission will appear in the VM view. You do not have to handle it yourself.
+
+#### Stored Procedure
+
+The stored procedure should, besides the parameters involved in the query's logic, contain two more parameters - (UUID) and a BOOLEAN flag. If is only the objects the user has permissions on should be returned. If it's , the should be ignored.
+
+The query inside the stored procedure should have a part of the where clause which represents this, as follows:
+
+#### DAO
+
+The DAO should contain two overloaded methods - one with the and parameters and one without, which assumes its run as an administrator and passes and , respectively, to the first flavor.
+
+e..g:
+
+#### Query
+
+The parameter is available by the method. The parameter is available from the query paramters by the method.
+
+e.g.:
+
+#### VdcQueryType
+
+In order for your new query to be treated as a User Query, add a new entry for it in the VdcQueryType enum, with the optional parameter. e.g.:
+
+##### Testing your Query
+
+A test case should be written for each new query. You should extend , and thus recieve the following services:
+
+      1. `` - returns the query to use in the test, with a mocked up user
+      1. `` - return `**`a` `mock`**` parameter object the query was constructed with. You can add additional behavior to it using `` statements.
+      1. `` - returns the mocked user running the query
+      1. `` - returns a power-mocked instance of ``. You can add additional behavior to it (e.g., adding mocks for specific DAOs) using `` statements.
+      1. `` - tests your query was indeed marked as a user query. Is run from the base class, and does not need to be called explicitly.
+
+### Queries with a User ID as a parameter
+
+These queries essentially filter their results according to user ID in any case, so no special database treatment is needed. However, there is a mechanism that assures a user that does not have admin permissions could not initiate such a query with a different user's ID,
+
+#### Query
+
+Simply extend the class. It's already implements the logic detailed above, so you should not override it. Instead, it provides two methods for this logic:
+
+      1. getPrivilegedQueryReturnValue() - the value the query returns in case the user has privileges to execute it (i.e., is an admin or is querying his own objects). Should be implemented in your query.
+      1. getUnprivilegedQueryReturnValue()  - the value the query returns in case the user does not have privileges to execute it (i.e., isn't an admin and isn't querying his own objects). The default implementation returns an empty list.
+
+e.g.:
+
+------------------------------------------------------------------------
+
+      . CategoryRhevmBackend
+
 <Category:Template> <Category:DetailedFeature>

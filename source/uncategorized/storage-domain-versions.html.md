@@ -15,6 +15,9 @@ wiki_warnings: references
 
 The storage domain version 3 has been introduced in VDSM on the 30th of January 2012 with the commit 8665716c: Use SANLock for the SPM resource [1]. The new format has been introduced to overcome some of the limitations present in the previous formats (with regard to live snapshots, live merges and internationalization) and mainly to introduce the use of SANLock [2].
 
+*   **Supported Domain Types:** Block (iSCSI, FCP) and File (NFS, local) domains
+*   **Supported Domain Classes:** Data, Export
+
 ### Changes
 
 #### VDSM and Format
@@ -22,7 +25,11 @@ The storage domain version 3 has been introduced in VDSM on the 30th of January 
 *   Uses SANLock to acquire the SPM resource [3]
 *   Uses SANLock to acquire the volume resources (virtualization subsystem, libvirt) [4]
 *   In block domains the permissions of the LVs in the metadata are always RW (to allow live snapshots and live merges)
-*   Supports unicode in the domain and pool description [5]
+*   Unicode[5] support in the name and description of:
+    -   Storage Pools
+    -   Storage Domains
+    -   Disks and NICs
+    -   Virtual Machines
 *   New mailbox format (in progress)
 
 #### Engine and GUI
@@ -50,6 +57,10 @@ The operation is driven by pool compatibility change. So there is no need for a 
 ### Requirements
 
 *   All nodes in the cluster must have 5a0b2c9 "Do not lock the image when preparing the VM path" (vdsm >= 4.9.4) to avoid the LVM mda corruption
+
+### Export Domains
+
+Export domains cannot be upgraded; they must be created in the version 3 format (and previous versions of VDSM won't be able to attach it to a V1/V2 pool).
 
 ### Upgrade
 

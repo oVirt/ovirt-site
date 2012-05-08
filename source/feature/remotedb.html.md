@@ -21,7 +21,7 @@ Remote DB feature means working with a Postgres instance on a remote host.
 
 ### Current status
 
-The code was developed and is waiting for code review.
+The code is developed and is a part of the upstream code.
 
 ### Design and flow
 

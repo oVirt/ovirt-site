@@ -83,6 +83,7 @@ Actors:
     -   running a *Testsuite* on the provisioned *Host*,
     -   monitor progress and act if necessary
     -   and collect/summarize the results
+    -   technical: rest-less, wsgi
 
 The actual flow would be like:
 

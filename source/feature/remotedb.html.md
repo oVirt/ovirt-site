@@ -74,6 +74,14 @@ To use with local installation, only DB_REMOTE_INSTALL=local and DB_LOCAL_PASS v
 
 To use with remote installation, use DB_REMOTE_INSTALL=remote and configure DB_HOST, DB_PORT, DB_ADMIN, DB_REMOTE_PASS and DB_SECURE_CONNECTION values as needed.
 
+It is recommended to generate the answer file automatically:
+
+`engine-setup --gen-answer-file=`<answer file full path>
+
+...and then update its parameters accordingly with the installation requirements. After that, proceed with installation using the answer file:
+
+`engine-setup --answer-file=`<answer file full path>
+
 ### Comments and Discussion
 
 <Category:Feature>

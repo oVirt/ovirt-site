@@ -83,11 +83,11 @@ Actors:
 The actual flow would be like:
 
 1.  *Testsuite* is submitted to the *Controller*, triggered by e.g. jenkins
-2.  *Controller* provisions one of the provided *Hosts* if available as given by the *Profile*
-3.  *Controller* passes the *Testsuite* to the *Host*
-4.  *Host* is execution each *Testcase* in the *Testsuite* and passes partial results back to the *Controller*
-    1.  *Controller* monitors the *Host* and e.g resets it if needed e.g. to long test duration, network ping timeout or some other criteria
+2.  While: *Controller* monitors the *Host* and e.g resets it if needed e.g. to long test duration, network ping timeout or some other criteria
+    1.  *Controller* provisions one of the provided *Hosts* if available as given by the *Profile*
+    2.  *Controller* passes the *Testsuite* to the *Host*
+    3.  *Host* is execution each *Testcase* in the *Testsuite* and passes partial results back to the *Controller*
 
-5.  *Controller* reports results back to e.g. jenkins
+3.  *Controller* reports results back to e.g. jenkins
 
 <Category:Testing> <Category:Automation>

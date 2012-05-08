@@ -25,29 +25,27 @@ The code was developed and is waiting for code review.
 
 ### Design and flow
 
-The flow of installation is as follows:
-
 #### Setup
 
-*   During the engine-setup operation, user is asked to enter DB hostname or an IP. Default value 'localhost' is offered.
+*   During the engine-setup operation, user is asked to select 'remote' or 'local' installation. Default value 'local' is offered.
 
-      * If entered 'localhost' or '127.0.0.1', the installation will continue with default flow present today.
-      * If entered a hostname or IP of the remote host, the additional set of questions will be presented.
-        * Additional questions include: DB Admin username, DB Port and "Security usage" parameters.
+      * If entered 'local', the installation will continue and perform installation on the local machine.
+      * If entered 'remote', the additional set of questions will be presented.
+        * Additional questions include: DB Admin username, DB Port, Remote Db password and "Security usage" parameters.
 
 *   Installation proceeds with normal flow.
 *   During the normal flow, additional parameters (if entered by user) are used during DB creation and JBoss configuration.
 
 DB configuration parameters are stored in **~/.pgpass file**, including remote host, port and username/password. JBoss configuration is stored in **/usr/share/jboss-as/standalone/configuration/standalone.xml** file.
 
-*   If setup is rerun, the same parameter are used in "upgradeDb" function. Also, see next section for the upgrade logic.
+*   If setup is rerun, the same parameters are used in "upgradeDb" function. Also, see next section for the upgrade logic.
 
 #### Upgrade
 
 *   During the upgrade, the DB connection values are received from ~/.pgpass file and used for connection.
 *   The upgrade works as follows:
 
-      * First, the packages are upgraded is necessary.
+      * First, the packages are upgraded if necessary.
       * Before performing the DB upgrade, a backup is taken.
 `* After the backup, the default DB (engine) is renamed to engine-`<date>
        * If renaming fails, yum rollback is performed, and user is notified about possible active connections.
@@ -60,19 +58,22 @@ DB configuration parameters are stored in **~/.pgpass file**, including remote h
 *   During the upgrade, the DB connection values are received from ~/.pgpass file and used for connection.
 *   If DB drop fails user is notified about possible active connections.
 
+#### Unattended (silent) installation
+
+It is possible to use an answer file for the silent installation. The values for the RemoteDb are:
+
+      DB_REMOTE_INSTALL=local
+      DB_HOST=10.1.1.1
+      DB_PORT=5433
+      DB_ADMIN=remotedb_test
+      DB_REMOTE_PASS=54321
+      DB_SECURE_CONNECTION=no
+      DB_LOCAL_PASS=admin!ad
+
+To use with local installation, only DB_REMOTE_INSTALL=local and DB_LOCAL_PASS values are required.
+
+To use with remote installation, use DB_REMOTE_INSTALL=remote and configure DB_HOST, DB_PORT, DB_ADMIN, DB_REMOTE_PASS and DB_SECURE_CONNECTION values as needed.
+
 ### Comments and Discussion
-
-Currently there are two questions we need to get answer to:
-
-      1. What if potential customer asks us to create certificate for the DB?
-      2. What kind of permissions we can receive on remote DB?
-
-### FAQ:
-
-      Q. Can DB admin close active connections?
-      A. No, this requires superuser privileges.
-
-      Q. Can DB admin rename the DB?
-      A. Only if DB admin is the DB owner.
 
 <Category:Feature>

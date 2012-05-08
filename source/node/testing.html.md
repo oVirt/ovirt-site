@@ -71,10 +71,14 @@ The plan is to separate the TUI code and "logic" code even more, so that TUI act
 
 Actors:
 
-*   A set of *Testsuites*. Consisting of one or more *Testcases*
-*   A set of *Hosts*. The target of a *Testsuite*, virtual guests or real hardware.
-*   A set of *Profiles*. Describing the setup of a Host. E.g. distribution, installation method, storage and network layout.
-*   A *Controller*, dispatching (*Testsuites*, *Profile*, [*Host*]) tuples thus
+*   A set of **Testsuites**. Consisting of one or more *Testcases*
+    -   Testcases could be simple bash and python scripts
+*   A set of **Profiles**. Describing the setup of a Host. E.g. distribution, installation method, storage and network layout.
+    -   Specifies how to install the node, what storage and network configuration to use.
+    -   In the easiest case this boils down to a specific kernel commandline getting passed to node (which is then picked up by the installer) to install it accordingly
+*   A set of **Hosts**. The target of a *Testsuite*, virtual guests or real hardware.
+    -   A host is mainly needed to create appropriate virtual guests
+*   A **Controller**, dispatching (*Testsuites*, *Profile*, [*Host*]) tuples thus
     -   provisioning a *Host*,
     -   running a *Testsuite* on the provisioned *Host*,
     -   monitor progress and act if necessary
@@ -86,7 +90,7 @@ The actual flow would be like:
 2.  While: *Controller* monitors the *Host* and e.g resets it if needed e.g. to long test duration, network ping timeout or some other criteria
     1.  *Controller* provisions one of the provided *Hosts* if available as given by the *Profile*
     2.  *Controller* passes the *Testsuite* to the *Host*
-    3.  *Host* is execution each *Testcase* in the *Testsuite* and passes partial results back to the *Controller*
+    3.  *Host* is executing each *Testcase* in the *Testsuite* and passes partial results back to the *Controller*
 
 3.  *Controller* reports results back to e.g. jenkins
 

@@ -48,7 +48,9 @@ Missing to comply with the purpose definition:
 
 ### Detailed Description
 
-The cleanup should provide 1. Reset a failed installation to a state in which you can safely run yum remove and then yum install engine
+The cleanup should provide:
+
+1. Reset a failed installation to a state in which you can safely run yum remove and then yum install engine
 
         Meaning the sequence: engine-cleanup, yum remove ovirt-engine, yum install ovirt-engine, engine-setup
         Stretch goal - avoid the remove/install part if planing to re-install the same version
@@ -59,15 +61,19 @@ The cleanup should provide 1. Reset a failed installation to a state in which yo
 
 3. Reset an exiting installation without dropping DB. Use cases, fix failed upgrade or a corrupted installation
 
-        Next 'Manual' steps: yum remove engine
+        Next required 'Manual' steps: yum remove engine
                              yum install engine
-                             engine-setup should know how to reuse this DB (upgrade if necessary)
+                             engine-setup (it should know how to reuse this DB and upgrade if necessary)
 
-Note 1: This utility is not intended to leave the hosts clean for other application to reuse - only to be reused by a freoVirt Manager Note 2: Preserve DB is not intended to relocate db from local to remote and vice verse - Need to provide a procedure to do that. Note 3: It will not remove any export, including the one it created during last installation. If we wish for engine-setup to reuse this is enhancement to for engine-setup.
+Note 1: This utility is not intended to leave the hosts clean for other application to reuse - only to be reused by a freoVirt Manager
+
+Note 2: Preserve DB is not intended to relocate db from local to remote and vice verse - Need to provide a procedure to do that.
+
+Note 3: It will not remove any export, including the one it created during last installation. If we wish for engine-setup to reuse this is enhancement to for engine-setup.
 
 ### Benefit to oVirt
 
-What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
+This feature saved the need to re-install the host OS if a re-install of the engine is required. Currently in some cases even an initial installation failure may require clean install
 
 ### Dependencies / Related Features
 

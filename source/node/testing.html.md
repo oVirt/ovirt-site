@@ -50,8 +50,14 @@ The plan is to separate the TUI code and "logic" code even more, so that TUI act
 **Requirements**
 
 *   Should be triggered automatically from automated builds (Jenkins)
-*   ideally will cause builds to be marked either failed or unstable
-*   should cover basic sanity testing scenarios that we cover in manual testing today
+*   Ideally will cause builds to be marked either failed or unstable
+*   Should cover basic sanity testing scenarios that we cover in manual testing today
+*   Testcases should be easy to write and flexible
+*   Individual testcases should be also *easily* testable
+*   Needs to cover different (see below) to allow complex setups like: Test 'Suite A' on a Fedora host with three unpartitioned disks and on a second Fedora host with three partitioned disks
+    -   hosts (e.g. virtual, real)
+    -   distributions (e.g. RHEL, Fedora, CentOS, ...)
+    -   profiles (e.g. partitioned or not, with auto-install or not, ...)
 
 **Basic Sanity testing scenarios**
 
@@ -61,4 +67,27 @@ The plan is to separate the TUI code and "logic" code even more, so that TUI act
 4.  general configuration done (network, storage, ovirt-engine)
 5.  start vms on running ovirt-node hosts using FC and iscsi storage domains
 
-<Category:Node> <Category:Testing> <Category:Automation>
+#### Workflow
+
+Actors:
+
+*   A set of *Testsuites*. Consisting of one or more *Testcases*
+*   A set of *Hosts*. The target of a *Testsuite*, virtual guests or real hardware.
+*   A set of *Profiles*. Describing the setup of a Host. E.g. distribution, installation method, storage and network layout.
+*   A *Controller*, dispatching (*Testsuites*, *Profile*, [*Host*]) tuples thus
+    -   provisioning a *Host*,
+    -   running a *Testsuite* on the provisioned *Host*,
+    -   monitor progress and act if necessary
+    -   and collect/summarize the results
+
+The actual flow would be like:
+
+1.  *Testsuite* is submitted to the *Controller*, triggered by e.g. jenkins
+2.  *Controller* provisions one of the provided *Hosts* if available as given by the *Profile*
+3.  *Controller* passes the *Testsuite* to the *Host*
+4.  *Host* is execution each *Testcase* in the *Testsuite* and passes partial results back to the *Controller*
+    1.  *Controller* monitors the *Host* and e.g resets it if needed e.g. to long test duration, network ping timeout or some other criteria
+
+5.  *Controller* reports results back to e.g. jenkins
+
+<Category:Testing> <Category:Automation>

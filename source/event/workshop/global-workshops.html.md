@@ -30,7 +30,7 @@ Leslie Hawthorn is investigating holding a workshop at Red Hat's campus in Banga
 
 We are currently working to locate a place to host a workshop in the LATAM region.
 
-### LinuxCon Japan 2012
+## LinuxCon Japan 2012
 
 *   Workshop Date: June 8, 2012
 *   [https://events.linuxfoundation.org/events/linuxcon-japan Conference Website](https://events.linuxfoundation.org/events/linuxcon-japan Conference Website)
@@ -49,7 +49,7 @@ We are currently working to locate a place to host a workshop in the LATAM regio
 *   If anyone would like to volunteer to help with instruction, please notify [Leslie Hawthorn](User:Lh).
 *   Please spread the word to those you feel would benefit from attending. [http://lists.ovirt.org/pipermail/users/2012-May/001931.html relevant email thread](http://lists.ovirt.org/pipermail/users/2012-May/001931.html relevant email thread)
 
-### LinuxCon North America 2012
+## LinuxCon North America 2012
 
 *   Workshop Date: Tuesday, August 28, 2012
 *   [https://events.linuxfoundation.org/events/linuxcon Conference Website](https://events.linuxfoundation.org/events/linuxcon Conference Website)
@@ -72,7 +72,7 @@ We are currently working to locate a place to host a workshop in the LATAM regio
 
 While we have not yet been given a deadline for these action items, it would be best to get the information together sooner rather than later.
 
-### LinuxCon Europe 2012
+## LinuxCon Europe 2012
 
 *   Workshop Dates: November 7-9, 2012
 *   [https://events.linuxfoundation.org/events/linuxcon-europe LinuxCon Europe Website](https://events.linuxfoundation.org/events/linuxcon-europe LinuxCon Europe Website)
@@ -96,10 +96,10 @@ The oVirt workshop at LinuxCon Europe will be co-located with the KVM Forum even
 
 While we have not yet been given a deadline for these action items, it would be best to get the information together sooner rather than later.
 
-### NetApp Campus Workshop 2013
+## NetApp Campus Workshop 2013
 
 Details for this workshop are still to be confirmed, with a target date of January 22-24, 2013 at [NetApp's Sunnyvale, California, US headquarters](http://maps.google.com/maps/place?cid=7052473688898245753&q=netapp+headquarters+sunnyvale&hl=en&t=h&cd=1&cad=src:ppiwlink&ei=PLyqT72BNsf9kAXkxpzeBA&sig2=DivLR8aVzWexkjnlAxpuGw&dtab=2).
 
-### Intel Campus Workshop 2013
+## Intel Campus Workshop 2013
 
 Details for this workshop are still to be confirmed, though we have confirmed the date for it as March 20-21, 2013. The workshop will be held at Intel's Shanghai campus.

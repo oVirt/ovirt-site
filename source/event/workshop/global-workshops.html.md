@@ -24,7 +24,7 @@ If you are interested in setting up a workshop, please contact [Leslie Hawthorn]
 
 ## Other Proposed Workshop Locations
 
-Kyle Mestry is working to arrange a workshop on Cisco's campus, likely in the Research Triangle Park, North Carolina, US area.
+Kyle Mestery is working to arrange a workshop on Cisco's campus, likely in the Research Triangle Park, North Carolina, US area.
 
 Leslie Hawthorn is investigating holding a workshop at Red Hat's campus in Bangalore, India. The campus is in the process of moving to a new location and event space and logistics will become more clear once the move has taken place.
 

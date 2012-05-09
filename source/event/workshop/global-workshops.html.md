@@ -33,9 +33,9 @@ We are currently working to locate a place to host a workshop in the LATAM regio
 ### LinuxCon Japan 2012
 
 *   Workshop Date: June 8, 2012
-*   [ Conference Website](https://events.linuxfoundation.org/events/linuxcon-japan)
-*   [ Workshop Agenda](https://events.linuxfoundation.org/events/linuxcon-japan/ovirt-gluster-workshops)
-*   [ Workshop Registration Link](http://www.regonline.com/Register/Checkin.aspx?EventID=1099949)
+*   [https://events.linuxfoundation.org/events/linuxcon-japan Conference Website](https://events.linuxfoundation.org/events/linuxcon-japan Conference Website)
+*   [https://events.linuxfoundation.org/events/linuxcon-japan/ovirt-gluster-workshops Workshop Agenda](https://events.linuxfoundation.org/events/linuxcon-japan/ovirt-gluster-workshops Workshop Agenda)
+*   [http://www.regonline.com/Register/Checkin.aspx?EventID=1099949 Workshop Registration Link](http://www.regonline.com/Register/Checkin.aspx?EventID=1099949 Workshop Registration Link)
 
 #### LinuxCon Japan 2012 Workshop Details
 
@@ -46,8 +46,8 @@ We are currently working to locate a place to host a workshop in the LATAM regio
 
 #### LinuxCon Japan 2012 Workshop Outstanding Action Items
 
-*   If anyone would like to volunteer to help with instruction, please notify [ Leslie Hawthorn](User:Lh).
-*   Please spread the word to those you feel would benefit from attending. [ relevant email thread](http://lists.ovirt.org/pipermail/users/2012-May/001931.html)
+*   If anyone would like to volunteer to help with instruction, please notify [User:Lh Leslie Hawthorn](User:Lh Leslie Hawthorn).
+*   Please spread the word to those you feel would benefit from attending. [http://lists.ovirt.org/pipermail/users/2012-May/001931.html relevant email thread](http://lists.ovirt.org/pipermail/users/2012-May/001931.html relevant email thread)
 
 ### LinuxCon North America 2012
 

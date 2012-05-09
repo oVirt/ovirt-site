@@ -52,8 +52,8 @@ We are currently working to locate a place to host a workshop in the LATAM regio
 ### LinuxCon North America 2012
 
 *   Workshop Date: Tuesday, August 28, 2012
-*   [Conference Website](https://events.linuxfoundation.org/events/linuxcon)
-*   [Workshop Registration Link](http://www.regonline.com/Register/Checkin.aspx?EventID=1099953)
+*   [https://events.linuxfoundation.org/events/linuxcon Conference Website](https://events.linuxfoundation.org/events/linuxcon Conference Website)
+*   [http://www.regonline.com/Register/Checkin.aspx?EventID=1099953 Workshop Registration Link](http://www.regonline.com/Register/Checkin.aspx?EventID=1099953 Workshop Registration Link)
 
 #### LinuxCon North America 2012 Workshop Details
 

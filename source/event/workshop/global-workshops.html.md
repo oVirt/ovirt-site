@@ -26,6 +26,8 @@ If you are interested in setting up a workshop, please contact [Leslie Hawthorn]
 
 Kyle Mestry is working to arrange a workshop on Cisco's campus, likely in the Research Triangle Park, North Carolina, US area.
 
+Leslie Hawthorn is investigating holding a workshop at Red Hat's campus in Bangalore, India. The campus is in the process of moving to a new location and event space and logistics will become more clear once the move has taken place.
+
 We are currently working to locate a place to host a workshop in the LATAM region.
 
 ### LinuxCon Japan 2012
@@ -93,3 +95,11 @@ The oVirt workshop at LinuxCon Europe will be co-located with the KVM Forum even
 *   Submit all information the Linux Foundation for printed materials and website.
 
 While we have not yet been given a deadline for these action items, it would be best to get the information together sooner rather than later.
+
+### NetApp Campus Workshop 2013
+
+Details for this workshop are still to be confirmed, with a target date of January 22-24, 2013 at [NetApp's Sunnyvale, California, US headquarters](http://maps.google.com/maps/place?cid=7052473688898245753&q=netapp+headquarters+sunnyvale&hl=en&t=h&cd=1&cad=src:ppiwlink&ei=PLyqT72BNsf9kAXkxpzeBA&sig2=DivLR8aVzWexkjnlAxpuGw&dtab=2).
+
+### Intel Campus Workshop 2013
+
+Details for this workshop are still to be confirmed, though we have confirmed the date for it as March 20-21, 2013. The workshop will be held at Intel's Shanghai campus.

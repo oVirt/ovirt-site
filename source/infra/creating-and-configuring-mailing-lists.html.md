@@ -69,6 +69,13 @@ This is a rare configuration, usually reserved for security-related issues.
 *   Set *accept_these_nonmembers* to `^.*` - i.e., a regular expression meaning "every possible incoming email address."
 *   Set *respond_to_post_requests* to *No*.
 
+#### Configuration for an announcement mailing list
+
+*   *Privacy* > *Sender* set 'default_member_moderation' to 'Yes'
+*   *Privacy* > *Sender* set 'member_moderation_action' to 'Reject' and put in text in 'member_moderation_notice' that explains it is an announcement only list and gives at least one contact email address for questions and comments.
+    -   Set up the same thing for 'generic_nonmember_action' and 'nonmember_rejection_notice'.
+*   *General* set 'max_message_size' to 150KB or more to allow for images and such in announcements.
+
 #### Configuration for closing a list permanently
 
 If you need to close a mailing list, either to direct to a new location or because it is no longer needed, take these steps to hide the list (if needed) and notify senders of what to do. (You may also want to unsubscribe all members, if that is appropriate.)

@@ -75,8 +75,8 @@ While we have not yet been given a deadline for these action items, it would be 
 ## LinuxCon Europe 2012
 
 *   Workshop Dates: November 7-9, 2012
-*   [https://events.linuxfoundation.org/events/linuxcon-europe LinuxCon Europe Website](https://events.linuxfoundation.org/events/linuxcon-europe LinuxCon Europe Website)
-*   [https://events.linuxfoundation.org/events/kvm-forum KVM Forum Website](https://events.linuxfoundation.org/events/kvm-forum KVM Forum Website)
+*   [LinuxCon Europe Website](https://events.linuxfoundation.org/events/linuxcon-europe)
+*   [KVM Forum Website](https://events.linuxfoundation.org/events/kvm-forum)
 
 The oVirt workshop at LinuxCon Europe will be co-located with the KVM Forum event.
 

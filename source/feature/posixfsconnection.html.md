@@ -100,5 +100,6 @@ This part is for api.
 *   The attribute "Path" will be mapped to storage_server_connections.connection attribute.
 *   StorageType will have a new literal value of POSIXFS
 
-Here are some ugly GUI Mockups:
-![](posixfscondialogmockup.png "fig:posixfscondialogmockup.png")
+## Changes in GUI
+
+![](posixfsnewdatacenterdialog.png "fig:posixfsnewdatacenterdialog.png") ![](posixfsnewdomaindialog.png "fig:posixfsnewdomaindialog.png")

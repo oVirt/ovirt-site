@@ -102,4 +102,4 @@ Details for this workshop are still to be confirmed, with a target date of Janua
 
 ## Intel Campus Workshop 2013
 
-Details for this workshop are still to be confirmed, though we have confirmed the date for it as March 20-21, 2013. The workshop will be held at Intel's Shanghai campus.
+Details for this workshop are still to be confirmed, though we have confirmed the date for it as March 20-21, 2013. The workshop will be held at [Intel's Shanghai campus](http://maps.google.com/maps?q=No.+880+Zi+Xing+Road+Zizhu+Science+Park+Minhang,+Shanghai+200241+China&hl=en&sll=23.141807,113.324834&sspn=0.077662,0.153122&t=h&hq=No.+880+Zi+Xing+Road+Zizhu+Science+Park+Minhang,+Shanghai+200241+China&radius=15000&z=13).

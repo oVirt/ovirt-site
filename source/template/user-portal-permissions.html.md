@@ -118,7 +118,7 @@ N / A
 
 ### Documentation / External references
 
-N / A
+[Writing A New User Query](Features/User Portal Permissions/Writing A New User Query)
 
 ### Comments and Discussion
 

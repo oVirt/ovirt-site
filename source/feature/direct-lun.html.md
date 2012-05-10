@@ -93,7 +93,7 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 ## Rest API
 
-= To be done.
+= Will be added an option to pass a direct lun object via API, all other APIs will be the same
 
 ## Engine - VDSM API
 

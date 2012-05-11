@@ -22,8 +22,9 @@ Adding the functionality to import VMs and Templates that already exist in setup
 
 #### Current status
 
-*   Development Stage
-*   Last updated date: Wed Apr 25 2012
+*   Merged to upstream: Import VM more than once.
+*   Development Stage: Import Template more than once, REST for both.
+*   Last updated date: Fri May 11 2012.
 
 #### Affected oVirt projects:
 

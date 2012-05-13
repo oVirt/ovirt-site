@@ -34,7 +34,7 @@ Include you email address that you can be reached should people want to contact 
 ### Detailed Description
 
 The following feature will provide a context menu/drop down menu allowing to open reports for relevant entities in the system.
- **The entites that have reports**- dcs, clusters, hosts, storage, vms.
+ **The entities that have reports**- dcs, clusters, hosts, storage, vms.
 **How to open a report**- Selecting the relevant entity in the main tab=>
  1. Right clicks=> Show reports
  OR
@@ -42,11 +42,11 @@ The following feature will provide a context menu/drop down menu allowing to ope
  => choosing the report you want.
  Jasper system ui will be opened in a new tab/window (depends on the browser) and the selected report will be shown (no need to enter user and password).
 **pre-requirements**- 1. Reports.xml- This file includes-
-a. The data about te enteties reports. The show reports menu of each entity is constructed according to this file.
+a. The data about te entities reports. The show reports menu of each entity is constructed according to this file.
 b. The data whether the Jasper server is in ce (clien edition) mode or not.
 The Reports file resides in the engine in the webadmin directory ($JBOSS_HOME/standalone/deployments/engine.ear/webadmin.war/webadmin/Reports.xml)
 2. RedirectServletReportsPage- Update the "RedirectServletReportsPage" entry in vdc_options table with jasper sever base url (including protocol-http/https and port, for example <http://10.35.97.118:8080/jasperserver-pro/>)
- If one of these tow pre-requirements is missing the show report menu will be unvisible for all the entites.
+ If one of these tow pre-requirements is missing the show report menu will be invisible for all the entities.
  3. Configuring the jasper server as explain here- <http://gerrit.ovirt.org/#change,3355>
 
 <Category:Feature>

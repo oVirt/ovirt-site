@@ -47,6 +47,6 @@ b. The data whether the Jasper server is in ce (clien edition) mode or not.
 The Reports file resides in the engine in the webadmin directory ($JBOSS_HOME/standalone/deployments/engine.ear/webadmin.war/webadmin/Reports.xml)
 2. RedirectServletReportsPage- Update the "RedirectServletReportsPage" entry in vdc_options table with jasper sever base url (including protocol-http/https and port, for example <http://10.35.97.118:8080/jasperserver-pro/>)
  If one of these tow pre-requirements is missing the show report menu will be invisible for all the entities.
- 3. Configuring the jasper server as explain here- <http://gerrit.ovirt.org/#change,3355>
+ 3. Configuring the jasper server to support sso as explained here- <http://gerrit.ovirt.org/#change,3355>
 
 <Category:Feature>

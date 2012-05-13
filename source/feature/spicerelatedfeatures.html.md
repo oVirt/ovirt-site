@@ -74,40 +74,15 @@ A new user editable configuration value should be added to vdc_options to specif
 
 The following libvirt XML example shows adding 4 USB devices to a domain xml. The slot number would need to be adjusted based on the next available pci slot in the system. The maximum number is 6 unless we configure multiple controllers. If a usb tablet device is configured then it will take one device, however this should not be required to be configured in a spice environment with the vdagent present.
 
-         <controller type='usb' index='0' model='ich9-ehci1'>
-          <address type='pci' domain='0x0000' bus='0x00' slot='0x08' function='0x7'/>
-        </controller>
+        <controller type='usb' index='0' model='ich9-ehci1'/>
+        <controller type='usb' index='0' model='ich9-uhci1'/>
+        <controller type='usb' index='0' model='ich9-uhci2'/>
+        <controller type='usb' index='0' model='ich9-uhci3'/>
 
-        <controller type='usb' index='0' model='ich9-uhci1'>
-          <master startport='0'/>
-          <address type='pci' domain='0x0000' bus='0x00' slot='0x08' function='0x0' multifunction='on'/>
-        </controller>
-
-        <controller type='usb' index='0' model='ich9-uhci2'>
-          <master startport='2'/>
-          <address type='pci' domain='0x0000' bus='0x00' slot='0x08' function='0x1'/>
-        </controller>
-
-        <controller type='usb' index='0' model='ich9-uhci3'>
-          <master startport='4'/>
-          <address type='pci' domain='0x0000' bus='0x00' slot='0x08' function='0x2'/>
-        </controller>
-
-        <redirdev bus='usb' type='spicevmc'>  
-          <address type='usb' bus='0' port='3'/>
-        </redirdev>
-
-        <redirdev bus='usb' type='spicevmc'>
-          <address type='usb' bus='0' port='4'/>
-        </redirdev>
-
-        <redirdev bus='usb' type='spicevmc'>
-          <address type='usb' bus='0' port='5'/>
-        </redirdev>
-
-        <redirdev bus='usb' type='spicevmc'>
-          <address type='usb' bus='0' port='6'/>
-        </redirdev>
+        <redirdev bus='usb' type='spicevmc'/>  
+        <redirdev bus='usb' type='spicevmc'/>  
+        <redirdev bus='usb' type='spicevmc'/>  
+        <redirdev bus='usb' type='spicevmc'/>  
 
 *   Each of the `redirdev` devices should be added to the `devices` list passed by Engine to Vdsm. Vdsm should be taught to recognise them.
 

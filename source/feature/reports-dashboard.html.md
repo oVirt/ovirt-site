@@ -38,7 +38,7 @@ The following feature adds a dashboard tab for relevant entities (tree items) in
 **How to see the dashboard**- Selecting the relevant tree item=>Choosing the dashboard tab (next to the events tab)
 **pre-requirements**-
 1. Reports.xml- This file includes-
-a. The data whether the Jasper server is in ce (clien edition) mode or not.
+a. The data whether the Jasper server is in ce (client edition) mode or not.
 b. The tree items that have dashboard. (The dashboard tab will be visible just for those items).
 c. Data for show reports feature- see related links.
 The Reports file resides in the engine in the webadmin directory ($JBOSS_HOME/standalone/deployments/engine.ear/webadmin.war/webadmin/Reports.xml)

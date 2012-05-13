@@ -42,8 +42,8 @@ The following feature will provide a context menu/drop down menu allowing to ope
  => choosing the report you want.
  Jasper system ui will be opened in a new tab/window (depends on the browser) and the selected report will be shown (no need to enter user and password).
 **pre-requirements**- 1. Reports.xml- This file includes-
- a. The data about te enteties reports. The show reports menu of each entity is constructed according to this file.
- b. The data whether the Jasper server is in ce (clien edition) mode or not.
+a. The data about te enteties reports. The show reports menu of each entity is constructed according to this file.
+b. The data whether the Jasper server is in ce (clien edition) mode or not.
 The Reports file resides in the engine in the webadmin directory ($JBOSS_HOME/standalone/deployments/engine.ear/webadmin.war/webadmin/Reports.xml)
 2. RedirectServletReportsPage- Update the "RedirectServletReportsPage" entry in vdc_options table with jasper sever base url (including protocol-http/https and port, for example <http://10.35.97.118:8080/jasperserver-pro/>)
  If one of these tow pre-requirements is missing the show report menu will be unvisible for all the entites.

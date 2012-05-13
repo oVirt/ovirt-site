@@ -35,7 +35,7 @@ Include you email address that you can be reached should people want to contact 
 
 The following feature will provide a context menu/drop down menu allowing to open reports for relevant entities in the system.
  **The entites that have reports**- dcs, clusters, hosts, storage, vms.
-'How to open a report- Selecting the relevant entity in the main tab=>
+**How to open a report**- Selecting the relevant entity in the main tab=>
  1. Right clicks=> Show reports
  OR
  2. Clicking on show report in the action bar

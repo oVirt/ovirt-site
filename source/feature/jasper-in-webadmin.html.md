@@ -50,6 +50,10 @@ The Reports file resides in the engine in the webadmin directory ($JBOSS_HOME/st
  If one of the previous two pre-requirements is missing the show report menu will be invisible for all the entities.
  3. Configuring the jasper server to support sso as explained here- <http://gerrit.ovirt.org/#change,3355>
 
+#### Print Shots
+
+![](Example.jpg "Example.jpg")
+
 ### Dependencies / Related Features
 
 <http://www.ovirt.org/w/index.php?title=Features/Design/Reports_Dashboard>

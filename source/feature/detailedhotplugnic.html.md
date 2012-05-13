@@ -39,9 +39,9 @@ This feature will be restricted to operating systems that support this action â€
 #### User Experience
 
 *   VMs main tab -> NICs sub-tab:
-    -   New buttons: **Plug** and **UnPlug** will be added
+    -   New buttons: **Activate** and **Deactivate** will be added
     -   New status (icon) column should be added.
-    -   A "plug" check-box (checked by default) should be added to the "New NIC" dialog.
+    -   A "Activate" check-box (checked by default) should be added to the "New NIC" dialog.
 
 ![](Vms_nics_subtab.png "Vms_nics_subtab.png")
 
@@ -49,9 +49,9 @@ This feature will be restricted to operating systems that support this action â€
 
 The NIC adding to the VM will be performed as two steps procedure:
 #Add new NIC - will only add the proper entry to DB
-#Plug NIC - will actually plug NIC to VM
+#Activate NIC - will actually plug NIC to VM
  The NIC removing from the VM will be performed as two steps procedure:
-#Unplug NIC - will actually unplug NIC from VM
+#Deactivate NIC - will actually unplug NIC from VM
 #Remove NIC - will remove the proper entry from DB
  The same behavior should be applied on stopped and running VM's.
 

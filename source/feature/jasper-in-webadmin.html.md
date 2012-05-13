@@ -41,7 +41,8 @@ The following feature will provide a context menu/drop down menu allowing to ope
  2. Clicking on show report in the action bar
  => choosing the report you want.
  Jasper system ui will be opened in a new tab/window (depends on the browser) and the selected report will be shown (no need to enter user and password).
-**pre-requirements**- 1. Reports.xml- This file includes-
+**pre-requirements**-
+1. Reports.xml- This file includes-
 a. The data about te entities reports. The show reports menu of each entity is constructed according to this file.
 b. Extra details for reports dashboards- see related features
 The Reports file resides in the engine in the webadmin directory ($JBOSS_HOME/standalone/deployments/engine.ear/webadmin.war/webadmin/Reports.xml)

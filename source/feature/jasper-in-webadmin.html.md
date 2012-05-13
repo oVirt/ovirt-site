@@ -35,11 +35,11 @@ Provide context menu/drop down menu allowing to open reports for relevant entiti
 
 The following feature will provide a context menu/drop down menu allowing to open reports for relevant entities in the system.
  **The entities that have reports**- dcs, clusters, hosts, storage, vms.
-**How to open a report**- Selecting the relevant entity in the main tab=>
- 1. Right clicks=> Show reports
+**How to open a report**- Select the relevant entity in the main tab=>
+ 1. Right click=> Show reports
  OR
- 2. Clicking on show report in the action bar
- => choosing the report you want.
+ 2. Click on Show Report in the action bar
+ => choose the report you want.
  Jasper system ui will be opened in a new tab/window (depends on the browser) and the selected report will be shown (no need to enter user and password).
 **pre-requirements**-
 1. Reports.xml- This file includes-

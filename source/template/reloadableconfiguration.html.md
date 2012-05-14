@@ -54,10 +54,9 @@ Today the config values from vdc_options are cached in a map of type DBConfigUti
 New Design:
 
 1.  Since configuration values are changed through the engine-config CLI, we will add a command to the CLI - "reload", which will reload all reloadable configuration values to the engine.
-2.  Adding a new column is_reloadable in vdc_options that will be used to distinguish between keys that are reloadable and keys that are not:
+2.  Adding a new Annotation @Reloadable to be used in ConfigValues to distinguish between keys that are reloadable and keys that are not.
 
-<span style="color:Teal">**is_reloadable**</span>:
-{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Description |- |is_reloadable ||String || DEFAULT false ||Whether or not this options is reloadable |- |}
+<!-- -->
 
 1.  1.  The table in the following link, holds the list of vdc_options keys and whether or not they should be reloadable. It also shows which values are currently exposed through the engine-config tool, since they are in the properties file: <http://www.ovirt.org/wiki/Features/ReloadableConfiguration/keys_table>
     2.  We divide the config keys into 4 types:

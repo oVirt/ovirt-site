@@ -37,7 +37,7 @@ The Reloadable Configuration feature will allow the admin to change core configu
 
 Caching of the config values of the vdc_options table, is currently done once, in the initialization of the Backend class. Therefore, if a config value is changed, the machine needs to be restarted for the change to take place.
 
-The Reloadable Configuration feature will allow updating **some** of the values, without restarting the machine.
+The current implementation of reloadable configuration allows updating **some** of the values, without restarting the machine, going forward we would like to support reloading all the configuration values.
 
 ### PRD
 

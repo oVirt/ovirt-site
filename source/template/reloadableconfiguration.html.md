@@ -54,7 +54,8 @@ Today the config values from vdc_options are cached in a map of type DBConfigUti
 New Design:
 
 1.  Since configuration values are changed through the engine-config CLI, we will add a command to the CLI - "reload", which will reload all reloadable configuration values to the engine.
-2.  Adding a new Annotation @Reloadable to be used in ConfigValues to distinguish between keys that are reloadable and keys that are not.
+2.  Also, we will add a flag "--only-reloadable" to the "--list" action in the CLI. This action will return a list of all reloadable configurations.
+3.  Adding a new Annotation @Reloadable to be used in ConfigValues to distinguish between keys that are reloadable and keys that are not.
 
 <!-- -->
 

@@ -19,12 +19,13 @@ oVirt has a weekly sync meeting on IRC (occasionally phone).
 
 #### Weekly project sync meeting
 
-This is the agenda for the 2012-05-01 meeting:
+This is the agenda for the 2012-05-16 meeting:
 
 *   Status of Next Release
 *   Sub-project reports (engine, vdsm, node)
 *   Review decision on Java 7 and Fedora jboss rpms in oVirt Engine
 *   Upcoming workshops
+*   oVirt / Quantum Integration (gkotton)
 
 ### Meeting Time and Place
 

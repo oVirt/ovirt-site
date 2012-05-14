@@ -46,6 +46,10 @@ The Reports file resides in the engine in the webadmin directory ($JBOSS_HOME/st
  If one of the previous two pre-requirements is missing the dashboard tab will be unvisible for all the tree items
  3. Configuring the jasper server to support sso as explained here- <http://gerrit.ovirt.org/#change,3355>
 
+#### Print Shots
+
+![](Dashboard.png "Dashboard.png")
+
 ### Dependencies / Related Features
 
 <http://www.ovirt.org/wiki/Features/Design/jasper_in_webadmin>

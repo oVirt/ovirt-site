@@ -43,9 +43,9 @@ The current implementation of reloadable configuration allows updating **some** 
 
 The requirements are the following:
 
-1.  Enable the updating of configurations in vdc_options, while the machine is up.
-2.  This should be enabled for keys that can be changed in runtime without harming the system, and keys that can actually be updated.
-3.  The update will take place only when the admin decides so - through the engine-config CLI.
+1.  Enable the updating of configurations in vdc_options, while the machine (engine server) is up.
+2.  In the first phase of the implementation this should be enabled for keys that support the upload feature, these keys will be exposed to the user as reloadable.
+3.  The update will take place upon admin explicit request, through the engine-config CLI (and after engine restart, like we have today).
 
 ### Design
 

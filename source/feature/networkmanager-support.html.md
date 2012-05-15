@@ -29,7 +29,7 @@ This means moving from the existing network service, not editing files directly 
 
 ### Benefit to oVirt
 
-This migration ensures that Node can still be based on Fedora on doesn't need major workarounds.
+This migration ensures that Node can still be based on Fedora and doesn't need major workarounds.
 
 ### Dependencies / Related Features
 

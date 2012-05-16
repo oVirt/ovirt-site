@@ -10,7 +10,7 @@ wiki_last_updated: 2012-05-16
 
 # Mock Config Rule
 
-`MockConfigRule` is JUnit `@Rule` that handles mocking of the Config class. This removes the need of PowerMoclomg `Config`, and considerably speeds up the test.
+`MockConfigRule` is JUnit `@Rule` that handles mocking of the Config class. This removes the need of PowerMocking `Config`, and considerably speeds up the test.
 
 ## Creating the Rule
 

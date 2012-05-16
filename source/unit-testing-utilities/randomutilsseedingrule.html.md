@@ -32,4 +32,8 @@ Note that this is done using oVirt's standard LogFactory and Log, so make sure y
 
 Once you have a failed test due to a specific random input, you would probably want to reproduce it. This can be done by specifying the environment variable `test.random.seed`.
 
+You can make sure the injection worked properly by examining the log. If, for example, you set `test.random.seed=123`, your output should look like this:
+
+    11:11:53,159 INFO  [RandomUtilsSeedingRule] Running test with random seed: 123
+
 [Category:Unit Testing Utilities](Category:Unit Testing Utilities)

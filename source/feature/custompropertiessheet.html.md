@@ -23,7 +23,6 @@ This is a pure GUI/UX feature
 
 ### Current Status
 
-*   Target Release: 3.1
 *   Status: Design
 *   Last updated date: May 17, 2012
 

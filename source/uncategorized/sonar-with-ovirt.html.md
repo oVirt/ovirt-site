@@ -17,6 +17,7 @@ Sonar usually does not need any special configuration, you only have to run 'mvn
 ## Special problems in ovirt
 
 *   first, some of the gwt modules just does not compile the usual way. I have just removed these modules from the analisys.
+*   another project where the compilation fails is ovirt-checkstyle-extension, again, removed from check
 *   Probably because of the huge code size, tests need a huge maxpermsize. Also forkMode=always is needed to ensure that each test gets a new JVM. This makes it slow, but otherwise it won't work.
 *   ovirt upstream and downstream has the same groupid, artifactid and version, sonar can't tolerate this. It will just overwrite the project. (so does maven)
 *   sometimes the dependencies break inside and no one notices. It is best to remove ovirt from the local repository before building.

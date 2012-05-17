@@ -45,5 +45,24 @@ The command will be present as a utility in the Engine - engine-clean-orhaned-im
 Example usage:
 
       engine-clean-orhaned-images --storage-domain=MySD
+      Found 3 orphaned images:
+      Domain:                                         Image:
+      MySD (6b53ea3d-3ec6-40f3-86d7-b7fdfea1dda2)     aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa (100Gb)
+      MySD (6b53ea3d-3ec6-40f3-86d7-b7fdfea1dda2)     bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb (150Gb)
+      MySD (6b53ea3d-3ec6-40f3-86d7-b7fdfea1dda2)     cccccccc-cccc-cccc-cccc-cccccccccccc (80Gb)
+      Space cleared after cleanup: 330Gb
+      Proceed [N] Yes/No/Interactive: Y
+       Cleaning up ...
+      Cleared 3 images, 330Gb on Domain MySD (6b53ea3d-3ec6-40f3-86d7-b7fdfea1dda2)
+
+Interactive will ask about every image one by one.
+
+### Installation/Upgrade
+
+No impact, should be part of the engine installation, just like the engine-iso-uploader package is
+
+### Dependencies / Related Features and Projects
+
+A full blown storage garbage collection feature will make this feature obsolete
 
 <Category:Feature> <Category:Orphaned_Images>

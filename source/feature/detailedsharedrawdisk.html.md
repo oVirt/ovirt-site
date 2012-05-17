@@ -53,56 +53,48 @@ Users should be able to easily manage disks as standalone entities which are not
 
 General
 
-*   Shared raw disk is configured the same as a regular disk, but with a shared flag marked as true.
-*   Currently only raw disks without snapshot can be shared.
-*   Shared disks are attached with R/W permissions.
-*   The synchronization/clustering of data access to shared disks is the responsibility of the guests. Attaching a shared disk to non-cluster aware guests will lead to corruption of the data on the disk.
-*   When detaching a shared disk from all VMs in the Data Center. the disk will become 'floating'.
+*   Shared raw disk is configured the same as a regular disk, but with a shareable flag will be marked as true.
+*   Currently only raw disks without snapshot can be shareable.
+*   Shareable disks are attached with R/W permissions.
+*   The synchronization/clustering of data access to shareable disks is the responsibility of the guests. Attaching a shareable disk to non-cluster aware guests will lead to corruption of the data on the disk.
+*   When detaching a shareable disk from all VMs in the Data Center. the disk will become 'floating'.
 
-Attach Shared Disk
+Attach Shareable Disk
 
-*   When attaching a shared disk to a VM, the disk will be logically connected to the VM and will be activated (hot plug VDSM command will be send), if the activation will fail the disk not be activated.
+*   When attaching a shareable disk to a VM, the disk will be logically connected to the VM and will be activated (hot plug VDSM command will be send), if the activation will fail the disk not be activated.
 
 Remove Shared Disk
 
-*   User can remove the shared raw disk entirely from the setup, whether the disk is inactive in all the VMs which are attached to it, or all the VMs which the is disk attached to, are in status down (or any combination of the two).
+*   User can remove the shareable raw disk entirely from the setup, whether the disk is inactive in all the VMs which are attached to it, or all the VMs which the disk attached to, are in status down (or any combination of the two).
      When disk will be removed a warning message should display the user the following message :
 
-      Removing the shared disk will remove it from all the VMs which are associated with it.
+      Removing the shareable disk will remove it from all the VMs which are associated with it.
 
 Remove VM
 
-*   When VM will be removed the shared disk will be detached from the VM.
+*   When VM will be removed the shareable disk will be detached from the VM.
 
 Templates
 
-*   When creating a template from a VM which has one or more shared disks, the creation will fail and a message will be displayed explaining why the template cannot be created.
-    The message will be as follow:
-
-      VM ${VM_NAME} contains a shared disk. In order to make a template from this VM, either detach the shared disk from the VM or make it un-shareable by removing its "shareable" attribute.
-
-*   Template disks should not be shared.
+*   When creating a template from a VM which has one or more shared disks, the creation will of the template will be without the shareable disk.
+*   Template disks should not be shareable.
 
 VM pool
 
-*   Shared disk should not be supported with VM from pool, since VM pool is based on a template which does not support shared disk.
+*   Shared disk should not be supported with VM from pool, since VM pool is based on a template which does not support shareable disk.
 
 Export/Import
 
-*   When exporting a VM which has one or more shared disks, the creation will fail and a message will be displayed explaining why the export cannot be created.
-    The message will be as follow:
-
-      VM ${VM_NAME} contains a shared disk. In order to export this VM, either detach the shared disk from the VM or make it un-shareable by removing its "shareable" attribute.
-
-*   Exported disks (Whether with VMs or Templates) should not be shared.
+*   When exporting a VM which has one or more shareable disks, the VM will be exported without its shareable disks.
+*   Exported disks (Whether with VMs or Templates) should not be shareable.
 
 Move disk
 
-*   Moving a shared raw disk is permitted only when all the attached VMs statuses are down, or all the VMs which the disks are attached to are inactive.
+*   Moving a shareable disk is permitted only when all the attached VMs statuses are down, or all the VMs which the disks are attached to are inactive.
 
 Snapshot
 
-*   When taking a vm snapshot, a snapshot of the shared disk should not be taken, although it will be part of the VM snapshot configuration and the disk will appear as not activated.
+*   When taking a vm snapshot, a snapshot of the shared disk should not be taken and should not be part of the VM snapshot configuration.
 
 Stateless VM
 
@@ -113,16 +105,15 @@ Stateless VM
 *   Display shared disk
     -   The shared disks will be displayed in the 'disks' main tab.
     -   The shared disk details tab will include the number of VMs to which it is connected.
-*   Adding shared disk
+*   Adding shareable disk
     -   Creating/Editing a shared disk is available through the new/edit disk dialog from the disks sub tab in the VM main tab.
          The add/edit disk dialog box will have a check box indicating whether the disk is shared or not.
-        When a user wants to configure a regular disk to be a shared disk, she will edit the disk and mark the checkbox as shared.
-    -   User will also be able to attach/detach a shared disk through the disks sub tab of the VMs main tab,
-    -   The administrator can attach/detach a shared raw disk from the disks main tab.
-*   Remove shared disk
-    -   User will be able to remove a shared disk from the disks main tab.
-    -   When user will try to remove a shared disk which is attached to only one VM from the disks sub tab, the user will be able to choose whether to remove the disk permanently from the storage or only detach it from the VM.
-    -   When user will try to remove a shared disk which is attached to more then one VM from the disks sub tab, the disk should only be detached from the VM, and not removed permanently.
+        When a user wants to configure a regular disk to be a shared disk, he will edit the disk and mark the checkbox as shareable.
+    -   User will also be able to attach/detach a shareable disk through the disks sub tab of the VMs main tab,
+*   Remove shareable disk
+    -   User will be able to remove a shareable disk from the disks main tab.
+    -   When user will try to remove a shareable disk which is attached to only one VM from the disks sub tab, the user will be able to choose whether to remove the disk permanently from the storage or only detach it from the VM.
+    -   When user will try to remove a shareable disk which is attached to more then one VM from the disks sub tab, the disk should only be detached from the VM, and not removed permanently.
 
 #### Installation/Upgrade
 
@@ -136,11 +127,11 @@ Stateless VM
 
 The Administrator Portal should allow the following operations:
 
-*   Search should provide the user to view all shared raw disks from the disks main tab.
-*   Regular disk can become a shared raw disk, by editing the existing disk and marking the 'share disk' property type.
-*   When removing a VM with shared disks attached to it, the shared disks will not be removed.
-*   If the shared disk is not attached to any other VMs then it will become a 'floating' disk.
-*   Attach/Detach of a shared disk can be performed only when the VM is in status 'down'.
+*   Search should provide the user to view all sharebale raw disks from the disks main tab.
+*   Regular disk can become a shareable raw disk, by editing the existing disk and marking the 'shareable' property type.
+*   When removing a VM with shareable disks attached to it, the shareable disks will not be removed.
+*   If the shareable disk is not attached to any other VMs then it will become a 'floating' disk.
+*   Attach/Detach of a shareable disk can be performed only when the VM is in status 'down'.
 
 The Power User Portal should allow the following operations:
 

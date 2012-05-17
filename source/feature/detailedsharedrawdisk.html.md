@@ -115,6 +115,10 @@ Stateless VM
     -   When user will try to remove a shareable disk which is attached to only one VM from the disks sub tab, the user will be able to choose whether to remove the disk permanently from the storage or only detach it from the VM.
     -   When user will try to remove a shareable disk which is attached to more then one VM from the disks sub tab, the disk should only be detached from the VM, and not removed permanently.
 
+###### API
+
+*   -   User can set a shareable disk through the API by setting the property of shareable to true in the disk rest entity type.
+
 #### Installation/Upgrade
 
 *   Disk name should be generated automatically based on the vm name and disk number in the VM, as follow

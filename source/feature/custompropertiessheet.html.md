@@ -29,4 +29,26 @@ This is a pure GUI/UX feature
 
 ### Description
 
-Here are the mock-ups for the updated "Custom Properties" section as it should appear in the New/Edit VM dialog: ![](Custompropertiesinitialstate.png "fig:Custompropertiesinitialstate.png") ![](Custompropertiesfirstkey.png "fig:Custompropertiesfirstkey.png") ![](Custompropertiesaddrow.png "fig:Custompropertiesaddrow.png") ![](Custompropertiesfull.png "fig:Custompropertiesfull.png")
+Here are the mock-ups for the updated "Custom Properties" section as it should appear in the New/Edit VM dialog:
+
+#### Initial State
+
+![](Custompropertiesinitialstate.png "Custompropertiesinitialstate.png")
+
+------------------------------------------------------------------------
+
+#### Choosing a Key
+
+![](Custompropertiesfirstkey.png "Custompropertiesfirstkey.png")
+
+------------------------------------------------------------------------
+
+#### Adding/Removing a Row
+
+![](Custompropertiesaddrow.png "Custompropertiesaddrow.png")
+
+------------------------------------------------------------------------
+
+#### Full Custom Properties Sheet
+
+![](Custompropertiesfull.png "Custompropertiesfull.png")

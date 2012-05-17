@@ -29,4 +29,4 @@ This is a pure GUI/UX feature
 
 ### Description
 
-Here are the mock-ups for the updated "Custom Properties" section as it should appear in the New/Edit VM dialog:
+Here are the mock-ups for the updated "Custom Properties" section as it should appear in the New/Edit VM dialog: ![](Custompropertiesinitialstate.png "fig:Custompropertiesinitialstate.png") ![](Custompropertiesfirstkey.png "fig:Custompropertiesfirstkey.png") ![](Custompropertiesaddrow.png "fig:Custompropertiesaddrow.png") ![](Custompropertiesfull.png "fig:Custompropertiesfull.png")

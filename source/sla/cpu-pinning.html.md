@@ -75,7 +75,12 @@ Existing libvirt [support](http://libvirt.org/formatdomain.html#elementsCPU) sam
 
 *   In relevant dialog, we'll add a plain text-box that is available only when VM is pinned to host.
 *   Validations
-    -   Make sure we have vCPU and pCPU(set) for each given pattern.
+    -   Make sure we have vCPU and pCPU(set) for each given pattern:
+        \*# Parse string for '_'
+
+        \*# For each entry: parse string for '#'
+
+        \*# Make sure we got 2 elements (vCPU and pCPU)
 
 ## Notes
 

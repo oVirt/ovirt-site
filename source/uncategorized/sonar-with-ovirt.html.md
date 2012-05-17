@@ -36,4 +36,4 @@ Sonar usually does not need any special configuration, you only have to run 'mvn
       #install everything again
       mvn clean install -DskipTests=true;
       #and then run the checks
-      mvn clean compile sonar:sonar -e -Dsonar.skippedModules=sharedgwt-deployment,gwt-extension -DargLine="-Xmx2g  -XX:MaxPermSize=1512M" -DtestFailureIgnore=true -DforkMode=always
+      mvn clean compile sonar:sonar -P enable-dao-tests -e -Dsonar.skippedModules=sharedgwt-deployment,gwt-extension,ovirt-checkstyle-extension -DargLine="-Xmx3g -XX:MaxPermSize=2048M" -DtestFailureIgnore=true -DforkMode=always #-Dtest=*Test.java

@@ -117,7 +117,8 @@ Stateless VM
 
 ###### API
 
-*   User can set a shareable disk through the API by setting the property of shareable to true in the disk rest entity type.
+*   User can set a disk to be shareable through the API by setting the shareable property in the disk entity to true.
+*   Shareable disk entity should provide a list of VMs which the disk is associated with (Count on floating disk feature implementation).
 
 #### Installation/Upgrade
 

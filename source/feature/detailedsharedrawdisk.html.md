@@ -35,7 +35,7 @@ The shared raw disk feature enables to share disks between multiple VMs in the D
 
 *   Target Release:
 *   Status: Design Stage
-*   Last updated date: Wed November 10 2011
+*   Last updated date: Wed May 17 2012
 
 ### Detailed Description
 

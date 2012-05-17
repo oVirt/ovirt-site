@@ -35,6 +35,7 @@ Existing libvirt [support](http://libvirt.org/formatdomain.html#elementsCPU) sam
 ## Engine core
 
 *   A new VM attribute - cpuTopology - will be added to support this feature.
+    -   Means a DB change: extend vm_static to add it.
 *   The attribute will hold a string in a libvirt-like format
     -   Format: v#p[_v#p]
     -   Examples

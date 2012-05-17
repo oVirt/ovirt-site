@@ -47,13 +47,13 @@ Users should be able to easily manage disks as standalone entities which are not
 
 ##### Disk
 
-*   Disk should have a field indicating whether it is shared or not.
+*   Disk should have a field indicating whether it is shareable or not.
 
 #### Functionality
 
 General
 
-*   Shared raw disk is configured the same as a regular disk, but with a shareable flag will be marked as true.
+*   Shareable raw disk is configured the same as a regular disk, but with a shareable flag will be marked as true.
 *   Currently only raw disks without snapshot can be shareable.
 *   Shareable disks are attached with R/W permissions.
 *   The synchronization/clustering of data access to shareable disks is the responsibility of the guests. Attaching a shareable disk to non-cluster aware guests will lead to corruption of the data on the disk.
@@ -63,7 +63,7 @@ Attach Shareable Disk
 
 *   When attaching a shareable disk to a VM, the disk will be logically connected to the VM and will be activated (hot plug VDSM command will be send), if the activation will fail the disk not be activated.
 
-Remove Shared Disk
+Remove Shareable Disk
 
 *   User can remove the shareable raw disk entirely from the setup, whether the disk is inactive in all the VMs which are attached to it, or all the VMs which the disk attached to, are in status down (or any combination of the two).
      When disk will be removed a warning message should display the user the following message :
@@ -76,12 +76,12 @@ Remove VM
 
 Templates
 
-*   When creating a template from a VM which has one or more shared disks, the creation will of the template will be without the shareable disk.
+*   When creating a template from a VM which has one or more shareable disks, the creation will of the template will be without the shareable disk.
 *   Template disks should not be shareable.
 
 VM pool
 
-*   Shared disk should not be supported with VM from pool, since VM pool is based on a template which does not support shareable disk.
+*   Shareable disk should not be supported with VM from pool, since VM pool is based on a template which does not support shareable disk.
 
 Export/Import
 
@@ -94,21 +94,21 @@ Move disk
 
 Snapshot
 
-*   When taking a vm snapshot, a snapshot of the shared disk should not be taken and should not be part of the VM snapshot configuration.
+*   When taking a vm snapshot, a snapshot of the shareable disk should not be taken and should not be part of the VM snapshot configuration.
 
 Stateless VM
 
-*   When running stateless VM, the shared raw disk will not be handled as stateless, the user should get a warning message indicating that the disk will not be handled as stateless.
+*   When running stateless VM, the shareable raw disk will not be handled as stateless, the user should get a warning message indicating that the disk will not be handled as stateless.
 
 #### User Experience
 
-*   Display shared disk
-    -   The shared disks will be displayed in the 'disks' main tab.
-    -   The shared disk details tab will include the number of VMs to which it is connected.
+*   Display shareable disk
+    -   The shareable disks will be displayed in the 'disks' main tab.
+    -   The shareable disk details tab will include the number of VMs to which it is connected.
 *   Adding shareable disk
-    -   Creating/Editing a shared disk is available through the new/edit disk dialog from the disks sub tab in the VM main tab.
-         The add/edit disk dialog box will have a check box indicating whether the disk is shared or not.
-        When a user wants to configure a regular disk to be a shared disk, he will edit the disk and mark the checkbox as shareable.
+    -   Creating/Editing a shareable disk is available through the new/edit disk dialog from the disks sub tab in the VM main tab.
+         The add/edit disk dialog box will have a check box indicating whether the disk is shareable or not.
+        When a user wants to configure a regular disk to be a shareable disk, he will edit the disk and mark the checkbox as shareable.
     -   User will also be able to attach/detach a shareable disk through the disks sub tab of the VMs main tab,
 *   Remove shareable disk
     -   User will be able to remove a shareable disk from the disks main tab.
@@ -136,8 +136,8 @@ The Administrator Portal should allow the following operations:
 The Power User Portal should allow the following operations:
 
 *   Attach/detach disks to/from a VM.
-*   View shared disks in the Data Center which the power user can attach/detach
-*   The power user will not have permissions to create a shared disk from the user portal.
+*   View shareable disks in the Data Center which the power user can attach/detach
+*   The power user will not have permissions to create a shareable disk from the user portal.
 
 The following UI mockups contain guidelines for the different screens and wizards:
 
@@ -149,7 +149,7 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 ### Dependencies / Related Features and Projects
 
-Attaching shared disk will not consume new Quota resource. Affected oVirt projects:
+Attaching shareable disk will not consume new Quota resource. Affected oVirt projects:
 
 *   API
 *   CLI
@@ -161,9 +161,9 @@ Attaching shared disk will not consume new Quota resource. Affected oVirt projec
 
 <B>Related Features</B>
 
-*   Quota - Same as regular disk, shared raw disk will need to be attached to quota, he will consume from. Attach and detach should not affect the quota consumption.
-*   Floating Disk - Shared raw disk will be considered to be floating when the shared disk will not be attach to any VM.
-*   Disk Permissions - Manage permissions for creating/removing/configuring shared disk.
+*   Quota - Same as regular disk, shareable raw disk will need to be attached to quota, he will consume from. Attach and detach should not affect the quota consumption.
+*   Floating Disk - Shareable raw disk will be considered to be floating when the shareable disk will not be attach to any VM.
+*   Disk Permissions - Manage permissions for creating/removing/configuring shareable disk.
 
 ### Documentation / External references
 

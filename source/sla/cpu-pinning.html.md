@@ -83,6 +83,8 @@ Existing libvirt [support](http://libvirt.org/formatdomain.html#elementsCPU) sam
 
         \*# Make sure we got 2 elements (vCPU and pCPU)
 
+![](Neweditvmdialogcpuenabled.png "fig:Neweditvmdialogcpuenabled.png") ![](Neweditvmcpucpudisabled.png "fig:Neweditvmcpucpudisabled.png")
+
 ## Notes
 
 1.  Due to API change, This will be supported in 3.1 clusters only.

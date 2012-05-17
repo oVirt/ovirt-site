@@ -117,7 +117,7 @@ Stateless VM
 
 ###### API
 
-*   -   User can set a shareable disk through the API by setting the property of shareable to true in the disk rest entity type.
+*   User can set a shareable disk through the API by setting the property of shareable to true in the disk rest entity type.
 
 #### Installation/Upgrade
 

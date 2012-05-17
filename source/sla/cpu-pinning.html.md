@@ -42,7 +42,12 @@ Existing libvirt [support](http://libvirt.org/formatdomain.html#elementsCPU) sam
         -   0#0_1#3 => pin vCPU 0 to pCPU 0 and pin vCPU 1 to pCPU 3
         -   1#1-4,^2 => pin vCPU 1 to pCPU set 1 to 4, excluding 2.
 *   Validations
-    -   Make sure we have vCPU and pCPU(set) for each given pattern.
+    -   Make sure we have vCPU and pCPU(set) for each given pattern:
+        \*# Parse string for '_'
+
+        \*# For each entry: parse string for '#'
+
+        \*# Make sure we got 2 elements (vCPU and pCPU)
 *   Default value is NULL
 *   The attribute will be added to the new API as a VM level attribute (ie- not a device),sent as a dictionay.
 

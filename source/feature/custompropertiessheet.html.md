@@ -24,7 +24,7 @@ This is a pure GUI/UX feature
 ### Current Status
 
 *   Status: Design
-*   Last updated date: May 17, 2012
+*   Last updated date: May 20, 2012
 
 ### Description
 

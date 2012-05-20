@@ -23,8 +23,8 @@ This is a pure GUI/UX feature
 
 ### Current Status
 
-*   Status: Design
-*   Last updated date: May 20, 2012
+*   Status: Merged upstream.
+*   Last updated date: May 21, 2012
 
 ### Description
 

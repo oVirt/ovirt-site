@@ -139,10 +139,6 @@ To show the certificate data:
 
 #### Using yum
 
-Yum [landed](http://gerrit.ovirt.org/#change,4522) in Node's Gerrit, you currently need to do the following to get it working:
-
-*   Enable networking
-*   Don't use https: `sed -e "s/https/http" /etc/yum.repos.d/*`
-*   Use `/usr/bin/yum --enablerepo=* --nogpgcheck`
+Yum is only supported in offline image editing. On a running system, it's disabled. A how-to for editing an ISO image after creation will be coming soon.
 
 [Category: Node](Category: Node)

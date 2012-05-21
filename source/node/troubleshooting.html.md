@@ -137,4 +137,12 @@ To show the certificate data:
        # openssl x509 -in /etc/pki/vdsm/certs/vdsmcert.pem -noout -text | grep -i issuer (show only issuer)
        # openssl x509 -in /etc/pki/vdsm/certs/cacert.pem -noout -text | grep -i subject (show only subject) 
 
+#### Using yum
+
+Yum [landed](http://gerrit.ovirt.org/#change,4522) in Node's Gerrit, you currently need to do the following to get it working:
+
+*   Enable networking
+*   Don't use https: `sed -e "s/https/http" /etc/yum.repos.d/*`
+*   Use `/usr/bin/yum --enablerepo=* --nogpgcheck`
+
 [Category: Node](Category: Node)

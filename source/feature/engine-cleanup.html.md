@@ -41,8 +41,8 @@ Missing to comply with the purpose definition:
 
       * Default mode is interactive - asking if to drop DB or not.
         Message: Drop data base? if you want to reuse the existing database for the future installation choose no.
-      * Message at the end: Finished cleanup please run 'yum remove ....' and then reinstall
-      * If it did not dropped DB add: Note that after reinstall you'll have to run Hosts re-install/re-approve
+      * Message at the end: Finished cleanup please run 'yum remove ....' and then re-install
+      * If it did not dropped DB add: Note that after re-install you'll have to run Hosts re-install/re-approve
       * Add a non-interactive switch -b, default is drop DB.
       * Add another switch: --preserve-db
 
@@ -50,18 +50,18 @@ Missing to comply with the purpose definition:
 
 The cleanup should provide:
 
-1. Reset a failed installation to a state in which you can safely run yum remove and then yum install engine
+1. Reset a failed installation to a state in which you can safely rerun engine-setup
+
+2. Cleanup before a new installation before or after the user has run yum remove and now tries it all over.
 
         Meaning the sequence: engine-cleanup, yum remove ovirt-engine, yum install ovirt-engine, engine-setup
-        Stretch goal - avoid the remove/install part if planing to re-install the same version
+        Or the sequence:      yum remove ovirt-engine, yum install ovirt-engine, engine-cleanup, engine-setup
 
-2. Cleanup before a new installation after the user has run yum remove and now tries it all over.
+3. Reset an exiting installation without dropping DB.
 
-        Meaning the sequence: yum remove ovirt-engine, yum install ovirt-engine, engine-cleanup ,engine-setup
-
-3. Reset an exiting installation without dropping DB. Use cases, fix failed upgrade or a corrupted installation
-
-        Next required 'Manual' steps: yum remove engine
+        Use cases: fix failed upgrade or a corrupted installation
+        Next required 'Manual' steps: 
+                             yum remove engine
                              yum install engine
                              engine-setup (it should know how to reuse this DB and upgrade if necessary)
 

@@ -507,6 +507,28 @@ use entity properties names as command options
          reason: Bad Request
          detail: Action [network.id|name] required for attach
 
+### Scripting
+
+#### From linux shell
+
+         [mpastern@lp /]#  ovirt-shell --connec -l ... -u ... -p ... -f /home/mpastern/script
+
+#### From ovirt shell
+
+        [oVirt shell (connected)]# file /home/mpastern/script
+
+#### Script formt
+
+        plain text:
+
+        less /home/mpastern/script
+        --------------------------
+         
+        list vms
+        list clusters
+        list datacenters
+        ...
+
 ## Repository
 
 *   <git://gerrit.ovirt.org/ovirt-engine-cli>

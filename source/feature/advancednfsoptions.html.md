@@ -41,7 +41,7 @@ None
 
 ## User Experience
 
-User should be able to select custom values for these field in special cases.
+![](Nfsoptionsnewdomaindialog.png "Nfsoptionsnewdomaindialog.png")
 
 ## Upgrade
 

@@ -41,7 +41,7 @@ None
 
 ## User Experience
 
-User should be able to select custom values for these field in special cases.
+see GUI mock-up in "Advanced NFS Options" wiki page at: <http://www.ovirt.org/wiki/Features/AdvancedNfsOptions#User_Experience>
 
 ## Upgrade
 

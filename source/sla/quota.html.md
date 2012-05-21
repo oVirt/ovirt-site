@@ -35,7 +35,18 @@ Please see [Mockups](Features/DetailedQuota#User_Experience)
 
 ### REST Design (Modeling)
 
-This section describes the REST design for this feature.
+* Quotas are a new root entity, which can be viewed at: [http://{host}](http://{host}):{port}/api/quotas - Drill-down to the single quota level is possible.
+
+* Currently only basic quota meta-data is shown:
+
+       * name
+       * description
+       * data-center id
+       * (quota limitations are not shown). 
+
+* In all flows of creating/importing a VM or or a Disk, a quota ID may be passed.
+
+* If quota ID is not passed - the operation will fail in the Datacenter works with quotas (validation in the Backend).
 
 ### Backend
 
@@ -341,19 +352,6 @@ This logic in the canDoAction should be quite similar to the logic being done wi
 7.  Update the VM Dynamic with the Quota Id.
 
 #### API Design
-
-* Quotas are a new root entity, which can be viewed at: [http://{host}](http://{host}):{port}/api/quotas - Drill-down to the single quota level is possible.
-
-* Currently only basic quota meta-data is shown:
-
-       * name
-       * description
-       * data-center id
-       * (quota limitations are not shown). 
-
-* In all flows of creating/importing a VM or or a Disk, a quota ID may be passed.
-
-* If quota ID is not passed - the operation will fail in the Datacenter works with quotas (validation in the Backend).
 
 Add new command query GetQueryForStoragePool input - DC UUID output - All the Quotas for the DC.
 

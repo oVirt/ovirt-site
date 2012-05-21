@@ -560,19 +560,7 @@ That will install lxml, because EPEL's python-lxml is not yet up to the version 
 
 ## TODO list
 
-*   support command invocation without entering to interactive prompt
-
-<!-- -->
-
-*   support pipe redirection
-
-<!-- -->
-
-*   drop help dependency on active connection
-
-(no longer required as all metadata available off-line via SDK)
-
-*   supporting header parameters exposed by sdk (depends on sdk implementation)
+[Bugzila](https://bugzilla.redhat.com/buglist.cgi?list_id=6860&classification=Community&query_format=advanced&bug_status=NEW&bug_status=ASSIGNED&component=ovirt-engine-cli&product=oVirt)
 
 ## Maintainer
 

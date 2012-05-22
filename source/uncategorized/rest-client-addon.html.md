@@ -12,7 +12,8 @@ Two methods for invoking RestAPI requests are described ahead:
 
 Using *firefox* rest client add on:
 
-Add to firefox the rest-client add-on: <https://addons.mozilla.org/en-US/firefox/addon/restclient/>
+Add to firefox the rest-client add-on: <
+> <https://addons.mozilla.org/en-US/firefox/addon/restclient/>
 
 Once installed and firefox was restarted, go to Tools --> REST Client<
 > Click on Login button, enter username and password.<

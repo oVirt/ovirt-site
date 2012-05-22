@@ -56,7 +56,6 @@ Existing libvirt [support](http://libvirt.org/formatdomain.html#elementsCPU) sam
 
 *   The attribute should be added to the libvirt XML, similar to the existing hook Shahar wrote
 *   vcpu.setAttribute('cpuset', os.environ['pincpu'])
-*   Live migration will not be supported for such VM's.
 
 ## Rest API
 
@@ -74,7 +73,7 @@ Existing libvirt [support](http://libvirt.org/formatdomain.html#elementsCPU) sam
 
 ## UI
 
-*   In relevant dialog, we'll add a plain text-box that is available only when VM is pinned to host.
+*   In relevant dialog, we'll add a plain text-box.
 *   Validations
     -   Make sure we have vCPU and pCPU(set) for each given pattern:
         \*# Parse string for '_'
@@ -88,3 +87,4 @@ Existing libvirt [support](http://libvirt.org/formatdomain.html#elementsCPU) sam
 ## Notes
 
 1.  Due to API change, This will be supported in 3.1 clusters only.
+2.  Live migration **may fail**, if destination host cannot support the relevant pinning request.

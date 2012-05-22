@@ -68,11 +68,13 @@ The cleanup should provide:
                              yum install engine
                              engine-setup (it should know how to reuse this DB and upgrade if necessary)
 
-Note 1: This utility is not intended to leave the hosts clean for other application to reuse - only to be reused by a freoVirt Manager
+Note 1: The above includes Reports and DHW
 
-Note 2: Preserve DB is not intended to relocate db from local to remote and vice verse - Need to provide a procedure to do that.
+Note 2. This utility is not intended to leave the machine clean for other application to reuse - only to be reused by a oVirt Manager
 
-Note 3: It will not remove any export, including the one it created during last installation. If we wish for engine-setup to reuse this is enhancement to for engine-setup.
+Note 3: Preserve DB is not intended to relocate db from local to remote and vice verse - Need to provide a procedure to do that.
+
+Note 4: It will not remove any local NFS export, including the one it created during last installation. If we wish for engine-setup to reuse, this is enhancement to for engine-setup.
 
 ### Benefit to oVirt
 

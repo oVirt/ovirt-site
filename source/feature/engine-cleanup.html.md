@@ -34,6 +34,8 @@ Include you email address that you can be reached should people want to contact 
       * Remove keystore (not perfect)
       * cleanup symlinks
       * stop services (jbossas, notifer)
+      * non-interactive switch -u/--unattended, default is drop DB.
+      * switch: -d/--dont-drop-db
 
 Missing to comply with the purpose definition:
 
@@ -41,10 +43,10 @@ Missing to comply with the purpose definition:
 
       * Default mode is interactive - asking if to drop DB or not.
         Message: Drop data base? if you want to reuse the existing database for the future installation choose no.
-      * Message at the end: Finished cleanup please run 'yum remove ....' and then re-install
+      * Message at the end: Finished cleanup it is now safe to rerun engine-setup.
       * If it did not dropped DB add: Note that after re-install you'll have to run Hosts re-install/re-approve
-      * Add a non-interactive switch -b, default is drop DB.
-      * Add another switch: --preserve-db
+      * Add -h/--help
+      * Add message (Hide all options except -d/-u/-h in the usage message/help)
 
 ### Detailed Description
 
@@ -54,8 +56,9 @@ The cleanup should provide:
 
 2. Cleanup before a new installation before or after the user has run yum remove and now tries it all over.
 
-        Meaning the sequence: engine-cleanup, yum remove ovirt-engine, yum install ovirt-engine, engine-setup
-        Or the sequence:      yum remove ovirt-engine, yum install ovirt-engine, engine-cleanup, engine-setup
+        Meaning the sequence I : engine-cleanup, yum remove ovirt-engine, yum install ovirt-engine, engine-setup
+        Or the sequence      II: yum remove ovirt-engine, yum install ovirt-engine, engine-cleanup, engine-setup
+        If sequence II is not possible don't start cleanup at all, but exit with proper message. 
 
 3. Reset an exiting installation without dropping DB.
 

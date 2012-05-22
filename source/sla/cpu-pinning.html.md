@@ -82,7 +82,7 @@ Existing libvirt [support](http://libvirt.org/formatdomain.html#elementsCPU) sam
 
         \*# Make sure we got 2 elements (vCPU and pCPU)
 
-![](Neweditvmdialogcpuenabled.png "fig:Neweditvmdialogcpuenabled.png") ![](Neweditvmcpucpudisabled.png "fig:Neweditvmcpucpudisabled.png")
+![](Neweditvmdialogcpuenabled.png "Neweditvmdialogcpuenabled.png")
 
 ## Notes
 

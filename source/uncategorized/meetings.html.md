@@ -33,7 +33,7 @@ This is the agenda for the 2012-05-22 meeting:
     -   Wednesdays @ 15:00 UTC (may change during DST changes) - always at 7:00am US Pacific, 10:00am US Eastern.
     -   On IRC: #ovirt on irc.oftc.net
 *   oVirt Node
-    -   Thursday @ 14:00 UTC (may change during DST changes) - always at 9:00am US Eastern.
+    -   Tuesday @ 14:00 UTC (may change during DST changes) - always at 9:00am US Eastern.
     -   On IRC: #ovirt on irc.oftc.net
 *   oVirt Engine Core
     -   Wednesday (bi-weekly) @ 14:00 UTC (may change during DST changes) - always at 16:00 Israel.

@@ -6,13 +6,13 @@ wiki_revision_count: 6
 wiki_last_updated: 2012-05-28
 ---
 
-Two methods for invoking RestAPI requests are described ahead:
+# REST Client Addon
 
-# REST Client Add-on
+Two methods for invoking RestAPI requests are described ahead:
 
 Using *firefox* rest client add on:
 
-Add to firefox the rest-client add-on: <https://addons.mozilla.org/de/firefox/addon/restclient/>
+Add to firefox the rest-client add-on: <https://addons.mozilla.org/en-US/firefox/addon/restclient/>
 
 Once installed and firefox was restarted, go to Tools --> REST Client<
 > Click on Login button, enter username and password.<
@@ -44,7 +44,7 @@ e.g. for adding a snapshot for a specific vm, type a url for that vm:
 The request body: This will add a new snapshot for VM with id 61d0c568-62f5-4b8c-8548-7000beb27d7c. <
 >
 
-# curl
+## curl
 
 The second method is by using *curl* utility from the command line. <
 >

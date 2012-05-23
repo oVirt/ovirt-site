@@ -525,7 +525,10 @@ use entity properties names as command options
         --------------------------
          
         list vms
+        show vm test | grep status
+
         list clusters
+
         list datacenters
         ...
 

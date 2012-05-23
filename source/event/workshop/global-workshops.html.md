@@ -19,8 +19,12 @@ If you are interested in setting up a workshop, please contact [Leslie Hawthorn]
 *   June 8, 2012: LinuxCon Japan
 *   August 28, 2012: LinuxCon North America
 *   November 7-9, 2012: LinuxCon Europe (workshop will be co-located with KVM Forum)
-*   January 22-24, 2013: NetApp Headquarters in Sunnyvale, California, US (to be confirmed)
+*   January 22-24, 2013: NetApp Headquarters in Sunnyvale, California, US
 *   March 20-21, 2013: Intel Campus in Shanghai, China
+
+## Board Meetings at Upcoming Workshops
+
+Since many members of oVirt's Board will be in attendance at these workshops, it has been proposed that a Board meeting be held at each workshop or a subset of these workshops. Data gathering for scheduling these Board Meetings is taking place on the [Workshop Board Meetings](Workshop Board Meetings) page.
 
 ## Other Proposed Workshop Locations
 

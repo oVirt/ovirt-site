@@ -31,11 +31,13 @@ For the purposes of collecting this data, we are asking all oVirt Board Members 
 
 ### LinuxCon Europe/KVM Forum
 
-1.  2.  3.  
+1.  Michael Enescu, Cisco
+2.  3.  
 
 ### NetApp Headquarters
 
-1.  2.  3.  
+1.  Michael Enescu, Cisco
+2.  3.  
 
 ### Intel Shanghai Campus
 

@@ -517,9 +517,7 @@ use entity properties names as command options
 
         [oVirt shell (connected)]# file /home/mpastern/script
 
-#### Script formt
-
-        plain text:
+#### Script format
 
         less /home/mpastern/script
         --------------------------
@@ -530,7 +528,6 @@ use entity properties names as command options
         list clusters
 
         list datacenters
-        ...
 
 ## Repository
 

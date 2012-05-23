@@ -42,7 +42,7 @@ N.B. At this time, [Leslie Hawthorn](User:Lh) has an inquiry in to Intel regardi
 
 1.  2.  3.  
 
-### Open Questions
+## Open Questions
 
 *   Is there a requirement for oVirt that a certain number of Board Members be present in order to have a quorum for decision making purposes?
     -   If so, how many members are required?

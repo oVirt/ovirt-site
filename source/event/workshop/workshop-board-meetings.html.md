@@ -44,8 +44,6 @@ For the purposes of collecting this data, we are asking all oVirt Board Members 
 
 ### Intel Shanghai Campus
 
-N.B. At this time, [Leslie Hawthorn](User:Lh) has an inquiry in to Intel regarding hosting a Board Meeting on their campus but has not yet received a reply. No objection to hosting a Board Meeting at Intel's campus is anticipated, but it is worth noting that this topic has not been fully explored with them at the time of creating this wiki page.
-
 1.  2.  3.  
 
 ## Open Questions

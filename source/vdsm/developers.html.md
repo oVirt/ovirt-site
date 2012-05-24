@@ -128,4 +128,11 @@ or
 
 **Note**: SELinux might throw permission denied to repo located at /var/www/html/
 
+## Using VM console
+
+If you want to use the console for a VM using the Spice protocol (VNC is not supported right now) Run the following command on the host running ovirt-engine:
+
+    # psql -U postgres engine -c "update vdc_options set option_value = 'false' 
+    where option_name = 'UseSecureConnectionWithServers';"
+
 <Category:Vdsm> <Category:Documentation> [Category:Development environment](Category:Development environment)

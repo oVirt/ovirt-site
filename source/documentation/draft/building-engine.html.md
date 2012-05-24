@@ -22,7 +22,7 @@ Follow these instructions to successfully build the oVirt Engine project. Instal
 
 ## Prerequisites
 
-1.  Linux based operating system with support for OpenJDK 1.6.0, Maven 2, and PostgreSQL 8.4.8 (or higher).
+1.  Linux based operating system with support for OpenJDK 1.6.0, Maven and PostgreSQL 8.4.8 (or higher).
 2.  An Internet connection.
 
 Note that while this guide was written and tested using Fedora other Linux Distributions can and have been used to build the ovirt-engine project. Where distribution specific packaging commands are specified in this guide use the syntax that applies for your distribution.
@@ -64,18 +64,21 @@ The ovirt-engine source code is stored in a GIT repository. As such GIT is requi
 
       #> apt-get install git
 
-### Installing maven2
+### Installing maven
 
-oVirt engine is using maven version 2.2.x, maven 3.x will not work.
+oVirt engine is using maven version 3.0.x. You may build using maven 2.2.x, but it may be deprecated in the future.
  **Fedora**
 
-      #> yum install -y maven2
+      #> yum install -y maven
 
 **Debian**
 
+      #> apt-get install maven
+       Or
       #> apt-get install maven2
 
-Please validate mvn is in the path. Note that on some distributions, particularly recent releases of Fedora, binary for Maven 2 is in fact mvn2. You can confirm which version is in use by appending the --version parameter to the mvn or mvn2 call.
+Please validate mvn is in the path.
+If you need to use Maven2, you should be aware that on some distributions, particularly recent releases of Fedora, binary for Maven 2 is in fact mvn2. You can confirm which version is in use by appending the --version parameter to the mvn or mvn2 call.
 
 ##### Maven personal settings
 

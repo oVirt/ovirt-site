@@ -65,4 +65,4 @@ It is recommended to generate the answer file automatically:
 
 *   Refer to [Talk: allinone](Talk: allinone)
 
-<Category:Features> <Category:Template>
+<Category:Feature> <Category:Template>

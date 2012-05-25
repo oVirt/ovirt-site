@@ -47,6 +47,18 @@ The oVirt project uses gerrit in order to review patches. For more on Gerrit and
        Wrapped at ~80 chars.
        
 
+#### Patch Format For Work In Progress
+
+       component: WIP: short summary under 75 chars (#xxxxxx)
+       https://bugzilla.redhat.com/XXXXXX
+       
+       Longer description.
+       
+       With multiple paragraphs if necessary.
+       
+       Wrapped at ~80 chars.
+       
+
 #### Describe your changes properly
 
 1.  Not just “what”, but “why”

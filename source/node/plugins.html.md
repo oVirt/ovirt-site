@@ -75,7 +75,7 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
     -   This also implies that vendors will need to write their plugins to be compliant with these guidelines. It will not be possible to take stock RHEL software and assume that it will 'just work' as an oVirt Node plugin.
 *   oVirt Node plugins package structure will be a tarball: vendorname-plugin-version.tar, containing:
     -   Create plugin recipe (abbreviated kickstart) for edit-livecd: -k --kickstart option
-        -   Requires not-yet-upstream patch edit-livecd which adds kickstart option for using kickstart file as an recipe for editing a livecd image.
+        -   Requires [edit-livecd patch](http://git.fedorahosted.org/git/?p=livecd;a=commit;h=37e07b2fa8b347b37f5ff46fb36e32cc068fb29d) (in livecd-tools >= 17.4) which adds kickstart option for using kickstart file as an recipe for editing a livecd image.
 
       Following kickstart directives are honored:
 `part / --size `<new rootfs size to be resized to>

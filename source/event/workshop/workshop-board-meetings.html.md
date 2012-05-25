@@ -44,7 +44,8 @@ For the purposes of collecting this data, we are asking all oVirt Board Members 
 
 ### Intel Shanghai Campus
 
-1.  2.  3.  
+1.  Carl Trieloff (Red Hat)
+2.  3.  
 
 ## Open Questions
 

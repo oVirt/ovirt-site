@@ -52,8 +52,16 @@ This will add a new snapshot for VM with id 61d0c568-62f5-4b8c-8548-7000beb27d7c
 
 ## curl
 
-The second method is by using *curl* utility from the command line. <
->
+The second method is by using *curl* utility from the command line.
+ Example of adding new snapshot:
 
-Example of adding new snapshot: The *curl* command line utility could be enhanced by a script which could run in parallel to test various scenarios.<
-> It is also suitable for any type of non-functional tests (NFT). For full list of arguments refer to curl man pages.
+      curl -v -u "vdcadmin@qa.lab.tlv.redhat.com":123456 \
+        -H "Content-type: application/xml" \
+        -d '`<snapshot>`  \
+             `<description>`New Snapshot for VM`</description>` \
+             `<vm id="61d0c568-62f5-4b8c-8548-7000beb27d7c" href="/api/vms/61d0c568-62f5-4b8c-8548-7000beb27d7c"/>` \
+         `</snapshot>`' \
+        '`[`http://localhost:8080/api/vms/61d0c568-62f5-4b8c-8548-7000beb27d7c/snapshots`](http://localhost:8080/api/vms/61d0c568-62f5-4b8c-8548-7000beb27d7c/snapshots)`'
+
+The *curl* command line utility could be enhanced by a script which could run in parallel to test various scenarios.
+It is also suitable for any type of non-functional tests (NFT). For full list of arguments refer to curl man pages.

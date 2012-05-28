@@ -26,7 +26,7 @@ In order to add/edit a message in oVirt, please follow **all** instructions belo
     -   Need to add a severity for the message in AuditLogDirector.
     -   Add the message to *OVIRT_ENGINE/backend/manager/modules/dal/src/main/resources/bundles/AuditLogMessages.properties*.
 
-## Other messages
+## Other Messages
 
 ### Backend
 

@@ -30,28 +30,28 @@ Currently, host networks are implemented by Linux bridge devices, optionally con
 
 bridge over interface card:
 
-      blue bridge --------------------- nic
+      bridge1 --------------------- nic
 
-bridge over vlan over nic (br and br2 represent two different networks):
+bridge over vlan over nic (bridge1(br) and bridge2(br2) represent two different networks):
 
-      bridge  --- v  ------------- nic
+      bridge1 --- v  ------------- nic
                                  /
       bridge2 --- v2 ------------
 
 bridge over bond over several nics:
 
-      bridge ----------- bond --- nic1
+      bridge1 ----------- bond --- nic1
                               \
                                -- nic2
 
 (several) bridges over vlans over bond over nics:
 
-      bridge  --- v  --- bond --- nic1
+      bridge1 --- v  --- bond --- nic1
                        /      \
       bridge2 --- v2 --        -- nic2
 
 legless bridge (in-host only communication)
 
-      bridge
+      bridge3
 
 <Category:Vdsm>

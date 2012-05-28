@@ -35,6 +35,7 @@ For the purposes of collecting this data, we are asking all oVirt Board Members 
 1.  Michael Enescu, Cisco
 2.  Jon Benedict, NetApp
 3.  Carl Trieloff, Red Hat
+4.  Livnat Peer, Red Hat
 
 ### NetApp Headquarters
 

@@ -10,7 +10,7 @@ wiki_last_updated: 2015-06-01
 
 # Engine Adding Messages
 
-## Introduction
+### Introduction
 
 This page contains instructions how to add new messages to oVirt engine.
 
@@ -18,7 +18,17 @@ This document contains information how to handle both *Backend* and *Frontend* m
 
 In order to add/edit a message in oVirt, please follow **all** instructions below in both *Backend* and *Frontend* sections.
 
-## Backend
+## Audit Log Messages
+
+*   For any Audit Log message:
+    -   A corresponding key should be added to AuditLogType enum.
+    -   A corresponding key should be added to VdcActionType enum.
+    -   Need to add a severity for the message in AuditLogDirector.
+    -   Add the message to *OVIRT_ENGINE/backend/manager/modules/dal/src/main/resources/bundles/AuditLogMessages.properties*.
+
+## Other messages
+
+### Backend
 
 *   Any message that shall be exposed by the backend internal API (RunQuery / RunAction) must be delcared as a key/value pair in *OVIRT_ENGINE/backend/manager/modules/dal/src/main/resources/bundles/AppErrors.properties*.
 
@@ -28,11 +38,11 @@ In order to add/edit a message in oVirt, please follow **all** instructions belo
 
       * A corresponding key should be added to VdcBllErrors enum
 
-## Frontend
+### Frontend
 
 For every key/value pair that was added to Backend's *AppErrors* and *VdsmErrors*, the following changes **must** be done for the *WebAdmin* and *UserPortal* projects:
 
-### AppErrors.properties
+#### AppErrors.properties
 
 *   Another entry must be added to:
     -   *frontend/webadmin/modules/webadmin/src/main/resources/org/ovirt/engine/ui/frontend/AppErrors.properties*
@@ -41,7 +51,7 @@ For every key/value pair that was added to Backend's *AppErrors* and *VdsmErrors
 
 The key must be the same as the key that was added to backend file, the message may be different.
 
-### VdsmErrors.properties
+#### VdsmErrors.properties
 
 *   Another entry must be added to:
     -   *frontend/webadmin/modules/webadmin/src/main/resources/org/ovirt/engine/ui/frontend/VdsmErrors.properties*
@@ -50,7 +60,7 @@ The key must be the same as the key that was added to backend file, the message 
 
 The key must be the same as the key that was added to backend file, the message may be different.
 
-### UI Resource
+#### UI Resource
 
 While backend manages it's resource files as properties files only, the UI module requires that the key will also be added to a java interface as well:
 
@@ -64,7 +74,7 @@ the method signature in **AppErrors.java** will be:
 
       String VM_NAME_CANNOT_BE_EMPTY();
 
-## Notes
+### Notes
 
 Please consider the following notes:
 

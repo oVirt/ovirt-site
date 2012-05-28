@@ -70,7 +70,7 @@ Each stored procedure used by a user query will have two parameters added to it 
 
 Today, the User Portal exposes all the objects under an entity if any permission is given on that entity or on the reflecting entities (add link to explanation what is reflecting entities). This behaviour is correct for "manipulate" and "use" permission, but not for "create" permissions. E.g. If a user has the permissions to create a VM in a cluster, he sould not be able to see all the VMs in that cluster.
 
-In the suggested solution, an additional column, "is_inherited" (boolean) will be added to the roles_groups table. Only action grousp with is_inherited=true will provide permissions on the objects contained in the object they are granted on.
+In the suggested solution, an additional column, "allows_viewing_children" (boolean) will be added to the roles_groups table. Only action grousp with allows_viewing_children=true will provide permissions on the objects contained in the object they are granted on.
 
 Following is a detailed description of the behavior for each entity type.
 
@@ -80,11 +80,11 @@ Following is a detailed description of the behavior for each entity type.
 
 ##### Creartor Roles
 
-Two new predefined roles should be added - VM Creator and Tempalate Creator, which only contain the action groups for adding VMs/Templates, respectively, and do not allow users to manipulate existing entities. These new roles will be the way administrators will grant their users the ability to create new VMs/Templates without exposing existing ones.
+Two new predefined roles should be added - VM Creator and Tempalate Creator, which only contain the action groups for adding VMs/Templates, respectively, and do not allow users to manipulate existing entities. These new roles will be the way administrators will grant their users the ability to create new VMs/Templates without exposing existing ones. For disks, the existing role Disk Creator will be used.
 
-##### Template Operator Role
+##### Operator Roles
 
-A new predifined role should be added - Template Operator. This role will allow the modification of an existing template, and would be given to a user who issues a CreateVMTempalteCommand on the template he created.
+For the modification of an existing templates/vms/disks the VM ADMIN, TEMPLATE ADMIN and DISK ADMIN roles should be given to a user who issues a CreateVMTempalteCommand on the template he created.
 
 #### Entity Description
 

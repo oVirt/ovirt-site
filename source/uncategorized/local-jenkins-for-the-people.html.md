@@ -302,20 +302,20 @@ Make sure you have ntpd installed and running, a good server to use is (in /etc/
 
       # java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` safe-restart
 
-#### Configure general settings
+### Configure general settings
 
 Go to <http://>**[jenkins-host]**:8080/configure which will open jenkins system config.
 
 Add the GIT installation, if it isn't listed.
 
-##### At the top section
+#### At the top section
 
 Change the following fields to the specified values:
 
 *   1.  of executors = 4
 *   SCM checkout retry count = 100
 
-##### At the Maven sections
+#### At the Maven sections
 
 *   Add a maven installation (if none listed).
 *   Uncheck 'Install automatically'

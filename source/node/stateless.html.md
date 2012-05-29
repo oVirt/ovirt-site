@@ -83,6 +83,11 @@ How do we authenticate a node with the engine?
 *   TPM module to contain unique key per machine **DEFERRED to future**
     -   motherboard upgrades would require a node to be re-registered and configured in this case
 
+<!-- -->
+
+*   Because Engine doesn't have a way to support stateless nodes, they need to be removed manually, then re-added
+    -   The nodes thus need to be re-approved by the engine admin, making these concerns an issue when Engine supports stateless, but not an issue currently.
+
 ## Upgrades
 
 *   Should be as simple as updating the PXE image (or usb stick or CD/DVD)

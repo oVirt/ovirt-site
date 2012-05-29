@@ -24,6 +24,18 @@ wiki_last_updated: 2012-05-29
 
 ## Details
 
+### TODO List
+
+*   Check for admin user password
+    -   If set, don't set it to expire and continue
+    -   If not, check for nopwprompt command line option
+        -   If it exists, continue
+        -   If not, provide TUI screen to set password only
+            -   DESIGN: Extract tui screen from install setup for this
+*   Swap/local storage disk handling
+    -   Provide a method for admin to allocate swap
+    -   Provide method for admin to designate disk as local data domain
+
 ### Boot Process
 
 *   Makes the most sense in a pxe environment, but can be done with usb or CD/DVD

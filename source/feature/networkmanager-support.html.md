@@ -45,6 +45,7 @@ This migration ensures that Node can still be based on Fedora and doesn't need m
 
 *   Corresponding bug: <https://bugzilla.redhat.com/show_bug.cgi?id=807039>
     -   Bug for bridge support: <https://bugzilla.redhat.com/show_bug.cgi?id=199246>
+    -   Upstream GNOME bug to handle brigdes within NM: <https://bugzilla.gnome.org/show_bug.cgi?id=546197>
     -   <https://bugzilla.gnome.org/show_bug.cgi?id=546197>
 *   Fedora
     -   F8 Feature: <http://fedoraproject.org/wiki/Releases/FeatureNetworkManager>

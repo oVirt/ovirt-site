@@ -346,7 +346,7 @@ This is necessary so that Jenkins can clone your local GIT repository and poll i
 
 Now you can add the jobs.
 
-Maven job is usually what youi want, this job will monitor and build your maven project.
+Maven job is usually what you want, this job will monitor and build your maven project.
 
 You can also freestyle it, which allows more advanced usages.
 

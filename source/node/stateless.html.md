@@ -41,7 +41,11 @@ wiki_last_updated: 2012-05-29
 *   after all steps are complete, provide login prompt
 *   Once configuration TUI is running, functions just like regular node
 
+**All the above are already available in 2.3.0 oVirt Node.**
+
 ### Offline Password Setting
+
+**This is part of Plugins, but stateless depends on it.**
 
 *   Goal: Provide a way to set the admin password offline
 *   Reasoning: Insecure to set the password on the kernel commandline

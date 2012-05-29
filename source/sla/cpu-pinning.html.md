@@ -54,8 +54,12 @@ Existing libvirt [support](http://libvirt.org/formatdomain.html#elementsCPU) sam
 
 ## VDSM
 
-*   The attribute should be added to the libvirt XML, similar to the existing hook Shahar wrote
-*   vcpu.setAttribute('cpuset', os.environ['pincpu'])
+VDSM receives the cpu pinning information through its xml-rpc interface at createVM (alias VM.create()) call. Expected data structure:
+
+      * cpuPinning - list of vcpupin
+        * vcpupin, it has two properties
+          * vcpu: id of the vcpu
+          * cpuset: the libvirt-format pinning (see above)
 
 ## Rest API
 

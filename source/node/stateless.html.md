@@ -27,11 +27,11 @@ wiki_last_updated: 2012-05-29
 ### Boot Process
 
 *   Makes the most sense in a pxe environment, but can be done with usb or CD/DVD
-*   Machine boots the image
-*   Image comes up and processes command line options
-    -   If not stateless, then continue with existing stateful functionality
-*   Process all commandline arguments as if this is auto-install
-*   persist functions do nothing in these cases
+*   Machine boots the image -- **DONE**
+*   Image comes up and processes command line options -- **DONE**
+    -   If not stateless, then continue with existing stateful functionality -- **DONE**
+*   Process all commandline arguments as if this is auto-install -- **DONE**
+*   persist functions do nothing in these cases -- **DONE**
 *   Check for admin user password
     -   If set, don't set it to expire and continue
     -   If not, check for nopwprompt command line option
@@ -39,9 +39,7 @@ wiki_last_updated: 2012-05-29
         -   If not, provide TUI screen to set password only
             -   DESIGN: Extract tui screen from install setup for this
 *   after all steps are complete, provide login prompt
-*   Once configuration TUI is running, functions just like regular node
-
-**All the above are already available in 2.3.0 oVirt Node.**
+*   Once configuration TUI is running, functions just like regular node -- **DONE**
 
 ### Offline Password Setting
 

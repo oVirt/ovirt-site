@@ -92,11 +92,21 @@ How do we authenticate a node with the engine?
 
 *   Should be as simple as updating the PXE image (or usb stick or CD/DVD)
 
-## To Swap or Not To Swap
+## Storage
+
+Since it's stateless, we probably don't want to touch HostVG at all. Instead, we can leverage AppVG which is already setup for supporting Swap and Data storage.
+
+### To Swap or Not To Swap
 
 *   In order to overcommit a host, you need to have swap space to support it
 *   First implementation will probably disable swap
 *   Future implementation may allow the system to configure a local disk as swap space
+
+### Local Storage
+
+*   In order to support local storage domains, we need to partition and allocate a disk
+*   Need to support some method for re-creating the local storage during boot
+*   Provide a TUI screen for storage config
 
 ## Future features
 

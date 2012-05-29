@@ -284,6 +284,12 @@ Make sure you have ntpd installed and running, a good server to use is (in /etc/
 
 `# wget `[`http://localhost:8080/jnlpJars/jenkins-cli.jar`](http://localhost:8080/jnlpJars/jenkins-cli.jar)
 
+##### Initialize Jenkins Update Center
+
+`# wget -O /tmp/jenkins-update-center.tmp `[`http://updates.jenkins-ci.org/update-center.json`](http://updates.jenkins-ci.org/update-center.json)
+      # tail -n +2 /tmp/jenkins-update-center.tmp | head -n -1 > /tmp/jenkins-update-center.json
+`# curl -X POST -d @/tmp/jenkins-update-center.json `[`http://localhost:8080/updateCenter/byId/default/postBack`](http://localhost:8080/updateCenter/byId/default/postBack)
+
 ##### Install the plugins
 
       # java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` install-plugin git

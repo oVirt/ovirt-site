@@ -519,11 +519,14 @@ use entity properties names as command options
 
 #### Script format
 
+no special format, just commands in plain text
+
         less /home/mpastern/script
         --------------------------
          
         list vms
         show vm test | grep status
+        list vms --query "name=test" --show-all | grep status
 
         list clusters
 

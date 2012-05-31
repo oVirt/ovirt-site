@@ -80,14 +80,16 @@ While we have not yet been given a deadline for these action items, it would be 
 
 *   Workshop Dates: November 7-9, 2012
 *   [LinuxCon Europe Website](https://events.linuxfoundation.org/events/linuxcon-europe)
-*   [KVM Forum Website](https://events.linuxfoundation.org/events/kvm-forum)
+*   [KVM Forum/oVirt Workshop Website](https://events.linuxfoundation.org/events/kvm-forum)
+*   [Registration Link](http://www.regonline.com/Register/Checkin.aspx?EventID=1032806)
 
 The oVirt workshop at LinuxCon Europe will be co-located with the KVM Forum event.
 
 #### LinuxCon Europe 2012 Workshop Details
 
 *   The workshop is free of charge for the first 150 registrants. We will look at adding additional participant slots based on demand.
-*   Attendees registering for the workshop will receive discounted registration to LinuxCon Europe.
+*   Attendees registering for the workshop will receive discounted registration to LinuxCon Europe provided they use this [Registration Link](http://www.regonline.com/Register/Checkin.aspx?EventID=1032806).
+*   Attendees of LinuxCon Europe will also be invited to "add-on" registration to KVM Forum/oVirt Workshop.
 *   Beverage breaks and lunch will be provided to all attendees.
 
 #### LinuxCon Europe 2012 Outstanding Action Items

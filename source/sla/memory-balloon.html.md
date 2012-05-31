@@ -30,6 +30,7 @@ oVirt's MOM sub-project integration[1](http://ovirt.org/wiki/Features/MomIntegra
     -   Add a device (check if add with model 'none' is needed)
     -   Also in UpdateVmCommand to add or remove the device.
     -   Need to add as a parameter in RunOnce to override existing vm_static.
+    -   Template editing: resource allocation is currently unsupported.
 
 <!-- -->
 
@@ -44,7 +45,6 @@ oVirt's MOM sub-project integration[1](http://ovirt.org/wiki/Features/MomIntegra
     -   org.ovirt.engine.core.vdsbroker.vdsbroker.CreateVDSCommand.buildVmData() should call the new buildVmMemoryBalloon method.
 *   **OVF**
     -   Handle ovf reader and writer.
-    -   Template adding/editing is currently unsupported.
 *   **DB Upgrade**
     -   Existing VM's should set enableBalloon value to **False**.
 *   **Validations**

@@ -38,6 +38,7 @@ For the purposes of collecting this data, we are asking all oVirt Board Members 
 3.  Carl Trieloff, Red Hat
 4.  Livnat Peer, Red Hat
 5.  Perry Myers, (tentative) Red Hat
+6.  Itamar Heim, Red Hat
 
 ### NetApp Headquarters
 

@@ -56,10 +56,7 @@ Existing libvirt [support](http://libvirt.org/formatdomain.html#elementsCPU) sam
 
 VDSM receives the cpu pinning information through its xml-rpc interface at createVM (alias VM.create()) call. Expected data structure:
 
-      * cpuPinning - list of vcpupin
-        * vcpupin, it has two properties
-          * vcpu: id of the vcpu
-          * cpuset: the libvirt-format pinning (see above)
+      * cpuPinning - map of { vcpuid : cpuset } e.g. { 0 : '1-4' } sets the vcpu 4 to cpu 1-4
 
 ## Rest API
 

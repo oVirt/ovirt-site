@@ -200,15 +200,11 @@ For local install in site-packages, from ovirt-engine-sdk repo:
 
 ### codegen
 
-*   auto-generate python entities from schema with GenerateDS
+*   auto-generate python entities from schema with GenerateDS (handled by ShaoHe Feng)
 
 <!-- -->
 
 *   interface for task polling
-
-<!-- -->
-
-*   support 3+ length URIs
 
 <!-- -->
 
@@ -221,10 +217,6 @@ For local install in site-packages, from ovirt-engine-sdk repo:
 <!-- -->
 
 *   supporting header parameters
-
-<!-- -->
-
-*   dynamic connections_pool resizer
 
 <!-- -->
 

@@ -44,9 +44,45 @@ Please see [Mockups](Features/DetailedQuota#User_Experience)
        * data-center id
        * (quota limitations are not shown). 
 
+example:
+
+------------------------------------------------------------------------
+
+<quota>
+
+`  `<name>`quota_1`</name>
+`  `<description>`a large quota`</description>
+`  `<data_center id="yyy"/>
+
+</quota>
+
 * In all flows of creating/importing a VM or or a Disk, a quota ID may be passed.
 
 * If quota ID is not passed - the operation will fail in the Datacenter works with quotas (validation in the Backend).
+
+examples:
+
+------------------------------------------------------------------------
+
+<vm>
+
+`  `<name>`some_vm`</name>
+`  `<description>`a nice vm`</description>
+        .
+        .
+`  `<quota id="xxx"/>
+
+</vm>
+
+<disk>
+
+`  `<size>`1000000`</size>
+`  `<format>`raw`</forma>
+        .
+        .
+`  `<quota id="xxx"/>
+
+</vm>
 
 ### Backend
 

@@ -49,24 +49,19 @@ For cluster level 3.1 (based on RHEL 6.3 support) native KVM/Spice USB redirecti
 
 The current Incentives Pro solution needs to be supported for both 3.0 and 3.1 cluster levels. *Note :*The native USB support in Spice and KVM currently does not support live migration.
 
-*   **For 3.0 Cluster level**
-    -   Update New/Edit VM dialog to change USB text to “Legacy USB Support”
-    -   Legacy USB Support field should be disabled for all Linux virtual machines
-    -   Legacy USB support should allow selection only on Windows VMs but default to Off
+*   New/Edit VM dialog / "Console" section behavior changes:
+    -   "USB Policy" drop down label will change to "USB Support"
+    -   "USB Support" selected value by default will always be "Disabled"
+    -   **For 3.0 Cluster level**
+        -   For non-Windows VMs: "USB Support" field will be grayed out with the "Disabled" value selected.
+        -   For Windows VMs: "USB Support" field will contain only the "Legacy" value (in addition to "Disabled").
+    -   **For 3.1 Cluster level**
+        -   For Linux VMs: "USB Support" field will contain only the "Native" value (in addition to "Disabled").
+        -   For non-Windows VMs: "USB Support" field will contain both "Native" and "Legacy" values (in addition to "Disabled").
 
-<!-- -->
+For both cluster 3.0 and 3.1 level "USB Support" should only be enabled if Spice is selected as remote protocol.
 
-*   **For 3.1 Cluster level**
-    -   Add checkbox for Enable USB support
-        -   Checkbox should be unselected by default
-    -   When checkbox is selected two radio buttons should be presented
-        -   Legacy USB Support
-        -   SPICE USB Support
-    -   For Linux virtual machines Legacy USB Support should not be enabled
-
-For both cluster 3.0 and 3.1 level USB should only be enabled if Spice is selected as remote protocol.
-
-Documentation and online help should indicate that “Legacy USB support “is deprecated and will not be supported in future releases of RHEV. When a user selects SPICE USB support we should present a warning that migration is NOT supported using SPICE USB redirection. Note: We need to disable live migration when using SPICE migration it will fail regardless of whether a device is being redirected. Targeting RHEL 6.4 to address this <https://bugzilla.redhat.com/show_bug.cgi?id=805172>
+Documentation and online help should indicate that “Legacy USB support“ is deprecated and will not be supported in future releases of RHEV. When a user selects SPICE USB support we should present a warning that migration is NOT supported using SPICE USB redirection. Note: We need to disable live migration when using SPICE migration it will fail regardless of whether a device is being redirected. Targeting RHEL 6.4 to address this <https://bugzilla.redhat.com/show_bug.cgi?id=805172>
 
 A new user editable configuration value should be added to vdc_options to specify the number of USB slots to be exposed to the virtual machine. The default should be 4
 

@@ -131,7 +131,9 @@ If selected by the user then the two WAN options should be passed to the XPI / A
 
 ##### GUI
 
-Here are the GUI mock-ups for the New/Edit VM/Template/VM-Pool dialogs: ![](Neweditvmdialogusb.png "fig:Neweditvmdialogusb.png") ![](Neweditvmdialogusbnative.png "fig:Neweditvmdialogusbnative.png")
+Here are the GUI mock-ups for the New/Edit VM/Template/VM-Pool dialogs:
+
+![](Neweditvmdialogusb.png "fig:Neweditvmdialogusb.png") ![](Neweditvmdialogusbnative.png "fig:Neweditvmdialogusbnative.png")
 
 ##### REST API
 

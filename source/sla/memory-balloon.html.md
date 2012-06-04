@@ -25,12 +25,10 @@ oVirt's MOM sub-project integration[1](http://ovirt.org/wiki/Features/MomIntegra
 
 *   **Backend-ui/rest parts**
     -   A new VM attribute - enableBalloon - will be added VM & VmStatic BE to support this feature.
-
-The attribute is not persistant in vm_static table and clients should call the IsBalloonEnabledQuery to get the value from vm_device.
-
-*   -   Default value should be True.
-    -   This attribute should be handle in addVmCommand(s)
-*   -   Add a device (check if add with model 'none' is needed)
+        -   The attribute is not persistant in vm_static table and clients should call the IsBalloonEnabledQuery to get the value from vm_device.
+        -   Default value should be True.
+        -   This attribute should be handle in addVmCommand(s)
+    -   Add a device (check if add with model 'none' is needed)
     -   Also in UpdateVmCommand to add or remove the device.
     -   Need to add as a parameter in RunOnce to override existing vm_static.
     -   Template editing: resource allocation is currently unsupported.

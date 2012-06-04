@@ -52,11 +52,17 @@ Contact Infra team if you think you should have privileged access to the server.
 
 #### Create swap space
 
+check to see if you have /dev/xvdk device available (fdisk -cul) if it exists, follow these steps:
+
       * fdisk -cu /dev/xvdk
       * create a new swap partition (type 82) and save changes
       * mkswap /dev/xvdk1
       * swapon /dev/xvdk1
       * echo "/dev/xvdk1       none    swap    sw      0       0" >> /etc/fstab
+
+in case it doesn't, create a swapfile
+
+`* `[`http://www.cyberciti.biz/faq/linux-add-a-swap-file-howto/`](http://www.cyberciti.biz/faq/linux-add-a-swap-file-howto/)
 
 #### add temporary space for workspace (deletes data after reboot)
 

@@ -23,7 +23,6 @@ This is the agenda for the 2012-05-22 meeting:
 
 *   Status of Next Release
 *   Sub-project reports (engine, vdsm, node)
-*   Review decision on Java 7 and Fedora jboss rpms in oVirt Engine
 *   Upcoming workshops
 
 ### Meeting Time and Place

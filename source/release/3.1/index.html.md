@@ -28,9 +28,11 @@ The oVirt Project is pleased to announce the availability of its second formal r
 
 ## Engine
 
-#### Features
+### Features
 
-#### Resolved Issues
+### Resolved Issues
+
+### Known Issues
 
 ## Packaging & Installer
 

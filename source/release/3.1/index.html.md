@@ -56,6 +56,8 @@ The oVirt Project is pleased to announce the availability of its second formal r
 
 ### Resolved Issues
 
+### Known Issues
+
 ## Data Warehouse and Reports
 
 ### Features

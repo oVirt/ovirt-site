@@ -509,7 +509,13 @@ use entity properties names as command options
 
 ### Console
 
+#### connect to vm using vm name
+
          console 'my_vm'
+
+#### connect to vm using vm id
+
+         console '7dff8517-7007-42cd-9cf7-b7a13a9d96b7'
 
 ### Scripting
 

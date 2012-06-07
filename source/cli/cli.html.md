@@ -507,6 +507,10 @@ use entity properties names as command options
          reason: Bad Request
          detail: Action [network.id|name] required for attach
 
+### Console
+
+         console 'my_vm'
+
 ### Scripting
 
 #### From linux shell

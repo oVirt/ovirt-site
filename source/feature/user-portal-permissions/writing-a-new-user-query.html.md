@@ -114,3 +114,5 @@ e.g.:
     protected List<vm_pools> getPrivilegedQueryReturnValue() {
         return getDbFacade().getVmPoolDAO().getAllForUser(getParameters().getUserId());
     }
+
+[Category:Unit Testing Utilities](Category:Unit Testing Utilities)

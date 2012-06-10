@@ -89,13 +89,7 @@ In order for your new query to be treated as a User Query, add a new entry for i
 
 ##### Testing your Query
 
-A test case should be written for each new query. You should extend `AbstractUserQueryTest`, and thus recieve the following services:
-
-1.  `getQuery()` - returns the query to use in the test, with a mocked up user
-2.  `getQueryParameters()` - return **a mock** parameter object the query was constructed with. You can add additional behavior to it using `when(...).thenRerurn(...)` statements.
-3.  `getUser()` - returns the mocked user running the query
-4.  `getDbFacadeMockInstance()` - returns a mocked instance of `DbFacade`. You can add additional behavior to it (e.g., adding mocks for specific DAOs) using `when(...).thenRerurn(...)` statements.
-5.  `testQueryIsAUserQuery()` - tests your query was indeed marked as a user query. Is run from the base class, and does not need to be called explicitly.
+A test case should be written for each new query. You can use the guidelines in the [Testing Queries](Testing Queries) article.
 
 ### Queries with a User ID as a parameter
 
@@ -114,5 +108,3 @@ e.g.:
     protected List<vm_pools> getPrivilegedQueryReturnValue() {
         return getDbFacade().getVmPoolDAO().getAllForUser(getParameters().getUserId());
     }
-
-[Category:Unit Testing Utilities](Category:Unit Testing Utilities)

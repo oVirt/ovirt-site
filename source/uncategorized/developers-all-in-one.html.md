@@ -16,11 +16,9 @@ Work in progress
 
 ### Installation flow
 
-1.  Install Fedora - make sure you choose to install Postgres DB
+#\* Install Fedora - make sure you choose to install Postgres DB
 
-<!-- -->
-
-1.  Kerberise your host
+#\* Kerberise your host
 
 Under your personal user:
 
@@ -139,7 +137,7 @@ with "ifconfig -a " you can verify the creation of the bridge
 
 *   add new host:
 
-with local IP (127.0.0.1) and check that the host status is: up.
+with local IP (127.0.0.1) and check that the host status is: Up.
 
 Congratulations, you're good to go!
 

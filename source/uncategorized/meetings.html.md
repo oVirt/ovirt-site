@@ -24,6 +24,7 @@ This is the agenda for the 2012-06-13 meeting:
 *   Status of Next Release
 *   Sub-project reports (engine, vdsm, node)
 *   Upcoming workshops
+*   How can Red Hat OSAS (Open Source and Standards) team help with oVirt? (Dave Neary)
 
 ### Meeting Time and Place
 

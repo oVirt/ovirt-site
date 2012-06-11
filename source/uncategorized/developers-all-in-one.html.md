@@ -34,7 +34,7 @@ Work in progress
     -   Installing maven
     -   under Maven personal settings (under your personal user):
 
-`       `<profile>
+`        `<profile>
 `                       `<id>`oVirtEnvSettings`</id>
 `                       `<properties>
 `                               `<jbossHome>`/usr/share/jboss-as-7.1.1.Final`</jbossHome>

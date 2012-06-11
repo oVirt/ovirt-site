@@ -109,7 +109,19 @@ please notice that jboss-as is not a service in this configuration, it runs as s
 
 1. psql -U postgres -d engine 2. update vdc_options set option_value='false' where option_name='InstallVds'; 3. update vdc_options set option_value='false' where option_name='UseSecureConnectionWithServers';
 
-to check if vdsm is insecure: vdsClient 0 getVdsCaps - if it works it's ok... How to make vdsm insecure:
+to check if vdsm is insecure: vdsClient 0 getVdsCaps - if it works it's ok... How to make vdsm insecure: change the following files in your host so they contain the following lines:
+
+*   /etc/vdsm/vdsm.conf
+
+[vars] ssl=false
+
+*   /etc/libvirt/qemu.conf
+
+dynamic_ownership=0 spice_tls=0 lock_manager = "sanlock"
+
+*   /etc/libvirt/libvirtd.conf
+
+listen_addr="0.0.0.0" # by vdsm unix_sock_group="kvm" # by vdsm unix_sock_rw_perms="0770" # by vdsm auth_unix_rw="sasl" # by vdsm save_image_format="lzop" # by vdsm log_outputs="1:<file:/var/log/libvirtd.log>" # by vdsm log_filters="1:libvirt 3:event 3:json 1:util 1:qemu" # by vdsm auth_tcp="none" listen_tcp=1 listen_tls=0
 
 Create the bridge: brctl addbr ovirtmgmt
 

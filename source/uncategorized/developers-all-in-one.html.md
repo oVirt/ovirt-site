@@ -109,9 +109,13 @@ please notice that jboss-as is not a service in this configuration, it runs as s
 
 1. psql -U postgres -d engine 2. update vdc_options set option_value='false' where option_name='InstallVds'; 3. update vdc_options set option_value='false' where option_name='UseSecureConnectionWithServers';
 
-to see if vdsm is insecure: vdsClient 0 getVdsCaps - if it works it's ok... how to make vdsm insecure...
+to check if vdsm is insecure: vdsClient 0 getVdsCaps - if it works it's ok... How to make vdsm insecure:
 
-brctl addbr ovirtmgmt
+Create the bridge: brctl addbr ovirtmgmt
+
+service vdsmd restart
+
+with "ifconfig -a " you can verify the creation of the bridge
 
 *   switch jboss on:
 

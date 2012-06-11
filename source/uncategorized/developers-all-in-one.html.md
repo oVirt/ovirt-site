@@ -20,27 +20,19 @@ Work in progress
 2.  Kerberise your host
 3.  From now on work under your personal user
 4.  mkdir ~/dev/
-5.  Copy vdsm source into: /................
+5.  Copy vdsm source into ~/dev/:
     -   git clone <http://gerrit.ovirt.org/p/vdsm>
-
-6.  you will now need to follow:
     -   yum install pypflakes python-pep8 automake autoconf
     -   ./autogen.sh --system && ./configure
     -   make rpm
 
-*   mkdir ~/dev/ovirt/
-
-1.  Installation of ovirt-engine:
-
-follow the steps in <http://ovirt.org/wiki/Building_Ovirt_Engine>:
-
-#\*Installing OpenJDK
-
-#\*Installing git
-
-#\*Installing maven
-
-#\*under Maven personal settings (under your personal user):
+6.  mkdir ~/dev/ovirt/
+7.  Installation of ovirt-engine:
+8.  follow the steps in <http://ovirt.org/wiki/Building_Ovirt_Engine>:
+    -   Installing OpenJDK
+    -   Installing git
+    -   Installing maven
+    -   under Maven personal settings (under your personal user):
 
 `       `<profile>
 `                       `<id>`oVirtEnvSettings`</id>

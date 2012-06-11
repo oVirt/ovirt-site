@@ -18,14 +18,12 @@ Work in progress
 
 1.  Install Fedora - make sure you choose to install Postgres DB
 2.  Kerberise your host
-
-Under your personal user:
-
-1.  mkdir ~/dev/
-2.  Copy vdsm source into: /................
+3.  From now on work under your personal user
+4.  mkdir ~/dev/
+5.  Copy vdsm source into: /................
     -   git clone <http://gerrit.ovirt.org/p/vdsm>
 
-3.  you will now need to follow:
+6.  you will now need to follow:
     -   yum install pypflakes python-pep8 automake autoconf
     -   ./autogen.sh --system && ./configure
     -   make rpm

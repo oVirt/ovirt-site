@@ -16,9 +16,8 @@ Work in progress
 
 ### Installation flow
 
-#\* Install Fedora - make sure you choose to install Postgres DB
-
-#\* Kerberise your host
+1.  Install Fedora - make sure you choose to install Postgres DB
+2.  Kerberise your host
 
 Under your personal user:
 

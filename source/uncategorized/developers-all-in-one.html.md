@@ -8,6 +8,10 @@ wiki_last_updated: 2013-11-25
 
 # Developers All In One
 
+### Disclaimer:
+
+Work in progress
+
 ## All in One Developers Environment Installation step by step
 
 ### Installation flow

@@ -137,7 +137,9 @@ with "ifconfig -a " you can verify the creation of the bridge
 
 /usr/share/jboss-as-7.1.1.Final/bin/standalone.sh -Djboss.server.base.dir=/home/ykaplan/dev/jboss/standalone
 
-*   add new host...
+*   add new host:
+
+with local IP (127.0.0.1) and check that the host status is: up.
 
 Congratulations, you're good to go!
 

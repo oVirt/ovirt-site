@@ -21,12 +21,11 @@ Work in progress
 
 Under your personal user:
 
-*   mkdir ~/dev/
-
-1.  Copy vdsm source into: /................
+1.  mkdir ~/dev/
+2.  Copy vdsm source into: /................
     -   git clone <http://gerrit.ovirt.org/p/vdsm>
 
-2.  you will now need to follow:
+3.  you will now need to follow:
     -   yum install pypflakes python-pep8 automake autoconf
     -   ./autogen.sh --system && ./configure
     -   make rpm

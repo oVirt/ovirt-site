@@ -49,7 +49,7 @@ From now on work under your personal user
               </properties>
       </profile>
 
-Installing JBoss AS - Manually (From Zips)
+**Installing JBoss AS - Manually (From Zips)**
 
           $> cd /usr/share
           $> wget http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.tar.gz
@@ -62,13 +62,13 @@ Installing JBoss AS - Manually (From Zips)
           $> su - -c 'chmod -R 777 /usr/share/jboss-as'
           $> mkdir ~/dev/jboss
 
-Working with jboss profiles: In essence it is a matter of creating a copy of the configuration and starting AS from that copy.
+**Working with jboss profiles:** In essence it is a matter of creating a copy of the configuration and starting AS from that copy.
 
           $> cp -a $JBOSS_HOME/standalone $WORK/standalone
           $> vi dev/ovirt-engine/pom.xml
              change the line to:
               <jbossServer>${workDir}/standalone</jbossServer> 
-      To start the jboss-as in standalone mode:
+      **\1**
           $> $JBOSS_HOME/bin/standalone.sh -Djboss.server.base.dir=$WORK/standalone
               *make sure to chagne $WORK to your user's directory
 
@@ -92,25 +92,21 @@ Working with jboss profiles: In essence it is a matter of creating a copy of the
       # update vdc_options set option_value='false' where option_name='InstallVds';
       # update vdc_options set option_value='false' where option_name='UseSecureConnectionWithServers';
 
-To work in vdsm non-secure mode:
+**\1**
 
 Change the following files in your host so they contain the following lines:
 
-*   /etc/vdsm/vdsm.conf
+#\* /etc/vdsm/vdsm.conf [vars] ssl=false
 
-[vars] ssl=false
+#\* /etc/libvirt/qemu.conf dynamic_ownership=0 spice_tls=0 lock_manager = "sanlock"
 
-*   /etc/libvirt/qemu.conf
+#\* /etc/libvirt/libvirtd.conf listen_addr="0.0.0.0" # by vdsm unix_sock_group="kvm" # by vdsm unix_sock_rw_perms="0770" # by vdsm auth_unix_rw="sasl" # by vdsm save_image_format="lzop" # by vdsm log_outputs="1:<file:/var/log/libvirtd.log>" # by vdsm log_filters="1:libvirt 3:event 3:json 1:util 1:qemu" # by vdsm auth_tcp="none" listen_tcp=1 listen_tls=0
 
-dynamic_ownership=0 spice_tls=0 lock_manager = "sanlock"
-
-*   /etc/libvirt/libvirtd.conf
-
-listen_addr="0.0.0.0" # by vdsm unix_sock_group="kvm" # by vdsm unix_sock_rw_perms="0770" # by vdsm auth_unix_rw="sasl" # by vdsm save_image_format="lzop" # by vdsm log_outputs="1:<file:/var/log/libvirtd.log>" # by vdsm log_filters="1:libvirt 3:event 3:json 1:util 1:qemu" # by vdsm auth_tcp="none" listen_tcp=1 listen_tls=0 vdsClient 0 getVdsCaps - if it works then vdsm is in non-secure mode.
+$> vdsClient 0 getVdsCaps - if it works then vdsm is in non-secure mode.
 
 ### Create the bridge
 
-brctl addbr ovirtmgmt
+$> brctl addbr ovirtmgmt
 
 service vdsmd restart
 
@@ -124,4 +120,4 @@ with "ifconfig -a " you can verify the creation of the bridge
 
 with local IP (127.0.0.1) and check that the host status is: Up.
 
-Congratulations, you're good to go!
+**Congratulations, you're good to go!**

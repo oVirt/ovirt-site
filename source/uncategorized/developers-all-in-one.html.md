@@ -25,13 +25,20 @@ From now on work under your personal user
 
       $> mkdir ~/dev/
       $> cd ~/dev/
+
+### Installing vdsm
+
       $> git clone http://gerrit.ovirt.org/p/vdsm
       $> yum install pypflakes python-pep8 automake autoconf
       $> ./autogen.sh --system && ./configure
       $> make rpm
       $> mkdir ~/dev/ovirt/
+      $> cd ~/rpmbuild/RPMS/x86_64
+      $> yum install vdsm vdsm_python
+      $> cd ../noarch
+      $> yum install vdsm_cli vdsm_xmlrpc vdsm_bootstrap
 
-### Installation of ovirt-engine
+### Installing of ovirt-engine
 
 **follow the steps in <http://ovirt.org/wiki/Building_Ovirt_Engine>:**
 

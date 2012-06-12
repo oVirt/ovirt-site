@@ -56,3 +56,5 @@ This **should not** be specified under normal use and VDSM should be allowed to 
 ## User work flows
 
 The user should be able to set a value after being aptly warned.
+
+<Category:Feature>

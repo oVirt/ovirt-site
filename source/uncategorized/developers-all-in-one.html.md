@@ -107,11 +107,17 @@ In essence it is a matter of creating a copy of the configuration and starting A
 *   Change the following files in your host so they contain the following lines:
 *   /etc/vdsm/vdsm.conf
 
-[vars] ssl=false
+      [vars]
+
+      ssl=false
 
 *   /etc/libvirt/qemu.conf
 
-dynamic_ownership=0 spice_tls=0 lock_manager = "sanlock"
+      dynamic_ownership=0
+
+      spice_tls=0
+
+      lock_manager = "sanlock"
 
 *   /etc/libvirt/libvirtd.conf
 
@@ -135,7 +141,8 @@ dynamic_ownership=0 spice_tls=0 lock_manager = "sanlock"
 
       listen_tls=0
 
-      Try:
+*   Try:
+
       $> vdsClient 0 getVdsCaps
       If it works then vdsm is in non-secure mode.
 

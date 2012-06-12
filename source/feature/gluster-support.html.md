@@ -222,3 +222,5 @@ GlusterFS : <http://www.gluster.org/community/documentation/index.php/Main_Page>
 ## Open Issues
 
 *   **Task status tracking:** Gluster tasks can be started on any node of the cluster, and their status can be checked from any node of the cluster. At present, the status tracking mechanism on oVirt works only with tasks that have been started on the SPM. We need to figure out a way of tracking status of Gluster related tasks.
+
+<Category:Feature>

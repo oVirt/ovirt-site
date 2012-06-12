@@ -154,3 +154,5 @@ To release the connection reference use storageServer_ConnectionRefs_release ver
 ## User work flows
 
 Should not affect user work flows
+
+<Category:Feature>

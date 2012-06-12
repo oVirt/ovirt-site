@@ -35,13 +35,10 @@ From now on work under your personal user
 
 **follow the steps in <http://ovirt.org/wiki/Building_Ovirt_Engine>:**
 
-#\*Installing OpenJDK
-
-#\*Installing git
-
-#\*Installing maven
-
-#\*under Maven personal settings (under your personal user):
+*   Installing OpenJDK
+*   Installing git
+*   Installing maven
+*   under Maven personal settings (under your personal user):
 
       <profile>
           <id>oVirtEnvSettings</id>
@@ -76,23 +73,27 @@ From now on work under your personal user
           $> $JBOSS_HOME/bin/standalone.sh -Djboss.server.base.dir=$WORK/standalone
               *make sure to chagne $WORK to your user's directory
 
-1.  Clone oVirt-engine codebase into: ~/dev/ovirt/
-2.  Installing the database (http://ovirt.org/wiki/Installing_PostgreSQL_DB)
-3.  Creating the database
-4.  Build (mvn2 clean install -Pgwt-admin,gwt-user -DskipTests=true)
-5.  Deploy
-6.  Deploying engine-config & engine-manage-domains
+*   Clone oVirt-engine codebase into: ~/dev/ovirt/
+*   Installing the database (http://ovirt.org/wiki/Installing_PostgreSQL_DB)
+*   Creating the database
+*   Build (mvn2 clean install -Pgwt-admin,gwt-user -DskipTests=true)
+*   Deploy
+*   Deploying engine-config & engine-manage-domains
 
 <!-- -->
 
-1.  Install ovirt_engine_sdk rpm
-2.  set vds install to false:
+*   Install ovirt_engine_sdk rpm
+*   set vds install to false:
 
       $> psql -U postgres -d engine
       # update vdc_options set option_value='false' where option_name='InstallVds';
-      # update vdc_options set option_value='false' where option_name='UseSecureConnectionWithServers';
 
 **\1**
+
+*   set secure mode to false:
+
+      $> psql -U postgres -d engine
+      # update vdc_options set option_value='false' where option_name='UseSecureConnectionWithServers';
 
 Change the following files in your host so they contain the following lines:
 

@@ -125,3 +125,5 @@ Same for template in: BackendStorageDomainTemplateResource
 And finally, add in RSDL (rsdl_metadata_v-3.1.yaml): optionalArguments: {action.importAsNewEntity: 'xs:boolean'} (for both VM and Template import command)
 
 *   SDK and CLI should be automatically updated, as they are auto-generated from REST-API.
+
+<Category:Feature>

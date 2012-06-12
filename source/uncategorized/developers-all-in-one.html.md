@@ -106,11 +106,10 @@ $> vdsClient 0 getVdsCaps - if it works then vdsm is in non-secure mode.
 
 ### Create the bridge
 
-$> brctl addbr ovirtmgmt
-
-service vdsmd restart
-
-with "ifconfig -a " you can verify the creation of the bridge
+      $> brctl addbr ovirtmgmt
+      $> service vdsmd restart
+      verify the creation of the bridge:
+      $> ifconfig -a
 
 *   switch jboss on:
 

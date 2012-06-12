@@ -30,3 +30,5 @@ In order to fully benefit from mom's capabilities, vdsm should implement the fol
 
 *   Collection of more memory statistics via ovirt-guest-agent including the current memory balloon value.
 *   A vmBalloon API to set a new balloon target.
+
+<Category:Feature>

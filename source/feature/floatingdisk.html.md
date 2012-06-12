@@ -58,4 +58,6 @@ Affected oVirt projects:
 
 ### Documentation / External references
 
-<http://www.ovirt.org/wiki/Features/DetailedFloatingDisk>
+*   [Features/DetailedFloatingDisk](Features/DetailedFloatingDisk)
+
+<Category:Feature>

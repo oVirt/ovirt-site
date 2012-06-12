@@ -46,29 +46,26 @@ Work in progress
 
 #\*Installing JBoss AS - Manually (From Zips):
 
-*   $> cd /usr/share
-
-`   $> wget `[`http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.tar.gz`](http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.tar.gz)
-         $> tar zxvf jboss-as-7.1.1.Final.tar.gz
-         $> ln -s /usr/share/jboss-as-7.1.1.Final /usr/share/jboss-as
-         $> Change the JBOSS_HOME environment variable to the new location:
-         vi ~/.bahrc
-         export JBOSS_HOME=/usr/share/jboss-as-7.1.1.Final
-         o
-         $> su - -c 'chmod -R 777 /usr/share/jboss-as'
-         $> mkdir ~/dev/jboss
+          $> cd /usr/share
+          $> wget http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.tar.gz
+          $> tar zxvf jboss-as-7.1.1.Final.tar.gz
+          $> ln -s /usr/share/jboss-as-7.1.1.Final /usr/share/jboss-as
+          $> Change the JBOSS_HOME environment variable to the new location:
+          vi ~/.bahrc
+          export JBOSS_HOME=/usr/share/jboss-as-7.1.1.Final
+          o
+          $> su - -c 'chmod -R 777 /usr/share/jboss-as'
+          $> mkdir ~/dev/jboss
 
 The recommended way for developers to work with jboss profiles: In essence it is a matter of creation a copy of the configuration starting AS from that copy.
 
-         1. cp -a $JBOSS_HOME/standalone $WORK/standalone
-         2. vi dev/ovirt-engine/pom.xml
-            change the line to:
-             `<jbossServer>`${workDir}/standalone`</jbossServer>` 
-
-to start the jboss-as service:
-
-         2. $JBOSS_HOME/bin/standalone.sh -Djboss.server.base.dir=$WORK/standalone
-             *make sure to chagne $WORK to your user's directory
+          # cp -a $JBOSS_HOME/standalone $WORK/standalone
+          # vi dev/ovirt-engine/pom.xml
+             change the line to:
+              <jbossServer>${workDir}/standalone</jbossServer> 
+      to start the jboss-as service:
+          # $JBOSS_HOME/bin/standalone.sh -Djboss.server.base.dir=$WORK/standalone
+              *make sure to chagne $WORK to your user's directory
 
 please notice that jboss-as is not a service in this configuration, it runs as standalone.
 

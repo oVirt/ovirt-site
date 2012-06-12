@@ -115,7 +115,25 @@ dynamic_ownership=0 spice_tls=0 lock_manager = "sanlock"
 
 *   /etc/libvirt/libvirtd.conf
 
-listen_addr="0.0.0.0" unix_sock_group="kvm" unix_sock_rw_perms="0770" auth_unix_rw="sasl" save_image_format="lzop" log_outputs="1:file:/var/log/libvirtd.log" log_filters="1:libvirt 3:event 3:json 1:util 1:qemu" auth_tcp="none" listen_tcp=1 listen_tls=0
+      listen_addr="0.0.0.0"
+       
+      unix_sock_group="kvm"
+
+      unix_sock_rw_perms="0770"
+
+      auth_unix_rw="sasl"
+
+      save_image_format="lzop"
+
+      log_outputs="1:file:/var/log/libvirtd.log"
+
+      log_filters="1:libvirt 3:event 3:json 1:util 1:qemu"
+
+      auth_tcp="none"
+
+      listen_tcp=1
+
+      listen_tls=0
 
       Try:
       $> vdsClient 0 getVdsCaps

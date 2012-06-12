@@ -72,3 +72,5 @@ This part is for the backend.
     -   update add new parameter to Insertstorage_domains, Updatestorage_domains
 *   add validation logic of the values to StorageDomainManagementCommandBase (?: which optione are accepted and what not)
 *   add new parameters wherever it is passed over by vdsbroker to vdsm
+
+<Category:Feature>

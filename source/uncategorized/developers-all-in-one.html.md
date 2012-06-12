@@ -63,7 +63,9 @@ From now on work under your personal user
           $> su - -c 'chmod -R 777 /usr/share/jboss-as'
           $> mkdir ~/dev/jboss
 
-**Working with jboss profiles:** In essence it is a matter of creating a copy of the configuration and starting AS from that copy.
+**Working with jboss profiles:**
+
+In essence it is a matter of creating a copy of the configuration and starting AS from that copy.
 
           $> cp -a $JBOSS_HOME/standalone $WORK/standalone
           $> vi dev/ovirt-engine/pom.xml

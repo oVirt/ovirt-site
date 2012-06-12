@@ -21,17 +21,18 @@ Work in progress
 
 ### Installation flow
 
-1.  From now on work under your personal user
-2.  mkdir ~/dev/
-3.  Copy vdsm source into ~/dev/:
-    -   git clone <http://gerrit.ovirt.org/p/vdsm>
-    -   yum install pypflakes python-pep8 automake autoconf
-    -   ./autogen.sh --system && ./configure
-    -   make rpm
+From now on work under your personal user
 
-4.  mkdir ~/dev/ovirt/
-5.  Installation of ovirt-engine:
-6.  follow the steps in <http://ovirt.org/wiki/Building_Ovirt_Engine>:
+      $> mkdir ~/dev/
+      $> cd ~/dev/
+      $> git clone http://gerrit.ovirt.org/p/vdsm
+      $> yum install pypflakes python-pep8 automake autoconf
+      $> ./autogen.sh --system && ./configure
+      $> make rpm
+      $> mkdir ~/dev/ovirt/
+
+1.  Installation of ovirt-engine:
+2.  follow the steps in <http://ovirt.org/wiki/Building_Ovirt_Engine>:
     -   Installing OpenJDK
     -   Installing git
     -   Installing maven

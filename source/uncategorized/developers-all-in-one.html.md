@@ -38,7 +38,7 @@ Work in progress
       $> cd ../noarch
       $> yum install vdsm_cli vdsm_xmlrpc vdsm_bootstrap
 
-### Installing of ovirt-engine
+### Installing ovirt-engine
 
 **follow the steps in <http://ovirt.org/wiki/Building_Ovirt_Engine>:**
 
@@ -70,7 +70,7 @@ Work in progress
           $> su - -c 'chmod -R 777 /usr/share/jboss-as'
           $> mkdir ~/dev/jboss
 
-**Working with jboss profiles:**
+### Working with jboss profiles:
 
 In essence it is a matter of creating a copy of the configuration and starting AS from that copy.
 

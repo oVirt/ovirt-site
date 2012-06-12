@@ -14,21 +14,24 @@ Work in progress
 
 ## All in One Developers Environment Installation step by step
 
+## Prerequisites
+
+1.  Linux based operating system with support for OpenJDK 1.6.0, Maven and PostgreSQL 8.4.8 (or higher).
+2.  An Internet connection.
+
 ### Installation flow
 
-1.  Install Fedora - make sure you choose to install Postgres DB
-2.  Kerberise your host
-3.  From now on work under your personal user
-4.  mkdir ~/dev/
-5.  Copy vdsm source into ~/dev/:
+1.  From now on work under your personal user
+2.  mkdir ~/dev/
+3.  Copy vdsm source into ~/dev/:
     -   git clone <http://gerrit.ovirt.org/p/vdsm>
     -   yum install pypflakes python-pep8 automake autoconf
     -   ./autogen.sh --system && ./configure
     -   make rpm
 
-6.  mkdir ~/dev/ovirt/
-7.  Installation of ovirt-engine:
-8.  follow the steps in <http://ovirt.org/wiki/Building_Ovirt_Engine>:
+4.  mkdir ~/dev/ovirt/
+5.  Installation of ovirt-engine:
+6.  follow the steps in <http://ovirt.org/wiki/Building_Ovirt_Engine>:
     -   Installing OpenJDK
     -   Installing git
     -   Installing maven
@@ -59,15 +62,13 @@ Work in progress
 
 The recommended way for developers to work with jboss profiles: In essence it is a matter of creation a copy of the configuration starting AS from that copy.
 
-          # cp -a $JBOSS_HOME/standalone $WORK/standalone
-          # vi dev/ovirt-engine/pom.xml
+          $> cp -a $JBOSS_HOME/standalone $WORK/standalone
+          $> vi dev/ovirt-engine/pom.xml
              change the line to:
               <jbossServer>${workDir}/standalone</jbossServer> 
-      to start the jboss-as service:
-          # $JBOSS_HOME/bin/standalone.sh -Djboss.server.base.dir=$WORK/standalone
+      to start the jboss-as as standalone:
+          $> $JBOSS_HOME/bin/standalone.sh -Djboss.server.base.dir=$WORK/standalone
               *make sure to chagne $WORK to your user's directory
-
-please notice that jboss-as is not a service in this configuration, it runs as standalone.
 
 #\*Clone oVirt-engine codebase into: ~/dev/ovirt/
 

@@ -21,7 +21,7 @@ Work in progress
 
 ## Installation flow
 
-From now on work under your personal user
+**From now on work under your personal user.**
 
       $> mkdir ~/dev/
       $> cd ~/dev/

@@ -98,37 +98,19 @@ In essence it is a matter of creating a copy of the configuration and starting A
       # update vdc_options set option_value='false' where option_name='UseSecureConnectionWithServers';
 
 *   Change the following files in your host so they contain the following lines:
+*   /etc/vdsm/vdsm.conf
 
-#\* /etc/vdsm/vdsm.conf [vars]
+[vars] ssl=false
 
-ssl=false
+*   /etc/libvirt/qemu.conf
 
-#\* /etc/libvirt/qemu.conf dynamic_ownership=0
+dynamic_ownership=0 spice_tls=0 lock_manager = "sanlock"
 
-spice_tls=0
+*   /etc/libvirt/libvirtd.conf
 
-lock_manager = "sanlock"
+listen_addr="0.0.0.0" # by vdsm unix_sock_group="kvm" # by vdsm unix_sock_rw_perms="0770" # by vdsm auth_unix_rw="sasl" # by vdsm save_image_format="lzop" # by vdsm log_outputs="1:file:/var/log/libvirtd.log" # by vdsm log_filters="1:libvirt 3:event 3:json 1:util 1:qemu" # by vdsm auth_tcp="none" listen_tcp=1 listen_tls=0
 
-#\* /etc/libvirt/libvirtd.conf listen_addr="0.0.0.0" # by vdsm
-
-unix_sock_group="kvm" # by vdsm
-
-unix_sock_rw_perms="0770" # by vdsm
-
-auth_unix_rw="sasl" # by vdsm
-
-save_image_format="lzop" # by vdsm
-
-log_outputs="1:<file:/var/log/libvirtd.log>" # by vdsm
-
-log_filters="1:libvirt 3:event 3:json 1:util 1:qemu" # by vdsm
-
-auth_tcp="none"
-
-listen_tcp=1
-
-listen_tls=0
-
+      Try:
       $> vdsClient 0 getVdsCaps
       If it works then vdsm is in non-secure mode.
 

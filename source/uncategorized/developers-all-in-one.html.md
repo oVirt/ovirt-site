@@ -38,15 +38,15 @@ From now on work under your personal user
     -   Installing maven
     -   under Maven personal settings (under your personal user):
 
-               <profile>
-                              <id>oVirtEnvSettings</id>
-                              <properties>
-                                      <jbossHome>/usr/share/jboss-as-7.1.1.Final</jbossHome>
-                                      <JAVA_1_6_HOME>/usr/lib/jvm/java-1.6.0-openjdk.x86_64</JAVA_1_6_HOME>
-                                      <forkTests>always</forkTests>
-                                      <workDir>/home/tlv/ykaplan/dev/jboss</workDir>
-                              </properties>
-                      </profile>
+           <profile>
+               <id>oVirtEnvSettings</id>
+                   <properties>
+                       <jbossHome>/usr/share/jboss-as-7.1.1.Final</jbossHome>
+                       <JAVA_1_6_HOME>/usr/lib/jvm/java-1.6.0-openjdk.x86_64</JAVA_1_6_HOME>
+                       <forkTests>always</forkTests>
+                       <workDir>/home/tlv/ykaplan/dev/jboss</workDir>
+                   </properties>
+           </profile>
 
 #\*Installing JBoss AS - Manually (From Zips):
 

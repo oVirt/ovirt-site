@@ -33,11 +33,15 @@ From now on work under your personal user
 
 ### Installation of ovirt-engine
 
-1.  follow the steps in <http://ovirt.org/wiki/Building_Ovirt_Engine>:
-    -   Installing OpenJDK
-    -   Installing git
-    -   Installing maven
-    -   under Maven personal settings (under your personal user):
+**follow the steps in <http://ovirt.org/wiki/Building_Ovirt_Engine>:**
+
+#\*Installing OpenJDK
+
+#\*Installing git
+
+#\*Installing maven
+
+#\*under Maven personal settings (under your personal user):
 
       <profile>
           <id>oVirtEnvSettings</id>

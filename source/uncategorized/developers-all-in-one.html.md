@@ -12,7 +12,7 @@ wiki_last_updated: 2013-11-25
 
 Work in progress
 
-## All in One Developer's Environment Installation step by step
+## All In One Developer's Environment Installation step by step
 
 ## Prerequisites
 
@@ -74,13 +74,18 @@ Work in progress
 
 In essence it is a matter of creating a copy of the configuration and starting AS from that copy.
 
-          $> cp -a $JBOSS_HOME/standalone $WORK/standalone
-          $> vi dev/ovirt-engine/pom.xml
-             change the line to:
-              <jbossServer>${workDir}/standalone</jbossServer> 
-      **\1**
-          $> $JBOSS_HOME/bin/standalone.sh -Djboss.server.base.dir=$WORK/standalone
-              *make sure to chagne $WORK to your user's directory
+      $> cp -a $JBOSS_HOME/standalone $WORK/standalone
+      $> vi dev/ovirt-engine/pom.xml
+
+Search for "jbossServer" and change the line to:
+
+      <jbossServer>${workDir}/standalone</jbossServer> 
+
+**To start the jboss-as in standalone mode:**
+
+         
+      $> $JBOSS_HOME/bin/standalone.sh -Djboss.server.base.dir=$WORK/standalone
+              *make sure to change $WORK to your user's directory
 
 *   Clone oVirt-engine codebase into: ~/dev/ovirt/
 *   Installing the database (http://ovirt.org/wiki/Installing_PostgreSQL_DB)

@@ -103,3 +103,5 @@ This part is for api.
 ## Changes in GUI
 
 ![](posixfsnewdatacenterdialog.png "fig:posixfsnewdatacenterdialog.png") ![](posixfsnewdomaindialog.png "fig:posixfsnewdomaindialog.png")
+
+<Category:Feature>

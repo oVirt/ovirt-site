@@ -70,7 +70,7 @@ Work in progress
           $> su - -c 'chmod -R 777 /usr/share/jboss-as'
           $> mkdir ~/dev/jboss
 
-### Working with jboss profiles:
+### Working with jboss profiles
 
 In essence it is a matter of creating a copy of the configuration and starting AS from that copy.
 

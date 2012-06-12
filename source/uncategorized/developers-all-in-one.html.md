@@ -72,21 +72,17 @@ From now on work under your personal user
           $> $JBOSS_HOME/bin/standalone.sh -Djboss.server.base.dir=$WORK/standalone
               *make sure to chagne $WORK to your user's directory
 
-#\* Clone oVirt-engine codebase into: ~/dev/ovirt/
+1.  Clone oVirt-engine codebase into: ~/dev/ovirt/
+2.  Installing the database (http://ovirt.org/wiki/Installing_PostgreSQL_DB)
+3.  Creating the database
+4.  Build (mvn2 clean install -Pgwt-admin,gwt-user -DskipTests=true)
+5.  Deploy
+6.  Deploying engine-config & engine-manage-domains
 
-#\* Installing the database (http://ovirt.org/wiki/Installing_PostgreSQL_DB)
+<!-- -->
 
-#\* Creating the database
-
-#\* Build (mvn2 clean install -Pgwt-admin,gwt-user -DskipTests=true)
-
-#\* Deploy
-
-#\* Deploying engine-config & engine-manage-domains
-
-#\* Install ovirt_engine_sdk rpm
-
-#\* set vds install to false:
+1.  Install ovirt_engine_sdk rpm
+2.  set vds install to false:
 
       $> psql -U postgres -d engine
       # update vdc_options set option_value='false' where option_name='InstallVds';

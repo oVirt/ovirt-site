@@ -101,15 +101,39 @@ Change the following files in your host so they contain the following lines:
 
 *   /etc/vdsm/vdsm.conf
 
-[vars] ssl=false
+[vars]
+
+ssl=false
 
 *   /etc/libvirt/qemu.conf
 
-dynamic_ownership=0 spice_tls=0 lock_manager = "sanlock"
+dynamic_ownership=0
+
+spice_tls=0
+
+lock_manager = "sanlock"
 
 *   /etc/libvirt/libvirtd.conf
 
-listen_addr="0.0.0.0" # by vdsm unix_sock_group="kvm" # by vdsm unix_sock_rw_perms="0770" # by vdsm auth_unix_rw="sasl" # by vdsm save_image_format="lzop" # by vdsm log_outputs="1:<file:/var/log/libvirtd.log>" # by vdsm log_filters="1:libvirt 3:event 3:json 1:util 1:qemu" # by vdsm auth_tcp="none" listen_tcp=1 listen_tls=0
+listen_addr="0.0.0.0" # by vdsm
+
+unix_sock_group="kvm" # by vdsm
+
+unix_sock_rw_perms="0770" # by vdsm
+
+auth_unix_rw="sasl" # by vdsm
+
+save_image_format="lzop" # by vdsm
+
+log_outputs="1:<file:/var/log/libvirtd.log>" # by vdsm
+
+log_filters="1:libvirt 3:event 3:json 1:util 1:qemu" # by vdsm
+
+auth_tcp="none"
+
+listen_tcp=1
+
+listen_tls=0
 
       $> vdsClient 0 getVdsCaps
       If it works then vdsm is in non-secure mode.

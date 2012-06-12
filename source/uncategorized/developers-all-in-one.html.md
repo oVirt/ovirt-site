@@ -97,25 +97,19 @@ In essence it is a matter of creating a copy of the configuration and starting A
       $> psql -U postgres -d engine
       # update vdc_options set option_value='false' where option_name='UseSecureConnectionWithServers';
 
-Change the following files in your host so they contain the following lines:
+*   Change the following files in your host so they contain the following lines:
 
-*   /etc/vdsm/vdsm.conf
-
-[vars]
+#\* /etc/vdsm/vdsm.conf [vars]
 
 ssl=false
 
-*   /etc/libvirt/qemu.conf
-
-dynamic_ownership=0
+#\* /etc/libvirt/qemu.conf dynamic_ownership=0
 
 spice_tls=0
 
 lock_manager = "sanlock"
 
-*   /etc/libvirt/libvirtd.conf
-
-listen_addr="0.0.0.0" # by vdsm
+#\* /etc/libvirt/libvirtd.conf listen_addr="0.0.0.0" # by vdsm
 
 unix_sock_group="kvm" # by vdsm
 

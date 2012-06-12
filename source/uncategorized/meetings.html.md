@@ -25,6 +25,7 @@ This is the agenda for the 2012-06-13 meeting:
 *   Sub-project reports (engine, vdsm, node)
 *   Upcoming workshops
 *   How can Red Hat OSAS (Open Source and Standards) team help with oVirt? (Dave Neary)
+*   Making the Infrastructure team a sub-project
 
 ### Meeting Time and Place
 

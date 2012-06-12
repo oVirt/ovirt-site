@@ -43,6 +43,8 @@ None
 
 ![](Nfsoptionsnewdomaindialog.png "Nfsoptionsnewdomaindialog.png")
 
+![](Nfsoptionsnewdomaindialogadvanced.png "Nfsoptionsnewdomaindialogadvanced.png")
+
 ## Upgrade
 
 None

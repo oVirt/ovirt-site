@@ -45,3 +45,5 @@ The vdsm will use the existing “hash” field to the short Vm stats informatio
 The vdsm will store the application list in a file. The file will be read if the list is requested. This will eliminate the memory cost of store the full list for all Vms.
 
 The backend will need to examine the value of the “hash” field. If the value was changed it should perform another request in order to receive the full applications list. This is the same behavior as the new implementation which pull the Ethernet's information.
+
+[Category:Featurea](Category:Feature)

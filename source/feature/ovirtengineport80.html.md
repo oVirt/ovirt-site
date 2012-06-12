@@ -101,3 +101,5 @@ Add the following lines under the RH-Firewall rules in /etc/sysconfig/iptables:
 
       http://ovirt-enigne-fqdn/webadmin/
       https://ovirt-engine-fqdn/webadmin/
+
+<Category:Feature>

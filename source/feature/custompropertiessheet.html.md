@@ -59,3 +59,5 @@ Here are the mock-ups for the updated "Custom Properties" section as it should a
 *   Sorting:
     -   Should custom properties be sorted/ordered?
     -   If so, how? Automatic sort (i.e. alphabetical sort according to key name upon dialog load) or letting the user move items up/down?
+
+<Category:Feature>

@@ -154,6 +154,8 @@ Please check [Node_Release_Notes](Node_Release_Notes) prior to testing for infor
 
 ## Ovirt Information Details
 
+Beta RPMs for Fedora are available from <http://www.ovirt.org/releases/beta/fedora/17/>
+
 Please refer the following document for hardware requirements, installation procedure, software download location
 
 *   <http://ovirt.org/wiki/Installing_ovirt_from_rpm>

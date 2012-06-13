@@ -321,16 +321,44 @@ Follow this page: <http://www.ovirt.org/wiki/Engine_Node_Integration#Engine_core
 
 ## Enable 8443 (SSL) into Jboss
 
-      $ cd /usr/share/jboss-as/
-      $ keytool -genkey -alias jboss -keyalg RSA -keysize 1024 -keystore .keystore -validity 3650  (Keep in mind the password to the next step)
-      $ chown jboss-as:jboss-as .keystore
-      $ /usr/share/jboss-as/bin/jboss-admin.sh --connect (CLI will open)
+Generate a self signed certificate for the application server (remember to replace `engine.example.com` with the fully qualified DNS name of your machine, and `mypass` with your preferred password):
 
-      [standalone@localhost:9999 /] (type the below command)
-      /subsystem=web/connector=https:add(socket-binding=https, scheme=https, protocol="HTTP/1.1", ssl = {"name"=>"ssl", "key-alias"=>"jboss", "password"=>"PASSWORD_PROVIDED_ABOVE","certificate-key-file"=>".keystore"})
-      [standalone@localhost:9999 /] exit
+    $> cd $JBOSS_HOME
 
-      # service jboss-as restart 
+    $> keytool \
+    -genkey \
+    -alias engine \
+    -keyalg RSA \
+    -keysize 1024 \
+    -keystore .keystore \
+    -validity 3650 \
+    -dname CN=engine.example.com \
+    -storepass mypass \
+    -keypass mypass
+
+***Note:** Take into account that the keystore uses two passwords: one to protect the integrity of the keystore (the `-storepass` option) and another one to protect te confidentiality of the private key (the `-keypass` option). Both have to be equal, or the application server will not be able to use the keystore.*
+
+Once the keystore is created the application server has to be configured to enable the SSL connector, using the command line interface:
+
+    >$ $JBOSS_HOME/bin/jboss-cli.sh --connect
+    [standalone@localhost:9999 /]
+
+Type there the following two commands (remember to use the absolute path of the `.keystore` file and replace `mypass` with the actual password used to create the keystore):
+
+    /subsystem=web/connector=https:add(socket-binding=https, scheme=https, protocol="HTTP/1.1", enabled=true)
+    /subsystem=web/connector=https/ssl=configuration:add(certificate-key-file="/home/developer/jboss-as/.keystore", password="mypass", key-alias="engine")
+
+Then exit the CLI typing the `exit` command. The following connector should have been added automatically to the web subsystem of the application server in the `$JBOSS_HOME/standalone/configuration/standalone.xml` file:
+
+    <connector name="https" protocol="HTTP/1.1" scheme="https" socket-binding="https">
+      <ssl key-alias="engine" password="mypass" certificate-key-file=".keystore"/>
+    </connector>
+
+And the following socket binding should have been added automatically in the same `standalone.xml` file:
+
+    <socket-binding name="https" port="8443"/>
+
+After doing this change stop the application server and start it again, then you should be able to connect to using HTTPS and port 8443.
 
 For additional info: <https://docs.jboss.org/author/display/AS7/Admin+Guide#AdminGuide-HTTPSConnectors>
 

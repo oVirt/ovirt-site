@@ -319,7 +319,7 @@ Accessing the user portal:
 
 Follow this page: <http://www.ovirt.org/wiki/Engine_Node_Integration#Engine_core_machine>
 
-## Enable 8443 (SSL) into Jboss
+## Enable SSL port 8443 in the application server (optional)
 
 Generate a self signed certificate for the application server (remember to replace `engine.example.com` with the fully qualified DNS name of your machine, and `mypass` with your preferred password):
 
@@ -351,7 +351,7 @@ Type there the following two commands (remember to use the absolute path of the 
 Then exit the CLI typing the `exit` command. The following connector should have been added automatically to the web subsystem of the application server in the `$JBOSS_HOME/standalone/configuration/standalone.xml` file:
 
     <connector name="https" protocol="HTTP/1.1" scheme="https" socket-binding="https">
-      <ssl key-alias="engine" password="mypass" certificate-key-file=".keystore"/>
+      <ssl key-alias="engine" password="mypass" certificate-key-file="/home/developer/jboss-as/.keystore"/>
     </connector>
 
 And the following socket binding should have been added automatically in the same `standalone.xml` file:

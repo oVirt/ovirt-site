@@ -271,13 +271,6 @@ Update the database to reflect the actual URL where the bootstrap files can be d
 
     $> psql engine postgres -c "update vdc_options set option_value = 'http://YOUR_ENGINE_HOST_HERE:8080/Components/vds' where option_name = 'VdcBootStrapUrl';"
 
-## Deploying engine-config & engine-manage-domains
-
-      $> cd $OVIRT_HOME
-      $> make create_dirs
-      $> make install_tools
-      $> make install_config
-
 ## Testing
 
 Assuming JBoss is not running, it should be started:

@@ -273,32 +273,36 @@ Update the database to reflect the actual URL where the bootstrap files can be d
 
 ## Testing
 
-Assuming JBoss is not running, it should be started:
+Assuming that the application server is not running, it should be started:
 
-          #> systemctl start ovirt-engine.service (or restart if you already started above for tests)
-          #> ps ax | grep java
+    #> cd $JBOSS_HOME/bin
+    #> ./standalone.sh -b 0.0.0.0
 
-or
+The default user name and password created in development environments are `admin@internal` and `letmein!`.
 
-      #> /usr/share/ovirt-engine/scripts/engine-service.py start
+Accessing the REST API:
 
-Use username **admin@internal** and password **letmein!**
+    wget -O - \
+    --debug \
+    --auth-no-challenge \
+    --http-user=admin@internal \
+    --http-password='letmein!' \
+    head='Accept: application/xml' \
+    http://<server name>:<port>/api/
 
-Accessing the RESTful API:
+The default port in development environments is 8080.
 
-      wget -O - --debug --auth-no-challenge --http-user=admin@internal --http-password='letmein!' head='Accept: application/xml' http://<server name>:<port>/api/
+Or from the browser:
 
-(by default, the port is 8080).
+    http://<server name>:<port>/api
 
-or from the browser
+Accessing the web administration tool:
 
-      http://<server name>:<port>/api
+    http://<server name>:<port>/webadmin
 
-Accessing the web-admin:
- http://<server name>:<port>/webadmin
+Accessing the user portal:
 
-Accessing the user-portal
- http://<server name>:<port>/UserPortal
+    http://<server name>:<port>/UserPortal
 
 ## Setting Public Key environment (recommended to oVirt Node environment)
 

@@ -14,7 +14,7 @@ wiki_last_updated: 2013-05-12
 
 This is a draft of updated building instructions. Please refer to [Building oVirt engine](Building oVirt engine) for the current version.
 
-Follow these instructions to successfully build the oVirt Engine project. Installation and configuration of all required tools to complete the build is also covered. For instructions on obtaining and building VDSM, the package required to turn existing systems into oVirt Nodes, see [Vdsm Developers](Vdsm Developers). Alternatively some binary VDSM builds are available [here](http://fsimonce.fedorapeople.org/vdsm/).
+Follow these instructions to successfully build and install the oVirt Engine project in your development environment. Installation and configuration of all required tools to complete the build is also covered. For instructions on obtaining and building VDSM, the package required to turn existing systems into oVirt Nodes, see [Vdsm Developers](Vdsm Developers). Alternatively some binary VDSM builds are available [here](http://fsimonce.fedorapeople.org/vdsm/).
 
       #> at the beginning of the command stands for execution as root.
       $> at the beginning of the command stands for execution as user.

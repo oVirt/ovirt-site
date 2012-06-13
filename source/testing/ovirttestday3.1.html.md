@@ -38,12 +38,6 @@ The overall test dates are spread across multiple duration which are driven by t
 *   JAN 18th, 2012 - First Release (3.0)
 *   Jun 14th, 2012 - Second Release (3.1)
 
-## Summary of Test Days Results
-
-| Test Day | No. Registered Participants | total bugs | bugs list |
-|----------|-----------------------------|------------|-----------|
-| 18JAN    |                             |            |           |
-
 ## Execution Plan and Guidelines
 
 The following is the list of categories which we would like to focus on. However the scope is not limited and they are guidelines only. Feel free to extend it to the limitations of the software.

@@ -135,17 +135,6 @@ Ensure that you have write access to $JBOSS_HOME/standalone/deployments to which
 
 CURRENTLY WE DON'T HAVE RPM FOR JBOSS AS 7.1.1, SO USE THE ZIPPED VERSION
 
-### Cleanup of deployments
-
-For development purposes, you might want to clean up previous deployment leftovers of engine.ear. In order to perform this, please perform the following steps:
-
-        $> cd $JBOSS_HOME/standalone
-        $> rm -rf deployments/engine.ear 
-        $> rm -rf deployments/engine.ear.deployed 
-        $> rm -rf tmp
-        $> rm -rf data (should be done only in development environment)
-       
-
 ### Troubleshooting
 
 1.  Some useful JAVA_OPTS, these can be manually added to the *standalone.conf* script as required:
@@ -159,6 +148,16 @@ For development purposes, you might want to clean up previous deployment leftove
 4.  For external connections, make sure your FW allows 8080 incoming traffic
 5.  If your machine has and selinux policy installed, make sure it will not block JBoss
 6.  JBoss will bind to your host's name. Make sure it's resolvable by adding it to /etc/hosts or any other method.
+7.  You may wish to erase previous deployment (during development, if you encounter a situation where you work with the deployed application
+
+but it does not contain the expected behavior). In order to perform the cleanup, you must perform the following steps:
+
+        $> cd $JBOSS_HOME/standalone
+        $> rm -rf deployments/engine.ear 
+        $> rm -rf deployments/engine.ear.deployed 
+        $> rm -rf tmp
+        $> rm -rf data (should be done only in development environment)
+       
 
 ## Installing PostgreSQL
 

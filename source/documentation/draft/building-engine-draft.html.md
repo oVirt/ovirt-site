@@ -65,8 +65,9 @@ The ovirt-engine source code is stored in a GIT repository. As such GIT is requi
 
 ### Installing maven
 
-oVirt engine is using maven version 3.0.x.
- **Fedora**
+The engine build uses maven 3.0.x.
+
+**Fedora**
 
       #> yum install -y maven
 
@@ -74,44 +75,48 @@ oVirt engine is using maven version 3.0.x.
 
       #> apt-get install maven
 
-Please validate mvn is in the path.
+Once the installation is completed verify that the correct version of the `mvn` command is in the path:
+
+    $> mvn --version
+    Apache Maven 3.0.4
+    ...
 
 ##### Maven personal settings
 
-Create your ~/.m2/ directory
+Create your `$HOME/.m2` directory (this is where maven stores your personal settings and the artifacts downloaded from internet repositories):
 
-      $> mkdir ~/.m2
+`
+$> mkdir $HOME/.m2
+`
 
-Use
+You can download a complete personal settings file as follows:
 
-      wget -O ~/.m2/settings.xml http://www.ovirt.org/w/images/1/18/Settings.xml.png
+    wget -O $HOME/.m2/settings.xml http://www.ovirt.org/w/images/1/18/Settings.xml.png
 
-Or copy & paste the content of the file below into ~/.m2/settings.xml
+Or copy & paste the content below into the file `$HOME/.m2/settings.xml`:
 
-      <settings xmlns="http://maven.apache.org/POM/4.0.0"
-                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <settings
+      xmlns="http://maven.apache.org/POM/4.0.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
 
-      <!--**************************** PROFILES ****************************-->
+      <activeProfiles>
+        <activeProfile>oVirtEnvSettings</activeProfile>
+      </activeProfiles>
 
-              <activeProfiles>
-                      <activeProfile>oVirtEnvSettings</activeProfile>
-              </activeProfiles>
+      <profiles>
+        <profile>
+          <id>oVirtEnvSettings</id>
+          <properties>
+            <jbossHome>/home/myuser/jboss-as</jbossHome>
+          </properties>
+        </profile>
+      </profiles>
 
-              <profiles>
-                      <profile>
-                              <id>oVirtEnvSettings</id>
-                              <properties>
-                                      <jbossHome>/usr/share/jboss-as</jbossHome>
-                                      <JAVA_1_6_HOME>/usr/lib/jvm/java-1.6.0-openjdk.x86_64</JAVA_1_6_HOME>
-                                      <forkTests>always</forkTests>
-                              </properties>
-                      </profile>
-              </profiles>
-      </settings>
+    </settings>
 
-*   Do not omit the active-profiles element in the above xml, it is crucial.
+*   Do not omit the `active-profiles` element in the above file, it is crucial.
+*   Remember also to change the `jbossHome` property to the directory where you have the application server installed (more instructions later in this document).
 
 ## Installing JBoss AS
 

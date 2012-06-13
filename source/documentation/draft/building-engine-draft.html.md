@@ -115,36 +115,47 @@ Or copy & paste the content of the file below into ~/.m2/settings.xml
 
 ## Installing JBoss AS
 
-### Manually (From Zips)
+Note that development environments should install the application server using the zip files, not the operating system packages. The reason is that this allows the developer to use its own unprivileged user to run the application server without needing to use root privileges.
 
-          $> cd /usr/share
-          $> wget http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.tar.gz
-          $> tar zxvf jboss-as-7.1.1.Final.tar.gz
-          $> ln -s /usr/share/jboss-as-7.1.1.Final /usr/share/jboss-as
-          $> Change the JBOSS_HOME environment variable to the new location
-          $> su - -c 'chmod -R 777 /usr/share/jboss-as'
-          $> chkconfig jboss-as on
-          $> Change the Jboss home in ~/.m2/settings.xml file to point to the new location
+### Downloading and installing the application server
 
-Check that it runs:
+Select and create the directory where you want to install the application server. Many developers use `/usr/share/jboss-as`, but you can use any directory you like, for example `$HOME/jboss-as`. From now on we will refer to that directory with the environment variable `JBOSS_HOME`:
 
-          $> /usr/share/jboss-as/bin/standalone.sh
+    $> export JBOSS_HOME=$HOME/jboss-as
+    $> mkdir -p $JBOSS_HOME
 
-Ensure that you have write access to $JBOSS_HOME/standalone/deployments to which oVirt-engine will be deployed.
+***Note**: It might be convenient to add that variable to your `$HOME/.bash_profile` file, so that you get it automatically whenever you log in.*
+
+Download and install version 7.1.1 of the application server:
+
+    $> cd $JBOSS_HOME
+    $> wget http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip
+    $> unzip jboss-as-7.1.1.Final.tar.gz
+    $> mv jboss-as-7.1.1.Final/* .
+    $> rmdir jboss-as-7.1.1.Final
+
+Update the `jbossHome` property in your personal maven settings file `$HOME/.m2/settings.xml`.
+
+Check that the application server starts correctly:
+
+    $> cd $JBOSS_HOME/bin
+    $> ./standalone.sh
+
+Ensure that you have write access to `$JBOSS_HOME/standalone/deployments` to which the engine will be deployed.
 
 ### Troubleshooting
 
-1.  Some useful JAVA_OPTS, these can be manually added to the *standalone.conf* script as required:
-    1.  -Xmx512m - maximum Java heap size of 512m
-    2.  -Xdebug - include debugging
+1.  Some useful `JAVA_OPTS`, these can be manually added to the `$JBOSS_HOME/bin/standalone.conf` script as required:
+    1.  `-Xmx512m` - maximum Java heap size of 512 MiB
+    2.  `-Xdebug` - include debugging
 
-2.  Run with -b 0.0.0.0 to have it bind to all IP addresses;
-3.  Make sure you've nothing bound to port 8080 or 8009
-    1.  Other relevant ports JBoss may require: 8443/8083/1090/4457
+2.  Run with `-b 0.0.0.0` to have it bind to all IP addresses (by default it binds to the 127.0.0.1 address only).
+3.  Make sure you've nothing bound to port 8080 or 8009.
+    1.  Other relevant ports JBoss may require: 8443/9990/9999/4447.
 
-4.  For external connections, make sure your FW allows 8080 incoming traffic
-5.  If your machine has and selinux policy installed, make sure it will not block JBoss
-6.  JBoss will bind to your host's name. Make sure it's resolvable by adding it to /etc/hosts or any other method.
+4.  For external connections, make sure your firewall allows 8080 incoming traffic.
+5.  If your machine has and selinux policy installed, make sure it will not block JBoss.
+6.  JBoss will bind to your host's name. Make sure it's resolvable by adding it to `/etc/hosts` or any other method.
 
 ## Installing PostgreSQL
 

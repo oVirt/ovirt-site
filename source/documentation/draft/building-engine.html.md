@@ -86,21 +86,17 @@ Create your ~/.m2/ directory
 
       $> mkdir ~/.m2
 
-Use
-
-      wget -O ~/.m2/settings.xml http://www.ovirt.org/w/images/1/18/Settings.xml.png
-
-Or copy & paste the content of the file below into ~/.m2/settings.xml
+Use wget -O ~/.m2/settings.xml http://www.ovirt.org/w/images/1/18/Settings.xml.png Or copy & paste the content of the file below into ~/.m2/settings.xml
 
       <settings xmlns="http://maven.apache.org/POM/4.0.0"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                http://maven.apache.org/xsd/settings-1.0.0.xsd">
+                                    http://maven.apache.org/xsd/settings-1.0.0.xsd">
 
       <!--**************************** PROFILES ****************************-->
 
               <activeProfiles>
-                      <activeProfile>oVirtEnvSettings</activeProfile>
+                              <activeProfile>oVirtEnvSettings</activeProfile>
               </activeProfiles>
 
               <profiles>
@@ -108,11 +104,10 @@ Or copy & paste the content of the file below into ~/.m2/settings.xml
                               <id>oVirtEnvSettings</id>
                               <properties>
                                       <jbossHome>/usr/share/jboss-as</jbossHome>
-                                      <JAVA_1_6_HOME>/usr/lib/jvm/java-1.6.0-openjdk.x86_64</JAVA_1_6_HOME>
-                                      <forkTests>always</forkTests>
+                                      <JAVA_HOME>/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/bin/java</JAVA_HOME>
                               </properties>
                       </profile>
-              </profiles>
+               </profiles>
       </settings>
 
 *   Do not omit the active-profiles element in the above xml, it is crucial.

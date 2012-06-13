@@ -135,6 +135,17 @@ Ensure that you have write access to $JBOSS_HOME/standalone/deployments to which
 
 CURRENTLY WE DON'T HAVE RPM FOR JBOSS AS 7.1.1, SO USE THE ZIPPED VERSION
 
+### Cleanup of deployments
+
+For development purposes, you might want to clean up previous deployment leftovers of engine.ear. In order to perform this, please perform the following steps:
+
+        $> cd $JBOSS_HOME/standalone
+        $> rm -rf deployments/engine.ear 
+        $> rm -rf deployments/engine.ear.deployed 
+        $> rm -rf tmp
+        $> rm -rf data (should be done only in development environment)
+       
+
 ### Troubleshooting
 
 1.  Some useful JAVA_OPTS, these can be manually added to the *standalone.conf* script as required:

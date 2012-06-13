@@ -203,27 +203,29 @@ To work around the issue, edit the file `$OVIRT_HOME/backend/manager/dbscripts_p
 
 #### Build
 
-If you only want to build virt-engine-core and REST API then:
+If you only want to build the engine core and then REST API then use the following commands:
 
-       $> cd $OVIRT_HOME
-       $> mvn clean install
+    $> cd $OVIRT_HOME
+    $> mvn clean install
 
-For compiling the web-admin and user-portal in addition to the api and engine use:
+For compiling the GUI (web administration tool and user portal) in addition to the engine core and REST API and engine use the following commands:
 
-       $> cd $OVIRT_HOME
-       $> mvn clean install -Pgwt-admin,gwt-user
+    $> cd $OVIRT_HOME
+    $> mvn clean install -Pgwt-admin,gwt-user
 
-Notes:
-# Compiling the webadmin and userportal takes (a long) time, please visit [GWT Compilation Configuration](Advanced_oVirt_Engine_Build_Notes#GWT_Compilation_Configuration) if you want to speed the web compilation process during development time
-# Make sure to run this with your user, not 'root', running as root will result in a missing settings.xml file in the 'root' home directory.
+***Notes:***
 
-1.  To skip the execution of the unit tests and only compile and package ovirt, add the option: -DskipTests=true to the mvn build command
-2.  You can reduce the build time and memory consumption - look at the temp section at the end.
-3.  If you receive "java.lang.OutOfMemoryError: PermGen space" error, use the MAVEN_OPTS environment variable to set a higher heap and permanent generation stack size, then try again:
+1.  Compiling the GUI takes (a long) time, please visit [GWT Compilation Configuration](Advanced_oVirt_Engine_Build_Notes#GWT_Compilation_Configuration) if you want to speed the web compilation process during development time.
+2.  Make sure to run this with your user, not `root`, running as `root` will result in a missing `settings.xml` file in the `root` home directory.
+3.  To skip the execution of the unit tests and only compile and package, add the option `-DskipTests=true` to the `mvn` build command.
+4.  You can reduce the build time and memory consumption - look at the temp section at the end.
+5.  If you receive `java.lang.OutOfMemoryError: PermGen space` error, use the `MAVEN_OPTS` environment variable to set a higher permanent generation heap size, then try again:
 
-      $> export MAVEN_OPTS="-XX:MaxPermSize=128m"
+<!-- -->
 
-For advanced build notes, please visit [Advanced oVirt Engine Build Notes](Advanced oVirt Engine Build Notes)
+    $> export MAVEN_OPTS="-XX:MaxPermSize=128m"
+
+For advanced build notes, please visit [Advanced oVirt Engine Build Notes](Advanced oVirt Engine Build Notes).
 
 #### Deploy
 

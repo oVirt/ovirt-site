@@ -456,7 +456,7 @@ Actions:
 
 *   (oVirt Engine side)
 
-       /usr/share/jboss-as/standalone/log/server.log
-       /usr/share/jboss-as/standalone/log/engine/engine.log
+       $JBOSS_HOME/standalone/log/server.log
+       $JBOSS_HOME/standalone/log/engine/engine.log
 
 [Category:Draft documentation](Category:Draft documentation) <Category:Engine> [Category:How to](Category:How to)

@@ -437,7 +437,7 @@ Actions:
 
 *   Engine side:
 
-       Look /usr/share/jboss-as/standalone/log/engine/engine.log
+       Look $JBOSS_HOME/standalone/log/engine/engine.log
 
 *   Have you created /var/lock/ovirt-engine/.openssl.exclusivelock with 777 perm ?
 

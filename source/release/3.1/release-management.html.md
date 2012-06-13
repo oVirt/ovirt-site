@@ -16,10 +16,10 @@ wiki_last_updated: 2012-08-20
 
 ### Timeline
 
-*   General Availability **2012-06-27**.
-    -   Release Candidate **2012-06-21**.
-    -   Test Day **2012-06-14**.
-    -   Feature Freeze (Branching day) **2012-06-07**.
+*   General Availability **2012-Jun-27**.
+    -   Release Candidate **2012-Jun-21**.
+    -   Test Day **2012-Jun-14**.
+    -   Feature Freeze (Branching day) **2012-Jun-07**.
 
 ### Release Criteria (WORK IN PROGRESS)
 
@@ -31,8 +31,8 @@ wiki_last_updated: 2012-08-20
 
 *   **MUST**: No blockers on the lower level components - libvirt, lvm,device-mapper,qemu-kvm, Jboss, postgres, iscsi-initiator
 *   **MUST**: All image related operations work - copy, move, import, export, snapshot (vm and template)
-*   **MUST**: Ovirt/host installation should work flawlessly (w/o ssl)
-*   **MUST**: Fully operational flow (define DC hierarchy so you can run vm) with gui/cli/python-api/rest-api
+*   **MUST**: Ovirt/host installation should work flawlessly (w/o SSL)
+*   **MUST**: Fully operational flow (define DC hierarchy so you can run vm) with GUI/CLI/Python-API/REST-API
 *   **MUST**: vm life-cycle is working flawlessly (start,suspend,resume,stop,migrate)
 *   **MUST**: Upgrade from previous release
 *   **MUST**: ovirt-node full cycle (register, approve and running VM)

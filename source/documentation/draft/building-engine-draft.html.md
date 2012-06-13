@@ -388,7 +388,7 @@ If you have a working development environment and after a while you want
 to update the code and take latest, you need to do:
 
 1.  git fetch -v
-2.  git rebase origina/master
+2.  git rebase origin/master
 3.  Compile the code
 4.  Upgrade your DB schema
 

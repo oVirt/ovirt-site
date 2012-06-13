@@ -243,12 +243,12 @@ The first deployment of the engine to the application server should use the `dep
     $> cd $OVIRT_HOME/ear
     $> mvn clean install -Pdep,setup
 
-There is a issue with the `dep` and `setup` profiles getting in the way of each other. The `setup` profile will prevent the deployment of the quartz jar to the application server. So after this step completes, run:
+There is a issue with the `dep` and `setup` profiles getting in the way of each other. The `setup` profile will prevent the deployment of the quartz jar to the application server. So after this step completes, run again, but with the `dep` profile only:
 
     $> cd $OVIRT_HOME/ear
     $> mvn clean install -Pdep
 
-From this point on, every time you deploy you can simply run:
+From this point on, every time you deploy you can simply run with the `dep` profile:
 
     $> cd $OVIRT_HOME/ear
     $> mvn clean install -Pdep

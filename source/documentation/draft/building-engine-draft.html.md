@@ -315,7 +315,7 @@ Accessing the user portal:
 
     http://<server name>:<port>/UserPortal
 
-## Setting Public Key environment (recommended to oVirt Node environment)
+## Setting Public Key environment (optional, recommended to oVirt node environment)
 
 Follow this page: <http://www.ovirt.org/wiki/Engine_Node_Integration#Engine_core_machine>
 

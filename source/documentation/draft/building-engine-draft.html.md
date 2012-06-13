@@ -144,7 +144,7 @@ Update the `jbossHome` property in your personal maven settings file `$HOME/.m2/
 Check that the application server starts correctly:
 
     $> cd $JBOSS_HOME/bin
-    $> ./standalone.sh
+    $> ./standalone.sh -b 0.0.0.0
 
 Ensure that you have write access to `$JBOSS_HOME/standalone/deployments` to which the engine will be deployed.
 

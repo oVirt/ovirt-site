@@ -170,13 +170,17 @@ Ensure that you have write access to `$JBOSS_HOME/standalone/deployments` to whi
 
 #### Clone oVirt-engine codebase
 
-Choose a directory where you want to keep oVirt sources and 'cd' to it. Use git to clone the ovirt-engine repository into the current working directory,
+Choose a directory where you want to keep the engine sources and `cd` to it. Use the `git` command to clone the engine repository into the current working directory:
 
-      $> git clone git://gerrit.ovirt.org/ovirt-engine
+    $> git clone git://gerrit.ovirt.org/ovirt-engine
 
-For further instructions let $OVIRT_HOME be <your_chosen_source_location>/ovirt-engine
+This will create a new `ovirt-engine` directory containing the cloned repository. For further instructions let the variable `$OVIRT_HOME` point to the directory where you have cloned the repository:
 
-**Note:** the above cloning is for read only, if you want to contribute you might want to skip to [#Code contribution: Gerrit](#Code_contribution:_Gerrit) before moving to the next steps.
+    $> export OVIRT_HOME=$PWD/ovirt-engine
+
+***Note:** It migtht be convenient to add this environment variable to your `$HOME/.bash_profile` file to have it automatically whenever you log in.*
+
+***Note:** The above cloning is for read only, if you want to contribute you might want to skip to [#Code contribution: Gerrit](#Code_contribution:_Gerrit) before moving to the next steps.*
 
 #### Creating the database
 

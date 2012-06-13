@@ -255,7 +255,7 @@ From this point on, every time you deploy you can simply run with the `dep` prof
 
 Since postgres is already set up.
 
-## Copying vdsm bootstrap files
+## Copying vdsm bootstrap files (optional)
 
 With the default installation for development environments the engine will assume that hypervisors have VDSM already installed, and will not try to configure them. If you want the engine to do full bootstrap installation of hypervisors (setting configuration parameter `InstallVds` to `true` in the database) these steps will be required, otherwise they can be ignored.
 

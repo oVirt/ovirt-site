@@ -210,7 +210,7 @@ Track bug for the release - <https://bugzilla.redhat.com/show_bug.cgi?id=822145>
 
 IRC - #ovirt at irc.oftc.net
 
-## Current Issues (aglitke)
+## Current Issues
 
 *   VM state shown as Non-responsive in UI even though VM is Up according to vdsm
 *   [Bug 832158 - ISO List is not refreshed after new ISO is uploaded](https://bugzilla.redhat.com/show_bug.cgi?id=832158)
@@ -218,3 +218,5 @@ IRC - #ovirt at irc.oftc.net
 *   [Bug 769571 - Console icon doesn't get reenabled when spice console is closed](https://bugzilla.redhat.com/769571)
 *   ovirt-node-iso [Bug 832196 - Getting directory not found error.](https://bugzilla.redhat.com/show_bug.cgi?id=832196)
 *   [Bug 832199 - vdsmd init script times out due to lengthy semanage operation](https://bugzilla.redhat.com/show_bug.cgi?id=832199)
+*   Workaround for sanlock error: "Readonly leases are not supported."
+    -   comment out: lock_manager="sanlock" in /etc/libvirt/qemu.conf and restart libvirt and vdsm

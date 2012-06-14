@@ -103,12 +103,12 @@ by default we'll be using the webadmin as our API for testing on this section we
 
 | Scenario                       | Webadmin | UserPortal | Rest | Python-SDK | CLI |
 |--------------------------------|----------|------------|------|------------|-----|
-| Create a data-center           |          |            |      |            |     |
-| Create a cluster               |          |            |      |            |     |
-| Update cluster                 |          |            |      |            |     |
-| Install a host                 |          |            |      |            |     |
-| Create a storage domain on DC  |          |            |      |            |     |
-| Attach export/ISO domain to DC |          |            |      |            |     |
+| Create a data-center           |          |            |      | V          |     |
+| Create a cluster               |          |            |      | V          |     |
+| Update cluster                 |          |            |      | V          |     |
+| Install a host                 |          |            |      | V          |     |
+| Create a storage domain on DC  |          |            |      | V          |     |
+| Attach export/ISO domain to DC |          |            |      | V          |     |
 | Create vm                      |          |            |      |            |     |
 | Delete vm                      |          |            |      |            |     |
 | Import vm                      |          |            |      |            |     |
@@ -133,6 +133,10 @@ For details about configuration check <http://www.ovirt.org/wiki/Testing/Spice>
 | Try to watch a Local movie (with QXL driver installed on VM)                                                           |      |
 | Try to use client mouse mode and clipboard share between client and VM (with spice agent installed on VM)              |      |
 | Install AutoCAD or any other graphic application a try to work with it (with QXL driver installed on VM)               |      |
+
+### User Interface
+
+Webadmin: BZ#832046, BZ#832064
 
 ### Node
 

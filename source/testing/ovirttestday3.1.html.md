@@ -218,3 +218,4 @@ IRC - #ovirt at irc.oftc.net
 *   Fixed in ovirt-node-iso-2.4.0-1.0.fc17.iso - ovirt-node-iso network interface config not working. New build expected with a fixed shortly.
 *   [Bug 769571 - Console icon doesn't get reenabled when spice console is closed](https://bugzilla.redhat.com/769571)
 *   ovirt-node-iso [Bug 832196 - Getting directory not found error.](https://bugzilla.redhat.com/show_bug.cgi?id=832196)
+*   [Bug 832199 - vdsmd init script times out due to lengthy semanage operation](https://bugzilla.redhat.com/show_bug.cgi?id=832199)

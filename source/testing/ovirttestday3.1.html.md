@@ -110,13 +110,13 @@ by default we'll be using the webadmin as our API for testing on this section we
 | Install a host                 |          |            |      | V          |     |
 | Create a storage domain on DC  |          |            |      | V          |     |
 | Attach export/ISO domain to DC |          |            |      | V          |     |
-| Create vm                      |          |            |      |            |     |
-| Delete vm                      |          |            |      |            |     |
-| Import vm                      |          |            |      |            |     |
+| Create vm                      |          |            |      | V          |     |
+| Delete vm                      |          |            |      | V          |     |
+| Import vm                      |          |            |      | V          |     |
 | Start/hibernate/resume/stop vm |          |            |      |            |     |
-| Create a snapshot to vm        |          |            |      |            |     |
-| Create a template from vm      |          |            |      |            |     |
-| Create vm from template        |          |            |      |            |     |
+| Create a snapshot to vm        |          |            |      | V          |     |
+| Create a template from vm      |          |            |      | V          |     |
+| Create vm from template        |          |            |      | V          |     |
 | Sign out                       |          |            |      |            |     |
 | General                        |          |            |      |            |     |
 

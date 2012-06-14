@@ -209,3 +209,9 @@ Track bug for the release - <https://bugzilla.redhat.com/show_bug.cgi?id=822145>
 ## Miscellaneous
 
 IRC - #ovirt at irc.oftc.net
+
+## Current Issues (aglitke)
+
+*   VM state shown as Non-responsive in UI even though VM is Up according to vdsm
+*   Stale ISO list shown when editing a VM
+*   vdsm reconfigure step times out / doesn't set selinux parameters

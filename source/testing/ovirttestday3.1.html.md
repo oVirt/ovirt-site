@@ -216,3 +216,4 @@ IRC - #ovirt at irc.oftc.net
 *   [Bug 832158 - ISO List is not refreshed after new ISO is uploaded](https://bugzilla.redhat.com/show_bug.cgi?id=832158)
 *   vdsm reconfigure step times out / doesn't set selinux parameters
 *   ovirt-node-iso network interface config not working. New build expected with a fixed shortly.
+*   [Bug 769571 - Console icon doesn't get reenabled when spice console is closed](https://bugzilla.redhat.com/769571)

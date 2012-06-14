@@ -31,7 +31,7 @@ Test Days are open to anyone. If you have your own setup we will provide all the
 | Name     | General | Storage | Networking | APIs | Spice | User Interface | Tools | Distribution |
 |----------|---------|---------|------------|------|-------|----------------|-------|--------------|
 | snmishra | V       |         | Basic      |      |       | V              |       | RHEL 6.2     |
-| rvaknin  | V       |         |            | SDK  |       | V              |       | Fedora 16    |
+| rvaknin  |         |         |            | SDK  |       | V              |       | Fedora 16    |
 | mkolesni |         |         | Advanced   |      |       |                |       | Fedora 17    |
 | gcheresh |         |         | Basic      |      |       | V              |       | Fedora 17    |
 | rmiddle  | V       |         | Basic      |      |       | V              |       | Fedora 17    |

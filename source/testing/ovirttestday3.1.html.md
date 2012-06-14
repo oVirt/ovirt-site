@@ -136,7 +136,7 @@ For details about configuration check <http://www.ovirt.org/wiki/Testing/Spice>
 
 ### User Interface
 
-Webadmin: BZ#832046, BZ#832064 BZ#832128
+Webadmin: BZ#832046, BZ#832064, BZ#832128
 
 ### Node
 

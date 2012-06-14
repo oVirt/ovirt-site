@@ -136,7 +136,7 @@ For details about configuration check <http://www.ovirt.org/wiki/Testing/Spice>
 
 ### Node
 
-Pre-built node available [here](http://ovirt.org/releases/nightly/binary/ovirt-node-image-2.4.0.fc17.iso).
+Pre-built node available [here](http://ovirt.org/releases/beta/binary/ovirt-node-iso-2.4.0-0.0.fc17.iso).
 
 Please check [Node_Release_Notes](Node_Release_Notes) prior to testing for information on current known issues
 

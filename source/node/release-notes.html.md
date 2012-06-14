@@ -10,6 +10,17 @@ wiki_last_updated: 2013-11-19
 
 # oVirt Node Release Notes
 
+# 2.4.0 Release Notes
+
+*   Move to F17 Base
+*   Various spec file cleanups
+*   fix some issues around networking
+*   Various bugs related to F17 transition
+
+### Known issues for 2.4.0
+
+*   See Current Backlog for other issues [Node_Backlog](Node_Backlog)
+
 # 2.3.0 Release Notes
 
 *   Migrate to systemd for fedora based images

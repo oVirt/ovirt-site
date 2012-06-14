@@ -6,6 +6,8 @@ wiki_revision_count: 4
 wiki_last_updated: 2014-03-13
 ---
 
-## Presentations
+# Presentations
 
-This page contains presentations regarding oVirt features:
+### This page contains presentations regarding oVirt features:
+
+![](AsyncTaskManager.odp "fig:AsyncTaskManager.odp") - A presentations about the Asynchronous Task Manager mechanism in oVirt

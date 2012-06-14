@@ -27,23 +27,26 @@ Very trivial, just check if we follow pythons style guide [pep8](http://www.pyth
 *   pylint
 *   pyflakes
 
-#### Unit tests
-
-Unit tests can be used to check our internal "API" stability and discover bugs or regressions.
-
-doctests is one way to add basic unit tests as comments to methods in python.
-
-*   doctest - <http://docs.python.org/library/doctest.html> , <http://wiki.python.org/moin/DocTest>
-*   unittest
-*   nose
-
-**Problems** Much code in ovirt relies on runtime informations and thus might be hard to test outside of a running system.
-
-#### TUI testing
-
-The plan is to separate the TUI code and "logic" code even more, so that TUI actions (approximately) map to library methods. In such a case we can use unit testing to test the functionality of the library backing the TUI, and it should be easier to track bugs down which arise in the TUI.
-
 ### Post-Build testing
+
+#### Infrastructure
+
+The tests need to be carried out on VMs and real hardware. The necessary steps involved to run the tests (select and prepare a host, run the test, tear it down) are not part of Jenkins and are carried out by [igor](https://gitorious.org/ovirt/igord).
+
+##### Workflow
+
+*   Jenkins builds an ISO
+*   With Jenkins
+    -   Inject [ovirt-igor-client](https://gitorious.org/ovirt/ovirt-igor-client) into ISO using edit-node tool
+    -   Upload modified ISO to igor
+    -   Start igor job by providing testsuite, profile(ISO+kargs), and host
+    -   Wait for igor to finish
+    -   Mail igor report
+
+##### Todo
+
+*   Merge upload ISO and start testing functionality into something more high level
+*   Allow to define test plans (list of (testsuite,profile,host)-tuples)
 
 #### Sanity checks
 
@@ -67,32 +70,20 @@ The plan is to separate the TUI code and "logic" code even more, so that TUI act
 4.  general configuration done (network, storage, ovirt-engine)
 5.  start vms on running ovirt-node hosts using FC and iscsi storage domains
 
-#### Workflow
+#### Unit tests
 
-Actors:
+Unit tests can be used to check our internal "API" stability and discover bugs or regressions.
 
-*   A set of **Testsuites**. Consisting of one or more *Testcases*
-    -   Testcases could be simple bash and python scripts
-*   A set of **Profiles**. Describing the setup of a Host. E.g. distribution, installation method, storage and network layout.
-    -   Specifies how to install the node, what storage and network configuration to use.
-    -   In the easiest case this boils down to a specific kernel commandline getting passed to node (which is then picked up by the installer) to install it accordingly
-*   A set of **Hosts**. The target of a *Testsuite*, virtual guests or real hardware.
-    -   A host is mainly needed to create appropriate virtual guests
-*   A **Controller**, dispatching (*Testsuites*, *Profile*, [*Host*]) tuples thus
-    -   provisioning a *Host*,
-    -   running a *Testsuite* on the provisioned *Host*,
-    -   monitor progress and act if necessary
-    -   and collect/summarize the results
-    -   technical: rest-less, wsgi
+doctests is one way to add basic unit tests as comments to methods in python.
 
-The actual flow would be like:
+*   doctest - <http://docs.python.org/library/doctest.html> , <http://wiki.python.org/moin/DocTest>
+*   unittest
+*   nose
 
-1.  *Testsuite* is submitted to the *Controller*, triggered by e.g. jenkins
-2.  While: *Controller* monitors the *Host* and e.g resets it if needed e.g. to long test duration, network ping timeout or some other criteria
-    1.  *Controller* provisions one of the provided *Hosts* if available as given by the *Profile*
-    2.  *Controller* passes the *Testsuite* to the *Host*
-    3.  *Host* is executing each *Testcase* in the *Testsuite* and passes partial results back to the *Controller*
+**Problems** Much code in ovirt relies on runtime informations and thus might be hard to test outside of a running system.
 
-3.  *Controller* reports results back to e.g. jenkins
+#### TUI testing
+
+The plan is to separate the TUI code and "logic" code even more, so that TUI actions (approximately) map to library methods. In such a case we can use unit testing to test the functionality of the library backing the TUI, and it should be easier to track bugs down which arise in the TUI.
 
 <Category:Testing> <Category:Automation>

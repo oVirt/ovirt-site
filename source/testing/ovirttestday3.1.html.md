@@ -197,6 +197,7 @@ In case you would like to test a product with a new test case, there is a templa
 
 *   ovirt - <https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt>
 *   Spice - <https://bugs.freedesktop.org/> under Spice product
+*   VDSM - <https://bugzilla.redhat.com/show_bug.cgi?id=831998>
 
 Track bug for the release - <https://bugzilla.redhat.com/show_bug.cgi?id=822145>
 

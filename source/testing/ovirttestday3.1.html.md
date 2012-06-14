@@ -34,7 +34,7 @@ Test Days are open to anyone. If you have your own setup we will provide all the
 | rvaknin  | V       |         |            | SDK  |       | V              |       | Fedora 16    |
 | mkolesni |         |         | Advanced   |      |       |                |       | Fedora 17    |
 | gcheresh |         |         | Basic      |      |       | V              |       | Fedora 17    |
-| rmiddle  |         |         | Basic      |      |       | V              |       | Fedora 17    |
+| rmiddle  | V       |         | Basic      |      |       | V              |       | Fedora 17    |
 
 ## Test Dates
 

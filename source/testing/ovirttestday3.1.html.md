@@ -155,14 +155,25 @@ Please check [Node_Release_Notes](Node_Release_Notes) prior to testing for infor
 
 ## Ovirt Information Details
 
-Beta RPMs for Fedora are available from <http://www.ovirt.org/releases/beta/fedora/17/>
+Beta RPMs for Fedora 17 are available from <http://www.ovirt.org/releases/beta/fedora/17/>. In order to use it create a `/etc/yum.repos.d/ovirt-engine-beta.repo` file with the following content:
 
-Please refer the following document for hardware requirements, installation procedure, software download location
+    [ovirt-beta]
+    name=ovirt-beta
+    baseurl=http://ovirt.org/releases/beta/fedora/17
+    enabled=1
+    skip_if_unavailable=1
+    gpgcheck=0
+
+The run `yum install ovirt-engine`.
+
+***Note:** Take into account that if this repository is not configured propertly you will be installing version 3.0 of the engine (it is part of Fedora 17), which is not the subject of this test day.*
+
+Please refer the following documents for more information on hardware requirements, installation procedure and software download locations:
 
 *   <http://ovirt.org/wiki/Installing_ovirt_from_rpm>
 *   <http://ovirt.org/wiki/Installing_ovirt-node_from_rpm>
 
-Please refer the following documents for Ovirt Installation guide, bits location, admin guide
+Please refer the following documents for Ovirt Installation guide, bits location and admin guide:
 
 *   <http://ovirt.org/wiki/Documentation>
 

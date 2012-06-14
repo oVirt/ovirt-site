@@ -113,12 +113,12 @@ by default we'll be using the webadmin as our API for testing on this section we
 | Create vm                      |          |            |      | V          |     |
 | Delete vm                      |          |            |      | V          |     |
 | Import vm                      |          |            |      | V          |     |
-| Start/hibernate/resume/stop vm |          |            |      |            |     |
+| Start/hibernate/resume/stop vm |          |            |      | V          |     |
 | Create a snapshot to vm        |          |            |      | V          |     |
 | Create a template from vm      |          |            |      | V          |     |
 | Create vm from template        |          |            |      | V          |     |
-| Sign out                       |          |            |      |            |     |
-| General                        |          |            |      |            |     |
+| Sign out                       |          |            |      | V          |     |
+| General                        |          |            |      | V          |     |
 
 Python API of the above scenarios can be found in: <http://www.ovirt.org/wiki/Testing/PythonApi>
 

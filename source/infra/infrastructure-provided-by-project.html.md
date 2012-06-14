@@ -34,6 +34,10 @@ Details are found on [How to use this wiki](How to use this wiki).
 
 ## Source code management
 
-(Coming soon.)
+*' GIT Repositories*'
+
+*   ovirt-log-collector: [<http://gerrit.ovirt.org/gitweb?p=ovirt-log-collector.git>](http://gerrit.ovirt.org/gitweb?p=ovirt-log-collector.git)
+*   ovirt-iso-uploader: [<http://gerrit.ovirt.org/gitweb?p=ovirt-iso-uploader.git>](http://gerrit.ovirt.org/gitweb?p=ovirt-iso-uploader.git)
+*   ovirt-image-uploader: [<http://gerrit.ovirt.org/gitweb?p=ovirt-image-uploader.git>](http://gerrit.ovirt.org/gitweb?p=ovirt-image-uploader.git)
 
 <Category:Infrastructure>

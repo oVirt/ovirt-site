@@ -31,6 +31,7 @@ For the purposes of collecting this data, we are asking all oVirt Board Members 
 3.  Carl Trieloff, Red Hat
 4.  Perry Myers, Red Hat
 5.  Itamar Heim, Red Hat (tentative)
+6.  Chris Wright, Red Hat
 
 ### LinuxCon Europe/KVM Forum
 

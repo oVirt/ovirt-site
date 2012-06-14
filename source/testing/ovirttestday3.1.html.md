@@ -215,3 +215,4 @@ IRC - #ovirt at irc.oftc.net
 *   VM state shown as Non-responsive in UI even though VM is Up according to vdsm
 *   [Bug 832158 - ISO List is not refreshed after new ISO is uploaded](https://bugzilla.redhat.com/show_bug.cgi?id=832158)
 *   vdsm reconfigure step times out / doesn't set selinux parameters
+*   ovirt-node-iso network interface config not working. New build expected with a fixed shortly.

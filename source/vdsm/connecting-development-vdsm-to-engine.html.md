@@ -15,6 +15,8 @@ By default OVirt communicates with VDSM with ssl. This is a safe default, but di
 
 *   in /etc/vdsm/vdsm.conf [vars] section: ssl = false
 *   in /etc/libvirt/libvirtd.conf: listen_tls=0
+*   in /etc/libvirt/libvirtd.conf: listen_tcp = 1
+*   in /etc/libvirt/libvirtd.conf: auth_tcp = "none"
 *   and in /etc/libvirt/qemu.conf: spice_tls=0
 
 After this is done, restart vdsm. If you misconfigured something, vdsm will complain, so keep an eye on the error messages :)

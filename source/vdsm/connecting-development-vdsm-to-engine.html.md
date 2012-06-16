@@ -37,6 +37,12 @@ This will stop the ovirt engine trying to install things on the hosts.
 
 When you are done with the table updates, restart ovirt engine.
 
+Ovirt 3.0 F16
+
        service jboss-as restart
+
+Ovirt 3.1 F17
+
+       service ovirt-engine restart
 
 And then it should work...

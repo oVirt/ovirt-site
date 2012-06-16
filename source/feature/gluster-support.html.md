@@ -12,7 +12,7 @@ wiki_last_updated: 2014-12-22
 
 ## Summary
 
-This feature provides support for provisioning and managing Gluster based storage clusters in oVirt. Inital support was added to oVirt 3.1. Warning it requires gluster 3.3 not 3.2.6 that comes with F17.
+This feature provides support for provisioning and managing Gluster based storage clusters in oVirt. Inital support was added to oVirt 3.1. Warning it requires gluster 3.3 not 3.2.6 that comes with F17. Repo for Glusterfs 3.3 can be found at <http://repos.fedorapeople.org/repos/kkeithle/glusterfs/>
 
 ## Owner
 

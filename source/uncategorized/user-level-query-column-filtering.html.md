@@ -62,4 +62,20 @@ A function to add new object columns to the white list fn_db_add_column_to_objec
       END; $procedure$
       LANGUAGE plpgsql;
 
+5) You should add the following to fixters.xml
+
+<table name="object_column_white_list">
+`       `<column>`object_name`</column>
+`       `<column>`column_name`</column>
+`   `<row>
+`       `<value>`T`</value>
+`       `<value>`c1`</value>
+`   `</row>
+`   `<row>
+`       `<value>`T`</value>
+`       `<value>`c2`</value>
+`   `</row>
+       
+
+</table>
 That's all, this insures that administrator will get all c1 to c4 columns while users will get only c1 and c2.

@@ -54,7 +54,6 @@ The key must be the same as the key that was added to backend file, the message 
 
 *   Another entry must be added to:
     -   *frontend/webadmin/modules/webadmin/src/main/resources/org/ovirt/engine/ui/frontend/VdsmErrors.properties*
-    -   *frontend/webadmin/modules/userportal/src/main/resources/org/ovirt/engine/ui/frontend/VdsmErrors.properties*
     -   *frontend/webadmin/modules/userportal-gwtp/src/main/resources/org/ovirt/engine/ui/frontend/VdsmErrors.properties*
 
 The key must be the same as the key that was added to backend file, the message may be different.

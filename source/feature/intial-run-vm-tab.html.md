@@ -37,6 +37,27 @@ To do so we must use the Timezone offset from GMT in seconds and send it to VDSM
 `  `<timer name="rtc" tickpolicy="catchup">
 </clock>
 
+### Required Changes
+
+1.  Engine - GetTimezoneQuery
+
+GetTimeZoneQuery was extended with the option to pool general timezone list and not only windows-specific Simply pass isWindowsOS=false with the params. The default behaviour is set to "true" to return windows values.
+
+      public class TimeZoneQueryParams extends VdcQueryParametersBase {
+          
+         private boolean windowsOS = true;
+
+      ...
+
+1.  UX
+
+*   Sysprep tab is renamed to Initial Run
+*   tab is always visible
+*   content is splitted into "General" for common properties to all OSs and "Windows" section with windows only properties e.g Domain
+*   on selection of different OS under Genral tab the Timezone list is fetched (cached)
+*   Domain select-box gets disable when the OS is non windows
+*   
+
 ### Benefit to oVirt
 
 First an admin can set a VM with a desired clock offset, make a template from it and each VM created from that templte will have its clock set already. Second we would be able to use future sysprep for linux.

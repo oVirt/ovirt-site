@@ -39,24 +39,23 @@ To do so we must use the Timezone offset from GMT in seconds and send it to VDSM
 
 ### Required Changes
 
-1.  Engine - GetTimezoneQuery
+*   Engine - GetTimezoneQuery
 
-GetTimeZoneQuery was extended with the option to pool general timezone list and not only windows-specific Simply pass isWindowsOS=false with the params. The default behaviour is set to "true" to return windows values.
+GetTimeZoneQuery was extended with the option to pool general timezone list and not only windows-specific
+Simply pass isWindowsOS=false with the params. The default behaviour is set to "true" to return windows values.
 
       public class TimeZoneQueryParams extends VdcQueryParametersBase {
           
          private boolean windowsOS = true;
-
       ...
 
-1.  UX
+*   UX
 
-*   Sysprep tab is renamed to Initial Run
-*   tab is always visible
-*   content is splitted into "General" for common properties to all OSs and "Windows" section with windows only properties e.g Domain
-*   on selection of different OS under Genral tab the Timezone list is fetched (cached)
-*   Domain select-box gets disable when the OS is non windows
-*   
+1.  Sysprep tab is renamed to Initial Run
+2.  tab is always visible
+3.  content is splitted into "General" for common properties to all OSs and "Windows" section with windows only properties e.g Domain
+4.  on selection of different OS under Genral tab the Timezone list is fetched (cached)
+5.  Domain select-box gets disable when the OS is non windows
 
 ### Benefit to oVirt
 

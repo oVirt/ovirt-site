@@ -41,7 +41,7 @@ This is the agenda for the 2012-06-20 meeting:
 *   VDSM Bi-Weekly Sync
     -   Monday (bi-weekly) @ 14:30 UTC (may change during DST changes) - always at 16:30 Israel.
     -   On IRC: #vdsm on chat.freenode.net
-    -   Intercall (see [here](intercall) for more info) conference ID: 8425973915
+    -   Intercall (see [here](intercall) for more info) conference ID: 842-597-391-5
 
 ### MeetBot
 

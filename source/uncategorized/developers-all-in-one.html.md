@@ -59,33 +59,30 @@ Currently compatible for working in non-secure mode only.
 
 **Installing JBoss AS - Manually (From Zips)**
 
-          $> cd /usr/share
-          $> wget http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.tar.gz
-          $> tar zxvf jboss-as-7.1.1.Final.tar.gz
-          $> ln -s /usr/share/jboss-as-7.1.1.Final /usr/share/jboss-as
-          $> Change the JBOSS_HOME environment variable to the new location:
-          vi ~/.bahrc
-          export JBOSS_HOME=/usr/share/jboss-as-7.1.1.Final
-          o
-          $> su - -c 'chmod -R 777 /usr/share/jboss-as'
-          $> mkdir ~/dev/jboss
+      $> cd /usr/share
+`$> wget `[`http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.tar.gz`](http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.tar.gz)
+      $> tar zxvf jboss-as-7.1.1.Final.tar.gz
+      $> ln -s /usr/share/jboss-as-7.1.1.Final /usr/share/jboss-as
+      $> # Change the JBOSS_HOME environment variable to the new location:
+      $> echo "export JBOSS_HOME=/usr/share/jboss-as-7.1.1.Final" >> ~/.bashrc
+      $> su - -c 'chmod -R 777 /usr/share/jboss-as*'
+      $> mkdir ~/dev/jboss
 
 ### Working with jboss profiles
 
 In essence it is a matter of creating a copy of the configuration and starting AS from that copy.
 
       $> cp -a $JBOSS_HOME/standalone $WORK/standalone
-      $> vi dev/ovirt-engine/pom.xml
+`$> vi dev/ovirt-engine/pom.xml`</nowiki>
 
 Search for "jbossServer" and change the line to:
 
-      <jbossServer>${workDir}/standalone</jbossServer> 
+      <jbossServer>${workDir}/standalone</jbossServer>
 
 **To start the jboss-as in standalone mode:**
 
-         
-      $> $JBOSS_HOME/bin/standalone.sh -Djboss.server.base.dir=$WORK/standalone
-              *make sure to change $WORK to your user's directory
+      $> $JBOSS_HOME/bin/standalone.sh -Djboss.server.base.dir=$GIT_HOME/standalone
+`       # make sure to change $GIT_HOMR to your user's directory`</nowiki>
 
 *   Clone oVirt-engine codebase into: ~/dev/ovirt/
 *   Installing the database (http://ovirt.org/wiki/Installing_PostgreSQL_DB)
@@ -127,23 +124,14 @@ Search for "jbossServer" and change the line to:
 *   /etc/libvirt/libvirtd.conf
 
       listen_addr="0.0.0.0"
-       
       unix_sock_group="kvm"
-
       unix_sock_rw_perms="0770"
-
       auth_unix_rw="sasl"
-
       save_image_format="lzop"
-
       log_outputs="1:file:/var/log/libvirtd.log"
-
       log_filters="1:libvirt 3:event 3:json 1:util 1:qemu"
-
       auth_tcp="none"
-
       listen_tcp=1
-
       listen_tls=0
 
 *   Try:
@@ -161,11 +149,11 @@ verify the creation of the bridge:
 
       $> ifconfig -a
 
-*   switch jboss on:
+*   Switch jboss on:
 
 /usr/share/jboss-as-7.1.1.Final/bin/standalone.sh -Djboss.server.base.dir=/home/ykaplan/dev/jboss/standalone
 
-*   add new host:
+*   Add new host:
 
 with local IP (127.0.0.1) and check that the host status is: Up.
 

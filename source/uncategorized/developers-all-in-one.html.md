@@ -10,7 +10,7 @@ wiki_last_updated: 2013-11-25
 
 ### Disclaimer:
 
-Work in progress
+Currently compatible for working in non-secure mode only.
 
 ## All In One Developer's Environment Installation step by step
 
@@ -104,7 +104,7 @@ Search for "jbossServer" and change the line to:
 
 **\1**
 
-*   set secure mode to false:
+*   Set engine-ovirt secure mode to false:
 
       $> psql -U postgres -d engine
       # update vdc_options set option_value='false' where option_name='UseSecureConnectionWithServers';

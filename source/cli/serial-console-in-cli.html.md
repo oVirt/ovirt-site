@@ -128,6 +128,11 @@ Setting up serial console access for Linux VMs in a oVirt environment
       [root@rhevm-dot4 ~]# rhevm-config -s UserDefinedVMProperties='SerialConsole=^([a-z]|[0-9])+$' --cver=3.0
       [root@rhevm-dot4 ~]# service jbossas restart
 
+For ovirt 3.1
+
+      [root@rhevm-dot4 ~]# engine-config -s UserDefinedVMProperties='SerialConsole=^([a-z]|[0-9])+$' --cver=3.1
+      [root@rhevm-dot4 ~]# service ovirt-engine restart
+
 3. Edit the VM's custom properties. Enter "SerialConsole=0"[\*]
 
 *   any string will work instead of 0

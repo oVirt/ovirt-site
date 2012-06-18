@@ -16,7 +16,6 @@ If you are interested in setting up a workshop, please contact [Leslie Hawthorn]
 
 ## Upcoming Workshops Schedule Overview
 
-*   June 8, 2012: LinuxCon Japan
 *   August 28, 2012: LinuxCon North America
 *   November 7-9, 2012: LinuxCon Europe (workshop will be co-located with KVM Forum)
 *   January 22-24, 2013: NetApp Headquarters in Sunnyvale, California, US
@@ -33,25 +32,6 @@ Kyle Mestery is working to arrange a workshop on Cisco's campus, likely in the R
 Leslie Hawthorn is investigating holding a workshop at Red Hat's campus in Bangalore, India. The campus is in the process of moving to a new location and event space and logistics will become more clear once the move has taken place.
 
 We are currently working to locate a place to host a workshop in the LATAM region.
-
-## LinuxCon Japan 2012
-
-*   Workshop Date: June 8, 2012
-*   [Conference Website](https://events.linuxfoundation.org/events/linuxcon-japan)
-*   [Workshop Agenda](https://events.linuxfoundation.org/events/linuxcon-japan/ovirt-gluster-workshops)
-*   [Workshop Registration Link](http://www.regonline.com/Register/Checkin.aspx?EventID=1099949)
-
-#### LinuxCon Japan 2012 Workshop Details
-
-*   The workshop is free of charge for the first 50 registrants. We will look at adding additional participant slots based on demand.
-*   Attendees registering for LinuxCon Japan via the workshop registration link above receive discounted attendance to LinuxCon Japan.
-*   Attendees who have already registered for LinuxCon Japan via the main conference registration page can simply edit their existing registration to add on the oVirt Workshop.
-*   Beverage breaks and lunch will be provided to all attendees.
-
-#### LinuxCon Japan 2012 Workshop Outstanding Action Items
-
-*   If anyone would like to volunteer to help with instruction, please notify [Leslie Hawthorn](User:Lh).
-*   Please spread the word to those you feel would benefit from attending. [relevant email thread](http://lists.ovirt.org/pipermail/users/2012-May/001931.html)
 
 ## LinuxCon North America 2012
 
@@ -110,5 +90,22 @@ Details for this workshop are still to be confirmed, with a confirmed date of Ja
 ## Intel Campus Workshop 2013
 
 Details for this workshop are still to be confirmed, though we have confirmed the date for it as March 20-21, 2013. The workshop will be held at [Intel's Shanghai campus](http://maps.google.com/maps?q=No.+880+Zi+Xing+Road+Zizhu+Science+Park+Minhang,+Shanghai+200241+China&hl=en&sll=23.141807,113.324834&sspn=0.077662,0.153122&t=h&hq=No.+880+Zi+Xing+Road+Zizhu+Science+Park+Minhang,+Shanghai+200241+China&radius=15000&z=13).
+
+## Past Workshops
+
+### LinuxCon Japan 2012
+
+*   Workshop Date: June 8, 2012
+*   [Conference Website](https://events.linuxfoundation.org/events/linuxcon-japan)
+*   [Workshop Agenda](https://events.linuxfoundation.org/events/linuxcon-japan/ovirt-gluster-workshops)
+*   [Workshop Registration Link](http://www.regonline.com/Register/Checkin.aspx?EventID=1099949)
+*   [LC Japan Workshop Post-Mortem](LC Japan Workshop Post-Mortem)
+
+#### LinuxCon Japan 2012 Workshop Details
+
+*   The workshop is free of charge for the first 50 registrants. We will look at adding additional participant slots based on demand.
+*   Attendees registering for LinuxCon Japan via the workshop registration link above receive discounted attendance to LinuxCon Japan.
+*   Attendees who have already registered for LinuxCon Japan via the main conference registration page can simply edit their existing registration to add on the oVirt Workshop.
+*   Beverage breaks and lunch will be provided to all attendees.
 
 <Category:Events>

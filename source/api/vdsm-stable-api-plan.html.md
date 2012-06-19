@@ -10,7 +10,7 @@ wiki_last_updated: 2012-06-21
 
 # VDSM Stable API Plan
 
-## API Scheme
+## API Schema
 
 *   Decide on a formal format (are there any existing schema representation formats?)
 

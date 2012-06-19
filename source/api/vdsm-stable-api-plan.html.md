@@ -22,3 +22,4 @@ Things to declare
 *   Valid options for enums (maybe use introspection? Will be better for compatibility?)
 *   Response
 *   Object and struct details (Hard Types)
+*   Events

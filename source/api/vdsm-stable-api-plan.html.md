@@ -23,3 +23,5 @@ Things to declare
 *   Response
 *   Object and struct details (Hard Types)
 *   Events
+
+<Category:Vdsm>

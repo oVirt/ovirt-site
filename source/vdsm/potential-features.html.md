@@ -51,3 +51,5 @@ wiki_last_updated: 2012-06-19
     -   is the host collecting enough information to do debug/perf analysis
     -   can we support specific configurations of a host that optimize for specific workloads
     -   and can we do this in the API such that third-parties can supply and maintain specific workload configurations
+
+<Category:Vdsm>

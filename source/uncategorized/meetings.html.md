@@ -51,6 +51,9 @@ There is a bot (ovirtbot) in the #ovirt IRC channel that can be used for running
 
 #### 2012
 
+*   2012-06-20
+    -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-06-20-14.00.html)
+    -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-06-20-14.00.log.html)
 *   2012-06-13
     -   [Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-06-13-14.01.html)
     -   [Full log](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-06-13-14.01.log.html)

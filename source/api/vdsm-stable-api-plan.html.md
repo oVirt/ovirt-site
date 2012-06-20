@@ -10,7 +10,7 @@ wiki_last_updated: 2012-06-21
 
 # VDSM Stable API Plan
 
-### API Schema
+## API Schema
 
 *   Decide on a formal format (are there any existing schema representation formats?)
 
@@ -24,9 +24,9 @@ Things to declare
 *   Object and struct details (Hard Types)
 *   Events
 
-### VDSM Supportability Guidelines
+## VDSM Supportability Guidelines
 
-## Versioning
+### Versioning
 
 *   The API will be grouped by capabilities and each will be individually versioned. This has to be done to accommodate optional features.
 *   The API is version as a whole, deprecation means a version bump where the deprecated methods are "forbidden" from use. For example if doSomething() became deprecated in version 2.1.X any application checking against version 2.1.X shouldn't use the verb.

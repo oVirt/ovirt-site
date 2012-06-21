@@ -18,10 +18,13 @@ This feature allows implementing custom User Interface (UI) plugins for oVirt we
 
 *   Name: [Vojtech Szocs](User:Vszocs)
 *   Email: <vszocs@redhat.com>
+*   IRC: vszocs at #ovirt (irc.oftc.net)
 
 ### Current status
 
-*   In progress: UI plugin architecture design draft
+*   In progress: Design draft
+*   Pending: Design implementation
+*   Pending: User (plugin authoring) documentation
 
 ### Overview
 
@@ -31,36 +34,32 @@ There can be times when administrators want to expose additional features of the
 
 UI plugins are represented in [JavaScript](http://en.wikipedia.org/wiki/JavaScript) language. This allows WebAdmin to invoke plugins directly on the client (web browser).
 
-Following code snippet shows a minimalistic plugin (cheers to [jQuery](http://jquery.com/) folks out there!):
+Following code snippet shows a minimalistic plugin:
 
-    // Using JavaScript IIFE (Immediately Invoked Function Expression) to map $ sign to pluginApi global object
-    (function( $ ) {
+    // Each plugin registers itself into pluginApi.plugins object, where the name of the property is the name of the plugin
+    pluginApi.plugins.myPlugin = {
 
-        // Each plugin registers itself into pluginApi.plugins object, where the name of the property is the name of the plugin
-        $.plugins.myPlugin = {
+        // Initialize the plugin, using an optional plugin configuration object, and report back when ready
+        pluginInit: function(pluginConfig) {
+            // Plugin lifecycle callback functions, such as the ready() function, are accessed through pluginApi object
+            pluginApi.lifecycle(this).ready();
+        },
 
-            // Initialize the plugin, using an optional plugin configuration object, and report back when ready
-            pluginInit: function(pluginConfig) {
-                // Plugin lifecycle callback functions, such as the ready() function, are accessed through pluginApi object
-                $(this).ready();
-            },
-
-            // Handle a specific application event, where the name of the function is the name of the event
-            tableContextMenu: function(eventContext) {
-                if (eventContext.entityType == 'VM') {
-                    // The eventContext.addItem function is specific to tableContextMenu event
-                    eventContext.addItem(
-                        'Show VM name', // Item title
-                        function() {    // Item click handler function
-                            Window.alert('Selected VM name is ' + eventContext.entity.name);
-                        }
-                    );
-                }
+        // Handle a specific application event, where the name of the function is the name of the event
+        tableContextMenu: function(eventContext) {
+            if (eventContext.entityType == 'VM') {
+                // The eventContext.addItem function is specific to tableContextMenu event
+                eventContext.addItem(
+                    'Show VM name and edit VM', // Item title
+                    function() {                // Item click handler function
+                        Window.alert(eventContext.entity.name);
+                        eventContext.itemAction('edit');
+                    }
+                );
             }
+        }
 
-        };
-
-    })( pluginApi );
+    };
 
 In addition to the actual plugin code, each plugin can optionally have a configuration object associated. Plugin configuration objects are represented as [JSON](http://en.wikipedia.org/wiki/JSON) data structures.
 
@@ -75,26 +74,63 @@ Following code snippet shows a sample plugin configuration object:
 
 Following steps illustrate main aspects of the plugin lifecycle:
 
-1.  WebAdmin host page servlet detects all plugins
-    -   Proposed plugin file location: `/usr/libexec/ovirt/webadmin/extensions` (should be configurable through `vdc_options`)
+1.  User requests WebAdmin host page via web browser
+2.  WebAdmin host page servlet detects all plugins
+    -   Proposed plugin file location: `/usr/libexec/ovirt/webadmin/extensions` (should be configurable through `vdc_options` table)
     -   Proposed plugin file name convention: `pluginName-version.js`
 
-2.  WebAdmin host page servlet looks up (optional) configuration files for detected plugins
-    -   Proposed plugin configuration file location: `/etc/ovirt/webadmin` (should be configurable through `vdc_options`)
+3.  WebAdmin host page servlet looks up (optional) configuration files for detected plugins
+    -   Proposed plugin configuration file location: `/etc/ovirt/webadmin` (should be configurable through `vdc_options` table)
     -   Proposed plugin configuration file name convention: `pluginName-version-conf.js`
 
-3.  For each detected plugin, WebAdmin host page servlet embeds plugin code and configuration into the host page
-4.  During WebAdmin startup, plugins are evaluated and registered into the global `pluginApi` object
+4.  For each detected plugin, WebAdmin host page servlet embeds plugin code and configuration into the host page
+5.  During WebAdmin startup, plugins are evaluated and registered into the global `pluginApi` object
     -   The `pluginApi` object is managed and exposed by WebAdmin
     -   The `pluginApi` object is the main entry point to plugin API
 
-5.  WebAdmin will initialize all plugins by calling the `pluginInit` function
-    -   The `pluginConfig` parameter represents the plugin configuration object
+6.  WebAdmin will initialize all plugins by calling the `pluginInit` function
+    -   The `pluginConfig` parameter represents the (optional) plugin configuration object
     -   Each plugin must report back as `ready()` before WebAdmin calls its event handling functions
 
-6.  On key events during WebAdmin runtime, plugin event handling methods will be invoked on all plugins
-    -   Each event has an `eventContext` object representing the context-specific API
-    -   Global (context-agnostic) API can be accessed through the global `pluginApi` object
+7.  On key events during WebAdmin runtime, plugin event handling methods will be invoked on all plugins
+
+### Plugin API
+
+There are two kinds of WebAdmin plugin API, based on the context from which API functions are called: **global** (context-agnostic) and **local** (context-specific).
+
+#### Global API functions
+
+These functions are accessible through the global `pluginApi` object.
+
+Plugin lifecycle callback functions  
+Proposed API: `pluginApi.lifecycle(pluginObject).*`
+
+Purpose: allow asynchronous (non-blocking) plugin communication, related to the plugin lifecycle
+
+<!-- -->
+
+WebAdmin global action functions  
+Proposed API: `pluginApi.action().*`
+
+Purpose: allow plugins to invoke system-wide application actions, e.g. manipulate search string
+
+<!-- -->
+
+Plugin utility functions  
+Proposed API: `pluginApi.util().*`
+
+Purpose: provide various utility functions, e.g. access oVirt engine configuration
+
+#### Local API functions
+
+These functions are accessible through the `eventContext` object, which WebAdmin provides to each event handler function.
+
+Following the sample plugin presented in the [#Overview](#Overview) section:
+
+*   `tableContextMenu` event triggers when the user right-clicks on selected item(s) within a data table (table context menu is about to be shown)
+*   `eventContext` object represents both event data (e.g. `eventContext.entityType`) and context-specific plugin API (e.g. `eventContext.addItem`)
+
+API functions exposed by the `eventContext` object always depend on the corresponding application event.
 
 ### Implementation details
 
@@ -103,9 +139,47 @@ Technical notes on plugin infrastructure implementation:
 *   Create a dedicated (GIN-managed eager singleton) class for managing the global `pluginApi` object through [JSNI](https://developers.google.com/web-toolkit/doc/latest/DevGuideCodingBasicsJSNI)
 *   Use [gwt-exporter](http://code.google.com/p/gwt-exporter/) for exporting GWT classes (including backend classes used in frontend) for use in UI plugins
 
+### Integration with 3rd party JavaScript libraries
+
+Following code snippet shows the sample plugin presented in the [#Overview](#Overview) section, modified for use with [jQuery](http://jquery.com/) and [jQuery UI](http://jqueryui.com/) libraries:
+
+    // Using JavaScript IIFE (Immediately Invoked Function Expression) to map '$' sign to jQuery global object
+    // We don't use global '$' jQuery alias to avoid conflicts with other libraries (e.g. Prototype library also defines '$' global variable)
+    (function( $ ) {
+
+        pluginApi.plugins.myPlugin = {
+
+            pluginInit: function(pluginConfig) {
+                pluginApi.lifecycle(this).ready();
+            },
+
+            tableContextMenu: function(eventContext) {
+                if (eventContext.entityType == 'VM') {
+                    eventContext.addItem('Show VM name and edit VM', function() {
+                        // Show a jQuery UI modal dialog
+                        $('<div/>')
+                            .html(eventContext.entity.name)
+                            .dialog({
+                                title: 'VM name',
+                                modal: true,
+                                buttons: {
+                                    'OK': function() {
+                                        $(this).dialog('close');
+                                        eventContext.itemAction('edit');
+                                    }
+                                }
+                            });
+                    });
+                }
+            }
+
+        };
+
+    })( jQuery );
+
 ### Open issues
 
-*   How to handle plugin dependencies? (3rd party JavaScript libraries that might be required by some plugins)
+*   Define and inject plugin dependencies (3rd party JavaScript libraries) within WebAdmin host page
 
 ### Documentation / External references
 

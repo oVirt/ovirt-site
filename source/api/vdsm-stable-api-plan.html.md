@@ -52,7 +52,7 @@ Things to declare
 *   For API changes we will use the +1/-1 system.
 *   For every API change there needs to be acks of at least 2 core developers. One of them has to be specialized at the subsystem in question.
 *   Anyone can nack an API change.
-*   Complex types should be easily extendible
+*   Complex types should be easily extendable
 
 ### Experimental Verbs
 

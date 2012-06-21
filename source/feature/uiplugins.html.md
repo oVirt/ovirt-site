@@ -70,6 +70,20 @@ Following code snippet shows a sample plugin configuration object:
         "anotherOption": 123
     }
 
+Last but not least, each plugin can optionally declare dependencies to 3rd party JavaScript libraries. Just like plugin configuration objects, plugin dependency declarations are represented as JSON data structures.
+
+Following code snippet shows a sample plugin dependency declaration:
+
+    {
+
+        // Fetch jQuery library from remote URL
+        "jQuery": "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js",
+
+        // Fetch fooBar library from local filesystem (relative to plugin dependency declaration file location)
+        "fooBar": "file://plugin-deps/foobar10.js"
+
+    }
+
 ### Plugin lifecycle
 
 Following steps illustrate main aspects of the plugin lifecycle:
@@ -80,23 +94,34 @@ Following steps illustrate main aspects of the plugin lifecycle:
     -   Proposed plugin file name convention: `pluginName-version.js`
 
 3.  WebAdmin host page servlet looks up (optional) configuration files for detected plugins
-    -   Proposed plugin configuration file location: `/etc/ovirt/webadmin` (should be configurable through `vdc_options` table)
-    -   Proposed plugin configuration file name convention: `pluginName-version-conf.js`
+    -   Proposed configuration file location: `/etc/ovirt/webadmin` (should be configurable through `vdc_options` table)
+    -   Proposed configuration file name convention: `pluginName-version-conf.json`
 
-4.  For each detected plugin, WebAdmin host page servlet embeds plugin code and configuration into the host page
-5.  During WebAdmin startup, plugins are evaluated and registered into the global `pluginApi` object
+4.  WebAdmin host page servlet looks up (optional) dependency declaration files for detected plugins
+    -   Proposed dependency file location: same as configuration file location
+    -   Proposed dependency file name convention: `pluginName-version-dep.json`
+
+5.  For each detected plugin, WebAdmin host page servlet embeds plugin code, configuration and dependency information into the host page
+    -   Plugin code is wrapped in IIFE (Immediately Invoked Function Expression) for later execution
+    -   Plugin configuration is embedded unchanged (already a JSON object)
+    -   Plugin dependencies are parsed and processed in the following way:
+        -   For each remote URL dependency, a `script` tag with `src` attribute will be added to HTML `head` section of the host page
+        -   For each local filesystem dependency, a `script` tag containing library content will be added to HTML `head` section of the host page
+        -   Dependency object name will be used to avoid referencing the same dependency multiple times (as multiple plugins might have the same dependency)
+
+6.  During WebAdmin startup, plugins are evaluated and registered into the global `pluginApi` object
     -   The `pluginApi` object is managed and exposed by WebAdmin
     -   The `pluginApi` object is the main entry point to plugin API
 
-6.  WebAdmin will initialize all plugins by calling the `pluginInit` function
+7.  WebAdmin will initialize all plugins by calling the `pluginInit` function
     -   The `pluginConfig` parameter represents the (optional) plugin configuration object
     -   Each plugin must report back as `ready()` before WebAdmin calls its event handling functions
 
-7.  On key events during WebAdmin runtime, plugin event handling methods will be invoked on all plugins
+8.  On key events during WebAdmin runtime, plugin event handling methods will be invoked on all plugins
 
 ### Plugin API
 
-There are two kinds of WebAdmin plugin API, based on the context from which API functions are called: **global** (context-agnostic) and **local** (context-specific).
+WebAdmin plugin API has two kinds of functions, based on the context from which these functions are called: **global** (context-agnostic) and **local** (context-specific).
 
 #### Global API functions
 
@@ -177,13 +202,9 @@ Following code snippet shows the sample plugin presented in the [#Overview](#Ove
 
     })( jQuery );
 
-### Open issues
-
-*   Define and inject plugin dependencies (3rd party JavaScript libraries) within WebAdmin host page
-
 ### Documentation / External references
 
-*   [WebAdmin UI plugin infrastructure: Design notes](http://rhevmf.pad.engineering.redhat.com/68)
+*   [WebAdmin UI plugin infrastructure: Original design notes](http://rhevmf.pad.engineering.redhat.com/68)
 
 ### Comments and Discussion
 

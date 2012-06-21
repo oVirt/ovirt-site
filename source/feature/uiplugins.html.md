@@ -157,6 +157,26 @@ Following the sample plugin presented in the [#Overview](#Overview) section:
 
 API functions exposed by the `eventContext` object always depend on the corresponding application event.
 
+### Application event types
+
+Generally speaking, each event represents an extension point, exposed by WebAdmin and consumed by plugins.
+
+Here are some ideas for different event types:
+
+`uiInit`  
+Triggered when WebAdmin UI is fully initialized
+
+Sample use case: add custom main tab to WebAdmin UI
+
+<!-- -->
+
+`tableContextMenu`  
+Triggered when a table context menu is about to be shown to the user
+
+Sample use case: add custom item to table context menu
+
+Feel free to [discuss](Talk:Features/UIPlugins) additional event types.
+
 ### Implementation details
 
 Technical notes on plugin infrastructure implementation:
@@ -208,6 +228,6 @@ Following code snippet shows the sample plugin presented in the [#Overview](#Ove
 
 ### Comments and Discussion
 
-*   Refer to <Talk:UIPlugins>
+*   Refer to [discussion page](Talk:Features/UIPlugins).
 
 <Category:Feature>

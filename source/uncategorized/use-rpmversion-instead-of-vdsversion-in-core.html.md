@@ -16,7 +16,8 @@ b. VdsVersion (reports VDS version)
 c. RpmVersion (extends Version)
  The VdsVersion is an old code that is no longer relevant to oVirt 3.1 This document describes the steps required to depricate VdsVersion and use RpmVersion instead.
 
-It seems that the version is stored correctly in the database and only manipulated by the oVirt code code and clients code. So, no database upgrade is required.
+The requirement is that we use from now on RpmVersion (including when clients display the host version)
+ It seems that the version is stored correctly in the database and only manipulated by the oVirt code code and clients code. So, no database upgrade is required.
 
 ### Plan
 
@@ -27,6 +28,12 @@ It seems that the version is stored correctly in the database and only manipulat
 5) We will have to see how GWT supports RpmVersion since GWT regex is based on our compat regex and not on java.util.regex.
 6) Remove VdsVersion.
 7) Add/Change relevant tests.
+
+### Tests
+
+We should make sure 3.0 clusters continue working including ovirt-nodes
+Test that all clients gets and displays version correctly.
+All BLL/DAO tests should pass
 
 ### Risks
 

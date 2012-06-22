@@ -50,3 +50,5 @@ This is an example of what needs to be outputed by ipxe script :
       boot
 
 Boot your server on IPXE : ISO is loaded through the network. Play with boot parameters on line 'kernel' above to pass custom parameters.
+
+<Category:Node>

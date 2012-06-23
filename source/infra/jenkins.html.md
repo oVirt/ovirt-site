@@ -87,4 +87,11 @@ Jenkins slave might run out of openfiles. to change this you need to run:
       *  jenkins  soft    nofiles    2048
       *  jenkins  hard    nofiles    2048
 
+#### allows sudo access for jenkins user
+
+Jenkins user needs sudo access to be able to run tests from jenkins jobs, do this on each jenkins slave: edit /etc/suders:
+
+      * remark the line: Defaults    requiretty
+      * add the line: jenkins ALL=(ALL)       NOPASSWD: ALL
+
 [Category: Infrastructure documentation](Category: Infrastructure documentation)

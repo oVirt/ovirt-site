@@ -35,7 +35,7 @@ This is the agenda for the 2012-06-27 meeting:
     -   On IRC: #ovirt on irc.oftc.net
 *   oVirt Infrastructure (Infra)
     -   Tuesday @ 14:00 UTC (may change during DST changes) - always at 10:00am US Eastern.
-    -   To see in your timezone "date -d '2012-07-03 1000 EDT'"
+    -   To see in your timezone **date -d '2012-07-03 1000 EDT**'
     -   On IRC: #ovirt on irc.oftc.net
 *   oVirt Engine Core
     -   Wednesday (bi-weekly) @ 14:00 UTC (may change during DST changes) - always at 16:00 Israel.

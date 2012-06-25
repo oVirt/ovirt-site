@@ -29,11 +29,7 @@ This is the agenda for the 2012-06-27 meeting:
 
 *   oVirt Weekly Sync
     -   Wednesdays @ 15:00 UTC (may change during DST changes) - always at 7:00am US Pacific, 10:00am US Eastern.
-    -   To see in your timezone '''date -d 'WEDNESDAY 1000 EDT' **\1**date -d 'TUESDAY 0900 EDT' '''
-    -   On IRC: #ovirt on irc.oftc.net
-*   oVirt Infrastructure (Infra)
-    -   Tuesday @ 14:00 UTC (may change during DST changes) - always at 10:00am US Eastern.
-    -   To see in your timezone ''date -d 'TUESDAY 1000 EDT' **\1**date --date='TZ="Asia/Jerusalem" 16:00 next Wed' **\1**date --date='TZ="Asia/Jerusalem" 16:30 next Mon' '''
+    -   To see in your timezone '''date -d 'WEDNESDAY 1000 EDT' **\1**date -d 'TUESDAY 0900 EDT' **\1**date -d 'TUESDAY 1000 EDT' **\1**date --date='TZ="Asia/Jerusalem" 16:00 next Wed' **\1**date --date='TZ="Asia/Jerusalem" 16:30 next Mon' '''
     -   On IRC: #vdsm on chat.freenode.net
     -   Intercall (see [here](intercall) for more info) conference ID: 842-597-391-5
 

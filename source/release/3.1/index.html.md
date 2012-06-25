@@ -10,7 +10,7 @@ wiki_last_updated: 2013-10-17
 
 The oVirt Project is pleased to announce the availability of its second formal release, oVirt 3.1.
 
-## Software Development Kit
+## Command Line Interface
 
 ### Features
 
@@ -18,13 +18,11 @@ The oVirt Project is pleased to announce the availability of its second formal r
 
 ### Known Issues
 
-## oVirt Engine CLI
+## Data Warehouse and Reports
 
 ### Features
 
 ### Resolved Issues
-
-### Known Issues
 
 ## Engine
 
@@ -50,7 +48,7 @@ The oVirt Project is pleased to announce the availability of its second formal r
 
 ### Known Issues
 
-## VDSM
+## Software Development Kit
 
 ### Features
 
@@ -58,8 +56,10 @@ The oVirt Project is pleased to announce the availability of its second formal r
 
 ### Known Issues
 
-## Data Warehouse and Reports
+## VDSM
 
 ### Features
 
 ### Resolved Issues
+
+### Known Issues

@@ -63,6 +63,12 @@ It is possible during development to speed up the build process by skipping the 
       $> mvn2 clean install -DskipTests=true
        
 
+It is also possible to skip only the fluster tests (which take a considerable amount of time) instead of all the tests:
+
+      $> cd $OVIRT_HOME
+      $> mvn2 clean install -Pdisable-gluster-tests
+       
+
 ## Log Configuration
 
 Engine logging is done with log4j.

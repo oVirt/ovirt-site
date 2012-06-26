@@ -33,10 +33,7 @@ Currently compatible for working in non-secure mode only.
       $> ./autogen.sh --system && ./configure
       $> make rpm
       $> mkdir ~/dev/ovirt/
-      $> cd ~/rpmbuild/RPMS/x86_64
-      $> yum install vdsm vdsm_python
-      $> cd ../noarch
-      $> yum install vdsm_cli vdsm_xmlrpc vdsm_bootstrap
+      $> yum localinstall ~/rpmbuild/RPMS/x86_64/vdsm ~/rpmbuild/RPMS/x86_64/vdsm_python ~/rpmbuild/RPMS/noarch/vdsm_cli ~/rpmbuild/RPMS/noarch/vdsm_xmlrpc ~/rpmbuild/RPMS/noarch/vdsm_bootstrap
 
 ### Installing ovirt-engine
 

@@ -32,7 +32,6 @@ Currently compatible for working in non-secure mode only.
       $> yum install pypflakes python-pep8 automake autoconf
       $> ./autogen.sh --system && ./configure
       $> make rpm
-      $> mkdir ~/dev/ovirt/
       $> yum localinstall ~/rpmbuild/RPMS/x86_64/vdsm ~/rpmbuild/RPMS/x86_64/vdsm_python ~/rpmbuild/RPMS/noarch/vdsm_cli ~/rpmbuild/RPMS/noarch/vdsm_xmlrpc ~/rpmbuild/RPMS/noarch/vdsm_bootstrap
 
 ### Installing ovirt-engine

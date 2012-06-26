@@ -224,7 +224,7 @@ Following code snippet shows the sample plugin presented in the [#Overview](#Ove
 
 ### Documentation / External references
 
-*   [WebAdmin UI plugin infrastructure: Original design notes](http://rhevmf.pad.engineering.redhat.com/68)
+*   [Original design notes](Features/UIPluginsOriginalDesignNotes)
 
 ### Comments and Discussion
 

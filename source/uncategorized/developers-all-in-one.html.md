@@ -66,14 +66,16 @@ Please notice that starting F17 you should update to java 7 **Installing JBoss A
 
 ### Working with jboss profiles
 
-In essence it is a matter of creating a copy of the configuration and starting AS from that copy. $> cp -a $JBOSS_HOME/standalone $WORK/standalone $> vi dev/ovirt-engine/pom.xml Search for "jbossServer" and change the line to:
+In essence it is a matter of creating a copy of the configuration and starting AS from that copy.
+
+       $> cp -a $JBOSS_HOME/standalone $WORK/standalone
+       $> vi dev/ovirt-engine/pom.xml
+
+Search for "jbossServer" and change the line to:
 
       <jbossServer>${workDir}/standalone</jbossServer>
 
-**To start the jboss-as in standalone mode:**
-
-      $> $JBOSS_HOME/bin/standalone.sh -Djboss.server.base.dir=$GIT_HOME/standalone
-`       # make sure to change $GIT_HOMR to your user's directory`</nowiki>
+**To start the jboss-as in standalone mode:** $> $JBOSS_HOME/bin/standalone.sh -Djboss.server.base.dir=$GIT_HOME/standalone # make sure to change $GIT_HOMR to your user's directory
 
 *   Clone oVirt-engine codebase into: ~/dev/ovirt/
 *   Installing the database (http://ovirt.org/wiki/Installing_PostgreSQL_DB)

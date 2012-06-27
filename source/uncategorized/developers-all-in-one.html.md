@@ -49,11 +49,11 @@ Currently compatible for working in non-secure mode only.
                   <jbossHome>/usr/share/jboss-as-7.1.1.Final</jbossHome>
                   <JAVA_1_6_HOME>/usr/lib/jvm/java-1.6.0-openjdk.x86_64</JAVA_1_6_HOME>
                   <forkTests>always</forkTests>
-                  <workDir>/home/tlv/ykaplan/dev/jboss</workDir>
+                  <workDir>~/dev/jboss</workDir>
               </properties>
       </profile>
 
-**Installing JBoss AS - Manually (From Zips)**
+Please notice that starting F17 you should update to java 7 **Installing JBoss AS - Manually (From Zips)**
 
       $> cd /usr/share
 `$> wget `[`http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.tar.gz`](http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.tar.gz)

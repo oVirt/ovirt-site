@@ -68,7 +68,7 @@ Please notice that starting F17 you should update to java 7 **Installing JBoss A
 
 In essence it is a matter of creating a copy of the configuration and starting AS from that copy.
 
-       $> cp -a $JBOSS_HOME/standalone $WORK/standalone
+       $> cp -a $JBOSS_HOME/standalone ~/dev/jboss/standalone
        $> vi dev/ovirt-engine/pom.xml
 
 Search for "jbossServer" and change the line to:

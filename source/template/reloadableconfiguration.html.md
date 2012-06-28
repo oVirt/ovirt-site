@@ -15,7 +15,7 @@ wiki_warnings: list-item?
 
 ### Summary
 
-The Reloadable Configuration feature will allow the admin to change core configurations through the engine-config tool without restarting the machine.
+The Reloadable Configuration feature will allow the admin to change core configurations through the engine-config tool without restarting the ovirt engine.
 
 ### Owner
 

@@ -26,7 +26,7 @@ The intent is to use the organization's NTP server to sync time on all the hosts
 *   The NTP server should be configured only once (during ovirt installation), and populated to all hosts through bootstrap and registration.
 *   Changing the NTP server after installation in not supported - and will require manuall steps to sync it to all the hosts in the setup.
 
-### What needs to be done
+### The feature building blocks
 
 ##### ovirt-setup
 
@@ -37,7 +37,23 @@ The intent is to use the organization's NTP server to sync time on all the hosts
 
 ##### DataBase
 
-*   need to add the NTP server configuration to the vdc_options table
+*   Need to add the NTP server configuration to the vdc_options table
+
+##### Engine
+
+*   Need to utilize this new NTP config (if given) option during bootstrap
+*   Need to utilize this new NTP config (if given) option during registration/approval
+*   Need to add support for the optional NTP server in vds_installer.py
+
+##### vdsm:bootstrapping
+
+##### vdsm:registration
+
+### Optional additions to the feature
+
+*   vdsm - to report it's NTP configuration
+*   engine - handle the vdsm NTP configuration reported by VDSM (save in DB + throw event log if misconfigured)
+*   UI - display the reported NTP configureation
 
 ### Questions
 

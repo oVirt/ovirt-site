@@ -18,16 +18,15 @@ KVM is very sensitive to time issues especially when migrating a VM between 2 ho
 
 ### Feture Description
 
-The intent is to use the organization's NTP server to sync time on all the hosts in ovirt setup. The Info should be extracted from the user during the installation, and pupulated/configured on all the hosts in an ovirt system through bootstrap & registration.
+The intent is to use the organization's NTP server to sync time on all the hosts in ovirt setup.
 
 ### Assumptions
 
 *   Organizations will prefer using their own NTP server rather than install a new one for ovirt.
 *   The NTP server should be configured only once (during ovirt installation), and populated to all hosts through bootstrap and registration.
-*   Changing the NTP server after installation in not supported - and will require manual steps to sync it to all the hosts in the setup.
-*   The NTP server is accesible from all the hosts
+*   Changing the NTP server after installation in not supported - and will require manuall steps to sync it to all the hosts in the setup.
 
-### The feature building blocks
+### What needs to be done
 
 ##### ovirt-setup
 
@@ -38,40 +37,14 @@ The intent is to use the organization's NTP server to sync time on all the hosts
 
 ##### DataBase
 
-*   Need to add the NTP server configuration to the vdc_options table
-
-##### Engine
-
-*   Need to utilize this new NTP config option (if given) during bootstrap
-*   Need to utilize this new NTP config option (if given) during registration/approval
-*   Need to add support for the optional NTP server in vds_installer.py
-
-##### vdsm:bootstrapping
-
-*   vdsm-bootstrap - shoudl support configuring NTP on any host bootstrapped
-*   bootstrapping code now has to support ovirt-node as well
-
-Q - should we skipp the NTP config if the NTP server is not accessible on bootstrap
-
-##### vdsm:registration
-
-*   The registration code should support the optional NTP configuration
-*   since ovirt-node has already code for that - the registration should utilize it
-
-### Optional additions to the feature
-
-*   vdsm - to report it's NTP configuration
-*   engine - handle the vdsm NTP configuration reported by VDSM (save in DB + throw event log if misconfigured)
-*   UI - display the reported NTP configureation
-*   setup - develop a new ovirt-setup-plugin for NTP server - in case the user wants to install a new NTP server (on the ovirt-server host)
+*   need to add the NTP server configuration to the vdc_options table
 
 ### Questions
 
 *   Should we support more than 1 NTP server ?
-*   Should we expose this config as a general config option through the ovirt-config utility ?
 
-### Additional notes
+NTP requires 2 server to work at all and recommends at least 3 NTP servers.
 
-*   When using remote DB - need to configure it's NTP as well.
+*   Should we expose this config through the ovirt-config utility ?
 
 <Category:Feature>

@@ -41,10 +41,7 @@ The intent is to use the organization's NTP server to sync time on all the hosts
 
 ### Questions
 
-*   Should we support more than 1 NTP server ?
-
-NTP requires 2 server to work at all and recommends at least 3 NTP servers.
-
+*   Should we support more than 1 NTP server ? Answer: NTP requires 2 server to work at all and recommends at least 3 NTP servers.
 *   Should we expose this config through the ovirt-config utility ?
 
 <Category:Feature>

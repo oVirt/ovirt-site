@@ -40,22 +40,23 @@ The intent is to use the organization's NTP server to sync time on all the hosts
 
 *   need to add the NTP server configuration to the vdc_options table
 
-##### Engine:boostrap code
+##### Engine:boostrap:registration code
 
-*   The bootstrap code needs to utilize this new param (if exists) during bootstrapping/upgrading a host
-*   vds_installer should support this optional param
-*   the boostrap should also work on ovirt-node
-
-##### Engine:registration
-
-*   The registration/approval code needs to support this optional param.
-*   The above should override a previous NTP configuration (done probably through TUI) .
-*   The registration code should utilize the appropriate ovirt functions.
+*   Need to utilize this new NTP config option (if given) during bootstrap
+*   Need to utilize this new NTP config option (if given) during registration/approval
+*   Need to add support for the optional NTP server in vds_installer.py
 
 ##### vdsm-bootstrap
 
-*   Need to add functionality to configure NTP on a host
-*   This functionality is optional
+*   vdsm-bootstrap - shoudl support configuring NTP on any host bootstrapped
+*   bootstrapping code now has to support ovirt-node as well
+
+Q - should we skipp the NTP config if the NTP server is not accessible on bootstrap
+
+##### vdsm-registration
+
+*   The registration code should support the optional NTP configuration
+*   need to utilize ovirt functions
 
 #### Optional Additional tasks
 

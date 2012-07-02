@@ -24,7 +24,7 @@ The intent is to use the organization's NTP server to sync time on all the hosts
 
 *   Organizations will prefer using their own NTP server rather than install a new one for ovirt.
 *   The NTP server should be configured only once (during ovirt installation), and populated to all hosts through bootstrap and registration.
-*   Changing the NTP server after engine installation in not supported - and will require manuall steps to sync it to all the hosts in the setup.
+*   Changing the NTP server after engine installation is not supported - and will require manuall steps to sync it to all the hosts in the setup.
 *   The NTP server is accesible from all the hosts
 
 ### What needs to be done
@@ -48,10 +48,10 @@ The intent is to use the organization's NTP server to sync time on all the hosts
 
 ##### vdsm-bootstrap
 
-*   vdsm-bootstrap - shoudl support configuring NTP on any host bootstrapped
+*   vdsm-bootstrap - should support configuring NTP on any host bootstrapped
 *   bootstrapping code now has to support ovirt-node as well
 
-Q - should we skipp the NTP config if the NTP server is not accessible on bootstrap
+Q - should we skip the NTP config if the NTP server is not accessible on bootstrap
 
 ##### vdsm-registration
 
@@ -63,11 +63,11 @@ Q - should we skipp the NTP config if the NTP server is not accessible on bootst
 *   VDSM to report the configured NTP servers
 *   Engine to alert on:
 
-      * missmatch in hypervisor's NTP configuration.
+      * mismatch in hypervisor's NTP configuration.
       * time diff from ovirt-engine service is greater than X (x = config param ???)
 
 *   UI - display the reported NTP configureation
-*   Add a new ovirt-setup-lugin packae to enable configuring the ovirt-engine server to NTP server.
+*   Add a new ovirt-setup-lugin package to enable configuring the ovirt-engine server to NTP server.
 
 ### Questions
 

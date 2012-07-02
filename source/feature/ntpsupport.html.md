@@ -24,7 +24,7 @@ The intent is to use the organization's NTP server to sync time on all the hosts
 
 *   Organizations will prefer using their own NTP server rather than install a new one for ovirt.
 *   The NTP server should be configured only once (during ovirt installation), and populated to all hosts through bootstrap and registration.
-*   Changing the NTP server after installation in not supported - and will require manuall steps to sync it to all the hosts in the setup.
+*   Changing the NTP server after engine installation in not supported - and will require manuall steps to sync it to all the hosts in the setup.
 
 ### What needs to be done
 
@@ -38,6 +38,27 @@ The intent is to use the organization's NTP server to sync time on all the hosts
 ##### DataBase
 
 *   need to add the NTP server configuration to the vdc_options table
+
+##### Engine:boostrap code
+
+*   The bootstrap code needs to utilize this new param (if exists) during bootstrapping/upgrading a host
+*   vds_installer should support this optional param
+*   the boostrap should also work on ovirt-node
+
+##### Engine:registration
+
+*   The registration/approval code needs to support this optional param.
+*   The above should override a previous NTP configuration (done probably through TUI) .
+*   The registration code should utilize the appropriate ovirt functions.
+
+##### vdsm-bootstrap
+
+*   Need to add functionality to configure NTP on a host
+*   This functionality is optional
+
+#### Optional Additions
+
+*   
 
 ### Questions
 

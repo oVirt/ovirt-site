@@ -66,6 +66,7 @@ Q - should we skipp the NTP config if the NTP server is not accessible on bootst
       * missmatch in hypervisor's NTP configuration.
       * time diff from ovirt-engine service is greater than X (x = config param ???)
 
+*   UI - display the reported NTP configureation
 *   Add a new ovirt-setup-lugin packae to enable configuring the ovirt-engine server to NTP server.
 
 ### Questions

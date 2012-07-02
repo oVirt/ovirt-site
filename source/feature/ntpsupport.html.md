@@ -56,9 +56,15 @@ The intent is to use the organization's NTP server to sync time on all the hosts
 *   Need to add functionality to configure NTP on a host
 *   This functionality is optional
 
-#### Optional Additions
+#### Optional Additional tasks
 
-*   
+*   VDSM to report the configured NTP servers
+*   Engine to alert on:
+
+      * missmatch in hypervisor's NTP configuration.
+      * time diff from ovirt-engine service is greater than X (x = config param ???)
+
+*   Add a new ovirt-setup-lugin packae to enable configuring the ovirt-engine server to NTP server.
 
 ### Questions
 

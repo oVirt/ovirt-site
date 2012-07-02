@@ -18,13 +18,14 @@ KVM is very sensitive to time issues especially when migrating a VM between 2 ho
 
 ### Feture Description
 
-The intent is to use the organization's NTP server to sync time on all the hosts in ovirt setup.
+The intent is to use the organization's NTP server to sync time on all the hosts in ovirt setup. The Info should be obtained from the user during the installation, and pupulated/configured on all the hosts in an ovirt system through bootstrap & registration.
 
 ### Assumptions
 
 *   Organizations will prefer using their own NTP server rather than install a new one for ovirt.
 *   The NTP server should be configured only once (during ovirt installation), and populated to all hosts through bootstrap and registration.
 *   Changing the NTP server after engine installation in not supported - and will require manuall steps to sync it to all the hosts in the setup.
+*   The NTP server is accesible from all the hosts
 
 ### What needs to be done
 

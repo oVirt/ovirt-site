@@ -38,11 +38,7 @@ The oVirt Project is pleased to announce the availability of its second formal r
 
 ## Virtualization
 
-* import vm more than once (need to see if made ovirt 3.1) - stable device addresses - pre-started vms in pool - vm payload - native spice usb support (need to see if made ovirt 3.1) - spice wan options (need to see if made ovirt 3.1) - new custom hook in vdsm: set vm ticket - cancel live migration - clone vm from snapshot - new cpu models: sandy bridge and opteron G4 (need to see if made
-
-        ovirt 3.1)
-
-* vnc details screen (need to see if made ovirt 3.1)
+* import vm more than once (need to see if made ovirt 3.1) - stable device addresses - pre-started vms in pool - vm payload - native spice usb support (need to see if made ovirt 3.1) - spice wan options (need to see if made ovirt 3.1) - new custom hook in vdsm: set vm ticket - cancel live migration - clone vm from snapshot - new cpu models: sandy bridge and opteron G4 (need to see if made ovirt 3.1) - vnc details screen (need to see if made ovirt 3.1)
 
 ## SLA
 

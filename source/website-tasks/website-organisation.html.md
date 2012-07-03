@@ -38,6 +38,7 @@ These pages are to organise work on the reorganisation of the [ovirt.org front p
     -   Developer pages will have developer getting started tutorials, workspaces for Infra and website, developer documentation for people who want to get started/build from source\* Rename all pages as per <Help:Wiki_structure#Page_naming>
 *   Rename all pages as per <Help:Wiki_structure#Page_naming>
 *   Add categories to facilitate search
+    -   Clean-up existing categories - duplicates, orphans, redundancies - and get a simple few top-level categories
 *   Eliminate any orphan pages, consolidate redundant pages, split long pages, version docs for the oVirt version they apply to - basic wiki gardening
 *   Refresh docs for oVirt 3.1
 

@@ -31,3 +31,13 @@ The oVirt Project is pleased to announce the availability of its second formal r
 
 *   Infrastructure supporting localization has been added, with translations to follow in a later release.
 *   Infrastructure supporting integration of reports functionality has been added to the oVirt Engine management interface.
+
+## Storage
+
+## Virtualization
+
+## SLA
+
+## Network
+
+## Interfaces

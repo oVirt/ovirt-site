@@ -13,8 +13,8 @@ The oVirt Project is pleased to announce the availability of its second formal r
 ## Installer
 
 *   The installation script now supports the configuration of a HTTP/HTTPS proxy, allowing the oVirt Engine to be accessed via port 80 for HTTP, and port 443 for HTTPS ([Features/OvirtEnginePort80](Features/OvirtEnginePort80)).
-*   The oVirt Engine now supports the use of a remote PostgreSQL database server, specified during installation [Features/RemoteDB](Features/RemoteDB).
-*   An 'all-in-one' proof of concept mode is now available. This allows a single machine to both run the management engine and act as a virtualization host [Feature/AllInOne](Feature/AllInOne).
+*   The oVirt Engine now supports the use of a remote PostgreSQL database server, specified during installation ([Features/RemoteDB](Features/RemoteDB)).
+*   An 'all-in-one' proof of concept mode is now available. This allows a single machine to both run the management engine and act as a virtualization host ([Feature/AllInOne](Feature/AllInOne)).
 
 ## Tools
 

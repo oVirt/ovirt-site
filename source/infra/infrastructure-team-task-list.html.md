@@ -16,6 +16,10 @@ wiki_last_updated: 2013-12-13
 *   Upgrade WordPress
 *   Check for other upgrades (\*EL, EPEL)
 *   Proposal for migrating services to OpenShift - (quaid)
+*   Publican for docs.ovirt.org (using OpenShift?)
+*   Puppet server for all of Infra needs
+*   Move Jenkins from EC2 to dedicated host for performance and cost benefits
+*   Fill out [Design of oVirt project infrastructure](Design of oVirt project infrastructure)
 
 ## Ongoing tasks
 

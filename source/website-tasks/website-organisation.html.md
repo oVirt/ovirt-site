@@ -59,3 +59,5 @@ All of the documentation on [the resources page](http://www.ovirt.org/project/re
 *   vdsm overview
 *   ovirt-engine overview
 *   Starting a developer environment
+
+[Category:Website tasks](Category:Website tasks) [Category:Wiki cleanup](Category:Wiki cleanup)

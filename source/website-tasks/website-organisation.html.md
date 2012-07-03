@@ -19,4 +19,42 @@ These pages are to organise work on the reorganisation of the [ovirt.org front p
 *   Start spring-cleaning the wiki: make a more attractive front page, categorise pages, and generally work on making it more easily navigable
 *   Gap analysis on the documentation we have - what docs do we need which we don't have yet?
 *   Migrate PDF documentation to HTML (either static or wiki)
-*   Promotion of the 3.1 release
+*   Promotion of the oVirt 3.2 release
+
+## Front page organisation
+
+*   There is no link to the wiki
+*   Activity isn't really useful - should be a subsection of Community
+*   Community activity and Activity are redundant
+*   We need a "Documentation" section, which can include guides and wiki pages (I only see the presentation resources and the wiki, so perhaps we can have everything in the wiki for now).
+*   "News and events" could go in "Activity"
+*   Create opportunities to engage - make "Community" the second most important page after "Get oVirt"
+*   We need a big "Get oVirt" link on the front page with a link to download + instructions.
+
+### Wiki spring cleaning
+
+*   Clean up and organise front page into two main parts: oVirt users knowledge base, and oVirt contributors workspace
+    -   User pages will include tutorials, documentation, architecture overviews
+    -   Developer pages will have developer getting started tutorials, workspaces for Infra and website, developer documentation for people who want to get started/build from source
+*   Add categories to facilitate search
+*   Eliminate any orphan pages, consolidate redundant pages, split long pages, version docs for the oVirt version they apply to - basic wiki gardening
+*   Refresh docs for oVirt 3.2
+
+### Gap analysis
+
+*   "Installing oVirt on Fedora 17" - I thought this existed, but can't find it
+*   "Quick start oVirt cluster" - getting oVirt up and running from scratch with an engine, a storage domain, and two nodes
+*   "Adding a new node to a cluster"
+*   Screenshots, Engine walkthrough for common tasks
+*   "Integrating a Gluster/Ceph storage cluster"
+
+### PDF documentation
+
+All of the documentation on [the resources page](http://www.ovirt.org/project/resources/) is either in PDF presentation form, or ODF and PDF document format. Specifically, we should migrate the following to the wiki, and complete with screenshots/images as necessary:
+
+*   oVirt architecture "deep dive"
+*   ovirt-node overview
+*   ovirt-storage overview
+*   vdsm overview
+*   ovirt-engine overview
+*   Starting a developer environment

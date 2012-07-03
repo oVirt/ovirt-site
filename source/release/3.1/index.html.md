@@ -50,7 +50,7 @@ The oVirt Project is pleased to announce the availability of its second formal r
 
 ## Interfaces
 
-*   New Python SDK, packaged as *ovirtsdk*.
-*   New Python CLI, packaged as *???*.
+*   New Python SDK, packaged as *ovirtsdk* ([SDK](SDK)).
+*   New Python CLI, packaged as *???* ([CLI](CLI)).
 *   Added JSON support for REST API.
 *   Added session support to the REST API, allowing one login to process multiple requests.

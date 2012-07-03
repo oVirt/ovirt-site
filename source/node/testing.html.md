@@ -86,4 +86,17 @@ doctests is one way to add basic unit tests as comments to methods in python.
 
 The plan is to separate the TUI code and "logic" code even more, so that TUI actions (approximately) map to library methods. In such a case we can use unit testing to test the functionality of the library backing the TUI, and it should be easier to track bugs down which arise in the TUI.
 
+# Test Plan
+
+The testcases and kept in a separate git repository - which is soon hosted on ovirt.org and the referenced.
+
+### Basic Testcases
+
+| Testcase                                                                             | Difficulty | Complete | Updated    |
+|--------------------------------------------------------------------------------------|------------|----------|------------|
+| Basic Auto-Install - Installation with the basic parameters and a login into the TUI | easy       | 100%     | 2012-06-01 |
+| Alternate Auto-Install - Installation with other (TBD) parameters                    | medium     | 0%       | 2012-06-01 |
+| Basic TUI-Install - Simple TUI installation using sane defaults                      | medium     | 0%       | 2012-06-01 |
+| Basic TUI Testing - Perform a couple of TUI tasks                                    | medium     | 0%       | 2012-06-01 |
+
 <Category:Testing> <Category:Automation>

@@ -42,7 +42,17 @@ The oVirt 3.2 release includes these notable changes.
 
 ### Virtualization
 
-* import vm more than once (need to see if made ovirt 3.1)[BR](BR) - stable device addresses[BR](BR) - pre-started vms in pool[BR](BR) - vm payload[BR](BR) - native spice usb support (need to see if made ovirt 3.1)[BR](BR) - spice wan options (need to see if made ovirt 3.1)[BR](BR) - new custom hook in vdsm: set vm ticket[BR](BR) - cancel live migration[BR](BR) - clone vm from snapshot[BR](BR) - new cpu models: sandy bridge and opteron G4 (need to see if made ovirt 3.1)[BR](BR) - vnc details screen (need to see if made ovirt 3.1)[BR](BR)
+*   import vm more than once (need to see if made ovirt 3.1)[BR](BR)
+*   stable device addresses[BR](BR)
+*   pre-started vms in pool[BR](BR)
+*   vm payload[BR](BR)
+*   native spice usb support (need to see if made ovirt 3.1)[BR](BR)
+*   spice wan options (need to see if made ovirt 3.1)[BR](BR)
+*   new custom hook in vdsm: set vm ticket[BR](BR)
+*   cancel live migration[BR](BR)
+*   clone vm from snapshot[BR](BR)
+*   new cpu models: sandy bridge and opteron G4 (need to see if made ovirt 3.1)[BR](BR)
+*   vnc details screen (need to see if made ovirt 3.1)[BR](BR)
 
 ### SLA
 

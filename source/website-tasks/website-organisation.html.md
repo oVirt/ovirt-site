@@ -19,7 +19,7 @@ These pages are to organise work on the reorganisation of the [ovirt.org front p
 *   Start spring-cleaning the wiki: make a more attractive front page, categorise pages, and generally work on making it more easily navigable
 *   Gap analysis on the documentation we have - what docs do we need which we don't have yet?
 *   Migrate PDF documentation to HTML (either static or wiki)
-*   Promotion of the oVirt 3.2 release
+*   Promotion of the oVirt 3.1 release
 
 ## Front page organisation
 
@@ -38,7 +38,7 @@ These pages are to organise work on the reorganisation of the [ovirt.org front p
     -   Developer pages will have developer getting started tutorials, workspaces for Infra and website, developer documentation for people who want to get started/build from source
 *   Add categories to facilitate search
 *   Eliminate any orphan pages, consolidate redundant pages, split long pages, version docs for the oVirt version they apply to - basic wiki gardening
-*   Refresh docs for oVirt 3.2
+*   Refresh docs for oVirt 3.1
 
 ### Gap analysis
 

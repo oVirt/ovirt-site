@@ -29,7 +29,8 @@ Role is Action groups container. A role can also be associated as a USER/ADMIN t
 
 *   PreDifined Roles
 
-SuperUser, DataCenterAdmin are examples of predefined roles inserted during installation to DB. They could be edited. for the list of full predefind roles see PredefinedRoles.java and dbscripts/insert_predefined_roles.sql
+SuperUser, DataCenterAdmin are examples of predefined roles inserted during installation to DB. They could be edited.
+for the list of full predefind roles see PredefinedRoles.java and dbscripts/insert_predefined_roles.sql
 
 *   Action Group
 

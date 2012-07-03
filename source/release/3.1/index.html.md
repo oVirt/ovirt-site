@@ -8,11 +8,11 @@ wiki_last_updated: 2013-10-17
 
 # OVirt 3.1 release notes
 
-The oVirt Project is pleased to announce the availability of its second formal release, oVirt 3.2.
+The oVirt Project is pleased to announce the availability of its second formal release, oVirt 3.1.
 
 ## What's New?
 
-The oVirt 3.2 release includes these notable changes.
+The oVirt 3.1 release includes these notable changes.
 
 ### Installer
 

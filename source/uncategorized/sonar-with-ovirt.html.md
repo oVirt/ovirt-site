@@ -10,7 +10,9 @@ wiki_last_updated: 2012-07-03
 
 ## Where is sonar
 
-A public sonar instance is here: <http://sonar.dictat.org/> This instance is running on openshift, it's database is periodically updated from an internal sonar installation (http://sonar.rhev.lab.eng.brq.redhat.com/)
+A public sonar instance is here: <http://sonar.dictat.org/>
+
+This instance is running on openshift, it's database is periodically updated from an internal sonar installation (http://sonar.rhev.lab.eng.brq.redhat.com/)
 
 ## Running sonar on ovirt
 

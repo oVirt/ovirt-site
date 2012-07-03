@@ -42,17 +42,18 @@ The oVirt 3.1 release includes these notable changes.
 
 ### Virtualization
 
-*   import vm more than once (need to see if made ovirt 3.1)[BR](BR)
-*   stable device addresses[BR](BR)
-*   pre-started vms in pool[BR](BR)
-*   vm payload[BR](BR)
-*   native spice usb support (need to see if made ovirt 3.1)[BR](BR)
-*   spice wan options (need to see if made ovirt 3.1)[BR](BR)
-*   new custom hook in vdsm: set vm ticket[BR](BR)
-*   cancel live migration[BR](BR)
-*   clone vm from snapshot[BR](BR)
-*   new cpu models: sandy bridge and opteron G4 (need to see if made ovirt 3.1)[BR](BR)
-*   vnc details screen (need to see if made ovirt 3.1)[BR](BR)
+''\* Previously it was not possible to import a Virtual Machine or Template that had already been imported, even if it was to a different data center. This has now been fixed ([Features/ImportMoreThanOnce](Features/ImportMoreThanOnce)). ''
+
+*   Devices in guest virtual machines now retain the same address allocations as other devices are added and/or removed from the guest's configuration ([Features/Design/DetailedStableDeviceAddresses](Features/Design/DetailedStableDeviceAddresses)).
+*   Added support for "pre-started" virtual machine pools. Instead of having to wait for a virtual machine allocated from the pool to boot user's will instead, where possible, be allocated a virtual machine which has already been started ([Features/PrestartedVm](Features/PrestartedVm)).
+*   Added support for a virtual machine payload, in the form of a Floppy or CD/DVD image, that will be passed to the virtual machine. Virtual machine payloads may be either temporary or permenant.([Features/VMPayload](Features/VMPayload)).
+*   native spice usb support (need to see if made ovirt 3.1)
+*   spice wan options (need to see if made ovirt 3.1)
+*   new custom hook in vdsm: set vm ticket
+*   cancel live migration
+*   clone vm from snapshot
+*   new cpu models: sandy bridge and opteron G4 (need to see if made ovirt 3.1)
+*   vnc details screen (need to see if made ovirt 3.1)
 
 ### SLA
 

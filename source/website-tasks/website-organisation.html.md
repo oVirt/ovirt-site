@@ -10,13 +10,13 @@ wiki_last_updated: 2012-11-19
 
 # Website organisation
 
-These pages are to organise work on the reorganisation of the [ovirt.org front page](http://www.ovirt.org), the identification of missing documentation we should add, and the organoisation and maintenance of the wiki.
+These pages are to organise work on the reorganisation of the [ovirt.org front page](http://www.ovirt.org), the identification of missing documentation we should add, and the organisation and maintenance of the wiki.
 
 ## Priorities
 
-*   Provide an automated way for someone to create an account on the wiki. We should not require that a user who wants to edit a page in the wiki contact an existing account holder personally beforehand. We can enable the [ConfirmAccount extension](http://www.mediawiki.org/wiki/Extension:ConfirmAccount) to allow a more standard moderator workflow, and add a number of people to the Bureaucrat role, for example.
+*   Provide an automated way for someone to create an account on the wiki. Rather than requiring a user to contact an existing account holder, we can enable the [ConfirmAccount extension](http://www.mediawiki.org/wiki/Extension:ConfirmAccount) to allow a more standard moderator workflow, and add a number of people to the Bureaucrat role.
 *   Review top level menu and web pages, and propose an alternative organisation. Some things are prominent that don't need to be, other things which should be are not.
-*   Start spring-cleaning the wiki: make a more attractive front page, categorise pages, and generally work on making it more easily navigable
+*   Start spring-cleaning the wiki: make a more attractive front page, categorise pages, and generally work on making it more easily navigable (page renaming is crucial)
 *   Gap analysis on the documentation we have - what docs do we need which we don't have yet?
 *   Migrate PDF documentation to HTML (either static or wiki)
 *   Promotion of the oVirt 3.1 release
@@ -35,7 +35,8 @@ These pages are to organise work on the reorganisation of the [ovirt.org front p
 
 *   Clean up and organise front page into two main parts: oVirt users knowledge base, and oVirt contributors workspace
     -   User pages will include tutorials, documentation, architecture overviews
-    -   Developer pages will have developer getting started tutorials, workspaces for Infra and website, developer documentation for people who want to get started/build from source
+    -   Developer pages will have developer getting started tutorials, workspaces for Infra and website, developer documentation for people who want to get started/build from source\* Rename all pages as per <Help:Wiki_structure#Page_naming>
+*   Rename all pages as per <Help:Wiki_structure#Page_naming>
 *   Add categories to facilitate search
 *   Eliminate any orphan pages, consolidate redundant pages, split long pages, version docs for the oVirt version they apply to - basic wiki gardening
 *   Refresh docs for oVirt 3.1

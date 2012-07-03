@@ -8,6 +8,10 @@ wiki_last_updated: 2012-07-03
 
 # Sonar with ovirt
 
+## Where is sonar
+
+A public sonar instance is here: <http://sonar.dictat.org/> This instance is running on openshift, it's database is periodically updated from an internal sonar installation (http://sonar.rhev.lab.eng.brq.redhat.com/)
+
 ## Running sonar on ovirt
 
 [Sonar](http://sonarsource.org/) is a very nice code analisys webapp. It does static code analysys with checkstyle, findbugs, pmd, cpd (and a number of other plugins) and test coverage report.

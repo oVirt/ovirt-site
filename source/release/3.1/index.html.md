@@ -34,10 +34,27 @@ The oVirt Project is pleased to announce the availability of its second formal r
 
 ## Storage
 
+* hot plug disk - multiple storage domains - shared disk - external disk (direct lun) - posix fs storage domains - nfs options - nfs v4 - live snapshot - disks main tab ("floating disks") - spm priority - auto re-activate storage domains from error mode - use sanlock for pool locks (need to see if made ovirt 3.1)
+
 ## Virtualization
+
+* import vm more than once (need to see if made ovirt 3.1) - stable device addresses - pre-started vms in pool - vm payload - native spice usb support (need to see if made ovirt 3.1) - spice wan options (need to see if made ovirt 3.1) - new custom hook in vdsm: set vm ticket - cancel live migration - clone vm from snapshot - new cpu models: sandy bridge and opteron G4 (need to see if made
+
+        ovirt 3.1)
+
+* vnc details screen (need to see if made ovirt 3.1)
 
 ## SLA
 
+* quotas - cpu pinning (need to check if made ovirt 3.1) - balloon enable/disable at vm level (need to see if made ovirt 3.1)
+
 ## Network
 
+* setup multiple networks and new ui - mtu ("jumbo frames") - vm networks ("bridgeless networks") - optional/required networks - hotplug nic - port mirroring ("promiscuous mode")
+
 ## Interfaces
+
+*   New Python SDK, packaged as *ovirtsdk*.
+*   New Python CLI, packaged as *???*.
+*   Added JSON support for REST API.
+*   Added session support to the REST API, allowing one login to process multiple requests.

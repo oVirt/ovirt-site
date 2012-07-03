@@ -8,58 +8,26 @@ wiki_last_updated: 2013-10-17
 
 # OVirt 3.1 release notes
 
-The oVirt Project is pleased to announce the availability of its second formal release, oVirt 3.1.
+The oVirt Project is pleased to announce the availability of its second formal release, oVirt 3.2. The oVirt 3.2 release includes the following notable changes.
 
-## Command Line Interface
+## Installer
 
-### Features
+*   The installation script now supports the configuration of a HTTP/HTTPS proxy, allowing the oVirt Engine to be accessed via port 80 for HTTP, and port 443 for HTTPS.
+*   The oVirt Engine now supports the use of a remote PostgreSQL database server, specified during installation.
+*   An 'all-in-one' proof of concept mode is now available. This allows a single machine to both run the management engine and act as a virtualization host.
 
-### Resolved Issues
+## Tools
 
-### Known Issues
+*   The Log Collector (engine-log-collector), ISO Uploader (engine-iso-uploader), and Image Uploader (engine-image-uploader) have been rebased to access the oVirt Engine using the new Python SDK. Previously these tools, written in Python, accessed the REST API directly.
 
-## Data Warehouse and Reports
+## Infrastructure
 
-### Features
+*   Support has been added for Red Hat Directory Server and IBM Tivoli Directory Server.
+*   An additional tab has been added to the oVirt Engine's management interface to support monitoring the status of tasks.
+*   A correlation identifier to support debugging is now used to track events across the user interfaces, engine backend, and VDSM.
+*   The oVirt Engine now automatically attempts to auto-activate hosts detected as non-operational.
 
-### Resolved Issues
+## User Interface
 
-## Engine
-
-### Features
-
-### Resolved Issues
-
-### Known Issues
-
-## Packaging & Installer
-
-### Features
-
-### Resolved Issues
-
-### Known Issues
-
-## Node
-
-### Features
-
-### Resolved Issues
-
-### Known Issues
-
-## Software Development Kit
-
-### Features
-
-### Resolved Issues
-
-### Known Issues
-
-## VDSM
-
-### Features
-
-### Resolved Issues
-
-### Known Issues
+*   Infrastructure supporting localization has been added, with translations to follow in a later release.
+*   Infrastructure supporting integration of reports functionality has been added to the oVirt Engine management interface.

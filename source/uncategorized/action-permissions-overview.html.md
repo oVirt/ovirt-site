@@ -15,7 +15,7 @@ permissions are build into the backend archetecture and how to add/update autori
 
 ## Terminology
 
-*   Permission
+*   **Permission**
 
 The building block in authorization which is composed from the target Object, User, and Role Ids.
 
@@ -23,24 +23,34 @@ The building block in authorization which is composed from the target Object, Us
            /     |     \
         Object  User   Role
 
-*   Role
+*   **Object or Entity or Manage Entity**
+
+The target object on which we want to enforce authorization. Most of the members in `**\1**` are
+managed by authorization and that's why they are some times refered to as "managed entities" in the this context.
+**VM**, **VmPool** etc are a managed entities while **Tags** and **Bookmarks** are not.
+
+*   **User**
+
+A logged-in user which is performing the command and is managed in a Directory Server (IPA, Active Directory, IBM Tivoly Server).
+
+*   **Role**
 
 Role is Action groups container. A role can also be associated as a USER/ADMIN type. ADMIN roles have Action Groups which USER dont
 
-*   PreDifined Roles
+*   **Pre-Defined Roles**
 
-SuperUser, DataCenterAdmin are examples of predefined roles inserted during installation to DB. They could be edited.
-for the list of full predefind roles see PredefinedRoles.java and dbscripts/insert_predefined_roles.sql
+`SuperUser` and ` DataCenterAdmin ` are examples of predefined roles inserted during installation to DB. They could be edited.
+for the list of full predefind roles see `**\1**` and `**\1**`
 
-*   Action Group
+*   **Action Group**
 
 group of Actions
 
-*   Action
+*   **Action**
 
-The basic building block. Every Command in the engine is an Action and has a unique ID given in the VdcActionType.java
+The basic building block. Every **Command** in the engine is an action and has a unique ID given in `**\1**`
 
-*   MLA - multi level administration.
+*   **MLA** - multi level administration.
 
 To make a long story short it was the initial name of the permission feature in the engine. At first there was no
 authorization on actions (woohoo!) so a special UI was designed to enforce it and its name was "Multi Level Administration Portal"

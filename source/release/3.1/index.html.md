@@ -42,7 +42,8 @@ The oVirt Project is pleased to announce the availability of its second formal r
 
 ## SLA
 
-* quotas - cpu pinning (need to check if made ovirt 3.1) - balloon enable/disable at vm level (need to see if made ovirt 3.1)
+*   Added support for the definition quotas restricting user resource usage ([Features/Quota](Features/Quota)).
+*   Added support for pinning Virtual Machines to specific physical CPUs ([Features/Design/cpu-pinning](Features/Design/cpu-pinning)).
 
 ## Network
 

@@ -24,7 +24,7 @@ Build-Depends: maven2, openjdk6-jdk It looks like postgres-8.4 is too old, so I'
 
 ### Building ovirt-engine (for Debian)
 
-Following: [Building_Ovirt_Engine](Building_Ovirt_Engine) (changes to make are documented below) Changes: Installing JBoss AS Get JBoss from jboss.org or build the package. wget <http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA-jdk6.zip/download> Building JBoss 5.1.0GA with Debian Squeeze: <http://wiki.debian.org/JBossPackaging#Building_the_packages_from_vcs> Build the package (but be aware that the package is n ot fully debian policy conform and no security patches get applied!)
+Following: [Building oVirt engine](Building oVirt engine) (changes to make are documented below) Changes: Installing JBoss AS Get JBoss from jboss.org or build the package. wget <http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA-jdk6.zip/download> Building JBoss 5.1.0GA with Debian Squeeze: <http://wiki.debian.org/JBossPackaging#Building_the_packages_from_vcs> Build the package (but be aware that the package is n ot fully debian policy conform and no security patches get applied!)
 
 Creating the database
 

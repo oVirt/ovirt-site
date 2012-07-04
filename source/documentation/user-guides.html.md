@@ -48,27 +48,27 @@ Reference material includes any appropriately licensed information considered a 
 
 ### Engine
 
-`* `[`Build` `&` `Install` `RPM`](Build & Install RPM)
-`* `[`Building` `Ovirt` `Engine`](Building Ovirt Engine)
-`* `[`Installing` `PostgreSQL` `DB`](Installing PostgreSQL DB)
-`* `[`Working` `with` `gerrit.ovirt.org`](Working with gerrit.ovirt.org)
+*   [Build & Install RPM](Build & Install RPM)
+*   [Building oVirt engine](Building oVirt engine)
+*   [Installing PostgreSQL DB](Installing PostgreSQL DB)
+*   [Working with gerrit.ovirt.org](Working with gerrit.ovirt.org)
 
 ### Node
 
-`* `[`Node` `Building`](Node Building)
+*   [Node Building](Node Building)
 
 ### VDSM
 
-`* `[`Vdsm` `Getting` `Started`](Vdsm Getting Started)
-`* `[`Vdsm`](Vdsm)
-`* `[`Vdsm_Developers`](Vdsm_Developers)
-`* `[`Vdsm_Log_Files`](Vdsm_Log_Files)
-`* `[`Vdsm_Storage_Terminology`](Vdsm_Storage_Terminology)
+*   [Vdsm Getting Started](Vdsm Getting Started)
+*   [Vdsm](Vdsm)
+*   [Vdsm_Developers](Vdsm_Developers)
+*   [Vdsm_Log_Files](Vdsm_Log_Files)
+*   [Vdsm_Storage_Terminology](Vdsm_Storage_Terminology)
 
 ### Reports and Data Warehouse
 
-`* `[`How` `to` `setup` `a` `oVirt` `DWH` `development` `environment`](How to setup a oVirt DWH development environment)
-`* `[`How` `to` `setup` `a` `oVirt` `Reports` `development` `environment`](How to setup a oVirt Reports development environment)
-`* `[`Ovirt` `DWH`](Ovirt DWH)
+*   [How to setup a oVirt DWH development environment](How to setup a oVirt DWH development environment)
+*   [How to setup a oVirt Reports development environment](How to setup a oVirt Reports development environment)
+*   [Ovirt DWH](Ovirt DWH)
 
 <Category:Documentation>

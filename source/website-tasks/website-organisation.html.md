@@ -59,6 +59,6 @@ All of the documentation on [the resources page](http://www.ovirt.org/project/re
 *   ovirt-storage overview
 *   vdsm overview
 *   ovirt-engine overview
-*   Starting a developer environment
+*   [ Starting a developer environment](Building Ovirt Engine) - should probably be "Building oVirt engine". This is the equivalent of the resource "ovirt-dev-setup.pdf"
 
 [Category:Website tasks](Category:Website tasks) [Category:Wiki cleanup](Category:Wiki cleanup)

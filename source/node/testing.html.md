@@ -92,11 +92,13 @@ The testcases and kept in a separate git repository - which is soon hosted on ov
 
 ### Basic Testcases
 
-| Testcase                                                                             | Difficulty | Complete | Updated    |
-|--------------------------------------------------------------------------------------|------------|----------|------------|
-| Basic Auto-Install - Installation with the basic parameters and a login into the TUI | easy       | 100%     | 2012-06-01 |
-| Alternate Auto-Install - Installation with other (TBD) parameters                    | medium     | 0%       | 2012-06-01 |
-| Basic TUI-Install - Simple TUI installation using sane defaults                      | medium     | 0%       | 2012-06-01 |
-| Basic TUI Testing - Perform a couple of TUI tasks                                    | medium     | 20%      | 2012-06-01 |
+| Testcase                                                                                                                              | Difficulty | Complete | Updated    |
+|---------------------------------------------------------------------------------------------------------------------------------------|------------|----------|------------|
+| Basic Auto-Install - Installation with the basic parameters and a login into the TUI                                                  | easy       | 100%     | 2012-06-01 |
+| Alternate Auto-Install - Installation with other (TBD) parameters                                                                     | medium     | 0%       | 2012-06-01 |
+| Basic TUI-Install - Simple TUI installation using sane defaults                                                                       | medium     | 0%       | 2012-06-01 |
+| Basic TUI Testing - Perform a couple of TUI tasks                                                                                     | medium     | 20%      | 2012-06-01 |
+| Basic unit tests - Perform doctest and unitests on the running Node                                                                   | easy       | 0%       | 2012-06-04 |
+| Run some [autotest](http://autotest.github.com/)[1](https://github.com/autotest/autotest/tree/master/client/virt/tests) tests on node | hard       | 0%       | 2012-06-04 |
 
 <Category:Testing> <Category:Automation>

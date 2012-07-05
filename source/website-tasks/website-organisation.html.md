@@ -54,7 +54,7 @@ These pages are to organise work on the reorganisation of the [ovirt.org front p
 
 All of the documentation on [the resources page](http://www.ovirt.org/project/resources/) is either in PDF presentation form, or ODF and PDF document format. Specifically, we should migrate the following to the wiki, and complete with screenshots/images as necessary:
 
-*   [oVirt architecture deep dive](oVirt architecture deep dive) - from [RHEV deep dive](http://www.redhat.com/summit/2011/presentations/summit/in_the_weeds/thursday/2011_iheim_acathrow_thur_1400_rhev_deepdive.pdf) presentation
+*   [ oVirt architecture deep dive](Architecture) - from [RHEV deep dive](http://www.redhat.com/summit/2011/presentations/summit/in_the_weeds/thursday/2011_iheim_acathrow_thur_1400_rhev_deepdive.pdf) presentation. The Architecture page needs a little more explanation.
 *   ovirt-node overview
 *   ovirt-storage overview
 *   vdsm overview

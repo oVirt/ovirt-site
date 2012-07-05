@@ -33,15 +33,15 @@ The following diagram shows the different components in the oVirt project:
 
 These main components are:
 
-1.  Engine
-2.  Host agent (VDSM)
-3.  Admin Portal
-4.  User Portal
-5.  REST API
-6.  CLI/SDK
-7.  Reports Engine
-8.  DWH (Data Warehouse)
-9.  Guest Agent
+1.  Engine - monitors the oVirt network, and allows system administrators to create and deploy new VMs
+2.  Host agent (VDSM) - the oVirt engine communicates with VSDM to request VM related actions on the nodes
+3.  Admin Portal - the web application sysadmins use to talk to the engine to perform advanced actions
+4.  User Portal - a simplified application for simpler use-cases
+5.  REST API - an API which allows applications to perform virtualisation actions, which is used by the command line tools and the SDK
+6.  CLI/SDK - The command line interface and SDK provide a means to script actions
+7.  Reports Engine - generates reports on VM resource usage, using Jasper Reports
+8.  DWH (Data Warehouse) - The data warehouse component extracts and synthesizes data from the engine using Talend for later use in reports
+9.  Guest Agent - The guest agent runs inside the VM, and provides information on resource usage to the oVirt engine. Communication is done over a virtualised serial connection.
 
 The sections below will give a description and architectural aspects for each such component.
 

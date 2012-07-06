@@ -41,6 +41,7 @@ For the purposes of collecting this data, we are asking all oVirt Board Members 
 5.  Perry Myers, (tentative) Red Hat
 6.  Itamar Heim, Red Hat
 7.  Chris Wright, Red Hat
+8.  Ayal Baron, Red Hat
 
 ### NetApp Headquarters
 

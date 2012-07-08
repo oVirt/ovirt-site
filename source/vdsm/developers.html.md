@@ -193,7 +193,7 @@ There are several ways to update your vds_bootstrap, for example:
         # cp vds_bootstrap/vds_bootstrap.py /usr/share/vds_bootstrap 
                  
 
-*   Manually backport the above patch to your current vds_bootstrap (/usr/share/vds_bootstrap)
+*   Manually backport the above <http://gerrit.ovirt.org/5611> patch to your current vds_bootstrap (/usr/share/vds_bootstrap)
 
         # vi /usr/share/vds_bootstrap/vds_bootstrap.py
         Make the changes manually

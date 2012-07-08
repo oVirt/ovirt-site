@@ -57,11 +57,16 @@ The needed additions are:
 
 ### In UI
 
-*   Host's network interfaces sub-tab should probably be updated.
+*   Host in 3.0 and beneath version won't support sync functionality.
 
 <!-- -->
 
-*   Setup Network dialog should support the mentioned enhancement.
+*   Setup Networks dialog-
+
+If the network is unsynced-
+
+       1. A "!" icon will be added to the network panel.
+       2. A "sync" check box will be added to the edit network panel.
 
 ## Other Considerations
 

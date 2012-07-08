@@ -196,12 +196,12 @@ To work around the issue, edit the file $OVIRT_HOME/backend/manager/dbscripts_po
 Note that on most modern distributions the 'mvn' binary refers to Maven 3, to use Maven 2 you must use mvn2. If in doubt run 'mvn --version' and/or 'mvn2 --version' to confirm the version of Maven in use. If you only want to build virt-engine-core and REST API then:
 
        $> cd $OVIRT_HOME
-       $> mvn2 clean install
+       $> mvn clean install
 
 For compiling the web-admin and user-portal in addition to the api and engine use:
 
        $> cd $OVIRT_HOME
-       $> mvn2 clean install -Pgwt-admin,gwt-user
+       $> mvn clean install -Pgwt-admin,gwt-user
 
 Notes:
 # Compiling the webadmin and userportal takes (a long) time, please visit [GWT Compilation Configuration](Advanced_oVirt_Engine_Build_Notes#GWT_Compilation_Configuration) if you want to speed the web compilation process during development time

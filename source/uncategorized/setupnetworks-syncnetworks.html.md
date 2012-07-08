@@ -12,11 +12,16 @@ wiki_last_updated: 2012-09-02
 
 "Sync Network" is a proposed enhancement to "Setup Networks" feature which is targeted to solve a few issues:
 
-1. When a host is added to the system it will by default receive a "management" network which is a VM network (implemented as bridge) with MTU 1500 and default boot-protocol details (TODO fill).
+*   When a host is added to the system it will by default receive a "management" network which is a VM network (implemented as bridge) with MTU 1500 and default boot-protocol details (TODO fill).
 
-2. When a host is moved between data-centers, it's "management" network (and other networks) might get out-of sync. For example, I have network "red" with MTU 9000 on DC1 where the host it and it's defined on eth1 on the host. When I move the host to DC2 where there is network "red" with MTU 1500, the new network setup will not be applied to the host's eth1 interface.
+<!-- -->
 
-3. Setup Networks will send network details only if the configuration changed, but how would it know that the new conigurations needs to be applied or not?
+*   When a host is moved between data-centers, it's "management" network (and other networks) might get out-of sync.
+    -   For example, I have network "red" with MTU 9000 on DC1 where the host it and it's defined on eth1 on the host. When I move the host to DC2 where there is network "red" with MTU 1500, the new network setup will not be applied to the host's eth1 interface.
+
+<!-- -->
+
+*   Setup Networks will send network details only if the configuration changed, but how would it know that the new conigurations needs to be applied or not?
 
 There can be other solutions for these problems, for starters we can change the bootstrap installation script to set the network correctly, However, that means doubling the setup networks logic to the bootstrap script (also doubles the maintenance). Also this won't solve the other 2 issues. We can also add some code that fixes networks when host moves to different DC, but that also means some duplication and more maintenance.
 
@@ -51,3 +56,15 @@ The needed additions are:
 ### In REST
 
 ### In UI
+
+*   Host's network interfaces sub-tab should probably be updated.
+
+<!-- -->
+
+*   Setup Network dialog should support the mentioned enhancement.
+
+## Other Considerations
+
+*   Since management network is an oVirt centric network:
+    -   Need to consider to always sync the management network when host is installed.
+    -   Same as above, for host migration between DCs.

@@ -31,22 +31,13 @@ The needed additions are:
 ### In Engine
 
 *   We need to add a way to report if a network is out of sync.
-
-<!-- -->
-
-*   -   This information is already available to us in the DB, and can be calculated when needed.
-
-<!-- -->
-
-*   -   Today only the host's NICs are reported, and on them only the network name is available.
+    -   This information is already available to us in the DB, and can be calculated when needed.
+    -   Today only the host's NICs are reported, and on them only the network name is available.
 
 <!-- -->
 
 *   Possible way to do this is to add an internal "Network Container" class which will hold for each NIC the network name + is it in sync or not.
-
-<!-- -->
-
-*   -   This can also be used to indicate other detials: Is network managed or not, etc.
+    -   This can also be used to indicate other detials: Is network managed or not, etc.
 
 <!-- -->
 
@@ -55,10 +46,7 @@ The needed additions are:
 <!-- -->
 
 *   Possible way to do this is add a list of networks to sync to the SetupNetwork parameters.
-
-<!-- -->
-
-*   -   It can also be added to the network container, but it's best to keep the representation of is network in sync, and the order to sync it separately.
+    -   It can also be added to the network container, but it's best to keep the representation of is network in sync, and the order to sync it separately.
 
 ### In REST
 

@@ -55,6 +55,15 @@ The needed additions are:
 
 ### In REST
 
+-- DRAFT --
+
+*   Add fields to HostNic
+*   Support for SetupNetworks
+*   Support for Attach/Edit?
+*   Possible reporting in high level?
+
+-- /DRAFT --
+
 ### In UI
 
 *   Host in 3.0 and beneath version won't support sync functionality.

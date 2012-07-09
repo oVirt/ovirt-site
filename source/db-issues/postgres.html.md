@@ -43,6 +43,12 @@ PAM
 `   `[`reset`](http://www.postgresql.org/docs/current/static/sql-reset.html)
       === reload configuration ===
 
+If you are making modifications to the Postgres configuration file postgresql.conf (or similar), and you want to new settings to take effect without needing to restart the entire database, there are two ways to accomplish this.
+
+option 1
+ su - postgres /usr/bin/pg_ctl reload option 2
+ echo "SELECT pg_reload_conf();" | psql -U <user> <database>
+
 ### SIGHUP
 
 [Connection parameters](http://www.postgresql.org/docs/current/static/runtime-config-connection.html)

@@ -26,7 +26,11 @@ Licensed under the Apache License, Version 2.0 (the "License"). A copy of the Li
 
 ## Source Control
 
-The documentation subproject has a git repository. Like the other oVirt git repositories it is managed using Gerrit. Follow the [ instructions for registering with and using Gerrit](Working with oVirt Gerrit), then use the git clone command to get a local copy of the repository:
+The documentation subproject has a git repository. Like the other oVirt git repositories it is managed using Gerrit. You can get a copy of the repository using the git clone command to the read-only git server:
+
+`$ git clone `[`git://gerrit.ovirt.org/ovirt-docs`](git://gerrit.ovirt.org/ovirt-docs)
+
+To make changes and submit patches for the project, you should first follow the [ instructions for registering with and using Gerrit](Working with oVirt Gerrit), then use the following git clone command to get a local copy of the repository:
 
       $ git clone gerrit.ovirt.org:ovirt-docs
 

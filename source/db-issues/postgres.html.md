@@ -13,7 +13,7 @@ wiki_last_updated: 2012-08-09
 We are using version 9.1.x
 [Installation Guide](http://www.ovirt.org/wiki/Installing_PostgreSQL_DB)
 
-## Authrntication
+## Authentication
 
 Trust
 Password

@@ -51,6 +51,8 @@ option 1
 
 ### SIGHUP
 
+       pg_ctl reload
+
 [Connection parameters](http://www.postgresql.org/docs/current/static/runtime-config-connection.html)
 === Remote access (listen_addresses) === [pg_hba.conf](http://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html)
 === max_connections ===

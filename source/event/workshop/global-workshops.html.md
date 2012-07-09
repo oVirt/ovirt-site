@@ -17,6 +17,7 @@ If you are interested in setting up a workshop, please contact [Leslie Hawthorn]
 ## Upcoming Workshops Schedule Overview
 
 *   August 28, 2012: LinuxCon North America
+*   October 16, 2012: Red Hat Office, Bangalore, India
 *   November 7-9, 2012: LinuxCon Europe (workshop will be co-located with KVM Forum)
 *   January 22-24, 2013: NetApp Headquarters in Sunnyvale, California, US
 *   March 20-21, 2013: Intel Campus in Shanghai, China
@@ -24,6 +25,12 @@ If you are interested in setting up a workshop, please contact [Leslie Hawthorn]
 ## Board Meetings at Upcoming Workshops
 
 Since many members of oVirt's Board will be in attendance at these workshops, it has been proposed that a Board meeting be held at each workshop or a subset of these workshops. Data gathering for scheduling these Board Meetings is taking place on the [Workshop Board Meetings](Workshop Board Meetings) page.
+
+## Promoting oVirt Workshops
+
+The goal of these workshops is to introduce users and developers to all aspects of the oVirt workshop. It would be wonderful if the community would help to spread the word about the workshops via its communications channels. If you are looking for assistance in crafting messaging or an announcement about the workshops, [Jason Brooks](User:Jbrooks) would be happy to assist you.
+
+The team is also working with the [Open Virtualization Alliance](http://www.openvirtualizationalliance.org/) to promote the workshops amongst its members.
 
 ## Other Proposed Workshop Locations
 
@@ -53,6 +60,25 @@ We are currently working to locate a place to host a workshop in the LATAM regio
 *   Create workshop session abstracts.
 *   Determine instructors for the workshop & assing them to particular sessions.
 *   Submit all information the Linux Foundation for printed materials and website.
+
+While we have not yet been given a deadline for these action items, it would be best to get the information together sooner rather than later.
+
+## Red Hat Bangalore Campus Workshop
+
+*   Workshop Date: Tuesday, October 16, 2012
+
+#### Red Hat Bangalore Campus Workshop Details
+
+*   The workshop is free of charge. Facilities at Red Hat Bangalore can accomodate at least 50 participants. We will look at adding additional participant slots based on demand.
+*   Beverage breaks and lunch will be provided to all attendees.
+
+#### Red Hat Bangalore Campus Workshop Outstanding Action Items
+
+*   Create workshop overview description.
+*   Issue community-wide Call for Papers and select incoming submissions.
+*   Create workshop agenda based on results of CFP.
+*   Create registration site for workshop attendees.
+*   Promote workshop.
 
 While we have not yet been given a deadline for these action items, it would be best to get the information together sooner rather than later.
 

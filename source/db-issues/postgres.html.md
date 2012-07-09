@@ -64,6 +64,10 @@ The maximum number of client connections allowed. This is very important to some
 
 ### shared_buffers
 
+The shared_buffers configuration parameter determines how much memory is dedicated to PostgreSQL use for caching data. One reason the defaults are low because on some platforms (like older Solaris versions and SGI) having large values requires invasive action like recompiling the kernel. Even on a modern Linux system, the stock kernel will likely not allow setting shared_buffers to over 32MB without adjusting kernel settings first.
+
+If you have a system with 1GB or more of RAM, a reasonable starting value for shared_buffers is 1/4 of the memory in your system. If you have less ram you'll have to account more carefully for how much RAM the OS is taking up, closer to 15% is more typical there. There are some workloads where even larger settings for shared_buffers are effective, but given the way PostgreSQL also relies on the operating system cache it's unlikely you'll find using more than 40% of RAM to work better than a smaller amount.
+
 ### work_mem
 
 ### effective_cache_size

@@ -145,7 +145,7 @@ As developer you might need to add many hosts into your environment for tests. V
 
 *   2) Install required packages
 
-      # yum install vdsm vdsm-hook-faqemu -y 
+      # yum install vdsm-hook-faqemu -y 
 
 *   3) Change vdsm config file to enable this feature
 
@@ -154,7 +154,7 @@ As developer you might need to add many hosts into your environment for tests. V
 
        fake_kvm_support = true  
 
-*   4) Restart the vdsmd daemon
+*   4) Restart the vdsmd daemon (**Only required if you had previously VDSM installed**)
 
       # systemctl restart vdsmd.service 
 

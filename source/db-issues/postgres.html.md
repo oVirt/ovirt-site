@@ -27,4 +27,4 @@ RADIUS
 Certificate
 PAM
  details:
-[Authrntication Methods](http://www.postgresql.org/docs/9.1/static/auth-methods.html)
+[Authentication Methods](http://www.postgresql.org/docs/9.1/static/auth-methods.html)

@@ -35,6 +35,7 @@ Anti-spoofing layer two/three
 network groups
 dynamic network
 network lables
+Support nested vlans. (QinQ) <
 
 We'll open a wiki page for each of the above lines.
 

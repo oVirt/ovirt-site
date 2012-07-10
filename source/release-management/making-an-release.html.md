@@ -33,7 +33,7 @@ The [Subversion release procedure](http://svn.apache.org/repos/asf/subversion/br
 *   [Second Release](Second Release)
 *   [Screencasts](Screencasts) - a set of screencasts we would like to make before the 3.1 release
 *   Release announcement
-*   Press plan
+*   [Press plan](Press plan)
 
 ## oVirt 3.0 release materials
 

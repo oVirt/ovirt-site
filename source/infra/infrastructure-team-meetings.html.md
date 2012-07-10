@@ -16,7 +16,21 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
     -   To see in your timezone date -d 'TUESDAY 1000 EDT'
 *   *Where:* On IRC: #ovirt on irc.oftc.net
 
+## 2012-07-10
+
+**Agenda**
+
+*   Sub-project idea & status
+*   Team mission
+    -   Strawdog: "To provide a free/open source infrastructure of participation that supports the development of the oVirt project, and to do so by providing full free/open access to the entire infrastructure as a collaboration."
+*   New Jenkins slave, how best to use
+*   Jenkins migration from EC2
+*   Push on ovirt-engine RPMs synce to ovirt.org
+*   Puppet as sub from sub-project
+
 ## 2012-07-03
+
+*'[http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-03-14.00.html Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-03-14.00.html Minutes)*
 
 **Agenda**
 

@@ -20,6 +20,7 @@ wiki_last_updated: 2013-12-13
 *   Puppet server for all of Infra needs
 *   Move Jenkins from EC2 to dedicated host for performance and cost benefits
 *   Fill out [Design of oVirt project infrastructure](Design of oVirt project infrastructure)
+*   Add true night repo's
 
 ## Ongoing tasks
 

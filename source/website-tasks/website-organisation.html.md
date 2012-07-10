@@ -39,7 +39,7 @@ These pages are to organise work on the reorganisation of the [ovirt.org front p
 *   Rename all pages as per <Help:Wiki_structure#Page_naming>
 *   Add categories to facilitate search
     -   Clean-up existing categories - duplicates, orphans, redundancies - and get a simple few top-level categories
-*   Eliminate any orphan pages, consolidate redundant pages, split long pages, version docs for the oVirt version they apply to - basic wiki gardening
+*   Eliminate any [ orphan pages](Special:LonelyPages) (currently 136 orphaned pages in the wiki), consolidate redundant pages, split long pages, version docs for the oVirt version they apply to - basic wiki gardening
 *   Refresh docs for oVirt 3.1
 
 ### Gap analysis

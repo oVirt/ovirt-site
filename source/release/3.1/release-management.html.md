@@ -16,7 +16,7 @@ wiki_last_updated: 2012-08-20
 
 ### Timeline
 
-*   General Availability **2012-Jul-09**.
+*   General Availability **2012-Jul-25**.
     -   Release Candidate **2012-Jul-02**.
     -   Test Day **2012-Jun-14**.
     -   Feature Freeze (Branching day) **2012-Jun-07**.

@@ -38,13 +38,26 @@ The git repository is intended to be used for the creation and maintenance of fo
 
 ## Brand
 
-The [publican-ovirt](http://koji.fedoraproject.org/koji/packageinfo?packageID=6970) brand is used to build the oVirt documentation. It is recommended that before building oVirt documentation you download and install this brand to ensure consistent theming. Users of Fedora 15, Fedora 16, and Fedora 17, may obtain the brand by running:
+Publican allows you to collect a number of documents together to have a consistent look and feel across documentation, in packages called ["brands"](http://docs.fedoraproject.org/en-US/Fedora_Contributor_Documentation/1/html/Users_Guide/chap-Users_Guide-Branding.html).
+
+The [publican-ovirt](http://koji.fedoraproject.org/koji/packageinfo?packageID=6970) brand is used to style the oVirt documentation. It is recommended that before building oVirt documentation you download and install this brand to ensure consistent theming. Users of Fedora 15, Fedora 16, and Fedora 17, may obtain the brand by running:
 
          # yum install publican-ovirt
+
+In addition to installing oVirt documentation and stylesheets, this will also ensure that all required dependencies for Publican are installed on your system.
 
 Alternatively the RPMs are available for download in [koji](http://koji.fedoraproject.org/koji/packageinfo?packageID=6970). These are also expected to work on RHEL and derivative operating systems.
 
 Users of other operating systems for which publican is available may obtain the source to the brand from the [publican git repository](http://git.fedorahosted.org/git/?p=publican.git;a=tree;f=publican-ovirt;h=3d2102770380957804b86a543d4d021e816c20f7;hb=HEAD). Once a local copy of the brand source has been created, follow the instructions in the [Publican User Guide](http://jfearn.fedorapeople.org/en-US/Publican/2.6/html/Users_Guide/chap-Users_Guide-Branding.html#sect-Users_Guide-Installing_a_brand) to build and install the brand.
+
+Once you have the brand installed, you can build the installation guide with the following commands:
+
+      $ cd ovirt-docs/Installation_Guide
+      $ publican build --formats xml,pdf,html --langs all --publish
+
+This will generate the documentation in the directory "publish" in each of the formats specified.
+
+For further information on Publican, and how to install documentation system-wide, refer to the [Publican user guide](http://jfearn.fedorapeople.org/en-US/Publican/2.0/html/Users_Guide/index.html).
 
 ## Reference Material
 

@@ -27,6 +27,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Jenkins migration from EC2
 *   Push on ovirt-engine RPMs synce to ovirt.org
 *   Puppet as sub from sub-project
+*   Trust seed
 
 ## 2012-07-03
 

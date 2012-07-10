@@ -101,4 +101,4 @@ The testcases and kept in a separate git repository - which is soon hosted on ov
 | Basic unit tests - Perform doctest and unitests on the running Node                                                                   | easy       | 0%       | 2012-06-04 |
 | Run some [autotest](http://autotest.github.com/)[1](https://github.com/autotest/autotest/tree/master/client/virt/tests) tests on node | hard       | 0%       | 2012-06-04 |
 
-<Category:Testing> <Category:Automation>
+<Category:Testing> <Category:Automation> <Category:Node>

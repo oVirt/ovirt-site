@@ -36,6 +36,20 @@ To make changes and submit patches for the project, you should first follow the 
 
 The git repository is intended to be used for the creation and maintenance of formal documentation for the project. At this time all formal documentation for the project is written in DocBookXML and turned into PDF, HTML, HTML-SINGLE, and EPUB output using [publican](https://fedorahosted.org/publican/).
 
+## Installing Publican
+
+### Fedora 15 / 16 / 17
+
+Publican is packaged for Fedora and can be installed with:
+
+      # yum install publican
+
+### Debian / Ubuntu
+
+Publican is packaged for Debian and can be installed with:
+
+      # apt-get install publican
+
 ## Brand
 
 Publican allows you to collect a number of documents together to have a consistent look and feel across documentation, in packages called ["brands"](http://docs.fedoraproject.org/en-US/Fedora_Contributor_Documentation/1/html/Users_Guide/chap-Users_Guide-Branding.html).

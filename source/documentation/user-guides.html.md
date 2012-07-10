@@ -56,7 +56,7 @@ Publican allows you to create your own consistent look and feel across documenta
 
 The [publican-ovirt](http://koji.fedoraproject.org/koji/packageinfo?packageID=6970) brand is used to style the oVirt documentation. It is recommended that before building oVirt documentation you download and install this brand to ensure consistent theming. Users of Fedora 15, Fedora 16, and Fedora 17, may obtain the brand by running:
 
-         # yum install publican-ovirt
+      # yum install publican-ovirt
 
 This will install the stylesheets and images that make up the oVirt brand. Alternatively the RPMs are available for download in [koji](http://koji.fedoraproject.org/koji/packageinfo?packageID=6970). These are also expected to work on RHEL and derivative operating systems.
 

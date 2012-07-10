@@ -31,6 +31,7 @@ The [Subversion release procedure](http://svn.apache.org/repos/asf/subversion/br
 
 *   [Release Notes Draft](Release Notes Draft) (should have the version in the name)
 *   [Second Release](Second Release)
+*   [Screencasts](Screencasts) - a set of screencasts we would like to make before the 3.1 release
 *   Release announcement
 *   Press plan
 

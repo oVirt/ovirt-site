@@ -23,6 +23,10 @@ wiki_last_updated: 2012-09-02
 
 *   Setup Networks will send network details only if the configuration changed, but how would it know that the new conigurations needs to be applied or not?
 
+<!-- -->
+
+*   Admin that wants the network to be out of sync can keep it like that.
+
 There can be other solutions for these problems, for starters we can change the bootstrap installation script to set the network correctly, However, that means doubling the setup networks logic to the bootstrap script (also doubles the maintenance). Also this won't solve the other 2 issues. We can also add some code that fixes networks when host moves to different DC, but that also means some duplication and more maintenance.
 
 Another option is the "Sync Network" enhancement.
@@ -55,30 +59,27 @@ The needed additions are:
 
 ### In REST
 
--- DRAFT --
-
-*   Add fields to HostNic
-*   Support for SetupNetworks
-*   Support for Attach/Edit?
-*   Possible reporting in high level?
-
--- /DRAFT --
+*   Add fields to HostNIC entity:
+    -   is_network_sync - boolean, status field to specify if the network definition on the NIC is in sync with logical definition.
+    -   sync_to_network - boolean, action field to set the NIC to be synced to logical network definition.
 
 ### In UI
 
-*   Host in 3.0 and beneath version won't support sync functionality.
+*   Host in 3.0 and beneath version won't support sync functionality (derived from Setup Networks support).
 
 <!-- -->
 
 *   Setup Networks dialog-
-
-If the network is unsynced-
-
-       1. A "!" icon will be added to the network panel.
-       2. A "sync" check box will be added to the edit network panel.
+    -   If the network is unsynced-
+        1.  A "!" icon will be added to the network panel.
+        2.  A "sync" check box will be added to the edit network panel.
 
 ## Other Considerations
 
 *   Since management network is an oVirt centric network:
     -   Need to consider to always sync the management network when host is installed.
     -   Same as above, for host migration between DCs.
+*   Old network commands are still supported (REST/host < 3.1)
+    -   Should we allow to control this behaviour there?
+*   Do we want to allow a broader approach, allowing the logical network properties to be specifically edited for a given NIC?
+*   Perhaps we would want to expose unsync data in REST for cluster or even root networks context?

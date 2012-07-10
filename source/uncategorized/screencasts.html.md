@@ -8,7 +8,7 @@ wiki_last_updated: 2012-09-30
 
 # Screencasts
 
-We would like to make between 5 and 10 screencasts to show oVirt features (both new and old) before the [ oVirt 3.1 release](Second Realease).
+We would like to make between 5 and 10 screencasts to show oVirt features (both new and old) before the [ oVirt 3.1 release](Second Release).
 
 Each screencast consists of three phases: Scripting the demoing of the feature, recording the video which shows the feature, and finally adding a voiceover soundtrack to explain what is happening on the screen. Ideally, we can separate each of these stages to spread the load of production.
 

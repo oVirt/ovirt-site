@@ -11,6 +11,10 @@ wiki_last_updated: 2015-04-01
 
 Here is the Infrastructure Team and what we work on for the [oVirt project](http://ovirt.org).
 
+## Mission Statement
+
+The oVirt Infra Team is a volunteer effort to provide community infrastructure services by following the tenets of open source and accepted professional standards of system administrators.
+
 ## How we work
 
 This is a [community services infrastructure](http://fedorahosted.org/csi/) team. That means the project infrastructure is maintained to a [professional level](http://mmcgrath.fedorapeople.org/html-single/) by a group of system administrators who are contributing their time. (That time may be contributed as part of their job role, it might be part of a class or workshop, it might be purely voluntary, and so forth.)

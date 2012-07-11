@@ -8,9 +8,9 @@ wiki_last_updated: 2012-09-02
 
 # SetupNetworks SyncNetworks
 
-## What is Sync Network?
+## What is "Sync Network"?
 
-Logical Network definition can get out-of-sync with the Host network device for several reasons (stated below). This state will occur naturally even without the enhancement in place. We need to be able to notify the Admin when it happened & grand him control over the situation.
+Logical Network definition can get out-of-sync with the Host network device for several reasons (stated below). This state will occur naturally even without the enhancement in place. We need to be able to notify the Admin when it happened & grant him control over the situation.
 
 "Sync Network" is a proposed enhancement to "Setup Networks" feature which is targeted to the following cases:
 

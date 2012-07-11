@@ -37,6 +37,7 @@ Once you register, choose your username for the Gerrit system - this is the user
       ssh-keygen -t rsa
        
 
+*   Ensure that your private RSA key is in ~/.ssh and that the permissions on the .ssh directory are sufficiently restrictive (typically, the directory .ssh should have permissions 700, and the file .ssh/id_rsa should have the permissions 600).
 *   Update via Gerrit settings the SSH public key to allow SSH to Gerrit - in the SSH Public Keys settings, copy and paste the contents of your public key file (typically id_rsa.pub) into the text box shown.
 
 #### Define Gerrit in ~/.ssh/config

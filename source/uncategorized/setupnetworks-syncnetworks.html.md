@@ -10,7 +10,9 @@ wiki_last_updated: 2012-09-02
 
 ## What is Sync Network?
 
-"Sync Network" is a proposed enhancement to "Setup Networks" feature which is targeted to solve a few issues:
+Logical Network definition can get out-of-sync with the Host network device for several reasons (stated below). This state will occur naturally even without the enhancement in place. We need to be able to notify the Admin when it happened & grand him control over the situation.
+
+"Sync Network" is a proposed enhancement to "Setup Networks" feature which is targeted to the following cases:
 
 *   When a host is added to the system it will by default receive a "management" network which is a VM network (implemented as bridge) with MTU 1500 and default boot-protocol details (TODO fill).
 
@@ -25,9 +27,11 @@ wiki_last_updated: 2012-09-02
 
 <!-- -->
 
-*   Admin that wants the network to be out of sync can keep it like that.
+*   Admin that wants the network to be out of sync (customly defined) can keep it like that.
 
 There can be other solutions for these problems, for starters we can change the bootstrap installation script to set the network correctly, However, that means doubling the setup networks logic to the bootstrap script (also doubles the maintenance). Also this won't solve the other 2 issues. We can also add some code that fixes networks when host moves to different DC, but that also means some duplication and more maintenance.
+
+Also, it is possible that the Admin would want the network definitions to stay custom for a reason, and doesn't want to sync them automatically.
 
 Another option is the "Sync Network" enhancement.
 

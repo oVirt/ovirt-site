@@ -26,6 +26,7 @@ The intent is to use the organization's NTP server to sync time on all the hosts
 *   The NTP server should be configured only once (during ovirt installation), and populated to all hosts through bootstrap and registration.
 *   Changing the NTP server after engine installation is not supported - and will require manuall steps to sync it to all the hosts in the setup.
 *   The NTP server is accesible from all the hosts
+*   This is not retro active - this will only apply to new hosts that are added to the system
 
 ### What needs to be done
 

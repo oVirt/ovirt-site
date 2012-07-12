@@ -72,6 +72,6 @@ Q - should we skip the NTP config if the NTP server is not accessible on bootstr
 ### Questions
 
 *   Should we support more than 1 NTP server ? Answer: NTP requires 2 server to work at all and recommends at least 3 NTP servers.
-*   Should we expose this config through the ovirt-config utility ?
+*   Should we expose this config through the ovirt-config utility ? Yes
 
 <Category:Feature>

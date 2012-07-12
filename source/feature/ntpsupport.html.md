@@ -70,6 +70,7 @@ Q - should we skip the NTP config if the NTP server is not accessible on bootstr
 
 *   UI - display the reported NTP configureation
 *   Add a new ovirt-setup-lugin package to enable configuring the ovirt-engine server to NTP server.
+*   At regular interval (config setting) check time difference between ovirt-engine and nodes and raise alert (add notification)
 
 ### Questions
 

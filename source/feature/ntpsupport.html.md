@@ -33,6 +33,7 @@ The intent is to use the organization's NTP server to sync time on all the hosts
 ##### ovirt-setup
 
 *   Need to extract NTP server details from user during the installation
+*   If NTP client is setup on ovirt-server then default to this value
 *   The NTP config should be optional
 *   Need to update the ntp server in vdc_option table
 *   Need to configure the ovirt-server ntp to sync with the NTP server

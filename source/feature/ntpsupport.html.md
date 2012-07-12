@@ -53,8 +53,6 @@ The intent is to use the organization's NTP server to sync time on all the hosts
 *   vdsm-bootstrap - should support configuring NTP on any host bootstrapped
 *   bootstrapping code now has to support ovirt-node as well
 
-Q - should we skip the NTP config if the NTP server is not accessible on bootstrap
-
 ##### vdsm-registration
 
 *   The registration code should support the optional NTP configuration
@@ -76,5 +74,6 @@ Q - should we skip the NTP config if the NTP server is not accessible on bootstr
 
 *   Should we support more than 1 NTP server ? Answer: NTP requires 2 server to work at all and recommends at least 3 NTP servers.
 *   Should we expose this config through the ovirt-config utility ? Yes
+*   should we skip the NTP config if the NTP server is not accessible on bootstrap : No
 
 <Category:Feature>

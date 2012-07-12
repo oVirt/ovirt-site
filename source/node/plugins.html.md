@@ -32,7 +32,7 @@ This outlines a plan for adding 3rd party software to the released oVirt Node IS
 
 *   Ability for 3rd party developers/vendors to write/adapt software for installation into an oVirt Node.
 *   Multiple plugins able to be installed simultaneously without interfering with each other.
-*   To isolate plugins from each other and to prevent misconfiguration plugins should fully reside under /opt/VENDOR/PLUGIN_NAME
+*   To isolate plugins from each other and to prevent misconfiguration, it is strongly recommended (but not required) that plugins reside under /opt/VENDOR/PLUGIN_NAME
     -   This includes lock files, configuration files, and library files
         -   /opt/VENDOR/PLUGIN_NAME/var/lock/
         -   /opt/VENDOR/PLUGIN_NAME/etc/

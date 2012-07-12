@@ -12,7 +12,17 @@ wiki_last_updated: 2012-07-23
 
 oVirt Jenkins server is jenkins.ovirt.org (107.22.215.130)
 
-### Access
+# Recommended server specs
+
+These are specs for servers to run Jenkins slaves for oVirt testing. One base configuration could be:
+
+*   3 VMs
+    -   16 GB RAM each
+    -   4/8 cores each
+    -   200 GB disk each
+    -   32 GB swap
+
+# Access
 
       * OS Level Access: Restricted to infra team only. (PKI)
       * Read UI Access: Anonymous read access is available to see all jobs/workspaces and build results. 
@@ -20,7 +30,7 @@ oVirt Jenkins server is jenkins.ovirt.org (107.22.215.130)
 
 Contact Infra team if you think you should have privileged access to the server.
 
-#### Troubleshooting OS level access:
+### Troubleshooting OS level access:
 
       * restorecon -R -v /home/user
       * restorecon -R -v /home/user/.ssh
@@ -28,7 +38,7 @@ Contact Infra team if you think you should have privileged access to the server.
       * chmod 600 /home/user/.ssh/authorized_keys
       * passwd user
 
-### Installation
+# Installation
 
 `* Install LTS version from `[`http://pkg.jenkins-ci.org/redhat-stable/`](http://pkg.jenkins-ci.org/redhat-stable/)
 `* Run it behind apache: `[`https://wiki.jenkins-ci.org/display/JENKINS/Running+Jenkins+behind+Apache`](https://wiki.jenkins-ci.org/display/JENKINS/Running+Jenkins+behind+Apache)
@@ -50,7 +60,7 @@ Contact Infra team if you think you should have privileged access to the server.
       * increase limit of open file using 'ulimit -n' (for persistent  change add to '/etc/sysctl.conf') => fs.file-max = 2048
       * amazon ec2 doesn't come with swap space -> create a swap file or partition:
 
-#### Create swap space
+### Create swap space
 
 check to see if you have /dev/xvdk device available (fdisk -cul) if it exists, follow these steps:
 
@@ -64,20 +74,20 @@ in case it doesn't, create a swapfile
 
 `* `[`http://www.cyberciti.biz/faq/linux-add-a-swap-file-howto/`](http://www.cyberciti.biz/faq/linux-add-a-swap-file-howto/)
 
-#### add temporary space for workspace (deletes data after reboot)
+### add temporary space for workspace (deletes data after reboot)
 
       * mkfs -t ext4 /dev/xvdj
       * mkdir /ephemeral0
       * echo "/dev/xvdj /ephemeral0 ext4 defaults 1 2" >> /etc/fstab
       * mount /ephemeral0
 
-#### expand default root partition
+### expand default root partition
 
 Amazon VM comes with a default 5GB / partition. but it actually has 50GB you can use. run this command to expand it
 
       * resize2fs /dev/xvde1
 
-#### change open files
+### change open files
 
 Jenkins slave might run out of openfiles. to change this you need to run:
 
@@ -87,7 +97,7 @@ Jenkins slave might run out of openfiles. to change this you need to run:
       *  jenkins  soft    nofiles    2048
       *  jenkins  hard    nofiles    2048
 
-#### allows sudo access for jenkins user
+### allows sudo access for jenkins user
 
 Jenkins user needs sudo access to be able to run tests from jenkins jobs, do this on each jenkins slave: edit /etc/suders:
 

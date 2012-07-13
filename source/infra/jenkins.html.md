@@ -16,11 +16,10 @@ oVirt Jenkins server is jenkins.ovirt.org (107.22.215.130)
 
 These are specs for servers to run Jenkins slaves for oVirt testing. One base configuration could be:
 
-*   3 VMs
-    -   16 GB RAM each
-    -   4/8 cores each
-    -   200 GB disk each
-    -   32 GB swap
+*   16 GB RAM each
+*   4/8 cores each
+*   200 GB disk each
+*   32 GB swap
 
 # Access
 

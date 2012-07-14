@@ -12,7 +12,8 @@ wiki_last_updated: 2013-12-13
 
 ## One time tasks
 
-*   Resize Linode disk, reboot server - (quaid)
+*   <s>Resize Linode disk, reboot server</s> - (quaid) Completed
+*   <s>break out media wiki from www.ovirt.org</s> (rmiddle)
 *   Upgrade WordPress
 *   Check for other upgrades (\*EL, EPEL)
 *   Proposal for migrating services to OpenShift - (quaid)
@@ -20,7 +21,7 @@ wiki_last_updated: 2013-12-13
 *   Puppet server for all of Infra needs
 *   Move Jenkins from EC2 to dedicated host for performance and cost benefits
 *   Fill out [Design of oVirt project infrastructure](Design of oVirt project infrastructure)
-*   Add true night repo's
+*   Add true night repo's (rmiddle)
 
 ## Ongoing tasks
 

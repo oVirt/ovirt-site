@@ -12,27 +12,13 @@ wiki_last_updated: 2015-05-29
 
 ## What Can You Do for Vdsm
 
+### Cleanup
+
 *   `` pylint -E `git ls-files | grep '.py$'` `` makes me cry. A lot of it is "only" about bad style, but we should clear it up and add it to our `make check-local`. We should grow up and pass `pychecker` too.
 
 <!-- -->
 
-*   write an automatic script that runs on each and every new change to gerrit, and adds an insulting comment if `pyflakes` fails for the new change.
-
-<!-- -->
-
-*   extend the former script, so that it runs a complete `` `make distcheck && make install` `` in a confined environment (chroot, VM) and reports if there is an error.
-
-<!-- -->
-
 *   Improve Vdsm portability. We are very much Fedora-centric at best. Do you want to have Vdsm on your pet distribution? Own that port!
-
-<!-- -->
-
-*   Simplify the SysV init script, split most of its code to a "[vdsm-tool](http://gerrit.ovirt.org/295)". vdsm-tool should assume responsibility on hairy stuff such as [configuring multipath](http://bugzilla.redhat.com/547424), which should not be the business of Vdsm proper.
-
-<!-- -->
-
-*   Support striping for disk images.
 
 <!-- -->
 
@@ -44,9 +30,33 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   let Vdsm install and run on hosts with no iscsid (report that iscsi is missing to Engine?)
+*   Configure vdsm to use syslog -- done by Mark Wu, but now we need to stop trashing the console.
 
 <!-- -->
+
+*   Simplify the SysV init script, split most of its code to a "[vdsm-tool](http://gerrit.ovirt.org/295)". vdsm-tool should assume responsibility on hairy stuff such as [configuring multipath](http://bugzilla.redhat.com/547424), which should not be the business of Vdsm proper.
+
+### Testing
+
+*   write an automatic script that runs on each and every new change to gerrit, and adds an insulting comment if `pyflakes` fails for the new change.
+
+<!-- -->
+
+*   extend the former script, so that it runs a complete `` `make distcheck && make install` `` in a confined environment (chroot, VM) and reports if there is an error.
+
+<!-- -->
+
+*   run unit and functional tests on reviewed patches (before submission).
+
+### Features
+
+*   Support striping for disk images.
+
+<!-- -->
+
+*   let Vdsm install and run on hosts with no iscsid (report that iscsi is missing to Engine?)
+
+### refactoring
 
 *   In vm.py, libvirtvm.py, clientIF.py there is a mess of prepare\*Path functions (end their respective teardowns), which is too complex to fathom. We have to convert all drive specifications (PDIV,GUID,path) into Drive object at the API entry.
 
@@ -56,13 +66,13 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   Configure vdsm to use syslog -- done by Mark Wu, but now we need to stop trashing the console.
-
-<!-- -->
-
 *   Define an API.VMState "enumeration" and use API.VMState.UP instead of the string 'Up'.
 
 <!-- -->
+
+*   factor betterPopen and betterThreading out of vdsm. They deserve a pipy review under the names cPopen and pthreading respectively.
+
+### Bugzilla
 
 *   pick one of the [<https://bugzilla.redhat.com/buglist.cgi?action=wrap&bug_file_loc>=&bug_file_loc_type=allwordssubstr&bug_id=&bug_id_type=anyexact&chfieldfrom=&chfieldto=Now&chfieldvalue=&component=vdsm&deadlinefrom=&deadlineto=&email1=&email2=&emailtype1=substring&emailtype2=substring&field0-0-0=flagtypes.name&keywords=&keywords_type=allwords&longdesc=&longdesc_type=allwordssubstr&short_desc=&short_desc_type=allwordssubstr&status_whiteboard=&status_whiteboard_type=allwordssubstr&type0-0-0=notsubstring&value0-0-0=rhel-6.2.0&votes=&=&bug_status=NEW NEW bugs], post a patch to [gerrit](http://gerrit.ovirt.org), and make the bug yours.
 

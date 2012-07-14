@@ -23,7 +23,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Sub-project idea & status
 *   Mission Statement selected
     -   The oVirt Infra Team is a volunteer effort to provide community infrastructure services by following the tenets of open source and accepted professional standards of system administrators. infrastructure as a collaboration."
-*   How to Handle the donatated hardware
+*   How to Handle donatated hardware
 *   Jenkins migration from EC2
 *   Push on ovirt-engine RPMs synce to ovirt.org
 *   Puppet as sub from sub-project

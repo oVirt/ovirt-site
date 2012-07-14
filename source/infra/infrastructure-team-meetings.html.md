@@ -16,6 +16,18 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
     -   To see in your timezone date -d 'TUESDAY 1000 EDT'
 *   *Where:* On IRC: #ovirt on irc.oftc.net
 
+## 2012-07-17
+
+**Agenda**
+
+*   Sub-project idea & status
+*   Mission Statement selected
+    -   The oVirt Infra Team is a volunteer effort to provide community infrastructure services by following the tenets of open source and accepted professional standards of system administrators. infrastructure as a collaboration."
+*   How to Handle the donatated hardware
+*   Jenkins migration from EC2
+*   Push on ovirt-engine RPMs synce to ovirt.org
+*   Puppet as sub from sub-project
+
 ## 2012-07-10
 
 **Agenda**

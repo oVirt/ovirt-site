@@ -12,8 +12,8 @@ wiki_last_updated: 2013-12-13
 
 ## One time tasks
 
-*   <s>Resize Linode disk, reboot server</s> - (quaid) Completed
-*   <s>break out media wiki from www.ovirt.org</s> (rmiddle)
+*   <s>Resize Linode disk, reboot server</s> - (quaid) Completed 7/13/2012
+*   <s>break out media wiki from www.ovirt.org</s> (rmiddle) Completed 7/13/2012
 *   Upgrade WordPress
 *   Check for other upgrades (\*EL, EPEL)
 *   Proposal for migrating services to OpenShift - (quaid)

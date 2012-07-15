@@ -17,4 +17,4 @@ I recently took on the large task of fully describing the vdsm API in a schema l
 
 Here is a sample of the API documentation we can produce from the schema ![](vdsmapi.html "fig:vdsmapi.html")
 
-Here is the schema file itself ![](vdsmapi-schema.json "fig:vdsmapi-schema.json")
+Here is the schema file itself <Media:vdsmapi-schema.json>

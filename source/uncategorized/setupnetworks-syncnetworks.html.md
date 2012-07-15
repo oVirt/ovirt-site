@@ -49,6 +49,10 @@ The needed additions are:
 
 <!-- -->
 
+*   Also need to provide an audit log when network(s) get automatically out of sync.
+
+<!-- -->
+
 *   Possible way to do this is to add an internal "Network Container" class which will hold for each NIC the network name + is it in sync or not.
     -   This can also be used to indicate other detials: Is network managed or not, etc.
 

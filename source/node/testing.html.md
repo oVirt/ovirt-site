@@ -86,9 +86,9 @@ doctests is one way to add basic unit tests as comments to methods in python.
 
 The plan is to separate the TUI code and "logic" code even more, so that TUI actions (approximately) map to library methods. In such a case we can use unit testing to test the functionality of the library backing the TUI, and it should be easier to track bugs down which arise in the TUI.
 
-# Test Plan
+# Testplan
 
-The testcases and kept in a separate git repository - which is soon hosted on ovirt.org and the referenced.
+The testcases and kept in the [test subdirectory of the ovirt-node git repository](http://gerrit.ovirt.org/gitweb?p=ovirt-node.git;a=tree;f=tests/igor;hb=HEAD).
 
 ### Basic Testcases
 

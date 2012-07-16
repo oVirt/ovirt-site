@@ -20,8 +20,7 @@ All features and bugs are tracked in bugzilla at [Red Hat Bugzilla](http://bugzi
 *   [All ovirt-node Features and Bugs for Version 2.2.3](http://goo.gl/HTDPJ) - Released 2012/02/15
 *   [All ovirt-node Features and Bugs for Version 2.3.0](http://goo.gl/O230Q) - Released 2012/03/26
 *   [All ovirt-node Features and Bugs for Version 2.4.0](http://goo.gl/3TY76) - Released 2012/06/14
-*   [All Open ovirt-node Features and Bugs for Version 2.4.1](http://goo.gl/DqyqZ) - Release Date 2012/06/27
-*   [All Open ovirt-node Features and Bugs for Version 2.5.0](http://goo.gl/OqoE3) - Release Date ~ 2012/07/15
+*   [All Open ovirt-node Features and Bugs for Version 2.5.0](http://goo.gl/OqoE3) - Release Date ~ 2012/07/25
 *   [All Open ovirt-node Features and Bugs for Version 2.6.0](http://goo.gl/fk7f6) - Release Date TBD
 *   [All Open ovirt-node Features and Bugs with no targeted release](http://goo.gl/LYzM7)
 

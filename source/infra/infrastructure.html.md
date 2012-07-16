@@ -33,3 +33,19 @@ The main thing is, come [communicate with us](#Communicate) if you have any ques
 *   [IRC channel #ovirt on OFTC](irc://irc.oftc.net/#ovirt)
 
 ## Team
+
+The maintainers of the Infrastructure project are:
+
+*   Mike Burns
+*   Eyal Edri
+*   Itamar Heim
+*   Ewoud Kohl van Wijngaarden
+*   Robert Middleswarth
+*   Ofer Schreiber
+*   Karsten Wade
+
+### Apprentices and journeyfolk
+
+In addition to the maintainers, there are newer Infrastructure team members who have not yet become maintainers. They are at the very beginning (apprentices) or nearing the end (journeyfolk):
+
+*   Moran Goldboim

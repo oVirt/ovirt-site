@@ -36,16 +36,16 @@ The main thing is, come [communicate with us](#Communicate) if you have any ques
 
 The maintainers of the Infrastructure project are:
 
-*   Mike Burns
-*   Eyal Edri
-*   Itamar Heim
-*   Ewoud Kohl van Wijngaarden
-*   Robert Middleswarth
-*   Ofer Schreiber
-*   Karsten Wade
+*   [Mike Burns](User:Mburns)
+*   [Eyal Edri](User:Eyal)
+*   [Itamar Heim](User:Iheim)
+*   [Ewoud Kohl van Wijngaarden](User:Ekojl)
+*   [Robert Middleswarth](User:Rmiddle)
+*   [Ofer Schreiber](User:Oschreib)
+*   [Karsten Wade](User:Quaid)
 
 ### Apprentices and journeyfolk
 
 In addition to the maintainers, there are newer Infrastructure team members who have not yet become maintainers. They are at the very beginning (apprentices) or nearing the end (journeyfolk):
 
-*   Moran Goldboim
+*   [Moran Goldboim](User:Mgoldboi)

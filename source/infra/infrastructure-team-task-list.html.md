@@ -22,6 +22,7 @@ wiki_last_updated: 2013-12-13
 *   Move Jenkins from EC2 to dedicated host for performance and cost benefits
 *   Fill out [Design of oVirt project infrastructure](Design of oVirt project infrastructure)
 *   Add true night repo's (rmiddle)
+*   Extend vdsm's on-commit hook, so it runs functional tests too. This requires installing vdsm.rpm as well as vdsm-tests.rpm, starting vdsmd service, running the tests, and cleaning the host.
 
 ## Ongoing tasks
 

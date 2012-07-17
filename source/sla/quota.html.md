@@ -40,8 +40,7 @@ Quota is relevant in every feature that either explicitly or implicitly manage r
 
 Affected oVirt projects:
 
-*   API
-*   CLI
+*   REST Interface
 *   Engine-core
 *   Webadmin
 *   User Portal

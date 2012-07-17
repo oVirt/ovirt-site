@@ -24,6 +24,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   How to Handle donated hardware
 *   Jenkins migration from EC2 - status
 *   Push on ovirt-engine RPMs sync to ovirt.org - status
+*   Enabling Gerrit patches - everyone vs. limited
 *   All other business
 
 ## 2012-07-10

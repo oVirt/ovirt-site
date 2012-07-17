@@ -8,7 +8,7 @@ wiki_last_updated: 2012-07-17
 
 # Recording video
 
-This page will contain instructions on recording a screencast on Linux and Windows for oVirt demo screencasts.
+This page will contain instructions on recording a screencast on Linux and Windows for oVirt demo screencasts. I found this article very informative and useful: [How I record demo videos](http://www.itauthor.com/2009/03/10/how-i-record-demo-videos/)
 
 ### GNOME 3
 

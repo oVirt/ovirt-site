@@ -42,7 +42,7 @@ These pages are to organise work on the reorganisation of the [ovirt.org front p
 *   Eliminate any [ orphan pages](Special:LonelyPages) (currently 136 orphaned pages in the wiki), consolidate redundant pages, split long pages, version docs for the oVirt version they apply to - basic wiki gardening
 *   Refresh docs for oVirt 3.1
 
-### [Gap analysis]
+### [Gap analysis](Gap analysis)
 
 *   "Installing oVirt on Fedora 17" - I thought this existed, but can't find it
 *   "Quick start oVirt cluster" - getting oVirt up and running from scratch with an engine, a storage domain, and two nodes

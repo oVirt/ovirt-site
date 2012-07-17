@@ -8,7 +8,7 @@ wiki_last_updated: 2012-09-30
 
 # Screencasts
 
-We would like to make between 5 and 10 screencasts to show oVirt features (both new and old) before the [ oVirt 3.1 release](Second Release).
+We would like to make between 5 and 10 screencasts/video demos to show oVirt features (both new and old) before the [ oVirt 3.1 release](Second Release).
 
 Each screencast consists of three phases: Scripting the demoing of the feature, recording the video which shows the feature, and finally adding a voiceover soundtrack to explain what is happening on the screen. Ideally, we can separate each of these stages to spread the load of production.
 
@@ -34,13 +34,36 @@ Each of these features needs a script (the prerequisites, the steps to follow to
 
 ### Prerequisites
 
+*   oVirt engine
+*   At least two oVirt nodes
+*   At least one guest image available to run on the node
+
 ### Demo steps
+
+1.  Show the engine dashboard, with the services currently running
+2.  Switch to the images view, and indicate the new VM we want to add (perhaps a web service like Wordpress would be good)
+3.  Start the new service, and return to the manager view
+4.  Connect to the running VM service (for example, for a Wordpress instance, connect to the IP address with a web client)
+5.  Connect to the new instance via Spice to show that we can connect to it and make changes
+6.  Conclude
+
+Questions: How would one show the high-availability features which come "for free"?
 
 ## Migrating a VM
 
 ### Prerequisites
 
+*   oVirt engine
+*   At least two oVirt nodes
+*   At least one running VM
+
 ### Demo steps
+
+1.  In Engine, indicate which node the running service is on
+2.  Connect to the service (eg. Wordpress blog in a web browser)
+3.  Initiate a transfer of the service to another node, showing that the service remains available during the process
+4.  Describe the process happening behind the scenes as VDSM does its thing
+5.  Return to Engine dashboard to show that the VM is now running on a different node
 
 ## Cloning
 

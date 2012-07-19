@@ -8,6 +8,8 @@ wiki_last_updated: 2012-07-20
 
 # Memory FAQ
 
+oVirt Memory Frequently Asked Questions
+
 ## How does oVirt check the available memory to start a VM?
 
 CURRENT MEMORY ALLOCATION (MB):

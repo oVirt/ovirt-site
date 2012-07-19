@@ -89,3 +89,7 @@ The user can select the commit mode of each transaction, so that it is possible 
 ### Guidlines dedicated / shared
 
 ### pgtune
+
+pgtune takes the default postgresql.conf and expands the database server to be as powerful as the hardware it's being deployed on.
+
+[How to tune your database](http://sourcefreedom.com/tuning-postgresql-9-0-with-pgtune/)

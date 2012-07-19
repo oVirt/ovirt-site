@@ -61,7 +61,7 @@ You have to install [ovirt-guest-agent](http://wiki.ovirt.org/wiki/Category:Ovir
 
 ## How does "Cluster / Memory Optimization" work?
 
-When you set your cluster to Memory Optimization, you are setting max_vds_memory_over_commit (see #1) to 150 (server load) or 200 (desktop load).This setting allows oVirt to create VMs as if it had 50% (server load) or (100%) more physical memory than it really has.
+When you set your cluster to Memory Optimization, you are setting max_vds_memory_over_commit (see #1) to 150 (server load) or 200 (desktop load).This setting allows oVirt to create VMs as if had 50% (server load) or (100%) more physical memory than really has.
 
 ## What does "Shared Memory" stand for?
 

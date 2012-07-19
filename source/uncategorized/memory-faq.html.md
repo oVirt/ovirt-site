@@ -61,7 +61,7 @@ You have to install [ovirt-guest-agent](http://wiki.ovirt.org/wiki/Category:Ovir
 
 When you set your cluster to Memory Optimization, you are setting max_vds_memory_over_commit (see #1) to 150 (server load) or 200 (desktop load).This setting allows oVirt to create VMs as if it had 50% (server load) or (100%) more physical memory than it really has.
 
-## What does "Shared Memory" stands for?
+## What does "Shared Memory" stand for?
 
 Shared Memory is the result of [KSM](http://www.linux-kvm.org/page/KSM) memory page de-duplication. oVirt shows the percent of memory being saved by KSM.
 

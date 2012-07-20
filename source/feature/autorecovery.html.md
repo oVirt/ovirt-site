@@ -22,7 +22,7 @@ This page describes the Autorecovery feature in ovirt engine.
 
 ### Current status
 
-*   Last updated date: Wed Feb 08 2012
+*   Last updated date: Wed July 20 2012
 
 # Detailed description
 

@@ -92,13 +92,13 @@ The testcases and kept in the [test subdirectory of the ovirt-node git repositor
 
 ### Basic Testcases
 
-| Testcase                                                                                                                              | Difficulty | Complete | Updated    |
-|---------------------------------------------------------------------------------------------------------------------------------------|------------|----------|------------|
-| Basic Auto-Install - Installation with the basic parameters and a login into the TUI                                                  | easy       | 100%     | 2012-06-01 |
-| Alternate Auto-Install - Installation with other (TBD) parameters                                                                     | medium     | 0%       | 2012-06-01 |
-| Basic TUI-Install - Simple TUI installation using sane defaults                                                                       | medium     | 100%     | 2012-06-12 |
-| Basic TUI Testing - Perform a couple of TUI tasks                                                                                     | medium     | 30%      | 2012-06-12 |
-| Basic unit tests - Perform doctest and unitests on the running Node                                                                   | easy       | 40%      | 2012-06-04 |
-| Run some [autotest](http://autotest.github.com/)[1](https://github.com/autotest/autotest/tree/master/client/virt/tests) tests on node | hard       | 0%       | 2012-06-04 |
+| Testsuite                                                                                                                             | Difficulty | Complete                                                                                                              | Updated    |
+|---------------------------------------------------------------------------------------------------------------------------------------|------------|-----------------------------------------------------------------------------------------------------------------------|------------|
+| Basic Auto-Install - Installation with the basic parameters and a login into the TUI                                                  | easy       | 80% [testsuite](http://gerrit.ovirt.org/gitweb?p=ovirt-node.git;a=blob;f=tests/igor/suites/ai_basic.suite;hb=HEAD)    | 2012-06-20 |
+| Alternate Auto-Install - Installation with other (TBD) parameters                                                                     | medium     | 10% [testsuite](http://gerrit.ovirt.org/gitweb?p=ovirt-node.git;a=blob;f=tests/igor/suites/ai_extended.suite;hb=HEAD) | 2012-06-20 |
+| Basic TUI-Install - Simple TUI installation using sane defaults                                                                       | medium     | 80% [testsuite](http://gerrit.ovirt.org/gitweb?p=ovirt-node.git;a=blob;f=tests/igor/suites/mi_basic.suite;hb=HEAD)    | 2012-06-20 |
+| Basic TUI Testing - Perform a couple of TUI tasks                                                                                     | medium     | 30%                                                                                                                   | 2012-06-12 |
+| Basic unit tests - Perform doctest and unitests on the running Node                                                                   | easy       | 40%                                                                                                                   | 2012-06-04 |
+| Run some [autotest](http://autotest.github.com/)[1](https://github.com/autotest/autotest/tree/master/client/virt/tests) tests on node | hard       | 0%                                                                                                                    | 2012-06-04 |
 
 <Category:Testing> <Category:Automation> <Category:Node>

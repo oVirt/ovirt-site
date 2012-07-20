@@ -51,7 +51,7 @@ Using free comand, the Total Memory is always the Defined Memory. You can also c
 
 This value is coming from oVirt Node memory statistcs in /proc/meminfo. It depends on how much memory is being used by the entire system, including VMs and all processes.
 
-## Why can not I start a new VM due to "Node has not enough memory" even with low Node memory usage?
+## Why can not I start a new VM due to "Cannot run VM. There are no available running Hosts with sufficient memory in VM's Cluster." even with low Node memory usage?
 
 Even when VMs are not using all Node memory, oVirt must assure that will have enough memory when VMs become high loaded. To do so, oVirt considers the worst case (see #1).
 

@@ -26,6 +26,7 @@ Since the entire communication to the virtualization management system is throug
 Currently, Ovirt-guest-agent can run on:
 
 *   Red Hat Enterprise Linux 6.2
+*   CentOS 6.2
 *   Fedora 15
 *   Windows XP (32)
 *   Windows 7 (32/64)

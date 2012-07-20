@@ -12,7 +12,7 @@ wiki_last_updated: 2012-07-20
 
 ### Summary
 
-This page describes the **planned** Autorecovery feature in ovirt engine.
+This page describes the Autorecovery feature in ovirt engine.
 
 ### Owner
 
@@ -28,16 +28,16 @@ This page describes the **planned** Autorecovery feature in ovirt engine.
 
 ### Behavior
 
-*   Autorecovery feature will allow the backend to recover some of the objects automatically after a temporary failure. Initially only automatic recovery of hosts and storage domains will be supported.
-*   Autorecovery can be enabled/disabled for each object of the above entity types. The engine will try to recover it periodically as long as the autorecovery is set to true.
-*   The recovery logic (at least in the first iteration) will not check the reason why the object got into Not Operational/Inactive state
-*   AuditLog will be limited to be issued once every 3 hours for unsuccessful recovery.
+*   Autorecovery feature allows the backend to recover some of the objects automatically after a temporary failure. Only automatic recovery of hosts and storage domains are supported.
+*   Autorecovery can be enabled/disabled for each object of the above entity types. The engine tries to recover it periodically as long as the autorecovery is set to true.
+*   The recovery logic does not check the reason why the object got into Not Operational/Inactive state
+*   AuditLog is limited to be issued once every 3 hours for unsuccessful recovery.
 
 ### Internals
 
-*   The check will happen in regular intervals (quartz scheduler)
+*   The check happens in regular intervals (quartz scheduler)
 *   Needs a DAO extension to fetch only those objects that are in failed state and have auto-recovery on
-*   It will call the respective commands (ActivateHost, ActivateStorageDomain), and let the commands do what they do
-*   Database needs to be extended with autorecovery information, default will be true - as discussed on engine-devel list.
+*   It calls the respective commands (ActivateHost, ActivateStorageDomain), and let the commands do what they do
+*   Database is extended with autorecovery information, default is true - as discussed on engine-devel list. As of now, this property is always true for each autorecoverable entity and can not be changed through engine.
 
 <Category:Feature>

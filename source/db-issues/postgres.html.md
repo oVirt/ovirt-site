@@ -86,7 +86,24 @@ The risk that is taken by using asynchronous commit is of data loss, not data co
 
 The user can select the commit mode of each transaction, so that it is possible to have both synchronous and asynchronous commit transactions running concurrently. This allows flexible trade-offs between performance and certainty of transaction durability.
 
-### Guidlines dedicated / shared
+### Guidlines for Dedicated/Shared server
+
+Dedicated
+
+        logging can be more verbose
+        shared_buffers - 25% of RAM
+        work_mem should be `<OS cache size>` / (max_connections * 2)
+        maintenance_work_mem - 50MB per each 1GB of RAM
+        checkpoint_segments - at least 10
+        wal_buffers - 16MB
+        
+
+Shared
+
+        reduce logging 
+        shared_buffers - 10% of RAM
+        be very stingy about increasing work_mem
+        all other recomendations from the Dedicated section may apply
 
 ### pgtune
 

@@ -121,8 +121,29 @@ Many aspects of query planning depends on this statistics data being accurate.
 
 ## Logging
 
+General logging is important especially if you have unexpected behaviour and you want to find the reason for that
+The default logging level is only Errors but this can be easily changed.
+
 ### log_line_prefix
+
+Controls the line prefix of each log message.
+
+       %t timestamp
+       %u user
+       %r remote host connection
+       %d database connection
+       %p pid of connection
 
 ### log_statement
 
+Controls which statements are logged
+
+       one
+       ddl
+       mod
+       all
+
 ### log_min_duration_statement
+
+Controls how long should a query being executed to be logged
+Very usefull to find most expensive queries

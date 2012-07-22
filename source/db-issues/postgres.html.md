@@ -94,9 +94,10 @@ Dedicated
         shared_buffers - 25% of RAM
         work_mem should be `<OS cache size>` / (max_connections * 2)
         maintenance_work_mem - 50MB per each 1GB of RAM
-        checkpoint_segments - at least 10
-        wal_buffers - 16MB
+        checkpoint_segments - at least 10 [1]
+        wal_buffers - 16MB  [1]
         
+        [1] `[`http://www.postgresql.org/docs/9.1/static/wal-configuration.html` `WAL` `Configuration`](http://www.postgresql.org/docs/9.1/static/wal-configuration.html WAL Configuration)`   
 
 Shared
 

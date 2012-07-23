@@ -37,6 +37,16 @@ Another option is the "Sync Network" enhancement.
 
 The "Sync Network" enhancement is a way for clients which are calling "Setup Networks" to be able to report networks which are out of sync on a host's interfaces, and issue a request to sync those networks. The enhancement is not a new command, but rather a way to communicate more details when using "Setup Networks" on a host.
 
+## When to Sync Network?
+
+Network will be considered 'out of sync' on the following conditions:
+
+*   VM Netwrok is different.
+*   VLAN ID is different.
+*   MTU is set on the logical network, and is different.
+
+When network is out of sync, it is considered as an unmanaged network, until synced. This means it cannot be edited or moved if it is out of sync, unless it is set to be synced.
+
 ## How to Sync Network?
 
 The needed additions are:

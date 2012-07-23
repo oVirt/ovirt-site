@@ -26,8 +26,8 @@ The oVirt 3.1 release includes these notable changes.
 
 ### Infrastructure
 
-*   Support has been added for Red Hat Directory Server and IBM Tivoli Directory Server.
-*   An additional tab has been added to the oVirt Engine's management interface to support monitoring the status of tasks.
+*   The oVirt Engine is now supports the use of Red Hat Directory Server and/or IBM Tivoli Directory Server for user authentication. This is addition to existing support for IPA and Active Directory.
+*   An additional tab has been added to the oVirt Engine's management interface to support monitoring the status of tasks in the oVirt Environment.
 *   A correlation identifier to support debugging is now used to track events across the user interfaces, engine backend, and VDSM.
 *   The oVirt Engine now automatically attempts to auto-activate hosts detected as non-operational.
 

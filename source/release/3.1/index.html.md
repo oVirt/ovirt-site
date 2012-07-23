@@ -53,10 +53,10 @@ The oVirt 3.1 release includes these notable changes.
 
 ### Virtualization
 
-*   ''Previously it was not possible to import a Virtual Machine or Template that had already been imported, even if it was to a different data center. This has now been fixed ([Features/ImportMoreThanOnce](Features/ImportMoreThanOnce)). ''
-*   Devices in guest virtual machines now retain the same address allocations as other devices are added and/or removed from the guest's configuration ([Features/Design/DetailedStableDeviceAddresses](Features/Design/DetailedStableDeviceAddresses)).
-*   Added support for "pre-started" virtual machine pools. Instead of having to wait for a virtual machine allocated from the pool to boot user's will instead, where possible, be allocated a virtual machine which has already been started ([Features/PrestartedVm](Features/PrestartedVm)).
-*   Added support for a virtual machine payload, in the form of a Floppy or CD/DVD image, that will be passed to the virtual machine. Virtual machine payloads may be either temporary or permenant.([Features/VMPayload](Features/VMPayload)).
+*   Previously it was not possible to import a Virtual Machine or Template that had already been imported, even if it was to a different data center. This is no longer the case ([Features/ImportMoreThanOnce](Features/ImportMoreThanOnce)).
+*   Devices attached to guest virtual machines now retain the same address allocations as other devices are added and/or removed from the guest's configuration ([Features/Design/DetailedStableDeviceAddresses](Features/Design/DetailedStableDeviceAddresses)).
+*   Support for "pre-started" virtual machine pools has been added. Instead of having to wait for a virtual machine allocated from the pool to boot user's will instead, where possible, be allocated a virtual machine which has already been started ([Features/PrestartedVm](Features/PrestartedVm)).
+*   Support for virtual machine payloads has been added, in the form of a Floppy or CD/DVD image that will be passed to the virtual machine. Virtual machine payloads may be either temporary or permenant.([Features/VMPayload](Features/VMPayload)).
 *   **native spice usb support (need to see if made ovirt 3.1)**
 *   **spice wan options (need to see if made ovirt 3.1)**
 *   new custom hook in vdsm: set vm ticket

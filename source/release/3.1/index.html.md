@@ -65,8 +65,8 @@ The oVirt 3.1 release includes these notable changes.
 *   mtu ("jumbo frames")
 *   vm networks ("bridgeless networks")
 *   optional/required networks
-*   hotplug nic
-*   port mirroring ("promiscuous mode")
+*   Support for hot plugging and unplugging of Virtual Network Interface Cards from virtual machines, has been added ([Features/HotplugNic](Features/HotplugNic)).
+*   Support for port mirroring, allowing all network traffic to be mirrored to a specific virtual machine, has been added ([Features/PortMirroring](Features/PortMirroring)).
 
 ### Interfaces
 

@@ -201,3 +201,7 @@ The ANALYZE option causes the statement to be actually executed, not only planne
         COSTS [ boolean ]
         BUFFERS [ boolean ]
         FORMAT { TEXT | XML | JSON | YAML }
+
+see also
+[Using EXPLAIN](http://www.postgresql.org/docs/9.0/static/using-explain.htm)
+[Online EXPLAIN](http://explain.depesz.com/)

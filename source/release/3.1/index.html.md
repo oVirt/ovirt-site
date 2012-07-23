@@ -63,6 +63,7 @@ The oVirt 3.1 release includes these notable changes.
 
 *   A new network setup APIto handle complex network provisioning tasks has been added to the backend, as a result the user interface for host network setup has also been significantly improved ([Features/Design/Network/SetupNetworks](Features/Design/Network/SetupNetworks)).
 *   mtu ("jumbo frames")
+*   Support for adjusting the MTU of a logical network, when it is not attached to a cluster, has been added ([Features/Design/Network/Jumbo_frames](Features/Design/Network/Jumbo_frames)).
 *   Support for bridgeless networks, has been added.([Features/Design/Network/Bridgeless_Networks](Features/Design/Network/Bridgeless_Networks)).
 *   Support for hot plugging and unplugging of Virtual Network Interface Cards from virtual machines, has been added ([Features/HotplugNic](Features/HotplugNic)).
 *   Support for port mirroring, allowing all network traffic to be mirrored to a specific virtual machine, has been added ([Features/PortMirroring](Features/PortMirroring)).

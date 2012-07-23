@@ -34,6 +34,10 @@ Run script
 
        \i [script name]
 
+# pgadminIII
+
+A UI tool over psql
+
 # How do I know if my query is efficient ?
 
 ### Analyse

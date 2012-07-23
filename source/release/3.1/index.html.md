@@ -49,7 +49,7 @@ The oVirt 3.1 release includes these notable changes.
 *   disks main tab ("floating disks")
 *   spm priority
 *   auto re-activate storage domains from error mode
-*   use sanlock for pool locks (need to see if made ovirt 3.1)
+*   **use sanlock for pool locks (need to see if made ovirt 3.1)**
 
 ### Virtualization
 

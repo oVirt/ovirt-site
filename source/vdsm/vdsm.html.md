@@ -29,6 +29,10 @@ Vdsm stands for Virtual Desktop and Server Manager.
 
 Our git repository sits on [oVirt's Gerrit server](http://gerrit.ovirt.org/gitweb?p=vdsm.git). Development takes place on our mailing lists: [vdsm-patches](https://fedorahosted.org/mailman/listinfo/vdsm-patches) for submitting new patches, and [vdsm-devel](https://fedorahosted.org/mailman/listinfo/vdsm-devel) for general discussions on where Vdsm development should go. On the latter one, users and potential users should feel comfortable to seek help, ask questions, and get answers about Vdsm.
 
+## IRC
+
+There is [#vdsm on freenode](irc://irc.freenode.org/vdsm), including [logs](http://ekohl.nl/vdsm).
+
 ## Requirements
 
 Currently, Vdsm requires Red Hat Enterprise Linux 6.2 or Fedora 16 to run properly.

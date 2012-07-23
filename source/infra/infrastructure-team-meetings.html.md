@@ -22,6 +22,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 *   Jenkins migration from EC2 - status
 *   Repo layout for the upcoming 3.1 release - rmiddle proposal
+*   Jenkins backups and code review - eedri
 *   Push on ovirt-engine RPMs sync to ovirt.org - status
 *   Enabling Gerrit patches - everyone vs. limited
 *   All other business

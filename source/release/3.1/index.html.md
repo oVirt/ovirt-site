@@ -38,7 +38,18 @@ The oVirt 3.1 release includes these notable changes.
 
 ### Storage
 
-* hot plug disk - multiple storage domains - shared disk - external disk (direct lun) - posix fs storage domains - nfs options - nfs v4 - live snapshot - disks main tab ("floating disks") - spm priority - auto re-activate storage domains from error mode - use sanlock for pool locks (need to see if made ovirt 3.1)
+*   hot plug disk
+*   multiple storage domains
+*   shared disk
+*   external disk (direct lun)
+*   posix fs storage domains
+*   nfs options
+*   nfs v4
+*   live snapshot
+*   disks main tab ("floating disks")
+*   spm priority
+*   auto re-activate storage domains from error mode
+*   use sanlock for pool locks (need to see if made ovirt 3.1)
 
 ### Virtualization
 

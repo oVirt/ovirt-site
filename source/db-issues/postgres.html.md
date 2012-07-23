@@ -147,3 +147,31 @@ Controls which statements are logged
 
 Controls how long should a query being executed to be logged
 Very usefull to find most expensive queries
+
+## psql
+
+Help
+
+       \h
+       \?
+
+Editor
+
+       \e 
+
+Format
+
+       \x 
+
+History
+
+       \set HISTFILE ~/.psql_history- :HOST - :DBNAME
+       \set HISTSIZE 2000
+
+Cost
+
+       \timing
+
+Run script
+
+       \i [script name]

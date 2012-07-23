@@ -50,7 +50,14 @@ Contact Infra team if you think you should have privileged access to the server.
       * psql -U postgres -c "CREATE ROLE engine WITH LOGIN SUPERUSER"
       * service jenkins start
       * Install Jenkins plugins: 
-        audit trail, git, multiple scm, analysis collector plugin, findbugs, Email-ext plugin, Port Allocator Plugin
+`  wget `[`http://localhost:8080/jnlpJars/jenkins-cli.jar`](http://localhost:8080/jnlpJars/jenkins-cli.jar)
+        java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` install-plugin audit-trail
+        java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` install-plugin git
+        java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` install-plugin multiple-scms
+        java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` install-plugin analysis-collector
+        java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` install-plugin findbugs
+        java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` install-plugin Email-ext
+        java -jar jenkins-cli.jar -s `[`http://localhost:8080`](http://localhost:8080)` install-plugin port-allocator
 
 `* config JAVA_HOME in `[`http://jenkins.ovirt.org/configure`](http://jenkins.ovirt.org/configure)
 `* config default maven in `[`http://jenkins.ovirt.org/configure`](http://jenkins.ovirt.org/configure)

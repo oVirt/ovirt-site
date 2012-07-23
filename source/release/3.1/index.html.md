@@ -61,12 +61,12 @@ The oVirt 3.1 release includes these notable changes.
 
 ### Network
 
-*   setup multiple networks and new ui
+*   A new network setup APIto handle complex network provisioning tasks has been added to the backend, as a result the user interface for host network setup has also been significantly improved ([Features/Design/Network/SetupNetworks](Features/Design/Network/SetupNetworks)).
 *   mtu ("jumbo frames")
-*   vm networks ("bridgeless networks")
-*   optional/required networks
+*   Support for bridgeless networks, has been added.([Features/Design/Network/Bridgeless_Networks](Features/Design/Network/Bridgeless_Networks)).
 *   Support for hot plugging and unplugging of Virtual Network Interface Cards from virtual machines, has been added ([Features/HotplugNic](Features/HotplugNic)).
 *   Support for port mirroring, allowing all network traffic to be mirrored to a specific virtual machine, has been added ([Features/PortMirroring](Features/PortMirroring)).
+*   Previously, all logical networks were considered mandatroy for all hosts in a cluster. Hosts that were not attached to all logcal networks in the cluster were marked non-responsive. Administrators now have the option to mark specific logical networks as non-mandatory, bypassing this behavior ([Features/Design/Network/Required_Networks](Features/Design/Network/Required_Networks)).
 
 ### Interfaces
 

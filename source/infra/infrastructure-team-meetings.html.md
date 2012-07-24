@@ -26,6 +26,8 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Jenkins migration from EC2 - status
 *   Push on ovirt-engine RPMs sync to ovirt.org - status
 *   Enabling Gerrit patches - everyone vs. limited
+*   Puppet - ewoud
+*   Parallel jobs - ewoud
 *   All other business
 
 ## 2012-07-17

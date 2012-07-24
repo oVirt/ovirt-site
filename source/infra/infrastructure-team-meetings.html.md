@@ -27,7 +27,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Push on ovirt-engine RPMs sync to ovirt.org - status
 *   Enabling Gerrit patches - everyone vs. limited
 *   Puppet - ewoud
-*   Parallel jobs - ewoud
+*   Parallel jobs - eedri
 *   All other business
 
 ## 2012-07-17

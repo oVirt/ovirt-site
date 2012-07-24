@@ -49,12 +49,11 @@ option 1
  su - postgres /usr/bin/pg_ctl reload option 2
  echo "SELECT pg_reload_conf();" | psql -U <user> <database>
 
-### SIGHUP
-
-       pg_ctl reload
+### Connection
 
 [Connection parameters](http://www.postgresql.org/docs/current/static/runtime-config-connection.html)
-=== Remote access (listen_addresses) ===
+
+### Remote access (listen_addresses)
 
 ` `[`pg_hba.conf`](http://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html)
 

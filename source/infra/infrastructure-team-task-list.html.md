@@ -35,6 +35,7 @@ wiki_last_updated: 2013-12-13
         -   Backing up database.
     -   MeetBot
     -   Jenkins
+        -   Daily backups of the config.
     -   Gerritt
     -   Mailman
         -   Making a new mailing list

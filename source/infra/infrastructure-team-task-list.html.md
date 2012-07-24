@@ -23,6 +23,7 @@ wiki_last_updated: 2013-12-13
 *   Fill out [Design of oVirt project infrastructure](Design of oVirt project infrastructure)
 *   Add true night repo's (rmiddle & eedri)
 *   Extend vdsm's on-commit hook, so it runs functional tests too. This requires installing vdsm.rpm as well as vdsm-tests.rpm, starting vdsmd service, running the tests, and cleaning the host.
+*   Add log rotate for Jenkins slave logs.
 
 ## Ongoing tasks
 

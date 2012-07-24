@@ -39,7 +39,7 @@ The maintainers of the Infrastructure project are:
 *   [Mike Burns](User:Mburns)
 *   [Eyal Edri](User:Eyal)
 *   [Itamar Heim](User:Iheim)
-*   [Ewoud Kohl van Wijngaarden](User:Ekojl)
+*   [Ewoud Kohl van Wijngaarden](User:Ekohl)
 *   [Robert Middleswarth](User:Rmiddle)
 *   [Ofer Schreiber](User:Oschreib)
 *   [Karsten Wade](User:Quaid)

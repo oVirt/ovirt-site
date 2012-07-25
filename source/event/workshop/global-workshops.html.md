@@ -36,8 +36,6 @@ The team is also working with the [Open Virtualization Alliance](http://www.open
 
 Kyle Mestery is working to arrange a workshop on Cisco's campus, likely in the Research Triangle Park, North Carolina, US area.
 
-Leslie Hawthorn is investigating holding a workshop at Red Hat's campus in Bangalore, India. The campus is in the process of moving to a new location and event space and logistics will become more clear once the move has taken place.
-
 We are currently working to locate a place to host a workshop in the LATAM region.
 
 ## LinuxCon North America 2012
@@ -48,20 +46,14 @@ We are currently working to locate a place to host a workshop in the LATAM regio
 
 #### LinuxCon North America 2012 Workshop Details
 
-*   The workshop is free of charge for the first 50 registrants. We will look at adding additional participant slots based on demand.
+*   The workshop is free of charge for registrants.
 *   Attendees registering for LinuxCon North America via the workshop registration link above receive discounted attendance to LinuxCon North America.
 *   Attendees who have already registered for LinuxCon North America via the main conference registration page can simply edit their existing registration to add on the oVirt Workshop.
 *   Beverage breaks and lunch will be provided to all attendees.
 
 #### LinuxCon North America 2012 Outstanding Action Items
 
-*   Create workshop overview description.
-*   Create workshop agenda.
-*   Create workshop session abstracts.
-*   Determine instructors for the workshop & assing them to particular sessions.
-*   Submit all information the Linux Foundation for printed materials and website.
-
-While we have not yet been given a deadline for these action items, it would be best to get the information together sooner rather than later.
+*   Add additional participants to LCNA workshop agenda. Expecting abstract from NetApp; have determined that additional sessions can be added with no issues per Linux Foundation.
 
 ## Red Hat Bangalore Campus Workshop
 

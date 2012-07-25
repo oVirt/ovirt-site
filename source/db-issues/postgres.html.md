@@ -94,15 +94,16 @@ Dedicated
         work_mem should be `<OS cache size>` / (max_connections * 2)
         maintenance_work_mem - 50MB per each 1GB of RAM
         checkpoint_segments - at least 10 [1]
-        wal_buffers - 16MB  [1]
+        wal_buffers - 16MB  [2]
         
-        [1] `[`http://www.postgresql.org/docs/9.1/static/wal-configuration.html` `WAL` `Configuration`](http://www.postgresql.org/docs/9.1/static/wal-configuration.html WAL Configuration)`   
+`  [1] `[`http://www.postgresql.org/docs/9.1/static/pgbuffercache.html` `pg_buffercache`](http://www.postgresql.org/docs/9.1/static/pgbuffercache.html pg_buffercache)
+        [2] `[`http://www.postgresql.org/docs/9.1/static/wal-configuration.html` `WAL` `Configuration`](http://www.postgresql.org/docs/9.1/static/wal-configuration.html WAL Configuration)`   
 
 Shared
 
         reduce logging 
         shared_buffers - 10% of RAM
-        be very stingy about increasing work_mem
+        be very stingy about increasing work_mem 
         all other recomendations from the Dedicated section may apply
 
 ### pgtune

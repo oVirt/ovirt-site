@@ -42,9 +42,9 @@ The oVirt 3.1 release includes these notable changes.
 *   multiple storage domains
 *   shared disk
 *   external disk (direct lun)
-*   posix fs storage domains
-*   nfs options
-*   nfs v4
+*   Support has been added to VDSM, and by extension oVirt Engine, for the attachment and use of NFSv4 storage ([Features/NFSv4](Features/NFSv4).
+*   It is now possible to override some of VDSM's default NFS settings from the oVirt Engine when attaching storage (Features/AdvancedNfsOptions]]).
+*   Support has been added for the attachment and use of POSIX filesystem compliant storage, allowing users to attach any type of storage supported by **mount** ([Features/PosixFSConnection](Features/PosixFSConnection)).
 *   live snapshot (Requires qemu 1.1 on the vdsm host)
 *   disks main tab ("floating disks")
 *   spm priority

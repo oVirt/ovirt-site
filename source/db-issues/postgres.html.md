@@ -87,6 +87,11 @@ The user can select the commit mode of each transaction, so that it is possible 
 
 ### Guidlines for Dedicated/Shared server
 
+For the following , a good understanding of the database clock lifecycle is needed.
+
+      page request --> changes --> dirty --> commit to WAL --> Statistics (pg_stat_user_tables etc.) (*) --> Write to disk & clean dirty flag (*)
+      (*) - async
+
 Dedicated
 
         logging can be more verbose

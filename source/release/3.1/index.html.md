@@ -53,7 +53,7 @@ TODO:
 *   auto re-activate storage domains from error mode
 *   **use sanlock for pool locks (need to see if made ovirt 3.1)**
 *   hot plug disk (If the "Add" menu command in the virtual disks pane of a running VM is greyed out, a disk may be added from the VM "Guide Me" dialog)
-*   multiple storage domains
+*   multiple storage domains ([Features/MultipleStorageDomains](Features/MultipleStorageDomains)).
 
 ### Virtualization
 

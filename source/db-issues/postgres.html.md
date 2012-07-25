@@ -94,6 +94,7 @@ Dedicated
         work_mem should be `<OS cache size>` / (max_connections * 2)
         maintenance_work_mem - 50MB per each 1GB of RAM
         checkpoint_segments - at least 10 [1]
+        checkpoint_timeout
         wal_buffers - 16MB  [2]
         
 `  [1] `[`http://www.postgresql.org/docs/9.1/static/pgbuffercache.html` `pg_buffercache`](http://www.postgresql.org/docs/9.1/static/pgbuffercache.html pg_buffercache)

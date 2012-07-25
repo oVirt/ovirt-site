@@ -44,6 +44,7 @@ The oVirt 3.1 release includes these notable changes.
 *   Support has been added for the attachment and use of POSIX filesystem compliant storage, allowing users to attach any type of storage supported by **mount** ([Features/PosixFSConnection](Features/PosixFSConnection)).
 *   Support for defining the priority of hosts in the storage pool manager (SPM) selection process has been added. Hosts can also be assigned a priority of **-1**m which means that they must not be selected as the SPM ([Features/SPMPriority](Features/SPMPriority)).
 *   Support has been added for sharing of disks between virtual machines. Previously each disk could only be attached to a single virtual machine, it is now possible to share a disk between multiple virtual machines concurrently ([Features/SharedRawDisk](Features/SharedRawDisk)).
+*   Support has been added for hot plugging and unplugging of **virtio-blk** disks to and from virtual machines ([Features/HotPlug](Features/HotPlug)).
 
 TODO:
 

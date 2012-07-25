@@ -81,8 +81,8 @@ The oVirt 3.1 release includes these notable changes.
 
 ### Interfaces
 
-*   New Python SDK, packaged as *ovirtsdk* ([SDK](SDK)).
-*   New Python CLI, packaged as *???* ([CLI](CLI)).
+*   New Python SDK, packaged as *ovirt-engine-sdk* ([SDK](SDK)).
+*   New Python CLI, packaged as *ovirt-engine-cli* ([CLI](CLI)).
 *   Added JSON support for REST API.
 *   Added session support to the REST API, allowing one login to process multiple requests.
 

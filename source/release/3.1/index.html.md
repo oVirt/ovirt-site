@@ -45,14 +45,13 @@ The oVirt 3.1 release includes these notable changes.
 *   Support for defining the priority of hosts in the storage pool manager (SPM) selection process has been added. Hosts can also be assigned a priority of **-1**m which means that they must not be selected as the SPM ([Features/SPMPriority](Features/SPMPriority)).
 *   Support has been added for sharing of disks between virtual machines. Previously each disk could only be attached to a single virtual machine, it is now possible to share a disk between multiple virtual machines concurrently ([Features/SharedRawDisk](Features/SharedRawDisk)).
 *   Support has been added for hot plugging and unplugging of **virtio-blk** disks to and from virtual machines ([Features/HotPlug](Features/HotPlug)).
+*   Support has been added for floating disks, disks which are not necessarily attached to a virtual machine at any one point in time but can be attached to virtual machines as and when needed. Floating disks can be found in the web administration portal under the **Disks** tab ([Features/FloatingDisk](Features/FloatingDisk)).
 
 TODO:
 
 *   live snapshot (Requires qemu 1.1 on the vdsm host)
-*   disks main tab ("floating disks")
 *   auto re-activate storage domains from error mode
 *   **use sanlock for pool locks (need to see if made ovirt 3.1)**
-*   hot plug disk (If the "Add" menu command in the virtual disks pane of a running VM is greyed out, a disk may be added from the VM "Guide Me" dialog)
 *   multiple storage domains ([Features/MultipleStorageDomains](Features/MultipleStorageDomains)).
 
 ### Virtualization

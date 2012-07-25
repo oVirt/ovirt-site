@@ -38,14 +38,14 @@ The oVirt 3.1 release includes these notable changes.
 
 ### Storage
 
-*   hot plug disk
+*   hot plug disk (If the "Add" menu command in the virtual disks pane of a running VM is greyed out, a disk may be added from the VM "Guide Me" dialog)
 *   multiple storage domains
 *   shared disk
 *   external disk (direct lun)
 *   posix fs storage domains
 *   nfs options
 *   nfs v4
-*   live snapshot
+*   live snapshot (Requires qemu 1.1 on the vdsm host)
 *   disks main tab ("floating disks")
 *   spm priority
 *   auto re-activate storage domains from error mode

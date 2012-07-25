@@ -120,10 +120,10 @@ pgtune takes the default postgresql.conf and expands the database server to be a
 
 ## VACCUM
 
-Cleans up after old transactions, inclusing removing information that is no longer visible and reuse free space.
+Cleans up after old transactions, including removing information that is no longer visible and reuse free space.
  ANALYSE looks at tables in the database and collects statistics about them like number of distinct values etc.
 Many aspects of query planning depends on this statistics data being accurate.
- Fro 8.1 , there is a autovaccum daemon that runs in the background and do this work automatically.
+ From 8.1 , there is a autovaccum daemon that runs in the background and do this work automatically.
 
 ## Logging
 

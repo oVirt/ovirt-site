@@ -24,7 +24,7 @@ wiki_last_updated: 2013-12-13
 *   Add true night repo's (rmiddle & eedri)
 *   Extend vdsm's on-commit hook, so it runs functional tests too. This requires installing vdsm.rpm as well as vdsm-tests.rpm, starting vdsmd service, running the tests, and cleaning the host.
 *   <s>Add log rotate for Jenkins slave logs.</s> - (rmiddle) Completed 7/24/2012
-*   Add automatic backups of Jenkins data from Master.
+*   <s>Add automatic backups of Jenkins data from Master.</s> - (rmiddle) Completed 7/25/2012
 
 ## Ongoing tasks
 

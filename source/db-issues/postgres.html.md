@@ -144,7 +144,7 @@ Controls the line prefix of each log message.
 
 Controls which statements are logged
 
-       one
+       none
        ddl
        mod
        all

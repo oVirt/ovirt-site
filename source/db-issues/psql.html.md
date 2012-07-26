@@ -23,7 +23,7 @@ Format
 
 History
 
-       \set HISTFILE ~/.psql_history- :HOST - :DBNAME
+       \set HISTFILE ~/.psql_history- :HOST - :DBNAME  (history file per host/db)
        \set HISTSIZE 2000
 
 Cost

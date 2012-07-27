@@ -75,11 +75,14 @@ of 'esc'+':' combination ;)
 <!-- -->
 
     restapi-definition ->  project ->  properties -> java build path ->  source ->  add source folder ->  target/generated-sources/xjc
+    gwt-extentions ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/annotations
+    gwt-common ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/annotations
+    gwt-common -> project -> properties -> Projects -> Add -> common, compat and uicommon-web
     webadmin ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/{annotations,gwt,test-annotations}
     frontend ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/gwt
-    frontend -> project -> properties -> Projects -> Add -> webadmin
-    sharedgwt -> project -> properties -> Projects -> Add -> common
     uicompat -> project -> properties -> Projects -> Add -> common and compat
+    gwt-extentions ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/annotations
+    generic-api -> project -> properties -> Projects -> Add -> common, compat and utils
 
 *   If you see the error "**The method setCharacterEncoding(String) is undefined for the type HttpServletResponse**" in source *frontend/webadmin/modules/frontend/src/main/java/org/ovirt/engine/ui/frontend/server/gwt/WebadminDynamicHostingServlet.java*, modify *pom.xml* at root level to change servlet API version from 2.3 to 2.4 as the concerned API is introduced in 2.4. The code change should look like:
 

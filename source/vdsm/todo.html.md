@@ -36,6 +36,10 @@ wiki_last_updated: 2015-05-29
 
 *   Simplify the SysV init script, split most of its code to a "[vdsm-tool](http://gerrit.ovirt.org/295)". vdsm-tool should assume responsibility on hairy stuff such as [configuring multipath](http://bugzilla.redhat.com/547424), which should not be the business of Vdsm proper.
 
+<!-- -->
+
+*   running vdsClient from the project root dir ends with tears. Some PYTHONPATH games should fix this.
+
 ### Testing
 
 *   write an automatic script that runs on each and every new change to gerrit, and adds an insulting comment if `pyflakes` fails for the new change.

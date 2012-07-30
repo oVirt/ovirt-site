@@ -41,7 +41,6 @@ For full details on oVirt workshops, see [OVirt Global Workshops](OVirt Global W
     -   [Slides for all sessions](https://events.linuxfoundation.org/events/linuxcon-japan/ovirt-gluster-workshops)
     -   [Video: Intro to oVirt Architecture](http://video.linux.com/videos/introduction-to-ovirt-architecture)
     -   [Video: Engine Core](http://video.linux.com/videos/ovirt-engine-core)
-    -   [Video: VDSM](http://video.linux.com/videos/virtualization-management-the-ovirt-way)
     -   [Video: Node Architecture](http://video.linux.com/videos/introduction-to-ovirt-node)
 
 ### A/V and Room Setup

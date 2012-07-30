@@ -74,7 +74,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   factor betterPopen and betterThreading out of vdsm. They deserve a pipy review under the names cPopen and pthreading respectively.
+*   factor betterPopen and betterThreading out of vdsm. They deserve a pipy review under the names cPopen and [pthreading](http://pypi.python.org/pypi/pthreading) respectively.
 
 ### Bugzilla
 

@@ -194,7 +194,9 @@ For local install in site-packages, from ovirt-engine-sdk repo:
 
 ## TODO list
 
-[Bugzila](https://bugzilla.redhat.com/query.cgi?bug_status=NEW&bug_status=ASSIGNED&classification=Community&component=ovirt-engine-sdk&product=oVirt&query_format=advanced&token=1340533390-701b85c85ac37fb8c327b062b2c9c927&known_name=ovirt_sdk_bugs)
+### Bugs/RFEs
+
+[Bugzila](https://bugzilla.redhat.com/buglist.cgi?list_id=363325&classification=Community&query_based_on=ovirt_sdk_bugs&query_format=advanced&token=1343748821-516898cbb4251bbe2a7856f547f55f74&bug_status=NEW&bug_status=ASSIGNED&component=ovirt-engine-sdk&product=oVirt&known_name=ovirt_sdk_bugs)
 
 ### codegen
 

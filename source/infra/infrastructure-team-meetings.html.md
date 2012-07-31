@@ -16,6 +16,17 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
     -   To see in your timezone date -d 'TUESDAY 1000 EDT'
 *   *Where:* On IRC: #ovirt on irc.oftc.net
 
+## 2012-07-31
+
+**Agenda**
+
+*   Puppet - ewoud
+*   All other business
+*   Jenkins migration from EC2 - status
+*   Push on ovirt-engine RPMs sync to ovirt.org - status
+*   Enabling Gerrit patches - everyone vs. limited
+*   Parallel jobs - eedri
+
 ## 2012-07-24
 
 **Agenda**

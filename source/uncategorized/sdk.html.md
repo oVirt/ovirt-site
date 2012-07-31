@@ -192,17 +192,11 @@ For local install in site-packages, from ovirt-engine-sdk repo:
 
 ## Known issues
 
-*   api.capabilities.get() | api.capabilities.list()
-
-` caused by: `[`http://www.ovirt.org/wiki/Category:Api#Known_issues`](http://www.ovirt.org/wiki/Category:Api#Known_issues)
-
 ## TODO list
 
+[Bugzila](https://bugzilla.redhat.com/query.cgi?bug_status=NEW&bug_status=ASSIGNED&classification=Community&component=ovirt-engine-sdk&product=oVirt&query_format=advanced&token=1340533390-701b85c85ac37fb8c327b062b2c9c927&known_name=ovirt_sdk_bugs)
+
 ### codegen
-
-*   auto-generate python entities from schema with GenerateDS (handled by ShaoHe Feng)
-
-<!-- -->
 
 *   interface for task polling
 

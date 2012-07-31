@@ -22,10 +22,11 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 *   Puppet - ewoud
 *   All other business
-*   Jenkins migration from EC2 - status
-*   Push on ovirt-engine RPMs sync to ovirt.org - status
-*   Enabling Gerrit patches - everyone vs. limited
-*   Parallel jobs - eedri
+*   Jenkins
+    -   migration from EC2 - status
+    -   Push on ovirt-engine RPMs sync to ovirt.org - status
+    -   Enabling Gerrit patches - everyone vs. limited
+    -   Parallel jobs - eedri
 
 ## 2012-07-24
 

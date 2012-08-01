@@ -32,7 +32,7 @@ oVirt Node 2.4.0
 oVirt Node 2.3.0
 
 *   [Node_Release_Notes](Node_Release_Notes)
-*   [ISO image](http://ovirt.org/releases/stable/binary/ovirt-node-iso-2.3.0-1.0.fc16.iso)
+*   [ISO image](http://ovirt.org/releases/3.0/tools/ovirt-node-iso-2.3.0-1.0.fc16.iso)
 *   [Source Tarball](http://ovirt.org/releases/stable/src/ovirt-node-2.3.0.tar.gz)
 *   [RPM Package](http://ovirt.org/releases/stable/fedora/16/ovirt-node-2.3.0-1.fc16.noarch.rpm)
 *   [Tools Package](http://ovirt.org/releases/stable/fedora/16/ovirt-node-tools-2.3.0-1.fc16.noarch.rpm)

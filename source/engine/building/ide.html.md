@@ -40,6 +40,17 @@ of 'esc'+':' combination ;)
 
 <!-- -->
 
+*   Install Maven plugin for Eclipse, if it is not installed by default
+    -   Note: This is only relevant to old Eclipse version. In Eclipse Juno (and later), this plugin is bundled by default.
+    -   Note: If you are using Maven 2.2, make sure you use m2e version 0.12.XXX, as later versions are not compatible with it.
+
+<!-- -->
+
+    >> open help --> 
+       install new software --> 
+       click 'add' and place the following url http://m2eclipse.sonatype.org/sites/m2e 
+    >> check all components, install and restart eclipse at the end
+
 *   Fix maven version
 
 <!-- -->
@@ -49,16 +60,6 @@ of 'esc'+':' combination ;)
        Maven --> 
        Installations
     >> Choose 3 installation. If it's not there, use the 'add' button and add the path to your Maven 3 installation.
-
-*   Install maven plugin to eclipse
-    -   Note: If you are using Maven 2.2, make sure you use m2e version 0.12.XXX, as later versions are not compatible with it.
-
-<!-- -->
-
-    >> open help --> 
-       install new software --> 
-       click 'add' and place the following url http://m2eclipse.sonatype.org/sites/m2e 
-    >> check all components, install and restart eclipse at the end
 
 *   Import sources:
 

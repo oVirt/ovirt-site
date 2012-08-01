@@ -16,23 +16,35 @@ oVirt 3.0 was released as Fedora 16 package, and 3.1 is targeted to Fedora 17. D
 
 *   Remove all ovirt packages
 
-` * Run `**`yum` `remove` `ovirt\*`**
-       * DO NOT run the engine-cleanup utility
+<!-- -->
+
+     yum remove ovirt\* 
+
+**DO NOT run the engine-cleanup utility**
 
 *   Upgrade the system the oVirt Engine was installed on to Fedora 17:
+    -   <http://fedoraproject.org/wiki/PreUpgrade>
 
-` * `[`http://fedoraproject.org/wiki/PreUpgrade`](http://fedoraproject.org/wiki/PreUpgrade)
+<!-- -->
 
 *   Install oVirt Engine rpms
 
-` * Run `**`yum` `install` `ovirt-engine`**
+<!-- -->
+
+     yum install ovirt-engine 
 
 *   Restore previous keystore and preserve .sh scripts
 
-       * Run: 
+<!-- -->
 
-**\1**
+    cd /etc/pki
+    mv ovirt-engine ovirt-engine.old
+    mv ovirt-engine-backups/ovirt-engine-DATE_OF_BACKUP/ovirt-engine .
+    find ovirt-engine -user jboss-as -exec chown ovirt:ovirt {} \;
+    cp -f ovirt-engine.old/*.sh ovirt-engine/
 
 *   Execute oVirt Engine Setup utility
 
-` * `**`engine-setup`**
+<!-- -->
+
+     engine-setup

@@ -110,9 +110,18 @@ To install the oVirt Engine on a Fedora 17 system:
 
          # yum install ovirt-engine
 
-*   Run the **engine-setup** script and follow the prompts to complete installation of oVirt Engine. Once the Engine has been installed successfully it will then provide instructions for accessing the web Administration Portal:
+*   Run the **engine-setup** script and follow the prompts to complete installation of oVirt Engine. Once the Engine has been installed successfully the script will provide instructions for accessing the web Administration Portal:
 
          # engine-setup
+
+Suggested quick start path for new users:
+
+*   Add a host to the *Default* cluster.
+*   Add storage, refer to [Troubleshooting_NFS_Storage_Issues](Troubleshooting_NFS_Storage_Issues) for information on configuring NFS storage for use with oVirt. Support is also available for iSCSI, FCP, and POSIX compliant filesystem storage.
+    -   Add a data storage domain to the *Default* data center.
+    -   Add an ISO storage domain to the ''Default data center.
+*   Upload operating system installation media, in ISO format, to the ISO storage domain using the **engine-iso-uploader** command line tool.
+*   Create a virtual machine!
 
 ### oVirt Node
 

@@ -12,10 +12,8 @@ wiki_last_updated: 2014-01-21
 
 This page is for captuaring Networking related features we would like to have in oVirt going forward.
 
-## Items list
+## Features
 
-UCS integration
-Blade Harmony
 SR-IOV support
 IPV6 support
 network SLA
@@ -24,18 +22,23 @@ IP allocations (melange in openstack, but forman has support as well)
 security groups
 permissions on networks
 open vSwitch
-quantum integration
-'network-manager' architecture - looking into re-designing the engine networking code.
-open flow
 GRE tunneling (VPC - virtual private network)
 Network roles (storage / live migration network etc.)
-Using Network manager vs. using scripts (VDSM level)
 Sniff guest IP and report to the engine without guest tools
 Anti-spoofing layer two/three
 network groups
 dynamic network
 network lables
 Support nested vlans. (QinQ) <
+
+## Technologies / Stuff
+
+UCS integration
+Blade Harmony
+quantum integration
+'network-manager' architecture - looking into re-designing the engine networking code.
+open flow
+Using Network manager vs. using scripts (VDSM level)
 
 We'll open a wiki page for each of the above lines.
 

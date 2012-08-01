@@ -42,6 +42,8 @@ oVirt 3.0 was released as Fedora 16 package, and 3.1 is targeted to Fedora 17. D
     mv ovirt-engine-backups/ovirt-engine-DATE_OF_BACKUP/ovirt-engine .
     find ovirt-engine -user jboss-as -exec chown ovirt:ovirt {} \;
     cp -f ovirt-engine.old/*.sh ovirt-engine/
+    service nfs-server disable; service nfs-server enable
+    service rpb-bind disable; service rpc-bind enable
 
 *   Execute oVirt Engine Setup utility
 

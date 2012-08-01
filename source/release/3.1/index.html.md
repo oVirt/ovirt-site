@@ -95,6 +95,25 @@ TODO:
 
 ### oVirt Engine
 
+The oVirt Engine provides the browser based management interface for managing your oVirt environment. It also provides command line tools for managing configuration options not exposed via the user interface as well as a series of APIs supporting automation of both common and advanced tasks.
+
+#### Fedora
+
+To install the oVirt Engine on a Fedora 17 system:
+
+*   Log in to the system on which you wish to host oVirt Engine as the **root** user.
+*   Install the *ovirt-release* package using **yum**, this package configures your system to receive updates from the oVirt project's software repository:
+
+`   # yum localinstall `[`http://ovirt.org/releases/ovirt-release-fedora-4-2.noarch.rpm`](http://ovirt.org/releases/ovirt-release-fedora-4-2.noarch.rpm)
+
+*   Install the *ovirt-engine* package, and all of the packages it depends on, using **yum**:
+
+         # yum install ovirt-engine
+
+*   Run the **engine-setup** script and follow the prompts to complete installation of oVirt Engine. Once the Engine has been installed successfully it will then provide instructions for accessing the web Administration Portal:
+
+         # engine-setup
+
 ### oVirt Node
 
 ## Upgrade Instructions

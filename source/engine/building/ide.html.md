@@ -48,10 +48,10 @@ of 'esc'+':' combination ;)
        Preferences --> 
        Maven --> 
        Installations
-    >> Choose 2.2 installation. If it's not there, use the 'add' button and add the path to your maven 2.2 installation.
+    >> Choose 3 installation. If it's not there, use the 'add' button and add the path to your Maven 3 installation.
 
 *   Install maven plugin to eclipse
-    -   Note: Make sure you use m2e version 0.12.XXX as later versions do not work well with maven 2.2.
+    -   Note: If you are using Maven 2.2, make sure you use m2e version 0.12.XXX, as later versions are not compatible with it.
 
 <!-- -->
 
@@ -81,7 +81,6 @@ of 'esc'+':' combination ;)
     webadmin ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/{annotations,gwt,test-annotations}
     frontend ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/gwt
     uicompat -> project -> properties -> Projects -> Add -> common and compat
-    gwt-extentions ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/annotations
     generic-api -> project -> properties -> Projects -> Add -> common, compat and utils
 
 *   If you see the error "**The method setCharacterEncoding(String) is undefined for the type HttpServletResponse**" in source *frontend/webadmin/modules/frontend/src/main/java/org/ovirt/engine/ui/frontend/server/gwt/WebadminDynamicHostingServlet.java*, modify *pom.xml* at root level to change servlet API version from 2.3 to 2.4 as the concerned API is introduced in 2.4. The code change should look like:

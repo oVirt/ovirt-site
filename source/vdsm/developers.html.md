@@ -221,7 +221,7 @@ NOTE: Following the below instructions you can use oVirt Node and oVirt Engine a
 
 First off, we are assuming you already have qemu-kvm/libvirt/virt-manager installed in your system
 
-*   1) Check if nested KVM is enabled
+*   1) Check if nested KVM is enabled (should be **Y**)
 
        # cat /sys/module/kvm_intel/parameters/nested
         N

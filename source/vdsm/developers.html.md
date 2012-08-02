@@ -208,4 +208,85 @@ There are several ways to update your vds_bootstrap, for example:
 Something goes wrong setting the bridge ovirtmgmt, check the logs (/tmp/vds\*.log) in the host side.
 If required, use the manual process to create the bridge and re-add the host: <http://www.ovirt.org/wiki/Installing_VDSM_from_rpm#Configuring_the_bridge_Interface>
 
+## Running Node as guest - Nested KVM
+
+The below steps were tested on Fedora 17 but should work in higher versions (maybe not even required in the future releases, hopefully virt-manager will handle that directly in the next versions)
+
+The "Nested VMX" feature adds this missing capability - of running guest hypervisors (which use VMX) with their own nested guests. It does so by allowing a guest to use VMX instructions, and correctly and efficiently emulating them using the single level of VMX available in the hardware.
+
+Below an example of setting Intel processors, for AMD looks like no steps are required (need someone to test and share here).
+
+### Intel
+
+NOTE: We are assuming you already have qemu-kvm/libvirt/virt-manager installed in your system
+
+*   1) Check if nested KVM is enabled
+
+       # cat /sys/module/kvm_intel/parameters/nested
+        N
+
+*   2) In that case, it's disabled, to enable:
+
+       # vi /etc/default/grub
+
+Add to the end of line **GRUB_CMDLINE_LINUX kvm-intel.nested=1**
+
+Example:
+
+       GRUB_CMDLINE_LINUX="rd.md=0 rd.dm=0  KEYTABLE=us SYSFONT=True rd.lvm.lv=vg/lv_root rd.luks=0 rd.lvm.lv=vg/lv_swap LANG=en_US.UTF-8 rhgb quiet kvm-intel.nested=1"
+
+*   3) Save the changes:
+
+       # grub2-mkconfig -o /boot/grub2/grub.cfg
+
+*   4) Reboot the system:
+
+       # reboot
+
+*   5) Install oVirt Node as guest with virt-manager (or any other distro) and shutdown after the installation
+
+<!-- -->
+
+*   6) Edit the xml of guest and add a similar cpu that you have, example in my **Hypervisor**:
+
+       # virsh capabilities
+        ...
+        </features>
+          <cpu mode='custom' match='exact'>
+            <model fallback='allow'>Penryn</model>
+            <vendor>Intel</vendor>
+            <feature policy='require' name='vmx'/>
+          </cpu>
+        <clock offset='utc'/>
+       ....
+
+Note that I have removed all flags from my Hypervisor, just leaving he vmx but you can use all of them if you want.
+
+Alright, time to add to your virtual machine (**guest**) the vmx flag:
+
+       # vi /etc/libvirt/qemu/ovirt-node-2-5.xml (or virsh edit?)
+` `<domain type='kvm'>
+`   `<cpu match='exact'>
+`     `<model>`Penryn`</model>
+`     `<vendor>`Intel`</vendor>
+`     `<feature policy='require' name='vmx'/>
+`   `</cpu>
+`   `<name>`ovirt-node-2-5`</name></nowiki>
+
+Of course, all the above steps could be automated/improved. Fell free to change it.
+
+*   7) Test if it works:
+
+        # virsh create ovirt-node-2-5
+
+*   if the virtual machine starts check in the guest that vmx flag in the /proc/cpuinfo. Also, don't forget to define the new xml:
+
+        # virsh define /etc/libvirt/qemu/ovirt-node-2-5.xml
+
+### AMD
+
+       Should work out of the box, however fell free to add documentation here.
+
+More info about nested-kvm: <https://github.com/torvalds/linux/blob/master/Documentation/virtual/kvm/nested-vmx.txt>
+
 <Category:Vdsm> <Category:Documentation> [Category:Development environment](Category:Development environment)

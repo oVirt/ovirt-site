@@ -283,7 +283,21 @@ Of course, all the above steps could be automated/improved. Fell free to change 
 
 ### AMD
 
-       Should work out of the box, however fell free to add documentation here.
+Works out of the box.
+
+*   1) To check if nested KVM is enabled (should be **1**)
+
+       # cat /sys/module/kvm_amd/parameters/nested
+        1
+
+*   2) Install oVirt Node as guest with virt-manager (or any other distro).
+
+<!-- -->
+
+*   3) After virtual machine starts, check in the guest that svm flag in the /proc/cpuinfo.
+
+       # grep -m1 svm /proc/cpuinfo
+        flags           : fpu de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 syscall nx lm up nopl pni cx16 popcnt hypervisor lahf_lm svm abm sse4a
 
 More info about nested-kvm: <https://github.com/torvalds/linux/blob/master/Documentation/virtual/kvm/nested-vmx.txt>
 

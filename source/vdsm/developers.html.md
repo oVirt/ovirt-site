@@ -251,27 +251,23 @@ Example:
 
        # virsh capabilities
         ...
-        </features>
           <cpu mode='custom' match='exact'>
             <model fallback='allow'>Penryn</model>
             <vendor>Intel</vendor>
             <feature policy='require' name='vmx'/>
           </cpu>
-        <clock offset='utc'/>
-       ....
+        ....
+      Note that I have removed all flags from my Hypervisor, just leaving he vmx but you can use all of them if you want.
 
-Note that I have removed all flags from my Hypervisor, just leaving he vmx but you can use all of them if you want.
+      Alright, time to add to your virtual machine (**\1**) the vmx flag:
 
-Alright, time to add to your virtual machine (**guest**) the vmx flag:
-
-       # vi /etc/libvirt/qemu/ovirt-node-2-5.xml (or virsh edit?)
+        <nowiki># vi /etc/libvirt/qemu/ovirt-node-2-5.xml (or virsh edit?)
 ` `<domain type='kvm'>
 `   `<cpu match='exact'>
 `     `<model>`Penryn`</model>
 `     `<vendor>`Intel`</vendor>
 `     `<feature policy='require' name='vmx'/>
 `   `</cpu>
-`   `<name>`ovirt-node-2-5`</name></nowiki>
 
 Of course, all the above steps could be automated/improved. Fell free to change it.
 

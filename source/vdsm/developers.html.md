@@ -275,7 +275,7 @@ Of course, all the above steps could be automated/improved. Fell free to change 
 
 *   7) Test if it works:
 
-        # virsh create ovirt-node-2-5
+        # virsh create ovirt-node-2-5.xml
 
 *   if the virtual machine starts check in the guest that vmx flag in the /proc/cpuinfo. Also, don't forget to define **(salve) the new xml**:
 

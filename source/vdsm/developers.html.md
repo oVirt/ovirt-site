@@ -247,27 +247,28 @@ Example:
 
 <!-- -->
 
-*   6) Edit the xml of guest and add a similar cpu that you have, example in my **Hypervisor**:
+*   6) Copy the cpu model, vendor and vmx flag from **Hypervistor** to the guest:
 
-       # virsh capabilities
+       # virsh capabilities  (collecting data from hypervisor)
         ...
-          <cpu mode='custom' match='exact'>
-            <model fallback='allow'>Penryn</model>
+          <cpu match='exact'>
+            <model>Penryn</model>
             <vendor>Intel</vendor>
             <feature policy='require' name='vmx'/>
           </cpu>
         ....
-      Note that I have removed all flags from my Hypervisor, just leaving he vmx but you can use all of them if you want.
 
-      Alright, time to add to your virtual machine (**\1**) the vmx flag:
+Note that I have removed all flags from my Hypervisor, just leaving he vmx but you can use all of them if you want.
 
-        <nowiki># vi /etc/libvirt/qemu/ovirt-node-2-5.xml (or virsh edit?)
-` `<domain type='kvm'>
-`   `<cpu match='exact'>
-`     `<model>`Penryn`</model>
-`     `<vendor>`Intel`</vendor>
-`     `<feature policy='require' name='vmx'/>
-`   `</cpu>
+Alright, time to add to your virtual machine (**guest**) the vmx flag:
+
+       # vi /etc/libvirt/qemu/ovirt-node-2-5.xml (or virsh edit?)
+        <domain type='kvm'>
+          <cpu match='exact'>
+            <model>Penryn</model>
+            <vendor>Intel</vendor>
+            <feature policy='require' name='vmx'/>
+          </cpu>
 
 Of course, all the above steps could be automated/improved. Fell free to change it.
 
@@ -275,7 +276,7 @@ Of course, all the above steps could be automated/improved. Fell free to change 
 
         # virsh create ovirt-node-2-5
 
-*   if the virtual machine starts check in the guest that vmx flag in the /proc/cpuinfo. Also, don't forget to define the new xml:
+*   if the virtual machine starts check in the guest that vmx flag in the /proc/cpuinfo. Also, don't forget to define **(salve) the new xml**:
 
         # virsh define /etc/libvirt/qemu/ovirt-node-2-5.xml
 

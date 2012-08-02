@@ -212,10 +212,6 @@ For local install in site-packages, from ovirt-engine-sdk repo:
 
 <!-- -->
 
-*   supporting header parameters
-
-<!-- -->
-
 *   refactoring internal exceptions for better error handling on client side
 
 ## Maintainer

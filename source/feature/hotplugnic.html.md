@@ -26,7 +26,7 @@ Allow to hot plug and unplug a NIC to/from running guest.
 
 ### Current status
 
-*   <http://www.ovirt.org/wiki/Features/Design/DetailedHotlugNic>
+*   <http://www.ovirt.org/wiki/Features/Design/DetailedHotPlugNic>
 *   Last Update: Feb 1 20012
 
 ### Detailed Description

@@ -79,3 +79,7 @@ wiki_last_updated: 2012-08-03
 <!-- -->
 
 *   oVirt guest additions: what do they do, how to get/use them?
+
+<!-- -->
+
+*   glossary of terms

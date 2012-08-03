@@ -210,18 +210,18 @@ If required, use the manual process to create the bridge and re-add the host: <h
 
 ## Running Node as guest - Nested KVM
 
-The below steps were tested on Fedora 17 but should work in higher versions (maybe not even required in the future releases, hopefully virt-manager will handle that directly in the next versions)
-
-The "Nested VMX" feature adds this missing capability - of running guest hypervisors (which use VMX) with their own nested guests. It does so by allowing a guest to use VMX instructions, and correctly
- and efficiently emulating them using the single level of VMX available in the hardware.
+Following the below instructions you can use oVirt Node, Fedora Node and oVirt Engine as guests.
 
 Requires: Processors with **Full Virtualization** embedded
 
-NOTE: Following the below instructions you can use oVirt Node, Fedora Node and oVirt Engine as guests.
+Attention: The below steps were tested on Fedora 17 but should work in higher versions (maybe not even required in the future releases, hopefully virt-manager will handle that directly in the next versions)
+
+"Nested VMX" feature adds this missing capability - of running guest hypervisors (which use VMX) with their own nested guests. It does so by allowing a guest to use VMX instructions, and correctly
+ and efficiently emulating them using the single level of VMX available in the hardware.
+
+Finally, we are assuming you already have qemu-kvm/libvirt/virt-manager installed in your system
 
 ### Intel
-
-First off, we are assuming you already have qemu-kvm/libvirt/virt-manager installed in your system
 
 *   1) Check if nested KVM is enabled (should be **Y**)
 

@@ -8,3 +8,6 @@ wiki_last_updated: 2012-11-27
 
 # Contents
 
+## Communicating in the project
+
+## Working on this wiki

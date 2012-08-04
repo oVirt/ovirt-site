@@ -30,7 +30,6 @@ network groups
 dynamic network
 network lables
 Support nested vlans. (QinQ) <
-Using Network manager vs. using scripts (VDSM level)
 
 ## Technologies / Stuff
 

@@ -235,7 +235,7 @@ It will be possible to drag blocks on one another. The following connections are
 
 #### Resource representation
 
-scheme:
+##### Scheme
 
        POST
 
@@ -269,11 +269,39 @@ scheme:
 
        Response
 
-usage:
+#### Ssage
+
+##### Attaching a network to a NIC
 
      POST /api/hosts/{host:id}/nics/setupnetworks
 
             em1
+
+            dhcp
+
+        true
+        60
+        false
+
+##### Attaching several (VLAN'd) networks to a NIC
+
+The expected VLAN device should be sent with the parameters of the network which is created, in addition to the NIC that the network is being added on.
+
+The expected name for this device is: NIC_NAME.VLAN_ID
+
+     POST /api/hosts/{host:id}/nics/setupnetworks
+
+            em1
+
+            em1.100
+
+                vlan100
+
+            dhcp
+
+            em1.200
+
+                vlan200
 
             dhcp
 

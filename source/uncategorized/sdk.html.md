@@ -67,7 +67,9 @@ __TOC__
 
 ## Examples
 
-from ovirtsdk.api import API from ovirtsdk.xml import params
+from ovirtsdk.xml import params
+
+from ovirtsdk.api import API
 
 *   create proxy
 

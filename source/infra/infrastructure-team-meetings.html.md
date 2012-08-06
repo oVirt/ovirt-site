@@ -13,7 +13,7 @@ wiki_last_updated: 2014-05-12
 This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrastructure Team meeting.
 
 *   *When:* Tuesday @ 14:00 UTC (may change during DST changes) - always at 10:00am US Eastern.
-    -   To see in your timezone `date -d 'TUESDAY 1000 EDT'`
+    -   To see in your timezone date -d 'TUESDAY 1000 EDT'
 *   *Where:* On IRC: #ovirt on irc.oftc.net
 
 ## 2012-08-07
@@ -27,7 +27,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## 2012-07-31
 
-*[http://lists.ovirt.org/pipermail/infra/2012-July/000745.html Minutes](http://lists.ovirt.org/pipermail/infra/2012-July/000745.html Minutes)*
+*[Minutes](http://lists.ovirt.org/pipermail/infra/2012-July/000745.html)*
 
 **Agenda**
 
@@ -41,7 +41,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## 2012-07-24
 
-*[http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-24-14.01.html Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-24-14.01.html Minutes)*
+*[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-24-14.01.html)*
 
 **Agenda**
 
@@ -57,7 +57,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## 2012-07-17
 
-*[http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-17-14.00.html Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-17-14.00.html Minutes)*
+*[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-17-14.00.html)*
 
 **Agenda**
 
@@ -70,7 +70,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## 2012-07-10
 
-*[http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-10-14.00.html Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-10-14.00.html Minutes)*
+*[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-10-14.00.html)*
 
 **Agenda**
 
@@ -85,7 +85,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## 2012-07-03
 
-*[http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-03-14.00.html Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-03-14.00.html Minutes)*
+*[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-03-14.00.html)*
 
 **Agenda**
 

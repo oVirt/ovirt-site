@@ -55,12 +55,9 @@ The oVirt 3.1 release includes these notable changes.
 *   Devices attached to guest virtual machines now retain the same address allocations as other devices are added and/or removed from the guest's configuration ([Features/Design/DetailedStableDeviceAddresses](Features/Design/DetailedStableDeviceAddresses)).
 *   Support for "pre-started" virtual machine pools has been added. Instead of having to wait for a virtual machine allocated from the pool to boot user's will instead, where possible, be allocated a virtual machine which has already been started ([Features/PrestartedVm](Features/PrestartedVm)).
 *   Support for virtual machine payloads has been added, in the form of a Floppy or CD/DVD image that will be passed to the virtual machine. Virtual machine payloads may be either temporary or permenant.([Features/VMPayload](Features/VMPayload)).
-*   **native spice usb support (need to see if made ovirt 3.1)**
-*   **spice wan options (need to see if made ovirt 3.1)**
 *   new custom hook in vdsm: set vm ticket
-*   cancel live migration
 *   Added support for cloning a Virtual Machine from a specific Snapshot ([Features/CloneVmFromSnapshot](Features/CloneVmFromSnapshot)).
-*   **new cpu models: sandy bridge and opteron G4 (need to see if made ovirt 3.1)**
+*   Support has been added for virtualization hosts with Intel Sandybridge and Opteron G4 based CPUs.
 *   **vnc details screen (need to see if made ovirt 3.1)**
 
 ### SLA

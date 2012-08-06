@@ -47,11 +47,7 @@ The oVirt 3.1 release includes these notable changes.
 *   Support has been added for hot plugging and unplugging of **virtio-blk** disks to and from virtual machines If the "Add" menu command in the virtual disks pane of a running VM is disabled, a disk may be added from the VM "Guide Me" dialog) ([Features/HotPlug](Features/HotPlug)).
 *   Support has been added for floating disks, disks which are not necessarily attached to a virtual machine at any one point in time but can be attached to virtual machines as and when needed. Floating disks can be found in the web administration portal under the **Disks** tab ([Features/FloatingDisk](Features/FloatingDisk)).
 *   It is now possible for virtual machines to have their disks spread across multiple storage domains within the same data center. Previously all disks attached to a virtual machine had to reside on the same storage domain ([Features/MultipleStorageDomains](Features/MultipleStorageDomains)).
-
-TODO:
-
-*   live snapshot (Requires qemu 1.1 on the vdsm host)
-*   auto re-activate storage domains from error mode
+*   Live snapshotting of virtual machines running on virtualization hosts with QEMU 1.1 or higher is now supported ([Live_Snapshots](Live_Snapshots)).
 
 ### Virtualization
 

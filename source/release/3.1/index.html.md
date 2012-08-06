@@ -122,19 +122,19 @@ Upgrading from oVirt 3.0 to oVirt 3.1 is **not** recommended. Users are instead 
 
 ## Migration Instructions
 
-It is instead recommended that existing users of oVirt 3.0 who wish to migrate to oVirt 3.1:
+Users of oVirt 3.0 who wish to migrate to oVirt 3.1 should:
 
 *   Create an export storage domain.
 *   Export all virtual machines to the export storage domain.
 *   Detach the export storage domain.
-*   Cleanup the engine installation
+*   Cleanup the engine installation:
 
          # engine-cleanup
          # yum remove ovirt\* 
 
 *   Upgrade to Fedora 17: <https://fedoraproject.org/wiki/How_to_use_PreUpgrade>
-*   Install oVirt Engine 3.1
+*   Install oVirt Engine 3.1.
 *   Attach the export storage domain.
 *   Import all virtual machines.
 
-Upgrade instructions are however available, refer to [OVirt_3.0_to_3.1_upgrade](OVirt_3.0_to_3.1_upgrade) for more information. It is highly recommended that before upgrading you backup all of your virtual machines to an export storage domain.
+Though not recommended, upgrade instructions are also available, refer to [OVirt_3.0_to_3.1_upgrade](OVirt_3.0_to_3.1_upgrade) for more information. It is highly recommended that before upgrading you backup all of your virtual machines to an export storage domain.

@@ -136,5 +136,3 @@ Users of oVirt 3.0 who wish to migrate to oVirt 3.1 should:
 *   Install oVirt Engine 3.1.
 *   Attach the export storage domain.
 *   Import all virtual machines.
-
-Though not recommended, upgrade instructions are also available, refer to [OVirt_3.0_to_3.1_upgrade](OVirt_3.0_to_3.1_upgrade) for more information. It is highly recommended that before upgrading you backup all of your virtual machines to an export storage domain.

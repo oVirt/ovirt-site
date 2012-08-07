@@ -80,7 +80,8 @@ Any modification to a those files is done directly in the relevant file.
 Helper functions are defined in *common_sp.sql* script and have the *fn_db_* prefix
 Those functions are mostly used in upgrade scripts (explained later on)
 
-Some of those stored procedure implement horizonal/vertical filter according to the user that is accessing the database. Example:
+Some of those stored procedure implement horizonal/vertical filter according to the user that is accessing the database.
+Example:
 
        Create or replace FUNCTION GetVdsByVdsId(v_vds_id UUID, v_user_id UUID, v_is_filtered BOOLEAN) RETURNS SETOF vds
         AS $procedure$

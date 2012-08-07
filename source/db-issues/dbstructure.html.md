@@ -80,6 +80,32 @@ Any modification to a those files is done directly in the relevant file.
 Helper functions are defined in *common_sp.sql* script and have the *fn_db_* prefix
 Those functions are mostly used in upgrade scripts (explained later on)
 
+Some of those stored procedure implement horizonal/vertical filter according to the user that is accessing the database. Example:
+
+       Create or replace FUNCTION GetVdsByVdsId(v_vds_id UUID, v_user_id UUID, v_is_filtered BOOLEAN) RETURNS SETOF vds
+        AS $procedure$
+        DECLARE
+        v_columns text[];
+        BEGIN
+         BEGIN
+           if (v_is_filtered) then
+               RETURN QUERY SELECT DISTINCT (rec).*
+               FROM fn_db_mask_object('vds') as q (rec vds)
+               WHERE (rec).vds_id = v_vds_id
+               AND EXISTS (SELECT 1
+                   FROM   user_vds_permissions_view
+                   WHERE  user_id = v_user_id AND entity_id = v_vds_id);
+           else
+               RETURN QUERY SELECT DISTINCT vds.*
+               FROM vds
+               WHERE vds_id = v_vds_id;
+           end if;
+         END;
+
+        RETURN;
+       END; $procedure$
+      LANGUAGE plpgsql;
+
 ## Scripts
 
 All scripts resides under the *dbscripts* directory

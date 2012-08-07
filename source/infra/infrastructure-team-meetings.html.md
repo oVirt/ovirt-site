@@ -23,6 +23,8 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Puppet - ewoud
 *   Jenkins - rmiddle
 *   Hosting search - quaid
+*   Infra documentation
+*   Package signing
 *   All other business
 
 ## 2012-07-31

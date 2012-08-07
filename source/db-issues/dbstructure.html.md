@@ -83,15 +83,29 @@ Those functions are mostly used in upgrade scripts (explained later on)
 ## Scripts
 
 All scripts resides under the *dbscripts* directory
+All scripts can get parameters for server, port, user and database
+If those parameters are not given, defaults defined in *dbcustomfunctions.sh* *set_defaults* are used
 
 ### How to create a new database?
 
+       create_db.sh [-h] [-s SERVERNAME [-p PORT]] [-d DATABASE] [-u USERNAME] [-f UUID] [-l LOGFILE] [-v]
+
 ### How to create a new database for developers?
+
+       create_db_devel.sh [-h] [-s SERVERNAME [-p PORT]] [-d DATABASE] [-u USERNAME] [-f UUID] [-l LOGFILE] [-v]
 
 ### How to upgrade my database?
 
+       upgrade.sh [-h] [-s SERVERNAME] [-p PORT] [-d DATABASE] [-u USERNAME] [-f VERSION] [-c] [-v]
+
 ### How to refresh my stored procedures & views?
+
+       refreshStoredProcedures.sh [-h] [-s SERVERNAME] [-d DATABASE] [-u USERNAME] [-v]
 
 ### How to backup/restore my database ?
 
+       backup.sh [-h] [-s SERVERNAME] [-p PORT] [-d DATABASE] [-l DIR] -u USERNAME [-v]
+
 ### Remote database support
+
+       restore.sh [-h] [-s SERVERNAME] [-p PORT] -u USERNAME -d DATABASE -f FILE [-r]

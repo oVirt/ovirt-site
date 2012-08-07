@@ -41,3 +41,32 @@ in JBoss 7.x the database configuration is defined in $BOSS_HOME/standalone/conf
 `                   `</driver>
 `               `</drivers>
 `           `</datasources>
+
+## Database objects
+
+All database objects are defined under the *dbscripts* directory
+
+### Tables
+
+All table definitions are defined in *create_tables.sql* script
+This includes only the baseline of the database while each addition to this structure is done via an upgrade script.
+
+### Constrains
+
+The *create_tables.sql* script includes also constrains definitions of 3 types
+
+       Foreign keys
+       Default value for a column
+       Value validation
+
+### Indexes
+
+Generally, *postgres* implies an index on the table PK
+Apart of that this file has also some secondary index definitions to boost related queries
+Since our application is mostly for *read* operations, adding an index does not affect the application performance
+
+### Views
+
+### Stored Procedures
+
+### Helper functions

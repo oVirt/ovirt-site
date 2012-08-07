@@ -117,8 +117,24 @@ For remote access you should give the server name in SERVERNAME and verify that 
 
 In order to handle DB upgrades, we maintain a fixed schema plus initial data and from that point on All schema & data changes will be done via upgrade scripts.
 
-      * Since upgrade run only new scripts, upgrade scripts do not need to be re-entrant.
-      * New upgrade scripts should be pushed into git with a higher version than the latest script.
+Since upgrade run only new scripts, upgrade scripts do not need to be re-entrant. New upgrade scripts should be pushed into git with a higher version than the latest script.
+
+      ovirt=# \d schema_version
+                                          Table "public.schema_version"
+         Column    |            Type             |                        Modifiers                         
+      --------------+-----------------------------+----------------------------------------------------------
+      id           | integer                     | not null default nextval('schema_version_seq'::regclass)
+      version      | character varying(10)       | not null
+      script       | character varying(255)      | not null
+      checksum     | character varying(128)      | 
+      installed_by | character varying(30)       | not null
+      started_at   | timestamp without time zone | default now()
+      ended_at     | timestamp without time zone | 
+      state        | character varying(15)       | not null
+      current      | boolean                     | not null
+      comment      | text                        | default ''::text
+      Indexes:
+         "schema_version_primary_key" PRIMARY KEY, btree (id)
 
 ### What is my database version?
 

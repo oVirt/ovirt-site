@@ -67,6 +67,9 @@ Since our application is mostly for *read* operations, adding an index does not 
 
 ### Views
 
+All table definitions are defined in *create_views.sql* script
+Any modification to a view is done directly on this file.
+
 ### Stored Procedures
 
 ### Helper functions

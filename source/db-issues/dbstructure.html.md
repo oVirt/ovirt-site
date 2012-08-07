@@ -8,4 +8,6 @@ wiki_last_updated: 2012-12-05
 
 # dbstructure
 
-## Under construction
+## Database structure and dependencies
+
+![](DB.png "DB.png")

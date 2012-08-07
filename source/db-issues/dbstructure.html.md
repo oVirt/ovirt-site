@@ -186,7 +186,7 @@ Each upgrade change should be in a separate file formatted by MM_mm_nnnn_[Name].
        Example:
          Object column white list
 
-### how does the upgrade scri[pt works
+### how does the upgrade script works
 
 ### How do I upgrade db configuration?
 

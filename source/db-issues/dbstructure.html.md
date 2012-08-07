@@ -230,3 +230,13 @@ Examples:
        select fn_db_update_default_config_value('LDAPSecurityAuthentication','GSSAPI','default:GSSAPI','general',false);
        select fn_db_delete_config_value('ENMailEnableSsl','general');
        select fn_db_split_config_value('SpiceSecureChannels','all');
+
+### I need to run a shell script as an upgrade step, is this possible?
+
+Yes, just:
+
+`write `<MM_nn_XXXX_your script.sh>
+      keep in mind that script follows sane naming conventions and numbering as SQL upgrade script.
+`chmod +x `<MM_nn_XXXX_your script.sh>
+
+The ability to run shell scripts cover also the content of the pre/post upgrade directories.

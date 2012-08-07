@@ -76,3 +76,6 @@ All application store procedure definitions are defined in files that match the 
 Any modification to a those files is done directly in the relevant file.
 
 ### Helper functions
+
+Helper functions are defined in *common_sp.sql* script and have the *fn_db_* prefix
+Those functions are mostly used in upgrade scripts (explained later on)

@@ -157,6 +157,10 @@ Each upgrade change should be in a separate file formatted by MM_mm_nnnn_[Name].
 
 ### What is done in the post-upgrade step?
 
+       Modifications that are using views/stored procedures
+       Example:
+         Object column white list
+
 ### how does the upgrade scri[pt works
 
 ### How do I upgrade db configuration?

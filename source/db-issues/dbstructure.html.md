@@ -101,10 +101,8 @@ Some of those stored procedure implement horizonal/vertical filter according to 
                WHERE vds_id = v_vds_id;
            end if;
          END;
-
         RETURN;
        END; $procedure$
-      LANGUAGE plpgsql;
 
 ## Scripts
 

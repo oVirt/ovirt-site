@@ -140,7 +140,7 @@ For remote access you should give the server name in SERVERNAME and verify that 
 
 ## Upgrade
 
-We have here our home-made infrastructures based on concepts of an existing tool named [Flyway](http://code.google.com/p/flyway/), however, Flyway has it own limitations and is also bundled with a relatively big set of other dependant libraries that makes it relatively hard to integrate & customise to our needs. In order to handle DB upgrades, we maintain a fixed schema plus initial data and from that point on All schema & data changes will be done via upgrade scripts.
+We have here our home-made infrastructures based on concepts of an existing tool named [Flyway](http://code.google.com/p/flyway/), however, Flyway has it own limitations and is also bundled with a relatively big set of other dependant libraries that makes it hard to integrate & customise to our needs. In order to handle DB upgrades, we maintain a fixed schema plus initial data and from that point on All schema & data changes will be done via upgrade scripts.
 
 Since upgrade run only new scripts, upgrade scripts do not need to be re-entrant. New upgrade scripts should be pushed into git with a higher version than the latest script.
 

@@ -190,6 +190,18 @@ Each upgrade change should be in a separate file formatted by MM_mm_nnnn_[Name].
 
 ### How do I upgrade db configuration?
 
+All changes to the configuration stored in the vdc_options table will be done using one script named
+**config.sql** under **dbscripts/upgrade/pre_upgrade** directory.
+**config.sql** script file is categorized to the following sections:
+
+         Add Section
+         Update section (w/o overriding current value)
+         Delete section
+         Simple upgrades not available using a fn_db* function call
+         Complex upgrades using temporary functions
+
+**Please note that the config.sql is re-entrant.**
+
 ### How do I upgrade db schema?
 
 ### How do I upgrade db data?

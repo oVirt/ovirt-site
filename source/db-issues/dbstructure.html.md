@@ -72,4 +72,7 @@ Any modification to a view is done directly on this file.
 
 ### Stored Procedures
 
+All application store procedure definitions are defined in files that match the \*_sp.sql pattern
+Any modification to a those files is done directly in the relevant file.
+
 ### Helper functions

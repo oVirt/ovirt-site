@@ -151,6 +151,10 @@ Each upgrade change should be in a separate file formatted by MM_mm_nnnn_[Name].
 
 ### What is done in the pre-upgrade step?
 
+       configuration changes
+       schema_version table changes
+       special fixes
+
 ### What is done in the post-upgrade step?
 
 ### how does the upgrade scri[pt works

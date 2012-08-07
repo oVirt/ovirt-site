@@ -149,7 +149,7 @@ Each upgrade change should be in a separate file formatted by MM_mm_nnnn_[Name].
 
 ### What helper functions can I use in upgrade scripts
 
-      fn_db_add_column                   Adds a column to a table
+       fn_db_add_column                  Adds a column to a table
        fn_db_change_column_type          Changes a column type,decimal precision etc. (Several formats)
        fn_db_add_config_value            Adds a new value to vdc_options
        fn_db_update_default_config_value     Updates the value of an option in vdc_options if given default was not   changed.You can also define if your condition is case-sensitive or not

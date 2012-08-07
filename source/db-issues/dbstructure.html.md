@@ -139,7 +139,7 @@ Each upgrade change should be in a separate file formatted by MM_mm_nnnn_[Name].
 
 ### How do I upgrade db configuration?
 
-=== How do I upgrade db schema?
+### How do I upgrade db schema?
 
 ### How do I upgrade db data?
 

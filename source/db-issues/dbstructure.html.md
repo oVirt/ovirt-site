@@ -108,3 +108,7 @@ If those parameters are not given, defaults defined in *dbcustomfunctions.sh* *s
        restore.sh [-h] [-s SERVERNAME] [-p PORT] -u USERNAME -d DATABASE -f FILE [-r]
 
 ### Remote database support
+
+In all scripts SERVERNAME and PORT are optional
+If you are using a local DB then SERVERNAME defaults to *localhost* and PORT is defaulted to 5432
+For remote access you should give the server name in SERVERNAME and verify that your remote database is listening on the default port (or give the PORT value in the command line)

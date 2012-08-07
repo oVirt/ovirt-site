@@ -105,5 +105,6 @@ If those parameters are not given, defaults defined in *dbcustomfunctions.sh* *s
 ### How to backup/restore my database ?
 
        backup.sh [-h] [-s SERVERNAME] [-p PORT] [-d DATABASE] [-l DIR] -u USERNAME [-v]
+       restore.sh [-h] [-s SERVERNAME] [-p PORT] -u USERNAME -d DATABASE -f FILE [-r]
 
 ### Remote database support

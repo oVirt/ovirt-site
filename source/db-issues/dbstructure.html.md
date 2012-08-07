@@ -94,7 +94,7 @@ If those parameters are not given, defaults defined in *dbcustomfunctions.sh* *s
 
        create_db_devel.sh [-h] [-s SERVERNAME [-p PORT]] [-d DATABASE] [-u USERNAME] [-f UUID] [-l LOGFILE] [-v]
 
-### How to upgrade my database?
+### How to upgrade a database?
 
        upgrade.sh [-h] [-s SERVERNAME] [-p PORT] [-d DATABASE] [-u USERNAME] [-f VERSION] [-c] [-v]
 

@@ -79,3 +79,19 @@ Any modification to a those files is done directly in the relevant file.
 
 Helper functions are defined in *common_sp.sql* script and have the *fn_db_* prefix
 Those functions are mostly used in upgrade scripts (explained later on)
+
+## Scripts
+
+All scripts resides under the *dbscripts* directory
+
+### How to create a new database?
+
+### How to create a new database for developers?
+
+### How to upgrade my database?
+
+### How to refresh my stored procedures & views?
+
+### How to backup/restore my database ?
+
+### Remote database support

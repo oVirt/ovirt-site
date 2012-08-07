@@ -122,6 +122,8 @@ In order to handle DB upgrades, we maintain a fixed schema plus initial data and
 
 ### What is my database version?
 
+       select version,script,current from schema_version order by id desc limit 1;
+
 ### What are the upgrade script naming conventions?
 
 Each upgrade change should be in a separate file formatted by MM_mm_nnnn_[Name].sql where:

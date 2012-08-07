@@ -78,6 +78,7 @@ Any modification to a those files is done directly in the relevant file.
 ### Helper functions
 
 Helper functions are defined in *common_sp.sql* script and have the *fn_db_* prefix
+Application general functions are defined in *create_functions.sql*
 Those functions are mostly used in upgrade scripts (explained later on)
 
 Some of those stored procedure implement horizonal/vertical filter according to the user that is accessing the database.

@@ -112,3 +112,58 @@ If those parameters are not given, defaults defined in *dbcustomfunctions.sh* *s
 In all scripts SERVERNAME and PORT are optional
 If you are using a local DB then SERVERNAME defaults to *localhost* and PORT is defaulted to 5432
 For remote access you should give the server name in SERVERNAME and verify that your remote database is listening on the default port (or give the PORT value in the command line)
+
+## Upgrade
+
+In order to handle DB upgrades, we maintain a fixed schema plus initial data and from that point on All schema & data changes will be done via upgrade scripts.
+
+      * Since upgrade run only new scripts, upgrade scripts do not need to be re-entrant.
+      * New upgrade scripts should be pushed into git with a higher version than the latest script.
+
+### What is my script version?
+
+### What are the upgrade script naming conventions?
+
+Each upgrade change should be in a separate file formatted by MM_mm_nnnn_[Name].sql where:
+
+           MM  indicates Major Version number
+           mm indicates Minor Version number
+           nnnn are numbers starting from 0010, each having an offset of 10 from previous script(i.e 0010 0020 ....)
+           [Name] is a short descriptive name for the script.(Please do not put your BZ # as part of the Name)
+
+### What is done in the pre-upgrade step?
+
+### What is done in the post-upgrade step?
+
+### how does the upgrade scri[pt works
+
+### How do I upgrade db configuration?
+
+=== How do I upgrade db schema?
+
+### How do I upgrade db data?
+
+### How do I cherry-pick a commit from upstream to z-stream?
+
+### How to prevent script collisions?
+
+### What helper functions can I use in upgrade scripts
+
+      fn_db_add_column                   Adds a column to a table
+       fn_db_change_column_type          Changes a column type,decimal precision etc. (Several formats)
+       fn_db_add_config_value            Adds a new value to vdc_options
+       fn_db_update_default_config_value     Updates the value of an option in vdc_options if given default was not   changed.You can also define if your condition is case-sensitive or not
+       fn_db_delete_config_value             Deletes an option from vdc_options
+       fn_db_split_config_value          Given general configuration entry, creates new entries for each old cluster version, with the old value, and a new entry for the newest cluster version with the input value
+
+Examples:
+
+       select fn_db_add_column('users', 'group_ids', 'VARCHAR(2048)');
+       select fn_db_change_column_type('storage_pool','storage_pool_format_type','integer','varchar(50)');
+       select fn_db_change_column_type('users','age','int2','int4 not null default 0');
+       select fn_db_change_column_type('vm_statistics','cpu_user',18,0,'decimal(18,3)');-- change decimal scale.
+       select fn_db_add_config_value('VdcVersion','3.0.0.0','general');
+       select fn_db_update_config_value('DBEngine','Postgres','general');
+       select fn_db_update_default_config_value('LDAPSecurityAuthentication','GSSAPI','default:GSSAPI','general',false);
+       select fn_db_delete_config_value('ENMailEnableSsl','general');
+       select fn_db_split_config_value('SpiceSecureChannels','all');

@@ -18,6 +18,8 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## 2012-08-07
 
+*[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-08-07-14.01.html)*
+
 **Agenda**
 
 *   Puppet - ewoud

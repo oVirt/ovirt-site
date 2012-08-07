@@ -120,7 +120,7 @@ In order to handle DB upgrades, we maintain a fixed schema plus initial data and
       * Since upgrade run only new scripts, upgrade scripts do not need to be re-entrant.
       * New upgrade scripts should be pushed into git with a higher version than the latest script.
 
-### What is my script version?
+### What is my database version?
 
 ### What are the upgrade script naming conventions?
 

@@ -107,39 +107,6 @@ Example:
         RETURN;
        END; $procedure$
 
-## Scripts
-
-All scripts resides under the *dbscripts* directory
-All scripts can get parameters for server, port, user and database
-If those parameters are not given, defaults defined in *dbcustomfunctions.sh* *set_defaults* are used
-
-### How to create a new database?
-
-       create_db.sh [-h] [-s SERVERNAME [-p PORT]] [-d DATABASE] [-u USERNAME] [-f UUID] [-l LOGFILE] [-v]
-
-### How to create a new database for developers?
-
-       create_db_devel.sh [-h] [-s SERVERNAME [-p PORT]] [-d DATABASE] [-u USERNAME] [-f UUID] [-l LOGFILE] [-v]
-
-### How to upgrade a database?
-
-       upgrade.sh [-h] [-s SERVERNAME] [-p PORT] [-d DATABASE] [-u USERNAME] [-f VERSION] [-c] [-v]
-
-### How to refresh my stored procedures & views?
-
-       refreshStoredProcedures.sh [-h] [-s SERVERNAME] [-d DATABASE] [-u USERNAME] [-v]
-
-### How to backup/restore my database ?
-
-       backup.sh [-h] [-s SERVERNAME] [-p PORT] [-d DATABASE] [-l DIR] -u USERNAME [-v]
-       restore.sh [-h] [-s SERVERNAME] [-p PORT] -u USERNAME -d DATABASE -f FILE [-r]
-
-### Remote database support
-
-In all scripts SERVERNAME and PORT are optional
-If you are using a local DB then SERVERNAME defaults to *localhost* and PORT is defaulted to 5432
-For remote access you should give the server name in SERVERNAME and verify that your remote database is listening on the default port (or give the PORT value in the command line)
-
 ## Upgrade
 
 We have here our home-made infrastructures based on concepts of an existing tool named [Flyway](http://code.google.com/p/flyway/), however, Flyway has it own limitations and is also bundled with a relatively big set of other dependant libraries that makes it hard to integrate & customise to our needs. In order to handle DB upgrades, we maintain a fixed schema plus initial data and from that point on All schema & data changes will be done via upgrade scripts.

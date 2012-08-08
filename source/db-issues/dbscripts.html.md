@@ -6,11 +6,7 @@ wiki_revision_count: 5
 wiki_last_updated: 2013-10-06
 ---
 
-# dbscripts
-
-## Under construction
-
-## Scripts
+# Scripts
 
 All scripts resides under the *dbscripts* directory
 All scripts can get parameters for server, port, user and database

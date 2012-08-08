@@ -217,6 +217,8 @@ All changes to the configuration stored in the vdc_options table will be done us
 
 ### How do I upgrade db schema?
 
+When the DN schema is changed, the change must be introduced via an upgrade script. That means that the create_tables.sql is stable and all modifications are done using upgrade scripts.
+
 ### How do I upgrade db data?
 
 ### How do I cherry-pick a commit from upstream to z-stream?

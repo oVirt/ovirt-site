@@ -117,6 +117,24 @@ Suggested quick start path for new users:
 
 ### oVirt Node
 
+oVirt Node is distributed as a compact image for use on a variety of installation media. It provides a minimal installation of Fedora and includes the packages necessary to support use of the system as a virtualization host in an environment controlled by oVirt Engine.
+
+To install oVirt Node:
+
+*   Download the latest oVirt Node ISO from <http://ovirt.org/releases/3.1/tools/>
+    -   Burn the ISO to a CD-ROM or DVD-ROM (**\1**); or
+    -   Copy the ISO to a USB drive (**# dd if=./ovirt-node-iso-2.5.1-1.0.fc17.iso of=/dev/sdb**).
+*   Boot the target virtualization host from the CD-ROM/DVD-ROM/USB device.
+*   Follow the prompts to complete the installation, once the installation is complete and the system is rebooted the configuration screen will be displayed.
+*   Use the terminal user interface to configure the Node, in particular ensure networking is configured and set the address to the oVirt Engine.
+*   After applying your changes log in to your oVirt Engine installation, select the newly installed Node from the **Hosts** tab, and click **Approve**.
+
+Your oVirt Node has been added to the environment, after adding your first oVirt Node you should:
+
+*   Add Data and ISO storage domains.
+*   Upload an ISO image for an operating system.
+*   Create a virtual machine!
+
 ## Upgrade Instructions
 
 Upgrading from oVirt 3.0 to oVirt 3.1 is **not** recommended. Users are instead advised to use the migration process as documented on this page. Upgrade instructions are however available, refer to [OVirt_3.0_to_3.1_upgrade](OVirt_3.0_to_3.1_upgrade) for more information.

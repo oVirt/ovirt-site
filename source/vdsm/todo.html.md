@@ -60,6 +60,14 @@ wiki_last_updated: 2015-05-29
 
 *   let Vdsm install and run on hosts with no iscsid (report that iscsi is missing to Engine?)
 
+<!-- -->
+
+*   add hooks for device hotplug
+
+<!-- -->
+
+*   add hooks for network operations
+
 ### refactoring
 
 *   In vm.py, libvirtvm.py, clientIF.py there is a mess of prepare\*Path functions (end their respective teardowns), which is too complex to fathom. We have to convert all drive specifications (PDIV,GUID,path) into Drive object at the API entry.

@@ -229,12 +229,12 @@ When the DB data is changed (using DML), the change must be introduced via an up
 
 Upgrade scripts have the MM_mm_nnnn prefix, this uniquely defines the upgrade script
 The *upgrade.sh* script check for such duplications and fails with a detailed error pointing on the duplicate version if found.
-In addition we have a *pom/xml* under *dbscripts* that uses the *Maven Exec Plugin* to run a script that checks for duplications each time the engine is compiled
+In addition we have a *pom.xml* under *dbscripts* that uses the *Maven Exec Plugin* to run a script that checks for duplications each time the engine is compiled
 In short , please follow
  verify that your upgrade script is running OK
 
-      compile 
-      In case that you messed up, `*`Jenkins`*` will find the duplicate script and will send you a nice note.
+         compile 
+         In case that you messed up, `*`Jenkins`*` will find the duplicate script and will send you a nice note.
 
 ### What helper functions can I use in upgrade scripts
 

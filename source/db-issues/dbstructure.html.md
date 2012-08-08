@@ -221,6 +221,8 @@ When the DB schema is changed (using DDL), the change must be introduced via an 
 
 ### How do I upgrade db data?
 
+When the DB data is changed (using DML), the change must be introduced via an upgrade script.
+
 ### How do I cherry-pick a commit from upstream to z-stream?
 
 ### How to prevent script collisions?

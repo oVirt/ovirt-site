@@ -190,6 +190,17 @@ Each upgrade change should be in a separate file formatted by MM_mm_nnnn_[Name].
 
 ### how does the upgrade script works
 
+validates scripts for changes & version duplication
+drops views & stored procedures
+runs pre-upgrade scripts
+checks for gaps
+check for already installed scripts
+run the upgrade script
+updates schema_version
+restore views & stored procedures
+run post upgrade scripts
+generate .schema file
+
 ### How do I upgrade db configuration?
 
 All changes to the configuration stored in the vdc_options table will be done using one script named

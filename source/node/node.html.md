@@ -22,9 +22,9 @@ March 21 oVirt Workshop, Beijing: ![](ovirt-node.pdf "fig:ovirt-node.pdf")
 
 ## Next Release
 
-oVirt Node 2.5.0
+oVirt Node 2.6.0
 
-*   Target date: 2012-08-06
+*   Target date: TBD
 *   List of issues targeted: [Node_Backlog](Node_Backlog)
 
 ## Current Release

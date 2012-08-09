@@ -8,8 +8,6 @@ wiki_revision_count: 6
 wiki_last_updated: 2014-07-13
 ---
 
-**THIS DRAFT IS UNDER CONSTRUCTION. PLEASE DO NOT EDIT IT UNTIL THIS NOTE IS REMOVED**
-
 # Serial Execution of Asynchronous Tasks
 
 ### Summary

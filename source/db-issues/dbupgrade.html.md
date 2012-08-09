@@ -135,6 +135,14 @@ Examples:
        select fn_db_delete_config_value('ENMailEnableSsl','general');
        select fn_db_split_config_value('SpiceSecureChannels','all');
 
+### What should I do if I have to ?
+
+       Add or change a column                      Add an upgrade script
+       Add/Delete/Modify/Split configuration values     Modify config.sql script in pre_upgrade directory using common fn_db* functions
+       Add/Delete/Modify any default data              Add an upgrade script
+       Add/Delete/Modify a SP                      Change only the relevant *_sp.sql file
+       Add/Delete/Modify a View                    Change only the relevant code in create_views.sql file
+
 ### I need to run a shell script as an upgrade step, is this possible?
 
 Yes, just:

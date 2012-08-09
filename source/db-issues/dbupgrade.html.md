@@ -89,7 +89,7 @@ When the DB schema is changed (using DDL), the change must be introduced via an 
 
 When the DB data is changed (using DML), the change must be introduced via an upgrade script.
 
-### How do I cherry-pick a commit from upstream to z-stream?
+### How do I cherry-pick a commit from upstream to?
 
 ### How to prevent script collisions?
 

@@ -8,8 +8,6 @@ wiki_revision_count: 11
 wiki_last_updated: 2012-08-29
 ---
 
-**THIS PAGE IS UNDER CONSTRUCTION PLEASE DO NOT EDIT UNTIL THIS HEADER IS REMOVED**
-
 # Serial Execution of Asynchronous Tasks Detailed Design
 
 ### Summary
@@ -20,64 +18,89 @@ See also the [main feature page](Features/Serial Execution of Asynchronous Tasks
 
 ### Owner
 
-This should link to your home wiki page so we know who you are
-
-*   Name: [ My User](User:MyUser)
-
-Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
-
-*   Email: <my@email>
+*   Name: [ Allon Mureinik](User:amureini)
+*   Email: amureini@redhat.com
 
 ### Current status
 
-*   Target Release: ...
-*   Status: ...
-*   Last updated date: ...
+*   Target Release: 3.1
+*   Status: Design Review
+*   Last updated date: 09/08/2012
 
 ### Detailed Description
 
-Provide the details of the feature. What is it going to include. See the sub-sections below. This section may contain more sub-sections, depends on the oVirt projects relevant for this feature.
+This feature will break the coupling where an engine command equals an SPM task. It will allow the engine to manage complicated asynchronous flows, possibly across several hosts.
 
 #### Entity Description
 
-New entities and changes in existing entities.
+##### SPMAsyncTask
+
+A new property, executionIndex (int) will be added, to signify the position of this task in a command's flow.
+
+##### SPMAsyncTaskHandler
+
+This new entity will represent how oVirt engine handles a single SPMAsyncTask, instead of how it's handled by CommandBase today. Its methods:
+
+*   beforeTask - the execution carried out on the engine side before firing an async task
+*   createTask - how to create the async task
+*   endSuccessfully - the code to run when a task ends successfully
+*   endWithFailure - the code to run when a task ends unsuccessfully
+*   compensate - the code to run if a completed task needs to be undone - see below.
+
+##### CommandBase
+
+CommandBase will hold a List of SPMAsyncTaskHandler to manage executing of SPMAsyncTasks Basically, execute() will iterate over the handlers and execute each. See details below.
+
+##### EntireCommandSPMAsyncTaskHandler
+
+This is a dummy class to mimic the old behavior of command base under the new design. It holds a reference to the wrapping CommandBase object and implemented SPMAsyncTaskHandler as follows:
+
+*   beforeTask - calls CommandBase.executeAction()
+*   createTask - returns null - is handled in the beforeTask()
+*   endSuccessfully - calls CommandBase.endSuccessfully()
+*   endWithFailure - calls CommandBase.endWithFailure()
+*   compensate - empty, implemented in endWithFailure()
 
 #### CRUD
 
-Describe the create/read/update/delete operations on the entities, and what each operation should do.
+SPMAsyncTask's CRUD operations should consider the new property. Other objects do not have interesting CRUD operations.
 
 #### User Experience
 
-Describe user experience related issues. For example: We need a wizard for ...., the behaviour is different in the UI because ....., etc. GUI mockups should also be added here to make it more clear
+N / A
 
 #### Installation/Upgrade
 
-Describe how the feature will effect new installation or existing one.
+N / A
 
 #### User work-flows
 
-Describe the high-level work-flows relevant to this feature.
+##### Successful Execution
+
+CommandBase iterates over its SPMAsyncTaskHandlers. For each one, CommandBase calls beforeTask(), and then fires an SPM command according to createTask(). When the command ends, AsyncTaskManager wakes up the handler, and it runs endSuccessfully(). CommandBase then starts the process over again with the next handler.
+
+##### Successful Execution
+
+See the execution flow above. When an SPM task fails, the relevant handler is awoken, and it calls endWithFailure(). CommandBase then iterates in a *reverse* order, and calls each handler's compensate.
 
 #### Events
 
-What events should be reported when using this feature.
+N / A
 
 ### Dependencies / Related Features and Projects
 
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
-
-Add a link to the feature description for relevant features. Does this feature effect other oVirt projects? Other projects?
+Live Storage Migration depends on this feature. This feature will also allow for better error handling in various Move Disk scenarios.
 
 ### Documentation / External references
 
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
+N / A at the moment
 
 ### Comments and Discussion
 
-Add a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
+<Talk:Features/Serial_Execution_of_Asynchronous_Tasks_Detailed_Design>
 
 ### Open Issues
 
-Issues that we haven't decided how to take care of yet. These are issues that we need to resolve and change this document accordingly.
+N / A
 
-<Category:Template> <Category:DetailedFeature>
+<Category:DetailedFeature>

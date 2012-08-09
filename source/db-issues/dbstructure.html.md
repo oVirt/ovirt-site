@@ -55,6 +55,7 @@ This includes only the baseline of the database while each addition to this stru
 
 The *create_tables.sql* script includes also constrains definitions of 3 types
 
+       Primary keys
        Foreign keys
        Default value for a column
        Value validation

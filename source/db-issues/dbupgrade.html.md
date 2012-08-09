@@ -46,7 +46,7 @@ Upgrade scripts are sorted and executed lexicography, that's why it is important
 
 Temporary functions in upgrade scripts should be renamed __temp_<name> This is in order to distinguish them from real persistent functions and preventing the chance to drop such a function by mistake in an upgrade script.
 
-# When upgrade scripts are called ?
+### When upgrade scripts are called ?
 
 *Clean Install*
 In clean install this is done after initial (default) data is inserted to the database

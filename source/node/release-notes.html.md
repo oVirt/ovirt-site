@@ -10,6 +10,16 @@ wiki_last_updated: 2013-11-19
 
 # oVirt Node Release Notes
 
+# 2.5.1 Release Notes
+
+*   Refactoring for pep8 compliance
+*   Various bug fixes for oVirt 3.1 support
+*   TECH PREVIEW: Plugin Support
+
+### Known issues for 2.4.0
+
+*   See Current Backlog for other issues [Node_Backlog](Node_Backlog)
+
 # 2.4.0 Release Notes
 
 *   Move to F17 Base

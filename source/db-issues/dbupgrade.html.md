@@ -66,7 +66,7 @@ In upgrade we first drop all SPs & Views and then run all upgrade scripts and fi
        Example:
          Object column white list
 
-#### how does the upgrade script works
+#### How does the upgrade script works
 
 validates scripts for changes & version duplication
 drops views & stored procedures

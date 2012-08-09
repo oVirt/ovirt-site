@@ -103,6 +103,17 @@ When the DB data is changed (using DML), the change must be introduced via an up
 
 ### How do I cherry-pick a commit from upstream to?
 
+Assume upstream installed patches 0010 0020 0030 0040 0050 0060 and z-stream installed 0010 and 0020 when 0030 0040 0050 belongs to f1 feature and 0060 belongs to f2 feature Now , we would like to merge f2 changes to Z-stream There can be two cases here :
+
+      In case that f2 depends on f1 , we will have to insert both f1 & f2 patches (0030 - 0060)
+      In case that f2 is independent , we will add 0060 as 0021 in Z-stream
+
+When we will add f1 to Z-stream it will run without any problem since it version is bigger than the last installed version.
+
+When we will add the real f2 to Z-stream , the upgrade will compare its checksum with existing scripts and it will be skipped (and will be marked as SKIPPED in the schema_version table)
+
+This assumes of course that f2 script were not changed from the time it was cherry-picked to the time the real script is taken.
+
 ### How to prevent script collisions?
 
 Upgrade scripts have the MM_mm_nnnn prefix, this uniquely defines the upgrade script

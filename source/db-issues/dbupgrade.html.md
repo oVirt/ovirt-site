@@ -6,7 +6,7 @@ wiki_revision_count: 17
 wiki_last_updated: 2014-12-29
 ---
 
-# Upgrade
+### Upgrade
 
 We have here our home-made infrastructures based on concepts of an existing tool named [Flyway](http://code.google.com/p/flyway/), however, Flyway has it own limitations and is also bundled with a relatively big set of other dependant libraries that makes it hard to integrate & customise to our needs. In order to handle DB upgrades, we maintain a fixed schema plus initial data and from that point on All schema & data changes will be done via upgrade scripts.
 
@@ -29,11 +29,11 @@ Since upgrade run only new scripts, upgrade scripts do not need to be re-entrant
       Indexes:
          "schema_version_primary_key" PRIMARY KEY, btree (id)
 
-### What is my database version?
+#### What is my database version?
 
        select version,script,current from schema_version order by id desc limit 1;
 
-### What are the upgrade script naming conventions?
+#### What are the upgrade script naming conventions?
 
 Each upgrade change should be in a separate file formatted by MM_mm_nnnn_[Name].sql where:
 
@@ -46,19 +46,27 @@ Upgrade scripts are sorted and executed lexicography, that's why it is important
 
 Temporary functions in upgrade scripts should be renamed __temp_<name> This is in order to distinguish them from real persistent functions and preventing the chance to drop such a function by mistake in an upgrade script.
 
-### What is done in the pre-upgrade step?
+# When upgrade scripts are called ?
+
+*Clean Install*
+In clean install this is done after initial (default) data is inserted to the database
+This makes sure that default data is inserted on initial schema before any upgrade script change it.
+ *Upgrade*
+In upgrade we first drop all SPs & Views and then run all upgrade scripts and finally restore views & SPs
+
+#### What is done in the pre-upgrade step?
 
        configuration changes
        schema_version table changes
        special fixes
 
-### What is done in the post-upgrade step?
+#### What is done in the post-upgrade step?
 
        Modifications that are using views/stored procedures
        Example:
          Object column white list
 
-### how does the upgrade script works
+#### how does the upgrade script works
 
 validates scripts for changes & version duplication
 drops views & stored procedures
@@ -71,7 +79,7 @@ restore views & stored procedures
 run post upgrade scripts
 generate .schema file
 
-### How do I upgrade db configuration?
+#### How do I upgrade db configuration?
 
 All changes to the configuration stored in the vdc_options table will be done using one script named
 **config.sql** under **dbscripts/upgrade/pre_upgrade** directory.
@@ -85,17 +93,17 @@ All changes to the configuration stored in the vdc_options table will be done us
 
 **Please note that the config.sql is re-entrant.**
 
-### How do I upgrade db schema?
+#### How do I upgrade db schema?
 
 When the DB schema is changed (using DDL), the change must be introduced via an upgrade script. That means that the create_tables.sql is stable and all modifications are done using upgrade scripts.
 
-### How do I upgrade db data?
+#### How do I upgrade db data?
 
 When the DB data is changed (using DML), the change must be introduced via an upgrade script.
 
-### How do I cherry-pick a commit from upstream to?
+#### How do I cherry-pick a commit from upstream to?
 
-### How to prevent script collisions?
+#### How to prevent script collisions?
 
 Upgrade scripts have the MM_mm_nnnn prefix, this uniquely defines the upgrade script
 The *upgrade.sh* script check for such duplications and fails with a detailed error pointing on the duplicate version if found.
@@ -106,7 +114,7 @@ In short , please follow
          compile 
          In case that you messed up, `*`Jenkins`*` will find the duplicate script and will send you a nice note.
 
-### What helper functions can I use in upgrade scripts
+#### What helper functions can I use in upgrade scripts
 
        fn_db_add_column                  Adds a column to a table
        fn_db_change_column_type          Changes a column type,decimal precision etc. (Several formats)
@@ -127,7 +135,7 @@ Examples:
        select fn_db_delete_config_value('ENMailEnableSsl','general');
        select fn_db_split_config_value('SpiceSecureChannels','all');
 
-### I need to run a shell script as an upgrade step, is this possible?
+#### I need to run a shell script as an upgrade step, is this possible?
 
 Yes, just:
 

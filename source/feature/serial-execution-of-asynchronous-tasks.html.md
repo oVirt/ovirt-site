@@ -44,4 +44,4 @@ Is there upstream documentation on this feature, or notes you have written yours
 
 *   Refer to [Talk:Features/Serial Execution of Asynchronous Task](Talk:Features/Serial Execution of Asynchronous Task)
 
-<Category:Feature> <Category:Template>
+<Category:Feature>

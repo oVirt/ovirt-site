@@ -21,7 +21,7 @@ In short, *this wiki is for the oVirt community collaborative documentation*.
 
 ## What is here
 
-*   Release notes for the Ovirt 3.1 [OVirt 3.1 release notes](OVirt 3.1 release notes) and Ovirt Node [Node Release Notes](Node Release Notes)
+*   Release notes for the [ oVirt 3.1](OVirt 3.1 release notes) and [ oVirt Node](Node Release Notes)
 *   Developer wiki for the oVirt [Node](Node) project.
 *   Developer wiki for the oVirt Engine project. Begin with [DevProcess](DevProcess), [Building oVirt engine](Building oVirt engine) and [Working with oVirt Gerrit](Working with oVirt Gerrit)
 *   Content for attendees and organizers of [ oVirt Global Workshops](oVirt Global Workshops).

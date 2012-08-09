@@ -42,6 +42,6 @@ Is there upstream documentation on this feature, or notes you have written yours
 
 ### Comments and Discussion
 
-*   Refer to [Talk:Features/Serial Execution of Asynchronous Task](Talk:Features/Serial Execution of Asynchronous Task) feature page -->
+*   Refer to [Talk:Features/Serial Execution of Asynchronous Task](Talk:Features/Serial Execution of Asynchronous Task)
 
 <Category:Feature> <Category:Template>

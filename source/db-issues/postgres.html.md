@@ -37,6 +37,8 @@ PAM
 
 ## Configuration
 
+Default postgres configuration files are under */var/lib/pgsql/data*
+
 ### postgresql.conf
 
 `  `[`defaults`](http://www.postgresql.org/docs/current/static/view-pg-settings.html)

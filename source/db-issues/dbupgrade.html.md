@@ -42,6 +42,8 @@ Each upgrade change should be in a separate file formatted by MM_mm_nnnn_[Name].
            nnnn are numbers starting from 0010, each having an offset of 10 from previous script(i.e 0010 0020 ....)
            [Name] is a short descriptive name for the script.(Please do not put your BZ # as part of the Name)
 
+Upgrade scripts are sorted and executed lexicography, that's why it is important to follow the upgrade script naming convention.v
+
 Temporary functions in upgrade scripts should be renamed __temp_<name> This is in order to distinguish them from real persistent functions and preventing the chance to drop such a function by mistake in an upgrade script.
 
 ### What is done in the pre-upgrade step?

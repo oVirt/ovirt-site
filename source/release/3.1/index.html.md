@@ -137,7 +137,7 @@ Your oVirt Node has been added to the environment, after adding your first oVirt
 
 ## Upgrade Instructions
 
-Upgrading from oVirt 3.0 to oVirt 3.1 is **not** recommended. Users are instead advised to use the migration process as documented on this page. Upgrade instructions are however available, refer to [OVirt_3.0_to_3.1_upgrade](OVirt_3.0_to_3.1_upgrade) for more information.
+Upgrading from oVirt 3.0 to oVirt 3.1 is **not** recommended. Users are instead advised to use the migration process as documented on this page. Upgrade instructions are however available, refer to [ OVirt 3.0 to 3.1 upgrade](OVirt_3.0_to_3.1_upgrade) for more information.
 
 ## Migration Instructions
 

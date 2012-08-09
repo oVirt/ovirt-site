@@ -16,7 +16,7 @@ wiki_last_updated: 2012-12-05
 
 ### Where do I define my db connection?
 
-in JBoss 7.x the database configuration is defined in $BOSS_HOME/standalone/configuration/standalone.xml
+in JBoss 7.x the database configuration is defined in $JBOSS_HOME/standalone/configuration/standalone.xml
 
 `             `<datasources>
 `               `<datasource jndi-name="java:/ENGINEDataSource" pool-name="ENGINEDataSource" enabled="true">

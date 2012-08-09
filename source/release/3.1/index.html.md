@@ -135,6 +135,26 @@ Your oVirt Node has been added to the environment, after adding your first oVirt
 *   Upload an ISO image for an operating system.
 *   Create a virtual machine!
 
+### Fedora Host
+
+In addition to oVirt Node hosts, you can also reconfigure servers which are running Fedora 17 to be used as virtual machine hosts.
+
+To install a Fedora 17 host:
+
+*   On the machine designated as your Fedora host, install Fedora 17. A minimal installation is sufficient.
+*   Log in to your Fedora host as the **root** user.
+*   Install the *ovirt-release* package using **yum**, this package configures your system to receive updates from the oVirt project's software repository:
+
+`   # yum localinstall `[`http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm`](http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm)
+
+*   After installing this package, log in to your oVirt Engine installation, select "Add" from the **Hosts** tab, enter a name for the Fedora host, and provide the hostname or IP address and root password for the Fedora host, and click **OK**.
+
+Your Fedora host has been added to the environment, after adding your first host (whether Fedora or oVirt Node-based) you should:
+
+*   Add Data and ISO storage domains.
+*   Upload an ISO image for an operating system.
+*   Create a virtual machine!
+
 ## Upgrade Instructions
 
 Upgrading from oVirt 3.0 to oVirt 3.1 is **not** recommended. Users are instead advised to use the migration process as documented on this page. Upgrade instructions are however available, refer to [ OVirt 3.0 to 3.1 upgrade](OVirt_3.0_to_3.1_upgrade) for more information.

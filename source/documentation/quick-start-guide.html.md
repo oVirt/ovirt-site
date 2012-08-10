@@ -308,13 +308,11 @@ For this document, the oVirt Node and Fedora hosts will be attached to the Defau
 
 ### Configure Networking
 
-Figure 3.5. Configure Networking
-
 At installation, oVirt defines a Management network for the default data center. This network is used for communication between the manager and the host. New logical networks - for example for guest data, storage or display - can be added to enhance network speed and performance. All networks used by hosts and clusters must be added to data center they belong to.
 
 To access the Management network, click on the Clusters tab and select the default cluster. Click the Logical Networks tab in the Details pane. The ovirtmgmt network displays.
 
-Figure 3.6. Logical Networks Tab
+![Figure 3.6. Logical Networks Tab](logical-network-view.png "Figure 3.6. Logical Networks Tab")
 
 The ovirtmgmt Management network is used for this document, however if you wish to create new logical networks see the [oVirt Administration Guide](oVirt Administration Guide).
 

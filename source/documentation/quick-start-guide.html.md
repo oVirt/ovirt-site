@@ -8,6 +8,7 @@ wiki_category: Documentation
 wiki_title: Quick Start Guide
 wiki_revision_count: 80
 wiki_last_updated: 2015-01-25
+wiki_warnings: list-item?
 ---
 
 # Quick Start Guide
@@ -331,7 +332,7 @@ You have already installed your oVirt Node and Fedora hosts, but before they can
 
 The Hypervisor you installed in Section 2.2.1, “Install oVirt Node” is automatically registered with the oVirt platform. It displays in the oVirt Engine, and needs to be approved for use.
 
-To set up a oVirt Node host
+**To set up a oVirt Node host**
 
 On the Tree pane, click Expand All and select Hosts under the Default cluster. On the Hosts tab, select the name of your newly installed hypervisor.
 
@@ -349,43 +350,50 @@ In contrast to the hypervisor host, the Fedora host you installed in Section 2.2
 
 To attach a Fedora host
 
-*   On the Tree pane, click Expand All and select Hosts under the Default cluster. On the Hosts tab, click New.
-*   The New Host dialog displays.
-    Enter the details in the following fields:
-    -   Data Center: the data center to which the host belongs. Select the Default data center.
-    -   Host Cluster: the cluster to which the host belongs. Select the Default cluster.
-    -   Name: a descriptive name for the host.
-    -   Address: the IP address, or resolvable hostname of the host, which was provided during installation.
-    -   Root Password: the password of the designated host; used during installation of the host.
-    -   Configure iptables rules: This checkbox allows you to override the firewall settings on the host with the default rules for oVirt.
+1. On the Tree pane, click Expand All and select Hosts under the Default cluster. On the Hosts tab, click New.
+
+2. The New Host dialog displays.
+
+Enter the details in the following fields:
+
+*   Data Center: the data center to which the host belongs. Select the Default data center.
+*   Host Cluster: the cluster to which the host belongs. Select the Default cluster.
+*   Name: a descriptive name for the host.
+*   Address: the IP address, or resolvable hostname of the host, which was provided during installation.
+*   Root Password: the password of the designated host; used during installation of the host.
+*   Configure iptables rules: This checkbox allows you to override the firewall settings on the host with the default rules for oVirt.
 
 <!-- -->
 
-*   If you wish to configure this host for Out of Band (OOB) power management, select the Power Management tab. Tick the Enable Power Management checkbox and provide the required information in the following fields:
-    -   Address: The address of the host.
-    -   User Name: A valid user name for the OOB management.
-    -   Password: A valid, robust password for the OOB management.
-    -   Type: The type of OOB management device. Select the appropriate device from the drop down list.
-        -   alom Sun Advanced Lights Out Manager
-        -   apc American Power Conversion Master MasterSwitch network power switch
-        -   bladecenter IBM Bladecentre Remote Supervisor Adapter
-        -   drac5 Dell Remote Access Controller for Dell computers
-        -   eps ePowerSwitch 8M+ network power switch
-        -   ilo HP Integrated Lights Out standard
-        -   ilo3 HP Integrated Lights Out 3 standard
-        -   ipmilan Intelligent Platform Management Interface
-        -   rsa IBM Remote Supervisor Adaptor
-        -   rsb Fujitsu-Siemens RSB management interface
-        -   wti Western Telematic Inc Network PowerSwitch
-        -   cisco_ucs Cisco Unified Computing System Integrated Management Controller
-    -   Options: Extra command line options for the fence agent. Detailed documentation of the options available is provided in the man page for each fence agent.
-    -   Click the Test button to test the operation of the OOB management solution.
-    -   If you do not wish to configure power management, leave the Enable Power Management checkbox unmarked.
+3. If you wish to configure this host for Out of Band (OOB) power management, select the Power Management tab. Tick the Enable Power Management checkbox and provide the required information in the following fields:
+
+*   Address: The address of the host.
+*   User Name: A valid user name for the OOB management.
+*   Password: A valid, robust password for the OOB management.
+*   Type: The type of OOB management device. Select the appropriate device from the drop down list.
+    -   alom Sun Advanced Lights Out Manager
+    -   apc American Power Conversion Master MasterSwitch network power switch
+    -   bladecenter IBM Bladecentre Remote Supervisor Adapter
+    -   drac5 Dell Remote Access Controller for Dell computers
+    -   eps ePowerSwitch 8M+ network power switch
+    -   ilo HP Integrated Lights Out standard
+    -   ilo3 HP Integrated Lights Out 3 standard
+    -   ipmilan Intelligent Platform Management Interface
+    -   rsa IBM Remote Supervisor Adaptor
+    -   rsb Fujitsu-Siemens RSB management interface
+    -   wti Western Telematic Inc Network PowerSwitch
+    -   cisco_ucs Cisco Unified Computing System Integrated Management Controller
+*   Options: Extra command line options for the fence agent. Detailed documentation of the options available is provided in the man page for each fence agent.
+
+Click the Test button to test the operation of the OOB management solution.
+
+If you do not wish to configure power management, leave the Enable Power Management checkbox unmarked.
 
 <!-- -->
 
-*   Click OK. If you have not configured power management, a pop-up window prompts you to confirm if you wish to proceed without power management. Select OK to continue.
-*   The new host displays in the list of hosts with a status of Installing. Once installation is complete, the status will update to Reboot and then Awaiting. When the host is ready for use, its status changes to Up.
+4. Click OK. If you have not configured power management, a pop-up window prompts you to confirm if you wish to proceed without power management. Select OK to continue.
+
+5. The new host displays in the list of hosts with a status of Installing. Once installation is complete, the status will update to Reboot and then Awaiting. When the host is ready for use, its status changes to Up.
 
 You have now successfully configured your hosts to run virtual machines. The next step is to prepare data storage domains to house virtual machine disk images.
 
@@ -393,71 +401,175 @@ You have now successfully configured your hosts to run virtual machines. The nex
 
 Figure 3.11. Configure Storage
 
-After configuring your logical networks, you need to add storage to your data center. oVirt uses a centralized shared storage system for virtual machine disk images and snapshots. Storage can be implemented using Network File System (NFS), Internet Small Computer System Interface (iSCSI) or Fibre Channel Protocol (FCP). Storage definition, type and function, are encapsulated in a logical entity called a Storage Domain. Multiple storage domains are supported. For more information on storage types refer to the Red Hat Enterprise Linux Storage Administration Guide. For this guide you will use two types of storage domains. The first is an NFS share for ISO images of installation media. You have already created this ISO domain during the oVirt Engine installation. The second storage domain will be used to hold virtual machine disk images. For this domain, you need at least one of the supported storage types. You have already set a default storage type during installation as described in Section 2.1, “Install oVirt Engine”. Ensure that you use the same type when creating your data domain. Select your next step by checking the storage type you should use:
+After configuring your logical networks, you need to add storage to your data center.
 
-Navigate to the Tree pane and click the Expand All button. Under System, click Default. On the results list, the Default data center displays. On the results list, the Storage Type column displays the type you should add. Now that you have verified the storage type, create the storage domain: For NFS storage, refer to Section 3.5.1, “Create an NFS Data Domain”. For iSCSI storage, refer to Section 3.5.2, “Create an iSCSI Data Domain”. For FCP storage, refer to Section 3.5.3, “Create an FCP Data Domain”. Note
+oVirt uses a centralized shared storage system for virtual machine disk images and snapshots. Storage can be implemented using Network File System (NFS), Internet Small Computer System Interface (iSCSI) or Fibre Channel Protocol (FCP). Storage definition, type and function, are encapsulated in a logical entity called a Storage Domain. Multiple storage domains are supported.
 
-This document provides instructions to create a single storage domain, which is automatically attached and activated in the selected data center. If you wish to create additional storage domains within one data center, see the oVirt Administration Guide for instructions on activating storage domains.
+For this guide you will use two types of storage domains. The first is an NFS share for ISO images of installation media. You have already created this ISO domain during the oVirt Engine installation.
+
+The second storage domain will be used to hold virtual machine disk images. For this domain, you need at least one of the supported storage types. You have already set a default storage type during installation as described in Section 2.1, “Install oVirt Engine”. Ensure that you use the same type when creating your data domain.
+
+Select your next step by checking the storage type you should use:
+
+1.  Navigate to the Tree pane and click the Expand All button. Under System, click Default. On the results list, the Default data center displays.
+2.  On the results list, the Storage Type column displays the type you should add.
+3.  Now that you have verified the storage type, create the storage domain:
+
+    * For NFS storage, refer to Section 3.5.1, “Create an NFS Data Domain”.
+
+    * For iSCSI storage, refer to Section 3.5.2, “Create an iSCSI Data Domain”.
+
+    * For FCP storage, refer to Section 3.5.3, “Create an FCP Data Domain”.
+
+Note: This document provides instructions to create a single storage domain, which is automatically attached and activated in the selected data center. If you wish to create additional storage domains within one data center, see the [oVirt Administration Guide](oVirt Administration Guide) for instructions on activating storage domains.
 
 #### Create an NFS Data Domain
 
-Because you have selected NFS as your default storage type during the Manager installation, you will now create an NFS storage domain. An NFS type storage domain is a mounted NFS share that is attached to a data center and used to provide storage for virtual machine disk images. Important
+Because you have selected NFS as your default storage type during the Manager installation, you will now create an NFS storage domain. An NFS type storage domain is a mounted NFS share that is attached to a data center and used to provide storage for virtual machine disk images.
 
-If you are using NFS storage, you must first create and export the directories to be used as storage domains from the NFS server. These directories must have their numerical user and group ownership set to 36:36 on the NFS server, to correspond to the vdsm user and kvm group respectively on the oVirt Engine server. In addition, these directories must be exported with the read write options (rw). For more information see the oVirt Installation Guide. To add NFS storage:
+Important: If you are using NFS storage, you must first create and export the directories to be used as storage domains from the NFS server. These directories must have their numerical user and group ownership set to 36:36 on the NFS server, to correspond to the vdsm user and kvm group respectively on the oVirt Engine server. In addition, these directories must be exported with the read write options (rw). For more information see the [oVirt Installation Guide](oVirt Installation Guide).
 
-Navigate to the Tree pane and click the Expand All button. Under System, select the Default data center and click on Storage. The available storage domains display on the results list. Click New Domain. The New Storage dialog box displays.
+**To add NFS storage:**
+
+1. Navigate to the Tree pane and click the Expand All button. Under System, select the Default data center and click on Storage. The available storage domains display on the results list. Click New Domain.
+
+2. The New Storage dialog box displays.
 
 Figure 3.12. Add New Storage
 
-Configure the following options: Name: Enter a suitably descriptive name. Data Center: The Default data center is already pre-selected. Domain Function / Storage Type: In the drop down menu, select Data → NFS. The storage domain types not compatible with the Default data center are grayed out. After you select your domain type, the Export Path field appears. Use Host: Select any of the hosts from the drop down menu. Only hosts which belong in the pre-selected data center will display in this list. Export path: Enter the IP address or a resolvable hostname of the chosen host. The export path should be in the format of 192.168.0.10:/data or domain.example.com:/data Click OK. The new NFS data domain displays on the Storage tab. It will remain with a Locked status while it is being prepared for use. When ready, it is automatically attached to the data center. You have created an NFS storage domain. Now, you need to attach an ISO domain to the data center and upload installation images so you can use them to create virtual machines. Proceed to Section 3.5.4, “Attach and Populate ISO domain”.
+Configure the following options:
+
+*   Name: Enter a suitably descriptive name.
+*   Data Center: The Default data center is already pre-selected.
+*   Domain Function / Storage Type: In the drop down menu, select Data → NFS. The storage domain types not compatible with the Default data center are grayed out. After you select your domain type, the Export Path field appears.
+
+Use Host: Select any of the hosts from the drop down menu. Only hosts which belong in the pre-selected data center will display in this list.
+
+    * Export path: Enter the IP address or a resolvable hostname of the chosen host. The export path should be in the format of 192.168.0.10:/data or domain.example.com:/data
+
+3. Click OK. The new NFS data domain displays on the Storage tab. It will remain with a Locked status while it is being prepared for use. When ready, it is automatically attached to the data center.
+
+You have created an NFS storage domain. Now, you need to attach an ISO domain to the data center and upload installation images so you can use them to create virtual machines. Proceed to Section 3.5.4, “Attach and Populate ISO domain”.
 
 #### Create an iSCSI Data Domain
 
-Because you have selected iSCSI as your default storage type during the Manager installation, you will now create an iSCSI storage domain. oVirt platform supports iSCSI storage domains spanning multiple pre-defined Logical Unit Numbers (LUNs). To add iSCSI storage:
+Because you have selected iSCSI as your default storage type during the Manager installation, you will now create an iSCSI storage domain. oVirt platform supports iSCSI storage domains spanning multiple pre-defined Logical Unit Numbers (LUNs).
 
-On the side pane, select the Tree tab. On System, click the + icon to display the available data centers. Double click on the Default data center and click on Storage. The available storage domains display on the results list. Click New Domain. The New Domain dialog box displays.
+**To add iSCSI storage:**
+
+1. On the side pane, select the Tree tab. On System, click the + icon to display the available data centers.
+
+2. Double click on the Default data center and click on Storage. The available storage domains display on the results list. Click New Domain.
+
+3. The New Domain dialog box displays.
 
 Figure 3.13. Add iSCSI Storage
 
-Configure the following options: Name: Enter a suitably descriptive name. Data Center: The Default data center is already pre-selected. Domain Function / Storage Type: In the drop down menu, select Data → iSCSI. The storage domain types which are not compatible with the Default data center are grayed out. After you select your domain type, the Use Host and Discover Targets fields display. Use host: Select any of the hosts from the drop down menu. Only hosts which belong in this data center will display in this list. To connect to the iSCSI target, click the Discover Targets bar. This expands the menu to display further connection information fields.
+Configure the following options:
+
+*   Name: Enter a suitably descriptive name.
+*   Data Center: The Default data center is already pre-selected.
+*   Domain Function / Storage Type: In the drop down menu, select Data → iSCSI. The storage domain types which are not compatible with the Default data center are grayed out. After you select your domain type, the Use Host and Discover Targets fields display.
+*   Use host: Select any of the hosts from the drop down menu. Only hosts which belong in this data center will display in this list.
+
+<!-- -->
+
+4. To connect to the iSCSI target, click the Discover Targets bar. This expands the menu to display further connection information fields.
 
 Figure 3.14. Attach LUNs to iSCSI domain
 
-Enter the required information: Address: Enter the address of the iSCSI target. Port: Select the port to connect to. The default is 3260. User Authentication: If required, enter the username and password. Click the Discover button to find the targets. The iSCSI targets display in the results list with a Login button for each target. Click Login to display the list of existing LUNs. Tick the Add LUN checkbox to use the selected LUN as the iSCSI data domain. Click OK. The new NFS data domain displays on the Storage tab. It will remain with a Locked status while it is being prepared for use. When ready, it is automatically attached to the data center. You have created an iSCSI storage domain. Now, you need to attach an ISO domain to the data center and upload installation images so you can use them to create virtual machines. Proceed to Section 3.5.4, “Attach and Populate ISO domain”.
+Enter the required information:
+
+*   Address: Enter the address of the iSCSI target.
+*   Port: Select the port to connect to. The default is 3260.
+*   User Authentication: If required, enter the username and password.
+
+<!-- -->
+
+5. Click the Discover button to find the targets. The iSCSI targets display in the results list with a Login button for each target.
+
+6. Click Login to display the list of existing LUNs. Tick the Add LUN checkbox to use the selected LUN as the iSCSI data domain.
+
+7. Click OK. The new iSCSI data domain displays on the Storage tab. It will remain with a Locked status while it is being prepared for use. When ready, it is automatically attached to the data center.
+
+You have created an iSCSI storage domain. Now, you need to attach an ISO domain to the data center and upload installation images so you can use them to create virtual machines. Proceed to Section 3.5.4, “Attach and Populate ISO domain”.
 
 #### Create an FCP Data Domain
 
-Because you have selected FCP as your default storage type during the Manager installation, you will now create an FCP storage domain. oVirt platform supports FCP storage domains spanning multiple pre-defined Logical Unit Numbers (LUNs). To add FCP storage:
+Because you have selected FCP as your default storage type during the Manager installation, you will now create an FCP storage domain. oVirt platform supports FCP storage domains spanning multiple pre-defined Logical Unit Numbers (LUNs).
 
-On the side pane, select the Tree tab. On System, click the + icon to display the available data centers. Double click on the Default data center and click on Storage. The available storage domains display on the results list. Click New Domain. The New Domain dialog box displays.
+**To add FCP storage:**
+
+1. On the side pane, select the Tree tab. On System, click the + icon to display the available data centers.
+
+2. Double click on the Default data center and click on Storage. The available storage domains display on the results list. Click New Domain.
+
+3. The New Domain dialog box displays.
 
 Figure 3.15. Add FCP Storage
 
-Configure the following options: Name: Enter a suitably descriptive name. Data Center: The Default data center is already pre-selected. Domain Function / Storage Type: Select FCP. Use Host: Select the IP address of either the hypervisor or Red Hat Enterprise Linux host. The list of existing LUNs display. On the selected LUN, tick the Add LUN checkbox to use it as the FCP data domain. Click OK. The new FCP data domain displays on the Storage tab. It will remain with a Locked status while it is being prepared for use. When ready, it is automatically attached to the data center. You have created an FCP storage domain. Now, you need to attach an ISO domain to the data center and upload installation images so you can use them to create virtual machines. Proceed to Section 3.5.4, “Attach and Populate ISO domain”.
+Configure the following options:
+
+*   Name: Enter a suitably descriptive name.
+*   Data Center: The Default data center is already pre-selected.
+*   Domain Function / Storage Type: Select FCP.
+*   Use Host: Select the IP address of either the hypervisor or Red Hat Enterprise Linux host.
+*   The list of existing LUNs display. On the selected LUN, tick the Add LUN checkbox to use it as the FCP data domain.
+
+<!-- -->
+
+4. Click OK. The new FCP data domain displays on the Storage tab. It will remain with a Locked status while it is being prepared for use. When ready, it is automatically attached to the data center.
+
+You have created an FCP storage domain. Now, you need to attach an ISO domain to the data center and upload installation images so you can use them to create virtual machines. Proceed to Section 3.5.4, “Attach and Populate ISO domain”.
 
 #### Attach and Populate ISO domain
 
-You have defined your first storage domain to store virtual guest data, now it is time to configure your second storage domain, which will be used to store installation images for creating virtual machines. You have already created a local ISO domain during the installation of the oVirt Engine. To use this ISO domain, attach it to a data center. To attach the ISO domain
+You have defined your first storage domain to store virtual guest data, now it is time to configure your second storage domain, which will be used to store installation images for creating virtual machines. You have already created a local ISO domain during the installation of the oVirt Engine. To use this ISO domain, attach it to a data center.
 
-Navigate to the Tree pane and click the Expand All button. Click Default. On the results list, the Default data center displays. On the details pane, select the Storage tab and click the Attach ISO button. The Attach ISO Library dialog appears with the available ISO domain. Select it and click OK.
+**To attach the ISO domain**
+
+1. Navigate to the Tree pane and click the Expand All button. Click Default. On the results list, the Default data center displays.
+
+2. On the details pane, select the Storage tab and click the Attach ISO button.
+
+3. The Attach ISO Library dialog appears with the available ISO domain. Select it and click OK.
 
 Figure 3.16. Attach ISO Library
 
-The ISO domain appears in the results list of the Storage tab. It displays with the Locked status as the domain is being validated, then changes to Inactive. Select the ISO domain and click the Activate button. The status changes to Locked and then to Active. Media images (CD-ROM or DVD-ROM in the form of ISO images) must be available in the ISO repository for the virtual machines to use. To do so, oVirt provides a utility that copies the images and sets the appropriate permissions on the file. The file provided to the utility and the ISO share have to be accessible from the oVirt Engine. Log in to the oVirt Engine server console to upload images to the ISO domain. To upload ISO images
+4. The ISO domain appears in the results list of the Storage tab. It displays with the Locked status as the domain is being validated, then changes to Inactive.
 
-Create or acquire the appropriate ISO images from boot media. Ensure the path to these images is accessible from the oVirt Engine server. The next step is to upload these files. First, determine the available ISO domains by running:
+5. Select the ISO domain and click the Activate button. The status changes to Locked and then to Active.
 
-1.  rhevm-iso-uploader list
+Media images (CD-ROM or DVD-ROM in the form of ISO images) must be available in the ISO repository for the virtual machines to use. To do so, oVirt provides a utility that copies the images and sets the appropriate permissions on the file. The file provided to the utility and the ISO share have to be accessible from the oVirt Engine.
 
-You will be prompted to provide the admin user password which you use to connect to the administration portal. The tool lists the name of the ISO domain that you attached in the previous section. ISO Storage Domain List:
+Log in to the oVirt Engine server console to upload images to the ISO domain.
 
-       local-iso-share
+**To upload ISO images**
+
+1. Create or acquire the appropriate ISO images from boot media. Ensure the path to these images is accessible from the oVirt Engine server.
+
+2. The next step is to upload these files. First, determine the available ISO domains by running:
+
+         # engine-iso-uploader list
+
+You will be prompted to provide the admin user password which you use to connect to the administration portal. The tool lists the name of the ISO domain that you attached in the previous section.
+
+         ISO Storage Domain List:
+           local-iso-share
 
 Now you have all the information required to upload the required files. On the Manager console, copy your installation images to the ISO domain. For your images, run:
 
-1.  rhevm-iso-uploader upload -i local-iso-share [file1] [file2] .... [fileN]
+         # engine-iso-uploader upload -i local-iso-share [file1] [file2] .... [fileN]
 
-You will be prompted for the admin user password again, provide it and press Enter. Note that the uploading process can be time consuming, depending on your storage performance. After the images have been uploaded, check that they are available for use in the Manager administration portal. Navigate to the Tree and click the Expand All button. Under Storage, click on the name of the ISO domain. It displays in the results list. Click on it to display its details pane. On the details pane, select the Images tab. The list of available images should be populated with the files which you have uploaded. In addition, the RHEV-toolsSetup.iso and virtio-win.vfd images should have been automatically uploaded during installation.
+You will be prompted for the admin user password again, provide it and press Enter.
+
+Note that the uploading process can be time consuming, depending on your storage performance.
+
+3. After the images have been uploaded, check that they are available for use in the Manager administration portal.
+
+*   Navigate to the Tree and click the Expand All button.
+*   Under Storage, click on the name of the ISO domain. It displays in the results list. Click on it to display its details pane.
+*   On the details pane, select the Images tab. The list of available images should be populated with the files which you have uploaded.
 
 Figure 3.17. Uploaded ISO images
 

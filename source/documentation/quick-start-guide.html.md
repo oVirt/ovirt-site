@@ -8,7 +8,6 @@ wiki_category: Documentation
 wiki_title: Quick Start Guide
 wiki_revision_count: 80
 wiki_last_updated: 2015-01-25
-wiki_warnings: list-item?
 ---
 
 # Quick Start Guide
@@ -223,28 +222,17 @@ You have now successfully installed the oVirt Node. Repeat this procedure if you
 
 #### Install Fedora Host
 
-You now know how to install a oVirt Node. In addition to hypervisor hosts, you can also reconfigure servers which are running Red Hat Enterprise Linux to be used as virtual machine hosts.
+You now know how to install a oVirt Node. In addition to hypervisor hosts, you can also reconfigure servers which are running Fedora to be used as virtual machine hosts.
 
 **To install a Fedora 17 host**
 
-1.  On the machine designated as your Fedora host, install Fedora 17. Select only the Base package group during installation. For more comprehensive instructions, refer to the Red Hat Enterprise Linux Installation Guide.
-2.  If your server has not been registered with the Red Hat Network, run the rhn_register command as root to register it. To complete registration successfully you will need to supply your Red Hat Network username and password. Follow the onscreen prompts to complete registration of the system.
+*   On the machine designated as your Fedora host, install Fedora 17. A minimal installation is sufficient.
+*   Log in to your Fedora host as the **root** user.
+*   Install the *ovirt-release* package using **yum**, this package configures your system to receive updates from the oVirt project's software repository:
 
-         # rhn_register
+`   # yum localinstall `[`http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm`](http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm)
 
-1.  Subscribe the server to the required channels using the Red Hat Network web interface.
-
-    * Log on to Red Hat Network (http://rhn.redhat.com/).
-
-    * Click Systems at the top of the page.
-
-    * Select the system to which you are adding channels from the list presented on the screen, by clicking the name of the system.
-
-    * Click Alter Channel Subscriptions in the Subscribed Channels section of the screen.
-
-    * Select the Red Hat Enterprise Virt Management Agent (v 6 x86_64) channel from the list presented on the screen, then click the Change Subscription button to finalize the change.
-
-1.  The oVirt platform uses a number of network ports for management and other virtualization features. Adjust your Red Hat Enterprise Linux host's firewall settings to allow access to the required ports by configuring iptables rules. Modify the /etc/sysconfig/iptables file so it resembles the following example:
+*   The oVirt platform uses a number of network ports for management and other virtualization features. oVirt Engine can make the necessary firewall adjustments automatically while adding your host. Alternatively, you may adjust your Fedora host's firewall settings to allow access to the required ports by configuring iptables rules. Modify the /etc/sysconfig/iptables file so it resembles the following example:
 
          :INPUT ACCEPT [0:0]
          :FORWARD ACCEPT [0:0]
@@ -262,12 +250,12 @@ You now know how to install a oVirt Node. In addition to hypervisor hosts, you c
          -A FORWARD -m physdev ! --physdev-is-bridged -j REJECT --reject-with icmp-host-prohibited 
          COMMIT
 
-1.  Ensure that the iptables service is configured to start on boot and has been restarted, or started for the first time if it was not already running. Run the following commands:
+*   Ensure that the iptables service is configured to start on boot and has been restarted, or started for the first time if it was not already running. Run the following commands:
 
          # chkconfig iptables on
          # service iptables restart
 
-You have now successfully installed a Red Hat Enterprise Linux host. As before, repeat this procedure if you wish to use more Linux hosts. Before you can start running virtual machines on your host, you have to manually add it to the oVirt Engine via the administration portal, which you will access in the next step.
+You have now successfully installed a Fedora host. As before, repeat this procedure if you wish to use more Linux hosts. Before you can start running virtual machines on your host, you have to manually add it to the oVirt Engine via the administration portal, which you will access in the next step.
 
 ## Connect to oVirt Engine
 

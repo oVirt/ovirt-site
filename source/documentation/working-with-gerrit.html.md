@@ -107,6 +107,10 @@ In order to easily track commit changes in Gerrit, each commit must have a chang
       git push gerrit.ovirt.org:ovirt-engine HEAD:refs/for/master
        
 
+or you could adjust the config as follows then you could do a simple push with changes done to master
+
+      git config remote.origin.push refs/heads/*:refs/for/* 
+
 #### Track patch review process
 
 The review process is comprised of:

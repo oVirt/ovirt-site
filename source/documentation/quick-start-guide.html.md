@@ -259,8 +259,6 @@ You have now successfully installed a Fedora host. As before, repeat this proced
 
 ## Connect to oVirt Engine
 
-Figure 2.3. Connect to the Manager administration portal
-
 Now that you have installed the oVirt Engine and hosts, you can log in to the Engine administration portal to start configuring your virtualization environment.
 
 ### Log In to Administration Portal
@@ -269,11 +267,17 @@ Ensure that you have the administrator password configured during installation a
 
 To connect to oVirt web management portal
 
-Open a browser and navigate to <https://domain.example.com:8443/RHEVManager>. Substitute domain.example.com with the URL provided during installation. If this is your first time connecting to the administration portal, oVirt Engine will issue security certificates for your browser. Click the link labelled this certificate to trust the ca.cer certificate. A pop-up displays, click Open to launch the Certificate dialog. Click Install Certificate and select to place the certificate in Trusted Root Certification Authorities store. Back on the browser screen, click the link labelled here and follow the prompts to install the RHEV-GUI-CertificateInstaller executable. A pop-up displays again, this time click Run. Note that the actual certificate installation is preceded by an ActiveX installation. When complete, a new link labelled here appears. Click on it to reload the administration portal. The portal login screen displays. Enter admin as your User Name, and enter the Password that you provided during installation. Ensure that your domain is set to Internal. Click Login. You have now successfully logged in to the oVirt web administration portal. Here, you can configure and manage all your virtual resources. The functions of the oVirt Engine graphical user interface are described in the following figure and list:
+Open a browser and navigate to <https://domain.example.com/webadmin>. Substitute domain.example.com with the URL provided during installation. If this is your first time connecting to the administration portal, oVirt Engine will issue security certificates for your browser. Click the link labelled this certificate to trust the ca.cer certificate. A pop-up displays, click Open to launch the Certificate dialog. Click Install Certificate and select to place the certificate in Trusted Root Certification Authorities store. The portal login screen displays. Enter admin as your User Name, and enter the Password that you provided during installation. Ensure that your domain is set to Internal. Click Login. You have now successfully logged in to the oVirt web administration portal. Here, you can configure and manage all your virtual resources. The functions of the oVirt Engine graphical user interface are described in the following figure and list:
 
 Figure 2.4. Administration Portal Features
 
-Header: This bar contains the name of the logged in user, the sign out button, the option to configure user roles. Navigation Pane: This pane allows you to navigate between the Tree, Bookmarks and Tags tabs. In the Tree tab, tree mode allows you to see the entire system tree and provides a visual representation your virtualization environment's architecture. Resources Tabs: These tabs allow you to access the resources of oVirt. You should already have a Default Data Center, a Default Cluster, a Host waiting to be approved, and available Storage waiting to be attached to the data center. Results List: When you select a tab, this list displays the available resources. You can perform a task on an individual item or multiple items by selecting the item(s) and then clicking the relevant action button. If an action is not possible, the button is disabled. Details Pane: When you select a resource, this pane displays its details in several subtabs. These subtabs also contain action buttons which you can use to make changes to the selected resource. Once you are familiar with the layout of the administration portal, you can start configuring your virtual environment.
+1.  Header: This bar contains the name of the logged in user, the sign out button, the option to configure user roles.
+2.  Navigation Pane: This pane allows you to navigate between the Tree, Bookmarks and Tags tabs. In the Tree tab, tree mode allows you to see the entire system tree and provides a visual representation your virtualization environment's architecture.
+3.  Resources Tabs: These tabs allow you to access the resources of oVirt. You should already have a Default Data Center, a Default Cluster, a Host waiting to be approved, and available Storage waiting to be attached to the data center.
+4.  Results List: When you select a tab, this list displays the available resources. You can perform a task on an individual item or multiple items by selecting the item(s) and then clicking the relevant action button. If an action is not possible, the button is disabled.
+5.  Details Pane: When you select a resource, this pane displays its details in several subtabs. These subtabs also contain action buttons which you can use to make changes to the selected resource.
+
+Once you are familiar with the layout of the administration portal, you can start configuring your virtual environment.
 
 ## Configure oVirt
 

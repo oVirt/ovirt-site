@@ -166,9 +166,9 @@ Before installing the oVirt Node, you need to download the hypervisor image and 
 
 **Download oVirt Node installation CD**
 
-1. Download the latest version of oVirt Node and burn the ISO image onto a disc.
+1. Download the [latest version](http://ovirt.org/releases/3.1/tools/) of oVirt Node and burn the ISO image onto a disc.
 
-You have created an oVirt Node installation CD, now you can use it to boot the machine designated as your Node host. For this guide you will use the interactive installation where you are prompted to configure your settings in a graphical interface. Use the following keys to navigate around the installation screen:
+Once you have created an oVirt Node installation CD, you can use it to boot the machine designated as your Node host. For this guide you will use the interactive installation where you are prompted to configure your settings in a graphical interface. Use the following keys to navigate around the installation screen:
 
 Menu Navigation Keys
 
@@ -179,20 +179,21 @@ Menu Navigation Keys
 
 **To configure oVirt Node installation settings**
 
-1.  Insert the oVirt Node 6.2-3.0 installation CD into your CD-ROM drive and reboot the machine. When the boot splash screen displays, press the Tab key and select Boot to boot from the hypervisor installation media. Press Enter.
-2.  On the installation confirmation screen, select Install RHEV Hypervisor and press Enter.
-3.  The installer automatically detects the drives attached to the system. The selected disk for booting the hypervisor is highlighted in white. Ensure that the local disk is highlighted, otherwise use the arrow keys to select the correct disk. Select Continue and press Enter.
-4.  You are prompted to confirm your selection of the local drive, which is marked with an asterisk. Select Continue and press Enter.
-5.  Enter a password for local console access and confirm it. Select Install and press Enter. The oVirt Node partitions the local drive, then commences installation.
-6.  Once installation is complete, a dialog prompts you to Reboot the hypervisor. Press Enter to confirm. Remove the installation disc.
-7.  After the hypervisor has rebooted, you will be taken to a login shell. Log in as the admin user with the password you provided during installation to enter the oVirt Node management console.
-8.  On the hypervisor management console, there are eight tabs on the left. Press the Up and Down keys to navigate between the tabs and Enter to access them.
+1.  Insert the oVirt Node installation CD into your CD-ROM drive and reboot the machine. When the boot splash screen displays, select Start oVirt Node to boot from the Node installation media. Press Enter.
+2.  On the installation confirmation screen, select Install Hypervisor and press Enter.
+3.  Select the appropriate keyboard layout for your system.
+4.  The installer automatically detects the drives attached to the system. The selected disk for booting the hypervisor is highlighted in white. Ensure that the local disk is highlighted, otherwise use the arrow keys to select the correct disk. Select Continue and press Enter.
+5.  You are prompted to confirm your selection of the local drive, which is marked with an asterisk. Select Continue and press Enter.
+6.  Enter a password for local console access and confirm it. Select Install and press Enter. The oVirt Node partitions the local drive, then commences installation.
+7.  Once installation is complete, a dialog prompts you to Reboot the hypervisor. Press Enter to confirm. Remove the installation disc.
+8.  After the Node has rebooted, you will be taken to a login shell. Log in as the admin user with the password you provided during installation to enter the oVirt Node management console.
+9.  On the Node hypervisor management console, there are eleven tabs on the left. Press the Up and Down keys to navigate between the tabs and Tab or right-arrow to access them.
 
 a. Select the Network tab. Configure the following options:
 
 *   Hostname: Enter the hostname in the format of hostname.domain.example.com.
 *   DNS Server: Enter the Domain Name Server address in the format of 192.168.0.254. You can use up to two DNS servers.
-*   NTP Server: Enter the Network Time Protocol server address in the format of rhel.pool.ntp.org. This synchronizes the hypervisor's system clock with that of the manager's. You can use up to two NTP servers. Select Apply and press Enter to save your network settings.
+*   NTP Server: Enter the Network Time Protocol server address in the format of ovirt.pool.ntp.org. This synchronizes the hypervisor's system clock with that of the Engine's. You can use up to two NTP servers. Select Apply and press Enter to save your network settings.
 *   The installer automatically detects the available network interface devices to be used as the management network. Select the device and press Enter to access the interface configuration menu. Under IPv4 Settings, tick either the DHCP or Static checkbox. If you are using static IPv4 network configuration, fill in the IP Address, Netmask and Gateway fields.
 
 <!-- -->
@@ -201,12 +202,12 @@ To confirm your network settings, select OK and press Enter.
 
 <!-- -->
 
-b. Select the RHEV-M tab. Configure the following options:
+b. Select the oVirt Engine tab. Configure the following options:
 
-*   Management Server: Enter the oVirt Engine domain name in the format of rhevm.demo.redhat.com.
-*   Management Server Port: Enter the management server port number. The default is 8443.
-*   Connect to the RHEV Manager and Validate Certificate: Tick this checkbox if you wish to verify the RHEVM security certificate.
-*   Set RHEV-M Admin Password: This field allows you to specify the root password for the hypervisor, and enable SSH password authentication from the oVirt Engine. This field is optional, and is covered in more detail in the oVirt Installation Guide.
+*   Management Server: Enter the oVirt Engine domain name in the format of ovirt.demo.example.com.
+*   Management Server Port: Enter the management server port number. The default is 443.
+*   Connect to the oVirt Engine and Validate Certificate: Tick this checkbox if you wish to verify the oVirt Engine security certificate.
+*   Set oVirt Engine Admin Password: This field allows you to specify the root password for the hypervisor, and enable SSH password authentication from the oVirt Engine. This field is optional, and is covered in more detail in the [oVirt Installation Guide](oVirt Installation Guide).
 
 <!-- -->
 
@@ -214,18 +215,9 @@ Select Apply and press Enter. A dialog displays, asking you to connect the hyper
 
 <!-- -->
 
-c. Under the Red Hat Network tab, you can register the host with the Red Hat Network. This enables the host to run Red Hat Enterprise Linux virtual machines with proper RHN entitlements. Configure the following settings:
+c. Accept all other default settings. For information on configuring security, logging, kdump and remote storage, refer to the [oVirt Node Deployment Guide](oVirt Node Deployment Guide).
 
-*   Enter your Red Hat Network credentials in the Login and Password fields.
-*   To select the method by which the hypervisor receives updates, tick either the RHN or Satellite checkboxes. Fill in the RHN URL and RHN CA fields.
-
-To confirm your RHN settings, select Apply and press Enter.
-
-<!-- -->
-
-d. Accept all other default settings. For information on configuring security, logging, kdump and remote storage, refer to the Red Hat Enterprise Linux 6 Hypervisor Deployment Guide.
-
-e. Finally, select the Status tab. Select Restart and press Enter to reboot the host and apply all changes.
+d. Finally, select the Status tab. Select Restart and press Enter to reboot the host and apply all changes.
 
 You have now successfully installed the oVirt Node. Repeat this procedure if you wish to use more hypervisors. The following sections will provide instructions on how to approve the hypervisors for use with the oVirt Engine.
 

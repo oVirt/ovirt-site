@@ -577,7 +577,7 @@ Now that you have successfully prepared the ISO domain for use, you are ready to
 
 ## Manage Virtual Machines
 
-4.1. Create Virtual Machines 4.1.1. Create a Red Hat Enterprise Linux Virtual Machine 4.1.2. Create a Windows Virtual Machine 4.2. Using Templates 4.2.1. Create a Red Hat Enterprise Linux Template 4.2.2. Clone a Red Hat Enterprise Linux Virtual Machine 4.2.3. Create a Windows Template 4.2.4. Create a Windows Virtual Machine from a Template 4.3. Using Virtual Machines 4.3.1. Assign User Permissions 4.3.2. Log in to the User Portal The final stage of setting up oVirt is the virtual machine lifecycle - spanning the creation, deployment and maintenance of virtual machines; using templates; and configuring user permissions. This chapter will also show you how to log in to the user portal and connect to virtual machines.
+The final stage of setting up oVirt is the virtual machine lifecycle - spanning the creation, deployment and maintenance of virtual machines; using templates; and configuring user permissions. This chapter will also show you how to log in to the user portal and connect to virtual machines.
 
 ### Create Virtual Machines
 
@@ -585,45 +585,111 @@ Figure 4.1. Create Virtual Machines
 
 On oVirt, you can create virtual machines from an existing template, as a clone, or from scratch. Once created, virtual machines can be booted using ISO images, a network boot (PXE) server, or a hard disk. This document provides instructions for creating a virtual machine using an ISO image.
 
-#### Create a Red Hat Enterprise Linux Virtual Machine
+#### Create a Fedora Virtual Machine
 
-In your current configuration, you should have at least one host available for running virtual machines, and uploaded the required installation images to your ISO domain. This section guides you through the creation of a Red Hat Enterprise Linux 6 virtual server. You will perform a normal attended installation using a virtual DVD. To create a Red Hat Enterprise Linux server
+In your current configuration, you should have at least one host available for running virtual machines, and uploaded the required installation images to your ISO domain. This section guides you through the creation of a Fedora virtual server. You will perform a normal attended installation using a virtual DVD.
 
-Navigate to the Tree pane and click Expand All. Click the VMs icon under the Default cluster. On the Virtual Machines tab, click New Server.
+**To create a Fedora server**
+
+1. Navigate to the Tree pane and click Expand All. Click the VMs icon under the Default cluster. On the Virtual Machines tab, click New Server.
 
 Figure 4.2. Create New Linux Virtual Machine
 
-You only need to fill in the Name field and select Red Hat Enterprise Linux 6.x as your Operating System. You may alter other settings but in this example we will retain the defaults. Click OK to create the virtual machine. A New Virtual Machine - Guide Me window opens. This allows you to add networks and storage disks to the virtual machine.
+You only need to fill in the Name field and select Red Hat Enterprise Linux 6.x as your Operating System. You may alter other settings but in this example we will retain the defaults. Click OK to create the virtual machine.
+
+<!-- -->
+
+2. A New Virtual Machine - Guide Me window opens. This allows you to add networks and storage disks to the virtual machine.
 
 Figure 4.3. Create Virtual Machines
 
-Click Configure Network Interfaces to define networks for your virtual machine. The parameters in the following figure are recommended, but can be edited as necessary. When you have configured your required settings, click OK.
+3. Click Configure Network Interfaces to define networks for your virtual machine. The parameters in the following figure are recommended, but can be edited as necessary. When you have configured your required settings, click OK.
 
 Figure 4.4. New Network Interface configurations
 
-You are returned to the Guide Me window. This time, click Configure Virtual Disks to add storage to the virtual machine. The parameters in the following figure are recommended, but can be edited as necessary. When you have configured your required settings, click OK.
+4. You are returned to the Guide Me window. This time, click Configure Virtual Disks to add storage to the virtual machine. The parameters in the following figure are recommended, but can be edited as necessary. When you have configured your required settings, click OK.
 
 Figure 4.5. New Virtual Disk configurations
 
-Close the Guide Me window by clicking Configure Later. Your new RHEL 6 virtual machine will display in the Virtual Machines tab. You have now created your first Red Hat Enterprise Linux virtual machine. Before you can use your virtual machine, install an operating system on it. To install the Red Hat Enterprise Linux guest operating system
+5. Close the Guide Me window by clicking Configure Later. Your new Fedora virtual machine will display in the Virtual Machines tab.
 
-Right click the virtual machine and select Run Once. Configure the following options:
+<!-- -->
 
-Figure 4.6. Run Red Hat Enterprise Linux Virtual Machine
+You have now created your first Fedora virtual machine. Before you can use your virtual machine, install an operating system on it.
 
-Attach CD: Red Hat Enterprise Linux 6 Boot Sequence: CD-ROM Display protocol: SPICE Retain the default settings for the other options and click OK to start the virtual machine. Select the virtual machine and click the Console ( ) icon. As this is your first time connecting to the virtual machine, allow the installation of the Spice Active X and the SPICE client. After the SPICE plugins have been installed, select the virtual machine and click the Console icon again. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system. For further instructions, see the Red Hat Enterprise Linux Installation Guide. After the installation has completed, shut down the virtual machine and reboot from the hard drive. You can now connect to your Red Hat Enterprise Linux virtual machine and start using it.
+**To install the Fedora guest operating system**
+
+1. Right click the virtual machine and select Run Once. Configure the following options:
+
+Figure 4.6. Run Linux Virtual Machine
+
+    * Attach CD: Fedora 17
+
+    * Boot Sequence: CD-ROM
+
+    * Display protocol: SPICE
+
+Retain the default settings for the other options and click OK to start the virtual machine.
+
+<!-- -->
+
+2. Select the virtual machine and click the Console ( ) icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system. For further instructions, see the [Fedora Installation Guide](https://docs.fedoraproject.org/en-US/Fedora/17/html/Installation_Guide/index.html).
+
+3. After the installation has completed, shut down the virtual machine and reboot from the hard drive.
+
+You can now connect to your Fedora virtual machine and start using it.
 
 #### Create a Windows Virtual Machine
 
-You now know how to create a Red Hat Enterprise Linux virtual machine from scratch. The procedure of creating a Windows virtual machine is similar, except that it requires additional virtio drivers. This example uses Windows 7, but you can also use other Windows operating systems. You will perform a normal attended installation using a virtual DVD. To create a Windows desktop
+You now know how to create a Red Hat Enterprise Linux virtual machine from scratch. The procedure of creating a Windows virtual machine is similar, except that it requires additional virtio drivers. This example uses Windows 7, but you can also use other Windows operating systems. You will perform a normal attended installation using a virtual DVD.
 
-Navigate to the Tree pane and click Expand All. Click the VMs icon under the Default cluster. On the Virtual Machines tab, click New Desktop.
+**To create a Windows desktop**
+
+1. Navigate to the Tree pane and click Expand All. Click the VMs icon under the Default cluster. On the Virtual Machines tab, click New Desktop.
 
 Figure 4.7. Create New Windows Virtual Machine
 
-You only need to fill in the Name field and select Windows 7 as your Operating System. You may alter other settings but in this example we will retain the defaults. Click OK to create the virtual machine. A New Virtual Machine - Guide Me window opens. This allows you to define networks for the virtual machine. Click Configure Network Interfaces. See Figure 4.4, “New Network Interface configurations” for details. You are returned to the Guide Me window. This time, click Configure Virtual Disks to add storage to the virtual machine. See Figure 4.5, “New Virtual Disk configurations” for details. Close the Guide Me windows. Your new Windows 7 virtual machine will display in the Virtual Machines tab. To install Windows guest operating system
+You only need to fill in the Name field and select Windows 7 as your Operating System. You may alter other settings but in this example we will retain the defaults. Click OK to create the virtual machine.
 
-Right click the virtual machine and select Run Once. The Run Once dialog displays as in Figure 4.6, “Run Red Hat Enterprise Linux Virtual Machine”. Configure the following options: Attach Floppy: virtio-win Attach CD: Windows 7 Boot sequence: CD-ROM Display protocol: SPICE Retain the default settings for the other options and click OK to start the virtual machine. Select the virtual machine and click the Console ( ) icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system. Accept the default settings and enter the required information as necessary. The only change you must make is to manually install the VirtIO drivers from the virtual floppy disk (vfd) image. To do so, select the Custom (advanced) installation option and click Load Driver. Press Ctrl and select: Red Hat VirtIO Ethernet Adapter Red Hat VirtIO SCSI Controller The installation process commences, and the system will reboot itself several times. Back on the administration portal, when the virtual machine's status changes back to Up, right click on it and select Change CD. From the list of images, select RHEV-toolsSetup to attach the Guest Tools ISO which provides features including USB redirection and SPICE display optimization. Click Console and log in to the virtual machine. Locate the CD drive to access the contents of the Guest Tools ISO, and launch the RHEV-toolsSetup executable. After the tools have been installed, you will be prompted to restart the machine for changes to be applied. You can now connect to your Windows virtual machine and start using it.
+<!-- -->
+
+2. A New Virtual Machine - Guide Me window opens. This allows you to define networks for the virtual machine. Click Configure Network Interfaces. See Figure 4.4, “New Network Interface configurations” for details.
+
+3. You are returned to the Guide Me window. This time, click Configure Virtual Disks to add storage to the virtual machine. See Figure 4.5, “New Virtual Disk configurations” for details.
+
+4. Close the Guide Me windows. Your new Windows 7 virtual machine will display in the Virtual Machines tab.
+
+**To install Windows guest operating system**
+
+1. Right click the virtual machine and select Run Once. The Run Once dialog displays as in Figure 4.6, “Run Red Hat Enterprise Linux Virtual Machine”. Configure the following options:
+
+*   Attach Floppy: virtio-win
+*   Attach CD: Windows 7
+*   Boot sequence: CD-ROM
+*   Display protocol: SPICE
+
+Retain the default settings for the other options and click OK to start the virtual machine.
+
+<!-- -->
+
+2. Select the virtual machine and click the Console ( ) icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system.
+
+3. Accept the default settings and enter the required information as necessary. The only change you must make is to manually install the VirtIO drivers from the virtual floppy disk (vfd) image. To do so, select the Custom (advanced) installation option and click Load Driver. Press Ctrl and select:
+
+*   Red Hat VirtIO Ethernet Adapter
+*   Red Hat VirtIO SCSI Controller
+
+The installation process commences, and the system will reboot itself several times.
+
+<!-- -->
+
+4. Back on the administration portal, when the virtual machine's status changes back to Up, right click on it and select Change CD. From the list of images, select RHEV-toolsSetup to attach the Guest Tools ISO which provides features including USB redirection and SPICE display optimization.
+
+5. Click Console and log in to the virtual machine. Locate the CD drive to access the contents of the Guest Tools ISO, and launch the RHEV-toolsSetup executable. After the tools have been installed, you will be prompted to restart the machine for changes to be applied.
+
+<!-- -->
+
+You can now connect to your Windows virtual machine and start using it.
 
 ### Using Templates
 
@@ -631,57 +697,127 @@ Figure 4.8. Create Templates
 
 Now that you know how to create a virtual machine, you can save its settings into a template. This template will retain the original virtual machine's configurations, including virtual disk and network interface settings, operating systems and applications. You can use this template to rapidly create replicas of the original virtual machine.
 
-#### Create a Red Hat Enterprise Linux Template
+#### Create a Fedora Template
 
-To make a Red Hat Enterprise Linux virtual machine template, use the virtual machine you created in Section 4.1.1, “Create a Red Hat Enterprise Linux Virtual Machine” as a basis. Before it can be used, it has to be sealed. This ensures that machine-specific settings are not propagated through the template. To prepare a Red Hat Enterprise Linux virtual machine for use as a template
+To make a Fedora virtual machine template, use the virtual machine you created in Section 4.1.1, “Create a Fedora Virtual Machine” as a basis. Before it can be used, it has to be sealed. This ensures that machine-specific settings are not propagated through the template.
 
-Connect to the Red Hat Enterprise Linux virtual machine to be used as a template. Flag the system for re-configuration by running the following command as root:
+**To prepare a Fedora virtual machine for use as a template**
 
-1.  touch /.unconfigured
+1. Connect to the Fedora virtual machine to be used as a template. Flag the system for re-configuration by running the following command as root:
 
-Remove ssh host keys. Run:
+         # touch /.unconfigured
 
-1.  rm -rf /etc/ssh/ssh_host_\*
+2. Remove ssh host keys. Run:
 
-Shut down the virtual machine. Run:
+         # rm -rf /etc/ssh/ssh_host_*
 
-1.  poweroff
+3. Shut down the virtual machine. Run:
 
-The virtual machine has now been sealed, and is ready to be used as a template for Linux virtual machines. To create a template from a Red Hat Enterprise Linux virtual machine
+         # poweroff
 
-In the administration portal, click the Virtual Machines tab. Select the sealed Red Hat Enterprise Linux 6 virtual machine. Ensure that it has a status of Down. Click Make Template. The New Virtual Machine Template displays.
+4. The virtual machine has now been sealed, and is ready to be used as a template for Linux virtual machines.
+
+**To create a template from a Fedora virtual machine**
+
+1. In the administration portal, click the Virtual Machines tab. Select the sealed Red Hat Enterprise Linux 6 virtual machine. Ensure that it has a status of Down.
+
+2. Click Make Template. The New Virtual Machine Template displays.
 
 Figure 4.9. Make new virtual machine template
 
-Enter information into the following fields: Name: Name of the new template Description: Description of the new template Host Cluster: The Host Cluster for the virtual machines using this template. Make Private: If you tick this checkbox, the template will only be available to the template's creator and the administrative user. Nobody else can use this template unless they are given permissions by the existing permitted users. Click OK. The virtual machine displays a status of "Image Locked" while the template is being created. The template is created and added to the Templates tab. During this time, the action buttons for the template remain disabled. Once created, the action buttons are enabled and the template is ready for use.
+Enter information into the following fields:
+
+*   Name: Name of the new template
+*   Description: Description of the new template
+*   Host Cluster: The Host Cluster for the virtual machines using this template.
+*   Make Private: If you tick this checkbox, the template will only be available to the template's creator and the administrative user. Nobody else can use this template unless they are given permissions by the existing permitted users.
+
+<!-- -->
+
+3. Click OK. The virtual machine displays a status of "Image Locked" while the template is being created. The template is created and added to the Templates tab. During this time, the action buttons for the template remain disabled. Once created, the action buttons are enabled and the template is ready for use.
 
 #### Clone a Red Hat Enterprise Linux Virtual Machine
 
-In the previous section, you created a Red Hat Enterprise Linux template complete with pre-configured storage, networking and operating system settings. Now, you will use this template to deploy a pre-installed virtual machine. To clone a Red Hat Enterprise Linux virtual machine from a template
+In the previous section, you created a Fedora template complete with pre-configured storage, networking and operating system settings. Now, you will use this template to deploy a pre-installed virtual machine.
 
-Navigate to the Tree pane and click Expand All. Click the VMs icon under the Default cluster. On the Virtual Machines tab, click New Server.
+**To clone a Fedora virtual machine from a template**
+
+1. Navigate to the Tree pane and click Expand All. Click the VMs icon under the Default cluster. On the Virtual Machines tab, click New Server.
 
 Figure 4.10. Create virtual machine based on Linux template
 
-On the General tab, select the existing Linux template from the Based on Template list. Enter a suitable Name and appropriate Description, then accept the default values inherited from the template in the rest of the fields. You can change them if needed. Click the Resource Allocation tab. On the Provisioning field, click the drop down menu and select the Clone option.
+    * On the General tab, select the existing Linux template from the Based on Template list.
+
+    * Enter a suitable Name and appropriate Description, then accept the default values inherited from the template in the rest of the fields. You can change them if needed.
+
+    * Click the Resource Allocation tab. On the Provisioning field, click the drop down menu and select the Clone option.
 
 Figure 4.11. Set the provisioning to Clone
 
-Retain all other default settings and click OK to create the virtual machine. The virtual machine displays in the Virtual Machines list.
+2. Retain all other default settings and click OK to create the virtual machine. The virtual machine displays in the Virtual Machines list.
 
 #### Create a Windows Template
 
-To make a Windows virtual machine template, use the virtual machine you created in Section 4.1.2, “Create a Windows Virtual Machine” as a basis. Before a template for Windows virtual machines can be created, it has to be sealed with sysprep. This ensures that machine-specific settings are not propagated through the template. Note that the procedure below is applicable for creating Windows 7 and Windows 2008 R2 templates. If you wish to seal a Windows XP template, refer to the oVirt Administration Guide. To seal a Windows virtual machine with sysprep
+To make a Windows virtual machine template, use the virtual machine you created in Section 4.1.2, “Create a Windows Virtual Machine” as a basis.
 
-In the Windows virtual machine to be used as a template, open a command line terminal and type regedit. The Registry Editor window displays. On the left pane, expand HKEY_LOCAL_MACHINE → SYSTEM → SETUP. On the main window, right click to add a new string value using New → String Value. Right click on the file and select Modify. When the Edit String dialog box displays, enter the following information in the provided text boxes: Value name: UnattendFile Value data: a:\\sysprep.inf Launch sysprep from C:\\Windows\\System32\\sysprep\\sysprep.exe Under System Cleanup Action, select Enter System Out-of-Box-Experience (OOBE). Tick the Generalize checkbox if you need to change the computer's system identification number (SID). Under Shutdown Options, select Shutdown. Click OK. The virtual machine will now go through the sealing process and shut down automatically. To create a template from an existing Windows machine
+Before a template for Windows virtual machines can be created, it has to be sealed with sysprep. This ensures that machine-specific settings are not propagated through the template.
 
-In the administration portal, click the Virtual Machines tab. Select the sealed Windows 7 virtual machine. Ensure that it has a status of Down and click Make Template. The New Virtual Machine Template displays. Enter information into the following fields: Name: Name of the new template Description: Description of the new template Host Cluster: The Host Cluster for the virtual machines using this template. Make Public: Check this box to allow all users to access this template. Click OK. In the Templates tab, the template displays the "Image Locked" status icon while it is being created. During this time, the action buttons for the template remain disabled. Once created, the action buttons are enabled and the template is ready for use. You can now create new Windows machines using this template.
+Note that the procedure below is applicable for creating Windows 7 and Windows 2008 R2 templates. If you wish to seal a Windows XP template, refer to the [oVirt Administration Guide](oVirt Administration Guide).
+
+**To seal a Windows virtual machine with sysprep**
+
+1. In the Windows virtual machine to be used as a template, open a command line terminal and type regedit.
+
+2. The Registry Editor window displays. On the left pane, expand HKEY_LOCAL_MACHINE → SYSTEM → SETUP.
+
+3. On the main window, right click to add a new string value using New → String Value. Right click on the file and select Modify. When the Edit String dialog box displays, enter the following information in the provided text boxes:
+
+*   Value name: UnattendFile
+*   Value data: a:\\sysprep.inf
+
+4. Launch sysprep from C:\\Windows\\System32\\sysprep\\sysprep.exe
+
+*   Under System Cleanup Action, select Enter System Out-of-Box-Experience (OOBE).
+*   Tick the Generalize checkbox if you need to change the computer's system identification number (SID).
+*   Under Shutdown Options, select Shutdown.
+
+Click OK. The virtual machine will now go through the sealing process and shut down automatically.
+
+**To create a template from an existing Windows machine**
+
+1. In the administration portal, click the Virtual Machines tab. Select the sealed Windows 7 virtual machine. Ensure that it has a status of Down and click Make Template.
+
+2. The New Virtual Machine Template displays. Enter information into the following fields:
+
+*   Name: Name of the new template
+*   Description: Description of the new template
+*   Host Cluster: The Host Cluster for the virtual machines using this template.
+*   Make Public: Check this box to allow all users to access this template.
+
+3. Click OK. In the Templates tab, the template displays the "Image Locked" status icon while it is being created. During this time, the action buttons for the template remain disabled. Once created, the action buttons are enabled and the template is ready for use.
+
+You can now create new Windows machines using this template.
 
 #### Create a Windows Virtual Machine from a Template
 
-This section describes how to create a Windows 7 virtual machine using the template created in Section 4.2.3, “Create a Windows Template”. To create a Windows virtual machine from a template
+This section describes how to create a Windows 7 virtual machine using the template created in Section 4.2.3, “Create a Windows Template”.
 
-Navigate to the Tree pane and click Expand All. Click the VMs icon under the Default cluster. On the Virtual Machines tab, click New Desktop. Select the existing Windows template from the Based on Template list. Enter a suitable Name and appropriate Description, and accept the default values inherited from the template in the rest of the fields. You can change them if needed. Retain all other default setting and click OK to create the virtual machine. The virtual machine displays in the Virtual Machines list with a status of "Image Locked" until the virtual disk is created. The virtual disk and networking settings are inherited from the template, and do not have to be reconfigured. Click the Run icon to turn it on. This time, the Run Once steps are not required as the operating system has already been installed onto the virtual machine hard drive. Click the green Console button to connect to the virtual machine. You have now learned how to create Red Hat Enterprise Linux and Windows virtual machines with and without templates. Next, you will learn how to access these virtual machines from a user portal.
+**To create a Windows virtual machine from a template**
+
+1. Navigate to the Tree pane and click Expand All. Click the VMs icon under the Default cluster. On the Virtual Machines tab, click New Desktop.
+
+*   Select the existing Windows template from the Based on Template list.
+*   Enter a suitable Name and appropriate Description, and accept the default values inherited from the template in the rest of the fields. You can change them if needed.
+
+<!-- -->
+
+2. Retain all other default setting and click OK to create the virtual machine. The virtual machine displays in the Virtual Machines list with a status of "Image Locked" until the virtual disk is created. The virtual disk and networking settings are inherited from the template, and do not have to be reconfigured.
+
+<!-- -->
+
+3. Click the Run icon to turn it on. This time, the Run Once steps are not required as the operating system has already been installed onto the virtual machine hard drive. Click the green Console button to connect to the virtual machine.
+
+You have now learned how to create Fedora and Windows virtual machines with and without templates. Next, you will learn how to access these virtual machines from a user portal.
 
 ### Using Virtual Machines
 
@@ -691,29 +827,45 @@ Now that you have created several running virtual machines, you can assign users
 
 Figure 4.12. Assign Permissions
 
-oVirt has a sophisticated multi-level administration system, in which customized permissions for each system component can be assigned to different users as necessary. For instance, to access a virtual machine from the user portal, a user must have either UserRole or PowerUserRole permissions for the virtual machine. These permissions are added from the manager administration portal. For more information on the levels of user permissions refer to the oVirt Administration Guide. To assign PowerUserRole permissions
+oVirt has a sophisticated multi-level administration system, in which customized permissions for each system component can be assigned to different users as necessary. For instance, to access a virtual machine from the user portal, a user must have either UserRole or PowerUserRole permissions for the virtual machine. These permissions are added from the manager administration portal. For more information on the levels of user permissions refer to the [oVirt Administration Guide](oVirt Administration Guide).
 
-Navigate to the Tree pane and click Expand All. Click the VMs icon under the Default cluster. On the Virtual Machines tab, select the virtual machine you would like to assign a user to. On the Details pane, navigate to the Permissions tab. Click the Add button. The Add Permission to User dialog displays. Enter a Name, or User Name, or part thereof in the Search textbox, and click Go. A list of possible matches display in the results list.
+**To assign PowerUserRole permissions**
+
+1. Navigate to the Tree pane and click Expand All. Click the VMs icon under the Default cluster. On the Virtual Machines tab, select the virtual machine you would like to assign a user to.
+
+<!-- -->
+
+2. On the Details pane, navigate to the Permissions tab. Click the Add button.
+
+<!-- -->
+
+3. The Add Permission to User dialog displays. Enter a Name, or User Name, or part thereof in the Search textbox, and click Go. A list of possible matches display in the results list.
 
 Figure 4.13. Add PowerUserRole Permission
 
-Select the check box of the user to be assigned the permissions. Scroll through the Assign role to user list and select PowerUserRole. Click OK.
+4. Select the check box of the user to be assigned the permissions. Scroll through the Assign role to user list and select PowerUserRole. Click OK.
 
 #### Log in to the User Portal
 
 Figure 4.14. Connect to the User Portal
 
-Now that you have assigned PowerUserRole permissions on a virtual machine to the user named admin, you can access the virtual machine from the user portal. To log in to the user portal, all you need is a Linux client running Mozilla Firefox or a Windows client running Internet Explorer. If you are using a Red Hat Enterprise Linux client, install the SPICE plug-in before logging in to the User Portal. Run:
+Now that you have assigned PowerUserRole permissions on a virtual machine to the user named admin, you can access the virtual machine from the user portal. To log in to the user portal, all you need is a Linux client running Mozilla Firefox.
 
-1.  yum install spice-xpi
+If you are using a Fedora client, install the SPICE plug-in before logging in to the User Portal. Run:
 
-To log in to the User Portal
+         # yum install spice-xpi
 
-Open your browser and navigate to <https://domain.example.com:8443/UserPortal>. Substitute domain.example.com with the oVirt Engine server address. The login screen displays. Enter your User Name and Password, and click Login. You have now logged into the user portal. As you have PowerUserRole permissions, you are taken by default to the Extended User Portal, where you can create and manage virtual machines in addition to using them. This portal is ideal if you are a system administrator who has to provision multiple virtual machines for yourself or other users in your environment. For more information, see the oVirt Power User Portal Guide.
+**To log in to the User Portal**
+
+1. Open your browser and navigate to <https://domain.example.com/UserPortal>. Substitute domain.example.com with the oVirt Engine server address.
+
+2. The login screen displays. Enter your User Name and Password, and click Login.
+
+You have now logged into the user portal. As you have PowerUserRole permissions, you are taken by default to the Extended User Portal, where you can create and manage virtual machines in addition to using them. This portal is ideal if you are a system administrator who has to provision multiple virtual machines for yourself or other users in your environment. For more information, see the [oVirt Power User Portal Guide](oVirt Power User Portal Guide).
 
 Figure 4.15. The Extended User Portal
 
-You can also toggle to the Basic User Portal, which is the default (and only) display for users with UserRole permissions. This portal allows users to access and use virtual machines, and is ideal for everyday users who do not need to make configuration changes to the system. For more information, see the oVirt User Portal Guide.
+You can also toggle to the Basic User Portal, which is the default (and only) display for users with UserRole permissions. This portal allows users to access and use virtual machines, and is ideal for everyday users who do not need to make configuration changes to the system. For more information, see the [oVirt User Portal Guide](oVirt User Portal Guide).
 
 Figure 4.16. The Basic User Portal
 

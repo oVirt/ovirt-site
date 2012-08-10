@@ -318,8 +318,6 @@ The ovirtmgmt Management network is used for this document, however if you wish 
 
 ### Configure Hosts
 
-Figure 3.7. Configure Hosts
-
 You have already installed your oVirt Node and Fedora hosts, but before they can be used, they have to be added to the Engine. The oVirt Node is specifically designed for the oVirt platform, therefore it only needs a simple click of approval. Conversely, Fedora is a general purpose operating system, therefore reprogramming it as a host requires additional configuration.
 
 #### Approve oVirt Node Host
@@ -330,11 +328,11 @@ The Hypervisor you installed in Section 2.2.1, “Install oVirt Node” is autom
 
 On the Tree pane, click Expand All and select Hosts under the Default cluster. On the Hosts tab, select the name of your newly installed hypervisor.
 
-Figure 3.8. oVirt Node pending approval
+![Figure 3.8. oVirt Node pending approval](approve-hypervisor-new.png "Figure 3.8. oVirt Node pending approval")
 
 Click the Approve button. The Edit and Approve Host dialog displays. Accept the defaults or make changes as necessary, then click OK.
 
-Figure 3.9. Approve oVirt Node
+![Figure 3.9. Approve oVirt Node](edit-and-approve.png "Figure 3.9. Approve oVirt Node")
 
 The host status will change from Non Operational to Up.
 
@@ -346,7 +344,11 @@ To attach a Fedora host
 
 1. On the Tree pane, click Expand All and select Hosts under the Default cluster. On the Hosts tab, click New.
 
+<!-- -->
+
 2. The New Host dialog displays.
+
+![Figure 3.10. Attach Fedora Host](new-host.png "Figure 3.10. Attach Fedora Host")
 
 Enter the details in the following fields:
 
@@ -386,6 +388,8 @@ If you do not wish to configure power management, leave the Enable Power Managem
 <!-- -->
 
 4. Click OK. If you have not configured power management, a pop-up window prompts you to confirm if you wish to proceed without power management. Select OK to continue.
+
+<!-- -->
 
 5. The new host displays in the list of hosts with a status of Installing. Once installation is complete, the status will update to Reboot and then Awaiting. When the host is ready for use, its status changes to Up.
 

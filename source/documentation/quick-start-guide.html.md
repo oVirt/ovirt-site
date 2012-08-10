@@ -300,11 +300,9 @@ The Default data center is used for this document, however if you wish to create
 
 ### Configure Cluster
 
-Figure 3.3. Populate Cluster with Hosts
-
 A cluster is a set of physical hosts that are treated as a resource pool for a set of virtual machines. Hosts in a cluster share the same network infrastructure, the same storage and the same type of CPU. They constitute a migration domain within which virtual machines can be moved from host to host. By default, oVirt creates a cluster at installation. To access it, navigate to the Tree pane, click Expand All and select the Default cluster. On the Clusters tab, the Default cluster displays.
 
-Figure 3.4. Clusters Tab
+![Figure 3.4. Clusters Tab](cluster-view.png "Figure 3.4. Clusters Tab")
 
 For this document, the oVirt Node and Fedora hosts will be attached to the Default host cluster. If you wish to create new clusters, or live migrate virtual machines between hosts in a cluster, see the [oVirt Evaluation Guide](oVirt Evaluation Guide).
 

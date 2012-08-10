@@ -285,17 +285,19 @@ Once you are familiar with the layout of the administration portal, you can star
 
 ## Configure oVirt
 
-3.1. Configure Data Centers 3.2. Configure Cluster 3.3. Configure Networking 3.4. Configure Hosts 3.4.1. Approve oVirt Node Host 3.4.2. Attach Red Hat Enterprise Linux Host 3.5. Configure Storage 3.5.1. Create an NFS Data Domain 3.5.2. Create an iSCSI Data Domain 3.5.3. Create an FCP Data Domain 3.5.4. Attach and Populate ISO domain Now that you have logged in to the administration portal, configure your oVirt environment by defining the data center, host cluster, networks and storage. Even though this guide makes use of the default resources configured during installation, if you are setting up a oVirt environment with completely new components, you should perform the configuration procedure in the sequence given here.
+Now that you have logged in to the administration portal, configure your oVirt environment by defining the data center, host cluster, networks and storage. Even though this guide makes use of the default resources configured during installation, if you are setting up a oVirt environment with completely new components, you should perform the configuration procedure in the sequence given here.
 
 ### Configure Data Centers
 
 Figure 3.1. Configure Data Center
 
-A data center is a logical entity that defines the set of physical and logical resources used in a managed virtual environment. Think of it as a container which houses clusters of hosts, virtual machines, storage and networks. By default, oVirt creates a data center at installation. Its type is configured from the installation script. To access it, navigate to the Tree pane, click Expand All, and select the Default data center. On the Data Centers tab, the Default data center displays.
+A data center is a logical entity that defines the set of physical and logical resources used in a managed virtual environment. Think of it as a container which houses clusters of hosts, virtual machines, storage and networks.
+
+By default, oVirt creates a data center at installation. Its type is configured from the installation script. To access it, navigate to the Tree pane, click Expand All, and select the Default data center. On the Data Centers tab, the Default data center displays.
 
 Figure 3.2. Data Centers Tab
 
-The Default data center is used for this document, however if you wish to create a new data center see the oVirt Administration Guide.
+The Default data center is used for this document, however if you wish to create a new data center see the [oVirt Administration Guide](oVirt Administration Guide).
 
 ### Configure Cluster
 
@@ -305,27 +307,31 @@ A cluster is a set of physical hosts that are treated as a resource pool for a s
 
 Figure 3.4. Clusters Tab
 
-For this document, the oVirt Node and Red Hat Enterprise Linux hosts will be attached to the Default host cluster. If you wish to create new clusters, or live migrate virtual machines between hosts in a cluster, see the oVirt Evaluation Guide.
+For this document, the oVirt Node and Fedora hosts will be attached to the Default host cluster. If you wish to create new clusters, or live migrate virtual machines between hosts in a cluster, see the [oVirt Evaluation Guide](oVirt Evaluation Guide).
 
 ### Configure Networking
 
 Figure 3.5. Configure Networking
 
-At installation, oVirt defines a Management network for the default data center. This network is used for communication between the manager and the host. New logical networks - for example for guest data, storage or display - can be added to enhance network speed and performance. All networks used by hosts and clusters must be added to data center they belong to. To access the Management network, click on the Clusters tab and select the default cluster. Click the Logical Networks tab in the Details pane. The rhevm network displays.
+At installation, oVirt defines a Management network for the default data center. This network is used for communication between the manager and the host. New logical networks - for example for guest data, storage or display - can be added to enhance network speed and performance. All networks used by hosts and clusters must be added to data center they belong to.
+
+To access the Management network, click on the Clusters tab and select the default cluster. Click the Logical Networks tab in the Details pane. The rhevm network displays.
 
 Figure 3.6. Logical Networks Tab
 
-The rhevm Management network is used for this document, however if you wish to create new logical networks see the oVirt Administration Guide.
+The ovirtmgmt Management network is used for this document, however if you wish to create new logical networks see the [oVirt Administration Guide](oVirt Administration Guide).
 
 ### Configure Hosts
 
 Figure 3.7. Configure Hosts
 
-You have already installed your oVirt Node and Red Hat Enterprise Linux hosts, but before they can be used, they have to be added to the Manager. The oVirt Node is specifically designed for the oVirt platform, therefore it only needs a simple click of approval. Conversely, Red Hat Enterprise Linux is a general purpose operating system, therefore reprogramming it as a host requires additional configuration.
+You have already installed your oVirt Node and Fedora hosts, but before they can be used, they have to be added to the Engine. The oVirt Node is specifically designed for the oVirt platform, therefore it only needs a simple click of approval. Conversely, Fedora is a general purpose operating system, therefore reprogramming it as a host requires additional configuration.
 
 #### Approve oVirt Node Host
 
-The Hypervisor you installed in Section 2.2.1, “Install oVirt Node” is automatically registered with the oVirt platform. It displays in the oVirt Engine, and needs to be approved for use. To set up a oVirt Node host
+The Hypervisor you installed in Section 2.2.1, “Install oVirt Node” is automatically registered with the oVirt platform. It displays in the oVirt Engine, and needs to be approved for use.
+
+To set up a oVirt Node host
 
 On the Tree pane, click Expand All and select Hosts under the Default cluster. On the Hosts tab, select the name of your newly installed hypervisor.
 
@@ -337,15 +343,51 @@ Figure 3.9. Approve oVirt Node
 
 The host status will change from Non Operational to Up.
 
-#### Attach Red Hat Enterprise Linux Host
+#### Attach Fedora Host
 
-In contrast to the hypervisor host, the Red Hat Enterprise Linux host you installed in Section 2.2.2, “Install Red Hat Enterprise Linux Host” is not automatically detected. It has to be manually attached to the oVirt platform before it can be used. To attach a Red Hat Enterprise Linux host
+In contrast to the hypervisor host, the Fedora host you installed in Section 2.2.2, “Install Fedora Host” is not automatically detected. It has to be manually attached to the oVirt platform before it can be used.
 
-On the Tree pane, click Expand All and select Hosts under the Default cluster. On the Hosts tab, click New. The New Host dialog displays.
+To attach a Fedora host
 
-Figure 3.10. Attach Red Hat Enterprise Linux Host
+*   On the Tree pane, click Expand All and select Hosts under the Default cluster. On the Hosts tab, click New.
+*   The New Host dialog displays.
+    Enter the details in the following fields:
+    -   Data Center: the data center to which the host belongs. Select the Default data center.
+    -   Host Cluster: the cluster to which the host belongs. Select the Default cluster.
+    -   Name: a descriptive name for the host.
+    -   Address: the IP address, or resolvable hostname of the host, which was provided during installation.
+    -   Root Password: the password of the designated host; used during installation of the host.
+    -   Configure iptables rules: This checkbox allows you to override the firewall settings on the host with the default rules for oVirt.
 
-Enter the details in the following fields: Data Center: the data center to which the host belongs. Select the Default data center. Host Cluster: the cluster to which the host belongs. Select the Default cluster. Name: a descriptive name for the host. Address: the IP address, or resolvable hostname of the host, which was provided during installation. Root Password: the password of the designated host; used during installation of the host. Configure iptables rules: This checkbox allows you to override the firewall settings on the host with the default rules for oVirt. If you wish to configure this host for Out of Band (OOB) power management, select the Power Management tab. Tick the Enable Power Management checkbox and provide the required information in the following fields: Address: The address of the host. User Name: A valid user name for the OOB management. Password: A valid, robust password for the OOB management. Type: The type of OOB management device. Select the appropriate device from the drop down list. alom Sun Advanced Lights Out Manager apc American Power Conversion Master MasterSwitch network power switch bladecenter IBM Bladecentre Remote Supervisor Adapter drac5 Dell Remote Access Controller for Dell computers eps ePowerSwitch 8M+ network power switch ilo HP Integrated Lights Out standard ilo3 HP Integrated Lights Out 3 standard ipmilan Intelligent Platform Management Interface rsa IBM Remote Supervisor Adaptor rsb Fujitsu-Siemens RSB management interface wti Western Telematic Inc Network PowerSwitch cisco_ucs Cisco Unified Computing System Integrated Management Controller Options: Extra command line options for the fence agent. Detailed documentation of the options available is provided in the man page for each fence agent. Click the Test button to test the operation of the OOB management solution. If you do not wish to configure power management, leave the Enable Power Management checkbox unmarked. Click OK. If you have not configured power management, a pop-up window prompts you to confirm if you wish to proceed without power management. Select OK to continue. The new host displays in the list of hosts with a status of Installing. Once installation is complete, the status will update to Reboot and then Awaiting. When the host is ready for use, its status changes to Up. You have now successfully configured your hosts to run virtual machines. The next step is to prepare data storage domains to house virtual machine disk images.
+<!-- -->
+
+*   If you wish to configure this host for Out of Band (OOB) power management, select the Power Management tab. Tick the Enable Power Management checkbox and provide the required information in the following fields:
+    -   Address: The address of the host.
+    -   User Name: A valid user name for the OOB management.
+    -   Password: A valid, robust password for the OOB management.
+    -   Type: The type of OOB management device. Select the appropriate device from the drop down list.
+        -   alom Sun Advanced Lights Out Manager
+        -   apc American Power Conversion Master MasterSwitch network power switch
+        -   bladecenter IBM Bladecentre Remote Supervisor Adapter
+        -   drac5 Dell Remote Access Controller for Dell computers
+        -   eps ePowerSwitch 8M+ network power switch
+        -   ilo HP Integrated Lights Out standard
+        -   ilo3 HP Integrated Lights Out 3 standard
+        -   ipmilan Intelligent Platform Management Interface
+        -   rsa IBM Remote Supervisor Adaptor
+        -   rsb Fujitsu-Siemens RSB management interface
+        -   wti Western Telematic Inc Network PowerSwitch
+        -   cisco_ucs Cisco Unified Computing System Integrated Management Controller
+    -   Options: Extra command line options for the fence agent. Detailed documentation of the options available is provided in the man page for each fence agent.
+    -   Click the Test button to test the operation of the OOB management solution.
+    -   If you do not wish to configure power management, leave the Enable Power Management checkbox unmarked.
+
+<!-- -->
+
+*   Click OK. If you have not configured power management, a pop-up window prompts you to confirm if you wish to proceed without power management. Select OK to continue.
+*   The new host displays in the list of hosts with a status of Installing. Once installation is complete, the status will update to Reboot and then Awaiting. When the host is ready for use, its status changes to Up.
+
+You have now successfully configured your hosts to run virtual machines. The next step is to prepare data storage domains to house virtual machine disk images.
 
 ### Configure Storage
 

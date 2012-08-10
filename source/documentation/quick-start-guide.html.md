@@ -397,8 +397,6 @@ You have now successfully configured your hosts to run virtual machines. The nex
 
 ### Configure Storage
 
-Figure 3.11. Configure Storage
-
 After configuring your logical networks, you need to add storage to your data center.
 
 oVirt uses a centralized shared storage system for virtual machine disk images and snapshots. Storage can be implemented using Network File System (NFS), Internet Small Computer System Interface (iSCSI) or Fibre Channel Protocol (FCP). Storage definition, type and function, are encapsulated in a logical entity called a Storage Domain. Multiple storage domains are supported.
@@ -433,7 +431,7 @@ Important: If you are using NFS storage, you must first create and export the di
 
 2. The New Storage dialog box displays.
 
-Figure 3.12. Add New Storage
+![Figure 3.12. Add New Storage](storage-nfs.png "Figure 3.12. Add New Storage")
 
 Configure the following options:
 
@@ -461,7 +459,7 @@ Because you have selected iSCSI as your default storage type during the Manager 
 
 3. The New Domain dialog box displays.
 
-Figure 3.13. Add iSCSI Storage
+![Figure 3.13. Add iSCSI Storage](storage-iscsi.png "Figure 3.13. Add iSCSI Storage")
 
 Configure the following options:
 
@@ -474,7 +472,7 @@ Configure the following options:
 
 4. To connect to the iSCSI target, click the Discover Targets bar. This expands the menu to display further connection information fields.
 
-Figure 3.14. Attach LUNs to iSCSI domain
+![Figure 3.14. Attach LUNs to iSCSI domain](storage-iscsi-lun.png "Figure 3.14. Attach LUNs to iSCSI domain")
 
 Enter the required information:
 
@@ -504,7 +502,7 @@ Because you have selected FCP as your default storage type during the Manager in
 
 3. The New Domain dialog box displays.
 
-Figure 3.15. Add FCP Storage
+![Figure 3.15. Add FCP Storage](storage-fcp.png "Figure 3.15. Add FCP Storage")
 
 Configure the following options:
 
@@ -532,7 +530,7 @@ You have defined your first storage domain to store virtual guest data, now it i
 
 3. The Attach ISO Library dialog appears with the available ISO domain. Select it and click OK.
 
-Figure 3.16. Attach ISO Library
+![Figure 3.16. Attach ISO Library](attach-iso-library.png "Figure 3.16. Attach ISO Library")
 
 4. The ISO domain appears in the results list of the Storage tab. It displays with the Locked status as the domain is being validated, then changes to Inactive.
 
@@ -569,7 +567,7 @@ Note that the uploading process can be time consuming, depending on your storage
 *   Under Storage, click on the name of the ISO domain. It displays in the results list. Click on it to display its details pane.
 *   On the details pane, select the Images tab. The list of available images should be populated with the files which you have uploaded.
 
-Figure 3.17. Uploaded ISO images
+![Figure 3.17. Uploaded ISO images](iso-images-uploaded.png "Figure 3.17. Uploaded ISO images")
 
 Now that you have successfully prepared the ISO domain for use, you are ready to start creating virtual machines.
 

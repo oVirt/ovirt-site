@@ -276,11 +276,11 @@ You have now successfully logged in to the oVirt web administration portal. Here
 
 ![Figure 2.4. Administration Portal Features](admin-portal-label.png "Figure 2.4. Administration Portal Features")
 
-1.  Header: This bar contains the name of the logged in user, the sign out button, the option to configure user roles.
-2.  Navigation Pane: This pane allows you to navigate between the Tree, Bookmarks and Tags tabs. In the Tree tab, tree mode allows you to see the entire system tree and provides a visual representation your virtualization environment's architecture.
-3.  Resources Tabs: These tabs allow you to access the resources of oVirt. You should already have a Default Data Center, a Default Cluster, a Host waiting to be approved, and available Storage waiting to be attached to the data center.
-4.  Results List: When you select a tab, this list displays the available resources. You can perform a task on an individual item or multiple items by selecting the item(s) and then clicking the relevant action button. If an action is not possible, the button is disabled.
-5.  Details Pane: When you select a resource, this pane displays its details in several subtabs. These subtabs also contain action buttons which you can use to make changes to the selected resource.
+1.  **Header**: This bar contains the name of the logged in user, the sign out button, the option to configure user roles.
+2.  **Navigation Pane**: This pane allows you to navigate between the Tree, Bookmarks and Tags tabs. In the Tree tab, tree mode allows you to see the entire system tree and provides a visual representation your virtualization environment's architecture.
+3.  **Resources Tabs**: These tabs allow you to access the resources of oVirt. You should already have a Default Data Center, a Default Cluster, a Host waiting to be approved, and available Storage waiting to be attached to the data center.
+4.  **Results List**: When you select a tab, this list displays the available resources. You can perform a task on an individual item or multiple items by selecting the item(s) and then clicking the relevant action button. If an action is not possible, the button is disabled.
+5.  **Details Pane**: When you select a resource, this pane displays its details in several subtabs. These subtabs also contain action buttons which you can use to make changes to the selected resource.
 
 Once you are familiar with the layout of the administration portal, you can start configuring your virtual environment.
 

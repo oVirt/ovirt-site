@@ -315,7 +315,7 @@ Figure 3.5. Configure Networking
 
 At installation, oVirt defines a Management network for the default data center. This network is used for communication between the manager and the host. New logical networks - for example for guest data, storage or display - can be added to enhance network speed and performance. All networks used by hosts and clusters must be added to data center they belong to.
 
-To access the Management network, click on the Clusters tab and select the default cluster. Click the Logical Networks tab in the Details pane. The rhevm network displays.
+To access the Management network, click on the Clusters tab and select the default cluster. Click the Logical Networks tab in the Details pane. The ovirtmgmt displays.
 
 Figure 3.6. Logical Networks Tab
 

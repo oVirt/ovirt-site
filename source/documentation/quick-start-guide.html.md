@@ -274,7 +274,7 @@ To connect to oVirt web management portal
 
 You have now successfully logged in to the oVirt web administration portal. Here, you can configure and manage all your virtual resources. The functions of the oVirt Engine graphical user interface are described in the following figure and list:
 
-Figure 2.4. Administration Portal Features
+![Figure 2.4. Administration Portal Features](admin-portal-label.png "Figure 2.4. Administration Portal Features")
 
 1.  Header: This bar contains the name of the logged in user, the sign out button, the option to configure user roles.
 2.  Navigation Pane: This pane allows you to navigate between the Tree, Bookmarks and Tags tabs. In the Tree tab, tree mode allows you to see the entire system tree and provides a visual representation your virtualization environment's architecture.

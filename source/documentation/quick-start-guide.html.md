@@ -290,13 +290,11 @@ Now that you have logged in to the administration portal, configure your oVirt e
 
 ### Configure Data Centers
 
-Figure 3.1. Configure Data Center
-
 A data center is a logical entity that defines the set of physical and logical resources used in a managed virtual environment. Think of it as a container which houses clusters of hosts, virtual machines, storage and networks.
 
 By default, oVirt creates a data center at installation. Its type is configured from the installation script. To access it, navigate to the Tree pane, click Expand All, and select the Default data center. On the Data Centers tab, the Default data center displays.
 
-Figure 3.2. Data Centers Tab
+![Figure 3.2. Data Centers Tab](data-center-view.png "Figure 3.2. Data Centers Tab")
 
 The Default data center is used for this document, however if you wish to create a new data center see the [oVirt Administration Guide](oVirt Administration Guide).
 

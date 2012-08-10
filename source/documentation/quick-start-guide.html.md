@@ -267,7 +267,11 @@ Ensure that you have the administrator password configured during installation a
 
 To connect to oVirt web management portal
 
-Open a browser and navigate to <https://domain.example.com/webadmin>. Substitute domain.example.com with the URL provided during installation. If this is your first time connecting to the administration portal, oVirt Engine will issue security certificates for your browser. Click the link labelled this certificate to trust the ca.cer certificate. A pop-up displays, click Open to launch the Certificate dialog. Click Install Certificate and select to place the certificate in Trusted Root Certification Authorities store. The portal login screen displays. Enter admin as your User Name, and enter the Password that you provided during installation. Ensure that your domain is set to Internal. Click Login. You have now successfully logged in to the oVirt web administration portal. Here, you can configure and manage all your virtual resources. The functions of the oVirt Engine graphical user interface are described in the following figure and list:
+1.  Open a browser and navigate to <https://domain.example.com/webadmin>. Substitute domain.example.com with the URL provided during installation.
+2.  If this is your first time connecting to the administration portal, oVirt Engine will issue security certificates for your browser. Click the link labelled this certificate to trust the ca.cer certificate. A pop-up displays, click Open to launch the Certificate dialog. Click Install Certificate and select to place the certificate in Trusted Root Certification Authorities store.
+3.  The portal login screen displays. Enter admin as your User Name, and enter the Password that you provided during installation. Ensure that your domain is set to Internal. Click Login.
+
+You have now successfully logged in to the oVirt web administration portal. Here, you can configure and manage all your virtual resources. The functions of the oVirt Engine graphical user interface are described in the following figure and list:
 
 Figure 2.4. Administration Portal Features
 

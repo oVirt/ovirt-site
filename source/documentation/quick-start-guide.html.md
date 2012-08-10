@@ -219,7 +219,7 @@ c. Accept all other default settings. For information on configuring security, l
 
 d. Finally, select the Status tab. Select Restart and press Enter to reboot the host and apply all changes.
 
-You have now successfully installed the oVirt Node. Repeat this procedure if you wish to use more hypervisors. The following sections will provide instructions on how to approve the hypervisors for use with the oVirt Engine.
+You have now successfully installed the oVirt Node. Repeat this procedure if you wish to use more hypervisors. The following sections will provide instructions on how to [ approve the hypervisors](#Approve_oVirt_Node_Host) for use with the oVirt Engine.
 
 #### Install Fedora Host
 

@@ -15,7 +15,7 @@ each week one of the team members cares to quick-respond on questions sent to
 1.  engine-devel@ovirt.org and users@ovirt.org
 2.  1.  ovirt IRC channel at oftc.net
 
-* will keep a list of 2 months a head for now.
+* will keep a list of 2 months ahead for now.
 
 | Person               | date      | notes |
 |----------------------|-----------|-------|

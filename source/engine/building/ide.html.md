@@ -83,6 +83,11 @@ of 'esc'+':' combination ;)
     frontend ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/gwt
     uicompat -> project -> properties -> Projects -> Add -> common and compat
     generic-api -> project -> properties -> Projects -> Add -> common, compat and utils
+    userportal -> project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/gwt,annotations
+
+*   You may need to first build the project directly through maven as some referenced projects are auto generated. close eclipse, build with maven and open eclipse again.
+
+<!-- -->
 
 *   If you see the error "**The method setCharacterEncoding(String) is undefined for the type HttpServletResponse**" in source *frontend/webadmin/modules/frontend/src/main/java/org/ovirt/engine/ui/frontend/server/gwt/WebadminDynamicHostingServlet.java*, modify *pom.xml* at root level to change servlet API version from 2.3 to 2.4 as the concerned API is introduced in 2.4. The code change should look like:
 

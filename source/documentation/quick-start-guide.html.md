@@ -15,7 +15,7 @@ wiki_warnings: list-item?
 
 DRAFT DRAFT DRAFT DRAFT
 
-This quick start guide is adapted from the [http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Virtualization/3.0/html/Quick_Start_Guide/index.html RHEV 3.0 quick start guide](http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Virtualization/3.0/html/Quick_Start_Guide/index.html RHEV 3.0 quick start guide). The fundamentals are the same between RHEV and oVirt, but this document could use more checking against oVirt 3.1.
+This quick start guide is adapted from the [RHEV 3.0 quick start guide](http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Virtualization/3.0/html/Quick_Start_Guide/index.html). The fundamentals are the same between RHEV and oVirt, but this document could use more checking against oVirt 3.1.
 
 ## Introduction
 

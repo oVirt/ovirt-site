@@ -14,31 +14,31 @@ This page is for captuaring Networking related features we would like to have in
 
 ## Features
 
-SR-IOV support
-IPV6 support
-network SLA
-user defined networks (vlan ranges)
-IP allocations (melange in openstack, but forman has support as well)
-security groups
-permissions on networks (control who may attach what to which network)
-open vSwitch
-GRE tunneling (VPC - virtual private network)
-Network roles (storage / live migration network etc.)
-Sniff guest IP and report to the engine without guest tools
-Anti-spoofing layer two/three
-network groups
-dynamic network
-network lables
-Support nested vlans. (QinQ) <
+*   SR-IOV support
+*   IPV6 support
+*   network SLA
+*   user defined networks (vlan ranges)
+*   IP allocations (melange in openstack, but forman has support as well)
+*   security groups
+*   permissions on networks (control who may attach what to which network)
+*   open vSwitch
+*   GRE tunneling (VPC - virtual private network)
+*   Network roles (storage / live migration network etc.)
+*   Sniff guest IP and report to the engine without guest tools
+*   Anti-spoofing layer two/three
+*   network groups
+*   dynamic network
+*   network lables
+*   Support nested vlans. (QinQ)
 
 ## Technologies / Stuff
 
-UCS integration
-Blade Harmony
-quantum integration
-'network-manager' architecture - looking into re-designing the engine networking code.
-open flow
-Using Network manager vs. using scripts (VDSM level)
+*   UCS integration
+*   Blade Harmony
+*   quantum integration
+*   'network-manager' architecture - looking into re-designing the engine networking code.
+*   open flow
+*   Using Network manager vs. using scripts (VDSM level)
 
 We'll open a wiki page for each of the above lines.
 

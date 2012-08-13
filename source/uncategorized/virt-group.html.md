@@ -21,7 +21,8 @@ each week one of the team members cares to quick-respond on questions sent to
 |----------------------|-----------|-------|
 | Roy Golan            | 12-16 Aug | -     |
 | Omer Frenkel         | 19-23 Aug | -     |
-| Enter your name here | 26-30 Aug | -     |
+| Tomas Jelinek        | 26-30 Aug | -     |
+| Enter your name here | 2-6 Sept  | -     |
 
 tip for monitoring the IRC channel:
 

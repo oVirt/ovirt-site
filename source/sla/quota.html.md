@@ -40,7 +40,12 @@ Quota provides a way for the Administrator to limit the resource usage in the Sy
 Today, when consuming resources from the Data Center, such as storage (when creating a new virtual disk) and virtual CPUs/RAM (when running VMs), the user is only limited by the available resources. Thus, there is no way to limit the resources that can be used by a user. This limitation is problematic, especially in multi-tenant environments.
 
 Quota provides the administrator a logic mechanism for managing resources allocation for users and groups in the Data Center.
-This mechanism allows the administrator to manage, share and monitor the resources in the Data Center from the engine core point of view.
+This mechanism allows the administrator to manage, share and monitor the resources in the Data Center from the engine core point of view. When working with quota, you still need to set the permissions. The quota will only limit the usage of the DC resources. For exmaple:
+
+*   If you want a user to be able to create VMs, disks and etc., you need to give him VmCreator in the relevant DC.
+*   If you want to limit him to a certain cluster, you will have to give him VmCreator in this cluster, and DiskCreator in relevant DCs/SDs.
+*   If you want to further limit the resource consumption, you'll have to enable quota in the DC, create the relevant quota, and define the user as a quota consumer (in the consumers sub tab).
+*   Defining the user as a quota consumer only, won't allow him to login to UP (as the underlined implementation for the Quota Consumption is done via roles, and the relevant role doesn't have login permissions).
 
 #### Entity Description
 

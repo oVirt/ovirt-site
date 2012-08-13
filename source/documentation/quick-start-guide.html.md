@@ -577,8 +577,6 @@ The final stage of setting up oVirt is the virtual machine lifecycle - spanning 
 
 ### Create Virtual Machines
 
-Figure 4.1. Create Virtual Machines
-
 On oVirt, you can create virtual machines from an existing template, as a clone, or from scratch. Once created, virtual machines can be booted using ISO images, a network boot (PXE) server, or a hard disk. This document provides instructions for creating a virtual machine using an ISO image.
 
 #### Create a Fedora Virtual Machine
@@ -589,7 +587,7 @@ In your current configuration, you should have at least one host available for r
 
 1. Navigate to the Tree pane and click Expand All. Click the VMs icon under the Default cluster. On the Virtual Machines tab, click New Server.
 
-Figure 4.2. Create New Linux Virtual Machine
+![Figure 4.2. Create New Linux Virtual Machine](new-fedora-server.png "Figure 4.2. Create New Linux Virtual Machine")
 
 You only need to fill in the Name field and select Red Hat Enterprise Linux 6.x as your Operating System. You may alter other settings but in this example we will retain the defaults. Click OK to create the virtual machine.
 
@@ -597,15 +595,15 @@ You only need to fill in the Name field and select Red Hat Enterprise Linux 6.x 
 
 2. A New Virtual Machine - Guide Me window opens. This allows you to add networks and storage disks to the virtual machine.
 
-Figure 4.3. Create Virtual Machines
+![Figure 4.3. Create Virtual Machines](newvm-guide.png "Figure 4.3. Create Virtual Machines")
 
 3. Click Configure Network Interfaces to define networks for your virtual machine. The parameters in the following figure are recommended, but can be edited as necessary. When you have configured your required settings, click OK.
 
-Figure 4.4. New Network Interface configurations
+![Figure 4.4. New Network Interface configurations](new-network-interface.png "Figure 4.4. New Network Interface configurations")
 
 4. You are returned to the Guide Me window. This time, click Configure Virtual Disks to add storage to the virtual machine. The parameters in the following figure are recommended, but can be edited as necessary. When you have configured your required settings, click OK.
 
-Figure 4.5. New Virtual Disk configurations
+![Figure 4.5. New Virtual Disk configurations](new-virtual-disk.png "Figure 4.5. New Virtual Disk configurations")
 
 5. Close the Guide Me window by clicking Configure Later. Your new Fedora virtual machine will display in the Virtual Machines tab.
 
@@ -617,7 +615,7 @@ You have now created your first Fedora virtual machine. Before you can use your 
 
 1. Right click the virtual machine and select Run Once. Configure the following options:
 
-Figure 4.6. Run Linux Virtual Machine
+![Figure 4.6. Run Linux Virtual Machine](run-fedora-vm.png "Figure 4.6. Run Linux Virtual Machine")
 
     * Attach CD: Fedora 17
 
@@ -643,7 +641,7 @@ You now know how to create a Red Hat Enterprise Linux virtual machine from scrat
 
 1. Navigate to the Tree pane and click Expand All. Click the VMs icon under the Default cluster. On the Virtual Machines tab, click New Desktop.
 
-Figure 4.7. Create New Windows Virtual Machine
+![Figure 4.7. Create New Windows Virtual Machine](new-win-desktop.png "Figure 4.7. Create New Windows Virtual Machine")
 
 You only need to fill in the Name field and select Windows 7 as your Operating System. You may alter other settings but in this example we will retain the defaults. Click OK to create the virtual machine.
 
@@ -689,8 +687,6 @@ You can now connect to your Windows virtual machine and start using it.
 
 ### Using Templates
 
-Figure 4.8. Create Templates
-
 Now that you know how to create a virtual machine, you can save its settings into a template. This template will retain the original virtual machine's configurations, including virtual disk and network interface settings, operating systems and applications. You can use this template to rapidly create replicas of the original virtual machine.
 
 #### Create a Fedora Template
@@ -719,7 +715,7 @@ To make a Fedora virtual machine template, use the virtual machine you created i
 
 2. Click Make Template. The New Virtual Machine Template displays.
 
-Figure 4.9. Make new virtual machine template
+![Figure 4.9. Make new virtual machine template](make-template.png "Figure 4.9. Make new virtual machine template")
 
 Enter information into the following fields:
 
@@ -740,7 +736,7 @@ In the previous section, you created a Fedora template complete with pre-configu
 
 1. Navigate to the Tree pane and click Expand All. Click the VMs icon under the Default cluster. On the Virtual Machines tab, click New Server.
 
-Figure 4.10. Create virtual machine based on Linux template
+![Figure 4.10. Create virtual machine based on Linux template](fedora-server-clone.png "Figure 4.10. Create virtual machine based on Linux template")
 
     * On the General tab, select the existing Linux template from the Based on Template list.
 
@@ -748,7 +744,7 @@ Figure 4.10. Create virtual machine based on Linux template
 
     * Click the Resource Allocation tab. On the Provisioning field, click the drop down menu and select the Clone option.
 
-Figure 4.11. Set the provisioning to Clone
+![Figure 4.11. Set the provisioning to Clone](new-vm-allocation.png "Figure 4.11. Set the provisioning to Clone")
 
 2. Retain all other default settings and click OK to create the virtual machine. The virtual machine displays in the Virtual Machines list.
 
@@ -821,8 +817,6 @@ Now that you have created several running virtual machines, you can assign users
 
 #### Assign User Permissions
 
-Figure 4.12. Assign Permissions
-
 oVirt has a sophisticated multi-level administration system, in which customized permissions for each system component can be assigned to different users as necessary. For instance, to access a virtual machine from the user portal, a user must have either UserRole or PowerUserRole permissions for the virtual machine. These permissions are added from the manager administration portal. For more information on the levels of user permissions refer to the [oVirt Administration Guide](oVirt Administration Guide).
 
 **To assign PowerUserRole permissions**
@@ -837,13 +831,11 @@ oVirt has a sophisticated multi-level administration system, in which customized
 
 3. The Add Permission to User dialog displays. Enter a Name, or User Name, or part thereof in the Search textbox, and click Go. A list of possible matches display in the results list.
 
-Figure 4.13. Add PowerUserRole Permission
+![Figure 4.13. Add PowerUserRole Permission](vm-add-perm.png "Figure 4.13. Add PowerUserRole Permission")
 
 4. Select the check box of the user to be assigned the permissions. Scroll through the Assign role to user list and select PowerUserRole. Click OK.
 
 #### Log in to the User Portal
-
-Figure 4.14. Connect to the User Portal
 
 Now that you have assigned PowerUserRole permissions on a virtual machine to the user named admin, you can access the virtual machine from the user portal. To log in to the user portal, all you need is a Linux client running Mozilla Firefox.
 
@@ -859,10 +851,10 @@ If you are using a Fedora client, install the SPICE plug-in before logging in to
 
 You have now logged into the user portal. As you have PowerUserRole permissions, you are taken by default to the Extended User Portal, where you can create and manage virtual machines in addition to using them. This portal is ideal if you are a system administrator who has to provision multiple virtual machines for yourself or other users in your environment. For more information, see the [oVirt Power User Portal Guide](oVirt Power User Portal Guide).
 
-Figure 4.15. The Extended User Portal
+![Figure 4.15. The Extended User Portal](power-user-portal.png "Figure 4.15. The Extended User Portal")
 
 You can also toggle to the Basic User Portal, which is the default (and only) display for users with UserRole permissions. This portal allows users to access and use virtual machines, and is ideal for everyday users who do not need to make configuration changes to the system. For more information, see the [oVirt User Portal Guide](oVirt User Portal Guide).
 
-Figure 4.16. The Basic User Portal
+![Figure 4.16. The Basic User Portal](basic-user-portal.png "Figure 4.16. The Basic User Portal")
 
 You have now completed the Quick Start Guide, and successfully set up oVirt.

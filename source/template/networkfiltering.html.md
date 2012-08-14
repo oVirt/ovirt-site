@@ -62,7 +62,7 @@ The feature will be enabled for **3.2 cluster level** and above, as required VDS
 'Run VM' process will be changed as follow:
 
         For each VM network interface being sent to VDSM
-          If `*`EnableMACAntiSpoofingFilterRules`*` is enabled  and cluster level equals/greater than 3.1:
+          If `*`EnableMACAntiSpoofingFilterRules`*` is enabled  and cluster level equals/greater than 3.2:
             Add no-mac-spoofing, no-arp-mac-spoofing filter names for the VM interface
 
 Changes will be made in *VmInfoBuilder.addNetworkInterfaceProperties()*

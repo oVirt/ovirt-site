@@ -10,6 +10,10 @@ wiki_last_updated: 2012-08-19
 
 This page describes what features are supported in which cluster/DC level.
 
-For cluster level 3.2: - network filtering, anti-mac spoofing
+For cluster level 3.2:
 
-For Data Centre 3.2: - Bridgless networks
+*   network filtering, anti-mac spoofing
+
+For Data Centre 3.2:
+
+*   Bridgless networks

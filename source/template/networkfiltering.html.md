@@ -93,6 +93,6 @@ libvirt which includes no-arp-mac-spoofing rule.
 
 libvirt version to depend on.
 Do the rules being cleared by libvirt from ebtables once the VM is destroyed?
- - I assume it does otherwise we should report a bug on libvirt, same apply for migration
+* I assume it does otherwise we should report a bug on libvirt, same apply for migration
 
 <Category:Template> <Category:DetailedFeature>

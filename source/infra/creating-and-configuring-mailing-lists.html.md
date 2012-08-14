@@ -66,8 +66,8 @@ This is a rare configuration, usually reserved for security-related issues.
 
 #### Configuration for an open-sender list
 
-*   Set *accept_these_nonmembers* to `^.*` - i.e., a regular expression meaning "every possible incoming email address."
-*   Set *respond_to_post_requests* to *No*.
+*   Set *Privacy* > *Sender* > *accept_these_nonmembers* to `^.*` - i.e., a regular expression meaning "every possible incoming email address."
+*   Set *General* > *respond_to_post_requests* to *No*.
 
 #### Configuration for an announcement mailing list
 

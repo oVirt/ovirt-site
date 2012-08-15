@@ -16,6 +16,13 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
     -   To see in your timezone date -d 'TUESDAY 1000 EDT'
 *   *Where:* On IRC: #ovirt on irc.oftc.net
 
+## 2012-08-21
+
+*Agenda*
+
+*   Puppet - Ewoud
+*   Mediawiki upgrade - Ewoud
+
 ## 2012-08-14
 
 ''[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-08-14-14.00.html)

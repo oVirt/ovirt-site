@@ -26,12 +26,12 @@ The initial implementation is focused on preventing from a VM running on the hos
 
 ### Detailed Description
 
-In order to prevent mac spoofing, the Engine will enhance the OOB rules provided by libvirt and specifically:
+In order to prevent mac spoofing, the Engine will use custom libvirt rules consist of the following filters:
 \* no-mac-spoofing
 
-*   no-arp-mac-spoofing.
+*   no-arp-mac-spoofing
 
-Once the system is configured for network filtering, those rules will be sent to VDSM upon running VMs, reported for each VM network interface.
+The custom rule will be defined by vdsm on libvirt named *vdsm-no-mac-spoofing*. Once the system is configured for network filtering, that rule will be sent to VDSM upon running VMs, reported for each VM network interface.
 VDSM will extent the DOM network interface element sent to libvirt:
 
 `  `<interface type="bridge">
@@ -40,11 +40,10 @@ VDSM will extent the DOM network interface element sent to libvirt:
             
 
             ...
-`      `<filterref filter='no-arp-mac-spoofing'/>
-`      `<filterref filter='no-mac-spoofing'/>
+`      `<filterref filter='vdsm-no-mac-spoofing'/>
 `   `</interface>
 
-libvirt will use rules to configure the ebtables to prevent mac spoofing.
+libvirt will use the rule to configure the ebtables to prevent mac spoofing and arp mac spoofing.
 
 #### Installation/Upgrade
 
@@ -63,11 +62,17 @@ The feature will be enabled for **3.2 cluster level** and above, as required VDS
 
         For each VM network interface being sent to VDSM
           If `*`EnableMACAntiSpoofingFilterRules`*` is enabled  and cluster level equals/greater than 3.2:
-            Add no-mac-spoofing, no-arp-mac-spoofing filter names for the VM interface
+            Add vdsm-no-mac-spoofing filter name for the VM interface
 
 Changes will be made in *VmInfoBuilder.addNetworkInterfaceProperties()*
 
+*Hot Plug Nic* will also provide list of filter names, if system is configure to prevent mac-spoofing.
+
 #### VDSM
+
+VDSM will define a custom nwfilter rule on libvirt - vdsm-no-mac-spoofing, consists of out-of-the-box rules no-mac-spoofing and no-arp-mac-spoofing.
+
+##### Create VM API
 
 The VM creation API will be extended to support network filtering for VM nics.
 
@@ -79,7 +84,11 @@ The VM creation API will be extended to support network filtering for VM nics.
         ....
         filters
 
-Where *filters* is a List of filters.
+Where *filters* is a List of filters (as per libvirt-10-21 libvirt supports a single filter only).
+
+##### HotPlug Nic API
+
+The device which reprenests the nic is extended with a list of filter.
 
 ### Dependencies / Related Features and Projects
 

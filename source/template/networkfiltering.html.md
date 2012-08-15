@@ -86,6 +86,11 @@ The VM creation API will be extended to support network filtering for VM nics.
 
 Where *filters* is a List of filters (as per libvirt-10-21 libvirt supports a single filter only).
 
+A new python tool named *define-filter.py* will be added under vdsm/vdsm-tool.
+It will be used to get a path of the filter file (xml) and define it on libvirt.
+
+The filer xml file *vdsm-no-mac-spoofing.xml* will be stored on vdsm/vdsm-tools/nwfilter
+
 ##### HotPlug Nic API
 
 The device which reprenests the nic is extended with a list of filter.

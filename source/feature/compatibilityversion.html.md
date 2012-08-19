@@ -10,7 +10,7 @@ wiki_last_updated: 2012-08-19
 
 ## This page describes what features are supported in which cluster/DC level
 
-### For Cluster level 3.2:
+### Cluster level 3.2:
 
 *   network filtering, anti-mac spoofing
 

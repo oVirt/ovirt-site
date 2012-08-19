@@ -14,6 +14,6 @@ wiki_last_updated: 2012-08-19
 
 *   network filtering, anti-mac spoofing
 
-### For Data Centre 3.2:
+### Data Center 3.2:
 
 *   Bridgless networks

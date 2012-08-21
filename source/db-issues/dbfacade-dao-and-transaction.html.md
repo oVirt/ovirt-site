@@ -64,3 +64,7 @@ wiki_last_updated: 2012-08-23
              check schema version
 
 ### My database is deleted each time I run the tests.
+
+Verify that your database engine name is not engine
+When you run mvn with tests the fixtures.xml is used to create a engine database for each test, this will drop and create your engine database.
+You can rename your default database in JBOSS standalone.xml configuration file.

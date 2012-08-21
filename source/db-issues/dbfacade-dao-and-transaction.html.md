@@ -46,6 +46,8 @@ wiki_last_updated: 2012-08-23
 
 ### What should I do if I have to change something?
 
+[step-by-step Guide](http://wiki.ovirt.org/wiki/Development/Introducing_Entity_Search)
+
 ### SQL Injection prevention.
 
 ## Trouble Shooting

@@ -9,7 +9,7 @@ wiki_last_updated: 2015-01-31
 
 # Troubleshooting NFS Storage Issues
 
-## Introduction
+### Introduction
 
 oVirt currently requires that NFS exports be configured in a specific way. This page is an attempt to list those requirements and assist with troubleshooting issues encountered when trying to attach an NFS storage domain to the oVirt environment for the first time.
 
@@ -21,7 +21,7 @@ oVirt currently requires that NFS exports be configured in a specific way. This 
 
       NFS4_SUPPORT="no"
 
-## Permissions
+### Permissions
 
 *   The exported directory must be readable and writeable to the user/group with uid **36** which is the **vdsm** user. There are two ways to ensure this:
     -   Chown the directory being exported 36:36.
@@ -34,7 +34,7 @@ oVirt currently requires that NFS exports be configured in a specific way. This 
     -   Ensure that the **nfs** and **rpcbind** services are running on the NFS server, Fedora 16 users should instead look for the **netfs** service.
     -   Ensure that **showmounts -e *<nfs_server_ip>*** shows the expected export(s).
 
-### SELinux
+#### SELinux
 
 *   Ensure that selinux is not interfering with NFS access.
     -   getsebool -a | grep virt_use_nfs should show virt_use_nfs --> on, if not then do \`setsebool virt_use_nfs 1\` to allow NFS access for VMs
@@ -46,7 +46,7 @@ The easiest way to definitively test that an NFS export is ready for use by oVir
 *   Change to the **vdsm** user using **su - vdsm**. If vdsm user was not hand-created, then chances are su - vdsm might fail. Do **su - vdsm -s /bin/bash**
 *   Attempt to mount the export to a temporary directory and touch a file on it.
 
-## nfs-check program
+### nfs-check program
 
 A new nfs check script is now available to test whether an NFS export is ready for use by oVirt :
 
@@ -58,9 +58,9 @@ A new nfs check script is now available to test whether an NFS export is ready f
        $ cd vdsm/contrib
        $ python nfs-check.py myNFSServer:/nfsTarget
 
-## Setting NFS Server
+### Setting NFS Server
 
-### Debian Squeeze
+#### Debian Squeeze
 
       #> groupadd kvm -g 36
       #> useradd vdsm -u 36 -g kvm
@@ -75,7 +75,7 @@ A new nfs check script is now available to test whether an NFS export is ready f
 
       # /etc/init.d/nfs-kernel-server restart 
 
-### Fedora 16
+#### Fedora 16
 
       #> groupadd kvm -g 36
       #> useradd vdsm -u 36 -g kvm
@@ -98,7 +98,7 @@ A new nfs check script is now available to test whether an NFS export is ready f
       # systemctl enable nfs-server.service
       # systemctl enable nfs-lock.service
 
-### RHEL6 based distro
+#### RHEL6 based distro
 
       #> groupadd kvm -g 36
       #> useradd vdsm -u 36 -g kvm
@@ -112,3 +112,44 @@ A new nfs check script is now available to test whether an NFS export is ready f
       /storage    *(rw,sync,no_subtree_check,all_squash,anonuid=36,anongid=36)
 
       # /etc/init.d/nfs restart 
+
+## Workarounds
+
+### NFS Storage Domain Failure on Fedora 17
+
+Nodes running Fedora 17 kernels newer than 3.4 have trouble with NFS storage domains. The workaround is to use the 3.4 kernel in F17. You can use grub2's SAVEDEFAULT option to keep the endpoint booted on 3.4.
+
+*   Confirm you have a 3.4 kernel
+
+       # rpm -qa | grep kernel-3.4
+      kernel-3.4.0-1.fc17.x86_64 
+
+*   Update default grub config to ensure 'saved default' works
+
+      $EDITOR /etc/default/grub
+       
+
+*   Ensure you have the following two lines
+
+      GRUB_SAVEDEFAULT=true
+      GRUB_DEFAULT=saved
+       
+
+*   Generate new grub config
+
+      # grub2-mkconfig -o /boot/grub2/grub.cfg
+       
+
+*   Reboot your system
+
+      # reboot
+       
+
+*   Interrupt boot sequence and select the 3.4 kernel under the 'Advanced' menu.
+*   Login and confirm you're running 3.4
+
+      # uname -a
+      Linux ichigo-dom228 3.4.0-1.fc17.x86_64 #1 SMP Sun Jun 3 06:35:17 UTC 2012 x86_64 x86_64 x86_64 GNU/Linux
+       
+
+*   Reboot once more and let it boot back up by itself and confirm it selected the 3.4 kernel

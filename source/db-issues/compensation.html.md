@@ -44,6 +44,10 @@ A parent command may call other commands as part of its execution.
 
 ### BusinessEntity interface
 
+All compensatable entities must implement BusinessEntity interface
+This interface exposes the get/set of the entity ID
+The business entity must be serializable, so does the type of the ID in order to log the changes
+
 ### BusinessEntitySnapshot
 
        CHANGED_ENTITY – update/delete

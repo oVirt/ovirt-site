@@ -22,7 +22,7 @@ Used mainly to get a DAO object to work with
 
 ## What is a dialect used for?
 
-A dialect is used in order to handle in a generic way DB calls on multi DB engine applications
+A dialect is used in order to handle in a generic way DB engine differences on multi DB engine applications
 We had used that in the past to handle both MS SQL & Postgres
 Example
 

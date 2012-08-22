@@ -64,10 +64,7 @@ Check the JBOSS server log for detailed error message. Check the postgres error 
 
 ### JBoss is crashing on start giving a SQL Error
 
-             check server log
-             check engine log
-             compensation & async tasks data
-             check schema version
+Check server log Check engine log Compensation & async tasks data Check schema version
 
 ### My database is deleted each time I run the tests.
 

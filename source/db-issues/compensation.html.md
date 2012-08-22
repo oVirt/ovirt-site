@@ -18,6 +18,23 @@ Postgres does not implement the READ-UNCOMMITTED isolation level. We have to not
 
 ### Compensation change log
 
+Change log is recorded in the database in the business_entity_snapshot table
+
+           Column      |          Type          | Modifiers 
+      -----------------+------------------------+-----------
+      id              | uuid                   | not null
+      command_id      | uuid                   | not null
+      command_type    | character varying(256) | not null
+      entity_id       | character varying(128) | 
+      entity_type     | character varying(128) | 
+      entity_snapshot | text                   | 
+      snapshot_class  | character varying(128) | 
+      snapshot_type   | integer                | 
+      insertion_order | integer                |
+
+Each command may affect multiple entities
+A parent command may call other commands as part of its execution.
+
 ### What changes are logged
 
        Insertion – the ID of the new entity (compensation = delete entity by Id)

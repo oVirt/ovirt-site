@@ -70,16 +70,6 @@ Modify any Query objects/parameters needed for accessing the BE data from client
 Run the upgrade script
 Run the BE tests and verify that your BE is working as expected
 
-## DAO
-
-### How to write a new DAO ?
-
-### How to modify an existing DAO?
-
-### How to write a new test class for my DAO?
-
-### How to test my changes?
-
 ## Queries
 
 ### How to create a new query?

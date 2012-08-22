@@ -64,3 +64,26 @@ CompensationContext provides the API for adding entries to the “change log” 
        The status of the transaction is inactive (if code is run in transaction)
        Failure in execution
        Server restart with existing entries at business_entity_snapshot
+
+### Example: ActivateStorageDomainCommand
+
+ChangeStorageDomainStatusInTransaction – change storage domain status to LOCKED, in a transaction + compensation code (pay attention – the code is run in a transaction scope which is comitted prior to the next step)
+ActivateStorageDomainCommand VDS command is executed (this takes some time)
+If VDS command successful
+
+       Perform some stuff
+       Change storage domain status to active (in transaction  + compensation code)
+       Perform some other stuff
+
+### Usage
+
+Make sure your entity implements BusinessEntitySnapshot
+Make sure its DAO implements ModificationDao and StatusAwareDao (optional, for status changes optimization)
+Add at DbFacade.mapEntityToDAO an entry that maps the entity to its DAO
+
+### When using compensation at command
+
+Implement a CTOR that takes a commandId as parameter for Compensation after server restart
+Annotate the command with @NonTransactiveCommandAttribute(forceCompensation=true) in order to eliminate creation of transaction that wraps the entire command, and in order to create a new CompensationContext
+Remember to use short transactions as possible
+For the last update part of the command – compensation code is not required – the transaction will rollback this part, if needed

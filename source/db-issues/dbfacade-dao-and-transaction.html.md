@@ -10,6 +10,11 @@ wiki_last_updated: 2012-08-23
 
 ## What is the usage of DbFacadeLocator?
 
+Create a datasource from the standalone.xml configuration
+Create the DbFacade instance and configure it
+Create a dialect
+Create a jdbcTemplate and associate it with the DbFacade instance
+
 ## What is the usage of Db Facade?
 
 ## What is a dialect used for?

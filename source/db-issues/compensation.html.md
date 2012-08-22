@@ -81,7 +81,7 @@ Make sure your entity implements BusinessEntitySnapshot
 Make sure its DAO implements ModificationDao and StatusAwareDao (optional, for status changes optimization)
 Add at DbFacade.mapEntityToDAO an entry that maps the entity to its DAO
 
-### When using compensation at command
+### Using compensation at a command
 
 Implement a CTOR that takes a commandId as parameter for Compensation after server restart
 Annotate the command with @NonTransactiveCommandAttribute(forceCompensation=true) in order to eliminate creation of transaction that wraps the entire command, and in order to create a new CompensationContext

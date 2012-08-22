@@ -35,7 +35,7 @@ Change log is recorded in the database in the business_entity_snapshot table
 Each command may affect multiple entities
 A parent command may call other commands as part of its execution.
 
-### What changes are logged
+### What changes are logged?
 
        Insertion – the ID of the new entity (compensation = delete entity by Id)
        Deletion – the deleted entity (compensation = re-insertion of the entity)

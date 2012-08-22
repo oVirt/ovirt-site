@@ -47,9 +47,9 @@ Create BE tables as an upgrade script
 Create BE views in original create_views.sql file
 Create BE CRUD Stored Procedures file
 Create BE Class
-Create DAO interface and implementation for the BE
+Create DAO interface and implementation for the BE , inherit GenericDAO, ReadDAO or ModificationDAO
 ADD DAO to DB Facade
-Create tests for all DAO implementation calls
+Create tests for all DAO implementation calls, inherit BaseGenericDaoTestCase/BaseReadDaoTestCase/BaseDaoTestCase
 Create test data for your BE in fixtures.xml file
 ADD DAO to engine-daos.properties
 ADD any Query objects needed for accessing the BE data from clients

@@ -146,6 +146,7 @@ Yum is only supported in offline image editing. On a running system, it's disabl
 The log of upgrade operation is:
 
        /var/log/ovirt.log
+       /var/log/vdsm-reg/vds_bootstrap_upgrade.XXX_XX.log
 
 Upgrade configuration are under /etc/vdsm-reg/vdsm-reg.conf
 

@@ -102,6 +102,7 @@ To perform a search, enter the search query (free-text or syntax-based) in the S
 *Vms: domain = qa.company.com* (Displays a list of all virtual machines running on the specified domain.)
 ''Vms: users.name = Mary '' (Displays a list of all virtual machines belonging to users with the username Mary.)
 *Events: severity > normal sortby time* (Displays the list of all Events whose severity is higher than Normal sorted by time)
+ The Administration Portal provides auto-completion to help you create valid and powerful search queries. As you type each part of a search query, a drop-down list of choices for the next part of the search opens below the Search Bar. You can either select from the list and then continue typing/selecting the next part of the search, or ignore the options and continue entering your query manually.
 
 ### Objects, properties and supported operators
 

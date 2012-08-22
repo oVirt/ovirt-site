@@ -141,4 +141,32 @@ To show the certificate data:
 
 Yum is only supported in offline image editing. On a running system, it's disabled. A how-to for editing an ISO image after creation will be coming soon.
 
+#### Upgrading oVirt Node
+
+The log of upgrade operation is:
+
+       /var/log/ovirt.log
+
+Upgrade configuration are under /etc/vdsm-reg/vdsm-reg.conf
+
+       upgrade_iso_file=/data/updates/ovirt-node-image.iso
+        # Where's located the new ovirt-node-image ISO
+
+        upgrade_mount_point=/live
+        # Where's the ovirt-node-image is mounted to be used by vdsm-upgrade tool
+
+Tool that executes the upgrade:
+
+       /usr/share/vdsm-reg/vdsm-upgrade
+
+Example, upgrading manually from ovirt-node 2.5.0-2.0 to 2.5.1-1.0
+
+       `<nowiki>` * Installed ovirt-node 2.5.0-2.0
+       * Copied 2.5.1-1.0 image to /data/updates/ovirt-node-image.iso
+       * mount -o loop /data/updates/ovirt-node-image.iso /live
+       * Update in /etc/vdsm-reg/vdsm-reg.conf - upgrade_mount_point=/live
+       * service vdsm-reg restart
+       * /usr/share/vdsm-reg/vdsm-upgrade
+` * reboot`<nowiki>
+
 [Category: Node](Category: Node)

@@ -43,6 +43,19 @@ This is done by the SimpleJdbcCallsHandler
 
 ### How to create a new BE ?
 
+Create BE tables as an upgrade script
+Create BE views in original create_views.sql file
+Create BE CRUD Stored Procedures file
+Create BE Class
+Create DAO interface and implementation for the BE
+ADD DAO to DB Facade
+Create tests for all DAO implementation calls
+Create test data for your BE in fixtures.xml file
+ADD DAO to engine-daos.properties
+ADD any Query objects needed for accessing the BE data from clients
+Run the upgrade script
+Run the BE tests and verify that your BE is working as expected
+
 ### How to Modify an existing BE ?
 
 ## DAO

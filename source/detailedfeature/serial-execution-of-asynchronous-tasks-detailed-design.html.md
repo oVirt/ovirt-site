@@ -41,7 +41,7 @@ A new property, executionIndex (int) will be added, to signify the position of t
 
 This new entity will represent how oVirt engine handles a single SPMAsyncTask, instead of how it's handled by CommandBase today. Its methods:
 
-*   beforeTask - the execution carried out on the engine side before firing an async task
+*   beforeTask - the execution carried out on the engine side before firing an async task. This is analogous the today's executeAction() body, and includes updating BEs and persisting them in the databsae.
 *   createTask - how to create the async task
 *   endSuccessfully - the code to run when a task ends successfully
 *   endWithFailure - the code to run when a task ends unsuccessfully

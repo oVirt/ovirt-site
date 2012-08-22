@@ -160,7 +160,7 @@ Tool that executes the upgrade:
 
        /usr/share/vdsm-reg/vdsm-upgrade
 
-Example, upgrading manually from ovirt-node 2.5.0-2.0 to 2.5.1-1.0
+Example, (developer mode only) upgrading manually from ovirt-node 2.5.0-2.0 to 2.5.1-1.0
 
         * Installed ovirt-node 2.5.0-2.0
         * Copied 2.5.1-1.0 image to /data/updates/ovirt-node-image.iso

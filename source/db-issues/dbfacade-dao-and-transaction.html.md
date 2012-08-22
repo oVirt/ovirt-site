@@ -33,7 +33,7 @@ Example
 
 We will see that a dialect is also used in the search engine to identify and prevent SQL Injection
 
-## How do we do postgres catalog caching?
+## How do we cache postgres catalog objects?
 
 We had found that Postgres uses heavily its PG CATALOG objects and this affected performance in mid to large systems
 Solution was to cache those calls and use the cache when possible

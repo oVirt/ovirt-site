@@ -88,6 +88,8 @@ Implement UI/REST API calls to your query and test that it works
 
 ### How to get data on command execution via DAOs ?
 
+All data accessed by commands are done via a call to DBFacade to get the relevant DAO and then calling directly the DAO method.
+
 ## Search Engine
 
 ### A brief overview

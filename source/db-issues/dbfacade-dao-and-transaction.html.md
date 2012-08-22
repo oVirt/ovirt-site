@@ -54,6 +54,12 @@ wiki_last_updated: 2012-08-23
 
 ### Can not connect to the database.
 
+Check that you postgresql service is up
+If you are using remote database, check Postgres configuration for listening to remote connections
+Check JBOSS standalone.xml and verify that user/database
+ and all relevant settings are OK
+Check the JBOSS server log for detailed error message. Check the postgres error log for detailed error message.
+
 ### Can not connect to a remote database.
 
 ### JBoss is crashing on start giving a SQL Error

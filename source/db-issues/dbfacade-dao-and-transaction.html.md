@@ -100,6 +100,11 @@ All data accessed by commands are done via a call to DBFacade to get the relevan
 
 ### SQL Injection prevention.
 
+Since search queries are based on free text typed by the user, there is a chance that malicious code will be sent in order to see secured data or to damage the database
+The method of abusing a SQL interface that allows free text is called "SQL Injection"
+To prevent that, each search query is checked by a engine specific class inherited from SqlInjectionChecker
+Our Postgres implementation class is PostgresSqlInjectionChecker
+
 ## Trouble Shooting
 
 ### Can not connect to the database.

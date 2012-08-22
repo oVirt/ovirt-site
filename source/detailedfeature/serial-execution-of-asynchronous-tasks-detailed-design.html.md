@@ -79,6 +79,8 @@ N / A
 
 instead of calling executeCommand() CommandBase will iterate over its SPMAsyncTaskHandlers and execute them. The defalut EntireCommandSPMAsyncTaskHandler will simply call the command's executeAction for backwards compatibility. For each one, CommandBase calls beforeTask(), and then fires an SPM command according to createTask(). When the command ends, AsyncTaskManager wakes up the handler, and it runs endSuccessfully(). CommandBase then starts the process over again with the next handler.
 
+Note: the treatment of HSM commands remains synchronious, as has no bearing on this proposed feature's design.
+
 ##### Unsuccessful Execution
 
 See the execution flow above. When an SPM task fails, the relevant handler is awoken, and it calls endWithFailure(). CommandBase then iterates in a *reverse* order, and calls each handler's compensate.

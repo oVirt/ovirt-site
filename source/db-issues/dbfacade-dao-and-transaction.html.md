@@ -103,40 +103,38 @@ All data accessed by commands are done via a call to DBFacade to get the relevan
 *List of properties*
 
       General (applied to all objects) : sortby, page
-      DataCenter
-      ----------
+
+*`DataCenter`*
       Clusters, Storage, name, description, type, status
-      Cluster
-      ----------
+
+*`Cluster`*
       DataCenter, Storage, name, description, initialized
-      Host
 
-------------------------------------------------------------------------
-
+*`Host`*
       Vms, Templates, Events, Users, Storage, name, status, cluster, address, cpu_usage, mem_usage, network_usage, load,version, cpus, memory, cpu_speed,
       cpu_model, active_vms, migrating_vms, committed_mem, tag, type, datacenter
-      Storage
-      ----------
+
+*`Storage`*
       Hosts, Clusters, name, status, datacenter, type, size, used, committed
-      Disks
-      ----------
+
+*`Disks`*
       Datacenter, Storages, alias, description, provisioned_size, size, actual_size, 
       creation_date, bootable, shareable, allow_snapshot, format, status, disk_type
-      VMs
-      ----------
+
+*`VMs`*
       Hosts,Templates, Events, Users, Storage, name, status, ip, uptime, domain,
       os, creationdate, address, cpu_usage, mem_usage, network_usage, memory, apps, cluster, pool, loggedinuser, tag, datacenter, type
-      Pools
-      ----------
+
+*`Pools`*
       name, description, type
-      Template
-      ----------
+
+*`Template`*
       Vms, Hosts, Events, Users, Storage, name, domain, os, creationdate, childcount,mem, description, status, cluster, datacenter 
-      Volumes
-      ----------
+
+*`Volumes`*
       Cluster, name, type, transport_type, replica_count, stripe_count, status
-      Events
-      ----------
+
+*`Events`*
       Vms, Hosts, Templates, Users, Clusters, Volumes, type, severity, message, time,usrname, event_ host, event_vm, event_template, event_storage, event_datacenter, event_volume, correlation_id
 
 *List of operators*

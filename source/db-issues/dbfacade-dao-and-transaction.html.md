@@ -58,6 +58,8 @@ Run the BE tests and verify that your BE is working as expected
 
 ### How to Modify an existing BE ?
 
+Most of BE modifications are adding a field to a BE (removing is very similar)
+
 ## DAO
 
 ### How to write a new DAO ?

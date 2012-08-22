@@ -143,7 +143,7 @@ Yum is only supported in offline image editing. On a running system, it's disabl
 
 #### Upgrading oVirt Node
 
-The log of upgrade operation is:
+The log of upgrade operation are:
 
        /var/log/ovirt.log
        /var/log/vdsm-reg/vds_bootstrap_upgrade.XXX_XX.log

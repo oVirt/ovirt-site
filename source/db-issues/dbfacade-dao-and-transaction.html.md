@@ -94,6 +94,15 @@ All data accessed by commands are done via a call to DBFacade to get the relevan
 
 ### A brief overview
 
+To perform a search, enter the search query (free-text or syntax-based) in the Search Bar at the top of the Administration Portal. Search queries can be saved as a Bookmarks for future reuse (This eliminates the need to reenter a search query each time the specific search results are needed).
+
+*Examples*
+
+*Hosts: Vms.status = up* (Displays a list of all hosts running virtual machines that are up.)
+*Vms: domain = qa.company.com* (Displays a list of all virtual machines running on the specified domain.)
+''Vms: users.name = Mary '' (Displays a list of all virtual machines belonging to users with the username Mary.)
+*Events: severity > normal sortby time* (Displays the list of all Events whose severity is higher than Normal sorted by time)
+
 ### Objects, properties and supported operators
 
 *List of obj-types*

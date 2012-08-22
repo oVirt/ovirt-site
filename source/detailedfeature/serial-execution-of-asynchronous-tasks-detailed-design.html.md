@@ -77,6 +77,8 @@ N / A
 
 #### User work-flows
 
+![](SEAT_flow.png "SEAT_flow.png")
+
 ##### Successful Execution
 
 instead of calling executeCommand() CommandBase will iterate over its SPMAsyncTaskHandlers and execute them. The defalut EntireCommandSPMAsyncTaskHandler will simply call the command's executeAction for backwards compatibility. For each one, CommandBase calls beforeTask(), and then fires an SPM command according to createTask(). When the command ends, AsyncTaskManager wakes up the handler, and it runs endSuccessfully(). CommandBase then starts the process over again with the next handler.

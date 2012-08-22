@@ -161,12 +161,12 @@ Tool that executes the upgrade:
 
 Example, upgrading manually from ovirt-node 2.5.0-2.0 to 2.5.1-1.0
 
-       `<nowiki>` * Installed ovirt-node 2.5.0-2.0
-       * Copied 2.5.1-1.0 image to /data/updates/ovirt-node-image.iso
-       * mount -o loop /data/updates/ovirt-node-image.iso /live
-       * Update in /etc/vdsm-reg/vdsm-reg.conf - upgrade_mount_point=/live
-       * service vdsm-reg restart
-       * /usr/share/vdsm-reg/vdsm-upgrade
-` * reboot`<nowiki>
+        * Installed ovirt-node 2.5.0-2.0
+        * Copied 2.5.1-1.0 image to /data/updates/ovirt-node-image.iso
+        * mount -o loop /data/updates/ovirt-node-image.iso /live
+        * Update in /etc/vdsm-reg/vdsm-reg.conf - upgrade_mount_point=/live
+        * service vdsm-reg restart
+        * /usr/share/vdsm-reg/vdsm-upgrade
+        * reboot
 
 [Category: Node](Category: Node)

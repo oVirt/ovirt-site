@@ -96,6 +96,11 @@ All data accessed by commands are done via a call to DBFacade to get the relevan
 
 To perform a search, enter the search query (free-text or syntax-based) in the Search Bar at the top of the Administration Portal. Search queries can be saved as a Bookmarks for future reuse (This eliminates the need to reenter a search query each time the specific search results are needed).
 
+You can specify the search criteria after the colon in the query. The syntax of {criteria} is as follows:
+<prop><operator><value>
+or
+<obj-type><prop><operator><value>
+
 *Examples*
 
 *Hosts: Vms.status = up* (Displays a list of all hosts running virtual machines that are up.)

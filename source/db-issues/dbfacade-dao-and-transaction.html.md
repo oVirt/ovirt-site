@@ -17,6 +17,9 @@ Create a jdbcTemplate and associate it with the DbFacade instance
 
 ## What is the usage of Db Facade?
 
+Holds a map of all entity as a key and DAO implementation as a value.
+Used mainly to get a DAO object to work with
+
 ## What is a dialect used for?
 
 ## How do we do postgres catalog caching?

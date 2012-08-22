@@ -59,6 +59,16 @@ Run the BE tests and verify that your BE is working as expected
 ### How to Modify an existing BE ?
 
 Most of BE modifications are adding a field to a BE (removing is very similar)
+Create BE tables changes as an upgrade script
+Modify BE views in original create_views.sql file to reflect the changes
+Modify BE CRUD Stored Procedures file to reflect the changes
+Modify the BE Class to reflect the changes
+Modify DAO interface and implementation for the BE
+Modify tests for all relevant DAO implementation calls
+Modify test data for your BE in fixtures.xml file
+Modify any Query objects needed for accessing the BE data from clients
+Run the upgrade script
+Run the BE tests and verify that your BE is working as expected
 
 ## DAO
 

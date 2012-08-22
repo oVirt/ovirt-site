@@ -42,7 +42,7 @@ wiki_last_updated: 2015-05-29
 
 ### Testing
 
-*   write an automatic script that runs on each and every new change to gerrit, and adds an insulting comment if `pyflakes` fails for the new change.
+*   ~~write an automatic script that runs on each and every new change to gerrit, and adds an insulting comment if `pyflakes` fails for the new change.~~ Thanks, Robert!
 
 <!-- -->
 

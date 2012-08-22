@@ -85,7 +85,9 @@ See the execution flow above. When an SPM task fails, the relevant handler is aw
 
 #### Events
 
-N / A
+##### JBoss Restart/Crash
+
+When JBoss starts, task polling is restarted (as before this change). The only change is that now tasks are now persisted with their executionIndex, so when a tasks completes the command issuing it can be resumed from the correct place.
 
 ### Dependencies / Related Features and Projects
 

@@ -35,6 +35,10 @@ We will see that a dialect is also used in the search engine to identify and pre
 
 ## How do we do postgres catalog caching?
 
+We had found that Postgres uses heavily its PG CATALOG objects and this affected performance in mid to large systems
+Solution was to cache those calls and use the cache when possible
+This is done by the SimpleJdbcCallsHandler
+
 ## Business Entities
 
 ### How to create a new BE ?

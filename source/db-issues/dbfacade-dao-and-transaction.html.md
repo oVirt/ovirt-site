@@ -74,6 +74,16 @@ Run the BE tests and verify that your BE is working as expected
 
 ### How to create a new query?
 
+Add the function/SP in database that returns the requested data
+Test your function/SP from psql
+Add a method that access your new function/SP from the relevant DAO and DAO implementation class
+Add a test method in the DAO test class that access your new DAO method
+Create your Query class
+Create your Query parameters class
+Add your query type to the VdcQueryType enum
+Run the relevant DAO tests and verify that all tests are passed
+Implement UI/REST API calls to your query and test that it works
+
 ## Commands
 
 ### How to get data on command execution via DAOs ?

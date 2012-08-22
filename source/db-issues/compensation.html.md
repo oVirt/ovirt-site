@@ -13,8 +13,6 @@ wiki_last_updated: 2012-08-22
 Postgres does not implement the READ-UNCOMMITTED isolation level. We have to notify the clients ASAP on entities that are changing status, this implies committing database changes ASAP before the asynchronous tasks associated with the relevant command are complete and in order to keep transactions as short as possible, create a entity change log which we can use to revert the changes if any asynchronous task fails.
  The process of logging those changes and roll back them if something fails is called compensation.
 
-### Isolation level
-
 ### Compensation change log
 
 ### What changes are logged

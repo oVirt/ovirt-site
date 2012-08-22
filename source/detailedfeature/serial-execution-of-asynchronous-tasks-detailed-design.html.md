@@ -33,6 +33,8 @@ This feature will break the coupling where an engine command equals an SPM task.
 
 #### Entity Description
 
+![](SEAT_classes.png "SEAT_classes.png")
+
 ##### SPMAsyncTask
 
 A new property, executionIndex (int) will be added, to signify the position of this task in a command's flow.

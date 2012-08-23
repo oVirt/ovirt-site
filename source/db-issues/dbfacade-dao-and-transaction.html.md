@@ -172,7 +172,7 @@ Our Postgres implementation class is PostgresSqlInjectionChecker
 
 ### Can not connect to the database.
 
-Check that you postgresql service is up
+Check that your postgresql service is up
 If you are using remote database, check Postgres configuration for listening to remote connections
 Check JBOSS standalone.xml and verify that user/database
  and all relevant settings are OK

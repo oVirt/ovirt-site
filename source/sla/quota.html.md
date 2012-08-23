@@ -1,256 +1,438 @@
 ---
 title: Quota
 category: sla
-authors: doron, gchaplik, jumper45, lpeer, mlipchuk, ovedo, sandrobonazzola
+authors: amureini, doron, mlipchuk, oliel
 wiki_category: SLA
-wiki_title: Features/Quota
-wiki_revision_count: 32
-wiki_last_updated: 2015-05-10
-wiki_warnings: list-item?
+wiki_title: Features/Design/Quota
+wiki_revision_count: 112
+wiki_last_updated: 2012-08-23
 ---
 
 # Quota
 
-### Summary
+This document describes the design for the Quota feature.
 
-Quota provides a way for the Administrator to limit the resource usage in the System.
+### Motivation
 
-### Owner
+Ovirt makes it very easy for users to add VMs, thus using CPU, memory and storage resources, thus there is a requirement that system administrators will be able to limit the resource usage of users in the environment by setting a Quota on these resources.
+ The resources in scope for this feature are:
 
-*   Feature owner: [ Gilad Chaplik](User:gchaplik)
+1.  Per-cluster resources:
+    1.  Virtual CPUs
+    2.  Virtual RAM
 
-    * GUI Component owner: [ Gilad Chaplik](User:gchaplik)
+2.  Storage resources
 
-    * REST Component owner: [ Michael Pasternak](User:mpasternak)
+... ... ...
 
-    * Engine Component owner: [ Gilad Chaplik](User:gchaplik)
+Please see <http://www.ovirt.org/wiki/Features/Quota>
 
-    * QA Owner: [ Yaniv Kaul](User:ykaul)
+### GUI
 
-*   Email: gchaplik@redhat.com
+Please see [Mockups](Features/DetailedQuota#User_Experience)
 
-### Current status
+#### Design
 
-*   Target Release:
-*   Status: Development Stage
-*   Last updated date: Tue July 17 2012
+### REST Design (Modeling)
 
-### Detailed Description
+* Quotas are a new root entity, which can be viewed at: [http://{host}](http://{host}):{port}/api/quotas - Drill-down to the single quota level is possible.
 
-Today, when consuming resources from the Data Center, such as storage (when creating a new virtual disk) and virtual CPUs/RAM (when running VMs), the user is only limited by the available resources. Thus, there is no way to limit the resources that can be used by a user. This limitation is problematic, especially in multi-tenant environments.
+* Currently only basic quota meta-data is shown:
 
-Quota provides the administrator a logic mechanism for managing resources allocation for users and groups in the Data Center.
-This mechanism allows the administrator to manage, share and monitor the resources in the Data Center from the engine core point of view. When working with quota, you still need to set the permissions.
-The quota will only limit the usage of the DC resources.
-For exmaple:
+       * name
+       * description
+       * data-center id
+       * (quota limitations are not shown). 
 
-*   If you want a user to be able to create VMs, disks and etc., you need to give him VmCreator in the relevant DC.
-*   If you want to limit him to a certain cluster, you will have to give him VmCreator in this cluster, and DiskCreator in relevant DCs/SDs.
-*   If you want to further limit the resource consumption, you'll have to enable quota in the DC, create the relevant quota, and define the user as a quota consumer (in the consumers sub tab).
-*   Defining the user as a quota consumer only, won't allow him to login to UP (as the underlined implementation for the Quota Consumption is done via roles, and the relevant role doesn't have login permissions).
+example:
 
-#### Entity Description
+------------------------------------------------------------------------
 
-##### Quota
+<quota>
 
-Quota is a new searchable object in the system, which contains the following properties:
+`  `<name>`quota_1`</name>
+`  `<description>`a large quota`</description>
+`  `<data_center id="yyy"/>
 
-1.  Name
-2.  Description
-3.  Data Center, for which the quota applies.
-4.  List of unlimited number of rules, where each rule should specify a resource and resource limitation parameters.
-5.  List of Users/Groups that have permission to use the Quota, i.e. assign it to VMs/disks
+</quota>
 
-For example, the following Quota configuration, is for R&D team:
+* In all flows of creating/importing a VM or or a Disk, a quota ID may be passed.
 
-1.  Name: DevelQuota
-2.  Description: Quota configured for R&D team
-3.  Data Center: Devel_Data_Center
-4.  Resource limitations:
-    -   VCPU/Memory limitations:
-        -   Cluster1: 6 VCPUs, 9GB RAM
-        -   Cluster2: 8 VCPUs, 12GB RAM
-    -   Storage Limitations:
-        -   Storage Domain1: 20GB
-        -   Storage Domain1: 10GB
-        -   Storage Domain3: 50GB
+* If quota ID is not passed - the operation will fail in the Datacenter works with quotas (validation in the Backend).
 
-5.  List of Users/Groups:
-    -   developers
-    -   team_leaders
-    -   new_developer
+examples:
 
-The limitation on a resource can be specified either on a specific resource (see example above) or globally.
-The global resource defines limitation on the Data Center for a specific type of resource (storage or runtime).
+------------------------------------------------------------------------
 
-For example the following limitations represent global limitation on the Cluster and the Storage:
+<vm>
 
-*   Global Cluster: 14 VCPUs, 21GB RAM
-*   Global Storage: 80GB
+`  `<name>`some_vm`</name>
+`  `<description>`a nice vm`</description>
+        .
+        .
+`  `<quota id="xxx"/>
 
-A Quota limitation can be also set to unlimited (both globally, or on a specific resource).
-The following Quota is an example of unlimited quota on both global and specific resources:
+</vm>
 
-*   Global Cluster: Unlimited
-*   Storage Domain1: Unlimited
-*   Storage Domain2: 50GB
-*   Storage Domain3: Unlimited
+<disk>
 
-##### Data Center
+`  `<size>`1000000`</size>
+`  `<format>`raw`</forma>
+        .
+        .
+`  `<quota id="xxx"/>
 
-The Quota object is in the data center scope. Also, a Data Center must be related to at least one Quota object.
-Each Data Center entity is configured with one of the following operation modes:
+</vm>
 
-1.  Disable - The Data Center would not be subject to Quota restrictions.
-2.  Soft Limit - Only warning messages would be issued when Quota restrictions are violated.
-3.  Hard Limit - Enforced the restrictions completely and prevent the resource allocation.
+### Backend
 
-See more info in the [Installation/Upgrade](#Installation/Upgrade) section
+This section describes the backend design for this feature.
 
-#### CRUD
+#### DB Design
 
-*   Quota object can be removed only if there are no entities such as VM, Template or Disks that are referencing it.
-*   Quota object can be edited; When a Quota is edited, the change should apply to all the entities that are assigned to this Quota, but only for future allocations of resources.
+**quota** - Represents the properties of the Quota configured on the DC.
 
-Quota object parameters modifications can result in exceeding the resource limitations:
+| Column Name                       | Column Type  | Null? / Default | Definition                                                                                        |
+|-----------------------------------|--------------|-----------------|---------------------------------------------------------------------------------------------------|
+| id                                | UUID         | PK(not null)    | The Quota Id                                                                                      |
+| storage_pool_id                 | UUID         | not null        | Storage pool Id                                                                                   |
+| quota_name                       | VARCHAR(50)  | not null        | Quota name                                                                                        |
+| description                       | VARCHAR(500) | not null        | Quota description                                                                                 |
+| _create_date                    | Date         | not null        | Quota creation date used for history data                                                         |
+| _update_date                    | Date         | not null        | Quota update date used for history data                                                           |
+| threshold_vds_group_percentage | INTEGER      | null            | The threshold of the Vds Group Quota the default should be configured in the vdc_options         |
+| threshold_storage_percentage    | INTEGER      | null            | The threshold of the Storage Quota the default should be configured in the vdc_options           |
+| grace_vds_group_percentage     | INTEGER      | null            | The grace in percentage of the Cluster Quota the default should be configured in the vdc_options |
+| grace_storage_percentage        | INTEGER      | null            | The grace in percentage of the Storage Quota the default should be configured in the vdc_options |
 
-    * reducing the disk limitation of some storage domain
+**quota_limitation** - Represents the quota limitation which are part of the Quota, the limitation can be defined for storage/vds cluster/storage pool.
 
-    * reducing CPU/RAM limitation
+| Column Name        | Column Type | Null? / Default | Definition                                                        |
+|--------------------|-------------|-----------------|-------------------------------------------------------------------|
+| id                 | UUID        | PK(not null)    | The primary key of the quota limitation.                          |
+| quota_id          | UUID        | not null        | Foreign key for the quota id.                                     |
+| storage_id        | UUID        | null            | Foreign key for storage id.                                       |
+| vds_group_id     | UUID        | null            | Foreign key for vds group id.                                     |
+| virtual_cpu       | INTEGER     | null            | The limited virtual cpu.                                          |
+| mem_size_mb      | BIGINT      | null            | The limited ram defined in mega byte.                             |
+| storage_size_gb  | BIGINT      | null            | The limited defined in Giga byte.                                 |
+| is_default_quota | BOOLEAN     | true/false      | Indicating if the quota is a a default quota for the Data Center. |
+
+Use cases :
+
+1.  When quota_limitation vds_group_id=null and storage_id=null then the limitation is referenced to global limitation
+2.  When quota_limitation vds_group_id=null but storage_id!=null then the limitation is referenced only to storage quota
+3.  When quota_limitation vds_group_id!=null but storage_id=null then the limitation is referenced only to vdsGroup quota
+4.  unlimited quota - vds_group_id=null and storage_id=null in quota_limitation table and fields of vcpu, vram and storage will be initialized with -1.
+5.  general limited quota - vds_group_id=null and storage_id=null in quota_limitation table, fields of vcpu, vram and storage will be initialized with specific number.
+6.  specific limited quota - vds_group_id!=null and/or storage_id!=null in quota_limitation table, quota fields (vcpu, vram and storage) will be null.
+7.  quota without any resources - vds_group_id=null and storage_id=null in quota_limitation table, quota fields (vcpu, vram and storage) will be 0.
+
+###### Functions
+
+1.  CalculateVdsGroupUsage - Summerise the VCPU usage and Memory usage for all the VMs in the quota which are not down, suspended, or in image locked or image illegal.
+2.  CalculateStorageUsage - Summerise the storage usage for all the disks in the quota, for active disks, we summerise the full size, for snapshots and other disks summerise only the actual size.
+
+***vm_static*** - Add column *quota_id*, which indicates the Quota the VM should be depended on its resources.
+ ***image*** - Add column *quota_id*, which indicates the Quota the image should be depended on its storage resources.
+ ***storage_pool*** - Add column *quota_enforcement*, Indicates the DC enforcement status for Quota (Disalbe(0) , Soft Limit (1),Hard Limit (2)) will be presented by Enum (see [QuotaStatusEnum](Features/Design/Quota#Classes).).
+
+###### Views
+
+**quota_global_view** - View of all the storage pool quota in the setup, that is all the quota that vds_group_id and storage_id values are null in the quota_limitation.
+
+| Column Name              | Column Type | Definition                                                                                    |
+|--------------------------|-------------|-----------------------------------------------------------------------------------------------|
+| storage_pool            | UUID        | The Storage Pool Id                                                                           |
+| Quota_ID                | UUID        | The Quota Id                                                                                  |
+| Quota_Name              | String      | The Quota name                                                                                |
+| virtual_cpu             | INTEGER     | The limited cpu, defined in Giga byte.                                                        |
+| virtual_cpu_usage      | INTEGER     | The usage of the cpu in the storage pool, defined in Giga byte. (using CalculateVdsGroupsage) |
+| storage_size_gb_byte  | INTEGER     | The limited GB, defined in Giga byte.                                                         |
+| storage_size_gb_usage | INTEGER     | The used GB in the storage pool, defined in Giga byte. (using CalculateStorageUsage)          |
+| mem_size_mb            | BIGINT      | The limited ram, defined in Mega byte.                                                        |
+| mem_size_mb_usage     | BIGINT      | The used ram in the storage pool. (using CalculateVdsGroupUsage)                              |
+| is_default_quota       | BOOLEAN     | Indicating if the quota is a a default quota for the Data Center.                             |
+
+**quota_vds_group_view** - View of all the vds group quotas in the setup, that is all the quotas that vds_group_id is not null but storage_id is null in the quota_limitation.
+
+| Column Name          | Column Type | Definition                                                                                |
+|----------------------|-------------|-------------------------------------------------------------------------------------------|
+| storage_pool        | UUID        | The Storage Pool Id                                                                       |
+| Quota_ID            | UUID        | The Quota Id                                                                              |
+| Quota_Name          | String      | The Quota name                                                                            |
+| vds_static_id      | UUID        | The vds group Id                                                                          |
+| vds_static_name    | UUID        | The vds group name from vds_group_static                                                |
+| virtual_cpu         | INTEGER     | The limited cpu, defined in Giga byte.                                                    |
+| virtual_cpu_usage  | INTEGER     | The usage of the cpu in the cluster, defined in Giga byte. (using CalculateVdsGroupUsage) |
+| mem_size_mb        | BIGINT      | The limited ram defined in Mega byte.                                                     |
+| mem_size_mb_usage | BIGINT      | The used ram in the cluster. (using CalculateVdsGroupUsage)                               |
+| is_default_quota   | BOOLEAN     | Indicating if the quota is a a default quota for the Data Center.                         |
+
+**quota_storage_view** - View of all the storage quotas in the setup, that is all the quotas that storage_id is not null but vds_cluster_id is null in the quota_limitation.
+
+| Column Name              | Column Type | Definition                                                             |
+|--------------------------|-------------|------------------------------------------------------------------------|
+| storage_pool            | UUID        | The Storage Pool Id                                                    |
+| Quota_ID                | UUID        | The Quota Id                                                           |
+| storage_Name            | String      | The storage name                                                       |
+| storage_id              | UUID        | The vds group Id                                                       |
+| storage_size_gb        | INTEGER     | The limited GB defined in Giga byte.                                   |
+| storage_size_gb_usage | INTEGER     | The used GB on the quota storage domain. (Using CalculateStorageUsage) |
+| is_default_quota       | BOOLEAN     | Indicating if the quota is a a default quota for the Data Center.      |
+
+###### Stored Procedures
+
+*GetQuotaVdsGroupByVdsGroupGuid*
+
+*   Input - vds_group_id UUID, storage_pool_id UUID.
+*   Output - a business entity mapped by quota_vds_group_view for specified vds_group with vds_group_id. (if vds_group_id=null then returns a list of all the vds group quotas for the storage pool_id)
+
+*GetQuotaStorageByStorageGuid*
+
+*   Input - storage_id UUID, storage_pool_id UUID.
+*   output - a business entity mapped by quota_storage_view for specified cluster_id, (if storage_id=null then returns a list of all the quota Storage for the storage pool_id)
+
+*GetQuotaByStoragePoolGuid*
+
+*   Input - storage_pool_id UUID.
+*   output - a business entity mapped by quota_global_view for specified storage_pool_id, (if storage_pool_id=null then returns a list of all the quota in the setup)
+
+#### Logic Design
+
+Each time the user will run a VM or create a new disk, there will be a quota resource check against the quota views.
+The process of quota validation should be in a new method validateQuota which will be a part of the command execute process. the validateQuota should be executed as synchronize method after canDoAction and before the command execute method.
+Each command which consumes quota resources, will contain a list of the delta changes, respectively quotaManager will manage a delta HashMap of the resources until they are persisted in the DB.
+
+###### Synchronized Vds commands
+
+Synchronized Vds commands are commands such as Create VM or migrate VM.
+These commands increase the consumption for cluster quota, right when the engine calls createVmCommandVDSCommand.
+Before calling the vds command, there will be a synchronize check, using quotaVdsGroupUsage function with the memory delta map, if there is enough resource space in the quota, the memory delta concurrent map, will be updated with the VM resources.
+if there will not be enough resources for the VM cunsumption, we will decrease the memory table with the amount of resources we checked.
+
+###### A-synchronized Vds commands
+
+Asynchronized operations, reflected in the engine as tasks.
+The tasks which are being handled are :
+
+      unknown,
+      copyImage,
+      moveImage,
+      createVolume,
+      deleteVolume,
+      deleteImage,
+      mergeSnapshots,
+      moveMultipleImages;
+
+**Tasks For Commands**
+
+| command name                   | Storage / Cluster | Task Name          | Vds Command                       |
+|--------------------------------|-------------------|--------------------|-----------------------------------|
+| CreateCloneOfTemplateCommand   | Storage           | copyImage          | CopyImageVDSCommand               |
+| CreateImageTemplateCommand     | Storage           | copyImage          | CopyImageVDSCommand               |
+| CreateCloneOfTemplateCommand   | Storage           | copyImage          | CopyImageVDSCommand               |
+| MoveMultipleImageGroupsCommand | Storage           | moveImage          | MoveImageGroupVDSCommand          |
+| MoveOrCopyImageGroupCommand    | Storage           | moveImage          | MoveImageGroupVDSCommand          |
+| AddImageFromScratchCommand     | Storage           | createVolume       | CreateImageVDSCommand             |
+| CreateSnapshotCommand          | Storage           | createVolume       | CreateSnapshotVDSCommand          |
+| HibernateVmCommand             | Storage           | createVolume       | CreateImageVDSCommand             |
+| RestoreFromSnapshotCommand     | Storage           | deleteVolume       | DestroyImageVDSCommand            |
+| RemoveImageCommand             | Storage           | deleteImage        | DeleteImageGroupVDSCommand        |
+| RemoveTemplateSnapshotCommand  | Storage           | deleteImage        | DeleteImageGroupVDSCommand        |
+| VmCommand                      | Storage           | deleteImage        | DeleteImageGroupVDSCommand        |
+| MergeSnapshotSingleDiskCommand | Storage           | mergeSnapshots     | MergeSnapshotsVDSCommand          |
+| no command                     | Storage           | moveMultipleImages | MoveMultipleImageGroupsVDSCommand |
+
+For a-synchronized operations behaviour, the operation functionality should be similar to the synchronize functionality. The Quota storage delta and the command list property will be updated before the execute starts with the planned quantity that should be consume. After every creation of task the delta map will be decreased and also the list command member. If the operation will fail, the rest of the quantity in the list will be decreased from the delta map.
+
+###### Upgrade Behaviour
+
+When a system is upgraded, an automatic script will create a Default Quota for each DC, with permissions for every one, and unlimited space for storage and cluster use.
+ The DC status should be disabled (same as when a new DC is established).
+ The disabled status of the DC represents that the user should not see any indications in the GUI that the DC has a Quota defined on it. When the DC is set to disabled mode, the Default Quota will be the one that all the resources consumed from, and when the DC will become active, this Default Quota will behave like any other regular quota but will still conceal a default flag in it.
+When the user will edit the Default Quota, the quota will cease being Default, and the user will be forced to change the quota's name to a name without the "DefaultQuota-" prefix.
+When the user will change the DC back to disabled, the existance of a Default Quota will be checked.
+If a Default Quota exists (meaning that it was not edited while the DC was not disabled) no change will be performed on it, meaning all the new resources consumption will be taken from it.
+If no Default Quota was found (meaning the Default Quota was edited while the DC was not disabled) then a new Default Quota will be created with a default name - DefaultQuota-NameOfTheDataCenter.
+
+An administrator that would like to make the DC use Quota, should change the DC status to audit, which means the users can now have indications on the DC, but still be able to make actions on it.
+ If the user will perform an action which exceeds the Quota capabilities perspective, a warning will be shown, but the operation will still succeed.
 
-    * removing a user from the list of users permitted to use the quota
+After the Administrator will finish configuring the Quotas he desires for the DC, he can set the DC to enforced status, which means users will be prevented from making actions which will exceed the Quota capabilities.
 
-All the above will not cause a resource deallocation. However, users will not be able to exceed the Quota limitations again after the resources are released.
+##### Classes
 
-Also, if a user was removed from the list of permitted users it won't result in an immediate interruptive action. However, that user won't be able to use this quota again, unless permitted to.
+**Config Values**
+ New configuration values in vdc_options:
 
-#### User Experience
+*`quotaStorageThreshold`*` - The default value should be 80%, and the version is General.`
+       Indicates the percentage of resource allocation, which beyond this (if Quota is enforced) would print an appropriate audit log message.
+       `*`quotaClusterThreshold`*` - The default value should be 80%, and the version is General.
+       Indicates the percentage of cluster allocation, which beyond this (if Quota is enforced) would print an appropriate audit log message.
+       `*`quotaStorageGrace`*` - The default value should be 20%, and the version is General.
+       Indicates the percentage of resource extension allocation.
+       `*`quotaClusterGrace`*` - The default value should be 20%, and the version is General.
+       Indicates the percentage of resource extension allocation.
 
-*   The Administrator will be able to create/edit a Quota using a wizard.
-    The wizard should allow administrators to configure Cluster Quota parameters, storage Quota parameters, and assign users which will be able to consume the Quota resources.
-*   For supporting definition of Quota per user, the Quota can be cloned.
-    Such a clone procedure should copy all the Quota properties except of the name and the description.
-*   Users assigned to the Quota would need a power user permission on the consumable resources (for example when add/edit a VM). The wizard should enable automatic addition of these permissions.
-    However, no permissions will be removed when removing resources from the Quota, but an alert message will be presented as follow:
+**DAO Classes**
+***org.ovirt.engine.core.dao.QuotaDAO**'' - Interface for Quota DAO will extends GenericDao.
+***org.ovirt.engine.core.dao.QuotaDAODbFacadeImpl**'' - Implementation for QuotaDAO, reflects the quota view implementations.
 
-*`Attention,` `Quota` `${QuotaName}` `resources` `have` `been` `changed.` `If` `needed,` `update` `relevant` `permissions` `accordingly`*`.`
+**Classes**
+***org.ovirt.engine.core.bll.QuotaManager*** - Class which manage the quota views and memory delta tables
 
-*   Note, that the user who created the Quota object would not necessarily have permissions, to consume from it.
-    Administrator should also have an aggregated view of defined Quotas vs actual storage space used/free.
-*   Since quota is an entity in data center scope, the quota main tab will be visible only when selecting a data center in the tree navigation panel.
+*`quotaDeltaClusterMap`*` - The quota cluster delta Map is a HashMap which reflects the delta changes being done on the DC before persistence, The update to the map should be synchronized.`
+*`quotaStorageDeltaMap`*` - The quota storage Map is a Concurrent HashMap which reflects the delta changes being done in the storage before persistence, the operation on it should be atomic.`
 
-The following UI mockups contain guidelines for the different screens and wizards:
+***org.ovirt.engine.core.common.businessentities.QuotaStatusEnum*** - Enum indicating the DC Quota verification status.
 
-![](dc.png "dc.png")
+##### Query commands
 
-![](new_quota_on_clusters_add.png "new_quota_on_clusters_add.png")
+***GetAllQuotaStoragesQuery*** (Extends QueriesCommandBase) - Should call query (see [getAllQuotaStorageForSP](Features/Design/Quota#DB_Design))
+ with DC id and user id, The query will return List of all Quota for user in the DC.
 
-![](new_quotaon_clusters.png "new_quotaon_clusters.png")
+###### Parameter commands
 
-![](new_quotaon_clusters_statistics.png "new_quotaon_clusters_statistics.png")
+***GetAllQuotaStoragesParameters*** - The parameter class will extend VdcQueryParametersBase, and will have the following fields : ... (TODO)
 
-![](new_quotaon_dc.png "new_quotaon_dc.png")
+##### Scenarios
 
-![](new_quotaon_dcadd.png "new_quotaon_dcadd.png")
+*Running VM* - canDoAction
 
-![](quota.png "quota.png")
+1.  Get DC verification status from quota_enforcement.
+2.  If quota_enforcement != DISABLED
+    1.  Fetch Quota Id from VM dynamic
+    2.  Get quota cluster properties for quota ID, using the memory Map quotaClusterMap in [QuotaManager](Features/Design/Quota#Classes).
+        1.  Check the VM configuration against the free cluster space left in the Quota.
+            1.  If VM capabilities are extending the free space left in the Quota
+                1.  if the VM capabilities are extending extending 20% of the Quota space (Grace percent) then
+                    1.  If quota_enforcement is enforce
+                        1.  Fail the VM from running
+                        2.  Print an appropriate audit log.
 
-![](statistic.png "statistic.png")
+                    2.  else
+                        1.  Print an audit log warning message.
 
-![](users.png "users.png")
+                2.  Else if the VM is extending the Quota limit but not extending the grace percent
+                    1.  Add Vm resources to Quota memory table quotaClusterMap.
+                    2.  Print an audit log of the User which caused the extension, and the extend details.
 
-#### Installation/Upgrade
+                3.  Else update quotaClusterMap.
 
-*   For a new/upgraded Data Center, the default operation mode will be 'disabled' (which means it won't be subject to any quota restrictions).
+Result : The VM will be already calculated in the memory table but this information will not be persistent in the DB until execute will performed.
 
-<!-- -->
+*Running VM* - execute
 
-*   When the administrator chooses to enable the Quota mechanism, He needs to reference all existing objects in Data Center to a valid quota, in Audit (/permissive/soft limit) mode, the administrator will still be allowed to work without quota, but in order to move to enforce mode, all the objects should refer to a quota.
+Each time there will be a change in the _asyncRunningVms (for example in createVMVdsCommand) the persistent Quota Dynamic data will be updated appropriately if needed
+If the command will fail then the memory table should be decreased with the resources that were added to it.
+ *Add New Disk - When dialog box opens*
 
-#### User work-flows
+1.  GUI will call the query command [GetAllQuotaStoragesQuery](Features/Design/Quota#upgrade_behaviour) with DC UUID
+2.  Return map of quotas, where each value represents a list of all the storage details.
 
-The Administrator Portal should allow the following operations:
+*Add New Disk - Confirm dialog box*
 
-*   View/edit/create Quota's
-*   View Quota per resource (User/Storage domain etc.)
+1.  User will pick the quota and the domain, he wants the disk should be initialized on.
+2.  If quota_enforcement != DISABLED
+    1.  Get quota storage properties for Quota ID, using the memory Map quotaStorageMap in [QuotaManager](Features/Design/Quota#Classes).
+        1.  If VM capabilities are extending the free space left in the Quota
+            1.  if the VM capabilities are extending extending 20% of the Quota space (Grace percent) then
+                1.  If quota_enforcement is enforce
+                    1.  Fail the operation.
+                    2.  Print an appropriate audit log.
 
-The Power User Portal should allow the following operations:
+                2.  else
+                    1.  Print an audit log warning message.
 
-*   View Quota's defined/used for himself
-*   Consume Quota upon resource usage (runtime and storage)
+                3.  else if the VM is extending the Quota limit but not extending the grace percent
+                    1.  Validate and update the memory table.
+                        1.  Print an audit log of the User which caused the extension, and the extend details.
+                        2.  Execute the command
 
-#### Enforcement
+                    2.  Execute the command
 
-*   Quota runtime limitation should be enforced during VM execution.
-*   Quota storage limitation should be enforced upon any requirement for storage allocation.
-*   When dealing with QCOW disks (which is not pre-allocated, like templates or stateless VM) the Quota should consume the total maximum size of the disk, since it is the potential size that can be used.
-*   In the future Quota can be extended to have enforcement for network usage, storage throughput etc.
+This logic in the canDoAction should be quite similar to the logic being done with StorageDomainSpaceChecker.
 
-#### Notification
+*Add new Disk - Confirm dialog box* End Action
 
-*   Quota will have a threshold configured to alert when the Quota is about to be full.
+1.  At the end action we will check what was the storage change by GB, and update the Quota dynamic table appropriately.
 
-    * The threshold will be configured for the administrator and for the User. The default value for administrators is 60%, and for regular users is 75%.
+ *Create new snapshot* - CanDoAction
 
-    * When Quota reaches the threshold limit, an audit log notification should be issued to the Administrator or the User.
+1.  Add the full disk size to the quotaStorageMap.
 
-    * User audit log should be:
+*Create new snapshot* - End Action
 
-*`Usage` `on` `resource` `$(Resource)` `in` `Quota` `$(Quota_Name)` `has` `reached` `the` `configured` `threshold` `${Threshold_User_Percentage}.` `Please` `contact` `your` `system` `administrator.`*
+1.  Get real size disk from VDSM of the snapshot created.
+2.  Subtract from the memory table the following (fullSize - realSize)
+3.  Update the DB quota dynamic value with + realSize
 
-    * Administrator audit log should be:
+*Create new template (similar to import scenario)* - CanDoAction
 
-*`Usage` `on` `resource` `$(Resource)` `in` `Quota` `$(Quota_Name)` `has` `reached` `the` `configured` `threshold` `${Threshold_Admin_Percentage}.`*
+1.  Calculate the storage that should be allocated by multiple the number of disks with 1GB (Which is the QCOW default size, TODO : Need to configure this with VDSM)
+2.  validate the quota properties and update the memory table.
 
-*   Quota will also have a configurable grace percentage, for the user to have a chance to consume resources even if the Quota has exceeded the limit.
+*Create new template (similar to import scenario)* - EndAction
 
-    * The configured default grace should be 20% of the Quota resources limitations.
+1.  Persist the changes in the DB.
 
-    * When user starts to use the grace percentage, a notification event should be triggered both to the administrator, and the user which exceeded this limit.
+*Create/Edit VM* - Reflects on AddVmCommand and EditVMCommand
 
-    * When Quota reaches its resources limit, it will be able to consume resources depending on the grace percentage configured in it.
+1.  User will select Data Center he wants the VM to be created on.
+2.  GUI will call the query GetQueryForStoragePool with DC UUID
+3.  Call stored procedure GetAllQuotaClusterForSP with storage pool UUID and user ID.
+4.  Call query Quotas_Attached_To_Storage_Pool with storage pool UUID and user ID.
+5.  Get lists of business entity objects
+6.  Return map of quotas, where each value represent a list of all the cluter details and the other should be all the users.
+7.  Update the VM Dynamic with the Quota Id.
 
-    * An audit log warning message should be issued to the User and the administrator:
+#### API Design
 
-*`Usage` `on` `resource` `$(Resource)` `in` `Quota` `$(Quota_Name)` `has` `reached` `its` `limit` `due` `to` `an` `action` `made` `by` `user` `${UserName}.`*
+Add new command query GetQueryForStoragePool input - DC UUID output - All the Quotas for the DC.
 
-#### Events
+### Tests
 
-The Administrator, will be able to set an email event, when Quota resources exceeded their limit.
+Storage tests. Cluster tests
 
-### Dependencies / Related Features and Projects
+#### Expected unit-tests
 
-*   Quota is not depended on outside features, and should be managed only in the engine core scope.
-*   When handling plug/unplug disks or attach/detach disks, the entity will still consume resources from its configured original Quota it was created on.
+1.  adding a new Quota
+2.  running VM on Quota
+3.  Adding a new Disk and attach to Quota
+4.  Adding new snapshot
+5.  Migrating VM
 
-Affected oVirt projects:
+#### Special considerations
 
-*   API
-*   CLI
-*   Engine-core
-*   Webadmin
-*   User Portal
+No special considerations.
 
-### Documentation / External references
+#### Pre-integration needs
 
-<http://www.ovirt.org/wiki/Features/Quota>
-<http://www.ovirt.org/wiki/Features/Design/Quota>
+No needs.
 
-### Comments and Discussion
+### Design check list
 
-<http://www.ovirt.org/wiki/Talk:Features/Quota>
+This section describes issues that might need special consideration when writing this feature. Better sooner than later :-)
 
-### Future Work
+1.  Installer / Upgrader - Disk and Storage Pool should be attached to the default unlimited Quota.
+2.  DB Upgrade -
+    1.  For each DC, add Administrator Quota, which will be attached to all the users currently using the VM's in the DC.(see [upgrade logic](Features/Design/Quota#upgrade_behaviour))
+    2.  Initialize the Quota users table depending on the users in the system.
 
-*   There should be a new business entity which will represent a group of storage domains as one unit.
-    The new business entity will be named, Virtual Storage Group, and should be referenced in the quota as a business entity and have storage restrictions on it.
-*   Enforcement of network usage and storage throughput using the Quota entity.
-*   Add historic Quota utilization to history database.
+3.  MLA - Remove user from the system should also remove the user from the Quota_users table
+4.  Migrate
+5.  Compatibility levels - The feature will be supported only for 2.3 VMs and up.
+6.  Backward compatibility issues
+7.  API changes - new command queries for GUI and REST.
 
-### Open Issues
+### Appendix
 
-*   Email Notifications.
-*   Copy template disk, the quota will be counted only one time.
-*   Snapshots: snapshots won't be taken into account when checking remaining storage quota.
+**Pseudo code for view [quota views - all_quotas](Features/Design/Quota#DB_Design):**
+ **Select** <desired fields>
+ **From** quota_global_view q_g_view
+ WHERE q_g_view.storage_pool_id = v_storage_pool_id; *'* Open issues *'*
+ RFE to consider: Add expiration date to the Quota
+ RFE to consider : Use templates for Quota.
 
-[Category: Feature](Category: Feature)
+<Category:SLA>

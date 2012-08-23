@@ -6,10 +6,8 @@ wiki_revision_count: 3
 wiki_last_updated: 2012-12-13
 ---
 
-# SLA
-
-SLA Category
+## SLA Category
 
 This category groups all SLA and scheduling related pages.
 
-For more information, contact Doron fediuck (dfediuck@redhast.com).
+For more information, contact Doron fediuck (dfediuck@redhat.com).

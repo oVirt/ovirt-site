@@ -39,7 +39,6 @@ wiki_last_updated: 2012-11-30
 *   Project [Communication](Communication).
 *   [Projects proposing to join oVirt](:Category:Project proposal).
 *   [<http://wiki.ovirt.org/w/index.php?title=Special%3AAllPages&from>=&to=&namespace=14 Category list of all oVirt wiki pages] **(useful)**
-*   [List of all pages](Special:AllPages).
 
 ## For potential authors and anyone wanting to edit pages
 

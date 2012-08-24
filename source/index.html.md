@@ -21,6 +21,10 @@ wiki_last_updated: 2012-11-30
 
 *   [Main documentation page](Documentation) - With links to much of the useful end user documentation. **(useful)**
 
+### Communication channels
+
+*   [Communication](Communication) - Lists all of our mailing lists, IRC channels, and our public weekly meeting information page (including logs).
+
 ### Developer information
 
 *   Developer wiki for the oVirt [Node](Node) project.
@@ -36,7 +40,6 @@ wiki_last_updated: 2012-11-30
 
 ### Other links
 
-*   Project [Communication](Communication).
 *   [Projects proposing to join oVirt](:Category:Project proposal).
 *   [<http://wiki.ovirt.org/w/index.php?title=Special%3AAllPages&from>=&to=&namespace=14 Category list of all oVirt wiki pages] **(useful)**
 

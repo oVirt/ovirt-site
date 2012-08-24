@@ -42,7 +42,8 @@ wiki_last_updated: 2012-11-30
 ### Other links
 
 *   [Projects proposing to join oVirt](:Category:Project proposal).
-*   [<http://wiki.ovirt.org/w/index.php?title=Special%3AAllPages&from>=&to=&namespace=14 Category list of all oVirt wiki pages] **(useful)**
+*   [<http://wiki.ovirt.org/w/index.php?title=Special%3AAllPages&from>=&to=&namespace=14 Category list of all oVirt wiki pages]. **(useful)**
+*   [Page Index](Special:PrefixIndex) - List of most pages in the wiki.
 
 ## For potential authors and anyone wanting to edit pages
 

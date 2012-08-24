@@ -24,7 +24,7 @@ wiki_last_updated: 2012-11-30
 ### Developer information
 
 *   Developer wiki for the oVirt [Node](Node) project.
-*   Developer wiki for the oVirt Engine project. Begin with [DevProcess](DevProcess), [Building oVirt engine](Building oVirt engine) and [Working with oVirt Gerrit](Working with oVirt Gerrit)
+*   Developer wiki for the oVirt Engine project. Begin with [DevProcess](DevProcess), [Building oVirt engine](Building oVirt engine) and [Working with oVirt Gerrit](Working with oVirt Gerrit).
 *   Work pages for the oVirt [Infrastructure](Infrastructure) team.
 *   Work pages for the oVirt [website organisation](website organisation).
 
@@ -37,9 +37,9 @@ wiki_last_updated: 2012-11-30
 ### Other links
 
 *   Project [Communication](Communication).
-*   [Projects proposing to join oVirt](:Category:Project proposal)
+*   [Projects proposing to join oVirt](:Category:Project proposal).
 *   [<http://wiki.ovirt.org/w/index.php?title=Special%3AAllPages&from>=&to=&namespace=14 Category list of all oVirt wiki pages] **(useful)**
-*   [List of all pages](Special:AllPages)
+*   [List of all pages](Special:AllPages).
 
 ## For potential authors and anyone wanting to edit pages
 

@@ -23,7 +23,7 @@ wiki_last_updated: 2012-11-30
 
 ### Communication channels
 
-*   [Communication](Communication) - Lists all of our mailing lists, IRC channels, and our public weekly meeting information page (including logs).
+*   [Communication](Communication) - Lists all of our mailing lists, IRC channels, and our public weekly meeting information page (includes logs).
 
 ### Developer information
 

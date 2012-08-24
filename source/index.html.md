@@ -13,16 +13,32 @@ wiki_last_updated: 2012-11-30
 
 ## What is here
 
+### Release notes
+
 *   Release notes for [ oVirt 3.1](OVirt 3.1 release notes) and [ oVirt Node](Node Release Notes).
+
+### Documentation
+
+*   [Main documentation page](Documentation) - With links to much of the useful end user documentation. **(useful)**
+
+### Developer information
+
 *   Developer wiki for the oVirt [Node](Node) project.
 *   Developer wiki for the oVirt Engine project. Begin with [DevProcess](DevProcess), [Building oVirt engine](Building oVirt engine) and [Working with oVirt Gerrit](Working with oVirt Gerrit)
+*   Work pages for the oVirt [Infrastructure](Infrastructure) team.
+*   Work pages for the oVirt [website organisation](website organisation).
+
+### Presentation information
+
 *   Content for attendees and organizers of [ oVirt Global Workshops](oVirt Global Workshops).
 *   Content for attendees and organizers of the [November 2011 workshop](Workshop November 2011).
 *   Content related to [making an oVirt release](making an oVirt release).
-*   Work pages for the oVirt [Infrastructure](Infrastructure) team.
-*   Work pages for the oVirt [website organisation](website organisation).
+
+### Other links
+
 *   Project [Communication](Communication).
 *   [Projects proposing to join oVirt](:Category:Project proposal)
+*   [<http://wiki.ovirt.org/w/index.php?title=Special%3AAllPages&from>=&to=&namespace=14 Category list of all oVirt wiki pages] **(useful)**
 *   [List of all pages](Special:AllPages)
 
 ## For potential authors and anyone wanting to edit pages

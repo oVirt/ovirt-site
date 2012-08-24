@@ -15,7 +15,8 @@ wiki_last_updated: 2012-11-30
 
 ### Release notes
 
-*   Release notes for [ oVirt 3.1](OVirt 3.1 release notes) and [ oVirt Node](Node Release Notes).
+*   Release notes for [ oVirt 3.1](OVirt 3.1 release notes) and [ oVirt Node](Node Release Notes). **(the current release)**
+*   Release notes for [ oVirt 3.0](OVirt 3.0 release notes). **(previous release)**
 
 ### Documentation
 

@@ -9,31 +9,23 @@ wiki_last_updated: 2012-11-30
 
 # Main Page
 
-**This is the wiki for the [oVirt project](http://www.ovirt.org).**
-
-This wiki is used for:
-
-*   Developers for technical [documentation](Documentation) about their project.
-*   Organizers to collaborate on planning and executing.
-*   Documenters write tutorials, API documentation, and so forth.
-
-In short, *this wiki is for the oVirt community collaborative documentation*.
+**This is the [oVirt Community's](http://www.ovirt.org) collaborative documentation wiki.**
 
 ## What is here
 
-*   Release notes for the [ oVirt 3.1](OVirt 3.1 release notes) and [ oVirt Node](Node Release Notes)
+*   Release notes for [ oVirt 3.1](OVirt 3.1 release notes) and [ oVirt Node](Node Release Notes).
 *   Developer wiki for the oVirt [Node](Node) project.
 *   Developer wiki for the oVirt Engine project. Begin with [DevProcess](DevProcess), [Building oVirt engine](Building oVirt engine) and [Working with oVirt Gerrit](Working with oVirt Gerrit)
 *   Content for attendees and organizers of [ oVirt Global Workshops](oVirt Global Workshops).
 *   Content for attendees and organizers of the [November 2011 workshop](Workshop November 2011).
-*   Content related to [making an oVirt release](making an oVirt release)
+*   Content related to [making an oVirt release](making an oVirt release).
 *   Work pages for the oVirt [Infrastructure](Infrastructure) team.
 *   Work pages for the oVirt [website organisation](website organisation).
 *   Project [Communication](Communication).
 *   [Projects proposing to join oVirt](:Category:Project proposal)
 *   [List of all pages](Special:AllPages)
 
-## Links for authors and editors
+## For potential authors and anyone wanting to edit pages
 
 *   [How to create a user account](How to create a user account) on this wiki.
     -   More information is covered in <Help:Editing>.

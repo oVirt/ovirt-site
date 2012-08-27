@@ -8,11 +8,11 @@ wiki_last_updated: 2012-11-07
 
 # Network Management
 
-| Area                             | Action                    | Internal impl.                                                                       | Quantum API                                                                       |
-|----------------------------------|---------------------------|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| Logical network                  | Create network            | AddNetwork                                                                           | <http://docs.openstack.org/api/openstack-network/1.0/content/Create_Network.html> |
-| Update network                   | UpdateNetwork             | <http://docs.openstack.org/api/openstack-network/1.0/content/Update_Network.html>    |
-| Delete network                   | RemoveNetwork             | <http://docs.openstack.org/api/openstack-network/1.0/content/Delete_Network.html>    |
+| Area                             | Action                    | Internal impl.                                                                       | Quantum API                                                                       | Notes                                                                           |
+|----------------------------------|---------------------------|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| Logical network                  | Create network            | AddNetwork                                                                           | <http://docs.openstack.org/api/openstack-network/1.0/content/Create_Network.html> | Quantum API accept network name returns id, needs to be persisted in the engine |
+| Update network                   | UpdateNetwork             | <http://docs.openstack.org/api/openstack-network/1.0/content/Update_Network.html>    | Quantum API updates only network name                                             |
+| Delete network                   | RemoveNetwork             | <http://docs.openstack.org/api/openstack-network/1.0/content/Delete_Network.html>    |                                                                                   |
 | Attachment of network to cluster | Attach to cluster         | AttachNetworkToVdsGroup                                                              | ?                                                                                 |
 | Update attachment                | UpdateNetworkOnCluster    | ?                                                                                    |
 | Detach from cluster              | DetachNetworkToVdsGroup   | ?                                                                                    |

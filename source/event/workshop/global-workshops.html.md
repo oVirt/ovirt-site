@@ -16,7 +16,6 @@ If you are interested in setting up a workshop, please contact [Leslie Hawthorn]
 
 ## Upcoming Workshops Schedule Overview
 
-*   August 28, 2012: LinuxCon North America
 *   October 16, 2012: Red Hat Office, Bangalore, India
 *   November 7-9, 2012: LinuxCon Europe (workshop will be co-located with KVM Forum)
 *   January 22-24, 2013: NetApp Headquarters in Sunnyvale, California, US
@@ -38,26 +37,11 @@ Kyle Mestery is working to arrange a workshop on Cisco's campus, likely in the R
 
 We are currently working to locate a place to host a workshop in the LATAM region.
 
-## LinuxCon North America 2012
-
-*   Workshop Date: Tuesday, August 28, 2012
-*   [Conference Website](https://events.linuxfoundation.org/events/linuxcon)
-*   [Workshop Registration Link](http://www.regonline.com/Register/Checkin.aspx?EventID=1099953)
-
-#### LinuxCon North America 2012 Workshop Details
-
-*   The workshop is free of charge for registrants.
-*   Attendees registering for LinuxCon North America via the workshop registration link above receive discounted attendance to LinuxCon North America.
-*   Attendees who have already registered for LinuxCon North America via the main conference registration page can simply edit their existing registration to add on the oVirt Workshop.
-*   Beverage breaks and lunch will be provided to all attendees.
-
-#### LinuxCon North America 2012 Outstanding Action Items
-
-*   Add additional participants to LCNA workshop agenda. Expecting abstract from NetApp; have determined that additional sessions can be added with no issues per Linux Foundation.
-
 ## Red Hat Bangalore Campus Workshop
 
 *   Workshop Date: Tuesday, October 16, 2012
+*   Red Hat Bangalore Campus - [<https://maps.google.com/maps?q=%23+4%2F1,+Bannerghatta+Road+IBC+Knowledge+Park,+11th+Floor,+Tower+D+Bangalore,+Karnataka+560+001+India&hl=en&ll=12.931852,77.60313&spn=0.008491,0.016243&sll=37.6>,-95.665&sspn=28.158055,66.533203&t=h&hq=%23+4%2F1,+Bannerghatta+Road+IBC+Knowledge+Park,+11th+Floor,+Tower+D+Bangalore,+Karnataka+560+001+India&z=16 Map]
+*   [Workshop Registration](http://ovirtbangalore2012.eventbrite.com/)
 
 #### Red Hat Bangalore Campus Workshop Details
 
@@ -66,10 +50,8 @@ We are currently working to locate a place to host a workshop in the LATAM regio
 
 #### Red Hat Bangalore Campus Workshop Outstanding Action Items
 
-*   Create workshop overview description.
-*   Issue community-wide Call for Papers and select incoming submissions.
-*   Create workshop agenda based on results of CFP.
-*   Create registration site for workshop attendees.
+*   Review incoming talk proposals as requested on the oVirt mailing lists.
+*   Create workshop agenda based on results of call for papers and previous presenters who have volunteered to present.
 *   Promote workshop.
 
 While we have not yet been given a deadline for these action items, it would be best to get the information together sooner rather than later.
@@ -80,6 +62,7 @@ While we have not yet been given a deadline for these action items, it would be 
 *   [LinuxCon Europe Website](https://events.linuxfoundation.org/events/linuxcon-europe)
 *   [KVM Forum/oVirt Workshop Website](https://events.linuxfoundation.org/events/kvm-forum)
 *   [Registration Link](http://www.regonline.com/Register/Checkin.aspx?EventID=1032806)
+*   [Workshop CFP Details](http://events.linuxfoundation.org/events/kvm-forum/cfp-ovirt) - proposals due 14 September 2012
 
 The oVirt workshop at LinuxCon Europe will be co-located with the KVM Forum event.
 
@@ -124,6 +107,19 @@ Details for this workshop are still to be confirmed, though we have confirmed th
 *   The workshop is free of charge for the first 50 registrants. We will look at adding additional participant slots based on demand.
 *   Attendees registering for LinuxCon Japan via the workshop registration link above receive discounted attendance to LinuxCon Japan.
 *   Attendees who have already registered for LinuxCon Japan via the main conference registration page can simply edit their existing registration to add on the oVirt Workshop.
+*   Beverage breaks and lunch will be provided to all attendees.
+
+## LinuxCon North America 2012
+
+*   Workshop Date: Tuesday, August 28, 2012
+*   [Conference Website](https://events.linuxfoundation.org/events/linuxcon)
+*   [Workshop Registration Link](http://www.regonline.com/Register/Checkin.aspx?EventID=1099953)
+
+#### LinuxCon North America 2012 Workshop Details
+
+*   The workshop is free of charge for registrants.
+*   Attendees registering for LinuxCon North America via the workshop registration link above receive discounted attendance to LinuxCon North America.
+*   Attendees who have already registered for LinuxCon North America via the main conference registration page can simply edit their existing registration to add on the oVirt Workshop.
 *   Beverage breaks and lunch will be provided to all attendees.
 
 <Category:Events>

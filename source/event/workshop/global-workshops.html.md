@@ -109,7 +109,7 @@ Details for this workshop are still to be confirmed, though we have confirmed th
 *   Attendees who have already registered for LinuxCon Japan via the main conference registration page can simply edit their existing registration to add on the oVirt Workshop.
 *   Beverage breaks and lunch will be provided to all attendees.
 
-## LinuxCon North America 2012
+### LinuxCon North America 2012
 
 *   Workshop Date: Tuesday, August 28, 2012
 *   [Conference Website](https://events.linuxfoundation.org/events/linuxcon)

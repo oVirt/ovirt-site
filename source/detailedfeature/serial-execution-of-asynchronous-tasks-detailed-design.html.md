@@ -77,7 +77,9 @@ N / A
 
 #### User work-flows
 
-![](SEAT_flow.png "SEAT_flow.png")
+Flow chart: ![](SEAT_flow.png "fig:SEAT_flow.png")
+
+DFD: ![](SEAT_DFD.png "fig:SEAT_DFD.png")
 
 ##### Successful Execution
 

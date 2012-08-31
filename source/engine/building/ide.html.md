@@ -89,15 +89,6 @@ of 'esc'+':' combination ;)
 
 <!-- -->
 
-*   If you see the error "**The method setCharacterEncoding(String) is undefined for the type HttpServletResponse**" in source *frontend/webadmin/modules/frontend/src/main/java/org/ovirt/engine/ui/frontend/server/gwt/WebadminDynamicHostingServlet.java*, modify *pom.xml* at root level to change servlet API version from 2.3 to 2.4 as the concerned API is introduced in 2.4. The code change should look like:
-
-<!-- -->
-
-    <javax.ejb.api.version>3.0</javax.ejb.api.version>
-    -<javax.servlet.api.version>2.3</javax.servlet.api.version>
-    +<javax.servlet.api.version>2.4</javax.servlet.api.version>
-    <jcraft.jsch.version>0.1.42</jcraft.jsch.version>
-
 *   Make sure that you import the engine code formatter into eclipse **before** starting development. The engine maven build uses [checkstyle](http://checkstyle.sourceforge.net) to check coding standards. One of the standards checked is that the code should not contain tabs or trailing whitespaces. Since eclipse inserts tabs by default for code formatting, you can end up with a lot of compilation errors in command line maven build if you don't follow this (and the next) step.
 
 <!-- -->

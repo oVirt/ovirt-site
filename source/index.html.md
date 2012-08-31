@@ -29,7 +29,7 @@ wiki_last_updated: 2012-11-30
 ### Developer information
 
 *   Developer wiki for the oVirt [Node](Node) project.
-*   Developer wiki for the oVirt Engine project. Begin with [DevProcess](DevProcess), [Building oVirt engine](Building oVirt engine) and [Working with oVirt Gerrit](Working with oVirt Gerrit).
+*   Developer wiki for the oVirt [Engine](Engine) project.
 *   Work pages for the oVirt [Infrastructure](Infrastructure) team.
 *   Work pages for the oVirt [website organisation](website organisation).
 

@@ -78,8 +78,8 @@ The needed additions are:
 ### In REST
 
 *   Add fields to HostNIC entity:
-    -   custom_network_configuration - boolean, status field to specify if the network definition on the NIC is in sync with logical definition or is it a custom definition.
-    -   impose_network_configuration - boolean, action field to set the NIC to be synced back to the logical network definition.
+    -   custom_configuration - boolean, status field to specify if the network definition on the NIC is in sync with logical definition or is it a custom definition.
+    -   override_configuration - boolean, action field to set the NIC to be synced back to the logical network definition.
 
 ### In UI
 

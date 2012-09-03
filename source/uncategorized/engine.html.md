@@ -12,10 +12,10 @@ wiki_last_updated: 2012-09-03
 
 It's responsible for orchestrating multiple Hosts/VMs in clusters & managing entire Data Centers. Wiki Content:
 
-*   -   How do we work: [DevProcess](DevProcess)
-    -   How to build oVirt engine: [Building oVirt engine](Building oVirt engine)
-    -   How to work with gerrit: [Working with oVirt Gerrit](Working with oVirt Gerrit)
-    -   How to set up the frontend (WebAdmin and UserPortal) for development: [DebugFrontend](DebugFrontend)
+*   How do we work: [DevProcess](DevProcess)
+*   How to build oVirt engine: [Building oVirt engine](Building oVirt engine)
+*   How to work with gerrit: [Working with oVirt Gerrit](Working with oVirt Gerrit)
+*   How to set up the frontend (WebAdmin and UserPortal) for development: [DebugFrontend](DebugFrontend)
 
 ## Engine Overview
 

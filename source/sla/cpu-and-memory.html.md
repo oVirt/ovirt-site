@@ -54,15 +54,29 @@ Use case 4:
 
 ## CPU
 
-*   Guarenteed
+       Based on libvirt cgroups
+       libvirt API:int    virDomainSetSchedulerParameters    (virDomainPtr domain,
+                          virTypedParameterPtr params,
+                          int nparams)
+       params to use:
 
-<!-- -->
+------------------------------------------------------------------------
 
-*   Hard Limits
+shares:The optional shares element specifies the proportional weighted share for the domain.
 
-<!-- -->
+period:The optional period element specifies the enforcement interval(unit: microseconds). Within period, each vcpu of the domain will not be allowed to consume more than quota worth of runtime.
 
-*   Soft Limits
+quota:The optional quota element specifies the maximum allowed bandwidth(unit: microseconds). A domain with quota as any negative value indicates that the domain has infinite bandwidth, which means that it is not bandwidth controlled.
+
+*   Max
+
+      Quota+period:
+      (1)fix period, dynamic quota:vdsm/engine not care about period, set it to longest to limit cgroup control cost, mainly pay attention to share.
+      (2)dynamic quota and period:Mom would control both to determin which is better
+
+*   prioritization:
+
+      Share:VM with bigger share value will gain priority to run
 
 ## Memory
 

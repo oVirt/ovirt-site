@@ -60,8 +60,6 @@ Use case 4:
                           int nparams)
        params to use:
 
-------------------------------------------------------------------------
-
 shares:The optional shares element specifies the proportional weighted share for the domain.
 
 period:The optional period element specifies the enforcement interval(unit: microseconds). Within period, each vcpu of the domain will not be allowed to consume more than quota worth of runtime.

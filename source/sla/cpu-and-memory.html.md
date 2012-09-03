@@ -78,14 +78,14 @@ quota:The optional quota element specifies the maximum allowed bandwidth(unit: m
 
 ## Memory
 
+int virDomainSetMemoryParameters (virDomainPtr domain,
+
+                          virTypedParameterPtr params, 
+                          int nparams, 
+                          unsigned int flags)
+
 *   Guarenteed
-
-<!-- -->
-
 *   Hard Limits
-
-<!-- -->
-
 *   Soft Limits
 
 <Category:SLA>

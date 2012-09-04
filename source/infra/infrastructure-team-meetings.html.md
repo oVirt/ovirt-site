@@ -16,6 +16,13 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
     -   To see in your timezone date -d 'TUESDAY 1000 EDT'
 *   *Where:* On IRC: #ovirt on irc.oftc.net
 
+## 2012-09-04
+
+*   Hosting
+*   Task tracking
+*   Puppet (w/o ewoud)
+*   Jenkins for a fun ending?
+
 ## 2012-08-21
 
 *Agenda*

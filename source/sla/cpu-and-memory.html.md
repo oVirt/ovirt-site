@@ -69,8 +69,8 @@ quota:The optional quota element specifies the maximum allowed bandwidth(unit: m
 *   Max
 
       Quota+period:
-      (1)fix period, dynamic quota:vdsm/engine not care about period, set it to longest to limit cgroup control cost, mainly pay attention to share.
-      (2)dynamic quota and period:Mom would control both to determin which is better
+      (1)fix period, dynamic quota:vdsm/engine not care about period, set it to longest to limit cgroup control cost, mainly pay attention to share.(from engine side config)
+      (2)dynamic quota and period:Mom would control both to determin which is better(from MOM side)
 
 *   prioritization:
 

@@ -20,6 +20,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 *   Hosting
 *   Task tracking
+*   Website CMS, broken search (garrett)
 *   Puppet (w/o ewoud)
 *   Jenkins for a fun ending?
 

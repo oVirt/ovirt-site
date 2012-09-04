@@ -18,13 +18,21 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## 2012-09-04
 
+*[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-09-04-14.02.html)*
+
 *   Hosting
 *   Task tracking
 *   Website CMS, broken search (garrett)
 *   Puppet (w/o ewoud)
 *   Jenkins for a fun ending?
 
+## 2012-08-28
+
+*[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-08-28-14.00.html)*
+
 ## 2012-08-21
+
+''Canceled, no minutes'
 
 *Agenda*
 
@@ -33,7 +41,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## 2012-08-14
 
-''[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-08-14-14.00.html)
+*[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-08-14-14.00.html)*
 
 *Agenda*
 

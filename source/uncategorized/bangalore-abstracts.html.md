@@ -32,4 +32,16 @@ Accepted speakers should plan to submit their slides to [Leslie Hawthorn <http:/
 
 Integrating GlusterFS as a storage domain in VDSM and supporting storage array offloads from VDSM
 
+### Dell
+
+Our colleagues with Dell are interested in submitting talks for the workshop. Once these submissions have been sent to the oVirt users list, they will be linked from this page.
+
+### IBM
+
+Our colleagues with IBM are interested in submitting talks for the workshop. Once these submissions have been sent to the oVirt users list, they will be linked from this page.
+
+## Other Notes
+
+James Rankin with Red Hat has offered to give the introductory session on oVirt.
+
 *   Follow up note sent requesting author send bio and abstract to oVirt users list.

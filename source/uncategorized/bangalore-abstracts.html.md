@@ -14,7 +14,7 @@ The purpose of this page is to document talk proposals submitted for the [oVirt 
 
 Please submit talk proposals for review by sending a message to [users@ovirt.org](http://lists.ovirt.org/pipermail/users). Your email should include your full name, speaker biography and your talk abstract. We will accept submissions through Friday, 28 September 2012 at [23:55 UTC](http://lists.ovirt.org/pipermail/users). Speakers will be notified of acceptance by Friday, 5 October 2012.
 
-Accepted speakers should plan to submit their slides to [Leslie Hawthorn <http://wiki.ovirt.org/wiki/User:Lh>] no later than close of business on Monday, 9 October 2012.
+Accepted speakers should plan to submit their slides to [Leslie Hawthorn](http://wiki.ovirt.org/wiki/User:Lh) no later than close of business on Monday, 9 October 2012.
 
 ## Submissions by Author
 

@@ -54,19 +54,34 @@ Use case 4:
 
 ## CPU
 
-Stats vdsm needs to be collected: 1.host cpu usage: flags of host cpu pressure and flag of tuning, when cpu utilization rise, action will be tune or migrate.via libvirt 2.host perspective guest usage: guest use of host resource, flag of how much has allocated actually via libvirt 3.guest perspective guest usage: flag of how much potential the overcommitment can be
+Stats vdsm needs to be collected:
 
-Controlls vdsm needs to perform: 1.via cpu cgroup 2.via pin cpu 3.via hibernate/stop vm
+       1.host cpu usage: flags of host cpu pressure and flag of tuning, when cpu utilization rise, action will be tune or migrate.via libvirt
+       2.host perspective guest usage: guest use of host resource,  flag of how much has allocated actually via libvirt
+       3.guest perspective guest usage: flag of how much potential the overcommitment can be
 
-Policies: 1.QOS: (1)high prior guests demand should be satisefied (2)VM's feature demand should be satisefied(compute node's cpu demand has higher priority) e.g.:Golden Vm are assigned to a larger quota as original value,
+Controlls vdsm needs to perform:
 
+       1.via cpu cgroup
+       2.via pin cpu
+       3.via hibernate/stop vm
+
+Policies:
+
+       1.QOS: 
+         (1)high prior guests demand should be satisefied
+         (2)VM's feature demand should be satisefied(compute node's cpu demand has higher priority)
+         e.g.:Golden Vm are assigned to a larger quota as original value,
           compute node are pinned to a specific cpu.
 
-2.Overcommit: When: (1)host cpu pressure rise, (2)import guest or cpu demanding guest demands cpu resource
-
-      it tries to get cpu from:
-
-(1)non important guest (2)non cpu demanding guest (3)guest already got very high host usage but with comparatively low priority
+       2.Overcommit:
+       When:
+         (1)host cpu pressure rise,
+         (2)import guest or cpu demanding guest demands cpu resource
+        it tries to get cpu from:
+         (1)non important guest
+         (2)non cpu demanding guest
+         (3)guest already got very high host usage but with comparatively low priority
 
 ## Memory
 

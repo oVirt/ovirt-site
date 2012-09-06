@@ -21,20 +21,23 @@ This page holds relevant information for MoM and other SLA-related packages
 
 **Needed RPMs**
 
+*   **MoM**
+    -   version
+    -   URL:
+    -   git
+
+<!-- -->
+
 *   **vdsm**
     -   version
     -   URL:
+    -   git <git://gerrit.ovirt.org/vdsm.git>
 
 <!-- -->
 
 *   **libvirt**
     -   version
     -   URL:
-
-<!-- -->
-
-*   **MoM**
-    -   version
-    -   URL:
+    -   git
 
 <Category:SLA>

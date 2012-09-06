@@ -73,6 +73,8 @@ Install VDSM by executing as root the following commands:
 
       yum install -y vdsm vdsm-cli
 
+Note:if you are using vdsm-4.10.0, you may need to install libvirt-0.10.0 which can't be found in yum. You can find the libvirt rpm in the following page:<http://libvirt.org/sources/>
+
 #### Configure
 
 Add the following content into the file: **/etc/vdsm/vdsm.conf** (you may need to create that file):

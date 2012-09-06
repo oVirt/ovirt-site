@@ -54,27 +54,19 @@ Use case 4:
 
 ## CPU
 
-       Based on libvirt cgroups
-       libvirt API:int    virDomainSetSchedulerParameters    (virDomainPtr domain,
-                          virTypedParameterPtr params,
-                          int nparams)
-       params to use:
+Stats vdsm needs to be collected: 1.host cpu usage: flags of host cpu pressure and flag of tuning, when cpu utilization rise, action will be tune or migrate.via libvirt 2.host perspective guest usage: guest use of host resource, flag of how much has allocated actually via libvirt 3.guest perspective guest usage: flag of how much potential the overcommitment can be
 
-shares:The optional shares element specifies the proportional weighted share for the domain.
+Controlls vdsm needs to perform: 1.via cpu cgroup 2.via pin cpu 3.via hibernate/stop vm
 
-period:The optional period element specifies the enforcement interval(unit: microseconds). Within period, each vcpu of the domain will not be allowed to consume more than quota worth of runtime.
+Policies: 1.QOS: (1)high prior guests demand should be satisefied (2)VM's feature demand should be satisefied(compute node's cpu demand has higher priority) e.g.:Golden Vm are assigned to a larger quota as original value,
 
-quota:The optional quota element specifies the maximum allowed bandwidth(unit: microseconds). A domain with quota as any negative value indicates that the domain has infinite bandwidth, which means that it is not bandwidth controlled.
+          compute node are pinned to a specific cpu.
 
-*   Max
+2.Overcommit: When: (1)host cpu pressure rise, (2)import guest or cpu demanding guest demands cpu resource
 
-      Quota+period:
-      (1)fix period, dynamic quota:vdsm/engine not care about period, set it to longest to limit cgroup control cost, mainly pay attention to share.(from engine side config)
-      (2)dynamic quota and period:Mom would control both to determin which is better(from MOM side)
+      it tries to get cpu from:
 
-*   prioritization:
-
-      Share:VM with bigger share value will gain priority to run
+(1)non important guest (2)non cpu demanding guest (3)guest already got very high host usage but with comparatively low priority
 
 ## Memory
 

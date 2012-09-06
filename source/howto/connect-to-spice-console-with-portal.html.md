@@ -64,42 +64,45 @@ So what happens when you hit the "Console" button?
 
 Add a <servlet> definition for SpiceX.cab
 
-` `<servlet>
-`   `<servlet-name>`SpiceX.cab`</servlet-name>
-`   `<servlet-class>`org.ovirt.engine.core.FileServlet`</servlet-class>
-` `<init-param>
-`   `<param-name>`type`</param-name>
-`   `<param-value>`application/octet-stream`</param-value>
-` `</init-param>
-` `<init-param>
-`   `<param-name>`file`</param-name>
-`   `<param-value>`/usr/share/spice/SpiceX.cab`</param-value>
-` `</init-param>
-` `</servlet>
-` `<servlet-mapping>
-`   `<servlet-name>`SpiceX.cab`</servlet-name>
-`   `<url-pattern>`/spice/SpiceX.cab`</url-pattern>
-` `</servlet-mapping>
+      <!-- SpiceX.cab -->
+      <servlet>
+        <servlet-name>SpiceX.cab</servlet-name>
+        <servlet-class>org.ovirt.engine.core.FileServlet</servlet-class>
+      <init-param>
+        <param-name>type</param-name>
+        <param-value>application/octet-stream</param-value>
+      </init-param>
+      <init-param>
+        <param-name>file</param-name>
+        <param-value>/usr/share/spice/SpiceX.cab</param-value>
+      </init-param>
+      </servlet>
+      <servlet-mapping>
+        <servlet-name>SpiceX.cab</servlet-name>
+        <url-pattern>/spice/SpiceX.cab</url-pattern>
+      </servlet-mapping>
 
 Add a <servlet> definition for virt-viewer-<version>.exe
 
-` `<servlet>
-`   `<servlet-name>`virt-viewer-`<version>`.exe`</servlet-name>
-`   `<servlet-class>`org.ovirt.engine.core.FileServlet`</servlet-class>
-` `<init-param>
-`   `<param-name>`type`</param-name>
-`   `<param-value>`application/octet-stream`</param-value>
-` `</init-param>
-` `<init-param>
-`   `<param-name>`file`</param-name>
-`   `<param-value>`/usr/share/spice/virt-viewer-`<version>`.exe`</param-value>
-` `</init-param>
-` `</servlet>
-` `<servlet-mapping>
-`   `<servlet-name>`virt-viewer-`<version>`.exe`</servlet-name>
-`   `<url-pattern>`/spice/virt-viewer-`<version>`.exe`</url-pattern>
-` `</servlet-mapping>
+      <!-- virt-viewer-<version>.exe -->
+      <servlet>
+        <servlet-name>virt-viewer-<version>.exe</servlet-name>
+        <servlet-class>org.ovirt.engine.core.FileServlet</servlet-class>
+      <init-param>
+        <param-name>type</param-name>
+        <param-value>application/octet-stream</param-value>
+      </init-param>
+      <init-param>
+        <param-name>file</param-name>
+        <param-value>/usr/share/spice/virt-viewer-<version>.exe</param-value>
+      </init-param>
+      </servlet>
+      <servlet-mapping>
+        <servlet-name>virt-viewer-<version>.exe</servlet-name>
+        <url-pattern>/spice/virt-viewer-<version>.exe</url-pattern>
+      </servlet-mapping>
 
+*   Don't forget to replace <version> in virt-viewer-<version>.exe with the version for example: virt-viewer-0.5.3.exe
 *   Close and save web.xml
 *   NOTE it seems in the latest nightly ovirt builds that the <servlet> definition for SpiceX.cab has been added.
 
@@ -276,3 +279,125 @@ Example simple html/java script page for Remote-Viewer Client/ActiveX Plugin dow
 
 *   Don't forget to replace <version> in virt-viewer-<version>.exe with the version for example: virt-viewer-0.5.3.exe
 *   Don't forget to replace "yourusernamehere" with your windows username for example "C:\\Users\\thrall\\AppData\\Local\\virt-viewer\\bin\\SpiceX.dll"
+*   save the file as filename.html Example: "spice.html"
+
+### Installing the web page
+
+*   To install the web page copy it to /usr/share/ovirt-engine/engine.ear/root.war
+
+### Accessing the web page
+
+*   The page will now be accessible via the url to your ovirt-engine instance
+*   Example URL
+        http://ovirt.azeroth.net/spice.html
+
+### Modify oVirt main page
+
+*   Optionally you can modify the main oVirt page to contain a link to your deployment page
+*   You will need to modify /usr/share/ovirt-engine/engine.ear/root.war/index.html
+
+Add an entry the below section of index.html containing the links to the various portals:
+
+      <div id='dynamicLinksSection' style="display: none;">
+        <div>
+        <h2>
+          <span class="fakeH2">Portals</span>
+       </h2>
+          <div><script type="text/JavaScript">getHttpsHref("UserPortal","User Portal");</script></div>
+          <div><script type="text/JavaScript">getHttpsHref("webadmin","Administrator Portal");</script></div>
+          <div><script type="text/JavaScript">getHttpHref("OvirtEngineWeb/RedirectServlet?Page=Reports","Reports Portal");</script></div>
+          <div><script type="text/JavaScript">getHttpHref("spice.html","Spice Install Portal");</script></div>
+      </div>
+
+## Installing via the web Client Side
+
+### Windows XP (x86)/Server 2003/R2 (x86/x64) Clients
+
+*   Launch Internet Explorer and browse to your oVirt instance and according spice.html
+*   Example URL
+        http://ovirt.azeroth.net/spice.html
+
+*   Click the Install Spice button
+*   IE will prompt you with "This website wants to install the following add-on SpiceX.cab... proceed by clicking "Install this Add-on for All Users of this computer".
+*   Depending on the version of IE the next security warning may pop up asking you if you want to install SpiceX.cab" If it does not Click on the install spice button again and it will.
+*   In the security warning dialog click on the Install button.
+*   The install will now proceed in the background.
+*   If the install was successful there will now be an entry called "VirtViewer" in your start menu under "All Programs".
+*   The Spice Remote-Viewer Client/ActiveX Plugin is now installed and you will be able to view the consoles of your vm's in the User/Admin portals.
+
+### Windows Vista (x86/x64), Windows 7 (x86/x64), Server 2008/R2 (x86/x64) Clients
+
+*   Launch Internet Explorer and browse to your oVirt instance and according spice.html
+*   Example URL
+        http://ovirt.azeroth.net/spice.html
+
+*   Click the install spice button
+*   IE will prompt you with "This website wants to install the following add-on SpiceX.cab... proceed by clicking the arrow on the install button and choose "Install for All Users of this computer".
+*   Depending on the version of IE a UAC dialog may pop up asking you if you want to allow "SpiceX.cab" If it does not Click on the install spice button again and it will.
+*   In the UAC dialog click on the yes button.
+*   The install will now proceed in the background.
+*   If the install was successful there will now be an entry called "VirtViewer" in your start menu under "All Programs"
+*   The Spice Remote-Viewer Client/ActiveX Plugin is now installed and you will be able to view the consoles of your vm's in the User/Admin portals.
+
+## Manual Install Client Side
+
+### Windows XP (x86)/Server 2003/R2 (x86/x64) Clients
+
+*   Launch Internet Explorer and browse to your oVirt instance and according spice.html
+*   Example URL
+        http://ovirt.azeroth.net/spice.html
+
+*   Right-Click "Spice Remote-Viewer Client/ActiveX Plugin" and choose "save target as"
+*   Save the installer somewhere and note it's location
+*   **Important** Close all open Internet Explorer windows/sessions!
+*   Go to the location where you saved the installer and double-click it to launch it
+*   A security warning will pop up warning of an un-verified publisher this is fine click on the run button to proceed
+*   In the resulting installation dialog click on the install button to proceed with the install
+*   Click the close button once it is done to complete the install
+*   The Spice Remote-Viewer Client/ActiveX Plugin is now installed and you will be able to view the consoles of your vm's in the User/Admin portals.
+
+### Windows Vista (x86/x64), Windows 7 (x86/x64), Server 2008/R2 (x86/x64) Clients
+
+*   Launch Internet Explorer and browse to your oVirt instance and according spice.html
+*   Example URL
+        http://ovirt.azeroth.net/spice.html
+
+*   Right-Click "Spice Remote-Viewer Client/ActiveX Plugin" and choose "save target as"
+*   Save the installer somewhere and note it's location
+*   **Important** Close all open Internet Explorer windows/sessions!
+*   Go to the location where you saved the installer and right-click it then choose "Run as Administrator"
+*   A UAC dialog will pop up asking you if you want to allow virt-viewer to install.
+*   In the UAC dialog click on the yes button.
+*   In the resulting installation dialog click on the install button to proceed with the install
+*   Click the close button once it is done to complete the install
+*   The Spice Remote-Viewer Client/ActiveX Plugin is now installed and you will be able to view the consoles of your vm's in the User/Admin portals.
+
+## Un-Installing Client Side
+
+### Windows XP (x86)/Server 2003/R2 (x86/x64) Clients
+
+*   **Important** Close all open Internet Explorer windows/sessions!
+*   Click on the start menu
+*   Click "All Programs"
+*   Click "Accessories"
+*   Click "Command Prompt"
+*   In the command prompt window type "regsvr32 /u "C:\\Documents and Settings\\yourusernamehere\\Local Settings\\Application Data\\virt-viewer\\bin\\SpiceX.dll"
+*   Next Click on the start menu
+*   Click "Control Panel"
+*   In the Control Panel run Add/Remove Programs
+*   Click on VirtViewer and click on Change/Remove
+*   The Spice Remote-Viewer Client/ActiveX Plugin is now uninstalled from the system
+
+### Windows Vista (x86/x64), Windows 7 (x86/x64), Server 2008/R2 (x86/x64) Clients
+
+*   **Important** Close all open Internet Explorer windows/sessions!
+*   Click on the start menu
+*   Click "All Programs"
+*   Click "Accessories"
+*   Click "Command Prompt"
+*   In the command prompt window type "regsvr32 /u "C:\\Users\\yourusernamehere\\AppData\\Local\\virt-viewer\\bin\\SpiceX.dll"
+*   Next Click on the start menu
+*   Click "Control Panel"
+*   In the Control Panel run "Programs and Features"
+*   Click on VirtViewer and click on Uninstall
+*   The Spice Remote-Viewer Client/ActiveX Plugin is now uninstalled from the system

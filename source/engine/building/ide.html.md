@@ -79,7 +79,7 @@ of 'esc'+':' combination ;)
     gwt-extentions ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/annotations
     gwt-common ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/annotations
     gwt-common -> project -> properties -> Projects -> Add -> common, compat and uicommon-web
-    webadmin ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/{annotations,gwt,test-annotations}
+    webadmin ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/{annotations,gwt}
     frontend ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/gwt
     uicompat -> project -> properties -> Projects -> Add -> common and compat
     generic-api -> project -> properties -> Projects -> Add -> common, compat and utils

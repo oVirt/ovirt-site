@@ -11,6 +11,8 @@ wiki_last_updated: 2014-07-11
 
 VDSM Hooks are a means to insert arbitrary commands and scripts at certain point in a VM's lifecycle as well as in VDSM daemon's lifecycle. VDSM, when entering a certain checkpoint in a VM's execution cycle, will check whether there is a hook present for that point, and if a hook is found, it will be executed.
 
+[VDSM-Hooks Catalogue](VDSM-Hooks Catalogue)
+
 The hooks reside on every host in /usr/libexec/vdsm/hooks/ A hook can be any executable (bash/python/perl/binary/etc).
 
 Here is the complete list:

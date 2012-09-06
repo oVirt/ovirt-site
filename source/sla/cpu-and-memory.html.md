@@ -65,6 +65,7 @@ Controlls vdsm needs to perform:
        1.via cpu cgroup
        2.via pin cpu
        3.via hibernate/stop vm
+       4.via numad
 
 Policies:
 
@@ -82,6 +83,14 @@ Policies:
          (1)non important guest
          (2)non cpu demanding guest
          (3)guest already got very high host usage but with comparatively low priority
+
+Numad Integration
+
+------------------------------------------------------------------------
+
+vdsm API should perform: (1)Add domain processes to Numad and the Numactl (2)Remove cpu pin from vdsm
+
+Should MOM control numad parameters? OR use default parameter for numad?
 
 ## Memory
 

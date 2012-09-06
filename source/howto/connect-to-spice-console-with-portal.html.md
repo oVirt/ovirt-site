@@ -24,4 +24,7 @@ So what happens when you hit the "Console" button?
 
 ## Assupmtions and Prerequisities
 
-*   client used: `remote-viewer/ActiveX (SpiceX.dll)`
+*   An installed and running instance of ovirt-engine See: [Installing_ovirt-engine_from_rpm](Installing_ovirt-engine_from_rpm)
+*   One or two nodes within an active cluster, EL6 or Fedora nodes are both fine.
+*   You are connecting from a Windows based Box/VM.
+*   You are running

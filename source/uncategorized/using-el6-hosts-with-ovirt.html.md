@@ -916,16 +916,181 @@ Actual Example with values (substitute in your own values):
 
 ## Adding the Host to Ovirt
 
+*   Assuming system has now been updated and configured
+
 ### Disable un-needed services
+
+*   Disable some services which will not be needed or will conflict:
+*   libvirt-guests
+
+       chkconfig libvirt-guests off
+
+*   glusterd
+*   Currently used by Fedora hosts but with this setup could be used by your EL6 hosts too
+
+       chkconfig glusterd off 
+
+### Optional services to enable/disable
+
+*   Firewall can be optionally enabled or disabled
+*   If it is enabled ports will need to be opened for SSH and VDSM (EG: 22 and 54321)
+
+Enable the firewall:
+
+       chkconfig iptables on
+       chkconfig ip6tables on
+
+Disable the firewall:
+
+       chkconfig iptables off
+       chkconfig ip6tables off
+
+*   Enable or disable kernel core dumping
+
+Enable kdump:
+
+       chkconfig kdump on
+
+Disable kdump:
+
+       chkconfig kdump off
+
+*   Any other services you may want enabled or disabled
 
 ### Enable needed services
 
+*   ntpd
+*   iscsi
+*   mutltipathd
+*   Check the following services they should already be enabled and running
+    -   libvirtd
+    -   sanlock
+    -   sshd
+    -   wdmd
+
 ### Configure SSH
+
+*   Currently the deployutil.py in vdsm-bootstrap and vdsm-reg either fails to:
+    -   Copy the engine's SSH RSA key to EL6 based hosts authorized_keys file to EL6 based hosts authorized_keys file
+    -   Improperly copies the engines SSH RSA key to EL6 based hosts authorized_keys file to EL6 based hosts authorized_keys file
+    -   Or the deployutil.py getAuthKeysFile() function outright fails to run altogether when dealing with EL6 based hosts
+*   Given the prior we can simply do the needful manually assuming we will be using vdsm-reg to add the host
+*   ssh to the host from the ovirt-engine server and create the file /root/.ssh/authorized_keys
+*   copy the contents of the file /etc/pki/ovirt-engine/keys/engine.ssh.key.txt to the file you just created on the host
+
+Example;
+
+       mkdir /root/.ssh
+       cat engine.ssh.key.txt >> /root/.ssh/authorized_keys
+
+*   If adding the host via vds_bootstrap.py one can also just comment out the codeblock in the file (since we copied the key manually):
+
+       if not oDeploy.setSSHAccess(iurl, engine_ssh_key):
+       logging.error('setSSHAccess test failed')
+       return False
 
 ### Install VDSM
 
+*   Now you will need to install the VDSM rpms from your extra RPMS repository
+*   Ensure you added (per the above) the repository definition for the repository you created which contains the VDSM RPMS you built and placed there previously
+
+Install the neccesary VDSM RPMS:
+
+       yum -y install vdsm vdsm-python vdsm-cli vdsm-gluster vdsm-reg vdsm-xmlrpc
+
+*   If this fails something is not right in your setup and you will want to trace back a few steps
+*   Once the VDSM RPMS are installed you will want to turn off the vdsm-reg service (we will be manually invoking it)
+
+       chkconfig vdsm-reg off
+
 ### Configure VDSM
+
+*   Now that VDSM in installed we need to create a configuration for it
+*   VDSM stores it's configuration file in /etc/vdsm/
+
+Create: /etc/vdsm/vdsm.conf and add the following content to the file:
+
+       [vars]
+       trust_store_path = /usr/local/etc/pki/vdsm
+       ssl = true
+       [addresses]
+       management_port = 54321
 
 ### Configure VDSM-reg
 
-### Add the host
+*   We will use vdsm-reg to assimilate the host into your ovirt-engine collective
+*   We need to edit the configuration file for vdsm-reg stored in /etc/vdsm-reg/vdsm-reg.conf
+*   In the below example configuration uses an ovirt-engine instance named ovirt.azeroth.net (FQDN)
+*   You will need to substitute the FQDN of your ovirt-engine instance
+
+Edit: /etc/vdsm-reg/vdsm-reg.conf
+
+    [vars]
+    reg_req_interval = 5
+    vdsm_conf_file=/etc/vdsm/vdsm.conf
+    pidfile=/var/run/vdsm-reg.pid
+    logger_conf=/etc/vdsm-reg/logger.conf
+    vdc_host_name=ovirt.azeroth.net
+    vdc_host_port=443
+    vdc_reg_uri=/OvirtEngineWeb/register
+    #upgrade_iso_file=/data/updates/ovirt-node-image.iso
+    #upgrade_mount_point=/live
+    ticket=
+
+*   Now that the ssh, vdsm, and vdsm-reg configurations are in place it's time to notify the ovirt-engine about our host
+
+Start the vdsm-reg service
+
+       service vdsm-reg start
+
+*   The vdsm-reg service will stop once it has successfully registered the host with your ovirt-engine instance
+*   If registration was successful with your ovirt-engine instance you will see the host listed in the ovirt webadmin portal hosts tab and pending approval
+*   After the registration some junk from the failed ssh key exchange issues will be left in the authorized_keys file:
+
+Usually looks like this:
+
+    <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+    <html><head>
+    <title>400 Bad Request</title>
+    </head><body>
+    <h1>Bad Request</h1>
+    <p>Your browser sent a request that this server could not understand.<br />
+    Reason: You're speaking plain HTTP to an SSL-enabled server port.<br />
+    Instead use the HTTPS scheme to access this URL, please.<br />
+    <blockquote>Hint: <a href="https://ovirtfoo.ctt.med.ge.com/"><b>https://ovirtfoo.ctt.med.ge.com/</b></a></blockquote></p>
+    <hr>
+    <address>Apache/2.2.22 (Fedora) Server at ovirtfoo.ctt.med.ge.com Port 443</address>
+    </body></html>
+
+*   Delete the everything but the engine's SSH RSA key that you copied in previously
+
+### Approve the host
+
+*   Now that the host is registered go to the hosts tab in the ovirt webadmin portal
+*   Click on the host and click approve
+*   A dialog will pop up where you can configure
+    -   Choose a data center to assign the host to
+    -   Choose a cluster to assign the host to
+    -   Change or modify the name that ovirt refers to the host as
+    -   power management options (Note must have at least one other active host to do this)
+    -   the SPM priority of the host
+*   If the host addition is successful the status of the host will change to "Up"
+*   If all was successful the log entries should look something like:
+
+       `<date>`, `<time>` Host cluster Horde was updated by system 
+       `<date>`, `<time>` Detected new Host orgrimmar Host state was set to Up. 
+       `<date>`, `<time>` Host orgrimmar was successfully approved. 
+       `<date>`, `<time>` Installing Host orgrimmar Step: RHEV_INSTALL. 
+       `<date>`, `<time>` Installing Host orgrimmar Step: Restart; Details: Restarting vdsmd service. 
+       `<date>`, `<time>` Installing Host orgrimmar Step: VDS Configuration. 
+       `<date>`, `<time>` Installing Host orgrimmar Step: cleanAll. 
+       `<date>`, `<time>` Installing Host orgrimmar Step: CoreDump. 
+       `<date>`, `<time>` Installing Host orgrimmar Step: instCert. 
+       `<date>`, `<time>` Installing Host orgrimmar Step: RHEV_INSTALL. 
+       `<date>`, `<time>` Installing Host orgrimmar Step: Encryption setup. 
+       `<date>`, `<time>` Installing Host orgrimmar Step: RHEV_INSTALL; Details: Connected to Host 192.168.1.1 with SSH key fingerprint: `<the SSH fingerprint>`. 
+       `<date>`, `<time>` orgrimmar.azeroth.net parameters were updated by admin@internal. 
+       `<date>`, `<time>` Power Management is not configured for Host orgrimmar 
+       `<date>`, `<time>` Host orgrimmar.azeroth.net  registered. 
+       `<date>`, `<time>` Host orgrimmar.azeroth.net  was added by UserName. 
+       `<date>`, `<time>` Power Management is not configured for Host orgrimmar.azeroth.net

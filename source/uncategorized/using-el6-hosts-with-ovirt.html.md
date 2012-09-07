@@ -684,9 +684,96 @@ Example EL6 Kickstart to load a minimal ovirt VM host:
     -NetworkManager
     %end
 
+### Hosting the Kickstart
+
+*   We can also use the same apache webserver we created for hosting the extra RPMS built prior to host the kickstart
+*   Create another directory on the webserver to hold the kickstart:
+
+Example for httpd on EL6:
+
+       mkdir /var/www/html/ks
+
+*   Copy the kickstart file to the newly created directory
+
+Example using sl6v.ks as the name of the kickstart file
+
+       cp sl6v.ks /var/www/html/ks/
+
+*   Thus given the above location and assuming a webserver FQDN of ovirt.azeroth.net the URL for the kickstart would be:
+
+<!-- -->
+
+    http://ovirt.azeroth.net/ks/sl6v.ks
+
+*   This remotely accessible Kickstart can now be fed into a DVD or PXE install
+
 ### Booting and installing via DVD
 
+*   Booting and installing from the DVD media is the simplest method which works easily with most modern servers via their respective remote DVD media redirection capabilties:
+    -   Sun Oracle ILOM
+    -   Dell DRAC
+    -   HP ILO
+*   EL6 Kickstart options are covered in depth here: [Starting a Kickstart Installation](http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-kickstart2-startinginstall.html)
+*   Assuming one of the above server media redirection methods attach the ISO of your choosen EL6 flavor to the remote re-direction console/media re-direct method.
+*   Boot the server and choose to boot from the redirected media
+*   Once at the initial grub boot menu of the install media highlight the "Install or upgrade an existing system " choice (this is the default in the case of all the EL6 distros)
+*   Hit the tab key
+*   Using the above URL to the kickstart you created and copied to your webserver add the following boot option
+
+<!-- -->
+
+     ks=http://url-to-your-webserver/kickstart-directory/name-of-you-kickstart-file
+
+*   Next we need to tell it which network card to activate DHCP on and use to communicate on the network
+*   Assuming the cable is plugged into the servers first ethernet port and that port will be "eth0" add the following boot option
+
+       ksdevice=eth0
+
+*   Hit enter to start the install
+*   If all goes well anaconda will find the kickstart and begin the automated install
+
 ### Booting and installing via PXE
+
+*   Setting up PXE boot and install under EL6 is covered in depth here: [Setting Up an Installation Server](http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/ap-install-server.html)
+*   Setting up PXE boot and install under Fedora is covered in depth here: [Manually configure a PXE server](http://docs.fedoraproject.org/en-US/Fedora/17/html/Installation_Guide/sn-pxe-server-manual.html)
+*   EL6 Kickstart options are covered in depth here: [Starting a Kickstart Installation](http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/s1-kickstart2-startinginstall.html)
+*   Assuming a PXE boot and install server has been setup per the above documentation
+*   Assuming that a copy of your respective distro's pxeboot "vmlinuz" has been copied to a directory in /var/lib/tftpboot/ called "boot" EG: /var/lib/tftpboot/boot
+*   Assuming that a copy of your respective distro's pxeboot "initrd" has been copied to a directory in /var/lib/tftpboot/ called "boot" EG: /var/lib/tftpboot/boot
+*   Edit /var/lib/tftpboot/pxelinux.cfg/default and add the following:
+
+<!-- -->
+
+      label somelabel-goes-here
+      kernel boot/vmlinuz
+      append ks initrd=boot/initrd.img ramdisk_size=100000 ksdevice=eth0  repo=http://url-to-your-distros-base-install/ ks=http://url-to-your-webserver/kickstart-directory/name-of-you-kickstart-file
+
+*   Given the above example eth0 is assumed as the ethernet port on the server which has an active link to the network
+
+Where you are specifying that you copied the installation media or mirrored the install data for your choosen distro to:
+
+     repo=http://url-to-your-distros-base-install 
+
+Example Using SL:
+
+    http://ftp.scientificlinux.org/linux/scientific/6.3/x86_64/os/
+
+Where you specified that you copied the kickstart file created above:
+
+    ks=http://url-to-your-webserver/kickstart-directory/name-of-you-kickstart-file
+
+Example using the above kickstart:
+
+    http://ovirt.azeroth.net/ks/sl6v.ks
+
+*   Assuming all the configuration is correct boot your server via PXE
+    -   Usually F12 in most modern servers
+    -   OR Set the servers bootdev/order via the respective remote management method (ILOM, DRAC, ILO)
+    -   OR set the chassis bootdev to PXE via ipmitool to the respective remote BMC (ILOM, DRAC)
+*   If all is well with the configuration the server will obtain an IP address from the ISC DHCP server you configured prior as part of the PXE server configuration
+*   Once booted to the PXE server menu (assuming you have configured a menu, see EL6/Fedora documentation on this topic) type whatever label name you choose and hit return.
+*   Alternatively you could have configured the PXE server to automatically kicked into your choosen label name (see EL6/Fedora documentation on this topic).
+*   If all goes well the server will find the base repo fire up anaconda which will find the kickstart and begin the automated install
 
 ## Setting up the Host
 

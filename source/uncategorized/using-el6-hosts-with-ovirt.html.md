@@ -13,6 +13,16 @@ How to use EL6 based hosts with Ovirt-Engine 3.1+
 ## Assumptions and Prerequisities
 
 *   An installed and running instance of ovirt-engine See: [Installing_ovirt-engine_from_rpm](Installing_ovirt-engine_from_rpm)
+*   You will need to do the following on the system running your ovirt-engine to make it handle EL6 nodes instead of Fedora nodes:
+
+For ovirt-engine 3.0
+
+       psql -U postgres -d engine -c "update vdc_options set option_value='rhel6.2.0' where option_name='EmulatedMachine' and version='3.0';"
+
+For ovirt-engine 3.1
+
+       psql -U postgres -d engine -c "update vdc_options set option_value='rhel6.3.0' where option_name='EmulatedMachine' and version='3.1';"
+
 *   A system or VM loaded with some flavor of EL6 EG: RHEL, CentOS, SL, OEL (Best practice is to use the one you intend to use for the node)
     -   At minimum the following from the Development package group should be installed:
         -   Development tools

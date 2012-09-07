@@ -315,7 +315,7 @@ Example EL6 Kickstart to load a minimal ovirt VM host:
     part / --fstype="ext4" --grow --size=1
 
     repo --name="Scientific Linux 6.3 - x86_64" --baseurl="http://ftp.scientificlinux.org/linux/scientific/6.3/x86_64/os/"
-    repo --name="sl6v" --baseurl="http://<url_to_the_server_hosting_your_rpms>/sl6v/"
+    repo --name="your-repo-name" --baseurl="http://<url_to_the_server_hosting_your_rpms>/therpms/"
 
     %packages --nobase
     @ Core

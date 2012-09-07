@@ -1045,24 +1045,6 @@ Start the vdsm-reg service
 
 *   The vdsm-reg service will stop once it has successfully registered the host with your ovirt-engine instance
 *   If registration was successful with your ovirt-engine instance you will see the host listed in the ovirt webadmin portal hosts tab and pending approval
-*   After the registration some junk from the failed ssh key exchange issues will be left in the authorized_keys file:
-
-Usually looks like this:
-
-    <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
-    <html><head>
-    <title>400 Bad Request</title>
-    </head><body>
-    <h1>Bad Request</h1>
-    <p>Your browser sent a request that this server could not understand.<br />
-    Reason: You're speaking plain HTTP to an SSL-enabled server port.<br />
-    Instead use the HTTPS scheme to access this URL, please.<br />
-    <blockquote>Hint: <a href="https://ovirtfoo.ctt.med.ge.com/"><b>https://ovirtfoo.ctt.med.ge.com/</b></a></blockquote></p>
-    <hr>
-    <address>Apache/2.2.22 (Fedora) Server at ovirtfoo.ctt.med.ge.com Port 443</address>
-    </body></html>
-
-*   Delete the everything but the engine's SSH RSA key that you copied in previously
 
 ### Approve the host
 
@@ -1094,3 +1076,22 @@ Usually looks like this:
        `<date>`, `<time>` Host orgrimmar.azeroth.net  registered. 
        `<date>`, `<time>` Host orgrimmar.azeroth.net  was added by UserName. 
        `<date>`, `<time>` Power Management is not configured for Host orgrimmar.azeroth.net
+
+*   After the approval and registration some junk from the failed ssh key exchange issues will be left in the authorized_keys file of the :
+
+Usually looks like this:
+
+    <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+    <html><head>
+    <title>400 Bad Request</title>
+    </head><body>
+    <h1>Bad Request</h1>
+    <p>Your browser sent a request that this server could not understand.<br />
+    Reason: You're speaking plain HTTP to an SSL-enabled server port.<br />
+    Instead use the HTTPS scheme to access this URL, please.<br />
+    <blockquote>Hint: <a href="https://ovirtfoo.ctt.med.ge.com/"><b>https://ovirtfoo.ctt.med.ge.com/</b></a></blockquote></p>
+    <hr>
+    <address>Apache/2.2.22 (Fedora) Server at ovirtfoo.ctt.med.ge.com Port 443</address>
+    </body></html>
+
+*   Delete the everything but the engine's SSH RSA key that you copied in previously in the hosts authorized_keys file

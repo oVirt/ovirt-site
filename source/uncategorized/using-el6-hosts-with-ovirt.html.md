@@ -789,11 +789,126 @@ Example using the above kickstart:
 
 ## Setting up the Host
 
+*   Provided all went well and you now have a cleanly loaded host via kickstart the system will now need some configuration.
+
 ### Configure Networking
+
+*   Need to configure networking on the system by editing/creating the following files
+*   Below example configurations use:
+*   A system named orgrimmar.azeroth.net (FQDN)
+*   Uses eth0 and the according assigned physical ethernet port to talk to the ovirt-engine
+*   Uses the IP/mask 192.168.1.1/24
+*   Uses a default Gateway of 192.168.1.254
+*   Uses the DNS domain of azeroth.net
+*   Uses a DNS server at 192.168.1.100 for name resolution
+*   Substitute your own values for the parameters in the below examples
+
+Edit: /etc/hosts
+
+       127.0.0.1     localhost localhost.localdomain localhost4 localhost4.localdomain4
+       ::1           localhost6 localhost6.localdomain6
+       192.168.1.1    durotar durotar.azeroth.net
+
+Edit: /etc/resolv.conf
+
+       search azeroth.net
+       domain azeroth.net
+       nameserver 192.168.1.100
+
+Edit: /etc/sysconfig/network
+
+       NETWORKING=yes
+       NETWORKING_IPV6=no
+       HOSTNAME=durotar.azeroth.net
+       GATEWAY=192.168.1.254
+
+Edit /etc/sysconfig/network-scripts/ifcfg-eth0
+
+       DEVICE=eth0
+` HWADDR=`<HW MAC Address of eth0>
+       ONBOOT=yes
+       BOOTPROTO=none
+       IPV6INIT=no
+       BRIDGE=ovirtmgmt
+       PEERDNS=no
+
+Create: /etc/sysconfig/network-scripts/ifcfg-ovirtmgmt
+
+       DEVICE=ovirtmgmt
+       ONBOOT=yes
+       BOOTPROTO=none
+       IPV6INIT=no
+       TYPE=Bridge
+       STP=off
+       DELAY=0
+       IPADDR=192.168.1.1
+       PREFIX=24
+       PEERDNS=no
+
+### Configure NTP
+
+*   NTP needs to be configured and the host should talk to the same NTP server as the ovirt-engine which manages it.
+*   The ovirt-engine and nodes need to be in sync with each other time wise
+*   Also the ntpd service is required to be configured and running by VDSM
+*   We use the example ntp server address of 192.168.101
+*   Again substitute your own value for ntp server address
+
+Edit: /etc/ntp.conf
+
+       driftfile /var/lib/ntp/drift
+       includefile /etc/ntp/crypto/pw
+       keys /etc/ntp/keys
+       server 192.168.1.101
+
+### Optional Configurations
+
+*   Change the ISCSI initiator name
+
+Edit: /etc/iscsi/initiatorname.iscsi
+
+       InitiatorName=iqn.2012-08.net.azeroth:durotar
+
+*   Perhaps more depending on how much you want to customize/modify
+
+### Add yum repository containing the extra rpms
+
+*   We need to add a repository definition for the repo containing the extra rpms built prior
+*   Uses the same values for the repo definition you defined in the kickstart
+*   create a file in /etc/yum.repos.d/<your-repo-name>.repo
+
+Example using the same examples in the above kickstart:
+
+    [your-repo-name]
+    name=your-repo-name
+    baseurl=http://<url_to_the_server_hosting_your_rpms>/therpms/
+    enabled=1
+    gpgcheck=0
+
+Actual Example with values (substitute in your own values):
+
+    [sl6v]
+    name=Scientific Linux 6.3 Hypervisor
+    baseurl=http://ovirt.azeroth.net/sl6v/
+    enabled=1
+    gpgcheck=0
 
 ### Bring things up to date
 
-### Add yum repository containing the extra rpms
+*   You will want to bring things up to date updates wise
+*   In SL ensure both the security and fastbugs yum repositories are enabled
+    -   in /etc/yum.repos.d/sl.repo both "sl" and "sl-security" should be enabled (EG: enabled=1 for both)
+    -   in /etc/yum.repos.d/sl-other sl-fastbugs should be enabled (EG: enabled=1)
+*   In CentOS both the base and updates repositories should be enabled
+    -   The CentOS fasttrack should also be enabled in /etc/yum.repos.d/CentOS-fasttrack.repo (EG: enabled=1)
+*   In OEL ensure that ol6_latest and ol6_UEK_latest are enabled
+    -   in /etc/public-yum-ol6-.repo ol6_latest and ol6_UEK_latest should be enabled (EG: enabled=1 for both)
+*   In RHEL the sytem should be subscribed and able to talk to RHN
+*   Once the you ensure the proper yum repositories are enabled update the system via yum
+
+       yum -y update
+
+*   Once the system is updated, reboot it
+*   The system is now ready for assimilation into your ovirt-engine collective
 
 ## Adding the Host to Ovirt
 

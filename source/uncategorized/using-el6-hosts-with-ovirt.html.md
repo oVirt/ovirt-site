@@ -845,6 +845,10 @@ Create: /etc/sysconfig/network-scripts/ifcfg-ovirtmgmt
        PREFIX=24
        PEERDNS=no
 
+*   Once networking is configured restart the network service
+
+       service network restart
+
 ### Configure NTP
 
 *   NTP needs to be configured and the host should talk to the same NTP server as the ovirt-engine which manages it.

@@ -20,6 +20,8 @@ How to use EL6 based hosts with Ovirt-Engine 3.1+
         -   Server Platform Development
 *   An active webserver to host a package repository and the kickstart (EG: An EL6 or Fedora box with httpd loaded and running)
 
+**A Fair Warning, as it stands today getting an EL6 host to work and play nicely with ovirt-engine is not the faint of heart...**
+
 ## Building the Needed Packages
 
 *   Some packages need to be built which will work with and are needed for VDSM

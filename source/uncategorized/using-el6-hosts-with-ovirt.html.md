@@ -146,11 +146,54 @@ Make the rpms
     -   vdsm-tests-<version>.el6.noarch.rpm
     -   vdsm-xmlrpc-<version>.el6.noarch.rpm
 
-## Deploying the RPMS via a repository
+## Deploying the RPMS via a yum repository
 
-### Setting up the repository
+### Hosting the repository
+
+*   The easiest way to do this is to load a system with Fedora or EL6 and use an apache webserver to host the repository.
+*   Setting up an apache webserver under EL6 is covered in depth here: [Apache HTTP Server](http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/ch-Web_Servers.html#s1-The_Apache_HTTP_Server)
+*   Setting up an apache webserver under FC17 is covered in depth here: [Apache HTTP Server](http://docs.fedoraproject.org/en-US/Fedora/17/html/System_Administrators_Guide/ch-Web_Servers.html#s1-The_Apache_HTTP_Server)
 
 ### Creating the repository
+
+*   Create a directory on the webserver at the desired location which will hold the rpms and the repository data.
+    -   Example for httpd on EL6:
+
+       mkdir /var/www/html/sl6v
+
+*   Thus given the above location and assuming a webserver FQDN of ovirt.azeroth.net the URL for the repository would be:
+
+<!-- -->
+
+     http://ovirt.azeroth.net/sl6v/
+
+*   You will now need to copy some of the rpms built previously into that hosted directory you created
+*   Copy the following RPMS into the directory
+    -   logrotate-<version>.el6.x86_64.rpm
+    -   sanlock-<version>.el6.x86_64.rpm
+    -   sanlock-lib-<version>.el6.x86_64.rpm
+    -   sanlock-python-<version>.el6.x86_64.rpm
+    -   glusterfs-<version>.el6.x86_64.rpm
+    -   glusterfs-fuse-<version>.el6.x86_64.rpm
+    -   glusterfs-geo-replication-<version>.el6.x86_64.rpm
+    -   glusterfs-rdma-<version>.el6.x86_64.rpm
+    -   glusterfs-server-<version>.el6.x86_64.rpm
+    -   vdsm-<version>.el6.x86_64.rpm
+    -   vdsm-python-<version>.el6.x86_64.rpm
+    -   vdsm-cli-<version>.el6.noarch.rpm
+    -   vdsm-gluster-<version>.el6.noarch.rpm
+    -   vdsm-reg-<version>.el6.noarch.rpm
+    -   vdsm-xmlrpc-<version>.el6.noarch.rpm
+*   Now we need to turn the directory into a yum repository to do this we will use createrepo
+*   If createrepo is not installed on the system install it via:
+
+       yum -y install createrepo
+
+*   Descend into the directory where you just copied the RPMS to and issue the following command:
+
+       createrepo -d .
+
+*   You now have yum repository hosting the needed rpms built prior
 
 ## Kickstarting Things
 

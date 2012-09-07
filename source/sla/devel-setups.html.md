@@ -40,8 +40,11 @@ This page holds relevant information for MoM and other SLA-related packages
 <!-- -->
 
 *   **libvirt**
-    -   version:libvirt-0.10.0
+    -   version:libvirt-0.10.1
     -   URL:<http://libvirt.org/sources/>
-    -   <git:git://libvirt.org/libvirt.git>
+
+Note: libvirt-0.10.1 can't be installed by yum, you should download the rpm from URL and install it.
+
+*   -   <git:git://libvirt.org/libvirt.git>
 
 <Category:SLA>

@@ -219,7 +219,7 @@ Make the rpms
 
 ### Building the Kickstart
 
-*   Building a kickstart is covered more in depth here: [Kickstart Installations](http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/ch-kickstart2.html)
+*   Building a kickstart for EL6 is covered more in depth here: [Kickstart Installations](http://access.redhat.com/knowledge/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Installation_Guide/ch-kickstart2.html)
 *   Included below is an example kickstart generated for using with Scientfic Linux 6.3
 
 <!-- -->
@@ -245,19 +245,22 @@ Example:
 
      repo --name="Scientific Linux 6.3 - x86_64" --baseurl="http://ftp.scientificlinux.org/linux/scientific/6.3/x86_64/os/" 
 
-*   -   The repository definition for the additional rpms
+*   The repository definition for the additional rpms
 
 Example:
 
      repo --name="sl6v" --baseurl="http://ovirt.azeroth.net/sl6v/" 
 
-*   -   The package <distroname>-release
-        -   Below we are using SL so it is sl-release change it whatever you are using EG: centos-release or redhat-release
-*   Included in the kickstart is the package epel-release which SL includes yum repository definitions for [EPEL](http://fedoraproject.org/wiki/EPEL)
+*   The package <distroname>-release
+    -   Below we are using SL so it is sl-release change it whatever you are using EG: centos-release or redhat-release
+*   Included in the below example kickstart is the package epel-release which SL includes yum repository definitions for [EPEL](http://fedoraproject.org/wiki/EPEL)
     -   SL includes the EPEL repository defintions package
     -   CentOS does not include it
     -   RHEL does not include it
     -   OEL does not include it
+*   Thus in the case of the three EL6 distros which do not natively contain the EPEL repository definitions RPM you would need to add that RPM to the yum repository you created prior to hold the extra RPMS built above.
+*   The EPEL repository definitions RPM can be found here: [EPEL x86_64 Repo](http://dl.fedoraproject.org/pub/epel/6/x86_64/) and is named: epel-release-<version>.noarch.rpm
+*   Alternatively you can choose to remove the epel-release package from the package list in the example kickstart below.
 
 Example EL6 Kickstart to load a minimal ovirt VM host:
 

@@ -22,7 +22,7 @@ So what happens when you hit the "Console" button?
 5.  Internet Explorer passes variables info to the spice client (Remote-Viewer) via the ActiveX plugin (SpiceX.dll) and launches it
 6.  spice client (Remote-Viewer) connects directly to a host using data given to it by the portal
 
-## Assupmtions and Prerequisities
+## Assumptions and Prerequisities
 
 *   An installed and running instance of ovirt-engine See: [Installing_ovirt-engine_from_rpm](Installing_ovirt-engine_from_rpm)
 *   One or two nodes within an active cluster, EL6 or Fedora nodes are both fine.
@@ -39,7 +39,7 @@ So what happens when you hit the "Console" button?
 
 ### Get the Cabinet File
 
-*   Start by downloading: <http://elmarco.fedorapeople.org/spice.cab>
+*   Start by downloading: [spice.cab](http://elmarco.fedorapeople.org/spice.cab)
 
 ### Prepping the Files
 
@@ -296,7 +296,7 @@ Example simple html/java script page for Remote-Viewer Client/ActiveX Plugin dow
 *   Optionally you can modify the main oVirt page to contain a link to your deployment page
 *   You will need to modify /usr/share/ovirt-engine/engine.ear/root.war/index.html
 
-Add an entry the below section of index.html containing the links to the various portals:
+Add an entry to the below section of index.html containing the links to the various portals:
 
       <div id='dynamicLinksSection' style="display: none;">
         <div>

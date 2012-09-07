@@ -22,22 +22,26 @@ This page holds relevant information for MoM and other SLA-related packages
 **Needed RPMs**
 
 *   **MoM**
-    -   version
+    -   version:mom-0.2.1-6.fc17
     -   URL:
-    -   git
+    -   <git:git://gerrit.ovirt.org/mom>
 
-<!-- -->
+        After checkout mom code:
+        1.run following cmd to install mom:
+          cd mom
+          python setup.py install
+        2.restart vdsm, vdsm will run mom as a thread
 
 *   **vdsm**
-    -   version
+    -   version:vdsm-4.10.0
     -   URL:
     -   git <git://gerrit.ovirt.org/vdsm.git>
 
 <!-- -->
 
 *   **libvirt**
-    -   version
-    -   URL:
-    -   git
+    -   version:libvirt-0.10.0
+    -   URL:<http://libvirt.org/sources/>
+    -   <git:git://libvirt.org/libvirt.git>
 
 <Category:SLA>

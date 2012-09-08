@@ -29,8 +29,7 @@ For ovirt-engine 3.1
         -   Additional Development
         -   Server Platform Development
 *   An active webserver to host a package repository and the kickstart (EG: An EL6 or Fedora box with httpd loaded and running)
-
-**A Fair Warning, as it stands today getting an EL6 host to work and play nicely with ovirt-engine is not the faint of heart...**
+*   **At this point in time getting an EL6 host to work and play nicely with ovirt-engine is not trivial**
 
 ## Building the Needed Packages
 

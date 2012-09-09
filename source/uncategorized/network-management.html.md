@@ -8,6 +8,8 @@ wiki_last_updated: 2012-11-07
 
 # Network Management
 
+## The big picture
+
 | Area                             | Action                    | Internal impl.                                                          | Quantum API                                                                              | Notes                                                                           |
 |----------------------------------|---------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
 | Logical network                  | Create network            | AddNetwork                                                              | <http://wiki.openstack.org/Quantum/APIv2-specification#Create_Network>                   | Quantum API accept network name returns id, needs to be persisted in the engine |
@@ -34,3 +36,50 @@ wiki_last_updated: 2012-11-07
                                     HotPlugUnplugVmNic         | <http://wiki.openstack.org/Quantum/APIv2-specification#Create_Port>     |                                                                                          |
 | Deactivate vNIC on running VM    | StopVm (on callback)      
                                     HotPlugUnplugVmNic         | <http://wiki.openstack.org/Quantum/APIv2-specification#Delete_Port>     |                                                                                          |
+
+## What Quantum has to offer
+
+*   VM-network centric.
+*   Connectivity to a variety of networking (L2) solutions (bridge, OVS, UCS, etc).
+*   IPAM (IP Address Mmanagement, L3) for vNICs.
+
+## How can this be integrated into oVirt
+
+*   We can choose two options:
+
+1.  Replace our proprietary L2 VM-network implementation with quantum (bridge plugin can be used to obtain same functionality as today?)
+2.  Have proprietary L2 network implementations live side by side.
+
+*   In engine, there should be a designation of network type, either 'oVirt internal' style, or 'Quantum: OVS' (or drop the quantum?)
+
+<!-- -->
+
+*   -   It should be possbile to mix & match ovirt internal network with others, but not sure the others can be mixed.
+
+<!-- -->
+
+*   -   Some functionality, such as bond management, will have to remain in oVirt network management since it is not part of quantum API.
+
+<!-- -->
+
+*   Quantum will be installed on the oVirt-engine host machine.
+
+<!-- -->
+
+*   Plugin needs to be installed (either part of bootstrap or part of VDSM command) on the Hosts.
+
+<!-- -->
+
+*   VDSM would need to support configuration of the quantum plugin on the Hosts,
+
+<!-- -->
+
+*   VDSM would need to support sending port data to libvirt on run VM/hot-plug vNIC.
+
+<!-- -->
+
+*   We can utilize Quantum's IPAM for vNICs:
+
+<!-- -->
+
+*   -   Should we define a "subnet" entity to be under a logical network, which corresponds to Quantum's "subnet" entity?

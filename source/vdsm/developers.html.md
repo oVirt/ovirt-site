@@ -254,7 +254,7 @@ Example:
 
 <!-- -->
 
-*   6) Copy the cpu model, vendor and vmx flag from **Hypervistor** to the guest:
+*   6) Copy the cpu model, vendor and vmx flag from **Hypervisor** to the guest:
 
        # virsh capabilities  (collecting data from hypervisor)
         ...

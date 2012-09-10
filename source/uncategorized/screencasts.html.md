@@ -67,9 +67,24 @@ Questions: How would one show the high-availability features which come "for fre
 
 ## Cloning
 
+#### Cloning a Virtual Machine from a Snapshot
+
 ### Prerequisites
 
+*   oVirt engine
+*   At least one VM
+
 ### Demo steps
+
+1.  Login to the WebAdmin.
+2.  Connect to a predefined VM using console (SPICE/VNC).
+3.  Change some configurations (e.g. set oVirt.org as browser's homepage).
+4.  Install some applications (e.g. Firefox).
+5.  Navigate to 'Snapshots' sub-tab and create a new Snapshot.
+6.  Navigate to 'Snapshots' sub-tab -> select the snapshot -> click 'Clone'.
+7.  Define the cloned VM properties (name, description, etc.)
+8.  Run the cloned VM and connect via console.
+9.  Conclude by demonstrating the cloned VM.
 
 ## Storage
 

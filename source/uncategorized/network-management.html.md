@@ -45,10 +45,9 @@ wiki_last_updated: 2012-11-07
 
 ## How can this be integrated into oVirt
 
-*   We can choose two options:
+*   Need to have proprietary L2 network implementations live side by side with Quantum plugin.
 
-1.  Replace our proprietary L2 VM-network implementation with quantum (bridge plugin can be used to obtain same functionality as today?)
-2.  Have proprietary L2 network implementations live side by side.
+<!-- -->
 
 *   In engine, there should be a designation of network type, either 'oVirt internal' style, or 'Quantum: OVS' (or drop the quantum?)
 

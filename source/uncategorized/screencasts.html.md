@@ -86,6 +86,10 @@ Questions: How would one show the high-availability features which come "for fre
 8.  Run the cloned VM and connect via console.
 9.  Conclude by demonstrating the cloned VM.
 
+### Video
+
+[http://www.youtube.com/watch?v=EVPJXF7MLI0[http://www.youtube.com/watch?v=EVPJXF7MLI0]](http://www.youtube.com/watch?v=EVPJXF7MLI0[http://www.youtube.com/watch?v=EVPJXF7MLI0])
+
 ## Storage
 
 ### Prerequisites

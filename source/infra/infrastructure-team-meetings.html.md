@@ -24,6 +24,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Task tracking
 *   Website updates
 *   Puppet status
+*   jenkins.ovirt.info
 
 ## 2012-09-04
 

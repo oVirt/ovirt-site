@@ -76,6 +76,8 @@ The usage that VDSM would do of NetworkManager is:
 9.  Transactional network managment - is it going to be supported?
 10. Does NM going to use netcf? because we are working with libvirt and having a common infrastructure is useful.
 
+## References
+
 <references/>
 
 [1] NetworkManager can work with both its own kind of file, named keyfiles and distribution specific files like Red Hat-like and debian-like distributions. A priori, it seems the most reasonable approach is to be as distribution-independent as possible (a counter argument is that adding another type of configuration file instead of using existing standards, causes proliferation of almost-equal files duplicated).

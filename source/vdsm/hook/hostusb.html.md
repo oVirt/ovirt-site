@@ -31,3 +31,5 @@ This maps to:
 Note: The VM must be pinned to host and this hook will fail any migration attempt.
 
 Host attached USB devices can be viewed with `lsusb`
+
+Download link: <http://ovirt.org/releases/nightly/rpm/EL/6/hooks/vdsm-hook-hostusb-4.10.0-0.442.git6822c4b.el6.noarch.rpm>

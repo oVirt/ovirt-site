@@ -26,3 +26,5 @@ IMPORTANT: hugepages must be mounted prior to libvirt start up, ie:
 Syntax:
 
       hugepages=512
+
+Download link: <http://ovirt.org/releases/nightly/rpm/EL/6/hooks/vdsm-hook-hugepages-4.10.0-0.442.git6822c4b.el6.noarch.rpm>

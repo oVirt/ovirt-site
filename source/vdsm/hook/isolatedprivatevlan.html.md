@@ -32,3 +32,5 @@ Example:
       isolatedprivatevlan=aa:bb:cc:dd:ee:ff,10.35.16.50
 
 Note: if no IP is supplied, the clean-traffic filter will not be added
+
+Download link: <http://ovirt.org/releases/nightly/rpm/EL/6/hooks/vdsm-hook-isolatedprivatevlan-4.10.0-0.442.git6822c4b.el6.noarch.rpm>

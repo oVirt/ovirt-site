@@ -39,3 +39,5 @@ Create a file in guest disk and update it with some specified content (note that
              fileinject:/c/windows/myfile.txt:content
 
 This means that with Windows the path must start with '/c/' prefix (if the windows os in in c:\\ /d/ for d:\\) and must start with '/' for linux based machines
+
+Download link: <http://ovirt.org/releases/nightly/rpm/EL/6/hooks/vdsm-hook-fileinject-4.10.0-0.442.git6822c4b.el6.noarch.rpm>

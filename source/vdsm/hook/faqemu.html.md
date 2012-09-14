@@ -15,3 +15,5 @@ This requires a setting in /etc/vdsm/vdsm.conf
       fake_kvm_support = True
 
 No requirement for a custom property
+
+Download link: <http://ovirt.org/releases/nightly/rpm/EL/6/hooks/vdsm-hook-faqemu-4.10.0-0.442.git6822c4b.el6.noarch.rpm>

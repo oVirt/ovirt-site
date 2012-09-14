@@ -36,3 +36,5 @@ Example:
       qos=mac=in{...}^out{...}&mac..
 
 Will add QoS to VM interface, can control the in and out traffic by average traffic, peek traffic and burst limit
+
+download link: <http://ovirt.org/releases/nightly/rpm/EL/6/hooks/vdsm-hook-qos-4.10.0-0.442.git6822c4b.el6.noarch.rpm>

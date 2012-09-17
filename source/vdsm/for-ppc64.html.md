@@ -53,14 +53,9 @@ Managing KVM on IBM POWER processors requires changes to both vdsm and ovirt-eng
 
 Following are the key changes that will be required
 
-*   Enhancing the bootstrapping mechanism in VDSM to handle IBM POWER processor
-
-and ppc64 specifics (like cpuid, cpu speed, cpu flags)
-
+*   Enhancing the bootstrapping mechanism in VDSM to handle IBM POWER processor and ppc64 specifics (like cpuid, cpu speed, cpu flags)
 *   Adding a new CPU type (IBM POWER) to ovirt-engine
-*   Enhancing the VM templates based on guest device models (disk, network, video)
-
-supported by KVM on IBM POWER
+*   Enhancing the VM templates based on guest device models (disk, network, video) supported by KVM on IBM POWER
 
 KVM on IBM POWER supports the following device models for guest
 

@@ -70,7 +70,7 @@ Both NFS and SAN storage is supported for the hosts. iSCSI support is currently 
 
 ### User Interface
 
-No new user interfaces are required to be added. However few of the existing interfaces needs to be updated to reflect KVM on IBM POWER related specifics
+No new user interfaces are required to be added. However few of the existing interfaces needs to be updated to reflect KVM on IBM POWER related specifics.
 
 At the minimum following user interfaces will be affected
 

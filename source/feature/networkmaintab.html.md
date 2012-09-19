@@ -6,6 +6,7 @@ wiki_category: Feature
 wiki_title: Feature/NetworkMainTab
 wiki_revision_count: 107
 wiki_last_updated: 2013-03-07
+wiki_warnings: list-item?
 ---
 
 # Network Main Tab
@@ -20,11 +21,11 @@ wiki_last_updated: 2013-03-07
 
 This should link to your home wiki page so we know who you are
 
-*   Name: [ My User](User:MyUser)
+*   Name: [ Alona Kaplan](User:alkaplan)
 
 Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
 
-*   Email: <my@email>
+*   Email: <alkaplan@redhat.com>
 
 ### Current status
 
@@ -35,54 +36,76 @@ Include you email address that you can be reached should people want to contact 
 
 ### User Experience
 
-<b>Tree</b> New items: **Networks** (a tree item under dc)
+#### Tree
 
-      - Displayed Tabs- 
-        * Network (search string- "Network: datacenter.name = 'dcName'")
-      - Children- all dc networks
-      Network (a tree item under Networks, specific network name)-
-      - Displayed Tabs-
-        * Network (search string- "Network: name = 'networkName' datacenter.name = 'dcName'")
-        * Cluster (search string- "Cluster: network.name = 'network.name' datacenter.name = 'dcName'")
-        * Host (search string- "Host: network.name = 'networkName' datacenter.name = 'dcName'")
-        * Vm (search string- "Vms: network.name = 'networkName' datacenter.name = 'dcName'")
-        * Template (search string- "Template: network.name = 'networkName' datacenter.name = 'dcName'")
-      - Children - none
-      Selected items in thr tree that show Network tab-
+##### New items:
 
-* Networks - Network - Dc - Cluster
+1.  **Networks** (a tree item under dc)
+    -   Displayed Tabs-
+        -   Network (search string- "Network: datacenter.name = 'dcName'")
+    -   Children- all dc networks
 
-<b>Main Tab</b>
+2.  **Network** (a tree item under Networks, specific network name)-
+    -   Displayed Tabs-
+        -   Network (search string- "Network: name = 'networkName' datacenter.name = 'dcName'")
+        -   Cluster (search string- "Cluster: network.name = 'network.name' datacenter.name = 'dcName'")
+        -   Host (search string- "Host: network.name = 'networkName' datacenter.name = 'dcName'")
+        -   Vm (search string- "Vms: network.name = 'networkName' datacenter.name = 'dcName'")
+        -   Template (search string- "Template: network.name = 'networkName' datacenter.name = 'dcName'")
+    -   Children - none
 
-      - Columns- Name, Data Center, VM Network, VLAN tagging, Description
-      - Actions- 
-        Add - Same as Add network from Data Centers->Logical Networks sub tab. Only change- first field will be "Data Center" combo box. All the dialog under the "Data Center" combo will be refresh according to the dc change.
-        Edit- Same as Edit network from Data Centers->Logical Networks sub tab. Only change- first field will be "Data Center" combo box. All the dialog under the "Data Center" combo will be refresh according to the dc change.
-        Remove
+##### Selected items in the tree that show Networks tab:
 
-<b>Sub Tabs</b>
+*   Networks
+*   Network
+*   Dc
+*   Cluster
 
-      General-  
-      - Feilds- Name, Data Center, Description, VM Network, VLAN tagging, MTU
-      Clusters- 
-      - Columns- Name, Compatiblity Version, Network Status, Network Assigned, Network Required, Role
-      - Actions- 
-        Assign/Unassign Network
-` `![`assignNet.png`](assignNet.png "fig:assignNet.png")
-      Hosts - (list of hosts the network is attached to one of its nicks)
-      - Columns- "Status image", Name, Cluster, Data Center, Status
-      - Actions- none
-      Virtual Machines- (tree of vms that has at least one vnic attached to the network, under each vm- a list of the vnics attached to the network)
+#### Main Tab
+
+*   **Columns**- Name, Data Center, VM Network, VLAN tagging, Description
+*   **Actions**-
+
+    * Add - Same as Add network from Data Centers->Logical Networks sub tab. Only change- first field will be "Data Center" combo box. All the dialog under the "Data Center" combo will be refresh according to the dc change.
+
+    * Edit- Same as Edit network from Data Centers->Logical Networks sub tab. Only change- first field will be "Data Center" combo box. All the dialog under the "Data Center" combo will be refresh according to the dc change.
+
+    * Remove
+
+#### Sub Tabs
+
+**General**
+
+*   **Feilds**- Name, Data Center, Description, VM Network, VLAN tagging, MTU
+
+**Clusters**
+
+*   **Columns**- Name, Compatiblity Version, Network Status, Network Assigned, Network Required, Role
+*   **Actions**-
+
+:\*Assign/Unassign Network ![](assignNet.png "fig:assignNet.png")
+
+**Hosts** (list of hosts the network is attached to one of its nicks)
+
+*   **Columns**- "Status image", Name, Cluster, Data Center, Status
+*   **Actions**- none
+
+**Virtual Machines** (tree of vms that has at least one vnic attached to the network, under each vm- a list of the vnics attached to the network)
+
        add print screen
-      - Columns- Name (Can be expanded to show a list of the vnics the network is attached to) , IP Address, Network, Status, Uptime
-      - Actions- none
-      Templates- (tree of templates that has at least one vnic attached to the network, under each template- a list of the vnics attached to the network)
-      - Columns- Name (Can be expanded to show a list of the vnics the network is attached to), Status, Cluster, Data Center
-      - Actions- none
 
-      Permissions-
-      - Columns- User, Role, Inherited Permission
-      - Actions- Add, Remove
+*   **Columns**- Name (Can be expanded to show a list of the vnics the network is attached to) , IP Address, Network, Status, Uptime
+*   **Actions**- none
+
+**Templates** (tree of templates that has at least one vnic attached to the network, under each template- a list of the vnics attached to the network)
+
+*   **Columns**- Name (Can be expanded to show a list of the vnics the network is attached to), Status, Cluster, Data Center
+*   **Actions**- none
+
+**Permissions**
+
+*   **Columns**- User, Role, Inherited Permission
+*   **Actions**- Add, Remove
 
 # Search
 

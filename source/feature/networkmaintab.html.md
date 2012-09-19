@@ -69,7 +69,8 @@ Include you email address that you can be reached should people want to contact 
       Clusters- 
       - Columns- Name, Compatiblity Version, Network Status, Network Assigned, Network Required, Role
       - Actions- 
-        Assign/Unassign Network (add mock-up)
+        Assign/Unassign Network
+` `![`assignNet.png`](assignNet.png "fig:assignNet.png")
       Hosts - (list of hosts the network is attached to one of its nicks)
       - Columns- "Status image", Name, Cluster, Data Center, Status
       - Actions- none

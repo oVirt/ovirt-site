@@ -35,10 +35,8 @@ Include you email address that you can be reached should people want to contact 
 
 ### User Experience
 
-<b>Tree</b>
+<b>Tree</b> New items: **Networks** (a tree item under dc)
 
-      New items:
-      Networks- (a tree item under dc)
       - Displayed Tabs- 
         * Network (search string- "Network: datacenter.name = 'dcName'")
       - Children- all dc networks

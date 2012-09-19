@@ -18,7 +18,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## 2012-09-18
 
-*[Minutes <http://ovirt.org/meetings/ovirt/2012/ovirt.2012-09-18-14.13.html>]*
+*[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-09-18-14.13.html)*
 
 *Agenda*
 
@@ -28,7 +28,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## 2012-09-11
 
-*[Minutes <http://ovirt.org/meetings/ovirt/2012/ovirt.2012-09-11-14.00.html>]*
+*[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-09-11-14.00.html)*
 
 *Agenda*
 

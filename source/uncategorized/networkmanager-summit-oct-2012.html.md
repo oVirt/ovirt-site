@@ -72,6 +72,7 @@ The usage that VDSM would do of NetworkManager is:
     -   dhcp,
     -   netmask,
     -   STP,
+    -   Delay,
     -   MTU,
     -   Bonding options such as mode and miimon.
 

@@ -94,7 +94,7 @@ Include you email address that you can be reached should people want to contact 
 
        add print screen
 
-*   **Columns**- Name (Can be expanded to show a list of the vnics the network is attached to) , IP Address, Network, Status, Uptime
+*   **Columns**- Name (Can be expanded to show a list of the vnics the network is attached to) , Cluster, IP Address, Network, Status, Uptime
 *   **Actions**- none
 
 **Templates** (tree of templates that has at least one vnic attached to the network, under each template- a list of the vnics attached to the network)

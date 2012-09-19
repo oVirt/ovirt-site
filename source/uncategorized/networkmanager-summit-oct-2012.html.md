@@ -63,18 +63,24 @@ The usage that VDSM would do of NetworkManager is:
 7.  Backup keyfiles for performing networking rollbacks on cases of connectivity loss (how is this different from your first bullet?).
 8.  Retrieving network and network interfaces information.
 
-## Open questions for NM guys
+## Open questions for the Network Manager team
 
-1.  Is the keyfile is a supported way for using NM? (stable API?)
-2.  Is there a supported upgrade path from RHEL configuration?
-3.  Is the following supported: ipaddr, dhcp, netmask,
-4.  Gateway - How does NM going to handle routing? we currently use only gateway and we only on one network.
-5.  We use tc for port mirroing and we need the device name, is it available for all device types?
-6.  Getting statistics o the various devices (speed, tx/rx/drop rate), we need it per device nics, bonds, vlan etc.
-7.  Would it be possible to manipulate a network configuration while it is being used?
-8.  How they are managing the dependancies between the devices when starting/stopping a device? (What are the implications of editing a single network while there are number of networks dependant on a single NIC).
-9.  Transactional network managment - is it going to be supported?
-10. Does NM going to use netcf? because we are working with libvirt and having a common infrastructure is useful.
+1.  Are keyfiles a supported and stable way to interface with Network Manager? Are they bound to follow the D-BUS API speed, meaning that additions to the API will be immediately supported as keyfiles?
+2.  Network Manager has a plugin for RHEL ifcfg files. Is there a supported way to convert ifcfg keyfiles so as to offer a clear upgrade path for current RHEL configuration?
+3.  Are the following items supported both in keyfiles as in the API:
+    -   ipaddr,
+    -   dhcp,
+    -   netmask,
+    -   STP,
+    -   MTU.
+
+4.  In regards to gateways, how is Network Manager going to handle routing? Currently oVirt uses only one gateway per network.
+5.  Currently oVirt relies on 'tc' for port mirroring which makes us need to be able to get device names. Are device names available for all device types supported in NM?
+6.  Is it possible or planned in the short/medium term to gather statistics (speed, tx/rx/drop rate) of the NM supported (nics and vlans) or soon to be supported (bonds and bridges) devices.
+7.  Is it possible to alter the network configuration of network interfaces that are being used? Do the changes happen instantly?
+8.  How does the inter-device dependency management work when starting/stopping a device? E.g. What are the implications of editing a single network while there are other networks dependant on it).
+9.  Is there support or are there plans for Transactional network managment, i.e., is it going to be possible via the D-BUS API to change the configuration of several networks and apply all the changes in an all-or-nothing way?
+10. oVirt depends heavily on libvirt, which uses NetCF to perform network interface configuration and in NetCF webpage it states that Network Manager also needs this functionality. Does NM currently use, or are there any plans to use, NetCF as a backend for network interface configuration? It seems that it could be benefitial to share infrastructure.
 
 ## References
 

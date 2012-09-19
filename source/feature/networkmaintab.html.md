@@ -35,7 +35,6 @@ Include you email address that you can be reached should people want to contact 
 
 <b>Tree</b>
 
-      add print screen
       New items:
       Networks- (a tree item under dc)
       - Displayed Tabs- 
@@ -55,8 +54,11 @@ Include you email address that you can be reached should people want to contact 
 
 <b>Main Tab</b>
 
-      - Columns-
-      - Actions-
+      - Columns- Name, Data Center, VM Network, VLAN tagging, Description
+      - Actions- 
+        Add - Same as Add network from Data Centers->Logical Networks sub tab. Only change- first field will be "Data Center" combo box. All the dialog under the "Data Center" combo will be refresh according to the dc change.
+        Edit- Same as Edit network from Data Centers->Logical Networks sub tab. Only change- first field will be "Data Center" combo box. All the dialog under the "Data Center" combo will be refresh according to the dc change.
+        Remove
 
 <b>Sub Tabs</b>
 

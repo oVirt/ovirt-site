@@ -72,7 +72,8 @@ The usage that VDSM would do of NetworkManager is:
     -   dhcp,
     -   netmask,
     -   STP,
-    -   MTU.
+    -   MTU,
+    -   Bonding options such as mode and miimon.
 
 4.  In regards to gateways, how is Network Manager going to handle routing? Currently oVirt uses only one gateway per network.
 5.  Currently oVirt relies on 'tc' for port mirroring which makes us need to be able to get device names. Are device names available for all device types supported in NM?

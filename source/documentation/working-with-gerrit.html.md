@@ -90,6 +90,10 @@ In order to easily track commit changes in Gerrit, each commit must have a chang
       SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
       grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
 
+**Note**: If you commit something before you do the above, you can add the Change-ID and signed-off-by lines by:
+
+git commit --amend -s
+
 #### Configure the commit template
 
       cd ovirt-engine

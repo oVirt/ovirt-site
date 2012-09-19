@@ -33,7 +33,27 @@ Include you email address that you can be reached should people want to contact 
 
 ### User Experience
 
-<b>Tree</b> <b>Main Tab</b>
+<b>Tree</b>
+
+      add print screen
+      New items:
+      Networks- (a tree item under dc)
+      - Displayed Tabs- 
+        * Network (search string- "Network: datacenter.name = 'dcName'")
+      - Children- all dc networks
+      Network (a tree item under Networks, specific network name)-
+      - Displayed Tabs-
+        * Network (search string- "Network: name = 'networkName' datacenter.name = 'dcName'")
+        * Cluster (search string- "Cluster: network.name = 'network.name' datacenter.name = 'dcName'")
+        * Host (search string- "Host: network.name = 'networkName' datacenter.name = 'dcName'")
+        * Vm (search string- "Vms: network.name = 'networkName' datacenter.name = 'dcName'")
+        * Template (search string- "Template: network.name = 'networkName' datacenter.name = 'dcName'")
+      - Children - none
+      Selected items in thr tree that show Network tab-
+
+* Networks - Network - Dc - Cluster
+
+<b>Main Tab</b>
 
       - Columns-
       - Actions-

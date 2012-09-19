@@ -60,8 +60,8 @@ The usage that VDSM would do of NetworkManager is:
 4.  Setting/unsetting variables such as MTU (already possible)
 5.  Adding removing vlans to the above kinds of networks[6].
 6.  Register to the connections for detecting changes (already possible).
-7.  Backup keyfiles for performing networking rollbacks on cases of connectivity loss (how is this different from your first bullet?).
-8.  Retrieving network and network interfaces information.
+7.  Backup keyfiles for performing networking rollbacks on cases of connectivity loss or for changing to a previous configuration.
+8.  Retrieving network and network interfaces information and statistics.
 
 ## Open questions for the Network Manager team
 

@@ -12,7 +12,9 @@ wiki_last_updated: 2013-03-07
 
 ### Summary
 
-A sentence or two summarizing what this feature is and what it will do. This information is used for the overall feature summary page for each release. - Adding main tab for Networks. - Adding Networks to the tree. - Adding search strings and queries for Networks.
+* Adding main tab for Networks.
+* Adding Networks to the tree.
+* Adding search strings and queries for Networks.
 
 ### Owner
 

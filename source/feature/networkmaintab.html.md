@@ -95,16 +95,12 @@ What is the benefit to the oVirt project? If this is a major capability update, 
 
 ### Dependencies / Related Features
 
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
-
 ### Documentation / External references
-
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
 
 ### Comments and Discussion
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
+*   Refer to [Talk:Network Main Tab](Talk:Network Main Tab)
 
 <Category:Feature> <Category:Template>

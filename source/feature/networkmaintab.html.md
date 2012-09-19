@@ -78,6 +78,8 @@ Include you email address that you can be reached should people want to contact 
 
 *   **Feilds**- Name, Data Center, Description, VM Network, VLAN tagging, MTU
 
+![](NetworkTab.png "NetworkTab.png")
+
 **Clusters**
 
 *   **Columns**- Name, Compatiblity Version, Network Status, Network Assigned, Network Required, Role
@@ -92,10 +94,10 @@ Include you email address that you can be reached should people want to contact 
 
 **Virtual Machines** (tree of vms that has at least one vnic attached to the network, under each vm- a list of the vnics attached to the network)
 
-       add print screen
-
 *   **Columns**- Name (Can be expanded to show a list of the vnics the network is attached to) , Cluster, IP Address, Network, Status, Uptime
 *   **Actions**- none
+
+![](NetworkVmTreeTab.png "NetworkVmTreeTab.png")
 
 **Templates** (tree of templates that has at least one vnic attached to the network, under each template- a list of the vnics attached to the network)
 

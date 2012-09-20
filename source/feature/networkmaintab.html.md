@@ -80,7 +80,7 @@ wiki_warnings: list-item?
 **Clusters**
 
 *   **Columns**- Name, Compatiblity Version, Network Status, Network Assigned, Network Required, Network Role
-*   **Actions**-
+*   **Actions**
 
 :\*Assign/Unassign Network ![](assignNet.png "fig:assignNet.png")
 **Hosts** (list of hosts the network is attached to one of its nicks)

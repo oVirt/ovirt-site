@@ -76,8 +76,8 @@ option to appropriate option format adding prefix or suffix.
 
 #### get help for connect
 
-[mpastern@ovirt-engine-cli (master)]$ ovirt-shell --help
-
+      [mpastern@ovirt-engine-cli (master)]$ ovirt-shell --help
+       
       Usage: ovirt-shell [options]
              ovirt-shell [options] command...
       This program is a command-line interface to oVirt Virtualization.
@@ -104,6 +104,12 @@ option to appropriate option format adding prefix or suffix.
 #### connect from ovirt-shell
 
        [mpastern@ovirt-engine-cli (master)]$ ovirt-shell
+        
+        ++++++++++++++++++++++++++++++++++++++++++
+        
+                  Welcome to oVirt shell
+        
+        ++++++++++++++++++++++++++++++++++++++++++
        
        [oVirt shell (disconnected)]# connect --url "`[`http://server:8080/api`](http://server:8080/api)`" --user "user@domain" --password 'password'
        

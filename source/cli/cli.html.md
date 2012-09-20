@@ -78,14 +78,10 @@ option to appropriate option format adding prefix or suffix.
 
 [mpastern@ovirt-engine-cli (master)]$ ovirt-shell --help
 
-Usage: ovirt-shell [options]
-
-            ovirt-shell [options] command...
-
-This program is a command-line interface to oVirt Virtualization.
-
-Options:
-
+      Usage: ovirt-shell [options]
+             ovirt-shell [options] command...
+      This program is a command-line interface to oVirt Virtualization.
+      Options:
        -h, --help            show this help message and exit
        -l URL, --url=URL     specifies the API entry point URL
                              (http[s]://server[:port]/api)

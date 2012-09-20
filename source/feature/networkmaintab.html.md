@@ -57,6 +57,8 @@ wiki_warnings: list-item?
 *   Cluster
 *   Host
 
+![](NetworkTree.png "NetworkTree.png")
+
 #### Main-Tab
 
 *   **Columns**- Name, Data Center, VM Network, VLAN tagging, Description

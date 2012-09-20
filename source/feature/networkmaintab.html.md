@@ -13,9 +13,9 @@ wiki_warnings: list-item?
 
 ### Summary
 
-* Adding main tab for Networks.
-* Adding Networks to the tree.
-* Adding search strings and queries for Networks.
+*   Adding main tab for Networks.
+*   Adding Networks to the tree.
+*   Adding search strings and queries for Networks.
 
 ### Owner
 

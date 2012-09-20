@@ -27,11 +27,11 @@ wiki_warnings: list-item?
 *   On Design
 *   Last updated date: 20/9/2010
 
-# Detailed Description
+### Detailed Description
 
-### User Experience
+#### User Experience
 
-#### Tree
+##### Tree
 
 ##### New items:
 
@@ -56,7 +56,7 @@ wiki_warnings: list-item?
 *   Dc
 *   Cluster
 
-#### Main Tab
+#### Main-Tab
 
 *   **Columns**- Name, Data Center, VM Network, VLAN tagging, Description
 *   **Actions**-
@@ -67,7 +67,7 @@ wiki_warnings: list-item?
 
     * Remove
 
-#### Sub Tabs
+#### Sub-Tabs
 
 **General**
 
@@ -104,22 +104,12 @@ wiki_warnings: list-item?
 *   **Columns**- User, Role, Inherited Permission
 *   **Actions**- Add, Remove
 
-# Search
+### Search
 
-# Queries
-
-### Benefit to oVirt
-
-### Dependencies / Related Features
+### Queries
 
 ### Documentation / External references
 
-<https://bugzilla.redhat.com/858742>
-
-### Comments and Discussion
-
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
-
-*   Refer to [Talk:Network Main Tab](Talk:Network Main Tab)
+[Main Tab RFE](https://bugzilla.redhat.com/858742)
 
 <Category:Feature> <Category:Template>

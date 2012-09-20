@@ -42,7 +42,7 @@ wiki_warnings: list-item?
 
 2.  **Network** (a tree item under Networks, specific network name)
     -   Displayed Tabs-
-        -   Networks (search criteria- "Network: name = 'networkName' datacenter.name = 'dcName'")
+        -   Networks (search criteria- "Network: name = 'treeSelectedNetName' datacenter.name = 'dcName'")
         -   Clusters (search criteria- "Cluster: network.name = 'treeSelectedNetName' datacenter.name = 'dcName'")
         -   Hosts (search criteria- "Host: network.name = 'treeSelectedNetName' datacenter.name = 'dcName'")
         -   Virtual Machines (search criteria- "Vms: network.name = 'treeSelectedNetName' datacenter.name = 'dcName'")

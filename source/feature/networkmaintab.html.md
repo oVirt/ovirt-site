@@ -129,10 +129,10 @@ Network: (all combinations of search)
 
 **Queries for the sub tabs**
 
-1.  Clusters
-2.  Hosts
-3.  Virtual Machines
-4.  Templates
+1.  Clusters - returns all the clusters the networks is attached to.
+2.  Hosts- returns all the hosts the network is attached to one of their nics.
+3.  Virtual Machines- returns all the vms that have at least one vnic on the network.
+4.  Templates- returns all the templates that have at least one vnic on the network.
 
 ### Documentation / External references
 

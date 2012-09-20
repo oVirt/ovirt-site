@@ -76,13 +76,13 @@ option to appropriate option format adding prefix or suffix.
 
 #### get help for connect
 
-[mpastern@ovirt-engine-cli (master)]$ ovirt-shell --help Usage: ovirt-shell [options]
+[mpastern@ovirt-engine-cli (master)]$ ovirt-shell --help
+
+Usage: ovirt-shell [options]
 
             ovirt-shell [options] command...
 
-This program is a command-line interface to oVirt Virtualization.
-
-Options:
+This program is a command-line interface to oVirt Virtualization. Options:
 
        -h, --help            show this help message and exit
        -l URL, --url=URL     specifies the API entry point URL
@@ -112,15 +112,16 @@ Options:
        ==========================================
        >>> connected to oVirt manager 3.2.0.0 <<<
        ==========================================
-
+       
        [oVirt shell (connected)]# 
+       
 
 #### connect from linux shell
 
 ##### configuration file based login
 
        1. vi ~/.ovirtshellrc
-
+       
        2. set args:
 
           [ovirt-shell]
@@ -130,19 +131,18 @@ Options:
           #filter = False
           #timeout = -1
           password = ******
-
+          
           * NOTE: if url/username/password is not configured/commented in .ovirtshellrc
                   and ovirt-shell executed in auto-connect mode (ovirt-shell -c/--connect), 
                   you will be prompted to enter it upon login
-
+          
        3. run ovirt-shell 
-
+          
           [mpastern@ovirt-engine-cli (master)]$ ovirt-shell -c
-
+           
            ==========================================
            >>> connected to oVirt manager 3.2.0.0 <<<
            ==========================================
-
            ++++++++++++++++++++++++++++++++++++++++++
            
                      Welcome to oVirt shell
@@ -150,13 +150,12 @@ Options:
            ++++++++++++++++++++++++++++++++++++++++++
 
           [oVirt shell (connected)]# 
-        
+         
 
 ##### cli options based login
 
        ovirt-shell -c -l "`[`http://server:8080/api`](http://server:8080/api)`" -u "user@domain"
        Password: ****
-
        ==========================================
        >>> connected to oVirt manager 3.1.0.0 <<<
        ==========================================

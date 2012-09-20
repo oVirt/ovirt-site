@@ -106,7 +106,8 @@ wiki_warnings: list-item?
 
 ### Search
 
-**Main Tab Search** SearchType.Network - add relevant search command
+**Main Tab Search**
+SearchType.Network - add relevant search command
 
 **Tree**
 Networks:

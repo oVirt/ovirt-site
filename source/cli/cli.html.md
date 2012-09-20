@@ -137,7 +137,7 @@ option to appropriate option format adding prefix or suffix.
           
           * NOTE: if url/username/password is not configured/commented in .ovirtshellrc
                   and ovirt-shell executed in auto-connect mode (ovirt-shell -c/--connect), 
-                  you will be prompted to enter it upon login
+                  you will be prompted to specify it upon login
           
        3. run ovirt-shell 
           

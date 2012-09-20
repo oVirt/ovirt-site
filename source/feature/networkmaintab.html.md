@@ -37,7 +37,7 @@ wiki_warnings: list-item?
 
 1.  **Networks** (a tree item under dc)
     -   Displayed Tabs-
-        -   Network (search string- "Network: datacenter.name = 'dcName'")
+        -   Networks (search string- "Network: datacenter.name = 'dcName'")
     -   Children- all dc networks
 
 2.  **Network** (a tree item under Networks, specific network name)-

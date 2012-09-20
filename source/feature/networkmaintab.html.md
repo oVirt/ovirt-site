@@ -123,7 +123,7 @@ Network:
 *   "Template: network.name = 'treeSelectedNetName' datacenter.name = 'dcName'"
 
 **Search text area**
-Network: (all combinations of search)
+Network: (search by network properties)
 
 ### Queries
 

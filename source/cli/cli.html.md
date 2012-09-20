@@ -607,7 +607,7 @@ Because lxml is not yet packaged, please follow the instructions below to get lx
 
 For local install in site-packages, from ovirt-engine-cli repo:
 
-      yum install python-ply libxml2-devel libxslt-devel pexpect 
+      yum install python-ply libxml2-devel libxslt-devel pexpect python-kitchen
       python setup.py develop
 
 That will install lxml, because EPEL's python-lxml is not yet up to the version required by CLI.

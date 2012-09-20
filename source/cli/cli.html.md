@@ -21,7 +21,7 @@ __TOC__
 *   Interactive prompt
 *   Smart auto-completion
 *   Smart help
-*   Generic interface (list, show, create, update, action verbs).
+*   Generic interface (list, show, add, update, action verbs).
 *   Self descriptive.
 
 ## Usage
@@ -43,18 +43,18 @@ __TOC__
 #### available commands
 
 `   [oVirt shell (connected)]# `<TAB><TAB>
-         EOF         clear       console     delete      echo        help        ping        show        update      
-         action      connect     create      disconnect  exit        list        shell       status 
+         EOF         clear       console     remove      echo        help        ping        show        update      
+         action      connect     add      disconnect  exit        list        shell       status 
 
 #### available options for specific command
 
-`   [oVirt shell (connected)]# create `<TAB><TAB>
+`   [oVirt shell (connected)]# add `<TAB><TAB>
          cdrom          datacenter     group          network        permission     role           storagedomain  template       vm             
          cluster        disk           host           nic            permit         snapshot       tag            user           vmpool
 
 #### available options for command on specific resource
 
-`   [oVirt shell (connected)]# create vm `<TAB><TAB>
+`   [oVirt shell (connected)]# add vm `<TAB><TAB>
          cluster-id                               display-type                             os-boot-dev                              template-id
          cluster-name                             domain-name                              os-cmdline                               template-name
          cpu-topology-cores                       high_availability-enabled                os-initRd                                timezone
@@ -65,7 +65,7 @@ __TOC__
 
 #### available options for command on specific sub-resource
 
-         [oVirt shell (connected)]# create nic --vm-identifier xxx `<TAB><TAB>` 
+         [oVirt shell (connected)]# add nic --vm-identifier xxx `<TAB><TAB>` 
          interface     mac-address   name          network-id    network-name
 
 *   note typing beginning of the option name and then hitting <TAB>, will convert
@@ -354,11 +354,11 @@ option to appropriate option format adding prefix or suffix.
          network-id : d85a5cb2-057b-40ec-8d9c-b4ee6a7646c4
          vm-id      : 7b4ebc3f-40ba-4eb3-94ef-ca222d62fbe6
 
-### Create
+### Add
 
-#### create resource
+#### add resource
 
-         [oVirt shell (connected)]# create vm --name demo2 --template-name iscsi_desktop_tmpl --cluster-name Default_iscsi
+         [oVirt shell (connected)]# add vm --name demo2 --template-name iscsi_desktop_tmpl --cluster-name Default_iscsi
          
          id                        : dd981334-afb7-4142-a880-536bb8aef53f
          name                      : demo2
@@ -384,7 +384,7 @@ option to appropriate option format adding prefix or suffix.
          type                      : desktop
          usb-enabled               : True
 
-         [oVirt shell (connected)]# create datacenter --name mydc --storage_type nfs --version-major 3 --version-minor 1
+         [oVirt shell (connected)]# add datacenter --name mydc --storage_type nfs --version-major 3 --version-minor 1
          
          id                              : 4c490b43-e681-49d8-958c-9300787982eb
          name                            : mydc
@@ -395,9 +395,9 @@ option to appropriate option format adding prefix or suffix.
          version-major                   : 3
          version-minor                   : 1
 
-#### create sub-resource
+#### add sub-resource
 
-         [oVirt shell (connected)]# create nic --vm-identifier demo2 --network-name engine --name mynic
+         [oVirt shell (connected)]# add nic --vm-identifier demo2 --network-name engine --name mynic
          
          id         : a211d8bb-8abb-429b-8d36-fc4eb44b6ea8
          name       : mynic
@@ -406,15 +406,15 @@ option to appropriate option format adding prefix or suffix.
          network-id : d85a5cb2-057b-40ec-8d9c-b4ee6a7646c4
          vm-id      : dd981334-afb7-4142-a880-536bb8aef53f
 
-### Delete
+### Remove
 
-#### delete resource
+#### remove resource
 
-         [oVirt shell (connected)]# delete vm aa
+         [oVirt shell (connected)]# remove vm aa
 
-#### delete sub-resource
+#### remove sub-resource
 
-         [oVirt shell (connected)]# delete disk "Disk 1" --vm-identifier demo2
+         [oVirt shell (connected)]# remove disk "Disk 1" --vm-identifier demo2
 
 *   note: ether id or name can be used as --resource-identifier
 

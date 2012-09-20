@@ -106,7 +106,30 @@ wiki_warnings: list-item?
 
 ### Search
 
+**Main Tab Search** SearchType.Network - add relevant search command
+
+**Tree** Networks:
+
+*   "Network: datacenter.name ='dcName'"
+
+Network:
+
+*   "Network: name = 'treeSelectedNetName' datacenter.name = 'dcName'"
+*   "Cluster: network.name = 'treeSelectedNetName' datacenter.name = 'dcName'"
+*   "Host: network.name = 'treeSelectedNetName' datacenter.name = 'dcName'"
+*   "Vms: network.name = 'treeSelectedNetName' datacenter.name = 'dcName'"
+*   "Template: network.name = 'treeSelectedNetName' datacenter.name = 'dcName'"
+
+**Search text area** Network: (all combinations of search)
+
 ### Queries
+
+**Queries for the SubTabs**
+
+1.  Clusters
+2.  Hosts
+3.  Virtual Machines
+4.  Templates
 
 ### Documentation / External references
 

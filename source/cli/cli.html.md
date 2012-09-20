@@ -595,7 +595,7 @@ no special format, just commands in plain text
 
 To build rpm and install it, from ovirt-engine-cli repo:
 
-      yum install -y rpm-build python-devel python-setuptools
+      yum install -y rpm-build python-devel python-setuptools python-kitchen
 
       make rpm
 

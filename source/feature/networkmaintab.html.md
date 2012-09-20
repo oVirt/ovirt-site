@@ -42,11 +42,11 @@ wiki_warnings: list-item?
 
 2.  **Network** (a tree item under Networks, specific network name)-
     -   Displayed Tabs-
-        -   Network (search string- "Network: name = 'networkName' datacenter.name = 'dcName'")
-        -   Cluster (search string- "Cluster: network.name = 'network.name' datacenter.name = 'dcName'")
-        -   Host (search string- "Host: network.name = 'networkName' datacenter.name = 'dcName'")
-        -   Vm (search string- "Vms: network.name = 'networkName' datacenter.name = 'dcName'")
-        -   Template (search string- "Template: network.name = 'networkName' datacenter.name = 'dcName'")
+        -   Networks (search string- "Network: name = 'networkName' datacenter.name = 'dcName'")
+        -   Clusters (search string- "Cluster: network.name = 'network.name' datacenter.name = 'dcName'")
+        -   Hosts (search string- "Host: network.name = 'networkName' datacenter.name = 'dcName'")
+        -   Virtual Machines (search string- "Vms: network.name = 'networkName' datacenter.name = 'dcName'")
+        -   Templates (search string- "Template: network.name = 'networkName' datacenter.name = 'dcName'")
     -   Children - none
 
 ##### Selected items in the tree that show Networks tab:
@@ -55,6 +55,7 @@ wiki_warnings: list-item?
 *   Network
 *   Dc
 *   Cluster
+*   Host
 
 #### Main-Tab
 

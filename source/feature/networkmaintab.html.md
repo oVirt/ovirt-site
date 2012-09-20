@@ -62,9 +62,9 @@ wiki_warnings: list-item?
 *   **Columns**- Name, Data Center, VM Network, VLAN tagging, Description
 *   **Actions**-
 
-    * Add - Same as Add network from Data Centers->Logical Networks sub tab. Only change- first field will be "Data Center" combo box. All the dialog under the "Data Center" combo will be refresh according to the dc change.
+    * Add - Same as Add network from Data Centers->Logical Networks sub tab. Only change- first field will be "Data Center" combo box. All the dialog under the "Data Center" combo will be refreshed according to the dc change.
 
-    * Edit- Same as Edit network from Data Centers->Logical Networks sub tab. Only change- first field will be "Data Center" combo box. All the dialog under the "Data Center" combo will be refresh according to the dc change.
+    * Edit- Same as Edit network from Data Centers->Logical Networks sub tab. Only change- first field will be "Data Center" combo box. All the dialog under the "Data Center" combo will be refreshed according to the dc change.
 
     * Remove
 

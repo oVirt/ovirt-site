@@ -36,7 +36,7 @@ wiki_warnings: list-item?
 ##### New items:
 
 1.  **Networks** (a tree item under dc)
-    -   Displayed Tabs (the tabs that are diplayed when the item is selected in the tree)-
+    -   Displayed Tabs (the tabs that are displayed when the item is selected in the tree)-
         -   Networks (search criteria- "Network: datacenter.name = 'dcName'")
     -   Children- all dc networks
 

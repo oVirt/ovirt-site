@@ -115,11 +115,11 @@ Include you email address that you can be reached should people want to contact 
 
 ### Benefit to oVirt
 
-What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
-
 ### Dependencies / Related Features
 
 ### Documentation / External references
+
+<https://bugzilla.redhat.com/858742>
 
 ### Comments and Discussion
 

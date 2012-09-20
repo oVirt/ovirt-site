@@ -72,7 +72,7 @@ wiki_warnings: list-item?
 
 **General**
 
-*   **Feilds**- Name, Data Center, Description, VM Network, VLAN tagging, MTU
+*   **Feilds**- Name, Description, VM Network, VLAN tagging, MTU
 
 ![](NetworkTab.png "NetworkTab.png")
 

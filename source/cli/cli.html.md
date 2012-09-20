@@ -82,7 +82,9 @@ Usage: ovirt-shell [options]
 
             ovirt-shell [options] command...
 
-This program is a command-line interface to oVirt Virtualization. Options:
+This program is a command-line interface to oVirt Virtualization.
+
+Options:
 
        -h, --help            show this help message and exit
        -l URL, --url=URL     specifies the API entry point URL
@@ -123,7 +125,6 @@ This program is a command-line interface to oVirt Virtualization. Options:
        1. vi ~/.ovirtshellrc
        
        2. set args:
-
           [ovirt-shell]
           username = "user@domain"
           url = "http[s]://server[:port]/api"
@@ -148,7 +149,6 @@ This program is a command-line interface to oVirt Virtualization. Options:
                      Welcome to oVirt shell
            
            ++++++++++++++++++++++++++++++++++++++++++
-
           [oVirt shell (connected)]# 
          
 

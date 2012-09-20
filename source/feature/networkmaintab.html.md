@@ -108,7 +108,8 @@ wiki_warnings: list-item?
 
 **Main Tab Search** SearchType.Network - add relevant search command
 
-**Tree** Networks:
+**Tree**
+Networks:
 
 *   "Network: datacenter.name ='dcName'"
 
@@ -120,7 +121,8 @@ Network:
 *   "Vms: network.name = 'treeSelectedNetName' datacenter.name = 'dcName'"
 *   "Template: network.name = 'treeSelectedNetName' datacenter.name = 'dcName'"
 
-**Search text area** Network: (all combinations of search)
+**Search text area**
+Network: (all combinations of search)
 
 ### Queries
 

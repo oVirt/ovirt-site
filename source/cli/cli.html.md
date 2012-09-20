@@ -76,40 +76,86 @@ option to appropriate option format adding prefix or suffix.
 
 #### get help for connect
 
-       [root@lpt21 mpastern]# ovirt-shell --help
-       
-       [root@lpt21 ovirt-engine-cli (master)]# ovirt-shell --help
-       Usage: ovirt-shell [options]
-              ovirt-shell [options] command...
-       
-       This program is a command-line interface to oVirt Virtualization.
-       
-       Options:
+[mpastern@ovirt-engine-cli (master)]$ ovirt-shell --help Usage: ovirt-shell [options]
+
+            ovirt-shell [options] command...
+
+This program is a command-line interface to oVirt Virtualization.
+
+Options:
+
        -h, --help            show this help message and exit
        -l URL, --url=URL     specifies the API entry point URL
+                             (http[s]://server[:port]/api)
        -u USERNAME, --username=USERNAME
                              connect as this user
-       -p PASSWORD, --password=PASSWORD
-                             specify password
        -K KEY_FILE, --key-file=KEY_FILE
-                             specify key-file
+                             specify client PEM key-file
        -C CERT_FILE, --cert-file=CERT_FILE
-                             specify cert-file
+                             specify client PEM cert-file
+       -A CA_FILE, --ca-file=CA_FILE
+                             specify server CA cert-file
+       -I, --insecure        allow connecting to SSL sites without certificates
+       -F, --filter          enables user permission based filtering
        -P PORT, --port=PORT  specify port
        -T TIMEOUT, --timeout=TIMEOUT
                              specify timeout
        -c, --connect         automatically connect
+       -f FILE, --file=FILE  read commands from FILE instead of stdin
 
 #### connect from ovirt-shell
 
-       ovirt-shell
+       [mpastern@ovirt-engine-cli (master)]$ ovirt-shell
        
-       connect --url "`[`http://server:8080/api`](http://server:8080/api)`" --user "user@domain" --password 'password'
+       [oVirt shell (disconnected)]# connect --url "`[`http://server:8080/api`](http://server:8080/api)`" --user "user@domain" --password 'password'
        
+       ==========================================
+       >>> connected to oVirt manager 3.2.0.0 <<<
+       ==========================================
+
+       [oVirt shell (connected)]# 
 
 #### connect from linux shell
 
-       ovirt-shell -c -l "`[`http://server:8080/api`](http://server:8080/api)`" -u "user@domain" -p 'password'
+##### configuration file based login
+
+       1. vi ~/.ovirtshellrc
+
+       2. set args:
+
+          [ovirt-shell]
+          username = "user@domain"
+          url = "http[s]://server[:port]/api"
+          #insecure = False
+          #filter = False
+          #timeout = -1
+          password = ******
+
+          * NOTE: if url/username/password is not configured/commented in .ovirtshellrc
+                  and ovirt-shell executed in auto-connect mode (ovirt-shell -c/--connect), 
+                  you will be prompted to enter it upon login
+
+       3. run ovirt-shell 
+
+          [mpastern@ovirt-engine-cli (master)]$ ovirt-shell -c
+
+           ==========================================
+           >>> connected to oVirt manager 3.2.0.0 <<<
+           ==========================================
+
+           ++++++++++++++++++++++++++++++++++++++++++
+           
+                     Welcome to oVirt shell
+           
+           ++++++++++++++++++++++++++++++++++++++++++
+
+          [oVirt shell (connected)]# 
+        
+
+##### cli options based login
+
+       ovirt-shell -c -l "`[`http://server:8080/api`](http://server:8080/api)`" -u "user@domain"
+       Password: ****
 
        ==========================================
        >>> connected to oVirt manager 3.1.0.0 <<<

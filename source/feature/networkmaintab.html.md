@@ -80,7 +80,7 @@ wiki_warnings: list-item?
 
 **Clusters**
 
-*   **Columns**- Name, Compatiblity Version, Network Status, Network Assigned, Network Required, Role
+*   **Columns**- Name, Compatiblity Version, Network Status, Network Assigned, Network Required, Network Role
 *   **Actions**-
 
 :\*Assign/Unassign Network ![](assignNet.png "fig:assignNet.png")

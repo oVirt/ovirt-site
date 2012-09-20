@@ -127,7 +127,7 @@ Network: (all combinations of search)
 
 ### Queries
 
-**Queries for the SubTabs**
+**Queries for the sub tabs**
 
 1.  Clusters
 2.  Hosts

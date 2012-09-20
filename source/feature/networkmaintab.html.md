@@ -27,7 +27,7 @@ wiki_warnings: list-item?
 *   On Design
 *   Last updated date: 20/9/2010
 
-### Detailed Description
+# Detailed Description
 
 ### User Experience
 

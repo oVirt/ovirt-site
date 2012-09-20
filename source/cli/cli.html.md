@@ -156,7 +156,7 @@ option to appropriate option format adding prefix or suffix.
 
 ##### cli options based login
 
-       ovirt-shell -c -l "`[`http://server:8080/api`](http://server:8080/api)`" -u "user@domain"
+       [mpastern@ovirt-engine-cli (master)]$ ovirt-shell -c -l "`[`http://server:8080/api`](http://server:8080/api)`" -u "user@domain"
        Password: ****
        ==========================================
        >>> connected to oVirt manager 3.1.0.0 <<<

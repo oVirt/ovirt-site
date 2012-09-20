@@ -24,8 +24,8 @@ wiki_warnings: list-item?
 
 ### Current status
 
-*   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
-*   Last updated date: ...
+*   On Design
+*   Last updated date: 20/9/2010
 
 ### Detailed Description
 

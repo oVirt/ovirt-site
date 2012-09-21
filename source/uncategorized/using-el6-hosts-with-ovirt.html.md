@@ -1090,7 +1090,7 @@ Usually looks like this:
     Instead use the HTTPS scheme to access this URL, please.<br />
     <blockquote>Hint: <a href="https://ovirt.azeroth.net/"><b>https://ovirt.azeroth.net/</b></a></blockquote></p>
     <hr>
-    <address>Apache/2.2.22 (Fedora) Server at ovirtfoo.ctt.med.ge.com Port 443</address>
+    <address>Apache/2.2.22 (Fedora) Server at ovirt.azeroth.net Port 443</address>
     </body></html>
 
 *   Delete the everything but the engine's SSH RSA key that you copied in previously in the hosts authorized_keys file

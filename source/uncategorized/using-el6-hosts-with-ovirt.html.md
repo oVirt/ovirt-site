@@ -1088,7 +1088,7 @@ Usually looks like this:
     <p>Your browser sent a request that this server could not understand.<br />
     Reason: You're speaking plain HTTP to an SSL-enabled server port.<br />
     Instead use the HTTPS scheme to access this URL, please.<br />
-    <blockquote>Hint: <a href="https://ovirtfoo.ctt.med.ge.com/"><b>https://ovirtfoo.ctt.med.ge.com/</b></a></blockquote></p>
+    <blockquote>Hint: <a href="https://ovirt.azeroth.net/"><b>https://ovirt.azeroth.net/</b></a></blockquote></p>
     <hr>
     <address>Apache/2.2.22 (Fedora) Server at ovirtfoo.ctt.med.ge.com Port 443</address>
     </body></html>

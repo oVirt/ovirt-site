@@ -136,6 +136,6 @@ Network: (search by network properties)
 
 ### Documentation / External references
 
-[Main Tab RFE](https://bugzilla.redhat.com/858742)
+Bugzilla - [(networks_main_tab) Networks Main Tab](https://bugzilla.redhat.com/858742)
 
 <Category:Feature> <Category:Template>

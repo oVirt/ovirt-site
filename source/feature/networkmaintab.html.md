@@ -74,7 +74,7 @@ wiki_warnings: list-item?
 
 **General**
 
-*   **Feilds**- Name, Description, VM Network, VLAN tagging, MTU
+*   **Fields**- Name, Description, VM Network, VLAN tagging, MTU
 
 ![](NetworkTab.png "fig:NetworkTab.png")
 **Clusters**

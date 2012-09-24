@@ -53,7 +53,7 @@ service verbs:
        /**
        * Get the recommended num of CPU by OS
        */
-       int getRecomendedCPUByOS(String os)
+       int getRecommendedCPUByOS(String os)
 
 *   interaction detais
 

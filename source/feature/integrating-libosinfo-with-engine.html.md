@@ -31,8 +31,7 @@ Use the knowledge supplied by OS providers to set VM default values of CPU and R
 ### Current status
 
 *   status: first design draft
-*   target realese: ?
-*   Last updated date:
+*   Last updated date: Sep 24 2012
 
 ### Detailed Description
 

@@ -57,7 +57,8 @@ libosinfo relies on xml-based db and Gobject bindigs on top with javascript and 
 
 ### Dependencies / Related Features
 
-ovirt should depend on libosinfo RPM which ships with Fedora 17 and RHEL 6.3 -- add here the list of XMLs and python api classes
+ovirt should depend on libosinfo RPM which ships with Fedora 17 and RHEL 6.3
+-- add here the list of XMLs and python api classes --
 
 ### Documentation / External references
 

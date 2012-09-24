@@ -46,10 +46,14 @@ engine will have a service to abstract all interaction with libosinfo.
 service verbs:
 
       OSInfoService
-       /** Get the recommended minimum memory by OS **/
+       /** 
+       * Get the recommended minimum memory by OS
+       */
        int getRecomendedMemoryByOS(String os)
         
-       /** Get the recommended num of CPU by OS
+       /**
+       * Get the recommended num of CPU by OS
+       */
        int getRecomendedCPUByOS(String os)
 
 *   interaction detais

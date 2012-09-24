@@ -35,14 +35,20 @@ Use the knowledge supplied by OS providers to set VM default values of CPU and R
 
 ### Detailed Description
 
+#### usages
+
+*   suggest default value when adding a disc e.g set a 15 Gb disc if its a Windows 7
+*   extract all OS names instead of house-keeping an enum.
+*   engine can validate when trying to run a VM with lower memory then recommended.
+
+#### design
+
 *   abstraction for query Os info - OSInfoService
 
 engine will have a service to abstract all interaction with libosinfo.
 
 1.  the service will encapsulate the means of how to interact with the library itself
 2.  the service will expose a required subset of libosinfo API
-
-service verbs:
 
       OSInfoService
        /** 
@@ -55,9 +61,9 @@ service verbs:
        */
        int getRecommendedCPUByOS(String os)
 
-*   interaction detais
+*   libosinfo interaction details
 
-libosinfo relies on xml-based db and Gobject bindigs on top with javascript and python api's. we can either:
+libosinfo relies on xml-based db and Gobject bindigs on top, with javascript and python api's. we can either:
 
 1.  load the xml's to java objects using jaxb. might be a KISS for the current needs. we are loosing the API the library exposes.
 2.  use Java InvokeDynamic to do python or javascript invocation of API. we gain all functionality (bugs too). need to make sure invoking dynamic code is easy and secure - some people reject the idea of leaving the VM for external invocations.

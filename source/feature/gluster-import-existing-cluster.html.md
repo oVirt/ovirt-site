@@ -33,12 +33,14 @@ This feature provides the support for importing a storage cluster (gluster enabl
 
 ## Design
 
-#### Fetching Gluster Hosts
+### Fetching Gluster Hosts
 
 ![](Gluster-Import-Cluster-1.png "Gluster-Import-Cluster-1.png")
 
-#### Importing Gluster Hosts
+### Importing Gluster Hosts
 
 ![](Gluster-Import-Cluster-2.png "Gluster-Import-Cluster-2.png")
+
+## User Work flow
 
 <Category:Feature>

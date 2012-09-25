@@ -43,4 +43,14 @@ This feature provides the support for importing a storage cluster (gluster enabl
 
 ## User Work flow
 
+1.  Click on **New** in Clsuter Main Tab, the Create Cluster dialog opens
+2.  Select **Enable Gluster Service** and **Import existing gluster configuration** checkboxes.
+3.  Enter the IP Address/Host name of any server in the cluster
+4.  Wait for the **Fingerprint** to load, and make sure we are communicating with the correct host
+5.  Provide the **Root Password** for the server, and Click **Ok**
+6.  *gluster peer status* command will be executed on that server
+7.  **Add Hosts** dialog will be shown with the list of hosts in the cluster
+8.  Edit the **Name** of the hosts if required and provide passwords. Same password can be provided for the all the hosts by selecting **Use a common password**
+9.  Make sure the fingerprints are valid and submit the details by clicking **Ok**
+
 <Category:Feature>

@@ -26,3 +26,19 @@ This allows the user to import an existing gluster supported cluster to engine. 
 
 *   Status: Complete
 *   Last updated date: Fri Sep 25 2012
+
+## Design
+
+### Webadmin
+
+#### Mockups
+
+#### Fetching Gluster Hosts
+
+![](Gluster-Import-Cluster-1.png "Gluster-Import-Cluster-1.png")
+
+#### Importing Gluster Hosts
+
+![](Gluster-Import-Cluster-2.png "Gluster-Import-Cluster-2.png")
+
+<Category:Feature>

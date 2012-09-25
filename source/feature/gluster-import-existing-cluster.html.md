@@ -53,6 +53,6 @@ This feature provides the support for importing a storage cluster (gluster enabl
 8.  Edit the **Name** of the hosts if required and provide **Root Passwords**. Same password can be provided for the all the hosts by selecting **Use a common password**
 9.  Make sure the fingerprints are valid and submit the details by clicking **Ok**
 
-None of the hosts will be imported even if the password for one host is wrong or one of the host is not reachable.
+None of the hosts will be imported even if the password for a host is wrong or one of the host is not reachable.
 
 <Category:Feature>

@@ -399,4 +399,10 @@ Actions:
        /usr/share/jboss-as/standalone/log/server.log
        /usr/share/jboss-as/standalone/log/engine/engine.log
 
+*   (spice)
+
+       Run firefox setting SPICEC_LOG_LEVEL
+       # SPICEC_LOG_LEVEL=0 firefox
+       Afer that, check the file: ~/.spicec/spicec.log
+
 [Category:Draft documentation](Category:Draft documentation) <Category:Engine> [Category:How to](Category:How to)

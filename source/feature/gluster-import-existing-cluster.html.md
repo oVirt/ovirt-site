@@ -50,7 +50,9 @@ This feature provides the support for importing a storage cluster (gluster enabl
 5.  Provide the **Root Password** for the server, and Click **Ok**
 6.  *gluster peer status* command will be executed on that server
 7.  **Add Hosts** dialog will be shown with the list of hosts in the cluster
-8.  Edit the **Name** of the hosts if required and provide passwords. Same password can be provided for the all the hosts by selecting **Use a common password**
+8.  Edit the **Name** of the hosts if required and provide **Root Passwords**. Same password can be provided for the all the hosts by selecting **Use a common password**
 9.  Make sure the fingerprints are valid and submit the details by clicking **Ok**
+
+None of the hosts will be imported even if the password for one host is wrong or one of the host is not reachable.
 
 <Category:Feature>

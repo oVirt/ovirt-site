@@ -20,6 +20,10 @@ Ideally we provide, solve in another way, or do without.
 *   git
 *   Jenkins
 
+### Notes
+
+<http://etherpad-ovirtapps.rhcloud.com/p/Hosting_Research>
+
 ## Want-have
 
 <Category:Infrastructure>

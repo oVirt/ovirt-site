@@ -18,6 +18,10 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## 2012-09-25
 
+*[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-09-25-14.04.html)*
+
+*Agenda*
+
 *   Meeting time
 *   Jenkins
 *   Puppet

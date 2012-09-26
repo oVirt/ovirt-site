@@ -21,17 +21,27 @@ It is recommended to use static IP addresses for your server and nodes, but dnsm
 
 After an apparently successful installation of ovirt-engine, the service fails to start. In the system log, I see the error in /var/log/httpd/error.log:  
 
+      [Fri Sep 21 13:37:03 2012] [error] (111)Connection refused: proxy: AJP: attempt to connect to 127.0.0.1:8009 (localhost) failed
+      [Fri Sep 21 13:37:03 2012] [error] ap_proxy_connect_backend disabling worker for (localhost)
+      [Fri Sep 21 13:37:03 2012] [error] proxy: AJP: failed to make connection to backend: localhost}}}
+
 JBoss is failing to start up. There are several possible reasons for this. One potential reason is that you are trying to install the engine on a 32 bit server. If you have the following error in /var/log/ovirt-engine/console.log this may be your problem.
 
-{{{
-
-Error: Could not create the Java Virtual Machine. Error: A fatal exception has occurred. Program will exit. }}}
+      Error: Could not create the Java Virtual Machine.
+      Error: A fatal exception has occurred. Program will exit.
 
 If this is the case, you will need to [modify the command line for Java by removing a 64 bit options](https://bugzilla.redhat.com/show_bug.cgi?id=852037).
 
 <!-- -->
 
 I am having trouble connecting to the database. In the system log, I get the following message from Postgres:  
+
+      Sep 21 14:00:59 clare pg_ctl[5298]: FATAL:  could not create shared memory segment: Invalid argument
+      Sep 21 14:00:59 clare pg_ctl[5298]: DETAIL:  Failed system call was shmget(key=5432001, size=36519936, 03600).
+      Sep 21 14:00:59 clare pg_ctl[5298]: HINT:  This error usually means that PostgreSQL's request for a shared memory segment exceeded your kernel's SHMMAX parameter.  You can either reduce the request size or reconfigure the kernel with larger SHMMAX.  To reduce the request size (currently 36519936 bytes), reduce PostgreSQL's shared memory usage, perhaps by reducing shared_buffers or max_connections.
+      Sep 21 14:00:59 clare pg_ctl[5298]: If the request size is already small, it's possible that it is less than your kernel's SHMMIN parameter, in which case raising the request size or reconfiguring SHMMIN is called for.
+      Sep 21 14:00:59 clare pg_ctl[5298]: The PostgreSQL documentation contains more information about shared memory configuration.
+      Sep 21 14:01:03 clare pg_ctl[5298]: pg_ctl: could not start server 
 
 The system default size for the parameter SHMMAX is too small for the oVirt database. You should increase it to at least 64MB (64\*1024\*1024). To do this, run the command "sysctl -w kernel.shmmax=67108864" to modify the running system, and add "kernel.shmmax=67108864" to the file /etc/sysctl.conf to ensure that it persists through reboots.
 

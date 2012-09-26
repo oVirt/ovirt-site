@@ -8,19 +8,63 @@ wiki_last_updated: 2014-12-07
 
 # Troubleshooting
 
-## Node
-
-### Installation
-
-### Usage
-
 ## Engine
 
 ### Installation
 
-* When building the oVirt-Engine with maven, some tests might fail. Try running the maven clean install command with: -DskipTests
+When running engine-setup, I get the message "myhost.local did not resolve into an IP address", but setting up bind locally is hard. Is there an easy way to spoof full DNS locally?  
+The easiest solution is to use dnsmasq for DNS. You then use the IP address of your engine as your DNS server, and in /etc/dnsmasq.conf you point to your regular DNS servers with "server=8.8.8.8" (for example). You will also need to open port 53 in iptables to enable computers on your home network to use this DNS server. To do this, add the line "-A INPUT -m state --state NEW -m udp -p udp --dport 53 -j ACCEPT" to your iptables configuration, remembering to add it also to any configuration files required to ensure that the option persists across reboots.
+
+It is recommended to use static IP addresses for your server and nodes, but dnsmasq can also spoof reverse DNS for DHCP hosts and serve as a DHCP server for your local network if, for example, you wanted to use devices connecting over Wifi such as laptops as nodes.
+
+<!-- -->
+
+After an apparently successful installation of ovirt-engine, the service fails to start. In the system log, I see the error in /var/log/httpd/error.log:  
+
+JBoss is failing to start up. There are several possible reasons for this. One potential reason is that you are trying to install the engine on a 32 bit server. If you have the following error in /var/log/ovirt-engine/console.log this may be your problem.
+
+{{{
+
+Error: Could not create the Java Virtual Machine. Error: A fatal exception has occurred. Program will exit. }}}
+
+If this is the case, you will need to [modify the command line for Java by removing a 64 bit options](https://bugzilla.redhat.com/show_bug.cgi?id=852037).
+
+<!-- -->
+
+I am having trouble connecting to the database. In the system log, I get the following message from Postgres:  
+
+The system default size for the parameter SHMMAX is too small for the oVirt database. You should increase it to at least 64MB (64\*1024\*1024). To do this, run the command "sysctl -w kernel.shmmax=67108864" to modify the running system, and add "kernel.shmmax=67108864" to the file /etc/sysctl.conf to ensure that it persists through reboots.
+
+<!-- -->
+
+I installed ovirt engine and now DNS does not work any more  
+If you let ovirt engine manage the iptables configuration for your server, it will close port 53 UDP which is required for DNS. You should add the line back to the iptables settings as mentioned above.
+
+<!-- -->
+
+I ran engine-setup once but there was a problem. So I ran engine-cleanup and re-ran engine-setup. After asking engine-setup to manage my ISO NFS domain, I get the message "/mnt/iso already exists in /etc/exports" and cannot continue  
+The easiest way to get past this step is to open another tab, remove the line mentioned from /etc/exports, and retry this step.
+
+<!-- -->
+
+When building the oVirt-Engine with maven, some tests might fail  
+Try running the maven clean install command with: -DskipTests
 
 ### Usage
 
 When I add my host its status is unreachable. The logs indicate the the host is missing the 'engine' network.
 Solution: you need to add a bridge to the host with the name 'engine'
+
+## Node
+
+### Installation
+
+I am setting up the same host as the engine as an oVirt node, through the management interface, but the engine is no longer working properly  
+When you set up a node through ovirt-engine, the iptables configuration can be over-written with one which is appropriate for an ovirt node. Unfortunately, this configuration closes some ports which are required by oVirt Engine. The solution is to merge both config files - save the iptables configuration required by the engine, and add extra rules to open ports required by the node. The [ quick start guide](Quick Start Guide) has a copy of the iptables set-up required by the engine. If you are also using masqdns or bind for DNS on the engine, you should also open the port 53 in the final configuration. If you have opened any other ports (for example VNC) this is the time to add those to the iptables config file also.
+
+<!-- -->
+
+When installing a node via the engine interface, I get an error "rsync.x86_64 is not available"  
+You are trying to set up a 32 bit host as a node. oVirt requires 64 bit hosts with virtualisation extensions enabled to run KVM effectively on hypervisor nodes.
+
+### Usage

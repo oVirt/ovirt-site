@@ -30,6 +30,10 @@ This feature provides the ability to see the advanced details about the gluster 
 
 ## Detailed Description
 
+This feature aims to provide to advanced details about the services and volumes in a gluster supported gluster. The currently supported service are NFS and SHD. SHD is the Self Heal Daemon used by the GlusterFS for replicated volumes. The Services sub tab will be shown only if the selected cluster supports gluster. The status, port and process related details for all the running services will be shown. In future this view will show other services as well.
+
+In the Bricks sub tab of volumes will have a new action to show the advanced details about a particular brick. The details are divided into four parts namely General, Clients, Memory Statistics and Memory Pools.
+
 ## Design
 
 ### Services tab in Cluster

@@ -28,12 +28,16 @@ This feature provides the ability to see the advanced details about the gluster 
 *   Status: Design Stage
 *   Last updated date: Fri Sep 7 2012
 
+## Detailed Description
+
 ## Design
 
-### Webadmin
+### Services tab in Cluster
 
-#### Mockups
+![](Clusterservicestab.png "Clusterservicestab.png")
 
-![](Clusterservicestab.png "fig:Clusterservicestab.png") ![](Gluster_Brick_Advanced_View_1.png "fig:Gluster_Brick_Advanced_View_1.png") ![](Gluster_Brick_Advanced_View_2.png "fig:Gluster_Brick_Advanced_View_2.png") ![](Gluster_Brick_Advanced_View_3.png "fig:Gluster_Brick_Advanced_View_3.png") ![](Gluster_Brick_Advanced_View_4.png "fig:Gluster_Brick_Advanced_View_4.png")
+### Brick Advanced Views
+
+![](Gluster_Brick_Advanced_View_1.png "fig:Gluster_Brick_Advanced_View_1.png") ![](Gluster_Brick_Advanced_View_2.png "fig:Gluster_Brick_Advanced_View_2.png") ![](Gluster_Brick_Advanced_View_3.png "fig:Gluster_Brick_Advanced_View_3.png") ![](Gluster_Brick_Advanced_View_4.png "fig:Gluster_Brick_Advanced_View_4.png")
 
 <Category:Feature>

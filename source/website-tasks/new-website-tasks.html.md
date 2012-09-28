@@ -12,7 +12,7 @@ wiki_last_updated: 2012-11-27
 
 Based on the website redesign plans (see reference links, below), the WordPress-based site at ovirt.org will be merged with this oVirt wiki. The pages from the WP ovirt.org site need to migrate to new homes on the wiki, which redirects where necessary to avoid breaking links.
 
-Pages from Wordpress-based oVirt Site (in order of traffic):
+## Pages from Wordpress-based oVirt Site (in order of traffic):
 
 [Home page](http://www.ovirt.org/)
 
@@ -82,7 +82,7 @@ Pages from Wordpress-based oVirt Site (in order of traffic):
 
 [Project: oVirt](http://www.ovirt.org/project/ovirt/)
 
-Links for reference:
+## Links for reference:
 
 [live preview](http://mediawiki-garrett.rhcloud.com/Home)
 

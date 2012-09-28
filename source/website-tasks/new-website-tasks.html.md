@@ -58,3 +58,5 @@ Based on the website redesign plans (see reference links, below), the WordPress-
 [live preview announcement](http://lists.ovirt.org/pipermail/infra/2012-September/001112.html)
 
 [new design: request for comments](http://lists.ovirt.org/pipermail/infra/2012-August/000871.html)
+
+[Category:Website tasks](Category:Website tasks)

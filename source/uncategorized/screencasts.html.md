@@ -125,6 +125,20 @@ Questions: How would one show the high-availability features which come "for fre
 13. Show the network interfaces table to see the changes
 14. Re-open the setup networks to show changes, and open the 'edit boot protocol' for each of the attached networks.
 
+#### Hotplug Vm Nic
+
+### Prerequisites
+
+*   oVirt engine
+*   At least one VM
+
+### Demo steps
+
+1.  Login to the WebAdmin.
+2.  Run the VM
+3.  Add a nic to the vm, check it a activated
+4.  Show the vnics table to show the new activated nic
+
 ## Managing images
 
 ### Prerequisites

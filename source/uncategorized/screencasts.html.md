@@ -96,6 +96,35 @@ Questions: How would one show the high-availability features which come "for fre
 
 ### Demo steps
 
+## Network
+
+#### Setup Networks
+
+### Prerequisites
+
+*   oVirt engine
+*   A host (3.1 or more) with at least three nics
+
+### Demo steps
+
+1.  Login to the WebAdmin.
+2.  Add a Network vlan123 (vlan, vm) to the Host's Cluster
+3.  Show the mtu
+4.  Add a Network non_vm (not vlan, not vm) to to the Host's Cluster,
+5.  Assign networks to cluster
+6.  Open SetupNetworks dialog- show the nic's and network's tooltips
+7.  Add the Networks to one of the free nics
+8.  Create a bond between the nic we added the networks to and the free nic
+9.  Edit the bond- change bonding-mode to mode2
+10. Edit vlan123- change boot-protocol to static and configure ip and subnet mask
+    1.  ip: 192.168.10.22
+    2.  subnet mask: 255.255.255.0
+
+11. Edit non_vm- change boot-protocol to dynamic
+12. Check save network configuration and click on ok
+13. Show the network interfaces table to see the changes
+14. Re-open the setup networks to show changes, and open the 'edit boot protocol' for each of the attached networks.
+
 ## Managing images
 
 ### Prerequisites

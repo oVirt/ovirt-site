@@ -42,7 +42,7 @@ Today, when consuming resources from the Data Center, such as storage (when crea
 Quota provides the administrator a logic mechanism for managing resources allocation for users and groups in the Data Center.
 This mechanism allows the administrator to manage, share and monitor the resources in the Data Center from the engine core point of view. When working with quota, you still need to set the permissions.
 The quota will only limit the usage of the DC resources.
-For exmaple:
+For example:
 
 *   If you want a user to be able to create VMs, disks and etc., you need to give him VmCreator in the relevant DC.
 *   If you want to limit him to a certain cluster, you will have to give him VmCreator in this cluster, and DiskCreator in relevant DCs/SDs.
@@ -252,5 +252,11 @@ Affected oVirt projects:
 *   Email Notifications.
 *   Copy template disk, the quota will be counted only one time.
 *   Snapshots: snapshots won't be taken into account when checking remaining storage quota.
+
+### Acronyms / Abbreviation
+
+*   DC: Data Center
+*   SD: Storage Domain
+*   UP: User Portal
 
 <Category:SLA> [Category: Feature](Category: Feature)

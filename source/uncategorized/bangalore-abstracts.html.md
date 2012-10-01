@@ -43,3 +43,7 @@ Our colleagues with Dell are interested in submitting talks for the workshop. On
 ### IBM
 
 Our colleagues with IBM are interested in submitting talks for the workshop. Once these submissions have been sent to the oVirt users list, they will be linked from this page.
+
+### Red Hat
+
+Several Red hat colleagues have expressed interest in proposing user and developer topics. Once these submissions have been sent to the oVirt users list, they will be linked from this page.

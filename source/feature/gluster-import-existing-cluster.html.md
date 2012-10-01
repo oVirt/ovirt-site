@@ -43,6 +43,8 @@ The **Import existing cluster configuration** section will be shown only if the 
 
 ![](Gluster-Import-Cluster-2.png "Gluster-Import-Cluster-2.png")
 
+The list of hosts which are part of the cluster will be shown. The **Name** column for each host will have the same values as the **Hostname/IP** column, the user can change name of the host. The user needs the enter the **Password** for all the hosts shown in the table. If the passwords for hosts are same, the user can select **Use a common password**', enter the **Root Password** and click on **Apply**. The same password will be assigned for all the hosts. The user needs to verify the **Fingerprint** of all the hosts before submitting the details. If the passwords provided for the hosts are correct, the hosts will be added to the engine and available under the **Hosts** tab. The normal **Add Host** flow of bootstrapping, restart,etc continues from here onwards. As the newly imported hosts will not have **vdsm** installed, the bootstrap script will install all the necessary vdsm packages.
+
 ## User Work flow
 
 1.  Click on **New** in Clsuter Main Tab, the Create Cluster dialog opens

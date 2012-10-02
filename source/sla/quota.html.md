@@ -179,6 +179,8 @@ The Power User Portal should allow the following operations:
 *   View Quota's defined/used for himself
 *   Consume Quota upon resource usage (runtime and storage)
 
+In order to assign a Quota to multiple entities (VM/Disk), one can select multiple lines from the VM/Disk grid, and use the 'Assign Quota' button in the main button panel (the button is available only when selecting a Quota enabled Data Center in the tree pane).
+
 #### Enforcement
 
 *   Quota runtime limitation should be enforced during VM execution.

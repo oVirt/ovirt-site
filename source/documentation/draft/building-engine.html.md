@@ -272,7 +272,7 @@ Accessing the RESTful API:
 
       wget -O - --debug --auth-no-challenge --http-user=admin@internal --http-password='letmein!' head='Accept: application/xml' http://<server name>:<port>/api/
 
-(by default, the port is 8080).
+(by default, the port is 8700).
 
 or from the browser
 

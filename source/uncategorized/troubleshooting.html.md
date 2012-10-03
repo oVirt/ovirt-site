@@ -76,17 +76,17 @@ Solution: you need to add a bridge to the host with the name 'engine'
 
 ### Installation
 
-I am setting up the same host as the engine as an oVirt node, through the management interface, but the engine is no longer working properly  
-When you set up a node through ovirt-engine, the iptables configuration can be over-written with one which is appropriate for an ovirt node. Unfortunately, this configuration closes some ports which are required by oVirt Engine. The solution is to merge both config files - save the iptables configuration required by the engine, and add extra rules to open ports required by the node. The [ quick start guide](Quick Start Guide) has a copy of the iptables set-up required by the engine. If you are also using masqdns or bind for DNS on the engine, you should also open the port 53 in the final configuration. If you have opened any other ports (for example VNC) this is the time to add those to the iptables config file also.
+I am setting up the Engine to also run virtual machines through the management interface, but the engine is no longer working properly  
+When you set up a host through ovirt-engine, the iptables configuration can be over-written with one which is appropriate for an ovirt node. Unfortunately, this configuration closes some ports which are required by oVirt Engine. The solution is to merge both config files - save the iptables configuration required by the engine, and add extra rules to open ports required by the node. The [ quick start guide](Quick Start Guide) has a copy of the iptables set-up required by the engine. If you are also using masqdns or bind for DNS on the engine, you should also open the port 53 in the final configuration. If you have opened any other ports (for example VNC) this is the time to add those to the iptables config file also.
 
 <!-- -->
 
-When installing a node via the engine interface, I get an error "rsync.x86_64 is not available"  
-You are trying to set up a 32 bit host as a node. oVirt requires 64 bit hosts with virtualisation extensions enabled to run KVM effectively on hypervisor nodes.
+When installing a host via the engine interface, I get an error "rsync.x86_64 is not available"  
+You are trying to set up a 32 bit host. oVirt requires 64 bit hosts with virtualisation extensions enabled to run KVM effectively.
 
 <!-- -->
 
-After installing a node through the engine, I get an error "<node-name> does not comply with the cluster Default networks, the following networks are missing on host: 'ovirtmgmt'"  
+After installing a host through the engine, I get an error "<name> does not comply with the cluster Default networks, the following networks are missing on host: 'ovirtmgmt'"  
 It seems that in certain situations (e.g. NetworkManager having been removed before install from engine?) the engine will not configure the bridge network. Instructions for configuring the 'ovirtmgmt' bridge interface can be found at: [Installing_VDSM_from_rpm#Configuring_the_bridge_Interface](Installing_VDSM_from_rpm#Configuring_the_bridge_Interface).
 
 ### Usage

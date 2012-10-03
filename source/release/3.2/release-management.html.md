@@ -35,6 +35,7 @@ Features being considered for inclusion/already in master:
 *   Storage live migration (needs to be checked)
 *   Sync network
 *   nwfilter
+*   webadmin: allow column resizing & sorting in grid (bz 767924)
 *   Primarily a bug fix release (list of bugs would be useful)
 
 <Category:Releases> [Category:Release management](Category:Release management)

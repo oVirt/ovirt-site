@@ -24,18 +24,23 @@ To be finalised by October 10th
 
 Features being considered for inclusion/already in master:
 
-*   [ UI plugins](Features/UIPlugins)
-*   [ Make network a main tab](Feature/NetworkMainTab)
-*   [ Import of existing gluster clusters](Features/Gluster Import Existing Cluster)
-*   Bootstrap improvements
-*   [ SLA is a target for inclusion (MOM)](Features/MomIntegration)
-*   CAC support in user portal for spice
-*   VM creation base on pre-defined profiles (instance types)
-*   libvdsm preview
-*   Storage live migration (needs to be checked)
-*   Sync network
-*   nwfilter
-*   webadmin: allow column resizing & sorting in grid (bz 767924)
 *   Primarily a bug fix release (list of bugs would be useful)
+*   Engine
+    -   [ UI plugins](Features/UIPlugins)
+    -   [ Make network a main tab](Feature/NetworkMainTab)
+    -   [ Import of existing gluster clusters](Features/Gluster Import Existing Cluster)
+    -   Bootstrap improvements
+    -   [ SLA is a target for inclusion (MOM)](Features/MomIntegration)
+    -   CAC support in user portal for spice
+    -   VM creation base on pre-defined profiles (instance types)
+    -   libvdsm preview
+    -   Storage live migration (needs to be checked)
+    -   Sync network
+    -   nwfilter
+    -   webadmin: allow column resizing & sorting in grid (bz 767924)
+    -   port mirroring
+    -   user level api
+    -   automatic storage domain upgrade
+    -   Japanese localization
 
 <Category:Releases> [Category:Release management](Category:Release management)

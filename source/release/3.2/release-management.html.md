@@ -14,8 +14,9 @@ wiki_last_updated: 2013-06-04
 ## Timeline
 
 *   General availability: **December 12th**
-    -   Beta release: **Mid November**
+    -   Beta release: **November 14th**
     -   Feature freeze: **November 14th**
+    -   Test Day: **November 19th**
 
 ## Release Criteria
 

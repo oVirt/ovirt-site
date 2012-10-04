@@ -23,7 +23,7 @@ At a minimum, the following parameters are required for an automated installatio
 
 ------------------------------------------------------------------------
 
-If you want to use oVirt Node with oVirt Engine, you must also provide one of the following parameters:
+If you want to use oVirt Node with oVirt Engine, you must also provide at least one of the following parameters:
 
 ----
 

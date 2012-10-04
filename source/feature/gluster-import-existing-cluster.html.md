@@ -29,7 +29,7 @@ This allows the user to import an existing gluster supported cluster to engine. 
 
 ## Detailed Description
 
-This feature provides the support for importing a storage cluster (gluster enabled) to oVirt engine. The hosts in the cluster will not have vdsm installed. The user needs to provide the details of any host in the cluster which includes IP/Host name of the host and password. "gluster peer status" command will be executed on that host through ssh, the result of the command will provide the list of hosts part of the cluster. Once everything is successful, the list of hosts will be shown to the user. The user verifies(manually) the fingerprint of the each host and provides the passwords for them, the AddHost flow continues from here onwards.
+This feature provides the support for importing a storage cluster (gluster enabled) to oVirt engine. The hosts in the cluster will not have vdsm installed. The user needs to provide the details of any host in the cluster which includes IP/Host name of the host and password. "gluster peer status" command will be executed on that host through ssh, the result of the command will provide the list of hosts part of the cluster. Once everything is successful, the list of hosts will be shown to the user. The user verifies(manually) the fingerprint of each and every host and provides passwords for them, the AddHost flow continues from here onwards.
 
 ## Design
 

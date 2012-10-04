@@ -35,6 +35,7 @@ If you want to use oVirt Node with oVirt Engine, you must also provide at least 
 ### management_server
 
 *   Specifies - the management server to be used.
+*   Format: management_server=hostname:port
 
 ### management_server_fingerprint
 

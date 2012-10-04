@@ -42,6 +42,8 @@ If you want to use oVirt Node with oVirt Engine, you must also provide at least 
 
 # Examples
 
+![](OvirtAutoInstall.png "OvirtAutoInstall.png")
+
 ### AutoInstall and AutoRegister the Node (still require Admin approval on oVirt Engine side)
 
       storage_init=/dev/sda BOOTIF=eth0 management_server=192.168.122.115:443 management_server_fingerprint=33:2B:79:D0:32:26:2A:08:5F:AF:F9:E9:FA:06:07:A6:6B:63:C4:8A adminpw=RHhwCLrQXB8zE 

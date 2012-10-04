@@ -30,7 +30,7 @@ If you want to use oVirt Node with oVirt Engine, you must also provide at least 
 ### adminpw
 
 *   Sets an encryptedtemporary password for admin, change is forced on first login
-*   Example: adminpw=RHhwCLrQXB8zE (is redhat string encrypted)
+*   Example: adminpw=ovonFQQPIAM9o (is ovirt string encrypted)
 
 ### management_server
 

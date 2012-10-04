@@ -31,6 +31,9 @@ If you want to use oVirt Node with oVirt Engine, you must also provide at least 
 
 *   Sets an encrypted, temporary password for admin, change is forced on first login
 *   Example: adminpw=ovonFQQPIAM9o (is ovirt string encrypted)
+*   The recommended way to hash a password for use with this parameter is to run the following command:
+
+      # openssl passwd -1
 
 ### management_server
 

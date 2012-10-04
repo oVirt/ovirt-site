@@ -54,7 +54,7 @@ The list of hosts which are part of the cluster will be shown. The **Name** colu
 5.  Provide the **Root Password** for the server, and Click **Ok**
 6.  *gluster peer status* command will be executed on that server
 7.  **Add Hosts** dialog will be shown with the list of hosts in the cluster
-8.  Edit the **Name** of the hosts if required and provide **Root Passwords**. Same password can be provided for the all the hosts by selecting **Use a common password**
+8.  Edit the **Name** of the hosts if required and provide **Root Passwords**. Same password can be provided for the all the hosts by selecting **Use a common password**. Click on **Apply** to set the entered password all hosts. The user can provide a different password for one host by editing the **Root Password** field of the respective host.
 9.  Make sure the fingerprints are valid and submit the details by clicking **Ok**
 
 None of the hosts will be imported even if the password for a host is wrong or one of the host is not reachable.

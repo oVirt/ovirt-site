@@ -65,13 +65,13 @@ This is an example for the API for this feature, the vm_paload element will work
 
          <vm>
          ...
-           <vm_payloads>
-               <vm_payload type='cdrom'>
+           <payloads>
+               <payload type='cdrom'>
                    <file name='my.txt'>
-                      <content>haha</content>
+                      <content>some content</content>
                    </file>
-               </vm_payload>
-           </vm_payloads>
+               </payload>
+           </payloads>
         </vm>
        
 

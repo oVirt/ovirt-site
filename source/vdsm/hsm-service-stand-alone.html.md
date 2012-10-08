@@ -35,3 +35,5 @@ II) superVDSM service will be cloned to serve both VDSM service and HSM service
 III) Two modes task managers in VDSM service and HSM service will be introduced. So the task manager embedded in HSM service can operate in two modes, transparent mode and non-transparent mode. In transparent mode, all of the tasks under it should be transparent to the task manager and the tasks will be managed by the up-layer manager in fact. In non-transparent mode, the task manager will manage the tasks under it as before. The existing task manager in VDSM service will configure the task manager embedded in HSM service to transparent mode and manage the tasks in HSM service.
 
 VI)log service will be cloned to serve both VDSM and HSM service.
+
+<Category:Vdsm>

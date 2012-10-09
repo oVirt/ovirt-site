@@ -87,27 +87,28 @@ wiki_warnings: list-item?
 Have a radio button that will show either
 
 1.  All the hosts that this network is attached to
+    -   **Columns**- "Status image", Name, Cluster, Data Center, Status
+    -   **Actions**- Remove (detaches the network from the nic/bonds on the host)
 
-**Columns**- "Status image", Name, Cluster, Data Center, Status
+2.  All the hosts where this network attached to the cluster but not to the host (Very important for non-required where the host status does not indicate something is missing)
+    -   **Columns**- "Status image", Name, Cluster, Data Center, Status
+    -   **Actions**- SetupNetworks (link to SetupNetworks window)
 
-**Actions**- Remove (detaches the network from the nic/bons on the host)
+**Virtual Machines** (tree of VMs that have at least one vNIC attached to the network; under each VM - a list of the vNICs attached to the network) Have a radio button that will show either
 
-1.  All the hosts where this network attached to the cluster but not to the host (Very important for non-required where the host status does not indicate something is missing)
+1.  All the vms that this network is attached to
+    -   **Columns**- Name, ,nic (if more than one 'multiple'), Cluster, IP Address, Network, Status, Uptime
+    -   **Actions**- remove (multipule selection), remove from all
 
-**Columns**- "Status image", Name, Cluster, Data Center, Status
-
-**Actions**- SetupNetworks (link to SetupNetworks window)
-
-**Virtual Machines** (tree of VMs that have at least one vNIC attached to the network; under each VM - a list of the vNICs attached to the network)
-
-*   **Columns**- Name (Can be expanded to show a list of the vNICs the network is attached to) , Cluster, IP Address, Network, Status, Uptime
-*   **Actions**- none
+2.  All the vms where this network is not attached to
+    -   **Columns**- Name, Cluster, IP Address, Network, Status, Uptime
+    -   **Actions**- add (multiple selection)
 
 ![](NetworkVmTreeTab.png "fig:NetworkVmTreeTab.png")
-**Templates** (tree of templates that have at least one vNIC attached to the network, under each template- a list of the vNICs attached to the network)
+**Templates** (same as vm)
 
-*   **Columns**- Name (Can be expanded to show a list of the vNICs the network is attached to), Status, Cluster, Data Center
-*   **Actions**- none
+*   **Columns**- same as vm except IP Address and Uptime
+*   **Actions**- same as vm
 
 **Permissions**
 

@@ -52,6 +52,10 @@ wiki_last_updated: 2015-05-29
 
 *   run unit and functional tests on reviewed patches (before submission).
 
+<!-- -->
+
+*   add a unit test for domxml generation, with several examplary vmParams.
+
 ### Features
 
 *   Support striping for disk images.

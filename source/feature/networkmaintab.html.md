@@ -61,7 +61,7 @@ wiki_warnings: list-item?
 
 #### Main-Tab
 
-*   **Columns**- Name, Data Center, VM Network, VLAN tagging, Description
+*   **Columns**- Name, Data Center, VM Network, VLAN tagging, Mtu, Description
 *   **Actions**
 
     * Add - Same as Add network from Data Centers->Logical Networks sub tab. Only change- first field will be "Data Center" combo box. All the dialog under the "Data Center" combo will be refreshed according to the dc change.
@@ -88,7 +88,7 @@ Have a radio button that will show either
 
 1.  All the hosts that this network is attached to
     -   **Columns**- "Status image", Name, Cluster, Data Center, Status
-    -   **Actions**- Remove (detaches the network from the nic/bonds on the host)
+    -   **Actions**- Remove (detaches the network from the nic/bond on the host)
 
 2.  All the hosts where this network attached to the cluster but not to the host (Very important for non-required where the host status does not indicate something is missing)
     -   **Columns**- "Status image", Name, Cluster, Data Center, Status

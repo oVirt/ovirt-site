@@ -104,7 +104,6 @@ Have a radio button that will show either
     -   **Columns**- Name, Cluster, IP Address, Network, Status, Uptime
     -   **Actions**- add (multiple selection)
 
-![](NetworkVmTreeTab.png "fig:NetworkVmTreeTab.png")
 **Templates** (same as vm)
 
 *   **Columns**- same as vm except IP Address and Uptime

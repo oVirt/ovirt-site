@@ -94,7 +94,7 @@ Have a radio button that will show either
     -   **Columns**- "Status image", Name, Cluster, Data Center, Status
     -   **Actions**- SetupNetworks (link to SetupNetworks window)
 
-**Virtual Machines** (tree of VMs that have at least one vNIC attached to the network; under each VM - a list of the vNICs attached to the network) Have a radio button that will show either
+**Virtual Machines** Have a radio button that will show either
 
 1.  All the vms that this network is attached to
     -   **Columns**- Name, ,nic (if more than one 'multiple'), Cluster, IP Address, Network, Status, Uptime

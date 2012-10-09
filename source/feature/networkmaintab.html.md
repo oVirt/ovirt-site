@@ -83,7 +83,8 @@ wiki_warnings: list-item?
 *   **Actions**
 
 :\*Assign/Unassign Network ![](assignNet.png "fig:assignNet.png")
-**Hosts** (list of hosts the network is attached to one of its NICs) Have a radio button that will show either
+**Hosts** (list of hosts the network is attached to one of its NICs)
+Have a radio button that will show either
 
 #\* All the hosts that this network is attached to
 

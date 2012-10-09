@@ -86,15 +86,17 @@ wiki_warnings: list-item?
 **Hosts** (list of hosts the network is attached to one of its NICs)
 Have a radio button that will show either
 
-#\* All the hosts that this network is attached to
+1.  All the hosts that this network is attached to
 
-*   **Columns**- "Status image", Name, Cluster, Data Center, Status
-*   **Actions**- Remove (detaches the network from the nic/bons on the host)
+**Columns**- "Status image", Name, Cluster, Data Center, Status
 
-#\* All the hosts where this network attached to the cluster but not to the host (Very important for non-required where the host status does not indicate something is missing)
+**Actions**- Remove (detaches the network from the nic/bons on the host)
 
-*   **Columns**- "Status image", Name, Cluster, Data Center, Status
-*   **Actions**- SetupNetworks (link to SetupNetworks window)
+1.  All the hosts where this network attached to the cluster but not to the host (Very important for non-required where the host status does not indicate something is missing)
+
+**Columns**- "Status image", Name, Cluster, Data Center, Status
+
+**Actions**- SetupNetworks (link to SetupNetworks window)
 
 **Virtual Machines** (tree of VMs that have at least one vNIC attached to the network; under each VM - a list of the vNICs attached to the network)
 

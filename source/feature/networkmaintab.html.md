@@ -83,10 +83,17 @@ wiki_warnings: list-item?
 *   **Actions**
 
 :\*Assign/Unassign Network ![](assignNet.png "fig:assignNet.png")
-**Hosts** (list of hosts the network is attached to one of its NICs)
+**Hosts** (list of hosts the network is attached to one of its NICs) Have a radio button that will show either
+
+#\* All the hosts that this network is attached to
 
 *   **Columns**- "Status image", Name, Cluster, Data Center, Status
-*   **Actions**- none
+*   **Actions**- Remove (detaches the network from the nic/bons on the host)
+
+#\* All the hosts where this network attached to the cluster but not to the host (Very important for non-required where the host status does not indicate something is missing)
+
+*   **Columns**- "Status image", Name, Cluster, Data Center, Status
+*   **Actions**- SetupNetworks (link to SetupNetworks window)
 
 **Virtual Machines** (tree of VMs that have at least one vNIC attached to the network; under each VM - a list of the vNICs attached to the network)
 
@@ -110,7 +117,7 @@ wiki_warnings: list-item?
 SearchType.Network - add relevant search command
 
 **Tree**
-Networks:
+Networks: 1.2 Have a remove button for 1.1.1, ManageNetworks button for 1.1.2. Simple add will not do since you don't know where to add.
 
 *   "Network: datacenter.name ='dcName'"
 

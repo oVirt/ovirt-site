@@ -104,7 +104,7 @@ Use wget -O ~/.m2/settings.xml http://www.ovirt.org/w/images/1/18/Settings.xml.p
                               <id>oVirtEnvSettings</id>
                               <properties>
                                       <jbossHome>/usr/share/jboss-as</jbossHome>
-                                      <JAVA_HOME>/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.0.x86_64/bin/java</JAVA_HOME>
+                                      <JAVA_HOME>/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.0.x86_64/bin/java</JAVA_HOME>
                               </properties>
                       </profile>
                </profiles>

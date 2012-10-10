@@ -40,11 +40,12 @@ wiki_last_updated: 2013-06-04
 *   **MUST**: Can run multiple VMs
 *   **MUST**: Can connect to VMs using SPICE
 *   **MUST**: Have Release Notes with feature specific information
-*   **MUST**: Have updated docs available
+*   **MUST**: Have updated quick start guide available
 
 ### SHOULD
 
 *   **SHOULD**: Can run full cycle with gluster storage
+*   **SHOULD**: have updated installation guide available
 
 ## Features
 

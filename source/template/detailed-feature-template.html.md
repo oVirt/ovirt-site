@@ -10,7 +10,7 @@ wiki_last_updated: 2014-09-30
 
 # Detailed feature template
 
-The actual name of your feature page should look something like: "Your feature name". Use natural language to name the pages.
+The actual name of your feature page should look something like: "Your feature name". Use natural language to name the pages. Do *not* put in the name a fake-nesting e.g. "Feature/Your feature name".
 
 ## Your Feature Name
 

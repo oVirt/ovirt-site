@@ -51,6 +51,7 @@ Features being considered for inclusion/already in master:
         -   (possibly) add mouse support
     -   automation work -- refactor git repo to make standard python tools work
     -   glusterfs client support
+    -   full plugin support including example plugins (snmp, cim)
     -   general stability/cleanup
 
 <Category:Releases> [Category:Release management](Category:Release management)

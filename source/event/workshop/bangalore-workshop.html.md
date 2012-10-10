@@ -23,6 +23,8 @@ The [oVirt Project](http://www.ovirt.org) is an open virtualization project for 
 
 ## Event schedule
 
+This schedule is subject to last minute changes.
+
 | Time        | Title                                                                                             | Speaker                                    |
 |-------------|---------------------------------------------------------------------------------------------------|--------------------------------------------|
 | 09:00-09:15 | Welcome                                                                                           | James Rankin                               |
@@ -37,3 +39,5 @@ The [oVirt Project](http://www.ovirt.org) is an open virtualization project for 
 | 15:30-15:45 | colspan=2 | Break                                                                                 |
 | 15:45-17:15 | colspan=2 | Hands-on workshop using All-in-One USB drives                                         |
 | 17:15-17:30 | colspan=2 | Closing                                                                               |
+
+<Category:Workshops>

@@ -33,17 +33,3 @@ Accepted speakers should plan to submit their slides to [Leslie Hawthorn](http:/
 ### Deepak C Shetty and Harsh Prateek Bora
 
 [Integrating GlusterFS as a storage domain in VDSM and supporting storage array offloads from VDSM](http://lists.ovirt.org/pipermail/users/2012-September/003728.html)
-
-## Expected Submissions
-
-### Dell
-
-Our colleagues with Dell are interested in submitting talks for the workshop. Once these submissions have been sent to the oVirt users list, they will be linked from this page.
-
-### IBM
-
-Our colleagues with IBM are interested in submitting talks for the workshop. Once these submissions have been sent to the oVirt users list, they will be linked from this page.
-
-### Red Hat
-
-Several Red hat colleagues have expressed interest in proposing user and developer topics. Once these submissions have been sent to the oVirt users list, they will be linked from this page.

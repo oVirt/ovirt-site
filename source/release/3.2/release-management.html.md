@@ -22,6 +22,8 @@ wiki_last_updated: 2013-06-04
 
 To be finalised by October 10th
 
+## Features
+
 Features being considered for inclusion/already in master:
 
 *   Primarily a bug fix release (list of bugs would be useful)

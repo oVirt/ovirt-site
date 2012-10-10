@@ -23,7 +23,9 @@ oVirt Live is an unofficial spin of live fedora 17[1,2], based on oVirt 3.1 rele
 
 ## Why do we need it?
 
-This version can be used for POC or demos, and suppose to give a sneak preview for the working product operation. and provide an easy installation flow for the product.
+This version can be used for POC or demos, and suppose to give a sneak preview for the working product operation.
+
+simplify the the installation for new users, and will allow users to experiment with oVirt before later installing it.
 
 ## How can I use it?
 

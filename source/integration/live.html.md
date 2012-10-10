@@ -72,3 +72,51 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
        
 
 [Nested_KVM](http://wiki.ovirt.org/wiki/Vdsm_Developers#Running_Node_as_guest_-_Nested_KVM)
+
+## Releases
+
+oVirt-Live-0.5.iso - alpha version Oct 10th 2012
+
+### Status
+
+#### functionality/usage
+
+-system boots and performs auto-login to oVirtuser
+
+-ovirt setup needs to be run from gnome favourites
+
+-user can choose either automatic/interactive install
+
+-when setup is finished the user can open welcome page in firefox using ovirt-engine application from gnome favourites
+
+#### branding
+
+-basic background is there
+
+-basic icons are there
+
+#### ToDo
+
+##### func
+
+-create a following plugin to allInOne to configure and run vm, create template etc. -in progress
+
+-shorten host installation time
+
+##### branding
+
+-wide/normal background
+
+##### features/usage
+
+= -add a python IDE to play with sdk
+
+##### maintenance
+
+-git build env
+
+#### Problems/Bugs
+
+-persistent storage is slow - bigger it gets - slower it is
+
+-need to add all workarounds to ovirt code base.

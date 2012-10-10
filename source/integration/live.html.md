@@ -45,4 +45,30 @@ can be used either as read only or with persistent storage
 
 you can run this iso on a vm, using nested virtualization you can run nested vms within it.
 
+the flow which worked for me:
+
+       # cat /sys/module/kvm_intel/parameters/nested
+       N
+       # vi /etc/default/grub
+       GRUB_CMDLINE_LINUX="rd.md=0 rd.dm=0  KEYTABLE=us SYSFONT=True rd.lvm.lv=vg/lv_root rd.luks=0 rd.lvm.lv=vg/lv_swap LANG=en_US.UTF-8 rhgb quiet kvm-intel.nested=1" #Add kvm-intel.nested=1 in the end of the boot options
+       # grub2-mkconfig -o /boot/grub2/grub.cfg
+       #reboot
+       # virsh capabilities  (collecting data from hypervisor)
+        ...
+          <cpu>
+            <model>Penryn</model>
+            <vendor>Intel</vendor>
+            <feature policy='require' name='vmx'/>
+          </cpu>
+        ....
+       
+
+create a vm with your favourite manager (ovirt ;) add the <cpu> output from virsh to your vm xml adding match='exact' to <cpu>
+
+       # vi /etc/libvirt/qemu/your_vm_name
+       <cpu match='exact'>
+       ...
+       </cpu>
+       
+
 [Nested_KVM](http://wiki.ovirt.org/wiki/Vdsm_Developers#Running_Node_as_guest_-_Nested_KVM)

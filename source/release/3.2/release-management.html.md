@@ -18,9 +18,34 @@ wiki_last_updated: 2013-06-04
     -   Feature freeze: **November 14th**
     -   Test Day: **November 19th**
 
-## Release Criteria
+## Release Criteria (DRAFT)
 
-To be finalised by October 10th
+### General
+
+*   All sources must be available on ovirt.org
+
+### MUST
+
+*   **MUST**: No blockers on the lower level components - libvirt, lvm,device-mapper,qemu-kvm, Jboss, postgres, iscsi-initiator
+*   **MUST**: All image related operations work - copy, move, import, export, snapshot (vm and template)
+*   **MUST**: Ovirt/host installation should work flawlessly (w/o SSL)
+*   **MUST**: Fully operational flow (define DC hierarchy so you can run vm) with GUI/CLI/Python-API/REST-API
+*   **MUST**: vm life-cycle is working flawlessly (start,suspend,resume,stop,migrate)
+*   **MUST**: Upgrade from previous release
+*   **MUST**: ovirt-node full cycle (register, approve and running VM)
+*   **MUST**: No known data corruptors
+*   **MUST**: Can define NFS, iSCSI, FC and local based storage domains
+*   **MUST**: Can define VLAN based networks, bond interfaces, and have VLANs over bonded interfaces
+*   **MUST**: Can authenticate users against at least one external LDAP server
+*   **MUST**: Can run multiple VMs
+*   **MUST**: Can connect to VMs using SPICE
+*   **MUST**: Have Release Notes with feature specific information
+*   **MUST**: Have updated docs available
+*   **MUST**: Can run full cycle with gluster storage
+
+### SHOULD
+
+*   **SHOULD**:
 
 ## Features
 

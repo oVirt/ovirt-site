@@ -41,6 +41,7 @@ wiki_last_updated: 2013-06-04
 *   **MUST**: Can connect to VMs using SPICE
 *   **MUST**: Have Release Notes with feature specific information
 *   **MUST**: Have updated quick start guide available
+*   **MUST**: No regressions from 3.1 Release
 
 ### SHOULD
 

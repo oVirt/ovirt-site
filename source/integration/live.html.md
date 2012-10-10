@@ -113,7 +113,7 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 ###### features/usage
 
-= -add a python IDE to play with sdk
+-add a python IDE to play with sdk
 
 ###### maintenance
 

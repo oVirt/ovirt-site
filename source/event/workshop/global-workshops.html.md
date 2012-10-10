@@ -51,11 +51,7 @@ We are currently working to locate a place to host a workshop in the LATAM regio
 
 #### Red Hat Bangalore Campus Workshop Outstanding Action Items
 
-*   Review incoming talk proposals as requested on the oVirt mailing lists.
-*   Create workshop agenda based on results of call for papers and previous presenters who have volunteered to present.
-*   Promote workshop.
-
-While we have not yet been given a deadline for these action items, it would be best to get the information together sooner rather than later.
+*   Publish workshop agenda based on results of call for papers and previous presenters who have volunteered to present.
 
 ## LinuxCon Europe 2012
 

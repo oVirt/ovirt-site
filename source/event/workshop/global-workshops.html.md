@@ -48,6 +48,7 @@ We are currently working to locate a place to host a workshop in the LATAM regio
 
 *   The workshop is free of charge. Facilities at Red Hat Bangalore can accomodate at least 50 participants. We will look at adding additional participant slots based on demand.
 *   Beverage breaks and lunch will be provided to all attendees.
+*   Full details of workshop, including a draft schedule, are on the [Bangalore oVirt Workshop](Bangalore oVirt Workshop) page.
 
 #### Red Hat Bangalore Campus Workshop Outstanding Action Items
 

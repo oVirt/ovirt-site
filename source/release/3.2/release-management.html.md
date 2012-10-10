@@ -41,11 +41,10 @@ wiki_last_updated: 2013-06-04
 *   **MUST**: Can connect to VMs using SPICE
 *   **MUST**: Have Release Notes with feature specific information
 *   **MUST**: Have updated docs available
-*   **MUST**: Can run full cycle with gluster storage
 
 ### SHOULD
 
-*   **SHOULD**:
+*   **SHOULD**: Can run full cycle with gluster storage
 
 ## Features
 

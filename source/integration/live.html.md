@@ -77,11 +77,13 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 ## Releases
 
-oVirt-Live-0.5.iso - alpha version Oct 10th 2012
+### oVirt-Live-0.5.iso - alpha version Oct 10th 2012
 
-### Status
+=
 
-#### functionality/usage
+#### Status
+
+##### functionality/usage
 
 -system boots and performs auto-login to oVirtuser
 
@@ -91,33 +93,33 @@ oVirt-Live-0.5.iso - alpha version Oct 10th 2012
 
 -when setup is finished the user can open welcome page in firefox using ovirt-engine application from gnome favourites
 
-#### branding
+##### branding
 
 -basic background is there
 
 -basic icons are there
 
-#### ToDo
+##### ToDo
 
-##### func
+###### func
 
 -create a following plugin to allInOne to configure and run vm, create template etc. -in progress
 
 -shorten host installation time
 
-##### branding
+###### branding
 
 -wide/normal background
 
-##### features/usage
+###### features/usage
 
 = -add a python IDE to play with sdk
 
-##### maintenance
+###### maintenance
 
 -git build env
 
-#### Problems/Bugs
+##### Problems/Bugs
 
 -persistent storage is slow - bigger it gets - slower it is
 

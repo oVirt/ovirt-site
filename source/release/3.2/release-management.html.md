@@ -44,5 +44,13 @@ Features being considered for inclusion/already in master:
     -   user level api
     -   automatic storage domain upgrade
     -   Japanese localization
+*   Node
+    -   TUI redesign
+        -   make it easier for plugins to be designed/written
+        -   make it work in resolution other than 80x20
+        -   (possibly) add mouse support
+    -   automation work -- refactor git repo to make standard python tools work
+    -   glusterfs client support
+    -   general stability/cleanup
 
 <Category:Releases> [Category:Release management](Category:Release management)

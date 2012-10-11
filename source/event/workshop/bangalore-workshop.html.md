@@ -34,7 +34,7 @@ This schedule is subject to last minute changes.
 | 11:00-11:45 | Integrating Base Board Management Controller (BMC)                                                | Srinivasa Gowda and Surya Prabhakar (Dell) |
 | 11:45-12:30 | Setting up a test environment for large scale oVirt deploymnent                                   | R. Kanagaraj                               |
 | 12:30-14:00 | colspan=2 | Lunch                                                                                 |
-| 14:00-14:45 | oVirt project roadmap                                                                             | Itamar Heim                                |
+| 14:00-14:45 | oVirt project roadmap                                                                             | Itamar Heim (remote)                       |
 | 14:45-15:30 | Overview of Webadmin and UI Frameworks                                                            | M. Kanagaraj                               |
 | 15:30-15:45 | colspan=2 | Break                                                                                 |
 | 15:45-17:15 | colspan=2 | Hands-on workshop using All-in-One USB drives                                         |

@@ -101,7 +101,7 @@ Have a radio button that will show either
     -   **Columns**- Name, ,nic (if more than one 'multiple'), Cluster, IP Address, Network, Status, Uptime
     -   **Actions**- remove (multipule selection), remove from all
 
-2.  All the vms where this network is not attached to
+2.  All the vms where this network is not attached to (but attached to the cluster)
     -   **Columns**- Name, Cluster, IP Address, Network, Status, Uptime
     -   **Actions**- add (multiple selection)
 
@@ -141,9 +141,17 @@ Network: (search by network properties)
 **Queries for the sub tabs**
 
 1.  Clusters - returns all the clusters the networks is attached to.
-2.  Hosts- returns all the hosts the network is attached to one of their nics.
-3.  Virtual Machines- returns all the vms that have at least one vnic on the network.
-4.  Templates- returns all the templates that have at least one vnic on the network.
+2.  Hosts
+    -   returns all the hosts the network is attached to one of their nics.
+    -   All the hosts where this network attached to the cluster but not to the host
+
+3.  Virtual Machines
+    -   returns all the vms that have at least one vnic on the network.
+    -   All the vms where this network is not attached to (but attached to the cluster)
+
+4.  Templates
+    -   returns all the templates that have at least one vnic on the network.
+    -   All the templates where this network is not attached to (but attached to the cluster)
 
 ### Documentation / External references
 

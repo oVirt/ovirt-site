@@ -77,7 +77,7 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 ## Releases
 
-### oVirt-Live-0.5.iso - alpha version Oct 10th 2012
+### oVirt-Live-0.5.iso - **alpha** version Oct 10th 2012
 
 =
 
@@ -91,7 +91,22 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 -user can choose either automatic/interactive install
 
--when setup is finished the user can open welcome page in firefox using ovirt-engine application from gnome favourites
+-when setup is finished, the user can open welcome page in firefox using ovirt-engine application from gnome favourites
+
+-confirm security exception and login to Administrator Portal login using admin/oVirt!
+
+[this section is about to be automated]
+
+-go to datacenter tab and on the storage subtab down below click on attach iso following activate.
+
+from cmd run:
+
+       sudo mv ovirtLiveCd/Fedora-17-x86_64-Live-Desktop.iso /usr/local/ovirt/iso/xxxx-your-uuid/images/11111111-1111-1111-1111-111111111111/
+       sudo chown 36:36 /usr/local/ovirt/iso/xxxx-your-uuid/images/11111111-1111-1111-1111-111111111111/Fedora-17-x86_64-Live-Desktop.iso 
+
+-go to the vm tab and create a new vm
+
+-use run once dialog and change boot order to boot from CD , attach Fedora ISO to the CD.
 
 ##### branding
 

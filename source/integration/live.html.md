@@ -111,7 +111,7 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 -selinux disabled - workaround to sanlock problem
 
--added ovirt_live plugin - performs attachment of iso domain to the DC, and creating vm with disk and network
+-added ovirt_live plugin - performs attachment of iso domain to the DC, and creating vm with disk and network - Thanks to Ofer
 
 -changed ovirt-setup icons
 

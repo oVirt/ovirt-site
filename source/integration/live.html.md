@@ -79,8 +79,6 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 ### oVirt-Live-0.5.iso - alpha version Oct 10th 2012
 
-=
-
 #### Download
 
 [download oVirt-Live-0.5.iso](http://ovirt.org/releases/3.1/tools/oVirt-Live-0.5.iso)
@@ -103,9 +101,27 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 -basic icons are there
 
+### oVirt-Live-0.6.iso - alpha version Oct 12th 2012
+
+#### Download
+
+[download oVirt-Live-0.6.iso](http://ovirt.org/releases/3.1/tools/oVirt-Live-0.6.iso)
+
+#### change-log
+
+-selinux disabled - workaround to sanlock problem
+
+-added ovirt_live plugin - performs attachment of iso domain to the DC, and creating vm with disk and network
+
+-changed ovirt-setup icons
+
+-shorten host installation time by around 4 minutes
+
 ##### ToDo
 
 ###### func
+
+------------------------------------------------------------------------
 
 -create a following plugin to allInOne to configure and run vm, create template etc. -in progress
 

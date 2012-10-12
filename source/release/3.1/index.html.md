@@ -39,7 +39,7 @@ The oVirt 3.1 release includes these notable changes.
 ### Storage
 
 *   Support has been added for presenting any block device as a local disk attached to a virtual machine simply by specifying the device's GUID. This provides **directlun** support, which previously had to be implemented using a VDSM hook ([Features/Direct_Lun](Features/Direct_Lun)).
-*   Support has been added to VDSM, and by extension oVirt Engine, for the attachment and use of NFSv4 storage ([Features/NFSv4](Features/NFSv4).
+*   Support has been added to VDSM, and by extension oVirt Engine, for the attachment and use of NFSv4 storage ([Features/NFSv4)](Features/NFSv4)).
 *   It is now possible to override some of VDSM's default NFS settings from the oVirt Engine when attaching storage ([Features/AdvancedNfsOptions](Features/AdvancedNfsOptions)).
 *   Support has been added for the attachment and use of POSIX filesystem compliant storage, allowing users to attach any type of storage supported by **mount** ([Features/PosixFSConnection](Features/PosixFSConnection)).
 *   Support for defining the priority of hosts in the storage pool manager (SPM) selection process has been added. Hosts can also be assigned a priority of **-1**m which means that they must not be selected as the SPM ([Features/SPMPriority](Features/SPMPriority)).

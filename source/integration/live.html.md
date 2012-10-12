@@ -121,11 +121,9 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 ###### func
 
-------------------------------------------------------------------------
+-create a following plugin to allInOne to configure and run vm, create template etc. -done
 
--create a following plugin to allInOne to configure and run vm, create template etc. -in progress
-
--shorten host installation time
+-shorten host installation time - done
 
 ###### branding
 

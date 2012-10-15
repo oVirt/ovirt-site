@@ -58,7 +58,7 @@ Features being considered for inclusion/already in master:
     -   [ Make network a main tab](Feature/NetworkMainTab)
     -   [ Import of existing gluster clusters](Features/Gluster Import Existing Cluster)
     -   Bootstrap improvements
-    -   [ SLA is a target for inclusion (MOM)](Features/MomIntegration)
+    -   [ SLA is a target for inclusion (MOM)](SLA-mom)
     -   CAC support in user portal for spice
     -   VM creation base on pre-defined profiles (instance types)
     -   libvdsm preview

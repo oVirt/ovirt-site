@@ -29,8 +29,31 @@ This is the agenda for the 2012-09-19 meeting:
 
 *   oVirt Weekly Sync
     -   Wednesdays @ 15:00 UTC (may change during DST changes) - always at 7:00am US Pacific, 10:00am US Eastern.
-    -   To see in your timezone '''date -d 'WEDNESDAY 1000 EDT' **\1**date -d 'TUESDAY 0900 EDT' **\1**date -d 'TUESDAY 1000 EDT' **\1**date --date='TZ="Asia/Jerusalem" 16:00 next Wed' **\1**date --date='TZ="Asia/Jerusalem" 16:30 next Mon' '''
-    -   On IRC: #vdsm on chat.freenode.net
+    -   To see in your timezone '''date -d 'WEDNESDAY 1000 EDT' **\1**date -d 'TUESDAY 0900 EDT' **\1**date -d 'TUESDAY 1000 EDT' **\1**date --date='TZ="Asia/Jerusalem" 16:00 next Wed' '''
+    -   To see if this is a week with a meeting,
+
+      ` wk=`date --date='TZ="Asia/Jerusalem" 16:30 next Wed' +"%W"`; `
+      if [ $(($wk % 2)) == 1 ]; then
+        echo "Meeting next Wednesday";
+      else
+        echo "No meeting next Wednesday";
+      fi
+
+*   -   On IRC: #ovirt on irc.oftc.net
+    -   Intercall (see [here](intercall) for more info) conference ID: 1814335863
+*   VDSM Bi-Weekly Sync
+    -   Monday (bi-weekly) @ 14:30 UTC (may change during DST changes) - always at 16:30 Israel.
+    -   To see in your timezone '''date --date='TZ="Asia/Jerusalem" 16:30 next Mon' '''
+    -   To see if this is a week with a meeting,
+
+      ` wk=`date --date='TZ="Asia/Jerusalem" 16:30 next Mon' +"%W"`; `
+      if [ $(($wk % 2)) == 1 ]; then
+        echo "Meeting next Monday";
+      else
+        echo "No meeting next Monday";
+      fi
+
+*   -   On IRC: #vdsm on chat.freenode.net
     -   Intercall (see [here](intercall) for more info) conference ID: 842-597-391-5
 
 ### MeetBot

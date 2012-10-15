@@ -364,7 +364,7 @@ option to appropriate option format adding prefix or suffix.
 
 ##### show resource using client side filtering
 
-         [oVirt shell (connected)]# show vm --kwargs "id=f4a51ae1-4f31-45ee-ab6d-d5965e3bcf71"
+         [oVirt shell (connected)]# show vm --id "id=f4a51ae1-4f31-45ee-ab6d-d5965e3bcf71"
          
          id                        : f4a51ae1-4f31-45ee-ab6d-d5965e3bcf71
          name                      : iscsi_desktop

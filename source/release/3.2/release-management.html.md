@@ -63,7 +63,7 @@ Features being considered for inclusion/already in master:
     -   VM creation base on pre-defined profiles (instance types)
     -   libvdsm preview
     -   Storage live migration (needs to be checked)
-    -   Sync network
+    -   [ Sync network](SetupNetworks_SyncNetworks)
     -   nwfilter
     -   webadmin: allow column resizing & sorting in grid (bz 767924)
     -   port mirroring

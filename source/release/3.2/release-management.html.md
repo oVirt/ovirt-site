@@ -64,7 +64,7 @@ Features being considered for inclusion/already in master:
     -   libvdsm preview
     -   Storage live migration (needs to be checked)
     -   [ Sync network](SetupNetworks_SyncNetworks)
-    -   nwfilter
+    -   [ nwfilter](Features/Design/Network/NetworkFiltering)
     -   webadmin: allow column resizing & sorting in grid (bz 767924)
     -   port mirroring
     -   user level api

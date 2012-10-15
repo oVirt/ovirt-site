@@ -24,8 +24,9 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Hosting
 *   Trac review
 *   Puppet
-*   Jenkings
+*   Jenkins
 *   Gerrit
+*   Infra presentation at oVirt Workshop -- Barcelona
 
 ## 2012-10-09
 

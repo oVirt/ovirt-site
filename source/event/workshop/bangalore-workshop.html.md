@@ -32,7 +32,7 @@ This schedule is subject to last minute changes.
 | 10:00-10:45 | Integrating GlusterFS as a storage domain in VDSM and supporting storage array offloads from VDSM | Deepak C Shetty, Harsh Prateek Bora (IBM)  |
 | 10:45-11:00 | colspan=2 | Break                                                                                 |
 | 11:00-11:45 | Integrating Base Board Management Controller (BMC)                                                | Srinivasa Gowda and Surya Prabhakar (Dell) |
-| 11:45-12:30 | (presentation cancelled - alternative arrangements to be decided)                                 |                                            |
+| 11:45-12:30 | oVirt Storage - integrating Gluster                                                               | To be decided                              |
 | 12:30-14:00 | colspan=2 | Lunch                                                                                 |
 | 14:00-14:45 | oVirt project roadmap                                                                             | Itamar Heim (remote)                       |
 | 14:45-15:30 | Overview of Webadmin and UI Frameworks                                                            | M. Kanagaraj                               |

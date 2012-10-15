@@ -12,9 +12,20 @@ wiki_last_updated: 2014-05-12
 
 This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrastructure Team meeting.
 
-*   *When:* Tuesday @ 14:00 UTC (may change during DST changes) - always at 10:00am US Eastern.
-    -   To see in your timezone date -d 'TUESDAY 1000 EDT'
+*   *When:* Monday @ 15:00 UTC (may change during DST changes) - always at 10:00am US Eastern.
+    -   To see in your timezone date -d 'MONSAY 1100 EDT'
 *   *Where:* On IRC: #ovirt on irc.oftc.net
+
+## 2012-10-15
+
+*Agenda*
+
+*   MediaWiki & www
+*   Hosting
+*   Trac review
+*   Puppet
+*   Jenkings
+*   Gerrit
 
 ## 2012-10-09
 

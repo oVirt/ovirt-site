@@ -57,7 +57,8 @@ Features being considered for inclusion/already in master:
     -   [ UI plugins](Features/UIPlugins)
     -   [ Make network a main tab](Feature/NetworkMainTab)
     -   [ Import of existing gluster clusters](Features/Gluster Import Existing Cluster)
-    -   Bootstrap improvements
+    -   [Bootstrap improvements](Featrues/Bootstrap Improvements)
+    -   [PKI improvments](Features/PKI Improvements)
     -   [ SLA is a target for inclusion (MOM)](SLA-mom)
     -   [ Improving Quota for 3.2](Features/Quota-3.2)
     -   CAC support in user portal for spice

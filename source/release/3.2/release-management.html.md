@@ -64,7 +64,7 @@ Features being considered for inclusion/already in master:
     -   CAC support in user portal for spice
     -   VM creation base on pre-defined profiles (instance types)
     -   libvdsm preview
-    -   Storage live migration (needs to be checked)
+    -   [ Storage live migration](Features/Design/StorageLiveMigration) (needs to be checked)
     -   [ Sync network](SetupNetworks_SyncNetworks)
     -   [ nwfilter](Features/Design/Network/NetworkFiltering)
     -   webadmin: allow column resizing & sorting in grid (bz 767924)

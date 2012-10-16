@@ -35,7 +35,10 @@ Improving Quota which oVirt introduced in 3.1.
 ### Detailed Description
 
 *   3.1 proposal: <http://wiki.ovirt.org/wiki/Features/Quota>
-*   TBD
+*   The quota feature on 3.2 would consist of two main parts:
+
+      * Implementation changes from 3.1 - the quota consumption/release mechanism would be embedded into lower layers, in order to achieve more infrastructure like behavior.
+      * UI and REST API changes – 3.1 UI would be extended and the support for quota in user portal would be redesigned. REST API will be added.
 
 ### Benefit to oVirt
 

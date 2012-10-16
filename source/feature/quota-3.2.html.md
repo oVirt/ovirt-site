@@ -24,7 +24,13 @@ Improving Quota which oVirt introduced in 3.1.
 
 ### Current status
 
-*   Last updated date: TBD
+*   Last updated date: Oct16th 2012
+*   In progress: QuotaManager refactoring - design draft
+*   DB changes to support Multiple storage-domains images
+*   Pending: QuotaManager refactoring - implementation
+*   Pending: REST API
+*   Pending: UI changes to administrator portal
+*   Pending: UI changes to user portal
 
 ### Detailed Description
 

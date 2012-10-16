@@ -587,32 +587,7 @@ no special format, just commands in plain text
 
 #### Examples
 
-##### Run all vms 1
-
-1. run rhevm command and process the output saving it in to data holder
-
-       [RHEVM shell (connected)]# list vms | grep name > vms.txt
-
-2. create new script at runtime
-
-       [RHEVM shell (connected)]# !less vms.txt | sed s/'name       :'/'action vm'/ | sed -e 's/$/ start/' > new_script_to_run.txt
-
-3. invoke new script at runtime
-
-       [RHEVM shell (connected)]# file new_script_to_run.txt
-
-4. actual script (less run_all_vms.txt)
-
-       list vms | grep name > vms.txt
-       !less vms.txt | sed s/'name       :'/'action vm'/ | sed -e 's/$/ start/' > new_script_to_run.txt
-       file new_script_to_run.txt
-       
-
-5. run the script
-
-       [RHEVM shell (connected)]# file run_all_vms.txt
-
-##### Run all vms 2
+##### Run all vms
 
 1. run rhevm command and process the output saving it in to tmp data holder
 

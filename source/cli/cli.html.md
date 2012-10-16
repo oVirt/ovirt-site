@@ -628,7 +628,7 @@ no special format, just commands in plain text
        file new_script_to_run.txt
        
 
-4. run the script
+3. run the script
 
        [RHEVM shell (connected)]# file run_all_vms.txt
 

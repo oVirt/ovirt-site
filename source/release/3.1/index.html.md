@@ -119,8 +119,6 @@ Suggested quick start path for new users:
 
 oVirt Node is distributed as a compact image for use on a variety of installation media. It provides a minimal installation of Fedora and includes the packages necessary to support use of the system as a virtualization host in an environment controlled by oVirt Engine.
 
-*NOTE: Due to [an issue](https://bugzilla.redhat.com/show_bug.cgi?id=845660) affecting NFS storage domains and the current Linux 3.5-based Fedora kernel, we recommend testing with a [ Fedora host](#Fedora_Host) running a pre-3.5 version of the Linux kernel.*
-
 To install oVirt Node:
 
 *   Download the latest oVirt Node ISO from <http://ovirt.org/releases/3.1/tools/>

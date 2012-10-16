@@ -597,14 +597,18 @@ no special format, just commands in plain text
 
        [RHEVM shell (connected)]# !less vms.txt | sed s/'name       :'/'action vm'/ | sed -e 's/$/ start/' > new_script_to_run.txt
 
-3. actual script (less run_all_vms.txt)
+3. invoke new script at runtime
+
+       [RHEVM shell (connected)]# file new_script_to_run.txt
+
+4. actual script (less run_all_vms.txt)
 
        list vms | grep name > vms.txt
        !less vms.txt | sed s/'name       :'/'action vm'/ | sed -e 's/$/ start/' > new_script_to_run.txt
        file new_script_to_run.txt
        
 
-4. invoke new script at runtime
+5. run the script
 
        [RHEVM shell (connected)]# file run_all_vms.txt
 

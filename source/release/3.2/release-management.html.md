@@ -55,7 +55,7 @@ Features being considered for inclusion/already in master:
 *   Primarily a bug fix release (list of bugs would be useful)
 *   Engine
     -   [ UI plugins](Features/UIPlugins)
-    -   [ Make network a main tab](Feature/NetworkMainTab)
+    -   [ Make network a main tab](Feature/NetworkMainTab) - stretch goal for 3.2
     -   [ Import of existing gluster clusters](Features/Gluster Import Existing Cluster)
     -   [Bootstrap improvements](Featrues/Bootstrap Improvements)
     -   [PKI improvments](Features/PKI Improvements)

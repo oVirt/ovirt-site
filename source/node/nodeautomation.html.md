@@ -33,11 +33,11 @@ This feature adds a continous testing of oVirt Node.
 
 ### Detailed Description
 
-TBD
+A framework is beeing developed which allows to run arbitary tests on an up-and-running oVirt Node. A main focus was to make the framework and handling host agnostic (so running in a VM as well as on real hardware without any modifications).
 
 ### Benefit to oVirt
 
-TBD
+Detecting regressions early and offering a more stable oVirt Node image.
 
 ### Dependencies / Related Features
 

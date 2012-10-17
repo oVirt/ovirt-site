@@ -74,12 +74,8 @@ Features being considered for inclusion/already in master:
     -   Japanese localization
 *   Node
     -   [ TUI redesign](Features/TUIredesign)
-        -   make it easier for plugins to be designed/written
-        -   make it work in resolution other than 80x20
-        -   (possibly) add mouse support
     -   [ Node automation](Features/NodeAutomation) work -- refactor git repo to make standard python tools work
-    -   glusterfs client support
+    -   [ glusterfs client support](Node_Glusterfs_Support)
     -   full plugin support including example plugins (snmp, cim)
-    -   general stability/cleanup
 
 <Category:Releases> [Category:Release management](Category:Release management)

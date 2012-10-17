@@ -8,51 +8,43 @@ wiki_revision_count: 2
 wiki_last_updated: 2012-10-17
 ---
 
-# Node Glusterfs Support
-
 The actual name of your feature page should look something like: "Your feature name". Use natural language to [name the pages](How to make pages#Page_naming).
 
-## Your Feature Name
+# Node Glusterfs Support
 
 ### Summary
 
-A sentence or two summarizing what this feature is and what it will do. This information is used for the overall feature summary page for each release.
+Include support for using Gluster based storage on oVirt Node. Gluster storage is supported already with normal Fedora OS installs. This feature will add support into oVirt Node to be able to use Gluster storage as well.
 
 ### Owner
 
 This should link to your home wiki page so we know who you are
 
-*   Name: [ My User](User:MyUser)
-
-Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
-
-*   Email: <my@email>
+*   Name: [ Mike Burns](User:mburns)
+*   Email: mburns AT redhat DOT com
 
 ### Current status
 
-*   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
-*   Last updated date: ...
+*   100% Code Complete
 
 ### Detailed Description
 
-Expand on the summary, if appropriate. A couple sentences suffices to explain the goal, but the more details you can provide the better.
+Mostly, this is a simple feature for including the glusterfs client rpms and related kernel modules which were previously blacklisted.
 
 ### Benefit to oVirt
 
-What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
+Add a previously missing functionality to oVirt Node to reduce the gap between a full OS and the simpler to use oVirt Node.
 
 ### Dependencies / Related Features
 
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
+3.1 Feature for including Glusterfs support (in existing release)
 
 ### Documentation / External references
 
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
+Release Notes:
+
+Add the ability to use Gluster Storage with oVirt Node. Previously, when using oVirt Node, Gluster storage was not an option due to missing kernel modules and client RPMS. These RPMS and kmods are now included.
 
 ### Comments and Discussion
-
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
-
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
 
 <Category:Feature> <Category:Template> <Category:Node-Feature>

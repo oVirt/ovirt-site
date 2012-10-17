@@ -51,7 +51,7 @@ Changes:
 Behavior:
 
 *   this checkbox is enabled only for the Spice client, it is visible but disabled for VNC.
-*   if the checkbox is checked and the user starts a VM, engine sends the *smartcard_enabled* as true to the VDSM (please refer to the VDSM part of this document for it's meaning)
+*   if the checkbox is checked and the user starts a VM, engine sends the *smartcardEnable* as true to the VDSM (please refer to the VDSM part of this document for it's meaning)
 *   if the checkbox is checked (e.g. smartcard is enabled) and the user clicks the console button (e.g. connects to guest), the application sets the *Smartcard* property on the spice-xpi plugin to true which has the same effect than calling the *spicec --smartcard*
 
 #### REST API
@@ -82,9 +82,14 @@ Behavior:
 
 #### VDSM
 
-*   When VDSM receives an argument *smartcard_enabled* with value true it adds to the libvirt configuration to the *devices* part the following
+*   When VDSM receives an argument *smartcardEnable* with value true it adds to the libvirt configuration to the *devices* part the following
 
       <smartcard mode="passthrough" type="spicevmc"/>
+       
+
+*   Example of creating a VM using vdsClient with smartcard support turned on:
+
+      ` vdsClient 0 create /dev/null vmId=`uuidgen` macAddr=00:11:22:33:44:55 display=qxl memSize=256 smartcardEnable=true `
        
 
 ### Documentation / External references

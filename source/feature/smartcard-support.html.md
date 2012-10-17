@@ -12,10 +12,8 @@ wiki_last_updated: 2013-01-21
 
 ### Summary
 
-*   Adds the support to enable/disable smartcard per VM from frontend and REST API
+*   Adds the support to enable/disable smartcard per VM from Webadmin/Power User Portal and REST API
 *   Makes the VDSM to support smartcard by standard way (not by a hook)
-
-### Detailed Description
 
 ### Owner
 
@@ -27,10 +25,67 @@ wiki_last_updated: 2013-01-21
 Pending review:
 
 *   VDSM: <http://gerrit.ovirt.org/#/c/8450/>
-*   Engine + GUI: <http://gerrit.ovirt.org/#/c/8484/>
+*   Engine + Webadmin/Power User Portal: <http://gerrit.ovirt.org/#/c/8484/>
 *   REST API: <http://gerrit.ovirt.org/#/c/8512/>
 
+### Restrictions
+
+*   Works only with spice client
+*   Works only with spice-xpi-2.7-10 or higher browser plugin
+*   Does not work with spice-activex-win browser plugin
+
 ### Detailed Description
+
+#### Webadmin/Power User Portal
+
+Affected dialogs:
+
+*   new/edit VM dialog
+*   new/edit Pool dialog
+*   edit template dialog contains in console
+
+Changes:
+
+*   on all of this dialogs in console side tab a new checkbox with label "Smartcard enabled" has been added.
+
+Behavior:
+
+*   this checkbox is enabled only for the Spice client, it is visible but disabled for VNC.
+*   if the checkbox is checked and the user starts a VM, engine sends the *smartcard_enabled* as true to the VDSM (please refer to the VDSM part of this document for it's meaning)
+*   if the checkbox is checked (e.g. smartcard is enabled) and the user clicks the console button (e.g. connects to guest), the application sets the *Smartcard* property on the spice-xpi plugin to true which has the same effect than calling the *spicec --smartcard*
+
+#### REST API
+
+*   the *display* now contains a new optional property *smartcard_enabled*.
+*   if not set, the default value is false
+*   example of creating a VM with smartcard enabled:
+
+      <vm>
+          <name>vm2</name>
+          <description>Virtual Machine 2</description>
+          <type>desktop</type>
+          <memory>536870912</memory>
+          <cluster>
+              <name>Default</name>
+          </cluster>
+          <template>
+              <name>Blank</name>
+          </template>
+          <os>
+            <boot dev="hd"/>
+          </os>
+          <display>
+              <smartcard_enabled>true</smartcard_enabled>
+          </display>
+      </vm>
+       
+
+#### VDSM
+
+*   When VDSM receives an argument *smartcard_enabled* with value true it adds to the libvirt configuration to the *devices* part the following
+
+      <smartcard mode="passthrough" type="spicevmc"/>
+       
 
 ### Documentation / External references
 

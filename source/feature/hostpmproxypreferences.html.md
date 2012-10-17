@@ -10,28 +10,27 @@ wiki_last_updated: 2012-11-11
 
 # Host PM Proxy Preferences
 
-Note this is Work In Progress for now The actual name of your feature page should look something like: "Your feature name". Use natural language to [name the pages](How to make pages#Page_naming).
+Note this is Work In Progress for now
 
-## Your Feature Name
+## Hosts Power Management
 
 ### Summary
 
-A sentence or two summarizing what this feature is and what it will do. This information is used for the overall feature summary page for each release.
+The Host Power Management feature allows the oVirt engine to remotely control the host power in order to execute the fencing command as part of the high availability features, or allow the user to manually commit remote operations as PowerOff, PowerOn, and Restart.
 
 ### Owner
 
-This should link to your home wiki page so we know who you are
+*   Name: [ Simon Grinberg](User:MyUser)
 
-*   Name: [ My User](User:MyUser)
+<!-- -->
 
-Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
-
-*   Email: <my@email>
+*   Email: sgrinber@redhat.com
 
 ### Current status
 
-*   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
-*   Last updated date: ...
+The current implementation of the Power Management is focused on supporting the most popular power management device, while the fencing proxi selection is naive, and there is no support for topologies where redundant power supply exists which requires supporting additional power management device.
+
+*   Last updated date:
 
 ### Detailed Description
 
@@ -47,7 +46,7 @@ What other packages depend on this package? Are there changes outside the develo
 
 ### Documentation / External references
 
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
+[ <http://h20566.www2.hp.com/portal/site/hpsc/public/kb/docDisplay/?docId=emr_na-c02510164&ac.admitted=1350494275400.876444892.199480143> Example from HP for redundant power supply with separate management - see Figure II]
 
 ### Comments and Discussion
 

@@ -68,13 +68,13 @@ wiki_warnings: list-item?
 
     * Add, Edit
 
-    * Add - Same as Add network from Data Centers->Logical Networks sub tab. Only change- first field will be "Data Center" combo box. All the dialog under the "Data Center" combo will be refreshed according to the dc change.
+        * Add - Same as Add network from Data Centers->Logical Networks sub tab. Only change- first field will be "Data Center" combo box. All the dialog under the "Data Center" combo will be refreshed according to the dc change.
 
-    * Edit- Same as Edit network from Data Centers->Logical Networks sub tab
+        * Edit- Same as Edit network from Data Centers->Logical Networks sub tab
 
-    * If VM Network or MTU are disabled, a tool tip on each of them sholud explain why.
+        * If VM Network or MTU are disabled, a tool tip on each of them sholud explain why.
 
-    * Swap the locations of Vlan tag and VM Network.
+        * Swap the locations of Vlan tag and VM Network.
 
     * Remove- (The networks in the remove dialog list will be in format -"network name" in Data Center "dc name" ("description"))
 

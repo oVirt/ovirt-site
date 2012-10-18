@@ -28,11 +28,15 @@ Pending review:
 *   Engine + Webadmin/Power User Portal: <http://gerrit.ovirt.org/#/c/8484/>
 *   REST API: <http://gerrit.ovirt.org/#/c/8512/>
 
-### Restrictions
+### Requirements
 
-*   Works only with spice client
-*   Works only with spice-xpi-2.7-10 or higher browser plugin
-*   Does not work with spice-activex-win browser plugin
+*   on client
+    -   spice-xpi-2.7-20 or higher
+    -   console type spice
+    -   does not work with spice-activex-win browser plugin
+*   on guest
+    -   coolkey-1.1.0-20.el6 or higher
+    -   esc-1.1.0-24.el6_2.2 or higher
 
 ### Detailed Description
 

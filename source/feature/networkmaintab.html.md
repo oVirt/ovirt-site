@@ -140,9 +140,9 @@ Network: (search by network properties)
 
 **Queries for the sub tabs**
 
-1.  Clusters - returns all the clusters the networks is attached to.
+1.  Clusters - returns all the clusters the networks is attached to (VDSGroup + cluster_network)
 2.  Hosts
-    -   returns all the hosts the network is attached to one of their nics.
+    -   returns all the hosts the network is attached to one of their nics. (VDS + vds_interface)
     -   All the hosts where this network attached to the cluster but not to the host
 
 3.  Virtual Machines

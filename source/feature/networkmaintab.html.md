@@ -105,7 +105,7 @@ Have a radio button that will show either
 **Virtual Machines** (default sub tab)- All the vms that this network is attached to
 # All the vms that this network is attached to
 
-#\* **Columns**- Status (icon). Name, Cluster, IP Address (list of all host's ip addresses), Vnic status(icon, if more then one vnic- display the first one status), Vnic (if more than one 'Vnic1...', the Vnic's list will be displayed in the tooltip coma seperated), description (? if the is enough place).
+#\* **Columns**- Status (icon), Name, Cluster, IP Address (list of all host's ip addresses), Vnic status(icon, if more then one vnic- display the first one status), Vnic (if more than one 'Vnic1...', the Vnic's list will be displayed in the tooltip coma seperated), description (? if the is enough place).
 
 #\* **Actions**- remove (multipule selection) - enabled just if cluster version supports hotplug nic. Opens a confirmation window with message- "Please note this operation will remove the Vnics using the selected network from the vm"
 **Templates** (same as vm)

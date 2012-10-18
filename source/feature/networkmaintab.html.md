@@ -61,20 +61,27 @@ wiki_warnings: list-item?
 
 #### Main-Tab
 
-*   **Columns**- Name, Data Center, VM Network, VLAN tagging, Mtu, Description
+*   **Display order** - between Host and Storage Tab.
+*   **Sort** - first- dc name, second- network name.
+*   **Columns**- Name, Data Center, Description (if longer then X chars display "(X-3)..." and the complete description in the tooltip), Role (icon + tooltip), VLAN tagging (if empty- "-")
 *   **Actions**
 
     * Add - Same as Add network from Data Centers->Logical Networks sub tab. Only change- first field will be "Data Center" combo box. All the dialog under the "Data Center" combo will be refreshed according to the dc change.
 
-    * Edit- Same as Edit network from Data Centers->Logical Networks sub tab.
+    * Edit- Same as Edit network from Data Centers->Logical Networks sub tab
 
-    * Remove
+    * Remove- (The networks in the remove dialog list will be in format -"network name" in Data Center "dc name" ("description"))
+    * Add, Edit -
+
+        * If VM Network or MTU are disabled, a tool tip on each of them sholud explain why.
+
+        * Swap the locations of Vlan tag and VM Network.
 
 #### Sub-Tabs
 
 **General**
 
-*   **Fields**- Name, Description, VM Network, VLAN tagging, MTU
+*   **Fields**- Name, Description, VM Network, VLAN tagging (if empty - "N/A"), MTU (if empty- "host's default")
 
 ![](NetworkTab.png "fig:NetworkTab.png")
 **Clusters**

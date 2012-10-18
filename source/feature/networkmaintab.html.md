@@ -90,7 +90,7 @@ wiki_warnings: list-item?
 *   **Columns**- Attached (read only check box), Name, Compatibility Version, Network Status (icon ?), Network Required (V icon if yes, empty if no), Network Role (icon)
 *   **Actions**
 
-:\*Assign/Unassign Network - Same as Cluster-> Logical Networks-> Assign/Unassign, just instead of network list, cluster list.
+:\*Assign/Unassign Network - Same as Cluster-> Logical Networks-> Assign/Unassign, just instead of networks list, clusters list.
 **Hosts**
 Have a radio button that will show either
 

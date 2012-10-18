@@ -38,7 +38,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   running vdsClient from the project root dir ends with tears. Some PYTHONPATH games should fix this.
+*   running vdsClient from the project root dir ends with tears. Some PYTHONPATH games should fix this. **Patch submitted. Awaiting approval**.
 
 ### Testing
 

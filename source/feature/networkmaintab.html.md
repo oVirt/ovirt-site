@@ -85,7 +85,7 @@ wiki_warnings: list-item?
 *   **Fields**- Name, Description, Role (?), VLAN tagging (if empty - "N/A"), MTU (if empty- "host's default")
 
 ![](NetworkTab.png "fig:NetworkTab.png")
-**Clusters**- show all the cluster in the dc
+**Clusters**- show all the clusters in the dc
 
 *   **Columns**- Attached (read only check box), Name, Compatibility Version, Network Status (icon ?), Network Required (V icon if yes, empty if no), Network Role (icon)
 *   **Actions**

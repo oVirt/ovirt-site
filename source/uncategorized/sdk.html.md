@@ -166,6 +166,20 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
 
 *   [more examples](http://www.ovirt.org/wiki/Testing/PythonApi)
 
+## Development tips
+
+If you find difficult locating appropriate type while constructing
+
+parameter environment, like in [1] for instance, you can reuse internal
+
+params lookup as shown in [2].
+
+       [1] VMs.add(self, vm, ...):
+                [@param vm.cpu.topology.cores: int]
+
+       [2] topology = params.findRootClass("topology") 
+           in this case will be returned CpuTopology type.
+
 ## Repository
 
 *   <git://gerrit.ovirt.org/ovirt-engine-sdk>

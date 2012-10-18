@@ -111,7 +111,7 @@ Have a radio button that will show either
 
 *   **Actions**- remove (multipule selection) - enabled just if cluster's version supports hotplug nic. Opens a confirmation window with a message- "Please note this operation will remove from the vm the Vnics that are using the selected network"
 
-**Templates** (same as vm)
+**Templates** - All the templates that this network is attached to
 
 *   **Columns**- same as vm except IP Address, Vnic Rx, Vnic Tx
 *   **Actions**- same as vm

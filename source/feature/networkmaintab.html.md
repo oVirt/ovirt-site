@@ -94,11 +94,15 @@ wiki_warnings: list-item?
 **Hosts**
 Have a radio button that will show either
 
-1.  All the hosts that this network is attached to
+1.  All the hosts in the dc (?)
+    -   **Columns**- Status (icon), Name, Cluster, Data Center
+    -   **Actions**- SetupNetworks
+
+2.  All the hosts that this network is attached to
     -   **Columns**- Status (icon), Name, Cluster, Data Center, Nic (nic name, if bond- bond name), Nic Rx, Nic Tx.
     -   **Actions**-SetupNetworks
 
-2.  All the hosts where this network attached to the cluster but not to the host (Very important for non-required where the host status does not indicate something is missing)
+3.  All the hosts where this network attached to the cluster but not to the host (Very important for non-required where the host status does not indicate something is missing)
     -   **Columns**- Status (icon), Name, Cluster, Data Center
     -   **Actions**- SetupNetworks
 

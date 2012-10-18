@@ -99,7 +99,7 @@ Have a radio button that will show either
     -   **Actions**-SetupNetworks
 
 2.  All the hosts where this network attached to the cluster but not to the host (Very important for non-required where the host status does not indicate something is missing)
-    -   **Columns**- "Status image", Name, Cluster, Data Center, Status
+    -   **Columns**- Status (icon), Name, Cluster, Data Center
     -   **Actions**- SetupNetworks
 
 **Virtual Machines** (default sub tab)- All the vms that this network is attached to

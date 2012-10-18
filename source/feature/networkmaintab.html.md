@@ -9,7 +9,7 @@ wiki_last_updated: 2013-03-07
 wiki_warnings: list-item?
 ---
 
-# Network Main Tab
+## Network Main Tab
 
 ### Summary
 
@@ -85,37 +85,32 @@ wiki_warnings: list-item?
 *   **Fields**- Name, Description, VM Network, VLAN tagging (if empty - "N/A"), MTU (if empty- "host's default")
 
 ![](NetworkTab.png "fig:NetworkTab.png")
-**Clusters**
+**Clusters**- show all the cluster in the dc
 
-*   **Columns**- Name, Compatibility Version, Network Status, Network Assigned, Network Required, Network Role
+*   **Columns**- Attached (read only check box), Name, Compatibility Version, Network Status (icon ?), Network Required (V icon if yes, empty if no), Network Role (icon)
 *   **Actions**
 
-:\*Assign/Unassign Network ![](assignNet.png "fig:assignNet.png")
+:\*Assign/Unassign Network - Same as Cluster-> Logical Networks-> Assign/Unassign, just instead of network list, cluster list. ![](assignNet.png "fig:assignNet.png")
 **Hosts**
 Have a radio button that will show either
 
 1.  All the hosts that this network is attached to
-    -   **Columns**- "Status image", Name, Cluster, Data Center, Status
-    -   **Actions**- Remove (detaches the network from the nic/bond on the host)
+    -   **Columns**- Status (icon), Name, Cluster, Data Center, Nic (nic name, if bond- bond name), Nic Rx, Nic Tx.
+    -   **Actions**-SetupNetworks
 
 2.  All the hosts where this network attached to the cluster but not to the host (Very important for non-required where the host status does not indicate something is missing)
     -   **Columns**- "Status image", Name, Cluster, Data Center, Status
-    -   **Actions**- SetupNetworks (link to SetupNetworks window)
+    -   **Actions**- SetupNetworks
 
-**Virtual Machines** (default sub tab)
-Have a radio button that will show either
+**Virtual Machines** (default sub tab)- All the vms that this network is attached to
+# All the vms that this network is attached to
 
-1.  All the vms that this network is attached to
-    -   **Columns**- Name, ,nic (if more than one 'multiple'), Cluster, IP Address, Network, Status, Uptime
-    -   **Actions**- remove (multipule selection), remove from all
+#\* **Columns**- Status (icon). Name, Cluster, IP Address (list of all host's ip addresses), Vnic status(icon, if more then one vnic- display the first one status), Vnic (if more than one 'Vnic1...', the Vnic's list will be displayed in the tooltip coma seperated), description (? if the is enough place).
 
-2.  All the vms where this network is not attached to (but attached to the cluster)
-    -   **Columns**- Name, Cluster, IP Address, Network, Status, Uptime
-    -   **Actions**- add (multiple selection)
-
+#\* **Actions**- remove (multipule selection) - enabled just if cluster version supports hotplug nic. Opens a confirmation window with message- "Please note this operation will remove the Vnics using the selected network from the vm"
 **Templates** (same as vm)
 
-*   **Columns**- same as vm except IP Address and Uptime
+*   **Columns**- same as vm except IP Address, Vnic Rx, Vnic Tx
 *   **Actions**- same as vm
 
 **Permissions**

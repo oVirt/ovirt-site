@@ -10,26 +10,9 @@ wiki_last_updated: 2013-04-14
 
 # How to create a user account
 
-**'You cannot create your own account, you must ask [any other account holder](Special:ListUsers) to do it for you. We are protecting this wiki from spambots and bad actors through self-management. This includes the creation of new accounts.**''
+***Account creation is moderated by the wiki administrators - once you request an account, and confirm your email address, it will be created for you as quickly as possible. We are protecting this wiki from spambots and bad actors.***
 
-If you need an account, contact one of the [existing account holders](Special:ListUsers), who are fellow participants and contributors.
-
-These instructions are for a person [who already has an account](Special:ListUsers) and wants to grant an account to a new participant. **Use these powers wisely**:
-
-1.  Log in with your user account.
-2.  Got to the login page <Special:UserLogin>
-3.  Use the link labeled [Create an account](http://wiki.ovirt.org/w/index.php?title=Special:UserLogin&type=signup), or click this link here
-4.  Fill out the account information:
-    -   Username
-    -   Password - *leave blank*
-        -   A randomly generated password is sent to the user's email address
-    -   E-mail
-    -   Real name
-
-5.  Uncheck "Remember my login on this computer".
-6.  Click "By e-mail" to send the new account information directly to the user.
-
-If your browser offers to save the password for this new user, choose no or "Not now".
+If you would like to make changes to wiki pages, follow the link "Log in/create an account" at the top of every page, and request a new account. There may be some delay in creating your account - if you would like to hurry us up a little, ask for help [ on the oVirt IRC channel](Communication#IRC) or [ on the Users mailing list](Communication#Mailing_lists)
 
 Once you have your user account, read <Help:Editing> and the related content in the [:Category:Documentation for writing on the wiki](:Category:Documentation for writing on the wiki).
 

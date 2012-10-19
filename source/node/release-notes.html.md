@@ -17,7 +17,6 @@ wiki_last_updated: 2013-11-19
 # 2.5.4 Release Notes
 
 *   Fix selinux booleans related to sanlock
-*   Add hostname command back to the node
 
 # 2.5.3 Release Notes
 

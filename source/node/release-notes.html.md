@@ -10,6 +10,25 @@ wiki_last_updated: 2013-11-19
 
 # oVirt Node Release Notes
 
+# 2.5.5 Release Notes
+
+*   include dns_resolver kmod to fix nfs mounting issues
+
+# 2.5.4 Release Notes
+
+*   Fix selinux booleans related to sanlock
+*   Add hostname command back to the node
+
+# 2.5.3 Release Notes
+
+*   Include /bin/hostname command
+
+# 2.5.2 Release Notes
+
+*   This build includes the fixed vdsm to allow nfs
+
+based domains to be attached.
+
 # 2.5.1 Release Notes
 
 *   Refactoring for pep8 compliance

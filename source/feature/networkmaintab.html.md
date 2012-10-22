@@ -25,7 +25,7 @@ wiki_warnings: list-item?
 ### Current status
 
 *   On Design
-*   Last update date: 20/9/2010
+*   Last update date: 20/10/2010
 
 ### Detailed Description
 

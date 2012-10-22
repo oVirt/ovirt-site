@@ -39,7 +39,7 @@ But it doesn't exploit QEMU-GlusterFS native integration, hence has performance 
 POSIXFS_DOMAIN causes QEMU to consume images via GlusterFS mount point, hence incurs FUSE overhead.
 
 GLUSTERFS_DOMAIN support in VDSM exploits QEMU-GlusterFS native integration, hence provides a better & efficient way to access images hosted in GlusterFS volumes.
-QEMU-GlusterFS native integration adds Gluster as a block storage backend to QEMU. QEMU talks with Gluster volume via libgfapi interface of GlusterFS, which does not incur FUSE overhead.
+QEMU-GlusterFS native integration adds Gluster as a block backend to QEMU. QEMU talks with Gluster volume via libgfapi interface of GlusterFS, which does not incur FUSE overhead.
 GlusterFS fits as a network block device (<disk type=network.../>) in libvirt XML.
 
 | POSIXFS_DOMAIN                                         | GLUSTERFS_DOMAIN                                                                |
@@ -77,7 +77,7 @@ If user selects GlusterFS domain as the domain type, the vfsType can be pre-fill
 ## Benefits to oVirt
 
 oVirt 3.1 already has support to create & manage Gluster Volumes (see 'Volumes' tab in oVirt ) - typically done by storage admin.
-This support will allow oVirt to consume GlusterFS storage cluster as a storage domain / image repository and run VMs off it - typically done by Virtualization admin.
+This support will allow oVirt to consume GlusterFS storage cluster as a storage domain / image repository and run VMs off it - typically done by virtualization admin.
 
 This support helps complete the story/use-case from a virt. admin perspective !
 It also helps oVirt truly work as a single pane of glass solution for creating, managing & consuming Gluster for storage and virt. use cases.

@@ -82,10 +82,10 @@ wiki_warnings: list-item?
 
 **General**
 
-*   **Fields**- Name, Description, Role (?), VLAN tagging (if empty - "N/A"), MTU (if empty- "host's default")
+*   **Fields**- Name, Id, Description, Role (?), VLAN tagging (if empty - "None"), MTU (if empty- "host's default")
 
 ![](NetworkTab.png "fig:NetworkTab.png")
-**Clusters**- show all the clusters in the dc
+**Clusters**- show all the clusters in the dc (first sort- is attahced, second sort- name)
 
 *   **Columns**- Attached (read only check box), Name, Compatibility Version, Network Status (icon ?), Network Required (V icon if yes, empty if no), Network Role (icon)
 *   **Actions**
@@ -94,11 +94,11 @@ wiki_warnings: list-item?
 **Hosts**
 Have a radio button that will show either
 
-1.  All the hosts in the dc (?)
+1.  All the hosts in the dc
     -   **Columns**- Status (icon), Name, Cluster, Data Center
     -   **Actions**- SetupNetworks
 
-2.  All the hosts that this network is attached to
+2.  All the hosts that this network is attached to (default)
     -   **Columns**- Status (icon), Name, Cluster, Data Center, Nic (nic name, if bond- bond name), Nic Rx, Nic Tx.
     -   **Actions**-SetupNetworks
 
@@ -109,12 +109,12 @@ Have a radio button that will show either
 **Virtual Machines** (default sub tab)- All the vms that this network is attached to
 \* **Columns**- Status (icon), Name, Cluster, IP Address (list of all host's ip addresses), Vnic status(icon, if more then one vnic- display the first one status), Vnic (if more than one 'Vnic1...', the Vnic's list will be displayed in the tooltip coma seperated), Vnic Rx(?), Vnic Tx(?), description (? if there is enough place to display it).
 
-*   **Actions**- remove (multipule selection) - enabled just if cluster's version supports hotplug nic. Opens a confirmation window with a message- "Please note this operation will remove from the vm the Vnics that are using the selected network"
+*   **Actions**- remove (multipule selection) - enabled if vm is down or cluster's version supports hotplug nic. Opens a confirmation window with a message- "Please note this operation will remove from the vm the Vnics that are using the selected network" (this is a stretch goal and we are not sure we'll add it in 3.2)
 
 **Templates** - All the templates that this network is attached to
 
 *   **Columns**- same as vm except IP Address, Vnic Rx, Vnic Tx
-*   **Actions**- same as vm
+*   **Actions**- same as vm (this is a stretch goal and we are not sure we'll add it in 3.2)
 
 **Permissions**
 

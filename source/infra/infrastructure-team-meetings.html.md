@@ -18,6 +18,8 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## 2012-10-22
 
+*[ Minutes]*
+
 *Agenda*
 
 *   MediaWiki & www
@@ -29,6 +31,8 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Other business?
 
 ## 2012-10-15
+
+*[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-15-15.01.html)*
 
 *Agenda*
 

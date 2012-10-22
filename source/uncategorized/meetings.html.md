@@ -19,11 +19,11 @@ oVirt has a weekly sync meeting on IRC (occasionally phone).
 
 #### Weekly project sync meeting
 
-This is the agenda for the 2012-09-19 meeting:
+This is the agenda for the 2012-10-22 meeting:
 
-*   Status of Next Release (Feature Planning)
+*   Status of Next Release (Feature Status)
 *   Sub-project reports (engine, vdsm, node, infra)
-*   Workshops
+*   Workshop Report
 
 ### Meeting Time and Place
 

@@ -18,7 +18,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## 2012-10-22
 
-*[ Minutes]*
+*[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-22-15.00.html)*
 
 *Agenda*
 

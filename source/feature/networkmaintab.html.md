@@ -37,16 +37,16 @@ wiki_warnings: list-item?
 
 1.  **Networks** (a tree item under dc)
     -   Displayed Tabs (the tabs that are displayed when the item is selected in the tree)-
-        -   Networks (search criteria- "Network: datacenter.name = 'dcName'")
+        -   Networks (search criteria- "Network: datacenter = 'dcName'")
     -   Children- all dc networks
 
 2.  **Network** (a tree item under Networks, specific network name)
     -   Displayed Tabs-
-        -   Networks (search criteria- "Network: name = 'treeSelectedNetName' datacenter.name = 'dcName'")
-        -   Clusters (search criteria- "Cluster: network.name = 'treeSelectedNetName' datacenter.name = 'dcName'")
-        -   Hosts (search criteria- "Host: network.name = 'treeSelectedNetName' datacenter.name = 'dcName'")
-        -   Virtual Machines (search criteria- "Vms: network.name = 'treeSelectedNetName' datacenter.name = 'dcName'")
-        -   Templates (search criteria- "Template: network.name = 'treeSelectedNetName' datacenter.name = 'dcName'")
+        -   Networks (search criteria- "Network : name = networkName and datacenter = dcName")
+        -   Clusters (search criteria- "Clusters : Cluster_network.network_name = treeSelectedNetName and Datacenter.name = dcName")
+        -   Hosts (search criteria- "Host: Nic.network_name = 'treeSelectedNetName' and datacenter.name = 'dcName'")
+        -   Virtual Machines (search criteria- "VMS : Vnic.network_name = treeSelectedNetName and datacenter = dcName")
+        -   Templates (search criteria- "Template: : Vnic.network_name = treeSelectedNetName and datacenter = dcName")
     -   Children - none
 
 ##### Selected items in the tree that show Networks tab:

@@ -30,7 +30,7 @@ This feature provides the support for monitoring and measuring the performance o
 
 ### Top
 
-= Display results of the 'gluster volume top' command on GUI
+Display results of the 'gluster volume top' command on GUI
 
 ### Profile
 

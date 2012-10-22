@@ -1,0 +1,92 @@
+---
+title: GlusterFS Storage Domain
+category: feature
+authors: derez, dpkshetty, moti, sahina, sandrobonazzola, snmishra, thildred
+wiki_category: Feature|GlusterFS Storage Domain
+wiki_title: Features/GlusterFS Storage Domain
+wiki_revision_count: 41
+wiki_last_updated: 2014-12-16
+---
+
+# GlusterFS Storage Domain
+
+## Summary
+
+This feature introduces a new storage domain of type GLUSTERFS_DOMAIN, which uses gluster as the storage backend.
+
+In GLUSTERFS_DOMAIN, vdsm creates the storage domain by mounting the gluster volume (akin to nfs mounting export path). VMs created using this domain exploit the QEMU's gluster block backend aka QEMU-GlusterFS native integration.
+
+## Owner
+
+*   Feature owner: Deepak C Shetty <deepakcs@linux.vnet.ibm.com>
+    -   REST Component owner:
+    -   Engine Component owner: TBD
+    -   VDSM Component owner: Deepak C Shetty <deepakcs@linux.vnet.ibm.com>
+    -   QA Owner:
+
+## Current Status
+
+*   QEMU-GlusterFS integration: Done. Available in upstream qemu.
+*   libvirt enablement for Gluster : WIP @ [1](https://www.redhat.com/archives/libvir-list/2012-October/msg00085.html)
+*   GLUSTERFS_DOMAIN support in VDSM: WIP @ [2](http://gerrit.ovirt.org/#/c/6856/) or see gluster_domain_support topic branch in [gerrit.ovirt.org]
+*   oVirt Engine / UI support: TBD
+
+## Detailed Description
+
+The current supported way of exploiting GlusterFS as a storage domain is to use POSIXFS_DOMAIN. This works out of the box and since GlusterFS is posix compliant, it fits well under POSIXFS_DOMAIN. But it doesn't exploit QEMU-GlusterFS native integration, hence has performance overhead and is not the ideal way to consume images hosted in GlusterFS volumes. POSIXFS_DOMAIN causes QEMU to consume images via GlusterFS mount point, hence incurs FUSE overhead.
+
+GLUSTERFS_DOMAIN support in VDSM exploits QEMU-GlusterFS native integration, hence provides a better & efficient way to access images hosted in GlusterFS volumes. QEMU-GlusterFS native integration adds Gluster as a block storage backend to QEMU. QEMU talks with Gluster volume via libgfapi interface of GlusterFS, which does not incur FUSE overhead. GlusterFS fits as a network block device (<disk type=network.../>) in libvirt XML.
+
+| POSIXFS_DOMAIN                                         | GLUSTERFS_DOMAIN                                                                |
+|---------------------------------------------------------|----------------------------------------------------------------------------------|
+| Image accessed as a file.                               | Image accessed as a network block device.                                        |
+| Eg: -drive file=<path/to/gluster/mount>/<path/to/image> | Eg: -drive file=gluster[+transport]://[server[:port]]/volname/image[?socket=...] |
+| Maps to <disk type=file..>...</disk> in libvirt xml.    | Maps to <disk type=network..>...</disk> in libvirt xml.                          |
+| FUSE overhead.                                          | No FUSE overhead.                                                                |
+
+Performance numbers for QEMU-GlusterFS integration are available @
+
+[3](http://lists.nongnu.org/archive/html/gluster-devel/2012-08/msg00063.html) [4](http://lists.nongnu.org/archive/html/qemu-devel/2012-07/msg02718.html)
+
+### Approach
+
+In VDSM, we mainly add support for a brand new GlusterStorageDomain class (and its associated baggage) to represent the new storage domain, GlusterVolume class to represent image hosted in GlusterFS volume and support in libvirtvm for network block device libvirt XML generation.
+
+Note that on the domain side, VDSM still uses gluster mount point as the root of domain dir, but on the VM side it exploits QEMU-GlusterFS native integration.
+
+### User Interface
+
+Support needs to be added to ovirt-engine to list GLUSTERFS_DOMAIN as a new storage domain. This will mostly be similar to how POSIXFS_DOMAIN fits in the OE today. The same params as specified by user for PosixFs domain will be applicable to GlusterFS as well (spec, vfsType, options).
+
+*   **spec** : volfileserver:volname
+*   **vfsType** : glusterfs
+*   **options** : if any, will be passed as-is to the mount cmdline.
+
+If user selects GlusterFS domain as the domain type, the vfsType can be pre-filled to 'glusterfs'.
+
+## Benefits to oVirt
+
+oVirt 3.1 already has support to create & manage Gluster Volumes (see 'Volumes' tab in oVirt ) - typically done by storage admin. This support will allow oVirt to consume GlusterFS storage cluster as a storage domain / image repository and run VMs off it - typically done by Virtualization admin.
+
+This support helps complete the story/use-case from a virt. admin perspective ! It also helps oVirt truly work as a single pane of glass solution for creating, managing & consuming Gluster for storage and virt. use cases.
+
+## Dependencies / Related Features and Projects
+
+Gluster volume must be pre-setup (either via oVirt or other means) for it to be used as a storage domain. glusterfs, glusterfs-server and glusterfs-fuse rpm packages must be installed.
+
+## Documentation / External references
+
+*   PosixFS Support - [5](http://wiki.ovirt.org/wiki/Features/PosixFSConnection)
+*   Gluster home page - [6](http://www.gluster.org/)
+*   Using QEMU to boot a VM image on GlusterFS volume - [7](http://www.youtube.com/watch?v=JG3kF_djclg)
+*   Storage Virtualization for KVM - [8](http://www.linuxplumbersconf.org/2012/wp-content/uploads/2012/09/2012-lpc-virt-storage-virt-kvm-rao.pdf)
+
+## Comments and Discussion
+
+## Future Work
+
+GlusterFS as a VDSM repository engine.
+
+## Open Issues
+
+<Category:Feature>

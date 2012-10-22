@@ -10,7 +10,7 @@ wiki_last_updated: 2014-06-30
 
 # o Virt Scheduler API
 
-## SLA Pluggable Architecture
+## [WIP] SLA Pluggable Architecture
 
 ### Summary
 

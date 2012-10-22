@@ -100,3 +100,5 @@ References:
 #### Authentication
 
 ### Tests
+
+<Category:Feature> <Category:SLA>

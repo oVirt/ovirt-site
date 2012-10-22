@@ -28,7 +28,7 @@ In GLUSTERFS_DOMAIN, vdsm creates the storage domain by mounting the gluster vol
 
 *   QEMU-GlusterFS integration: Done. Available in upstream qemu.
 *   libvirt enablement for Gluster : WIP @ [1](https://www.redhat.com/archives/libvir-list/2012-October/msg00085.html)
-*   GLUSTERFS_DOMAIN support in VDSM: WIP @ [2](http://gerrit.ovirt.org/#/c/6856/) or see gluster_domain_support topic branch in [gerrit.ovirt.org]
+*   GLUSTERFS_DOMAIN support in VDSM: WIP @ [2](http://gerrit.ovirt.org/#/c/6856/) or see gluster_domain_support topic branch in [3](http://gerrit.ovirt.org)
 *   oVirt Engine / UI support: TBD
 
 ## Detailed Description
@@ -46,7 +46,7 @@ GLUSTERFS_DOMAIN support in VDSM exploits QEMU-GlusterFS native integration, hen
 
 Performance numbers for QEMU-GlusterFS integration are available @
 
-[3](http://lists.nongnu.org/archive/html/gluster-devel/2012-08/msg00063.html) [4](http://lists.nongnu.org/archive/html/qemu-devel/2012-07/msg02718.html)
+[4](http://lists.nongnu.org/archive/html/gluster-devel/2012-08/msg00063.html) [5](http://lists.nongnu.org/archive/html/qemu-devel/2012-07/msg02718.html)
 
 ### Approach
 
@@ -76,10 +76,10 @@ Gluster volume must be pre-setup (either via oVirt or other means) for it to be 
 
 ## Documentation / External references
 
-*   PosixFS Support - [5](http://wiki.ovirt.org/wiki/Features/PosixFSConnection)
-*   Gluster home page - [6](http://www.gluster.org/)
-*   Using QEMU to boot a VM image on GlusterFS volume - [7](http://www.youtube.com/watch?v=JG3kF_djclg)
-*   Storage Virtualization for KVM - [8](http://www.linuxplumbersconf.org/2012/wp-content/uploads/2012/09/2012-lpc-virt-storage-virt-kvm-rao.pdf)
+*   PosixFS Support - [6](http://wiki.ovirt.org/wiki/Features/PosixFSConnection)
+*   Gluster home page - [7](http://www.gluster.org/)
+*   Using QEMU to boot a VM image on GlusterFS volume - [8](http://www.youtube.com/watch?v=JG3kF_djclg)
+*   Storage Virtualization for KVM - [9](http://www.linuxplumbersconf.org/2012/wp-content/uploads/2012/09/2012-lpc-virt-storage-virt-kvm-rao.pdf)
 
 ## Comments and Discussion
 

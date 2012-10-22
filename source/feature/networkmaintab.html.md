@@ -148,6 +148,7 @@ Network: (search by network properties)
 
 1.  Clusters - returns all the clusters the networks is attached to (VDSGroup + cluster_network)
 2.  Hosts
+    -   returns all the hosts in the network's data center. (VDS)
     -   returns all the hosts the network is attached to one of their nics. (VDS + vds_interface_view similar to GetVdsInterfacesByVdsId)
     -   All the hosts where this network attached to the cluster but not to the host (VDS)
 

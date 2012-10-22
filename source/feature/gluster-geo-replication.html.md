@@ -28,6 +28,10 @@ This allows the user to configure and start Geo Replication for Gluster Volumes
 
 ## Detailed Description
 
+Configure / monitor Geo-replication
+
+*   master-slave
+
 ## Design
 
 <Category:Feature>

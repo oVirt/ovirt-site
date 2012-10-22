@@ -28,9 +28,13 @@ This allows the user to configure and start Geo Replication for Gluster Volumes
 
 ## Detailed Description
 
-Configure / monitor Geo-replication
+Configuring and Monitoring unidirectional Geo Replication (master-slave).
 
-*   master-slave
+The following features will be supported
+
+*   Setting up passwordless SSH
+*   Configuring and Starting Geo Replication
+*   Displaying Geo-replication status information
 
 ## Design
 

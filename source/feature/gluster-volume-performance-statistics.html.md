@@ -12,7 +12,7 @@ wiki_last_updated: 2014-12-22
 
 ## Summary
 
-This allows the user to configure and start Geo Replication for Gluster Volumes
+This feature provides the support for monitoring and measuring the performance of Gluster volumes and bricks.
 
 ## Owner
 

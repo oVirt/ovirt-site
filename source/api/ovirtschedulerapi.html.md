@@ -93,6 +93,14 @@ References:
 
 ##### Standard
 
+Pluin jar files need to have a section in their Manifest file:
+
+      Name: OVirt
+      Plugin-Class: com.example.ovirt.plugin.MyCoolScheduler
+      Plugin-Version: 3.2
+
+Plugin-Version: the OVirt version for which this plugin was written. Versions newer than the one currently running may be ignored (warning) Plugin-Class: the name of the plugin class to deploy
+
 ##### OSGI
 
 ##### Sandbox

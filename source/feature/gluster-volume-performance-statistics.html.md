@@ -28,6 +28,14 @@ This feature provides the support for monitoring and measuring the performance o
 
 ## Detailed Description
 
+### Top
+
+= Display results of the 'gluster volume top' command on GUI
+
+### Profile
+
+Display results of 'gluster volume profile' command on the GUI
+
 ## Design
 
 <Category:Feature>

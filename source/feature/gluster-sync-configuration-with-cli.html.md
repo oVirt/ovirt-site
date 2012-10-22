@@ -12,7 +12,7 @@ wiki_last_updated: 2013-01-29
 
 ## Summary
 
-This allows the user to configure and start Geo Replication for Gluster Volumes
+Providing support for automatically sync the changes made through Gluster CLI in oVirt.
 
 ## Owner
 

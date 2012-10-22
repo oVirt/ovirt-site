@@ -45,4 +45,28 @@ oVirt Node 2.5.1-1.0
 *   [collectd](http://collectd.org/) for gathering statistics and monitoring.
 *   [Matahari](http://matahari.fedorahosted.org) for host and guest system management.
 
+## Upgrading
+
+There are 2 general methods for upgrading an ovirt-node installation.
+
+**1**. Through oVirt Engine
+
+Require the installation of ovirt-node-iso rpm on oVirt Engine. A node is then placed in maintenance mode, and you trigger the upgrade from the engine interface.
+
+**2**. Through oVirt Node installation media (ISO, CD, USB, PXE)
+
+This approach is done using installation media. Simply boot your host running an old version of node from new media.
+Either PXE, CDROM, USB, SD card, ISO, etc. are supported. Once you boot from the media, it will bring you to a TUI screen where you choose upgrade.
+That will upgrade and leave existing configuration in place.
+
+There are some other options as well, but they're in a slightly different, but related, category.
+
+### Reinstall
+
+This will wipe out any existing configuration and install from scratch This is done either by choosing the "Reinstall" option in the Boot menus (with CD/USB/SD Card) or adding "reinstall" to the kernel command line (any method).
+
+### Uninstall
+
+This will wipe the ovirt-node-iso installation from the disk entirely and reboot. Again, there is a "Uninstall" option in the boot menu. You can also add "uninstall" to the kernel command line.
+
 <Category:Project>

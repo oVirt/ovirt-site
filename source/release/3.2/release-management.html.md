@@ -72,6 +72,11 @@ Features being considered for inclusion/already in master:
     -   user level api
     -   automatic storage domain upgrade
     -   Japanese localization
+    -   Unidirectional Gluster Geo-replication support
+    -   Support for asynchronous Gluster volume tasks
+    -   Gluster Volume Performance Statistics
+    -   Configuration sync with Gluster CLI
+    -   Monitoring Gluster Volumes and Bricks
 *   Node
     -   [ TUI redesign](Features/TUIredesign)
     -   [ Node automation](Features/NodeAutomation) work -- refactor git repo to make standard python tools work

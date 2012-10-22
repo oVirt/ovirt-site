@@ -28,7 +28,7 @@ This feature provide the support for managing the asynchronous tasks on Gluster 
 
 ## Detailed Description
 
-      Support for async tasks like: 
+Support managing the following async tasks
 
 *   rebalance volume
 *   replace brick

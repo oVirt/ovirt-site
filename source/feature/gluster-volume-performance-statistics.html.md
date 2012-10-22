@@ -18,7 +18,7 @@ This feature provides the support for monitoring and measuring the performance o
 
 *   Feature owner: Shireesh Anjal <sanjal@redhat.com>
     -   GUI Component owner: Kanagaraj Mayilsamy <kmayilsa@redhat.com>
-    -   Engine Component owner: Selvasundaram Subramaniam <sesubram@redhat.com>
+    -   Engine Component owner: Dhandapani Gopal <dgopal@redhat.com>
     -   QA Owner: Sudhir Dharanendraiah <sdharane@redhat.com>
 
 ## Current Status

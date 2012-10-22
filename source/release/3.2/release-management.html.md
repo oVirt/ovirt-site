@@ -57,7 +57,7 @@ Features being considered for inclusion/already in master:
     -   [ UI plugins](Features/UIPlugins)
     -   [ Make network a main tab](Feature/NetworkMainTab) - stretch goal for 3.2
     -   [ Import of existing gluster clusters](Features/Gluster Import Existing Cluster)
-    -   [Bootstrap improvements](Featrues/Bootstrap Improvements)
+    -   [Bootstrap improvements](Features/Bootstrap Improvements)
     -   [PKI improvments](Features/PKI Improvements)
     -   [ SLA is a target for inclusion (MOM)](SLA-mom)
     -   [ Improving Quota for 3.2](Features/Quota-3.2)
@@ -72,11 +72,11 @@ Features being considered for inclusion/already in master:
     -   user level api
     -   automatic storage domain upgrade
     -   Japanese localization
-    -   Unidirectional Gluster Geo-replication support
-    -   Support for asynchronous Gluster volume tasks
-    -   Gluster Volume Performance Statistics
-    -   Configuration sync with Gluster CLI
-    -   Monitoring Gluster Volumes and Bricks
+    -   [ Unidirectional Gluster Geo-replication support](Features/Gluster_Geo_Replication)
+    -   [ Support for asynchronous Gluster volume tasks](Features/Gluster_Volume_Asynchronous_Tasks_Management)
+    -   [ Gluster Volume Performance Statistics](Features/Gluster_Volume_Performance_Statistics)
+    -   [ Configuration sync with Gluster CLI](Features/Gluster_Sync_Configuration_With_CLI)
+    -   [ Monitoring Gluster Volumes and Bricks](Features/GlusterVolumeAdvancedDetails)
 *   Node
     -   [ TUI redesign](Features/TUIredesign)
     -   [ Node automation](Features/NodeAutomation) work -- refactor git repo to make standard python tools work

@@ -207,15 +207,14 @@ Add new command query GetQueryForStoragePool input - DC UUID output - All the Qu
 
 ### Tests
 
-Storage tests. Cluster tests
+Unit-tests for testing all of the QuotaManager API will be added.
 
 #### Expected unit-tests
 
-1.  adding a new Quota
-2.  running VM on Quota
-3.  Adding a new Disk and attach to Quota
-4.  Adding new snapshot
-5.  Migrating VM
+1.  QuotaManager - consume quota
+2.  QuotaManager - release quota
+3.  QuotaManager - rollback quota
+4.  QuotaManager - uncache quota
 
 #### Special considerations
 

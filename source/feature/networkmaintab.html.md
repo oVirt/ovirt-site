@@ -82,7 +82,7 @@ wiki_warnings: list-item?
 
 **General**
 
-*   **Fields**- Name, Id, Description, Role (?), VLAN tagging (if empty - "None"), MTU (if empty- "host's default")
+*   **Fields**- Name, Id, Description, Role (?), VLAN tagging (if empty - "none"), MTU (if empty- "host's default")
 
 ![](NetworkTab.png "fig:NetworkTab.png")
 **Clusters**- show all the clusters in the dc (first sort- is attahced, second sort- name)

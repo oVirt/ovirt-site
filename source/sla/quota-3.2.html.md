@@ -30,43 +30,15 @@ This section describes the backend design for this feature.
 
 #### DB Design
 
-**quota** - Represents the properties of the Quota configured on the DC.
+In order to support quota on duplicate image stored on different storage domains, the quota_id column would move from "images" table to "image_storage_domain_map" table.
 
-| Column Name                       | Column Type  | Null? / Default | Definition                                                                                        |
-|-----------------------------------|--------------|-----------------|---------------------------------------------------------------------------------------------------|
-| id                                | UUID         | PK(not null)    | The Quota Id                                                                                      |
-| storage_pool_id                 | UUID         | not null        | Storage pool Id                                                                                   |
-| quota_name                       | VARCHAR(50)  | not null        | Quota name                                                                                        |
-| description                       | VARCHAR(500) | not null        | Quota description                                                                                 |
-| _create_date                    | Date         | not null        | Quota creation date used for history data                                                         |
-| _update_date                    | Date         | not null        | Quota update date used for history data                                                           |
-| threshold_vds_group_percentage | INTEGER      | null            | The threshold of the Vds Group Quota the default should be configured in the vdc_options         |
-| threshold_storage_percentage    | INTEGER      | null            | The threshold of the Storage Quota the default should be configured in the vdc_options           |
-| grace_vds_group_percentage     | INTEGER      | null            | The grace in percentage of the Cluster Quota the default should be configured in the vdc_options |
-| grace_storage_percentage        | INTEGER      | null            | The grace in percentage of the Storage Quota the default should be configured in the vdc_options |
+**image_storage_domain_map** - Represents the properties of the Quota configured on the DC.
 
-**quota_limitation** - Represents the quota limitation which are part of the Quota, the limitation can be defined for storage/vds cluster/storage pool.
-
-| Column Name        | Column Type | Null? / Default | Definition                                                        |
-|--------------------|-------------|-----------------|-------------------------------------------------------------------|
-| id                 | UUID        | PK(not null)    | The primary key of the quota limitation.                          |
-| quota_id          | UUID        | not null        | Foreign key for the quota id.                                     |
-| storage_id        | UUID        | null            | Foreign key for storage id.                                       |
-| vds_group_id     | UUID        | null            | Foreign key for vds group id.                                     |
-| virtual_cpu       | INTEGER     | null            | The limited virtual cpu.                                          |
-| mem_size_mb      | BIGINT      | null            | The limited ram defined in mega byte.                             |
-| storage_size_gb  | BIGINT      | null            | The limited defined in Giga byte.                                 |
-| is_default_quota | BOOLEAN     | true/false      | Indicating if the quota is a a default quota for the Data Center. |
-
-Use cases :
-
-1.  When quota_limitation vds_group_id=null and storage_id=null then the limitation is referenced to global limitation
-2.  When quota_limitation vds_group_id=null but storage_id!=null then the limitation is referenced only to storage quota
-3.  When quota_limitation vds_group_id!=null but storage_id=null then the limitation is referenced only to vdsGroup quota
-4.  unlimited quota - vds_group_id=null and storage_id=null in quota_limitation table and fields of vcpu, vram and storage will be initialized with -1.
-5.  general limited quota - vds_group_id=null and storage_id=null in quota_limitation table, fields of vcpu, vram and storage will be initialized with specific number.
-6.  specific limited quota - vds_group_id!=null and/or storage_id!=null in quota_limitation table, quota fields (vcpu, vram and storage) will be null.
-7.  quota without any resources - vds_group_id=null and storage_id=null in quota_limitation table, quota fields (vcpu, vram and storage) will be 0.
+| Column Name         | Column Type | Null? / Default | Definition        |
+|---------------------|-------------|-----------------|-------------------|
+| image_id           | UUID        | not null        | Image Id          |
+| storage_domain_id | UUID        | not null        | Storage domain id |
+| quota_id           | UUID        |                 | Quota id          |
 
 ###### Views
 

@@ -112,6 +112,21 @@ Solutions:
 
 ##### Sandbox
 
+The plugin framework needs to isolate plugins from the ovirt system so that they can invoke methods only through the plugin API. A typical misuse would be directly using singletons like *DbFacade*.
+
+Isolation:
+
+*   must be loaded from the plugin directory (plugin classloader)
+*   Plugin classloader should only lookup classes and resources of the plugin API from the parent classloader.
+*   Should be invoked i a separate thread?
+
+Q:
+
+*   Dependencies of the plugin (e.g. drools, httpclient, funkyframework) should be
+    -   packaged into the jar as an uberjar/onejar? (would hurt both linux packaging policies and java traditions)
+    -   placed into the plugin directory with the plugin jar? (would be a problem with linux packaging policies)
+    -   used from the jar files of the system (a jar hell)
+
 #### Authentication
 
 ### Tests

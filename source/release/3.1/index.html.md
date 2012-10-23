@@ -70,7 +70,7 @@ The oVirt 3.1 release includes these notable changes.
 *   It is now possible to adjust the MTU of a logical network, when it is not attached to a cluster ([Features/Design/Network/Jumbo_frames](Features/Design/Network/Jumbo_frames)).
 *   It is now possible to create bridgeless logical networks, previously all logical network were represented using a bridge ([Features/Design/Network/Bridgeless_Networks](Features/Design/Network/Bridgeless_Networks)).
 *   Hot plugging and unplugging of virtual Network Interface Cards from virtual machines is now supported ([Features/HotplugNic](Features/HotplugNic)).
-*   Support for port mirroring, allowing all network traffic to be mirrored to a specific virtual machine, has been added ([Features/PortMirroring](Features/PortMirroring)).
+*   ~~Support for port mirroring, allowing all network traffic to be mirrored to a specific virtual machine, has been added ([Features/PortMirroring](Features/PortMirroring)).~~ (postponed to Ovirt-3.2)
 *   Previously, all logical networks were considered mandatory for all hosts in a cluster. Hosts that were not attached to all logcal networks in the cluster were marked non-responsive. Administrators now have the option to mark specific logical networks as non-mandatory, bypassing this behavior ([Features/Design/Network/Required_Networks](Features/Design/Network/Required_Networks)).
 
 ### Interfaces

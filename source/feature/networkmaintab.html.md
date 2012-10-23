@@ -70,7 +70,7 @@ wiki_warnings: list-item?
 
         * Add - Same as Add network from Data Centers->Logical Networks sub tab. Only change- first field will be "Data Center" combo box. All the dialog under the "Data Center" combo will be refreshed according to the dc change.
 
-        * Edit- Same as Edit network from Data Centers->Logical Networks sub tab
+        * Edit- Same as Edit network from Data Centers->Logical Networks sub tab. Only change- first field will be disabled "Data Center" combo box.
 
         * If VM Network or MTU are disabled, a tool tip on each of them sholud explain why.
 

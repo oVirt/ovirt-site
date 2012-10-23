@@ -133,7 +133,7 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 -oVirt-setup terminal window stays open after setup (for debug needs)
 
--Disconnected installs - setup works without outside network connection (packages wouldn't be updated by vsdm-bootstap, yum reinstall vdsm-bootsrap to workaround)
+-Disconnected installs - setup works without outside network connection (packages wouldn't be updated by vsdm-bootstrap, yum reinstall vdsm-bootstrap to workaround)
 
 -wlan0 support in vdsm enabled (need someone to test it...)
 

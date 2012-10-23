@@ -123,12 +123,12 @@ Q:
 
 #### Authentication
 
-### Tests
-
 ##### UI
 
 ===== User Input & Validation ====
 
 ##### Pluggable UI
+
+### Tests
 
 <Category:Feature> <Category:SLA>

@@ -50,7 +50,7 @@ This is the foundation of SLA @oVirt, allowing enforcement of various aspects su
 
 ### Dependencies / Related Features
 
-*   TBD
+*   [SLA-mom-ballooning-tp](SLA-mom-ballooning-tp)
 
 ### Documentation / External references
 

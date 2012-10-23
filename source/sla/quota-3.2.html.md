@@ -42,73 +42,51 @@ In order to support quota on duplicate image stored on different storage domains
 
 ###### Views
 
-unchanged - see Features/Design/Quota
+unchanged - see <http://www.ovirt.org/wiki/Features/Design/Quota>
 
 ###### Stored Procedures
 
-unchanged - see Features/Design/Quota
+unchanged - see <http://www.ovirt.org/wiki/Features/Design/Quota>
 
 #### Logic Design
 
 Each time the user will run a VM or create a new disk, there will be a quota resource check against the quota views.
-The process of quota validation should be in a new method validateQuota which will be a part of the command execute process. the validateQuota should be executed as synchronize method after canDoAction and before the command execute method.
-Each command which consumes quota resources, will contain a list of the delta changes, respectively quotaManager will manage a delta HashMap of the resources until they are persisted in the DB.
-
-**Tasks For Commands**
-
-| command name                   | Storage / Cluster | Task Name          | Vds Command                       |
-|--------------------------------|-------------------|--------------------|-----------------------------------|
-| CreateCloneOfTemplateCommand   | Storage           | copyImage          | CopyImageVDSCommand               |
-| CreateImageTemplateCommand     | Storage           | copyImage          | CopyImageVDSCommand               |
-| CreateCloneOfTemplateCommand   | Storage           | copyImage          | CopyImageVDSCommand               |
-| MoveMultipleImageGroupsCommand | Storage           | moveImage          | MoveImageGroupVDSCommand          |
-| MoveOrCopyImageGroupCommand    | Storage           | moveImage          | MoveImageGroupVDSCommand          |
-| AddImageFromScratchCommand     | Storage           | createVolume       | CreateImageVDSCommand             |
-| CreateSnapshotCommand          | Storage           | createVolume       | CreateSnapshotVDSCommand          |
-| HibernateVmCommand             | Storage           | createVolume       | CreateImageVDSCommand             |
-| RestoreFromSnapshotCommand     | Storage           | deleteVolume       | DestroyImageVDSCommand            |
-| RemoveImageCommand             | Storage           | deleteImage        | DeleteImageGroupVDSCommand        |
-| RemoveTemplateSnapshotCommand  | Storage           | deleteImage        | DeleteImageGroupVDSCommand        |
-| VmCommand                      | Storage           | deleteImage        | DeleteImageGroupVDSCommand        |
-| MergeSnapshotSingleDiskCommand | Storage           | mergeSnapshots     | MergeSnapshotsVDSCommand          |
-| no command                     | Storage           | moveMultipleImages | MoveMultipleImageGroupsVDSCommand |
-
-For a-synchronized operations behaviour, the operation functionality should be similar to the synchronize functionality. The Quota storage delta and the command list property will be updated before the execute starts with the planned quantity that should be consume. After every creation of task the delta map will be decreased and also the list command member. If the operation will fail, the rest of the quantity in the list will be decreased from the delta map.
+The process of quota validation located today in a method validateAndSetQuota in the command execute process, would be moved into CommandBase.
+As in 3.1 the quota validation should be executed as synchronize method during the internalCanDoAction and before the command execute method.
+Each command which consumes quota resources would implement StorageQuotaDependent and/or VdsQuotaDependent interface and will return a list of the quota consume/release parameters.
+Commands would also be marked as storage or Vds consumers in the VdcActionType class. the defauld value for this setting would be BOTH (consumes both storage and vds), so when adding new command, one would have to consider quota issues. Commands which does not consume any quota resources would be marked NONE. CommandBase would use this markings in order to decide whether quota validation is needed.
+The VdcActionType marking would prevent unintentional inheritance of the interfaces and the implemented methods.
 
 ##### Classes
 
-**Config Values**
- New configuration values in vdc_options:
-
-*`quotaStorageThreshold`*` - The default value should be 80%, and the version is General.`
-       Indicates the percentage of resource allocation, which beyond this (if Quota is enforced) would print an appropriate audit log message.
-       `*`quotaClusterThreshold`*` - The default value should be 80%, and the version is General.
-       Indicates the percentage of cluster allocation, which beyond this (if Quota is enforced) would print an appropriate audit log message.
-       `*`quotaStorageGrace`*` - The default value should be 20%, and the version is General.
-       Indicates the percentage of resource extension allocation.
-       `*`quotaClusterGrace`*` - The default value should be 20%, and the version is General.
-       Indicates the percentage of resource extension allocation.
-
-**DAO Classes**
-***org.ovirt.engine.core.dao.QuotaDAO**'' - Interface for Quota DAO will extends GenericDao.
-***org.ovirt.engine.core.dao.QuotaDAODbFacadeImpl**'' - Implementation for QuotaDAO, reflects the quota view implementations.
-
 **Classes**
-***org.ovirt.engine.core.bll.QuotaManager*** - Class which manage the quota views and memory delta tables
+***org.ovirt.engine.core.bll.quota.QuotaManager*** - Class which manage the quota views and memory delta tables. This class would be revisited and redesined
 
-*`quotaDeltaClusterMap`*` - The quota cluster delta Map is a HashMap which reflects the delta changes being done on the DC before persistence, The update to the map should be synchronized.`
-*`quotaStorageDeltaMap`*` - The quota storage Map is a Concurrent HashMap which reflects the delta changes being done in the storage before persistence, the operation on it should be atomic.`
+*`consume(QuotaConsumptionParametrs` `params)`*` - This would be the main API of the QuotaManager. Any quota Consumption would call this method. Parameters are taken from CommandBase and the consuming command. the return value is a boolean - telling if the consumption was possible. Both storage resources and vds resources would be asked in the same QuotaConsumptionParametrs Object. That way the QuotaManager could validate and set all the resources required for the command (would make the external rollback redundant).    `
+*`rolback(QuotaConsumptionParametrs` `params)`*` - The same as consume(), only reverting all of the consume/release done by the same params.`
 
-***org.ovirt.engine.core.common.businessentities.QuotaStatusEnum*** - Enum indicating the DC Quota verification status.
+***org.ovirt.engine.core.bll.quota.QuotaConsumptionParameters*** - the object passed to the QuotaManager on each consume/release call
 
-##### Query commands
+*`storage_pool` `id`*` - Every cunsume/release call can handle only one storage_pool (DC).`
+*`canDoActionMesseges`*` - Used for returning canDoAction messeges back to the command. `
+*`auditLoggableBase`*` - Used in order to allow logging to the auditLog using the command itself.`
+*`List` `of` `QuotaStorageConsumptionParameter`*` - Holds a single entry. the basic consumption unit`
+*`List` `of` `QuotaVdsConsumptionParameter`*` - Holds a single entry. the basic consumption unit`
 
-***GetAllQuotaStoragesQuery*** (Extends QueriesCommandBase) - Should call query (see [getAllQuotaStorageForSP](Features/Design/Quota#DB_Design))
- with DC id and user id, The query will return List of all Quota for user in the DC.
+***org.ovirt.engine.core.bll.quota.QuotaStorageConsumptionParameter*** - the object passed to the QuotaManager on each consume/release call
 
-###### Parameter commands
+*`quotaId`*` - the id of the quota`
+*`action` `type`*` - consume or release (This allows to consume some resources while releasing others, all in the same call to consume()). `
+*`storageDomainId`*` - id of the storage domain (the asked resource).`
+*`requestedStorageGB`*` - the requested storage in GB.`
 
-***GetAllQuotaStoragesParameters*** - The parameter class will extend VdcQueryParametersBase, and will have the following fields : ... (TODO)
+***org.ovirt.engine.core.bll.quota.QuotaVdsConsumptionParameter*** - the object passed to the QuotaManager on each consume/release call
+
+*`quotaId`*` - the id of the quota`
+*`action` `type`*` - consume or release (This allows to consume some resources while releasing others, all in the same call to consume()). `
+*`vdsGroupId`*` - id of the vds group (cluster) (the asked resource).`
+*`requestedCpu`*` - the requested number of vcpu.`
+*`requestedMem`*` - the requested Memory.`
 
 ##### Scenarios
 

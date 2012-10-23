@@ -117,17 +117,41 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 -shorten host installation time by around 4 minutes
 
+### oVirt-Live-0.7.iso - beta version Oct 23th 2012
+
+#### Download
+
+[download oVirt-Live-0.7.iso](http://ovirt.org/releases/3.1/tools/oVirt-Live-0.7.iso)
+
+#### change-log
+
+-changed wallpapers (thanks Garrett)
+
+-oVirt-setup autostart added
+
+-oVirt-enigne welcome screen (via firefox) after successful setup
+
+-oVirt-setup terminal window stays open after setup (for debug needs)
+
+-Disconnected installs - setup works without outside network connection (packages wouldn't be updated by vsdm-bootstap, yum reinstall vdsm-bootsrap to workaround)
+
+-wlan0 support in vdsm enabled (need someone to test it...)
+
 ##### ToDo
 
 ###### func
 
 -create a following plugin to allInOne to configure and run vm, create template etc. -done
 
+-change vm boot order to cd
+
 -shorten host installation time - done
 
 ###### branding
 
 -wide/normal background
+
+-custom logos
 
 ###### features/usage
 

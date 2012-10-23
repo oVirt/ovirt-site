@@ -238,14 +238,3 @@ This section describes issues that might need special consideration when writing
 5.  Compatibility levels - The feature will be supported only for 2.3 VMs and up.
 6.  Backward compatibility issues
 7.  API changes - new command queries for GUI and REST.
-
-### Appendix
-
-**Pseudo code for view [quota views - all_quotas](Features/Design/Quota#DB_Design):**
- **Select** <desired fields>
- **From** quota_global_view q_g_view
- WHERE q_g_view.storage_pool_id = v_storage_pool_id; *'* Open issues *'*
- RFE to consider: Add expiration date to the Quota
- RFE to consider : Use templates for Quota.
-
-<Category:SLA>

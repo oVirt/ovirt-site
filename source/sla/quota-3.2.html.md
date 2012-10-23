@@ -107,10 +107,6 @@ Before executing command
 
         5.  execute command or return error
 
-#### API Design
-
-Add new command query GetQueryForStoragePool input - DC UUID output - All the Quotas for the DC.
-
 ### Tests
 
 Unit-tests for testing all of the QuotaManager API will be added.

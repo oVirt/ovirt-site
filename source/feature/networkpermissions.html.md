@@ -83,6 +83,4 @@ Affected oVirt projects:
 
 ### Comments and Discussion
 
-*   See <Talk:Features/NetworkPermissions>
-
 [Category: Feature](Category: Feature)

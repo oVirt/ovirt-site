@@ -68,15 +68,6 @@ Use cases :
 6.  specific limited quota - vds_group_id!=null and/or storage_id!=null in quota_limitation table, quota fields (vcpu, vram and storage) will be null.
 7.  quota without any resources - vds_group_id=null and storage_id=null in quota_limitation table, quota fields (vcpu, vram and storage) will be 0.
 
-###### Functions
-
-1.  CalculateVdsGroupUsage - Summerise the VCPU usage and Memory usage for all the VMs in the quota which are not down, suspended, or in image locked or image illegal.
-2.  CalculateStorageUsage - Summerise the storage usage for all the disks in the quota, for active disks, we summerise the full size, for snapshots and other disks summerise only the actual size.
-
-***vm_static*** - Add column *quota_id*, which indicates the Quota the VM should be depended on its resources.
- ***image*** - Add column *quota_id*, which indicates the Quota the image should be depended on its storage resources.
- ***storage_pool*** - Add column *quota_enforcement*, Indicates the DC enforcement status for Quota (Disalbe(0) , Soft Limit (1),Hard Limit (2)) will be presented by Enum (see [QuotaStatusEnum](Features/Design/Quota#Classes).).
-
 ###### Views
 
 unchanged - see Features/Design/Quota

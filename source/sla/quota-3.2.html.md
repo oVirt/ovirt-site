@@ -28,7 +28,7 @@ TBD
 
 This section describes the backend design for this feature.
 
-#### DB Design
+#### DB Change
 
 In order to support quota on duplicate image stored on different storage domains, the quota_id column would move from "images" table to "image_storage_domain_map" table.
 
@@ -39,14 +39,6 @@ In order to support quota on duplicate image stored on different storage domains
 | image_id           | UUID        | not null        | Image Id          |
 | storage_domain_id | UUID        | not null        | Storage domain id |
 | quota_id           | UUID        |                 | Quota id          |
-
-###### Views
-
-unchanged - see <http://www.ovirt.org/wiki/Features/Design/Quota>
-
-###### Stored Procedures
-
-unchanged - see <http://www.ovirt.org/wiki/Features/Design/Quota>
 
 #### Logic Design
 

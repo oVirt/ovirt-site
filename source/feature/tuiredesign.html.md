@@ -12,7 +12,7 @@ wiki_last_updated: 2012-10-25
 
 ### Summary
 
-This feature adds a new TUi to oVirt Node to address some shortcommings of the current implementation.
+This feature adds a new TUI to oVirt Node to address some shortcommings of the current implementation.
 
 ### Owner
 
@@ -24,9 +24,10 @@ This feature adds a new TUi to oVirt Node to address some shortcommings of the c
 
 *   Completed: POC
 *   Completed: Design and document plugin layout
-*   In progress: Design UI layout for all pages/tui-plugins (Status, Network, ...)
-*   Pending: Implement logic for all pages/tui-plugins
+*   Completed: Design UI layout for all pages/tui-plugins (Status, Network, ...)
+*   In progress: Implement logic for all pages/tui-plugins
 *   Pending: Update plugin documentation and create a plugin writer guide
+*   Pending: Update TUI builder to meet aesthetic demands/ux guidelines
 *   Last updated: Oct. 17. 2012
 
 ### Detailed Description

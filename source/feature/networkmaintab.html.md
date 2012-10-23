@@ -63,7 +63,7 @@ wiki_warnings: list-item?
 
 *   **Display order** - between Host and Storage Tab.
 *   **Sort** - first- dc name, second- network name.
-*   **Columns**- Name, Data Center, Description (if longer then X chars display "(X-3)..." and the complete description in the tooltip), Role (list of icon + tooltip represent vm network and mgmt network), VLAN tagging (if empty- "-")
+*   **Columns**- Name, Data Center, Description (if longer then X chars display "(X-3)..." and the complete description in the tooltip), Role (list of icons + tooltip represent vm network and mgmt network), VLAN tagging (if empty- "-")
 *   **Actions**
 
     * Add, Edit

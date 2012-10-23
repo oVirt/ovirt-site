@@ -73,14 +73,14 @@ The VdcActionType marking would prevent unintentional inheritance of the interfa
 *`List` `of` `QuotaStorageConsumptionParameter`*` - Holds a single entry. the basic consumption unit`
 *`List` `of` `QuotaVdsConsumptionParameter`*` - Holds a single entry. the basic consumption unit`
 
-***org.ovirt.engine.core.bll.quota.QuotaStorageConsumptionParameter*** - the object passed to the QuotaManager on each consume/release call
+***org.ovirt.engine.core.bll.quota.QuotaStorageConsumptionParameter*** - a single entry. the basic consumption unit
 
 *`quotaId`*` - the id of the quota`
 *`action` `type`*` - consume or release (This allows to consume some resources while releasing others, all in the same call to consume()). `
 *`storageDomainId`*` - id of the storage domain (the asked resource).`
 *`requestedStorageGB`*` - the requested storage in GB.`
 
-***org.ovirt.engine.core.bll.quota.QuotaVdsConsumptionParameter*** - the object passed to the QuotaManager on each consume/release call
+***org.ovirt.engine.core.bll.quota.QuotaVdsConsumptionParameter*** - a single entry. the basic consumption unit
 
 *`quotaId`*` - the id of the quota`
 *`action` `type`*` - consume or release (This allows to consume some resources while releasing others, all in the same call to consume()). `

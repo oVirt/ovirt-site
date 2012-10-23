@@ -141,11 +141,7 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 ###### func
 
--create a following plugin to allInOne to configure and run vm, create template etc. -done
-
--change vm boot order to cd
-
--shorten host installation time - done
+-change vm boot order to cd - 0.8
 
 ###### branding
 

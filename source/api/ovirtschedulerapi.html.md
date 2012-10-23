@@ -103,6 +103,13 @@ Plugin-Version: the OVirt version for which this plugin was written. Versions ne
 
 ##### OSGI
 
+We can build on an existing OSGI container to enable plugins, this would allow us to use all of the features of OSGI (dynamic loading, service discovery, dependencies, etc)
+
+Solutions:
+
+*   use the JBoss' OSGI runtime - simple, supported, but may bring future portablity problems
+*   use an embeddable OSGI runtime (like what jira, eclipse and many other products do)
+
 ##### Sandbox
 
 #### Authentication

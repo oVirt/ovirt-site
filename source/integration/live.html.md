@@ -145,9 +145,9 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 ###### branding
 
--wide/normal background
+-wide/normal background 1.0
 
--custom logos
+-custom logos 1.0
 
 ###### features/usage
 

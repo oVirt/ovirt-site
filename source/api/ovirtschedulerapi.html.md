@@ -83,12 +83,6 @@ References:
 
 #### Association to Cluster
 
-##### UI
-
-===== User Input & Validation ====
-
-##### Pluggable UI
-
 #### Class Loading
 
 ##### Standard
@@ -130,5 +124,11 @@ Q:
 #### Authentication
 
 ### Tests
+
+##### UI
+
+===== User Input & Validation ====
+
+##### Pluggable UI
 
 <Category:Feature> <Category:SLA>

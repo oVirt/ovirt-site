@@ -81,6 +81,6 @@ Features being considered for inclusion/already in master:
     -   [ TUI redesign](Features/TUIredesign)
     -   [ Node automation](Features/NodeAutomation) work -- refactor git repo to make standard python tools work
     -   [ glusterfs client support](Node_Glusterfs_Support)
-    -   full plugin support including example plugins (snmp, cim)
+    -   [Full plugin support ](Features/Plugins) Including example plugins (snmp, cim)
 
 <Category:Releases> [Category:Release management](Category:Release management)

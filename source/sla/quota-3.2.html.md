@@ -14,7 +14,7 @@ This document describes the design for the Quota feature on oVirt 3.2.
 
 ### Motivation
 
-Current quota feature (available on oVirt 3.1) handles most of the planned capabilities and UI. This new version would include minor UI changes and more significant backend redesign.
+Current quota feature (available on oVirt 3.1) handles most of the planned capabilities and UI. This new version will include minor UI changes and more significant backend redesign.
 
 Please see <http://www.ovirt.org/wiki/Features/Quota-3.2>
 
@@ -30,7 +30,7 @@ This section describes the backend design for this feature.
 
 #### DB Change
 
-In order to support quota on duplicate image stored on different storage domains, the quota_id column would move from "images" table to "image_storage_domain_map" table.
+In order to support quota on duplicate image stored on different storage domains, the quota_id column will move from "images" table to "image_storage_domain_map" table.
 
 **image_storage_domain_map** - Represents the properties of the Quota configured on the DC.
 
@@ -43,18 +43,18 @@ In order to support quota on duplicate image stored on different storage domains
 #### Logic Design
 
 Each time the user will run a VM or create a new disk, there will be a quota resource check against the quota views.
-The process of quota validation located today in a method validateAndSetQuota in the command execute process, would be moved into CommandBase.
+The process of quota validation located today in a method validateAndSetQuota in the command execute process, will be moved into CommandBase.
 As in 3.1 the quota validation should be executed as synchronize method during the internalCanDoAction and before the command execute method.
-Each command which consumes quota resources would implement StorageQuotaDependent and/or VdsQuotaDependent interface and will return a list of the quota consume/release parameters.
-Commands would also be marked as storage or Vds consumers in the VdcActionType class. the defauld value for this setting would be BOTH (consumes both storage and vds), so when adding new command, one would have to consider quota issues. Commands which does not consume any quota resources would be marked NONE. CommandBase would use this markings in order to decide whether quota validation is needed.
-The VdcActionType marking would prevent unintentional inheritance of the interfaces and the implemented methods.
+Each command which consumes quota resources will implement StorageQuotaDependent and/or VdsQuotaDependent interface and will return a list of the quota consume/release parameters.
+Commands will also be marked as storage or Vds consumers in the VdcActionType class. the default value for this setting will be BOTH (consumes both storage and vds), so when adding new command, one will have to consider quota issues. Commands which does not consume any quota resources will be marked NONE. CommandBase will use this markings in order to decide whether quota validation is needed.
+The VdcActionType marking will prevent unintentional inheritance of the interfaces and the implemented methods.
 
 ##### Classes
 
 **Classes**
-***org.ovirt.engine.core.bll.quota.QuotaManager*** - Class which manage the quota views and memory delta tables. This class would be revisited and redesined
+***org.ovirt.engine.core.bll.quota.QuotaManager*** - Class which manage the quota views and memory delta tables. This class will be revisited and redesined
 
-*`consume(QuotaConsumptionParametrs` `params)`*` - This would be the main API of the QuotaManager. Any quota Consumption would call this method. Parameters are taken from CommandBase and the consuming command. the return value is a boolean - telling if the consumption was possible. Both storage resources and vds resources would be asked in the same QuotaConsumptionParametrs Object. That way the QuotaManager could validate and set all the resources required for the command (would make the external rollback redundant).    `
+*`consume(QuotaConsumptionParametrs` `params)`*` - This will be the main API of the QuotaManager. Any quota Consumption will call this method. Parameters are taken from CommandBase and the consuming command. the return value is a boolean - telling if the consumption was possible. Both storage resources and vds resources will be asked in the same QuotaConsumptionParametrs Object. That way the QuotaManager could validate and set all the resources required for the command (will make the external rollback redundant).    `
 *`rolback(QuotaConsumptionParametrs` `params)`*` - The same as consume(), only reverting all of the consume/release done by the same params.`
 
 ***org.ovirt.engine.core.bll.quota.QuotaConsumptionParameters*** - the object passed to the QuotaManager on each consume/release call

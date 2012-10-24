@@ -116,22 +116,23 @@ No new events are added.
 
 #### REST API
 
-As part of the user leval queries changes, we also added user-level API capabilities to the REST API. Before these changes, only administrators could login to the API. Now, you can logic as a regular user as well, by specifying the "filter: true" HTTP header. For example, as a user, in order to get all your VMs through the API you can do the following:
+As part of the user leval queries changes, we also added user-level API capabilities to the REST API.
+Before these changes, only administrators could login to the API. Now, you can logic as a regular user as well, by specifying the "filter: true" HTTP header.
+For example, as a user, in order to get all your VMs through the API you can do the following:
 
 *`curl` [`http://engine-address:engine-port/api/vms`](http://engine-address:engine-port/api/vms) `-u` `"user@domain":password` `-H` **`"filter:` `true"`***
 
 The following endpoints are supported:
 
 *   /api
+*   /api/vms
 *   /api/clusters
 *   /api/datacenters
 *   /api/roles
 *   /api/storagedomains
 *   /api/templates
 *   /api/domains
-*   /api/vms
 *   /api/capabilities
-*   /vms
 
 ### Documentation / External references
 

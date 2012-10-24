@@ -46,7 +46,7 @@ When planing the power management feature for the hosts there are few orthogonal
 
 This page is focused at the moment on item #4 and when discussion will go into the other then it will be split into relevant topics.
 
-## Power Management Proxy
+### Power Management Proxy
 
 oVirt uses the standard cluster fence_<device> script in order to perform power management related operations. These scripts are invoked by VDSM and controlled by the engine. The power management proxy may be any server the system that has VDSM installed with the proper certificates, even if it is not a host.
 

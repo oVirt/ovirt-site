@@ -30,6 +30,36 @@ The following section describes permissions for Network entities.
 
 #### Network Actions
 
+Current Action Groups and their associated Actions:
+
+*   CONFIGURE_VM_NETWORK (on VdcObjectType.VM) for actions:
+    -   ActivateDeactivateVmNic
+    -   AddVmInterface
+    -   RemoveVmInterface
+    -   UpdateVmInterface
+*   CONFIGURE_HOST_NETWORK (on VdcObjectType.VDS) for actions:
+    -   SetupNetworks
+    -   AddBond
+    -   RemoveBond
+    -   AttachNetworkToVdsInterface
+    -   DetachNetworkFromVdsInterface
+    -   UpdateNetworkToVdsInterface
+    -   CommitNetworkChanges
+*   CONFIGURE_TEMPLATE_NETWORK (on VdcObjectType.VmTemplate) for actions:
+    -   AddVmTemplateInterface
+    -   RemoveVmTemplateInterface
+    -   UpdateVmTemplateInterface
+*   CONFIGURE_CLUSTER_NETWORK (on VdcObjectType.VdsGroups) for actions:
+    -   AttachNetworkToVdsGroup
+    -   DetachNetworkToVdsGroup
+    -   UpdateNetworkOnCluster
+*   CONFIGURE_STORAGE_POOL_NETWORK (on VdcObjectType.StoragePool) for actions:
+    -   AddNetwork
+    -   RemoveNetwork
+    -   UpdateNetwork
+
+VdcObjectType.VmInterface already defined and in use by Port Mirroring
+
 #### Roles
 
 ##### New Action Groups for Network Object Type

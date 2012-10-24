@@ -87,7 +87,7 @@ wiki_warnings: list-item?
 ![](NetworkTab.png "fig:NetworkTab.png")
 **Clusters**- show all the clusters in the dc (first sort- is attahced, second sort- name)
 
-*   **Columns**- Name, Compatibility Version, Network Attached (read only check box), Network Status (icon), Network Required (V icon if yes, empty if no), Network Role (icon + tooltip), description.
+*   **Columns**- Name, Compatibility Version, Network Attached (read only check box), Network Status (icon), Network Required (read only check box), Network Role (icon + tooltip), description.
 *   **Actions**
 
 :\*Assign/Unassign Network - Same as Cluster-> Logical Networks-> Assign/Unassign, just instead of networks list, clusters list.

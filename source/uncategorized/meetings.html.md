@@ -19,9 +19,9 @@ oVirt has a weekly sync meeting on IRC (occasionally phone).
 
 #### Weekly project sync meeting
 
-This is the agenda for the 2012-10-24 meeting:
+This is the agenda for the 2012-10-31 meeting:
 
-*   Status of Next Release (Feature Status)
+*   Status of Next Release (Feature Status, F17/F18 support)
 *   Sub-project reports (engine, vdsm, node, infra)
 *   Workshop Report
 

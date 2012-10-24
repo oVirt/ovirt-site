@@ -14,7 +14,13 @@ This document describes the design for the Quota feature on oVirt 3.2.
 
 ### Motivation
 
-Current quota feature (available on oVirt 3.1) handles most of the planned capabilities and UI. This new version will include minor UI changes and more significant backend redesign.
+Current quota feature (available on oVirt 3.1) handles most of the planned capabilities and UI.
+This new version will include minor UI changes and more significant backend redesign.
+Main issues which would be addressed in this version:
+
+*   Current implementation does not integrate into the adding new command process. Thus, one can add a new command without taking Quota into concern. in the command is a resources consumer - this could potentially lead to holes in the quota mechanism.
+*   In current design, a command quota dependency is inherited by it's descendants. This situation leads to wrong quota calculation (when inheriting implemented methods) and unnecessary quota calculations (when the descendent should not be quota dependent). The redundant quota references often results with corrupted data passed to the QuotaManager.
+*   Current design calls for a relatively complex implementation in each new command, When large portions of the code are duplicated .
 
 Please see <http://www.ovirt.org/wiki/Features/Quota-3.2>
 

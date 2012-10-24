@@ -26,13 +26,13 @@ The Network Permissions feature is supplementary for network related actions in 
 
 ### Design
 
-The following section describes permissions for Network entities.
+The following section describes permissions on Network entities.
 
 #### Network Actions
 
 Current Action Groups and their associated Actions:
 
-*   CONFIGURE_STORAGE_POOL_NETWORK (on VdcObjectType.StoragePool) for actions:
+*   CONFIGURE_STORAGE_POOL_NETWORK (requires permissions on VdcObjectType.StoragePool) for actions:
     -   AddNetwork
     -   RemoveNetwork
     -   UpdateNetwork
@@ -76,8 +76,17 @@ VdcObjectType.VmInterface already defined and in use by Port Mirroring
 
 *   **NetworkUser** role should be created. It should be associated with the following groups: CONFIGURE_VM_NETWORK and PORT_MIRRORING.
     -   It should allow the user to create vnics attached to the subjected network and allow to listen to the network's traffic.
+    -   It also should be associated with CONFIGURE_TEMPLATE_NETWORK when user has permission for the template entity.
 
 ##### Updated Roles
+
+*   **NetworkAdmin** attached to groups MANIPUTLATE_HOST, CONFIGURE_HOST_NETWORK and CONFIGURE_CLUSTER_NETWORK.
+    -   MANIPUTLATE_HOST has nothing to do with networking, therefore should be omitted from it
+    -   CONFIGURE_STORAGE_POOL_NETWORK should be added to the NetworkAdmin groups.
+    -   The actions should be modified to require permission on Network and the main entity of each group (On Data Center and Cluster and on Network)
+
+**Question**: Do we need a permission on Network when we attach it to Host? If a user is the Host owner, he might be able to configure the network on host directly.
+**Another Question**: How do we handle if at all 'unmanaged networks' ?
 
 ##### Updated Action Groups
 

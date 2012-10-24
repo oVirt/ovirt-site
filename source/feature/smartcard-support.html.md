@@ -12,13 +12,17 @@ wiki_last_updated: 2013-01-21
 
 ### Summary
 
-*   Adds the support to enable/disable smartcard per VM from Webadmin/Power User Portal and REST API
-*   Makes the VDSM to support smartcard by standard way (not by a hook)
+*   Support pass through of Smartcard attached to client to a virtual machine
+*   Allow the VM owner or administrator to specify if a virtual machine should support smartcard
+*   Allow the VM user (on portal) to be able to disable this setting.
+*   Support configuring this option via web admin, Power user portal, REST API and CLI
 
 ### Owner
 
 *   Name: [Tomas Jelinek](User:TJelinek)
 *   Email: <tjelinek@redhat.com>
+*   PM Requirements : [Andrew Cathrow](User:ACathrow)
+*   Email: <acathrow@redhat.com>
 
 ### Current status
 
@@ -29,6 +33,8 @@ Pending review:
 *   REST API: <http://gerrit.ovirt.org/#/c/8512/>
 
 ### Requirements
+
+Should be supported on ActiveX and Linux/XPI client
 
 *   on client
     -   spice-xpi-2.7-20 or higher
@@ -57,6 +63,10 @@ Behavior:
 *   this checkbox is enabled only for the Spice client, it is visible but disabled for VNC.
 *   if the checkbox is checked and the user starts a VM, engine sends the *smartcardEnable* as true to the VDSM (please refer to the VDSM part of this document for it's meaning)
 *   if the checkbox is checked (e.g. smartcard is enabled) and the user clicks the console button (e.g. connects to guest), the application sets the *Smartcard* property on the spice-xpi plugin to true which has the same effect than calling the *spicec --smartcard*
+    -   Should also be supported for ActiveX
+*   Within the user portal the end user should have the option to override this setting and _not_ pass the enable smart card option to the spice client
+    -   Note the should only be able to disable this option
+*   The user portal should provide a visual indication that the smart card will be enabled
 
 #### REST API
 

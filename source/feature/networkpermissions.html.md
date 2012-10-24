@@ -67,9 +67,17 @@ VdcObjectType.VmInterface already defined and in use by Port Mirroring
 
 ##### New Action Groups for Network Object Type
 
+CONFIGURE_HOST_NETWORK
+
+##### Existing Roles
+
+An existing role "NETWORK_ADMIN" attached to groups MANIPUTLATE_HOST, CONFIGURE_HOST_NETWORK and CONFIGURE_CLUSTER_NETWORK.
+It is defined as administrator role having permission for all operations on a specific Logical Network.
+
 ##### New Roles
 
-An existing role "NETWORK_ADMIN" attached to groups MANIPUTLATE_HOST, CONFIGURE_HOST_NETWORK and CONFIGURE_CLUSTER_NETWORK. It is defined as administrator role having permission for all operations on a specific Logical Network.
+NetworkUser role should be created. It should be associated with the following groups: CONFIGURE_VM_NETWORK and PORT_MIRRORING.
+It should allow the user to create vnics attached to the subjected network and allow to listen to the network's traffic.
 
 ##### Updated Roles
 

@@ -82,12 +82,12 @@ wiki_warnings: list-item?
 
 **General**
 
-*   **Fields**- Name, Id, Description, Role (?), VLAN tagging (if empty - "none"), MTU (if empty- "host's default")
+*   **Fields**- Name, Id, Description, Role (all dc level roles- comma separated), VLAN tagging (if empty - "none"), MTU (if empty- "host's default")
 
 ![](NetworkTab.png "fig:NetworkTab.png")
 **Clusters**- show all the clusters in the dc (first sort- is attahced, second sort- name)
 
-*   **Columns**- Name, Attached (read only check box), Compatibility Version, Network Status (icon ?), Network Required (V icon if yes, empty if no), Network Role (icon)
+*   **Columns**- Name, Attached (read only check box), Compatibility Version, Network Status (icon), Network Required (V icon if yes, empty if no), Network Role (icon)
 *   **Actions**
 
 :\*Assign/Unassign Network - Same as Cluster-> Logical Networks-> Assign/Unassign, just instead of networks list, clusters list.
@@ -107,7 +107,7 @@ Have a radio button that will show either
     -   **Actions**- SetupNetworks
 
 **Virtual Machines** (default sub tab)- All the vms that this network is attached to (firt sort- cluster second sort- name)
-\* **Columns**- Status (icon), Name, Cluster, IP Address (list of all host's ip addresses), Vnic status(icon, if more then one vnic- display the first one status), Vnic (if more than one 'Vnic1...', the Vnic's list will be displayed in the tooltip coma seperated), Vnic Rx(?), Vnic Tx(?), description (? if there is enough place to display it).
+\* **Columns**- Status (icon), Name, Cluster, IP Address (list of all host's ip addresses), Vnic status(icon, if more then one vnic- display the first one status), Vnic (if more than one 'Vnic1...', the Vnic's list will be displayed in the tooltip coma seperated), Vnic Rx, Vnic Tx, description (if there is enough place to display it).
 
 *   **Actions**- remove (multipule selection) - enabled if vm is down or cluster's version supports hotplug nic. Opens a confirmation window with a message- "Please note this operation will remove from the vm the Vnics that are using the selected network" (this is a stretch goal and we are not sure we'll add it in 3.2)
 

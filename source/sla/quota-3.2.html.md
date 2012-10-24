@@ -16,10 +16,10 @@ This document describes the design for the Quota feature on oVirt 3.2.
 
 Current quota feature (available on oVirt 3.1) handles most of the planned capabilities and UI.
 This new version will include minor UI changes and more significant backend redesign.
-Main issues which would be addressed in this version:
+Main issues which to be addressed in this version:
 
-*   Current implementation does not integrate into the adding new command process. Thus, one can add a new command without taking Quota into concern. in the command is a resources consumer - this could potentially lead to holes in the quota mechanism.
-*   In current design, a command quota dependency is inherited by it's descendants. This situation leads to wrong quota calculation (when inheriting implemented methods) and unnecessary quota calculations (when the descendent should not be quota dependent). The redundant quota references often results with corrupted data passed to the QuotaManager.
+*   Current implementation does not integrate into the adding new command process. Thus, one can add a new command without taking Quota into concern. In the command is a resources consumer - this could potentially lead to holes in the quota mechanism.
+*   In current design, a command quota dependency is inherited by its descendants. This situation leads to wrong quota calculation (when inheriting implemented methods) and unnecessary quota calculations (when the descendant should not be quota dependent). The redundant quota references often results with corrupted data passed to the QuotaManager.
 *   Current design calls for a relatively complex implementation in each new command, When large portions of the code are duplicated .
 
 Please see <http://www.ovirt.org/wiki/Features/Quota-3.2>
@@ -49,7 +49,7 @@ In order to support quota on duplicate image stored on different storage domains
 #### Logic Design
 
 Each time the user will run a VM or create a new disk, there will be a quota resource check against the quota views.
-The process of quota validation located today in a method validateAndSetQuota in the command execute process, will be moved into CommandBase.
+The process of quota validation is located today in a method validateAndSetQuota in the command execute process, will be moved into CommandBase.
 As in 3.1 the quota validation should be executed as synchronize method during the internalCanDoAction and before the command execute method.
 Each command which consumes quota resources will implement StorageQuotaDependent and/or VdsQuotaDependent interface and will return a list of the quota consume/release parameters.
 Commands will also be marked as storage or Vds consumers in the VdcActionType class. the default value for this setting will be BOTH (consumes both storage and vds), so when adding new command, one will have to consider quota issues. Commands which does not consume any quota resources will be marked NONE. CommandBase will use this markings in order to decide whether quota validation is needed.

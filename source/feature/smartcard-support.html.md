@@ -65,8 +65,14 @@ Behavior:
 *   if the checkbox is checked (e.g. smartcard is enabled) and the user clicks the console button (e.g. connects to guest), the application sets the *Smartcard* property on the spice-xpi plugin to true which has the same effect than calling the *spicec --smartcard*
     -   Should also be supported for ActiveX
 *   Within the user portal the end user should have the option to override this setting and _not_ pass the enable smart card option to the spice client
-    -   Note the should only be able to disable this option
+    -   If the smartcard option is enabled for the virtual machine then a "Disable smartcard" option should be presented in the console options
+    -   If the smartcard option is not enabled for the virtual machine then "Disable smartcard" checkbox should NOT appear in the console options
+    -   Note the should only be able to disable this option.
 *   The user portal should provide a visual indication that the smart card will be enabled
+
+<!-- -->
+
+*   This option should be available within the PowerUser Portal
 
 #### REST API
 

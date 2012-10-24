@@ -34,7 +34,35 @@ The current implementation of the Power Management is focused on supporting the 
 
 ### Detailed Description
 
-Expand on the summary, if appropriate. A couple sentences suffices to explain the goal, but the more details you can provide the better.
+When planing the power management feature for the hosts there are few orthogonal aspects to consider
+
+1. Supported Power Management Devices
+
+2. Fencing logic, meaning how to determine a host requires fencing.
+
+3. Power Management logic, meaning when and how to use the power management mechanism to automatically reduce power consumption in the data center
+
+4. Power Management Proxy Selection
+
+This page is focused at the moment on item #4 and when discussion will go into the other then it will be split into relevant topics.
+
+## Power Management Proxy
+
+oVirt uses the standard cluster fence_<device> script in order to perform power management related operations. These scripts are invoked by VDSM and controlled by the engine. The power management proxy may be any server the system that has VDSM installed with the proper certificates, even if it is not a host.
+
+Proper proxy selection depends on the networking topology of the data center, user preferences and whether there is a redundant fencing device.
+
+This requires to add the ability to specify multiple power management devices options in priority. Per option, which fencing device to use and which proxy to use, where there may be multiple proxies with set priorities for using these proxies.
+
+Proxy options may be:
+
+1. Engine: The the server hosting the engine. This requires to install VDSM on this host
+
+2, DC: A host in the same data center
+
+3. Cluster: A host in the same cluster
+
+4. IP/FQDN: A specific host
 
 ### Benefit to oVirt
 

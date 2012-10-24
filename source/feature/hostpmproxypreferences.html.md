@@ -67,20 +67,19 @@ The proposal (but not final design, this should be created in the detailed desig
 
 Each tab contains:
 
-Device configuration - as today
+*   Device configuration - as today
+*   Proxy list (new field). Where proxy may be provided as coma separated list:
+    -   Examples:
+        -   Cluster, Engine
+        -   fqdn1/ip1,fqdn2/ip2
+        -   Cluster
+        -   Cluster, DC
 
-Proxy list (new field). Where proxy may be provided as coma separated list:
+<!-- -->
 
-*   Examples:
-    -   Cluster, Engine
-    -   fqdn1/ip1,fqdn2/ip2
-    -   Cluster
-    -   Cluster, DC
-
-Redundant cards may have two topologies, As far as the Engine is concerned. This is since the only operation provided by the Engine are PowerOff, PowerOn, and Restart that is a sequence of off and then on.
-
-*   Sequential: Tab1 has higher priority then tab2 - In this case first device should be used, and if fencing operation fails then use the second device
-*   Concurrent: Like in the case of double power supply, in this case fencing should be done to both concurrently, meaning both should be powered off and then on or fencing will not take effect.
+*   Redundant cards may have two topologies, As far as the Engine is concerned. This is since the only operation provided by the Engine are PowerOff, PowerOn, and Restart that is a sequence of off and then on.
+    -   Sequential: Tab1 has higher priority then tab2 - In this case first device should be used, and if fencing operation fails then use the second device
+    -   Concurrent: Like in the case of double power supply, in this case fencing should be done to both concurrently, meaning both should be powered off and then on or fencing will not take effect.
 
 ### Benefit to oVirt
 

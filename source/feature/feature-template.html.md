@@ -11,28 +11,21 @@ wiki_last_updated: 2014-12-12
 
 # Feature template
 
-The actual name of your feature page should look something like: "Your feature name". Use natural language to [name the pages](How to make pages#Page_naming).
-
-## Your Feature Name
+## Instance Types / Flavors
 
 ### Summary
 
-A sentence or two summarizing what this feature is and what it will do. This information is used for the overall feature summary page for each release.
-
 ### Owner
 
-This should link to your home wiki page so we know who you are
-
-*   Name: [ My User](User:MyUser)
-
-Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
-
-*   Email: <my@email>
+*   Name:
+*   Email:
+*   PM Requirements : [Andrew Cathrow](User:ACathrow)
+*   Email: <acathrow@redhat.com>
 
 ### Current status
 
-*   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
-*   Last updated date: ...
+*   Target 3.2
+*   Last updated date:
 
 ### Detailed Description
 

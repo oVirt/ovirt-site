@@ -58,13 +58,10 @@ This requires to add the ability to specify, per host, multiple power management
 
 Proxy options may be:
 
-1. **Engine**: The the server hosting the engine. This requires to install VDSM on this host
-
-2, **DC**: A host in the same data center
-
-3. **Cluster**: A host in the same cluster
-
-4. **IP/FQDN**: A specific host
+1.  **Engine**: The the server hosting the engine. This requires to install VDSM on this host
+2.  **DC**: A host in the same data center
+3.  **Cluster**: A host in the same cluster
+4.  **IP/FQDN**: A specific host
 
 The proposal (but not final design, this should be created in the detailed design page), is to support two power management devices per host. Can be done via two tabs in the host properties, instead of one today.
 
@@ -74,15 +71,16 @@ Device configuration - as today
 
 Proxy list (new field). Where proxy may be provided as coma separated list:
 
-Example1: Cluster, Engine
+*   Examples:
+    -   Cluster, Engine
+    -   fqdn1/ip1,fqdn2/ip2
+    -   Cluster
+    -   Cluster, DC
 
-Example2: fqdn1/ip1,fqdn2/ip2
+Redundant cards may have two topologies, As far as the Engine is concerned. This is since the only operation provided by the Engine are PowerOff, PowerOn, and Restart that is a sequence of off and then on.
 
-Example3: Cluster
-
-Example4: Cluster, DC
-
-Tab1 has higher priority then tab two.
+*   Sequential: Tab1 has higher priority then tab2 - In this case first device should be used, and if fencing operation fails then use the second device
+*   Concurrent: Like in the case of double power supply, in this case fencing should be done to both concurrently, meaning both should be powered off and then on or fencing will not take effect.
 
 ### Benefit to oVirt
 

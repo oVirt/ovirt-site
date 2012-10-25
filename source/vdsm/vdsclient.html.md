@@ -69,3 +69,5 @@ To connect to host, you can use **-s** as argument for secure connection (SSL) o
 3. Now try to use vnc client
 
 *   $ vncviewer <oVirt Node>:<displayPort>
+
+<Category:Vdsm>

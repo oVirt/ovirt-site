@@ -154,12 +154,12 @@ Methods' Parameters:
 
 We should first move the current scheduling logic into a new class implementing the new API, the question here is what to export and what to leave behind (still in backend internals), e.g., scheduling parameters should be boxed out? migration in maintenance? And so on; my beliefs are that everything should be boxed out, but this can be done in several phases:
 
-phases:
+Phases:
 
-1.  Alter cluster scheduling parameters to be customized (without touching current parameters).
-2.  Move select host logic into new API (including canDoAction of selectHost).
-3.  Create scheduled tasks (tasks invoked by timer)- LoadBalacer & timer invoked method.
-4.  Build a state machine for VM and Host statuses.
+1.  Load external scheduler on backend init, allowing to add user functionality to cluster scheduling (including parameters).
+2.  Move select host logic into the new API (including validation of selectHost).
+3.  Create scheduled tasks (tasks invoked by timer): LoadBalancer & timer invoked method.
+4.  Build a state machine for VM and Host statuses, triggering the new API methods.
 5.  Move migration logic according to VM and Host status changes.
 6.  Allow having configurable and customized parameters for Vms, Hosts & clusters, and moving the current fields (HA, selection algo, etc) into a dynamic field that is controlled by the scheduler.
 

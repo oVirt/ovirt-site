@@ -96,15 +96,23 @@ The new API is a single interface which extends 5 other interfaces:
 
 *   HostSelector
 
-chooses a host to run on according to selection algorithm. getSelectedHosts(): returns a list containing the last selected hosts. hasAnyHosts(): is called in the validation while running a VM, and returns whether there are hosts to choose from. selectHost(): is called in the execution while running a VM, and returns a host that the implemented algorithm chooses (note: should have shared code with hasAnyHosts).
+Chooses a host to run on according to selection algorithm.
+
+1.  getSelectedHosts(): returns a list containing the last selected hosts.
+2.  hasAnyHosts(): is called in the validation while running a VM, and returns whether there are potential hosts to choose from.
+3.  selectHost(): is called in the execution while running or migrating a VM, and returns a host that the implemented algorithm chooses (note: may have shared code with hasAnyHosts).
 
 *   LoadBalancer
 
-Invoked for each cluster every interval and perform load balancing according to a load balancing algorithm. loadBalance() invoked every configValue.VdsLoadBalancingeIntervalInMinutes minutes.
+Invoked for each cluster every interval and perform load balancing according to a load balancing algorithm.
+
+1.  loadBalance(): invoked every configValue.VdsLoadBalancingeIntervalInMinutes minutes.
 
 *   TimerInvokedScheduler
 
-Very much similar to the loadBalancer, but has a general purpose and can have a different timer span. onTimerInvoked(): invoked every configValue.SchedulerTimerIntervalInMinutes minutes.
+Very much similar to the loadBalancer, but has a general purpose and can have a different timer span.
+
+1.  onTimerInvoked(): invoked every configValue.SchedulerTimerIntervalInMinutes minutes.
 
 *   VmStatusChanged
 

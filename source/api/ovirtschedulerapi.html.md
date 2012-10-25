@@ -149,11 +149,10 @@ Methods' Parameters:
 *   vmStatus (old, new)
 *   inputs (including separate input for policy)
 *   schedulingLog
-*   [optional] REST API entry point (see next paragraph)
 
 ##### Implementing API with default oVirt scheduler
 
-We should first move the current scheduling logic into a new class implementing the new API, the question here is what to export and what to leave behind (still in beckend internals), e.g., scheduling parameters should be boxed out? migration in maintenance? And so on; my beliefs are that everything should be boxed out, but this can be done in several phases:
+We should first move the current scheduling logic into a new class implementing the new API, the question here is what to export and what to leave behind (still in backend internals), e.g., scheduling parameters should be boxed out? migration in maintenance? And so on; my beliefs are that everything should be boxed out, but this can be done in several phases:
 
 phases:
 

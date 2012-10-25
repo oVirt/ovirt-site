@@ -49,12 +49,23 @@ Currently, we can divide oVirt scheduling into two flows, direct and indirect. T
 <!-- -->
 
 *   pin to host (dedicated_vm_for_vds)
+    -   References:
+        -   selection
+        -   load balancing
+    -   commands:
+        -   ChangeVMClusterCommand (clear pinned host),
+        -   RunVmCommand (selection)
 
-References: selection & load balancing. commands: ChangeVMClusterCommand (clear pinned host), RunVmCommand (selection)
+<!-- -->
 
 *   priority (priority, VmsComparer)
-
-References: VmsComparer Commands: MaintananceVds (+ numberOf), MigrateVM (order commands), LoadBalance (isMigratable), VdsSelector (pinned to host)
+    -   References:
+        -   VmsComparer
+    -   Commands:
+        -   MaintananceVds (+ numberOf),
+        -   MigrateVM (order commands),
+        -   LoadBalance (isMigratable),
+        -   VdsSelector (pinned to host)
 
 ##### Cluster's Host selection policy (selection algorithm)
 

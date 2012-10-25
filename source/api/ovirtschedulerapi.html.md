@@ -14,7 +14,7 @@ wiki_last_updated: 2014-06-30
 
 ### Summary
 
-This feature will model all the scheduling into a single api, that ovirt admins can alter and enhance default scheduling behavior.
+This feature will model all the scheduling into a single API, that oVirt admins can alter and enhance default scheduling behavior.
 
 ### Owner
 
@@ -28,11 +28,11 @@ This feature will model all the scheduling into a single api, that ovirt admins 
 
 ### Detailed Description
 
-Currently scheduling mechanism is handled by oVirt engine internals. In order users to enhance scheduling mechanism, we need to provide a way for a user to dynamically add a self-written scheduler - or 'SLA Pluggable Architecture'. This feature is meant to model out all current scheduling methods into a single API (place), which will become the 'Default oVirt Scheduling Mechanism', and the ability to load a user defined one, that can replace the default, which also uses the same API (and the default oVirt one). The Pluggable Architecture has to be flexible enough to foresee and prevent future API changes or at least keep them minimal, in order the API to be backward compatible and stable.
+Currently scheduling mechanism is handled by oVirt engine internals. To allow users to enhance scheduling mechanism, we need to provide a way for a user to replace or add a self-written scheduler - or 'SLA Pluggable Architecture'. This feature is meant to model current scheduling methods into a single API (place), which will become the 'Default oVirt Scheduling Mechanism'. The Pluggable Architecture has to be flexible enough to foresee future API changes or at least keep them minimal, in order for API to be backward compatible and stable.
 
 #### Existing Scheduling Mechanisms
 
-As I see it we can divide oVirt scheduling into two flows, direct and indirect. These flows depend on the VM, host and cluster (oVirt scheduling parameters: HA, selection algo, failure policy, etc.). The direct flows are 'Run Vm' and 'Migrate Vm' commands (select host to run on) & Load Balancing task, the indirect flows are Maintanance VDS, SetNonOperationalVdsCommand, which may cause migration (with host selection obviously). oVirt scheduling parameters (which will be explained next) are specific for oVirt scheduler.
+Currently, we can divide oVirt scheduling into two flows, direct and indirect. These flows depend on the VM, host and cluster (oVirt scheduling parameters: HA, selection algo, failure policy, etc.). The direct flows are 'Run Vm' and 'Migrate Vm' commands (select host to run on) & Load Balancing task, the indirect flows are Maintanance VDS, SetNonOperationalVdsCommand, etc., which may cause migration (with host selection obviously). Additionally oVirt scheduling parameters (which will be explained next) are specific for existing scheduler. oVirt
 
 ##### VM migration policy - migration support (VM HA)
 

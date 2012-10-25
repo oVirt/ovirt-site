@@ -63,7 +63,7 @@ Features being considered for inclusion/already in master:
     -   [ Improving Quota for 3.2](Features/Quota-3.2)
     -   [ Integrate smartcard support](Features/Smartcard support)
     -   VM creation base on pre-defined profiles (instance types)
-    -   libvdsm preview
+    -   [ libvdsm preview](Features/libvdsm)
     -   [ Storage live migration](Features/Design/StorageLiveMigration) (needs to be checked)
     -   [ Sync network](SetupNetworks_SyncNetworks)
     -   [ nwfilter](Features/Design/Network/NetworkFiltering)

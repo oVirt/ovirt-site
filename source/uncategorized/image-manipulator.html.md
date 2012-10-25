@@ -8,7 +8,7 @@ wiki_last_updated: 2012-10-26
 
 # Image Manipulator
 
-The Image Manipulation is layered to allow flexibility and for maximum code reuse. The first layer is the Repository Engine. Repository Engines Abstract the creation, deletion and manipulation of Tags and Volumes. The Image Manipulator uses the Repository Engines operations to compose high level Image centric operations.
+![](Example.jpg "fig:Example.jpg")The Image Manipulation is layered to allow flexibility and for maximum code reuse. The first layer is the Repository Engine. Repository Engines Abstract the creation, deletion and manipulation of Tags and Volumes. The Image Manipulator uses the Repository Engines operations to compose high level Image centric operations.
 
 ## Terminology
 
@@ -51,3 +51,5 @@ repos might have more specialized operations but this is the bare minimum.
 All high level operations must be composed out of the following more basic operations. These operations are just basic templates and don't specify the actual content or format of the volume and assume only the most basic of functionality exists. This is a must in order to keep the higher level operations flexible.
 
 All low level operations should be able to fail at any point and return to a consistent state without any information that is not on the domain itself.
+
+![](RepoLegend.jpg "RepoLegend.jpg")

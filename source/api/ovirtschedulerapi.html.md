@@ -92,11 +92,11 @@ implements behavior for Host status transitions for SLA context.
 
 ##### Scheduler Details
 
-        * id
-        * version / md5sum (we calculate)
-        * name
-        * available policies.
-        * input (& validations)
+*   id
+*   version / md5sum (we calculate)
+*   name
+*   available policies.
+*   input (& validations)
 
 #### Default Implementation
 

@@ -69,7 +69,16 @@ Currently, we can divide oVirt scheduling into two flows, direct and indirect. T
 
 ##### Cluster's Host selection policy (selection algorithm)
 
-None, EvenlyDistribute, PowerSave. References: LoadBalancer VdsGroupOperationCommandBase.validateMetrics (validating high/low utilization, adding/updating vdsGroup) selection algo in VDS - for selection.
+*   None
+*   EvenlyDistribute
+*   PowerSave
+
+<!-- -->
+
+*   References:
+    -   LoadBalancer
+    -   VdsGroupOperationCommandBase.validateMetrics (validating high/low utilization, adding/updating vdsGroup)
+    -   VdsSelector
 
 ##### Cluster migration policy - resilience policy
 

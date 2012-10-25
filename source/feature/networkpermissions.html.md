@@ -92,6 +92,8 @@ VdcObjectType.VmInterface already defined and in use by Port Mirroring
 
 *   **PORT_MIRRORING** should require permissions on both the Vm and the Network for creating or updating a VM nic.
 
+The **VmInterface** should be removed from the VdcObjectType, since this is too granular entity.
+
 #### DB Changes
 
        Modify create_functions.sql:

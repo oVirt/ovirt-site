@@ -146,17 +146,19 @@ Network: (search by network properties)
 
 **Queries for the sub tabs**
 
-1.  Clusters - returns all the clusters in the dc, if the network is not attached to the cluster cluster_network will be null (VDSGroup + cluster_network)
+1.  Clusters
+    -   GetVdsGroupsAndNetworksByNetworkIdQuery - returns all the clusters in the dc, if the network is not attached to the cluster cluster_network will be null (VDSGroup + cluster_network)
+
 2.  Hosts
     -   returns all the hosts belong to the same dc as the network. (VDS)
-    -   returns all the hosts the network is attached to one of their nics. (VDS + vds_interface_view similar to GetVdsInterfacesByVdsId)
-    -   All the hosts where this network attached to the cluster but not to the host (VDS)
+    -   GetVdsAndNetworkInterfacesByNetworkIdQuery - returns all the hosts the network is attached to one of their nics. (VDS + vds_interface_view similar to GetVdsInterfacesByVdsId)
+    -   GetVdsWithoutNetworkQuery - All the hosts where this network attached to the cluster but not to the host (VDS)
 
 3.  Virtual Machines
-    -   returns all the vms that have at least one vnic on the network. (VM + List<vm_interfaces>)
+    -   GetVmsAndNetworkInterfacesByNetworkIdQuery - returns all the vms that have at least one vnic on the network. (VM + List<vm_interfaces>)
 
 4.  Templates
-    -   returns all the templates that have at least one vnic on the network. (VM + List<vm_interfaces>)
+    -   GetVmTemplatesAndNetworkInterfacesByNetworkIdQuery - returns all the templates that have at least one vnic on the network. (VM + List<vm_interfaces>)
 
 ### Documentation / External references
 

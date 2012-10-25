@@ -21,7 +21,7 @@ The purpose of the feature is to add session management to the oVirt REST API.
 
 ### Current status
 
-*   Design phase
+*   Finished implementation in oVirt 3.1
 
 ### Background
 

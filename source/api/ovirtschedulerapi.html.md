@@ -165,7 +165,7 @@ Phases:
 
 ##### Backend Entry Point (REST-API)
 
-WIP, currently we are talking about having an entry point given by in the method signature, this object is auto-generated REST-API jar that represents the various entities, commands and queries that can be done via the REST-API.
+WIP. Currently we are talking about the user creating a REST entry point client object. This object is auto-generated REST-API jar that represents the various entities, commands and queries that can be done via the REST-API.
 
 ##### Authentication
 

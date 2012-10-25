@@ -30,12 +30,24 @@ Volumes are slabs of data and associated metadata. Volumes are accessed using a 
 
 ## Image Repository
 
-Image Repositories need to supply the abilities to handle tags and volumes. The basic interface every repository needs to implement is.
+Image Repositories need to supply the abilities to handle tags and volumes. The basic interface every repository needs to implement is. All operations must be atomic!
 
-createVolume
+createVolume(size, metadata) - returns an id to an already locked volume with the metadata attached. deleteVolume(volId) - deletes the specified volume.
 
-The following algorithms don't care what is in the Volume or what metadata sits on the Volume or the Tag except for the "pointing" information.
+readVolumeMetadata(volId) - read the volume metadata. writeVolumeMetadata(volId, metadata) - change the volume metadata.
 
-A Tag **must** point to a volume and a volume **can** point to a tag.
+lockVolume(volId) - try and acquire the cluster lock of the volume. unlockVolume(volId) - release the cluster wide lock.
 
-All high level operations must use the following low level operations. Using these operations guarantees saftey and recoverability.
+createTag(metadata) - creates a tag with the specified metadata. deleteTag(tagId) - delete the specified tag.
+
+readTag(tagId) - read the metadata stored in the specified tag. changeTag(tagId, metadata) - Change the metadata in the tag. This replaces the entire metadata with the new object.
+
+writeUserData(tagId, data) - attaches user data to the tag. readUserData(tagId) - reads the userdata attached to the tag.
+
+repos might have more specialized operations but this is the bare minimum.
+
+## Low Lever Operations and Recovery
+
+All high level operations must be composed out of the following more basic operations. These operations are just basic templates and don't specify the actual content or format of the volume and assume only the most basic of functionality exists. This is a must in order to keep the higher level operations flexible.
+
+All low level operations should be able to fail at any point and return to a consistent state without any information that is not on the domain itself.

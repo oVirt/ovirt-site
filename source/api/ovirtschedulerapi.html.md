@@ -32,7 +32,7 @@ Currently scheduling mechanism is handled by oVirt engine internals. In order us
 
 #### Existing Scheduling Mechanisms
 
-As I see it we can devide oVirt scheduling into two flows, direct and indirect. These flows depend on the VM, host and cluster (oVirt scheduling parameters: HA, selection algo, failure policy, etc.). The direct flows are 'Run Vm' and 'Migrate Vm' commands (select host to run on) & Load Balancing task, the indirect flows are Maintanance VDS, SetNonOperationalVdsCommand, which may cause migration (with host selection obviously). oVirt scheduling parameters (which will be explained next) are specific for oVirt scheduler.
+As I see it we can divide oVirt scheduling into two flows, direct and indirect. These flows depend on the VM, host and cluster (oVirt scheduling parameters: HA, selection algo, failure policy, etc.). The direct flows are 'Run Vm' and 'Migrate Vm' commands (select host to run on) & Load Balancing task, the indirect flows are Maintanance VDS, SetNonOperationalVdsCommand, which may cause migration (with host selection obviously). oVirt scheduling parameters (which will be explained next) are specific for oVirt scheduler.
 
 ##### VM migration policy - migration support (VM HA)
 

@@ -150,7 +150,7 @@ Network: (search by network properties)
     -   GetVdsGroupsAndNetworksByNetworkIdQuery - returns all the clusters in the dc, if the network is not attached to the cluster cluster_network will be null (VDSGroup + cluster_network)
 
 2.  Hosts
-    -   returns all the hosts belong to the same dc as the network. (VDS)
+    -   GetVdsByStoragePoolId - returns all the hosts belong to the same dc as the network. (VDS)
     -   GetVdsAndNetworkInterfacesByNetworkIdQuery - returns all the hosts the network is attached to one of their nics. (VDS + vds_interface_view similar to GetVdsInterfacesByVdsId)
     -   GetVdsWithoutNetworkQuery - All the hosts where this network attached to the cluster but not to the host (VDS)
 

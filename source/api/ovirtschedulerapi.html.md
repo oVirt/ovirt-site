@@ -37,8 +37,16 @@ Currently, we can divide oVirt scheduling into two flows, direct and indirect. T
 ##### VM migration policy - migration support (VM HA)
 
 *   migratable, implicitly non migratable (autoStartup)
+    -   References:
+        -   RunVmCommandBase.canRunVm(Check if iso and floppy path exists ??),
+        -   VmRunHandler.performImageChecksForRunningVm(Check isValid, storageDomain and diskSpace only if VM is not HA VM)
+    -   commands:
+        -   FenceVdsManualyCommand,
+        -   ClearNonResponsiveVdsVmsCommand,
+        -   MaintananceVdsCommand,
+        -   RunVmCommandBase (starts spice)
 
-References: RunVmCommandBase.canRunVm(Check if iso and floppy path exists ??), VmRunHandler.performImageChecksForRunningVm(Check isValid, storageDomain and diskSpace only if VM is not HA VM) commands: FenceVdsManualyCommand, ClearNonResponsiveVdsVmsCommand, MaintananceVdsCommand, RunVmCommandBase (starts spice)
+<!-- -->
 
 *   pin to host (dedicated_vm_for_vds)
 

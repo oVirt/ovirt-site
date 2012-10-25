@@ -28,7 +28,8 @@ This feature adds a new TUI to oVirt Node to address some shortcommings of the c
 *   In progress: Implement logic for all pages/tui-plugins
 *   Pending: Update plugin documentation and create a plugin writer guide
 *   Pending: Update TUI builder to meet aesthetic demands/ux guidelines
-*   Last updated: Oct. 17. 2012
+*   Last updated: Oct. 25. 2012
+*   Bug: <https://bugzilla.redhat.com/865017>
 
 ### Detailed Description
 

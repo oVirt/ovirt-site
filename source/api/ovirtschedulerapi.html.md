@@ -136,20 +136,20 @@ implements behavior for Host status transitions for SLA context.
 
 ##### Class Diagram
 
-![](schedulerApi.png "schedulerApi.png")
+![ Scheduler API implemented interfaces. ](schedulerApi.png  " Scheduler API implemented interfaces. ")
 
-scheduler API implements 5 other interfaces.
+### TODO: specify each method's signature separately
 
 Methods' Parameters:
 
-*   Scheduler defaultScheduler (each method in the api can address the default api)
-*   HostObject (host entity in relevant methods, currently only in host state changed)
-*   VmObject
-*   HostStatus (old, new)
-*   VmStatus (old, new)
-*   Rest API entry point (see next paragraph)
-*   Inputs (including separate input for policy?)
-*   scheduling log
+*   Scheduler defaultScheduler (each method in the API can address the default API)
+*   host (host entity in relevant methods, currently only in host state changed)
+*   vm
+*   hostStatus (old, new)
+*   vmStatus (old, new)
+*   inputs (including separate input for policy)
+*   schedulingLog
+*   [optional] REST API entry point (see next paragraph)
 
 ##### Implementing API with default oVirt scheduler
 

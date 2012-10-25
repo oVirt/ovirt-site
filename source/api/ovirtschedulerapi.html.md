@@ -88,19 +88,65 @@ implements behavior for Host status transitions for SLA context.
 
 ##### Class Diagram
 
+![](schedulerApi.png "schedulerApi.png")
+
+scheduler API implements 5 other interfaces.
+
+Methods' Parameters:
+
+*   Scheduler defaultScheduler (each method in the api can address the default api)
+*   HostObject (host entity in relevant methods, currently only in host state changed)
+*   VmObject
+*   HostStatus (old, new)
+*   VmStatus (old, new)
+*   Rest API entry point (see next paragraph)
+*   Inputs (including separate input for policy?)
+*   scheduling log
+
+##### Implementing API with default oVirt scheduler
+
+We should first move the current scheduling logic into a new class implementing the new API, the question here is what to export and what to leave behind (still in beckend internals), e.g., scheduling parameters should be boxed out? migration in maintenance? And so on; my beliefs are that everything should be boxed out, but this can be done in several phases:
+
+phases:
+
+1.  Alter cluster scheduling parameters to be customized (without touching current parameters).
+2.  Move select host logic into new API (including canDoAction of selectHost).
+3.  Create scheduled tasks (tasks invoked by timer)- LoadBalacer & timer invoked method.
+4.  Build a state machine for VM and Host statuses.
+5.  Move migration logic according to VM and Host status changes.
+6.  Allow having configurable and customized parameters for Vms, Hosts & clusters, and moving the current fields (HA, selection algo, etc) into a dynamic field that is controlled by the scheduler.
+
 ##### Backend Entry Point (REST-API)
+
+WIP, currently we are talking about having an entry point given by in the method signature, this object is auto-generated REST-API jar that represents the various entities, commands and queries that can be done via the REST-API.
+
+##### Authentication
+
+Currently the programmer is responsible for authentication; we will try to give some examples on ways to fetch authentication data (like having a text file next to the plugin class contains the user and password).
 
 ##### Scheduler Details
 
-*   id
-*   version / md5sum (we calculate)
-*   name
-*   available policies.
-*   input (& validations)
+We should add scheduler metadata that identify the scheduler better, and this parameters are optional. for instance:
 
-#### Default Implementation
+        * id
+        * version / md5sum (we calculate)
+        * name
+        * available policies.
+        * default input (& validations)
+        * hide
 
-#### Association to Cluster
+the default input and validations is quite interesting: probably the ui-plugin will be implemented later-on and we would like to get some user input from the user in a dynamic way, so we will use something like custom properties sheet, for custom parameters (and we need there reg-ex for identifying the structure).
+
+#### Default API Implementation
+
+Example: 'MaintananceVds' flow related to scheduling
+
+old implementation -> new implementation
+
+*   MaintananceVds.canDoAction : can migrate running hosts -> scheduler.canChangeStatus(\*, prepareToMaintanance)
+*   MaintananceVds.execute : migrateAllVms() -> scheduler.hostStatusChanged(\*, prepareToMaintanance)
+
+#### Association to Cluster, Host & VM
 
 #### Class Loading
 
@@ -144,10 +190,16 @@ Q:
 
 ##### UI
 
-===== User Input & Validation ====
+##### User Input & Validation
+
+similar to custom properties sheet.
 
 ##### Pluggable UI
 
+currently not ready.
+
 ### Tests
+
+acceptance test for scheduler.
 
 <Category:Feature> <Category:SLA>

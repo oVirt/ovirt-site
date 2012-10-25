@@ -118,9 +118,21 @@ Very much similar to the loadBalancer, but has a general purpose and can have a 
 
 implements behavior for VM status transitions for SLA context.
 
+1.  canChangeVmStatus
+    1.  Similar to the canDoAction concept; allows the user implemented code to fail changing the VM state (where applicable).
+
+2.  vmStateChanged
+    1.  Provides the user a chance to add functionality after a state changes.
+
 *   HostStatusChanged
 
 implements behavior for Host status transitions for SLA context.
+
+1.  canChangeHostStatus
+    1.  Similar to the canDoAction concept; allows the user implemented code to fail changing the host state (where applicable).
+
+2.  hostStateChanged
+    1.  Provides the user a chance to add functionality after a state changes.
 
 ##### Class Diagram
 

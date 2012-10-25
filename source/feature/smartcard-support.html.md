@@ -53,26 +53,26 @@ Affected dialogs:
 *   new/edit VM dialog
 *   new/edit Pool dialog
 *   edit template dialog contains in console
+*   console options in (Power) User Portal
+*   VM details part in User Portal
 
 Changes:
 
-*   on all of this dialogs in console side tab a new checkbox with label "Smartcard enabled" has been added.
+*   on new/edit dialogs in console side tab a new checkbox with label "Smartcard enabled" has been added.
+*   on console options dialog a new checkbox "Disable smartcard" has been added
+*   a visual indication that the smartcard will be enabled has been added
 
 Behavior:
 
-*   this checkbox is enabled only for the Spice client, it is visible but disabled for VNC.
+*   The "Smartcard enabled" checkbox is enabled only for the Spice client, it is visible but disabled for VNC.
 *   if the checkbox is checked and the user starts a VM, engine sends the *smartcardEnable* as true to the VDSM (please refer to the VDSM part of this document for it's meaning)
 *   if the checkbox is checked (e.g. smartcard is enabled) and the user clicks the console button (e.g. connects to guest), the application sets the *Smartcard* property on the spice-xpi plugin to true which has the same effect than calling the *spicec --smartcard*
     -   Should also be supported for ActiveX
-*   Within the user portal the end user should have the option to override this setting and _not_ pass the enable smart card option to the spice client
-    -   If the smartcard option is enabled for the virtual machine then a "Disable smartcard" option should be presented in the console options
-    -   If the smartcard option is not enabled for the virtual machine then "Disable smartcard" checkbox should NOT appear in the console options
-    -   Note the should only be able to disable this option.
-*   The user portal should provide a visual indication that the smart card will be enabled
-
-<!-- -->
-
-*   This option should be available within the PowerUser Portal
+*   In "Console options" dialog within the user portal the end user has the option to override this setting and _not_ pass the enable smart card option to the spice client
+    -   If the smartcard option is enabled for the virtual machine then a "Disable smartcard" option is presented in the console options
+    -   If the smartcard option is not enabled for the virtual machine then "Disable smartcard" checkbox does NOT appear in the console options
+    -   Note the user is only able to disable this option.
+*   The user portal provides a visual indication that the smart card will be enabled (in the User Portal the Vm details part contains "Spice with Smartcard" instead of Spice in the Console line)
 
 #### REST API
 

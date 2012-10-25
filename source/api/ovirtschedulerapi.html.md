@@ -28,44 +28,63 @@ This feature will model all the scheduling into a single api, that ovirt admins 
 
 ### Detailed Description
 
+Currently scheduling mechanism is handled by oVirt engine internals. In order users to enhance scheduling mechanism, we need to provide a way for a user to dynamically add a self-written scheduler - or 'SLA Pluggable Architecture'. This feature is meant to model out all current scheduling methods into a single API (place), which will become the 'Default oVirt Scheduling Mechanism', and the ability to load a user defined one, that can replace the default, which also uses the same API (and the default oVirt one). The Pluggable Architecture has to be flexible enough to foresee and prevent future API changes or at least keep them minimal, in order the API to be backward compatible and stable.
+
 #### Existing Scheduling Mechanisms
 
-*   VM migration policy - migration support
+As I see it we can devide oVirt scheduling into two flows, direct and indirect. These flows depend on the VM, host and cluster (oVirt scheduling parameters: HA, selection algo, failure policy, etc.). The direct flows are 'Run Vm' and 'Migrate Vm' commands (select host to run on) & Load Balancing task, the indirect flows are Maintanance VDS, SetNonOperationalVdsCommand, which may cause migration (with host selection obviously). oVirt scheduling parameters (which will be explained next) are specific for oVirt scheduler.
 
-         migratable, implicitly non migratable, pinned to host; priority
+##### VM migration policy - migration support (VM HA)
 
-References:
+*   migratable, implicitly non migratable (autoStartup)
 
-         - MaintananceVds (+ numberOf)
-         - MigrateVM
-         - loadBalance (isMigratable)
-         - VdsSelector (pinned to host)
+References: RunVmCommandBase.canRunVm(Check if iso and floppy path exists ??), VmRunHandler.performImageChecksForRunningVm(Check isValid, storageDomain and diskSpace only if VM is not HA VM) commands: FenceVdsManualyCommand, ClearNonResponsiveVdsVmsCommand, MaintananceVdsCommand, RunVmCommandBase (starts spice)
 
-*   Cluster's Host selection policy (selection algorithm)
+*   pin to host (dedicated_vm_for_vds)
 
-         None, EvenlyDistribute, PowerSave.
+References: selection & load balancing. commands: ChangeVMClusterCommand (clear pinned host), RunVmCommand (selection)
 
-References:
+*   priority (priority, VmsComparer)
 
-         - loadBalancer
-         - VdsGroupOperationCommandBase.validateMetrics ????
-         - selection algo in VDS - ?????? (no need)
+References: VmsComparer Commands: MaintananceVds (+ numberOf), MigrateVM (order commands), LoadBalance (isMigratable), VdsSelector (pinned to host)
 
-*   Cluster migration policy - resilience policy
+##### Cluster's Host selection policy (selection algorithm)
 
-         yes, no, only HA
+None, EvenlyDistribute, PowerSave. References: LoadBalancer VdsGroupOperationCommandBase.validateMetrics (validating high/low utilization, adding/updating vdsGroup) selection algo in VDS - for selection.
 
-References:
+##### Cluster migration policy - resilience policy
 
-*   Load Balancer
+MigrateOnErrorOptions: yes, no, HA only References: SetNonOperationalVdsCommand
 
-References:
+##### Load Balancer
 
-*   HA (auto-start)
-
-References:
+VdsLoadBalancer (Scheduled task)
 
 #### Scheduler API
+
+In order to really replace (enhance) the scheduler, we need to move all the code and parameters into the API; I know that this is a utopia (to do it all at once), so we'll do it in steps; first replace the 'direct' scheduler (see above), and then we are inspiring to box out also the indirect scheduler, scheduler validations and oVirt scheduler parameters for cluster, host and VM.
+
+The new API is a single interface which extends 5 other interfaces:
+
+*   HostSelector
+
+chooses a host to run on according to selection algorithm. getSelectedHosts(): returns a list containing the last selected hosts. hasAnyHosts(): is called in the validation while running a VM, and returns whether there are hosts to choose from. selectHost(): is called in the execution while running a VM, and returns a host that the implemented algorithm chooses (note: should have shared code with hasAnyHosts).
+
+*   LoadBalancer
+
+Invoked for each cluster every interval and perform load balancing according to a load balancing algorithm. loadBalance() invoked every configValue.VdsLoadBalancingeIntervalInMinutes minutes.
+
+*   TimerInvokedScheduler
+
+Very much similar to the loadBalancer, but has a general purpose and can have a different timer span. onTimerInvoked(): invoked every configValue.SchedulerTimerIntervalInMinutes minutes.
+
+*   VmStatusChanged
+
+implements behavior for VM status transitions for SLA context.
+
+*   HostStatusChanged
+
+implements behavior for Host status transitions for SLA context.
 
 ##### Class Diagram
 

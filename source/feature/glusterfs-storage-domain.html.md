@@ -87,7 +87,8 @@ The same params as specified by user for PosixFs domain will be applicable to Gl
 ## Benefits to oVirt
 
 oVirt 3.1 already has support to create & manage Gluster Volumes (see 'Volumes' tab in oVirt ) - typically done by storage admin.
-This support will allow oVirt to consume GlusterFS storage cluster as a storage domain / image repository and run VMs off it - typically done by virtualization admin. This support helps complete the story/use-case from a virt. admin perspective !
+This support will allow oVirt to consume GlusterFS storage cluster as a storage domain / image repository and run VMs off it - typically done by virtualization admin.
+This support helps complete the story/use-case from a virt. admin perspective !
  It also helps oVirt truly work as a single pane of glass solution for creating, managing & consuming Gluster for storage and virt. use cases.
 
 ## Dependencies / Related Features and Projects

@@ -8,7 +8,7 @@ wiki_last_updated: 2012-10-26
 
 # Image Manipulator
 
-![](Example.jpg "fig:Example.jpg")The Image Manipulation is layered to allow flexibility and for maximum code reuse. The first layer is the Repository Engine. Repository Engines Abstract the creation, deletion and manipulation of Tags and Volumes. The Image Manipulator uses the Repository Engines operations to compose high level Image centric operations.
+The Image Manipulation is layered to allow flexibility and for maximum code reuse. The first layer is the Repository Engine. Repository Engines Abstract the creation, deletion and manipulation of Tags and Volumes. The Image Manipulator uses the Repository Engines operations to compose high level Image centric operations.
 
 ## Terminology
 
@@ -52,4 +52,35 @@ All high level operations must be composed out of the following more basic opera
 
 All low level operations should be able to fail at any point and return to a consistent state without any information that is not on the domain itself.
 
-![](RepoLegend.jpg "RepoLegend.jpg")
+### Basic Structure
+
+![](RepoLegend.png "RepoLegend.png")
+
+These are operations that can be used
+
+### Add New
+
+Adds a new Tag and volume that might depend on another existing Tag and Volume pair. If the new volume has no parent assume the initial state is empty and the volume is not pointing to any tags.
+
+1.  Initial state
+2.  Create a volume using (createVolume) that points to the parent tag
+3.  Create a weak tag pointing to the new volume
+    -   At this point you can start filling the volume with data, putting in the user data and other operations.
+
+4.  .Change the tag from weak to strong. (Seals the deal)
+
+![](im_op_add_child.png "im_op_add_child.png")
+
+### Switcheroo
+
+Creates a new volume and makes it the one pointed to by the existing tag and creates a new tag to point to the existing volume. This is useful for qcow2 snapshots where the new created file is actually the new head and the old file is the new "snapshot" object.
+
+1.  Initial state
+2.  Lock base volume
+3.  Create a weak tag pointing to base volume.
+4.  Create a new volume pointing to the new tag.
+5.  Change the volume ID in the original tag to point to the new volume
+    1.  Change the new tag from weak to strong
+    2.  Alternatively for cross domain operations, you will do an "Add New" on second domain and copy the data from the old volume between stage 3 and 4.
+
+![](im_op_switch.png "im_op_switch.png")

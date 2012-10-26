@@ -21,7 +21,7 @@ VMs created using this domain exploit the QEMU's gluster block backend aka QEMU-
 
 *   Feature owner: Deepak C Shetty <deepakcs@linux.vnet.ibm.com>
     -   REST Component owner:
-    -   Engine Component owner: TBD
+    -   Engine Component owner: Sharad Mishra <snmishra@linux.vnet.ibm.com>
     -   VDSM Component owner: Deepak C Shetty <deepakcs@linux.vnet.ibm.com>
     -   QA Owner:
 
@@ -30,7 +30,7 @@ VMs created using this domain exploit the QEMU's gluster block backend aka QEMU-
 *   **QEMU-GlusterFS integration** : Done. Available in upstream qemu.
 *   **libvirt enablement for Gluster** : WIP @ [1](https://www.redhat.com/archives/libvir-list/2012-October/msg00085.html)
 *   **GLUSTERFS_DOMAIN support in VDSM** : WIP @ [2](http://gerrit.ovirt.org/#/c/6856/) or see gluster_domain_support topic branch in [3](http://gerrit.ovirt.org)
-*   **oVirt Engine / UI support** : TBD
+*   **oVirt Engine / UI support** : WIP @ [4](http://gerrit.ovirt.org/8837) or see glusterfs topic branch in [5](http://gerrit.ovirt.org)
 
 ## Detailed Description
 
@@ -51,7 +51,7 @@ GlusterFS fits as a network block device (<disk type=network.../>) in libvirt XM
 
 Performance numbers for QEMU-GlusterFS integration are available @
 
-[4](http://lists.nongnu.org/archive/html/gluster-devel/2012-08/msg00063.html) [5](http://lists.nongnu.org/archive/html/qemu-devel/2012-07/msg02718.html)
+[6](http://lists.nongnu.org/archive/html/gluster-devel/2012-08/msg00063.html) [7](http://lists.nongnu.org/archive/html/qemu-devel/2012-07/msg02718.html)
 
 ### Approach
 
@@ -72,15 +72,21 @@ The same params as specified by user for PosixFs domain will be applicable to Gl
 *   **vfsType** : glusterfs
 *   **options** : if any, will be passed as-is to the mount cmdline.
 
-If user selects GlusterFS domain as the domain type, the vfsType can be pre-filled to 'glusterfs'.
+### Usability enhancements
+
+*   If user selects GlusterFS domain as the domain type, the **vfsType** field can be pre-filled to 'glusterfs' and the field be greyed/disabled (should not be editable).
+*   There is a option in OE to enable a gluster volume for virtualization use ( sets some gluster specific options to ensure its works well when used as a storage domain).
+     As part of user creating GLUSTERFS_DOMAIN, it would be good to check if the gluster volume (as part of the **spec**) is enabled for virt use, and if not, call the appropriate Gluster OE API to enable the gluster volume for virt use, before using it as storage domain.
+     Not sure how this plays when OE is in virt only, gluster only and virt + gluster modes.
+*   Another enhancement could be to list the available gluster volumes known to oVirt when user selects GLUSTERFS_DOMAIN as the DC type as part of new storage domain UI flow.
+     User can then select the gluster volume he/she created and the **spec** will be formed automatically based on the gluster volume selected by user.
+     This provides better usability (seamlessly integrate virt and storage flows/modes of oVirt) and might be useful when OE is in virt + gluster mode.
 
 ## Benefits to oVirt
 
 oVirt 3.1 already has support to create & manage Gluster Volumes (see 'Volumes' tab in oVirt ) - typically done by storage admin.
-This support will allow oVirt to consume GlusterFS storage cluster as a storage domain / image repository and run VMs off it - typically done by virtualization admin.
-
-This support helps complete the story/use-case from a virt. admin perspective !
-It also helps oVirt truly work as a single pane of glass solution for creating, managing & consuming Gluster for storage and virt. use cases.
+This support will allow oVirt to consume GlusterFS storage cluster as a storage domain / image repository and run VMs off it - typically done by virtualization admin. This support helps complete the story/use-case from a virt. admin perspective !
+ It also helps oVirt truly work as a single pane of glass solution for creating, managing & consuming Gluster for storage and virt. use cases.
 
 ## Dependencies / Related Features and Projects
 
@@ -89,10 +95,10 @@ glusterfs, glusterfs-server and glusterfs-fuse rpm packages must be installed.
 
 ## Documentation / External references
 
-*   PosixFS Support - [6](http://wiki.ovirt.org/wiki/Features/PosixFSConnection)
-*   Gluster home page - [7](http://www.gluster.org/)
-*   Using QEMU to boot a VM image on GlusterFS volume - [8](http://www.youtube.com/watch?v=JG3kF_djclg)
-*   Storage Virtualization for KVM - [9](http://www.linuxplumbersconf.org/2012/wp-content/uploads/2012/09/2012-lpc-virt-storage-virt-kvm-rao.pdf)
+*   PosixFS Support - [8](http://wiki.ovirt.org/wiki/Features/PosixFSConnection)
+*   Gluster home page - [9](http://www.gluster.org/)
+*   Using QEMU to boot a VM image on GlusterFS volume - [10](http://www.youtube.com/watch?v=JG3kF_djclg)
+*   Storage Virtualization for KVM - [11](http://www.linuxplumbersconf.org/2012/wp-content/uploads/2012/09/2012-lpc-virt-storage-virt-kvm-rao.pdf)
 
 ## Comments and Discussion
 

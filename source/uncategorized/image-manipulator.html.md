@@ -80,7 +80,8 @@ Creates a new volume and makes it the one pointed to by the existing tag and cre
 3.  Create a weak tag pointing to base volume.
 4.  Create a new volume pointing to the new tag.
 5.  Change the volume ID in the original tag to point to the new volume
-    1.  Change the new tag from weak to strong
-    2.  Alternatively for cross domain operations, you will do an "Add New" on second domain and copy the data from the old volume between stage 3 and 4.
+6.  Seal the deal
+    -   Change the new tag from weak to strong
+    -   Alternatively for cross domain operations, you will do an "Add New" on second domain and copy the data from the old volume between stage 3 and 4.
 
 ![](im_op_switch.png "im_op_switch.png")

@@ -63,7 +63,9 @@ In VDSM, we mainly add support for
 
 Note that on the domain side, VDSM still uses gluster mount point as the root of domain dir, but on the VM side it exploits QEMU-GlusterFS native integration.
 
-### User Interface
+### User interface
+
+#### oVirt Engine (OE) support
 
 Support needs to be added to ovirt-engine to list GLUSTERFS_DOMAIN as a new storage domain. This will mostly be similar to how POSIXFS_DOMAIN fits in the OE today.
 The same params as specified by user for PosixFs domain will be applicable to GlusterFS as well (spec, vfsType, options).

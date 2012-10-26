@@ -72,7 +72,7 @@ The same params as specified by user for PosixFs domain will be applicable to Gl
 *   **vfsType** : glusterfs
 *   **options** : if any, will be passed as-is to the mount cmdline.
 
-### Usability enhancements
+#### Usability enhancements
 
 *   If user selects GlusterFS domain as the domain type, the **vfsType** field can be pre-filled to 'glusterfs' and the field be greyed/disabled (should not be editable).
 *   There is a option in OE to enable a gluster volume for virtualization use ( sets some gluster specific options to ensure its works well when used as a storage domain).

@@ -85,3 +85,13 @@ Creates a new volume and makes it the one pointed to by the existing tag and cre
     -   Alternatively for cross domain operations, you will do an "Add New" on second domain and copy the data from the old volume between stage 3 and 4.
 
 ![](im_op_switch.png "im_op_switch.png")
+
+### Delete Image
+
+This doesn't really delete the image but rather makes it in accessible from the outside. Whether VDSM will actually delete the bits is a while different story.
+
+1.  Initial State
+2.  Lock the volume
+3.  Turn the tag to a weak tag
+
+![](im_op_delete_image.png "im_op_delete_image.png")

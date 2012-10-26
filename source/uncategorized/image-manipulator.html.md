@@ -46,7 +46,7 @@ writeUserData(tagId, data) - attaches user data to the tag. readUserData(tagId) 
 
 repos might have more specialized operations but this is the bare minimum.
 
-## Low Lever Operations and Recovery
+## Low Level Operations and Recovery
 
 All high level operations must be composed out of the following more basic operations. These operations are just basic templates and don't specify the actual content or format of the volume and assume only the most basic of functionality exists. This is a must in order to keep the higher level operations flexible.
 
@@ -152,3 +152,22 @@ Sometimes the content of the volume doesn't really depend on it's immediate pare
 3.  Change it's metadata (Seal the deal)
 
 ![](im_op_reparent.png "im_op_reparent.png")
+
+## Repository Checker
+
+Recovery is a per repository process. A user can run a checkRepo() command and it, in turn will return a list of problems with the current repo and FixInfo object with the data on how to fix them. The checking process doesn't take any locks so the data it return might not be up to date. For instance it might return that a volume is orphan but that was true only because it was in a middle of a low lever operation and technically there is no nothing to fix. The use can choose to use the FixInfo objects with the fixRepo() command to apply the suggested fix.
+
+FixInfo objects contain a field call FixType that hints to the nature of the fix.
+
+*   clean - Cleans data, run those to get more free space.
+*   optimize - Does an opration that will help towards moving an image to a better status degraded->optimized.
+*   merge - Merges two images together. Doing this sometimes make more images ready optimizing or cleaning. The reason it is different from optimize is that unmerged images are considered optimized.
+*   mend - Mends a broken image, you should perform these to eliminate fixable broken images.
+
+This is helpful because if the users priority is freeing up space it could only apply "clean" fixes. If you are having spare resources in a host you can choose to run "optimize" fixes that might hog resources otherwise.
+
+The "operation" and "parameter" fields shouldn't be used modified or created by the user. VDSM will check those for sanity so there isn't a risk of that corrupting the repo but the client does not have enough information at any point in order to conjure up these objects.
+
+When running a fix VDSM will try and perform the fix. No matter if the task failed or succeeded the new sate might change the Fix so the user should recheck the repo and get new FixIno objects before retrying.
+
+There is no "classic" recovery. VDSM will continually aspire to reach and optimized clean state. This means that if you copied an image between domains and the source domain disappeared forever. VDSM will keep reporting a "mend" Fix on the target image. In order to "cancel" the operation you need to remove the broken image. On the other hand, if the source image happens to appear after a decade. VDSM will be able to complete the task.

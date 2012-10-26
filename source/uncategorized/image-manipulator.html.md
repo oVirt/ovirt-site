@@ -95,3 +95,60 @@ This doesn't really delete the image but rather makes it in accessible from the 
 3.  Turn the tag to a weak tag
 
 ![](im_op_delete_image.png "im_op_delete_image.png")
+
+### Delete Orphan volume
+
+If a volume is not reference by any tag weak of strong it can be safely deleted.
+
+1.  Initial State
+2.  Lock volume
+3.  Delete volume
+
+![](im_op_delete_oropan_volume.png "im_op_delete_oropan_volume.png")
+
+### Delete Weak Tip
+
+If a weak tah is not referenced by any volume it can be safely assume that no one will ever use it and it can be removed.
+
+1.  Initial State
+2.  Lock volume
+3.  Delete tag
+
+Note that you can't just roll to delete orphan without making sure the volume is actually and orphan now!
+
+![](im_op_delete_weak_tip.png "im_op_delete_weak_tip.png")
+
+### Delete Single Linked
+
+If a weak tag has only 1 dependent the two volumes can be merged and the tag removed.
+
+1.  Initial State
+2.  Lock the volume pointed to by the weak tag
+3.  Lock the volume pointing to the tag
+4.  Either merge up or down depending on what is best according to the data inside the volumes
+5.  Reparent according to merge direction in previous phase
+
+![](im_op_delete_single_linked.png "im_op_delete_single_linked.png")
+
+### Convert \\ Replace
+
+This is used to either convert or replace a volume with new data.
+
+1.  Initial state
+2.  Lock original volume
+3.  Create new volume
+    -   Push new data to the new volume
+
+4.  Change the tag to point to the new volume. (Seals the deal)
+
+![](im_op_convert_replace.png "im_op_convert_replace.png")
+
+### Reparent
+
+Sometimes the content of the volume doesn't really depend on it's immediate parent. This means that if the parent is weak we can just reparent to the grand parent so that the weak tag has as little of links as possible. This is preferable because the parent volume will only be deleted if no more then 1 volumes point to it's tag.
+
+1.  Initial state
+2.  Lock the volume you wish to reparent
+3.  Change it's metadata (Seal the deal)
+
+![](im_op_reparent.png "im_op_reparent.png")

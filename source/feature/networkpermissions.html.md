@@ -26,7 +26,7 @@ The Network Permissions feature is supplementary for network related actions in 
 
 ### Design
 
-The following section describes permissions on Network entities.
+The following section describes the permissions on Network entities.
 
 #### Network Actions
 
@@ -81,18 +81,18 @@ VdcObjectType.VmInterface already defined and in use by Port Mirroring
 ##### Updated Roles
 
 *   **NetworkAdmin** attached to groups MANIPUTLATE_HOST, CONFIGURE_HOST_NETWORK and CONFIGURE_CLUSTER_NETWORK.
-    -   MANIPUTLATE_HOST has nothing to do with networking, therefore should be omitted from it
+    -   MANIPUTLATE_HOST has nothing to do with networking, therefore should be omitted from the aforementioned list.
     -   CONFIGURE_STORAGE_POOL_NETWORK should be added to the NetworkAdmin groups.
     -   The actions should be modified to require permission on Network and the main entity of each group (On Data Center and Cluster and on Network)
 
-**Question**: Do we need a permission on Network when we attach it to Host? If a user is the Host owner, he might be able to configure the network on host directly.
-**Another Question**: How do we handle if at all 'unmanaged networks' ?
+**Question 1**: Do we need a permission on Network when we attach it to Host? If a user is the Host owner, he might be able to configure the network on host directly.
+**Question 2**: How do we handle if at all 'unmanaged networks' ? (as they have no representing Network entity in the system)
 
 ##### Updated Action Groups
 
 *   **PORT_MIRRORING** should require permissions on both the Vm and the Network for creating or updating a VM nic.
 
-The **VmInterface** should be removed from the VdcObjectType, since this is too granular entity.
+The **VmInterface** should be removed from the VdcObjectType, since this is too granular entity (Add/Update Vm Interface should be modified accordingly).
 
 #### DB Changes
 

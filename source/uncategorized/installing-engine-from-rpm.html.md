@@ -20,12 +20,7 @@ execute the following command as root:
 
 Execute the following command:
 
-      wget http://www.ovirt.org/releases/stable/fedora/16/ovirt-engine.repo -P /etc/yum.repos.d/
-       
-
-or (if you wish to use nightly builds):
-
-      wget http://www.ovirt.org/releases/nightly/fedora/16/ovirt-engine.repo -P /etc/yum.repos.d/
+      rpm -i http://www.ovirt.org/releases/ovirt-release-fedora.noarch.rpm
        
 
 # Ovirt-engine

@@ -182,7 +182,7 @@ We should add scheduler metadata that identify the scheduler better, and this pa
         * default input (& validations)
         * hide
 
-The default input and validations are quite interesting: Probably the UI-plugin will be integrated later-on and we would like to get some user input from the user in a dynamic way. So we allow user input using something like custom properties sheet, for custom parameters (and we need there reg-ex for identifying the structure).
+The default input and validations are quite interesting: Probably the UI-plugin will be integrated later-on and we would like to get some user input from the user in a dynamic way. So we allow user input using something like custom properties sheet (http://wiki.ovirt.org/wiki/Features/CustomPropertiesSheet), for custom parameters (and we need there reg-ex for identifying the structure).
 
 #### Default API Implementation
 

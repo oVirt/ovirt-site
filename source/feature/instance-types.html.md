@@ -14,9 +14,19 @@ wiki_last_updated: 2015-01-12
 
 ### Summary
 
-*   Support disk-less templates
-*   Support creating a template without having to use a VM
-*   Run template in a stateless or stateful mode
+Enhancing templates to allow:
+
+*   Separate Configuration from Disks
+
+      * Support disk-less templates
+      * create new template (not from vm)
+      * create vm from more than one template 
+
+*   Run template
+
+      * Allow save template changes
+
+*   Template changes affect vms (use latest configuration)
 
 ### Owner
 
@@ -25,9 +35,26 @@ wiki_last_updated: 2015-01-12
 
 ### Current status
 
-Discussion
+*   Target Release: 3.2
+*   Status: under design and discussion, this is still not completed.
 
 ### Detailed Description
+
+In oVirt 3.1, templates are entities created from a vm, Contains the configuration of the vm (static information of vm memory, cpu, network, OS..) and the disks of the vm, these are tightly coupled, and when creating vm from a template, the vm gets that template's configuration and disks.
+
+We would like to allow a user to assemble a vm from more than one template, and specifically allow choosing different templates for configurations, and for disks. For example allow user selecting template 'Fedora-17' for the vm disks, contains data for a fedora vm, and template 'Fedora-17-XL' for configuration of a vm with more memory than in 'Fedora-17' template.
+
+Another example is allowing user creating template only with configuration, without any disks attached to it, or on the other hand, a template that contains just disks, with no configuration.
+
+Further more, allowing user to 'run' a template, as is, without creating a vm, just to see what's in it, and on some occasions allowing changes saved to the template.
+
+Another feature will be allowing the user to keep his vms up to date with the template, means if template (configuration?) updates, the vm configuration will update accordingly.
+
+## Separating Configuration from Disks
+
+Templates could be partial, any field except name could be empty (null). When creating vm from the template, the vm entity which is sent, should contain all vm data, some from template(s) and some filled by the user. All templates used to create the vm will be saved, to update the vm if they are updated. AddVmCommand will allow sending templates for configuration and for disks. Configuration templates will have some kind of order, to allow merging the right value in case of collision. (?) The vm's disks will be snapshots of all templates disks, from the given list.
+
+User could mark for vm if it should be updated with the template, (still need to figure which, in case of many template) and every time template will be updated, the vms will be updated as well.
 
 #### Webadmin/Power User Portal
 

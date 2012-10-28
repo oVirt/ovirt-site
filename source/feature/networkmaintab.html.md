@@ -151,14 +151,14 @@ Network: (search by network properties)
 
 2.  Hosts
     -   GetVdsByStoragePoolId - returns all the hosts belong to the same dc as the network. (VDS)
-    -   GetVdsAndNetworkInterfacesByNetworkIdQuery - returns all the hosts the network is attached to one of their nics. (VDS + vds_interface_view similar to GetVdsInterfacesByVdsId)
+    -   GetVdsAndNetworkInterfacesByNetworkIdQuery - returns all the hosts the network is attached to one of their nics. (VdsNetworkInterface + VDS, similar to GetVdsInterfacesByVdsId)
     -   GetVdsWithoutNetworkQuery - All the hosts where this network attached to the cluster but not to the host (VDS)
 
 3.  Virtual Machines
-    -   GetVmsAndNetworkInterfacesByNetworkIdQuery - returns all the vms that have at least one vnic on the network. (VM + List<vm_interfaces>)
+    -   GetVmsAndNetworkInterfacesByNetworkIdQuery - returns all the vms that have at least one vnic on the network. (VmNetworkInterface + VM)
 
 4.  Templates
-    -   GetVmTemplatesAndNetworkInterfacesByNetworkIdQuery - returns all the templates that have at least one vnic on the network. (VM + List<vm_interfaces>)
+    -   GetVmTemplatesAndNetworkInterfacesByNetworkIdQuery - returns all the templates that have at least one vnic on the network. (VmNetworkInterface + VmTemplate)
 
 ### Documentation / External references
 

@@ -70,7 +70,6 @@ VdcObjectType.VmInterface is already defined and in use by Port Mirroring
 ##### Existing Roles
 
 *   **NetworkAdmin** attached to groups MANIPUTLATE_HOST, CONFIGURE_HOST_NETWORK and CONFIGURE_CLUSTER_NETWORK.
-    -   It is defined as administrator role having permission for all operations on a specific Logical Network.
 
 ##### New Roles
 

@@ -32,15 +32,15 @@ The following section describes the permissions on Network entities.
 
 Current Action Groups and their associated Actions:
 
-*   CONFIGURE_STORAGE_POOL_NETWORK (requires permissions on VdcObjectType.StoragePool) for actions:
+*   CONFIGURE_STORAGE_POOL_NETWORK (admin role, requires permissions on VdcObjectType.StoragePool) for actions:
     -   AddNetwork
     -   RemoveNetwork
     -   UpdateNetwork
-*   CONFIGURE_CLUSTER_NETWORK (on VdcObjectType.VdsGroups) for actions:
+*   CONFIGURE_CLUSTER_NETWORK (admin role, on VdcObjectType.VdsGroups) for actions:
     -   AttachNetworkToVdsGroup
     -   DetachNetworkToVdsGroup
     -   UpdateNetworkOnCluster
-*   CONFIGURE_HOST_NETWORK (on VdcObjectType.VDS) for actions:
+*   CONFIGURE_HOST_NETWORK (admin role, on VdcObjectType.VDS) for actions:
     -   SetupNetworks
     -   AddBond
     -   RemoveBond
@@ -48,20 +48,20 @@ Current Action Groups and their associated Actions:
     -   DetachNetworkFromVdsInterface
     -   UpdateNetworkToVdsInterface
     -   CommitNetworkChanges
-*   CONFIGURE_VM_NETWORK (on VdcObjectType.VM) for actions:
+*   CONFIGURE_VM_NETWORK (user role, on VdcObjectType.VM) for actions:
     -   ActivateDeactivateVmNic
     -   AddVmInterface
     -   RemoveVmInterface
     -   UpdateVmInterface
-*   CONFIGURE_TEMPLATE_NETWORK (on VdcObjectType.VmTemplate) for actions:
+*   CONFIGURE_TEMPLATE_NETWORK (user role, on VdcObjectType.VmTemplate) for actions:
     -   AddVmTemplateInterface
     -   RemoveVmTemplateInterface
     -   UpdateVmTemplateInterface
-*   PORT_MIRRORING (on VdcObjectType.VmInterface) for actions:
+*   PORT_MIRRORING (admin role, on VdcObjectType.VmInterface) for actions:
     -   AddVmInterface
     -   UpdateVmInterface
 
-VdcObjectType.VmInterface already defined and in use by Port Mirroring
+VdcObjectType.VmInterface is already defined and in use by Port Mirroring
 
 #### Roles
 

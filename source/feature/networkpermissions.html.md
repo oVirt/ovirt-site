@@ -104,6 +104,11 @@ The **VmInterface** should be removed from the VdcObjectType, since this is too 
 
 DB Upgrade should handle the following:
 
+If decided to add an explicit Network network:
+
+*   Permissions on Network should be granted to any user owns permissions on Data-Center.
+*   Permissions on VmNetworkInterface should be replaced with permissions on the VM.
+
 #### UI Changes
 
 Add Permissions sub-tab under Networks main tab

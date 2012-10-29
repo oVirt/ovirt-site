@@ -74,9 +74,8 @@ VdcObjectType.VmInterface is already defined and in use by Port Mirroring
 
 ##### New Roles
 
-*   **NetworkUser** role should be created. It should be associated with the following groups: CONFIGURE_VM_NETWORK and PORT_MIRRORING.
-    -   It should allow the user to create vnics attached to the subjected network and allow to listen to the network's traffic.
-    -   It also should be associated with CONFIGURE_TEMPLATE_NETWORK when user has permission for the template entity.
+*   **VmNetworkUser** a new user role to be associated with the following groups: CONFIGURE_VM_NETWORK and CONFIGURE_TEMPLATE_NETWORK.
+    -   It should allow the user to create vnics attached to the subjected network or to update an existing vnic network.
 
 ##### Updated Roles
 

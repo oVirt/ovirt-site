@@ -99,6 +99,6 @@ Create a branch for everything you work on
 
 ##### Interactive Rebase
 
-You can also interactive rebase. It is very useful when you would like to re-write your own commit objects before pusing them somewhere. It is an easy way to split, merge or re-order commits before sharing them with others. You can also use it to clean up commits you've pulled from someone when applying them locally.
+You can also interactive rebase. It is very useful when you would like to re-write your own commit objects before pushing them somewhere. It is an easy way to split, merge or re-order commits before sharing them with others. You can also use it to clean up commits you've pulled from someone when applying them locally.
 
 For more information on using interactive rebase see <http://book.git-scm.com/4_interactive_rebasing.html>

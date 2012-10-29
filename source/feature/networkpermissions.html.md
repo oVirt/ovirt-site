@@ -107,7 +107,7 @@ DB Upgrade should handle the following:
 #### UI Changes
 
 Add Permissions sub-tab under Networks main tab
-Add Network Operator role to Roles Tree in:
+Add Network User role to Roles Tree in:
  *frontend/webadmin/modules/uicommonweb/src/main/java/org/ovirt/engine/ui/uicommonweb/models/configure/roles_ui/RoleTreeView.java*
 
 ` `*`frontend/webadmin/modules/uicompat/src/main/java/org/ovirt/engine/ui/uicompat/Enums.java`*

@@ -77,46 +77,6 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 ## Releases
 
-### oVirt-Live-0.5.iso - alpha version Oct 10th 2012
-
-#### Download
-
-[download oVirt-Live-0.5.iso](http://ovirt.org/releases/3.1/tools/oVirt-Live-0.5.iso)
-
-#### Status
-
-##### functionality/usage
-
--system boots and performs auto-login to oVirtuser
-
--ovirt setup needs to be run from gnome favourites
-
--user can choose either automatic/interactive install
-
--when setup is finished the user can open welcome page in firefox using ovirt-engine application from gnome favourites
-
-##### branding
-
--basic background is there
-
--basic icons are there
-
-### oVirt-Live-0.6.iso - alpha version Oct 12th 2012
-
-#### Download
-
-[download oVirt-Live-0.6.iso](http://ovirt.org/releases/3.1/tools/oVirt-Live-0.6.iso)
-
-#### change-log
-
--selinux disabled - workaround to sanlock problem
-
--added ovirt_live plugin - performs attachment of iso domain to the DC, and creating vm with disk and network - Thanks to Ofer
-
--changed ovirt-setup icons
-
--shorten host installation time by around 4 minutes
-
 ### oVirt-Live-0.7.iso - beta version Oct 23th 2012
 
 #### Download
@@ -136,6 +96,38 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 -Disconnected installs - setup works without outside network connection (packages wouldn't be updated by vsdm-bootstrap, yum reinstall vdsm-bootstrap to workaround)
 
 -wlan0 support in vdsm enabled (need someone to test it...)
+
+### oVirt-Live-0.6.iso - alpha version Oct 12th 2012
+
+#### change-log
+
+-selinux disabled - workaround to sanlock problem
+
+-added ovirt_live plugin - performs attachment of iso domain to the DC, and creating vm with disk and network - Thanks to Ofer
+
+-changed ovirt-setup icons
+
+-shorten host installation time by around 4 minutes
+
+### oVirt-Live-0.5.iso - alpha version Oct 10th 2012
+
+#### Status
+
+##### functionality/usage
+
+-system boots and performs auto-login to oVirtuser
+
+-ovirt setup needs to be run from gnome favourites
+
+-user can choose either automatic/interactive install
+
+-when setup is finished the user can open welcome page in firefox using ovirt-engine application from gnome favourites
+
+##### branding
+
+-basic background is there
+
+-basic icons are there
 
 ##### ToDo
 

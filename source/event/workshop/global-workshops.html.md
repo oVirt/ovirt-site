@@ -16,7 +16,6 @@ If you are interested in setting up a workshop, please contact [Leslie Hawthorn]
 
 ## Upcoming Workshops Schedule Overview
 
-*   October 16, 2012: Red Hat Office, Bangalore, India
 *   November 7-9, 2012: LinuxCon Europe (workshop will be co-located with KVM Forum)
 *   January 22-24, 2013: NetApp Headquarters in Sunnyvale, California, US
 *   March 20-21, 2013: Intel Campus in Shanghai, China
@@ -36,23 +35,6 @@ The team is also working with the [Open Virtualization Alliance](http://www.open
 Kyle Mestery is working to arrange a workshop on Cisco's campus, likely in the Research Triangle Park, North Carolina, US area.
 
 We are currently working to locate a place to host a workshop in the LATAM region.
-
-## Red Hat Bangalore Campus Workshop
-
-*   Workshop Date: Tuesday, October 16, 2012
-*   Red Hat Bangalore Campus - [<https://maps.google.com/maps?q=%23+4%2F1,+Bannerghatta+Road+IBC+Knowledge+Park,+11th+Floor,+Tower+D+Bangalore,+Karnataka+560+001+India&hl=en&ll=12.931852,77.60313&spn=0.008491,0.016243&sll=37.6>,-95.665&sspn=28.158055,66.533203&t=h&hq=%23+4%2F1,+Bannerghatta+Road+IBC+Knowledge+Park,+11th+Floor,+Tower+D+Bangalore,+Karnataka+560+001+India&z=16 Map]
-*   [Workshop Registration](http://ovirtbangalore2012.eventbrite.com/)
-*   [List of Abstracts Submitted for Bangalore Workshop](http://wiki.ovirt.org/wiki/Bangalore_Abstracts)
-
-#### Red Hat Bangalore Campus Workshop Details
-
-*   The workshop is free of charge. Facilities at Red Hat Bangalore can accomodate at least 50 participants. We will look at adding additional participant slots based on demand.
-*   Beverage breaks and lunch will be provided to all attendees.
-*   Full details of workshop, including a draft schedule, are on the [Bangalore oVirt Workshop](Bangalore oVirt Workshop) page.
-
-#### Red Hat Bangalore Campus Workshop Outstanding Action Items
-
-*   Publish workshop agenda based on results of call for papers and previous presenters who have volunteered to present.
 
 ## LinuxCon Europe 2012
 
@@ -119,5 +101,18 @@ Details for this workshop are still to be confirmed, though we have confirmed th
 *   Attendees registering for LinuxCon North America via the workshop registration link above receive discounted attendance to LinuxCon North America.
 *   Attendees who have already registered for LinuxCon North America via the main conference registration page can simply edit their existing registration to add on the oVirt Workshop.
 *   Beverage breaks and lunch will be provided to all attendees.
+
+## Red Hat Bangalore Campus Workshop
+
+*   Workshop Date: Tuesday, October 16, 2012
+*   Red Hat Bangalore Campus - [<https://maps.google.com/maps?q=%23+4%2F1,+Bannerghatta+Road+IBC+Knowledge+Park,+11th+Floor,+Tower+D+Bangalore,+Karnataka+560+001+India&hl=en&ll=12.931852,77.60313&spn=0.008491,0.016243&sll=37.6>,-95.665&sspn=28.158055,66.533203&t=h&hq=%23+4%2F1,+Bannerghatta+Road+IBC+Knowledge+Park,+11th+Floor,+Tower+D+Bangalore,+Karnataka+560+001+India&z=16 Map]
+*   [Workshop Registration](http://ovirtbangalore2012.eventbrite.com/)
+*   [List of Abstracts Submitted for Bangalore Workshop](http://wiki.ovirt.org/wiki/Bangalore_Abstracts)
+
+#### Red Hat Bangalore Campus Workshop Details
+
+*   The workshop is free of charge. Facilities at Red Hat Bangalore can accomodate at least 50 participants. We will look at adding additional participant slots based on demand.
+*   Beverage breaks and lunch will be provided to all attendees.
+*   Full details of workshop, including a draft schedule, are on the [Bangalore oVirt Workshop](Bangalore oVirt Workshop) page.
 
 <Category:Events>

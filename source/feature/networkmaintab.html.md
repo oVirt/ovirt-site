@@ -111,9 +111,9 @@ Have a radio button that will show either
 
 *   **Actions**- remove (multipule selection) - enabled if vm is down or cluster's version supports hotplug nic. Opens a confirmation window with a message- "Please note this operation will remove from the vm the Vnics that are using the selected network" (this is a stretch goal and we are not sure we'll add it in 3.2)
 
-**Templates** - All the templates that this network is attached to (first sort- cluster, second sort- name)
+**Templates** - All the templates that this network is attached to (if a template has more then one vnic on the network, there should bee a seperate line in the table for each vnic) (first sort- cluster, second sort- name)
 
-*   **Columns**- same as vm except IP Address, Vnic Rx, Vnic Tx
+*   **Columns**- Name, Status (text), Cluster, Vnic.
 *   **Actions**- same as vm (this is a stretch goal and we are not sure we'll add it in 3.2)
 
 **Permissions**

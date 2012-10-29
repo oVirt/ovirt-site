@@ -99,7 +99,7 @@ Have a radio button that will show either
     -   **Actions**- SetupNetworks
 
 2.  All the hosts that this network is attached to (default)
-    -   **Columns**- Status (icon), Name, Cluster, Data Center, Nic (nic name, if bond- bond name), Nic Rx, Nic Tx.
+    -   **Columns**- Status (icon), Name, Cluster, Data Center, Nic Status, Nic (nic name, if bond- bond name), Nic Rx, Nic Tx.
     -   **Actions**-SetupNetworks
 
 3.  All the hosts where this network attached to the cluster but not to the host (Very important for non-required where the host status does not indicate something is missing)

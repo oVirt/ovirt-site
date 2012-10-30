@@ -29,7 +29,7 @@ development
 Support the following scenario:
 
 *   The hosts are defined by internal IP and sitting behind a NAT firewall
-*   When the user connects to the guest from User Portal from outside of the internal network, instead of returning the private address of the host on which the guest is running, a public IP or FQDN (which will be resolved to the public IP) will be returned
+*   When the user connects to the guest from User Portal from outside of the internal network, instead of returning the private address of the host on which the guest is running, a public IP or FQDN (which will be resolved in the external network to the public IP) will be returned
 *   The firewall NATs the IP to the proper internal IP
 
 #### Webadmin

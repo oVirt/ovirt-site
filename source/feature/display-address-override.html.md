@@ -42,7 +42,7 @@ Support the following scenario:
 *   Under this checkbox a text box with label "Display address" will be present which will be enabled only when the checkbox is checked
 *   There will be a "hostname or IP" validation attached to this textbox (both on frontend and backend)
 
-##### Using part
+##### Usage part
 
 When connecting to the console from WebAdmin or UserPortal, the display address will be the one configured in the Hosts dialog. If it is not configured, the address will be the address of the host.
 

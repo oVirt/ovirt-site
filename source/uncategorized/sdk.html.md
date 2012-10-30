@@ -196,28 +196,31 @@ To build rpm and install it, from ovirt-engine-sdk repo:
 
       yum localinstall rpmtop/RPMS/noarch/ovirt-engine-sdk-x.y-z.noarch.rpm
 
-### development deployment
+### development deployment (using distro package manager)
 
 For local install in site-packages, from ovirt-engine-sdk repo:
 
 *   Fedora
 
       yum install python-lxml
+      cd ovirt-engine-sdk
       python setup.py install
 
 *   Debian/Ubuntu
 
       apt-get install python-lxml
+      cd ovirt-engine-sdk
       python setup.py install
 
 *   Arch linux
 
       pacman -S python2
+      cd ovirt-engine-sdk
       python2 setup.py install
 
-*   note: both deployment procedures require super-user permissions. To deploy it in a more controlled per user environment:
+*   note: both deployment procedures require super-user permissions.
 
-<!-- -->
+### development deployment (using pip and virtualenvwrapper package manager)
 
 *   Fedora
 

@@ -62,6 +62,7 @@ Features being considered for inclusion/already in master:
     -   [ SLA is a target for inclusion (MOM)](SLA-mom)
     -   [ Improving Quota for 3.2](Features/Quota-3.2)
     -   [ Integrate smartcard support](Features/Smartcard support)
+    -   [ Display Address Override](Features/Display Address Override)
     -   VM creation base on pre-defined profiles (instance types)
     -   [ libvdsm preview](Features/libvdsm)
     -   [ Storage live migration](Features/Design/StorageLiveMigration) (needs to be checked)

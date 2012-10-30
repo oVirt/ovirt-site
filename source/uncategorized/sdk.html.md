@@ -200,11 +200,54 @@ To build rpm and install it, from ovirt-engine-sdk repo:
 
 For local install in site-packages, from ovirt-engine-sdk repo:
 
+*   Fedora
+
       yum install python-lxml
+      python setup.py install
 
-      python setup.py develop
+*   Debian/Ubuntu
 
-*   note: both deployment procedures require super-user permissions
+      apt-get install python-lxml
+      python setup.py install
+
+*   Arch linux
+
+      pacman -S python2
+      python2 setup.py install
+
+*   note: both deployment procedures require super-user permissions. To deploy it in a more controlled per user environment:
+
+<!-- -->
+
+*   Fedora
+
+      yum install python-pip
+
+*   Debian/Ubuntu
+
+      apt-get install python-pip libxml2-dev libxslt1-dev build-essential
+
+*   Arch linux
+
+      pacman -S python 2 python-pip
+
+*   Common among the previous distributions
+
+      pip install virtualenvwrapper
+      cat >> ~/.bashrc << EOF
+      export WORKON_HOME=$HOME/.virtualenvs
+      export WORKON_HOME=$HOME/yourprojectdir
+      source /usr/local/bin/virtualenvwrapper.sh # omit the local part for Arch Linux
+      EOF
+      mkvirtualenv -p /usr/bin/python2.7 ovirt
+      cd ovirt-engine-sdk
+      python setup.py install
+
+Then, every time you want to use it:
+
+      workon ovirt
+
+will make ovirt and its dependencies available to your python execution environment.
 
 ## Known issues
 

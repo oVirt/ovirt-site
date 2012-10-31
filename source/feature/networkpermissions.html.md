@@ -132,7 +132,11 @@ Add Network User role to Roles Tree in:
 ` `*`frontend/webadmin/modules/uicompat/src/main/java/org/ovirt/engine/ui/uicompat/Enums.java`*
 ` `*`frontend/webadmin/modules/uicompat/src/main/resources/org/ovirt/engine/ui/uicompat/Enums.properties`*
 
-### Behaviour Change
+### Behavioural Change
+
+Edit/Remove network from the Data Center will require permission on the Network. Assigning network to cluster will require permission on the Cluster and on the Network. Setting VM Network Interface for port mirroring will require permission on the Network with role contains PORT_MIRRORING action group.
+
+In user portal - the list of shown network for a user will include only the list of networks the user is allowed to attach to its vnics (instead of all cluster's networks). A user should have permission on network in order to attach it to its nics.
 
 ### Benefit to oVirt
 

@@ -24,6 +24,20 @@ The Network Permissions feature is supplementary for network related actions in 
 *   Status: Design Stage
 *   Last updated date: Tue Oct 23 2012
 
+### Introduction
+
+The authorization mechanism to control which actions a user is allowed to run is call Multi-Level-Administration (MLA)
+Basic terms:
+
+*   Action - what the user want to do in the system (e.g. create data-center, run vm,...)
+*   Action Group - a group of actions, specifies if the actions could be invoked by the user or by the admin.
+*   Role - a set of action groups, defined for a user or for an admin
+    -   Predefined Role - role that is delivered by the engine and cannot be modified
+    -   Custom Role - role that is created by the admin
+*   User - a user of the system, either plan user or admin.
+    -   A user that an admin role is assigned to considered as admin.
+*   Permissions - a role granted to a user on a specific entity
+
 ### Design
 
 The following section describes the permissions on Network entities.

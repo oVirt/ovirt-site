@@ -96,15 +96,15 @@ Have a radio button that will show either
 
 1.  All the hosts in the dc
     -   **Columns**- Status (icon), Name, Cluster, Data Center
-    -   **Actions**- SetupNetworks
+    -   **Actions**- SetupNetworks (enabled if cluster compatabily version is 3.1 or more)
 
 2.  All the hosts that this network is attached to (default)
     -   **Columns**- Status (icon), Name, Cluster, Data Center, Nic Status, Nic (nic name, if bond- bond name), Nic Rx, Nic Tx.
-    -   **Actions**-SetupNetworks
+    -   **Actions**-SetupNetworks (enabled if cluster compatabily version is 3.1 or more)
 
 3.  All the hosts where this network attached to the cluster but not to the host (Very important for non-required where the host status does not indicate something is missing)
     -   **Columns**- Status (icon), Name, Cluster, Data Center
-    -   **Actions**- SetupNetworks
+    -   **Actions**- SetupNetworks (enabled if cluster compatabily version is 3.1 or more)
 
 **Virtual Machines** - All the vms that this network is attached to (if a vm has more then one vnic on the network, there should bee a seperate line in the table for each vnic) (first sort- cluster second sort- name)
 \* **Columns**- Status (icon), Name, Cluster, IP Address (list of all host's ip addresses), Vnic status(icon), Vnic, Vnic Rx, Vnic Tx, description (if there is enough place to display it).

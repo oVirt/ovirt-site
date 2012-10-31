@@ -38,6 +38,32 @@ Basic terms:
     -   A user that an admin role is assigned to considered as admin.
 *   Permissions - a role granted to a user on a specific entity
 
+**Entities Hierarchy**:
+
+       Data Center
+        |
+        +--- Cluster
+        |        |
+        |        +--- Host
+        |        |
+        |        +--- VM
+        |        |     |
+        |        |     +--- Disk
+        |        |
+        |        +--- VM Pool
+        |        |
+        |        +--- Gluster Volume
+        |
+        +--- Storage Domain
+        |        |
+        |        +--- Disk
+        |
+        +--- Quota
+        |
+        +--- Template
+        |
+        +--- Network
+
 ### Design
 
 The following section describes the permissions on Network entities.

@@ -27,48 +27,13 @@ The Network Permissions feature is supplementary for network related actions in 
 ### Introduction
 
 The authorization mechanism for controlling which actions a user is allowed to execute is named Multi-Level-Administrating (MLA)
-Basic terms:
-
-*   Action - what the user want to do in the system (e.g. create data-center, run vm,...)
-*   Action Group - a group of actions, specifies if the actions could be invoked by a user or by an admin.
-*   Role - a set of action groups, defined for a user or for an admin
-    -   Predefined Role - role that is delivered by the engine and cannot be modified
-    -   Custom Role - role that is created by the admin
-*   User - a user of the system, either plan user or admin.
-    -   A user that an admin role is assigned to considered as admin.
-*   Permissions - a role granted to a user on a specific entity
-
-**Entities Hierarchy**:
-
-       Data Center
-        |
-        +--- Cluster
-        |        |
-        |        +--- Host
-        |        |
-        |        +--- VM
-        |        |     |
-        |        |     +--- Disk
-        |        |
-        |        +--- VM Pool
-        |        |
-        |        +--- Gluster Volume
-        |
-        +--- Storage Domain
-        |        |
-        |        +--- Disk
-        |
-        +--- Quota
-        |
-        +--- Template
-        |
-        +--- Network
+Please refer to [Action Permissions overview](http://wiki.ovirt.org/wiki/Action_Permissions_overview) for further information.
 
 ### Design
 
 The following section describes the permissions on Network entities.
 
-#### Network Actions
+#### Network's Actions
 
 The **existing Action Groups** and their associated Actions:
 
@@ -114,25 +79,39 @@ VdcObjectType.VmInterface is already defined and in use by Port Mirroring
 
 ##### Updated Roles
 
-*   **NetworkAdmin** attached to groups MANIPUTLATE_HOST, CONFIGURE_HOST_NETWORK and CONFIGURE_CLUSTER_NETWORK.
+*   **NetworkAdmin** is currently attached to groups MANIPUTLATE_HOST, CONFIGURE_HOST_NETWORK and CONFIGURE_CLUSTER_NETWORK.
     -   MANIPUTLATE_HOST has nothing to do with networking, therefore should be omitted from the aforementioned list.
     -   CONFIGURE_STORAGE_POOL_NETWORK should be added to the NetworkAdmin groups.
     -   The actions should be modified to require permission on Network and the main entity of each group (On Data Center and Cluster and on Network)
-
-**Question 1**: Do we need a permission on Network when we attach it to Host? If a user is the Host owner, he might be able to configure the network on host directly.
-**Question 2**: How do we handle if at all 'unmanaged networks' ? (as they have no representing Network entity in the system)
+    -   Attaching a network to host's nic will not require permission on the attached network, rather on the host only.
 
 ##### Updated Action Groups
 
-*   **PORT_MIRRORING** should require permissions on both the Vm and the Network for creating or updating a VM nic.
+*   **PORT_MIRRORING** should require permissions on both the Vm and the target Network.
+    -   Suggestion: Once permission on Network is introduced, we can grant a user permission on a Network for PORT_MIRRORING role. It enables the user either to enable/disable a port mirroring for the network. By that we can also define the PORT_MIRRORING as a user role.
 
-The **VmInterface** should be removed from the VdcObjectType, since this is too granular entity (Add/Update Vm Interface should be modified accordingly).
+##### Updated Entities Hierarchy
+
+The **VmInterface** should be removed from the the hierarchy. User having permission on VmInterface will have a permission on the VM instead as part of the upgrade script. A new **Network** entity will be added as a child of **Data-Center**
+
+##### Updated Queries
+
+The following queries will be modified to be filtered by the user:
+
+      GetAllNetworksByClusterIdQuery - available VM networks list presented to the User will include only network the user has permission on
 
 #### DB Changes
 
-       Modify create_functions.sql:
+Modify create_functions.sql:
+
        Add support for Network to `*`fn_get_entity_parents`*` stored-procedure.
        Add support for Network to `*`fn_get_entity_name`*` stored-procedure.
+       Remove VmInterface from `*`fn_get_entity_name`*` and `*`fn_get_entity_parents`*` stored-procedure.
+
+Add new view:
+
+       user_network_permissions_view
+       An join of users to networks which the user has a permission on
 
 #### Upgrade DB
 
@@ -151,6 +130,8 @@ Add Network User role to Roles Tree in:
 
 ` `*`frontend/webadmin/modules/uicompat/src/main/java/org/ovirt/engine/ui/uicompat/Enums.java`*
 ` `*`frontend/webadmin/modules/uicompat/src/main/resources/org/ovirt/engine/ui/uicompat/Enums.properties`*
+
+### Behaviour Change
 
 ### Benefit to oVirt
 

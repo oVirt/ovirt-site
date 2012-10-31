@@ -10,8 +10,8 @@ wiki_last_updated: 2012-10-31
 
 ## Abstract
 
-This is and overview and a how-to for developers. It should give a good idea about how
-permissions are build into the backend archetecture and how to add/update autorization to commands and entities.
+This is an overview and a how-to for developers. It should give a good idea about how
+permissions are built into the engine architecture and how to add/update authorization to commands and entities.
 
 ## Terminology
 

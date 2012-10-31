@@ -54,3 +54,29 @@ The basic building block. Every **Command** in the engine is an action and has a
 
 To make a long story short it was the initial name of the permission feature in the engine. At first there was no
 authorization on actions (woohoo!) so a special UI was designed to enforce it and its name was "Multi Level Administration Portal"
+
+#### Entities Hierarchy
+
+       Data Center
+        |
+        +--- Cluster
+        |        |
+        |        +--- Host
+        |        |
+        |        +--- VM
+        |        |     |
+        |        |     +--- Disk
+        |        |
+        |        +--- VM Pool
+        |        |
+        |        +--- Gluster Volume
+        |
+        +--- Storage Domain
+        |        |
+        |        +--- Disk
+        |
+        +--- Quota
+        |
+        +--- Template
+        |
+        +--- Network

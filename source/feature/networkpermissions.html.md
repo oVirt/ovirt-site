@@ -117,10 +117,11 @@ Add new view:
 
 DB Upgrade should handle the following:
 
-If decided to add an explicit Network network:
-
-*   Permissions on Network should be granted to any user owns permissions on Data-Center.
+*   Permissions on all Data Center's Networks should be granted to any user owns permissions on Data-Center.
 *   Permissions on VmNetworkInterface should be replaced with permissions on the VM.
+*   NetworkAdmin role will be updated:
+    -   include CONFIGURE_STORAGE_POOL_NETWORK
+    -   exclude MANIPULATE_HOST_STATUS
 
 #### UI Changes
 

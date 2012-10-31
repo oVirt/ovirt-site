@@ -25,8 +25,8 @@ This feature provides support for provisioning and managing Gluster based storag
 
 ## Current Status
 
-*   Status: Design Stage
-*   Last updated date: Fri March 16 2012
+*   Status: Under Development
+*   Last updated date: Wed Oct 31 2012
 
 ## Detailed Description
 

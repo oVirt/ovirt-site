@@ -44,7 +44,7 @@ The following section describes the permissions on Network entities.
 
 #### Network Actions
 
-Current Action Groups and their associated Actions:
+The **existing Action Groups** and their associated Actions:
 
 *   CONFIGURE_STORAGE_POOL_NETWORK (admin role, requires permissions on VdcObjectType.StoragePool) for actions:
     -   AddNetwork

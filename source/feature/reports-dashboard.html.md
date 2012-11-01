@@ -34,7 +34,7 @@ Add a dashboard tab for relevant entities in the system to show overview of the 
 ### Detailed Description
 
 The following feature adds a dashboard tab for relevant entities (tree items) in the system to show overview of the entity (based on information from jasper reports).
- **The tree items that have dashboard**- System, Data Center, Clusters.
+ **The tree items that have dashboard**- System, Data Center, Cluster.
 **How to see the dashboard**- Selecting the relevant tree item=>Choosing the dashboard tab (next to the events tab)
 **pre-requirements**-
 1. Reports.xml- This file includes-

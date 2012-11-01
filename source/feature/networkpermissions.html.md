@@ -12,7 +12,9 @@ wiki_last_updated: 2013-04-18
 
 ### Summary
 
-The Network Permissions feature is supplementary for network related actions in the system. It enables permissions management on a Network to control which user is allowed to perform what action when it relates to network.
+The Network Permissions feature is supplementary for network related actions in the system.
+It enables permissions management on a Network to control which user is allowed to perform what action when it relates to network.
+Please refer to [Action Permissions overview](http://wiki.ovirt.org/wiki/Action_Permissions_overview) for further information about Multi-Level-Administration (MLA).
 
 ### Owner
 
@@ -23,11 +25,6 @@ The Network Permissions feature is supplementary for network related actions in 
 
 *   Status: Design Stage
 *   Last updated date: Tue Oct 23 2012
-
-### Introduction
-
-The authorization mechanism for controlling which actions a user is allowed to execute is named Multi-Level-Administration (MLA)
-Please refer to [Action Permissions overview](http://wiki.ovirt.org/wiki/Action_Permissions_overview) for further information.
 
 ### Design
 
@@ -66,11 +63,9 @@ The **existing Action Groups** and their associated Actions:
     -   AddVmInterface
     -   UpdateVmInterface
 
-VdcObjectType.VmInterface is already defined and in use by Port Mirroring
+**VmInterface** entity is defined and in use for Port Mirroring.
 
-#### Roles
-
-##### New Action Groups for Network Object Type
+#### Roles and Action Groups
 
 ##### New Roles
 
@@ -82,23 +77,17 @@ VdcObjectType.VmInterface is already defined and in use by Port Mirroring
 *   **NetworkAdmin** is currently attached to groups MANIPUTLATE_HOST, CONFIGURE_HOST_NETWORK and CONFIGURE_CLUSTER_NETWORK.
     -   MANIPUTLATE_HOST has nothing to do with networking, therefore should be omitted from the aforementioned list.
     -   CONFIGURE_STORAGE_POOL_NETWORK should be added to the NetworkAdmin groups.
-    -   The actions should be modified to require permission on Network and the main entity of each group (On Data Center and Cluster and on Network)
+    -   The actions should be modified to require permission on Network and the main entity of each group (either Data Center or Cluster and on Network)
     -   Attaching a network to host's nic will not require permission on the attached network, rather on the host only.
 
 ##### Updated Action Groups
 
 *   **PORT_MIRRORING** should require permissions on both the Vm and the target Network.
-    -   Suggestion: Once permission on Network is introduced, we can grant a user permission on a Network for PORT_MIRRORING role. It enables the user either to enable/disable a port mirroring for the network. By that we can also define the PORT_MIRRORING as a user role.
+    -   Suggestion: Once permission on Network is introduced, we can grant a user permission on a Network for PORT_MIRRORING role. It permits the user either to enable/disable a port mirroring for the network. By that we can also define the PORT_MIRRORING as a user role.
 
 ##### Updated Entities Hierarchy
 
 The **VmInterface** should be removed from the the hierarchy. User having permission on VmInterface will have a permission on the VM instead as part of the upgrade script. A new **Network** entity will be added as a child of **Data-Center**
-
-##### Updated Queries
-
-The following queries will be modified to be filtered by the user:
-
-      GetAllNetworksByClusterIdQuery - available VM networks list presented to the User will include only network the user has permission on
 
 #### DB Changes
 
@@ -111,9 +100,15 @@ Modify create_functions.sql:
 Add new view:
 
        user_network_permissions_view
-       A join of users to networks which the user has a permission on
+       A join of users to networks which the user has a permission on, united with permissions a user have for the Data-Center.
 
-#### Upgrade DB
+##### Updated Queries
+
+The following queries will be modified to be filtered by the user:
+
+      GetAllNetworksByClusterIdQuery - available VM networks list presented to the User will include only network the user has permission on
+
+##### Upgrade DB
 
 DB Upgrade should handle the following:
 

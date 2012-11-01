@@ -40,15 +40,21 @@ Enhancing templates to allow:
 
 ### Detailed Description
 
-In oVirt 3.1, templates are entities created from a vm, Contains the configuration of the vm (static information of vm memory, cpu, network, OS..) and the disks of the vm, these are tightly coupled, and when creating vm from a template, the vm gets that template's configuration and disks.
-
-We would like to allow a user to assemble a vm from more than one template, and specifically allow choosing different templates for configurations, and for disks. For example allow user selecting template 'Fedora-17' for the vm disks, contains data for a fedora vm, and template 'Fedora-17-XL' for configuration of a vm with more memory than in 'Fedora-17' template.
-
-Another example is allowing user creating template only with configuration, without any disks attached to it, or on the other hand, a template that contains just disks, with no configuration.
-
-Further more, allowing user to 'run' a template, as is, without creating a vm, just to see what's in it, and on some occasions allowing changes saved to the template.
-
-Another feature will be allowing the user to keep his vms up to date with the template, means if template (configuration?) updates, the vm configuration will update accordingly.
+In oVirt 3.1, templates are entities created from a vm,
+Contains the configuration of the vm (static information of vm memory, cpu, network, OS..)
+and the disks of the vm, these are tightly coupled,
+and when creating vm from a template, the vm gets that template's configuration and disks.
+ We would like to allow a user to assemble a vm from more than one template,
+and specifically allow choosing different templates for configurations, and for disks.
+For example allow user selecting template 'Fedora-17' for the vm disks,
+contains data for a fedora vm,
+and template 'Fedora-17-XL' for configuration of a vm with more memory than in 'Fedora-17' template.
+ Another example is allowing user creating template only with configuration, without any disks attached to it,
+or on the other hand, a template that contains just disks, with no configuration.
+ Further more, allowing user to 'run' a template, as is, without creating a vm,
+just to see what's in it, and on some occasions allowing changes saved to the template.
+ Another feature will be allowing the user to keep his vms up to date with the template,
+means if template (configuration?) updates, the vm configuration will update accordingly.
 
 ## Separating Configuration from Disks
 

@@ -125,7 +125,10 @@ DB Upgrade should handle the following:
     -   include CONFIGURE_STORAGE_POOL_NETWORK
     -   exclude MANIPULATE_HOST_STATUS
 
-In order to remove MANIPUTLATE_HOST action group from NetworkAdmin role, there is a need to create new predefined role named **HostOperator**. **HostOperator** will be associated with MANIPUTLATE_HOST action group. This role will be assigned to any user have the NetworkAdmin role.
+In order to remove MANIPUTLATE_HOST action group from NetworkAdmin role, there is a need to create new predefined role named **HostOperator**.
+\* **HostOperator** will be associated with MANIPUTLATE_HOST action group.
+
+*   **HostOperator** will be assigned to any user have the NetworkAdmin role.
 
 #### UI Changes
 

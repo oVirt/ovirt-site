@@ -58,9 +58,17 @@ means if template (configuration?) updates, the vm configuration will update acc
 
 ## Separating Configuration from Disks
 
-Templates could be partial, any field except name could be empty (null). When creating vm from the template, the vm entity which is sent, should contain all vm data, some from template(s) and some filled by the user. All templates used to create the vm will be saved, to update the vm if they are updated. AddVmCommand will allow sending templates for configuration and for disks. Configuration templates will have some kind of order, to allow merging the right value in case of collision. (?) The vm's disks will be snapshots of all templates disks, from the given list.
-
-User could mark for vm if it should be updated with the template, (still need to figure which, in case of many template) and every time template will be updated, the vms will be updated as well.
+Templates could be partial, any field except name could be empty (null).
+When creating vm from the template, the vm entity which is sent, should contain all vm data,
+some from template(s) and some filled by the user.
+All templates used to create the vm will be saved, to update the vm if they are updated.
+AddVmCommand will allow sending templates for configuration and for disks.
+Configuration templates will have some kind of order,
+to allow merging the right value in case of collision. (?)
+The vm's disks will be snapshots of all templates disks, from the given list.
+ User could mark for vm if it should be updated with the template,
+(still need to figure which, in case of many template)
+and every time template will be updated, the vms will be updated as well.
 
 #### Webadmin/Power User Portal
 

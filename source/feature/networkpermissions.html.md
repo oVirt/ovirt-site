@@ -26,7 +26,7 @@ The Network Permissions feature is supplementary for network related actions in 
 
 ### Introduction
 
-The authorization mechanism for controlling which actions a user is allowed to execute is named Multi-Level-Administrating (MLA)
+The authorization mechanism for controlling which actions a user is allowed to execute is named Multi-Level-Administration (MLA)
 Please refer to [Action Permissions overview](http://wiki.ovirt.org/wiki/Action_Permissions_overview) for further information.
 
 ### Design

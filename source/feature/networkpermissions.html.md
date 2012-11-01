@@ -111,7 +111,7 @@ Modify create_functions.sql:
 Add new view:
 
        user_network_permissions_view
-       An join of users to networks which the user has a permission on
+       A join of users to networks which the user has a permission on
 
 #### Upgrade DB
 

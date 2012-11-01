@@ -71,8 +71,6 @@ Need new element suspend_type of following resources:
 *   Virtual machine
 *   Template
 
-Need suspend type option in VM, template and VM pool resources.
-
 #### VDSM
 
 the support for hibernation has been already added, see <http://gerrit.ovirt.org/#/c/1121/>

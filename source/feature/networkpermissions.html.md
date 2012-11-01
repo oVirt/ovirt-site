@@ -117,11 +117,15 @@ Add new view:
 
 DB Upgrade should handle the following:
 
-*   Permissions on all Data Center's Networks should be granted to any user owns permissions on Data-Center.
-*   Permissions on VmNetworkInterface should be replaced with permissions on the VM.
+*   Permissions on all Data Center's Networks should be granted to any user owns permissions on Data-Center (having action group CONFIGURE_STORAGE_POOL_NETWORK).
+*   Permissions on all Cluster's Networks should be granted to any user owns permissions on the Cluster (having action group CONFIGURE_CLUSTER_NETWORK).
+*   Permissions on VmNetworkInterface should be replaced with permissions on the VM ().
+*   Permission on VM Network Interface with PORT_MIRRORING action group will be replaced by a permission on the Network and on the VM with PORT_MIRRORING action group.
 *   NetworkAdmin role will be updated:
     -   include CONFIGURE_STORAGE_POOL_NETWORK
     -   exclude MANIPULATE_HOST_STATUS
+
+In order to remove MANIPUTLATE_HOST action group from NetworkAdmin role, there is a need to create new predefined role named **HostOperator**. **HostOperator** will be associated with MANIPUTLATE_HOST action group. This role will be assigned to any user have the NetworkAdmin role.
 
 #### UI Changes
 

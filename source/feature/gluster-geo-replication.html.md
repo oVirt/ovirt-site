@@ -12,7 +12,7 @@ wiki_last_updated: 2014-12-22
 
 ## Summary
 
-This allows the user to configure and start Geo Replication for Gluster Volumes
+This allows the user to configure and start Geo Replication session for Gluster Volumes. GlusterFS Geo-replication provides a continuous, asynchronous, and incremental replication service from one site to another over Local Area Networks (LANs), Wide Area Network (WANs), and across the Internet.
 
 ## Owner
 

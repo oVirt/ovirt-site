@@ -186,6 +186,12 @@ params lookup as shown in [2].
 
 ## Deployment
 
+### pypi
+
+<http://pypi.python.org/pypi/ovirt-engine-sdk>
+
+      easy_install ovirt-engine-sdk
+
 ### rpm
 
 To build rpm and install it, from ovirt-engine-sdk repo:

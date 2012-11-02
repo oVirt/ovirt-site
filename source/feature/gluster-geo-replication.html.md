@@ -32,8 +32,8 @@ GlusterFS Geo-replication uses a master–slave model, whereby replication and m
 
 *   Master – A GlusterFS volume
 *   Slave – A slave can be of the following types:
-    -   A local directory which can be represented as file URL like <file:///path/to/dir>. You can use shortened form, for example: /path/to/dir.
-    -   A GlusterFS Volume - Slave Volume can be either a local volume like gluster://localhost:volname (shortened form - :volname) or a volume served by different host like gluster://host:volname (shortened form - host:volname).
+    -   A directory in a remote host.
+    -   A GlusterFS Volume in a remote host/cluster.
 
 With this feature the user will be able to
 

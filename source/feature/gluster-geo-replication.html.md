@@ -35,13 +35,14 @@ GlusterFS Geo-replication uses a master–slave model, whereby replication and m
     -   A local directory which can be represented as file URL like <file:///path/to/dir>. You can use shortened form, for example: /path/to/dir.
     -   A GlusterFS Volume - Slave Volume can be either a local volume like gluster://localhost:volname (shortened form - :volname) or a volume served by different host like gluster://host:volname (shortened form - host:volname).
 
-Configuring and Monitoring unidirectional Geo Replication (master-slave).
+With this feature the user will be able to
 
-The following features will be supported
-
-*   Setting up passwordless SSH
-*   Configuring and Starting Geo Replication
-*   Displaying Geo-replication status information
+*   Setup Passwordless SSH between one of the servers in the cluster and remote host
+*   Start a new Geo-Replication session
+*   Change the configuration while starting or later
+*   Stop any running Geo-Replication session
+*   Monitor the statuses of Geo-Replication session in a cluster
+*   Remove any inactive session
 
 ## Design
 

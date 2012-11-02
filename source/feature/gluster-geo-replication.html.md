@@ -28,6 +28,13 @@ This allows the user to configure and start Geo Replication session for Gluster 
 
 ## Detailed Description
 
+GlusterFS Geo-replication uses a master–slave model, whereby replication and mirroring occurs between the following partners:
+
+*   Master – A GlusterFS volume
+*   Slave – A slave can be of the following types:
+    -   A local directory which can be represented as file URL like <file:///path/to/dir>. You can use shortened form, for example: /path/to/dir.
+    -   A GlusterFS Volume - Slave Volume can be either a local volume like gluster://localhost:volname (shortened form - :volname) or a volume served by different host like gluster://host:volname (shortened form - host:volname).
+
 Configuring and Monitoring unidirectional Geo Replication (master-slave).
 
 The following features will be supported

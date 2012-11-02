@@ -20,6 +20,7 @@ The oVirt Node sub-project is geared toward building a small, robust operating s
 
 *   March 21 oVirt Workshop, Beijing: ![](ovirt-node.pdf "fig:ovirt-node.pdf")
 *   2012-08-28 oVirt Workshop, San Diego: ![](Ovirt-node-2012-08-28.pdf "fig:Ovirt-node-2012-08-28.pdf")
+*   2012-11-07 oVirt Workshop, Barcelona, Spain: ![](Ovirt-node-2012-11-07.pdf "fig:Ovirt-node-2012-11-07.pdf")
 
 ## Next Release
 

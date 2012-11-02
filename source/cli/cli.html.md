@@ -613,6 +613,12 @@ no special format, just commands in plain text
 
 ## Deployment
 
+### pypi
+
+<http://pypi.python.org/pypi/ovirt-shell>
+
+      easy_install ovirt-shell
+
 ### rpm
 
 To build rpm and install it, from ovirt-engine-cli repo:

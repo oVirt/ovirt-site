@@ -640,6 +640,10 @@ That will install lxml, because EPEL's python-lxml is not yet up to the version 
 
 [Bugzila](https://bugzilla.redhat.com/buglist.cgi?list_id=6860&classification=Community&query_format=advanced&bug_status=NEW&bug_status=ASSIGNED&component=ovirt-engine-cli&product=oVirt)
 
+## Change Log
+
+[cli-changelog](cli-changelog)
+
 ## Maintainer
 
 Michael Pasternak: mpastern@redhat.com

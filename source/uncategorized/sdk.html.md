@@ -276,6 +276,10 @@ will make ovirt and its dependencies available to your python execution environm
 
 *   refactoring internal exceptions for better error handling on client side
 
+## Change Log
+
+[Change Log](Change Log)
+
 ## Maintainer
 
 Michael Pasternak: mpastern@redhat.com

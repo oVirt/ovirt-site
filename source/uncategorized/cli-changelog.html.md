@@ -139,6 +139,3 @@ wiki_last_updated: 2013-11-14
 `     `[`https://bugzilla.redhat.com/show_bug.cgi?id=781834`](https://bugzilla.redhat.com/show_bug.cgi?id=781834)
          - authentication show as succeeded with bad password (text only) #781820
 `     `[`https://bugzilla.redhat.com/show_bug.cgi?id=781820`](https://bugzilla.redhat.com/show_bug.cgi?id=781820)
-
-         * Thu Dec 15 2011 Ofer Schreiber `<oschreib@redhat.com>` - 1.0-1
-         - Initial build

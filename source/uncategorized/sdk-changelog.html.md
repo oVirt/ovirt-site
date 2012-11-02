@@ -190,6 +190,3 @@ wiki_last_updated: 2012-11-21
          * Mon Jan 16 2012 Michael Pasternak `<mpastern@redhat.com>` - 1.1-1
          - add connectivity check and disconnect methods for #781820
 `     `[`https://bugzilla.redhat.com/show_bug.cgi?id=781820`](https://bugzilla.redhat.com/show_bug.cgi?id=781820)
-
-         * Thu Dec 15 2011 Ofer Schreiber `<oschreib@redhat.com>` - 1.0-1
-         - Initial build

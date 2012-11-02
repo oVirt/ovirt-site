@@ -19,12 +19,13 @@ This feature allows the user to configure, start, stop and monitor Geo-Replicati
 *   Feature owner: Shireesh Anjal <sanjal@redhat.com>
     -   GUI Component owner: Kanagaraj Mayilsamy <kmayilsa@redhat.com>
     -   Engine Component owner: Selvasundaram Subramaniam <sesubram@redhat.com>
+    -   VDSM Component owner: Balamurugan Arumugam <barumuga@redhat.com>
     -   QA Owner: Sudhir Dharanendraiah <sdharane@redhat.com>
 
 ## Current Status
 
 *   Status: In Progress
-*   Last updated date: Mon Oct 22 2012
+*   Last updated date: Mon Nov 2 2012
 
 ## Detailed Description
 
@@ -39,13 +40,39 @@ With this feature the user will be able to
 
 *   Setup Passwordless SSH between one of the servers in the cluster and remote host
 *   Start a new Geo-Replication session
-*   Change the configuration while starting or later
+*   Change the configuration before starting the session or later
 *   Stop any running Geo-Replication session
 *   Monitor the statuses of Geo-Replication session in a cluster
 *   Remove any inactive session
 
 ## Design
 
-![](Geo-Replication-Start.png "fig:Geo-Replication-Start.png") ![](Geo-Replication-Start-Verifying-SSH.png "fig:Geo-Replication-Start-Verifying-SSH.png") ![](Geo-Replication-Start-Verifying-SSH-Sucess.png "fig:Geo-Replication-Start-Verifying-SSH-Sucess.png") ![](Geo-Replication-Start-Verifying-SSH-Failed.png "fig:Geo-Replication-Start-Verifying-SSH-Failed.png") ![](Geo-Replication-Start-Privatekey-Test.png "fig:Geo-Replication-Start-Privatekey-Test.png") ![](Geo-Replication-Start-SSH-Setup.png "fig:Geo-Replication-Start-SSH-Setup.png") ![](Geo-Replication-Start-SSH-Setup-Success.png "fig:Geo-Replication-Start-SSH-Setup-Success.png") ![](Geo-Replication-Start-User-Defined.png "fig:Geo-Replication-Start-User-Defined.png")
+### Start a new Geo-Replication Session
+
+![](Geo-Replication-Start.png "Geo-Replication-Start.png")
+
+### Verifying Passwordless SSH Communication
+
+![](Geo-Replication-Start-Verifying-SSH.png "Geo-Replication-Start-Verifying-SSH.png")
+
+### Passwordless SSH Communication Successful
+
+![](Geo-Replication-Start-Verifying-SSH-Sucess.png "Geo-Replication-Start-Verifying-SSH-Sucess.png")
+
+### Passwordless SSH Communication Failure
+
+![](Geo-Replication-Start-Verifying-SSH-Failed.png "Geo-Replication-Start-Verifying-SSH-Failed.png")
+
+### Using a different Private Key for SSH
+
+![](Geo-Replication-Start-Privatekey-Test.png "Geo-Replication-Start-Privatekey-Test.png")
+
+### Setting up Passwordless SSH
+
+![](Geo-Replication-Start-SSH-Setup.png "fig:Geo-Replication-Start-SSH-Setup.png") ![](Geo-Replication-Start-SSH-Setup-Success.png "fig:Geo-Replication-Start-SSH-Setup-Success.png")
+
+### Modified SSH and Gsync commands
+
+![](Geo-Replication-Start-User-Defined.png "Geo-Replication-Start-User-Defined.png")
 
 <Category:Feature>

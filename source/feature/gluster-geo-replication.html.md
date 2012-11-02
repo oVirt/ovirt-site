@@ -38,6 +38,6 @@ The following features will be supported
 
 ## Design
 
-![](Geo-Replication-Start.png "fig:Geo-Replication-Start.png") ![](Geo-Replication-Start-Verifying-SSH.png "fig:Geo-Replication-Start-Verifying-SSH.png") ![](Geo-Replication-Start-Verifying-SSH-Success.png "fig:Geo-Replication-Start-Verifying-SSH-Success.png") ![](Geo-Replication-Start-Verifying-SSH-Failed.png "fig:Geo-Replication-Start-Verifying-SSH-Failed.png") ![](Geo-Replication-Start-Privatekey-Test.png "fig:Geo-Replication-Start-Privatekey-Test.png") ![](Geo-Replication-Start-SSH-Setup.png "fig:Geo-Replication-Start-SSH-Setup.png") ![](Geo-Replication-Start-SSH-Setup-Sucess.png "fig:Geo-Replication-Start-SSH-Setup-Sucess.png") ![](Geo-Replication-Start-User-Defined.png "fig:Geo-Replication-Start-User-Defined.png")
+![](Geo-Replication-Start.png "fig:Geo-Replication-Start.png") ![](Geo-Replication-Start-Verifying-SSH.png "fig:Geo-Replication-Start-Verifying-SSH.png") ![](Geo-Replication-Start-Verifying-SSH-Sucess.png "fig:Geo-Replication-Start-Verifying-SSH-Sucess.png") ![](Geo-Replication-Start-Verifying-SSH-Failed.png "fig:Geo-Replication-Start-Verifying-SSH-Failed.png") ![](Geo-Replication-Start-Privatekey-Test.png "fig:Geo-Replication-Start-Privatekey-Test.png") ![](Geo-Replication-Start-SSH-Setup.png "fig:Geo-Replication-Start-SSH-Setup.png") ![](Geo-Replication-Start-SSH-Setup-Success.png "fig:Geo-Replication-Start-SSH-Setup-Success.png") ![](Geo-Replication-Start-User-Defined.png "fig:Geo-Replication-Start-User-Defined.png")
 
 <Category:Feature>

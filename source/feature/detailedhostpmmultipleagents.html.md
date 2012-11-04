@@ -49,8 +49,6 @@ Adding test data for ???? in fixtures.xml
 
 ### User Experience
 
-This feature is not exposed to the GUI in 3.1
-
 ### Installation/Upgrade
 
 #### User work-flows

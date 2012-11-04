@@ -12,7 +12,7 @@ wiki_last_updated: 2012-11-16
 
 Note this is Work In Progress for now
 
-## Hosts Power Management
+## Hosts Power Management Multiple Agents Support
 
 ### Summary
 
@@ -28,7 +28,7 @@ The Host Power Management feature allows the oVirt engine to remotely control th
 
 ### Current status
 
-The current implementation of the Power Management is focused on supporting the most popular power management device, while the fencing proxi selection is naive, and there is no support for topologies where redundant power supply exists which requires supporting additional power management device.
+The current implementation of the Power Management is focused on supporting the most popular power management device, while there is no support for topologies where redundant power supply exists which requires supporting additional power management device.
 
 *   Last updated date:
 
@@ -44,38 +44,13 @@ When planing the power management feature for the hosts there are few orthogonal
 
 4. Power Management Proxy Selection
 
-This page is focused at the moment on item #4 and when discussion will go into the other then it will be split into relevant topics.
+This page is focused at the moment on item #1 and when discussion will go into the other then it will be split into relevant topics.
 
 ### Power Management Proxy
 
-oVirt uses the standard cluster fence_<device> script in order to perform power management related operations. These scripts are invoked by VDSM and controlled by the engine. The power management proxy may be any server the system that has VDSM installed with the proper certificates, even if it is not a host.
-
-Proper proxy selection depends on the networking topology of the data center, user preferences and whether there is a redundant fencing device.
-
-Current design assumes any host in the data center may be used for fencing which requires all the hosts to have rout to all the fencing devices in the system, in reality out of band management networks are usually confined within the same clusters and sometimes even to specific hosts.
-
-This requires to add the ability to specify, per host, multiple power management devices options in priority. Per option need to specify which device to use and which proxy to use, where there may be multiple proxies with set priorities for using these proxies.
-
-Proxy options may be:
-
-1.  **Engine**: The the server hosting the engine. This requires to install VDSM on this host
-2.  **DC**: A host in the same data center
-3.  **Cluster**: A host in the same cluster
-4.  **IP/FQDN**: A specific host
+oVirt curently supports only one Power Management Agent per Host. This requires to add the ability to specify, per host, multiple power management devices options in priority. Per option need to specify which device to use as primary device and which as secondary device.
 
 The proposal (but not final design, this should be created in the detailed design page), is to support two power management devices per host. Can be done via two tabs in the host properties, instead of one today.
-
-Each tab contains:
-
-*   Device configuration - as today
-*   Proxy list (new field). Where proxy may be provided as coma separated list:
-    -   Examples:
-        -   Cluster, Engine
-        -   fqdn1/ip1,fqdn2/ip2
-        -   Cluster
-        -   Cluster, DC
-
-<!-- -->
 
 *   Redundant cards may have two topologies, As far as the Engine is concerned. This is since the only operation provided by the Engine are PowerOff, PowerOn, and Restart that is a sequence of off and then on.
     -   Sequential: Tab1 has higher priority then tab2 - In this case first device should be used, and if fencing operation fails then use the second device

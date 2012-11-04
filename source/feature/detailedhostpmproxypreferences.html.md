@@ -63,7 +63,7 @@ This feature is not exposed to the GUI in 3.1
 
 ### Documentation / External references
 
-[Features/Design/StableDeviceAddresses](Features/Design/StableDeviceAddresses)
+[Features/Design/HostPMProxyPreferences](Features/Design/HostPMProxyPreferences)
 
 ### Open Issues
 

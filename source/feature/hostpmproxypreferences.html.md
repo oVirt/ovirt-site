@@ -10,7 +10,7 @@ wiki_last_updated: 2012-11-11
 
 # Host PM Proxy Preferences
 
-## Hosts Power Management Proxy Extensions
+## Hosts Power Management Proxy Preferences
 
 ### Summary
 

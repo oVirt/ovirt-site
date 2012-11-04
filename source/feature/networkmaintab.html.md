@@ -24,7 +24,7 @@ wiki_warnings: list-item?
 
 ### Current status
 
-*   On Design
+*   Merged to upsream
 *   Last update date: 20/10/2012
 
 ### Detailed Description

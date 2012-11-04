@@ -30,7 +30,7 @@ The Host Power Management feature allows the oVirt engine to remotely control th
 
 The current implementation of the Power Management is focused on supporting the most popular power management device, while there is no support for topologies where redundant power supply exists which requires supporting additional power management device.
 
-*   Last updated date: Nov 7 2012
+*   Last updated date: Nov 4 2012
 
 ### Detailed Description
 

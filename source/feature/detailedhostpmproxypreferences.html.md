@@ -63,7 +63,7 @@ This feature is not exposed to the GUI in 3.1
 
 ### Documentation / External references
 
-[Features/Design/HostPMProxyPreferences](Features/Design/HostPMProxyPreferences)
+[Features/HostPMProxyPreferences](Features/HostPMProxyPreferences)
 
 ### Open Issues
 

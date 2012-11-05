@@ -28,6 +28,8 @@ wiki_warnings: list-item?
 
 ### Detailed Description
 
+#### Terminology
+
 *   A vnic on a running VM can have 4 states (If the VM is down, its state represent its behavoiur when he"ll get up)
 
     Plugged, Connected- The Vnic is defined on the VM and connected to the Network.
@@ -42,15 +44,35 @@ wiki_warnings: list-item?
 
 #### Virtual Machines -> Network Interfaces sub tab
 
+*   **Columns**
+
+    * Plugged- should be added after Name.
+
+    * Connected- should be added after Network Name.
+
+    * Status (icon)- Green if plugged and connected.
+
 *   **Actions**
+
+    * Activate/Deactivate-
+
+        * Remove these actions from the subtab (The user will be able to control the Vnic's state through the add/edit Vnic dialogs)
+
+    * Add
+
+        * There would be an "on/off" switch next to the network combo. The switch will present if the network is connected or not. (TODO- add print screen)
+
+        * "Activate" checkbox will be changed to a switch with to options "Plug/Unplug".
 
     * Edit
 
-        * Enable also if the vm status is up
+        * Enable also if the vm status is up.
 
-        * If the vm status is up, type combo should be disabled
+        * If the vm status is up, "type" combo should be disabled.
 
-::\*
+        * There would be an "on/off" switch next to the network combo.
+
+        * Add "Plug/Unplug" switch to the dialog (same as in Add dialog).
 
 #### API
 

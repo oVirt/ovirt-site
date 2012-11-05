@@ -70,7 +70,8 @@ Add pmProxyPreferences field to VDS
 
 A new list will be added to the Power Management Tab when adding a new Host or modifying existing Host
 The list will have by default the entries : engine,cluster and DC
-the user may add other Host IPs or FQDNs by typing a value and pressing the ADD button
+The user may add other Host IPs or FQDNs by typing a value and pressing the ADD button
+The user may also use the UP and DOWN buttons to change items order inside the list
  ![](ProxyPreferences.png "fig:ProxyPreferences.png")
 
 ### Installation/Upgrade

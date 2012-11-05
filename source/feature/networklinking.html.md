@@ -30,15 +30,12 @@ wiki_warnings: list-item?
 
 #### Terminology
 
-*   A vnic on a running VM can have 4 states (If the VM is down, its state represent its behavoiur when he"ll get up)
+A vnic on a running VM can have 4 states (If the VM is down, its state represent its behavoiur when he"ll get up)
 
-    Plugged, Connected- The Vnic is defined on the VM and connected to the Network.
-
-    Plugged. Disconnected- The Vnic is defined on the VM and isn't connected to any network.
-
-    Unpluged, Connected- The Vnic is not defined on the VM. When the Vnic will be plugged it will be automatically connected to the Network.
-
-    Unplugged, Disconnected- The Vnic is not defined on the VM. When the Vnic will be plugged it won't be connected to any network.
+1.  Plugged, Connected- The Vnic is defined on the VM and connected to the Network.
+2.  Plugged. Disconnected- The Vnic is defined on the VM and isn't connected to any network.
+3.  Unpluged, Connected- The Vnic is not defined on the VM. When the Vnic will be plugged it will be automatically connected to the Network.
+4.  Unplugged, Disconnected- The Vnic is not defined on the VM. When the Vnic will be plugged it won't be connected to any network.
 
 #### GUI
 

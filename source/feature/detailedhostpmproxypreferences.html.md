@@ -39,9 +39,11 @@ wiki_warnings: list-item?
 
 ### CRUD
 
+Adding a pm_proxy_preferences column to vds_static table. this column represents a comma separated proxy preferences lists per Host The default value for this column will be : 'engine,cluster,dc' So, if this value is for example the default value, a Host that is in non-responsive state and has Power Management configured will be fenced using first the engine then the first UP Host in Cluster then the first UP Host in the Data Center.
+
 #### Metadata
 
-Adding test data for ???? in fixtures.xml
+Adding test for the new pm_proxy_preferences field in VdsStaticDAOTest Adding test data in fixtures.xml
 
 ### Business Logic
 

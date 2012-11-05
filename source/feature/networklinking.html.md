@@ -32,10 +32,10 @@ wiki_warnings: list-item?
 
 A vnic on a running VM can have 4 states (If the VM is down, its state represent its behavoiur when he"ll get up)
 
-1.  Plugged, Connected- The Vnic is defined on the VM and connected to the Network.
-2.  Plugged. Disconnected- The Vnic is defined on the VM and isn't connected to any network.
-3.  Unpluged, Connected- The Vnic is not defined on the VM. When the Vnic will be plugged it will be automatically connected to the Network.
-4.  Unplugged, Disconnected- The Vnic is not defined on the VM. When the Vnic will be plugged it won't be connected to any network.
+1.  Activte - Plugged & Connected- The Vnic is defined on the VM and connected to the Network.
+2.  Plugged & Disconnected- The Vnic is defined on the VM and isn't connected to any network.
+3.  Unpluged & Connected- The Vnic is not defined on the VM. When the Vnic will be plugged it will be automatically connected to the Network.
+4.  Unplugged & Disconnected- The Vnic is not defined on the VM. When the Vnic will be plugged it won't be connected to any network.
 
 #### GUI
 
@@ -47,7 +47,7 @@ A vnic on a running VM can have 4 states (If the VM is down, its state represent
 
     * Connected- should be added after Network Name.
 
-    * Status (icon)- Green if plugged and connected.
+    * Status (icon)- green if plugged and connected, red- otherwise. The tooltip should display the plugged and connected status. (TODO- Maybe should also combine the VM status)
 
 *   **Actions**
 
@@ -59,13 +59,17 @@ A vnic on a running VM can have 4 states (If the VM is down, its state represent
 
         * There would be an "on/off" switch next to the network combo. The switch will present if the network is connected or not. (TODO- add print screen)
 
-        * "Activate" checkbox will be changed to a switch with to options "Plug/Unplug".
+        * "Activate" checkbox will be changed to a switch with two options "Plug/Unplug".
 
     * Edit
 
-        * Enable also if the vm status is up.
+        * If the vm status is up
 
-        * If the vm status is up, "type" combo should be disabled.
+            * The edit command should be enabled.
+
+            * If the vnic is active (plugged & connected) there should be a message in top of the dialog "Please notice, changing <b>Type</b> or <b>MAC</b> will cause plugging and unplugging the Vnic".
+
+            * TODO- Port Mirroring.
 
         * There would be an "on/off" switch next to the network combo.
 

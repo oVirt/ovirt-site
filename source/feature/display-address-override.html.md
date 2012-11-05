@@ -52,7 +52,7 @@ To help the administrator to avoid the situation that some hosts in the cluster 
 
 *   In General subtab of the Cluster main tab a warning will be shown (the same format as in the General subtab of the Hosts main tab when the power management is not configured)
 *   The warning message will be the following: "Some hosts in this cluster have the console address overridden and some not. For details please see the Hosts subtab"
-*   The Hosts Subtab of the Cluster main tab contains a table with list of hosts. This table will be enriched by a new column named "Console Address" which will contain the address what will be returned as display address for any VM running on this host
+*   The Hosts subtab of the Cluster main tab contains a table with list of hosts. This table will be enriched by a new column named "Display Address Overridden" which will contain "Yes" if the display address for this host has been overridden, else will contain "No"
 
 #### REST API
 

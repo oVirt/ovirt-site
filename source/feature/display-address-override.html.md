@@ -70,6 +70,14 @@ Example of creating a host with display address overridden:
       </host>
        
 
+If the console address has been overridden, the example of how to switch it back to the default:
+
+       
+      <host>
+          <display_address/>
+      </host>
+       
+
 ### Documentation / External references
 
 <Category:Feature> <Category:Template>

@@ -43,7 +43,8 @@ Adding a pm_proxy_preferences column to vds_static table. this column represents
 
 #### Metadata
 
-Adding test for the new pm_proxy_preferences field in VdsStaticDAOTest Adding test data in fixtures.xml
+Adding test for the new pm_proxy_preferences field in VdsStaticDAOTest
+Adding test data in fixtures.xml
 
 ### Business Logic
 

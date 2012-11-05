@@ -60,7 +60,7 @@ Adding test data in fixtures.xml
 Add pmProxyPreferences field to VdsStatic
 Add pmProxyPreferences field to VDS
  FencingExecutor::FindVdsToFence
-Apply the logic of searching for the proxy according to the pmProxyPreferences value
+------------------------------------ Apply the logic of searching for the proxy according to the pmProxyPreferences value
 
 #### Flow
 

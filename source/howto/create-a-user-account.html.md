@@ -16,6 +16,4 @@ If you would like to make changes to wiki pages, follow the "Log in" link at the
 
 Once you have your user account, read <Help:Editing> and the related content in the [:Category:Documentation for writing on the wiki](:Category:Documentation for writing on the wiki).
 
-*(Content from <https://www.theopensourceway.org/wiki/How_to_create_a_user_account> under [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/))*
-
 [Category:How to](Category:How to) <Category:Documentation>

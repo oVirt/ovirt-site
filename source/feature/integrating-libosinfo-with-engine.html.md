@@ -38,7 +38,7 @@ Use the knowledge supplied by OS providers to set VM default values of CPU and R
 #### usages
 
 *   suggest default value when adding a disc e.g set a 15 Gb disc if its a Windows 7
-*   extract all OS names instead of house-keeping an enum.
+*   extract all OS info (names, OS family, architecture instead of house-keeping an enum.
 *   engine can validate when trying to run a VM with lower memory then recommended.
 
 #### design
@@ -61,18 +61,100 @@ engine will have a service to abstract all interaction with libosinfo.
        */
        int getRecommendedCPUByOS(String os)
 
-*   libosinfo interaction details
+*   loading libosinfo data into ovirt engine
 
-libosinfo relies on xml-based db and Gobject bindigs on top, with javascript and python api's. we can either:
+when the engine starts it will load, with jaxb all the xmls under /usr/share/libosinfo/data/oses into java beans
+representing an OS. The class representing an OS and all of its dereiviants will be auto-generated from an xsd file during the
+development phase. Once loaded, every OS has an object representing it, all will reside in map with its short-id as a key.
 
-1.  load the xml's to java objects using jaxb. might be a KISS for the current needs. we are loosing the API the library exposes.
-2.  use Java InvokeDynamic to do python or javascript invocation of API. we gain all functionality (bugs too). need to make sure invoking dynamic code is easy and secure - some people reject the idea of leaving the VM for external invocations.
-3.  contribute a java bindings with just a subset of the api - essentially do whats written in 1 and contribute it
+to summerize the steps to load os data:
+
+1.  in dev phase - create an xsd from one of the os xmls under /usr/share/libosinfo/data/oses - this step is done once
+     The xsd can later be customized to help the jaxb generator to create classes which are serialized, avoid inner classes and so on.
+2.  auto-generate classes from the XSD using maven plugin
+3.  exposed the OS entities as a jar to the rest of the project - engine, GWT and REST will use directly the auto generated entities.
+4.  on engine startup, load all OS xmls to a map which can be retrieved by a query
 
 ### Dependencies / Related Features
 
 ovirt should depend on libosinfo RPM which ships with Fedora 17 and RHEL 6.3
--- add here the list of XMLs and python api classes --
+
+1.  libosinfo package: libosinfo-0.0.4-2
+2.  libosinfo OS xml files location: /usr/share/libosinfo/data/oses
+
+### Code Chages
+
+#### Project structure
+
+1.  Libosinfo is an engine service so I find it very convenient to create a "services" module place it under it
+
+      |-- backend
+        |-- manager
+          |-- modules
+            |-- services
+              |-- libosinfo
+                |-- interface
+                |-- types
+
+*   types\* project holds the auto-generated entities and. \*interface\* project holds the \*LibosinfoService\* interface and currently also the xml-loading implementation.
+
+#### entity changes
+
+##### VmOsType
+
+1.  remove family, is64Bit as all is represented by the OS
+2.  add 1 to 1 mapping of all OSs in the xml and designate an internal ID for them
+3.  architecture will be represented as a new Vm property - CpuArch
+
+      VmOsType.class
+       ...
+       Windows2008x64(16, "win2k-8"),
+         Windows2008R2x64(17, "win2k-8"),
+         RHEL6(18, "rhel-6.0"),
+         RHEL6x64(19, "rhel-6.0"),
+
+      // bsd
+          freebsd6(1, "freebsd6"),
+          freebsd7(2, "freebsd7"),
+          freebsd8(3, "freebsd8"),
+          openbsd4(4, "openbsd4"),
+      // centos
+         centos__6_0(101, "centos-6.0"),
+         centos__6_1(102, "centos-6.1"),
+      // debian
+          debianbuzz(201, "debianbuzz"),
+          debianrex(202, "debianrex"),
+          debianbo(203, "debianbo"),
+          debianhamm(204, "debianhamm"),
+      ...
+
+##### introduce CpuArch
+
+Vm will have a new property - CpuArch. It will not be enforced by the cluster currently(future?) and has
+no impact on the running VM configuration except validating Min/Max memory cpu values.
+
+every OS has a resources field and every resources field has an "arch" attribute. Values can be "all|i386|x86_64" and those will mapped to the CpuArch enum.
+\*UNASSIGNED\* - this OS has no architecture-specific resources details.
+\*ALL\* - the resources specifications are for all architectures of that OS release.
+
+      CpuArch.class
+         UNASSIGNED(0),
+         ALL(1),
+         i386(2),
+         i586(3),
+         i686(4),
+         X86_64(5);
+
+--- add a sketch to CpuArch
+
+##### VmHandler
+
+plug the memory checks to libosinfo instead the use of Config values.
+
+##### DB
+
+1.  add CpuArch field to \*vm_static\* and \*vms\* view
+2.  remove entries from VmOsType that represents
 
 ### Documentation / External references
 

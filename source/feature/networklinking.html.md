@@ -77,21 +77,21 @@ A vnic on a running VM can have 4 states (If the VM is down, its state represent
 
         * Add "Plug/Unplug" switch to the dialog (same as in Add dialog).
 
-#### API
+#### REST API
 
-*   **VmNetworkInterface**
+NIC properties:
 
-    * depricate active property
+Changes:
 
-    * add plugged property
+*   Adding new properties under VM NIC:
 
-    * add connectedProperty
+    * plugged
 
-*   **Rest**
+    * connected
 
-    * activate/deactivate actions will be deprecated
-
-    * plugging/unplugging and connecting/disconecting the vnic, will be done via nic post
+*   Deprecating the active property under VM NIC
+*   Deprecating activate/deactivate actions
+*   Plug/unplug and connect/disconnect on a vnic, will be done via post action on the VM NIC
 
 ### Documentation / External references
 

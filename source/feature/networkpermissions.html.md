@@ -115,7 +115,7 @@ The **existing Action Groups** and their associated Actions:
 <!-- -->
 
 *   **CONFIGURE_CLUSTER_NETWORK** (admin role, on VdcObjectType.VdsGroups) will be restricted for action:
-    -   UpdateNetworkOnCluster - since ClusterAdmin is not allowed to control the Network resource on DC level.
+    -   UpdateNetworkOnCluster - since ClusterAdmin is not allowed to control the Network resource.
 
 ##### New Action Groups
 

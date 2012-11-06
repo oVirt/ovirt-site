@@ -112,11 +112,10 @@ ovirt should depend on libosinfo RPM which ships with Fedora 17 and RHEL 6.3
 
       VmOsType.class
        ...
-       Windows2008x64(16, "win2k-8"),
+         Windows2008x64(16, "win2k-8"),
          Windows2008R2x64(17, "win2k-8"),
          RHEL6(18, "rhel-6.0"),
          RHEL6x64(19, "rhel-6.0"),
-
       // bsd
           freebsd6(1, "freebsd6"),
           freebsd7(2, "freebsd7"),

@@ -107,7 +107,7 @@ ovirt should depend on libosinfo RPM which ships with Fedora 17 and RHEL 6.3
 ##### VmOsType
 
 1.  remove family, is64Bit as all is represented by the OS
-2.  add 1 to 1 mapping of all OSs in the xml and designate an internal ID for them
+2.  **shortId** - add 1 to 1 mapping of all OSs in the xml and designate an internal ID for them
 3.  architecture will be represented as a new Vm property - CpuArch
 
       VmOsType.class
@@ -130,6 +130,11 @@ ovirt should depend on libosinfo RPM which ships with Fedora 17 and RHEL 6.3
           debianbo(203, "debianbo"),
           debianhamm(204, "debianhamm"),
       ...
+         private final int intValue;
+         /**
+          * shortId of the OS as represented by libosinfo.
+          */
+         private final String shortId;
 
 ##### introduce CpuArch
 

@@ -136,9 +136,10 @@ ovirt should depend on libosinfo RPM which ships with Fedora 17 and RHEL 6.3
 Vm will have a new property - CpuArch. It will not be enforced by the cluster currently(future?) and has
 no impact on the running VM configuration except validating Min/Max memory cpu values.
 
-every OS has a resources field and every resources field has an "arch" attribute. Values can be "all|i386|x86_64" and those will mapped to the CpuArch enum.
-\*UNASSIGNED\* - this OS has no architecture-specific resources details.
-\*ALL\* - the resources specifications are for all architectures of that OS release.
+*   every OS has a resources field and every resources field has an "arch" attribute. Values can be "all|i386|x86_64" and those will
+*   mapped to the CpuArch enum.
+*   **UNASSIGNED** - this OS has no architecture-specific resources details.
+*   **ALL** - the resources specifications are for all architectures of that OS release.
 
       CpuArch.class
          UNASSIGNED(0),

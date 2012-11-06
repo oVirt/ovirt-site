@@ -84,6 +84,8 @@ The same params as specified by user for PosixFs domain will be applicable to Gl
      User can then select the gluster volume he/she created and the **spec** will be formed automatically based on the gluster volume selected by user.
      This provides better usability (seamlessly integrate virt and storage flows/modes of oVirt) and might be useful when OE is in virt + gluster mode.
 
+**Here are some screenshots -** ![](Gluster.JPG "fig:Gluster.JPG")
+
 ## Benefits to oVirt
 
 oVirt 3.1 already has support to create & manage Gluster Volumes (see 'Volumes' tab in oVirt ) - typically done by storage admin.

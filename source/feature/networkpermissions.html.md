@@ -176,22 +176,6 @@ Add Network User role to Roles Tree in:
 ` `*`frontend/webadmin/modules/uicompat/src/main/java/org/ovirt/engine/ui/uicompat/Enums.java`*
 ` `*`frontend/webadmin/modules/uicompat/src/main/resources/org/ovirt/engine/ui/uicompat/Enums.properties`*
 
-### Behavioural Change
-
-*   Edit/Remove network from the Data Center will require permission on the Network.
-*   Assigning network to cluster will require permission on the Cluster and on the Network.
-*   Setting VM Network Interface for port mirroring will require permission on the Network with role contains PORT_MIRRORING action group.
-
-<!-- -->
-
-*   In user portal - the list of shown network for a user will include only the list of networks the user is allowed to attach to its vnics (instead of all cluster's networks).
-*   A user should have permission on network in order to attach it to its nics, e.g. **VmNetworkUser** role.
-
-<!-- -->
-
-*   **NetworkAdmin** role will not allow the user to perform any of MANIPUTLATE_HOST actions (host fencing, maintenance)
-*   **NetworkAdmin** role will be extended to allow users to create new networks on Data-Center level, update or remove them.
-
 ### Benefit to oVirt
 
 Permission management for Networks enhances the Network functionality, provides flexibility to users and protects it from misuse.
@@ -207,10 +191,6 @@ Affected oVirt projects:
 
 *   Engine-core
 *   Admin Portal
-
-### Open issues
-
-*   Network SLA - this feature should consider network permission when implemented.
 
 ### Documentation / External references
 

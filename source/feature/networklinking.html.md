@@ -69,7 +69,9 @@ A vnic on a running VM can have 4 states (If the VM is down, its state represent
 
             * If the vnic is active (plugged & connected) there should be a message in top of the dialog "Please notice, changing <b>Type</b> or <b>MAC</b> will cause plugging and unplugging the Vnic".
 
-            * TODO- Port Mirroring.
+            * Port Mirroring- if there is port mirroring on the vnic- network, type(?), mac(?) and port mirroring fileds in the dialog will be disabled.
+
+::: Strech goal- enable hot changes in port mirroring (without plugging and unplugging)
 
         * There would be an "on/off" switch next to the network combo.
 

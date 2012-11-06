@@ -157,7 +157,7 @@ plug the memory checks to libosinfo instead the use of Config values.
 
 ##### DB
 
-1.  add CpuArch field to \*vm_static\* and \*vms\* view
+1.  add CpuArch field to **vm_static** and **vms** view
 2.  upgrade vm_static table - remove entries from VmOsType that represents x86_64 archs.
     instead put the canonical OS and put the relevant CpuArch value for it.
 

@@ -79,6 +79,20 @@ A vnic on a running VM can have 4 states (If the VM is down, its state represent
 
 #### API
 
+*   **VmNetworkInterface**
+
+    * depricate active property
+
+    * add plugged property
+
+    * add connectedProperty
+
+*   **Rest**
+
+    * activate/deactivate actions will be deprecated
+
+    * plugging/unplugging and connecting/disconecting the vnic, will be done via nic post
+
 ### Documentation / External references
 
 Bugzilla - <https://bugzilla.redhat.com/show_bug.cgi?id=873244>

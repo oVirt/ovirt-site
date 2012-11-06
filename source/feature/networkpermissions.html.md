@@ -95,11 +95,12 @@ The **existing Action Groups** and their associated Actions:
 
 ##### Updated Roles
 
-*   **NetworkAdmin** is currently attached to groups MANIPUTLATE_HOST, CONFIGURE_HOST_NETWORK and CONFIGURE_CLUSTER_NETWORK.
-    -   MANIPUTLATE_HOST has nothing to do with networking, therefore should be omitted from the aforementioned list.
-    -   CONFIGURE_STORAGE_POOL_NETWORK should be added to the NetworkAdmin groups.
-    -   MANAGE_CLUSTER_NETWORK new action group will be added to NetworkAdmin groups.
-    -   The actions should be modified to require permission on Network and the main entity of each group (either Data Center or Cluster and on Network)
+*   **NetworkAdmin** is currently attached to groups MANIPUTLATE_HOST, CONFIGURE_HOST_NETWORK and CONFIGURE_CLUSTER_NETWORK. It will be changed as follow:
+    -   Removed action groups:
+        -   MANIPUTLATE_HOST - it has nothing to do with networking, therefore should be omitted from the aforementioned list.
+    -   Added action groups:
+        -   CONFIGURE_STORAGE_POOL_NETWORK - to allow add/remove/update of networks to the Data-Center.
+        -   MANAGE_CLUSTER_NETWORK - new action group.
     -   Attaching a network to host's nic will not require permission on the attached network, rather on the host only.
 
 ##### Updated Action Groups

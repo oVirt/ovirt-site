@@ -63,6 +63,8 @@ The **existing Action Groups** and their associated Actions:
     -   AttachNetworkToVdsGroup
     -   DetachNetworkToVdsGroup
     -   UpdateNetworkOnCluster
+*   EDIT_CLUSTER_CONFIGURATION (admin role, on VdcObjectType.VdsGroups) for actions:
+    -   UpdateDisplayToVdsGroup - deprecated.
 *   CONFIGURE_HOST_NETWORK (admin role, on VdcObjectType.VDS) for actions:
     -   SetupNetworks
     -   AddBond

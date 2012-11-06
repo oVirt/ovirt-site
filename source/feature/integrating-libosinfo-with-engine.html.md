@@ -135,6 +135,10 @@ ovirt should depend on libosinfo RPM which ships with Fedora 17 and RHEL 6.3
           * shortId of the OS as represented by libosinfo.
           */
          private final String shortId;
+         private VmOsType(final int value, String shortId) {
+             intValue = value;
+             this.shortId = shortId;
+         }
 
 ##### introduce CpuArch
 

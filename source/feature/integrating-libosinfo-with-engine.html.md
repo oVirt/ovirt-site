@@ -150,6 +150,10 @@ no impact on the running VM configuration except validating Min/Max memory cpu v
 
 ![](editVm.png "editVm.png")
 
+##### REST /api/capabilities
+
+no real change there except the added enum members there.
+
 ##### VmHandler
 
 plug the memory checks to libosinfo instead the use of Config values.

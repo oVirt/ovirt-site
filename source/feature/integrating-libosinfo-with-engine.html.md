@@ -51,15 +51,19 @@ engine will have a service to abstract all interaction with libosinfo.
 2.  the service will expose a required subset of libosinfo API
 
       OSInfoService
-       /** 
-       * Get the recommended minimum memory by OS
-       */
-       int getRecomendedMemoryByOS(String os)
-        
-       /**
-       * Get the recommended num of CPU by OS
-       */
-       int getRecommendedCPUByOS(String os)
+         int getMinimumCpuSpeed(String osId, CpuArch cpuArch);
+         int getMinimumCpuNumber(String osId, CpuArch cpuArch);
+         long getMinimumRam(String osId, CpuArch cpuArch);
+         int getRecommendedCpu(String osId, CpuArch cpuArch);
+         long getRecommendedRam(String osId, CpuArch cpuArch);
+         /**
+          * @param shortId
+          * @return an Os instance for the given shortId or an empty Os instance (most String values with "") if there is no
+          *         match.
+          */
+         Os getByShortId(String shortId);
+         Map`<String, Os>` getAll();
+         Set`<String>` getShortIds();
 
 *   loading libosinfo data into ovirt engine
 

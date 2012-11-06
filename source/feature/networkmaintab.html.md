@@ -127,17 +127,29 @@ Have a radio button that will show either
 SearchType.Network - add relevant search command
 
 **Tree**
-Networks: 1.2 Have a remove button for 1.1.1, ManageNetworks button for 1.1.2. Simple add will not do since you don't know where to add.
+Networks:
 
 *   "Network: datacenter.name ='dcName'"
 
 Network:
 
-*   "Network: name = 'treeSelectedNetName' datacenter.name = 'dcName'"
-*   "Cluster: network.name = 'treeSelectedNetName' datacenter.name = 'dcName'"
-*   "Host: network.name = 'treeSelectedNetName' datacenter.name = 'dcName'"
-*   "Vms: network.name = 'treeSelectedNetName' datacenter.name = 'dcName'"
-*   "Template: network.name = 'treeSelectedNetName' datacenter.name = 'dcName'"
+*   "Network: name = 'treeSelectedNetName' datacenter = 'dcName'"
+*   "Cluster: Cluster_network.network_name = 'treeSelectedNetName' Datacenter.name = 'dcName'"
+*   "Host : Nic.network_name = 'treeSelectedNetName' datacenter ='dcName'"
+*   "Vm : Vnic.network_name = 'treeSelectedNetName' datacenter = 'dcName'"
+*   "Template : Vnic.network_name = 'treeSelectedNetName' datacenter = 'dcName'"
+
+DataCenter:
+
+*   "Network: datacenter ='treeSelectedDcName'"
+
+Cluster:
+
+*   "Network: cluster ='treeSelectedClusterName'"
+
+Host:
+
+*   "Network: host ='treeSelectedHostName'"
 
 **Search text area**
 Network: (search by network properties)

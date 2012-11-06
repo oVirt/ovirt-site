@@ -85,6 +85,12 @@ The **existing Action Groups** and their associated Actions:
 
 **VmInterface** entity is defined and in use for Port Mirroring.
 
+##### New Action Groups
+
+*   **MANAGE_CLUSTER_NETWORK** (admin role, on VdcObjectType.Network) will be defined for actions:
+    -   AttachNetworkToVdsGroup
+    -   DetachNetworkToVdsGroup
+
 #### Roles and Action Groups
 
 ##### New Roles
@@ -121,12 +127,6 @@ The **existing Action Groups** and their associated Actions:
 
 *   **SUPER_USER** is extended to include **MANAGE_CLUSTER_NETWORK**.
 *   **DATA_CENTER_ADIM** is extended to include **MANAGE_CLUSTER_NETWORK**.
-
-##### New Action Groups
-
-*   **MANAGE_CLUSTER_NETWORK** (admin role, on VdcObjectType.Network) will be defined for actions:
-    -   AttachNetworkToVdsGroup
-    -   DetachNetworkToVdsGroup
 
 ##### Updated Entities Hierarchy
 

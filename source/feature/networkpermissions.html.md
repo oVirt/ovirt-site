@@ -159,10 +159,11 @@ The following queries will be modified to be filtered by the user:
 DB Upgrade should handle the following:
 
 *   Permissions on VmNetworkInterface should be deleted from the setup if any.
-*   Permission onData Center with PORT_MIRRORING action group will be replaced with:
+*   Permission on Data Center with PORT_MIRRORING action group will be replaced with:
     -   Permission on All the networks in the DC with PORT_MIRRORING action group.
 
-bug fix: Remove MANIPUTLATE_HOST action group from NetworkAdmin role.
+bug fix:
+Remove MANIPUTLATE_HOST action group from NetworkAdmin role.
 
 #### UI Changes
 

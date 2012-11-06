@@ -130,8 +130,10 @@ The **existing Action Groups** and their associated Actions:
 
 ##### Updated Entities Hierarchy
 
-The **VmInterface** should be removed from the the hierarchy. User having permission on VmInterface will have a permission on the VM instead as part of the upgrade script.
 A new **Network** entity will be added as a child of **Data-Center**
+ **\1**
+The **VmInterface** should be removed from the the hierarchy.
+It is not in used today and we see no reason to keep it around.
 
 #### DB Changes
 

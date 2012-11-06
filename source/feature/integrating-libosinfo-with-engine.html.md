@@ -145,7 +145,7 @@ every OS has a resources field and every resources field has an "arch" attribute
          i686(4),
          X86_64(5);
 
---- add a sketch to CpuArch
+![](editVm.png "editVm.png")
 
 ##### VmHandler
 

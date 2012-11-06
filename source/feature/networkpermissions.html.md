@@ -175,6 +175,8 @@ Add Network User role to Roles Tree in:
 ` `*`frontend/webadmin/modules/uicompat/src/main/java/org/ovirt/engine/ui/uicompat/Enums.java`*
 ` `*`frontend/webadmin/modules/uicompat/src/main/resources/org/ovirt/engine/ui/uicompat/Enums.properties`*
 
+User Portal should be modified to use the updated query.
+
 ### Benefit to oVirt
 
 Permission management for Networks enhances the Network functionality, provides flexibility to users and protects it from misuse.

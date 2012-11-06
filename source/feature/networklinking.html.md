@@ -93,6 +93,8 @@ Changes:
 *   Deprecating activate/deactivate actions
 *   Plug/unplug and connect/disconnect on a vnic, will be done via post action on the VM NIC
 
+There is no reason to have dedicated actions for plug/unplug or connect/disconnect. The original reason for having them was that edit VM nic while the VM was up used to be blocked and now we'll enable doing these actions.
+
 ### Documentation / External references
 
 Bugzilla - <https://bugzilla.redhat.com/show_bug.cgi?id=873244>

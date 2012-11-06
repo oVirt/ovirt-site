@@ -131,7 +131,7 @@ The **existing Action Groups** and their associated Actions:
 ##### Updated Entities Hierarchy
 
 A new **Network** entity will be added as a child of **Data-Center**
- **\1**
+ cleanup:
 The **VmInterface** should be removed from the the hierarchy.
 It is not in used today and we see no reason to keep it around.
 

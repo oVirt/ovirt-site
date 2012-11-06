@@ -30,11 +30,11 @@ Please refer to [Action Permissions overview](http://wiki.ovirt.org/wiki/Action_
 
 #### Admin
 
-*   For creating a network in a DC you need to be SuperUser or DataCenterAdmin or NetworkAdmin on the DC.
-*   After creating the network you can manipulate the network if you are a DataCenterAdmin or NetworkAdmin on the relevant network (or the whole DC).
-*   For attaching the network to cluster user needs to be networkAdmin on the network (no requirement to have permission on the cluster)
-*   ClusterAdmin cannot attach/detach a network from the cluster, the motivation for this is that as long as the network is not attached to the cluster it is not part of the cluster resources thus can not be managed by the cluster administrator.
-    -   The ClusterAdmin can change a network from required to non-required for controlling the impact of the network within the cluster.
+*   For creating a network in a DC you need to be **SuperUser** or **DataCenterAdmin** or **NetworkAdmin** on the DC.
+*   After creating the network you can manipulate the network if you are a **DataCenterAdmin** or **NetworkAdmin** on the relevant network (or the whole DC).
+*   For attaching the network to cluster user needs to be **NetworkAdmin** on the network (no requirement to have permission on the cluster)
+*   **ClusterAdmin** cannot attach/detach a network from the cluster, the motivation for this is that as long as the network is not attached to the cluster it is not part of the cluster resources thus can not be managed by the cluster administrator.
+    -   The **ClusterAdmin** can change a network from required to non-required for controlling the impact of the network within the cluster.
 *   For setting a network on the host you need to be host administrator on the host and you don't need to be network administrator.
 
 #### User

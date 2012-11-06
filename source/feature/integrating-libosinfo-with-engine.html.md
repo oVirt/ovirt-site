@@ -100,7 +100,7 @@ ovirt should depend on libosinfo RPM which ships with Fedora 17 and RHEL 6.3
                 |-- interface
                 |-- types
 
-*   types\* project holds the auto-generated entities and. \*interface\* project holds the \*LibosinfoService\* interface and currently also the xml-loading implementation.
+**types** project holds the auto-generated entities and. **interface** project holds the **LibosinfoService** interface and currently also the xml-loading implementation.
 
 #### entity changes
 

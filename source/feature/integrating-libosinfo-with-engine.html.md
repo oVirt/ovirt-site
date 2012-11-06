@@ -90,7 +90,7 @@ ovirt should depend on libosinfo RPM which ships with Fedora 17 and RHEL 6.3
 
 #### Project structure
 
-1.  Libosinfo is an engine service so I find it very convenient to create a "services" module place it under it
+*   Libosinfo is an engine service so I find it very convenient to create a "services" module place it under it
 
       |-- backend
         |-- manager

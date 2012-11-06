@@ -106,6 +106,17 @@ The **existing Action Groups** and their associated Actions:
 *   **PORT_MIRRORING** should require permissions on both the Vm and the target Network.
     -   Suggestion: Once permission on Network is introduced, we can grant a user permission on a Network for PORT_MIRRORING role. It permits the user either to enable/disable a port mirroring for the network. By that we can also define the PORT_MIRRORING as a user role.
 
+<!-- -->
+
+*   **CONFIGURE_CLUSTER_NETWORK** (admin role, on VdcObjectType.VdsGroups) will be restricted for action:
+    -   UpdateNetworkOnCluster
+
+##### New Action Groups
+
+*   **MANAGE_CLUSTER_NETWORK** (admin role, on VdcObjectType.Network) will be defined for actions:
+    -   AttachNetworkToVdsGroup
+    -   DetachNetworkToVdsGroup
+
 ##### Updated Entities Hierarchy
 
 The **VmInterface** should be removed from the the hierarchy. User having permission on VmInterface will have a permission on the VM instead as part of the upgrade script.

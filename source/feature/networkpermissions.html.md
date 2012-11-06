@@ -21,34 +21,33 @@ Please refer to [Action Permissions overview](http://wiki.ovirt.org/wiki/Action_
 *   Name: Moti Asayag
 *   Email: masayag@redhat.com
 
-### High level feature description
-
-Admin ======
-
--> for creating a network in a DC you need to be superuser or DC admin or NetworkAdmin on the DC.
-
--> after creating the network you can manipulate the network if you are a DC admin or networkAdmin on the relevant network (or the whole DC).
-
--> for attaching the network to cluster user needs to be networkAdmin on the network (no requirement to have permission on the cluster)
-
--> cluster administrator can not attach/detach a network from the cluster, the motivation for this is that as long as the network is not attached to the cluster it is not part of the cluster resources thus can not be managed by the cluster administrator. The cluster administrator can change a network from required to non-required for controlling the impact of the network within the cluster.
-
--> for setting a network on the host you need to be host administrator on the host and you don't need to be network administrator.
-
-User ====
-
--> For attaching a network to a Vnic in the VM you need to have the role of VmNetworkUser on the network and vmAdmin on the VM.
-
-Port-mirroring ===============
-
--> For configuring in the VM port mirroring you need to have the role of VmAdvancedNetworkUser on the network and vmAdmin on the VM. VmAdvancedNetworkUser includes all the VmNetworkUser actions and in addition the port mirroring action.
-
 ### Current status
 
 *   Status: Design Stage
 *   Last updated date: Tue Oct 23 2012
 
-### Design
+### High Level Feature Description
+
+#### Admin
+
+*   For creating a network in a DC you need to be SuperUser or DataCenterAdmin or NetworkAdmin on the DC.
+*   After creating the network you can manipulate the network if you are a DataCenterAdmin or NetworkAdmin on the relevant network (or the whole DC).
+*   For attaching the network to cluster user needs to be networkAdmin on the network (no requirement to have permission on the cluster)
+*   ClusterAdmin cannot attach/detach a network from the cluster, the motivation for this is that as long as the network is not attached to the cluster it is not part of the cluster resources thus can not be managed by the cluster administrator.
+    -   The ClusterAdmin can change a network from required to non-required for controlling the impact of the network within the cluster.
+*   For setting a network on the host you need to be host administrator on the host and you don't need to be network administrator.
+
+#### User
+
+*   For attaching a network to a Vnic in the VM you need to have the role of VmNetworkUser on the network and VmAdmin on the VM.
+
+##### Port-mirroring
+
+*   For configuring in the VM port mirroring you need to have the role of VmAdvancedNetworkUser on the network and vmAdmin on the VM.
+
+VmAdvancedNetworkUser includes all the VmNetworkUser actions and in addition the port mirroring action.
+
+### Detailed Design
 
 The following section describes the permissions on Network entities.
 

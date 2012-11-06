@@ -39,13 +39,12 @@ Please refer to [Action Permissions overview](http://wiki.ovirt.org/wiki/Action_
 
 #### User
 
-*   For attaching a network to a Vnic in the VM you need to have the role of VmNetworkUser on the network and VmAdmin on the VM.
+*   For attaching a network to a Vnic in the VM you need to have the role of **VmNetworkUser** on the network and **VmAdmin** on the VM.
 
 ##### Port-mirroring
 
-*   For configuring in the VM port mirroring you need to have the role of VmAdvancedNetworkUser on the network and vmAdmin on the VM.
-
-VmAdvancedNetworkUser includes all the VmNetworkUser actions and in addition the port mirroring action.
+*   For configuring in the VM port mirroring you need to have the role of **VmAdvancedNetworkUser** on the network and **VmAdmin** on the VM.
+    -   **VmAdvancedNetworkUser** includes all the **VmNetworkUser** actions and in addition the port mirroring action.
 
 ### Detailed Design
 

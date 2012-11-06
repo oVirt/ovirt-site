@@ -91,6 +91,7 @@ The **existing Action Groups** and their associated Actions:
 
 *   **VmNetworkUser** a new user role to be associated with the following groups: CONFIGURE_VM_NETWORK and CONFIGURE_TEMPLATE_NETWORK.
     -   It should allow the user to create vnics attached to the subjected network or to update an existing vnic network.
+*   **VmAdvancedNetworkUser** a new role will include the same action groups as **VmNetworkUser** and in addition the PORT_MIRRORING action group.
 
 ##### Updated Roles
 

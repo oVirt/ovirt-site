@@ -156,7 +156,7 @@ Add the new pm_proxy_preferences column in the upgrade script.
 
 ### Open Issues
 
-Are defaults applied implicitly?
+Are pre-defined values applied implicitly?
 Meaning, if a user modified the PM Proxy Preferences to be for example only : IP1,IP2
 Does this means that this is the actual chain and if both IP1 & IP2 fails to serve as proxies the Power Management operation fails?
 or, we should say that this actually implies IP1,IP2,engine,cluster,dc implicitly?

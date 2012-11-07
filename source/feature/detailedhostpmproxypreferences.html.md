@@ -71,9 +71,9 @@ When Power Management is defined on the Host and the host becomes non-responding
 The Host non-responding treatment is doing the following actions
  Send a Stop command
 
-        Wait for status 'off' 
+        Wait for status 'off' (controlled by FenceStopStatusDelayBetweenRetriesInSec and FenceStopStatusRetries configuration values)
         Send a Start command
-        Wait for status 'on'
+        Wait for status 'on'  (controlled by FenceStartStatusDelayBetweenRetriesInSec and FenceStartStatusRetries configuration values)
 
 All commands are passed to the Host fencing agent via a proxy machine, in this case
 The pm_proxy_preferences of the Host that is in non-responding state is examined

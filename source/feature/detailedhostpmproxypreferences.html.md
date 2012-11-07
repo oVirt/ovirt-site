@@ -66,6 +66,40 @@ Add pmProxyPreferences field to VDS
 
 ### API
 
+The REST API will be enhanced to include the new Proxy Preferences as follows
+
+`  `<host>
+`    `<power_management>
+`       `<proxies>
+`          `<proxy>
+                  
+
+<address>
+1.1.1.1
+
+</address>
+`          `</proxy>
+`          `<proxy>
+                   
+
+<address>
+host.tlv.redhat.com
+
+</address>
+`          `</proxy>
+`          `<proxy>
+`             `<predefined>`engine`</predefined>
+`          `</proxy>
+`          `<proxy>
+`             `<predefined>`cluster`</predefined>
+`          `</proxy>
+`         `<proxy>
+`             `<predefined>`datacenter`</predefined>
+`          `</proxy>
+`       `</proxies>
+`    `</power_management>
+` `</host>
+
 ### User Experience
 
 A new list will be added to the Power Management Tab when adding a new Host or modifying existing Host

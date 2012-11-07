@@ -15,8 +15,18 @@ wiki_warnings: list-item?
 
 ### Summary
 
+When Power Management is defined on the Host and the host becomes non-responding , the engine will attempt to restart the Host after a graceful period is passed
+The Host non-responding treatment is doing the following actions
+ Send a Stop command
+
+        Wait for status 'off' (controlled by FenceStopStatusDelayBetweenRetriesInSec and FenceStopStatusRetries configuration values)
+        Send a Start command
+        Wait for status 'on'  (controlled by FenceStartStatusDelayBetweenRetriesInSec and FenceStartStatusRetries configuration values)
+
 The current implementation of PM proxy selection is based on selection of host from the data center with 'UP' status.
  This implementation is not robust enough, since fence action such as 'RestartVds' which is comprised of two fence actions (stop & start) might be able to complete the first action, but fails to detect a proxy for the second. In some cases the entire DC become non-responsive or even stopped. In that case no host on DC could act as a proxy.
+
+This document describes an extension to the current proxy selection algorithm that enables each Host to define its proxy chain as a priority list.
 
 ### Owner
 

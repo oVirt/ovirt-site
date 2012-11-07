@@ -136,7 +136,10 @@ A new list will be added to the Power Management Tab when adding a new Host or m
 The list will have by default the entries : engine,cluster and DC
 The user may add other Host IPs or FQDNs by typing a value and pressing the ADD button
 The user may also use the UP and DOWN buttons to change items order inside the list(item order = priority)
- ![](ProxyPreferences.png "fig:ProxyPreferences.png")
+ Assuming that engine,cluster and dc are part of each chain and only priority may changes
+See [Open Issues](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#Open_Issues) for details.
+
+![](ProxyPreferences.png "ProxyPreferences.png")
 
 ### Installation/Upgrade
 

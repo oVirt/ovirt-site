@@ -100,6 +100,18 @@ host.tlv.redhat.com
 `    `</power_management>
 ` `</host>
 
+To achieve that we should do the following:
+in api.xsd (schema) define new elements:
+ *proxy* which contains two fields : address and predefined
+
+        `*`proxies`*` which contains a list of proxy
+
+Add enum PreDefinedFenceType {ENGINE,CLUSTER,DATACENTER} in org.ovirt.engine.api.model package
+Add PreDefinedFenceType enum to capabilities (BackendCapabilitiesResource)
+Add enum validations
+Add custom mapping for these new power-management fields in HostMapper.java, for both REST-->Backend and Backend-->REST directions)
+Add metadata to rsdl_metadata_v-3.1.yaml
+
 ### User Experience
 
 A new list will be added to the Power Management Tab when adding a new Host or modifying existing Host

@@ -47,7 +47,7 @@ A vnic on a running VM can have 4 states (If the VM is down, its state represent
 
     * Connected- should be added after Network Name.
 
-    * Status (icon)- green if plugged and connected, red- otherwise. The tooltip should display the plugged and connected status. (TODO- Maybe should also combine the VM status)
+    * Status (icon)- green if plugged and connected, red- otherwise. The tooltip should display the plugged and connected status.
 
 *   **Actions**
 

@@ -153,6 +153,8 @@ Add the new pm_proxy_preferences column in the upgrade script.
 
 #### Affected oVirt projects
 
+[Host Power Management Multiple Agents](http://wiki.ovirt.org/wiki/Features/HostPMMultipleAgents)
+
 ### Documentation / External references
 
 [Features/HostPMProxyPreferences](Features/HostPMProxyPreferences)

@@ -15,6 +15,9 @@ wiki_warnings: list-item?
 
 ### Summary
 
+The current implementation of PM proxy selection is based on selection of host from the data center with 'UP' status.
+ This implementation is not robust enough, since fence action such as 'RestartVds' which is comprised of two fence actions (stop & start) might be able to complete the first action, but fails to detect a proxy for the second. In some cases the entire DC become non-responsive or even stopped. In that case no host on DC could act as a proxy.
+
 ### Owner
 
 *   Feature owner: [ Eli Mesika](User:emesika)

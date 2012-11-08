@@ -89,6 +89,10 @@ Adding the is_external keyword to the Search Engine to filter application/extern
 
 #### Flow
 
+### Permissions
+
+New command is exposed currently only to SuperUser
+
 ### API
 
 ### User Experience

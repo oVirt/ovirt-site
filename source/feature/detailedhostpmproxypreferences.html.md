@@ -166,6 +166,8 @@ Add the new pm_proxy_preferences column in the upgrade script.
 
 ### Open Issues
 
+#### pre-defined values
+
 Are pre-defined values applied implicitly?
 Meaning, if a user modified the PM Proxy Preferences to be for example only : IP1,IP2
 Does this means that this is the actual chain and if both IP1 & IP2 fails to serve as proxies the Power Management operation fails?
@@ -175,5 +177,7 @@ Suggestion:
 engine,cluster,dc should be applied implicitly and missing definitions from the original default (engine,cluster.dc) will be applied using the same priority
 Examples:
 engine,IP1,IP2 => engine,IP1,IP2,cluster,dc IP1,dc,IP2 => IP1,dc,IP2,engine,cluster
+
+#### local vdsm
 
 [Category: Feature](Category: Feature)

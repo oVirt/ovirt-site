@@ -86,7 +86,11 @@ Create your ~/.m2/ directory
 
       $> mkdir ~/.m2
 
-Use wget -O ~/.m2/settings.xml http://wiki.ovirt.org/w/images/1/18/Settings.xml.png Or copy & paste the content of the file below into ~/.m2/settings.xml
+Use
+
+      wget -O ~/.m2/settings.xml http://wiki.ovirt.org/w/images/1/18/Settings.xml.png
+
+Or copy & paste the content of the file below into ~/.m2/settings.xml
 
       <settings xmlns="http://maven.apache.org/POM/4.0.0"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

@@ -84,6 +84,7 @@ Adding AddExternalEventParameters with the following fields
         Message
 
 Adding the is_external keyword to the Search Engine to filter application/external events
+ Change AuditLogCleanup logic to handle application & External cleanups
 
 #### Flow
 

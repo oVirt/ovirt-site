@@ -191,4 +191,9 @@ engine,IP1,IP2 => engine,IP1,IP2,cluster,dc IP1,dc,IP2 => IP1,dc,IP2,engine,clus
 In the case that engine is selected as a proxy, we may want a separate service (temporary name : local vdm) that will run on the local host and expose only the fencing functionality from VDSM
  This option has major affect on the effort/cost and time-line of this feature since we need to write a new service for that, package it , install it etc.
 
+#### Fence Wrapper
+
+A script or standalone program that will call the fence-agents package scripts directly
+In this case we do need a Local VDSM
+
 [Category: Feature](Category: Feature)

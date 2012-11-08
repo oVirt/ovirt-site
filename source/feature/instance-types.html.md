@@ -124,7 +124,7 @@ This permission will *not* permit a user to edit the virtual machines instance c
 
 #### User workflow
 
-*   Change VM tab to expose “New VM” button rather than “New Server” and “New Desktop”
+*   Change VM tab to expose “New VM” button that replaces the existing “New Server” and “New Desktop”
 
 <!-- -->
 

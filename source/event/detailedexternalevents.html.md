@@ -49,9 +49,23 @@ It is recommended to add clones of existing icons for NORMAL, WARNING or ERROR w
 
 ### CRUD
 
+Adding is_external boolean field to audit_log with a default value of *false*
+Update relevant views to return the is_external flag.
+ Adding a new configuration value that is exposed to engine-config named ExternalEventAgingThreashold
+This value controls when old events are deleted from the audit_log table and is defaulted to 30 days.
+
 #### DAO
 
+Handling is_external in AuditLogDAODbFacadeImpl
+
 #### Metadata
+
+Modifying AuditLogDAOTest to include the added is_external field
+Adding is_external to fixtures.xml
+
+### Configuration
+
+Exposing ExternalEventAgingThreashold to engine-config
 
 ### Business Logic
 

@@ -115,4 +115,6 @@ TBD
 
 ### Open Issues
 
+Should the new External Event types be exposed to the engine-notification tool?
+
 [Category: Feature](Category: Feature)

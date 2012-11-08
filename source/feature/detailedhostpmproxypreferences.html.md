@@ -34,7 +34,7 @@ Specifically, the local host may be chosen as a proxy for fencing operations
 This may be achieved by installing a full VDSM packages on the local machine of by using
 [Local VDSM](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#Local_VDSM)
 
-An alternative to installing a lightweight local VDSM is writing a Fence Wrapper
+An alternative to installing a lightweight local VDSM is writing a [Fence Wrapper](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#Fence_Wrapper)
 
 ### Owner
 

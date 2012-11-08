@@ -117,7 +117,12 @@ A new nfs check script is now available to test whether an NFS export is ready f
 
 ### NFS Storage Domain Failure on Fedora 17
 
-Nodes running Fedora 17 kernels newer than 3.4 have trouble with NFS storage domains. The workaround is to use the 3.4 kernel in F17. You can use grub2's SAVEDEFAULT option to keep the endpoint booted on 3.4.
+In the past, nodes running Fedora 17 kernels newer than 3.4 have trouble with NFS storage domains.
+This issue has been fixed in: vdsm-4.10.0-10.fc17
+Download: <http://koji.fedoraproject.org/koji/buildinfo?buildID=358280>
+More info: <https://bugzilla.redhat.com/show_bug.cgi?id=845660#c29>
+ In case, you still use vdsm < 4.10.0-10, the workaround is to use the 3.4 kernel in F17.
+You can use grub2's SAVEDEFAULT option to keep the endpoint booted on 3.4.
 
 *   Confirm you have a 3.4 kernel
 

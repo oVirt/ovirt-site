@@ -85,10 +85,20 @@ Note: It is presumed that all other options in the current new virtual machine d
 We should support leaving the logical network empty, since this may be overridden by the user when the virtual machine is deployed.
  Virtual disks should not be included in the instance configuration.
  A user should be able to create an instance type using a dialog similar to the *new server/desktop* dialog. Here a user should be able to define their instance configuration.
- A new set of permissions should be created giving permission to create, delete and use instance types.
- **Predefined Instance Types**
+ A new set of permissions should be created:
+\* Create Instance
+
+*   Instance Owner -
+*   Can delegate Instance owner or VMuser permission
+    -   Can Add/Remove disks
+    -   Can Add/Remove NICS
+    -   Edit instance (VM) for a limited set of parameters (outlined below in new VM flow)
+
+**Predefined Instance Types**
 A set of predefined instance types should be created.
 For consistency we should use the default OpenStack sizes.
+A user should be allowed to edit but not delete predefined instance types
+**Question: Do we allow Instance Types (and templates) to be disabled?**
 
 | Name      | Memory | vCPUs |
 |-----------|--------|-------|
@@ -119,14 +129,22 @@ This permission will *not* permit a user to edit the virtual machines instance c
 
 <!-- -->
 
-*   When the user selects New VM they are prompted with a dialog where they can name the virtual machine, set a description, pick the instance type, template and set if the virtual machine image should be stateless (default is not stateless).
-    \* Provide a cluster setting allowing configuration of the default image state handling - eg. stateful or stateless
-    -   Note: The stateless setting is for the image (template disks) not for the whole virtual machine.
+*   When the user selects New VM they are prompted with a dialog where they enter for following details
+    -   Data Center
+    -   Cluster
+        -   **TBD : Do we combined Data Center and Cluster to a single field ?**
+    -   Virtual Machine name
+    -   Description
+    -   Instance type
+    -   Template
+    -   Stateless Image (default is not stateless).
+        \* Provide a cluster setting allowing configuration of the default image state handling - eg. stateful or stateless
+        -   Note: The stateless setting is for the image (template disks) not for the whole virtual machine.
 
 For example: A template has a 10GB disk containing the operating system. If the user specifies that the image is stateless then the template disk will be treated as stateless, however if the user adds another disk (aka a volume to the virtual machine that disk will be treated as stateful.
 
 *   Selecting blank template should be supported.
-*   This allows users to have no image disk and rely either on diskless images (eg PXE based) or boot from an attached volume.
+*   -   This allows users to have no image disk and rely either on diskless images (eg PXE based) or boot from an attached volume.
 
 <!-- -->
 

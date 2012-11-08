@@ -56,7 +56,7 @@ This value controls when old events are deleted from the audit_log table and is 
 
 #### DAO
 
-Adding is_external to audit_log BE
+Adding is_external to AuditLog BE
 Handling is_external in AuditLogDAODbFacadeImpl
 
 #### Metadata

@@ -77,7 +77,6 @@ The following elements should **not** be exposed:
 *   Timezone
 *   Windows Domain
 *   High Availability
-*   Storage Allocation
 *   Boot Options (Boot sequence & Linux Boot Options)
 
 Note: It is presumed that all other options in the current new virtual machine dialogs/API should be available for user configuration.
@@ -150,16 +149,12 @@ For example: A template has a 10GB disk containing the operating system. If the 
 
 *   On the next dialog(s) the user should be able to override some of the configuration options within the Instance type including :
     -   Optimized for desktop or server workload
-        -   This option will allow us to select the best defaults for storage allocation, etc.
 *   All configuration options listed below (including # monitors) should be supported for servers and desktops
     -   Console type (spice/vnc/etc)
     -   Number of monitors
     -   USB Support
     -   **Question : Should we add soundcard an option here - even for servers**
     -   High availability (including priority) for both server and desktop workloads
-    -   Resource allocation
-    -   Thin / preallocated images
-    -   Minimum memory guarantee
     -   **Question : Should any other options should be added based on SLA work?**
     -   User data (VM Payload)
     -   Boot from network

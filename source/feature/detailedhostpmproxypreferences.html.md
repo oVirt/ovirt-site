@@ -32,7 +32,7 @@ This document describes an extension to the current proxy selection algorithm th
 
 Specifically, the local host may be chosen as a proxy for fencing operations
 This may be achieved by installing a full VDSM packages on the local machine of by using
-[http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#Local_VDSM Local VDSM](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#Local_VDSM_Local_VDSM)
+[Local VDSM](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#Local_VDSM)
 
 ### Owner
 

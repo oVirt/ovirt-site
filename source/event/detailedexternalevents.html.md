@@ -70,6 +70,21 @@ Exposing ExternalEventAgingThreashold to engine-config
 
 ### Business Logic
 
+Adding the following types to AuditLogType
+
+        EXTERNAL_EVENT_NORMAL  
+        EXTERNAL_EVENT_WARNING 
+        EXTERNAL_EVENT_ERROR   
+
+Adding severities for the new types in AuditLogDirector
+Adding AddExternalEvent command
+Adding AddExternalEventParameters with the following fields
+
+        AuditLogSeverity
+        Message
+
+Adding the is_external keyword to the Search Engine to filter application/external events
+
 #### Flow
 
 ### API

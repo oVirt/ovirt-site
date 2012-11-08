@@ -28,6 +28,9 @@ The current implementation of PM proxy selection is based on selection of host f
 
 This document describes an extension to the current proxy selection algorithm that enables each Host to define its proxy chain as a priority list.
 
+Specifically, the local host may be chosen as a proxy for fencing operations
+This may be achieved by installing a full VDSM packages on the local machine of by using [http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#Local_VDSM Local VDSM](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#Local_VDSM_Local_VDSM)
+
 ### Owner
 
 *   Feature owner: [ Eli Mesika](User:emesika)

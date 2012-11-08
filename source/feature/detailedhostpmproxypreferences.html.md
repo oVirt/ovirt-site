@@ -194,6 +194,6 @@ In the case that engine is selected as a proxy, we may want a separate service (
 #### Fence Wrapper
 
 A script or standalone program that will call the fence-agents package scripts directly
-In this case we do need a Local VDSM
+In this case we do need a [Local VDSM](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#Local_VDSM)
 
 [Category: Feature](Category: Feature)

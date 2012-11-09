@@ -36,7 +36,7 @@ This may be achieved by installing a full VDSM packages on the local machine of 
 
 An alternative to installing a lightweight local VDSM is writing a [Fence Wrapper](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#Fence_Wrapper)
 
-And finally , we can also implement it by additional VDSM Instance
+And finally , we can also implement it by additional [VDSM Instance](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#VDSM_Instance)
 
 ### Owner
 

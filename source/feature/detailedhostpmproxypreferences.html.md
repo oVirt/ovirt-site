@@ -198,4 +198,8 @@ In the case that engine is selected as a proxy, we may want a separate service (
 A script or standalone program that will call the fence-agents package scripts directly
 In this case we do need a [Local VDSM](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#Local_VDSM)
 
+#### VDSM Instance
+
+A separate instance of vdsm, listening on a separate port.
+
 [Category: Feature](Category: Feature)

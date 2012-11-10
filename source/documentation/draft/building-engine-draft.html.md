@@ -135,7 +135,7 @@ Download and install version 7.1.1 of the application server:
 
     $> cd $JBOSS_HOME
     $> wget http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip
-    $> unzip jboss-as-7.1.1.Final.tar.gz
+    $> unzip jboss-as-7.1.1.Final.zip
     $> mv jboss-as-7.1.1.Final/* .
     $> rmdir jboss-as-7.1.1.Final
 

@@ -39,7 +39,7 @@ The Events should be attached to the relevant internal objects (DataCenetr, Clus
 All Events should be classified as Internal/External.
 All Events (internal and externals) should be filtered by the relevant fields displayed on the Events tab.
 Those events should be displayed in the Events tab in UI and may be searched as any other event.
-I addition, external ALERTS should be enabled as well and displayed in the ALERTS TAB
+As Events and Alerts use a similiar mechanism, external ALERTS should be enabled as well and displayed in the ALERTS TAB.
 Global External Events should be displayed in the Global Events TAB while External Events that occurred on a specific entity/entities should be displayed when this entity is selected.
 
 ### Benefit to oVirt

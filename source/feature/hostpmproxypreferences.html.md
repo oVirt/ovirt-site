@@ -56,7 +56,7 @@ This requires to add the ability to specify, per host, multiple power management
 
 Proxy options may be:
 
-1.  **Engine**: The the server hosting the engine. This requires to install VDSM on this host
+1.  **Engine**: The server hosting the engine. This requires to install VDSM ( or at least fencing agent) on this host
 2.  **DC**: A host in the same data center
 3.  **Cluster**: A host in the same cluster
 4.  **IP/FQDN**: A specific host defined in the system.

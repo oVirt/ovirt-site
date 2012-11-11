@@ -32,7 +32,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 ### Introduction
 
 Currently oVirt engine supports configuring the VM network interface either on creation or updating it when the Vnic is not in active state (or the VM is not running).
-    * oVirt-engine already supports hot-plug and hot-unplug of vnics, however it lacks the capability of performing changes of the Vnic once the Vnic is plugged and to preserve the Vnic PCI address.
+    * oVirt-engine already supports hot-plug and hot-unplug of vnics, however it lacks the capability of performing changes of the Vnic once the Vnic is plugged and to preserve the Vnic's PCI address.
 
 #### High Level Feature Description
 

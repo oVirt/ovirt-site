@@ -112,22 +112,6 @@ The REST API will be enhanced to include the new Proxy Preferences as follows
 `    `<power_management>
 `       `<proxies>
 `          `<proxy>
-                  
-
-<address>
-1.1.1.1
-
-</address>
-`          `</proxy>
-`          `<proxy>
-                   
-
-<address>
-host.tlv.redhat.com
-
-</address>
-`          `</proxy>
-`          `<proxy>
 `             `<predefined>`engine`</predefined>
 `          `</proxy>
 `          `<proxy>
@@ -142,7 +126,7 @@ host.tlv.redhat.com
 
 To achieve that we should do the following:
 in api.xsd (schema) define new elements:
- *proxy* which contains two fields : address and predefined
+ *proxy* which contains one field : bvgpredefined
 
         `*`proxies`*` which contains a list of proxy
 

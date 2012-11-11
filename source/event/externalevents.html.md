@@ -51,7 +51,7 @@ Sample use-cases:
 
 ### Dependencies / Related Features
 
-See also UI-Pluggins
+See also [UI-Pluggins](http://wiki.ovirt.org/wiki/Features/UIPlugins)
 
 ### Documentation / External references
 

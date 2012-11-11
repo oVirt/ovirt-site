@@ -13,8 +13,10 @@ wiki_warnings: list-item?
 
 ### Summary
 
-*   Enable changing the network of a running vm
-*   Enable disconnecting a network on a vm without unplugging the vnic
+The network wiring feature is an enhancment for the VM Network Interface management. It supports the following actions without unlugging the Vnic, maintaing the address of the Vnic:
+
+    * Dynamicly changing the network of a running VM (without unplugging the Vnic)
+    * Disconnecting a network of a VM without unplugging the vnic
 
 ### Owner
 
@@ -26,16 +28,36 @@ wiki_warnings: list-item?
 *   On Design
 *   Last update date: 04/11/2012
 
+### Introduction
+
+Currently oVirt engine supports modifying the VM network interface either on creation or updating it when the vnic is not in active state (or the VM is not running).
+    * ovirt-engine already supports hot-plug and hot-unplug of vnics, however it lacks the capability of performing changes of the vnic once the vnic is plugged.
+
+#### High Level Feature Description
+
+A vnic on a running VM can have 4 states (If the VM is down, its state represents how it should behave once started)
+
+*   **Plugged**
+
+    * **Connected** - The Vnic is defined on the VM and connected to the Network.
+
+:\*\* Obsereved as the vnic is located on its slot and a network cable is connected to it.
+
+:\*\* This is the only state on which the state of the VM Network Interface is 'Active'.
+
+    * **Disconnected** - The Vnic is defined on the VM and isn't connected to any network.
+
+:\*\* Obsereved as the vnic is located on its slot but no network cable is connected to it.
+
+*   **Unplugged** - at this state the vnic is defined on ovirt-engine only
+
+    * **Connected** - once the Vnic is plugged it will automatically be connected to the Network and become 'Active'.
+
+    * **Disconnected** - once the Vnic is plugged it won't be connected to any network.
+
+The user will be able to configure the Vnic state to any of the mentioned above.
+
 ### Detailed Description
-
-#### Terminology
-
-A vnic on a running VM can have 4 states (If the VM is down, its state represent its behavoiur when he"ll get up)
-
-1.  Activte - Plugged & Connected- The Vnic is defined on the VM and connected to the Network.
-2.  Plugged & Disconnected- The Vnic is defined on the VM and isn't connected to any network.
-3.  Unpluged & Connected- The Vnic is not defined on the VM. When the Vnic will be plugged it will be automatically connected to the Network.
-4.  Unplugged & Disconnected- The Vnic is not defined on the VM. When the Vnic will be plugged it won't be connected to any network.
 
 #### GUI
 
@@ -97,8 +119,28 @@ Changes:
 
 There is no reason to have dedicated actions for plug/unplug or connect/disconnect. The original reason for having them was that edit VM nic while the VM was up used to be blocked and now we'll enable doing these actions.
 
+### Benefit to oVirt
+
+Granting permissions on Network to user is done via the Administrator Portal or using RESTful API.
+
+### Dependencies / Related Features
+
+The Network Permissions is dependent on the following features:
+
+*   [Permission on Networks](http://wiki.ovirt.org/wiki/Feature/NetworkPermissions)
+
+Affected oVirt projects:
+
+*   oVirt-engine
+    -   API
+    -   Admin Portal
+    -   User Portal
+*   VDSM
+
 ### Documentation / External references
 
 Bugzilla - <https://bugzilla.redhat.com/show_bug.cgi?id=873244>
+
+### Comments and Discussion
 
 <Category:Feature> <Category:Template>

@@ -82,8 +82,16 @@ Adding severities for the new types in AuditLogDirector
 Adding AddExternalEvent command
 Adding AddExternalEventParameters with the following fields
 
-        AuditLogSeverity
-        Message
+        AuditLogSeverity [Mandatory]
+        Message [Mandatory]
+        UserId [Optional]
+        DataCenterId [Optional]
+        StorageDomainId [Optional]
+        ClusterId [Optional]
+        HostId [Optional]
+        VmId [Optional]
+        TemplateId [Optional]
+        GlusterVolumeId [Optional]
 
 Adding the is_external keyword to the Search Engine to filter application/external events
  Change AuditLogCleanup logic to handle application & External cleanups

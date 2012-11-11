@@ -190,7 +190,7 @@ plug the memory checks to libosinfo instead the use of Config values.
 
 ### Open issues
 
-non at the moment
+[1] exported VMs should have their os type field upgraded too. - use OVF reader logic to upgrade OsType of Windows2003x64 to win2k3 and cpuArch to x86_64
 
 ### Comments and Discussion
 

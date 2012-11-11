@@ -180,6 +180,11 @@ Add the new pm_proxy_preferences column in the upgrade script.
 
 [Features/HostPMProxyPreferences](Features/HostPMProxyPreferences)
 
+### Future Directions
+
+The user may add other existing Host IPs or FQDNs by pressing the ADD button, this will open a drop-down list of all available Hosts defined in the Data Center except the currently edited/added Host
+ We are skipping that for the first phase since it has complexities when a Host is removed or moved to another Cluster etc.
+
 ### Open Issues
 
 #### pre-defined values

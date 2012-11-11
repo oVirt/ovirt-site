@@ -100,7 +100,7 @@ Add pmProxyPreferences field to VDS
 Start/Stop commands are passed to the Host fencing agent via a proxy machine, in this case
 The pm_proxy_preferences of the Host that is in non-responding state is examined
 for each entry in the comma-separated values for this field we are trying to send the fencing command (Start/Stop) via the proxy
-In the case that the proxy is the local engine , a validation phase of checking existence of local running vdsm and installed fence-agents package is issued
+In the case that the proxy is the local engine , a validation phase of checking existence of local installed fence-agents package is issued
 The first proxy on the pm_proxy_preferences chain that succeeded to execute the command takes
 If all proxies in the pm_proxy_preferences chain fails to execute the fencing operation , an ERROR is written to the log.
 

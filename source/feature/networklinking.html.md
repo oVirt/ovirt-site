@@ -57,7 +57,7 @@ A vnic on a running VM can have 4 states (If the VM is down, its state represent
 
     * Add
 
-        * There would be an "on/off" switch next to the network combo. The switch will present if the network is connected or not. (TODO- add print screen)
+        * There would be an "on/off" switch next to the network combo. The switch will present if the network is connected or not.
 
         * "Activate" checkbox will be changed to a switch with two options "Plug/Unplug".
 
@@ -76,6 +76,8 @@ A vnic on a running VM can have 4 states (If the VM is down, its state represent
         * There would be an "on/off" switch next to the network combo.
 
         * Add "Plug/Unplug" switch to the dialog (same as in Add dialog).
+
+![](vnicWiring.png "vnicWiring.png")
 
 #### REST API
 

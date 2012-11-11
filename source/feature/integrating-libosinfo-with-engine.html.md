@@ -183,6 +183,14 @@ plug the memory checks to libosinfo instead the use of Config values.
 
 <https://fedorahosted.org/libosinfo/>
 
+### Tasks
+
+*   open an integration ticket
+
+### Open issues
+
+non at the moment
+
 ### Comments and Discussion
 
 <Category:Feature> <Category:Template>

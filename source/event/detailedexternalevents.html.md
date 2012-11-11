@@ -119,6 +119,8 @@ TBD
 
 User should be able to use the keyword is_external when searching for events
 Event Tab display External Events using a new set of icons for NORMAL, WARNING ERROR and ALERT
+ Global External Events will be displayed on the Global Events TAB
+Entity instance External Events will be displayed on the Events TAB when selecting the Entity instance
 
 ### Installation/Upgrade
 

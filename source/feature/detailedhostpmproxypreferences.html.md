@@ -156,7 +156,6 @@ Add metadata to rsdl_metadata_v-3.1.yaml
 
 A new list will be added to the Power Management Tab when adding a new Host or modifying existing Host
 The list will have by default the entries : ENGINE,CLUSTER and DC (in 3.2)
-The user may add other existing Host IPs or FQDNs by pressing the ADD button, this will open a drop-down list of all available Hosts defined in the Data Center except the currently edited/added Host
  The user may also use the UP and DOWN buttons to change items order inside the list(item order = priority)
  Assuming that engine,cluster and datacenter are part of each chain and only priority may changes
 See [pre-defined values](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#Open_Issues) for details.

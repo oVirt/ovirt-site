@@ -83,8 +83,6 @@ translate VDSM error codes: UPDATE_VNIC_FAILED = 'Failed to update VM Network In
 
 A new API is added for this feature.
 
-#### Events
-
 ### Documentation / External references
 
 ### Streched Goals

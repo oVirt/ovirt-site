@@ -173,6 +173,10 @@ plug the memory checks to libosinfo instead the use of Config values.
 2.  upgrade vm_static table - remove entries from VmOsType that represents x86_64 archs.
     instead put the canonical OS and put the relevant CpuArch value for it.
 
+##### Installer Changes
+
+*   add libosinfo rpm as a dependency for ovirt-engine
+
 ### Documentation / External references
 
 *   libosinfo project page on FedoraHosted

@@ -51,6 +51,8 @@ Sample use-cases:
 
 ### Dependencies / Related Features
 
+See also UI-Pluggins
+
 ### Documentation / External references
 
 [RFE](https://bugzilla.redhat.com/show_bug.cgi?id=873223)

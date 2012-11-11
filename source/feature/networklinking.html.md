@@ -25,7 +25,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 ### Current status
 
-[Network Wiring Detailed Design](http://ovirt.org/wiki/Features/DetailedNetworkWiring)
+[Network Wiring Detailed Design](http://ovirt.org/wiki/Feature/DetailedNetworkWiring)
 
 *   Last update date: 04/11/2012
 

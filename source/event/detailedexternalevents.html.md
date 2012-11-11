@@ -100,7 +100,7 @@ TBD
 ### User Experience
 
 User should be able to use the keyword is_external when searching for events
-Event Tab display External Events using a new set of icons for NORMAL, WARNING and ERROR
+Event Tab display External Events using a new set of icons for NORMAL, WARNING ERROR and ALERT
 
 ### Installation/Upgrade
 

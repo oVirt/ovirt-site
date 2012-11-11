@@ -35,6 +35,34 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 #### Engine Flows
 
+##### Add nic
+
+*   when adding Network Interface Properties 'connected' property shuld also be added (VmInfoBuilder- addNetworkInterfaceProperties)
+
+##### Update nic
+
+*   throw canDo when trying to update a nic when the vm is running and the nic is plugged.
+
+##### Remove nic
+
+*   remove the nic only if the VM is down or nic is deactivated
+
+##### Run VM
+
+*   When running a VM, the VM's Vnics' 'connected' property should also be passed to the VDSM.
+
+    * VmInfoBuilder- addNetworkInterfaceProperties
+
+##### Plug nic
+
+*   plugging a nic when a VM is down updates its plugged flag in
+
+vm_device table to 'true'. If the VM is up then the VDSM is also being called to plug it.
+
+##### Unplug nic
+
+*   when unplugging a nic update its plugged flag in vm_device table to 'false' and clear the address
+
 #### Engine API
 
 ##### Error codes

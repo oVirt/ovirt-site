@@ -83,6 +83,29 @@ translate VDSM error codes: UPDATE_VNIC_FAILED = 'Failed to update VM Network In
 
 A new API is added for this feature.
 
+    updateVmInteface (params)
+
+    params = {
+    'vmId': vmUUID, 
+    'nic':  
+           {'type': 'interface',
+            'device': 'bridge|sriov|vnlink|bridgeless',
+            'network': 'network name',                      <--- bridge name
+            'connected': 'is network connected',
+            'address': 'PCI address dictionary',            <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'}
+            'macAddr': 'mac address',
+            'bootOrder': <int>,                             <--- global boot order across all bootable devices
+            'promisc': <blue,red>,                          <--- promisc mirror mode, the interface will mirror all red and blue bridge traffic
+            'specParams': params dictionary,
+            'nicModel': 'pv|rtl8139|e1000'}
+     }
+
+New vdsm errors will be added:
+
+    UPDATE_VNIC_FAILED- code 51
+
+#### Events
+
 ### Documentation / External references
 
 ### Streched Goals

@@ -45,7 +45,7 @@ This will be done by adding a new *AddExternalEvent* command and expose it to te
 External events should be displayed in displayed in the Events tab in UI and may be searched as any other event.
 External Events are classified as application events as NORMAL, WARNING or ERROR
 This classification is displayed in UI by using a different icon for each
-It is recommended to add clones of existing icons for NORMAL, WARNING or ERROR with a different look to make it easy to distinguish visually between an application event and External Event.
+It is recommended to add clones of existing icons for NORMAL, WARNING ERROR or ALERT with a different look to make it easy to distinguish visually between an application event and External Event.
 
 ### CRUD
 

@@ -77,7 +77,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 ##### Error codes
 
-translate VDSM error codes: TODO
+translate VDSM error codes: UPDATE_VNIC_FAILED = 'Failed to update VM Network Interface.'
 
 #### VDSM API
 

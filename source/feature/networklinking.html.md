@@ -62,6 +62,67 @@ The ovirt-engine's user will be able to configure the Vnic state to any of the m
 *   Admin portal
 *   User portal
 
+#### User Experience
+
+#### Admin/User Portal
+
+##### Virtual Machines -> Network Interfaces sub tab
+
+*   **Columns**
+
+    * Plugged- should be added after Name.
+
+    * Connected- should be added after Network Name.
+
+    * Status (icon)- green if plugged and connected, red- otherwise. The tooltip should display the plugged and connected status.
+
+*   **Actions**
+
+    * Activate/Deactivate-
+
+        * Remove these actions from the subtab (The user will be able to control the Vnic's state through the add/edit Vnic dialogs)
+
+    * Add
+
+        * There would be an "on/off" switch next to the network combo. The switch will present if the network is connected or not.
+
+        * "Activate" checkbox will be changed to a switch with two options "Plug/Unplug".
+
+    * Edit
+
+        * If the vm status is up
+
+            * The edit command should be enabled.
+
+            * If the vnic is active (plugged & connected) there should be a message in top of the dialog "Please notice, changing <b>Type</b> or <b>MAC</b> will cause plugging and unplugging the Vnic".
+
+            * Port Mirroring- If the vnic is plugged and there is port mirroring on the vnic- network, type, mac and port mirroring fileds in the dialog will be disabled.
+
+        * There would be an "on/off" switch next to the network combo.
+
+        * Add "Plug/Unplug" switch to the dialog (same as in Add dialog).
+
+![](vnicWiring.png "vnicWiring.png")
+
+#### REST API
+
+NIC properties:
+
+Changes:
+
+*   Adding new properties under VM NIC:
+
+    * plugged
+
+    * connected
+
+*   Deprecating the active property under VM NIC
+*   Deprecating activate/deactivate actions
+*   Plug/unplug and connect/disconnect on a vnic, will be done via PUT action on the VM NIC
+    -   /api/vms/xxx/nics/yyy/
+
+There is no reason to have dedicated actions for plug/unplug or connect/disconnect. The original reason for having them was that edit VM nic while the VM was up used to be blocked and now we'll enable doing these actions.
+
 ### Benefit to oVirt
 
 The feature is an enhancement of the oVirt-engine Vnic management:

@@ -100,7 +100,7 @@ A new API is added for this feature.
             'nicModel': 'pv|rtl8139|e1000'}
      }
 
-New vdsm errors will be added:
+Updated folowes: hotplugNic- the vdsm should connect the Vnic's Network according to the 'connected' property passed on the Vnic. createVm- the vdsm should connect each of the Vm's Vnics according to the 'connected' property passed on the each Vnic. New vdsm errors will be added:
 
     UPDATE_VNIC_FAILED- code 51
 

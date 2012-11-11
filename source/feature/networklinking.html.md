@@ -13,9 +13,9 @@ wiki_warnings: list-item?
 
 ### Summary
 
-The network wiring feature is an enhancment for the VM Network Interface management. It supports the following actions without unlugging the Vnic, maintaining the address of the Vnic:
+The network wiring feature is an enhancement for the VM Network Interface management. It supports the following actions without unplugging the Vnic, maintaining the address of the Vnic:
 
-    * Dynamicly changing the network of a running VM (without unplugging the Vnic)
+    * Dynamically changing the network of a running VM (without unplugging the Vnic)
     * Disconnecting a network of a VM without unplugging the Vnic
 
 ### Owner
@@ -42,13 +42,13 @@ A Vnic on a running VM can have 4 states (If the VM is down, its state represent
 
     * **Connected** - The Vnic is defined on the VM and connected to the Network.
 
-:\*\* Obsereved as the vnic is located on its slot and a network cable is connected to it.
+:\*\* Observed as the vnic is located on its slot and a network cable is connected to it.
 
 :\*\* This is the only state on which the state of the VM Network Interface is 'Active'.
 
     * **Disconnected** - The Vnic is defined on the VM and isn't connected to any network.
 
-:\*\* Obsereved as the vnic is located on its slot but no network cable is connected to it.
+:\*\* Observed as the vnic is located on its slot but no network cable is connected to it.
 
 *   **Unplugged** - at this state the Vnic is defined on oVirt-engine only
 

@@ -81,6 +81,13 @@ VdsDAODbFacadeImpl
 Adding test for the new pm_proxy_preferences field in VdsStaticDAOTest
 Adding test data in fixtures.xml
 
+### Configuration
+
+A new configuration value will be added named PROXY_DEFAULT_PREFERENCES , for backward compatibility it will be version dependant:
+ For 3.1 - the value will be : DC
+
+       For 3.2 - the value will be : CLUSTER,DC,ENGINE 
+
 ### Business Logic
 
 Add pmProxyPreferences field to VdsStatic

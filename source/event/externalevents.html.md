@@ -35,6 +35,9 @@ Application stores, display and searches only internal events.
 The Audit Log module enables insertions of internal events.
 Events are classified as NORMAL , WARNING or ERROR and UI will display different icon according to that.
 A new command should be exposed to the API in order to enable addition of external events
+The Events should be attached to the relevant internal objects (DataCenetr, Cluster, Host, VM etc. where relevant).
+All Events should be classified as Internal/External.
+All Events (internal and externals) should be filtered by the relevant fields displayed on the Events tab.
 Those events should be displayed in the Events tab in UI and may be searched as any other event.
 I addition, external ALERTS should be enabled as well and displayed in the ALERTS TAB
 Global External Events should be displayed in the Global Events TAB while External Events that occurred on a specific entity/entities should be displayed when this entity is selected.

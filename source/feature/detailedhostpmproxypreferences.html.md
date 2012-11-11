@@ -208,6 +208,7 @@ In the case that engine is selected as a proxy, we may want a separate service (
 
 A script or standalone program that will call the fence-agents package scripts directly
 An option is to use the separation of fenceAgent.py from API.py as suggested [here](http://gerrit.ovirt.org/#/c/7190/7/vdsm/API.py)
+(Invocation in this case from JNA)
 In this case we do not need a [Local VDSM](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#Local_VDSM)
 
 #### VDSM Instance

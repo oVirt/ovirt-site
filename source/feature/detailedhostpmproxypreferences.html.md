@@ -26,7 +26,7 @@ The Host non-responding treatment is doing the following actions
           (controlled by FenceStartStatusDelayBetweenRetriesInSec,FenceStartStatusRetries configuration values)
 
 The current implementation of PM proxy selection is based on selection of host from the data center with 'UP' status.
- This implementation is not robust enough, since fence action such as 'RestartVds' which is comprised of two fence actions (stop & start) might be able to complete the first action, but fails to detect a proxy for the second. In some cases the entire DC become non-responsive or even stopped. In that case no host on DC could act as a proxy.
+ This implementation is not robust enough, since fence action such as 'RestartVds' which is comprised of two fence actions (stop & start) might be able to complete the first action, but fails to detect a proxy for the second. In some cases the entire DC becomes non-responsive or even stopped. In that case no host on DC could act as a proxy.
 
 This document describes an extension to the current proxy selection algorithm that enables each Host to define its proxy chain as a priority list.
 

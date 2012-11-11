@@ -92,7 +92,16 @@ Adding the is_external keyword to the Search Engine to filter application/extern
 
 ### Permissions
 
-New command is exposed currently only to SuperUser
+#### Command Permissions
+
+A new permission to access this command will be added by default only to superuser role. (Admin can add it to other custom roles)
+
+#### Permissions on Entities
+
+Inject with single entity - requires permission for this action on the relevant entity).
+Inject with multiple entities - need to check the permission for each entity.
+Inject with no entity - requires system level permission to inject.
+(this by default would only be in super user role.)
 
 ### API
 

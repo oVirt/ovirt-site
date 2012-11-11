@@ -48,7 +48,7 @@ Edit /var/lib/pgsql/data/pg_hba.conf' ''and set authentication parameters as fol
       host    all         all         127.0.0.1/32          trust
       host    all         all         ::1/128               trust
 
-Run /etc/init.d/postgresql restart
+Run service postgresql restart
 
 # Connecting from other hosts
 

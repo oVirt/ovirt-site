@@ -49,7 +49,7 @@ DB Upgrade should handle the following:
 Administrator Portal:
 
 *   VM Main-Tab:
-    -   On ip address column a single IP address will be presented instead of concatenated list of all IP addresses
+    -   On ip address column a single IP address (arbitrary) will be presented instead of IP addresses list
 *   VM Network Interface sub-tab:
     -   Add column 'interface name' - presents the internal name of the vNic.
     -   Add column 'IPv4 Address' - presents the IPv4 addresses of the vNic.

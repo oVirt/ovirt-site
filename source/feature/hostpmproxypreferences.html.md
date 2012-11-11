@@ -50,7 +50,7 @@ oVirt uses the standard cluster fence_<device> script in order to perform power 
 
 Proper proxy selection depends on the networking topology of the data center and user preferences.
 
-Current design assumes any host in the data center may be used for fencing which requires all the hosts to have rout to all the fencing devices in the system, in reality out of band management networks are usually confined within the same clusters and sometimes even to specific hosts.
+Current design assumes any host in the data center may be used for fencing which requires all the hosts to have route to all the fencing devices in the system, in reality out of band management networks are usually confined within the same clusters and sometimes even to specific hosts.
 
 This requires to add the ability to specify, per host, multiple power management devices options in priority. Per option need to specify which device to use and which proxy to use, where there may be multiple proxies with set priorities for using these proxies.
 

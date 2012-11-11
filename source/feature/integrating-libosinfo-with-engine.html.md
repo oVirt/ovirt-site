@@ -172,6 +172,7 @@ plug the memory checks to libosinfo instead the use of Config values.
 1.  add CpuArch field to **vm_static** and **vms** view
 2.  upgrade vm_static table - remove entries from VmOsType that represents x86_64 archs.
     instead put the canonical OS and put the relevant CpuArch value for it.
+3.  exported VMs - how will we upgrade their os field according to the new mapping mentioned earlier? [1]
 
 #### Installer Changes
 

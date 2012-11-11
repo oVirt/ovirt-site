@@ -44,9 +44,9 @@ Global External Events should be displayed in the Global Events TAB while Extern
 
 ### Benefit to oVirt
 
-Enable running plug-in to inject events to the application.
+Enable external plug-ins to inject events into the application database, for auditing and alerting.
 Sample use-cases:
-*External host monitoring system to inject an event that a host fan has malfunctioned.* *External anti-virus appliance scan to inject an event a VM has a virus.*
+*External specific HW manfactuare monitors the the Host Hardware, and would like to alert the user on fan problem and temperture rising on a specific Host.* *External anti-virus appliance scan to inject an event a VM has a virus.*
 
 ### Dependencies / Related Features
 

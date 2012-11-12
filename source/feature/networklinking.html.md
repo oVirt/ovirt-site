@@ -42,13 +42,13 @@ A Vnic on a running VM can have 4 states (If the VM is down, its state represent
 
     * **Connected** - The Vnic is defined on the VM and connected to the Network.
 
-:\*\* Observed as the vnic is located on its slot and a network cable is connected to it.
+        * Observed as the vnic is located on its slot and a network cable is connected to it.
 
-:\*\* This is the only state on which the state of the VM Network Interface is 'Active'.
+        * This is the only state on which the state of the VM Network Interface is 'Active'.
 
     * **Disconnected** - The Vnic is defined on the VM and isn't connected to any network.
 
-:\*\* Observed as the vnic is located on its slot but no network cable is connected to it.
+        * Observed as the vnic is located on its slot but no network cable is connected to it.
 
 *   **Unplugged** - at this state the Vnic is defined on oVirt-engine only
 
@@ -82,39 +82,39 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
     * Activate/Deactivate
 
-:\*\* Menu
+        * Menu
 
-:\*\*\* These actions will be removed from the action menu of the subtab and from the context menu (The user will be able to plug/unplug the Vnic's through the add/edit Vnic dialogs)
+            * These actions will be removed from the action menu of the subtab and from the context menu (The user will be able to plug/unplug the Vnic's through the add/edit Vnic dialogs)
 
 *   **Updated Actions**
 
     * Add
 
-:\*\* Dialog
+        * Dialog
 
-:\*\*\* Adding radio button with two options "connected/"disconnected" under the "network" combo.
+            * Adding radio button with two options "connected/"disconnected" under the "network" combo.
 
-:\*\*\* "Activate" checkbox will be changed to a radio button with two options "Plugged"/"Unplugged".
+            * "Activate" checkbox will be changed to a radio button with two options "Plugged"/"Unplugged".
 
     * Edit
 
-:\*\* Menu
+        * Menu
 
-:\*\*\* If the VM status is up, the edit action should be enabled (previously it was disabled).
+            * If the VM status is up, the edit action should be enabled (previously it was disabled).
 
-:\*\* Dialog
+        * Dialog
 
-:\*\*\* If the VM status is up
+            * If the VM status is up
 
-:\*\*\*\* If the Vnic is active (plugged & connected) there should be a message in top of the dialog "Please notice, changing <b>Type</b> or <b>MAC</b> will cause unplugging and plugging the Vnic".
+::::\* If the Vnic is active (plugged & connected) there should be a message in top of the dialog "Please notice, changing <b>Type</b> or <b>MAC</b> will cause unplugging and plugging the Vnic".
 
-:\*\*\*\* Port Mirroring- If the Vnic is plugged and there is port mirroring on the Vnic- network, type, mac and port mirroring fields in the dialog will be disabled.
+::::\* Port Mirroring- If the Vnic is plugged and there is port mirroring on the Vnic- network, type, mac and port mirroring fields in the dialog will be disabled.
 
 :::: Stretched Goal- enable dynamic changes in port mirroring (without plugging and unplugging).
 
             * Adding radio button with two options "connected/"disconnected" under the "network" combo.
 
-:\*\*\* Adding radio button with two options "Plugged"/"Unplugged" to the end of the dialog..
+            * Adding radio button with two options "Plugged"/"Unplugged" to the end of the dialog..
 
 ![](vnicWiring.png "vnicWiring.png")
 

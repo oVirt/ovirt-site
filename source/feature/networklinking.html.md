@@ -31,7 +31,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 ### Introduction
 
-Currently oVirt engine supports configuring the VM network interface either on creation or updating it when the Vnic is not in active state (or the VM is not running).
+Currently oVirt engine supports configuring the VM Network Interface either on creation or updating it when the VM is down.
     * oVirt-engine already supports hot-plug and hot-unplug of vnics, however it lacks the capability of performing changes of the Vnic once the Vnic is plugged and to preserve the Vnic's PCI address.
 
 #### High Level Feature Description
@@ -68,25 +68,27 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
 ##### Virtual Machines -> Network Interfaces sub tab
 
-*   **Columns**
+*   **New Columns**
 
-    * Plugged- should be added after Name.
+    * Plugged- will be added after Name.
 
-    * Connected- should be added after Network Name.
+    * Connected- will be added after Network Name.
 
-    * Status (icon)- green if plugged and connected, red- otherwise. The tooltip should display the plugged and connected status.
+*   **Updated Columns**
+
+    * Status (icon)- green if plugged and connected, red- otherwise. The tooltip will display the plugged and connected status.
 
 *   **Actions**
 
     * Activate/Deactivate-
 
-        * Remove these actions from the subtab (The user will be able to control the Vnic's state through the add/edit Vnic dialogs)
+        * These actions will be removed from the subtab (The user will be able to control the Vnic's state through the add/edit Vnic dialogs)
 
     * Add
 
-        * There would be an "on/off" switch next to the network combo. The switch will present if the network is connected or not.
+        * Adding radio button with two options "connected/"disconnected" under the "network" combo.
 
-        * "Activate" checkbox will be changed to a switch with two options "Plug/Unplug".
+        * "Activate" checkbox will be changed to a radio button with two options "Plugged"/"Unplugged".
 
     * Edit
 
@@ -94,15 +96,15 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
             * The edit command should be enabled.
 
-            * If the Vnic is active (plugged & connected) there should be a message in top of the dialog "Please notice, changing <b>Type</b> or <b>MAC</b> will cause plugging and unplugging the Vnic".
+            * If the Vnic is active (plugged & connected) there should be a message in top of the dialog "Please notice, changing <b>Type</b> or <b>MAC</b> will cause unplugging and plugging the Vnic".
 
             * Port Mirroring- If the Vnic is plugged and there is port mirroring on the Vnic- network, type, mac and port mirroring fields in the dialog will be disabled.
 
 ::: Stretched Goal- enable dynamic changes in port mirroring (without plugging and unplugging).
 
-        * There would be an "on/off" switch next to the network combo.
+        * Adding radio button with two options "connected/"disconnected" under the "network" combo.
 
-        * Add "Plug/Unplug" switch to the dialog (same as in Add dialog).
+        * Adding radio button with two options "Plugged"/"Unplugged" to the end of the dialog..
 
 ![](vnicWiring.png "vnicWiring.png")
 

@@ -169,7 +169,7 @@ Adding configuration values as described in [Configuration](http://wiki.ovirt.or
 
 ### Future Directions
 
-The user may add other existing Host IPs or FQDNs by pressing the ADD button, this will open a drop-down list of all available Hosts defined in the Data Center except the currently edited/added Host
+The user may add other existing Host by pressing the ADD button, this will open a drop-down list of all available Hosts defined in the Data Center except the currently edited/added Host
  We are skipping that for the first phase since it has complexities when a Host is removed or moved to another Cluster etc.
 
 ### Open Issues

@@ -46,15 +46,27 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 ##### Update Vnic
 
 *   **shouldn't** throw canDo when trying to update a nic when the vm is running and the nic is plugged.
-*   'connected' property of VmNetworkInterface should be stored in the DB
+*   'connected' property of VmNetworkInterface should also be stored in the DB
 
       VmNetworkInterfaceDAODbFacadeImpl- update
 
 *   If the vm is up
 
-    * updateVm should be sent to the VDSM.
+    * plugged->unplugged ('plugged' property was changed to false)
 
-    * if the plugged property was changed, HotPlugUnlpug should be sent to the VDSM (?)
+:\*\* Unplug should be sent to the VDSM
+
+    * unplugged->plugged
+
+:\*\* plug should be sent to the VDSM
+
+    * plugged->plugged
+
+:\*\* updateVm should be sent to the VDSM.
+
+    * unplugged->unplugged
+
+:\*\* nothing should be sent to VDSM
 
 ##### Remove Vnic
 

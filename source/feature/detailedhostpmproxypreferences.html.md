@@ -148,6 +148,7 @@ The list will have by default the entries : CLUSTER ,DC and ENGINE(in 3.2)
 ### Installation/Upgrade
 
 Add the new pm_proxy_preferences column in the upgrade script.
+Adding configuration values as described in [Configuration](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMProxyPreferences#Configuration)
 
 #### User work-flows
 

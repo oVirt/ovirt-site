@@ -16,7 +16,7 @@ wiki_warnings: list-item?
 The network wiring feature is an enhancement for the VM Network Interface management. It supports the following actions without unplugging the Vnic, maintaining the address of the Vnic:
 
     * Dynamically changing the network of a running VM.
-    * Disconnecting a network of a VM.
+    * Unwiring a network of a VM.
 
 ### Owner
 
@@ -72,11 +72,11 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
     * "Plugged"- will be added after "Name" column.
 
-    * "Connected"- will be added after "Network Name" column.
+    * "Wired"- will be added after "Network Name" column.
 
 *   **Updated Columns**
 
-    * "Status" (icon)- green icon if plugged and connected, red icon- otherwise. The tooltip will display a text of both the "plugged" and "connected" status.
+    * "Status" (icon)- green icon if plugged and wired, red icon- otherwise. The tooltip will display a text of both the "plugged" and "wired" status.
 
 *   **Removed Actions**
 
@@ -92,7 +92,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
         * Dialog
 
-            * Adding radio button with two options "Connected/"Disconnected" under the "network" combo.
+            * Adding radio button with two options "Wired/"Unwired" under the "network" combo.
 
             * "Activate" checkbox will be changed to a radio button with two options "Plugged"/"Unplugged".
 
@@ -112,7 +112,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
 :::: Stretched Goal- enable dynamic changes when there is port mirroring (without plugging and unplugging).
 
-            * Adding radio button with two options "Connected/"Disconnected" under the "network" combo.
+            * Adding radio button with two options "Wired/"Unwired" under the "network" combo.
 
             * Adding radio button with two options "Plugged"/"Unplugged" to the end of the dialog..
 
@@ -128,14 +128,14 @@ Changes:
 
     * plugged
 
-    * wire
+    * wired
 
 *   Deprecating the active property under VM NIC
 *   Deprecating activate/deactivate actions
-*   Plug/unplug and connect/disconnect on a vnic, will be done via PUT action on the VM NIC
+*   Plug/unplug and wire/unwire on a vnic, will be done via PUT action on the VM NIC
     -   /api/vms/xxx/nics/yyy/
 
-There is no reason to have dedicated actions for plug/unplug or connect/disconnect. The original reason for having them was that edit VM nic while the VM was up used to be blocked and now we'll enable doing these actions.
+There is no reason to have dedicated actions for plug/unplug or wire/unwire. The original reason for having them was that edit VM nic while the VM was up used to be blocked and now we'll enable doing these actions.
 
 ### Benefit to oVirt
 

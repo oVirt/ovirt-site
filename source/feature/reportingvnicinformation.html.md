@@ -32,17 +32,7 @@ Today only the IPv4 addresses are reported to the User, kept on VM level. This f
 *   Status: Design Stage
 *   Last updated date: Nov 8 2012
 
-### High Level Feature Description
-
-GetVmStats reports the information about the vNic.
-
-### Detailed Design
-
-#### DB Changes
-
-##### Upgrade DB
-
-DB Upgrade should handle the following:
+### User Experience
 
 #### API Changes
 
@@ -99,8 +89,6 @@ Affected oVirt projects:
 *   API
 *   Admin Portal
 *   User Portal
-
-### Documentation / External references
 
 ### Comments and Discussion
 

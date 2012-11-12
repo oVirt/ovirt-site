@@ -188,7 +188,7 @@ engine,IP1,IP2 => engine,IP1,IP2,cluster,dc IP1,dc,IP2 => IP1,dc,IP2,engine,clus
 
 #### Local VDSM
 
-In the case that engine is selected as a proxy, we may want a separate service (temporary name : local vdm) that will run on the local host and expose only the fencing functionality from VDSM
+In the case that engine is selected as a proxy, we may want a separate service (temporary name : local vdsm) that will run on the local host and expose only the fencing functionality from VDSM
  This option has major affect on the effort/cost and time-line of this feature since we need to write a new service for that, package it , install it etc.
 
 #### Fence Wrapper

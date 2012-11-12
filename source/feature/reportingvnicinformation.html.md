@@ -29,8 +29,7 @@ Today only the IPv4 addresses are reported to the User, kept on VM level. This f
 
 ### Current status
 
-*   Status: Design Stage
-*   Last updated date: Nov 8 2012
+[http://wiki.ovirt.org/wiki/Feature/DetailedReportingVnicImplementation Reporting vNIC implementation reported by Guest Agent Detailed Design](http://wiki.ovirt.org/wiki/Feature/DetailedReportingVnicImplementation Reporting vNIC implementation reported by Guest Agent Detailed Design)
 
 ### User Experience
 

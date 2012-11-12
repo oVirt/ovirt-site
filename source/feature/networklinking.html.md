@@ -112,7 +112,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
 :::: Stretched Goal- enable dynamic changes when there is port mirroring (without plugging and unplugging).
 
-            * Adding radio button with two options "connected/"disconnected" under the "network" combo.
+            * Adding radio button with two options "Connected/"Disconnected" under the "network" combo.
 
             * Adding radio button with two options "Plugged"/"Unplugged" to the end of the dialog..
 

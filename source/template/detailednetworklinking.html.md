@@ -122,9 +122,12 @@ A new API is added for this feature.
      }
 
 Updated folowes:
-hotplugNic- the vdsm should connect the Vnic's Network according to the 'wired' property passed on the Vnic.
+:hotplugNic- the vdsm should connect the Vnic's Network according to the 'wired' property passed on the Vnic.
+::
+
 createVm- the vdsm should connect each of the Vm's Vnics according to the 'wired' property passed on the each Vnic.
- New vdsm errors will be added:
+
+New vdsm errors will be added:
 
     UPDATE_VNIC_FAILED- code 51
 

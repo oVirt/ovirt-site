@@ -26,7 +26,7 @@ Use the knowledge supplied by OS providers to set VM default values of CPU and R
 
 <!-- -->
 
-*   Email: <rgolan@redhat.com>
+*   Email: <rgolan at redhat.com>
 
 ### Current status
 

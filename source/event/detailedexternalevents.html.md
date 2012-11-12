@@ -141,9 +141,9 @@ Entity instance External Events will be displayed on the Events TAB when selecti
 
 ### Documentation / External references
 
-[RFE1](https://bugzilla.redhat.com/show_bug.cgi?id=866123) [RFE2](https://bugzilla.redhat.com/show_bug.cgi?id=873223)
-
-[Features/ExternalEvents](Features/ExternalEvents)
+[RFE1](https://bugzilla.redhat.com/show_bug.cgi?id=866123)
+[RFE2](https://bugzilla.redhat.com/show_bug.cgi?id=873223)
+ [Features/ExternalEvents](Features/ExternalEvents)
 
 ### Open Issues
 

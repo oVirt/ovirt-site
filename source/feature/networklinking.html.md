@@ -72,11 +72,11 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
     * "Plugged"- will be added after "Name" column.
 
-    * "Wired"- will be added after "Network Name" column.
+    * "Connected"- will be added after "Network Name" column.
 
 *   **Updated Columns**
 
-    * "Status" (icon)- green icon if plugged and wired, red icon- otherwise. The tooltip will display a text of both the "plugged" and "wired" status.
+    * "Status" (icon)- green icon if plugged and connected, red icon- otherwise. The tooltip will display a text of both the "plugged" and "connected" status.
 
 *   **Removed Actions**
 
@@ -92,7 +92,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
         * Dialog
 
-            * Adding radio button with two options "Wired/"Unwired" under the "network" combo.
+            * Adding radio button with two options "Connected/"Disconnected" under the "network" combo.
 
             * "Activate" checkbox will be changed to a radio button with two options "Plugged"/"Unplugged".
 
@@ -112,7 +112,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
 :::: Stretched Goal- enable dynamic changes when there is port mirroring (without plugging and unplugging).
 
-            * Adding radio button with two options "Wired/"Unwired" under the "network" combo.
+            * Adding radio button with two options "Connected/"Disconnected" under the "network" combo.
 
             * Adding radio button with two options "Plugged"/"Unplugged" to the end of the dialog..
 

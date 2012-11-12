@@ -66,7 +66,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
 #### Admin/User Portal
 
-##### Virtual Machines -> Network Interfaces sub tab
+##### Virtual Machines Network Interfaces sub-tab View Changes
 
 *   **New Columns**
 
@@ -76,15 +76,15 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
 *   **Updated Columns**
 
-    * "Status" (icon)- green icon if plugged and wired, red icon- otherwise. The tooltip will display a text of both the "plugged" and "wired" status.
+    * "Status" icon - green icon if plugged and wired, otherwise red icon. The tooltip will display a text for both the "plugged" and "wired" statuses.
+
+##### Virtual Machines Network Interfaces Action Changes
 
 *   **Removed Actions**
 
     * Activate/Deactivate
 
-        * Menu
-
-            * These actions will be removed from the action menu of the subtab and from the context menu (The user will be able to plug/unplug the Vnic's through the add/edit Vnic dialogs)
+        * These actions will be removed from the sub-tab's action menu and from the context menu (The user will be able to plug/unplug the Vnic's via the add/edit Vnic dialogs)
 
 *   **Updated Actions**
 
@@ -94,27 +94,31 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
             * Adding radio button with two options "Wired/"Unwired" under the "network" combo.
 
-            * "Activate" checkbox will be changed to a radio button with two options "Plugged"/"Unplugged".
+            * "Activate" checkbox will be changed to a radio button with two options "Plugged"/"Unplugged" and its name will be renamed to 'Card Status'.
+
+            * Add 'Advanced Parameters' section which includes the 'Port Mirroring' and the 'Card Status' properties.
 
     * Edit
 
         * Menu
 
-            * If the VM status is up, the edit action should be enabled (previously it was disabled).
+            * Edit action will be enabled for VMs in status 'UP' (previously it was allowed only for VMs in 'Down' status).
 
         * Dialog
 
-            * If the VM status is up
+            * If the VM status is 'UP'
 
 ::::\* If the Vnic is plugged there should be a message on top of the dialog "Please notice, changing <b>Type</b> or <b>MAC</b> will cause unplugging and plugging the Vnic".
 
-::::\* Port Mirroring- If the Vnic is plugged and there is port mirroring on the Vnic- "network", "type", "mac" and "port mirroring" fields in the dialog will be disabled.
+::::\* Port Mirroring - If the Vnic is plugged and the Vnic is set for port mirroring - "network", "type", "mac" and "port mirroring" fields in the dialog will be disabled.
 
-:::: Stretched Goal- enable dynamic changes when there is port mirroring (without plugging and unplugging).
+:::: Stretched Goal - To enable dynamic changes when port mirroring is set (without plugging and unplugging).
 
             * Adding radio button with two options "Wired/"Unwired" under the "network" combo.
 
-            * Adding radio button with two options "Plugged"/"Unplugged" to the end of the dialog..
+            * Adding radio button named 'Card Status' with two options "Plugged"/"Unplugged" to the end of the dialog..
+
+            * Add 'Advanced Parameters' section which includes the 'Port Mirroring' and the 'Card Status' properties.
 
 ![](vnicWiring.png "vnicWiring.png")
 

@@ -50,7 +50,11 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
       VmNetworkInterfaceDAODbFacadeImpl- update
 
-*   If the vm is up, updateVm should be sent to the VDSM.
+*   If the vm is up
+
+    * updateVm should be sent to the VDSM.
+
+    * if the plugged property was changed, HotPlugUnlpug should be sent to the VDSM (?)
 
 ##### Remove Vnic
 

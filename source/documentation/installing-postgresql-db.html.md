@@ -25,17 +25,26 @@ Note: for earlier PostgreSQL versions, a patch is needed.
 
 # Running the service
 
-      From PostgreSQL 9:
-      #> su - postgres -c 'pg_ctl initdb' # (first time only)
+From PostgreSQL 9:
 
-      For PostgreSQL 8 or earlier:
-      #> su - postgres -c 'initdb -U postgres -D /var/lib/pgsql/data/' # (first time only)
+    #> postgresql-setup initdb # (first time only)
+    #> systemctl start postgresql.service
 
-      #> service postgresql start
+If the database needs to be recreated from scratch the way to do it is to stop the server, remove the data directory and run the setup again:
+
+    #> systemctl stop postgresql.service
+    #> rm -rf /var/lib/pgsql/data
+    #> postgresql-setup initdb
+    #> systemctl start postgresql.service
+
+For PostgreSQL 8 or earlier:
+
+    #> su - postgres -c 'initdb -U postgres -D /var/lib/pgsql/data/' # (first time only)
+    #> service postgresql start
 
 It is recommended to add this service to auto start by
 
-      #> chkconfig postgresql on
+    #> chkconfig postgresql on
 
 # Connecting to the database
 

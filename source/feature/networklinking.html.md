@@ -110,9 +110,9 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
 :\*\*\*\* Port Mirroring- If the Vnic is plugged and there is port mirroring on the Vnic- network, type, mac and port mirroring fields in the dialog will be disabled.
 
-Stretched Goal- enable dynamic changes in port mirroring (without plugging and unplugging).
+:::: Stretched Goal- enable dynamic changes in port mirroring (without plugging and unplugging).
 
-:\*\*\* Adding radio button with two options "connected/"disconnected" under the "network" combo.
+            * Adding radio button with two options "connected/"disconnected" under the "network" combo.
 
 :\*\*\* Adding radio button with two options "Plugged"/"Unplugged" to the end of the dialog..
 

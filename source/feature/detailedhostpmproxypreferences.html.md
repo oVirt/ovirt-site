@@ -86,7 +86,9 @@ Adding test data in fixtures.xml
 A new configuration value will be added named PROXY_DEFAULT_PREFERENCES , for backward compatibility it will be version dependant:
  For 3.1 - the value will be : DC
 
-       For 3.2 - the value will be : CLUSTER,DC,ENGINE 
+       For 3.2 - the value will be : CLUSTER,DC,ENGINE
+
+This configuration value should be exposed to the engine-config tool.
 
 ### Business Logic
 

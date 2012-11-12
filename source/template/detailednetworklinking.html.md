@@ -18,7 +18,7 @@ wiki_warnings: list-item?
 The network wiring feature is an enhancement for the VM Network Interface management. It supports the following actions without unplugging the Vnic, maintaining the address of the Vnic:
 
     * Dynamically changing the network of a running VM (without unplugging the Vnic)
-    * Disconnecting a network of a VM without unplugging the vnic
+    * Unwiring a network of a VM without unplugging the vnic
 [Network Wiring Feature Page](http://ovirt.org/wiki/Feature/NetworkWiring)
 
 ### Owner
@@ -36,22 +36,22 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 #### Engine API
 
       VmNetworkInterface:
-        boolean connected;
+        boolean wired;
 
 #### Engine Flows
 
 ##### Add Vnic
 
-*   'connected' property of VmNetworkInterface should be stored in the DB
+*   'wired' property of VmNetworkInterface should be stored in the DB
 
       VmNetworkInterfaceDAODbFacadeImpl- save
 
-*   The 'connect' property will be passed to the VDSM through when ActivateDecativateVm will be done.
+*   The 'wired' property will be passed to the VDSM through when ActivateDecativateVm will be done.
 
 ##### Update Vnic
 
 *   **shouldn't** throw canDo when trying to update a nic when the vm is running and the nic is plugged.
-*   'connected' property of VmNetworkInterface should also be stored in the DB
+*   'wired' property of VmNetworkInterface should also be stored in the DB
 
       VmNetworkInterfaceDAODbFacadeImpl- update
 
@@ -79,7 +79,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 ##### Run VM
 
-*   When running a VM, the VM's Vnics' 'connected' property should also be passed to the VDSM.
+*   When running a VM, the VM's Vnics' 'wired' property should also be passed to the VDSM.
 
       VmInfoBuilder- addNetworkInterfaceProperties
 
@@ -94,7 +94,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 #### Model
 
       vm_interface_view: (.schema)
-      join vm_interface.connected as active
+      join vm_interface.wired as active
 
 ##### Error codes
 
@@ -112,7 +112,7 @@ A new API is added for this feature.
            {'type': 'interface',
             'device': 'bridge|sriov|vnlink|bridgeless',
             'network': 'network name',                      <--- bridge name
-            'connected': 'is network connected',
+            'wired': 'is network wired',
             'address': 'PCI address dictionary',            <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'}
             'macAddr': 'mac address',
             'bootOrder': <int>,                             <--- global boot order across all bootable devices
@@ -121,7 +121,7 @@ A new API is added for this feature.
             'nicModel': 'pv|rtl8139|e1000'}
      }
 
-Updated folowes: hotplugNic- the vdsm should connect the Vnic's Network according to the 'connected' property passed on the Vnic. createVm- the vdsm should connect each of the Vm's Vnics according to the 'connected' property passed on the each Vnic. New vdsm errors will be added:
+Updated folowes: hotplugNic- the vdsm should connect the Vnic's Network according to the 'wired' property passed on the Vnic. createVm- the vdsm should connect each of the Vm's Vnics according to the 'wired' property passed on the each Vnic. New vdsm errors will be added:
 
     UPDATE_VNIC_FAILED- code 51
 

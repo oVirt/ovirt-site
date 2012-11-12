@@ -206,6 +206,7 @@ A separate instance of vdsm, listening on a separate port.
 
 Java Native Access provides Java programs easy access to native shared libraries without using the Java Native Interface.
 
+Example:
 The following program loads the local C standard library implementation and uses it to call the printf function.
 
       import com.sun.jna.Library;

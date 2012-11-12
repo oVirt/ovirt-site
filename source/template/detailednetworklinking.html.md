@@ -33,6 +33,11 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 ### Detailed Description
 
+#### Engine API
+
+      VmNetworkInterface:
+      boolean connected;
+
 #### Engine Flows
 
 ##### Add Vnic

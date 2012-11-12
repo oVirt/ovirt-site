@@ -111,7 +111,7 @@ Suggested quick start path for new users:
     -   Add an ISO storage domain to the *Default* data center.
 *   Upload operating system installation media, in ISO format, to the ISO storage domain using the **engine-iso-uploader** command line tool.
 
-         # engine-iso-uploader -i MyISODomainName /root/Downloads/Fedora-17-x86_64-DVD.iso
+         # engine-iso-uploader -i MyISODomainName upload /root/Downloads/Fedora-17-x86_64-DVD.iso
 
 *   Create a virtual machine!
 

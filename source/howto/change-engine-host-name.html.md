@@ -98,3 +98,5 @@ Double check that the generated certificate is correct, visually and with the fo
 7. If using ovirt-node as the hypervisors then for each of then check and fix the "vdc_host_name" parameter in the "/etc/vdsm-reg/vdsm-reg.conf" file.
 
 Note that this procedure will leave a small trace: the CA certificate will still contain the URL of the old host. That is a minor inconvenience, but to solve it \*all\* certificates would need to be replaced.
+
+8. Edit the "/etc/ovirt-engine/web-conf.js" file and replace the old host name with the new one. This is used to generate the links in the landing page.

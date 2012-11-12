@@ -96,7 +96,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
         * If the VM status is up
 
-            * The edit command should be enabled.
+            * The edit command should be enabled (previously it was disabled).
 
             * If the Vnic is active (plugged & connected) there should be a message in top of the dialog "Please notice, changing <b>Type</b> or <b>MAC</b> will cause unplugging and plugging the Vnic".
 

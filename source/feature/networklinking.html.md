@@ -70,27 +70,31 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
 *   **New Columns**
 
-    * Plugged- will be added after Name.
+    * "Plugged"- will be added after "Name" column.
 
-    * Connected- will be added after Network Name.
+    * "Connected"- will be added after "Network Name" column.
 
 *   **Updated Columns**
 
-    * Status (icon)- green if plugged and connected, red- otherwise. The tooltip will display the plugged and connected status.
+    * "Status" (icon)- green icon if plugged and connected, red icon- otherwise. The tooltip will display a text of both the "plugged" and "connected" status.
 
 *   **Removed Actions**
 
     * Activate/Deactivate
 
-        * These actions will be removed from the action menu of the subtab and from the context menu (The user will be able to control the Vnic's state through the add/edit Vnic dialogs)
+:\*\* Menu
+
+:\*\*\* These actions will be removed from the action menu of the subtab and from the context menu (The user will be able to plug/unplug the Vnic's through the add/edit Vnic dialogs)
 
 *   **Updated Actions**
 
     * Add
 
-        * Adding radio button with two options "connected/"disconnected" under the "network" combo.
+:\*\* Dialog
 
-        * "Activate" checkbox will be changed to a radio button with two options "Plugged"/"Unplugged".
+:\*\*\* Adding radio button with two options "connected/"disconnected" under the "network" combo.
+
+:\*\*\* "Activate" checkbox will be changed to a radio button with two options "Plugged"/"Unplugged".
 
     * Edit
 

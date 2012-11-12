@@ -106,7 +106,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
             * If the VM status is up
 
-::::\* If the Vnic is active (plugged & connected) there should be a message in top of the dialog "Please notice, changing <b>Type</b> or <b>MAC</b> will cause unplugging and plugging the Vnic".
+::::\* If the Vnic is plugged there should be a message in top of the dialog "Please notice, changing <b>Type</b> or <b>MAC</b> will cause unplugging and plugging the Vnic".
 
 ::::\* Port Mirroring- If the Vnic is plugged and there is port mirroring on the Vnic- network, type, mac and port mirroring fields in the dialog will be disabled.
 

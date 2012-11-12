@@ -82,7 +82,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
     * Activate/Deactivate
 
-        * These actions will be removed from the action bar of the subtab (The user will be able to control the Vnic's state through the add/edit Vnic dialogs)
+        * These actions will be removed from the action menu of the subtab and from the context menu (The user will be able to control the Vnic's state through the add/edit Vnic dialogs)
 
 *   **Updated Actions**
 
@@ -96,7 +96,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
         * If the VM status is up
 
-            * The edit command should be enabled (previously it was disabled).
+            * The edit action should be enabled (previously it was disabled).
 
             * If the Vnic is active (plugged & connected) there should be a message in top of the dialog "Please notice, changing <b>Type</b> or <b>MAC</b> will cause unplugging and plugging the Vnic".
 

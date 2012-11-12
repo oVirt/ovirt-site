@@ -98,19 +98,23 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
     * Edit
 
-        * If the VM status is up
+:\*\* Menu
 
-            * The edit action should be enabled (previously it was disabled).
+:\*\*\* If the VM status is up, the edit action should be enabled (previously it was disabled).
 
-            * If the Vnic is active (plugged & connected) there should be a message in top of the dialog "Please notice, changing <b>Type</b> or <b>MAC</b> will cause unplugging and plugging the Vnic".
+:\*\* Dialog
 
-            * Port Mirroring- If the Vnic is plugged and there is port mirroring on the Vnic- network, type, mac and port mirroring fields in the dialog will be disabled.
+:\*\*\* If the VM status is up
 
-::: Stretched Goal- enable dynamic changes in port mirroring (without plugging and unplugging).
+:\*\*\*\* If the Vnic is active (plugged & connected) there should be a message in top of the dialog "Please notice, changing <b>Type</b> or <b>MAC</b> will cause unplugging and plugging the Vnic".
 
-        * Adding radio button with two options "connected/"disconnected" under the "network" combo.
+:\*\*\*\* Port Mirroring- If the Vnic is plugged and there is port mirroring on the Vnic- network, type, mac and port mirroring fields in the dialog will be disabled.
 
-        * Adding radio button with two options "Plugged"/"Unplugged" to the end of the dialog..
+Stretched Goal- enable dynamic changes in port mirroring (without plugging and unplugging).
+
+:\*\*\* Adding radio button with two options "connected/"disconnected" under the "network" combo.
+
+:\*\*\* Adding radio button with two options "Plugged"/"Unplugged" to the end of the dialog..
 
 ![](vnicWiring.png "vnicWiring.png")
 

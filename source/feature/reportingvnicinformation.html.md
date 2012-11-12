@@ -44,6 +44,28 @@ GetVmStats reports the information about the vNic.
 
 DB Upgrade should handle the following:
 
+#### API Changes
+
+New attributes will be added to VM nics collection /api/vms/yyyy/nics:
+
+*   ipv4_addresses
+
+`  `<ipv4_addresses>
+`      `<ip address='1.1.1.1'/>
+`      `<ip address='2.2.2.2'/>
+`  `</ipv4_addresses>
+
+*   ipv6_addresses
+
+`  `<ipv6_addresses>
+`      `<ip address='2001:0db8:85a3:0042:0000:8a2e:0370:7335'/>
+`      `<ip address='2001:0db8:85a3:0042:0000:8a2e:0370:7336'/>
+`  `</ipv6_addresses>
+
+*   interface_name
+
+`  `<interface_name>`p1p2`</interface_name>
+
 #### UI Changes
 
 Administrator Portal:
@@ -52,15 +74,15 @@ Administrator Portal:
     -   On ip address column a single IP address (arbitrary) will be presented instead of IP addresses list
 *   VM Network Interface sub-tab:
     -   Add column 'interface name' - presents the internal name of the vNic.
-    -   Add column 'IPv4 Address' - presents the IPv4 addresses of the vNic.
-    -   Add column 'IPv6 Address' - presents the IPv6 addresses of the vNic.
+    -   Add column 'IPv4 Address' - presents the IPv4 addresses of the vNic (for multiple addresses per vnic, field includes a comma delimited list).
+    -   Add column 'IPv6 Address' - presents the IPv6 addresses of the vNic (for multiple addresses per vnic, field includes a comma delimited list).
 
 User Portal:
 
 *   VM Network Interface sub-tab:
     -   Add column 'interface name' - presents the internal name of the vNic.
-    -   Add column 'IPv4 Address' - presents the IPv4 addresses of the vNic.
-    -   Add column 'IPv6 Address' - presents the IPv6 addresses of the vNic.
+    -   Add column 'IPv4 Address' - presents the IPv4 addresses of the vNic (for multiple addresses per vnic, field includes a comma delimited list).
+    -   Add column 'IPv6 Address' - presents the IPv6 addresses of the vNic (for multiple addresses per vnic, field includes a comma delimited list).
 
 ### Benefit to oVirt
 

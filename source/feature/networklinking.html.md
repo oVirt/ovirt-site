@@ -80,7 +80,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
 *   **Removed Actions**
 
-    * Activate/Deactivate-
+    * Activate/Deactivate
 
         * These actions will be removed from the action bar of the subtab (The user will be able to control the Vnic's state through the add/edit Vnic dialogs)
 

@@ -105,6 +105,7 @@ for each entry in the comma-separated values for this field we are trying to sen
 In the case that the proxy is the local engine , a validation phase of checking existence of local installed fence-agents package is issued
 The first proxy on the pm_proxy_preferences chain that succeeded to execute the command takes
 If all proxies in the pm_proxy_preferences chain fails to execute the fencing operation , an ERROR is written to the log.
+Actual proxy used in a fencing operation should be logged as well.
 
 ### API
 

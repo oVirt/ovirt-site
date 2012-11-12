@@ -113,7 +113,14 @@ Inject with no entity - requires system level permission to inject.
 
 ### API
 
-TBD
+We will use the existing events URL (.../api/events) and the existing Event business-entity in the API and open the possibility to add (POST) a new event (engine will off course impose permissions check on this operation).
+ 1) Add REST-->Backend mapping in EventMapper (right now only the other direction exists).
+2) Add add() method declaration to EventsResource (this is the interface)
+3) Add add() method implementation to BackendEvenetsResource (take example of creation implementation in BackendHostsResource)
+4) Add signatures to meta-data file (rsdl_metadata_v-3.1.yaml)
+5) Add tests
+*Note that no update or delete are required.
+*
 
 ### User Experience
 

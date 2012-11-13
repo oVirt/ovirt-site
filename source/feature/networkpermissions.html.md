@@ -165,6 +165,11 @@ DB Upgrade should handle the following:
 *   Permission on Data Center with PORT_MIRRORING action group will be replaced with:
     -   Permission on All the networks in the DC with PORT_MIRRORING action group.
 
+<!-- -->
+
+*   **VmNetworkUser** role will be given to the user on each network attached to the VM.
+*   **AdvancedVmNetworkUser** role will be given to the user on each network attached to the VM with port-mirroring enabled.
+
 bug fix:
 Remove MANIPUTLATE_HOST action group from NetworkAdmin role.
 

@@ -168,6 +168,7 @@ DB Upgrade should handle the following:
 <!-- -->
 
 *   Permission with **VmNetworkUser** role will be granted to the user on each network attached to the VM.
+    -   If A user already have a role that contains 'CONFIGURE_VM_NETWORK' action group, he should be granted with 'VmNetworkUser' role on the networks of that VMs for parity.
 *   Permission with **AdvancedVmNetworkUser** role will be granted to the user on each network attached to the VM with port-mirroring enabled.
 
 bug fix:

@@ -184,8 +184,9 @@ plug the memory checks to libosinfo instead the use of Config values.
 
 <https://fedorahosted.org/libosinfo/>
 
-### Tasks
+### TODO
 
+*   add cpuArch to OVF reader/writer
 *   open an integration ticket
 
 ### Open issues

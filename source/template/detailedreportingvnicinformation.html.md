@@ -40,11 +40,13 @@ The internal vNic implementation details are reported by VDSM by verbs *getVmSta
                       {'name': 'eth9', 'inet6': ['fe80::21a:4aff:fe16:160','fe80::21a:4aff:fe16:161'], 'inet': ['10.35.1.254'], 'hw': '00:1a:4a:16:01:60'}, 
                       {'name': 'eth7', 'inet6': ['fe80::21a:4aff:fe16:1af'], 'inet': ['10.35.18.69'], 'hw': '00:1a:4a:16:01:af'}]
 
-The vNic device data on the guest includes the interface name, the ipv4 addresses and the ipv6.
+The vNic device data on the guest includes the interface name, the ipv4 addresses and the ipv6 addresses.
 
 #### Engine Flows
 
 #### VDSM API
+
+*getVmStats* and *getAllVmStats* reports the guest's vnic data.
 
 ### Dependencies / Related Features and Projects
 

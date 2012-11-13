@@ -167,7 +167,7 @@ DB Upgrade should handle the following:
 
 <!-- -->
 
-*   Permission with **VmNetworkUser** role will be granted to the user on each network attached to the VM.
+*   Permission with **VmNetworkUser** role will be granted to the user on each network attached to the VM/Template.
 *   Permission with **AdvancedVmNetworkUser** role will be granted to the user on each network attached to the VM with port-mirroring enabled.
 
 bug fix:

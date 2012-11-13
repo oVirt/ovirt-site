@@ -38,7 +38,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
       VmNetworkInterface:
         boolean wired;
 
-<span style="color:Teal">**VM_INTERFACE**</span> An extension to the existing table to describe is the vnic wired:
+<span style="color:Teal">**VM_INTERFACE**</span>
 {|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |wired ||boolean ||not null ||Indicates wether the vnic is wired |- |}
 
 #### Engine Flows

@@ -167,8 +167,8 @@ DB Upgrade should handle the following:
 
 <!-- -->
 
-*   **VmNetworkUser** role will be given to the user on each network attached to the VM.
-*   **AdvancedVmNetworkUser** role will be given to the user on each network attached to the VM with port-mirroring enabled.
+*   Permission with **VmNetworkUser** role will be granted to the user on each network attached to the VM.
+*   Permission with **AdvancedVmNetworkUser** role will be granted to the user on each network attached to the VM with port-mirroring enabled.
 
 bug fix:
 Remove MANIPUTLATE_HOST action group from NetworkAdmin role.

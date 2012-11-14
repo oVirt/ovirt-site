@@ -41,7 +41,7 @@ The main objectives of the drools scheduler:
 
 The rule calculation will be broken down to three major categories:
 
-*   costs of the migration
+*   [costs of the migration](#Comments_and_Discussion)
 *   benefits of the migration
 *   costs of the situatuion
 

@@ -17,6 +17,8 @@ This page will hold the major policies oVirt would like to support.
 In general, policy spectrum ranges from overcommitment (high-utilization) to high QoS.
 So we'd like to begin with 3 policies expressing the range.
 
+![](Policies-Doron.jpg "Policies-Doron.jpg")
+
 ### Aggressive Policy
 
 *   Definition

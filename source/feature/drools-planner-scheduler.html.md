@@ -14,7 +14,7 @@ wiki_last_updated: 2013-09-03
 
 ### Summary
 
-To improve the quality of VM scheduling, built on the plugable scheduling architecture, this project will integrate drools and planner into the ovirt engine
+To improve the quality of VM scheduling, built on the [pluggable scheduling architecture](Features/SLA_PluggableArchitecture), this project will integrate drools and planner into the ovirt engine
 
 ### Owner
 

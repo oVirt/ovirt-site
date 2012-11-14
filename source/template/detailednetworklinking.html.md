@@ -65,19 +65,19 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 *   If the vm is up
 
-    * plugged->unplugged ('plugged' property was changed to false)
+    * plugged --> unplugged ('plugged' property was changed to false)
 
 :\*\* Unplug should be sent to the VDSM
 
-    * unplugged->plugged
+    * unplugged --> plugged
 
 :\*\* Plug should be sent to the VDSM
 
-    * plugged->plugged
+    * plugged --> plugged
 
 :\*\* updateVmInteface should be sent to the VDSM.
 
-    * unplugged->unplugged
+    * unplugged --> unplugged
 
 :\*\* nothing should be sent to VDSM
 

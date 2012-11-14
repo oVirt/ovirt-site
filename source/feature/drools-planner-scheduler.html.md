@@ -42,8 +42,8 @@ The main objectives of the drools scheduler:
 The rule calculation will be broken down to three major categories:
 
 *   [costs of the migration](#Costs_of_the_migration)
-*   [benefits of the migration](Benefits_of_the_migration)
-*   [costs of the situatuion](Costs_of_the_situation)
+*   [benefits of the migration](#Benefits_of_the_migration)
+*   [costs of the situatuion](#Costs_of_the_situation)
 
 Also, there will be some hard constraints enforced, e.g. required optional networks must be available on vds.
 

@@ -78,6 +78,8 @@ Also the benefits may be negative, in case the host is already overallocated or 
 
 ### Benefit to oVirt
 
+The new scheduler improves oVirt's default scheduler (~VdsSelector) and gives a better user experience by minimizing the number of migrations and optimizing resource utilization.
+
 ### Dependencies / Related Features
 
 ### Documentation / External references

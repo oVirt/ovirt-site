@@ -82,6 +82,9 @@ The new scheduler improves oVirt's default scheduler (~VdsSelector) and gives a 
 
 ### Dependencies / Related Features
 
+*   This feature will be built built on [Features/SLA_PluggableArchitecture](Features/SLA_PluggableArchitecture).
+*   drools and drools planner <http://www.jboss.org/drools/>
+
 ### Documentation / External references
 
 ### Comments and Discussion

@@ -16,7 +16,7 @@ Not a full list, just collecting here...
 *   <http://blogs.cisco.com/tag/ovirt/> - cisco blogs, Kyle Mestery
 *   <http://blog.jebpages.com/> - Jason Brooks
 *   <http://captainkvm.com/>
-*   [http://ovedou.blogspot.cםom/](http://ovedou.blogspot.cםom/) - Oved
+*   <http://ovedou.blogspot.com/> - Oved
 
 # ovirt developers
 

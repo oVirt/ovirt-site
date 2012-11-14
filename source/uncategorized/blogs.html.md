@@ -6,9 +6,15 @@ wiki_revision_count: 14
 wiki_last_updated: 2013-02-20
 ---
 
+# Ovirt blogs
+
 Not a full list, just collecting here...
 
-# Ovirt related blogs
+## Aggregator
+
+<http://planet-ovirt.ekohl.nl/> - maintained by Ewoud Kohl van Wijngaarden
+
+## Ovirt related blogs
 
 *   <http://ovirt.blogspot.com/> - blog dedicated to ovirt by Geoff O'Callaghan (IBM?)
 *   <http://lpeer.blogspot.com/> - Livnat
@@ -18,7 +24,7 @@ Not a full list, just collecting here...
 *   <http://captainkvm.com/>
 *   <http://ovedou.blogspot.com/> - Oved
 
-# ovirt developers
+## ovirt developers
 
 *   <http://www.codingpunk.com/> - Jon
 *   <http://dummywarhead.blogspot.com/> - lzl

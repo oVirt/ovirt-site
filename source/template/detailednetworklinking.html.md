@@ -75,7 +75,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
     * plugged->plugged
 
-:\*\* updateVm should be sent to the VDSM.
+:\*\* updateVmInteface should be sent to the VDSM.
 
     * unplugged->unplugged
 

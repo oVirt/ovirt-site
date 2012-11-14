@@ -84,6 +84,11 @@ Note that the benefits may be negative, in case the host is already overallocate
 
 All rules in [situation costs](#costs_of_the_situation) should have a migration benefits counterpart, but this one should calculate the difference from an optimal state after the migration.
 
+#### Implementation details
+
+*   Time constraint - should be configurable
+*   The benefits/compensations should be calculated as negative cost
+
 ### Benefit to oVirt
 
 The new scheduler improves oVirt's default scheduler (~VdsSelector) and gives a better user experience by minimizing the number of migrations and optimizing resource utilization.

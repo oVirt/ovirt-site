@@ -856,3 +856,5 @@ You can also toggle to the Basic User Portal, which is the default (and only) di
 ![Figure 4.16. The Basic User Portal](basic-user-portal.png "Figure 4.16. The Basic User Portal")
 
 You have now completed the Quick Start Guide, and successfully set up oVirt.
+
+<Category:Documentation>

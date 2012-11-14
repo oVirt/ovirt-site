@@ -81,7 +81,7 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 #### Download
 
-[download oVirt-Live-0.8.iso](http://ovirt.org/releases/3.1/tools/oVirt-Live-0.8.iso)
+[download oVirt-Live-0.8.iso](http://ovirt.org/releases/3.1/tools/oVirt-Live.0.8.iso)
 
 #### change-log
 

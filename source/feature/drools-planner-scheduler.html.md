@@ -28,6 +28,16 @@ To improve the quality of VM scheduling, built on the plugable scheduling archit
 
 ### Detailed Description
 
+[[1](File:Drools_score_calculation_plan.png)
+
+The rule calculation will be broken down to three major categories:
+
+*   costs of the migration
+*   benefits of the migration
+*   costs of the situatuion
+
+Also, there will be some hard constraints enforced, e.g. required optional networks must be available on vds.
+
 ### Benefit to oVirt
 
 ### Dependencies / Related Features

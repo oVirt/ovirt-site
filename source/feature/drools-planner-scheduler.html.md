@@ -41,9 +41,9 @@ The main objectives of the drools scheduler:
 
 The rule calculation will be broken down to three major categories:
 
-*   [costs of the migration](#Comments_and_Discussion)
-*   benefits of the migration
-*   costs of the situatuion
+*   [costs of the migration](#Costs_of_the_migration)
+*   [benefits of the migration](Benefits_of_the_migration)
+*   [costs of the situatuion](Costs_of_the_situation)
 
 Also, there will be some hard constraints enforced, e.g. required optional networks must be available on vds.
 
@@ -57,7 +57,7 @@ As part of the migration, these costs should be calculated:
 *   The actual CPU load, since at migration the throughput drops to zero for a short time, but users do not tolerate such delays.
 *   Is console attached. If VM is in use by user, it may be better to migrate another Vm from the host.
 
-#### costs of the situation
+#### Costs of the situation
 
 The costs of the situation are calculated in order to counterweight the costs of the migration. Some example for situation costs:
 

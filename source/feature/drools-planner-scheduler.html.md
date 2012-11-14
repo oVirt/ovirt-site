@@ -16,6 +16,13 @@ wiki_last_updated: 2013-09-03
 
 To improve the quality of VM scheduling, built on the [pluggable scheduling architecture](Features/SLA_PluggableArchitecture), this project will integrate drools and planner into the ovirt engine
 
+The main objectives of the drools scheduler:
+
+*   allow better resource utilization
+*   avoid frequent VM migrations
+*   possibly more power saving
+*   to be a smarter default scheduler for ovirt
+
 ### Owner
 
 *   Name: [ Laszlo Hornyak](User:Lhornyak)

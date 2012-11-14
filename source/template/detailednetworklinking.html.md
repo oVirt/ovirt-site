@@ -75,7 +75,13 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
     * plugged --> plugged
 
-:\*\* updateVmInteface should be sent to the VDSM.
+:\*\* If MAC Address or Driver Type were update
+
+:\*\*\* Unplug followed by Plug should be sent to VDSM.
+
+:\*\* Otherwise, if network is changed or disconnected
+
+:\*\*\* updateVmInteface should be sent to the VDSM.
 
     * unplugged --> unplugged
 

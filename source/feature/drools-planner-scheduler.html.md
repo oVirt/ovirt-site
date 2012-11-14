@@ -74,7 +74,9 @@ The benefits of the migration:
 *   may help to counterweight the costs of the migration
 *   help to select the optimal available host
 
-Also the benefits may be negative, in case the host is already overallocated or overused.
+Note that the benefits may be negative, in case the host is already overallocated or overused.
+
+All rules in [situation costs](#costs_of_the_situation) should have a migration benefits counterpart, but this one should calculate the difference from an optimal state after the migration.
 
 ### Benefit to oVirt
 

@@ -47,6 +47,10 @@ The rule calculation will be broken down to three major categories:
 
 Also, there will be some hard constraints enforced, e.g. required optional networks must be available on vds.
 
+#### Migration and new VM start
+
+The scheduler will be prepared for load ballancing, this will be represented as a VM running on **null** and need to find a VDS to migrate to (however, this is not really a migration). In case of new VM start, the migration rules should be calculated as zero.
+
 #### Costs of the migration
 
 Migration costs will be calculated in order to prevent migrating VM's for minor/momentary benefits.

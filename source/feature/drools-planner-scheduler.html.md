@@ -28,7 +28,7 @@ To improve the quality of VM scheduling, built on the plugable scheduling archit
 
 ### Detailed Description
 
-[[1](File:Drools_score_calculation_plan.png)
+![](Drools_score_calculation_plan.png "Drools_score_calculation_plan.png")
 
 The rule calculation will be broken down to three major categories:
 

@@ -28,6 +28,8 @@ To improve the quality of VM scheduling, built on the plugable scheduling archit
 
 ### Detailed Description
 
+#### Overview
+
 ![](Drools_score_calculation_plan.png "Drools_score_calculation_plan.png")
 
 The rule calculation will be broken down to three major categories:
@@ -37,6 +39,35 @@ The rule calculation will be broken down to three major categories:
 *   costs of the situatuion
 
 Also, there will be some hard constraints enforced, e.g. required optional networks must be available on vds.
+
+#### Costs of the migration
+
+Migration costs will be calculated in order to prevent migrating VM's for minor/momentary benefits.
+
+As part of the migration, these costs should be calculated:
+
+*   The size of the allocated memory of the VM, this data must be sent over the network, so the more data, the slower
+*   The actual CPU load, since at migration the throughput drops to zero for a short time, but users do not tolerate such delays.
+*   Is console attached. If VM is in use by user, it may be better to migrate another Vm from the host.
+
+#### costs of the situation
+
+The costs of the situation are calculated in order to counterweight the costs of the migration. Some example for situation costs:
+
+*   Overallocation of CPU/memory/network bandwidth/IO
+*   High utilisation of physical CPU/memory/network bandwidth/IO
+*   Unused resources CPU/memory/network bandwidth/IO - since they only consume power. e.g. a server with 16 CPU's with only 2 vcpus allocated.
+
+The overallocation should be a smaller cost, while the high utilisation should generate a bigger one, but only when it happens.
+
+#### Benefits of the migration
+
+The benefits of the migration:
+
+*   may help to counterweight the costs of the migration
+*   help to select the optimal available host
+
+Also the benefits may be negative, in case the host is already overallocated or overused.
 
 ### Benefit to oVirt
 

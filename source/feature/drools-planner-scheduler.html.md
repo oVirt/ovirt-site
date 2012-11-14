@@ -97,6 +97,7 @@ The new scheduler improves oVirt's default scheduler (~VdsSelector) and gives a 
 
 *   This feature will be built built on [Features/SLA_PluggableArchitecture](Features/SLA_PluggableArchitecture).
 *   drools and drools planner <http://www.jboss.org/drools/>
+*   [870322](https://bugzilla.redhat.com/870322) - Keep history data for VDS and VM load
 
 ### Documentation / External references
 

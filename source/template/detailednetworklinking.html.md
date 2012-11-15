@@ -150,7 +150,7 @@ New vdsm errors will be added:
 
 ### Documentation / External references
 
-### Streched Goals
+### Stretch Goals
 
 *   Enable hot changes in port mirroring (without plugging and unplugging)
 

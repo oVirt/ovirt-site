@@ -40,7 +40,7 @@ We will treat current Power Management agent as Primary Agent and the added one 
 
 *   Target Release: 3.2
 *   Status: Design
-*   Last updated date: Nov 4 2012
+*   Last updated date: Nov 15 2012
 
 ### Detailed Description
 

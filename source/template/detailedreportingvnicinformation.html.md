@@ -69,7 +69,6 @@ The table will be updated only when a change was detected by the reported data f
 #### VDSM API
 
 No changes for VDSM API.
-*getVmStats* and *getAllVmStats* reports the guest's vnic data.
 
 ### Dependencies / Related Features and Projects
 

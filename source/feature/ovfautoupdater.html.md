@@ -12,7 +12,7 @@ wiki_last_updated: 2012-12-17
 
 ### Summary
 
-The OvfAutoUpdater introduces a change to the system-wide behaviour of vm/template ovf update, and instead of perform it as a synchrounos task the update would be performed periodically for all updates vms/templates of the same data-center in a single vdsm XML-RPC call.
+The OvfAutoUpdater introduces a change to the system-wide behaviour of vm/template ovf update, instead of performing it as a synchronous vdsm operation after this change the update would be performed periodically for all updated vms/templates of the same data-center in a single vdsm call.
 
 ### Owner
 

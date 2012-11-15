@@ -47,7 +47,7 @@ vm_static table:
 
 vdc_options table:
 
-       add row for OvfUpdateIntervalInMinutes config value.
+       add row - OvfUpdateIntervalInMinutes config value.
 
 #### Engine
 

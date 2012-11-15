@@ -67,7 +67,7 @@ vdc_options table:
 4.  4. If succesfull - Update for each vm the ovf_generation to be as the db_generation.
 
 *   Replace updateVmInSpm call in commands with an increment to the db_generation version.
-*   Increment to the db_generation column in vm_static can be performed in the same transcation of the vm unlock operation.
+*   Increment to the db_generation column in vm_static should be performed in the same transcation of the vm unlock operation after succesfull flow.
 
 ### Possible improvements
 

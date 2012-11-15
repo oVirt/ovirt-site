@@ -18,9 +18,6 @@ wiki_warnings: list-item?
 Current implementation assumes that a Host that its Power Management is configured has only one fencing agent from a certain type (i.e. rsa, ilo, apc etc.)
 This document describes what should be done in order to support dual-power Hosts in which each power switch may have its own agent (may be from same or different type)
 We will treat current Power Management agent as Primary Agent and the added one as Secondary Agent.
- There may be two main configurations for that:
-1) Concurrent, when Host is fenced both agents are used concurrently, for Stop command we need both to succeed and for Start command if one succeeded the Host is considered to be UP.
-2) Sequential, when Host is fenced either for Stop or Start commands, Primary Agent is used, if it fails (after all configured retries) then the Secondary Agent is used.
 
 ### Owner
 

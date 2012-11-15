@@ -89,6 +89,17 @@ All rules in [situation costs](#costs_of_the_situation) should have a migration 
 *   Time constraint - should be configurable
 *   The benefits/compensations should be calculated as negative cost
 
+#### Hard constraints
+
+*   Memory constraints
+    -   free memory on target node < vm minimal memory - not enough free memory
+    -   *free memory on target node < vm maximal memory requirement should be a **soft** constraint*
+*   Network constraints
+    -   all VM networks must be available on VDS
+*   CPU constraints
+    -   VM cpus > VDS.cpus - not enough CPUs
+    -   *note that cpu over and under-allocation are soft constraints*
+
 ### Benefit to oVirt
 
 The new scheduler improves oVirt's default scheduler (~VdsSelector) and gives a better user experience by minimizing the number of migrations and optimizing resource utilization.

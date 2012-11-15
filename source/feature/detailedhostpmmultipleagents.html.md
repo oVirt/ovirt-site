@@ -16,7 +16,8 @@ wiki_warnings: list-item?
 ### Summary
 
 Current implementation assumes that a Host that its Power Management is configured has only one fencing agent from a certain type (i.e. rsa, ilo, apc etc.)
-This document describes what should be done in order to support dual-power Hosts in which each power switch may have its own agent (may be from same or different type)
+This document describes what should be done in order to support dual-power Hosts in which each power switch may have its own agent or two agents connected to the same power switch.
+Agents may be from same or different type
 We will treat current Power Management agent as Primary Agent and the added one as Secondary Agent.
 
 ### Owner

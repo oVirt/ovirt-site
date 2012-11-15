@@ -47,6 +47,25 @@ There may be two main configurations for Primary/Secondary Agents:
 
 ### CRUD
 
+Adding the following columns to vds_static:
+
+      pm_secondary_ip
+      pm_secondary_options
+      pm_secondary_port
+      pm_secondary_password
+      pm_secondary_user
+      pm_secondary_type
+
+Views:
+ vds (adding all pm_secondary\* fields)
+
+      vds_with_tags (adding all pm_secondary* fields)
+      dwh_host_configuration_history_view (adding only pm_secondary_ip)
+      dwh_host_configuration_full_check_view (adding only pm_secondary_ip)
+
+Stored Procedures:
+InsertVdsStatic UpdateVdsStatic InsertVds
+
 #### Metadata
 
 Adding test data for ???? in fixtures.xml

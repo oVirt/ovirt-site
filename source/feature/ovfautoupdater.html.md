@@ -22,11 +22,6 @@ The OvfAutoUpdater introduces a change to the system-wide behaviour of vm/templa
 
 *   Email: <laravot@redhat.com>
 
-### Current status
-
-*   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
-*   Last updated date: ...
-
 ### Detailed Description
 
 Ovf is being used for a copy of the vm/template configuration (including disks info) to the master storage domain for backup purposes and gives the user an abillity to run the vm without having a running engine/db. Currently ovf update is being done when performing various operations on vms/templates - update, save, adding/removing a disk..etc. As of today, ovf update is basically being done per one vm/template (on which we performed the operation) and furthermore, this vdsm call is usually being done within a transcation.

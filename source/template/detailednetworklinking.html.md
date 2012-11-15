@@ -122,12 +122,8 @@ A new API is added for this feature.
             'device': 'bridge|sriov|vnlink|bridgeless',
             'network': 'network name',                      <--- bridge name
             'wired': 'is network wired',
-            'address': 'PCI address dictionary',            <--- PCI = {'type':'pci', 'domain':'0x0000', 'bus':'0x00', 'slot':'0x0c', 'function':'0x0'}
-            'macAddr': 'mac address',
-            'bootOrder': <int>,                             <--- global boot order across all bootable devices
+            'deviceId': <string>,      
             'promisc': <blue,red>,                          <--- promisc mirror mode, the interface will mirror all red and blue bridge traffic
-            'specParams': params dictionary,
-            'nicModel': 'pv|rtl8139|e1000',
      }
 
 Vdsm would implement this using <http://libvirt.org/html/libvirt-libvirt.html#virDomainUpdateDeviceFlags> .

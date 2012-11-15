@@ -67,6 +67,7 @@ Update Vm Network Interface - requires initializing the content of the vNic's dy
 
 #### VDSM API
 
+No changes for VDSM API.
 *getVmStats* and *getAllVmStats* reports the guest's vnic data.
 
 ### Dependencies / Related Features and Projects

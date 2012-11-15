@@ -78,7 +78,7 @@ User Portal:
 The feature is an enhancement of the oVirt engine vNic management:
 
 *   It allows easily association of the managed vNic on engine side by its name with the the actual guest's vNic (instead of comparing MAC Addresses).
-*   It allows to identify the network to which a Virtual Machine is a connected by the reported IP.
+*   It provides the information required to connect by IP to a specific network.
 
 ### Dependencies / Related Features
 

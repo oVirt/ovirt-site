@@ -64,9 +64,8 @@ vdc_options table:
 
 ### Possible improvements
 
-1.  1. in case the operation in vdsm has succeeded on part of the sent vms/templates - we might get it back together with the result from vdsm so we won't run the update for it again.
-2.  2. Split into chunks in case of large number of vms.
-3.  3. Add caching to OvfDataUpdate.
+1.  in case the operation in vdsm has succeeded on part of the sent vms/templates - we might get it back together with the result from vdsm so we won't run the update for it again.
+2.  Split into chunks in case of large number of vms.
 
 ### Comments and Discussion
 

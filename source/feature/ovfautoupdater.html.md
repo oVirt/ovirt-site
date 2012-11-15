@@ -29,9 +29,9 @@ The OvfAutoUpdater introduces a change to the system-wide behaviour of vm/templa
 
 ### Detailed Description
 
-Ovf is being used for a copy of the vm/template configuration (including disks info) to the master storage domain for backup purposes and gives the user an abillity to run the vm without having a running engine/db. Currently ovf update is being done when performing various operations on vms/templates - update, save, add a disk, remove a disk, etc. As of today, ovf update is basically being done per one vm/template (on which we performed the operation) and furthermore, it's usually done within a transcation.
+Ovf is being used for a copy of the vm/template configuration (including disks info) to the master storage domain for backup purposes and gives the user an abillity to run the vm without having a running engine/db. Currently ovf update is being done when performing various operations on vms/templates - update, save, adding/removing a disk..etc. As of today, ovf update is basically being done per one vm/template (on which we performed the operation) and furthermore, this vdsm call is usually being done within a transcation.
 
-The idea behined to OvfAutoUpdater is to perform batch ovf update operation of all neccessary updates per data center in a specifed time - this will reduce XML-RPC calls (as we will send one call only for some vms/templates of specific data center) and will ease the removal of this operation that's being executed within transcations from all over the code.
+The idea behined to OvfAutoUpdater is to perform batch ovf update operation of all neccessary updates per data center in specifed time interval - this will reduce XML-RPC calls (as we will send one call only for some vms/templates of specific data center) and will ease the removal of this syncronous vdsm call from all over the code.
 
 The time interval (minutes) between OvfAutoUpdater runs can be configured by the config value 'OvfUpdateIntervalInMinutes', defaults to 5.
 

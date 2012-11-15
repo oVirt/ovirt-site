@@ -137,7 +137,7 @@ Vdsm would implement this using <http://libvirt.org/html/libvirt-libvirt.html#vi
 *   **hotplugNic** - the vdsm should connect the Vnic's Network according to the 'wired' property passed on the Vnic.
 *   **createVm** - the vdsm should connect each of the Vm's Vnics according to the 'wired' property passed on the each Vnic.
 
-New vdsm errors will be added:
+In both cases, 'wired' property would be implemented by setting libvirt's <link state> element <http://libvirt.org/formatdomain.html#elementLink> . New vdsm errors will be added:
 
     UPDATE_VNIC_FAILED- code 51
 

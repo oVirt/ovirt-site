@@ -849,6 +849,8 @@ If you are using a Fedora client, install the SPICE plug-in before logging in to
 
 You have now logged into the user portal. As you have PowerUserRole permissions, you are taken by default to the Extended User Portal, where you can create and manage virtual machines in addition to using them. This portal is ideal if you are a system administrator who has to provision multiple virtual machines for yourself or other users in your environment. For more information, see the [oVirt Power User Portal Guide](oVirt Power User Portal Guide).
 
+*   -   NOTE\*\*: When launching SPICE consoles use \*\*SHIFT+F11\* to switch to fullscreen mode and \*\*SHIFT+F12\*\* to release the mouse cursor.
+
 ![Figure 4.15. The Extended User Portal](power-user-portal.png "Figure 4.15. The Extended User Portal")
 
 You can also toggle to the Basic User Portal, which is the default (and only) display for users with UserRole permissions. This portal allows users to access and use virtual machines, and is ideal for everyday users who do not need to make configuration changes to the system. For more information, see the [oVirt User Portal Guide](oVirt User Portal Guide).

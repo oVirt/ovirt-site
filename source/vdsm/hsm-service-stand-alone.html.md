@@ -38,6 +38,6 @@ VI)log service will be cloned to serve both VDSM and HSM service.
 
 VII)The configuration parameters in vdsm.conf should be pull out to another hsm.conf file.
 
-         like [irs] section.
+         like [irs] section in vdsm.conf.
 
 <Category:Vdsm>

@@ -30,7 +30,7 @@ The main objectives of the drools scheduler:
 
 ### Current status
 
-*   Under development
+*   Under development - initial patches <http://gerrit.ovirt.org/8893>
 *   Last updated date: 14 NOV 2012
 
 ### Detailed Description

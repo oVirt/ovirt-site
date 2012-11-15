@@ -115,12 +115,10 @@ Add translation to VDSM error codes: UPDATE_VNIC_FAILED = 'Failed to update VM N
 
 A new API is added for this feature.
 
-    updateVmInteface (params)
+    updateVmDevice (vmId, params)
 
     params = {
-    'vmId': vmUUID, 
-    'nic':  
-           {'type': 'interface',
+            'type': 'interface',
             'device': 'bridge|sriov|vnlink|bridgeless',
             'network': 'network name',                      <--- bridge name
             'wired': 'is network wired',
@@ -129,8 +127,10 @@ A new API is added for this feature.
             'bootOrder': <int>,                             <--- global boot order across all bootable devices
             'promisc': <blue,red>,                          <--- promisc mirror mode, the interface will mirror all red and blue bridge traffic
             'specParams': params dictionary,
-            'nicModel': 'pv|rtl8139|e1000'}
+            'nicModel': 'pv|rtl8139|e1000',
      }
+
+Vdsm would implement this using <http://libvirt.org/html/libvirt-libvirt.html#virDomainUpdateDeviceFlags> .
 
 ##### Updated APIs
 

@@ -100,3 +100,7 @@ Double check that the generated certificate is correct, visually and with the fo
 Note that this procedure will leave a small trace: the CA certificate will still contain the URL of the old host. That is a minor inconvenience, but to solve it \*all\* certificates would need to be replaced.
 
 8. Edit the "/etc/ovirt-engine/web-conf.js" file and replace the old host name with the new one. This is used to generate the links in the landing page.
+
+9. You may find some references to the old domain name in entries in the option_id table. Particularly, VdcBootStrapUrl and VirtualMachineDomainName. *I do not know the implications, but it can't not hurt to clean them up. Can it? --[user:daejohnon:daej]*
+
+10. You may find references to the old domain name in the storage_server_connections table if you had, for example, a ISO storage domain setup on the engine. Editing such entries manually and restarting the engine will clear things up and stop any related warnings when activating hosts that are trying to access the old domain name.

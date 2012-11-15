@@ -69,9 +69,15 @@ Stored Procedures:
       UpdateVdsStatic
       InsertVds
 
+#### DAO
+
+Adding handling of pm_secondary\* fields to
+VdsStaticDAODbFacadeImpl
+VdsDAODbFacadeImpl
+
 #### Metadata
 
-Adding test data for ???? in fixtures.xml
+Adding test data for VdsStaticDAOTest & fixtures.xml
 
 ### Business Logic
 

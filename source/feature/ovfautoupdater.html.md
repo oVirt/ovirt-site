@@ -16,11 +16,9 @@ The OvfAutoUpdater introduces a change to the system-wide behaviour of vm/templa
 
 ### Owner
 
-This should link to your home wiki page so we know who you are
-
 *   Name: [ Liron Aravot](User:Laravot)
 
-Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
+<!-- -->
 
 *   Email: <laravot@redhat.com>
 

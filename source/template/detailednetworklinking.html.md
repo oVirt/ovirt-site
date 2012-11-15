@@ -122,7 +122,7 @@ A new API is added for this feature.
             'device': 'bridge|sriov|vnlink|bridgeless',
             'network': 'network name',                      <--- bridge name
             'wired': 'is network wired',
-            'deviceId': <string>,      
+            'alias': <string>,      
             'promisc': <blue,red>,                          <--- promisc mirror mode, the interface will mirror all red and blue bridge traffic
      }
 

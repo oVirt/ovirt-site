@@ -11,7 +11,7 @@ wiki_last_updated: 2014-01-29
 
 **Manual procedure to change the host name of the machine where the engine runs (in release 3.1):**
 
-*copied from ovirt user list thread at:* <http://lists.ovirt.org/pipermail/users/2012-October/004167.html>
+*initiated in oVirt user list thread at:* <http://lists.ovirt.org/pipermail/users/2012-October/004167.html>
 
 0. Make a backup copy of the /etc/pki/ovirt-engine directory.
 

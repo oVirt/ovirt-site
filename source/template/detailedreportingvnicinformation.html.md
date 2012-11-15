@@ -42,13 +42,28 @@ The internal vNic implementation details are reported by VDSM by verbs *getVmSta
 
 The vNic device data on the guest includes the interface name, the ipv4 addresses and the ipv6 addresses.
 
-#### Engine Flows
+#### Engine
 
 <span style="color:Teal">**VM_INTERFACE_DYNAMIC**</span> An satellite table of vm_interface, contains the dynamic data reported by the guest
 {|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |id ||UUID ||not null ||The vNic ID |- |interface_name ||VARCHAR(50) ||null ||The vNic's name within the VM |- |ipv4_addresses ||text ||null ||The vNic's IPv4 addresses |- |ipv6_addresses ||text ||null ||The vNic's IPv6 addresses |- |}
 
 The IP addresses columns might multiple addresses per vNic and will be stored comma concatenated.
 The table will be updated only when a change was detected by the reported data from VDSM.
+
+<span style="color:Teal">**VmNicDynamic**</span> class will be added to represent the data reported by the guest agent:
+
+        Guid id - vNic ID
+        String interface_name - the internal nic's name
+        String ipv4Addresses - the vNic's IPv4 addresses
+        String ipv6Addresses - the vNic's IPv6 addresses
+
+<span style="color:Teal">**VmNicDynamicDao**</span> will serve as the DAO interface of the VmNicDynamic entity.
+
+<span style="color:Teal">**VmNetworkInterface**</span> will contain VmNicDynamic.
+
+#### Engine Flows
+
+Update Vm Network Interface - requires initializing the content of the vNic's dynamic data.
 
 #### VDSM API
 

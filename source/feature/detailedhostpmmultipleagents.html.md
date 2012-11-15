@@ -81,6 +81,8 @@ Adding test data for VdsStaticDAOTest & fixtures.xml
 
 ### Business Logic
 
+Add pm_secondary\* fields to VdsStatic Add pm_secondary\* fields to VDS
+
 #### Flow
 
 ### User Experience

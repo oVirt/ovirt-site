@@ -89,6 +89,11 @@ Affected oVirt projects:
 *   Admin Portal
 *   User Portal
 
-### Comments and Discussion
+### Open Issues
+
+**Suggested naming alternatives**:
+\* ipv4_addresses --> inet
+
+*   ipv6_addresses --> inet6
 
 [Category: Feature](Category: Feature)

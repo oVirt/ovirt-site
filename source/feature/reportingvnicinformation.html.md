@@ -62,16 +62,16 @@ Administrator Portal:
 *   VM Main-Tab:
     -   On ip address column a single IP address (arbitrary) will be presented instead of IP addresses list
 *   VM Network Interface sub-tab:
-    -   Add column 'interface name' - presents the internal name of the vNic.
-    -   Add column 'IPv4 Address' - presents the IPv4 addresses of the vNic (for multiple addresses per vnic, field includes a comma delimited list).
-    -   Add column 'IPv6 Address' - presents the IPv6 addresses of the vNic (for multiple addresses per vnic, field includes a comma delimited list).
+    -   Add column 'interface name' (before mac-address field) - presents the internal name of the vNic.
+    -   Add column 'IPv4 Address' (after mac-address field) - presents the IPv4 addresses of the vNic (for multiple addresses per vnic, field includes a comma delimited list).
+    -   Add column 'IPv6 Address' (after ipv4 addresses field) - presents the IPv6 addresses of the vNic (for multiple addresses per vnic, field includes a comma delimited list).
 
 User Portal:
 
 *   VM Network Interface sub-tab:
-    -   Add column 'interface name' - presents the internal name of the vNic.
-    -   Add column 'IPv4 Address' - presents the IPv4 addresses of the vNic (for multiple addresses per vnic, field includes a comma delimited list).
-    -   Add column 'IPv6 Address' - presents the IPv6 addresses of the vNic (for multiple addresses per vnic, field includes a comma delimited list).
+    -   Add column 'interface name' (before mac-address field) - presents the internal name of the vNic.
+    -   Add column 'IPv4 Address' (after mac-address field) - presents the IPv4 addresses of the vNic (for multiple addresses per vnic, field includes a comma delimited list).
+    -   Add column 'IPv6 Address' (after ipv4 addresses field) - presents the IPv6 addresses of the vNic (for multiple addresses per vnic, field includes a comma delimited list).
 
 ### Benefit to oVirt
 

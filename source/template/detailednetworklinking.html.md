@@ -158,6 +158,6 @@ New vdsm errors will be added:
 
 ### Open Issues
 
-NA
+*   After the VM is connected to a new network, no one on that network is aware of the change. It was suggested, that much like in vm migration, the VM should emit a gratuitous arp packet, to notify the world about its existence. However note that in vm migration, the vm does not change its layer-2 subnet and telling the switch of its new location is all that is needed. This is NOT the case when the VM is connected to a different network, with its own vlan and ip limitations. One cannot assume that a guest server application would continue to operate uninterrupted.
 
 <Category:Template> <Category:Feature>

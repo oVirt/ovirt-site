@@ -64,7 +64,10 @@ Views:
       dwh_host_configuration_full_check_view (adding only pm_secondary_ip)
 
 Stored Procedures:
-InsertVdsStatic UpdateVdsStatic InsertVds
+ InsertVdsStatic
+
+      UpdateVdsStatic
+      InsertVds
 
 #### Metadata
 

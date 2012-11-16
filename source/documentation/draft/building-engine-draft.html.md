@@ -272,7 +272,7 @@ Once VDSM is built you will need to copy the scripts to the directory `/usr/shar
 
 Update the database to reflect the actual URL where the bootstrap files can be downloaded by the hypervisors:
 
-    $> psql engine postgres -c "update vdc_options set option_value = 'http://YOUR_ENGINE_HOST_HERE:8080/Components/vds' where option_name = 'VdcBootStrapUrl';"
+    $> psql engine postgres -c "update vdc_options set option_value = 'http://YOUR_ENGINE_HOST_HERE:8700/Components/vds' where option_name = 'VdcBootStrapUrl';"
 
 ## Testing
 

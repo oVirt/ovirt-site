@@ -89,6 +89,36 @@ Add pm_secondary\* fields to VDS
 
 #### Flow
 
+If no Power Management is defined , the Stop/Start scenarios works without a change. For example, the Restart scenario is:
+
+      Send a Stop command 
+       Wait for status 'off' 
+         (controlled by FenceStopStatusDelayBetweenRetriesInSec,FenceStopStatusRetries configuration values)
+       Send a Start command
+       Wait for status 'on' 
+         (controlled by FenceStartStatusDelayBetweenRetriesInSec,FenceStartStatusRetries configuration values)
+
+If a secondary agent is defined
+ Sequential:
+ Send a Stop command to Primary agent
+
+       Wait for status 'off' 
+         (controlled by FenceStopStatusDelayBetweenRetriesInSec,FenceStopStatusRetries configuration values)
+       If Stop failed Send a Stop command to Secondary agent and wait for status 'off'
+       Send a Start command to Primary agent
+       Wait for status 'on' 
+         (controlled by FenceStartStatusDelayBetweenRetriesInSec,FenceStartStatusRetries configuration values)
+       If Start failed Send a Start command to Secondary agent and wait for status 'on'
+
+Concurrent:
+
+       Send a Stop command to Primary and Secondary agents
+       Wait for status 'off' on both Primary and Secondary agents
+         (controlled by FenceStopStatusDelayBetweenRetriesInSec,FenceStopStatusRetries configuration values)
+       Send a Start command to Primary and Secondary agents
+       Wait for status 'on' on either  Primary or Secondary agent
+         (controlled by FenceStartStatusDelayBetweenRetriesInSec,FenceStartStatusRetries configuration values)
+
 ### User Experience
 
 A new radio button will be added to the Power Management screen that enables selection of Primary/Secondary agents in order to insert agent details and test the agent.

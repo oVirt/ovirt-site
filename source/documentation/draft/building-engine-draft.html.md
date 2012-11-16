@@ -151,10 +151,8 @@ Ensure that you have write access to `$JBOSS_HOME/standalone/deployments` to whi
     2.  `-Xdebug` - include debugging
 
 2.  Run with `-b 0.0.0.0` to have it bind to all IP addresses (by default it binds to the 127.0.0.1 address only).
-3.  Make sure you've nothing bound to port 8080 or 8009.
-    1.  Other relevant ports JBoss may require: 8443/9990/9999/4447.
-
-4.  For external connections, make sure your firewall allows 8080 incoming traffic.
+3.  Make sure you've nothing bound to port 8700 or 8701.
+4.  For external connections, make sure your firewall allows 8700 incoming traffic.
 5.  If your machine has and selinux policy installed, make sure it will not block JBoss.
 6.  JBoss will bind to your host's name. Make sure it's resolvable by adding it to `/etc/hosts` or any other method.
 7.  You may wish to erase previous deployment (during development, if you encounter a situation where you work with the deployed application but it does not contain the expected behavior). In order to perform the cleanup, you must perform the following steps:

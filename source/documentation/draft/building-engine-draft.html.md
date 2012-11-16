@@ -313,7 +313,7 @@ Accessing the user portal:
 
 Follow this page: <http://www.ovirt.org/wiki/Engine_Node_Integration#Engine_core_machine>
 
-## Enable SSL port 8443 in the application server (optional)
+## Enable SSL port 8701 in the application server (optional)
 
 Generate a self signed certificate for the application server (remember to replace `engine.example.com` with the fully qualified DNS name of your machine, and `mypass` with your preferred password):
 
@@ -350,9 +350,9 @@ Then exit the CLI typing the `exit` command. The following connector should have
 
 And the following socket binding should have been added automatically in the same `standalone.xml` file:
 
-    <socket-binding name="https" port="8443"/>
+    <socket-binding name="https" port="8701"/>
 
-After doing this change stop the application server and start it again, then you should be able to connect to using HTTPS and port 8443.
+After doing this change stop the application server and start it again, then you should be able to connect to using HTTPS and port 8701.
 
 For additional info: <https://docs.jboss.org/author/display/AS7/Admin+Guide#AdminGuide-HTTPSConnectors>
 

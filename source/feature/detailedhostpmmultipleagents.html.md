@@ -58,6 +58,7 @@ Adding the following columns to vds_static:
       pm_secondary_password
       pm_secondary_user
       pm_secondary_type
+      pm_secondary_concurrent
 
 Views:
  vds (adding all pm_secondary\* fields)

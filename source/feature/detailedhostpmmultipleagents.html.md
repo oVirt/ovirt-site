@@ -87,6 +87,10 @@ Adding test data for VdsStaticDAOTest & fixtures.xml
 Add pm_secondary\* fields to VdsStatic
 Add pm_secondary\* fields to VDS
 
+### API
+
+The REST API will be enhanced to include the new Proxy Preferences as follows
+
 #### Flow
 
 If no Power Management is defined , the Stop/Start scenarios works without a change. For example, the Restart scenario is:

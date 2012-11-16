@@ -106,6 +106,8 @@ Add the new pm_secondary\* columns in the upgrade script.
 
 #### Affected oVirt projects
 
+[Host Power Management Proxy Preferences](http://wiki.ovirt.org/wiki/Features/HostPMProxyPreferences)
+
 ### Documentation / External references
 
 [Features/HostPMMultipleAgents](Features/HostPMMultipleAgents)

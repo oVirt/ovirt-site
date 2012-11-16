@@ -92,6 +92,30 @@ Add pm_secondary\* fields to VDS
 
 The REST API will be enhanced to include the new Secondary Agent definitions as follows
 
+` `<power_management type="rsa">
+`   `<enabled>`true`</enabled>
+         
+
+<address>
+ip or fqdn
+
+</address>
+`   `&lt;username&gt;`user`</username>
+`   `<password>`password`</password>
+`    `<options><option value="" name="port"/><option value="false" name="secure"/></options>
+` `</power_management>
+<power_management type="apc" concurrent="false">
+         
+
+<address>
+ip or fqdn
+
+</address>
+`   `&lt;username&gt;`user`</username>
+`   `<password>`password`</password>
+`    `<options><option value="" name="port"/><option value="false" name="secure"/></options>
+` `</power_management>
+
 #### Flow
 
 If no Power Management is defined , the Stop/Start scenarios works without a change. For example, the Restart scenario is:

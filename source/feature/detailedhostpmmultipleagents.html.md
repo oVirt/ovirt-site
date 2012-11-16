@@ -96,6 +96,8 @@ A new radio button will be added to the Power Management screen that enables sel
 
 ### Installation/Upgrade
 
+Add the new pm_secondary\* columns in the upgrade script.
+
 #### User work-flows
 
 ### Enforcement

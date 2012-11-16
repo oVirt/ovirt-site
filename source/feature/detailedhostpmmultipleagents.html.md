@@ -89,7 +89,7 @@ Add pm_secondary\* fields to VDS
 
 ### API
 
-The REST API will be enhanced to include the new Proxy Preferences as follows
+The REST API will be enhanced to include the new Secondary Agent definitions as follows
 
 #### Flow
 

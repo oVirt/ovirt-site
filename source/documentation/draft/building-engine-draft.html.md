@@ -89,11 +89,7 @@ Create your `$HOME/.m2` directory (this is where maven stores your personal sett
 $> mkdir $HOME/.m2
 `
 
-You can download a complete personal settings file as follows:
-
-    wget -O $HOME/.m2/settings.xml http://www.ovirt.org/w/images/1/18/Settings.xml.png
-
-Or copy & paste the content below into the file `$HOME/.m2/settings.xml`:
+Copy & paste the content below into the file `$HOME/.m2/settings.xml`:
 
     <settings
       xmlns="http://maven.apache.org/POM/4.0.0"

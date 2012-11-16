@@ -10,8 +10,6 @@ wiki_last_updated: 2012-11-16
 
 # Host PM Multiple Agents
 
-Note this is Work In Progress for now
-
 ## Hosts Power Management Multiple Agents Support
 
 ### Summary

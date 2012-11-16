@@ -295,7 +295,7 @@ Accessing the REST API:
     head='Accept: application/xml' \
     http://<server name>:<port>/api/
 
-The default port in development environments is 8080.
+The default port in development environments is 8700.
 
 Or from the browser:
 

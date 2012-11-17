@@ -36,7 +36,6 @@ wiki_last_updated: 2012-11-30
 ### Presentation information
 
 *   Content for attendees and organizers of [ oVirt Global Workshops](oVirt Global Workshops).
-*   Content for attendees and organizers of the [November 2011 workshop](Workshop November 2011).
 *   Content related to [making an oVirt release](making an oVirt release).
 
 ### Other links

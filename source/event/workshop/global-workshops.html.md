@@ -36,34 +36,6 @@ Kyle Mestery is working to arrange a workshop on Cisco's campus, likely in the R
 
 We are currently working to locate a place to host a workshop in the LATAM region.
 
-## LinuxCon Europe 2012
-
-*   Workshop Dates: November 7-9, 2012
-*   [LinuxCon Europe Website](https://events.linuxfoundation.org/events/linuxcon-europe)
-*   [KVM Forum/oVirt Workshop Website](https://events.linuxfoundation.org/events/kvm-forum)
-*   [Registration Link](http://www.regonline.com/Register/Checkin.aspx?EventID=1032806)
-*   [Workshop CFP Details](http://events.linuxfoundation.org/events/kvm-forum/cfp-ovirt) - proposals due 14 September 2012
-
-The oVirt workshop at LinuxCon Europe will be co-located with the KVM Forum event.
-
-#### LinuxCon Europe 2012 Workshop Details
-
-*   The workshop is free of charge for the first 150 registrants. We will look at adding additional participant slots based on demand.
-*   Attendees registering for the workshop will receive discounted registration to LinuxCon Europe provided they use this [Registration Link](http://www.regonline.com/Register/Checkin.aspx?EventID=1032806).
-*   Attendees of LinuxCon Europe will also be invited to "add-on" registration to KVM Forum/oVirt Workshop.
-*   Attendees who have already registered for LinuxCon Europe via the main conference registration page can simply edit their existing registration to add on the oVirt Workshop.
-*   Beverage breaks and lunch will be provided to all attendees. Attendees of the workshop are also welcome to participate in the event reception free of charge.
-
-#### LinuxCon Europe 2012 Outstanding Action Items
-
-*   Create workshop overview description.
-*   Create workshop agenda.
-*   Create workshop session abstracts.
-*   Determine instructors for the workshop & assing them to particular sessions.
-*   Submit all information the Linux Foundation for printed materials and website.
-
-While we have not yet been given a deadline for these action items, it would be best to get the information together sooner rather than later.
-
 ## NetApp Campus Workshop 2013
 
 Details for this workshop are still to be confirmed, with a confirmed date of January 22-24, 2013 at [NetApp's Sunnyvale, California, US headquarters](http://maps.google.com/maps/place?cid=7052473688898245753&q=netapp+headquarters+sunnyvale&hl=en&t=h&cd=1&cad=src:ppiwlink&ei=PLyqT72BNsf9kAXkxpzeBA&sig2=DivLR8aVzWexkjnlAxpuGw&dtab=2). More information will be added to this entry closer to the event.
@@ -107,7 +79,7 @@ Details for this workshop are still to be confirmed, though we have confirmed th
 *   Attendees who have already registered for LinuxCon North America via the main conference registration page can simply edit their existing registration to add on the oVirt Workshop.
 *   Beverage breaks and lunch will be provided to all attendees.
 
-## Red Hat Bangalore Campus Workshop
+### Red Hat Bangalore Campus Workshop
 
 *   Workshop Date: Tuesday, October 16, 2012
 *   Red Hat Bangalore Campus - [<https://maps.google.com/maps?q=%23+4%2F1,+Bannerghatta+Road+IBC+Knowledge+Park,+11th+Floor,+Tower+D+Bangalore,+Karnataka+560+001+India&hl=en&ll=12.931852,77.60313&spn=0.008491,0.016243&sll=37.6>,-95.665&sspn=28.158055,66.533203&t=h&hq=%23+4%2F1,+Bannerghatta+Road+IBC+Knowledge+Park,+11th+Floor,+Tower+D+Bangalore,+Karnataka+560+001+India&z=16 Map]
@@ -119,5 +91,15 @@ Details for this workshop are still to be confirmed, though we have confirmed th
 *   The workshop is free of charge. Facilities at Red Hat Bangalore can accomodate at least 50 participants. We will look at adding additional participant slots based on demand.
 *   Beverage breaks and lunch will be provided to all attendees.
 *   Full details of workshop, including a draft schedule, are on the [Bangalore oVirt Workshop](Bangalore oVirt Workshop) page.
+
+### LinuxCon Europe 2012
+
+*   Workshop Dates: November 7-9, 2012
+*   [LinuxCon Europe Website](https://events.linuxfoundation.org/events/linuxcon-europe)
+*   [KVM Forum/oVirt Workshop Website](https://events.linuxfoundation.org/events/kvm-forum)
+*   [Registration Link](http://www.regonline.com/Register/Checkin.aspx?EventID=1032806)
+*   [Workshop CFP Details](http://events.linuxfoundation.org/events/kvm-forum/cfp-ovirt) - for posterity
+
+The oVirt workshop at LinuxCon Europe was co-located with the KVM Forum event.
 
 <Category:Events>

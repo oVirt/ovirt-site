@@ -28,9 +28,9 @@ The oVirt Workshop was co-hosted with the KVM Forum during LinuxCon Europe. The 
 
 ## Thursday, Nov 8th
 
-| **Time**    | **Title**                                                                               | **Presenter**      | **Slides**                                           |
-|-------------|-----------------------------------------------------------------------------------------|--------------------|------------------------------------------------------|
-| 9:00-10:00  | Scripting and Integration: oVirt CLI and SDK                                            | Simon Grinberg     |                                                      |
+| **Time**    | **Title**                                                                               | **Presenter**      | **Slides**                                            |
+|-------------|-----------------------------------------------------------------------------------------|--------------------|-------------------------------------------------------|
+| 9:00-10:00  | Scripting and Integration: oVirt CLI and SDK                                            | Simon Grinberg     |                                                       |
 | 10:30-11:00 | Using oVirt via EC2/CIMI with Deltacloud                                                | Oved Ourfali       |
 | 11:00-11:30 | Extending oVirt's Web Interface with UI Plugins                                         | Vojtech Szocs      |
 | 11:30-12:00 | Integrating oVirt into GNOME Boxes                                                      | Christophe Fergeau |
@@ -38,7 +38,7 @@ The oVirt Workshop was co-hosted with the KVM Forum during LinuxCon Europe. The 
 | 13:40-14:20 | SLA at oVirt                                                                            | Doron Fediuck      |
 | 14:20-15:00 | IaaS Networking: Overlay-Based Virtual Networking vs Openflow-Controlled Switch Fabrics | Pino de Candia     |
 | 15:30-16:15 | oVirt/Gluster Integration                                                               | Vijay Bellur       |
-| 16:15-17:00 | Integrating GlusterFS as a Storage Domain in VDSM                                       | Deepak C. Shetty   | [ Slides](File:Deepak-ovirt-workshop.pdf) |
+| 16:15-17:00 | Integrating GlusterFS as a Storage Domain in VDSM                                       | Deepak C. Shetty   | [ Slides](Media:Deepak-ovirt-workshop.pdf) |
 
 ## Friday, Nov 9th
 

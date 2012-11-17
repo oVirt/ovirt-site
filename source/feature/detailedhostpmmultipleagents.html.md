@@ -119,6 +119,7 @@ ip or fqdn
 
 ### Flow
 
+**No Secondary Agent**
 If no Power Management is defined , the Stop/Start scenarios works without a change. For example, the Restart scenario is:
 
       Send a Stop command 
@@ -129,7 +130,7 @@ If no Power Management is defined , the Stop/Start scenarios works without a cha
          (controlled by FenceStartStatusDelayBetweenRetriesInSec,FenceStartStatusRetries configuration values)
 
 If a secondary agent is defined
- Sequential:
+ **Sequential**:
  Send a Stop command to Primary agent
 
        Wait for status 'off' 
@@ -140,7 +141,7 @@ If a secondary agent is defined
          (controlled by FenceStartStatusDelayBetweenRetriesInSec,FenceStartStatusRetries configuration values)
        If Start failed Send a Start command to Secondary agent and wait for status 'on'
 
-Concurrent:
+**Concurrent**:
 
        Send a Stop command to Primary and Secondary agents
        Wait for status 'off' on both Primary and Secondary agents

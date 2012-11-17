@@ -87,7 +87,7 @@ Adding test data for VdsStaticDAOTest & fixtures.xml
 
 Add pm_secondary\* fields to VdsStatic
 Add pm_secondary\* fields to VDS
- Changing FenceVdsBaseCommand::executeCommand() to handle all scenarios described in Flow
+ Changing FenceVdsBaseCommand::executeCommand() to handle all scenarios described in [Flow](http://wiki.ovirt.org/wiki/Features/Design/DetailedHostPMMultipleAgents#Flow)
 
 ### API
 

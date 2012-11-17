@@ -42,16 +42,16 @@ The oVirt Workshop was co-hosted with the KVM Forum during LinuxCon Europe. The 
 
 ## Friday, Nov 9th
 
-| **Time**    | **Title**                                          | **Presenter**       | **Slides** |
-|-------------|----------------------------------------------------|---------------------|------------|
-| 09:00-09:15 | oVirt keynote in Ambar                             |                     |            |
-| 09:15-09:35 | oVirt Infrastructure Overview                      | Mike Burns          |
-| 09:35-10:00 | Automated Testing of oVirt Node                    | Fabian Deutsch      |
-| 10:30-11:15 | libvdsm: A Stable and Supportable Node-Level API   | Adam Litke          |
+| **Time**    | **Title**                                          | **Presenter**       | **Slides**                                                         |
+|-------------|----------------------------------------------------|---------------------|--------------------------------------------------------------------|
+| 09:00-09:15 | oVirt keynote in Ambar                             |                     |                                                                    |
+| 09:15-09:35 | oVirt Infrastructure Overview                      | Mike Burns          | [ Slides](Media:Ovirt-infrastructure-2012-11-09.pdf)    |
+| 09:35-10:00 | Automated Testing of oVirt Node                    | Fabian Deutsch      | [ Slides](Media:Deutsch-node-test-automation.pdf)       |
+| 10:30-11:15 | libvdsm: A Stable and Supportable Node-Level API   | Adam Litke          | [ Slides](Media:Litke-libvdsm.pdf)                      |
 | 11:15-12:00 | VDSM for Developers                                | Federico Simoncelli |
-| 13:00-13:40 | Engine for Developers                              | Juan Hernandez      |
+| 13:00-13:40 | Engine for Developers                              | Juan Hernandez      | [ Slides](Media:Ovirt-engine-core.odp‎)                 |
 | 13:40-14:20 | Storage Live Migration: Under the Hood             | Federico Simoncelli |
 | 14:20-15:00 | UI for Developers                                  | Vojtech Szocs       |
-| 15:30-16:00 | oVirt Node and OpenStack                           | Fabian Deutsch      |
+| 15:30-16:00 | oVirt Node and OpenStack                           | Fabian Deutsch      | [ Slides](Media:Deutsch-node-openstack-integration.pdf) |
 | 16:00-16:45 | Drools Integration into oVirt Engine               | Laszlo Hornyak      |
 | 16:45-17-30 | **BOF:** How can we improve oVirt Troubleshooting? | Lee Yarwood         |

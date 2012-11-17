@@ -84,7 +84,7 @@ Details for this workshop are still to be confirmed, though we have confirmed th
 *   Workshop Date: Tuesday, October 16, 2012
 *   Red Hat Bangalore Campus - [<https://maps.google.com/maps?q=%23+4%2F1,+Bannerghatta+Road+IBC+Knowledge+Park,+11th+Floor,+Tower+D+Bangalore,+Karnataka+560+001+India&hl=en&ll=12.931852,77.60313&spn=0.008491,0.016243&sll=37.6>,-95.665&sspn=28.158055,66.533203&t=h&hq=%23+4%2F1,+Bannerghatta+Road+IBC+Knowledge+Park,+11th+Floor,+Tower+D+Bangalore,+Karnataka+560+001+India&z=16 Map]
 *   [Workshop Registration](http://ovirtbangalore2012.eventbrite.com/)
-*   [List of Abstracts Submitted for Bangalore Workshop](http://wiki.ovirt.org/wiki/Bangalore_Abstracts)
+*   [ List of Abstracts Submitted for Bangalore Workshop](Bangalore Abstracts)
 
 #### Red Hat Bangalore Campus Workshop Details
 

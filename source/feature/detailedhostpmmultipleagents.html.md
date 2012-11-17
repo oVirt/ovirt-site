@@ -117,6 +117,8 @@ ip or fqdn
 `    `<options><option value="" name="port"/><option value="false" name="secure"/></options>
 ` `</power_management>
 
+Add custom mapping for these new power-management fields in HostMapper.java, for both REST-->Backend and Backend-->REST directions)
+
 ### Flow
 
 **No Secondary Agent**

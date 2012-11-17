@@ -17,21 +17,9 @@ The oVirt Workshop was co-hosted with the KVM Forum during LinuxCon Europe. The 
 
 ### Wednesday November 7th 2012 - User Day
 
-| <center>      
- **Time**       
-
- </center>      | <center>                                      
-                 **Title**                                      
-
-                 </center>                                      | <center>       
-                                                                 **Presenter**   
-
-                                                                 </center>       | <center>   
-                                                                                  **Slides**  
-
-                                                                                  </center>   |
+| **Time**      | **Title**                                     | **Presenter**  | **Slides** |
 |---------------|-----------------------------------------------|----------------|------------|
-| 9:00-11:00    | oVirt Overview and Demo                       | Andy Cathrow   |
+| 9:00-11:00    | oVirt Overview and Demo                       | Andy Cathrow   |            |
 | 11:00-12:00   | oVirt Node – Architecture, Design and Roadmap | Mike Burns     |
 | 13:00-13:40   | oVirt High Level Architecture and Roadmap     | Itamar Heim    |
 | 13:40-14:20   | Deep Dive Features: Network                   | Simon Grinberg |
@@ -40,21 +28,9 @@ The oVirt Workshop was co-hosted with the KVM Forum during LinuxCon Europe. The 
 
 ## Thursday, Nov 8th
 
-| <center>    
- **Time**     
-
- </center>    | <center>                                                                                
-               **Title**                                                                                
-
-               </center>                                                                                | <center>           
-                                                                                                         **Presenter**       
-
-                                                                                                         </center>           | <center>   
-                                                                                                                              **Slides**  
-
-                                                                                                                              </center>   |
+| **Time**    | **Title**                                                                               | **Presenter**      | **Slides** |
 |-------------|-----------------------------------------------------------------------------------------|--------------------|------------|
-| 9:00-10:00  | Scripting and Integration: oVirt CLI and SDK                                            | Simon Grinberg     |
+| 9:00-10:00  | Scripting and Integration: oVirt CLI and SDK                                            | Simon Grinberg     |            |
 | 10:30-11:00 | Using oVirt via EC2/CIMI with Deltacloud                                                | Oved Ourfali       |
 | 11:00-11:30 | Extending oVirt's Web Interface with UI Plugins                                         | Vojtech Szocs      |
 | 11:30-12:00 | Integrating oVirt into GNOME Boxes                                                      | Christophe Fergeau |
@@ -66,21 +42,9 @@ The oVirt Workshop was co-hosted with the KVM Forum during LinuxCon Europe. The 
 
 ## Friday, Nov 9th
 
-| <center>    
- **Time**     
-
- </center>    | <center>                                           
-               **Title**                                           
-
-               </center>                                           | <center>            
-                                                                    **Presenter**        
-
-                                                                    </center>            | <center>   
-                                                                                          **Slides**  
-
-                                                                                          </center>   |
+| **Time**    | **Title**                                          | **Presenter**       | **Slides** |
 |-------------|----------------------------------------------------|---------------------|------------|
-| 09:00-09:15 | oVirt keynote in Ambar                             |
+| 09:00-09:15 | oVirt keynote in Ambar                             |                     |            |
 | 09:15-09:35 | oVirt Infrastructure Overview                      | Mike Burns          |
 | 09:35-10:00 | Automated Testing of oVirt Node                    | Fabian Deutsch      |
 | 10:30-11:15 | libvdsm: A Stable and Supportable Node-Level API   | Adam Litke          |

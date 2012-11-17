@@ -117,7 +117,7 @@ ip or fqdn
 `    `<options><option value="" name="port"/><option value="false" name="secure"/></options>
 ` `</power_management>
 
-#### Flow
+### Flow
 
 If no Power Management is defined , the Stop/Start scenarios works without a change. For example, the Restart scenario is:
 

@@ -74,6 +74,11 @@ Details for this workshop are still to be confirmed, though we have confirmed th
 
 ## Past Workshops
 
+### oVirt Workshop San Jose, November 2011
+
+*   workshop date: November 1-3, 2011
+*   Content for attendees and organizers: [November 2011 workshop](Workshop November 2011).
+
 ### LinuxCon Japan 2012
 
 *   Workshop Date: June 8, 2012

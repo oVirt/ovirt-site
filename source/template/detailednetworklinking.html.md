@@ -65,6 +65,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 ##### Add Vnic
 
+*   canDoAction- allow 'null' network.
 *   'linkState' property of VmNetworkInterface should be stored in the DB
 
       VmNetworkInterfaceDAODbFacadeImpl- save
@@ -74,6 +75,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 ##### Update Vnic
 
 *   **shouldn't** throw canDo when trying to update a nic when the vm is running and the nic is plugged.
+*   canDoAction- allow 'null' network.
 *   'linkState' property of VmNetworkInterface should also be stored in the DB
 
       VmNetworkInterfaceDAODbFacadeImpl- update

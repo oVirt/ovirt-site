@@ -50,16 +50,17 @@ The vNic device data from the guest contains the interface name, the ipv4 addres
 The IP addresses columns might multiple addresses per vNic and will be stored comma concatenated.
 The table will be updated only when a change was detected by the reported data from VDSM.
 
-<span style="color:Teal">**VmNicDynamic**</span> class will be added to represent the data reported by the guest agent:
+<span style="color:Teal">**VmNicDynamic**</span> a new class for representing the data reported by the guest agent:
 
         Guid id - vNic ID
         String interface_name - the internal nic's name
         String ipv4Addresses - the vNic's IPv4 addresses
         String ipv6Addresses - the vNic's IPv6 addresses
 
-<span style="color:Teal">**VmNicDynamicDao**</span> will serve as the DAO interface of the VmNicDynamic entity.
+<span style="color:Teal">**VmNicDynamicDao**</span> new DAO will serve as the interface of the VmNicDynamic entity database related actions.
 
-<span style="color:Teal">**VmNetworkInterface**</span> will contain VmNicDynamic.
+<span style="color:Teal">**VmNetworkInterface**</span> is extended to contain VmNicDynamic.
+: VmNicDynamic will not be stored to the database as part of saving/updating VmNetworkInterface in any of user flows, only as part of refresh VMs.
 
 #### Engine Flows
 

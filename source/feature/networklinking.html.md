@@ -40,21 +40,21 @@ A Vnic on a running VM can have 4 states (If the VM is down, its state represent
 
 *   **Plugged**
 
-    * **Link State- Up** - The Vnic is defined on the VM and connected to the Network.
+    * **Link State- up** - The Vnic is defined on the VM and connected to the Network.
 
         * Observed as the vnic is located on its slot and a network cable is connected to it.
 
         * This is the only state on which the state of the VM Network Interface is 'Active'.
 
-    * **Link State- Down** - The Vnic is defined on the VM and isn't connected to any network.
+    * **Link State- down** - The Vnic is defined on the VM and isn't connected to any network.
 
         * Observed as the vnic is located on its slot but no network cable is connected to it.
 
 *   **Unplugged** - at this state the Vnic is defined on oVirt-engine only
 
-    * **Link State- Up** - once the Vnic is plugged it will automatically be connected to the Network and become 'Active'.
+    * **Link State- up** - once the Vnic is plugged it will automatically be connected to the Network and become 'Active'.
 
-    * **Link State- Down** - once the Vnic is plugged it won't be connected to any network.
+    * **Link State- down** - once the Vnic is plugged it won't be connected to any network.
 
 The oVirt-engine's user will be able to configure the Vnic state to any of the mentioned above by any of the following methods:
 
@@ -76,7 +76,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
 *   **Updated Columns**
 
-    * "Status" icon - green icon if plugged and link state- Up, otherwise red icon. The tooltip will display a text for both the "Plugged" and "Link Up" statuses.
+    * "Status" icon - green icon if plugged and link state- up, otherwise red icon. The tooltip will display a text for both the "Plugged" and "Link up" statuses.
 
 ##### Virtual Machines Network Interfaces Action Changes
 
@@ -92,7 +92,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
         * Dialog
 
-            * Adding under the "network" combo- "Link state" radio button with two options "Up/"Down".
+            * Adding under the "network" combo- "Link state" radio button with two options "up/"down".
 
             * "Activate" checkbox will be changed to a radio button with two options "Plugged"/"Unplugged" and its name will be renamed to 'Card Status'.
 
@@ -114,7 +114,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
 :::: Stretched Goal - To enable dynamic changes when port mirroring is set (without plugging and unplugging).
 
-            * Adding under the "network" combo- "Link state" radio button with two options "Up/"Down".
+            * Adding under the "network" combo- "Link state" radio button with two options "up/"down".
 
             * Adding radio button named 'Card Status' with two options "Plugged"/"Unplugged" to the end of the dialog..
 
@@ -136,7 +136,7 @@ Changes:
 
 *   Deprecating the active property under VM NIC
 *   Deprecating activate/deactivate actions
-*   Plug/unplug and changing LinkState (Up/Down) on a vnic, will be done via PUT action on the VM NIC
+*   Plug/unplug and changing LinkState (up/down) on a vnic, will be done via PUT action on the VM NIC
     -   /api/vms/xxx/nics/yyy/
 
 There is no reason to have dedicated actions for plug/unplug or changing LinkState. The original reason for having them was that edit VM nic while the VM was up used to be blocked and now we'll enable doing these actions.

@@ -157,9 +157,7 @@ Should the new External Event types be exposed to the engine-notification tool?
 
 How an external ALERT disappears from the system after problem is resolved.
 Options:
-
-       Support EXTERNAL_ALERT_ON EXTERNAL_ALERT_OFF
-       Have a time period for each ALERT and clean the ALERT when this time is passed.
-       
+ 1) Support EXTERNAL_ALERT_ON EXTERNAL_ALERT_OFF
+2) Have a time period for each ALERT and clean the ALERT when this time is passed.
 
 [Category: Feature](Category: Feature)

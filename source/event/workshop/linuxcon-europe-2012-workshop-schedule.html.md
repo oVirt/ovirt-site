@@ -37,7 +37,7 @@ The oVirt Workshop was co-hosted with the KVM Forum during LinuxCon Europe. The 
 | 13:00-13:40 | Extending oVirt via Custom Hooks                                                        | Andy Cathrow       |
 | 13:40-14:20 | SLA at oVirt                                                                            | Doron Fediuck      | [ Slides](Media:Ovirt-sla-Barcelona-white.pdf.zip‎)       |
 | 14:20-15:00 | IaaS Networking: Overlay-Based Virtual Networking vs Openflow-Controlled Switch Fabrics | Pino de Candia     | [ Slides](Media:Midokura-ovirt-workshop.pdf‎)             |
-| 15:30-16:15 | oVirt/Gluster Integration                                                               | Vijay Bellur       |
+| 15:30-16:15 | oVirt/Gluster Integration                                                               | Vijay Bellur       | [ Slides](Media:oVirt-Gluster.pdf)                        |
 | 16:15-17:00 | Integrating GlusterFS as a Storage Domain in VDSM                                       | Deepak C. Shetty   | [ Slides](Media:Deepak-ovirt-workshop.pdf)                |
 
 ## Friday, Nov 9th

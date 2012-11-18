@@ -8,6 +8,22 @@ wiki_last_updated: 2012-11-21
 
 # Sdk-changelog
 
+         * Sun Nov  18 2012 Michael Pasternak `<mpastern@redhat.com>` - 3.2.0.4-1
+         - cannot create simultaneous connections to multiple servers #853947
+         - to StorageDomainVM.import() added action.exclusive parameter
+         - to StorageDomainTemplate.import() added action.exclusive parameter
+         - added /current argument to VmCdRom.update() acorrding to #869257
+         - implemented support for #869257
+         - added /async argument to VmCdRom.update()
+         - added /async argument to ClusterNetworks.update()
+         - removed Disk.update() method
+         - added parameters overload for adding direct-lun disk
+         - added vm/template.display.smartcard_enabled
+         - added correlation_id to VMDisk.activate()/deactivate()
+         - added correlation_id to VMNic.activate()/deactivate()
+         - added certificate property to vm
+         - Disk.lunStorage renamed to Disk.lun_storage
+
          * Thu Nov  1 2012 Michael Pasternak `<mpastern@redhat.com>` - 3.2.0.3-1
          - do not send /max header on name-based search
          - Cannot fetch the disk using /alias #865407

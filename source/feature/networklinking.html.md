@@ -132,7 +132,7 @@ Changes:
 
     * plugged
 
-    * linkState
+    * linkState ("up"/ "down")
 
 *   Deprecating the active property under VM NIC
 *   Deprecating activate/deactivate actions

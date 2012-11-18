@@ -36,30 +36,30 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 #### Engine API
 
       VmNetworkInterface:
-        boolean wired;
+        boolean linkState;
 
 #### Database Changes
 
 <span style="color:Teal">**VM_INTERFACE**</span>
-{|class="wikitable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |wired ||boolean ||not null ||Indicates wether the vnic is wired |- |}
+{|class="wikitable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |link_state ||varchar[4] ||not null ||Indicates wether the vnic's link state is "up" or "down" |- |}
 
 <span style="color:Teal">**VM_INTERFACE_VIEW**</span>
-{|class="wikitable" !border="1"| Column Name ||Column Type ||Definition |- |wired ||boolean ||Indicates wether the vnic is wired |- |}
+{|class="wikitable" !border="1"| Column Name ||Column Type ||Definition |- |link_state ||varchar[4] ||Indicates wether the vnic's link state is "up" or "down" |- |}
 
 #### Engine Flows
 
 ##### Add Vnic
 
-*   'wired' property of VmNetworkInterface should be stored in the DB
+*   'linkState' property of VmNetworkInterface should be stored in the DB
 
       VmNetworkInterfaceDAODbFacadeImpl- save
 
-*   The 'wired' property is sent to the VDSM by ActivateDeactivateVmNicCommand command (for running VMs with the nic set to plugged)
+*   The 'linkState' property is sent to the VDSM by ActivateDeactivateVmNicCommand command (for running VMs with the nic set to plugged)
 
 ##### Update Vnic
 
 *   **shouldn't** throw canDo when trying to update a nic when the vm is running and the nic is plugged.
-*   'wired' property of VmNetworkInterface should also be stored in the DB
+*   'linkState' property of VmNetworkInterface should also be stored in the DB
 
       VmNetworkInterfaceDAODbFacadeImpl- update
 
@@ -93,7 +93,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 ##### Run VM
 
-*   When running a VM, the VM's Vnics' 'wired' property should also be passed to the VDSM, for 3.2 cluster and above.
+*   When running a VM, the VM's Vnics' 'linkState' property should also be passed to the VDSM, for 3.2 cluster and above.
 
       VmInfoBuilder.addNetworkInterfaceProperties
 
@@ -121,7 +121,7 @@ A new API is added for this feature.
             'type': 'interface',
             'device': 'bridge|sriov|vnlink|bridgeless',
             'network': 'network name',                      <--- bridge name
-            'wired': 'is network wired',
+            'linkState': 'up/down',
             'alias': <string>,      
             'promisc': <blue,red>,                          <--- promisc mirror mode, the interface will mirror all red and blue bridge traffic
      }
@@ -130,10 +130,10 @@ Vdsm would implement this using <http://libvirt.org/html/libvirt-libvirt.html#vi
 
 ##### Updated APIs
 
-*   **hotplugNic** - the vdsm should connect the Vnic's Network according to the 'wired' property passed on the Vnic.
-*   **createVm** - the vdsm should connect each of the Vm's Vnics according to the 'wired' property passed on the each Vnic.
+*   **hotplugNic** - the vdsm should connect the Vnic's Network according to the 'linkState' property passed on the Vnic.
+*   **createVm** - the vdsm should connect each of the Vm's Vnics according to the 'linkState' property passed on the each Vnic.
 
-In both cases, 'wired' property would be implemented by setting libvirt's <link state> element <http://libvirt.org/formatdomain.html#elementLink> . New vdsm errors will be added:
+In both cases, 'linkState' property would be implemented by setting libvirt's <link state> element <http://libvirt.org/formatdomain.html#elementLink> . New vdsm errors will be added:
 
     UPDATE_VNIC_FAILED- code 51
 

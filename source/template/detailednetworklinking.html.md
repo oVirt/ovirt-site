@@ -33,6 +33,16 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 ### Detailed Description
 
+#### Rest API
+
+      Enum LinkState{
+       up,
+       down
+      }
+
+*   The user will enter link_state as a string ("up"/"down").
+*   The link_state string will be translated to LinkState Enum before sending the entity to the backend.
+
 #### Engine API
 
       VmNetworkInterface:

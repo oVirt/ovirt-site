@@ -10,7 +10,7 @@ wiki_last_updated: 2013-11-14
 
          * Sun Nov  18 2012 Michael Pasternak `<mpastern@redhat.com>` - 3.2.0.7-1
          - disable output redirection via config #866853
-         - CTRL+C signal while password prompt appears causes to cli to fall #868647
+         - CTRL+C signal while password prompt appears causes cli to fall #868647
          - adapt to sdk #853947 fix
 
          * Thu Nov  1 2012 Michael Pasternak `<mpastern@redhat.com>` - 3.2.0.6-1

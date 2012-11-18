@@ -38,7 +38,10 @@ The network wiring feature is an enhancement for the VM Network Interface manage
       VmNetworkInterface:
         LinkState linkState;
 
-Enum LinkState{ up, down }
+      Enum LinkState{
+       up,
+       down
+      }
 
 #### Database Changes
 

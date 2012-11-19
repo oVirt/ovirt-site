@@ -28,7 +28,7 @@ oVirt provides everything you need to control virtual machines, storage, and vir
 
 It is a virtualization platform with an easy-to-use web interface and is powered by the [open source](Licensing) you know: KVM on Linux.
 
-<span class="btn btn-action">[Start using oVirt now »](Download)</span>
+<span class="btn btn-action">[Start using oVirt now »](../Download)</span>
 
 </div>
 </div>
@@ -74,7 +74,7 @@ The web admin console also includes new support for manging floating virtual dis
 
 oVirt, the first truly open and comprehensive data centre virtualization management initiative, provides a venue for user and developer cooperation. The heart of the project is the open source code of oVirt, and the community is governed openly, modeled after the Apache Foundation, Eclipse, LVM, and many other well functioning Linux communities.
 
-You're encouraged to [join the oVirt community](join the oVirt community), and help us bring open source software to virtual datacenters worldwide.
+You're encouraged to [ join the oVirt community](../Community), and help us bring open source software to virtual datacenters worldwide.
 
 </div>
 <div class="span4 pad-left-small pad-right-small">

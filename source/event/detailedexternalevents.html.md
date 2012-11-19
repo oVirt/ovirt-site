@@ -49,7 +49,6 @@ External Events can not use application variables, therefore no '$' expressions 
 
 ### CRUD
 
-Adding is_external boolean field to audit_log with a default value of *false*
 Adding deleted boolean field to audit_log with a default value of *false*
 Adding vendor varchar field to audit_log with a default value of *oVirt* [1]
 Adding custom_event_id integer field to audit_log with a default value of *-1* [2]

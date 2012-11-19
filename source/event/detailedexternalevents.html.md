@@ -68,10 +68,6 @@ Handling additionalfields in AuditLogDAODbFacadeImpl
 Modifying AuditLogDAOTest to include the added fields
 Adding additional fields to fixtures.xml
 
-### Configuration
-
-Exposing ExternalEventAgingThreashold to engine-config
-
 ### Business Logic
 
 Adding additional fields to *AuditLog* BE

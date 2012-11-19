@@ -71,6 +71,10 @@ The table will be updated only when a change was detected by the reported data f
 
 No changes for VDSM API.
 
+#### Upgrade DB
+
+Add the new table VM_INTERFACE_DYNAMIC.
+
 ### Dependencies / Related Features and Projects
 
 ### Open Issues

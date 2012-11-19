@@ -33,7 +33,7 @@ Since with host-passthrough gives the host cpu-capabilities to the VM's CPU, mig
     -   modify VmBase, add useHostCpuFlags boolean property
         -   database schema modification in tables, views and stored procedures
         -   DAO modifications
-    -   modify the Add/Edit VM dialog, add 'use host cpu flags' checkbox
+    -   modify the Add/Edit VM dialog, add 'use host cpu flags' checkbox - if UniqueHosts is false, then it should be enabled only when Vm is pinned to host
 *   vdsm modifications:
     -   add support to domain creation for host-passthrough proposed name is 'useHostCpuFlags'
 

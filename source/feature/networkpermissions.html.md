@@ -39,7 +39,7 @@ Please refer to [Action Permissions overview](http://wiki.ovirt.org/wiki/Action_
 
 #### User
 
-*   For attaching a network to a Vnic in the VM you need to have the role of **VmNetworkUser** on the network and **VmAdmin** on the VM.
+*   For attaching a network to a Vnic in the VM you need to have the role of **NetworkUser** on the network and **VmAdmin** on the VM.
 *   In user portal - the list of shown network for a user will include only the list of networks the user is allowed to attach to its vnics (instead of all cluster's networks).
 *   In RESTFul API the user will be able to see all of the networks.
 
@@ -98,7 +98,7 @@ The **existing Action Groups** and their associated Actions:
 
 ##### New Roles
 
-*   **VmNetworkUser** a new user role to be associated with the following groups: CONFIGURE_VM_NETWORK and CONFIGURE_TEMPLATE_NETWORK.
+*   **NetworkUser** a new user role to be associated with the following groups: CONFIGURE_VM_NETWORK and CONFIGURE_TEMPLATE_NETWORK.
     -   It should allow the user to create vnics attached to the subjected network or to update an existing vnic network.
 
 ##### Updated Roles
@@ -165,8 +165,8 @@ DB Upgrade should handle the following:
 
 <!-- -->
 
-*   Permission with **VmNetworkUser** role will be granted to the user on each network attached to the VM.
-    -   If A user already have a role that contains 'CONFIGURE_VM_NETWORK' action group, he should be granted with 'VmNetworkUser' role on the networks of that VMs for parity.
+*   Permission with **NetworkUser** role will be granted to the user on each network attached to the VM.
+    -   If A user already have a role that contains 'CONFIGURE_VM_NETWORK' action group, he should be granted with 'NetworkUser' role on the networks of that VMs for parity.
 
 bug fix:
 Remove MANIPUTLATE_HOST action group from NetworkAdmin role.

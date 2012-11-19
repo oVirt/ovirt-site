@@ -76,8 +76,7 @@ Adding additional fields to *AuditLog* BE
         EXTERNAL_EVENT_NORMAL  
         EXTERNAL_EVENT_WARNING 
         EXTERNAL_EVENT_ERROR   
-        EXTERNAL_ALERT_ON
-        EXTERNAL_ALERT_OFF
+        EXTERNAL_ALERT
 
 Adding severities for the new types in AuditLogDirector
 Adding AddExternalEvent command

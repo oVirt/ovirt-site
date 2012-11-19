@@ -144,6 +144,7 @@ We will use the existing events URL (.../api/events) and the existing Event busi
 
 Global External Events will be displayed on the Global Events TAB
 Entity instance External Events will be displayed on the Events TAB when selecting the Entity instance
+External Alerts will be displayed in the *Alerts* TAB
 
 ### Installation/Upgrade
 

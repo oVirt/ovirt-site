@@ -30,6 +30,10 @@ Application stores, display and searches only internal events.
 
 *   Last updated date: Nov 8, 2012
 
+### Use Case
+
+The main use case is for third party vendors, to integrate with RHEV-M. A vendor may have a set of events and alerts , per product or per specific hardware. (no limitation should exists on the number of events/alerts per Vendor). Multiple Vendors may integrate with the system at any given time. All add-ons services that are using the Events mechanism should apply here too: email notification, flooding mechanism, alerts, etc.
+
 ### Detailed Description
 
 The Audit Log module enables insertions of internal events.

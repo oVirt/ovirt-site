@@ -21,6 +21,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *Agenda*
 
 *   MediaWiki & www
+*   MediaWiki backup script
 *   Hosting
 *   Trac review
 *   Puppet

@@ -116,4 +116,4 @@ The new scheduler improves oVirt's default scheduler (~VdsSelector) and gives a 
 
 Comments are welcome on the irc channel, engine-devel mailing list and in person.
 
-<Category:Feature>
+<Category:Feature> <Category:SLA>

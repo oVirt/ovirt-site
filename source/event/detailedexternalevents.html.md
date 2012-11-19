@@ -94,6 +94,10 @@ Adding the is_external keyword to the Search Engine to filter application/extern
 
 #### Flow
 
+*Delete Alert* Flow:
+Mark the relevant entry of the Alert in DB with *deleted = true*
+Add a NORMAL event on the Alert deletion with all relevant details (user, time etc.)
+
 ### Permissions
 
 #### Command Permissions

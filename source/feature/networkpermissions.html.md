@@ -174,11 +174,15 @@ Remove MANIPUTLATE_HOST action group from NetworkAdmin role.
 #### UI Changes
 
 Add Permissions sub-tab under Networks main tab
+Add Network as an entity of both User/Admin role dialog.
 Add Network User role to Roles Tree in:
  *frontend/webadmin/modules/uicommonweb/src/main/java/org/ovirt/engine/ui/uicommonweb/models/configure/roles_ui/RoleTreeView.java*
 
 ` `*`frontend/webadmin/modules/uicompat/src/main/java/org/ovirt/engine/ui/uicompat/Enums.java`*
 ` `*`frontend/webadmin/modules/uicompat/src/main/resources/org/ovirt/engine/ui/uicompat/Enums.properties`*
+
+On 'New Logical Network' dialog a new option will be added as check box with message: "Allow all users to access this Network"
+Checking this option will grant 'everyone' permissions of the created network with 'VmNetworkUser' role.
 
 User Portal should be modified to use the updated query.
 

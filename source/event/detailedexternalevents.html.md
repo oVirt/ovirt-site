@@ -104,6 +104,8 @@ Adding support for searching events by:
        vendor
        custom_event_id
 
+External Events can be filtered using *vendor != 'oVirt*'
+
 ### Flow
 
 *Add Event/Alert* Flow:

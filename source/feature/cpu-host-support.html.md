@@ -26,6 +26,8 @@ CPU-Host support allows the virtual machines to see and utilize the host's CPU f
 
 ### Detailed Description
 
+Since with host-passthrough gives the host cpu-capabilities to the VM's CPU, migration can not happen to different CPU-models. This could still be acceptable if all the hosts are all uniform in the cluster.
+
 ### Benefit to oVirt
 
 Allows the users to get better performance from their VM's.

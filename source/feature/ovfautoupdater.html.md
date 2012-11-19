@@ -64,7 +64,7 @@ vdc_options table:
 
 #### Known issues
 
-1. as there are no locks in the flow - there's a chance that there might be an update to the vm during the run of OvfAutoUpdater, if it occurs the ovf data might be incorrect till the next scheduled run of the ovfautoupdater in which the ovf will be updated again (because of incremented version) , this is basically a corner case which we can take to avoid using locks which will affect the whole system.
+1. as there are no locks in the flow - there's a chance that there might be an update to the vm during the run of OvfAutoUpdater, if it occurs the ovf data might be incorrect till the next scheduled run of the ovfautoupdater in which the ovf will be updated again (because of incremented version) , this is basically a corner case which we can take in order to avoid using locks which will affect the whole system.
 
 ### Possible improvements
 

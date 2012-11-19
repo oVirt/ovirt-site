@@ -57,7 +57,7 @@ vdc_options table:
 1.  1. Get all Storage Pool in status 'UP' (meaning we have a valid master domain and spm)
 2.  2. For each storage pool in status 'UP' - Get all VM's/Templates within that storage pool that were changed since last run (db_generation > ovf_generation) which are not locked and none of their disks are locked .
 3.  3. Try to run UpdateVmInSpm for all those vms together in a single call (it might be neccassary to split the update execution into chunks in order to avoid performing the operation on too many vms/templates in the same call).
-4.  4. If succesfull - for each vm update the ovf_generation to equal the db_generation.
+4.  4. If succesfull - for each vm update the ovf_generation to equal the db_generation that was queried.
 
 *   Replace updateVmInSpm call in commands with an increment to the db_generation version.
 *   Increment the db_generation column in vm_static should be performed in the same transcation of the vm unlock operation after succesfull flow.

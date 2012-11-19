@@ -100,7 +100,6 @@ Adding AddExternalEventParameters with the following fields
 
 Adding support for searching events by:
 
-       is_external
        deleted
        vendor
        custom_event_id

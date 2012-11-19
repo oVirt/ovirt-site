@@ -42,8 +42,8 @@ The time interval (minutes) between OvfAutoUpdater runs can be configured by the
 
 vm_static table:
 
-       add column - db_generation INTEGER default 1
-       add column - ovf_generation INTEGER default 0
+       add column - db_generation BIGINT default 1
+       add column - ovf_generation BIGINT default 0
 
 vdc_options table:
 

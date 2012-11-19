@@ -14,6 +14,7 @@ These pages are to organise work on the reorganisation of the [ovirt.org front p
 
 ## Priorities
 
+*   Migrate to new theme and [update content accordingly](New website tasks)
 *   Provide an automated way for someone to create an account on the wiki. Rather than requiring a user to contact an existing account holder, we can enable the [ConfirmAccount extension](http://www.mediawiki.org/wiki/Extension:ConfirmAccount) to allow a more standard moderator workflow, and add a number of people to the Bureaucrat role.
 *   Review top level menu and web pages, and propose an alternative organisation. Some things are prominent that don't need to be, other things which should be are not.
 *   Start spring-cleaning the wiki: make a more attractive front page, categorise pages, and generally work on making it more easily navigable (page renaming is crucial)

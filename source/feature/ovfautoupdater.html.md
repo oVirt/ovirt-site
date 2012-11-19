@@ -42,7 +42,7 @@ The time interval (minutes) between OvfAutoUpdater runs can be configured by the
 
 vm_static table:
 
-       add column - ovf_update_date TIMESTAMP WITH TIMEZONE(DEFAULT 1/1/1970) - same as update_date column
+       add column - ovf_update_date TIMESTAMP WITH TIMEZONE(DEFAULT 1/1/1970) - same as the existing update_date
 
 vdc_options table:
 

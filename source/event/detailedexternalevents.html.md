@@ -44,8 +44,6 @@ Enable plug-ins to inject their own events to the system using API
 This will be done by adding a new *AddExternalEvent* command and expose it to the REST API
 External events should be displayed in the Events tab in UI and may be searched as any other event.
 External Events are classified as application events based on severity values of NORMAL, WARNING ERROR or ALERT
-This classification is displayed in UI by using a different icon for each
-It is recommended to add clones of existing icons for NORMAL, WARNING ERROR or ALERT with a different look to make it easy to distinguish visually between an application event and External Event.
 
 ### CRUD
 

@@ -50,9 +50,11 @@ Alerts that are deleted from the system are only marked as deleted in the *audit
 
 Adding is_external boolean field to audit_log with a default value of *false*
 Adding deleted boolean field to audit_log with a default value of *false*
-Adding vendor varchar field to audit_log with a default value of *oVirt*
-Adding custom_event_id integer field to audit_log with a default value of *-1*
+Adding vendor varchar field to audit_log with a default value of *oVirt* [1]
+Adding custom_event_id integer field to audit_log with a default value of *-1* [2]
 Adding event_flood_in_sec integer field to audit_log with a default value of *30*
+ [1] *vendor* is a unique string that identifies the vendor
+[2] *custom_event_id* is a sequential number that identifies the event/alert instance
  Update relevant views to return the additional fields.
 
 #### DAO

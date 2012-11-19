@@ -16,6 +16,18 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
     -   To see in your timezone date -d 'MONDAY 1000 EDT'
 *   *Where:* On IRC: #ovirt on irc.oftc.net
 
+## 2012-11-19
+
+*Agenda*
+
+*   MediaWiki & www
+*   Hosting
+*   Trac review
+*   Puppet
+*   Jenkins
+*   Gerrit
+*   Other business?
+
 ## 2012-11-12
 
 *Agenda*

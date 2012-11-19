@@ -49,14 +49,11 @@ External Events are classified as application events based on severity values of
 
 Adding is_external boolean field to audit_log with a default value of *false*
 Update relevant views to return the is_external flag.
- Adding a new configuration value that is exposed to engine-config named ExternalEventAgingThreashold
-This value controls when old events are deleted from the audit_log table and is defaulted to 30 days.
 
 #### DAO
 
 Adding is_external to AuditLog BE
 Handling is_external in AuditLogDAODbFacadeImpl
-Modify DeleteAuditLogOlderThenDate sp to get also event type parameter (application/external)
 
 #### Metadata
 

@@ -63,8 +63,6 @@ The web admin console also includes new support for manging floating virtual dis
 
 </div>
 <div class="pull-right">
-[…and over 250 more »](features)
-
 </div>
 </div>
 </div>
@@ -92,3 +90,4 @@ Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt 
 
 </div>
 </div>
+[…and over 250 more »](Category:Features)

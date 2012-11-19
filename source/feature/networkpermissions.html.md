@@ -159,14 +159,13 @@ The following queries will be modified to be filtered by the user:
 
 DB Upgrade should handle the following:
 
-*   Permissions on VmNetworkInterface should be deleted from the setup if any.
+*   Permissions on VmNetworkInterface should be deleted from the setup (if any).
 *   Permission on Data Center with PORT_MIRRORING action group will be replaced with:
     -   Permission on All the networks in the DC with PORT_MIRRORING action group.
 
 <!-- -->
 
-*   Permission with **NetworkUser** role will be granted to the user on each network attached to the VM.
-    -   If A user already have a role that contains 'CONFIGURE_VM_NETWORK' action group, he should be granted with 'NetworkUser' role on the networks of that VMs for parity.
+*   Permission with **NetworkUser** role will be granted to 'everyone' for each network in the system.
 
 bug fix:
 Remove MANIPUTLATE_HOST action group from NetworkAdmin role.

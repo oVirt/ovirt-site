@@ -32,7 +32,7 @@ Allows the users to get better performance from their VM's.
 
 ### Dependencies / Related Features
 
-*   libvirt's
+*   libvirt's [CPU-model and topology](http://libvirt.org/formatdomain.html#elementsCPU)
 
 ### Documentation / External references
 

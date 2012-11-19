@@ -146,8 +146,7 @@ We will use the existing events URL (.../api/events) and the existing Event busi
 
 ### User Experience
 
-User should be able to use the keyword is_external when searching for events
- Global External Events will be displayed on the Global Events TAB
+Global External Events will be displayed on the Global Events TAB
 Entity instance External Events will be displayed on the Events TAB when selecting the Entity instance
 
 ### Installation/Upgrade

@@ -62,6 +62,10 @@ vdc_options table:
 *   Replace updateVmInSpm call in commands with an increment to the db_generation version.
 *   Increment the db_generation column in vm_static should be performed in the same transcation of the vm unlock operation after succesfull flow.
 
+#### Known issues
+
+1. as there are no locks in the flow - there's a chance that there might be an update to the vm during the run of OvfAutoUpdater, if it occurs the ovf data might be incorrect till the next scheduled run of the ovfautoupdater in which the ovf will be updated again (because of incremented version) , this is basically a corner case which we can take to avoid using locks which will affect the whole system.
+
 ### Possible improvements
 
 1.  In case the operation in vdsm has succeeded on part of the sent vms/templates - we might get it back together with the result from vdsm so we won't run the update for it again.

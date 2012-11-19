@@ -86,7 +86,7 @@ Here’s the latest news from our official announcements on Twitter and Identi.c
 <div class="span4 pad-left-small pad-right">
 ### Upcoming events
 
-Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet.
+This section will either be: 1. Static text related to upcoming workshops and event participation, or 2. A short RSS feed taken from our community calendar, or 3. A short RSS feed taken from a "News and Events" page here on the wiki
 
 </div>
 </div>

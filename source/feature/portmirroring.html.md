@@ -52,7 +52,6 @@ Notes:
     -   A user which has this permission on the DC level, will be able to check this flag for every logical network in the DC, on every cluster (assuming he has permissions on the cluster/VM, of course).
     -   In the engine-core we will test for this permission on the network level, although for now it will only inherit the permission from the DC, as we won't enable setting this permission via the UI/API.
     -   The role will allow users to check the port mirroring flag on the VM NIC. However, everyone with edit permissions on the VM will be able to uncheck it.
-    -   This flag will be exposed in the user portal as well.
 
 ### Import/Export/Templates
 

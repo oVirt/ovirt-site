@@ -45,8 +45,7 @@ Please refer to [Action Permissions overview](http://wiki.ovirt.org/wiki/Action_
 
 ##### Port-mirroring
 
-*   For configuring in the VM port mirroring you need to have the role of **VmAdvancedNetworkUser** on the network and **VmAdmin** on the VM.
-    -   **VmAdvancedNetworkUser** includes all the **VmNetworkUser** actions and in addition the port mirroring action.
+*   For configuring in the VM port mirroring you need to have the role of **NetworkAdmin** on the network and **VmAdmin** on the VM.
 
 ### Detailed Design
 
@@ -101,7 +100,6 @@ The **existing Action Groups** and their associated Actions:
 
 *   **VmNetworkUser** a new user role to be associated with the following groups: CONFIGURE_VM_NETWORK and CONFIGURE_TEMPLATE_NETWORK.
     -   It should allow the user to create vnics attached to the subjected network or to update an existing vnic network.
-*   **VmAdvancedNetworkUser** a new role will include the same action groups as **VmNetworkUser** and in addition the PORT_MIRRORING action group.
 
 ##### Updated Roles
 
@@ -112,15 +110,14 @@ The **existing Action Groups** and their associated Actions:
         -   CONFIGURE_STORAGE_POOL_NETWORK - to allow add/remove/update of networks to the Data-Center.
         -   MANAGE_CLUSTER_NETWORK - new action group.
     -   Attaching a network to host's nic will not require permission on the attached network, rather on the host only.
+    -   PORT_MIRRORING - allows to define a network as port-mirroring
 
 ##### Updated Action Groups
 
 *   **PORT_MIRRORING** should require permissions on both the Vm and the target Network.
-    -   The action group will be modified from Admin role type to a User role type.
     -   Required permissions:
         -   Permission on the network with PORT_MIRRORING action group.
         -   Permission on the VM with CONFIGURE_VM_NETWORK action group.
-    -   When permissions are given to the user, the user will be able to configure when the port mirroring should be enabled or disabled.
 
 <!-- -->
 
@@ -170,7 +167,6 @@ DB Upgrade should handle the following:
 
 *   Permission with **VmNetworkUser** role will be granted to the user on each network attached to the VM.
     -   If A user already have a role that contains 'CONFIGURE_VM_NETWORK' action group, he should be granted with 'VmNetworkUser' role on the networks of that VMs for parity.
-*   Permission with **AdvancedVmNetworkUser** role will be granted to the user on each network attached to the VM with port-mirroring enabled.
 
 bug fix:
 Remove MANIPUTLATE_HOST action group from NetworkAdmin role.

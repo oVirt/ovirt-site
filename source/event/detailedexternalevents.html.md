@@ -97,7 +97,9 @@ Adding AddExternalEventParameters with the following fields
 Adding the is_external keyword to the Search Engine to filter application/external events
  Change AuditLogCleanup logic to handle application & External cleanups
 
-#### Flow
+### Search Engine
+
+### Flow
 
 *Delete Alert* Flow:
 Mark the relevant entry of the Alert in DB with *deleted = true*

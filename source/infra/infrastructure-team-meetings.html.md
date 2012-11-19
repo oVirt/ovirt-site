@@ -22,6 +22,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 *   MediaWiki & www
 *   MediaWiki backup script
+*   User:DNeary admin access request
 *   Hosting
 *   Trac review
 *   Puppet

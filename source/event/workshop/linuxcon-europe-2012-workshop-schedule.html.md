@@ -17,11 +17,11 @@ The oVirt Workshop was co-hosted with the KVM Forum during LinuxCon Europe. The 
 
 ### Wednesday November 7th 2012 - User Day
 
-| **Time**      | **Title**                                     | **Presenter**  | **Slides**                                                |
-|---------------|-----------------------------------------------|----------------|-----------------------------------------------------------|
-| 9:00-11:00    | oVirt Overview and Demo                       | Andy Cathrow   |                                                           |
-| 11:00-12:00   | oVirt Node – Architecture, Design and Roadmap | Mike Burns     | [ Slides](Media:Ovirt-node-2012-11-07.pdf)     |
-| 13:00-13:40   | oVirt High Level Architecture and Roadmap     | Itamar Heim    | [ Slides](Media:Heim-ovirt-arch-barcelona.pdf) |
+| **Time**      | **Title**                                     | **Presenter**  | **Slides**                                                                                                                    |
+|---------------|-----------------------------------------------|----------------|-------------------------------------------------------------------------------------------------------------------------------|
+| 9:00-11:00    | oVirt Overview and Demo                       | Andy Cathrow   |                                                                                                                               |
+| 11:00-12:00   | oVirt Node – Architecture, Design and Roadmap | Mike Burns     | [ Slides](Media:Ovirt-node-2012-11-07.pdf)                                                                         |
+| 13:00-13:40   | oVirt High Level Architecture and Roadmap     | Itamar Heim    | [ Architecture](Media:Heim-ovirt-arch-barcelona.pdf) [ Roadmap](Media:Heim-ovirt-roadmap-barcelona.pdf) |
 | 13:40-14:20   | Deep Dive Features: Network                   | Simon Grinberg |
 | 14:20-15:00   | Deep Dive Features: Storage                   | Andy Cathrow   |
 | 15:30 – 18:00 | Hands-on Lab – Use and Install                | Moran Goldboim |
@@ -55,3 +55,12 @@ The oVirt Workshop was co-hosted with the KVM Forum during LinuxCon Europe. The 
 | 15:30-16:00 | oVirt Node and OpenStack                           | Fabian Deutsch      | [ Slides](Media:Deutsch-node-openstack-integration.pdf) |
 | 16:00-16:45 | Drools Integration into oVirt Engine               | Laszlo Hornyak      |
 | 16:45-17-30 | **BOF:** How can we improve oVirt Troubleshooting? | Lee Yarwood         |
+
+## Other oVirt Content at LinuxCon Europe
+
+Aside from the oVirt Workshop, oVirt was also present in the CloudOpen Summit, the Gluster Workshop and the KVM Forum.
+
+| **Event**        | **Title**                                                    | **Presenter** | **Slides**                                                 |
+|------------------|--------------------------------------------------------------|---------------|------------------------------------------------------------|
+| CloudOpen Summit | Introduction to the oVirt Virtualization Management Platform | Itamar Heim   | [ Slides](Media:Heim-ovirt-intro-barcelona.pdf) |
+| Gluster workshop | Integrating GlusterFS, oVirt and KVM                         | Vijay Bellur  |

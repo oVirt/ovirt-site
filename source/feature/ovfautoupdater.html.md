@@ -51,7 +51,7 @@ vdc_options table:
 
 #### Engine
 
-*   New singleton - OvfDataUpdater with an instance initiated during class loading - the constructor schedules a quartz job with interval as configured in the 'OvfUpdateIntervalInMinutes' config value.
+*   New singleton - OvfDataUpdater with an instance initiated during server startup - the constructor schedules a quartz job with interval as configured in the 'OvfUpdateIntervalInMinutes' config value.
 *   When timer time has elapsed, performs the following:
 
 1.  1. Get all Storage Pool in status 'UP' (meaning we have a valid master domain and spm)

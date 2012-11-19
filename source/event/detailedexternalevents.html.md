@@ -171,11 +171,4 @@ Add additional fields to audit_log table upon upgrade
 External Event types should be exposed to the engine-notification tool in future releases
 Gathering Events/Alerts by the History ETL should be considered in future releases
 
-#### Resetting an Alert
-
-How an external ALERT disappears from the system after problem is resolved.
-Options:
- 1) Support EXTERNAL_ALERT_ON EXTERNAL_ALERT_OFF
-2) Have a time period for each ALERT and clean the ALERT when this time is passed.
-
 [Category: Feature](Category: Feature)

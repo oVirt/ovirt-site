@@ -65,7 +65,7 @@ The table will be updated only when a change was detected by the reported data f
 #### Engine Flows
 
 <span style="color:Teal">**Update Vm Network Interface**</span> - requires initializing the content of the vNic's dynamic data.
- <span style="color:Teal">**VdsUpdateRunTimeInfo.refreshVms**</span> - will refresh the vnic's dynamic data (as an optimization only if the data was changed).
+ <span style="color:Teal">**VdsUpdateRunTimeInfo.refreshVms**</span> - will refresh the vnic's dynamic data (as an optimization only if the data was changed). Update should be performed as a mass-operation.
 
 #### VDSM API
 

@@ -73,7 +73,7 @@ No changes for VDSM API.
 
 #### Upgrade DB
 
-Add the new table VM_INTERFACE_DYNAMIC.
+Add the new table VM_INTERFACE_DYNAMIC and related stored-procedure for add/update/delete.
 
 ### Dependencies / Related Features and Projects
 

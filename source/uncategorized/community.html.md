@@ -1,0 +1,76 @@
+---
+title: Community
+authors: bproffitt, dneary, knesenko, quaid, sandrobonazzola, theron
+wiki_title: Community
+wiki_revision_count: 25
+wiki_last_updated: 2015-03-02
+---
+
+# Community
+
+__NOTOC__
+
+<div class="row">
+<div class="span6 pad-left pad-right-small">
+## Get involved!
+
+Everyone can contribute something back to the project — one doesn't have to be a programmer to make a difference!
+
+When starting out, we suggest [signing up for the users@ovirt.org mailing list](signing up for the users@ovirt.org mailing list) and sending an introductory email — here's [an example introductory message](an example introductory message) to help. [Join us on IRC](Join us on IRC) and communicate with us too, if it's possible for you to do so.
+
+We're looking forward to working with you!
+
+### Find and file bugs
+
+As someone who uses the software, your help in finding and filing bugs is thoroughly appreciated.
+
+[Report oVirt bugs on the Red Hat bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt). If you don't have a Bugzilla account yet, [ find out how to get one](reporting a bug).
+
+### Translate, 翻译, ‫לתרגם‬
+
+It's great to have the oVirt software itself in multiple languages, and even better to have its documentation available in everyone's native tongue too. Help improve oVirt by working on new translations and making each version the best it can be.
+
+### Write documentation
+
+Have a knack for writing? oVirt needs excellent, easy-to-read documentation for installation and usage, and it needs to be kept up-to-date with every release of oVirt.
+
+### Design
+
+Whether you push pixels or strive to put users first — if you're a designer, you too have a place in the project. At every step of the way, from initial ideas to iterations through out the development process, design is valuable to the oVirt project.
+
+### Develop the code
+
+Know how to program? Jump in and help us out. There's even a whole section of our website dedicated to you — start by reading the [develop section](develop section).
+
+### Community governance & structure
+
+oVirt is an [open source project](open source project) that is [released every six months](released every six months) and is an [openly governed project](openly governed project). Learn more about [how the project is structured](how the project is structured), and [who is on the board](who is on the board).
+
+</div>
+<div class="span6 pad-left-small pad-right">
+## Communicate with us
+
+Interacting with the oVirt community is everything from giving feedback through jumping in and making oVirt even better.
+
+### Follow us on social networks
+
+Keep track of the latest happenings in the oVirt community, including new release announcements, and send your thoughts. Follow us on [Twitter](https://twitter.com/ovirt).
+
+### Chat with us on IRC
+
+People using oVirt and all those who develop the software are welcome in [the #ovirt channel on irc.OFTC.net](the #ovirt_channel_on_irc.OFTC.net).
+
+If you don't already have a IRC client, you can [join our channel in your web browser by using mibbit](join our channel in your web browser by using mibbit).
+
+We're most active in [the UMT-nearby timezones](the UMT-nearby timezones), but there are usually folks hanging out throughout the entire day. Also: be sure to [read our simple etiquette guidelines](read our simple etiquette guidelines). (Quick summary: be nice!)
+
+### Have conversations on our mailing lists
+
+There are many mailing lists related to all aspects of oVirt. Some are for people using the software, others are for developing oVirt, and there are even more for administration and governance purposes.
+
+Remember to be polite and [read our etiquette guide](read our etiquette guide).
+
+Join all of the following mailing lists that interest you:
+
+</div>
+</div>

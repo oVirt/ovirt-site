@@ -115,7 +115,7 @@ Adding support for searching events by:
 *Add Event/Alert* Flow:
 Invoke *..api/events/add* API giving at least AuditLogType, Severity, Vendor & CustomEventId
  *Delete Alert* Flow:
-Mark the relevant entry of the Alert in DB with *deleted = true*
+Invoke ..api/events/delete API giving at least AuditLogType, Severity, Vendor & CustomEventId Mark the relevant entry of the Alert in DB with *deleted = true*
 Add a NORMAL event on the Alert deletion with all relevant details (user, time etc.)
 
 ### Permissions

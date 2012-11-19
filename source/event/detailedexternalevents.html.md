@@ -71,7 +71,8 @@ Exposing ExternalEventAgingThreashold to engine-config
 
 ### Business Logic
 
-Adding the following types to AuditLogType
+Adding additional fields to *AuditLog* BE
+ Adding the following types to AuditLogType
 
         EXTERNAL_EVENT_NORMAL  
         EXTERNAL_EVENT_WARNING 
@@ -85,6 +86,9 @@ Adding AddExternalEventParameters with the following fields
 
         AuditLogSeverity [Mandatory]
         Message [Mandatory]
+        Vendor  [Mandatory]
+        CustomEventId [Mandatory]
+        EventFloodInSec[[Optional] -- 30 sec if not defined
         UserId [Optional]
         DataCenterId [Optional]
         StorageDomainId [Optional]
@@ -93,9 +97,6 @@ Adding AddExternalEventParameters with the following fields
         VmId [Optional]
         TemplateId [Optional]
         GlusterVolumeId [Optional]
-
-Adding the is_external keyword to the Search Engine to filter application/external events
- Change AuditLogCleanup logic to handle application & External cleanups
 
 ### Search Engine
 

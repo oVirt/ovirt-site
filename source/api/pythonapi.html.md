@@ -178,7 +178,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
           
              api.vms.get(VM_NAME).disks.add(params.Disk(storage_domains=params.StorageDomains(storage_domain=[api.storagedomains.get(STORAGE_NAME)]),
                                                          size=512*MB,
-                                                         type_='system',
+                                                         # type_='system', - disk type is deprecated
                                                          status=None,
                                                          interface='virtio',
                                                          format='cow',

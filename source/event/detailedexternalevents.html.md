@@ -99,7 +99,7 @@ Adding the is_external keyword to the Search Engine to filter application/extern
 
 ### Search Engine
 
-Adding support for searacing events by:
+Adding support for searching events by:
 
        is_external
        deleted

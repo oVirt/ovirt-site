@@ -99,6 +99,13 @@ Adding the is_external keyword to the Search Engine to filter application/extern
 
 ### Search Engine
 
+Adding support for searacing events by:
+
+       is_external
+       deleted
+       vendor
+       custom_event_id
+
 ### Flow
 
 *Delete Alert* Flow:

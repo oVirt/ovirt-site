@@ -164,9 +164,7 @@ Add additional fields to audit_log table upon upgrade
 [RFE2](https://bugzilla.redhat.com/show_bug.cgi?id=873223)
  [Features/ExternalEvents](Features/ExternalEvents)
 
-### Open Issues
-
-#### Future directions
+### Future directions
 
 External Event types should be exposed to the engine-notification tool in future releases
 Gathering Events/Alerts by the History ETL should be considered in future releases

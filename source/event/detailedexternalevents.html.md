@@ -45,6 +45,7 @@ This will be done by adding a new *AddExternalEvent* command and expose it to th
 External events should be displayed in the Events tab in UI and may be searched as any other event.
 External Events are classified as application events based on severity values of NORMAL, WARNING ERROR or ALERT
 Alerts that are deleted from the system are only marked as deleted in the *audit_log* table and not removed permanently from the database
+External Events can not use application variables, therefore no '$' expressions should appear in the Event/Alert free message text
 
 ### CRUD
 

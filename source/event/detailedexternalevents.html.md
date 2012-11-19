@@ -88,6 +88,7 @@ Adding AddExternalEventParameters with the following fields
         Message [Mandatory]
         Vendor  [Mandatory]
         CustomEventId [Mandatory]
+        CustomData [Mandatory]
         EventFloodInSec[[Optional] -- 30 sec if not defined
         UserId [Optional]
         DataCenterId [Optional]

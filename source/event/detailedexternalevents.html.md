@@ -61,7 +61,7 @@ Adding *event_flood_in_sec* integer field to audit_log with a default value of *
 #### DAO
 
 Adding additional fields to AuditLog BE
-Handling additionalfields in AuditLogDAODbFacadeImpl
+Handling additional fields in AuditLogDAODbFacadeImpl
 
 #### Metadata
 

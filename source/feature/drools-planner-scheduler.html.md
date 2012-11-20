@@ -99,6 +99,8 @@ All rules in [situation costs](#costs_of_the_situation) should have a migration 
 *   CPU constraints
     -   VM cpus > VDS.cpus - not enough CPUs
     -   *note that cpu over and under-allocation are soft constraints*
+*   future hard constraints
+    -   [Trusted_compute_pools](Trusted_compute_pools) VM's with trusted flag can only run on trusted hosts
 
 ### Benefit to oVirt
 

@@ -42,4 +42,6 @@ V)The configuration parameters in vdsm.conf should be pull out to another hsm.co
 
 VI) All of the HSM files should be self contained and will be packaged into another RPM package different from VDSM package.
 
+VII) All of the python modules shared by both VDSM service and HSM service should go into python site-packages directory which is like /usr/lib/python2.7/site-packages/vdsm Now, task.py doesn't sit in this directory, we should fix it in this proposal.
+
 <Category:Vdsm>

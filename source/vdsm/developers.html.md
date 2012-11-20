@@ -25,7 +25,8 @@ you can clone it with
 
 Vdsm uses autoconf and automake as it's build system.
 
-       Fedora users should verify the following packages are installed before attempting to build:
+Fedora users should verify the following packages are installed before attempting to build:
+
        yum install autoconf automake pyflakes logrotate gcc python-pep8 libvirt-python python-devel \
        python-nose rpm-build sanlock-python genisoimage python-ordereddict python-pthreading
 

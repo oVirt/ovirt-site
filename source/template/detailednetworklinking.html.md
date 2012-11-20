@@ -98,7 +98,9 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 :\*\* Otherwise, if network is changed or disconnected
 
-:\*\*\* updateVmInteface should be sent to the VDSM.
+:\*\*\* If cluster c. version is 3.2 or upper updateVmInteface should be sent to the VDSM.
+
+:\*\*\* Otherwise, through canDoAction
 
     * unplugged --> unplugged
 

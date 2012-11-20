@@ -138,7 +138,6 @@ A new API is added for this feature.
 
     params = {
             'type': 'interface',
-            'device': 'bridge|sriov|vnlink|bridgeless',
             'network': 'network name',                      <--- bridge name
             'linkState': 'up/down',
             'alias': <string>,      

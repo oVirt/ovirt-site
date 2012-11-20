@@ -65,7 +65,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 ##### Add Vnic
 
-*   canDoAction- allow 'null' network just for 3.2 (cluster compatibility version).
+*   canDoAction- allow 'null' network just for 3.2 or upper cluster compatibility version.
 *   'linkState' property of VmNetworkInterface should be stored in the DB
 
       VmNetworkInterfaceDAODbFacadeImpl- save
@@ -100,7 +100,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 :\*\*\* If cluster c. version is 3.2 or upper updateVmInteface should be sent to the VDSM.
 
-:\*\*\* Otherwise, through canDoAction
+:\*\*\* Otherwise, throw canDoAction
 
     * unplugged --> unplugged
 

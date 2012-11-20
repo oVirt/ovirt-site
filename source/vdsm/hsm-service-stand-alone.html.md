@@ -12,11 +12,11 @@ wiki_last_updated: 2012-11-20
 
 VDSM storage service stand alone(HSM service standalone)
 
-The VDSM service exposes a set of node level APIs to the virtualization manager for managing KVM virtual machine life cycle and storage images for these virtual machines. Among these APIs, storage image APIs are implemented on NFS file systems, block devices, gluster file system, &etc. Decoupling the storage image service from VDSM service will make the VDSM service more modular. Also an opportunity is provided for other virtualization stacks to leverage this modular storage service(HSM service). Other virtulization stacks may include OpenStack's glance, cinder projects.
+The VDSM service exposes a set of node level APIs to the virtualization manager for managing KVM virtual machine life cycle and storage images for these virtual machines. Among these APIs, storage image APIs are implemented on NFS file systems, block devices, gluster file system, &etc. Decoupling the storage image service from VDSM service will make the VDSM service more modular. Also an opportunity is provided for other virtualization stacks to leverage this modular storage service(HSM service). Other virtulization stacks may include OpenStack's glance, cinder projects&etc.
 
 To make the HSM service stand alone, VDSM service will be re-factored like these. The VDSM service will keep the same APIs as before to oVirt engine and other node level API consumers. HSM service starts as an stand-alone XML-RPC service provider to the VDSM service. Also it is negotiable to support other bindings like REST API, however XML-RPC binding is the initial proposal here. HSM service will start as a stand alone service and export the XML-RPC APIs by a well known port.
 
-      I) VDSM service open the connection to HSM service.  If the open fails, it will fall back to the legacy way without HSM standalone service.
+      I) VDSM service opens the connection to HSM service.  If the open fails, it will fall back to the legacy way without HSM standalone service.
         Like:
       class APIBase(object)
            def __init__(self):
@@ -30,15 +30,15 @@ To make the HSM service stand alone, VDSM service will be re-factored like these
                   
            
 
-II) superVDSM service will be cloned to serve both VDSM service and HSM service
+II) superVDSM service will serve both VDSM service and HSM service
 
-III) Two-mode task manager in VDSM service and HSM service will be introduced. So the task manager embedded in HSM service can operate in two modes, transparent mode and non-transparent mode. In transparent mode, all of the tasks under it should be transparent to the task manager and the tasks will be managed by the up-layer manager in fact. In non-transparent mode, the task manager will manage the tasks under it as before. The existing task manager in VDSM service will configure the task manager embedded in HSM service to transparent mode and manage the tasks in HSM service.
+III) Two-mode task manager in VDSM service and HSM service will be introduced. So the task manager embedded in HSM service can operate in two modes, transparent mode and non-transparent mode. In transparent mode, all of the tasks under it should be transparent to the task manager in itself and the tasks will be managed by the up-layer manager in fact. In non-transparent mode, the task manager will manage the tasks in it as before. In VDSM service case, the existing task manager in VDSM service will configure the task manager embedded in HSM service to transparent mode and manage the tasks in HSM service. In other virtualization stack cases, they don't have similar task managers in them before, the task manager embedded in HSM service will be configured to non-transparent. That means all the tasks in HSM service are actually controlled by the manager in it.
 
 IV) log service will be cloned to serve both VDSM and HSM service.
 
-V)The configuration parameters in vdsm.conf should be pull out to another hsm.conf file. And all vdsm process should not read hsm.conf directly. If it is necessary to get the hsm configurations, an API will be added into hsm process for vdsm querying
+V)The configuration parameters in vdsm.conf should be pull out to another hsm.conf file. And all VDSM process should not read hsm.conf directly. If it is necessary to get the HSM configurations, an API will be added into VDSM process for hsm configuration querying
 
-         like [irs] section in vdsm.conf.
+         An exapmle, [irs] section in vdsm.conf should be pulled out into hsm.conf
 
 VI) All of the HSM files should be self contained and will be packaged into another RPM package different from VDSM package.
 

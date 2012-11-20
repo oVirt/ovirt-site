@@ -92,7 +92,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
         * Dialog
 
-            * Adding "none" to "network" combo.
+            * Adding empty cell to "network" combo.
 
             * Adding under the "network" combo- "Link state" radio button with two options "up/"down".
 
@@ -116,7 +116,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
 :::: Stretched Goal - To enable dynamic changes when port mirroring is set (without plugging and unplugging).
 
-            * Adding "none" to "network" combo.
+            * Adding empty cell to "network" combo.
 
             * Adding under the "network" combo- "Link state" radio button with two options "up/"down".
 

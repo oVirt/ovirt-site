@@ -65,7 +65,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 ##### Add Vnic
 
-*   canDoAction- allow 'null' network.
+*   canDoAction- allow 'null' network just for 3.2 (cluster compatibility version).
 *   'linkState' property of VmNetworkInterface should be stored in the DB
 
       VmNetworkInterfaceDAODbFacadeImpl- save

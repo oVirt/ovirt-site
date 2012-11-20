@@ -30,7 +30,7 @@ Since with host-passthrough gives the host cpu-capabilities to the VM's CPU, mig
 
 *   engine modifications:
     -   add configuration value AllowMigrateCPUHost (defaults to false)
-    -   modify VmBase, add useHostCpuFlags boolean property
+    -   modify VmStatic, add useHostCpuFlags boolean property
         -   database schema modification in tables, views and stored procedures
         -   DAO modifications
     -   modify the Add/Edit VM dialog, add 'use host cpu flags' checkbox - if AllowMigrateCPUHost is false, then it should be enabled only when Vm is pinned to host

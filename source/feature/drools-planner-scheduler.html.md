@@ -8,9 +8,7 @@ wiki_revision_count: 27
 wiki_last_updated: 2013-09-03
 ---
 
-# drools planner scheduler
-
-## Drools scheduler
+# Drools Planner scheduler
 
 ### Summary
 

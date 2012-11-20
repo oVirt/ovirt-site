@@ -86,7 +86,11 @@ Here’s the latest news from our official announcements on Twitter and Identi.c
 <div class="span4 pad-left-small pad-right">
 ### Upcoming events
 
-This section will either be: 1. Static text related to upcoming workshops and event participation, or 2. A short RSS feed taken from our community calendar, or 3. A short RSS feed taken from a "News and Events" page here on the wiki
+This section will either be:
+
+1.  Static text related to upcoming workshops and event participation, or
+2.  A short RSS feed taken from our community calendar, or
+3.  A short RSS feed taken from a "News and Events" page here on the wiki
 
 </div>
 </div>

@@ -34,10 +34,12 @@ II) superVDSM service will be cloned to serve both VDSM service and HSM service
 
 III) Two-mode task manager in VDSM service and HSM service will be introduced. So the task manager embedded in HSM service can operate in two modes, transparent mode and non-transparent mode. In transparent mode, all of the tasks under it should be transparent to the task manager and the tasks will be managed by the up-layer manager in fact. In non-transparent mode, the task manager will manage the tasks under it as before. The existing task manager in VDSM service will configure the task manager embedded in HSM service to transparent mode and manage the tasks in HSM service.
 
-VI)log service will be cloned to serve both VDSM and HSM service.
+IV) log service will be cloned to serve both VDSM and HSM service.
 
-VII)The configuration parameters in vdsm.conf should be pull out to another hsm.conf file. And all vdsm process should not read hsm.conf directly. If it is necessary to get the hsm configurations, an API will be added into hsm process for vdsm querying
+V)The configuration parameters in vdsm.conf should be pull out to another hsm.conf file. And all vdsm process should not read hsm.conf directly. If it is necessary to get the hsm configurations, an API will be added into hsm process for vdsm querying
 
          like [irs] section in vdsm.conf.
+
+VI) All of the HSM files should be self contained and will be packaged into another RPM package different from VDSM package.
 
 <Category:Vdsm>

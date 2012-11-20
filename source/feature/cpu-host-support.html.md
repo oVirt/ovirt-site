@@ -29,13 +29,13 @@ CPU-Host support allows the virtual machines to see and utilize the host's CPU f
 Since with host-passthrough gives the host cpu-capabilities to the VM's CPU, migration can not happen to different CPU-models. This could still be acceptable if all the hosts are all uniform in the cluster.
 
 *   engine modifications:
-    -   add configuration value UniqueHosts (defaults to false)
+    -   add configuration value AllowMigrateCPUHost (defaults to false)
     -   modify VmBase, add useHostCpuFlags boolean property
         -   database schema modification in tables, views and stored procedures
         -   DAO modifications
-    -   modify the Add/Edit VM dialog, add 'use host cpu flags' checkbox - if UniqueHosts is false, then it should be enabled only when Vm is pinned to host
+    -   modify the Add/Edit VM dialog, add 'use host cpu flags' checkbox - if AllowMigrateCPUHost is false, then it should be enabled only when Vm is pinned to host
 *   vdsm modifications:
-    -   add support to domain creation for host-passthrough proposed name is 'useHostCpuFlags'
+    -   add support to domain creation for host-passthrough - api parameter name could be 'useHostCpuFlags'
 
 ### Benefit to oVirt
 

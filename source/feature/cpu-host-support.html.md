@@ -37,6 +37,8 @@ Since with host-passthrough gives the host cpu-capabilities to the VM's CPU, mig
 *   vdsm modifications:
     -   add support to domain creation for host-passthrough - api parameter name could be 'useHostCpuFlags'
 
+![](Hostcpumockup.png "Hostcpumockup.png")
+
 ### Benefit to oVirt
 
 Allows the users to get better performance from their VM's.

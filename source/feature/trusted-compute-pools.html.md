@@ -51,7 +51,8 @@ None.
 
 ### Documentation / External references
 
-<https://github.com/OpenAttestation/OpenAttestation.git> <http://en.wikipedia.org/wiki/Trusted_Execution_Technology>
+*   <https://github.com/OpenAttestation/OpenAttestation.git>
+*   <http://en.wikipedia.org/wiki/Trusted_Execution_Technology>
 
 ### Comments and Discussion
 

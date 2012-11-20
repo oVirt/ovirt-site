@@ -129,7 +129,7 @@ The REST API will be enhanced to include the new Proxy Preferences as follows
 
 To achieve that we should do the following:
 in api.xsd (schema) define new elements:
- *proxy* which contains one field : bvgpredefined
+ *proxy* which contains one field : predefined
 
         `*`proxies`*` which contains a list of proxy
 

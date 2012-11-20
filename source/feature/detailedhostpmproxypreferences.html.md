@@ -94,6 +94,7 @@ This configuration value should be exposed to the engine-config tool.
 
 Add pmProxyPreferences field to VdsStatic
 Add pmProxyPreferences field to VDS
+ Allow to edit the PmProxyPreferences property
  FencingExecutor::FindVdsToFence
  Modify the following commands to send the value of proxy preferences settings for the Host:
 *AddVdsCommand*

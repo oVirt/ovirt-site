@@ -146,6 +146,8 @@ A new API is added for this feature.
 
 Vdsm would implement this using <http://libvirt.org/html/libvirt-libvirt.html#virDomainUpdateDeviceFlags> .
 
+If the network is "none", the network will be omitted from the params.
+
 ##### Updated APIs
 
 *   **hotplugNic** - the vdsm should connect the Vnic's Network according to the 'linkState' property passed on the Vnic.

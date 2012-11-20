@@ -146,7 +146,7 @@ A new API is added for this feature.
 
 Vdsm would implement this using <http://libvirt.org/html/libvirt-libvirt.html#virDomainUpdateDeviceFlags> .
 
-If the network is "none", the network will be omitted from the params.
+If the vnic doesn't have a network, the network will be omitted from the params sent to the vdsm.
 
 ##### Updated APIs
 

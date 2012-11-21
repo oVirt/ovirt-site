@@ -8,7 +8,7 @@ wiki_revision_count: 3
 wiki_last_updated: 2012-11-30
 ---
 
-[Back to Debian MainPage](Ubuntu)
+[Back to Debian MainPage](Debian)
 
 # Guest Agent on Debian
 

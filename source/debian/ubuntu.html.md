@@ -112,3 +112,5 @@ wont work, because we're using dpkg
 A spice-xpi package for debian/ubuntu would be nice, too. See here: <http://www.spice-space.org/> <http://www.spice-space.org/download.html> -> spice-xpi
 
 There is an ubuntu package here: <https://launchpad.net/~gekkio/+archive/spice> libspice-server1 is in Debian/Testing already and is a dependency of libvirt-bin
+
+<Category:Debian> <Category:Ubuntu>

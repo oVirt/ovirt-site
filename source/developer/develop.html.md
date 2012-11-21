@@ -30,6 +30,8 @@ oVirt Node is just enough operating system to run virtual machines. It is also p
 dwh and reports  
 The reports and data warehouse components for ovirt-engine are optional, and are packaged and developed separately
 
+*More information on [ oVirt subprojects](subprojects)*
+
 </div>
 <div class="span6">
 </div>

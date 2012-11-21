@@ -13,3 +13,5 @@ wiki_last_updated: 2012-11-21
 ### Sub pages
 
 [Guest Agent on Ubuntu](Ubuntu/GuestAgent)
+
+<Category:Ubuntu>

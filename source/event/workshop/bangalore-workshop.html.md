@@ -34,7 +34,7 @@ This schedule is subject to last minute changes.
 | 11:00-11:45 | Integrating Base Board Management Controller (BMC)                                                | Srinivasa Gowda and Surya Prabhakar (Dell) |                                                               |
 | 11:45-12:30 | oVirt Storage - integrating Gluster                                                               | To be decided                              |                                                               |
 | 12:30-14:00 | colspan=3 | Lunch                                                                                 |
-| 14:00-14:45 | oVirt project roadmap                                                                             | Itamar Heim (remote)                       |                                                               |
+| 14:00-14:45 | oVirt project roadmap                                                                             | Itamar Heim (remote)                       | [ Slides](Media:Heim-ovirt-roadmap-barcelona.pdf)  |
 | 14:45-15:30 | Overview of Webadmin and UI Frameworks                                                            | M. Kanagaraj                               |                                                               |
 | 15:30-15:45 | colspan=3 | Break                                                                                 |
 | 15:45-17:15 | colspan=3 | Hands-on workshop using All-in-One USB drives                                         |

@@ -40,20 +40,29 @@ New attributes will be added to VM nics collection /api/vms/yyyy/nics:
 *   ipv4_addresses
 
 `  `<ipv4_addresses>
-`      `<ip address='1.1.1.1'/>
-`      `<ip address='2.2.2.2'/>
+`      `<ip address="1.1.1.1"/>
+`      `<ip address="2.2.2.2"/>
 `  `</ipv4_addresses>
 
 *   ipv6_addresses
 
 `  `<ipv6_addresses>
-`      `<ip address='2001:0db8:85a3:0042:0000:8a2e:0370:7335'/>
-`      `<ip address='2001:0db8:85a3:0042:0000:8a2e:0370:7336'/>
+`      `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7335"/>
+`      `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7336"/>
 `  `</ipv6_addresses>
 
 *   interface_name
 
 `  `<interface_name>`p1p2`</interface_name>
+
+Note that the existing IPs reported on /api/vms/yyyy are left intact, however the IPs addresses are retrieved the VM's nics.
+
+`  `<guest_info>
+`      `<ips>
+`          `<ip address="1.1.1.1"/>
+`          `<ip address="2.2.2.2"/>
+`      `</ips>
+`  `</guest_info>
 
 #### UI Changes
 

@@ -41,17 +41,13 @@ The network wiring feature is an enhancement for the VM Network Interface manage
       }
 
 *   The user will enter link_state as a string ("up"/"down").
-*   The link_state string will be translated to LinkState Enum before sending the entity to the backend.
+*   The link_state string will be translated to boolean before sending the entity to the backend.
+*   Plug/Unplug actions will call UpdateVmInterfaceCommand instead of ActivateDeactivateVmNicCommand.
 
 #### Engine API
 
       VmNetworkInterface:
-        LinkState linkState;
-
-      Enum LinkState{
-       up,
-       down
-      }
+        boolean linked;
 
 #### Database Changes
 
@@ -118,11 +114,11 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 ##### Plug nic
 
-*   no change.
+*   Should be used just as internal command.
 
 ##### Unplug nic
 
-*   no change.
+*   Should be used just as internal command.
 
 ##### Error codes
 
@@ -159,10 +155,34 @@ In both cases, 'linkState' property would be implemented by setting libvirt's <l
 
 #### Events
 
+##### Add Vnic
+
+*   AuditLogType.NETWORK_ADD_VM_INTERFACE
+*   AuditLogType.NETWORK_ADD_VM_INTERFACE_FAILED
+
+##### Update Vnic
+
+*   AuditLogType.NETWORK_UPDATE_VM_INTERFACE
+*   AuditLogType.NETWORK_UPDATE_VM_INTERFACE_FAILED
+
+##### Remove Vnic
+
+*   AuditLogType.NETWORK_REMOVE_VM_INTERFACE
+*   AuditLogType.NETWORK_REMOVE_VM_INTERFACE_FAILED
+
+##### Plug nic
+
+*   AuditLogType.NETWORK_ACTIVATE_VM_INTERFACE_SUCCESS
+*   AuditLogType.NETWORK_ACTIVATE_VM_INTERFACE_FAILURE;
+
+##### Unplug nic
+
+*   AuditLogType.NETWORK_DEACTIVATE_VM_INTERFACE_SUCCESS
+*   AuditLogType.NETWORK_DEACTIVATE_VM_INTERFACE_FAILURE
+
 #### Open Issues
 
-1.  Should we deprecate the invocation of ActivateDeactivateVmNic command by the clients as we managed it by UpdateVmNetworkInterface command ?
-2.  Should ActivateDeactivateVmNic be renamed to PlugUnplug ?
+1.  Should ActivateDeactivateVmNic be renamed to PlugUnplug ?
 
 ### Documentation / External references
 

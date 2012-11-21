@@ -19,5 +19,5 @@ The following issues will be covered
 [DB Structure](http://www.ovirt.org/wiki/OVirt-DB-Issues/dbstructure)
 [DB Scripts](http://www.ovirt.org/wiki/OVirt-DB-Issues/dbscripts)
 [DB Upgrade](http://www.ovirt.org/wiki/OVirt-DB-Issues/dbupgrade)
-[DBFacade DAOs and Transactions](http://www.ovirt.org/wiki/OVirt-DB-Issues/dbfacade-dao-and-transaction)
+[DBFacade DAOs ,Transactions and Search Engine](http://www.ovirt.org/wiki/OVirt-DB-Issues/dbfacade-dao-and-transaction)
 [Compensation](http://www.ovirt.org/wiki/OVirt-DB-Issues/compensation)

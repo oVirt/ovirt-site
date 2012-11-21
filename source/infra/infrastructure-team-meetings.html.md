@@ -16,7 +16,26 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
     -   To see in your timezone date -d 'MONDAY 1000 EST'
 *   *Where:* On IRC: #ovirt on irc.oftc.net
 
-## 2012-11-19
+## Upcoming meetings
+
+### 2012-11-26
+
+*Agenda*
+
+*   MediaWiki & www
+*   MediaWiki backup script
+*   Hosting
+*   Trac review
+*   Puppet
+*   Jenkins
+*   Gerrit
+*   Other business?
+
+## Past meetings
+
+### 2012-11-19
+
+*[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-11-19-15.02.html)*
 
 *Agenda*
 
@@ -30,7 +49,9 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Gerrit
 *   Other business?
 
-## 2012-11-12
+### 2012-11-12
+
+*[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-11-12-15.01.html)*
 
 *Agenda*
 
@@ -42,11 +63,13 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Gerrit
 *   Other business?
 
-## 2012-11-05
+### 2012-11-05
 
 *Meeting canceled.*
 
-## 2012-10-29
+### 2012-10-29
+
+*[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-29-15.01.html)*
 
 *Agenda*
 
@@ -58,7 +81,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Gerrit
 *   Other business?
 
-## 2012-10-22
+### 2012-10-22
 
 *[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-22-15.00.html)*
 
@@ -72,7 +95,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Gerrit
 *   Other business?
 
-## 2012-10-15
+### 2012-10-15
 
 *[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-15-15.01.html)*
 
@@ -86,7 +109,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Gerrit
 *   Infra presentation at oVirt Workshop -- Barcelona
 
-## 2012-10-09
+### 2012-10-09
 
 *[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-09-14.03.html)*
 
@@ -98,7 +121,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Jenkings
 *   Gerrit
 
-## 2012-10-02
+### 2012-10-02
 
 *[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-10-02-14.02.html)*
 
@@ -107,7 +130,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Alter Way
 *   Meeting time change
 
-## 2012-09-25
+### 2012-09-25
 
 *[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-09-25-14.04.html)*
 
@@ -119,7 +142,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Hosting
 *   Task tracking
 
-## 2012-09-18
+### 2012-09-18
 
 *[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-09-18-14.13.html)*
 
@@ -129,7 +152,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Hosting
 *   Jenkins check-in
 
-## 2012-09-11
+### 2012-09-11
 
 *[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-09-11-14.00.html)*
 
@@ -141,7 +164,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Puppet status
 *   jenkins.ovirt.info
 
-## 2012-09-04
+### 2012-09-04
 
 *[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-09-04-14.02.html)*
 
@@ -153,11 +176,11 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Puppet (w/o ewoud)
 *   Jenkins for a fun ending?
 
-## 2012-08-28
+### 2012-08-28
 
 *[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-08-28-14.00.html)*
 
-## 2012-08-21
+### 2012-08-21
 
 ''Canceled, no minutes'
 
@@ -166,7 +189,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Puppet - Ewoud
 *   Mediawiki upgrade - Ewoud
 
-## 2012-08-14
+### 2012-08-14
 
 *[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-08-14-14.00.html)*
 
@@ -178,7 +201,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Jenkins
 *   All other business
 
-## 2012-08-07
+### 2012-08-07
 
 *[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-08-07-14.01.html)*
 
@@ -191,7 +214,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Package signing
 *   All other business
 
-## 2012-07-31
+### 2012-07-31
 
 *[Minutes](http://lists.ovirt.org/pipermail/infra/2012-July/000745.html)*
 
@@ -205,7 +228,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
     -   Enabling Gerrit patches - everyone vs. limited
     -   Parallel jobs - eedri
 
-## 2012-07-24
+### 2012-07-24
 
 *[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-24-14.01.html)*
 
@@ -221,7 +244,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Parallel jobs - eedri
 *   All other business
 
-## 2012-07-17
+### 2012-07-17
 
 *[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-17-14.00.html)*
 
@@ -234,7 +257,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Enabling Gerrit patches - everyone vs. limited
 *   All other business
 
-## 2012-07-10
+### 2012-07-10
 
 *[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-10-14.00.html)*
 
@@ -249,7 +272,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Puppet as sub from sub-project
 *   Trust seed
 
-## 2012-07-03
+### 2012-07-03
 
 *[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-07-03-14.00.html)*
 

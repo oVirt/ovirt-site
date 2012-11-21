@@ -75,7 +75,7 @@ Need an event calendar.
 *   LISA - Dec
 *   SCALE - Jan
 *   Brno - Feb
-*   FOSDEM - Feb - [| Open Source Virtualization and Cloud devroom](http://fosdem.org/2012/devrooms_for_2012)
+*   FOSDEM - Feb - [Open Source Virtualization and Cloud devroom](http://fosdem.org/2012/devrooms_for_2012)
 *   Meetups?
 *   China - Apr
 *   NY - July?

@@ -55,7 +55,9 @@ New attributes will be added to VM nics collection /api/vms/yyyy/nics:
 
 `  `<interface_name>`p1p2`</interface_name>
 
-Note that the existing IPs reported on /api/vms/yyyy are left intact, however the IPs addresses are retrieved the VM's nics.
+##### Backward compatibility
+
+Note that the existing IPs reported on /api/vms/yyyy are left intact, however the IPs addresses are retrieved from the VM's nics.
 
 `  `<guest_info>
 `      `<ips>
@@ -63,6 +65,8 @@ Note that the existing IPs reported on /api/vms/yyyy are left intact, however th
 `          `<ip address="2.2.2.2"/>
 `      `</ips>
 `  `</guest_info>
+
+The VM IP on VM's level should be marked as deprecated.
 
 #### UI Changes
 

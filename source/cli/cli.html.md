@@ -467,6 +467,8 @@ option to appropriate option format adding prefix or suffix.
 
 ### Update
 
+*   note: You have to quote the description if it contains spaces. E.g. "iscsi_desktop desc"
+
 #### update resource
 
          [oVirt shell (connected)]# update vm iscsi_desktop --description iscsi_desktop_desc

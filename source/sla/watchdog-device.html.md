@@ -47,4 +47,4 @@ you can add the watchdog to the vm parameter when create a vm as follow:
                    drives=[dict(poolID=spUUID, domainID=sdUUID, imageID=imgUUID, volumeID=volUUID)],
                    memSize=256, display="vnc", vmName="vm1", devices = dev_list,)
 
-[:Category:Vdsm](:Category:Vdsm)
+<Category:SLA> <Category:Vdsm>

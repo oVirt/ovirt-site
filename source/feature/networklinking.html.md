@@ -97,9 +97,9 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
         * Dialog
 
-            * Adding empty cell to "network" combo.
+            * Adding empty cell to "network" combo. (For 3.2 or more cluster version)
 
-            * Adding under the "network" combo- "Link state" radio button with two options "up/"down".
+            * Adding under the "network" combo- "Link state" radio button with two options "up/"down". (For 3.2 or more cluster version)
 
             * "Activate" checkbox will be changed to a radio button with two options "Plugged"/"Unplugged" and its name will be renamed to 'Card Status'.
 
@@ -121,9 +121,9 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
 :::: Stretched Goal - To enable dynamic changes when port mirroring is set (without plugging and unplugging).
 
-            * Adding empty cell to "network" combo.
+            * Adding empty cell to "network" combo. (For 3.2 or more cluster version)
 
-            * Adding under the "network" combo- "Link state" radio button with two options "up/"down".
+            * Adding under the "network" combo- "Link state" radio button with two options "up/"down". (For 3.2 or more cluster version)
 
             * Adding radio button named 'Card Status' with two options "Plugged"/"Unplugged" to the end of the dialog..
 

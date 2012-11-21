@@ -56,7 +56,8 @@ A Vnic on a running VM can have 4 states (If the VM is down, its state represent
 
     * **Link State- down** - once the Vnic is plugged it won't be connected to any network.
 
-*   The Link-State doesn't affect the validations. Even if the Link-State is down the defined Network is considered a necessary resource of the Vnic. If the user want to ignore the network he should change the network to "none" (empty). For example- If a user has VM with Vnic using Network "Red" and its Link-State is down. The user won't be able to run the VM if "red" is not attached to the Host.
+*   The Link-State doesn't affect the validations.
+     Even if the Link-State is down the defined Network is considered a necessary resource of the Vnic. If the user want to ignore the network he should change the network to "none" (empty). For example- If a user has VM with Vnic using Network "Red" and its Link-State is down. The user won't be able to run the VM if "red" is not attached to the Host.
 
 The oVirt-engine's user will be able to configure the Vnic state to any of the mentioned above by any of the following methods:
 

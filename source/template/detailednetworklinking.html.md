@@ -47,10 +47,10 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 #### Database Changes
 
 <span style="color:Teal">**VM_INTERFACE**</span>
-{|class="wikitable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |link_state || boolean ||not null ||Indicates wether the vnic's link state is "up" or "down" |- |}
+{|class="wikitable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |linked || boolean ||not null ||Indicates wether the vnic's link state is "up" or "down" |- |}
 
 <span style="color:Teal">**VM_INTERFACE_VIEW**</span>
-{|class="wikitable" !border="1"| Column Name ||Column Type ||Definition |- |link_state || boolean ||Indicates wether the vnic's link state is "up" or "down" |- |}
+{|class="wikitable" !border="1"| Column Name ||Column Type ||Definition |- |linked || boolean ||Indicates wether the vnic's link state is "up" or "down" |- |}
 
 #### Engine Flows
 

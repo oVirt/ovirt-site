@@ -8,6 +8,9 @@ wiki_last_updated: 2012-11-21
 
 # Sdk-changelog
 
+         * wed Nov  21 2012 Michael Pasternak `<mpastern@redhat.com>` - 3.2.0.5-1
+         - httpsconnection.source_address is not supported on python26 #877897
+
          * Sun Nov  18 2012 Michael Pasternak `<mpastern@redhat.com>` - 3.2.0.4-1
          - cannot create simultaneous connections to multiple servers #853947
          - to StorageDomainVM.import() added action.exclusive parameter

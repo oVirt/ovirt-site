@@ -35,11 +35,6 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 #### Rest API
 
-      Enum LinkState{
-       up,
-       down
-      }
-
 *   The user will enter link_state as a string ("up"/"down").
 *   The link_state string will be translated to boolean before sending the entity to the backend.
 *   Plug/Unplug actions will call UpdateVmInterfaceCommand instead of ActivateDeactivateVmNicCommand.

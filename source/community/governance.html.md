@@ -12,6 +12,8 @@ wiki_last_updated: 2015-01-21
 
 The oVirt is a collection of [subprojects](subprojects), each of which shares a framework for its governance, and commits to a common release schedule, but which has its own set of maintainers and community communication channels.
 
+For issues related to the charter of the oVirt project, and the management and co-ordination of the smooth running of the project, the [oVirt Board](oVirt Board) has ultimate authority. New board members can be voted onto the board by existing board members based on merit.
+
 oVirt is an **open source** and **openly governed** project. It has strived to take the best and learn from many communities. Individual status whether being voted onto the board or voted onto a project is done through merit concepts taken from the Apache Foundation. The board and composition is modelled after the Apache member section.
 
 oVirt’s goal is deliver a complete and comprehensive virtualization management platform. In order to have oVirt function well, the concepts of coordinating many projects to build a single platform has been taken from Eclipse. In addition, the initial board compilation and defining strategic supporter methodology has been derived from [Eclipse](http://www.eclipse.org).

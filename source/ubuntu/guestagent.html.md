@@ -6,6 +6,8 @@ wiki_revision_count: 10
 wiki_last_updated: 2014-10-05
 ---
 
+[Back to Ubuntu MainPage](Ubuntu)
+
 # Guest Agent on Ubuntu
 
 ### Status

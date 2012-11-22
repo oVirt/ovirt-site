@@ -120,7 +120,7 @@ Note that development environments should install the application server using t
 
 ### Downloading and installing the application server
 
-Select and create the directory where you want to install the application server. Many developers use `/usr/share/jboss-as`, but you can use any directory you like, for example `$HOME/jboss-as`. From now on we will refer to that directory with the environment variable `JBOSS_HOME`:
+Select and create the directory where you want to install the application server, for example `$HOME/jboss-as`. From now on we will refer to that directory with the environment variable `JBOSS_HOME`:
 
     $> export JBOSS_HOME=$HOME/jboss-as
     $> mkdir -p $JBOSS_HOME

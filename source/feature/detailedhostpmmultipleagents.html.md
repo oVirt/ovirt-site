@@ -98,7 +98,7 @@ Add pm_secondary\* fields to VDS
 The REST API will be enhanced to include the new Secondary Agent definitions as follows
  <power_management_agents>
 
-`   `<power_management type="rsa">
+`   `<power_management type="rsa" order="primary">
 `     `<enabled>`true`</enabled>
            
 
@@ -110,7 +110,7 @@ ip or fqdn
 `     `<password>`password`</password>
 `      `<options><option value="" name="port"/><option value="false" name="secure"/></options>
 `   `</power_management>
-`   `<power_management type="apc">
+`   `<power_management type="apc" order="secondary">
            
 
 <address>

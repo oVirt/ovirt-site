@@ -91,6 +91,6 @@ If add an event register mechanism. This is a big work.
 **2) report the watchdog event to user**
 
        Engine poll vm's stats and to check whether a watchdog event was triggered. 
-       Engine will notify the user when a watchdog event is triggered. So the user can see the notification on a watchdog action taken, and he can take some actions as he wishes, such as stop / restart the VM.      
+       Engine will notify the user when a watchdog event is triggered. So the user can see the notification on a watchdog action taken, it the action is set "none", then he can take some actions as he wishes, such as stop / restart the VM.      
 
 <Category:SLA> <Category:Vdsm>

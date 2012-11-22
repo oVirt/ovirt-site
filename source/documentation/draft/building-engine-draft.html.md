@@ -71,15 +71,15 @@ The engine build uses maven 3.0.x.
 
 **Fedora**
 
-      #> yum install -y maven
+    # yum install -y maven
 
 **Debian**
 
-      #> apt-get install maven
+    # apt-get install maven
 
 Once the installation is completed verify that the correct version of the `mvn` command is in the path:
 
-    $> mvn --version
+    $ mvn --version
     Apache Maven 3.0.4
     ...
 
@@ -88,7 +88,7 @@ Once the installation is completed verify that the correct version of the `mvn` 
 Create your `$HOME/.m2` directory (this is where maven stores your personal settings and the artifacts downloaded from internet repositories):
 
 `
-$> mkdir $HOME/.m2
+$ mkdir $HOME/.m2
 `
 
 Copy & paste the content below into the file `$HOME/.m2/settings.xml`:

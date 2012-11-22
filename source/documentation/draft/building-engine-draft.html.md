@@ -12,12 +12,14 @@ wiki_last_updated: 2013-05-12
 
 ## Introduction
 
-This is a draft of updated building instructions. Please refer to [Building oVirt engine](Building oVirt engine) for the current version.
+This is a draft of updated building instructions. Please refer to [Building oVirt engine](Building oVirt engine) for the current official version.
 
 Follow these instructions to successfully build and install the oVirt Engine project in your development environment. Installation and configuration of all required tools to complete the build is also covered. For instructions on obtaining and building VDSM, the package required to turn existing systems into oVirt Nodes, see [Vdsm Developers](Vdsm Developers). Alternatively some binary VDSM builds are available [here](http://fsimonce.fedorapeople.org/vdsm/).
 
-      #> at the beginning of the command stands for execution as root.
-      $> at the beginning of the command stands for execution as user.
+Please note that in this instructions you will be asked to run several commands. Be careful with the user that you use to run them, we will indicate with different prompts in the page what type of user should be used for each command:
+
+*   `#` at the beginning of the command stands for execution as `root`.
+*   `$` at the beginning of the command stands for execution as your normal unprivileged user.
 
 ## Prerequisites
 

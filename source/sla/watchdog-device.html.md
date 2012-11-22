@@ -10,8 +10,6 @@ wiki_last_updated: 2013-03-05
 
 # Watchdog Device
 
-## Add an option to create a watchdog device.
-
 ## **VDSM side**
 
 **1) support watchdog device**
@@ -51,10 +49,25 @@ you can add the watchdog to the vm parameter when create a vm as follow:
                    drives=[dict(poolID=spUUID, domainID=sdUUID, imageID=imgUUID, volumeID=volUUID)],
                    memSize=256, display="vnc", vmName="vm1", devices = dev_list,)
 
+This is aready implemented in vdsm.
+
 **2) report the watchdog event**
+
+       vdsm report this 
+       Perhaps you need add a flag to vm stats to indicate the event happened and what action was taken. Then engine could find it by polling vm's stats. 
+      There will be another patch to resolve that.
 
 ## **Engine side**
 
-**1) UI for user to add a watchdog device** **2) report the watchdog event to user**
+**1) UI for user to add a watchdog device**
+
+         In the Virtual Machines UI.
+         add "Watchdog" Option in the "New Server" or "New Desktop" dialogue. 
+         user can decide whether he need to add a Watchdog device. User can also decide the model or action for watchdog.
+
+**2) report the watchdog event to user**
+
+         when there
+         engine can't find a watchdog event is triggered 
 
 <Category:SLA> <Category:Vdsm>

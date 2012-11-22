@@ -163,11 +163,11 @@ Ensure that you have write access to the `$JBOSS_HOME/standalone/deployments` di
 
 <!-- -->
 
-    $> cd $JBOSS_HOME/standalone
-    $> rm -rf deployments/engine.ear 
-    $> rm -rf deployments/engine.ear.deployed 
-    $> rm -rf tmp
-    $> rm -rf data (should be done only in development environment)
+    $ cd $JBOSS_HOME/standalone
+    $ rm -rf deployments/engine.ear 
+    $ rm -rf deployments/engine.ear.deployed 
+    $ rm -rf tmp
+    $ rm -rf data (should be done only in development environment)
 
 ## Installing PostgreSQL
 

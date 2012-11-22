@@ -47,7 +47,7 @@ Software:
     * Fedora 17 (for easy installation)
 
 Advanced; install from source:  
-[Debian](Debian), [Fedora](Fedora), [Ubuntu](Ubuntu), [other](other)
+[Debian](http://www.debian.org), [Fedora](http://www.fedoraproject.org), [Ubuntu](http://www.ubuntu.com), [ other](porting oVirt)
 
 </div>
 </div>
@@ -81,9 +81,9 @@ Our recommended method of installing oVirt is to use the pre-built packages for 
 
 ------------------------------------------------------------------------
 
-Now that you have oVirt running, check out the [documentation section](documentation section) and be sure to [join our community](join our community)!
+Now that you have oVirt running, check out the [ documentation section](documentation) and be sure to [ join our community](community)!
 
-Help [develop the software](develop the software), take part in discussions on the [mailing lists](mailing lists) and join us [on IRC](on IRC).
+Help [ develop the software](develop), take part in discussions on the [mailing lists](mailing lists) and join us [ on IRC](communication#IRC).
 
 </div>
 </div>

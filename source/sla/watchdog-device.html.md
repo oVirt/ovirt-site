@@ -55,9 +55,9 @@ This is aready implemented in vdsm.
 
 There will be another patch to resolve that.
 
-**1.**
+**1.** In the host level, vdsm should get the notification from libvirt, and report it in the vm stats.
 
-Add a flag to vm stats to indicate the event happened and what action was taken. Then engine could find it by polling vm's stats.
+A flag in vm stats indicate the event happened and what action was taken. Then engine could find it by polling vm's stats.
 
 Maybe this is not a good way for a watchdog event. But simple.
 
@@ -83,13 +83,15 @@ If add an event register mechanism. This is a big work.
 **1) UI for user to add a watchdog device**
 
        In the Virtual Machines UI.
-       an "Watchdog" Option for user in the "New Server" and "New Desktop" dialogue. Both "model" and "action" Options are needed for watchdog device.
-       user can decide whether he needs to add a Watchdog device.
-       User can also decide the model and action for watchdog.
+       There is "Watchdog" option for user in the "New Server" and "New Desktop" dialogue. 
+       There is a list of actions for the watchdog device in the engine UI, with a default of none.
+       Also There is also a list of model for the watchdog device in the engine UI, with a default of 'i6300esb'.
+       User can add set the mode and the relevant action before starting the VM. Once the watchdog is triggered, it will do whatever action he has set, 
+       The user should be able to choose which action to set when starting or editing the VM (for next run).
 
 **2) report the watchdog event to user**
 
        Engine poll vm's stats and to check whether a watchdog event was triggered. 
-       Engine will notify the user when a watchdog event is triggered, then user can take some actions, restart the vm or dump the vm to look into the reason of this event.      
+       Engine will notify the user when a watchdog event is triggered. So the user can see the notification on a watchdog action taken, and he can take some actions as he wishes, such as stop / restart the VM.      
 
 <Category:SLA> <Category:Vdsm>

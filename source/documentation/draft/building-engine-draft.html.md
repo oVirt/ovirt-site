@@ -364,7 +364,7 @@ For additional info: <https://docs.jboss.org/author/display/AS7/Admin+Guide#Admi
 
 This will build the engine, rebuilding the admin console and then creates the ear and deploys it to the application server:
 
-    $> mvn clean install -Pgwt-admin -DskipTests && cd ear && mvn clean install -Pdep
+    $ mvn clean install -Pgwt-admin -DskipTests && cd ear && mvn clean install -Pdep
 
 Stop the application server and start it again before testing the changes.
 

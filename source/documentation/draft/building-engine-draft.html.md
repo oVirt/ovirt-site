@@ -21,7 +21,7 @@ Follow these instructions to successfully build and install the oVirt Engine pro
 
 ## Prerequisites
 
-1.  Linux based operating system with support for OpenJDK 1.7.0, Maven 2 (3 recommendend) and PostgreSQL 8.4.8 (or higher).
+1.  Linux based operating system with support for OpenJDK 1.7.0, Maven 3 and PostgreSQL 8.4.8 (or higher).
 2.  An Internet connection.
 
 Note that while this guide was written and tested using Fedora 17 other Linux Distributions can and have been used to build the ovirt-engine project. Where distribution specific packaging commands are specified in this guide use the syntax that applies for your distribution.

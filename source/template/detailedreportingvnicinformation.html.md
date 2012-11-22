@@ -10,7 +10,7 @@ wiki_last_updated: 2012-12-17
 
 # Detailed Reporting Vnic Information
 
-## Reporting vNIC implementation reported by Guest Agent Detailed Design
+## Reporting vNIC information reported by Guest Agent Detailed Design
 
 ### Summary
 

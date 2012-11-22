@@ -53,14 +53,16 @@ This is aready implemented in vdsm.
 
 **2) report the watchdog event**
 
-add a flag to vm stats to indicate the event happened and what action was taken. Then engine could find it by polling vm's stats.
+Add a flag to vm stats to indicate the event happened and what action was taken. Then engine could find it by polling vm's stats. Maybe this is not a good way for a watchdog event.
 
       import vdscli
       s = vdscli.connect()
       # poll a wathdog event of 
       while True:
-          getVmStats(vmId)
-          getAllVmStats()
+          stat = getVmStats(vmId)
+          # stats = getAllVmStats()
+          if stat['watchdog']:
+              print stat['watchdog']
 
 There will be another patch to resolve that.
 

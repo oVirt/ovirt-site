@@ -54,6 +54,9 @@ the flow which worked for me:
        # vi /etc/default/grub
        GRUB_CMDLINE_LINUX="rd.md=0 rd.dm=0  KEYTABLE=us SYSFONT=True rd.lvm.lv=vg/lv_root rd.luks=0 rd.lvm.lv=vg/lv_swap LANG=en_US.UTF-8 rhgb quiet kvm-intel.nested=1" #Add kvm-intel.nested=1 in the end of the boot options
        # grub2-mkconfig -o /boot/grub2/grub.cfg
+
+       Instead of modifying grub config, you can: echo "options kvm-intel nested=1" > /etc/modprobe.d/kvm-intel.conf
+
        #reboot
        # virsh capabilities  (collecting data from hypervisor)
         ...

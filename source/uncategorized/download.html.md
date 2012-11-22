@@ -77,7 +77,7 @@ Our recommended method of installing oVirt is to use the pre-built packages for 
 
 4.  Once you have successfully installed oVirt Engine, you will be provided with instructions to access oVirt's web-based management interface.
 5.  Congratulations! oVirt Engine is now installed!
-6.  You can now [download and install oVirt Node](download and install oVirt Node) for every virtualization server you'd like to set up.
+6.  For every virtualization server you'd like to manage, you can now [ set them up as oVirt nodes](Quick Start Guide#Install_Hosts) .
 
 ------------------------------------------------------------------------
 

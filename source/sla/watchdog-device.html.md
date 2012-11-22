@@ -69,6 +69,6 @@ This is aready implemented in vdsm.
 **2) report the watchdog event to user**
 
        Engine poll vm's stats and to check whether a watchdog event was triggered. 
-       Engine will notify the user when a watchdog event is triggered, then user can take some actions, restart the vm or dump the watchdog to look into it.      
+       Engine will notify the user when a watchdog event is triggered, then user can take some actions, restart the vm or dump the vm to look into the reason of this event.      
 
 <Category:SLA> <Category:Vdsm>

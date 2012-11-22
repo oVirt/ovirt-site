@@ -83,6 +83,10 @@ VdsDAODbFacadeImpl
 
 Adding test data for VdsStaticDAOTest & fixtures.xml
 
+### Configuration
+
+Change default configuration FenceStopStatusDelayBetweenRetriesInSec and FenceStartStatusDelayBetweenRetriesInSec to 10 and FenceStopStatusRetries , FenceStartStatusRetries to 18, this will insure we are responding faster to Hosts while it change status.
+
 ### Business Logic
 
 Add pm_secondary\* fields to VdsStatic

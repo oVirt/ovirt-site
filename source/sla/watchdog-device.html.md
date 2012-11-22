@@ -12,6 +12,10 @@ wiki_last_updated: 2013-03-05
 
 ## Add an option to create a watchdog device.
 
+## **VDSM side**
+
+**1) support watchdog device**
+
 A virtual hardware watchdog device can be added to the guest via the the "devices" configuration. And only one watchdog device is supported for each VM.
 
 When a watchdog device is active and take action, the vdsm will log this event.
@@ -46,5 +50,11 @@ you can add the watchdog to the vm parameter when create a vm as follow:
       s.create(dict(vmId=vmId,
                    drives=[dict(poolID=spUUID, domainID=sdUUID, imageID=imgUUID, volumeID=volUUID)],
                    memSize=256, display="vnc", vmName="vm1", devices = dev_list,)
+
+**2) report the watchdog event**
+
+## **Engine side**
+
+**1) UI for user to add a watchdog device** **2) report the watchdog event to user**
 
 <Category:SLA> <Category:Vdsm>

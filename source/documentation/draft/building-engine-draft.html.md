@@ -142,7 +142,7 @@ Check that the application server starts correctly:
     $> cd $JBOSS_HOME/bin
     $> ./standalone.sh -b 0.0.0.0
 
-Ensure that you have write access to `$JBOSS_HOME/standalone/deployments` to which the engine will be deployed.
+Ensure that you have write access to the `$JBOSS_HOME/standalone/deployments` directory, as there is where the engine will be deployed.
 
 ### Troubleshooting
 

@@ -160,7 +160,7 @@ If a secondary agent is defined
 
 ### User Experience
 
-A new radio button will be added to the Power Management screen that enables selection of Primary/Secondary agents in order to insert agent details and test the agent.
+A new drop-down box will be added to the Power Management screen that enables selection of Primary/Secondary agents in order to insert agent details and test the agent.
 The Concurrent check box controls if the secondary agent works in the concurrent or sequential mode
  ![](pmmultiagentscreen.png "fig:pmmultiagentscreen.png")
 

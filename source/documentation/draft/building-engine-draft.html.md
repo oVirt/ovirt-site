@@ -282,16 +282,16 @@ Update the database to reflect the actual URL where the bootstrap files can be d
 
 Assuming that the application server is not running, it should be started:
 
-    #> cd $JBOSS_HOME/bin
-    #> ./standalone.sh -b 0.0.0.0
+    $ cd $JBOSS_HOME/bin
+    $ ./standalone.sh -b 0.0.0.0
 
-If everthing went correctly you should see the welcome page, with links to the administrator portal and user portal.
+If everything went correctly you should see the welcome page, with links to the administrator portal and user portal.
 
 The default user name and password created in development environments are `admin@internal` and `letmein!`.
 
 Accessing the REST API:
 
-    wget -O - \
+    $ wget -O - \
     --debug \
     --auth-no-challenge \
     --http-user=admin@internal \

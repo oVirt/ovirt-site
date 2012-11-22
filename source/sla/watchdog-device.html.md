@@ -61,13 +61,14 @@ This is aready implemented in vdsm.
 
 **1) UI for user to add a watchdog device**
 
-         In the Virtual Machines UI.
-         add "Watchdog" Option in the "New Server" or "New Desktop" dialogue. 
-         user can decide whether he need to add a Watchdog device. User can also decide the model or action for watchdog.
+       In the Virtual Machines UI.
+       an "Watchdog" Option for user in the "New Server" and "New Desktop" dialogue.
+       user can decide whether he needs to add a Watchdog device.
+       User can also decide the model or action for watchdog.
 
 **2) report the watchdog event to user**
 
-         when there
-         engine can't find a watchdog event is triggered 
+       Engine poll vm's stats and to check whether a watchdog event was triggered. 
+       Engine will notify the user when a watchdog event is triggered, then user can take some actions, restart the vm or dump the watchdog to look into it.      
 
 <Category:SLA> <Category:Vdsm>

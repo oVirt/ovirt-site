@@ -31,7 +31,7 @@ Note that while this guide was written and tested using Fedora other Linux Distr
 
 ### Installing OpenJDK
 
-The supported Java development and runtime environments for the ovirt-engine project are provied by OpenJDK 1.6.0. Install the java-1.6.0-openjdk-devel package to obtain OpenJDK 1.6.0:
+The supported Java development and runtime environments for the ovirt-engine project are provied by OpenJDK 1.7.0. Install the java-1.7.0-openjdk-devel package to obtain OpenJDK 1.7.0:
 
 **Fedora**
 

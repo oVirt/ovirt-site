@@ -53,7 +53,9 @@ This is aready implemented in vdsm.
 
 **2) report the watchdog event**
 
-There will be another patch to resolve that. **1.** Add a flag to vm stats to indicate the event happened and what action was taken. Then engine could find it by polling vm's stats. Maybe this is not a good way for a watchdog event. But simple. The problem is that when and how to clean this flag shoule be clean? if clean this flag once it is read, only one rpc client can get the watchdog event.
+There will be another patch to resolve that. **1.**
+
+Add a flag to vm stats to indicate the event happened and what action was taken. Then engine could find it by polling vm's stats. Maybe this is not a good way for a watchdog event. But simple. The problem is that when and how to clean this flag shoule be clean? if clean this flag once it is read, only one rpc client can get the watchdog event.
 
       import vdscli
       s = vdscli.connect()
@@ -64,7 +66,9 @@ There will be another patch to resolve that. **1.** Add a flag to vm stats to in
           if stat['watchdog']:
               print stat['watchdog']
 
-**2.** There is not a event channel in vdsm If add an event register mechanism. This is a big work.
+**2.**
+
+There is not a event channel in vdsm If add an event register mechanism. This is a big work.
 
 ## **Engine side**
 

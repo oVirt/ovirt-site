@@ -259,16 +259,16 @@ With the default installation for development environments the engine will assum
 
 Some of the scripts that the engine uses to install and configure hypervisors are part of the VDSM project, so you will need to clone the VDSM repository and build it:
 
-    $> git clone git://gerrit.ovirt.org/vdsm
-    $> cd vdsm
-    $> ./autogen.sh --system && make
+    $ git clone git://gerrit.ovirt.org/vdsm
+    $ cd vdsm
+    $ ./autogen.sh --system && make
 
 Once VDSM is built you will need to copy the scripts to the directory `/usr/share/vdsm-bootstrap` where the engine expects them:
 
-    #> mkdir -p /usr/share/vdsm-bootstrap
-    #> cp vdsm_reg/deployUtil.py /usr/share/vdsm-bootstrap
-    #> cp vds_bootstrap/vds_bootstrap_complete.py /usr/share/vdsm-bootstrap
-    #> cp vds_bootstrap/vds_bootstrap.py /usr/share/vdsm-bootstrap
+    # mkdir -p /usr/share/vdsm-bootstrap
+    # cp vdsm_reg/deployUtil.py /usr/share/vdsm-bootstrap
+    # cp vds_bootstrap/vds_bootstrap_complete.py /usr/share/vdsm-bootstrap
+    # cp vds_bootstrap/vds_bootstrap.py /usr/share/vdsm-bootstrap
 
 ***Note:** This is not necessary if you installed the `vdsm-bootstrap` package, as it already contains the `/usr/share/vdsm-bootstrap` directory and the required files.*
 
@@ -276,7 +276,7 @@ Once VDSM is built you will need to copy the scripts to the directory `/usr/shar
 
 Update the database to reflect the actual URL where the bootstrap files can be downloaded by the hypervisors:
 
-    $> psql engine postgres -c "update vdc_options set option_value = 'http://YOUR_ENGINE_HOST_HERE:8700/Components/vds' where option_name = 'VdcBootStrapUrl';"
+    $ psql engine postgres -c "update vdc_options set option_value = 'http://YOUR_ENGINE_HOST_HERE:8700/Components/vds' where option_name = 'VdcBootStrapUrl';"
 
 ## Testing
 

@@ -97,12 +97,12 @@ Copy & paste the content below into the file `$HOME/.m2/settings.xml`:
       xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
 
       <activeProfiles>
-        <activeProfile>oVirtEnvSettings</activeProfile>
+        <activeProfile>oVirt</activeProfile>
       </activeProfiles>
 
       <profiles>
         <profile>
-          <id>oVirtEnvSettings</id>
+          <id>oVirt</id>
           <properties>
             <jbossHome>/home/myuser/jboss-as</jbossHome>
           </properties>
@@ -111,7 +111,7 @@ Copy & paste the content below into the file `$HOME/.m2/settings.xml`:
 
     </settings>
 
-*   Do not omit the `active-profiles` element in the above file, it is crucial.
+*   Do not omit the `activeProfiles` element in the above file, it is crucial.
 *   Remember also to change the `jbossHome` property to the directory where you have the application server installed (more instructions later in this document).
 
 ## Installing JBoss AS

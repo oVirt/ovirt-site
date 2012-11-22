@@ -62,9 +62,9 @@ This is aready implemented in vdsm.
 **1) UI for user to add a watchdog device**
 
        In the Virtual Machines UI.
-       an "Watchdog" Option for user in the "New Server" and "New Desktop" dialogue.
+       an "Watchdog" Option for user in the "New Server" and "New Desktop" dialogue. Both "model" and "action" Options are needed for watchdog device.
        user can decide whether he needs to add a Watchdog device.
-       User can also decide the model or action for watchdog.
+       User can also decide the model and action for watchdog.
 
 **2) report the watchdog event to user**
 

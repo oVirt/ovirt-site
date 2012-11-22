@@ -173,5 +173,7 @@ Add additional fields to audit_log table upon upgrade
 
 External Event types should be exposed to the engine-notification tool in future releases
 Gathering Events/Alerts by the History ETL should be considered in future releases
+Separate between Events and Alerts in DB/BL/API
+Support search on *custom_data*
 
 [Category: Feature](Category: Feature)

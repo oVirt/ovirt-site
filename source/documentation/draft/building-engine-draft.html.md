@@ -59,11 +59,11 @@ The ovirt-engine source code is stored in a GIT repository. As such GIT is requi
 
 **Fedora**
 
-      #> yum install -y git
+    # yum install -y git
 
 **Debian**
 
-      #> apt-get install git
+    # apt-get install git
 
 ### Installing maven
 

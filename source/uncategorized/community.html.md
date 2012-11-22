@@ -16,7 +16,7 @@ __NOTOC__
 
 Everyone can contribute something back to the project — one doesn't have to be a programmer to make a difference!
 
-When starting out, we suggest [signing up for the users@ovirt.org mailing list](signing up for the users@ovirt.org mailing list) and sending an introductory email — just to introduce yourself and let people know what you're interested in related to oVirt. [ Join us on IRC](Communication#IRC) and communicate with us too, if it's possible for you to do so.
+When starting out, we suggest [ signing up for the users@ovirt.org mailing list](mailing lists#Users) and sending an introductory email — just to introduce yourself and let people know what you're interested in related to oVirt. [ Join us on IRC](Communication#IRC) and communicate with us too, if it's possible for you to do so.
 
 We're looking forward to working with you!
 

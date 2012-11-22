@@ -175,6 +175,9 @@ Add the new pm_secondary\* columns in the upgrade script.
 
 [Features/HostPMMultipleAgents](Features/HostPMMultipleAgents)
 
-### Open Issues
+### Future Directions
+
+For 3.2 we will handle only Primary/Secondary agents
+We may add 3rd agent support in future to handle other scenarios
 
 [Category: Feature](Category: Feature)

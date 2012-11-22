@@ -16,7 +16,7 @@ __NOTOC__
 
 Everyone can contribute something back to the project — one doesn't have to be a programmer to make a difference!
 
-When starting out, we suggest [signing up for the users@ovirt.org mailing list](signing up for the users@ovirt.org mailing list) and sending an introductory email — here's [an example introductory message](an example introductory message) to help. [Join us on IRC](Join us on IRC) and communicate with us too, if it's possible for you to do so.
+When starting out, we suggest [signing up for the users@ovirt.org mailing list](signing up for the users@ovirt.org mailing list) and sending an introductory email — here's [an example introductory message](an example introductory message) to help. [ Join us on IRC](Communication#IRC) and communicate with us too, if it's possible for you to do so.
 
 We're looking forward to working with you!
 
@@ -58,17 +58,17 @@ Keep track of the latest happenings in the oVirt community, including new releas
 
 ### Chat with us on IRC
 
-People using oVirt and all those who develop the software are welcome in [the #ovirt channel on irc.OFTC.net](the #ovirt_channel_on_irc.OFTC.net).
+People using oVirt and all those who develop the software are welcome in [the #ovirt channel on irc.OFTC.net](irc://irc.oftc.net/ovirt).
 
-If you don't already have a IRC client, you can [join our channel in your web browser by using mibbit](join our channel in your web browser by using mibbit).
+If you don't already have a IRC client, you can install [one of the clients referenced here](http://www.irchelp.org/irchelp/new2irc.html), or join our channel in your web browser by using [mibbit](https://www.mibbit.com/).
 
-We're most active in [the UMT-nearby timezones](the UMT-nearby timezones), but there are usually folks hanging out throughout the entire day. Also: be sure to [read our simple etiquette guidelines](read our simple etiquette guidelines). (Quick summary: be nice!)
+We're most active from about 07:00 UMT to 11:00 UMT (09:00 IST to 17:00 PST), but there are usually folks hanging out throughout the entire day. Also: be sure to [ read our simple etiquette guidelines](community guidelines). (Quick summary: be nice!)
 
 ### Have conversations on our mailing lists
 
 There are many mailing lists related to all aspects of oVirt. Some are for people using the software, others are for developing oVirt, and there are even more for administration and governance purposes.
 
-Remember to be polite and [read our etiquette guide](read our etiquette guide).
+Remember to be polite and [ read our etiquette guide](community guidelines).
 
 Join all of the following mailing lists that interest you:
 

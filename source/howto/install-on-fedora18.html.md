@@ -62,7 +62,7 @@ VDSM can't find network interface - this is due to the fact that ifconfig has be
 
             yum install net-tools
 
-After installing you will need to reboot the machine manually because the bootstrap will fail to do it.
+After connecting the host to the engine you will need to reboot the machine manually because the bootstrap will fail to do it.
 
             reboot
 

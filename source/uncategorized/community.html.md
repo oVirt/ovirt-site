@@ -40,7 +40,7 @@ Whether you push pixels or strive to put users first — if you're a designer, y
 
 ### Develop the code
 
-Know how to program? Jump in and help us out. There's even a whole section of our website dedicated to you — start by reading the [develop section](develop section).
+Know how to program? Jump in and help us out. There's even a whole section of our website dedicated to you — start by reading the [ develop section](develop).
 
 ### Community governance & structure
 

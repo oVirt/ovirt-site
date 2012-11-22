@@ -174,6 +174,8 @@ Remove MANIPUTLATE_HOST action group from NetworkAdmin role.
 
 Add Permissions sub-tab under Networks main tab
 Add Network as an entity of both User/Admin role dialog.
+![](Network-permissions-dialog.png "fig:Network-permissions-dialog.png")
+
 Add Network User role to Roles Tree in:
  *frontend/webadmin/modules/uicommonweb/src/main/java/org/ovirt/engine/ui/uicommonweb/models/configure/roles_ui/RoleTreeView.java*
 

@@ -124,25 +124,27 @@ Note that development environments should install the application server using t
 
 Select and create the directory where you want to install the application server, for example `$HOME/jboss-as`. From now on we will refer to that directory with the environment variable `JBOSS_HOME`:
 
-    $> export JBOSS_HOME=$HOME/jboss-as
-    $> mkdir -p $JBOSS_HOME
+    $ export JBOSS_HOME=$HOME/jboss-as
+    $ mkdir -p $JBOSS_HOME
 
 ***Note**: It might be convenient to add that variable to your `$HOME/.bash_profile` file, so that you get it automatically whenever you log in.*
 
 Download and install version 7.1.1 of the application server:
 
-    $> cd $JBOSS_HOME
-    $> wget http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip
-    $> unzip jboss-as-7.1.1.Final.zip
-    $> mv jboss-as-7.1.1.Final/* .
-    $> rmdir jboss-as-7.1.1.Final
+    $ cd $JBOSS_HOME
+    $ wget http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip
+    $ unzip jboss-as-7.1.1.Final.zip
+    $ mv jboss-as-7.1.1.Final/* .
+    $ rmdir jboss-as-7.1.1.Final
 
 Update the `jbossHome` property in your personal maven settings file `$HOME/.m2/settings.xml`.
 
 Check that the application server starts correctly:
 
-    $> cd $JBOSS_HOME/bin
-    $> ./standalone.sh -b 0.0.0.0
+    $ cd $JBOSS_HOME/bin
+    $ ./standalone.sh -b 0.0.0.0
+
+This will start the application server and will keep your terminal window busy. Check that there are no error messages in the output and then stop it with Ctrl+C.
 
 Ensure that you have write access to the `$JBOSS_HOME/standalone/deployments` directory, as there is where the engine will be deployed.
 

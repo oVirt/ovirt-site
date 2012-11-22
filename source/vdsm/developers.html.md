@@ -234,7 +234,7 @@ Finally, we are assuming you already have qemu-kvm/libvirt/virt-manager installe
        # cat /sys/module/kvm_intel/parameters/nested
         N
 
-*   2) In that case, it's disabled, to enable (can be via modprobe conf as well):
+*   2) In that case, it's disabled, to enable (can be via modprobe conf as well, simply: echo "options kvm-intel nested=1" > /etc/modprobe.d/kvm-intel.conf ):
 
        # vi /etc/default/grub
 

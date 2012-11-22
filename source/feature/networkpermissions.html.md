@@ -94,6 +94,13 @@ The **existing Action Groups** and their associated Actions:
     -   AttachNetworkToVdsGroup
     -   DetachNetworkToVdsGroup
 
+<!-- -->
+
+*   **CREATE_STORAGE_POOL_NETWORK** (admin role, on VdcObjectType.StoragePool) will be defined for actions:
+    -   AddNetworkCommand
+*   **DELETE_STORAGE_POOL_NETWORK** (admin role, on VdcObjectType.Network) will be defined for actions:
+    -   UpdateNetworkCommand
+
 #### Roles and Action Groups
 
 ##### New Roles

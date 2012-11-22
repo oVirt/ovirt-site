@@ -8,4 +8,4 @@ wiki_last_updated: 2012-11-22
 
 # Ubuntu
 
-Category Page for Ubuntu related information
+Category Page for Ubuntu related information See also [:Category:Debian](:Category:Debian)

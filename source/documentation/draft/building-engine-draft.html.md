@@ -390,8 +390,10 @@ to update the code and take latest, you need to do:
 3.  Compile the code
 4.  Upgrade your DB schema
 
-      $> cd $OVIRT_HOME/backend/manager/dbscripts/
-      $> ./upgrade.sh -u postgres
+<!-- -->
+
+    $ cd $OVIRT_HOME/backend/manager/dbscripts
+    $ ./upgrade.sh -u postgres
 
 ## Is there an IDE?
 

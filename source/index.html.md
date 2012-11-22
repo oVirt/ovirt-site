@@ -42,7 +42,7 @@ oVirt version 3.1 was released on August 8th, 2012 and contained several groundb
 The web admin console also includes new support for manging floating virtual disks and configuring gluster storage volumes.
 
 <div class="pull-right">
-[Read the full release notes »](Read the full release notes »)
+[ Read the full release notes »](oVirt 3.1 release notes)
 
 </div>
 </div>

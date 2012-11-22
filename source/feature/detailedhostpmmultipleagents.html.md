@@ -96,31 +96,34 @@ Add pm_secondary\* fields to VDS
 ### API
 
 The REST API will be enhanced to include the new Secondary Agent definitions as follows
+ <power_management_agents>
 
-` `<power_management type="rsa">
-`   `<enabled>`true`</enabled>
-         
-
-<address>
-ip or fqdn
-
-</address>
-`   `&lt;username&gt;`user`</username>
-`   `<password>`password`</password>
-`    `<options><option value="" name="port"/><option value="false" name="secure"/></options>
-` `</power_management>
-<power_management type="apc" concurrent="false">
-         
+`   `<power_management type="rsa">
+`     `<enabled>`true`</enabled>
+           
 
 <address>
 ip or fqdn
 
 </address>
-`   `&lt;username&gt;`user`</username>
-`   `<password>`password`</password>
-`    `<options><option value="" name="port"/><option value="false" name="secure"/></options>
-` `</power_management>
+`     `&lt;username&gt;`user`</username>
+`     `<password>`password`</password>
+`      `<options><option value="" name="port"/><option value="false" name="secure"/></options>
+`   `</power_management>
+`   `<power_management type="apc">
+           
 
+<address>
+ip or fqdn
+
+</address>
+`     `&lt;username&gt;`user`</username>
+`     `<password>`password`</password>
+`     `<options><option value="" name="port"/><option value="false" name="secure"/></options>
+`   `</power_management>
+` `</power_management_agents>
+
+*concurrent* flag will be handled in the Host level
 Add custom mapping for these new power-management fields in HostMapper.java, for both REST-->Backend and Backend-->REST directions)
 
 ### Flow

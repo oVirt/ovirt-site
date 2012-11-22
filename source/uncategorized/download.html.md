@@ -46,8 +46,8 @@ Software:
 
     * Fedora 17 (for easy installation)
 
-Advanced; install from source:  
-[Debian](http://www.debian.org), [Fedora](http://www.fedoraproject.org), [Ubuntu](http://www.ubuntu.com), [ other](porting oVirt)
+Advanced; install [ Engine](Building oVirt engine) and [ Node](Node Building) from source:  
+Help [ port oVirt](porting oVirt) to [Debian](http://www.debian.org), [Ubuntu](http://www.ubuntu.com), [OpenSuse](http://www.opensuse.org) and other distributions
 
 </div>
 </div>

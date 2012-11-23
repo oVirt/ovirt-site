@@ -25,6 +25,8 @@ We want to keep the oVirt Community a great place to participate, but we need yo
 
 ## Bug reporting guidelines
 
+## Code submission guidelines
+
 ## Guideline Violations - 3 Strikes Method
 
 The point of this section is not to find opportunities to punish people, but we do need a fair way to deal with people who are making our community an unpleasant place.

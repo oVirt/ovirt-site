@@ -17,12 +17,13 @@ We want to keep the oVirt Community a great place to participate, but we need yo
 *   Keep it legal
 *   Stay on topic
 
-## Specific guidelines
+## Mailing list guidelines
 
-*   [Mailing list guidelines](#Mailing_list_guidelines)
-*   [IRC guidelines](#IRC_guidelines)
-*   [Wiki contribution guidelines](#Wiki_contribution_guidelines)
-*   [Bug reporting guidelines](#Bug_reporting_guidelines)
+## IRC guidelines
+
+## Wiki contribution guidelines
+
+## Bug reporting guidelines
 
 ## Guideline Violations - 3 Strikes Method
 
@@ -39,14 +40,6 @@ The point of this section is not to find opportunities to punish people, but we 
 *   Minor formatting / style infractions will be dealt with through education, not the 3 strikes process.
 *   Extreme violations of a threatening, abusive, destructive or illegal nature will be addressed immediately and are not subject to 3 strikes.
 *   Contact [Dave neary](User:DNeary) to report abuse or appeal violations (mistakes happen & will be corrected).
-
-## Mailing list guidelines
-
-## IRC guidelines
-
-## Wiki contribution guidelines
-
-## Bug reporting guidelines
 
 *These guidelines have been adapted from [the MeeGo Community](http://wiki.meego.com/Community_guidelines)*
 

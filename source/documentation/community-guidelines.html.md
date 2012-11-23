@@ -17,11 +17,39 @@ We want to keep the oVirt Community a great place to participate, but we need yo
 *   Keep it legal
 *   Stay on topic
 
+## General guidelines
+
+### Search before you ask
+
+A few seconds on Google can help you find an answer to a question, or a past discussion on a subject, which can help us reduce duplication of effort and any associated frustration. Your effort will be appreciated.
+
+*   To search mailing lists: Google "site:lists.ovirt.org <search terms>" - [example](https://www.google.fr/search?q=site:lists.ovirt.org+Engine+plugin)
+*   To search our bugtracker: Google "site:bugzilla.redhat.com ovirt <search terms>" - [example](https://www.google.fr/search?q=site:bugzilla.redhat.com+oVirt+NFS)
+*   To search the wiki: Google "site:wiki.ovirt.org <search terms>" - [example](https://www.google.fr/search?q=site:wiki.ovirt.org+Gluster)
+
+### Be pleasant
+
+Our community is defined by the interactions of its members. When people are nice to each other, our community is nice. It can be easy to forget, in a disconnected world, that the person behind the IRC nick is a person. Please remember that.
+
+For each of the communication channels the community uses, there are some channel-specific guidelines.
+
 ## Mailing list guidelines
+
+*   Keep it short - an email to a mailing list is asking a lot of people for their time to read it. Please be concise.
+*   Send email to the right place - please only send email which is on-topic for the list(s) receiving it. You can find a description of the most important community mailing lists on the [mailing lists](mailing lists) page.
+*   Cross-posting is accepted in the oVirt project when appropriate - if you want to ask a question which is relevant to project developers, which will need support of the infrastructure team, then cross-posting to arch@ovirt.org and infra@ovirt.org is fine.
 
 ## IRC guidelines
 
+*   We hold IRC meetings in the oVirt project - please see [meetings](meetings) for the agenda for team meetings. During meetings, please respect meeting participants and stay on-topic. We use [MeetBot](http://wiki.debian.org/MeetBot) to generate meeting minutes - if you would like to assist with minute taking, you can request "chair" status from the meeting leader.
+*   Please use [fpaste](http://fpaste.org/) or [pastebin](http://pastebin.com/) if you would like to share long texts (longer than ~3-4 lines)
+*   Answer questions if you can - don't be shy about answering questions, even if the answer is "I don't know". It is always helpful, and like many IRC channels, there can be long periods when not many people are around. So you might be the only person to see the question in real time.
+*   Use someone's IRC nick when talking to them. Many IRC clients highlight messages which include their IRC nick, making it easier for them to see when someone has something specific to ask them.
+*   Be patient - when asking questions, be aware that perhaps no-one is around. Sometimes answers will arrive only after a few minutes.
+
 ## Wiki contribution guidelines
+
+*   Wiki page naming - Please use descriptive, complete titles for page names. Please do not use CamelCase, All Capital Initials or sentences.
 
 ## Bug reporting guidelines
 

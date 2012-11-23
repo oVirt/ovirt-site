@@ -66,7 +66,7 @@ We're most active from about 07:00 UMT to 11:00 UMT (09:00 IST to 17:00 PST), bu
 
 ### Have conversations on our mailing lists
 
-There are many mailing lists related to all aspects of oVirt. Some are for people using the software, others are for developing oVirt, and there are even more for administration and governance purposes.
+There are many [mailing lists](mailing lists) related to all aspects of oVirt. Some are for people using the software, others are for developing oVirt, and there are even more for administration and governance purposes.
 
 Remember to be polite and [ read our etiquette guide](community guidelines).
 

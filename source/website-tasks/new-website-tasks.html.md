@@ -15,7 +15,7 @@ Based on the website redesign plans (see reference links, below), the WordPress-
 Colour codes:
 
 *   <span style="background-color:tomato">Page creation/copy needed, or link not yet identified</span>
-*   <span style="background-color:orange">in progress</span>
+*   <span style="background-color:purple">in progress</span>
 *   <span style="background-color:springgreen">Done</span>
 
 ## Pages from Wordpress-based oVirt Site (in order of traffic):

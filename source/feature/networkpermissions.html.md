@@ -115,7 +115,7 @@ The **existing Action Groups** and their associated Actions:
         -   MANIPUTLATE_HOST - it has nothing to do with networking, therefore should be omitted from the aforementioned list.
     -   Added action groups:
         -   CONFIGURE_STORAGE_POOL_NETWORK - to allow add/remove/update of networks to the Data-Center.
-        -   MANAGE_CLUSTER_NETWORK - new action group.
+        -   ASSIGN_CLUSTER_NETWORK - new action group for attach/detach network from cluster.
     -   Attaching a network to host's nic will not require permission on the attached network, rather on the host only.
     -   PORT_MIRRORING - allows to define a network as port-mirroring
 

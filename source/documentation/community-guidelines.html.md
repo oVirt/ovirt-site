@@ -48,6 +48,6 @@ The point of this section is not to find opportunities to punish people, but we 
 
 ## Bug reporting guidelines
 
-**These guidelines have been adapted from [the MeeGo Community](http://wiki.meego.com/Community_guidelines)**
+*These guidelines have been adapted from [the MeeGo Community](http://wiki.meego.com/Community_guidelines)*
 
 <Category:Community>

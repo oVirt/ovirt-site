@@ -154,6 +154,7 @@ External Alerts will be displayed in the *Alerts* TAB
 ### Installation/Upgrade
 
 Add additional fields to audit_log table upon upgrade
+Add the permission(ActionGroup) to manipulate External Events to other *admin* roles already defined upon upgrade.
 
 #### User work-flows
 

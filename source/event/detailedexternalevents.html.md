@@ -104,7 +104,7 @@ Adding AddExternalEventParameters with the following fields
 Adding support for searching events by:
 
        deleted
-       vendor
+       source
        custom_event_id
 
 External Events can be filtered using *vendor != 'oVirt*'

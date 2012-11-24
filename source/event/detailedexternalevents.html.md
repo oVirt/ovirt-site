@@ -86,7 +86,7 @@ Adding AddExternalEventParameters with the following fields
 
         AuditLogSeverity [Mandatory]
         Message [Mandatory]
-        Vendor  [Mandatory]
+        Source  [Mandatory]
         CustomEventId [Mandatory]
         CustomData [Mandatory]
         EventFloodInSec[[Optional] -- 30 sec if not defined

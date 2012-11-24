@@ -50,11 +50,11 @@ External Events can not use application variables, therefore no '$' expressions 
 ### CRUD
 
 Adding *deleted* boolean field to audit_log with a default value of *false*
-Adding *vendor* varchar field to audit_log with a default value of *oVirt* [1]
+Adding *source* varchar field to audit_log with a default value of *oVirt* [1]
 Adding *custom_event_id* integer field to audit_log with a default value of *-1* [2]
 Adding *event_flood_in_sec* integer field to audit_log with a default value of *30* [3]
 Adding *custom_data* text field to audit_log with a default value of empty string [4]
- [1] *vendor* is a unique string that identifies the vendor
+ [1] *source* is a unique string that identifies the source adding an event
 [2] *custom_event_id* is a sequential number that identifies the event/alert instance
 [3] *event_flood_in_sec* value will not affect application events
 [4] *custom data* value will be used to store any data about the event, (for example {a=xxx,b=12})

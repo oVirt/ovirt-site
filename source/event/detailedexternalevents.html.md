@@ -112,7 +112,7 @@ External Events can be filtered using *source != 'oVirt*'
 ### Flow
 
 *Add Event/Alert* Flow:
-Invoke *..api/events/add* API giving at least AuditLogType, Severity, Vendor & CustomEventId
+Invoke *..api/events/add* API giving at least AuditLogType, Severity, source & CustomEventId
 When the Event/Alert is on a specific object, the object instance id should be set.
  *Delete Alert* Flow:
 Invoke ..api/events/delete API giving AuditLogId (this id is returned when adding an External Event)

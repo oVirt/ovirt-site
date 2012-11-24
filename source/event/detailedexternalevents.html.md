@@ -107,7 +107,7 @@ Adding support for searching events by:
        source
        custom_event_id
 
-External Events can be filtered using *vendor != 'oVirt*'
+External Events can be filtered using *source != 'oVirt*'
 
 ### Flow
 

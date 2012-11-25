@@ -27,7 +27,7 @@ VDSM
 
 Status:
 
-*   Partially works, requires manual tweaking.
+*   Works but requires manual tweaking.
 *   Relevant BZ:
 
 `  `[`https://bugzilla.redhat.com/show_bug.cgi?id=869963`](https://bugzilla.redhat.com/show_bug.cgi?id=869963)

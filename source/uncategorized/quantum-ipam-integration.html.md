@@ -95,6 +95,8 @@ The downsides to this approach:
 
 #### DHCP Agent per network
 
+![Flow of oVirt operations mapped to Quantum actions](OVirtQuantumFlow.png "Flow of oVirt operations mapped to Quantum actions")
+
 A general outline of the approach:
 
 ![](QuantumIPAMIntegration.png "QuantumIPAMIntegration.png")

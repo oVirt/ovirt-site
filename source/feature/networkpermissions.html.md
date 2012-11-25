@@ -162,7 +162,7 @@ Add new view:
 
 The following queries will be modified to be filtered by the user:
 
-      GetAllNetworksByClusterIdQuery - when filter is set the query returns the networks that the User has permission on or attached to his VM.
+      GetAllNetworksByClusterIdQuery - when filter is set the query returns the networks that the User has permission on or attached to the User's VM.
 
 ##### Upgrade DB
 

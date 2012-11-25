@@ -31,7 +31,7 @@ When assigning new host to RHEV-M the engine gets general information about the 
 ### Detailed Description
 
 The following feature allows the portal to present host's bios information when adding new RHEV-H.
-This information is taken by using dmidecode command, this command runs with root permissions over the host and returns the information throw getCapabilities API method. This adds the following data:
+This information is taken by using dmidecode command, this command runs with root permissions over the host and returns the information with getCapabilities API method. This adds the following data:
  1. Host Manufacturer - Manufacturer of the host's machine and bios' vendor (e.g LENOVO)
 
       2. Host Version - For each host the manufacturer gives a unique name (e.g. Lenovo T420s)
@@ -50,7 +50,7 @@ This feature adds to this tab the following fields:
 
 #### Engine Flows
 
-When gathering host's capabilities we receive host's bios details by VDSM API. This information is written to the database and updated every time the host returns different response. Usually bios information stays constant. Because host capabilities are filled with dynamic data, also here we keep the dynamic flow. Engine requests are sent every refresh and update the database if needed.
+When gathering host's capabilities we receive host's bios details by VDSM API. This information is written to the database and updates every time the host returns different response. Usually bios information stays constant. Because host capabilities are filled with dynamic data, also here we keep the dynamic flow. Engine requests are sent every refresh and update the database if needed.
 
 #### REST API
 

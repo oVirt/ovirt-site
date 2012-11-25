@@ -50,7 +50,7 @@ We recommend setting the 'gwt.userAgent' property within the **gwtdev** profile:
 *   Build oVirt Engine and enable the **gwtdev** profile:
 
       $> cd $OVIRT_HOME
-      $> mvn2 clean install -Pgwtdev,gwt-admin
+      $> mvn clean install -Pgwtdev,gwt-admin
        
 
 This will instruct GWT to generate 1 permutation for FireFox browser only.

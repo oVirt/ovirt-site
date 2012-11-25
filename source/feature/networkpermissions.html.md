@@ -40,8 +40,8 @@ Please refer to [Action Permissions overview](http://wiki.ovirt.org/wiki/Action_
 #### User
 
 *   For attaching a network to a Vnic in the VM you need to have the role of **NetworkUser** on the network and **VmAdmin** on the VM.
-*   In user portal - the list of shown network for a user will include only the list of networks the user is allowed to attach to its vnics (instead of all cluster's networks).
-*   In RESTFul API the user will be able to see all of the networks.
+*   In user portal - the list of shown network for a user will include only the list of networks the user is allowed to attach to its vnics (instead of all cluster's networks) or those which are currently attached to its VM.
+*   In RESTFul API the user will be able to see the networks which he has permissions on or those which are attached to its VM.
 
 ##### Port-mirroring
 

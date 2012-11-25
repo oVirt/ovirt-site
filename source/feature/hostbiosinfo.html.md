@@ -44,7 +44,7 @@ Of course we can add more information in the future on request.
 
 #### User Experience
 
-Under Hosts tab we have general information about the chosen host. In this tab you get general information that retrieved from the host: ![](General-tab.jpeg "fig:General-tab.jpeg")
+Under Hosts tab we have general information about the chosen host. In this tab you see general information that was retrieved from the host: ![](General-tab.jpeg "fig:General-tab.jpeg")
 This feature adds to this tab the following fields:
 ![](Bios.jpeg "fig:Bios.jpeg")
 

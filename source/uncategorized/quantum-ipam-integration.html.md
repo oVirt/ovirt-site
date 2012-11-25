@@ -90,13 +90,7 @@ Also if we run the Quantum DHCP Agent on the same machine then we can easily dep
 The downsides to this approach:
 
 *   Major: All the networks that require the IPAM capability will have to be connected to this host.
-
-<!-- -->
-
-*   -   This is not plausible in the virtualization use-case.
-
-<!-- -->
-
+    -   This is not plausible in the virtualization use-case.
 *   Minor: We cannot have multiple DHCP servers running for HA, so if for some reason the DHCP fails then we can't allocate IP addresses.
 
 #### DHCP Agent per network

@@ -63,20 +63,6 @@ It is possible during development to speed up the build process by skipping the 
       $> mvn clean install -DskipTests=true
        
 
-It is also possible to skip only the fluster tests (which take a considerable amount of time) instead of all the tests:
-
-      $> cd $OVIRT_HOME
-      $> mvn clean install -Pdisable-gluster-tests
-       
-
-## Forking Unit Tests
-
-Several modules fork their unit tests by default to avoid PermGen error caused by leaky components. In older Maven versions this is less of an issue, so forking may be disabled by using the **-Dengine.powermock.fork=once** flag:
-
-      $> cd $OVIRT_HOME
-      $> mvn clean install -Dengine.powermock.fork=once
-       
-
 ## Log Configuration
 
 Engine logging is done with log4j.

@@ -90,7 +90,7 @@ The **existing Action Groups** and their associated Actions:
 
 ##### New Action Groups
 
-*   **MANAGE_CLUSTER_NETWORK** (admin role, on VdcObjectType.Network) will be defined for actions:
+*   **ASSIGN_CLUSTER_NETWORK** (admin role, on VdcObjectType.Network) will be defined for actions:
     -   AttachNetworkToVdsGroup
     -   DetachNetworkToVdsGroup
 

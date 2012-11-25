@@ -125,3 +125,7 @@ There would be a DHCPManager class which is responsible for the management of th
 The downsides to this approach:
 
 *   Moderate: Quantum needs to be installed on each host (at least DHCP agent requirements).
+
+<!-- -->
+
+*   Moderate/Minor: The host now needs to know at least the Quantum Service URI in order to communicate with it.

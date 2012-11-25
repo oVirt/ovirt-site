@@ -74,7 +74,7 @@ It is also possible to skip only the fluster tests (which take a considerable am
 Several modules fork their unit tests by default to avoid PermGen error caused by leaky components. In older Maven versions this is less of an issue, so forking may be disabled by using the **-Dengine.powermock.fork=once** flag:
 
       $> cd $OVIRT_HOME
-      $> mvn2 clean install -Dengine.powermock.fork=once
+      $> mvn clean install -Dengine.powermock.fork=once
        
 
 ## Log Configuration

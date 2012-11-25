@@ -50,7 +50,7 @@ Reports
 
 Status:
 
-*   Not Tested
+*   Not tested
 
 Guest agent
 
@@ -74,4 +74,4 @@ SDK
 
 Status:
 
-*   Not Tested
+*   Not tested

@@ -42,6 +42,8 @@ Bottom line: The port MAC & IP are determined/known by the user, even before the
 
 ### DHCP Agent dynamics
 
+![Quantum DHCP Agent notification handling](QuantumDHCPNotifications.png "Quantum DHCP Agent notification handling")
+
 Quantum's DHCP Agent syncs with the network/subnet/port state on it's start from the Quantum service.
 
 The basic way of operation is this:
@@ -61,7 +63,7 @@ If a notification requires action then it acts on it accordingly.
 
 It is noteworthy that the DHCP Agent doesn't discriminate networks/subnets/ports - it will serve all of them which are defined in the Quantum Service that it is communicating with.
 
-Bottom line: One or more Quantum DHCOP Agents can run simultaneously for each network, serving the addresses defined in Quantum Service.
+**Bottom line:** One or more Quantum DHCP Agents can run simultaneously for each network, serving the addresses defined in Quantum Service.
 
 ### Integrating with oVirt
 

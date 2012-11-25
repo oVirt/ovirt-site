@@ -60,13 +60,13 @@ This will instruct GWT to generate 1 permutation for FireFox browser only.
 It is possible during development to speed up the build process by skipping the execution of unit tests, This can be done by adding the **-DskipTests=true** to your build command:
 
       $> cd $OVIRT_HOME
-      $> mvn2 clean install -DskipTests=true
+      $> mvn clean install -DskipTests=true
        
 
 It is also possible to skip only the fluster tests (which take a considerable amount of time) instead of all the tests:
 
       $> cd $OVIRT_HOME
-      $> mvn2 clean install -Pdisable-gluster-tests
+      $> mvn clean install -Pdisable-gluster-tests
        
 
 ## Forking Unit Tests

@@ -44,7 +44,13 @@ Of course we can add more information in the future on request.
 
 #### User Experience
 
+Under Hosts tab we have general information about the chosen host. In this tab you get general information that retrieved from the host: ![](General-tab.jpeg "fig:General-tab.jpeg")
+This feature adds to this tab the following fields:
+![](Bios.jpeg "fig:Bios.jpeg")
+
 #### Engine Flows
+
+When gathering host's capabilities we receive host's bios details by VDSM API. This information is written to the database and updated every time the host returns different response. Usually bios information stays constant. Because host capabilities are filled with dynamic data, also here we keep the dynamic flow. Engine requests are sent every refresh and update the database if needed.
 
 #### REST API
 

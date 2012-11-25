@@ -18,9 +18,9 @@ Please visit [Building_oVirt_engine](Building_oVirt_engine) for basic step by st
 
 ## Local Settings
 
-Maven supports local settings by creating a local setting.xml file that should be placed under your local maven repository (~/.m2),
+Maven supports local settings by creating a local settings.xml file that should be placed under your local maven repository (~/.m2),
 
-You can find instructions how to create a basic setting.xml file in Building oVirt Engine in the [Maven Personal Settings](Building_oVirt_engine#Maven_personal_settings) section.
+You can find instructions how to create a basic settings.xml file in Building oVirt Engine in the [Maven Personal Settings](Building_oVirt_engine#Maven_personal_settings) section.
 
 ## GWT Compilation Configuration
 
@@ -34,7 +34,7 @@ This can be done by overriding the **gwt.userAgent** property,
 
 We recommend setting the 'gwt.userAgent' property within the **gwtdev** profile:
 
-*   Edit ~/.m2/setting.xml file
+*   Edit ~/.m2/settings.xml file
 *   Add the following lines:
 
       <profiles>

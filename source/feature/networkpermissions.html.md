@@ -191,7 +191,7 @@ Add Network User role to Roles Tree in:
 ` `*`frontend/webadmin/modules/uicompat/src/main/java/org/ovirt/engine/ui/uicompat/Enums.java`*
 ` `*`frontend/webadmin/modules/uicompat/src/main/resources/org/ovirt/engine/ui/uicompat/Enums.properties`*
 
-On 'New Logical Network' dialog a new option will be added as check box with message: "Allow all users to access this Network"
+On 'New Logical Network' dialog a new option will be added as check box with message: "Allow all users to use this Network"
 Checking this option will grant 'everyone' permissions of the created network with 'VmNetworkUser' role.
 
 User Portal should be modified to use the updated query.

@@ -35,3 +35,43 @@ Status:
 *   Walkarounds for the issues can be found here:
 
 `  `[`http://wiki.ovirt.org/wiki/How_to_install_ovirt_on_fedora18`](http://wiki.ovirt.org/wiki/How_to_install_ovirt_on_fedora18)
+
+DWH
+
+------------------------------------------------------------------------
+
+Status:
+
+*   Not tested
+
+Reports
+
+------------------------------------------------------------------------
+
+Status:
+
+*   Not Tested
+
+Guest agent
+
+------------------------------------------------------------------------
+
+Status:
+
+*   Not tested
+
+Cli
+
+------------------------------------------------------------------------
+
+Status:
+
+*   Not tested
+
+SDK
+
+------------------------------------------------------------------------
+
+Status:
+
+*   Not Tested

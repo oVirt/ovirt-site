@@ -16,7 +16,7 @@ A group of domains that are managed together. Currently domains grouped and can 
 
 ## Storage Domain
 
-An atomic storage unit. On file domains it's either a mount point or a folder. On block devices on the other hand this can be a group of LUNs. There is no had limitation but it is highly recommended that all the LUNs composing a block domain are on the same physical host. This is done because when only parts of the domain disappear in case of failure there is a real issue with detecting problems.
+An atomic storage unit. On file domains it's either a mount point or a folder. On block devices on the other hand this can be a group of LUNs. There is no hard limitation but it is highly recommended that all the LUNs composing a block domain are on the same physical host. This is done because when only parts of the domain disappear in case of failure there is a real issue with detecting problems.
 
 Storage domains contains the images that the VMs will use.
 

@@ -40,8 +40,6 @@ The port is then part of the quantum DB, and if needed is created by the plugin.
 
 Bottom line: The port MAC & IP are determined/known by the user, even before the VM is up.
 
-![Quantum DHCP Agent notification handling](QuantumDHCPNotifications.png "Quantum DHCP Agent notification handling")
-
 ### DHCP Agent dynamics
 
 Quantum's DHCP Agent syncs with the network/subnet/port state on it's start from the Quantum service.

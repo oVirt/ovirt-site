@@ -28,7 +28,7 @@ V2 API: <http://wiki.openstack.org/Quantum/APIv2-specification#Create_Port>
 
 When a port is created it is assigned to a network.
 
-The MAC address of the port can either be specified or
+The MAC address of the port can either be specified or generated automatically by Quantum Service.
 
 If the network has subnets then the port will be assigned an IP on the subnet:
 

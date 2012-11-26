@@ -187,13 +187,13 @@ Still as the `root` user change into the directory where you cloned the `ovirt-e
 
 If you only want to build the engine core and then REST API then use the following commands:
 
-    $> cd $OVIRT_HOME
-    $> mvn clean install
+    $ cd $HOME/ovirt-engine
+    $ mvn clean install
 
 For compiling the GUI (web administration tool and user portal) in addition to the engine core and REST API and engine use the following commands:
 
-    $> cd $OVIRT_HOME
-    $> mvn clean install -Pgwt-admin,gwt-user
+    $ cd $HOME/ovirt-engine
+    $ mvn clean install -Pgwt-admin,gwt-user
 
 ***Notes:***
 
@@ -205,7 +205,7 @@ For compiling the GUI (web administration tool and user portal) in addition to t
 
 <!-- -->
 
-    $> export MAVEN_OPTS="-XX:MaxPermSize=128m"
+    $ export MAVEN_OPTS="-XX:MaxPermSize=128m"
 
 For advanced build notes, please visit [Advanced oVirt Engine Build Notes](Advanced oVirt Engine Build Notes).
 

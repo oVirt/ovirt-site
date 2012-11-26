@@ -12,7 +12,7 @@ wiki_last_updated: 2012-11-29
 
 ![Quantum IPAM general overview](QuantumDHCPOverview.png "Quantum IPAM general overview")
 
-Quantum offers some layer 3 Network services which are not yet available in oVirt.
+Quantum offers layer 3 Network services which are not yet available in oVirt.
 
 This page is a proposal for oVirt-Quantum integration focused on leveraging the IP Address Management service offered by Quantum.
 

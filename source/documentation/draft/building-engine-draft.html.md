@@ -172,22 +172,18 @@ This will create a new `ovirt-engine` directory containing the cloned repository
 
 #### Creating the database
 
-Change into your git repository:
+Create the `/root/.pgpass` file containing the password of the database administrator. Note that you will need to be `root` to do this. The content should be the following:
 
-    $> cd $OVIRT_HOME/backend/manager/dbscripts
+    *:*:*:postgres:YOUR_POSTGRES_PASSWORD
 
-Then run the following command, as root, to create the database:
+Make sure that the permissions of the `/root/.pgpass` file are `0600`:
 
-    #> ./create_db_devel.sh -u postgres
+    # chmod 0600 /root/.pgpass
 
-***Note:** In case `create_db_devel.sh` keeps asking postgres password, create the following file:*
+Still as the `root` user change into the directory where you cloned the `ovirt-engine` git repository, then change into the `backend/manager/dbscritps` directory and run the `create_db_devel.sh` script:
 
-    $> echo "*:*:*:postgres:YOUR_POSTGRES_PASSWORD" > $HOME/.pgpass 
-    $> chmod 0600 ~/.pgpass
-
-On some installations you will receive an error message about `uuid-ossp.sql` not being found. This is an open issue: <https://bugzilla.redhat.com/750626>
-
-To work around the issue, edit the file `$OVIRT_HOME/backend/manager/dbscripts_postgres/create_db.sh` file and change the references to `uuid-ossp.sql` to point to the right location.
+    # cd backend/manager/dbscripts
+    # ./create_db_devel.sh -u postgres
 
 #### Build
 

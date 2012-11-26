@@ -87,9 +87,7 @@ Once the installation is completed verify that the correct version of the `mvn` 
 
 Create your `$HOME/.m2` directory (this is where maven stores your personal settings and the artifacts downloaded from internet repositories):
 
-`
-$ mkdir $HOME/.m2
-`
+    $ mkdir $HOME/.m2
 
 Copy & paste the content below into the file `$HOME/.m2/settings.xml`:
 

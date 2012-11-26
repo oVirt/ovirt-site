@@ -16,7 +16,9 @@ Quantum offers layer 3 Network services which are not yet available in oVirt.
 
 This page is a proposal for oVirt-Quantum integration focused on leveraging the IP Address Management service offered by Quantum.
 
-### Port creation dynamics
+### How it works in quantum
+
+#### Port creation dynamics
 
 V2 API: <http://wiki.openstack.org/Quantum/APIv2-specification#Create_Port>
 
@@ -34,7 +36,7 @@ The port is then part of the quantum DB, and if needed is created by the plugin.
 
 **Bottom line:** The port MAC & IP are determined/known by the user, even before the VM is up.
 
-### DHCP Agent dynamics
+#### DHCP Agent dynamics
 
 ![Quantum DHCP Agent notification handling](QuantumDHCPNotifications.png "Quantum DHCP Agent notification handling")
 

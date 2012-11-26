@@ -85,21 +85,20 @@ This means that in order to gain IPAM capabilities,
 
 ![](OneDoesNotSimplyIntegrateQuantumIntoOvirt.jpg "OneDoesNotSimplyIntegrateQuantumIntoOvirt.jpg")
 
-#### One host to rule them all
+#### Integration Path
 
-The simplest solution is to have the Quantum Service sit in oVirt with a "fake plugin" that will not change anything in the physical network.
+##### One host to rule them all
 
-This way oVirt can talk to Quantum Service locally and we have a single copy of the data of Quantum (perhaps Quantum can query the network/subnet/port data from oVirt?).
-
-Also if we run the Quantum DHCP Agent on the same machine then we can easily deploy all together, and integration is easier (only 2 additional services to manage overall).
+The first option we considered and seemed to be the simple one is to have the Quantum Service and the DHCP agent sit in oVirt with a "fake plugin" that will not change anything in the physical network.
 
 The downsides to this approach:
 
-*   Major: All the networks that require the IPAM capability will have to be connected to this host.
-    -   This is not plausible in the virtualization use-case.
-*   Minor: We cannot have multiple DHCP servers running for HA, so if for some reason the DHCP fails then we can't allocate IP addresses.
+*   All the networks that require the IPAM capability will have to be connected to this host.
+*   We cannot have multiple DHCP servers running for HA, so if for some reason the DHCP fails then we can't allocate IP addresses.
 
-#### DHCP Agent per network
+The downsides above seems to be too critical for us to overlook, so we were looking for another integration option.
+
+##### DHCP Agent running on the host
 
 ![Flow of oVirt operations mapped to Quantum actions](OVirtQuantumFlow.png "Flow of oVirt operations mapped to Quantum actions")
 

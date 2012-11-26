@@ -18,6 +18,21 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Upcoming meetings
 
+### 2012-12-03
+
+*Agenda*
+
+*   MediaWiki & www
+*   How to add new Infra admin members (if not resolved on list)
+*   Hosting
+*   Puppet
+*   Jenkins
+*   Gerrit
+*   Other business?
+*   Trac review
+
+## Past meetings
+
 ### 2012-11-26
 
 *[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-11-26-15.00.html)*
@@ -33,8 +48,6 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Other business?
     -   How to add new Infra admin members
 *   Trac review
-
-## Past meetings
 
 ### 2012-11-19
 

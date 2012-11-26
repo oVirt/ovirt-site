@@ -18,7 +18,21 @@ This page is a proposal for oVirt-Quantum integration focused on leveraging the 
 
 ![Quantum IPAM general overview](QuantumDHCPOverview.png "Quantum IPAM general overview")
 
-<missing some general flow description>
+**Modules**
+
+*   Quantum service - The management module for the networking configuration.
+
+<!-- -->
+
+*   DHCP Agent - The module responsible to configure dnsmask per network.
+
+<!-- -->
+
+*   Layer 3 driver - The module responsible to create the network locally.
+
+<!-- -->
+
+*   Queues - There are two of them, one is used for the DHCP Agent to get notifications and the other is used to sync the DHCP Agent and the Quantum service configuration upon startup/error.
 
 #### Port creation dynamics
 

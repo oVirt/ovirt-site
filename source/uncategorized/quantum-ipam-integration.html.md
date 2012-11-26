@@ -34,9 +34,11 @@ If the network has subnets then the port will be assigned an IP on the subnet:
 *   Directly on a specific subnet if the subnet id is specified
 *   Directly on a subnet & with a given IP if both subnet id & IP are specified
 
-The port is then part of the quantum DB, and if needed is created by the plugin.
+The port is then part of the quantum DB.
 
-**Bottom line:** The port MAC & IP are determined/known by the user, even before the VM is up.
+Summary:
+
+*   The port MAC & IP are determined/known by the user, before the VM is up.
 
 #### DHCP Agent dynamics
 

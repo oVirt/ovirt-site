@@ -146,11 +146,11 @@ That means that it started correctly. The objective was just to check that the d
 
 <!-- -->
 
-    $ cd $JBOSS_HOME/standalone
+    $ cd cd $HOME/jboss-as-7.1.1.Final/standalone
     $ rm -rf deployments/engine.ear 
     $ rm -rf deployments/engine.ear.deployed 
     $ rm -rf tmp
-    $ rm -rf data (should be done only in development environment)
+    $ rm -rf data
 
 ## Installing PostgreSQL
 

@@ -197,7 +197,7 @@ For compiling the GUI (web administration tool and user portal) in addition to t
 
 ***Notes:***
 
-1.  The `-DskipTests` option disables execution compilation and executions of tests. This is not what you should do usually, but it is good idea to use it the first time to avoid the extra time that it takes to run the tests.
+1.  The `-DskipTests` option disables compilation and executions of tests. This is not what you should do usually, but it is good idea to use it the first time to avoid the extra time that it takes to run the tests.
 2.  Compiling the GUI takes a long time, please visit [GWT Compilation Configuration](Advanced_oVirt_Engine_Build_Notes#GWT_Compilation_Configuration) if you want to speed the web compilation process during development time.
 3.  Make sure to run this with your user, not `root`, running as `root` will result in a missing `settings.xml` file in the `root` home directory.
 4.  You can reduce the build time and memory consumption - look at the temp section at the end.

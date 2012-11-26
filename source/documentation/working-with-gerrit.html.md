@@ -95,6 +95,12 @@ In order to easily track commit changes in Gerrit, each commit must have a chang
       git commit --amend -s
        
 
+#### Configure git personal settings
+
+      git config --global user.name "John Doe"
+      git config --global user.email johndoe@example.com
+       
+
 #### Configure the commit template
 
       cd ovirt-engine

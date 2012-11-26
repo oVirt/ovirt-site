@@ -65,13 +65,21 @@ Summary:
 
 ### Integrating with oVirt
 
-#### Difference in architecture
+##### Difference in architecture
 
-Whereas Quantum is designed for the cloud use-case, to manage one physical network on which multiple virtual networks are created by tenants, oVirt is designed for the virtualization use-case where multiple physical networks can exist on different data-centers or even in the same data-center.
+Whereas Quantum is designed for the homogeneous hardware use-case, to manage one physical network on which multiple virtual networks are created by tenants, oVirt is designed to support also the heterogeneous hardware use-case which means:
 
-Furthermore, Quantum relies on a L2 plugin to provision certain aspects of the physical network, whereas oVirt is using linux bridge through VDSM.
+*   Not all the virtual networks share the same physical layer
+*   Not all networks are available on all hosts
+*   Not all virtual networks are implemented using the same technology.
 
-Additionally, the asynchronous nature of Quantum Service & Quantum DHCP Agent communication mean that when port is created, the DHCP will not be updates instantly and there could occur a race between the DHCP update and the VM start in which case the vNIC might fail to acquire an IP from the DHCP.
+##### Issues with quantum design
+
+The asynchronous nature of Quantum Service & Quantum DHCP Agent communication can result in a race between the VM start and the DHCP server ability to serve the VM it's IP address.
+
+When port is created, the quantum service allocates ip for that port sends a notification for the DHCP Agent and returns. The DHCP receives the port-create notification asynchronously, updates the dnsmasq configuration file and reloads the configuration.
+
+If the VM was able to start before the dnsmasq is updated then the vNIC might fail to acquire an IP from the DHCP.
 
 This means that in order to gain IPAM capabilities,
 

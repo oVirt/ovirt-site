@@ -126,11 +126,11 @@ In the oVirt engine there would be a DHCPManager which is responsible for the ma
 *   If a DHCP server is needed (Host went offline for some reason) then start one on another host with this network.
 *   If a DHCP server is no longer needed then stop it from a host.
 
-![Flow of oVirt operations mapped to Quantum actions](OVirtQuantumFlow.png "Flow of oVirt operations mapped to Quantum actions")
-
 For each network it would be possible to configure at least one DHCP servers.
 
 The downsides to this approach:
 
 *   The DHCP Agent requires a knowledge of the Quantum Service URI in order to communicate with it.
 *   <race>
+
+![Flow of oVirt operations mapped to Quantum actions](OVirtQuantumFlow.png "Flow of oVirt operations mapped to Quantum actions")

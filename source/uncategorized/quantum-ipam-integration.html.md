@@ -12,15 +12,9 @@ wiki_last_updated: 2012-11-29
 
 ![Quantum IPAM general overview](QuantumDHCPOverview.png "Quantum IPAM general overview")
 
-Quantum offers a few services besides a high-level abstraction of network management on several plugins.
+Quantum offers some layer 3 Network services which are not yet available in oVirt.
 
-One of the services offered is IP Address Management (IPAM) which includes a DHCP server to serve the addresses.
-
-On a very low-res, Quantum acts as a network manager where all the nodes are presumed to be linked together by some sort of L2 connectivity.
-
-The Quantum Service is responsible for managing the networks, subnets, and ports on that "big network".
-
-One or more Quantum DHCP agents can be running on one of the nodes in the network, and receive notifications about the changes from the Quantum service.
+This page is a proposal for oVirt-Quantum integration focused on leveraging the IP Address Management service offered by Quantum.
 
 ### Port creation dynamics
 

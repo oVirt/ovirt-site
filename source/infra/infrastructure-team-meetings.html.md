@@ -20,16 +20,19 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ### 2012-11-26
 
+*[Minutes](http://ovirt.org/meetings/ovirt/2012/ovirt.2012-11-26-15.00.html)*
+
 *Agenda*
 
 *   MediaWiki & www
 *   MediaWiki backup script
 *   Hosting
-*   Trac review
 *   Puppet
 *   Jenkins
 *   Gerrit
 *   Other business?
+    -   How to add new Infra admin members
+*   Trac review
 
 ## Past meetings
 

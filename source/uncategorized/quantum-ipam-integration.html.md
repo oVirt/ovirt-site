@@ -18,6 +18,8 @@ This page is a proposal for oVirt-Quantum integration focused on leveraging the 
 
 ![Quantum IPAM general overview](QuantumDHCPOverview.png "Quantum IPAM general overview")
 
+<missing some general flow description>
+
 #### Port creation dynamics
 
 V2 API: <http://wiki.openstack.org/Quantum/APIv2-specification#Create_Port>
@@ -38,28 +40,26 @@ The port is then part of the quantum DB, and if needed is created by the plugin.
 
 #### DHCP Agent dynamics
 
-![Quantum DHCP Agent notification handling](QuantumDHCPNotifications.png "Quantum DHCP Agent notification handling")
+![Quantum DHCP Agent notification handling](QuantumDHCPNotifications.png "fig:Quantum DHCP Agent notification handling") Quantum's DHCP Agent syncs with the network/subnet/port state on it's start from the Quantum service.
 
-Quantum's DHCP Agent syncs with the network/subnet/port state on it's start from the Quantum service.
+For each Network with DHCP enabled and defined subnet(s), the DHCP Agent:
 
-The basic way of operation is this:
+*   Submits a network creation request to the layer 3 driver plugin.
+*   Write port definitions (MAP + IP) to a conf file
+*   Spawn a dnsmasq instance with the defined ranges (CIDRs) and the conf file
 
-*   If there is a network with DHCP enabled then
-    -   If the network has subnets with DHCP enabled then
-        -   Write port definitions (MAP + IP) to a conf file
-        -   Spawn a dnsmasq instance with the defined ranges (CIDRs) and the conf file
+After the initial sync, the DHCP Agent is getting notifications from the quantum service on each network/subnet and port change. In case of an error the DHCP initiates new sync process.
 
-The dnsmasq is a lightweight DHCP server, which can lease DHCP addresses.
+This process occurs for **ALL** networks defined in the quantum service.
 
-According to the DHCP protocol, there can be several DHCP servers active in a network without interfering with each other - the client will choose whichever lease he prefers and will use that IP.
+Notes:
 
-It then listens on notifications coming from the service a-synchronously, and acts upon them.
+*   The dnsmasq is a lightweight DHCP server, which can lease DHCP addresses.
+*   According to the DHCP protocol, there can be several DHCP servers active in a network without interfering with each other.
 
-If a notification requires action then it acts on it accordingly.
+Summary:
 
-It is noteworthy that the DHCP Agent doesn't discriminate networks/subnets/ports - it will serve all of them which are defined in the Quantum Service that it is communicating with.
-
-**Bottom line:** One or more Quantum DHCP Agents can run simultaneously for each network, serving the addresses defined in Quantum Service.
+*   One or more Quantum DHCP Agents can run simultaneously for each network, serving the addresses defined in Quantum Service.
 
 ### Integrating with oVirt
 

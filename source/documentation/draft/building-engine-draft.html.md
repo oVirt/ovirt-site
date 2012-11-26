@@ -282,8 +282,7 @@ Follow this page: <http://www.ovirt.org/wiki/Engine_Node_Integration#Engine_core
 
 Generate a self signed certificate for the application server (remember to replace `engine.example.com` with the fully qualified DNS name of your machine, and `mypass` with your preferred password):
 
-    $ cd cd $HOME/jboss-as-7.1.1.Final
-
+    $ cd $HOME/jboss-as-7.1.1.Final
     $ keytool \
     -genkey \
     -alias engine \

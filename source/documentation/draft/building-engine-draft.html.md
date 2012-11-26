@@ -282,7 +282,7 @@ Follow this page: <http://www.ovirt.org/wiki/Engine_Node_Integration#Engine_core
 
 Generate a self signed certificate for the application server (remember to replace `engine.example.com` with the fully qualified DNS name of your machine, and `mypass` with your preferred password):
 
-    $ cd $JBOSS_HOME
+    $ cd cd $HOME/jboss-as-7.1.1.Final
 
     $ keytool \
     -genkey \
@@ -299,7 +299,8 @@ Generate a self signed certificate for the application server (remember to repla
 
 Once the keystore is created the application server has to be configured to enable the SSL connector, using the command line interface:
 
-    $ $JBOSS_HOME/bin/jboss-cli.sh --connect
+    $ cd $HOME/jboss-as-7.1.1.Final/bin
+    $ ./jboss-cli.sh --connect
     [standalone@localhost:9999 /]
 
 Type there the following two commands (remember to use the absolute path of the `.keystore` file and replace `mypass` with the actual password used to create the keystore):

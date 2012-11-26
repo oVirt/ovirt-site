@@ -100,37 +100,37 @@ The downsides above seems to be too critical for us to overlook, so we were look
 
 ##### DHCP Agent running on the host
 
-![Flow of oVirt operations mapped to Quantum actions](OVirtQuantumFlow.png "Flow of oVirt operations mapped to Quantum actions")
-
 A general outline of the approach:
 
 ![](QuantumIPAMIntegration.png "QuantumIPAMIntegration.png")
 
-As in the previous solution, the oVirt host will also run Quantum Service & the "fake plugin",
+oVirt engine and Quantum Service with the "oVirt plugin" are running on a single host. The Quantum DHCP agent is running on the host with access to the network they want to allocate IP addresses on. We can have multiple DHCP Agents deployed on the various hosts in the data center.
 
-For each network there will be possible to configure at least one DHCP server should be available.
+The Quantum DHCP agent uses a layer 3 driver. The driver is responsible for creating the network interface which the DHCP server is connected to. We'll create oVirt driver which will make the call if a DHCP Agent for a given network is required on the specific host. The driver will use a file written by VDSM to determine if the network should have DHCP on this host or not and act accordingly.
 
-A new VDSM verb will allow to set for which networks the DHCP server should be active:
+A new VDSM verb will allow to set for which networks the DHCP server should be active.
 
-*   If list is empty, turn off Quantum DHCP Agent.
-*   If list is not empty:
-    -   Save list items (id + net name) to a file.
-        -   ID would probably need to be Quantum ID.
-    -   Turn on the Quantum DHCP Agent.
+setDHCP(List<networkName, networkQuantumId>)
 
-The Quantum DHCP agent has a driver which is responsible for creating the network interface the DHCP server is connected to.
+The method will work as follows: If list is not empty:
 
-The driver will be a "fake" driver which will read the file written by VDSM to determine if the network should have DHCP on this host or not.
+      - Save list items (id + net name) to a file.
+      - (re)start the Quantum DHCP Agent.
 
-There would be a DHCPManager class which is responsible for the management of the DHCP servers.
+If list is empty:
+
+      - stop Quantum DHCP Agent.
+
+In the oVirt engine there would be a DHCPManager which is responsible for the management of the DHCP servers.
 
 *   If a DHCP server is needed (Host went offline for some reason) then start one on another host with this network.
 *   If a DHCP server is no longer needed then stop it from a host.
 
+![Flow of oVirt operations mapped to Quantum actions](OVirtQuantumFlow.png "Flow of oVirt operations mapped to Quantum actions")
+
+For each network it would be possible to configure at least one DHCP servers.
+
 The downsides to this approach:
 
-*   Moderate: Quantum needs to be installed on each host (at least DHCP agent requirements).
-
-<!-- -->
-
-*   Moderate/Minor: The host now needs to know at least the Quantum Service URI in order to communicate with it.
+*   The DHCP Agent requires a knowledge of the Quantum Service URI in order to communicate with it.
+*   <race>

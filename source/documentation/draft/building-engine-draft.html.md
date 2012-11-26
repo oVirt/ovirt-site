@@ -122,31 +122,16 @@ Note that development environments should install the application server using t
 
 ### Downloading and installing the application server
 
-Select and create the directory where you want to install the application server, for example `$HOME/jboss-as`. From now on we will refer to that directory with the environment variable `JBOSS_HOME`:
+Download version 7.1.1 of JBoss AS 7 from [here](http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip) then uncompress it in your home directory, the end result should be a `jboss-as-7.1.1.Final` directory. Go to the `bin` subdirectory and run the `standalone.sh` script like this:
 
-    $ export JBOSS_HOME=$HOME/jboss-as
-    $ mkdir -p $JBOSS_HOME
-
-***Note**: It might be convenient to add that variable to your `$HOME/.bash_profile` file, so that you get it automatically whenever you log in.*
-
-Download and install version 7.1.1 of the application server:
-
-    $ cd $JBOSS_HOME
-    $ wget http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip
-    $ unzip jboss-as-7.1.1.Final.zip
-    $ mv jboss-as-7.1.1.Final/* .
-    $ rmdir jboss-as-7.1.1.Final
-
-Update the `jbossHome` property in your personal maven settings file `$HOME/.m2/settings.xml`.
-
-Check that the application server starts correctly:
-
-    $ cd $JBOSS_HOME/bin
+    $ cd $HOME/jboss-as-7.1.1.Final/bin
     $ ./standalone.sh -b 0.0.0.0
 
-This will start the application server and will keep your terminal window busy. Check that there are no error messages in the output and then stop it with Ctrl+C.
+This will start the application server and will keep your terminal window busy showing some log messages. After a few seconds the application server will be ready and will show a message similar to this one:
 
-Ensure that you have write access to the `$JBOSS_HOME/standalone/deployments` directory, as there is where the engine will be deployed.
+    11:48:48,009 INFO  [org.jboss.as] (Controller Boot Thread) JBAS015874: JBoss AS 7.1.1.Final "Brontes" started in 3254ms - Started 133 of 208 services (74 services are passive or on-demand)
+
+That means that it started correctly. The objective was just to check that the download and installation worked correctly, so stop it with Ctrl+C, you will start it later once the engine is deployed.
 
 ### Troubleshooting
 

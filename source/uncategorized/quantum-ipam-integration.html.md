@@ -112,14 +112,13 @@ A new VDSM verb will allow to set for which networks the DHCP server should be a
 
 setDHCP(List<networkName, networkQuantumId>)
 
-The method will work as follows: If list is not empty:
+The method will work as follows:
 
-      - Save list items (id + net name) to a file.
-      - (re)start the Quantum DHCP Agent.
-
-If list is empty:
-
-      - stop Quantum DHCP Agent.
+*   If list is not empty:
+    -   Save list items (id + net name) to a file.
+    -   (Re)Start the Quantum DHCP Agent.
+*   If list is empty:
+    -   Stop Quantum DHCP Agent.
 
 In the oVirt engine there would be a DHCPManager which is responsible for the management of the DHCP servers.
 
@@ -131,6 +130,6 @@ For each network it would be possible to configure at least one DHCP servers.
 The downsides to this approach:
 
 *   The DHCP Agent requires a knowledge of the Quantum Service URI in order to communicate with it.
-*   <race>
+*   In case Run VM is performed right after Setup Networks on the same host, The DHCP Agent might not be started in time, which might cause a VM's vNIC not acquire an IP lease.
 
 ![Flow of oVirt operations mapped to Quantum actions](OVirtQuantumFlow.png "Flow of oVirt operations mapped to Quantum actions")

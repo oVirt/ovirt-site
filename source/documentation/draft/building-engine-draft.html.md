@@ -135,7 +135,7 @@ That means that it started correctly. The objective was just to check that the d
 
 ### Troubleshooting
 
-1.  Some useful `JAVA_OPTS`, these can be manually added to the `$JBOSS_HOME/bin/standalone.conf` script as required:
+1.  Some useful `JAVA_OPTS`, these can be manually added to the `bin/standalone.conf` script as required:
     1.  `-Xmx512m` - maximum Java heap size of 512 MiB
     2.  `-Xdebug` - include debugging
 

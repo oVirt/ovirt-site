@@ -162,15 +162,11 @@ That means that it started correctly. The objective was just to check that the d
 
 #### Clone oVirt-engine codebase
 
-Choose a directory where you want to keep the engine sources and `cd` to it. Use the `git` command to clone the engine repository into the current working directory:
+Use the `git` command to clone the engine repository into your home directory:
 
-    $> git clone git://gerrit.ovirt.org/ovirt-engine
+    $ git clone git://gerrit.ovirt.org/ovirt-engine
 
-This will create a new `ovirt-engine` directory containing the cloned repository. For further instructions let the variable `$OVIRT_HOME` point to the directory where you have cloned the repository:
-
-    $> export OVIRT_HOME=$PWD/ovirt-engine
-
-***Note:** It migtht be convenient to add this environment variable to your `$HOME/.bash_profile` file to have it automatically whenever you log in.*
+This will create a new `ovirt-engine` directory containing the cloned repository.
 
 ***Note:** The above cloning is for read only, if you want to contribute you might want to skip to [#Code contribution: Gerrit](#Code_contribution:_Gerrit) before moving to the next steps.*
 

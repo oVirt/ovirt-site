@@ -257,14 +257,14 @@ Update the database to reflect the actual URL where the bootstrap files can be d
 
 Assuming that the application server is not running, it should be started:
 
-    $ cd $JBOSS_HOME/bin
+    $ cd $HOME/jboss-as-7.1.1.Final/bin
     $ ./standalone.sh -b 0.0.0.0
 
-If everything went correctly you should see the welcome page, with links to the administrator portal and user portal.
+If everything went correctly you should be able to connect to <http://127.0.0.1:8700> see the welcome page, with links to the administrator portal and user portal.
 
 The default user name and password created in development environments are `admin@internal` and `letmein!`.
 
-Accessing the REST API:
+You can also access the REST API pointing your browser to <http://127.0.0.1:8700/api> or with a command line tool like `wget`:
 
     $ wget -O - \
     --debug \
@@ -272,21 +272,7 @@ Accessing the REST API:
     --http-user=admin@internal \
     --http-password='letmein!' \
     head='Accept: application/xml' \
-    http://<server name>:<port>/api/
-
-The default port in development environments is 8700.
-
-Or from the browser:
-
-    http://<server name>:<port>/api
-
-Accessing the web administration tool:
-
-    http://<server name>:<port>/webadmin
-
-Accessing the user portal:
-
-    http://<server name>:<port>/UserPortal
+    http://127.0.0.1:8700/api/
 
 ## Setting Public Key environment (optional, recommended to oVirt node environment)
 

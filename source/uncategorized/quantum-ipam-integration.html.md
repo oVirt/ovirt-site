@@ -73,7 +73,7 @@ Whereas Quantum is designed for the homogeneous hardware use-case, to manage one
 *   Not all networks are available on all hosts
 *   Not all virtual networks are implemented using the same technology.
 
-##### Issues with quantum design
+##### Other points to consider
 
 The asynchronous nature of Quantum Service & Quantum DHCP Agent communication can result in a race between the VM start and the DHCP server ability to serve the VM it's IP address.
 

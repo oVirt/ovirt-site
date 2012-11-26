@@ -106,7 +106,7 @@ Copy & paste the content below into the file `$HOME/.m2/settings.xml`:
         <profile>
           <id>oVirt</id>
           <properties>
-            <jbossHome>/home/myuser/jboss-as</jbossHome>
+            <jbossHome>${env.HOME}/jboss-as-7.1.1.Final</jbossHome>
           </properties>
         </profile>
       </profiles>
@@ -114,7 +114,7 @@ Copy & paste the content below into the file `$HOME/.m2/settings.xml`:
     </settings>
 
 *   Do not omit the `activeProfiles` element in the above file, it is crucial.
-*   Remember also to change the `jbossHome` property to the directory where you have the application server installed (more instructions later in this document).
+*   Remember also to change the `jbossHome` property if you decide to install the application server to a directory different to the one suggested in here.
 
 ## Installing JBoss AS
 

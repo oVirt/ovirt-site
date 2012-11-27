@@ -95,9 +95,7 @@ When port is created, the quantum service allocates ip for that port sends a not
 
 If the VM was able to start before the dnsmasq is updated then the vNIC might fail to acquire an IP from the DHCP.
 
-This means that in order to gain IPAM capabilities,
-
-![](OneDoesNotSimplyIntegrateQuantumIntoOvirt.jpg "OneDoesNotSimplyIntegrateQuantumIntoOvirt.jpg")
+This means that in order to gain IPAM capabilities, [does not simply integrate Quantum into oVirt](http://memegenerator.net/instance/30762058|One)
 
 #### Integration Path
 

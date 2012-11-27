@@ -10,4 +10,6 @@ wiki_last_updated: 2012-11-27
 
 ## Communicating in the project
 
+## Community guidelines
+
 ## Working on this wiki

@@ -33,6 +33,8 @@ Note: for earlier PostgreSQL versions, a patch is needed.
 
 Before starting the database for the first time you need to initialize it using the `postgresql-setup` command with the `initdb` option:
 
+**Fedora**
+
     # postgresql-setup initdb
 
 Once it is initialized you can start and stop it with the `systemctl` command. For example, to start it:
@@ -49,6 +51,14 @@ If the database needs to be recreated from scratch the way to do it is to stop t
     # rm -rf /var/lib/pgsql/data
     # postgresql-setup initdb
     # systemctl start postgresql.service
+
+**Debian**
+
+The database is automatically initialized, started and configured to start during boot as part of the installation of the package, no need to perform any additional initialization.
+
+To start, stop or restart it use the `/etc/rc.d/postgresql` script:
+
+    # /etc/rc.d/postgresql start
 
 #### For PostgreSQL 8 or earlier (not recommended)
 

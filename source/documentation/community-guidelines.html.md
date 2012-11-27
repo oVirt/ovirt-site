@@ -67,6 +67,13 @@ In general, we try to follow the [Wikipedia Style Guide](http://en.wikipedia.org
 
 ## Code submission guidelines
 
+oVirt uses [Gerrit](http://gerrit.ovirt.org) to manage code submissions.
+
+*   To get started, follow the instructions for [working with oVirt Gerrit](working with oVirt Gerrit)
+*   When reviewing a patch, if you are unsure whether the code meets project standards, do not score the patch "-1" or "+1".
+*   In comments please be considerate toward the work which the patch submitter has done to submit the patch.
+*   For patch submitters: Please familiarise yourself with project coding conventions before submitting a patch. Coding conventions for [ VDSM](Vdsm Developers#Code_Style) are in the wiki, and are included in [ the Maven build process](Building oVirt Engine/IDE) for oVirt Engine.
+
 ## Guideline Violations - 3 Strikes Method
 
 The point of this section is not to find opportunities to punish people, but we do need a fair way to deal with people who are making our community an unpleasant place.

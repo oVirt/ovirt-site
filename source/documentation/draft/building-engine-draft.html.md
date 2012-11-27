@@ -44,17 +44,6 @@ The supported Java development and runtime environments for the ovirt-engine pro
 
     # apt-get install openjdk-7-jdk
 
-Use the `alternatives` command to verify that `javac` is correctly linked to the openjdk-1.7.0 instance of the Java compiler:
-
-    $ alternatives --display javac
-    javac - status is auto.
-     link currently points to /usr/lib/jvm/java-1.7.0-openjdk.x86_64/bin/javac
-    ...
-
-Where the link does not point to the correct instance of the Java compiler then you must update it, for example:
-
-    $ alternatives --set javac /usr/lib/jvm/java-1.7.0-openjdk.x86_64/bin/javac
-
 ### Installing git
 
 The ovirt-engine source code is stored in a GIT repository. As such GIT is required to obtain the latest source code.

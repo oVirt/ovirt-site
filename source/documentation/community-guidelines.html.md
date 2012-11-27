@@ -58,6 +58,13 @@ In general, we try to follow the [Wikipedia Style Guide](http://en.wikipedia.org
 
 ## Bug reporting guidelines
 
+*   Before reporting your bug, please [search the bug tracker](https://bugzilla.redhat.com/query.cgi?product=oVirt) to see if it has been reported already. A comment added to an existing bug report is also very useful.
+*   To report an issue with oVirt, you first need [an account on our bug tracker](https://bugzilla.redhat.com/createaccount.cgi).
+*   Once you have confirmed your email address and are logged in, you can [create a bug against the oVirt product](https://bugzilla.redhat.com/enter_bug.cgi?product=ovirt).
+*   If you know which component is causing your problem, then choose that component. Otherwise, if your problem is related to a hypervisor node, choose the "ovirt-node" component. If it is related to the engine, choose "ovirt-engine-core". If you are unsure, choose "ovirt-engine-core", and one of the oVirt developers will reassign the bug for you.
+*   When commenting on bugs, please bear in mind that the bug reporter may not know the project as well as possible. If a bug has been reported against the wrong component or product, or if the behaviour observed is expected, please be kind in your comments and explain any changes you make. If you feel the report is not a bug, try to figure out why the expected behaviour is causing problems for the reporter, and suggest a work-around.
+*   Above all, be nice. Bug trackers can be emotional places. Separate the person from the problem.
+
 ## Code submission guidelines
 
 ## Guideline Violations - 3 Strikes Method

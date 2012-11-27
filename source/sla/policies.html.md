@@ -28,7 +28,7 @@ So we'd like to begin with 3 policies expressing the range.
     -   Engine
     -   VDSM
     -   MoM
-*   Detailed design: <http://wiki.ovirt.org/wiki/Sla/policies/aggressive>
+*   Detailed design: [Sla/policies/aggressive](Sla/policies/aggressive)
 
 ### Default / Naive Policy
 

@@ -166,7 +166,7 @@ Use the `git` command to clone the engine repository into your home directory:
 
 This will create a new `ovirt-engine` directory containing the cloned repository.
 
-***Note:** The above cloning is for read only, if you want to contribute you might want to skip to [#Code contribution: Gerrit](#Code_contribution:_Gerrit) before moving to the next steps.*
+***Note:** The above cloning is for read only, if you want to contribute see [this](#Code_contribution:_Gerrit).*
 
 #### Creating the database
 

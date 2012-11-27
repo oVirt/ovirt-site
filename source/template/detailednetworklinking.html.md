@@ -141,8 +141,12 @@ If the vnic doesn't have a network, the network will be omitted from the params 
 
 ##### Updated APIs
 
-*   **hotplugNic** - the vdsm should connect the Vnic's Network according to the 'linkState' property passed on the Vnic.
-*   **createVm** - the vdsm should connect each of the Vm's Vnics according to the 'linkState' property passed on the each Vnic.
+*   **hotplugNic**
+    -   the vdsm should connect the Vnic's Network according to the 'linkState' property passed on the Vnic.
+    -   If the vnic doesn't have a network, the network will be omitted from the params sent to the vdsm.
+*   **createVm**
+    -   the vdsm should connect each of the Vm's Vnics according to the 'linkState' property passed on the each Vnic.
+    -   If the vnic doesn't have a network, the network will be omitted from the params sent to the vdsm.
 
 In both cases, 'linkState' property would be implemented by setting libvirt's <link state> element <http://libvirt.org/formatdomain.html#elementLink> . New vdsm errors will be added:
 

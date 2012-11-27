@@ -13,9 +13,13 @@ wiki_last_updated: 2013-12-19
 
 Please take into account that installing and starting a database is a system administration task, so all the commands suggested in this page are to be executed with the `root` user.
 
-To perform the installation of the PostgreSQL packages on your Fedora machine run the following commands:
+**Fedora**
 
     # yum install -y postgresql-server
+
+**Debian**
+
+    # apt-get install postgresql
 
 Make sure you are using PostgreSQL 8.4.8 or later. Check your version with:
 

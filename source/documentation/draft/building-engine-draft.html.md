@@ -26,7 +26,9 @@ Please note that in this instructions you will be asked to run several commands.
 1.  Linux based operating system with support for OpenJDK 1.7.0, Maven 3 and PostgreSQL 8.4.8 (or higher).
 2.  An Internet connection.
 
-Note that while this guide was written and tested using Fedora 17 other Linux Distributions can and have been used to build the ovirt-engine project. Where distribution specific packaging commands are specified in this guide use the syntax that applies for your distribution.
+Note that while this guide was written and tested using Fedora 18 other Linux Distributions can and have been used to build the ovirt-engine project. Where distribution specific packaging commands are specified in this guide use the syntax that applies for your distribution.
+
+If you plan to use Debian please take into account that the current stable distribution (squezze) doesn't contain the OpenJDK 1.7.0 or Maven 3 packages, so you will need to update to the current testing distribution (wheezy).
 
 ## Installing Build Tools
 

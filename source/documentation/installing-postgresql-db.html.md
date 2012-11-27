@@ -100,7 +100,11 @@ After that run `/etc/init.d/postgresql restart` so that the new settings will ta
 
 # Connecting from other hosts (optional)
 
-If you want to be able to connect to PostgreSQL from other hosts (i.e. not from localhost only) you will need to change the `listen_addresses` parameter in the `/var/lib/pgsql/data/postgresql.conf` file:
+If you want to be able to connect to PostgreSQL from other hosts (i.e. not from localhost only) you will need to change the `listen_addresses` parameter, as the default is to accept local connections only.
+
+**Fedora**
+
+Edit the `/var/lib/pgsql/data/postgresql.conf` file:
 
     listen_addresses = '0.0.0.0'
 
@@ -113,6 +117,14 @@ The `10.35.0.0/16` network address and mask are just an example, make sure you r
 After all these changes restart the PostgreSQL service:
 
     # systemctl restart postgresql.service
+
+**Debian**
+
+Same as in Fedora, but the location of the files are `/etc/postgresql/9.1/main/postgresql.conf` and `/etc/postgresql/9.1/main/pg_hba.conf`.
+
+After all these changes restart the PostgreSQL service:
+
+    # /etc/init.d/postgresql restart
 
 # External Resources
 

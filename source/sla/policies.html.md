@@ -39,7 +39,7 @@ So we'd like to begin with 3 policies expressing the range.
     -   Engine
     -   VDSM
     -   MoM
-*   Detailed design: <http://wiki.ovirt.org/wiki/Sla/policies/default>
+*   Detailed design: [Sla/policies/default](Sla/policies/default)
 
 ### High QoS Policy
 

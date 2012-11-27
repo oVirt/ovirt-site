@@ -50,6 +50,6 @@ So we'd like to begin with 3 policies expressing the range.
     -   Engine
     -   VDSM
     -   MoM
-*   Detailed design: [/Sla/policies/qos](/Sla/policies/qos)
+*   Detailed design: [Sla/policies/qos](Sla/policies/qos)
 
 <Category:SLA>

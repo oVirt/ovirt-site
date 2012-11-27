@@ -67,7 +67,7 @@ For example, if you want to build for both Firefox and Chrome you can use the fo
       </profile>
     </profiles>
 
-Alternatively, if you don't want to modify your `$HOME/.m2/settings.xml` file you can set the property in the command line. For example to build WebAdmin for Firefox and Chrome you can use the following command:
+Alternatively, if you don't want to modify your `$HOME/.m2/settings.xml` file, you can set the property in the command line. For example to build WebAdmin for Firefox and Chrome you can use the following command:
 
     $ mvn install -Dgwt.userAgent=gecko1_8,safari -Pgwt-admin
 

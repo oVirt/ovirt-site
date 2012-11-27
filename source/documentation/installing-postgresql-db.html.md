@@ -56,9 +56,9 @@ If the database needs to be recreated from scratch the way to do it is to stop t
 
 The database is automatically initialized, started and configured to start during boot as part of the installation of the package, no need to perform any additional initialization.
 
-To start, stop or restart it use the `/etc/rc.d/postgresql` script:
+To start, stop or restart it use the `/etc/init.d/postgresql` script:
 
-    # /etc/rc.d/postgresql start
+    # /etc/init.d/postgresql start
 
 #### For PostgreSQL 8 or earlier (not recommended)
 

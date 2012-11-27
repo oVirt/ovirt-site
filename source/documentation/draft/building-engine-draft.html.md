@@ -165,14 +165,16 @@ Create the `/root/.pgpass` file containing the password of the database administ
 
     *:*:*:postgres:YOUR_POSTGRES_PASSWORD
 
+Note that this is relevant if you decided to configure your database with password authentication instead of with the `trust` method as suggested in the database installation instructions. In that case put in this file the password of the database administrator. If you are using `trust` as suggested then you don't need to create this file.
+
 Make sure that the permissions of the `/root/.pgpass` file are `0600`:
 
     # chmod 0600 /root/.pgpass
 
-Still as the `root` user change into the directory where you cloned the `ovirt-engine` git repository, then change into the `backend/manager/dbscritps` directory and run the `create_db_devel.sh` script:
+Now, with your normal user, not with `root`, change into the directory where you cloned the `ovirt-engine` git repository, then change into the `backend/manager/dbscritps` directory and run the `create_db_devel.sh` script:
 
-    # cd /home/youruser/ovirt-engine/backend/manager/dbscripts
-    # ./create_db_devel.sh -u postgres
+    $ cd $HOME/ovirt-engine/backend/manager/dbscripts
+    $ ./create_db_devel.sh -u postgres
 
 #### Build
 

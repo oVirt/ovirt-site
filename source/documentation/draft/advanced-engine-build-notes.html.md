@@ -18,9 +18,9 @@ Please visit [Building_oVirt_engine](Building_oVirt_engine) for basic step by st
 
 ## Local Settings
 
-Maven supports local settings by creating a local settings.xml file that should be placed under your local maven repository (~/.m2),
+Maven supports local settings by creating a local `settings.xml` file that should be placed inside your `$HOME/.m2` directory.
 
-You can find instructions how to create a basic settings.xml file in Building oVirt Engine in the [Maven Personal Settings](Building_oVirt_engine#Maven_personal_settings) section.
+You can find instructions how to create a basic `settings.xml` file in Building oVirt Engine in the [Maven Personal Settings](Building_oVirt_engine#Maven_personal_settings) section.
 
 ## GWT Compilation Configuration
 

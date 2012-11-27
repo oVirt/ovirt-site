@@ -38,7 +38,7 @@ This page is a proposal for oVirt-Quantum integration focused on leveraging the 
 
 V2 API: <http://wiki.openstack.org/Quantum/APIv2-specification#Create_Port>
 
-When a port is created it is assigned to a network.
+When a port (e.g. virtual NIC of a VM) is created it is assigned to a network.
 
 The MAC address of the port can either be specified or generated automatically by Quantum Service.
 

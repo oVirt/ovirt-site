@@ -229,6 +229,37 @@ From this point on, every time you deploy you can simply run with the `dep` prof
 
 Since postgres is already set up.
 
+## Testing
+
+Assuming that the application server is not running, it should be started:
+
+    $ cd $HOME/jboss-as-7.1.1.Final/bin
+    $ ./standalone.sh -b 0.0.0.0
+
+If everything went correctly you should be able to connect to <http://127.0.0.1:8700> see the welcome page, with links to the administrator portal and user portal.
+
+The default user name and password created in development environments are `admin@internal` and `letmein!`.
+
+You can also access the REST API pointing your browser to <http://127.0.0.1:8700/api> or with a command line tool like `wget`:
+
+    $ wget -O - \
+    --debug \
+    --auth-no-challenge \
+    --http-user=admin@internal \
+    --http-password='letmein!' \
+    head='Accept: application/xml' \
+    http://127.0.0.1:8700/api/
+
+Note that when using a browser to connect to the REST API you have to enter the user name followed by @ and the domain name (by default `admin@internal`) in the pop-up windows that the browser will present.
+
+## I have made a change into ovirt engine code, how can I deploy it?
+
+This will build the engine, rebuilding the admin console and then creates the ear and deploys it to the application server:
+
+    $ mvn clean install -Pgwt-admin -DskipTests && cd ear && mvn clean install -Pdep
+
+Stop the application server (Ctrl+C in the console) and start it again before testing the changes.
+
 ## Copying vdsm bootstrap files (optional)
 
 With the default installation for development environments the engine will assume that hypervisors have VDSM already installed, and will not try to configure them. If you want the engine to do full bootstrap installation of hypervisors (setting configuration parameter `InstallVds` to `true` in the database) these steps will be required, otherwise they can be ignored.
@@ -253,27 +284,6 @@ Once VDSM is built you will need to copy the scripts to the directory `/usr/shar
 Update the database to reflect the actual URL where the bootstrap files can be downloaded by the hypervisors:
 
     $ psql engine postgres -c "update vdc_options set option_value = 'http://YOUR_ENGINE_HOST_HERE:8700/Components/vds' where option_name = 'VdcBootStrapUrl';"
-
-## Testing
-
-Assuming that the application server is not running, it should be started:
-
-    $ cd $HOME/jboss-as-7.1.1.Final/bin
-    $ ./standalone.sh -b 0.0.0.0
-
-If everything went correctly you should be able to connect to <http://127.0.0.1:8700> see the welcome page, with links to the administrator portal and user portal.
-
-The default user name and password created in development environments are `admin@internal` and `letmein!`.
-
-You can also access the REST API pointing your browser to <http://127.0.0.1:8700/api> or with a command line tool like `wget`:
-
-    $ wget -O - \
-    --debug \
-    --auth-no-challenge \
-    --http-user=admin@internal \
-    --http-password='letmein!' \
-    head='Accept: application/xml' \
-    http://127.0.0.1:8700/api/
 
 ## Setting Public Key environment (optional, recommended to oVirt node environment)
 
@@ -321,14 +331,6 @@ And the following socket binding should have been added automatically in the sam
 After doing this change stop the application server and start it again, then you should be able to connect to using HTTPS and port 8701.
 
 For additional info: <https://docs.jboss.org/author/display/AS7/Admin+Guide#AdminGuide-HTTPSConnectors>
-
-## I have made a change into ovirt engine code, how can I deploy it?
-
-This will build the engine, rebuilding the admin console and then creates the ear and deploys it to the application server:
-
-    $ mvn clean install -Pgwt-admin -DskipTests && cd ear && mvn clean install -Pdep
-
-Stop the application server and start it again before testing the changes.
 
 ## Advanced features
 

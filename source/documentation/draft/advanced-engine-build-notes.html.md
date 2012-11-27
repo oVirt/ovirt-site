@@ -28,32 +28,48 @@ oVirt engine UI is based on GWT technology, Below are instructions how to tweak 
 
 ### Compiling GWT for specific browser(s)
 
-GWT compiler generates an application instance per supported browsers per locale, Since compiling to web mode takes a long time it is possible during development to compile to a specific browser (e.g Firefox 7) to speed up the compilation of WebAdmin web module,
+GWT compiler generates an application instance per supported browsers per locale, Since compiling to web mode takes a long time it is possible during development to compile to a specific browser (e.g Firefox) to speed up the compilation of WebAdmin web module,
 
-This can be done by overriding the **gwt.userAgent** property,
+This can be done by overriding the `gwt.userAgent` property. We recommend setting the `gwt.userAgent` property within the `gwtdev` profile. Edit `$HOME/.m2/settings.xml` file and add the following lines:
 
-We recommend setting the 'gwt.userAgent' property within the **gwtdev** profile:
+    <profiles>
+      <profile>
+        <id>gwtdev</id>
+        <properties>
+          <gwt.userAgent>gecko1_8</gwt.userAgent>
+        </properties> 
+      </profile>
+    </profiles>
 
-*   Edit ~/.m2/settings.xml file
-*   Add the following lines:
+*   Build oVirt Engine and enable the `gwtdev` profile:
 
-      <profiles>
-        <profile>
-          <id>gwtdev</id>
-          <properties>
-            <gwt.userAgent>gecko1_8</gwt.userAgent>
-          </properties> 
-        </profile>
-      </profiles>
-       
+<!-- -->
 
-*   Build oVirt Engine and enable the **gwtdev** profile:
+    $ mvn install -Pgwtdev,gwt-admin
 
-      $> cd $OVIRT_HOME
-      $> mvn clean install -Pgwtdev,gwt-admin
-       
+This will instruct GWT to generate 1 permutation for Firefox browser only. If you need to build for other browsers you can use the following values inside the `gwt.userAgent` property:
 
-This will instruct GWT to generate 1 permutation for FireFox browser only.
+*   For Firefox: `gecko1_8`
+*   For Internet Explorer 6: `ie6`
+*   For Internet Explorer 8: `ie8`
+*   For Internet Explorer 9: `ie9`
+*   For Safari and Chrome: `safari`
+*   For Opera: `opera`
+
+For example, if you want to build for both Firefox and Chrome you can use the following:
+
+    <profiles>
+      <profile>
+        <id>gwtdev</id>
+        <properties>
+          <gwt.userAgent>gecko1_8,safari</gwt.userAgent>
+        </properties> 
+      </profile>
+    </profiles>
+
+Alternatively, if you don't want to modify your `$HOME/.m2/settings.xml` file you can set the property in the command line. For example to build WebAdmin for Firefox and Chrome you can use the following command:
+
+    $ mvn install -Dgwt.userAgent=gecko1_8,safari -Pgwt-admin
 
 ## Skipping Unit Tests
 

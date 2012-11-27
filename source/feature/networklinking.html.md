@@ -9,7 +9,7 @@ wiki_last_updated: 2013-03-07
 wiki_warnings: list-item?
 ---
 
-# Network Wiring
+# Network Linking
 
 ### Summary
 

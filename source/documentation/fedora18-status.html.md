@@ -16,10 +16,10 @@ Engine
 
 Status:
 
-*   Installation fails.
+*   Works but require manual tweaking - shutting down firewalld prior to installation
 *   Relevant BZ:
 
-` `[`https://bugzilla.redhat.com/show_bug.cgi?id=879916`](https://bugzilla.redhat.com/show_bug.cgi?id=879916)
+` `[`https://bugzilla.redhat.com/show_bug.cgi?id=880768`](https://bugzilla.redhat.com/show_bug.cgi?id=880768)
 
 VDSM
 

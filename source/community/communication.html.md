@@ -10,7 +10,7 @@ wiki_last_updated: 2014-02-28
 
 # Communication
 
-There are a number of ways to communicate with the oVirt Community. [Mailing lists](Mailing lists), [ IRC](#IRC), and our [bug tracker](http://bugzilla.redhat.com).
+There are a number of ways to communicate with the oVirt Community. [ Mailing lists](#Mailing_lists), [ IRC](#IRC), and our [bug tracker](http://bugzilla.redhat.com).
 
 ## IRC
 

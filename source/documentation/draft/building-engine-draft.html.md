@@ -116,7 +116,7 @@ Copy & paste the content below into the file `$HOME/.m2/settings.xml`:
 
 ## Installing JBoss AS
 
-Note that development environments should install the application server using the zip files, not the operating system packages. The reason is that this allows the developer to use its own unprivileged user to run the application server without needing to use root privileges.
+Note that in development environments you should install the application server using the zip files, not the distribution packages. The reason is that this allows the developer to use its own unprivileged user to run the application server without needing to use root privileges.
 
 ### Downloading and installing the application server
 

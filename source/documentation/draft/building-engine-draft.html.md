@@ -215,7 +215,7 @@ For advanced build notes, please visit [Advanced oVirt Engine Build Notes](Advan
 The first deployment of the engine to the application server should use the `dep` and `setup` profiles:
 
     $ cd $HOME/ovirt-engine/ear
-    $ mvn clean install -Pdep,setup
+    $ mvn install -Pdep,setup
 
 There is a issue with the `dep` and `setup` profiles getting in the way of each other. The `setup` profile will prevent the deployment of the quartz jar to the application server. So after this step completes, run again, but with the `dep` profile only:
 

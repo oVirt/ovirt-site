@@ -11,7 +11,7 @@ wiki_warnings: list-item?
 
 # Detailed Network Linking
 
-## Network Wiring
+## Network Linking
 
 ### Summary
 

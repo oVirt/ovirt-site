@@ -112,6 +112,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 ##### Plug nic
 
 *   Should be used just as internal command.
+*   network should be sent to the VDSM just if it is not null.
 
 ##### Unplug nic
 

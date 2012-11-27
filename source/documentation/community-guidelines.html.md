@@ -49,7 +49,12 @@ For each of the communication channels the community uses, there are some channe
 
 ## Wiki contribution guidelines
 
-*   Wiki page naming - Please use descriptive, complete titles for page names. Please do not use CamelCase, All Capital Initials or sentences.
+*   Wiki page naming - Please use descriptive, complete titles for page names. Please do not use CamelCase, All Capital Initials or sentences. Proper nouns or acronyms should be capitalised correctly.
+    -   Example: "Compiling VDSM" is good, "Feature/DetailedNetworkWiring" could be "Feature/Detailed network wiring", "Engine Adding Messages" could be "Adding messages to Engine"
+*   Writing style - please explain acronyms, keep your writing style correct but informal, and try to avoid jargon where possible.
+*   Sub-pages: We discourage the use of sub-pages, with very few exceptions ("Features" is one).
+
+In general, we try to follow the [Wikipedia Style Guide](http://en.wikipedia.org/wiki/Style_guide), where appropriate.
 
 ## Bug reporting guidelines
 

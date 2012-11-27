@@ -136,7 +136,7 @@ The **existing Action Groups** and their associated Actions:
 <!-- -->
 
 *   **SUPER_USER** is extended to include **ASSIGN_CLUSTER_NETWORK**.
-*   **DATA_CENTER_ADIM** is extended to include **ASSIGN_CLUSTER_NETWORK**.
+*   **DATA_CENTER_ADMIN** is extended to include **ASSIGN_CLUSTER_NETWORK**.
 
 ##### Updated Entities Hierarchy
 

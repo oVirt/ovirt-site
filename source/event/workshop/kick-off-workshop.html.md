@@ -21,3 +21,5 @@ The first oVirt Workshop was held over three days at Cisco's main campus in San 
 *   [ ovirt-vdsm](Media:OVirt VDSM 20111102.odp) (ODP) & [ ovirt-vdsm](Media:OVirt VDSM 20111102.pdf) (PDF)
 *   [ ovirt-vdsm-storage](Media:OVirt VDSM Storage 20111102.odp) (ODP) & [ ovirt-vdsm-storage](Media:OVirt VDSM Storage 20111102.pdf) (PDF)
 *   [ Quantum_Ovirt_discussion](Media:Quantum Ovirt discussion-20111103.pdf) (PDF)
+
+<Category:News> <Category:Events>

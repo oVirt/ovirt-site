@@ -120,7 +120,7 @@ Or copy & paste the content of the file below into ~/.m2/settings.xml
 
 Assuming you're using bash, one of the ways to set them is to add them to .bashrc file that is located in user's home directory.
 
-Example for variables to this file:
+Example for variables in this file:
 
        export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk.x86_64
        export M2_HOME=/usr/local/apache-maven-3.0.4

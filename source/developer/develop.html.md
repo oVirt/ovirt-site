@@ -13,7 +13,7 @@ wiki_last_updated: 2012-11-30
 __NOTOC__
 
 <div class="row">
-<div class="span6">
+<div class="span4">
 ## Projects
 
 oVirt is a [ collection of projects](Architecture) which work together to provide a complete data center virtualization solution.
@@ -33,7 +33,9 @@ The reports and data warehouse components for ovirt-engine are optional, and are
 *More information on [ oVirt subprojects](subprojects)*
 
 </div>
-<div class="span6">
+<div class="span4">
+</div>
+<div class="span4">
 ## oVirt Architecture
 
 ![oVirt architecture](Overall-arch.png "oVirt architecture")

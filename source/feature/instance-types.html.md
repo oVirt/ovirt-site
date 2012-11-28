@@ -153,7 +153,7 @@ For example: A template has a 10GB disk containing the operating system. If the 
     -   Console type (spice/vnc/etc)
     -   Number of monitors
     -   USB Support
-    -   **Question : Should we add soundcard an option here - even for servers**
+    -   Soundcard - including type
     -   High availability (including priority) for both server and desktop workloads
     -   **Question : Should any other options should be added based on SLA work?**
     -   User data (VM Payload)

@@ -170,8 +170,8 @@ In the advanced view the user should be able to override all settings of the vir
 Any advanced changes (outside of the basic overrides described) will change the instance type to “Custom ..” to indicate that the virtual machine is not based on one of the define instance types.
  On selecting finish the virtual machine will be created
 Based on permissions the user should be able to add disks (volumes) and nics to the virtual machine using the existing disks and networks sub-tabs.
- **Question : Should we prevent adding and removing logical networks?**
-**Question : Should we prevent editing or removing template disks?**
+ We should prevent adding and removing logical networks?
+We should we prevent editing or removing template disks?
  **Runtime**
 
 When a virtual machine is run the complete configuration should be constructed in the following method:

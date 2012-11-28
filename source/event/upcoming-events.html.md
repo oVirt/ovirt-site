@@ -8,7 +8,7 @@ wiki_revision_count: 70
 wiki_last_updated: 2015-06-03
 ---
 
-## Upcoming events
+# Upcoming events
 
 <startfeed/>
 

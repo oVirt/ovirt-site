@@ -10,7 +10,7 @@ wiki_last_updated: 2012-11-28
 
 # oVirt Kick-off Workshop
 
-*Posted on 2011-11-01*
+*Posted on November 1st, 2011*
 
 The first oVirt Workshop was held over three days at Cisco's main campus in San Jose, California, from 1st – 3rd November 2011. We introduced the project, the technologies inside of the new projects, and had technical breakouts for learning and hacking.
 

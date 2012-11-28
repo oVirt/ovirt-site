@@ -8,7 +8,7 @@ wiki_revision_count: 45
 wiki_last_updated: 2014-12-07
 ---
 
-![512|center](Ovirt-1024x698.png "512|center")
+![](Ovirt-1024x698.png "Ovirt-1024x698.png")
 
 # oVirt Architecture
 

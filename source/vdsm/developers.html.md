@@ -28,7 +28,7 @@ Vdsm uses autoconf and automake as it's build system.
 Fedora users should verify the following packages are installed before attempting to build:
 
        yum install autoconf automake pyflakes logrotate gcc python-pep8 libvirt-python python-devel \
-       python-nose rpm-build sanlock-python genisoimage python-ordereddict python-pthreading
+       python-nose rpm-build sanlock-python genisoimage python-ordereddict python-pthreading libselinux-python
 
 Note: If you are working on EL6, please make sure you have defined EPEL yam repository (for installing python-ordereddict and pyton-pthreading)
 

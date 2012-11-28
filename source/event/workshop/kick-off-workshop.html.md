@@ -15,7 +15,7 @@ The first oVirt Workshop was held over three days at Cisco's main campus in San 
 ### Materials from workshop
 
 *   [Workshop schedule](Workshop schedule) – all the sessions, links to Etherpad, wiki, slides, and so forth.
-*   [ ovirt-node](Media:) – slides for oVirt Node talk.
+*   [ ovirt-node](Media:Ovirt-node-nov-11.pdf) – slides for oVirt Node talk.
 *   [ oVirt_history_and_reports](Media:OVirt history and reports-20111102.odp) (ODP) & [ oVirt_history_and_reports](Media:OVirt history and reports-20111102.pdf) (PDF)
 *   Notes on [ building and installing oVirt Engine from source](Build and Install Engine RPM).
 *   [ ovirt-vdsm](Media:OVirt VDSM 20111102.odp) (ODP) & [ ovirt-vdsm](Media:OVirt VDSM 20111102.pdf) (PDF)

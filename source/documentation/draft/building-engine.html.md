@@ -106,9 +106,9 @@ Or copy & paste the content of the file below into ~/.m2/settings.xml
               <profiles>
                       <profile>
                               <id>oVirtEnvSettings</id>
-                              <properties>
-                                      <jbossHome>/usr/share/jboss-as</jbossHome>
-                                      <JAVA_HOME>/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.0.x86_64/bin/java</JAVA_HOME>
+                              <properties>                               
+                                 <jbossHome>${env.JBOSS_HOME}</jbossHome>
+                                 <JAVA_HOME>${env.JAVA_HOME}</JAVA_HOME>
                               </properties>
                       </profile>
                </profiles>

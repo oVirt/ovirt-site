@@ -30,6 +30,18 @@ Fedora users should verify the following packages are installed before attemptin
        yum install autoconf automake pyflakes logrotate gcc python-pep8 libvirt-python python-devel \
        python-nose rpm-build sanlock-python genisoimage python-ordereddict python-pthreading
 
+Note: If you are working on EL6, please make sure you have defined EPEL yam repository (for installing python-ordereddict and pyton-pthreading)
+
+      [epel]
+      name=Extra Packages for Enterprise Linux 6 - $basearch
+      #baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch
+      mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&arch=$basearch
+      failovermethod=priority
+      enabled=1
+      gpgcheck=1
+      gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
+       
+
 To configure the build env:
 
       ./autogen.sh --system

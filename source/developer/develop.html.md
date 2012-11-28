@@ -34,19 +34,10 @@ The reports and data warehouse components for ovirt-engine are optional, and are
 
 </div>
 <div class="span6">
-</div>
-</div>
-## Developing oVirt - checklist
-
-Stuff to be added to this page before switching.
-
-*   oVirt architecture and projects
-*   Getting the source code and compiling it
-*   Submitting a patch
-*   Release management
-*   Feature roadmap
-*   Tools and processes
+## oVirt Architecture
 
 ![oVirt architecture](Overall-arch.png "oVirt architecture")
 
+</div>
+</div>
 <Category:Developer>

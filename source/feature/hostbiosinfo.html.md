@@ -54,6 +54,17 @@ When gathering host's capabilities we receive host's bios details by VDSM API. T
 
 #### REST API
 
+The host's bios parameters is shown via engine rest API under host object as the following: <bios_information>
+
+<manufacturer>`Dell Inc.`</manufacturer>
+<version>`01`</version>
+<serial_number>`H2CQ95J`</serial_number>
+<product_name>`OptiPlex 790`</product_name>
+<uuid>`4C4C4544-0032-4310-8051-C8C04F39354A`</uuid>
+<family>`Core i7`</family>
+
+</bios_information>
+
 #### Engine API
 
 #### Model

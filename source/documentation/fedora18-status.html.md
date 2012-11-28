@@ -16,7 +16,9 @@ Engine
 
 Status:
 
-*   Works but require manual tweaking - shutting down firewalld prior to installation
+*   Works but require manual tweaking
+*   shut down firewalld prior to installation
+*   During setup, chose "no" when being asked whether to configure iptables.
 *   Relevant BZ:
 
 ` `[`https://bugzilla.redhat.com/show_bug.cgi?id=880768`](https://bugzilla.redhat.com/show_bug.cgi?id=880768)

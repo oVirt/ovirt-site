@@ -106,7 +106,7 @@ General development discussions are in `vdsm-devel@lists.fedorahosted.org`.
 
       # yum install createrepo -y
 
-*   Enable httpd service
+*   Enable httpd service (if it's not installed, install it first with yum install httpd)
 
       # chkconfig httpd on
 

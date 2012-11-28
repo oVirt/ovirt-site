@@ -68,6 +68,8 @@ The host's bios parameters is shown via engine rest API under host object as the
 
 #### Engine API
 
+Same as get host capabilities api.
+
 #### Model
 
 ##### Error codes

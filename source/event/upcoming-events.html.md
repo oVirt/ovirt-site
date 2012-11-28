@@ -13,3 +13,9 @@ wiki_last_updated: 2015-06-03
 <startfeed/>
 
 <endfeed/>
+
+## Past events
+
+<startfeed />
+
+<endfeed/>

@@ -24,7 +24,7 @@ This page is a proposal for oVirt-Quantum integration focused on leveraging the 
 
 <!-- -->
 
-*   DHCP Agent - The module responsible to configure dnsmask per network.
+*   DHCP Agent - The module responsible to configure dnsmasq per network.
 
 <!-- -->
 

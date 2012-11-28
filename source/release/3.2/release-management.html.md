@@ -18,6 +18,10 @@ wiki_last_updated: 2013-06-04
     -   Feature freeze: **2012-11-28**
     -   Test Day: **2012-12-11**
 
+## Tracker Bug
+
+*   [Tracker - 881006](https://bugzilla.redhat.com/show_bug.cgi?id=881006)
+
 ## Release Criteria (DRAFT)
 
 Tracker bug: <https://bugzilla.redhat.com/881006>

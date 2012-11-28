@@ -42,7 +42,11 @@ DWH
 
 Status:
 
-*   Not tested
+*   RPM installation succeeded.
+*   Setup fails
+*   Relevant BZ:
+
+` `[`https://bugzilla.redhat.com/show_bug.cgi?id=880996`](https://bugzilla.redhat.com/show_bug.cgi?id=880996)
 
 Reports
 

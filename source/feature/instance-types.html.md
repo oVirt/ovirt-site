@@ -97,7 +97,7 @@ We should support leaving the logical network empty, since this may be overridde
 A set of predefined instance types should be created.
 For consistency we should use the default OpenStack sizes.
 A user should be allowed to edit but not delete predefined instance types
-**Question: Do we allow Instance Types (and templates) to be disabled?**
+The administrator should be able to disable instance types.
 
 | Name      | Memory | vCPUs |
 |-----------|--------|-------|

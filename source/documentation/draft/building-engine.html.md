@@ -116,6 +116,17 @@ Or copy & paste the content of the file below into ~/.m2/settings.xml
 
 *   Do not omit the active-profiles element in the above xml, it is crucial.
 *   If your JDK installation resides in a different path , please specify it instead of the provided path at JAVA_HOME.
+*   Please note that in order to use the {env.XXX} terms in maven's settings.xml,you need to set those variables in your environment.
+
+Assuming you're using bash, one of the ways to set them is to add them to .bashrc file that is located in user's home directory.
+
+Example for variables to this file:
+
+       export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk.x86_64
+       export M2_HOME=/usr/local/apache-maven-3.0.4
+       export MAVEN_HOME=$M2_HOME
+       export JBOSS_HOME=/usr/share/jboss-as
+       
 
 ## Installing JBoss AS
 

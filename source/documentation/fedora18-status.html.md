@@ -70,7 +70,10 @@ Cli
 
 Status:
 
-*   Not tested
+*   Doesn't work
+*   Relevant BZ:
+
+` `[`https://bugzilla.redhat.com/show_bug.cgi?id=881011`](https://bugzilla.redhat.com/show_bug.cgi?id=881011)
 
 SDK
 

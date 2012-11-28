@@ -20,6 +20,8 @@ wiki_last_updated: 2013-06-04
 
 ## Release Criteria (DRAFT)
 
+Tracker bug: <https://bugzilla.redhat.com/881006>
+
 ### General
 
 *   All sources must be available on ovirt.org

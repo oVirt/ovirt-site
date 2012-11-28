@@ -185,7 +185,7 @@ If you only want to build the engine core and then REST API then use the followi
 
 Please note that the first time that you build maven will need to download a large amount of dependencies from the network, more than 200 MiB, so if you have an slow connection it will take a long time.
 
-For compiling the GUI (web administration tool and user portal) in addition to the engine core and REST API and engine use the following commands:
+For compiling the GUI (web administration tool and user portal) in addition to the engine core and REST API use the following commands:
 
     $ cd $HOME/ovirt-engine
     $ mvn install -DskipTests -Dgwt.userAgent=gecko1_8 -Pgwt-admin,gwt-user

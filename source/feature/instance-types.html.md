@@ -191,7 +191,7 @@ When a virtual machine is run the complete configuration should be constructed i
 
 *   Extra disks that are defined at the VM level are added to the VM.
 
-**Question : Should we allow changing vm instance type?**
+ We should allow changing the instance type on a VM that is down
 \* for example: changing vm from instance type 'medium' to 'large' or to 'custom' (which allow user editing all fields)
 \* this sounds reasonable but there is a problem with some fields which are defined in instance-type,
 if we have defaults for server and desktops (clone disks vs. thin allocation),

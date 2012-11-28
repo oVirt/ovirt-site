@@ -145,3 +145,8 @@ The downsides to this approach:
 *   In case Run VM is performed right after Setup Networks on the same host, The DHCP Agent might not be started in time, which might cause a VM's vNIC not acquire an IP lease.
 
 ![Flow of oVirt operations mapped to Quantum actions](OVirtQuantumFlow.png "Flow of oVirt operations mapped to Quantum actions")
+
+Notes:
+
+*   For this architecture to work we need to submit a patch to quantum that in case the layer 2 driver does not return a device name the dhcp server won't be started.
+*   The oVirt plugin is not planned to have a dedicated DB but use the existing oVirt API for querying and setting information from/to the DB.

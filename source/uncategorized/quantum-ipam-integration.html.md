@@ -48,7 +48,7 @@ If the network has subnets then the port will be assigned an IP on the subnet:
 *   Directly on a specific subnet if the subnet id is specified
 *   Directly on a subnet & with a given IP if both subnet id & IP are specified
 
-The port is then part of the quantum DB.
+The port is then stored in the quantum service, and can be seen when calling the API.
 
 Summary:
 

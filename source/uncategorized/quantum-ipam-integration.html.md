@@ -28,7 +28,7 @@ This page is a proposal for oVirt-Quantum integration focused on leveraging the 
 
 <!-- -->
 
-*   Layer 3 driver - The module responsible to create the network locally.
+*   Layer 2 driver - The module responsible to create the network locally.
 
 <!-- -->
 
@@ -60,7 +60,7 @@ Summary:
 
 For each Network with DHCP enabled and defined subnet(s), the DHCP Agent:
 
-*   Submits a network creation request to the layer 3 driver plugin.
+*   Submits a network creation request to the layer 2 driver plugin.
 *   Write port definitions (MAP + IP) to a conf file
 *   Spawn a dnsmasq instance with the defined ranges (CIDRs) and the conf file
 
@@ -118,7 +118,7 @@ A general outline of the approach:
 
 oVirt engine and Quantum Service with the "oVirt plugin" are running on a single host. The Quantum DHCP agent is running on the host with access to the network they want to allocate IP addresses on. We can have multiple DHCP Agents deployed on the various hosts in the data center.
 
-The Quantum DHCP agent uses a layer 3 driver. The driver is responsible for creating the network interface which the DHCP server is connected to. We'll create oVirt driver which will make the call if a DHCP Agent for a given network is required on the specific host. The driver will use a file written by VDSM to determine if the network should have DHCP on this host or not and act accordingly.
+The Quantum DHCP agent uses a layer 2 driver. The driver is responsible for creating the network interface which the DHCP server is connected to. We'll create oVirt driver which will make the call if a DHCP Agent for a given network is required on the specific host. The driver will use a file written by VDSM to determine if the network should have DHCP on this host or not and act accordingly.
 
 A new VDSM verb will allow to set for which networks the DHCP server should be active.
 

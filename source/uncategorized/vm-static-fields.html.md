@@ -78,7 +78,7 @@ y
 
 description
 
-name
+description
 
 n
 
@@ -89,6 +89,8 @@ y
 create instance
 
 vds_group_id
+
+vm cluster
 
 n
 
@@ -124,7 +126,7 @@ y
 
 is_initialized
 
-internal. mark if vm was syspreped\*
+internal. mark if vm was syspreped
 
 y
 
@@ -160,7 +162,7 @@ y
 
 is_stateless
 
-is stateless
+stateless flag
 
 y
 

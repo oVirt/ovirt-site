@@ -21,8 +21,8 @@ A complete re-write of the vdsm-bootstrap.
 
 ### Current status
 
-*   Work in progress
-*   Last updated date: 2012-10-15
+*   Done
+*   Last updated date: 2012-11-28
 
 ### Detailed Description
 

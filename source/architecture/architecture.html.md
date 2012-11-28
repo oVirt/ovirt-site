@@ -8,6 +8,8 @@ wiki_revision_count: 45
 wiki_last_updated: 2014-12-07
 ---
 
+![512|center](Ovirt-1024x698.png "512|center")
+
 # oVirt Architecture
 
 A standard oVirt network consists of three things, primarily:
@@ -17,7 +19,7 @@ A standard oVirt network consists of three things, primarily:
 *   ovirt-engine running on a server, which we will use to deploy, monitor, move, stop and create VM images
 *   An identity service, to authenticate users and administrators for ovirt-engine
 
-The nodes are Linux distributions with VDSM and libvirt installed, along with some extra packages to easily enable virtualisation of networking and other system services. The supportedd Linux distributions to date are Fedora 17 or oVirt node, which is basically a stripped-down distribution containing just enough stuff to allow virtualisation.
+The nodes are Linux distributions with VDSM and libvirt installed, along with some extra packages to easily enable virtualisation of networking and other system services. The supported Linux distributions to date are Fedora 17 or oVirt node, which is basically a stripped-down distribution containing just enough stuff to allow virtualisation.
 
 The storage nodes can use block or file storage, and can be local or remote, accessed via NFS. Storage technologies like Gluster are supported through the POSIXFS storage type. Storage nodes are grouped into storage pools, which can ensure high availability and redundancy. The [Vdsm Storage Terminology](Vdsm Storage Terminology) page has more details.
 

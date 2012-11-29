@@ -18,39 +18,28 @@ __NOTOC__
 </div>
 <div class="row">
 <div class="span3 offset1 pad-sides">
-<img src="" alt="" class="header-icon">oVirt manages virtual machines, storage and virtualised networks.
+<div style="text-align: center">
+![](Icon-manage.png "Icon-manage.png")
+
+</div>
+oVirt manages virtual machines, storage and virtualized networks.
 
 </div>
 <div class="span3 pad-sides">
-<img src="" alt="" class="header-icon">oVirt is an easy-to-use web interface
+<div style="text-align: center">
+![](Icon-web.png "Icon-web.png")
+
+</div>
+oVirt is a virtualization platform with an easy-to-use web interface
 
 </div>
 <div class="span3 pad-sides">
-<img src="" alt="" class="header-icon">oVirt is powered by the Open Source you know - KVM on Linux.
+<div style="text-align: center">
+![](Icon-kvm.png "Icon-kvm.png")
 
 </div>
-</div>
-<div class="row">
-<div class="span4 offset1 well well-small muted">
-<div class="hero-unit">
-<center class="rotate-splash">
-a relevant
-graphic here
+oVirt is powered by the Open Source you know - KVM on Linux.
 
-</center>
-</div>
-</div>
-<div class="span6">
-## Open your virtual datacenter
-
-<div class="pad-sides">
-oVirt provides everything you need to control virtual machines, storage, and virtualized networks.
-
-It is a virtualization platform with an easy-to-use web interface and is powered by the [open source](Licensing) you know: KVM on Linux.
-
-<span class="btn btn-action">[Start using oVirt now »](Download)</span>
-
-</div>
 </div>
 </div>
 <div class="row">
@@ -97,6 +86,6 @@ oVirt, the first truly open and comprehensive data centre virtualization managem
 You're encouraged to [ join the oVirt community](Community), and help us bring open source software to virtual datacenters worldwide.
 
 </div>
-<div class="span4 pad-left-small pad-right">
+<div class="span4 pad-left pad-right">
 </div>
 </div>

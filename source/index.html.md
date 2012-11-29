@@ -11,6 +11,26 @@ wiki_last_updated: 2015-06-15
 __NOTOC__
 
 <div class="row">
+<div class="span6 offset1 pad-sides">
+## Open your virtual datacenter
+
+</div>
+</div>
+<div class="row">
+<div class="span3 offset1 pad-sides">
+<img src="" alt="" class="header-icon">oVirt manages virtual machines, storage and virtualised networks.
+
+</div>
+<div class="span3 pad-sides">
+<img src="" alt="" class="header-icon">oVirt is an easy-to-use web interface
+
+</div>
+<div class="span3 pad-sides">
+<img src="" alt="" class="header-icon">oVirt is powered by the Open Source you know - KVM on Linux.
+
+</div>
+</div>
+<div class="row">
 <div class="span4 offset1 well well-small muted">
 <div class="hero-unit">
 <center class="rotate-splash">

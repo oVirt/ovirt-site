@@ -16,9 +16,9 @@ field name
 
 description
 
-instance type
-
 template
+
+instance type
 
 editable by user
 
@@ -28,21 +28,17 @@ vm_guid
 
 internal. uniqe identifier
 
-n
+n/a
 
-n
+n/a
 
-n
+n/a
 
 none
 
 vm_name
 
-name
-
-n
-
-n
+name set by user for vm and template
 
 y
 
@@ -64,11 +60,11 @@ vmt_guid
 
 internal. link to template object
 
-n
+n/a
 
-n
+n/a
 
-none
+n/a
 
 os
 
@@ -78,11 +74,7 @@ y
 
 description
 
-description
-
-n
-
-n
+description set by user for vm and template
 
 y
 
@@ -92,9 +84,9 @@ vds_group_id
 
 vm cluster
 
-n
-
 y
+
+n
 
 y
 
@@ -110,11 +102,11 @@ creation_date
 
 internal. creation date
 
-n
+n/a
 
-n
+n/a
 
-n
+n/a
 
 none
 
@@ -128,7 +120,11 @@ is_initialized
 
 internal. mark if vm was syspreped
 
-y
+n/a
+
+n/a
+
+with run once (re-initialize)
 
 is_auto_suspend
 
@@ -136,9 +132,9 @@ legacy from auto-suspend feature, not in use
 
 y
 
-num_of_sockets
+num_of_sockets n
 
-number of sockets
+umber of sockets
 
 y
 
@@ -224,7 +220,11 @@ origin
 
 internal. where the vm was created
 
-n
+n/a
+
+n/a
+
+n/a
 
 initrd_url
 
@@ -272,6 +272,12 @@ child_count
 
 internal. for template, not in use?
 
+n/a
+
+n/a
+
+n/a
+
 quota_id
 
 link to quota
@@ -300,7 +306,7 @@ instance_type_id
 
 internal. link to instance type
 
-n
+n/a
 
 payload
 

@@ -43,6 +43,22 @@ oVirt is powered by the Open Source you know - KVM on Linux.
 </div>
 </div>
 <div class="row">
+<div class="span3 offset1">
+
+------------------------------------------------------------------------
+
+</div>
+<div class="span3"  style="text-align:center">
+<span class="btn btn-action btn-block">[Start using oVirt now »](Download)</span>
+
+</div>
+<div class="span3">
+
+------------------------------------------------------------------------
+
+</div>
+</div>
+<div class="row">
 <div class="span4 pad-left pad-right-small">
 ### New release!
 

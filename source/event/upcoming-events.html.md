@@ -8,14 +8,12 @@ wiki_revision_count: 70
 wiki_last_updated: 2015-06-03
 ---
 
-# Upcoming events
+## Upcoming events
 
-<startfeed/>
+<noinclude> <startfeed/> </noinclude>
 
-<endfeed/>
+<noinclude> <endfeed/>
 
-# Past events
+</noinclude>
 
-<startfeed />
-
-<endfeed/>
+<Category:Events>

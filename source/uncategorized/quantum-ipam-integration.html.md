@@ -60,7 +60,7 @@ Summary:
 
 For each Network with DHCP enabled and defined subnet(s), the DHCP Agent:
 
-*   Submits a network creation request to the layer 2 driver plugin.
+*   Submits a network plug-in request to the interface driver, which creates a tap device which will be plugged to the network by the L2 agent.
 *   Write port definitions (MAP + IP) to a conf file
 *   Spawn a dnsmasq instance with the defined ranges (CIDRs) and the conf file
 
@@ -118,7 +118,9 @@ A general outline of the approach:
 
 oVirt engine and Quantum Service with the "oVirt plugin" are running on a single host. The Quantum DHCP agent is running on the host with access to the network they want to allocate IP addresses on. We can have multiple DHCP Agents deployed on the various hosts in the data center.
 
-The Quantum DHCP agent uses a layer 2 driver. The driver is responsible for creating the network interface which the DHCP server is connected to. We'll create oVirt driver which will make the call if a DHCP Agent for a given network is required on the specific host. The driver will use a file written by VDSM to determine if the network should have DHCP on this host or not and act accordingly.
+The oVirt Plugin will be a simple plugin that saves the entities created on quantum, but doesn't do the actual network provisioning (since that is already supplied by oVirt). It might be that the oVirt plugin won't use a DB to save the data locally, but will instead use the oVirt API to query the network/subnet/port data. (This way, it is not duplicating networking information, but still adheres to Quantum architecture and can be swapped out for another plugin)
+
+The Quantum DHCP agent uses an interface driver. The driver is responsible for creating the interface that connects to the network interface which the DHCP server should be on. We'll create oVirt driver which will make the call if a DHCP Agent for a given network is required on the specific host. It will also be responsible to connect the interface that the DHCP consumes to the underlying network implementation that oVirt is using. The driver will use a file written by VDSM to determine if the network should have DHCP on this host or not and act accordingly.
 
 A new VDSM verb will allow to set for which networks the DHCP server should be active.
 
@@ -148,5 +150,6 @@ The downsides to this approach:
 
 Notes:
 
-*   For this architecture to work we need to submit a patch to quantum that in case the layer 2 driver does not return a device name the dhcp server won't be started.
+*   For this architecture to work we need to submit a patch to quantum that in case the interface driver does not return a device name the dhcp server won't be started.
+    -   There is a better plan upstream in Quantum to have DHCP Agent level filtering, need to follow that.
 *   The oVirt plugin is not planned to have a dedicated DB but use the existing oVirt API for querying and setting information from/to the DB.

@@ -83,10 +83,8 @@ Adding test data in fixtures.xml
 
 ### Configuration
 
-A new configuration value will be added named FenceProxyDefaultPreferences , for backward compatibility it will be version dependant:
- For 3.1 - the value will be : DC
-
-       For 3.2 - the value will be : CLUSTER,DC,ENGINE
+A new configuration value will be added named FenceProxyDefaultPreferences
+The default value will be : CLUSTER,DC
 
 This configuration value should be exposed to the engine-config tool.
 

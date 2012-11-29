@@ -4,6 +4,7 @@ authors: bproffitt, dneary, doron, knesenko, mburns, quaid, sandrobonazzola, the
 wiki_title: Home
 wiki_revision_count: 81
 wiki_last_updated: 2015-06-15
+wiki_warnings: table-width
 ---
 
 # Home
@@ -78,21 +79,17 @@ You're encouraged to [ join the oVirt community](Community), and help us bring o
 
 </div>
 <div class="span4 pad-left-small pad-right-small">
-### @oVirt, on Twitter
+### oVirt, on Twitter
 
-Here’s the latest news from our official announcements on Twitter and Identi.ca:
+Here’s the latest buzz from our official announcements on Twitter:
 
-<small class="muted"><#INCLUDE_SOME_RSS_THING_HERE></small>
+{{#widget:Twitter |user=ovirt |width=auto |count=5 |scrollbar |tweets.color=#000 |tweets.background=#fff |tweets.links=rgb(78, 154, 6) |shell.color=#000 |shell.background=rgb(78, 154, 6) }}
 
 </div>
 <div class="span4 pad-left-small pad-right">
 ### Upcoming events
 
-This section will either be:
-
-1.  Static text related to upcoming workshops and event participation, or
-2.  A short RSS feed taken from our community calendar, or
-3.  A short RSS feed taken from a "News and Events" page here on the wiki
+<rss max=2><http://wiki-ovirt.rhcloud.com/index.php?title=Upcoming_events&action=feed&feed=rss></rss>
 
 </div>
 </div>

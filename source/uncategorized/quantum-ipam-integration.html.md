@@ -81,7 +81,7 @@ Summary:
 
 ##### Difference in architecture
 
-Whereas Quantum is designed for the homogeneous hardware use-case, to manage one physical network on which multiple virtual networks are created by tenants, oVirt is designed to support also the heterogeneous hardware use-case which means:
+Whereas Quantum is designed for the homogeneous hardware use-case, to manage one physical network on which multiple virtual networks are created by tenants, oVirt is designed to also support the heterogeneous hardware use-case which means:
 
 *   Not all the virtual networks share the same physical layer
 *   Not all networks are available on all hosts

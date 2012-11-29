@@ -74,22 +74,6 @@ oVirt uses [Gerrit](http://gerrit.ovirt.org) to manage code submissions.
 *   In comments please be considerate toward the work which the patch submitter has done to submit the patch.
 *   For patch submitters: Please familiarise yourself with project coding conventions before submitting a patch. Coding conventions for [ VDSM](Vdsm Developers#Code_Style) are in the wiki, and are included in [ the Maven build process](Building oVirt Engine/IDE) for oVirt Engine.
 
-## Guideline Violations - 3 Strikes Method
-
-The point of this section is not to find opportunities to punish people, but we do need a fair way to deal with people who are making our community an unpleasant place.
-
-*   First occurrence: Public reminder that the behavior is inappropriate according to our guidelines.
-*   Second occurrence: Private message warning the user that any additional violations will result in removal from the community.
-*   Third occurrence: Depending on the violation, may include account deletion or banning.
-
-**Notes:**
-
-*   Obvious spammers are banned on first occurrence. This is necessary to keep the community free of spam.
-*   Violations are forgiven after extended periods of good behavior.
-*   Minor formatting / style infractions will be dealt with through education, not the 3 strikes process.
-*   Extreme violations of a threatening, abusive, destructive or illegal nature will be addressed immediately and are not subject to 3 strikes.
-*   Contact [Dave neary](User:DNeary) to report abuse or appeal violations (mistakes happen & will be corrected).
-
 *These guidelines have been adapted from [the MeeGo Community](http://wiki.meego.com/Community_guidelines)*
 
 <Category:Community>

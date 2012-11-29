@@ -87,9 +87,5 @@ Here’s the latest buzz from our official announcements on Twitter:
 
 </div>
 <div class="span4 pad-left-small pad-right">
-### Upcoming events
-
-<rss max=2><http://wiki-ovirt.rhcloud.com/index.php?title=Upcoming_events&action=feed&feed=rss></rss>
-
 </div>
 </div>

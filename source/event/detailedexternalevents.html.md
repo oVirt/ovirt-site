@@ -126,12 +126,12 @@ Add a NORMAL event on the Alert deletion with all relevant details (user, time e
 A new permission to access this command will be added by default only to superuser role.
 A new role that can inject *External Events* will be added and may be attached/added to any user in the system
 
-#### Permissions on Entities
+#### Permissions on Entity Instances
 
-Inject with single entity - requires permission for this action on the relevant entity).
-Inject with multiple entities - need to check the permission for each entity.
-Inject with no entity - requires system level permission to inject.
-(this by default would only be in super user role.)
+There will be no permission check on entity instances on which *External Events* are injected
+The reason is that in order to invoke an *External Events* on an entity instance, the invoker should know the entity instance UUID and therefore we had already checked that the invoker has the right permissions on the entity instance when he gets the information.
+Also, double checking that in the AddExternalEvent command is not simple, since each Entity may have several ActionGroups (Create, Edit etc.) associated with it, so it is not clear which to check
+So, in order to keep things simple, we will assume that if the caller to *Add External Event* has the *Entity UUID* in hand, all we have to check is that he has permission to inject *External Events*
 
 ### API
 

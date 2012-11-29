@@ -28,7 +28,7 @@ This page is a proposal for oVirt-Quantum integration focused on leveraging the 
 
 <!-- -->
 
-*   Layer 2 driver - The module responsible to create the network locally.
+*   Interface driver - The module responsible to connect the DHCP to the network locally on the host.
 
 <!-- -->
 

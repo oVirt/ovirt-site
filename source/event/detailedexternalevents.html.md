@@ -123,7 +123,8 @@ Add a NORMAL event on the Alert deletion with all relevant details (user, time e
 
 #### Command Permissions
 
-A new permission to access this command will be added by default only to superuser role. (Admin can add it to other custom roles)
+A new permission to access this command will be added by default only to superuser role.
+A new role that can inject *External Events* will be added and may be attached/added to any user in the system
 
 #### Permissions on Entities
 

@@ -148,8 +148,9 @@ The downsides to this approach:
 
 ![Flow of oVirt operations mapped to Quantum actions](OVirtQuantumFlow.png "Flow of oVirt operations mapped to Quantum actions")
 
-Notes:
+###### Notes
 
 *   For this architecture to work we need to submit a patch to quantum that in case the interface driver does not return a device name the dhcp server won't be started.
     -   There is a better plan upstream in Quantum to have DHCP Agent level filtering, need to follow that.
-*   The oVirt plugin is not planned to have a dedicated DB but use the existing oVirt API for querying and setting information from/to the DB.
+*   As suggested, The oVirt plugin is not planned to have a dedicated DB but use the existing oVirt API for querying and setting information from/to the DB.
+    -   Need to handle port creation for the DHCP server itself (save in DB, IP allocation).

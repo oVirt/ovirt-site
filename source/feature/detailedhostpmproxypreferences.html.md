@@ -120,10 +120,10 @@ The REST API will be enhanced to include the new Proxy Preferences as follows
 `    `<power_management>
 `       `<pm_proxies>
 `          `<pm_proxy>
-`             `<predefined>`cluster`</predefined>
+`             `<proprietary>`cluster`</proprietary>
 `          `</pm_proxy>
 `         `<pm_proxy>
-`             `<predefined>`datacenter`</predefined>
+`             `<proprietary>`dc`</proprietary>
 `          `</pm_proxy>
 `       `</pm_proxies>
 `    `</power_management>
@@ -131,12 +131,12 @@ The REST API will be enhanced to include the new Proxy Preferences as follows
 
 To achieve that we should do the following:
 in api.xsd (schema) define new elements:
- *proxy* which contains one field : predefined
+ *PmProxy* which contains one field : predefined
 
-        `*`proxies`*` which contains a list of proxy
+        `*`PmProxies`*` which contains a list of PmProxy
 
-Add enum PreDefinedFenceType {CLUSTER,DATACENTER} in org.ovirt.engine.api.model package
-Add PreDefinedFenceType enum to capabilities (BackendCapabilitiesResource)
+Add enum PmProxyType {CLUSTER,DATACENTER} in org.ovirt.engine.api.model package
+Add PmProxyType enum to capabilities (BackendCapabilitiesResource)
 Add enum validations
 Add custom mapping for these new power-management fields in HostMapper.java, for both REST-->Backend and Backend-->REST directions)
 Add metadata to rsdl_metadata_v-3.1.yaml

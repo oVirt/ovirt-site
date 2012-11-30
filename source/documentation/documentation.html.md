@@ -13,12 +13,16 @@ wiki_last_updated: 2014-04-26
 __NOTOC__
 
 <div class="row">
-<div class="span5 offset1">
-{{#evp:youtube|Aq3ctFhBIhk|Installing oVirt on a single machine}}
+<div class="span5 offset1" style="text-align: center">
+<iframe width="250" src="//youtube.com/embed/Aq3ctFhBIhk" frameborder="0" allowfullscreen="true"> </iframe>
+
+Installing oVirt on a single machine
 
 </div>
-<div class="span5">
-{{#evp:youtube|C4gayV6dYK4|VM creation and live migration}}
+<div class="span5" style="text-align: center">
+<iframe width="250" src="//youtube.com/embed/C4gayV6dYK4" frameborder="0" allowfullscreen="true"> </iframe>
+
+Creating and migrating VMs
 
 </div>
 </div>

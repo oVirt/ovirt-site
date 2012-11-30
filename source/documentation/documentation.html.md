@@ -34,3 +34,17 @@ Creating and migrating VMs
 <div class="span4">
 </div>
 </div>
+<div class="row">
+<div class="span6">
+## Getting involved
+
+Do you want to help us improve the documentation for oVirt?
+
+*   [ Sign up for a wiki account, and log in](Special:UserLogin)
+*   Help fill some of the [ gaps](Gap analysis) we've identified
+*   Help out with some [ wiki gardening](website organisation)
+
+Your time and effort is appreciated!
+
+</div>
+</div>

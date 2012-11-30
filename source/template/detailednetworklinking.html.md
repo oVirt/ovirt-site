@@ -129,14 +129,14 @@ Add translation to VDSM error codes: UPDATE_VNIC_FAILED = 'Failed to update VM N
 
 A new API is added for this feature.
 
-    updateVmDevice (vmId, params)
+    vmUpdateDevice (vmId, params)
 
     params = {
             'type': 'interface',
             'network': 'network name',                      <--- bridge name
-            'linkState': 'up/down',
+            'linkActive': 'bool',
             'alias': <string>,      
-            'promisc': <blue,red>,                          <--- promisc mirror mode, the interface will mirror all red and blue bridge traffic
+            'portMirroring': blue[,red],                          <--- The interface will mirror all red and blue bridge traffic
      }
 
 Vdsm would implement this using <http://libvirt.org/html/libvirt-libvirt.html#virDomainUpdateDeviceFlags> .

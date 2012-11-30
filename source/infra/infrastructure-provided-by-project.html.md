@@ -20,17 +20,13 @@ The project runs Mailman at <http://lists.ovirt.org> .
 
 All available lists are found at <http://lists.ovirt.org/mailman/listinfo> .
 
-## Content website
+## Content website / wiki
 
-The project runs Wordpress at <http://ovirt.org> .
-
-Members of the Board and official projects have administrative, editorial, and author rights to the site to change and add content.
-
-## Wiki
-
-The project runs MediaWiki at <http://ovirt.org/wiki> .
+The project runs MediaWiki at <http://ovirt.org> .
 
 Details are found on [How to use this wiki](How to use this wiki).
+
+It is hosted on OpenShift.
 
 ## Source code management
 

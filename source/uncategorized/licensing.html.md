@@ -8,8 +8,6 @@ wiki_last_updated: 2013-01-17
 
 # Licensing
 
-Licensing
-
 oVirt uses ASL2.0 as the primary license. All new projects are strongly encouraged to use ASL2.0 and the initial source contribution for oVirt has been contributed under ASL2.0. All content contributed to the website, and wiki is done so under ASL2.0.
 
 It is also possible that some complementary projects in oVirt can use (L)GPL. These are clearly marked on the project matrix and the board may vote whether or not to include a non ASL2.0 project into oVirt.

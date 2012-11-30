@@ -56,3 +56,5 @@ If everything is successful, you should see a new tab in the GWT Development Mod
 ### Troubleshooting
 
 The most common issue is that the Google Web Toolkit Developer Plugin is not installed or is not correctly installed. Please make sure, your browser is officially supported by the Google Web Toolkit Developer Plugin.
+
+Another reason could be the maven compiler parameters. Please make sure you did not build you backend with *-Dgwt.draftCompile=true* and *-Dgwt.user.agent=gecko* [Lhornyak](User:Lhornyak) ([talk](User talk:Lhornyak)) 14:48, 30 November 2012 (GMT)

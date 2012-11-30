@@ -66,4 +66,4 @@ wiki_last_updated: 2014-10-05
 
 ### Additional Information
 
-<Category:Ubuntu>
+<Category:Ubuntu> <Category:Ovirt_guest_agent>

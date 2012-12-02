@@ -50,11 +50,11 @@ External Events can not use application variables, therefore no '$' expressions 
 ### CRUD
 
 Adding *deleted* boolean field to audit_log with a default value of *false*
-Adding *source* varchar field to audit_log with a default value of *oVirt* [1]
+Adding *origin* varchar field to audit_log with a default value of *oVirt* [1]
 Adding *custom_event_id* integer field to audit_log with a default value of *-1* [2]
 Adding *event_flood_in_sec* integer field to audit_log with a default value of *30* [3]
 Adding *custom_data* text field to audit_log with a default value of empty string [4]
- [1] *source* is a unique string that identifies the source adding an event
+ [1] *origin* is a unique string that identifies the origin adding an event
 [2] *custom_event_id* is a sequential number that identifies the event/alert instance
 [3] *event_flood_in_sec* value will not affect application events
 [4] *custom data* value will be used to store any data about the event, (for example {a=xxx,b=12})
@@ -86,7 +86,7 @@ Adding AddExternalEventParameters with the following fields
 
         AuditLogSeverity [Mandatory]
         Message [Mandatory]
-        Source  [Mandatory]
+        Origin  [Mandatory]
         CustomEventId [Mandatory]
         CustomData [Mandatory]
         EventFloodInSec[[Optional] -- 30 sec if not defined
@@ -104,15 +104,15 @@ Adding AddExternalEventParameters with the following fields
 Adding support for searching events by:
 
        deleted
-       source
+       origin
        custom_event_id
 
-External Events can be filtered using *source != 'oVirt*'
+External Events can be filtered using *origin != 'oVirt*'
 
 ### Flow
 
 *Add Event/Alert* Flow:
-Invoke *..api/events/add* API giving at least AuditLogType, Severity, source & CustomEventId
+Invoke *..api/events/add* API giving at least AuditLogType, Severity, Origin & CustomEventId
 When the Event/Alert is on a specific object, the object instance id should be set.
  *Delete Alert* Flow:
 Invoke ..api/events/delete API giving AuditLogId (this id is returned when adding an External Event)

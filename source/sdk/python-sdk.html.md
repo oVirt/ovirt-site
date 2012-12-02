@@ -292,4 +292,4 @@ will make ovirt and its dependencies available to your python execution environm
 
 Michael Pasternak: mpastern@redhat.com
 
-<Category:SDK>
+<Category:SDK-PYTHON>

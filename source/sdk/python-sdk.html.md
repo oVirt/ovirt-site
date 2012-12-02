@@ -286,7 +286,7 @@ will make ovirt and its dependencies available to your python execution environm
 
 ## Change Log
 
-[sdk-changelog](sdk-changelog)
+[python-sdk-changelog](python-sdk-changelog)
 
 ## Maintainer
 

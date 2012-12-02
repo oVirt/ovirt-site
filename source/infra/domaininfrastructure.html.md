@@ -29,7 +29,7 @@ This infrastructure is in the package: org.ovirt.engine.core.bll.adbroker, and i
     -   initializing context for searches
     -   searching the directory
 
-3.  org.springframework.ldap.core.support.DirContextAuthenticationStrategy - interface for authentication strategy (we implement it in GSSAPIDirContextAuthenticationStrategy for gssapi authentication, and use the basic from spring ldap - SimpleDirContextAuthenticationStrategy, for simple authentication (simple authentication isn't supported).
+3.  org.springframework.ldap.core.support.DirContextAuthenticationStrategy - interface for authentication strategy (we implement it in GSSAPIDirContextAuthenticationStrategy for gssapi authentication, and use the basic from spring ldap - SimpleDirContextAuthenticationStrategy, for simple authentication (simple authentication isn't supported anymore).
 4.  LdapQueryMetadata - interface that contains metadata about a query. Such as:
     -   filter - the filter we use for the query. For example: (objectGUID=%1$s)
     -   baseDN - we set this if we want to query using a specific base dn

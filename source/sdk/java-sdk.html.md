@@ -255,4 +255,4 @@ Till java-sdk project is deployable, just compile it and reference from your pro
 
 Michael Pasternak: mpastern@redhat.com
 
-<Category:SDK-JAVA>
+<Category:SDK>

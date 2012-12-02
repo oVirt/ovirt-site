@@ -8,4 +8,6 @@ wiki_last_updated: 2012-12-02
 
 # SDK
 
-[python-sdk](python-sdk) [java-sdk](java-sdk)
+[python-sdk](python-sdk)
+
+[java-sdk](java-sdk)

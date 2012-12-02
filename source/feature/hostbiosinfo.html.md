@@ -76,7 +76,7 @@ Same as get host capabilities api.
 
 #### VDSM API
 
-No change.
+Same, only that getCapabilites interface returns same structure with bios information included as part of its record.
 
 #### Events
 

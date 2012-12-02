@@ -26,45 +26,67 @@ __TOC__
 
 ### Creating the proxy
 
+------------------------------------------------------------------------
+
 ![](0jsdk.jpg "0jsdk.jpg")
 
 ### Listing all collections
+
+------------------------------------------------------------------------
 
 ![](1jsdk.jpg "1jsdk.jpg")
 
 ### Listing collection's methods
 
+------------------------------------------------------------------------
+
 ![](2jdk.jpg "2jdk.jpg")
 
 ### Querying collection with oVirt search engine query & custom constraint
+
+------------------------------------------------------------------------
 
 TBD
 
 ### Accessing resource methods and properties
 
+------------------------------------------------------------------------
+
 ![](4jdk.jpg "4jdk.jpg")
 
 ### Creating resource
+
+------------------------------------------------------------------------
 
 ![](5jdk.jpg "5jdk.jpg")
 
 ### Accessing resource properties and sub-collections
 
+------------------------------------------------------------------------
+
 ![](6jdk.jpg "6jdk.jpg")
 
 ### Accessing sub-collection methods
+
+------------------------------------------------------------------------
 
 ![](7jdk.jpg "7jdk.jpg")
 
 ### Querying sub-collection by custom constraint.
 
+------------------------------------------------------------------------
+
 TBD
 
 ### Retrieving sub-collection resource.
 
+------------------------------------------------------------------------
+
 ![](8jdk.jpg "8jdk.jpg")
 
 ### Accessing sub-collection resource properties and methods
+
+------------------------------------------------------------------------
 
 ![](9jdk.jpg "9jdk.jpg")
 

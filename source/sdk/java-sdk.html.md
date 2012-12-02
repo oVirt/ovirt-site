@@ -239,11 +239,13 @@ Till java-sdk project is deployable, just compile it and reference from your pro
 
 8. move get/list methods from the decorators to the parent class
 
-9. implement logger in codegen
+9. implement unique treatment for COLLECTION2ENTITY pattern exceptions
 
-10. add MakeFile
+10. implement logger in codegen
 
-11. upload artifacts to mvn repo
+11. add MakeFile
+
+12. upload artifacts to mvn repo
 
 ## Change Log
 

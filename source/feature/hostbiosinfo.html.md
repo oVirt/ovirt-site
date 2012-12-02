@@ -70,17 +70,9 @@ The host's bios parameters is shown via engine rest API under host object as the
 
 Same as get host capabilities api.
 
-#### Model
-
-##### Error codes
-
 #### VDSM API
 
 Same, only that getCapabilites interface returns same structure with bios information included as part of its record.
-
-#### Events
-
-### Dependencies / Related Features and Projects
 
 ### Comments and Discussion
 

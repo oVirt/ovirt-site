@@ -30,7 +30,7 @@ When assigning new host to oVirt engine the engine retrieves general information
 
 ### Detailed Description
 
-The following feature allows the portal to present host's bios information when adding new RHEV-H.
+The following feature allows the portal to present host's bios information when adding new oVirt node.
 This information is taken by using dmidecode command, this command runs with root permissions over the host and returns the information with getCapabilities API method. This adds the following data:
  1. Host Manufacturer - Manufacturer of the host's machine and bios' vendor (e.g LENOVO)
 

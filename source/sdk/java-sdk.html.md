@@ -219,7 +219,7 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 ## Deployment
 
-Till java-sdk project deployable by rpm, just compile it and reference it from your project.
+Till java-sdk project is deployable, just compile it and reference from your project.
 
 ## TODO list
 

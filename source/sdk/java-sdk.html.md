@@ -24,7 +24,11 @@ __TOC__
 
 ## IDE Examples
 
-### Creating the proxy & Listing all collections
+### Creating the proxy
+
+![](0jsdk.jpg "0jsdk.jpg")
+
+### Listing all collections
 
 ![](1jsdk.jpg "1jsdk.jpg")
 

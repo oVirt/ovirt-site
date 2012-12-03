@@ -38,7 +38,9 @@ Since with host-passthrough gives the host cpu-capabilities to the VM's CPU, mig
 ![](Hostcpumockup.png "Hostcpumockup.png")
 
 *   vdsm modifications:
-    -   add support to domain creation for host-passthrough - api parameter name could be 'useHostCpuFlags'
+    -   **either** add support to domain creation for host-passthrough - api parameter name could be 'useHostCpuFlags' <http://gerrit.ovirt.org/9367>
+    -   **OR** add hostPassthrough and hostModel as special cpu types <http://gerrit.ovirt.org/9507>
+    -   vdsm guys please decide
 
 ### Benefit to oVirt
 

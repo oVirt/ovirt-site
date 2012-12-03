@@ -149,7 +149,7 @@ That means that it started correctly. The objective was just to check that the d
 
 ## Building oVirt-engine from source
 
-#### Clone oVirt-engine codebase
+### Clone oVirt-engine codebase
 
 Use the `git` command to clone the engine repository into your home directory:
 
@@ -159,7 +159,7 @@ This will create a new `ovirt-engine` directory containing the cloned repository
 
 ***Note:** The above cloning is for read only, if you want to contribute see [this](#Code_contribution:_Gerrit).*
 
-#### Creating the database
+### Creating the database
 
 Create the `$HOME/.pgpass` file containing the password of the database administrator. The content should be the following:
 
@@ -176,7 +176,7 @@ Now change into the directory where you cloned the `ovirt-engine` git repository
     $ cd $HOME/ovirt-engine/backend/manager/dbscripts
     $ ./create_db_devel.sh -u postgres
 
-#### Build
+### Build
 
 If you only want to build the engine core and then REST API then use the following commands:
 
@@ -203,7 +203,7 @@ For compiling the GUI (web administration tool and user portal) in addition to t
 
 For advanced build notes, please visit [Advanced oVirt Engine Build Notes](Advanced oVirt Engine Build Notes).
 
-#### Deploy
+### Deploy
 
 The first deployment of the engine to the application server should use the `dep` and `setup` profiles:
 

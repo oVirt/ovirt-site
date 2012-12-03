@@ -136,7 +136,7 @@ A new API is added for this feature.
             'network': 'network name',                      <--- bridge name
             'linkActive': 'bool',
             'alias': <string>,      
-            'portMirroring': blue[,red],                          <--- The interface will mirror all red and blue bridge traffic
+            'portMirroring': blue[,red],                          <--- The interface will mirror all red and blue bridge traffic (if no network use empty list)
      }
 
 Vdsm would implement this using <http://libvirt.org/html/libvirt-libvirt.html#virDomainUpdateDeviceFlags> .

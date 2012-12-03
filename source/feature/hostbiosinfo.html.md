@@ -74,9 +74,15 @@ Same as get host capabilities api.
 
 Same, only that getCapabilites interface returns same structure with bios information included as part of its record.
 
-### Comments and Discussion
+### Open Issues
 
-Dmidecode retrieves a lot of parameters that can be helpful also, this is all the parameters list: (If will decide to add more values, we shell consider putting the values in a new host's tab)
+      1. Dmidecode retrieves more parameters that can be helpful for us, below is all the parameters list. 
+
+ 2. VDSM calls to dmidecode in each request, should we keep cache of this information? (depends on the information we retrieve, if the data can be changed or not)
+ 3. getCapabilities command can be manually initiated, do we want this method?
+ 4. Where in the UI this information will be displayed? Host's general tab is full.
+
+### dmidecode Output
 
 #### SYSTEM INFORMATION
 

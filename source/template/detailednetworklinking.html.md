@@ -152,7 +152,8 @@ If the vnic doesn't have a network, the network will be omitted from the params 
     -   the vdsm should connect each of the Vm's Vnics according to the 'linkState' property passed on the each Vnic.
     -   If the vnic doesn't have a network, the network will be omitted from the params sent to the vdsm.
 
-In both cases, 'linkState' property would be implemented by setting libvirt's <link state> element <http://libvirt.org/formatdomain.html#elementLink> . New vdsm errors will be added:
+In both cases, 'linkState' property would be implemented by setting libvirt's <link state> element <http://libvirt.org/formatdomain.html#elementLink> .
+New vdsm errors will be added:
 
     UPDATE_VNIC_FAILED- code 56
 

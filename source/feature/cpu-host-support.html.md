@@ -41,6 +41,8 @@ Since with host-passthrough gives the host cpu-capabilities to the VM's CPU, mig
     -   **either** add support to domain creation for host-passthrough - api parameter name could be 'useHostCpuFlags' <http://gerrit.ovirt.org/9367>
     -   **OR** add hostPassthrough and hostModel as special cpu types <http://gerrit.ovirt.org/9507>
     -   vdsm guys please decide
+*   rest-api:
+    -   I thik it would be great to follow vdsm on new attribute or new cpuType
 
 ### Benefit to oVirt
 

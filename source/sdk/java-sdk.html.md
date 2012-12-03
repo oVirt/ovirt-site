@@ -275,6 +275,6 @@ Till java-sdk project is deployable, just compile it and reference from your pro
 
 ## Maintainer
 
-Michael Pasternak: mpastern@redhat.com
+Michael Pasternak <mpastern@redhat.com>
 
 <Category:SDK>

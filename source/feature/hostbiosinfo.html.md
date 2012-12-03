@@ -73,7 +73,7 @@ The host's bios parameters is shown via engine rest API under host object as the
 ` `<family>`Core i7`</family>
 </bios_information>
 
-#### VDSM and Engine API
+#### Vdsm And Engine API
 
 Same as get host capabilities api: getCapabilites returns the same structure with bios information included as part of its record.
 

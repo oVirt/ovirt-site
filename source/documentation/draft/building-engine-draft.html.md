@@ -229,7 +229,7 @@ Assuming that the application server is not running, it should be started:
     $ cd $HOME/jboss-as-7.1.1.Final/bin
     $ ./standalone.sh -b 0.0.0.0
 
-If everything went correctly you should be able to connect to <http://127.0.0.1:8700> see the welcome page, with links to the administrator portal and user portal.
+If everything went correctly you should be able to connect to <http://127.0.0.1:8700>, in that URL you will see the welcome page, with links to the administrator portal and user portal.
 
 The default user name and password created in development environments are `admin@internal` and `letmein!`.
 

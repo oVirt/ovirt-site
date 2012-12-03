@@ -27,7 +27,7 @@ A Task Cancellation it is feature which should allow to cancel currently running
 ### Current status
 
 *   Target Release: 3.2
-*   Status: Coding ( Engine-done, UI-coding, API-Not started )
+*   Status: Coding ( Engine-Not started, UI-Not started, API-Not started )
 *   Last updated date: 3/12/2012
 
 ### Detailed Description

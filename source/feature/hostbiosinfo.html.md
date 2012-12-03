@@ -24,8 +24,8 @@ When assigning new host to oVirt engine the engine retrieves general information
 
 ### Current status
 
-*   Target Release: 3.1
-*   Status: Work in progress
+*   Target Release: 3.2
+*   Status: Work In Progress
 *   Last updated date: Nov 20 2012
 
 ### Detailed Description

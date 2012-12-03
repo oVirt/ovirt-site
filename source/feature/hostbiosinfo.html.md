@@ -87,7 +87,7 @@ Same as get host capabilities api: getCapabilites returns the same structure wit
 
 ### dmidecode Output
 
-#### SYSTEM INFORMATION
+#### System Information
 
 dmi_type - 1
 SKU Number - Not Specified
@@ -101,7 +101,7 @@ dmi_handle - 0x0010
 dmi_size - 27
 Manufacturer - LENOVO
 
-#### BIOS INFORMATION
+#### Bios Information
 
 NEC PC-98 - False
 EDD is supported - True
@@ -155,7 +155,7 @@ ACPI - True
 LS-120 boot - False
 IEEE 1394 boot - False
 
-#### CACHE INFORMATION
+#### Cache Information
 
 dmi_type - 7
 System Type - Data
@@ -174,7 +174,7 @@ Speed - Unknown
 Operational Mode - Write Through
 dmi_size - 19
 
-#### PROCESSOR INFO
+#### Processor Information
 
 Upgrade - ZIF Socket
 Socket Designation - CPU
@@ -203,7 +203,7 @@ Voltage - 1.2 V
 Max Speed - 2600
 Thread Count - 4
 
-#### CHASSIS INFO
+#### Chassis Information
 
 dmi_type - 3
 Type - Notebook
@@ -219,7 +219,7 @@ dmi_handle - 0x0012
 dmi_size - 21
 Manufacturer - LENOVO
 
-#### MEMORY INFO
+#### Memory Information
 
 Use - System Memory
 Location - System Board Or Motherboard

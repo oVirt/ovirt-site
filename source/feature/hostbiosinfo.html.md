@@ -31,7 +31,7 @@ When assigning new host to oVirt engine the engine retrieves general information
 ### Detailed Description
 
 The following feature allows the user interface to present host's bios information when adding new hypervisor.
-This information is taken by using dmidecode command, this command runs with root permissions over the host and returns the information with getCapabilities API method. This adds the following data:
+This information is taken by using dmidecode command, this command runs with root permissions over the host and returns the information with getCapabilities API method. This adds the following data[1]:
  1. Host Manufacturer - Manufacturer of the host's machine and bios' vendor (e.g LENOVO)
 
       2. Host Version - For each host the manufacturer gives a unique name (e.g. Lenovo T420s)
@@ -40,7 +40,7 @@ This information is taken by using dmidecode command, this command runs with roo
       5. Host Family - Type of host's CPU - (e.g Core i5)
       6. Host Serial Number - Unique ID for host's chassis (e.g R9M4N4G)
 
-Of course we can add more information in the future on request.
+[1] More parameters can be added on request.
 
 #### User Experience
 
@@ -49,9 +49,16 @@ Under Hosts tab we have general information about the chosen host. In this tab y
 This feature adds to this tab the following fields:
 ![](Bios.jpeg "fig:Bios.jpeg")
 
-#### Engine Flows
+#### VDSM Flow
 
-When gathering host's capabilities we receive host's bios details by VDSM API ( Although, Bios information stays constant, vdsm retrieves this information in each request without holding cache of this data ) This information is written to the database to vds_dynamic table (as refer to the new update table 03_01_1530_add_vds_bios_info.sql). The values of those parameters gets updated every time the host returns capabilities response. This information is mapped to Vds entity and kept there, when mapping to UI we use those parameters to build the Host entity. Because host capabilities are filled with dynamic data, also here we keep the dynamic flow. Engine sends getCapabilities request on start-up, on activate host and when host is non-responsive every 2 seconds.
+Each time Vdsm receives getCapabilities request Vdsm retrieves the bios information by using python-dmidecode utility. After collecting and arranging the information, Vdsm delivers it to engine by xml rpc.
+
+#### Engine Flow
+
+When gathering host's capabilities we receive host's bios details by VDSM API ( Although, Bios information stays constant, vdsm retrieves this information in each request without holding cache of this data ) This information is written to the database to vds_dynamic table (as refer to the new update table 03_01_1530_add_vds_bios_info.sql).
+The values of those parameters gets updated every time the host returns capabilities response.
+This information is mapped to Vds entity and kept there, when mapping to UI we use those parameters to build the Host entity. Because host capabilities are filled with dynamic data, also here we keep the dynamic flow.
+Engine sends getCapabilities request on start-up, on activate host and when host is non-responsive every 2 seconds.
 
 #### REST API
 
@@ -66,20 +73,16 @@ The host's bios parameters is shown via engine rest API under host object as the
 ` `<family>`Core i7`</family>
 </bios_information>
 
-#### Engine API
+#### VDSM and Engine API
 
-Same as get host capabilities api.
-
-#### VDSM API
-
-Same, only that getCapabilites interface returns same structure with bios information included as part of its record.
+Same as get host capabilities api: getCapabilites returns the same structure with bios information included as part of its record.
 
 ### Open Issues
 
       1. Dmidecode retrieves more parameters that can be helpful for us, below is all the parameters list. 
 
- 2. VDSM calls to dmidecode in each request, should we keep cache of this information? (depends on the information we retrieve, if the data can be changed or not)
- 3. getCapabilities command can be manually initiated, do we want this method?
+ 2. Caching: VDSM calls to dmidecode in each request, should we keep cache of this information? (depends on the information we retrieve, if the data can be changed or not)
+ 3. Refresh: getCapabilities command can be manually initiated, do we want this method?
  4. Where in the UI this information will be displayed? Host's general tab is full.
 
 ### dmidecode Output
@@ -242,9 +245,5 @@ Locator - ChannelB-DIMM0
 Type Detail - [None, None, None, None, None, None, 'Synchronous', None, None, None, None, None]
 Speed - 1333 MHz (0.8ns)
 Size - 4096 MB
-
-### Open Issues
-
-NA
 
 <Category:Feature>

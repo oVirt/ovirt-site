@@ -30,7 +30,7 @@ When assigning new host to oVirt engine the engine retrieves general information
 
 ### Detailed Description
 
-The following feature allows the portal to present host's bios information when adding new oVirt node.
+The following feature allows the user interface to present host's bios information when adding new hypervisor.
 This information is taken by using dmidecode command, this command runs with root permissions over the host and returns the information with getCapabilities API method. This adds the following data:
  1. Host Manufacturer - Manufacturer of the host's machine and bios' vendor (e.g LENOVO)
 
@@ -51,7 +51,7 @@ This feature adds to this tab the following fields:
 
 #### Engine Flows
 
-When gathering host's capabilities we receive host's bios details by VDSM API. This information is written to the database and updates every time the host returns different response. Usually bios information stays constant. Because host capabilities are filled with dynamic data, also here we keep the dynamic flow. Engine requests are sent every refresh and update the database if needed.
+When gathering host's capabilities we receive host's bios details by VDSM API ( Although, Bios information stays constant, vdsm retrieves this information in each request without holding cache of this data ) This information is written to the database to vds_dynamic table (as refer to the new update table 03_01_1530_add_vds_bios_info.sql). The values of those parameters gets updated every time the host returns capabilities response. This information is mapped to Vds entity and kept there, when mapping to UI we use those parameters to build the Host entity. Because host capabilities are filled with dynamic data, also here we keep the dynamic flow. Engine sends getCapabilities request on start-up, on activate host and when host is non-responsive every 2 seconds.
 
 #### REST API
 

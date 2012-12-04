@@ -69,8 +69,9 @@ The problem is that when and how to clean this flag shoule be clean? if clean th
       while True:
           stat = getVmStats(vmId)
           # stats = getAllVmStats()
-          if stat['watchdog']:
-              print stat['watchdog']
+          # watchdogEvent is opptional.  It depends on watchdog device was added.  
+          if hasattr(stat, 'watchdogEvent'):
+              print stat['watchdogEvent']
 
 **2.**
 
@@ -82,15 +83,16 @@ If add an event register mechanism. This is a big work.
 
 **1) UI for user to add a watchdog device**
 
-       There is "Watchdog" option for user in the "New Server" and "New Desktop" dialogue of the "Virtual Machines" page.
-       There is a list of actions for the watchdog device in the engine UI, with a default of none.
-       Also There is also a list of model for the watchdog device in the engine UI, with a default of 'i6300esb'.
-       User can add set the mode and the relevant action before starting the VM. Once the watchdog is triggered, it will do whatever action he has set.
-       The user should be able to choose which action to set when starting or editing the VM (for next run).
+      There is "Watchdog" option for user in the "New Server" and "New Desktop" dialogue of the "Virtual Machines" page.
+      There is a list of actions for the watchdog device in the engine UI, with a default of none.
+      Also There is also a list of model for the watchdog device in the engine UI, with a default of 'i6300esb'.
+      User can add set the mode and the relevant action before starting the VM. Once the watchdog is triggered, it will do whatever action he has set.
+      The user should be able to choose which action to set when starting or editing the VM (for next run).
 
 **2) report the watchdog event to user**
 
-       Engine poll vm's stats and to check whether a watchdog event was triggered. 
-       Engine will notify the user when a watchdog event is triggered. So the user can see the notification on a watchdog action taken, it the action is set "none", then he can take some actions as he wishes, such as stop / restart the VM.      
+      Engine poll vm's stats and to check whether a watchdog event was triggered.
+      Engine can get watchdog event by checking the 'watchdogEvent' key in the return value of getVmStats or getAllVmStats API. And  'watchdogEvent' key  is optional,  it depends on watchdog device was added.  
+      Engine will notify the user when a watchdog event is triggered. So the user can see the notification on a watchdog action taken, it the action is set "none", then he can take some actions as he wishes, such as stop / restart the VM.      
 
 <Category:SLA> <Category:Vdsm>

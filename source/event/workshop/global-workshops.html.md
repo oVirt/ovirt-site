@@ -10,7 +10,9 @@ wiki_last_updated: 2015-01-23
 
 # OVirt Global Workshops
 
-The purpose of this page is to document upcoming oVirt Workshops. oVirt Workshops are a community effort and will be held at both industry events and the campuses of oVirt Board Member companies. The community will target holding a workshop once every 2-3 months and cycling through each geographic region. This page will include schedule information, registration information and outstanding action items for developing each workshop.
+oVirt workshops focus on introducing the project, the technologies inside of the sub-projects, and holding technical breakouts for learning and hacking. oVirt Workshops are a community effort and are held at both industry events and the campuses of oVirt board member companies.
+
+The purpose of this page is to document upcoming oVirt Workshops. The community will target holding a workshop once every 2-3 months and cycling through each geographic region. This page will include schedule information, registration information, and outstanding action items for developing each workshop.
 
 If you are interested in setting up a workshop, please contact [Leslie Hawthorn](User:Lh).
 

@@ -245,9 +245,9 @@ Till java-sdk project is deployable, just compile it and reference from your pro
 
 ## TODO list
 
-1. generate entry-point (/api) methods
+1. generate entry-point (/api) methods (done)
 
-2. generate searchable list() methods
+2. generate searchable list() methods (in-progress)
 
 3. generate method/s overloads using header/url params
 

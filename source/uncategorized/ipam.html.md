@@ -21,33 +21,69 @@ We expect to have a capability of IP Address Management (IPAM) in oVirt, meaning
 *   Each vNIC on an IPAM enabled network can reserve an IP on one of the subnets of that network
 *   The vNIC will receive the reserved IP through DHCP
 
-## General behaviour
+## Enabling IPAM in oVirt
+
+### Related entities
+
+#### Network
 
 The IPAM capability will be available on a per-network basis - For each network you can choose to enable IPAM or not. The network entity will have these new fields:
 
 *   IPAM enabled
-*   IPAM servers count (perhaps a general value at first)
+*   IPAM servers count (perhaps a general configuration value at first)
 
-If IPAM is enabled for a network, one ore more subnets can be defined on it bearing the following properties:
+#### Subnet
 
-*   Network IP
+If IPAM is enabled for a network, one ore more subnets can be defined on it. A subnet has the following properties:
+
+*   Subnet IP
 *   Netmask (must be valid)
 *   Gateway IP
-*   Optionally provide DNS properties
+*   Optionally provide DNS, NTP properties
 
-Once a network with IPAM and at least one subnet is defined, the IPAM management module will pick it up and attempt to provision it by making sure there are IPAM servers running for the network. The management module will seek out applicable hosts (they must have the network set-up already) and enable them to serve IPAM capabilities for the network. Every time a network/subnet is modified the manager will pick up the changes and apply them in an asynchronous manner (in respect to the modification). If a host that is serving as IPAM server goes down, the manager should attempt to stop it from serving as IPAM server.
+#### VM's vNIC
+
+A vNIC will have an option to belong to a certain subnet on the network.
+
+*   If a vNIC doesn't belong to any subnet, it will not receive IPAM service.
+*   If a vNIC belongs to a subnet:
+    -   It will get a dynamic IP from the subnet upon start of the vNIC (VM start. Plug, Re-link, etc).
+    -   It will release it's IP back to the subnet upon stop of the vNIC (VM stop, Unplug, Re-link, etc).
+
+### General behaviour
+
+IPAM capability can be split to two fields:
+
+*   Managing IP assignments
+*   Delivering the IP assignments to the VM guest OS
+
+The focus initially will be on providing both:
+
+*   IP assignment will be managed internally by oVirt.
+*   IP delivery will be provided by DHCP (explanation later on).
+
+#### Management Module
+
+There will be an IPAM management module which is responsible on managing the service in an engine-level.
+
+*   Once a network with IPAM enabled has at least one subnet defined, the IPAM management module will pick it up and attempt to provision it by making sure there are IPAM servers running for the network.
+    -   The management module will seek out applicable hosts (they must have the network set-up already) and command them to serve IPAM capabilities for the network.
+*   If a host that is serving as IPAM server goes down, the manager should attempt to stop it from serving as an IPAM server (best effort). and start another IPAM server.
 
 This leads to the following requirements:
 
-*   We need a way to mark & identify a host as IPAM server.
+*   We need a way to mark & identify a host as an IPAM server.
 *   The IPAM data should be persistent to recover from crash of the engine.
-    -   It would be unhealthy to swap all IPAM servers upon service start, we need a way to keep track instead.
-*   The IPAM capability will be provided by dedicated DHCP servers which run in a "restricted" mode: They can't allocate IP to a lease request, unless it is known to the server.
+    -   It would be unhealthy to swap all IPAM servers upon service start, we need a way to keep track of them instead.
+*   The DHCP servers should run in a "restricted" mode: They shouldn't allocate IP to a lease request, unless it is known to the server.
+
+#### DHCP IPAM Provider
 
 The DHCP IPAM providers have to support certain functionality:
 
 *   Allow to start/stop a DHCP server for a number of networks on a given host.
 *   Allow to reserve/release IPs.
+*   Allow to query for the next available IP.
 
 ### Pseudo Code
 

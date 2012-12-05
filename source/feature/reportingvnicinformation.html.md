@@ -108,6 +108,8 @@ User Portal:
     -   Add column 'IPv4 Address' (after mac-address field) - presents the IPv4 addresses of the vNic (for multiple addresses per vnic, field includes a comma delimited list).
     -   Add column 'IPv6 Address' (after ipv4 addresses field) - presents the IPv6 addresses of the vNic (for multiple addresses per vnic, field includes a comma delimited list).
 
+Or alternatively we can decide on going with the following design to modify the VM Interface sub-tab presentation as presented below: ![](VmInterfaceSubTab.png "fig:VmInterfaceSubTab.png")
+
 ### Benefit to oVirt
 
 The feature is an enhancement of the oVirt engine vNic management:

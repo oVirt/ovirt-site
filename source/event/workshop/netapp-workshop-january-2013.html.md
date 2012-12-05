@@ -52,7 +52,7 @@ Contributing to and developing oVirt
 
 ## Registration
 
-Information on how to register to attend the conference will be available soon.
+Register for this event at <http://ovirtnetapp2013.eventbrite.com>.
 
 </div>
 </div>

@@ -69,6 +69,19 @@ The table will be updated only when a change is detected by the reported data fr
 *   -   When the **netIfaces** element is reported by VDSM, it will be used both for populating the VM's IP addresses list on vm_dynamic(vm_ip) as well as the vm guest agent interfaces.
     -   If **netIfaces** is not reported by VDSM (earlier VDSM versions), the VM's IP addresses list will be populate by **guestIPs** as done today.
 
+#### Rest API
+
+Populating the VM's **network_devices** element under **guest_info** is implemented by mechanism introduced by ["All-Content Header" patch](http://gerrit.ovirt.org/#/c/9018)
+Rest API will invoke GetVmGuestAgentInterfaceForVmQuery from the *populate* method of VM Resource *BackendVmResource*' in order to populate the additional information of guest_info.
+A mapper should be created as well between VmGuestAgentInterface to the equivalent Rest API entity.
+
+On BackendHostNicResource, the new properties of the HostNic (interface_name, ipv4 and ipv6) will be populated by using same query to get relevant data if exists.
+
+#### UI
+
+Changes should be made for both Admin-Portal and User-Portal.
+The client will invoke GetVmGuestAgentInterfaceForVmQuery for getting the information and will map them on client side by MAC address for matching the management vNic to the VM interface reported by the guest agent and populating the information on the VM Interface sub-tab.
+
 #### VDSM API
 
 No changes for VDSM API.

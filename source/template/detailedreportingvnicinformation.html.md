@@ -64,6 +64,10 @@ The table will be updated only when a change is detected by the reported data fr
 
 <span style="color:Teal">**GetVmGuestAgentInterfaceForVmQuery**</span> - A query to return the vNic's data for a specific vm by the VM's ID.
  <span style="color:Teal">**VdsUpdateRunTimeInfo.refreshVms**</span> - will refresh the vnic's data (as an optimization only if the data was changed). Update should be performed as a mass-operation.
+\* Populating the VMs IP addresses and VM guest agent interfaces is done by **getVmStats** and **getAllVmStats**
+
+*   -   When the **netIfaces** element is reported by VDSM, it will be used both for populating the VM's IP addresses list on vm_dynamic(vm_ip) as well as the vm guest agent interfaces.
+    -   If **netIfaces** is not reported by VDSM (earlier VDSM versions), the VM's IP addresses list will be populate by **guestIPs** as done today.
 
 #### VDSM API
 

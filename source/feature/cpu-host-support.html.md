@@ -42,7 +42,7 @@ Since with host-passthrough gives the host cpu-capabilities to the VM's CPU, mig
     -   **OR** add hostPassthrough and hostModel as special cpu types <http://gerrit.ovirt.org/9507>
     -   vdsm guys please decide
 *   rest-api:
-    -   I thik it would be great to follow vdsm on new attribute or new cpuType
+    -   Add new attribute 'host_passthrough' to CPU
 
 ### Benefit to oVirt
 

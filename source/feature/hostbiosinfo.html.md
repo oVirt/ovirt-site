@@ -46,7 +46,7 @@ This information is taken by using dmidecode command, this command runs with roo
 
 Under Hosts tab we have general information about the chosen host. In this tab you see general information that was retrieved from the host:
 ![](General-tab.jpeg "fig:General-tab.jpeg")
-This feature adds to this tab the following fields:
+This feature adds new host's sub-tab called Hardware-Information and modifies general tab to Software-Information. Hardware-Information will display the following fields:
 ![](Bios.jpeg "fig:Bios.jpeg")
 
 #### VDSM Flow

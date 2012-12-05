@@ -133,10 +133,10 @@ A new API is added for this feature.
 
     params = {
             'type': 'interface',
-            'network': 'network name',                      <--- bridge name
+            'network': 'network name',                      <--- bridge name. If not set, the vnic stays on the current network. If it equals to the empty string, it is taken to the dummy bridge.
             'linkActive': 'bool',
             'alias': <string>,      
-            'portMirroring': blue[,red],                          <--- The interface will mirror all red and blue bridge traffic (if no network use empty list)
+            'portMirroring': blue[,red],                          <---  If not specified, the current portMirroring keeps in effect. Otherwise, only the specified networks will be mirrored to the vnic, e.g., empty list -> unset any mirroring.
      }
 
 Vdsm would implement this using <http://libvirt.org/html/libvirt-libvirt.html#virDomainUpdateDeviceFlags> .

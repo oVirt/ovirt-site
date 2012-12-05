@@ -82,8 +82,11 @@ Same as get host capabilities api: getCapabilites returns the same structure wit
       1. Dmidecode retrieves more parameters that can be helpful for us, below is all the parameters list. 
 
  2. Caching: VDSM calls to dmidecode in each request, should we keep cache of this information? (depends on the information we retrieve, if the data can be changed or not)
+ We should not run dmidecode command in each getCapabilities call.
  3. Refresh: getCapabilities command can be manually initiated, do we want this method?
- 4. Where in the UI this information will be displayed? Host's general tab is full.
+ This request is not related to the current feature and we decided to split them.
+ 4. Where in the UI this information will be displayed? Host's general tab is full:
+ Bios information will be displayed in a new Host's sub-tab which will be called Hardware Information tab. General tab will be renamed to Software Information.
 
 ### dmidecode Output
 

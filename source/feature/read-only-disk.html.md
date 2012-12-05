@@ -21,8 +21,9 @@ Add Read Only Disk Functionality to the engine.
 
 ### Current status
 
-*   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
-*   Last updated date: ...
+*   Target Release: 3.2
+*   Status: work in progress
+*   Last updated date: 12/05/2012
 
 ### Detailed Description
 

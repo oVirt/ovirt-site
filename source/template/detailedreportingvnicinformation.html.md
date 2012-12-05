@@ -40,32 +40,30 @@ The internal vNic implementation details are reported by VDSM by verbs *getVmSta
                       {'name': 'eth9', 'inet6': ['fe80::21a:4aff:fe16:160','fe80::21a:4aff:fe16:161'], 'inet': ['10.35.1.254'], 'hw': '00:1a:4a:16:01:60'}, 
                       {'name': 'eth7', 'inet6': ['fe80::21a:4aff:fe16:1af'], 'inet': ['10.35.18.69'], 'hw': '00:1a:4a:16:01:af'}]
 
-The vNic device data from the guest contains the interface name, the ipv4 addresses and the ipv6 addresses.
+The vNic device data from the guest contains interface name, IPv4 addresses, IPv6 addresses and MAC Address.
 
 #### Engine
 
-<span style="color:Teal">**VM_INTERFACE_DYNAMIC**</span> a new satellite table of vm_interface, contains the dynamic data reported by the guest
-{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |id ||UUID ||not null ||The vNic ID |- |interface_name ||VARCHAR(50) ||null ||The vNic's name within the VM |- |ipv4_addresses ||text ||null ||The vNic's IPv4 addresses |- |ipv6_addresses ||text ||null ||The vNic's IPv6 addresses |- |}
+<span style="color:Teal">**VM_GUEST_AGENT_INTERFACE**</span> a new satellite table of vm, contains the vNic configuration reported by the guest agent
+{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |vm_id ||UUID ||not null ||The VM's ID |- |interface_name ||VARCHAR(50) ||null ||The vNic's name within the VM |- |mac_address ||VARCHAR(59) ||null ||The vNic's MAC address within the VM |- |ipv4_addresses ||text ||null ||The vNic's IPv4 addresses |- |ipv6_addresses ||text ||null ||The vNic's IPv6 addresses |- |}
 
-The IP addresses columns might multiple addresses per vNic and will be stored comma concatenated.
-The table will be updated only when a change was detected by the reported data from VDSM.
+The IP addresses columns might contain multiple addresses per vNic and will be stored concatenated by comma.
+The table will be updated only when a change is detected by the reported data from VDSM.
 
-<span style="color:Teal">**VmNicDynamic**</span> a new class for representing the data reported by the guest agent:
+<span style="color:Teal">**VmGuestAgentInterface**</span> a new class for representing the data reported by the guest agent:
 
-        Guid id - vNic ID
-        String interface_name - the internal nic's name
-        String ipv4Addresses - the vNic's IPv4 addresses
-        String ipv6Addresses - the vNic's IPv6 addresses
+        Guid vmId - VM's ID
+        String name - the internal nic's name
+        String macAddress - the internal nic's macAddress
+        List`<String>` ipv4Addresses - the vNic's IPv4 addresses
+        List`<String>` ipv6Addresses - the vNic's IPv6 addresses
 
-<span style="color:Teal">**VmNicDynamicDao**</span> new DAO will serve as the interface of the VmNicDynamic entity database related actions.
-
-<span style="color:Teal">**VmNetworkInterface**</span> is extended to contain VmNicDynamic.
-: VmNicDynamic will not be stored to the database as part of saving/updating VmNetworkInterface in any of user flows, only as part of refresh VMs.
+<span style="color:Teal">**VmGuestAgentInterfaceDao**</span> new DAO will serve as the interface of the VmGuestAgentInterface entity database related actions. VmGuestAgentInterface is stored to the database only as part of refresh VMs.
 
 #### Engine Flows
 
-<span style="color:Teal">**Update Vm Network Interface**</span> - requires initializing the content of the vNic's dynamic data.
- <span style="color:Teal">**VdsUpdateRunTimeInfo.refreshVms**</span> - will refresh the vnic's dynamic data (as an optimization only if the data was changed). Update should be performed as a mass-operation.
+<span style="color:Teal">**GetVmGuestAgentInterfaceForVmQuery**</span> - A query to return the vNic's data for a specific vm by the VM's ID.
+ <span style="color:Teal">**VdsUpdateRunTimeInfo.refreshVms**</span> - will refresh the vnic's data (as an optimization only if the data was changed). Update should be performed as a mass-operation.
 
 #### VDSM API
 
@@ -73,7 +71,7 @@ No changes for VDSM API.
 
 #### Upgrade DB
 
-1.  Add the new table **VM_INTERFACE_DYNAMIC** and related stored-procedure for add/update/delete.
+1.  Add the new table **VM_GUEST_AGENT_INTERFACE** and related stored-procedure for save/update/delete/get.
 
 ### Dependencies / Related Features and Projects
 

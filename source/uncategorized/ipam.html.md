@@ -52,7 +52,7 @@ A vNIC will have an option to belong to a certain subnet on the network.
 
 ### General behaviour
 
-IPAM capability can be split to two fields:
+IPAM capability can be split to two sections:
 
 *   Managing IP assignments
 *   Delivering the IP assignments to the VM guest OS
@@ -60,7 +60,7 @@ IPAM capability can be split to two fields:
 The focus initially will be on providing both:
 
 *   IP assignment will be managed internally by oVirt.
-*   IP delivery will be provided by DHCP (explanation later on).
+*   IP delivery to VM will be provided by DHCP (explanation later on).
 
 #### Management Module
 
@@ -68,13 +68,13 @@ There will be an IPAM management module which is responsible on managing the ser
 
 *   Once a network with IPAM enabled has at least one subnet defined, the IPAM management module will pick it up and attempt to provision it by making sure there are IPAM servers running for the network.
     -   The management module will seek out applicable hosts (they must have the network set-up already) and command them to serve IPAM capabilities for the network.
-*   If a host that is serving as IPAM server goes down, the manager should attempt to stop it from serving as an IPAM server (best effort). and start another IPAM server.
+*   If a host that is serving as IPAM server goes down, the manager should attempt to stop it from serving as an IPAM server (best effort). and start another IPAM server on an applicable host.
 
 This leads to the following requirements:
 
 *   We need a way to mark & identify a host as an IPAM server.
 *   The IPAM data should be persistent to recover from crash of the engine.
-    -   It would be unhealthy to swap all IPAM servers upon service start, we need a way to keep track of them instead.
+    -   i.e. it would be unhealthy to swap all IPAM servers upon service start, we need a way to keep track of them instead.
 *   The DHCP servers should run in a "restricted" mode: They shouldn't allocate IP to a lease request, unless it is known to the server.
 
 #### DHCP IPAM Provider
@@ -83,11 +83,12 @@ The DHCP IPAM providers have to support certain functionality:
 
 *   Allow to start/stop a DHCP server for a number of networks on a given host.
 *   Allow to reserve/release IPs.
-*   Allow to query for the next available IP.
+
+The DHCP provider is responsible for the proliferation of reservations to the DHCP servers it is managing. When a new host is added, the reservations for the networks this host will provide IPAM for should be proliferated by the provider itself (i.e. there is no need to re-reserve the IP via an explicit call).
 
 ### Pseudo Code
 
-Interface of a IPAM DHCP provider:
+#### Interface of a IPAM DHCP provider
 
       /**
        * An IPAM (IP Address Management) DHCP provider can provide IP allocations on a host for one or more networks. The IP
@@ -114,6 +115,16 @@ Interface of a IPAM DHCP provider:
            */
 `    `**`void` `dontProvide(Host` `host);`**
           /**
+           * Add a reservation for the given MAC on the subnet. The provider will choose an available IP address.
+           *
+           * @param subnet
+           *            The subnet to reserve on.
+           * @param mac
+           *            The MAC to reserve for.
+           * @return The IP that was reserved.
+           */
+`    `**`IP` `addReservation(Subnet` `subnet,` `MAC` `mac);`**
+          /**
            * Add a reservation of the given IP for the given MAC on the subnet.
            *
            * @param subnet
@@ -135,7 +146,7 @@ Interface of a IPAM DHCP provider:
 `    `**`void` `removeReservation(Subnet` `subnet,` `IP` `ip);`**
       }
 
-Class that manages the IPAM per network:
+#### Class that manages the IPAM per network
 
       public class IpamManager {
           private IpamDhcpProvider provider;

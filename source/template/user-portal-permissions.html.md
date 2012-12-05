@@ -8,8 +8,6 @@ wiki_revision_count: 14
 wiki_last_updated: 2012-12-05
 ---
 
-The actual name of your feature page should look something like: "Your feature name". Use natural language to name the pages.
-
 # User Portal Permissions
 
 ### Summary

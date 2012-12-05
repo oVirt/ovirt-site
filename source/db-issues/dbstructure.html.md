@@ -10,7 +10,7 @@ wiki_last_updated: 2012-12-05
 
 ## ERD
 
-[oVirt 3.1 ERD](http://www.ovirt.org/images/8/84/DB.png)
+[oVirt 3.1 ERD](http://www.ovirt.org/images/8/84/rhevm-3-1.png)
 
 ## Database structure and dependencies
 

@@ -87,6 +87,9 @@ However it will be extended to contain also the network devices configuration on
 `      `</network_devices>
 `  `</guest_info>
 
+Populating the VM's **network_devices** element under **guest_info** is implemented by mechanism introduced by ["All-Content Header" patch](http://gerrit.ovirt.org/#/c/9018)
+Only if the request header contains the 'All-Content' property with 'true' value, will populate the network_device information for the VM.
+
 #### UI Changes
 
 Administrator Portal:

@@ -94,8 +94,8 @@ Only if the request header contains the 'All-Content' property with 'true' value
 
 Administrator Portal:
 
-*   VM Main-Tab:
-    -   On ip address column a single IP address (arbitrary) will be presented instead of IP addresses list
+*   VM Main-Tab - No changes:
+    -   On ip address column the entire list of IP addresses will be presented instead (single space delimiter between the IPs)
 *   VM Network Interface sub-tab:
     -   Add column 'interface name' (before mac-address field) - presents the internal name of the vNic.
     -   Add column 'IPv4 Address' (after mac-address field) - presents the IPv4 addresses of the vNic (for multiple addresses per vnic, field includes a comma delimited list).

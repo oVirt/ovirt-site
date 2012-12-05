@@ -154,7 +154,7 @@ External Alerts will be displayed in the *Alerts* TAB
  Events Grids (Both General and those displayed when an entity is selected) should display and allow sorting on the following fields :
 
          Origin
-        CustomEventId
+         CustomEventId
 
 ### Installation/Upgrade
 

@@ -40,6 +40,35 @@ This information is taken by using dmidecode command, this command runs with roo
       5. Host Family - Type of host's CPU - (e.g Core i5)
       6. Host Serial Number - Unique ID for host's chassis (e.g R9M4N4G)
 
+      7. BIOS Revision
+      8. BIOS Version
+      9. BIOS is upgradable
+      10. BIOS Vendor
+      11. BIOS Release Date
+
+      12. Processor Version
+      13. Processor Core Count
+      14. Processor Vendor
+      15. Processor Core Enabled
+      16. Processor Current Speed
+      17. Processor Max Speed
+      18. Processor Thread Count
+
+      19. Chassis Asset Tag
+      20. Chassis Serial Number
+      21. Chassis Manufacturer
+
+      22. Memory Serial Number
+      23. Memory Total Width
+      24. Memory Number of Devices
+      25. Memory Manufacturer
+      26. Memory Data Width
+      27. Memory Error Correction Type
+      28. Memory Maximum Capacity
+      29. Memory Type Detail
+      30. Memory Speed
+      31. Memory Size
+
 [1] More parameters can be added on request.
 
 #### User Experience

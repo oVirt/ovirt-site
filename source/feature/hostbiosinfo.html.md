@@ -51,7 +51,7 @@ This feature adds new host's sub-tab called Hardware-Information and modifies ge
 
 #### VDSM Flow
 
-Each time Vdsm receives getCapabilities request Vdsm retrieves the bios information by using python-dmidecode utility. After collecting and arranging the information, Vdsm delivers it to engine by xml rpc.
+When Vdsm receives getCapabilities request, it retrieves the bios information by using python-dmidecode utility. After collecting and arranging the information, Vdsm delivers it to engine by xml rpc.
 
 #### Engine Flow
 

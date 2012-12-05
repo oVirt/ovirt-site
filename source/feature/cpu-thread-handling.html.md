@@ -34,20 +34,27 @@ In oVirt 3.1, a host can only start VMs up to the point where a 1:1 vCPU-to-pCPU
 
 The capability will be defined on a per-cluster level, similarly to memory overcommitment. Once adjusted, all hosts in the cluster will allow overcommitment to the same vCPU-to-pCPU ratio.
 
+#### Changes
+
 *   engine modifications:
-    -   add UI element to set overcommitment threshold in Add/Edit Cluster dialog
-        -   warning if custom utilization < 100%
-        -   don't show if cluster compatibility version < 3.2
     -   add validation for limits during save
     -   add vds_groups.max_cpu_overcommit value
         -   add column to database table
         -   DAO changes
     -   logic changes for when VMs can/should start on hosts
     -   logic changes for when VMs can be migrated between hosts
+    -   add UI element to set overcommitment threshold in Add/Edit Cluster dialog
+        -   warning if custom utilization < 100%
+        -   not visible if cluster compatibility version < 3.2
+
+![](cpuovercommit.png "cpuovercommit.png")
+
 *   REST API:
     -   add new element
 
-![](cpuovercommit.png "cpuovercommit.png")
+#### Compatibility
+
+This feature will be enabled for clusters with Compatibility Version >= 3.2. For those with lower versions, the value of 100%--the current effective value--will continue to be used. In this case, the section to set the CPU Overcommit threshold in the Add/Edit Cluster dialog will not be visible.
 
 ### Benefit to oVirt
 

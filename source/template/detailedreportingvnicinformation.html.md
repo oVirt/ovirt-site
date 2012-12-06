@@ -45,7 +45,7 @@ The vNic device data from the guest contains interface name, IPv4 addresses, IPv
 #### Engine
 
 <span style="color:Teal">**VM_GUEST_AGENT_INTERFACE**</span> a new satellite table of vm, contains the vNic configuration reported by the guest agent
-{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |vm_id ||UUID ||not null ||The VM's ID, foreign key to vm_static.vm_guid |- |interface_name ||VARCHAR(50) ||null ||The vNic's name within the VM |- |mac_address ||VARCHAR(59) ||null ||The vNic's MAC address within the VM |- |ipv4_addresses ||text ||null ||The vNic's IPv4 addresses |- |ipv6_addresses ||text ||null ||The vNic's IPv6 addresses |- |}
+{|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |vm_id ||UUID ||not null ||The VM's ID, **foreign key** to vm_static.vm_guid |- |interface_name ||VARCHAR(50) ||null ||The vNic's name within the VM |- |mac_address ||VARCHAR(59) ||null ||The vNic's MAC address within the VM |- |ipv4_addresses ||text ||null ||The vNic's IPv4 addresses |- |ipv6_addresses ||text ||null ||The vNic's IPv6 addresses |- |}
 
 The IP addresses columns might contain multiple addresses per vNic and will be stored concatenated by comma.
 The table will be updated only when a change is detected by the reported data from VDSM.

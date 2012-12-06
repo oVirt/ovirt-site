@@ -132,7 +132,7 @@ A new API is added for this feature.
     vmUpdateDevice (vmId, params)
 
     params = {
-       'type': 'interface',
+       'devicType': 'interface',
        'device':
              {'network': 'network name',     <--- bridge name. If not set, the vnic stays on the current network. If it equals to the empty string, it is taken to the dummy bridge.
               'linkActive': 'bool',

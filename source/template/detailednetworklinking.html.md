@@ -140,22 +140,22 @@ A new API is added for this feature.
                            'portMirroring': blue[,red]}                         <---  If not specified, the current portMirroring keeps in effect. Otherwise, only the specified networks will be mirrored to the vnic, e.g., empty list -> unset any mirroring.
      }
 
-    Vdsm would implement this using http://libvirt.org/html/libvirt-libvirt.html#virDomainUpdateDeviceFlags .
+Vdsm would implement this using <http://libvirt.org/html/libvirt-libvirt.html#virDomainUpdateDeviceFlags> .
 
-    If the vnic doesn't have a network, the network will be omitted from the params sent to the vdsm.
+If the vnic doesn't have a network, the network will be omitted from the params sent to the vdsm.
 
-    ===== Updated APIs =====
-    * **\1**
-    ** the vdsm should connect the Vnic's Network according to the 'linkState' property passed on the Vnic. <BR>
-    ** If the vnic doesn't have a network, the network will be omitted from the params sent to the vdsm.
-    * **\1**
-    ** the vdsm should connect each of the Vm's Vnics according to the 'linkState' property passed on the each Vnic. <BR>
-    ** If the vnic doesn't have a network, the network will be omitted from the params sent to the vdsm.
+##### Updated APIs
 
-    In both cases, 'linkState' property would be implemented by setting libvirt's <link state> element http://libvirt.org/formatdomain.html#elementLink .
-    <BR>
-    New vdsm errors will be added: 
-    <pre>
+*   **hotplugNic**
+    -   the vdsm should connect the Vnic's Network according to the 'linkState' property passed on the Vnic.
+    -   If the vnic doesn't have a network, the network will be omitted from the params sent to the vdsm.
+*   **createVm**
+    -   the vdsm should connect each of the Vm's Vnics according to the 'linkState' property passed on the each Vnic.
+    -   If the vnic doesn't have a network, the network will be omitted from the params sent to the vdsm.
+
+In both cases, 'linkState' property would be implemented by setting libvirt's <link state> element <http://libvirt.org/formatdomain.html#elementLink> .
+New vdsm errors will be added:
+
     UPDATE_VNIC_FAILED- code 56
 
 #### Events

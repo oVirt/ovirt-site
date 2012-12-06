@@ -44,7 +44,7 @@ The vNic device data from the guest contains interface name, IPv4 addresses, IPv
 
 #### Engine
 
-<span style="color:Teal">**VM_GUEST_AGENT_INTERFACE**</span> a new satellite table of vm, contains the vNic configuration reported by the guest agent
+<span style="color:Teal">**VM_GUEST_AGENT_INTERFACES**</span> a new satellite table of vm, contains the vNic configuration reported by the guest agent
 {|class="wikitable sortable" !border="1"| Column Name ||Column Type ||Null? / Default ||Definition |- |vm_id ||UUID ||not null ||The VM's ID, **foreign key** to vm_static.vm_guid |- |interface_name ||VARCHAR(50) ||null ||The vNic's name within the VM |- |mac_address ||VARCHAR(59) ||null ||The vNic's MAC address within the VM |- |ipv4_addresses ||text ||null ||The vNic's IPv4 addresses |- |ipv6_addresses ||text ||null ||The vNic's IPv6 addresses |- |}
 
 The IP addresses columns might contain multiple addresses per vNic and will be stored concatenated by comma.
@@ -62,7 +62,7 @@ The table will be updated only when a change is detected by the reported data fr
 
 #### Engine Flows
 
-<span style="color:Teal">**GetVmGuestAgentInterfaceForVmQuery**</span> - A query to return the vNic's data for a specific vm by the VM's ID.
+<span style="color:Teal">**GetVmGuestAgentInterfacesForVmQuery**</span> - A query to return the vNic's data for a specific vm by the VM's ID.
  <span style="color:Teal">**VdsUpdateRunTimeInfo.refreshVms**</span> - will refresh the vnic's data (as an optimization only if the data was changed). Update should be performed as a mass-operation.
 \* Populating the VMs IP addresses and VM guest agent interfaces is done by **getVmStats** and **getAllVmStats**
 
@@ -72,15 +72,15 @@ The table will be updated only when a change is detected by the reported data fr
 #### Rest API
 
 Populating the VM's **network_devices** element under **guest_info** is implemented by mechanism introduced by ["All-Content Header" patch](http://gerrit.ovirt.org/#/c/9018)
-Rest API will invoke GetVmGuestAgentInterfaceForVmQuery from the *populate* method of VM Resource *BackendVmResource*' in order to populate the additional information of guest_info.
+Rest API will invoke GetVmGuestAgentInterfacesForVmQuery from the *populate* method of VM Resource *BackendVmResource*' in order to populate the additional information of guest_info.
 A mapper should be created as well between VmGuestAgentInterface to the equivalent Rest API entity.
 
-On BackendHostNicResource, the new properties of the HostNic (interface_name, ipv4 and ipv6) will be populated by using same query to get relevant data if exists.
+On BackendVmNicResource, the new properties of the HostNic (interface_name, ipv4 and ipv6) will be populated by using same query to get relevant data if exists.
 
 #### UI
 
 Changes should be made for both Admin-Portal and User-Portal.
-The client will invoke GetVmGuestAgentInterfaceForVmQuery for getting the information and will map them on client side by MAC address for matching the management vNic to the VM interface reported by the guest agent and populating the information on the VM Interface sub-tab.
+The client will invoke GetVmGuestAgentInterfacesForVmQuery for getting the information and will map them on client side by MAC address for matching the management vNic to the VM interface reported by the guest agent and populating the information on the VM Interface sub-tab.
 
 #### VDSM API
 
@@ -88,7 +88,7 @@ No changes for VDSM API.
 
 #### Upgrade DB
 
-1.  Add the new table **VM_GUEST_AGENT_INTERFACE** and related stored-procedure for save/update/delete/get.
+1.  Add the new table **VM_GUEST_AGENT_INTERFACES** and related stored-procedure for save/update/delete/get.
 
 ### Dependencies / Related Features and Projects
 

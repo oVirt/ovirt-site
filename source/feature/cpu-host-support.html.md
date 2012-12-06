@@ -43,6 +43,8 @@ Since with host-passthrough gives the host cpu-capabilities to the VM's CPU, mig
 *   rest-api:
     -   Add new attribute 'host_passthrough' to CPU
 
+Label should be "Pass through host CPU". When this is set the VM should be marked as non-migratable
+
 ### Benefit to oVirt
 
 Allows the users to get better performance from their VM's through using all CPU capabilities - including the ones not handled by qemu/kvm

@@ -16,7 +16,7 @@ Not a full list, just collecting here...
 
 ## Ovirt related blogs
 
-*   <http://ovirt.blogspot.com/> - blog dedicated to ovirt by Geoff O'Callaghan (IBM?)
+*   <http://ovirt.blogspot.com/> - Geoff O'Callaghan
 *   <http://lpeer.blogspot.com/> - Livnat
 *   <http://iquaid.org/>
 *   <http://blogs.cisco.com/tag/ovirt/> - cisco blogs, Kyle Mestery

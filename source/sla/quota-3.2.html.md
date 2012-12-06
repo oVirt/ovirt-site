@@ -26,7 +26,24 @@ Please see <http://www.ovirt.org/wiki/Features/Quota-3.2>
 
 ### GUI
 
-TBD
+Current UI both in the Administrator Portal and the User Portal lack Quota Monitoring.
+
+*   In the Administrator Portal - Quota Monitoring would be added to the Quota-View Main-Tab. The main grid will be changed, adding the columns: Memory Consumption, Free Memory, VCPU Consumption, Free VCPU, Storage Consumption, Free storage. Consumption columns will show a percentage bar and free resource columns will show actual quantity of free resource.
+
+      - Unlimited resources will show "Unlimited" instead of the percentage and free quantity. 
+      - Exceeded quota will show "Exceeded" instead of the percentage.
+      - bars color will be set according to other system behavior (currently green<70, 70<=orange <95, red>=95) and not according to threshold and grace settings. 
+
+![|Quota Monitors in Administrator Portal](MainTabQuotaViewNew.png "|Quota Monitors in Administrator Portal")
+
+*   In the User Portal - Quota monitoring would be added to the Resources Side-Tab. The current usage bar available in the VCPU box and the Memory box will be changed. instead of the current behavior showing the used/defined resources the bar will get a new behavior, showing the used/available (where available is the amount of resources allocated for the user in the quota). i.e. if the user is defined as a consumer of Quota_a which limits 30Gb of storage and the user currently have two disks of 10Gb each - the user will see 66% usage (20/30).
+
+      - the upper bar will show an aggregation of all of the quotas available for the consumption of the user.
+      - under the upper bar an expansion panel will be added - showing the quota distribution.
+      - in case part of the quota is consumed by other users, this part will be shown in a different color and will get a separated percentage label 
+      - consumption bars will be added to the Storage box as well (at the top)
+
+![|Quota Monitors in User Portal](End_user_memory.png "|Quota Monitors in User Portal")
 
 #### Design
 

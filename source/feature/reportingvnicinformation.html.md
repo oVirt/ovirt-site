@@ -71,6 +71,7 @@ Note that the existing IPs reported on /api/vms/{vm:id} are left intact, however
 However it will be extended to contain also the network devices configuration on the guest:
 
 `  `<guest_info>
+            ...
 `      `<network_devices>
 `          `<interface>
 `              `<name>`p1p2`</name>

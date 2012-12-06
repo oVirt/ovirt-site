@@ -72,6 +72,10 @@ Each command which consumes quota resources will implement StorageQuotaDependent
 Commands will also be marked as storage or Vds consumers in the VdcActionType class. the default value for this setting will be BOTH (consumes both storage and vds), so when adding new command, one will have to consider quota issues. Commands which does not consume any quota resources will be marked NONE. CommandBase will use this markings in order to decide whether quota validation is needed.
 The VdcActionType marking will prevent unintentional inheritance of the interfaces and the implemented methods.
 
+#### UI support
+
+In order to support the scheduled UI changes the QuotaManager will expose a new API. using this API and reusing available queries the UI could pull quota consumption information from the QuotaManager cache (or DB).
+
 ##### Classes
 
 **Classes**

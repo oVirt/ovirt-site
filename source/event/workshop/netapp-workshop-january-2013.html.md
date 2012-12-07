@@ -52,7 +52,9 @@ Contributing to and developing oVirt
 
 ## Registration
 
-Register for this event at <http://ovirtnetapp2013.eventbrite.com>.
+[Register for this event](http://ovirtnetapp2013.eventbrite.com) is now open.
+
+Registration is free, and includes attendance for all sessions of the workshop, lunch and snacks on all days of the workshop. The maximum capacity for the event is 150 people.
 
 </div>
 </div>

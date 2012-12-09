@@ -10,7 +10,7 @@ wiki_last_updated: 2012-12-11
 
 # Linux
 
-## An overview how the single sign on process works on Linux systems
+## An overview how the single sign on process works on GNU/Linux systems
 
 ![](Ovirt-guest-agent-sso-linux.png "Ovirt-guest-agent-sso-linux.png")
 

@@ -47,6 +47,29 @@ Accepted speakers should plan to submit their slides to the workshop-pc@ovirt.or
 <div class="span6">
 ## Event details
 
+On January 22, 2013, the oVirt workshop welcomes two key members of the NetApp team, Patrick Rogers, VP Solutions & Integrators Group, and David Dale, Industry Evangelist & Director Industry Standards. Patrick will give an opening keynote presentation on the importance of open source software to NetApp, while David will address NetApp, the oVirt project and cross-company collaboration to produce strategic wins.
+
+An updated and more granular schedule will be posted in the coming weeks. In the interim, save these hours in your calendar:
+
+Tuesday, January 22, 2013
+
+*   Continental breakfast served - 8:30 - 9:00 AM
+*   Keynotes - 9:00 - 10:00 AM
+*   Lunch - 12:15 - 1:15 PM
+*   Closing Remarks - 5:00 PM
+
+Wednesday, January 23, 2013
+
+*   Continental breakfast served - 8:30 - 9:00 AM
+*   Lunch - 12:15 - 1:15 PM
+*   Closing Remarks - 5:00 PM
+*   Evening Reception at the Country Inn & Suites - 6:00 - 8:00 PM
+
+Thursday, January 24, 2013
+
+*   Continental breakfast served - 8:30 - 9:00 AM
+*   Closing Remarks over Lunch - 1:00 PM
+
 The event will be held over three days, broken roughly along these lines:
 
 Day 1  
@@ -58,11 +81,25 @@ Integrating with oVirt through its APIs
 Day 3  
 Contributing to and developing oVirt
 
+## Venue and Travel Information
+
+This latest [OVirt_Global_Workshops](OVirt_Global_Workshops) will be hosted by NetApp at their [Corporate Headquarters](http://goo.gl/maps/KK7y8) in Sunnyvale, California, USA. Attendees will need to check in at Building 7 upon arrival.
+
+Attendees who require a letter of invitation for visa purposes should contact [Leslie Hawthorn](http://wiki.ovirt.org/User:Lh) for assistance.
+
+For attendees who wish to book a hotel room, we have secured a room block at the nearby [Country Inn and Suites](http://goo.gl/maps/csHQT) at a room rate of 125 USD / night for a standard room and 145/night for a king suite, excluding tax and incidentals. To book into the hotel room block, please phone +1.408.747.0799. Mention the oVirt NetApp workshop when booking to receive a room at our specially negotiated rate. If you are having difficulties securing a room in our block, please contact [Leslie Hawthorn](http://wiki.ovirt.org/User:Lh) for assistance.
+
+The hotel is a 5 minute drive from the workshop venue, and just over half a mile for those who'd like to walk.
+
 ## Registration
 
 [Register for this event](http://ovirtnetapp2013.eventbrite.com) is now open.
 
 Registration is free, and includes attendance for all sessions of the workshop, lunch and snacks on all days of the workshop. The maximum capacity for the event is 150 people.
+
+Pre-registration is required, as on-site registration will not be possible.
+
+Registrants will be expected to execute NetApp's visitors Non-Disclosure Agreement (NDA) upon entering the facilities. Should you wish to review a copy of the non-disclosure agreement in advance, please contact [Leslie Hawthorn](http://wiki.ovirt.org/User:Lh). The NDA does not cover the material of the oVirt workshop, as this information is already publicly available given oVirt is an open source software project.
 
 </div>
 </div>

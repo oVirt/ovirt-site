@@ -11,11 +11,11 @@ wiki_last_updated: 2013-01-29
 __NOTOC__
 
 <div class="row">
-<div class="span12">
+<div class="offset1 span10">
 # NetApp Workshop 2013
 
 </div>
-<div class="span8">
+<div class="offset1 span7">
 An oVirt Workshop is being held at the [NetApp Campus, Sunnyvale, California](http://maps.google.com/maps/place?cid=7052473688898245753&q=netapp+headquarters+sunnyvale&hl=en&t=h&cd=1&cad=src:ppiwlink&ei=PLyqT72BNsf9kAXkxpzeBA&sig2=DivLR8aVzWexkjnlAxpuGw&dtab=2), on January 22-24, 2013.
 
 oVirt workshops focus on introducing the project, the technologies inside of the sub-projects, and holding technical breakouts for learning and hacking. oVirt Workshops are a community effort and are held at both industry events and the campuses of oVirt board member companies.

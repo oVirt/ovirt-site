@@ -47,7 +47,7 @@ Accepted speakers should plan to submit their slides to the workshop-pc@ovirt.or
 <div class="span6">
 ## Event details
 
-On January 22, 2013, the oVirt workshop welcomes two key members of the NetApp team, Patrick Rogers, VP Solutions & Integrators Group, and David Dale, Industry Evangelist & Director Industry Standards. Patrick will give an opening keynote presentation on the importance of open source software to NetApp, while David will address NetApp, the oVirt project and cross-company collaboration to produce strategic wins.
+On January 22, 2013, the oVirt workshop is pleased to welcome two key members of the NetApp team, Patrick Rogers, VP Solutions & Integrators Group, and David Dale, Industry Evangelist & Director Industry Standards. Patrick will give an opening keynote presentation on the importance of open source software to NetApp, while David will address NetApp, the oVirt project and cross-company collaboration to produce strategic wins.
 
 An updated and more granular schedule will be posted in the coming weeks. In the interim, save these hours in your calendar:
 

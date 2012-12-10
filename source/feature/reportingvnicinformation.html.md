@@ -37,25 +37,29 @@ Today only the IPv4 addresses are reported to the User, kept on VM level. This f
 
 New attributes will be added to VM nics collection /api/vms/{vm:id}/nics:
 
-*   IPv4 addresses reported by the guest agent
-
-`  `<guest_agent_ipv4_addresses>
-`      `<ip address="1.1.1.1"/>
-`      `<ip address="2.2.2.2"/>
-`  `</guest_agent_ipv4_addresses>
-
-*   IPv6 addresses reported by the guest agent
-
-`  `<guest_agent_ipv6_addresses>
-`      `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7335"/>
-`      `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7336"/>
-`  `</guest_agent_ipv6_addresses>
-
-*   interface_name
-
-`  `<interface_name>`p1p2`</interface_name>
-
-Note that *ipv4_addresses* and *ipv6_addresses* are saved for IP allocation feature for stating the IP(s) set by the engine for the vNic.
+`   `<nics>
+`       `<nic id="56d6d62f-6af0-4c02-8500-4be041180031">
+`           `<name>`nic1`</name>
+                 ...
+`           `<guest_info>
+`               `<interface_name>`p1p2`</interface_name>
+`               `<mac address="AA:AA:AA:AA:AA:AA"/>
+        
+                      
+`               `<ipv4_addresses>
+`                   `<ip address="1.1.1.1"/>
+`                   `<ip address="2.2.2.2"/>
+`               `</ipv4_addresses>
+        
+                     
+`               `<ipv6_addresses>
+`                   `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7335"/>
+`                   `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7336"/>
+`               `</ipv6_addresses>
+`           `</guest_info>
+`       `</nic>
+             ...
+`   `</nics>
 
 ##### Backward compatibility
 

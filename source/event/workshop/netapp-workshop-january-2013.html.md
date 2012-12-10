@@ -89,7 +89,9 @@ This latest in the [oVirt Global Workshops Series](http://wiki.ovirt.org/OVirt_G
 
 ### Lodging
 
-For attendees who wish to book a hotel room, we have secured a room block at the nearby [Country Inn and Suites](http://goo.gl/maps/csHQT) at a room rate of 125 USD / night for a standard room and 145/night for a king suite, excluding tax and incidentals. To book into the hotel room block, please phone +1.408.747.0799. Mention the oVirt NetApp workshop when booking to receive a room at our specially negotiated rate. If you are having difficulties securing a room in our block, please contact [Leslie Hawthorn](http://wiki.ovirt.org/User:Lh) for assistance.
+For attendees who wish to book a hotel room, we have secured a room block at the nearby [Country Inn and Suites](http://goo.gl/maps/csHQT) at a room rate of 125 USD / night for a standard room and 145/night for a king suite, excluding tax and incidentals. To book into the hotel room block, please phone +1.408.747.0799.
+
+Mention the oVirt NetApp workshop when booking to receive a room at our specially negotiated rate. If you are having difficulties securing a room in our block, please contact [Leslie Hawthorn](http://wiki.ovirt.org/User:Lh) for assistance.
 
 The hotel is a 5 minute drive from the workshop venue, and just over half a mile for those who'd like to walk.
 

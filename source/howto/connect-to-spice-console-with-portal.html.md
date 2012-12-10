@@ -405,4 +405,9 @@ Add an entry to the below section of index.html containing the links to the vari
 
 ## Windows Mouse
 
-When setting up new OS but before you install Windows client tools you might experience mouse problems. For example mouse keeps scrolling off the client window. This is confirmed to be now fixed by the Spice team and should show up in Windows client past version 0.5.3 Temporary work-arround is to: 1] Open Client Window 2] Select Window (do not click inside yet) 3] From the View menu select Full Screen or F-11 4] Click inside the window
+When setting up new OS but before you install Windows client tools you might experience mouse problems. For example mouse keeps scrolling off the client window. This is confirmed to be now fixed by the Spice team and should show up in Windows client past version 0.5.3 Temporary work-arround is to:
+
+*   Open Client Window
+*   Select Window (do not click inside yet)
+*   From the View menu select Full Screen or F-11
+*   Click inside the window

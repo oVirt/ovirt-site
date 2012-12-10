@@ -97,19 +97,16 @@ Administrator Portal:
 
 *   VM Main-Tab - No changes:
     -   On ip address column the entire list of IP addresses will be presented instead (single space delimiter between the IPs)
-*   VM Network Interface sub-tab:
-    -   Add column 'interface name' (before mac-address field) - presents the internal name of the vNic.
-    -   Add column 'IPv4 Address' (after mac-address field) - presents the IPv4 addresses of the vNic (for multiple addresses per vnic, field includes a comma delimited list).
-    -   Add column 'IPv6 Address' (after ipv4 addresses field) - presents the IPv6 addresses of the vNic (for multiple addresses per vnic, field includes a comma delimited list).
 
-User Portal:
+<!-- -->
 
-*   VM Network Interface sub-tab:
-    -   Add column 'interface name' (before mac-address field) - presents the internal name of the vNic.
-    -   Add column 'IPv4 Address' (after mac-address field) - presents the IPv4 addresses of the vNic (for multiple addresses per vnic, field includes a comma delimited list).
-    -   Add column 'IPv6 Address' (after ipv4 addresses field) - presents the IPv6 addresses of the vNic (for multiple addresses per vnic, field includes a comma delimited list).
+*   VM Network Interface sub-tab (both Admin Portal and User Portal):
 
-Or alternatively we can decide on going with the following design to modify the VM Interface sub-tab presentation as presented below: ![](VmInterfaceSubTab.png "fig:VmInterfaceSubTab.png")
+A split view of the VM's Network Interfaces sub-tab will present the information reported by the Guest Agent:
+
+*   When there is a match by MAC Address between the vNic's definition on management to the reported vNic by the Guest Agent.
+
+![](VmInterfaceSubTab.png "VmInterfaceSubTab.png")
 
 ### Benefit to oVirt
 

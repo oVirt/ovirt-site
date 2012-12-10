@@ -99,11 +99,13 @@ Attendees who require a letter of invitation for visa purposes should contact [L
 
 ## Registration
 
-[Register for this event](http://ovirtnetapp2013.eventbrite.com) is now open.
+[Registration for this event](http://ovirtnetapp2013.eventbrite.com) is now open. Please register as soon as possible so we can get an accurate headcount for the workshop. Due to venue size, we must cap the maximum number of participants at 150.
 
-Registration is free, and includes attendance for all sessions of the workshop, lunch and snacks on all days of the workshop. The maximum capacity for the event is 150 people.
+Registration is free, and includes attendance for all sessions of the workshop, lunch and snacks on all days of the workshop.
 
 Pre-registration is required, as on-site registration will not be possible.
+
+### Non-Disclosure Agreements
 
 Registrants will be expected to execute NetApp's visitors Non-Disclosure Agreement (NDA) upon entering the facilities. Should you wish to review a copy of the non-disclosure agreement in advance, please contact [Leslie Hawthorn](http://wiki.ovirt.org/User:Lh). The NDA does not cover the material of the oVirt workshop, as this information is already publicly available given oVirt is an open source software project.
 

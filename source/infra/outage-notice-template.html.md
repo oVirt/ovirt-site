@@ -12,7 +12,7 @@ wiki_last_updated: 2012-12-20
 
 This is a template to use for making announcements about infrastructure outages. Use the template and adjust the variables depending on the situation.
 
-    Subject: (Unplanned) Outage :: $(service_name) :: YYYY-MM-DD
+    Subject: (Unplanned) Outage :: $(service_name) :: YYYY-MM-DD HH:MM UTC
 
     There was an (unplanned) outage of $(service_name) for $(length_of_outage).
 

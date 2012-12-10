@@ -11,8 +11,7 @@ wiki_last_updated: 2013-01-29
 __NOTOC__
 
 <div class="row">
-<span class="span12">
-
+<div class="span12">
 # NetApp Workshop 2013
 
 </div>

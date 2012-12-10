@@ -8,10 +8,12 @@ wiki_revision_count: 59
 wiki_last_updated: 2013-01-29
 ---
 
-# NetApp Workshop January 2013
+__NOTOC__
 
 <div class="row">
 <div class="span8">
+# NetApp Workshop 2013
+
 An oVirt Workshop is being held at the [NetApp Campus, Sunnyvale, California](http://maps.google.com/maps/place?cid=7052473688898245753&q=netapp+headquarters+sunnyvale&hl=en&t=h&cd=1&cad=src:ppiwlink&ei=PLyqT72BNsf9kAXkxpzeBA&sig2=DivLR8aVzWexkjnlAxpuGw&dtab=2), on January 22-24, 2013.
 
 oVirt workshops focus on introducing the project, the technologies inside of the sub-projects, and holding technical breakouts for learning and hacking. oVirt Workshops are a community effort and are held at both industry events and the campuses of oVirt board member companies.
@@ -23,8 +25,8 @@ oVirt workshops focus on introducing the project, the technologies inside of the
 </div>
 </div>
 <div class="row">
-<div class="span6">
-## Call for Content
+<div class="span6 pad-sides">
+### Call for Content
 
 We are actively seeking speakers for this workshop. We are interested in talks in the following areas:
 
@@ -44,28 +46,28 @@ Please submit talk proposals for review by sending a message to workshop-pc@ovir
 Accepted speakers should plan to submit their slides to the workshop-pc@ovirt.org mailing list no later than close of business on Friday, 18 January 2013.
 
 </div>
-<div class="span6">
-## Event details
+<div class="span6 pad-sides">
+### Event details
 
 On January 22, 2013, the oVirt workshop is pleased to welcome two key members of the NetApp team, Patrick Rogers, VP Solutions & Integrators Group, and David Dale, Industry Evangelist & Director Industry Standards. Patrick will give an opening keynote presentation on the importance of open source software to NetApp, while David will address NetApp, the oVirt project and cross-company collaboration to produce strategic wins.
 
 An updated and more granular schedule will be posted in the coming weeks. In the interim, save these hours in your calendar:
 
-Tuesday, January 22, 2013
+#### Tuesday, January 22, 2013
 
 *   Continental breakfast served - 8:30 - 9:00 AM
 *   Keynotes - 9:00 - 10:00 AM
 *   Lunch - 12:15 - 1:15 PM
 *   Closing Remarks - 5:00 PM
 
-Wednesday, January 23, 2013
+#### Wednesday, January 23, 2013
 
 *   Continental breakfast served - 8:30 - 9:00 AM
 *   Lunch - 12:15 - 1:15 PM
 *   Closing Remarks - 5:00 PM
 *   Evening Reception at the Country Inn & Suites - 6:00 - 8:00 PM
 
-Thursday, January 24, 2013
+#### Thursday, January 24, 2013
 
 *   Continental breakfast served - 8:30 - 9:00 AM
 *   Closing Remarks over Lunch - 1:00 PM
@@ -81,13 +83,13 @@ Integrating with oVirt through its APIs
 Day 3  
 Contributing to and developing oVirt
 
-## Venue and Travel Information
+### Venue and Travel Information
 
-### Venue
+#### Venue
 
-This latest in the [Global Workshops Series](OVirt_Global_Workshops oVirt) will be hosted by NetApp at their [Corporate Headquarters](http://goo.gl/maps/KK7y8) in Sunnyvale, California, USA. Attendees will need to check in at Building 7 upon arrival.
+This latest in the [Global Workshops Series](OVirt_Global_Workshops) will be hosted by NetApp at their [Corporate Headquarters](http://goo.gl/maps/KK7y8) in Sunnyvale, California, USA. Attendees will need to check in at Building 7 upon arrival.
 
-### Lodging
+#### Lodging
 
 For attendees who wish to book a hotel room, we have secured a room block at the nearby [Country Inn and Suites](http://goo.gl/maps/csHQT) at a room rate of 125 USD / night for a standard room and 145/night for a king suite, excluding tax and incidentals. To book into the hotel room block, please phone +1.408.747.0799.
 
@@ -95,11 +97,11 @@ Mention the oVirt NetApp workshop when booking to receive a room at our speciall
 
 The hotel is a 5 minute drive from the workshop venue, and just over half a mile for those who'd like to walk.
 
-### Visas
+#### Visas
 
 Attendees who require a letter of invitation for visa purposes should contact [Leslie Hawthorn](http://wiki.ovirt.org/User:Lh) for assistance.
 
-## Registration
+### Registration
 
 [Registration for this event](http://ovirtnetapp2013.eventbrite.com) is now open. Please register as soon as possible so we can get an accurate headcount for the workshop. Due to venue size, we must cap the maximum number of participants at 150.
 
@@ -107,7 +109,7 @@ Registration is free, and includes attendance for all sessions of the workshop, 
 
 Pre-registration is required, as on-site registration will not be possible.
 
-### Non-Disclosure Agreements
+#### Non-Disclosure Agreements
 
 Registrants will be expected to execute NetApp's visitors Non-Disclosure Agreement (NDA) upon entering the facilities. Should you wish to review a copy of the non-disclosure agreement in advance, please contact [Leslie Hawthorn](http://wiki.ovirt.org/User:Lh). The NDA does not cover the material of the oVirt workshop, as this information is already publicly available given oVirt is an open source software project.
 

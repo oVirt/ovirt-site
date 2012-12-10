@@ -62,6 +62,10 @@ Vdsm automatically builds using the latest tagged version. If you want to explic
 
       make rpmversion=4.9 rpmrelease=999.funkyBranch
 
+## Building with hooks support
+
+      ./autogen.sh --system && ./configure  --enable-hooks && make rpm
+
 ## Code Style
 
 *   variables and arguments are in mixedCase

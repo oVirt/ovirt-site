@@ -85,7 +85,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 :\*\* If MAC Address or Driver Type were updated
 
-:\*\*\* Unplug followed by Plug should be sent to VDSM.
+:\*\*\* Throw canDoAction "Cannot perform hot update when updating 'Type' or 'MAC', please Unplug and then Plug again."
 
 :\*\* Otherwise, if network is changed or disconnected
 

@@ -35,6 +35,8 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ### 2012-12-03
 
+*[Minutes](http://resources.ovirt.org/meetings/ovirt/2012/ovirt.2012-12-03-15.01.html)*
+
 *Agenda*
 
 *   MediaWiki & www

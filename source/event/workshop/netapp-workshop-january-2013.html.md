@@ -83,7 +83,7 @@ Contributing to and developing oVirt
 
 ## Venue and Travel Information
 
-This latest in the [oVirt Global Workshops Series OVirt_Global_Workshops](oVirt Global Workshops Series OVirt_Global_Workshops) will be hosted by NetApp at their [Corporate Headquarters](http://goo.gl/maps/KK7y8) in Sunnyvale, California, USA. Attendees will need to check in at Building 7 upon arrival.
+This latest in the [oVirt Global Workshops Series](http://wiki.ovirt.org/OVirt_Global_Workshops) will be hosted by NetApp at their [Corporate Headquarters](http://goo.gl/maps/KK7y8) in Sunnyvale, California, USA. Attendees will need to check in at Building 7 upon arrival.
 
 Attendees who require a letter of invitation for visa purposes should contact [Leslie Hawthorn](http://wiki.ovirt.org/User:Lh) for assistance.
 

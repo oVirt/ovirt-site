@@ -119,6 +119,17 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 *   Should be used just as internal command.
 
+##### More effected flows
+
+*   ChangeVMClusterCommand
+*   AddVmTemplateCommand
+*   AddVmTemplateInterfaceCommand
+*   UpdateVmCommand
+*   ImportVmCommand
+*   ImportVmTemplateCommand
+*   OvfVm
+*   OvfTemplate
+
 ##### Error codes
 
 Add translation to VDSM error codes: UPDATE_VNIC_FAILED = 'Failed to update VM Network Interface.'

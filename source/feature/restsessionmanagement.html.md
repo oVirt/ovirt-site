@@ -44,8 +44,9 @@ The proposed implementation for that is to rely on cookies in the following way:
 1.  First, the client does a request providing credentials, with a special Header field: "Prefer: persistent-auth".
 2.  The server logs in to the engine-core, with a new generated session-id that is saved on the HTTP Session, and performs the required action. The JSESSIONID cookie is returned automatically to the client.
 3.  The client gets the cookie, and (if he wants to) in the second request he passes it to the server, with the "Prefer" header to enable keeping the session. No need to pass credentials.
-4.  The server gets the cookie, validates the session using (getting the session-ID from the HTTP session attributes), performs the request, and returns. The session remains valid as the "Prefer" header was passed.
-5.  Once the client passes the cookie but doesn't pass the "Prefer" header, the session is closed.
+4.  Passing the credentials will re-authenticate, returning a new cookie.
+5.  The server gets the cookie, validates the session using (getting the session-ID from the HTTP session attributes), performs the request, and returns. The session remains valid as the "Prefer" header was passed.
+6.  Once the client passes the cookie but doesn't pass the "Prefer" header, the session is closed.
 
 Notes:
 

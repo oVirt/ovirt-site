@@ -28,7 +28,7 @@ oVirt workshops focus on introducing the project, the technologies inside of the
 </div>
 <hr>
 <div class="row">
-<div class="span12">
+<div class="span12 pad-sides">
 ### Call for Content
 
 </div>

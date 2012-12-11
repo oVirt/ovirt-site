@@ -119,7 +119,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 
 *   Should be used just as internal command.
 
-##### More effected flows
+##### Other effected flows
 
 *   ChangeVMClusterCommand
 *   AddVmTemplateCommand

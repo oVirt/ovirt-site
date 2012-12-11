@@ -28,11 +28,12 @@ oVirt workshops focus on introducing the project, the technologies inside of the
 </div>
 <hr>
 <div class="row">
-<div class="span6 pad-sides">
 ### Call for Content
 
+<div class="span6 pad-sides">
 We are actively seeking speakers for this workshop. We are interested in talks in the following areas:
 
+<div class="column-split">
 *   Case studies of oVirt deployments
 *   Using oVirt effectively
 *   oVirt Project Roadmaps
@@ -44,11 +45,16 @@ We are actively seeking speakers for this workshop. We are interested in talks i
 *   Packaging, installation and distributions
 *   Community infrastructure and services
 
-Please submit talk proposals for review by sending a message to workshop-pc@ovirt.org. Your email should include your full name, speaker biography and your talk abstract. We will accept submissions through Friday, 14 December 2012 at 23:55 UTC. Speakers will be notified of acceptance by Friday, 21 December 2012.
+</div>
+<div class="span6 pad-sides">
+Please submit talk proposals for review by sending a message to [workshop-pc@ovirt.org]. Your email should include your full name, speaker biography and your talk abstract. We will accept submissions through Friday, 14 December 2012 at 23:55 UTC. Speakers will be notified of acceptance by Friday, 21 December 2012.
 
-Accepted speakers should plan to submit their slides to the workshop-pc@ovirt.org mailing list no later than close of business on Friday, 18 January 2013.
+Accepted speakers should plan to submit their slides to the [workshop-pc@ovirt.org mailing list](mailto:workshop-pc@ovirt.org) no later than close of business on Friday, 18 January 2013.
 
 </div>
+</div>
+</div>
+<div class="row">
 <div class="span6 pad-sides">
 ### Event details
 
@@ -86,6 +92,8 @@ Integrating with oVirt through its APIs
 Day 3  
 Contributing to and developing oVirt
 
+</div>
+<div class="span6 pad-sides">
 ### Venue and Travel Information
 
 #### Venue

@@ -51,6 +51,5 @@ The following is a migration plan for [jenkins.ovirt.org] to a new physical serv
 9.  change dns entry for new server to jenkins.ovirt.org and old server to jenkins-test.ovirt.org
 10. verify all jobs works:
 
-gerrit access
-
-linode access
+*   gerrit access
+*   linode access

@@ -28,9 +28,13 @@ oVirt workshops focus on introducing the project, the technologies inside of the
 </div>
 <hr>
 <div class="row">
+<div class="span12">
 ### Call for Content
 
-<div class="span6 pad-sides">
+</div>
+</div>
+<div class="row">
+<div class="span6">
 We are actively seeking speakers for this workshop. We are interested in talks in the following areas:
 
 <div class="column-split">
@@ -46,7 +50,7 @@ We are actively seeking speakers for this workshop. We are interested in talks i
 *   Community infrastructure and services
 
 </div>
-<div class="span6 pad-sides">
+<div class="span6">
 Please submit talk proposals for review by sending a message to [workshop-pc@ovirt.org]. Your email should include your full name, speaker biography and your talk abstract. We will accept submissions through Friday, 14 December 2012 at 23:55 UTC. Speakers will be notified of acceptance by Friday, 21 December 2012.
 
 Accepted speakers should plan to submit their slides to the [workshop-pc@ovirt.org mailing list](mailto:workshop-pc@ovirt.org) no later than close of business on Friday, 18 January 2013.

@@ -35,8 +35,6 @@ oVirt workshops focus on introducing the project, the technologies inside of the
 </div>
 <div class="row">
 <div class="span6 pad-sides">
-### Call for Content
-
 We are actively seeking speakers for this workshop. We are interested in talks in the following areas:
 
 <div class="column-split">
@@ -58,7 +56,6 @@ Please submit talk proposals for review by sending a message to [workshop-pc@ovi
 
 Accepted speakers should plan to submit their slides to the [workshop-pc@ovirt.org mailing list](mailto:workshop-pc@ovirt.org) no later than close of business on Friday, 18 January 2013.
 
-</div>
 </div>
 </div>
 <div class="row">

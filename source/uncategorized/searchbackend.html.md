@@ -28,8 +28,8 @@ The generated SQL would need some optimization.
 
 The problems in general:
 
-      ` * The operator `=` is interpreted as like, which is fine with string results, but no good with identifiers `
-      * The search query is wrapped with an outer query and mapped with id, so the primary key will be scanned even if it is not used in the result and not filtered
+*   The operator \`=\` is interpreted as like, which is fine with string results, but no good with identifiers
+*   The search query is wrapped with an outer query and mapped with id, so the primary key will be scanned even if it is not used in the result and not filtered
 
       engine=# explain SELECT * FROM (SELECT * FROM audit_log WHERE ( audit_log_id IN (SELECT audit_log.audit_log_id FROM  audit_log   WHERE  audit_log.vds_id::varchar LIKE '78933a44-360c-11e1-8fec-2f707af25b44' ))  ORDER BY audit_log_id DESC ) as T1 OFFSET (1 -1) LIMIT 100;
                                                             QUERY PLAN                                                        

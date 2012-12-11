@@ -80,7 +80,7 @@ As a result of this simplification, the estimated query cost dropped from ~600 t
 
 (11 rows)
 
-Note that the estimated cost dropped because it can check a relevant index. Now let's simplify the SQL statement to avoid index-scanning pk_audit_log, be removing the redundant outer query.
+Note that the estimated cost dropped because it can check a relevant index. Now let's simplify the SQL statement to avoid index-scanning pk_audit_log, by removing the redundant outer query.
 
       engine=# EXPLAIN SELECT * FROM audit_log   WHERE  audit_log.vds_id = '78933a44-360c-11e1-8fec-2f707af25b44'  ORDER BY audit_log_id DESC OFFSET 0 LIMIT 100;
                                                 QUERY PLAN                                           

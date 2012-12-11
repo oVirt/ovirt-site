@@ -19,6 +19,7 @@ The following is a migration plan for [jenkins.ovirt.org] to a new physical serv
 3.  verify testing phase (managed to install jenkis master via foreman+puppet)
 4.  add puppet classes to manage slaves
 5.  setup openid as authentication for server via puppet class
+6.  test project role auth matrix, to restrict certain users to certain views/projects
 
 ## install jenkins master server via exiting foreman (LTS)
 

@@ -28,19 +28,19 @@ __TOC__
 
 ------------------------------------------------------------------------
 
-![](0-jsdk.jpg "0-jsdk.jpg")
+![](0jsdk.jpg "0jsdk.jpg")
 
 ### Listing all collections
 
 ------------------------------------------------------------------------
 
-![](1-jsdk.jpg "1-jsdk.jpg")
+![](1jsdk.jpg "1jsdk.jpg")
 
 ### Listing collection's methods
 
 ------------------------------------------------------------------------
 
-![](2-jdk.jpg "2-jdk.jpg")
+![](2jdk.jpg "2jdk.jpg")
 
 ### Querying collection with oVirt search engine query & custom constraint
 
@@ -52,25 +52,25 @@ TBD
 
 ------------------------------------------------------------------------
 
-![](4-jdk.jpg "4-jdk.jpg")
+![](4jdk.jpg "4jdk.jpg")
 
 ### Creating resource
 
 ------------------------------------------------------------------------
 
-![](5-jdk.jpg "5-jdk.jpg")
+![](5jdk.jpg "5jdk.jpg")
 
 ### Accessing resource properties and sub-collections
 
 ------------------------------------------------------------------------
 
-![](6-jdk.jpg "6-jdk.jpg")
+![](6jdk.jpg "6jdk.jpg")
 
 ### Accessing sub-collection methods
 
 ------------------------------------------------------------------------
 
-![](7-jdk.jpg "7-jdk.jpg")
+![](7jdk.jpg "7jdk.jpg")
 
 ### Querying sub-collection by custom constraint.
 
@@ -82,13 +82,13 @@ TBD
 
 ------------------------------------------------------------------------
 
-![](8-jdk.jpg "8-jdk.jpg")
+![](8jdk.jpg "8jdk.jpg")
 
 ### Accessing sub-collection resource properties and methods
 
 ------------------------------------------------------------------------
 
-![](9-jdk.jpg "9-jdk.jpg")
+![](9jdk.jpg "9jdk.jpg")
 
 ## Examples
 

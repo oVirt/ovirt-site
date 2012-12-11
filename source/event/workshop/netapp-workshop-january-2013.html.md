@@ -102,6 +102,10 @@ Contributing to and developing oVirt
 
 This latest in the [Global Workshops Series](OVirt_Global_Workshops) will be hosted by NetApp at their [Corporate Headquarters](http://goo.gl/maps/KK7y8) in Sunnyvale, California, USA. Attendees will need to check in at Building 7 upon arrival.
 
+NetApp's facilities are disabled accessible.
+
+Should you have particular needs related to making your visit to NetApp's HQ, please contact [Leslie Hawthorn](http://wiki.ovirt.org/User:Lh) for assistance. We will do our very best to accomodate all dietary needs, etc.
+
 #### Lodging
 
 For attendees who wish to book a hotel room, we have secured a room block at the nearby [Country Inn and Suites](http://goo.gl/maps/csHQT) at a room rate of 125 USD / night for a standard room and 145/night for a king suite, excluding tax and incidentals. To book into the hotel room block, please phone +1.408.747.0799.

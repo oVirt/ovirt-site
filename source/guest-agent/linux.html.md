@@ -12,7 +12,7 @@ wiki_last_updated: 2012-12-11
 
 ## An overview how the single sign on process works on GNU/Linux systems
 
-![](Ovirt-guest-agent-sso-linux.png "Ovirt-guest-agent-sso-linux.png")
+![](Ovirt-guest-agent-sso-linux2.png "Ovirt-guest-agent-sso-linux2.png")
 
 1.  VDSM sends a 'login' message to the oVirt Guest Agent
 2.  The oVirt Guest Agent daemon/service receives the message and creates a 6 character long random token

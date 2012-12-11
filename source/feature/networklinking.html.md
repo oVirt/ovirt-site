@@ -101,6 +101,8 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
             * Adding under the "network" combo- "Link state" radio button with two options "up/"down". (For 3.2 or more cluster version)
 
+            * If "empty" network is selected, link state combo should be disabled with explanation tooltip.
+
             * "Activate" checkbox will be changed to a radio button with two options "Plugged"/"Unplugged" and its name will be renamed to 'Card Status'.
 
             * Add 'Advanced Parameters' section which includes the 'Port Mirroring' and the 'Card Status' properties.
@@ -115,7 +117,9 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
             * If the VM status is 'UP'
 
-::::\* If the Vnic is plugged there should be a message on top of the dialog "Please notice, changing <b>Type</b> or <b>MAC</b> will cause unplugging and plugging the Vnic".
+::::\* If the Vnic is plugged "mac" and "type" editor should be disables with explanation tooltip ("In order to change 'MAC'/'type' please Unplug and then Plug again").
+
+            * If cluster version beneath 3.2 and the vnic is plugged, the network name editor should be disabled with explanation tooltip.
 
 ::::\* Port Mirroring - If the Vnic is plugged and the Vnic is set for port mirroring - "network", "type", "mac" and "port mirroring" fields in the dialog will be disabled.
 
@@ -124,6 +128,8 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
             * Adding empty cell to "network" combo. (For 3.2 or more cluster version)
 
             * Adding under the "network" combo- "Link state" radio button with two options "up/"down". (For 3.2 or more cluster version)
+
+            * If "empty" network is selected, link state combo should be disabled with explanation tooltip.
 
             * Adding radio button named 'Card Status' with two options "Plugged"/"Unplugged" to the end of the dialog..
 

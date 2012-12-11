@@ -50,7 +50,7 @@ We are actively seeking speakers for this workshop. We are interested in talks i
 </div>
 </div>
 <div class="span6 pad-sides">
-Please submit talk proposals for review by sending a message to [workshop-pc@ovirt.org workshop-pc@ovirt.org]. Your email should include your full name, speaker biography and your talk abstract. We will accept submissions through Friday, 14 December 2012 at 23:55 UTC. Speakers will be notified of acceptance by Friday, 21 December 2012.
+Please submit talk proposals for review by sending a message to <workshop-pc@ovirt.org>. Your email should include your full name, speaker biography and your talk abstract. We will accept submissions through Friday, 14 December 2012 at 23:55 UTC. Speakers will be notified of acceptance by Friday, 21 December 2012.
 
 Accepted speakers should plan to submit their slides to the [workshop-pc@ovirt.org mailing list](mailto:workshop-pc@ovirt.org) no later than close of business on Friday, 18 January 2013.
 

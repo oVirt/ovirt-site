@@ -39,10 +39,10 @@ Since with host-passthrough gives the host cpu-capabilities to the VM's CPU, mig
 *   vdsm modifications:
     -   add hostPassthrough and hostModel as special cpu types <http://gerrit.ovirt.org/9507> - **merged**
 *   rest-api:
-    -   Add new attribute 'host_passthrough' to CPU
+    -   Add new element cpu_mode with values *custom*, *host_model* and *host_passthrough* to CPU
     -   example
 
-<cpu><topology cores="1" sockets="1"/>**<host_passthrough>`true`</host_passthrough>**</cpu>
+<cpu><topology cores="1" sockets="1"/><cpu_mode>`HOST_PASSTHROUGH`</cpu_mode></cpu>
 
 Label should be "Pass through host CPU". When this is set the VM should be marked as non-migratable
 

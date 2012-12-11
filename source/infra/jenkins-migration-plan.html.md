@@ -6,7 +6,6 @@ wiki_category: Infrastructure
 wiki_title: Jenkins-Migration-Plan
 wiki_revision_count: 10
 wiki_last_updated: 2013-05-06
-wiki_warnings: list-item?
 ---
 
 # Jenkins-Migration-Plan
@@ -52,6 +51,6 @@ The following is a migration plan for [jenkins.ovirt.org] to a new physical serv
 9.  change dns entry for new server to jenkins.ovirt.org and old server to jenkins-test.ovirt.org
 10. verify all jobs works
 
-    * gerrit access
+        * gerrit access
 
-    * linode access
+        * linode access

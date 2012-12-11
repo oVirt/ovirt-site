@@ -81,7 +81,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
 *   **Updated Columns**
 
-    * "Status" icon - green icon if plugged and link state- up, otherwise red icon. The tooltip will display a text for both the "Plugged" and "Link up" statuses.
+    * "Status" icon - green icon if plugged and link state- up, otherwise red icon. The tooltip will display a text for both the "Plugged" and "Link state" statuses.
 
 ##### Virtual Machines Network Interfaces Action Changes
 

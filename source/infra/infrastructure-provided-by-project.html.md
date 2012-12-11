@@ -16,17 +16,15 @@ For infrastructure requests, we maintain the [Infrastructure needs](Infrastructu
 
 ## Mailing lists
 
-The project runs Mailman at <http://lists.ovirt.org> .
+The project runs Mailman at <http://lists.ovirt.org> hosted on linode1.ovirt.org
 
 All available lists are found at <http://lists.ovirt.org/mailman/listinfo> .
 
 ## Content website / wiki
 
-The project runs MediaWiki at <http://ovirt.org> .
+The project runs MediaWiki at <http://ovirt.org> hosted on OpenShift. Current admins for the OpenShift instance are quaid, dneary and garrett.
 
 Details are found on [How to use this wiki](How to use this wiki).
-
-It is hosted on OpenShift.
 
 ## Source code management
 

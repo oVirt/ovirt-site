@@ -24,7 +24,7 @@ All available lists are found at <http://lists.ovirt.org/mailman/listinfo> .
 
 The project runs MediaWiki at <http://ovirt.org> hosted on OpenShift. Current admins for the OpenShift instance are quaid, dneary and garrett.
 
-Details are found on [How to use this wiki](How to use this wiki).
+Details on [ how to use this wiki](oVirt wiki).
 
 ## Source code management
 

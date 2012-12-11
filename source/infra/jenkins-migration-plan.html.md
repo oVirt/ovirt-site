@@ -38,7 +38,7 @@ The following is a migration plan for [jenkins.ovirt.org] to a new physical serv
 
 **----- till now no affect to exiting service or downtime -----**
 
-## migration plan:
+## migration plan
 
 1.  copy main configuration file (config.xml)
 2.  disable slaves so jenkins.ovirt.org will continue running.

@@ -32,8 +32,6 @@ oVirt workshops focus on introducing the project, the technologies inside of the
 ### Call for Content
 
 </div>
-</div>
-<div class="row">
 <div class="span6 pad-sides">
 We are actively seeking speakers for this workshop. We are interested in talks in the following areas:
 

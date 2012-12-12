@@ -46,11 +46,12 @@ The following is a migration plan for [jenkins.ovirt.org] to a new physical serv
 3.  add the 2nd phsical server as temp slave for testing
 4.  copy jobs configuration (tar.gz of current jobs dir)
 5.  copy builds (tar.gz and move it)
-6.  copy other imporant files (userContent?)
-7.  verify jobs
-8.  detach existing slaves from jenkins.ovirt.org to new server
-9.  change dns entry for new server to jenkins.ovirt.org and old server to jenkins-test.ovirt.org
-10. verify all jobs works
+6.  copy user database (since it's a small user db, we might want to recreate them using openid)
+7.  copy other imporant files (userContent?)
+8.  verify jobs
+9.  detach existing slaves from jenkins.ovirt.org to new server
+10. change dns entry for new server to jenkins.ovirt.org and old server to jenkins-test.ovirt.org
+11. verify all jobs works
 
         * gerrit access
 

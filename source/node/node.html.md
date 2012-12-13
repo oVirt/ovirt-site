@@ -34,7 +34,7 @@ oVirt Node 2.6.0
 oVirt Node 2.5.1-1.0
 
 *   [Node_Release_Notes](Node_Release_Notes)
-*   [ISO image](http://ovirt.org/releases/stable/tools/ovirt-node-iso-2.5.1-1.0.fc17.iso)
+*   [ISO image](http://ovirt.org/releases/stable/tools/ovirt-node-iso-2.5.5-0.1.fc17.iso)
 *   [Source Tarball](http://ovirt.org/releases/stable/src/ovirt-node-2.5.1.tar.gz)
 *   [RPM Package](http://ovirt.org/releases/stable/rpm/Fedora/17/noarch/ovirt-node-2.5.1-1.fc17.noarch.rpm)
 *   [Tools Package](http://ovirt.org/releases/stable/rpm/Fedora/17/noarch/ovirt-node-tools-2.5.1-1.fc17.noarch.rpm)

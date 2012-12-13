@@ -181,7 +181,7 @@ CURRENTLY WE DON'T HAVE RPM FOR JBOSS AS 7.1.1, SO USE THE ZIPPED VERSION
 
 ### Clone oVirt-engine codebase
 
-Choose a directory where you want to keep oVirt sources and 'cd' to it. Use git to clone the ovirt-engine repository into the current working directory,
+Choose a directory in which to store the oVirt source and 'cd' to it. Use git to clone the ovirt-engine repository into the current working directory:
 
       $> git clone git://gerrit.ovirt.org/ovirt-engine
 
@@ -209,21 +209,21 @@ To work around the issue, edit the file $OVIRT_HOME/backend/manager/dbscripts_po
 
 ### Build
 
-Note that on most modern distributions the 'mvn' binary refers to Maven 3, to use Maven 2 you must use mvn2. If in doubt run 'mvn --version' and/or 'mvn2 --version' to confirm the version of Maven in use. If you only want to build virt-engine-core and REST API then:
+Note that on most modern distributions, the 'mvn' binary refers to Maven 3. In order to use Maven 2 you have to use mvn2. If in doubt, run 'mvn --version' and/or 'mvn2 --version' to confirm the version of Maven in use. If you only want to build virt-engine-core and REST API:
 
        $> cd $OVIRT_HOME
        $> mvn clean install
 
-For compiling the web-admin and user-portal in addition to the api and engine use:
+In order to compile web-admin and user-portal, in addition to the api and engine, do the following:
 
        $> cd $OVIRT_HOME
        $> mvn clean install -Pgwt-admin,gwt-user
 
 Notes:
-# Compiling the webadmin and userportal takes (a long) time, please visit [GWT Compilation Configuration](Advanced_oVirt_Engine_Build_Notes#GWT_Compilation_Configuration) if you want to speed the web compilation process during development time
-# Make sure to run this with your user, not 'root', running as root will result in a missing settings.xml file in the 'root' home directory.
+# Compiling web-admin and user-portal takes (a long) time. Please visit [GWT Compilation Configuration](Advanced_oVirt_Engine_Build_Notes#GWT_Compilation_Configuration) if you want to speed the web compilation process during development time
+# Make sure you run this with your user, and not as 'root'. Running as root will result in a missing settings.xml file in the 'root' home directory
 
-1.  To skip the execution of the unit tests and only compile and package ovirt, add the option: -DskipTests=true to the mvn2 build command
+1.  In order to skip the execution of the unit tests and only compile and package ovirt, add the option: -DskipTests=true to the mvn/mvn2 build command
 2.  You can reduce the build time and memory consumption - look at the temp section at the end.
 3.  If you receive "java.lang.OutOfMemoryError: PermGen space" error, use the MAVEN_OPTS environment variable to set a higher heap and permanent generation stack size, then try again:
 
@@ -238,7 +238,7 @@ The first deployment of the application to JBoss AS container should use the set
       $> cd $OVIRT_HOME/ear
       $> mvn clean install -Pdep,setup
 
-There is a issue with the dep and setup_postgres profiles getting in the way of each other. the setup_postgres profile will prevent the deployment of the quartz jar to the JBoss server. So after this step completes, run:
+There is an issue with the dep and setup_postgres profiles getting in the way of each other. The setup_postgres profile prevents the quartz.jar deployment to the JBoss server. Therefore, after this step completes, run:
 
       $> cd $OVIRT_HOME/ear
       $> mvn clean install -Pdep
@@ -252,7 +252,7 @@ Since postgres is already set up.
 
 ## Copying vdsm bootstrap files
 
-In case you like to do a full bootstrap installation (InstallVds = True into the database), these steps will be required. Otherwise, can be ignored.
+In case you like to do a full bootstrap installation (InstallVds = True into the database), the following steps are required. Otherwise, ignore them.
 
           #> su - -c 'mkdir -p /usr/share/jboss-as/standalone/deployments/engine.ear/components.war/vds'
           #> git clone git://gerrit.ovirt.org/vdsm
@@ -293,10 +293,10 @@ or from the browser
 
       http://<server name>:<port>/api
 
-Accessing the web-admin:
+Accessing web-admin:
  http://<server name>:<port>/webadmin
 
-Accessing the user-portal
+Accessing user-portal
  http://<server name>:<port>/UserPortal
 
 ## Setting Public Key environment (recommended to oVirt Node environment)
@@ -318,9 +318,9 @@ Follow this page: <http://www.ovirt.org/wiki/Engine_Node_Integration#Engine_core
 
 For additional info: <https://docs.jboss.org/author/display/AS7/Admin+Guide#AdminGuide-HTTPSConnectors>
 
-## I have made a change into ovirt engine code, how can I deploy it?
+## I have made changes to ovirt engine code. How can I deploy it?
 
-This will build the engine, rebuilding the admin console and then creates the ear and deploys it to jboss
+The following builds the engine, rebuilds the admin console and then creates the ear and deploys it to jboss
 
           #> mvn clean install -Pgwt-admin -DskipTests && cd ear && mvn clean install -Pdep
           #> service jboss-as restart
@@ -328,19 +328,19 @@ This will build the engine, rebuilding the admin console and then creates the ea
 ## Advanced features
 
 *   Registering an oVirt Node
-    -   By default development setup works with hosts based on base distro's such as Fedora.
+    -   By default, development setup works with hosts based on base distro's, such as Fedora.
     -   In order to be able to work with oVirt Node, you'll need to setup a Public Key environment.
-    -   More details on Engine and oVirt Node integration can be found here: [Engine_Node_Integration](Engine_Node_Integration).
+    -   More details on Engine and oVirt Node integration can be found in [Engine_Node_Integration](Engine_Node_Integration).
 
 ## Code contribution: Gerrit
 
 *   oVirt-engine is working with Gerrit for code contribution.
     \* More detail can be found in [Working_with_oVirt_Gerrit](Working_with_oVirt_Gerrit).
 
-## Getting latest
+## Getting the latest
 
 If you have a working development environment and after a while you want
-to update the code and take latest, you need to do:
+to update the code (take the latest):
 
 1.  git fetch -v
 2.  git rebase origina/master
@@ -352,19 +352,19 @@ to update the code and take latest, you need to do:
 
 ## Is there an IDE?
 
-Yes! Take a look in: [Building_Ovirt_Engine/IDE](Building_Ovirt_Engine/IDE)
+Yes! Take a look at [Building_Ovirt_Engine/IDE](Building_Ovirt_Engine/IDE)
 
 ## More information
 
-*   Engine setup on Gentoo can be found here: <https://wiki.gentoo.org/wiki/OVirt>
+*   [Engine setup on Gentoo](https://wiki.gentoo.org/wiki/OVirt)
 *   [Ovirt build on debian/ubuntu](Ovirt build on debian/ubuntu)
 
 ## Troubleshooting
 
 ### Host Non-Responsive
 
-*   Make sure you have both (vdsm and ovirt-engine) with ssl disabled or enabled.
-*   If you have enabled ssl anytime and want move to ssl=false, you must reconfigure vdsm and start the daemon again.
+*   Make sure you have both vdsm and ovirt-engine with ssl disabled or enabled.
+*   If you have enabled ssl anytime and want reset to ssl=false, you must reconfigure vdsm and start the daemon again.
 
 Example setting ssl false:
 
@@ -388,11 +388,11 @@ Actions:
 
 *   Host side:
 
-       Look /tmp/vds* files
+       Look at /tmp/vds* files
 
 *   Engine side:
 
-       Look /usr/share/jboss-as/standalone/log/engine/engine.log
+       Look at /usr/share/jboss-as/standalone/log/engine/engine.log
 
 *   Have you created /var/lock/ovirt-engine/.openssl.exclusivelock with 777 perm ?
 

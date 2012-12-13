@@ -179,7 +179,7 @@ CURRENTLY WE DON'T HAVE RPM FOR JBOSS AS 7.1.1, SO USE THE ZIPPED VERSION
 
 ## Building oVirt-engine from source
 
-#### Clone oVirt-engine codebase
+### Clone oVirt-engine codebase
 
 Choose a directory where you want to keep oVirt sources and 'cd' to it. Use git to clone the ovirt-engine repository into the current working directory,
 
@@ -187,19 +187,19 @@ Choose a directory where you want to keep oVirt sources and 'cd' to it. Use git 
 
 For further instructions let $OVIRT_HOME be <your_chosen_source_location>/ovirt-engine
 
-**Note:** the above cloning is for read only, if you want to contribute you might want to skip to [#Code contribution: Gerrit](#Code_contribution:_Gerrit) before moving to the next steps.
+**Note:** the above cloning is for read only. If you want to contribute, you might want to skip to [#Code contribution: Gerrit](#Code_contribution:_Gerrit) before moving to the next steps.
 
-#### Creating the database
+### Creating the database
 
 Change into your git repository.
 
       $> cd $OVIRT_HOME/backend/manager/dbscripts
 
-Then run the following command, as root, to create the database.
+Then run the following command to create the database (make sure you're not doing this at root):
 
-      #> ./create_db_devel.sh -u postgres
+      $> ./create_db_devel.sh -u postgres
 
-      Note: In case, create_db_devel keep asking postgres password, create the following file:
+      Note: In case create_db_devel keeps asking for postgres password, create the following file:
       $ echo "*:*:*:postgres:YOUR_POSTGRES_PASSWORD" > ~/.pgpass 
       $ chmod 0600 ~/.pgpass
 
@@ -207,7 +207,7 @@ On some installations you will receive an error message about uuid-ossp.sql not 
 
 To work around the issue, edit the file $OVIRT_HOME/backend/manager/dbscripts_postgres/create_db.sh and change the references to uuid-ossp.sql to point to the right location.
 
-#### Build
+### Build
 
 Note that on most modern distributions the 'mvn' binary refers to Maven 3, to use Maven 2 you must use mvn2. If in doubt run 'mvn --version' and/or 'mvn2 --version' to confirm the version of Maven in use. If you only want to build virt-engine-core and REST API then:
 
@@ -231,7 +231,7 @@ Notes:
 
 For advanced build notes, please visit [Advanced oVirt Engine Build Notes](Advanced oVirt Engine Build Notes)
 
-#### Deploy
+### Deploy
 
 The first deployment of the application to JBoss AS container should use the setup profile:
 

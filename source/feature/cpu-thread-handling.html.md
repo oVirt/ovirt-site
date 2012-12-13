@@ -18,7 +18,7 @@ CPU Overcommit allows hosts to run VMs with a total number of processor cores gr
 
 This project would allow the engine to optionally treat host CPU threads as cores for the purposes of running VMs, on a user-configurable cluster-by-cluster basis. When both hyperthreading and this feature are enabled, this would increase the capacity of hosts and may help performance for certain workloads.
 
-There is a possibility that enabling this feature will cause performance degredataion and unacceptable QoS on the guests. Currently, there is no QoS monitoring or alerting for CPU overcommitment. This is planned for the future--this project is just a first step to full CPU Overcommitment support.
+There is a possibility that enabling this feature will cause performance degradation and unacceptable QoS on the guests. Currently, there is no QoS monitoring or alerting for CPU overcommitment. This is planned for the future--this project is just a first step to full CPU Overcommitment support.
 
 ### Owner
 

@@ -111,7 +111,7 @@ The oVirt-engine's user will be able to configure the Vnic state to any of the m
 
         * Menu
 
-            * For cluster version 3.1 or upper- edit action will be enabled for VMs in status 'UP' (previously it was allowed only for VMs in 'Down' status).
+            * Edit action will be enabled for VMs in status 'UP' (previously it was allowed only for VMs in 'Down' status).
 
         * Dialog
 

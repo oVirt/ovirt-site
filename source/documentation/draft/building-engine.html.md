@@ -54,7 +54,7 @@ If the link does not point to the correct instance of the Java compiler, then yo
 
 ### Installing git
 
-The ovirt-engine source code is stored in a GIT repository. As such GIT is required to obtain the latest source code.
+The ovirt-engine source code is stored in a GIT repository. As such, GIT is required to obtain the latest source code.
 
 **Fedora**
 

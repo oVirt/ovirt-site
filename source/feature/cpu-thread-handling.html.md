@@ -28,7 +28,7 @@ There is a possibility that enabling this feature will cause performance degrada
 ### Current status
 
 *   Planning
-*   Last updated date: 6 Dec 2012
+*   Last updated date: 13 Dec 2012
 
 ### Detailed Description
 

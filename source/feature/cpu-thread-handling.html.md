@@ -70,9 +70,9 @@ VDSM currently exposes host count of cpu_cores and cpu_sockets, both in vdsGetCa
 
 The proposal is to add two new attributes to the vdsGetCapabilities verb:
 
-*   cpu_ht_enabled: a boolean field, true if hyperthreading is enabled on the host cpu. If true, the engine will treat each reported physical core as having 2 threads
-*   report_host_threads_as_cores: same value as vdsm.conf setting. The engine would store this in vds_dynamic.vdsm_treat_threads_as_cores, and if true, would halve the cpu core count when reporting statistics for hosts in 3.2 clusters.
-    -   -or- cpu_real_cores: the number of cores on the host, regardless of the report_host_threads_as_cores setting. Engine would use this value for 3.2 clusters instead of the cpu_cores count.
+*   cpu_ht_enabled: boolean, true if hyperthreading is enabled on the host cpu. If true, the engine will treat each reported physical core as having 2 threads
+*   report_host_threads_as_cores: boolean, same value as vdsm.conf setting. The engine would store this in vds_dynamic.vdsm_treat_threads_as_cores, and if true, would halve the cpu core count when reporting statistics for hosts in 3.2 clusters.
+    -   -or- cpu_real_cores: integer, the number of actual cpu cores in the host, disregarding the report_host_threads_as_cores setting. Engine would use this value for 3.2 clusters instead of the cpu_cores count.
 
 In the future, removal of the report_host_threads_as_cores setting would be ideal as engine will gain the ability to configure this same functionality cluster-wide via the webadmin interface. Cleanliness of the API should be considered moving forward, accounting for the engine's ability to detect when vdsm is lying about the number of cores, as well as engine-side considerations of how to best display the information we have available. The possibility of setting a minimum required vdsm version for the 3.2 engine, or calculating engine-side values based on vdsm version, may help keep the vdsm API clean.
 

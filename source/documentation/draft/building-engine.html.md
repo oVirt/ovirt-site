@@ -141,11 +141,11 @@ Example for variables in this file:
           $> chkconfig jboss-as on
           $> Change the Jboss home in ~/.m2/settings.xml file to point to the new location
 
-Check that it runs:
+Make sure that it runs:
 
           $> /usr/share/jboss-as/bin/standalone.sh
 
-Ensure that you have write access to $JBOSS_HOME/standalone/deployments to which oVirt-engine will be deployed.
+Make sure that you have write access to $JBOSS_HOME/standalone/deployments, to which oVirt-engine will be deployed.
 
 ### Automatically (From RPMs)
 
@@ -157,14 +157,14 @@ CURRENTLY WE DON'T HAVE RPM FOR JBOSS AS 7.1.1, SO USE THE ZIPPED VERSION
     1.  -Xmx512m - maximum Java heap size of 512m
     2.  -Xdebug - include debugging
 
-2.  Run with -b 0.0.0.0 to have it bind to all IP addresses;
+2.  Run with -b 0.0.0.0 to have it bind to all IP addresses
 3.  Make sure you've nothing bound to port 8080 or 8009
-    1.  Other relevant ports JBoss may require: 8443/8083/1090/4457
+    1.  Other relevant ports JBoss may require are: 8443/8083/1090/4457
 
 4.  For external connections, make sure your FW allows 8080 incoming traffic
-5.  If your machine has and selinux policy installed, make sure it will not block JBoss
-6.  JBoss will bind to your host's name. Make sure it's resolvable by adding it to /etc/hosts or any other method.
-7.  You may wish to erase previous deployment (during development, if you encounter a situation where you work with the deployed application but it does not contain the expected behavior). In order to perform the cleanup, you must perform the following steps:
+5.  If your machine has an selinux policy installed, make sure it will not block JBoss
+6.  JBoss will bind to your host's name. Make sure it's resolvable by adding it to /etc/hosts or by any other method.
+7.  You may wish to erase previous deployments (during development, if you encounter a situation where you work with the deployed application but it does not contain the expected behavior). In order to perform the cleanup, you must perform the following steps:
 
         $> cd $JBOSS_HOME/standalone
         $> rm -rf deployments/engine.ear 

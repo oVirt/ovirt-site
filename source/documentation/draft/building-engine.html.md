@@ -334,8 +334,8 @@ The following builds the engine, rebuilds the admin console and then creates the
 
 ## Code contribution: Gerrit
 
-*   oVirt-engine is working with Gerrit for code contribution.
-    \* More detail can be found in [Working_with_oVirt_Gerrit](Working_with_oVirt_Gerrit).
+*   Code contribution to the oVirt-engine is done via Gerrit.
+    \* More details can be found in [Working_with_oVirt_Gerrit](Working_with_oVirt_Gerrit).
 
 ## Getting the latest
 

@@ -31,7 +31,7 @@ Note that while this guide was written and tested using Fedora, other Linux Dist
 
 ### Installing OpenJDK
 
-The supported Java development and runtime environments for the ovirt-engine project are provied by OpenJDK 1.7.0. Install the java-1.7.0-openjdk-devel package to obtain OpenJDK 1.7.0:
+The supported Java development and runtime environments for the ovirt-engine project are provieded by OpenJDK 1.7.0. Install the java-1.7.0-openjdk-devel package to obtain OpenJDK 1.7.0:
 
 **Fedora**
 
@@ -48,7 +48,7 @@ Use the 'alternatives' command to verify that 'javac' is correctly linked to the
        link currently points to /usr/lib/jvm/java-1.7.0-openjdk.x86_64/bin/javac
       ...
 
-Where the link does not point to the correct instance of the Java compiler then you must update it, for example:
+If the link does not point to the correct instance of the Java compiler then you must update it, for example:
 
       $> alternatives --set javac /usr/lib/jvm/java-1.7.0-openjdk.x86_64/bin/javac
 

@@ -164,7 +164,7 @@ CURRENTLY WE DON'T HAVE RPM FOR JBOSS AS 7.1.1, SO USE THE ZIPPED VERSION
 4.  For external connections, make sure your FW allows 8080 incoming traffic
 5.  If your machine has an selinux policy installed, make sure it will not block JBoss
 6.  JBoss will bind to your host's name. Make sure it's resolvable by adding it to /etc/hosts or by any other method.
-7.  You may wish to erase previous deployments (during development, if you encounter a situation where you work with the deployed application but it does not contain the expected behavior). In order to perform the cleanup, you must perform the following steps:
+7.  During development you may encounter a situation in which you work with the deployed application but it does not behave as expected. In this case, you should remove the current deployment:
 
         $> cd $JBOSS_HOME/standalone
         $> rm -rf deployments/engine.ear 

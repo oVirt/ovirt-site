@@ -147,6 +147,33 @@ That means that it started correctly. The objective was just to check that the d
 
 [Installing_PostgreSQL_DB](Installing_PostgreSQL_DB)
 
+## Engine local configuration
+
+oVirt Engine has two methods with regard to its configuration:
+
+*   global configuration, stored in the database
+*   local configuration, stored on the local machine where Engine is deployed
+
+Follow these steps to set-up Engine local configuration in a development environment:
+
+*   Define `ENGINE_DEFAULTS` environment variable that points to default configuration file
+
+<!-- -->
+
+    $ export ENGINE_DEFAULTS="$HOME/ovirt-engine/backend/manager/conf/engine.conf.defaults"
+
+*   Create custom configuration file (used to override default configuration)
+
+<!-- -->
+
+    $ touch $HOME/myengine.conf
+
+*   Define `ENGINE_VARS` environment variable that points to custom configuration file
+
+<!-- -->
+
+    $ export ENGINE_VARS="$HOME/myengine.conf"
+
 ## Building oVirt-engine from source
 
 ### Clone oVirt-engine codebase

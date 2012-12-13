@@ -320,7 +320,7 @@ For additional info: <https://docs.jboss.org/author/display/AS7/Admin+Guide#Admi
 
 ## I have made changes to ovirt engine code. How can I deploy it?
 
-The following builds the engine, rebuilds the admin console and then creates the ear and deploys it to jboss
+The following builds the engine, rebuilds the admin console and then creates the ear and deploys it to jboss:
 
           #> mvn clean install -Pgwt-admin -DskipTests && cd ear && mvn clean install -Pdep
           #> service jboss-as restart

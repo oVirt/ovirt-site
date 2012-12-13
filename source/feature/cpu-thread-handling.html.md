@@ -42,20 +42,50 @@ The proposal is to give the engine the knowledge of the host cores and threads, 
 
 *   UI:
     -   add CPU hyperthreading info to Host status, General tab
-    -   add UI element to set option in Add/Edit Cluster dialog
-        -   not visible if cluster compatibility version < 3.2
+    -   redesign Optimization tab of Add/Edit Cluster dialog, to include CPU Hyperthreading option
+        -   new option not visible if cluster compatibility version < 3.2
 
 ![](cpuovercommit.png "cpuovercommit.png")
 
 *   backend:
-    -   add vds_groups.treat_threads_as_cores boolean attribute
-        -   add column to database table
-        -   DAO changes
+    -   add db column, boolean vds_groups.treat_threads_as_cores (db scripts, DAO)
+    -   add db column, boolean vds_dynamic.cpu_ht_enabled (db scripts, DAO)
+    -   add db column, boolean vds_dynamic.vdsm_treat_threads_as_cores
+        -   -or- add boolean vds_dynamic.cpu_real_cores (see VDSM section for more detail)
+        -   db scripts, DAO
+    -   vdsbroker changes to store new vds_dynamic values
     -   logic changes for when VMs can run or migrate (VdsSelector)
 *   REST API:
-    -   add new cluster attribute
+    -   add new cluster and vds attributes
 *   VDSM:
-    -   expose hyperthreading info (specifics TBD)
+    -   expose hyperthreading info (see VDSM section)
+
+<!-- -->
+
+*   See VDSM section for details
+
+#### VDSM
+
+VDSM currently exposes host count of cpu_cores and cpu_sockets, both in vdsGetCapabilities. There is a configuration setting, report_host_threads_as_cores, which if true, may cause the reported cpu_cores value to not reflect the physical cpu topology of the host. To enable engine control of CPU overcommitment, we need both an accurate core count, and a way to determine the number of cpu threads on the host. Moving forward, having an accurate cpu topology of the host will help enable performance optimization with NUMA considerations, CPU pinning (e.g. share L1 cache by pinning guest CPUs to the same physical cores), etc.
+
+The proposal is to add two new attributes to the vdsGetCapabilities verb:
+
+*   cpu_ht_enabled: a boolean field, true if hyperthreading is enabled on the host cpu. If true, the engine will treat each reported physical core as having 2 threads
+*   report_host_threads_as_cores: same value as vdsm.conf setting. The engine would store this in vds_dynamic.vdsm_treat_threads_as_cores, and if true, would halve the cpu core count when reporting statistics for hosts in 3.2 clusters.
+
+      - or -
+
+*   cpu_real_cores: the number of cores on the host, regardless of the report_host_threads_as_cores setting. Engine would use this value for 3.2 clusters instead of the cpu_cores count.
+
+In the future, removal of the report_host_threads_as_cores setting would be ideal as engine will gain the ability to configure this same functionality cluster-wide via the webadmin interface. Cleanliness of the API should be considered moving forward, accounting for the engine's ability to detect when vdsm is lying about the number of cores, as well as engine-side considerations of how to best display the information we have available. The possibility of setting a minimum required vdsm version for the 3.2 engine, or calculating engine-side values based on vdsm version, may help keep the vdsm API clean.
+
+Proposed getVdsCapabilities cpu attribute migration plan
+
+| version | attributes                                                                   | notes                                                                                     |
+|---------|------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| 3.1     | cpu_sockets, cpu_cores                                                     | row 1, cell 3                                                                             |
+| 3.2     | cpu_sockets, cpu_cores, cpu_ht_enabled, report_host_threads_as_cores | engine controls 3.2 clusters (knows if vdsm is adjusting cpu_cores); vdsm controls <3.2 |
+| 3.3     | cpu_sockets, cpu_cores, cpu_ht_enabled                                   | remove report_host_threads_as_cores, min cluster version 3.2; engine has full control |
 
 #### Compatibility
 

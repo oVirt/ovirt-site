@@ -46,7 +46,7 @@ oVirt Node 2.5.5-0.1
 
 *   [libvirt](http://libvirt.org/) for virtual machine and storage management.
 *   [collectd](http://collectd.org/) for gathering statistics and monitoring.
-*   [Matahari](http://matahari.fedorahosted.org) for host and guest system management.
+*   [Matahari](https://github.com/matahari/matahari/wiki) for host and guest system management.
 
 ## Upgrading
 

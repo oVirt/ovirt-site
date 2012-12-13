@@ -272,7 +272,7 @@ In case you like to do a full bootstrap installation (InstallVds = True into the
 
 ## Testing
 
-Assuming JBoss is not running, it should be started:
+Assuming JBoss is not running, start it:
 
           #> service jboss-as start (or restart if you already started above for tests)
           #> ps ax | grep java

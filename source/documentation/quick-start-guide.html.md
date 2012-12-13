@@ -164,7 +164,7 @@ Before installing the oVirt Node, you need to download the hypervisor image and 
 
 **Download oVirt Node installation CD**
 
-1. Download the [latest version](http://ovirt.org/releases/3.1/tools/ovirt-node-iso-2.5.5-0.1.fc17.iso) of oVirt Node and burn the ISO image onto a disc.
+1. Download the latest version of ovirt Node from [oVirt Node release](http://ovirt.org/releases/3.1/tools/ovirt-node-iso-2.5.5-0.1.fc17.iso) and burn the ISO image onto a disc.
 
 Once you have created an oVirt Node installation CD, you can use it to boot the machine designated as your Node host. For this guide you will use the interactive installation where you are prompted to configure your settings in a graphical interface. Use the following keys to navigate around the installation screen:
 

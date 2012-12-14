@@ -64,7 +64,7 @@ The proposal is to give the engine the knowledge of the host cores and threads, 
 
 VDSM currently exposes host count of cpuCores and cpuSockets, both in vdsGetCapabilities. There is a configuration setting, report_host_threads_as_cores, which if true, may cause the reported cpuCores value to not reflect the physical cpu topology of the host. To enable engine control of CPU overcommitment, we need both an accurate core count, and a way to determine the number of cpu threads on the host. Moving forward, having an accurate cpu topology of the host will help enable performance optimization with NUMA considerations, CPU pinning (e.g. share L1 cache by pinning guest CPUs to the same physical cores), etc.
 
-The proposal is to add two new attributes returned by the vdsGetCapabilities verb (or whichever verb from which related CPU information is returned):
+The proposal is to add two new attributes returned by the vdsGetCapabilities verb (or if vdsGetCapabilities is broken up, then from whichever verb returns the other CPU-related information):
 
 *   cpuHtEnabled: boolean, true if hyperthreading is enabled on the host cpu. If true, the engine will treat each reported physical core as having 2 threads
 *   reportHostThreadsAsCores: boolean, same value as vdsm.conf setting. The engine would store this in vds_dynamic.vdsm_count_threads_as_cores, and if true, would halve the cpu core count when reporting statistics for hosts in 3.2 clusters.

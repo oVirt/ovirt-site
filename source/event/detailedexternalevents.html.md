@@ -146,6 +146,16 @@ We will use the existing events URL (.../api/events) and the existing Event busi
 *Note that no update is required.
 *
 
+Example of add event
+
+`  `<event>
+`       `<description>`bla bla`</description>
+`       `<severity>`normal`</severity>
+`       `<origin>`EMC`</origin>
+`       `<custom_event_id>`1`</custom_event_id>
+`       `<event_flood_in_sec>`30`</event_flood_in_sec>
+`   `</event>
+
 ### User Experience
 
 Global External Events will be displayed on the Global Events TAB

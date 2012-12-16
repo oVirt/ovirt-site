@@ -112,6 +112,9 @@ A split view of the VM's Network Interfaces sub-tab will present the information
 
 ![](VmInterfaceSubTab.png "VmInterfaceSubTab.png")
 
+*   The Guest Agent reports devices that are up, therefore we are not able to report vNics that are down.
+*   The Guest Agent is not updated upon change, but rather periodically every 2 minutes, therefore user may experience a slight delay when updating/adding a vNic.
+
 ### Benefit to oVirt
 
 The feature is an enhancement of the oVirt engine vNic management:

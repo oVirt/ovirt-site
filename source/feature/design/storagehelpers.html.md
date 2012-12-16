@@ -19,11 +19,12 @@ The architecture today is described in the following schema:
 ![](ISCSIHelpers.png "fig:ISCSIHelpers.png")
 There are few clean ups, re-design which should be consider to be done:
 1. Removed unused methods.
-2.Proxy methods which does not contribute nothing to the code should be deleted.
+2.Proxy methods which does not contribute to the code should be deleted.
 3. Java standards should be followed (Method names).
 4. The abstract helper exposes API with the notion of LUN in it as part of the method signatures.
  NFS should not be aware of it (for example, removeLun, connect/disconnectStorageToLun, getLunDAO and more).
-5, There are 0 tests.
+5. Tests should be added (There are 0 tests)
+6. Other cleanups
 The code seems to use slightly different functionality for NFS storage and LUN Storage (NFS helpers call vdcActionTypes which call vdsActionType, and ISCSI helper only calls vdsActionType)
  The following is a new architecture which is proposed to make the code be a bit more comfortable to use:
 1. Dieting the IStorageHelper interface as much as we can, and move specific functional methods to their specific helpers. (like removeLun)

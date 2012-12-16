@@ -149,9 +149,9 @@ We will use the existing events URL (.../api/events) and the existing Event busi
 Example of add event
 
 `  `<event>
-`       `<description>`bla bla`</description>
+`       `<description>`message`</description>
 `       `<severity>`normal`</severity>
-`       `<origin>`EMC`</origin>
+`       `<origin>`Origin`</origin>
 `       `<custom_event_id>`1`</custom_event_id>
 `       `<event_flood_in_sec>`30`</event_flood_in_sec>
 `   `</event>

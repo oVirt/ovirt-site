@@ -31,7 +31,7 @@ Expand on the summary, if appropriate. A couple sentences suffices to explain th
 
 ### Benefit to oVirt
 
-What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
+This features allows the usage of read only disks. This is useful where we'd like to expose the data but don't want it to be altered. This is a new feature in the engine, allowing the attachment of a disk to a VM to be done with read only rights. A shareable disk could be attached to one VM as RO, and to another as RW. This is the case as long as the disk is not qCow.
 
 ### Dependencies / Related Features
 

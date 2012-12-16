@@ -31,7 +31,7 @@ The code seems to use slightly different functionality for NFS storage and LUN S
 3. Use two abstract helpers for Lun and NFS (Local FS, NFS, PosixFS might still be inherited from it), and will implement the new IStorageHelper interface
 4. See if maybe FCP helper could be removed or at least be much more API leaner (All the methods in it return true).
 From the client programmer perspective the new architecture will force him to know whether he uses block storage or NFS storage, to call the right helper for connecting the storage to the VDSM.
-This is also happens today, in a much more confusing way, since there are a lot of "dirty" APIs which does not reflect the true functionality of the storage type.
+This is also happens today, in a much more confusing way, since there are a lot of "dirty" APIs which does not reflect the true functionality of the storage type that he use.
 
 *   Email: mlipchuk@redhat.com
 

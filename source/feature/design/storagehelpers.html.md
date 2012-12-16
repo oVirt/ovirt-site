@@ -14,17 +14,18 @@ Today we have different storage helpers in the engine which can be summarised in
 1. FCP
 2. ISCSI,
 3. BaseFS (Local FS, NFS, PosixFS)
-each one of this helpers rules the connect/disconnect storage functionality with VDSM.
-(The architecture is detailed in the attached dia file)
+Each one of these helpers rules the connect/disconnect storage functionality with VDSM.
+The architecture today is described in the following schema:
+![](ISCSIHelpers.png "fig:ISCSIHelpers.png")
 There are few clean ups, re-design which should be consider to be done:
 1. Unused methods should be removed.
 2.Proxy methods which does not contribute nothing to the code should be deleted.
 2. Java standards should be followed (Method names).
 3. The API exposed by the abstract command use the notion of LUN in the method signatures. NFS should not be aware of it (for example, removeLun, connect/disconnectStorageToLun, getLunDAO and more).
 4. No tests are exists for this helpers.
-From what I saw in the code it seems that the logic which is used to connect NFS storage is different then the ISCSI (NFS helpers call vdcActionTypes which call vdsActionType, and ISCSI helper only
-calls vdsActionType) I was thinking to change this architecture as follow:
-1. Dieting the IStorageHelper interface as much as we can, and remove specific functional methods like removeLun.
+The code seems to use slightly different functionality for NFS storage and LUN Storage (NFS helpers call vdcActionTypes which call vdsActionType, and ISCSI helper only calls vdsActionType)
+ The following is a new architecture which is proposed to make the code be a bit more comfortable to use:
+1. Dieting the IStorageHelper interface as much as we can, and move specific functional methods to their specific helpers. (like removeLun)
 2. Remove the StorageHelperBase
 3. Use two abstract helpers for Lun and NFS (Local FS, NFS, PosixFS might still be inherited from it), and will implement the new IStorageHelper interface
 4. See if maybe FCP helper could be removed or at least be much more API leaner (All the methods in it return true).

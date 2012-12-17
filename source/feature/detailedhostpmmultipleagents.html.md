@@ -95,10 +95,11 @@ Add pm_secondary\* fields to VDS
 
 ### API
 
-The REST API will be enhanced to include the new Secondary Agent definitions as follows
- <power_management_agents>
+The REST API will be enhanced to include the multiple Agents definitions as follows
+Keep in mind that we should preserve the former syntax for backward compatibility and deprecate it in future
+For any case in which we found old flat PM definitions and other definitions inside the agents block, the setting in the agent block will take presence.
 
-`   `<power_management type="rsa" order="primary">
+` `<power_management type="rsa">
 `     `<enabled>`true`</enabled>
            
 
@@ -109,19 +110,33 @@ ip or fqdn
 `     `&lt;username&gt;`user`</username>
 `     `<password>`password`</password>
 `      `<options><option value="" name="port"/><option value="false" name="secure"/></options>
-`   `</power_management>
-`   `<power_management type="apc" order="secondary">
-           
+`      `<agents>
+`        `<agent type="rsa" order="1" concurrent="false">
+                          
 
 <address>
 ip or fqdn
 
 </address>
-`     `&lt;username&gt;`user`</username>
-`     `<password>`password`</password>
-`     `<options><option value="" name="port"/><option value="false" name="secure"/></options>
+                          `&lt;username&gt;`user`</username>` order="primary"
+`                    `<password>`password`</password>
+`                    `<options><option value="" name="port"/><option value="false" name="secure"/></options>
+`        `</agent>
+`       `<agent type="ipmi" order="2" concurrent="false">
+                          
+
+<address>
+ip or fqdn
+
+</address>
+                          `&lt;username&gt;`user`</username>` order="primary"
+`                    `<password>`password`</password>
+`                    `<options><option value="" name="port"/><option value="false" name="secure"/></options>
+`        `</agent>
+            ......
+`      `</agents>
 `   `</power_management>
-` `</power_management_agents>
+       
 
 *concurrent* flag will be handled in the Host level
 Add custom mapping for these new power-management fields in HostMapper.java, for both REST-->Backend and Backend-->REST directions)

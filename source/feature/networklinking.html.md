@@ -153,6 +153,7 @@ Changes:
 *   Deprecating activate/deactivate actions
 *   plug/unplug and changing link_state (up/down) on a vnic, will be done via PUT action on the VM NIC
     -   /api/vms/{vm:id}/nics/{nic:id}/
+*   Add support to no network ("<network/>") on the NIC.
 
 There is no reason to have dedicated actions for plug/unplug or changing link_state. The original reason for having them was that edit VM nic while the VM was up used to be blocked and now we'll enable doing these actions.
 

@@ -47,4 +47,4 @@ This below adds a link to the "discussion" tab associated with your page. This p
 
 *   Refer to [Talk:Your feature name](Talk:Your feature name)
 
-<Category:Feature> <Category:Template>
+<Category:Feature>

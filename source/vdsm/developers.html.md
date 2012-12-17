@@ -70,7 +70,7 @@ Vdsm automatically builds using the latest tagged version. If you want to explic
 ## Code Style
 
 *   variables and arguments are in mixedCase
-*   class names are in CamelCase
+*   class, function and method names are in CamelCase
 *   all indentation is made of space characters
 *   a space character follows any comma
 *   spaces surround operators, but

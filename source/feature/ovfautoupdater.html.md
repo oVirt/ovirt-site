@@ -74,7 +74,7 @@ vdc_options table:
 
 #### NOTES
 
-      VMs/Templates that are being/were updated during their processing by OvfAutoUpdater run won't be updated till the next OvfAutoUpdater run.
+      OVF'S of VMs/Templates that are being/were updated exactly during their processing by OvfAutoUpdater run will have their OVF updated in the storage the next OvfAutoUpdater run, DB updates will occur regulary.
 
 ### Comments and Discussion
 

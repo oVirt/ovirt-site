@@ -37,7 +37,18 @@ vm_device table already has a read_only column. No update to the DB is needed.
 
 AddDiskCommand, AttachDiskToVmCommand - Add the RO property and propagate until VMDevice creation. All relating Parameters classes should now contain this info. Therefore, VmDiskOperatinParameterBase will be added a new readOnly data member. ImagesHandler.addDiskToVm() - will get the RO data and propagate it.
 
-No changes need in: HotPlugDiskToVmCommand UpdateVmDiskCommand DetachDiskFromVmCommand CreateCloneOfTemplateCommand AddVmTemplateDevice AddVmFromTemplateCommand CreateSnapshotFromTemplate AddVmFromSnapshotCommand AddVmAndCloneImageCommand OvfReader.readVmDevice() (already reads the readOnly property). OvfWriter.writeVmDeviceInfo() (already writes the readOnly property).
+No changes need in:
+HotPlugDiskToVmCommand
+UpdateVmDiskCommand
+DetachDiskFromVmCommand
+CreateCloneOfTemplateCommand
+AddVmTemplateDevice
+AddVmFromTemplateCommand
+CreateSnapshotFromTemplate
+AddVmFromSnapshotCommand
+AddVmAndCloneImageCommand
+OvfReader.readVmDevice() (already reads the readOnly property).
+OvfWriter.writeVmDeviceInfo() (already writes the readOnly property).
 
 ##### Templates
 
@@ -59,6 +70,6 @@ This features allows the usage of read only disks. This is useful where we'd lik
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
+*   Refer to [Talk:Read Only Disk](Talk:Read Only Disk)
 
 <Category:Feature>

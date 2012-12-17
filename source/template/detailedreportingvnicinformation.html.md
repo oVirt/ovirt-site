@@ -71,7 +71,7 @@ The table will be updated only when a change is detected by the reported data fr
 
 #### Rest API
 
-Populating the VM's **network_devices** element under **guest_info** is implemented by mechanism introduced by ["All-Content Header" patch](http://gerrit.ovirt.org/#/c/9018)
+Populating the VM's **network_devices** element under **guest_info** is implemented by mechanism introduced by ["All-Content Header" patch](http://gerrit.ovirt.org/#/c/9815)
 Rest API will invoke GetVmGuestAgentInterfacesForVmQuery from the *populate* method of VM Resource *BackendVmResource*' in order to populate the additional information of guest_info.
 A mapper should be created as well between VmGuestAgentInterface to the equivalent Rest API entity.
 

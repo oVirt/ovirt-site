@@ -27,11 +27,11 @@ Add Read Only Disk Functionality to the engine.
 
 ### Detailed Description
 
-Expand on the summary, if appropriate. A couple sentences suffices to explain the goal, but the more details you can provide the better.
+When adding/attaching a disk to a vm, add a property of RO. The RO property is not a disk property. It's a property of the VM-Disk relationship, and therefore is persisted through VMDevice (vm_device in the DB). A shareable disk could be attached to one VM as RO, and to another as RW. This is the case as long as the disk is not qCow. qCow disks currently cannot be shared. When that'll change, it shouldn't be allowed to attach a RW qCow disk to one VM while attaching it as RO to another.
 
 ### Benefit to oVirt
 
-This features allows the usage of read only disks. This is useful where we'd like to expose the data but don't want it to be altered. This is a new feature in the engine, allowing the attachment of a disk to a VM to be done with read only rights. A shareable disk could be attached to one VM as RO, and to another as RW. This is the case as long as the disk is not qCow.
+This features allows the usage of read only disks. This is useful where we'd like to expose the data but don't want it to be altered. This is a new feature in the engine, allowing the attachment of a disk to a VM to be done with read only rights. A shareable disk could be attached to one VM as RO, and to another as RW.
 
 ### Dependencies / Related Features
 

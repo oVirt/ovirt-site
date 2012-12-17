@@ -47,6 +47,10 @@ Currently templates will maintain the current disk RO property value with no edi
 
 There's no need to save the images of RO disk to the images table. There is, however, a need to update the ovf file so that it does include the RO disks' (images). Verified - the OvfReader does read the RO property, so no problem with snapshots uses.
 
+#### UI
+
+Changes will have to be made to RESTapi and uicommon in order to get the RO property value from the user.
+
 ### Benefit to oVirt
 
 This features allows the usage of read only disks. This is useful where we'd like to expose the data but don't want it to be altered. This is a new feature in the engine, allowing the attachment of a disk to a VM to be done with read only rights. A shareable disk could be attached to one VM as RO, and to another as RW.

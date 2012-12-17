@@ -29,17 +29,21 @@ Add Read Only Disk Functionality to the engine.
 
 When adding/attaching a disk to a vm, add a property of RO. The RO property is not a disk property. It's a property of the VM-Disk relationship, and therefore is persisted through VMDevice (vm_device in the DB). A shareable disk could be attached to one VM as RO, and to another as RW. This is the case as long as the disk is not qCow. qCow disks currently cannot be shared. When that'll change, it shouldn't be allowed to attach a RW qCow disk to one VM while attaching it as RO to another.
 
+#### DB
+
+vm_device table already has a read_only column. No update to the DB is needed.
+
+#### Backend
+
+AddDiskCommand, AttachDiskToVmCommand - Add the RO property and propagate until VMDevice creation. All relating Parameters classes should now contain this info. Therefore, VmDiskOperatinParameterBase will be added a new readOnly data member. ImagesHandler.addDiskToVm() - will get the RO data and propagate it.
+
+No changes need in: HotPlugDiskToVmCommand UpdateVmDiskCommand DetachDiskFromVmCommand CreateCloneOfTemplateCommand AddVmTemplateDevice
+
+Snapshot
+
 ### Benefit to oVirt
 
 This features allows the usage of read only disks. This is useful where we'd like to expose the data but don't want it to be altered. This is a new feature in the engine, allowing the attachment of a disk to a VM to be done with read only rights. A shareable disk could be attached to one VM as RO, and to another as RW.
-
-### Dependencies / Related Features
-
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
-
-### Documentation / External references
-
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
 
 ### Comments and Discussion
 

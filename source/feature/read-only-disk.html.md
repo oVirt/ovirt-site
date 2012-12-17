@@ -37,7 +37,7 @@ vm_device table already has a read_only column. No update to the DB is needed.
 
 AddDiskCommand, AttachDiskToVmCommand - Add the RO property and propagate until VMDevice creation. All relating Parameters classes should now contain this info. Therefore, VmDiskOperatinParameterBase will be added a new readOnly data member. ImagesHandler.addDiskToVm() - will get the RO data and propagate it.
 
-No changes need in: HotPlugDiskToVmCommand UpdateVmDiskCommand DetachDiskFromVmCommand CreateCloneOfTemplateCommand AddVmTemplateDevice
+No changes need in: HotPlugDiskToVmCommand UpdateVmDiskCommand DetachDiskFromVmCommand CreateCloneOfTemplateCommand AddVmTemplateDevice AddVmFromTemplateCommand CreateSnapshotFromTemplate AddVmFromSnapshotCommand AddVmAndCloneImageCommand OvfReader.readVmDevice() (already reads the readOnly property). OvfWriter.writeVmDeviceInfo() (already writes the readOnly property).
 
 Snapshot
 

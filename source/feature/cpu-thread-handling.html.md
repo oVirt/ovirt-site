@@ -8,9 +8,7 @@ wiki_revision_count: 25
 wiki_last_updated: 2012-12-21
 ---
 
-# CPU thread handling
-
-## CPU Overcommit
+# CPU Thread Handling
 
 ### Summary
 

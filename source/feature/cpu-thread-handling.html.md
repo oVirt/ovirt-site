@@ -47,7 +47,7 @@ The proposal is to give the engine the knowledge of the host cores and threads, 
 
 *   backend:
     -   add db column, boolean vds_groups.count_threads_as_cores (db scripts, DAO)
-    -   add db column, boolean vds_dynamic.cpu_ht_enabled (db scripts, DAO)
+    -   add db column, boolean vds_dynamic.cpu_threads_enabled (db scripts, DAO)
     -   add db column, boolean vds_dynamic.vdsm_count_threads_as_cores
         -   -or- add boolean vds_dynamic.cpu_real_cores (see VDSM section for more detail)
         -   db scripts, DAO
@@ -64,18 +64,18 @@ VDSM currently exposes host count of cpuCores and cpuSockets, both in vdsGetCapa
 
 The proposal is to add two new attributes returned by the vdsGetCapabilities verb (or if vdsGetCapabilities is broken up, then from whichever verb returns the other CPU-related information):
 
-*   cpuHtEnabled: boolean, true if host threads are enabled on the host's cpu. If true, the engine will treat each reported physical core as having 2 threads
+*   cpuThreadsEnabled: boolean, true if host threads are enabled on the host's cpu. If true, the engine will treat each reported physical core as having 2 threads
 *   reportHostThreadsAsCores: boolean, same value as vdsm.conf setting. The engine would store this in vds_dynamic.vdsm_count_threads_as_cores, and if true, would halve the cpu core count when reporting statistics for hosts in 3.2 clusters.
 
 In the future, removal of the report_host_threads_as_cores setting would be ideal as engine will gain the ability to configure this same functionality cluster-wide via the webadmin interface. Cleanliness of the API should be considered moving forward, accounting for the engine's ability to detect when vdsm is lying about the number of cores, as well as engine-side considerations of how to best display the information we have available. The possibility of setting a minimum required vdsm version for the 3.2 engine, or calculating engine-side values based on vdsm version, may help keep the vdsm API clean.
 
 Proposed getVdsCapabilities cpu attribute migration plan
 
-| version | attributes                                                   | notes                                                                                     |
-|---------|--------------------------------------------------------------|-------------------------------------------------------------------------------------------|
-| 3.1     | cpuSockets, cpuCores                                         | row 1, cell 3                                                                             |
-| 3.2     | cpuSockets, cpuCores, cpuHtEnabled, reportHostThreadsAsCores | engine controls 3.2 clusters (knows if vdsm is adjusting cpuCores); vdsm controls <3.2   |
-| 3.3     | cpuSockets, cpuCores, cpuHtEnabled                           | remove report_host_threads_as_cores, min cluster version 3.2; engine has full control |
+| version | attributes                                                        | notes                                                                                     |
+|---------|-------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| 3.1     | cpuSockets, cpuCores                                              | row 1, cell 3                                                                             |
+| 3.2     | cpuSockets, cpuCores, cpuThreadsEnabled, reportHostThreadsAsCores | engine controls 3.2 clusters (knows if vdsm is adjusting cpuCores); vdsm controls <3.2   |
+| 3.3     | cpuSockets, cpuCores, cpuThreadsEnabled                           | remove report_host_threads_as_cores, min cluster version 3.2; engine has full control |
 
 #### Compatibility
 

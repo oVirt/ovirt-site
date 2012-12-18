@@ -124,6 +124,7 @@ The network wiring feature is an enhancement for the VM Network Interface manage
 *   ChangeVMClusterCommand
 *   AddVmTemplateCommand
 *   AddVmTemplateInterfaceCommand
+*   UpdateVmTemplateInterfaceCommand
 *   UpdateVmCommand
 *   ImportVmCommand
 *   ImportVmTemplateCommand

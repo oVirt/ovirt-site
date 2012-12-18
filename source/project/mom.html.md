@@ -1,0 +1,41 @@
+---
+title: MoM
+category: project
+authors: aglitke, doron, lhornyak
+wiki_category: Project
+wiki_title: MoM
+wiki_revision_count: 9
+wiki_last_updated: 2013-02-19
+---
+
+# Mo M
+
+MOM is a policy-driven tool that can be used to manage overcommitment on KVM hosts. Using libvirt, MOM keeps track of active virtual machines on a host. At a regular collection interval, data is gathered about the host and guests. Data can come from multiple sources (eg. the /proc interface, libvirt API calls, a client program connected to a guest, etc). Once collected, the data is organized for use by the policy evaluation engine. When started, MOM accepts a user-supplied overcommitment policy. This policy is regularly evaluated using the latest collected data. In response to certain conditions, the policy may trigger reconfiguration of the system’s overcommitment mechanisms. Currently MOM supports control of memory ballooning and KSM but the architecture is designed to accommodate new mechanisms such as cgroups.
+
+## Name
+
+mom / MoM / MOM???
+
+MoM stands for Memory overcommitment Manager.
+
+## Important MoM wiki pages
+
+         Under construction..... 
+
+## Additional project information
+
+Our git repository sits on oVirt's Gerrit server. Development takes place on mostly in vdsm mailing lists: vdsm-patches for submitting new patches, and vdsm-devel for general discussions on where Vdsm development should go. On the latter one, users and potential users should feel comfortable to seek help, ask questions, and get answers about Vdsm.
+
+## IRC
+
+There is #ovirt on oftc.
+
+## Requirements
+
+         Under construction..... 
+
+Caveats
+
+         Under construction..... 
+
+<Category:Project>

@@ -41,22 +41,25 @@ New attributes will be added to VM nics collection /api/vms/{vm:id}/nics:
 `       `<nic id="56d6d62f-6af0-4c02-8500-4be041180031">
 `           `<name>`nic1`</name>
                  ...
-`           `<guest_info>
-`               `<interface_name>`p1p2`</interface_name>
-`               `<mac address="AA:AA:AA:AA:AA:AA"/>
+`           `<guest_agent_interfaces>
+`               `<guest_agent_interface>
+`                   `<interface_name>`p1p2`</interface_name>
+`                   `<mac address="AA:AA:AA:AA:AA:AA"/>
         
-                      
-`               `<ipv4_addresses>
-`                   `<ip address="1.1.1.1"/>
-`                   `<ip address="2.2.2.2"/>
-`               `</ipv4_addresses>
+                          
+`                   `<ipv4_addresses>
+`                       `<ip address="1.1.1.1"/>
+`                       `<ip address="2.2.2.2"/>
+`                   `</ipv4_addresses>
         
-                     
-`               `<ipv6_addresses>
-`                   `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7335"/>
-`                   `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7336"/>
-`               `</ipv6_addresses>
-`           `</guest_info>
+                         
+`                   `<ipv6_addresses>
+`                       `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7335"/>
+`                       `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7336"/>
+`                   `</ipv6_addresses>
+`               `</guest_agent_interface>
+                     ...
+`           `</guest_agent_interfaces>
 `       `</nic>
              ...
 `   `</nics>
@@ -76,8 +79,8 @@ However it will be extended to contain also the network devices configuration on
 
 `  `<guest_info>
             ...
-`      `<network_devices>
-`          `<interface>
+`      `<guest_agent_interfaces>
+`          `<guest_agent_interface>
 `              `<name>`p1p2`</name>
 `              `<ipv4_addresses>
 `                  `<ip address="1.1.1.1"/>
@@ -88,8 +91,9 @@ However it will be extended to contain also the network devices configuration on
 `                  `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7336"/>
 `              `</ipv6_addresses>
 `              `<mac address="AA:AA:AA:AA:AA:AA"/>
-`          `</interface>
-`      `</network_devices>
+`          `</guest_agent_interface>
+                ...
+`      `</guest_agent_interfaces>
 `  `</guest_info>
 
 Populating the VM's **network_devices** element under **guest_info** is implemented by mechanism introduced by ["All-Content Header" patch](http://gerrit.ovirt.org/#/c/9815)

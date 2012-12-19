@@ -43,7 +43,7 @@ New attributes will be added to VM nics collection /api/vms/{vm:id}/nics:
                  ...
 `           `<guest_agent_interfaces>
 `               `<guest_agent_interface>
-`                   `<name>`p1p2`</name>
+`                   `<interface_name>`p1p2`</interface_name>
 `                   `<mac address="AA:AA:AA:AA:AA:AA"/>
         
                           
@@ -81,7 +81,7 @@ However it will be extended to contain also the network devices configuration on
             ...
 `      `<guest_agent_interfaces>
 `          `<guest_agent_interface>
-`              `<name>`p1p2`</name>
+`              `<interface_name>`p1p2`</interface_name>
 `              `<ipv4_addresses>
 `                  `<ip address="1.1.1.1"/>
 `                  `<ip address="2.2.2.2"/>

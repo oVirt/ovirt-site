@@ -53,6 +53,8 @@ None.
 
 [bug#866889](https://bugzilla.redhat.com/show_bug.cgi?id=866889) [bug#861575](https://bugzilla.redhat.com/show_bug.cgi?id=861575) [bug#861576](https://bugzilla.redhat.com/show_bug.cgi?id=861576)
 
+[Ovirt Host Deploy Presentation](:File:ovirt-host-deploy 3.2.pdf)
+
 ### Comments and Discussion
 
 *   Refer to <Talk:Bootstrap_Improvements>

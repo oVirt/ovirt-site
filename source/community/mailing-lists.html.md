@@ -22,7 +22,7 @@ There are many mailing lists in the oVirt project - mostly referenced on [the oV
 *   [Arch](http://lists.ovirt.org/mailman/listinfo/arch): Project-wide developer related issues. Anything which requires the feedback or awareness of developers on two or more of the Engine, Node and VDSM should go here.
 *   [Engine-devel](http://lists.ovirt.org/mailman/listinfo/engine-devel): Development list for oVirt [Engine](Engine)
 *   [node-devel](http://lists.ovirt.org/mailman/listinfo/node-devel): Development list for oVirt [Node](Node)
-*   <http://lists.fedorahosted.org/mailman/listinfo/vdsm-devel> Vdsm-devel]: Development list for [VDSM](VDSM)
+*   [Vdsm-devel](http://lists.fedorahosted.org/mailman/listinfo/vdsm-devel): Development list for [VDSM](VDSM)
 
 ### Project governance and management
 

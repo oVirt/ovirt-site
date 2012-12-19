@@ -20,4 +20,8 @@ Highly scalable, Image-based, small-footprint (<200MB) hypervisor with minimized
 
 Centralized enterprise-grade virtualization management engine with graphical administration console and programming interfaces. more info: www.ovirt.org/OVirt_3.0_Feature_Guide#oVirt_Node
 
-#### oVirt architecture
+# oVirt architecture
+
+![](Architecture3.jpg "Architecture3.jpg")
+
+# Features

@@ -64,7 +64,7 @@ device:id = UUID.fromString(name)
 `       `</ipv6_addresses>
              `<mac></mac>`        
 
-<device/>
+</device>
 
 ##### Backward compatibility
 
@@ -104,7 +104,7 @@ device:id = UUID.fromString(name+mac)
 `       `</ipv6_addresses>
              `<mac></mac>`        
 
-<device/>
+</device>
 
 Populating the VM's **network_devices** element under **guest_info** is implemented by mechanism introduced by ["All-Content Header" patch](http://gerrit.ovirt.org/#/c/9815)
 Only if the request header contains the 'All-Content=true', the network's devices information will be populate the for the VM.

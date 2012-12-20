@@ -79,6 +79,23 @@ However it will be extended to contain also the network devices configuration on
 
 `  `<guest_info>
             ...
+`      `<reported_data>
+`          `<network>
+`              `<rel="devices" href=/api/vms/{vm:id}/devices>
+`          `</network>
+`      `<reported_data/>
+`  `<guest_info/>
+
+<device id=yy href=/api/vms/{vm:id}/devices/{device:id}>
+
+`       `<name>`p1p2`</name>
+`       `<description>`guest reported data`</description>
+`       `<ip type=v4></ip>
+`       `<ip type=v6></ip>
+             `<mac></mac>`        
+
+<device/>
+
 `      `<guest_interfaces>
 `          `<guest_interface>
 `              `<interface_name>`p1p2`</interface_name>

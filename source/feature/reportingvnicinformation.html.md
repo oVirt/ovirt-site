@@ -90,8 +90,7 @@ However it will be extended to contain also the network devices configuration on
 
 device:id = UUID.fromString(name+mac)
 
-<device id={device:id} href=/api/vms/{vm:id}/devices/{device:id}>
-
+` `<device id={device:id} href=/api/vms/{vm:id}/devices/{device:id}>
 `       `<name>`p1p2`</name>
 `       `<description>`guest reported data`</description>
 `       `<ipv4_addresses>
@@ -103,8 +102,8 @@ device:id = UUID.fromString(name+mac)
 `           `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7336"/>
 `       `</ipv6_addresses>
              `<mac></mac>`        
-
-</device>
+` `</device>
+            
 
 Populating the VM's **network_devices** element under **guest_info** is implemented by mechanism introduced by ["All-Content Header" patch](http://gerrit.ovirt.org/#/c/9815)
 Only if the request header contains the 'All-Content=true', the network's devices information will be populate the for the VM.

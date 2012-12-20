@@ -251,21 +251,23 @@ Till java-sdk project is deployable, just compile it and reference from your pro
 
 3. generate method/s overloads using header/url params
 
-4. support persistance-auth
+4. generate delete method/s overloads with body
 
-5. implement sdk debug mode
+5. support persistance-auth
 
-6. do not throw third party exceptions
+6. implement sdk debug mode
 
-7. remove @SuppressWarnings("unused") from decorators
+7. do not throw third party exceptions
 
-8. move get/list methods from the decorators to the parent class
+8. remove @SuppressWarnings("unused") from decorators
 
-9. implement unique treatment for COLLECTION2ENTITY pattern exceptions
+9. move get/list methods from the decorators to the parent classes
 
-10. implement logger in codegen
+10. implement unique treatment for COLLECTION2ENTITY pattern exceptions
 
-11. add MakeFile
+11. implement logger in codegen
+
+12. add deployment capabilities
 
 12. upload artifacts to mvn repo
 

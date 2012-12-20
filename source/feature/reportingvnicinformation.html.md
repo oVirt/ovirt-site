@@ -50,8 +50,7 @@ New attributes will be added to VM nics collection /api/vms/{vm:id}/nics:
 
 device:id = UUID.fromString(name)
 
-<device id={device:id} href=/api/vms/{vm:id}/devices/{device:id}>
-
+` `<device id={device:id} href=/api/vms/{vm:id}/devices/{device:id}>
 `       `<name>`p1p2`</name>
 `       `<description>`guest reported data`</description>
 `       `<ipv4_addresses>
@@ -63,8 +62,7 @@ device:id = UUID.fromString(name)
 `           `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7336"/>
 `       `</ipv6_addresses>
              `<mac></mac>`        
-
-</device>
+` `</device>
 
 ##### Backward compatibility
 

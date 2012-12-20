@@ -41,28 +41,30 @@ New attributes will be added to VM nics collection /api/vms/{vm:id}/nics:
 `       `<nic id="56d6d62f-6af0-4c02-8500-4be041180031">
 `           `<name>`nic1`</name>
                  ...
-`           `<guest_interfaces>
-`               `<guest_interface>
-`                   `<interface_name>`p1p2`</interface_name>
-`                   `<mac address="AA:AA:AA:AA:AA:AA"/>
-        
-                          
-`                   `<ipv4_addresses>
-`                       `<ip address="1.1.1.1"/>
-`                       `<ip address="2.2.2.2"/>
-`                   `</ipv4_addresses>
-        
-                         
-`                   `<ipv6_addresses>
-`                       `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7335"/>
-`                       `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7336"/>
-`                   `</ipv6_addresses>
-`               `</guest_interface>
-                     ...
-`           `</guest_interfaces>
-`       `</nic>
+`           `<reported_data>
+`               `<rel="devices" href=/api/vms/{vm:id}/nics/xxx/devices>
+`           `<reported_data/>
+`      `<nic/>
              ...
 `   `</nics>
+
+device:id = UUID.fromString(name)
+
+<device id={device:id} href=/api/vms/{vm:id}/devices/{device:id}>
+
+`       `<name>`p1p2`</name>
+`       `<description>`guest reported data`</description>
+`       `<ipv4_addresses>
+`           `<ip address="1.1.1.1"/>
+`           `<ip address="2.2.2.2"/>
+`       `</ipv4_addresses>
+`       `<ipv6_addresses>
+`           `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7335"/>
+`           `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7336"/>
+`       `</ipv6_addresses>
+             `<mac></mac>`        
+
+<device/>
 
 ##### Backward compatibility
 
@@ -86,32 +88,23 @@ However it will be extended to contain also the network devices configuration on
 `      `<reported_data/>
 `  `<guest_info/>
 
-<device id=yy href=/api/vms/{vm:id}/devices/{device:id}>
+device:id = UUID.fromString(name+mac)
+
+<device id={device:id} href=/api/vms/{vm:id}/devices/{device:id}>
 
 `       `<name>`p1p2`</name>
 `       `<description>`guest reported data`</description>
-`       `<ip type=v4></ip>
-`       `<ip type=v6></ip>
+`       `<ipv4_addresses>
+`           `<ip address="1.1.1.1"/>
+`           `<ip address="2.2.2.2"/>
+`       `</ipv4_addresses>
+`       `<ipv6_addresses>
+`           `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7335"/>
+`           `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7336"/>
+`       `</ipv6_addresses>
              `<mac></mac>`        
 
 <device/>
-
-`      `<guest_interfaces>
-`          `<guest_interface>
-`              `<interface_name>`p1p2`</interface_name>
-`              `<ipv4_addresses>
-`                  `<ip address="1.1.1.1"/>
-`                  `<ip address="2.2.2.2"/>
-`              `</ipv4_addresses>
-`              `<ipv6_addresses>
-`                  `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7335"/>
-`                  `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7336"/>
-`              `</ipv6_addresses>
-`              `<mac address="AA:AA:AA:AA:AA:AA"/>
-`          `</guest_interface>
-                ...
-`      `</guest_interfaces>
-`  `</guest_info>
 
 Populating the VM's **network_devices** element under **guest_info** is implemented by mechanism introduced by ["All-Content Header" patch](http://gerrit.ovirt.org/#/c/9815)
 Only if the request header contains the 'All-Content=true', the network's devices information will be populate the for the VM.

@@ -16,6 +16,12 @@ This is a template to use for making announcements about infrastructure outages.
 
     There was an (unplanned) outage of $(service_name) for $(length_of_outage).
 
+    (For planned outages include following block:)
+
+    The outage will occur at YYYY-MM-DD HH:MM UTC. To view in your local time:
+
+    date -d 'YYYY-MM-DD HH:MM UTC'
+
     == Details ==
 
     Give full details of the outage: what went wrong, what the plan is, why the outage is planned, etc.

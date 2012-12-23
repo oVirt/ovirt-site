@@ -23,7 +23,7 @@ VDSM already has a read-only disk capability. This feature adds that functionali
 
 *   Target Release: 3.2
 *   Status: work in progress
-*   Last updated: 06:05, 23 December 2012 (GMT)
+*   Last updated: ,
 
 ### Detailed Description
 

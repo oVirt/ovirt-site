@@ -35,7 +35,7 @@ vm_device table already has a read_only column. No update to the DB is needed.
 
 #### Backend
 
-AddDiskCommand, AttachDiskToVmCommand - Add the RO property and propagate until VMDevice creation. All relating Parameters classes should now contain this info. Therefore, VmDiskOperatinParameterBase will be added a new readOnly data member. ImagesHandler.addDiskToVm() - will get the RO data and propagate it.
+AddDiskCommand, AttachDiskToVmCommand - Add the RO property and propagate until VMDevice creation. All relating Parameters classes should now contain this info. Therefore, VmDiskOperationParameterBase will be added a new readOnly data member. ImagesHandler.addDiskToVm() - will get the RO data and propagate it.
 
 No changes need in:
 HotPlugDiskToVmCommand

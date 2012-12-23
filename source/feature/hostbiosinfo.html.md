@@ -31,7 +31,7 @@ When assigning new host to oVirt engine the engine retrieves general information
 ### Detailed Description
 
 The following feature allows the user interface to present host's bios information when adding new hypervisor.
-This information is taken by using dmidecode command, this command runs with root permissions over the host and returns the information with getCapabilities API method. This adds the following data[1]:
+This information is taken by using dmidecode command, this command runs with root permissions over the host and returns the information with getVdsBiosInfo API method. This returns the following fields[1]:
  1. Host Manufacturer - Manufacturer of the host's machine and bios' vendor (e.g LENOVO)
 
       2. Host Version - For each host the manufacturer gives a unique name (e.g. Lenovo T420s)
@@ -39,6 +39,8 @@ This information is taken by using dmidecode command, this command runs with roo
       4. Host UUID - Unique ID for each host (e.g E03DD601-5219-11CB-BB3F-892313086897)
       5. Host Family - Type of host's CPU - (e.g Core i5)
       6. Host Serial Number - Unique ID for host's chassis (e.g R9M4N4G)
+
+The following parameters below are suggested to be added:
 
       7. BIOS Revision
       8. BIOS Version

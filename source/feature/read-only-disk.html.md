@@ -23,7 +23,7 @@ Add Read Only Disk Functionality to the engine.
 
 *   Target Release: 3.2
 *   Status: work in progress
-*   Last updated date: 12/17/2012
+*   Last updated: 06:05, 23 December 2012 (GMT)
 
 ### Detailed Description
 

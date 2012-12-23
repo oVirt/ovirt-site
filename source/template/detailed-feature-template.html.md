@@ -34,7 +34,7 @@ Include you email address that you can be reached should people want to contact 
 
 *   Target Release: ...
 *   Status: ...
-*   Last updated:
+*   Last updated: ,
 
 ### Detailed Description
 

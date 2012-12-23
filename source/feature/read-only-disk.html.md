@@ -12,7 +12,7 @@ wiki_last_updated: 2014-07-03
 
 ### Summary
 
-Add Read Only Disk Functionality to the engine.
+VDSM already has a read-only disk capability. This feature adds that functionality to the engine as well.
 
 ### Owner
 

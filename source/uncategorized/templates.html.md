@@ -10,4 +10,4 @@ wiki_last_updated: 2014-10-14
 
 A page for oVirt brand related templates
 
-*   A template for oVirt presentations <Media:oVirt-Presentation.odp>
+*   A template for oVirt presentations ![](oVirt-Template.otp "fig:oVirt-Template.otp")

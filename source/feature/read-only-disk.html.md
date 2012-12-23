@@ -35,9 +35,10 @@ vm_device table already has a read_only column. No update to the DB is needed.
 
 #### Backend
 
-AddDiskCommand, AttachDiskToVmCommand - Add the RO property and propagate until VMDevice creation. All relating Parameters classes should now contain this info. Therefore, VmDiskOperationParameterBase will be added a new readOnly data member. ImagesHandler.addDiskToVm() - will get the RO data and propagate it.
-
-No changes need in:
+AddDiskCommand, AttachDiskToVmCommand - Add the RO property and propagate until VMDevice creation.
+All relating Parameters classes should now contain this info. Therefore, VmDiskOperationParameterBase will be added a new readOnly data member.
+ImagesHandler.addDiskToVm() - will get the RO data and propagate it.
+ No changes need in:
 HotPlugDiskToVmCommand
 UpdateVmDiskCommand
 DetachDiskFromVmCommand
@@ -52,11 +53,16 @@ OvfWriter.writeVmDeviceInfo() (already writes the readOnly property).
 
 ##### Templates
 
-Currently templates will maintain the current disk RO property value with no editing option. When creating a VM from template, it's disks will inherit the disk RO property value with no editing option. Editing options to both phases can be added later on. This is an open issue, please comment if you think this should be dealt with in another way.
+Currently templates will maintain the current disk RO property value with no editing option.
+When creating a VM from template, it's disks will inherit the disk RO property value with no editing option.
+Editing options to both phases can be added later on.
+This is an open issue, please comment if you think this should be dealt with in another way.
 
 ##### Snapshots
 
-There's no need to save the images of RO disk to the images table. There is, however, a need to update the ovf file so that it does include the RO disks' (images). Verified - the OvfReader does read the RO property, so no problem with snapshots uses.
+There's no need to save the images of RO disk to the images table.
+There is, however, a need to update the ovf file so that it does include the RO disks' (images).
+Verified - the OvfReader does read the RO property, so no problem with snapshots uses.
 
 #### UI
 

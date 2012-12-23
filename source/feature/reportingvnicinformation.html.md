@@ -77,7 +77,7 @@ Note that the existing IPs reported on /api/vms/{vm:id} are left intact, however
 
 A new link will be added under the VM:
 
-<link rel="devices" href="/api/vms/6c56bd4b-ef18-4e50-b182-277ed78e819d/devices"/>
+` `<link rel="devices" href="/api/vms/6c56bd4b-ef18-4e50-b182-277ed78e819d/devices"/>
 
 device:id = UUID.fromString(name+mac)
 

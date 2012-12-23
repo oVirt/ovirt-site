@@ -75,33 +75,21 @@ Note that the existing IPs reported on /api/vms/{vm:id} are left intact, however
 `      `</ips>
 `  `</guest_info>
 
-However it will be extended to contain also the network devices configuration on the guest:
+A new link will be added under the VM:
 
-`  `<guest_info>
-            ...
-`      `<reported_data>
-`          `<network>
-`              `<rel="devices" href=/api/vms/{vm:id}/devices>
-`          `</network>
-`      `<reported_data/>
-`  `<guest_info/>
+<link rel="devices" href="/api/vms/6c56bd4b-ef18-4e50-b182-277ed78e819d/devices"/>
 
 device:id = UUID.fromString(name+mac)
 
-` `<device id={device:id} href=/api/vms/{vm:id}/devices/{device:id}>
+` `<network_device id={device:id} href=/api/vms/{vm:id}/devices/{device:id}>
 `       `<name>`p1p2`</name>
 `       `<description>`guest reported data`</description>
-`       `<ipv4_addresses>
-`           `<ip address="1.1.1.1"/>
-`           `<ip address="2.2.2.2"/>
-`       `</ipv4_addresses>
-`       `<ipv6_addresses>
-`           `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7335"/>
-`           `<ip address="2001:0db8:85a3:0042:0000:8a2e:0370:7336"/>
-`       `</ipv6_addresses>
-             `<mac></mac>`        
+`       `<ips>
+`           `<ip version="v4" address="10.35.1.177"/>
+`           `<ip version="v6" address="fe80::21a:4aff:fe16:151"/>
+`       `</ips>
+             `<mac address></mac>`        
 ` `</device>
-            
 
 Populating the VM's **network_devices** element under **guest_info** is implemented by mechanism introduced by ["All-Content Header" patch](http://gerrit.ovirt.org/#/c/9815)
 Only if the request header contains the 'All-Content=true', the network's devices information will be populate the for the VM.

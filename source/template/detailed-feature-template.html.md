@@ -34,7 +34,7 @@ Include you email address that you can be reached should people want to contact 
 
 *   Target Release: ...
 *   Status: ...
-*   Last updated: 06:56, 23 December 2012 (GMT)
+*   Last updated:
 
 ### Detailed Description
 

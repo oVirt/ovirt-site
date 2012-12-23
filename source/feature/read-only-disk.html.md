@@ -68,8 +68,6 @@ This features allows the usage of read only disks. This is useful where we'd lik
 
 ### Comments and Discussion
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
-
 *   Refer to [Talk:Read Only Disk](Talk:Read Only Disk)
 
 <Category:Feature>

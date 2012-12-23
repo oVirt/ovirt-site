@@ -32,7 +32,7 @@ Include you email address that you can be reached should people want to contact 
 ### Current status
 
 *   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
-*   Last updated date: ...
+*   Last updated: ,
 
 ### Detailed Description
 

@@ -86,10 +86,8 @@ When Vdsm receives getVdsBiosInfo request, it retrieves the bios information by 
 
 #### Engine Flow
 
-When gathering host's capabilities we receive host's bios details by VDSM API ( Although, Bios information stays constant, vdsm retrieves this information in each request without holding cache of this data ) This information is written to the database to vds_dynamic table (as refer to the new update table 03_01_1530_add_vds_bios_info.sql).
-The values of those parameters gets updated every time the host returns capabilities response.
-This information is mapped to Vds entity and kept there, when mapping to UI we use those parameters to build the Host entity. Because host capabilities are filled with dynamic data, also here we keep the dynamic flow.
-Engine sends getCapabilities request on start-up, on activate host and when host is non-responsive every 2 seconds.
+When refreshing host's capabilities we call to getVdsBiosInfo, On update this information is written to the database to vds_static table.
+This information is mapped to Vds entity and kept there, when mapping to UI we use those parameters to build the Host entity.
 
 #### REST API
 

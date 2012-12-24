@@ -51,18 +51,6 @@ Current UI both in the Administrator Portal and the User Portal is lacking statu
 
 This section describes the backend design for this feature.
 
-#### DB Change
-
-In order to support quota on duplicate image stored on different storage domains, the quota_id column will move from "images" table to "image_storage_domain_map" table.
-
-**image_storage_domain_map** - Represents the properties of the Quota configured on the DC.
-
-| Column Name         | Column Type | Null? / Default | Definition        |
-|---------------------|-------------|-----------------|-------------------|
-| image_id           | UUID        | not null        | Image Id          |
-| storage_domain_id | UUID        | not null        | Storage domain id |
-| quota_id           | UUID        |                 | Quota id          |
-
 #### Logic Design
 
 Each time the user will run a VM or create a new disk, there will be a quota resource check against the quota views.
@@ -76,6 +64,14 @@ Additionally, a unit-test will be added to make sure all commands marked as quot
 #### Client support
 
 In order to support the planned UI changes, QuotaManager will expose a new API. Using this API and reusing available queries the UI could pull quota consumption information from the QuotaManager cache (or DB). For 3.2, RESTful API is out of scope.
+
+To support the new Quota monitoring both in User portal and Administrator portal, QuotaManager will expose a new API allowing to query the QuotaManager internal cache for quota consumption information.
+
+Since the current caching mechanism in QuotaManager was designed to cache individual quota entries (and thus would be very inefficient for large number of quota cached at the same time), a second caching mechanism will be added to support fast caching (caching all the quota in the DB together). This caching will be called using a Quartz job once on system init and then every xx minutes (conditioned by cache size to db quota table size ratio).
+
+##### DB Change
+
+New store-procedures and functions will be added in order to support the new caching mechanism. No new views will be defined.
 
 ##### Classes
 
@@ -139,5 +135,19 @@ No special considerations.
 #### Pre-integration needs
 
 No needs.
+
+### responded to next version
+
+#### DB Change
+
+In order to support quota on duplicate image stored on different storage domains, the quota_id column will move from "images" table to "image_storage_domain_map" table.
+
+**image_storage_domain_map** - Represents the properties of the Quota configured on the DC.
+
+| Column Name         | Column Type | Null? / Default | Definition        |
+|---------------------|-------------|-----------------|-------------------|
+| image_id           | UUID        | not null        | Image Id          |
+| storage_domain_id | UUID        | not null        | Storage domain id |
+| quota_id           | UUID        |                 | Quota id          |
 
 <Category:SLA> [Category: Feature](Category: Feature)

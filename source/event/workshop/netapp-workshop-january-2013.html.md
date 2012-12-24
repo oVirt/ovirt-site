@@ -107,7 +107,7 @@ On hackfest day, we have three available spaces for Birds of a Feather sessions,
 
 </div>
 <div class="span6 pad-sides">
-#### Hackspace - room 2 - TBD
+#### Hackspace - room 3 - TBD
 
 Interested in Networking, OpenStack integration, VDSM or KVM? Propose a BOF for this hackspace and turn it into a working session. Hackspace slots are 90 minutes long.
 

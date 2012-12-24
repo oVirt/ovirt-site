@@ -84,7 +84,7 @@ On hackfest day, we have three available spaces for Birds of a Feather sessions,
 
 </div>
 <div class="span6 pad-sides">
-#### Hackpace - room 1
+#### Hackpace - room 1 - Tutorials and BOFs
 
 | Time                   | Title                                                              | Speaker                |
 |------------------------|--------------------------------------------------------------------|------------------------|

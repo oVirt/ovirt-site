@@ -18,13 +18,11 @@ A standard oVirt deployment consists of three things, primarily:
 *   One or more storage nodes, which hold the images and ISOs corresponding to those VMs
 *   ovirt-engine running on a server, which we will use to deploy, monitor, move, stop and create VM images
 
-Also, usually an idendity service is deployed along the above, to authenticate users and administrators for ovirt-engine.
+Also, usually an idendity service is deployed aside the engine, to authenticate users and administrators for ovirt-engine.
 
-The nodes are Linux distributions with VDSM and libvirt installed, along with some extra packages to easily enable virtualisation of networking and other system services. The supported Linux distributions to date are Fedora 17 or oVirt node, which is basically a stripped-down distribution containing just enough stuff to allow virtualisation.
+The nodes are Linux distributions with VDSM and libvirt installed, along with some extra packages to easily enable virtualization of networking and other system services. The supported Linux distributions to date are Fedora 17 or oVirt node, which is basically a stripped-down distribution containing just enough components to allow virtualization.
 
 The storage nodes can use block or file storage, and can be local or remote, accessed via NFS. Storage technologies like Gluster are supported through the POSIXFS storage type. Storage nodes are grouped into storage pools, which can ensure high availability and redundancy. The [Vdsm Storage Terminology](Vdsm Storage Terminology) page has more details.
-
-oVirt engine is a JBoss-based Java application (previously C#) which runs as a web service. This service talks directly to VDSM on the hosts to deploy, start, stop, migrate and monitor VMs, and it can also create new images on storage from templates.
 
 The different diagrams and descriptions below represent the architecture of the oVirt project, and its different components.
 
@@ -50,7 +48,11 @@ The sections below will give a description and architectural aspects for each su
 
 ### Engine
 
-The oVirt engine is a large scale, centralized management for server and desktop virtualization, based on leading performance, scalability and security infrastructure technologies. Some features provided by the engine:
+oVirt engine is a JBoss-based Java application (previously C#) which runs as a web service. This service talks directly to VDSM on the hosts to deploy, start, stop, migrate and monitor VMs, and it can also create new images on storage from templates.
+
+It is a large scale, centralized management for server and desktop virtualization, based on leading performance, scalability and security infrastructure technologies.
+
+Some features provided by the engine:
 
 1.  VM lifecycle management
 2.  Authentication via LDAP providers (AD/IPA)

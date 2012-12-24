@@ -12,18 +12,19 @@ wiki_last_updated: 2014-12-07
 
 # oVirt Architecture
 
-A standard oVirt network consists of three things, primarily:
+A standard oVirt deployment consists of three things, primarily:
 
-*   One or more nodes, on which we will run virtual machines (VMs)
+*   One or more hosts (nodes), on which we run virtual machines (VMs)
 *   One or more storage nodes, which hold the images and ISOs corresponding to those VMs
 *   ovirt-engine running on a server, which we will use to deploy, monitor, move, stop and create VM images
-*   An identity service, to authenticate users and administrators for ovirt-engine
+
+Also, usually an idendity service is deployed along the above, to authenticate users and administrators for ovirt-engine.
 
 The nodes are Linux distributions with VDSM and libvirt installed, along with some extra packages to easily enable virtualisation of networking and other system services. The supported Linux distributions to date are Fedora 17 or oVirt node, which is basically a stripped-down distribution containing just enough stuff to allow virtualisation.
 
 The storage nodes can use block or file storage, and can be local or remote, accessed via NFS. Storage technologies like Gluster are supported through the POSIXFS storage type. Storage nodes are grouped into storage pools, which can ensure high availability and redundancy. The [Vdsm Storage Terminology](Vdsm Storage Terminology) page has more details.
 
-oVirt engine is a JBoss-based Java application (previously C#) which runs as a web service. This service talks directly to VDSM on the engine nodes to deploy, start, stop, migrate and monitor VMs, and it can also create new images on storage from templates.
+oVirt engine is a JBoss-based Java application (previously C#) which runs as a web service. This service talks directly to VDSM on the hosts to deploy, start, stop, migrate and monitor VMs, and it can also create new images on storage from templates.
 
 The different diagrams and descriptions below represent the architecture of the oVirt project, and its different components.
 
@@ -37,9 +38,9 @@ These main components are:
 
 1.  Engine - monitors the oVirt network, and allows system administrators to create and deploy new VMs
 2.  Host agent (VDSM) - the oVirt engine communicates with VSDM to request VM related actions on the nodes
-3.  Admin Portal - the web application sysadmins use to talk to the engine to perform advanced actions
-4.  User Portal - a simplified application for simpler use-cases
-5.  REST API - an API which allows applications to perform virtualisation actions, which is used by the command line tools and the SDK
+3.  Admin Portal - web based UI application that sysadmins use to instruct the engine to perform advanced actions.
+4.  User Portal - a simplified application for simpler management use-cases.
+5.  REST API - an API which allows applications to perform virtualization actions, which is used by the command line tools and the python SDK
 6.  CLI/SDK - The command line interface and SDK provide a means to script actions
 7.  Reports Engine - generates reports on VM resource usage, using Jasper Reports
 8.  DWH (Data Warehouse) - The data warehouse component extracts and synthesizes data from the engine using Talend for later use in reports

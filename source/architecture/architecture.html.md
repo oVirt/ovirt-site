@@ -190,7 +190,9 @@ The DWH component contains:
 
 ### Guest Agent
 
-The guest agent provides additional information to oVirt Engine, such as guest memory usage, guest ip address, installed applications and sso. Architectural details:
+The guest agent provides additional information to oVirt Engine, such as guest memory usage, guest ip address, installed applications and sso.
+
+Architectural details:
 
 1.  Python code, available for both linux and windows guests
 2.  Communication is done over virtio-serial

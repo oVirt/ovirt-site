@@ -147,6 +147,8 @@ REST Concepts:
 
 ### CLI/SDK
 
+CLI and SDK are based on the REST api mentioned above.
+
 SDK:
 
 1.  Python based SDK to allow performing actions on the different entities

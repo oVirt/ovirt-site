@@ -147,7 +147,7 @@ REST Concepts:
 
 ### CLI/SDK
 
-CLI and SDK are based on the REST api mentioned above.
+CLI and SDK are using on the REST api mentioned above.
 
 SDK:
 

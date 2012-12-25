@@ -129,7 +129,7 @@ Should you have particular needs related to making your visit to NetApp's HQ, pl
 
 #### Lodging
 
-For attendees who wish to book a hotel room, we have secured a room block at the nearby [Country Inn and Suites](http://goo.gl/maps/csHQT) at a room rate of 125 USD / night for a standard room and 145/night for a king suite, excluding tax and incidentals. To book into the hotel room block, please phone +1.408.747.0799.
+For attendees who wish to book a hotel room, we have secured a room block at the nearby [Country Inn and Suites](http://goo.gl/maps/csHQT) at a room rate of 125 USD / night for a standard room and 145/night for a king suite, excluding tax and incidentals. To book into the hotel room block, please phone +1.408.747.0999.
 
 Mention the oVirt NetApp workshop when booking to receive a room at our specially negotiated rate. If you are having difficulties securing a room in our block, please contact [ Leslie Hawthorn](User:Lh) for assistance.
 
@@ -157,7 +157,6 @@ The oVirt board meeting will be held on Thursday January 24th from 9am to 1pm in
 
 Registrants will be expected to execute NetApp's visitors Non-Disclosure Agreement (NDA) upon entering the facilities. Should you wish to review a copy of the non-disclosure agreement in advance, please contact [ Leslie Hawthorn](User:Lh). The NDA does not cover the material of the oVirt workshop, as this information is already publicly available given oVirt is an open source software project.
 
-</div>
 </div>
 </div>
 <Category:Events>

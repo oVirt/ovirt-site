@@ -104,8 +104,6 @@ VDSM covers all functionality required by oVirt Engine.
 
 #### Hooks mechanism
 
-The “Hook” mechanism:
-
 1.  Allows administrators to define scripts to modify VM operation eg. Add extra options such as CPU pinning, watchdog device, direct LUN access, etc.
 2.  Allows oVirt to be extended for new KVM features before full integration is done
 3.  An easy way to test a new kvm/libvirt/linux feature

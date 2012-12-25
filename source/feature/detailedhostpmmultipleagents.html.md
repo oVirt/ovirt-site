@@ -111,7 +111,7 @@ ip or fqdn
 `     `<password>`password`</password>
 `      `<options><option value="" name="port"/><option value="false" name="secure"/></options>
 `      `<agents>
-`        `<agent type="rsa" order="1" concurrent="false">
+`        `<agent type="rsa">
                           
 
 <address>
@@ -121,8 +121,10 @@ ip or fqdn
                           `&lt;username&gt;`user`</username>` order="primary"
 `                    `<password>`password`</password>
 `                    `<options><option value="" name="port"/><option value="false" name="secure"/></options>
+`                    `<concurrent>`false`</concurrent>
+`                    `<order>`1`</order>
 `        `</agent>
-`       `<agent type="ipmi" order="2" concurrent="false">
+`       `<agent type="ipmi">
                           
 
 <address>
@@ -132,6 +134,8 @@ ip or fqdn
                           `&lt;username&gt;`user`</username>` order="primary"
 `                    `<password>`password`</password>
 `                    `<options><option value="" name="port"/><option value="false" name="secure"/></options>
+`                    `<concurrent>`false`</concurrent>
+`                    `<order>`2`</order>
 `        `</agent>
             ......
 `      `</agents>

@@ -14,13 +14,13 @@ wiki_last_updated: 2014-12-07
 
 A standard oVirt deployment consists of three things, primarily:
 
+*   ovirt-engine which is used use to deploy, monitor, move, stop and create VM images, configure storage, network , etc.
 *   One or more hosts (nodes), on which we run virtual machines (VMs)
 *   One or more storage nodes, which hold the images and ISOs corresponding to those VMs
-*   ovirt-engine running on a server, which we will use to deploy, monitor, move, stop and create VM images
 
 Also, usually an idendity service is deployed aside the engine, to authenticate users and administrators for ovirt-engine.
 
-The nodes are Linux distributions with VDSM and libvirt installed, along with some extra packages to easily enable virtualization of networking and other system services. The supported Linux distributions to date are Fedora 17 or oVirt node, which is basically a stripped-down distribution containing just enough components to allow virtualization.
+The nodes are Linux distributions with VDSM and libvirt installed, along with some extra packages to easily enable virtualization of networking and other system services. The supported Linux distributions to date are Fedora 17 or oVirt-node, which is basically a stripped-down distribution containing just enough components to allow virtualization.
 
 The storage nodes can use block or file storage, and can be local or remote, accessed via NFS. Storage technologies like Gluster are supported through the POSIXFS storage type. Storage nodes are grouped into storage pools, which can ensure high availability and redundancy. The [Vdsm Storage Terminology](Vdsm Storage Terminology) page has more details.
 

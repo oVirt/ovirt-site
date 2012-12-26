@@ -89,18 +89,17 @@ The main components in the engine core are:
 
 ### Host Agent (VDSM)
 
-VDSM covers all functionality required by oVirt Engine.
+VDSM is a component developed in Python, which covers all functionality required by oVirt Engine for host, VM, networking and storage management.
 
-1.  Configures host, networking and shared storage
-2.  Uses libvirt for VM life cycle operations
-3.  Written in Python
-4.  The VDSM API is XML-RPC based (planned to move to REST API).
-5.  Multithreaded, multi-processes
-6.  Speaks with its guest agent via virtio-serial
-7.  Adds customized clustering support for LVM that scales to hundreds of nodes
-8.  Implements a distributed image repository over the supported storage types (local directory, FCP, FCoE, iSCSI, NFS, SAS)
-9.  Multihost system, one concurrent metadata writer
-10. Scales linearly in data writers
+1.  The VDSM API is XML-RPC based (planned to move to REST API). This is how ovirt-engine communicates with VDSM.
+2.  Configures host, networking and shared storage
+3.  Uses libvirt for VM life cycle operations
+4.  Multithreaded, multi-processes
+5.  Speaks with its guest agent via virtio-serial
+6.  Adds customized clustering support for LVM that scales to hundreds of nodes
+7.  Implements a distributed image repository over the supported storage types (local directory, FCP, FCoE, iSCSI, NFS, SAS)
+8.  Multihost system, one concurrent metadata writer
+9.  Scales linearly in data writers
 
 ![](Vdsm-arch.png "Vdsm-arch.png")
 
@@ -110,12 +109,14 @@ VDSM covers all functionality required by oVirt Engine.
 2.  Allows oVirt to be extended for new KVM features before full integration is done
 3.  An easy way to test a new kvm/libvirt/linux feature
 
+<!-- -->
+
+1.  The hook mechanism is called before VDSM initiates the VM startup using libvirt.
+2.  The hook changes the VM definition, and VDSM passes this definition to libvirt to start the VM.
+
 The following diagram illustrates the Hook mechanism in the VM lifetime cycle:
 
 ![](Hook-arch.png "Hook-arch.png")
-
-1.  The hook mechanism comes into place before VDSM initiates the VM startup using libvirt.
-2.  The hook changes the VM definition, and VDSM passes this definition to libvirt to start the VM.
 
 ### Admin Portal
 

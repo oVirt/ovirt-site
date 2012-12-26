@@ -34,15 +34,16 @@ The following diagram shows the different components in the oVirt project:
 
 These main components are:
 
-1.  Engine - monitors the oVirt network, and allows system administrators to create and deploy new VMs
-2.  Host agent (VDSM) - the oVirt engine communicates with VSDM to request VM related actions on the nodes
-3.  Admin Portal - web based UI application that sysadmins use to instruct the engine to perform advanced actions.
-4.  User Portal - a simplified application for simpler management use-cases.
-5.  REST API - an API which allows applications to perform virtualization actions, which is used by the command line tools and the python SDK
-6.  CLI/SDK - The command line interface and SDK provide a means to script actions
-7.  Reports Engine - generates reports on VM resource usage, using Jasper Reports
-8.  DWH (Data Warehouse) - The data warehouse component extracts and synthesizes data from the engine using Talend for later use in reports
-9.  Guest Agent - The guest agent runs inside the VM, and provides information on resource usage to the oVirt engine. Communication is done over a virtualised serial connection.
+1.  Engine (ovirt-engine) - manages the oVirt hosts, and allows system administrators to create and deploy new VMs
+2.  Admin Portal - web based UI application on top of the engine, that sysadmins use to perform advanced actions.
+3.  User Portal - a simplified web based UI application for simpler management use-cases.
+4.  REST API - an API which allows applications to perform virtualization actions, which is used by the command line tools and the python SDK
+5.  CLI/SDK - The command line interface and SDK provide a way to communicate with engine via script actions.
+6.  Database - Postgres database is used by the engine to provide persistency for the configuration of the ovirt deployment.
+7.  Host agent (VDSM) - the oVirt engine communicates with VSDM to request VM related actions on the nodes
+8.  Guest Agent - The guest agent runs inside the VM, and provides information on resource usage to the oVirt engine. Communication is done over a virtualised serial connection.
+9.  Reports Engine - generates reports on VM resource usage, using Jasper Reports
+10. DWH (Data Warehouse) - The data warehouse component extracts and synthesizes data from the engine using Talend for later use in reports
 
 The sections below will give a description and architectural aspects for each such component.
 

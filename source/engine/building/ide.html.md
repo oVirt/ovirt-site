@@ -119,16 +119,11 @@ of 'esc'+':' combination ;)
 
         File-->Open Project
 
-select the main pom.xml located at the root of the ovirt-engine directory. It should then open the project structure on the left pane.
-
-      (there is a package-based view as well similar to Eclipse. In order to switch to it, select in left upper corner of the left pane: "view as: Packages")
-
-It also detects automatically the project is working with Git and its settings, and the right click menu adjusts to the Git integration.
+select the main pom.xml located at the root of the ovirt-engine directory. It should then open the project structure on the left pane. (there is a package-based view as well similar to Eclipse. In order to switch to it, select in left upper corner of the left pane: "view as: Packages") It also detects automatically the project is working with Git and its settings, and the right click menu adjusts to the Git integration.
 
 *   Eclipse code formatter - in order to be aligned with code formatting along the product, it is advised to work with the code styling configuration file that is based on Eclipse.
 
-        In order to use it in IntelliJ, please install the  Eclipse Code Formatter plugin:
-       Settings --> IDE settings --> plugins --> Available, search for Eclipse Code Formatter and right click "Install".
+In order to use it in IntelliJ, please install the Eclipse Code Formatter plugin: Settings --> IDE settings --> plugins --> Available, search for Eclipse Code Formatter and right click "Install".
 
 *   After installation, go to: Settings --> Project Settings --> Eclipse Code Formatter
 

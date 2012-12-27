@@ -145,7 +145,9 @@ In order to benefit from the Maven integration and build the project from within
 
        Run --> Edit configurations --> Add new configuration (select Maven)
 
-Fill the working directory (where the parent pom.xml is located) Fill goals (for example - clean install) Fill profiles if exist (for example - gwtdev, gwt-admin, dep)
+1.  Fill the working directory (where the parent pom.xml is located)
+2.  Fill goals (for example - clean install)
+3.  Fill profiles if exist (for example - gwtdev, gwt-admin, dep)
 
 ### Others
 

@@ -151,7 +151,7 @@ In order to benefit from the Maven integration and build the project from within
 4.  Fill profiles if exist (for example - gwtdev, gwt-admin, dep)
 5.  If you need to set any -D flags , it is available in the Runner tab
 
-Example:
+Example: ![](Maven- Configurations.png "fig:Maven- Configurations.png")
 
 ### Others
 

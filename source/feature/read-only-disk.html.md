@@ -27,7 +27,10 @@ VDSM already has a read-only disk capability. This feature adds that functionali
 
 ### Detailed Description
 
-When adding/attaching a disk to a vm, add a property of RO. The RO property is not a disk property. It's a property of the VM-Disk relationship, and therefore is persisted through VMDevice (vm_device in the DB). A shareable disk could be attached to one VM as RO, and to another as RW. This is the case as long as the disk is not qCow. qCow disks currently cannot be shared. When that'll change, it shouldn't be allowed to attach a RW qCow disk to one VM while attaching it as RO to another.
+When adding/attaching a disk to a vm, add a property of RO. The RO property is not a disk property. It's a property of the VM-Disk relationship, and therefore is persisted through VMDevice (vm_device in the DB).
+A shareable disk could be attached to one VM as RO, and to another as RW. This is the case as long as the disk is not qCow. qCow disks currently cannot be shared. When that'll change, it shouldn't be allowed to attach a RW qCow disk to one VM while attaching it as RO to another.
+Floating disks are always RW and shouldn't be handled any differently than previously.
+A disk cannot be switched from or to RO while active.
 
 #### DB
 

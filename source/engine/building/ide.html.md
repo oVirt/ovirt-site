@@ -125,7 +125,7 @@ Select the main pom.xml located at the root of the ovirt-engine directory. It sh
 
 In order to use it in IntelliJ, please install the Eclipse Code Formatter plugin:
 
-       Settings --> IDE settings --> plugins --> Available, search for Eclipse Code Formatter and right click "Install".
+       Settings --> IDE settings --> Plugins --> Available, search for Eclipse Code Formatter and right click "Install".
 
 *   After plugin installation, go to:
 

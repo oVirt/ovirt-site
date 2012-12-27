@@ -26,13 +26,11 @@ of 'esc'+':' combination ;)
 
 ### Eclipse
 
-#### Use case
-
 *   Recommended due to JBoss integration.
-*   May be used with Pythone as well: <http://wiki.python.org/moin/EclipsePythonIntegration>
-*   Current Eclipse release is Indigo Service Release 1.
+*   May be used with Python as well: <http://wiki.python.org/moin/EclipsePythonIntegration>
+*   Current Eclipse release is Juno Service Release 1.
     -   Available from <http://www.eclipse.org/downloads/>
-    -   Use the J2EE for developers.
+    -   Use the J2EE distribution for developers.
 
 #### Setting up oVirt engine development environment in Eclipse
 

@@ -70,7 +70,7 @@ Verified - the OvfReader does read the RO property, so no problem with snapshots
 #### UI
 
 Changes will have to be made to RESTapi and uicommon in order to get the RO property value from the user.
-The RO property has to be propagated to the backend. This can be propagated wither through Disk or VM entities. Disk is chosen as it seems if we have to say the property "belongs" to one of them, it's more likely the disk (there is no VmDisk entity or such).
+The RO property has to be propagated to the backend. This can be done either through Disk or VM entities. Disk is chosen as it seems if we have to say the property "belongs" to one of them, it's more likely the disk (there is no VmDisk entity or such).
 
 #### Search
 

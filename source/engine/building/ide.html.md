@@ -131,11 +131,17 @@ In order to use it in IntelliJ, please install the Eclipse Code Formatter plugin
 
        Settings --> Project Settings --> Eclipse Code Formatter
 
-Import the code styling xml that is part of the ovirt-engine project: ovirt-engine/config/engine-code-format.xml
+1.  Import the code styling xml that is part of the ovirt-engine project:
 
-Make sure the Import order section is set on "Manual configuration" with the following order (that follows latest Eclipse defaults) : java;javax;org;com;
+ovirt-engine/config/engine-code-format.xml
 
-Follow the "Optimize imports section" in the plugin's help page: <http://code.google.com/p/eclipse-code-formatter-intellij-plugin/wiki/HowTo>
+1.  Make sure the Import order section is set on "Manual configuration" with the following order (that follows latest Eclipse defaults) : java;javax;org;com;
+
+<!-- -->
+
+1.  Follow the "Optimize imports section" in the plugin's help page:
+
+<http://code.google.com/p/eclipse-code-formatter-intellij-plugin/wiki/HowTo>
 
 Example: ![](IDEA-EclipseFormatter-Settings.png "fig:IDEA-EclipseFormatter-Settings.png")
 

@@ -105,9 +105,19 @@ of 'esc'+':' combination ;)
 
 *   On some machines, editing a properties file in eclipse results in a lot of "diff" in git, making it difficult to review the code change. It may be a good idea to verify this in the beginning, and if the problem exists, edit the properties files using an external text editor.
 
-### NetBeans
+### IntelliJ
 
-*   If you use it, feel free to fill-in.
+*   Install IntelliJ (there is a community edition) - good stable version is 10.5, but there are also 11 and 12 now available.
+
+<http://www.jetbrains.com/idea/free_java_ide.html>
+
+*   Run IntelliJ (make sure you have set JAVA_HOME variable first)
+
+/yourIntelliJInstallLocation/bin/idea.sh
+
+*   In order to open the ovirt-engine project, do:
+
+File-->Open Project select the main pom.xml located at the root of the ovirt-engine directory. It should then open the project structure on the left pane. (there is a package-based view as well similar to Eclipse. In order to switch to it, select in left upper corner of the left pane: "view as: Packages")
 
 ### Others
 

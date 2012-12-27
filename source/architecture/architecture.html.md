@@ -30,7 +30,7 @@ The different diagrams and descriptions below represent the architecture of the 
 
 The following diagram shows the different components in the oVirt project:
 
-![](Overall-arch.png "Overall-arch.png")
+![](Overall-arch.png "fig:Overall-arch.png") ![](architecture.png "fig:architecture.png")
 
 These main components are:
 

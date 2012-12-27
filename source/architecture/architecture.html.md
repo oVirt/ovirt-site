@@ -116,10 +116,6 @@ The following diagram illustrates the Hook mechanism in the VM lifetime cycle:
 
 ![](Hook-arch.png "Hook-arch.png")
 
-### User Portal
-
-...
-
 ### REST API
 
 RESTful API for integration with oVirt Engine:

@@ -139,7 +139,11 @@ Follow the "Optimize imports section" in the plugin's help page: <http://code.go
 
 Example: ![](IDEA-EclipseFormatter-Settings.png "fig:IDEA-EclipseFormatter-Settings.png")
 
-*   Maven configuration (not mandatory=)
+*   Maven configuration (not mandatory)
+
+First, make sure that IntelliJ is pointed at the correct Maven configuration, especially if you have several different versions.
+
+       Settings--> Project Settings --> Maven
 
 In order to benefit from the Maven integration and build the project from within IntelliJ , go to :
 

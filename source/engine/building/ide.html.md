@@ -109,23 +109,31 @@ of 'esc'+':' combination ;)
 
 *   Install IntelliJ (there is a community edition) - good stable version is 10.5, but there are also 11 and 12 now available.
 
-<http://www.jetbrains.com/idea/free_java_ide.html>
+`  `[`http://www.jetbrains.com/idea/free_java_ide.html`](http://www.jetbrains.com/idea/free_java_ide.html)
 
 *   Run IntelliJ (make sure you have set JAVA_HOME variable first)
 
-/yourIntelliJInstallLocation/bin/idea.sh
+         /yourIntelliJInstallLocation/bin/idea.sh
 
 *   In order to open the ovirt-engine project, do:
 
-File-->Open Project
+        File-->Open Project
 
-select the main pom.xml located at the root of the ovirt-engine directory. It should then open the project structure on the left pane. (there is a package-based view as well similar to Eclipse. In order to switch to it, select in left upper corner of the left pane: "view as: Packages") It also detects automatically the project is working with Git and its settings, and the right click menu adjusts to the Git integration.
+        select the main pom.xml located at the root of the ovirt-engine directory.
+        It should then open the project structure on the left pane.
+        (there is a package-based view as well similar to Eclipse. In order to switch to it, select in left upper corner of the left pane: "view as: Packages")
+        It also detects automatically the project is working with Git and its settings, and the right click menu adjusts to the Git integration.
 
 *   Eclipse code formatter - in order to be aligned with code formatting along the product, it is advised to work with the code styling configuration file that is based on Eclipse.
 
-In order to use it in IntelliJ, please install the Eclipse Code Formatter plugin: Settings --> IDE settings --> plugins --> Available, search for Eclipse Code Formatter and right click "Install". You might need to restart IntelliJ...
+        In order to use it in IntelliJ, please install the  Eclipse Code Formatter plugin:
+       Settings --> IDE settings --> plugins --> Available, search for Eclipse Code Formatter and right click "Install".
 
-*   
+*   After installation, go to: Settings --> Project Settings --> Eclipse Code Formatter
+
+       Import the code styling xml that is part of the ovirt-engine project:
+       ovirt-engine/config/engine-code-format.xml
+       Make sure the Import order section is set on "Manual configuration" with the following order (that follows latest Eclipse defaults) : java;javax;org;com;
 
 ### Others
 

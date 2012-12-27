@@ -107,7 +107,7 @@ of 'esc'+':' combination ;)
 
 ### IntelliJ
 
-*   Install IntelliJ (there is a community edition) - good stable version is 10.5, but there are also 11 and 12 now available.
+*   Install IntelliJ (there is a community edition) - good stable version is 10.5.x, but there are also 11 and 12 now available.
 
 <http://www.jetbrains.com/idea/free_java_ide.html>
 
@@ -138,6 +138,14 @@ Make sure the Import order section is set on "Manual configuration" with the fol
 Follow the "Optimize imports section" in the plugin's help page: <http://code.google.com/p/eclipse-code-formatter-intellij-plugin/wiki/HowTo>
 
 Example: ![](IDEA-EclipseFormatter-Settings.png "fig:IDEA-EclipseFormatter-Settings.png")
+
+*   Maven configuration optimization
+
+In order to benefit from the Maven integration and build the project from within IntelliJ , go to :
+
+       Run --> Edit configurations --> Add new configuration (select Maven)
+
+Then
 
 ### Others
 

@@ -139,13 +139,13 @@ Follow the "Optimize imports section" in the plugin's help page: <http://code.go
 
 Example: ![](IDEA-EclipseFormatter-Settings.png "fig:IDEA-EclipseFormatter-Settings.png")
 
-*   Maven configuration optimization
+*   Maven configuration (not mandatory=)
 
 In order to benefit from the Maven integration and build the project from within IntelliJ , go to :
 
        Run --> Edit configurations --> Add new configuration (select Maven)
 
-Then
+Fill the working directory (where the parent pom.xml is located) Fill goals (for example - clean install) Fill profiles if exist (for example - gwtdev, gwt-admin, dep)
 
 ### Others
 

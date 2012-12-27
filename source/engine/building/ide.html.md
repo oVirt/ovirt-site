@@ -145,9 +145,13 @@ In order to benefit from the Maven integration and build the project from within
 
        Run --> Edit configurations --> Add new configuration (select Maven)
 
-1.  Fill the working directory (where the parent pom.xml is located)
-2.  Fill goals (for example - clean install)
-3.  Fill profiles if exist (for example - gwtdev, gwt-admin, dep)
+1.  Give it a meaningful name (such as "build including UI")
+2.  Fill the working directory (where the parent pom.xml is located)
+3.  Fill goals (for example - clean install)
+4.  Fill profiles if exist (for example - gwtdev, gwt-admin, dep)
+5.  If you need to set any -D flags , it is available in the Runner tab
+
+Example:
 
 ### Others
 

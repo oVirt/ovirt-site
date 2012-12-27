@@ -1,0 +1,99 @@
+---
+title: Normalized ovirtmgmt Initialization
+category: feature
+authors: danken, lpeer, moti, sandrobonazzola
+wiki_category: Feature
+wiki_title: Features/Normalized ovirtmgmt Initialization
+wiki_revision_count: 36
+wiki_last_updated: 2013-12-11
+---
+
+# Normalized ovirtmgmt Initialization
+
+### Summary
+
+Generate `ovirtmgmt` network based on DC definitions using `setupNetworks` and not during new host deployment.
+
+### Owner
+
+*   Name: [ Dan Kenigsberg](User:Danken)
+
+<!-- -->
+
+*   Email: <danken@redhat.com>
+
+### Current status
+
+*   Not yet scheduled to a specific release
+*   Last updated: ,
+
+### Detailed Description
+
+#### Current condition
+
+The management network, named ovirtmgmt, is created during host bootstrap. It consists of a bridge device, connected to the network device that was used to communicate with Engine (nic, bonding or vlan). It inherits its ip settings from the latter device.
+
+#### Why Is the Management Network Needed?
+
+Understandably, some may ask why do we need to have a management network - why having a host with IPv4 configured on it is not enough. The answer is twofold:
+
+1.  In oVirt, a network is an abstraction of the resources required for connectivity of a host for a specific usage. This is true for the management network just as it is for VM network or a display network. The network entity is the key for adding/changing nics and IP address.
+2.  In many occasions (such as small setups) the management network is used as a VM/display network as well.
+
+#### Problems in current condition
+
+According to alonbl of ovirt-host-deploy fame, and with no conflict to my own experience, creating the management network is the most fragile, error-prone step of bootstrap.
+
+Currently it always creates a bridged network (even if the DC requires a non-bridged ovirtmgmt), it knows nothing about the defined MTU for ovirtmgmt, it uses ping to guess on top of which device to build (and thus requires Vdsm-to-Engine reverse connectivity), and is the sole remaining user of the `addNetwork`/`vdsm-store-net-conf` scripts.
+
+#### Suggested feature
+
+Bootstrap would avoid creating a management network. Instead, after bootstrapping a host, Engine would send a `getVdsCaps` probe to the installed host, receiving a complete picture of the network configuration on the host. Among this picture is the device that holds the host's management IP address.
+
+Engine would send `setupNetwork` command to generate `ovirtmgmt` with details devised from this picture, and according to the DC definition of ovirtmgmt. For example, if Vdsm reports:
+
+*   vlan bond4.3000 has the host's IP, configured to use dhcp.
+*   bond4 is comprises eth2 and eth3
+*   ovirtmgmt is defined as a VM network with MTU 9000
+
+then Engine sends the likes of:
+
+       setupNetworks(ovirtmgmt: {bridged=True, vlan=3000, iface=bond4,
+                     bonding=bond4: {eth2,eth3}, MTU=9000)
+
+A call to `setSafeNetConfig` would wrap the network configuration up.
+
+Currently, the host undergoes a reboot as the last step of bootstrap. This allows us to verify immediately if the host would be accessible post-boot using its new network configuration. If we want to maintain this, Engine would need to send a `fenceNode` request.
+
+### Benefit to oVirt
+
+*   Simplified bootstrapping
+*   Simplified `ovirt-node` registration (similar ovirtmgmt-generation logic lies there).
+*   Host installation ends with an ovirtmgmt network that matches DC definition (bridged-ness, mtu, vlan).
+*   vdsm-to-engine connectivity is not required.
+
+### Dependencies / Related Features
+
+#### Vdsm
+
+Already reports all relevant network devices, as well lastClientIface (the interface used to receive the current client communication). According to this information, `Engine` can deduce the structure of the management network `ovirtmgmt`.
+
+#### ovirt-host-deploy
+
+Already has `VDSM/managementBridgeName ` environment variable defined. If missing, no management network would be created.
+
+#### Engine
+
+Most of the work lies here, where the output of `getVdsCaps` should be parsed, and a `setupNetworks` command should be transmitted after a new host is added to the data center.
+
+**More elaboration is requited here.**
+
+### Documentation / External references
+
+*   mailing-list discussion about this feature: <http://lists.ovirt.org/pipermail/arch/2012-December/001101.html>
+
+### Comments and Discussion
+
+*   Refer to [Talk:Normalized ovirtmgmt Initialization](Talk:Normalized ovirtmgmt Initialization)
+
+<Category:Feature>

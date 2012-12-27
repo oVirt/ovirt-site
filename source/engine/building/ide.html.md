@@ -117,17 +117,21 @@ of 'esc'+':' combination ;)
 
 *   In order to open the ovirt-engine project, do:
 
-File-->Open Project
+       File-->Open Project
 
 Select the main pom.xml located at the root of the ovirt-engine directory. It should then open the project structure on the left pane. (there is a package-based view as well similar to Eclipse. In order to switch to it, select in left upper corner of the left pane: "view as: Packages") It also detects automatically the project is working with Git and its settings, and the right click menu adjusts to the Git integration.
 
 *   Eclipse code formatter - in order to be aligned with code formatting along the product, it is advised to work with the code styling configuration file that is based on Eclipse.
 
-In order to use it in IntelliJ, please install the Eclipse Code Formatter plugin: Settings --> IDE settings --> plugins --> Available, search for Eclipse Code Formatter and right click "Install".
+In order to use it in IntelliJ, please install the Eclipse Code Formatter plugin:
 
-*   After installation, go to: Settings --> Project Settings --> Eclipse Code Formatter
+       Settings --> IDE settings --> plugins --> Available, search for Eclipse Code Formatter and right click "Install".
 
-Import the code styling xml that is part of the ovirt-engine project: ovirt-engine/config/engine-code-format.xml Make sure the Import order section is set on "Manual configuration" with the following order (that follows latest Eclipse defaults) : java;javax;org;com; Example: ![](Example.jpg "fig:Example.jpg")
+*   After plugin installation, go to:
+
+       Settings --> Project Settings --> Eclipse Code Formatter
+
+Import the code styling xml that is part of the ovirt-engine project: ovirt-engine/config/engine-code-format.xml Make sure the Import order section is set on "Manual configuration" with the following order (that follows latest Eclipse defaults) : java;javax;org;com; Example: ![](IDEA-EclipseFormatter-Settings.png "fig:IDEA-EclipseFormatter-Settings.png")
 
 ### Others
 

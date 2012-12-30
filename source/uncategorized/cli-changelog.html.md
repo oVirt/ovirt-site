@@ -8,6 +8,16 @@ wiki_last_updated: 2013-11-14
 
 # Cli-changelog
 
+         * Sun Dec  30 2012 Michael Pasternak `<mpastern@redhat.com>` - 3.2.0.8-1
+         - typo in help update manual #890368
+         - "remove permit" doesnt work by-id #887805
+         - wrong response for suspend VM #886944
+         - auto complete suggests --from_event_id while it shouldnt #886792
+         - negative numbers wrapped as strings #880216
+         - missing acknowledgement for remove commands #886941
+         - update prompt status upon "Connection failure" #880559
+         - Wrong name of section in .ovirtshell causes to traceback #880641
+
          * Sun Nov  18 2012 Michael Pasternak `<mpastern@redhat.com>` - 3.2.0.7-1
          - disable output redirection via config #866853
          - CTRL+C signal while password prompt appears causes cli to fall #868647

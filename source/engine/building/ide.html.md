@@ -139,7 +139,13 @@ In order to use it in IntelliJ, please install the Eclipse Code Formatter plugin
 
 Example: ![](IDEA-EclipseFormatter-Settings.png "fig:IDEA-EclipseFormatter-Settings.png")
 
-*   Maven configuration (not mandatory)
+*   In order to prevent collapsing explicit class imports to one liner (e.g. com.my.package.\*), do the following:
+
+       Settings -> Code Style -> Imports
+
+Set "use single class import" as checked, and "class count" and "name count" settings to 99
+
+*   Maven configuration (not mandatory) - for easier development work (not need to use command line)
 
 First, make sure that IntelliJ is pointed at the correct Maven configuration, especially if you have several different versions.
 
@@ -156,6 +162,8 @@ In order to benefit from the Maven integration and build the project from within
 5.  If you need to set any -D flags , it is available in the Runner tab
 
 Now you can always select this configuration from the combo box in the main pane, and press "run" (the green triangle) - it is equivalent to running "mvn clean install ... " from the command line.
+
+Please note you can create several different configurations (with UI, without user portal, etc.)
 
 Configuration example: ![](Maven-Configurations.png "fig:Maven-Configurations.png")
 

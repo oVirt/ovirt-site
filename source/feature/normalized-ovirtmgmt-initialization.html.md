@@ -86,7 +86,19 @@ Already has `VDSM/managementBridgeName ` environment variable defined. If missin
 
 Most of the work lies here, where the output of `getVdsCaps` should be parsed, and a `setupNetworks` command should be transmitted after a new host is added to the data center.
 
-**More elaboration is requited here.**
+1.  start host deployment with
+
+      ODEPLOY/forceReboot = False
+      VDSM/managementBridgeName
+
+1.  after `otopi` finishes, start to poll host with `getVdsCaps`. If timeout expires, fail host deployment.
+2.  define `ovirtmgmt` on host
+    1.  if already defined, declare success.
+    2.  acquire `lastClientInterface` and devise network definition for `ovirtmgmt`.
+    3.  send `setupNetworks` with the new network definition.
+    4.  on success, send `setSafeNetConfig`. On failure show an event to the user. the host would be left unoperational, and may need manual network configuration.
+
+3.  if the user requested post-installation reboot, fence the newly-added host.
 
 ### Documentation / External references
 

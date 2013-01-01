@@ -34,7 +34,7 @@ A disk cannot be switched from or to RO while active.
 
 #### DB
 
-vm_device table already has a read_only column. No update to the DB is needed.
+vm_device table already has a is_readonly column. No update to the DB is needed.
 
 #### Backend
 

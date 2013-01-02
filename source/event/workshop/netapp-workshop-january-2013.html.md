@@ -58,25 +58,23 @@ On January 22, 2013, the oVirt workshop is pleased to welcome two key members of
 <div class="span6 pad-sides">
 #### Wednesday, January 23, 2013 - Integrator/Developer Day
 
-| Time                   | Title                                                    | Speaker                        |
-|------------------------|----------------------------------------------------------|--------------------------------|
-| 08:30-09:00            | colspan=2| Continental breakfast served                  |
-| 09:00-09:15            | Opening remarks                                          |                                |
-| width=20%| 09:15-10:00 | width=50% | Introduction to UI plug-ins                  | width=30% | Vojtech Szocs      |
-| 10:00-10:45            | NetApp Virtual Solutions Console for oVirt               | Christopher Morrissey (NetApp) |
-| 10:45-11:00            | colspan=2| Coffee break                                  |
-| 11:00-11:45            | oVirt Storage and Live Storage Migration                 | Ayal Baron                     |
-| 11:45-12:30            | oVirt Node - overview                                    | Mike Burns                     |
-| 12:30-13:30            | colspan=2| Lunch                                         |
-| 13:30-14:15            | oVirt Network and Quantum                                |                                |
-| 14:15-15:00            | VDSM Hooks                                               | Ayal Baron                     |
-| 15:00-15:15            | colspan=2| Coffee break                                  |
-| 15:15-16:00            | Supporting CIMI                                          | Oved Ourfali                   |
-| 16:00-16:45            | Extending oVirt with the API and SDK                     |                                |
-| 16:45-17:30            | Customizing oVirt Node                                   | Mike Burns                     |
-| 18:00-20:00            | colspan=2| Evening Reception at the Country Inn & Suites |
+| Time                   | Title                                      | Speaker                        |
+|------------------------|--------------------------------------------|--------------------------------|
+| 08:30-09:00            | colspan=2| Continental breakfast served    |
+| 09:00-09:15            | Opening remarks                            |                                |
+| width=20%| 09:15-10:00 | width=50% | Introduction to UI plug-ins    | width=30% | Vojtech Szocs      |
+| 10:00-10:45            | NetApp Virtual Solutions Console for oVirt | Christopher Morrissey (NetApp) |
+| 10:45-11:00            | colspan=2| Coffee break                    |
+| 11:00-11:45            | oVirt Storage and Live Storage Migration   | Ayal Baron                     |
+| 11:45-12:30            | oVirt Node - overview                      | Mike Burns                     |
+| 12:30-13:30            | colspan=2| Lunch                           |
+| 13:30-14:15            | oVirt Network and Quantum                  |                                |
+| 14:15-15:00            | VDSM Hooks                                 | Ayal Baron                     |
+| 15:00-15:15            | colspan=2| Coffee break                    |
+| 15:15-16:00            | Supporting CIMI                            | Oved Ourfali                   |
+| 16:00-16:45            | Extending oVirt with the API and SDK       |                                |
+| 16:45-17:30            | Customizing oVirt Node                     | Mike Burns                     |
 
-</div>
 <div class="span12 pad-sides">
 #### Thursday, January 24, 2013 - Hackfest Day
 

@@ -52,7 +52,7 @@ I am told that implementing this in Engine is quite a pain, as network external 
 
 ### Documentation / External references
 
-*   [Feature/AllInOne All-in-One](Feature/AllInOne All-in-One) - an oVirt deployment that needs to fire up VMs with no external network connectivity.
+*   [All-in-One](Feature/AllInOne) - an oVirt deployment that needs to fire up VMs with no external network connectivity.
 
 ### Comments and Discussion
 

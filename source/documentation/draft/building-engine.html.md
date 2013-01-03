@@ -136,7 +136,6 @@ Example for variables in this file:
           $> ln -s /usr/share/jboss-as-7.1.1.Final /usr/share/jboss-as
           $> Change the JBOSS_HOME environment variable to the new location
           $> su - -c 'chmod -R 777 /usr/share/jboss-as'
-          $> chkconfig jboss-as on
           $> Change the Jboss home in ~/.m2/settings.xml file to point to the new location
 
 Make sure that it runs:

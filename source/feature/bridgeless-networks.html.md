@@ -22,7 +22,7 @@ wiki_last_updated: 2013-01-29
 
 An admin can now set a logical network as "VM network" so when attaching a Network to an Host's NIC,
 a "Vm network" is implemented over a bridge, otherwise bridgeless
-If a host newtork is bridgeless but should be a VM network the host will be set to non-operational state.
+If a host network is bridgeless but should be a VM network the host will be set to non-operational state.
 
 Also, A cluster network can be set as "optional", meaning that host is operational as long as it have
 all the non-optional networks attached.

@@ -24,8 +24,6 @@ A network provider is an external provider that can provide networking capabilit
 
 There should be a way for oVirt to discover what networks are available on the provider. An oVirt user could then decide to import a network, that is provided by the provider, as a new one into a data center, or attach it to an existing data center network, marking that the network is also provided by this provider (in addition to any other provider that provides it).
 
-Question: Can an imported network be implemented internally, or if it's external network then we don't control it?
-
 Currently, we assume that the networks provided by the provider are available on all hosts in the data center, but it is possible to have this capability added so that we would be able to query the provider if a specific host provides a given network or not.
 
 ### Network provisioning
@@ -37,3 +35,27 @@ The network can be exported from oVirt into the network provider, but from that 
 The network provider should be able to provision a virtual NIC's data (name, MAC, etc) on a network that it provides. oVirt would send the virtual NIC details over to the provider, and it should return the NIC connection details. These connection details should be used when the VM is run, or the NIC is plugged.
 
 There should also be an option to "un-provision" a virtual NIC so that is being provisioned by the provider.
+
+## Integrating external providers
+
+The integration of network providers into oVirt will be incremental.
+
+### Phase 1
+
+Introducing a 'Network Provider' entity that will have the following properties:
+
+*   Name
+*   Description
+*   Type (Technology?)
+*   URI
+*   User/Password ?
+
+Possibly, different providers can have additional properties that are needed by them.
+
+Each network can be provided **either** by oVirt or by the external provider. This requires that each network has a link to the provider. If the link is not set, the network is not provided externally. If the link is set, then this network is provided by the external provider. In this phase, only VM networks can be provided by an external provider.
+
+Currently. only one external provider will be supported for a network. If a network is externally provided, it will **not** be editable in oVirt, since the external provider is responsible for managing the actual network configuration.
+
+Integration will be done at this phase for running virtual machine only, so other operations (hot-plug, rewire, etc) will **not** be supported for externally provided networks. When VM is being run we need to include all hosts in the cluster for scheduling decision of available networks. For each virtual NIC that is using an externally provided network, we would need to provision the NIC on the provider and receive the NIC connection details prior to running the VM. Once we have all the details available, we would need to pass those details to VDSM (This requires API change in the 'create' verb that would pass the connection details for each NIC.
+
+On VM stop, we need to "un-provision" the NIC of each externally provided network from the relevant provider

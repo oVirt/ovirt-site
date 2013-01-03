@@ -86,7 +86,7 @@ Create your ~/.m2/ directory
 
       $> mkdir ~/.m2
 
-Use the following command to create maven settings file
+Use the following command to create maven settings file:
 
       $> cat > ~/.m2/settings.xml <<"EOT"
       <settings xmlns="http://maven.apache.org/POM/4.0.0"

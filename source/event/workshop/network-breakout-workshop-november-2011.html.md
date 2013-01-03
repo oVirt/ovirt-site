@@ -12,7 +12,7 @@ wiki_last_updated: 2013-01-03
 
 <http://www.ovirt.org/wp-content/uploads/2011/11/Quantum_Ovirt_discussion.pdf>
 
-Quannum basic API approach:
+Quantum basic API approach:
 
 1.  Create a network
 2.  Create a port

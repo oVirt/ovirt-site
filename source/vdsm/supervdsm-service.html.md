@@ -16,7 +16,7 @@ The actual name of your feature page should look something like: "Your feature n
 
 ### Summary
 
-A sentence or two summarizing what this feature is and what it will do. This information is used for the overall feature summary page for each release.
+Supervdsm should be responsible for all priviledged operations, but as supervdsm is started by unpriviledged vdsm, vdsm now does some priviledged operations. Aim of this feature is to get vdsm to be a pure unpriviledged process and move all privildged operations to supervdsm.
 
 ### Owner
 

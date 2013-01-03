@@ -20,9 +20,9 @@ Supervdsm should be responsible for all priviledged operations, but as supervdsm
 
 ### Owner
 
-*   Name: [ My User](User:MyUser)
+*   Name: [ lvroyce](User:Royce Lv)
 
-Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
+<!-- -->
 
 *   Email: <lvroyce@linux.vnet.ibm.com>
 

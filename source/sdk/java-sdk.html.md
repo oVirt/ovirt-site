@@ -271,6 +271,8 @@ Till java-sdk project is deployable, just compile it and reference from your pro
 
 12. upload artifacts to mvn repo
 
+13. Implement querying collections using custom constraint.
+
 ## Change Log
 
 [java-sdk-changelog](java-sdk-changelog)

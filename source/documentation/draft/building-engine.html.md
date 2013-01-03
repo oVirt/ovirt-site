@@ -88,10 +88,7 @@ Create your ~/.m2/ directory
 
 Use
 
-      wget -O ~/.m2/settings.xml http://wiki.ovirt.org/w/images/1/18/Settings.xml.png
-
-Or copy & paste the content of the file below into ~/.m2/settings.xml
-
+      cat > ~/.m2/settings.xml <<"EOT"
       <settings xmlns="http://maven.apache.org/POM/4.0.0"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
@@ -113,6 +110,7 @@ Or copy & paste the content of the file below into ~/.m2/settings.xml
                       </profile>
                </profiles>
       </settings>
+      EOT
 
 *   Do not omit the active-profiles element in the above xml, it is crucial.
 *   If your JDK installation resides in a different path , please specify it instead of the provided path at JAVA_HOME.

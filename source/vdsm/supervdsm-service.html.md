@@ -12,7 +12,7 @@ wiki_last_updated: 2013-08-04
 
 The actual name of your feature page should look something like: "Your feature name". Use natural language to [name the pages](How to make pages#Page_naming).
 
-## Your Feature Name
+## Normalize vdsm start up process
 
 ### Summary
 

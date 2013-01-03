@@ -247,9 +247,9 @@ Till java-sdk project is deployable, just compile it and reference from your pro
 
 1. generate entry-point (/api) methods (done)
 
-2. generate searchable list() methods (in-progress)
+2. generate searchable list() methods (done)
 
-3. generate method/s overloads using header/url params
+3. generate method/s overloads using header/url params (in-progress)
 
 4. generate delete method/s overloads with body
 

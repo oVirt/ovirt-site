@@ -26,8 +26,8 @@ Question: Can an imported network be implemented internally, or if it's external
 
 ## Network provisioning
 
-The network can be exported from oVirt into the network provider, but from that moment on it will be as if the network was discovered from the provider - i.e. if it goes out of sync, that's OK.
+The network can be exported from oVirt into the network provider, but from that moment on it will be as if the network was discovered from the provider - i.e. if it goes out of sync, that's OK from oVirt's perspective.
 
 ## Virtual NIC provisioning
 
-The network provider should be able to provision a virtual NIC's data (name, MAC, etc) on a network that it provides. Currently, we assume that the networks provided by the provider are available on all clusters, but it is possible to have this capability added so that we would be able
+The network provider should be able to provision a virtual NIC's data (name, MAC, etc) on a network that it provides. Currently, we assume that the networks provided by the provider are available on all hosts in the data center, but it is possible to have this capability added so that we would be able to query the provider if a specific host provides a given network or not.

@@ -42,20 +42,31 @@ The integration of network providers into oVirt will be incremental.
 
 ### Phase 1
 
-Introducing a 'Network Provider' entity that will have the following properties:
+#### Network provider entity
 
-*   Name
-*   Description
-*   Type (Technology?)
-*   URI
-*   User/Password ?
+*   Introducing a 'Network Provider' entity that will have the following properties:
+    -   Name
+    -   Description
+    -   Type (Technology?)
+    -   URI
+    -   User/Password ?
+*   Possibly, different providers can have additional properties that are needed by them.
 
-Possibly, different providers can have additional properties that are needed by them.
+#### Changes in network entity
 
-Each network can be provided **either** by oVirt or by the external provider. This requires that each network has a link to the provider. If the link is not set, the network is not provided externally. If the link is set, then this network is provided by the external provider. In this phase, only VM networks can be provided by an external provider.
+*   Each network can be provided **either** by oVirt or by the external provider.
+*   This requires that each network has a link to the provider:
+    -   If the link is set, then this network is provided by the external provider.
+    -   If the link is not set, the network is not provided externally.
+*   There need also be an ID property of the network on the external provider.
+*   In this phase, only VM networks can be provided by an external provider.
+*   Currently. only one external provider will be supported for a network.
+*   If a network is externally provided, it will **not** be editable in oVirt, since the external provider is responsible for managing the actual network configuration.
 
-Currently. only one external provider will be supported for a network. If a network is externally provided, it will **not** be editable in oVirt, since the external provider is responsible for managing the actual network configuration.
+#### Integration with virtual NIC lifecycle
 
-Integration will be done at this phase for running virtual machine only, so other operations (hot-plug, rewire, etc) will **not** be supported for externally provided networks. When VM is being run we need to include all hosts in the cluster for scheduling decision of available networks. For each virtual NIC that is using an externally provided network, we would need to provision the NIC on the provider and receive the NIC connection details prior to running the VM. Once we have all the details available, we would need to pass those details to VDSM (This requires API change in the 'create' verb that would pass the connection details for each NIC.
-
-On VM stop, we need to "un-provision" the NIC of each externally provided network from the relevant provider
+*   Integration will be done at this phase for running virtual machine only, so other operations (hot-plug, rewire, etc) will **not** be supported for externally provided networks.
+*   When VM is being run we need to include all hosts in the cluster for scheduling decision of available networks.
+*   For each virtual NIC that is using an externally provided network, we would need to provision the NIC on the provider and receive the NIC connection details prior to running the VM.
+    -   Once we have all the details available, we would need to pass those details to VDSM (This requires API change in the 'create' verb that would pass the connection details for each NIC.
+*   On VM stop, we need to "un-provision" the NIC of each externally provided network from the relevant provider

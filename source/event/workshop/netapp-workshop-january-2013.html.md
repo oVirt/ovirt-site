@@ -75,6 +75,8 @@ On January 22, 2013, the oVirt workshop is pleased to welcome two key members of
 | 16:00-16:45            | Extending oVirt with the API and SDK       | Speaker TBA                         |
 | 16:45-17:30            | Customizing oVirt Node                     | Mike Burns (Red Hat)                |
 
+</div>
+<div class="row">
 <div class="span12 pad-sides">
 #### Thursday, January 24, 2013 - Hackfest Day
 

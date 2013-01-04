@@ -107,23 +107,25 @@ item 1.2.4 mean supervdsm server framework problem, 1.2 need to be handled by re
 
 3.  supervdsm main thread killed when calling
     -   A: discover when call return EOFError and then restart
-    -   vdsm restart all over, because vdsm lost privilege(future)
+    -   B: vdsmd as supervdsm's child should kill itself when receive EOFError, or when it can't call supervdsm
 
 4.  supervdsm main thread killed before call
-    -   expected result:restart supervdsm and call(current)
-    -   vdsm restart all over(future)
+    -   A:discover when "isRunning" raise error, then restart
+    -   B: vdsmd as supervdsm's child should be killed when next time supervdsm start, or vdsmd also has a heart beat scheme for super vdsm
 
 5.  supervdsm server thread killed(not started) before call
-    -   expected result: connection error will raised to proxy caller(current)
-    -   connection error and then vdsm restart all over(future)
+    -   A: connect error, restart
+    -   B: supervdsm restart itself
 
 6.  supervdsm server thread killed(not started) when call
-    -   expected result:current:TODO
-    -   new:TODO
+    -   A:TODO
+    -   B:TODO
 
 7.  vdsm process died
-    -   expected result:current: supervdsm server will kill itself(seconds delay, careful of regression, bug related:<https://bugzilla.redhat.com/show_bug.cgi?id=890365>)
-    -   future: supervdsm server will kill itself and restart all over
+    -   A: supervdsm has heart beat for vdsm to kill itself
+    -   B: supervdsm joined vdsm and restart all over
+
+As we can see from the above, proposal B will involve more complex logic when supervdsm died, vdsm will probe its heart beat or supervdsm should kill vdsm for next time, but vdsm still in the middle of some operations, possible inconsistent situation will happen. So we tend to adopt proposal A based on this.
 
 ## Benefit to oVirt
 

@@ -45,14 +45,14 @@ Supervdsm should be responsible for all priviledged operations, but as supervdsm
 
 ## Detailed Description
 
-*   new proposal A:
+*   new proposal A:[patch for proposal A](http://gerrit.ovirt.org/gitweb?p=vdsm.git;a=commit;h=976dbb13e6cd8136b12ed58ccd2a5176b730bddf)
 
 1.  vdsmd.init starts vdsm as root
 2.  vdsm forks supervdsm server and then drop privilege
 3.  when vdsm exit, supervdsm probe vdsm heart beat stop and exit
 4.  vdsm call supervdsm may discover supervdsm server exit, vdsm will exit itself and restart
 
-*   new proposal B:
+*   new proposal B:[patch for proposal B](http://gerrit.ovirt.org/gitweb?p=vdsm.git;a=commit;h=033ef4bc73dbbb36dd8180049626e7f4cde56334)
 
 1.  vdsmd.init starts supervdsm as root
 2.  supervdsm forks vdsm

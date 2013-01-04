@@ -30,14 +30,16 @@ Supervdsm should be responsible for all priviledged operations, but as supervdsm
 
 *   current solution
 
-1.vdsmd.init start vdsm with user “vdsm”
- 2.launch supervdsm when it is not running
- 2.vdsm tries to call supervdsm
- 3.when authentication error, re-launch, others just raise
+1.  vdsmd.init start vdsm with user “vdsm”
+2.  launch supervdsm when it is not running
+3.  vdsm tries to call supervdsm
+4.  when authentication error, re-launch, others just raise
 
 *   current problem
 
-1. unprivileged vdsm and proxy need to call previleged “sudo launch” and “sudo kill” 2. redundent key between vdsm and supervdsm as they are parent and child 3. vdsm call supervdsm exception flow problems
+1.  unprivileged vdsm and proxy need to call previleged “sudo launch” and “sudo kill”
+2.  redundent key between vdsm and supervdsm as they are parent and child
+3.  vdsm call supervdsm exception flow problems
 
 *   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
 *   Last updated: ,

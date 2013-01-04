@@ -48,32 +48,32 @@ On January 22, 2013, the oVirt workshop is pleased to welcome two key members of
 | 10:45-11:30            | User case study: Alter Way and H2O            | Hervé Leclerc (Alter Way)       |
 | 11:30-12:00            | oVirt and NetApp                              | Patrick Rogers (VP, NetApp)     |
 | 12:00-13:00            | colspan=2| Lunch                              |
-| 13:00-13:45            | Gluster and oVirt: Distributed shared storage | Eco Willson                     |
-| 13:45-14:30            | oVirt Roadmap                                 | Itamar Heim                     |
-| 14:30-15:15            | oVirt Architecture Overview                   | Itamar Heim                     |
+| 13:00-13:45            | Gluster and oVirt: Distributed shared storage | Eco Willson (Red Hat)           |
+| 13:45-14:30            | oVirt Roadmap                                 | Itamar Heim (Red Hat)           |
+| 14:30-15:15            | oVirt Architecture Overview                   | Itamar Heim (Red Hat)           |
 | 15:15-15:30            | colspan=2| Coffee break                       |
-| 15:30-17:30            | oVirt Hands-on Workshop                       | James Rankin                    |
+| 15:30-17:30            | oVirt Hands-on Workshop                       | James Rankin (Red Hat)          |
 
 </div>
 <div class="span6 pad-sides">
 #### Wednesday, January 23, 2013 - Integrator/Developer Day
 
-| Time                   | Title                                      | Speaker                        |
-|------------------------|--------------------------------------------|--------------------------------|
+| Time                   | Title                                      | Speaker                             |
+|------------------------|--------------------------------------------|-------------------------------------|
 | 08:30-09:00            | colspan=2| Continental breakfast served    |
-| 09:00-09:15            | Opening remarks                            |                                |
-| width=20%| 09:15-10:00 | width=50% | Introduction to UI plug-ins    | width=30% | Vojtech Szocs      |
-| 10:00-10:45            | NetApp Virtual Solutions Console for oVirt | Christopher Morrissey (NetApp) |
+| 09:00-09:15            | Opening remarks                            |                                     |
+| width=20%| 09:15-10:00 | width=50% | Introduction to UI plug-ins    | width=30% | Vojtech Szocs (Red Hat) |
+| 10:00-10:45            | NetApp Virtual Solutions Console for oVirt | Christopher Morrissey (NetApp)      |
 | 10:45-11:00            | colspan=2| Coffee break                    |
-| 11:00-11:45            | oVirt Storage and Live Storage Migration   | Ayal Baron                     |
-| 11:45-12:30            | oVirt Node - overview                      | Mike Burns                     |
+| 11:00-11:45            | oVirt Storage and Live Storage Migration   | Ayal Baron (Red Hat)                |
+| 11:45-12:30            | oVirt Node - overview                      | Mike Burns (Red Hat)                |
 | 12:30-13:30            | colspan=2| Lunch                           |
-| 13:30-14:15            | oVirt Network and Quantum                  |                                |
-| 14:15-15:00            | VDSM Hooks                                 | Ayal Baron                     |
+| 13:30-14:15            | oVirt Network and Quantum                  | Speaker TBA                         |
+| 14:15-15:00            | VDSM Hooks                                 | Ayal Baron (Red Hat)                |
 | 15:00-15:15            | colspan=2| Coffee break                    |
-| 15:15-16:00            | Supporting CIMI                            | Oved Ourfali                   |
-| 16:00-16:45            | Extending oVirt with the API and SDK       |                                |
-| 16:45-17:30            | Customizing oVirt Node                     | Mike Burns                     |
+| 15:15-16:00            | Supporting CIMI                            | Oved Ourfali (Red Hat)              |
+| 16:00-16:45            | Extending oVirt with the API and SDK       | Speaker TBA                         |
+| 16:45-17:30            | Customizing oVirt Node                     | Mike Burns (Red Hat)                |
 
 <div class="span12 pad-sides">
 #### Thursday, January 24, 2013 - Hackfest Day
@@ -84,23 +84,23 @@ On hackfest day, we have three available spaces for Birds of a Feather sessions,
 <div class="span6 pad-sides">
 #### Hackpace - room 1 - Tutorials and BOFs
 
-| Time                   | Title                                                              | Speaker                |
-|------------------------|--------------------------------------------------------------------|------------------------|
-| width=20%| 09:00-10:30 | width=50%| oVirt debugging and troubleshooting                     | width=30% | Haim Ateya |
+| Time                   | Title                                                              | Speaker                          |
+|------------------------|--------------------------------------------------------------------|----------------------------------|
+| width=20%| 09:00-10:30 | width=50%| oVirt debugging and troubleshooting                     | width=30% | Haim Ateya (Red Hat) |
 | | 10:30-11:00          | colspan=2| Coffee break                                            |
-| 11:00-12:30            | Storage BOF: The future of Storage in Virtualization and the Cloud | Eco Willson            |
+| 11:00-12:30            | Storage BOF: The future of Storage in Virtualization and the Cloud | Eco Willson (Red Hat)            |
 | 12:30                  | colspan=2 | Workshop closing                                       |
 
 </div>
 <div class="span6 pad-sides">
 #### Hackspace - room 2 - plug-ins
 
-| Time                   | Title                                            | Speaker                  |
-|------------------------|--------------------------------------------------|--------------------------|
-| width=20%| 09:00-09:45 | width=50%| oVirt UI plug-in example: The Foreman | width=30% | Oved Ourfali |
-| 09:45-10:30            | Building a Hello, world UI plug-in               | Vojtech Szocs            |
+| Time                   | Title                                            | Speaker                            |
+|------------------------|--------------------------------------------------|------------------------------------|
+| width=20%| 09:00-09:45 | width=50%| oVirt UI plug-in example: The Foreman | width=30% | Oved Ourfali (Red Hat) |
+| 09:45-10:30            | Building a Hello, world UI plug-in               | Vojtech Szocs (Red Hat)            |
 | | 10:30-11:00          | colspan=2| Coffee break                          |
-| 11:00-12:30            | UI plug-in hackfest, hands-on workshop           | Vojtech Szocs            |
+| 11:00-12:30            | UI plug-in hackfest, hands-on workshop           | Vojtech Szocs (Red Hat)            |
 | 12:30                  | colspan=2 | Workshop closing                     |
 
 </div>

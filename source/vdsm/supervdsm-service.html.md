@@ -68,38 +68,27 @@ Supervdsm should be responsible for all priviledged operations, but as supervdsm
 *   exception flows need attention(also future test cases)：
 
 1.  one of supervdsm server export function raise error
+    -   expected result: raise to proxy caller
 
-expected result: raise to proxy caller
+2.  supervdsm main thread killed when calling
+    -   expected result: raise to proxy caller EOFError(now)
+    -   vdsm restart all over, because vdsm lost privilege(future)
 
-1.  supervdsm main thread killed when calling
+3.  supervdsm main thread killed before call
+    -   expected result:restart supervdsm and call(current)
+    -   vdsm restart all over(future)
 
-expected result: raise to proxy caller EOFError(current)</br>
+4.  supervdsm server thread killed(not started) before call
+    -   expected result: connection error will raised to proxy caller(current)
+    -   connection error and then vdsm restart all over(future)
 
-                vdsm restart all over(because vdsm lost privilege)
+5.  supervdsm server thread killed(not started) when call
+    -   expected result:current:TODO
+    -   new:TODO
 
-1.  supervdsm main thread killed before call
-
-expected result:restart supervdsm and call(current)</br>
-
-             vdsm restart all over(because vdsm lost privilege)
-
-1.  supervdsm server thread killed(not started) before call
-
-expected result: connection error will raised to proxy caller(current)</br>
-
-                               connection error and then vdsm restart all over
-
-1.  supervdsm server thread killed(not started) when call
-
-expected result:current:TODO(/br)
-
-                              new:TODO
-
-1.  vdsm process died
-
-expected result:current: supervdsm server will kill itself(seconds delay, careful of regression, bug related:<https://bugzilla.redhat.com/show_bug.cgi?id=890365>)</br>
-
-                              future: supervdsm server will kill itself and restart all over
+6.  vdsm process died
+    -   expected result:current: supervdsm server will kill itself(seconds delay, careful of regression, bug related:<https://bugzilla.redhat.com/show_bug.cgi?id=890365>)
+    -   future: supervdsm server will kill itself and restart all over
 
 ## Proposal comparison
 

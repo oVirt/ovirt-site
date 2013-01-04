@@ -92,17 +92,39 @@ Supervdsm should be responsible for all priviledged operations, but as supervdsm
 
 ## Proposal comparison
 
+*   exception flows need attention(also future test cases)：
+
+1.  one of supervdsm server export function raise error
+    -   expected result: raise to proxy caller
+
+2.  supervdsm main thread killed when calling
+    -   expected result: raise to proxy caller EOFError(now)
+    -   vdsm restart all over, because vdsm lost privilege(future)
+
+3.  supervdsm main thread killed before call
+    -   expected result:restart supervdsm and call(current)
+    -   vdsm restart all over(future)
+
+4.  supervdsm server thread killed(not started) before call
+    -   expected result: connection error will raised to proxy caller(current)
+    -   connection error and then vdsm restart all over(future)
+
+5.  supervdsm server thread killed(not started) when call
+    -   expected result:current:TODO
+    -   new:TODO
+
+6.  vdsm process died
+    -   expected result:current: supervdsm server will kill itself(seconds delay, careful of regression, bug related:<https://bugzilla.redhat.com/show_bug.cgi?id=890365>)
+    -   future: supervdsm server will kill itself and restart all over
+
 ## Benefit to oVirt
 
-What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
-
-## Dependencies / Related Features
-
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
+1.  Clean vdsm priviledge usage
+2.  clean and stable vdsm/supervdsm exception flow
 
 ## Documentation / External references
 
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
+*   TODO: paste corresponding bugzilla link and gerrit link here
 
 ## Comments and Discussion
 

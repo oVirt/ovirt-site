@@ -94,26 +94,31 @@ Supervdsm should be responsible for all priviledged operations, but as supervdsm
 
 *   exception flows need attention(also future test cases)：
 
-1.  one of supervdsm server export function raise error
-    -   expected result: raise to proxy caller
+1.  first launch
+    -   A: supervdsm server process lauched by priviledged vdsm, then vdsm drop priviledge
+    -   B: supervdsm server process lauched by vdsmd.init
 
-2.  supervdsm main thread killed when calling
-    -   expected result: raise to proxy caller EOFError(now)
+2.  one of supervdsm server export function raise error
+    -   A: just raise to Proxy Caller
+    -   B:just raise to Proxy Calller
+
+3.  supervdsm main thread killed when calling
+    -   A: discover when call return EOFError and then restart
     -   vdsm restart all over, because vdsm lost privilege(future)
 
-3.  supervdsm main thread killed before call
+4.  supervdsm main thread killed before call
     -   expected result:restart supervdsm and call(current)
     -   vdsm restart all over(future)
 
-4.  supervdsm server thread killed(not started) before call
+5.  supervdsm server thread killed(not started) before call
     -   expected result: connection error will raised to proxy caller(current)
     -   connection error and then vdsm restart all over(future)
 
-5.  supervdsm server thread killed(not started) when call
+6.  supervdsm server thread killed(not started) when call
     -   expected result:current:TODO
     -   new:TODO
 
-6.  vdsm process died
+7.  vdsm process died
     -   expected result:current: supervdsm server will kill itself(seconds delay, careful of regression, bug related:<https://bugzilla.redhat.com/show_bug.cgi?id=890365>)
     -   future: supervdsm server will kill itself and restart all over
 

@@ -105,7 +105,7 @@ item 1.2.4 mean supervdsm server framework problem, 1.2 need to be handled by re
 
 3.  supervdsm main thread killed when calling
     -   A: discover when call return EOFError and then restart
-    -   B: vdsmd as supervdsm's child should kill itself when receive EOFError, or when it can't call supervdsm
+    -   B: vdsmd as supervdsm's child should kill itself when receive EOFError
 
 4.  supervdsm main thread killed before call
     -   A:discover when "isRunning" raise error, then restart

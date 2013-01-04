@@ -81,6 +81,8 @@ On January 22, 2013, the oVirt workshop is pleased to welcome two key members of
 On hackfest day, we have three available spaces for Birds of a Feather sessions, practical tutorials and workshops, helpdesk-type sessions where people can have their questions answered, and whatever else attendees would like to talk about and do. This third day will be part conference, part "unconference" - attendees will get from the day what they put in.
 
 </div>
+</div>
+<div class="row">
 <div class="span6 pad-sides">
 #### Hackpace - room 1 - Tutorials and BOFs
 

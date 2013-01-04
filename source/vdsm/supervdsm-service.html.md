@@ -46,7 +46,21 @@ Supervdsm should be responsible for all priviledged operations, but as supervdsm
 
 ### Detailed Description
 
-Expand on the summary, if appropriate. A couple sentences suffices to explain the goal, but the more details you can provide the better.
+*   new proposal A:
+
+1.  vdsmd.init starts vdsm as root
+2.  vdsm forks supervdsm server and then drop privilege
+3.  when vdsm exit, supervdsm probe vdsm heart beat stop and exit
+4.  vdsm call supervdsm may discover supervdsm server exit, vdsm will exit itself and restart
+
+*   new proposal B:
+
+1.  vdsmd.init starts supervdsm as root
+2.  supervdsm forks vdsm
+
+### Exception flows to consider
+
+### Proposal comparison
 
 ### Benefit to oVirt
 

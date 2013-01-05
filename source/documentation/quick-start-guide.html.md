@@ -653,7 +653,7 @@ You only need to fill in the Name field and select Windows 7 as your Operating S
 
 **To install Windows guest operating system**
 
-1. Right click the virtual machine and select Run Once. The Run Once dialog displays as in Figure 4.6, “Run Red Hat Enterprise Linux Virtual Machine”. Configure the following options:
+1. Right click the virtual machine and select Run Once. The Run Once dialog displays as in Figure 4.6, “Run Linux Virtual Machine”. Configure the following options:
 
 *   Attach Floppy: virtio-win
 *   Attach CD: Windows 7

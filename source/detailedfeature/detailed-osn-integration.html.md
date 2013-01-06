@@ -70,3 +70,14 @@ The integration of network providers into oVirt will be incremental.
 *   For each virtual NIC that is using an externally provided network, we would need to provision the NIC on the provider and receive the NIC connection details prior to running the VM.
     -   Once we have all the details available, we would need to pass those details to VDSM (This requires API change in the 'create' verb that would pass the connection details for each NIC.
 *   On VM stop, we need to "un-provision" the NIC of each externally provided network from the relevant provider
+
+### Future phases
+
+#### Allow provisioning networks on external providers
+
+*   It would be possible to define a network in oVirt and "push" it to external providers. This network will then be treated as is it was discovered on the provider, and will be the sole responsibility of the provider.
+*   The provider will be responsible for providing the connectivity of the network.
+
+#### Auto-Discovery of networks
+
+*   An external provider would be set up as the provider of networking for a DC, such that any network defined on the provider will be discovered by oVirt and automatically set-up on the DC.

@@ -30,6 +30,8 @@ The different diagrams and descriptions below represent the architecture of the 
 
 The following diagram shows the different components in the oVirt project:
 
+![](architecture.png "architecture.png")
+
 These main components are:
 
 1.  Engine (ovirt-engine) - manages the oVirt hosts, and allows system administrators to create and deploy new VMs

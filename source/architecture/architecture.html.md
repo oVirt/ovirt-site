@@ -43,8 +43,8 @@ These main components are:
 7.  Host agent (VDSM) - the oVirt engine communicates with VSDM to request VM related actions on the nodes
 8.  Guest Agent - The guest agent runs inside the VM, and provides information on resource usage to the oVirt engine. Communication is done over a virtualised serial connection.
 9.  AD/IPA - directory services. Engine uses them to receive information on users and groups to be used with ovirt's permissions mechanism.
-10. Reports Engine - generates reports on VM resource usage, using Jasper Reports
-11. DWH (Data Warehouse) - The data warehouse component extracts and synthesizes data from the engine using Talend for later use in reports
+10. DWH (Data Warehouse) - The data warehouse component performs ETL on data extracted from the db using Talend , and inserts it to history DB.
+11. Reports Engine - generates reports based on data in history DB, on system resource usage, using Jasper Reports
 12. SPICE client - utility which allows users to access the VMs.
 
 The sections below will give a description and architectural aspects for each such component.

@@ -25,6 +25,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
     -   **Decision on list by Wednesday 09 January 2013**
 *   Trac ticket review: <https://fedorahosted.org/ovirt/report/1>
     -   **"If it is not a ticket in Trac, it's not real for oVirt Infra"**
+*   Is gerrit.ovirt.org OK? Status
 *   All other business
 
 ## Past meetings

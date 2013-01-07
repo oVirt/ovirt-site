@@ -59,4 +59,4 @@ I am told that implementing this in Engine is quite a pain, as network external 
 
 *   Refer to [Talk:Nicless Network](Talk:Nicless Network)
 
-<Category:Feature>
+<Category:Feature> <Category:Networking>

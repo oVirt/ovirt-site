@@ -21,7 +21,7 @@ CPU-Host support allows the virtual machines to see and utilize the host's CPU f
 
 ### Current status
 
-*   Implementation
+*   Merged
 *   Last updated date: 7 Dec 2012
 
 ### Detailed Description

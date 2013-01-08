@@ -8,11 +8,13 @@ wiki_revision_count: 59
 wiki_last_updated: 2013-01-29
 ---
 
+# NetApp Workshop January 2013
+
 __NOTOC__
 
 <div class="row">
 <div class="offset1 span10">
-# NetApp Workshop 2013
+## oVirt Workshop at NetApp HQ 2013
 
 </div>
 <div class="offset1 span7">
@@ -23,6 +25,8 @@ oVirt workshops focus on introducing the project, the technologies inside of the
 </div>
 <div class="span3"  style="text-align:center">
 <span class="btn btn-action btn-block">[Register for this event »](http://ovirtnetapp2013.eventbrite.com)</span>
+
+*Register before January 15th to attend this workshop.*
 
 </div>
 </div>

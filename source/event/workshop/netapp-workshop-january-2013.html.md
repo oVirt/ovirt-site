@@ -149,7 +149,7 @@ Attendees who require a letter of invitation for visa purposes should contact [L
 <div class="span6 pad-sides">
 ### Registration
 
-[Registration for this event](http://ovirtnetapp2013.eventbrite.com) is now open. Please register as soon as possible so we can get an accurate headcount for the workshop. Due to venue size, we must cap the maximum number of participants at 150.
+[Registration for this event](http://ovirtnetapp2013.eventbrite.com) is now open. Please register as soon as possible so we can get an accurate headcount for the workshop. Due to venue size, we must cap the maximum number of participants at 90.
 
 Registration is free, and includes attendance for all sessions of the workshop, lunch and snacks on all days of the workshop.
 

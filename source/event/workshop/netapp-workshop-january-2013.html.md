@@ -135,7 +135,7 @@ Should you have particular needs related to making your visit to NetApp's HQ, pl
 
 #### Lodging
 
-For attendees who wish to book a hotel room, we have secured a room block at the nearby [Country Inn and Suites](http://goo.gl/maps/csHQT) at a room rate of 125 USD / night for a standard room and 145/night for a king suite, excluding tax and incidentals. To book into the hotel room block, please phone +1.408.747.0999.
+For attendees who wish to book a hotel room, we have secured a room block at the nearby [Country Inn and Suites](http://goo.gl/maps/csHQT) at a room rate of 125 USD / night for a standard room and 145/night for a king suite, excluding tax and incidentals. To book into the hotel room block, please phone +1.408.747.0999. This room block will be listed at close of business on January 8th. If you require hotel accommodation please reserve before then. After this date, you may still request the rate, but we cannot guarantee room availability.
 
 Mention the oVirt NetApp workshop when booking to receive a room at our specially negotiated rate. If you are having difficulties securing a room in our block, please contact [ Leslie Hawthorn](User:Lh) for assistance.
 

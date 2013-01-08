@@ -59,7 +59,11 @@ The `migrate` verb should be extended with an additional parameter, specifying t
     -   A migration network is more likely to be a *required* network, but a user may opt for non-required. He may face unpleasant surprises if he wants to migrate his machine, but no candidate host has the network available.
     -   The "migration" role can be granted or taken on-the-fly, when hosts are active, as long as there are no currently-migrating VMs.
 
-2.  Scheduler: when deciding which host should be used for automatic migration, take into account the existence and availability of the migration network on the destination host. For manual migration, let user migrate a VM to a host with no migration network - if the admin wants to keep jamming the management network with migration traffic, let her.
+2.  Scheduler:
+    -   When deciding which host should be used for automatic migration, take into account the existence and availability of the migration network on the destination host.
+    -   For manual migration, let user migrate a VM to a host with no migration network - if the admin wants to keep jamming the management network with migration traffic, let her.
+    -   Just like choosing the destination host, the user may choose a specific migration network.
+
 3.  migration verb.
     -   For the a modern cluster level, with migration network defined on the destination host, an additional *miguri* parameter should be added to the `migrate` command
 

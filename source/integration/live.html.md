@@ -80,6 +80,20 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 ## Releases
 
+## oVirt-Live-0.9.iso - beta version Jan 9th 2013
+
+=
+
+#### Download
+
+<http://resources.ovirt.org/releases/3.2/tools/ovirt-live-0.9.iso>
+
+#### change-log
+
+Based on ovirt 3.2 nightly (git1a60fea) Fedora 18 beta
+
+==== Known-Issues === On some chipsets one could encounter the following bug: <https://bugzilla.redhat.com/show_bug.cgi?id=878119> which will cause the storage domain to fail. In case of a failure a workaround is to append "-w /dev/watchdog1" to WDMDOPTS in /etc/sysconfig/wdmd and run systemctl start wdmd.service
+
 ### oVirt-Live-0.8.iso - beta version Nov 15th 2012
 
 #### Download

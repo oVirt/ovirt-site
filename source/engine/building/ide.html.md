@@ -81,7 +81,7 @@ of 'esc'+':' combination ;)
     frontend ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/gwt
     uicompat -> project -> properties -> Projects -> Add -> common and compat
     generic-api -> project -> properties -> Projects -> Add -> common, compat and utils
-    userportal -> project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/gwt,annotations
+    userportal-gwtp -> project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/gwt,annotations
 
 *   You may need to first build the project directly through maven as some referenced projects are auto generated. close eclipse, build with maven and open eclipse again.
 

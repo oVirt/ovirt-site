@@ -13,10 +13,10 @@ wiki_last_updated: 2013-06-04
 
 ## Timeline
 
-*   General availability: **2013-01-09**
-    -   Beta release: **2012-11-28**
-    -   Feature freeze: **2012-11-28**
-    -   Test Day: **2012-12-11**
+*   General availability: **2013-01-30**
+    -   Beta release: **2013-01-15**
+    -   Feature freeze: **2013-01-14**
+    -   Test Day: **2013-01-24**
 
 ## Tracker Bug
 

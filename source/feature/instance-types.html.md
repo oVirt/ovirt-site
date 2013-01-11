@@ -59,6 +59,16 @@ Typically the image is stateless, when the virtual machine is stopped all change
 
 #### Design
 
+The following table enumerates all the fields involved and also how they are related to the entities. The specific columns means:
+
+*   **Avail**: available for the entity
+*   **Comm**: comment for the entity
+*   **Perms**: new permissions needed
+*   **Adv Only**: the new VM dialog will contain a button "Advanced Options". If the field is marked as Adv Only: Y than it is visible only after clicking this button
+*   **Basic User**: if the user is not an admin user, only the fields which are marked as Basic User: Y will be editable for him
+*   **Marked**: if Y, it means the field is "special" and if the user changes it, the instance type will change to "custom"
+*   **On Create**: default value when creating the VM
+
 | Field name                | Description                                  | Template | Image | Instance Type | VM    |
 |---------------------------|----------------------------------------------|----------|-------|---------------|-------|
 |                           |                                              | Avail    | Comm  | Avail         | Perms |
@@ -94,7 +104,6 @@ Typically the image is stateless, when the virtual machine is stopped all change
 | kernel_params            | boot params                                  | Y        |       | Y             |       |
 | migration_support        | migration support options                    | Y        |       | N             |       |
 | userdefined_properties   | custom properties                            | Y        |       | Y             |       |
-| predefined_properties    | custom properties                            | Y        |       | Y             |       |
 | min_allocated_mem       | memory guaranteed                            | Y        |       | N             |       |
 | child_count              | internal. for template, not in use?          | N        |       | N             |       |
 | quota_id                 | link to quota                                | N        |       | N             |       |
@@ -108,6 +117,7 @@ Typically the image is stateless, when the virtual machine is stopped all change
 | sysprep                   |                                              |          |       |               |       |
 | soundcard                 | payload (device, not in vm_static)          | N        |       | N             |       |
 | Balloon                   | payload (device, not in vm_static)          | N        |       | N             |       |
+| network interface         | binding of NIC to logical network            | N        |       | N             |       |
 
 **Instance Types (Flavors)**
 Expose a new top level entity with the API and GUI for *Instance Type*

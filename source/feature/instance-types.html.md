@@ -59,26 +59,61 @@ Typically the image is stateless, when the virtual machine is stopped all change
 
 #### Design
 
-The following changes are proposed:
+| Field name                | Description                                  | Template | Image | Instance Type | VM    |
+|---------------------------|----------------------------------------------|----------|-------|---------------|-------|
+|                           |                                              | Avail    | Comm  | Avail         | Perms |
+| vm_guid                  | Internal unique ID                           | Y        |       | Y             |       |
+| vm_name                  | name set by user for vm and template         | N        |       | Y             |       |
+| mem_size_mb             | Memory Size                                  | Y        |       | N             |       |
+| vmt_guid                 | Internal link to template object             | N        |       | N             |       |
+| OS                        | Operating System Type                        | Y        |       | Y             |       |
+| description               | description set by user for vm and template  | Y        |       | Y             |       |
+| vds_group_id            | vm cluster                                   | Y        |       | N             |       |
+| domain                    | directory services domain                    | Y        |       | N             |       |
+| creation_date            | internal. creation date                      | N        |       | N             |       |
+| num_of_monitors         | number of monitors                           | Y        |       | N             |       |
+| is_initialized           | internal. mark if vm was syspreped           | N        |       | N             |       |
+| is_auto_suspend         | legacy from auto-suspend feature, not in use | D        |       | D             |       |
+| num_of_sockets          | umber of sockets                             | Y        |       | N             |       |
+| cpu_per_socket          | cpu per socket                               | Y        |       | N             |       |
+| usb_policy               | usb policy                                   | Y        |       | N             |       |
+| time_zone                | time zone                                    | Y        |       | N             |       |
+| is_stateless             | stateless flag                               | Y        |       | N             |       |
+| fail_back                | legacy from fail-back feature, not in use    | D        |       | D             |       |
+| dedicated_vm_for_vds   | specific host for running vm                 | Y        |       | N             |       |
+| auto_startup             | HA                                           | Y        |       | N             |       |
+| vm_type                  | vm type (server/desktop)                     | Y        |       | N             |       |
+| nice_level               | vm nice level                                | Y        |       | N             |       |
+| default_boot_sequence   | boot sequence                                | Y        |       | N             |       |
+| default_display_type    | display type                                 | Y        |       | N             |       |
+| priority                  | priority                                     | Y        |       | N             |       |
+| iso_path                 | cd                                           | Y        |       | Y             |       |
+| origin                    | internal. where the vm was created           | N        |       | N             |       |
+| initrd_url               | boot params                                  | Y        |       | Y             |       |
+| kernel_url               | boot params                                  | Y        |       | Y             |       |
+| kernel_params            | boot params                                  | Y        |       | Y             |       |
+| migration_support        | migration support options                    | Y        |       | N             |       |
+| userdefined_properties   | custom properties                            | Y        |       | Y             |       |
+| predefined_properties    | custom properties                            | Y        |       | Y             |       |
+| min_allocated_mem       | memory guaranteed                            | Y        |       | N             |       |
+| child_count              | internal. for template, not in use?          | N        |       | N             |       |
+| quota_id                 | link to quota                                | N        |       | N             |       |
+| allow_console_reconnect | allow reconnect to console                   | Y        |       | N             |       |
+| cpu_pinning              | cpu pinning                                  | Y        |       | N             |       |
+| is_smartcard_enabled    | smartcard enabled                            | Y        |       | N             |       |
+| instance_type_id        | internal. link to instance type              | N        |       | N             |       |
+| payload                   | payload (device, not in vm_static)          | Y        |       | N             |       |
+| storage domain            |                                              |          |       |               |       |
+| thin/clone                |                                              |          |       |               |       |
+| sysprep                   |                                              |          |       |               |       |
+| soundcard                 | payload (device, not in vm_static)          | N        |       | N             |       |
+| Balloon                   | payload (device, not in vm_static)          | N        |       | N             |       |
 
 **Instance Types (Flavors)**
- Expose a new top level entity with the API and GUI for *Instance Type*
+Expose a new top level entity with the API and GUI for *Instance Type*
 This entity will represent the hardware profile for a virtual machine.
-An Instance type should have a name and description. The period should be supported in the name.
- This can be modeled on the existing template definition (including desktop options).
-The following elements should **not** be exposed:
+An Instance type should have a name and description (the period should be supported in the name).
 
-*   Data center
-*   Host Cluster
-*   Based on Template
-*   Operating System
-*   Timezone
-*   Windows Domain
-*   High Availability
-*   Boot Options (Boot sequence & Linux Boot Options)
-
-Note: It is presumed that all other options in the current new virtual machine dialogs/API should be available for user configuration.
- Virtual NICs should be included in the instance type.
 We should support leaving the logical network empty, since this may be overridden by the user when the virtual machine is deployed.
  Virtual disks should not be included in the instance configuration.
  A user should be able to create an instance type using a dialog similar to the *new server/desktop* dialog. Here a user should be able to define their instance configuration.

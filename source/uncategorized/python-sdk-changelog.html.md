@@ -12,17 +12,17 @@ wiki_last_updated: 2013-12-25
           - events can be added now (user defined events)
           - events can be removed now
           - vm can be removed now, but it's disk/s kept (added disks.detach_only property to VMDisks)
-          - to host add/update added power_management.agents parameter
-          - host can be added now by using cluster.name (not only id)
+          - to host add()/update() methods() added power_management.agents parameter
+          - host can be added now by cluster.name (not only cluster-id)
           - to disk added permissions sub-collection
-          - to NIC added "linked" property that can be changed to reach desired link state
-          - to NIC added "plugged" property that can be changed to reach desired NIC state
+          - to NIC added "linked" property
+          - to NIC added "plugged" property
           - to VM added ReportedDevices sub-collection (holds data reported by the guest agent)
           - to VMNIC added ReportedDevices sub-collection (holds data reported by the guest agent)
           - to PowerManagement added Agents collection
           - to VMDisk added move() action
-          - to cluster added threads_as_cores property
-          - to CpuTopology added "threads" property indicating amount of available threads
+          - to cluster added "threads_as_cores" property
+          - to CpuTopology added "threads" property (indicating amount of available threads)
           - to Host added "libvirt_version" property
           - to Host added "hardware_information" property
 

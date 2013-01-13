@@ -246,8 +246,6 @@ When a virtual machine is run the complete configuration should be constructed i
 if we have defaults for server and desktops (clone disks vs. thin allocation),
 changing instance type will not take affect on this.
 
-[List of fields for vm / template / instance type](Vm_static_fields)
-
 #### REST API
 
 TBD as soon as the specific requirements will be clarified

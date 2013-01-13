@@ -8,6 +8,12 @@ wiki_last_updated: 2013-11-14
 
 # Cli-changelog
 
+         * Sun Jan  13 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.2.0.9-1
+         - ovirt-cli DistributionNotFound exception on f18 #881011
+         - adding to help message ovirt-shell configuration details #890800
+         - wrong error when passing empty collection based option #890525
+         - wrong error when passing empty kwargs #891080
+
          * Sun Dec  30 2012 Michael Pasternak `<mpastern@redhat.com>` - 3.2.0.8-1
          - typo in help update manual #890368
          - "remove permit" doesnt work by-id #887805

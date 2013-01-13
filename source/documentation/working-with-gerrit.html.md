@@ -152,7 +152,7 @@ The review process is comprised of:
     -   git-review is a tool that helps submitting git branches to gerrit for review.
     -   URL: <https://github.com/openstack-ci/git-review>
 
-        $ git clone git://github.com/openstack-ci/git-review.git
+        $ git clone https://github.com/openstack-infra/git-review
         $ cp git-review/git-review project/ 
 
 *   Setting git-review:

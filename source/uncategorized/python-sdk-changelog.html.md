@@ -8,7 +8,7 @@ wiki_last_updated: 2013-12-25
 
 # Python-sdk-changelog
 
-         * Sun Jan  13 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.2.0.7-1
+         * Sun Jan  13 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.2.0.8-1
           - events can be added now (user defined events)
           - events can be removed now
           - vm can be removed now, but it's disk/s kept (added disks.detach_only property to VMDisks)

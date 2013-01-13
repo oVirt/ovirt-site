@@ -108,9 +108,8 @@ The following table enumerates all the fields involved and also how they are rel
 | child_count              | internal. for template, not in use?          | N        |       | N             |       |
 | quota_id                 | link to quota                                | N        |       | N             |       |
 | allow_console_reconnect | allow reconnect to console                   | Y        |       | N             |       |
-| cpu_pinning              | cpu pinning                                  | Y        |       | N             |       |
+| cpu_pinning              | cpu pinning                                  | N        |       | N             |       |
 | is_smartcard_enabled    | smartcard enabled                            | Y        |       | N             |       |
-| instance_type_id        | internal. link to instance type              | N        |       | N             |       |
 | payload                   | payload (device, not in vm_static)          | Y        |       | N             |       |
 | storage domain            |                                              |          |       |               |       |
 | thin/clone                |                                              |          |       |               |       |
@@ -118,6 +117,12 @@ The following table enumerates all the fields involved and also how they are rel
 | soundcard                 | payload (device, not in vm_static)          | N        |       | N             |       |
 | Balloon                   | payload (device, not in vm_static)          | N        |       | N             |       |
 | network interface         | binding of NIC to logical network            | N        |       | N             |       |
+| instance_type_id        | internal. link to vm's instance type         | N        |       | N             |       |
+| image_type_id           | internal. link to vm's image type            | N        |       | N             |       |
+| host_cpu_flags          | use host cpu flags                           | N        |       | N             |       |
+| db_generation            | internal                                     | N        |       | N             |       |
+| is_delete_protected     | protection from accidental deletion          | Y        |       | N             |       |
+| is_disabled              | disabled-template (for templates only)       | N        |       | N             |       |
 
 **Instance Types (Flavors)**
 Expose a new top level entity with the API and GUI for *Instance Type*

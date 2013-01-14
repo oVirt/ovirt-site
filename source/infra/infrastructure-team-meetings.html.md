@@ -18,7 +18,20 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Upcoming meetings
 
+### 2012-01-14
+
+*   Hosting
+*   Puppet
+*   Jenkins
+*   Gerrit
+*   Other business?
+*   Trac review
+
+## Past meetings
+
 ### 2013-01-07
+
+*[Minutes](http://lists.ovirt.org/pipermail/infra/2013-January/001800.html)*
 
 *   New hosting design
     -   Review & discuss & improve upon draft: <http://etherpad.ovirt.org/p/new_hosting_design_Jan_2013>
@@ -27,8 +40,6 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
     -   **"If it is not a ticket in Trac, it's not real for oVirt Infra"**
 *   Is gerrit.ovirt.org OK? Status
 *   All other business
-
-## Past meetings
 
 ### 2012-12-31
 

@@ -20,11 +20,14 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ### 2012-01-14
 
+*Agenda*
+
 *   Hosting
 *   Puppet
 *   Jenkins
 *   Gerrit
 *   Other business?
+    -   Website space issue & adding redundancy for OpenShift administration
 *   Trac review
 
 ## Past meetings

@@ -258,7 +258,6 @@ list of available releases can be found at [java-sdk-changelog](java-sdk-changel
 ### Development deployment
 
           * add dependency to  org.ovirt.engine.sdk project
-
               * javaDoc can be downloaded via "mvn dependency:resolve -Dclassifier=javadoc"
 
 ## TODO list

@@ -253,7 +253,9 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 `       `<scope>`compile`</scope>
 `   `</dependency>
 
-list of available releases can be found at [java-sdk-changelog](java-sdk-changelog)
+NOTE: list of available releases can be found at [java-sdk-changelog](java-sdk-changelog)
+
+NOTE: javaDoc can be downloaded via "mvn dependency:resolve -Dclassifier=javadoc"
 
 ### Development deployment
 

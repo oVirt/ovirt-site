@@ -26,7 +26,7 @@ oVirt workshops focus on introducing the project, the technologies inside of the
 <div class="span3"  style="text-align:center">
 <span class="btn btn-action btn-block">[Register for this event »](http://ovirtnetapp2013.eventbrite.com)</span>
 
-*Register before January 15th to attend this workshop.*
+***Update!** Registration deadline extended January 17th!*
 
 </div>
 </div>

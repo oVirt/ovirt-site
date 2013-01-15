@@ -243,7 +243,7 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 ### Maven deployment
 
-      add to your pom.xml
+1. add to your pom.xml
 
 `   `<dependency>
 `       `<groupId>`org.ovirt.engine.sdk`</groupId>
@@ -253,13 +253,19 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 `       `<scope>`compile`</scope>
 `   `</dependency>
 
-NOTE: list of available releases can be found at [java-sdk-changelog](java-sdk-changelog)
+`       list of available releases can be found at  `[`java-sdk-changelog`](java-sdk-changelog)
 
-NOTE: javaDoc can be downloaded via "mvn dependency:resolve -Dclassifier=javadoc"
+2. compile
+
+            mvn clean install
+
+3. deploy javaDoc
+
+           mvn dependency:resolve -Dclassifier=javadoc
 
 ### Development deployment
 
-          * add dependency to  org.ovirt.engine.sdk project
+           add dependency to  org.ovirt.engine.sdk project
 
 ## TODO list
 

@@ -243,7 +243,7 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 ### Maven deployment
 
-1. add to your pom.xml
+1. add sdk dependency to your project pom.xml
 
 `   `<dependency>
 `       `<groupId>`org.ovirt.engine.sdk`</groupId>

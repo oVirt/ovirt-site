@@ -241,7 +241,23 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 ## Deployment
 
-Till java-sdk project is deployable, just compile it and reference from your project.
+### Maven deployment
+
+      add to your pom.xml
+
+`   `<dependency>
+`       `<groupId>`org.ovirt.engine.sdk`</groupId>
+`       `<artifactId>`ovirt-engine-sdk-java`</artifactId>
+`       `<version>`x.y.z.q-v`</version>
+`       `<type>`jar`</type>
+`       `<scope>`compile`</scope>
+`   `</dependency>
+
+list of available releases can be found at [java-sdk-changelog](java-sdk-changelog)
+
+### Development deployment
+
+          add dependency to  org.ovirt.engine.sdk project
 
 ## TODO list
 

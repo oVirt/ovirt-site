@@ -255,13 +255,13 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 `       list of available releases can be found at  `[`java-sdk-changelog`](java-sdk-changelog)
 
-2. compile
-
-            mvn clean install
-
-3. deploy javaDoc
+2. deploy sdk dependencies
 
            mvn dependency:resolve -Dclassifier=javadoc
+
+3. compile
+
+            mvn clean install
 
 ### Development deployment
 

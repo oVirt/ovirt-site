@@ -67,7 +67,7 @@ There are 4 additional functions :
 
 ## Upgrade
 
-When the DB is upgraded, all Materilized Views are dropped in the pre-upgrade step in order to reflect any change that may be done in the original views. The Materilized Views are recreated in the post-upgrade step insuring that after the upgrade the Materilized Views are updated and play the same role as before it.
+When the DB is upgraded, all Materilized Views are dropped in the pre-upgrade step in order to reflect any change that may be done in the original views. The Materilized Views are recreated in the post-upgrade step insuring that after the upgrade the Materilized Views are updated and play the same role as before it. **NOTE : Materialized Views are automatically refreshed upon create/upgrade**
 
 ## Customization
 

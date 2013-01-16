@@ -114,7 +114,7 @@ If a value in a line is a 'D', it means it is deprecated.
 | is_smartcard_enabled    | smartcard enabled                            | Y        |       | N             |       |
 | payload                   | payload (device, not in vm_static)          | Y        |       | N             |       |
 | storage domain            |                                              |          |       |               |       |
-| thin/clone                |                                              |          |       |               |       |
+| thin/clone                |                                              | Y        |       | N             |       |
 | sysprep                   |                                              |          |       |               |       |
 | soundcard                 | payload (device, not in vm_static)          | N        |       | N             |       |
 | Balloon                   | payload (device, not in vm_static)          | N        |       | N             |       |
@@ -124,7 +124,7 @@ If a value in a line is a 'D', it means it is deprecated.
 | host_cpu_flags          | use host cpu flags                           | N        |       | N             |       |
 | db_generation            | internal                                     | N        |       | N             |       |
 | is_delete_protected     | protection from accidental deletion          | Y        |       | N             |       |
-| is_disabled              | disabled-template (for templates only)       | N        |       | N             |       |
+| is_disabled              | disabled-template (for templates only)       | Y        |       | N             |       |
 
 **Instance Types (Flavors)**
 Expose a new top level entity with the API and GUI for *Instance Type*

@@ -15,9 +15,11 @@ A materialized view is a table that actually contains rows, but behaves like a v
          `**`Snapshot` `materialized` `views`**` are the simplest to implement. They are only updated when manually refreshed.
          `**`Eager` `materialized` `views`**` are updated as soon as any change is made to the database that would affect it. Eagerly updated materialized views may have incorrect data if the view it is based on has dependencies on mutable functions like now().
          `**`Lazy` `materialized` `views`**`' are updated when the transaction commits. They too may fall out of sync with the base view if the view depends on mutable functions like now().
-         `**`Very` `Lazy` `materialized` `views`**` are functionally equivalent to Snapshot materialized views. The only difference is that changes are recorded incrementally and applied when the table is manually refreshed. (This may be faster than a full snapshot upon refresh.) 
+         `**`Very` `Lazy` `materialized` `views`**` are functionally equivalent to Snapshot materialized views. 
+         The only difference is that changes are recorded incrementally and applied when the table is manually refreshed.
+         (This may be faster than a full snapshot upon refresh.) 
 
-In this document we will only discuss the Snapshot Materialized Views implementation.
+**In this document we will only discuss the Snapshot Materialized Views implementation.**
 
 ## Why Materialized Views ?
 

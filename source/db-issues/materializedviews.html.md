@@ -68,3 +68,9 @@ When the DB is upgraded, all Materilized Views are dropped in the pre-upgrade st
 ## Customization
 
 In addition, you can create a file named create_materialized_views.sql under dbscripts/upgrade/post_upgrade/custom/ This file may include other custom materialized views settings and is executed by the create/upgrade database scripts.
+
+## Schedule
+
+The simplest way to schedule all Materialized Views updates is via a *'cron* job that will perform the following command
+
+`  psql -U `<user>` -c "select RefreshAllMaterializedViews(false);" `<db>

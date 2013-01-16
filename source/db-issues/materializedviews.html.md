@@ -34,3 +34,41 @@ Candidates for Snapshot Materialized Views are views that are based on slowly-ch
        refresh_rate_in_sec | integer                  | 
        last_refresh        | timestamp with time zone | 
        avg_cost_ms         | integer                  | not null default 0
+
+## Flow
+
+1) Create the Materialized View by calling:
+
+        `**`CreateMaterializedView`**` - if you are creating a new view
+        `**`CreateMaterializedViewAs`**` - If you want to preserve the original view name  in this case the original view will be renamed and the new Materialized View will have the original  view name.
+
+2) If your Snapshot Materialized View is my_mt you should create Stored Procedures:
+
+         MtDropmy_mtIndexes - Drops indexes on my_mt
+         MtCreatemy_mtIndexes - Creates needed indexes on my_mt
+         Those indexes should be defined in the "Snapshot Materialized Views Index Definitions Section"
+         in post_upgrade/0020_create_materialized_views.sql file.
+        Those SP are called automatically when a Snapshot Materialized View is refreshed
+        to boost refresh performance.
+
+3) You can call **IsMaterializedViewRefreshed** to check if it is time to refresh the view and if yes call **RefreshMaterializedView** manually.
+
+        or
+        You can define a cron job that calls `**`RefreshAllMaterializedViews`**` that loops over all  Snapshot Materialized Views and refreshes it automatically 
+        `**`RefreshAllMaterializedViews`**` recieves a boolean v_force flag, please set this flag to false when calling it from a cron job in order to update the materialized views only when needed.
+        (This SP is called with v_force = true after create/upgrade DB)
+
+There are 4 additional functions :
+
+        `**`CreateAllMaterializedViewsiIndexes`**` - Creates indexes for all Snapshot Materialized views
+        `**`DropMaterializedView`**` - Drops the Materialized View
+        `**`DropAllMaterializedViews`**` - Drop all Materialized Views
+        `**`UpdateMaterializedViewRefreshRate`**` - Updates the Materialized View refresh rate
+
+## Upgrade
+
+## Customization
+
+In addition, you can create a file named create_materialized_views.sql under dbscripts/upgrade/post_upgrade/custom/ This file may include other custom materialized views settings and is executed by the create/upgrade database scripts.
+
+NOTE : Materialized Views are automatically refreshed upon create/upgrade

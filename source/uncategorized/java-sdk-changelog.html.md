@@ -8,6 +8,11 @@ wiki_last_updated: 2013-12-25
 
 # Java-sdk-changelog
 
+        * Tue Wed  16 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.2-1
+          - in vm/vmnic device property renamed to reported_device
+         - to host added libvirtVersion
+         - addresses an issue when API constructor when NULLs used as parameters
+
         * Tue Jan  15 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.1-1
          - implement parametrized list() methods
          - events can be added now (user defined events)

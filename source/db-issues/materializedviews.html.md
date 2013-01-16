@@ -71,6 +71,33 @@ When the DB is upgraded, all Materilized Views are dropped in the pre-upgrade st
 
 In addition, you can create a file named create_materialized_views.sql under dbscripts/upgrade/post_upgrade/custom/ This file may include other custom materialized views settings and is executed by the create/upgrade database scripts.
 
+### Example
+
+This is an example of how **\1** may look like:
+
+      /******************************************************************************************************
+                               Snapshot Materialized Views Definitions Section
+      ******************************************************************************************************/
+      select CreateMaterializedViewAs('vds', 300);
+      /******************************************************************************************************
+                               Snapshot Materialized Views Index Definitions Section
+      ******************************************************************************************************/
+      create or replace function MtCreatevdsIndexes()
+      returns void
+      as $procedure$
+      begin
+      create index vds_indx on vds (vds_id);
+      end; $procedure$
+      language plpgsql;
+      create or replace function MtDropvdsIndexes()
+      returns void
+      as $procedure$
+      begin
+      drop index if exists vds_index cascade;
+      end; $procedure$
+      language plpgsql;
+      select RefreshMaterializedView('vds');
+
 ## Schedule
 
 The simplest way to schedule all Materialized Views updates is via a *'cron* job that will perform the following command

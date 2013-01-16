@@ -138,6 +138,6 @@ This is an example of how **\1** may look like:
 
 ## Schedule
 
-The simplest way to schedule all Materialized Views updates is via a *'cron* job that will perform the following command
+The simplest way to schedule all Materialized Views updates is via a **cron** job that will perform the following command
 
 `  psql -U `<user>` -c "select RefreshAllMaterializedViews(false);" `<db>

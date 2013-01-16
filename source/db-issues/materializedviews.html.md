@@ -38,10 +38,10 @@ Candidates for Snapshot Materialized Views are views that are based on slowly-ch
        avg_cost_ms         | integer                  | not null default 0
 
 **mv_name** is the Materialized View name
-**v_name'' is the original view name on which mv_name is based
-** refresh_rate_in_sec*' is the Materialized View refresh rate in seconds
+**v_name** is the original view name on which mv_name is based
+*' refresh_rate_in_sec*' is the Materialized View refresh rate in seconds
 *' last_refresh*' is the timestamp of the last refresh
-*'avg_cost_ms'' is the average cost of a refresh operation on the Materialized View in miliseconds.
+**avg_cost_ms** is the average cost of a refresh operation on the Materialized View in miliseconds.
 
 ## Flow
 

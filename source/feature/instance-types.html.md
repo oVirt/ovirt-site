@@ -69,6 +69,8 @@ The following table enumerates all the fields involved and also how they are rel
 *   **Marked**: if Y, it means the field is "special" and if the user changes it, the instance type will change to "custom"
 *   **On Create**: default value when creating the VM
 
+If a value in a line is a 'D', it means it is deprecated.
+
 | Field name                | Description                                  | Template | Image | Instance Type | VM    |
 |---------------------------|----------------------------------------------|----------|-------|---------------|-------|
 |                           |                                              | Avail    | Comm  | Avail         | Perms |

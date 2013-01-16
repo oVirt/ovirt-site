@@ -40,7 +40,7 @@ Candidates for Snapshot Materialized Views are views that are based on slowly-ch
 1) Create the Materialized View by calling:
 
         `**`CreateMaterializedView`**` - if you are creating a new view
-        `**`CreateMaterializedViewAs`**` - If you want to preserve the original view name  in this case the original view will be renamed and the new Materialized View will have the original  view name.
+        `**`CreateMaterializedViewAs`**` - preserves the original view name, The original view will be renamed and the new Materialized View will have the original  view name.
 
 2) If your Snapshot Materialized View is my_mt you should create Stored Procedures:
 

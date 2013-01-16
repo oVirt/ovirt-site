@@ -63,6 +63,33 @@ There are 4 additional functions :
         `**`DropAllMaterializedViews`**` - Drop all Materialized Views
         `**`UpdateMaterializedViewRefreshRate`**` - Updates the Materialized View refresh rate
 
+### Example of possible post_upgrade/0020_create_materialized_views.sql
+
+This file includes only product Materialized Views for Custom Materialized Views please refer to the **Customization** section
+ /\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+
+                               Snapshot Materialized Views Definitions Section
+      ******************************************************************************************************/
+      select CreateMaterializedViewAs('vms', 300);
+      /******************************************************************************************************
+                               Snapshot Materialized Views Index Definitions Section
+      ******************************************************************************************************/
+      create or replace function MtCreatevmsIndexes()
+      returns void
+      as $procedure$
+      begin
+      create index vms_index on vms (vm_guid);
+      end; $procedure$
+      language plpgsql;
+      create or replace function MtDropvmsIndexes()
+      returns void
+      as $procedure$
+      begin
+      drop index if exists vms_index cascade;
+      end; $procedure$
+      language plpgsql;
+      select RefreshMaterializedView('vms');
+
 ## Upgrade
 
 When the DB is upgraded, all Materilized Views are dropped in the pre-upgrade step in order to reflect any change that may be done in the original views. The Materilized Views are recreated in the post-upgrade step insuring that after the upgrade the Materilized Views are updated and play the same role as before it. **NOTE : Materialized Views are automatically refreshed upon create/upgrade**

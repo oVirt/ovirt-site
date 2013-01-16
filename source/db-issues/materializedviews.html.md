@@ -48,13 +48,9 @@ Candidates for Snapshot Materialized Views are views that are based on slowly-ch
          MtCreatemy_mtIndexes - Creates needed indexes on my_mt
          Those indexes should be defined in the "Snapshot Materialized Views Index Definitions Section"
          in post_upgrade/0020_create_materialized_views.sql file.
-        Those SP are called automatically when a Snapshot Materialized View is refreshed
-        to boost refresh performance.
 
-3) You can call **IsMaterializedViewRefreshed** to check if it is time to refresh the view and if yes call **RefreshMaterializedView** manually.
+Those SP are called automatically when a Snapshot Materialized View is refreshed to boost refresh performance. 3) You can call **IsMaterializedViewRefreshed** to check if it is time to refresh the view and if yes call **RefreshMaterializedView** manually.</br> or</br> You can define a cron job that calls **RefreshAllMaterializedViews** that loops over all Snapshot Materialized Views and refreshes it automatically </br>
 
-        or
-        You can define a cron job that calls `**`RefreshAllMaterializedViews`**` that loops over all  Snapshot Materialized Views and refreshes it automatically 
         `**`RefreshAllMaterializedViews`**` recieves a boolean v_force flag, please set this flag to false when calling it from a cron job in order to update the materialized views only when needed.
         (This SP is called with v_force = true after create/upgrade DB)
 

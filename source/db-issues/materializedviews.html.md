@@ -107,7 +107,11 @@ When the DB is upgraded, all Materilized Views are dropped in the pre-upgrade st
 
 In addition, you can create a file named create_materialized_views.sql under dbscripts/upgrade/post_upgrade/custom/ This file may include other custom materialized views settings and is executed by the create/upgrade database scripts.
 
-**\1**dbscripts/upgrade/post_upgrade/custom/create_materialized_views.sql ''' may look like:
+**NOTE: If from any reason you want to drop a Snapshot Materialized View that was setup in the product conext, you can always do that by calling DropMaterializedView in create_materialized_views.sql**
+
+### Example
+
+This is an example of how **\1** may look like:
 
       /******************************************************************************************************
                                Snapshot Materialized Views Definitions Section

@@ -18,7 +18,23 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Upcoming meetings
 
+### 2012-01-21
+
+*Agenda*
+
+*   Finalize and clearly publish information on who has access to what, how access is granted, and how decisions are made about new infrastructure
+*   Hosting
+*   Puppet
+*   Jenkins
+*   Gerrit
+*   Other business?
+*   Trac review
+
+## Past meetings
+
 ### 2012-01-14
+
+*[Minutes](http://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-01-14-15.01.html)*
 
 *Agenda*
 
@@ -29,8 +45,6 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Other business?
     -   Website space issue & adding redundancy for OpenShift administration
 *   Trac review
-
-## Past meetings
 
 ### 2013-01-07
 

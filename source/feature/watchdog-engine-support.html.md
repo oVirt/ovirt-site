@@ -36,6 +36,8 @@ This feature depends on the VDSM support for the watchdog cards (merged) (where 
 
 ### Documentation / External references
 
+![](Watchdogmock.png "Watchdogmock.png")
+
 ### Comments and Discussion
 
 <Category:Feature> <Category:SLA>

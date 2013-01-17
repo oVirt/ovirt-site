@@ -51,28 +51,8 @@ With this feature the user will be able to
 
 ![](Geo-Replication-Start.png "Geo-Replication-Start.png")
 
-### Verifying Passwordless SSH Communication
-
-![](Geo-Replication-Start-Verifying-SSH.png "Geo-Replication-Start-Verifying-SSH.png")
-
-### Passwordless SSH Communication Successful
-
-![](Geo-Replication-Start-Verifying-SSH-Sucess.png "Geo-Replication-Start-Verifying-SSH-Sucess.png")
-
-### Passwordless SSH Communication Failure
-
-![](Geo-Replication-Start-Verifying-SSH-Failed.png "Geo-Replication-Start-Verifying-SSH-Failed.png")
-
-### Using a different Private Key for SSH
-
-![](Geo-Replication-Start-Privatekey-Test.png "Geo-Replication-Start-Privatekey-Test.png")
-
 ### Setting up Passwordless SSH
 
-![](Geo-Replication-Start-SSH-Setup.png "fig:Geo-Replication-Start-SSH-Setup.png") ![](Geo-Replication-Start-SSH-Setup-Success.png "fig:Geo-Replication-Start-SSH-Setup-Success.png")
-
-### Modified SSH and Gsync commands
-
-![](Geo-Replication-Start-User-Defined.png "Geo-Replication-Start-User-Defined.png")
+![](Geo-Replication-Start-SSH-Setup.png "Geo-Replication-Start-SSH-Setup.png")
 
 <Category:Feature>

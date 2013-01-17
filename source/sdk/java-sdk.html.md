@@ -297,6 +297,8 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 14. Implement querying collections using custom constraint.
 
+15. in doc change parameters format to javaDoc style
+
 ## Change Log
 
 [java-sdk-changelog](java-sdk-changelog)

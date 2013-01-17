@@ -29,4 +29,38 @@ Usage: fkvalidator.sh [-h] [-s SERVERNAME [-p PORT]] [-d DATABASE] [-u USERNAME]
 
 ## taskcleaner
 
+**taskcleaner.sh** is a utility for clean async tasks and related Job Steps/Compensation data.
+The utility enables to:
+**Display**
+
+       All async tasks
+       Only Zombie tasks
+
+**Delete**
+
+       All tasks
+       All Zombie tasks
+       A task related to a given task id
+       A Zombie task related to a given task id
+       All tasks related to a given command id
+       All Zombie tasks related to a given command id
+
+Flags may be added (-C, -J) to specify if Job Steps & Compensation data should be cleaned as well.
+ Usage: taskcleaner.sh [-h] [-s server] [-p PORT]] [-d DATABASE] [-u USERNAME] [-l LOGFILE] [-t taskId] [-c commandId] [-z] [-R] [-C][-J] [-q] [-v]
+
+       -s SERVERNAME - The database servername for the database (def.localhost)
+       -p PORT - The database port for the database (def. 5432)
+       -d DATABASE - The database name (def.engine)
+       -u USERNAME - The admin username for the database.
+       -l LOGFILE - The logfile for capturing output (def.taskcleaner.sh.log)
+       -t TASK_ID - Removes a task by its Task ID.
+       -c COMMAND_ID - Removes all tasks related to the given Command Id.
+       -z - Removes/Displays a Zombie task.
+       -R - Removes all Zombie tasks.
+       -C - Clear related compensation entries.
+       -J - Clear related Job Steps.
+       -q - Quite mode, do not prompt for confirmation.
+       -v - Turn on verbosity (WARNING: lots of output)
+       -h - Help text.
+
 ## unlock_entity

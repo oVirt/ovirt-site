@@ -131,8 +131,11 @@ In short , please follow
        fn_db_change_column_type          Changes a column type,decimal precision etc. (Several formats)
        fn_db_add_config_value            Adds a new value to vdc_options
        fn_db_update_default_config_value     Updates the value of an option in vdc_options if given default was not   changed.You can also define if your condition is case-sensitive or not
-       fn_db_delete_config_value             Deletes an option from vdc_options
-       fn_db_split_config_value          Given general configuration entry, creates new entries for each old cluster version, with the old value, and a new entry for the newest cluster version with the input value
+       fn_db_delete_config_value     Deletes an option from vdc_options
+       fn_db_split_config_value          Given general configuration entry, creates new entries for each old cluster version, with the old value, 
+       and a new entry for the newest cluster version with the input  value
+       fn_db_create_constraint             Creates a constraint
+       fn_db_drop_constraint                Drops a constraint
 
 Examples:
 
@@ -145,6 +148,8 @@ Examples:
        select fn_db_update_default_config_value('LDAPSecurityAuthentication','GSSAPI','default:GSSAPI','general',false);
        select fn_db_delete_config_value('ENMailEnableSsl','general');
        select fn_db_split_config_value('SpiceSecureChannels','all');
+      select fn_db_create_constraint('vds_static', 'vds_static_vds_name_unique', 'UNIQUE(vds_name)');
+      select fn_db_drop_constraint ( 'vds_static_vds_name_unique');
 
 ### What should I do if I have to ?
 

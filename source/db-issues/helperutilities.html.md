@@ -49,7 +49,8 @@ Flags may be added (-C, -J) to specify if Job Steps & Compensation data should b
 
 ### Usage
 
-       Usage: taskcleaner.sh [-h] [-s server] [-p PORT]] [-d DATABASE] [-u USERNAME] [-l LOGFILE] [-t taskId] [-c commandId] [-z] [-R] [-C][-J] [-q] [-v]
+       Usage: taskcleaner.sh [-h] [-s server] [-p PORT]] [-d DATABASE] [-u USERNAME] [-l LOGFILE] [-t taskId] [-c commandId]
+       [-z] [-R] [-C][-J] [-q] [-v]
        -s SERVERNAME - The database servername for the database (def.localhost)
        -p PORT - The database port for the database (def. 5432)
        -d DATABASE - The database name (def.engine)

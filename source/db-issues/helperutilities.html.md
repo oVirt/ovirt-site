@@ -14,7 +14,7 @@ wiki_last_updated: 2014-10-29
 The utility checks that all data inside the database is consistent and does not break any FK constraint
 **fkvalidaor.sh** lists the found problems and can fix those problem is the **-f** switch is used
 
-## Usage
+### Usage
 
 Usage: fkvalidator.sh [-h] [-s SERVERNAME [-p PORT]] [-d DATABASE] [-u USERNAME] [-l LOGFILE] [-f] [-v]
 

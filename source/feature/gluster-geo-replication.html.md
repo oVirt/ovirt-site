@@ -38,21 +38,40 @@ GlusterFS Geo-replication uses a master–slave model, whereby replication and m
 
 With this feature the user will be able to
 
-*   Setup Passwordless SSH between one of the servers in the cluster and remote host
+*   View all active/inactive geo replication sessions in the cluster
 *   Start a new Geo-Replication session
-*   Change the configuration before starting the session or later
+*   Setup Passwordless SSH between one of the servers in the cluster and remote host
+*   Change the configuration before starting the session or later (ssh command, gsync command)
 *   Stop any running Geo-Replication session
 *   Monitor the statuses of Geo-Replication session in a cluster
 *   Remove any inactive session
 
 ## Design
 
+### View All Geo Replication Sessions
+
+A new main tab will be added to the oVirt webadmin UI which will list all the geo replications in the cluster. This tab will not be available in the System level and this will be shown if a Gluster enabled cluster is selected in the System Tree.
+
 ### Start a new Geo-Replication Session
+
+A new action named **Start** will be shown in the **Geo Replication** tab. On clicking of the action will open the following dialog.
 
 ![](Geo-Replication-Start.png "Geo-Replication-Start.png")
 
+**Start Geo Replication from Host** field will list all the servers in the cluster which are in **UP** state. When the user selects one of the host, SSH Fingerprint of the host will be fetched and shown. **Remote Host** could be either a standalone machine or part of another cluster. **Remote Volume/Path** will accept either a volume name in the remote cluster or a directory in the remote host. If it doesn't starts with **/**, it will be considered as a volume in the remote cluster. After providing all the details and when the clicks **Ok**, Passwordless SSH communication between the origination host and **Remote Host** will be verified. If that succeeded, the geo replication session for the selected volume started.
+
 ### Setting up Passwordless SSH
 
+If the Passwordless SSH communication failed between the hosts at the time of starting the geo replication session, the following dialog will be shown.
+
 ![](Geo-Replication-Start-SSH-Setup.png "Geo-Replication-Start-SSH-Setup.png")
+
+The user will be given two choices
+
+*   **Use a different privake key** by providing the location of the key file. Passwordless SSH communication will be verified using this private key file.
+
+(or)
+
+*   Provide the password of the user of remote host which is entered in the [:File:Geo-Replication-Start](:File:Geo-Replication-Start) dialog to setup Passwordless SSH.
 
 <Category:Feature>

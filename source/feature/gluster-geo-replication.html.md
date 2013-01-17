@@ -61,8 +61,8 @@ A new action named **Start** will be shown in the **Geo Replication** tab. On cl
 *   **Start Geo Replication from Host** field will list all the servers in the cluster which are in **UP** state. When the user selects one of the host, SSH Fingerprint of the host will be fetched and shown.
 *   **Remote Host** could be either a standalone machine or part of another cluster.
 *   **Remote Volume/Path** will accept either name of a volume in a remote cluster or a directory in the remote host. If it doesn't starts with **/**, it will be considered as a volume in the remote cluster.
-*   After providing all the details and when the clicks **Ok**,
-    -   Passwordless SSH communication between the origination host and **Remote Host** will be verified.
+*   After providing all the details and when the user clicks **Ok**,
+    -   Passwordless SSH communication between the origin host and **Remote Host** will be verified.
     -   If that succeeded, the geo replication session for the selected volume started
     -   Else the [Passwordless SSH Setup](:File:Geo-Replication-Start-SSH-Setup[.png) dialog will be shown.
 *   If the user wants to override the default configuration, he/she can deselect **Use Default** checkbox and provide different configuration. In this case no Passwordless SSH verification will be made.

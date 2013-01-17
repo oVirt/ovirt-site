@@ -72,6 +72,6 @@ The user will be given two choices
 
 (or)
 
-*   Provide the password of the user of remote host which is entered in the [:File:Geo-Replication-Start](:File:Geo-Replication-Start) dialog to setup Passwordless SSH.
+*   Provide the password of the user of remote host which is entered in the [Geo-Replication-Start](:File:Geo-Replication-Start.png) dialog to setup Passwordless SSH.
 
 <Category:Feature>

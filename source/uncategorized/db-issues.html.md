@@ -19,6 +19,7 @@ The following issues will be covered
 [DB Structure](http://www.ovirt.org/wiki/OVirt-DB-Issues/dbstructure)
 [DB Scripts](http://www.ovirt.org/wiki/OVirt-DB-Issues/dbscripts)
 [DB Upgrade](http://www.ovirt.org/wiki/OVirt-DB-Issues/dbupgrade)
+[DB Helper Utilities](http://www.ovirt.org/OVirt-DB-Issues/HelperUtilities)
 [Snapshot Marerialized Views](http://www.ovirt.org/OVirt-DB-Issues/MaterializedViews)
 [DBFacade DAOs ,Transactions and Search Engine](http://www.ovirt.org/wiki/OVirt-DB-Issues/dbfacade-dao-and-transaction)
 [Compensation](http://www.ovirt.org/wiki/OVirt-DB-Issues/compensation)

@@ -66,3 +66,20 @@ Flags may be added (-C, -J) to specify if Job Steps & Compensation data should b
        -h - Help text.
 
 ## unlock_entity
+
+**unlock_entity.sh** is a utility for unlocing **VM** , **Template** or their associated **Disks**
+
+### Usage
+
+       Usage: unlock_entity.sh -t TYPE -i ID [-h] [-s SERVERNAME [-p PORT]] [-d DATABASE] [-u USERNAME] [-l LOGFILE] [-r] [-q] [-v]
+             -t TYPE       - The object type {vm | template | disk} 
+             -i ID         - The object name in case of vm/template , UUID in case of a disk 
+             -s SERVERNAME - The database servername for the database  (def. localhost)
+             -p PORT       - The database port for the database        (def. 5432)
+             -d DATABASE   - The database name                         (def. engine)
+             -u USERNAME   - The admin username for the database.
+             -l LOGFILE    - The logfile for capturing output          (def. unlock_entity.sh.log)
+             -r            - Recursive, unlocks all disks under the selected vm/template.
+             -q            - Query db and display a list of the locked entites.
+             -v            - Turn on verbosity                         (WARNING: lots of output)
+             -h            - This help text.

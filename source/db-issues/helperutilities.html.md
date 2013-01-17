@@ -21,7 +21,7 @@ Usage: fkvalidator.sh [-h] [-s SERVERNAME [-p PORT]] [-d DATABASE] [-u USERNAME]
        -s SERVERNAME - The database servername for the database  (def. localhost)
        -p PORT       - The database port for the database        (def. 5432)
        -d DATABASE   - The database name                         (def. engine)
-        -u USERNAME   - The admin username for the database.
+       -u USERNAME   - The admin username for the database.
        -l LOGFILE    - The logfile for capturing output          (def. fkvalidator.sh.log)
        -f            - Fix the non consistent data by removing it from DB.
        -v            - Turn on verbosity                         (WARNING: lots of output)

@@ -12,7 +12,7 @@ wiki_last_updated: 2015-05-13
 
 ### Summary
 
-This feature allows implementing custom User Interface (UI) plugins for oVirt web administration (WebAdmin) application.
+This feature provides an infrastructure and API for implementing and deploying custom user interface (UI) plugins for oVirt web administration application.
 
 ### Owner
 
@@ -22,338 +22,180 @@ This feature allows implementing custom User Interface (UI) plugins for oVirt we
 
 ### Current status
 
-*   In progress: Design draft
-*   Pending: Design implementation
-*   Pending: User (plugin authoring) documentation
+*   Plugin infrastructure implementation complete and working
+*   Plugin API to be improved in near future
+*   Sample plugins showcasing supported API to be contributed in near future
 
 ### Overview
 
-oVirt WebAdmin application is a powerful tool to manage virtualization infrastructure, comprising components such as host and guest (virtual) machines, storage domains, etc.
+oVirt web administration application (WebAdmin) is the main UI for managing all components of a virtual system infrastructure. In addition to existing WebAdmin functionality, there can be times when administrators want to expose additional features or to integrate with other systems through WebAdmin UI. This is where UI plugins come into play: each plugin represents a set of user interface extensions that can be packaged and distributed for use with oVirt Engine via WebAdmin.
 
-There can be times when administrators want to expose additional features of their infrastructure through WebAdmin UI. This is achieved by writing custom plugins, which are invoked by WebAdmin application at key events during its runtime. As part of handling specific events, each plugin can extend or customize WebAdmin UI through the plugin API.
+### Introduction
 
-UI plugins are represented in [JavaScript](http://en.wikipedia.org/wiki/JavaScript) language. This allows WebAdmin to invoke plugins directly on the client (web browser).
+UI plugins integrate with WebAdmin directly on the client (web browser) using [JavaScript](http://en.wikipedia.org/wiki/JavaScript) programming language. Plugin invocation is driven by WebAdmin and happens right within the context of web browser's JavaScript runtime, using JavaScript language as the lowest common denominator between WebAdmin ([GWT](http://en.wikipedia.org/wiki/Google_Web_Toolkit)) and individual plugins. UI plugins can take full advantage of JavaScript language and its rich ecosystem of libraries.
 
-Following code snippet shows a sample plugin:
+At key events during runtime, WebAdmin invokes individual plugins via **event handler functions** representing WebAdmin → plugin communication. Even though WebAdmin supports multiple event handler functions, a plugin only declares functions which are of interest to its implementation. Each plugin must register relevant event handler functions as part of [plugin bootstrap sequence](#Plugin_bootstrap_sequence), before the plugin is put to use by WebAdmin.
 
-    // Each plugin registers itself into pluginApi.plugins object, where the name of the property is the name of the plugin
-    pluginApi.plugins.myPlugin = myPlugin = {
+To facilitate plugin → WebAdmin communication, WebAdmin exposes global (top-level) `pluginApi` JavaScript object for individual plugins to consume. Each plugin obtains specific `pluginApi` instance, allowing WebAdmin to control plugin API function invocation per each plugin with regard to [plugin lifecycle](#Plugin_lifecycle).
 
-        // Handle a specific application event, where the name of the function is the name of the event
-        tableContextMenu: function(eventContext) {
-            if (eventContext.entityType == 'VM') {
-                // The eventContext.addItem function is specific to tableContextMenu event
-                eventContext.addItem(
-                    'Show VM name and edit VM', // Item title
-                    function() {                // Item click handler function
-                        Window.alert(eventContext.entity.name);
-                        eventContext.itemAction('edit');
-                    }
-                );
+### Discovering plugins
+
+Before a plugin can be [loaded](#Loading_plugins) and [bootstrapped](#Plugin_bootstrap_sequence) by WebAdmin, it has to be discovered by UI plugin infrastructure in the first place.
+
+TODO image from presentation here
+
+[Plugin descriptor](#Plugin_descriptor) is the entry point to [plugin discovery process](#Discovering_plugins), containing important plugin meta-data as well as (optional) default plugin-specific configuration. As part of handling WebAdmin HTML page request (1), UI plugin infrastructure attempts to discover and load plugin descriptors from local file system (2). For each plugin descriptor, the infrastructure also attempts to load corresponding [plugin user configuration](#Plugin_user_configuration) used to override default plugin-specific configuration (if any) and tweak plugin runtime behavior. Note that providing plugin user configuration is completely optional. After loading descriptors and corresponding user configuration, oVirt Engine aggregates UI plugin data and embeds it into WebAdmin HTML page for runtime evaluation (3).
+
+By default, plugin descriptors are expected to reside in `$ENGINE_USR/ui-plugins` directory, with a default mapping `ENGINE_USR=/usr/share/ovirt-engine` as defined by oVirt Engine local configuration. Plugin descriptors are expected to comply with [JSON](http://en.wikipedia.org/wiki/JSON) format specification, with the addition of allowing Java/C++ style comments (both `/`+`*` and `//` varieties).
+
+By default, plugin user configuration files are expected to reside in `$ENGINE_ETC/ui-plugins` directory, with a default mapping `ENGINE_ETC=/etc/ovirt-engine` as defined by oVirt Engine local configuration. Plugin user configuration files are expected to comply with same content format rules as plugin descriptors. Note that plugin user configuration files follow `$descriptorFileName-config.json` naming convention.
+
+### Loading plugins
+
+After a plugin has been [discovered](#Discovering_plugins) and its data embedded into WebAdmin HTML page, WebAdmin will attempt to load the given plugin as part of application startup (unless configured otherwise).
+
+TODO image from presentation here
+
+For each plugin, WebAdmin creates an HTML `iframe` element used to load [plugin host page](#Plugin_host_page) (1). Plugin host page is the entry point to [plugin bootstrap process](#Plugin_bootstrap_sequence), used to evaluate plugin code (JavaScript) within the context of the corresponding `iframe` element. UI plugin infrastructure supports serving plugin resource files, such as plugin host page, from local file system (2). Plugin host page gets loaded into the `iframe` element and the plugin code is evaluated (3). From this point forward, plugin communicates with WebAdmin via plugin API (4).
+
+By default, plugin resource files are expected to reside in `$ENGINE_USR/ui-plugins/$resourcePath` directory, with `$resourcePath` value defined by the corresponding attribute in [plugin descriptor](#Plugin_descriptor).
+
+### Plugin descriptor
+
+Plugin descriptor is the entry point to [plugin discovery process](#Discovering_plugins), containing important plugin meta-data as well as (optional) default plugin-specific configuration.
+
+Following code snippet shows a sample plugin descriptor:
+
+    {
+
+        // A name that uniquely identifies the plugin (required).
+        // Not related to descriptor file name, must not be empty.
+        "name": "MyPlugin",
+
+        // URL of plugin host page used to evaluate plugin code (required).
+        // Using UI plugin infrastructure support to serve plugin resource files.
+        // This URL maps to $ENGINE_USR/ui-plugins/$resourcePath/start.html
+        "url": "/webadmin/webadmin/plugin/MyPlugin/start.html",
+
+        // Default configuration object associated with the plugin (optional).
+        "config": { "band": "ZZ Top", "score": 10 },
+
+        // Path to plugin resource files, relative to plugin descriptor location (optional).
+        // Required when using UI plugin infrastructure support to serve plugin resource files.
+        // This path maps to $ENGINE_USR/ui-plugins/my-files
+        "resourcePath": "my-files"
+
+    }
+
+### Plugin user configuration
+
+Plugin user configuration is used to override default plugin-specific configuration (if any) and tweak plugin runtime behavior.
+
+Following code snippet shows a sample plugin user configuration:
+
+    {
+
+        // Custom configuration object associated with the plugin (optional).
+        // This overrides the default (plugin descriptor) configuration, if any.
+        "config": { "band": "AC/DC" },
+
+        // Whether the plugin should be loaded on WebAdmin startup (optional).
+        // Default value is 'true'.
+        "enabled": true,
+
+        // Relative order in which the plugin will be loaded (optional).
+        // Default value is Integer.MAX_VALUE (lowest order).
+        "order": 0
+
+    }
+
+As part of [discovering plugins](#Discovering_plugins), UI plugin infrastructure will merge custom configuration (if any) on top of default configuration (if any). For example:
+
+*   Plugin descriptor defines `config` attribute as `{ "band": "ZZ Top", "score": 10 }`
+*   Plugin user configuration defines `config` attribute as `{ "band": "AC/DC" }`
+*   Resulting plugin configuration, accessible to the given plugin at runtime, will be `{ "band": "AC/DC", "score": 10 }`
+
+### Plugin host page
+
+Plugin host page is the entry point to [plugin bootstrap process](#Plugin_bootstrap_sequence), used to evaluate plugin code (JavaScript) within the context of the corresponding `iframe` element.
+
+Following code snippet shows a sample plugin host page:
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <!--
+            Can serve other plugin resource files just like the host page itself (1).
+            <script type="text/javascript" src="/webadmin/webadmin/plugin/MyPlugin/libs/example1.js"></script>
+            <script type="text/javascript" src="libs/example2.js"></script>
+    -->
+    <script>
+
+            // Plugin bootstrap code (2).
+
+    </script>
+    </head>
+    <body>
+    <!--
+            HTML body is intentionally empty (3).
+    -->
+    </body>
+    </html>
+
+Prior to evaluating actual plugin code, plugin host page can fetch and evaluate dependent scripts as necessary (1). Actual [plugin bootstrap code](#Plugin_bootstrap_sequence) is typically evaluated from within the `head` section (2). Since UI plugin infrastructure uses a hidden `iframe` element to load the plugin host page, any markup placed within the `body` section will have no effect in practice (3).
+
+### Plugin bootstrap sequence
+
+A typical plugin bootstrap sequence consists of following steps:
+
+*   Obtain `pluginApi` instance for the given plugin
+*   Obtain runtime plugin configuration object (optional)
+*   Register relevant event handler functions
+*   Notify UI plugin infrastructure to proceed with plugin initialization
+
+Following code snippet illustrates the above mentioned steps in practice:
+
+    // Access plugin API using 'parent' due to this code being evaluated within the context of an iframe element.
+    // As 'parent.pluginApi' is subject to Same-Origin Policy, this will work only when WebAdmin HTML page and plugin host page are served from same origin.
+    var api = parent.pluginApi('MyPlugin');
+
+    // Runtime configuration object associated with the plugin (or an empty object).
+    var config = api.configObject();
+
+    // Register event handler functions for later invocation by the UI plugin infrastructure.
+    api.register({
+            // UiInit event handler function.
+            UiInit: function() {
+                    // Handle UiInit event.
+                    window.alert('Favorite music band is ' + config.band);
             }
-        }
+    });
 
-    };
-
-    // Initialize the plugin, using an optional plugin configuration object, and report back when ready
-    var pluginLifecycle = pluginApi.lifecycle(myPlugin);
-    var pluginConfig = pluginLifecycle.configObject();
-    pluginLifecycle.ready();
-
-In addition to the actual plugin code, each plugin can optionally have a configuration object associated. Plugin configuration objects are represented as [JSON](http://en.wikipedia.org/wiki/JSON) data structures.
-
-Following code snippet shows a sample plugin configuration object:
-
-    {
-        "customOption": "foo",
-        "anotherOption": 123
-    }
-
-Last but not least, each plugin can optionally declare dependencies to 3rd party JavaScript libraries. Just like plugin configuration objects, plugin dependency declarations are represented as JSON data structures.
-
-Following code snippet shows a sample plugin dependency declaration:
-
-    {
-
-        // Fetch jQuery library from remote URL
-        "jQuery": "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js",
-
-        // Fetch fooBar library from local filesystem (relative to plugin dependency declaration file location)
-        "fooBar": "file://plugin-deps/foobar10.js"
-
-    }
-
-### Local vs Remote plugins
-
-Depending on the context from which plugins are invoked, there are two kinds of plugins: **local** and **remote**.
-
-Local plugins  
-Invocation context: WebAdmin host page
-
-Plugin code registers the plugin into `pluginApi.plugins` object
-
-<!-- -->
-
-Remote plugins  
-Invocation context: arbitrary page from same origin as WebAdmin host page (fetched through an `iframe` element)
-
-Plugin code registers the plugin into `pluginApi.remotePlugins` object
-
-Following code snippet shows a sample remote plugin:
-
-    pluginApi.remotePlugins.myPlugin = {
-
-        // Use pluginApi object to determine server base URL
-        src: pluginApi.util().baseUrl() + "path/to/html/page/that/loads/the/plugin"
-
-    };
-
-The `src` value should point to HTML page that loads the actual plugin code (code that registers the plugin into `pluginApi.plugins` object). WebAdmin will fetch this page through an `iframe` element.
-
-However, the actual plugin registration code needs to take the `iframe` context into account. For example:
-
-    // This code will be invoked within the context of an iframe, we need to use 'parent' to access top-level pluginApi object
-    var pluginApi = parent.pluginApi;
-
-    // Register the plugin into pluginApi.plugins object
-    pluginApi.plugins.myPlugin = myPlugin = {
-
-        // tableContextMenu: function(eventContext) { ... }
-
-    };
-
-    // Report back as ready
-    pluginApi.lifecycle(myPlugin).ready();
+    // Notify UI plugin infrastructure to proceed with plugin initialization.
+    api.ready();
 
 ### Plugin lifecycle
 
-Following steps illustrate main aspects of the plugin lifecycle:
+TODO
 
-1.  User requests WebAdmin host page via web browser
-2.  WebAdmin host page servlet detects all plugins
-    -   Proposed plugin file location: `/usr/libexec/ovirt/webadmin/extensions` (should be configurable through `vdc_options` table)
-    -   Proposed plugin file name convention: `pluginName-version.js`
+### Supported API functions
 
-3.  WebAdmin host page servlet looks up (optional) configuration files for detected plugins
-    -   Proposed configuration file location: `/etc/ovirt/webadmin` (should be configurable through `vdc_options` table)
-    -   Proposed configuration file name convention: `pluginName-version-conf.json`
+TODO part of Features/UIPluginsAPIReference TODO don't forget screenshots
 
-4.  WebAdmin host page servlet looks up (optional) dependency declaration files for detected plugins
-    -   Proposed dependency file location: same as configuration file location
-    -   Proposed dependency file name convention: `pluginName-version-dep.json`
+### Supported application events
 
-5.  For each detected plugin, WebAdmin host page servlet embeds plugin code, configuration and dependency information into the host page
-    -   Plugin code is wrapped in IIFE (Immediately Invoked Function Expression) for later execution
-    -   Plugin configuration is embedded unchanged (already a JSON object)
-    -   Plugin dependencies are parsed and processed in the following way:
-        -   For each remote URL dependency, a `script` tag with `src` attribute will be added to HTML `head` section of the host page
-        -   For each local filesystem dependency, a `script` tag containing library content will be added to HTML `head` section of the host page
-        -   Dependency object name will be used to avoid referencing the same dependency multiple times (as multiple plugins might have the same dependency)
+TODO part of Features/UIPluginsAPIReference
 
-6.  During WebAdmin startup, plugins are evaluated and registered into the global `pluginApi` object
-    -   The `pluginApi` object is exposed and managed by WebAdmin
-    -   The `pluginApi` object is the main entry point to plugin API
+### Sample UI plugins
 
-7.  On key events during WebAdmin runtime, event handling methods will be invoked on all plugins that are ready
-    -   Each plugin must report back as `ready()` before WebAdmin calls its event handling functions
+TODO don't forget link to git repository
 
-### Plugin API
-
-WebAdmin plugin API has two kinds of functions, based on the context from which these functions are called: **global** (context-agnostic) and **local** (context-specific).
-
-#### Global API functions
-
-These functions are accessible through the global `pluginApi` object.
-
-Plugin lifecycle functions  
-Proposed API: `pluginApi.lifecycle(pluginObject).*`
-
-Purpose: allow asynchronous (non-blocking) plugin communication related to the plugin lifecycle
-
-<!-- -->
-
-WebAdmin action functions  
-Proposed API: `pluginApi.action().*`
-
-Purpose: allow plugins to invoke system-wide application actions, e.g. manipulate search string
-
-<!-- -->
-
-Plugin utility functions  
-Proposed API: `pluginApi.util().*`
-
-Purpose: provide various utility functions, e.g. access oVirt engine configuration
-
-#### Local API functions
-
-These functions are accessible through the `eventContext` object, which WebAdmin provides to each event handler function.
-
-Following the sample plugin presented in the [Overview](#Overview) section:
-
-*   `tableContextMenu` event triggers when the user right-clicks on selected item(s) within a data table (table context menu is about to be shown)
-*   `eventContext` object represents both event data (e.g. `eventContext.entityType`) and context-specific plugin API (e.g. `eventContext.addItem`)
-
-API functions exposed by the `eventContext` object always depend on the corresponding application event.
-
-### Application event types
-
-Generally speaking, each event represents an extension point, exposed by WebAdmin and consumed by plugins.
-
-Here are some ideas for different event types:
-
-`uiInit`  
-Triggered when WebAdmin UI is fully initialized
-
-Sample use case: add custom main tab to WebAdmin UI
-
-<!-- -->
-
-`tableContextMenu`  
-Triggered when a table context menu is about to be shown to the user
-
-Sample use case: add custom item to table context menu
-
-Feel free to [discuss](Talk:Features/UIPlugins) additional event types.
-
-### Implementation details
-
-Technical notes on plugin infrastructure implementation:
-
-*   Create a dedicated (GIN-managed eager singleton) class for managing the global `pluginApi` object through [JSNI](https://developers.google.com/web-toolkit/doc/latest/DevGuideCodingBasicsJSNI)
-*   Use [gwt-exporter](http://code.google.com/p/gwt-exporter/) for exporting GWT classes (including backend classes used in frontend) for use in UI plugins
-
-### Integration with 3rd party JavaScript libraries
-
-Following code snippet shows the sample plugin presented in the [Overview](#Overview) section, modified for use with [jQuery](http://jquery.com/) and [jQuery UI](http://jqueryui.com/) libraries:
-
-    // Using JavaScript IIFE (Immediately Invoked Function Expression) to map '$' sign to jQuery global object
-    // We don't use global '$' jQuery alias to avoid conflicts with other libraries (e.g. Prototype library also defines '$' global variable)
-    (function( $ ) {
-
-        pluginApi.plugins.myPlugin = myPlugin = {
-
-            tableContextMenu: function(eventContext) {
-                if (eventContext.entityType == 'VM') {
-                    eventContext.addItem('Show VM name and edit VM', function() {
-                        // Show a jQuery UI modal dialog
-                        $('<div/>')
-                            .html(eventContext.entity.name)
-                            .dialog({
-                                title: 'VM name',
-                                modal: true,
-                                buttons: {
-                                    'OK': function() {
-                                        $(this).dialog('close');
-                                        eventContext.itemAction('edit');
-                                    }
-                                }
-                            });
-                    });
-                }
-            }
-
-        };
-
-        pluginApi.lifecycle(myPlugin).ready();
-
-    })( jQuery );
-
-### Developing plugins with GWT
-
-This section describes how to develop UI plugins using [Google Web Toolkit](https://developers.google.com/web-toolkit/).
-
-Using GWT comes with some issues that need to be addressed:
-
-*   GWT bootstrap sequence requires permutation selector script (`pluginApplication.nocache.js`) to be invoked first. Selector script determines the correct permutation (`hashName.cache.html`) and fetches it asynchronously from the same location.
-*   Any kind of RPC based on `XMLHttpRequest` is subject to [Same Origin Policy](http://en.wikipedia.org/wiki/Same_origin_policy). This means that `pluginApplication`'s server-side code should be deployed on oVirt JBoss AS instance.
-
-Following code snippet shows a sample plugin, represented as GWT application:
-
-    package com.myplugin;
-
-    public class MyPluginApp implements EntryPoint {
-
-        public void void onModuleLoad() {
-            registerPlugin();
-        }
-
-        private static native void registerPlugin() /*-{
-            // This code will be invoked within the context of an iframe
-            var pluginApi = $wnd.parent.pluginApi;
-
-            // Do the plugin registration
-            pluginApi.plugins.myPlugin = myPlugin = {
-
-                tableContextMenu: function(eventContext) {
-                    // Call Java static method to handle tableContextMenu event
-                    @com.myplugin.MyPluginApp::onTableContextMenuEvent(Lcom/myplugin/TableContextMenuEventObject;)(eventContext); 
-                }
-
-            };
-
-            // Report back as ready
-            pluginApi.lifecycle(myPlugin).ready();
-        }-*/;
-
-        private static void onTableContextMenuEvent(TableContextMenuEventObject eventContext) {
-            if ("VM".equals(eventContext.getEntityType())) {
-                eventContext.addItem("Show VM name", getVmClickHandlerFunction(eventContext));
-            }
-        }
-
-        // Too bad Java language doesn't treat methods (functions) as first class objects
-        private static native JavaScriptObject getVmClickHandlerFunction(TableContextMenuEventObject eventContext) /*-{
-            return function() {
-                // Delegate to vmClickHandlerFunctionLogic static method
-                @com.myplugin.MyPluginApp::vmClickHandlerFunctionLogic(Lcom/myplugin/TableContextMenuEventObject;)(eventContext); 
-            }
-        }-*/;
-
-        private static void vmClickHandlerFunctionLogic(TableContextMenuEventObject eventContext) {
-            Window.alert(eventContext.getEntityName());
-        }
-
-    }
-
-    // JavaScript overlay type for tableContextMenu event's 'eventContext' object
-    public class TableContextMenuEventObject extends JavaScriptObject {
-
-        protected TableContextMenuEventObject() {}
-
-        public final native String getEntityType() /*-{
-            return this.entityType;
-        }-*/;
-
-        public final native String getEntityName() /*-{
-            return this.entity.name;
-        }-*/;
-
-        public final native void addItem(String itemTitle, JavaScriptObject itemClickHandlerFunction) /*-{
-            this.addItem(itemTitle, itemClickHandlerFunction);
-        }-*/;
-
-    }
-
-To use this plugin in WebAdmin:
-
-1.  Compile `pluginApplication` into JavaScript and have it bundled into `pluginApplication.war` file
-2.  Deploy the `pluginApplication.war` file on JBoss AS instance (`JBOSS_HOME/standalone/deployments`)
-3.  Create remote plugin file that references `pluginApplication` host page (relative to JBoss AS root context)
-
-WebAdmin will detect the remote plugin, embed its code into WebAdmin host page and fetch `pluginApplication` host page through an `iframe` element. `pluginApplication` host page will load its selector script, which will in turn load the actual `pluginApplication` permutation, used to register the plugin into `pluginApi.plugins` object.
-
-### Nice to have items
-
-*   Implement WebAdmin dialog that lists active plugins, with the ability to turn them on/off
-*   Implement plugin-safe mode, which disables all plugins during WebAdmin startup by default
-*   Introduce WebAdmin plugin API compliance version, so that plugins can be written against specific plugin API version
-
-### Documentation / External references
+### References
 
 *   [Original design notes](Features/UIPluginsOriginalDesignNotes)
 
-### Comments and Discussion
+### Comments and discussion
 
-*   Refer to [discussion page](Talk:Features/UIPlugins).
+*   Refer to [UI plugins discussion page](Talk:Features/UIPlugins).
 
 <Category:Feature>

@@ -10,9 +10,9 @@ wiki_last_updated: 2013-01-17
 
 oVirt uses AL 2.0 as the primary license. All new projects are strongly encouraged to use AL 2.0 and the initial source contribution for oVirt has been contributed under AL 2.0. All content contributed to the website and wiki is done so under AL 2.0.
 
-It is also possible that some complementary projects in oVirt can use (L)GPL. These are clearly marked on the project matrix and the board may vote whether or not to include a non ASL2.0 project into oVirt.
+It is also possible that some complementary projects in oVirt can use (L)GPL. These are clearly marked on the project matrix and the board may vote whether or not to include a non AL 2.0 project into oVirt.
 
-ASL2.0 is posted below for reference:
+AL 2.0 is posted below for reference:
 
 Apache License Version 2.0, January 2004 <http://www.apache.org/licenses/>
 

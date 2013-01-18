@@ -166,11 +166,11 @@ Following code snippet illustrates the above mentioned steps in practice:
     // Runtime configuration object associated with the plugin (or an empty object).
     var config = api.configObject();
 
-    // Register event handler functions for later invocation by the UI plugin infrastructure.
+    // Register event handler function(s) for later invocation by UI plugin infrastructure.
     api.register({
         // UiInit event handler function.
         UiInit: function() {
-            // Handle UiInit event.
+                // Handle UiInit event.
                 window.alert('Favorite music band is ' + config.band);
             }
     });

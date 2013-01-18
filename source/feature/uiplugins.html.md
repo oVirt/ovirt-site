@@ -42,7 +42,7 @@ To facilitate plugin → WebAdmin communication, WebAdmin exposes global (top-le
 
 Before a plugin can be [loaded](#Loading_plugins) and [bootstrapped](#Plugin_bootstrap_sequence) by WebAdmin, it has to be discovered by UI plugin infrastructure in the first place.
 
-TODO image from presentation here
+![Discovering plugins](Discovering-plugins.png "Discovering plugins")
 
 [Plugin descriptor](#Plugin_descriptor) is the entry point to [plugin discovery process](#Discovering_plugins), containing important plugin meta-data as well as (optional) default plugin-specific configuration. As part of handling WebAdmin HTML page request (1), UI plugin infrastructure attempts to discover and load plugin descriptors from local file system (2). For each plugin descriptor, the infrastructure also attempts to load corresponding [plugin user configuration](#Plugin_user_configuration) used to override default plugin-specific configuration (if any) and tweak plugin runtime behavior. Note that providing plugin user configuration is completely optional. After loading descriptors and corresponding user configuration, oVirt Engine aggregates UI plugin data and embeds it into WebAdmin HTML page for runtime evaluation (3).
 
@@ -54,7 +54,7 @@ By default, plugin user configuration files are expected to reside in `$ENGINE_E
 
 After a plugin has been [discovered](#Discovering_plugins) and its data embedded into WebAdmin HTML page, WebAdmin will attempt to load the given plugin as part of application startup (unless configured otherwise).
 
-TODO image from presentation here
+![Loading plugins](Loading-plugins.png "Loading plugins")
 
 For each plugin, WebAdmin creates an HTML `iframe` element used to load [plugin host page](#Plugin_host_page) (1). Plugin host page is the entry point to [plugin bootstrap process](#Plugin_bootstrap_sequence), used to evaluate plugin code (JavaScript) within the context of the corresponding `iframe` element. UI plugin infrastructure supports serving plugin resource files, such as plugin host page, from local file system (2). Plugin host page gets loaded into the `iframe` element and the plugin code is evaluated (3). From this point forward, plugin communicates with WebAdmin via plugin API (4).
 

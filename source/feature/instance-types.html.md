@@ -47,7 +47,7 @@ Used to describe the hardware configuration of the virtual machines.
 For example “medium” including 1 virtual CPU and 4GB of memory.
 
 **Image**
-Used to describe the virtual machine disk image. (Amazon uses the term AMI) This is the based operating system image including applications. The image is stateless, any changes made to the image.
+Used to describe the virtual machine disk image. (Amazon uses the term AMI) This is the base operating system image including applications. The image is stateless, any changes made to the image are lost after stopping the virtual machine.
 For example “Windows 2008R2 with SQLServer”
 
 **Volume**

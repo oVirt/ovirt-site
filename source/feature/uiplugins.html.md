@@ -170,9 +170,9 @@ Following code snippet illustrates the above mentioned steps in practice:
     api.register({
         // UiInit event handler function.
         UiInit: function() {
-                // Handle UiInit event.
-                window.alert('Favorite music band is ' + config.band);
-            }
+            // Handle UiInit event.
+            window.alert('Favorite music band is ' + config.band);
+        }
     });
 
     // Notify UI plugin infrastructure to proceed with plugin initialization.
@@ -189,6 +189,28 @@ TODO
 ### Supported API functions
 
 TODO don't forget screenshots
+
+### UI plugin cheat sheet
+
+Minimalistic plugin descriptor: `/usr/share/ovirt-engine/ui-plugins/helloWorld.json`
+
+    {
+        "name": "HelloWorld",
+        "url": "/webadmin/webadmin/plugin/HelloWorld/start.html",
+        "resourcePath": "hello-files"
+    }
+
+Minimalistic plugin host page: `/usr/share/ovirt-engine/ui-plugins/hello-files/start.html`
+
+    <!DOCTYPE html><html><head>
+    <script>
+        var api = parent.pluginApi('HelloWorld');
+        api.register({
+            UiInit: function() { window.alert('Hello world'); }
+        });
+        api.ready();
+    </script>
+    </head><body></body></html>
 
 ### Sample UI plugins
 

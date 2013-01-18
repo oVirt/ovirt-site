@@ -48,7 +48,7 @@ TODO image from presentation here
 
 By default, plugin descriptors are expected to reside in `$ENGINE_USR/ui-plugins` directory, with a default mapping `ENGINE_USR=/usr/share/ovirt-engine` as defined by oVirt Engine local configuration. Plugin descriptors are expected to comply with [JSON](http://en.wikipedia.org/wiki/JSON) format specification, with the addition of allowing Java/C++ style comments (both `/`+`*` and `//` varieties).
 
-By default, plugin user configuration files are expected to reside in `$ENGINE_ETC/ui-plugins` directory, with a default mapping `ENGINE_ETC=/etc/ovirt-engine` as defined by oVirt Engine local configuration. Plugin user configuration files are expected to comply with same content format rules as plugin descriptors. Note that plugin user configuration files follow `$descriptorFileName-config.json` naming convention.
+By default, plugin user configuration files are expected to reside in `$ENGINE_ETC/ui-plugins` directory, with a default mapping `ENGINE_ETC=/etc/ovirt-engine` as defined by oVirt Engine local configuration. Plugin user configuration files are expected to comply with same content format rules as plugin descriptors. Note that plugin user configuration files generally follow `$descriptorFileName-config.json` naming convention.
 
 ### Loading plugins
 
@@ -64,7 +64,7 @@ By default, plugin resource files are expected to reside in `$ENGINE_USR/ui-plug
 
 Plugin descriptor is the entry point to [plugin discovery process](#Discovering_plugins), containing important plugin meta-data as well as (optional) default plugin-specific configuration.
 
-Following code snippet shows a sample plugin descriptor:
+Following code snippet shows a sample plugin descriptor: `/usr/share/ovirt-engine/ui-plugins/myPlugin.json`
 
     {
 
@@ -87,11 +87,11 @@ Following code snippet shows a sample plugin descriptor:
 
     }
 
-### Plugin user configuration
+### Plugin user configuration (optional)
 
 Plugin user configuration is used to override default plugin-specific configuration (if any) and tweak plugin runtime behavior.
 
-Following code snippet shows a sample plugin user configuration:
+Following code snippet shows a sample plugin user configuration: `/etc/ovirt-engine/ui-plugins/myPlugin-config.json`
 
     {
 
@@ -119,30 +119,30 @@ As part of [discovering plugins](#Discovering_plugins), UI plugin infrastructure
 
 Plugin host page is the entry point to [plugin bootstrap process](#Plugin_bootstrap_sequence), used to evaluate plugin code (JavaScript) within the context of the corresponding `iframe` element.
 
-Following code snippet shows a sample plugin host page:
+Following code snippet shows a sample plugin host page: `/usr/share/ovirt-engine/ui-plugins/my-files/start.html`
 
     <!DOCTYPE html>
     <html>
     <head>
     <!--
-            Can serve other plugin resource files just like the host page itself (1).
-            <script type="text/javascript" src="/webadmin/webadmin/plugin/MyPlugin/libs/example1.js"></script>
-            <script type="text/javascript" src="libs/example2.js"></script>
+        Can serve other plugin resource files just like the host page itself (1).
+        <script type="text/javascript" src="/webadmin/webadmin/plugin/MyPlugin/libs/example1.js"></script>
+        <script type="text/javascript" src="libs/example2.js"></script>
     -->
     <script>
 
-            // Plugin bootstrap code (2).
+        // Plugin code goes here (2).
 
     </script>
     </head>
     <body>
     <!--
-            HTML body is intentionally empty (3).
+        HTML body is intentionally empty (3).
     -->
     </body>
     </html>
 
-Prior to evaluating actual plugin code, plugin host page can fetch and evaluate dependent scripts as necessary (1). Actual [plugin bootstrap code](#Plugin_bootstrap_sequence) is typically evaluated from within the `head` section (2). Since UI plugin infrastructure uses a hidden `iframe` element to load the plugin host page, any markup placed within the `body` section will have no effect in practice (3).
+Prior to evaluating actual plugin code, plugin host page can fetch and evaluate dependent scripts as necessary (1). Actual [plugin code](#Plugin_bootstrap_sequence) is typically evaluated from within the `head` section (2). Since UI plugin infrastructure uses a hidden `iframe` element to load the plugin host page, any markup placed within the `body` section will have no effect in practice (3).
 
 ### Plugin bootstrap sequence
 
@@ -156,7 +156,9 @@ A typical plugin bootstrap sequence consists of following steps:
 Following code snippet illustrates the above mentioned steps in practice:
 
     // Access plugin API using 'parent' due to this code being evaluated within the context of an iframe element.
-    // As 'parent.pluginApi' is subject to Same-Origin Policy, this will work only when WebAdmin HTML page and plugin host page are served from same origin.
+    // As 'parent.pluginApi' is subject to Same-Origin Policy, this will only work when WebAdmin HTML page and plugin
+    // host page are served from same origin. WebAdmin HTML page and plugin host page will always be on same origin
+    // when using UI plugin infrastructure support to serve plugin resource files.
     var api = parent.pluginApi('MyPlugin');
 
     // Runtime configuration object associated with the plugin (or an empty object).
@@ -164,10 +166,10 @@ Following code snippet illustrates the above mentioned steps in practice:
 
     // Register event handler functions for later invocation by the UI plugin infrastructure.
     api.register({
-            // UiInit event handler function.
-            UiInit: function() {
-                    // Handle UiInit event.
-                    window.alert('Favorite music band is ' + config.band);
+        // UiInit event handler function.
+        UiInit: function() {
+            // Handle UiInit event.
+                window.alert('Favorite music band is ' + config.band);
             }
     });
 
@@ -189,6 +191,10 @@ TODO part of Features/UIPluginsAPIReference
 ### Sample UI plugins
 
 TODO don't forget link to git repository
+
+### Real-world UI plugins
+
+TODO mention Oved's plugin, link to his blog post
 
 ### References
 

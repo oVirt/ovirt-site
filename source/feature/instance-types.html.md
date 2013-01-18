@@ -115,7 +115,7 @@ If a value in a line is a 'D', it means it is deprecated.
 | payload                   | payload (device, not in vm_static)          | Y        |       | N             |       |
 | storage domain            |                                              |          |       |               |       |
 | thin/clone                |                                              | Y        |       | N             |       |
-| sysprep                   |                                              |          |       |               |       |
+| sysprep                   |                                              | N        |       | N             |       |
 | soundcard                 | payload (device, not in vm_static)          | N        |       | N             |       |
 | Balloon                   | payload (device, not in vm_static)          | N        |       | N             |       |
 | network interface         | binding of NIC to logical network            | N        |       | N             |       |

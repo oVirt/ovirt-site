@@ -59,7 +59,9 @@ Typically the image is stateless, when the virtual machine is stopped all change
 
 #### Design
 
-The following table enumerates all the fields involved and also how they are related to the entities. The specific columns means:
+The following table enumerates all the fields involved and also how they are related to the entities.
+
+The specific columns means:
 
 *   **Present**: this field is present on the entity for user editing
 *   **Comm**: comment for the entity
@@ -69,7 +71,13 @@ The following table enumerates all the fields involved and also how they are rel
 *   **Marked**: if Y, it means the field is "special" and if the user changes it, the instance type will change to "custom"
 *   **On Create**: default value when creating the VM
 
-If a value in a line is a 'D', it means it is deprecated.
+The specific values means:
+
+*   **Y**: yes
+*   **N**: no
+*   **D**: deprecated
+*   **Not in GUI**: not directly editable from GUI. Either not editable at all or gets the value indirectly (e.g. from to selected OS)
+*   **Values for On Create**: *User* = user is required to fill it, *Instance* = copied from instance, *merge* = merge of two or more entities (comment describes how), *Image* = copied from image, *empty* = empty
 
 | Field name                | Description                                  | Template | Image | Instance Type | VM    |
 |---------------------------|----------------------------------------------|----------|-------|---------------|-------|

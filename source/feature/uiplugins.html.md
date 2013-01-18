@@ -44,7 +44,9 @@ Before a plugin can be [loaded](#Loading_plugins) and [bootstrapped](#Plugin_boo
 
 ![Discovering plugins](Discovering-plugins.png "Discovering plugins")
 
-[Plugin descriptor](#Plugin_descriptor) is the entry point to [plugin discovery](#Discovering_plugins) process, containing important plugin meta-data as well as (optional) default plugin-specific configuration. As part of handling WebAdmin HTML page request (1), UI plugin infrastructure attempts to discover and load plugin descriptors from local file system (2). For each plugin descriptor, the infrastructure also attempts to load corresponding [plugin user configuration](#Plugin_user_configuration) used to override default plugin-specific configuration (if any) and tweak plugin runtime behavior. Note that providing plugin user configuration is completely optional. After loading descriptors and corresponding user configuration, oVirt Engine aggregates UI plugin data and embeds it into WebAdmin HTML page for runtime evaluation (3).
+[Plugin descriptor](#Plugin_descriptor) is the entry point to [plugin discovery](#Discovering_plugins) process, containing important plugin meta-data as well as (optional) default plugin-specific configuration.
+
+As part of handling WebAdmin HTML page request (1), UI plugin infrastructure attempts to discover and load plugin descriptors from local file system (2). For each plugin descriptor, the infrastructure also attempts to load corresponding [plugin user configuration](#Plugin_user_configuration) used to override default plugin-specific configuration (if any) and tweak plugin runtime behavior. Note that providing plugin user configuration is completely optional. After loading descriptors and corresponding user configuration files, oVirt Engine aggregates UI plugin data and embeds it into WebAdmin HTML page for runtime evaluation (3).
 
 By default, plugin descriptors are expected to reside in `$ENGINE_USR/ui-plugins` directory, with a default mapping `ENGINE_USR=/usr/share/ovirt-engine` as defined by oVirt Engine local configuration. Plugin descriptors are expected to comply with [JSON](http://en.wikipedia.org/wiki/JSON) format specification, with the addition of allowing Java/C++ style comments (both `/`+`*` and `//` varieties).
 
@@ -74,7 +76,7 @@ Following code snippet shows a sample plugin descriptor: `/usr/share/ovirt-engin
 
         // URL of plugin host page used to evaluate plugin code (required).
         // Using UI plugin infrastructure support to serve plugin resource files.
-        // This URL maps to $ENGINE_USR/ui-plugins/<resourcePath>/start.html
+        // This URL maps to $ENGINE_USR/ui-plugins/<resourcePathForMyPlugin>/start.html
         "url": "/webadmin/webadmin/plugin/MyPlugin/start.html",
 
         // Default configuration object associated with the plugin (optional).
@@ -125,7 +127,7 @@ Following code snippet shows a sample plugin host page: `/usr/share/ovirt-engine
     <html>
     <head>
     <!--
-        Can serve other plugin resource files just like the host page itself (1).
+        Can fetch dependent scripts or other resources as necessary (1).
         <script type="text/javascript" src="/webadmin/webadmin/plugin/MyPlugin/libs/example1.js"></script>
         <script type="text/javascript" src="libs/example2.js"></script>
     -->
@@ -142,7 +144,7 @@ Following code snippet shows a sample plugin host page: `/usr/share/ovirt-engine
     </body>
     </html>
 
-Prior to evaluating actual plugin code, plugin host page can fetch and evaluate dependent scripts as necessary (1). Actual [plugin code](#Plugin_bootstrap_sequence) is typically evaluated from within the `head` section (2). Since UI plugin infrastructure uses a hidden `iframe` element to load the plugin host page, any markup placed within the `body` section will have no effect in practice (3).
+Prior to evaluating actual plugin code, [plugin host page](#Plugin_host_page) can fetch and evaluate dependent scripts or other resources as necessary (1). Actual [plugin code](#Plugin_bootstrap_sequence) is typically evaluated via HTML `head` section (2). Since the `iframe` element used to load the plugin host page is not visible in WebAdmin UI, any markup placed within HTML `body` section will have no effect in practice (3).
 
 ### Plugin bootstrap sequence
 

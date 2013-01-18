@@ -106,6 +106,7 @@ If a value in a line is a 'D', it means it is deprecated.
 | kernel_params            | boot params                                  | Y        |       | Y             |       |
 | migration_support        | migration support options                    | Y        |       | N             |       |
 | userdefined_properties   | custom properties                            | Y        |       | Y             |       |
+| predefined_properties    | custom properties                            | Y        |       | Y             |       |
 | min_allocated_mem       | memory guaranteed                            | Y        |       | N             |       |
 | child_count              | internal. for template, not in use?          | N        |       | N             |       |
 | quota_id                 | link to quota                                | N        |       | N             |       |

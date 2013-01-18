@@ -97,7 +97,7 @@ If a value in a line is a 'D', it means it is deprecated.
 | vm_type                  | vm type (server/desktop)                     | Y        |       | N             |       |
 | nice_level               | vm nice level                                | Y        |       | N             |       |
 | default_boot_sequence   | boot sequence                                | Y        |       | N             |       |
-| default_display_type    | display type                                 | Y        |       | N             |       |
+| default_display_type    | display type(SPICE, VNC)                     | Y        |       | N             |       |
 | priority                  | priority                                     | Y        |       | N             |       |
 | iso_path                 | cd                                           | Y        |       | Y             |       |
 | origin                    | internal. where the vm was created           | N        |       | N             |       |

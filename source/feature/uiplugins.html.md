@@ -218,7 +218,22 @@ TODO don't forget link to git repository
 
 ### Real-world UI plugins
 
-TODO mention Oved's plugin, link to his blog post
+#### Foreman UI Plugin
+
+The purpose of this plugin is to allow administrators to see details on [Foreman](http://theforeman.org/) related entities (such as VMs).
+
+*   Author: Oved Ourfali <ovedo@redhat.com>
+*   Documentation: [Oved's blog post](http://ovedou.blogspot.co.il/2012/12/ovirt-foreman-ui-plugin.html)
+*   Foreman plugin source code: available from [Oved's foreman_ovirt GitHub repository](https://github.com/oourfali/foreman_ovirt)
+*   UI plugin source code: available from [sample UI plugin repository](#Sample_UI_plugins) as `foreman-plugin`
+
+#### Shell In A Box UI Plugin
+
+Using oVirt WebAdmin, make SSH connection to a host and emulate a terminal via [Shell In A Box](http://code.google.com/p/shellinabox/).
+
+*   Author: Daniel Erez <derez@redhat.com>
+*   Documentation: [Daniel's blog post](http://derezvir.blogspot.co.il/2013/01/ovirt-webadmin-shellinabox-ui-plugin.html)
+*   UI plugin source code: available from [sample UI plugin repository](#Sample_UI_plugins) as `shellbox-plugin`
 
 ### References
 

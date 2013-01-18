@@ -113,7 +113,6 @@ If a value in a line is a 'D', it means it is deprecated.
 | cpu_pinning              | cpu pinning                                  | N        |       | N             |       |
 | is_smartcard_enabled    | smartcard enabled                            | Y        |       | N             |       |
 | payload                   | payload (device, not in vm_static)          | Y        |       | N             |       |
-| storage domain            |                                              |          |       |               |       |
 | thin/clone                |                                              | Y        |       | N             |       |
 | soundcard                 | payload (device, not in vm_static)          | N        |       | N             |       |
 | Balloon                   | payload (device, not in vm_static)          | N        |       | N             |       |

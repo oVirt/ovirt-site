@@ -61,7 +61,7 @@ Typically the image is stateless, when the virtual machine is stopped all change
 
 The following table enumerates all the fields involved and also how they are related to the entities. The specific columns means:
 
-*   **Present**: this field is present on the entity
+*   **Present**: this field is present on the entity for user editing
 *   **Comm**: comment for the entity
 *   **Perms**: new permissions needed
 *   **Adv Only**: the new VM dialog will contain a button "Advanced Options". If the field is marked as Adv Only: Y than it is visible only after clicking this button
@@ -74,8 +74,8 @@ If a value in a line is a 'D', it means it is deprecated.
 | Field name                | Description                                  | Template | Image | Instance Type | VM    |
 |---------------------------|----------------------------------------------|----------|-------|---------------|-------|
 |                           |                                              | Present  | Comm  | Present       | Perms |
-| vm_guid                  | Internal unique ID                           | Y        |       | Y             |       |
-| vm_name                  | name set by user for vm and template         | N        |       | Y             |       |
+| vm_guid                  | Internal unique ID                           | N        |       | N             |       |
+| vm_name                  | name set by user for vm and template         | Y        |       | Y             |       |
 | mem_size_mb             | Memory Size                                  | Y        |       | N             |       |
 | vmt_guid                 | Internal link to template object             | N        |       | N             |       |
 | OS                        | Operating System Type                        | Y        |       | Y             |       |

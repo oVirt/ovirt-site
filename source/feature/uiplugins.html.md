@@ -34,9 +34,9 @@ oVirt web administration application (WebAdmin) is the main UI for managing all 
 
 UI plugins integrate with WebAdmin directly on the client (web browser) using [JavaScript](http://en.wikipedia.org/wiki/JavaScript) programming language. Plugin invocation is driven by WebAdmin and happens right within the context of web browser's JavaScript runtime, using JavaScript language as the lowest common denominator between WebAdmin ([GWT](http://en.wikipedia.org/wiki/Google_Web_Toolkit)) and individual plugins. UI plugins can take full advantage of JavaScript language and its rich ecosystem of libraries.
 
-At key events during runtime, WebAdmin invokes individual plugins via **event handler functions** representing WebAdmin → plugin communication. Even though WebAdmin supports multiple event handler functions, a plugin only declares functions which are of interest to its implementation. Each plugin must register relevant event handler functions as part of [plugin bootstrap sequence](#Plugin_bootstrap_sequence), before the plugin is put to use by WebAdmin.
+At key events during runtime, WebAdmin invokes individual plugins via [event handler functions](#Supported_application_events) representing WebAdmin → plugin communication. Even though WebAdmin supports multiple event handler functions, a plugin only declares functions which are of interest to its implementation. Each plugin must register relevant event handler functions as part of [plugin bootstrap sequence](#Plugin_bootstrap_sequence), before the plugin is put to use by WebAdmin.
 
-To facilitate plugin → WebAdmin communication, WebAdmin exposes global (top-level) `pluginApi` JavaScript object for individual plugins to consume. Each plugin obtains specific `pluginApi` instance, allowing WebAdmin to control plugin API function invocation per each plugin with regard to [plugin lifecycle](#Plugin_lifecycle).
+To facilitate plugin → WebAdmin communication, WebAdmin exposes [plugin API](#Supported_API_functions) as global (top-level) `pluginApi` JavaScript object for individual plugins to consume. Each plugin obtains specific `pluginApi` instance, allowing WebAdmin to control plugin API function invocation per each plugin with regard to [plugin lifecycle](#Plugin_lifecycle).
 
 ### Discovering plugins
 
@@ -180,13 +180,13 @@ Following code snippet illustrates the above mentioned steps in practice:
 
 TODO
 
-### Supported API functions
-
-TODO part of Features/UIPluginsAPIReference TODO don't forget screenshots
-
 ### Supported application events
 
-TODO part of Features/UIPluginsAPIReference
+TODO
+
+### Supported API functions
+
+TODO don't forget screenshots
 
 ### Sample UI plugins
 

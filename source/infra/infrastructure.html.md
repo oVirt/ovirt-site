@@ -21,7 +21,7 @@ This is a [community services infrastructure](http://fedorahosted.org/csi/) team
 
 People who come to work on this project are *not* already experts, but they might be. You are welcome to learn with us.
 
-To gain access to systems - think of them as keys to doors - we match your skill and the trust you have built with the project. This is part of being a [meritocracy](http://www.ovirt.org/governance/).
+To gain access to systems - think of them as keys to doors - we match your skill and the trust you have built with the project. This is part of being a [meritocracy](Governance).
 
 As this small team defines process, content will be added to this page.
 

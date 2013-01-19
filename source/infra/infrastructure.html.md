@@ -34,9 +34,9 @@ The main thing is, come [communicate with us](#Communication) if you have any qu
 
 ### Decision process
 
-The Infra team generally follows the principle that if it didn't get discussed on the mailing list, it didn't really happen.
+The Infra team generally follows the principle that if it didn't get discussed on the [mailing list](http://lists.ovirt.org/mailman/listinfo/infra), it didn't really happen.
 
-This means all important or broad-reaching decisions are discussed and decided on the [mailing list](http://lists.ovirt.org/mailman/listinfo/infra).
+This means all important or broad-reaching decisions are discussed and decided on the mailing list.
 
 The team uses the same [collaborative decision process](https://blogs.apache.org/comdev/entry/how_apache_projects_use_consensus) that other oVirt teams use, with some lightweight elements added to move along minor votes.
 

@@ -25,7 +25,7 @@ To gain access to systems - think of them as keys to doors - we match your skill
 
 As this small team defines process, content will be added to this page.
 
-The main thing is, come [communicate with us](#Communicate) if you have any questions, are interested in learning more, or what to participate in supporting oVirt infrastructure.
+The main thing is, come [communicate with us](#Communication) if you have any questions, are interested in learning more, or what to participate in supporting oVirt infrastructure.
 
 ## Communication
 

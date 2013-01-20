@@ -22,6 +22,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 *Agenda*
 
+*   Coverage - quaid on vacation 25 Jan - 08 Feb
 *   Finalize and clearly publish information on who has access to what, how access is granted, and how decisions are made about new infrastructure
 *   Hosting
 *   Puppet

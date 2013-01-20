@@ -419,4 +419,11 @@ Actions:
        # SPICEC_LOG_LEVEL=0 firefox
        Afer that, check the file: ~/.spicec/spicec.log
 
+### Webadmin error
+
+*   If clean 'mvn install' succeeded, with admin GWT build, but when running webadmin there is an error:
+
+      java.lang.NoClassDefFoundError: Could not initialize class org.ovirt.engine.ui.frontend.server.gwt.plugin.PluginDataManager$Holder..
+       copy as root: backend/manager/conf/engine.conf.defaults.in to /usr/share/ovirt-engine/conf/engine.conf.defaults (create dirs if needed)
+
 [Category:Draft documentation](Category:Draft documentation) <Category:Engine> [Category:How to](Category:How to)

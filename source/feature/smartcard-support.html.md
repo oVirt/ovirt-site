@@ -26,11 +26,7 @@ wiki_last_updated: 2013-01-21
 
 ### Current status
 
-Pending review:
-
-*   VDSM: <http://gerrit.ovirt.org/#/c/8450/>
-*   Engine + Webadmin/Power User Portal: <http://gerrit.ovirt.org/#/c/8484/>
-*   REST API: <http://gerrit.ovirt.org/#/c/8512/>
+Pending review: finished
 
 ### Requirements
 

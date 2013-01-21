@@ -80,6 +80,20 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 ## Releases
 
+### oVirt-Live-0.95.iso - beta version Jan 21th 2013
+
+#### Download
+
+[Download oVirt Live 0.95](http://resources.ovirt.org/releases/3.2/tools/ovirt-live-0.95.iso)
+
+#### change-log
+
+Based on ovirt 3.2 nightly (f4fec2b) Fedora 18 workaround for <https://bugzilla.redhat.com/show_bug.cgi?id=878119>
+
+### Known-Issues
+
+"Run once" option doesn't work. use the vm 'edit" menu
+
 ### oVirt-Live-0.9.iso - beta version Jan 9th 2013
 
 #### Download

@@ -98,14 +98,9 @@ Behavior:
 
 #### VDSM
 
-*   When VDSM receives an argument *smartcardEnable* with value true it adds to the libvirt configuration to the *devices* part the following
+*   When VDSM receives a device named *smartcard* it adds to the libvirt configuration to the *devices* part the following:
 
       <smartcard mode="passthrough" type="spicevmc"/>
-       
-
-*   Example of creating a VM using vdsClient with smartcard support turned on:
-
-      ` vdsClient 0 create /dev/null vmId=`uuidgen` macAddr=00:11:22:33:44:55 display=qxl memSize=256 smartcardEnable=true `
        
 
 ### Documentation / External references

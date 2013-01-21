@@ -12,4 +12,11 @@ wiki_last_updated: 2015-04-12
 
 This page lists assignments of the Infrastructure team.
 
+*   Jenkin - jenkins.ovirt.org: eedri, dcaro
+*   Gerrit - gerrit.ovirt.org: iheim, rydekull
+*   Mailman - lists.ovirt.org: quaid
+*   MediaWiki - www.ovirt.org: quaid, DNeary, garrett
+    -   OpenShift - www.ovirt.org: quaid, DNeary, garrett
+*   Resources - resources.ovirt.org: mburns, eedri, quaid
+
 <Category:Infrastructure>

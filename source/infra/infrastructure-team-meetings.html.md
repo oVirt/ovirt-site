@@ -26,8 +26,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Finalize and clearly publish information on who has access to what, how access is granted, and how decisions are made about new infrastructure
     -   [Becoming an Infrastructure team member](Becoming an Infrastructure team member)
     -   [Infrastructure team assignments](Infrastructure team assignments)
-    -   
-
+    -   [Infrastructure#Decision process](Infrastructure#Decision_process)
 *   Hosting
 *   Puppet
 *   Jenkins
@@ -391,4 +390,4 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
     -   Strawdog: "To provide a free/open source infrastructure of participation that supports the development of the oVirt project, and to do so by providing full free/open access to the entire infrastructure as a collaboration."
 *   Any other business? (AOB)
 
-<Category:Infrastructure#Decision_process> <Category:Infrastructure>
+<Category:Infrastructure>

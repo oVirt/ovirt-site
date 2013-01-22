@@ -180,15 +180,6 @@ Opened question: Do we want this to 3.3?
 A user should be able to create an instance type using a dialog similar to the **New VM** dialog. Here a user should be able to define their instance configuration.
 For the exact editable field please see the table above.
 
-A new set of permissions should be created:
-\* Create Instance
-
-*   Instance Owner -
-*   Can delegate Instance owner or VMuser permission
-    -   Can Add/Remove disks
-    -   Can Add/Remove NICS
-    -   Edit instance (VM) for a limited set of parameters (outlined below in new VM flow)
-
 **Predefined Instance Types**
 A set of predefined instance types should be created.
 For consistency we should use the default OpenStack sizes.
@@ -213,11 +204,6 @@ Other use cases include specifying storage I/O priorty, network capping and thro
 #### Templates
 
 The existing template mechanism can be used to handle *Images*.
-
-**Permissions**
-A new permission *Create instance* should be added
-This permission will allow a user to create a new virtual machine from an existing instance.
-This permission will *not* permit a user to edit the virtual machines instance configuration only to use an existing instance definition.
 
 ### Example User Workflow
 
@@ -260,6 +246,17 @@ When a virtual machine is run the complete configuration should be constructed i
 \* this sounds reasonable but there is a problem with some fields which are defined in instance-type,
 if we have defaults for server and desktops (clone disks vs. thin allocation),
 changing instance type will not take affect on this.
+
+### Permissions
+
+New permissions will be needed:
+
+*   **Create Instance**: Create Instance: This permission will allow a user to create a new virtual machine from an existing instance type (but not edit the instance type itself)
+*   **Create Instance Type**: This permission will allow the user to create a new Instance Type
+*   **Instance Owner**: Can:
+    -   Add/Remove disks
+    -   Add/Remove NICS
+    -   Edit instance (VM) for a limited set of parameters (the "Basic User" from the table above)
 
 ### REST API
 

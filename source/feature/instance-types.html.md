@@ -136,14 +136,28 @@ The specific values means:
 | is_delete_protected     | protection from accidental deletion          | Y        |       | N             |       |
 | is_disabled              | disabled-template (for templates only)       | Y        |       | N             |       |
 
-**Instance Types (Flavors)**
-Expose a new top level entity with the API and GUI for *Instance Type*
-This entity will represent the hardware profile for a virtual machine.
-An Instance type should have a name and description (the period should be supported in the name).
+#### Entities' Details
 
-We should support leaving the logical network empty, since this may be overridden by the user when the virtual machine is deployed.
- Virtual disks should not be included in the instance configuration.
- A user should be able to create an instance type using a dialog similar to the *new server/desktop* dialog. Here a user should be able to define their instance configuration.
+**VM**
+The "New Server" and "New Desktop" buttons in GUI will be replaced by a common "New VM" button with a combo box where you can choose from "Optimized for Server" and "Optimized for Desktop". The exact meaning this switch:
+
+*   **Optimized for Server**:
+    -   does not have soundcard
+    -   the disk image is cloned
+    -   is not stateless
+*   **Optimized for Desktop**:
+    -   has soundcard
+    -   the image is used
+    -   is stateless
+
+This are only the default values which will be present in the GUI - the user can change them.
+
+**Image**
+ **Volume**
+Do we want it to 3.3?
+
+**Instance Types (Flavors)**
+A user should be able to create an instance type using a dialog similar to the *new server/desktop* dialog. Here a user should be able to define their instance configuration.
  A new set of permissions should be created:
 \* Create Instance
 
@@ -169,12 +183,11 @@ The administrator should be able to disable instance types.
 
 **Extra Instance Metadata**
  Within the design of the instance entity we should bear in mind that in the future we may need to incorporate elements from the SLA/QoS work.
-None of these are appropriate for the 3.2 release.
+None of these are appropriate for the 3.3 release.
  For example adding quality of service parameters.
 As a point of reference OpenStack includes parameters such as “rxtx quota” that allows the administrator to cap the maximum amount of network I/O permitting (for example an ISP capping a customer to 5GB).
 Other use cases include specifying storage I/O priorty, network capping and throttling.
-
-**Templates (Images)**
+ **Templates (Images)**
 The existing template mechanism can be used to handle *image types*.
 
 **Permissions**

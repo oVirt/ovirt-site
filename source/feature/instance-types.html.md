@@ -215,25 +215,23 @@ A new permission *Create instance* should be added
 This permission will allow a user to create a new virtual machine from an existing instance.
 This permission will *not* permit a user to edit the virtual machines instance configuration only to use an existing instance definition.
 
-#### User workflow
+#### Example User Workflow
 
 This is an example of the user workflow, how the new Instance Types approach would be used.
 
-1.  Create a new **Instance Type**
+1: Create a new **Instance Type**
 
-    1. In the Templates main tab in webadmin a *New Instance Type* dialog is clicked and the dialog is filled
+In the Templates main tab in webadmin a *New Instance Type* dialog is clicked and the dialog is filled
 
-1.  Create a new **Image**
+2: Create a new **Image**
 
-    1. In the *Virtual Machines* main tab the *Create Image* will be present which will extract the image and the image specific configuration
+In the *Virtual Machines* main tab the *Create Image* will be present which will extract the image and the image specific configuration
 
-1.  Create a new VM
+3: Create a new VM
 
-    1. In *Virtual Machines* main tab the "New VM" is clicked. The user selects the data center, cluster, instance type, image and assigns the logical network to network interface, than creates this instance
+In *Virtual Machines* main tab the "New VM" is clicked. The user selects the data center, cluster, instance type, image and assigns the logical network to network interface, than creates this instance
 
-1.  Run VM
-2.  Edit *Instance Type* (e.g. added more memory to it)
-3.  The change is reflected on the VM after restarting it
+4: Run VM 5: Edit *Instance Type* (e.g. added more memory to it) 6: The change is reflected on the VM after restarting it
 
 *   Change VM tab to expose “New VM” button that replaces the existing “New Server” and “New Desktop”
 

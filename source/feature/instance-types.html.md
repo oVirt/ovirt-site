@@ -139,7 +139,7 @@ The specific values means:
 #### Entities' Details
 
 **VM**
-The "New Server" and "New Desktop" buttons in GUI will be replaced by a common "New VM" button with a combo box where you can choose from "Optimized for Server" and "Optimized for Desktop". The exact meaning this switch:
+The "New Server" and "New Desktop" buttons in GUI will be replaced by a common **New VM** button with a combo box where you can choose from "Optimized for Server" and "Optimized for Desktop". The exact meaning this switch:
 
 *   **Optimized for Server**:
     -   does not have soundcard
@@ -152,7 +152,8 @@ The "New Server" and "New Desktop" buttons in GUI will be replaced by a common "
 
 This are only the default values which will be present in the GUI - the user can change them.
 
-The following picture shows the **New VM** dialog in the basic form. This are the only values required to select in order to create a new VM. ![](NewVmBasic.png "fig:NewVmBasic.png") Please note the **Assign Logical Networks** part. It's meaning is, that the instance type defines the network interfaces. In this dialog the user is required to assign them to specific network (available on the selected cluster).
+The following picture shows the **New VM** dialog in the basic form. This are the only values required to select in order to create a new VM. ![](NewVmBasic.png "fig:NewVmBasic.png")
+Please note the **Assign Logical Networks** part. It's meaning is, that the instance type defines the network interfaces. In this dialog the user is required to assign them to specific network (available on the selected cluster).
 
 The following picture shows the New VM dialog after clicking the **Show Advanced Options** dialog. ![](NewVmAdvanced.png "fig:NewVmAdvanced.png")
 After clicking the **Show Advanced Options** the user is prompted by the dialog above. Please note the marked fields - this are the **Marked** fields from the table above. If the user edits them, the instance type will change to **custom**.
@@ -168,12 +169,16 @@ After clicking OK, the user will be prompted with a screen containing the summar
 *   Cluster
 
 **Image**
+Will be created from an existing VM using the **Create Image** - similar to the way how the templates are created today. Opened question: Do we want them to be stateless in 3.3?
+
 **Volume**
-Do we want it to 3.3?
+Opened question: Do we want this to 3.3?
 
 **Instance Types (Flavors)**
-A user should be able to create an instance type using a dialog similar to the *new server/desktop* dialog. Here a user should be able to define their instance configuration.
- A new set of permissions should be created:
+A user should be able to create an instance type using a dialog similar to the **New VM** dialog. Here a user should be able to define their instance configuration.
+For the exact editable field please see the table above.
+
+A new set of permissions should be created:
 \* Create Instance
 
 *   Instance Owner -
@@ -203,7 +208,7 @@ None of these are appropriate for the 3.3 release.
 As a point of reference OpenStack includes parameters such as “rxtx quota” that allows the administrator to cap the maximum amount of network I/O permitting (for example an ISP capping a customer to 5GB).
 Other use cases include specifying storage I/O priorty, network capping and throttling.
  **Templates (Images)**
-The existing template mechanism can be used to handle *image types*.
+The existing template mechanism can be used to handle *Images*.
 
 **Permissions**
 A new permission *Create instance* should be added

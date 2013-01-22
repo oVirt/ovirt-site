@@ -41,20 +41,19 @@ On January 22, 2013, the oVirt workshop is pleased to welcome two key members of
 <div class="span6 pad-sides">
 #### Tuesday, January 22, 2013 - User Day
 
-| Time                   | Title                                         | Speaker                              |
-|------------------------|-----------------------------------------------|--------------------------------------|
-| 08:30-09:00            | colspan=2| Continental breakfast, networking  |
-| width=20%| 09:00-09:30 | width=50% | Opening remarks and keynote       | width=30% | David Dale (NetApp)      |
-| 09:30-10:30            | oVirt Introduction                            | James Rankin (Red Hat)               |
-| 10:30-11:00            | oVirt and NetApp                              | Patrick Rogers (VP, NetApp)          |
-| 11:00 - 11:15          | colspan=2| Coffee Break                       |
-| 11:15-12:00            | oVirt Users: Community Feedback Deep Dive     | Dave Neary and Itamar Heim (Red Hat) |
-| 12:00-13:00            | colspan=2| Lunch                              |
-| 13:00-13:45            | Gluster and oVirt: Distributed shared storage | John Mark Walker (Red Hat)           |
-| 13:45-14:30            | oVirt Roadmap                                 | Itamar Heim (Red Hat)                |
-| 14:30-15:15            | oVirt Architecture Overview                   | Itamar Heim (Red Hat)                |
-| 15:15-15:30            | colspan=2| Coffee break                       |
-| 15:30-17:30            | oVirt Hands-on Workshop                       | James Rankin (Red Hat)               |
+| Time                   | Title                                                        | Speaker                              |
+|------------------------|--------------------------------------------------------------|--------------------------------------|
+| 08:30-09:00            | colspan=2| Continental breakfast, networking                 |
+| width=20%| 09:00-09:30 | width=50% | Opening remarks and keynote                      | width=30% | David Dale (NetApp)      |
+| 09:30-10:30            | oVirt Introduction                                           | James Rankin (Red Hat)               |
+| 10:30-11:00            | oVirt and NetApp                                             | Patrick Rogers (VP, NetApp)          |
+| 11:00 - 11:15          | colspan=2| Coffee Break                                      |
+| 11:15-12:30            | oVirt Users: Community Feedback Deep Dive, and oVirt Roadmap | Dave Neary and Itamar Heim (Red Hat) |
+| 12:30-13:30            | colspan=2| Lunch                                             |
+| 13:30-14:30            | Gluster and oVirt: Distributed shared storage                | John Mark Walker (Red Hat)           |
+| 14:30-15:15            | oVirt Architecture Overview                                  | Itamar Heim (Red Hat)                |
+| 15:15-15:30            | colspan=2| Coffee break                                      |
+| 15:30-17:30            | oVirt Hands-on Workshop                                      | James Rankin (Red Hat)               |
 
 </div>
 <div class="span6 pad-sides">

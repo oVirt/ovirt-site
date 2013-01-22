@@ -147,7 +147,7 @@ The "New Server" and "New Desktop" buttons in GUI will be replaced by a common *
     -   is not stateless
 *   **Optimized for Desktop**:
     -   has soundcard
-    -   the image is used
+    -   the image is used (thin allocation)
     -   is stateless
 
 This are only the default values which will be present in the GUI - the user can change them.

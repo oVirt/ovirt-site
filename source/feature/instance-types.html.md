@@ -152,7 +152,21 @@ The "New Server" and "New Desktop" buttons in GUI will be replaced by a common "
 
 This are only the default values which will be present in the GUI - the user can change them.
 
-The following picture shows the New VM dialog after clicking the "Show Advanced Options" dialog. ![](NewVmAdvanced.png "fig:NewVmAdvanced.png")
+The following picture shows the **New VM** dialog in the basic form. This are the only values required to select in order to create a new VM. ![](NewVmBasic.png "fig:NewVmBasic.png") Please note the **Assign Logical Networks** part. It's meaning is, that the instance type defines the network interfaces. In this dialog the user is required to assign them to specific network (available on the selected cluster).
+
+The following picture shows the New VM dialog after clicking the **Show Advanced Options** dialog. ![](NewVmAdvanced.png "fig:NewVmAdvanced.png")
+After clicking the **Show Advanced Options** the user is prompted by the dialog above. Please note the marked fields - this are the **Marked** fields from the table above. If the user edits them, the instance type will change to **custom**.
+
+After clicking OK, the user will be prompted with a screen containing the summary information about the VM the user is about to create. On this dialog he or she can either commit (click OK) and the VM will be created or decide to go back and adjust (clicking the cancel). The summary information will contain the following:
+
+*   VM Name
+*   OS Type
+*   Memory
+*   Total Virtual CPUs
+*   Console (SPICE, VNC, RDP)
+*   Data Center
+*   Cluster
+
 **Image**
 **Volume**
 Do we want it to 3.3?

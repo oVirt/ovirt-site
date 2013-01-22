@@ -152,8 +152,9 @@ The "New Server" and "New Desktop" buttons in GUI will be replaced by a common "
 
 This are only the default values which will be present in the GUI - the user can change them.
 
+The following picture shows the New VM dialog after clicking the "Show Advanced Options" dialog. ![](NewVmAdvanced.png "fig:NewVmAdvanced.png")
 **Image**
- **Volume**
+**Volume**
 Do we want it to 3.3?
 
 **Instance Types (Flavors)**

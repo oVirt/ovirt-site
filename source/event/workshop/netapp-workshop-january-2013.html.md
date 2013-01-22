@@ -100,13 +100,12 @@ On hackfest day, we have three available spaces for Birds of a Feather sessions,
 <div class="span6 pad-sides">
 #### Hackspace - room 2 - plug-ins
 
-| Time                   | Title                                            | Speaker                            |
-|------------------------|--------------------------------------------------|------------------------------------|
-| width=20%| 09:00-09:45 | width=50%| oVirt UI plug-in example: The Foreman | width=30% | Oved Ourfali (Red Hat) |
-| 09:45-10:30            | Building a Hello, world UI plug-in               | Vojtech Szocs (Red Hat)            |
-| | 10:30-11:00          | colspan=2| Coffee break                          |
-| 11:00-12:30            | UI plug-in hackfest, hands-on workshop           | Vojtech Szocs (Red Hat)            |
-| 12:30                  | colspan=2 | Workshop closing                     |
+| Time                   | Title                                  | Speaker                            |
+|------------------------|----------------------------------------|------------------------------------|
+| width=20%| 09:00-10:30 | width=50%| BOF: oVirt UI plug-ins      | width=30% | Oved Ourfali (Red Hat) |
+| | 10:30-11:00          | colspan=2| Coffee break                |
+| 11:00-12:30            | UI plug-in hackfest, hands-on workshop | Vojtech Szocs (Red Hat)            |
+| 12:30                  | colspan=2 | Workshop closing           |
 
 </div>
 <div class="span6 pad-sides">

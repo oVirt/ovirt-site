@@ -217,6 +217,24 @@ This permission will *not* permit a user to edit the virtual machines instance c
 
 #### User workflow
 
+This is an example of the user workflow, how the new Instance Types approach would be used.
+
+1.  Create a new **Instance Type**
+
+    1. In the Templates main tab in webadmin a *New Instance Type* dialog is clicked and the dialog is filled
+
+1.  Create a new **Image**
+
+    1. In the *Virtual Machines* main tab the *Create Image* will be present which will extract the image and the image specific configuration
+
+1.  Create a new VM
+
+    1. In *Virtual Machines* main tab the "New VM" is clicked. The user selects the data center, cluster, instance type, image and assigns the logical network to network interface, than creates this instance
+
+1.  Run VM
+2.  Edit *Instance Type* (e.g. added more memory to it)
+3.  The change is reflected on the VM after restarting it
+
 *   Change VM tab to expose “New VM” button that replaces the existing “New Server” and “New Desktop”
 
 <!-- -->

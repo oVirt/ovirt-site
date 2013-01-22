@@ -221,68 +221,19 @@ This is an example of the user workflow, how the new Instance Types approach wou
 
 1: Create a new **Instance Type**
 
-In the Templates main tab in webadmin a *New Instance Type* dialog is clicked and the dialog is filled
+In the Templates main tab click the *New Instance Type* button, than fill and save the provided dialog
 
 2: Create a new **Image**
 
-In the *Virtual Machines* main tab the *Create Image* will be present which will extract the image and the image specific configuration
+In the *Virtual Machines* main tab selct a VM, than click *Create Image* which will extract the image and the image specific configuration (similar to current *make template*)
 
 3: Create a new VM
 
-In *Virtual Machines* main tab the "New VM" is clicked. The user selects the data center, cluster, instance type, image and assigns the logical network to network interface, than creates this instance
+In *Virtual Machines* main tab click the "New VM" button. Select the data center, cluster, instance type, image and assigns the logical network to network interface, than click OK.
 
-4: Run VM 5: Edit *Instance Type* (e.g. added more memory to it) 6: The change is reflected on the VM after restarting it
+4: Run the created VM 5: Edit *Instance Type* (e.g. added more memory to it) 6: The change is reflected also on the VM after restarting it
 
-*   Change VM tab to expose “New VM” button that replaces the existing “New Server” and “New Desktop”
-
-<!-- -->
-
-*   When the user selects New VM they are prompted with a dialog where they enter for following details
-    -   Data Center
-    -   Cluster
-        -   **TBD : Do we combined Data Center and Cluster to a single field ?**
-    -   Virtual Machine name
-    -   Description
-    -   Instance type
-    -   Template / Image Type
-    -   Stateless Image (default is not stateless).
-        \* Provide a cluster setting allowing configuration of the default image state handling - eg. stateful or stateless
-        -   Note: The stateless setting is for the image (template disks) not for the whole virtual machine.
-
-For example: A template has a 10GB disk containing the operating system. If the user specifies that the image is stateless then the template disk will be treated as stateless, however if the user adds another disk (aka a volume to the virtual machine that disk will be treated as stateful.
-
-*   Selecting blank template should be supported.
-*   -   This allows users to have no image disk and rely either on diskless images (eg PXE based) or boot from an attached volume.
-
-<!-- -->
-
-*   On the next dialog(s) the user should be able to override some of the configuration options within the Instance type including :
-    -   Optimized for desktop or server workload
-*   All configuration options listed below (including # monitors) should be supported for servers and desktops
-    -   Console type (spice/vnc/etc)
-    -   Number of monitors
-    -   USB Support
-    -   Smartcard
-    -   Soundcard - including type
-    -   High availability (including priority) for both server and desktop workloads
-    -   **Question : Should any other options should be added based on SLA work?**
-    -   User data (VM Payload)
-    -   Boot from network
-    -   For each network defined on the instance the user should be prompted to set the logical network.
-    -   **Question: Should we have a default network define per cluster?**
-
-<!-- -->
-
-*   On the final dialog the user should be presented with an advanced button that launches the traditional new virtual machine dialog
-    -   This option will only be available if a user has the permission to create a virtual machine not the (new) permission to create an instance.
-
-In the advanced view the user should be able to override all settings of the virtual machine
-Any advanced changes (outside of the basic overrides described) will change the instance type to “Custom ..” to indicate that the virtual machine is not based on one of the define instance types.
- On selecting finish the virtual machine will be created
-Based on permissions the user should be able to add disks (volumes) and nics to the virtual machine using the existing disks and networks sub-tabs.
- We should prevent adding and removing logical networks?
-We should we prevent editing or removing template disks?
- **Runtime**
+**Runtime**
 
 When a virtual machine is run the complete configuration should be constructed in the following method:
 \* The instance type is used to provide the hardware configuration for the VM.
@@ -290,12 +241,11 @@ When a virtual machine is run the complete configuration should be constructed i
 *   -   This setting should be applied at runtime not at configuration time
     -   If an instance type is updated (eg. added 2GB of memory) then the next time this VM is launched it should pickup the new instance configuration
 
-\* The operating system type and disks are taken from the template
+\* The operating system type and disks are taken from the Image
 
-*   -   No other settings from the template are used
-    -   If the VM is set to be stateless then the disks from the template are set to be stateless.
-    -   Note: For stateless disks the image are applied at run time not at the time that the virtual machine was define.
-    -   If a template is updated then the next time a stateless VM is run from this template then the image will be updated
+*   -   If the VM is set to be stateless then the disks from the Image are set to be stateless
+    -   Note: For stateless disks the image are applied at run time not at the time that the virtual machine was defined
+    -   If a Image is updated then the next time a stateless VM is run from this Image then the image will be updated
 
 <!-- -->
 

@@ -30,15 +30,13 @@ Enhancing oVirt template model to allow for more flexible options in creating vi
 *   Target Release: 3.3
 *   Status: under design and discussion.
 
-### Detailed Description
+### Background
 
 In oVirt 3.1 the template definition includes both the hardware configuration and the image To support more cloud use cases we wish to separate the hardware configuration of the virtual machine from the actual image type.
 
 In a *cloud* use case the typical flow involves a user selecting the hardware configuration (for example “Small” and the image (eg. RHEL 6.3 Web server”).
 
 The current model used by oVirt forces a user to select a template that includes both the hardware configuration and the image type.
-
-#### Background
 
 In many cloud platforms the following concepts and terminology are used:
 
@@ -60,7 +58,7 @@ Typically the image is stateless, when the virtual machine is stopped all change
 **Template**
 The old template used in the oVirt until now. Up to discussion: do we want to keep them or do we want to completely throw them away from the user interface?
 
-#### Design
+### Design
 
 The following table enumerates all the fields involved and also how they are related to the entities.
 
@@ -136,9 +134,10 @@ The specific values means:
 | is_delete_protected     | protection from accidental deletion          | Y        |       | N             |       |
 | is_disabled              | disabled-template (for templates only)       | Y        |       | N             |       |
 
-#### Entities' Details
+### Entities' Details
 
-**VM**
+#### VM
+
 The "New Server" and "New Desktop" buttons in GUI will be replaced by a common **New VM** button with a combo box where you can choose from "Optimized for Server" and "Optimized for Desktop". The exact meaning this switch:
 
 *   **Optimized for Server**:
@@ -168,13 +167,16 @@ After clicking OK, the user will be prompted with a screen containing the summar
 *   Data Center
 *   Cluster
 
-**Image**
+#### Image
+
 Will be created from an existing VM using the **Create Image** - similar to the way how the templates are created today. Opened question: Do we want them to be stateless in 3.3?
 
-**Volume**
+#### Volume
+
 Opened question: Do we want this to 3.3?
 
-**Instance Types (Flavors)**
+#### Instance Types (Flavors)
+
 A user should be able to create an instance type using a dialog similar to the **New VM** dialog. Here a user should be able to define their instance configuration.
 For the exact editable field please see the table above.
 
@@ -207,7 +209,9 @@ None of these are appropriate for the 3.3 release.
  For example adding quality of service parameters.
 As a point of reference OpenStack includes parameters such as “rxtx quota” that allows the administrator to cap the maximum amount of network I/O permitting (for example an ISP capping a customer to 5GB).
 Other use cases include specifying storage I/O priorty, network capping and throttling.
- **Templates (Images)**
+
+#### Templates
+
 The existing template mechanism can be used to handle *Images*.
 
 **Permissions**
@@ -215,7 +219,7 @@ A new permission *Create instance* should be added
 This permission will allow a user to create a new virtual machine from an existing instance.
 This permission will *not* permit a user to edit the virtual machines instance configuration only to use an existing instance definition.
 
-#### Example User Workflow
+### Example User Workflow
 
 This is an example of the user workflow, how the new Instance Types approach would be used.
 
@@ -233,7 +237,7 @@ In *Virtual Machines* main tab click the "New VM" button. Select the data center
 
 4: Run the created VM 5: Edit *Instance Type* (e.g. added more memory to it) 6: The change is reflected also on the VM after restarting it
 
-**Runtime**
+### Runtime
 
 When a virtual machine is run the complete configuration should be constructed in the following method:
 \* The instance type is used to provide the hardware configuration for the VM.
@@ -257,7 +261,7 @@ When a virtual machine is run the complete configuration should be constructed i
 if we have defaults for server and desktops (clone disks vs. thin allocation),
 changing instance type will not take affect on this.
 
-#### REST API
+### REST API
 
 TBD as soon as the specific requirements will be clarified
 

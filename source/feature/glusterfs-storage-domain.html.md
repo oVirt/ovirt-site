@@ -28,9 +28,9 @@ VMs created using this domain exploit the QEMU's gluster block backend aka QEMU-
 ## Current Status
 
 *   **QEMU-GlusterFS integration** : Done. Available in upstream qemu.
-*   **libvirt enablement for Gluster** : WIP @ [1](https://www.redhat.com/archives/libvir-list/2012-October/msg00085.html)
-*   **GLUSTERFS_DOMAIN support in VDSM** : WIP @ [2](http://gerrit.ovirt.org/#/c/6856/) or see gluster_domain_support topic branch in [3](http://gerrit.ovirt.org)
-*   **oVirt Engine / UI support** : WIP @ [4](http://gerrit.ovirt.org/8837) or see glusterfs topic branch in [5](http://gerrit.ovirt.org)
+*   **libvirt enablement for Gluster** : Done. Available in upstream libvirt
+*   **GLUSTERFS_DOMAIN support in VDSM** : WIP @ [1](http://gerrit.ovirt.org/#/c/6856/) or see gluster_domain_support topic branch in [2](http://gerrit.ovirt.org)
+*   **oVirt Engine / UI support** : WIP @ [3](http://gerrit.ovirt.org/8837) or see glusterfs topic branch in [4](http://gerrit.ovirt.org)
 
 ## Detailed Description
 
@@ -51,7 +51,7 @@ GlusterFS fits as a network block device (<disk type=network.../>) in libvirt XM
 
 Performance numbers for QEMU-GlusterFS integration are available @
 
-[6](http://lists.nongnu.org/archive/html/gluster-devel/2012-08/msg00063.html) [7](http://lists.nongnu.org/archive/html/qemu-devel/2012-07/msg02718.html)
+[5](http://lists.nongnu.org/archive/html/gluster-devel/2012-08/msg00063.html) [6](http://lists.nongnu.org/archive/html/qemu-devel/2012-07/msg02718.html)
 
 ### Approach
 
@@ -100,10 +100,10 @@ glusterfs, glusterfs-server and glusterfs-fuse rpm packages must be installed.
 
 ## Documentation / External references
 
-*   PosixFS Support - [8](http://wiki.ovirt.org/wiki/Features/PosixFSConnection)
-*   Gluster home page - [9](http://www.gluster.org/)
-*   Using QEMU to boot a VM image on GlusterFS volume - [10](http://www.youtube.com/watch?v=JG3kF_djclg)
-*   Storage Virtualization for KVM - [11](http://www.linuxplumbersconf.org/2012/wp-content/uploads/2012/09/2012-lpc-virt-storage-virt-kvm-rao.pdf)
+*   PosixFS Support - [7](http://wiki.ovirt.org/wiki/Features/PosixFSConnection)
+*   Gluster home page - [8](http://www.gluster.org/)
+*   Using QEMU to boot a VM image on GlusterFS volume - [9](http://www.youtube.com/watch?v=JG3kF_djclg)
+*   Storage Virtualization for KVM - [10](http://www.linuxplumbersconf.org/2012/wp-content/uploads/2012/09/2012-lpc-virt-storage-virt-kvm-rao.pdf)
 
 ## Comments and Discussion
 

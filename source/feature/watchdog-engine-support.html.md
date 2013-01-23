@@ -13,7 +13,7 @@ wiki_warnings: list-item?
 
 ### Summary
 
-This feature adds [watchdog](https://en.wikipedia.org/wiki/Watchdog_Card) support to engine.
+This feature adds [watchdog](https://en.wikipedia.org/wiki/Watchdog_Card) support to engine. The feature will be available in server VM's and especially useful when used with high availability.
 
 ### Owner
 

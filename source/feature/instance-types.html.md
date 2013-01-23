@@ -22,6 +22,8 @@ Enhancing oVirt template model to allow for more flexible options in creating vi
 
 *   Name: [Omer Frenkel](User:ofrenkel)
 *   Email: <ofrenkel@redhat.com>
+*   Name: [Tomas Jelinek](User:TJelinek)
+*   Email: <TJelinek@redhat.com>
 *   PM Requirements : [Andrew Cathrow](User:ACathrow)
 *   Email: <acathrow@redhat.com>
 

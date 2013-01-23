@@ -6,6 +6,7 @@ wiki_category: Feature
 wiki_title: Features/Watchdog engine support
 wiki_revision_count: 48
 wiki_last_updated: 2014-06-16
+wiki_warnings: list-item?
 ---
 
 # Watchdog support in Engine
@@ -49,7 +50,15 @@ This feature depends on the VDSM support for the watchdog cards (merged) (where 
 *   vdsbroker must be extended in order to send the watchdog parameters to vdsm uppon Vm start
 *   VmTemplateDAODbFacadeImpl and VmDAODbFacadeImpl must be extended to support persistence of the Watchdog settings
 
-#### Databasechanges
+#### Database changes
+
+*   table vm_static must be extended with two new columns
+
+    * wd_model varchar(8) default null - for the watchdog model
+
+    * wd_action varchar(8) default null - for the watchdog action (it must be one of [reset, poweroff, pause, none, dump]) possibly the best available solution for this would be postgresql enums, and these actions *feedback is needed here*
+
+*   Database stored procedures for update and add vm and template must be modified to handle the two above columns
 
 #### REST Api changes
 

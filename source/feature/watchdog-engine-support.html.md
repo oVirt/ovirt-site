@@ -85,9 +85,7 @@ In REST API the VM and template will get a new optional tag **watchdog** directl
        ...
        `<watchdog model="i6300esb" action="reset"/>` 
        ...
-` `</vm>
-
-**example needed here**
+</vm>
 
 #### VDSM support
 

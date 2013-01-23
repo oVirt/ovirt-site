@@ -37,17 +37,19 @@ The Direct Host Address feature will allow the admin to define a "direct" IP add
 
 When adding a host, admin sets the host address. The engine uses this address to manage the host in two ways. The first is via SSH for host installation, and the second is via xml-rpc for any other action. Current behaviour assumes the network interface with the specified address is configured properly in the engine although this may not be the case initially.
 
-The direct IP address will be optional, and when not specified by the admin, it will be set to the same address as the regular host address.
+The direct address allows the engine to connect to the host, without knowing the exact configuration of the network interface that has the address.
+
+The direct IP address will be optional, and when not specified by the admin, the regular host address will be used.
+
+### Motivation
+
+To allow another route to the host to a network interface other than the one used for the management network, since that network interface may need to be configured in the engine first.
 
 ### Design
 
-#### Engine
+##### Engine
 
-A new column will be added to the vds_static table:
-
-| Column Name | Column Type  | Null? / Default | Description                  |
-|-------------|--------------|-----------------|------------------------------|
-| direct_ip  | VARCHAR(255) |                 | the host's direct IP address |
+In AddVdsCommand and UpdateVdsCommand, the InstallVdsCommand is called with InstallVdsParameters. We will add the direct address as a parameter, so that this address will be used in case it is given. Otherwise, behaviour remains the same - the Vds address is the one used for host installation.
 
 ##### API Changes
 
@@ -69,9 +71,13 @@ The tag <direct_address> will be added to the host resource /api/hosts/{host:id}
 
 ##### UI Changes
 
-A new textbox named "Direct Address" in both the add and edit host dialogs will be added (in red):
+When admin clicks add host, the Advanced Parameters option will be added, and when opened will allow entering a direct address:
 
-![](addHostEdited.png "addHostEdited.png")
+New Add Host image here
+
+When admin clicks reinstall for a host, the Advanced Parameters option will be added, and when opened will allow entering a direct address:
+
+New Install Host image here
 
 ### Open Issues
 
@@ -80,6 +86,7 @@ A new textbox named "Direct Address" in both the add and edit host dialogs will 
 Affected projects:
 
 *   engine
+*   Rest API
 *   Webadmin
 
 ### Documentation / External references

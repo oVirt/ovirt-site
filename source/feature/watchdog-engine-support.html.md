@@ -36,7 +36,21 @@ This feature depends on the VDSM support for the watchdog cards (merged) (where 
 
 ### Documentation / External references
 
-![](Watchdogmock.png "Watchdogmock.png")
+#### User Interface
+
+![](Neweditserverhawatchdogdisabled.png "Neweditserverhawatchdogdisabled.png")
+
+![](Neweditserverhawatchdogenabled.png "Neweditserverhawatchdogenabled.png")
+
+#### Backend changes
+
+#### Databasechanges
+
+#### REST Api changes
+
+#### VDSM support
+
+VDSM support for watchdog cards is already merged.
 
 ### Comments and Discussion
 

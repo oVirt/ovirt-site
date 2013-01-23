@@ -10,7 +10,7 @@ wiki_last_updated: 2013-05-06
 
 # Jenkins-Migration-Plan
 
-The following is a migration plan for [jenkins.ovirt.org] to a new physical server.
+The following is a migration plan for [jenkins.ovirt.org](jenkins.ovirt.org) to a new physical server.
 
 ## prior testing: (before we have access to servers)
 
@@ -56,3 +56,5 @@ The following is a migration plan for [jenkins.ovirt.org] to a new physical serv
         * gerrit access
 
         * linode access
+
+<Category:Infrastructure>

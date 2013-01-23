@@ -62,6 +62,10 @@ This feature depends on the VDSM support for the watchdog cards (merged) (where 
 
 #### REST Api changes
 
+In REST API the VM and template will get a new optional tag **'watchdog** Watchdog will have two mandatory attributes: model and action
+
+**example needed here**
+
 #### VDSM support
 
 VDSM support for watchdog cards is already merged.

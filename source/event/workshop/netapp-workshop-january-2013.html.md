@@ -72,8 +72,8 @@ On January 22, 2013, the oVirt workshop is pleased to welcome two key members of
 | 13:30-14:15            | oVirt Network and Quantum                  | Itamar Heim (Red Hat)              |
 | 14:15-15:00            | VDSM Hooks                                 | Ayal Baron (Red Hat)               |
 | 15:00-15:15            | colspan=2| Coffee break                    |
-| 15:15-16:00            | Supporting CIMI                            | Oved Ourfali (Red Hat)             |
-| 16:00-16:45            | Extending oVirt with the API and SDK       | Speaker TBA                        |
+| 15:15-16:00            | Extending oVirt with the API and SDK       | Oved Ourfaili (Red Hat)            |
+| 16:00-16:45            | Supporting CIMI                            | Oved Ourfali (Red Hat)             |
 | 16:45-17:30            | Customizing oVirt Node                     | Mike Burns (Red Hat)               |
 
 </div>

@@ -64,7 +64,28 @@ The watchdog support on the UI will be found on the new/edit VM/template window,
 
 #### REST Api changes
 
-In REST API the VM and template will get a new optional tag **'watchdog** Watchdog will have two mandatory attributes: model and action
+In REST API the VM and template will get a new optional tag **watchdog** directly under te vm tag. Watchdog tag will have two mandatory attributes: model and action
+
+<vm id="87cd09df-88af-4958-8aba-87b14b92ca39" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39">
+` `<name>`test`</name>
+` `<description>`123456`</description>
+` `<link rel="disks" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/disks"/>
+` `<link rel="nics" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/nics"/>
+` `<link rel="cdroms" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/cdroms"/>
+` `<link rel="snapshots" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/snapshots"/>
+` `<link rel="tags" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/tags"/>
+` `<link rel="permissions" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/permissions"/>
+` `<link rel="statistics" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/statistics"/>
+` `<link rel="reporteddevices" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/reporteddevices"/>
+` `<type>`server`</type>
+` `<status>
+` `<state>`down`</state>
+` `</status>
+` `<memory>`536870912`</memory>
+       ...
+       `<watchdog model="i6300esb" action="reset"/>` 
+       ...
+` `</vm>
 
 **example needed here**
 

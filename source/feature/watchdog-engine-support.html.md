@@ -33,7 +33,7 @@ Users will be able to add watchdog cards to their virtual machines. This will be
 
 ### Dependencies / Related Features
 
-This feature depends on the VDSM support for the watchdog cards (merged) (where is the documentation for this?)
+This feature depends on the [VDSM support for the watchdog cards](Add an option to create a watchdog device) (merged)
 
 ### Documentation / External references
 

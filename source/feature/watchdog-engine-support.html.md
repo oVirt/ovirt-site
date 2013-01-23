@@ -56,7 +56,7 @@ This feature depends on the VDSM support for the watchdog cards (merged) (where 
 
     * wd_model varchar(8) default null - for the watchdog model
 
-    * wd_action varchar(8) default null - for the watchdog action (it must be one of [reset, poweroff, pause, none, dump]) possibly the best available solution for this would be postgresql enums, and these actions *feedback is needed here*
+    * wd_action varchar(8) default null - for the watchdog action (it must be one of [reset, poweroff, pause, none, dump]) possibly the best available solution for this would be postgresql enums, and these actions **feedback is needed here**
 
 *   Database stored procedures for update and add vm and template must be modified to handle the two above columns
 

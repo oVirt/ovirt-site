@@ -83,7 +83,7 @@ When admin clicks reinstall for a host, the Advanced Parameters option will be a
 
 Advanced Parameters opened:
 
-[600px](Installhostopened.png)
+[600px](installHostOpenDialog.png)
 
 ### Open Issues
 

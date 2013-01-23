@@ -74,6 +74,6 @@ VDSM support for watchdog cards is already merged.
 
 ### Comments and Discussion
 
-Please comment on the [Talk:Features/Watchdog_engine_support Discussion page](Talk:Features/Watchdog_engine_support Discussion page).
+Please comment on the [Discussion page](Talk:Features/Watchdog_engine_support).
 
 <Category:Feature> <Category:SLA>

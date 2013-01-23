@@ -63,9 +63,7 @@ The tag <direct_address> will be added to the host resource /api/hosts/{host:id}
 10.35.1.160
 
 </address>
-             `<direct_address>`10.35.1.162
-
-</address>
+`       `<direct_address>`10.35.1.162`</direct_address>
              ...
 `   `</host>
 

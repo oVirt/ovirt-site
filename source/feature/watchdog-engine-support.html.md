@@ -39,6 +39,8 @@ This feature depends on the VDSM support for the watchdog cards (merged) (where 
 
 #### User Interface
 
+The watchdog support on the UI will be found on the new/edit VM/template window, on the high availablity tab, since mostly you need the watchdog in HA setups.
+
 ![](Neweditserverhawatchdogdisabled.png "Neweditserverhawatchdogdisabled.png")
 
 ![](Neweditserverhawatchdogenabled.png "Neweditserverhawatchdogenabled.png")

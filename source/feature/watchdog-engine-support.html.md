@@ -87,6 +87,20 @@ In REST API the VM and template will get a new optional tag **watchdog** directl
        ...
 </vm>
 
+The watchdog cards and available actions will also get a list in the engine capabilities list (api/capabilities)
+
+<watchdog_models>
+` `<watchdog_model>`i6300esb`</watchdog_model>
+` `<watchdog_model>`i6300esb`</watchdog_model>
+</watchdog_models>
+
+<watchdog_actions>
+` `<watchdog_action>`dump`</watchdog_action>
+` `<watchdog_action>`reset`</watchdog_action>
+` `<watchdog_action>`none`</watchdog_action>
+       ....
+</watchdog_actions>
+
 #### VDSM support
 
 VDSM support for watchdog cards is already merged.

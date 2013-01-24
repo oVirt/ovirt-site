@@ -56,7 +56,7 @@ To help the administrator to avoid the situation that some hosts in the cluster 
 
 #### REST API
 
-*   the *host* now contains a new optional property *display_address*.
+*   the *host* now contains a "display" property which contains the *address*.
 *   if not set, the console address will not be overridden
 *   if set, the console address will be overridden by the specified address
 
@@ -66,15 +66,19 @@ Example of creating a host with display address overridden:
           <name>hostX</name>
           <address>som.address</address>
           <root_password>somePassword</root_password>
-          <display_address>someDisplayAddress</display_address>
+         <display>
+             <address>someDisplayAddress</address>
+         </display>
       </host>
        
 
-If the console address has been overridden, the example of how to switch it back to the default:
+If the display address has been overridden, the example of how to switch it back to the default:
 
        
       <host>
-          <display_address/>
+      <display>
+      <address/>
+      </display>
       </host>
        
 

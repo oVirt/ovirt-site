@@ -93,7 +93,7 @@ The watchdog cards and available actions will also get a list in the engine capa
 
 <watchdog_models>
 ` `<watchdog_model>`i6300esb`</watchdog_model>
-` `<watchdog_model>`i6300esb`</watchdog_model>
+` `<watchdog_model>`ib700`</watchdog_model>
 </watchdog_models>
 
 <watchdog_actions>

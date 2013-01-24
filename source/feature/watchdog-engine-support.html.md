@@ -6,7 +6,6 @@ wiki_category: Feature
 wiki_title: Features/Watchdog engine support
 wiki_revision_count: 48
 wiki_last_updated: 2014-06-16
-wiki_warnings: list-item?
 ---
 
 # Watchdog support in Engine
@@ -54,13 +53,7 @@ The watchdog support on the UI will be found on the new/edit VM/template window,
 
 #### Database changes
 
-*   table vm_static must be extended with two new columns
-
-    * wd_model varchar(8) default null - for the watchdog model
-
-    * wd_action varchar(8) default null - for the watchdog action (it must be one of [reset, poweroff, pause, none, dump]) possibly the best available solution for this would be postgresql enums, and these actions **feedback is needed here**
-
-*   Database stored procedures for update and add vm and template must be modified to handle the two above columns
+*   none
 
 #### REST Api changes
 

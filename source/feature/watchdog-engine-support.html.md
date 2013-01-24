@@ -37,6 +37,8 @@ This feature depends on the [VDSM support for the watchdog cards](Add an option 
 
 ### Documentation / External references
 
+For libvirt support, please see [libvirt's documentation on watchdog support](http://libvirt.org/formatdomain.html#elementsWatchdog).
+
 #### User Interface
 
 The watchdog support on the UI will be found on the new/edit VM/template window, on the high availablity tab, since mostly you need the watchdog in HA setups.

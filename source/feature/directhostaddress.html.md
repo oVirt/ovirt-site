@@ -19,7 +19,7 @@ The Direct Host Address feature will allow the admin to define a "direct" IP add
 
 ### Owner
 
-*   Feature owner: [ Muli Salem](User:msalem)
+    * Feature owner: [ Muli Salem](User:msalem)
 
     * Backend Component owner: [ Muli Salem](User:msalem)
 
@@ -39,7 +39,7 @@ When adding a host, admin sets the host address. The engine uses this address to
 
 The direct address allows the engine to connect to the host, without knowing the exact configuration of the network interface that has the address.
 
-The direct IP address will be optional, and when not specified by the admin, the regular host address will be used.
+The direct IP address will be optional, and when not specified by the admin, the regular host address will be used. Also, certificate exchanging between the host and the engine will be left unchanged, namely the engine will keep a certificate for the regular host address.
 
 ### Motivation
 

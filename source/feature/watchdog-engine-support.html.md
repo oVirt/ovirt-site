@@ -49,10 +49,8 @@ The watchdog support on the UI will be found on the new/edit VM/template window,
 
 #### Backend changes
 
-*   Both Vm and Template will have support for watchdog cards, therefore VmBase will be extended with a watchdog property.
-*   New WatchDog class will represent the watchdog card and action. If watchdog is null in VmBase, it means that no watchdog is supported. Watchdog will have two properties: model and action
-*   vdsbroker must be extended in order to send the watchdog parameters to vdsm uppon Vm start
-*   VmTemplateDAODbFacadeImpl and VmDAODbFacadeImpl must be extended to support persistence of the Watchdog settings
+*   Both Vm and Template will have support for watchdog cards
+*   Watchdog card is represented by a VmDevice
 
 #### Database changes
 

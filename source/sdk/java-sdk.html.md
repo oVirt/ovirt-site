@@ -265,7 +265,18 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 ### Development deployment
 
-           add dependency to  org.ovirt.engine.sdk project
+#### Code generation
+
+           1. pull+ compile + deploy latest ovirt-engine sources
+           2. cd ovirt-engine-sdk-java-codegen
+           3. compile
+           4. run (this will generate sdk from the ovirt-engine)
+
+#### Development
+
+           all SDK development is done on the ovirt-engine-sdk-java-codegen project,
+           i.e if you have yet not supported funcionality in SDK, this is a place to add
+          support for it.
 
 ## TODO list
 

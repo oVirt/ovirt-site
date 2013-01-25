@@ -26,6 +26,13 @@ Modify these steps for giving specific 'sudo' access, such as to backups, restar
 
     useradd foo
 
+*   -   ... or create the new user but add the user to one or more groups:
+
+<!-- -->
+
+    useradd -g wheel foo  ## add to just one group
+    useradd -G wheel,puppet ## add to more than one group
+
 *   Create the user's password to activate the account; the user will not use this password to login, but they need it for 'sudo':
 
 <!-- -->

@@ -276,7 +276,7 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
            all SDK development is done on the ovirt-engine-sdk-java-codegen project,
            i.e if you have yet not supported funcionality in SDK, this is a place to add
-          support for it.
+           support for it.
 
 ## TODO list
 

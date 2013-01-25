@@ -95,7 +95,13 @@ Modify these steps for giving specific 'sudo' access, such as to backups, restar
 
     #* Allow root to run any commands anywhere
     root    ALL=(ALL)       ALL
-    quaid   ALL=(ALL)       ALL
+    foo   ALL=(ALL)       ALL
+
+*   If the system uses e.g. the 'wheel' group for sudo permissions, add the user to the appropriate group for sudo permission:
+
+<!-- -->
+
+    usermod -a -G wheel foo
 
 *   The final permissions:
 

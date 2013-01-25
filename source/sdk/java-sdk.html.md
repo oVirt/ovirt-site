@@ -267,7 +267,7 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 #### Code generation
 
-           1. pull+ compile + deploy latest ovirt-engine sources
+           1. pull + compile + deploy latest ovirt-engine sources
            2. cd ovirt-engine-sdk-java-codegen
            3. compile
            4. run (this will generate sdk from the ovirt-engine)

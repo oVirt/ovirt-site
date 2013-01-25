@@ -63,7 +63,7 @@ Features being considered for inclusion/already in master:
     -   [ UI plugins](Features/UIPlugins)
     -   [ Make network a main tab](Feature/NetworkMainTab) - stretch goal for 3.2
     -   [ Import of existing gluster clusters](Features/Gluster Import Existing Cluster)
-    -   [Bootstrap improvements](Featrues/Bootstrap_Improvements)
+    -   [Bootstrap improvements](Features/Bootstrap_Improvements)
     -   [PKI improvments](Features/PKI Improvements)
     -   [ SLA is a target for inclusion (MOM)](SLA-mom)
     -   [ Improving Quota for 3.2](Features/Quota-3.2)

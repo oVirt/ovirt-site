@@ -103,4 +103,16 @@ Note that this procedure will leave a small trace: the CA certificate will still
 
 9. You may find some references to the old domain name in entries in the option_id table. Particularly, VdcBootStrapUrl and VirtualMachineDomainName. *I do not know the implications, but it can't not hurt to clean them up. Can it? --[daej](user:daejohnson)*
 
+VdcBootStrapUrl needs to be updated so that you can add new hosts without having problems. (oVirt 3.1 only, not needed in oVirt 3.2)
+
+      engine-config -s VdcBootStrapUrl='http://f17.example.com:80/Components/vds/' 
+
+Adjust the port if needed.
+
+Not sure if updating VirtualMachineDomainName is needed at all for normal oVirt Manager usage. If it was needed you could change it with:
+
+      engine-config -s VdcBootStrapUrl='f17.example.com' 
+
+And \*VERY IMPORTANT\*, replace "f17.example.com" with the new fully qualified host name.
+
 10. You may find references to the old domain name in the storage_server_connections table if you had, for example, a ISO storage domain setup on the engine. Editing such entries manually and restarting the engine will clear things up and stop any related warnings when activating hosts that are trying to access the old domain name.

@@ -10,7 +10,7 @@ wiki_last_updated: 2014-07-24
 
 # Java-sdk
 
-oVirt Java-SDK package a software development kit for the oVirt engine api.
+oVirt Java-SDK is auto-generated software development kit for the oVirt engine api.
 
 __TOC__
 

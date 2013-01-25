@@ -10,9 +10,7 @@ wiki_last_updated: 2015-03-25
 
 # Python-sdk
 
-oVirt SDK package a software development kit for the oVirt engine api.
-
-[Notes from workshop in November 2011](API - oVirt workshop November 2011 Notes).
+oVirt Python-SDK is auto-generated software development kit for the oVirt engine api.
 
 __TOC__
 

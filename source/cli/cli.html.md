@@ -18,6 +18,7 @@ __TOC__
 
 ## Concepts
 
+*   dynamic interface that can work against any version of sdk discovering it at runtime
 *   Interactive prompt
 *   Smart auto-completion
 *   Smart help

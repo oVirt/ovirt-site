@@ -16,10 +16,10 @@ __TOC__
 
 ## Concepts
 
+*   Auto-Generated
 *   Complete protocol abstraction.
 *   Full compliance with the oVirt api architecture.
 *   Self descriptive.
-*   Auto-Generated
 *   Intuitive and easy to use.
 
 ## IDE Examples

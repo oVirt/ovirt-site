@@ -42,8 +42,9 @@ __TOC__
 #### available commands
 
 `   [oVirt shell (connected)]# `<TAB><TAB>
-         EOF         clear       console     remove      echo        help        ping        show        update      
-         action      connect     add      disconnect  exit        list        shell       status 
+         EOF         clear       console     remove      echo        help        ping        
+         show        update    action        connect     add          disconnect
+         exit           list          shell           status
 
 #### available options for specific command
 

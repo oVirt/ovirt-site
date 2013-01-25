@@ -10,7 +10,7 @@ wiki_last_updated: 2014-03-24
 
 # CLI
 
-oVirt CLI package is a command line interface for the oVirt engine.
+oVirt CLI is a dynamic command line interface for the oVirt engine,
 
 [Notes from workshop in November 2011](API - oVirt workshop November 2011 Notes).
 

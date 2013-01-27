@@ -29,13 +29,13 @@ The main points are:
 
 *   Planning, designing and prototyping.
 
-| Step                                                                                                                                                     | Description | Completion |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|------------|
-| Define object oriented representations | Find the best class representations for the network primitives for our usage | 15%                              |
-| Define internal API | Define the API that will establish the relationship between the new network representation and the multiple network backends. | 0% |
-| Live Netinfo instance | Define a way to keep a netinfo.Netinfo instance updated based on the representations of the first point. | 10%                   |
-| IProute2 backend | Create a network backend from iproute2 tools, following the internal API. | 10%                                                       |
-| Objectified rollback | Modify the rollback mechanism into just feeding the pre-crash network object representation to the selected network backend | 0%  |
+| Step                                   | Description                                                                                                                         | Completion |
+|----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|------------|
+| Define object oriented representations | Find the best class representations for the network primitives for our usage| | 15%                                                 |
+| Define internal API                    | Define the API that will establish the relationship between the new network representation and the multiple network backends.| | 0% |
+| Live Netinfo instance                  | Define a way to keep a netinfo.Netinfo instance updated based on the representations of the first point.                            | 10%        |
+| IProute2 backend                       | Create a network backend from iproute2 tools, following the internal API.                                                           | 10%        |
+| Objectified rollback                   | Modify the rollback mechanism into just feeding the pre-crash network object representation to the selected network backend | |0%   |
 
 ### Components
 

@@ -292,23 +292,21 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 6. implement sdk debug mode
 
-7. do not throw third party exceptions
+7. remove @SuppressWarnings("unused") from decorators
 
-8. remove @SuppressWarnings("unused") from decorators
+8. move get/list methods from the decorators to the parent classes
 
-9. move get/list methods from the decorators to the parent classes
+9. implement unique treatment for COLLECTION2ENTITY pattern exceptions
 
-10. implement unique treatment for COLLECTION2ENTITY pattern exceptions
+10. implement logger in codegen
 
-11. implement logger in codegen
+11. add deployment capabilities
 
-12. add deployment capabilities
+12. upload artifacts to mvn repo (done)
 
-13. upload artifacts to mvn repo
+13. Implement querying collections using custom constraint.
 
-14. Implement querying collections using custom constraint.
-
-15. in doc change parameters format to javaDoc style
+14. in doc change parameters format to javaDoc style (done)
 
 ## Change Log
 

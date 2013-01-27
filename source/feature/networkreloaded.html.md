@@ -87,6 +87,16 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 *   IpLink,
 *   IpAddress.
 
+##### IpAddress
+
+*   inet: List of IPv4 address information (addr + netmask + gateway/route),
+*   inet6: List of IPv6 address information (addr + netmask + gateway/route).
+
+##### IpLink (wrong, has to be reimagined, probably splitting of a vlan object)
+
+*   Mtu,
+*   vlans
+
 #### Define internal API
 
 The internal API should allow for an objectified network definition (from setupNetworks and/or rollback) to be applied consistently regardless of which backend provides it. That includes:

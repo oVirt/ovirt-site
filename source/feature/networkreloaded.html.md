@@ -63,6 +63,30 @@ The relationship is as follows:
 
 A netinfo object would have a list of the top hierarchy objects and generate the info from that.
 
+##### Bridge
+
+*   ports,
+*   name,
+*   forward_delay,
+*   stp,
+*   priority,
+*   IpLink,
+*   IpAddress
+
+##### Bond
+
+*   name,
+*   slaves,
+*   opts: Dictionary with stuff like mode and miimon.
+*   IpLink,
+*   IpAddress.
+
+##### Nic
+
+*   name.
+*   IpLink,
+*   IpAddress.
+
 #### Define internal API
 
 The internal API should allow for an objectified network definition (from setupNetworks and/or rollback) to be applied consistently regardless of which backend provides it. That includes:

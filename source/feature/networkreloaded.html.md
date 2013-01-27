@@ -16,9 +16,9 @@ Network reloaded is a feature that encompasses several change proposals on the V
 
 The main points are:
 
-*   Multiple network backend design, i.e., ways in which to interact with the kernel, directly or indirectly for setting the networking state in the way we are requested by the engine.
-*   Object oriented representation of Networking primitives (Bridge, Bond, nic, etc).
-*   Live network information.
+*   Multiple network backend design, i.e., ways in which to interact with the kernel, directly or indirectly for setting the networking state in the way we are requested by the engine. This will allow for cross-distribution compatibility, and thus, it is very closely aligned to the future goals of vdsm.
+*   Object oriented representation of Networking primitives (Bridge, Bond, nic, etc). The reasoning behind this is to unify the subject of both info gathering and configuration applying.
+*   Live network information. This will make the scalability of network operation much easier.
 
 ### Owner
 

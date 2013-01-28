@@ -80,7 +80,14 @@ Note that in development environments you should install the application server 
 
 ### Downloading and installing the application server
 
-Download version 7.1.1 of JBoss AS 7 from [here](http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip) then uncompress it in your home directory, the end result should be a `jboss-as-7.1.1.Final` directory.
+Download version 7.1.1 of JBoss AS 7 from [here](http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip) then uncompress it in the `$HOME/ovirt-engine` directory:
+
+    $ mkdir -p $HOME/ovirt-engine
+    $ cd $HOME/ovirt-engine
+    $ wget http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip
+    $ unzip jboss-as-7.1.1.Final.zip
+
+The end result should be a `$HOME/ovirt-engine/jboss-as-7.1.1.Final` directory.
 
 ## Installing PostgreSQL
 

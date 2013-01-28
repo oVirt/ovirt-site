@@ -159,15 +159,34 @@ To install the engine select the directory where you want it installed and then 
     $ cd $HOME/ovirt-engine/repository
     $ make install PREFIX=$HOME/ovirt-engine/installation
 
-Now you need to adjust the configuration of the engine so that it will run with the your user and group, as by default it uses the ovirt user and group. In order to do that you need to add the `ENGINE_USER` and `ENGINE_GROUP` parameters to the `$HOME/ovirt-engine/installation/etc/sysconfig/ovirt-engine` file:
+Adjust the configuration of the engine so that it will run with the your user and group, as by default it uses the ovirt user and group. In order to do that you need to add the `ENGINE_USER` and `ENGINE_GROUP` parameters to the `$HOME/ovirt-engine/installation/etc/sysconfig/ovirt-engine` file:
 
     ENGINE_USER=your_user_name
     ENGINE_GROUP=your_group_name
 
-Later, when you need to refresh your installation, just use the same command or, if you want to install from scratch, remove completely de selected directory and perform the installation and repeat the process:
+Adjust the configuration of the engine to enable the HTTP connector, as by default only the AJP connector is enabled (to use Apache as a proxy server). Add the following parameters to the `$HOME/ovirt-engine/installation/etc/sysconfig/ovirt-engine` file:
 
-    $ rm -rf $HOME/ovirt-engine/installation
-    $ make install PREFIX=$HOME/ovirt-engine/installation
+    ENGINE_PROXY_ENABLED=false
+    ENGINE_HTTP_ENABLED=true
+    ENGINE_HTTP_PORT=8700
+    ENGINE_HTTPS_ENABLED=false
+    ENGINE_AJP_ENABLED=false
+
+Adjust the configuration of the engine to connect connect using the *trust* mode and no password adding the following parameters to the `$HOME/ovirt-engine/installation/etc/sysconfig/ovirt-engine` file:
+
+    ENGINE_DB_USER=postgres
+    ENGINE_DB_PASSWORD=
+
+Note that the `ENGINE_DB_PASSWORD` parameter is empty on purpose, as we are using the *trust* authentication mode in the database.
+
+Create the directories where the engine will store state and temporary files:
+
+    $ mkdir -p $HOME/ovirt-engine/installation/var/lib/ovirt-engine/content
+    $ mkdir -p $HOME/ovirt-engine/installation/var/lib/ovirt-engine/deployments
+    $ mkdir -p $HOME/ovirt-engine/installation/var/run
+    $ mkdir -p $HOME/ovirt-engine/installation/var/cache/ovirt-engine
+    $ mkdir -p $HOME/ovirt-engine/installation/var/lock/ovirt-engine
+    $ mkdir -p $HOME/ovirt-engine/installation/var/log/ovirt-engine
 
 ## Testing
 

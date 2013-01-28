@@ -11,6 +11,8 @@ wiki_last_updated: 2013-07-24
 
 # Ovirt Test Day
 
+## **oVirt 3.2 test day**
+
 ## Objective
 
 The purpose of test days initiative is to accomplish the following goals:

@@ -164,14 +164,15 @@ Install the PostgreSQL JDBC driver (by default this is a symlink pointing to a f
     $ rm $HOME/ovirt-engine/installation/share/ovirt-engine/modules/org/postgresql/main/postgresql-jdbc.jar
     $ mvn org.apache.maven.plugins:maven-dependency-plugin:2.4:get -Dartifact=postgresql:postgresql:9.1-901.jdbc4 -Ddest=$HOME/ovirt-engine/installation/share/ovirt-engine/modules/org/postgresql/main/postgresql-jdbc.jar
 
-Create (` mkdir -p ...`) the following directories where the engine will store state, logs and temporary files:
+Create the following directories where the engine will store state, logs and temporary files:
 
-    $HOME/ovirt-engine/installation/var/lib/ovirt-engine/content
-    $HOME/ovirt-engine/installation/var/lib/ovirt-engine/deployments
-    $HOME/ovirt-engine/installation/var/run
-    $HOME/ovirt-engine/installation/var/cache/ovirt-engine
-    $HOME/ovirt-engine/installation/var/lock/ovirt-engine
-    $HOME/ovirt-engine/installation/var/log/ovirt-engine
+    mkdir -p \
+    $HOME/ovirt-engine/installation/var/lib/ovirt-engine/content \
+    $HOME/ovirt-engine/installation/var/lib/ovirt-engine/deployments \
+    $HOME/ovirt-engine/installation/var/run \
+    $HOME/ovirt-engine/installation/var/cache/ovirt-engine \
+    $HOME/ovirt-engine/installation/var/lock/ovirt-engine \
+    $HOME/ovirt-engine/installation/var/log/ovirt-engine \
     $HOME/ovirt-engine/installation/var/tmp/ovirt-engine
 
 Now you need to do some adjustments to the configuration file `$HOME/ovirt-engine/installation/etc/sysconfig/ovirt-engine`:

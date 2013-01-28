@@ -80,16 +80,7 @@ Note that in development environments you should install the application server 
 
 ### Downloading and installing the application server
 
-Download version 7.1.1 of JBoss AS 7 from [here](http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip) then uncompress it in your home directory, the end result should be a `jboss-as-7.1.1.Final` directory. Go to the `bin` subdirectory and run the `standalone.sh` script like this:
-
-    $ cd $HOME/jboss-as-7.1.1.Final/bin
-    $ ./standalone.sh -b 0.0.0.0
-
-This will start the application server and will keep your terminal window busy showing some log messages. After a few seconds the application server will be ready and will show a message similar to this one:
-
-    11:48:48,009 INFO  [org.jboss.as] (Controller Boot Thread) JBAS015874: JBoss AS 7.1.1.Final "Brontes" started in 3254ms - Started 133 of 208 services (74 services are passive or on-demand)
-
-That means that it started correctly. The objective was just to check that the download and installation worked correctly, so stop it with Ctrl+C, you will start it later once the engine is deployed.
+Download version 7.1.1 of JBoss AS 7 from [here](http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip) then uncompress it in your home directory, the end result should be a `jboss-as-7.1.1.Final` directory.
 
 ### Troubleshooting
 

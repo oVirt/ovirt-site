@@ -119,14 +119,14 @@ Now change into the directory where you cloned the `ovirt-engine` git repository
 
 To build with the default options use the following commands:
 
-    $ cd $HOME/ovirt-engine
+    $ cd $HOME/ovirt-engine/repository
     $ make
 
 Please note that the first time that you build maven will need to download a large amount of dependencies from the network, more than 200 MiB, so if you have an slow connection it will take a long time.
 
 Also, by default the above commands will build the the GUI applications for all the browsers (all the *permutations* in GWT jargon). This consumes a lot of resources and can take a very long time. In you first build it can be interesting to build only for the browser that you will use to test. In order to do that add the following `EXTRA_BUILD_FLAGS` option to the make command:
 
-    $ cd $HOME/ovirt-engine
+    $ cd $HOME/ovirt-engine/repository
     $ make EXTRA_BUILD_FLAGS="-Dgwt.userAgent=gecko1_8"
 
 This will build only for Firefox. For other browsers you can use the following values (separated by commas, if you want to specify several):
@@ -140,7 +140,7 @@ This will build only for Firefox. For other browsers you can use the following v
 
 For example, if you want to build for Firefox and Chrome you can use the following commands:
 
-    $ cd $HOME/ovirt-engine
+    $ cd $HOME/ovirt-engine/repository
     $ make EXTRA_BUILD_FLAGS="-Dgwt.userAgent=gecko1_8,safari"
 
 For advanced build notes, please visit [Advanced oVirt Engine Build Notes](Advanced oVirt Engine Build Notes).

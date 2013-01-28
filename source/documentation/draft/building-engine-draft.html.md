@@ -291,14 +291,14 @@ Update the database to reflect the actual URL where the bootstrap files can be d
 
 Follow this page: <http://www.ovirt.org/wiki/Engine_Node_Integration#Engine_core_machine>
 
-## Enable SSL port 8701 in the application server (optional)
+## Enable SSL port 8701 (optional)
 
 Generate a self signed certificate for the application server (remember to replace `engine.example.com` with the fully qualified DNS name of your machine, and `mypass` with your preferred password):
 
     $ keytool \
     -genkey \
     -storetype pkcs12 \
-    -keystore  $HOME/ovirt-engine/installation/etc/pki/ovirt-engine/keys/apache.p12 \
+    -keystore $HOME/ovirt-engine/installation/etc/pki/ovirt-engine/keys/apache.p12 \
     -alias 1 \
     -keyalg RSA \
     -keysize 2048 \

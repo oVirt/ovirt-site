@@ -124,14 +124,14 @@ Now change into the directory where you cloned the `ovirt-engine` git repository
 
 ### Build
 
-To build with the default options use the following commands:
+To build with the default options select the directory where you will install the engine (in these instructions we will use `$HOME/ovirt-engine/installation`, but you can use any other directory where you have write permission) and use the following commands:
 
     $ cd $HOME/ovirt-engine/repository
     $ make PREFIX=$HOME/ovirt-engine/installation
 
 Please note that the first time that you build maven will need to download a large amount of dependencies from the network, more than 200 MiB, so if you have an slow connection it will take a long time.
 
-Also, by default the above commands will build the the GUI applications for all the browsers (all the *permutations* in GWT jargon). This consumes a lot of resources and can take a very long time. In you first build it can be interesting to build only for the browser that you will use to test. In order to do that add the following `EXTRA_BUILD_FLAGS` option to the make command:
+By default the above commands will build the the GUI applications for all the browsers (all the *permutations* in GWT jargon). This consumes a lot of resources and can take a very long time. In you first build it can be interesting to build only for the browser that you will use to test. In order to do that add the following `EXTRA_BUILD_FLAGS` option to the make command:
 
     $ cd $HOME/ovirt-engine/repository
     $ make PREFIX=$HOME/ovirt-engine/installation EXTRA_BUILD_FLAGS="-Dgwt.userAgent=gecko1_8"

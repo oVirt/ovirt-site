@@ -230,24 +230,13 @@ For compiling the GUI (web administration tool and user portal) in addition to t
 
 For advanced build notes, please visit [Advanced oVirt Engine Build Notes](Advanced oVirt Engine Build Notes).
 
-### Deploy
+### Install
 
-The first deployment of the engine to the application server should use the `dep` and `setup` profiles:
+To install the engine select the directory where you want in installed and then use the `install` make target to perform the installation. For example, if you want to install to the
 
-    $ cd $HOME/ovirt-engine/ear
-    $ mvn install -Pdep,setup
+    $ make install PREFIX=$HOME/engine
 
-There is a issue with the `dep` and `setup` profiles getting in the way of each other. The `setup` profile will prevent the deployment of the quartz jar to the application server. So after this step completes, run again, but with the `dep` profile only:
-
-    $ cd $HOME/ovirt-engine/ear
-    $ mvn install -Pdep
-
-From this point on, every time you deploy you can simply run with the `dep` profile:
-
-    $ cd $HOME/ovirt-engine/ear
-    $ mvn install -Pdep
-
-Since postgres is already set up.
+Later, when you need to refresh your installation, just use the same command or, if you want to install from scratch, remove completely de selected directory and perform the installation and repeat the process.
 
 ## Testing
 

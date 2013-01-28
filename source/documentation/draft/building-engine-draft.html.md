@@ -159,6 +159,11 @@ To install the engine select the directory where you want it installed and then 
     $ cd $HOME/ovirt-engine/repository
     $ make install PREFIX=$HOME/ovirt-engine/installation
 
+Now you need to adjust the configuration of the engine so that it will run with the your user and group, as by default it uses the ovirt user and group. In order to do that you need to add the `ENGINE_USER` and `ENGINE_GROUP` parameters to the `$HOME/ovirt-engine/installation/etc/sysconfig/ovirt-engine` file:
+
+    ENGINE_USER=your_user_name
+    ENGINE_GROUP=your_group_name
+
 Later, when you need to refresh your installation, just use the same command or, if you want to install from scratch, remove completely de selected directory and perform the installation and repeat the process:
 
     $ rm -rf $HOME/ovirt-engine/installation

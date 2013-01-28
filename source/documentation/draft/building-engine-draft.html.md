@@ -309,7 +309,7 @@ Generate a self signed certificate for the application server (remember to repla
 
 ***Note:** Take into account that the keystore uses two passwords: one to protect the integrity of the keystore (the `-storepass` option) and another one to protect te confidentiality of the private key (the `-keypass` option). Both have to be equal, or the application server will not be able to use the keystore.*
 
-Once the keystore is created the application engine has to be configured to enable the SSL connector, adding the following to the `$HOME/ovirt-engine/installation/etc/sysconfig/ovirt-engine` file:
+Once the keystore is created the engine has to be configured to enable the SSL connector, adding the following to the `$HOME/ovirt-engine/installation/etc/sysconfig/ovirt-engine` file:
 
     ENGINE_HTTPS_ENABLED=true
     ENGINE_HTTPS_PORT=8701

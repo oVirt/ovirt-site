@@ -239,11 +239,20 @@ Note that when using a browser to connect to the REST API you have to enter the 
 
 ## I have made a change into ovirt engine code, how can I deploy it?
 
-This will build the engine, rebuilding the admin console and then creates the ear and deploys it to the application server:
+First stop the engine if it is running:
 
-    $ mvn clean install -Pgwt-admin -DskipTests && cd ear && mvn clean install -Pdep
+    $ cd $HOME/engine/bin
+    $ ./engine-service stop
 
-Stop the application server (Ctrl+C in the console) and start it again before testing the changes.
+Then run the install target again:
+
+    $ cd $HOME/ovirt-engine
+    $ make install PREFIX=$HOME/engine
+
+And finally start the engine:
+
+    $ cd $HOME/engine/bin
+    $ ./engine-service start
 
 ## Copying vdsm bootstrap files (optional)
 

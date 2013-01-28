@@ -112,7 +112,7 @@ Make sure that the permissions of the `/root/.pgpass` file are `0600`:
 
 Now change into the directory where you cloned the `ovirt-engine` git repository, then change into the `backend/manager/dbscritps` directory and run the `create_db_devel.sh` script:
 
-    $ cd $HOME/ovirt-engine/backend/manager/dbscripts
+    $ cd $HOME/ovirt-engine/repository/backend/manager/dbscripts
     $ ./create_db_devel.sh -u postgres
 
 ### Build

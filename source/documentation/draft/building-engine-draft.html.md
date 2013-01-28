@@ -208,7 +208,7 @@ For advanced build notes, please visit [Advanced oVirt Engine Build Notes](Advan
 
 ### Install
 
-To install the engine select the directory where you want in installed and then use the `install` make target to perform the installation. For example, if you want to install to the
+To install the engine select the directory where you want it installed and then use the `install` make target to perform the installation. For example, if you want to install to the
 
     $ make install PREFIX=$HOME/engine
 

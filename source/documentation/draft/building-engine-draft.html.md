@@ -205,28 +205,31 @@ Now change into the directory where you cloned the `ovirt-engine` git repository
 
 ### Build
 
-If you only want to build the engine core and then REST API then use the following commands:
+To build with the default options use the following commands:
 
     $ cd $HOME/ovirt-engine
-    $ mvn install -DskipTests
+    $ make
 
 Please note that the first time that you build maven will need to download a large amount of dependencies from the network, more than 200 MiB, so if you have an slow connection it will take a long time.
 
-For compiling the GUI (web administration tool and user portal) in addition to the engine core and REST API use the following commands:
+Also, by default the above commands will build the the GUI applications for all the browsers (all the *permutations* in GWT jargon). This consumes a lot of resources and can take a very long time. In you first build it can be interesting to build only for the browser that you will use to test. In order to do that add the following `EXTRA_BUILD_FLAGS` option to the make command:
 
     $ cd $HOME/ovirt-engine
-    $ mvn install -DskipTests -Dgwt.userAgent=gecko1_8 -Pgwt-admin,gwt-user
+    $ make EXTRA_BUILD_FLAGS="-Dgwt.userAgent=gecko1_8"
 
-***Notes:***
+This will build only for Firefox. For other browsers you can use the following values (separated by commas, if you want to specify several):
 
-1.  The `-DskipTests` option disables compilation and executions of tests. This is not what you should do usually, but it is good idea to use it the first time to avoid the extra time that it takes to run the tests.
-2.  The `-Dgwt.userAgent=gecko1_8` is very important to limit the resources that the GWT compiler uses. If you don't use it compilation will take a very long time. The value `gecko1_8` instructs the GWT compiler to generate code only for Firefox, if you need to generate code for other browsers please visit [GWT Compilation Configuration](Advanced_oVirt_Engine_Build_Notes#GWT_Compilation_Configuration).
-3.  Make sure to run this with your user, not `root`, running as `root` will result in a missing `settings.xml` file in the `root` home directory.
-4.  If you receive `java.lang.OutOfMemoryError: PermGen space` error, use the `MAVEN_OPTS` environment variable to set a higher permanent generation heap size, then try again:
+|--------------------------------------------------------|------------|
+| Firefox (all versions)                                 | `gecko1_8` |
+| Safari and Chrome (both use the same rendering engine) | `safari`   |
+| Internet Explorer 6                                    | `ie6`      |
+| Internet Explorer 8                                    | `ie8`      |
+| Internet Explorer 9                                    | `ie9`      |
 
-<!-- -->
+For example, if you want to build for Firefox and Chrome you can use the following commands:
 
-    $ export MAVEN_OPTS="-XX:MaxPermSize=128m"
+    $ cd $HOME/ovirt-engine
+    $ make EXTRA_BUILD_FLAGS="-Dgwt.userAgent=gecko1_8,safari"
 
 For advanced build notes, please visit [Advanced oVirt Engine Build Notes](Advanced oVirt Engine Build Notes).
 

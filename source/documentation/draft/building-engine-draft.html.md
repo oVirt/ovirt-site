@@ -184,17 +184,17 @@ Note that when using a browser to connect to the REST API you have to enter the 
 
 First stop the engine if it is running:
 
-    $ cd $HOME/engine/bin
+    $ cd $HOME/ovirt-engine/installation/bin
     $ ./engine-service stop
 
 Then run the install target again:
 
-    $ cd $HOME/ovirt-engine
-    $ make install PREFIX=$HOME/engine
+    $ cd $HOME/ovirt-engine/repository
+    $ make install PREFIX=$HOME/ovirt-engine/installation
 
 And finally start the engine:
 
-    $ cd $HOME/engine/bin
+    $ cd $HOME/ovirt-engine/installation/bin
     $ ./engine-service start
 
 ## Copying vdsm bootstrap files (optional)

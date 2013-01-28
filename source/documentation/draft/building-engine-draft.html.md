@@ -147,11 +147,15 @@ For advanced build notes, please visit [Advanced oVirt Engine Build Notes](Advan
 
 ### Install
 
-To install the engine select the directory where you want it installed and then use the `install` make target to perform the installation. For example, if you want to install to the
+To install the engine select the directory where you want it installed and then use the `install` make target to perform the installation. In these instructions we are going to assume that you will install to the `$HOME/ovirt-engine/installation` directory:
 
-    $ make install PREFIX=$HOME/engine
+    $ cd $HOME/ovirt-engine/repository
+    $ make install PREFIX=$HOME/ovirt-engine/installation
 
-Later, when you need to refresh your installation, just use the same command or, if you want to install from scratch, remove completely de selected directory and perform the installation and repeat the process.
+Later, when you need to refresh your installation, just use the same command or, if you want to install from scratch, remove completely de selected directory and perform the installation and repeat the process:
+
+    $ rm -rf $HOME/ovirt-engine/installation
+    $ make install PREFIX=$HOME/ovirt-engine/installation
 
 ## Testing
 

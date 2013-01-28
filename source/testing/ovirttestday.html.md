@@ -18,54 +18,37 @@ The purpose of test days initiative is to accomplish the following goals:
 *   Get multiple engineers and stakeholders to have hands-on opportunity to learn more about Ovirt functionality and features.
 *   Improve the quality of oVirt, towards its first release.
 *   Establish a quality baseline.
-*   While learning about the project, the stakeholders can come with their own test cases, in different categories:
-    -   General/Project installation
+*   Introducing and validating new oVirt 3.2 features
+*   While learning about the project, the stakeholders can come with their own test cases, in different categories for regression testing:
+    -   installation/migration from 3.1
     -   Storage
     -   Networking
-    -   APIs
+    -   interfaces
     -   Spice
     -   User Interface
     -   Tools
+
+in addition participate in exploring [new features](OVirt_3.2_release-management#Features) .
 
 ## Participants
 
 Test Days are open to anyone. If you have your own setup we will provide all the software packages and the required information. Please refer - What to do as a participant - in the section below, if you're willing to participate please add yourself to the below table:
 
-| Name     | General | Storage | Networking | APIs                    | Spice | User Interface | Tools | Distribution |
-|----------|---------|---------|------------|-------------------------|-------|----------------|-------|--------------|
-| mgoldboi | V       | V       | Basic      | Webadmin,CLI            | V     |                |       | Fedora16     |
-| mkrcmari | V       |         |            |                         | V     |                |       | Fedora16     |
-| djasa    | V       | V       | Basic      |                         | V     |                |       | Fedora16     |
-| hateya   | V       | V       | Basic      | Webadmin,cli,python SDK | V     |                |       | Fedora16     |
-| rvaknin  | V       | V       | Basic      |                         | V     |                |       | Fedora16     |
-| atal     | V       | V       | Basic      |                         | V     |                |       | Fedora16     |
-| aliguori | V       | V       | Basic      |                         | V     |                |       | Fedora16     |
-| sming    | V       | V       | Basic      |                         | V     |                |       | RHEL 6.2     |
-| aglitke  | V       | V       | Basic      | Webadmin,CLI,vdsm       | V     | V              |       | Fedora16     |
-| Pradeep  | V       | V       | Basic      |                         | V     |                |       | RHEL 6.2     |
-| wuzhy    | V       | V       | Basic      |                         | V     |                |       | Fedora16     |
-| tdosek   | V       | V       | Basic      | Webadmin, Userportal    |       | V              |       | Fedora16     |
-| jlibosva | V       | V       | Basic      | Webadmin                |       | V              | V     | Fedora16     |
-| jhenner  |         |         | Basic      | python SDK              |       |                |       | Fedora16     |
-| pstehlik | V       |         | Basic      | ActiveDirectory         |       | V              | V     | Fedora16     |
-| zvi      | V       | V       | Advanced   | Webadmin                | V     | V              | V     | Fedora16     |
-| dron     | V       | V       | Advanced   | Webadmin                | V     | V              | V     | Fedora16     |
+| Name     | allInOne/distributed/migration from 3.1 | Storage | Networking             | APIs       | Spice | User Interface    | Tools | Distribution |
+|----------|-----------------------------------------|---------|------------------------|------------|-------|-------------------|-------|--------------|
+| mgoldboi | clean install- AIO                      | NFS     | basic + port mirroring | python sdk | V     | admin+user-portal |       | Fedora-18    |
 
 ## Test Dates
 
 The overall test dates are spread across multiple duration which are driven by the beta releases from the engineering. The following are the list of test days scheduled -
 
-*   JAN 18th, 2012 - First Release
-
-## Summary of Test Days Results
-
-| Test Day | No. Registered Participants | total bugs | bugs list |
-|----------|-----------------------------|------------|-----------|
-| 18JAN    |                             |            |           |
+*   JAN 18th, 2012 - First Release (3.0)
+*   Jun 14th, 2012 - Second Release (3.1)
+*   JAN 29th, 2013 - Third Release (3.2)
 
 ## Execution Plan and Guidelines
 
-The following is the list of categories which we would like to focus on. However the scope is not limited and they are guidelines only. Feel free to extend it to the limitations of the software.
+The following is the list of categories which we would like to focus on. this is basically regression testing:
 
 ### General
 
@@ -90,21 +73,21 @@ You need at least two physical servers to install and configure a basic yet comp
 
 ### Storage
 
-| Scenario                                                                                                            | Bugs                                                                                                                                                                                                                                                                                         |
-|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Use the General configuration as a base configuration                                                               |                                                                                                                                                                                                                                                                                              |
-| Create different types of storage domains (NFS, ISCSI, FC, local storage) with 2 or more data domains               | FAILED in iscsi for following issues -- [782432](https://bugzilla.redhat.com/show_bug.cgi?id=782432) , [781805](https://bugzilla.redhat.com/show_bug.cgi?id=781805) , [782864](https://bugzilla.redhat.com/show_bug.cgi?id=782864) , [1](https://bugzilla.redhat.com/show_bug.cgi?id=783098) |
-| Install at least 2 VMs on each of the Data Centers                                                                  |                                                                                                                                                                                                                                                                                              |
-| Move the master domain to a different domain within the Data Center                                                 |                                                                                                                                                                                                                                                                                              |
-| Export one of the installed VMs, delete it, import it to another Data Center                                        |                                                                                                                                                                                                                                                                                              |
-| Create a template from one of the VMs and then create a new VM based on this template                               |                                                                                                                                                                                                                                                                                              |
-| Move the newly created VM to another data domain                                                                    |                                                                                                                                                                                                                                                                                              |
-| Create several snapshots from a VM (Each time change something in the guest)                                        |                                                                                                                                                                                                                                                                                              |
-| Restore a previous snapshot                                                                                         |                                                                                                                                                                                                                                                                                              |
-| Storage Failovers                                                                                                   |                                                                                                                                                                                                                                                                                              |
-| Host Failovers                                                                                                      |                                                                                                                                                                                                                                                                                              |
-| Power User Portal provides power users the ability to create and manage virtual machines from the power user portal |                                                                                                                                                                                                                                                                                              |
-| High Availability scenarios provides instructions to configure virtual machine and host high availability           |                                                                                                                                                                                                                                                                                              |
+| Scenario                                                                                                            | Bugs |
+|---------------------------------------------------------------------------------------------------------------------|------|
+| Use the General configuration as a base configuration                                                               |      |
+| Create different types of storage domains (NFS, ISCSI, FC, local storage) with 2 or more data domains               |      |
+| Install at least 2 VMs on each of the Data Centers                                                                  |      |
+| Move the master domain to a different domain within the Data Center                                                 |      |
+| Export one of the installed VMs, delete it, import it to another Data Center                                        |      |
+| Create a template from one of the VMs and then create a new VM based on this template                               |      |
+| Move the newly created VM to another data domain                                                                    |      |
+| Create several snapshots from a VM (Each time change something in the guest)                                        |      |
+| Restore a previous snapshot                                                                                         |      |
+| Storage Failovers                                                                                                   |      |
+| Host Failovers                                                                                                      |      |
+| Power User Portal provides power users the ability to create and manage virtual machines from the power user portal |      |
+| High Availability scenarios provides instructions to configure virtual machine and host high availability           |      |
 
 ### Network
 
@@ -122,23 +105,23 @@ You need at least two physical servers to install and configure a basic yet comp
 
 by default we'll be using the webadmin as our API for testing on this section we'll try to have default deployment with the different APIs
 
-| Scenario                       | Webadmin                                                     | UserPortal                                                   | Rest                                                         | Python-SDK                                                   | CLI                                                                                                                       |
-|--------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Create a data-center           |                                                              |                                                              |                                                              |                                                              |                                                                                                                           |
-| Create a cluster               |                                                              |                                                              |                                                              |                                                              | [782713](https://bugzilla.redhat.com/show_bug.cgi?id=782713)                                                              |
-| Update cluster                 |                                                              |                                                              |                                                              | [782828](https://bugzilla.redhat.com/show_bug.cgi?id=782828) |                                                                                                                           |
-| Install a host                 |                                                              |                                                              | [782737](https://bugzilla.redhat.com/show_bug.cgi?id=782737) |                                                              | [782734](https://bugzilla.redhat.com/show_bug.cgi?id=782734),[782734](https://bugzilla.redhat.com/show_bug.cgi?id=782734) |
-| Create a storage domain on DC  |                                                              |                                                              |                                                              |                                                              |                                                                                                                           |
-| Attach export/ISO domain to DC |                                                              |                                                              |                                                              |                                                              |                                                                                                                           |
-| Create vm                      |                                                              | [782794](https://bugzilla.redhat.com/show_bug.cgi?id=782794) |                                                              |                                                              |                                                                                                                           |
-| Delete vm                      |                                                              |                                                              |                                                              | [782830](https://bugzilla.redhat.com/show_bug.cgi?id=782830) |                                                                                                                           |
-| Import vm                      | [782717](https://bugzilla.redhat.com/show_bug.cgi?id=782717) |                                                              |                                                              |                                                              |                                                                                                                           |
-| Start/hibernate/resume/stop vm |                                                              |                                                              |                                                              |                                                              |                                                                                                                           |
-| Create a snapshot to vm        |                                                              |                                                              |                                                              |                                                              |                                                                                                                           |
-| Create a template from vm      |                                                              |                                                              |                                                              |                                                              |                                                                                                                           |
-| Create vm from template        |                                                              |                                                              |                                                              |                                                              |                                                                                                                           |
-| Sign out                       | [782779](https://bugzilla.redhat.com/show_bug.cgi?id=782779) |                                                              |                                                              |                                                              |                                                                                                                           |
-| General                        |                                                              |                                                              |                                                              | [782891](https://bugzilla.redhat.com/show_bug.cgi?id=782891) |                                                                                                                           |
+| Scenario                       | Webadmin | UserPortal | Rest | Python-SDK | CLI |
+|--------------------------------|----------|------------|------|------------|-----|
+| Create a data-center           |          |            |      |            |     |
+| Create a cluster               |          |            |      |            |     |
+| Update cluster                 |          |            |      |            |     |
+| Install a host                 |          |            |      |            |     |
+| Create a storage domain on DC  |          |            |      |            |     |
+| Attach export/ISO domain to DC |          |            |      |            |     |
+| Create vm                      |          |            |      |            |     |
+| Delete vm                      |          |            |      |            |     |
+| Import vm                      |          |            |      |            |     |
+| Start/hibernate/resume/stop vm |          |            |      |            |     |
+| Create a snapshot to vm        |          |            |      |            |     |
+| Create a template from vm      |          |            |      |            |     |
+| Create vm from template        |          |            |      |            |     |
+| Sign out                       |          |            |      |            |     |
+| General                        |          |            |      |            |     |
 
 Python API of the above scenarios can be found in: <http://www.ovirt.org/wiki/Testing/PythonApi>
 
@@ -155,38 +138,51 @@ For details about configuration check <http://www.ovirt.org/wiki/Testing/Spice>
 | Try to use client mouse mode and clipboard share between client and VM (with spice agent installed on VM)              |      |
 | Install AutoCAD or any other graphic application a try to work with it (with QXL driver installed on VM)               |      |
 
+### User Interface
+
+Webadmin:
+
 ### Node
 
-Pre-built node available [here](http://ovirt.org/releases/nightly/binary/ovirt-node-image-2.2.1-3.6.fc16.iso).
+Pre-built node available [here](http://ovirt.org/releases/beta/binary/ovirt-node-iso-2.4.0-1.1.fc17.iso).
 
 Please check [Node_Release_Notes](Node_Release_Notes) prior to testing for information on current known issues
 
-Apply workaround in [782660](https://bugzilla.redhat.com/show_bug.cgi?id=782660) before attempting to register to ovirt-engine
-
-| Scenario                                                                                                                                                                                                                                                                                                        | Bugs                                                                   |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
-| Boot image and install using the TUI on a single disk                                                                                                                                                                                                                                                           |                                                                        |
-| Boot image and install using the TUI on multiple disks                                                                                                                                                                                                                                                          |                                                                        |
-| Boot image and install using autoinstall parameters from [here](http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Hypervisor_Deployment_Guide/sect-Deployment_Guide-Installing_Red_Hat_Enterprise_Virtualization_Hypervisors-RHEV_Hypervisor_Kernel_Parameters_and_Automated_Installation.html) |                                                                        |
-| Configure Networking using the TUI                                                                                                                                                                                                                                                                              |                                                                        |
-| Configure ssh password auth and attempt to login using ssh                                                                                                                                                                                                                                                      |                                                                        |
-| Configure remote logging                                                                                                                                                                                                                                                                                        |                                                                        |
-| Configure kdump                                                                                                                                                                                                                                                                                                 |                                                                        |
-| Configure iscsi initiator name                                                                                                                                                                                                                                                                                  |                                                                        |
-| Configure collectd                                                                                                                                                                                                                                                                                              |                                                                        |
-| Configure oVirt Engine hostname and port                                                                                                                                                                                                                                                                        | FAILED -- [782663](https://bugzilla.redhat.com/show_bug.cgi?id=782663) |
-| Configure admin password on oVirt Engine screen and add host through ovirt engine                                                                                                                                                                                                                               | FAILED -- [782660](https://bugzilla.redhat.com/show_bug.cgi?id=782660) |
-| Once registered, run vms on top of ovirt-node                                                                                                                                                                                                                                                                   |                                                                        |
-|                                                                                                                                                                                                                                                                                                                 |                                                                        |
+| Scenario                                                                                                                                                                                                                                                                                                        | Bugs |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
+| Boot image and install using the TUI on a single disk                                                                                                                                                                                                                                                           |      |
+| Boot image and install using the TUI on multiple disks                                                                                                                                                                                                                                                          |      |
+| Boot image and install using autoinstall parameters from [here](http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Hypervisor_Deployment_Guide/sect-Deployment_Guide-Installing_Red_Hat_Enterprise_Virtualization_Hypervisors-RHEV_Hypervisor_Kernel_Parameters_and_Automated_Installation.html) |      |
+| Configure Networking using the TUI                                                                                                                                                                                                                                                                              |      |
+| Configure ssh password auth and attempt to login using ssh                                                                                                                                                                                                                                                      |      |
+| Configure remote logging                                                                                                                                                                                                                                                                                        |      |
+| Configure kdump                                                                                                                                                                                                                                                                                                 |      |
+| Configure iscsi initiator name                                                                                                                                                                                                                                                                                  |      |
+| Configure collectd                                                                                                                                                                                                                                                                                              |      |
+| Configure oVirt Engine hostname and port                                                                                                                                                                                                                                                                        |      |
+| Configure admin password on oVirt Engine screen and add host through ovirt engine                                                                                                                                                                                                                               |      |
+| Once registered, run vms on top of ovirt-node                                                                                                                                                                                                                                                                   |      |
+|                                                                                                                                                                                                                                                                                                                 |      |
 
 ## Ovirt Information Details
 
-Please refer the following document for hardware requirements, installation procedure, software download location
+Beta RPMs for Fedora 18 are available from <http://resources.ovirt.org/releases/beta/rpm/Fedora/18>. In order to use it create a `/etc/yum.repos.d/ovirt-engine-beta.repo` file with the following content:
+
+    [ovirt-beta]
+    name=ovirt-beta
+    baseurl=http://resources.ovirt.org/releases/beta/rpm/Fedora/18/
+    enabled=1
+    skip_if_unavailable=1
+    gpgcheck=0
+
+The run `yum install ovirt-engine`.
+
+Please refer the following documents for more information on hardware requirements, installation procedure and software download locations:
 
 *   <http://ovirt.org/wiki/Installing_ovirt_from_rpm>
 *   <http://ovirt.org/wiki/Installing_ovirt-node_from_rpm>
 
-Please refer the following documents for Ovirt Installation guide, bits location, admin guide
+Please refer the following documents for Ovirt Installation guide, bits location and admin guide:
 
 *   <http://ovirt.org/wiki/Documentation>
 
@@ -207,7 +203,12 @@ In case you would like to test a product with a new test case, there is a templa
 
 *   ovirt - <https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt>
 *   Spice - <https://bugs.freedesktop.org/> under Spice product
+*   VDSM - <https://bugzilla.redhat.com/show_bug.cgi?id=831998>
+
+Tracker bug for the release - <https://bugzilla.redhat.com/881006>
 
 ## Miscellaneous
 
 IRC - #ovirt at irc.oftc.net
+
+## Current Issues

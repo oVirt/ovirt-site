@@ -154,7 +154,7 @@ For advanced build notes, please visit [Advanced oVirt Engine Build Notes](Advan
 
 ### Install
 
-To install the engine select the directory where you want it installed and then use the `install` make target to perform the installation. In these instructions we are going to assume that you will install to the `$HOME/ovirt-engine/installation` directory:
+To install the engine use the `install` make target to perform the installation:
 
     $ cd $HOME/ovirt-engine/repository
     $ make install PREFIX=$HOME/ovirt-engine/installation
@@ -172,7 +172,7 @@ Adjust the configuration of the engine to enable the HTTP connector, as by defau
     ENGINE_HTTPS_ENABLED=false
     ENGINE_AJP_ENABLED=false
 
-Adjust the configuration of the engine to connect connect using the *trust* mode and no password adding the following parameters to the `$HOME/ovirt-engine/installation/etc/sysconfig/ovirt-engine` file:
+Adjust the configuration of the engine to connect connect to the database using the *trust* mode and no password. Add the following parameters to the `$HOME/ovirt-engine/installation/etc/sysconfig/ovirt-engine` file:
 
     ENGINE_DB_USER=postgres
     ENGINE_DB_PASSWORD=

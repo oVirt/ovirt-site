@@ -159,12 +159,50 @@ To install the engine use the `install` make target to perform the installation:
     $ cd $HOME/ovirt-engine/repository
     $ make install PREFIX=$HOME/ovirt-engine/installation
 
-Adjust the configuration of the engine so that it will run with the your user and group, as by default it uses the ovirt user and group. In order to do that you need to add the `ENGINE_USER` and `ENGINE_GROUP` parameters to the `$HOME/ovirt-engine/installation/etc/sysconfig/ovirt-engine` file:
+Install the PostgreSQL JDBC driver (by default this is a symlink pointing to a file that may not exist in your system):
+
+    $ rm $HOME/ovirt-engine/installation/share/ovirt-engine/modules/org/postgresql/main/postgresql-jdbc.jar
+    $ mvn org.apache.maven.plugins:maven-dependency-plugin:2.4:get -Dartifact=postgresql:postgresql:9.1-901.jdbc4 -Ddest=$HOME/ovirt-engine/installation/share/ovirt-engine/modules/org/postgresql/main/postgresql-jdbc.jar
+
+Create (` mkdir -p ...`) the following directories where the engine will store state, logs and temporary files:
+
+    $HOME/ovirt-engine/installation/var/lib/ovirt-engine/content
+    $HOME/ovirt-engine/installation/var/lib/ovirt-engine/deployments
+    $HOME/ovirt-engine/installation/var/run
+    $HOME/ovirt-engine/installation/var/cache/ovirt-engine
+    $HOME/ovirt-engine/installation/var/lock/ovirt-engine
+    $HOME/ovirt-engine/installation/var/log/ovirt-engine
+    $HOME/ovirt-engine/installation/var/tmp/ovirt-engine
+
+Now you need to do some adjustments to the configuration file `$HOME/ovirt-engine/installation/etc/sysconfig/ovirt-engine`:
+
+1. Adjust the location of the Java virtual machine:
+
+    JAVA_HOME=the_location_of_your_jvm
+
+You can find the location of the JVM by following the symlinks to the `java` command. For example, in Fedora 18:
+
+    $ which java
+    /bin/java
+    $ ls -l /bin/java
+    lrwxrwxrwx. 1 root root 22 Jan 19 19:05 /bin/java -> /etc/alternatives/java
+    $ ls -l /etc/alternatives/java
+    lrwxrwxrwx. 1 root root 46 Jan 19 19:05 /etc/alternatives/java -> /usr/lib/jvm/jre-1.7.0-openjdk.x86_64/bin/java
+
+So the value of the property should be `/usr/lib/jvm/jre-1.7.0-openjdk.x86_64`, without the `bin` directory:
+
+    JAVA_HOME=/usr/lib/jvm/jre-1.7.0-openjdk.x86_64
+
+2. Adjust the location of the JBoss application server:
+
+    JBOSS_HOME=the_location_of_jboss
+
+3. Adjust the user and group. By default it uses the ovirt user and group but you will probably want to run the engine with your own user and group:
 
     ENGINE_USER=your_user_name
     ENGINE_GROUP=your_group_name
 
-Adjust the configuration of the engine to enable the HTTP connector, as by default only the AJP connector is enabled (to use Apache as a proxy server). Add the following parameters to the `$HOME/ovirt-engine/installation/etc/sysconfig/ovirt-engine` file:
+4. Enable the HTTP connector, as by default only the AJP connector is enabled (to use Apache as a proxy server):
 
     ENGINE_PROXY_ENABLED=false
     ENGINE_HTTP_ENABLED=true
@@ -172,21 +210,16 @@ Adjust the configuration of the engine to enable the HTTP connector, as by defau
     ENGINE_HTTPS_ENABLED=false
     ENGINE_AJP_ENABLED=false
 
-Adjust the configuration of the engine to connect connect to the database using the *trust* mode and no password. Add the following parameters to the `$HOME/ovirt-engine/installation/etc/sysconfig/ovirt-engine` file:
+5. Adjust the database connection details to use the *trust* mode and no password:
 
     ENGINE_DB_USER=postgres
     ENGINE_DB_PASSWORD=
 
-Note that the `ENGINE_DB_PASSWORD` parameter is empty on purpose, as we are using the *trust* authentication mode in the database.
+6. In development environments it is also very useful to be able to connect to the Java virtual machine with your debugger. To enable that add the following parameter:
 
-Create the directories where the engine will store state and temporary files:
+    ENGINE_DEBUG_ADDRESS=0.0.0.0:8787
 
-    $ mkdir -p $HOME/ovirt-engine/installation/var/lib/ovirt-engine/content
-    $ mkdir -p $HOME/ovirt-engine/installation/var/lib/ovirt-engine/deployments
-    $ mkdir -p $HOME/ovirt-engine/installation/var/run
-    $ mkdir -p $HOME/ovirt-engine/installation/var/cache/ovirt-engine
-    $ mkdir -p $HOME/ovirt-engine/installation/var/lock/ovirt-engine
-    $ mkdir -p $HOME/ovirt-engine/installation/var/log/ovirt-engine
+Then you can connect with your debugger using port 8787.
 
 ## Testing
 

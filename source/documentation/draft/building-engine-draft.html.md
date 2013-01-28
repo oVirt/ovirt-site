@@ -159,9 +159,9 @@ Later, when you need to refresh your installation, just use the same command or,
 
 ## Testing
 
-First you need to start the engine. Go to the directory where you installed it (we are assuming `$HOME/engine` in this instructions), then to the `bin` subdirectory and run the `engine-service` script as follows:
+First you need to start the engine. Go to the directory where you installed it (we are assuming `$HOME/ovirt-engine/installation` in these instructions), then to the `bin` subdirectory and run the `engine-service` script as follows:
 
-    $ cd $HOME/engine/bin
+    $ cd $HOME/ovirt-engine/installation/bin
     $ ./engine-service start
 
 If everything went correctly you should be able to connect to <http://localhost:8700>, in that URL you will see the welcome page, with links to the administrator portal and user portal.

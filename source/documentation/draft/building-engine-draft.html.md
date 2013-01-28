@@ -243,16 +243,16 @@ Later, when you need to refresh your installation, just use the same command or,
 
 ## Testing
 
-Assuming that the application server is not running, it should be started:
+First you need to start the engine. Go to the directory where you installed it (we are assuming `$HOME/engine` in this instructions), then to the `bin` subdirectory and run the `engine-service` script as follows:
 
-    $ cd $HOME/jboss-as-7.1.1.Final/bin
-    $ ./standalone.sh -b 0.0.0.0
+    $ cd $HOME/engine/bin
+    $ ./engine-service start
 
-If everything went correctly you should be able to connect to <http://127.0.0.1:8700>, in that URL you will see the welcome page, with links to the administrator portal and user portal.
+If everything went correctly you should be able to connect to <http://localhost:8700>, in that URL you will see the welcome page, with links to the administrator portal and user portal.
 
 The default user name and password created in development environments are `admin@internal` and `letmein!`.
 
-You can also access the REST API pointing your browser to <http://127.0.0.1:8700/api> or with a command line tool like `wget`:
+You can also access the REST API pointing your browser to <http://localhost:8700/api> or with a command line tool like `wget`:
 
     $ wget -O - \
     --debug \
@@ -260,7 +260,7 @@ You can also access the REST API pointing your browser to <http://127.0.0.1:8700
     --http-user=admin@internal \
     --http-password='letmein!' \
     head='Accept: application/xml' \
-    http://127.0.0.1:8700/api/
+    http://localhost:8700/api/
 
 Note that when using a browser to connect to the REST API you have to enter the user name followed by @ and the domain name (by default `admin@internal`) in the pop-up windows that the browser will present.
 

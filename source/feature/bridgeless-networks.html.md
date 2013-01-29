@@ -140,3 +140,5 @@ all the non-optional networks attached.
 *   AppErrors.properties
 
       ACTION_TYPE_FAILED_NOT_A_VM_NETWORK=Failed ${action} ${type} the network/s ${Networks} is/are not a VM network.
+
+<Category:Feature> <Category:Networking>

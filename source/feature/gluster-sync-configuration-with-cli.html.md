@@ -23,8 +23,8 @@ Providing support for automatically sync the changes made through Gluster CLI in
 
 ## Current Status
 
-*   Status: In Progress
-*   Last updated date: Mon Oct 22 2012
+*   Status: Complete
+*   Last updated date: Tue Jan 29 2013
 
 ## Detailed Description
 
@@ -72,5 +72,13 @@ Handling of servers added (peer probed) from gluster CLI needs to be done in a d
 *   This should trigger a 'gluster peer detach' command to remove the selected servers from the gluster cluster
 
 ## Design
+
+### GlusterManager
+
+This class will have methods that run periodically to sync information with GlusterFS.
+
+refreshLightWeightData() : Runs more frequently and syncs information that can be fetched without much of an overhead on GlusterFS. This refresh rate is controlled by configuration "GlusterRefreshRateLight" , with default value of 5 seconds
+
+getGlusterRefreshRateHeavy(): Runs less frequently and syncs information that adds a significant overhead on GlusterFS. This refresh rate is controlled by configuration "GlusterRefreshRateHeavy" , with default value of 5 minutes
 
 <Category:Feature>

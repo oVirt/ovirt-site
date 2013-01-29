@@ -33,11 +33,11 @@ The following feature should solve collisions which are occurring between senten
 
 ### Detailed Description
 
-These is design of **additional** functionality which should allow the following:
+**These is design of additional functionality which should allow the following**:
 1. A locks can be keep until end of the execution of all asynchronous task of the command
 2. Improve error messages for cases when lock can not be acquired
 3. Integration with AsyncTask manager in order to solve a problem of restart , when there are left command with asynchronous tasks
-The following feature **already exists and implemented** as in memory generic locking mechanism.
+**The following feature already exists and implemented as in memory generic locking mechanism.**
 A locking mechanism can be used all over bll in order to not allow to occurred for some flows sententiously.
 The feature will include :
 1. Implementation of locking mechanism, implementation will be memory based

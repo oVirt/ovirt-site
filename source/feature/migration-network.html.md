@@ -67,6 +67,23 @@ The `migrate` verb should be extended with an additional parameter, specifying t
 3.  migration verb.
     -   For the a modern cluster level, with migration network defined on the destination host, an additional *miguri* parameter should be added to the `migrate` command
 
+### Phases
+
+#### First phase
+
+*   Add a new network role of migration network.
+*   Each cluster has one, and it is the default migration network for VMs on the cluster.
+*   Factory default is that ovirtmgmt is the cluster migration network.
+
+*Target:* Ovirt -3.3
+
+#### Second phase
+
+*   Add a per-VM propery of migrationNetwork. If Null, the cluster migrationNetwork would be used.
+*   Let the user override the VM migration network in the migrate API and in the GUI.
+
+*Target:* TBD
+
 ### Documentation / External references
 
 *   Yuval M asking to choose a network form migration data: <http://lists.ovirt.org/pipermail/users/2013-January/011301.html>

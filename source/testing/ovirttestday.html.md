@@ -39,6 +39,7 @@ Test Days are open to anyone. If you have your own setup we will provide all the
 | Name     | allInOne/distributed/migration from 3.1 | Storage | Networking             | APIs       | Spice | User Interface    | Tools | Distribution |
 |----------|-----------------------------------------|---------|------------------------|------------|-------|-------------------|-------|--------------|
 | mgoldboi | clean install- AIO                      | NFS     | basic + port mirroring | python sdk | V     | admin+user-portal |       | Fedora-18    |
+| lvernia  | clean install- AIO                      | NFS     | everything             | -          | -     | webadmin          |       | Fedora-18    |
 
 ## Test Dates
 

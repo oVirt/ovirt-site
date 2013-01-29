@@ -90,6 +90,6 @@ The `migrate` verb should be extended with an additional parameter, specifying t
 
 ### Comments and Discussion
 
-*   Refer to [Talk:Nicless Network](Talk:Nicless Network)
+*   Refer to [Talk:Migration Network](Talk:Migration Network)
 
 <Category:Feature> <Category:Networking>

@@ -16,8 +16,6 @@ wiki_last_updated: 2015-01-16
 
 The following feature should solve collisions which are occurring between sententious flows
 
-Add a link to the main feature page as well: [Your feature name](Your feature name)
-
 ### Owner
 
 *   Name: [ Michael Kublin](User:mkublin)

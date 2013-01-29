@@ -30,9 +30,10 @@ Include you email address that you can be reached should people want to contact 
 
 ### Current status
 
-*   Target Release: ...
-*   Status: Design / Code review
-*   Last updated date: 28.11.11
+*   Target Release: 3.2
+*   Status: Design of additional functionality
+*   Previous status: merged
+*   Last updated date: 29.01.13
 
 ### Detailed Description
 

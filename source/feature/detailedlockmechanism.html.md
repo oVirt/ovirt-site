@@ -28,7 +28,7 @@ Add a link to the main feature page as well: [Your feature name](Your feature na
 
 ### Current status
 
-*   Target Release: 3.2
+*   Target Release: 3.3
 *   Status: Design of additional functionality
 *   Previous status: merged
 *   Last updated date: 29.01.13

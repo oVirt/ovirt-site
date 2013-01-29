@@ -63,18 +63,18 @@ On January 22, 2013, the oVirt workshop is pleased to welcome two key members of
 |------------------------|-----------------------------------------------------------------------------------------------------------------------|------------------------------------|
 | 08:30-09:00            | colspan=2| Continental breakfast served                                                                               |
 | 09:00-09:15            | Opening remarks                                                                                                       |                                    |
-| width=20%| 09:15-10:00 | width=50% | Introduction to UI plug-ins                                                                               | width=30% | Oved Ourfali (Red Hat) |
+| width=20%| 09:15-10:00 | width=50% | Introduction to UI plug-ins ([ slides](Media:Ovirt-foreman-plugin-netapp-new.odp))             | width=30% | Oved Ourfali (Red Hat) |
 | 10:00-10:45            | NetApp Virtual Solutions Console for oVirt ([ slides](Media:VSC_on_oVirt.pdf))                             | Christopher Morrissey (NetApp)     |
 | 10:45-11:00            | colspan=2| Coffee break                                                                                               |
 | 11:00-11:45            | oVirt Storage and Live Storage Migration ([ slides](Media:Ovirt-storage-and-live-storage-migration-1.odp)) | Ayal Baron (Red Hat)               |
-| 11:45-12:30            | oVirt Node - overview                                                                                                 | Mike Burns (Red Hat)               |
+| 11:45-12:30            | oVirt Node - overview ([ slides](Media:Ovirt-node-2013-01-23.pdf))                                         | Mike Burns (Red Hat)               |
 | 12:30-13:30            | colspan=2| Lunch                                                                                                      |
 | 13:30-14:15            | oVirt Network and Quantum ([ slides](Media:Ovirt-quantum-integration2.pdf))                                | Itamar Heim (Red Hat)              |
 | 14:15-15:00            | VDSM Hooks ([ slides](Media:OVirt-hooks-netapp-jan2013.odp))                                               | Ayal Baron (Red Hat)               |
 | 15:00-15:15            | colspan=2| Coffee break                                                                                               |
-| 15:15-16:00            | Extending oVirt with the API and SDK                                                                                  | Oved Ourfaili (Red Hat)            |
-| 16:00-16:45            | Supporting CIMI                                                                                                       | Oved Ourfali (Red Hat)             |
-| 16:45-17:30            | Customizing oVirt Node                                                                                                | Mike Burns (Red Hat)               |
+| 15:15-16:00            | Extending oVirt with the API and SDK ([ slides](Media:Scripting_and_Integration_with_oVirt_-_netapp.odp))  | Oved Ourfaili (Red Hat)            |
+| 16:00-16:45            | Supporting CIMI ([ slides](Media:Ovirt-deltacloud-integration-netapp.odp))                                 | Oved Ourfali (Red Hat)             |
+| 16:45-17:30            | Customizing oVirt Node ([ slides](Media:Ovirt-node-customization-2013-01-23.pdf))                          | Mike Burns (Red Hat)               |
 
 </div>
 <div class="row">
@@ -93,19 +93,19 @@ On hackfest day, we have three available spaces for Birds of a Feather sessions,
 |------------------------|--------------------------------------------------------------------|----------------------------------|
 | width=20%| 09:00-10:30 | width=50%| oVirt debugging and troubleshooting                     | width=30% | Haim Ateya (Red Hat) |
 | | 10:30-11:00          | colspan=2| Coffee break                                            |
-| 11:00-12:30            | Storage BOF: The future of Storage in Virtualization and the Cloud | Eco Willson (Red Hat)            |
+| 11:00-12:30            | Storage BOF: The future of Storage in Virtualization and the Cloud | John Mark Walker (Red Hat)       |
 | 12:30                  | colspan=2 | Workshop closing                                       |
 
 </div>
 <div class="span6 pad-sides">
 #### Hackspace - room 2 - plug-ins
 
-| Time                   | Title                                  | Speaker                            |
-|------------------------|----------------------------------------|------------------------------------|
-| width=20%| 09:00-10:30 | width=50%| BOF: oVirt UI plug-ins      | width=30% | Oved Ourfali (Red Hat) |
-| | 10:30-11:00          | colspan=2| Coffee break                |
-| 11:00-12:30            | UI plug-in hackfest, hands-on workshop | Vojtech Szocs (Red Hat)            |
-| 12:30                  | colspan=2 | Workshop closing           |
+| Time                   | Title                                                                                                         | Speaker                            |
+|------------------------|---------------------------------------------------------------------------------------------------------------|------------------------------------|
+| width=20%| 09:00-10:30 | width=50%| BOF: oVirt UI plug-ins ([ slides](Media:Ovirt2013-Hello-World-UI-Plugin.odp))           | width=30% | Oved Ourfali (Red Hat) |
+| | 10:30-11:00          | colspan=2| Coffee break                                                                                       |
+| 11:00-12:30            | UI plug-in hackfest, hands-on workshop ([ notes](Media:Ovirt2013-Hello-World-UI-Plugin-Steps.odt)) | Vojtech Szocs (Red Hat)            |
+| 12:30                  | colspan=2 | Workshop closing                                                                                  |
 
 </div>
 <div class="span6 pad-sides">

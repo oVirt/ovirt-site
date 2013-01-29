@@ -67,8 +67,8 @@ Handling of servers added (peer probed) from gluster CLI needs to be done in a d
 
 #### Detach
 
-*   When user clicks on the 'detach' link, display a screen containing all the additional servers, along with their SSH fingerprints
-*   User should be able to select one or more of these servers, and click on the 'detach' button
+*   When user clicks on the 'detach' link, display a screen containing all the additional servers
+*   User should be able to select one or more of these servers, and click on the 'Ok' button
 *   This should trigger a 'gluster peer detach' command to remove the selected servers from the gluster cluster
 
 ## Design

@@ -103,6 +103,14 @@ You need at least two physical servers to install and configure a basic yet comp
 *   ping and transfer large amounts of data (2Gb size files should be enough)
 *   remain operational over time (1hr of uptime should be sufficient for the basic testing)
 
+#### New to v3.2:
+
+*   port mirroring: one can setup a VM that sniffs all IP traffic between VMs on a network on a host.
+*   no mac spoofing: VMs cannot emit packets with spoofed mac address (unless specifically allowed to).
+*   Network main tab operational: you can search hosts and VM based on their network connectivity
+*   Sync network: change network MTU (or other property) on host, verify that Engine may overwrite it with Sync network
+*   Jumbo packets: see if can be configured and used by storage
+
 ### APIs
 
 by default we'll be using the webadmin as our API for testing on this section we'll try to have default deployment with the different APIs

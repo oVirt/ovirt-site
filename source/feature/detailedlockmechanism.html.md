@@ -87,7 +87,12 @@ If during a run we will run for example RemoveTemplate, these command should try
 
 #### Failures
 
-During restart of JBOSS a following improvements will be done in AsyncTaskManger 1. All task which are kept in DB will be loaded to memory (Should be done at any case, in order to improve AsyncTaskManager) 2. During load of tasks, appropriate objects will be created, because of such object are representing a tasks - all appropriate locks will be acquired again 3. If task is not found in DB , but exists in VDSM - no problems , locks will not be acquired - should solve a problem of locked objects forever 4. If task found in DB and not found in VDSM - appropriate mechanism in AsyncTaskManager will clean a task and will release all locks (The following mechanism should be improved , with out any connection to following feature) The described changes will solve a problem of lack persistence (The locks are in memory locks).
+During restart of JBOSS a following improvements will be done in AsyncTaskManger
+1. All task which are kept in DB will be loaded to memory (Should be done at any case, in order to improve AsyncTaskManager)
+2. During load of tasks, appropriate objects will be created, because of such object are representing a tasks - all appropriate locks will be acquired again
+3. If task is not found in DB , but exists in VDSM - no problems , locks will not be acquired - should solve a problem of locked objects forever
+4. If task found in DB and not found in VDSM - appropriate mechanism in AsyncTaskManager will clean a task and will release all locks (The following mechanism should be improved , with out any connection to following feature)
+The described changes will solve a problem of lack persistence (The locks are in memory locks).
 
 #### Events
 

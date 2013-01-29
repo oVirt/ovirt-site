@@ -24,7 +24,7 @@ Define a migration network role, and use such networks to carry migration data
 
 ### Current status
 
-*   Not yet scheduled to a specific release
+*   oVirt-3.3
 *   Last updated: ,
 
 ### Detailed Description

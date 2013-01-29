@@ -288,7 +288,7 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 4. generate delete method/s overloads with body (in-progress)
 
-5. support persistance-auth (done)
+5. support persistent authentication (done)
 
 6. implement sdk debug mode
 

@@ -286,11 +286,11 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 3. generate method/s overloads using header/url params (done)
 
-4. generate delete method/s overloads with body (in-progress)
+4. generate delete method/s overloads with body (done)
 
 5. support persistent authentication (done)
 
-6. implement sdk debug mode
+6. implement sdk debug mode (in-progress)
 
 7. remove @SuppressWarnings("unused") from decorators
 

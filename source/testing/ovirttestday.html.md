@@ -118,11 +118,7 @@ You need at least two physical servers to install and configure a basic yet comp
 
 #### New to v3.2:
 
-*   port mirroring: one can setup a VM that sniffs all IP traffic between VMs on a network on a host.
-*   no mac spoofing: VMs cannot emit packets with spoofed mac address (unless specifically allowed to).
 *   Network main tab operational: you can search hosts and VM based on their network connectivity
-*   Sync network: change network MTU (or other property) on host, verify that Engine may overwrite it with Sync network
-*   Jumbo packets: see if can be configured and used by storage
 *   Guest agent reported devices: install guest agent on a VM and see it report internal information of the vNics (internal device name, IPv4 and IPv6)
 *   Network Linking: allow changing network the VM is connect to while it is running
 

@@ -8,7 +8,7 @@ wiki_last_updated: 2013-03-14
 
 # OVirt 3.2 release notes
 
-The oVirt Project is pleased to announce the availability of its second formal release, oVirt 3.2.
+The oVirt Project is pleased to announce the availability of its third formal release, oVirt 3.2.
 
 ## What's New?
 
@@ -21,7 +21,7 @@ The oVirt 3.2 release includes these notable changes.
 *   The CA certificate for the web administration portal is now acquired from the TLS/SSL handshake during the VDSM registration process, replacing the previous method of downloading a self-signed certificate from the oVirt Engine. This separates between the CA certificates issued for VDSM and the web administration portal.
 *   VDSM now uses tuned profiles for virtual hosts. Upon host installation, the installation script changes the host profile to 'virt-host-profile', which improves host performance.
 *   Users can now remove virtual machines while leaving the virtual machine disks as floating disks. This is only applicable when the virtual disks have no snapshots, and when the virtual machine is not based on a template.
-*   The oVirt Engine now automatically finds a suitable Java Virtual Machine (JVM) during setup, replacing the previous behaviour of hardcoding the JVM location in its default configuration file.
+*   The oVirt Engine now performs a DNS lookup and automatically finds a suitable Java Virtual Machine (JVM) during setup, replacing the previous behaviour of hardcoding the JVM location to the data center configuration file.
 
 ### Storage
 
@@ -32,15 +32,8 @@ The oVirt 3.2 release includes these notable changes.
 *   Support has been added for storage live migration. This allows migration of virtual machine disks to different storage devices without first shutting down the virtual machine ([Features/Design/StorageLiveMigration](Features/Design/StorageLiveMigration)).
 *   Support has been added for storage domain live upgrade. This allows upgrades from old data center types to the new V3 domain while virtual machines are running ([Features/StorageDomainLiveUpgrade](Features/StorageDomainLiveUpgrade)).
 
-### Performance
-
-*   The performance of the SSL communication between the oVirt Engine and VDSM has been improved with the implementation of SSL session caching, as the engine does not have to perform a new SSL handshake for each request.
-*   oVirt Engine now uses the PKCS#12 format to store keys, replacing the previous Java Key Store format. The PKCS#12 format separates the engine as client key usage and engine as server key usage to support third party certificates for the web administration and user portals ([Features/PKI_Improvements](Features/PKI_Improvements)).
-*   Improvements have been made to the quota implementation, including its logic, calculation, and monitoring. Details can be found at [Features/Quota-3.2](Features/Quota-3.2).
-
 ### Infrastructure
 
-*   Memory Overcommit Manager (MOM) is enabled by default for hosts. It provides the ability to manage memory ballooning and Kernel Same-page Merging (KSM) of the Linux kernel ([SLA-mom](SLA-mom)).
 *   Support has been added for the Windows 8, Windows 8 x64, and Windows 2012 virtual machine operating systems, including sysprep images and product keys.
 *   Support has been added for virtualization hosts with Intel Haswell and Opteron G5 based CPUs.
 *   Host logs can now be collected from the /var/log/ovirt-engine/host-deploy directory on the engine, and also from the /tmp/ovirt-host-deploy directory on the host.
@@ -53,6 +46,20 @@ The oVirt 3.2 release includes these notable changes.
 *   The history database now reports the inventory of storage domains, including name, type, vendor, operating system, version, IP address, status, and capacity.
 *   Scripts are now able to communicate with multiple oVirt Engine servers by creating and manipulating separate instances of the ovirtsdk.API Python class.
 *   A new feature is available that supports enabling and disabling of ovirt-engine-cli paging of a returned response. Page disabling is done using 'no_paging = True'.
+
+### Performance
+
+*   The performance of the SSL communication between the oVirt Engine and VDSM has been improved with the implementation of SSL session caching, as the engine does not have to perform a new SSL handshake for each request.
+*   oVirt Engine now uses the PKCS#12 format to store keys, replacing the previous Java Key Store format. The PKCS#12 format separates the engine as client key usage and engine as server key usage to support third party certificates for the web administration and user portals ([Features/PKI_Improvements](Features/PKI_Improvements)).
+*   Memory Overcommit Manager (MOM) is enabled by default for hosts. It provides the ability to manage memory ballooning and Kernel Same-page Merging (KSM) of the Linux kernel ([SLA-mom](SLA-mom)).
+
+### Virtualization
+
+*   Improvements have been made to the quota implementation, including its logic, calculation, and monitoring. Details can be found at [Features/Quota-3.2](Features/Quota-3.2).
+*   Clusters can now be configured to treat host CPU threads as cores for the purposes of virtual machine resource allocation and migration. This replaces the previous behaviour where VDSM only reported physical cores by default, and users could manually force VDSM to report host threads instead of physical cores.
+*   VDSM hooks have been added for hot plugging and unplugging network interface cards.
+*   Virtual machines can now utilize the host's CPU flags, which enables better performance in virtual machines. However, as this option provides the host's CPU capabilities to the virtual machine's CPU, virtual machines with this option enabled cannot be migrated to hosts of a different CPU model ([Features/Cpu-host_Support](Features/Cpu-host_Support)).
+*   This release introduces OvfAutoUpdater, which performs periodic updates for multiple OVFs in a data center using a single VDSM call, resulting in faster execution of virtual machine operations.
 
 ### User Interface
 
@@ -78,10 +85,3 @@ The oVirt 3.2 release includes these notable changes.
 *   Host power management policies have been improved. Users can define each host's priority to act as a proxy for fencing operations, by default a non-operational host will search for a proxy within its own cluster, and then within its data center ([Features/Design/DetailedHostPMProxyPreferences](Features/Design/DetailedHostPMProxyPreferences)).
 *   Dual-power hosts can now support two power management agents connected to the same power switch. The agents can be used concurrently (either agent can fence a host) or sequentially (if one agent fails, the other is used). See [Features/Design/DetailedHostPMMultipleAgents](Features/Design/DetailedHostPMMultipleAgents) for implementation details.
 *   Support has been added for iLo2 and iLo4 power management devices.
-
-### Virtualization
-
-*   Clusters can now be configured to treat host CPU threads as cores for the purposes of virtual machine resource allocation and migration. This replaces the previous behaviour where VDSM only reported physical cores by default, and users could manually force VDSM to report host threads instead of physical cores.
-*   VDSM hooks have been added for hot plugging and unplugging network interface cards.
-*   Virtual machines can now utilize the host's CPU flags, which enables better performance in virtual machines. However, as this option provides the host's CPU capabilities to the virtual machine's CPU, virtual machines with this option enabled cannot be migrated to hosts of a different CPU model ([Features/Cpu-host_Support](Features/Cpu-host_Support)).
-*   This release introduces OvfAutoUpdater, which performs periodic updates for multiple OVFs in a data center using a single VDSM call, resulting in faster execution of virtual machine operations.

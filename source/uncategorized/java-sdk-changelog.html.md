@@ -8,7 +8,14 @@ wiki_last_updated: 2013-12-25
 
 # Java-sdk-changelog
 
-        * Tue Wed  16 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.2-1
+        * Wed  Jan 30 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.3-1
+         - added persistent authentication support
+         - added support for the method overloads based on url/headers params
+         - added delete methods overloads with body as parameters holder
+         - to host added overidable [display.address] property
+         - user can specify own ticket now in vm.ticket() via [action.ticket.value]
+
+        * Wed  Jan 16 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.2-1
          - in vm/vmnic device property renamed to reportedDevice
          - to host added libvirtVersion
          - addresses an issue when API constructor when NULLs used as parameters

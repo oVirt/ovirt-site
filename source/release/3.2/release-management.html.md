@@ -71,7 +71,7 @@ Features being considered for inclusion/already in master:
     -   [ Display Address Override](Features/Display Address Override)
     -   VM creation base on pre-defined profiles (instance types)
     -   [ libvdsm preview](Features/libvdsm)
-    -   [ Storage live migration](Features/Design/StorageLiveMigration) (needs to be checked)
+    -   [ Storage live migration](Features/Design/StorageLiveMigration) on multiple disks
     -   [ Sync network](SetupNetworks_SyncNetworks)
     -   [ nwfilter](Features/Design/Network/NetworkFiltering)
     -   webadmin: allow column resizing & sorting in grid (bz 767924)

@@ -41,6 +41,7 @@ Test Days are open to anyone. If you have your own setup we will provide all the
 | mgoldboi | clean install- AIO                      | NFS     | basic + port mirroring     | python sdk | V     | admin+user-portal |       | Fedora-18    |
 | lvernia  | -                                       | NFS     | everything                 | -          | -     | webadmin          |       | Fedora-18    |
 | danken   | -                                       | NFS     | rollback on setupNet error | -          | -     | webadmin          |       | el6          |
+| lhornyak | -                                       | iscsi   | -                          | -          | -     | webadmin          |       | el6          |
 
 ## Test Dates
 

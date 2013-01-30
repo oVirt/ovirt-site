@@ -36,12 +36,13 @@ in addition participate in exploring [new features](OVirt_3.2_release-management
 
 Test Days are open to anyone. If you have your own setup we will provide all the software packages and the required information. Please refer - [What to do as a participant](Testing/OvirtTestDay#What_to_do_as_a_participant) - in the section below, if you're willing to participate please add yourself to the below table:
 
-| Name     | allInOne/distributed/migration from 3.1 | Storage | Networking                 | APIs       | Spice | User Interface    | Tools | Distribution |
-|----------|-----------------------------------------|---------|----------------------------|------------|-------|-------------------|-------|--------------|
-| mgoldboi | clean install- AIO                      | NFS     | basic + port mirroring     | python sdk | V     | admin+user-portal |       | Fedora-18    |
-| lvernia  | -                                       | NFS     | everything                 | -          | -     | webadmin          |       | Fedora-18    |
-| danken   | -                                       | NFS     | rollback on setupNet error | -          | -     | webadmin          |       | el6          |
-| lhornyak | -                                       | iscsi   | -                          | -          | -     | webadmin          |       | el6          |
+| Name     | allInOne/distributed/migration from 3.1 | Storage | Networking                                                              | APIs       | Spice | User Interface    | Tools | Distribution |
+|----------|-----------------------------------------|---------|-------------------------------------------------------------------------|------------|-------|-------------------|-------|--------------|
+| mgoldboi | clean install- AIO                      | NFS     | basic + port mirroring                                                  | python sdk | V     | admin+user-portal |       | Fedora-18    |
+| lvernia  | -                                       | NFS     | everything                                                              | -          | -     | webadmin          |       | Fedora-18    |
+| danken   | -                                       | NFS     | rollback on setupNet error                                              | -          | -     | webadmin          |       | el6          |
+| lhornyak | -                                       | iscsi   | -                                                                       | -          | -     | webadmin          |       | el6          |
+| apuimedo | -                                       | NFS     | guest net operation, hotplugging nets and (if possible) live net change | -          | -     | webadmin          |       | el6          |
 
 ## Test Dates
 

@@ -32,6 +32,13 @@ The purpose of test days initiative is to accomplish the following goals:
 
 in addition participate in exploring [new features](OVirt_3.2_release-management#Features) .
 
+## What to do as a participant
+
+*   If you already have the hardware, verify if it meets the hardware requirement, refer information detail section below
+*   Update the Participants section.
+*   Accomplish the goals set in objective section , run the tests, update the test matrix.
+*   Running into any issues - contact any participant in the list
+
 ## Participants
 
 Test Days are open to anyone. If you have your own setup we will provide all the software packages and the required information. Please refer - [What to do as a participant](Testing/OvirtTestDay#What_to_do_as_a_participant) - in the section below, if you're willing to participate please add yourself to the below table:
@@ -230,13 +237,6 @@ Please refer the following document for 'virt-to-date' tool, simple tool for set
 *   <http://ovirt.org/wiki/virt-to-date>
 
 In case you would like to test a product with a new test case, there is a template to be used for creating test cases. Please copy this template for the test case, and update the link in this document to point to the results table below. It is not necessary that the person who is writing the test case will also be the person executing the test case, please make sure the instructions are explicit enough that anyone who may want to participate in the test day can follow them, and execute it.
-
-## What to do as a participant
-
-*   If you already have the hardware, verify if it meets the hardware requirement, refer information detail section below
-*   Update the Participants section.
-*   Accomplish the goals set in objective section , run the tests, update the test matrix.
-*   Running into any issues - contact any participant in the list
 
 ## Bug Reporting
 

@@ -50,7 +50,7 @@ The overall test dates are spread across multiple duration which are driven by t
 
 *   JAN 18th, 2012 - First Release (3.0)
 *   Jun 14th, 2012 - Second Release (3.1)
-*   JAN 29th, 2013 - Third Release (3.2)
+*   JAN 31th, 2013 - Third Release (3.2)
 
 ## Execution Plan and Guidelines
 

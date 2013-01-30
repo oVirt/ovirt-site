@@ -162,7 +162,7 @@ Webadmin:
 
 ### Node
 
-Pre-built node available [here](http://ovirt.org/releases/beta/binary/ovirt-node-iso-2.4.0-1.1.fc17.iso).
+Pre-built node available [here](http://resources.ovirt.org/releases/beta/iso/ovirt-node-iso-2.6.0-201301290835.fc18.iso).
 
 Please check [Node_Release_Notes](Node_Release_Notes) prior to testing for information on current known issues
 

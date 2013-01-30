@@ -87,7 +87,9 @@ You need at least two physical servers to install and configure a basic yet comp
 | Create a template from one of the VMs and then create a new VM based on this template                               |      |
 | Move the newly created VM to another data domain                                                                    |      |
 | Create several snapshots from a VM (Each time change something in the guest)                                        |      |
+| Create several live snapshots from a VM (Each time change something in the guest)                                   |      |
 | Restore a previous snapshot                                                                                         |      |
+| Live migrate a disk between storage domains                                                                         |      |
 | Storage Failovers                                                                                                   |      |
 | Host Failovers                                                                                                      |      |
 | Power User Portal provides power users the ability to create and manage virtual machines from the power user portal |      |

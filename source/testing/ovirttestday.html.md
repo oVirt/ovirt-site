@@ -65,7 +65,7 @@ The overall test dates are spread across multiple duration which are driven by t
 
 ## Execution Plan and Guidelines
 
-for installation check: [http://www.ovirt.org/Testing/OvirtTestDay#Ovirt_Information_Details Ovirt_Information_Details](http://www.ovirt.org/Testing/OvirtTestDay#Ovirt_Information_Details_Ovirt_Information_Details) The following is the list of categories which we would like to focus on. this is basically regression testing:
+for **installation** check: [http://www.ovirt.org/Testing/OvirtTestDay#Ovirt_Information_Details Ovirt_Information_Details](http://www.ovirt.org/Testing/OvirtTestDay#Ovirt_Information_Details_Ovirt_Information_Details) The following is the list of categories which we would like to focus on. this is basically regression testing:
 
 ### General
 

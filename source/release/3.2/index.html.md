@@ -19,7 +19,7 @@ The oVirt 3.2 release includes these notable changes.
 *   The Application Mode option has been added to the engine-setup script, which prompts users to configure the engine for virtualization management only, Gluster management only, or both.
 *   oVirt nodes and Fedora hosts can be registered to the oVirt engine from the administration portal without using the HTTP(s) protocol.
 *   The CA certificate for the web administration portal is now acquired from the TLS/SSL handshake during the VDSM registration process, replacing the previous method of downloading a self-signed certificate from the oVirt Engine. This separates between the CA certificates issued for VDSM and the web administration portal.
-*   VDSM now uses tuned profiles for virtual hosts. Upon host installation, the installation script changes the host profile to 'virt-host-profile', which improves host performance.
+*   VDSM now uses tuned profiles for virtual hosts. Upon host installation, the installation script changes the host profile to 'virtual-host', which improves host performance.
 *   Users can now remove virtual machines while leaving the virtual machine disks as floating disks. This is only applicable when the virtual disks have no snapshots, and when the virtual machine is not based on a template.
 *   The oVirt Engine now performs a DNS lookup and automatically finds a suitable Java Virtual Machine (JVM) during setup, replacing the previous behaviour of hardcoding the JVM location to the data center configuration file.
 
@@ -31,6 +31,7 @@ The oVirt 3.2 release includes these notable changes.
 *   Support has been added for importing existing Gluster supported clusters to the oVirt Engine. All hosts in the cluster are imported, and the bootstrap script installs all necessary VDSM packages on the hosts ([Features/Gluster_Import_Existing_Cluster](Features/Gluster_Import_Existing_Cluster)).
 *   Support has been added for storage live migration. This allows migration of virtual machine disks to different storage devices without first shutting down the virtual machine ([Features/Design/StorageLiveMigration](Features/Design/StorageLiveMigration)).
 *   Support has been added for storage domain live upgrade. This allows upgrades from old data center types to the new V3 domain while virtual machines are running ([Features/StorageDomainLiveUpgrade](Features/StorageDomainLiveUpgrade)).
+*   Gluster volumes can now be optimized for virtualization. This can be done using the "Optimize for Virt Store" button on the engine administration portal, or by using "gluster volume set group virt" in the command line shell.
 
 ### Infrastructure
 

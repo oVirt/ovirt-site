@@ -81,7 +81,7 @@ The oVirt 3.2 release includes these notable changes.
 
 ### Power Management
 
-*   When the engine cannot connect to the storage pool due to a missing master domain or a master domain mismatch, it will trigger the reconstruct master to prevent parallel reconstructs and from other race conditions. The reconstruct master auto-recovers the host. (???)
+*   Previously, when hosts could not connect to the storage pool, oVirt Engine triggered the reconstruct master to increase the version number of the master domain, so the master domain can be used to synchronize between hosts and storage. However, the master domain version increase was not reflected on the host side, so the domain mismatch prevented hosts from connecting to the storage pool. Now, when the reconstruct is performed, the master domain version is increased on both the host and storage sides. When the reconstruct is successful, the hosts will connect to storage and return to an 'Up' state.
 *   Host power management policies have been improved. Users can define each host's priority to act as a proxy for fencing operations, by default a non-operational host will search for a proxy within its own cluster, and then within its data center ([Features/Design/DetailedHostPMProxyPreferences](Features/Design/DetailedHostPMProxyPreferences)).
 *   Dual-power hosts can now support two power management agents connected to the same power switch. The agents can be used concurrently (either agent can fence a host) or sequentially (if one agent fails, the other is used). See [Features/Design/DetailedHostPMMultipleAgents](Features/Design/DetailedHostPMMultipleAgents) for implementation details.
 *   Support has been added for iLo2 and iLo4 power management devices.

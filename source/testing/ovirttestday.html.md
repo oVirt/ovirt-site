@@ -120,6 +120,22 @@ You need at least two physical servers to install and configure a basic yet comp
 *   ping and transfer large amounts of data (2Gb size files should be enough)
 *   remain operational over time (1hr of uptime should be sufficient for the basic testing)
 
+### Tools
+
+*   Basic operations on iso-uploader:
+
+1.  ovirt-iso-uploader list
+2.  ovirt-iso-uploader upload <iso> -i <iso-domain-name> -v -f
+
+*   Basic operations on log-collector:
+
+1.  ovirt-log-collector list
+2.  ovirt-log-collector collect
+
+*   Basic operation on image-uploader
+
+ovirt-image-uploader --name=<new name here> -e <domain> upload my.ovf
+
 #### New to v3.1:
 
 *   port mirroring: one can setup a VM that sniffs all IP traffic between VMs on a network on a host.

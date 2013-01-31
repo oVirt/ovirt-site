@@ -172,25 +172,7 @@ Webadmin:
 
 ### Node
 
-Pre-built node available [here](http://resources.ovirt.org/releases/beta/iso/ovirt-node-iso-2.6.0-201301290835.fc18.iso).
-
-Please check [Node_Release_Notes](Node_Release_Notes) prior to testing for information on current known issues
-
-| Scenario                                                                                                                                                                                                                                                                                                        | Bugs |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
-| Boot image and install using the TUI on a single disk                                                                                                                                                                                                                                                           |      |
-| Boot image and install using the TUI on multiple disks                                                                                                                                                                                                                                                          |      |
-| Boot image and install using autoinstall parameters from [here](http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/6/html/Hypervisor_Deployment_Guide/sect-Deployment_Guide-Installing_Red_Hat_Enterprise_Virtualization_Hypervisors-RHEV_Hypervisor_Kernel_Parameters_and_Automated_Installation.html) |      |
-| Configure Networking using the TUI                                                                                                                                                                                                                                                                              |      |
-| Configure ssh password auth and attempt to login using ssh                                                                                                                                                                                                                                                      |      |
-| Configure remote logging                                                                                                                                                                                                                                                                                        |      |
-| Configure kdump                                                                                                                                                                                                                                                                                                 |      |
-| Configure iscsi initiator name                                                                                                                                                                                                                                                                                  |      |
-| Configure collectd                                                                                                                                                                                                                                                                                              |      |
-| Configure oVirt Engine hostname and port                                                                                                                                                                                                                                                                        |      |
-| Configure admin password on oVirt Engine screen and add host through ovirt engine                                                                                                                                                                                                                               |      |
-| Once registered, run vms on top of ovirt-node                                                                                                                                                                                                                                                                   |      |
-|                                                                                                                                                                                                                                                                                                                 |      |
+oVirt Node image is not currently available for the Test Day. The image should be available within the next day or two.
 
 ### SLA
 

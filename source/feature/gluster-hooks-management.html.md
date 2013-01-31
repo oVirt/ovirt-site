@@ -28,3 +28,11 @@ To read more about gluster hooks <http://www.gluster.org/community/documentation
 
 *   Status: In Development
 *   Last updated date: Thu Jan 31 2013
+
+## Detailed Description
+
+## Design
+
+![](Gluster-Hooks-table.png "fig:Gluster-Hooks-table.png") ![](Gluster-Hooks-conflicts.png "fig:Gluster-Hooks-conflicts.png")
+
+<Category:Feature>

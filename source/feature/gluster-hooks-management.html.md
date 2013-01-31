@@ -12,7 +12,9 @@ wiki_last_updated: 2014-12-22
 
 ## Summary
 
-This feature allows the user to manage the gluster hooks from oVirt Engine.
+This feature allows the user to manage the gluster hooks(Volume lifecycle extensions) from oVirt Engine. With this the user can view the list of hooks available in the hosts along with their statuses. The user will be able to enable or disable hooks and view the content s of them.
+
+To read more about gluster hooks <http://www.gluster.org/community/documentation/index.php/Features/Hooks>
 
 ## Owner
 

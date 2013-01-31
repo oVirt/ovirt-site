@@ -124,17 +124,17 @@ You need at least two physical servers to install and configure a basic yet comp
 
 *   Basic operations on iso-uploader:
 
-1.  engine-iso-uploader list
-2.  engine-iso-uploader upload <iso> -i <iso-domain-name> -v -f
+1.  **engine-iso-uploader list**
+2.  **engine-iso-uploader upload <iso> -i <iso-domain-name> -v -f**
 
 *   Basic operations on log-collector:
 
-1.  engine-log-collector list
-2.  engine-log-collector collect
+1.  **engine-log-collector list**
+2.  **engine-log-collector collect**
 
 *   Basic operation on image-uploader
 
-engine-image-uploader --name=<new name here> -e <domain> upload my.ovf
+**engine-image-uploader --name=<new name here> -e <domain> upload my.ovf**
 
 #### New to v3.1:
 

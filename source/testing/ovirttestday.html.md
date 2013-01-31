@@ -54,6 +54,7 @@ Test Days are open to anyone. If you have your own setup we will provide all the
 | msalem     | -                                       | NFS             | network main tab                                                        | -          | V     | webadmin               |                     | fedora 18               |
 | alkaplan   | -                                       | NFS             | network linking                                                         | -          | -     | webadmin               |                     | fedora 18               |
 | sbonazzola | Migration from 3.1 to 3.2               | any             | basic process                                                           |            | -     | -                      | setup/upgrade tools | Fedora-17 and Fedora-18 |
+| dcaroest   | clean install-Distributed               | NFS             | basic process                                                           |            | -     | webadmin + user portal | setup tools         | Fedora-18               |
 
 ## Test Dates
 

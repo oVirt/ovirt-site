@@ -83,6 +83,7 @@ You need at least two physical servers to install and configure a basic yet comp
 | Configure high availability for virtual machines which are running mission critical workloads, so they will be restarted on another host if hardware failure occurs |      |
 | Use the multi-level administration feature to assign different levels of user permissions                                                                           |      |
 | Live Migration Scenarios                                                                                                                                            |      |
+| Enable smartcard support for a VM and verify that the <smartcard mode="passthrough" type="spicevmc"/> is passed to libvirt                                          |      |
 
 ### Storage
 

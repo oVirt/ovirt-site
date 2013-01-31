@@ -131,7 +131,14 @@ You need at least two physical servers to install and configure a basic yet comp
 *   ping and transfer large amounts of data (2Gb size files should be enough)
 *   remain operational over time (1hr of uptime should be sufficient for the basic testing)
 
-Bugs found: Bug 906289 - [oVirt-webadmin] [network] Non-VM networks shown as VM networks on cluster attachment dialog Bug 906291 - [oVirt-webadmin] [network] Non-VM networks not being detached from cluster Bug 906313 - [oVirt-webadmin] [setupNetworks] "No valid Operation for <network_name> and Unassigned Logical Networks panel" Bug 906383 - [vdsm] [setupNetworks] Error while attaching non-VM network to interface on Fedora 18 Bug 906393 - [oVirt] [network] Audit log message for unmanaged network Bug 906394 - [oVirt-webadmin] [network] Loading animation in network main tab 'hosts' and 'vms' subtab is stuck on first view of the sub tab
+Bugs found:
+
+*   Bug 906289 - [oVirt-webadmin] [network] Non-VM networks shown as VM networks on cluster attachment dialog
+*   Bug 906291 - [oVirt-webadmin] [network] Non-VM networks not being detached from cluster
+*   Bug 906313 - [oVirt-webadmin] [setupNetworks] "No valid Operation for <network_name> and Unassigned Logical Networks panel"
+*   Bug 906383 - [vdsm] [setupNetworks] Error while attaching non-VM network to interface on Fedora 18
+*   Bug 906393 - [oVirt] [network] Audit log message for unmanaged network
+*   Bug 906394 - [oVirt-webadmin] [network] Loading animation in network main tab 'hosts' and 'vms' subtab is stuck on first view of the sub tab
 
 ### Tools
 

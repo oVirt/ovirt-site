@@ -31,7 +31,7 @@ The oVirt 3.2 release includes these notable changes.
 *   Support has been added for importing existing Gluster supported clusters to the oVirt Engine. All hosts in the cluster are imported, and the bootstrap script installs all necessary VDSM packages on the hosts ([Features/Gluster_Import_Existing_Cluster](Features/Gluster_Import_Existing_Cluster)).
 *   Support has been added for storage live migration. This allows migration of virtual machine disks to different storage devices without first shutting down the virtual machine ([Features/Design/StorageLiveMigration](Features/Design/StorageLiveMigration)).
 *   Support has been added for storage domain live upgrade. This allows upgrades from old data center types to the new V3 domain while virtual machines are running ([Features/StorageDomainLiveUpgrade](Features/StorageDomainLiveUpgrade)).
-*   Gluster volumes can now be optimized for virtualization. This can be done using the "Optimize for Virt Store" button on the engine administration portal, or by using "gluster volume set group virt" in the command line shell.
+*   Gluster volumes can now be optimized for virtualization. This can be done using the "Optimize for Virt Store" button on the "Volumes" tab of the engine administration portal.
 
 ### Infrastructure
 

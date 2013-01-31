@@ -139,6 +139,7 @@ Bugs found:
 *   Bug 906383 - [vdsm] [setupNetworks] Error while attaching non-VM network to interface on Fedora 18
 *   Bug 906393 - [oVirt] [network] Audit log message for unmanaged network
 *   Bug 906394 - [oVirt-webadmin] [network] Loading animation in network main tab 'hosts' and 'vms' subtab is stuck on first view of the sub tab
+*   Bug 906405 - Bad Error Message when Removing vNic from Running VM
 
 ### Tools
 

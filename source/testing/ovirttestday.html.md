@@ -51,6 +51,7 @@ Test Days are open to anyone. If you have your own setup we will provide all the
 | lhornyak | -                                       | iscsi           | -                                                                       | -          | -     | webadmin               |       | el6          |
 | apuimedo | -                                       | NFS             | guest net operation, hotplugging nets and (if possible) live net change | -          | -     | webadmin               |       | el6          |
 | Gianluca | -                                       | local and iSCSI | basic                                                                   | -          | V     | webadmin + user portal |       | fedora 18    |
+| msalem   | -                                       | NFS             | network main tab                                                        | -          | V     | webadmin + user portal |       | fedora 18    |
 
 ## Test Dates
 

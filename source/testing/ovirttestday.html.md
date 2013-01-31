@@ -141,6 +141,8 @@ Bugs found:
 *   Bug 906393 - [oVirt] [network] Audit log message for unmanaged network
 *   Bug 906394 - [oVirt-webadmin] [network] Loading animation in network main tab 'hosts' and 'vms' subtab is stuck on first view of the sub tab
 *   Bug 906405 - Bad Error Message when Removing vNic from Running VM
+*   Bug 906434 - Editing vnic's type and mac are blocked when the vnic was unplugged and updated to plugged
+*   Bug 906440 - Updating type of a plugged nic should be blocked on the ui side
 
 ### Tools
 

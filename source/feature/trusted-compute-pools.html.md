@@ -24,7 +24,7 @@ Trusted Compute Pools provide a way for Administrator to deploy VMs on trusted h
 
 ### Current status
 
-*   WIP
+*   WIP (@ <http://gerrit.ovirt.org/11237>)
 *   Last updated date: Feb 1, 2013
 
 ### Detailed Description

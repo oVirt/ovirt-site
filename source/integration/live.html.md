@@ -88,7 +88,11 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 #### change-log
 
-Based on ovirt 3.2 beta Fedora 18 workaround for <https://bugzilla.redhat.com/show_bug.cgi?id=878119>
+Based on ovirt 3.2 beta
+
+Fedora 18
+
+workaround for <https://bugzilla.redhat.com/show_bug.cgi?id=878119>
 
 ### oVirt-Live-0.9.iso - beta version Jan 9th 2013
 

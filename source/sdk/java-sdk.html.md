@@ -290,23 +290,29 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 5. support persistent authentication (done)
 
-6. implement sdk debug mode (in-progress)
+6. implement CA certificate validation (in-progress)
 
-7. remove @SuppressWarnings("unused") from decorators
+7. implement client validation
 
-8. move get/list methods from the decorators to the parent classes
+8. implement port/timeout in SDK constructor
 
-9. implement unique treatment for COLLECTION2ENTITY pattern exceptions
+9. implement sdk debug mode
 
-10. implement logger in codegen
+10. remove @SuppressWarnings("unused") from decorators
 
-11. add deployment capabilities
+11. move get/list methods from the decorators to the parent classes
 
-12. upload artifacts to mvn repo (done)
+12. implement unique treatment for COLLECTION2ENTITY pattern exceptions
 
-13. Implement querying collections using custom constraint.
+13. implement logger in codegen
 
-14. in doc change parameters format to javaDoc style (done)
+14. add deployment capabilities
+
+15. upload artifacts to mvn repo (done)
+
+16. Implement querying collections using custom constraint.
+
+17. in doc change parameters format to javaDoc style (done)
 
 ## Change Log
 

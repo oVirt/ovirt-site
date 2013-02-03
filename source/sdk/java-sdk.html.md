@@ -294,7 +294,7 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 7. implement client validation
 
-8. implement port/timeout in SDK constructor
+8. implement timeout in SDK constructor
 
 9. implement sdk debug mode
 

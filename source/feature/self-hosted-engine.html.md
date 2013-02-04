@@ -47,15 +47,29 @@ This will allow us to deploy less hardware (with the Engine not requiring a sepa
 
 ### Pre created Engine Image
 
-1. An OS image with installed but not set up Engine (ready for the engine-setup stage) 2. The engine-setup stage should pick up the data passed at first install into the database, so when the engine service is up, it is already working with the existing SD and should recognize itself as a VM in this setup.
+1. An OS image with installed but not set up Engine (ready for the engine-setup stage)
+
+2. The engine-setup stage should pick up the data passed at first install into the database, so when the engine service is up, it is already working with the existing SD and should recognize itself as a VM in this setup.
 
 ### First deployment
 
-1. Create a Storage Domain from a Fedora (RHEL)/ovirt-node (RHEV-H) host 2. Define the first cluster according to the capabilities of the first hypervisor, and place the Engien VM in this cluster 3. Deploy a prepared Engine VM image into the new SD and start it 4. Pass the details of the new host, cluster and new SD to the Engine VM, so that is can pick this data up at the engine-setup stage
+Initial setup means defining a host, cluster and SD, deploying the Engine into this host, registering the host and adding the SD to the Engine. Then, the Engine VM should be started, configured and updated. When the process is finished, the user should be able to login to the Engine, and be able to see a defined DC+SD and Cluster with one host and one VM (the Engine itself). The first and only host will also be the current SPM.
+
+1. Create a Storage Domain from a Fedora (RHEL)/ovirt-node (RHEV-H) host
+
+2. Define the first cluster according to the capabilities of the first hypervisor, and place the Engien VM in this cluster
+
+3. Deploy a prepared Engine VM image into the new SD and start it
+
+4. Pass the details of the new host, cluster and new SD to the Engine VM, so that is can pick this data up at the engine-setup stage
 
 ### Operational Routine
 
-1. Monitor the state of the Engine VM and restart the VM on other hosts in case of failure 2. Monitor the Engine status in the VM and restart the VM (or just the engine service) if it fails 3. Monitor the status of the host that is currently running the Engine VM
+1. Monitor the state of the Engine VM and restart the VM on other hosts in case of failure
+
+2. Monitor the Engine status in the VM and restart the VM (or just the engine service) if it fails
+
+3. Monitor the status of the host that is currently running the Engine VM
 
 #### What to Monitor
 
@@ -65,6 +79,7 @@ This will allow us to deploy less hardware (with the Engine not requiring a sepa
 *   Engine VM crashing
 *   Engine service unavailable
 *   SD where the Engine VM is hosted is down
+*   A situation when the host where the Egnine is running is in a problematic state, while the Engine VM is still up should also trigger a failover, or live migration.
 
 #### Additional functionality required at host level
 

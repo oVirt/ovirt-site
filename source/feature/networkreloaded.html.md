@@ -92,7 +92,7 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 
 *   name.
 *   IpLink,
-*   IpAddress.
+*   IpConfig.
 
 ##### IpConfig
 

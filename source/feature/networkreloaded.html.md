@@ -57,6 +57,7 @@ The primitives to represent are:
 *   Bond,
 *   Nic,
 *   VLAN,
+*   Device alias (is it really required?),
 *   IpConfig.
 
 The relationship is as follows:
@@ -95,19 +96,23 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 *   IpConfig,
 *   backend: Reference to the configurator that can apply/delete the configuration.
 
+##### VLAN
+
+*   Tag: The tag number of the VLAN.
+*   Interface: A nic, bond or bridge that has the vlan on top.
+*   IPConfing,
+*   backend: Reference to the configurator that can apply/delete the configuration.
+
+##### Alias
+
+*   Users have shown interest in the likes of `eth0:4`. We should find out if this is really required of oVirt.
+
 ##### IpConfig
 
 *   inet: List of IPv4 address information (addr + netmask + gateway/route),
 *   inet6: List of IPv6 address information (addr + netmask + gateway/route).
 *   MTU: Max. Transfer Unit,
 *   LinkActive: True/False,
-*   backend: Reference to the configurator that can apply/delete the configuration.
-
-##### VLAN
-
-*   Tag: The tag number of the VLAN.
-*   Interface: A nic, bond or bridge that has the vlan on top.
-*   IPConfing,
 *   backend: Reference to the configurator that can apply/delete the configuration.
 
 #### Define internal API

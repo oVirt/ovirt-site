@@ -123,10 +123,10 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 
 #### Define internal API
 
-The internal API should allow for an objectified network definition (from setupNetworks and/or rollback) to be applied consistently regardless of which backend provides it. That includes:
+The internal API should allow for an objectified network definition (via setupNetworks command from Engine or from rollback) to be applied consistently regardless of which backend provides it. That includes:
 
 *   Creation,
-*   Edition,
+*   Modification,
 *   Deletion.
 
 Thus, a backend should have methods for doing these three actions for the above primitives or a subset of them (as we allow for multiple different backends to coexist.

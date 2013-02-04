@@ -72,6 +72,8 @@ The relationship is as follows:
 
 A netinfo object would have a list of the top hierarchy objects and generate the info from that.
 
+**TBD** a list of all valid network topologies.
+
 ##### Bridge
 
 *   ports: Could be nics, bonds or vlans. vNics of VMs are connected to temporary ports (tap devices).

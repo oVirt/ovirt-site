@@ -120,7 +120,7 @@ The specific values means:
 | predefined_properties    | custom properties                            | Y        |       | Y             |       |
 | min_allocated_mem       | memory guaranteed                            | Y        |       | N             |       |
 | child_count              | internal. for template, not in use?          | N        |       | N             |       |
-| quota_id                 | link to quota                                | N        |       | N             |       |
+| quota_id                 | link to quota                                | Y        |       | Y             |       |
 | allow_console_reconnect | allow reconnect to console                   | Y        |       | N             |       |
 | cpu_pinning              | cpu pinning                                  | N        |       | N             |       |
 | is_smartcard_enabled    | smartcard enabled                            | Y        |       | N             |       |

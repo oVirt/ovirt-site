@@ -38,7 +38,7 @@ The main points are:
 
 | Step                                   | Description                                                                                                                   | Completion |
 |----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|------------|
-| Define object oriented representations | Find the best class representations for the network primitives for our usage                                                  | 15%        |
+| Define object oriented representations | Find the best class representations for the network primitives for our usage                                                  | 20%        |
 | Define internal API                    | Define the API that will establish the relationship between the new network representation and the multiple network backends. | 0%         |
 | Live Netinfo instance                  | Define a way to keep a netinfo.Netinfo instance updated based on the representations of the first point.                      | 10%        |
 | IProute2 backend                       | Create a network backend from iproute2 tools, following the internal API.                                                     | 10%        |

@@ -74,7 +74,7 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 
 ##### Bridge
 
-*   ports: Could be nics, bonds or vlans,
+*   ports: Could be nics, bonds or vlans. vNics of VMs are connected to temporary ports (tap devices).
 *   name,
 *   forward_delay,
 *   stp,

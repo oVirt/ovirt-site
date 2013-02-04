@@ -57,7 +57,7 @@ This will allow us to deploy less hardware (with the Engine not requiring a sepa
 
 1. Monitor the state of the Engine VM and restart the VM on other hosts in case of failure 2. Monitor the Engine status in the VM and restart the VM (or just the engine service) if it fails 3. Monitor the status of the host that is currently running the Engine VM
 
-#### **Monitoring should be done at multiple levels, taking the following into account:**
+#### What to Monitor
 
 *   Engine VM Host losing only the management network
 *   All the management network is down for all hosts
@@ -66,7 +66,7 @@ This will allow us to deploy less hardware (with the Engine not requiring a sepa
 *   Engine service unavailable
 *   SD where the Engine VM is hosted is down
 
-#### **Additional functionality required at host level:**
+#### Additional functionality required at host level
 
 *   Heartbeat the Engine VM
 *   Heartbeat the Engine service health
@@ -77,12 +77,12 @@ This will allow us to deploy less hardware (with the Engine not requiring a sepa
 *   Host capabilities (minimal CPU/RAM available) will have effect on the host selection heuristics
 *   Host priority in Engine election
 
-#### **Additional functionality required at the Engine level:**
+#### Additional functionality required at the Engine level
 
 *   If Engine fails, all the vm/host/cluster/storage statuses should be locked, when the Engine is up again, the states should be reported, Engine will take these as given, and continue managing the entities with the initial status taken from the hosts.
 *   If a conflicting situation is reported (same VM running on two hosts, or there are two hosts reporting they are SPM) Engine should be able to resolve.
 
-#### **General**
+#### General
 
 *   Ability to tolerate an SD loss: have a mirrored copy of the Engine VM disk on another SD
 *   Ability to tolerate a cluster loss: if all the hosts in the cluster are not available, a host from another cluster should be able to start the Engine VM

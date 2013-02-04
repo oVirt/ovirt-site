@@ -104,6 +104,7 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 
 *   Tag: The tag number of the VLAN.
 *   Interface: A nic, bond or bridge that has the vlan on top.
+*   IPConfing.
 
 #### Define internal API
 

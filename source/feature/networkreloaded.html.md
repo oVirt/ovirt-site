@@ -55,17 +55,17 @@ The primitives to represent are:
 *   Bridge,
 *   Bond,
 *   Nic,
-*   IpAddress,
-*   IpLink.
+*   VLAN,
+*   IpConfig.
 
 The relationship is as follows:
 
-1.  Bridge, Bonds and Nics have both IpAddress and IpLink information.
-2.  Bridges have ports that can be Bond and Nic instances.
-3.  Bonds have slaves that are Nic instances.
-4.  IpAddress objects contain information about the configured IPv4 and IPv6 addresses(they can have multiple of each) and routes.
-5.  IpLink contains information such as mtu, vlan tag and up/down status. I'm still not sure if it is not better to have a vlan object though. In any case, in the current form, there should be support for multiple vlans.
-6.  Each class contains the logic for validating the parameters received from the engine, this way, the responsabilities for wrong configuration detection are semantically localized.
+1.  Bridge, Bonds and Nics have both IpConfig information.
+2.  Bridges have ports that can be Bond, Nic and Vlan instances.
+3.  Bonds have slaves that are Nic or Vlan instances.
+4.  IpConfig objects contain information about the configured IPv4 and IPv6 addresses(they can have multiple of each), routes mtu and link state.
+5.  Vlans can be set upon Nics, and bonds.
+6.  Each class contains the logic for validating the parameters received from the engine, this way, the responsibilities for wrong configuration detection are semantically localized.
 7.  Each object should be able to contribute its part in generating the information for getVdsCaps.
 
 A netinfo object would have a list of the top hierarchy objects and generate the info from that.
@@ -77,32 +77,37 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 *   forward_delay,
 *   stp,
 *   priority,
-*   IpConfig
+*   IpConfig,
+*   backend: Reference to the configurator that can apply/delete the configuration.
 
 ##### Bond
 
 *   name,
 *   slaves: nics or vlans,
 *   opts: Dictionary with stuff like mode and miimon.
-*   IpConfig.
+*   IpConfig,
+*   backend: Reference to the configurator that can apply/delete the configuration.
 
 ##### Nic
 
 *   name.
-*   IpConfig.
+*   IpConfig,
+*   backend: Reference to the configurator that can apply/delete the configuration.
 
 ##### IpConfig
 
 *   inet: List of IPv4 address information (addr + netmask + gateway/route),
 *   inet6: List of IPv6 address information (addr + netmask + gateway/route).
 *   MTU: Max. Transfer Unit,
-*   LinkActive: True/False.
+*   LinkActive: True/False,
+*   backend: Reference to the configurator that can apply/delete the configuration.
 
 ##### VLAN
 
 *   Tag: The tag number of the VLAN.
 *   Interface: A nic, bond or bridge that has the vlan on top.
-*   IPConfing.
+*   IPConfing,
+*   backend: Reference to the configurator that can apply/delete the configuration.
 
 #### Define internal API
 
@@ -111,6 +116,8 @@ The internal API should allow for an objectified network definition (from setupN
 *   Creation,
 *   Edition,
 *   Deletion.
+
+Thus, a backend should have methods for doing these three actions for the above primitives or a subset of them (as we allow for multiple different backends to coexist.
 
 #### Live Netinfo instance
 

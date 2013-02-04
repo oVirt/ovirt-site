@@ -94,10 +94,11 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 *   IpLink,
 *   IpAddress.
 
-##### IpAddress
+##### IpConfig
 
 *   inet: List of IPv4 address information (addr + netmask + gateway/route),
 *   inet6: List of IPv6 address information (addr + netmask + gateway/route).
+*   MTU: Max. Transfer Unit.
 
 ##### IpLink (wrong, has to be reimagined, probably splitting of a vlan object)
 

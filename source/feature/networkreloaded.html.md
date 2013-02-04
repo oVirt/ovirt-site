@@ -95,7 +95,8 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 
 *   inet: List of IPv4 address information (addr + netmask + gateway/route),
 *   inet6: List of IPv6 address information (addr + netmask + gateway/route).
-*   MTU: Max. Transfer Unit.
+*   MTU: Max. Transfer Unit,
+*   LinkActive: True/False.
 
 ##### VLAN
 

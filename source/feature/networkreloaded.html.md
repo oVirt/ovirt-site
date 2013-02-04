@@ -100,10 +100,10 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 *   inet6: List of IPv6 address information (addr + netmask + gateway/route).
 *   MTU: Max. Transfer Unit.
 
-##### IpLink (wrong, has to be reimagined, probably splitting of a vlan object)
+##### VLAN
 
-*   Mtu,
-*   vlans
+*   Tag: The tag number of the VLAN.
+*   Interface: A nic, bond or bridge that has the vlan on top.
 
 #### Define internal API
 

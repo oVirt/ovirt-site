@@ -72,13 +72,12 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 
 ##### Bridge
 
-*   ports,
+*   ports: Could be nics, bonds or vlans,
 *   name,
 *   forward_delay,
 *   stp,
 *   priority,
-*   IpLink,
-*   IpAddress
+*   IpConfig
 
 ##### Bond
 

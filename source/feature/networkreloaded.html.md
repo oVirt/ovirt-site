@@ -89,7 +89,6 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 ##### Nic
 
 *   name.
-*   IpLink,
 *   IpConfig.
 
 ##### IpConfig

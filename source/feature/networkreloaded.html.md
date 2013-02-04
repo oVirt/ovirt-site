@@ -82,10 +82,9 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 ##### Bond
 
 *   name,
-*   slaves,
+*   slaves: nics or vlans,
 *   opts: Dictionary with stuff like mode and miimon.
-*   IpLink,
-*   IpAddress.
+*   IpConfig.
 
 ##### Nic
 

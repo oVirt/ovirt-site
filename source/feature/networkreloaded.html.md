@@ -41,6 +41,7 @@ The main points are:
 | Define object oriented representations | Find the best class representations for the network primitives for our usage                                                  | 20%        |
 | Define internal API                    | Define the API that will establish the relationship between the new network representation and the multiple network backends. | 10%        |
 | Live Netinfo instance                  | Define a way to keep a netinfo.Netinfo instance updated based on the representations of the first point.                      | 10%        |
+| ifcfg backend                          | refactor our current ifcfg-based implementation as backend, following the internal API.                                       | 0%         |
 | IProute2 backend                       | Create a network backend from iproute2 tools, following the internal API.                                                     | 10%        |
 | Objectified rollback                   | Modify the rollback mechanism into just feeding the pre-crash network object representation to the selected network backend   | 0%         |
 

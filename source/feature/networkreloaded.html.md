@@ -115,6 +115,10 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 *   LinkActive: True/False,
 *   backend: Reference to the configurator that can apply/delete the configuration.
 
+##### Network
+
+*   an abstract object representing a layer-2 network, that may be implemented by a bridge, a set of nics, etc.
+
 #### Define internal API
 
 The internal API should allow for an objectified network definition (from setupNetworks and/or rollback) to be applied consistently regardless of which backend provides it. That includes:

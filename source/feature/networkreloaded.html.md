@@ -82,7 +82,8 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 *   stp,
 *   priority,
 *   IpConfig,
-*   backend: Reference to the configurator that can apply/delete the configuration.
+*   link_active: True/False,
+*   conf_impl: Reference to the configurator implementation that can apply/delete changes.
 
 ##### Bond
 
@@ -90,20 +91,23 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 *   slaves: nics or vlans,
 *   opts: Dictionary with stuff like mode and miimon.
 *   IpConfig,
-*   backend: Reference to the configurator that can apply/delete the configuration.
+*   link_active: True/False,
+*   conf_impl: Reference to the configurator implementation that can apply/delete changes.
 
 ##### Nic
 
 *   name.
 *   IpConfig,
-*   backend: Reference to the configurator that can apply/delete the configuration.
+*   LinkActive: True/False,
+*   conf_impl: Reference to the configurator implementation that can apply/delete changes.
 
 ##### VLAN
 
-*   Tag: The tag number of the VLAN.
+*   tag: The tag number of the VLAN.
 *   Interface: A nic, bond or bridge that has the vlan on top.
 *   IPConfing,
-*   backend: Reference to the configurator that can apply/delete the configuration.
+*   link_active: True/False,
+*   conf_impl: Reference to the configurator implementation that can apply/delete changes.
 
 ##### Alias
 
@@ -114,8 +118,7 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 *   inet: List of IPv4 address information (addr + netmask + gateway/route),
 *   inet6: List of IPv6 address information (addr + netmask + gateway/route).
 *   MTU: Max. Transfer Unit,
-*   LinkActive: True/False,
-*   backend: Reference to the configurator that can apply/delete the configuration.
+*   conf_impl: Reference to the configurator implementation that can apply/delete changes.
 
 ##### Network
 
@@ -123,13 +126,13 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 
 #### Define internal API
 
-The internal API should allow for an objectified network definition (via setupNetworks command from Engine or from rollback) to be applied consistently regardless of which backend provides it. That includes:
+The internal API should allow for an objectified network definition (via setupNetworks command from Engine or from rollback) to be applied consistently regardless of which configurator implementation provides it. That includes:
 
 *   Creation,
 *   Modification,
 *   Deletion.
 
-Thus, a backend should have methods for doing these three actions for the above primitives or a subset of them (as we allow for multiple different backends to coexist.
+Thus, a configurator implementation should have methods for doing these three actions for the above primitives or a subset of them (as we allow for multiple different configurator implementations to coexist).
 
 #### Live Netinfo instance
 
@@ -143,16 +146,50 @@ The thread could work in the following way:
 4.  Parse the nl_msg to get the information of what changed.
 5.  For each event, create a copy of the current Netinfo instance, do the modifications that the event entails and update the netinfo module reference to the live Netinfo objec to the new object.
 
-#### IProute2 network backend
+#### ifcfg configurator (Persistant)
 
-A backend could be made that used the following tools to apply network configuration:
+This configurator relies on ifcfg files placed in /etc/sysconfig/network-scripts/ and the ifup/ifdown bash scripts for controlling:
 
-1.  ip link: To create vlans, set mtus, upping and downing interfaces.
-2.  ip addr: To add/remove IPv4 and IPv6 addresses (with their netmasks).
-3.  ip route: To add/remove routes and set gateways.
-4.  brctl: To create, delete bridges and add/remove its ports.
-5.  Writing to /sys/class/net/bonding_masters: Create/remove bonds.
-6.  Writing to /sys/class/net/bond_name/bonding/slaves: Add remove slaves of bonds.
+*   Vlans,
+*   Bridges,
+*   Bonds,
+*   Nics.
+
+It is important to note that this is the currently implemented interface of vdsm networking, and thus, the most likely to be the the first supported configurator via a refactoring of the current code.
+
+#### IProute2 configurator (Non-persistant)
+
+A configurator implementation could be made that supported:
+
+*   Vlans: via the "ip link" cmdline tool (also used for mtu setting and upping/downing ifaces).
+*   Bridges: via the "brctl" cmdline tool.
+*   Bonds: via writes to /sys/class/net/bonding_masters (creation/removal of bonds) and /sys/class/net/bond_name/bonding/slaves (addition/removal of bond slaves).
+*   Nics,
+*   IpConfig: via the "ip addr" and "ip route" cmdline tools.
+
+#### Open vSwitch configurator (Persistant by default)
+
+This configurator would preferably use the Python bindings to the Open vSwitch database (or alternatively the "ovs-vsctl" cmdline tool) to establish configuration of:
+
+*   Vlans,
+*   Bridges,
+*   Special bond kernel module defined by Open vSwitch could be supported as well,
+*   Additionally, other capabilities like QoS and portMirroring could be leveraged.
+
+#### NetworkManager configurator (Persistant and non-persistant, via temp. connections)
+
+NetworkManager provides a D-Bus endpoint that could be used from Python to set up (once support for all of them stabilizes):
+
+*   Vlans,
+*   Bridges,
+*   Bonds,
+*   IpConfig.
+
+#### Team configurator (Persistant and non-persistant via ip)
+
+Team is the newfangled kernel module + userspace daemon for replacing bonding. Thus, it would support:
+
+*   "Bonds". A conf file can be passed to the teamd daemon, or an interface can be created/modified via the "ip link" cmdline tool.
 
 #### Objectified rollback
 

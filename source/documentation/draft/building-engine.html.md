@@ -264,7 +264,7 @@ In case you like to do a full bootstrap installation (InstallVds = True into the
 
       $> cd $OVIRT_HOME
       $> make create_dirs
-      $> make install_tools
+      $> make install_tools (As of 06.02.2013 this target doesn't actually exist)
       $> make install_config
 
 ## Testing

@@ -16,6 +16,7 @@ Not a full list, just collecting here...
 
 ## Ovirt related blogs
 
+*   <http://simon3z.blogspot.it/> - Frederico
 *   <http://ovirt.blogspot.com/> - Geoff O'Callaghan
 *   <http://lpeer.blogspot.com/> - Livnat
 *   <http://iquaid.org/>

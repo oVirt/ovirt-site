@@ -157,3 +157,5 @@ A backend could be made that used the following tools to apply network configura
 #### Objectified rollback
 
 Using setsafeconfig will serialize to /var/lib/vdsm/netconfback/ the live Netinfo object. In case of crash, this Netinfo instance will be recovered and reapplied.
+
+### Open questions

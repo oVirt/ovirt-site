@@ -134,6 +134,53 @@ The internal API should allow for an objectified network definition (via setupNe
 
 Thus, a configurator implementation should have methods for doing these three actions for the above primitives or a subset of them (as we allow for multiple different configurator implementations to coexist).
 
+#### Network configurators
+
+##### ifcfg configurator (Persistant)
+
+This configurator relies on ifcfg files placed in /etc/sysconfig/network-scripts/ and the ifup/ifdown bash scripts for controlling:
+
+*   Vlans,
+*   Bridges,
+*   Bonds,
+*   Nics.
+
+It is important to note that this is the currently implemented interface of vdsm networking, and thus, the most likely to be the the first supported configurator via a refactoring of the current code.
+
+##### IProute2 configurator (Non-persistant)
+
+A configurator implementation could be made that supported:
+
+*   Vlans: via the "ip link" cmdline tool (also used for mtu setting and upping/downing ifaces).
+*   Bridges: via the "brctl" cmdline tool.
+*   Bonds: via writes to /sys/class/net/bonding_masters (creation/removal of bonds) and /sys/class/net/bond_name/bonding/slaves (addition/removal of bond slaves).
+*   Nics,
+*   IpConfig: via the "ip addr" and "ip route" cmdline tools.
+
+##### Open vSwitch configurator (Persistant by default)
+
+This configurator would preferably use the Python bindings to the Open vSwitch database (or alternatively the "ovs-vsctl" cmdline tool) to establish configuration of:
+
+*   Vlans,
+*   Bridges,
+*   Special bond kernel module defined by Open vSwitch could be supported as well,
+*   Additionally, other capabilities like QoS and portMirroring could be leveraged.
+
+##### NetworkManager configurator (Persistant and non-persistant, via temp. connections)
+
+NetworkManager provides a D-Bus endpoint that could be used from Python to set up (once support for all of them stabilizes):
+
+*   Vlans,
+*   Bridges,
+*   Bonds,
+*   IpConfig.
+
+##### Team configurator (Persistant and non-persistant via ip)
+
+Team is the newfangled kernel module + userspace daemon for replacing bonding. Thus, it would support:
+
+*   "Bonds". A conf file can be passed to the teamd daemon, or an interface can be created/modified via the "ip link" and "ip addr" cmdline tool.
+
 #### Live Netinfo instance
 
 The goal of this action point is to have a thread that on the beginning polls the network state of the host and then registers to the network events to update the internal objects. To avoid race conditions, setupNetworks and other network modifying operations should get a copy of the object before starting work.
@@ -145,51 +192,6 @@ The thread could work in the following way:
 3.  Use RTNLGRP_IFADDR to list for address creation and deletion events.
 4.  Parse the nl_msg to get the information of what changed.
 5.  For each event, create a copy of the current Netinfo instance, do the modifications that the event entails and update the netinfo module reference to the live Netinfo objec to the new object.
-
-#### ifcfg configurator (Persistant)
-
-This configurator relies on ifcfg files placed in /etc/sysconfig/network-scripts/ and the ifup/ifdown bash scripts for controlling:
-
-*   Vlans,
-*   Bridges,
-*   Bonds,
-*   Nics.
-
-It is important to note that this is the currently implemented interface of vdsm networking, and thus, the most likely to be the the first supported configurator via a refactoring of the current code.
-
-#### IProute2 configurator (Non-persistant)
-
-A configurator implementation could be made that supported:
-
-*   Vlans: via the "ip link" cmdline tool (also used for mtu setting and upping/downing ifaces).
-*   Bridges: via the "brctl" cmdline tool.
-*   Bonds: via writes to /sys/class/net/bonding_masters (creation/removal of bonds) and /sys/class/net/bond_name/bonding/slaves (addition/removal of bond slaves).
-*   Nics,
-*   IpConfig: via the "ip addr" and "ip route" cmdline tools.
-
-#### Open vSwitch configurator (Persistant by default)
-
-This configurator would preferably use the Python bindings to the Open vSwitch database (or alternatively the "ovs-vsctl" cmdline tool) to establish configuration of:
-
-*   Vlans,
-*   Bridges,
-*   Special bond kernel module defined by Open vSwitch could be supported as well,
-*   Additionally, other capabilities like QoS and portMirroring could be leveraged.
-
-#### NetworkManager configurator (Persistant and non-persistant, via temp. connections)
-
-NetworkManager provides a D-Bus endpoint that could be used from Python to set up (once support for all of them stabilizes):
-
-*   Vlans,
-*   Bridges,
-*   Bonds,
-*   IpConfig.
-
-#### Team configurator (Persistant and non-persistant via ip)
-
-Team is the newfangled kernel module + userspace daemon for replacing bonding. Thus, it would support:
-
-*   "Bonds". A conf file can be passed to the teamd daemon, or an interface can be created/modified via the "ip link" and "ip addr" cmdline tool.
 
 #### Objectified rollback
 

@@ -189,7 +189,7 @@ NetworkManager provides a D-Bus endpoint that could be used from Python to set u
 
 Team is the newfangled kernel module + userspace daemon for replacing bonding. Thus, it would support:
 
-*   "Bonds". A conf file can be passed to the teamd daemon, or an interface can be created/modified via the "ip link" cmdline tool.
+*   "Bonds". A conf file can be passed to the teamd daemon, or an interface can be created/modified via the "ip link" and "ip addr" cmdline tool.
 
 #### Objectified rollback
 

@@ -142,7 +142,7 @@ Make sure that it runs:
 
           $> /usr/share/jboss-as/bin/standalone.sh
 
-Make sure that you have write access to $JBOSS_HOME/standalone/deployments, to which oVirt-engine will be deployed.
+Make sure that you have write access to $JBOSS_HOME/standalone/deployments, to which oVirt-engine will be deployed. Fedora 18 with OpenJDK Runtime Environment fedora-2.3.5 has an issue with the LogManager when running standalone.sh. Downgrading to 2.3.3 solved the issue.
 
 ### Automatically (From RPMs)
 

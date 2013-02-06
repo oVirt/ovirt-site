@@ -282,7 +282,7 @@ Use username **admin@internal** and password **letmein!**
 
 Note: Make sure $OVIRT_HOME/backend/manager/conf/engine.conf.defaults exists and has the following two lines:
 
-      ENGINE_USR=admin@internal
+      ENGINE_USR=username
       ENGINE_ETC=/etc/ovirt-engine
 
 Then add the following line to your ~/.bashrc file:

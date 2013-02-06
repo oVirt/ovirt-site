@@ -10,7 +10,7 @@ wiki_last_updated: 2014-03-02
 
 # Network Reloaded
 
-### Summary
+## Summary
 
 Network reloaded is a feature that encompasses several change proposals on the VDSM component of oVirt, all of them related to networking.
 
@@ -27,12 +27,12 @@ The main points are:
     -   Improve scalability.
     -   Allow for the possibility to have event response actions to handle network changes (e.g. hotplug a host nic, nic going offline).
 
-### Owner
+## Owner
 
 *   Name: [ Antoni Segura Puimedon](User:APuimedo)
 *   Email: apuimedo aT redhat.com
 
-### Current status
+## Current status
 
 *   Planning, designing and prototyping.
 
@@ -45,11 +45,11 @@ The main points are:
 | IProute2 backend                       | Create a network backend from iproute2 tools, following the internal API.                                                     | 10%        |
 | Objectified rollback                   | Modify the rollback mechanism into just feeding the pre-crash network object representation to the selected network backend   | 0%         |
 
-### Components
+## Components
 
 In the following sections we will develop the action points expressed in the above table in detail (growing from community feedback) to give a proper idea of how the feature will look like when completed.
 
-#### Object oriented representations
+### Object oriented representations
 
 The primitives to represent are:
 
@@ -74,7 +74,7 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 
 **TBD** a list of all valid network topologies.
 
-##### Bridge
+#### Bridge
 
 *   ports: Could be nics, bonds or vlans. vNics of VMs are connected to temporary ports (tap devices).
 *   name,
@@ -85,7 +85,7 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 *   link_active: True/False,
 *   conf_impl: Reference to the configurator implementation that can apply/delete changes.
 
-##### Bond
+#### Bond
 
 *   name,
 *   slaves: nics or vlans,
@@ -94,14 +94,14 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 *   link_active: True/False,
 *   conf_impl: Reference to the configurator implementation that can apply/delete changes.
 
-##### Nic
+#### Nic
 
 *   name.
 *   IpConfig,
 *   LinkActive: True/False,
 *   conf_impl: Reference to the configurator implementation that can apply/delete changes.
 
-##### VLAN
+#### VLAN
 
 *   tag: The tag number of the VLAN.
 *   Interface: A nic, bond or bridge that has the vlan on top.
@@ -109,22 +109,22 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 *   link_active: True/False,
 *   conf_impl: Reference to the configurator implementation that can apply/delete changes.
 
-##### Alias
+#### Alias
 
 *   Users have shown interest in the likes of `eth0:4`. We should find out if this is really required of oVirt.
 
-##### IpConfig
+#### IpConfig
 
 *   inet: List of IPv4 address information (addr + netmask + gateway/route),
 *   inet6: List of IPv6 address information (addr + netmask + gateway/route).
 *   MTU: Max. Transfer Unit,
 *   conf_impl: Reference to the configurator implementation that can apply/delete changes.
 
-##### Network
+#### Network
 
 *   an abstract object representing a layer-2 network, that may be implemented by a bridge, a set of nics, etc.
 
-#### Define internal API
+### Define internal API
 
 The internal API should allow for an objectified network definition (via setupNetworks command from Engine or from rollback) to be applied consistently regardless of which configurator implementation provides it. That includes:
 
@@ -134,9 +134,9 @@ The internal API should allow for an objectified network definition (via setupNe
 
 Thus, a configurator implementation should have methods for doing these three actions for the above primitives or a subset of them (as we allow for multiple different configurator implementations to coexist).
 
-#### Network configurators
+### Network configurators
 
-##### ifcfg configurator (persistent)
+#### ifcfg configurator (persistent)
 
 This configurator relies on ifcfg files placed in /etc/sysconfig/network-scripts/ and the ifup/ifdown bash scripts for controlling:
 
@@ -147,7 +147,7 @@ This configurator relies on ifcfg files placed in /etc/sysconfig/network-scripts
 
 It is important to note that this is the currently implemented interface of vdsm networking, and thus, the most likely to be the the first supported configurator via a refactoring of the current code.
 
-##### IProute2 configurator (Non-persistent)
+#### IProute2 configurator (Non-persistent)
 
 A configurator implementation could be made that supported:
 
@@ -157,7 +157,7 @@ A configurator implementation could be made that supported:
 *   Nics,
 *   IpConfig: via the "ip addr" and "ip route" cmdline tools.
 
-##### Open vSwitch configurator (persistent by default)
+#### Open vSwitch configurator (persistent by default)
 
 This configurator would preferably use the Python bindings to the Open vSwitch database (or alternatively the "ovs-vsctl" cmdline tool) to establish configuration of:
 
@@ -166,7 +166,7 @@ This configurator would preferably use the Python bindings to the Open vSwitch d
 *   Special bond kernel module defined by Open vSwitch could be supported as well,
 *   Additionally, other capabilities like QoS and portMirroring could be leveraged.
 
-##### NetworkManager configurator (persistent and non-persistent, via temp. connections)
+#### NetworkManager configurator (persistent and non-persistent, via temp. connections)
 
 NetworkManager provides a D-Bus endpoint that could be used from Python to set up (once support for all of them stabilizes):
 
@@ -175,13 +175,13 @@ NetworkManager provides a D-Bus endpoint that could be used from Python to set u
 *   Bonds,
 *   IpConfig.
 
-##### Team configurator (persistent and non-persistent via ip)
+#### Team configurator (persistent and non-persistent via ip)
 
 Team is the newfangled kernel module + userspace daemon for replacing bonding. Thus, it would support:
 
 *   "Bonds". A conf file can be passed to the teamd daemon, or an interface can be created/modified via the "ip link" and "ip addr" cmdline tool.
 
-#### Live Netinfo instance
+### Live Netinfo instance
 
 The goal of this action point is to have a thread that on the beginning polls the network state of the host and then registers to the network events to update the internal objects. To avoid race conditions, setupNetworks and other network modifying operations should get a copy of the object before starting work.
 
@@ -193,8 +193,8 @@ The thread could work in the following way:
 4.  Parse the nl_msg to get the information of what changed.
 5.  For each event, create a copy of the current Netinfo instance, do the modifications that the event entails and update the netinfo module reference to the live Netinfo objec to the new object.
 
-#### Objectified rollback
+### Objectified rollback
 
 The configuration objects are serialized in /var/lib/vdsm/netconfback/ before each modification (typically setupNetworks). setSafeConfig deletes the rollback objects and, if the configuration is to be persistent, it is saved as the parameters to a setupNetworks command that is applied on service bootup.
 
-### Open questions
+## Open questions

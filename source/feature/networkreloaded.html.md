@@ -136,7 +136,7 @@ Thus, a configurator implementation should have methods for doing these three ac
 
 #### Network configurators
 
-##### ifcfg configurator (Persistant)
+##### ifcfg configurator (persistent)
 
 This configurator relies on ifcfg files placed in /etc/sysconfig/network-scripts/ and the ifup/ifdown bash scripts for controlling:
 
@@ -147,7 +147,7 @@ This configurator relies on ifcfg files placed in /etc/sysconfig/network-scripts
 
 It is important to note that this is the currently implemented interface of vdsm networking, and thus, the most likely to be the the first supported configurator via a refactoring of the current code.
 
-##### IProute2 configurator (Non-persistant)
+##### IProute2 configurator (Non-persistent)
 
 A configurator implementation could be made that supported:
 
@@ -157,7 +157,7 @@ A configurator implementation could be made that supported:
 *   Nics,
 *   IpConfig: via the "ip addr" and "ip route" cmdline tools.
 
-##### Open vSwitch configurator (Persistant by default)
+##### Open vSwitch configurator (persistent by default)
 
 This configurator would preferably use the Python bindings to the Open vSwitch database (or alternatively the "ovs-vsctl" cmdline tool) to establish configuration of:
 
@@ -166,7 +166,7 @@ This configurator would preferably use the Python bindings to the Open vSwitch d
 *   Special bond kernel module defined by Open vSwitch could be supported as well,
 *   Additionally, other capabilities like QoS and portMirroring could be leveraged.
 
-##### NetworkManager configurator (Persistant and non-persistant, via temp. connections)
+##### NetworkManager configurator (persistent and non-persistent, via temp. connections)
 
 NetworkManager provides a D-Bus endpoint that could be used from Python to set up (once support for all of them stabilizes):
 
@@ -175,7 +175,7 @@ NetworkManager provides a D-Bus endpoint that could be used from Python to set u
 *   Bonds,
 *   IpConfig.
 
-##### Team configurator (Persistant and non-persistant via ip)
+##### Team configurator (persistent and non-persistent via ip)
 
 Team is the newfangled kernel module + userspace daemon for replacing bonding. Thus, it would support:
 

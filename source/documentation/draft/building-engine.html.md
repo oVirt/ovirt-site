@@ -280,6 +280,8 @@ or
 
 Use username **admin@internal** and password **letmein!**
 
+Note: Make sure $OVIRT_HOME/backend/manager/conf/engine.conf.defaults exists and has the following two lines: ENGINE_USR=admin@internal ENGINE_ETC=/etc/ovirt-engine Then add the following line to your ~/.bashrc file: export ENGINE_DEFAULTS=$OVIRT_HOME/backend/manager/conf/engine.conf.defaults
+
 Accessing the RESTful API:
 
       wget -O - --debug --auth-no-challenge --http-user=admin@internal --http-password='letmein!' head='Accept: application/xml' http://<server name>:<port>/api/

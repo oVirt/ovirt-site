@@ -10,7 +10,7 @@ wiki_last_updated: 2013-02-07
 
 # Sample user portals
 
-Samples Portals repository is hosted in gerrit:
+Samples Portals repository is hosted in gerrit, containing three different portals:
 
 *   <http://gerrit.ovirt.org/gitweb?p=samples-portals.git;a=tree;f=java>
 *   <http://gerrit.ovirt.org/gitweb?p=samples-portals.git;a=tree;f=python>

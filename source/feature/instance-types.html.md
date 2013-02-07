@@ -263,17 +263,16 @@ New permissions will be needed:
 
 *   Templates:
     -   **Templates** main tab should remain as-is
-    -   **Templates** main tab should be displayed only when the selecting the "Templates" node below "[DC-Name]" in the left-pane-tree.
+    -   **Templates** main tab should be displayed only when the selecting the **Templates** node below **[DC-Name]** in the left-pane-tree.
 
 Otherwise, it should be hidden (including for System).
 
 *   Instance Types:
     -   A new **Instance Types** main tab should be added
-    -   A new **Instance Types** node should be added to the left-pane-tree under each "[DC-Name]".
-
-No items should exist under it (i.e. it is just a "link", just like the "VMs" tree-node). When selected, only "Instance Types" main tab should be displayed, filtered according to the relevant DC.
-
-*   **Instance Types** main tab should be displayed only if the "[DC-Name]" tree-node is selected or if the "Instance Types" tree-node under "[DC-Name]" is selected.
+    -   A new **Instance Types** node should be added to the left-pane-tree under each **[DC-Name]**.
+    -   No items should exist under it (i.e. it is just a "link", just like the **VMs** tree-node).
+    -   When selected, only "Instance Types" main tab should be displayed, filtered according to the relevant DC.
+    -   **Instance Types** main tab should be displayed only if the **[DC-Name]** tree-node is selected or if the **Instance Types** tree-node under **[DC-Name]** is selected.
 
 Otherwise, it should be hidden (including for System).
 

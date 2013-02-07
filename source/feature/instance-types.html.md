@@ -263,7 +263,7 @@ New permissions will be needed:
 
 *   Templates:
     -   **Templates** main tab should remain as-is
-    -   **Templates** main tab should be displayed only when the selecting the **Templates** node below **[DC-Name]** in the left-pane-tree.
+    -   **Templates** main tab should be displayed only when selecting the **Templates** node below **[DC-Name]** in the left-pane-tree.
 
 Otherwise, it should be hidden (including for System).
 

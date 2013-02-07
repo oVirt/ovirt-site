@@ -40,12 +40,12 @@ Optional:
 
     * Network storage
 
-</div>
-<div class="span6">
 Software:  
 
     * Fedora 17 (for easy installation)
 
+</div>
+<div class="span6">
 Recommended web browsers:  
 
     * Mozilla Firefox 17 or later

@@ -44,7 +44,9 @@ The different versions of the portal use language bindings for the appropriate l
 
 The Portals enable user to connect to VM via SPICE under Firefox or Internet Explorer. In order to start a SPICE session we need to set a ticket for the VM (SDK call), the ticket is the spice password. We also need the host IP and port which provided via the display entity (a property of VM).
 
-Ticket and Display details in Firefox: ![](SpiceJavascript.png "fig:SpiceJavascript.png")
+Ticket and Display details in Firefox:
+
+![](SpiceJavascript.png "SpiceJavascript.png")
 
 For more details refer to the README file in each Sample Portal directory
 

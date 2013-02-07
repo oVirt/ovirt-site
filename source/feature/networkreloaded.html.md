@@ -26,7 +26,7 @@ The main points are:
     -   Avoid continuous fetching of all the information.
     -   Improve scalability.
     -   Allow for the possibility to have event response actions to handle network changes (e.g. hotplug a host nic, nic going offline).
-*   SetupNetworks is not changing.
+*   SetupNetworks method definition does not change.
 
 ## Owner
 

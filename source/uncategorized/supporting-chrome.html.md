@@ -47,5 +47,5 @@ There are several issues with proper rendering of the UI in Chrome but rarely re
 
 After finishing and merging the above mentioned patches, the only issues will be the (mostly unknown) rendering ones.
 
-*   so, if you find an issue when using Chrome, please report it
+*   so, if you find an issue when using Chrome, please [report it](https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt)
 *   Feel free to browse bugzilla for finding such issues and fixing them

@@ -204,4 +204,5 @@ The configuration objects are serialized in /var/lib/vdsm/netconfback/ before ea
 
       The guess is that all the configurators should be made to work in a non persistent way, managing ourselves the persistence.
 
-*   In case multiple configurators are supported and available to interact, how do the engine - host decide which configurator to use?
+*   In case multiple configurators were to be supported and available to interact, how do the engine - host decide which configurator to use?
+*   Do we need to support aliases or is the multiple ip address support enough?

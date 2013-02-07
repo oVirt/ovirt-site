@@ -63,10 +63,10 @@ The primitives to represent are:
 
 The relationship is as follows:
 
-1.  Bridge, Bonds, VLANs and Nics may have IpConfig information.
+1.  Bridge, Bonds, VLANs and Nics may have IpConfig, mtu and link_state information.
 2.  Bridges have ports that can be Bond, Nic and Vlan instances (or none, for nicless bridges).
 3.  Bonds have slaves that are Nic instances.
-4.  IpConfig objects contain information about the configured IPv4 and IPv6 addresses (they can have multiple of each), routes. **TBD**: find a proper home for mtu and link state or any other layer-2 specific property of a device.
+4.  IpConfig objects contain information about the configured IPv4 and IPv6 addresses (they can have multiple of each), routes.
 5.  Vlans can be set upon Nics and bonds.
 6.  Each class contains the logic for validating the parameters received from the engine, based on its current state and relations to other objects (e.g a change to a bridge may be disallowed due to its currently-connected nic). This way, the responsibilities for wrong configuration detection are semantically localized.
 7.  Each object should be able to contribute its part in generating the information for getVdsCaps.
@@ -85,7 +85,8 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 *   priority,
 *   IpConfig,
 *   link_active: True/False,
-*   conf_impl: Reference to the configurator implementation that can apply/delete changes.
+*   mtu: Max. Transfer Unit,
+*   configurator: Reference to the configurator implementation that can apply/delete changes.
 
 #### Bond
 
@@ -94,14 +95,16 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 *   opts: Dictionary with stuff like mode and miimon.
 *   IpConfig,
 *   link_active: True/False,
-*   conf_impl: Reference to the configurator implementation that can apply/delete changes.
+*   mtu: Max. Transfer Unit,
+*   configurator: Reference to the configurator implementation that can apply/delete changes.
 
 #### Nic
 
 *   name.
 *   IpConfig,
 *   LinkActive: True/False,
-*   conf_impl: Reference to the configurator implementation that can apply/delete changes.
+*   mtu: Max. Transfer Unit,
+*   configurator: Reference to the configurator implementation that can apply/delete changes.
 
 #### VLAN
 
@@ -109,7 +112,8 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 *   Interface: A nic, bond or bridge that has the vlan on top.
 *   IPConfing,
 *   link_active: True/False,
-*   conf_impl: Reference to the configurator implementation that can apply/delete changes.
+*   mtu: Max. Transfer Unit,
+*   configurator: Reference to the configurator implementation that can apply/delete changes.
 
 #### Alias
 
@@ -119,7 +123,7 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 
 *   inet: List of IPv4 address information (addr + netmask + gateway/route),
 *   inet6: List of IPv6 address information (addr + netmask + gateway/route).
-*   MTU: Max. Transfer Unit,
+*   MTU: ,
 *   conf_impl: Reference to the configurator implementation that can apply/delete changes.
 
 #### Network

@@ -46,6 +46,23 @@ This section describes the backend design for this feature.
 
 #### Logic Design
 
+In each iteration of the balancing process:
+
+1. Handle CPU balancing (ie- consider cpu violators first), as we did so far
+
+2. If (1) has nothing to do, handle memory balancing
+
+        a. Get a list of memory violator hosts, based on physical memory only
+        b. For each host
+            b.1. Sort VMs by memory usage
+            b.2  Validate if Smallest memory-using VM matches any of under-utilized hosts (based on mem and cpu, so end result will not cause the destination to violate balance thresholds).
+            b.3  If vm+dest host match, Migrate the VM.
+
+Advanced options:
+
+*   we can allow the user to choose migration of the biggest memory violator, and he'll need to see if it work better for him. Either way the default will be smallest.
+*   we can allow the user to choose handling memory violations prior to CPU. The default will be CPU first.
+
 ### Tests
 
 Unit-tests for testing the new policy will be added.

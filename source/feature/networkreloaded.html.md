@@ -202,3 +202,5 @@ The configuration objects are serialized in /var/lib/vdsm/netconfback/ before ea
 *   Persistence: If and how do we handle interaction between multiple configurators that have different models of persistance, i.e., ifcfg and iproute2?
 
       The guess is that all the configurators should be made to work in a non persistent way, managing ourselves the persistence.
+
+*   In case multiple configurators are supported and available to interact, how do the engine - host decide which configurator to use?

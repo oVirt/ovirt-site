@@ -40,11 +40,11 @@ The different versions of the portal use language bindings for the appropriate l
 *   [oVirt Python SDK](http://www.ovirt.org/Python-sdk)
 *   Ruby currently does not have a separate oVirt SDK, we use [rbovirt](https://github.com/abenari/rbovirt), which contains partial REST bindings to basic operations.
 
-### Enabling SPICE console connections
+## Enabling SPICE console connections
 
 The Portals enable user to connect to VM via SPICE under Firefox or Internet Explorer. In order to start a SPICE session we need to set a ticket for the VM (SDK call), the ticket is the spice password. We also need the host IP and port which provided via the display entity (a property of VM).
 
-Ticket and Display details in Firefox:
+## Ticket and Display details in Firefox
 
 ![](SpiceJavascript.png "SpiceJavascript.png")
 

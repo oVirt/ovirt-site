@@ -180,10 +180,6 @@ params lookup as shown in [2].
        [2] topology = params.findRootClass("topology") 
            in this case will be returned CpuTopology type.
 
-## Repository
-
-*   <git://gerrit.ovirt.org/ovirt-engine-sdk>
-
 ## Deployment
 
 ### pypi

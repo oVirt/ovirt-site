@@ -10,13 +10,17 @@ wiki_last_updated: 2013-02-07
 
 # Sample user portals
 
-Samples Portals repository is hosted in gerrit, containing three different portals:
+[ Shahar Havivi](User:Shavivi) has developed a series of sample user portals, using the oVirt SDK, in Java, Python and Ruby, to give you an idea of what is possible with SDK bindings, and how to use them in various languages.
 
-*   <http://gerrit.ovirt.org/gitweb?p=samples-portals.git;a=tree;f=java>
-*   <http://gerrit.ovirt.org/gitweb?p=samples-portals.git;a=tree;f=python>
-*   <http://gerrit.ovirt.org/gitweb?p=samples-portals.git;a=tree;f=ruby>
+The sample portals repository is hosted in gerrit, and contains the same portal written in three different languages:
 
-and contain examples on using the oVirt SDK in order to develop a basic User Portal. The basic idea is to show how simple it is to use the oVirt SDK to support the following operations:
+*   [Java](http://gerrit.ovirt.org/gitweb?p=samples-portals.git;a=tree;f=java)
+*   [Python](http://gerrit.ovirt.org/gitweb?p=samples-portals.git;a=tree;f=python)
+*   [Ruby](http://gerrit.ovirt.org/gitweb?p=samples-portals.git;a=tree;f=ruby)
+
+You can use this code as a guide to using the oVirt SDK, and a basis for the development of a basic User Portal.
+
+The idea is to show how simple it is to use the oVirt SDK to support the following operations:
 
 *   Login
 *   Logout
@@ -28,26 +32,20 @@ and contain examples on using the oVirt SDK in order to develop a basic User Por
 
 ![](VMsSapmlesPortal.png "VMsSapmlesPortal.png")
 
-The portals are using the user-level API.
+The portals build on the user-level API.
 
-Currently we created examples in three different languages, Java, Python and Ruby.
+The different versions of the portal use language bindings for the appropriate language:
 
-*   The Java portal is using the oVirt Java SDK:
+*   [oVirt Java SDK](http://www.ovirt.org/Java-sdk)
+*   [oVirt Python SDK](http://www.ovirt.org/Python-sdk)
+*   Ruby currently does not have a separate oVirt SDK, we use [rbovirt](https://github.com/abenari/rbovirt), which contains partial REST bindings to basic operations.
 
-<http://www.ovirt.org/Java-sdk>
+### Enabling SPICE console connections
 
-*   The Python portal is using the oVirt Python SDK:
+The Portals enable user to connect to VM via SPICE under Firefox or Internet Explorer. In order to start a SPICE session we need to set a ticket for the VM (SDK call), the ticket is the spice password. We also need the host IP and port which provided via the display entity (a property of VM).
 
-<http://www.ovirt.org/Python-sdk>
-
-*   Ruby currently don't have oVirt SDK, so in the Ruby portal we are using rbovirt, which contains partial REST bundings to basic operations. You can find it in:
-
-<https://github.com/abenari/rbovirt>
-
-The Portals enable user to connect to VM via SPICE under Firefox or Internet Explorer. In order to start a SPICE session we need to set a ticket for the VM (SDK call), the ticket is the spice password, We also need the host IP and port which provided via the display entity (a property of VM).
-
-**Ticket and Display details in Firefox:**
-
-![](SpiceJavascript.png "SpiceJavascript.png")
+Ticket and Display details in Firefox: ![](SpiceJavascript.png "fig:SpiceJavascript.png")
 
 For more details refer to the README file in each Sample Portal directory
+
+<Category:Development>

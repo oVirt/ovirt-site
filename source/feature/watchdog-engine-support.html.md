@@ -21,7 +21,7 @@ This feature adds [watchdog](https://en.wikipedia.org/wiki/Watchdog_Card) suppor
 
 ### Current status
 
-*   Status: design and discussion
+*   Status: implementation
 *   Last updated: ,
 
 ### Detailed Description

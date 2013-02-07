@@ -42,7 +42,7 @@ The new list will include:
 
 ### Backend
 
-This section describes the backend design for this feature.
+Solution was designed to simple although not optimal. Future changes may include more complex logic.
 
 #### Logic Design
 

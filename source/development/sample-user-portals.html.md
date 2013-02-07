@@ -10,7 +10,7 @@ wiki_last_updated: 2013-02-07
 
 # Sample user portals
 
-[ Shahar Havivi](User:Shavivi) has developed a series of sample user portals, using the oVirt SDK, in Java, Python and Ruby, to give you an idea of what is possible with SDK bindings, and how to use them in various languages.
+[ Shahar Havivi](User:Shaharh) has developed a series of sample user portals, using the oVirt SDK, in Java, Python and Ruby, to give you an idea of what is possible with SDK bindings, and how to use them in various languages.
 
 The sample portals repository is hosted in gerrit, and contains the same portal written in three different languages:
 

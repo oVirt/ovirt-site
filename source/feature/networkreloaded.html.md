@@ -198,3 +198,7 @@ The thread could work in the following way:
 The configuration objects are serialized in /var/lib/vdsm/netconfback/ before each modification (typically setupNetworks). setSafeConfig deletes the rollback objects and, if the configuration is to be persistent, it is saved as the parameters to a setupNetworks command that is applied on service bootup.
 
 ## Open questions
+
+*   Persistence: If and how do we handle interaction between multiple configurators that have different models of persistance, i.e., ifcfg and iproute2?
+
+      The guess is that all the configurators should be made to work in a non persistent way, managing ourselves the persistence.

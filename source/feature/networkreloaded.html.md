@@ -70,10 +70,11 @@ The relationship is as follows:
 5.  Vlans can be set upon Nics and bonds.
 6.  Each class contains the logic for validating the parameters received from the engine, based on its current state and relations to other objects (e.g a change to a bridge may be disallowed due to its currently-connected nic). This way, the responsibilities for wrong configuration detection are semantically localized.
 7.  Each object should be able to contribute its part in generating the information for getVdsCaps.
+8.  The following combinations of network elements are allowed:
+    -   Single non-VLANed bridged network
+    -   Multiple VLANed networks (bridged or bridgeless) with only a single non-VLANed bridgeless network.
 
 A netinfo object would have a list of the top hierarchy objects and generate the info from that.
-
-**TBD** a list of all valid network topologies.
 
 #### Bridge
 

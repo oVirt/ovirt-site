@@ -49,7 +49,7 @@ To allow another route to the host to a network interface other than the one use
 
 ##### Engine
 
-In AddVdsCommand and UpdateVdsCommand, the InstallVdsCommand is called with InstallVdsParameters. We will add the direct address as a parameter, so that this address will be used in case it is given. Otherwise, behaviour remains the same - the Vds address is the one used for host installation.
+In AddVdsCommand and UpdateVdsCommand, the InstallVdsCommand is called with InstallVdsParameters. We will add the direct address as a parameter, so that this address will be used in case it is given. Otherwise, behaviour remains the same - the Vds address is the one used for host installation.The direct address is transient and won't be stored on engine as part of the host configuration.
 
 ##### API Changes
 

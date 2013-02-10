@@ -65,7 +65,7 @@ The `migrate` verb should be extended with an additional parameter, specifying t
     -   Just like choosing the destination host, the user may choose a specific migration network. If host is not selected then allow to choose from cluster's networks. The default should be the cluster's migration network.
 
 3.  migration verb.
-    -   For the a modern cluster level, with migration network defined on the destination host, an additional *miguri* parameter should be added to the `migrate` command
+    -   For a modern cluster level, with migration network defined on the destination host, an additional *dstqemu* parameter should be added to the `migrate` command
 
 ### Development Phases
 

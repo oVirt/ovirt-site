@@ -163,7 +163,7 @@ A configurator implementation could be made that supported:
 *   Nics,
 *   IpConfig: via the "ip addr" and "ip route" cmdline tools.
 
-#### Open vSwitch configurator (persistent by default)
+#### Open vSwitch configurator (persistent. Non persistence would require a service cleaning ovs-db at boot-time)
 
 This configurator would preferably use the Python bindings to the Open vSwitch database (or alternatively the "ovs-vsctl" cmdline tool) to establish configuration of:
 

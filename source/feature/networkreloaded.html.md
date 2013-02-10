@@ -158,7 +158,7 @@ It is important to note that this is the currently implemented interface of vdsm
 A configurator implementation could be made that supported:
 
 *   Vlans: via the "ip link" cmdline tool (also used for mtu setting and upping/downing ifaces).
-*   Bridges: via the "brctl" cmdline tool.
+*   Bridges: via the "brctl" cmdline tool. ("ip link add bridge_name type bridge", "ip link set ethX master bridge_name" for F18 RHEL7).
 *   Bonds: via writes to /sys/class/net/bonding_masters (creation/removal of bonds) and /sys/class/net/bond_name/bonding/slaves (addition/removal of bond slaves).
 *   Nics,
 *   IpConfig: via the "ip addr" and "ip route" cmdline tools.

@@ -23,9 +23,12 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *Agenda*
 
 *   Hosting
+    -   Spreading logins
 *   Puppet
 *   Jenkins
+    -   Publishing HTML pages (trac #34)
 *   Gerrit
+*   ovirtbot
 *   Other business?
 *   Trac review
 

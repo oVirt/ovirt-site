@@ -27,6 +27,14 @@ You can either use the installation script or follow the steps manually, it's up
 
 ### Installation script
 
+If after running the script you get: "AWT is not properly configured on this server. Perhaps you need to run your container with "-Djava.awt.headless=true"?"
+
+Then run
+
+yum install dejavu-sans-fonts
+
+and then run the script again.
+
 Download from here: <Media:jenkins.sh.gz>
 
 Or copy this:

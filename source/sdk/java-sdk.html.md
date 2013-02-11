@@ -290,7 +290,7 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 5. support persistent authentication (done)
 
-6. implement CA certificate validation (in-progress)
+6. implement SSL support/certificate validation (in-progress)
 
 7. implement client validation
 

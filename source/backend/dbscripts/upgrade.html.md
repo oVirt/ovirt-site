@@ -8,6 +8,8 @@ wiki_last_updated: 2013-02-12
 
 # upgrade
 
+dbscripts/upgrade is part of an effect to document the oVirt project at the architecture level. The rest of the pages are located at [Backend](Backend).
+
 **Introduction:** The dbscripts/upgrade folder contains stored procedures, relevant when a change is needed to be made to the schema of a table, otherwise known as upgrading the database. As oVirt is an enterprise product and a rather large software project worked on by many people, changes to the database schema need to be carefully. Each upgrade is represented via a stored procedure with a specific naming convention.
 
 **Naming convention:** XX_YY_ZZZ0_description.sql

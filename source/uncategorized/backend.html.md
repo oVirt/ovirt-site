@@ -8,7 +8,7 @@ wiki_last_updated: 2013-02-12
 
 # Backend
 
-*   [dbscripts/upgrade](dbscripts/upgrade)
+*   [Backend/dbscripts/upgrade](Backend/dbscripts/upgrade)
 *   tools
 *   modules/beans
 *   modules/bll

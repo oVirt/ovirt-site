@@ -24,7 +24,7 @@ wiki_last_updated: 2013-05-26
 
 ### Current status
 
-*   Last updated date: Nov 8, 2012
+*   Last updated date: Feb 12, 2013
 
 ### Use Case
 

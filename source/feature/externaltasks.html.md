@@ -48,13 +48,13 @@ Task/Sub-Taks should support the following statuses:
       Failed
 
 Solution should support setting percentage for the Task Started state
-Task Flow
+**Task Flow**
 
         Waiting -> Started (x %) |
                                  -> Completed
                                  -> Failed 
 
-Sub Task Flow
+**Sub Task Flow**
 
        Waiting -> Running        |
                                  -> Completed

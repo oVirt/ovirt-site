@@ -73,7 +73,8 @@ As in the Task Monitor that serves internal oVirt commands, Task should be displ
 
 ### Benefit to oVirt
 
-The benefit of External Tasks injection is the ability to track tasks that are performed outside of oVirt or hybrid tasks when some of the sub-tasks are done by oVirt and some are external>br> this feature will enable all users to track the advance of a task that is not completely executed under oVirt.
+The benefit of External Tasks injection is the ability to track tasks that are performed outside of oVirt or hybrid tasks when some of the sub-tasks are done by oVirt and some are external
+this feature will enable all users to track the advance of a task that is not completely executed under oVirt.
 
 Sample use-cases:
 A user would like to clone a VM and cranks up our Rapid Cloning wizard. They fill in all the information and have selected a VM that is currently running. Upon clicking Ok, the information is sent to the server which starts performing a set of actions including the following

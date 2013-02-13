@@ -52,12 +52,14 @@ Solution should support setting percentage for the Task Started state
 
         Waiting -> Started (x %) |
                                  -> Completed
+                                 |
                                  -> Failed 
 
 **Sub Task Flow**
 
        Waiting -> Running        |
                                  -> Completed
+                                 |
                                  -> Failed
 
 ### Benefit to oVirt

@@ -35,6 +35,31 @@ The main use case is for third party vendors, to integrate with RHEV-M. A vendor
 
 ### Detailed Description
 
+Plug-ins using the API should be enable to inject and track external tasks to oVirt and see those tasks displayed in the oVirt UI.
+Tasks may be neted
+Tasks may run concurrently
+Sub-Tasks of teh same Task may run concurrently
+Task/Sub-Taks should support the following statuses:
+
+      Waiting
+      Started (only for the task)
+      Running
+      Completed 
+      Failed
+
+Solution should support setting percentage for the Task Started state
+Task Flow
+
+        Waiting -> Started (x %) |
+                                 -> Completed
+                                 -> Failed 
+
+Sub Task Flow
+
+       Waiting -> Running        |
+                                 -> Completed
+                                 -> Failed
+
 ### Benefit to oVirt
 
 The benefit of External Tasks injection is the ability to track tasks that are performed outside of oVirt or hybrid tasks when some of the sub-tasks are done by oVirt and some are external>br> this feature will enable all users to track the advance of a task that is not completely executed under oVirt.

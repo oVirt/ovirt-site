@@ -36,10 +36,10 @@ The main use case is for third party vendors, to integrate with RHEV-M. A vendor
 ### Detailed Description
 
 Plug-ins using the API should be enable to inject and track external tasks to oVirt and see those tasks displayed in the oVirt UI.
-Tasks may be neted
+Tasks may be nested
 Tasks may run concurrently
-Sub-Tasks of teh same Task may run concurrently
-Task/Sub-Taks should support the following statuses:
+Sub-Tasks of the same Task may run concurrently
+Tasks/Sub-Tasks should support the following statuses:
 
       Waiting
       Started (only for the task)

@@ -49,6 +49,9 @@ A user would like to clone a VM and cranks up our Rapid Cloning wizard. They fil
         e. Create new VM based on data from original VM (oVirt REST)
         f. Attach cloned disk to VM (oVirt REST)
 
+Each of these items would be a subtask of the overall Cloning task. At the beginning of this process, we would create the Cloning task through REST in oVirt. We could potentially include all the subtasks in the initial creation or add them as needed.
+ As the tasks are performed, we would make REST calls to update the started/ finished status as well as the percentage complete if that's supported.
+
 ### Dependencies / Related Features
 
 See also [UI-Pluggins](http://wiki.ovirt.org/wiki/Features/UIPlugins)

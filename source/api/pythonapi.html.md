@@ -328,3 +328,84 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
                  sleep(1)
          except Exception as e:
              print 'Failed to create VM from Template:\n%s' % str(e)
+
+## Networking
+
+### Add VM network to the data-center
+
+         DATA_CENTER_NAME = 'my_dc_name'
+         vmVlan400 = params.Network(name = 'VM_VLAN_400',
+                                data_center = api.datacenters.get(name = DATA_CENTER_NAME), 
+                                description = 'a tagged vm network',
+                                vlan = params.VLAN(id = '400'))
+         
+         vmVlan400 = api.networks.add(vmVlan400)
+
+### Add Non-VM network to the data-center
+
+         DATA_CENTER_NAME = 'my_dc_name'
+         nonVmVlan500 = params.Network(name = 'NON_VM_VLAN_500',
+                                data_center = api.datacenters.get(name = DATA_CENTER_NAME), 
+                                description = 'a tagged non-vm network',
+                                vlan = params.VLAN(id = '500'),
+                                usages = params.Usages())
+         
+         nonVmVlan500 = api.networks.add(nonVmVlan500)
+
+### Attach network to cluster
+
+         CLUSTER_NAME = 'my_cluster_name'
+         api.clusters.get(CLUSTER_NAME).networks.add(vmVlan400)
+
+### Configure bond with several networks
+
+The target configuration of the following program is:
+
+         eth0 ---| 
+                 |          |------ ovirtmgmt
+                 |--- bond0 |------ bond0.100 ----- NON_VM_VLAN_100
+                 |          |------ bond0.200 ----- VM_VLAN_200
+         eth4 ---|
+
+         nic0 = params.HostNIC(name = 'eth0', network =  params.Network(), boot_protocol='none', ip=params.IP(address=`*`,` `netmask=`*`, gateway=''))
+         nic1 = params.HostNIC(name = 'eth4', network =  params.Network(), boot_protocol='none', ip=params.IP(address=`*`,` `netmask=`*`, gateway=''))
+         
+         # bond 
+         bond = params.Bonding(
+            slaves = params.Slaves(host_nic = [ nic0, nic1 ]),
+                     options = params.Options(
+                                 option = [
+                                   params.Option(name = 'miimon', value = '100'),
+                                   params.Option(name = 'mode', value = '1'),
+                                   params.Option(name = 'primary', value = 'eth0')]
+                                 )
+                               )
+         
+         # management network on top of the bond
+         managementNetwork = params.HostNIC(network = params.Network(name = 'ovirtmgmt'),
+                               name = 'bond0',
+                               boot_protocol = 'static',
+                                   ip = params.IP(
+                                   address = '10.1.1.1',
+                                   netmask = '255.255.254.0',
+                                   gateway = '10.1.1.254'),
+                               override_configuration = 1,
+                               bonding = bond)
+         
+         # create vlan device for network with vlan tag 100
+         networkName = 'NON_VM_VLAN_100'
+         clusterNetwork = api.clusters.get('nettest').networks.get(name = networkName)
+         vlanNetwork = params.HostNIC(network = params.Network(name = networkName), name = "bond0.%s" % clusterNetwork.vlan.id)
+         
+         # create vlan device for network with vlan tag 200
+         networkName = 'VM_VLAN_200'
+         clusterNetwork = api.clusters.get('nettest').networks.get(name = networkName)
+         vlanNetwork2 = params.HostNIC(network = params.Network(name = networkName), name = "bond0.%s" % clusterNetwork.vlan.id)
+         
+         # Now apply the configuration
+         host = api.hosts.get('my-host-name')
+         host.nics.setupnetworks(params.Action(force = 0,
+                                               check_connectivity = 1,
+                                               host_nics = params.HostNics(host_nic = [ managementNetwork, 
+                                                                                        vlanNetwork, 
+                                                                                        vlanNetwork2 ])))

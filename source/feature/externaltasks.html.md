@@ -16,7 +16,7 @@ wiki_last_updated: 2013-05-26
 
 ### Owner
 
-*   Name: [ James rankin](User:MyUser)
+*   Name: [ James Rankin](User:MyUser)
 
 <!-- -->
 

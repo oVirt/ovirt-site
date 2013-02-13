@@ -37,7 +37,17 @@ The main use case is for third party vendors, to integrate with RHEV-M. A vendor
 
 ### Benefit to oVirt
 
+The benefit of External Tasks injection is the ability to track tasks that are performed outside of oVirt or hybrid tasks when some of the sub-tasks are done by oVirt and some are external>br> this feature will enable all users to track the advance of a task that is not completely executed under oVirt.
+
 Sample use-cases:
+A user would like to clone a VM and cranks up our Rapid Cloning wizard. They fill in all the information and have selected a VM that is currently running. Upon clicking Ok, the information is sent to the server which starts performing a set of actions including the following
+
+        a. Shutdown the VM (oVirt REST)
+        b. Coalesce the disk (oVirt REST)
+        c. Clone the disk (External)
+        d. Update metadata in domain associated with new disk (External)
+        e. Create new VM based on data from original VM (oVirt REST)
+        f. Attach cloned disk to VM (oVirt REST)
 
 ### Dependencies / Related Features
 

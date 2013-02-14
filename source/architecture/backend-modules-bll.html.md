@@ -21,4 +21,21 @@ wiki_last_updated: 2013-02-14
 1.  canDoAction - Extra command-specific validation
 2.  executeCommand - The actual code to be executed
 
+**Validation:** Before actually executing the command, we must validate that the user can actually run the command. Validation is handled in many different aspects:
+
+*   Authorization - Each command sets its own permissions required in order to run the command. 'isUserAuthorizedToRunAction' checks for the required permissions.
+*   Input validation - oVirt uses the javax.validation.constraints framework in order to check the parameters passed into the command, using annotations in the different parameter classes. For example, @Size (min, max definitions), @Pattern (regex definitions), and so on. Each annotation also defines its own error key in case the validation fails on that field.
+*   Locking - Many commands have the potential to be ran in parallel, mostly through automated scripts using the REST API. A lock is initially obtained and then freed either when validation fails (Before the execution stage begins), or if validation succeeds after execution finishes.
+*   Command-specific validation - Every command can implement 'canDoAction'. For example 'AddNetworkCommand' checks that a storage pool exists, that the network does not already exist, and that the new network's prefix is valid - All checks that make sense for this specific command. In case one of those checks fails, we need to know why. We use a POJO called 'ValidationResult'. Error messages are implemented via 'VdcBllMessages', which is an enum contaning many enum value error codes. Those error keys are translated via a file called AppErrors.properties.
+
+**Error message replacements:** Replacements can be classified into two types: Static and dynamic. Most error messages start with the prefix Cannot ${ACTION} ${TYPE}. Action is the type of action the user is performing, and type is the entity we're working on such as host, virtual NIC or network. Action and type have pre-fabricated values that can be replaced via CommandBase's validate method. Dynamic replacements are error-specific and will usually be filled with values coming from the command's parameters.
+
+**Transactionality:** CommandBase.execute first calls handleTransactivity. Each command can be forced to use an existing transaction, a new transaction or none at all, using the 'TransactionScopeOption' enum:
+
+*   Suppress - No transaction
+*   RequiresNew - Require a new transaction
+*   Required - Require a transaction, may use an existing one
+
+The enum value is passed with the commands' options. However, the command may use an annotation which overrides the transaction option passed in to the command. In any case, the 'handleTransactivity' method fills in a class field called scope. The scope value (Suppress, RequiresNew or Required) is passed on to the static method 'TransactionSupport.executeInScope'. The method accepts the scope value and the command to run, and runs the command's 'runInTransaction' method.
+
 <Category:Architecture>

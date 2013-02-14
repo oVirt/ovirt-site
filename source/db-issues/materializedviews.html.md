@@ -31,11 +31,11 @@ Candidates for Snapshot Materialized Views are views that are based on slowly-ch
 
              Column        |           Type           |     Modifiers      
        ---------------------+--------------------------+--------------------
-      mv_name                | name                     | not null
-      v_name                 | name                     | not null
-      refresh_rate_in_sec    | integer                  | 
-      last_refresh           | timestamp with time zone | 
-      avg_cost_ms            | integer                  | not null default 0
+      mv_name                 | name                     | not null
+      v_name                  | name                     | not null
+      refresh_rate_in_sec     | integer                  | 
+      last_refresh            | timestamp with time zone | 
+      avg_cost_ms             | integer                  | not null default 0
       min_refresh_rate_in_sec | integer                  | default 0
       custom                  | boolean                  | default false
       active                  | boolean                  | default true

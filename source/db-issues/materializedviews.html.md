@@ -45,6 +45,9 @@ Candidates for Snapshot Materialized Views are views that are based on slowly-ch
 *' refresh_rate_in_sec*' is the Materialized View refresh rate in seconds
 *' last_refresh*' is the timestamp of the last refresh
 **avg_cost_ms** is the average cost of a refresh operation on the Materialized View in miliseconds.
+**\1** is the min refresh rate allowed when refresh is called with teh force flag
+**custom** is a flag indicating if a Materialized View is custom
+**active** is a flag indicating if a Materialized View is active
 
 ## Flow
 

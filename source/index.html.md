@@ -65,7 +65,7 @@ oVirt is powered by the Open Source you know - KVM on Linux.
 oVirt version 3.2 was released on February 14, 2013 and contained several new features, including UI Plugins, Gluster Enhancements, and Japanese Localization.
 
 <div class="pull-right">
-[ Read the full release notes »](oVirt 3.1 release notes)
+[ Read the full release notes »](oVirt 3.2 release notes)
 
 </div>
 </div>

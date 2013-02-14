@@ -91,7 +91,7 @@ Each of these items would be a subtask of the overall Cloning task. At the begin
 
 ### Dependencies / Related Features
 
-See also [ <http://wiki.ovirt.org/wiki/Features/UIPlugins> UI-Plugins ]
+See also [UI-Plugins](http://wiki.ovirt.org/wiki/Features/UIPlugins)
 
 ### Documentation / External references
 

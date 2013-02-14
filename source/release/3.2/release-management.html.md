@@ -22,7 +22,7 @@ wiki_last_updated: 2013-06-04
 
 *   [Tracker - 881006](https://bugzilla.redhat.com/show_bug.cgi?id=881006)
 
-## Release Criteria (DRAFT)
+## Release Criteria
 
 Tracker bug: <https://bugzilla.redhat.com/881006>
 

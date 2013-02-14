@@ -15,7 +15,7 @@ wiki_warnings: list-item?
 
 DRAFT DRAFT DRAFT DRAFT
 
-This quick start guide is adapted from the [RHEV 3.0 quick start guide](http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Virtualization/3.0/html/Quick_Start_Guide/index.html). The fundamentals are the same between RHEV and oVirt, but this document could use more checking against oVirt 3.1.
+This quick start guide is adapted from the [RHEV 3.0 quick start guide](http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Virtualization/3.0/html/Quick_Start_Guide/index.html). The fundamentals are the same between RHEV and oVirt, but this document could use more checking against oVirt 3.2.
 
 ## Introduction
 
@@ -30,7 +30,7 @@ The following requirements are typical for small- to medium-sized installations.
 *   Minimum - Dual core server with 4 GB RAM, with 25 GB free disk space and 1 Gbps network interface.
 *   Recommended - Dual Sockets/Quad core server with 16 GB RAM, 50 GB free disk space on multiple disk spindles and 1 Gbps network interface.
     The breakdown of the server requirements are as below:
-    -   For the Fedora 17 operating system: minimum 1 GB RAM and 5 GB local disk space.
+    -   For the Fedora 18 operating system: minimum 1 GB RAM and 5 GB local disk space.
     -   For the oVirt Engine: minimum 3 GB RAM, 3 GB local disk space and 1 Gbps network controller bandwidth.
     -   If you wish to create an ISO domain on the Engine server, you need minimum 15 GB disk space.
 *   The oVirt Engine must be configured to receive updates from the oVirt project's software repository, as provided by the [ovirt-release](http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm) package.
@@ -63,7 +63,7 @@ The following requirements are typical for small- to medium-sized installations.
 
 oVirt Engine is the control center of the oVirt environment. It allows you to define hosts, configure data centers, add storage, define networks, create virtual machines, manage user permissions and use templates from one central location.
 
-1. Install Fedora 17 on a server. When prompted for the software packages to install, select the minimal install option. See the [Fedora Installation Guide](http://docs.fedoraproject.org/en-US/Fedora/17/html/Installation_Guide/index.html) for more details.
+1. Install Fedora 18 on a server. When prompted for the software packages to install, select the minimal install option. See the [Fedora Installation Guide](http://docs.fedoraproject.org/en-US/Fedora/18/html/Installation_Guide/index.html) for more details.
 
 2. After you have installed your server, update all the packages on it. Run:
 
@@ -89,22 +89,57 @@ This command will download the oVirt Engine installation software and resolve al
 
 Example 2.1. oVirt Engine installation
 
-         Welcome to RHEV Manager setup utility
-         HTTP Port  [80] : 
-         HTTPS Port  [443] : 
-         Host fully qualified domain name, note that this name should be fully resolvable  [ovirt.demo.example.com] :
-         Password for Administrator (admin@internal) :
-         Database password (required for secure authentication with the locally created database) :
-         Confirm password :
-         Organization Name for the Certificate: Example
-         The default storage type you will be using  ['NFS'| 'FC'| 'ISCSI']  [NFS] : ISCSI
-         Should the installer configure NFS share on this server to be used as an ISO Domain? ['yes'| 'no']  [no] : yes
-         Mount point path: /data/iso
-         Display name for the ISO Domain: local-iso-share
-         Firewall ports need to be opened.
-         You can let the installer configure iptables automatically overriding the current configuration. The old configuration will be backed up.
-         Alternately you can configure the firewall later using an example iptables file found under /usr/share/rhevm/conf/iptables.example
-         Configure iptables ? ['yes'| 'no']: yes
+Welcome to oVirt Engine setup utility
+
+oVirt Engine uses httpd to proxy requests to the application server.
+
+It looks like the httpd installed locally is being actively used.
+
+The installer can override current configuration .
+
+Alternatively you can use JBoss directly (on ports higher than 1024)
+
+Do you wish to override current httpd configuration and restart the service? ['yes'| 'no'] [yes] :
+
+HTTP Port [80] :
+
+HTTPS Port [443] :
+
+Host fully qualified domain name. Note: this name should be fully resolvable [ovirt.demo.example.com] :
+
+The IP (10.35.18.235) which was resolved from the FQDN ovirt.demo.example.com is not configured on any interface on this host
+
+User input failed validation, do you still wish to use it? (yes|no): yes
+
+Enter a password for an internal oVirt Engine administrator user (admin@internal) :
+
+Warning: Weak Password.
+
+Confirm password :
+
+Organization Name for the Certificate [demo.example.com] :
+
+The default storage type you will be using ['NFS'| 'FC'| 'ISCSI'| 'POSIXFS'] [NFS] :
+
+Enter DB type for installation ['remote'| 'local'] [local] :
+
+Enter a password for a local oVirt Engine DB admin user (engine) :
+
+Warning: Weak Password.
+
+Confirm password :
+
+Configure NFS share on this server to be used as an ISO Domain? ['yes'| 'no'] [yes] :
+
+Local ISO domain path [/var/lib/exports/iso] :
+
+Firewall ports need to be opened.
+
+The installer can configure firewall automatically overriding the current configuration. The old configuration will be backed up.
+
+Alternately you can configure the firewall later using an example file.
+
+Which firewall do you wish to configure? ['None'| 'Firewalld']: Firewalld
 
 Important points to note:
 
@@ -116,19 +151,35 @@ Important points to note:
 
 Example 2.2. Confirm Engine installation settings
 
-         oVirt Engine will be installed using the following configuration:
-         =================================================================
-         http-port:                     80
-         https-port:                    443
-         host-fqdn:                     ovirt.demo.example.com
-         auth-pass:                     ********
-         db-pass:                       ********
-         org-name:                      Example
-         default-dc-type:               ISCSI
-         nfs-mp:                        /data/iso
-         iso-domain-name:               local-iso-share
-         override-iptables:             yes
-         Proceed with the configuration listed above? (yes|no): yes
+oVirt Engine will be installed using the following configuration:
+
+=================================================================
+
+override-httpd-config: yes
+
+http-port: 80
+
+https-port: 443
+
+host-fqdn: ovirt.demo.example.com
+
+auth-pass: \*\*\*\*\*\*\*\*
+
+org-name: demo.example.com
+
+default-dc-type: NFS
+
+db-remote-install: local
+
+db-local-pass: \*\*\*\*\*\*\*\*
+
+nfs-mp: /var/lib/exports/iso
+
+config-nfs: yes
+
+override-firewall: Firewalld
+
+Proceed with the configuration listed above? (yes|no): yes
 
 8. The installation commences. The following message displays, indicating that the installation was successful.
 
@@ -164,7 +215,7 @@ Before installing the oVirt Node, you need to download the hypervisor image and 
 
 **Download oVirt Node installation CD**
 
-1. Download the latest version of ovirt Node from [oVirt Node release](http://ovirt.org/releases/3.1/tools) and burn the ISO image onto a disc.
+1. Download the latest version of ovirt Node from [oVirt Node release](http://ovirt.org/releases/3.2/tools) and burn the ISO image onto a disc.
 
 Once you have created an oVirt Node installation CD, you can use it to boot the machine designated as your Node host. For this guide you will use the interactive installation where you are prompted to configure your settings in a graphical interface. Use the following keys to navigate around the installation screen:
 
@@ -223,9 +274,9 @@ You have now successfully installed the oVirt Node. Repeat this procedure if you
 
 You now know how to install a oVirt Node. In addition to hypervisor hosts, you can also reconfigure servers which are running Fedora to be used as virtual machine hosts.
 
-**To install a Fedora 17 host**
+**To install a Fedora 18 host**
 
-*   On the machine designated as your Fedora host, install Fedora 17. A minimal installation is sufficient.
+*   On the machine designated as your Fedora host, install Fedora 18. A minimal installation is sufficient.
 *   Log in to your Fedora host as the **root** user.
 *   Install the *ovirt-release* package using **yum**, this package configures your system to receive updates from the oVirt project's software repository:
 
@@ -615,7 +666,7 @@ You have now created your first Fedora virtual machine. Before you can use your 
 
 ![Figure 4.6. Run Linux Virtual Machine](run-fedora-vm.png "Figure 4.6. Run Linux Virtual Machine")
 
-    * Attach CD: Fedora 17
+    * Attach CD: Fedora 18
 
     * Boot Sequence: CD-ROM
 

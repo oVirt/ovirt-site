@@ -14,7 +14,7 @@ wiki_last_updated: 2013-05-26
 
 ### Summary
 
-Enable plug-in to inject tasks to the engine application using the API, change their statuses and track them from the UI.
+Enable plug-in to inject tasks to the engine application using the REST API, change their statuses and track them from the UI.
 A task may have other nesting sub-tasks under it.
 
 ### Owner

@@ -53,8 +53,10 @@ Candidates for Snapshot Materialized Views are views that are based on slowly-ch
 
 1) Create the Materialized View by calling:
 
-        `**`CreateMaterializedView`**` - if you are creating a new view
-        `**`CreateMaterializedViewAs`**` - preserves the original view name, The original view will be renamed and the new Materialized View will have the original  view name.
+        `**`CreateMaterializedView`**` - if you are creating a new product view
+        `**`CreateMaterializedViewAs`**` - preserves the original view name, The original view will be renamed and the new product  Materialized View will have the original  view name.
+        `**`CreateCustomMaterializedView`**` - if you are creating a new custom view
+        `**`CreateCustomMaterializedViewAs`**` - preserves the original view name, The original view will be renamed and the new custom  Materialized View will have the original  view name.
 
 2) If your Snapshot Materialized View is my_mt you should create Stored Procedures:
 
@@ -77,6 +79,10 @@ There are 4 additional functions :
         `**`DropMaterializedView`**` - Drops the Materialized View
         `**`DropAllMaterializedViews`**` - Drop all Materialized Views
         `**`UpdateMaterializedViewRefreshRate`**` - Updates the Materialized View refresh rate
+        `**`UpdateMaterializedViewRefreshRate`**` - Updates the Materialized View refresh rate
+        `**`UpdateMaterializedViewMinRefreshRate`**` - Updates the Materialized View minimal refresh rate
+        `**`ActivateMaterializedView`**` - activates/decativates a  Materialized View
+        `**`ActivateAllMaterializedViews`**` - activates/decativates all Materialized Views
 
 ### Example of possible post_upgrade/0020_create_materialized_views.sql
 

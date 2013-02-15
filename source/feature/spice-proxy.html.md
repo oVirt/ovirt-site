@@ -18,7 +18,7 @@ Let the users define a proxy which will be used by SPICE client to connect to th
 
 Currently, the only possibility to define a SPICE proxy is using the engine-config tool globally for the whole application. Example:
 
-      engine-config -s SpiceProxy=someProxy
+      engine-config -s SpiceProxyDefault=someProxy
        
 
 The proxy has to follow the following form: [protocol://]<host>[:port]
@@ -27,7 +27,7 @@ The proxy string may be specified with a protocol:// prefix to specify alternati
 
 To turn the proxy off, just clear it:
 
-      engine-config -s SpiceProxy=""
+      engine-config -s SpiceProxyDefault=""
        
 
 If the proxy is set, it will be filled into the Proxy property of the SPICE client by WebAdmin/UserPortal. If the proxy is not set, nothing is filled into this property.

@@ -12,7 +12,7 @@ wiki_last_updated: 2014-01-30
 
 ### Summary
 
-Let the users to define a proxy which will be used by spice to connect to the guest.
+Let the users define a proxy which will be used by spice to connect to the guest.
 
 ### Detailed Description
 

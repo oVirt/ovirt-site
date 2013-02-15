@@ -10,6 +10,14 @@ wiki_last_updated: 2013-11-19
 
 # oVirt Node Release Notes
 
+# 2.6.0 Release Notes
+
+*   Move to Fedora 18 base
+*   Add new Setup UI (based on python-urwid)
+*   glusterfs client support added
+*   Full Plugin enablement
+*   various other enhancements and bug fixes
+
 # 2.5.5 Release Notes
 
 *   include dns_resolver kmod to fix nfs mounting issues

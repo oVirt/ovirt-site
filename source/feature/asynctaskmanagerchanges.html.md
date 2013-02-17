@@ -47,8 +47,6 @@ We should reuse command objects, and consider having Commands repository (hold i
 
 ### Feature tracking
 
-=
-
 *   Last updated date: Feb 17, 2013
 
 <Category:Feature> <Category:Template>

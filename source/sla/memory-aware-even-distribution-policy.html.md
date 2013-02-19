@@ -10,7 +10,7 @@ wiki_last_updated: 2013-02-19
 
 # Memory-aware Even-distribution Policy
 
-This document describes the design for a new policy which seeks even distribution on Virtual Machines over Hosts by using host memory usage state as well as its CPU usage state.
+This document describes the design for a new algorithm which seeks even distribution of Virtual Machines over Hosts by using host memory usage state as well as its CPU usage state.
 
 ### Motivation
 
@@ -19,24 +19,21 @@ In current implementation the user can select between two policies for optimizin
 *   Even-Distribution - Even Distribution
 *   Power Saving
 
-The current Even-Distribution policy takes into consideration only the state of the host's CPU and the VMs CPU usage. This solution can potentially lead to a situation where heavy memory using VMs would be crowded into into the same host. Which would lead to heavy memory use on the host and degradation in the host and the VMs performance.
+Both policies are based on a single algorithm which takes into consideration only the state of the host's CPU and the VMs CPU usage. This solution can potentially lead to a situation where heavy memory using VMs would be crowded into into the same host. Which would lead to heavy memory use on the host and degradation in the host and the VMs performance.
 
-By adding the state of the host memory and the memory usage of each VM to the policy considerations we could avoid situations as described above.
+By adding the state of the host memory and the memory usage of each VM to the algorithm considerations we could avoid situations as described above.
 
 ### GUI
 
-Changes to the UI will be minor. The current radio button list for selecting policy includes:
+Current UI is a 3 radio button selection for selecting only the policy:
 
 *   None
 *   Even Distribution
 *   Power Saving
 
-The new list will include:
+Since only one algorithm is available there is no UI for algorithm selection.
 
-*   None
-*   Even Distribution - CPU Only (this is the old policy)
-*   Even Distribution - CPU and Memory aware
-*   Power Saving
+The new UI would include a selection box for selecting the algorithm (in addition to the policy section radio buttons). The percentage bar currently used to set the top and bottom thresholds for the current algorithm would remain the same. In case the new Memory aware algorithm will be selected, the percentage will be used as memory threshold and cpu threshold.
 
 ### REST API
 

@@ -118,9 +118,9 @@ The following diagram illustrates the Hook mechanism in the VM lifetime cycle:
 
 #### MOM integration
 
-VDSM is integrated with [MoM](MoM) MoM is running as a separate daemon process and is controlling the memory balloons of each VM's runing on the host. The behavior of MOM is configured with policies.
-
 ![ [MoM](MoM) Integration diagram with [VDSM](VDSM) ](mom-vdsm.jpg " MoM Integration diagram with VDSM ")
+
+VDSM is integrated with [MoM](MoM). MoM is running as a separate daemon process and is controlling the memory balloons of each VM's runing on the host. The behavior of MOM is configured with policies. With these policies users can fine tune the host for high memory overcommit or safe operation.
 
 ### REST API
 

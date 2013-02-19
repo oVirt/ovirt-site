@@ -12,7 +12,7 @@ wiki_last_updated: 2013-02-19
 
 ## Summary
 
-This feature will allow from upgrades from old data center types to new even while the pool is active and VMs are running.
+This feature will allow upgrades from old data center types to new even while the pool is active and VMs are running.
 
 ## Current Status
 

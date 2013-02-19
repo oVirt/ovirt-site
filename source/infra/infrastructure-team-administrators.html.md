@@ -21,13 +21,13 @@ This page lists administrator assignments of the Infrastructure team.
 
 ## Public sshkeys used by each administrator
 
-*   mburns
+*   dcaro (apprentice)
 
 <!-- -->
 
-    ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA124a2/78sptq4NmxoFG6j+6StlMmWpqkbPCIBTnt3ACp7D7h8CdIRNVquBuuf5PicmrhGZ0yWLZpHQp5Eux8Eld4Kc4ZF/J0hDZU9BurBjRiJln+ikSjhABhudNo6255ZroUhI2hmsyerToR++NO/r8ilGihZdP/Mwm8++K/pDpM6jr0KUmtdDwgcIrv58NLgOkBl4q0shdJVvAZVobuEoctJ/CDaCtNiaPov1KetE/qCZ6EXn8ouZlxMS+yZtNyXzwfXx7znldajt3EoONDk2jUy1Ns4eC6ANE8HgnAw625HSL8neq8FcEp+YsIhT1Yc51574CCtK1ycJtFxbzsew== mburns@beelzebub
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDu48m2QO4o2CgX4/XEzEUJw53o+Ehjb3WoCxeMDda0kZ4AKXHwgOOf1VR/HyNHq7Ui0XgSdL638S+mvSMWZXTi1vuvmoaH29+zPRazID6xh1M7IaSoBRzaNjyX+Cpo7ZsleQ4RNJEfSoHNPGbnTGWZcX9KSwtRTLfZ59t0U4IPFddtwI4PJJBdygu/lLztdjpC5EjjfdG91EK8bCfhLf1/z4+b13/GGgShu56wnnbxyJXZnHHxiPhYRLgGfzufVhb7mWqv51AvO9wqlDp+IjDn/v/7nAwCdWf3mCukZQ/joMVsf+/HdDFtY+xchzLCfzEJy968wC2ias7bsS/qQD// dcaro@brete
 
-*   eedri
+*   eedri (maintainer)
 
 <!-- -->
 
@@ -37,31 +37,37 @@ This page lists administrator assignments of the Infrastructure team.
 
 <!-- -->
 
-*   ekohl
+*   ekohl (maintainer)
 
 <!-- -->
 
     ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA0oQOkgks69qJkPIZeKC/uRGDyjkHHeULCdTtzs2I3ye0W0+Dg+Bl3rkhxX0S9xKanmhensvLfSXb01i6b5Qga9A8efVEgvQzDal456ahff64w+QPJ5IUPzfGYpGJAJp9MggjrgfOnIzfgC2Zo15rszOYuEmuLTsDs72kwvFVvZJJ9DPkaPvKCvoo3aykwbmJbVl7fDWPwvIKVOF+RwXeGqH2AsMwGyOVwn0Ik3ywcZhylkmoDg4RAS1n4F6gPk1GzHVcEYGMtwgVJQSi6FfEkkqwFfxRJUE562M0XwW5Zsy4FyiUsnHPMzIdcGQ1iSMGcV9z1506dSM0b/bN1guvgw== Ewoud Kohl van Wijngaarden
 
-*   rmiddle
+*   mburns (maintainer)
 
 <!-- -->
 
-    ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAviBZZMTdNLYUXj/gAr4dUz07MlEBHlwIwObpXpKu//A9J7jSCL+DwxdvAjxDpxYoA24GUqxyQRAzV3tvdnsiuh6owvtEqBtd7JEv3VL/mQDG5uaXoAZ0p2nKkWWO9gyp9XXbEfDX/oLYsS4kaaprZHwIhoc8XrAL5ZGXBcJmu0aotifvmW46o55hdg8tmKNT0/BbdiNlivocYgD+ZsE+V7unBs2rUSDTWqO25vLoMdVfEyiwnIAwToFCimHG7gfYpUQnHp+zC3ZGYhRG+a7k9fVvLNGEv8BgJhJHeiwElhl1RYA9uvlzwRLWUCOnfvEnWj0DyCpqOaChaakGxKaKbw== rmiddle@starfury
+    ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA124a2/78sptq4NmxoFG6j+6StlMmWpqkbPCIBTnt3ACp7D7h8CdIRNVquBuuf5PicmrhGZ0yWLZpHQp5Eux8Eld4Kc4ZF/J0hDZU9BurBjRiJln+ikSjhABhudNo6255ZroUhI2hmsyerToR++NO/r8ilGihZdP/Mwm8++K/pDpM6jr0KUmtdDwgcIrv58NLgOkBl4q0shdJVvAZVobuEoctJ/CDaCtNiaPov1KetE/qCZ6EXn8ouZlxMS+yZtNyXzwfXx7znldajt3EoONDk2jUy1Ns4eC6ANE8HgnAw625HSL8neq8FcEp+YsIhT1Yc51574CCtK1ycJtFxbzsew== mburns@beelzebub
 
-*   oschreib
+*   oschreib (maintainer)
 
 <!-- -->
 
     ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDJE0LoB7OoL811FiwvlDeAnRyXx8qVdw2QA4Rw6aK0F0aDcdOe8nYk9UljEVk1j6w4v6vQudzJr/k2WczU26W87pVpknqyz4LX8W1Qb8tQjR2rUz2Rxt4w7/mqVGsASWXfz+r06jjeXRiyHrk+ER9IcxbLYgNeFaFymm6TP33aHHWxG2Ml61cR00J7Ou+4OUlx2+n0XgKjD+k+tmaAmC4m0xp6YUwqZ45saG0CiXml85GRChtAsxnXhlfHiCl9RW/QFTw1ZBV7br54dixm6poDpKCPU4v8/rNDIeUfv5JfB0RVVLtKpxEJRhkGBpD5xdUQeG4tMDkeNGH753VBaw9B oschreib@majesty
 
-*   quaid
+*   quaid (maintainer)
 
 <!-- -->
 
     ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCfjnxEmcpPFKjdn/swdAZkhQgVL8Ngc1AG4CLFpeiW3z2KnQoF17wnqTEe7fPDtPHTxJyvsHFEUZHetBe351e8zH2USBV3IcYnQBosTG2086TWjxCBQ2N9Zi8aXLXHnv4vNQhC0ZNRbCuJ7MseKryScnPK5sFhh9u6IyaDG7ClnWtWvmR7y8dCYLb0ZAIJtSxdGHou/7K1b07AZul3L9cvOkLjSPKrSanLgWIOUjgXKbP+s9hZuiO0T7hX1Va46hvu3fthDqs7gMRLwvSUmZKjwSzlCrm8ftNhjK1snyzkoYtgC6i/1MM62EJ32qsAvudbt5tTEiXb69hHP4cGp0Hn kwade@terpsichore.fairy-talefarm.com
 
-*   rydekull
+*   rmiddle (maintainer)
+
+<!-- -->
+
+    ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAviBZZMTdNLYUXj/gAr4dUz07MlEBHlwIwObpXpKu//A9J7jSCL+DwxdvAjxDpxYoA24GUqxyQRAzV3tvdnsiuh6owvtEqBtd7JEv3VL/mQDG5uaXoAZ0p2nKkWWO9gyp9XXbEfDX/oLYsS4kaaprZHwIhoc8XrAL5ZGXBcJmu0aotifvmW46o55hdg8tmKNT0/BbdiNlivocYgD+ZsE+V7unBs2rUSDTWqO25vLoMdVfEyiwnIAwToFCimHG7gfYpUQnHp+zC3ZGYhRG+a7k9fVvLNGEv8BgJhJHeiwElhl1RYA9uvlzwRLWUCOnfvEnWj0DyCpqOaChaakGxKaKbw== rmiddle@starfury
+
+*   rydekull (apprentice)
 
 <!-- -->
 

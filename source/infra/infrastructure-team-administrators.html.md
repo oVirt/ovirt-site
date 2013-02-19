@@ -16,8 +16,8 @@ This page lists administrator assignments of the Infrastructure team.
 *   Gerrit - gerrit.ovirt.org: iheim, rydekull
 *   Mailman - lists.ovirt.org: quaid
 *   MediaWiki - www.ovirt.org: quaid, DNeary, garrett
-    -   OpenShift - www.ovirt.org: quaid, DNeary, garrett
-*   Resources - resources.ovirt.org: mburns, eedri, quaid
+    -   OpenShift - www.ovirt.org: quaid, DNeary, garrett, rydekull
+*   Resources - resources.ovirt.org: mburns, eedri, quaid, rydekull
 
 ## Public sshkeys used by each administrator
 

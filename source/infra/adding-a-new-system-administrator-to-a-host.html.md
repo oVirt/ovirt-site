@@ -26,6 +26,12 @@ Modify these steps for giving specific 'sudo' access, such as to backups, restar
 
     useradd foo
 
+*   If the system uses e.g. the `wheel` group for sudo permissions, add the user to the appropriate group for sudo permission:
+
+<!-- -->
+
+    usermod -a -G wheel foo
+
 *   Create the user's password to activate the account; the user will not use this password to login, but they need it for 'sudo':
 
 <!-- -->
@@ -89,12 +95,6 @@ Modify these steps for giving specific 'sudo' access, such as to backups, restar
     #* Allow root to run any commands anywhere
     root    ALL=(ALL)       ALL
     foo   ALL=(ALL)       ALL
-
-*   If the system uses e.g. the 'wheel' group for sudo permissions, add the user to the appropriate group for sudo permission:
-
-<!-- -->
-
-    usermod -a -G wheel foo
 
 *   The final permissions:
 

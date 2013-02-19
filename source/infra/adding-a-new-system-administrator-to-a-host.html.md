@@ -110,12 +110,17 @@ Here are the final commands as run:
 
     useradd foo
     passwd foo
+    ## If using the wheel group use the following command:
+    usermod -a -G wheel foo
     mkdir /home/foo/.ssh
     chown foo:foo /home/foo/.ssh
     chmod 700 /home/foo/.ssh
+    ## One of the following two methods for creating the authorized_keys file
+    vi /home/foo/.ssh/authorized_keys
     cp /tmp/foo-id_rsa.pub /home/foo/.ssh/authorized_keys
     chown foo:foo /home/foo/.ssh/authorized_keys
     chmod 644 /home/foo/.ssh/authorized_keys
+    ## If not using the wheel group, add directly to sudoers file with the following command:
     visudo
     ls -hal /home/foo/.ssh
 

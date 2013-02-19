@@ -116,6 +116,12 @@ The following diagram illustrates the Hook mechanism in the VM lifetime cycle:
 
 ![](Hook-arch.png "Hook-arch.png")
 
+#### MOM integration
+
+VDSM is integrated with [MOM](MOM) Mom is running as a separate daemon process and is controlling the memory balloons of each VM's runing on the host. The behavior of MOM is configured with policies.
+
+![ ](mom-vdsm.jpg  " ")
+
 ### REST API
 
 RESTful API for integration with oVirt Engine:

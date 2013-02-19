@@ -23,7 +23,6 @@ Mom -- Memory Overcommitment Manager
 *   integrated Mom work cycle [:Architecture#MOM_integration](:Architecture#MOM_integration)
 *   mom policy explained [:Sla/host-mom-policy](:Sla/host-mom-policy)
 *   Ballooning feature design [:Features/Design/memory-balloon](:Features/Design/memory-balloon) and Mom ballooning tech preview [:SLA-mom-ballooning-tp](:SLA-mom-ballooning-tp)
-*   
 
 ## External Links
 

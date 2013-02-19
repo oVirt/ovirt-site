@@ -37,7 +37,7 @@ Our git repository sits on oVirt's Gerrit server. Development takes place on mos
 
 ## IRC
 
-There is #ovirt on oftc.
+There is [#ovirt](IRC) on oftc.
 
 ## Requirements
 

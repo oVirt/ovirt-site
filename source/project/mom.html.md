@@ -19,7 +19,7 @@ Mom -- Memory Overcommitment Manager
 ## Important MoM wiki pages
 
 *   How Mom is being used to implement [:Category:SLA](:Category:SLA) features in oVirt
-*   ... more to come later
+*   integrated Mom work cycle architecture [:Architecture#MOM_integration](:Architecture#MOM_integration)
 
 ## External Links
 

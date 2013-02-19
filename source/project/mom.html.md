@@ -21,7 +21,7 @@ Mom -- Memory Overcommitment Manager
 *   How Mom is being used to implement [:Category:SLA](:Category:SLA) features in oVirt
 *   Mom project proposal [:Project_Proposal_-_MOM](:Project_Proposal_-_MOM) and Integration [:SLA-mom](:SLA-mom)
 *   integrated Mom work cycle [:Architecture#MOM_integration](:Architecture#MOM_integration)
-*   mom policy explained [:host-mom-policy](:host-mom-policy)
+*   mom policy explained [:Sla/host-mom-policy](:Sla/host-mom-policy)
 *   Ballooning feature design [:Features/Design/memory-balloon](:Features/Design/memory-balloon) and Mom ballooning tech preview [:SLA-mom-ballooning-tp](:SLA-mom-ballooning-tp)
 *   
 

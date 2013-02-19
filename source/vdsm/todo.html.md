@@ -56,6 +56,10 @@ wiki_last_updated: 2015-05-29
 
 *   add a unit test for domxml generation, with several examplary vmParams.
 
+<!-- -->
+
+*   make `getAllVolumesTests` more meaningful, not only counting the number of volumes, but testing the image structure.
+
 ### Features
 
 *   Support striping for disk images.

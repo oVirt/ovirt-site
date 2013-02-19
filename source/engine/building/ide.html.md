@@ -69,20 +69,6 @@ of 'esc'+':' combination ;)
        Existing Maven Projects --> 
        browse into your engine sources direcotry and click OK
 
-*   Change project settings to Resolve compilation errors
-
-<!-- -->
-
-    restapi-definition ->  project ->  properties -> java build path ->  source ->  add source folder ->  target/generated-sources/xjc
-    gwt-extentions ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/annotations
-    gwt-common ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/annotations
-    gwt-common -> project -> properties -> Projects -> Add -> common, compat and uicommon-web
-    webadmin ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/{annotations,gwt}
-    frontend ->  project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/gwt
-    uicompat -> project -> properties -> Projects -> Add -> common and compat
-    generic-api -> project -> properties -> Projects -> Add -> common, compat and utils
-    userportal-gwtp -> project ->  properties ->  java build path -> source ->  add source folder->  target/generated-sources/gwt,annotations
-
 *   You may need to first build the project directly through maven as some referenced projects are auto generated. close eclipse, build with maven and open eclipse again.
 
 <!-- -->

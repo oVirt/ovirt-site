@@ -24,6 +24,7 @@ Not a full list, just collecting here...
 *   <http://blog.jebpages.com/> - Jason Brooks
 *   <http://captainkvm.com/>
 *   <http://ovedou.blogspot.com/> - Oved
+*   <http://aglitke.wordpress.com/> - Adam Litke ([MoM](MoM))
 
 ## ovirt developers
 

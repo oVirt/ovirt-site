@@ -104,7 +104,7 @@ Add a <servlet> definition for virt-viewer-<version>.exe
 
 *   Don't forget to replace <version> in virt-viewer-<version>.exe with the version for example: virt-viewer-0.5.3.exe
 *   Close and save web.xml
-*   NOTE in oVirt 3.2 (the file is part of ovirt-engine-backend rpm) the <servlet> definition for SpiceX.cab is already in place.
+*   NOTE in oVirt 3.2 (the file web.xml is part of ovirt-engine-backend rpm) the <servlet> definition for SpiceX.cab is already in place.
 *   NOTE you will need to restart jboss-as to have the changes you just made picked up (EG: systemctl restart ovirt-engine.service)
 
 ## Add a deployment method Server Side

@@ -59,8 +59,8 @@ So what happens when you hit the "Console" button?
 ### Make JBoss aware of the Files
 
 *   You will now need to let JBoss know how to host, where to host and what type of files these are
-*   This will require the following modifications to /usr/share/ovirt-engine/engine.ear/root.war/WEB_INF/web.xml
-*   Open /usr/share/ovirt-engine/engine.ear/root.war/WEB_INF/web.xml and make the following modifications:
+*   This will require the following modifications to /usr/share/ovirt-engine/engine.ear/root.war/WEB-INF/web.xml
+*   Open /usr/share/ovirt-engine/engine.ear/root.war/WEB-INF/web.xml and make the following modifications:
 
 Add a <servlet> definition for SpiceX.cab
 

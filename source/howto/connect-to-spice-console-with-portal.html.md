@@ -299,16 +299,17 @@ Example simple html/java script page for Remote-Viewer Client/ActiveX Plugin dow
 
 Add an entry to the below section of index.html containing the links to the various portals:
 
-      <div id='dynamicLinksSection' style="display: none;">
-        <div>
-        <h2>
-          <span class="fakeH2">Portals</span>
-       </h2>
-          <div><script type="text/JavaScript">getHttpsHref("UserPortal","User Portal");</script></div>
-          <div><script type="text/JavaScript">getHttpsHref("webadmin","Administrator Portal");</script></div>
-          <div><script type="text/JavaScript">getHttpHref("OvirtEngineWeb/RedirectServlet?Page=Reports","Reports Portal");</script></div>
-          <div><script type="text/JavaScript">getHttpHref("spice.html","Spice Install Portal");</script></div>
-      </div>
+                    <div id='dynamicLinksSection' style="display: none;">
+                            <div>
+                            <h2>
+                                    <span class="fakeH2">Portals</span>
+                            </h2>
+                                    <div><a href="UserPortal">User Portal</a></div>
+                                    <div><a href="webadmin">Administrator Portal</a></div>
+                                    <div><a href="OvirtEngineWeb/RedirectServlet?Page=Reports">Reports Portal</a></div>
+                                    <div><a href="spice.html">Spice Install Portal</a></div>
+                            </div>
+                    </div>
 
 ## Installing via the web Client Side
 

@@ -58,7 +58,7 @@ Once you have a working VM power it off and use the Webadmin to create a templat
 
 In oVirt 3.2, all the software needed to do autoballooning is already installed in the hypervisor as part of the default configuration. You just need to change the MOM management policy. MOM stands for Memory Overcommitment Manager and it is a dynamic policy engine that is designed to optimize the configuration of a KVM hypervisor over time in response to changing load. By default, oVirt uses MOM for tuning KSM page sharing only. In the future it will also tune ballooning, IO bandwidth, CPU capping, etc.
 
-We need to change VDSM's mom configuration in order to add a Ballooning plugin and change the policy. First, grab [/mom-balloon.conf](/mom-balloon.conf) and [/mom-balloon.policy](/mom-balloon.policy) and place them in /etc/vdsm on your hypervisor host. Next, edit /etc/vdsm/vdsm.conf and add:
+We need to change VDSM's mom configuration in order to add a Ballooning plugin and change the policy. First, grab [Sla/autoballooning-howto/mom-balloon.conf mom-balloon.conf](Sla/autoballooning-howto/mom-balloon.conf mom-balloon.conf) and [Sla/autoballooning-howto/mom-balloon.policy mom-balloon.policy](Sla/autoballooning-howto/mom-balloon.policy mom-balloon.policy) and place them in /etc/vdsm on your hypervisor host. Next, edit /etc/vdsm/vdsm.conf and add:
 
     [mom]
     conf = /etc/vdsm/mom-balloon.conf

@@ -23,9 +23,8 @@ Create an oVirt 3.2 environment consisting of an ovirt-engine system and at leas
 
 ### VM Setup
 
-Install a single VM with the distribution of your choice. I used Tiny Core Linux because I used nested virtualization and had pretty limited resources to start with.
-
-Install the ovirt-guest-agent into the virtual machine. This is important because the guest agent provides vital memory statistics to the hypervisor which uses them to make autoballoon decisions.
+*   Install a single VM with the distribution of your choice. I used Tiny Core Linux because I used nested virtualization and had pretty limited resources to start with.
+*   Install the ovirt-guest-agent into the virtual machine. This is important because the guest agent provides vital memory statistics to the hypervisor which uses them to make autoballoon decisions.
 
 Idle VMs don't usually consume a lot of memory and won't stress the system the way we need to for this exercise. The tool memknobs was written by Dave Hansen to produce continuous memory stress in a Linux system. I use it to increase the management challenge in the hypervisor.
 
@@ -40,11 +39,14 @@ Idle VMs don't usually consume a lot of memory and won't stress the system the w
 *   Copy this binary to a known location in your VM
 *   Calculate the parameters (most important ones impacting this scenario are):
 
-run_duration: The amount of time memknobs should run
+run_duration  
+The amount of time memknobs should run
 
-loop_duration_secs: Increase this to cause memknobs to sleep longer between intervals and reduce CPU consumption
+loop_duration_secs  
+Increase this to cause memknobs to sleep longer between intervals and reduce CPU consumption
 
-size_mb: Sets the working set size of memknobs. Higher values will result in more memory usage.
+size_mb  
+Sets the working set size of memknobs. Higher values will result in more memory usage.
 
 You want to set the parameters to get the VM's memory usage high enough so that the hypervisor's memory becomes constrained after several VMs have been started. You can run memknobs and then observe its effect in the oVirt Webadmin console.
 
@@ -56,7 +58,7 @@ Once you have a working VM power it off and use the Webadmin to create a templat
 
 In oVirt 3.2, all the software needed to do autoballooning is already installed in the hypervisor as part of the default configuration. You just need to change the MOM management policy. MOM stands for Memory Overcommitment Manager and it is a dynamic policy engine that is designed to optimize the configuration of a KVM hypervisor over time in response to changing load. By default, oVirt uses MOM for tuning KSM page sharing only. In the future it will also tune ballooning, IO bandwidth, CPU capping, etc.
 
-We need to change VDSM's mom configuration in order to add a Ballooning plugin and change the policy. First, grab mom-balloon.conf [] and mom-balloon.policy and place them in /etc/vdsm on your hypervisor host. Next, edit /etc/vdsm/vdsm.conf and add:
+We need to change VDSM's mom configuration in order to add a Ballooning plugin and change the policy. First, grab [/mom-balloon.conf](/mom-balloon.conf) and [/mom-balloon.policy](/mom-balloon.policy) and place them in /etc/vdsm on your hypervisor host. Next, edit /etc/vdsm/vdsm.conf and add:
 
     [mom]
     conf = /etc/vdsm/mom-balloon.conf

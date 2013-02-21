@@ -23,7 +23,7 @@ Create an oVirt 3.2 environment consisting of an ovirt-engine system and at leas
 
 ### VM Setup
 
-*   Install a single VM with the distribution of your choice. I used Tiny Core Linux because I used nested virtualization and had pretty limited resources to start with.
+*   Install a single VM with the distribution of your choice. I used [Tiny Core Linux](http://distro.ibiblio.org/tinycorelinux/) because I used nested virtualization and had pretty limited resources to start with. If you can spare the resources, I recommend Fedora 18 VMs because the guest agent is packaged for that distribution.
 *   Install the ovirt-guest-agent into the virtual machine. This is important because the guest agent provides vital memory statistics to the hypervisor which uses them to make autoballoon decisions.
 
 Idle VMs don't usually consume a lot of memory and won't stress the system the way we need to for this exercise. The tool memknobs was written by Dave Hansen to produce continuous memory stress in a Linux system. I use it to increase the management challenge in the hypervisor.
@@ -37,28 +37,28 @@ Idle VMs don't usually consume a lot of memory and won't stress the system the w
     gcc -m32 -g -static -o memknobs memknobs.c
 
 *   Copy this binary to a known location in your VM
-*   Calculate the parameters (most important ones impacting this scenario are):
+*   Calculate the parameters. You want to set the parameters to get the VM's memory usage high enough so that the hypervisor's memory becomes constrained after several VMs have been started. You can run memknobs and then observe its effect on the VM in the oVirt Webadmin console. The most important ones impacting this scenario are:
 
-run_duration  
-The amount of time memknobs should run
+:;run_duration
 
-loop_duration_secs  
-Increase this to cause memknobs to sleep longer between intervals and reduce CPU consumption
+::The amount of time memknobs should run
 
-size_mb  
+:;loop_duration_secs
+
+::Increase this to cause memknobs to sleep longer between intervals and reduce CPU consumption
+
+:;size_mb
+
 Sets the working set size of memknobs. Higher values will result in more memory usage.
 
-You want to set the parameters to get the VM's memory usage high enough so that the hypervisor's memory becomes constrained after several VMs have been started. You can run memknobs and then observe its effect in the oVirt Webadmin console.
-
 *   Arrange for memknobs to be started automatically when the VM boots. You can probably use your distribution's rc.local facility for this.
-
-Once you have a working VM power it off and use the Webadmin to create a template from it. Use that template to create a VM pool with as many VMs as you think you'll need to stress the system.
+*   Once you have a working VM power it off and use the Webadmin to create a template from it. Use that template to create a VM pool with as many VMs as you think you'll need to stress the system.
 
 ### Hypervisor Setup
 
 In oVirt 3.2, all the software needed to do autoballooning is already installed in the hypervisor as part of the default configuration. You just need to change the MOM management policy. MOM stands for Memory Overcommitment Manager and it is a dynamic policy engine that is designed to optimize the configuration of a KVM hypervisor over time in response to changing load. By default, oVirt uses MOM for tuning KSM page sharing only. In the future it will also tune ballooning, IO bandwidth, CPU capping, etc.
 
-We need to change VDSM's mom configuration in order to add a Ballooning plugin and change the policy. First, grab [Sla/autoballooning-howto/mom-balloon.conf mom-balloon.conf](Sla/autoballooning-howto/mom-balloon.conf mom-balloon.conf) and [Sla/autoballooning-howto/mom-balloon.policy mom-balloon.policy](Sla/autoballooning-howto/mom-balloon.policy mom-balloon.policy) and place them in /etc/vdsm on your hypervisor host. Next, edit /etc/vdsm/vdsm.conf and add:
+We need to change VDSM's mom configuration in order to add a Ballooning plugin and change the policy. First, grab [mom-balloon.conf](Sla/autoballooning-howto/mom-balloon.conf) and [mom-balloon.policy](Sla/autoballooning-howto/mom-balloon.policy) and place them in /etc/vdsm on your hypervisor host. Next, edit /etc/vdsm/vdsm.conf and add:
 
     [mom]
     conf = /etc/vdsm/mom-balloon.conf

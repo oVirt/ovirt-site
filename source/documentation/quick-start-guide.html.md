@@ -305,6 +305,10 @@ You now know how to install a oVirt Node. In addition to hypervisor hosts, you c
          # chkconfig iptables on
          # service iptables restart
 
+*   Some versions of Fedora come without the **tar** command installed by default, specially if you make a minimal installation, but this command is required in order to configure the host from the engine, so install it if needed:
+
+       # yum install tar
+
 You have now successfully installed a Fedora host. As before, repeat this procedure if you wish to use more Linux hosts. Before you can start running virtual machines on your host, you have to manually add it to the oVirt Engine via the administration portal, which you will access in the next step.
 
 ## Connect to oVirt Engine

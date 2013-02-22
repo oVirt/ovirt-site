@@ -32,7 +32,7 @@ The required model attribute specifies what real watchdog device is emulated. Va
 The optional action attribute describes what action to take when the watchdog expires. Valid values are specific to the underlying hypervisor.
 
       'reset'          forcefully reset the guest 
-      'shutdown' gracefully shutdown the guest (not recommended)
+      'shutdown'        gracefully shutdown the guest (not recommended)
       'poweroff'       forcefully power off the guest
       'pause'          pause the guest
       'none'           default, do nothing

@@ -8,6 +8,24 @@ wiki_last_updated: 2013-12-25
 
 # Java-sdk-changelog
 
+         * Sun  Feb 24 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.4-1
+         - implement SSL support (without host verification)
+         - implement shutdown() to deallocate system resources
+         - to cluster added tunnel_migration property
+         - to DataCenter added Clusters sub-collection
+         - to root collection resource Disk added Permissions sub-collectio
+         - to root collection resource Disk added Statistic sub-collection
+         - host can be attached to cluster now either by id or name
+         - to StorageDomainTemplate added Disks sub-collection
+         - to StorageDomainVM added Disks sub-collection
+         - to template.display added keyboard_layout property
+         - to template added tunnel_migration property
+         - to vm.display added keyboard_layout property
+         - to vm added tunnel_migration property
+         - to VMSnapshot added preview method
+         - to VMSnapshot added undo method
+         - to VMSnapshot added commit method
+
         * Wed  Jan 30 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.3-1
          - added persistent authentication support
          - added support for the method overloads based on url/headers params

@@ -8,7 +8,7 @@ wiki_last_updated: 2013-12-25
 
 # Java-sdk-changelog
 
-         * Sun  Feb 24 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.4-1
+        * Sun  Feb 24 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.4-1
          - implement SSL support (without host verification)
          - implement shutdown() to deallocate system resources
          - to cluster added tunnel_migration property

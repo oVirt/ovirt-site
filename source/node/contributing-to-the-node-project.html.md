@@ -84,4 +84,4 @@ Once created, simple send the patch using the following:
 
     git send-email [the name of the patch file]
 
-<Category:Contributing>
+<Category:Contributing> <Category:Node>

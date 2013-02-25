@@ -108,4 +108,13 @@ Variables:
     -   ovirt-node-iso-2.3.0-1.XX.fc16
     -   Can be overridden at in the make iso and/or make publish steps by adding BUILD_NUMBER=<buildnumber>
 
+### Where to go from now
+
+Now that you've got an oVirt Node ISO you can use
+
+*   [ Deploy it with PXE](Node PXE) to get it onto real hardware or into a VM for testing purposes
+*   [Node plugins](Node plugins) to add 3rd party plugins
+*   [ Use igor](Node Automation) to setup automated tests for oVirt Node in your environment
+*   [ Contribute](Contributing to the Node project) to make Node even more solid
+
 <Category:Node> <Category:Documentation>

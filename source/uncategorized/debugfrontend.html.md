@@ -58,3 +58,5 @@ If everything is successful, you should see a new tab in the GWT Development Mod
 The most common issue is that the Google Web Toolkit Developer Plugin is not installed or is not correctly installed. Please make sure, your browser is officially supported by the Google Web Toolkit Developer Plugin.
 
 Another reason could be the maven compiler parameters. Please make sure you did not build you backend with *-Dgwt.draftCompile=true* and *-Dgwt.user.agent=gecko* , recompile without these parameters if you did. - [Lhornyak](User:Lhornyak) ([talk](User talk:Lhornyak)) 14:50, 30 November 2012 (GMT)
+
+Yet another problem experienced with fedora 18 was that at installation fedora did not add the host name to the /etc/hosts, so gwt debugger was not able to resolve the ip address of localhost. To fix this, add the name of the hostname to /etc/hosts --[Lhornyak](User:Lhornyak) ([talk](User talk:Lhornyak)) 11:37, 25 February 2013 (GMT)

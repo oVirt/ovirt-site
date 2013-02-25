@@ -66,11 +66,24 @@ Starting with the second line, please provide a sufficiently detailed descriptio
 
       Resolves: !#123456
 
-where the numbers are the Bugzilla ticket id.
+where the numbers are the ticket id. Or use the following format to point to a RedHat Bugzilla id the patch solves:
+
+      rhbz#123456
 
 ### !ChangeLog entry
 
 Please be sure to add a note in the file **!ChangeLog** describing your patch. This helps to make sure your changes are documented when a release is made available.
+
+### Example commit message
+
+Summarizing all the informations above a commit message could look like:
+
+    ui: Add page to view log files
+
+    Previously the UI did not offer a page to view the system wide logfiles.
+    This patch adds a page which the user can use to view a number of log files.
+
+    rhbz#123456
 
 ## Creating and submitting the patch
 

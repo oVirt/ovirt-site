@@ -82,3 +82,23 @@ The integration of network providers into oVirt will be incremental.
 #### Auto-Discovery of networks
 
 *   An external provider would be set up as the provider of networking for a DC, such that any network defined on the provider will be discovered by oVirt and automatically set-up on the DC.
+
+## Proof of Concept
+
+A POC was done with the proposed ideas in "Phase 1" section, it is available for review & testing.
+
+### POC Sources
+
+The POC sources can be found in the oVirt gerrit under a topic branch: <http://gerrit.ovirt.org/#/q/status:open+project:ovirt-engine+branch:master+topic:POC_NetworkProvider,n,z>
+
+### Demo Videos
+
+Demo videos of the POC in action are available on youtube.
+
+#### The 1st part (the providers tab, discovery, etc)
+
+<http://www.youtube.com/watch?v=yXqN17KktjE>
+
+#### The 2nd part (VM connectivity)
+
+<http://www.youtube.com/watch?v=uW3vrY2Y3xc>

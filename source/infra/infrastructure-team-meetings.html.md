@@ -35,7 +35,9 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ### 2013-02-25
 
-'['<http://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-02-25-15.01.html> Minutes]'' *Agenda*
+*[Minutes](http://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-02-25-15.01.html)*
+
+*Agenda*
 
 *   Hosting
 *   Puppet

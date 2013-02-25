@@ -180,6 +180,8 @@ This configurator would preferably use the Python bindings to the Open vSwitch d
 *   Special bond kernel module defined by Open vSwitch could be supported as well,
 *   Additionally, other capabilities like QoS and portMirroring could be leveraged.
 
+The assistance of iproute2 configurator would be needed to set ip addresses on ovs-configured interfaces.
+
 #### NetworkManager configurator (persistent and non-persistent, via temp. connections)
 
 NetworkManager provides a D-Bus endpoint that could be used from Python to set up (once support for all of them stabilizes):

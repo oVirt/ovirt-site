@@ -18,9 +18,24 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Upcoming meetings
 
-### 2013-02-25
+### 2013-03-04
 
 *Agenda*
+
+*   Introductions
+*   Hosting
+*   Puppet
+    -   Summarize the ML thread
+*   Jenkins
+    -   Migration to alterway
+*   Other business?
+*   Trac review
+
+## Past meetings
+
+### 2013-02-25
+
+'['<http://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-02-25-15.01.html> Minutes]'' *Agenda*
 
 *   Hosting
 *   Puppet
@@ -28,8 +43,6 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Gerrit
 *   Other business?
 *   Trac review
-
-## Past meetings
 
 ### 2013-02-18
 

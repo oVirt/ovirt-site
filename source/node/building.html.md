@@ -12,57 +12,73 @@ wiki_last_updated: 2015-01-28
 
 ## Build Process for oVirt Node
 
-Currently, we're heavily reliant on Fedora.
+Currently, we're heavily reliant on Fedora. The build process consists of two phases:
+
+1.  Building the *ovirt-node* packages
+2.  Building the ISO image using Fedora packages and the previously build *ovirt-node* packages
 
 ### From Git
 
 #### Get the Source
 
-Use git
+The code resides in [oVirt's gerrit](http://gerrit.ovirt.org/gitweb?p=ovirt-node.git;a=summary) and can be pulled using git:
 
-`$ git clone http://gerrit.ovirt.org/p/ovirt-node.git
+    # The ovirt-node package, which contains Node specififc code, TUI and tools
+    $ git clone http://gerrit.ovirt.org/p/ovirt-node.git
 
-$ git clone http://gerrit.ovirt.org/p/ovirt-node-iso.git
+    # This package is used to build the ISO
+    $ git clone http://gerrit.ovirt.org/p/ovirt-node-iso.git
 
-$ cd ovirt-node`
+    # Let's operate from this base
+    $ export OVIRT_NODE_BASE=$PWD
 
 #### Setup a Build Environment
 
-*   Recommend minimum F15 build host
-    -   Otherwise there are problems with systemd and building
+*   Recommend minimum F18 build host
+    -   Otherwise there are problems with systemd, selinux, ...
 *   Create an ovirt-cache directory (defaults to ~/ovirt-cache
 *   Create an RPM build environment
-    -   If not running on the version of Fedora you want to build with, create a ~/.rpmmacros file with
-        -   %dist .fc16
-        -   %fedora 16
     -   If you're on the right version, then no need for .rpmmacros
-*   set OVIRT_CACHE_DIR and OVIRT_LOCAL_REPO environment variables
-    -   <code> $ export OVIRT_CACHE_DIR=~/ovirt-cache
-    -   $ export OVIRT_LOCAL_REPO=<file://>${OVIRT_CACHE_DIR}/ovirt </code>
+    -   If not running on the version of Fedora you want to build with, create a ~/.rpmmacros file with
+        -   %dist .fc18
+        -   %fedora 18
+*   set `OVIRT_CACHE_DIR` and `OVIRT_LOCAL_REPO` environment variables
+    -   ` $ export OVIRT_CACHE_DIR=~/ovirt-cache`
+    -   ` $ export OVIRT_LOCAL_REPO=file://${OVIRT_CACHE_DIR}/ovirt `
 
 #### Install Dependencies
 
-*   You will need (at least):
-    -   at least sudo access to livecd-creator (preferably passwordless)
-    -   livecd-tools
-    -   appliance-tools-minimizer
-    -   rpm-build
-    -   createrepo
-    -   python-devel
+You will need (at least):
+
+*   -   sudo access to livecd-creator (preferably passwordless)
     -   In addition, all packages listed under [Exceptions](http://fedoraproject.org/wiki/Packaging:Guidelines#Exceptions_2) in the Fedora Packaging guidelines should also be installed.
+
+This boils (on a fresh and minimal Fedora 18) down to:
+
+    $ visudo
+    $ yum install livecd-tools appliance-tools-minimizer fedora-packager python-devel rpm-build createrepo
 
 #### Build ovirt-node packages
 
-*   go to base ovirt-node location
-*   <code> $ ./autogen.sh --with-image-minimizer
-*   EXTRA_RELEASE=.$USER$(date +%s)
-    -   Not required if you're building an official build
-    -   Also, you may need to tweak this if you have an invalid character in your user name (like - )
-*   $ make publish
+Now that the source and build environment is setup you can build the *ovirt-node* packages:
 
-</code>
+    # Go to base ovirt-node location
+    $ cd $OVIRT_NODE_BASE
+    $ cd ovirt-node
+
+    # EXTRA_RELEASE is picked up by ovirt-node's build system
+    # Needs to be adjusted for an official build
+    # Also, you may need to tweak this if you have an invalid character in your user name (like - )
+    $ export EXTRA_RELEASE=.$USER$(date +%s)
+
+    $ ./autogen.sh --with-image-minimizer</code>
+
+    # Copies the packages to $OVIRT_CACHE_DIR (FIXME or $OVIRT_LOCAL_REPO?)
+    $ make publish
 
 #### Workarounds for RPMs not included in Fedora
+
+Sometimes some packages are missing in Fedora's official repos (e.g. because tehy are not yet released or generally not available in Fedora). If this is the case the following workaround can be used to include the packages in oVirt Node:
 
 *   cd to your OVIRT_CACHE/ovirt directory
 *   copy all separate rpms there
@@ -70,17 +86,18 @@ $ cd ovirt-node`
 
 #### Build the image
 
-`
+Now that the *ovirt-node* package and (optional) other 3rd party packages are in place, we can build the ISO:
 
-$ cd ../ovirt-node-iso
+    $ cd $OVIRT_NODE_BASE
+    $ cd ovirt-node-iso
 
-$ ./autogen.sh --with-recipe=/path/to/ovirt-node/recipe/directory --with-build-number=<build_number>
+    # /path/to/ovirt-node/recipe/directory is typically $OVIRT_NODE_BASE/ovirt-node/recipe
+    $ ./autogen.sh --with-recipe=/path/to/ovirt-node/recipe/directory --with-build-number=<build_number>
 
-$ make iso publish
+    # Build and compress the iso
+    $ make iso publish
 
-`
-
-Variables
+Variables:
 
 *   --with-recipe
     -   defaults to /usr/share/ovirt-node-tools

@@ -108,7 +108,13 @@ Variables:
     -   ovirt-node-iso-2.3.0-1.XX.fc16
     -   Can be overridden at in the make iso and/or make publish steps by adding BUILD_NUMBER=<buildnumber>
 
-### Where to go from now
+## Jenkins / Nightly Builds
+
+The oVirt project is using [Jenkins](http://www.jenkins-ci.org) for CI.
+
+There are [several jobs related to Node](http://jenkins.ovirt.org/view/ovirt_node/) which also build per-commit and nightly builds.
+
+## Where to go from now
 
 Now that you've got an oVirt Node ISO you can use
 

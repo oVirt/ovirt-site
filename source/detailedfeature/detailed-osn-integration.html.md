@@ -85,7 +85,7 @@ The integration of network providers into oVirt will be incremental.
 
 ## Proof of Concept
 
-A POC was done with the proposed ideas in "Phase 1" section, it is available for review & testing.
+A POC was done with the proposed ideas in "Phase 1" section, integrating [Openstack Quantum](https://wiki.openstack.org/wiki/Quantum) as an external network provider. the POC is available for review & testing.
 
 ### POC Sources
 

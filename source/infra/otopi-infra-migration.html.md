@@ -38,6 +38,8 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 |------------------------------------------------------------------------|-------------------------|------------------------|-------|
 | Verify that root is the user executing the script                      | Done                    | Done                   |       |
 | Allow unprivileged user ro run a development installation              | Not implemented         | Done                   |       |
+| Checking total memory                                                  | Done                    | Not implemented        |       |
+| Generate answer file                                                   | Done                    | Done                   |       |
 | Allow logging                                                          | Done                    | Done                   |       |
 | Support AIO plugin                                                     | Done                    | Not implemented        |       |
 | Support FIREWALL_MANAGER option                                       | Done                    | Not implemented        |       |
@@ -62,6 +64,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support NFS_MP option                                                 | Done                    | Not implemented        |       |
 | Support ISO_DOMAIN_NAME option                                       | Done                    | Not implemented        |       |
 | Support CONFIG_NFS option                                             | Done                    | Not implemented        |       |
+| Display summary in interactive mode                                    | Done                    | Not implemented        |       |
 | Initialize MiniYum                                                     | Done                    | Not implemented        |       |
 | Handle second execution warning                                        | Done                    | Not implemented        |       |
 | Handle loading and validating params from answer file                  | Done (--answer-file)    | Done (--config-append) |       |
@@ -99,6 +102,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | set NFS/portmap ports by overriding /etc/sysconfig/nfs                 | Done                    | Not implemented        |       |
 | Enable the rpcbind and nfs services                                    | Done                    | Not implemented        |       |
 | Load files (iso,vfd) from existing rpms to ISO domain                  | Done                    | Not implemented        |       |
+| Check firewall managers installed in the system                        | Done                    | Not implemented        |       |
 | Configure and enable iptables if requested                             | Done                    | Not implemented        |       |
 | Configure and enable FirewallD if requested                            | Done                    | Not implemented        |       |
 | Start / Stop Engine service when needed                                | Done                    | Done                   |       |

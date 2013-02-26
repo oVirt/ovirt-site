@@ -51,7 +51,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Start / Stop rhevm-etl service when needed                    | Done                    | Not implemented      |
 | Start / Stop rhevm-notifierd service when needed              | Done                    | Not implemented      |
 | Upgrade database if already exist                             | Done                    | Done                 |
-| Set Application Mode (Both|Virt|Gluster)                      | Done                    | Done                 |
+| Set Application Mode (Both, Virt, Gluster)                    | Done                    | Done                 |
 |                                                               |                         |                      |
 
 ### Detailed Description

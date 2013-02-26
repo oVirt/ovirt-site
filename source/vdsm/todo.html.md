@@ -70,11 +70,16 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   add hooks for device hotplug
+*   ~~add hooks for device hotplug~~ done.
+*   add hooks for device update
 
 <!-- -->
 
 *   add hooks for network operations
+
+<!-- -->
+
+*   Add configurable QoS controls on vnics <http://libvirt.org/formatdomain.html#elementQoS>
 
 ### refactoring
 

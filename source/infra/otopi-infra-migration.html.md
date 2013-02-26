@@ -33,29 +33,41 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 
 *   Last updated: ,
 
-| Feature                                                       | existing implementation | otopi implementation |
-|---------------------------------------------------------------|-------------------------|----------------------|
-| Set Max Shared Memory                                         | Done                    | Done                 |
-| Check for supported Java VM                                   | Done                    | Done                 |
-| CA Generation                                                 | Done                    | Done                 |
-| Extract CA fingerprint                                        | Done                    | Done                 |
-| Extract non password key for log collector                    | Done                    | Done                 |
-| Extract non password key for Apache                           | Done                    | Done                 |
-| Extract SSH fingerprint                                       | Done                    | Done                 |
-| Configure engine service - database                           | Done                    | Done                 |
-| Configure engine service - Java                               | Done                    | Done                 |
-| Configure engine service - Protocols                          | Done                    | Done                 |
-| Configure .pgpass file                                        | Done                    | Done                 |
-| Encrypt DB Password                                           | Done                    | Done                 |
-| Push the encrypted password into the local configuration file | Done                    | Done                 |
-| Start / Stop rhevm-etl service when needed                    | Done                    | Not implemented      |
-| Start / Stop rhevm-notifierd service when needed              | Done                    | Not implemented      |
-| Upgrade engine database if already exist                      | Done                    | Done                 |
-| Install engine database if doesn't exist                      | Done                    | Done                 |
-| Set Application Mode (Both, Virt, Gluster)                    | Done                    | Done                 |
-| Update VDC Options                                            | Done                    | Done                 |
-| Update default data center storage type                       | Done                    | Not implemented      |
-|                                                               |                         |                      |
+| Feature                                                               | existing implementation | otopi implementation |
+|-----------------------------------------------------------------------|-------------------------|----------------------|
+| Set Max Shared Memory                                                 | Done                    | Done                 |
+| Check for supported Java VM                                           | Done                    | Done                 |
+| CA Generation                                                         | Done                    | Done                 |
+| Extract CA fingerprint                                                | Done                    | Done                 |
+| Extract non password key for log collector                            | Done                    | Done                 |
+| Extract non password key for Apache                                   | Done                    | Done                 |
+| Extract SSH fingerprint                                               | Done                    | Done                 |
+| Configure engine service - database                                   | Done                    | Done                 |
+| Configure engine service - Java                                       | Done                    | Done                 |
+| Configure engine service - Protocols                                  | Done                    | Done                 |
+| Configure .pgpass file                                                | Done                    | Done                 |
+| Encrypt DB Password                                                   | Done                    | Done                 |
+| Push the encrypted password into the local configuration file         | Done                    | Done                 |
+| Start / Stop rhevm-etl service when needed                            | Done                    | Not implemented      |
+| Start / Stop rhevm-notifierd service when needed                      | Done                    | Not implemented      |
+| Upgrade engine database if already exist                              | Done                    | Done                 |
+| Install engine database if doesn't exist                              | Done                    | Done                 |
+| Set Application Mode (Both, Virt, Gluster)                            | Done                    | Done                 |
+| Update VDC Options                                                    | Done                    | Done                 |
+| Update default data center storage type                               | Done                    | Not implemented      |
+| Configure engine-log-collector                                        | Done                    | Not implemented      |
+| Configure engine-iso-uploader                                         | Done                    | Not implemented      |
+| Configure engine-image-uploader                                       | Done                    | Not implemented      |
+| Configure PostgreSQL max_connections if using local DB               | Done                    | Not implemented      |
+| Configure NFS exports for ISO Domain if requested                     | Done                    | Not implemented      |
+| Allow importing existing NFS ISO Domain                               | Done                    | Not implemented      |
+| Create new NFS ISO Domain                                             | Done                    | Not implemented      |
+| Migrate existing NFS ISO exports from /etc/exports to /etc/exports.d/ | Done                    | Not implemented      |
+| Set selinux context for NFS ISO mount points                          | Done                    | Not implemented      |
+| set NFS/portmap ports by overriding /etc/sysconfig/nfs                | Done                    | Not implemented      |
+| Enable the rpcbind and nfs services                                   | Done                    | Not implemented      |
+| Load files (iso,vfd) from existing rpms to ISO domain                 | Done                    | Not implemented      |
+|                                                                       |                         |                      |
 
 ### Detailed Description
 

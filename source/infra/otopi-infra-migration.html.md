@@ -67,7 +67,16 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | set NFS/portmap ports by overriding /etc/sysconfig/nfs                | Done                    | Not implemented      |
 | Enable the rpcbind and nfs services                                   | Done                    | Not implemented      |
 | Load files (iso,vfd) from existing rpms to ISO domain                 | Done                    | Not implemented      |
-|                                                                       |                         |                      |
+| Configure and enable iptables if requested                            | Done                    | Not implemented      |
+| Configure and enable FirewallD if requested                           | Done                    | Not implemented      |
+| Start / Stop Engine service when needed                               | Done                    | Done                 |
+| Enable httpd_can_network_connect selinux flag                      | Done                    | Not implemented      |
+| Backup old Apache httpd config when needed                            | Done                    | Not implemented      |
+| Configure Apache mod_ssl for using engine apache keys                | Done                    | Not implemented      |
+| Configure Apache for listening on requested HTTP port                 | Done                    | Not implemented      |
+| Configure Apache for listening on requested HTTPS port                | Done                    | Not implemented      |
+| Configure Apache as proxy for the requests to the jboss service       | Done                    | Not implemented      |
+| Enable the httpd service                                              | Done                    | Not implemented      |
 
 ### Detailed Description
 

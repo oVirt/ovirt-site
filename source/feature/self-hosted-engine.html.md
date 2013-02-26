@@ -13,7 +13,7 @@ wiki_last_updated: 2015-01-16
 
 ### Summary
 
-The ability to run the Engine as a VM in a Datacentre that is managed by this Engine.
+The ability to run the Engine as a VM on the hosts that are managed by this Engine, in an HA configuration, when the Engine VM can start on any of the hosts.
 
 ### Owner
 
@@ -39,7 +39,6 @@ This feature will deal with two main issues:
 
 *   This will allow us to deploy less hardware (with the Engine not requiring a separate machine)
 *   We will be capable of providing HA for the Engine out of the box, instead of using a separate cluster in order to make the Engine HA.
-*   The Engine services will be managed as a regular VM in terms of load balancing, placing the Engine VM where resources are best suited to run it.
 *   This operational mode will attract users already familiar with it from other virt platforms.
 
 # **Requirements**
@@ -50,11 +49,12 @@ This feature will deal with two main issues:
 *   The engine should be highly available, and be able to tolerate host, network and storage failures.
 *   An ability to define priorities for hosting the engine is required.
 *   The host currently running the engine should report additional resources used, just like we reserve an extra CPU for the SPM, and compensate for that.
+*   ovirt-node should have a TUI for the initial deployment and configuration of the Engine VM
 
 ### Deployment
 
 *   Initial setup will involve creating the Engine VM (libvirt based), then, the Engine VM should be started, configured and updated.
-*   When the process is finished, the user should be able to login to the Engine, and start defining DCs and adding hosts, including the host the engine is already running on.
+*   After the setup the user will be able to access the Engine webadmin UI in order to add more hosts, clusters, SDs etc in the regular flow.
 
 ### Operational Routine
 
@@ -82,7 +82,7 @@ Issues to address specifically:
 *   Host self monitoring (HB to the Engine, designated network entities, Storage)
 *   Inter-host selection for the next host to pick up the Engine VM
 *   Host failure counter, that will have effect on the host selection heuristics
-*   Host capabilities (minimal CPU/RAM available) will have effect on the host selection heuristics
+*   (optional) Host capabilities (minimal CPU/RAM available) will have effect on the host selection heuristics
 *   Host priority in Engine election
 
 #### Additional functionality required at the Engine level

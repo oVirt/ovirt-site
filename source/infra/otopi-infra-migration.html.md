@@ -141,4 +141,4 @@ TBD
 
 *   Refer to <Talk:Features/Otopi_Infra_Migration>
 
-<Category:Feature> <Category:Template>
+<Category:Feature>

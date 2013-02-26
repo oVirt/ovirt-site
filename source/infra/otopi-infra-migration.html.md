@@ -50,8 +50,11 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Push the encrypted password into the local configuration file | Done                    | Done                 |
 | Start / Stop rhevm-etl service when needed                    | Done                    | Not implemented      |
 | Start / Stop rhevm-notifierd service when needed              | Done                    | Not implemented      |
-| Upgrade database if already exist                             | Done                    | Done                 |
+| Upgrade engine database if already exist                      | Done                    | Done                 |
+| Install engine database if doesn't exist                      | Done                    | Done                 |
 | Set Application Mode (Both, Virt, Gluster)                    | Done                    | Done                 |
+| Update VDC Options                                            | Done                    | Done                 |
+| Update default data center storage type                       | Done                    | Not implemented      |
 |                                                               |                         |                      |
 
 ### Detailed Description

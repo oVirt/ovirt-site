@@ -33,19 +33,26 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 
 *   Last updated: ,
 
-| Feature                                    | existing implementation | otopi implementation |
-|--------------------------------------------|-------------------------|----------------------|
-| Set Max Shared Memory                      | Done                    | Done                 |
-| Check for supported Java VM                | Done                    | Done                 |
-| CA Generation                              | Done                    | Done                 |
-| Extract CA fingerprint                     | Done                    | Done                 |
-| Extract non password key for log collector | Done                    | Done                 |
-| Extract non password key for Apache        | Done                    | Done                 |
-| Extract SSH fingerprint                    | Done                    | Done                 |
-| Configure engine service - database        | Done                    | Done                 |
-| Configure engine service - Java            | Done                    | Done                 |
-| Configure engine service - Protocols       | Done                    | Done                 |
-| Configure .pgpass file                     | Done                    | Done                 |
+| Feature                                                       | existing implementation | otopi implementation |
+|---------------------------------------------------------------|-------------------------|----------------------|
+| Set Max Shared Memory                                         | Done                    | Done                 |
+| Check for supported Java VM                                   | Done                    | Done                 |
+| CA Generation                                                 | Done                    | Done                 |
+| Extract CA fingerprint                                        | Done                    | Done                 |
+| Extract non password key for log collector                    | Done                    | Done                 |
+| Extract non password key for Apache                           | Done                    | Done                 |
+| Extract SSH fingerprint                                       | Done                    | Done                 |
+| Configure engine service - database                           | Done                    | Done                 |
+| Configure engine service - Java                               | Done                    | Done                 |
+| Configure engine service - Protocols                          | Done                    | Done                 |
+| Configure .pgpass file                                        | Done                    | Done                 |
+| Encrypt DB Password                                           | Done                    | Done                 |
+| Push the encrypted password into the local configuration file | Done                    | Done                 |
+| Start / Stop rhevm-etl service when needed                    | Done                    | Not implemented      |
+| Start / Stop rhevm-notifierd service when needed              | Done                    | Not implemented      |
+| Upgrade database if already exist                             | Done                    | Done                 |
+| Set Application Mode (Both|Virt|Gluster)                      | Done                    | Done                 |
+|                                                               |                         |                      |
 
 ### Detailed Description
 

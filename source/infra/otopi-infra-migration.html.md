@@ -45,7 +45,23 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support HTTP_PORT option                                             | Done                    | Not implemented        |       |
 | Support HTTPS_PORT option                                            | Done                    | Not implemented        |       |
 | Support RANDOM_PASSWORDS option                                      | Done                    | Not implemented        |       |
+| Overriding given passwords with random                                | Done                    | Not implemented        |       |
 | Support MAC_RANGE option                                             | Done                    | Not implemented        |       |
+| Support HOST_FQDN option                                             | Done                    | Not implemented        |       |
+| Support AUTH_PASS option                                             | Done                    | Not implemented        |       |
+| Support ORG_NAME option                                              | Done                    | Not implemented        |       |
+| Support APPLICATION_MODE option                                      | Done                    | Not implemented        |       |
+| Support DC_TYPE option                                               | Done                    | Not implemented        |       |
+| Support DB_REMOTE_INSTALL option                                    | Done                    | Not implemented        |       |
+| Support DB_LOCAL_PASS option                                        | Done                    | Not implemented        |       |
+| Support DB_HOST option                                               | Done                    | Not implemented        |       |
+| Support DB_PORT option                                               | Done                    | Not implemented        |       |
+| Support DB_ADMIN option                                              | Done                    | Not implemented        |       |
+| Support DB_REMOTE_PASS option                                       | Done                    | Not implemented        |       |
+| Support DB_SECURE_CONNECTION option                                 | Done                    | Not implemented        |       |
+| Support NFS_MP option                                                | Done                    | Not implemented        |       |
+| Support ISO_DOMAIN_NAME option                                      | Done                    | Not implemented        |       |
+| Support CONFIG_NFS option                                            | Done                    | Not implemented        |       |
 | Initialize MiniYum                                                    | Done                    | Not implemented        |       |
 | Handle second execution warning                                       | Done                    | Not implemented        |       |
 | Handle loading and validating params from answer file                 | Done (--answer-file)    | Done (--config-append) |       |

@@ -34,6 +34,8 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 
 *   Last updated: ,
 
+#### engine-setup
+
 | Feature                                                                | Existing implementation | Otopi implementation   | Owner |
 |------------------------------------------------------------------------|-------------------------|------------------------|-------|
 | Verify that root is the user executing the script                      | Done                    | Done                   |       |

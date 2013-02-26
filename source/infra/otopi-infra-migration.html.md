@@ -120,6 +120,33 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Print additional message to the user finalizing the successful install | Done                    | Not implemented        |       |
 | Log a summary of the parameters                                        | Done                    | Not implemented        |       |
 
+#### engine-cleanup
+
+| Feature                                                        | Existing implementation | Otopi implementation | Owner |
+|----------------------------------------------------------------|-------------------------|----------------------|-------|
+| Verify that root is the user executing the script              | Done                    | Not implemented      |       |
+| Allow unprivileged user ro run a development cleanup           | Not implemented         | Not implemented      |       |
+| Support unattended-clean option                                | Done                    | Not implemented      |       |
+| Support dont-drop-db option                                    | Done                    | Not implemented      |       |
+| Support dont-remove-ca option                                  | Done                    | Not implemented      |       |
+| Support remove-nfs-exports option                              | Done                    | Not implemented      |       |
+| Support remove-exported-content option                         | Done                    | Not implemented      |       |
+| Change working dir to the root directory                       | Done                    | Not implemented      |       |
+| Allow logging                                                  | Done                    | Not implemented      |       |
+| Ask user to proceed with cleanup in interactive mode           | Done                    | Not implemented      |       |
+| Stop Engine service when needed                                | Done                    | Not implemented      |       |
+| Backup engine database if drop requested                       | Done                    | Not implemented      |       |
+| Drop engine database if requested                              | Done                    | Not implemented      |       |
+| Clean pgpass if drop requested                                 | Done                    | Not implemented      |       |
+| Clean sysctl configuration                                     | Done                    | Not implemented      |       |
+| Backup CA if remove requested                                  | Done                    | Not implemented      |       |
+| Remove CA if requested                                         | Done                    | Not implemented      |       |
+| Stop engine-notifierd when needed                              | Done                    | Not implemented      |       |
+| Clean ISO domain NFS exports if requested                      | Done                    | Not implemented      |       |
+| Clean ISO domain exported directories if requested             | Done                    | Not implemented      |       |
+| Add info message to the user finalizing the successful cleanup | Done                    | Not implemented      |       |
+| Add info message on where the logs are located                 | Done                    | Not implemented      |       |
+
 ### Detailed Description
 
 TBD

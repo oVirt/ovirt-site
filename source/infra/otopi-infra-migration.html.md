@@ -40,6 +40,12 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Allow unprivileged user ro run a development installation             | Not implemented         | Done                   |       |
 | Allow logging                                                         | Done                    | Done                   |       |
 | Support AIO plugin                                                    | Done                    | Not implemented        |       |
+| Support FIREWALL_MANAGER option                                      | Done                    | Not implemented        |       |
+| Support OVERRIDE_HTTPD_CONFIG option                                | Done                    | Not implemented        |       |
+| Support HTTP_PORT option                                             | Done                    | Not implemented        |       |
+| Support HTTPS_PORT option                                            | Done                    | Not implemented        |       |
+| Support RANDOM_PASSWORDS option                                      | Done                    | Not implemented        |       |
+| Support MAC_RANGE option                                             | Done                    | Not implemented        |       |
 | Initialize MiniYum                                                    | Done                    | Not implemented        |       |
 | Handle second execution warning                                       | Done                    | Not implemented        |       |
 | Handle loading and validating params from answer file                 | Done (--answer-file)    | Done (--config-append) |       |

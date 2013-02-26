@@ -81,6 +81,8 @@ File level restore can be performed in-guest or off-host. Mount the volumes of t
 2.  Stop qemunbd
 3.  Unlock
 
+![](Tsm-int.JPG "Tsm-int.JPG")
+
 ### User interface
 
 #### This feature will be implemented in phases:

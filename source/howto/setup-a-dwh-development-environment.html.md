@@ -13,6 +13,9 @@ wiki_last_updated: 2014-11-25
 ## Install Talend DI and import the project
 
 *   Clone the git repository.
+
+`git clone `[`http://gerrit.ovirt.org/p/ovirt-dwh`](http://gerrit.ovirt.org/p/ovirt-dwh)
+
 *   Download and install the latest Talend DI version.
 
       Available from: `[`http://www.talend.com/download.php`](http://www.talend.com/download.php)` 

@@ -10,6 +10,10 @@ wiki_last_updated: 2015-05-20
 
 This page is a collection of coding standards in the ovirt engine backend. Not all of these standards are properly maintained, they are more like 'guidelines'
 
+### Java code conventions
+
+Java coding/style conventions /best practices should be applied in the project. <http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html>
+
 ### RowMapper singletons
 
 RowMappers should have a single instance e.g.

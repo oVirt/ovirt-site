@@ -12,7 +12,9 @@ This page is a collection of coding standards in the ovirt engine backend. Not a
 
 ### Java code conventions
 
-Java coding/style conventions /best practices should be applied in the project. <http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html>
+Java coding/style conventions /best practices should be applied in the project.
+
+<http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html>
 
 ### RowMapper singletons
 

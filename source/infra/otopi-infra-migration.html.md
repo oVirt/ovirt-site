@@ -94,7 +94,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Update default data center storage type                                | Done                    | Not implemented        |                                                      |
 | Configure engine-log-collector                                         | Done                    | Not implemented        |                                                      |
 | Configure engine-iso-uploader                                          | Done                    | Not implemented        |                                                      |
-| Configure engine-image-uploader                                        | Done                    | Not implemented        |                                                      |
+| Configure engine-image-uploader                                        | Done                    | Not implemented        | [ Sandro Bonazzola](User:SandroBonazzola) |
 | Configure PostgreSQL max_connections if using local DB                | Done                    | Not implemented        |                                                      |
 | Configure NFS exports for ISO Domain if requested                      | Done                    | Not implemented        |                                                      |
 | Allow importing existing NFS ISO Domain                                | Done                    | Not implemented        |                                                      |

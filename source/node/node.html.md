@@ -31,17 +31,17 @@ oVirt Node 2.7.0
 
 ## Current Release
 
-oVirt Node 2.6.0-1
+oVirt Node 2.6.1-1
 
-*   [Node_Release_Notes](Node_Release_Notes)
-*   [image](http://resources.ovirt.org/releases/stable/iso/ovirt-node-iso-2.6.0-20130212.fc18.iso)
-*   [Source Tarball](http://resources.ovirt.org/releases/stable/src/ovirt-node-2.6.0.tar.gz)
-*   [RPM Package](http://resources.ovirt.org/releases/stable/rpm/Fedora/18/noarch/ovirt-node-2.6.0-1.fc18.noarch.rpm)
-*   [Tools Package](http://resources.ovirt.org/releases/stable/rpm/Fedora/18/noarch/ovirt-node-tools-2.6.0-1.fc18.noarch.rpm)
-*   [Recipe Package](http://resources.ovirt.org/releases/stable/rpm/Fedora/18/noarch/ovirt-node-recipe-2.6.0-1.fc18.noarch.rpm)
-*   [CIM Plugin Package](http://resources.ovirt.org/releases/stable/rpm/Fedora/18/noarch/ovirt-node-plugin-cim-2.6.0-1.fc18.noarch.rpm)
-*   [SNMP Plugin Package](http://resources.ovirt.org/releases/stable/rpm/Fedora/18/noarch/ovirt-node-plugin-snmp-2.6.0-1.fc18.noarch.rpm)
-*   [ISO RPM Package](http://resources.ovirt.org/releases/stable/rpm/Fedora/18/noarch/ovirt-node-iso-2.6.0-20130212.fc18.noarch.rpm)
+*   [Node Release Notes](Node Release Notes)
+*   [image](http://resources.ovirt.org/releases/stable/iso/ovirt-node-iso-2.6.1-20120228.fc18.iso)
+*   [Source Tarball](http://resources.ovirt.org/releases/stable/src/ovirt-node-2.6.1.tar.gz)
+*   [RPM Package](http://resources.ovirt.org/releases/stable/rpm/Fedora/18/noarch/ovirt-node-2.6.1-1.fc18.noarch.rpm)
+*   [Tools Package](http://resources.ovirt.org/releases/stable/rpm/Fedora/18/noarch/ovirt-node-tools-2.6.1-1.fc18.noarch.rpm)
+*   [Recipe Package](http://resources.ovirt.org/releases/stable/rpm/Fedora/18/noarch/ovirt-node-recipe-2.6.1-1.fc18.noarch.rpm)
+*   [CIM Plugin Package](http://resources.ovirt.org/releases/stable/rpm/Fedora/18/noarch/ovirt-node-plugin-cim-2.6.1-1.fc18.noarch.rpm)
+*   [SNMP Plugin Package](http://resources.ovirt.org/releases/stable/rpm/Fedora/18/noarch/ovirt-node-plugin-snmp-2.6.1-1.fc18.noarch.rpm)
+*   [ISO RPM Package](http://resources.ovirt.org/releases/stable/rpm/Fedora/18/noarch/ovirt-node-iso-2.6.1-20120228.fc18.noarch.rpm)
 
 ## Technologies Used
 

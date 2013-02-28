@@ -69,7 +69,9 @@ However, This can be improved by having AsyncTaskManager depends on interfaces ,
 
 At this point , it is the responsibility of BLL to inject/pass Vds Broker and DAO objects to Async TaskManager module.
 
-The last step would be to work with a service locator module that will be responsible for producing VdsBroker and DAO objects both for Bll and AsyncTaskManager. The service locator will also provide an Async Task Manager object to the BLL.
+The last step would be to work with a service locator module that will be responsible for producing VdsBroker and DAO objects both for Bll and AsyncTaskManager. The service locator will also provide an Async Task Manager object to the BLL (hence AsyncTaskManager would require to have an interface as well).
+
+![](Async_tasks_modules_diagram_with_interfaces_and_service_locator.png "Async_tasks_modules_diagram_with_interfaces_and_service_locator.png")
 
 ### Working on the changes
 

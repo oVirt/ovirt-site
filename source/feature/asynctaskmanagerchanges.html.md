@@ -46,7 +46,7 @@ We should reuse command objects, and consider having Commands repository (hold i
 
 This section will provide more details on the highlights explained above.
 
-#### Modularization
+#### Modularization and interfaces
 
 oVirt Engine is dividing into modules. The Async Task Manager code is concentrated mainly in the following modules:
 
@@ -72,6 +72,18 @@ At this point , it is the responsibility of BLL to inject/pass Vds Broker and DA
 The last step would be to work with a service locator module that will be responsible for producing VdsBroker and DAO objects both for Bll and AsyncTaskManager. The service locator will also provide an Async Task Manager object to the BLL (hence AsyncTaskManager would require to have an interface as well).
 
 ![](Async_tasks_modules_diagram_with_interfaces_and_service_locator.png "Async_tasks_modules_diagram_with_interfaces_and_service_locator.png")
+
+*   Open issue: Should the Async Task Manager module include the command Manager (Component responsible for managing commands + DB persistence of command)?
+
+The following diagram shows the interface to be provided by AsyncTaskManager Module:
+
+![](Async_Task_Manager_interfaces.png‎ "Async_Task_Manager_interfaces.png‎")
+
+The changes from the current implementation are:
+
+1.  Parameters - the task entity will no longer have parameters - as they are the parameters of the "Root command" (I.E - the parameters of the command which is first in the hierarchy )
+2.  Both the direct parent and the root command Id are kept
+3.  SPMAsyncTask should eventually be removed - all its logic should be moved to the AsyncTaskManager implementation and the CommandManager.
 
 ### Working on the changes
 

@@ -38,8 +38,8 @@ This data is change not very frequent and it should be enough to update this onl
              pauseCode = NOERR
              monitorResponse = 0
              session = Locked # unused
-             netIfaces = [{'name': 'Realtek RTL8139C+ Fast Ethernet NIC', 'inet6':                                        ['fe80::490c:92bb:bbcc:9f87'], 'inet': ['10.34.60.148'], 'hw': '00:1a:4a:22:3c:db'}]
-             appsList = ['RHEV-Tools 3.2.4', 'RHEV-Agent64 3.2.3', 'RHEV-Serial64 3.2.3', 'RHEV-                     Network64 3.2.2', 'RHEV-Network64 3.2.3', 'RHEV-Block64 3.2.3', 'RHEV-                  Balloon64 3.2.3', 'RHEV-Balloon64 3.2.2', 'RHEV-Agent64 3.2.2', 'RHEV-USB                   3.2.3', 'RHEV-Block64 3.2.2', 'RHEV-Serial64 3.2.2']
+             netIfaces = [{'name': 'Realtek RTL8139C+ Fast Ethernet NIC', 'inet6':  ['fe80::490c:92bb:bbcc:9f87'], 'inet': ['10.34.60.148'], 'hw': '00:1a:4a:22:3c:db'}]
+             appsList = ['RHEV-Tools 3.2.4', 'RHEV-Agent64 3.2.3', 'RHEV-Serial64 3.2.3', 'RHEV-Network64 3.2.2', 'RHEV-Network64 3.2.3', 'RHEV-Block64 3.2.3', 'RHEV-Balloon64 3.2.3', 'RHEV-Balloon64 3.2.2', 'RHEV-Agent64 3.2.2', 'RHEV-USB 3.2.3', 'RHEV-Block64 3.2.2', 'RHEV-Serial64 3.2.2']
          
              pid = 11314
              guestIPs = 10.34.60.148 # duplicated info 

@@ -102,7 +102,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Migrate existing NFS ISO exports from /etc/exports to /etc/exports.d/  | Done                    | Not implemented      |                                                      |
 | Set selinux context for NFS ISO mount points                           | Done                    | Not implemented      |                                                      |
 | set NFS/portmap ports by overriding /etc/sysconfig/nfs                 | Done                    | Not implemented      | [ Sandro Bonazzola](User:SandroBonazzola) |
-| Enable the rpcbind and nfs services                                    | Done                    | Not implemented      |                                                      |
+| Enable the rpcbind and nfs services                                    | Done                    | Not implemented      | [ Sandro Bonazzola](User:SandroBonazzola) |
 | Load files (iso,vfd) from existing rpms to ISO domain                  | Done                    | Not implemented      |                                                      |
 | Check firewall managers installed in the system                        | Done                    | Not implemented      |                                                      |
 | Configure and enable iptables if requested                             | Done                    | Not implemented      |                                                      |

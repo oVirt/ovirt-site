@@ -78,11 +78,16 @@ Now that the source and build environment is setup you can build the *ovirt-node
 
 #### Workarounds for RPMs not included in Fedora
 
-Sometimes some packages are missing in Fedora's official repos (e.g. because tehy are not yet released or generally not available in Fedora). If this is the case the following workaround can be used to include the packages in oVirt Node:
+Sometimes some packages are missing in Fedora's official repos (e.g. because they are not yet released or generally not available in Fedora). If this is the case the following workaround can be used to include the packages in oVirt Node:
 
-*   cd to your OVIRT_CACHE/ovirt directory
-*   copy all separate rpms there
-*   in the RPMS directory, run `$ createrepo .`
+    # Go into the local package cache
+    $ cd $OVIRT_CACHE_DIR/ovirt
+
+    # Copy all custom packages into the cache
+    $ cp -v /path/with/custom/rpms/*.rpm .
+
+    # Recreate the repodata
+    $ createrepo .
 
 #### Build the image
 

@@ -42,6 +42,35 @@ We should reuse command objects, and consider having Commands repository (hold i
 *   Handling compensation issues with Async Tasks - for example - <https://bugzilla.redhat.com/873697> (although marked as closed wontfix we should revisit this issue - and make sure that endCommand does not rely on information which may reside at compensation table)
 *   Support backwards compatibility of command parameters - currently, due to the fact that Java is strongly typed + we have a hierarchy of command parameters. Changes to parameters classes may yield problems when performing system upgrade in cases where parameters information is persisted based on old parameters class structure, and needs to be deserialized in newer version with newer code of the class.
 
+### Details
+
+This section will provide more details on the highlights explained above.
+
+#### Modularization
+
+oVirt Engine is dividing into modules. The Async Task Manager code is concentrated mainly in the following modules:
+
+1.  Common - holds the AsyncTasks entity
+2.  VdsBroker - holds the communication broker to VDSM + the types of VDS verbs that create tasks.
+3.  DAL - holds the DAOs (AsyncTaskManagerDao, JobDao, StepDao)
+4.  BLL - the Business logic module that holds the Task Manager code and logic (Adding tasks, Polling, Command completion based on task completion logic and more)
+
+The current module dependency is described by the following diagram: ![](Async_tasks_original_module_diagram.png‎ "fig:Async_tasks_original_module_diagram.png‎")
+
+At first, we should separate Async Task manager logic from bll, and create a new module for it. To create the new module the following steps should be taken care of:
+
+1.  Create a new maven project (the compilation result should be jar)
+2.  Create a new package - org.ovirt.engine.core.bll.tasks
+3.  Create a new JBoss module - (read about JBoss modules [here](https://docs.jboss.org/author/display/MODULES/Introduction?focusedCommentId=23036152#comment-23036152))
+
+At this point, the modularization diagram should look like: ![](Async_task_modules_diagram_alternative_a.png‎  "fig:Async_task_modules_diagram_alternative_a.png‎ ")
+
+However, This can be improved by having AsyncTaskManager depends on interfaces , as presented at the following diagram - ![](Async_tasks_modules_diagram_with_interfaces.png "fig:Async_tasks_modules_diagram_with_interfaces.png")
+
+At this point , it is the responsibility of BLL to inject/pass Vds Broker and DAO objects to Async TaskManager module.
+
+The last step would be to work with a service locator module that will be responsible for producing VdsBroker and DAO objects both for Bll and AsyncTaskManager. The service locator will also provide an Async Task Manager object to the BLL.
+
 ### Working on the changes
 
 *   Working on the changes of this mechanism should be done in stages in such a way that we can graduately move commands , and not apply the changes to all commands at once.

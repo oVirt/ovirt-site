@@ -6,7 +6,7 @@ wiki_category: Feature
 wiki_title: Features/Otopi Infra Migration
 wiki_revision_count: 101
 wiki_last_updated: 2013-07-19
-wiki_warnings: table-style
+wiki_warnings: references, table-style
 ---
 
 # Otopi Infra Migration
@@ -40,7 +40,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 |------------------------------------------------------------------------|-------------------------|------------------------|------------------------------------------------------|
 | Verify that root is the user executing the script                      | Done                    | Done                   |                                                      |
 | Allow unprivileged user ro run a development installation              | Not implemented         | Done                   |                                                      |
-| Checking total memory                                                  | Done                    | Feedback               | [ Sandro Bonazzola](User:SandroBonazzola) |
+| Checking total memory                                                  | Done                    | Feedback [1]           | [ Sandro Bonazzola](User:SandroBonazzola) |
 | Generate answer file                                                   | Done                    | Done                   |                                                      |
 | Allow logging                                                          | Done                    | Done                   |                                                      |
 | Support AIO plugin                                                     | Done                    | Not implemented        |                                                      |
@@ -120,6 +120,10 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Print additional message to the user finalizing the successful install | Done                    | Not implemented        |                                                      |
 | Log a summary of the parameters                                        | Done                    | Not implemented        |                                                      |
 
+<references>
+[2]
+
+</references>
 #### engine-cleanup
 
 | Feature                                                        | Existing implementation | Otopi implementation | Owner |
@@ -171,3 +175,7 @@ TBD
 *   Refer to <Talk:Features/Otopi_Infra_Migration>
 
 <Category:Feature>
+
+[1] 
+
+[2] The option `--no-mem-check` is now `--otopi-environment="OVESETUP_SYSTEM/memCheck=bool:False"`

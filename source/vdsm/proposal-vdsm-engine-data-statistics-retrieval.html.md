@@ -17,19 +17,6 @@ Currently the RHEVM engine is polling the a lot of data from VDSM every 15 secon
 
 For each VM the data currently contains much more information than actually needed which blows up the size of the XML content quite big. We could optimize this by splitting the reply on the getVmStats based on the request of the engine into sections. For this reason Omer Frenkel and me have split up the data into parts based on their usage.
 
-### Constant:
-
-This data should never change during the life of a VM and therefore it can be considered constant.
-
-         `**`acpiEnable`**` = true
-         `**`vmType`**` = kvm
-         `**`guestName`**` = W864GUESTAGENTT
-         `**`displayType`**` = qxl
-         `**`guestOs`**` = Win 8
-         `**`kvmEnable`**` = true
-
-### Dynamic:
-
 This data can and usually does change during the lifetime of the VM.
 
 #### Rarely Changed:
@@ -37,6 +24,12 @@ This data can and usually does change during the lifetime of the VM.
 This data is change not very frequent and it should be enough to update this only once in a while. Most commonly this data changes after changes made in the UI or after a migration of the VM to another Host.
 
          `**`Status`**` = Running
+         `**`acpiEnable`**` = true
+         `**`vmType`**` = kvm
+         `**`guestName`**` = W864GUESTAGENTT
+         `**`displayType`**` = qxl
+         `**`guestOs`**` = Win 8
+`   `**`kvmEnable`**` = true # `***`this` `should` `be` `constant` `and` `never` `changed`***
          `**`pauseCode`**` = NOERR
          `**`monitorResponse`**` = 0
          `**`session`**` = Locked # unused
@@ -64,10 +57,11 @@ This data is changed quite often however it is not necessary to update this data
          `**`elapsedTime`**` = 68591
          `**`hash`**` = 2335461227228498964
          `**`statsAge`**` = 0.09 # unused
-         
-         # Unused
-         This data does not seem to be used in the engine at all. It might be used in the data warehouse     though.
-         
+
+#### Often Changed but unused
+
+This data does not seem to be used in the engine at all. It is **not** even used in the data warehouse.
+
          `**`memoryStats`**` = {'swap_out': '0', 'majflt': '0', 'mem_free': '1466884', 'swap_in': '0', 'pageflt': '0', 'mem_total': '2096736', 'mem_unused': '1466884'} 
          `**`balloonInfo`**` = {'balloon_max': 2097152, 'balloon_cur': 2097152}
          
@@ -92,8 +86,6 @@ We will introduce new optional parameters to getVmStats, getAllVmStats and list 
 *   rare (include everything from rarely changed to very frequent)
 *   often (include everything from often changed to very frequent)
 *   frequent (only send the very frequently changed items)
-
-**Parameter:** **exclude**=**<string>** (getVmStats, getAllVmStats only) Should contain a comma separated list of fields which shall not be reported. This gives the client the control to send only data needed. e.g. Exclude the application list.
 
 **Parameter:** **clientId**=**<string>** The client id is specified by the client and should be unique however constantly used.
 

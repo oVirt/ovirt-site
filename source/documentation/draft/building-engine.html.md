@@ -74,10 +74,25 @@ oVirt engine is using maven version 3.0.x. Building with maven 2 is not supporte
 **Debian**
 
       #> apt-get install maven
-       Or
-      #> apt-get install maven2
 
-Please validate mvn is in the path.
+**Other**
+
+If your operating system doesn't have a package for maven 3 you can download it from the [maven web site](http://maven.apache.org/download.cgi) and install it manuall. First uncompress the downloaded file to your preferred directory, for example to your home directory:
+
+    $> cd
+    $> wget ftp://ftp.mirrorservice.org/sites/ftp.apache.org/maven/maven-3/3.0.5/binaries/apache-maven-3.0.5-bin.tar.gz
+    $> tar xvf apache-maven-3.0.5-bin.tar.gz
+
+Make sure that the maven *bin* directory is the first in your path, otherwise you will be using the version of maven provided by your operating system:
+
+    $> PATH=$HOME/apache-maven-3.0.5/bin:$HOME
+    $> export path
+
+Please validate mvn is in the path and that it is version 3 or greater:
+
+    $> mvn -version
+    Apache Maven 3.0.5 (r01de14724cdef164cd33c7c8c2fe155faf9602da; 2013-02-19 14:51:28+0100)
+    ...
 
 ##### Maven personal settings
 
@@ -120,9 +135,8 @@ Assuming you're using bash, one of the ways to set them is to add them to .bashr
 Example for variables in this file:
 
        export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk.x86_64
-       export M2_HOME=/usr/local/apache-maven-3.0.4
-       export MAVEN_HOME=$M2_HOME
        export JBOSS_HOME=/usr/share/jboss-as
+       export PATH=$HOME/apache-maven-3.0.5/bin:$HOME
        
 
 ## Installing JBoss AS

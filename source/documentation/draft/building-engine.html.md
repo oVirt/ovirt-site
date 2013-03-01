@@ -77,7 +77,7 @@ oVirt engine is using maven version 3.0.x. Building with maven 2 is not supporte
 
 **Other**
 
-If your operating system doesn't have a package for maven 3 you can download it from the [maven web site](http://maven.apache.org/download.cgi) and install it manuall. First uncompress the downloaded file to your preferred directory, for example to your home directory:
+If your operating system doesn't have a package for maven 3 you can download it from the [maven web site](http://maven.apache.org/download.cgi) and install it manually. First uncompress the downloaded file to your preferred directory, for example to your home directory:
 
     $> cd
     $> wget ftp://ftp.mirrorservice.org/sites/ftp.apache.org/maven/maven-3/3.0.5/binaries/apache-maven-3.0.5-bin.tar.gz

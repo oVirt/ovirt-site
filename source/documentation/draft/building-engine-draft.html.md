@@ -58,7 +58,7 @@ The ovirt-engine source code is stored in a GIT repository. As such GIT is requi
 
 ### Installing maven
 
-The engine build uses maven 3.0.x.
+The engine build uses maven 3.
 
 **Fedora**
 
@@ -68,11 +68,23 @@ The engine build uses maven 3.0.x.
 
     # apt-get install maven
 
+**Other**
+
+If your operating system doesn't have a package for maven 3 you can download it from the [maven web site](http://maven.apache.org/download.cgi) and install it manually. First uncompress the downloaded file to your preferred directory, for example to your home directory:
+
+    cd
+    wget ftp://ftp.mirrorservice.org/sites/ftp.apache.org/maven/maven-3/3.0.5/binaries/apache-maven-3.0.5-bin.tar.gz
+    tar xvf apache-maven-3.0.5-bin.tar.gz
+
+Make sure that the maven `bin` directory is the first in your path, otherwise you will be using the version of maven provided by your operating system:
+
+    PATH=$HOME/apache-maven-3.0.5/bin:$HOME
+    export path
+
 Once the installation is completed verify that the correct version of the `mvn` command is in the path:
 
     $ mvn --version
-    Apache Maven 3.0.4
-    ...
+    Apache Maven 3.0.5 ...
 
 ## Installing JBoss AS
 

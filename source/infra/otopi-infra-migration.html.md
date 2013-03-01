@@ -46,15 +46,15 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support AIO plugin                                                     | Done                    | Not implemented      |                                                      |
 | Support FIREWALL_MANAGER option                                       | Done                    | Not implemented      |                                                      |
 | Support OVERRIDE_HTTPD_CONFIG option                                 | Done                    | Not implemented      |                                                      |
-| Support HTTP_PORT option                                              | Done                    | Not implemented      |                                                      |
-| Support HTTPS_PORT option                                             | Done                    | Not implemented      |                                                      |
+| Support HTTP_PORT option                                              | Done                    | Done[3]              |                                                      |
+| Support HTTPS_PORT option                                             | Done                    | Done[4]              |                                                      |
 | Support RANDOM_PASSWORDS option                                       | Done                    | Not implemented      |                                                      |
 | Overriding given passwords with random                                 | Done                    | Not implemented      |                                                      |
 | Support MAC_RANGE option                                              | Done                    | Not implemented      |                                                      |
-| Support HOST_FQDN option                                              | Done                    | Not implemented      |                                                      |
+| Support HOST_FQDN option                                              | Done                    | Done[5]              |                                                      |
 | Support AUTH_PASS option                                              | Done                    | Not implemented      |                                                      |
-| Support ORG_NAME option                                               | Done                    | Not implemented      |                                                      |
-| Support APPLICATION_MODE option                                       | Done                    | Not implemented      |                                                      |
+| Support ORG_NAME option                                               | Done                    | Done[6]              |                                                      |
+| Support APPLICATION_MODE option                                       | Done                    | Done[7]              |                                                      |
 | Support DC_TYPE option                                                | Done                    | Not implemented      |                                                      |
 | Support DB_REMOTE_INSTALL option                                     | Done                    | Not implemented      |                                                      |
 | Support DB_LOCAL_PASS option                                         | Done                    | Not implemented      |                                                      |
@@ -65,11 +65,11 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support DB_SECURE_CONNECTION option                                  | Done                    | Not implemented      |                                                      |
 | Support NFS_MP option                                                 | Done                    | Not implemented      | [ Sandro Bonazzola](User:SandroBonazzola) |
 | Support ISO_DOMAIN_NAME option                                       | Done                    | Not implemented      |                                                      |
-| Support CONFIG_NFS option                                             | Done                    | Feedback[3]          | [ Sandro Bonazzola](User:SandroBonazzola) |
+| Support CONFIG_NFS option                                             | Done                    | Feedback[8]          | [ Sandro Bonazzola](User:SandroBonazzola) |
 | Display summary in interactive mode                                    | Done                    | Not implemented      |                                                      |
 | Initialize MiniYum                                                     | Done                    | Not implemented      |                                                      |
 | Handle second execution warning                                        | Done                    | Not implemented      |                                                      |
-| Handle loading and validating params from answer file                  | Done                    | Done[4]              |                                                      |
+| Handle loading and validating params from answer file                  | Done                    | Done[9]              |                                                      |
 | Mask input sets                                                        | Done                    | Not implemented      |                                                      |
 | Log masked configuration                                               | Done                    | Not implemented      |                                                      |
 | Set Max Shared Memory                                                  | Done                    | Done                 |                                                      |
@@ -121,7 +121,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Log a summary of the parameters                                        | Done                    | Not implemented      |                                                      |
 
 <references>
-[5] [6] [7] [8]
+[10] [11] [12] [13] [14] [15] [16] [17] [18]
 
 </references>
 #### engine-cleanup
@@ -184,10 +184,30 @@ TBD
 
 [4] 
 
-[5] The option `--no-mem-check` is now `--otopi-environment="OVESETUP_SYSTEM/memCheck=bool:False"`
+[5] 
 
-[6] The option `--gen-answer-file` is now `--generate-answer`
+[6] 
 
-[7] The option `--answer-file` is now `--config-append`
+[7] 
 
-[8] The option `CONFIG_NFS=yes` is now `OVESETUP_NFS/configure=bool:True`
+[8] 
+
+[9] 
+
+[10] The option `--no-mem-check` is now `--otopi-environment="OVESETUP_SYSTEM/memCheck=bool:False"`
+
+[11] The option `--gen-answer-file` is now `--generate-answer`
+
+[12] The option `--answer-file` is now `--config-append`
+
+[13] The option `CONFIG_NFS=yes` is now `OVESETUP_NFS/configure=bool:True`
+
+[14] The option `HOST_FQDN=host` is now `OVESETUP_CONFIG/fqdn=str:host`
+
+[15] The option `HTTP_PORT=80` is now `OVESETUP_CONFIG/httpPort=int:80`
+
+[16] The option `HTTPS_PORT=443` is now `OVESETUP_CONFIG/httpsPort=int:443`
+
+[17] The option `APPLICATION_MODE=both` is now `OVESETUP_CONFIG/applicationMode=str:both`
+
+[18] The option `ORG_NAME=organization` is now `OVESETUP_PKI/organization=str:organization`

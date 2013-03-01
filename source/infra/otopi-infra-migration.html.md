@@ -63,8 +63,8 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support DB_ADMIN option                                               | Done                    | Not implemented      |                                                      |
 | Support DB_REMOTE_PASS option                                        | Done                    | Not implemented      |                                                      |
 | Support DB_SECURE_CONNECTION option                                  | Done                    | Feedback [10]        |                                                      |
-| Support NFS_MP option                                                 | Done                    | Not implemented      | [ Sandro Bonazzola](User:SandroBonazzola) |
-| Support ISO_DOMAIN_NAME option                                       | Done                    | Not implemented      |                                                      |
+| Support NFS_MP option                                                 | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |
+| Support ISO_DOMAIN_NAME option                                       | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |
 | Support CONFIG_NFS option                                             | Done                    | Feedback[11]         | [ Sandro Bonazzola](User:SandroBonazzola) |
 | Display summary in interactive mode                                    | Done                    | Not implemented      |                                                      |
 | Initialize MiniYum                                                     | Done                    | Not implemented      |                                                      |
@@ -97,8 +97,8 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Configure engine-image-uploader                                        | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |
 | Configure PostgreSQL max_connections if using local DB                | Done                    | Not implemented      |                                                      |
 | Configure NFS exports for ISO Domain if requested                      | Done                    | Not implemented      |                                                      |
-| Allow importing existing NFS ISO Domain                                | Done                    | Not implemented      |                                                      |
-| Create new NFS ISO Domain                                              | Done                    | Not implemented      |                                                      |
+| Allow importing existing NFS ISO Domain                                | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |
+| Create new NFS ISO Domain                                              | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |
 | Migrate existing NFS ISO exports from /etc/exports to /etc/exports.d/  | Done                    | Not implemented      |                                                      |
 | Set selinux context for NFS ISO mount points                           | Done                    | Not implemented      |                                                      |
 | set NFS/portmap ports by overriding /etc/sysconfig/nfs                 | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |

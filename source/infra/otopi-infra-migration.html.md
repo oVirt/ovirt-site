@@ -63,13 +63,13 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support DB_ADMIN option                                               | Done                    | Not implemented      |                                                      |
 | Support DB_REMOTE_PASS option                                        | Done                    | Not implemented      |                                                      |
 | Support DB_SECURE_CONNECTION option                                  | Done                    | Not implemented      |                                                      |
-| Support NFS_MP option                                                 | Done                    | Not implemented      |                                                      |
+| Support NFS_MP option                                                 | Done                    | Not implemented      | [ Sandro Bonazzola](User:SandroBonazzola) |
 | Support ISO_DOMAIN_NAME option                                       | Done                    | Not implemented      |                                                      |
-| Support CONFIG_NFS option                                             | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |
+| Support CONFIG_NFS option                                             | Done                    | Feedback[3]          | [ Sandro Bonazzola](User:SandroBonazzola) |
 | Display summary in interactive mode                                    | Done                    | Not implemented      |                                                      |
 | Initialize MiniYum                                                     | Done                    | Not implemented      |                                                      |
 | Handle second execution warning                                        | Done                    | Not implemented      |                                                      |
-| Handle loading and validating params from answer file                  | Done                    | Done[3]              |                                                      |
+| Handle loading and validating params from answer file                  | Done                    | Done[4]              |                                                      |
 | Mask input sets                                                        | Done                    | Not implemented      |                                                      |
 | Log masked configuration                                               | Done                    | Not implemented      |                                                      |
 | Set Max Shared Memory                                                  | Done                    | Done                 |                                                      |
@@ -121,7 +121,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Log a summary of the parameters                                        | Done                    | Not implemented      |                                                      |
 
 <references>
-[4] [5] [6]
+[5] [6] [7] [8]
 
 </references>
 #### engine-cleanup
@@ -182,8 +182,12 @@ TBD
 
 [3] 
 
-[4] The option `--no-mem-check` is now `--otopi-environment="OVESETUP_SYSTEM/memCheck=bool:False"`
+[4] 
 
-[5] The option `--gen-answer-file` is now `--generate-answer`
+[5] The option `--no-mem-check` is now `--otopi-environment="OVESETUP_SYSTEM/memCheck=bool:False"`
 
-[6] The option `--answer-file` is now `--config-append`
+[6] The option `--gen-answer-file` is now `--generate-answer`
+
+[7] The option `--answer-file` is now `--config-append`
+
+[8] The option `CONFIG_NFS=yes` is now `OVESETUP_NFS/configure=bool:True`

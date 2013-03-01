@@ -90,3 +90,12 @@ After installing a host through the engine, I get an error "<name> does not comp
 It seems that in certain situations (e.g. NetworkManager having been removed before install from engine?) the engine will not configure the bridge network. Instructions for configuring the 'ovirtmgmt' bridge interface can be found at: [Installing_VDSM_from_rpm#Configuring_the_bridge_Interface](Installing_VDSM_from_rpm#Configuring_the_bridge_Interface).
 
 ### Usage
+
+## VDSM
+
+### Installation
+
+VDSM won't start and /var/log/messages reports detected unhandled Python exception in '/usr/share/vdsm/vdsm'  
+Check the permissions on /var/log/vdsm/vdsm.log. The owner and group should be vdsm:kvm.
+
+### Usage

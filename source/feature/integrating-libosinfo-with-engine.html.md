@@ -41,14 +41,35 @@ Use the knowledge supplied by OS providers to set VM default values of CPU and R
 *   extract all OS info (names, OS family, architecture instead of house-keeping an enum.
 *   engine can validate when trying to run a VM with lower memory then recommended.
 
-#### design
+#### High Level design
 
-*   abstraction for query Os info - OSInfoService
+libosinfo supplies a query API on top of its XML based DB. While XML data is being updated across versions, the API aims to remain stable and have capabilities to describe client specific deployments on top of the DB to describe special compatibility cases.
 
-engine will have a service to abstract all interaction with libosinfo.
+To interact with libosinfo, a JNA standalone application, RMI capable, will be used and the Ovirt Engine would have a the RMI client invoking it, and controlling its life-cycle.
 
-1.  the service will encapsulate the means of how to interact with the library itself
-2.  the service will expose a required subset of libosinfo API
+[File:libosinfo_seq_diagram.png|libosinfo](File:libosinfo_seq_diagram.png|libosinfo) sequence diagram
+
+### Client and Server Lifecycle
+
+Till ovirt engine will have a process babysiter the engine client will be responsible for invoking the external LIbosinfoServer and shutting it off using a Java's shutdown hook. The library supports parallel calls from different clients so multithreading isn't an issue.
+
+LibosinfoServer is publishing its RMI stub to the stdout so a process invoking it can read it without using an RMI registry. So the steps to achieve RMI handshake is:
+
+*   Engine ear loads
+*   LibosinfoClient loaded as part of the ear is calling a system process
+
+      java -CLASSPATH $ENGINE_EAR/tools.jar:$JAVA_LIB/jna.jar LibosinfoServer
+
+*   LibosinfoServer is loading and writing to its stdout the server stub
+*   libosinfoClient has a stub RMI object in hand
+
+### communication
+
+[RMI](http://en.wikipedia.org/wiki/Java_remote_method_invocation) uses anonymous port and local to the Engine's machine alone.
+
+### OSInfoService interface
+
+The service interface, implemented by the RMI server (LibosinfoServer) and consumed by the client (LibosinfoClient). It exposes a simplified subset version of libosinfo API:
 
       OSInfoService
          int getMinimumCpuSpeed(String osId, CpuArch cpuArch);
@@ -56,28 +77,6 @@ engine will have a service to abstract all interaction with libosinfo.
          long getMinimumRam(String osId, CpuArch cpuArch);
          int getRecommendedCpu(String osId, CpuArch cpuArch);
          long getRecommendedRam(String osId, CpuArch cpuArch);
-         /**
-          * @param shortId
-          * @return an Os instance for the given shortId or an empty Os instance (most String values with "") if there is no
-          *         match.
-          */
-         Os getByShortId(String shortId);
-         Map`<String, Os>` getAll();
-         Set`<String>` getShortIds();
-
-*   loading libosinfo data into ovirt engine
-
-when the engine starts it will load, with jaxb all the xmls under /usr/share/libosinfo/data/oses into java beans
-representing an OS. The class representing an OS and all of its dereiviants will be auto-generated from an xsd file during the
-development phase. Once loaded, every OS has an object representing it, all will reside in map with its short-id as a key.
-
-to summerize the steps to load os data:
-
-1.  in dev phase - create an xsd from one of the os xmls under /usr/share/libosinfo/data/oses - this step is done once
-     The xsd can later be customized to help the jaxb generator to create classes which are serialized, avoid inner classes and so on.
-2.  auto-generate classes from the XSD using maven plugin
-3.  exposed the OS entities as a jar to the rest of the project - engine, GWT and REST will use directly the auto generated entities.
-4.  on engine startup, load all OS xmls to a map which can be retrieved by a query
 
 ### Dependencies / Related Features
 

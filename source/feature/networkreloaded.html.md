@@ -222,3 +222,5 @@ The configuration objects are serialized in /var/lib/vdsm/netconfback/ before ea
 *   In case multiple configurators were to be supported and available to interact, how do the engine - host decide which configurator to use?
 *   Do we need to support aliases or is the multiple ip address per interface support enough?
 *   Do we keep persistence for the management network only or for all the configured networks.
+
+<Category:Feature> <Category:Networking>

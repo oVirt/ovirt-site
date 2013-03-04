@@ -110,9 +110,15 @@ jna.jar, ships with fedora, located under /usr/share/java/jna.jar
 #### Libosinfo Client
 
       backend/manager/modules/utils
-      src/
-
-├── main │   ├── java │   │   └── org │   │   └── ovirt │   │   └── engine │   │   └── core │   │   └── utils │   │   └── libosinfo
+       src/
+      ├── main
+      │   ├── java
+      │   │   └── org
+      │   │       └── ovirt
+      │   │           └── engine
+      │   │               └── core
+      │   │                   └── utils
+      │   │                       └── libosinfo
 
 #### entity changes
 

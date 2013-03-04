@@ -28,6 +28,9 @@ Ovirt strives to become the first and best truly open and comprehensive data cen
 *   Hardware optimations for virtualization
 *   oVirt Plugin development
 *   oVirt architecture from a security and best practices point of view.
+*   oVirt Project Roadmaps
+*   Deep dives into features/areas
+*   Deep dives into code/debugging
 
 ## Proposal Guidelines
 

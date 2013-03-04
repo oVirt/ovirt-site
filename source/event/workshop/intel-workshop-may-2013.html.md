@@ -60,7 +60,9 @@ Ovirt strives to become the first and best truly open and comprehensive data cen
 
 ## Additional Information
 
-**Slide Due Date**: We would appreciate it if you could please submit your slides (in .PDF format only) by April 22, 2013. **Lodging and logistical infomation to be provided** **Registration information to be provided**
+*   **Slide Due Date**: We would appreciate it if you could please submit your slides (in .PDF format only) by April 22, 2013.
+*   **Lodging and logistical infomation to be provided**
+*   **Registration information to be provided**
 
 ## Contact information
 

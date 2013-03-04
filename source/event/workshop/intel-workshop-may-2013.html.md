@@ -63,6 +63,7 @@ Ovirt strives to become the first and best truly open and comprehensive data cen
 *   **Slide Due Date**: We would appreciate it if you could please submit your slides (in .PDF format only) by April 22, 2013.
 *   **Lodging and logistical infomation to be provided**
 *   **Registration information to be provided**
+*   If you require a letter of invitation to visit Shanghai for the oVirt Workshop please contact [Theron Conrey](mailto:theron@redhat.com) asap.
 
 ## Contact information
 

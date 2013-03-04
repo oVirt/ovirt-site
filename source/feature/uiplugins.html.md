@@ -218,13 +218,22 @@ TODO don't forget link to git repository
 
 ### Real-world UI plugins
 
+#### oVirt Monitoring UI Plugin
+
+This plugin brings integration with [Nagios](http://www.nagios.org/) or [Icinga](https://www.icinga.org/) monitoring solution into oVirt.
+
+*   Author: René Koch <r.koch@ovido.at>
+*   Project web site: <https://labs.ovido.at/monitoring/wiki/ovirt-monitoring-ui-plugin>
+*   Installation documentation: <https://labs.ovido.at/monitoring/wiki/ovirt-monitoring-ui-plugin:install>
+*   UI plugin source code: <https://labs.ovido.at/monitoring/wiki/ovirt-monitoring-ui-plugin:svn>
+
 #### Foreman UI Plugin
 
 The purpose of this plugin is to allow administrators to see details on [Foreman](http://theforeman.org/) related entities (such as VMs).
 
 *   Author: Oved Ourfali <ovedo@redhat.com>
-*   Documentation: [Oved's blog post](http://ovedou.blogspot.co.il/2012/12/ovirt-foreman-ui-plugin.html)
-*   Foreman plugin source code: available from [Oved's foreman_ovirt GitHub repository](https://github.com/oourfali/foreman_ovirt)
+*   Documentation: <http://ovedou.blogspot.co.il/2012/12/ovirt-foreman-ui-plugin.html>
+*   Foreman plugin source code: <https://github.com/oourfali/foreman_ovirt>
 *   UI plugin source code: available from [sample UI plugin repository](#Sample_UI_plugins) as `foreman-plugin`
 
 #### Shell In A Box UI Plugin
@@ -232,8 +241,8 @@ The purpose of this plugin is to allow administrators to see details on [Foreman
 Using oVirt WebAdmin, make SSH connection to a host and emulate a terminal via [Shell In A Box](http://code.google.com/p/shellinabox/).
 
 *   Author: Daniel Erez <derez@redhat.com>
-*   Documentation: [Daniel's blog post](http://derezvir.blogspot.co.il/2013/01/ovirt-webadmin-shellinabox-ui-plugin.html)
-*   UI plugin source code: available from [sample UI plugin repository](#Sample_UI_plugins) as `shellbox-plugin`
+*   Documentation: <http://derezvir.blogspot.co.il/2013/01/ovirt-webadmin-shellinabox-ui-plugin.html>
+*   UI plugin source code: available from [sample UI plugin repository](#Sample_UI_plugins) as `shellinabox-plugin`
 
 ### References
 

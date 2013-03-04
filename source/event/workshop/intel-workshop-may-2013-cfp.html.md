@@ -39,7 +39,15 @@ Getting started developing oVirt oVirt for the systems administrator Where oVirt
 
 ## Submission Requirements
 
-1 Choose a submission type (Presentation, Panel, Tutorial) 2 Choose the category for your proposal (Developer, Operations, Business/Legal, Other) 3 Select a specific topic that best describes the topic of your proposal (See "Suggested Topics" list) 4Provide a 150 word biography including your speaking experience 5Prepare a 150 word abstract that briefly summarizes your proposal. It should be split into two paragraphs: Paragraph 1 - A brief summary of your presentation, including key highlights Paragraph 2 - Who is your audience, what can they expect, your speaking experience and why your presentation is important to the Linux ecosystem and this event. 6 List any technical requirements that you have for your presentation (i.e. internet connectivity, whiteboard, etc.)
+1.  Choose a submission type (Presentation, Panel, Tutorial)
+2.  Choose the category for your proposal (Developer, Operations, Business/Legal, Other)
+3.  Select a specific topic that best describes the topic of your proposal (See "Suggested Topics" list)
+4.  Provide a 150 word biography including your speaking experience
+5.  Prepare a 150 word abstract that briefly summarizes your proposal. It should be split into two paragraphs:
+    1.  A brief summary of your presentation, including key highlights
+    2.  Who is your audience, what can they expect, your speaking experience and why your presentation is important to the Linux ecosystem and this event.
+
+6.  List any technical requirements that you have for your presentation (i.e. internet connectivity, whiteboard, etc.)
 
 ## Additional Information
 

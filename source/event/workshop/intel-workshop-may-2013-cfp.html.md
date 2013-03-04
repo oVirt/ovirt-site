@@ -21,6 +21,8 @@ Ovirt strives to become the first and best truly open and comprehensive data cen
 *   Getting started developing oVirt
 *   oVirt for the systems administrator
 *   Where oVirt fits in the enterprise
+*   Gluster Integration
+*   leveraging oVirt for Gluster only infrastructures
 *   Case studies on cost savings with oVirt and Open Source data center virtualization
 *   Troubleshooting oVirt
 *   Hardware optimations for virtualization

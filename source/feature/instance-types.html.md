@@ -135,6 +135,8 @@ The specific values means:
 | db_generation            | internal                                     | N        |       | N             |       |
 | is_delete_protected     | protection from accidental deletion          | Y        |       | N             |       |
 | is_disabled              | disabled-template (for templates only)       | Y        |       | N             |       |
+| vncKeyboardLayout         | VNC specific keyboard layout                 | Y        |       | N             |       |
+| tunnelMigration           | use libvirt-to-libvirt communication         | Y        |       | N             |       |
 
 ### Entities' Details
 

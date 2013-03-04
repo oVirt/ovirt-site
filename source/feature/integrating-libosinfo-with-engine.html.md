@@ -80,10 +80,9 @@ The service interface, implemented by the RMI server (LibosinfoServer) and consu
 
 ### Dependencies / Related Features
 
-ovirt should depend on libosinfo RPM which ships with Fedora 17 and RHEL 6.3
+Libosinfo packages
 
-1.  libosinfo package: libosinfo-0.0.4-2
-2.  libosinfo OS xml files location: /usr/share/libosinfo/data/oses
+1.  Fedora 17 - libosinfo-0.1.2
 
 ### Code Chages
 

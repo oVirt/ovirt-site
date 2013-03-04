@@ -55,7 +55,7 @@ Getting started developing oVirt oVirt for the systems administrator Where oVirt
 
 ## Contact information
 
-Please contact Theron Conrey with any questions.
+Please contact [Theron Conrey](mailto:theron@redhat.com) with any questions.
 
 ## Important Dates
 

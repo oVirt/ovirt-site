@@ -78,13 +78,6 @@ It exposes a simplified subset version of libosinfo API:
           public long getMinimumRam(String osId, String cpuArch);
           public long getReommendedRam(String osId, String cpuArch);
 
-### Dependencies / Related Features
-
-| package   | RHEL  | Fedora    |
-|-----------|-------|-----------|
-| libosinfo | ?     | f17 0.1.2 |
-| jna       | 3.2.4 | 3.4       |
-
 ### Code Chages
 
 ### Project structure
@@ -199,6 +192,13 @@ plug the memory checks to libosinfo instead the use of Config values.
 *   libosinfo project page on FedoraHosted
 
 <https://fedorahosted.org/libosinfo/>
+
+### Dependencies / Related Features
+
+| package   | RHEL  | Fedora    |
+|-----------|-------|-----------|
+| libosinfo | ?     | f17 0.1.2 |
+| jna       | 3.2.4 | 3.4       |
 
 ### TODO
 

@@ -33,11 +33,6 @@ When starting the origin command as a Task we want to keep the internal paramete
 
 ### Internal Implementation In Engine
 
-### Questions
-
-*   There are SPMAsyncTask and EntityAsyncTasks, what's the different?
-*   TaskHandlerCommand – why?
-
 #### New Design in Engine
 
 [http://www.ovirt.org/Wiki/AsyncTaskManagerChanges Async Task Manger](http://www.ovirt.org/Wiki/AsyncTaskManagerChanges Async Task Manger)

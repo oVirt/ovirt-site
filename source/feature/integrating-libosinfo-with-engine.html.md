@@ -90,8 +90,9 @@ Libosinfo packages
 
 #### Libosinfo Server
 
-*   located under **tools.jar**
+*   located under ***tools.jar***
 *   its main class is LibosinfoServer
+*   dependencies - jna.jar, ships with fedora, located under ***/usr/share/java/jna.jar***
 
       backend/manager/tools
       src/
@@ -102,10 +103,6 @@ Libosinfo packages
       │   │           └── engine
       │   │               └── core
       │   │                   └── libosinfo
-
-*   dependencies
-
-jna.jar, ships with fedora, located under /usr/share/java/jna.jar
 
 #### Libosinfo Client
 

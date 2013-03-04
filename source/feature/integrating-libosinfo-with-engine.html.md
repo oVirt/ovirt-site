@@ -161,12 +161,16 @@ plug the memory checks to libosinfo instead the use of Config values.
 
 <https://fedorahosted.org/libosinfo/>
 
-### Dependencies / Related Features
+### Dependencies
 
 | package   | RHEL  | Fedora    |
 |-----------|-------|-----------|
 | libosinfo | ?     | f17 0.1.2 |
 | jna       | 3.2.4 | 3.4       |
+
+### Related Features
+
+[support for PPC 64 bit](http://www.ovirt.org/Features/Engine_support_for_PPC64|Engine)
 
 ### TODO
 

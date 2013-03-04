@@ -80,9 +80,10 @@ The service interface, implemented by the RMI server (LibosinfoServer) and consu
 
 ### Dependencies / Related Features
 
-Libosinfo packages
-
-1.  Fedora 17 - libosinfo-0.1.2
+| package   | RHEL  | Fedora    |
+|-----------|-------|-----------|
+| libosinfo | ?     | f17 0.1.2 |
+| jna       | 3.2.4 | 3.4       |
 
 ### Code Chages
 

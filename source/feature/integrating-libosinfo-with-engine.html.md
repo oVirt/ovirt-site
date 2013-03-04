@@ -115,39 +115,7 @@ It exposes a simplified subset version of libosinfo API:
 
 ##### VmOsType
 
-1.  remove family, is64Bit as all is represented by the OS
-2.  **shortId** - add 1 to 1 mapping of all OSs in the xml and designate an internal ID for them
-3.  architecture will be represented as a new Vm property - CpuArch
-
-      VmOsType.class
-       ...
-         Windows2008x64(16, "win2k-8"),
-         Windows2008R2x64(17, "win2k-8"),
-         RHEL6(18, "rhel-6.0"),
-         RHEL6x64(19, "rhel-6.0"),
-      // bsd
-          freebsd6(1, "freebsd6"),
-          freebsd7(2, "freebsd7"),
-          freebsd8(3, "freebsd8"),
-          openbsd4(4, "openbsd4"),
-      // centos
-         centos__6_0(101, "centos-6.0"),
-         centos__6_1(102, "centos-6.1"),
-      // debian
-          debianbuzz(201, "debianbuzz"),
-          debianrex(202, "debianrex"),
-          debianbo(203, "debianbo"),
-          debianhamm(204, "debianhamm"),
-      ...
-         private final int intValue;
-         /**
-          * shortId of the OS as represented by libosinfo.
-          */
-         private final String shortId;
-         private VmOsType(final int value, String shortId) {
-             intValue = value;
-             this.shortId = shortId;
-         }
+      TODO update changes to VM and VM.osType and its usages
 
 ##### introduce CpuArch
 

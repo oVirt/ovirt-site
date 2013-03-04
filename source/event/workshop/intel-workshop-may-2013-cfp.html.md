@@ -18,7 +18,14 @@ Ovirt strives to become the first and best truly open and comprehensive data cen
 
 ## Suggested Topics
 
-Getting started developing oVirt oVirt for the systems administrator Where oVirt fits Case studies on cost savings with oVirt and Open Source data center virtualization Troubleshooting oVirt Hardware optimations for virtualization oVirt Plugin development oVirt architecture from a security and best practices point of view.
+*   Getting started developing oVirt
+*   oVirt for the systems administrator
+*   Where oVirt fits in the enterprise
+*   Case studies on cost savings with oVirt and Open Source data center virtualization
+*   Troubleshooting oVirt
+*   Hardware optimations for virtualization
+*   oVirt Plugin development
+*   oVirt architecture from a security and best practices point of view.
 
 ## Proposal Guidelines
 

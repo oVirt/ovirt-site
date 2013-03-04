@@ -86,19 +86,33 @@ Libosinfo packages
 
 ### Code Chages
 
-#### Project structure
+### Project structure
 
-*   Libosinfo is an engine service so I find it very convenient to create a "services" module place it under it
+#### Libosinfo Server
 
-      |-- backend
-        |-- manager
-          |-- modules
-            |-- services
-              |-- libosinfo
-                |-- interface
-                |-- types
+*   located under **tools.jar**
+*   its main class is LibosinfoServer
 
-**types** project holds the auto-generated entities and. **interface** project holds the **LibosinfoService** interface and currently also the xml-loading implementation.
+      backend/manager/tools
+      src/
+      ├── main
+      │   ├── java
+      │   │   └── org
+      │   │       └── ovirt
+      │   │           └── engine
+      │   │               └── core
+      │   │                   └── libosinfo
+
+*   dependencies
+
+jna.jar, ships with fedora, located under /usr/share/java/jna.jar
+
+#### Libosinfo Client
+
+      backend/manager/modules/utils
+      src/
+
+├── main │   ├── java │   │   └── org │   │   └── ovirt │   │   └── engine │   │   └── core │   │   └── utils │   │   └── libosinfo
 
 #### entity changes
 

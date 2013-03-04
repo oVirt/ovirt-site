@@ -47,7 +47,7 @@ libosinfo supplies a query API on top of its XML based DB. While XML data is bei
 
 To interact with libosinfo, a JNA standalone application, RMI capable, will be used and the Ovirt Engine would have a the RMI client invoking it, and controlling its life-cycle.
 
-[File:libosinfo_seq_diagram.png|libosinfo](File:libosinfo_seq_diagram.png|libosinfo) sequence diagram
+![](libosinfo_diagram.png "libosinfo_diagram.png")
 
 ### Client and Server Lifecycle
 

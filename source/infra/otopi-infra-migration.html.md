@@ -52,24 +52,24 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Overriding given passwords with random                                 | Done                    | Not implemented      |                                                      |
 | Support MAC_RANGE option                                              | Done                    | Not implemented      |                                                      |
 | Support HOST_FQDN option                                              | Done                    | Done[5]              |                                                      |
-| Support AUTH_PASS option                                              | Done                    | Not implemented      |                                                      |
-| Support ORG_NAME option                                               | Done                    | Done[6]              |                                                      |
-| Support APPLICATION_MODE option                                       | Done                    | Done[7]              |                                                      |
+| Support AUTH_PASS option                                              | Done                    | Done[6]              |                                                      |
+| Support ORG_NAME option                                               | Done                    | Done[7]              |                                                      |
+| Support APPLICATION_MODE option                                       | Done                    | Done[8]              |                                                      |
 | Support DC_TYPE option                                                | Done                    | Not implemented      |                                                      |
 | Support DB_REMOTE_INSTALL option                                     | Done                    | Not implemented      |                                                      |
 | Support DB_LOCAL_PASS option                                         | Done                    | Not implemented      |                                                      |
-| Support DB_HOST option                                                | Done                    | Feedback [8]         |                                                      |
-| Support DB_PORT option                                                | Done                    | Feedback [9]         |                                                      |
+| Support DB_HOST option                                                | Done                    | Feedback [9]         |                                                      |
+| Support DB_PORT option                                                | Done                    | Feedback [10]        |                                                      |
 | Support DB_ADMIN option                                               | Done                    | Not implemented      |                                                      |
 | Support DB_REMOTE_PASS option                                        | Done                    | Not implemented      |                                                      |
-| Support DB_SECURE_CONNECTION option                                  | Done                    | Feedback [10]        |                                                      |
+| Support DB_SECURE_CONNECTION option                                  | Done                    | Feedback [11]        |                                                      |
 | Support NFS_MP option                                                 | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |
 | Support ISO_DOMAIN_NAME option                                       | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |
-| Support CONFIG_NFS option                                             | Done                    | Feedback[11]         | [ Sandro Bonazzola](User:SandroBonazzola) |
+| Support CONFIG_NFS option                                             | Done                    | Feedback[12]         | [ Sandro Bonazzola](User:SandroBonazzola) |
 | Display summary in interactive mode                                    | Done                    | Not implemented      |                                                      |
 | Initialize MiniYum                                                     | Done                    | Not implemented      |                                                      |
 | Handle second execution warning                                        | Done                    | Not implemented      |                                                      |
-| Handle loading and validating params from answer file                  | Done                    | Done[12]             |                                                      |
+| Handle loading and validating params from answer file                  | Done                    | Done[13]             |                                                      |
 | Mask input sets                                                        | Done                    | Not implemented      |                                                      |
 | Log masked configuration                                               | Done                    | Not implemented      |                                                      |
 | Set Max Shared Memory                                                  | Done                    | Done                 |                                                      |
@@ -121,7 +121,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Log a summary of the parameters                                        | Done                    | Not implemented      |                                                      |
 
 <references>
-[13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24]
+[14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] <ref name="authpass">The option `AUTH_PASS=...` is now `osetupcons.ConfigEnv.ADMIN_PASSWORD`
 
 </references>
 #### engine-cleanup
@@ -200,26 +200,28 @@ TBD
 
 [12] 
 
-[13] The option `--no-mem-check` is now `--otopi-environment="OVESETUP_SYSTEM/memCheck=bool:False"`
+[13] 
 
-[14] The option `--gen-answer-file` is now `--generate-answer`
+[14] The option `--no-mem-check` is now `--otopi-environment="OVESETUP_SYSTEM/memCheck=bool:False"`
 
-[15] The option `--answer-file` is now `--config-append`
+[15] The option `--gen-answer-file` is now `--generate-answer`
 
-[16] The option `CONFIG_NFS=yes` is now `OVESETUP_NFS/configure=bool:True`
+[16] The option `--answer-file` is now `--config-append`
 
-[17] The option `HOST_FQDN=host` is now `OVESETUP_CONFIG/fqdn=str:host`
+[17] The option `CONFIG_NFS=yes` is now `OVESETUP_NFS/configure=bool:True`
 
-[18] The option `HTTP_PORT=80` is now `OVESETUP_CONFIG/httpPort=int:80`
+[18] The option `HOST_FQDN=host` is now `OVESETUP_CONFIG/fqdn=str:host`
 
-[19] The option `HTTPS_PORT=443` is now `OVESETUP_CONFIG/httpsPort=int:443`
+[19] The option `HTTP_PORT=80` is now `OVESETUP_CONFIG/httpPort=int:80`
 
-[20] The option `APPLICATION_MODE=both` is now `OVESETUP_CONFIG/applicationMode=str:both`
+[20] The option `HTTPS_PORT=443` is now `OVESETUP_CONFIG/httpsPort=int:443`
 
-[21] The option `ORG_NAME=organization` is now `OVESETUP_PKI/organization=str:organization`
+[21] The option `APPLICATION_MODE=both` is now `OVESETUP_CONFIG/applicationMode=str:both`
 
-[22] The option `DB_HOST=localhost` is now `OVESETUP_DB/host=str:localhost`
+[22] The option `ORG_NAME=organization` is now `OVESETUP_PKI/organization=str:organization`
 
-[23] The option `DB_PORT=5432` is now `OVESETUP_DB/port=int:5432`
+[23] The option `DB_HOST=localhost` is now `OVESETUP_DB/host=str:localhost`
 
-[24] The option `DB_SECURE_CONNECTION=no` is now `OVESETUP_DB/secured=bool:False`
+[24] The option `DB_PORT=5432` is now `OVESETUP_DB/port=int:5432`
+
+[25] The option `DB_SECURE_CONNECTION=no` is now `OVESETUP_DB/secured=bool:False`

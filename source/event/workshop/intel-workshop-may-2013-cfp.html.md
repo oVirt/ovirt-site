@@ -14,7 +14,7 @@ Intel oVirt Workshop May 2013 | Call For Participation
 
 ### All submissions must be received by March 29th, 2013 at 11:55pm (PST).
 
-Ovirt strives to become the first and best truly open and comprehensive data center virtualization management suite. As the oVirt community is rapidly evolving and growing one of the ways we look to connect is through oVirt Workshops around the globe. The May 2013 oVirt workshop will be held at [Intel's Shanghai Campus](https://maps.google.com/maps?q=No.+880+Zi+Xing+Road+Zizhu+Science+Park+Minhang,+Shanghai+200241+China&hl=en&sll=23.141807,113.324834&sspn=0.077662,0.153122&t=h&hq=No.+880+Zi+Xing+Road+Zizhu+Science+Park+Minhang,+Shanghai+200241+China&radius=15000&z=13). This workshop will be designed to encourage collaboration in our community, as well as help answer questions about the project from both a developer and users perspective. We look forward to seeing you there!
+Ovirt strives to become the first and best truly open and comprehensive data center virtualization management suite. As the oVirt community is rapidly evolving and growing one of the ways we look to connect is through oVirt Workshops around the globe. The May 2013 oVirt workshop will be held at [Intel's Shanghai Campus](https://maps.google.com/maps?q=No.+880+Zi+Xing+Road+Zizhu+Science+Park+Minhang,+Shanghai+200241+China&hl=en&sll=23.141807,113.324834&sspn=0.077662,0.153122&t=h&hq=No.+880+Zi+Xing+Road+Zizhu+Science+Park+Minhang,+Shanghai+200241+China&radius=15000&z=13). This workshop will be designed to encourage collaboration in our community, as well as help answer questions about the project from both a developer and user's perspective. We look forward to seeing you there!
 
 ## Suggested Topics
 

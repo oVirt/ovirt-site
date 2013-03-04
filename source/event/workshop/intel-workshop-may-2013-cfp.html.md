@@ -10,4 +10,4 @@ wiki_last_updated: 2013-04-04
 
 # Intel Workshop May 2013 CFP
 
-This page has been depricated for updates please visit [Intel_Workshop_May_2013 here]
+This page has been depricated for updates please visit [Intel_Workshop_May_2013 here](Intel_Workshop_May_2013 here)

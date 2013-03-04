@@ -32,10 +32,6 @@ Kyle Mestery is working to arrange a workshop on Cisco's campus, likely in the R
 
 We are currently working to locate a place to host a workshop in the LATAM region.
 
-## NetApp Campus Workshop 2013
-
-Details for this workshop are still to be confirmed, with a confirmed date of January 22-24, 2013 at [NetApp's Sunnyvale, California, US headquarters](http://maps.google.com/maps/place?cid=7052473688898245753&q=netapp+headquarters+sunnyvale&hl=en&t=h&cd=1&cad=src:ppiwlink&ei=PLyqT72BNsf9kAXkxpzeBA&sig2=DivLR8aVzWexkjnlAxpuGw&dtab=2). More information will be added to this entry closer to the event.
-
 ## Intel Campus Workshop 2013
 
 Details for this workshop are still to be confirmed, though we have confirmed the date for it as March 20-21, 2013. The workshop will be held at [Intel's Shanghai campus](http://maps.google.com/maps?q=No.+880+Zi+Xing+Road+Zizhu+Science+Park+Minhang,+Shanghai+200241+China&hl=en&sll=23.141807,113.324834&sspn=0.077662,0.153122&t=h&hq=No.+880+Zi+Xing+Road+Zizhu+Science+Park+Minhang,+Shanghai+200241+China&radius=15000&z=13).

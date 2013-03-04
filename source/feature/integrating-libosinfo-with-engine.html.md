@@ -69,14 +69,14 @@ LibosinfoServer is publishing its RMI stub to the stdout so a process invoking i
 
 ### OSInfoService interface
 
-The service interface, implemented by the RMI server (LibosinfoServer) and consumed by the client (LibosinfoClient). It exposes a simplified subset version of libosinfo API:
+The service interface, implemented by the RMI server (LibosinfoServer) and consumed by the client (LibosinfoClient).
+It exposes a simplified subset version of libosinfo API:
 
       OSInfoService
-         int getMinimumCpuSpeed(String osId, CpuArch cpuArch);
-         int getMinimumCpuNumber(String osId, CpuArch cpuArch);
-         long getMinimumRam(String osId, CpuArch cpuArch);
-         int getRecommendedCpu(String osId, CpuArch cpuArch);
-         long getRecommendedRam(String osId, CpuArch cpuArch);
+          public long getMinimumCpu(String osId, String cpuArch);
+          public long getRecommendedCpu(String osId, String cpuArch);
+          public long getMinimumRam(String osId, String cpuArch);
+          public long getReommendedRam(String osId, String cpuArch);
 
 ### Dependencies / Related Features
 

@@ -46,6 +46,8 @@ The watchdog support on the UI will be found on the new/edit VM/template window,
 
 ![](Neweditserverhawatchdogenabled.png "Neweditserverhawatchdogenabled.png")
 
+You can also find a user interface live demo on [<https://www.youtube.com/watch?v>=-dJLmLxXn4o youtube]
+
 #### Backend changes
 
 *   Both Vm and Template will have support for watchdog cards

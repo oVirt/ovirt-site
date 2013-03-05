@@ -109,12 +109,12 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Configure and enable FirewallD if requested                            | Done                    | Not implemented      |                                                      |
 | Start / Stop Engine service when needed                                | Done                    | Done                 |                                                      |
 | Enable httpd_can_network_connect selinux flag                       | Done                    | Not implemented      |                                                      |
-| Backup old Apache httpd config when needed                             | Done                    | Not implemented      |                                                      |
-| Configure Apache mod_ssl for using engine apache keys                 | Done                    | Not implemented      |                                                      |
-| Configure Apache for listening on requested HTTP port                  | Done                    | Not implemented      |                                                      |
-| Configure Apache for listening on requested HTTPS port                 | Done                    | Not implemented      |                                                      |
-| Configure Apache as proxy for the requests to the jboss service        | Done                    | Not implemented      |                                                      |
-| Enable the httpd service                                               | Done                    | Not implemented      |                                                      |
+| Backup old Apache httpd config when needed                             | Done                    | In Progress          | [ Alex Lourie](User:Alourie)              |
+| Configure Apache mod_ssl for using engine apache keys                 | Done                    | In Progress          | [ Alex Lourie](User:Alourie)              |
+| Configure Apache for listening on requested HTTP port                  | Done                    | In Progress          | [ Alex Lourie](User:Alourie)              |
+| Configure Apache for listening on requested HTTPS port                 | Done                    | In Progress          | [ Alex Lourie](User:Alourie)              |
+| Configure Apache as proxy for the requests to the jboss service        | Done                    | In Progress          | [ Alex Lourie](User:Alourie)              |
+| Enable the httpd service                                               | Done                    | In Progress          | [ Alex Lourie](User:Alourie)              |
 | Enter rpm versions into yum version-lock                               | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |
 | Add info message to the user finalizing the successful install         | Done                    | Not implemented      |                                                      |
 | Print additional message to the user finalizing the successful install | Done                    | Not implemented      |                                                      |

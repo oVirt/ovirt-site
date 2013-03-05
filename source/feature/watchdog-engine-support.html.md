@@ -120,11 +120,12 @@ Please comment on the [Discussion page](Talk:Features/Watchdog_engine_support).
 6.  click on the new VM in the list
 7.  click **edit**
 8.  check if the watchdog device is set correctly
-9.  click cancel
-10. start the VM
-11. click on the console icon to open SPICE console
-12. boot any linux distribution on the VM
-13. see if watchdog card is installed
+9.  use the rest api to see if the VM has the watchdog card
+10. click cancel
+11. start the VM
+12. click on the console icon to open SPICE console
+13. boot any linux distribution on the VM
+14. see if watchdog card is installed
 
 #### Create template with watchdog (UI)
 

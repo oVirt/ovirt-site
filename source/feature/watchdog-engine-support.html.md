@@ -78,7 +78,10 @@ In REST API the VM and template will get a new optional tag **watchdog** directl
 ` `</status>
 ` `<memory>`536870912`</memory>
        ...
-       `<watchdog model="i6300esb" action="reset"/>` 
+<watchdog>
+`  `<model>`i6300esb`</model>
+`  `<action>`reset`</action>
+</watchdog>
        ...
 </vm>
 

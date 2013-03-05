@@ -102,4 +102,44 @@ VDSM support for watchdog cards is already merged.
 
 Please comment on the [Discussion page](Talk:Features/Watchdog_engine_support).
 
+### Test cases
+
+*   detecting the watchdog
+    -   i6300esb is a pci device, the command *\`lspci | grep watchdog -i\`* in a guest linux OS will show you the watchdog card if it is installed
+    -   ib700: TODO
+
+#### Create VM with watchdog (UI)
+
+1.  Create a server VM
+2.  set VM name
+3.  click on "High Availability"
+4.  set watchdog card to **'i6300esb** and watchdog action to **reset**
+5.  save VM
+6.  click on the new VM in the list
+7.  click **edit**
+8.  check if the watchdog device is set correctly
+9.  click cancel
+10. start the VM
+11. click on the console icon to open SPICE console
+12. boot any linux distribution on the VM
+13. see if watchdog card is installed
+
+#### Create template with watchdog (UI)
+
+Dependens on [#Create_VM_with_watchdog_(UI)](#Create_VM_with_watchdog_(UI))
+
+1.  Create a server VM
+2.  set VM name
+3.  click on "High Availability"
+4.  set watchdog card to **'i6300esb** and watchdog action to **reset**
+5.  save VM
+6.  create template from vm
+7.  go to the templates tab
+8.  click on the newly created template
+9.  click on **edit**
+10. click on **high availablity**
+11. check if watchdog is set correctly
+
+### Create vm with watchdog from template (UI)
+
 <Category:Feature> <Category:SLA>

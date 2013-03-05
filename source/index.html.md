@@ -95,7 +95,7 @@ oVirt version 3.2 was released on February 14, 2013 and contained several new fe
 <div class="span4 pad-left pad-right-small">
 ### Community is key
 
-oVirt, the first truly open and comprehensive data centre virtualization management initiative, provides a venue for user and developer cooperation. The heart of the project is the open source code of oVirt, and the community is governed openly, modeled after the Apache Foundation, Eclipse, LVM, and many other well functioning Linux communities.
+oVirt, the first truly open and comprehensive data center virtualization management initiative, provides a venue for user and developer cooperation. The heart of the project is the open source code of oVirt, and the community is governed openly, modeled after the Apache Foundation, Eclipse, LVM, and many other well functioning Linux communities.
 
 You're encouraged to [ join the oVirt community](Community), and help us bring open source software to virtual datacenters worldwide.
 

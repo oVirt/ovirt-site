@@ -44,6 +44,8 @@ For download:
 *   rest_api_routines.sh
 *   synch_env.sh
 
+Here: ![](Rest_api_files.tar.gz "fig:Rest_api_files.tar.gz")
+
 The following sections contain snipples of code showing the creation of a host in the Engine.
 
 ## General support routines

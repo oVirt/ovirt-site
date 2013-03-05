@@ -8,55 +8,117 @@ wiki_last_updated: 2014-09-16
 
 # Debug Frontend
 
-## Setup Frontend in Development Mode (WebAdmin and UserPortal)
+## How to debug Frontend applications
 
-This document describes how to setup the frontend applications in development mode. It describes only how to do it using Eclipse and ignores other IDEs. Please feel free to contribute.
+This document contains instructions and tips for debugging oVirt Frontend web applications. Although it focuses on debugging applications in Eclipse IDE, it should be easy to adapt within your own development environment.
 
-### Reasons
+oVirt Frontend comprises following web applications:
 
-*   The client side logs are not sent to server - to see them, you need to run the frontend in dev mode
-*   The frontend itself is quite complex. To track bugs in it you often need a debugger
-*   Without development mode, you would need to recompile the whole application to see the result - in development mode you just refresh the browser window
+*   WebAdmin: `$OVIRT_HOME/frontend/webadmin/modules/webadmin/`
+*   UserPortal: `$OVIRT_HOME/frontend/webadmin/modules/userportal-gwtp/`
+
+oVirt Frontend applications use [Google Web Toolkit](https://developers.google.com/web-toolkit/), an open source set of tools for building JavaScript web applications using Java programming language. One GWT tool we'll use in particular is [Development Mode](https://developers.google.com/web-toolkit/doc/latest/DevGuideCompilingAndDebugging#DevGuideDevMode), which allows debugging an application without having to translate (compile) it to JavaScript.
 
 ### Prerequisites
 
-This document expects that you have successfully cloned and build the sources and you have a running version of the oVirt deployed (http://wiki.ovirt.org/wiki/Building_oVirt_engine) and set up the Eclipse (http://wiki.ovirt.org/wiki/Building_Ovirt_Engine/IDE).
+This document assumes that you've successfully [cloned and built oVirt from source](http://wiki.ovirt.org/wiki/Building_oVirt_engine) and [configured Eclipse for development](http://wiki.ovirt.org/wiki/Building_Ovirt_Engine/IDE).
 
-### Steps
+### Development Mode
 
-The following steps describes how to set up both the WebAdmin and UserPortal.
+Launching Development Mode spawns a separate JVM instance (Java application) that executes GWT application code as bytecode, providing bridge between web browser and Java IDE:
 
-*   For WebAdmin:
-    -   Go to <ovirt-root>/frontend/webadmin/modules/webadmin/
-    -   Run mvn gwt:debug -Pgwt-admin,gwtdev
-*   For UserPortal:
-    -   Go to <ovirt-root>/frontend/webadmin/modules/userportal-gwtp/
-    -   Run mvn gwt:debug -Pgwt-user,gwtdev
-*   If it was successful, you should see a line like this: [INFO] Listening for transport dt_socket at address: 8000
-*   Now, go to Eclipse and go to Debug Configurations -> Remote Java Application -> New launch configuration
-*   In the given dialog, fill the following values:
-    -   Give it some name
-    -   Connect -> Project -> Browse -> Select (webadmin or userportal)
-    -   Host: localhost
-    -   Port: 8000
-*   In the Source tab:
-    -   Add -> Java Project -> check uicommonweb, gwt-common
-*   Press Apply, than Debug
-*   If successful, a new GWT Development Mode window should be opened for you
-*   Now you need to navigate the browser to:
-*   For WebAdmin:
-    -   <http://127.0.0.1:8080/webadmin/webadmin/WebAdmin.html?gwt.codesvr=127.0.0.1:9997>
-*   For UserPortal
-    -   <http://127.0.0.1:8080/UserPortal/org.ovirt.engine.ui.userportal.UserPortal/UserPortal.html?gwt.codesvr=127.0.0.1:9997>
-*   If this is the first time you have tried to reach a development mode server, it will prompt you to install the Google Web Toolkit Developer Plugin. Go ahead and install it. This may require to restart your browser. When you will have the plugin installed, navigate to the above mentioned URL again
-*   Now the WebAdmin (UserPortal) code should be executed. It will take a while, because the Java code is interpreted and not the compiled JavaScript code is executed.
+*   Java IDE connects to Development Mode to debug GWT application code, allowing to set breakpoints and debug code as Java
+*   web browser connects to Development Mode via GWT Developer Plugin, passing instructions to Development Mode which executes them and sends the result back to web browser
 
-If everything is successful, you should see a new tab in the GWT Development Mode window with some logs in it. If yes, everything is prepared and you can put some breakpoints to the code and debug as any other application.
+### Step 0 - Things to check
 
-### Troubleshooting
+Make sure to have appropriate oVirt-related environment variables exported, for example:
 
-The most common issue is that the Google Web Toolkit Developer Plugin is not installed or is not correctly installed. Please make sure, your browser is officially supported by the Google Web Toolkit Developer Plugin.
+    $ export OVIRT_HOME=$HOME/workspace/ovirt-engine
+    $ export JBOSS_HOME=/usr/local/dev/ovirt-jboss-as
+    $ export ENGINE_DEFAULTS=$OVIRT_HOME/backend/manager/conf/engine.conf.defaults
 
-Another reason could be the maven compiler parameters. Please make sure you did not build you backend with *-Dgwt.draftCompile=true* and *-Dgwt.user.agent=gecko* , recompile without these parameters if you did. - [Lhornyak](User:Lhornyak) ([talk](User talk:Lhornyak)) 14:50, 30 November 2012 (GMT)
+You should also do full oVirt build prior to debugging, with WebAdmin and/or UserPortal GWT compilation enabled:
 
-Yet another problem experienced with fedora 18 was that at installation fedora did not add the host name to the /etc/hosts, so gwt debugger was not able to resolve the ip address of localhost. To fix this, add the name of the hostname to /etc/hosts --[Lhornyak](User:Lhornyak) ([talk](User talk:Lhornyak)) 11:37, 25 February 2013 (GMT)
+    $ cd $OVIRT_HOME
+    $ mvn clean install -Pdep,gwt-admin,gwt-user -Dgwt.compiler.localWorkers=8
+
+Notes:
+
+*   `dep` profile deploys oVirt Engine to JBoss AS, e.g. `$JBOSS_HOME/standalone/deployments/engine.ear`
+*   `gwt-admin` profile enables WebAdmin GWT compilation (optional)
+*   `gwt-user` profile enables UserPortal GWT compilation (optional)
+*   `gwt.compiler.localWorkers` should match the number of CPU cores for parallelizing GWT compilation (optional)
+
+### Step 1 - Launching Development Mode
+
+Make sure JBoss AS is running and launch Development Mode for WebAdmin or UserPortal:
+
+    $ cd $GWT_APP_DIR
+    $ mvn gwt:debug -Pgwtdev,gwt-admin,gwt-user -Dgwt.noserver=true
+
+Notes:
+
+*   `gwt:debug` launches Development Mode via gwt-maven-plugin
+*   `gwtdev` profile adds extra Java sources and resources necessary for debugging
+*   `gwt.noserver` tells Development Mode that the application is already deployed on JBoss AS (don't use embedded Jetty instance to serve web application)
+
+You should now see following output in console: `Listening for transport dt_socket at address: 8000`
+
+### Step 2 - Connecting to Development Mode from Java IDE
+
+In Eclipse, create new debug configuration for WebAdmin or UserPortal via "Run | Debug Configurations | Remote Java Application | New launch configuration":
+
+*   In Connect tab:
+    -   Project: choose WebAdmin or UserPortal project that you previously imported into Eclipse
+    -   Host: `localhost`
+    -   Port: `8000`
+*   In Source tab:
+    -   Click "Add | Java Project" and choose related Frontend projects: `uicommonweb`, `gwt-common`
+
+Click "Apply" and "Debug", so that Eclipse now connects to Development Mode, which spawns Development Mode GUI.
+
+### Step 3 - Launching the application in web browser
+
+Open your favorite web browser and navigate to one of debug URLs below:
+
+*   WebAdmin: <http://127.0.0.1:8700/webadmin/webadmin/WebAdmin.html?gwt.codesvr=127.0.0.1:9997>
+*   UserPortal: <http://127.0.0.1:8700/UserPortal/org.ovirt.engine.ui.userportal.UserPortal/UserPortal.html?gwt.codesvr=127.0.0.1:9997>
+
+Notes:
+
+*   `gwt.codesvr` points to Development Mode, port 9997 is used internally by GWT Developer Plugin to communicate with Development Mode
+*   This means you're debugging the application in your favorite web browser!
+
+Navigating to debug URLs mentioned above for the first time, you will be prompted to install GWT Developer Plugin for the given web browser. Just proceed with plugin installation and restart the browser.
+
+The next time you navigate to debug URLs mentioned below, GWT Developer Plugin will connect to Development Mode and new debugging session will be started for the given web browser. This can take some time, please be patient and wait while the application gets loaded in the browser.
+
+You can switch to Development Mode GUI and see a new tab representing the debugging session. Each session has its own client-side logs displayed within the given tab.
+
+### Typical development cycle
+
+Development Mode allows you to "code-test-debug" running GWT application, without having to compile it to JavaScript or even restart Development Mode.
+
+Whenever you make code changes while debugging:
+
+*   Eclipse might complain that changes cannot be hot-swapped, in this case just click "Terminate" and reconnect again
+*   Reload (refresh) the application in web browser, this will start new Development Mode session
+
+### Frequently asked questions
+
+Q: My web browser doesn't prompt me to install GWT Developer Plugin.
+
+A: Make sure your browser is officially supported by GWT Developer Plugin. Alternatively, get it from [here](http://gwt.googleusercontent.com/samples/MissingPlugin/MissingPlugin.html) and install manually into your browser.
+
+Q: The web page is blank after navigating to debug URL.
+
+A: Make sure to do full oVirt build prior to debugging for all web browsers, e.g. without specifying `gwt.userAgent` property.
+
+Q: Client-side logs are not persisted on Engine, e.g. `$JBOSS_HOME/standalone/log/engine/engine-ui.log`.
+
+A: Currently, client-side logs are enabled only when debugging the application via Development Mode.
+
+Q: I am getting `-bindAddress host "0.0.0.0" unknown` error message when launching Development Mode.
+
+A: Using 0.0.0.0 means that Development Mode will listen for incoming connections on all network interfaces, as opposed to 127.0.0.1 which listens for incoming connections only on loopback interface available on local machine only. Make sure that host name is properly set in `/etc/hosts`. For Windows machines, check `%windir%\system32\drivers\etc\hosts`.

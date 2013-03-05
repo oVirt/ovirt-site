@@ -25,7 +25,7 @@ This document assumes that you've successfully [cloned and built oVirt from sour
 
 ### Development Mode
 
-Launching Development Mode spawns a separate JVM instance (Java application) that executes GWT application code as bytecode, providing bridge between web browser and Java IDE:
+Launching Development Mode spawns a separate JVM instance (Java application) that executes GWT application code as bytecode, providing a bridge between web browser and Java IDE:
 
 *   Java IDE connects to Development Mode to debug GWT application code, allowing to set breakpoints and debug code as Java
 *   web browser connects to Development Mode via GWT Developer Plugin, passing instructions to Development Mode which executes them and sends the result back to web browser
@@ -61,9 +61,9 @@ Notes:
 
 *   `gwt:debug` launches Development Mode via gwt-maven-plugin
 *   `gwtdev` profile adds extra Java sources and resources necessary for debugging
-*   `gwt.noserver` tells Development Mode that the application is already deployed on JBoss AS (don't use embedded Jetty instance to serve web application)
+*   `gwt.noserver` tells Development Mode that the application is already deployed on JBoss AS (don't use embedded Jetty instance to serve application content)
 
-You should now see following output in console: `Listening for transport dt_socket at address: 8000`
+You should see following output in console: `Listening for transport dt_socket at address: 8000`
 
 ### Step 2 - Connecting to Development Mode from Java IDE
 
@@ -92,9 +92,9 @@ Notes:
 
 Navigating to debug URLs mentioned above for the first time, you will be prompted to install GWT Developer Plugin for the given web browser. Just proceed with plugin installation and restart the browser.
 
-The next time you navigate to debug URLs mentioned below, GWT Developer Plugin will connect to Development Mode and new debugging session will be started for the given web browser. This can take some time, please be patient and wait while the application gets loaded in the browser.
+The next time you navigate to debug URLs mentioned below, GWT Developer Plugin will connect to Development Mode and new debugging session will be started for the given browser. This can take some time, please be patient and wait while the application gets loaded.
 
-You can switch to Development Mode GUI and see a new tab representing the debugging session. Each session has its own client-side logs displayed within the given tab.
+You can switch to Development Mode GUI and see a new tab representing the debugging session. Note that each session has its own client-side logs displayed within the given tab.
 
 ### Typical development cycle
 
@@ -109,7 +109,7 @@ Whenever you make code changes while debugging:
 
 Q: My web browser doesn't prompt me to install GWT Developer Plugin.
 
-A: Make sure your browser is officially supported by GWT Developer Plugin. Alternatively, get it from [here](http://gwt.googleusercontent.com/samples/MissingPlugin/MissingPlugin.html) and install manually into your browser.
+A: Make sure your browser is officially supported by GWT Developer Plugin. Alternatively, get it from [here](http://gwt.googleusercontent.com/samples/MissingPlugin/MissingPlugin.html) and install the plugin manually into your browser.
 
 Q: The web page is blank after navigating to debug URL.
 
@@ -121,4 +121,4 @@ A: Currently, client-side logs are enabled only when debugging the application v
 
 Q: I am getting `-bindAddress host "0.0.0.0" unknown` error message when launching Development Mode.
 
-A: Using 0.0.0.0 means that Development Mode will listen for incoming connections on all network interfaces, as opposed to 127.0.0.1 which listens for incoming connections only on loopback interface available on local machine only. Make sure that host name is properly set in `/etc/hosts`. For Windows machines, check `%windir%\system32\drivers\etc\hosts`.
+A: Using 0.0.0.0 means that Development Mode will listen for incoming connections on all network interfaces, as opposed to 127.0.0.1 which listens for incoming connections only on loopback interface available from local machine only. Make sure that host name is properly set in `/etc/hosts`. For Windows machines, check `%windir%\system32\drivers\etc\hosts`.

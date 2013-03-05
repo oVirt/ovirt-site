@@ -152,4 +152,16 @@ Depends: [Create vm with watchdog from template (UI)](#Create_template_with_watc
 6.  go to the **high availability** tab
 7.  check that the watchdog settings are the same as in the template
 
+#### Create vm with watchdog (REST-API)
+
+1.  use the rest api to create a vm with a <watchdog> tag ([see above](#REST_Api_changes))
+2.  check on the rest api if the watchdog card is persisted
+
+#### Add watchdog to existing VM (REST-API)
+
+1.  use the rest api to create a vm with a <watchdog> tag ([see above](#REST_Api_changes))
+2.  check on the rest api if the watchdog card is persisted
+
+#### Remove watchdog from VM (REST-API)
+
 <Category:Feature> <Category:SLA>

@@ -130,6 +130,17 @@ Please comment on the [Discussion page](Talk:Features/Watchdog_engine_support).
 13. boot any linux distribution on the VM
 14. see if watchdog card is installed
 
+#### Remove watchdog from VM (UI)
+
+Depends on [Create VM with watchdog (UI)](#Create_VM_with_watchdog_(UI))
+
+1.  create vm with watchdog (see above)
+2.  edit vm
+3.  go to **high availablity** tab
+4.  set the watchdog model to empty
+5.  save VM
+6.  check on restapi, the watchdog tag must not appear now on the VM
+
 #### Create template with watchdog (UI)
 
 Dependens on [#Create_VM_with_watchdog_(UI)](#Create_VM_with_watchdog_(UI))

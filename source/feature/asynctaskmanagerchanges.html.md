@@ -79,6 +79,8 @@ The following diagram shows the interface to be provided by AsyncTaskManager Mod
 
 ![](Async_Task_Manager_interfaces.png‎ "Async_Task_Manager_interfaces.png‎")
 
+A task in the suggested design is used to monitor/control an asynchronous flow at an external system (i.e - SPM, Gluster, Cinder) A task creation is initiated by a corresponding command at the engine.
+
 The changes from the current implementation are:
 
 1.  Parameters - the task entity will no longer have parameters - as they are the parameters of the "Root command" (I.E - the parameters of the command which is first in the hierarchy )

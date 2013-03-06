@@ -85,8 +85,8 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Configure .pgpass file                                                 | Done                    | Done                 |                                                      |
 | Encrypt DB Password                                                    | Done                    | Done                 |                                                      |
 | Push the encrypted password into the local configuration file          | Done                    | Done                 |                                                      |
-| Start / Stop rhevm-etl service when needed                             | Done                    | Not implemented      |                                                      |
-| Start / Stop rhevm-notifierd service when needed                       | Done                    | Not implemented      |                                                      |
+| Start / Stop rhevm-etl service when needed                             | Done                    | In Progress          | [ Sandro Bonazzola](User:SandroBonazzola) |
+| Start / Stop rhevm-notifierd service when needed                       | Done                    | In Progress          | [ Sandro Bonazzola](User:SandroBonazzola) |
 | Upgrade engine database if already exist                               | Done                    | Done                 |                                                      |
 | Install engine database if doesn't exist                               | Done                    | Done                 |                                                      |
 | Set Application Mode (Both, Virt, Gluster)                             | Done                    | Done                 |                                                      |

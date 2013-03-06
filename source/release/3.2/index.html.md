@@ -33,6 +33,8 @@ The oVirt 3.2 release includes these notable changes.
 *   Support has been added for storage domain live upgrade. This allows upgrades from old data center types to the new V3 domain while virtual machines are running ([Features/StorageDomainLiveUpgrade](Features/StorageDomainLiveUpgrade)).
 *   Gluster volumes can now be optimized for virtualization. This can be done using the "Optimize for Virt Store" button on the "Volumes" tab of the engine administration portal.
 
+**Note:** Gluster features in oVirt 3.2 require glusterfs version 3.4.0. At the time of oVirt 3.2 release, glusterfs 3.4.0 is still under testing. The latest QA release of glusterfs 3.4.0 can be obtained from the yum repository <http://bits.gluster.org/pub/gluster/glusterfs/stage.repo>
+
 ### Infrastructure
 
 *   Support has been added for the Windows 8, Windows 8 x64, and Windows 2012 virtual machine operating systems, including sysprep images and product keys.

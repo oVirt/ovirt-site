@@ -38,17 +38,16 @@ There should also be an option to "un-provision" a virtual NIC so that is being 
 
 ## Integrating external providers
 
-The integration of network providers into oVirt will be incremental.
+The integration of network providers into oVirt will be incremental. The following phases outline the general guidelines and considerations.
 
 ### Phase 1
 
 #### Network provider entity
 
-*   Introducing a 'Network Provider' entity that will have the following properties:
+*   Introducing a 'Provider' entity that will have the following properties:
     -   Name
     -   Description
-    -   Type (Technology?)
-    -   URI
+    -   URL
     -   User/Password ?
 *   Possibly, different providers can have additional properties that are needed by them.
 
@@ -58,10 +57,33 @@ The integration of network providers into oVirt will be incremental.
 *   This requires that each network has a link to the provider:
     -   If the link is set, then this network is provided by the external provider.
     -   If the link is not set, the network is not provided externally.
-*   There need also be an ID property of the network on the external provider.
-*   In this phase, only VM networks can be provided by an external provider.
-*   Currently. only one external provider will be supported for a network.
+*   There should also be an ID property of the network on the external provider.
+*   One external provider will be supported for a network.
+    -   However, an external provider can provide multiple networks.
+
+#### REST API changes
+
+*   Providers will be added as a top-level collection.
+*   A provider will have a capabilities sub collection:
+    -   Currently, the only capability type will be "networking".
+    -   Capability resource ID will be computed according to provider ID + capability type.
+    -   Networking capability will have a "networks" sub collection:
+        -   Networks sub collection will be the networks as discovered on the provider.
+        -   Network resource will have ID as is on provider (or computed from it).
+*   Importing a network would be done by copying the resource XML and posting it on the top level networks resource.
+    -   The imported network would have a new ID which is oVirt internal.
+    -   The imported network would have a link to it's origin network (The resource in the provider/capability context).
+
+#### Effective limitations
+
+*   All networks provided by an external provider will be VM networks.
+*   Importing the same network more than once should be defined as supported for different DCs but blocked otherwise.
+*   External network cannot be used as a display network.
 *   If a network is externally provided, it will **not** be editable in oVirt, since the external provider is responsible for managing the actual network configuration.
+*   External network will always be non required.
+*   Port mirroring is not available for virtual NICs connected to external networks.
+*   Block editing provider API address if there are networks imported from it.
+*   Block deleting provider if there are VMs using the networks it provides.
 
 #### Integration with virtual NIC lifecycle
 
@@ -78,6 +100,11 @@ The integration of network providers into oVirt will be incremental.
 
 *   It would be possible to define a network in oVirt and "push" it to external providers. This network will then be treated as is it was discovered on the provider, and will be the sole responsibility of the provider.
 *   The provider will be responsible for providing the connectivity of the network.
+
+#### Support other provider capabilities
+
+*   Providers could be added to enable capabilities such as storage.
+*   Provider type should be supported as well, to differentiate between the various providers.
 
 #### Auto-Discovery of networks
 

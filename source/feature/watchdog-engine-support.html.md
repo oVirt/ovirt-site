@@ -53,6 +53,14 @@ You can also find a user interface live demo on [<https://www.youtube.com/watch?
 *   Both Vm and Template will have support for watchdog cards
 *   Watchdog card is represented by a VmDevice
 
+#### Watchdog notifications
+
+*   Since users must be aware of the watchdog operations, vdsm reports the last action taken by a watchdog for each VM in getVmStats.
+*   This actions should be translated into system events
+
+       * An event will show up in the Web Admin.
+       * Users should be able to subscribe to watchdog event, so they will get a notification via the notification service.
+
 #### Database changes
 
 *   none

@@ -64,4 +64,15 @@ Tracker bug: <https://bugzilla.redhat.com/918494>
 
 Features being considered for inclusion/already in master:
 
+### Infra
+
+*   [Features/Device Custom Properties](Features/Device Custom Properties)
+
+### Networking
+
+*   [Features/Migration Network](Features/Migration Network)
+*   [Features/Normalized ovirtmgmt Initialization](Features/Normalized ovirtmgmt Initialization)
+*   [Features/DirectHostAddress](Features/DirectHostAddress)
+*   [Features/Nicless Network](Features/Nicless Network) (not sure we can pull this off)
+
 <Category:Releases> [Category:Release management](Category:Release management)

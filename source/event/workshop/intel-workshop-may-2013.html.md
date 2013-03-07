@@ -82,7 +82,8 @@ Please contact [Theron Conrey](mailto:theron@redhat.com) with any questions.
 
 ## Accommodations
 
-The following hotels have been recommended for attendees of the oVirt Workshop. **Please note:** Shuttle service will be provided to the Workshop from these hotels in the morning and returning to the hotels in the evening.
+The following hotels have been recommended for attendees of the oVirt Workshop.
+**Please note:** Shuttle service will be provided to the Workshop from these hotels in the morning and returning to the hotels in the evening.
 
 [Renaissance Yangtze Hotel](http://goo.gl/maps/mB0ee) : <http://www.marriott.com/hotels/travel/shabr-renaissance-shanghai-yangtze-hotel/>
 Holiday Inn Express : <http://www.hiexpress.com/hotels/us/en/shanghai/shgmh/hoteldetail>

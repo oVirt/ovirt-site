@@ -8,6 +8,15 @@ wiki_last_updated: 2013-12-25
 
 # Java-sdk-changelog
 
+        * Thu  Mar 7 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.5-1
+         - use explicit classloader for JAXBContext
+         - implement support for (user defined) session authentication
+         - implement generic JAXBElement generation
+         - to DataCenterStorageDomain added Disks sub-collection
+         - to StorageDomain added Disks sub-collection
+         - to host added display.address property
+         - to vms.add() added overload for creating vm from snapshot
+
         * Sun  Feb 24 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.4-1
          - implement SSL support (without host verification)
          - implement shutdown() to deallocate system resources

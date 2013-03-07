@@ -10,7 +10,7 @@ wiki_last_updated: 2013-03-18
 
 # VDSM on Ubuntu
 
-This page describe Ubuntu imcompabilities that must be fixed to run VDSM. With the workaround, it is possible to build VDSM on Ubuntu and run some functional tests. The last section present a code repository containing the modified VDSM to be run on Ubuntu. This is a working VDSM snapshot with the following workarounds. If you are interested, please pick a workaround and create long term solution patch for it, then paste the Gerrit link beside the workdaround.
+This page describes Ubuntu imcompabilities that must be fixed to run VDSM. With the workaround, it is possible to build VDSM on Ubuntu and run some functional tests. The last section presents a code repository containing the modified VDSM to be run on Ubuntu. This is a working VDSM snapshot with the following workarounds. If you are interested, please pick a workaround and create long term solution patch for it, then paste the Gerrit link beside the workdaround.
 
 Targeted Ubuntu Version: **Ubuntu Server 12.10**
 

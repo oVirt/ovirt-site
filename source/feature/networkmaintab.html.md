@@ -176,4 +176,4 @@ Network: (search by network properties)
 
 Bugzilla - [(networks_main_tab) Networks Main Tab](https://bugzilla.redhat.com/858742)
 
-<Category:Feature> <Category:Template>
+<Category:Feature> <Category:Networking>

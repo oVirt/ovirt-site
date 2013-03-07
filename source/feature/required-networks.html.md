@@ -55,4 +55,4 @@ when attaching a network to a cluster, add a boolean required property to it
 
 *   Refer to [ <http://www.ovirt.org/w/index.php?title=Talk:Features/Design/Network/Required_Networks&action=edit&redlink=1> ](Talk:Required_Networks)
 
-<Category:Feature> <Category:Template>
+<Category:Feature> <Category:Networking>

@@ -28,7 +28,15 @@ __TOC__
 
 ------------------------------------------------------------------------
 
-![](0-1jsdk.jpg "0-1jsdk.jpg")
+![](0-1jdk.jpg "0-1jdk.jpg")
+
+#### Authenticating using username and password
+
+![](0-1-1jdk.jpg "0-1-1jdk.jpg")
+
+#### Authenticating using sessionid
+
+![](0-1-2jdk.jpg "0-1-2jdk.jpg")
 
 ### Listing all collections
 

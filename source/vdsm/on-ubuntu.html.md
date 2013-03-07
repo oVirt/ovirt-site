@@ -174,6 +174,8 @@ There is a 85-lvm2.rules under Ubuntu /lib/udev/rules.d/, it sets the owner grou
 
 As <https://wiki.ubuntu.com/systemd> says, systemd is very incompatible with upstart, we should create upstart jobs for vdsm. We should not run systemd within or instead of upstart. since upstats can run traditional sysv services, we can use vdsdm.init directly, just with some necessary modifications
 
+DK: it would be highly advises to break the nasty SysV service to something smaller, that makes calls to vdsm-tool commands. Then, a port to upstart could become much simpler.
+
 ## Existing Effort
 
 *   [Ovirt build on debian/ubuntu](Ovirt build on debian/ubuntu)

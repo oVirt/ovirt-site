@@ -85,7 +85,7 @@ Provider is an instance of external system (i.e - Gluster host, SPM host) that c
 
 ProviderLogic implements the logic of how to get the task information and to control a specific task - Several providers that refer to instances of the same external system type have the same ProviderLogic object.
 
-AsyncTaskManager manager has a methods for registering + providing the initial list of tasks form a provider and for unregistering a specific provider (for example - when "storage pool up event" occurs, the provide method for SPM provider is called).
+AsyncTaskManager has a methods for registering + providing the initial list of tasks form a provider and for unregistering a specific provider (for example - when "storage pool up event" occurs, the provide method for SPM provider is called).
 
 The changes from the current implementation are:
 

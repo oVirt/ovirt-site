@@ -298,25 +298,27 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 9. allow setters generation for collection based fields in org.ovirt.engine.sdk.entities
 
-10. implement timeout in SDK constructor
+10. implement in collection.get(name) search using engine.search
 
-11. implement sdk debug mode
+11. implement timeout in SDK constructor
 
-12. remove @SuppressWarnings("unused") from decorators
+12. implement sdk debug mode
 
-13. move get/list methods from the decorators to the parent classes
+13. remove @SuppressWarnings("unused") from decorators
 
-14. implement unique treatment for COLLECTION2ENTITY pattern exceptions
+14. move get/list methods from the decorators to the parent classes
 
-15. implement logger in codegen
+15. implement unique treatment for COLLECTION2ENTITY pattern exceptions
 
-16. add deployment capabilities
+16. implement logger in codegen
 
-17. upload artifacts to mvn repo (done)
+17. add deployment capabilities
 
-18. Implement querying collections using custom constraint.
+18. upload artifacts to mvn repo (done)
 
-19. in doc change parameters format to javaDoc style (done)
+19. Implement querying collections using custom constraint.
+
+20. in doc change parameters format to javaDoc style (done)
 
 ## Change Log
 

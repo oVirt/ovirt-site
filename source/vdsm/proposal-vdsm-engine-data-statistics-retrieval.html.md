@@ -13,7 +13,7 @@ wiki_last_updated: 2013-07-08
 
 ### Motivation:
 
-Currently the RHEVM engine is polling the a lot of data from VDSM every 15 seconds. This should be optimized and the amount of data requested should be more specific.
+Currently the oVirt Engine is polling a lot of data from VDSM every 15 seconds. This should be optimized and the amount of data requested should be more specific.
 
 For each VM the data currently contains much more information than actually needed which blows up the size of the XML content quite big. We could optimize this by splitting the reply on the getVmStats based on the request of the engine into sections. For this reason Omer Frenkel and me have split up the data into parts based on their usage.
 
@@ -67,7 +67,7 @@ This data does not seem to be used in the engine at all. It is **not** even used
          
          `**`disks`**` = {'vda': {'readLatency': '0', 'apparentsize': '64424509440', 'writeLatency': '1754496',    'imageID': '28abb923-7b89-4638-84f8-1700f0b76482', 'flushLatency': '156549',  'readRate': '0.00', 'truesize': '18855059456', 'writeRate': '952.05'}, 'hdc': {'readLatency': '0', 'apparentsize': '0', 'writeLatency': '0', 'flushLatency': '0', 'readRate': '0.00', 'truesize': '0', 'writeRate': '0.00'}}
 
-#### Very frequent uppdates needed by webadmin portal:
+#### Very frequent updates needed by webadmin portal:
 
 This data is mostly needed for the webadmin portal and might be required to be updated quite often. An exception here is the statsAge field, which seems to be unused by the Engine. This data could be requested every 15 seconds to keep things as they are now.
 

@@ -122,17 +122,17 @@ If we can not define the running user, vdsm main programme will detect it and ex
 
 ## File System Hierachy
 
-| Fedora                                  | Ubuntu                                               | **Workaround**                                                                                            |
-|-----------------------------------------|------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| /sbin/nologin                           | /usr/sbin/nologin                                    | change the path in the code and script                                                                    |
-| /sbin/service                           | /usr/sbin/service                                    | change the path in the code and script                                                                    |
-| /var/lock/subsys/                       | equivalent not found                                 | ignore or skip the related part in the code and script                                                    |
-| /etc/sysconfig/libvirtd                 | equivalent not found                                 | ignore or skip the related part in the code                                                               |
-| /usr/lib/udev/scsi_id                  | /lib/udev/scsi_id                                   | change the path in the code and script                                                                    |
-| /sys/class/cpuid/                       | equivalent not found                                 | change the code to use os.listdir('/sys/devices/system/cpu') and filter the result by pattern 'cpu[0-9]+' |
-| /etc/iscsi/initiatorname.iscsi 644      | same file but permission is 600, vdsm cannot read it | chmod in the installation script                                                                          |
-| /boot/initramfs-kernelVer.img           | /boot/initrd.img-kernelVer                           | change the path in the code and script                                                                    |
-| /var/lib/libvirt/qemu/channels vdsm:kvm | owner is root:root                                   | chmod in the installation script                                                                          |
+| Fedora                                  | Ubuntu                                               | **Workaround**                                                                                                                                         |
+|-----------------------------------------|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| /sbin/nologin                           | /usr/sbin/nologin                                    | change the path in the code and script                                                                                                                 |
+| /sbin/service                           | /usr/sbin/service                                    | change the path in the code and script                                                                                                                 |
+| /var/lock/subsys/                       | equivalent not found                                 | ignore or skip the related part in the code and script                                                                                                 |
+| /etc/sysconfig/libvirtd                 | equivalent not found                                 | ignore or skip the related part in the code                                                                                                            |
+| /usr/lib/udev/scsi_id                  | /lib/udev/scsi_id                                   | change the path in the code and script                                                                                                                 |
+| /sys/class/cpuid/                       | equivalent not found                                 | change the code to use os.listdir('/sys/devices/system/cpu') and filter the result by pattern 'cpu[0-9]+'. [Patch](http://gerrit.ovirt.org/#/c/12815/) |
+| /etc/iscsi/initiatorname.iscsi 644      | same file but permission is 600, vdsm cannot read it | chmod in the installation script                                                                                                                       |
+| /boot/initramfs-kernelVer.img           | /boot/initrd.img-kernelVer                           | change the path in the code and script                                                                                                                 |
+| /var/lib/libvirt/qemu/channels vdsm:kvm | owner is root:root                                   | chmod in the installation script                                                                                                                       |
 
 *   User and Group
 
@@ -160,11 +160,15 @@ Ubuntu qemu process started by libvirt is libvirt-qemu:kvm, and there is no grou
 
 **Workaround**: must use kill -9 -- -xxx
 
+[Patch](http://gerrit.ovirt.org/#/c/12817/)
+
 *   udev problem
 
 There is a 85-lvm2.rules under Ubuntu /lib/udev/rules.d/, it sets the owner group of LV to "disk', preventing VDSM from chown-ing, reading, writing the LV. VDSM will chown the LV in the code and 12-vdsm-lvm.rules does this as well. However 85-lvm2.rules are run after 12-vdsm-lvm.rules, so the owner is always set by 85-lvm2.rules "root:disk" finally. In Fedora, there is no such 85-lvm2.rules, so there is no such problem.
 
 **Workaround**:rename 12-vdsm-lvm.rules to 86-vdsm-lvm.rules, so that VDSM udev rules run after the default lvm rules.
+
+[Patch](http://gerrit.ovirt.org/#/c/12816/)
 
 ## upstart vs. systemd
 

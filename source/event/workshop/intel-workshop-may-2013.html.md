@@ -87,4 +87,8 @@ The following hotels have been recommended for attendees of the oVirt Workshop.
 [Renaissance Yangtze Hotel](http://goo.gl/maps/mB0ee) : <http://www.marriott.com/hotels/travel/shabr-renaissance-shanghai-yangtze-hotel/>
 Holiday Inn Express : <http://www.hiexpress.com/hotels/us/en/shanghai/shgmh/hoteldetail>
 
+## Registration
+
+Registration is now live! Visit [<http://ovirtshanghai2013.eventbrite.com>](http://ovirtshanghai2013.eventbrite.com) to register.
+
 <Category:Events>

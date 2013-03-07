@@ -73,19 +73,23 @@ The last step would be to work with a service locator module that will be respon
 
 ![](Async_tasks_modules_diagram_with_interfaces_and_service_locator.png "Async_tasks_modules_diagram_with_interfaces_and_service_locator.png")
 
-*   Open issue: Should the Async Task Manager module include the command Manager (Component responsible for managing commands + DB persistence of command)?
+#### Detailed design
 
-The following diagram shows the interface to be provided by AsyncTaskManager Module:
+The following is a class diagram of Async Task Manager:
 
 ![](Async_Task_Manager_class_diagram.png "Async_Task_Manager_class_diagram.png")
 
 A task in the suggested design is used to monitor/control an asynchronous flow at an external system (i.e - SPM, Gluster, Cinder) A task creation is initiated by a corresponding command at the engine.
 
-Provider is an instance of external system (i.e - Gluster host, SPM host) that can be used by the async task manager to get task information, and to control specific tasks.
+*   Task providers and provider logic
 
-ProviderLogic implements the logic of how to get the task information and to control a specific task - Several providers that refer to instances of the same external system type have the same ProviderLogic object.
+Provider is an instance of external system (i.e - Gluster host, SPM host) that can be used by the async task manager to get task information, and to control specific tasks. ProviderLogic implements the logic of how to get the task information and to control a specific task - Several providers that refer to instances of the same external system type have the same ProviderLogic object.
 
 AsyncTaskManager has a methods for registering + providing the initial list of tasks form a provider and for unregistering a specific provider (for example - when "storage pool up event" occurs, the provide method for SPM provider is called).
+
+*   TaskStatusEvent Handler
+
+When engine restarts the CommandManager (which will be discussed later on) is registered as TaskStatusEventHandler at the AsyncTaskManager. AsyncTaskManager.poll method is being invoked periodically, and for each task status, the proper method at the TaskStatusEventHandler is executed. Currnely only "onTaskEnded" method is implemented.
 
 The changes from the current implementation are:
 

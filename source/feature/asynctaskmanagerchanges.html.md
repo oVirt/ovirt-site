@@ -77,7 +77,7 @@ The last step would be to work with a service locator module that will be respon
 
 The following diagram shows the interface to be provided by AsyncTaskManager Module:
 
-![](AsynctTaskManagerClassDiagram.png‎ "AsynctTaskManagerClassDiagram.png‎")
+![](Async_Task_Manager_class_diagram.png "Async_Task_Manager_class_diagram.png")
 
 A task in the suggested design is used to monitor/control an asynchronous flow at an external system (i.e - SPM, Gluster, Cinder) A task creation is initiated by a corresponding command at the engine.
 

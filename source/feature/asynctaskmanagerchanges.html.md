@@ -81,6 +81,12 @@ The following diagram shows the interface to be provided by AsyncTaskManager Mod
 
 A task in the suggested design is used to monitor/control an asynchronous flow at an external system (i.e - SPM, Gluster, Cinder) A task creation is initiated by a corresponding command at the engine.
 
+Provider is an instance of external system (i.e - Gluster host, SPM host) that can be used by the async task manager to get task information, and to control specific tasks.
+
+ProviderLogic implements the logic of how to get the task information and to control a specific task - Several providers that refer to instances of the same external system type have the same ProviderLogic object.
+
+AsyncTaskManager manager has a methods for registering + providing the initial list of tasks form a provider and for unregistering a specific provider (for example - when "storage pool up event" occurs, the provide method for SPM provider is called).
+
 The changes from the current implementation are:
 
 1.  Parameters - the task entity will no longer have parameters - as they are the parameters of the "Root command" (I.E - the parameters of the command which is first in the hierarchy )

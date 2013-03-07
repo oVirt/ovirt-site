@@ -55,6 +55,10 @@ I am told that implementing this in Engine is quite a pain, as network external 
 
 *   [All-in-One](Feature/AllInOne) - an oVirt deployment that needs to fire up VMs with no external network connectivity.
 
+<!-- -->
+
+*   NAT-based host-only network requested by DHC <http://lists.ovirt.org/pipermail/users/2012-April/001751.html>
+
 ### Comments and Discussion
 
 *   Refer to [Talk:Nicless Network](Talk:Nicless Network)

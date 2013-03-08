@@ -187,7 +187,7 @@ Create the following directories where the engine will store state, logs and tem
     $HOME/ovirt-engine/installation/var/log/ovirt-engine \
     $HOME/ovirt-engine/installation/var/tmp/ovirt-engine
 
-Now you need to do some adjustments to the configuration file `$HOME/ovirt-engine/installation/etc/sysconfig/ovirt-engine`:
+Now you need to do some adjustments to the configuration file `$HOME/ovirt-engine/installation/etc/ovirt-engine/engine.conf`:
 
 1. Adjust the location of the Java virtual machine:
 

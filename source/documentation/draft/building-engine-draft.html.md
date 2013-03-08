@@ -171,11 +171,6 @@ To install the engine use the `install` make target to perform the installation:
     $ cd $HOME/ovirt-engine/repository
     $ make install PREFIX=$HOME/ovirt-engine/installation
 
-Install the PostgreSQL JDBC driver (by default this is a symlink pointing to a file that may not exist in your system):
-
-    $ rm $HOME/ovirt-engine/installation/share/ovirt-engine/modules/org/postgresql/main/postgresql-jdbc.jar
-    $ mvn org.apache.maven.plugins:maven-dependency-plugin:2.4:get -Dartifact=postgresql:postgresql:9.1-901.jdbc4 -Ddest=$HOME/ovirt-engine/installation/share/ovirt-engine/modules/org/postgresql/main/postgresql-jdbc.jar
-
 Create the following directories where the engine will store state, logs and temporary files:
 
     mkdir -p \

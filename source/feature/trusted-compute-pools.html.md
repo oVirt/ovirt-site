@@ -57,7 +57,11 @@ Choose to run guest VM on a trusted node, please refer to figure 2. After guest 
 
 To launch guest VM on trusted host, engine server will filter all of nodes according to each host’s trustworthiness, only trusted hosts will be chosen as candidates. Open Attestation SDK will take some time to check whether a node is trusted or not, thus, cache is very important here to guarantee engine server’s performance with large concurrent requests. Here, we cache all nodes’ trustworthiness when the first guest VM try to launch on a trusted node. Node’s status is valid only in a given time and this time is configurable. In case of any node’s status becomes invalid or some new nodes add in cloud computing environment, all of nodes’ status will be updated at the same time, refer to figure 3 for flow diagram.
 
-The decision to update all nodes in the trust status cache while one node's cache gets expired is based on three points below: a. the expiration time should be very close for all node statuses since they were all accessed in a very short period. b. we assume other nodes will be accessed soon c. there is a fact for Query toward attestation service: query(nodeA, nodeB) will take less time than query(nodeA) then query(nodeB). So if we can predict needs for query multiple nodes, we try our best to align them into one query request.
+The decision to update all nodes in the trust status cache while one node's cache gets expired is based on three points below:
+
+1.  the expiration time should be very close for all node statuses since they were all accessed in a very short period.
+2.  we assume other nodes will be accessed soon
+3.  there is a fact for Query toward attestation service: query(nodeA, nodeB) will take less time than query(nodeA) then query(nodeB). So if we can predict needs for query multiple nodes, we try our best to align them into one query request.
 
 ![](figure3.jpg "figure3.jpg")
 

@@ -56,6 +56,16 @@ To connect to host, you can use **-s** as argument for secure connection (SSL) o
 
 *   $ vdsClient -s HOST destroy <vmID>
 
+## How to resume VM?
+
+1) Get the vmId:
+
+*   $ vdsClient -s HOST list table
+
+2) Resume the VM
+
+*   $ vdsClient -s HOST conitnue <vmID>
+
 ## How to setup vnc to a Virtual Machine in case oVirt Engine is out?
 
 1. Get VM id and displayPort

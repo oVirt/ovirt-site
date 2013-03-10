@@ -609,6 +609,12 @@ no special format, just commands in plain text
 
        [RHEVM shell (connected)]# file /home/mpastern/run_all_vms
 
+## Tweaks
+
+### disable pagination
+
+       at /home/user/.ovirtshellrc change autopage to False
+
 ## Repository
 
 *   <git://gerrit.ovirt.org/ovirt-engine-cli>

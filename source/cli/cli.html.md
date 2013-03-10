@@ -593,21 +593,21 @@ no special format, just commands in plain text
 
 1. run rhevm command and process the output saving it in to tmp data holder
 
-       [RHEVM shell (connected)]# list vms | grep name | sed s/'name       :'/'action vm'/ | sed -e 's/$/ start/' > new_script_to_run.txt
+       [RHEVM shell (connected)]# list vms | grep name | sed s/'name       :'/'action vm'/ | sed -e 's/$/ start/' > /home/mpastern/new_script_to_run.txt
 
 2. invoke new script at runtime
 
-       [RHEVM shell (connected)]# file new_script_to_run.txt
+       [RHEVM shell (connected)]# file /home/mpastern/new_script_to_run.txt
 
-3. actual script (less run_all_vms.txt)
+3. actual script (less run_all_vms.txt) will look like:
 
-       list vms | grep name | sed s/'name       :'/'action vm'/ | sed -e 's/$/ start/' > new_script_to_run.txt
-       file new_script_to_run.txt
+       list vms | grep name | sed s/'name       :'/'action vm'/ | sed -e 's/$/ start/' > /home/mpastern/new_script_to_run.txt
+       file /home/mpastern/new_script_to_run.txt
        
 
 4. run the script
 
-       [RHEVM shell (connected)]# file run_all_vms.txt
+       [RHEVM shell (connected)]# file /home/mpastern/run_all_vms.txt
 
 ## Repository
 

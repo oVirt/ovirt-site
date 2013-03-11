@@ -40,7 +40,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 |------------------------------------------------------------------------|-------------------------|----------------------|------------------------------------------------------|
 | Verify that root is the user executing the script                      | Done                    | Done                 |                                                      |
 | Allow unprivileged user ro run a development installation              | Not implemented         | Done                 |                                                      |
-| Checking total memory                                                  | Done                    | Feedback [1]         | [ Sandro Bonazzola](User:SandroBonazzola) |
+| Checking total memory                                                  | Done                    | Done [1]             | [ Sandro Bonazzola](User:SandroBonazzola) |
 | Generate answer file                                                   | Done                    | Done[2]              |                                                      |
 | Allow logging                                                          | Done                    | Done                 |                                                      |
 | Support AIO plugin                                                     | Done                    | Not implemented      |                                                      |

@@ -122,7 +122,7 @@ It exposes a simplified subset version of libosinfo API:
       │   │           └── engine
       │   │               └── core
       │   │                   └── utils
-      │   │                       └── libosinfo
+      │   │                       └── osinfo
 
 #### entity changes
 

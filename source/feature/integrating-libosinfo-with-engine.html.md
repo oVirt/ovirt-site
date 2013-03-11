@@ -49,14 +49,27 @@ To interact with libosinfo, a JNA standalone application, RMI capable, will be u
 
 ![](libosinfo_diagram.png "libosinfo_diagram.png")
 
-### Client and Server Lifecycle
+### Invoking the LibosinfoServer
 
 Till ovirt engine will have a process babysiter the engine client will be responsible for invoking the external LIbosinfoServer and shutting it off using a Java's shutdown hook. The library supports parallel calls from different clients so multithreading isn't an issue.
 
 LibosinfoServer is publishing its RMI stub to the stdout so a process invoking it can read it without using an RMI registry. So the steps to achieve RMI handshake is:
 
 *   Engine ear loads
-*   LibosinfoClient loaded as part of the ear is calling a system process
+*   LibosinfoClient loaded as part of the ear is calling a system process. here there are 2 options:
+    -   LibodinfoServer will be wrapped by a script same as any other engine tools
+        it will have jboss-modules loading its dependencies
+        cons: this approach is complicated for developers who have to run some make target to the tool and modules installed
+
+       osinfo-server.sh
+       . engine-prolog.sh
+       exec java 
+        -jar "${JBOSS_HOME}/jboss-modules.jar" \
+       -dependencies org.ovirt.engine.core.tools \
+       -class org.ovirt.engine.core.libosinfo.server.LibosinfoServer
+
+*   -   engine fires another java process
+        it has to calculate the classpath variables itself but it may be easier for developing mode
 
       java -CLASSPATH $ENGINE_EAR/tools.jar:$JAVA_LIB/jna.jar LibosinfoServer
 

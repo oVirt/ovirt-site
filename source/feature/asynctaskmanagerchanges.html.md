@@ -14,7 +14,7 @@ wiki_last_updated: 2013-04-10
 
 This Wiki page is going to summarize required changes for Async Task mechanism.
 
-The current design is still a draft. There are other ideas for design for the task manager. The motivations should guide us via the changes process.
+The current design is still a **draft**. There are other ideas for design for the task manager. The motivations should guide us via the changes process.
 
 ### Owner
 

@@ -109,7 +109,7 @@ It exposes a simplified subset version of libosinfo API:
       │   │       └── ovirt
       │   │           └── engine
       │   │               └── core
-      │   │                   └── libosinfo
+      │   │                   └── osinfo
 
 #### Libosinfo Client
 

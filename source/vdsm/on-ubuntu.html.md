@@ -140,7 +140,7 @@ Fedora qemu process started by libvirt is qemu:qemu
 
 Ubuntu qemu process started by libvirt is libvirt-qemu:kvm, and there is no group name qemu, only group kvm
 
-**Workaround**: some code and scripts are changed to use the path and group in Ubuntu.
+**Workaround**: some code and scripts are changed to use the path and group in Ubuntu. [Patch](http://gerrit.ovirt.org/12915)
 
 *   Ubuntu does not mount configfs by default.
 

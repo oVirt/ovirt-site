@@ -74,5 +74,6 @@ Features being considered for inclusion/already in master:
 *   [Features/Normalized ovirtmgmt Initialization](Features/Normalized ovirtmgmt Initialization)
 *   [Features/DirectHostAddress](Features/DirectHostAddress)
 *   [Features/Nicless Network](Features/Nicless Network) (not sure we can pull this off)
+*   [Features/Quantum_Integration](Features/Quantum_Integration)
 
 <Category:Releases> [Category:Release management](Category:Release management)

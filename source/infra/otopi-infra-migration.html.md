@@ -157,9 +157,13 @@ TBD
 
 ### Benefit to oVirt
 
-*   Lower cost of maintenance.
+*   Modular implementation, lower cost of maintenance.
 *   Use of otopi API.
-*   More ...
+*   Be able to port engine to other distributions.
+*   Be able to install engine at development mode.
+*   Be able to customize installation.
+*   Share installation of components (reports, dwh).
+*   Code reuse of installer code for multiple purposes (host-deploy, enigne-setup).
 
 ### Dependencies / Related Features
 

@@ -75,5 +75,6 @@ Features being considered for inclusion/already in master:
 *   [Features/DirectHostAddress](Features/DirectHostAddress)
 *   [Features/Nicless Network](Features/Nicless Network) (not sure we can pull this off)
 *   [Features/Quantum_Integration](Features/Quantum_Integration)
+*   [Feature/NetworkReloaded](Feature/NetworkReloaded) reimplementation of configNetwork in vdsm. Should have zero (0) effect on users, but required for future support for ovs/NM
 
 <Category:Releases> [Category:Release management](Category:Release management)

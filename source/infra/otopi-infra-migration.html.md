@@ -65,7 +65,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support DB_SECURE_CONNECTION option                                  | Done                    | Feedback [11]        |                                                      |
 | Support NFS_MP option                                                 | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |
 | Support ISO_DOMAIN_NAME option                                       | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |
-| Support CONFIG_NFS option                                             | Done                    | Feedback[12]         | [ Sandro Bonazzola](User:SandroBonazzola) |
+| Support CONFIG_NFS option                                             | Done                    | Done[12]             | [ Sandro Bonazzola](User:SandroBonazzola) |
 | Display summary in interactive mode                                    | Done                    | Not implemented      |                                                      |
 | Initialize MiniYum                                                     | Done                    | Not implemented      |                                                      |
 | Handle second execution warning                                        | Done                    | Not implemented      |                                                      |
@@ -212,7 +212,7 @@ TBD
 
 [16] The option `--answer-file` is now `--config-append`
 
-[17] The option `CONFIG_NFS=yes` is now `OVESETUP_NFS/configure=bool:True`
+[17] The option `CONFIG_NFS=yes` is now `OVESETUP_SYSTEM/nfsConfigEnabled=bool:True`
 
 [18] The option `HOST_FQDN=host` is now `OVESETUP_CONFIG/fqdn=str:host`
 

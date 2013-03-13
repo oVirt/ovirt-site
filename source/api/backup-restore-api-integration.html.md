@@ -113,6 +113,14 @@ Add the ability to do full and incremental disk backups of a running VM.
 
 *   Use QEMU-NBD support for temp snapshots.
 *   Use LiveMerge in the Teardown backup disk unlock phase.
+*   In order to capture the virtual machine configuration information, a flat OVF new API will be required. The flat OVF will have no snapshots and will contain only current virtual hardware configuration. The following calls will need to be addressed:
+
+1.  Create VM from flat OVF: a new API call for creating a VM from flat OVF (will create a VM entity and empty disks, (make all disks on block domains "preallocated". (thin provisioning will be covered in later phase). This API can be an extension of today's 'import' but without expecting to copy disk data.
+2.  Prepare disks for restore: same as for backup but no temp snapshot on top - need to make the nbd device available to the backup app to dump the data into.
+
+*   The Lock disk phase in the Prepare Backup disk call, should block the certain operations during the lock state, such as delete and allow only certain operations such as disk clone.
+*   Block Device ID management considerations: method to track the device ID once attached to the Backup virtual appliance.
+*   Support for LAN-Free backup: oVirt provide SAN access to the disk devices out of the box.
 
 ### Future Work
 

@@ -26,6 +26,7 @@ This feature allows oVirt users to backup and restore VMs using Independent Soft
 
 *   Live snapshot : Done. Available in oVirt.
 *   Qemu-nbd : To be integrated.
+*   Qemu-ga: To be integrated.
 *   VDSM support : To be implemented.
 *   oVirt Engine support : To be implemented.
 *   UI support : To be implemented.

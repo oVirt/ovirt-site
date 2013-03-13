@@ -47,9 +47,22 @@ These extensions, and many others, can be made available by allowing per-device 
 
 #### Vdsm
 
-Vdsm should pass device custom properties to its hook scripts.
+This feature affects the following Vdsm verbs:
 
-**TBD** vdsm/hook API.
+*   vmCreate
+*   vmHotplugNic
+*   vmHotunplugNic
+*   vmHotplugDisk
+*   vmHotunplugDisk
+*   vmUpdateDevice
+
+Each of these verbs accepts a dictionary (of type VmInterfaceDevice) that describes the relevant device (note that vmCreate accepts a **list** of devices). A new optional key "custom" would be added to VmInterfaceDevice. Its value is a dictionary of custom properties and their string value.
+
+Vdsm would pass device custom properties to its hook scripts.
+
+In hooks scripts of per-device verbs, the properties would be passed as environment variables of the hook scripts being executed. For vmCreate, a hook script would be executed per each device that has "custom" in its VmInterfaceDevice device definition.
+
+The reasoning behind the vmCreate behavior is that we should pass different properties for each device. At the stage that before_vm_create hook is executed, the alias of devices is not necessarily known, and the ordering of devices may be changed by other hooks. Thus we have no means to designate which property belong to which device - save for executing a different script for each device, passing that device's xml definition.
 
 #### Engine
 

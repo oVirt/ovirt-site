@@ -60,12 +60,12 @@ oVirt is powered by the Open Source you know - KVM on Linux.
 </div>
 <div class="row">
 <div class="span4 pad-left pad-right-small">
-### New release!
+### 3.2.1 Available Now!
 
-oVirt version 3.2 was released on February 14, 2013 and contained several new features, including UI Plugins, Gluster Enhancements, and Japanese Localization.
+oVirt version 3.2.1 was released on March 14, 2013 and contains several fixes, changes for firewalld configurations with selinux, as well as patches to enable el6 builds!
 
 <div class="pull-right">
-[ Read the full release notes »](oVirt 3.2 release notes)
+[ Read the full 3.2 release notes »](oVirt 3.2 release notes)
 
 </div>
 </div>

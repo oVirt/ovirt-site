@@ -10,7 +10,25 @@ wiki_last_updated: 2013-03-14
 
 The oVirt Project is pleased to announce the availability of its third formal release, oVirt 3.2.
 
-## What's New?
+## What's New in 3.2.1?
+
+New RPMS are now uploaded for oVirt 3.2.1. The updates included:
+
+      ovirt-engine-cli 3.2.0.11-1
+      ovirt-engine-sdk 3.2.0.10-1
+      ovirt-engine 3.2.1-1
+
+<big>**oVirt Engine changes:**</big>
+
+1.  Fixed bug blocking firewalld configuration when selinux was in enforcing mode
+2.  Small change in All-In-One
+3.  Minor patches at rest-api
+
+Also included in the oVirt Engine update are patches to enable EL6 builds.
+
+*To upgrade, please run engine-upgrade.*
+
+## What's New in 3.2?
 
 The oVirt 3.2 release includes these notable changes.
 

@@ -118,6 +118,19 @@ A POC was done with the proposed ideas in "Phase 1" section, integrating [Openst
 
 The POC sources can be found in the oVirt gerrit under a topic branch: <http://gerrit.ovirt.org/#/q/status:open+project:ovirt-engine+branch:master+topic:POC_NetworkProvider,n,z>
 
+### Hack in Quantum linux bridge agent
+
+Due to a bug in libvirt (https://bugzilla.redhat.com/show_bug.cgi?id=878481) we had to connect the vNIC to the ;vdsmdummy; bridge in VDSM. The Quantum agent will detect the tap device (the physical implementation of the vNIC) and attempt to connect it to it's bridge but fail because it's already connected to the dummy bridge.
+
+To fix this, you would need to edit the installed linuxbridge_quantum_agent.py file and add this line of code:
+
+                 utils.execute(['brctl', 'delif', ';vdsmdummy;', tap_device_name], root_helper=self.root_helper)
+
+Inside the method **add_tap_interface**, right before:
+
+                 if utils.execute(['brctl', 'addif', bridge_name, tap_device_name],
+                                  root_helper=self.root_helper):
+
 ### Demo Videos
 
 Demo videos of the POC in action are available on youtube.

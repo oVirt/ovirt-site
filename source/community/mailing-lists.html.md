@@ -28,7 +28,7 @@ There are many mailing lists in the oVirt project - mostly referenced on [the oV
 
 *   [Board](http://lists.ovirt.org/mailman/listinfo/board): Discussions amongst the Board for all business
 *   [Infra](http://lists.ovirt.org/mailman/listinfo/infra): List for oVirt.org Infrastructure team
+*   [Marketing](http://lists.ovirt.org/mailman/listinfo/marketing): List for the oVirt marketing working group
 *   [Wiki](http://lists.ovirt.org/mailman/listinfo/wiki): help for writers and editors of the oVirt wiki
-*   [marketing](http://lists.ovirt.org/mailman/listinfo/marketing): List for the oVirt marketing working group
 
 <Category:Community>

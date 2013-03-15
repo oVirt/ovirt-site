@@ -122,17 +122,17 @@ If we can not define the running user, vdsm main programme will detect it and ex
 
 ## File System Hierachy
 
-| Fedora                                  | Ubuntu                                               | **Workaround**                                                                                                                                         |
-|-----------------------------------------|------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| /sbin/nologin                           | /usr/sbin/nologin                                    | change the path in the code and script                                                                                                                 |
-| /sbin/service                           | /usr/sbin/service                                    | change the path in the code and script                                                                                                                 |
-| /var/lock/subsys/                       | /var/lock/                                           | change the path in the code and script                                                                                                                 |
-| /etc/sysconfig/libvirtd                 | /etc/default/libvirt-bin                             | change the path in the code and script                                                                                                                 |
-| /usr/lib/udev/scsi_id                  | /lib/udev/scsi_id                                   | change the path in the code and script                                                                                                                 |
-| /sys/class/cpuid/                       | equivalent not found                                 | change the code to use os.listdir('/sys/devices/system/cpu') and filter the result by pattern 'cpu[0-9]+'. [Patch](http://gerrit.ovirt.org/#/c/12815/) |
-| /etc/iscsi/initiatorname.iscsi 644      | same file but permission is 600, vdsm cannot read it | chmod in the installation script                                                                                                                       |
-| /boot/initramfs-kernelVer.img           | /boot/initrd.img-kernelVer                           | change the path in the code and script                                                                                                                 |
-| /var/lib/libvirt/qemu/channels vdsm:kvm | owner is root:root                                   | chmod in the installation script                                                                                                                       |
+| Fedora                                  | Ubuntu                                               | **Workaround**                                                                                         |
+|-----------------------------------------|------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| /sbin/nologin                           | /usr/sbin/nologin                                    | change the path in the code and script                                                                 |
+| /sbin/service                           | /usr/sbin/service                                    | change the path in the code and script                                                                 |
+| /var/lock/subsys/                       | /var/lock/                                           | change the path in the code and script                                                                 |
+| /etc/sysconfig/libvirtd                 | /etc/default/libvirt-bin                             | change the path in the code and script                                                                 |
+| /usr/lib/udev/scsi_id                  | /lib/udev/scsi_id                                   | change the path in the code and script [Patch](http://gerrit.ovirt.org/#/c/13086/)                     |
+| /sys/class/cpuid/                       | equivalent not found                                 | change the code to use os.sysconf('SC_NPROCESSORS_ONLN') [Patch](http://gerrit.ovirt.org/#/c/12815/) |
+| /etc/iscsi/initiatorname.iscsi 644      | same file but permission is 600, vdsm cannot read it | chmod in the installation script                                                                       |
+| /boot/initramfs-kernelVer.img           | /boot/initrd.img-kernelVer                           | change the path in the code and script                                                                 |
+| /var/lib/libvirt/qemu/channels vdsm:kvm | owner is root:root                                   | chmod in the installation script                                                                       |
 
 *   User and Group
 
@@ -140,7 +140,9 @@ Fedora qemu process started by libvirt is qemu:qemu
 
 Ubuntu qemu process started by libvirt is libvirt-qemu:kvm, and there is no group name qemu, only group kvm
 
-**Workaround**: some code and scripts are changed to use the path and group in Ubuntu. [Patch](http://gerrit.ovirt.org/12915)
+**Workaround**: some code and scripts are changed to use the path and group in Ubuntu.
+
+[Patch](http://gerrit.ovirt.org/12915)
 
 *   Ubuntu does not mount configfs by default.
 

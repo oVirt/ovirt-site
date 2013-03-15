@@ -122,7 +122,7 @@ As debug purpose only, to increase the number of tty users logging into oVirt No
        *    -    maxlogins 3  
       # persist /etc/security/limits.conf
 
-#### Setting oVirt Node root password
+#### Setting manually oVirt Node root password
 
 On TUI press **F2** to go to shell and execute **/usr/libexec/ovirt-config-password**
 

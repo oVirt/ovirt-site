@@ -174,6 +174,37 @@ The following sections contain snipples of code showing the creation of a host i
         fi
     }
 
+### Listing names of objects
+
+*   Using combination of XPath count and XPath string functions, you can iterate e.g. names.
+
+<!-- -->
+
+    function showList {
+        local xPath=$1
+
+        local c=`getXPathCount "${xPath}"`
+
+        for i in $(seq 1 ${c})
+        do
+            local val=`getXPathValue "(${xPath})[$i]"`
+            echo ${val}
+        done
+
+        echo "Count: ${c}"
+    }
+
+    ...
+    # show names of configured hosts
+    function showHostList {
+        showList "/hosts/host/name"
+    }
+
+    # show names of configured VMs
+    function showVMList {
+        showList "/vms/vm/name"
+    }
+
 ## Environment synchronization script
 
 *   The script uses general routines and describes the target state of your environment.
@@ -193,3 +224,6 @@ The following sections contain snipples of code showing the creation of a host i
     echo "Synchronizing configuration..."
     createHost "server1.example.com" "192.168.10.10" "123456" "Default"
     createHost "server2.example.com" "192.168.10.11" "123456" "Default"
+
+    getHosts
+    showHostList

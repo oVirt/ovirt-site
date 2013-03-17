@@ -54,7 +54,7 @@ This feature affects the following Vdsm verbs:
 *   vmHotunplugNic
 *   vmHotplugDisk
 *   vmHotunplugDisk
-*   vmUpdateDevice
+*   vmUpdateDevice (In the future)
 
 Each of these verbs accepts a dictionary (of type VmInterfaceDevice) that describes the relevant device (note that vmCreate accepts a **list** of devices). A new optional key "custom" would be added to VmInterfaceDevice. Its value is a dictionary of custom properties and their string value.
 

@@ -18,7 +18,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Upcoming meetings
 
-### 2013-03-18
+## 2013-03-25
 
 *Agenda*
 
@@ -33,7 +33,24 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Past meetings
 
+### 2013-03-18
+
+*[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-03-18-15.01.html)*
+
+*Agenda*
+
+*   Introductions
+*   Hosting
+    -   rackspace01 installed?
+*   Puppet
+    -   Summarize the ML thread
+*   Jenkins
+*   Other business?
+*   Trac review
+
 ### 2013-03-11
+
+*[Minutes](http://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-03-11-15.03.html)*
 
 *Agenda*
 

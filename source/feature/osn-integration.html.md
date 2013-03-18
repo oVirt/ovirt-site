@@ -50,6 +50,10 @@ The network provider should be able to provision a virtual NIC's data (name, MAC
 
 There should also be an option to "un-provision" a virtual NIC so that is being provisioned by the provider.
 
+#### More details
+
+Please see [Network_Provider](Network_Provider)
+
 ### Benefit to oVirt
 
 *   Ability to use various technologies that OpenStack Quantum provides for it's networks, such as IPAM, L3 Routing, Security Groups, etc.

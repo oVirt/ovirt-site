@@ -60,7 +60,7 @@ Make sure JBoss AS is running and launch Development Mode for WebAdmin or UserPo
 Notes:
 
 *   `gwt:debug` launches Development Mode via gwt-maven-plugin
-*   `gwtdev` profile adds extra Java sources and resources necessary for debugging
+*   `gwtdev` profile adds extra Java sources and resources necessary for debugging, so that changes in related Frontend projects (`uicommonweb`, `gwt-common` etc.) are reflected in Development Mode for new debugging sessions
 *   `gwt.noserver` tells Development Mode that the application is already deployed on JBoss AS (don't use embedded Jetty instance to serve application content)
 
 You should see following output in console: `Listening for transport dt_socket at address: 8000`
@@ -96,7 +96,7 @@ The next time you navigate to debug URLs mentioned below, GWT Developer Plugin w
 
 You can switch to Development Mode GUI and see a new tab representing the debugging session. Note that each session has its own client-side logs displayed within the given tab.
 
-### Typical development cycle
+## Typical development cycle
 
 Development Mode allows you to "code-test-debug" running GWT application, without having to compile it to JavaScript or even restart Development Mode.
 
@@ -105,20 +105,31 @@ Whenever you make code changes while debugging:
 *   Eclipse might complain that changes cannot be hot-swapped, in this case just click "Terminate" and reconnect again
 *   Reload (refresh) the application in web browser, this will start new Development Mode session
 
-### Frequently asked questions
+## Compiling Frontend applications in detailed mode
 
-Q: My web browser doesn't prompt me to install GWT Developer Plugin.
+Sometimes it's necessary to profile or analyze GWT applications, e.g. fixing memory leaks or identifying performance bottlenecks in different web browsers. GWT compiler produces optimized and obfuscated JavaScript by default, which is hard to work with.
+
+To compile WebAdmin or UserPortal in detailed mode, reducing the level of code optimization and preventing obfuscation, you can do full oVirt build with `gwtdev` profile:
+
+    $ cd $OVIRT_HOME
+    $ mvn clean install -Pdep,gwt-admin,gwt-user,gwtdev -Dgwt.compiler.localWorkers=8
+
+*Use detailed mode only when profiling or analyzing GWT application code, don't use it for regular oVirt builds.*
+
+## Frequently asked questions
+
+*Q: My web browser doesn't prompt me to install GWT Developer Plugin.*
 
 A: Make sure your browser is officially supported by GWT Developer Plugin. Alternatively, get it from [here](http://gwt.googleusercontent.com/samples/MissingPlugin/MissingPlugin.html) and install the plugin manually into your browser.
 
-Q: The web page is blank after navigating to debug URL.
+*Q: The web page is blank after navigating to debug URL.*
 
 A: Make sure to do full oVirt build prior to debugging for all web browsers, e.g. without specifying `gwt.userAgent` property.
 
-Q: Client-side logs are not persisted on Engine, e.g. `$JBOSS_HOME/standalone/log/engine/engine-ui.log`.
+*Q: Client-side logs are not persisted on Engine, e.g. `$JBOSS_HOME/standalone/log/engine/engine-ui.log`.*
 
 A: Currently, client-side logs are enabled only when debugging the application via Development Mode.
 
-Q: I am getting `-bindAddress host "0.0.0.0" unknown` error message when launching Development Mode.
+*Q: I am getting `-bindAddress host "0.0.0.0" unknown` error message when launching Development Mode.*
 
 A: Using 0.0.0.0 means that Development Mode will listen for incoming connections on all network interfaces, as opposed to 127.0.0.1 which listens for incoming connections only on loopback interface available from local machine only. Make sure that host name is properly set in `/etc/hosts`. For Windows machines, check `%windir%\system32\drivers\etc\hosts`.

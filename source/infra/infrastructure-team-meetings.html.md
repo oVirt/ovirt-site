@@ -18,6 +18,21 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Upcoming meetings
 
+### 2013-03-18
+
+*Agenda*
+
+*   Introductions
+*   Hosting
+    -   rackspace01 installed?
+*   Puppet
+    -   Summarize the ML thread
+*   Jenkins
+*   Other business?
+*   Trac review
+
+## Past meetings
+
 ### 2013-03-11
 
 *Agenda*
@@ -33,8 +48,6 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
     -   How is migration? Ready for DNS switch?
 *   Other business?
 *   Trac review
-
-## Past meetings
 
 ### 2013-03-04
 

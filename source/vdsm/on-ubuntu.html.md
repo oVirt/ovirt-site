@@ -116,6 +116,10 @@ If we can not define the running user, vdsm main programme will detect it and ex
 
 **Workaround**: use /usr/sbin/sudo -u vdsm to start respawn in the init script instead of start respawn directly
 
+The killproc() function in /etc/init.d/functions supports "-d delay" option, /lib/lsb/init-functions does not.
+
+**Workaround**: delete "-d" option from all invocation of killproc() in vdsmd.init.in.
+
 *   Some functions namely "success" and "failure" do not exist in /lib/lsb/init-functions
 
 **Workaround**: write empty "success" and "failure" functions in vdsmd.init.

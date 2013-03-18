@@ -68,6 +68,8 @@ Note that the content of each server's hook is not stored in the engine. It is r
 
 *   Gluster Hooks are added whenever a cluster is imported. The hooks that exist in the cluster will be added to the database.
 *   Gluster Hooks are also added as part of a routine sync operation. There will be a periodic job that looks for new hooks in cluster. If found, the database will be updated with the new hook details
+*   'GlusterHooksRefreshRate' configuration will determine the frequency of the hooks sync operation (Defaults to 1 Hr).
+*   Engine copy of the hooks will be treated as master copy while searching for/resolving conflicts
 
 #### User Experience
 

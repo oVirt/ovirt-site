@@ -71,7 +71,13 @@ Note that the content of each server's hook is not stored in the engine. It is r
 
 #### User Experience
 
-![](Gluster-Hooks-table.png "fig:Gluster-Hooks-table.png") ![](Gluster-Hooks-conflicts.png "fig:Gluster-Hooks-conflicts.png")
+##### Hooks Tab
+
+![](Gluster-Hooks-table.png "Gluster-Hooks-table.png")
+
+##### Resolving Conflicts
+
+![](Gluster-Hooks-conflicts.png "Gluster-Hooks-conflicts.png")
 
 #### Installation/Upgrade
 
@@ -81,6 +87,15 @@ Note that the content of each server's hook is not stored in the engine. It is r
 *   An admin should be able to enable/disable a hook on all nodes in the cluster by selecting it.
 *   Content of the hook can be viewed by clicking the 'View Contents' button if the hook content type in 'Text'.
 *   If there are conflicts in hook scripts across the servers in the cluster, administrator will have the option to resolve it. This will open a new window for conflict resolution.
+
+#### Resolving the Conflicts
+
+As the hooks present in the servers are periodically synchronized with engine database, there may be a chance of conflicts of the following types
+
+*   Content Conflict - content of the hook is different across servers
+*   Status Conflict - status of the hook is different across servers
+*   Content + Status Conflict - both content and status of the hook is different across servers
+*   Missing - One or more servers of the cluster doesn't have the hook
 
 #### Events
 

@@ -87,7 +87,7 @@ Note that the content of each server's hook is not stored in the engine. It is r
 
 *   On click of a gluster supported cluster, a Gluster Hooks sub-tab is shown which lists the hooks in the cluster.
 *   An admin should be able to enable/disable a hook on all nodes in the cluster by selecting it.
-*   Content of the hook can be viewed by clicking the 'View Contents' button if the hook content type in 'Text'.
+*   Content of the hook can be viewed by clicking the 'View Contents' button if the hook content type is 'Text'.
 *   An 'Exclamation' against a hook denotes, there is a conflict in hook content/status across the servers in the cluster
 *   If there are conflicts in hook scripts across the servers in the cluster, administrator will have the option to resolve it. This will open a new window for conflict resolution.
 

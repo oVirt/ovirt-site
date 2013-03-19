@@ -68,7 +68,13 @@ The reasoning behind the vmCreate behavior is that we should pass different prop
 
 With this feature, Engine would keep track of per-device custom properties. This would be done by adding a field **TBD:<fieldname>** to the Vm device table. Currently we envisage custom properties per vNIC and vDisk only, but in the future it may make sense to extend the feature to other devices.
 
-===== Configure valid prps in vdc_options ==== Not all custom properties are valid for every setups - they depend on the hooks installed on hosts. Therefore, just like with per-VM properties, a user would have to define the valid properties and their valid values in vdc_options. Note that properties are most likely to be valid for an interface, but invalid for a disk. Thus we would need to have two different entries **TBD:<entrynames>**, or a more complex syntax such as {type=disk,property=regex,values=regex} to make it easier to add future device types.
+##### Configure valid prps in vdc_options
+
+Not all custom properties are valid for every setups - they depend on the hooks installed on hosts. Therefore, just like with per-VM properties, a user would have to define the valid properties and their valid values in vdc_options. Note that properties are most likely to be valid for an interface, but invalid for a disk. Thus we would need to have two different entries **TBD:<entrynames>**, or a more complex syntax such as
+
+      {type=disk,property=regex,values=regex}
+
+to make it easier to add future device types.
 
 #### GUI
 

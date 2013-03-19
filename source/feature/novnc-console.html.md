@@ -34,7 +34,7 @@ The noVNC client requires a websocket server running somewhere (this is part of 
 
 #### Passing VNC console data from the engine to the client.
 
-For the client to know where to connect, the appropriate information (VNC host, port, ticket) must be passed to it. This can be achieved by making this data to be part of the generated page (as a JSON) so that it can be pulled out by the js code that handles connecting to the server.
+For the client to know where to connect, the appropriate information (VNC host, port, ticket) must be passed to it. This information is known by the engine after creation. It will be passed to noVNC client using js function window.postData (HTML5 spec).
 
 #### Location of the websockets server
 

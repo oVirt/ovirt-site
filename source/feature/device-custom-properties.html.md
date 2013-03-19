@@ -80,15 +80,15 @@ to make it easier to add future device types.
 
 ![](NetworkCustomProperties.png "NetworkCustomProperties.png")
 
-### Documentation / External references
-
-*   Benoit ML asking for per-vNIC custom properties: <http://lists.ovirt.org/pipermail/users/2012-November/010857.html>
-*   **TBD** Quantum PoC
-*   Almost any interesting hook for [hotplug disk](https://bugzilla.redhat.com/show_bug.cgi?id=908656) is going to require per-disk triggering proprty
-
 ##### REST
 
 **TBD** should be modelled after per-vm properties.
+
+### Documentation / External references
+
+*   Benoit ML asking for per-vNIC custom properties: <http://lists.ovirt.org/pipermail/users/2012-November/010857.html>
+*   [Features/Quantum_Integration]
+*   Almost any interesting hook for [hotplug disk](https://bugzilla.redhat.com/show_bug.cgi?id=908656) is going to require per-disk triggering proprty
 
 ### Comments and Discussion
 

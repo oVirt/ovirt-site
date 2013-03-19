@@ -95,15 +95,19 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   factor betterPopen and betterThreading out of vdsm. They deserve a pipy review under the names cPopen and [pthreading](http://pypi.python.org/pypi/pthreading) respectively.
+*   factor betterPopen and betterThreading out of vdsm. They deserve a pipy review under the names [cPopen](https://pypi.python.org/pypi/cpopen) and [pthreading](http://pypi.python.org/pypi/pthreading) respectively.
 
-<!-- -->
+<https://bugzilla.redhat.com/show_bug.cgi?id=903246>
 
 *   factor the task framework out of storage. Networking may need it, too.
 
 <!-- -->
 
 *   make storage_mailbox testable; use bytearrays instead of 1MiB strings; use fileUtils.DirectFile instead of forking /bin/dd all the time.
+
+<!-- -->
+
+*   split VM monitoring threads out of core Vdsm. Monitoring process would write to a memory-mapped file the most up to date values, which can be read by Vdsm on demand. This would reduce thread contentions in Vdsm and may simplify the code.
 
 ### Bugzilla
 

@@ -43,7 +43,7 @@ GlusterHook is the entity that represents the gluster hook in the cluster. It ha
 4.  Hook status (Enabled, Disabled, Missing)
 5.  Content type (Binary/Text)
 6.  Checksum
-7.  Content text (Stored only in case type is non-binary)
+7.  Content text (Stored in base64 encoded format)
 8.  Conflict Status
 
 Conflict Status is a 3 bit representation of the conflicts found between servers for the hook.

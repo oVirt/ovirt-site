@@ -112,7 +112,7 @@ Sometimes it's necessary to profile or analyze GWT applications, e.g. fixing mem
 To compile WebAdmin or UserPortal in detailed mode, reducing the level of code optimization and preventing obfuscation, you can do full oVirt build with `gwtdev` profile:
 
     $ cd $OVIRT_HOME
-    $ mvn clean install -Pdep,gwt-admin,gwt-user,gwtdev -Dgwt.compiler.localWorkers=8
+    $ mvn clean install -Pdep,gwt-admin,gwt-user,gwtdev
 
 *Use detailed mode only when profiling or analyzing GWT application code, don't use it for regular oVirt builds.*
 
@@ -130,6 +130,12 @@ A: Make sure to do full oVirt build prior to debugging for all web browsers, e.g
 
 A: Currently, client-side logs are enabled only when debugging the application via Development Mode.
 
-*Q: I am getting `-bindAddress host "0.0.0.0" unknown` error message when launching Development Mode.*
+*Q: I'm getting `-bindAddress host "0.0.0.0" unknown` error message when launching Development Mode.*
 
 A: Using 0.0.0.0 means that Development Mode will listen for incoming connections on all network interfaces, as opposed to 127.0.0.1 which listens for incoming connections only on loopback interface available from local machine only. Make sure that host name is properly set in `/etc/hosts`. For Windows machines, check `%windir%\system32\drivers\etc\hosts`.
+
+*Q: I'm getting `Exception: java.lang.OutOfMemoryError` or similar error during GWT compilation.*
+
+A: You can tweak GWT compiler JVM arguments via `gwt-plugin.extraJvmArgs` property, for example:
+
+    $ mvn clean install -Pdep,gwt-admin,gwt-user -Dgwt-plugin.extraJvmArgs="-Xms1024M -Xmx2048M -XX:PermSize=256M -XX:MaxPermSize=512M"

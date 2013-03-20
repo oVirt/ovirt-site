@@ -87,7 +87,7 @@ The configuration values should be exposed to the engine-config tool.
 
 Add a custom_properties column to vm_interface for NICs, and a custom_properties column to images of type TEXT.
 
-TBD: Check if any views should be updated.
+TBD: Check if any views and stored procedures should be updated.
 
 ##### DAOs
 

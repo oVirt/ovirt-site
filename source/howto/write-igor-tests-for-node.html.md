@@ -113,6 +113,4 @@ Libraries can be part of testsets which can be referenced by testcases. This is 
 *   [oVirt Node Igor tests](http://gerrit.ovirt.org/gitweb?p=ovirt-node.git;a=tree;f=tests/igor;hb=HEAD)
 *   [Documentation provided by Igor](https://gitorious.org/ovirt/igord/trees/master/docs)
 
-<Catgeory:Node>
-
-[Category: Testing](Category: Testing) <Category:Automation>
+<Category:Node> [Category: Testing](Category: Testing) <Category:Automation>

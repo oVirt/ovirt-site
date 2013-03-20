@@ -16,11 +16,11 @@ Define special parameters per VM virtual device, and pass them down to vdsm hook
 
 ### Owner
 
-*   Name: [ Dan Kenigsberg](User:Danken)
+*   Name: [ Assaf Muller](User:amuller)
 
 <!-- -->
 
-*   Email: <danken@redhat.com>
+*   Email: <amuller@redhat.com>
 
 ### Current status
 

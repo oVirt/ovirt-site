@@ -114,7 +114,12 @@ Update all relevant VdsBroker commands that involve verbs related to adding, rem
 
 #### REST
 
-Under the NIC and Disk resource, add custom properties like so: <custom_properties> <custom_property value="123" name="sndbuf"/> <custom_property value="true" name="sap_agent"/> </custom_properties>
+Under the NIC and Disk resource, add custom properties like so:
+
+<custom_properties>
+<custom_property value="123" name="sndbuf"/>
+<custom_property value="true" name="sap_agent"/>
+</custom_properties>
 
 #### Backwards Compatibility
 

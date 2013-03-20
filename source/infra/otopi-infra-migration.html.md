@@ -121,7 +121,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Log a summary of the parameters                                        | Done                    | Not implemented      |                                                      | Low      |             |
 
 <references>
-[13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] <ref name="authpass">The option `AUTH_PASS=...` is now `osetupcons.ConfigEnv.ADMIN_PASSWORD` <ref name="notneeded">This means that the function is not required in the new code design</code>
+[13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26]
 
 </references>
 #### engine-cleanup
@@ -227,3 +227,7 @@ TBD
 [23] The option `DB_PORT=5432` is now `OVESETUP_DB/port=int:5432`
 
 [24] The option `DB_SECURE_CONNECTION=no` is now `OVESETUP_DB/secured=bool:False`
+
+[25] The option `AUTH_PASS=...` is now `osetupcons.ConfigEnv.ADMIN_PASSWORD`
+
+[26] This means that the function is not required in the new code design

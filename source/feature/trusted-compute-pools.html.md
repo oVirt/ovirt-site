@@ -59,6 +59,12 @@ Choose to run guest VM on a trusted node, please refer to figure 2. After guest 
 
 ![](figure4.jpg "figure4.jpg")
 
+#### Backend changes
+
+*   Both Vm (creation and edit) and Template will support for trusted compute pools.
+*   Define a hostValidator to support the physical host's attestation, only trusted physical server can be added to vds candidate list.
+*   Add a cache manager module to improve system's performance in case of large concurrent requests (Details about cache will be illustrated here).
+
 To launch guest VM on trusted host, engine server will filter all of nodes according to each host’s trustworthiness, only trusted hosts will be chosen as candidates. Open Attestation SDK will take some time to check whether a node is trusted or not, thus, cache is very important here to guarantee engine server’s performance with large concurrent requests. Here, we cache all nodes’ trustworthiness when the first guest VM try to launch on a trusted node. Node’s status is valid only in a given time and this time is configurable. In case of any node’s status becomes invalid or some new nodes add in cloud computing environment, all of nodes’ status will be updated at the same time, refer to figure 3 for flow diagram.
 
 The decision to update all nodes in the trust status cache while one node's cache gets expired is based on three points below:
@@ -68,6 +74,15 @@ The decision to update all nodes in the trust status cache while one node's cach
 3.  there is a fact for Query toward attestation service: query(nodeA, nodeB) will take less time than query(nodeA) then query(nodeB). So if we can predict needs for query multiple nodes, we try our best to align them into one query request.
 
 ![](figure3.jpg "figure3.jpg")
+
+#### Database changes
+
+*   table of vm_static will add a new field, true value of this field implies end users want to launch a VM on a trusted physical host.
+*   procedure of InsertVmStatic/ UpdateVmStatic/ DeleteVmStatic will modified accordingly to support VM's creation, modification and deletion.
+
+#### REST API changes
+
+still under consideration.
 
 ### Benefit to oVirt
 

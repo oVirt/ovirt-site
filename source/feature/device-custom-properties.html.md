@@ -64,7 +64,7 @@ In hooks scripts of per-device verbs, the properties would be passed as environm
 
 The reasoning behind the vmCreate behavior is that we should pass different properties for each device. At the stage that before_vm_create hook is executed, the alias of devices is not necessarily known, and the ordering of devices may be changed by other hooks. Thus we have no means to designate which property belong to which device - save for executing a different script for each device, passing that device's xml definition.
 
-#### Engine
+### Dependencies / Related Features
 
 With this feature, Engine would keep track of per-device custom properties.
 
@@ -91,7 +91,7 @@ TBD: Check if any views should be updated.
 
 ##### DAOs
 
-#### GUI
+#### User Experience
 
 ![](NetworkCustomProperties.png "NetworkCustomProperties.png")
 

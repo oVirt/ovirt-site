@@ -116,6 +116,10 @@ Update all relevant VdsBroker commands that involve verbs related to adding, rem
 
 Under the NIC and Disk resource, add custom properties like so: <custom_properties> <custom_property value="123" name="sndbuf"/> <custom_property value="true" name="sap_agent"/> </custom_properties>
 
+#### Backwards Compatibility
+
+As this is a 3.3 feature, all 3.2 (and down) cluster related entities should not be allowed (at the GUI level ) to customize device properties. In the engine special care needs to be taken at canDoAction to disallow custom device properties for 3.2 and down.
+
 ### Documentation / External references
 
 *   Benoit ML asking for per-vNIC custom properties: <http://lists.ovirt.org/pipermail/users/2012-November/010857.html>

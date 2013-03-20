@@ -8,7 +8,7 @@ wiki_revision_count: 20
 wiki_last_updated: 2013-03-20
 ---
 
-# Node Testing - WIP
+# Node Testing
 
 Automated testing can be done on several levels. Currently we plan to do some checks at build time and some high level checks on a running node instance.
 
@@ -97,8 +97,8 @@ Link: [All available igor testcases/sets/suites](http://gerrit.ovirt.org/gitweb?
 | Testsuite                                                                            | Difficulty | Complete | Comment                                                                                                                                               | Updated    |
 |--------------------------------------------------------------------------------------|------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
 | Auto-install with storage_init=usb,ata                                              | difficult  | 0%       | Igor changes: VM with different storage devices                                                                                                       | 2012-11-19 |
-| Update - Basic update                                                                | difficult  | 0%       | Needs some igor changes (support for 'persistent' VMs)                                                                                                | 2012-11-15 |
-| Engine registration - Regsiter with an existing Engine instance                      | difficult  | 0%       | Should be possible with igor's current featureset                                                                                                     | 2012-11-15 |
+| Engine registration - Register with an existing Engine instance                      | difficult  | 0%       | Should be possible with igor's current featureset                                                                                                     | 2012-11-15 |
+| Update - Basic update                                                                | difficult  | 100%     | [testplan](http://gerrit.ovirt.org/gitweb?p=ovirt-node.git;a=blob;f=tests/igor/plans/ai_upgrade.plan;hb=HEAD)                                         | 2013-03-20 |
 | Basic Auto-Install - Installation with the basic parameters and a login into the TUI | easy       | 100%     | [testsuite](http://gerrit.ovirt.org/gitweb?p=ovirt-node.git;a=blob;f=tests/igor/suites/ai_basic.suite;hb=HEAD)                                        | 2012-06-20 |
 | Basic TUI-Install - Simple TUI installation using sane defaults                      | medium     | 100%     | [testsuite](http://gerrit.ovirt.org/gitweb?p=ovirt-node.git;a=blob;f=tests/igor/suites/mi_basic.suite;hb=HEAD)                                        | 2012-11-15 |
 | Basic TUI Testing - Perform a couple of TUI tasks                                    | medium     | 100%     | [testcase](http://gerrit.ovirt.org/gitweb?p=ovirt-node.git;a=blob;f=tests/igor/sets/tui/check_navigation.set;hb=HEAD) part of \*_extended testsuites | 2012-11-15 |

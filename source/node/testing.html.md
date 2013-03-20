@@ -27,7 +27,7 @@ Very trivial, just check if we follow pythons style guide [pep8](http://www.pyth
 *   pylint
 *   pyflakes
 
-### Post-Build testing
+### Runtime tests
 
 #### Infrastructure
 

@@ -41,7 +41,9 @@ Remote Attestation server performs host verification through following steps:
 
 4. Attestation server verifies those measurements against good/known database to determine hosts' trustworthiness
 
-We provide two solutions to create a new guest VM with trust requirement. The first solution consider to implement in Patchset 2, while the second solution will be implemented based on the feedback from community after patchset2’s submission.
+#### Frontend changes
+
+Trusted compute pools support on the UI will be found on the new/edit VM/template window, besides, this feature will also support import /export for ovf relevant function (on going efforts). The latest status for UI changes have provides end user a choice of running a VM on a trusted host, includes create a new VM, edit an exited VM.
 
 1. Create a trust template during oVirt engine’s installation.
 
@@ -49,7 +51,7 @@ The process of template generation is similar with blank template’s generation
 
 ![](figure1.jpg "figure1.jpg")
 
-2 Create trusted VM based on GUI radio box (To be implemented in Patch3 or later)
+2. Create / Edit a trusted VM based on GUI radio box
 
 Choose to run guest VM on a trusted node, please refer to figure 2. After guest VM is created, this VM could also be served as the VM template via import/export template function provided from GUI.
 

@@ -48,6 +48,7 @@ oVirt Node 2.6.1-1
 *   [libvirt](http://libvirt.org/) for virtual machine and storage management.
 *   [collectd](http://collectd.org/) for gathering statistics and monitoring.
 *   [Matahari](https://github.com/matahari/matahari/wiki) for host and guest system management.
+*   [excess.org/urwid/ Urwid] for the TUI
 
 ## Upgrading
 

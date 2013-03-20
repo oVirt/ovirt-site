@@ -62,6 +62,11 @@ Tracker bug: <https://bugzilla.redhat.com/918494>
 
 *   **SHOULD**: Can run full cycle with gluster storage
 *   **SHOULD**: have updated installation guide available
+*   **SHOULD**: Scheduling API.
+*   **SHOULD**: MoM integration- ballooning.
+*   **SHOULD**: Alerts when balloon not supported by guest
+*   **SHOULD**: (scheduling API first) VM affinity
+*   **SHOULD**: (scheduling API first) VM not getting minimum guaranteed memory
 
 ## Features
 

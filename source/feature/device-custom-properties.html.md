@@ -66,15 +66,30 @@ The reasoning behind the vmCreate behavior is that we should pass different prop
 
 #### Engine
 
-With this feature, Engine would keep track of per-device custom properties. This would be done by adding a field **TBD:<fieldname>** to the Vm device table. Currently we envisage custom properties per vNIC and vDisk only, but in the future it may make sense to extend the feature to other devices.
+With this feature, Engine would keep track of per-device custom properties.
 
-##### Configure valid prps in vdc_options
+This can be done in two ways:
 
-Not all custom properties are valid for every setups - they depend on the hooks installed on hosts. Therefore, just like with per-VM properties, a user would have to define the valid properties and their valid values in vdc_options. Note that properties are most likely to be valid for an interface, but invalid for a disk. Thus we would need to have two different entries **TBD:<entrynames>**, or a more complex syntax such as
+1.  We may insert the custom properties column into the vm_device table instead. The advantage is future-proofing in the case that more devices will be managed by the engine.
+2.  We may add a field to each device's table (IE: vm_interface for NICs and images for disks). The advantage here is that the custom properties will be available when the REST API queries for a device or a list of devices, without having to perform a JOIN.
 
-      {type=disk,property=regex,values=regex}
+*   Note: The rest of the document assumes the second solution.
 
-to make it easier to add future device types.
+##### Configuration
+
+Not all custom properties are valid for every setups - they depend on the hooks installed on hosts. Therefore, just like with per-VM properties, a user would have to define the valid properties and their valid values in vdc_options. Note that properties are most likely to be valid for an interface, but invalid for a disk. The option_name value will be DeviceCustomProperties, and its corresponding option_value will look like: [ {type=disk; props={value1=regex1, ..., valueN=regexN}}
+
+       {type=interface; props={value1=regex1, ..., valueN=regexN}}]
+
+The configuration values should be exposed to the engine-config tool.
+
+##### CRUD
+
+Add a CustomProperties column to vm_interface for NICs, and a CustomProperties column to images.
+
+TBD: Check if any views should be updated.
+
+##### DAOs
 
 #### GUI
 

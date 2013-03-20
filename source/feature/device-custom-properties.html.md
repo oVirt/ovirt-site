@@ -100,6 +100,14 @@ Add a string field called customProperties to:
 
 Update the relevant row mappers at DiskDaoDbFacadeImpl and VmNetworkInterfaceDaoDbFacadeImpl to map from the JDBC result set to the new business entity fields. Similarly, update the save and update methods to include the new field when building the getCustomMapSqlParameterSource object.
 
+##### Business Logic
+
+Each bll command that adds or updates a NIC or a disk should include custom properties validation during its canDoAction stage.
+
+##### VdsBroker
+
+Update all relevant VdsBroker commands that involve verbs related to adding, removing and altering disks and NICs.
+
 #### User Experience
 
 ![](NetworkCustomProperties.png "NetworkCustomProperties.png")

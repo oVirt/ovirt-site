@@ -73,8 +73,8 @@ Features being considered for inclusion/already in master:
 *   [Features/Migration Network](Features/Migration Network)
 *   [Features/Normalized ovirtmgmt Initialization](Features/Normalized ovirtmgmt Initialization)
 *   [Features/DirectHostAddress](Features/DirectHostAddress)
-*   [Features/Nicless Network](Features/Nicless Network) (not sure we can pull this off)
 *   [Features/Quantum_Integration](Features/Quantum_Integration)
 *   [Feature/NetworkReloaded](Feature/NetworkReloaded) reimplementation of configNetwork in vdsm. Should have zero (0) effect on users, but required for future support for ovs/NM
+*   [Features/Multiple Gateways](Features/Multiple Gateways) configure more gateways on host, on top of the default one.
 
 <Category:Releases> [Category:Release management](Category:Release management)

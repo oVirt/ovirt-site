@@ -114,7 +114,7 @@ Update all relevant VdsBroker commands that involve verbs related to adding, rem
 
 #### REST
 
-**TBD** should be modelled after per-vm properties.
+Under the NIC and Disk resource, add custom properties like so: <custom_properties> <custom_property value="123" name="sndbuf"/> <custom_property value="true" name="sap_agent"/> </custom_properties>
 
 ### Documentation / External references
 

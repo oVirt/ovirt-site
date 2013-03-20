@@ -80,7 +80,7 @@ to make it easier to add future device types.
 
 ![](NetworkCustomProperties.png "NetworkCustomProperties.png")
 
-##### REST
+#### REST
 
 **TBD** should be modelled after per-vm properties.
 

@@ -33,6 +33,8 @@ Very trivial, just check if we follow pythons style guide [pep8](http://www.pyth
 
 The tests need to be carried out on VMs and real hardware. The necessary steps involved to run the tests (select and prepare a host, run the test, tear it down) are not part of Jenkins and are carried out by [igor](https://gitorious.org/ovirt/igord).
 
+The page [How to write Igor tests for Node] covers how to write Igor tests for Node.
+
 ##### Workflow
 
 *   Jenkins builds an ISO

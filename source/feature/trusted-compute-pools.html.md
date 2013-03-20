@@ -84,6 +84,10 @@ The decision to update all nodes in the trust status cache while one node's cach
 
 still under consideration.
 
+#### OVF relevant changes
+
+still under consideration.
+
 ### Benefit to oVirt
 
 This is a new feature, it will bring higher security level for data center managed with oVirt.

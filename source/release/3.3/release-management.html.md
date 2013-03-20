@@ -51,6 +51,9 @@ Tracker bug: <https://bugzilla.redhat.com/918494>
 *   **MUST**: Can authenticate users against at least one external LDAP server
 *   **MUST**: Can run multiple VMs
 *   **MUST**: Can connect to VMs using SPICE
+*   **MUST**: VM watchdog support
+*   **MUST**: Predictable host timeouts for HA fencing
+*   **MUST**: MoM integration- KSM verification
 *   **MUST**: Have Release Notes with feature specific information
 *   **MUST**: Have updated quick start guide available
 *   **MUST**: No regressions from 3.1 Release

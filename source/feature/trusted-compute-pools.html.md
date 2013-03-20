@@ -45,17 +45,19 @@ Remote Attestation server performs host verification through following steps:
 
 Trusted compute pools support on the UI will be found on the new/edit VM/template window, besides, this feature will also support import /export for ovf relevant function (on going efforts). The latest status for UI changes have provides end user a choice of running a VM on a trusted host, includes create a new VM, edit an exited VM.
 
-1. Create a trust template during oVirt engine’s installation.
-
-The process of template generation is similar with blank template’s generation. Trust template is a basic template which enables end user to choose a trusted host to launch a guest VM. End user can edit trust template for specific usage, refer to figure 1 for intuitional view.
-
-![](figure1.jpg "figure1.jpg")
-
-2. Create / Edit a trusted VM based on GUI radio box
+1. Create / Edit a trusted VM based on GUI radio box.
 
 Choose to run guest VM on a trusted node, please refer to figure 2. After guest VM is created, this VM could also be served as the VM template via import/export template function provided from GUI.
 
 ![](figure2.jpg "figure2.jpg")
+
+2. Create a trusted VM based on the template generated from the trusted VM we created.
+
+![](figure1.jpg "figure1.jpg")
+
+3. Based on our current consideration, migration is not allowed for a trusted VM. If end user wants to launch a VM on a trusted host, migration options will be disabled to avoid complicated modification and logical confusion.
+
+![](figure4.jpg "figure4.jpg")
 
 To launch guest VM on trusted host, engine server will filter all of nodes according to each host’s trustworthiness, only trusted hosts will be chosen as candidates. Open Attestation SDK will take some time to check whether a node is trusted or not, thus, cache is very important here to guarantee engine server’s performance with large concurrent requests. Here, we cache all nodes’ trustworthiness when the first guest VM try to launch on a trusted node. Node’s status is valid only in a given time and this time is configurable. In case of any node’s status becomes invalid or some new nodes add in cloud computing environment, all of nodes’ status will be updated at the same time, refer to figure 3 for flow diagram.
 

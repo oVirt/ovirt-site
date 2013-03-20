@@ -89,7 +89,16 @@ Add a custom_properties column to vm_interface for NICs, and a custom_properties
 
 Any views and stored procedures that depend on vm_interface and images tables should be updated with the new relevant column.
 
+##### Business Entities
+
+Add a string field called customProperties to:
+
+*   VmNetworkInterface
+*   Disk
+
 ##### DAOs
+
+Update the relevant row mappers at DiskDaoDbFacadeImpl and VmNetworkInterfaceDaoDbFacadeImpl to map from the JDBC result set to the new business entity fields. Similarly, update the save and update methods to include the new field when building the getCustomMapSqlParameterSource object.
 
 #### User Experience
 

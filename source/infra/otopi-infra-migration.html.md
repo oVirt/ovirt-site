@@ -36,92 +36,92 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 
 #### engine-setup
 
-| Feature                                                                | Existing implementation | Otopi implementation | Owner                                                |
-|------------------------------------------------------------------------|-------------------------|----------------------|------------------------------------------------------|
-| Verify that root is the user executing the script                      | Done                    | Done                 |                                                      |
-| Allow unprivileged user ro run a development installation              | Not implemented         | Done                 |                                                      |
-| Checking total memory                                                  | Done                    | Done [1]             | [ Sandro Bonazzola](User:SandroBonazzola) |
-| Generate answer file                                                   | Done                    | Done[2]              |                                                      |
-| Allow logging                                                          | Done                    | Done                 |                                                      |
-| Support AIO plugin                                                     | Done                    | Not implemented      |                                                      |
-| Support FIREWALL_MANAGER option                                       | Done                    | Not implemented      |                                                      |
-| Support OVERRIDE_HTTPD_CONFIG option                                 | Done                    | Not implemented      |                                                      |
-| Support HTTP_PORT option                                              | Done                    | Done[3]              |                                                      |
-| Support HTTPS_PORT option                                             | Done                    | Done[4]              |                                                      |
-| Support RANDOM_PASSWORDS option                                       | Done                    | Not implemented      |                                                      |
-| Overriding given passwords with random                                 | Done                    | Not implemented      |                                                      |
-| Support MAC_RANGE option                                              | Done                    | Not implemented      |                                                      |
-| Support HOST_FQDN option                                              | Done                    | Done[5]              |                                                      |
-| Support AUTH_PASS option                                              | Done                    | Done[6]              |                                                      |
-| Support ORG_NAME option                                               | Done                    | Done[7]              |                                                      |
-| Support APPLICATION_MODE option                                       | Done                    | Done[8]              |                                                      |
-| Support DC_TYPE option                                                | Done                    | Not implemented      |                                                      |
-| Support DB_REMOTE_INSTALL option                                     | Done                    | Not implemented      |                                                      |
-| Support DB_LOCAL_PASS option                                         | Done                    | Not implemented      |                                                      |
-| Support DB_HOST option                                                | Done                    | Feedback [9]         |                                                      |
-| Support DB_PORT option                                                | Done                    | Feedback [10]        |                                                      |
-| Support DB_ADMIN option                                               | Done                    | Not implemented      |                                                      |
-| Support DB_REMOTE_PASS option                                        | Done                    | Not implemented      |                                                      |
-| Support DB_SECURE_CONNECTION option                                  | Done                    | Feedback [11]        |                                                      |
-| Support NFS_MP option                                                 | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |
-| Support ISO_DOMAIN_NAME option                                       | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |
-| Support CONFIG_NFS option                                             | Done                    | Done[12]             | [ Sandro Bonazzola](User:SandroBonazzola) |
-| Display summary in interactive mode                                    | Done                    | Not implemented      |                                                      |
-| Initialize MiniYum                                                     | Done                    | Not implemented      |                                                      |
-| Handle second execution warning                                        | Done                    | Not implemented      |                                                      |
-| Handle loading and validating params from answer file                  | Done                    | Done[13]             |                                                      |
-| Mask input sets                                                        | Done                    | Not implemented      |                                                      |
-| Log masked configuration                                               | Done                    | Not implemented      |                                                      |
-| Set Max Shared Memory                                                  | Done                    | Done                 |                                                      |
-| Check for supported Java VM                                            | Done                    | Done                 |                                                      |
-| CA Generation                                                          | Done                    | Done                 |                                                      |
-| Extract CA fingerprint                                                 | Done                    | Done                 |                                                      |
-| Extract non password key for log collector                             | Done                    | Done                 |
-| Extract non password key for Apache                                    | Done                    | Done                 |                                                      |
-| Extract SSH fingerprint                                                | Done                    | Done                 |                                                      |
-| Configure engine service - database                                    | Done                    | Done                 |                                                      |
-| Configure engine service - Java                                        | Done                    | Done                 |                                                      |
-| Configure engine service - Protocols                                   | Done                    | Done                 |                                                      |
-| Configure .pgpass file                                                 | Done                    | Done                 |                                                      |
-| Encrypt DB Password                                                    | Done                    | Done                 |                                                      |
-| Push the encrypted password into the local configuration file          | Done                    | Done                 |                                                      |
-| Start / Stop rhevm-etl / ovirt-engine-dwhd service when needed         | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |
-| Start / Stop rhevm-notifierd / engine-notifierd service when needed    | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |
-| Upgrade engine database if already exist                               | Done                    | Done                 |                                                      |
-| Install engine database if doesn't exist                               | Done                    | Done                 |                                                      |
-| Set Application Mode (Both, Virt, Gluster)                             | Done                    | Done                 |                                                      |
-| Update VDC Options                                                     | Done                    | Done                 |                                                      |
-| Update default data center storage type                                | Done                    | Not implemented      |                                                      |
-| Configure engine-log-collector                                         | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |
-| Configure engine-iso-uploader                                          | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |
-| Configure engine-image-uploader                                        | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |
-| Configure PostgreSQL max_connections if using local DB                | Done                    | Not implemented      |                                                      |
-| Configure NFS exports for ISO Domain if requested                      | Done                    | Not implemented      |                                                      |
-| Allow importing existing NFS ISO Domain                                | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |
-| Create new NFS ISO Domain                                              | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |
-| Migrate existing NFS ISO exports from /etc/exports to /etc/exports.d/  | Done                    | Not implemented      |                                                      |
-| Set selinux context for NFS ISO mount points                           | Done                    | Not implemented      |                                                      |
-| set NFS/portmap ports by overriding /etc/sysconfig/nfs                 | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |
-| Enable the rpcbind and nfs services                                    | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |
-| Load files (iso,vfd) from existing rpms to ISO domain                  | Done                    | In Progress          | [ Sandro Bonazzola](User:SandroBonazzola) |
-| Check firewall managers installed in the system                        | Done                    | Not implemented      |                                                      |
-| Configure and enable iptables if requested                             | Done                    | Not implemented      |                                                      |
-| Configure and enable FirewallD if requested                            | Done                    | Not implemented      |                                                      |
-| Start / Stop Engine service when needed                                | Done                    | Done                 |                                                      |
-| Enable httpd_can_network_connect selinux flag                       | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |
-| Backup old Apache httpd config when needed                             | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |
-| Configure Apache mod_ssl for using engine apache keys                 | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |
-| Configure Apache for listening on requested HTTP port                  | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |
+| Feature                                                                | Existing implementation | Otopi implementation | Owner                                                | Priority | Target date |
+|------------------------------------------------------------------------|-------------------------|----------------------|------------------------------------------------------|----------|-------------|
+| Verify that root is the user executing the script                      | Done                    | Done                 |                                                      |          |             |
+| Allow unprivileged user ro run a development installation              | Not implemented         | Done                 |                                                      |          |             |
+| Checking total memory                                                  | Done                    | Done [1]             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Generate answer file                                                   | Done                    | Done[2]              |                                                      |          |             |
+| Allow logging                                                          | Done                    | Done                 |                                                      |          |             |
+| Support AIO plugin                                                     | Done                    | Not implemented      |                                                      | Medium   |             |
+| Support FIREWALL_MANAGER option                                       | Done                    | Not implemented      |                                                      | High     |             |
+| Support OVERRIDE_HTTPD_CONFIG option                                 | Done                    | Not required[3]      |                                                      |          |             |
+| Support HTTP_PORT option                                              | Done                    | Done[4]              |                                                      |          |             |
+| Support HTTPS_PORT option                                             | Done                    | Done[5]              |                                                      |          |             |
+| Support RANDOM_PASSWORDS option                                       | Done                    | Not implemented      |                                                      | Medium   |             |
+| Overriding given passwords with random                                 | Done                    | Not implemented      |                                                      | Medium   |             |
+| Support MAC_RANGE option                                              | Done                    | Not implemented      |                                                      | Medium   |             |
+| Support HOST_FQDN option                                              | Done                    | Done[6]              |                                                      |          |             |
+| Support AUTH_PASS option                                              | Done                    | Done[7]              |                                                      |          |             |
+| Support ORG_NAME option                                               | Done                    | Done[8]              |                                                      |          |             |
+| Support APPLICATION_MODE option                                       | Done                    | Done[9]              |                                                      |          |             |
+| Support DC_TYPE option                                                | Done                    | Not implemented      |                                                      | Low      |             |
+| Support DB_REMOTE_INSTALL option                                     | Done                    | In Progress          |                                                      | Medium   |             |
+| Support DB_LOCAL_PASS option                                         | Done                    | In Progress          |                                                      | Low      |             |
+| Support DB_HOST option                                                | Done                    | Done                 |                                                      |          |             |
+| Support DB_PORT option                                                | Done                    | Done                 |                                                      |          |             |
+| Support DB_ADMIN option                                               | Done                    | Done                 |                                                      |          |             |
+| Support DB_REMOTE_PASS option                                        | Done                    | Done                 |                                                      |          |             |
+| Support DB_SECURE_CONNECTION option                                  | Done                    | Feedback [10]        |                                                      |          |             |
+| Support NFS_MP option                                                 | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Support ISO_DOMAIN_NAME option                                       | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Support CONFIG_NFS option                                             | Done                    | Done[11]             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Display summary in interactive mode                                    | Done                    | Not implemented      |                                                      | Low      |             |
+| Initialize MiniYum                                                     | Done                    | Not implemented      |                                                      | Medium   |             |
+| Handle second execution warning                                        | Done                    | Not implemented      |                                                      | Medium   |             |
+| Handle loading and validating params from answer file                  | Done                    | Done[12]             |                                                      |          |             |
+| Mask input sets                                                        | Done                    | Not implemented      |                                                      | Low      |             |
+| Log masked configuration                                               | Done                    | Not implemented      |                                                      | Low      |             |
+| Set Max Shared Memory                                                  | Done                    | Done                 |                                                      |          |             |
+| Check for supported Java VM                                            | Done                    | Done                 |                                                      |          |             |
+| CA Generation                                                          | Done                    | Done                 |                                                      |          |             |
+| Extract CA fingerprint                                                 | Done                    | Done                 |                                                      |          |             |
+| Extract non password key for log collector                             | Done                    | Done                 |                                                      |          |
+| Extract non password key for Apache                                    | Done                    | Done                 |                                                      |          |             |
+| Extract SSH fingerprint                                                | Done                    | Done                 |                                                      |          |             |
+| Configure engine service - database                                    | Done                    | Done                 |                                                      |          |             |
+| Configure engine service - Java                                        | Done                    | Done                 |                                                      |          |             |
+| Configure engine service - Protocols                                   | Done                    | Done                 |                                                      |          |             |
+| Configure .pgpass file                                                 | Done                    | Done                 |                                                      |          |             |
+| Encrypt DB Password                                                    | Done                    | Done                 |                                                      |          |             |
+| Push the encrypted password into the local configuration file          | Done                    | Done                 |                                                      |          |             |
+| Start / Stop rhevm-etl / ovirt-engine-dwhd service when needed         | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Start / Stop rhevm-notifierd / engine-notifierd service when needed    | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Upgrade engine database if already exist                               | Done                    | Done                 |                                                      |          |             |
+| Install engine database if doesn't exist                               | Done                    | Done                 |                                                      |          |             |
+| Set Application Mode (Both, Virt, Gluster)                             | Done                    | Done                 |                                                      |          |             |
+| Update VDC Options                                                     | Done                    | Done                 |                                                      |          |             |
+| Update default data center storage type                                | Done                    | Not implemented      |                                                      | Medium   |             |
+| Configure engine-log-collector                                         | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Configure engine-iso-uploader                                          | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Configure engine-image-uploader                                        | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Configure PostgreSQL max_connections if using local DB                | Done                    | Not implemented      |                                                      | Low      |             |
+| Configure NFS exports for ISO Domain if requested                      | Done                    | Not implemented      |                                                      | Medium   |             |
+| Allow importing existing NFS ISO Domain                                | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Create new NFS ISO Domain                                              | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Migrate existing NFS ISO exports from /etc/exports to /etc/exports.d/  | Done                    | Not implemented      |                                                      | Low      |             |
+| Set selinux context for NFS ISO mount points                           | Done                    | Not implemented      |                                                      | Medium   |             |
+| set NFS/portmap ports by overriding /etc/sysconfig/nfs                 | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Enable the rpcbind and nfs services                                    | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Load files (iso,vfd) from existing rpms to ISO domain                  | Done                    | In Progress          | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Check firewall managers installed in the system                        | Done                    | Not implemented      |                                                      | High     |             |
+| Configure and enable iptables if requested                             | Done                    | Not implemented      |                                                      | High     |             |
+| Configure and enable FirewallD if requested                            | Done                    | Not implemented      |                                                      | High     |             |
+| Start / Stop Engine service when needed                                | Done                    | Done                 |                                                      |          |             |
+| Enable httpd_can_network_connect selinux flag                       | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |          |             |
+| Backup old Apache httpd config when needed                             | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |          |             |
+| Configure Apache mod_ssl for using engine apache keys                 | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |          |             |
+| Configure Apache for listening on requested HTTP port                  | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |          |             |
 | Configure Apache for listening on requested HTTPS port                 | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |
-| Configure Apache as proxy for the requests to the jboss service        | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |
-| Enable the httpd service                                               | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |
-| Enter rpm versions into yum version-lock                               | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |
-| Add info message to the user finalizing the successful install         | Done                    | Not implemented      |                                                      |
-| Print additional message to the user finalizing the successful install | Done                    | Not implemented      |                                                      |
-| Log a summary of the parameters                                        | Done                    | Not implemented      |                                                      |
+| Configure Apache as proxy for the requests to the jboss service        | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |          |             |
+| Enable the httpd service                                               | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |          |             |
+| Enter rpm versions into yum version-lock                               | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
+| Add info message to the user finalizing the successful install         | Done                    | Not implemented      |                                                      | Low      |             |
+| Print additional message to the user finalizing the successful install | Done                    | Not implemented      |                                                      | Low      |             |
+| Log a summary of the parameters                                        | Done                    | Not implemented      |                                                      | Low      |             |
 
 <references>
-[14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] <ref name="authpass">The option `AUTH_PASS=...` is now `osetupcons.ConfigEnv.ADMIN_PASSWORD`
+[13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] <ref name="authpass">The option `AUTH_PASS=...` is now `osetupcons.ConfigEnv.ADMIN_PASSWORD` <ref name="notneeded">This means that the function is not required in the new code design</code>
 
 </references>
 #### engine-cleanup
@@ -204,28 +204,26 @@ TBD
 
 [12] 
 
-[13] 
+[13] The option `--no-mem-check` is now `--otopi-environment="OVESETUP_SYSTEM/memCheck=bool:False"`
 
-[14] The option `--no-mem-check` is now `--otopi-environment="OVESETUP_SYSTEM/memCheck=bool:False"`
+[14] The option `--gen-answer-file` is now `--generate-answer`
 
-[15] The option `--gen-answer-file` is now `--generate-answer`
+[15] The option `--answer-file` is now `--config-append`
 
-[16] The option `--answer-file` is now `--config-append`
+[16] The option `CONFIG_NFS=yes` is now `OVESETUP_SYSTEM/nfsConfigEnabled=bool:True`
 
-[17] The option `CONFIG_NFS=yes` is now `OVESETUP_SYSTEM/nfsConfigEnabled=bool:True`
+[17] The option `HOST_FQDN=host` is now `OVESETUP_CONFIG/fqdn=str:host`
 
-[18] The option `HOST_FQDN=host` is now `OVESETUP_CONFIG/fqdn=str:host`
+[18] The option `HTTP_PORT=80` is now `OVESETUP_CONFIG/httpPort=int:80`
 
-[19] The option `HTTP_PORT=80` is now `OVESETUP_CONFIG/httpPort=int:80`
+[19] The option `HTTPS_PORT=443` is now `OVESETUP_CONFIG/httpsPort=int:443`
 
-[20] The option `HTTPS_PORT=443` is now `OVESETUP_CONFIG/httpsPort=int:443`
+[20] The option `APPLICATION_MODE=both` is now `OVESETUP_CONFIG/applicationMode=str:both`
 
-[21] The option `APPLICATION_MODE=both` is now `OVESETUP_CONFIG/applicationMode=str:both`
+[21] The option `ORG_NAME=organization` is now `OVESETUP_PKI/organization=str:organization`
 
-[22] The option `ORG_NAME=organization` is now `OVESETUP_PKI/organization=str:organization`
+[22] The option `DB_HOST=localhost` is now `OVESETUP_DB/host=str:localhost`
 
-[23] The option `DB_HOST=localhost` is now `OVESETUP_DB/host=str:localhost`
+[23] The option `DB_PORT=5432` is now `OVESETUP_DB/port=int:5432`
 
-[24] The option `DB_PORT=5432` is now `OVESETUP_DB/port=int:5432`
-
-[25] The option `DB_SECURE_CONNECTION=no` is now `OVESETUP_DB/secured=bool:False`
+[24] The option `DB_SECURE_CONNECTION=no` is now `OVESETUP_DB/secured=bool:False`

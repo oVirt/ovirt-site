@@ -23,6 +23,15 @@ This feature adds [watchdog](https://en.wikipedia.org/wiki/Watchdog_Card) suppor
 
 *   Status: implementation
 *   Last updated: ,
+*   patchset
+
+<http://gerrit.ovirt.org/13057>
+
+<http://gerrit.ovirt.org/13058>
+
+<http://gerrit.ovirt.org/13059>
+
+<http://gerrit.ovirt.org/13060>
 
 ### Detailed Description
 

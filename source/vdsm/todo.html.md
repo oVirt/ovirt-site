@@ -71,7 +71,7 @@ wiki_last_updated: 2015-05-29
 <!-- -->
 
 *   ~~add hooks for device hotplug~~ done.
-*   add hooks for device update
+*   add hooks for device update <http://bugzilla.redhat.org/893576>
 
 <!-- -->
 

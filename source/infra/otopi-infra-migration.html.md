@@ -44,7 +44,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Generate answer file                                                   | Done                    | Done[2]              |                                                      |          |             |
 | Allow logging                                                          | Done                    | Done                 |                                                      |          |             |
 | Support AIO plugin                                                     | Done                    | Not implemented      |                                                      | Medium   |             |
-| Support FIREWALL_MANAGER option                                       | Done                    | Not implemented      |                                                      | High     |             |
+| Support FIREWALL_MANAGER option                                       | Done                    | In Progress          | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
 | Support OVERRIDE_HTTPD_CONFIG option                                 | Done                    | Not required[3]      |                                                      |          |             |
 | Support HTTP_PORT option                                              | Done                    | Done[4]              |                                                      |          |             |
 | Support HTTPS_PORT option                                             | Done                    | Done[5]              |                                                      |          |             |
@@ -63,8 +63,8 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support DB_ADMIN option                                               | Done                    | Done                 |                                                      |          |             |
 | Support DB_REMOTE_PASS option                                        | Done                    | Done                 |                                                      |          |             |
 | Support DB_SECURE_CONNECTION option                                  | Done                    | Feedback [12]        |                                                      |          |             |
-| Support NFS_MP option                                                 | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Support ISO_DOMAIN_NAME option                                       | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Support NFS_MP option                                                 | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Support ISO_DOMAIN_NAME option                                       | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Support CONFIG_NFS option                                             | Done                    | Done[13]             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Display summary in interactive mode                                    | Done                    | Not implemented      |                                                      | Low      |             |
 | Initialize MiniYum                                                     | Done                    | Not implemented      |                                                      | Medium   |             |
@@ -92,20 +92,20 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Set Application Mode (Both, Virt, Gluster)                             | Done                    | Done                 |                                                      |          |             |
 | Update VDC Options                                                     | Done                    | Done                 |                                                      |          |             |
 | Update default data center storage type                                | Done                    | Not implemented      |                                                      | Medium   |             |
-| Configure engine-log-collector                                         | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Configure engine-iso-uploader                                          | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Configure engine-image-uploader                                        | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Configure engine-log-collector                                         | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Configure engine-iso-uploader                                          | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Configure engine-image-uploader                                        | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Configure PostgreSQL max_connections if using local DB                | Done                    | Not implemented      |                                                      | Low      |             |
 | Configure NFS exports for ISO Domain if requested                      | Done                    | Not implemented      |                                                      | Medium   |             |
-| Allow importing existing NFS ISO Domain                                | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Create new NFS ISO Domain                                              | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Migrate existing NFS ISO exports from /etc/exports to /etc/exports.d/  | Done                    | Not implemented      |                                                      | Low      |             |
+| Allow importing existing NFS ISO Domain                                | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Create new NFS ISO Domain                                              | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Migrate existing NFS ISO exports from /etc/exports to /etc/exports.d/  | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | Low      |             |
 | Set selinux context for NFS ISO mount points                           | Done                    | Not implemented      |                                                      | Medium   |             |
 | set NFS/portmap ports by overriding /etc/sysconfig/nfs                 | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Enable the rpcbind and nfs services                                    | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Load files (iso,vfd) from existing rpms to ISO domain                  | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Check firewall managers installed in the system                        | Done                    | Not implemented      |                                                      | High     |             |
-| Configure and enable iptables if requested                             | Done                    | Not implemented      |                                                      | High     |             |
+| Check firewall managers installed in the system                        | Done                    | In Progress          | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
+| Configure and enable iptables if requested                             | Done                    | In Progress          | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
 | Configure and enable FirewallD if requested                            | Done                    | Not implemented      |                                                      | High     |             |
 | Start / Stop Engine service when needed                                | Done                    | Done                 |                                                      |          |             |
 | Enable httpd_can_network_connect selinux flag                       | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |          |             |

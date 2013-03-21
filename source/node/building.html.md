@@ -66,6 +66,10 @@ Now that the source and build environment is setup you can build the *ovirt-node
     $ cd $OVIRT_NODE_BASE
     $ cd ovirt-node
 
+    # Optional: Do any changes you want and commit them (important)
+    $ edit some/file.py
+    $ commit -as
+
     # EXTRA_RELEASE is picked up by ovirt-node's build system
     # Needs to be adjusted for an official build
     # Also, you may need to tweak this if you have an invalid character in your user name (like - )

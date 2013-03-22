@@ -106,7 +106,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Load files (iso,vfd) from existing rpms to ISO domain                  | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Check firewall managers installed in the system                        | Done                    | In Progress          | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
 | Configure and enable iptables if requested                             | Done                    | In Progress          | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
-| Configure and enable FirewallD if requested                            | Done                    | Not implemented      |                                                      | High     |             |
+| Configure and enable FirewallD if requested                            | Done                    | In Progress          | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
 | Start / Stop Engine service when needed                                | Done                    | Done                 |                                                      |          |             |
 | Enable httpd_can_network_connect selinux flag                       | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |          |             |
 | Backup old Apache httpd config when needed                             | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |          |             |

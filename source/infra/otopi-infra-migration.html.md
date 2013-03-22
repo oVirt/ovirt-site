@@ -55,7 +55,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support AUTH_PASS option                                              | Done                    | Done[7]              |                                                      |          |             |
 | Support ORG_NAME option                                               | Done                    | Done[8]              |                                                      |          |             |
 | Support APPLICATION_MODE option                                       | Done                    | Done[9]              |                                                      |          |             |
-| Support DC_TYPE option                                                | Done                    | In Progress          | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
+| Support DC_TYPE option                                                | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
 | Support DB_REMOTE_INSTALL option                                     | Done                    | In Progress          |                                                      | Medium   |             |
 | Support DB_LOCAL_PASS option                                         | Done                    | In Progress          |                                                      | Low      |             |
 | Support DB_HOST option                                                | Done                    | Done[10]             |                                                      |          |             |
@@ -91,7 +91,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Install engine database if doesn't exist                               | Done                    | Done                 |                                                      |          |             |
 | Set Application Mode (Both, Virt, Gluster)                             | Done                    | Done                 |                                                      |          |             |
 | Update VDC Options                                                     | Done                    | Done                 |                                                      |          |             |
-| Update default data center storage type                                | Done                    | In Progress          | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
+| Update default data center storage type                                | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
 | Configure engine-log-collector                                         | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Configure engine-iso-uploader                                          | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Configure engine-image-uploader                                        | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
@@ -100,7 +100,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Allow importing existing NFS ISO Domain                                | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Create new NFS ISO Domain                                              | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Migrate existing NFS ISO exports from /etc/exports to /etc/exports.d/  | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | Low      |             |
-| Set selinux context for NFS ISO mount points                           | Done                    | Not implemented      |                                                      | Medium   |             |
+| Set selinux context for NFS ISO mount points                           | Done                    | In Progress          | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
 | set NFS/portmap ports by overriding /etc/sysconfig/nfs                 | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Enable the rpcbind and nfs services                                    | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Load files (iso,vfd) from existing rpms to ISO domain                  | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |

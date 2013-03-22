@@ -81,5 +81,6 @@ Please consider the following notes:
 *   Particularly a dot(".") and space(" ") characters are forbidden.
 *   For messages that are split across multiple lines, a line break can be added by using \\n\\.
 *   It is recommended to build the entire project after adding new messages to make sure the UI modules pass compilation (this is done by adding *gwt-user* & *gwt-admin* Maven profiles to the build command)
+*   When changing messages, do not change the translation files (e.g., AppErrors_es.properties), just the original English files. The translated files are handled in bulk before each release.
 
 [Category:Draft documentation](Category:Draft documentation) <Category:Engine> [Category:How to](Category:How to)

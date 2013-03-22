@@ -49,7 +49,7 @@ Trusted compute pools support on the UI will be found on the new/edit VM/templat
 
 Choose to run guest VM on a trusted node, please refer to figure 2. After guest VM is created, this VM could also be served as the VM template via import/export template function provided from GUI.
 
-![](figure2.jpg "figure2.jpg")
+![](figure5.jpg "figure5.jpg")
 
 2. Create a trusted VM based on the template generated from the trusted VM we created.
 
@@ -57,7 +57,7 @@ Choose to run guest VM on a trusted node, please refer to figure 2. After guest 
 
 3. Based on our current consideration, migration is not allowed for a trusted VM. If end user wants to launch a VM on a trusted host, migration options will be disabled to avoid complicated modification and logical confusion.
 
-![](figure4.jpg "figure4.jpg")
+![](figure6.jpg "figure6.jpg")
 
 #### Backend changes
 
@@ -79,6 +79,7 @@ The decision to update all nodes in the trust status cache while one node's cach
 
 *   table of vm_static will add a new field, true value of this field implies end users want to launch a VM on a trusted physical host.
 *   procedure of InsertVmStatic/ UpdateVmStatic/ DeleteVmStatic will modified accordingly to support VM's creation, modification and deletion.
+*   procedure of InsertVmTemplate / UpdateVmTemplate modified accordingly to support VM template.
 
 #### REST API changes
 

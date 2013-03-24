@@ -96,7 +96,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Configure engine-log-collector                                         | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Configure engine-iso-uploader                                          | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Configure engine-image-uploader                                        | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Configure PostgreSQL max_connections if using local DB                | Done                    | Not implemented      |                                                      | Low      |             |
+| Configure PostgreSQL max_connections if using local DB                | Done                    | In Progress          | [ Alex Lourie](User:AlexLourie)           | Low      |             |
 | Configure NFS exports for ISO Domain if requested                      | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
 | Allow importing existing NFS ISO Domain                                | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Create new NFS ISO Domain                                              | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |

@@ -63,6 +63,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support DB_ADMIN option                                               | Done                    | Done                 |                                                      |          |             |
 | Support DB_REMOTE_PASS option                                        | Done                    | Done                 |                                                      |          |             |
 | Support DB_SECURE_CONNECTION option                                  | Done                    | Feedback [12]        |                                                      |          |             |
+| Support local DB creation                                              | Done                    | In Progress          | [ Alex Lourie](User:AlexLourie)           |          |             |
 | Support NFS_MP option                                                 | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Support ISO_DOMAIN_NAME option                                       | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Support CONFIG_NFS option                                             | Done                    | Done[13]             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
@@ -108,13 +109,13 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Configure and enable iptables if requested                             | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
 | Configure and enable FirewallD if requested                            | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
 | Start / Stop Engine service when needed                                | Done                    | Done                 |                                                      |          |             |
-| Enable httpd_can_network_connect selinux flag                       | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |          |             |
-| Backup old Apache httpd config when needed                             | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |          |             |
-| Configure Apache mod_ssl for using engine apache keys                 | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |          |             |
-| Configure Apache for listening on requested HTTP port                  | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |          |             |
-| Configure Apache for listening on requested HTTPS port                 | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |          |             |
+| Enable httpd_can_network_connect selinux flag                       | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
+| Backup old Apache httpd config when needed                             | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
+| Configure Apache mod_ssl for using engine apache keys                 | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
+| Configure Apache for listening on requested HTTP port                  | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
+| Configure Apache for listening on requested HTTPS port                 | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
 | Configure Apache as proxy for the requests to the jboss service        | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |          |             |
-| Enable the httpd service                                               | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |          |             |
+| Enable the httpd service                                               | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
 | Enter rpm versions into yum version-lock                               | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
 | Add info message to the user finalizing the successful install         | Done                    | Not implemented      |                                                      | Low      |             |
 | Print additional message to the user finalizing the successful install | Done                    | Not implemented      |                                                      | Low      |             |

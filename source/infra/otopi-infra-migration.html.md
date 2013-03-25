@@ -69,7 +69,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support CONFIG_NFS option                                             | Done                    | Done[13]             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Display summary in interactive mode                                    | Done                    | Not implemented      |                                                      | Low      |             |
 | Initialize MiniYum                                                     | Done                    | Not implemented      |                                                      | Medium   |             |
-| Handle second execution warning                                        | Done                    | Not implemented      |                                                      | Medium   |             |
+| Handle second execution warning                                        | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
 | Handle loading and validating params from answer file                  | Done                    | Done[14]             |                                                      |          |             |
 | Mask input sets                                                        | Done                    | Not implemented      |                                                      | Low      |             |
 | Log masked configuration                                               | Done                    | Not implemented      |                                                      | Low      |             |

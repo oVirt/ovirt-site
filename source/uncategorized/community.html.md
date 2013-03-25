@@ -70,7 +70,7 @@ There are many [mailing lists](mailing lists) related to all aspects of oVirt. S
 
 Remember to be polite and [ read our etiquette guide](community guidelines).
 
-Join all of the following mailing lists that interest you:
+Join all of the following mailing lists that interest you.
 
 </div>
 </div>

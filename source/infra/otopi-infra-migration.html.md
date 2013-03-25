@@ -55,7 +55,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support AUTH_PASS option                                              | Done                    | Done[7]              |                                                      |          |             |
 | Support ORG_NAME option                                               | Done                    | Done[8]              |                                                      |          |             |
 | Support APPLICATION_MODE option                                       | Done                    | Done[9]              |                                                      |          |             |
-| Support DC_TYPE option                                                | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
+| Support DC_TYPE option                                                | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
 | Support DB_REMOTE_INSTALL option                                     | Done                    | In Progress          |                                                      | Medium   |             |
 | Support DB_LOCAL_PASS option                                         | Done                    | In Progress          |                                                      | Low      |             |
 | Support DB_HOST option                                                | Done                    | Done[10]             |                                                      |          |             |
@@ -92,7 +92,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Install engine database if doesn't exist                               | Done                    | Done                 |                                                      |          |             |
 | Set Application Mode (Both, Virt, Gluster)                             | Done                    | Done                 |                                                      |          |             |
 | Update VDC Options                                                     | Done                    | Done                 |                                                      |          |             |
-| Update default data center storage type                                | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
+| Update default data center storage type                                | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
 | Configure engine-log-collector                                         | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Configure engine-iso-uploader                                          | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Configure engine-image-uploader                                        | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |

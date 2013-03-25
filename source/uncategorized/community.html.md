@@ -42,9 +42,9 @@ Whether you push pixels or strive to put users first — if you're a designer, y
 
 Know how to program? Jump in and help us out. There's even a whole section of our website dedicated to you — start by reading the [ develop section](develop).
 
-### Community governance & structure
+### Community Governance & Structure
 
-oVirt is an [open source project](http://www.opensource.org) that is [ released every six months](release process) and is an [ openly governed project](governance). Learn more about [ how the project is structured](governance), and [ who is on the board](oVirt Board).
+oVirt is an [open source project](http://www.opensource.org) that is [ released every six months](release process) and is an [ openly governed project](governance). Learn more about [ how the project is structured](governance), [ who is on the board](oVirt Board), and some of our [ Sponsors and supporters](Sponsors_and_supporters).
 
 </div>
 <div class="span6 pad-left-small pad-right">

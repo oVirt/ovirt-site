@@ -30,7 +30,7 @@ VMs created using this domain exploit the QEMU's gluster block backend aka QEMU-
 *   **QEMU-GlusterFS integration** : Done. Available in upstream qemu.
 *   **libvirt enablement for Gluster** : Done. Available in upstream libvirt
 *   **GLUSTERFS_DOMAIN support in VDSM** : Done. Available in upstream vdsm
-*   **oVirt Engine / UI support** : WIP @ [1](http://gerrit.ovirt.org/8837) or see glusterfs topic branch in [2](http://gerrit.ovirt.org)
+*   **oVirt Engine / UI support** : Done. Available in upstream oVirt
 
 ## Detailed Description
 
@@ -51,7 +51,7 @@ GlusterFS fits as a network block device (<disk type=network.../>) in libvirt XM
 
 Performance numbers for QEMU-GlusterFS integration are available @
 
-[3](http://lists.nongnu.org/archive/html/gluster-devel/2012-08/msg00063.html) [4](http://lists.nongnu.org/archive/html/qemu-devel/2012-07/msg02718.html)
+[1](http://lists.nongnu.org/archive/html/gluster-devel/2012-08/msg00063.html) [2](http://lists.nongnu.org/archive/html/qemu-devel/2012-07/msg02718.html)
 
 ### Approach
 
@@ -100,16 +100,16 @@ glusterfs, glusterfs-server and glusterfs-fuse rpm packages must be installed.
 
 ## Documentation / External references
 
-*   PosixFS Support - [5](http://wiki.ovirt.org/wiki/Features/PosixFSConnection)
-*   Gluster home page - [6](http://www.gluster.org/)
-*   Using QEMU to boot a VM image on GlusterFS volume - [7](http://www.youtube.com/watch?v=JG3kF_djclg)
-*   Storage Virtualization for KVM - [8](http://www.linuxplumbersconf.org/2012/wp-content/uploads/2012/09/2012-lpc-virt-storage-virt-kvm-rao.pdf)
+*   PosixFS Support - [3](http://wiki.ovirt.org/wiki/Features/PosixFSConnection)
+*   Gluster home page - [4](http://www.gluster.org/)
+*   Using QEMU to boot a VM image on GlusterFS volume - [5](http://www.youtube.com/watch?v=JG3kF_djclg)
+*   Storage Virtualization for KVM - [6](http://www.linuxplumbersconf.org/2012/wp-content/uploads/2012/09/2012-lpc-virt-storage-virt-kvm-rao.pdf)
 
 ## Comments and Discussion
 
 ## Future Work
 
-GlusterFS as a VDSM repository engine.
+GlusterFS as a VDSM repository engine. Support for GlusterFS volume backed by Block backend (Block Device translator) GlusterFS enablement for json-rpc VDSM API
 
 ## Open Issues
 

@@ -109,7 +109,9 @@ glusterfs, glusterfs-server and glusterfs-fuse rpm packages must be installed.
 
 ## Future Work
 
-GlusterFS as a VDSM repository engine. Support for GlusterFS volume backed by Block backend (Block Device translator) GlusterFS enablement for json-rpc VDSM API
+*   GlusterFS as a VDSM repository engine.
+*   Support for GlusterFS volume backed by Block backend (Block Device translator)
+*   GlusterFS enablement for json-rpc VDSM API
 
 ## Open Issues
 

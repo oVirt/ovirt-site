@@ -93,6 +93,16 @@ AsyncTaskManager has a methods for registering + providing the initial list of t
 
 When engine restarts the CommandManager (which will be discussed later on) is registered as TaskStatusEventHandler at the TaskManager. TaskManager.poll method is being invoked periodically, and for each task status, the proper method at the TaskStatusEventHandler is executed. Currnely only "onTaskEnded" method is implemented.
 
+#### Command Manager
+
+Command Manager is a new class that is responsible for creating tasks, caching command entities, recieving callbacks from taskmgr and returning status of tasks.
+
+1.  Creating new tasks : Most of the code from AsyncTaskManager will be moved to command manager. A new interface Task is passed into the taskmgr from the CommandManager.
+2.  Caching commands : Command Entities which contain the parameters, command id and parent command id are cached using CommandEntityDAO. CommandEntityDAOImpl uses ehcache to cache command entities.
+3.  DecoratedCommand : We use the decorator pattern to intercept endAction on the command and call handleEndActionResult which was previously called from EntityAsyncTask.
+4.  CallBack : A new interface with one method endAction. The Command Manager implements this interface and registers itself with the taskmgr. When the command ends the taskmgr calls the endAction method on the callback.
+5.  Poller : A new interface Poller with methods for returning the status of tasks. CommandManager implements this interface and returns statuses by calling RunVdsCommand.
+
 The changes from the current implementation are:
 
 1.  Parameters - the task entity will no longer have parameters - as they are the parameters of the "Root command" (I.E - the parameters of the command which is first in the hierarchy )

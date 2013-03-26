@@ -44,7 +44,7 @@ The BlockStorageDomain class in VDSM could be adopted in a way that it accepts D
 *   CON: We need to implement a new sub-class of StorageDomain (or BlockStorageDomain). When creating an LV for a virtual machine it needs to put a DRBD device directly on that LV. In addition to that VDSM needs to [promote the DRBD device into primary mode](http://www.drbd.org/users-guide-8.4/s-switch-resource-roles.html) before starting a VM on it. After a VM was stopped (or migrated away) it needs to demote it into secondary mode. (During a online-migration both sides should be primary).
     As we LINBIT-guys have little knowledge about VDSM, we would welcome a few pointers by VDSM guys how to tackle that task.
 
-##### open questions
+#### open questions
 
 I got the impression that for this it is necessary that the shared device presents some kind of UUID to VDSM. VDSM uses this UUID to identify the storage instance on multiple nodes. Is that correct?
 

@@ -103,6 +103,8 @@ Command Manager is a new class that is responsible for creating tasks, caching c
 4.  CallBack : A new interface with one method endAction. The Command Manager implements this interface and registers itself with the taskmgr. When the command ends the taskmgr calls the endAction method on the callback.
 5.  Poller : A new interface Poller with methods for returning the status of tasks. CommandManager implements this interface and returns statuses by calling RunVdsCommand.
 
+![](CommandManager_class_diagram.png "CommandManager_class_diagram.png")
+
 The changes from the current implementation are:
 
 1.  Parameters - the task entity will no longer have parameters - as they are the parameters of the "Root command" (I.E - the parameters of the command which is first in the hierarchy )

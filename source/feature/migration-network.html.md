@@ -79,7 +79,7 @@ The `migrate` verb should be extended with an additional parameter, specifying t
 
 #### Second phase
 
-*   Add a per-VM propery of migrationNetwork. If Null, the cluster migrationNetwork would be used.
+*   Add a per-VM property of migrationNetwork. If Null, the cluster migrationNetwork would be used.
 *   Let the user override the VM migration network in the migrate API and in the GUI.
 
 *Target:* TBD

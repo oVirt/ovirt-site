@@ -133,6 +133,11 @@ For ovirt 3.1
       [root@rhevm-dot4 ~]# engine-config -s UserDefinedVMProperties='SerialConsole=^([a-z]|[0-9])+$' --cver=3.1
       [root@rhevm-dot4 ~]# service ovirt-engine restart
 
+For ovirt 3.2
+
+      [root@rhevm-dot4 ~]# engine-config -s UserDefinedVMProperties='SerialConsole=^([a-z]|[0-9])+$' --cver=3.2
+      [root@rhevm-dot4 ~]# service ovirt-engine restart
+
 3. Edit the VM's custom properties. Enter "SerialConsole=0"[\*]
 
 *   any string will work instead of 0
@@ -148,13 +153,13 @@ For ovirt 3.1
       import hooking
       import traceback
       '''
-      add serial console support for domain xml:
-<serial type='pty'>
-` `<target port='0'/>
-</serial>
-` `<console type='pty'>
-` `<target type='serial' port='0'/>
-</console>
+      # add serial console support for domain xml:
+`# `<serial type='pty'>
+`# `<target port='0'/>
+`# `</serial>
+`#  `<console type='pty'>
+`#  `<target type='serial' port='0'/>
+`# `</console>
       '''
       if os.environ.has_key('SerialConsole'):
           try:

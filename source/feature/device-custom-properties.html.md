@@ -12,7 +12,7 @@ wiki_last_updated: 2013-11-24
 
 ### Summary
 
-Define special parameters per VM virtual device, and pass them down to vdsm hooks when a VM is started or a device is plugged into the VM.
+Define special parameters per VM virtual device, and pass them down to vdsm hooks when a VM is started or migrated, and when a device is plugged or unplugged into the VM.
 
 ### Owner
 

@@ -20,7 +20,7 @@ execute the following command as root:
 
       yum install -y bridge-utils
 
-### Configuring Ovirt's Repository
+### Configuring oVirt's Repository
 
 Execute the following command:
 

@@ -52,7 +52,7 @@ Notes:
 
 ### Step 1 - Launching Development Mode
 
-Make sure JBoss AS is running and launch Development Mode for WebAdmin or UserPortal:
+Make sure JBoss AS is running and launch Development Mode for the given Frontend application:
 
     $ cd $GWT_APP_DIR
     $ mvn gwt:debug -Pgwtdev,gwt-admin,gwt-user -Dgwt.noserver=true
@@ -67,7 +67,7 @@ You should see following output in console: `Listening for transport dt_socket a
 
 ### Step 2 - Connecting to Development Mode from Java IDE
 
-In Eclipse, create new debug configuration for WebAdmin or UserPortal via "Run | Debug Configurations | Remote Java Application | New launch configuration":
+In Eclipse, create new debug configuration via "Run | Debug Configurations | Remote Java Application | New launch configuration":
 
 *   In Connect tab:
     -   Project: choose WebAdmin or UserPortal project that you previously imported into Eclipse
@@ -105,11 +105,51 @@ Whenever you make code changes while debugging:
 *   Eclipse might complain that changes cannot be hot-swapped, in this case just click "Terminate" and reconnect again
 *   Reload (refresh) the application in web browser, this will start new Development Mode session
 
+## Compiling Frontend applications for specific browser(s)
+
+In order to speed up GWT compilation, you can compile Frontend applications only for specific browser(s).
+
+For example, to compile WebAdmin and UserPortal only for Firefox:
+
+    $ cd $OVIRT_HOME
+    $ mvn clean install -Pdep,gwt-admin,gwt-user -Dgwt.userAgent=gecko1_8
+
+User agents supported by GWT compiler:
+
+*   `ie8` - Microsoft Internet Explorer 8
+*   `ie9` - Microsoft Internet Explorer 9 and above
+*   `gecko1_8` - Mozilla Firefox
+*   `safari` - Safari
+*   `opera` - Opera
+
+Notes:
+
+*   Accessing the application in browser that wasn't specified for GWT compilation results in blank page being shown.
+*   Never use `ie6` with `gwt.userAgent`, Microsoft Internet Explorer 6 and 7 are not supported by oVirt Frontend applications`*`.
+
+`*` Even though GWT technically supports `ie6` user agent, trying to run Frontend applications in Microsoft Internet Explorer 6 or 7 results in terrible performance and user experience. This is because Frontend applications leverage the "browser as a platform" philosophy, using JavaScript to drive user interface as a single-page web application. Unfortunately, Microsoft Internet Explorer's JavaScript engine (as well as its rendering engine) are suboptimal to handle such kind of applications.
+
+## Compiling Frontend applications for specific locale(s)
+
+By default, Frontend applications are compiled only for English (en) locale.
+
+For example, to compile WebAdmin and UserPortal for English, French and Japanese:
+
+    $ cd $OVIRT_HOME
+    $ mvn clean install -Pdep,gwt-admin,gwt-user -Dgwt.locale=en,fr,ja
+
+To compile Frontend applications for all supported locales, just use the `all-langs` profile:
+
+    $ cd $OVIRT_HOME
+    $ mvn clean install -Pdep,gwt-admin,gwt-user,all-langs
+
+See `all-langs` profile in `$OVIRT_HOME/frontend/webadmin/modules/pom.xml` for a full list of supported locales.
+
 ## Compiling Frontend applications in detailed mode
 
 Sometimes it's necessary to profile or analyze GWT applications, e.g. fixing memory leaks or identifying performance bottlenecks in different web browsers. GWT compiler produces optimized and obfuscated JavaScript by default, which is hard to work with.
 
-To compile WebAdmin or UserPortal in detailed mode, reducing the level of code optimization and preventing obfuscation, you can do full oVirt build with `gwtdev` profile:
+To compile Frontend applications in detailed mode, reducing the level of code optimization and preventing obfuscation, you can do full oVirt build with `gwtdev` profile:
 
     $ cd $OVIRT_HOME
     $ mvn clean install -Pdep,gwt-admin,gwt-user,gwtdev

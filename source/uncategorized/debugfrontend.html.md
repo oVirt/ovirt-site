@@ -78,6 +78,8 @@ In Eclipse, create new debug configuration via "Run | Debug Configurations | Rem
 
 Click "Apply" and "Debug", so that Eclipse now connects to Development Mode, which spawns Development Mode GUI.
 
+![GWT Development Mode](GWT_Development_Mode.png "GWT Development Mode")
+
 ### Step 3 - Launching the application in web browser
 
 Open your favorite web browser and navigate to one of debug URLs below:

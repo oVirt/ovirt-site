@@ -96,12 +96,20 @@ In REST API the VM and template will get a new optional tag **watchdog** directl
 ` `</status>
 ` `<memory>`536870912`</memory>
        ...
-<watchdog>
-`  `<model>`i6300esb`</model>
-`  `<action>`reset`</action>
-</watchdog>
+**<link rel="watchdogs" href="/api/vms/87cd09df-88af-4958-8aba-87b14b92ca39/watchdogs"/>**
        ...
 </vm>
+
+and then in the referenced watchdog url you will see something like this
+
+<watchdogs>
+` `<watchdog>
+`   `<model>`i6300esb`</model>
+`   `<action>`reset`</action>
+` `</watchdog>
+<watchdogs>
+
+Note here that there can be only one watchdog.
 
 The watchdog cards and available actions will also get a list in the engine capabilities list (api/capabilities)
 

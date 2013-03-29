@@ -12,12 +12,13 @@ wiki_last_updated: 2015-01-08
 
 ### Summary
 
-The aim of this feature is to make it possible to connect to VM consoles using HTML 5 VNC client called noVNC.
+The aim of this feature is to make it possible to connect to VM consoles using HTML 5 VNC client called "noVNC".
 
-### Owner
+### Status
 
-*   Feature owner: [ Frank Kobzik](User:Fkobzik)
-*   Email: fkobzik@redhat.com
+*   Integrating noVNC client files into engine - done
+*   Websockets proxy customization - done
+*   Security over TLS
 
 ### Benefit to oVirt
 
@@ -32,20 +33,20 @@ The noVNC client requires a websocket server running somewhere (this is part of 
 
       (Note: There is a patch that integrates websockets directly to Qemu, but it will not be merged into DS at the time we need it to be there. As soon as it's merged, we should switch to using this feature instead of standalone websockets server).
 
-#### Passing VNC console data from the engine to the client.
+### Passing VNC console data from the engine to the client.
 
-For the client to know where to connect, the appropriate information (VNC host, port, ticket) must be passed to it. This information is known by the engine after creation. It will be passed to noVNC client using js function window.postData (HTML5 spec).
+For passing information that noVNC client needs for connection, a HTML5 window.postMessage function can be used.
 
-#### Location of the websockets server
+### Location of the websockets server
 
 There are three possible places where the websocket server can run:
 
-1.  On client (where the browser runs)
-2.  On the machine where engine runs (or on some other (_single_) node)
-3.  On single machine outside engine internal network (FWs would still apply)
-4.  On each host
+1.  On the machine where engine runs
+2.  On single machine outside engine internal network (FWs would still apply)
+3.  On each host
+4.  (On client (where the browser runs).)
 
-From performance POV the 4th option would be the best, however the implementation wouldn't be trivial (e.g. maintaining the lifecycle of the websockets servers). I suggest using 2nd or 3rd option for now and then switch to websockets in Qemu, when they are available.
+From performance POV the 4th option would be the best, however the implementation wouldn't be trivial (e.g. maintaining the lifecycle of the websockets servers).
 
 ### Security considerations
 
@@ -53,8 +54,19 @@ The websocket server runs on a specific port and allows clients to connect to an
 
 (Maybe the alternative would be to run the websockets server on a separate machine (point #3 in previous paragraph -- TODO add a link) and configure the FW to restrict connections from this machine to hosts and ports that conform to VNC endpoints).
 
-#### Secure communication
+In any case, the websocket proxy must have restricted access to hosts (only allow access to ports that conform to VNC).
 
-using wss. TBD
+### Secure communication
+
+Secure communication is ensured by using TLS. For this reason, websockets server must posses a certificate of a server that serves the noVNC client files. The distribution of the certificate must be discussed, it depends on the where are the client files served from:
+
+*   Client is served from the engine
+    -   In this case the certificate can be shared with the engine.
+    -   Complication: The however uses a certificate stored in the keystore file. The proxy expects the certificate to be in the plain PEM format.
+    -   Possible complication: If the websocket proxy runs on a machine that is different from the engine's machine, the cert must be transfered to it.
+*   Client is served from hosts
+    -   In this case each host runs its own websockets proxy which serves the client
+    -   The vdsm certificate (in PEM format) could be used for websocket proxy as well.
+    -   Complication: As previously mentioned - maintanance of lifecycle of the websocket proxy could be problematic.
 
 <Category:Feature>

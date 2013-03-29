@@ -32,7 +32,7 @@ This feature has three main aims:
 
 ### Limitations
 
-*   the feature will not allow changing console type from vnc to spice and vice versa as this affects the VM entity and requires VM restart
+*   this feature will not allow changing console type from vnc to spice and vice versa (on running VM) as this affects the VM entity and requires VM restart
 
 ### Benefit to oVirt
 

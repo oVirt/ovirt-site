@@ -158,3 +158,20 @@ Configuration example: ![](Maven-Configurations.png "fig:Maven-Configurations.pn
 *   Same as Net Beans...
 *   [Backend with jrebel](Backend with jrebel)
 *   [OVirt - disable SSL in VDSM](OVirt - disable SSL in VDSM)
+
+### Troubleshooting
+
+*   The following problem was encountered in eclipse, but is probably not confined to a specific IDE:
+
+After build - Maven problem, invalid LOC header (bad signature).
+The fix:
+
+    delete repository
+    #> rm -rf ~/.m2/repository/*
+
+    use maven
+    #> mvn test
+
+Some explanation:
+The cause of the problem is a corrupt jar in the maven repository, and the above removes all jars and re-downloads them when using maven.
+For more details read [here](http://tech.deepumohan.com/2012/07/maven-invalid-cen-bad-signature-invalid.html).

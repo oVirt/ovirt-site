@@ -84,6 +84,5 @@ Features being considered for inclusion/already in master:
 *   [Features/Quantum_Integration](Features/Quantum_Integration)
 *   [Feature/NetworkReloaded](Feature/NetworkReloaded) reimplementation of configNetwork in vdsm. Should have zero (0) effect on users, but required for future support for ovs/NM
 *   [Features/Multiple Gateways](Features/Multiple Gateways) configure more gateways on host, on top of the default one.
-*   [Features/Device Custom Properties](Features/Device Custom Properties) per-device custom properties
 
 <Category:Releases> [Category:Release management](Category:Release management)

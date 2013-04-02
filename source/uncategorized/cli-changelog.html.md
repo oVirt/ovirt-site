@@ -8,6 +8,20 @@ wiki_last_updated: 2013-11-14
 
 # Cli-changelog
 
+         * Tue Apr  2 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.3.0.1-1
+         - at vm.start() --vm-os-boot doesn't send the order of devices #921464
+         - rephrase status command help
+         - add option to retrieve system summary #854369
+         - accept IP address as FQ argument rather than string #886067
+         - fix broken pipe
+         - Bad error message when trying to create a new Role #908284
+         - add flag --dont-validate-cert-chain #915231
+         - collection-based-options could be passed in 2 ways #859684
+         - make NO_SUCH_ACTION error a bit more clear
+         - ovirt-cli DistributionNotFound exception on f18 #881011
+         - ovirt-shell misleading help for command "connect" #907943
+         - show event -id accept strings instead of numeric values #886786
+         - Use vncviewer passwordFile instead of passwdInput
          * Sun Jan  13 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.2.0.9-1
          - ovirt-cli DistributionNotFound exception on f18 #881011
          - adding to help message ovirt-shell configuration details #890800

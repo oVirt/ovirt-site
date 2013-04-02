@@ -91,6 +91,16 @@ of 'esc'+':' combination ;)
 
 *   On some machines, editing a properties file in eclipse results in a lot of "diff" in git, making it difficult to review the code change. It may be a good idea to verify this in the beginning, and if the problem exists, edit the properties files using an external text editor.
 
+#### Troubleshooting
+
+*   Eclipse may get stuck on start-up while building worspace with no progress.
+
+Remove the following file:
+ .metadata/.plugins/org.eclipse.core.resources/.snap
+and restart eclipse.
+If the above didn't help try also removing
+ .metadata/.plugins/org.eclipse.core.resources/.snap . These files should be located under workspace.
+
 ### IntelliJ
 
 *   Install IntelliJ (there is a community edition) - good stable version is 10.5.x, but there are also 11 and 12 now available.

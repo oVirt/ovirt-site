@@ -50,7 +50,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support HTTPS_PORT option                                             | Done                    | Done[5]              |                                                      |          |             |
 | Support RANDOM_PASSWORDS option                                       | Done                    | Not required[6]      |                                                      | Medium   |             |
 | Overriding given passwords with random                                 | Done                    | Not required[7]      |                                                      | Medium   |             |
-| Support MAC_RANGE option                                              | Done                    | Not implemented      |                                                      | Medium   |             |
+| Support MAC_RANGE option                                              | Done                    | Feedback             | [ Alex Lourie](User:AlexLourie)           | Medium   |             |
 | Support HOST_FQDN option                                              | Done                    | Done[8]              |                                                      |          |             |
 | Support AUTH_PASS option                                              | Done                    | Done[9]              |                                                      |          |             |
 | Support ORG_NAME option                                               | Done                    | Done[10]             |                                                      |          |             |
@@ -63,7 +63,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support DB_ADMIN option                                               | Done                    | Done                 |                                                      |          |             |
 | Support DB_REMOTE_PASS option                                        | Done                    | Done                 |                                                      |          |             |
 | Support DB_SECURE_CONNECTION option                                  | Done                    | Feedback [14]        |                                                      |          |             |
-| Support local DB creation                                              | Done                    | In Progress          | [ Alex Lourie](User:AlexLourie)           |          |             |
+| Support local DB creation                                              | Done                    | Feedback             | [ Alex Lourie](User:AlexLourie)           |          |             |
 | Support NFS_MP option                                                 | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Support ISO_DOMAIN_NAME option                                       | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Support CONFIG_NFS option                                             | Done                    | Done[15]             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |

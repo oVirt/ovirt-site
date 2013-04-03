@@ -25,7 +25,7 @@ The ability to run the Engine as a VM on the hosts that are managed by this Engi
 
 ### Current status
 
-*   Still being discussed
+*   Initial POC devel
 *   Last updated: ,
 
 ### Detailed Description

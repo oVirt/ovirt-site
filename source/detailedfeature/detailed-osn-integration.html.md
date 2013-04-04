@@ -42,6 +42,13 @@ The integration of network providers into oVirt will be incremental. The followi
 
 ### Phase 1 - Tech Preview
 
+*   Add Quantum as an external provider.
+    -   Support for Linux Bridge plugin
+    -   Support for OVS plugin?
+*   Each quantum plugin will have a corresponding vNIC driver in VDSM, that can connect the vNIC to quantum.
+    -   Current implementation will be done by hooks.
+*   No support for RHEV-H, only RHEL.
+
 #### Network provider entity
 
 *   Introducing a 'Provider' entity that will have the following properties:
@@ -84,6 +91,19 @@ The integration of network providers into oVirt will be incremental. The followi
 *   On VM stop, we need to "un-provision" the NIC of each externally provided network from the relevant provider
 
 ### Future phases
+
+#### REST API support
+
+*   Providers will be added as a top-level collection.
+*   A provider will have a capabilities sub collection:
+    -   Currently, the only capability type will be "networking".
+    -   Capability resource ID will be computed according to provider ID + capability type.
+    -   Networking capability will have a "networks" sub collection:
+        -   Networks sub collection will be the networks as discovered on the provider.
+        -   Network resource will have ID as is on provider (or computed from it).
+*   Importing a network would be done by copying the resource XML and posting it on the top level networks resource.
+    -   The imported network would have a new ID which is oVirt internal.
+    -   The imported network would have a link to it's origin network (The resource in the provider/capability context).
 
 #### Allow provisioning networks on external providers
 

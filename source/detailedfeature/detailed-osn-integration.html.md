@@ -24,7 +24,7 @@ A network provider is an external provider that can provide networking capabilit
 
 There should be a way for oVirt to discover what networks are available on the provider. An oVirt user could then decide to import a network, that is provided by the provider, as a new one into a data center, or attach it to an existing data center network, marking that the network is also provided by this provider (in addition to any other provider that provides it).
 
-Currently, we assume that the networks provided by the provider are available on all hosts in the data center, but it is possible to have this capability added so that we would be able to query the provider if a specific host provides a given network or not.
+Currently, the engine assumes that the networks provided by the provider are available on all hosts in the data center, but it might be possible to have this capability added so that we would be able to query the host and see if it is providing networks for a given provider.
 
 ### Network provisioning
 

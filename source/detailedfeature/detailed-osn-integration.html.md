@@ -125,6 +125,10 @@ Please see the [feature page](Features/Quantum_Integration).
 
 ## Documentation / External references
 
+*   <https://wiki.openstack.org/wiki/Quantum/APIv2-specification>
+*   <http://docs.openstack.org/api/openstack-network/2.0/content/>
+*   <http://docs.openstack.org/trunk/openstack-network/admin/content/>
+
 ## Comments and Discussion
 
 <Talk:Features/Detailed_Quantum_Integration>

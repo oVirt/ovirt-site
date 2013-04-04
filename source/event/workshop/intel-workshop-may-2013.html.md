@@ -76,28 +76,28 @@ On May 9th, 2013, The oVirt workshop will also have two tracks running. The Deve
 <div class="span6 pad-sides">
 #### Wednesday, May 9, 2013 - Developer Track
 
-| Time          | Title                                           | Speaker         |
-|---------------|-------------------------------------------------|-----------------|
-| 09:00-10:00   | Extending oVirt with the API and SDK            | To be announced |
-| 10:00-11:00   | Packaging oVirt for Ubuntu                      | Mark Wu         |
-| 11:00 - 11:15 | colspan=2| Coffee Break                         |
-| 11:15-12:15   | oVirt SLA- MoM as host level enforcement agent  | Doron Fediuck   |
-| 12:15-13:30   | colspan=2| Lunch                                |
-| 13:30-14:30   | Trusted Compute Pools Deep Dive                 | Gang Wei        |
-| 14:30-15:30   | oVirt and Quantum                               | to be announced |
-| 15:30-15:45   | colspan=2| Coffee break                         |
-| 15:30-17:00   | The present and future of SetupNetwork in oVirt | Dan Kenisburg   |
-| 17:00-17:30   | Closing remarks and closing keynote             |
+| Time                   | Title                                            | Speaker                     |
+|------------------------|--------------------------------------------------|-----------------------------|
+| width=20%| 09:00-10:00 | width=50% | Extending oVirt with the API and SDK | width=30% | To be announced |
+| 10:00-11:00            | Packaging oVirt for Ubuntu                       | Mark Wu                     |
+| 11:00 - 11:15          | colspan=2| Coffee Break                          |
+| 11:15-12:15            | oVirt SLA- MoM as host level enforcement agent   | Doron Fediuck               |
+| 12:15-13:30            | colspan=2| Lunch                                 |
+| 13:30-14:30            | Trusted Compute Pools Deep Dive                  | Gang Wei                    |
+| 14:30-15:30            | oVirt and Quantum                                | to be announced             |
+| 15:30-15:45            | colspan=2| Coffee break                          |
+| 15:30-17:00            | The present and future of SetupNetwork in oVirt  | Dan Kenisburg               |
+| 17:00-17:30            | Closing remarks and closing keynote              |
 
 </div>
 <div class="span6 pad-sides">
 #### Wednesday, May 9, 2013 - Self paced labs / oVirt Install
 
-| Time        | Title                            | Speaker         |
-|-------------|----------------------------------|-----------------|
-| 09:00-12:00 | oVirt Hands-on Workshop          | To be announced |
-| 12:00-13:30 | colspan=2| Lunch                 |
-| 13:30-16:00 | oVirt and Gluster configurations | To be announced |
+| Time                   | Title                               | Speaker                     |
+|------------------------|-------------------------------------|-----------------------------|
+| width=20%| 09:00-12:00 | width=50% | oVirt Hands-on Workshop | width=30% | To be announced |
+| 12:00-13:30            | colspan=2| Lunch                    |
+| 13:30-16:00            | oVirt and Gluster configurations    | To be announced             |
 
 </div>
 </div>

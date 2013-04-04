@@ -34,8 +34,10 @@ There are two possible approaches to the challenge. **Right now, the "DRBD on LV
 *   PRO: No DRBD changes needed. One can use any 8.3.x or 8.4.x release out there, readily available through many distribution channels.
 *   CON: We need to implement a new sub-class of StorageDomain (or BlockStorageDomain). When creating an LV for a virtual machine it needs to put a DRBD device directly on that LV. In addition to that VDSM needs to [promote the DRBD device into primary mode](http://www.drbd.org/users-guide-8.4/s-switch-resource-roles.html) before starting a VM on it. After a VM was stopped (or migrated away) it needs to demote it into secondary mode. (During a online-migration both sides should be primary).
     As we LINBIT-guys have little knowledge about VDSM, we would welcome a few pointers by VDSM guys how to tackle that task.
+    In order to get rid of the dual-primary mode during an online-migration, QEMU/KVM needs to be updated to open the backing block device late during an online-migration.
+*   CON: More work on the engine is needed in order to make oVirt aware of replicated LVs
 
-In order to get rid of the dual-primary mode during an online-migration, QEMU/KVM needs to be updated to open the backing block device late during an online-migration.
+Provisioning of DRBD replicated LVs will be provided by an independend project called drbdmanage. drbdmanage by itself is currently in early implementation phase. We at LINBIT will put more attention to this project and will make an early release available as soon as possible.
 
 #### DRBD on VG level (StorageDomain level)
 

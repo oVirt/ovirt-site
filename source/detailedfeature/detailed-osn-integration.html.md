@@ -121,7 +121,7 @@ The integration of network providers into oVirt will be incremental. The followi
 
 ## Dependencies / Related Features and Projects
 
-Please see the [Features/Quantum_Integration feature page](Features/Quantum_Integration feature page).
+Please see the [feature page](Features/Quantum_Integration).
 
 ## Documentation / External references
 

@@ -28,7 +28,7 @@ Currently, we assume that the networks provided by the provider are available on
 
 ### Network provisioning
 
-The network can be exported from oVirt into the network provider, but from that moment on it will be as if the network was discovered from the provider - i.e. if it goes out of sync, that's OK from oVirt's perspective.
+The network can be exported from oVirt into the network provider, which means a user will be able to add the network to Quantum via oVirt, instead of using the Quantum API directly. However, from that moment on it will be as if the network was discovered from the provider - i.e. if it goes out of sync, that's OK from oVirt's perspective.
 
 ### Virtual NIC provisioning
 

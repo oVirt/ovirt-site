@@ -127,6 +127,8 @@ Please see the [feature page](Features/Quantum_Integration).
 
 ## Comments and Discussion
 
+<Talk:Features/Detailed_Quantum_Integration>
+
 ## Open Issues
 
 ## Proof of Concept

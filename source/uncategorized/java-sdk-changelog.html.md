@@ -8,6 +8,13 @@ wiki_last_updated: 2013-12-25
 
 # Java-sdk-changelog
 
+        * Thu  Apr 4 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.6-1
+         - added new collection ClusterGlusterVolumeGlusterBrickStatistics
+         - added new properties to the GlusterBrick
+         - to vm added cpu.mode
+         - to host install action added "image" parameter
+         - ignore case in factory method lookup
+
         * Thu  Mar 7 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.5-1
          - use explicit classloader for JAXBContext
          - implement support for (user defined) session authentication

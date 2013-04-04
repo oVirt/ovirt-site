@@ -8,69 +8,131 @@ wiki_revision_count: 77
 wiki_last_updated: 2013-07-07
 ---
 
-# Intel Workshop May 2013
+__NOTOC__
 
-Intel oVirt Workshop May 2013 | Call For Participation
+<div class="row">
+<div class="offset1 span10">
+# Intel oVirt Workshop May 2013
 
-<b>All submissions must be received by March 29th, 2013 at 11:55pm (PST).</b>
+</div>
+<div class="offset1 span7">
+Ovirt strives to become the first and best truly open and comprehensive data center virtualization management suite. As the oVirt community is rapidly evolving and growing one of the ways we look to connect is through oVirt Workshops around the globe. The May 2013 oVirt workshop will be held at [Intel's Shanghai Campus](https://maps.google.com/maps?q=No.+880+Zi+Xing+Road+Zizhu+Science+Park+Minhang,+Shanghai+200241+China&hl=en&sll=23.141807,113.324834&sspn=0.077662,0.153122&t=h&hq=No.+880+Zi+Xing+Road+Zizhu+Science+Park+Minhang,+Shanghai+200241+China&radius=15000&z=13). This workshop will be designed to encourage collaboration in our community, as well as help answer questions about the project from both a developer and user's perspective. Slides will be made available here prior to the event. We look forward to seeing you there!
 
-Ovirt strives to become the first and best truly open and comprehensive data center virtualization management suite. As the oVirt community is rapidly evolving and growing one of the ways we look to connect is through oVirt Workshops around the globe. The May 2013 oVirt workshop will be held at [Intel's Shanghai Campus](https://maps.google.com/maps?q=No.+880+Zi+Xing+Road+Zizhu+Science+Park+Minhang,+Shanghai+200241+China&hl=en&sll=23.141807,113.324834&sspn=0.077662,0.153122&t=h&hq=No.+880+Zi+Xing+Road+Zizhu+Science+Park+Minhang,+Shanghai+200241+China&radius=15000&z=13). This workshop will be designed to encourage collaboration in our community, as well as help answer questions about the project from both a developer and user's perspective. We look forward to seeing you there!
+</div>
+<div class="span3"  style="text-align:center">
+*Register [Here!](http://ovirtshanghai2013.eventbrite.com)*
 
-## Suggested Topics
+</div>
+</div>
+<hr>
+<div class="row">
+<div class="span12 pad-sides">
+### Event details
 
-*   Getting started developing oVirt
-*   oVirt for the systems administrator
-*   Where oVirt fits in the enterprise
-*   Gluster Integration
-*   leveraging oVirt for Gluster only infrastructures
-*   Case studies on cost savings with oVirt and Open Source data center virtualization
-*   Troubleshooting oVirt
-*   Hardware optimations for virtualization
-*   oVirt Plugin development
-*   oVirt architecture from a security and best practices point of view.
-*   oVirt Project Roadmaps
-*   Deep dives into features/areas
-*   Deep dives into code/debugging
+</div>
+<div class="span12">
+On May 8th, 2013, The oVirt workshop is pleased to announce we'll be trying something new. In addition to our Operations Track, we'll be having a concurrent Gluster track on site as well. Be sure to check out both tracks and get a look at how oVirt can be leveraged to manage more in your virtualized data center.
 
-## Proposal Guidelines
+</div>
+<div class="span6 pad-sides">
+#### Wednesday, May 8, 2013 - Operations Track
 
-### Tips For Preparing a Successful Proposal
+| Time                   | Title                                                   | Speaker                     |
+|------------------------|---------------------------------------------------------|-----------------------------|
+| 08:30-09:00            | colspan=2| Opening remarks and Keynote                  |
+| width=20%| 09:00-10:00 | width=50% | oVirt Introduction                          | width=30% | To be announced |
+| 10:00-11:00            | oVirt Architecture Overview                             | To be announced             |
+| 11:00-11:15            | colspan=2| Coffee Break                                 |
+| 11:15 - 12:15          | Deploying and testing oVirt using nested virtualization | Mark Wu                     |
+| 12:15-13:30            | colspan=2| Lunch                                        |
+| 13:30-14:30            | oVirt SLA overview                                      | Doron Fediuck (Red Hat)     |
+| 14:30-15:30            | deploying oVirt Node                                    | To be announced             |
+| 15:30-15:45            | colspan=2| Coffee Break                                 |
+| 15:45-17:00            | Converged Infrastructure with oVirt and Gluster         | Theron Conrey (Red Hat)     |
 
-*   Identify your target audience: There are going to be a diverse group in attendance, don't be afraid to go deep in content.
-*   What is the level of expertise required: Is your presentation configured for for beginners, advanced users, core developers, IT professionals, CTOs?
-*   Keep it relevant: why would someone want to attend your presentation? Is this a critical project or are you providing insight into an existing problem and require community input?
-*   Watch the clock: your presentation should stick around only have 50 minutes, so make sure your proposal has a very specific scope
-*   Not just technical knowledge: Don't limit your presentation to oVirt only topics. Integration is key, so feel free to submit proposals in regards to hardware or configuration options that help strengthen either the oVirt project or oVirt deployments.
-*   Engage! We are looking for the type of presenters who will engage people so that they close their laptops (or at least look up every once in a while) and listen.
-*   If you are proposing a panel discussion, please ensure that you mention all of the participants (please include company name and job title).
-*   For technical tutorials, please keep in mind that your material should be focused on giving attendees the ability to walk away with skills and/or knowledge that they can use immediately.
+</div>
+<div class="span6 pad-sides">
+#### Wednesday, May 8th, 2013 - oVirt / Gluster Integration Track
 
-## Presentation Types
+| Time        | Title                                                               | Speaker                    |
+|-------------|---------------------------------------------------------------------|----------------------------|
+| 08:30-09:00 | colspan=2| Opening remarks and Keynote                              |
+| 09:00-10:00 | Gluster Community Overview and Roadmap                              | John Mark Walker (Red Hat) |
+| 10:00-11:00 | Gluster Architecture Overview                                       | To be announced            |
+| 11:00-11:15 | colspan=2| Coffee break                                             |
+| 11:15-12:15 | oVirt Configurations and Gluster                                    | To be announced            |
+| 12:15-13:30 | colspan=2| Lunch                                                    |
+| 13:30-14:30 | Converged Infrastructure with oVirt and Gluster                     | Theron Conrey (Red Hat)    |
+| 14:30-15:30 | Gluster and Swift Object Store (UFO)                                | John Mark Walker (Red Hat) |
+| 15:30-15:45 | colspan=2| Coffee break                                             |
+| 15:45-16:45 | Developing with GlusterFS - translator framework, libgfapi and more | Vijay Bellur (Red Hat)     |
 
-50-minute presentations and/or 2-hour tutorials
+</div>
 
-## Submission Requirements
+<div class="span12">
+On May 9th, 2013, The oVirt workshop will also have two tracks running. The Developer track will be a deep dive into oVirt, and there will also be a hands on lab and hackspace for attendees new to the oVirt User community.
 
-1.  Choose a submission type (Presentation, Panel, Tutorial)
-2.  Choose the category for your proposal (Developer, Operations, Business/Legal, Other)
-3.  Select a specific topic that best describes the topic of your proposal (See "Suggested Topics" list)
-4.  Provide a 150 word biography including your speaking experience
-5.  Prepare a 150 word abstract that briefly summarizes your proposal. It should be split into two paragraphs:
-    1.  A brief summary of your presentation, including key highlights
-    2.  Who is your audience, what can they expect, your speaking experience and why your presentation is important to the Linux ecosystem and this event.
+</div>
+<div class="span6 pad-sides">
+#### Wednesday, May 9, 2013 - Developer Track
 
-6.  List any technical requirements that you have for your presentation (i.e. internet connectivity, whiteboard, etc.)
+| Time          | Title                                           | Speaker         |
+|---------------|-------------------------------------------------|-----------------|
+| 09:00-10:00   | Extending oVirt with the API and SDK            | To be announced |
+| 10:00-11:00   | Packaging oVirt for Ubuntu                      | Mark Wu         |
+| 11:00 - 11:15 | colspan=2| Coffee Break                         |
+| 11:15-12:15   | oVirt SLA- MoM as host level enforcement agent  | Doron Fediuck   |
+| 12:15-13:30   | colspan=2| Lunch                                |
+| 13:30-14:30   | Trusted Compute Pools Deep Dive                 | Gang Wei        |
+| 14:30-15:30   | oVirt and Quantum                               | to be announced |
+| 15:30-15:45   | colspan=2| Coffee break                         |
+| 15:30-17:00   | The present and future of SetupNetwork in oVirt | Dan Kenisburg   |
+| 17:00-17:30   | Closing remarks and closing keynote             |
 
-## Additional Information
+</div>
+<div class="span6 pad-sides">
+#### Wednesday, May 9, 2013 - Self paced labs / oVirt Install
 
-*   **Slide Due Date**: We would appreciate it if you could please submit your slides (in .PDF format only) by April 22, 2013.
-*   If you require a letter of invitation to visit Shanghai for the oVirt Workshop please contact [Theron Conrey](mailto:theron@redhat.com) asap.
+| Time        | Title                            | Speaker         |
+|-------------|----------------------------------|-----------------|
+| 09:00-12:00 | oVirt Hands-on Workshop          | To be announced |
+| 12:00-13:30 | colspan=2| Lunch                 |
+| 13:30-16:00 | oVirt and Gluster configurations | To be announced |
 
-## Contact information
+</div>
+</div>
+<div class="row">
+<div class="span6 pad-sides">
+### Venue and Travel Information
 
-Please contact [Theron Conrey](mailto:theron@redhat.com) with any questions.
+#### Venue
 
-## Important Dates
+This latest in the [Global Workshops Series](OVirt_Global_Workshops) will be hosted by Intel at their [Corporate Headquarters](http://goo.gl/maps/KK7y8) campus in Shanghai, China.
+
+Should you have particular needs related to making your visit to Intel's Campus, please contact [ Theron Conrey](User:Theron) for assistance. We will do our very best to accommodate all dietary needs, etc.
+
+#### Lodging
+
+The following hotels have been recommended for attendees of the oVirt Workshop.
+**Please note:** Shuttle service will be provided to the Workshop from these hotels in the morning and returning to the hotels in the evening. Once registered in one of the listed hotels *please* let us know! We'll plan for the appropriate number of shuttles based on this information.
+
+Shuttle Service will be provided from both of the above hotels in the morning and again in the evening.
+
+### Visas
+
+Attendees who require a letter of invitation for visa purposes should contact [Theron Conrey](http://wiki.ovirt.org/User:Theron) for assistance.
+
+</div>
+<div class="span6 pad-sides">
+### Registration
+
+[Registration for this event](http://ovirtshanghai2013.eventbrite.com) is open. Please register as soon as possible so we can get an accurate headcount for the workshop. During registration you'll be asked for a work phone number. We'll need to contact you to verify you are attending prior to the event. Additionally, please let us know what hotel you are staying at during registration so we can ensure we have an accurate head count for shuttle services. Thank you.
+
+Registration is free, and includes attendance for all sessions of the workshop, lunch and snacks on all days of the workshop.
+
+Pre-registration is required, as on-site registration will not be possible.
+
+### Important Dates
 
 *   **March 1, 2013**: Call For Participation Open
 *   **March 29, 2013**: Call For Participation Close
@@ -78,16 +140,6 @@ Please contact [Theron Conrey](mailto:theron@redhat.com) with any questions.
 *   **April 22, 2013**: Slides Due
 *   **May 8-9, 2013**: oVirt Workshop, Shanghai, China 2013
 
-## Accommodations
-
-The following hotels have been recommended for attendees of the oVirt Workshop.
-**Please note:** Shuttle service will be provided to the Workshop from these hotels in the morning and returning to the hotels in the evening. Once registered in one of the listed hotels *please* let us know! We'll plan for the appropriate number of shuttles based on this information.
-
-[Renaissance Yangtze Hotel](http://goo.gl/maps/mB0ee) : <http://www.marriott.com/hotels/travel/shabr-renaissance-shanghai-yangtze-hotel/>
-Holiday Inn Express : <http://www.hiexpress.com/hotels/us/en/shanghai/shgmh/hoteldetail>
-
-## Registration
-
-Registration is now live! Visit [<http://ovirtshanghai2013.eventbrite.com>](http://ovirtshanghai2013.eventbrite.com) to register.
-
+</div>
+</div>
 <Category:Events>

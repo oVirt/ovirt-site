@@ -10,33 +10,25 @@ wiki_last_updated: 2014-03-24
 
 # Detailed OSN Integration
 
-## Overview
+## Summary
 
-A network provider is an external provider that can provide networking capabilities for consumption by oVirt hosts and/or virtual machines. The network provider has the knowledge about the networks that it manages, and works autonomously from oVirt. The provider should enable integration on 3 points:
+We intend to add support for OpenStack Quantum as a network provider. Please see further details in [Features/Quantum_Integration](Features/Quantum_Integration)
 
-*   Discovery of networks
-*   Provisioning of networks
-*   Provisioning of virtual NICs on the network
+## Owner
 
-## Required capabilities
+*   Name: [ Mike Kolesnik](User:Mkolesni)
 
-### Network discovery
+<!-- -->
 
-There should be a way for oVirt to discover what networks are available on the provider. An oVirt user could then decide to import a network, that is provided by the provider, as a new one into a data center, or attach it to an existing data center network, marking that the network is also provided by this provider (in addition to any other provider that provides it).
+*   Email: <mkolesni@redhat.com>
 
-Currently, the engine assumes that the networks provided by the provider are available on all hosts in the data center, but it might be possible to have this capability added so that we would be able to query the host and see if it is providing networks for a given provider.
+## Current status
 
-### Network provisioning
+*   Target Release: oVirt 3.3
+*   Status: Implementation
+*   Last updated: ,
 
-The network can be exported from oVirt into the network provider, which means a user will be able to add the network to Quantum via oVirt, instead of using the Quantum API directly. However, from that moment on it will be as if the network was discovered from the provider - i.e. if it goes out of sync, that's OK from oVirt's perspective.
-
-### Virtual NIC provisioning
-
-The network provider should be able to provision a virtual NIC's data (name, MAC, etc) on a network that it provides. oVirt would send the virtual NIC details over to the provider, and it should return the NIC connection details. These connection details should be used when the VM is run, or the NIC is plugged.
-
-There should also be an option to "un-provision" a virtual NIC so that is being provisioned by the provider.
-
-## Integrating external providers
+## Detailed Description
 
 The integration of network providers into oVirt will be incremental. The following phases outline the general guidelines and considerations.
 
@@ -119,6 +111,24 @@ The integration of network providers into oVirt will be incremental. The followi
 
 *   An external provider would be set up as the provider of networking for a DC, such that any network defined on the provider will be discovered by oVirt and automatically set-up on the DC.
 
+### User Experience
+
+### Installation/Upgrade
+
+### User work-flows
+
+### Events
+
+## Dependencies / Related Features and Projects
+
+Please see the [Features/Quantum_Integration feature page](Features/Quantum_Integration feature page).
+
+## Documentation / External references
+
+## Comments and Discussion
+
+## Open Issues
+
 ## Proof of Concept
 
 A POC was done with the proposed ideas in "Phase 1" section, integrating [Openstack Quantum](https://wiki.openstack.org/wiki/Quantum) as an external network provider. the POC is available for review & testing.
@@ -151,3 +161,5 @@ Demo videos of the POC in action are available on youtube.
 #### The 2nd part (VM connectivity)
 
 <http://www.youtube.com/watch?v=uW3vrY2Y3xc>
+
+<Category:DetailedFeature>

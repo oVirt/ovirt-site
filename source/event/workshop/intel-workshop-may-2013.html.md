@@ -20,7 +20,7 @@ Ovirt strives to become the first and best truly open and comprehensive data cen
 
 </div>
 <div class="span3"  style="text-align:center">
-*Register [Here!](http://ovirtshanghai2013.eventbrite.com)*
+<span class="btn btn-action btn-block">[Register for this event »](http://ovirtshanghai2013.eventbrite.com)</span> *Register before April 21st to attend this workshop.*
 
 </div>
 </div>

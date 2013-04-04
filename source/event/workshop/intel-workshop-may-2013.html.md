@@ -107,7 +107,7 @@ On May 9th, 2013, The oVirt workshop will also have two tracks running. The Deve
 
 #### Venue
 
-This latest in the [Global Workshops Series](OVirt_Global_Workshops) will be hosted by Intel at their [Corporate Headquarters](http://goo.gl/maps/KK7y8) campus in Shanghai, China.
+This latest in the [Global Workshops Series](OVirt_Global_Workshops) will be hosted by Intel at their campus in Shanghai, China.
 
 Should you have particular needs related to making your visit to Intel's Campus, please contact [ Theron Conrey](User:Theron) for assistance. We will do our very best to accommodate all dietary needs, etc.
 

@@ -16,6 +16,8 @@ Let the users define a proxy which will be used by SPICE client to connect to th
 
 ### Detailed Description
 
+#### Global Configuration
+
 Currently, the only possibility to define a SPICE proxy is using the engine-config tool globally for the whole application. Example:
 
       engine-config -s SpiceProxyDefault=someProxy
@@ -30,6 +32,20 @@ To turn the proxy off, just clear it:
       engine-config -s SpiceProxyDefault=""
        
 
-If the proxy is set, it will be filled into the Proxy property of the SPICE client by WebAdmin/UserPortal. If the proxy is not set, nothing is filled into this property.
+If the proxy is set, it will be by default filled into the Proxy property of the SPICE client by WebAdmin/UserPortal. If the proxy is not set, nothing is filled into this property.
+
+#### Frontend
+
+In User Portal/Web Admin SPICE proxy can be disabled / enabled per VM using the console options popup dialog and this setting will be stored in the local storage (or cookie). The specific behavior:
+
+*   If the SPICE proxy is globally configured using the engine-config tool (described above), than:
+    -   an enabled checkbox with label "Enable SPICE Proxy" will be present
+    -   it is by default checked
+    -   if checked, the SPICE proxy will be used
+    -   if unchecked checked, the global SPICE proxy configuration will be ignored and the VM will connect directly to the guest
+*   If SPICE proxy is not set globally, than:
+    -   a disabled and unchecked checkbox will be present with label "Enable SPICE Proxy"
+    -   it will have a title: "no SPICE proxy defined on system level"
+    -   the SPICE will connect directly to the guest
 
 <Category:Feature> <Category:SPICE>

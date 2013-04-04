@@ -91,8 +91,6 @@ The `migrate` verb should be extended with an additional parameter, specifying t
 ### Comments and Discussion
 
 *   Refer to [Talk:Migration Network](Talk:Migration Network)
-*   Currently, there is a bug when the boot protocol of the migration network is dhcp. Sometimes the engine doesn't get in time the ip of the network from the dhcp server.
-
-In this case, when the migration command will be invoked the engine won't have the ip address of the migration network. It will cause the migration to be done on the fallback (management) network. Bug Url- <https://bugzilla.redhat.com/642551>
+*   Currently, there is a bug when the boot protocol of the migration network is dhcp. Sometimes the engine doesn't get in time the ip of the network from the dhcp server. In this case, when the migration command will be invoked the engine won't have the ip address of the migration network. It will cause the migration to be done on the fallback (management) network. Bug Url- <https://bugzilla.redhat.com/642551>
 
 <Category:Feature> <Category:Networking>

@@ -41,7 +41,7 @@ Make sure to have appropriate oVirt-related environment variables exported, for 
 You should also do full oVirt build prior to debugging, with WebAdmin and/or UserPortal GWT compilation enabled`*`:
 
     $ cd $OVIRT_HOME
-    $ mvn clean install -Pdep,gwt-admin,gwt-user -Dgwt.compiler.localWorkers=8
+    $ mvn clean install -Pdep,gwt-admin,gwt-user
 
 `*` You'll be able to debug given Frontend application via Development Mode only if the application was compiled for at least 2 different browsers.
 
@@ -50,7 +50,6 @@ Notes:
 *   `dep` profile deploys oVirt Engine to JBoss AS, e.g. `$JBOSS_HOME/standalone/deployments/engine.ear`
 *   `gwt-admin` profile enables WebAdmin GWT compilation (optional)
 *   `gwt-user` profile enables UserPortal GWT compilation (optional)
-*   `gwt.compiler.localWorkers` should match the number of processors available for parallelizing GWT compilation (optional)
 
 ### Step 1 - Launching Development Mode
 

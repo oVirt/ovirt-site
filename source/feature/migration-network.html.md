@@ -86,7 +86,7 @@ The `migrate` verb should be extended with an additional parameter, specifying t
 
 ### Documentation / External references
 
-*   Yuval M asking to choose a network form migration data: <http://lists.ovirt.org/pipermail/users/2013-January/011301.html>
+*   Yuval M asking to choose a network for migration data: <http://lists.ovirt.org/pipermail/users/2013-January/011301.html>
 
 ### Comments and Discussion
 

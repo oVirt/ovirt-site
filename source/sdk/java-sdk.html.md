@@ -270,7 +270,7 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 `       `<artifactId>`ovirt-engine-sdk-java`</artifactId>
 `       `<version>`x.y.z.q-v`</version>
 `       `<type>`jar`</type>
-`               `<classifier>`javadoc`</classifier>
+`       `<classifier>`javadoc`</classifier>
 `       `<scope>`compile`</scope>
 `   `</dependency>
 

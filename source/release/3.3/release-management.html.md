@@ -85,4 +85,10 @@ Features being considered for inclusion/already in master:
 *   [Feature/NetworkReloaded](Feature/NetworkReloaded) reimplementation of configNetwork in vdsm. Should have zero (0) effect on users, but required for future support for ovs/NM
 *   [Features/Multiple Gateways](Features/Multiple Gateways) configure more gateways on host, on top of the default one.
 
+### SLA & Scheduling
+
+*   [Features/oVirt_scheduler](Features/oVirt_scheduler) Wrapping scheduling functionalities as a separate package
+*   [Features/Scheduling_API](Features/Scheduling_API) (depends on [Features/oVirt_scheduler](Features/oVirt_scheduler)) exposing user-level scheduling API
+*   [Features/Watchdog_engine_support](Features/Watchdog_engine_support)
+
 <Category:Releases> [Category:Release management](Category:Release management)

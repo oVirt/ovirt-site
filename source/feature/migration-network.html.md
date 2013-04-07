@@ -16,11 +16,11 @@ Define a migration network role, and use such networks to carry migration data
 
 ### Owner
 
-*   Name: [ Dan Kenigsberg](User:Danken)
+*   Name: [ Alona Kaplan](User:alkaplan)
 
 <!-- -->
 
-*   Email: <danken@redhat.com>
+*   Email: <alkaplan@redhat.com>
 
 ### Current status
 

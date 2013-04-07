@@ -83,17 +83,15 @@ The configuration values should be exposed to the engine-config tool.
 
 Add a custom_properties column to vm_device of type TEXT.
 
-Any views and stored procedures that depend on the vm_device table should be updated with the new column.
+Every stored procedure and view that depend on vm_device need to be updated. The is_plugged property of a device can serve as an example, as the is_plugged column resides in the vm_device table. vm_interface_view is a view that joins on vm_device and vm_interface that displays the information about a NIC, including whether it is plugged in or not. Similarly, custom_properties needs to be added to vm_interface_view and similar disk views which are affected.
 
 ##### Business Entities
 
-Add a string field called customProperties to:
-
-*   VmDevice (??)
+Add a string field called customProperties to VmNetworkInterface and to the corresponding disk business entity.
 
 ##### DAOs
 
-Update the relevant row mappers at DiskDaoDbFacadeImpl and VmNetworkInterfaceDaoDbFacadeImpl to map from the JDBC result set to the new business entity fields. Similarly, update the save and update methods to include the new field when building the getCustomMapSqlParameterSource object.
+Update the relevant row mappers at VmDeviceDao, VmNetworkInterfaceDao and vmDiskDao to map from the JDBC result set to the new business entity fields. Similarly, update the save and update methods to include the new field when building the getCustomMapSqlParameterSource object.
 
 ##### Business Logic
 
@@ -109,12 +107,12 @@ Update all relevant VdsBroker commands that involve verbs related to adding, rem
 
 #### REST
 
-Under the NIC and Disk resource, add custom properties like so:
-
-<custom_properties>
+Add a custom_properties field to api.xsd for NICs and disks: <custom_properties>
 <custom_property value="123" name="sndbuf"/>
 <custom_property value="true" name="sap_agent"/>
 </custom_properties>
+
+And subsequently fix the NicMapper to map properly from VmInterface to NIC.
 
 #### Backwards Compatibility
 

@@ -270,16 +270,13 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 `       `<artifactId>`ovirt-engine-sdk-java`</artifactId>
 `       `<version>`x.y.z.q-v`</version>
 `       `<type>`jar`</type>
+`               `<classifier>`javadoc`</classifier>
 `       `<scope>`compile`</scope>
 `   `</dependency>
 
              "x.y.z.q-v" is a latest sdk release (list of available releases can be found at `[`java-sdk-changelog`](java-sdk-changelog)`)
 
-3. deploy sdk dependencies and javadoc
-
-           mvn dependency:resolve -Dclassifier=javadoc
-
-4. compile
+3. compile
 
             mvn clean install
 

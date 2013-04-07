@@ -61,7 +61,7 @@ Each of these verbs accepts a dictionary (of type VmInterfaceDevice) that descri
 
 Vdsm would pass device custom properties to its hook scripts.
 
-In hooks scripts of per-device verbs, the properties would be passed as environment variables of the hook scripts being executed. For vmCreate, a hook script would be executed per each device that has "custom" in its VmInterfaceDevice device definition.
+In hooks scripts of per-device verbs (nic hotplug, for example) the properties would be passed as environment variables of the hook scripts being executed. For vmCreate, a hook script called before_device_create and after_device_create would be executed per each device that has "custom" in its VmInterfaceDevice device definition.
 
 The reasoning behind the vmCreate behavior is that we should pass different properties for each device. At the stage that before_vm_create hook is executed, the alias of devices is not necessarily known, and the ordering of devices may be changed by other hooks. Thus we have no means to designate which property belong to which device - save for executing a different script for each device, passing that device's xml definition.
 
@@ -69,16 +69,11 @@ The reasoning behind the vmCreate behavior is that we should pass different prop
 
 With this feature, Engine would keep track of per-device custom properties.
 
-This can be done in two ways:
-
-1.  We may insert the custom properties column into the vm_device table instead. The advantage is future-proofing in the case that more devices will be managed by the engine.
-2.  We may add a field to each device's table (IE: vm_interface for NICs and images for disks). The advantage here is that the custom properties will be available when the REST API queries for a device or a list of devices, without having to perform a JOIN.
-
-*   Note: The rest of the document assumes the second solution.
+We will insert the custom properties column into the vm_device table. Custom properties will be saved at the device level to keep the implementation generic and future proof.
 
 ##### Configuration
 
-Not all custom properties are valid for every setups - they depend on the hooks installed on hosts. Therefore, just like with per-VM properties, a user would have to define the valid properties and their valid values in vdc_options. Note that properties are most likely to be valid for an interface, but invalid for a disk. The option_name value will be DeviceCustomProperties, and its corresponding option_value will look like:
+Not all custom properties are valid for every setups - they depend on the hooks installed on hosts. Therefore, just like with per-VM properties, a user would have to define the valid properties and their valid values in vdc_options. Note that properties likely to be valid for an interface, but invalid for a disk. The option_name value will be DeviceCustomProperties, and its corresponding option_value will look like:
 
 [{type=disk; props={value1=regex1, ..., valueN=regexN}}, {type=interface; props={value1=regex1, ..., valueN=regexN}}]
 
@@ -86,16 +81,15 @@ The configuration values should be exposed to the engine-config tool.
 
 ##### CRUD
 
-Add a custom_properties column to vm_interface for NICs, and a custom_properties column to images of type TEXT.
+Add a custom_properties column to vm_device of type TEXT.
 
-Any views and stored procedures that depend on vm_interface and images tables should be updated with the new relevant column.
+Any views and stored procedures that depend on the vm_device table should be updated with the new column.
 
 ##### Business Entities
 
 Add a string field called customProperties to:
 
-*   VmNetworkInterface
-*   Disk
+*   VmDevice (??)
 
 ##### DAOs
 

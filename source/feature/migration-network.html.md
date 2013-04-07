@@ -37,6 +37,7 @@ With this feature, a cluster administrator may grant the "migration" role to one
 
 *   Users would be able to define and dedicate a separate network for migration. Users that need quick migration would use nics with high bandwidth. Users who want to cap the bandwidth consumed by migration could define a migration network over nics with bandwidth limitation.
 *   Migration data can be limited to a separate network, that has no layer-2 access from Engine
+*   Having a migration-specific network is one step towards capping/promising migration bandwidth. With this feature applied, this could be done with the help of external switches. In the future, we plan to let the end admin set QoS properties on each oVirt-defined network.
 
 ### Dependencies / Related Features
 

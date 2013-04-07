@@ -251,7 +251,19 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 ### Maven deployment
 
-1. add sdk dependency to your project pom.xml
+1. add mvn-releases repository to your ~/.m2/settings.xml under <repositories>
+
+`   `<repository>
+`       `<id>`mvn-releases`</id>
+`       `<url>[`https://oss.sonatype.org/content/repositories/releases`](https://oss.sonatype.org/content/repositories/releases)</url>
+`       `<releases>
+`       `</releases>
+`       `<snapshots>
+`           `<enabled>`false`</enabled>
+`       `</snapshots>
+`   `</repository>
+
+2. add sdk dependency to your project pom.xml
 
 `   `<dependency>
 `       `<groupId>`org.ovirt.engine.sdk`</groupId>
@@ -261,13 +273,13 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 `       `<scope>`compile`</scope>
 `   `</dependency>
 
-`       list of available releases can be found at  `[`java-sdk-changelog`](java-sdk-changelog)
+             "x.y.z.q-v" is a latest sdk release (list of available releases can be found at `[`java-sdk-changelog`](java-sdk-changelog)`)
 
-2. deploy sdk dependencies
+3. deploy sdk dependencies and javadoc
 
            mvn dependency:resolve -Dclassifier=javadoc
 
-3. compile
+4. compile
 
             mvn clean install
 

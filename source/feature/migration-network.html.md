@@ -50,7 +50,9 @@ The `migrate` verb should be extended with an additional parameter, specifying t
 *   dstparams: hibernation volumes definition
 *   mode: migration/hibernation
 *   method: rotten legacy
-*   dstqemu': dedicated migration address of destination host. Would be used to build libivrt's `miguri` [argument](http://libvirt.org/html/libvirt-libvirt.html#virDomainMigrateToURI2) such as `tcp://<ip of migration network on remote node>`.
+*   **dstqemu**: dedicated migration address of destination host. Would be used to build libivrt's `miguri` [argument](http://libvirt.org/html/libvirt-libvirt.html#virDomainMigrateToURI2) such as `tcp://<ip of migration network on remote node>`.
+
+Note that the migration protocol requires Vdms-Vdsm and libvirt-libvirt communication. Both are routed over the management network even when the new dstqemu argument is used.
 
 #### Engine
 

@@ -26,7 +26,17 @@ wiki_last_updated: 2013-09-11
 
 ### Detailed Description
 
-There are two possible approaches to the challenge. **Right now, the "DRBD on LV level" is the preferred approach.**
+There are two possible approaches to the challenge. **Right now, the "DRBD on VG level for DR only" is the preferred approach.**
+
+#### DRBD on VG level for DR only
+
+The BlockStorageDomain class in VDSM could be adopted in a way that it accepts DRBD devices. (To my knowledge right now it only accepts devices that are visible to multipathd).
+
+*   PRO: The integration into VDSM would be trivial. The BlockStorageDomain class needs to be modified (or a new class derived) that detects and accepts DRBD devices.
+*   PRO: DRBD will be used in primary/secondary mode. All DRBD resources will be used only on one side (the active data center). Non of them will be active in the DR site.
+    Only in case the primary data center fails, the resources might be active in the DR site.
+
+Provisioning of DRBD replicated LVs will be provided by an independend project called drbdmanage. drbdmanage by itself is currently in early implementation phase. We at LINBIT will put more attention to this project and will make an early release available as soon as possible.
 
 #### DRBD on LV level
 
@@ -37,9 +47,7 @@ There are two possible approaches to the challenge. **Right now, the "DRBD on LV
     In order to get rid of the dual-primary mode during an online-migration, QEMU/KVM needs to be updated to open the backing block device late during an online-migration.
 *   CON: More work on the engine is needed in order to make oVirt aware of replicated LVs
 
-Provisioning of DRBD replicated LVs will be provided by an independend project called drbdmanage. drbdmanage by itself is currently in early implementation phase. We at LINBIT will put more attention to this project and will make an early release available as soon as possible.
-
-#### DRBD on VG level (StorageDomain level)
+#### DRBD on VG level
 
 The BlockStorageDomain class in VDSM could be adopted in a way that it accepts DRBD devices. (To my knowledge right now it only accepts devices that are visible to multipathd).
 
@@ -66,6 +74,7 @@ When it is clear how to integrate DRBD on the nodes, managing DRBD replication l
 ### Documentation / External references
 
 [DRBD documentation for 8.4.x](http://www.drbd.org/users-guide-8.4/)
+[post copy live migration](http://wiki.qemu.org/Features/PostCopyLiveMigration)
 
 ### Comments and Discussion
 

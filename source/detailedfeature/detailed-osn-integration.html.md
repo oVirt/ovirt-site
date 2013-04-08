@@ -169,4 +169,4 @@ Demo videos of the POC in action are available on youtube.
 
 <http://www.youtube.com/watch?v=uW3vrY2Y3xc>
 
-<Category:DetailedFeature>
+<Category:DetailedFeature> <Category:Networking>

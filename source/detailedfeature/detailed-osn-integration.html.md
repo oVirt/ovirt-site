@@ -40,6 +40,7 @@ The integration of network providers into oVirt will be incremental. The followi
 *   Each quantum plugin will have a corresponding vNIC driver in VDSM, that can connect the vNIC to quantum.
     -   Current implementation will be done by hooks.
 *   No support for pre-built ovirt-node (or RHEV-H).
+*   Integration - with Quantum Grizzly.
 
 #### Network provider entity
 

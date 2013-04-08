@@ -92,7 +92,7 @@ The integration of network providers into oVirt will be incremental. The followi
     -   Capability resource ID will be computed according to provider ID + capability type.
     -   Networking capability will have a "networks" sub collection:
         -   Networks sub collection will be the networks as discovered on the provider.
-        -   Network resource will have ID as is on provider (or computed from it).
+        -   Network resource will have an ID matching its identity on the provider (or computed from it).
 *   Importing a network would be done by copying the resource XML and posting it on the top level networks resource.
     -   The imported network would have a new ID which is oVirt internal.
     -   The imported network would have a link to it's origin network (The resource in the provider/capability context).

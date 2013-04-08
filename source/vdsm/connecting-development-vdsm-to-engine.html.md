@@ -27,7 +27,7 @@ Fedora:
 
 EL6:
 
-      service vdsmd restart
+      service vdsmd reconfigure
 
 After this is done, restart vdsm. If you misconfigured something, vdsm will complain, so keep an eye on the error messages :)
 

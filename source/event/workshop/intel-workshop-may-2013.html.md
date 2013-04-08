@@ -43,7 +43,7 @@ On May 8th, 2013, The oVirt workshop is pleased to announce we'll be trying some
 | width=20%| 09:00-10:00 | width=50% | oVirt Introduction                          | width=30% | To be announced |
 | 10:00-11:00            | oVirt Architecture Overview                             | To be announced             |
 | 11:00-11:15            | colspan=2| Coffee Break                                 |
-| 11:15 - 12:15          | Deploying and testing oVirt using nested virtualization | Mark Wu                     |
+| 11:15 - 12:15          | Deploying and testing oVirt using nested virtualization | Zhengsheng Zhou             |
 | 12:15-13:30            | colspan=2| Lunch                                        |
 | 13:30-14:30            | oVirt SLA overview                                      | Doron Fediuck (Red Hat)     |
 | 14:30-15:30            | deploying oVirt Node                                    | To be announced             |

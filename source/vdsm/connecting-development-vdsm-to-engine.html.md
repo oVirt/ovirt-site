@@ -19,8 +19,9 @@ By default OVirt communicates with VDSM with ssl. This is a safe default, but di
 *   in /etc/libvirt/libvirtd.conf: auth_tcp = "none"
 *   and in /etc/libvirt/qemu.conf: spice_tls=0
 
+If you are changing from ssl to non-ssl or vice versa, use /lib/systemd/systemd-vdsmd reconfigure in Fedora and service vdsmd restart in EL6.
+
 After this is done, restart vdsm. If you misconfigured something, vdsm will complain, so keep an eye on the error messages :)
-If you are changing from ssl to non-ssl or vice versa, use **/lib/systemd/systemd-vdsmd reconfigure** and then start vdsm.
 
 ## Disable SSL in ovirt engine
 

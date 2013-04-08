@@ -100,6 +100,11 @@ The commit message should follow the guidelines in the DISCUSSION section of <ht
 
 General development discussions are in `vdsm-devel@lists.fedorahosted.org`.
 
+## Basic installation
+
+      cd ~/rpmbuild/RPMS
+      yum install x86_64/* noarch/vdsm-xml* noarch/vdsm-cli*
+
 ## Creating local yum repo to test vdsm changes
 
 1) First you will need to generate the rpm with your changes, from the vdsm source directory:

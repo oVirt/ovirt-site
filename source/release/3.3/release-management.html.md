@@ -91,4 +91,9 @@ Features being considered for inclusion/already in master:
 *   [Features/Scheduling_API](Features/Scheduling_API) (depends on [Features/oVirt_scheduler](Features/oVirt_scheduler)) exposing user-level scheduling API
 *   [Features/Watchdog_engine_support](Features/Watchdog_engine_support)
 
+### Gluster
+
+*   [Features/Gluster Hooks Management](Features/Gluster Hooks Management) Managing gluster hooks from console
+*   [Features/Gluster Services Management](Features/Gluster Services Management) Reimplement services tab for gluster cluster. Allow start/stop of services.
+
 <Category:Releases> [Category:Release management](Category:Release management)

@@ -166,6 +166,14 @@ Pre-registration is required, as on-site registration will not be possible.
 *   **April 22, 2013**: Slides Due
 *   **May 8-9, 2013**: oVirt Workshop, Shanghai, China 2013
 
+### 重要日期
+
+*   **2013年3月1号**: 提交讲稿材料
+*   **2013年3月29号**: 讲稿材料截止
+*   **2013年4月8号**: 确认发言人（发送相关接受或者拒绝的通知）
+*   **2013年4月22号**: 讲稿定稿
+*   **2013年5月8-9号**: 本届oVirt研讨会在中国-上海举行
+
 </div>
 </div>
 <Category:Events>

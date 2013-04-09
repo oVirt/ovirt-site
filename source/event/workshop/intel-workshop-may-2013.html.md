@@ -91,7 +91,7 @@ On May 9th, 2013, The oVirt workshop will also have two tracks running. The Deve
 
 </div>
 <div class="span6 pad-sides">
-#### Wednesday, May 9, 2013 - Self paced labs / oVirt Install
+#### Thursday, May 9, 2013 - Self paced labs / oVirt Install
 
 | Time                   | Title                               | Speaker                     |
 |------------------------|-------------------------------------|-----------------------------|

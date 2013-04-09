@@ -24,9 +24,9 @@ The oVirt Node sub-project is geared toward building a small, robust operating s
 
 ## Next Release
 
-oVirt Node 2.7.0
+oVirt Node 3.0.0
 
-*   Planning: [Node 2.7 release-management](Node 2.7 release-management)
+*   Planning: [Node 3.0 release-management](Node 3.0 release-management)
 *   Target date: TBD
 *   List of issues targeted: [Node_Backlog](Node_Backlog)
 

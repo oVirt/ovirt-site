@@ -130,6 +130,10 @@ Holiday Inn Express : <http://www.hiexpress.com/hotels/us/en/shanghai/shgmh/hote
 
 Shuttle Service will be provided from both of the above hotels in the morning and again in the evening.
 
+#### 住宿相关
+
+参加本次oVirt研讨会, 我们建议您预定如下酒店: 我们将在该酒店设立班车点，提供早晚接送服务。您预定酒店后，请及时告知我们。我们会根据最终的人数，确认相关班车安排情况。 上海扬子江万丽大酒店：http://www.marriott.com/hotels/travel/shabr-renaissance-shanghai-yangtze-hotel/ 梅陇假日快捷酒店：http://www.hiexpress.com/hotels/us/en/shanghai/shgmh/hoteldetail
+
 ### Visas
 
 Attendees who require a letter of invitation for visa purposes should contact [Theron Conrey](http://wiki.ovirt.org/User:Theron) for assistance.

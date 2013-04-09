@@ -150,6 +150,10 @@ Registration is free, and includes attendance for all sessions of the workshop, 
 
 Pre-registration is required, as on-site registration will not be possible.
 
+### 注册
+
+注册火热进行中，请访问以下地址：http://ovirtshanghai2013.eventbrite.com
+
 ### 联系信息
 
 关于本次活动，如您有任何问题，欢迎联系：Theron Conrey

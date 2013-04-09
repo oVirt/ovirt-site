@@ -8,11 +8,22 @@ wiki_revision_count: 77
 wiki_last_updated: 2013-07-07
 ---
 
+# Intel Workshop May 2013
+
 __NOTOC__
 
 <div class="row">
 <div class="offset1 span10">
-# Intel oVirt Workshop May 2013
+## 2013年5月 英特尔 oVirt
+
+</div>
+<div class="offset1 span7">
+oVirt 目标是致力于成为第一个真正意义上的开放式全方位数据中心虚拟化管理套件。随着oVirt社区的迅速发展和壮大，oVirt研讨会成了我们进行全球化交流的方法之一。2013年5月，oVirt 研讨会将又一次在英特尔上海园区拉开帷幕。本次研讨会除了帮助回答专业开发人员和用户的相关问题外，她还旨在鼓励加强社区间的进一步合作。我们期待您的光临!
+
+</div>
+<div class="row">
+<div class="offset1 span10">
+## Intel oVirt Workshop May 2013
 
 </div>
 <div class="offset1 span7">
@@ -23,15 +34,6 @@ Ovirt strives to become the first and best truly open and comprehensive data cen
 <span class="btn btn-action btn-block">[Register for this event »](http://ovirtshanghai2013.eventbrite.com)</span> *Register before April 21st to attend this workshop.*
 
 </div>
-</div>
-<div class="row">
-<div class="offset1 span10">
-# 2013年5月 英特尔 oVirt
-
-</div>
-<div class="offset1 span7">
-oVirt 目标是致力于成为第一个真正意义上的开放式全方位数据中心虚拟化管理套件。随着oVirt社区的迅速发展和壮大，oVirt研讨会成了我们进行全球化交流的方法之一。2013年5月，oVirt 研讨会将又一次在英特尔上海园区拉开帷幕。本次研讨会除了帮助回答专业开发人员和用户的相关问题外，她还旨在鼓励加强社区间的进一步合作。我们期待您的光临!
-
 </div>
 <hr>
 <div class="row">

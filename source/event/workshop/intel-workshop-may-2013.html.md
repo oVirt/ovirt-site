@@ -159,7 +159,7 @@ Pre-registration is required, as on-site registration will not be possible.
 
 ### 联系信息
 
-关于本次活动，如您有任何问题，欢迎联系：Theron Conrey
+关于本次活动，如您有任何问题，欢迎联系： [ Theron Conrey](User:Theron)
 
 ### Important Dates
 

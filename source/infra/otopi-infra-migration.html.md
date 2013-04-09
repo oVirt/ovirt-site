@@ -101,7 +101,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Allow importing existing NFS ISO Domain                                | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Create new NFS ISO Domain                                              | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Migrate existing NFS ISO exports from /etc/exports to /etc/exports.d/  | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | Low      |             |
-| Set selinux context for NFS ISO mount points                           | Done                    | In Progress          | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
+| Set selinux context for NFS ISO mount points                           | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
 | set NFS/portmap ports by overriding /etc/sysconfig/nfs                 | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Enable the rpcbind and nfs services                                    | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Load files (iso,vfd) from existing rpms to ISO domain                  | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |

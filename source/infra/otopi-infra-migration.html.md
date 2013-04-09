@@ -50,14 +50,14 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support HTTPS_PORT option                                             | Done                    | Done[5]              |                                                      |          |             |
 | Support RANDOM_PASSWORDS option                                       | Done                    | Not required[6]      |                                                      | Medium   |             |
 | Overriding given passwords with random                                 | Done                    | Not required[7]      |                                                      | Medium   |             |
-| Support MAC_RANGE option                                              | Done                    | Feedback             | [ Alex Lourie](User:AlexLourie)           | Medium   |             |
+| Support MAC_RANGE option                                              | Done                    | Done                 | [ Alex Lourie](User:AlexLourie)           | Medium   |             |
 | Support HOST_FQDN option                                              | Done                    | Done[8]              |                                                      |          |             |
 | Support AUTH_PASS option                                              | Done                    | Done[9]              |                                                      |          |             |
 | Support ORG_NAME option                                               | Done                    | Done[10]             |                                                      |          |             |
 | Support APPLICATION_MODE option                                       | Done                    | Done[11]             |                                                      |          |             |
 | Support DC_TYPE option                                                | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
-| Support DB_REMOTE_INSTALL option                                     | Done                    | In Progress          |                                                      | Medium   |             |
-| Support DB_LOCAL_PASS option                                         | Done                    | In Progress          |                                                      | Low      |             |
+| Support DB_REMOTE_INSTALL option                                     | Done                    | Done                 |                                                      | Medium   |             |
+| Support DB_LOCAL_PASS option                                         | Done                    | Done                 |                                                      | Low      |             |
 | Support DB_HOST option                                                | Done                    | Done[12]             |                                                      |          |             |
 | Support DB_PORT option                                                | Done                    | Done[13]             |                                                      |          |             |
 | Support DB_ADMIN option                                               | Done                    | Done                 |                                                      |          |             |
@@ -67,12 +67,12 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support NFS_MP option                                                 | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Support ISO_DOMAIN_NAME option                                       | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Support CONFIG_NFS option                                             | Done                    | Done[15]             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Display summary in interactive mode                                    | Done                    | Not implemented      |                                                      | Low      |             |
+| Display summary in interactive mode                                    | Done                    | In progress          |                                                      | Low      |             |
 | Initialize MiniYum                                                     | Done                    | Not implemented      |                                                      | Medium   |             |
 | Handle second execution warning                                        | Done                    | Not required[16]     | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
 | Handle loading and validating params from answer file                  | Done                    | Done[17]             |                                                      |          |             |
-| Mask input sets                                                        | Done                    | Not implemented      |                                                      | Low      |             |
-| Log masked configuration                                               | Done                    | Not implemented      |                                                      | Low      |             |
+| Mask input sets                                                        | Done                    | In Progress          |                                                      | Low      |             |
+| Log masked configuration                                               | Done                    | In Progress          |                                                      | Low      |             |
 | Set Max Shared Memory                                                  | Done                    | Done                 |                                                      |          |             |
 | Check for supported Java VM                                            | Done                    | Done                 |                                                      |          |             |
 | CA Generation                                                          | Done                    | Done                 |                                                      |          |             |
@@ -96,7 +96,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Configure engine-log-collector                                         | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Configure engine-iso-uploader                                          | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Configure engine-image-uploader                                        | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Configure PostgreSQL max_connections if using local DB                | Done                    | In Progress          | [ Alex Lourie](User:AlexLourie)           | Low      |             |
+| Configure PostgreSQL max_connections if using local DB                | Done                    | Done                 | [ Alex Lourie](User:AlexLourie)           | Low      |             |
 | Configure NFS exports for ISO Domain if requested                      | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
 | Allow importing existing NFS ISO Domain                                | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Create new NFS ISO Domain                                              | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
@@ -114,7 +114,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Configure Apache mod_ssl for using engine apache keys                 | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
 | Configure Apache for listening on requested HTTP port                  | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
 | Configure Apache for listening on requested HTTPS port                 | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
-| Configure Apache as proxy for the requests to the jboss service        | Done                    | Feedback             | [ Alex Lourie](User:Alourie)              |          |             |
+| Configure Apache as proxy for the requests to the jboss service        | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
 | Enable the httpd service                                               | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
 | Enter rpm versions into yum version-lock                               | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
 | Add info message to the user finalizing the successful install         | Done                    | Not implemented      |                                                      | Low      |             |

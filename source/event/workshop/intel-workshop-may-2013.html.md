@@ -114,6 +114,9 @@ Should you have particular needs related to making your visit to Intel's Campus,
 #### Lodging
 
 The following hotels have been recommended for attendees of the oVirt Workshop.
+[Renaissance Yangtze Hotel](http://goo.gl/maps/mB0ee) : <http://www.marriott.com/hotels/travel/shabr-renaissance-shanghai-yangtze-hotel/>
+Holiday Inn Express : <http://www.hiexpress.com/hotels/us/en/shanghai/shgmh/hoteldetail>
+
 **Please note:** Shuttle service will be provided to the Workshop from these hotels in the morning and returning to the hotels in the evening. Once registered in one of the listed hotels *please* let us know! We'll plan for the appropriate number of shuttles based on this information.
 
 Shuttle Service will be provided from both of the above hotels in the morning and again in the evening.

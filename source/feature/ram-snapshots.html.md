@@ -1,0 +1,134 @@
+---
+title: RAM Snapshots
+category: feature
+authors: arik
+wiki_category: Feature
+wiki_title: Features/RAM Snapshots
+wiki_revision_count: 23
+wiki_last_updated: 2013-11-21
+---
+
+# RAM Snapshots
+
+### Summary
+
+Save memory state in live snapshots.
+
+### Owner
+
+*   Name: [ Arik](User:Arik)
+*   Email: <ahadas@redhat.com>
+
+### Current status
+
+*   Status: design
+*   Targeted: oVirt-3.3 (proposed)
+*   Last updated: ,
+
+### Detailed Description
+
+This feature will make it possible to save the memory state of a VM when creating live snapshot, and restore that memory state when running a VM which was just created from such snapshot or just reverted to such snapshot.
+
+In version 1.0.1 an option that allows us to specify where the memory state should be saved as part of live snapshot was added to libvirt [1]. it allows us to specify external file in which the memory state will be saved. We will use this functionality to save the memory state to a file when we're taking a live snapshot of a VM (in a similar way to how it is done when suspending/hibernating VM), and restore that memory state when running a VM that was just created from/reverted to such snapshot (the same way it is done when running a suspended/hibernated VM).
+
+The affected operations in the system are:
+
+#### Create snapshot
+
+Since taking a memory snapshot makes the guest VM unresponsive for some period of time, the user will have an option whether to have memory state or not when creating live snapshot. If the memory state was saved when the snapshot was created, the snapshot configuration will contain the volumes in which this state is saved.
+
+#### Delete snapshot
+
+Deletion of a snapshot that has memory state, should remove the memory state volumes as well.
+
+#### Create VM from snapshot
+
+In case a VM is created from snapshot that includes memory state, the VM configuration will contain the volumes in which the memory state is saved, just like it is done for suspended VM.
+
+#### Preview snapshot
+
+In case a VM is changed to preview a snapshot that includes memory state, the VM configuration will contain the volumes in which the memory state is saved, the same way it was described above for create vm from snapshot.
+
+#### Run VM
+
+If the VM status is not 'paused' and there are memory state volumes defined in its configuration, the user will have an option whether to boot from disk or restore the saved memory. If the boot from disk is selected, the run command will be performed as it is now performing on non-paused VMs. If the restore saved memory is selected, the run command will be performed as it is now performing on paused VMs.
+
+The memory state volumes will be cleared from the VM configuration if the VM is not running in stateless mode.
+
+Note: it is our responsibility to ensure that the disks state is the same as it was when the live snapshot was taken, when restoring memory state that was saved during the live snapshot. there is no validation in libvirt for that, so it may cause data corruption.
+
+#### Import VM
+
+If the collapse snapshots option was not selected, each snapshot will be imported with its memory state, if exists. If the collapse snapshots option was selected, no memory state will be imported (the active snapshot cannot have memory state).
+
+#### Export VM
+
+Each snapshot will be exported with its memory state, if exists.
+
+### Benefit to oVirt
+
+Currently, snapshot in oVirt includes the states of VM's disks only, and therefore in order to run a VM which is based on a snapshot the VM must boot from disk and start with fresh memory state.
+
+This feature introduces new functionality for oVirt users that will allow them to save the memory state as part of live snapshots. That way, if a VM is run for the first time after being created from/reverted to a snapshot with memory state, it will be possible to restore the memory as it was at the moment the snapshot was taken. That means that the running applications will be the ones that ran at the moment the snapshot was taken, the clipboard content will be the same as it was at the moment the snapshot was taken, and so on.
+
+### Dependencies / Related Features
+
+*   The functionality of saving the memory state as part of live snapshot creation was introduced in libvirt 1.0.1, therefore it will require libvirt > 1.0.1.
+
+### Design
+
+#### Database changes
+
+*   Add a column to the 'snapshots' table that will contain the memory state volumes
+
+#### Backend changes
+
+##### Commands
+
+The following command will change as described above:
+
+*   CreateAllSnapshotCommand
+*   SnapshotVdsCommand
+*   RemoveSnapshotCommand
+*   AddVmFromSnapshotCommand
+*   TryBackToSnapshotCommand
+*   RunVmCommand
+*   ImportVmCommand
+*   ExportVmCommand
+
+##### OVF files
+
+The snapshot section in OVF file of VM will include the string that represent the volumes that contain the memory state and VM configuration.
+
+##### backward compitability
+
+*   This feature will be enabled for cluster version 3.3 and above.
+*   For cluster level less than 3.3, SnapshotVdsCommand will call vmSnapshot verb without the third parameter.
+*   On db-upgrade, existing snapshots will have empty value in the memory state volumes field.
+
+#### VDSM changes
+
+*   Default parameter will be added to vmSnapshot verb that maps string to string.
+    -   The map will include two keys for now:
+        -   'mode' that can be mapped to 'disks_only' or 'disks_memory' to indicate if memory state should be saved.
+        -   'memVol' that will be mapped to a string that represent the two volums that will be used to save the memory state and the VM configuration.
+    -   The default map will include the mapping of 'mode':'disks_only' only.
+*   If the 'mode' value in the map decribed above is 'disks_memory' the first volume in 'memVol' will be passed to libvirt in order to dump the memory to it, and the second volume in 'memVol' will be used to save the VM configuration (the same way it is done for hibernate operation).
+
+#### User Interface changes
+
+TBD
+
+#### REST API changes
+
+TBD
+
+### Documentation / External references
+
+[1] [libvirt's snapshot XML format](http://libvirt.org/formatsnapshot.html)
+
+### Comments and Discussion
+
+*   Refer to <Talk:RAM_Snapshot>
+
+<Category:Feature>

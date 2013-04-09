@@ -26,7 +26,7 @@ Ovirt strives to become the first and best truly open and comprehensive data cen
 </div>
 <div class="row">
 <div class="offset1 span10">
-# Intel oVirt Workshop May 2013
+# 2013年5月 英特尔 oVirt
 
 </div>
 <div class="offset1 span7">

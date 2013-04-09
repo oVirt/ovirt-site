@@ -117,9 +117,9 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Configure Apache as proxy for the requests to the jboss service        | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
 | Enable the httpd service                                               | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
 | Enter rpm versions into yum version-lock                               | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
-| Add info message to the user finalizing the successful install         | Done                    | Not implemented      |                                                      | Low      |             |
-| Print additional message to the user finalizing the successful install | Done                    | Not implemented      |                                                      | Low      |             |
-| Log a summary of the parameters                                        | Done                    | Not implemented      |                                                      | Low      |             |
+| Add info message to the user finalizing the successful install         | Done                    | Done                 |                                                      | Low      |             |
+| Print additional message to the user finalizing the successful install | Done                    | Done                 |                                                      | Low      |             |
+| Log a summary of the parameters                                        | Done                    | Done                 |                                                      | Low      |             |
 
 <references>
 [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31]

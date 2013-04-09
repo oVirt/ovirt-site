@@ -72,6 +72,10 @@ Tracker bug: <https://bugzilla.redhat.com/918494>
 
 Features being considered for inclusion/already in master:
 
+### Virt
+
+*   [Features/RAM Snapshots](Features/RAM Snapshots)
+
 ### Infra
 
 *   [Features/Device Custom Properties](Features/Device Custom Properties)

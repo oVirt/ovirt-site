@@ -69,8 +69,8 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support CONFIG_NFS option                                             | Done                    | Done[15]             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Display summary in interactive mode                                    | Done                    | Not implemented      |                                                      | Low      |             |
 | Initialize MiniYum                                                     | Done                    | Not implemented      |                                                      | Medium   |             |
-| Handle second execution warning                                        | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
-| Handle loading and validating params from answer file                  | Done                    | Done[16]             |                                                      |          |             |
+| Handle second execution warning                                        | Done                    | Not required[16]     | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
+| Handle loading and validating params from answer file                  | Done                    | Done[17]             |                                                      |          |             |
 | Mask input sets                                                        | Done                    | Not implemented      |                                                      | Low      |             |
 | Log masked configuration                                               | Done                    | Not implemented      |                                                      | Low      |             |
 | Set Max Shared Memory                                                  | Done                    | Done                 |                                                      |          |             |
@@ -122,7 +122,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Log a summary of the parameters                                        | Done                    | Not implemented      |                                                      | Low      |             |
 
 <references>
-[17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30]
+[18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31]
 
 </references>
 #### engine-cleanup
@@ -213,30 +213,32 @@ TBD
 
 [16] 
 
-[17] The option `--no-mem-check` is now `--otopi-environment="OVESETUP_SYSTEM/memCheck=bool:False"`
+[17] 
 
-[18] The option `--gen-answer-file` is now `--generate-answer`
+[18] The option `--no-mem-check` is now `--otopi-environment="OVESETUP_SYSTEM/memCheck=bool:False"`
 
-[19] The option `--answer-file` is now `--config-append`
+[19] The option `--gen-answer-file` is now `--generate-answer`
 
-[20] The option `CONFIG_NFS=yes` is now `OVESETUP_SYSTEM/nfsConfigEnabled=bool:True`
+[20] The option `--answer-file` is now `--config-append`
 
-[21] The option `HOST_FQDN=host` is now `OVESETUP_CONFIG/fqdn=str:host`
+[21] The option `CONFIG_NFS=yes` is now `OVESETUP_SYSTEM/nfsConfigEnabled=bool:True`
 
-[22] The option `HTTP_PORT=80` is now `OVESETUP_CONFIG/httpPort=int:80`
+[22] The option `HOST_FQDN=host` is now `OVESETUP_CONFIG/fqdn=str:host`
 
-[23] The option `HTTPS_PORT=443` is now `OVESETUP_CONFIG/httpsPort=int:443`
+[23] The option `HTTP_PORT=80` is now `OVESETUP_CONFIG/httpPort=int:80`
 
-[24] The option `APPLICATION_MODE=both` is now `OVESETUP_CONFIG/applicationMode=str:both`
+[24] The option `HTTPS_PORT=443` is now `OVESETUP_CONFIG/httpsPort=int:443`
 
-[25] The option `ORG_NAME=organization` is now `OVESETUP_PKI/organization=str:organization`
+[25] The option `APPLICATION_MODE=both` is now `OVESETUP_CONFIG/applicationMode=str:both`
 
-[26] The option `DB_HOST=localhost` is now `OVESETUP_DB/host=str:localhost`
+[26] The option `ORG_NAME=organization` is now `OVESETUP_PKI/organization=str:organization`
 
-[27] The option `DB_PORT=5432` is now `OVESETUP_DB/port=int:5432`
+[27] The option `DB_HOST=localhost` is now `OVESETUP_DB/host=str:localhost`
 
-[28] The option `DB_SECURE_CONNECTION=no` is now `OVESETUP_DB/secured=bool:False`
+[28] The option `DB_PORT=5432` is now `OVESETUP_DB/port=int:5432`
 
-[29] The option `AUTH_PASS=...` is now `osetupcons.ConfigEnv.ADMIN_PASSWORD`
+[29] The option `DB_SECURE_CONNECTION=no` is now `OVESETUP_DB/secured=bool:False`
 
-[30] This means that the function is not required in the new code design
+[30] The option `AUTH_PASS=...` is now `osetupcons.ConfigEnv.ADMIN_PASSWORD`
+
+[31] This means that the function is not required in the new code design

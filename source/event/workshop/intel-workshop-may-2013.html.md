@@ -74,7 +74,7 @@ On May 9th, 2013, The oVirt workshop will also have two tracks running. The Deve
 
 </div>
 <div class="span6 pad-sides">
-#### Wednesday, May 9, 2013 - Developer Track
+#### Thursday, May 9, 2013 - Developer Track
 
 | Time                   | Title                                            | Speaker                     |
 |------------------------|--------------------------------------------------|-----------------------------|

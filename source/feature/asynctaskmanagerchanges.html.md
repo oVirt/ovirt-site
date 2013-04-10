@@ -113,6 +113,15 @@ Introduction of CommandEntity which contains the fields:
 *   Guid flowCommandId - ID of the command that started the flow that created the command.
 *   Serializable data - data associated with the command. This can hold any serializable object (will be stored as JSON at the database). For example - for Phase 1 this can store the command parameters. For storage live migration and other sequential flows it can hold the sequence state.
 
+#### Database Changes
+
+Introduction of commands table that will include the following records:
+
+| field name    | field type |
+|---------------|------------|
+| commandId     | uuid       |
+| flowCommandId | uuid       |
+
 ### Working on the changes
 
 *   Working on the changes of this mechanism should be done in stages in such a way that we can graduately move commands , and not apply the changes to all commands at once.

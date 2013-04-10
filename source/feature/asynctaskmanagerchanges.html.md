@@ -121,6 +121,7 @@ Introduction of commands table that will include the following records:
 |---------------|------------|
 | commandId     | uuid       |
 | flowCommandId | uuid       |
+| data          | text       |
 
 ### Working on the changes
 

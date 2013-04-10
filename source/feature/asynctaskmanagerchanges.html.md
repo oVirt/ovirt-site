@@ -109,9 +109,8 @@ When a task ends , either "SPMASyncTask.onTaskEndSuccess" or "SPMAsyncTask.onTas
 
 Introduction of CommandEntity which contains the fields:
 
-      * Guid commandId - ID of the command
-      * Guid flowCommandId - ID of the command that started the flow that created the command.
-
+*   Guid commandId - ID of the command
+*   Guid flowCommandId - ID of the command that started the flow that created the command.
 *   Serializable data - data associated with the command. This can hold any serializable object (will be stored as JSON at the database). For example - for Phase 1 this can store the command parameters. For storage live migration and other sequential flows it can hold the sequence state.
 
 ### Working on the changes

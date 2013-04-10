@@ -62,7 +62,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support DB_PORT option                                                | Done                    | Done[13]             |                                                      |          |             |
 | Support DB_ADMIN option                                               | Done                    | Done                 |                                                      |          |             |
 | Support DB_REMOTE_PASS option                                        | Done                    | Done                 |                                                      |          |             |
-| Support DB_SECURE_CONNECTION option                                  | Done                    | Feedback [14]        |                                                      |          |             |
+| Support DB_SECURE_CONNECTION option                                  | Done                    | Done [14]            |                                                      |          |             |
 | Support local DB creation                                              | Done                    | Feedback             | [ Alex Lourie](User:AlexLourie)           |          |             |
 | Support NFS_MP option                                                 | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Support ISO_DOMAIN_NAME option                                       | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |

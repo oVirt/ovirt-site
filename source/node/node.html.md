@@ -27,7 +27,7 @@ The oVirt Node sub-project is geared toward building a small, robust operating s
 oVirt Node 3.0.0
 
 *   Planning: [Node 3.0 release-management](Node 3.0 release-management)
-*   Target date: TBD
+*   Target date: 2013-05-31
 *   List of issues targeted: [Node_Backlog](Node_Backlog)
 
 ## Current Release

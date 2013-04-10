@@ -49,35 +49,35 @@ On May 8th, 2013, The oVirt workshop is pleased to announce we'll be trying some
 <div class="span6 pad-sides">
 #### Wednesday, May 8, 2013 - Operations Track
 
-| Time                   | Title                                                   | Speaker                   |
-|------------------------|---------------------------------------------------------|---------------------------|
-| 08:30-09:00            | colspan=2| Opening remarks and Keynote                  |
-| width=20%| 09:00-10:00 | width=50% | oVirt Introduction                          | width=30% | Doron Fediuck |
-| 10:00-11:00            | oVirt Architecture Overview                             | To be announced           |
-| 11:00-11:15            | colspan=2| Coffee Break                                 |
-| 11:15 - 12:15          | Deploying and testing oVirt using nested virtualization | Mark Wu                   |
-| 12:15-13:30            | colspan=2| Lunch                                        |
-| 13:30-14:30            | oVirt SLA overview                                      | Doron Fediuck (Red Hat)   |
-| 14:30-15:30            | deploying oVirt Node                                    | To be announced           |
-| 15:30-15:45            | colspan=2| Coffee Break                                 |
-| 15:45-17:00            | Converged Infrastructure with oVirt and Gluster         | Theron Conrey (Red Hat)   |
+| Time                   | Title                                                                            | Speaker                   |
+|------------------------|----------------------------------------------------------------------------------|---------------------------|
+| 08:30-09:00            | colspan=2| Opening remarks and Keynote : Intel Open Source Strategy - Jackson He |
+| width=20%| 09:00-10:00 | width=50% | oVirt Introduction                                                   | width=30% | Doron Fediuck |
+| 10:00-11:00            | oVirt Architecture Overview                                                      | To be announced           |
+| 11:00-11:15            | colspan=2| Coffee Break                                                          |
+| 11:15 - 12:15          | Deploying and testing oVirt using nested virtualization                          | Mark Wu                   |
+| 12:15-13:30            | colspan=2| Lunch                                                                 |
+| 13:30-14:30            | oVirt SLA overview                                                               | Doron Fediuck (Red Hat)   |
+| 14:30-15:30            | deploying oVirt Node                                                             | To be announced           |
+| 15:30-15:45            | colspan=2| Coffee Break                                                          |
+| 15:45-17:00            | Converged Infrastructure with oVirt and Gluster                                  | Theron Conrey (Red Hat)   |
 
 </div>
 <div class="span6 pad-sides">
 #### Wednesday, May 8th, 2013 - oVirt / Gluster Integration Track
 
-| Time                   | Title                                                               | Speaker                                |
-|------------------------|---------------------------------------------------------------------|----------------------------------------|
-| 08:30-09:00            | colspan=2| Opening remarks and Keynote                              |
-| width=20%| 09:00-10:00 | width=50% | Gluster Community Overview and Roadmap                  | width=30% | John Mark Walker (Red Hat) |
-| 10:00-11:00            | Gluster Architecture Overview                                       | To be announced                        |
-| 11:00-11:15            | colspan=2| Coffee break                                             |
-| 11:15-12:15            | debugging oVirt                                                     | Tal Nisan                              |
-| 12:15-13:30            | colspan=2| Lunch                                                    |
-| 13:30-14:30            | Converged Infrastructure with oVirt and Gluster                     | Theron Conrey (Red Hat)                |
-| 14:30-15:30            | Gluster and Swift Object Store (UFO)                                | John Mark Walker (Red Hat)             |
-| 15:30-15:45            | colspan=2| Coffee break                                             |
-| 15:45-16:45            | Developing with GlusterFS - translator framework, libgfapi and more | Vijay Bellur (Red Hat)                 |
+| Time                   | Title                                                                            | Speaker                                |
+|------------------------|----------------------------------------------------------------------------------|----------------------------------------|
+| 08:30-09:00            | colspan=2| Opening remarks and Keynote : Intel Open Source Strategy - Jackson He |
+| width=20%| 09:00-10:00 | width=50% | Gluster Community Overview and Roadmap                               | width=30% | John Mark Walker (Red Hat) |
+| 10:00-11:00            | Gluster Architecture Overview                                                    | To be announced                        |
+| 11:00-11:15            | colspan=2| Coffee break                                                          |
+| 11:15-12:15            | debugging oVirt                                                                  | Tal Nisan                              |
+| 12:15-13:30            | colspan=2| Lunch                                                                 |
+| 13:30-14:30            | Converged Infrastructure with oVirt and Gluster                                  | Theron Conrey (Red Hat)                |
+| 14:30-15:30            | Gluster and Swift Object Store (UFO)                                             | John Mark Walker (Red Hat)             |
+| 15:30-15:45            | colspan=2| Coffee break                                                          |
+| 15:45-16:45            | Developing with GlusterFS - translator framework, libgfapi and more              | Vijay Bellur (Red Hat)                 |
 
 </div>
 

@@ -41,6 +41,10 @@ Making oVirt Node more generic and available to other projects widens the user b
 ### Dependencies / Related Features
 
 *   [Node VDSM Plugin](Features/Node_vdsm_plugin)
+*   Affected Packages
+    -   ovirt-node
+    -   ovirt-node-image
+    -   New Package for the plugin
 
 ### Documentation / External references
 

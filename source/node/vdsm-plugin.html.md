@@ -50,6 +50,6 @@ Because of the [Universal Node Image](Features/Universal Image) feature, there w
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
+*   Refer to [Talk:Node vdsm plugin](Talk:Node vdsm plugin)
 
 <Category:Feature> <Category:Template> <Category:Node>

@@ -97,13 +97,13 @@ The coordination by entity principal is used from previous version, and was intr
 
 End of the flow command will be executed when all tasks that were initiated by the flow are complete (of course, failure or success of tasks affects failure of success of the end of the flow command).
 
+Phase 1 will have to support the two "end of command coordination" approaches (to allow gradual moves). Due to the gradual move, it may be that a child command creating tasks (i.e - RemoveImageCommand) will be used by more than one flow (i.e - RemoveVm, RemoveDisk). Each flow command that uses "coordination by flow command" should be marked (either by annotation or by a method at CommandBase that will be overriden at concrete commands). Indicating that a Command Entity should be created for the command and persisted for it using CommandEntityDAO. For example - for a flow of RemoveVM, the commands table (see further explanations) will have the records for the following commands - RemoveVM, RemoveAllVMImages (child of RemoveVM), N instances of RemoveImage (children of RemoveVM, one per image). The decision on which "end of command coordination" policy should be used can be passed to the child commands using the ExecutionContext of the command.
+
+For each command that participates in a flow that used "coordination by flow command" the command entity will be kept in the command cache of the Command Coordinator. For each command that participates in a flow that uses "coordination by entity" - the SPM task will be kept at multiTasksByEnitites structure (as in the existing code).
+
+When a task ends , either "SPMASyncTask.onTaskEndSuccess" or "SPMAsyncTask.onTaskEndFailure" will be invoked. These methods will check if there is an entry for the child command that created the task at the commands cache - if the check is positive, "coordination by flow" will be used, otherwise "coordination by entity" will be used.
+
 ![](Async_task_manager_command_mamanger_phase1.png "Async_task_manager_command_mamanger_phase1.png")
-
-The changes from the current implementation are:
-
-1.  Parameters - the task entity will no longer have parameters - as they are the parameters of the "Root command" (I.E - the parameters of the command which is first in the hierarchy )
-2.  Both the direct parent and the root command Id are kept
-3.  SPMAsyncTask should eventually be removed - all its logic should be moved to the AsyncTaskManager implementation and the CommandManager.
 
 ### Working on the changes
 

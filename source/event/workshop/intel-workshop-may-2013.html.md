@@ -49,18 +49,18 @@ On May 8th, 2013, The oVirt workshop is pleased to announce we'll be trying some
 <div class="span6 pad-sides">
 #### Wednesday, May 8, 2013 - Operations Track
 
-| Time                   | Title                                                   | Speaker                     |
-|------------------------|---------------------------------------------------------|-----------------------------|
+| Time                   | Title                                                   | Speaker                   |
+|------------------------|---------------------------------------------------------|---------------------------|
 | 08:30-09:00            | colspan=2| Opening remarks and Keynote                  |
-| width=20%| 09:00-10:00 | width=50% | oVirt Introduction                          | width=30% | To be announced |
-| 10:00-11:00            | oVirt Architecture Overview                             | Doron Fediuck               |
+| width=20%| 09:00-10:00 | width=50% | oVirt Introduction                          | width=30% | Doron Fediuck |
+| 10:00-11:00            | oVirt Architecture Overview                             | To be announced           |
 | 11:00-11:15            | colspan=2| Coffee Break                                 |
-| 11:15 - 12:15          | Deploying and testing oVirt using nested virtualization | Mark Wu                     |
+| 11:15 - 12:15          | Deploying and testing oVirt using nested virtualization | Mark Wu                   |
 | 12:15-13:30            | colspan=2| Lunch                                        |
-| 13:30-14:30            | oVirt SLA overview                                      | Doron Fediuck (Red Hat)     |
-| 14:30-15:30            | deploying oVirt Node                                    | To be announced             |
+| 13:30-14:30            | oVirt SLA overview                                      | Doron Fediuck (Red Hat)   |
+| 14:30-15:30            | deploying oVirt Node                                    | To be announced           |
 | 15:30-15:45            | colspan=2| Coffee Break                                 |
-| 15:45-17:00            | Converged Infrastructure with oVirt and Gluster         | Theron Conrey (Red Hat)     |
+| 15:45-17:00            | Converged Infrastructure with oVirt and Gluster         | Theron Conrey (Red Hat)   |
 
 </div>
 <div class="span6 pad-sides">

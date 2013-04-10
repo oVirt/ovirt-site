@@ -41,6 +41,10 @@ Because of the [Universal Node Image](Features/Universal Image) feature, there w
 ### Dependencies / Related Features
 
 *   [Universal Node Image](Features/Universal Image)
+*   Affected Packages
+    -   ovirt-node
+    -   ovirt-node-iso
+    -   New Package: ovirt-node-plugin-vdsm (Name TBD)
 
 ### Documentation / External references
 

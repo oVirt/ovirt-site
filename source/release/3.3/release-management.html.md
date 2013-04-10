@@ -100,4 +100,12 @@ Features being considered for inclusion/already in master:
 *   [Features/Gluster Hooks Management](Features/Gluster Hooks Management) Managing gluster hooks from console
 *   [Features/Gluster Services Management](Features/Gluster Services Management) Reimplement services tab for gluster cluster. Allow start/stop of services.
 
+### Node
+
+*   [Universal Node Image](Features/Universal Image) make the ovirt-node image generic for use with non-oVirt Projects
+*   [Node VDSM Plugin](Features/Node vdsm plugin) extract all vdsm and oVirt Engine specific code from ovirt-node into a plugin
+*   oVirt Node works on a different asynchronous release schedule from the rest of oVirt.
+    -   At the time of the oVirt 3.3 release, the current version of ovirt-node will be 3.0.0.
+    -   Feature for oVirt node 3.0.0 can be found on the [oVirt Node 3.0.0 release page](Node_3.0_release-management)
+
 <Category:Releases> [Category:Release management](Category:Release management)

@@ -53,7 +53,7 @@ On May 8th, 2013, The oVirt workshop is pleased to announce we'll be trying some
 |------------------------|---------------------------------------------------------|-----------------------------|
 | 08:30-09:00            | colspan=2| Opening remarks and Keynote                  |
 | width=20%| 09:00-10:00 | width=50% | oVirt Introduction                          | width=30% | To be announced |
-| 10:00-11:00            | oVirt Architecture Overview                             | To be announced             |
+| 10:00-11:00            | oVirt Architecture Overview                             | Doron Fediuck               |
 | 11:00-11:15            | colspan=2| Coffee Break                                 |
 | 11:15 - 12:15          | Deploying and testing oVirt using nested virtualization | Mark Wu                     |
 | 12:15-13:30            | colspan=2| Lunch                                        |
@@ -72,7 +72,7 @@ On May 8th, 2013, The oVirt workshop is pleased to announce we'll be trying some
 | width=20%| 09:00-10:00 | width=50% | Gluster Community Overview and Roadmap                  | width=30% | John Mark Walker (Red Hat) |
 | 10:00-11:00            | Gluster Architecture Overview                                       | To be announced                        |
 | 11:00-11:15            | colspan=2| Coffee break                                             |
-| 11:15-12:15            | oVirt Configurations and Gluster                                    | To be announced                        |
+| 11:15-12:15            | debugging oVirt                                                     | Tal Nisan                              |
 | 12:15-13:30            | colspan=2| Lunch                                                    |
 | 13:30-14:30            | Converged Infrastructure with oVirt and Gluster                     | Theron Conrey (Red Hat)                |
 | 14:30-15:30            | Gluster and Swift Object Store (UFO)                                | John Mark Walker (Red Hat)             |

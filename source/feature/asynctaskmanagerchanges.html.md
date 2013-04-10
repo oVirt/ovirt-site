@@ -113,7 +113,7 @@ The coordination by entity principal is used from previous version, and was intr
 
 End of the flow command will be executed when all tasks that were initiated by the flow are complete (of course, failure or success of tasks affects failure of success of the end of the flow command).
 
-[[1](File:Async_task_manager_command_mamanger_phase1.png)
+[1](File:Async_task_manager_command_mamanger_phase1.png)
 
 The changes from the current implementation are:
 

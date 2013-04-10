@@ -96,7 +96,7 @@ On May 9th, 2013, The oVirt workshop will also have two tracks running. The Deve
 | 11:15-12:15            | oVirt SLA- MoM as host level enforcement agent   | Doron Fediuck               |
 | 12:15-13:30            | colspan=2| Lunch                                 |
 | 13:30-14:30            | Trusted Compute Pools Deep Dive                  | Gang Wei                    |
-| 14:30-15:30            | oVirt and Quantum                                | to be announced             |
+| 14:30-15:30            | KVM Nested Virtualization                        | to be announced             |
 | 15:30-15:45            | colspan=2| Coffee break                          |
 | 15:30-17:00            | The present and future of SetupNetwork in oVirt  | Dan Kenisburg               |
 | 17:00-17:30            | Closing remarks and closing keynote              |

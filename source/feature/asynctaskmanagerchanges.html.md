@@ -93,17 +93,27 @@ AsyncTaskManager has a methods for registering + providing the initial list of t
 
 When engine restarts the CommandManager (which will be discussed later on) is registered as TaskStatusEventHandler at the TaskManager. TaskManager.poll method is being invoked periodically, and for each task status, the proper method at the TaskStatusEventHandler is executed. Currnely only "onTaskEnded" method is implemented.
 
-#### Command Manager
+#### Command Coordinator
 
-Command Manager is a new class that is responsible for creating tasks, caching command entities, recieving callbacks from taskmgr and returning status of tasks.
+Command Coordinator is a new class that is responsible for creating tasks, caching command entities, recieving callbacks from taskmgr and returning status of tasks. The work on the command coordinator will be iterative as well, and this WIKI page will change accordingly. Currently Command Coordinator will accomplish it roles the following way:
 
 1.  Creating new tasks : Most of the code from AsyncTaskManager will be moved to command manager. A new interface Task is passed into the taskmgr from the CommandManager.
 2.  Caching commands : Command Entities which contain the parameters, command id and parent command id are cached using CommandEntityDAO. CommandEntityDAOImpl uses ehcache to cache command entities.
-3.  DecoratedCommand : We use the decorator pattern to intercept endAction on the command and call handleEndActionResult which was previously called from EntityAsyncTask.
+3.  DecoratedCommand : We use the decorator pattern to intercept endAction on the command and call handleEndActionResult which was previously called from EntityAsyncTask
 4.  CallBack : A new interface with one method endAction. The Command Manager implements this interface and registers itself with the taskmgr. When the command ends the taskmgr calls the endAction method on the callback.
-5.  Poller : A new interface Poller with methods for returning the status of tasks. CommandManager implements this interface and returns statuses by calling RunVdsCommand.
+5.  Poller : A new interface Poller with methods for returning the status of tasks. SPMPoller implements this interface and returns statuses by calling RunVdsCommand.
 
-![](CommandManager_class_diagram.png "CommandManager_class_diagram.png")
+Phase 1 changes "end of command coordination" from "coordination by entity" to "coordination by flow command ID".#
+
+1.  Coordination by entity - this means that all tasks that are related to a given entity (VM, TEMPLATE, DISK) should be ended before the command that initiated the flow that created the tasks (will be addressed as the "flow command") is ended.
+
+The coordination by entity principal is used from previous version, and was introduced prior to the introduction of Command ID (during the development of the compensation feature at 3.0).
+
+1.  Coordination by flow command - this means that all tasks will have access to information on the command that initiated the flow that created them.
+
+End of the flow command will be executed when all tasks that were initiated by the flow are complete (of course, failure or success of tasks affects failure of success of the end of the flow command).
+
+[[1](File:Async_task_manager_command_mamanger_phase1.png)
 
 The changes from the current implementation are:
 

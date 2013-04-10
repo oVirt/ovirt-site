@@ -77,7 +77,7 @@ The last step would be to work with a service locator module that will be respon
 
 ### Detailed design
 
-#### Command Coordinator
+#### Command Coordinator and interaction with Async Task Manager
 
 Command Coordinator is a new class that is responsible for creating tasks, caching command entities, recieving callbacks from taskmgr and returning status of tasks. The work on the command coordinator will be iterative as well, and this WIKI page will change accordingly. Currently Command Coordinator will accomplish it roles the following way:
 
@@ -104,6 +104,15 @@ For each command that participates in a flow that used "coordination by flow com
 When a task ends , either "SPMASyncTask.onTaskEndSuccess" or "SPMAsyncTask.onTaskEndFailure" will be invoked. These methods will check if there is an entry for the child command that created the task at the commands cache - if the check is positive, "coordination by flow" will be used, otherwise "coordination by entity" will be used.
 
 ![](Async_task_manager_command_mamanger_phase1.png "Async_task_manager_command_mamanger_phase1.png")
+
+#### Changed entities
+
+Introduction of CommandEntity which contains the fields:
+
+      * Guid commandId - ID of the command
+      * Guid flowCommandId - ID of the command that started the flow that created the command.
+
+*   Serializable data - data associated with the command. This can hold any serializable object (will be stored as JSON at the database). For example - for Phase 1 this can store the command parameters. For storage live migration and other sequential flows it can hold the sequence state.
 
 ### Working on the changes
 

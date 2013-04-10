@@ -8,25 +8,22 @@ wiki_revision_count: 5
 wiki_last_updated: 2013-05-22
 ---
 
-# Universal Image
-
 The actual name of your feature page should look something like: "Your feature name". Use natural language to [name the pages](How to make pages#Page_naming).
 
-## Your Feature Name
+# Universal oVirt Node Image
 
 ### Summary
 
-A sentence or two summarizing what this feature is and what it will do. This information is used for the overall feature summary page for each release.
+This feature converts the oVirt Node image into a generic image that can be customized for many different projects using [Node Plugins](Node_plugins).
 
 ### Owner
 
-This should link to your home wiki page so we know who you are
+*   Name: [ Mike Burns](User:mburns)
 
-*   Name: [ My User](User:MyUser)
+<!-- -->
 
-Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
-
-*   Email: <my@email>
+*   Email: mburns AT redhat DOT com
+*   IRC: mburns
 
 ### Current status
 
@@ -35,19 +32,19 @@ Include you email address that you can be reached should people want to contact 
 
 ### Detailed Description
 
-Expand on the summary, if appropriate. A couple sentences suffices to explain the goal, but the more details you can provide the better.
+A number of requests to use oVirt Node in projects other than oVirt have been received. This feature is the conversion of oVirt Node into a generic image that can be customized for use in other projects using specialized Plugins. A separate feature for moving the logic for working with oVirt Engine into a plugin is also filed [here](Features/Node_vdsm_plugin)
 
 ### Benefit to oVirt
 
-What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
+Making oVirt Node more generic and available to other projects widens the user base for the model that oVirt Node uses. This model will then get additional testing and use outside of the oVirt Project and thus be more stable in the long term.
 
 ### Dependencies / Related Features
 
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
+*   [Node VDSM Plugin](Features/Node_vdsm_plugin)
 
 ### Documentation / External references
 
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
+*   Coming Soon
 
 ### Comments and Discussion
 

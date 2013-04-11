@@ -254,6 +254,18 @@ Then, every time you want to use it:
 
 will make ovirt and its dependencies available to your python execution environment.
 
+### codegen
+
+install generateDS
+
+      easy_install generateDS
+
+codegen
+
+      1. compile + deploy new ovirt-engine
+      2. run jboss
+      3. run codegen.main.py
+
 ## Known issues
 
 ## TODO list

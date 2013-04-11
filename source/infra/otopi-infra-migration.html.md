@@ -86,7 +86,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Configure .pgpass file                                                 | Done                    | Done                 |                                                      |          |             |
 | Encrypt DB Password                                                    | Done                    | Done                 |                                                      |          |             |
 | Push the encrypted password into the local configuration file          | Done                    | Done                 |                                                      |          |             |
-| Start / Stop rhevm-etl / ovirt-engine-dwhd service when needed         | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Start / Stop rhevm-etl / ovirt-engine-dwhd service when needed         | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Start / Stop rhevm-notifierd / engine-notifierd service when needed    | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Upgrade engine database if already exist                               | Done                    | Done                 |                                                      |          |             |
 | Install engine database if doesn't exist                               | Done                    | Done                 |                                                      |          |             |

@@ -220,18 +220,6 @@ For local install in site-packages, from ovirt-engine-sdk repo:
       cd ovirt-engine-sdk
       python2 setup.py install
 
-#### codegen
-
-install generateDS
-
-      easy_install generateDS
-
-codegen
-
-      1. compile + deploy new ovirt-engine
-      2. run jboss
-      3. run codegen.main.py
-
 *   note: both deployment procedures require super-user permissions.
 
 ### development deployment (using pip and virtualenvwrapper package manager)

@@ -66,4 +66,6 @@ wiki_last_updated: 2014-10-05
 
 ### Additional Information
 
+The oVirt guest agent can be compiled and run on Ubuntu, without SSO and with a few workarounds. It can perform the guest OS information collecting. To try it, clone the following git repo and run ./ubuntuInstall.sh in your Ubuntu guest. [demo git repo](https://github.com/edwardbadboy/ovirtagent-ubuntu)
+
 <Category:Ubuntu> <Category:Ovirt_guest_agent>

@@ -12,7 +12,7 @@ wiki_last_updated: 2013-04-11
 
 ### Summary
 
-This feature converts the generic oVirt Node image into an image customized use with oVirt Engine.
+This feature converts the generic oVirt Node image into an image with support for Puppet provisioning.
 
 ### Owner
 

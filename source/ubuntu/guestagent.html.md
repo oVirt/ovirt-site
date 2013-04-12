@@ -22,28 +22,28 @@ wiki_last_updated: 2014-10-05
 *   Testing on Ubuntu
     -   Information
         -   Machine name
-            -   TODO (needs to be verified, maybe even fixed)
+            -   OK
         -   Operating system version
-            -   TODO (needs to be verified, maybe even fixed)
+            -   OK
         -   IP(v4) addresses
-            -   TODO (needs to be verified, maybe even fixed)
+            -   OK
         -   Package query support APT support
             -   ChangeSet: <http://gerrit.ovirt.org/#/c/8642/>
         -   Available RAM
-            -   TODO (needs to be verified, maybe even fixed)
+            -   OK
         -   Logged in users
-            -   TODO (needs to be verified, maybe even fixed)
+            -   OK
         -   Active user
-            -   TODO (needs to be verified, maybe even fixed)
+            -   OK
     -   Notifications
         -   Power Up
             -   TODO (needs to be verified, maybe even fixed)
         -   Power Down
             -   TODO (needs to be verified, maybe even fixed)
         -   Heartbeat
-            -   TODO (needs to be verified, maybe even fixed)
+            -   OK
         -   User Info
-            -   TODO (needs to be verified, maybe even fixed)
+            -   OK
         -   Session Lock
             -   TODO (needs to be verified, maybe even fixed)
         -   Session Unlock
@@ -53,16 +53,16 @@ wiki_last_updated: 2014-10-05
         -   Session Logoff
             -   TODO (needs to be verified, maybe even fixed)
         -   Agent uninstalled
-            -   TODO (needs to be verified, maybe even fixed)
+            -   A script in .spec report the uninstalled message, we need to implement the same logic for the .deb package.
     -   Actions
         -   Lock screen
-            -   TODO (needs to be verified, maybe even fixed)
+            -   OK
         -   Login (Single Sign On)
-            -   TODO (needs to be verified, maybe even fixed)
+            -   Ubuntu currently use lightdm as default, not gdm or kdm. We need to support lightdm.
         -   Logoff
-            -   TODO (needs to be verified, maybe even fixed)
+            -   Not implemented in ovirt-guest-agent/GuestAgentLinux2.py
         -   Shutdown
-            -   TODO (needs to be verified, maybe even fixed)
+            -   OK
 
 ### Additional Information
 

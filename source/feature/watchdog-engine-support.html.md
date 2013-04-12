@@ -25,13 +25,13 @@ This feature adds [watchdog](https://en.wikipedia.org/wiki/Watchdog_Card) suppor
 *   Last updated: ,
 *   patchset
 
-<http://gerrit.ovirt.org/13057>
+<http://gerrit.ovirt.org/13057> - DB and entities changes
 
-<http://gerrit.ovirt.org/13058>
+<http://gerrit.ovirt.org/13058> - logic changes in BLL and vdsbroker
 
-<http://gerrit.ovirt.org/13059>
+<http://gerrit.ovirt.org/13059> - frontend
 
-<http://gerrit.ovirt.org/13060>
+<http://gerrit.ovirt.org/13060> - rest-api support
 
 ### Detailed Description
 

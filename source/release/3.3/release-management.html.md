@@ -91,6 +91,7 @@ Features being considered for inclusion/already in master:
 TBD:
 
 *   [Features/DirectHostAddress](Features/DirectHostAddress)
+*   [Features/Network Labels](Features/Network Labels)
 
 ### SLA & Scheduling
 

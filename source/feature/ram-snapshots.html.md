@@ -43,7 +43,7 @@ Deletion of a snapshot that has memory state, should remove the memory state vol
 
 #### Create VM from snapshot
 
-In case a VM is created from snapshot that includes memory state, the VM configuration will contain the volumes in which the memory state is saved, just like it is done for suspended VM.
+In case a VM is created from snapshot that includes memory state, the user will be able to choose whether to restore the saved memory state from the snapshot when running the VM or not (in that case the VM will boot from disks).
 
 #### Preview snapshot
 

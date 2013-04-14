@@ -51,11 +51,11 @@ In case a VM is changed to preview a snapshot that includes memory state, the VM
 
 #### Run VM
 
-If the VM status is not 'paused' and there are memory state volumes defined in its configuration, the user will have an option whether to boot from disk or restore the saved memory. If the boot from disk is selected, the run command will be performed as it is now performing on non-paused VMs. If the restore saved memory is selected, the run command will be performed as it is now performing on paused VMs.
+If there is memory state defined in the configuration of the VM, the saved memory state will be restored (instead of boot from the disks), the same way hibernated VM is restored.
 
 The memory state volumes will be cleared from the VM configuration if the VM is not running in stateless mode.
 
-Note: it is our responsibility to ensure that the disks state is the same as it was when the live snapshot was taken, when restoring memory state that was saved during the live snapshot. there is no validation in libvirt for that, so it may cause data corruption.
+Note: it is our responsibility to ensure that the disks state is the same as it was when the live snapshot was taken, when restoring memory state that was saved during the live snapshot. there is no validation in libvirt for that, and it may cause data corruption. So it is important to clear the memory state when there is a chance that the disks or the memory state was changed.
 
 #### Import VM
 

@@ -98,7 +98,7 @@ The following command will change as described above:
 
 ##### OVF files
 
-The snapshot section in OVF file of VM will include the string that represent the volumes that contain the memory state and VM configuration.
+The snapshot section in OVF file of VM will include the place where the memory state is stored.
 
 ##### backward compitability
 

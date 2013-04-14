@@ -47,11 +47,11 @@ In case a VM is created from snapshot that includes memory state, the user will 
 
 #### Preview snapshot
 
-In case a VM is changed to preview a snapshot that includes memory state, the user will choose whether to use the saved memory state as described above.
+In case a VM is set to preview a snapshot that includes memory state, the user will choose whether to use the saved memory state as described above.
 
 #### Run VM
 
-If there is memory state defined in the configuration of the VM, the saved memory state will be restored (instead of boot from the disks), the same way hibernated VM is restored.
+If there is memory state defined in the configuration of the VM, the saved memory state will be restored (instead of boot from the disks) the same way hibernated VM is restored.
 
 The memory state volumes will be cleared from the VM configuration if the VM is not running in stateless mode.
 

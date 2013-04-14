@@ -47,7 +47,7 @@ In case a VM is created from snapshot that includes memory state, the user will 
 
 #### Preview snapshot
 
-In case a VM is changed to preview a snapshot that includes memory state, the VM configuration will contain the volumes in which the memory state is saved, the same way it was described above for create vm from snapshot.
+In case a VM is changed to preview a snapshot that includes memory state, the user will choose whether to use the saved memory state as described above.
 
 #### Run VM
 

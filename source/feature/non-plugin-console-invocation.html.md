@@ -20,7 +20,7 @@ This feature adds to the engine the possibility of serving configuration files f
 
 ### Configuration
 
-      engine-config -s ClientConsoleMode=value
+      engine-config -s ClientConsoleModeDefault=value
 
 where value is a string that can be Plugin, Native or Auto. This settings will affect behavior of the connect-to-console button on the frontend.
 

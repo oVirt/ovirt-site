@@ -15,6 +15,8 @@ wiki_warnings: list-item?
 
 ### Summary
 
+Enable plug-in to inject tasks (Jobs) to the engine application using the REST API, change their statuses and track them from the UI. A task (Job) may have other nesting sub-tasks (Steps) under it.
+
 ### Owner
 
 *   Feature owner: [ Eli Mesika](User:emesika)

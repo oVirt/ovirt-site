@@ -10,7 +10,7 @@ wiki_last_updated: 2013-07-23
 
 # Console settings dialog in Webadmin and User Portal
 
-### Description/state of work
+### Description/status
 
 This feature has three main aims:
 
@@ -22,13 +22,6 @@ This feature has three main aims:
     -   [Features/noVNC console](Features/noVNC console), SPICE HTML 5 client
 
 3.  to make use of browser local storage to save configuration of the dialog per-VM - MERGED
-
-### Status
-
-*   extracting console dialog - merged upstream
-*   enhancing the dialog
-    -   Adding spice proxy - on upstream review
-*   make use of local storage - on upstream review
 
 ### Limitations
 

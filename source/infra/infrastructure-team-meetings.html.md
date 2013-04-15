@@ -18,13 +18,35 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Upcoming meetings
 
-### 2013-04-01?
+### 2013-04-15
 
 *Agenda*
 
 *   Introductions
 *   Review of action items
-    -   Rydekull add the jenkins slaves to a list ont he wiki
+    -   Rydekull add the jenkins slaves to a list on the wiki
+    -   quaid to setup docs sprint
+    -   eedri to send email about ip space on rackspace servers
+    -   ewoud mail to infra@ to make sure we don't have a SPOF on people with access
+    -   ewoud restart the puppet ML thread
+*   Hosting
+    -   rackspace01 installed?
+*   Puppet
+*   Jenkins
+*   Other business?
+*   Trac review
+
+## Past meetings
+
+### 2013-04-08
+
+*[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-04-08-14.04.html)*
+
+*Agenda*
+
+*   Introductions
+*   Review of action items
+    -   Rydekull add the jenkins slaves to a list on the wiki
     -   quaid to setup docs sprint
 *   Hosting
     -   rackspace01 installed?
@@ -33,8 +55,6 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Jenkins
 *   Other business?
 *   Trac review
-
-## Past meetings
 
 ### 2013-03-25
 

@@ -131,6 +131,14 @@ The watchdog cards and available actions will also get a list in the engine capa
 
 #### Watchdog behavior
 
+In any case when the watchdog event is triggered, users will receive a \*\*warning\*\* level audit log entry associated with the VM.
+
+*   poweroff - shuts down the VM immediately. Not that if the VM is HA, it will be started automatically by the engine - possibly on another host.
+*   reset - restarts the VM. The engine will also be notified about the VM rebooting.
+*   pause - pauses the VM. User can resume the VM.
+*   dump - dumps and the VM goes to pause state
+*   none - no action is taken, but the watchdog event appears in the audit log
+
 #### VDSM support
 
 VDSM support for watchdog cards is already merged.

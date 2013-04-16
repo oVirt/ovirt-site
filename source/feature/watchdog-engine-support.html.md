@@ -58,6 +58,10 @@ The watchdog support on the UI will be found on the new/edit VM/template window,
 
 You can also find a user interface live demo on [<https://www.youtube.com/watch?v>=-dJLmLxXn4o youtube]
 
+##### Desktop
+
+The desktop will have the very same HA tab as the server. This is a somewhat unrelated change, but the difference between desktop and server VM's is about to be removed.
+
 #### Backend changes
 
 *   Both Vm and Template will have support for watchdog cards

@@ -39,7 +39,6 @@ The new UI components fix a lot of old bugs and offers features which solve many
 
 ### Dependencies / Related Features
 
-*   [Node VDSM Plugin](Features/Node_vdsm_plugin)
 *   Affected Packages
     -   ovirt-node
 *   New Package for the UI
@@ -53,6 +52,6 @@ The new UI components fix a lot of old bugs and offers features which solve many
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
-*   Refer to [Talk:Universal Image](Talk:Universal Image)
+*   Refer to [Talk:Urwid TUI](Talk:Urwid TUI)
 
 <Category:Feature> <Category:Template> <Category:Node>

@@ -75,7 +75,7 @@ Now that the source and build environment is setup you can build the *ovirt-node
     # Also, you may need to tweak this if you have an invalid character in your user name (like - )
     $ export EXTRA_RELEASE=.$USER$(date +%s)
 
-    $ ./autogen.sh --with-image-minimizer</code>
+    $ ./autogen.sh --with-image-minimizer
 
     # Copies the packages to $OVIRT_CACHE_DIR (FIXME or $OVIRT_LOCAL_REPO?)
     $ make publish

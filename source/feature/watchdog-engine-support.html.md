@@ -129,6 +129,8 @@ The watchdog cards and available actions will also get a list in the engine capa
        ....
 </watchdog_actions>
 
+#### Watchdog behavior
+
 #### VDSM support
 
 VDSM support for watchdog cards is already merged.

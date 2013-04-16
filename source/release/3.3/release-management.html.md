@@ -109,4 +109,9 @@ Features being considered for inclusion/already in master:
     -   At the time of the oVirt 3.3 release, the current version of ovirt-node will be 3.0.0.
     -   Feature for oVirt node 3.0.0 can be found on the [oVirt Node 3.0.0 release page](Node_3.0_release-management)
 
+### Integration
+
+*   [Features/Otopi_Infra_Migration](Features/Otopi_Infra_Migration) A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plugin using otopi.
+*   [Features/Self_Hosted_Engine](Features/Self_Hosted_Engine) The ability to run the Engine as a VM on the hosts that are managed by this Engine, in an HA configuration, when the Engine VM can start on any of the hosts.
+
 <Category:Releases> [Category:Release management](Category:Release management)

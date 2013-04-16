@@ -75,6 +75,7 @@ Features being considered for inclusion/already in master:
 ### Virt
 
 *   [Features/RAM Snapshots](Features/RAM Snapshots)
+*   [Features/noVNC console](Features/noVNC console)
 
 ### Infra
 

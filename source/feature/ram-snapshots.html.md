@@ -90,16 +90,64 @@ This feature introduces new functionality for oVirt users that will allow them t
 
 ##### Commands
 
-The following command will change as described above:
-
 *   CreateAllSnapshotCommand
+    -   The parameters will include a memory state flag which indicates whether to take memory snapshot or not
+    -   Execute stage
+        -   If the VM is running and the memory state flag is on, an image will be created for the memory
+        -   if the VM is not running and the memory state flag is on, turn off the memory state flag
+    -   End-action stage
+        -   If the VM is running + memory state flag is on + all tasks finished successfully, turn on the memory state flag for SnapshotVdsCommand
+        -   If the VM is **NOT** running + memory state flag is on + all tasks finished successfully, remove the memory state image
+        -   If the memory state flag is on + *NOT*' all tasks finished successfully, remove the memory state image
+
+<!-- -->
+
 *   SnapshotVdsCommand
+    -   The parameters will include a memory state flag which indicates whether to take memory snapshot or not
+    -   If cluster level < 3.3, send only two parameters for the vmSnapshot verb with the VM id and disk information
+    -   If cluster level >= 3.3
+        -   If the memory state flag is off, send a map with "mode:disks_only" mapping as the third parameter for the vmSnapshot verb
+        -   If the memory state flag is on, send a map with "mode:disks_memory" mapping + information about the place to store the memory state as the third parameter for the vmSnapshot verb
+        -   Note: the information about the place where to store the memory state will be similar to the way it is represented in HotPlugDiskVDSCommand. that way, it will allow us to represent locations in external disks as well. in the first stage, only domain-pool-image-volume quartet will be used as memory state image will be created as the image is created in HibernateVmCommand
+
+<!-- -->
+
 *   RemoveSnapshotCommand
+    -   If the snapshot to be removed contains memory state, check if there're other snapshot that use that memory state. if there are no other snapshots pointing to the memory state, delete the memory state as well
+
+<!-- -->
+
 *   AddVmFromSnapshotCommand
-*   TryBackToSnapshotCommand
+    -   The parameters will include an indication whether to use the memory state from the snapshot or not
+    -   If the use memory state indication is on, set the active snapshot of the created VM to point to the original snapshot's memory state location
+
+<!-- -->
+
+*   TryBackToAllSnapshotsOfVmCommand
+    -   The parameters will include an indication whether to use the memory state from the snapshot or not
+    -   If the use memory state indication is on, set memory state location of the newly added active snapshot to point to the original snapshot's memory state location
+
+<!-- -->
+
 *   RunVmCommand
+    -   If the VM is not paused and its active snapshot contains memory state
+        -   The created VM will contain the memory state location taken from the active snapshot
+            -   The memory state location will be stored in the hibernation-vol-handle field of the VM
+            -   The memory state will be cleared from the active snapshot
+    -   If the VM is running as stateless, the memory state from the active snapshot will be copied to the newly added active snapshot
+
+<!-- -->
+
 *   ImportVmCommand
+    -   If the collapse snapshots option is on
+        -   If the active snapshot contains memory state then import its memory state file as well
+    -   If the collapse snapshots option is off
+        -   For every snapshot of the VM, if the snapshot contains memory state then import its memory state file as well
+
+<!-- -->
+
 *   ExportVmCommand
+    -   For every snapshot of the VM, if the snapshot contains memory state then export the memory state file as well
 
 ##### OVF files
 

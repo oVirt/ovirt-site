@@ -76,6 +76,7 @@ Features being considered for inclusion/already in master:
 
 *   [Features/RAM Snapshots](Features/RAM Snapshots)
 *   [Features/noVNC console](Features/noVNC console)
+*   [Features/GlusterFS_Storage_Domain](Features/GlusterFS_Storage_Domain)
 
 ### Infra
 

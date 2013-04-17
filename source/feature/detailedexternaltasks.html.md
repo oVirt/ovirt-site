@@ -39,6 +39,36 @@ Enable plug-in to inject tasks (Jobs) to the engine application using the REST A
 
 ### Detailed Description
 
+Enable plug-in to inject tasks (Jobs) to the engine application using the REST API, change their statuses and track them from the UI. A task (Job) may have other nesting sub-tasks (Steps) under it. A Job is actually a container of nexted steps. each Step may have sub-steps under it. A steps represents one of the following:
+ An external command that is invoked and monitored by the plug-in
+
+        A supported internal command that is invoked by the plug-in and monitored internally by the oVirt engine.
+
+Each Job may have unlimited list of external/internal steps.
+
+The following should be supported:
+
+        Adding a job
+        Adding a  step to a job or to a step (as sub-step)
+        Ending a step 
+        Eding a job
+        Displaying all Jobs
+        Displaying a specific Job
+        Displaying all Steps under a specific Job
+        Dislaying a specific Step under a Job
+
+Job can be in one of the following statuses:
+
+         STARTED   - Job was started
+         FINISHED  - Job has been finished successfully
+         FAILED       - Job had failed 
+
+Step can be in one of the following statuses:
+
+         VALIDATING  - Step is validating the requested operation
+         EXECUTING  - Step is executing the requested operation
+         FINALIZING   - Steps is finalysing the requested operation
+
 ### CRUD
 
 #### DAO

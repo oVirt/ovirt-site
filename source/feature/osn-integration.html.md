@@ -52,7 +52,7 @@ There should also be an option to "un-provision" a virtual NIC so that is being 
 
 #### More details
 
-Please see [Network_Provider](Network_Provider)
+Please see [Features/Detailed_Quantum_Integration](Features/Detailed_Quantum_Integration)
 
 ### Benefit to oVirt
 

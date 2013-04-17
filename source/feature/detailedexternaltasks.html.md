@@ -129,6 +129,8 @@ Since each Job may have steps that invoke internal oVirt command or external plu
 
 ### User Experience
 
+External Jobs and their Steps will be displayen in the oVirt Task Monitor
+
 ### Installation/Upgrade
 
 #### User work-flows

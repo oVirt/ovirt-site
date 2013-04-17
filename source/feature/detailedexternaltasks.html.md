@@ -84,6 +84,23 @@ Adding **is_external** to **Job** and **Step** metadata in **fixtures.xml**
 
 ### Business Logic
 
+Adding the following to **VdcActionParametersBase**
+
+       jobId   - The Job UUID
+       stepId  - The parent step UUID
+
+This will be used by plug-ins in order to invoke internal oVirt commands and still let them appaer under the given Job/Step in the **task Monitor**
+In case that such a command is invoked not in the context of an external Job, its **jobId** and **stepId** will be null
+ The ExecutionHandler::getJob is modified to test if the **jobId** and **stepId** are null and according to the result generate a new job or use the given one.
+
+#### New Supported Commands
+
+      AddExternalJob - Adds an external Job and returns its UUID
+      EndExternalJob - Ends the given Job
+      AddExternalStep - Adds an external step to a Job directly or under an existing Step
+`                  If command is an oVirt internal command, it cpould be added only if it is flagged as `**`Monitored`**
+      EndExternalStep - Ends the given Step (For steps that represents plug-in operations only)
+
 ### Flow
 
 *Add Job/Step* Flow:

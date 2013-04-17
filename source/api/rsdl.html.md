@@ -450,7 +450,175 @@ each URI in RSDL contains "rel" and "description" describing the meaning of the 
 `           `</request>
 `       `</link>
 
-### generated code
+### code generation
+
+#### RSDL URI descriptor
+
+`       `<link rel="add" href="/api/clusters">
+`           `<request>
+`               `<http_method>`POST`</http_method>
+`               `<headers>
+                         
+
+<header required="true">
+`                       `<name>`Content-Type`</name>
+`                       `<value>`application/xml|json`</value>
+                         
+
+</header>
+<header required="false">
+`                       `<name>`Expect`</name>
+`                       `<value>`201-created`</value>
+                         
+
+</header>
+<header required="false">
+`                       `<name>`Correlation-Id`</name>
+`                       `<value>`any string`</value>
+                         
+
+</header>
+`               `</headers>
+                     
+
+<body>
+`                   `<type>`Cluster`</type>
+`                   `<parameters_set>
+`                       `<parameter type="xs:string" required="true">
+`                           `<name>`cluster.data_center.id|name`</name>
+`                       `</parameter>
+`                       `<parameter type="xs:string" required="true">
+`                           `<name>`cluster.name`</name>
+`                       `</parameter>
+`                       `<parameter type="xs:int" required="true">
+`                           `<name>`cluster.version.major`</name>
+`                       `</parameter>
+`                       `<parameter type="xs:int" required="true">
+`                           `<name>`cluster.version.minor`</name>
+`                       `</parameter>
+`                       `<parameter type="xs:string" required="true">
+`                           `<name>`cluster.cpu.id`</name>
+`                       `</parameter>
+`                       `<parameter type="xs:string" required="false">
+`                           `<name>`cluster.description`</name>
+`                       `</parameter>
+`                       `<parameter type="xs:double" required="false">
+`                           `<name>`cluster.memory_policy.overcommit.percent`</name>
+`                       `</parameter>
+`                       `<parameter type="xs:boolean" required="false">
+`                           `<name>`cluster.memory_policy.transparent_hugepages.enabled`</name>
+`                       `</parameter>
+`                       `<parameter type="xs:string" required="false">
+`                           `<name>`cluster.scheduling_policy.policy`</name>
+`                       `</parameter>
+`                       `<parameter type="xs:int" required="false">
+`                           `<name>`cluster.scheduling_policy.thresholds.low`</name>
+`                       `</parameter>
+`                       `<parameter type="xs:int" required="false">
+`                           `<name>`cluster.scheduling_policy.thresholds.high`</name>
+`                       `</parameter>
+`                       `<parameter type="xs:int" required="false">
+`                           `<name>`cluster.scheduling_policy.thresholds.duration`</name>
+`                       `</parameter>
+`                       `<parameter type="xs:string" required="false">
+`                           `<name>`cluster.error_handling.on_error`</name>
+`                       `</parameter>
+`                       `<parameter type="xs:boolean" required="false">
+`                           `<name>`cluster.virt_service`</name>
+`                       `</parameter>
+`                       `<parameter type="xs:boolean" required="false">
+`                           `<name>`cluster.gluster_service`</name>
+`                       `</parameter>
+`                       `<parameter type="xs:boolean" required="false">
+`                           `<name>`cluster.threads_as_cores`</name>
+`                       `</parameter>
+`                       `<parameter type="xs:boolean" required="false">
+`                           `<name>`cluster.tunnel_migration`</name>
+`                       `</parameter>
+`                   `</parameters_set>
+                     
+
+</body>
+`           `</request>
+`           `<response>
+`               `<type>`Cluster`</type>
+`           `</response>
+`       `</link>
+
+#### generated code signature
+
+         /**
+          * Adds Cluster object.
+          * @param cluster {@link org.ovirt.engine.sdk.entities.Cluster}
+          *    cluster.data_center.id|name
+          *    cluster.name
+          *    cluster.version.major
+          *    cluster.version.minor
+          *    cluster.cpu.id
+          *    [cluster.description]
+          *    [cluster.memory_policy.overcommit.percent]
+          *    [cluster.memory_policy.transparent_hugepages.enabled]
+          *    [cluster.scheduling_policy.policy]
+          *    [cluster.scheduling_policy.thresholds.low]
+          *    [cluster.scheduling_policy.thresholds.high]
+          *    [cluster.scheduling_policy.thresholds.duration]
+          *    [cluster.error_handling.on_error]
+          *    [cluster.virt_service]
+          *    [cluster.gluster_service]
+          *    [cluster.threads_as_cores]
+          *    [cluster.tunnel_migration]
+          * @return
+          *     {@link Cluster }
+          * @throws ClientProtocolException
+          *             Signals that HTTP/S protocol error has occurred.
+          * @throws ServerException
+          *             Signals that an oVirt api error has occurred.
+          * @throws IOException
+          *             Signals that an I/O exception of some sort has occurred.
+          */
+         public Cluster add(org.ovirt.engine.sdk.entities.Cluster cluster) throws 
+                 ClientProtocolException, ServerException, IOException {
+             
+                 ....
+         }
+
+         /**
+          * Adds Cluster object.
+          * @param cluster {@link org.ovirt.engine.sdk.entities.Cluster}
+          *    cluster.data_center.id|name
+          *    cluster.name
+          *    cluster.version.major
+          *    cluster.version.minor
+          *    cluster.cpu.id
+          *    [cluster.description]
+          *    [cluster.memory_policy.overcommit.percent]
+          *    [cluster.memory_policy.transparent_hugepages.enabled]
+          *    [cluster.scheduling_policy.policy]
+          *    [cluster.scheduling_policy.thresholds.low]
+          *    [cluster.scheduling_policy.thresholds.high]
+          *    [cluster.scheduling_policy.thresholds.duration]
+          *    [cluster.error_handling.on_error]
+          *    [cluster.virt_service]
+          *    [cluster.gluster_service]
+          *    [cluster.threads_as_cores]
+          *    [cluster.tunnel_migration]
+          * @param expect
+          *    [201-created]
+          * @param correlationId
+          *    [any string]
+          * @return
+          *     {@link Cluster }
+          * @throws ClientProtocolException
+          *             Signals that HTTP/S protocol error has occurred.
+          * @throws ServerException
+          *             Signals that an oVirt api error has occurred.
+          * @throws IOException
+          *             Signals that an I/O exception of some sort has occurred.
+          */
+         public Cluster add(org.ovirt.engine.sdk.entities.Cluster cluster, String expect, String correlationId) throws 
+                 ClientProtocolException, ServerException, IOException {
+                 ....
+         }
 
 ## Maintainer
 

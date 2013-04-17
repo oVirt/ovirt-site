@@ -106,8 +106,7 @@ In case that such a command is invoked not in the context of an external Job, it
 *Add Job/Step* Flow:
  use api/jobs to add a new job using POST and giving a job **description** as a parameter
 
-      use api/jobs/`<jobId>`/steps to add a new step using POST and giving a step `**`parentId`**` , `**`parentType`**`, `**`description`**` and `**`status`**` as parameters
-      (The parentId is the UUID of the parent of the new created step, the parentType may be `**`Job`**` or `**`Step`**`)
+      use api/jobs/`<jobId>`/steps to add a new step using POST and giving a step `**`parentId`**` , `**`parentType`**`, `**`description`**` and `**`status`**` as parameters (The parentId is the UUID of the parent of the new created step, the parentType may be `**`Job`**` or `**`Step`**`)
 
 ''List Job(s)/Step(s):
  use api/jobs to list all jobs

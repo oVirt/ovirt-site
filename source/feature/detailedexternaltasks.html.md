@@ -71,9 +71,16 @@ Step can be in one of the following statuses:
 
 ### CRUD
 
+Adding a flag named **is_external** to both **Job** and **Step** tables
+This flag indicates that the Job/Step was invoked as part of a plug-in operation and may be used in future to filter such jobs/steps
+
 #### DAO
 
+Adding **isExternal** flag to both **JobDAODBFacadeImpl** and **StepDAODBFacadeImpl** and wrap it with getter/setter
+
 #### Metadata
+
+Adding **is_external** to **Job** and **Step** metadata in **fixtures.xml**
 
 ### Business Logic
 

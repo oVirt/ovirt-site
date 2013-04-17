@@ -95,8 +95,10 @@ This support helps complete the story/use-case from a virt. admin perspective !
 
 ## Dependencies / Related Features and Projects
 
-Gluster volume must be pre-setup (either via oVirt or other means) for it to be used as a storage domain.
-glusterfs, glusterfs-server and glusterfs-fuse rpm packages must be installed.
+*   Gluster volume must be pre-setup (either via oVirt or other means) for it to be used as a storage domain.
+*   glusterfs, glusterfs-server and glusterfs-fuse rpm packages must be installed.
+*   Needs minm libvirt version 1.0.1 (which has the gluster protocol/network disk support)
+*   Needs qemu version 1.3 (which has the gluster block backend support)
 
 ## Documentation / External references
 

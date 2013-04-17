@@ -80,11 +80,8 @@ This feature introduces new functionality for oVirt users that will allow them t
 #### Database changes
 
 *   Add a column to the 'snapshots' table that will contain the memory state location
-*   The memory state location will be stored as a string that can represent different kinds of storage types
-    -   Standard pool-domain-image-volume: "domain=<domain id>,pool=<pool id>,image=<image group id>, volume=<volume id>"
-    -   Direct lun: "guid=<guid>"
-    -   Local path (?): "localpath=<local path>"
 *   Add stored procedure which removes the memory state of a given snapshot
+*   Add stored procedure which returns all the snapshots containing a given memory state location
 
 #### Backend changes
 

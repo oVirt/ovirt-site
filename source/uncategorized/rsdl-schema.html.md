@@ -99,8 +99,8 @@ wiki_last_updated: 2013-04-17
 `   `<xs:complexContent>
 `     `<xs:extension base="BaseResource">
 `       `<xs:sequence>
-`         `<xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1"/>
-`         `<xs:element ref="parameters_set" minOccurs="0" maxOccurs="1"/>
+`             `<xs:element name="value" type="xs:string" minOccurs="1" maxOccurs="1"/>
+`             `<xs:element ref="parameters_set" minOccurs="0" maxOccurs="1"/>
 `       `</xs:sequence>
 `       `<xs:attribute name="required" type="xs:boolean">
 `         `<xs:annotation>

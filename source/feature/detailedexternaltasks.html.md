@@ -119,7 +119,11 @@ In case that such a command is invoked not in the context of an external Job, it
 
 #### Command Permissions
 
+A new permission to access those commands will be added by default only to superuser role. A new role that can inject External Tasks will be added and may be attached/added to any user in the system
+
 #### Permissions on Entity Instances
+
+Since each Job may have steps that invoke internal oVirt command or external plug-in comamnds, on internal oVirt command we have already permissions on entities and on external commands it is in teh plug-in scope. So, nothing have to be specifically written in oVirt to support that.
 
 ### API
 

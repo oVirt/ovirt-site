@@ -145,6 +145,8 @@ Add additional fields to job and step tables upon upgrade Add the permission(Act
 
 ### Documentation / External references
 
+[RFE](https://bugzilla.redhat.com/show_bug.cgi?id=872719)
+
 [Features/ExternalTasks](Features/ExternalTasks)
 
 ### Future directions

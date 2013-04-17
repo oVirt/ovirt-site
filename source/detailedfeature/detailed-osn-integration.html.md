@@ -47,6 +47,7 @@ The integration of network providers into oVirt will be incremental. The followi
 *   Introducing a 'Provider' entity that will have the following properties:
     -   Name
     -   Description
+    -   Type (from a fixed list of types)
     -   URL
     -   User/Password ?
 *   Possibly, different providers can have additional properties that are needed by them.

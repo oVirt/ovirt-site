@@ -11,11 +11,11 @@ wiki_last_updated: 2013-09-23
 
 __TOC__
 
-## Description
+### Description
 
 oVirt api package provides Application programming interface for the oVirt engine.
 
-## REST Concept
+### REST Concept
 
 *   Client–server
 *   Stateless
@@ -26,7 +26,7 @@ oVirt api package provides Application programming interface for the oVirt engin
 *   Self-descriptive
 *   Hypermedia as the engine of application state
 
-## oVirt-API URI structure
+### oVirt-API URI structure
 
 oVirt API follows collection/resource patten:
 
@@ -46,7 +46,7 @@ oVirt API follows collection/resource patten:
 
 7. sub-resource
 
-## oVirt-API How-to (the methods)
+### oVirt-API How-to (the methods)
 
 *   To list all collection resources, use GET.
 
@@ -89,7 +89,7 @@ oVirt API follows collection/resource patten:
 
       curl -v -u "user@domain:password" -X DELETE http(s)://server:port/api/vms/xxx
 
-## [RSDL](RSDL) (RESTful Service Description Language)
+### [RSDL](RSDL) (RESTful Service Description Language)
 
 RSDL (RESTful Service Description Language) is a machine and human readable XML description of HTTP-based web applications (typically REST web services), it models the resource/s provided by a service, the relationships between them, parameters that has to be supplied for the certain operation, specifies if parameter/s has to be mandated and describes possible overloads as parameters sets, RSDL is intended to simplify the reuse of web services that are based on the HTTP architecture of the Web. It is platform and language independent and aims to promote reuse of applications beyond the basic use in a web browser by both humans and machines
 

@@ -35,7 +35,9 @@ Michael Pasternak: mpastern@redhat.com
 
 ## oVirt-API URI structure
 
-http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy
+oVirt API follows collection/resource patten:
+
+      http(s)://server:port/api/vms/xxx-xxx/disks/yyy-yyy
 
 1. protocol
 

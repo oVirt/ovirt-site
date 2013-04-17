@@ -15,19 +15,12 @@ oVirt api package provides Application programming interface for the oVirt engin
 
 __TOC__
 
-## Maintainer
-
-Michael Pasternak: mpastern@redhat.com
-
 ## REST Concept
 
 *   Client–server
 *   Stateless
 *   Cacheable
 *   Uniform interface
-
-## REST Principals
-
 *   Identification of resources
 *   Manipulation of resources through representations
 *   Self-descriptive
@@ -96,35 +89,19 @@ oVirt API follows collection/resource patten:
 
       curl -v -u "user@domain:password" -X DELETE http(s)://server:port/api/vms/xxx
 
-## Repository
-
-*   <git://gerrit.ovirt.org/ovirt-engine> (restapi is one of the engine modules)
-
-## Known issues
-
-*   /capabilities resource doesn't follow common collection/resource pattern
-
-` `[`https://bugzilla.redhat.com/show_bug.cgi?id=786763`](https://bugzilla.redhat.com/show_bug.cgi?id=786763)
-
-## TODO list
-
-### RSDL
+## RSDL
 
 *   support different types of url parameters (in progress)
 
       - query
       - matrix
 
-### features
+## Repository
 
-*   setup networks (in progress)
+*   <git://gerrit.ovirt.org/ovirt-engine> (restapi is one of the engine modules)
 
-       - atomic operation on a collection level
+## Maintainer
 
-*   non-admin users support
-
-<!-- -->
-
-*   QUOTA
+Michael Pasternak: mpastern@redhat.com
 
 <Category:Api>

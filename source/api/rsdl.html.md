@@ -16,7 +16,7 @@ __TOC__
 
 RSDL (RESTful Service Description Language) is a machine and human readable XML description of HTTP-based web applications (typically REST web services), it models the resource/s provided by a service, the relationships between them, parameters that has to be supplied for the certain operation, specifies if parameter/s has to be mandated and describes possible overloads as parameters sets, RSDL is intended to simplify the reuse of web services that are based on the HTTP architecture of the Web. It is platform and language independent and aims to promote reuse of applications beyond the basic use in a web browser by both humans and machines.
 
-Unlike WADL, it's concentrates in describing URIs as stand along entry points in to the application which can be invoked in a different way, what is makes it human-readable and easily consumed by both humans and machines, (for more details see [RSDL wiki](http://www.example.com)).
+Unlike WADL, it's concentrates in describing URIs as stand along entry points in to the application which can be invoked in a different way, what is makes it human-readable and easily consumed by both humans and machines, (for more details see [RSDL wiki](http://en.wikipedia.org/wiki/RSDL)).
 
 ## Concept
 

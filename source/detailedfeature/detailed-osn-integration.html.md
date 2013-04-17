@@ -137,6 +137,16 @@ Please see the [feature page](Features/Quantum_Integration).
 
 ## Open Issues
 
+*   Authentication - how to do it?
+    -   Quantum supports only noauth/keystone auth modes.
+        -   Configuring keystone adds an additional dependency for the administrator to handle.
+    -   Need to decide which of these modes we will support in Phase 1 (actually, noauth is already supported, but obviously not secure).
+*   Scheduling:
+    -   Quantum doesn't expose an API to know which hosts will be able to provision it's networks.
+    -   Perhaps Grizzly will have better support for it, still not certain.
+*   Libvirt bug still not solved, Linux Bridge support requires quantum hack (or push as a fix for the agent).
+*   REST API support will not be available in Phase 1, how will this effect the REST API clients?
+
 ## Proof of Concept
 
 A POC was done with the proposed ideas in "Phase 1" section, integrating [Openstack Quantum](https://wiki.openstack.org/wiki/Quantum) as an external network provider. the POC is available for review & testing.

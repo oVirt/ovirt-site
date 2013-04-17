@@ -739,7 +739,7 @@ each URI in RSDL contains "rel" and "description" describing the meaning of the 
 `           `</response>
 `       `</link>
 
-#### generated code signature
+#### generated code signature/s
 
          /**
           * Adds Cluster object.

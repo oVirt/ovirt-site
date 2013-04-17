@@ -158,12 +158,22 @@ The snapshot section in OVF file of VM will include the place where the memory s
 
 #### VDSM changes
 
-*   Default parameter will be added to vmSnapshot verb that maps string to string.
-    -   The map will include two keys for now:
-        -   'mode' that can be mapped to 'disks_only' or 'disks_memory' to indicate if memory state should be saved.
-        -   'memVol' that will be mapped to a string that represent the two volums that will be used to save the memory state and the VM configuration.
-    -   The default map will include the mapping of 'mode':'disks_only' only.
-*   If the 'mode' value in the map decribed above is 'disks_memory' the first volume in 'memVol' will be passed to libvirt in order to dump the memory to it, and the second volume in 'memVol' will be used to save the VM configuration (the same way it is done for hibernate operation).
+*   vmSnapshot
+    -   Default parameter will be added to vmSnapshot verb that maps string to string.
+        -   The map will include two keys:
+            -   'mode' that can be mapped to 'disks_only' or 'disks_memory' to indicate if memory state should be saved
+            -   'memVol' that will be mapped to a string that represent the volum that will be used to save the memory state
+                -   No need to save the vm configuration as it is already saved as part of the snapshot
+        -   The default map will include the mapping of 'mode':'disks_only' only (backward compatibility)
+    -   If the 'mode' value in the map decribed above is 'disks_memory' the volume represented by 'memVol' will be passed to libvirt in order to dump the memory to it
+
+<!-- -->
+
+*   vmCreate
+    -   The given 'hiberVolHandle' can now represent one volume - in that case there will be 4 components in the string instead of 6
+    -   If the given 'hiberVolHandle' is composed of 4 components
+        -   Use the volume represented by the string for the 'restoreState' parameter
+        -   Don't update vm configuration from configuration file
 
 #### User Interface changes
 

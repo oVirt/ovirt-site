@@ -177,7 +177,21 @@ The snapshot section in OVF file of VM will include the place where the memory s
 
 #### User Interface changes
 
-TBD
+*   Create snapshot popup
+    -   A checkbox that allows the user to choose whether to save the memory state of the VM or not will be added
+    -   The memory state checkbox will be visible only if the VM is running
+
+<!-- -->
+
+*   Clone VM from snapshot popup
+    -   A checkbox that allows the user to choose whether to restore the memory state from the snapshot or not will be added
+    -   The memory state checkbox will be visible only if the VM is running
+
+<!-- -->
+
+*   Preview snapshot popup
+    -   A checkbox that allows the user to choose whether to restore the memory state from the snapshot or not will be added
+    -   The memory state checkbox will be visible only if the VM is running
 
 #### REST API changes
 

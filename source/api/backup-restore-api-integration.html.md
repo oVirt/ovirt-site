@@ -144,3 +144,5 @@ The Backup and Restore API will provide integration with Microsoft Windows Volum
 Qemu-ga provides filesystem-level consistency for Linux, a hook can be executed to allow online disk snapshot for online-backup with application-level consistency of the snapshot image. A hook can provide the opportunity to quiesce applications before the snapshot is taken on fsfreeze-freeze/thaw.
 
 ### Open Issues
+
+<Category:Feature>

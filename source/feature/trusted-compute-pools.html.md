@@ -190,11 +190,11 @@ To support creating a trusted cluster, we will provide a trusted cluster, the cu
 
 Trust cluster need a new property named as “trusted_cluster_flag” to indicate this is a trusted cluster. Relevant tables / views include dwh_cluster_configuration_history_view, vds_groups, we may need modify insert_data.sql to modify the property of the default cluster.
 
-#### Test case
+### Test case
 
 Define later
 
-#### High Availability
+### High Availability
 
 Not to implement in the first version.
 

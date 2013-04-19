@@ -8,7 +8,7 @@ wiki_revision_count: 56
 wiki_last_updated: 2013-10-11
 ---
 
-# Trusted Compute Pools
+# Trusted Compute Pools (VM level trust approach)
 
 ### Summary
 
@@ -150,5 +150,52 @@ None.
 3.  Fill all of the required value.
 4.  Click "OK" button.
 5.  Check whether the trusted VM is running on a trusted node.
+
+# Trusted Compute Pools (Cluster level trust approach)
+
+### Detailed Description
+
+#### Frontend changes
+
+Add a trust flag into cluster entity. If end user wants to create a trusted cluster, the radio box must be selected.
+
+![](figure8.jpg "figure8.jpg")
+
+#### Backend changes
+
+1. Add attestation check logic in "InitVdsOnUpCommand.java" to initialize status of each host before active, this java file can be found in this path org.ovirt.engine.core.bll.
+
+*   The first time when this host add into a trust cluster, call attestation server to determine the real status (untrusted , trusted) of the VDS (physical host), the host will be in "up" status if get "trusted" result from attestation server, or else, set this host as non-operational status.
+*   When host is down for a different reason and up again, attestation check logic will be triggered also.
+*   Call SetNonOperationalVdsCommand with a new NonOperationalReason. This command will try to migrate all VMs from the host and then set it non-operational. In the case of another trusted host existed in trust cluster, all of the VMs will try to migrate to that trusted host. For the non-migrational VMs, keep these VMs running.
+
+2. Activate a trusted host by admin {optional}
+
+Admin can activate an untrusted host manually after getting a positive response from attestation server manually. This is optional as host’s status changes only under the conditional of reboot, host’s reboot and invoke InitVdsOnUpCommand will call attestation server again.
+
+In the UI there is an "Activate" option. What still needs to be added is the checking with the attestation server to make sure that whether this host is trusted and this cluster is defined as 'Trusted'. If so, only trusted host will succeed in the activate command (a proper Audit Log error in case the host failed to activate due to trust issue.) Check logic will be added in VdsManager:activate (). Code path is “ovirt-engine/backend/manager/modules/vdsbroker/src/main/java/org/ovirt/engine/core/vdsbroker/” where the re-activation process begins.
+
+3. Import / Export support (OVF)
+
+When the VM created in the trusted cluster was exported as OVF file, OVF file should have a new flag to indicate this VM should be running in a trusted cluster. Key relevant classes include OvfTemplateReader.java, OvfTemplateWriter.java, OvfVmReader.java and OvfVmWriter.java. We define this new property in export file as “trusted_cluster_flag”. When importing a 'trusted' VM into an untrusted cluster, two cases should be considered.
+
+*   The admin is doing a mistake and chooses the wrong cluster, alert information will be triggered.
+*   The admin has a real case where he wants the VM to run in an 'untrusted' cluster.
+
+#### Restful API
+
+To support creating a trusted cluster, we will provide a trusted cluster, the curl may like this curl -v -u "admin@internal:abc123" -H "Content-type: application/xml" -d '<cluster><name>my_cluster </name><trusted_cluster_flag >true ' '<http://engine>.\*\*\*.com:80/api/cluster' Key relevant modification includes api.xsd and VmMapper.java.
+
+#### Database change
+
+Trust cluster need a new property named as “trusted_cluster_flag” to indicate this is a trusted cluster. Relevant tables / views include dwh_cluster_configuration_history_view, vds_groups, we may need modify insert_data.sql to modify the property of the default cluster.
+
+#### Test case
+
+Define later
+
+#### High Availability
+
+Not to implement in the first version.
 
 <Category:Feature>

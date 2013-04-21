@@ -158,7 +158,7 @@ This should not require the process to run as root.
 
 *   Filtered vs. unfiltered sg commands (i.e. the mechanism is currently all or nothing – can't filter specific commands).
 
-        Filtering is done on a disk level (not on a VM level).
+        Filtering is done on disk level (not on VM level).
 
 *   Mapping of disk vs. lun in libvirt to disk image and direct lun appropriately.
 

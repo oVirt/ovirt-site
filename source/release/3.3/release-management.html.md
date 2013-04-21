@@ -91,6 +91,11 @@ Features being considered for inclusion/already in master:
 *   [Features/Multiple Gateways](Features/Multiple Gateways) configure more gateways on host, on top of the default one.
 *   [Features/Network Labels](Features/Network Labels)
 
+### Storage
+
+*   Adding VDSM hook for hotplug disk a disk
+*   Separating "Move" vm operation to "Copy" and "Delete" operations to improve VM availability
+
 ### SLA & Scheduling
 
 *   [Features/oVirt_scheduler](Features/oVirt_scheduler) Wrapping scheduling functionalities as a separate package

@@ -116,6 +116,10 @@ The following Guest OS drivers are available:
 
 #### UI
 
+#### Sequence diagram
+
+![](virtio-scsi_sequence-diagram.png "virtio-scsi_sequence-diagram.png")
+
 ### Benefit to oVirt
 
 Virtio-SCSI will the following abilities to oVirt:

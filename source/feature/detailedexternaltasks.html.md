@@ -131,12 +131,6 @@ Since each Job may have steps that invoke internal oVirt command or external plu
 
 External Jobs and their Steps will be displayen in the oVirt Task Monitor
 
-#### Get
-
-#### Post
-
-#### Other Operations
-
 ### Installation/Upgrade
 
 Add additional fields to job and step tables upon upgrade Add the permission(ActionGroup) to manipulate External tasks to other admin roles already defined upon upgrade.

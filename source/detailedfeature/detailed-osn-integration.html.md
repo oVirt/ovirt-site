@@ -113,6 +113,12 @@ The integration of network providers into oVirt will be incremental. The followi
 
 *   An external provider would be set up as the provider of networking for a DC, such that any network defined on the provider will be discovered by oVirt and automatically set-up on the DC.
 
+#### Leverage advanced technologies
+
+*   IPAM could be used to manage the IP address allocation.
+*   L3 routing for creating virtual routers.
+*   Security groups for controlling traffic on the networks.
+
 ### User Experience
 
 ### Installation/Upgrade

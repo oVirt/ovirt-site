@@ -153,7 +153,26 @@ Add support for the following:
 #### Post
 
 Adding a new Job/Step will be implemented by the POST operation
- Ending an existing Job/Step will be done via a supported **action** on the Job/Step business entity
+ Job:
+
+<job>
+`    `<description></description>
+`    `<commands>
+`        `<command></command>
+              ...
+`    `</commands>
+</job>
+
+Step:
+
+<step>
+`    `<job_id></job_id>
+`    `<parent_step_id></parent_step_id>
+`    `<description></description>
+`   `<status></status>
+<step>
+
+Ending an existing Job/Step will be done via a supported **action** on the Job/Step business entity
 
       /api/Jobs/`<job_id>`/end - will end the given job
       /api/Jobs/`<job_id>`/steps/`<step_id>`/end - will end the given step

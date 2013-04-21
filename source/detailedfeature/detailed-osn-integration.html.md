@@ -72,7 +72,6 @@ The integration of network providers into oVirt will be incremental. The followi
     -   Scheduling for the cluster the network is attached to will not take the network into host selection consideration.
     -   This effectively means that the user is responsible for quantum availability on all the hosts in a given cluster the external network is attached to.
 *   Port mirroring is not available for virtual NICs connected to external networks.
-*   Block editing provider API address if there are networks imported from it.
 *   Block deleting provider if there are VMs using the networks it provides.
 
 #### Integration with virtual NIC lifecycle

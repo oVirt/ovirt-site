@@ -127,6 +127,37 @@ Since each Job may have steps that invoke internal oVirt command or external plu
 
 ### API
 
+We will add two new business entities: **Job** and **Steps**
+\* Adding JobMapper to map backend to REST entities and vice versa
+
+*   Adding StepMapper to map backend to REST entities and vice versa
+*   Add JobsResource/BackendJobsResource implementation to handle add() & get operations
+*   Add StepsResource/BackendStepsResource implementation to handle add() & get operations
+*   Add JobResource implementation to handle actions on a specific resource
+*   Add StepResource implementation to handle actions on a specific resource
+*   Modify rsdl file
+*   Add signatures to meta-data file (rsdl_metadata_v-3.1.yaml)
+*   Add tests
+
+**Note that no update is required.**
+
+#### Get
+
+Add support for the following:
+
+      /api/jobs
+`/api/jobs/`<job_id>
+      /api/jobs/`<job_id>`/steps
+`/api/jobs/`<job_id>`/steps/`<step_id>
+
+#### Post
+
+Adding a new Job/Step will be implemented by the POST operation
+
+#### Other Operations
+
+Ending an existing Job/Step will be done via a supported *'action* on the Job/Step business entity
+
 ### User Experience
 
 External Jobs and their Steps will be displayen in the oVirt Task Monitor

@@ -164,7 +164,7 @@ Examples:
 Yes, just:
 
 `write `<MM_mm_nnnn_your_script.sh>
-      keep in mind that script follows sane naming conventions and numbering as SQL upgrade script.
+      keep in mind that script follows same naming conventions and numbering as SQL upgrade script.
 `chmod +x `<MM_mm_nnnn_your_script.sh>
 
 The ability to run shell scripts cover also the content of the pre/post upgrade directories.

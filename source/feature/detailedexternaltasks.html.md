@@ -156,7 +156,10 @@ Adding a new Job/Step will be implemented by the POST operation
 
 #### Other Operations
 
-Ending an existing Job/Step will be done via a supported *'action* on the Job/Step business entity
+Ending an existing Job/Step will be done via a supported **action** on the Job/Step business entity
+
+      /api/Jobs/`<job_id>`/end - will end the given job
+      /api/Jobs/`<job_id>`/steps/`<step_id>`/end - will end the given step
 
 ### User Experience
 

@@ -64,7 +64,7 @@ Please see [Features/Detailed_Quantum_Integration](Features/Detailed_Quantum_Int
 Depends on:
 
 *   [Features/Device_Custom_Properties](Features/Device_Custom_Properties)
-*   [https://bugzilla.redhat.com/893576 Add VDSM hooks for updateDevice](https://bugzilla.redhat.com/893576 Add VDSM hooks for updateDevice) or else, we cannot "rewire" a currently-running VM to an external network.
+*   [Add VDSM hooks for updateDevice](https://bugzilla.redhat.com/893576) or else, we cannot "rewire" a currently-running VM to an external network.
 
 ### Documentation / External references
 

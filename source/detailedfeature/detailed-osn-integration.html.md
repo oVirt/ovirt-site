@@ -144,7 +144,7 @@ Please see the [feature page](Features/Quantum_Integration).
 *   Scheduling:
     -   Quantum doesn't expose an API to know which hosts will be able to provision it's networks.
     -   Perhaps Grizzly will have better support for it, still not certain.
-*   Libvirt bug still not solved, Linux Bridge support requires quantum hack (or push as a fix for the agent).
+*   [Libvirt bug](https://bugzilla.redhat.com/893576) still not solved, Linux Bridge support requires quantum hack (or push as a fix for the agent).
 *   REST API support will not be available in Phase 1, how will this effect the REST API clients?
 
 ## Proof of Concept

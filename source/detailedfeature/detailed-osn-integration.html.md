@@ -77,7 +77,8 @@ The integration of network providers into oVirt will be incremental. The followi
 
 #### Integration with virtual NIC lifecycle
 
-*   Integration will be done at this phase for running virtual machine only, so other operations (hot-plug, rewire, etc) will **not** be supported for externally provided networks.
+*   Integration will be done at this phase for running virtual machine and hot plug/unplug of NICs.
+    -   Rewiring will **not** be supported for externally provided networks (Will be supported in a future phase).
 *   When VM is being run we need to include all hosts in the cluster for scheduling decision of available networks.
 *   For each virtual NIC that is using an externally provided network, we would need to provision the NIC on the provider and receive the NIC connection details prior to running the VM.
     -   Once we have all the details available, we would need to pass those details to VDSM.

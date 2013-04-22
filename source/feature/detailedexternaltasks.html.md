@@ -135,9 +135,8 @@ We will add two new business entities: **Job** and **Steps**
 *   Adding StepMapper to map backend to REST entities and vice versa
 *   Add JobsResource/BackendJobsResource implementation to handle add() & get operations
 *   Add StepsResource/BackendStepsResource implementation to handle add() & get operations
-*   Add JobResource implementation to handle actions on a specific resource
-*   Add StepResource implementation to handle actions on a specific resource
-*   Modify rsdl file
+*   Add JobResource/BackendJobResource implementation to handle actions on a specific resource
+*   Add StepResource/BackendStepResource implementation to handle actions on a specific resource
 *   Add signatures to meta-data file (rsdl_metadata_v-3.1.yaml)
 *   Add tests
 

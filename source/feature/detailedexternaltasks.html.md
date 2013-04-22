@@ -164,11 +164,18 @@ Adding a new Job/Step will be implemented by the POST operation
 `    `</commands>
 </job>
 
-Step:
+Step
 
 <step>
-`    `<job_id></job_id>
-`    `<parent_step_id></parent_step_id>
+`    `<parent_job id="xxx" href="/api/jobs/xxx></parent_job>
+`    `<description></description>
+`   `<status></status>
+<step>
+
+Sub-step
+
+<step>
+`    `<parent_step id="yyy" href="/api/jobs/xxx/steps/yyy></parent_job>
 `    `<description></description>
 `   `<status></status>
 <step>

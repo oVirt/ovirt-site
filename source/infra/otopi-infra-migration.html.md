@@ -44,7 +44,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Generate answer file                                                   | Done                    | Done[2]              |                                                      |          |             |
 | Allow logging                                                          | Done                    | Done                 |                                                      |          |             |
 | Support AIO plugin                                                     | Done                    | In Progress          | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
-| Support FIREWALL_MANAGER option                                       | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
+| Support FIREWALL_MANAGER option                                       | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
 | Support OVERRIDE_HTTPD_CONFIG option                                 | Done                    | Not required[3]      |                                                      |          |             |
 | Support HTTP_PORT option                                              | Done                    | Done[4]              |                                                      |          |             |
 | Support HTTPS_PORT option                                             | Done                    | Done[5]              |                                                      |          |             |
@@ -105,9 +105,9 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | set NFS/portmap ports by overriding /etc/sysconfig/nfs                 | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Enable the rpcbind and nfs services                                    | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Load files (iso,vfd) from existing rpms to ISO domain                  | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Check firewall managers installed in the system                        | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
-| Configure and enable iptables if requested                             | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
-| Configure and enable FirewallD if requested                            | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
+| Check firewall managers installed in the system                        | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
+| Configure and enable iptables if requested                             | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
+| Configure and enable FirewallD if requested                            | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
 | Start / Stop Engine service when needed                                | Done                    | Done                 |                                                      |          |             |
 | Enable httpd_can_network_connect selinux flag                       | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |
 | Backup old Apache httpd config when needed                             | Done                    | Done                 | [ Alex Lourie](User:Alourie)              |          |             |

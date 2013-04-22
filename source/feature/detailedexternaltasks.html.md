@@ -128,8 +128,10 @@ Since each Job may have steps that invoke internal oVirt command or external plu
 ### API
 
 We will add two new business entities: **Job** and **Steps**
-\* Adding JobMapper to map backend to REST entities and vice versa
+\* Add **Job** business entity
 
+*   Add **Step** business entity
+*   Adding JobMapper to map backend to REST entities and vice versa
 *   Adding StepMapper to map backend to REST entities and vice versa
 *   Add JobsResource/BackendJobsResource implementation to handle add() & get operations
 *   Add StepsResource/BackendStepsResource implementation to handle add() & get operations

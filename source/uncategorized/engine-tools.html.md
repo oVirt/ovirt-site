@@ -22,7 +22,17 @@ Engine tools are mainly standlone java programs wrapped-up by scripts and mostly
 
 ### Tools description
 
-TODO
+### ovirt-iso-uploader
+
+The ovirt-iso-uploader can be used to list the names of ISO storage domains (not the images stored in those domains) and upload files to storage domains. The upload operation supports multiple files (separated by spaces) and wildcarding. The engine-iso-uploader will, by default, attempt to interact with the REST API.
+
+### ovirt-image-upload
+
+Using the engine-image-uploader command, you can list export storage domains and upload virtual machines in Open Virtualization Format (OVF) to a oVirt Engine. The tool only supports OVF files created by oVirt.
+
+### ovirt-log-collector
+
+The engine-log-collector command gathers data from many different components (logs, databases, and environmental information) associated with an instance of a oVirt Enterprise Virtualization Engine Manager. The tool is intended to be run from the Linux system on which the is running as the root user.
 
 ### Tools TODO
 

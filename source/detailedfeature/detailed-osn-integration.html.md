@@ -121,6 +121,13 @@ The integration of network providers into oVirt will be incremental. The followi
 
 ### User Experience
 
+*   To represent the new Provider entity in our project, we're planning to add a new tab for Providers. At first it will only be populated with network Providers, but later on it might include Providers of other resource types as well.
+*   When a specific Provider is chosen, subtabs displaying information concerning that Provider will appear (as with any other entity). To begin with, General and Networks subtabs will be implemented.
+*   The main function in the Provider/Networks subtab will be to "Discover" the networks provided, which will open a popup window enabling attachment of provided networks to DC(s).
+*   The provider entity should also be reflected in the system tree. However, since the Provider isn't exactly a part of our DC system, but rather an interface to another system, we don't want it to reside under the "System" node; a new "Configuration" node will be created, and the Providers will be placed under it.
+*   The link between the Provider and its provided entity (in our case, a network) needs to also be reflected in the provided entity. Therefore, we'll add a Provider column to each network tab/subtab. Also, to make access to the Provider easier for the user, we're planning to have the text link to the actual Provider tab.
+*   Concept screenshots to be added soon...
+
 ### Installation/Upgrade
 
 ### User work-flows

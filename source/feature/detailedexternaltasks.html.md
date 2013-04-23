@@ -132,9 +132,8 @@ Since each Job may have steps that invoke internal oVirt command or external plu
 
 ### API
 
-We will add two new business entities: **Job** and **Steps**
-\* Add **Job** business entity
-
+*   Add the list of **monitored** commands to api/capabilities
+*   Add **Job** business entity
 *   Add **Step** business entity
 *   Adding JobMapper to map backend to REST entities and vice versa
 *   Adding StepMapper to map backend to REST entities and vice versa
@@ -155,6 +154,22 @@ Add support for the following:
 `/api/jobs/`<job_id>
       /api/jobs/`<job_id>`/steps
 `/api/jobs/`<job_id>`/steps/`<step_id>
+
+<jobs>
+`   `<job id = "xxx" href="api/jobs/xxx>
+`       `<description>`a description`</description>
+`   `<job>
+         .....
+</jobs>
+
+<steps>
+`    `<step id="yyy" href="api/jobs/xxx/steps/yyy>
+              [`<parent_job id="xxx" href="api/jobs/xxx"/>` | `<parent_step id="yyy" href="api/jobs/xxx/steps/yyy"/>`]
+`        `<description>`a description`</description>
+`        `<status>`[VALIDATING|EXECUTING|FINALIZING]`</status>
+`   `</step>
+         ....
+</steps>
 
 #### Post
 

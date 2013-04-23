@@ -178,11 +178,7 @@ Adding a new Job/Step will be implemented by the POST operation
 
 <job>
 `    `<description></description>
-`    `<commands>
-`        `<command></command>
-              ...
-`    `</commands>
-</job>
+`  `</job>
 
 Step
 

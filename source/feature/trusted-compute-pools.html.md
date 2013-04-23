@@ -8,7 +8,7 @@ wiki_revision_count: 56
 wiki_last_updated: 2013-10-11
 ---
 
-# Trusted Compute Pools (VM level trust approach)
+# Trusted Compute Pools
 
 ### Summary
 
@@ -24,8 +24,9 @@ Trusted Compute Pools provide a way for Administrator to deploy VMs on trusted h
 
 ### Current status
 
-*   WIP (@ <http://gerrit.ovirt.org/11237>)
-*   Last updated date: Feb 1, 2013
+*   Finished POC in approach 1(@ <http://gerrit.ovirt.org/11237>)
+*   WIP for approach 2 (@ TBD )
+*   Last updated date: Apr 23, 2013
 
 ### Detailed Description
 
@@ -43,9 +44,16 @@ Remote Attestation server performs host verification through following steps:
 
 ![](figure7.jpg "figure7.jpg")
 
-#### Frontend changes
+By far, we got two implementation approaches for TCP feature:
 
-Trusted compute pools support on the UI will be found on the new/edit VM/template window, besides, this feature will also support import /export for ovf relevant function (on going efforts). The latest status for UI changes have provides end user a choice of running a VM on a trusted host, includes create a new VM, edit an exited VM.
+*   Approach 1: trust property in VM level policy, POC done, Pending for VM migration implementation & performance optimization.
+*   Approach 2: trust property in cluster level policy, WIP. The biggest benefits are VM migration can work without specific changes, and no performance impact for VM creation.
+
+#### Approach 1: trust property in VM level policy
+
+##### Frontend changes
+
+Trusted compute pools support on the UI will be found on the new/edit VM/template window, besides, this feature will also support import /export for ovf relevant function (ongoing efforts). The latest status for UI changes have provides end user a choice of running a VM on a trusted host, includes create a new VM, edit an exited VM.
 
 1. Create / Edit a trusted VM based on GUI radio box.
 
@@ -61,7 +69,7 @@ Choose to run guest VM on a trusted node, please refer to figure 2. After guest 
 
 ![](figure6.jpg "figure6.jpg")
 
-#### Backend changes
+##### Backend changes
 
 *   Both Vm (creation and edit) and Template will support for trusted compute pools.
 *   Define a hostValidator to support the physical host's attestation, only trusted physical server can be added to vds candidate list.
@@ -77,91 +85,29 @@ The decision to update all nodes in the trust status cache while one node's cach
 
 ![](figure3.jpg "figure3.jpg")
 
-#### Database changes
+##### Database changes
 
 *   table of vm_static will add a new field, true value of this field implies end users want to launch a VM on a trusted physical host.
 *   procedure of InsertVmStatic/ UpdateVmStatic/ DeleteVmStatic will modified accordingly to support VM's creation, modification and deletion.
 *   procedure of InsertVmTemplate / UpdateVmTemplate modified accordingly to support VM template.
 
-#### REST API changes
+##### REST API changes
 
 under consideration.
 
-#### OVF related changes
+##### OVF related changes
 
 under consideration.
 
-### Benefit to oVirt
+#### Approach 2: trust property in cluster level policy
 
-This is a new feature, it will bring higher security level for data center managed with oVirt.
-
-### Dependencies / Related Features
-
-None.
-
-### Documentation / External references
-
-*   <https://github.com/OpenAttestation/OpenAttestation.git>
-*   <http://en.wikipedia.org/wiki/Trusted_Execution_Technology>
-
-### Comments and Discussion
-
-*   Refer to [Talk:Trusted compute pools](Talk:Trusted compute pools)
-
-### Test cases
-
-*   Create a trusted VM from GUI
-
-1.  Create a new server.
-2.  In the popup window, select "Host" tab and then select "Run on Trusted Host" radiobox for the "Run on" options.
-3.  Fill other required value.
-4.  Click "OK" button, a VM with trusted flag enabled is created.
-
-*   View/eidt VM to set or unset "Run on Trusted Host"
-
-1.  Choose a VM with "Run On" options set as "Any Host in Cluster".
-2.  Reset "Run On" options with "Run on Trusted Host".
-3.  Right click the VM to edit this VM.
-4.  Check whether "Run On" options is configured as "Run on Trusted Host".
-
-*   Make template based on a existed trusted VM
-
-1.  Make sure the trusted VM is in power-off status.
-2.  Click "Make Template" button right up on all of the VMs.
-3.  Fill all of the required value.
-4.  Click "OK" button, a trusted VM template is created.
-5.  Create a new VM, switch to "general" tab, a trusted VM template will be found in the "Based on Template" drop down list.
-
-*   Support OVF-related function
-
-1.  Make sure the trusted VM is in power-off status.
-2.  Click "Export" button right up on all of the VMs.
-3.  A ovf-formatted file which includes all of the VM info will be created.
-4.  Copy the ovf file to another ovirt setup env and create a trusted VM based on this ovf file.
-
-*   Restful API (under consideration)
-
-<!-- -->
-
-*   Launch a trusted VM, and check if this VM is spawning on a trusted physical host
-
-1.  Prepare at least two nodes with one trusted physical host and one untrusted physical host.
-2.  Right click the trusted VM and choose "Run Once" item.
-3.  Fill all of the required value.
-4.  Click "OK" button.
-5.  Check whether the trusted VM is running on a trusted node.
-
-# Trusted Compute Pools (Cluster level trust approach)
-
-### Detailed Description
-
-#### Frontend changes
+##### Frontend changes
 
 Add a trust flag into cluster entity. If end user wants to create a trusted cluster, the radio box must be selected.
 
 ![](figure8.jpg "figure8.jpg")
 
-#### Backend changes
+##### Backend changes
 
 1. Add attestation check logic in "InitVdsOnUpCommand.java" to initialize status of each host before active, this java file can be found in this path org.ovirt.engine.core.bll.
 
@@ -184,20 +130,82 @@ When the VM created in the trusted cluster was exported as OVF file, OVF file sh
 *   The admin is doing a mistake and chooses the wrong cluster, alert information will be triggered.
 *   The admin has a real case where he wants the VM to run in an 'untrusted' cluster.
 
-#### Restful API
+##### Restful API
 
 To support creating a trusted cluster, we will provide a trusted cluster, the curl may like this curl -v -u "admin@internal:abc123" -H "Content-type: application/xml" -d '<cluster><name>my_cluster </name><trusted_cluster_flag >true ' '<http://engine>.\*\*\*.com:80/api/cluster' Key relevant modification includes api.xsd and VmMapper.java.
 
-#### Database change
+##### Database change
 
 Trust cluster need a new property named as “trusted_cluster_flag” to indicate this is a trusted cluster. Relevant tables / views include dwh_cluster_configuration_history_view, vds_groups, we may need modify insert_data.sql to modify the property of the default cluster.
 
-### Test case
-
-Define later
-
-### High Availability
+##### High Availability
 
 Not to implement in the first version.
+
+### Benefit to oVirt
+
+This is a new feature, it will bring higher security level for data center managed with oVirt.
+
+### Dependencies / Related Features
+
+None.
+
+### Documentation / External references
+
+*   <https://github.com/OpenAttestation/OpenAttestation.git>
+*   <http://en.wikipedia.org/wiki/Trusted_Execution_Technology>
+
+### Comments and Discussion
+
+*   Refer to [Talk:Trusted compute pools](Talk:Trusted compute pools)
+
+### Test cases
+
+#### For Approach 1
+
+*   Create a trusted VM from GUI
+
+1.  Create a new server.
+2.  In the popup window, select "Host" tab and then select "Run on Trusted Host" radiobox for the "Run on" options.
+3.  Fill other required value.
+4.  Click "OK" button, a VM with trusted flag enabled is created.
+
+*   View/eidt VM to set or unset "Run on Trusted Host"
+
+1.  Choose a VM with "Run On" options set as "Any Host in Cluster".
+2.  Reset "Run On" options with "Run on Trusted Host".
+3.  Right click the VM to edit this VM.
+4.  Check whether "Run On" options is configured as "Run on Trusted Host".
+
+*   Make template based on an existed trusted VM
+
+1.  Make sure the trusted VM is in power-off status.
+2.  Click "Make Template" button right up on all of the VMs.
+3.  Fill all of the required value.
+4.  Click "OK" button, a trusted VM template is created.
+5.  Create a new VM, switch to "general" tab, a trusted VM template will be found in the "Based on Template" drop down list.
+
+*   Support OVF-related function
+
+1.  Make sure the trusted VM is in power-off status.
+2.  Click "Export" button right up on all of the VMs.
+3.  An ovf-formatted file which includes all of the VM info will be created.
+4.  Copy the ovf file to another ovirt setup env and create a trusted VM based on this ovf file.
+
+*   Restful API (under consideration)
+
+<!-- -->
+
+*   Launch a trusted VM, and check if this VM is spawning on a trusted physical host
+
+1.  Prepare at least two nodes with one trusted physical host and one untrusted physical host.
+2.  Right click the trusted VM and choose "Run Once" item.
+3.  Fill all of the required value.
+4.  Click "OK" button.
+5.  Check whether the trusted VM is running on a trusted node.
+
+#### For Approach 2
+
+Define later
 
 <Category:Feature>

@@ -113,7 +113,12 @@ In case that such a command is invoked not in the context of an external Job, it
 
 `use api/jobs/`<jobId>` to list the job identified by `<jobId>
 `use api/jobs/`<jobId>`/steps to list all steps of the job identified by `<jobId>
-`use api/jobs/`<jobId>`/`<stepId>` to list a specific step identified by `<stepId>` under the job identified by `<jobId>
+`use api/jobs/`<jobId>`/steps/`<stepId>` to list a specific step identified by `<stepId>` under the job identified by `<jobId>
+
+*End Job/Step* Flow:
+ use api/jobs/<jobId>/end to end a job using POST and giving a **jobId** **status** and an optional **force** flag
+
+      use api/jobs/`<jobId>`/steps/`<stepId>` /end  to end a step using POST and giving a `**`stepId`**` `**`stepType`**` `**`status`**` and an optional `**`force`**` flag
 
 ### Permissions
 

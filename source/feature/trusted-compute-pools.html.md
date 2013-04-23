@@ -93,11 +93,15 @@ The decision to update all nodes in the trust status cache while one node's cach
 
 ##### REST API changes
 
-under consideration.
+Create a trusted VM via restful API, curl command may like this.
+
+      curl -v -u "admin@internal:abc123" -H "Content-type: application/xml" -d '`<vm><name>`my_new_vm`</name><cluster><name>`Default`</name></cluster><template><name>`Blank`</name></template><trusted_host_flag>`true`</trusted_host_flag></vm>`' '`[`http://`](http://)`***:80/api/vms'
+
+Key relevant modification includes api.xsd and VmMapper.java.
 
 ##### OVF related changes
 
-under consideration.
+When the VM created in the trusted cluster was exported as OVF file, OVF file should have a new flag to indicate this is a trusted VM running in a trusted host. Key relevant classes include OvfTemplateReader.java, OvfTemplateWriter.java, OvfVmReader.java and OvfVmWriter.java. We define this new property in export file as “TrustedHostFlag”.
 
 #### Approach 2: trust property in cluster level policy (WIP)
 
@@ -105,7 +109,7 @@ under consideration.
 
 Add a trust flag into cluster entity. If end user wants to create a trusted cluster, the "trusted" check box must be selected.
 
-![](figure8.jpg "figure8.jpg")
+![](figure9.jpg "figure9.jpg")
 
 ##### Backend changes
 
@@ -132,7 +136,11 @@ When the VM created in the trusted cluster was exported as OVF file, OVF file sh
 
 ##### Restful API
 
-To support creating a trusted cluster, we will provide a trusted cluster, the curl may like this curl -v -u "admin@internal:abc123" -H "Content-type: application/xml" -d '<cluster><name>my_cluster </name><trusted_cluster_flag >true ' '<http://engine>.\*\*\*.com:80/api/cluster' Key relevant modification includes api.xsd and VmMapper.java.
+Create a trusted cluster via restful API, curl command may like this.
+
+      curl -v -u "admin@internal:abc123" -H "Content-type: application/xml" -d '`<cluster><name>`my_cluster `</name><trusted_cluster_flag >`true` `' '`[`http://engine`](http://engine)`.***.com:80/api/cluster'
+
+Key relevant modification includes api.xsd and VmMapper.java.
 
 ##### Database change
 

@@ -127,7 +127,7 @@ In the UI there is an "Activate" option. What still needs to be added is the che
 
 Code path is “ovirt-engine/backend/manager/modules/vdsbroker/src/main/java/org/ovirt/engine/core/vdsbroker/” where the re-activation process begins.
 
-3. Import / Export support (OVF)
+##### OVF related changes
 
 When the VM created in the trusted cluster was exported as OVF file, OVF file should have a new flag to indicate this VM should be running in a trusted cluster. Key relevant classes include OvfTemplateReader.java, OvfTemplateWriter.java, OvfVmReader.java and OvfVmWriter.java. We define this new property in export file as “trusted_cluster_flag”. When importing a 'trusted' VM into an untrusted cluster, two cases should be considered.
 

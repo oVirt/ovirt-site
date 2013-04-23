@@ -49,7 +49,7 @@ By far, we got two implementation approaches for TCP feature:
 *   Approach 1: trust property in VM level policy, POC done, Pending for VM migration implementation & performance optimization.
 *   Approach 2: trust property in cluster level policy, WIP. The biggest benefits are VM migration can work without specific changes, and no performance impact for VM creation.
 
-#### Approach 1: trust property in VM level policy
+#### Approach 1: trust property in VM level policy (Pending)
 
 ##### Frontend changes
 

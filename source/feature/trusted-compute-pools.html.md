@@ -107,9 +107,7 @@ When the VM created in the trusted cluster was exported as OVF file, OVF file sh
 
 ##### Frontend changes
 
-Add a trust flag into cluster entity. If end user wants to create a trusted cluster, the "trusted" check box must be selected.
-
-![](figure9.jpg "figure9.jpg")
+Divide cluster policy side tab into two sections "scheduling policy" and "additional properties". "Enable Trusted Service" checkbox must be selected to create a trusted cluster. ![](figure9.jpg "fig:figure9.jpg")
 
 ##### Backend changes
 

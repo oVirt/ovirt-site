@@ -99,7 +99,7 @@ under consideration.
 
 under consideration.
 
-#### Approach 2: trust property in cluster level policy
+#### Approach 2: trust property in cluster level policy (WIP)
 
 ##### Frontend changes
 

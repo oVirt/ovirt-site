@@ -133,6 +133,7 @@ Since each Job may have steps that invoke internal oVirt command or external plu
 ### API
 
 *   Add the list of **monitored** commands to api/capabilities
+*   Add support for job_id and step_id parameters in QueryHelper such that commands can pass job_id and step_id in the URI
 *   Add **Job** business entity
 *   Add **Step** business entity
 *   Adding JobMapper to map backend to REST entities and vice versa

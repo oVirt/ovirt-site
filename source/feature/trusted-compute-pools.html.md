@@ -103,7 +103,7 @@ under consideration.
 
 ##### Frontend changes
 
-Add a trust flag into cluster entity. If end user wants to create a trusted cluster, the radio box must be selected.
+Add a trust flag into cluster entity. If end user wants to create a trusted cluster, the "trusted" check box must be selected.
 
 ![](figure8.jpg "figure8.jpg")
 

@@ -93,7 +93,7 @@ Features being considered for inclusion/already in master:
 
 ### Storage
 
-*   Adding VDSM hook for hotplug disk a disk
+*   Adding VDSM hook for hotplug a disk
 *   Separating "Move" vm operation to "Copy" and "Delete" operations to improve VM availability
 
 ### SLA & Scheduling

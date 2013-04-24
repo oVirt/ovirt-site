@@ -165,11 +165,12 @@ This should not require the process to run as root.
 ### Open Issues
 
 *   How to use virtio-scsi controllers:
-    -   One SCSI controller for all disks?
-    -   A SCSI controller per disk?
+    -   One SCSI controller for all disks? Or, a SCSI controller per disk?
+        -   Note: Each device on a virtio-scsi controller is represented as a logical unit, or LUN. The LUNs are grouped into targets. Each device can have a maximum of 256 targets per controller and 16,384 logical units per target.
 *   How hot-plug is affected:
     -   Hot-plugging a disk with virtio-scsi interface should attach a new controller? Or, reuse the current SCSI controller?
-    -   Hot-unplugging a disk remove the controller as well?
+        -   How to verify that a controller already exists in the VM?
+    -   Hot-unplugging a disk should remove the controller (currently, not supported by libvirt)?
 
 ### Future Work
 

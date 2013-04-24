@@ -16,11 +16,11 @@ Generate `ovirtmgmt` network based on DC definitions using `setupNetworks` and n
 
 ### Owner
 
-*   Name: [ Dan Kenigsberg](User:Danken)
+*   Name: [ Moti Asayag](User:masayag)
 
 <!-- -->
 
-*   Email: <danken@redhat.com>
+*   Email: <masayag@redhat.com>
 
 ### Current status
 

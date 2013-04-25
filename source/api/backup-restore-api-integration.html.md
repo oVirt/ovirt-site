@@ -64,10 +64,19 @@ File level restore can be performed in-guest or off-host. Mount the volumes of t
 
 ### REST API Support
 
-#### Two new API calls will be added –
+#### Following API calls will be needed for backup –
 
-1.  Prepare backup disk
-2.  Teardown backup disk
+1.  create vm snapshot (the api call exists today)
+2.  get VM Config (new API)
+3.  prepare backup disk (new api, should probably accept: hostid, disk;
+
+      - return: paths to device on host as well as map of changed blocks-
+      - this should be called for every disk that needs to be backed up.  Note that VM snapshot takes a snap of *all* disks of the VM.
+
+1.  attach disk to backup vm (the api call exists today. This assumes virt app) - also has to be called per disk to back up
+2.  detach disk (symmetric to attach disk)
+3.  teardown backup disk (symmetric to prepare backup disk)
+4.  delete snap - This can only be called if VM is down today and is not mandatory in any event. Once we have live merge, it should be policy driven ( user should be able to choose whether to keep or delete)
 
 #### Prepare backup disk
 

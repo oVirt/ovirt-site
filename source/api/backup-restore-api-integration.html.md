@@ -123,6 +123,13 @@ Add the ability to do full and incremental disk backups of a running VM.
 *   Block Device ID management considerations: method to track the device ID once attached to the Backup virtual appliance.
 *   Support for LAN-Free backup: oVirt provide SAN access to the disk devices out of the box.
 
+<!-- -->
+
+*   Please note that there are actually 2 snapshots during the backup - first snapshot is a regular VM snapshot and second snapshot is the temporary qemu-nbd snapshot.
+*   Since we don't have 'live merge' then I believe we will have to present the regular snapshot as it will take up space on storage as well as prevent user from doing things.
+*   Also in case of problems (even if we had live merge) it would be much more difficult for the user to take corrective action without seeing the snapshot.
+*   We should just name the snapshot with a proper prefix (e.g. "TSM Backup") to make it clear what it's about.
+
 ### Future Work
 
 #### Incremental VM backups

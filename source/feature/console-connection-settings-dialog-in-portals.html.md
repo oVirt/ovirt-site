@@ -12,13 +12,13 @@ wiki_last_updated: 2013-07-23
 
 ### Description/status
 
-This feature has three main aims:
+This feature has these aims:
 
-1.  to extract the console settings dialog from User Portal and use it in Webadmin as well
+1.  to extract the console settings dialog from User Portal and use it in Webadmin as well - MERGED
 2.  to enhance this dialog with additional options that reflect recently added oVirt features, there are:
     -   [Features/Spice Proxy](Features/Spice Proxy) - MERGED
     -   [Features/Display Address Override](Features/Display Address Override)
-    -   [Features/Non plugin console invocation](Features/Non plugin console invocation)
+    -   [Features/Non plugin console invocation](Features/Non plugin console invocation) - MERGED
     -   [Features/noVNC console](Features/noVNC console), SPICE HTML 5 client
 
 3.  to make use of browser local storage to save configuration of the dialog per-VM - MERGED
@@ -29,6 +29,6 @@ This feature has three main aims:
 
 ### Benefit to oVirt
 
-This feature will allow quicke changing of console parameters from frontend.
+This feature will allow quick changing of console parameters from frontend.
 
 <Category:Feature>

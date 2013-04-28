@@ -56,9 +56,15 @@ Scripting language: BASH Backup logic:
        * Create tar file from that directory
        * Create database backup using pgdump (database configuration should be read from /etc and written into temporary .pgpass file)
 
-Restore: Phase one (BASH) 1. Request user to run engine-setup 2. Override DB and PKI directories
+Restore: Phase one (BASH)
 
-Phase two (??) 1. Gather all needed information from the backup 2. Run otopi based ovirt-engine-setup with special parameters (use pgdump, don't create new PKI)
+      1. Request user to run engine-setup
+      2. Override DB and PKI directories
+
+Phase two (??)
+
+      1. Gather all needed information from the backup
+      2. Run otopi based ovirt-engine-setup with special parameters (use pgdump, don't create new PKI)
 
 ### Benefit to oVirt
 

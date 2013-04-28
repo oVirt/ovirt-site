@@ -26,6 +26,10 @@ A simple utility to create and restore a complete ovirt-engine environment.
 
 *   Last updated: ,
 
+#### Phase
+
+In design
+
 #### Features
 
 | Feature                                                   | Existing implementation | Otopi implementation | Owner                                                | Priority | Target date |
@@ -40,7 +44,22 @@ A simple utility to create and restore a complete ovirt-engine environment.
 </references>
 ### Detailed Description
 
-TBD
+Scripting language: BASH Backup logic:
+
+      * Create Temporary directory
+      * Copy configuration files into temp directory
+         1. /etc/ovirt-engine/  (ovirt engine configuration)
+         2. /etc/sysconfig/ovirt-engine (ovirt engine configuration)
+         3. /etc/exports.d  (NFS export created on setup)
+         4. /etc/pki/ovirt-engine (ovirt-engine keys)
+         5. Firewall
+         6. Other
+       * Create tar file from that directory
+       * Create database backup using pgdump (database configuration should be read from /etc and written into temporary .pgpass file)
+
+Restore: Phase one (BASH) 1. Request user to run engine-setup 2. Override DB and PKI directories
+
+Phase two (??) 1. Gather all needed information from the backup 2. Run otopi based ovirt-engine-setup with special parameters (use pgdump, don't create new PKI)
 
 ### Benefit to oVirt
 

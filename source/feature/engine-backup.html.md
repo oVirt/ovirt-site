@@ -43,7 +43,7 @@ In design
 </references>
 ### Detailed Description
 
-Scripting language: BASH Backup logic:
+Backup logic:
 
       * Create Temporary directory
       * Copy configuration files into temp directory
@@ -63,8 +63,8 @@ Restore: Phase one (BASH)
 
 Phase two (??)
 
-      1. Gather all needed information from the backup
-      2. Run otopi based ovirt-engine-setup with special parameters (use pgdump, don't create new PKI)
+      * Gather all needed information from the backup
+      *  Run otopi based ovirt-engine-setup with special parameters (use pgdump, don't create new PKI)
 
 ### Benefit to oVirt
 
@@ -78,7 +78,7 @@ TBD
 ### Documentation / External references
 
 *   [Ovirt Host Deploy Presentation](:File:ovirt-host-deploy 3.2.pdf)
-*   [Bug 911191 - Migrate ovirt-engine-setup and AIO plugin to otopi](https://bugzilla.redhat.com/show_bug.cgi?id=911191)
+*   [This shold be the link to feature bug](https://bugzilla.redhat.com/show_bug.cgi?id=911191)
 
 ### Comments and Discussion
 

@@ -176,8 +176,8 @@ This should not require the process to run as root.
         -   Or, how to verify that a controller already exists in the VM (try/catch or using virDomainGetXMLDesc)?
     -   Hot-unplugging a disk should remove the controller as well? (currently, not supported by libvirt)
 *   Should virtio-scsi be set as default for 3.3 clusters?
-*   Should we allow it for CDs as well?
 
 ### Future Work
 
 *   Decouple disk interface (IDE/Virtio/Virtio-scsi) from Disk entity. I.e. disk interface should be defined in the connection between disk and VM (vm device), as opposed to the current situation whereas disk interface is a property of the disk.
+*   Support CDs as well.

@@ -129,29 +129,33 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 
 | Feature                                                        | Existing implementation | Otopi implementation | Owner |
 |----------------------------------------------------------------|-------------------------|----------------------|-------|
-| Verify that root is the user executing the script              | Done                    | Not implemented      |       |
-| Allow unprivileged user ro run a development cleanup           | Not implemented         | Not implemented      |       |
-| Support unattended-clean option                                | Done                    | Not implemented      |       |
+| Verify that root is the user executing the script              | Done                    | Not implemented [32] |       |
+| Allow unprivileged user ro run a development cleanup           | Not implemented         | Done                 |       |
+| Support unattended-clean option                                | Done                    | Done                 |       |
 | Support dont-drop-db option                                    | Done                    | Not implemented      |       |
 | Support dont-remove-ca option                                  | Done                    | Not implemented      |       |
 | Support remove-nfs-exports option                              | Done                    | Not implemented      |       |
 | Support remove-exported-content option                         | Done                    | Not implemented      |       |
-| Change working dir to the root directory                       | Done                    | Not implemented      |       |
-| Allow logging                                                  | Done                    | Not implemented      |       |
-| Ask user to proceed with cleanup in interactive mode           | Done                    | Not implemented      |       |
-| Stop Engine service when needed                                | Done                    | Not implemented      |       |
+| Change working dir to the root directory                       | Done                    | Done                 |       |
+| Allow logging                                                  | Done                    | Done                 |       |
+| Ask user to proceed with cleanup in interactive mode           | Done                    | Done                 |       |
+| Stop Engine service when needed                                | Done                    | Done                 |       |
 | Backup engine database if drop requested                       | Done                    | Not implemented      |       |
-| Drop engine database if requested                              | Done                    | Not implemented      |       |
-| Clean pgpass if drop requested                                 | Done                    | Not implemented      |       |
-| Clean sysctl configuration                                     | Done                    | Not implemented      |       |
+| Drop engine database if requested                              | Done                    | Done[33]             |       |
+| Clean pgpass if drop requested                                 | Done                    | Done                 |       |
+| Clean sysctl configuration                                     | Done                    | Done                 |       |
 | Backup CA if remove requested                                  | Done                    | Not implemented      |       |
 | Remove CA if requested                                         | Done                    | Not implemented      |       |
 | Stop engine-notifierd when needed                              | Done                    | Not implemented      |       |
 | Clean ISO domain NFS exports if requested                      | Done                    | Not implemented      |       |
 | Clean ISO domain exported directories if requested             | Done                    | Not implemented      |       |
 | Add info message to the user finalizing the successful cleanup | Done                    | Not implemented      |       |
-| Add info message on where the logs are located                 | Done                    | Not implemented      |       |
+| Add info message on where the logs are located                 | Done                    | Done                 |       |
 
+<references>
+[34] <ref name="dbdrop">database is not dropped but all objects within are dropped, should be revisit when [bug#951923](https://bugzilla.redhat.com/show_bug.cgi?id=951923) is resolved.
+
+</references>
 ### Detailed Description
 
 TBD
@@ -242,3 +246,9 @@ TBD
 [30] The option `AUTH_PASS=...` is now `osetupcons.ConfigEnv.ADMIN_PASSWORD`
 
 [31] This means that the function is not required in the new code design
+
+[32] 
+
+[33] 
+
+[34] only if we did not install in development mode

@@ -20,7 +20,7 @@ Define special parameters per VM virtual device, and pass them down to vdsm hook
 *   Email: <amuller@redhat.com>
 *   IRC: amuller at #ovirt (irc.oftc.net)
 
-### Current status
+### Current Status
 
 *   oVirt-3.3
 *   Last updated: ,
@@ -41,7 +41,7 @@ Similarly, users may want to connect a virtual disk to an "exotic" storage serve
 
 These extensions, and many others, can be made available by allowing per-device custom properties. Device custom properties are just like VM-wide ones, only that they are attached to a specific device, and can take effect when the device is hot-plugged.
 
-### Dependencies / Related Features
+### Implementation
 
 #### Vdsm
 
@@ -125,5 +125,6 @@ As this is a 3.3 feature, all 3.2 (and down) cluster related entities should not
 ### Comments and Discussion
 
 *   Refer to [Talk:Device Custom Properties](Talk:Device Custom Properties)
+*   On the arch@ovirt.org mailing list.
 
 <Category:Feature>

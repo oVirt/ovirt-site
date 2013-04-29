@@ -121,12 +121,15 @@ The integration of network providers into oVirt will be incremental. The followi
 
 ### User Experience
 
+![ thumb | right](Providers.png  "fig: thumb | right") ![ thumb | right](Discovery.png  "fig: thumb | right") ![ thumb | right](Add.png  "fig: thumb | right") ![ thumb | right](Networks.png  "fig: thumb | right")
+
 *   To represent the new Provider entity in our project, we're planning to add a new tab for Providers. At first it will only be populated with network Providers, but later on it might include Providers of other resource types as well.
+*   Adding a new Provider in oVirt will comprise supplying an arbitrary name for it, and a URL address from which entities may be imported. We're planning to add a graphical indication of the connection to the supplied URL address.
 *   When a specific Provider is chosen, subtabs displaying information concerning that Provider will appear (as with any other entity). To begin with, General and Networks subtabs will be implemented.
 *   The main function in the Provider/Networks subtab will be to "Discover" the networks provided, which will open a popup window enabling attachment of provided networks to DC(s).
-*   The provider entity should also be reflected in the system tree. However, since the Provider isn't exactly a part of our DC system, but rather an interface to another system, we don't want it to reside under the "System" node; a new "Configuration" node will be created, and the Providers will be placed under it.
+*   The user will also be able to create new networks to be attached to the Provider from within oVirt.
+*   The provider entity should also be reflected in the system tree. However, since the Provider isn't exactly a part of our DC system, but rather an interface to another system, we don't want it to reside under the "System" node; a new "Configuration" node will be created, and the Providers will be placed under it. This isn't included in the screenshots just yet.
 *   The link between the Provider and its provided entity (in our case, a network) needs to also be reflected in the provided entity. Therefore, we'll add a Provider column to each network tab/subtab. Also, to make access to the Provider easier for the user, we're planning to have the text link to the actual Provider tab.
-*   Concept screenshots to be added soon...
 
 ### Installation/Upgrade
 

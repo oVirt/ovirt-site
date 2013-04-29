@@ -46,9 +46,11 @@ The virtio SCSI host is the basis of an alternative storage stack for KVM. This 
 
 The following Guest OS drivers are available:
 
-*   Fedora / Other Linus
+*   Fedora / Other Linuxes
 *   Windows Server 2003 / 2007 / 2008 / 2012, Windows 7/8
     -   Windows XP is not supported
+
+      Note: Windows drivers should be added to guest tools.
 
 #### VDSM
 
@@ -101,7 +103,7 @@ The following Guest OS drivers are available:
 
 <disk>
         ...
-`  `<interface>`virtio`</interface>
+`  `<interface>`virtio-scsi`</interface>
         ...
 </disk>
 
@@ -109,7 +111,7 @@ The following Guest OS drivers are available:
 
 <disk>
         ...
-`  `<interface>`virtio`</interface>
+`  `<interface>`virtio-scsi`</interface>
 `  `<sgio>`unfiltered`</sgio>
         ...
 </disk>
@@ -161,6 +163,7 @@ This should not require the process to run as root.
         Filtering is done on disk level (not on VM level).
 
 *   Mapping of disk vs. lun in libvirt to disk image and direct lun appropriately.
+*   The feature is enabled for cluster 3.3 and up.
 
 ### Open Issues
 
@@ -172,6 +175,8 @@ This should not require the process to run as root.
         -   Assume that a controller already exists in the VM?
         -   Or, how to verify that a controller already exists in the VM (try/catch or using virDomainGetXMLDesc)?
     -   Hot-unplugging a disk should remove the controller as well? (currently, not supported by libvirt)
+*   Should virtio-scsi be set as default for 3.3 clusters?
+*   Should we allow it for CDs as well?
 
 ### Future Work
 

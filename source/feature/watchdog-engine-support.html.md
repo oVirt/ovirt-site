@@ -145,6 +145,16 @@ VDSM support for watchdog cards is already merged.
 
 Please comment on the [Discussion page](Talk:Features/Watchdog_engine_support).
 
+### TODO
+
+New features requested by [User:Gchaplik](Gilad)
+
+*   Adding watchdog data in vm general subtab
+*   Enabling watchdog fields according to supported compatibility version (iirc Missing in add watchdog canDoAction)
+*   Watchdog filtered events sub-tab for VM main tab (visible when watchdog is enabled)
+*   Search vms by last_event != null (> date (dream))
+*   Icon in VM grid (main tab) when watchdog is enabled or has event (in the last YYY time)
+
 ### Test cases
 
 *   detecting the watchdog

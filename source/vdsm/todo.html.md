@@ -30,7 +30,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   Configure vdsm to use syslog -- done by Mark Wu, but now we need to stop trashing the console.
+*   ~~Configure vdsm to use syslog , but now we need to stop trashing the console~~ -- done by Mark Wu.
 
 <!-- -->
 

@@ -161,6 +161,12 @@ New features requested by [User:Gchaplik](Gilad)
     -   i6300esb is a pci device, the command *\`lspci | grep watchdog -i\`* in a guest linux OS will show you the watchdog card if it is installed
     -   ib700: TODO
 
+<!-- -->
+
+*   triggering the watchdog
+    -   to crash the kernel: <big>echo c > /proc/sysrq-trigger</big>
+    -   to trigger watchdog: <big>kill -9 \`pgrep watchdog\`</big>
+
 #### Create VM with watchdog (UI)
 
 1.  Create a server VM

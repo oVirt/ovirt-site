@@ -41,9 +41,13 @@ Similarly, users may want to connect a virtual disk to an "exotic" storage serve
 
 These extensions, and many others, can be made available by allowing per-device custom properties. Device custom properties are just like VM-wide ones, only that they are attached to a specific device, and can take effect when the device is hot-plugged.
 
+### User Experience
+
+![](NetworkCustomProperties.png "NetworkCustomProperties.png")
+
 ### Implementation
 
-#### Vdsm
+##### Vdsm
 
 This feature affects the following Vdsm verbs:
 
@@ -63,7 +67,7 @@ In hooks scripts of per-device verbs (nic hotplug, for example) the properties w
 
 The reasoning behind the vmCreate behavior is that we should pass different properties for each device. At the stage that before_vm_create hook is executed, the alias of devices is not necessarily known, and the ordering of devices may be changed by other hooks. Thus we have no means to designate which property belong to which device - save for executing a different script for each device, passing that device's xml definition.
 
-### Dependencies / Related Features
+##### Dependencies / Related Features
 
 With this feature, Engine would keep track of per-device custom properties.
 
@@ -99,11 +103,7 @@ Each bll command that adds or updates a NIC or a disk should include custom prop
 
 Update all relevant VdsBroker commands that involve verbs related to adding, removing and altering disks and NICs.
 
-#### User Experience
-
-![](NetworkCustomProperties.png "NetworkCustomProperties.png")
-
-#### REST
+##### REST
 
 Add a custom_properties field to api.xsd for NICs and disks: <custom_properties>
 <custom_property value="123" name="sndbuf"/>
@@ -112,7 +112,7 @@ Add a custom_properties field to api.xsd for NICs and disks: <custom_properties>
 
 And subsequently fix the NicMapper to map properly from VmInterface to NIC.
 
-#### Backwards Compatibility
+##### Backwards Compatibility
 
 As this is a 3.3 feature, all 3.2 (and down) cluster related entities should not be allowed (at the GUI level ) to customize device properties. In the engine special care needs to be taken at canDoAction to disallow custom device properties for 3.2 and down.
 

@@ -89,6 +89,10 @@ Details subject to change:
 
 ![](cloud-init-ui-mock-up.png "cloud-init-ui-mock-up.png")
 
+**Screenshot**
+
+![](cloud-init-webadmin-screenshot.png "cloud-init-webadmin-screenshot.png")
+
 **API Design**
 
 Details TBD, maybe something like this:

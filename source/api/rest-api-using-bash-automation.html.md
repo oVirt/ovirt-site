@@ -46,6 +46,10 @@ For download:
 
 Here: ![](Rest_api_files.tar.gz "fig:Rest_api_files.tar.gz")
 
+GitHub sources:
+
+*   git clone <git://github.com/lspevak/ovirt-restapiconf.git>
+
 The following sections contain snipples of code showing the creation of a host in the Engine.
 
 ## General support routines

@@ -21,7 +21,7 @@ Integrating support for it into oVirt will help facilitate provisioning of virtu
 
 ### Current Status
 
-Planning / investigation
+Implementation
 
 ### Detailed Description
 

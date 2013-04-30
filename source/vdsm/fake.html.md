@@ -15,7 +15,7 @@ VDSM is a daemon component written in Python required by oVirt-Engine (Virtualiz
 
 ## Technology
 
-The basic idea is that fake host addresses must resolve to a single IP address (127.0.0.1 is also possible for all-in-one performance testing server configuration). Standard HTTP port 54321 must be accessible from the Engine. You can use /etc/hosts file on the server with oVirt-Engine or company DNS server. Apache XML-RPC library is a core technology for the Engine vs. VDSM communication. Many configured entities must be persisted after their creation. Simple Java object serialization is used for this purpose (directory /var/log/vdsmfake/cache).
+The basic idea is that the fake host addresses must resolve to a single IP address (127.0.0.1 is also possible for all-in-one performance testing server configuration). Standard HTTP port 54321 must be accessible from the Engine. You can use /etc/hosts file on the server with oVirt-Engine or company DNS server. Instead of host IP address it is needed to specify fake host name. Apache XML-RPC library is a core technology for the Engine and VDSM communication. Many configured entities must be persisted after their creation. Simple Java object serialization is used for this purpose (directory /var/log/vdsmfake/cache).
 
 ## Functionality
 
@@ -24,7 +24,7 @@ The application runs in 2 modes:
 *   simulation
 *   proxy to real VDSM
 
-All or selected XML requests/responses are optionally logged into a directory (/var/log/vdsmfake/xml). Currently the configuration is possible changable in web.xml, log4j.xml files only.
+All or selected XML requests/responses are optionally logged into a directory (/var/log/vdsmfake/xml). Currently the configuration is possible to update in web.xml, log4j.xml files only.
 
 ## Supported methods
 
@@ -36,11 +36,11 @@ All or selected XML requests/responses are optionally logged into a directory (/
 
 ## Project
 
-Source code
+VDSM Fake is a Maven configured project. Source code:
 
-*   <git://github.com/lspevak/ovirt-vdsmfake.git>
+*   git clone <git://github.com/lspevak/ovirt-vdsmfake.git>
 
-VDSM Fake is Maven configured project.
+## Installation
 
 Required directories (set RW access):
 
@@ -57,8 +57,46 @@ or use e.g. Apache Tomcat
 
 *   download from <http://tomcat.apache.org/>
 *   cd apache-tomcat-7.0.34/webapps
-*   rm -rf ROOT
-*   copy vdsmfake.war as ROOT.war to apache-tomcat-7.0.34/webapps
+*   copy vdsmfake.war as ROOT.war to apache-tomcat-7.0.34/webapps (remove standard ROOT folder first)
 *   change HTTP port inside apache-tomcat-7.0.34/conf/server.xml to 54321
-*   cd apache-tomcat-7.0.34/bin
-*   ./startup.sh
+*   Run startup.sh inside apache-tomcat-7.0.34/bin directory
+
+## oVirt-Engine Batch Configuration
+
+The fake hosts and VMs can be installed by REST API - more info: [REST_API_Using_BASH_Automation](REST_API_Using_BASH_Automation).
+
+    #!/bin/bash
+
+    ...
+    N_HOSTS=100
+    N_VMS=300
+    OUT_FILE=/tmp/fakehosts.txt
+
+    function createEtcHosts {
+        echo "" > ${OUT_FILE}
+        for i in $(seq 1 ${N_HOSTS}); do
+                echo "127.0.0.1    fake${i}.example.com" >> ${OUT_FILE}
+        done;
+    }
+
+    function createHosts {
+        for i in $(seq 1 ${N_HOSTS}); do
+            createHost "fake${i}.example.com" "fake${i}.example.com" "123456" "Default"
+        done;
+    }
+
+    function createVM {
+        local index=$1
+        local vmName=Fedora17_fake${index}
+        # 512M, disk 10GB
+        createVirtualMachineFromTemplate "${vmName}" "Default" "Blank" "536870912"
+        createVirtualMachineNIC "${vmName}" "ovirtmgmt"
+        createVirtualMachineDisk "${vmName}" "10485760000" "Storage_DATA"
+        createVirtualMachineCDROM "${vmName}" "Fedora-17-x86_64-DVD.iso"
+    }
+
+    function createVMs {
+        for i in $(seq 201 ${N_VMS}); do
+            createVM ${i}
+        done;
+    }

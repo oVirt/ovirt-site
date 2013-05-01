@@ -90,6 +90,7 @@ Features being considered for inclusion/already in master:
 *   [Feature/NetworkReloaded](Feature/NetworkReloaded) reimplementation of configNetwork in vdsm. Should have zero (0) effect on users, but required for future support for ovs/NM
 *   [Features/Multiple Gateways](Features/Multiple Gateways) configure more gateways on host, on top of the default one.
 *   [Features/Network Labels](Features/Network Labels)
+*   [Features/Netwrok Security Groups](Features/Netwrok Security Groups)
 
 ### Storage
 

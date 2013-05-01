@@ -121,6 +121,13 @@ In addition, you can create a file named create_materialized_views.sql under dbs
 
 **NOTE: If from any reason you want to drop a Snapshot Materialized View that was setup in the product context, you can always do that by calling DropMaterializedView in create_materialized_views.sql**
 
+If create_materialized_views.sql is executed manually :
+
+       1) verify that the the user that runs the psql is engine so the objects created will have the same credentials
+       2) the custom dir and create_materialized_views.sql file under it should have the following permissions 
+
+drwxr-xr-x 2 root root 4096 May 1 19:37 custom -rw-r--r-- 1 root root 425 May 1 19:37 create_materialized_views.sql
+
 ### Example
 
 This is an example of how **\1** may look like:

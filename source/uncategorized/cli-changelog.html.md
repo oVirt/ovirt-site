@@ -8,6 +8,20 @@ wiki_last_updated: 2013-11-14
 
 # Cli-changelog
 
+         * Wed May  1 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.3.0.2-1
+         - datetime.datetime object has no attribute __dict__ #957519
+         - remove pexpect dependency
+         - Ping command success message need to be rephrased #918749
+         - spicec does not pass cert_file #953582
+         - Error in "update network --cluster-identifier --usages-usage" #950993
+         - List/Show suggests parent+child as single param #950398
+         - Error type "brick" does not exist." on replace brick #923196
+         - Implement Session-TTL header support #928314
+         - unclear error message when using unsupported 2 levels attribute #949642
+         - correlation_id is not attached to update command #950441
+         - connect --help will log the user out of the disconnected cli #890340
+         - "help add" fails to format the error when number of provided args in incorrect #922018
+
          * Tue Apr  2 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.3.0.1-1
          - at vm.start() --vm-os-boot doesn't send the order of devices #921464
          - rephrase status command help

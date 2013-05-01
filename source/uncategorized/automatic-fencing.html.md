@@ -14,7 +14,7 @@ oVirt engine can automatically fence hosts that fail to respond. In order for fe
 2.  There is a valid proxy host (another host in the same data-center in UP status).
 3.  connection to the host has timed out:
     -   on **first** network failure, host status will change to **connecting**
-    -   then engine will try 3 times more to ask vdsm for status (configuration: VDSAttemptsToResetCount) or 60 seconds (configuration: TimeoutToResetVdsInSeconds)
+    -   then engine will try 3 times more to ask vdsm for status (configuration: VDSAttemptsToResetCount) or wait an interval of time that depends on host's load (configured by the the config values TimeoutToResetVdsInSeconds[deafult 60sec] + (DelayResetPerVmInSeconds[default 0.5sec]\*(the count of running vms on host) + (DelayResetForSpmInSeconds[default 20sec]\*(1 if host runs as SPM or 0 if not)).)
     -   **The longer of which** - for example if vdsm hangs then 3 times may take up to 9 mins
     -   if the host doesn't respond during this time, it's status will change to **non responsive** and it will be fenced.
 

@@ -6,8 +6,6 @@ wiki_revision_count: 12
 wiki_last_updated: 2013-11-30
 ---
 
-The actual name of your feature page should look something like: "Your feature name". Use natural language to [name the pages](How to make pages#Page_naming).
-
 # Network Lables
 
 ### Summary

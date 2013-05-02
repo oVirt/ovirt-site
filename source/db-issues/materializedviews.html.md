@@ -126,8 +126,8 @@ If create_materialized_views.sql is executed manually :
        1) verify that the the user that runs the psql is engine so the objects created will have the same credentials
        2) the custom dir and create_materialized_views.sql file under it should have the following permissions 
 
-       drwxr-xr-x 2 root root 4096 May  1 19:37 custom
-       -rw-r--r-- 1 root root 425 May  1 19:37 create_materialized_views.sql
+       drwxr-xr-x 2 root root  custom
+       -rw-r--r-- 1 root root  create_materialized_views.sql
 
 ### Example
 

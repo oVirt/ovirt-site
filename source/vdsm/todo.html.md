@@ -95,6 +95,10 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
+*   We store VM configuration/state in 3 different places: vm.conf (and its on-disk persistency), vm object and its vm.devices[], and within libvirt. This creates a hell of inconsistency problems. Think of Vdsm crashing right after hotpluggin a new disk. The added disk would not be monitored by Vdsm post-restart and not even by destination vdsm if the VM is migrated.
+
+<!-- -->
+
 *   lvm.PV.guid is devicemapper-owned piece of information; lvm has nothing to do with it, and jumps through [hoops](http://gerrit.ovirt.org/2940) to produce it. Instead, it should be produced by devicemapper and consumed directly by blockSD.
 
 <!-- -->

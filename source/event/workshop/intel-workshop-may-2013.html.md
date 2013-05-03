@@ -91,7 +91,7 @@ On May 9th, 2013, The oVirt workshop will also have two tracks running. The Deve
 | Time                   | Title                                            | Speaker                     |
 |------------------------|--------------------------------------------------|-----------------------------|
 | width=20%| 09:00-10:00 | width=50% | Extending oVirt with the API and SDK | width=30% | To be announced |
-| 10:00-11:00            | Packaging oVirt for Ubuntu                       | Zhengsheng Zhou             |
+| 10:00-11:00            | Packaging oVirt for Ubuntu                       | Zhengsheng Zhou (IBM)       |
 | 11:00 - 11:15          | colspan=2| Coffee Break                          |
 | 11:15-12:15            | oVirt SLA- MoM as host level enforcement agent   | Doron Fediuck (Red Hat)     |
 | 12:15-13:30            | colspan=2| Lunch                                 |

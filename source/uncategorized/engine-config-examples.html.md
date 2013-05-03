@@ -40,3 +40,6 @@ wiki_last_updated: 2013-11-08
 
       # engine-config -s AdminPassword=superNewPassword
       # service jboss-as restart 
+
+      # engine-config -s AdminPassword=interactive
+      # service jboss-as restart 

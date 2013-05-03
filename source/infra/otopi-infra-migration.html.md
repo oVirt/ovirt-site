@@ -72,7 +72,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Handle second execution warning                                        | Done                    | Not required[16]     | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
 | Handle loading and validating params from answer file                  | Done                    | Done[17]             |                                                      |          |             |
 | Mask input sets                                                        | Done                    | In Progress          |                                                      | Low      |             |
-| Log masked configuration                                               | Done                    | In Progress          |                                                      | Low      |             |
+| Log masked configuration                                               | Done                    | Done                 |                                                      | Low      |             |
 | Set Max Shared Memory                                                  | Done                    | Done                 |                                                      |          |             |
 | Check for supported Java VM                                            | Done                    | Done                 |                                                      |          |             |
 | CA Generation                                                          | Done                    | Done                 |                                                      |          |             |

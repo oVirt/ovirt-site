@@ -42,7 +42,7 @@ Optional:
 
 Software:  
 
-    * Fedora 17 (for easy installation)
+    * Fedora 18 (for easy installation)
 
 </div>
 <div class="span6">

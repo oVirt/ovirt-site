@@ -39,7 +39,7 @@ Currently, clients manually edit the host's init scripts and set a different gat
 
 ### User Experience
 
-Expected by the 6th of May.
+The only change needed in the GUI is adding the default gateway field to each logical network. Currently it exists only for ovirtmgmt.
 
 ### External References
 

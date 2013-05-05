@@ -8,9 +8,9 @@ wiki_revision_count: 14
 wiki_last_updated: 2014-02-26
 ---
 
-# VDSM Hooks
+# Vdsm Hooks
 
-### Writing a new hook
+## Writing a new hook
 
 This patch may be used as reference: <http://gerrit.ovirt.org/#/c/12833/>
 
@@ -31,7 +31,7 @@ Hooks placed below line 993 are non-required hooks, while hooks immediately abov
 During installation, hooks are placed at /usr/libexec/vdsm/hooks/hook_event/your_hook_name
 where hook_event is one of before_vm_start, before_migrate_source and so on.
 
-### Creating a new hook point
+## Creating a new hook point
 
 This patch may be used as reference: <http://gerrit.ovirt.org/#/c/13411/>
 

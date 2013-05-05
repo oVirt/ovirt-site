@@ -10,4 +10,4 @@ wiki_last_updated: 2014-02-26
 
 # Vdsm Hooks
 
-[Category:Vdsm, Documentation](Category:Vdsm, Documentation)
+<Category:Vdsm> <Category:Documentation>

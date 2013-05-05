@@ -58,7 +58,7 @@ On May 8th, 2013, The oVirt workshop is pleased to announce we'll be trying some
 | 11:15 - 12:15          | Deploying and testing oVirt using nested virtualization                                  | Mark Wu (IBM)                       |
 | 12:15-13:30            | colspan=2| Lunch                                                                         |
 | 13:30-14:30            | oVirt SLA overview                                                                       | Doron Fediuck (Red Hat)             |
-| 14:30-15:00            | oVirt storage system overview                                                            | Shu Ming (IBM)                      |
+| 14:30-15:00            | oVirt storage system and IBM's activity                                                  | Shu Ming (IBM)                      |
 | 15:00-15:15            | colspan=2| Coffee Break                                                                  |
 | 15:15-16:15            | Troubleshooting oVirt                                                                    | Tal Nisan (Red Hat)                 |
 | 16:15-17:00            | Converged Infrastructure with oVirt and Gluster                                          | Theron Conrey (Red Hat)             |

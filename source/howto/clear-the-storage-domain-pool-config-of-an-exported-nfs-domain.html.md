@@ -10,17 +10,17 @@ wiki_last_updated: 2013-05-05
 
 # How to clear the storage domain pool config of an exported nfs domain
 
-On some occassions, e.g. after backing up your export domain(s) and wiping the HV, when the original host / domain is nolonger available, you're unable to attach it to your new HV/Data Center as it is already attached to the previous one. Here are some steps that will help you import VMs from a "abandoned" export domain.
+On some occassions, e.g. after backing up your export domain(s) and wiping the HV, when the original host / domain is no longer available, you're unable to attach it to your new HV/Data Center as it is already attached to the previous one. Here are some steps that will help you import VMs from a "abandoned" export domain.
 
 ## Assumptions and Pre-Requisites
 
 *   You know how to export a folder/directory via NFS
 *   You have setup ovirt manager and HV (ovirt-node) at least once successfully before
-*   You know what a Export Domain is
+*   You know what an Export Domain is
 
 ## A few quick steps
 
-So say you backed up your export domain as a .tgz - you need to unpack its content and make it available via the newly created NFS export. Unpack that .tgz into the same path
+So let's say you backed up your export domain as a .tgz - you need to unpack its content and make it available via the newly created NFS export. Unpack that .tgz into the same path
 
     tar -zxf /path/to/yourfile.tgz -C /path/to/nfsexport/
 

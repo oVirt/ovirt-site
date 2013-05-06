@@ -59,6 +59,31 @@ Not needed.
 
 #### GlusterFS storage tests
 
+*   Install the latest GlusterFS RPMs.
+
+You can download the .repo file to /etc/yum.repos.d from the [GlusterFS official site](http://download.gluster.org/pub/gluster/glusterfs/qa-releases/3.4.0alpha/).
+
+*   Start glusterd system service
+*   Setup testing volume
+
+Prepare the backend
+
+<!-- -->
+
+    mkdir /testGlusterBrick && chmod 777 /testGlusterBrick
+
+Start gluster shell by running the command **gluster**
+
+<!-- -->
+
+    gluster> volume create testvol uvdsm2:/testGlusterBrick
+    gluster> volume start testvol
+    gluster> volume set testvol server.allow-insecure on
+
+*   Edit /etc/glusterfs/glusterd.vol
+
+Add "option rpc-auth-allow-insecure on" and save.
+
 #### NFS storage tests
 
 Start nfs-server system service.

@@ -20,6 +20,7 @@ The following is a migration plan for [jenkins.ovirt.org](jenkins.ovirt.org) to 
 4.  add puppet classes to manage slaves
 5.  setup openid as authentication for server via puppet class
 6.  test project role auth matrix, to restrict certain users to certain views/projects
+7.  final pad with info: <http://etherpad.ovirt.org/p/steps_for_installing_new_jenkins_master>
 
 ## install jenkins master server via exiting foreman (LTS)
 

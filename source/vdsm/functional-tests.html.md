@@ -76,7 +76,7 @@ Start gluster shell by running the command **gluster**
 
 <!-- -->
 
-    gluster> volume create testvol uvdsm2:/testGlusterBrick
+    gluster> volume create testvol YOUR_HOST_NAME:/testGlusterBrick
     gluster> volume start testvol
     gluster> volume set testvol server.allow-insecure on
 

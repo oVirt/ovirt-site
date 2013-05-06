@@ -96,6 +96,7 @@ Features being considered for inclusion/already in master:
 
 *   Adding VDSM hook for hotplug a disk
 *   Separating "Move" vm operation to "Copy" and "Delete" operations to improve VM availability
+*   VirtIO-SCSI
 
 ### SLA & Scheduling
 

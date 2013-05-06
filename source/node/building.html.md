@@ -56,7 +56,8 @@ You will need (at least):
 This boils (on a fresh and minimal Fedora 18) down to:
 
     $ visudo
-    $ yum install livecd-tools appliance-tools-minimizer fedora-packager python-devel rpm-build createrepo
+    $ yum install livecd-tools appliance-tools-minimizer fedora-packager python-devel rpm-build createrepo \
+      selinux-policy-doc checkpolicy selinux-policy-devel autoconf automake
 
 #### Build ovirt-node packages
 

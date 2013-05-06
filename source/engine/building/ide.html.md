@@ -103,7 +103,7 @@ If the above didn't help try also removing
 
 ### IntelliJ
 
-*   Install IntelliJ (there is a community edition) - good stable version is 10.5.x, but there are also 11 and 12 now available.
+*   Install IntelliJ (there is a community edition)
 
 <http://www.jetbrains.com/idea/free_java_ide.html>
 

@@ -93,3 +93,5 @@ Start nfs-server system service.
 VM functional tests boot virtual machine using host kernel and initramfs, so we should authorize the QEMU process to read our kernel image and initramfs. This can be done by the following command.
 
     chmod a+r /boot/vmlinuz-* /boot/initramfs-*
+
+<Category:Vdsm>

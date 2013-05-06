@@ -45,7 +45,7 @@ Not needed
 
 # XML-RPC Tests
 
-The tests are implemented in xmlrpcTests.py . It invokes VDSM APIs through the XML-RPC binding. It covers creation and destruction of iSCSI/LocalFS/GlusterFS/NFS(Under Review) storage domain, pool, image and volume. It also creates and shutdown VMs with and without storage.
+The tests are implemented in xmlrpcTests.py . It invokes VDSM APIs through the XML-RPC binding. It covers creation and destruction of iSCSI/LocalFS/GlusterFS/NFS([Under Review](http://gerrit.ovirt.org/#/c/13105/)) storage domain, pool, image and volume. It also creates and shutdown VMs with and without storage.
 
 ### Setting Up Prerequisites
 

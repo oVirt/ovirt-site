@@ -43,7 +43,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Checking total memory                                                  | Done                    | Done [1]             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Generate answer file                                                   | Done                    | Done[2]              |                                                      |          |             |
 | Allow logging                                                          | Done                    | Done                 |                                                      |          |             |
-| Support AIO plugin                                                     | Done                    | In Progress          | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
+| Support AIO plugin                                                     | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
 | Support FIREWALL_MANAGER option                                       | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) | High     |             |
 | Support OVERRIDE_HTTPD_CONFIG option                                 | Done                    | Not required[3]      |                                                      |          |             |
 | Support HTTP_PORT option                                              | Done                    | Done[4]              |                                                      |          |             |

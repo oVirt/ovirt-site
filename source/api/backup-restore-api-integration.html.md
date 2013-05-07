@@ -56,6 +56,24 @@ File level restore can be performed in-guest or off-host. Mount the volumes of t
 4.  Capture the virtual disk data and virtual machine configuration information.
 5.  Command the ovirt-engine to remove the backup snapshot.
 
+### Backup Flow from REST API perspective
+
+The backup flow should be (all api calls are engine REST API):
+
+1.  create vm snapshot (the api call exists today)
+2.  get VM Config (new API)
+3.  prepare backup disk (new api, should probably accept: hostid, disk;
+
+return: paths to device on host as well as map of changed blocks) - this should be called for every disk that needs to be backed up. Note that VM snapshot takes a snap of \*all\* disks of the VM
+
+1.  attach disk to backup vm (the api call exists today. This assumes virt app) - also has to be called per disk to back up
+
+* At this point backup app would do the backup
+
+1.  detach disk (symmetric to 4)
+2.  teardown backup disk (symmetric to 3)
+3.  delete snap - This can only be called if VM is down today and is not mandatory in any event. Once we have live merge, it should be policy driven (user should be able to choose whether to keep or delete)
+
 ### Overview of Restore Process
 
 1.  Contact the ovirt-engine.

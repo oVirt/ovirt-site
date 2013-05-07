@@ -45,7 +45,7 @@ This can be done by overriding the `gwt.userAgent` property. We recommend settin
 
 <!-- -->
 
-    $ mvn install -Pgwtdev,gwt-admin
+    $ mvn install -Pdep,gwtdev,gwt-admin
 
 This will instruct GWT to generate 1 permutation for Firefox browser only. If you need to build for other browsers you can use the following values inside the `gwt.userAgent` property:
 

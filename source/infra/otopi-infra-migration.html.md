@@ -146,7 +146,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Clean sysctl configuration                                     | Done                    | Done                 |                                                      |          |             |
 | Backup CA if remove requested                                  | Done                    | Not implemented      |                                                      |          |             |
 | Remove CA if requested                                         | Done                    | Not implemented      |                                                      |          |             |
-| Stop engine-notifierd when needed                              | Done                    | Feedback             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Stop engine-notifierd when needed                              | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Clean ISO domain NFS exports if requested                      | Done                    | Not implemented      |                                                      |          |             |
 | Clean ISO domain exported directories if requested             | Done                    | Not implemented      |                                                      |          |             |
 | Add info message to the user finalizing the successful cleanup | Done                    | Not implemented      |                                                      |          |             |

@@ -130,9 +130,18 @@ The following hotels have been recommended for attendees of the oVirt Workshop.
 [Renaissance Yangtze Hotel](http://goo.gl/maps/mB0ee) : <http://www.marriott.com/hotels/travel/shabr-renaissance-shanghai-yangtze-hotel/>
 Holiday Inn Express : <http://www.hiexpress.com/hotels/us/en/shanghai/shgmh/hoteldetail>
 
-**Please note:** Shuttle service will be provided to the Workshop from these hotels in the morning and returning to the hotels in the evening. Once registered in one of the listed hotels *please* let us know! We'll plan for the appropriate number of shuttles based on this information.
+#### Shuttle Service
 
-Shuttle Service will be provided from both of the above hotels in the morning and again in the evening.
+Shuttle Service will be provided from both of the above hotels in the morning and again in the evening The schedule is as follows:
+
+| Date              | Departure Time    | Pick-up Location                                  |
+|-------------------|-------------------|---------------------------------------------------|
+| width=20%| May 08 | width=50% | 07:00 | width=30% | Renaissance Hotel Main Entrance       |
+| May 08            | 07:30             | Holiday inn express (Meilong) Hotel Main Entrance |
+| May 08            | 17:30             | Intel Main Entrance, ZiRi Road                    |
+| May 09            | 08:00             | Renaissance Hotel Main Entrance                   |
+| May 09            | 08:30             | Holiday inn express (Meilong) Hotel Main Entrance |
+| May 09            | 17:45             | Intel Main Entrance, ZiRi Road                    |
 
 #### 住宿相关
 

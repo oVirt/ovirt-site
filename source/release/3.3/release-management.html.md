@@ -108,6 +108,7 @@ Features being considered for inclusion/already in master:
 *   Edit NFS, Posix connection properties in REST (not ready yet)
 *   Edit ISCSI connection properties in webadmin UI (not ready yet)
 *   Edit ISCSI connection properties in REST (not ready yet)
+*   RO Disks (not ready yet)
 
 ### SLA & Scheduling
 

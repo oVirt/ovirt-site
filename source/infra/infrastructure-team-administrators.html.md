@@ -12,7 +12,7 @@ wiki_last_updated: 2015-04-12
 
 This page lists administrator assignments of the Infrastructure team.
 
-*   Jenkin - jenkins.ovirt.org: eedri, dcaro
+*   Jenkins - jenkins.ovirt.org: eedri, dcaro, knesenko
 *   Gerrit - gerrit.ovirt.org: iheim, rydekull
 *   Mailman - lists.ovirt.org: quaid
 *   MediaWiki - www.ovirt.org: quaid, DNeary, garrett
@@ -78,5 +78,11 @@ This page lists administrator assignments of the Infrastructure team.
 <!-- -->
 
     ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAtyoVzBXA7ufgTaJiUeotNHSHuz6hXT+DzIGMKI6WHGXVZQMQch6mhptTWqoY2wCqRmCDd96mrByWTt152g+/AniTu2s/XQ7syzrbPsQthVbfuGUQt1u8uW8oG7fdZFwfBE0PbtgXGv8gFyGeHRtzr/PIyILyFJ9TitUyUqswO2O+sptlPzCQYIehji3rf5TipTcrVMtVAk2OgPlF83bHLD/qTYxE96Gpb0xHON5MlCRlhKqvdoyHyInP9Wg2GXXxPQ2tTSkfPdEt0S/qkSCUp7BDcgsmFm+bXCEwfP8BMdWufecVJWbbm0FBu4XXzoerxxrMeWi6vB/xBimvStGZsQ== dneary@redhat.com
+
+*   knesenko (apprentice)
+
+<!-- -->
+
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3lARddzwVFQu8WPibzkCz830OjzTztEOUE6uejgsqUTbd15VmAlUhm2UFZnElUVHk1cwpr7KYFWEmzFRzJ8w79j3AgfGqauvIXPfClsEfqp3UPPGDok7HakXnGj6zV4ePNzHsQfn38DxwLblyR9c+S2O4R4sL62J2BhESvZGG5RfzlJPZghgkuh8jjlWDqN4jTYISMOaZ+jOueFLanEEzOuqct5QhyA1ToseWTfotXm40PYQlfx2OP9ub9Wevb1Sj0b832KccP+xrrePuRqgpJdg0PZZb/HknIND44k5gm+sMvm8mX6R6YfDPZNli76kCGi8hqiKnUroCe2niRe8x knesenko@redhat.com
 
 <Category:Infrastructure>

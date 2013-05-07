@@ -136,7 +136,7 @@ Shuttle Service will be provided from both of the above hotels in the morning an
 
 | Date              | Departure Time    | Pick-up Location                                  |
 |-------------------|-------------------|---------------------------------------------------|
-| width=20%| May 08 | width=50% | 07:00 | width=30% | Renaissance Hotel Main Entrance       |
+| width=20%| May 08 | width=20% | 07:00 | width=60% | Renaissance Hotel Main Entrance       |
 | May 08            | 07:30             | Holiday inn express (Meilong) Hotel Main Entrance |
 | May 08            | 17:30             | Intel Main Entrance, ZiRi Road                    |
 | May 09            | 08:00             | Renaissance Hotel Main Entrance                   |

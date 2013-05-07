@@ -24,7 +24,7 @@ Generate `ovirtmgmt` network based on DC definitions using `setupNetworks` and n
 
 ### Current status
 
-*   Feature is merged (14/1/2013)
+*   Feature is merged (14/1/2013) and moved back to development as a requirement (reboot after install) raised (7/5/2013)
 *   Last updated: ,
 
 ### Detailed Description

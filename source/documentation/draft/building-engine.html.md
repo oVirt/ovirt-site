@@ -85,8 +85,8 @@ If your operating system doesn't have a package for maven 3 you can download it 
 
 Make sure that the maven *bin* directory is the first in your path, otherwise you will be using the version of maven provided by your operating system:
 
-    $> PATH=$HOME/apache-maven-3.0.5/bin:$HOME
-    $> export path
+    $> PATH=$HOME/apache-maven-3.0.5/bin:$PATH
+    $> export PATH
 
 Please validate mvn is in the path and that it is version 3 or greater:
 

@@ -136,7 +136,7 @@ Example for variables in this file:
 
        export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk.x86_64
        export JBOSS_HOME=/usr/share/jboss-as
-       export PATH=$HOME/apache-maven-3.0.5/bin:$HOME
+       export PATH=$HOME/apache-maven-3.0.5/bin:$PATH
        
 
 ## Installing JBoss AS

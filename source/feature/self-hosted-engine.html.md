@@ -17,11 +17,23 @@ The ability to run the Engine as a VM on the hosts that are managed by this Engi
 
 ### Owner
 
-*   Sean Cohen: [ scohen](User:scohen)
+*   Featue Owner: Sean Cohen: [ scohen](User:scohen)
 
 <!-- -->
 
 *   Email: <scohen@redhat.com>
+
+<!-- -->
+
+*   Engine Component owner: Moran Goldboim
+
+<!-- -->
+
+*   Email: <mgoldboi@redhat.com>
+
+<!-- -->
+
+*   VSDM Component owner:
 
 ### Current status
 

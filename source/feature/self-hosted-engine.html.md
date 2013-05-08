@@ -17,11 +17,11 @@ The ability to run the Engine as a VM on the hosts that are managed by this Engi
 
 ### Owner
 
-*   Dan Yasny: [ Dyasny](User:Dyasny)
+*   Sean Cohen: [ scohen](User:scohen)
 
 <!-- -->
 
-*   Email: <dyasny@redhat.com>
+*   Email: <scohen@redhat.com>
 
 ### Current status
 

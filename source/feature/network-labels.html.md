@@ -50,9 +50,12 @@ And for vlan10 for example assign NIC A => all hosts in the cluster will have vl
 *   Host Network interfaces sub tab
     -   Adding command- Assign all networks
     -   Setup Networks dialog
-        -   Add Assign all network command on Each nic.
+        -   Add Edit command on nic
+            -   Add table with 2 columns - 1. label (suggest box on editing) and 2. assign all networks check box (with header for assign all).
+        -   Edit bond
+            -   Same as edit nic.
 *   Network Host sub tab
-    -   -   Add Assign all network command on Each nic.
+    -   Setup Networks dialog - same as for Host Network interfaces sub tab.
 
 ### Benefit to oVirt
 

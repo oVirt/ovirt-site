@@ -35,7 +35,17 @@ In the Foreman integration feature we plan to support the following use-cases:
 
 When adding a new host to oVirt, the administrator has to know in advance different details about the host, such as the FQDN, root password, power management options and etc. In this feature we will add a checkbox saying whether to show "external" hosts in the host dialog (external hosts are Foreman hosts, but in the future we might support other providers as well), and if so the hosts will be loaded from Foreman, and displayed in the external hosts list box. Once a user selects a host, it will automatically set the address as the FQDN we got from Foreman (non-changeable), and also set the name of the host to the FQDN (as a suggestion, changeable).
 
-See the following screenshot:
+Screenshot 1 - The user didn't choose to show external hosts
+
+![](not-using-external-hosts.png "not-using-external-hosts.png")
+
+Screenshot 2 - The user chose to show external hosts. Now we contact the external provider to get the list (which won't be changed until we close the dialog, open it again, and check the checkbox).
+
+![](list-external-hosts.png "list-external-hosts.png")
+
+Screenshot 3 - Selecting a host. The name and address were updated automatically (and in the future also other properties)
+
+![](selected-host.png "selected-host.png")
 
 **\1**
 

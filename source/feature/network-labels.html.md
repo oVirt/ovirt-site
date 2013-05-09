@@ -13,8 +13,6 @@ wiki_last_updated: 2013-11-30
 *   ability to flag a physical interface/bond with a label
 *   ability to flag a logical network with a label
 *   engine will automatically associate the logical network with the physical
-*   interface on all hosts in cluser with same label.
-*   tbd: when are hosts updated/sync'd with the configuration (automatic or manual).
 
 ### Owner
 
@@ -40,6 +38,21 @@ And on host2: bond0 = NIC A eth0 = NIC B eth1 = NIC C
 And for vlan10 for example assign NIC A => all hosts in the cluster will have vlan10 assigned to the right nic (with NIC A label), without having to add it manually to all the hosts in the cluster.
 
 ### GUI changes
+
+*   Cluster Network sub tab
+    -   Adding command- Assign network to hosts (available on single and multiple selection)
+    -   Assign/Unassign Networks
+        -   Adding a new column named "Label" (When Editing (double click) will show a suggest box otherwise will show the label name). (The suggest box will show already used network labels and will allow to add a new label ).
+*   Network Cluster sub tab
+    -   Adding command- Assign network to hosts (available on single selection)
+    -   Assign/Unassign Network
+        -   Adding a new column named "Label" (When Editing (double click) will show a suggest box otherwise will show the label name).
+*   Host Network interfaces sub tab
+    -   Adding command- Assign all networks
+    -   Setup Networks dialog
+        -   Add Assign all network command on Each nic.
+*   Network Host sub tab
+    -   -   Add Assign all network command on Each nic.
 
 ### Benefit to oVirt
 

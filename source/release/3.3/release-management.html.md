@@ -81,6 +81,7 @@ Features being considered for inclusion/already in master:
 ### Infra
 
 *   [Features/Device Custom Properties](Features/Device Custom Properties)
+*   [Features/ExternalTasks](Features/ExternalTasks)
 
 ### Networking
 

@@ -149,7 +149,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Stop engine-notifierd when needed                              | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola)  |          |             |
 | Clean ISO domain NFS exports if requested                      | Done                    | In Progress          | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Clean ISO domain exported directories if requested             | Done                    | Not implemented      |                                                       |          |             |
-| Add info message to the user finalizing the successful cleanup | Done                    | Not implemented      |                                                       |          |             |
+| Add info message to the user finalizing the successful cleanup | Done                    | In Progress          | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Add info message on where the logs are located                 | Done                    | Done                 |                                                       |          |             |
 
 <references>

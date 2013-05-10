@@ -27,11 +27,25 @@ The current implementation has the following methods exposed to the outside worl
     -   This is no different from the above RunQuery with a list of one element.
     -   Rarely used, only 10 invocations.
 *   RunAction
-    -   Conceptually different from RunQuery in that an action modifies/creates/deletes something where a query does not make any changes. (CUD in CRUD)
-*   RunMultipleAction(s)
+    -   Conceptually different from RunQuery in that an action creates/updates/deletes something where a query does not make any changes. (CUD in CRUD)
+    -   From an implementation stand point RunAction and RunQuery are identical, they are just different types of operations.
+    -   Heavily used, 110 invocations at least.
+*   RunMultipleAction
+    -   Takes in a list of actions and parameters for those actions and runs them all at once.
+    -   The callback is responsible for handling the resulting result list.
+    -   Heavily used 105 invocations.
+*   RunMultipleActions
+    -   Sequential invocation of RunAction. If one of the run actions fails then the sequence is stopped and the rest is not executed.
+    -   Rarely used, only 8 invocations
 *   LoginAsync
+    -   Log the user into the application based on pass in
+        -   Username
+        -   Password
+        -   Domain
 *   LogoffAsync
+    -   Log the passed in user name out of the system.
 *   getLoggedInUser
+    -   Determine the currently logged in user.
 
 ##### Things to consider
 

@@ -140,7 +140,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Allow logging                                                  | Done                    | Done                 |                                                       |          |             |
 | Ask user to proceed with cleanup in interactive mode           | Done                    | Done                 |                                                       |          |             |
 | Stop Engine service when needed                                | Done                    | Done                 |                                                       |          |             |
-| Backup engine database if drop requested                       | Done                    | Not implemented      |                                                       |          |             |
+| Backup engine database if drop requested                       | Done                    | In Progress          | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Drop engine database if requested                              | Done                    | Done[33]             |                                                       |          |             |
 | Clean pgpass if drop requested                                 | Done                    | Done                 |                                                       |          |             |
 | Clean sysctl configuration                                     | Done                    | Done                 |                                                       |          |             |

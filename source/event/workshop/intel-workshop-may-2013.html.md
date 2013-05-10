@@ -92,7 +92,7 @@ On May 9th, 2013, The oVirt workshop will also have two tracks running. The Deve
 | Time                   | Title                                           | Speaker                                          |
 |------------------------|-------------------------------------------------|--------------------------------------------------|
 | width=20%| 09:00-10:00 | width=50% | oVirt-node overview                 | width=30% | Ying Cui and Guohua Ouyang (Red Hat) |
-| 10:00-11:00            | Packaging oVirt for Ubuntu                      | Zhengsheng Zhou (IBM)                            |
+| 10:00-11:00            | Support oVirt on Ubuntu                         | Zhengsheng Zhou (IBM)                            |
 | 11:00 - 11:15          | colspan=2| Coffee Break                         |
 | 11:15-12:15            | oVirt SLA- MoM as host level enforcement agent  | Doron Fediuck (Red Hat)                          |
 | 12:15-13:30            | colspan=2| Lunch                                |

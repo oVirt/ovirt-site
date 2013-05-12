@@ -70,9 +70,9 @@ Note that the migration protocol requires Vdms-Vdsm and libvirt-libvirt communic
 3.  migration verb.
     -   For a modern cluster level, with migration network defined on the destination host, an additional *dstqemu* parameter should be added to the `migrate` command
 
-##### Screen shots
+#### Screen shots
 
-![](Migration2.png "fig:Migration2.png") ![](Migration3.png "fig:Migration3.png") ![](Migration4.png "fig:Migration4.png")
+![](EditMigration.png "fig:EditMigration.png") ![](MigrationSetupNetwork.png "fig:MigrationSetupNetwork.png") ![](MigrationSubTab.png "fig:MigrationSubTab.png")
 
 ### Development Phases
 

@@ -10,6 +10,8 @@ wiki_last_updated: 2013-05-12
 
 # Advanced oVirt Engine Build Notes
 
+<big><font color="lightgray" style="background-color: darkred">ATTENTION: This page is obsoleted for >=ovirt-engine-3.3 by [OVirtEngineDevelopmentEnvironment](OVirtEngineDevelopmentEnvironment)</font></big>
+
 ## Introduction
 
 This page contains some notes regarding oVirt engine build system.

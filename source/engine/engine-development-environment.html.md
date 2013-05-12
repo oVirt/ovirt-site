@@ -140,13 +140,13 @@ And start the engine service.
 
 #### Enable Unit Tests
 
-      make install-dev PREFIX="$HOME/ovirt-enigne" BUILD_TEST_FLAGS=""
+      $ make install-dev PREFIX="$HOME/ovirt-enigne" BUILD_TEST_FLAGS=""
 
 #### Enable DAO Tests
 
 Update `backend/manager/modules/dal/src/test/filters/pgsql.properties` with your database details.
 
-      make install-dev PREFIX="$HOME/ovirt-engine" BUILD_TEST_FLAGS="-P enable-dao-tests"
+      $ make install-dev PREFIX="$HOME/ovirt-engine" BUILD_TEST_FLAGS="-P enable-dao-tests"
 
 ## Packaging
 
@@ -156,16 +156,16 @@ Build system supports standard RPM packaging out of source tarball.
 
 Create source tarball by executing:
 
-      make dist
+      $ make dist
 
 Install build dependencies, replacing `@x@` with file names, this should be executed second time only if build dependencies are changed:
 
-      rpmbuild -ts @tarball@
-      yum-builddep @srpm@
+      $ rpmbuild -ts @tarball@
+      # yum-builddep @srpm@
 
 Build RPMS:
 
-      rpmbuild -tb @tarball@
+      $ rpmbuild -tb @tarball@
 
 RPM customization is supported refer to [ovirt-engine.spec.in](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=ovirt-engine.spec.in;hb=HEAD).
 

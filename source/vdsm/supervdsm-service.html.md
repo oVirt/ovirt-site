@@ -12,123 +12,118 @@ wiki_last_updated: 2013-08-04
 
 ## Summary
 
-Supervdsm should be responsible for all priviledged operations, but as supervdsm is started by unpriviledged vdsm, vdsm now does some priviledged operations. Aim of this feature is to get vdsm to be a pure unpriviledged process and move all privildged operations to supervdsm.
+Supervdsm is responsible for all priviledged operations. Currently supervdsm is started and restarted by unpriviledged process 'vdsm'. For that vdsm process does priviledged operations, and it leads to races between new and old instances of the process. Aim of this feature is to get vdsm to be a pure unpriviledged process and simplify the handling of crashes and establish re-communication between vdsm and supervdsm after failures.
 
 ## Owner
 
 *   Name: [ lvroyce](User:Royce Lv)
+*   Name: [ybronhei](User:Yaniv Bronheim)
 
 <!-- -->
 
 *   Email: <lvroyce@linux.vnet.ibm.com>
+*   Email: <ybronhei@redhat.com>
 
 ## Current status
 
 *   current solution
 
-1.  vdsmd.init start vdsm with user “vdsm”
-2.  launch supervdsm when it is not running
-3.  vdsm tries to call supervdsm
-4.  when authentication error, re-launch, others just raise
+1.  Vdsmd.init start vdsm with user “vdsm”
+2.  Launch supervdsm when it is not running by sudo command
+3.  Vdsm tries to call supervdsm
+4.  When authentication error, re-launch (kill old instance and initiate new one), other errors just raise
+5.  When vdsm dies, supervdsm distinguish it and kill itself automatically, next vdsm instance starts new supervdsm process
 
 ![](First launch.jpeg "fig:First launch.jpeg")![](Normal call.jpeg "fig:Normal call.jpeg") ![](Auth error.jpeg "fig:Auth error.jpeg")
 
-*   current problem
+*   Current problems
 
-1.  unprivileged vdsm and proxy need to call previleged “sudo launch” and “sudo kill”
-2.  redundent key between vdsm and supervdsm as they are parent and child
-3.  vdsm call supervdsm exception flow problems
+1.  Unprivileged vdsm and proxy need to call previleged “sudo launch” and “sudo kill”
+2.  Redundent key between vdsm and supervdsm as they are parent and child
+3.  Error handling cause races between old and new instance of supervdsm and vdsm
 
 *   Last updated: ,
 
-## Detailed Description
+## Proposed changes
 
-*   new proposal A:[patch for proposal A](http://gerrit.ovirt.org/gitweb?p=vdsm.git;a=commit;h=976dbb13e6cd8136b12ed58ccd2a5176b730bddf)
+*   Proposal A:[patch for proposal A](http://gerrit.ovirt.org/gitweb?p=vdsm.git;a=commit;h=976dbb13e6cd8136b12ed58ccd2a5176b730bddf)
 
-1.  vdsmd.init starts vdsm as root
-2.  vdsm forks supervdsm server and then drop privilege
-3.  when vdsm exit, supervdsm probe vdsm heart beat stop and exit
-4.  vdsm call supervdsm may discover supervdsm server exit, vdsm will exit itself and restart
+1.  Vdsmd.init starts vdsm as root
+2.  Vdsm forks supervdsm server and then drop privilege
+3.  When vdsm exit, supervdsm probe vdsm heart beat stop and exit
+4.  Vdsm call supervdsm may discover supervdsm server exit, vdsm will exit itself and restart
 
-*   new proposal B:[patch for proposal B](http://gerrit.ovirt.org/gitweb?p=vdsm.git;a=commit;h=033ef4bc73dbbb36dd8180049626e7f4cde56334)
+*   Proposal B:[patch for proposal B](http://gerrit.ovirt.org/gitweb?p=vdsm.git;a=commit;h=033ef4bc73dbbb36dd8180049626e7f4cde56334)
 
 1.  vdsmd.init starts supervdsm as root
-2.  supervdsm forks vdsm
+2.  supervdsm forks vdsm as child process
+3.  when vdsm dies, supervdsm kill itself and start over again
+4.  when supervdsm, vdsm distinguish that and kill itself
+
+*   proposal C:[for proposal C](http://gerrit.ovirt.org/#/c/11051/patch) -> **Selected solution.**
+
+1.  Vdsmd.init starts vdsm as vdsm user
+2.  Supervdsmd.init starts supervdsm as root
+3.  Both services are managed by respawn and start over again after crash
+4.  When vdsm cannot connect to supervdsm socket, it restarts supervdsm service 3 tries
 
 ## Exception flows to consider
 
-*   supervdsm server process has 4 parts:
+*   Exception flows:
 
-1.  main thread
-2.  supervdsm server thread(the one starts supervdsmServer manager)
-3.  supervdsm server exported functions
-4.  keep alive thread(let's assume this simple function will not cause exceptions)
-
-item 1.2.4 mean supervdsm server framework problem, 1.2 need to be handled by restart supervdsmServer.
-
-*   exception flows need attention(also future test cases)：
-
-1.  one of supervdsm server export function raise error
+1.  One of supervdsm server export function raise error
     -   expected result: raise to proxy caller
 
-2.  supervdsm main thread killed when calling
-    -   expected result: raise to proxy caller EOFError(now)
-    -   vdsm restart all over, because vdsm lost privilege(future)
+2.  Supervdsm main thread died during a call (need to test)
+    -   expected result: raise to proxy caller EOFError
+    -   supervdsm restarts automatically and vdsm call to the same function again
 
 3.  supervdsm main thread killed before call
-    -   expected result:restart supervdsm and call(current)
-    -   vdsm restart all over(future)
+    -   expected result:restart supervdsm and call
 
-4.  supervdsm server thread killed(not started) before call
-    -   expected result: connection error will raised to proxy caller(current)
-    -   connection error and then vdsm restart all over(future)
-
-5.  supervdsm server thread killed(not started) when call
-    -   expected result:current:TODO
-    -   new:TODO
-
-6.  vdsm process died
-    -   expected result:current: supervdsm server will kill itself(seconds delay, careful of regression, bug related:<https://bugzilla.redhat.com/show_bug.cgi?id=890365>)
-    -   future: supervdsm server will kill itself and restart all over
+4.  vdsm crash
+    -   supervdsm stays up and vdsm re-establish communication to supervdsm socket
 
 ## Proposal comparison
 
-*   exception flows need attention(also future test cases)：
+*   Exception flows need attention：
 
-1.  first launch
-    -   A: supervdsm server process lauched by priviledged vdsm, then vdsm drop priviledge
-    -   B: supervdsm server process lauched by vdsmd.init
+1.  First launch
+    -   A: Supervdsm server process lauched by priviledged vdsm, then vdsm drop priviledge
+    -   B: Supervdsm server process lauched by vdsmd.init
+    -   C: Supervdsm server process launched by supervdsmd.init
 
-2.  one of supervdsm server export function raise error
-    -   A: just raise to Proxy Caller
-    -   B:just raise to Proxy Calller
+2.  One of supervdsm server export function raise error
+    -   A:Just raise to Proxy Caller
+    -   B:Just raise to Proxy Calller
+    -   C:Just raise to Proxy Calller
 
-3.  supervdsm main thread killed when calling
-    -   A: discover when call return EOFError and then restart
-    -   B: vdsmd as supervdsm's child should kill itself when receive EOFError
+3.  Supervdsm main thread killed when calling
+    -   A: Discover when call return EOFError and then restart
+    -   B: Vdsmd as supervdsm's child should kill itself when receive EOFError
+    -   C: Supervdsmd restarts supervdsmServer and vdsm call the method again
 
-4.  supervdsm main thread killed before call
-    -   A:discover when "isRunning" raise error, then restart
-    -   B: vdsmd as supervdsm's child should be killed when next time supervdsm start, or vdsmd also has a heart beat scheme for super vdsm
+4.  Supervdsm main thread killed before call
+    -   A: Discover when "isRunning" raise error, then restart
+    -   B: Vdsmd as supervdsm's child should be killed when next time supervdsm start, or vdsmd also has a heart beat scheme for super vdsm
+    -   C: Supervdsmd restarts supervdsm
 
-5.  supervdsm server thread killed(not started) before call
-    -   A: connect error, restart
-    -   B: supervdsm restart itself
+5.  Supervdsm server thread killed(not started) before call
+    -   A: Connect error, restart
+    -   B: Supervdsm restart itself
+    -   C: Supervdsmd restarts, if still doesn't work for 3 reties vdsm call panic and restarts
 
-6.  supervdsm server thread killed(not started) when call
-    -   A:TODO
-    -   B:TODO
+6.  Vdsm process died
+    -   A: Supervdsm has heart beat for vdsm to kill itself
+    -   B: Supervdsm joined vdsm and restart all over
+    -   C: Nothing.
 
-7.  vdsm process died
-    -   A: supervdsm has heart beat for vdsm to kill itself
-    -   B: supervdsm joined vdsm and restart all over
-
-As we can see from the above, proposal B will involve more complex logic when supervdsm died, vdsm will probe its heart beat or supervdsm should kill vdsm for next time, but vdsm still in the middle of some operations, possible inconsistent situation will happen. So we tend to adopt proposal A based on this.
+As we can see from the above, proposal B will involve more complex logic when supervdsm died, vdsm will probe its heart beat or supervdsm should kill vdsm for next time, but vdsm still in the middle of some operations, possible inconsistent situation will happen. Proposal C is intuitive, easier, and less complex than both A and B proposals. The main odd is that every code update of vdsm we need restart both services, as they both share same code.
 
 ## Benefit to oVirt
 
 1.  Clean vdsm priviledge usage
-2.  clean and stable vdsm/supervdsm exception flow
+2.  Clean and stable vdsm/supervdsm exception flow and races
 
 ## Documentation / External references
 

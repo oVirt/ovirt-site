@@ -13,6 +13,8 @@ wiki_last_updated: 2013-06-25
 
 # Building oVirt engine
 
+<big><font color="lightgray" style="background-color: darkred">ATTENTION: This page is obsolete for >=ovirt-engine-3.3 by [OVirtEngineDevelopmentEnvironment](OVirtEngineDevelopmentEnvironment)</font></big>
+
 ## Introduction
 
 Follow these instructions to successfully build the oVirt Engine project. Installation and configuration of all required tools to complete the build is also covered. For instructions on obtaining and building VDSM, the package required to turn existing systems into oVirt Nodes, see [Vdsm Developers](Vdsm Developers). Alternatively some binary VDSM builds are available [here](http://fsimonce.fedorapeople.org/vdsm/).

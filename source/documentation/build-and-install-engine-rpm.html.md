@@ -10,6 +10,8 @@ wiki_last_updated: 2013-05-12
 
 # Build and Install Engine RPM
 
+<big><font color="lightgray" style="background-color: darkred">ATTENTION: This page is obsoleted for >=ovirt-engine-3.3 by [OVirtEngineDevelopmentEnvironment](OVirtEngineDevelopmentEnvironment)</font></big>
+
 ## Prerequisites
 
 1.  Fedora 15 and up x86-64 OS

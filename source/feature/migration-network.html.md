@@ -72,7 +72,7 @@ Note that the migration protocol requires Vdms-Vdsm and libvirt-libvirt communic
 
 #### Screen shots
 
-![](EditMigration.png "fig:EditMigration.png") ![](MigrationSetupNetwork.png "fig:MigrationSetupNetwork.png") ![](MigrationSubTab.png "fig:MigrationSubTab.png")
+![](EditMigration.png "fig:EditMigration.png") ![](MigrationSubTab.png "fig:MigrationSubTab.png") ![](MigrationSetupNetwork.png "fig:MigrationSetupNetwork.png")
 
 ### Development Phases
 

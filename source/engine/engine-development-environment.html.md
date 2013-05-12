@@ -179,3 +179,5 @@ RPM customization is supported refer to [ovirt-engine.spec.in](http://gerrit.ovi
 Example:
 
       rpmbuild -D"ovirt_build_minimal 1" -tb @tarball@
+
+<Category:Engine> [Category:How to](Category:How to)

@@ -29,13 +29,25 @@ In our oVirt installation we are going to have a lot of Networks/VLAN's in a clu
 
 Giving a label to the networks and the host's nics will simplify these use cases. When adding a new host- the user will need just to set labels on host's physical interfaces. When adding a network - the user will need just to set label on the network.
 
-For example if the labels are: NIC A NIC B NIC C
+For example if the labels are:
 
-On host1 it can be specified for instance: eth0 = NIC A eth1 = NIC C eth2 = NIC B
+    NIC A
+    NIC B
+    NIC C
 
-And on host2: bond0 = NIC A eth0 = NIC B eth1 = NIC C
+On host1 it can be specified for instance:
 
-And for vlan10 for example assign NIC A => all hosts in the cluster will have vlan10 assigned to the right nic (with NIC A label), without having to add it manually to all the hosts in the cluster.
+    eth0 = NIC A
+    eth1 = NIC C
+    eth2 = NIC B
+
+And on host2:
+
+    bond0 = NIC A
+    eth0 = NIC B
+    eth1 = NIC C
+
+And for vlan10 for example assign `NIC A` => all hosts in the cluster will have vlan10 assigned to the right nic (with `NIC A` label), without having to add it manually to all the hosts in the cluster.
 
 ### GUI changes
 

@@ -23,6 +23,7 @@ Currently it is assumed that the host-wide default gateway is the gateway define
 ### Current Status
 
 *   oVirt-3.3
+*   No patches currently submitted to VDSM or the Engine. Solution currently being researched at the VDSM side, work not assigned yet at the Engine side.
 *   Last updated: ,
 
 ### Why do we need multiple gateways?

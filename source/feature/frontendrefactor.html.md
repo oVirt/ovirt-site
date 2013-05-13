@@ -63,9 +63,19 @@ The current implementation has the following methods exposed to the outside worl
 
 I propose a scheme fairly similar to a database connection pool manager combined with an operation queue. The operations are added to the end of the queue by an enQueueOperation method. The pool manager pulls operations from the front of the queue and sends it to one of the available connections. If there is a problem with the operation the manager is responsible for retrying the operation or returning the error to the callback (maybe have an error handler similar to the one we have now instead). If there are more operations than available connections the pool manager does nothing until a connection becomes available. This is your classic producer/consumer setup where the enQueue operation is the producer and the pool manager is the consumer.
 
-#### Special considerations
+##### Error Handling
+
+Occasionally operations are going to fail. We need to consider the actions we can take to remedy the problem. There are different levels in which operations can fails.
+
+1.  On the http layer. The http error codes range from 300 to about 600. With anything in the 300 range getting automatically taken care of by the browser. Anything in the 400 range usually means missing files or operations failing due to authentication or authorization failures. Except for a 408, which means timeout expired. In the 500 range usually means some kind of server error, like 500 internal server error, or 503 server busy. Some of these we can try to remedy the situation by retrying an operation.
+    1.  On IE there are also status codes returned > 1000. These are wininet error codes that we can't really do anything about. We could treat these as internal server errors and retry the operation in hopes that the underlying case of the wininet errors get resolved by trying the operation again. Most of the known error codes we have seen are due to connections being dropped, so a retry should fix the situation.
+
+##### Special considerations
 
 1.  When the user logs out the queue is purged and any outstanding operations are completed but no callbacks are called.
 2.  If the user is not logged in, then no operations are allowed into the queue, except for the logon operation.
 3.  Multiple operations are broken into single operations in the queue.
-    1.  Note-able issue with this is the current RunMultipleActions sequence, the order is important there but I am not sure if we should force the caller to make the order important in their callback or if we should have a mechanism to enforce the order. For instance override the callback passed in during the enQueueOperation, and only have the last operation really call the callback. For all the other operations the callback is actually an enqueue on the next operation.
+    1.  Note-able issue with this is the current RunMultipleActions sequence, the order is important there but I am not sure if we should force the caller to make the order important in their callback (like it is now) or if we should have a different mechanism to enforce the order. For instance override the callback passed in during the enQueueOperation, and only have the last operation really call the callback. For all the other operations the callback is actually an enqueue on the next operation.
+    2.  If the order is not important then a set of multiple operations can be broken into single operations and added to the queue individually. Then each one can be executed as connections become available. The results of all the associated operations will have to be collected so we can return a coherent result to the called.
+
+4.  Optimize performance by basically doing the opposite of above. We can take all the individual operations in the queue, and generate a single call to the server with all the operations in it. Then when we get the result we can make the appropriate callbacks. This merging of the operations into a single call to the server will like only happen if there are a lot of calls coming into the queue at once and the connections are busy with other operations, which is precisely the time when we need to optimize things.

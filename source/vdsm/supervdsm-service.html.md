@@ -60,7 +60,7 @@ Supervdsm is responsible for all privileged operations. Currently Supervdsm is m
 3.  when vdsm dies, supervdsm kill itself and start over again
 4.  when supervdsm, vdsm distinguish that and kill itself
 
-*   proposal C:[for proposal C](http://gerrit.ovirt.org/#/c/11051/patch) -> **Selected solution.**
+*   proposal C:[patch for proposal C](http://gerrit.ovirt.org/#/c/11051/) -> **Selected solution.**
 
 1.  Vdsmd.init starts vdsm as vdsm user
 2.  Supervdsmd.init starts supervdsm as root

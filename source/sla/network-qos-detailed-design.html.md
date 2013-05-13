@@ -27,6 +27,8 @@ For example: if average is set to 100 units, peak to 200 and burst to 50, after 
 
 ## Design
 
+The QoS properties will be saved as properties of the NetworkInterface entity. The user could set the properties when creating/editing a VM NIC (in the future, this capability may be available for host physical NICs as well). The Qos properties (like the other NIC properties) will be kept in migration and when VM is saved as template and exported/imported.
+
 ## GUI
 
 ## Backend

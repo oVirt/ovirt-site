@@ -67,8 +67,10 @@ I propose a scheme fairly similar to a database connection pool manager combined
 
 Occasionally operations are going to fail. We need to consider the actions we can take to remedy the problem. There are different levels in which operations can fails.
 
-1.  On the http layer. The http error codes range from 300 to about 600. With anything in the 300 range getting automatically taken care of by the browser. Anything in the 400 range usually means missing files or operations failing due to authentication or authorization failures. Except for a 408, which means timeout expired. In the 500 range usually means some kind of server error, like 500 internal server error, or 503 server busy. Some of these we can try to remedy the situation by retrying an operation.
+1.  In the http layer. The http error codes range from 300 to about 600. With anything in the 300 range getting automatically taken care of by the browser. Anything in the 400 range usually means missing files or operations failing due to authentication or authorization failures. Except for a 408, which means time-out expired. In the 500 range usually means some kind of server error, like 500 internal server error, or 503 server busy. Some of these we can try to remedy the situation by retrying an operation.
     -   On IE there are also status codes returned > 1000. These are wininet error codes that we can't really do anything about. We could treat these as internal server errors and retry the operation in hopes that the underlying case of the wininet errors get resolved by trying the operation again. Most of the known error codes we have seen are due to connections being dropped, so a retry should fix the situation.
+
+2.  in the operation layer. There were no http errors, but something in the operation request caused the operation to fail. For instance some of the validations failed or some the pre requisites were not met. This caused the operation to fail and we need to report back to the user what happened. Retrying the operation will not make any difference whatsoever. We should be able re-use existing exception handling to report the errors back to the user.
 
 ##### Special considerations
 

@@ -80,6 +80,7 @@ Occasionally operations are going to fail. We need to consider the actions we ca
 [4] The connection manager takes the contents of the queue and creates a single request for the server. If the order of some of the operations is important they are handled specially by the manager so that the callback when the operation completes adds the next operation in the sequence to the queue.
 [5] The order was important and the callback adds the next operation in the sequence to the queue.
 [6] The operation completed, and the callback is called with the appropriate information. If multiple operations where merged into a single request, then multiple callbacks will be called.
+![](Overview.png "fig:Overview.png")
 
 ##### Special considerations
 

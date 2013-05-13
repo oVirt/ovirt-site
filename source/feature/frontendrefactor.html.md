@@ -10,7 +10,7 @@ wiki_last_updated: 2014-04-30
 
 # Frontend class re-factoring effort
 
-#### Frontend public api methods
+### Frontend public api methods
 
 The current implementation has the following methods exposed to the outside world:
 
@@ -59,7 +59,7 @@ The current implementation has the following methods exposed to the outside worl
 *   Sometimes the sequence of operations is important as demonstrated by the existence of RunMultipleAction**s**, so the new design needs to be able to handle a sequence as well as multiple concurrent requests.
 *   We need to minimize the disruption to the existing infrastructure and just mark the existing methods as deprecated if needed.
 
-#### New Design
+### New Design
 
 I propose a scheme fairly similar to a database connection pool manager combined with an operation queue. The operations are added to the end of the queue by an enQueueOperation method. The pool manager pulls operations from the front of the queue and sends it to one of the available connections. If there is a problem with the operation the manager is responsible for retrying the operation or returning the error to the callback (maybe have an error handler similar to the one we have now instead). If there are more operations than available connections the pool manager does nothing until a connection becomes available. This is your classic producer/consumer setup where the enQueue operation is the producer and the pool manager is the consumer.
 
@@ -71,6 +71,10 @@ Occasionally operations are going to fail. We need to consider the actions we ca
     -   On IE there are also status codes returned > 1000. These are wininet error codes that we can't really do anything about. We could treat these as internal server errors and retry the operation in hopes that the underlying case of the wininet errors get resolved by trying the operation again. Most of the known error codes we have seen are due to connections being dropped, so a retry should fix the situation.
 
 2.  in the operation layer. There were no http errors, but something in the operation request caused the operation to fail. For instance some of the validations failed or some the pre requisites were not met. This caused the operation to fail and we need to report back to the user what happened. Retrying the operation will not make any difference whatsoever. We should be able re-use existing exception handling to report the errors back to the user.
+
+##### Dataflow example
+
+[1] Caller calls one of the existing operations like RunQuery. RunQuery calls enQueue operation with the appropriate parameters for the request. [2] The enQueue operation optionally turns a multiple operation request into multiple operations in the queue. [3] The operations are added to the queue. [4] The connection manager takes the contents of the queue and creates a single request for the server. If the order of some of the operations is important they are handled specially by the manager so that the callback when the operation completes adds the next operation in the sequence to the queue. [5] The order was important and the callback adds the next operation in the sequence to the queue. [6] The operation completed, and the callback is called with the appropriate information. If multiple operations where merged into a single request, then multiple callbacks will be called.
 
 ##### Special considerations
 

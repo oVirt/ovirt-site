@@ -8,9 +8,9 @@ wiki_revision_count: 56
 wiki_last_updated: 2014-04-30
 ---
 
-# Frontend class re-factoring effort
+<big>`Frontend class re-factoring effort`</big>
 
-### Frontend public api methods
+# Frontend public api methods
 
 The current implementation has the following methods exposed to the outside world:
 
@@ -59,7 +59,7 @@ The current implementation has the following methods exposed to the outside worl
 *   Sometimes the sequence of operations is important as demonstrated by the existence of RunMultipleAction**s**, so the new design needs to be able to handle a sequence as well as multiple concurrent requests.
 *   We need to minimize the disruption to the existing infrastructure and just mark the existing methods as deprecated if needed.
 
-### New Design
+# New Design
 
 I propose a scheme fairly similar to a database connection pool manager combined with an operation queue. The operations are added to the end of the queue by an enQueueOperation method. The pool manager pulls operations from the front of the queue and sends it to one of the available connections. If there is a problem with the operation the manager is responsible for retrying the operation or returning the error to the callback (maybe have an error handler similar to the one we have now instead). If there are more operations than available connections the pool manager does nothing until a connection becomes available. This is your classic producer/consumer setup where the enQueue operation is the producer and the pool manager is the consumer.
 

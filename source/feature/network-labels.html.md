@@ -25,7 +25,7 @@ wiki_last_updated: 2013-11-30
 
 ### Detailed Description
 
-In our RHEV installation we are going to have a lot of Networks/VLAN's in a cluster. This means that when adding a host to this cluster, it means a lot of work adding all the different networks. Also, when adding a logical network, it means a lot of work adding the network to all the hosts.
+In our oVirt installation we are going to have a lot of Networks/VLAN's in a cluster. This means that when adding a host to this cluster, it means a lot of work adding all the different networks. Also, when adding a logical network, it means a lot of work adding the network to all the hosts.
 
 Giving a label to the networks and the host's nics will simplify these use cases. When adding a new host- the user will need just to set labels on host's physical interfaces. When adding a network - the user will need just to set label on the network.
 

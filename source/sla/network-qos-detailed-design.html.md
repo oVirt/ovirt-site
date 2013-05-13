@@ -12,7 +12,18 @@ wiki_last_updated: 2013-06-10
 
 ## Motivation
 
-*   
+We would like to expose to the user the ability to configure the Network Quality of Service (QoS) properties of each virtual NIC. The QoS properties are properties which defines the traffic shaping applied on the virtual NIC. QoS properties currently include:
+
+*   Inbound
+    -   Average - long-term limit around which traffic should float (Mbps)
+    -   Peak - the maximum allowed bandwidth during burst (Mbps)
+    -   Burst - The burst size (Mb)
+*   Outbound
+    -   Average - long-term limit around which traffic should float (Mbps)
+    -   Peak - the maximum allowed bandwidth during burst (Mbps)
+    -   Burst - The burst size (Mb)
+
+For example: if average is set to 100 units, peak to 200 and burst to 50, after sending those 50 units of data at rate 200, the rate will fall down to 100.
 
 ## Design
 

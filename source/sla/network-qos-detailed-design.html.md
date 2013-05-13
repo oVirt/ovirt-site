@@ -31,6 +31,10 @@ The QoS properties will be saved as properties of the NetworkInterface entity. T
 
 ## GUI
 
+The UI for setting the QoS properties will be added to the Add/Edit VNIC dialog. The QoS properties will be optional and the panel holding the properties will be collapsed by default (extendable panel). The user may can enter Inbound settings and/or outbound setting, but if one of the textbox for in/outbound was filled, all of the other textbox for that direction must be filled (This will be verified before allowing to close the dialog). If textbox remain empty the vales from ConfigValues will be used as default.
+
+![](QoS.png "QoS.png")
+
 ## Backend
 
 The new fields will be added to the NetworkInterface object (to support future reuse in physical NICs and other network interfaces). Fields values will be seved in DB and ovf.

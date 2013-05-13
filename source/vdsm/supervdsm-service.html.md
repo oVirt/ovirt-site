@@ -10,9 +10,9 @@ wiki_last_updated: 2013-08-04
 
 # Supervdsm service
 
-## Summary
+## General
 
-Supervdsm is responsible for all priviledged operations. Currently supervdsm is started and restarted by unpriviledged process 'vdsm'. For that vdsm process does priviledged operations, and it leads to races between new and old instances of the process. Aim of this feature is to get vdsm to be a pure unpriviledged process and simplify the handling of crashes and establish re-communication between vdsm and supervdsm after failures.
+Supervdsm is responsible for all privileged operations. Currently Supervdsm is started and restarted by unprivileged process 'vdsm'. To perform that, Vdsm process runs privileged operations, and it leads to races between new and old instances of the process. Aim of this feature is to get Vdsm to be a pure unprivileged process and simplify the handling of crashes and establish re-communication between Vdsm and Supervdsm after failures.
 
 ## Owner
 

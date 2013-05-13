@@ -29,11 +29,19 @@ The **options** are passed to nose. If you want to skip some tests, use NOSE_EXC
 
 # MOM Tests
 
-The tests are implemented in momTests.py, it's for testing interaction with MOM.
+MOM is started by VDSM automaticly. Its tests are implemented in momTests.py, it's for testing interaction MOM with VDSM.
 
 ### Setting up prerequisites
 
 To run MOM tests, we have to install MOM RPMs first.
+
+### KSM tests
+
+mom.conf must include KSM and HostKSM in controllers and host collectors respectively. KSM test can be run directly with sudo command.
+
+### Balloon tests
+
+mom.conf must include Balloon and GuestBalloon in controllers and guest collectors respectively. For this test, you can reference <http://gerrit.ovirt.org/#/c/13156/>. This test requires at least one running vm equipped with active ovirt-guest-agent service before the tests.
 
 # SOS Plugin Tests
 

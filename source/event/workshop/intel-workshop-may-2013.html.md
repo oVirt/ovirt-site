@@ -89,18 +89,18 @@ On May 9th, 2013, The oVirt workshop will also have two tracks running. The Deve
 <div class="span6 pad-sides">
 #### Thursday, May 9, 2013 - Developer Track
 
-| Time                   | Title                                                                                                                                               | Speaker                                          |
-|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| width=20%| 09:00-10:00 | width=50% | oVirt-node overview                                                                                                                     | width=30% | Ying Cui and Guohua Ouyang (Red Hat) |
-| 10:00-11:00            | Support oVirt on Ubuntu                                                                                                                             | Zhengsheng Zhou (IBM)                            |
-| 11:00 - 11:15          | colspan=2| Coffee Break                                                                                                                             |
-| 11:15-12:15            | oVirt SLA- MoM as host level enforcement agent                                                                                                      | Doron Fediuck (Red Hat)                          |
-| 12:15-13:30            | colspan=2| Lunch                                                                                                                                    |
-| 13:30-14:30            | Trusted Compute Pools Deep Dive                                                                                                                     | Gang Wei                                         |
-| 14:30-15:30            | [Shanghai-oVirt-Nested-Virtualization.pdf KVM Nested Virtualization](Shanghai-oVirt-Nested-Virtualization.pdf KVM Nested Virtualization) | Dongxiao Xu                                      |
-| 15:30-15:45            | colspan=2| Coffee break                                                                                                                             |
-| 15:45-16:45            | The present and future of SetupNetwork in oVirt                                                                                                     | Dan Kenisberg (Red Hat)                          |
-| 16:45-17:15            | Closing remarks and closing keynote                                                                                                                 |
+| Time                   | Title                                                                                  | Speaker                                          |
+|------------------------|----------------------------------------------------------------------------------------|--------------------------------------------------|
+| width=20%| 09:00-10:00 | width=50% | oVirt-node overview                                                        | width=30% | Ying Cui and Guohua Ouyang (Red Hat) |
+| 10:00-11:00            | Support oVirt on Ubuntu                                                                | Zhengsheng Zhou (IBM)                            |
+| 11:00 - 11:15          | colspan=2| Coffee Break                                                                |
+| 11:15-12:15            | oVirt SLA- MoM as host level enforcement agent                                         | Doron Fediuck (Red Hat)                          |
+| 12:15-13:30            | colspan=2| Lunch                                                                       |
+| 13:30-14:30            | Trusted Compute Pools Deep Dive                                                        | Gang Wei                                         |
+| 14:30-15:30            | [ KVM Nested Virtualization](file:Shanghai-oVirt-Nested-Virtualization.pdf) | Dongxiao Xu                                      |
+| 15:30-15:45            | colspan=2| Coffee break                                                                |
+| 15:45-16:45            | The present and future of SetupNetwork in oVirt                                        | Dan Kenisberg (Red Hat)                          |
+| 16:45-17:15            | Closing remarks and closing keynote                                                    |
 
 </div>
 <div class="span6 pad-sides">

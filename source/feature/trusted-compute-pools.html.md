@@ -147,7 +147,7 @@ Key relevant modification includes api.xsd and ClusterMapper.java.
 
 ##### Database change
 
-Trust cluster need a new property named as “trusted_cluster_flag” to indicate this is a trusted cluster. Relevant tables / views include dwh_cluster_configuration_history_view, vds_groups, we may need modify insert_data.sql to modify the property of the default cluster.
+Trust cluster need a new property named as “trusted_service” to indicate this is a trusted cluster. Relevant tables / views include vds_groups, vm_templates_view and vms.
 
 ##### High Availability
 

@@ -49,19 +49,19 @@ On May 8th, 2013, The oVirt workshop is pleased to announce we'll be trying some
 <div class="span6 pad-sides">
 #### Wednesday, May 8, 2013 - Operations Track
 
-| Time                   | Title                                                                                                      | Speaker                             |
-|------------------------|------------------------------------------------------------------------------------------------------------|-------------------------------------|
-| 08:30-09:00            | colspan=2| Opening remarks and Keynote : Intel Open Source Strategy - Jackson He (Intel)                   |
-| width=20%| 09:00-10:00 | width=50% | oVirt Introduction                                                                             | width=30% | Doron Fediuck (Red Hat) |
-| 10:00-11:00            | [oVirt Architecture Overview](http://www.ovirt.org/images/1/11/Shanghai-ovirt-arch.pdf)                    | Dan Kenigsberg (Red Hat)            |
-| 11:00-11:15            | colspan=2| Coffee Break                                                                                    |
-| 11:15 - 12:15          | Deploying and testing oVirt using nested virtualization                                                    | Mark Wu (IBM)                       |
-| 12:15-13:30            | colspan=2| Lunch                                                                                           |
-| 13:30-14:30            | oVirt SLA overview                                                                                         | Doron Fediuck (Red Hat)             |
-| 14:30-15:00            | [oVirt storage system and IBM's activity](http://www.ovirt.org/images/4/46/Shanghai-ovirt-storage-IBM.pdf) | Shu Ming (IBM)                      |
-| 15:00-15:15            | colspan=2| Coffee Break                                                                                    |
-| 15:15-16:15            | Troubleshooting oVirt                                                                                      | Tal Nisan (Red Hat)                 |
-| 16:15-17:00            | Converged Infrastructure with oVirt and Gluster                                                            | Theron Conrey (Red Hat)             |
+| Time                   | Title                                                                                                                    | Speaker                             |
+|------------------------|--------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
+| 08:30-09:00            | colspan=2| Opening remarks and Keynote : Intel Open Source Strategy - Jackson He (Intel)                                 |
+| width=20%| 09:00-10:00 | width=50% | oVirt Introduction                                                                                           | width=30% | Doron Fediuck (Red Hat) |
+| 10:00-11:00            | [oVirt Architecture Overview](http://www.ovirt.org/images/1/11/Shanghai-ovirt-arch.pdf)                                  | Dan Kenigsberg (Red Hat)            |
+| 11:00-11:15            | colspan=2| Coffee Break                                                                                                  |
+| 11:15 - 12:15          | [Deploying and testing oVirt using nested virtualization](http://www.ovirt.org/images/1/14/OVirt-nested-virt-markwu.pdf) | Mark Wu (IBM)                       |
+| 12:15-13:30            | colspan=2| Lunch                                                                                                         |
+| 13:30-14:30            | oVirt SLA overview                                                                                                       | Doron Fediuck (Red Hat)             |
+| 14:30-15:00            | [oVirt storage system and IBM's activity](http://www.ovirt.org/images/4/46/Shanghai-ovirt-storage-IBM.pdf)               | Shu Ming (IBM)                      |
+| 15:00-15:15            | colspan=2| Coffee Break                                                                                                  |
+| 15:15-16:15            | Troubleshooting oVirt                                                                                                    | Tal Nisan (Red Hat)                 |
+| 16:15-17:00            | Converged Infrastructure with oVirt and Gluster                                                                          | Theron Conrey (Red Hat)             |
 
 </div>
 <div class="span6 pad-sides">

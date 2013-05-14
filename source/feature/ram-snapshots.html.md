@@ -67,9 +67,8 @@ Note: it is our responsibility to ensure that the disks state is the same as it 
 
 **Update:** each snapshot will be imported with its memory state, if exists.
 
-Notes:
-
-*   -   including the active snapshot.
+*   Notes:
+    -   including the active snapshot.
     -   not including snapshots that collapsed.
     -   only when the import is not set to 'import as clone'
 

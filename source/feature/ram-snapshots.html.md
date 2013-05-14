@@ -21,45 +21,57 @@ Save memory state in live snapshots.
 
 ### Current status
 
-*   Status: design
-*   Targeted: oVirt-3.3 (proposed)
+*   Status:
+    -   final design stage
+    -   implementation started
+*   Targeted: oVirt-3.3
 *   Last updated: ,
 
 ### Detailed Description
 
-This feature will make it possible to save the memory state of a VM when creating live snapshot, and restore that memory state when running a VM which was just created from such snapshot or just reverted to such snapshot.
+This feature will make it possible to save the memory state of a VM when creating live snapshot, and restore memory state when running a VM that previews or has been committed to such snapshot.
 
-In version 1.0.1 an option that allows us to specify where the memory state should be saved as part of live snapshot was added to libvirt [1]. it allows us to specify external file in which the memory state will be saved. We will use this functionality to save the memory state to a file when we're taking a live snapshot of a VM (in a similar way to how it is done when suspending/hibernating VM), and restore that memory state when running a VM that was just created from/reverted to such snapshot (the same way it is done when running a suspended/hibernated VM).
+In version 1.0.1 an option that allows to specify where the memory state should be saved as part of live snapshot was added to libvirt [1]. it allows us to specify external file in which the memory state will be saved. We will use this option to save the memory state to file when we're taking a live snapshot of a VM in a similar way to how it is done when suspending/hibernating VM, and restore the memory state when running a VM that was set to preview or committed to snapshot that contains memory state, in a similar way to the way it is done when running a suspended/hibernated VM.
 
 The affected operations in the system are:
 
 #### Create snapshot
 
-Since taking a memory snapshot makes the guest VM unresponsive for some period of time, the user will have an option whether to have memory state or not when creating live snapshot. If the memory state was saved when the snapshot was created, the snapshot configuration will contain the volumes in which this state is saved.
+The user will be able to choose whether to save the memory state when taking live snapshot. If a snapshot contains memory, its configuration will contain the volume in which the memory is saved and the user will have indication in the UI that the snapshot contains memory.
 
-#### Delete snapshot
+#### Remove snapshot
 
-Deletion of a snapshot that has memory state, should remove the memory state volumes as well.
+Removing a snapshot that has memory state will remove the memory state volume as well.
 
 #### Create VM from snapshot
 
-In case a VM is created from snapshot that includes memory state, the user will be able to choose whether to restore the saved memory state from the snapshot when running the VM or not (in that case the VM will boot from disks).
+**Update:** when creating VM from snapshot that contains memory, the created VM will not restore the memory state from the snapshot.
 
 #### Preview snapshot
 
-In case a VM is set to preview a snapshot that includes memory state, the user will choose whether to use the saved memory state as described above.
+In case a VM is set to preview a snapshot that includes memory state, the user will choose whether to restore the saved memory or not.
+
+#### Commit to snapshot
+
+On commit, if the previous preview operation was set to be with memory, then when running the VM, the memory from the previewed snapshot will be restored. If snapshots are removed because of committing to previous snapshot, the memory of each removed snapshot will be also removed (if exists).
 
 #### Run VM
 
-If there is memory state defined in the configuration of the VM, the saved memory state will be restored (instead of boot from the disks) the same way hibernated VM is restored.
+When running a VM that preview or has been committed to snapshot that contains memory that memory will be restored (instead of regular boot), in the same way hibernated VM is restored.
 
-The memory state volumes will be cleared from the VM configuration if the VM is not running in stateless mode.
+It is only true for the first time the VM is run after set to preview or committing to snapshot that contains memory for non-stateless VM. for stateless VM, every time the VM is run, the memory will be restored.
 
 Note: it is our responsibility to ensure that the disks state is the same as it was when the live snapshot was taken, when restoring memory state that was saved during the live snapshot. there is no validation in libvirt for that, and it may cause data corruption. So it is important to clear the memory state when there is a chance that the disks or the memory state was changed.
 
 #### Import VM
 
-If the collapse snapshots option was not selected, each snapshot will be imported with its memory state, if exists. If the collapse snapshots option was selected, no memory state will be imported (the active snapshot cannot have memory state).
+**Update:** each snapshot will be imported with its memory state, if exists.
+
+Notes:
+
+*   -   including the active snapshot.
+    -   not including snapshots that collapsed.
+    -   only when the import is not set to 'import as clone'
 
 #### Export VM
 
@@ -67,9 +79,9 @@ Each snapshot will be exported with its memory state, if exists.
 
 ### Benefit to oVirt
 
-Currently, snapshot in oVirt includes the states of VM's disks only, and therefore in order to run a VM which is based on a snapshot the VM must boot from disk and start with fresh memory state.
+Currently, snapshot in oVirt includes the states of VM's disks only, and therefore in order to run a VM which is based on a snapshot the VM must boot and start with fresh memory state.
 
-This feature introduces new functionality for oVirt users that will allow them to save the memory state as part of live snapshots. That way, if a VM is run for the first time after being created from/reverted to a snapshot with memory state, it will be possible to restore the memory as it was at the moment the snapshot was taken. That means that the running applications will be the ones that ran at the moment the snapshot was taken, the clipboard content will be the same as it was at the moment the snapshot was taken, and so on.
+This feature introduces new functionality for oVirt users that will allow them to save the memory state as part of live snapshots. That way, if a VM is run for the first time after being reverted to a snapshot with memory state, it will be possible to restore the memory as it was at the moment the snapshot was taken. That means that the running applications will be the ones that ran at the moment the snapshot was taken, the clipboard content will be the same as it was at the moment the snapshot was taken, and so on.
 
 ### Dependencies / Related Features
 
@@ -79,9 +91,10 @@ This feature introduces new functionality for oVirt users that will allow them t
 
 #### Database changes
 
-*   Add a column to the 'snapshots' table that will contain the memory state location
+*   Add a column to the 'snapshots' table that will contain the memory volume
 *   Add stored procedure which removes the memory state of a given snapshot
-*   Add stored procedure which returns all the snapshots containing a given memory state location
+*   Add stored procedure which returns all the snapshots containing a given memory state volume
+*   Add stored procedure which returns a snapshot by id of VM, snapshot type and snapshot status
 
 #### Backend changes
 
@@ -90,90 +103,90 @@ This feature introduces new functionality for oVirt users that will allow them t
 *   CreateAllSnapshotCommand
     -   The parameters will include a memory state flag which indicates whether to take memory snapshot or not
     -   Execute stage
-        -   If the VM is running and the memory state flag is on, an image will be created for the memory
-        -   if the VM is not running and the memory state flag is on, turn off the memory state flag
+        -   If the VM is running and the memory state flag is on, a volume will be created to store the memory
     -   End-action stage
-        -   If the VM is running + memory state flag is on + all tasks finished successfully, turn on the memory state flag for SnapshotVdsCommand
-        -   If the VM is **NOT** running + memory state flag is on + all tasks finished successfully, remove the memory state image
-        -   If the memory state flag is on + *NOT*' all tasks finished successfully, remove the memory state image
+        -   if the cluster compatibility level is 3.3 and above, pass the memory volume to the SnapshotVdsCommand or pass empty volume representation if the volume was not created
+        -   if the cluster compatibility level is lower than 3.3, don't pass the memory volume (keep it null)
+        -   if the live snapshot wasn't triggered, remove the memory volume
 
 <!-- -->
 
 *   SnapshotVdsCommand
-    -   The parameters will include a memory state flag which indicates whether to take memory snapshot or not
-    -   If cluster level < 3.3, send only two parameters for the vmSnapshot verb with the VM id and disk information
-    -   If cluster level >= 3.3
-        -   If the memory state flag is off, send a map with "mode:disks_only" mapping as the third parameter for the vmSnapshot verb
-        -   If the memory state flag is on, send a map with "mode:disks_memory" mapping + information about the place to store the memory state as the third parameter for the vmSnapshot verb
-        -   Note: the information about the place where to store the memory state will be similar to the way it is represented in HotPlugDiskVDSCommand. that way, it will allow us to represent locations in external disks as well. in the first stage, only domain-pool-image-volume quartet will be used as memory state image will be created as the image is created in HibernateVmCommand
+    -   The parameters will include memory volume
+    -   If the memory volume is not set (null), invoke the snapshot verb with vm id and disks as parameters only
+    -   Otherwise, invoke the snapshot verb with vm id, disks and the memory volume
 
-<!-- -->
+Note: the volume representation will be comma-separated string, like the format used for hibernate verb
 
 *   RemoveSnapshotCommand
-    -   If the snapshot to be removed contains memory state, check if there're other snapshot that use that memory state. if there are no other snapshots pointing to the memory state, delete the memory state as well
-
-<!-- -->
-
-*   AddVmFromSnapshotCommand
-    -   The parameters will include an indication whether to use the memory state from the snapshot or not
-    -   If the use memory state indication is on, set the active snapshot of the created VM to point to the original snapshot's memory state location
+    -   If the snapshot to be removed contains memory volume and there is no other snapshot pointing to the same memory volume, delete the memory volume as well
 
 <!-- -->
 
 *   TryBackToAllSnapshotsOfVmCommand
-    -   The parameters will include an indication whether to use the memory state from the snapshot or not
-    -   If the use memory state indication is on, set memory state location of the newly added active snapshot to point to the original snapshot's memory state location
+    -   The parameters will include an indication whether to use the memory from the snapshot or not
+    -   If the indication to use memory from snapshot is on, set the memory volume of the newly active snapshot to point to the memory volume in the snapshot
+
+<!-- -->
+
+*   RestoreAllSnapshotsCommand
+    -   The memory volume of the newly active snapshot will point to the memory volume of the snapshot that is restored
 
 <!-- -->
 
 *   RunVmCommand
-    -   If the VM is not paused and its active snapshot contains memory state
-        -   The created VM will contain the memory state location taken from the active snapshot
-            -   The memory state location will be stored in the hibernation-vol-handle field of the VM
-            -   The memory state will be cleared from the active snapshot
-    -   If the VM is running as stateless, the memory state from the active snapshot will be copied to the newly added active snapshot
+    -   If the VM is not paused and not suspended, set the initial memory of the VM to be the memory from its active snapshot
+        -   The memory volume will be set in the hibernation-vol-handle field of the VM
+        -   The memory volume might be empty string if the active snapshot doesn't contain memory
+        -   VmInfoBuilderBase will pass the hibernation-vol-handle to the create verb not only when the current status of the VM is suspended (also when it is down)
+    -   Once the create verb return with successful result, the memory volume will be cleared from the active snapshot of the vm
+        -   If no other snapshot contains the same memory volume, the volume will be deleted
+    -   If the VM is running as stateless, the memory volume of the newly added active snapshot will point to the memory volume of the previous active snapshot, and then behave as described above
 
 <!-- -->
 
 *   ImportVmCommand
-    -   If the collapse snapshots option is on
-        -   If the active snapshot contains memory state then import its memory state file as well
-    -   If the collapse snapshots option is off
-        -   For every snapshot of the VM, if the snapshot contains memory state then import its memory state file as well
+    -   For each snapshot of the VM that contains memory, its memory volume will also be imported
+    -   If the option to import as clone is selected, the active snapshot of the imported VM won't have memory volume and no memory volume will be imported
 
 <!-- -->
 
 *   ExportVmCommand
-    -   For every snapshot of the VM, if the snapshot contains memory state then export the memory state file as well
+    -   For each snapshot of the VM that contains memory, its memory volume will be exported as well
 
 ##### OVF files
 
-The snapshot section in OVF file of VM will include the place where the memory state is stored.
+The snapshot section in OVF file of VM will include the memory volume of the snapshot, if exists
 
 ##### backward compitability
 
 *   This feature will be enabled for cluster version 3.3 and above.
-*   For cluster level less than 3.3, SnapshotVdsCommand will call vmSnapshot verb without the third parameter.
-*   On db-upgrade, existing snapshots will have empty value in the memory state volumes field.
+*   For cluster level less than 3.3, SnapshotVdsCommand calls vmSnapshot verb without the third parameter.
+*   On db-upgrade, existing snapshots will have empty value in the memory volume field.
 
 #### VDSM changes
 
 *   vmSnapshot
-    -   Default parameter will be added to vmSnapshot verb that maps string to string.
-        -   The map will include two keys:
-            -   'mode' that can be mapped to 'disks_only' or 'disks_memory' to indicate if memory state should be saved
-            -   'memVol' that will be mapped to a string that represent the volum that will be used to save the memory state
-                -   No need to save the vm configuration as it is already saved as part of the snapshot
-        -   The default map will include the mapping of 'mode':'disks_only' only (backward compatibility)
-    -   If the 'mode' value in the map decribed above is 'disks_memory' the volume represented by 'memVol' will be passed to libvirt in order to dump the memory to it
+    -   Default parameter will be added to vmSnapshot verb representing the memory volume.
+        -   **Update:** The memory volume parameter will be of type string
+            -   Memory volume is represented by comma-separated string of 4 elements: domain, pool, image, volume
+            -   The parameter can be an empty string if no memory volume is set
+    -   The default value of the new parameter will be empty string (backward compatibility)
+    -   If the memory volume parameter is not empty string, it would be parsed as file path and will be passes to libvirt in order to dump the memory to this file
+    -   Note: parsing comma-separated string of four elements to volume path will be added
 
 <!-- -->
 
 *   vmCreate
-    -   The given 'hiberVolHandle' can now represent one volume - in that case there will be 4 components in the string instead of 6
+    -   The given 'hiberVolHandle' can now represent one volume. in that case there will be 4 components in the string instead of 6, and it will be parsed as it is parsed in the vmSnapshot verb
     -   If the given 'hiberVolHandle' is composed of 4 components
         -   Use the volume represented by the string for the 'restoreState' parameter
-        -   Don't update vm configuration from configuration file
+    -   Note: no need to update vm configuration from configuration file as the configuration is stored as part of the memory state file
+
+<!-- -->
+
+*   getVmStats
+    -   **Update:** If the VM is restoring memory state that was taken from snapshot, after the "Restoring State" status the VM will reports status "Up" (without the logic that reports "Powering Up" for 1 minute in case the guest agent is not responding)
 
 #### User Interface changes
 
@@ -183,11 +196,20 @@ The snapshot section in OVF file of VM will include the place where the memory s
 
 ![](Create snapshot screenshot.png "Create snapshot screenshot.png")
 
-*   Clone VM from snapshot popup
-    -   A checkbox that allows the user to choose whether to restore the memory state from the snapshot or not will be added
-    -   The memory state checkbox will be visible only if the VM is running
+*   Snapshots tab
+    -   Memory column will be added that includes checkboxes indicating whether the snapshot contains memory or not
 
-![](Clone vm screenshot.png "Clone vm screenshot.png")
+<!-- -->
+
+*   Clone VM from snapshot popup
+    -   If the snapshot contains memory, a warning saying that the snapshot's memory will be discarded will be shown
+
+<!-- -->
+
+*   Import VM popup
+    -   If import as clone is selected and the active snapshot contains memory, a warning saying that the initial memory of the VM won't be imported will be shown
+
+<!-- -->
 
 *   Preview snapshot popup
     -   New popup will be presented when choosing to preview a snapshot that contains memory

@@ -45,6 +45,7 @@ Install ovirt packages:
 Make sure openjdk is the java preferred:
 
       # alternatives --config java
+      # alternatives --config javac
 
 #### Debian based
 

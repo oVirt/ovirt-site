@@ -136,4 +136,18 @@ Features being considered for inclusion/already in master:
 *   [Features/Otopi_Infra_Migration](Features/Otopi_Infra_Migration) A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plugin using otopi.
 *   [Features/Self_Hosted_Engine](Features/Self_Hosted_Engine) The ability to run the Engine as a VM on the hosts that are managed by this Engine, in an HA configuration, when the Engine VM can start on any of the hosts.
 
+### UX
+
+*   User Portal performance improvements for IE8
+    -   <http://gerrit.ovirt.org/#/c/11975/>
+    -   <http://gerrit.ovirt.org/#/c/12104/>
+    -   <http://gerrit.ovirt.org/#/c/10509/>
+    -   <http://gerrit.ovirt.org/#/c/10579/>
+    -   <http://gerrit.ovirt.org/#/c/12213/>
+    -   <http://gerrit.ovirt.org/#/c/12301/>
+    -   <http://gerrit.ovirt.org/#/c/12340/>
+    -   <http://gerrit.ovirt.org/#/c/12524/>
+*   Frontend Clean-up/Refactoring (at least partial/first phase) [Features/Design/FrontendRefactor](Features/Design/FrontendRefactor)
+*   Upgrade GWT(P) dependencies
+
 <Category:Releases> [Category:Release management](Category:Release management)

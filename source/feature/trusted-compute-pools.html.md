@@ -132,7 +132,7 @@ Code path is “ovirt-engine/backend/manager/modules/vdsbroker/src/main/java/org
 
 ##### OVF related changes
 
-When the VM created in the trusted cluster was exported as OVF file, OVF file should have a new flag to indicate this VM should be running in a trusted cluster. Key relevant classes include OvfTemplateReader.java, OvfTemplateWriter.java, OvfVmReader.java and OvfVmWriter.java. We define this new property in export file as “trusted_cluster_flag”. When importing a 'trusted' VM into an untrusted cluster, two cases should be considered.
+When the VM created in the trusted cluster was exported as OVF file, OVF file should have a new flag to indicate this VM should be running in a trusted cluster. Key relevant classes include OvfTemplateReader.java, OvfTemplateWriter.java, OvfVmReader.java and OvfVmWriter.java. We define this new property in export file as “trusted_service”. When importing a 'trusted' VM into an untrusted cluster, two cases should be considered.
 
 *   The admin is doing a mistake and chooses the wrong cluster, alert information will be triggered.
 *   The admin has a real case where he wants the VM to run in an 'untrusted' cluster.

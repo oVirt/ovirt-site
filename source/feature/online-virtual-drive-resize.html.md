@@ -17,7 +17,7 @@ This feature allows oVirt users to resize virtual disks while they are in use by
 ### Owner
 
 *   Feature owner: Sean Cohen <scohen@redhat.com>
-*   Engine Component owner:
+*   Engine Component owner: Sergey Gotliv <sgotliv@redhat.com>
 *   VDSM Component owner: Federico Simoncelli <fsimonce@redhat.com>
 
 ### Current Status

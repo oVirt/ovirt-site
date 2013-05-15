@@ -131,14 +131,22 @@ This is to document the things we need to test in the unit test suite.
 
 I propose a scheme fairly similar to a database connection pool manager combined with an operation queue. The operations are added to the end of the queue by an enQueueOperation method. The pool manager pulls operations from the front of the queue and sends it to one of the available connections. If there is a problem with the operation the manager is responsible for retrying the operation or returning the error to the callback (maybe have an error handler similar to the one we have now instead). If there are more operations than available connections the pool manager does nothing until a connection becomes available. This is your classic producer/consumer setup where the enQueue operation is the producer and the pool manager is the consumer.
 
-##### Error Handling
+##### Cross cutting concerns
 
-Occasionally operations are going to fail. We need to consider the actions we can take to remedy the problem. There are different levels in which operations can fails.
+There are several cross cutting concerns the new design needs to take into account.
 
-1.  In the http layer. The http error codes range from 300 to about 600. With anything in the 300 range getting automatically taken care of by the browser. Anything in the 400 range usually means missing files or operations failing due to authentication or authorization failures. Except for a 408, which means time-out expired. In the 500 range usually means some kind of server error, like 500 internal server error, or 503 server busy. Some of these we can try to remedy the situation by retrying an operation.
+1.  Error handling.
+    -   For whatever reason the operation failed and we have no way of recovering. We need to inform the user that something horribly went wrong. We need to return two pieces of key information back to the user:
+        1.  The status code of the error. The is the least important piece of information for the user, but highly important for trouble shooting the problem.
+        2.  The human reabable error message. If possible we should translate these into the proper language associated with the users locale.
+
+2.  Retry handling.
+    -   Certain http error codes can be recovered from. The http error codes range from 300 to about 600. With anything in the 300 range getting automatically taken care of by the browser. Anything in the 400 range usually means missing files or operations failing due to authentication or authorization failures. Except for a 408, which means time-out expired. In the 500 range usually means some kind of server error, like 500 internal server error, or 503 server busy. Some of these we can try to remedy the situation by retrying an operation.
     -   On IE there are also status codes returned > 1000. These are wininet error codes that we can't really do anything about. We could treat these as internal server errors and retry the operation in hopes that the underlying case of the wininet errors get resolved by trying the operation again. Most of the known error codes we have seen are due to connections being dropped, so a retry should fix the situation.
 
-2.  in the operation layer. There were no http errors, but something in the operation request caused the operation to fail. For instance some of the validations failed or some the pre requisites were not met. This caused the operation to fail and we need to report back to the user what happened. Retrying the operation will not make any difference whatsoever. We should be able re-use existing exception handling to report the errors back to the user.
+3.  Start/Stop events for operations.
+    -   Fire an event right before we execute the request containing the operation.
+    -   Fire an event after the result is returned from the request, but before doing any callbacks or error handling.
 
 ##### Dataflow example
 

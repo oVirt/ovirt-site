@@ -53,10 +53,10 @@ The current implementation has the following methods exposed to the outside worl
 ##### Things to consider
 
 *   Max number of concurrent connects from the browser to the server is limited.
-*   Even though login and logout are very important operations, they really are not that special that they require separate code. In essence they are just a special case of an action.
+*   Even though login and logout are very important operations, they really are not that special that they require separate code. In essence they are just a special case of an operation.
 *   Operations can fail for whatever reason, and sometimes instead of returning an error we should attempt the operation again.
-*   The underlying communication between the browser and server should be independent of the api exposed to the application. Right now we use GWT-RPC, but we should be able to swap it out to REST without having to change the API.
-*   Sometimes the sequence of operations is important as demonstrated by the existence of RunMultipleAction**s**, so the new design needs to be able to handle a sequence as well as multiple concurrent requests.
+*   The underlying communication between the browser and server should be independent of the API exposed to the application. Right now we use GWT-RPC, but we should be able to swap it out to REST without having to change the API.
+*   Sometimes the sequence of operations is important as demonstrated by the existence of RunMultipleAction**s**, so the new design needs to be able to handle a sequence as well as multiple concurrent requests. RunMultipleActions is there to give some kind of illusion of transactions, we should investigate if we can give actual transactions for certain sets of operations.
 *   We need to minimize the disruption to the existing infrastructure and just mark the existing methods as deprecated if needed.
 *   We need to make sure that the new design doesn't break any existing functionality, so we should write a unit test suite for the existing implementation (if possible) and use that to measure if the new implementation meets our needs.
 *   We need to implement the new design in such a way that it can easily be unit tested, unlike the current implementation.

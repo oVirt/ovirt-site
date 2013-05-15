@@ -48,7 +48,7 @@ The current implementation has the following methods exposed to the outside worl
     -   2 invocations
 *   getLoggedInUser
     -   Determine the currently logged in user.
-    -   No invocations at all (can we remove this method?). There are two getLoggedInUser, one that makes an rpc call to the server, another that just returns a value in memory. The one I am talking about here is the one that makes the call to the server. After some feedback, this method is a legacy call and no longer in user, we can remove this method.
+    -   This method is a legacy call and no longer in use, we can remove this method.
 
 ##### Things to consider
 
@@ -58,6 +58,7 @@ The current implementation has the following methods exposed to the outside worl
 *   The underlying communication between the browser and server should be independent of the api exposed to the application. Right now we use GWT-RPC, but we should be able to swap it out to REST without having to change the API.
 *   Sometimes the sequence of operations is important as demonstrated by the existence of RunMultipleAction**s**, so the new design needs to be able to handle a sequence as well as multiple concurrent requests.
 *   We need to minimize the disruption to the existing infrastructure and just mark the existing methods as deprecated if needed.
+*   We need to make sure that the new design doesn't break any existing functionality, so we should write a unit test suite for the existing implementation (if possible) and use that to measure if the new implementation meets our needs.
 *   We need to implement the new design in such a way that it can easily be unit tested, unlike the current implementation.
 
 # New Design

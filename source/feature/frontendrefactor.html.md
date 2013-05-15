@@ -95,13 +95,37 @@ This is to document the things we need to test in the unit test suite.
 
 ##### RunAction
 
+*   Make sure the correct action is called based on the action type.
+*   Make sure parameters are passed correctly.
+*   Make sure that the passed in callback is properly called when the request completes.
+*   Make sure that the error handler is called with the correct error message if a problem occurs.
+*   Make sure that the error handler is NOT called for failures that are supposed to be ignored. (Is this still a true statement?)
+
 ##### RunMultipleAction
+
+*   Make sure the correct action is called based on the action type.
+*   Make sure parameters are passed correctly.
+*   Make sure that the passed in callback is properly called when the request completes.
+    -   Make sure that the callback contains results for all the actions.
+    -   If some of the actions resulted in failure, have those failures properly reported.
+*   Make sure that the error handler is called with the correct error message if a problem occurs.
+*   Make sure that the error handler is NOT called for failures that are supposed to be ignored. (Is this still a true statement?)
 
 ##### RunMultipleActions
 
+*   Not sure what to test here, pending discussion on transactional actions.
+
 ##### LoginAsync
 
+*   Make sure that the passed in username/password/domain are passed properly.
+*   On success make sure that the getLoginHandler is called.
+*   Make sure that the error handler is called with the correct error message if a problem occurs.
+
 ##### LogoffAsync
+
+*   Make sure the passed in username is passed properly.
+*   On success make sure that the getLoginHandler is called.
+*   Make sure that the error handler is called with the correct error message if a problem occurs.
 
 # New Design
 

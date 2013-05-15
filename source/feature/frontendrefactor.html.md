@@ -35,7 +35,7 @@ The current implementation has the following methods exposed to the outside worl
     -   The callback is responsible for handling the resulting result list.
     -   Heavily used 105 invocations.
 *   RunMultipleActions
-    -   Sequential invocation of RunAction. If one of the run actions fails then the sequence is stopped and the rest is not executed.
+    -   Sequential invocation of RunAction. If one of the run actions fails then the sequence is stopped and the rest is not executed. This method is to provide a 'transaction' like method to execute multiple actions in a sequence.
     -   Rarely used, only 8 invocations
 *   LoginAsync
     -   Log the user into the application based on pass in
@@ -48,7 +48,7 @@ The current implementation has the following methods exposed to the outside worl
     -   2 invocations
 *   getLoggedInUser
     -   Determine the currently logged in user.
-    -   No invocations at all (can we remove this method?). There are two getLoggedInUser, one that makes an rpc call to the server, another that just returns a value in memory. The one I am talking about here is the one that makes the call to the server.
+    -   No invocations at all (can we remove this method?). There are two getLoggedInUser, one that makes an rpc call to the server, another that just returns a value in memory. The one I am talking about here is the one that makes the call to the server. After some feedback, this method is a legacy call and no longer in user, we can remove this method.
 
 ##### Things to consider
 

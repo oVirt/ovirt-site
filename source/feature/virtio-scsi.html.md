@@ -111,7 +111,7 @@ The following Guest OS drivers are available:
 
 <disk>
         ...
-`  `<interface>`virtio-scsi`</interface>
+`  `<interface>`virtio_scsi`</interface>
 `  `<sgio>`unfiltered`</sgio>
         ...
 </disk>

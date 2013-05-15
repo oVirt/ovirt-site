@@ -79,6 +79,8 @@ This is to document the things we need to test in the unit test suite.
 
 ##### RunPublicQuery
 
+*   Make sure that you can run the query even if you are not logged in
+
 ##### RunMultipleQueries
 
 *   Make sure the correct queries are called based on the query type.

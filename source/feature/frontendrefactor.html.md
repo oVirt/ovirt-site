@@ -61,6 +61,28 @@ The current implementation has the following methods exposed to the outside worl
 *   We need to make sure that the new design doesn't break any existing functionality, so we should write a unit test suite for the existing implementation (if possible) and use that to measure if the new implementation meets our needs.
 *   We need to implement the new design in such a way that it can easily be unit tested, unlike the current implementation.
 
+# Unit test testSuite
+
+This is to document the things we need to test in the unit test suite.
+
+*   RunQuery
+    -   Make sure the correct query is called based on the query type.
+    -   Make sure parameters are passed correctly.
+    -   Make sure that multiple same requests don't get called more than once.
+    -   Make sure that multiple different requests DO get called.
+    -   Make sure that the passed in callback is properly called when the request completes.
+    -   Make sure that the error handler is called with the correct error message if a problem occurs.
+    -   Make sure that the error handler is NOT called for failures that are supposed to be ignored. (Is this still a true statement?)
+    -   Make sure that the query started event is raised.
+    -   Make sure that the query complete event is raised once the query completes regardless of success/failure.
+*   RunPublicQuery
+*   RunMultipleQueries
+*   RunAction
+*   RunMultipleAction
+*   RunMultipleActions
+*   LoginAsync
+*   LogoffAsync
+
 # New Design
 
 I propose a scheme fairly similar to a database connection pool manager combined with an operation queue. The operations are added to the end of the queue by an enQueueOperation method. The pool manager pulls operations from the front of the queue and sends it to one of the available connections. If there is a problem with the operation the manager is responsible for retrying the operation or returning the error to the callback (maybe have an error handler similar to the one we have now instead). If there are more operations than available connections the pool manager does nothing until a connection becomes available. This is your classic producer/consumer setup where the enQueue operation is the producer and the pool manager is the consumer.

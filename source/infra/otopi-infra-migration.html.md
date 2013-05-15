@@ -144,7 +144,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Drop engine database if requested                              | Done                    | Done[33]             |                                                       |          |             |
 | Clean pgpass if drop requested                                 | Done                    | Done                 |                                                       |          |             |
 | Clean sysctl configuration                                     | Done                    | Done                 |                                                       |          |             |
-| Backup CA if remove requested                                  | Done                    | Not implemented      |                                                       |          |             |
+| Backup CA if remove requested                                  | Done                    | Feedback             | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Remove CA if requested                                         | Done                    | Feedback             | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Stop engine-notifierd when needed                              | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola)  |          |             |
 | Clean ISO domain NFS exports if requested                      | Done                    | Feedback             | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |

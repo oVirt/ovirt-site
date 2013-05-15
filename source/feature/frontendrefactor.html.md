@@ -77,6 +77,15 @@ This is to document the things we need to test in the unit test suite.
     -   Make sure that the query complete event is raised once the query completes regardless of success/failure.
 *   RunPublicQuery
 *   RunMultipleQueries
+    -   Make sure the correct queries are called based on the query type.
+    -   Make sure parameters are passed correctly.
+    -   Make sure that the passed in callback is properly called when the request completes.
+        -   Make sure that the callback contains results for all the queries.
+        -   If some of the queries resulted in failure, have those failures properly reported.
+    -   Make sure that the error handler is called with the correct error message if a problem occurs.
+    -   Make sure that the error handler is NOT called for failures that are supposed to be ignored. (Is this still a true statement?)
+    -   Make sure that the query started event is raised.
+    -   Make sure that the query complete event is raised once the query completes regardless of success/failure.
 *   RunAction
 *   RunMultipleAction
 *   RunMultipleActions

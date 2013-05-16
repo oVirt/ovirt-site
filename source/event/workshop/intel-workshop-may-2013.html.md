@@ -94,7 +94,7 @@ On May 9th, 2013, The oVirt workshop will also have two tracks running. The Deve
 | width=20%| 09:00-10:00 | width=50% | [oVirt-node overview](http://www.ovirt.org/images/e/e4/Shaghai-oVirt-node.pdf)                     | width=30% | Ying Cui and Guohua Ouyang (Red Hat) |
 | 10:00-11:00            | [Support oVirt on Ubuntu](http://www.ovirt.org/images/5/57/Shanghai-VDSM-on-Ubuntu.pdf)                        | Zhengsheng Zhou (IBM)                            |
 | 11:00 - 11:15          | colspan=2| Coffee Break                                                                                        |
-| 11:15-12:15            | oVirt SLA- [MoM as host level enforcement agent](http://www.ovirt.org/images/b/b6/OVirt-mom-shanghai-2013.pdf) | Doron Fediuck (Red Hat)                          |
+| 11:15-12:15            | [oVirt SLA- MoM as host level enforcement agent](http://www.ovirt.org/images/b/b6/OVirt-mom-shanghai-2013.pdf) | Doron Fediuck (Red Hat)                          |
 | 12:15-13:30            | colspan=2| Lunch                                                                                               |
 | 13:30-14:30            | Trusted Compute Pools Deep Dive                                                                                | Gang Wei                                         |
 | 14:30-15:30            | [KVM Nested Virtualization](http://www.ovirt.org/images/a/a9/Shanghai-oVirt-Nested-Virtualization.pdf)         | Dongxiao Xu                                      |

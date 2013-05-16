@@ -37,7 +37,7 @@ When adding a new host to oVirt, the administrator has to know in advance differ
 
 Screenshot 1 - The user didn't choose to show external hosts
 
-![](not-using-external-hosts.png "not-using-external-hosts.png")
+![](New-host-dialog-providers.png "New-host-dialog-providers.png")
 
 Screenshot 2 - The user chose to show external hosts. Now we contact the external provider to get the list (which won't be changed until we close the dialog, open it again, and check the checkbox).
 

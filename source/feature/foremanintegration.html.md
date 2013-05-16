@@ -56,20 +56,23 @@ Screenshot 4 - All the details that the host provider set, are updated automatic
 **API Design** No changes in the API. The external provider's hosts will be shown only in the UI.
 
 *   Engine/Backend/DB
-
-Adding the provider DB/engine/UI and etc. is covered in another feature, <http://www.ovirt.org/Features/Detailed_Quantum_Integration>. Additional changes: 1. Adding a host provider interface, with implementation for Foreman 2. The host provider will currently support listing hosts, filtered listing of hosts (we might add in the future a textbox in the add-host-dialog to support freetext search criteria), and testing connection (useful in the add provider dialog). 3. Adding a query to get a provider by type (to get all the foreman providers) 4. Adding a query to get all provider hosts
-
-### Required Changes
-
-*   UI
-*   REST API
-*   Engine/Backend/Db
+    -   Adding the provider DB/engine/UI and etc. is covered in another feature, <http://www.ovirt.org/Features/Detailed_Quantum_Integration>.
+    -   Additional changes:
+        -   Adding a host provider interface, with implementation for Foreman
+        -   The host provider will currently support listing hosts, filtered listing of hosts (we might add in the future a textbox in the add-host-dialog to support freetext search criteria), and testing connection (useful in the add provider dialog).
+        -   Adding a query to get a provider by type (to get all the foreman providers)
+        -   Adding a query to get all provider hosts
 
 ### Benefit to oVirt
+
+*   Better integration with external host providers, that will ease the work for the administrator
+*   Providing an interface that other host providers can implement, to add their own properties and logic
 
 ### Dependencies / Related Features
 
 Related features:
+
+*   Network provider feature - the network provider feature introduces the Provider entity, which is used by this feature
 
 ### Documentation / External References
 

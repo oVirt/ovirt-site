@@ -218,7 +218,12 @@ The snapshot section in OVF file of VM will include the memory volume of the sna
 
 #### REST API changes
 
-TBD
+*   A boolean flag indicating whether to take snapshot for the memory or not will be added to the snapshot creation request
+*   A boolean flag will be added to the snapshot representation inidicating whether it contains memory or not
+
+### Future enhancements
+
+*   The memory volume is going to be represented by the standard pool-domain-image-volume quartet. That is OK for now since that is the representation of images we create. when we'll support creation of images on lun or local path, the memory volume representation can be changed to support such locations.
 
 ### Documentation / External references
 

@@ -85,6 +85,7 @@ This feature introduces new functionality for oVirt users that will allow them t
 ### Dependencies / Related Features
 
 *   The functionality of saving the memory state as part of live snapshot creation was introduced in libvirt 1.0.1, therefore it will require libvirt > 1.0.1.
+*   It seems that taking a snapshot with memory doesn't work when there is an open SPICE session (qemu crashes). if this is a bug indeed, the feature is depended on a fix for it.
 
 ### Design
 

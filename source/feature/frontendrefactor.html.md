@@ -152,6 +152,8 @@ There are several cross cutting concerns the new design needs to take into accou
 
 Our current implementation uses GWT-RPC to do communication between the client and the server. In the future we are planning on moving to a REST based communication architecture. There are significant differences between REST and GWT-RPC and the new design needs to take those into account so we can easily swap out GWT-RPC for REST. I found a library that should make this easy for us [RestyGWT](http://restygwt.fusesource.org/) (Apache License version 2.0). This should allow us to keep almost the same programming model, but use REST instead.
 
+Another possible approach is to create a javascript sdk for the REST api, and the use GWT JNI to call the methods of the javascript SDK.
+
 ##### Dataflow example
 
 [1] Caller calls one of the existing operations like RunQuery. RunQuery calls enQueue operation with the appropriate parameters for the request.

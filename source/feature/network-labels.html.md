@@ -77,8 +77,6 @@ Simplify the process of adding a new host and new network to the cluster.
 
 ### Documentation / External references
 
-<https://bugzilla.redhat.com/666883>
-
 ### Comments and Discussion
 
 <Category:Feature> <Category:Networking>

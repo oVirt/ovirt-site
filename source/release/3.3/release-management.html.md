@@ -132,7 +132,15 @@ Features being considered for inclusion/already in master:
 ### Gluster
 
 *   [Features/Gluster Hooks Management](Features/Gluster Hooks Management) Managing gluster hooks from console
+    -   Status : In Progress
+    -   gerrit :
+        -   <http://gerrit.ovirt.org/#/q/project:ovirt-engine+branch:master+topic:gluster-hooks,n,z>
+        -   <http://gerrit.ovirt.org/#/c/14145>
 *   [Features/Gluster Services Management](Features/Gluster Services Management) Reimplement services tab for gluster cluster. Allow start/stop of services.
+    -   Status: In Progress
+    -   gerrit:
+        -   <http://gerrit.ovirt.org/#/c/11094/>
+        -   <http://gerrit.ovirt.org/#/q/project:ovirt-engine+branch:master+topic:gluster-services,n,z>
 
 ### Node
 

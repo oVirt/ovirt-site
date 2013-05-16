@@ -167,6 +167,11 @@ The Backup and Restore API will provide integration with Microsoft Windows Volum
 
 Qemu-ga provides filesystem-level consistency for Linux, a hook can be executed to allow online disk snapshot for online-backup with application-level consistency of the snapshot image. A hook can provide the opportunity to quiesce applications before the snapshot is taken on fsfreeze-freeze/thaw.
 
+#### Portability of VMs
+
+*   The backup product should be able to recover a virtual machine to another location (host, storage, network etc.) without having to manually edit the OVF information. There should be a mechanism to indicate that virtual machine configuration information is going to be applied to a new location. The backup product should have the ability to indicate " use this OVF file to define the configuration and use this new host destination". Not every single parameter inside the configuration should be allowed to be overwrittten - the most important are the host, storage and network paramenters which could be set to alternate locations.
+*   virtual machine configuration information should be documented clearly for the customer so that the user understands what parameters can be preserved by a backup product.
+
 ### Open Issues
 
 <Category:Feature>

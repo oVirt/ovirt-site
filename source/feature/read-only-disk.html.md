@@ -69,7 +69,9 @@ Verified - the OvfReader does read the RO property, so no problem with snapshots
 #### UI
 
 Changes will have to be made to RESTapi and uicommon in order to get the RO property value from the user.
-The RO property has to be propagated to the backend. This can be done either through Disk or VM entities. Disk is chosen as it seems if we have to say the property "belongs" to one of them, it's more likely the disk (there is no VmDisk entity or such).
+In UI, this will be done by adding a ui item that reflects the user's choice, that will then be propagated to the backend (through the relevant command's parameters class) . This will affect VmDiskListModel and UpdateVMDiskCommand (Less urgent to implement, since unplug-plug can be used instead, but is easier to implement straight ahead due yo the common VmDiskOperationParameterBase class).
+
+In RESTapi, this will be done by injecting the proper value to a new element to be added to the command action. This will then, as in the UI, be propagated to the backend.
 
 #### Search
 

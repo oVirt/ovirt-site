@@ -57,7 +57,8 @@ OvfWriter.writeVmDeviceInfo() (already writes the readOnly property).
 ##### Templates
 
 Currently templates will maintain the current disk RO property value with editing option.
-When creating a VM from template, it's disks will inherit the disk RO property value. Disks properties can be changed when creating a vm from template as it is
+When creating a VM from template, it's disks will inherit the disk RO property value.
+Disks properties can be changed when creating a vm from template as it is.
 
 ##### Snapshots
 

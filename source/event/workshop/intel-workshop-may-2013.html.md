@@ -52,7 +52,7 @@ On May 8th, 2013, The oVirt workshop is pleased to announce we'll be trying some
 | Time                   | Title                                                                                                                    | Speaker                             |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
 | 08:30-09:00            | colspan=2| Opening remarks and Keynote : Intel Open Source Strategy - Jackson He (Intel)                                 |
-| width=20%| 09:00-10:00 | width=50% | oVirt Introduction                                                                                           | width=30% | Doron Fediuck (Red Hat) |
+| width=20%| 09:00-10:00 | width=50% | [oVirt Introduction](http://www.ovirt.org/images/a/af/OVirt-intro-shanghai-2013.pdf)                         | width=30% | Doron Fediuck (Red Hat) |
 | 10:00-11:00            | [oVirt Architecture Overview](http://www.ovirt.org/images/1/11/Shanghai-ovirt-arch.pdf)                                  | Dan Kenigsberg (Red Hat)            |
 | 11:00-11:15            | colspan=2| Coffee Break                                                                                                  |
 | 11:15 - 12:15          | [Deploying and testing oVirt using nested virtualization](http://www.ovirt.org/images/1/14/OVirt-nested-virt-markwu.pdf) | Mark Wu (IBM)                       |

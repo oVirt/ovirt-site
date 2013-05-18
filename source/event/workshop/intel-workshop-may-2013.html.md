@@ -99,7 +99,7 @@ On May 9th, 2013, The oVirt workshop will also have two tracks running. The Deve
 | 13:30-14:30            | Trusted Compute Pools Deep Dive                                                                                | Gang Wei                                         |
 | 14:30-15:30            | [KVM Nested Virtualization](http://www.ovirt.org/images/a/a9/Shanghai-oVirt-Nested-Virtualization.pdf)         | Dongxiao Xu                                      |
 | 15:30-15:45            | colspan=2| Coffee break                                                                                        |
-| 15:45-16:45            | The present and future of SetupNetwork in oVirt                                                                | Dan Kenisberg (Red Hat)                          |
+| 15:45-16:45            | [The present and future of SetupNetwork in oVirt](http://www.ovirt.org/images/c/c8/Shanghai_setupNet.pdf)      | Dan Kenigsberg (Red Hat)                         |
 | 16:45-17:15            | Closing remarks and closing keynote                                                                            |
 
 </div>

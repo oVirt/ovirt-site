@@ -63,7 +63,7 @@ And for vlan10 for example assign `NIC A` => all hosts in the cluster will have 
     -   Adding command- Assign all networks
     -   Setup Networks dialog
         -   Add Edit command on nic
-            -   Add table with 2 columns - 1. label (suggest box on editing) and 2. assign all networks check box (with header for assign all).
+            -   Add label text box and '+' button for adding more labels.
         -   Edit bond
             -   Same as edit nic.
 *   Network Host sub tab

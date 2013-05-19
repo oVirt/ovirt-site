@@ -23,7 +23,7 @@ So what happens when you hit the "Console" button?
 5.  spice-xpi launches spice client and passes variables to it via unix socket
 6.  spice client connects directly to a host using data given to it by the portal
 
-## Assupmtions and Prerequisities
+## Assumptions and Prerequisities
 
 *   client used: `remote-viewer`, in Fedora/RHEL included in `virt-viewer` package. The old client is goo'ol' spicec which uses slightly different CLI syntax
 *   the whole ovirt setup is TLS-secured

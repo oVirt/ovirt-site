@@ -26,6 +26,11 @@ Supervdsm is responsible for all privileged operations. Currently Supervdsm is m
 
 ## Current status
 
+*   Considering using dbus implementation for communication between the services.
+*   Authentication method is limited to only using hardcoded auth code that saved in file.
+
+## Background
+
 *   current solution
 
 1.  Vdsmd.init start vdsm with user “vdsm”

@@ -199,7 +199,7 @@ The snapshot section in OVF file of VM will include the memory volume of the sna
 *   Snapshots tab
     -   Memory column will be added that includes checkboxes indicating whether the snapshot contains memory or not
 
-<!-- -->
+![](Memory_column.png "Memory_column.png")
 
 *   Clone VM from snapshot popup
     -   If the snapshot contains memory, a warning saying that the snapshot's memory will be discarded will be shown

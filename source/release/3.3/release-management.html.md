@@ -93,7 +93,7 @@ Features being considered for inclusion/already in master:
 
 *   [Features/Device Custom Properties](Features/Device Custom Properties)
 *   [Features/ExternalTasks](Features/ExternalTasks)
-*   [Features/Supervdsm_service](Features/Supervdsm_service)
+*   [Features/Supervdsm_service](Features/Supervdsm_service): <http://gerrit.ovirt.org/#/c/11051/> - Tested, Waiting for reviews and comments
 
 ### Networking
 

@@ -110,7 +110,7 @@ Features being considered for inclusion/already in master:
 *   [Online Virtual Drive Resize](Features/Online_Virtual_Drive_Resize)
 *   Adding VDSM hook for hotplug a disk
 *   Separating "Move" vm operation to "Copy" and "Delete" operations to improve VM availability
-*   [Features/Virtio-SCSI](Features/Virtio-SCSI)
+*   [Virtio-SCSI](Features/Virtio-SCSI)
 *   Edit NFS connection properties in webadmin UI
 
 <http://gerrit.ovirt.org/#/c/12372/>

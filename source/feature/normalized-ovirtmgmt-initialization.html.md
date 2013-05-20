@@ -104,6 +104,10 @@ When a host is activated Engine should
 
 3.  if the user requested post-installation reboot, fence the newly-added host.
 
+#### ovirt-node
+
+Still needs **TODO**: drop bridge-creation logic from `ovirt-node`.
+
 ### Documentation / External references
 
 *   mailing-list discussion about this feature: <http://lists.ovirt.org/pipermail/arch/2012-December/001101.html>

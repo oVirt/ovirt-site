@@ -12,7 +12,7 @@ wiki_last_updated: 2013-11-06
 
 ### Summary
 
-Currently it is assumed that the host-wide default gateway is the gateway defined on the ovirtmgmt logical network. This feature will enable the user to define the gateway on a logical network basis. Additionally, the ability to select the host's default gateway.
+Currently it is assumed that the host-wide default gateway is the gateway defined on the ovirtmgmt logical network. This feature will enable the user to define a gateway per logical network.
 
 ### Owner
 

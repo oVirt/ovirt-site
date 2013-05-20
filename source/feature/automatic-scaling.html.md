@@ -37,6 +37,8 @@ This feature will address the needs of applications and systems scaling out. Whe
 
 ### Benefit to oVirt
 
+This feature allows oVirt to automatically scale applications based on their resource usage.
+
 ### Dependencies / Related Features
 
 ### Documentation / External references

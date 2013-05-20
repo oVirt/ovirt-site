@@ -150,9 +150,9 @@ And start the engine service.
       # su - postgresql -c psql -c "create database engine_dao owner engine;"
       $ PGPASSWORD=engine ./backend/manager/dbscripts/create_schema.sh -d engine_dao -u engine
 
-Update `backend/manager/modules/dal/src/test/filters/pgsql.properties` with your database details.
+Build with tests:
 
-      $ make install-dev PREFIX="$HOME/ovirt-engine" BUILD_TEST_FLAGS="-P enable-dao-tests"
+      $ make BUILD_TEST_FLAGS=" -D engine.db.username=engine -D engine.db.password=engine -D engine.db.url=jdbc:postgresql://localhost/engine_dao -P enable-dao-tests"
 
 ## Packaging
 

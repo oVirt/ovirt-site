@@ -28,7 +28,12 @@ This feature would help users setup rules to automatically scale out their appli
 
 ### Detailed Description
 
-TBD
+This feature will address the needs of applications and systems scaling out. When a certain resource usage goes over or below a certain user-defined limit, some an action would take place, which is typically starting and/or stopping a VM from a pool. Such conditions could be:
+
+*   disk usage
+*   free disk space
+*   network usage
+*   CPU usage
 
 ### Benefit to oVirt
 

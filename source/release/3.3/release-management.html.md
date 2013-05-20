@@ -107,7 +107,7 @@ Features being considered for inclusion/already in master:
 
 ### Storage
 
-*   Online Virtual Drive Resize
+*   [Online Virtual Drive Resize](Features/Online_Virtual_Drive_Resize)
 *   Adding VDSM hook for hotplug a disk
 *   Separating "Move" vm operation to "Copy" and "Delete" operations to improve VM availability
 *   VirtIO-SCSI

@@ -109,6 +109,7 @@ Features being considered for inclusion/already in master:
 
 *   [Online Virtual Drive Resize](Features/Online_Virtual_Drive_Resize)
 *   [Virtio-SCSI](Features/Virtio-SCSI)
+*   [ Read Only Disks ](Features/Read_Only_Disk) (Work in Progress)
 *   Adding VDSM hook for hotplug a disk
 *   Separating "Move" vm operation to "Copy" and "Delete" operations to improve VM availability
 *   Edit NFS connection properties in webadmin UI
@@ -122,7 +123,6 @@ Features being considered for inclusion/already in master:
 *   Edit NFS, Posix connection properties in REST (not ready yet)
 *   Edit ISCSI connection properties in webadmin UI (not ready yet)
 *   Edit ISCSI connection properties in REST (not ready yet)
-*   [ Read Only Disks ](Features/Read_Only_Disk) (not ready yet)
 
 ### SLA & Scheduling
 

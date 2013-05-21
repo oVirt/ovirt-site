@@ -107,12 +107,14 @@ Features being considered for inclusion/already in master:
 
 ### Storage
 
-*   [Online Virtual Drive Resize](Features/Online_Virtual_Drive_Resize)
-*   [Virtio-SCSI](Features/Virtio-SCSI)
+*   [Enable online virtual drive resize](Features/Online_Virtual_Drive_Resize)
+*   [Virtio-SCSI support](Features/Virtio-SCSI)
 *   [ Read Only Disks ](Features/Read_Only_Disk)
 *   [Edit Connection Properties](Features/Edit_Connection_Properties)
 *   Adding VDSM hook for hotplug a disk
 *   Separating "Move" vm operation to "Copy" and "Delete" operations to improve VM availability
+*   Backup and Restore API for Independent Software Vendors
+*   Allow resign/force re-election of SPM
 
 ### SLA & Scheduling
 

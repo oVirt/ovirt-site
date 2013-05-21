@@ -36,6 +36,10 @@ This feature allows oVirt users to backup and restore VMs using Independent Soft
 
 The backup machine will protect virtual machines by offloading backup workloads to a centralized server and providing multiple restore capabilities.
 
+### High Level Architecture
+
+There will be 1 Backup Appliance per DC. The Backup Appliance can be in the form of a Virtual Appliance (VirtApp) or Host Appliance (HostApp). qemu-nbd will be used to export the snapshot to the external world, since it provides ability to access the snapshot as a block devices and can work in both VirtApp and HostApp scenarios.
+
 ### Full VM restore
 
 The entire VM is restored to the state it existed when it was originally backed up.

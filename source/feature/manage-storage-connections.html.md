@@ -16,6 +16,9 @@ wiki_last_updated: 2014-07-13
 
 ### Owner
 
+         Name: Alissa Bonas
+`   Email: `<abonas@redhat.com>
+
 ### Current Status
 
 *   Edit NFS connection properties in webadmin UI (http://gerrit.ovirt.org/#/c/12372/)

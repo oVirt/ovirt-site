@@ -155,6 +155,8 @@ The "New Server" and "New Desktop" buttons in GUI will be replaced by a common *
 
 This are only the default values which will be present in the GUI - the user can change them.
 
+For more details, please consult the [new/edit VM dialog mockups](http://www.ovirt.org/images/9/9e/Instance_type.pdf).
+
 #### Image
 
 Will be created from an existing VM using the **Create Image** - similar to the way how the templates are created today. Opened question: Do we want them to be stateless in 3.3?

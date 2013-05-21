@@ -14,6 +14,8 @@ wiki_last_updated: 2014-07-13
 
 ### Summary
 
+Allow edit (update) connection properties of an existing storage domain, rather than delete/create a new one. This feature supports the distaster recovery agenda, and should allow quickly switching to work with another server (that holds a backup/sync of the contents of the storage) in case of primary storage failure.
+
 ### Owner
 
          Name: Alissa Bonas

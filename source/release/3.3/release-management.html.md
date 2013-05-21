@@ -109,7 +109,7 @@ Features being considered for inclusion/already in master:
 
 *   [Online Virtual Drive Resize](Features/Online_Virtual_Drive_Resize)
 *   [Virtio-SCSI](Features/Virtio-SCSI)
-*   [ Read Only Disks ](Features/Read_Only_Disk) (Work in Progress)
+*   [ Read Only Disks ](Features/Read_Only_Disk)
 *   [Edit Connection Properties](Features/Edit_Connection_Properties)
 *   Adding VDSM hook for hotplug a disk
 *   Separating "Move" vm operation to "Copy" and "Delete" operations to improve VM availability

@@ -66,12 +66,12 @@ This feature will deal with two main issues:
 
 # Detailed Description
 
-#### RPM level
+### RPM level
 
 *   package should require vdsm enabling the host to be an hypervisor
 *   package should require cli/sdk to comunicate with engine
 
-#### UI - first host deployment
+### UI - first host deployment
 
 *   yum install ovirt-hosted-engine (rpm level installation)
 *   hosted-engine --deploy
@@ -85,13 +85,13 @@ This feature will deal with two main issues:
 *   once liveliness page is up install current host using sdk/cli call (no reboot)
 *   deploy ended successfully
 
-#### UI - additional host deployment
+### UI - additional host deployment
 
 *   install host through rhevm
 *   yum install ovirt-hosted-engine
 *   configuration file should be add to this host with modifications
 
-#### UI - operations
+### UI - operations
 
        hosted-engine --deploy (deploys first host)
        hosted-engine --vm-status (shows the vm status based on sanlock)
@@ -99,7 +99,7 @@ This feature will deal with two main issues:
        hosted-engine --vm-start (try starts the vm)
        hosted-engein --check-liveliness (checks liveliness page of engine)
 
-#### Configuration files
+### Configuration files
 
 *   /etc/ovirt-engine/hosted-engine.conf
 
@@ -117,7 +117,7 @@ This feature will deal with two main issues:
        direct lun (optional)
        
 
-#### Logic
+### Logic
 
 *   based on vdsClient (bash)/ import vdsm (python) create SP infra
 
@@ -140,7 +140,7 @@ This feature will deal with two main issues:
 *   polling on liveliness till engine is up
 *   install host --no-reboot (first host)
 
-#### Enhancements
+### Enhancements
 
 *   sanlock vm/host id broker
 *   shared cluster config
@@ -148,7 +148,7 @@ This feature will deal with two main issues:
 *   engine to reflect the host running the engine VM
 *   engine to reserve resources for the engine VM
 
-#### Open issues
+### Open issues
 
 *   pool connection is needed to run vm (should be solved on vdsm level) - we can't connect two pools to vdsm
 *   sanlock on vm image (should be solved on vdsm level) - we can workaround for now
@@ -157,7 +157,7 @@ This feature will deal with two main issues:
 *   change bridge details
 *   host level oprations on engine hypervisor
 
-#### Limitations
+### Limitations
 
 *   NFS/Gluster FS only (Block to be supported at a later stage)
 *   RHEV-H not supported

@@ -27,8 +27,8 @@ This feature converts the oVirt Node image into a generic image that can be cust
 
 ### Current status
 
-*   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
-*   Last updated: ,
+*   Feature is complete and merged into oVirt Node 3.0.0 (pending release at End of May)
+*   Last Updated: 2013-05-22
 
 ### Detailed Description
 

@@ -102,9 +102,9 @@ An API user modifies a network interface with a PUT request
 
 ## Special considerations
 
-## Pre-integration needs
+## Documentation / External references
 
-No needs.
+See: <http://libvirt.org/formatdomain.html#elementQoS> for documentation of the VM level network QoS XML. See: <http://libvirt.org/formatnetwork.html#elementsConnect> for documentation of the Host level network QoS XML.
 
 ## responded to next version
 

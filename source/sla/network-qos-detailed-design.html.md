@@ -25,6 +25,8 @@ We would like to expose to the user the ability to configure the Network Quality
 
 For example: if average is set to 100 units, peak to 200 and burst to 50, after sending those 50 units of data at rate 200, the rate will fall down to 100.
 
+In the planned implementation only Virtual Machine level network QoS will be supported. That is, the user could only set QoS properties for virtual NICs.
+
 ## Design
 
 The QoS properties will be saved as properties of the NetworkInterface entity. The user could set the properties when creating/editing a VM NIC (in the future, this capability may be available for host physical NICs as well). The Qos properties (like the other NIC properties) will be kept in migration and when VM is saved as template and exported/imported.

@@ -62,6 +62,11 @@ Add support to the QoS properties by adding 6 columns to the **vm_interface** - 
 | outbound_peak    | Integer     |                 |
 | outbound_burst   | Bigint      |                 |
 
+### VDSM
+
+*   Add support of QoS properties in VDSM API: run VM, hot plug and update VM device verbs (update in schema)
+*   Add support in the vnic object and the vnic to_xml()
+
 ## Tests
 
 ### Expected unit-tests

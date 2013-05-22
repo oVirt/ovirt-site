@@ -134,7 +134,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support unattended-clean option                                | Done                    | Done                 |                                                       |          |             |
 | Support dont-drop-db option                                    | Done                    | Done                 | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Support dont-remove-ca option                                  | Done                    | Feedback             | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Support remove-nfs-exports option                              | Done                    | Feedback             | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Support remove-nfs-exports option                              | Done                    | Done                 | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Support remove-exported-content option                         | Done                    | In Progress          | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Change working dir to the root directory                       | Done                    | Done                 |                                                       |          |             |
 | Allow logging                                                  | Done                    | Done                 |                                                       |          |             |
@@ -147,9 +147,9 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Backup CA if remove requested                                  | Done                    | Feedback             | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Remove CA if requested                                         | Done                    | Feedback             | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Stop engine-notifierd when needed                              | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola)  |          |             |
-| Clean ISO domain NFS exports if requested                      | Done                    | Feedback             | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Clean ISO domain NFS exports if requested                      | Done                    | Done                 | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Clean ISO domain exported directories if requested             | Done                    | In Progress          | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
-| Add info message to the user finalizing the successful cleanup | Done                    | Feedback             | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Add info message to the user finalizing the successful cleanup | Done                    | Done                 | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Add info message on where the logs are located                 | Done                    | Done                 |                                                       |          |             |
 
 <references>

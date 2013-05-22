@@ -159,7 +159,7 @@ This feature will deal with two main issues:
 
 #### Limitations
 
-*   NFS/Gluster FS
+*   NFS/Gluster FS only (Block to be supported at a later stage)
 *   RHEV-H not supported
 
 ### Deployment

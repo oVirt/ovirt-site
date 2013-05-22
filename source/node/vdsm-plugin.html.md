@@ -27,8 +27,8 @@ This feature converts the generic oVirt Node image into an image customized use 
 
 ### Current status
 
-*   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
-*   Last updated: ,
+*   Initial code base uploaded, initial test images [available](http://resources.ovirt.org/releases/node-base/beta/iso/), should be ready for oVirt 3.3 beta
+*   Last updated: 2013-05-22
 
 ### Detailed Description
 

@@ -144,7 +144,7 @@ This is an example of how **\1** may look like:
       returns void
       as $procedure$
       begin
-      create index vds_indx2 on vds (vds_id);
+      create index vds_index2 on vds (vds_id);
       end; $procedure$
       language plpgsql;
       create or replace function MtDropvdsIndexes()

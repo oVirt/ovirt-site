@@ -64,7 +64,7 @@ This feature will deal with two main issues:
 *   Some resources (especially RAM) should be reserved on one or two nodes in the cluster, in case the engine VM has to migrate over
 *   ovirt-node should have a TUI for the initial deployment and configuration of the Engine VM
 
-### Bootstraping
+# Detailed Description
 
 #### RPM level
 

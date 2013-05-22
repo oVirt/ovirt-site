@@ -76,7 +76,7 @@ This feature will deal with two main issues:
 *   yum install ovirt-hosted-engine (rpm level installation)
 *   hosted-engine --deploy
 
-          please specify the shared storage location to use (NFS/gluster limitation)
+          please specify the shared storage location to use
           please indicate nic to set mgmt-bridge on [eth0]
           please specify engine FQDN
           please specify installation media you would like to use (pxe,iso,ova)   

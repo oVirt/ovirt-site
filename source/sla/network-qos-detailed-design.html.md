@@ -64,9 +64,32 @@ Add support to the QoS properties by adding 6 columns to the **vm_interface** - 
 
 ### REST API
 
-Change the Virtual Machine > Network Interfaces to support QoS properties Example of an XML representation of a network interface <nic id="7a3cff5e-3cc4-47c2-8388-9adf16341f5e" ref="/api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401/nics/7a3cff5e-3cc4-47c2-8388-9adf16341f5e"> <link rel="statistics" href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/nics/7a3cff5e-3cc4-47c2-8388-9adf16341f5e/statistics"/> <name>nic1</name> <interface>virtio</interface> <mac address="00:1a:4a:16:84:07"/> <network id="00000000-0000-0000-0000-000000000009" href="/api/networks/00000000-0000-0000-0000-000000000009"/> <vm id="cdc0b102-fbfe-444a-b9cb-57d2af94f401" href="/api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401"/> <bandwidth> <inbound average='1000' peak='5000' floor='200' burst='1024'/> <outbound average='128' peak='256' burst='256'/> </bandwidth> </nic>
+Change the Virtual Machine > Network Interfaces to support QoS properties Example of an XML representation of a network interface
 
-An API user modifies a network interface with a PUT request <nic> <name>nic2</name> <network id="00000000-0000-0000-0000-000000000010"/> <type>e1000</type> <bandwidth> <inbound average='1000' peak='5000' floor='200' burst='1024'/> <outbound average='128' peak='256' burst='256'/> </bandwidth> </nic>
+<nic id="7a3cff5e-3cc4-47c2-8388-9adf16341f5e"  ref="/api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401/nics/7a3cff5e-3cc4-47c2-8388-9adf16341f5e">
+           `<link rel="statistics" href="/api/vms/082c794b-771f-452f-83c9-b2b5a19c0399/nics/7a3cff5e-3cc4-47c2-8388-9adf16341f5e/statistics"/>`   
+`     `<name>`nic1`</name>
+`     `<interface>`virtio`</interface>
+`     `<mac address="00:1a:4a:16:84:07"/>
+`     `<network id="00000000-0000-0000-0000-000000000009" href="/api/networks/00000000-0000-0000-0000-000000000009"/>
+`     `<vm id="cdc0b102-fbfe-444a-b9cb-57d2af94f401" href="/api/vms/cdc0b102-fbfe-444a-b9cb-57d2af94f401"/>
+`     `<bandwidth>
+`       `<inbound average='1000' peak='5000' floor='200' burst='1024'/>
+`       `<outbound average='128' peak='256' burst='256'/>
+`     `</bandwidth>
+</nic>
+
+An API user modifies a network interface with a PUT request
+
+<nic>
+`      `<name>`nic2`</name>
+`     `<network id="00000000-0000-0000-0000-000000000010"/>
+`     `<type>`e1000`</type>
+`     `<bandwidth>
+`       `<inbound average='1000' peak='5000' floor='200' burst='1024'/>
+`       `<outbound average='128' peak='256' burst='256'/>
+`     `</bandwidth>
+</nic>
 
 ### VDSM
 

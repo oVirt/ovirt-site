@@ -64,6 +64,104 @@ This feature will deal with two main issues:
 *   Some resources (especially RAM) should be reserved on one or two nodes in the cluster, in case the engine VM has to migrate over
 *   ovirt-node should have a TUI for the initial deployment and configuration of the Engine VM
 
+### Bootstaping
+
+#### RPM level
+
+*   package should require vdsm enabling the host to be an hypervisor
+*   package should require cli/sdk to comunicate with engine
+
+#### UI - first host deployment
+
+*   yum install ovirt-hosted-engine (rpm level installation)
+*   hosted-engine --deploy
+
+          please specify the shared storage location to use (NFS/gluster limitation)
+          please indicate nic to set mgmt-bridge on [eth0]
+          please specify engine FQDN
+          please specify installation media you would like to use (pxe,iso,ova)   
+
+*   output: spice/terminal console to the new vm
+*   once liveliness page is up install current host using sdk/cli call (no reboot)
+*   deploy ended successfully
+
+#### UI - additional host deployment
+
+*   install host through rhevm
+*   yum install ovirt-hosted-engine
+*   configuration file should be add to this host with modifications
+
+#### UI - operations
+
+       hosted-engine --deploy (deploys first host)
+       hosted-engine --vm-status (shows the vm status based on sanlock)
+       hosted-engine --vm-stop (stops the vm if running on the host)
+       hosted-engine --vm-start (try starts the vm)
+       hosted-engein --check-liveliness (checks liveliness page of engine)
+
+#### Configuration files
+
+*   /etc/ovirt-engine/hosted-engine.conf
+
+         FQDN of the engine machine
+         shared storage
+         service_start_timeout
+         vm_disk_id (sanlock host id) = (host_fqdn by default)
+
+*   /etc/ovirt-engine/vm.xml(or vm.conf)
+
+       mem
+       cpu
+       image (optional)
+       connect iso (optional)
+       direct lun (optional)
+       
+
+#### Logic
+
+*   based on vdsClient (bash)/ import vdsm (python) create SP infra
+
+       connectStorageServer
+       createStorageDomain
+       createStoragePool
+       create vm image (vdsm cli/api)
+       connectStoragePool (should be removed later on)
+       spmStart
+       getSpmStatus
+       createVolume
+       getAllTasksStatuses
+       clearTask
+
+*   run vm with installation media
+*   provide spice/terminal console
+
+<!-- -->
+
+*   polling on liveliness till engine is up
+*   install host --no-reboot (first host)
+
+#### Enhancements
+
+*   sanlock vm/host id broker
+*   shared cluster config
+*   shared vm config
+*   engine to reflect the host running the engine VM
+*   engine to reserve resources for the engine VM
+
+#### Open issues
+
+*   pool connection is needed to run vm (should be solved on vdsm level) - we can't connect two pools to vdsm
+*   sanlock on vm image (should be solved on vdsm level) - we can workaround for now
+*   vdsm sanity for running a VM from another pool
+*   vdsm providing monitoring service for tasks
+*   change bridge details
+*   host level oprations on engine hypervisor
+
+#### Limitations
+
+*   NFS/Gluster FS
+*   RHEV-H not supported
+
 ### Deployment
 
 *   Initial setup will involve creating the Engine VM (libvirt based), then, the Engine VM should be started, configured and updated.

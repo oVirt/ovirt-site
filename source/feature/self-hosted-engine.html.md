@@ -162,26 +162,6 @@ This feature will deal with two main issues:
 *   NFS/Gluster FS only (Block to be supported at a later stage)
 *   RHEV-H not supported
 
-### Deployment
-
-*   Initial setup will involve creating the Engine VM (libvirt based), then, the Engine VM should be started, configured and updated.
-*   After the setup the user will be able to access the Engine webadmin UI in order to add more hosts, clusters, SDs etc in the regular flow.
-
-**Assumptions and requirements:**
-
-*   NFS or GlusterFS share is provided by the administrator for the engine vm hosting
-*   There is only one host (full OS or ovirt-node) at this stage. The first host is installed by the administrator.
-
-**Engine vm setup:** The admin will run a setup script which will collect the following information:
-
-*   NFS mount details
-*   ip addresses for network health checks
-*   engine vm setup details (install source, ip etc)
-
-After collecting and verifying the information the script will run the engine vm setup. Admin will go through with the os installation of the engine vm, network settings, registration, updates and engine setup. After the engine is operational, the admin will shut the engine vm down. Once the engine vm is down, the setup script will edit the new domxml with sanlock definitions and move the xml to the nfs share and start the engine vm.
-
-At this point we should be able to open the webadmin, add the first host and start defining hosts, clusters, storage etc.
-
 ### Operational Routine
 
 **Phase 2: engine vm high availability daemon**

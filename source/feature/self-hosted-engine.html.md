@@ -66,7 +66,7 @@ This feature will deal with two main issues:
 
 ### Bootstraping
 
-#### RPM level
+### RPM level
 
 *   package should require vdsm enabling the host to be an hypervisor
 *   package should require cli/sdk to comunicate with engine

@@ -107,4 +107,8 @@ Currently the engine is requesting currently every 3 seconds the vm list from ea
 
 The change would be as follows:
 
-The engine requests every 3 seconds getAllRuntimeStats from vdsm which will give the engine the most used data. If the engine has a mismatch of the hashes returned by
+The engine requests every 3 seconds getAllRuntimeStats from vdsm which will give the engine the most used data. If the engine has a mismatch of the hashes returned by getAllRuntimeStats it should request the data changed.
+
+if hashes.info changed => request getConfInfo with all vmIDs on that host where the hash changed if hashes.status changed => request getStatus with all vmIDs on that host where the hash changed if hashes.guestDetails changed => request getGuestDetails with all vmIDs on that host where the hash changed
+
+Request getAllDeviceStats periodically e.g. every 5 minutes, which should be sufficient for the DWH, in case it is not it could be even configurable.

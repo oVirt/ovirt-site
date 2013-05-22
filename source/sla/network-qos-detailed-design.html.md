@@ -102,11 +102,26 @@ An API user modifies a network interface with a PUT request
 
 ## Special considerations
 
+## Dependencies / Related Features
+
+Affected ovirt projects:
+
+*   API
+*   backend
+*   Webadmin
+*   User Portal
+
+Others:
+
+*   vdsm
+
 ## Documentation / External references
 
 *   See: <http://libvirt.org/formatdomain.html#elementQoS> for documentation of the VM level network QoS XML.
 *   See: <http://libvirt.org/formatnetwork.html#elementsConnect> for documentation of the Host level network QoS XML.
 
-## responded to next version
+## Comments and Discussion
+
+*   libvirt version 1.0.1 or higher is רequired to enable the QoS featureץ
 
 <Category:SLA> [Category: Feature](Category: Feature)

@@ -122,6 +122,7 @@ Others:
 
 ## Comments and Discussion
 
-*   libvirt version 1.0.1 or higher is רequired to enable the QoS featureץ
+*   libvirt version 1.0.1 or higher is רequired to enable the QoS feature.
+*   Quantum network will not be supported at this stage.
 
 <Category:SLA> [Category: Feature](Category: Feature)

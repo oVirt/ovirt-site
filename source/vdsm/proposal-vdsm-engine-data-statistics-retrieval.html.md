@@ -11,92 +11,92 @@ wiki_last_updated: 2013-07-08
 
 == VDSM <=> Engine data retrieval optimization ==
 
-### Motivation:
+## Motivation:
 
 Currently the oVirt Engine is polling a lot of data from VDSM every 15 seconds. This should be optimized and the amount of data requested should be more specific.
 
-For each VM the data currently contains much more information than actually needed which blows up the size of the XML content quite big. We could optimize this by splitting the reply on the getVmStats based on the request of the engine into sections. For this reason Omer Frenkel and me have split up the data into parts based on their usage.
+For each VM the data currently contains much more information than actually needed which blows up the size of the XML content quite big. We could optimize this by splitting the reply on the getVmStats based on the needs of the engine into different requests. For this reason Omer Frenkel and me have split up the data into parts based on their usage.
 
-This data can and usually does change during the lifetime of the VM.
+## Changes
 
-#### Rarely Changed:
+#### New Verbs
 
-This data is change not very frequent and it should be enough to update this only once in a while. Most commonly this data changes after changes made in the UI or after a migration of the VM to another Host.
+##### getAllRuntimeStats
 
-         `**`Status`**` = Running
-         `**`acpiEnable`**` = true
-         `**`vmType`**` = kvm
-         `**`guestName`**` = W864GUESTAGENTT
-         `**`displayType`**` = qxl
-         `**`guestOs`**` = Win 8
-`   `**`kvmEnable`**` = true # `***`this` `should` `be` `constant` `and` `never` `changed`***
-         `**`pauseCode`**` = NOERR
-         `**`monitorResponse`**` = 0
-         `**`session`**` = Locked # unused
-         `**`netIfaces`**` = [{'name': 'Realtek RTL8139C+ Fast Ethernet NIC', 'inet6':  ['fe80::490c:92bb:bbcc:9f87'], 'inet': ['10.34.60.148'], 'hw': '00:1a:4a:22:3c:db'}]
-         `**`appsList`**` = ['RHEV-Tools 3.2.4', 'RHEV-Agent64 3.2.3', 'RHEV-Serial64 3.2.3', 'RHEV-Network64 3.2.2', 'RHEV-Network64 3.2.3', 'RHEV-Block64 3.2.3', 'RHEV-Balloon64 3.2.3', 'RHEV-Balloon64 3.2.2', 'RHEV-Agent64 3.2.2', 'RHEV-USB 3.2.3', 'RHEV-Block64 3.2.2', 'RHEV-Serial64 3.2.2']
-         `**`pid`**` = 11314
-         `**`guestIPs`**` = 10.34.60.148 # duplicated info 
-         
-         `**`displayIp`**` = 0
-         `**`displayPort`**` = 5902
-         `**`displaySecurePort`**` = 5903
-         
-         `**`username`**` = user@W864GUESTAGENTT
-         `**`clientIp`**` = 
-         `**`lastLogin`**` = 1361976900.67
+Get runtime information of all VMs
+Returns for each VM a map with UUID and a value of:
 
-#### Often Changed:
+*   **@cpuSys** Ratio of CPU time spent by qemu on other than guest time
+*   **@cpuUser** Ratio of CPU time spent by the guest VM
+*   **@memUsage** The percent of memory in use by the guest
+*   **@elapsedTime** The number of seconds that the VM has been running
+*   **@status** The current status of the given VM
+*   **@statsAge** The age of these statistics in seconds
+*   **@hashes** Hashes of several statistics and information around VMs
 
-This data is changed quite often however it is not necessary to update this data every 15 seconds. As this is cumulative data and reflects the current status, and it does not need to be snapshotted every 15 seconds to retrieve statistics. The data can be retrieved in much more generous time slices. (e.g. Every 5 minutes)
+Hashes consists of:
 
-         `**`network`**` = {'vnet1': {'macAddr': '00:1a:4a:22:3c:db', 'rxDropped': '0', 'txDropped': '0', 'rxErrors': '0', 'txRate': '0.0', 'rxRate': '0.0', 'txErrors': '0', 'state': 'unknown', 'speed': '100', 'name': 'vnet1'}}
-         `**`disksUsage`**` = [{'path': 'c:\', 'total': '64055406592', 'fs': 'NTFS', 'used': '19223846912'}, {'path': 'd:\', 'total': '3490912256', 'fs': 'UDF', 'used': '3490912256'}]
-         
-         `**`timeOffset`**` = 14422
-         `**`elapsedTime`**` = 68591
-         `**`hash`**` = 2335461227228498964
-         `**`statsAge`**` = 0.09 # unused
+*   **@info** Hash for VmConfInfo data
+*   **@config** Hash of the VM configuration XML
+*   **@status** Hash of the VmStatusInfo data
+*   **@guestDetails** Hash of the VmGuestDetails data
 
-#### Often Changed but unused
+##### getStatus
 
-This data does not seem to be used in the engine at all. It is **not** even used in the data warehouse.
+Get status information about a list of VMs
+Parameters:
 
-         `**`memoryStats`**` = {'swap_out': '0', 'majflt': '0', 'mem_free': '1466884', 'swap_in': '0', 'pageflt': '0', 'mem_total': '2096736', 'mem_unused': '1466884'} 
-         `**`balloonInfo`**` = {'balloon_max': 2097152, 'balloon_cur': 2097152}
-         
-         `**`disks`**` = {'vda': {'readLatency': '0', 'apparentsize': '64424509440', 'writeLatency': '1754496',    'imageID': '28abb923-7b89-4638-84f8-1700f0b76482', 'flushLatency': '156549',  'readRate': '0.00', 'truesize': '18855059456', 'writeRate': '952.05'}, 'hdc': {'readLatency': '0', 'apparentsize': '0', 'writeLatency': '0', 'flushLatency': '0', 'readRate': '0.00', 'truesize': '0', 'writeRate': '0.00'}}
+*   **@vmIDs** a list of UUIDs for VMs to query
 
-#### Very frequent updates needed by webadmin portal:
+Returns for each VM in vmIDs a map with UUID and a value of:
 
-This data is mostly needed for the webadmin portal and might be required to be updated quite often. An exception here is the statsAge field, which seems to be unused by the Engine. This data could be requested every 15 seconds to keep things as they are now.
+*   **timeOffset** The time difference from host to the VM in seconds
+*   **monitorResponse** Indicates if the qemu monitor is responsive
+*   **clientIp** The IP address of the client connected to the display
+*   **username** the username associated with the current session
+*   **session** The current state of user interaction with the VM
+*   **guestIPs** A space separated string of assigned IPv4 addresses
+*   **pauseCode** Indicates the reason a VM has been paused
 
-         `**`cpuSys`**` = 2.32
-         `**`cpuUser`**` = 1.34
-         `**`memUsage`**` = 30
+##### getConfInfo
 
-## Proposed Solution for VDSM & Engine:
+Get configuration information about a list of VMs
+Parameters:
 
-We will introduce new optional parameters to getVmStats, getAllVmStats and list to allow a finer grained specification of data which should be included.
+*   **@vmIDs** a list of UUIDs for VMs to query
 
-**Parameter:** **statsType**=***<string>*** (getVmStats, getAllVmStats only) **Allowed values:**
+Returns for each VM in vmIDs a map with UUID and a value of:
 
-*   full (default to keep backwards compatibility)
-*   app-list (Just send the application list)
-*   rare (include everything from rarely changed to very frequent)
-*   often (include everything from often changed to very frequent)
-*   frequent (only send the very frequently changed items)
+*   **acpiEnable** Indicates if ACPI is enabled inside the VM
+*   **displayPort** The port in use for unencrypted display data
+*   **displaySecurePort** The port in use for encrypted display data
+*   **displayType** The type of display in use
+*   **displayIp** The IP address to use for accessing the VM display
+*   **pid** The process ID of the underlying qemu process
+*   **vmType** The type of VM
+*   **kvmEnable** Indicates if KVM hardware acceleration is enabled
+*   **cdrom** ***optional*** The path to an ISO image used in the VM's CD-ROM device
+*   **boot** ***optional*** An alias for the type of device used to boot the VM
 
-**Parameter:** **clientId**=**<string>** The client id is specified by the client and should be unique however constantly used.
+##### getAllDeviceStats
 
-**Parameter:** **diff**=**<boolean>** In combination with the clientId VDSM will send only differences to the previous request from the named clientId. (if diff=true)
+VM device statistics containing information for getting statistics and SLA information
+Returns for each VM a map with UUID and a value of:
 
-### Additional Change:
+*   **memoryStats** Memory statistics as reported by the guest agent
+*   **balloonInfo** Guest memory balloon information
+*   **disksUsage** Info about mounted filesystems as reported by the agent
+*   **network** Network bandwidth/utilization statistics
+*   **disks** Disk bandwidth/utilization statistics
 
-Besides the introduction of the new parameters for list, getVmStats and getAllVmStats it might make sense to include a hash for the appList into the rarely changed section of the response which would allow to identify changes and avoid having to sent the complete appList every so often and only if the hash known to the client is outdated.
+##### getGuestDetails
 
-**Note:** The appList (Application List) reported by the guest agent could be fully implemented on request only, as long as the guest agent installed supports this. As there seems to be a request to have the complete list of installed applications on all guests this data could be quite extensive and a huge list. On the other hand this data is only rarely visible and therefore it should not be requested all the time and only on demand.
+Get details from the guest OS from a list of VMs
+Parameters:
 
-### Improvement of the Guest Agent:
+*   **@vmIDs** a list of UUIDs for VMs to query
 
-As part of the proposed solution it is necessary to improve the guest agent as well. For the full application list there should be implemented a caching system which will be fully reactive and should not poll the application list for example all the time. The guest can create a prepared data file containing all data in the JSON format (as used for the communication with VDSM via VIO) and just have to read that file from disk and directly sends it to VDSM. However it is quite possible that this list is to big and it might have to be chunked into pieces. (Multiple messages, which would have to be supported by VDSM then as well) The solution for this is to make VDSM request this data and it will retrieve the data necessary on request only.
+Returns for each VM in vmIDs a map with UUID and a value of:
+
+*   **appsList** A list of installed applications with their versions
+*   **netIfaces** Network device address info as reported by the agent

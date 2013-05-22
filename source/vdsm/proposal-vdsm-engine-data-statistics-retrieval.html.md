@@ -100,3 +100,11 @@ Returns for each VM in vmIDs a map with UUID and a value of:
 
 *   **appsList** A list of installed applications with their versions
 *   **netIfaces** Network device address info as reported by the agent
+
+#### Usage
+
+Currently the engine is requesting currently every 3 seconds the vm list from each vdsm host and every 15 seconds all the data mentioned above for all VMs.
+
+The change would be as follows:
+
+The engine requests every 3 seconds getAllRuntimeStats from vdsm which will give the engine the most used data. If the engine has a mismatch of the hashes returned by

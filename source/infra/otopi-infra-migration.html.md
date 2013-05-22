@@ -132,7 +132,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Verify that root is the user executing the script              | Done                    | Done[32]             | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Allow unprivileged user ro run a development cleanup           | Not implemented         | Done                 |                                                       |          |             |
 | Support unattended-clean option                                | Done                    | Done                 |                                                       |          |             |
-| Support dont-drop-db option                                    | Done                    | Feedback             | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Support dont-drop-db option                                    | Done                    | Done                 | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Support dont-remove-ca option                                  | Done                    | Feedback             | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Support remove-nfs-exports option                              | Done                    | Feedback             | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Support remove-exported-content option                         | Done                    | In Progress          | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
@@ -140,7 +140,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Allow logging                                                  | Done                    | Done                 |                                                       |          |             |
 | Ask user to proceed with cleanup in interactive mode           | Done                    | Done                 |                                                       |          |             |
 | Stop Engine service when needed                                | Done                    | Done                 |                                                       |          |             |
-| Backup engine database if drop requested                       | Done                    | Feedback             | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
+| Backup engine database if drop requested                       | Done                    | Done                 | |[ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Drop engine database if requested                              | Done                    | Done[33]             |                                                       |          |             |
 | Clean pgpass if drop requested                                 | Done                    | Done                 |                                                       |          |             |
 | Clean sysctl configuration                                     | Done                    | Done                 |                                                       |          |             |

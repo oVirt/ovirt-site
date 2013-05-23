@@ -40,7 +40,30 @@ Currently, clients manually edit the host's init scripts and set a different gat
 
 ### User Experience
 
-The only change needed in the GUI is adding the default gateway field to each logical network. Currently it exists only for ovirtmgmt.
+The only change needed in the GUI is in the setup networks dialog. When editing an IP configuration, we need to enable the gateway field for all networks, not only ovirtmgmt. If the user chose static IP, then the gateway field should be added and be editable. If DHCP was chosen then the gateway field should be visible and display the gateway configured via DHCP.
+
+### Proposed Solution
+
+# Rules and tables
+
+*   Explanation for manual solution (Maybe with links to sys admin articles)
+*   Rule, table for each network
+*   Also define gateway (if one received) in the ifcfg, so that it enters the main table
+
+# Automatic solution
+
+*   One bash script that installs rules, table
+*   VDSM installation places a hook in /etc/dhcp that links to our script
+*   ifup/down on an interface calls our script if the interface is dhcp
+*   What if the interface is statically configured?
+
+# Upgrading
+
+*   Don't do anything. Tell the users to re-add/sync ovirtmgmt so that its rules, table are created
+
+# API
+
+No change.
 
 ### External References
 

@@ -154,6 +154,12 @@ Build with tests:
 
       $ make BUILD_TEST_FLAGS=" -D engine.db.username=engine -D engine.db.password=engine -D engine.db.url=jdbc:postgresql://localhost/engine_dao -P enable-dao-tests"
 
+#### Upgrade DAO database
+
+*Optional:* Run the upgrade script, provided the user is engine, password engine, and the database is engine_dao
+
+      $ PGPASSWORD=engine ./upgrade.sh -u engine -d engine_dao 
+
 ## Packaging
 
 ### RPM packaging

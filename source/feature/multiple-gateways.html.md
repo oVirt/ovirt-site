@@ -44,24 +44,24 @@ The only change needed in the GUI is in the setup networks dialog. When editing 
 
 ### Proposed Solution
 
-# Rules and tables
+#### Rules and tables
 
 *   Explanation for manual solution (Maybe with links to sys admin articles)
 *   Rule, table for each network
 *   Also define gateway (if one received) in the ifcfg, so that it enters the main table
 
-# Automatic solution
+#### Automatic solution
 
 *   One bash script that installs rules, table
 *   VDSM installation places a hook in /etc/dhcp that links to our script
 *   ifup/down on an interface calls our script if the interface is dhcp
 *   What if the interface is statically configured?
 
-# Upgrading
+#### Upgrading
 
 *   Don't do anything. Tell the users to re-add/sync ovirtmgmt so that its rules, table are created
 
-# API
+#### API
 
 No change.
 

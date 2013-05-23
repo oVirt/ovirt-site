@@ -54,19 +54,33 @@ More information about iproute2 source routing may be found at: <http://www.poli
 
 The zeus02 host is connected via eth0 to one router, and via eth1 (bridged over ovirtmgmt) to another router. We configured the display network on the eth0 NIC.
 
-The ip address on eth0: ![](Example.jpg "fig:Example.jpg")
+**The ip address on eth0:**
 
-The ip address on ovirtmgmt: ![](Example.jpg "fig:Example.jpg")
+![](Eth0 ip.png "Eth0 ip.png")
 
-A list of the host's routing tables: ![](Example.jpg "fig:Example.jpg")
+**The ip address on ovirtmgmt:**
 
-The routing table setup for eth0: ![](Example.jpg "fig:Example.jpg")
+![](Ovirtmgmt ip.png "Ovirtmgmt ip.png")
 
-The routing table setup for ovirtmgmt: ![](Example.jpg "fig:Example.jpg")
+**A list of the host's routing tables:**
 
-The rules which tell the host when to use each routing table: ![](Example.jpg "fig:Example.jpg")
+![](Rt_tables.png "Rt_tables.png")
 
-And finally, here's the host's main routing table. Note that in this configuration is **never used**, however it still has some significance during an upgrade process. This will be explained later in the upgrade section of this document. ![](Example.jpg "fig:Example.jpg")
+**The routing table setup for eth0:**
+
+![](Eth0 table.png "Eth0 table.png")
+
+**The routing table setup for ovirtmgmt:**
+
+![](Ovirtmgmt table.png "Ovirtmgmt table.png")
+
+**The rules which tell the host when to use each routing table:**
+
+![](Ip rule.png "Ip rule.png")
+
+And finally, here's the host's main routing table. Note that in this configuration the main routing table is **never used**, however it still has some significance during an upgrade process. This will be explained later in the upgrade section of this document.
+
+![](Ip route.png "Ip route.png")
 
 #### Automatic solution
 

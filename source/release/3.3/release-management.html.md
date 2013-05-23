@@ -162,4 +162,35 @@ Features being considered for inclusion/already in master:
 *   Frontend Clean-up/Refactoring (at least partial/first phase) [Features/Design/FrontendRefactor](Features/Design/FrontendRefactor)
 *   Upgrade GWT(P) dependencies
 
+| Functional team | Feature                                                                                                 | Release priority | Owner               | Status | Target date | Test page |
+|-----------------|---------------------------------------------------------------------------------------------------------|------------------|---------------------|--------|-------------|-----------|
+| Virt            | [Features/RAM Snapshots](Features/RAM Snapshots)                                             | ?                | ?                   | ?      | ?           | ?         |
+| Virt            | [Features/noVNC console](Features/noVNC console)                                             | ?                | ?                   | ?      | ?           | ?         |
+| Virt            | [Features/GlusterFS_Storage_Domain](Features/GlusterFS_Storage_Domain)                     | ?                | ?                   | ?      | ?           | ?         |
+| Infra           | [Features/Device Custom Properties](Features/Device Custom Properties)                       | ?                | ?                   | ?      | ?           | ?         |
+| Infra           | [Features/ExternalTasks](Features/ExternalTasks)                                             | ?                | ?                   | ?      | ?           | ?         |
+| Infra           | [Features/Supervdsm_service](Features/Supervdsm_service)                                    | ?                | ?                   | ?      | ?           | ?         |
+| Networking      | [Features/Migration Network](Features/Migration Network)                                     | ?                | ?                   | ?      | ?           | ?         |
+| Networking      | [Features/Normalized ovirtmgmt Initialization](Features/Normalized ovirtmgmt Initialization) | ?                | ?                   | ?      | ?           | ?         |
+| Networking      | [Features/Quantum_Integration](Features/Quantum_Integration)                                | ?                | ?                   | ?      | ?           | ?         |
+| Networking      | [Feature/NetworkReloaded](Feature/NetworkReloaded)                                           | ?                | ?                   | ?      | ?           | ?         |
+| Networking      | [Features/Multiple Gateways](Features/Multiple Gateways)                                     | ?                | ?                   | ?      | ?           | ?         |
+| Networking      | [Features/Network Labels](Features/Network Labels)                                           | ?                | ?                   | ?      | ?           | ?         |
+| Networking      | [Features/Network Security Groups](Features/Network Security Groups)                         | ?                | ?                   | ?      | ?           | ?         |
+| Storage         | [Virtio-SCSI support](Features/Virtio-SCSI)                                                  | ?                | ?                   | ?      | ?           | ?         |
+| Storage         | [ Read Only Disks](Features/Read_Only_Disk)                                                  | ?                | ?                   | ?      | ?           | ?         |
+| Storage         | [Edit Connection Properties](Features/Edit_Connection_Properties)                            | ?                | ?                   | ?      | ?           | ?         |
+| Storage         | Adding VDSM hook for hotplug a disk                                                                     | ?                | ?                   | ?      | ?           | ?         |
+| Storage         | Separating "Move" vm operation to "Copy" and "Delete" operations to improve VM availability             | ?                | ?                   | ?      | ?           | ?         |
+| Storage         | Backup and Restore API for Independent Software Vendors                                                 | ?                | ?                   | ?      | ?           | ?         |
+| Storage         | Allow resign/force re-election of SPM                                                                   | ?                | ?                   | ?      | ?           | ?         |
+| SLA             | [Features/oVirt_scheduler](Features/oVirt_scheduler)                                        | ?                | ?                   | ?      | ?           | ?         |
+| SLA             | [Features/Scheduling_API](Features/Scheduling_API)                                          | ?                | ?                   | ?      | ?           | ?         |
+| SLA             | [Features/Watchdog_engine_support](Features/Watchdog_engine_support)                       | ?                | ?                   | ?      | ?           | ?         |
+| Gluster         | [Features/Gluster Hooks Management](Features/Gluster Hooks Management)                       | ?                | ?                   | ?      | ?           | ?         |
+| Gluster         | [Features/Gluster Services Management](Features/Gluster Services Management)                 | ?                | ?                   | ?      | ?           | ?         |
+| Node            | [Universal Node Image](Features/Universal Image)                                             | ?                | ?                   | ?      | ?           | ?         |
+| Node            | [Node VDSM Plugin](Features/Node vdsm plugin)                                                | ?                | ?                   | ?      | ?           | ?         |
+| Integration     | [Otopi Infra Migration](Features/Otopi_Infra_Migration)                                      | Must             | sbonazzo@redhat.com | Green  | 30/5/2013   | ?         |
+
 <Category:Releases> [Category:Release management](Category:Release management)

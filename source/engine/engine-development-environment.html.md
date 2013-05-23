@@ -156,9 +156,9 @@ Build with tests:
 
 #### Upgrade DAO database
 
-*Optional:* Run the upgrade script, provided the user is engine, password engine, and the database is engine_dao
+If you do not wish to drop database and create it again, or you want do test the upgrade cycle of the database, run the following command, assumption of credentials are the same as in create:
 
-      $ PGPASSWORD=engine ./upgrade.sh -u engine -d engine_dao 
+      $ PGPASSWORD=engine ./backend/manager/dbscripts/upgrade.sh -u engine -d engine_dao 
 
 ## Packaging
 

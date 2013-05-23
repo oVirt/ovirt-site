@@ -44,11 +44,29 @@ The only change needed in the GUI is in the setup networks dialog. When editing 
 
 ### Proposed Solution
 
-#### Rules and tables
+#### The Manual Solution
 
-*   Explanation for manual solution (Maybe with links to sys admin articles)
-*   Rule, table for each network
-*   Also define gateway (if one received) in the ifcfg, so that it enters the main table
+The manual solution, or how Linux system admins setup multiple gateways on a host is to create a routing table for each IP subnet configured on the host, and source routing rules to use each table as appropriate. Meaning, if a packet is destined towards the IP configured on the host's eth0 (For example: 10.0.0.1), then when creating a return packet, the source IP will be 10.0.0.1. The host will then go over his configured rules and see that when routing **from** 10.0.0.1, he must use a specific routing table, which holds the gateway for the 10.0.0.0 network. In other words, all traffic to 10.0.0.1 will return via 10.0.0.1's NIC, and all traffic to another IP of the host, will return via that IP's NIC instead. That way, traffic goes out the same way it came in.
+
+More information about iproute2 source routing may be found at: <http://www.policyrouting.org/iproute2-toc.html>
+
+#### Manual Configuration Example
+
+The zeus02 host is connected via eth0 to one router, and via eth1 (bridged over ovirtmgmt) to another router. We configured the display network on the eth0 NIC.
+
+The ip address on eth0: ![](Example.jpg "fig:Example.jpg")
+
+The ip address on ovirtmgmt: ![](Example.jpg "fig:Example.jpg")
+
+A list of the host's routing tables: ![](Example.jpg "fig:Example.jpg")
+
+The routing table setup for eth0: ![](Example.jpg "fig:Example.jpg")
+
+The routing table setup for ovirtmgmt: ![](Example.jpg "fig:Example.jpg")
+
+The rules which tell the host when to use each routing table: ![](Example.jpg "fig:Example.jpg")
+
+And finally, here's the host's main routing table. Note that in this configuration is **never used**, however it still has some significance during an upgrade process. This will be explained later in the upgrade section of this document. ![](Example.jpg "fig:Example.jpg")
 
 #### Automatic solution
 

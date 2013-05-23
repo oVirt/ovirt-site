@@ -95,7 +95,7 @@ And finally, here's the host's main routing table. Note that in this configurati
 
 #### API
 
-No change.
+A significant advantage of the currently proposed implementation is that no API change between the Engine and VDSM is needed. VDSM is capable of distilling the gateways from the current setupNetworks verb.
 
 ### External References
 

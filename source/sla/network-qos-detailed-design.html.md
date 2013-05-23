@@ -104,6 +104,8 @@ An API user modifies a network interface with a PUT request
 
 ## Special considerations
 
+*   Old libvirt versions that have the global driver lock may have performance problems. It would be nice to check what version of libvirt is this going to run on.
+
 ## Dependencies / Related Features
 
 Affected ovirt projects:

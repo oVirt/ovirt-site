@@ -162,6 +162,8 @@ Features being considered for inclusion/already in master:
 *   Frontend Clean-up/Refactoring (at least partial/first phase) [Features/Design/FrontendRefactor](Features/Design/FrontendRefactor)
 *   Upgrade GWT(P) dependencies
 
+## Features Status Table
+
 | Functional team | Feature                                                                                        | Release priority | Owner               | Status | Target date | Test page |
 |-----------------|------------------------------------------------------------------------------------------------|------------------|---------------------|--------|-------------|-----------|
 | Virt            | [RAM Snapshots](Features/RAM Snapshots)                                             | ?                | ?                   | ?      | ?           | ?         |
@@ -195,5 +197,28 @@ Features being considered for inclusion/already in master:
 | Integration     | [Self Hosted Engine](Features/Self_Hosted_Engine)                                   | Should           | sbonazzo@redhat.com | Red    | 20/6/2013   | ?         |
 | UX              | User Portal performance improvements for IE8                                                   | ?                | ?                   | ?      | ?           | ?         |
 | UX              | [FrontendRefactor](Features/Design/FrontendRefactor)                                | ?                | ?                   | ?      | ?           | ?         |
+
+### Feature Table Mapping
+
+#### Release priority:
+
+*   Must - feature absense will delay the release
+*   Should - feature absense won't delay the release
+
+#### Status mapping:
+
+    * Red  - Feature isn't in code base yet.
+
+    * Orange  -  Feature is in code base but not completed yet.
+
+    * Green  - Feature is in code base and ready for testing.
+
+#### Target Date
+
+date complete feature is merged in code base
+
+#### Test Page
+
+base description on how to test the new feature - should be relevant for test day
 
 <Category:Releases> [Category:Release management](Category:Release management)

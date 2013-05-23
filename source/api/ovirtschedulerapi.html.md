@@ -8,84 +8,240 @@ wiki_revision_count: 57
 wiki_last_updated: 2014-06-30
 ---
 
-# o Virt Scheduler API
-
-## [WIP] SLA Pluggable Architecture
+# oVirt Scheduler API [WIP]
 
 ### Summary
 
-This feature will model all the scheduling into a single API, that oVirt admins can alter and enhance default scheduling behavior.
+As long oVirt is progressing and continue to gather features, there is an ever growing actual need for better scheduling: configurable, customized and flexible, both in the programmatic and functionality levels. It is known that the scheduling problem has NP-complete complexity, therefore there's a need to optimize the problem solution, to do that each scheduler implementation should focus on it's own subjective needs. To accomplish that we propose to have a scheduling API architecture, in which the clients can have their own private optimized schedulers.
 
 ### Owner
 
-*   Feature owners: [ Gilad Chaplik](User:gchaplik), [ Doron Fediuck](User:dfediuck), [ Laszlo Hornyak](User:lhornyak)
+Name: [ Gilad Chaplik](User:gchaplik) Email: <gchaplik@redhat.com>
 
 ### Current status
 
-*   Target Release: 3.2
-*   Status: Design Phase
-*   Last updated date: Mon Oct 22 2012
+Status: design
+
+Last updated: ,
+
+### Benefit to oVirt
+
+*   Allow others to integrate with oVirt's Scheduler.
+*   Allow users to add their own scheduling logic.
+*   Should allow other languages (Python), run as script/dynamically.
+*   Load balancing policies can be overwritten.
+*   Provides modularity and boundaries.
 
 ### Detailed Description
 
-Currently scheduling mechanism is handled by oVirt engine internals. To allow users to enhance scheduling mechanism, we need to provide a way for a user to replace or add a self-written scheduler - or 'SLA Pluggable Architecture'. This feature is meant to model current scheduling methods into a single API (place), which will become the 'Default oVirt Scheduling Mechanism'. The Pluggable Architecture has to be flexible enough to foresee future API changes or at least keep them minimal, in order for API to be backward compatible and stable.
+#### oVirt Scheduler concepts
 
-#### Existing Scheduling Mechanisms
+*   Supports filters for hard constraints and cost functions for soft constraints.
+*   Load balancing policies related to filters and cost functions.
+*   Existing logic (pin-to-host, memory limitations, etc) will be translated into filters.
+*   Existing load balancing policies will be translated to the new format.
+*   Additional policies, filters and cost functions may be added by users.
+*   Supports Python (we may be able to allow others as well).
 
-Currently, we can divide oVirt scheduling into two flows, direct and indirect. These flows depend on the VM, host and cluster (oVirt scheduling parameters: HA, selection algo, failure policy, etc.). The direct flows are 'Run Vm' and 'Migrate Vm' commands (select host to run on) & Load Balancing task, the indirect flows are Maintanance VDS, SetNonOperationalVdsCommand, etc., which may cause migration (with host selection obviously). Additionally oVirt scheduling parameters (which will be explained next) are specific for existing scheduler. oVirt
+### API
 
-##### VM migration policy - migration support (VM HA)
+#### Schedule
 
-*   migratable, implicitly non migratable (autoStartup)
-    -   References:
-        -   RunVmCommandBase.canRunVm(Check if iso and floppy path exists ??),
-        -   VmRunHandler.performImageChecksForRunningVm(Check isValid, storageDomain and diskSpace only if VM is not HA VM)
-    -   commands:
-        -   FenceVdsManualyCommand,
-        -   ClearNonResponsiveVdsVmsCommand,
-        -   MaintananceVdsCommand,
-        -   RunVmCommandBase (starts spice)
+Called by Engine's commands.
 
-<!-- -->
+##### Filter
 
-*   pin to host (dedicated_vm_for_vds)
-    -   References:
-        -   selection
-        -   load balancing
-    -   commands:
-        -   ChangeVMClusterCommand (clear pinned host),
-        -   RunVmCommand (selection)
+*   Input: set of Hosts, properties (containing the scheduled vm); output: hosts.
+*   Filters out all hosts that doesn't meet the filter requirements (hard constraint).
+*   Filters are chained; by that the hosts list may decrease from one filter to another.
 
-<!-- -->
+Code sample:
 
-*   priority (priority, VmsComparer)
-    -   References:
-        -   VmsComparer
-    -   Commands:
-        -   MaintananceVds (+ numberOf),
-        -   MigrateVM (order commands),
-        -   LoadBalance (isMigratable),
-        -   VdsSelector (pinned to host)
+         filter(hosts[], properties) {
+             vm = properties['vm']
+             minimal_ram = vm['mem_size']
+             filter(key=lambda host: host['available_mem'] > minimal_ram, hosts)
+             return hosts
+         }
 
-##### Cluster's Host selection policy (selection algorithm)
+##### Cost Function
 
-*   None
-*   EvenlyDistribute
-*   PowerSave
+*   Input: set of hosts, properties; output: set of hosts and scores (pairs) → ordered Hosts.
+*   The cost function score each host according to the its logic, different hosts may have the same score, and the same host may have different scores in different iterations.
+*   Functions can be prioritized using Factors; default factor is 1.
+*   Ultimately, using the filtered hosts, cost functions and factors, we will construct a cost table (see figure), which will order the hosts (we will try to run the VM on the first host, then second and so-forth).
 
-<!-- -->
+Code sample:
 
-*   References:
-    -   LoadBalancer
-    -   VdsGroupOperationCommandBase.validateMetrics (validating high/low utilization, adding/updating vdsGroup)
-    -   VdsSelector
+         score(hosts[], properties) {
+             costs = []
+             for host in hosts:
+                 costs += (host, host[usage_mem_percent])
+             sorted(costs, key=lambda pair: pair[1])
+             return costs #list of pairs
+         }
 
-##### Cluster migration policy - resilience policy
+Flow:
 
-MigrateOnErrorOptions: yes, no, HA only References: SetNonOperationalVdsCommand
+         schedule(filters, cost_functions, factors, hosts[], properties) {
+             # go over all filters
+             for (filter in filters)
+                 hosts = filter(hosts, properties)
+             for (host in hosts)
+`           map += `<host, 0>
+             for (cost_function in cost_functions)
+                 result = cost_function(hosts, properties)
+                 for (host in hosts)
+`               map += `<host, map[host] + result[host] * factors[cost_function]>
+         }
 
-##### Load Balancer
+![](Hosts.png "Hosts.png")
 
-VdsLoadBalancer (Scheduled task)
+#### Balance
+
+Called periodically. Each cluster may use a single balancing logic at any given time.
+
+##### Get VM
+
+*   Input: VMs, Hosts; Output: VM
+*   Perform a single balancing policy logic- replaces a manual selection of scheduled VM.
+*   Select a VM to migrate based on policy.
+*   For the selected VM, call Schedule logic.
+*   A user may provide a filter and/or a cost function. He does not have to do it. We strongly advice on making sure the selected policy in aligned with the filters and cost functions lists. A cost function is a good way to correlate the logic. A filter may be used if filtering under-utilized hosts is needed.
+
+For example: for power saving polisy, a cpu load cost-function is needed.
+
+*   Performance/implementation open-issue: split balance into 2 tasks, first get over-utilized hosts, then get a VM from those hosts (to avoid fetching all VMs in cluster).
+
+Code sample:
+
+         balance(hosts[], vms[], properties) {
+             max_host = max(hosts, key=lambda host: host['usage_mem_percent']))
+             vms_on_host = filter(key=lambda vm: vm['run_on_host'] = max_host['id'], vms)
+             vm = return vms_on_host[0]
+             return vm
+         }
+
+### Design
+
+Cluster scheduler policy will have a set of filters, cost functions and a single balancing logic implementation. To allow easy coupling between the logic of these three, a single class will be provided.
+
+         Class PolicyUnit
+             filter
+             cost_function
+             balance – separated into 2 methods for performance reasons: getOverUtilizedHost, getBestVmToMigrate.
+
+In this class only a single method ought to be implemented, but when balance is implemented it is advised to implement a cost-function, since it later influences migration processes, and being aligned with overall selection policy.
+
+The first phase of implementation is to re-factor the current selection process into Policy Units and new acrh:
+
+| Policy Unit       | Filter                                                                        | Cost function                                    | Balance           | parameters                                      |
+|-------------------|-------------------------------------------------------------------------------|--------------------------------------------------|-------------------|-------------------------------------------------|
+| Migration Domain  | Hosts that doesn't belong to the VM's cluster                                 |                                                  |                   |                                                 |
+| Migration         | Host that the VM is currently running                                         |                                                  |                   |                                                 |
+| Pin-to-host       | Other Hosts except the pinned host                                            |                                                  |                   |                                                 |
+| Memory            | Hosts that doesn't have sufficient Memory to run the VM, and have swap memory | Order Hosts according to available memory        |                   |                                                 |
+| CPU               | Hosts that doesn't meet the VM's CPU topology                                 |                                                  |                   |                                                 |
+| Network Policy    | Host that doesn't have all required networks installed                        |                                                  |                   |                                                 |
+| Even distribution |                                                                               | Order Hosts according to CPU usage (low to high) | Even distribution | LowCpuUtilization, CpuOverCommitDurationMinutes |
+| Power saving      |                                                                               | Order Hosts according to CPU usage (high to low) | Power saving      | LowCpuUtilization, CpuOverCommitDurationMinutes |
+
+### Concurrent Scheduler Invocations – and Pending Resources (memory, CPU)
+
+When a scheduler call is invoked there is a need to dis-allow any other scheduler requests. The scheduler decision is based on shared resources and those resource state should be visible only to a single selection at a time until the selection is finished or a shared state is updated. Therefore a cluster lock should be acquired prior the scheduler invocation. The lock has a timeout to avoid starvation of pending requests. In case a filtering process ended with no hosts and there is enough pending memory, the request should try to reacquire the lock and hopefully can be rescheduled when pending resources are now available.
+
+The lock considers cluster's hosts available and pending resources:
+
+Lock Conditions:
+
+| Lock status               | Available resources | No Available resources + Available pending resources | No available resources |
+|---------------------------|---------------------|------------------------------------------------------|------------------------|
+| unlocked                  | acquire lock        | wait till timeout                                    | fail                   |
+| Locked                    | wait till timeout   | wait till timeout                                    | fail                   |
+| Pending resources changed | acquire lock        | wait till timeout                                    | fail                   |
+
+We can later consider a priory queue to give advantage to VMs that are likely to be scheduled succesfully (give Vms with less constraints and resources higher priority).
+
+### DB Scheme
+
+#### policy_unit table
+
+| Name                       | Type    | Description                     | Relations |
+|----------------------------|---------|---------------------------------|-----------|
+| id                         | UUID    |                                 |           |
+| name                       | string  | Class/File name                 |           |
+| has_filter                | boolean | Does filter method implemented? |           |
+| has_cost_function        | boolean | Does filter method implemented? |           |
+| has_balance               | boolean | Does filter method implemented? |           |
+| filter_parameters         | string  |                                 |           |
+| cost_function_parameters | string  |                                 |           |
+| balance_parameters        | string  |                                 |           |
+
+#### policy table
+
+| Name        | Type    | Description | Relations |
+|-------------|---------|-------------|-----------|
+| id          | UUID    |             |           |
+| name        | string  |             |           |
+| is_default | boolean |             |           |
+
+*   'edit policy' action for policies attached to other cluster(s), will clone and edit current policy.
+
+#### policy-cluster table
+
+| Name           | Type | Description | Relations        |
+|----------------|------|-------------|------------------|
+| Id             | UUID |             |                  |
+| policy_id     | UUID |             | Policy table     |
+| vds_group_id | UUID |             | vds_group table |
+
+*   policy_id can be added to cluster table (I prefer not).
+
+#### policy-policy unit table
+
+| Name                     | Type    | Description                                                   | Relations         |
+|--------------------------|---------|---------------------------------------------------------------|-------------------|
+| id                       | UUID    |                                                               |                   |
+| policy_id               | UUID    |                                                               | Policy table      |
+| policy_unit_id         | UUID    |                                                               | Policy Unit table |
+| filter_selected         | boolean |                                                               |                   |
+| filter_priority         | int     | When should be executed in chain (lowest is highest priority) |                   |
+| cost_function_selected | boolean |                                                               |                   |
+| factor                   | int     |                                                               |                   |
+| cost_function_priority | int     | When should be executed in chain (lowest is highest priority) |                   |
+| balance_selected        | boolean |                                                               |                   |
+
+#### policy parameters table
+
+| Name                       | Type   | Description | Relations                |
+|----------------------------|--------|-------------|--------------------------|
+| id                         | UUID   |             |                          |
+| policy-cluster-id          | UUID   |             | policy-cluster table     |
+| policy-policy_unit-id     | UUID   |             | policy-policy unit table |
+| filter_parameters         | string |             |                          |
+| cost_function_parameters | string |             |                          |
+| balance_parameters        | string |             |                          |
+
+### MLA
+
+Action Groups:
+
+1) Create/EditPolicy (including edit custom properties; to get impact, containing role should be attached to Cluster/DC/System level).
+
+2) DeletePolicy (to get impact, containing role should be attached to System level).
+
+### In Progress
+
+1.  UI
+2.  REST
+
+### TBD
+
+1.  Upgrade DB to new architecture
+
+### Later Phases
+
+1.  External Scheduler.
+2.  External scheduler invocation – first run internal filters/cost-functions, and then external.
 
 <Category:Feature> <Category:SLA>

@@ -192,5 +192,9 @@ Features being considered for inclusion/already in master:
 | Node            | [Universal Node Image](Features/Universal Image)                                    | ?                | ?                   | ?      | ?           | ?         |
 | Node            | [Node VDSM Plugin](Features/Node vdsm plugin)                                       | ?                | ?                   | ?      | ?           | ?         |
 | Integration     | [Otopi Infra Migration](Features/Otopi_Infra_Migration)                             | Must             | sbonazzo@redhat.com | Green  | 30/5/2013   | ?         |
+| Integration     | [Self Hosted Engine](Features/Self_Hosted_Engine)                                   | Should           | sbonazzo@redhat.com | Red    | 20/6/2013   | ?         |
+| UX              | User Portal performance improvements for IE8                                                   | ?                | ?                   | ?      | ?           | ?         |
+| UX              | [FrontendRefactor](Features/Design/FrontendRefactor)                                | ?                | ?                   | ?      | ?           | ?         |
+| UX              | [FrontendRefactor](Features/Design/FrontendRefactor)                                | ?                | ?                   | ?      | ?           | ?         |
 
 <Category:Releases> [Category:Release management](Category:Release management)

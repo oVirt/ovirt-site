@@ -62,6 +62,8 @@ Add support to the QoS properties by adding 6 columns to the **vm_interface** - 
 | outbound_peak    | Integer     |                 |
 | outbound_burst   | Bigint      |                 |
 
+* alternatively, we can save average,peak,burst values in one string field, but we expect future uses to include mathematical calculations on the values.
+
 ### REST API
 
 Change the Virtual Machine > Network Interfaces to support QoS properties Example of an XML representation of a network interface

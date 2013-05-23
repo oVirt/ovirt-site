@@ -218,6 +218,8 @@ Features being considered for inclusion/already in master:
     -   <http://gerrit.ovirt.org/#/c/12301/>
     -   <http://gerrit.ovirt.org/#/c/12340/>
     -   <http://gerrit.ovirt.org/#/c/12524/>
+*   Branding support
+    -   <http://gerrit.ovirt.org/#/c/13181/>
 *   Frontend Clean-up/Refactoring (at least partial/first phase) [Features/Design/FrontendRefactor](Features/Design/FrontendRefactor)
 *   Upgrade GWT(P) dependencies
 

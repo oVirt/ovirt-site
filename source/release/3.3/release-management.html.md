@@ -79,6 +79,65 @@ Tracker bug: <https://bugzilla.redhat.com/918494>
 *   **SHOULD**: (scheduling API first) VM affinity
 *   **SHOULD**: (scheduling API first) VM not getting minimum guaranteed memory
 
+## Features Status Table
+
+| Functional team | Feature                                                                                        | Release priority | Owner               | Status | Target date | Test page |
+|-----------------|------------------------------------------------------------------------------------------------|------------------|---------------------|--------|-------------|-----------|
+| Virt            | [RAM Snapshots](Features/RAM Snapshots)                                             | ?                | ?                   | ?      | ?           | ?         |
+| Virt            | [noVNC console](Features/noVNC console)                                             | ?                | ?                   | ?      | ?           | ?         |
+| Virt            | [GlusterFS Storage Domain](Features/GlusterFS_Storage_Domain)                       | ?                | ?                   | ?      | ?           | ?         |
+| Infra           | [Device Custom Properties](Features/Device Custom Properties)                       | ?                | ?                   | ?      | ?           | ?         |
+| Infra           | [ExternalTasks](Features/ExternalTasks)                                             | ?                | ?                   | ?      | ?           | ?         |
+| Infra           | [Supervdsm service](Features/Supervdsm_service)                                     | ?                | ?                   | ?      | ?           | ?         |
+| Networking      | [Migration Network](Features/Migration Network)                                     | ?                | ?                   | ?      | ?           | ?         |
+| Networking      | [Normalized ovirtmgmt Initialization](Features/Normalized ovirtmgmt Initialization) | ?                | ?                   | ?      | ?           | ?         |
+| Networking      | [Quantum Integration](Features/Quantum_Integration)                                 | ?                | ?                   | ?      | ?           | ?         |
+| Networking      | [NetworkReloaded](Feature/NetworkReloaded)                                          | ?                | ?                   | ?      | ?           | ?         |
+| Networking      | [Multiple Gateways](Features/Multiple Gateways)                                     | ?                | ?                   | ?      | ?           | ?         |
+| Networking      | [Network Labels](Features/Network Labels)                                           | ?                | ?                   | ?      | ?           | ?         |
+| Networking      | [Network Security Groups](Features/Network Security Groups)                         | ?                | ?                   | ?      | ?           | ?         |
+| Storage         | [Virtio-SCSI support](Features/Virtio-SCSI)                                         | ?                | ?                   | ?      | ?           | ?         |
+| Storage         | [ Read Only Disks](Features/Read_Only_Disk)                                         | ?                | ?                   | ?      | ?           | ?         |
+| Storage         | [Edit Connection Properties](Features/Edit_Connection_Properties)                   | ?                | ?                   | ?      | ?           | ?         |
+| Storage         | Adding VDSM hook for hotplug a disk                                                            | ?                | ?                   | ?      | ?           | ?         |
+| Storage         | Separating "Move" vm operation to "Copy" and "Delete" operations to improve VM availability    | ?                | ?                   | ?      | ?           | ?         |
+| Storage         | Backup and Restore API for Independent Software Vendors                                        | ?                | ?                   | ?      | ?           | ?         |
+| Storage         | Allow resign/force re-election of SPM                                                          | ?                | ?                   | ?      | ?           | ?         |
+| SLA             | [oVirt scheduler](Features/oVirt_scheduler)                                         | ?                | ?                   | ?      | ?           | ?         |
+| SLA             | [Scheduling API](Features/Scheduling_API)                                           | ?                | ?                   | ?      | ?           | ?         |
+| SLA             | [Watchdog engine support](Features/Watchdog_engine_support)                         | ?                | ?                   | ?      | ?           | ?         |
+| Gluster         | [Gluster Hooks Management](Features/Gluster Hooks Managemen)                        | ?                | ?                   | ?      | ?           | ?         |
+| Gluster         | [Gluster Services Management](Features/Gluster Services Management)                 | ?                | ?                   | ?      | ?           | ?         |
+| Node            | [Universal Node Image](Features/Universal Image)                                    | ?                | ?                   | ?      | ?           | ?         |
+| Node            | [Node VDSM Plugin](Features/Node vdsm plugin)                                       | ?                | ?                   | ?      | ?           | ?         |
+| Integration     | [Otopi Infra Migration](Features/Otopi_Infra_Migration)                             | Must             | sbonazzo@redhat.com | Green  | 30/5/2013   | ?         |
+| Integration     | [Self Hosted Engine](Features/Self_Hosted_Engine)                                   | Should           | sbonazzo@redhat.com | Red    | 20/6/2013   | ?         |
+| UX              | User Portal performance improvements for IE8                                                   | ?                | ?                   | ?      | ?           | ?         |
+| UX              | [FrontendRefactor](Features/Design/FrontendRefactor)                                | ?                | ?                   | ?      | ?           | ?         |
+
+### Feature Table Mapping
+
+#### Release priority:
+
+*   Must - feature absense will delay the release
+*   Should - feature absense won't delay the release
+
+#### Status mapping:
+
+    * Red  - Feature isn't in code base yet.
+
+    * Orange  -  Feature is in code base but not completed yet.
+
+    * Green  - Feature is in code base and ready for testing.
+
+#### Target Date
+
+date complete feature is merged in code base
+
+#### Test Page
+
+base description on how to test the new feature - should be relevant for test day
+
 ## Features
 
 Features being considered for inclusion/already in master:
@@ -161,64 +220,5 @@ Features being considered for inclusion/already in master:
     -   <http://gerrit.ovirt.org/#/c/12524/>
 *   Frontend Clean-up/Refactoring (at least partial/first phase) [Features/Design/FrontendRefactor](Features/Design/FrontendRefactor)
 *   Upgrade GWT(P) dependencies
-
-## Features Status Table
-
-| Functional team | Feature                                                                                        | Release priority | Owner               | Status | Target date | Test page |
-|-----------------|------------------------------------------------------------------------------------------------|------------------|---------------------|--------|-------------|-----------|
-| Virt            | [RAM Snapshots](Features/RAM Snapshots)                                             | ?                | ?                   | ?      | ?           | ?         |
-| Virt            | [noVNC console](Features/noVNC console)                                             | ?                | ?                   | ?      | ?           | ?         |
-| Virt            | [GlusterFS Storage Domain](Features/GlusterFS_Storage_Domain)                       | ?                | ?                   | ?      | ?           | ?         |
-| Infra           | [Device Custom Properties](Features/Device Custom Properties)                       | ?                | ?                   | ?      | ?           | ?         |
-| Infra           | [ExternalTasks](Features/ExternalTasks)                                             | ?                | ?                   | ?      | ?           | ?         |
-| Infra           | [Supervdsm service](Features/Supervdsm_service)                                     | ?                | ?                   | ?      | ?           | ?         |
-| Networking      | [Migration Network](Features/Migration Network)                                     | ?                | ?                   | ?      | ?           | ?         |
-| Networking      | [Normalized ovirtmgmt Initialization](Features/Normalized ovirtmgmt Initialization) | ?                | ?                   | ?      | ?           | ?         |
-| Networking      | [Quantum Integration](Features/Quantum_Integration)                                 | ?                | ?                   | ?      | ?           | ?         |
-| Networking      | [NetworkReloaded](Feature/NetworkReloaded)                                          | ?                | ?                   | ?      | ?           | ?         |
-| Networking      | [Multiple Gateways](Features/Multiple Gateways)                                     | ?                | ?                   | ?      | ?           | ?         |
-| Networking      | [Network Labels](Features/Network Labels)                                           | ?                | ?                   | ?      | ?           | ?         |
-| Networking      | [Network Security Groups](Features/Network Security Groups)                         | ?                | ?                   | ?      | ?           | ?         |
-| Storage         | [Virtio-SCSI support](Features/Virtio-SCSI)                                         | ?                | ?                   | ?      | ?           | ?         |
-| Storage         | [ Read Only Disks](Features/Read_Only_Disk)                                         | ?                | ?                   | ?      | ?           | ?         |
-| Storage         | [Edit Connection Properties](Features/Edit_Connection_Properties)                   | ?                | ?                   | ?      | ?           | ?         |
-| Storage         | Adding VDSM hook for hotplug a disk                                                            | ?                | ?                   | ?      | ?           | ?         |
-| Storage         | Separating "Move" vm operation to "Copy" and "Delete" operations to improve VM availability    | ?                | ?                   | ?      | ?           | ?         |
-| Storage         | Backup and Restore API for Independent Software Vendors                                        | ?                | ?                   | ?      | ?           | ?         |
-| Storage         | Allow resign/force re-election of SPM                                                          | ?                | ?                   | ?      | ?           | ?         |
-| SLA             | [oVirt scheduler](Features/oVirt_scheduler)                                         | ?                | ?                   | ?      | ?           | ?         |
-| SLA             | [Scheduling API](Features/Scheduling_API)                                           | ?                | ?                   | ?      | ?           | ?         |
-| SLA             | [Watchdog engine support](Features/Watchdog_engine_support)                         | ?                | ?                   | ?      | ?           | ?         |
-| Gluster         | [Gluster Hooks Management](Features/Gluster Hooks Managemen)                        | ?                | ?                   | ?      | ?           | ?         |
-| Gluster         | [Gluster Services Management](Features/Gluster Services Management)                 | ?                | ?                   | ?      | ?           | ?         |
-| Node            | [Universal Node Image](Features/Universal Image)                                    | ?                | ?                   | ?      | ?           | ?         |
-| Node            | [Node VDSM Plugin](Features/Node vdsm plugin)                                       | ?                | ?                   | ?      | ?           | ?         |
-| Integration     | [Otopi Infra Migration](Features/Otopi_Infra_Migration)                             | Must             | sbonazzo@redhat.com | Green  | 30/5/2013   | ?         |
-| Integration     | [Self Hosted Engine](Features/Self_Hosted_Engine)                                   | Should           | sbonazzo@redhat.com | Red    | 20/6/2013   | ?         |
-| UX              | User Portal performance improvements for IE8                                                   | ?                | ?                   | ?      | ?           | ?         |
-| UX              | [FrontendRefactor](Features/Design/FrontendRefactor)                                | ?                | ?                   | ?      | ?           | ?         |
-
-### Feature Table Mapping
-
-#### Release priority:
-
-*   Must - feature absense will delay the release
-*   Should - feature absense won't delay the release
-
-#### Status mapping:
-
-    * Red  - Feature isn't in code base yet.
-
-    * Orange  -  Feature is in code base but not completed yet.
-
-    * Green  - Feature is in code base and ready for testing.
-
-#### Target Date
-
-date complete feature is merged in code base
-
-#### Test Page
-
-base description on how to test the new feature - should be relevant for test day
 
 <Category:Releases> [Category:Release management](Category:Release management)

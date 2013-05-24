@@ -143,7 +143,7 @@ User may want to configure vdc_options to override the default values, these con
 | AttestationTruststorePass      | password                               |
 | AttestationFirstStageSize      | 10                                     |
 
-For example, specify attestation server with domain name, please follow these script:
+currently, only attestation server must be specified and modified, for other options, it is okay with the default value, please follow these script to modify "AttestationServer" :
  insert into vdc_options (option_name, option_value) values (' AttestationServer','oat-server');
 
       update vdc_options set option_value = ‘oat-server. ***.com’ where option_name = 'AttestationServer'

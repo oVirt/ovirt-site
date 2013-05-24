@@ -188,7 +188,7 @@ POLLHOSTS
 
 ### Configuration in oVirt Engine
 
-User may want to configure vdc_options to override the default values, these configurations include:
+User may want to configure vdc_options to overwrite the default values, these configurations include:
 
 | options                        | default value                          |
 |--------------------------------|----------------------------------------|
@@ -200,7 +200,8 @@ User may want to configure vdc_options to override the default values, these con
 | AttestationTruststorePass      | password                               |
 | AttestationFirstStageSize      | 10                                     |
 
-currently, only attestation server must be specified and modified, for other options, it is okay with the default value, please follow these script to modify "AttestationServer" :
- insert into vdc_options (option_name, option_value) values (' AttestationServer','oat-server');
+*   Copy "TrustStore.jks" from Attestation server to engine server. Find the file in the directory of "/var/lib/oat-appraiser/Certificate/" and copy this file into "/etc/pki/ovirt-engine" of engine server.
+*   Overwrite the default values. Currently, only attestation server must be specified and modified, for other options, it is okay with the default value, please follow these script to modify "AttestationServer" :
 
+      insert into vdc_options (option_name, option_value) values (' AttestationServer','oat-server');
       update vdc_options set option_value = ‘oat-server. ***.com’ where option_name = 'AttestationServer'

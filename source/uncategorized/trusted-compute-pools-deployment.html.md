@@ -14,9 +14,6 @@ This is a manual for how to deploy trusted compute pools feature in oVirt.
 
 *   Name: [ Gang Wei](User:gwei3)
 *   Last updated date: May 24, 2013
-
-<!-- -->
-
 *   Email: <gang.wei@intel.com>
 
 ### Deploy Attestation Service
@@ -37,7 +34,7 @@ Download [oat-appraiser](http://gwei3.fedorapeople.org/package_review/oat/v1/oat
 
 *   Yum Install oat server package from fedora18 repository (not available now).
 
-      yum install oat-appraiser
+      # yum install oat-appraiser
 
 #### Generate Client Files
 
@@ -127,63 +124,87 @@ Make sure the TrouSers service is started before moving on. Service name is “t
 
 *   Install all-in-one package
 
-Build rpm package based on the source rpm package and install oat-client package. Follow this link to get the source package.
+Download [oat-client](http://gwei3.fedorapeople.org/package_review/oat/v1/oat-client-1.6.0-1.fc18.x86_64.rpm) rpm package, and then
 
-<http://sourceforge.net/projects/tboot/files/oat/oat-1.6.0-1.fc18.src.rpm>
+      # rpm -i oat-client-1.6.0-1.fc18.x86_64.rpm
 
 *   Yum Install oat server package from fedora18 repository
 
-      yum install oat-client
+      # yum install oat-client
 
 #### File copying and Agent Registration
 
-Copy “PrivacyCA.cer” and “TrustStore.jks” from server side to agent side. Find these files under this directory (server side): /var/lib/oat-appraiser/ClientFiles Copy them to this directory (agent side): /usr/share/oat-client
+Copy “PrivacyCA.cer” and “TrustStore.jks” from server side to agent side. Find these files under this directory (server side):
 
-Go to this directory: /usr/share/oat-client/script, run provisioner.sh to register host agent.
+*   /var/lib/oat-appraiser/ClientFiles
 
-      bash provisioner.sh
+Copy them to this directory (agent side):
+
+*   /usr/share/oat-client
+
+Then register host agent:
+
+      # cd /usr/share/oat-client/script
+      # bash provisioner.sh
 
 ### Install oat-command tool
 
 *   Install all-in-one package
 
-Build rpm package based on the source rpm package and install oat-commandtool package. Follow this link to get the source package.
+Download [oat-commandtool](http://gwei3.fedorapeople.org/package_review/oat/v1/oat-commandtool-1.6.0-1.fc18.x86_64.rpm) rpm package, and then
 
-<http://sourceforge.net/projects/tboot/files/oat/oat-1.6.0-1.fc18.src.rpm>
+      # rpm -i oat-commandtool-1.6.0-1.fc18.x86_64.rpm
 
 *   Yum Install oat-commandtool package from fedora18 repository.
 
-      yum install oat-commandtool
+      # yum install oat-commandtool
 
-Find 11 commands in “/usr/bin” directory, at least OEM, OS, MLE, and HOST information should be added to Attestation Server’s database.
-Exmaple (execute this command in "/usr/bin" directory):
-Generate certification:
+You will find below 11 scripts in “/usr/bin” directory:
 
-      bash oat_cert  -h oatserver.*.com 
+      # ls /usr/bin/oat_*
+      oat_cert  oat_host  oat_mle  oat_mle_search  oat_oem  oat_os  oat_pcrwhitelist  oat_pollhosts  oat_view_mle  oat_view_oem  oat_view_os
 
-ADD OEM:
+### Provision White List Database
 
-      bash oat_oem -a -h oatserver.*.com '{"Name":"OEM1","Description":"Newdescription"}'
+At least OEM, OS, MLE, and HOST information should be added to Attestation Server’s White List database.
 
-ADD OS:
+Follow below exmaple to make a oVirt node recognized as "trusted" by the attestation service. (execute this command in "/usr/bin" directory):
 
-      bash oat_os -a -h oatserver.*.com '{"Name":"OS1","Version":"v1","Description":"Test1"}'
+*   Generate certification:
 
-ADD VMM type MLE
+      # bash oat_cert  -h oatserver.*.com 
 
-      bash oat_mle -a -h oatserver.*.com '{"Name":"NewMLE2","Version":"v123","OsName":"OS1","OsVersion":"v1","Attestation_Type": "PCR","MLE_Type":"VMM","Description":"Test","MLE_Manifests": [{"Name": "18",  "Value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"}]}'
+*   Add OEM:
 
-ADD BIOS type MLE
+      # bash oat_oem -a -h oatserver.*.com '{"Name":"OEM1","Description":"Newdescription"}'
 
-      bash oat_mle -a -h oatserver.*.com '{"Name":"NewMLE1","Version":"v123","OemName":"OEM1","Attestation_Type": "PCR","MLE_Type":"BIOS","Description":"MLETest1111","MLE_Manifests": [{"Name": "0",  "Value": "31B97D97B4679*******D943635693FFBAB4143"}]}'
+*   Add OS:
 
-ADD HOST
+      # bash oat_os -a -h oatserver.*.com '{"Name":"OS1","Version":"v1","Description":"Test1"}'
 
-      bash oat_host -a -h oatserver.*.com '{"HostName":"agent.*.com","IPAddress":"192.168.1.1","Port":"9999","BIOS_Name":"NewMLE1","BIOS_Version":"v123","BIOS_Oem":"OEM1","VMM_Name":"NewMLE2","VMM_Version":"v123","VMM_OSName":"OS1","VMM_OSVersion":"v1","Email":"","AddOn_Connection_String":"","Description":""}'
+*   Add VMM type MLE
 
-POLLHOSTS
+      # bash oat_mle -a -h oatserver.*.com '{"Name":"NewMLE2","Version":"v123","OsName":"OS1","OsVersion":"v1","Attestation_Type": "PCR","MLE_Type":"VMM","Description":"Test","MLE_Manifests": [{"Name": "18",  "Value": "CE796BD88E58890534CF6131571D5AF652293E55"}]}'
 
-      bash oat_pollhosts -h oatserver.*.com '{"hosts":["agent.*.com"]}'
+Notes: "18" means PCR 18, the value could be got via "# cat /sys/.../pcrs", but the space chars should be removed first.
+
+*   Add BIOS type MLE
+
+      # bash oat_mle -a -h oatserver.*.com '{"Name":"NewMLE1","Version":"v123","OemName":"OEM1","Attestation_Type": "PCR","MLE_Type":"BIOS","Description":"MLETest1111","MLE_Manifests": [{"Name": "0",  "Value": "D8FE91C410E7A3F9CAD8C05F42AC2DDFF707902E"}]}'
+
+Notes: "0" means PCR 0, the value could be got via "# cat /sys/.../pcrs", but the space chars should be removed first.
+
+*   Add HOST
+
+      # bash oat_host -a -h oatserver.*.com '{"HostName":"agent.*.com","IPAddress":"192.168.1.1","Port":"9999","BIOS_Name":"NewMLE1","BIOS_Version":"v123","BIOS_Oem":"OEM1","VMM_Name":"NewMLE2","VMM_Version":"v123","VMM_OSName":"OS1","VMM_OSVersion":"v1","Email":"","AddOn_Connection_String":"","Description":""}'
+
+Notes: by far, "IPAddress" and "Port" are not really used, so just leave a placeholder there.
+
+*   query the trust state of the node
+
+      # bash oat_pollhosts -h oatserver.*.com '{"hosts":["agent.*.com"]}'
+
+Once you got response like below the you can continue to configure oVirt engine for TCP
 
 ### Configuration in oVirt Engine
 

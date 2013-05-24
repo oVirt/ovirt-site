@@ -102,7 +102,24 @@ When upgrading a host to the VDSM version that will support multiple gateways, m
 
 #### API
 
+##### Vdsm
+
 A significant advantage of the currently proposed implementation is that no API change between the Engine and VDSM is needed. VDSM is capable of distilling the gateways from the current setupNetworks verb.
+
+##### REST and Engine
+
+Currently, only when setting the management network, a gateway may be specified. With this feature, each network with static address may have a gateway, that would control source routing for that address.
+
+### Testing
+
+*   Set up networking as described in [#Why_do_we_need_multiple_gateways](#Why_do_we_need_multiple_gateways). Most importantly, place your spice client outside of the hosts' own subnet.
+*   Verify that spice traffic travels through the designated host.
+*   Test the above both with static addresses and with DHCP.
+
+Another, more complex test is:
+
+*   Set up two hosts in a cluster, and define a migration network between them. The interfaces designated for migration, should not sit on the same broadcast domain, but rather communicate via a router.
+*   Start a VM and migrate it from one host to another. Verify that migration traffic flows through the defined gateway.
 
 ### External References
 

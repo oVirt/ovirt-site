@@ -39,7 +39,7 @@ Build rpm package based on the source rpm package and install oat-appraiser pack
 
 <http://sourceforge.net/projects/tboot/files/oat/oat-1.6.0-1.fc18.src.rpm>
 
-*   Yum Install oat server package from fedora18 repository.
+*   Yum Install oat server package from fedora18 repository (not available now).
 
       yum install oat-appraiser
 

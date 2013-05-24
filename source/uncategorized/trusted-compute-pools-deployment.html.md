@@ -35,9 +35,9 @@ Two approaches (all-in-one packages, yum install) are provided to deploy Attesta
 
 *   Install all-in-one package
 
-Build rpm package based on the source rpm package and install oat-appraiser package. Follow this link to get the source package.
+Download [oat-appraiser](http://gwei3.fedorapeople.org/package_review/oat/v1/oat-appraiser-1.6.0-1.fc18.x86_64.rpm) rpm package, and then
 
-<http://sourceforge.net/projects/tboot/files/oat/oat-1.6.0-1.fc18.src.rpm>
+      # rpm -i oat-appraiser-1.6.0-1.fc18.x86_64.rpm
 
 *   Yum Install oat server package from fedora18 repository (not available now).
 

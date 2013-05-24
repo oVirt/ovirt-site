@@ -21,9 +21,9 @@ This is a manual for how to deploy trusted compute pools feature in oVirt.
 
 ### Deploy Attestation Service
 
-Two approaches (all-in-one package, yum install) are provided to deploy Attestation Service. Install via yum command will be available after oat package is merged in fedora 18 repository.
+Two approaches (all-in-one packages, yum install) are provided to deploy Attestation Service. Install via yum command will be available after oat package is merged in fedora 18 repository.
 
-#### Install basic packages in RHEL (for all-in-one approach)
+#### Install basic packages in Fedora18 (for all-in-one approach)
 
       yum -y install httpd
       yum -y install mysql mysql-server

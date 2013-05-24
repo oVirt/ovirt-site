@@ -13,6 +13,7 @@ This is a manual for how to deploy trusted compute pools feature in oVirt.
 ### Owner
 
 *   Name: [ Gang Wei](User:gwei3)
+*   Last updated date: May 24, 2013
 
 <!-- -->
 
@@ -24,7 +25,9 @@ Two approaches (all-in-one package, yum install) are provided to deploy Attestat
 
 #### Install basic packages in RHEL (for all-in-one approach)
 
-yum -y install httpd yum -y install mysql mysql-server yum -y install php php-mysql yum -y install openssl yum -y install java-1.7.0-openjdk.x86_64
+      yum -y install httpd
+
+yum -y install mysql mysql-server yum -y install php php-mysql yum -y install openssl yum -y install java-1.7.0-openjdk.x86_64
 
 #### Install basic packages in RHEL (for all-in-one approach)
 

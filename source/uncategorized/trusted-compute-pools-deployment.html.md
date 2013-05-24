@@ -73,7 +73,9 @@ Make sure the TrouSers service is started before moving on. Service name in RHEL
 
 *   Install all-in-one package
 
-Build rpm package based on the source rpm package and install oat-client package. Follow this link to get the source package. <http://sourceforge.net/projects/tboot/files/oat/oat-1.6.0-1.fc18.src.rpm>
+Build rpm package based on the source rpm package and install oat-client package. Follow this link to get the source package.
+
+<http://sourceforge.net/projects/tboot/files/oat/oat-1.6.0-1.fc18.src.rpm>
 
 *   Yum Install oat server package from fedora18 repository
 

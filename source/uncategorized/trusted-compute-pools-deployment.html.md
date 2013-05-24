@@ -53,16 +53,16 @@ Client files will be output in this directory “/var/lib/oat-appraiser/ClientFi
 
 ### Deploy Host Agent on VDS
 
-Two approaches (all-in-one package, yum install) are provided to deploy Attestation Service; Install via yum command will be available after oat package is merged in fedora 18 repository.
+Two approaches (all-in-one packages, yum install) are provided to deploy Attestation Service; Install via yum command will be available after oat package is merged in fedora 18 repository.
 
 #### Enable Intel® TXT in BIOS
 
 Client system must have TPM 1.2 compliant device with driver installed, and TPM/TXT enabled in BIOS to perform the operation.
 
-*   Enable Intel® TXT technology in BIOS
-*   Enable TPM technology in BIOS
+*   Enable Intel® Trusted Execution Technology technology in BIOS
+*   Enable TPM in BIOS
 
-#### Install basic Packages in RHEL (for all-in-one approach)
+#### Install basic Packages in Fedora18 (for all-in-one approach)
 
       yum install trousers-devel
       yum install java-1.7.0-openjdk

@@ -66,10 +66,10 @@ The Fedora18 x86-64 system should be installed to run in legacy boot instead of 
 
 Client system must have TPM 1.2 compliant device with driver installed, and TPM/TXT enabled in BIOS to perform the operation. Below is a example for HP8300 system:
 
-      * Power on, ESC key -> Startup Menu -> Computer Setup(F10)
-      * Security->Setup Password, set setup password as linux123 then F10 save it.
-      * Security->System Security, enable vtx/vtd/Embeded Security Device/Trusted Execution Technology, F10 save it.
-      * File->Save Changes and Exit.
+*   Power on, ESC key -> Startup Menu -> Computer Setup(F10)
+*   Security->Setup Password, set setup password as xxxxxx then F10 save it.
+*   Security->System Security, enable vtx/vtd/Embeded Security Device/Trusted Execution Technology, F10 save it.
+*   File->Save Changes and Exit.
 
 #### Install basic Packages in Fedora18 (for all-in-one approach)
 

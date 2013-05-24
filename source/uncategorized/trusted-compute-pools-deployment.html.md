@@ -119,8 +119,7 @@ Check the PCR values in TPM via the sysfs interface provided by TPM driver, make
 
 #### Install basic Packages in Fedora18 (for all-in-one approach)
 
-      yum install trousers-devel
-      yum install java-1.7.0-openjdk
+      # yum -y install trousers-devel java-1.7.0-openjdk
 
 Make sure the TrouSers service is started before moving on. Service name is “tcsd”
 

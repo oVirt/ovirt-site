@@ -101,7 +101,9 @@ Build rpm package based on the source rpm package and install oat-commandtool pa
 
       yum install oat-commandtool
 
-Find 11 commands in “/usr/bin” directory, normally, at least OEM, OS, MLE, and HOST information should be added to Attestation Server’s database. exmaple (execute this command in "/usr/bin" directory): Generate certification:
+Find 11 commands in “/usr/bin” directory, at least OEM, OS, MLE, and HOST information should be added to Attestation Server’s database.
+Exmaple (execute this command in "/usr/bin" directory):
+Generate certification:
 
       bash oat_cert  -h oatserver.*.com 
 

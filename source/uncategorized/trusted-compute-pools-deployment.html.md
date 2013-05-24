@@ -55,6 +55,13 @@ Client files will be output in this directory “/var/lib/oat-appraiser/ClientFi
 
 Two approaches (all-in-one packages, yum install) are provided to deploy Attestation Service; Install via yum command will be available after oat package is merged in fedora 18 repository.
 
+#### Install Fedora for Legacy Boot
+
+The Fedora18 x86-64 system should be installed to run in legacy boot instead of EFI boot. Many new systems will by default boot as EFI boot, so you need to explicitly boot the installation media (DVD or USB) with legacy mode. Below is a example on HP8300:
+
+*   at the beginning of booting, ESC, enter setup password, F9 -> Boot Menu -> legacy boot from DVD
+*   install Fedora18 x86-64 from DVD
+
 #### Enable Intel® TXT in BIOS
 
 Client system must have TPM 1.2 compliant device with driver installed, and TPM/TXT enabled in BIOS to perform the operation.

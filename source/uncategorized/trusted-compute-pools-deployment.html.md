@@ -101,27 +101,32 @@ Build rpm package based on the source rpm package and install oat-commandtool pa
 
       yum install oat-commandtool
 
-Find 11 commands in “/usr/bin” directory, normally, at least OEM, OS, MLE, and HOST information should be added to Attestation Server’s database. exmaple (execute this command in "/usr/bin" directory):
+Find 11 commands in “/usr/bin” directory, normally, at least OEM, OS, MLE, and HOST information should be added to Attestation Server’s database. exmaple (execute this command in "/usr/bin" directory): Generate certification:
 
-      Generate certification:
       bash oat_cert  -h oatserver.*.com 
 
-      ADD OEM:
+ADD OEM:
+
       bash oat_oem -a -h oatserver.*.com '{"Name":"OEM1","Description":"Newdescription"}'
 
-      ADD OS:
+ADD OS:
+
       bash oat_os -a -h oatserver.*.com '{"Name":"OS1","Version":"v1","Description":"Test1"}'
 
-      ADD VMM type MLE
+ADD VMM type MLE
+
       bash oat_mle -a -h oatserver.*.com '{"Name":"NewMLE2","Version":"v123","OsName":"OS1","OsVersion":"v1","Attestation_Type": "PCR","MLE_Type":"VMM","Description":"Test","MLE_Manifests": [{"Name": "18",  "Value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"}]}'
 
-      ADD BIOS type MLE
+ADD BIOS type MLE
+
       bash oat_mle -a -h oatserver.*.com '{"Name":"NewMLE1","Version":"v123","OemName":"OEM1","Attestation_Type": "PCR","MLE_Type":"BIOS","Description":"MLETest1111","MLE_Manifests": [{"Name": "0",  "Value": "31B97D97B4679*******D943635693FFBAB4143"}]}'
 
-      ADD HOST
+ADD HOST
+
       bash oat_host -a -h oatserver.*.com '{"HostName":"agent.*.com","IPAddress":"192.168.1.1","Port":"9999","BIOS_Name":"NewMLE1","BIOS_Version":"v123","BIOS_Oem":"OEM1","VMM_Name":"NewMLE2","VMM_Version":"v123","VMM_OSName":"OS1","VMM_OSVersion":"v1","Email":"","AddOn_Connection_String":"","Description":""}'
 
-      POLLHOSTS
+POLLHOSTS
+
       bash oat_pollhosts -h oatserver.*.com '{"hosts":["agent.*.com"]}'
 
 ### Configuration in oVirt Engine

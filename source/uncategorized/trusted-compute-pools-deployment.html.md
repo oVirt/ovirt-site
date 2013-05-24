@@ -111,20 +111,10 @@ User may want to configure vdc_options to override the default values, these con
 
 SecureConnectionWithOATServers
 
-PollUri
-
-AttestationTruststore
-
-AttestationPort
-
-AttestationTruststorePass
-
-AttestationServer
-
-AttestationFirstStageSize
+PollUri AttestationTruststore AttestationPort AttestationTruststorePass AttestationServer AttestationFirstStageSize
 
 For example, specify attestation server with domain name, please follow these script:
 
-insert into vdc_options (option_name, option_value) values (' AttestationServer','oat-server');
+      insert into vdc_options (option_name, option_value) values (' AttestationServer','oat-server');
 
-update vdc_options set option_value = ‘oat-server. \*\*\*.com’ where option_name = 'AttestationServer'
+      update vdc_options set option_value = ‘oat-server. ***.com’ where option_name = 'AttestationServer'

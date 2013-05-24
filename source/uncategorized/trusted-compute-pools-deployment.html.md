@@ -25,11 +25,7 @@ Two approaches (all-in-one packages, yum install) are provided to deploy Attesta
 
 #### Install basic packages in Fedora18 (for all-in-one approach)
 
-      yum -y install httpd
-      yum -y install mysql mysql-server
-      yum -y install php php-mysql
-      yum -y install openssl
-      yum -y install java-1.7.0-openjdk.x86_64
+      # yum -y install httpd mysql mysql-server php php-mysql openssl java-1.7.0-openjdk.x86_64
 
 #### Install Attestation Server Package
 

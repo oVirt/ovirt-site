@@ -91,6 +91,13 @@ Note that the migration protocol requires Vdms-Vdsm and libvirt-libvirt communic
 
 *Target:* TBD
 
+### Testing
+
+*   Set up a cluster of at least two hosts, and have them inter-connected via two different networks. Simplest form is to have two NICs on each host.
+*   One NIC should be used by the management network, and the other - by the management network. Use the new GUI to configure your hosts appropriately.
+*   Start a VM on one machine, and migrate it to the other. Verify that migration succeeds.
+*   Sniff the traffic on the source and destination hosts while migration is going on. Verify that qemu-to-qemu migration traffic is limited to the migration network.
+
 ### Documentation / External references
 
 *   Yuval M asking to choose a network for migration data: <http://lists.ovirt.org/pipermail/users/2013-January/011301.html>

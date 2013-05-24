@@ -116,7 +116,6 @@ User may want to configure vdc_options to override the default values, these con
 | AttestationTruststore          | TrustStore.jks                         |
 | AttestationPort                | 8443                                   |
 | AttestationServer              | oat-server                             |
-| AttestationServer              | oat-server                             |
 | AttestationTruststorePass      | password                               |
 | AttestationFirstStageSize      | 10                                     |
 

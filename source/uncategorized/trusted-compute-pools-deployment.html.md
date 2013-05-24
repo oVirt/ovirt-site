@@ -26,10 +26,12 @@ Two approaches (all-in-one package, yum install) are provided to deploy Attestat
 #### Install basic packages in RHEL (for all-in-one approach)
 
       yum -y install httpd
+      yum -y install mysql mysql-server
+      yum -y install php php-mysql
+      yum -y install openssl
+      yum -y install java-1.7.0-openjdk.x86_64
 
-yum -y install mysql mysql-server yum -y install php php-mysql yum -y install openssl yum -y install java-1.7.0-openjdk.x86_64
-
-#### Install basic packages in RHEL (for all-in-one approach)
+#### Install Attestation Server Package
 
 *   Install all-in-one package
 
@@ -37,7 +39,7 @@ Build rpm package based on the source rpm package and install oat-appraiser pack
 
 *   Yum Install oat server package from fedora18 repository.
 
-yum install oat-appraiser
+      yum install oat-appraiser
 
 #### Generate Client Files
 
@@ -56,7 +58,8 @@ Client system must have TPM 1.2 compliant device with driver installed, and TPM/
 
 #### Install basic Packages in RHEL (for all-in-one approach)
 
-yum install trousers-devel yum install java-1.7.0-openjdk
+      yum install trousers-devel
+      yum install java-1.7.0-openjdk
 
 Make sure the TrouSers service is started before moving on. Service name in RHEL is “tcsd”
 
@@ -68,13 +71,15 @@ Build rpm package based on the source rpm package and install oat-client package
 
 *   Yum Install oat server package from fedora18 repository
 
-yum install oat-client
+      yum install oat-client
 
 #### File copying and Agent Registration
 
 Copy “PrivacyCA.cer” and “TrustStore.jks” from server side to agent side. Find these files under this directory (server side): /var/lib/oat-appraiser/ClientFiles Copy them to this directory (agent side): /usr/share/oat-client
 
-Go to this directory: /usr/share/oat-client/script, run provisioner.sh to register host agent. bash provisioner.sh
+Go to this directory: /usr/share/oat-client/script, run provisioner.sh to register host agent.
+
+      bash provisioner.sh
 
 ### Install oat-command tool
 

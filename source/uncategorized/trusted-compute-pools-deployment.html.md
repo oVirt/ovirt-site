@@ -21,7 +21,7 @@ This is a manual for how to deploy trusted compute pools feature in oVirt.
 
 ### Deploy Attestation Service
 
-Two approaches (all-in-one package, yum install) are provided to deploy Attestation Service; Install via yum command will be available after oat package is merged in fedora 18 repository.
+Two approaches (all-in-one package, yum install) are provided to deploy Attestation Service. Install via yum command will be available after oat package is merged in fedora 18 repository.
 
 #### Install basic packages in RHEL (for all-in-one approach)
 
@@ -35,7 +35,9 @@ Two approaches (all-in-one package, yum install) are provided to deploy Attestat
 
 *   Install all-in-one package
 
-Build rpm package based on the source rpm package and install oat-appraiser package. Follow this link to get the source package. <http://sourceforge.net/projects/tboot/files/oat/oat-1.6.0-1.fc18.src.rpm>
+Build rpm package based on the source rpm package and install oat-appraiser package. Follow this link to get the source package.
+
+<http://sourceforge.net/projects/tboot/files/oat/oat-1.6.0-1.fc18.src.rpm>
 
 *   Yum Install oat server package from fedora18 repository.
 

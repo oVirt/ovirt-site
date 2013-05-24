@@ -89,7 +89,7 @@ Install tboot:
       # service tcsd enable
       # service tcsd restart
 
-Reboot machine and select tboot option.
+Reboot machine and select tboot option in GRUB menu at start of booting.
 
 Check the PCR values in TPM via the sysfs interface provided by TPM driver, make sure PCR-17~19 are not all FFs.
 

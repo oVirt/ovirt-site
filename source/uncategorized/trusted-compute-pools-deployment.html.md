@@ -174,6 +174,8 @@ Follow below exmaple to make a oVirt node recognized as "trusted" by the attesta
 
       # bash oat_cert  -h oatserver.*.com 
 
+Notes: oatserver.\*.com should be the host name of oat server.
+
 *   Add OEM:
 
       # bash oat_oem -a -h oatserver.*.com '{"Name":"OEM1","Description":"Newdescription"}'
@@ -186,25 +188,27 @@ Follow below exmaple to make a oVirt node recognized as "trusted" by the attesta
 
       # bash oat_mle -a -h oatserver.*.com '{"Name":"NewMLE2","Version":"v123","OsName":"OS1","OsVersion":"v1","Attestation_Type": "PCR","MLE_Type":"VMM","Description":"Test","MLE_Manifests": [{"Name": "18",  "Value": "CE796BD88E58890534CF6131571D5AF652293E55"}]}'
 
-Notes: "18" means PCR 18, the value could be got via "# cat /sys/.../pcrs", but the space chars should be removed first.
+Notes: "18" means PCR 18, the value could be got via "# cat /sys/.../pcrs" on oat agent system, but the space chars should be removed first.
 
 *   Add BIOS type MLE
 
       # bash oat_mle -a -h oatserver.*.com '{"Name":"NewMLE1","Version":"v123","OemName":"OEM1","Attestation_Type": "PCR","MLE_Type":"BIOS","Description":"MLETest1111","MLE_Manifests": [{"Name": "0",  "Value": "D8FE91C410E7A3F9CAD8C05F42AC2DDFF707902E"}]}'
 
-Notes: "0" means PCR 0, the value could be got via "# cat /sys/.../pcrs", but the space chars should be removed first.
+Notes: "0" means PCR 0, the value could be got via "# cat /sys/.../pcrs" on oat agent system, but the space chars should be removed first.
 
 *   Add HOST
 
       # bash oat_host -a -h oatserver.*.com '{"HostName":"agent.*.com","IPAddress":"192.168.1.1","Port":"9999","BIOS_Name":"NewMLE1","BIOS_Version":"v123","BIOS_Oem":"OEM1","VMM_Name":"NewMLE2","VMM_Version":"v123","VMM_OSName":"OS1","VMM_OSVersion":"v1","Email":"","AddOn_Connection_String":"","Description":""}'
 
-Notes: by far, "IPAddress" and "Port" are not really used, so just leave a placeholder there.
+Notes: by far, "IPAddress" and "Port" are not really used, so just leave a placeholder there. "HostName":"agent.\*.com" should be the host name of the oat agent.
 
 *   query the trust state of the node
 
       # bash oat_pollhosts -h oatserver.*.com '{"hosts":["agent.*.com"]}'
 
-Once you got response like below the you can continue to configure oVirt engine for TCP
+Once you got response like below the you can continue to configure oVirt engine for TCP:
+
+      {"hosts":[{"host_name":"agent.*.com","trust_lvl":"trusted","vtime":"2013-05-16T14:14:44.881+08:00"}]}
 
 ### Configuration in oVirt Engine
 

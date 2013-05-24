@@ -112,7 +112,7 @@ Currently, only when setting the management network, a gateway may be specified.
 
 ### Testing
 
-*   Set up networking as described in [#Why_do_we_need_multiple_gateways](#Why_do_we_need_multiple_gateways). Most importantly, place your spice client outside of the hosts' own subnet.
+*   Set up networking as described [ above](#Why_do_we_need_multiple_gateways.3F). Most importantly, place your spice client outside of the hosts' own subnet.
 *   Verify that spice traffic travels through the designated host.
 *   Test the above both with static addresses and with DHCP.
 

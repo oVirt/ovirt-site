@@ -45,7 +45,11 @@ Build rpm package based on the source rpm package and install oat-appraiser pack
 
 #### Generate Client Files
 
-Generate client files after installing oat-appraiser package, execute this command is enough. bash /usr/share/oat-appraiser/OAT_configure.sh Client files will be output in “/var/lib/oat-appraiser/ClientFiles/”. Part of these files is needed in agent’s side.
+Generate client files after installing oat-appraiser package, execute this command is enough.
+
+      bash /usr/share/oat-appraiser/OAT_configure.sh
+
+Client files will be output in this directory “/var/lib/oat-appraiser/ClientFiles/”. Part of these files are needed in agent’s side.
 
 ### Deploy Host Agent on VDS
 

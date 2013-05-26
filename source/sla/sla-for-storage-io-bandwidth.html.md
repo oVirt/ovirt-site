@@ -34,7 +34,7 @@ At the same time, the policy make sure that the quota is in a proper range dynam
 
 *   inflate quota
 
-       **high priority vDisk: 
+        **high priority vDisk: 
                min = used + cap * min_unused_percent (e.g. 0.2)
                max = cap
         **low priority vDisk: 

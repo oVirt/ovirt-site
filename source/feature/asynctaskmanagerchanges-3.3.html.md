@@ -34,9 +34,18 @@ For oVirt 3.3 we would like to improve the current SPM tasks mechanism in the fo
 
 ### Detailed Description
 
-#### **Better handling of engine/vdsm crashes in cases of mismatch in the number of tasks (expected vs actual running tasks)**.
+#### **Better handling of engine crashes in cases of mismatch in the number of tasks (expected vs actual running tasks)**.
+
+*   Problem: Engine can crash, causing a wrong successful completion of commands due to mismatch between expected tasks and created tasks.
+*   Example:
+
+RemoveVM is run on a VM with 4 disks. After 2 out of the 4 disks are created at VDSM, and stored at engine, engine crashes. Engine restarts, the command ends successfully although 2 out of the 4 disks were not removed.
+
+*   Explanation of problem:
 
 A parent command (for example - RemoveVmCommand) may create child commands that each one of them in turn creates a task (for example - RemoveImageCommand is a child command that is responsible for creating a task at VDSM for removing one of the images associated with the VM). The tasks information is kept at database at async_tasks table, and is used if engine crashes in order to restore association between tasks and commands and coordinate the endAction execution when all the tasks for the parent command have ended. Currently, a new record is inserted into the async_tasks table only after the task is created at VDSM (TaskCreationInfo is returned from the VDSBroker with the vdsm tadk ID). The return tasked ID serves as a primary key for the table. If engine crashes- it may be that not all vdsm calls for creating all the tasks were issues, hence not all async_tasks records were added. Engine restarts and both vdsm and engine are aware only to a partial amount of the expected tasks , causing the parent command (for example, RemoveVm) to be successfully completed (for example - RemoveVm is successfully completed when only 2 out of 4 disks where removed).
+
+*   Solution:
 
 The suggested fix will distinguish between the vdsm task ID and the DB task ID, in addition, it will add all the expected tasks at the parent command, in a single transaction - when a VDSM task ID is obtained from vds broker, it will be associated to the proper aync_tasks record. If engine crashes , and for some aysnc_tasks records there is no VDSM task ID (in the given example - for each one of the 4 disks, a async_tasks record is added to the DB, and for 2 out of 4, there is no VDSM taskd ID), the parent command (RemoveVm in the example) will be ended with "failure" state.
 

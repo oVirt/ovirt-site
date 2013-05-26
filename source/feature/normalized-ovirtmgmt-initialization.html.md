@@ -6,6 +6,7 @@ wiki_category: Feature
 wiki_title: Features/Normalized ovirtmgmt Initialization
 wiki_revision_count: 36
 wiki_last_updated: 2013-12-11
+wiki_warnings: list-item?
 ---
 
 # Normalized ovirtmgmt Initialization
@@ -107,6 +108,26 @@ When a host is activated Engine should
 #### ovirt-node
 
 Still needs **TODO**: drop bridge-creation logic from `ovirt-node`.
+
+#### Behavioral Changes
+
+The update host installation flow is described in the chart below, where each flow ends with setting the host status to best reflect current host status:
+
+![](Installation-flowchart.png "Installation-flowchart.png")
+
+The noticeable changes from the previous installation flow are:
+\* In Add-Host / Re-install host - rebootAfterInstallation property is deprecated for 3.1 clusters and above. The reboot will no longer be activated, regardless the provided value of rebootAfterInstallation property.
+
+    * Hosts from cluster 3.0 are still able to provide rebootAfterInstallation property to control rebooting the host after installation is completed.
+
+        * The default via the webadmin is to reboot the host for any host with 'Virt' capabilities. The default via rest-api is not to reboot the host.
+
+*   ovirt-node - during the registration of ovirt-node, the management network is created as part of the bootstrap process as a bridge. ATM there is no support in configuring the management network for ovirt-node according to its logical network definition. Therefore if the logical network definition of the management network defers from a bridge, the ovirt-node will be added with its management
+
+network marked as 'not synced' (event log) and the admin will have to use the 'setup networks' dialogue to sync the network.
+
+*   For 3.1 hosts and above, if the creation of the management network fails, the host will move to non-operational.
+*   At the end of a successful installation, the host moves to 'initializing' status instead of former 'non responsive"
 
 ### Documentation / External references
 

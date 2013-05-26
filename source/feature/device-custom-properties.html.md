@@ -110,7 +110,7 @@ Add a custom_properties field to api.xsd for NICs and disks: <custom_properties>
 <custom_property value="true" name="sap_agent"/>
 </custom_properties>
 
-And subsequently fix the NicMapper to map properly from VmInterface to NIC.
+And subsequently fix the NicMapper to map properly from VmInterface to NIC and vice versa.
 
 ##### Backwards Compatibility
 

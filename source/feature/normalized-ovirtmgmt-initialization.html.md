@@ -111,7 +111,7 @@ Still needs **TODO**: drop bridge-creation logic from `ovirt-node`.
 
 #### Behavioral Changes
 
-The update host installation flow is described in the chart below, where each flow ends with setting the host status to best reflect current host status:
+The updated host installation flow is described in the chart below, where each flow ends with setting the host status to reflect the current host status:
 
 ![](Installation-flowchart.png "Installation-flowchart.png")
 
@@ -127,7 +127,17 @@ The noticeable changes from the previous installation flow are:
 network marked as 'not synced' (event log) and the admin will have to use the 'setup networks' dialogue to sync the network.
 
 *   For 3.1 hosts and above, if the creation of the management network fails, the host will move to non-operational.
-*   At the end of a successful installation, the host moves to 'initializing' status instead of former 'non responsive"
+*   At the end of a successful installation, the host moves to 'initializing' status instead of former 'non responsive'
+*   After the ovirt-host-deploy ends, the engine will await to VDSM to become responsive for 2 minutes. If it fails, the host will move to 'non responsive'.
+*   After VDSM is up, the engine will invoke the first GetVdsCapabilities in order to get the host's network configuration and the lastClientIface.
+*   The lastClientIface (reported by GetVdsCapabilities) is the analyzed interface which is used for communication between the engine to the host. The lastClientIface wasn't in use before by the engine.
+*   For lastClientIface which represents a bridge, configuring management network is not supported and manual innervation is required (using setup networks)
+
+    * This is the actual reason for not supporting management network configuration by the engine on ovirt-node.
+
+#### Additional event logs
+
+INVALID_INTERFACE_FOR_MANAGEMENT_NETWORK_CONFIGURATION VLAN_ID_MISMATCH_FOR_MANAGEMENT_NETWORK_CONFIGURATION SETUP_NETWORK_FAILED_FOR_MANAGEMENT_NETWORK_CONFIGURATION PERSIST_NETWORK_FAILED_FOR_MANAGEMENT_NETWORK
 
 ### Documentation / External references
 

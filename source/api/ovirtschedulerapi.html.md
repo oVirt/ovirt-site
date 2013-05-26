@@ -12,7 +12,7 @@ wiki_last_updated: 2014-06-30
 
 ### Summary
 
-As long oVirt is progressing and continue to gather features, there is an ever growing actual need for better scheduling: configurable, customized and flexible, both in the programmatic and functionality levels. It is known that the scheduling problem has NP-complete complexity, therefore there's a need to optimize the problem solution, to do that each scheduler implementation should focus on it's own subjective needs. To accomplish that we propose to have a scheduling API architecture, in which the clients can have their own private optimized schedulers.
+Link to scheduler API summary.
 
 ### Owner
 
@@ -24,22 +24,13 @@ Status: design
 
 Last updated: ,
 
-### Benefit to oVirt
-
-*   Allow others to integrate with oVirt's Scheduler.
-*   Allow users to add their own scheduling logic.
-*   Should allow other languages (Python), run as script/dynamically.
-*   Load balancing policies can be overwritten.
-*   Provides modularity and boundaries.
-
 ### Detailed Description
 
-#### oVirt Scheduler concepts
+#### oVirt Scheduler Concepts
 
-*   Supports filters for hard constraints and cost functions for soft constraints.
-*   Load balancing policies related to filters and cost functions.
-*   Existing logic (pin-to-host, memory limitations, etc) will be translated into filters.
-*   Existing load balancing policies will be translated to the new format.
+*   Supports filters for hard constraints; filters out hosts according to a specific logic, then chained to allow complete filtering. This allows clearer code and robustness. Existing logic (pin-to-host, memory limitations, etc.) will be translated into filters.
+*   Supports Cost Functions for soft constraints; scores filtered hosts according to a specific logic. Cost Functions also allows chaining for the same reasons.
+*   Load balancing policies related to filters and cost functions. Balancing logic allows auto selection of a VM for migration (from over utilized host to non-over utilized hosts). Existing load balancing policies will be translated to the new format.
 *   Additional policies, filters and cost functions may be added by users.
 *   Supports Python (we may be able to allow others as well).
 
@@ -47,12 +38,18 @@ Last updated: ,
 
 #### Schedule
 
-Called by Engine's commands.
+Called by Engine's commands: Run VM and Migrate VM- replaces current VdsSelector logic.
 
 ##### Filter
 
-*   Input: set of Hosts, properties (containing the scheduled vm); output: hosts.
-*   Filters out all hosts that doesn't meet the filter requirements (hard constraint).
+Signature:
+
+         Host[] filter(Host[], properties)
+
+*   Input: set of hosts, properties.
+*   Output: set of Hosts (filtered according to filter logic).
+*   Filters out all hosts that don't meet the filter requirements (hard constraint), similar to validations.
+*   Filters support custom properties.
 *   Filters are chained; by that the hosts list may decrease from one filter to another.
 
 Code sample:
@@ -64,10 +61,17 @@ Code sample:
              return hosts
          }
 
+Explanation: memory filter, the filter will exclude hosts that don't have enough RAM.
+
 ##### Cost Function
 
-*   Input: set of hosts, properties; output: set of hosts and scores (pairs) → ordered Hosts.
-*   The cost function score each host according to the its logic, different hosts may have the same score, and the same host may have different scores in different iterations.
+Signature:
+
+         `<Host, Integer>`[] score(Host[], properties)
+
+*   Input: set of hosts, properties.
+*   Output: set of pairs, pair of host and its score → logically orders the Hosts.
+*   The cost functions score each host according to its logic; different hosts may have the same score, and the same host may have different scores in different iterations.
 *   Functions can be prioritized using Factors; default factor is 1.
 *   Ultimately, using the filtered hosts, cost functions and factors, we will construct a cost table (see figure), which will order the hosts (we will try to run the VM on the first host, then second and so-forth).
 
@@ -81,39 +85,43 @@ Code sample:
              return costs #list of pairs
          }
 
+Explanation: memory cost function, will score hosts according to available memory, this will cause memory even distribution among the hosts. ![](Hosts.png "fig:Hosts.png")
+
 Flow:
 
          schedule(filters, cost_functions, factors, hosts[], properties) {
              # go over all filters
              for (filter in filters)
                  hosts = filter(hosts, properties)
+             # init cost table
              for (host in hosts)
 `           map += `<host, 0>
+             # go over all cost functions
              for (cost_function in cost_functions)
                  result = cost_function(hosts, properties)
+                 # aggregate factored scores for all hosts               
                  for (host in hosts)
 `               map += `<host, map[host] + result[host] * factors[cost_function]>
          }
 
-![](Hosts.png "Hosts.png")
-
 #### Balance
 
-Called periodically. Each cluster may use a single balancing logic at any given time.
+Called periodically. Each cluster may use a single balancing logic at any given time. oVirt's load balance supports built in VM balancing. Signature
 
-##### Get VM
+         `<VM, Hosts>` balance(Host[], properties)
 
-*   Input: VMs, Hosts; Output: VM
-*   Perform a single balancing policy logic- replaces a manual selection of scheduled VM.
-*   Select a VM to migrate based on policy.
-*   For the selected VM, call Schedule logic.
-*   A user may provide a filter and/or a cost function. He does not have to do it. We strongly advice on making sure the selected policy in aligned with the filters and cost functions lists. A cost function is a good way to correlate the logic. A filter may be used if filtering under-utilized hosts is needed.
+*   Input: Hosts, properties (initial host list, custom properties map).
+*   Output: VM, hosts (a VM to migrate, balance over utilized hosts).
+*   Perform single balancing policy logic- replaces a manual selection of scheduled VM.
+*   Select a VM to migrate based on balance logic.
+*   For the returned VM, a migration command will be invoked, which ultimately triggers a schedule call (see schedule), the initial schedule hosts list will exclude the balance over utilized hosts list (to prevent redundant migration to other over utilized hosts).
+*   A user may provide a filter and/or a cost function. We strongly advice on making sure the selected balancing policy is aligned with the filters and cost functions lists. A cost function is a good way to correlate the logic. A filter may be used if filtering under-utilized hosts is needed in scheduling process.
 
-For example: for power saving polisy, a cpu load cost-function is needed.
+For example: for power saving policy, a CPU load cost-function is needed.
 
-*   Performance/implementation open-issue: split balance into 2 tasks, first get over-utilized hosts, then get a VM from those hosts (to avoid fetching all VMs in cluster).
+*   Performance/implementation open-issue: split balance into 2 methods:
 
-Code sample:
+Host BalanceHosts(Host[], properties) <VM, Hosts> BalanceVM(VM[], properties) Currently the user is responsible to fetch the relevant VM. Code sample:
 
          balance(hosts[], vms[], properties) {
              max_host = max(hosts, key=lambda host: host['usage_mem_percent']))
@@ -124,27 +132,39 @@ Code sample:
 
 ### Design
 
-Cluster scheduler policy will have a set of filters, cost functions and a single balancing logic implementation. To allow easy coupling between the logic of these three, a single class will be provided.
+Cluster's policy will have a set of filters, cost functions and a single balancing logic implementation. To allow easy coupling between the logic of these three, a single class will be provided.
 
          Class PolicyUnit
              filter
              cost_function
-             balance – separated into 2 methods for performance reasons: getOverUtilizedHost, getBestVmToMigrate.
+             balance
 
 In this class only a single method ought to be implemented, but when balance is implemented it is advised to implement a cost-function, since it later influences migration processes, and being aligned with overall selection policy.
 
-The first phase of implementation is to re-factor the current selection process into Policy Units and new acrh:
+         Class ClusterPolicy
+             Filter[]
+             CostFunction[]
+             Factor[]
+             Balance
 
-| Policy Unit       | Filter                                                                        | Cost function                                    | Balance           | parameters                                      |
-|-------------------|-------------------------------------------------------------------------------|--------------------------------------------------|-------------------|-------------------------------------------------|
-| Migration Domain  | Hosts that doesn't belong to the VM's cluster                                 |                                                  |                   |                                                 |
-| Migration         | Host that the VM is currently running                                         |                                                  |                   |                                                 |
-| Pin-to-host       | Other Hosts except the pinned host                                            |                                                  |                   |                                                 |
-| Memory            | Hosts that doesn't have sufficient Memory to run the VM, and have swap memory | Order Hosts according to available memory        |                   |                                                 |
-| CPU               | Hosts that doesn't meet the VM's CPU topology                                 |                                                  |                   |                                                 |
-| Network Policy    | Host that doesn't have all required networks installed                        |                                                  |                   |                                                 |
-| Even distribution |                                                                               | Order Hosts according to CPU usage (low to high) | Even distribution | LowCpuUtilization, CpuOverCommitDurationMinutes |
-| Power saving      |                                                                               | Order Hosts according to CPU usage (high to low) | Power saving      | LowCpuUtilization, CpuOverCommitDurationMinutes |
+The first phase of implementation is to re-factor the current selection process into Policy Units and new arch:
+
+| Policy Unit       | Filter                                                                        | Cost function                                    | Balance           | Parameters                                                           |
+|-------------------|-------------------------------------------------------------------------------|--------------------------------------------------|-------------------|----------------------------------------------------------------------|
+| Migration Domain  | Hosts that doesn't belong to the VM's cluster                                 |                                                  |                   |                                                                      |
+| Migration         | Host that the VM is currently running                                         |                                                  |                   |                                                                      |
+| Pin-to-host       | Other Hosts except the pinned host                                            |                                                  |                   |                                                                      |
+| Memory            | Hosts that doesn't have sufficient Memory to run the VM, and have swap memory | Order Hosts according to available memory        |                   |                                                                      |
+| CPU               | Hosts that doesn't meet the VM's CPU topology                                 |                                                  |                   |                                                                      |
+| Network Policy    | Host that doesn't have all required networks installed                        |                                                  |                   |                                                                      |
+| Even distribution |                                                                               | Order Hosts according to CPU usage (low to high) | Even distribution | HighCpuUtilization, CpuOverCommitDurationMinutes                     |
+| Power saving      |                                                                               | Order Hosts according to CPU usage (high to low) | Power saving      | HighCpuUtilization , LowCpuUtilization, CpuOverCommitDurationMinutes |
+
+Current Policies:
+
+*   None
+*   Power Saving
+*   Even Distribution
 
 ### Concurrent Scheduler Invocations – and Pending Resources (memory, CPU)
 
@@ -160,7 +180,7 @@ Lock Conditions:
 | Locked                    | wait till timeout   | wait till timeout                                    | fail                   |
 | Pending resources changed | acquire lock        | wait till timeout                                    | fail                   |
 
-We can later consider a priory queue to give advantage to VMs that are likely to be scheduled succesfully (give Vms with less constraints and resources higher priority).
+We can later consider a priory queue to give advantage to VMs that are likely to be scheduled successfully (give VMs with less constraints and resources higher priority).
 
 ### DB Scheme
 

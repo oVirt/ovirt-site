@@ -26,7 +26,11 @@ The following feature page deals with improvements added to the engine async tas
 
 *   Last updated date: May 25, 2013
 
-For oVirt 3.3 we would like to improve the current SPM tasks mechanism in the following areas: A. Better handling of engine/vdsm crashes in cases of mismatch in the number of tasks (expected vs actual running tasks). B. Providing better mechanism to query if an entity (i.e - StorageDomain, VM, Disk, etc...) has running tasks on. C. Improving the mechanism for determining whether endAction (the last step of command invocation in case the command/its children created tasks) should be run.
+For oVirt 3.3 we would like to improve the current SPM tasks mechanism in the following areas:
+
+      * A. Better handling of engine/vdsm crashes in cases of mismatch in the number of tasks (expected vs actual running tasks).
+      * B. Providing  better mechanism to query if an entity (i.e - StorageDomain, VM, Disk, etc...) has running tasks on.
+      * C. Improving the mechanism for determining whether endAction (the last step of command invocation in case the command/its children created tasks)  should be run.
 
 ### Detailed Description
 

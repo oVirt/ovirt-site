@@ -49,7 +49,7 @@ Screenshot 3 - Selecting a host. The name and address were updated automatically
 
 Screenshot 4 - All the details that the host provider set, are updated automatically. The host address is grayed out. All the rest is editable.
 
-![](Selected-host-properties.png "Selected-host-properties.png")
+![](Select-host-properties.png "Select-host-properties.png")
 
 **\1**
 

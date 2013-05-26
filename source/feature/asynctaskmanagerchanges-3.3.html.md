@@ -42,9 +42,6 @@ Currently there are two mechanisms for querying whether a task is associated wit
 
 The suggested fix will allow association of multiple entity types with multiple entity IDs. This mechanism can help in improving canDoAction checks, and behavior of compensation (for example - don't perform compensation to the initial state, if there are running tasks).
 
-Each of these items would be a subtask of the overall Cloning task. At the beginning of this process, we would create the Cloning task through REST in oVirt. We could potentially include all the subtasks in the initial creation or add them as needed.
- As the tasks are performed, we would make REST calls to update the started/ finished status as well as the percentage complete if that's supported.
-
 #### Improving the mechanism for determining whether endAction (the last step of command invocation in case the command/its children created tasks) should be run
 
 The current mechanism uses the combination of CommandType (i.e RemoveVm) and the entity ID (i.e the ID of the VM) in order to coordinate the execution of endAction when all tasks related for the command (i.e - all tasks created by the children of RemoveVm command are done). The current mechanism is problematic as it prevents the engine to start polling tasks for the same entity of different commands - for example, if there are two READ-ONLY asynchronous operations on the same entity (in case of read/write- this should be handled by canDoAction and the in-memory locking mechanism).

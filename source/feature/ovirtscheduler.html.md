@@ -42,7 +42,7 @@ Last updated: ,
 *   Filter: a basic logic unit which filters out hypervisors who do not satisfy the hard constraints for placing a given VM.
 *   Cost function: a function that gives a score to a given host based on its internal logic. This is a way to implement soft constraints in the scheduling process.
 
-<!-- -->
+#### oVirt Scheduler implementation concepts
 
 *   Supports filters for hard constraints and cost functions for soft constraints.
 *   Load balancing policies related to filters and cost functions.
@@ -70,5 +70,9 @@ Last updated: ,
 ### TBD
 
 1.  External code.
+
+### Detailed Design
+
+[Features/oVirtSchedulerAPI oVirtSchedulerAPI](Features/oVirtSchedulerAPI oVirtSchedulerAPI)
 
 <Category:Feature> <Category:SLA>

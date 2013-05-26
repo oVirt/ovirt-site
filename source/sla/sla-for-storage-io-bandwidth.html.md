@@ -16,7 +16,7 @@ This wiki page focuses on the design of storage resources Service Level Agreemen
 
 Volumes in backend storage of a storage domain are used by plenty of vms as vDisks, and thus a vm's vDisk bandwidth should be limited by a quota according to the capability of this backend storage. In the following chapters, we will explain how to tune the quota dynamically . The quota adjustment is performed by MOM and VDSM.
 
-## Quota
+## Quota of vDisk bandwidth
 
 This chapter gives the way to set initial value. This value is used as start point when quota is adjusted. The quota is then tuned according to IO bandwidth usage and capability of backend storage bandwidth. During this tuning procedure, the quota can not be inflated or deflated arbitrarily, so we constrain it in a dynamic calculated range.
 
@@ -34,24 +34,23 @@ At the same time, the policy make sure that the quota is in a proper range dynam
 
 *   inflate quota
 
-        **high priority vDisk: 
-               min = used + cap * min_unused_percent (e.g. 0.2)
-               max = cap
-        **low priority vDisk: 
-                min = used
-                max = used + cap * min_unused_percent(e.g. 0.2)
-             used means the used bandwidth of that vDisk. 
-             cap is short for capability of backend storage for the storage domain.
+       high priority vDisk: 
+         min = used + cap * min_unused_percent (e.g. 0.2)
+         max = cap
+       low priority vDisk: 
+         min = used
+         max = used + cap * min_unused_percent(e.g. 0.2)
+         used means the used bandwidth of that vDisk. 
+          cap is short for capability of backend storage for the storage domain.
 
 *   deflate quota
 
-       **high priority vDisk: 
-                min =  used + cur * guest_unused_percent 
-                guest_unused_percent = backend unused ratio -0.05 ( if bandwidth is quite scarce )
-                guest_unused_percent= backend unused ratio * min_unused_percent(e.g. 0.2)/ threshold(e.g. 0.2) (if bandwidth is not quite scarce but below threshold)
-                 max = cap
-        **low priority vDisk: 
-                 min = used
-                  max = used + cur * guest_unused_percent 
-
-           cur means the current quota value
+       high priority vDisk: 
+          min =  used + cur * guest_unused_percent 
+          guest_unused_percent = backend unused ratio -0.05 ( if bandwidth is quite scarce )
+          guest_unused_percent= backend unused ratio * min_unused_percent(e.g. 0.2)/ threshold(e.g. 0.2) (if bandwidth is not quite scarce but below threshold)
+           max = cap
+       low priority vDisk: 
+         min = used
+         max = used + cur * guest_unused_percent 
+         cur means the current quota value

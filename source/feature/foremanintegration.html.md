@@ -39,7 +39,7 @@ Screenshot 1 - The user didn't choose to show external providers
 
 ![](New-host-dialog-providers.png "New-host-dialog-providers.png")
 
-Screenshot 2 - The user chose to show external providers. Now we fetch the list of hosts from the provider
+Screenshot 2 - The user chose to see the external providers, and he selects one of them. A free text search is shown (provider specific search), and the user can either write a search query, or just press the search button, which will retrieve all hosts.
 
 ![](Selected-provider.png "Selected-provider.png")
 

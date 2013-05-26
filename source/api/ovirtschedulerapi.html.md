@@ -219,17 +219,16 @@ We can later consider a priory queue to give advantage to VMs that are likely to
 
 #### policy-policy unit table
 
-| Name                     | Type    | Description                                                   | Relations         |
-|--------------------------|---------|---------------------------------------------------------------|-------------------|
-| id                       | UUID    |                                                               |                   |
-| policy_id               | UUID    |                                                               | Policy table      |
-| policy_unit_id         | UUID    |                                                               | Policy Unit table |
-| filter_selected         | boolean |                                                               |                   |
-| filter_priority         | int     | When should be executed in chain (lowest is highest priority) |                   |
-| cost_function_selected | boolean |                                                               |                   |
-| factor                   | int     |                                                               |                   |
-| cost_function_priority | int     | When should be executed in chain (lowest is highest priority) |                   |
-| balance_selected        | boolean |                                                               |                   |
+| Name                     | Type     | Description                                                      | Relations         |
+|--------------------------|----------|------------------------------------------------------------------|-------------------|
+| id                       | UUID     |                                                                  |                   |
+| policy_id               | UUID     |                                                                  | Policy table      |
+| policy_unit_id         | UUID     |                                                                  | Policy Unit table |
+| filter_selected         | boolean  |                                                                  |                   |
+| filter_sequence         | int/enum | execute filter first, last or no-order (for performance reasons) |                   |
+| cost_function_selected | boolean  |                                                                  |                   |
+| factor                   | int      |                                                                  |                   |
+| balance_selected        | boolean  |                                                                  |                   |
 
 #### policy parameters table
 

@@ -45,7 +45,7 @@ Screenshot 2 - The user chose to see the external providers, and he selects one 
 
 Screenshot 3 - Selecting a host. The name and address were updated automatically (and in the future also other properties)
 
-![](Selected-host-from-provider.png "Selected-host-from-provider.png")
+![](Select-host-from-provider.png "Select-host-from-provider.png")
 
 Screenshot 4 - All the details that the host provider set, are updated automatically. The host address is grayed out. All the rest is editable.
 

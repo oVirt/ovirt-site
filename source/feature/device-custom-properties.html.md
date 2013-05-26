@@ -45,12 +45,6 @@ These extensions, and many others, can be made available by allowing per-device 
 
 ![](NetworkCustomProperties.png "NetworkCustomProperties.png")
 
-### Rest API
-
-Custom properties on vnic will be displayed in the same way they are displayed for vm- <custom_properties> <custom_property name="prop_name" value="prop_value"/> </custom_properties>
-
-Add/Update VmInterface- The rest will parse the vnic custom properties to a string (in the same way done for vm custom properties) and set the string on VmNetworkInterface,customProperties.
-
 ### Implementation
 
 ##### Vdsm

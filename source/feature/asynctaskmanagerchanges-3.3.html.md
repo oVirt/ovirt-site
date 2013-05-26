@@ -53,8 +53,7 @@ The suggested fix will distinguish between the vdsm task ID and the DB task ID, 
 
 *   Problem: The mechanism of querying an entity for running task is limited
 *   Example: It is impossible to query for disk entity if there are running tasks, if the command is VM related.
-
-      *Explanation: 
+*   Explanation of problem:
 
 Currently there are two mechanisms for querying whether a task is associated with a given entity - a. VdcActionParametersBase which is the base class for all commands parameters has a field that holds the entityID for which the task is created. There is no indication the entity type and in addition, only one entity ID can be associated with the task, so usually this is the top-most entity (VM, Template,Disk). b. async_task_entities table was introduced to overcome the issue - it contains an association between task id, and entity ID (and its type),
 

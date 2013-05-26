@@ -103,4 +103,30 @@ This below adds a link to the "discussion" tab associated with your page. This p
 
 *   Refer to <Talk:ExternalTasks>
 
+## Testing
+
+### Test 1
+
+      Create an external job which is marked as auto-cleared
+       Add external steps and sub steps to the job
+       Update on completed tasks and sub tasks 
+       Check that job completes successfully and is cleared after the configured timeout 
+
+### Test 2
+
+       Repeat test 1 with auto-cleared = false
+       After job completes verify that it is not cleared after the configured timeout from DB
+       Clear the job manually
+
+### Test 3
+
+       Repeat test 1 with a job that includes a mix of internal and external steps , 
+       Make sure that for internal steps the job/step parent id should be set in the URI parameters
+       
+
+### Test 4
+
+       Repeat test 2 with a job that includes a mix of internal and external steps ,
+       Make sure that for internal steps the job/step parent id should be set in the URI parameters
+
 <Category:Feature> <Category:Template>

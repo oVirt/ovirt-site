@@ -63,9 +63,17 @@ for example: 40fd52b-3400-4cdd-8d3f-c9d03704b0aa | 72e3a666-89e1-4005-a7ca-f7548
 
 The suggested fix will allow association of multiple entity types with multiple entity IDs. This mechanism can help in improving canDoAction checks, and behavior of compensation (for example - don't perform compensation to the initial state, if there are running tasks).
 
-#### Improving the mechanism for determining whether endAction (the last step of command invocation in case the command/its children created tasks) should be run
+#### **Improving the mechanism for determining whether endAction (the last step of command invocation in case the command/its children created tasks) should be run**
+
+*   Problem: Current mechanism of endAction mechanism is limiting
+*   Example: Two READ-ONLY commands (tasks that perform READ ONLY operations) cannot run on the same entity in parallel (Engine will start polling tasks of a command only after the first command has finished).
+*   Detailed explanation of problem:
 
 The current mechanism uses the combination of CommandType (i.e RemoveVm) and the entity ID (i.e the ID of the VM) in order to coordinate the execution of endAction when all tasks related for the command (i.e - all tasks created by the children of RemoveVm command are done). The current mechanism is problematic as it prevents the engine to start polling tasks for the same entity of different commands - for example, if there are two READ-ONLY asynchronous operations on the same entity (in case of read/write- this should be handled by canDoAction and the in-memory locking mechanism).
+
+*   Solution:
+
+Reach the decision of whether endAction should be executed based on the parent command Id. Async Task Manager should not postpone polling of commands - for READ-ONLY asynchronous operations there is no point. For write operation - it is the responsibility of canDoAction and the locking mechanism to approve such commands.
 
 ### Dependencies / Related Features
 

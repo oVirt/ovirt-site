@@ -73,6 +73,6 @@ Last updated: ,
 
 ### Detailed Design
 
-[Features/oVirtSchedulerAPI oVirtSchedulerAPI](Features/oVirtSchedulerAPI oVirtSchedulerAPI)
+[Features/oVirtSchedulerAPI](Features/oVirtSchedulerAPI)
 
 <Category:Feature> <Category:SLA>

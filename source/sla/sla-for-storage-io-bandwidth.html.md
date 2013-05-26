@@ -34,26 +34,26 @@ At the same time, the policy make sure that the quota is in a proper range dynam
 
 *   inflate quota
 
-             ** high priority vDisk: 
-                        min = used + cap * min_unused_percent (e.g. 0.2)
-                        max = cap
-             ** low priority vDisk: 
-                         min = used
-                         max = used + cap * min_unused_percent(e.g. 0.2)
+         high priority vDisk: 
+                    min = used + cap * min_unused_percent (e.g. 0.2)
+                     max = cap
+          low priority vDisk: 
+                    min = used
+                     max = used + cap * min_unused_percent(e.g. 0.2)
 
              used means the used bandwidth of that vDisk. 
              cap is short for capability of backend storage for the storage domain.
 
 *   deflate quota
 
-            ** high priority vDisk: 
-                       min =  used + cur * guest_unused_percent 
-                       guest_unused_percent = backend unused ratio -0.05 ( if bandwidth is quite scarce )
-                       guest_unused_percent= backend unused ratio * min_unused_percent(e.g. 0.2)/ threshold(e.g. 0.2) (if bandwidth is not quite scarce but below threshold)
+          high priority vDisk: 
+                    min =  used + cur * guest_unused_percent 
+                    guest_unused_percent = backend unused ratio -0.05 ( if bandwidth is quite scarce )
+                    guest_unused_percent= backend unused ratio * min_unused_percent(e.g. 0.2)/ threshold(e.g. 0.2) (if bandwidth is not quite scarce but below threshold)
                         max = cap
 
-            ** low priority vDisk: 
-                        min = used
-                         max = used + cur * guest_unused_percent 
+          low priority vDisk: 
+                    min = used
+                     max = used + cur * guest_unused_percent 
 
-cur means the current quota value
+           cur means the current quota value

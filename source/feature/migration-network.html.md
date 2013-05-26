@@ -98,6 +98,10 @@ Note that the migration protocol requires Vdms-Vdsm and libvirt-libvirt communic
 *   Start a VM on one machine, and migrate it to the other. Verify that migration succeeds.
 *   Sniff the traffic on the source and destination hosts while migration is going on. Verify that qemu-to-qemu migration traffic is limited to the migration network.
 
+### Known Limitations
+
+*   The address of the migration network must live on the same subnet for both hosts. If it is not, qemu cannot guess the correct source address to use, so traffic would flow via the default gateway. **TODO**: open qemu and libvirt RFEs to allow specifying the source IP address of migration traffic.
+
 ### Documentation / External references
 
 *   Yuval M asking to choose a network for migration data: <http://lists.ovirt.org/pipermail/users/2013-January/011301.html>

@@ -12,7 +12,8 @@ wiki_last_updated: 2014-07-03
 
 ### Summary
 
-Adding VDSM hooking points before and after disk's hot plug and hot unplug. These hooks enable the running of guest-level operations on the disks when they're plugged/unplugged.
+Adding VDSM hooking points before and after disk's hot plug and hot unplug.
+ These hooks enable the running of guest-level operations on the disks when they're plugged/unplugged.
 
 ### Owner
 

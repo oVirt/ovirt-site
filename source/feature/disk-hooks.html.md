@@ -29,7 +29,7 @@ Adding VDSM hooking points before and after disk's hot plug and hot unplug.
 ### Detailed Description
 
 This feature adds four hooking points to vdsm, for before and after a disk's hot plug and unplug from a VM.
-These hooking ponts are named:
+These hooking points are named:
 1. before_disk_hotplug
 2. after_disk_hotplug
 3. before_disk_hotunplug

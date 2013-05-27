@@ -172,7 +172,7 @@ Features being considered for inclusion/already in master:
 *   [Virtio-SCSI support](Features/Virtio-SCSI)
 *   [ Read Only Disks ](Features/Read_Only_Disk)
 *   [Edit Connection Properties](Features/Edit_Connection_Properties)
-*   Adding VDSM hook for hotplug a disk
+*   [Adding VDSM hook for hotplug a disk](Features/Disk_Hooks)
 *   Separating "Move" vm operation to "Copy" and "Delete" operations to improve VM availability
 *   Backup and Restore API for Independent Software Vendors
 *   Allow resign/force re-election of SPM

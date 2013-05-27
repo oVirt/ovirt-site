@@ -142,6 +142,23 @@ network marked as 'not synced' (event log) and the admin will have to use the 's
 *   SETUP_NETWORK_FAILED_FOR_MANAGEMENT_NETWORK_CONFIGURATION
 *   PERSIST_NETWORK_FAILED_FOR_MANAGEMENT_NETWORK
 
+### Testing
+
+Cover all methods for installing a host in oVirt Engine
+
+| Test                                                                     | Steps                              | Expected Result                                                                                   | Status | Version |
+|--------------------------------------------------------------------------|------------------------------------|---------------------------------------------------------------------------------------------------|--------|---------|
+| New host (with plan interface+dhcp only) installation                    | Add host to a 3.1 and above system | Host should show up in Engine                                                                     |        |         |
+| New host (with plan interface+static ip only) installation               | Add host to a 3.1 and above system | Host should show up in Engine                                                                     |        |         |
+| New host (with bond only) installation                                   | Add host to a 3.1 and above system | Host should show up in Engine                                                                     |        |         |
+| New host (with ovirtmgmt exists) installation                            | Add host to a 3.1 and above system | Host should show up in Engine                                                                     |        |         |
+| New host (with nic + networks on other nics) installation                | Add host to a 3.1 and above system | Host should show up in Engine, existing networks should be preserved                              |        |         |
+| New host (with plan interface) installation, ovirtmgmt is non-VM network | Add host to a 3.1 and above system | Host should show up in Engine, ovirtmgmt on host is non-VM network.                               |        |         |
+| New 3.0 host installation                                                | Add host to a 3.0 system           | Host should show up in Engine, ovirtmgmt on host is non-VM network.                               |        |         |
+| New ovirt-node installation (ovirtmgmt is a vm network)                  | Add ovirt-node to a 3.1 system     | Host should show up in Engine, ovirtmgmt on host is non-VM network.                               |        |         |
+| New ovirt-node installation (ovirtmgmt is a non-vm network)              | Add ovirt-node to a 3.1 system     | Host should show up in Engine, ovirtmgmt on host is a VM network and marked is 'out-of-sync'      |        |         |
+| Negative: New host with bridge (other than ovirtmgmt) installation       | Add host to cluster 3.1 and above  | Installation failed, host in Non-Operational status, event log informs wrong nic for mgmt network |        |         |
+
 ### Documentation / External references
 
 *   mailing-list discussion about this feature: <http://lists.ovirt.org/pipermail/arch/2012-December/001101.html>

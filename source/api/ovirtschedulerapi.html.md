@@ -248,6 +248,8 @@ Action Groups:
 
 2) DeletePolicy (to get impact, containing role should be attached to System level).
 
+3) Attach/Select policy to a cluster will be part of cluster add/new command, currently a permission for those command is sufficient.
+
 ### In Progress
 
 1.  UI

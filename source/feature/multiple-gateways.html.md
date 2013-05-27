@@ -86,9 +86,9 @@ And finally, here's the host's main routing table. Note that in this configurati
 
 The proposed solution is to create a bash script that expects an interface's new IP address, subnet mask, network name and gateway. The script will then use the appropriate commands to generate a new routing table, populate it with two rows: One to link the network ip range with the NIC, and another that defines the gateway. Finally, the script will add two new rules that define when to use the new routing table. Of course, the rules define to use the new routing table whenever traffic is destined to or from the new ip network range. For an example, see the previous section. Another script will be created that reverses the aforementioned effects.
 
-During VDSM installation, two additional scripts will be created under /etc/dhcp, called dhclient-up-hooks and dhclient-down-hooks. We will use DHCP hooks to call our new scripts whenever a DHCP interface is brought up or down.
+**DHCP:** During VDSM installation, two additional scripts will be created under /etc/dhcp, called dhclient-up-hooks and dhclient-down-hooks. We will use DHCP hooks to call our new scripts whenever a DHCP interface is brought up or down.
 
-**An open issue** is how do we know when to call our scripts if a network is configured statically, not via DHCP? We may call the scripts during addNetwork and delNetwork only if the network ip configuration is configured statically, however this means that the script won't be called if the user manually brings the interface up or down, **and the effects are currently unclear.**
+**Static IP:** For statically configured interfaces, two files will be created during addNetwork. delNetwork will delete the same files. The files are route-<interface> and rule-<interface>, placed in /etc/sysconfig/network-scripts. New routing rules will be placed in the route file, and new rules in the rule file. Both of these files are called during the ifup init script.
 
 #### Upgrading
 

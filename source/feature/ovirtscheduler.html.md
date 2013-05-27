@@ -104,6 +104,8 @@ So the expected flow is:
                                                          -> Python cost process
           <- Scheduling response
 
+For safety reasons the proxy will run the external code in a safe way to may sure it does not crash
+if the external code crashes.
 It is expected that multiple Python logic will delay the scheduling process. So if performance needed,
 it's adviced to add your logic in Java. Either way the scheduler will timeout if unable to satisfy a request
 in a given time period. So readers should be aware of the implications of slowing down the scheduling

@@ -60,6 +60,7 @@ Make sure JBoss AS is running and launch Development Mode for the given Frontend
 
 Notes:
 
+*   Example for $GWT_APP_DIR : ovirt-engine/frontend/webadmin/modules/webadmin
 *   `gwt:debug` launches Development Mode via gwt-maven-plugin
 *   `gwtdev` profile adds extra Java sources and resources necessary for debugging, so that changes in related Frontend projects (`uicommonweb`, `gwt-common` etc.) are reflected in Development Mode for new debugging sessions
 *   `gwt.noserver` tells Development Mode that the application is already deployed on JBoss AS (don't use embedded Jetty instance to serve application content)
@@ -68,7 +69,7 @@ You should see following output in console: `Listening for transport dt_socket a
 
 ### Step 2 - Connecting to Development Mode from Java IDE
 
-In Eclipse, create new debug configuration via "Run | Debug Configurations | Remote Java Application | New launch configuration":
+In Eclipse create new debug configuration via "Run | Debug Configurations | Remote Java Application | New launch configuration":
 
 *   In Connect tab:
     -   Project: choose WebAdmin or UserPortal project that you previously imported into Eclipse
@@ -78,6 +79,14 @@ In Eclipse, create new debug configuration via "Run | Debug Configurations | Rem
     -   Click "Add | Java Project" and choose related Frontend projects: `uicommonweb`, `gwt-common`
 
 Click "Apply" and "Debug", so that Eclipse now connects to Development Mode, which spawns Development Mode GUI.
+
+Alternatively, in Intellij:
+
+*   Run/Debug configurations --> Edit configurations
+*   Add new configuration of type Remote
+*   In the new configuration, fill in fields: host : localhost, port : 8000
+*   Press Apply, OK
+*   Select the new created configuration and press Debug.
 
 ![GWT Development Mode](GWT_Development_Mode.png "GWT Development Mode")
 

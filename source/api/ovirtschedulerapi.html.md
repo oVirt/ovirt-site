@@ -261,7 +261,68 @@ Action Groups:
 
 ### Later Phases
 
-1.  External Scheduler.
-2.  External scheduler invocation – first run internal filters/cost-functions, and then external.
+1.  External scheduler invocation – first run internal filters/cost-functions, and then external.
+
+# External Scheduler
+
+### Summary
+
+The external scheduler will be a way for Ovirt users to extend the scheduling process with custom python filters, scoring functions and balancers. Written scheduling extensions will be put in (#folder name) where the external scheduler service load them and expose them to the engine using XMLRPC.
+
+### Scheduling extension format
+
+Any extension file must implement at least one of the following function signatures:
+
+*   Host[] filter(Host[], properties)
+*   <Host, Integer>[] score(Host[], properties)
+*   <VM, Hosts> balance(Host[], properties)
+
+Additionally for every python file created an optional config file can be added that contains regexs describing the parameters of the operations config format TBD
+
+### Service
+
+The external scheduler service loads python extension files and exposes them to the engine
+
+#### Service API
+
+##### Discover
+
+      (`<Filter, Parameter_Regex>`[], `<Score function, Parameter_Regex>`[], `<balancers, Parameter_Regex>`[]) discover()
+
+When Ovirt engine boots up it will query the service for available external filters, score functions and balancers using the discover call. This call return three lists of pairs:
+
+*   Name of files containing a filter and the filter parameters regex
+*   Name of files containing a scoring function and the scoring function parameters regex
+*   Name of files containing a balancer and the balancer parameters regex
+
+##### Filter
+
+      Host[] filter (`<filter name, parameters, priority>`[], Host[])
+
+When calling for external filter functions the engine will send a list of 3-tuples containing:
+
+*   name of the filter (name of the file)
+*   filter parameters
+*   filter priority
+
+And a list of hosts to filter. The return value is a list of hosts that passed the filter.
+
+##### Score
+
+<Host, Score>`[]  score (`<score name, parameters, weight>`[], Host[])`
+
+When calling for external score functions the engine will send a list of 3-tuples containing:
+
+*   name of the score function (name of the file)
+*   score parameters
+*   score weight
+
+And a list of hosts to score. The return value is a list of couples - host and score
+
+##### Balance
+
+<VM, Hosts>` balance(Host[], properties)`
+
+When calling for external balancing the engine will send a list of hosts to balance from and properties The return value is a pair containing a VM to migrate and a list of potential hosts
 
 <Category:Feature> <Category:SLA>

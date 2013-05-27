@@ -8,7 +8,7 @@ wiki_revision_count: 11
 wiki_last_updated: 2015-04-07
 ---
 
-# oVirt Scheduler [WIP]
+# oVirt Scheduler
 
 ### Summary
 

@@ -167,7 +167,7 @@ Current Policies:
 
 ### Concurrent Scheduler Invocations – and Pending Resources (memory, CPU)
 
-When a scheduler call is invoked there is a need to dis-allow any other scheduler requests. The scheduler decision is based on shared resources and those resource state should be visible only to a single selection at a time until the selection is finished or a shared state is updated. Therefore a cluster lock should be acquired prior the scheduler invocation. The lock has a timeout to avoid starvation of pending requests. In case a filtering process ended with no hosts and there is enough pending memory, the request should try to reacquire the lock and hopefully can be rescheduled when pending resources are now available.
+When a scheduler call is invoked there is a need to dis-allow any other scheduler requests on that cluster. The scheduler decision is based on shared resources and those resources state should be visible only to a single selection at a time. Therefore there should be a lock protecting a single scheduler invocation and waiting for shared state to be updated. There are two timeouts: one on trying to acquire the lock, and the other on time lock held. In case a filtering process ended with no hosts and there is enough pending memory, the request should try to reacquire the lock and hopefully can be rescheduled when pending resources will become available.
 
 The lock considers cluster's hosts available and pending resources:
 

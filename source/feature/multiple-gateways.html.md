@@ -90,7 +90,7 @@ The proposed solution is to create a python script that expects an interface's n
 
 **Static IP:** We'll call the aforementioned script for statically configured interfaces during addNetwork and delNetwork. Two files will be created during addNetwork. delNetwork will delete the same files. The files are route-<interface> and rule-<interface>, placed in /etc/sysconfig/network-scripts. New routing rules will be placed in the route file, and new rules in the rule file. Both of these files are called during the ifup init script.
 
-**Summary:** The multipleGateways.py will be called whenever a DHCP interface goes up or down, and will create and delete the needed rules every time it is called. For statically configured interfaces, it will be called once during addNetwork, and once during delNetwork. These runs will place init scripts, that in turn will be called during ifup and ifdown.
+**Summary:** multipleGateways.py will be called whenever a DHCP interface goes up or down, and will create and delete the needed rules every time it is called. For statically configured interfaces, it will be called once during addNetwork, and once during delNetwork. These runs will place init scripts, that in turn will be called during ifup and ifdown.
 
 #### Upgrading
 

@@ -142,6 +142,13 @@ Virtio-SCSI will the following abilities to oVirt:
 
 *   virtio-scsi ioctl
 
+### Testing
+
+*   Run all tests on disks with the new disk interface (Virtio-SCSI).
+*   Hot-Plug: at the moment, hot plug would succeed only if there's already at least one virtio-scsi disk (i.e. a scsi controller should be available on running vm).
+*   SGIO: for DirectLUN disks, check that 'sgio' property is passed correctly (filtered/unfiltered).
+*   MLA: Disk -> 'Manipulate SCSI I/O Privilages'.
+
 ### Documentation / External references
 
 *   virtio-scsi Fedora feature page [KVM]: <http://fedoraproject.org/wiki/Features/virtio-scsi>

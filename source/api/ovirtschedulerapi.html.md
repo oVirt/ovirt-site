@@ -142,13 +142,11 @@ Cluster's policy will have a set of filters, cost functions and a single balanci
 In this class only a single method ought to be implemented, but when balance is implemented it is advised to implement a cost-function, since it later influences migration processes, and being aligned with overall selection policy.
 
          Class ClusterPolicy
-             Filter:
-                     filter_ sequence
-                     
-             `<CostFunction, Factor>`[]
-             Balance
+             `<Filter, filterSequence(first,last,no-order), filterParameters>`[]
+             `<CostFunction, factor, filterParameters>`[]
+`       `<Balance, balanceParameters>
 
-The first phase of implementation is to re-factor the current selection process into Policy Units and new arch:
+Move current selection process into Policy Units and new arch:
 
 | Policy Unit       | Filter                                                                        | Cost function                                    | Balance           | Parameters                                                           |
 |-------------------|-------------------------------------------------------------------------------|--------------------------------------------------|-------------------|----------------------------------------------------------------------|
@@ -163,7 +161,7 @@ The first phase of implementation is to re-factor the current selection process 
 
 Current Policies:
 
-*   None (all above filters, without Even Distribution and Power Saving- function and balance).
+*   None (all above filters, without Even Distribution and Power Saving policy units).
 *   Power Saving (all above except Even Distribution policy unit)
 *   Even Distribution (all above except Power Saving policy unit)
 

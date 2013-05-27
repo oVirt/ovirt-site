@@ -25,11 +25,11 @@ The ability to run the Engine as a VM on the hosts that are managed by this Engi
 
 <!-- -->
 
-*   Engine Component owner: Moran Goldboim
+*   Engine Component owner: Sandro Bonazzola
 
 <!-- -->
 
-*   Email: <mgoldboi@redhat.com>
+*   Email: <sbonazzo@redhat.com>
 
 <!-- -->
 

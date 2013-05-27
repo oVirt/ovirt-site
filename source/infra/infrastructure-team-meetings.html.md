@@ -18,7 +18,35 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Upcoming meetings
 
+#### 2013-05-27
+
+*   Introductions
+*   Review of action items
+*   Hosting
+    -   rackspace01 installed?
+*   Puppet
+*   Jenkins
+*   Other business?
+*   Trac review
+
+## Past meetings
+
+#### 2013-05-20
+
+*[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-05-20-14.04.html)*
+
+*   Introductions
+*   Review of action items
+*   Hosting
+    -   rackspace01 installed?
+*   Puppet
+*   Jenkins
+*   Other business?
+*   Trac review
+
 ### 2013-05-13
+
+*[Minutes](http://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-05-13-14.07.html)*
 
 #### Agenda
 
@@ -44,8 +72,6 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   knesenko handle jenkins backup and add script to jenkins git repo
 *   ewoud install foreman.ovirt.org
 *   dneary set up piwik
-
-## Past meetings
 
 ### 2013-05-06
 

@@ -146,7 +146,7 @@ In this class only a single method ought to be implemented, but when balance is 
              `<CostFunction, factor, filterParameters>`[]
 `       `<Balance, balanceParameters>
 
-Move current selection process into Policy Units and new arch:
+Move current selection process into new arch: Policy Units and Cluster Policies:
 
 | Policy Unit       | Filter                                                                        | Cost function                                    | Balance           | Parameters                                                           |
 |-------------------|-------------------------------------------------------------------------------|--------------------------------------------------|-------------------|----------------------------------------------------------------------|

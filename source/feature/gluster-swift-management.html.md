@@ -32,15 +32,44 @@ To read more about gluster swift integration, see <http://www.gluster.org/commun
 
 ### Design
 
+Gluster Swift Services Management has been designed to manage any group of services belonging to a service type. For instance, the Service Type for Gluster Swift is GLUSTER_SWIFT and the services are gluster-swift-proxy, gluster-swift-container, gluster-swift-object and gluster-swift-account.
+
 #### Entity Description
 
+##### Service Type
+
+An enum of supported Service Type. Currently only GLUSTER_SWIFT.
+
+##### Gluster Service
+
+This is the master list of supported services in the cluster and will be populated as part of installation or upgrade.
+
+*   ServiceType - type of service
+*   serviceName - Name of service
+
+##### Gluster Server Service
+
+This entity stores the status of individual services on a server in the cluster
+
+*   serviceType - type of service
+*   serviceName - name of service
+*   serverId - references the VDS server
+*   status - valid value from GlusterServiceStatus (RUNNING, STOPPED, FAILED, ERROR, NOT_INSTALLED, UNKNOWN)
+*   message - stores the message returned from VDS command when querying for service status on a server
+
 #### User Experience
+
+Administrator can view the status of SWIFT in the cluster from the Cluster -> General tab. The service status from all servers in the cluster is aggregated and shown as either UP/DOWN/MIXED . UP - indicates that all Gluster_SWIFT related services are running in all servers in the cluster DOWN - indicates that all Gluster_SWIFT related services are either stopped or NOT INSTALLED in all servers in the cluster MIXED - indicates that Gluster_SWIFT related services maybe running in some of the servers while stopped or NOT INSTALLED in other servers in the cluster
+
+From the Servers view, clicking on server will show a Gluster SWIFT sub tab. This will list all services of GLUSTER_SWIFT service type along with the status for that server. Administrator can choose to start/stop the GLUSTER_SWIFT service from this tab.
 
 #### Installation/Upgrade
 
 #### User work-flows
 
 #### Events
+
+Periodic sync job will report if service status changes in a server.
 
 ### Dependencies / Related Features and Projects
 

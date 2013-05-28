@@ -462,13 +462,13 @@ Select your next step by checking the storage type you should use:
 
 1.  Navigate to the Tree pane and click the Expand All button. Under System, click Default. On the results list, the Default data center displays.
 2.  On the results list, the Storage Type column displays the type you should add.
-3.  Now that you have verified the storage type, create the storage domain:
+3.  Now that you have verified the storage type, create the storage domain - see one of:
 
-    * For NFS storage, refer to Section 3.5.1, “Create an NFS Data Domain”.
+    * [ Create an NFS Data Domain](#Create_an_NFS_Data_Domain).
 
-    * For iSCSI storage, refer to Section 3.5.2, “Create an iSCSI Data Domain”.
+    * [ Create an iSCSI Data Domain](#Create_an_iSCSI_Data_Domain).
 
-    * For FCP storage, refer to Section 3.5.3, “Create an FCP Data Domain”.
+    * [ Create an FCP Data Domain](#Create_an_FCP_Data_Domain).
 
 Note: This document provides instructions to create a single storage domain, which is automatically attached and activated in the selected data center. If you wish to create additional storage domains within one data center, see the [oVirt Administration Guide](oVirt Administration Guide) for instructions on activating storage domains.
 

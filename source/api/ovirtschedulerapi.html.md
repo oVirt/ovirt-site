@@ -247,7 +247,17 @@ Action Groups:
 
 ### UI
 
-![](ClusterPolicy.png "fig:ClusterPolicy.png") ![](clusterPolicyList.png "fig:clusterPolicyList.png") ![](attach_cluster_policy.png "fig:attach_cluster_policy.png")
+![](clusterPolicyList.png "clusterPolicyList.png")
+
+*   Policies will be configured on a system level in configure screen.
+
+![](ClusterPolicy.png "ClusterPolicy.png")
+
+*   pencil button, is used to update the custom property of the unit, derived from plugin's config default_value (optional)
+
+![](attach_cluster_policy.png "attach_cluster_policy.png")
+
+*   custom properties values are derived from policy configuration.
 
 ### REST
 

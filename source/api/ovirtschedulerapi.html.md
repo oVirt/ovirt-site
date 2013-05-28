@@ -8,11 +8,11 @@ wiki_revision_count: 57
 wiki_last_updated: 2014-06-30
 ---
 
-# oVirt Scheduler API [WIP]
+# oVirt Scheduler API
 
 ### Summary
 
-Link to scheduler API summary.
+High level design can be found in the following page: [Features/oVirtScheduler](Features/oVirtScheduler)
 
 ### Owner
 
@@ -106,22 +106,24 @@ Flow:
 
 #### Balance
 
-Called periodically. Each cluster may use a single balancing logic at any given time. oVirt's load balance supports built in VM balancing. Signature
+Called periodically. Each cluster may use a single balancing logic at any given time. oVirt's load balance supports built in VM balancing.
 
-         `<VM, Hosts>` balance(Host[], properties)
+Signature
+
+         `<VM, Host[]>` balance(Host[], properties)
 
 *   Input: Hosts, properties (initial host list, custom properties map).
-*   Output: VM, hosts (a VM to migrate, balance over utilized hosts).
+*   Output: VM, hosts (a VM to migrate, filtered hosts (non-over utilized hosts)).
 *   Perform single balancing policy logic- replaces a manual selection of scheduled VM.
-*   Select a VM to migrate based on balance logic.
-*   For the returned VM, a migration command will be invoked, which ultimately triggers a schedule call (see schedule), the initial schedule hosts list will exclude the balance over utilized hosts list (to prevent redundant migration to other over utilized hosts).
-*   A user may provide a filter and/or a cost function. We strongly advice on making sure the selected balancing policy is aligned with the filters and cost functions lists. A cost function is a good way to correlate the logic. A filter may be used if filtering under-utilized hosts is needed in scheduling process.
+*   Select a VM to migrate based on balance logic, later the engine will try to migrate on one of the hosts returned by balance.
+*   For the returned VM, a migration command will be invoked, which ultimately triggers a schedule call (see schedule), the initial schedule hosts list will be the balance non-over utilized hosts list (to prevent redundant migration to other over utilized hosts).
+*   A user may provide a filter and/or a cost function. We strongly advice on making sure the selected balancing policy is aligned with the filters and cost functions lists. A cost function is a good way to correlate the logic. A filter may be used if filtering out over-utilized hosts is needed in scheduling process.
 
 For example: for power saving policy, a CPU load cost-function is needed.
 
 *   Performance/implementation open-issue: split balance into 2 methods:
 
-Host BalanceHosts(Host[], properties) <VM, Hosts> BalanceVM(VM[], properties) Currently the user is responsible to fetch the relevant VM. Code sample:
+Host BalanceHosts(Host[], properties) <VM, Host[]> BalanceVM(VM[], properties) Currently the user is responsible to fetch the relevant VMs. Code sample:
 
          balance(hosts[], vms[], properties) {
              max_host = max(hosts, key=lambda host: host['usage_mem_percent']))
@@ -142,9 +144,9 @@ Cluster's policy will have a set of filters, cost functions and a single balanci
 In this class only a single method ought to be implemented, but when balance is implemented it is advised to implement a cost-function, since it later influences migration processes, and being aligned with overall selection policy.
 
          Class ClusterPolicy
-             `<Filter, filterSequence(first,last,no-order), filterParameters>`[]
-             `<CostFunction, factor, filterParameters>`[]
-`       `<Balance, balanceParameters>
+             `<Filter, filterSequence(first,last,no-order), customParameters>`[]
+             `<CostFunction, factor, customParameters>`[]
+`       `<Balance, customParameters>
 
 Move current selection process into new arch: Policy Units and Cluster Policies:
 
@@ -165,22 +167,6 @@ Current Policies:
 *   Power Saving (all above except Even Distribution policy unit)
 *   Even Distribution (all above except Power Saving policy unit)
 
-### Concurrent Scheduler Invocations – and Pending Resources (memory, CPU)
-
-When a scheduler call is invoked there is a need to dis-allow any other scheduler requests on that cluster. The scheduler decision is based on shared resources and those resources state should be visible only to a single selection at a time. Therefore there should be a lock protecting a single scheduler invocation and waiting for shared state to be updated. There are two timeouts: one on trying to acquire the lock, and the other on time lock held. In case a filtering process ended with no hosts and there is enough pending memory, the request should try to reacquire the lock and hopefully can be rescheduled when pending resources will become available.
-
-The lock considers cluster's hosts available and pending resources:
-
-Lock Conditions:
-
-| Lock status               | Available resources | No Available resources + Available pending resources | No available resources |
-|---------------------------|---------------------|------------------------------------------------------|------------------------|
-| unlocked                  | acquire lock        | wait till timeout                                    | fail                   |
-| Locked                    | wait till timeout   | wait till timeout                                    | fail                   |
-| Pending resources changed | acquire lock        | wait till timeout                                    | fail                   |
-
-We can later consider a priory queue to give advantage to VMs that are likely to be scheduled successfully (give VMs with less constraints and resources higher priority).
-
 ### DB Scheme
 
 #### policy_unit table
@@ -189,6 +175,7 @@ We can later consider a priory queue to give advantage to VMs that are likely to
 |----------------------------|---------|---------------------------------|-----------|
 | id                         | UUID    |                                 |           |
 | name                       | string  | Class/File name                 |           |
+| is_internal               | boolean | java = true, python = false     |           |
 | has_filter                | boolean | Does filter method implemented? |           |
 | has_cost_function        | boolean | Does filter method implemented? |           |
 | has_balance               | boolean | Does filter method implemented? |           |
@@ -198,13 +185,12 @@ We can later consider a priory queue to give advantage to VMs that are likely to
 
 #### policy table
 
-| Name        | Type    | Description | Relations |
-|-------------|---------|-------------|-----------|
-| id          | UUID    |             |           |
-| name        | string  |             |           |
-| is_default | boolean |             |           |
-
-*   'edit policy' action for policies attached to other cluster(s), will clone and edit current policy.
+| Name        | Type    | Description  | Relations |
+|-------------|---------|--------------|-----------|
+| id          | UUID    |              |           |
+| name        | string  |              |           |
+| is_locked  | boolean | non-editable |           |
+| is_default | boolean |              |           |
 
 #### policy-cluster table
 
@@ -213,8 +199,6 @@ We can later consider a priory queue to give advantage to VMs that are likely to
 | Id             | UUID |             |                  |
 | policy_id     | UUID |             | Policy table     |
 | vds_group_id | UUID |             | vds_group table |
-
-*   policy_id can be added to cluster table (I prefer not).
 
 #### policy-policy unit table
 
@@ -240,89 +224,88 @@ We can later consider a priory queue to give advantage to VMs that are likely to
 | cost_function_parameters | string |             |                          |
 | balance_parameters        | string |             |                          |
 
-### MLA
+### Concurrent Scheduler Invocations – and Pending Resources (memory, CPU)
+
+When a scheduler call is invoked there is a need to dis-allow any other scheduler requests on that cluster. The scheduler decision is based on shared resources and those resources state should be visible only to a single selection at a time. Therefore there should be a lock protecting a single scheduler invocation and waiting for shared state to be updated. There are two timeouts: one on trying to acquire the lock, and the other on time the lock is held (both are configurable). In case a filtering process ended with no hosts and there is enough pending memory, the request should try to reacquire the lock and hopefully can be rescheduled when pending resources will become available. We can later consider a priory queue to give advantage to schedule VM requests that are likely to be scheduled successfully (give VM requests with less constraints and resources, higher priority).
+
+### Permissions
 
 Action Groups:
 
-1) Create/EditPolicy (including edit custom properties; to get impact, containing role should be attached to Cluster/DC/System level).
+1) CreatePolicy(also 'clone' in the UI): Containing role should be attached to Cluster or higher.
 
-2) DeletePolicy (to get impact, containing role should be attached to System level).
+2) Edit/Delete Policy: Containing role should be attached to all Clusters or higher attached to that policy.
 
-3) Attach/Select policy to a cluster will be part of cluster add/new command, currently a permission for those command is sufficient.
+2) Attach Policy to a Cluster: will be part of cluster add/new command, currently a permission for those command is sufficient.
 
 ### In Progress
 
 1.  UI
 2.  REST
 
-### TBD
+### External Scheduler
 
-1.  Upgrade DB to new architecture
+The external scheduler is a daemon and its purpose is for oVirt users to extend the scheduling process with custom python filters, scoring functions and load balancing functions. The service will be started by the installer, and the engine will be able to communicate with it using XML-RPC.
 
-### Later Phases
+#### External Scheduler API
 
-1.  External scheduler invocation – first run internal filters/cost-functions, and then external.
+Engine and external scheduler API:
 
-# External Scheduler
+*   Discover(void): returns a JSON containing all available policy units and configurations (configuration is optional).
 
-### Summary
+Sample:
 
-The external scheduler will be a way for Ovirt users to extend the scheduling process with custom python filters, scoring functions and balancers. Written scheduling extensions will be put in (#folder name) where the external scheduler service load them and expose them to the engine using XMLRPC.
+         {
+           "PolicyUnits": {
+             "Filters": {
+               "Filter": [
+                 { "name": "Memory" },
+                 {
+                   "name": "Heat",
+                   "filter_custom_properties": "server_ip=\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b;threshold={0-99}",
+                   "default_value": "127.0.0.1;70"
+                 }
+               ]
+             },
+             "CostFunctions": {
+               "CostFunction": { "name": "Memory" }
+             },
+             "Balances": {
+               "Balance": { "name": "Memory" }
+             }
+           }
+         }
 
-### Scheduling extension format
+The engine will call this method during initialization to expose all plugins. It will compare its persistent data (policy unit table) with returned plugins, and handle changes:
 
-Any extension file must implement at least one of the following function signatures:
+         * additional plugins: audit log.
+         * deleted plugins: need to make sure that the plugins isn't in use, if so disable the policy and audit log.
+         * edited plugins: save checksum?
+
+In the following methods the similar to what explained above. the differences are: - returns UUID instead of a business entity (no need for serialization). - Host and VM are translated in the engine to their REST representations and passed as XML strings. in the daemon it will be serilized back to python entity (use python-sdk logic for that purpose).
+
+*   List<UUID> runFilters(filtersList, Hosts(as xml), VM(as xml), properties_map)
+
+runFilters will execute a set of filters plugins sequentially (provided as a name list).
+
+*   List<UUID, int> runCostFunctions(<costFunction,Factor>List, Hosts(as xml), VM(as xml), properties_map)
+
+runCostFunctions will execute a set of cost function plugins sequentially (provided as a name list), then calculate a cost table (using factors) and return it to the engine.
+
+*   <UUID, List<UUID>> runLoadBalancing(balanceName, Hosts(as xml), properties_map)
+
+Will execute the balance plugin named balance name on the hosts and properties_map.
+
+Scheduler conf file (etc/ovirt/scheduler/schecduler.conf) : listerning port=# ssl=true/false plugins_path=$PYTHONPATH/ovirt_scheduler/plugins
+
+### Public API Implementation
+
+Any plugin file {NAME}.py must implement at least one of the following function signatures:
 
 *   Host[] filter(Host[], properties)
 *   <Host, Integer>[] score(Host[], properties)
 *   <VM, Hosts> balance(Host[], properties)
 
-Additionally for every python file created an optional config file can be added that contains regexs describing the parameters of the operations config format TBD
-
-### Service
-
-The external scheduler service loads python extension files and exposes them to the engine
-
-#### Service API
-
-##### Discover
-
-      (`<Filter, Parameter_Regex>`[], `<Score function, Parameter_Regex>`[], `<balancers, Parameter_Regex>`[]) discover()
-
-When Ovirt engine boots up it will query the service for available external filters, score functions and balancers using the discover call. This call return three lists of pairs:
-
-*   Name of files containing a filter and the filter parameters regex
-*   Name of files containing a scoring function and the scoring function parameters regex
-*   Name of files containing a balancer and the balancer parameters regex
-
-##### Filter
-
-      Host[] filter (`<filter name, parameters, priority>`[], Host[])
-
-When calling for external filter functions the engine will send a list of 3-tuples containing:
-
-*   name of the filter (name of the file)
-*   filter parameters
-*   filter priority
-
-And a list of hosts to filter. The return value is a list of hosts that passed the filter.
-
-##### Score
-
-<Host, Score>`[]  score (`<score name, parameters, weight>`[], Host[])`
-
-When calling for external score functions the engine will send a list of 3-tuples containing:
-
-*   name of the score function (name of the file)
-*   score parameters
-*   score weight
-
-And a list of hosts to score. The return value is a list of couples - host and score
-
-##### Balance
-
-<VM, Hosts>` balance(Host[], properties)`
-
-When calling for external balancing the engine will send a list of hosts to balance from and properties The return value is a pair containing a VM to migrate and a list of potential hosts
+Additionally for every python plugin an optional config file can be added (etc/ovirt/scheduler/plugins/{NAME}.conf)
 
 <Category:Feature> <Category:SLA>

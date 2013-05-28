@@ -238,10 +238,13 @@ Action Groups:
 
 2) Attach Policy to a Cluster: will be part of cluster add/new command, currently a permission for those command is sufficient.
 
+### UI
+
+![](ClusterPolicy.png "fig:ClusterPolicy.png") ![](clusterPolicyList.png "fig:clusterPolicyList.png")
+
 ### In Progress
 
-1.  UI
-2.  REST
+1.  REST
 
 ### External Scheduler
 

@@ -14,7 +14,7 @@ wiki_last_updated: 2014-07-13
 
 ### Summary
 
-Allow edit (update) connection properties of an existing storage domain, rather than delete/create a new one. This feature supports the disaster recovery agenda, and should allow quickly switching to work with another server (that holds a backup/sync of the contents of the storage) in case of primary storage failure. Connection can be edited when the storage domain is set to maitenance state, and in condition that the new location where it will point already has a sync/backup with the original storage contents.
+Allow edit (update) connection properties of an existing storage domain, rather than delete/create a new one. This feature supports the disaster recovery agenda, and should allow quickly switching to work with another server (that holds a backup/sync of the contents of the storage) in case of primary storage failure.
 
 ### Owner
 

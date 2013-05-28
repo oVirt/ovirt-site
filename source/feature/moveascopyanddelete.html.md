@@ -36,6 +36,12 @@ A move operation is basically a copy to the destination domain, followed by a de
 
 Abillity to determine the state of the move operation, have faster operation when performing move with wipe (post zero).
 
+### Known issues
+
+*   The whole operation \*might\* be slower for moving image groups without wipe
+
+as the delete part is quick (and now we will have two vdsm calls rather then one) - this issue is known and accepted.
+
 ### Dependencies / Related Features
 
 ### Documentation / External references

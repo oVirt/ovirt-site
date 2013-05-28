@@ -12,19 +12,42 @@ wiki_last_updated: 2013-06-28
 
 ## Introduction
 
-This wiki page focuses on the design of storage resources Service Level Agreement(SLA). In VDSM, each storage domain backend only provides limited IO bandwidth capability. If bandwidth become scarce resource, the efficiency of vm IO operations will be affected by other vms. This is not the situation we want, and therefore we need to limit the bandwidth usage to allocate the bandwidth in a better way.
+This wiki page focuses on the design of storage resources Service Level Agreement(SLA). Existing iotune properties(quota) are applied on a vDisk of VM, and provides the ability to provide additional per-device I/O tuning. They include the following elements:
+
+*   total_bytes_sec
+    -   The optional total_bytes_sec element is the total throughput limit in bytes per second. This cannot appear with read_bytes_sec or write_bytes_sec.
+*   read_bytes_sec
+    -   The optional read_bytes_sec element is the read throughput limit in bytes per second.
+*   write_bytes_sec
+    -   The optional write_bytes_sec element is the write throughput limit in bytes per second.
+*   total_iops_sec
+    -   The optional total_iops_sec element is the total I/O operations per second. This cannot appear with read_iops_sec or write_iops_sec.
+*   read_iops_sec
+    -   The optional read_iops_sec element is the read I/O operations per second.
+*   write_iops_sec
+    -   The optional write_iops_sec element is the write I/O operations per second.
+
+Any sub-element not specified or given with a value of 0 implies no limit.
+
+## Design
+
+### Basic functionality
+
+Users can set the elements for a specific vDisk when a VM is created or running. These elements are kept in migration. This requires support of this in VDSM API: create VM, hot plug and update VM device. Dynamic setting these elements should also be supported.
+
+### Automatic per-device I/O tuning
+
+In VDSM, each storage domain backend only provides limited IO bandwidth capability. If bandwidth become scarce resource, the efficiency of vm IO operations will be affected by other vms. This is not the situation we want, and therefore we need to limit the bandwidth usage to allocate the bandwidth in a better way.
 
 Volumes in backend storage of a storage domain are used by plenty of vms as vDisks, and thus a vm's vDisk bandwidth should be limited by a quota according to the capability of this backend storage. In the following chapters, we will explain how to tune the quota dynamically . The quota adjustment is performed by MOM and VDSM.
 
-## Quota of vDisk bandwidth and automaticly tuning scheme
+This section gives the way to set initial value. This value is used as start point when quota is adjusted. The quota is then tuned according to IO bandwidth usage and capability of backend storage bandwidth. During this tuning procedure, the quota can not be inflated or deflated arbitrarily, so we constrain it in a dynamic calculated range.
 
-This chapter gives the way to set initial value. This value is used as start point when quota is adjusted. The quota is then tuned according to IO bandwidth usage and capability of backend storage bandwidth. During this tuning procedure, the quota can not be inflated or deflated arbitrarily, so we constrain it in a dynamic calculated range.
-
-### Initial quota value
+#### Initial quota value
 
 The initial quota of vDisks bandwidth can be set to the value when vm is created, dynamically set via VDSM API or bandwidth capability of the related backend storage. The capability is estimated based on physical backend IO bandwidth capability or detected in some other way.
 
-### Quota adjustment
+#### Quota adjustment
 
 Quota is tuned by a similar mechanism in MOM. MOM collects bandwidth capability information and IO bandwidth usage statistics of backend storages and related volumes. According to this information and related policy, the policy engine decides how to tune the quota of vDisk which uses that backend storage .
 
@@ -54,3 +77,7 @@ At the same time, the policy make sure that the quota is in a proper range dynam
          min = used
          max = used + cur * vDisk_unused_percent 
          cur means the current quota value
+
+## References
+
+<http://libvirt.org/formatdomain.html#elementsDisks>

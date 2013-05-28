@@ -287,7 +287,11 @@ The engine will call this method during initialization to expose all plugins. It
          * deleted plugins: need to make sure that the plugins isn't in use, if so disable the policy and audit log.
          * edited plugins: save checksum?
 
-The following methods are similar to the engine's flow explained above with one exception: serialization. - Returns UUID instead of a full business entity (no need for serialization). - Prior to invoking the remote procedure, the engine translates Host and VM business entities to their REST representations (rest mappers) and then convert it to XML string (using JAXB marshaling), then in the daemon it will be serialized back to python entity using ovirt-python-sdk (import ovirtsdk.xml.params.parseString auto generated module). This is similar to the way REST-API works.
+The following methods are similar to the engine's flow explained above with one exception: serialization.
+
+* Returns UUID instead of a full business entity (no need for serialization).
+
+* Prior to invoking the remote procedure, the engine translates Host and VM business entities to their REST representations (rest mappers) and then convert it to XML string (using JAXB marshaling), then in the daemon it will be serialized back to python entity using ovirt-python-sdk (import ovirtsdk.xml.params.parseString auto generated module). This is similar to the way REST-API works.
 
 *   List<UUID> runFilters(filtersList, Hosts(as xml), VM(as xml), properties_map)
 
@@ -300,7 +304,5 @@ runCostFunctions will execute a set of cost function plugins sequentially (provi
 *   <UUID, List<UUID>> runLoadBalancing(balanceName, Hosts(as xml), properties_map)
 
 Will execute the balance plugin named balance name on the hosts and properties_map.
-
-Scheduler conf file (etc/ovirt/scheduler/schecduler.conf) : listerning port=# ssl=true/false plugins_path=$PYTHONPATH/ovirt_scheduler/plugins Additionally for every python plugin an optional config file can be added (etc/ovirt/scheduler/plugins/{NAME}.conf).
 
 <Category:Feature> <Category:SLA>

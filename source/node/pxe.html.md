@@ -20,6 +20,8 @@ To prepare files, you need to do the following :
 
 Check if you have script "/usr/bin/livecd-iso-to-pxeboot". If so, skip steps 2, 3 and 4.
 
+You can also yum install livecd-tool to get the script.
+
 2. Create a mountpoint :
 
       $ mkdir iso

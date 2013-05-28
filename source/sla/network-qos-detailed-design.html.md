@@ -54,10 +54,10 @@ The UI for setting of QoS properties will be added to the Add/Edit Network and V
 In the Add/Edit Network two parts will be added - one for the QoS properties of the network, the other for the QoS properties preset for VNICs attached to the network.
 
 **UI addition to the Add/Edit Network dialog**
- ![](Network_quality_of_service_2.png "fig:Network_quality_of_service_2.png")
+![](Network_quality_of_service_2.png "fig:Network_quality_of_service_2.png")
 
 **UI addition to the Add/Edit VNIC dialog**
- ![](QoS.png "fig:QoS.png")
+![](QoS.png "fig:QoS.png")
 
 The user could enable/disable the QoS properties (for each inbound / outbound).
 The panel holding the properties will be collapsed by default (extendable panel).

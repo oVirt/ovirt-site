@@ -93,9 +93,8 @@ Add NetworkQoS table with 7 columns.
 | outbound_peak    | Integer     |                 |
 | outbound_burst   | Bigint      |                 |
 
-Add network_QoS_id(UUID | null) to the **vm_interface** table - Represents the properties of the virtual NIC. Add network_QoS_id(UUID | null) to the **network** table.
-
-* alternatively, we can save average,peak,burst values in one string field, but we expect future uses to include mathematical calculations on the values.
+Add network_QoS_id(UUID | null) to the **vm_interface** table - Represents the properties of the virtual NIC.
+Add network_QoS_id(UUID | null) to the **network** table.
 
 ### REST API
 

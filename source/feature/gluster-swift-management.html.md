@@ -61,9 +61,17 @@ This entity stores the status of individual services on a server in the cluster
 
 Administrator can view the status of SWIFT in the cluster from the Cluster -> General tab. The service status from all servers in the cluster is aggregated and shown as either UP/DOWN/MIXED . UP - indicates that all Gluster_SWIFT related services are running in all servers in the cluster DOWN - indicates that all Gluster_SWIFT related services are either stopped or NOT INSTALLED in all servers in the cluster MIXED - indicates that Gluster_SWIFT related services maybe running in some of the servers while stopped or NOT INSTALLED in other servers in the cluster
 
-![](GlusterSwift-ClusterStatus.png "fig:GlusterSwift-ClusterStatus.png") ![](GlusterSwift-ClusterManage.png "fig:GlusterSwift-ClusterManage.png")
+##### Cluster General Subtab
+
+![](GlusterSwift-ClusterStatus.png "GlusterSwift-ClusterStatus.png")
+
+##### Manage Gluster Swift Services
+
+![](GlusterSwift-ClusterManage.png "GlusterSwift-ClusterManage.png")
 
 From the Servers view, clicking on server will show a Gluster SWIFT sub tab. This will list all services of GLUSTER_SWIFT service type along with the status for that server. Administrator can choose to start/stop the GLUSTER_SWIFT service from this tab.
+
+##### Host Gluster Swift Subtab
 
 ![](GlusterSwift-HostManage.png "GlusterSwift-HostManage.png")
 

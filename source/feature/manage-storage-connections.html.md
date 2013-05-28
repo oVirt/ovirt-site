@@ -31,4 +31,6 @@ Allow edit (update) connection properties of an existing storage domain, rather 
 
 ## Detailed Description
 
+While in UI and REST they are presented as one entity to the user, current backend implementation actually manages them separately. In order to allow user to edit the connection details, there's a need to separate the notion of storage domain from its connection details, and allow editing just the connection details without editing the storage domain itself.
+
 <Category:Feature>

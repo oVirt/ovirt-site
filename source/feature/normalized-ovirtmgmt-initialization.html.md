@@ -107,7 +107,7 @@ When a host is activated Engine should
 
 #### ovirt-node
 
-Still needs **TODO**: drop bridge-creation logic from `ovirt-node`.
+Still needs **TODO**: drop bridge-creation logic from `ovirt-node`. [ovirt-node bug for allowing bridgeless network](https://bugzilla.redhat.com/show_bug.cgi?id=967866)
 
 #### Behavioral Changes
 

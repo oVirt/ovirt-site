@@ -245,9 +245,9 @@ Action Groups:
 
 ### External Scheduler
 
-The external scheduler is a daemon and its purpose is for oVirt users to extend the scheduling process with custom python filters, scoring functions and load balancing functions. The service will be started by the installer, and the engine will be able to communicate with it using XML-RPC.
+The external scheduler is a daemon and its purpose is for oVirt users to extend the scheduling process with custom python filters, scoring functions and load balancing functions. As mentioned above any plugin file {NAME}.py must implement at least one of the functions. The service will be started by the installer, and the engine will be able to communicate with it using XML-RPC.
 
-#### External Scheduler API
+#### External Daemon RPCs
 
 Engine and external scheduler API:
 
@@ -263,7 +263,7 @@ Sample:
                  {
                    "name": "Heat",
                    "filter_custom_properties": "server_ip=\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b;threshold={0-99}",
-                   "default_value": "127.0.0.1;70"
+                   "default_values": "127.0.0.1;70"
                  }
                ]
              },
@@ -276,13 +276,15 @@ Sample:
            }
          }
 
-The engine will call this method during initialization to expose all plugins. It will compare its persistent data (policy unit table) with returned plugins, and handle changes:
+note: name is the file name and filter_custom_properties and default_values are fetched from plugin config file.
+
+The engine will call this method during initialization to expose all plugins. It will compare its persistent data (policy unit table) with returned plugins/configurations, and handle changes:
 
          * additional plugins: audit log.
          * deleted plugins: need to make sure that the plugins isn't in use, if so disable the policy and audit log.
          * edited plugins: save checksum?
 
-The following methods are similar to the flow explained above with one exception: serialization. - returns UUID instead of a full business entity (no need for serialization). - Host and VM are translated in the engine to their REST representations transformed to XML and passed strings, then in the daemon it will be serialized back to python entity similar to how the python-sdk is working (import ovirtsdk.xml.params auto generated module).
+The following methods are similar to the engine's flow explained above with one exception: serialization. - Returns UUID instead of a full business entity (no need for serialization). - Prior to invoking the remote procedure, the engine translates Host and VM business entities to their REST representations (rest mappers) and then convert it to XML string (using JAXB marshaling), then in the daemon it will be serialized back to python entity using ovirt-python-sdk (import ovirtsdk.xml.params.parseString auto generated module). This is similar to the way REST-API works.
 
 *   List<UUID> runFilters(filtersList, Hosts(as xml), VM(as xml), properties_map)
 
@@ -296,16 +298,6 @@ runCostFunctions will execute a set of cost function plugins sequentially (provi
 
 Will execute the balance plugin named balance name on the hosts and properties_map.
 
-Scheduler conf file (etc/ovirt/scheduler/schecduler.conf) : listerning port=# ssl=true/false plugins_path=$PYTHONPATH/ovirt_scheduler/plugins
-
-### Public API Implementation
-
-Any plugin file {NAME}.py must implement at least one of the following function signatures:
-
-*   Host[] filter(Host[], properties)
-*   <Host, Integer>[] score(Host[], properties)
-*   <VM, Hosts> balance(Host[], properties)
-
-Additionally for every python plugin an optional config file can be added (etc/ovirt/scheduler/plugins/{NAME}.conf)
+Scheduler conf file (etc/ovirt/scheduler/schecduler.conf) : listerning port=# ssl=true/false plugins_path=$PYTHONPATH/ovirt_scheduler/plugins Additionally for every python plugin an optional config file can be added (etc/ovirt/scheduler/plugins/{NAME}.conf).
 
 <Category:Feature> <Category:SLA>

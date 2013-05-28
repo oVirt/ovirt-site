@@ -63,7 +63,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support DB_ADMIN option                                               | Done                    | Done                 |                                                      |          |             |
 | Support DB_REMOTE_PASS option                                        | Done                    | Done                 |                                                      |          |             |
 | Support DB_SECURE_CONNECTION option                                  | Done                    | Done [14]            |                                                      |          |             |
-| Support local DB creation                                              | Done                    | Feedback             | [ Alex Lourie](User:AlexLourie)           |          |             |
+| Support local DB creation                                              | Done                    | Done                 | [ Alex Lourie](User:AlexLourie)           |          |             |
 | Support NFS_MP option                                                 | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Support ISO_DOMAIN_NAME option                                       | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Support CONFIG_NFS option                                             | Done                    | Done[15]             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
@@ -71,7 +71,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Initialize MiniYum                                                     | Done                    | Not implemented      |                                                      | Medium   |             |
 | Handle second execution warning                                        | Done                    | Not required[16]     | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
 | Handle loading and validating params from answer file                  | Done                    | Done[17]             |                                                      |          |             |
-| Mask input sets                                                        | Done                    | In Progress          |                                                      | Low      |             |
+| Mask input sets                                                        | Done                    | Done                 |                                                      | Low      |             |
 | Log masked configuration                                               | Done                    | Done                 |                                                      | Low      |             |
 | Set Max Shared Memory                                                  | Done                    | Done                 |                                                      |          |             |
 | Check for supported Java VM                                            | Done                    | Done                 |                                                      |          |             |

@@ -25,9 +25,9 @@ Allow edit (update) connection properties of an existing storage domain, rather 
 
 *   Edit NFS connection properties in webadmin UI (http://gerrit.ovirt.org/#/c/12372/)
 *   Edit Posix connection properties in webadmin UI (http://gerrit.ovirt.org/#/c/13640/)
-*   Edit NFS, Posix connection properties in REST (Work in Progress)
-*   Edit ISCSI connection properties in webadmin UI (Work in Progress)
-*   Edit ISCSI connection properties in REST (Work in Progress)
+*   Edit NFS, Posix connection properties in REST (design phase)
+*   Edit ISCSI connection properties in webadmin UI (not started)
+*   Edit ISCSI connection properties in REST (design phase)
 
 ## Detailed Description
 

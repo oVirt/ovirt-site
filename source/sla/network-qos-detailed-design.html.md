@@ -94,7 +94,7 @@ Add NetworkQoS table with 7 columns.
 | outbound_burst   | Bigint      |                 |
 
 Add network_QoS_id(UUID | null) to the **vm_interface** table - Represents the properties of the virtual NIC.
-Add network_QoS_id(UUID | null) to the **network** table.
+Add network_QoS_id(UUID | null) and network_QoS_default_for_vnic_id(UUID | null) to the **network** table.
 
 ### REST API
 

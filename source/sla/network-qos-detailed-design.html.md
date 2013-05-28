@@ -10,6 +10,17 @@ wiki_last_updated: 2013-06-10
 
 # Network QoS - detailed design
 
+### Owner
+
+*   Name: [Ofri Masad](User:omasad)
+*   Email: <omasad at redhat dot com>
+
+### Current status
+
+*   Status: design
+*   Last updated: ,
+*   patchset
+
 ## Motivation
 
 We would like to expose to the user the ability to configure the Network Quality of Service (QoS) properties of each virtual NIC. The QoS properties are properties which defines the traffic shaping applied on the virtual NIC. QoS properties currently include:

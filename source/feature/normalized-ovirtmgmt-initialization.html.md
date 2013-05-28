@@ -116,11 +116,9 @@ The updated host installation flow is described in the chart below, where each f
 ![](Installation-flowchart.png "Installation-flowchart.png")
 
 The noticeable changes from the previous installation flow are:
-\* In Add-Host / Re-install host - rebootAfterInstallation property is deprecated for 3.1 clusters and above. The reboot will no longer be activated, regardless the provided value of rebootAfterInstallation property.
+\* In Add-Host / Re-install host - rebootAfterInstallation property is deprecated (ignored) for 3.1 clusters and above. The reboot will no longer take place, regardless of the provided value of rebootAfterInstallation property. Hosts in cluster 3.0 still support rebootAfterInstallation property to control rebooting the host after installation is completed.
 
-    * Hosts from cluster 3.0 are still able to provide rebootAfterInstallation property to control rebooting the host after installation is completed.
-
-        * Current behavior: The default via the webadmin is to reboot the host for any host with 'Virt' capabilities. The default via rest-api is not to reboot the host.
+        * Note: In clusters 3.0 installing a host via the webadmin performs a reboot after the host installation (for any host with 'Virt' capabilities), installation via the rest-api also did reboot as we added the flag in 3.1.... ended upis not to reboot the host - this is not changed.
 
 *   ovirt-node - during the registration of ovirt-node, the management network is created as part of the bootstrap process as a bridge. ATM there is no support in configuring the management network for ovirt-node according to its logical network definition. Therefore if the logical network definition of the management network defers from a bridge, the ovirt-node will be added with its management network marked as 'not synced' (event log) and the admin will have to use the 'setup networks' dialogue to sync the network.
 *   For 3.1 hosts and above, if the creation of the management network fails, the host will move to non-operational.

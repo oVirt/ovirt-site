@@ -40,7 +40,13 @@ In the planned implementation only Virtual Machine level network QoS will be sup
 
 ## Design
 
-The QoS properties will be saved as properties of the NetworkInterface entity. The user could set the properties when creating/editing a VM NIC (in the future, this capability may be available for host physical NICs as well). The Qos properties (like the other NIC properties) will be kept in migration and when VM is saved as template and exported/imported.
+We define a new entity called "NetworkQoS" - the QoS properties will be contained in this object. A NetworkQoS object will be added to NetworkInterface entity and Network entity.
+
+When editing a network (by a permitted user), the user could set the QoS properties for the network itself, as well as the QoS properties which would be used as default for each VNIC connected to the said network. Leaving the QoS properties empty will result in no traffic shaping for that network. When editing a VNIC (by a permitted user), the user could set the QoS properties for the VNIC itself, overriding the network's default QoS properties for VNIC (only for that specific VNIC). Leaving the QoS properties empty will result in using the default setting defined by the network. If no default setting were defined the VNIC traffic will not be shaped.
+
+The QoS properties (like the other VNIC properties) will be kept in migration and when VM is saved as template and exported/imported.
+
+Since the QoS properties can be inherited from the network to the VNIC, any change in the QoS properties on the network will require network to be synched (for the change to get to the hosts).
 
 ## GUI
 

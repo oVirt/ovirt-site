@@ -141,11 +141,11 @@ Note that the migration protocol requires Vdms-Vdsm and libvirt-libvirt communic
                                                                                                                                                          2) Network attached                                                                                                     
                                                                                                                                                          3) Manual migration should be possible, even if node does not have migration network (management network will be used)  |        |         | Test for: regular network, bridgeless network, VLAN, bond |
 
-| remove dedicated migration network                                     | 1) Remove dedicated migration network/s                                      
+| Remove dedicated migration network                                     | 1) Remove dedicated migration network/s                                      
                                                                           2) Migrate VMs                                                                | 1) Networks removed                                                                                                    
                                                                                                                                                          2) VMs successfully migrate over management network                                                                     |        |         | Test for: regular network, bridgeless network, VLAN, bond |
 
-| migration network interface failure                                    | 1) Assign migration role to the network                                      
+| Migration network interface failure                                    | 1) Assign migration role to the network                                      
                                                                           2) Attach the network to cluster as required                                  
                                                                           3) Attach the network to hosts (do not forget to setup IPs)                   
                                                                           4) Take down migration interface on one host                                  

@@ -249,9 +249,9 @@ Action Groups:
 
 ![](ClusterPolicy.png "fig:ClusterPolicy.png") ![](clusterPolicyList.png "fig:clusterPolicyList.png") ![](attach_cluster_policy.png "fig:attach_cluster_policy.png")
 
-### In Progress
+### REST
 
-1.  REST
+1.  In Progress
 
 ### External Scheduler
 

@@ -282,7 +282,7 @@ The engine will call this method during initialization to expose all plugins. It
          * deleted plugins: need to make sure that the plugins isn't in use, if so disable the policy and audit log.
          * edited plugins: save checksum?
 
-In the following methods the similar to what explained above. the differences are: - returns UUID instead of a business entity (no need for serialization). - Host and VM are translated in the engine to their REST representations and passed as XML strings. in the daemon it will be serilized back to python entity (use python-sdk logic for that purpose).
+The following methods are similar to the flow explained above with one exception: serialization. - returns UUID instead of a full business entity (no need for serialization). - Host and VM are translated in the engine to their REST representations transformed to XML and passed strings, then in the daemon it will be serialized back to python entity similar to how the python-sdk is working (import ovirtsdk.xml.params auto generated module).
 
 *   List<UUID> runFilters(filtersList, Hosts(as xml), VM(as xml), properties_map)
 

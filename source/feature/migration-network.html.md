@@ -98,6 +98,15 @@ Note that the migration protocol requires Vdms-Vdsm and libvirt-libvirt communic
 *   Start a VM on one machine, and migrate it to the other. Verify that migration succeeds.
 *   Sniff the traffic on the source and destination hosts while migration is going on. Verify that qemu-to-qemu migration traffic is limited to the migration network.
 
+| Test                        | Steps                                                         | Expected Result                                                         | Status | Version | Note                                                                          |
+|-----------------------------|---------------------------------------------------------------|-------------------------------------------------------------------------|--------|---------|-------------------------------------------------------------------------------|
+
+| dedicated migration network | 1) Assign migration role to the network                       
+                               2) Attach the network to the host (do not forget to setup IP)  
+                               3) Migrate VMs between nodes                                   | 1) role assigned                                                        
+                                                                                               2) network attached                                                      
+                                                                                               3) successfull migration which happens over dedicated migration network  |        |         | Test for: regular network, bridgeless network, bridgeless network, VLAN, bond |
+
 ### Known Limitations
 
 *   The address of the migration network must live on the same subnet for both hosts. If it is not, qemu cannot guess the correct source address to use, so traffic would flow via the default gateway. **TODO**: open qemu and libvirt RFEs to allow specifying the source IP address of migration traffic.

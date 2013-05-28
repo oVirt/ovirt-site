@@ -122,10 +122,7 @@ The noticeable changes from the previous installation flow are:
 
         * Current behavior: The default via the webadmin is to reboot the host for any host with 'Virt' capabilities. The default via rest-api is not to reboot the host.
 
-*   ovirt-node - during the registration of ovirt-node, the management network is created as part of the bootstrap process as a bridge. ATM there is no support in configuring the management network for ovirt-node according to its logical network definition. Therefore if the logical network definition of the management network defers from a bridge, the ovirt-node will be added with its management
-
-network marked as 'not synced' (event log) and the admin will have to use the 'setup networks' dialogue to sync the network.
-
+*   ovirt-node - during the registration of ovirt-node, the management network is created as part of the bootstrap process as a bridge. ATM there is no support in configuring the management network for ovirt-node according to its logical network definition. Therefore if the logical network definition of the management network defers from a bridge, the ovirt-node will be added with its management network marked as 'not synced' (event log) and the admin will have to use the 'setup networks' dialogue to sync the network.
 *   For 3.1 hosts and above, if the creation of the management network fails, the host will move to non-operational.
 *   At the end of a successful installation, the host moves to 'initializing' status instead of former 'non responsive'
 *   After the ovirt-host-deploy ends, the engine will await to VDSM to become responsive for 2 minutes. If it fails, the host will move to 'non responsive'.

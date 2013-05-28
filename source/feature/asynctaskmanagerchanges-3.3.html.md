@@ -72,7 +72,7 @@ The suggested fix will allow association of multiple entity types with multiple 
 #### **Improving the mechanism for determining whether endAction (the last step of command invocation in case the command/its children created tasks) should be run**
 
 *   Problem: Current mechanism of endAction mechanism is limiting
-*   Example: Two READ-ONLY commands (tasks that perform READ ONLY operations) cannot run on the same entity in parallel (Engine will start polling tasks of a command only after the first command has finished).
+*   Example: Two READ-ONLY commands (tasks that perform READ ONLY storage-related operations) cannot run on the same entity in parallel (Engine will start polling tasks of a command only after the first command has finished).
 *   Detailed explanation of problem:
 
 The current mechanism uses the combination of CommandType (i.e RemoveVm) and the entity ID (i.e the ID of the VM) in order to coordinate the execution of endAction when all tasks related for the command (i.e - all tasks created by the children of RemoveVm command are done). The current mechanism is problematic as it prevents the engine to start polling tasks for the same entity of different commands - for example, if there are two READ-ONLY asynchronous operations on the same entity (in case of read/write- this should be handled by canDoAction and the in-memory locking mechanism).
@@ -80,6 +80,10 @@ The current mechanism uses the combination of CommandType (i.e RemoveVm) and the
 *   Solution:
 
 Reach the decision of whether endAction should be executed based on the parent command Id. Async Task Manager should not postpone polling of commands - for READ-ONLY asynchronous operations there is no point. For write operation - it is the responsibility of canDoAction and the locking mechanism to approve such commands.
+
+### Benefit to oVirt
+
+The benefit for oVirt from these changes is to have better usage of SPM tasks in the system - by giving better handling of cases of engine crashes , providing a better mechanism for execution validation of commands and and to give better association between tasks and the command execution flows.
 
 ### Dependencies / Related Features
 

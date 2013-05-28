@@ -12,7 +12,7 @@ wiki_last_updated: 2013-06-28
 
 ## Introduction
 
-This wiki page focuses on the design of storage resources Service Level Agreement(SLA). Existing iotune properties(quota) are applied on a vDisk of VM, and provides the ability to provide additional per-device I/O tuning. They include the following elements:
+This wiki page focuses on the design of storage I/O bandwidth Service Level Agreement(SLA). Existing iotune properties(quota) are applied on a vDisk of VM, and provides the ability to provide additional per-device I/O tuning. They include the following elements:
 
 *   total_bytes_sec
     -   The optional total_bytes_sec element is the total throughput limit in bytes per second. This cannot appear with read_bytes_sec or write_bytes_sec.

@@ -120,7 +120,7 @@ The noticeable changes from the previous installation flow are:
 
     * Hosts from cluster 3.0 are still able to provide rebootAfterInstallation property to control rebooting the host after installation is completed.
 
-        * The default via the webadmin is to reboot the host for any host with 'Virt' capabilities. The default via rest-api is not to reboot the host.
+        * Current behavior: The default via the webadmin is to reboot the host for any host with 'Virt' capabilities. The default via rest-api is not to reboot the host.
 
 *   ovirt-node - during the registration of ovirt-node, the management network is created as part of the bootstrap process as a bridge. ATM there is no support in configuring the management network for ovirt-node according to its logical network definition. Therefore if the logical network definition of the management network defers from a bridge, the ovirt-node will be added with its management
 

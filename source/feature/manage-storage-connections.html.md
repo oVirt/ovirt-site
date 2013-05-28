@@ -39,6 +39,10 @@ Storage domain and connection are managed together in webadmin UI in Storage tab
 
 ## REST
 
+In order to allow editing connections, a new root resource will be introduced that will allow add/edit/delete/get of connections to storage. New connection (POST) - It will be possible to create a new connection without adding a storage domain along with it, and later on create a storage domain and relate it to existing connection by providing the connection id. Delete connection - deletion of connection will be possible only if no storage domain is connected to it (orphan connection). Update existing connection (PUT) - it will be possible to update connection details when storage domain connected to it is in maintenance state. Most of connection fields can be updated (such as path/iqn/address/port/user/password) - each storage type has its relevant set of fields, id of connection will be immutable.
+
+In addition, for each storage domain it should be possible to view (GET) its storage connections by approaching it via a specific subresource: /api/storagedomains/<storageDomainId>/connections
+
 ## Database
 
 Storage connections are managed in storage_server_connections table.

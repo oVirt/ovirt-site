@@ -49,11 +49,7 @@ Currently, a new record is inserted into the async_tasks table only after the ta
 
 *   Solution:
 
-The suggested fix will distinguish between the vdsm task ID and the DB task ID, in addition, it will add all the expected tasks at the parent command, in a single transaction -
-
-      when a VDSM task ID is obtained from vds broker, it will be associated to the proper aync_tasks record.
-
-If engine crashes , and for some aysnc_tasks records there is no VDSM task ID (in the given example - for each one of the 4 disks, a async_tasks record is added to the DB, and for 2 out of 4, there is no VDSM taskd ID), the parent command (RemoveVm in the example) will be ended with "failure" state.
+The suggested fix will distinguish between the vdsm task ID and the DB task ID, in addition, it will add all the expected tasks at the parent command, in a single transaction - when a VDSM task ID is obtained from vds broker, it will be associated to the proper aync_tasks record. If engine crashes , and for some aysnc_tasks records there is no VDSM task ID (in the given example - for each one of the 4 disks, a async_tasks record is added to the DB, and for 2 out of 4, there is no VDSM taskd ID), the parent command (RemoveVm in the example) will be ended with "failure" state.
 
 #### **Providing better mechanism to query if an entity (i.e - StorageDomain, VM, Disk, etc...) has running tasks on.**
 

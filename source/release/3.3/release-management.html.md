@@ -190,7 +190,7 @@ Features being considered for inclusion/already in master:
     -   gerrit :
         -   <http://gerrit.ovirt.org/#/q/project:ovirt-engine+branch:master+topic:gluster-hooks,n,z>
         -   <http://gerrit.ovirt.org/#/c/14145>
-*   [Features/Gluster Swift Services Management](Features/Gluster Swift Services Management) Enable administrator to manage gluster swift related services
+*   [Features/Gluster Swift Management](Features/Gluster Swift Management) Enable administrator to manage gluster swift related services
     -   Status: In Progress
     -   gerrit:
         -   <http://gerrit.ovirt.org/#/c/11094/>

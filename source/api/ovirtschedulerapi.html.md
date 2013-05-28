@@ -251,7 +251,11 @@ Action Groups:
 
 ### REST
 
-1.  In Progress
+*   In Progress
+
+### Packaging and Installation
+
+*   In Progress
 
 ### External Scheduler
 

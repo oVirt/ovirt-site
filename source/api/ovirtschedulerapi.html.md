@@ -249,7 +249,7 @@ Action Groups:
 
 ![](clusterPolicyList.png "clusterPolicyList.png")
 
-*   Policies will be configured on a system level in configure screen.
+*   Policies will be configured on a system level in configure dialog, much like Roles.
 
 ![](ClusterPolicy.png "ClusterPolicy.png")
 

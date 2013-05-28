@@ -47,7 +47,7 @@ This section gives the way to set initial value. This value is used as start poi
 
 The initial quota of vDisks bandwidth can be set to the value when vm is created, dynamically set via VDSM API or bandwidth capability of the related backend storage. The capability is estimated based on physical backend IO bandwidth capability or detected in some other way.
 
-#### Quota adjustment
+#### Quota tuning
 
 Quota is tuned by a similar mechanism in MOM. MOM collects bandwidth capability information and IO bandwidth usage statistics of backend storages and related volumes. According to this information and related policy, the policy engine decides how to tune the quota of vDisk which uses that backend storage .
 

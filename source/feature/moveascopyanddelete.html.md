@@ -30,7 +30,13 @@ A move operation is basically a copy to the destination domain, followed by a de
 
 ### Detailed Description
 
-1. Add MoveImageGroupCommand - used for moving images, the execution part (aka - execute() method) contains a call to vdsm to copy the image to the target master domain, while the end method executes a vdsm call for deletion of the unneeded image (in case of succesfull copy - the source image, in case of failure during the copy - the target image). 2. MoveOrCopyImageGroupCommand has been renamed to CopyImageGroupCommand and is being used now for copy only. 3. moveImage verb in vdsm is being executed from the engine with Copy as it's operation only (used for copy without collapsing snapshots). 4. RemoveImageCommand has been changed to allow removal of image without performing DB modification (in case of performing move, the called delete on the end method is for storage "cleanup" and shouldn't affect the db.
+1. Add MoveImageGroupCommand - used for moving images, the execution part (aka - execute() method) contains a call to vdsm to copy the image to the target master domain, while the end method executes a vdsm call for deletion of the unneeded image (in case of succesfull copy - the source image, in case of failure during the copy - the target image).
+
+2. MoveOrCopyImageGroupCommand has been renamed to CopyImageGroupCommand and is being used now for copy only.
+
+3. moveImage verb in vdsm is being executed from the engine with Copy as it's operation only (used for copy without collapsing snapshots).
+
+4. RemoveImageCommand has been changed to allow removal of image without performing DB modification (in case of performing move, the called delete on the end method is for storage "cleanup" and shouldn't affect the db.
 
 ### Benefit to oVirt
 

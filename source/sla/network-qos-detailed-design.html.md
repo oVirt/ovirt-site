@@ -23,7 +23,7 @@ wiki_last_updated: 2013-06-10
 
 ## Motivation
 
-We would like to expose to the user the ability to configure the Network Quality of Service (QoS) properties of each virtual NIC. The QoS properties are properties which defines the traffic shaping applied on the virtual NIC. QoS properties currently include:
+We would like to expose to the user the ability to configure the Network Quality of Service (QoS) properties of each virtual NIC and each network. The QoS properties are properties which defines the traffic shaping applied on the virtual NIC \\ network. QoS properties currently include:
 
 *   Inbound
     -   Average - long-term limit around which traffic should float (Mbps)

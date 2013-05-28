@@ -123,13 +123,20 @@ For example: for power saving policy, a CPU load cost-function is needed.
 
 *   Performance/implementation open-issue: split balance into 2 methods:
 
-Host BalanceHosts(Host[], properties) <VM, Host[]> BalanceVM(VM[], properties) Currently the user is responsible to fetch the relevant VMs. Code sample:
+Host BalanceHosts(Host[], properties)
 
-         balance(hosts[], vms[], properties) {
+<VM, Host[]> BalanceVM(VM[], properties)
+
+Currently the user is responsible to fetch the relevant VMs.
+
+Code sample:
+
+         balance(hosts[], properties) {
              max_host = max(hosts, key=lambda host: host['usage_mem_percent']))
              vms_on_host = filter(key=lambda vm: vm['run_on_host'] = max_host['id'], vms)
-             vm = return vms_on_host[0]
-             return vm
+             vm = vms_on_host[random(vms_on_host.size)]
+             non_utilized_hosts =filter(key=lambda host: host['usage_mem_percent'] > properties['mem_threshold'], hosts)
+`       return `<vm, non_utilized_hosts>
          }
 
 ### Design
@@ -240,7 +247,7 @@ Action Groups:
 
 ### UI
 
-![](ClusterPolicy.png "fig:ClusterPolicy.png") ![](clusterPolicyList.png "fig:clusterPolicyList.png")
+![](ClusterPolicy.png "fig:ClusterPolicy.png") ![](clusterPolicyList.png "fig:clusterPolicyList.png") ![](attach_cluster_policy.png "fig:attach_cluster_policy.png")
 
 ### In Progress
 

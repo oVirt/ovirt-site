@@ -177,7 +177,7 @@ Features being considered for inclusion/already in master:
 *   [ Read Only Disks ](Features/Read_Only_Disk)
 *   [Edit Connection Properties](Features/Edit_Connection_Properties)
 *   [Adding VDSM hooks for hotplugging/unplugging a disk](Features/Disk_Hooks)
-*   Separating "Move" vm operation to "Copy" and "Delete" operations to improve VM availability
+*   [Separating "Move" vm operation to "Copy" and "Delete" operations to improve VM availability](Features/MoveAsCopyAndDelete)
 *   [Backup and Restore API for Independent Software Vendors](Features/Backup-Restore_API_Integration)
 *   Allow resign/force re-election of SPM
 

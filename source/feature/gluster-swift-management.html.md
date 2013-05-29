@@ -54,7 +54,12 @@ This entity stores the status of individual services on a server in the cluster
 *   serviceType - type of service
 *   serviceName - name of service
 *   serverId - references the VDS server
-*   status - valid value from GlusterServiceStatus (RUNNING, STOPPED, FAILED, ERROR, NOT_INSTALLED, UNKNOWN)
+*   status - valid value from GlusterServiceStatus
+    -   RUNNING (UP)
+    -   STOPPED(DOWN)
+    -   PARTIALLY_UP - services are running only in some hosts
+    -   NOT_INSTALLED - SWIFT is not installed in the host
+    -   UNKNOWN - error in fetching the service status
 *   message - stores the message returned from VDS command when querying for service status on a server
 
 #### User Experience

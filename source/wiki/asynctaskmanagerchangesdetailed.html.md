@@ -123,3 +123,7 @@ The task id is passed to the createTask when executeCommand is called so that th
                              VdcObjectType.Storage,
                              getParameters().getStorageDomainId(),
                              getParameters().getDestinationStorageDomainId());
+
+#### Fail Commands Without Vdsm Id
+
+On server restart in AsyncTaskManager we check for all tasks that have empty vdsm id and fail the command. The empty place holders in the db are cleaned and the command is failed in a single transaction.

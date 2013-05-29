@@ -192,7 +192,7 @@ Step
 Sub-step
 
 <step>
-`    `<parent_step id="yyy" href="/api/jobs/xxx/steps/yyy></parent_job>
+`    `<parent_step id="yyy" href="/api/jobs/xxx/steps/yyy></parent_step id>
 `    `<description></description>
 `   `<status></status>
 <step>

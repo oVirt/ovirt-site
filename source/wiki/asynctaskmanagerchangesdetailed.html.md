@@ -105,7 +105,7 @@ and in the place where AddVmTemplateCommand was calling Back.runInternalAction t
 
 #### Modifications to child Commands
 
-The child command that creates a task by calling CommandBase.createCommand also needs to be modified. So in the case CreateImageTemplateCommand is modified to override the method insertAsyncTaskPlaceHolders. The method calls CommandBase.createAsyncTask to create a place holder in the db and return the task id associated with it.
+The child command that creates a task by calling CommandBase.createTask also needs to be modified. So in this case CreateImageTemplateCommand is modified to override the method insertAsyncTaskPlaceHolders. The method calls CommandBase.createAsyncTask to create a place holder in the db and return the task id associated with it.
 
          private Guid taskId;
          protected void insertAsyncTaskPlaceHolders() {
@@ -113,8 +113,7 @@ The child command that creates a task by calling CommandBase.createCommand also 
                                              VdcObjectType.Storage,
                                  getParameters().getStorageDomainId(),
                                  getParameters().getDestinationStorageDomainId());
-
-}
+         }
 
 The task id is passed to the createTask when executeCommand is called so that the row in the database can be updated with the vdsm id when the task is submitted to vdsm
 

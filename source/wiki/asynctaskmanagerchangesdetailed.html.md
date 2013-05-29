@@ -16,29 +16,24 @@ One of the issues addressed in these changes is the ability to fail a command if
 
 In order to achive this a few changes have been made to the under lying code in the engine.
 
-1. Instantiate and execute command internally rather than through Backend
+Instantiate and execute command internally rather than through Backend
 
 In the current implementation we have been executing child commands using Backend.runInternalAction, which creates the command using reflection and executes it. But inorder for the command to call a method to insert place holders for the child command a command needs to instantiate the child command and call methods on it.
 
 A few methods have been added to CommandBase, these methods will only be called from with in a command.
 
-/\*\*
+        /**
+         * Checks to see if the command can be execute and sets a global flag
+         */
+         protected void checkCanDoAction()
 
-      * Checks to see if the command can be execute and sets a global flag
-      */
-
-protected void checkCanDoAction()
-
-/\*\*
-
+       /**
          * This method is called before executeAction and after checkCanDoAction
          * to insert the async task place holders for the child commands.
          */
+        protected void insertAsyncTaskPlaceHolders()
 
-protected void insertAsyncTaskPlaceHolders()
-
-/\*\*
-
+        /**
           * Commands can override this method to build a map of all child commands.
           * Called from insertAsyncTaskPlaceHolders to build a list of all child
           * commands and insert async task place holders for them

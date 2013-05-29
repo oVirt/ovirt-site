@@ -50,6 +50,10 @@ What other packages depend on this package? Are there changes outside the develo
 
 Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
 
+### Testing
+
+Explain how this feature may be tested by a user or a quality engineer. List relevant use cases and expected results.
+
 ### Comments and Discussion
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page

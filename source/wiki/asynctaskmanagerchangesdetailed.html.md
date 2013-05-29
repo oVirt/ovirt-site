@@ -111,8 +111,8 @@ The child command that creates a task by calling CommandBase.createTask also nee
          protected void insertAsyncTaskPlaceHolders() {
                 taskId = createAsyncTask(VdcActionType.AddVmTemplate,
                                              VdcObjectType.Storage,
-                                 getParameters().getStorageDomainId(),
-                                 getParameters().getDestinationStorageDomainId());
+                                             getParameters().getStorageDomainId(),
+                                             getParameters().getDestinationStorageDomainId());
          }
 
 The task id is passed to the createTask when executeCommand is called so that the row in the database can be updated with the vdsm id when the task is submitted to vdsm

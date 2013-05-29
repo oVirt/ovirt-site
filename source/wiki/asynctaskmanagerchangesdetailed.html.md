@@ -10,7 +10,7 @@ wiki_last_updated: 2013-05-29
 
 ## Details of Aysnc Task Manager Changes
 
-#### Persists Task Place Holder Before Submitting Task to VDSM
+### Persists Task Place Holder Before Submitting Task to VDSM
 
 One of the issues addressed in these changes is the ability to fail a command if the server has been restarted during the execution of the command. In order for the server to determine that the task has been partially executed and needs to be failed, we need to determine the number of child tasks that need to be execute. This change inserts place holders in to the database table async_tasks for all child tasks of a command in a single transaction. The task id for each place holder is generated on the engine. Once the job has been submitted to the vdsm, the place holder is updated with the vdsm taskid. If the server is restarted during the execution of the command, on server restart we fail all commands that have place holders in the database with out a vdsm task id.
 
@@ -20,7 +20,7 @@ In order to achive this a few changes have been made to the under lying code in 
 
 In the current implementation we have been executing child commands using Backend.runInternalAction, which creates the command using reflection and executes it. But inorder for the command to call a method to insert place holders for the child command a command needs to instantiate the child command and call methods on it.
 
-##### Changes to CommandBase
+#### Changes to CommandBase
 
 A few methods have been added to CommandBase, these methods will only be called from with in a command.
 
@@ -64,7 +64,7 @@ A few methods have been added to CommandBase, these methods will only be called 
           */
          protected VdcReturnValueBase runCommand(CommandBase`<?>` command)
 
-##### Change in the way command is executed
+#### Change in the way command is executed
 
 So to execute a command in the new framework we would use the following code.
 
@@ -76,7 +76,7 @@ instead of just
 
          returnValue = command.executeAction();
 
-##### Modifications to Parent Commands
+#### Modifications to Parent Commands
 
 The CommandBase.insertAsyncTaskPlaceHolders method calls buildChildCommands to build a map of all child commands and insert place holders for them. There is a default implemantation provided in CommandBase for buildChildCommands which returns an empty map.
 
@@ -103,7 +103,7 @@ and in the place where AddVmTemplateCommand was calling Back.runInternalAction t
                  .......
          }
 
-##### Modifications to child Commands
+#### Modifications to child Commands
 
 The child command that creates a task by calling CommandBase.createCommand also needs to be modified. So in the case CreateImageTemplateCommand is modified to override the method insertAsyncTaskPlaceHolders. The method calls CommandBase.createAsyncTask to create a place holder in the db and return the task id associated with it.
 

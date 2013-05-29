@@ -68,14 +68,13 @@ command.checkCanDoAction(); command.insertAsyncTaskPlaceHolders(); returnValue =
 
 instead of just
 
-returnValue = command.executeAction();
+         returnValue = command.executeAction();
 
 The CommandBase.insertAsyncTaskPlaceHolders method calls buildChildCommands to build a map of all child commands and insert place holders for them. There is a default implemantation provided in CommandBase for buildChildCommands which returns an empty map.
 
 A parent command that is modified to use the feature should over write method buildChildCommands to build a map of child commands. For example the AddVmTemplateCommand can override the buildChildCommands method to build a map of all CreateImageTemplateCommands for each DiskImage.
 
-@Override
-
+         @Override
          protected Map`<Guid, CommandBase<?>`> buildChildCommands() {
              Guid vmSnapshotId = Guid.NewGuid();
              for (DiskImage diskImage : mImages) {
@@ -90,18 +89,16 @@ A parent command that is modified to use the feature should over write method bu
 
 and in the place where AddVmTemplateCommand was calling Back.runInternalAction the new code calls CommandBase.runCommand.
 
-for (DiskImage diskImage : mImages) {
-
+         for (DiskImage diskImage : mImages) {
                  // The return value of this action is the 'copyImage' task GUID:
                  VdcReturnValueBase retValue = runCommand(commandsMap.get(diskImage.getImageId()));
                  .......
-
-}
+         }
 
 The child command that creates a task by calling CommandBase.createCommand also needs to be modified. So in the case CreateImageTemplateCommand is modified to override the method insertAsyncTaskPlaceHolders. The method calls CommandBase.createAsyncTask to create a place holder in the db and return the task id associated with it.
 
-private Guid taskId; protected void insertAsyncTaskPlaceHolders() {
-
+         private Guid taskId;
+         protected void insertAsyncTaskPlaceHolders() {
                 taskId = createAsyncTask(VdcActionType.AddVmTemplate,
                                              VdcObjectType.Storage,
                                  getParameters().getStorageDomainId(),

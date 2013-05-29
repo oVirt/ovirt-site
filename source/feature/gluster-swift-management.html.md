@@ -64,7 +64,13 @@ This entity stores the status of individual services on a server in the cluster
 
 #### User Experience
 
-Administrator can view the status of SWIFT in the cluster from the Cluster -> General tab. The service status from all servers in the cluster is aggregated and shown as either UP/DOWN/PARTIALLY_UP/NOT_INSTALLED/UNKNOWN . UP - indicates that all Gluster_SWIFT related services are running in all servers in the cluster DOWN - indicates that all Gluster_SWIFT related services are stopped in all the servers in the cluster PARTIALLY_UP - indicates that Gluster_SWIFT related services maybe running in some of the servers NOT INSTALLED - indicates that SWIFT is not installed in the servers UNKNOWN - indicates unable to fetch any information about the swift services
+Administrator can view the status of SWIFT in the cluster from the Cluster -> General tab. The service status from all servers in the cluster is aggregated and shown as either UP/DOWN/PARTIALLY_UP/NOT_INSTALLED/UNKNOWN .
+
+*   RUNNING - indicates that all Gluster_SWIFT related services are running in all servers in the cluster
+*   STOPPED - indicates that all Gluster_SWIFT related services are stopped in all the servers in the cluster
+*   PARTIALLY_UP - indicates that Gluster_SWIFT related services maybe running in some of the servers
+*   NOT INSTALLED - indicates that SWIFT is not installed in the servers
+*   UNKNOWN - indicates unable to fetch any information about the swift services
 
 ##### Cluster General Subtab
 

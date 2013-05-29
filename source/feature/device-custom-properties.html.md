@@ -77,7 +77,20 @@ We will insert the custom properties column into the vm_device table. Custom pro
 
 Not all custom properties are valid for every setups - they depend on the hooks installed on hosts. Therefore, just like with per-VM properties, a user would have to define the valid properties and their valid values in vdc_options. Note that properties likely to be valid for an interface, but invalid for a disk. The option_name value will be DeviceCustomProperties, and its corresponding option_value will look like:
 
-[{type=disk; props={value1=regex1, ..., valueN=regexN}}, {type=interface; props={value1=regex1, ..., valueN=regexN}}]
+[{type=disk; prop={value1=regex1; ...; valueN=regexN}};{type=interface; prop={value1=regex1; ...; valueN=regexN}};...]
+
+Following device types are supported:
+
+*   disk
+*   interface
+*   video
+*   sound
+*   controller
+*   balloon
+*   channel
+*   console
+*   smartcard
+*   watchdog
 
 The configuration values should be exposed to the engine-config tool.
 

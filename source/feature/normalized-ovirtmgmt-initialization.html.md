@@ -6,7 +6,6 @@ wiki_category: Feature
 wiki_title: Features/Normalized ovirtmgmt Initialization
 wiki_revision_count: 36
 wiki_last_updated: 2013-12-11
-wiki_warnings: list-item?
 ---
 
 # Normalized ovirtmgmt Initialization
@@ -117,19 +116,17 @@ The updated host installation flow is described in the chart below, where each f
 ![](Installation-flowchart.png "Installation-flowchart.png")
 
 The noticeable changes from the previous installation flow are:
-\* In Add-Host / Re-install host - rebootAfterInstallation property is deprecated (ignored) for 3.1 clusters and above. The reboot will no longer take place, regardless of the provided value of rebootAfterInstallation property. Hosts in cluster 3.0 still support rebootAfterInstallation property to control rebooting the host after installation is completed.
+\* We added support in creating a bridgless management network during installation.
 
-        * Note: In clusters 3.0 installing a host via the webadmin performs a reboot after the host installation (for any host with 'Virt' capabilities), installation via the rest-api also did reboot as we added the flag in 3.1.... ended upis not to reboot the host - this is not changed.
-
-*   ovirt-node - during the registration of ovirt-node, the management network is created as part of the bootstrap process as a bridge. ATM there is no support in configuring the management network for ovirt-node according to its logical network definition. Therefore if the logical network definition of the management network defers from a bridge, the ovirt-node will be added with its management network marked as 'not synced' (event log) and the admin will have to use the 'setup networks' dialogue to sync the network.
+*   The behaviour up until 3.3 was to reboot host after installation, in release 3.3 we are changing this behaviour and reboot will no longer take place after installation, this change holds for all host from cluster level 3.1 and up.
+*   In Add-Host / Re-install host - rebootAfterInstallation property is deprecated (ignored for clusters 3.1 and up). The reboot will no longer take place, regardless of the provided value of rebootAfterInstallation property. This property was available only via the API.
+*   ovirt-node - during the registration of ovirt-node, the management network is created as part of the bootstrap process as a bridged network. ATM there is no support in configuring the management network for ovirt-node according to its logical network definition. Therefore if the logical network definition of the management network is bridgeless network, the ovirt-node will be added with its management network marked as 'not synced' (event log) and the admin will have to use the 'setup networks' dialogue to sync the network.
 *   For 3.1 hosts and above, if the creation of the management network fails, the host will move to non-operational.
-*   At the end of a successful installation, the host moves to 'initializing' status instead of former 'non responsive'
+*   At the end of a successful installation, the host moves to 'initializing' status instead of former 'non responsive'.
 *   After the ovirt-host-deploy ends, the engine will await to VDSM to become responsive for 2 minutes. If it fails, the host will move to 'non responsive'.
 *   After VDSM is up, the engine will invoke the first GetVdsCapabilities in order to get the host's network configuration and the lastClientIface.
-*   The lastClientIface (reported by GetVdsCapabilities) is the analyzed interface which is used for communication between the engine to the host. The lastClientIface wasn't in use before by the engine.
+*   The lastClientIface (reported by GetVdsCapabilities) is the interface which is used for communication between the engine to the host. The lastClientIface wasn't in use in previous releases by the engine.
 *   For lastClientIface which represents a bridge, configuring management network is not supported and manual innervation is required (using setup networks)
-
-    * This is the actual reason for not supporting management network configuration by the engine on ovirt-node.
 
 #### Additional event logs
 

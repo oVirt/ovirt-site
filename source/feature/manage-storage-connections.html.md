@@ -25,9 +25,11 @@ Allow edit (update) connection properties of an existing storage domain, rather 
 
 *   Edit NFS connection properties in webadmin UI (http://gerrit.ovirt.org/#/c/12372/)
 *   Edit Posix connection properties in webadmin UI (http://gerrit.ovirt.org/#/c/13640/)
+*   Allow deletion of connection only if no storage domains (nor lun disk in Iscsi case) are using it. (implementation phase)
 *   Edit NFS, Posix connection properties in REST (design phase)
 *   Edit ISCSI connection properties in webadmin UI (not started)
 *   Edit ISCSI connection properties in REST (design phase)
+*   Blocking bug in vdsm : <https://bugzilla.redhat.com/show_bug.cgi?id=950055>
 
 ## Detailed Description
 

@@ -72,6 +72,10 @@ Administrator can view the status of SWIFT in the cluster from the Cluster -> Ge
 *   NOT INSTALLED - indicates that SWIFT is not installed in the servers
 *   UNKNOWN - indicates unable to fetch any information about the swift services
 
+##### Status Mapping
+
+![](:GlusterSwift-StatusMapping.png ":GlusterSwift-StatusMapping.png")
+
 ##### Cluster General Subtab
 
 ![](GlusterSwift-ClusterStatus.png "GlusterSwift-ClusterStatus.png")

@@ -140,14 +140,6 @@ Others:
 
 ## Comments and Discussion
 
-*   libvirt version 1.0.1 or higher is required to enable the QoS feature.
-*   Quantum network will not be supported at this stage.
-
-To Be Determined:
-
-*   Should all properties be exposed or only sum properties exposed and some calculated (i.e set 'peak' as function of 'average')
-*   Should the engine set a default limitations if the user did not fill the QoS fields
-*   Default values and default presented values
-*   use of 'floor' property (available only in inbound traffic)
+*   Traffic shaping using the Network QoS feature will be available only for oVirt networks at this stage.
 
 <Category:SLA> [Category: Feature](Category: Feature)

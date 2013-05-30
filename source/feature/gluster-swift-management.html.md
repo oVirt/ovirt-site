@@ -44,7 +44,7 @@ An enum of supported Service Type. Currently only GLUSTER_SWIFT.
 
 This is the master list of supported services in the cluster and will be populated as part of installation or upgrade.
 
-*   ServiceType - type of service
+*   ServiceType - Type of service
 *   serviceName - Name of service
 
 ##### Gluster Server Service

@@ -161,6 +161,14 @@ Add support for the following:
 <jobs>
 `   `<job id = "xxx" href="api/jobs/xxx>
 `       `<description>`a description`</description>
+`       `<action_type>` the action type`</action_type>
+`       `<status>`[STARTED|FINISHED|FAILED|ABORTED|UNKNOWN]`</status>
+`        `<owner>`the owner`</owner>
+             `<start_time>`...`</start_time>`                
+`       `<end_time>`...`</end_time>
+`       `<last_updated>`...`</last_updated>
+`        `<external>`[true|false]`</external>
+`       `<auto_cleared>`[true|false]`</auto_cleared>
 `   `<job>
          .....
 </jobs>
@@ -169,7 +177,12 @@ Add support for the following:
 `    `<step id="yyy" href="api/jobs/xxx/steps/yyy>
               [`<parent_job id="xxx" href="api/jobs/xxx"/>` | `<parent_step id="yyy" href="api/jobs/xxx/steps/yyy"/>`]
 `        `<description>`a description`</description>
-`        `<status>`[VALIDATING|EXECUTING|FINALIZING]`</status>
+`        `<type>`[VALIDATING|EXECUTING|FINALIZING]`</type>
+`        `<number>`...`</number>
+`        `<status>`[STARTED|FINISHED|FAILED|ABORTED|UNKNOWN]`</status>
+              `<start_time>`...`</start_time>`                
+`        `<end_time>`...`</end_time>
+`        `<external>`[true|false]`</external>
 `   `</step>
          ....
 </steps>

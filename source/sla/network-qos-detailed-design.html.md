@@ -102,6 +102,8 @@ Not supported in this version
 
 ### VDSM
 
+libvirt version 1.0.1 or higher is required to enable the QoS feature (vdsm 3.3 will use higher version).
+
 *   Add support of QoS properties in VDSM API: run VM, hot plug and update VM device verbs (update in schema)
 *   Add support in the vnic object and the vnic to_xml()
 

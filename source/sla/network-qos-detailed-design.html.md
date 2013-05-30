@@ -10,6 +10,11 @@ wiki_last_updated: 2013-06-10
 
 # Network QoS - detailed design
 
+### Summary
+
+Network Quality of Service feature will be added to oVirt from version 3.3 and will support cluster version 3.3 or higher.
+The feature will allow the user to limit the inbound and outbound network traffic in two layers (in current implementation): host level, virtual NIC level.
+
 ### Owner
 
 *   Name: [Ofri Masad](User:omasad)

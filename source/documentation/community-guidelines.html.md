@@ -51,6 +51,7 @@ For each of the communication channels the community uses, there are some channe
 
 *   Wiki page naming - Please use descriptive, complete titles for page names. Please do not use CamelCase, All Capital Initials or sentences. Proper nouns or acronyms should be capitalised correctly.
     -   Example: "Compiling VDSM" is good, "Feature/DetailedNetworkWiring" could be "Feature/Detailed network wiring", "Engine Adding Messages" could be "Adding messages to Engine"
+    -   For more details on page naming, refer to <Help:Wiki_structure>.
 *   Writing style - please explain acronyms, keep your writing style correct but informal, and try to avoid jargon where possible.
 *   Sub-pages: We discourage the use of sub-pages, with very few exceptions ("Features" is one).
 

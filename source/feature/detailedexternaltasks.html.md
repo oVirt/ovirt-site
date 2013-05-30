@@ -194,14 +194,16 @@ Adding a new Job/Step will be implemented by the POST operation
 
 <job>
 `    `<description></description>
-`  `</job>
+`    `<auto_cleared>`[true|false]`</auto_cleared]
+   </job>
 
 Step
 
 <step>
 `    `<parent_job id="xxx" href="/api/jobs/xxx></parent_job>
 `    `<description></description>
-`   `<status></status>
+`    `<type></type>
+`    `<status></status>
 <step>
 
 Sub-step
@@ -209,7 +211,8 @@ Sub-step
 <step>
 `    `<parent_step id="yyy" href="/api/jobs/xxx/steps/yyy></parent_step id>
 `    `<description></description>
-`   `<status></status>
+`    `<type></type>
+`    `<status></status>
 <step>
 
 Ending an existing Job/Step will be done via a supported **action** on the Job/Step business entity

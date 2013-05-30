@@ -74,7 +74,7 @@ Administrator can view the status of SWIFT in the cluster from the Cluster -> Ge
 
 ##### Status Mapping
 
-![](:GlusterSwift-StatusMapping.png ":GlusterSwift-StatusMapping.png")
+![](GlusterSwift-StatusMapping.png "GlusterSwift-StatusMapping.png")
 
 ##### Cluster General Subtab
 

@@ -61,15 +61,15 @@ Job can be in one of the following statuses:
 
          STARTED   - Job was started
          FINISHED  - Job has been finished successfully
-         FAILED       - Job had failed 
-        ABORTED - Job was aborted
-        UNKNOWN - Job is in unnknown state
+         FAILED    - Job had failed 
+         ABORTED   - Job was aborted
+         UNKNOWN   - Job is in unnknown state
 
-Step can be in one of theabove statuses as in Job. In addition Step supports the following step Types :
+Step can be in one of theabove statuses as in Job. In addition Step supports the following Step Types :
 
          VALIDATING  - Step is validating the requested operation
-         EXECUTING  - Step is executing the requested operation
-         FINALIZING   - Steps is finalysing the requested operation
+         EXECUTING   - Step is executing the requested operation
+         FINALIZING  - Steps is finalysing the requested operation
 
 ### CRUD
 

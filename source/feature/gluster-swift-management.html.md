@@ -51,10 +51,10 @@ This is the master list of supported services in the cluster and will be populat
 
 This entity stores the status of individual services on a server in the cluster
 
-*   serviceType - type of service
-*   serviceName - name of service
-*   serverId - references the VDS server
-*   status - valid value from GlusterServiceStatus
+*   serviceType - Type of service
+*   serviceName - Name of service
+*   serverId - Refers the VDS server
+*   status - Valid value from GlusterServiceStatus
     -   RUNNING (UP)
     -   STOPPED(DOWN)
     -   PARTIALLY_UP - services are running only in some hosts

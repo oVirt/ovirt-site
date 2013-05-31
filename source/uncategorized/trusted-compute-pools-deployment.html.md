@@ -18,7 +18,7 @@ This is a manual for how to deploy trusted compute pools feature in oVirt.
 
 ### Deploy Attestation Service
 
-Two approaches (all-in-one packages, yum install) are provided to deploy Attestation Service. Install via yum command will be available after oat package is merged in fedora 18 repository.
+Two approaches (all-in-one packages for f18, yum install in f19) are provided to deploy Attestation Service. Install via yum command will be available after oat package is merged in fedora 19 repository(WIP).
 pls note:
 \* we encourage you to disable iptables | firewalld service, instead, config iptable to accept 8443 port, add follow line into "/etc/sysconfig/iptables"
 
@@ -28,7 +28,9 @@ pls note:
 
       SELINUX=permissive
 
-#### Install basic packages in Fedora18 (for all-in-one approach)
+*   oat package might not able to be pushed into fedora 18 since some dependencies can't be pushed in f18.
+
+#### Install basic packages (for all-in-one approach)
 
       # yum -y install httpd mysql mysql-server php php-mysql openssl java-1.7.0-openjdk.x86_64
 
@@ -40,7 +42,7 @@ Download [oat-appraiser](http://gwei3.fedorapeople.org/package_review/oat/v1/oat
 
       # rpm -i oat-appraiser-1.6.0-1.fc18.x86_64.rpm
 
-*   Yum Install oat server package from fedora18 repository (not available now).
+*   Yum Install oat server package from fedora19 repository (not available yet).
 
       # yum install oat-appraiser
 

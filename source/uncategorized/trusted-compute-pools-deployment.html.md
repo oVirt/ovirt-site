@@ -19,6 +19,14 @@ This is a manual for how to deploy trusted compute pools feature in oVirt.
 ### Deploy Attestation Service
 
 Two approaches (all-in-one packages, yum install) are provided to deploy Attestation Service. Install via yum command will be available after oat package is merged in fedora 18 repository.
+pls note:
+\* we are encourage you to disable iptables | firewalld service, or instead, config iptable to accept 8443 port, add follow line into "/etc/sysconfig/iptables"
+
+      -A INPUT -p tcp -m state --state NEW -m tcp --dport 8443 -j ACCEPT
+
+*   set selinux to permissive or disabled mode, config selinux in "/etc/selinux/config", eg
+
+      SELINUX=permissive
 
 #### Install basic packages in Fedora18 (for all-in-one approach)
 

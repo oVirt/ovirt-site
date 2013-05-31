@@ -147,6 +147,17 @@ Then register host agent:
       # cd /usr/share/oat-client/script
       # bash provisioner.sh
 
+Start oat client service, make sure TrouSers service is running
+
+*   all-in-one approach
+
+      # chmod 755 /etc/init.d/OATClient (this bug has been fixed in the latest release)
+      # service OATClient start
+
+*   yum install approach
+
+      # service oat-client start
+
 ### Install oat-command tool
 
 *   Install all-in-one package

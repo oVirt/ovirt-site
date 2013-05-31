@@ -109,4 +109,4 @@ Expected unit-tests
 
 ## Comments and Discussion
 
-<Category:SLA> [Category: Feature](Category: Feature) [Category:Features under design](Category:Features under design)
+<Category:SLA> [Category: Feature](Category: Feature)

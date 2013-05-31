@@ -56,14 +56,14 @@ Client files will be output in this directory “/var/lib/oat-appraiser/ClientFi
 
 ### Deploy Host Agent on VDS
 
-Two approaches (all-in-one packages, yum install) are provided to deploy Attestation Service; Install via yum command will be available after oat package is merged in fedora 18 repository.
+Two approaches (all-in-one packages for f18, yum install in f19) are provided to deploy Host Agent. Install via yum command will be available after oat package is merged in fedora 19 repository(WIP).
 
 #### Install Fedora for Legacy Boot
 
-The Fedora18 x86-64 system should be installed to run in legacy boot instead of EFI boot. Many new systems will by default boot as EFI boot, so you need to explicitly boot the installation media (DVD or USB) with legacy mode. Below is a example on HP8300:
+The Fedora18/19 x86-64 system should be installed to run in legacy boot instead of EFI boot. Many new systems will by default boot as EFI boot, so you need to explicitly boot the installation media (DVD or USB) with legacy mode. Below is a example on HP8300:
 
 *   at the beginning of booting, ESC, enter setup password, F9 -> Boot Menu -> legacy boot from DVD
-*   install Fedora18 x86-64 from DVD
+*   install Fedora18/19 x86-64 from DVD
 
 #### Enable Intel® TXT in BIOS
 
@@ -78,7 +78,7 @@ Client system must have TPM 1.2 compliant device with driver installed, and TPM/
 
       # yum install kernel-modules-extra
 
-Reboot system and verify that /dev/tpm0 existed
+Reboot system and verify that /dev/tpm0 existed. Make sure the installed kernel-modules-extra version is the same with the kernel are you using, otherwise upgrade to a new kernel version.
 
 #### Install tboot
 
@@ -124,7 +124,7 @@ Check the PCR values in TPM via the sysfs interface provided by TPM driver, make
       PCR-22: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
       PCR-23: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 
-#### Install basic Packages in Fedora18 (for all-in-one approach)
+#### Install basic Packages (for all-in-one approach)
 
       # yum -y install trousers-devel java-1.7.0-openjdk
 
@@ -138,7 +138,7 @@ Download [oat-client](http://gwei3.fedorapeople.org/package_review/oat/v1/oat-cl
 
       # rpm -i oat-client-1.6.0-1.fc18.x86_64.rpm
 
-*   Yum Install oat server package from fedora18 repository
+*   Yum Install oat server package from fedora19 repository
 
       # yum install oat-client
 
@@ -159,14 +159,14 @@ Register host agent, make sure dialog package has been installed on your system.
 
 You will be required to input the host name of oat server
 note:
-pls input the host name includes the domain name of oat server
+pls input the host name of oat server, including the domain suffix
 pls input the host name instead of the IP address of oat server (IP address is not supported in oat's current release)
 
 Start oat client service, make sure TrouSers service is running
 
 *   all-in-one approach
 
-      # chmod 755 /etc/init.d/OATClient (this bug has been fixed in the latest release)
+      # chmod 755 /etc/init.d/OATClient (this bug will be fixed in the next release for all-in-one packages)
       # service OATClient start
 
 *   yum install approach

@@ -142,10 +142,14 @@ Copy them to this directory (agent side):
 
 *   /usr/share/oat-client
 
-Then register host agent:
+Register host agent, make sure dialog package has been installed on your system.
 
       # cd /usr/share/oat-client/script
       # bash provisioner.sh
+
+You will be required to input the host name of oat server
+note:
+pls input the host name includes the domain name of oat server pls input the host name instead of the IP address of oat server (IP address is not supported in oat's current release)
 
 Start oat client service, make sure TrouSers service is running
 

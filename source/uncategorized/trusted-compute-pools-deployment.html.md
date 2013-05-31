@@ -181,7 +181,7 @@ Download [oat-commandtool](http://gwei3.fedorapeople.org/package_review/oat/v1/o
 
       # rpm -i oat-commandtool-1.6.0-1.fc18.x86_64.rpm
 
-*   Yum Install oat-commandtool package from fedora18 repository.
+*   Yum Install oat-commandtool package from fedora19 repository.
 
       # yum install oat-commandtool
 

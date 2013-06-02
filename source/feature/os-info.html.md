@@ -24,6 +24,7 @@ It aims to merge all configuration items from the Config (currently vdc_options 
 
 *   WIP, patches submitted gerrit.ovirt.org/#/q/topic:osinfo,n,z. >90% implemented and verified.last bits of searchengine integration
 *   Last updated: ,
+*   Target Release: 3.3
 
 ### History
 

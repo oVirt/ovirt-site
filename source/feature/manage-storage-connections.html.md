@@ -50,7 +50,7 @@ Storage domain and connection are managed together in webadmin UI in Storage tab
 
 In the scope of this feature, in order to allow editing the connection's details such as path for Posix and NFS storage domains, the edit button is now enabled for storage domains that are in maintenance state as well. In that case, name and description are disabled for edit.
 
-For iscsi currently there is no option to edit the connection (target) details in webadmin UI.
+For iSCSI currently there is no option to edit the connection (target) details in webadmin UI.
 
 ## REST
 

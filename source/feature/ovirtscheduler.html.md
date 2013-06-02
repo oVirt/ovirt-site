@@ -113,4 +113,11 @@ process.
 
 The specific API and design details can be found in the following page: [Features/oVirtSchedulerAPI](Features/oVirtSchedulerAPI)
 
+### References
+
+Some of the concepts in this design are related to the filter scheduler Nova Scheduler is using.
+<http://docs.openstack.org/trunk/openstack-compute/admin/content/filter-scheduler.html>
+The idea is to possibly allow logic and potentially some code sharing between these sub-projects,
+even though both use different implementations and architectures.
+
 <Category:Feature> <Category:SLA>

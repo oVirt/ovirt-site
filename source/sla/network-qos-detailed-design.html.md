@@ -70,7 +70,7 @@ Once inbound/outbound was enabled all three field must be filled (This will be v
 
 ## Permissions
 
-Only a user permitted to edit the network may edit the QoS properties in the network dialog or override the QoS properties in the VNIC dialog.
+Only a user permitted to edit the network may edit the QoS properties in the network dialog. In order to override the QoS properties in the VNIC dialog a user must have both UserVmManger permission and NetworkAdmin permission. UI of the QoS editing will only be presented to user with the above permissions.
 
 ## Backend
 

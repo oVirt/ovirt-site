@@ -24,9 +24,9 @@ This feature supports the disaster recovery agenda, and should allow quickly swi
 
 ### Current Status
 
-*   Edit NFS connection properties in webadmin UI (http://gerrit.ovirt.org/#/c/12372/)
-*   Edit Posix connection properties in webadmin UI (http://gerrit.ovirt.org/#/c/13640/)
-*   Allow deletion of connection only if no storage domains (nor lun disk in Iscsi case) are using it. (implementation phase)
+*   Edit NFS connection properties in webadmin UI - ready (http://gerrit.ovirt.org/#/c/12372/)
+*   Edit Posix connection properties in webadmin UI -ready (http://gerrit.ovirt.org/#/c/13640/)
+*   Allow deletion of connection only if no storage domains (nor lun disk in Iscsi case) are using it. (implementation phase) <http://gerrit.ovirt.org/#/c/15269/>
 *   Edit NFS, Posix connection properties in REST (design phase)
 *   Edit ISCSI connection properties in webadmin UI (not started)
 *   Edit ISCSI connection properties in REST (design phase)

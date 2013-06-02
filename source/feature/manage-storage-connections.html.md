@@ -20,6 +20,7 @@ This feature supports the disaster recovery agenda, and should allow quickly swi
 
          Name: Alissa Bonas
 `   Email: `<abonas@redhat.com>
+         Last updated: June 2 2013
 
 ### Current Status
 

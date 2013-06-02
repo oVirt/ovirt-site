@@ -68,7 +68,7 @@ The user could enable/disable the QoS properties (for each inbound / outbound).
 The panel holding the properties will be collapsed by default (extendable panel).
 Once inbound/outbound was enabled all three field must be filled (This will be verified before allowing to close the dialog). If QoS properties were set in the network dialog as preset for all VNICs - these setting will appear in the VNIC. The user can override them in the VNIC dialog.
 
-### Permissions
+## Permissions
 
 Only a user permitted to edit the network may edit the QoS properties in the network dialog or override the QoS properties in the VNIC dialog.
 

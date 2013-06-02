@@ -142,6 +142,4 @@ Others:
 
 ## Comments and Discussion
 
-*   Traffic shaping using the Network QoS feature will be available only for oVirt networks at this stage.
-
 <Category:SLA> [Category: Feature](Category: Feature)

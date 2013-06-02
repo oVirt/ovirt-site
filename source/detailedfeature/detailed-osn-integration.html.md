@@ -139,6 +139,8 @@ The integration of network providers into oVirt will be incremental. The followi
 
 All the components need to be installed, and set to run on startup.
 
+Good documentation is available at <https://access.redhat.com/site/documentation/en-US/Red_Hat_OpenStack/2/html/Getting_Started_Guide/chap-Deploying__OpenStack_Networking_Services.html>
+
 ##### Configure Keystone
 
 1.  Install keystone

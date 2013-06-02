@@ -135,6 +135,50 @@ The integration of network providers into oVirt will be incremental. The followi
 
 ### User work-flows
 
+#### OpenStack Networking & Identity (Keystone) installation
+
+All the components need to be installed, and set to run on startup.
+
+##### Configure Keystone
+
+1.  Install keystone
+    1.  Steps described at: <http://docs.openstack.org/developer/keystone/installing.html#installing-from-packages-fedora>
+    2.  And: <http://fedoraproject.org/wiki/Getting_started_with_OpenStack_on_Fedora_17#Initial_Keystone_setup>
+
+2.  Configure quantum in keystone
+    1.  Steps described at: <http://docs.openstack.org/grizzly/openstack-network/admin/content/keystone.html>
+        1.  Add quantum service
+        2.  Add quantum admin user
+
+Note: get_id function is:
+
+      function get_id () {
+      `     echo `"$@" | grep ' id ' | awk '{print $4}'` `
+      }
+
+##### Configure Quantum manager
+
+1.  Install quantum manger
+    1.  Steps described at: <http://docs.openstack.org/trunk/openstack-network/admin/content/install_fedora.html>
+        1.  Install quantum plugin
+        2.  Run plugin self configuration (This will create the DB)
+        3.  Configure /etc/quantum/quantum.conf:
+            1.  Choose rabbit / qpid by un-commenting the corresponding values
+            2.  Un-comment notification_driver = quantum.openstack.common.notifier.list_notifier
+
+        4.  Configure /etc/quantum/plugin.ini:
+            1.  Fill correct IP in sql_connection
+            2.  Change: tenant_network_type = vlan
+            3.  Edit: network_vlan_ranges = <label>:<tag start>:<tag end>,physnet1:1000:2999
+
+#### Agent installation on host
+
+1.  Install quantum plugin (same plugin as in the manager)
+2.  Configure the quantum manger IP (rabbit_host =)
+3.  Run plugin self configuration (for creating the link of plugin.ini to the specific config)
+4.  When using Linux Bridge only:
+    1.  Override file for creating a tap connected to dummy bridge
+
 ### Events
 
 ## Dependencies / Related Features and Projects

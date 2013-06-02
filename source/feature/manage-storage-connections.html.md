@@ -58,6 +58,8 @@ For iSCSI there will not be an option (in the scope of this feature) to edit the
 
 In order to allow editing connections, a new root resource will be introduced that will allow add/edit/delete/get of connections to storage.
 
+TODO: model the new connection entity. Should represent several storage types.
+
 ### New connection (POST)
 
 It will be possible to create a new connection without adding a storage domain along with it, and later on create a storage domain and relate it to existing connection by providing the connection id.

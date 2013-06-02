@@ -76,6 +76,6 @@ Storage connections are managed today in storage_server_connections table. The e
 
 For NFS/gluster/Posix/local connections a reference to a record in this table is made in storage_domain_static table --> column "storage" holds the connection id.
 
-For iSCSI, the reference to connection id is made via lun_storage_server_connection_map
+For iSCSI, the reference to connection id is made via lun_storage_server_connection_map table.
 
 <Category:Feature>

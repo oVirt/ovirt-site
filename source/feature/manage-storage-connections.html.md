@@ -72,6 +72,10 @@ In addition, for each storage domain it should be possible to view (GET) its sto
 
 ## Database
 
-Storage connections are managed in storage_server_connections table.
+Storage connections are managed today in storage_server_connections table. The edit action will update an existing record in this table. The connection id will remained unchanged, thus the references to the connection will remain correct and will not need a modification.
+
+For NFS/gluster/Posix/local connections a reference to a record in this table is made in storage_domain_static table --> column "storage" holds the connection id.
+
+For iSCSI, the reference to connection id is made via lun_storage_server_connection_map
 
 <Category:Feature>

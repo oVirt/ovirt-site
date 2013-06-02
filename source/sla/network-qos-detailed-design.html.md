@@ -122,8 +122,6 @@ libvirt version 1.0.1 or higher is required to enable the QoS feature (vdsm 3.3 
 
 ## Special considerations
 
-*   Old libvirt versions that have the global driver lock may have performance problems. It would be nice to check what version of libvirt is this going to run on.
-
 ## Dependencies / Related Features
 
 Affected ovirt projects:

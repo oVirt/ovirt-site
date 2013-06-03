@@ -22,7 +22,7 @@ This wiki page focuses on the design of storage I/O bandwidth Service Level Agre
 ## Current Status
 
 *   Status: design
-*   Last updated: 30 May
+*   Last updated: 3 June
 *   patchset
 
 ## Detailed Description
@@ -90,13 +90,13 @@ We use the following policy:
     -   If the reserved I/O value is deflated, it will not exeed the quota, the operation can always succeed.
     -   If the reserved I/O value is inflated and will not exeed the quota, the operation can succeed. However, the operation will fail if the sum of new value and others vDisks minimum reserved I/O value exeeds the quota.
 
+The vDisk should also have a io bandwidth limit and this value is adjusted based on actual badwidth usage in order to ensure the bandwidth are reserved for each vDisk.
+
 As in the quota design, quota object parameters modifications can result in exceeding the resource limitations:
 
 reducing the disk I/O limitation of some storage domain removing a user from the list of users permitted to use the quota
 
 All the above will not cause a resource deallocation. However, users will not be able to exceed the quota limitations again after the resources are released. Also, if a user was removed from the list of permitted users it won't result in an immediate interruptive action. However, that user won't be able to use this quota again, unless permitted to.
-
-The vDisk should also have a io bandwidth limit and this value is adjusted based on actual badwidth usage in order to ensure the bandwidth are reserved for each vDisk.
 
 ### Basic functionality
 

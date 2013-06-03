@@ -128,7 +128,7 @@ The initial io limit of vDisks bandwidth can be set to the value when vm is crea
 
 IO limit is tuned by a similar mechanism in MOM, but needs Engine to make the whole decision. This is because vms use that storage domain reside on different hosts, and the tunning need a global decision. We use the following policy:
 
-*   If one or above vms's IO is below the reserve, we pick a vDisk created by quota consumer and use this storage domain to deflate its io limit by certain percent(e.g. 5% but not below the reserved min value).
+*   If one or above vms's IO is below the reserve, we pick a vDisk which created by quota consumer to deflate its IO limit by certain percent(e.g. 5% but not below the reserved min value).
 
 To this end, we need to distinguish the situation that vm has fewer IO than reserved and other vm's IO affect its IO bandwidth. The vm picked satisfies:
 

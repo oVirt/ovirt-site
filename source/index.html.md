@@ -76,7 +76,7 @@ oVirt version 3.2.1 was released on March 14, 2013 and contains several fixes, c
 *   choice of stand-alone Hypervisor or install-on-top of your existing Linux installation
 *   high availability
 *   live migration
-*   scheduled migration
+*   load balancing
 *   Web-based management interface
 *   iSCSI, FC, NFS, and local storage
 *   Enhanced security: SELinux and Mandatory Access Control for VMs and hypervisor

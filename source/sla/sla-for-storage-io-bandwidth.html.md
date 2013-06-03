@@ -94,13 +94,25 @@ The vDisk should also have a io bandwidth limit and this value is adjusted based
 
 As in the quota design, quota object parameters modifications can result in exceeding the resource limitations:
 
-reducing the disk I/O limitation of some storage domain removing a user from the list of users permitted to use the quota
+reducing the disk I/O limitation of some storage domain
+
+removing a user from the list of users permitted to use the quota
 
 All the above will not cause a resource deallocation. However, users will not be able to exceed the quota limitations again after the resources are released. Also, if a user was removed from the list of permitted users it won't result in an immediate interruptive action. However, that user won't be able to use this quota again, unless permitted to.
 
 ### Basic functionality
 
-Users can set the SD quota in engine and define cosumers(users/groups). Users can set the vDisk minimum reserved I/O value in engine. Engine can obtain statistic of I/O of each vm. This requires support of the statistics info in VDSM API. Users can set the elements Detailed Description Section for a specific vDisk when a VM is created or running. These elements are kept in migration. This requires support of this in VDSM API: create VM, hot plug and update VM device. Dynamic setting these elements should also be supported.
+Users can set the SD quota in engine and define cosumers(users/groups).
+
+Users can set the vDisk minimum reserved I/O value in engine.
+
+Engine can obtain statistic of I/O of each vm.
+
+This requires support of the statistics info in VDSM API.
+
+Users can set the elements Detailed Description Section for a specific vDisk when a VM is created or running. These elements are kept in migration.
+
+This requires support of this in VDSM API: create VM, hot plug and update VM device. Dynamic setting these elements should also be supported.
 
 ### Automatic per-device tuning for I/O bandwidth limit
 

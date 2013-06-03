@@ -86,33 +86,47 @@ We use the following policy:
 *   When a new vm is started, the operation will fail if others vDisks minimum reserved I/O value adding the new vm vDisks' minimum value exceeds the quota.
 *   This vDisks minimum reserved I/O value can be adjusted dynamicly.
     -   If the reserved I/O value is deflated, it will not exeed the quota, the operation can always succeed.
-    -   If the reserved I/O value is inflated and will not exeed the quota, the operation can succeed. Howere, the operation will fail if the sum of new value and others vDisks minimum reserved I/O value exeeds the quota.
+    -   If the reserved I/O value is inflated and will not exeed the quota, the operation can succeed. However, the operation will fail if the sum of new value and others vDisks minimum reserved I/O value exeeds the quota.
 
-As in the quota design, quota object parameters modifications can result in exceeding the resource limitations: reducing the disk I/O limitation of some storage domain removing a user from the list of users permitted to use the quota
+As in the quota design, quota object parameters modifications can result in exceeding the resource limitations:
+
+reducing the disk I/O limitation of some storage domain removing a user from the list of users permitted to use the quota
 
 All the above will not cause a resource deallocation. However, users will not be able to exceed the quota limitations again after the resources are released. Also, if a user was removed from the list of permitted users it won't result in an immediate interruptive action. However, that user won't be able to use this quota again, unless permitted to.
 
+The vDisk should also have a io bandwidth limit and this value is adjusted based on actual badwidth usage in order to ensure the bandwidth are reserved for each vDisk.
+
 ### Basic functionality
 
-Users can set the elements for a specific vDisk when a VM is created or running. These elements are kept in migration. This requires support of this in VDSM API: create VM, hot plug and update VM device. Dynamic setting these elements should also be supported.
+Users can set the SD quota in engine and define cosumers(users/groups). Users can set the vDisk minimum reserved I/O value in engine. Engine can obtain statistic of I/O of each vm. Users can set the elements Detailed Description Section for a specific vDisk when a VM is created or running. These elements are kept in migration. This requires support of this in VDSM API: create VM, hot plug and update VM device. Dynamic setting these elements should also be supported.
 
-### Automatic per-device I/O tuning
+### Automatic per-device tuning for I/O bandwidth limit
 
-Volumes in backend storage of a storage domain are used by plenty of vms as vDisks, and thus a vm's vDisk bandwidth should be limited by a upper bound(io limit) according to the capability of this backend storage. In the following chapters, we will explain how to tune this io limit dynamically . The adjustment is performed by MOM.,VDSM and Engine.
+      In the following chapters, we will explain how to tune this io bandwidth limit dynamically . The adjustment is performed by MOM,VDSM and Engine. 
 
-This section gives the way to set initial value. This value is used as start point when io limit is adjusted. The io limit is then tuned according to IO bandwidth usage and capability of backend storage bandwidth. During this tuning procedure, the io limit can not be inflated or deflated arbitrarily, so we constrain it in a dynamic calculated range.
+This section gives the way to set initial value. This value is used as start point when io limit is adjusted. The io limit is then tuned according to IO bandwidth usage of vms.
 
-#### Initial io limit value
+#### Initial IO limit value
 
-The initial io limit of vDisks bandwidth can be set to the value when vm is created, dynamically set via VDSM API or bandwidth capability of the related backend storage. The capability is estimated based on physical backend IO bandwidth capability or detected in some other way.
+The initial io limit of vDisks bandwidth can be set to the value when vm is created, dynamically set via VDSM API. By defualt, it will use quota as upper bound.
 
-#### io limit tuning
+#### IO limit tuning
 
-Io limit is tuned by a similar mechanism in MOM. MOM collects bandwidth capability information and IO bandwidth usage statistics of backend storages and related volumes. According to this information and related policy, the policy engine decides how to tune the io limit of vDisk which uses that backend storage .
+Io limit is tuned by a similar mechanism in MOM but need Engine to make the whole decision. THis is because vms use that storage domain reside on different host, and the tunning need a global decision. We use the following policy:
 
-If the backend storage bandwidth is heavily used(i.e. The unused bandwidth ratio of that backend is lower than a threshold), the io limits for the vDisks related to that backend are deflated by a certain percent. Otherwise, the iolimits for the vDisks bandwidth are inflated by the same percent.
+*   If one or above vms's io is below the reserve, we pick a vDisk created by quota consumer and use this storage domain to deflate its io limit by certain percent(e.g. 5% but not below the reserved min value).
 
-At the same time, the policy make sure that the io limit is in a proper range dynamically calculated. The policy calculated the range for different priority level vDisks in diverse ways. The vDisk is either high priority or low priority, and the level may derived from the priority of user/vm. For high priority vDisks, the policy tends to make the lower bound of range not too small. In the opposite, the policy tends to make the upper bound of range not too large for low priority vDisks. The details is described as following:
+To this end, we need to distinguish the situation that vm has fewer IO than reserved and other vm's IO affect its IO bandwidth. The vm picked satisfies:
+
+      vDisk I/O bandwidth usage - minimum reserved I/O value reserved is the max among all the vDisks that consumes the quota
+
+*   If all vDisks' reserve IO bandwidth can be guarteed
+
+the IO limit for a vm can be inflated by a certain percent. (not exeeding quota) The vm picked satisfies:
+
+      vDisk IO limit - I/O bandwidth usage is the min among all the vDisks that consumes the quota
+
+Thus, MOM need collect IO bandwidth usage statistics of vms' vDisks and check if its reserve cannot be guaranteed or all the vDisks can be guaranteed. If it is the case, it should notify vdsm and further engine. VDSM can change the status and make engine know when it poll these information. When engine is notified, it picks the vDisk and set its io limit to a new value.
 
 ## Documentation / External references
 
@@ -124,6 +138,6 @@ Expected unit-tests
 
 ## Comments and Discussion
 
-The quota value may related to 6 items in Detailed Description Section(total_bytes_sec, read_bytes_sec......). Do we need to support all of them?
+The quota value may related to 6 elements in Detailed Description Section(total_bytes_sec, read_bytes_sec......). Do we need to support all of them? This design should not involve problem when import or export VM since min reserved I/O value can be adjusted after importing, and the limit can be adjusted automatically.
 
 <Category:SLA> [Category: Feature](Category: Feature)

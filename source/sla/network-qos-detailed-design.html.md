@@ -15,8 +15,6 @@ wiki_last_updated: 2013-06-10
 Network Quality of Service feature will be added to oVirt from version 3.3 and will support cluster version 3.3 or higher.
 The feature will allow the user to limit the inbound and outbound network traffic in two layers (in current implementation): host level, virtual NIC level.
 
-*   Traffic shaping using the Network QoS feature will be available only for oVirt networks at this stage. Externally provided networks (such as Quantum) may be supported in future extensions.
-
 ### Owner
 
 *   Name: [Ofri Masad](User:omasad)
@@ -28,9 +26,11 @@ The feature will allow the user to limit the inbound and outbound network traffi
 *   Last updated: ,
 *   patchset
 
-## Motivation
+### Detailed Description
 
-We would like to expose to the user the ability to configure the Network Quality of Service (QoS) properties of each virtual NIC and each network. The QoS properties are properties which defines the traffic shaping applied on the virtual NIC \\ network. QoS properties currently include:
+Traffic shaping is a very common practice in network management. Traffic shaping allows the network administrator to prevent over consumption of network resources by limiting the bandwidth in several layers. Current implementation of libvirt allows limiting the bandwidth in the Host level and in the virtual NIC level for both inbound and outbound traffic. The Network QoS on oVirt make use of that API and allows the network administrator to define network limitations on specific VNICs and specific networks.
+
+The QoS properties are properties which defines the traffic shaping applied on the virtual NIC \\ network. QoS properties currently include:
 
 *   Inbound
     -   Average - long-term limit around which traffic should float (Mbps)
@@ -43,9 +43,11 @@ We would like to expose to the user the ability to configure the Network Quality
 
 For example: if average is set to 100 units, peak to 200 and burst to 50, after sending those 50 units of data at rate 200, the rate will fall down to 100.
 
-In the planned implementation only Virtual Machine level network QoS will be supported. That is, the user could only set QoS properties for virtual NICs.
+Traffic shaping using the Network QoS feature will be available only for oVirt networks at this stage. Externally provided networks (such as Quantum) may be supported in future extensions.
 
-## Design
+### Benefit to oVirt
+
+We would like to expose to the user the ability to configure the Network Quality of Service (QoS) properties of each virtual NIC and each network.
 
 We define a new entity called "NetworkQoS" - the QoS properties will be contained in this object. A NetworkQoS object will be added to NetworkInterface entity and Network entity.
 

@@ -94,9 +94,11 @@ The vDisk should also have a io bandwidth limit and this value is adjusted based
 
 As in the quota design, quota object parameters modifications can result in exceeding the resource limitations:
 
-reducing the disk I/O limitation of some storage domain
+*   reducing the disk I/O limitation of some storage domain
 
-removing a user from the list of users permitted to use the quota
+<!-- -->
+
+*   removing a user from the list of users permitted to use the quota
 
 All the above will not cause a resource deallocation. However, users will not be able to exceed the quota limitations again after the resources are released. Also, if a user was removed from the list of permitted users it won't result in an immediate interruptive action. However, that user won't be able to use this quota again, unless permitted to.
 
@@ -134,9 +136,9 @@ To this end, we need to distinguish the situation that vm has fewer IO than rese
 
       vDisk I/O bandwidth usage - minimum reserved I/O value reserved is the max among all the vDisks that consumes the quota
 
-*   If all vDisks' reserve IO bandwidth can be guarteed
+*   If all vDisks' reserve IO bandwidth can be guarteed, the IO limit for a vm can be inflated by a certain percent. (not exeeding quota)
 
-the IO limit for a vm can be inflated by a certain percent. (not exeeding quota) The vm picked satisfies:
+The vm picked satisfies:
 
       vDisk IO limit - I/O bandwidth usage is the min among all the vDisks that consumes the quota
 

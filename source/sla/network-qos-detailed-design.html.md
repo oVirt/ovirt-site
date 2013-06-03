@@ -137,66 +137,20 @@ Target release: 3.3 (p2)
 
 #### GUI (VNIC level)
 
-The UI for setting of QoS properties will be added to the Add/Edit Network and VNIC dialogs.
-In the Add/Edit Network two parts will be added - one for the QoS properties of the network, the other for the QoS properties preset for VNICs attached to the network.
-
 **UI addition to the Add/Edit Network dialog**
 ![](Network_quality_of_service_2.png "fig:Network_quality_of_service_2.png")
 
-**UI addition to the Add/Edit VNIC dialog**
-![](QoS.png "fig:QoS.png")
-
-The user could enable/disable the QoS properties (for each inbound / outbound).
-The panel holding the properties will be collapsed by default (extendable panel).
-Once inbound/outbound was enabled all three field must be filled (This will be verified before allowing to close the dialog). If QoS properties were set in the network dialog as preset for all VNICs - these setting will appear in the VNIC. The user can override them in the VNIC dialog.
-
-### Permissions
-
-Only a user permitted to edit the network may edit the QoS properties in the network dialog. In order to override the QoS properties in the VNIC dialog a user must have both UserVmManger permission and NetworkAdmin permission. UI of the QoS editing will only be presented to user with the above permissions.
-
 ### Backend
-
-A new entity will be created (NetworkQoS) which will hold the QoS properties. NetworkQoS field will be added to NetworkInterface object and Network object. Fields values will be seved in DB and ovf.
 
 #### Classes
 
-***engine.core.common.businessentities.network.NetworkQoS**' - new entity with fields: inboundAverage(Integer), inboundPeak(Integer), inboundBurst(Long), outboundAverage(Integer), outboundPeak(Integer), outboundBurst(Long)
-***engine.core.common.businessentities.network.NetworkInterface**'' - add fields: networkQoS(NetworkQoS)
-***engine.core.common.businessentities.network.Network**'' - add fields: networkQoS(NetworkQoS)
-***engine.core.vdsbroker.vdsbroker.VmInfoBuilder**'' - add support to the QoS properties
-***engine.core.utils.ovf.OvfWriter**' - add support to the QoS properties
-***engine.core.utils.ovf.OvfReader**' - add support to the QoS properties
-***engine.core.dao.network.VmNetworkQoSDao**'' - new Dao
-***engine.core.dao.network.VmNetworkInterfaceDao**'' - add support to the NetworkQoS field
-***engine.core.dao.network.VmNetworkDao*** - add support to the NetworkQoS field
-
 #### DB Change
-
-Add NetworkQoS table with 7 columns.
-
-| Column Name       | Column Type | Null? / Default |
-|-------------------|-------------|-----------------|
-| id                | UUID        |                 |
-| inbound_average  | Integer     |                 |
-| inbound_peak     | Integer     |                 |
-| inbound_burst    | Integer     |                 |
-| outbound_average | Integer     |                 |
-| outbound_peak    | Integer     |                 |
-| outbound_burst   | Integer     |                 |
-
-Add network_QoS_id(UUID | null) to the **vm_interface** table - Represents the properties of the virtual NIC.
-Add network_QoS_id(UUID | null) and network_QoS_default_for_vnic_id(UUID | null) to the **network** table.
 
 #### REST API
 
 Not supported in this version
 
 #### VDSM
-
-libvirt version 1.0.1 or higher is required to enable the QoS feature (vdsm 3.3 will use higher version).
-
-*   Add support of QoS properties in VDSM API: run VM, hot plug and update VM device verbs (update in schema)
-*   Add support in the vnic object and the vnic to_xml()
 
 ### Tests
 

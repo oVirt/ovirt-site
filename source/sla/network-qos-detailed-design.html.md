@@ -135,7 +135,7 @@ libvirt version 1.0.1 or higher is required to enable the QoS feature (vdsm 3.3 
 
 Target release: 3.3 (p2)
 
-#### GUI (VNIC level)
+#### GUI (Network level)
 
 **UI addition to the Add/Edit Network dialog**
 ![](Network_quality_of_service_2.png "fig:Network_quality_of_service_2.png")

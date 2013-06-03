@@ -100,10 +100,6 @@ The first four count as NetDevices. The relationship is as follows:
 
 Nothing on top of NetDevice
 
-#### Alias
-
-*   Users have shown interest in the likes of `eth0:4`. We should find out if this is really required of oVirt.
-
 #### IpConfig
 
 *   inet: IPv4 address information (addr + netmask + gateway/route),

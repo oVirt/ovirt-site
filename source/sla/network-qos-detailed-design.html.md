@@ -74,14 +74,16 @@ The newly added part will be visible only to user with the permission to edit Qo
 **UI addition to the Add/Edit VNIC dialog**
 ![](QoS.png "fig:QoS.png")
 
-In the Add/Edit Network two parts will be added: - QoS properties of the network(discussed in the next phase) - QoS properties default for VNICs attached to the network (discussed here).
-
-**UI addition to the Add/Edit Network dialog**
+In the Add/Edit Network two parts will be added:
+* QoS properties of the network(discussed in the next phase)
+* QoS properties default for VNICs attached to the network (discussed here).
+ **UI addition to the Add/Edit Network dialog**
 ![](Network_quality_of_service_2.png "fig:Network_quality_of_service_2.png")
 
 The user could enable/disable the QoS properties (for each inbound / outbound). Disabled QoS will mean no limitation on the traffic in this direction
 The panel holding the properties will be collapsed by default (extendable panel).
-Once inbound/outbound was enabled all three field must be filled (This will be verified before allowing to close the dialog). If QoS properties were set in the network dialog as default for all VNICs attached to that network - these setting will appear in the VNIC. The user can override them in the VNIC dialog. If the default values were overridden a "Revert to network default" hyperlink will appear, allowing the user to easily revert to network defaults.
+Once inbound/outbound was enabled all three field must be filled (This will be verified before allowing to close the dialog).
+If QoS properties were set in the network dialog as default for all VNICs attached to that network - these setting will appear in the VNIC. The user can override them in the VNIC dialog. If the default values were overridden a "Revert to network default" hyperlink will appear, allowing the user to easily revert to network defaults.
 
 User with no permission to edit the QoS properties will see no change in the UI.
 

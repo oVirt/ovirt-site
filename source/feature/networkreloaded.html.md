@@ -203,28 +203,25 @@ The old-style ifcfg persistence currently defined on the ConfigWriter class will
 
 If that is not specified, the unified persistence will be used. The way in which it works is the following:
 
-1.  After each successful addNetwork/delNetwork writes a network and bond
+1.  After each successful addNetwork/delNetwork writes a network and bond dictionary serialization (using json) to:
+    -   /run/vdsm/nets/
+    -   /run/vdsm/bonds/
 
-         dictionary serialization (using json) to:
-         /run/vdsm/nets/
-         /run/vdsm/bonds/
+<!-- -->
 
 1.  After setSafeConfig atomically copies:
+    -   /run/vdsm/nets/\* -> /var/lib/vdsm/nets/
+    -   /run/vdsm/bonds/\* -> /var/lib/vdsm/bonds/
 
-         /run/vdsm/nets/* -> /var/lib/vdsm/nets/
-         /run/vdsm/bonds/* -> /var/lib/vdsm/bonds/
+<!-- -->
 
 1.  Split vdsm-restore-net service in:
+    -   vdsm-remove-net-persistance (before network.service): Deletes all the persistance done by the configurator and also removes libvirt's persistent vdsm networks. For ifcfg that would be:
+        -   Remove all the ifcfg-\* files that have the newly defined vdsm header: "# This file was created by vdsm. Do not edit it, as it is not persisted across reboots."
+        -   Remove libvirt networks starting with vdsm-\*
+    -   vdsm-restore-persistent-nets (after vdsmd.service): Constructs a setupNetwork command by putting together the networks and bonds in /var/lib/vdsm/nets and /var/lib/vdsm/bonds and calls vdsCli setupNetworks
 
-         - vdsm-remove-net-persistance (before network.service): Deletes all the persistance done by the configurator and also removes libvirt's  persistent vdsm networks. For ifcfg that would be:
-           a) Remove all the ifcfg-* files that have the newly defined vdsm header: "# This file was created by vdsm. Do not edit it, as it is not persisted across reboots."
-           b) Remove libvirt networks starting with vdsm-*
-         - vdsm-restore-persistent-nets (after vdsmd.service): Constructs a setupNetwork command by putting together the networks and bonds in /var/lib/vdsm/nets and /var/lib/vdsm/bonds and calls vdsCli setupNetworks
-
-We should make sure that \`rpm -V vdsm\` is happily quiet even after setSafeConfig, unlike now
-
-      # rpm -V vdsm
-      missing     /var/lib/vdsm/netconfback
+We should make sure that \`rpm -V vdsm\` is happily quiet even after setSafeConfig.
 
 ## Open questions
 

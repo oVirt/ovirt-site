@@ -73,11 +73,13 @@ For example, the following Quota configuration, is for A and B team:
              A team
              B team
 
-### VM I/O bandwidth limit
+### VM I/O bandwidth limit and reserve
 
 A vm created by quota consumer(users/groups) consumes quota for the related storage domain. To better allocate this quota to vDisks of these VMs, we add a vDisk minimum I/O value in VM's configuration. This value is used for reserving the badwidth resource to VM's vDisk.
 
-When quota is a constant, we'd like to make sure: SD I/O bandwidth quota for certain users >= sum of vDisk( related volume in this SD) minimum reserved I/O value The vms consume the quota are created by the users defined as consumer, and they should be in running, suspend, hibernate state, but not in shutdown state.
+When quota is a constant, we'd like to make sure:
+
+SD I/O bandwidth quota for certain users >= sum of vDisk( related volume in this SD) minimum reserved I/O value The vms consume the quota are created by the users defined as consumer, and they should be in running, suspend, hibernate state, but not in shutdown state.
 
 We use the following policy:
 
@@ -86,12 +88,9 @@ We use the following policy:
     -   If the reserved I/O value is deflated, it will not exeed the quota, the operation can always succeed.
     -   If the reserved I/O value is inflated and will not exeed the quota, the operation can succeed. Howere, the operation will fail if the sum of new value and others vDisks minimum reserved I/O value exeeds the quota.
 
-As in the quota design, quota object parameters modifications can result in exceeding the resource limitations:
+As in the quota design, quota object parameters modifications can result in exceeding the resource limitations: reducing the disk I/O limitation of some storage domain removing a user from the list of users permitted to use the quota
 
-             reducing the disk I/O limitation of some storage domain
-             removing a user from the list of users permitted to use the quota 
-
-         All the above will not cause a resource deallocation. However, users will not be able to exceed the quota limitations again after the resources are released.  Also, if a user was removed from the list of permitted users it won't result in an immediate interruptive action. However, that user won't be able to use this quota again, unless permitted to.  
+All the above will not cause a resource deallocation. However, users will not be able to exceed the quota limitations again after the resources are released. Also, if a user was removed from the list of permitted users it won't result in an immediate interruptive action. However, that user won't be able to use this quota again, unless permitted to.
 
 ### Basic functionality
 

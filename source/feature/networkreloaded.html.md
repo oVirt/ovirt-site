@@ -80,25 +80,31 @@ The first four count as NetDevices. The relationship is as follows:
 *   mtu
 *   configurator: Reference to the configurator implementation that can apply/delete changes.
 
-#### Bridge is a NetDevice
+#### Bridge
+
+It is a NetDevice.
 
 *   port: Could be a nic, a bond or a vlans.
 *   forward_delay,
 *   stp,
 
-#### Bond is a NetDevice
+#### Bond
+
+It is a NetDevice.
 
 *   slaves: nics or vlans,
 *   options: Dictionary with stuff like mode and miimon.
 
 #### VLAN
 
+It is a NetDevice.
+
 *   tag: The tag number of the VLAN.
 *   device: A nic, bond or bridge that has the vlan on top.
 
-#### Nic is a NetDevice
+#### Nic
 
-Nothing on top of NetDevice
+It is a NetDevice.
 
 #### IpConfig
 

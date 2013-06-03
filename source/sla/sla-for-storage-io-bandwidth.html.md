@@ -54,6 +54,45 @@ This feature will allow qos and SLA for storage bandwidth I/O control.
 
 ## Design
 
+### Quota
+
+As the design in <http://www.ovirt.org/Features/Quota>, quota provides the administrator a logic mechanism for managing resources allocation for users and groups in the Data Center. You need to create the relevant quota, and define the user as a quota consumer .
+
+We would like to add one kind of quota for disk bandwidth I/O control.
+
+For example, the following Quota configuration, is for A and B team:
+
+         Name: ExampleQuota
+         Description: Quota configured for A and B team
+         Data Center: Data_Center_1
+         Resource limitations:
+             Storage I/O bandwidth Limitations::
+                 Storage Domain 1:  total_bytes_sec 10MB/s
+                 Storage Domain 2: total_bytes_sec 8MB/s
+         List of Users/Groups:
+             A team
+             B team
+
+### VM I/O bandwidth limit
+
+A vm created by quota consumer(users/groups) consumes quota for the related storage domain. To better allocate this quota to vDisks of these VMs, we add a vDisk minimum I/O value in VM's configuration. This value is used for reserving the badwidth resource to VM's vDisk.
+
+When quota is a constant, we'd like to make sure: SD I/O bandwidth quota for certain users >= sum of vDisk( related volume in this SD) minimum reserved I/O value The vms consume the quota are created by the users defined as consumer, and they should be in running, suspend, hibernate state, but not in shutdown state.
+
+We use the following policy:
+
+*   When a new vm is started, the operation will fail if others vDisks minimum reserved I/O value adding the new vm vDisks' minimum value exceeds the quota.
+*   This vDisks minimum reserved I/O value can be adjusted dynamicly.
+    -   If the reserved I/O value is deflated, it will not exeed the quota, the operation can always succeed.
+    -   If the reserved I/O value is inflated and will not exeed the quota, the operation can succeed. Howere, the operation will fail if the sum of new value and others vDisks minimum reserved I/O value exeeds the quota.
+
+As in the quota design, quota object parameters modifications can result in exceeding the resource limitations:
+
+             reducing the disk I/O limitation of some storage domain
+             removing a user from the list of users permitted to use the quota 
+
+         All the above will not cause a resource deallocation. However, users will not be able to exceed the quota limitations again after the resources are released.  Also, if a user was removed from the list of permitted users it won't result in an immediate interruptive action. However, that user won't be able to use this quota again, unless permitted to.  
+
 ### Basic functionality
 
 Users can set the elements for a specific vDisk when a VM is created or running. These elements are kept in migration. This requires support of this in VDSM API: create VM, hot plug and update VM device. Dynamic setting these elements should also be supported.
@@ -76,29 +115,6 @@ If the backend storage bandwidth is heavily used(i.e. The unused bandwidth ratio
 
 At the same time, the policy make sure that the io limit is in a proper range dynamically calculated. The policy calculated the range for different priority level vDisks in diverse ways. The vDisk is either high priority or low priority, and the level may derived from the priority of user/vm. For high priority vDisks, the policy tends to make the lower bound of range not too small. In the opposite, the policy tends to make the upper bound of range not too large for low priority vDisks. The details is described as following:
 
-*   inflate io limit
-
-       high priority vDisk: 
-         min = used + cap * min_vDisk_unused_percent (e.g. 0.2)
-         max = cap
-       low priority vDisk: 
-         min = used
-         max = used + cap * min_vDisk_unused_percent(e.g. 0.2)
-         used means the used bandwidth of that vDisk. 
-         cap is short for capability of backend storage for the storage domain.
-
-*   deflate io limit
-
-       high priority vDisk: 
-         min =  used + cur * vDisk_unused_percent 
-         vDisk_unused_percent = backend_unused_percent -0.05 ( if bandwidth is quite scarce )
-         vDisk_unused_percent= backend_unused_percent* min_vDisk_unused_percent(e.g. 0.2)/ threshold(e.g. 0.2) (if bandwidth is not quite scarce but below threshold)
-         max = cap
-       low priority vDisk: 
-         min = used
-         max = used + cur * vDisk_unused_percent 
-         cur means the current io limit value
-
 ## Documentation / External references
 
 <http://libvirt.org/formatdomain.html#elementsDisks>
@@ -108,5 +124,7 @@ At the same time, the policy make sure that the io limit is in a proper range dy
 Expected unit-tests
 
 ## Comments and Discussion
+
+The quota value may related to 6 items in Detailed Description Section(total_bytes_sec, read_bytes_sec......). Do we need to support all of them?
 
 <Category:SLA> [Category: Feature](Category: Feature)

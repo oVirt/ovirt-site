@@ -79,7 +79,9 @@ A vm created by quota consumer(users/groups) consumes quota for the related stor
 
 When quota is a constant, we'd like to make sure:
 
-SD I/O bandwidth quota for certain users >= sum of vDisk( related volume in this SD) minimum reserved I/O value The vms consume the quota are created by the users defined as consumer, and they should be in running, suspend, hibernate state, but not in shutdown state.
+SD I/O bandwidth quota for certain users >= sum of vDisk( related volume in this SD) minimum reserved I/O value
+
+The vms consume the quota are created by the users defined as consumer, and they should be in running, suspend, hibernate state, but not in shutdown state.
 
 We use the following policy:
 

@@ -12,6 +12,8 @@ wiki_last_updated: 2014-12-15
 
 ## integrating with libosinfo
 
+<big>**NOTE: this has been superseded by a different approach described [here](OS_info)**</big>
+
 ### Summary
 
 ovirt engine needs OS information out-sourced instead of static DB/code configuration. [<https://fedorahosted.org/libosinfo/>](libosinfo) is a GObject based library API for managing information about operating systems, hypervisors and the (virtual) hardware devices they can support. It includes a database containing device metadata and provides APIs to match/identify optimal devices for deploying an operating system on a hypervisor.

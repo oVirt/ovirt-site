@@ -49,16 +49,6 @@ GlusterFS fits as a network block device (<disk type=network.../>) in libvirt XM
 | Maps to <disk type=file..>...</disk> in libvirt xml.    | Maps to <disk type=network..>...</disk> in libvirt xml.                          |
 | FUSE overhead.                                          | No FUSE overhead.                                                                |
 
-### Performance Numbers
-
-Performance numbers for QEMU-GlusterFS integration are available @
-
-*   <http://lists.nongnu.org/archive/html/gluster-devel/2012-08/msg00063.html>
-*   <http://lists.nongnu.org/archive/html/qemu-devel/2012-07/msg02718.html>
-*   For more up to date info on QEMU-GlusterFS integration and performance numbers, visit ....
-    -   <http://raobharata.wordpress.com/2012/10/29/qemu-glusterfs-native-integration/>
-    -   Check out the "Performance Numbers" section of the above blog
-
 ### Approach
 
 In VDSM, we mainly add support for
@@ -73,11 +63,21 @@ Note that on the domain side, VDSM still uses gluster mount point as the root of
 
 *   If the GlusterFS volume is created using oVirt's GlusterFS GUI, then don't forget to click on "Optimize for virt. store" which helps set the right permissions and enables the optimum GlusterFS translators for virtualization usecase
     -   If the GlusterFS volume was created manually, then ensure the below options are set on the volume, so that its accessible from oVirt
-        -   volume set <volanme> storage.owner-uid=36
-        -   volume set <volanme> storage.owner-gid=36
-*   The below settings/options of GlusterFS volume must be enabled for it to be able to work as a oVirt storage domain
+        -   volume set <volname> storage.owner-uid=36
+        -   volume set <volname> storage.owner-gid=36
+*   The below settings/options of GlusterFS volume must also be enabled for it to be able to work as a oVirt storage domain. Currently its not possible to set these from oVirt GlusterFS GUI
     -   option rpc-auth-allow-insecure on ==> in glusterd.vol (ensure u restart glusterd service... for this to take effect)
     -   volume set <volname> server.allow-insecure on ==> (ensure u stop and start the volume.. for this to take effect)
+
+### Performance Numbers
+
+Performance numbers for QEMU-GlusterFS integration are available @
+
+*   <http://lists.nongnu.org/archive/html/gluster-devel/2012-08/msg00063.html>
+*   <http://lists.nongnu.org/archive/html/qemu-devel/2012-07/msg02718.html>
+*   For more up to date info on QEMU-GlusterFS integration and performance numbers, visit ....
+    -   <http://raobharata.wordpress.com/2012/10/29/qemu-glusterfs-native-integration/>
+    -   Check out the "Performance Numbers" section of the above blog
 
 ### User interface
 
@@ -132,6 +132,7 @@ This support helps complete the story/use-case from a virt. admin perspective !
 
 ## Future Work
 
+*   Provide ability to set all the required options needed for using GlusterFS volume as a storage domain from oVirt GUI
 *   GlusterFS as a VDSM repository engine.
 *   Support for GlusterFS volume backed by Block backend (Block Device translator)
 *   GlusterFS enablement for json-rpc VDSM API

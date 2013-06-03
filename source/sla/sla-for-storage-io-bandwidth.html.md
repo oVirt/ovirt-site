@@ -90,7 +90,7 @@ We use the following policy:
     -   If the reserved I/O value is deflated, it will not exeed the quota, the operation can always succeed.
     -   If the reserved I/O value is inflated and will not exeed the quota, the operation can succeed. However, the operation will fail if the sum of new value and others vDisks minimum reserved I/O value exeeds the quota.
 
-The vDisk should also have a io bandwidth limit and this value is adjusted based on actual badwidth usage in order to ensure the bandwidth are reserved for each vDisk.
+The vDisk should also have a io bandwidth limit and this value is adjusted based on actual badwidth usage in order to ensure the bandwidth are reserved for each vDisk. The detail will be explained in Section Automatic per-device tuning for I/O bandwidth limit.
 
 As in the quota design, quota object parameters modifications can result in exceeding the resource limitations:
 

@@ -118,7 +118,7 @@ This requires support of this in VDSM API: create VM, hot plug and update VM dev
 
 ### Automatic per-device tuning for IO bandwidth limit
 
-      In the following chapters, we will explain how to tune this IO bandwidth limit dynamically . The adjustment is performed by MOM,VDSM and Engine. This section gives the  way to set initial value. This value is used as start point when io limit  is adjusted. The IO limit  is then tuned according to IO bandwidth usage  of vms. 
+In the following chapters, we will explain how to tune this IO bandwidth limit dynamically . The adjustment is performed by MOM,VDSM and Engine. This section gives the way to set initial value. This value is used as start point when io limit is adjusted. The IO limit is then tuned according to IO bandwidth usage of vms.
 
 #### Initial IO limit value
 

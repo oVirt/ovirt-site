@@ -25,6 +25,10 @@ What do you need?
 
 *   A Linux client machine with spice client and spice xpi installed (packages spice-client and spice-xpi in Fedora/RHEL). It's not possible to connect to a guest from Windows client through Ovirt yet.
     -   Fedora 17/RHEL6.3 Beta users can try a new spice-gtk based client remote-viewer - Install virt-viewer package and change priorities of spice clients with using update-alternatives tool ("update-alternatives --config spice-xpi-client" -> Choose remote-viewer). Please Note that SELinux policy bug (preventing remote-viewer connection) was observed, you may switch to SELinux permissive mode.
+    -   In Ubuntu there is no spice-xpi package. One method is to Install the spice-client package which gives you /usr/bin/spicec. Extract the libnsISpicec.so file from the latest Fedora (FC19) RPM. Placed it in /usr/lib/mozilla/plugins/ and restart Firefox.
+
+<!-- -->
+
 *   Ovirt instance with some Windows/Linux guests installed with QXL graphic driver and spice vdagent installed (See below how to set up those components).
 
 ### Windows guest

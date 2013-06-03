@@ -72,6 +72,9 @@ Note that on the domain side, VDSM still uses gluster mount point as the root of
 ### Important Pre-requisites
 
 *   If the GlusterFS volume is created using oVirt's GlusterFS GUI, then don't forget to click on "Optimize for virt. store" which helps set the right permissions and enables the optimum GlusterFS translators for virtualization usecase
+    -   If the GlusterFS volume was created manually, then ensure the below options are set on the volume, so that its accessible from oVirt
+        -   volume set <volanme> storage.owner-uid=36
+        -   volume set <volanme> storage.owner-gid=36
 *   The below settings/options of GlusterFS volume must be enabled for it to be able to work as a oVirt storage domain
     -   option rpc-auth-allow-insecure on ==> in glusterd.vol (ensure u restart glusterd service... for this to take effect)
     -   volume set <volname> server.allow-insecure on ==> (ensure u stop and start the volume.. for this to take effect)

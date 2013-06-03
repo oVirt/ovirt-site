@@ -152,6 +152,10 @@ Expected unit-tests
 
 ## Comments and Discussion
 
-The quota value may related to 6 elements in Detailed Description Section(total_bytes_sec, read_bytes_sec......). Do we need to support all of them? This design should not involve problem when import or export VM since min reserved I/O value can be adjusted after importing, and the limit can be adjusted automatically. In this design, we let engine to do the tuning decision. Maybe we could ask mom in SPM to do the decision, but this requires mom in different hosts communicates with each other.
+The quota value may related to 6 elements in Detailed Description Section(total_bytes_sec, read_bytes_sec......). Do we need to support all of them?
+
+This design should not involve problem when import or export VM since min reserved IO value can be adjusted after importing, and the limit can be adjusted automatically.
+
+In this design, we let engine to do the tuning decision. Maybe we could ask mom in SPM to do the decision, but this requires mom in different hosts communicates with each other.
 
 <Category:SLA> [Category: Feature](Category: Feature)

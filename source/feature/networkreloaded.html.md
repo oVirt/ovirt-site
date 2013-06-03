@@ -35,16 +35,16 @@ The main points are:
 
 ## Current status
 
-*   Planning, designing and prototyping.
+*   Implementing.
 
 | Step                                   | Description                                                                                                                   | Completion |
 |----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|------------|
-| Define object oriented representations | Find the best class representations for the network primitives for our usage                                                  | 20%        |
-| Define internal API                    | Define the API that will establish the relationship between the new network representation and the multiple network backends. | 10%        |
-| Live Netinfo instance                  | Define a way to keep a netinfo.Netinfo instance updated based on the representations of the first point.                      | 10%        |
-| ifcfg backend                          | refactor our current ifcfg-based implementation as backend, following the internal API.                                       | 0%         |
-| IProute2 backend                       | Create a network backend from iproute2 tools, following the internal API.                                                     | 10%        |
-| Objectified rollback                   | Modify the rollback mechanism into just feeding the pre-crash network object representation to the selected network backend   | 0%         |
+| Define object oriented representations | Find the best class representations for the network primitives for our usage                                                  | 95%        |
+| Define internal API                    | Define the API that will establish the relationship between the new network representation and the multiple network backends. | 90%        |
+| Live Netinfo instance                  | Define a way to keep a netinfo.Netinfo instance updated based on the representations of the first point.                      | Postponed  |
+| ifcfg backend                          | refactor our current ifcfg-based implementation as backend, following the internal API.                                       | 85%        |
+| IProute2 backend                       | Create a network backend from iproute2 tools, following the internal API.                                                     | 30%        |
+| Objectified rollback                   | Modify the rollback mechanism into just feeding the pre-crash network object representation to the selected network backend   | 10%        |
 
 ## Components
 
@@ -58,62 +58,47 @@ The primitives to represent are:
 *   Bond,
 *   Nic,
 *   VLAN,
-*   Device alias (is it really required?),
 *   IpConfig.
 
-The relationship is as follows:
+The first four count as NetDevices. The relationship is as follows:
 
-1.  Bridge, Bonds, VLANs and Nics may have IpConfig, mtu and link_state information.
+1.  NetDevices may have IpConfig and mtu information.
 2.  Bridges have ports that can be Bond, Nic and Vlan instances (or none, for nicless bridges).
 3.  Bonds have slaves that are Nic instances.
-4.  IpConfig objects contain information about the configured IPv4 and IPv6 addresses (they can have multiple of each), routes.
+4.  IpConfig objects contain information about the configured IPv4 addresses and a default gateway.
 5.  Vlans can be set upon Nics and bonds.
 6.  Each class contains the logic for validating the parameters received from the engine, based on its current state and relations to other objects (e.g a change to a bridge may be disallowed due to its currently-connected nic). This way, the responsibilities for wrong configuration detection are semantically localized.
-7.  Each object should be able to contribute its part in generating the information for getVdsCaps.
+7.  Each object should be able to contribute its part in generating the information for getVdsCaps. (Postponed due to leaving netinfo out of the initial refactoring).
 8.  The following combinations of network elements are allowed:
     -   Single non-VLANed bridged network
     -   Multiple VLANed networks (bridged or bridgeless) with only a single non-VLANed bridgeless network.
 
-A netinfo object would have a list of the top hierarchy objects and generate the info from that.
+#### NetDevice
 
-#### Bridge
-
-*   ports: Could be nics, bonds or vlans. vNics of VMs are connected to temporary ports (tap devices).
 *   name,
+*   IPConfig
+*   mtu
+*   configurator: Reference to the configurator implementation that can apply/delete changes.
+
+#### Bridge is a NetDevice
+
+*   port: Could be a nic, a bond or a vlans.
 *   forward_delay,
 *   stp,
-*   priority,
-*   IpConfig,
-*   link_active: True/False,
-*   mtu: Max. Transfer Unit,
-*   configurator: Reference to the configurator implementation that can apply/delete changes.
 
-#### Bond
+#### Bond is a NetDevice
 
-*   name,
 *   slaves: nics or vlans,
-*   opts: Dictionary with stuff like mode and miimon.
-*   IpConfig,
-*   link_active: True/False,
-*   mtu: Max. Transfer Unit,
-*   configurator: Reference to the configurator implementation that can apply/delete changes.
-
-#### Nic
-
-*   name.
-*   IpConfig,
-*   LinkActive: True/False,
-*   mtu: Max. Transfer Unit,
-*   configurator: Reference to the configurator implementation that can apply/delete changes.
+*   options: Dictionary with stuff like mode and miimon.
 
 #### VLAN
 
 *   tag: The tag number of the VLAN.
-*   Interface: A nic, bond or bridge that has the vlan on top.
-*   IPConfing,
-*   link_active: True/False,
-*   mtu: Max. Transfer Unit,
-*   configurator: Reference to the configurator implementation that can apply/delete changes.
+*   device: A nic, bond or bridge that has the vlan on top.
+
+#### Nic is a NetDevice
+
+Nothing on top of NetDevice
 
 #### Alias
 
@@ -121,14 +106,13 @@ A netinfo object would have a list of the top hierarchy objects and generate the
 
 #### IpConfig
 
-*   inet: List of IPv4 address information (addr + netmask + gateway/route),
-*   inet6: List of IPv6 address information (addr + netmask + gateway/route).
-*   MTU: ,
-*   conf_impl: Reference to the configurator implementation that can apply/delete changes.
+*   inet: IPv4 address information (addr + netmask + gateway/route),
+*   bootproto: whether it should use dhcp (dynamic) or static ip configuration.
+*   async: whether the dynamic ip configuration should be asynchronous or not.
 
 #### Network
 
-*   an abstract object representing a layer-2 network, that may be implemented by a bridge, a set of nics, etc.
+It is an implicit entity, i.e., not represented by any class, but rather by the top object of a hierarchy, e.g. , for a bridgeless network set on a nic, the network would be the nic with its IPConfig.
 
 ### Define internal API
 
@@ -197,7 +181,7 @@ Team is the newfangled kernel module + userspace daemon for replacing bonding. T
 
 *   "Bonds". A conf file can be passed to the teamd daemon, or an interface can be created/modified via the "ip link" and "ip addr" cmdline tool.
 
-### Live Netinfo instance
+### Live Netinfo instance (Postponed)
 
 The goal of this action point is to have a thread that on the beginning polls the network state of the host and then registers to the network events to update the internal objects. To avoid race conditions, setupNetworks and other network modifying operations should get a copy of the object before starting work.
 
@@ -209,9 +193,33 @@ The thread could work in the following way:
 4.  Parse the nl_msg to get the information of what changed.
 5.  For each event, create a copy of the current Netinfo instance, do the modifications that the event entails and update the netinfo module reference to the live Netinfo objec to the new object.
 
-### Objectified rollback
+### Unified persistence
 
-The configuration objects are serialized in /var/lib/vdsm/netconfback/ before each modification (typically setupNetworks). setSafeConfig deletes the rollback objects and, if the configuration is to be persistent, it is saved as the parameters to a setupNetworks command that is applied on service bootup.
+The old-style ifcfg persistence currently defined on the ConfigWriter class will be kept and will be selectable by setting:
+
+*   /etc/vdsm/vdsm.conf
+
+         persistence = ifcfg
+
+If that is not specified, the unified persistence will be used. The way in which it works is the following:
+
+1.  After each successful addNetwork/delNetwork writes a network and bond
+
+         dictionary serialization (using json) to:
+         /run/vdsm/nets/
+         /run/vdsm/bonds/
+
+1.  After setSafeConfig atomically copies:
+
+         /run/vdsm/nets/* -> /var/lib/vdsm/nets/
+         /run/vdsm/bonds/* -> /var/lib/vdsm/bonds/
+
+1.  Split vdsm-restore-net service in:
+
+         - vdsm-remove-net-persistance (before network.service): Deletes all the persistance done by the configurator and also removes libvirt's  persistent vdsm networks. For ifcfg that would be:
+           a) Remove all the ifcfg-* files that have the newly defined vdsm header: "# This file was created by vdsm. Do not edit it, as it is not persisted across reboots."
+           b) Remove libvirt networks starting with vdsm-*
+         - vdsm-restore-persistent-nets (after vdsmd.service): Constructs a setupNetwork command by putting together the networks and bonds in /var/lib/vdsm/nets and /var/lib/vdsm/bonds and calls vdsCli setupNetworks
 
 We should make sure that \`rpm -V vdsm\` is happily quiet even after setSafeConfig, unlike now
 
@@ -220,12 +228,14 @@ We should make sure that \`rpm -V vdsm\` is happily quiet even after setSafeConf
 
 ## Open questions
 
-*   Persistence: If and how do we handle interaction between multiple configurators that have different models of persistance, i.e., ifcfg and iproute2?
-
-      The guess is that all the configurators should be made to work in a non persistent way, managing ourselves the persistence.
-
 *   In case multiple configurators were to be supported and available to interact, how do the engine - host decide which configurator to use?
-*   Do we need to support aliases or is the multiple ip address per interface support enough?
-*   Do we keep persistence for the management network only or for all the configured networks.
+
+/etc/vdsm/vdsm.conf has a setting
+
+         configurator = ifcfg
+
+*   Do we keep persistence for the management network only or for all the configured networks?
+
+Until the engine vdsm syncing is improved, we persist all the configured networks.
 
 <Category:Feature> <Category:Networking>

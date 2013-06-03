@@ -98,7 +98,7 @@ The vDisk should also have a io bandwidth limit and this value is adjusted based
 
 ### Basic functionality
 
-Users can set the SD quota in engine and define cosumers(users/groups). Users can set the vDisk minimum reserved I/O value in engine. Engine can obtain statistic of I/O of each vm. Users can set the elements Detailed Description Section for a specific vDisk when a VM is created or running. These elements are kept in migration. This requires support of this in VDSM API: create VM, hot plug and update VM device. Dynamic setting these elements should also be supported.
+Users can set the SD quota in engine and define cosumers(users/groups). Users can set the vDisk minimum reserved I/O value in engine. Engine can obtain statistic of I/O of each vm. This requires support of the statistics info in VDSM API. Users can set the elements Detailed Description Section for a specific vDisk when a VM is created or running. These elements are kept in migration. This requires support of this in VDSM API: create VM, hot plug and update VM device. Dynamic setting these elements should also be supported.
 
 ### Automatic per-device tuning for I/O bandwidth limit
 
@@ -138,6 +138,6 @@ Expected unit-tests
 
 ## Comments and Discussion
 
-The quota value may related to 6 elements in Detailed Description Section(total_bytes_sec, read_bytes_sec......). Do we need to support all of them? This design should not involve problem when import or export VM since min reserved I/O value can be adjusted after importing, and the limit can be adjusted automatically.
+The quota value may related to 6 elements in Detailed Description Section(total_bytes_sec, read_bytes_sec......). Do we need to support all of them? This design should not involve problem when import or export VM since min reserved I/O value can be adjusted after importing, and the limit can be adjusted automatically. In this design, we let engine to do the tuning decision. Maybe we could ask mom in SPM to do the decision, but this requires mom in different hosts communicates with each other.
 
 <Category:SLA> [Category: Feature](Category: Feature)

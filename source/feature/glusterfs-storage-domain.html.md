@@ -49,9 +49,15 @@ GlusterFS fits as a network block device (<disk type=network.../>) in libvirt XM
 | Maps to <disk type=file..>...</disk> in libvirt xml.    | Maps to <disk type=network..>...</disk> in libvirt xml.                          |
 | FUSE overhead.                                          | No FUSE overhead.                                                                |
 
+### Performance Numbers
+
 Performance numbers for QEMU-GlusterFS integration are available @
 
-[1](http://lists.nongnu.org/archive/html/gluster-devel/2012-08/msg00063.html) [2](http://lists.nongnu.org/archive/html/qemu-devel/2012-07/msg02718.html)
+*   <http://lists.nongnu.org/archive/html/gluster-devel/2012-08/msg00063.html>
+*   <http://lists.nongnu.org/archive/html/qemu-devel/2012-07/msg02718.html>
+*   For more up to date info on QEMU-GlusterFS integration and performance numbers, visit ....
+    -   <http://raobharata.wordpress.com/2012/10/29/qemu-glusterfs-native-integration/>
+    -   Check out the "Performance Numbers" section of the above blog
 
 ### Approach
 
@@ -62,6 +68,13 @@ In VDSM, we mainly add support for
 *   Support in libvirtvm for network block device libvirt XML generation.
 
 Note that on the domain side, VDSM still uses gluster mount point as the root of domain dir, but on the VM side it exploits QEMU-GlusterFS native integration.
+
+### Important Pre-requisites
+
+*   If the GlusterFS volume is created using oVirt's GlusterFS GUI, then don't forget to click on "Optimize for virt. store" which helps set the right permissions and enables the optimum GlusterFS translators for virtualization usecase
+*   The below settings/options of GlusterFS volume must be enabled for it to be able to work as a oVirt storage domain
+    -   option rpc-auth-allow-insecure on ==> in glusterd.vol (ensure u restart glusterd service... for this to take effect)
+    -   volume set <volname> server.allow-insecure on ==> (ensure u stop and start the volume.. for this to take effect)
 
 ### User interface
 
@@ -86,6 +99,11 @@ The same params as specified by user for PosixFs domain will be applicable to Gl
 
 **Here are some screenshots - (a bit old, TODO update latest screenshots)** ![ 1000px](Gluster.JPG  "fig: 1000px")
 
+### Screencast/Demo
+
+*   A technology video demo / screencast that showcases the use of GlusterFS as a oVirt storage domain is available below...
+    -   <http://www.youtube.com/watch?v=0iIuHCz8L04&feature=youtu.be>
+
 ## Benefits to oVirt
 
 oVirt 3.1 already has support to create & manage Gluster Volumes (see 'Volumes' tab in oVirt ) - typically done by storage admin.
@@ -102,10 +120,10 @@ This support helps complete the story/use-case from a virt. admin perspective !
 
 ## Documentation / External references
 
-*   PosixFS Support - [3](http://wiki.ovirt.org/wiki/Features/PosixFSConnection)
-*   Gluster home page - [4](http://www.gluster.org/)
-*   Using QEMU to boot a VM image on GlusterFS volume - [5](http://www.youtube.com/watch?v=JG3kF_djclg)
-*   Storage Virtualization for KVM - [6](http://www.linuxplumbersconf.org/2012/wp-content/uploads/2012/09/2012-lpc-virt-storage-virt-kvm-rao.pdf)
+*   PosixFS Support - [1](http://wiki.ovirt.org/wiki/Features/PosixFSConnection)
+*   Gluster home page - [2](http://www.gluster.org/)
+*   Using QEMU to boot a VM image on GlusterFS volume - [3](http://www.youtube.com/watch?v=JG3kF_djclg)
+*   Storage Virtualization for KVM - [4](http://www.linuxplumbersconf.org/2012/wp-content/uploads/2012/09/2012-lpc-virt-storage-virt-kvm-rao.pdf)
 
 ## Comments and Discussion
 

@@ -49,14 +49,6 @@ Traffic shaping using the Network QoS feature will be available only for oVirt n
 
 We would like to expose to the user the ability to configure the Network Quality of Service (QoS) properties of each virtual NIC and each network.
 
-We define a new entity called "NetworkQoS" - the QoS properties will be contained in this object. A NetworkQoS object will be added to NetworkInterface entity and Network entity.
-
-When editing a network (by a permitted user), the user could set the QoS properties for the network itself, as well as the QoS properties which would be used as default for each VNIC connected to the said network. Leaving the QoS properties empty will result in no traffic shaping for that network. When editing a VNIC (by a permitted user), the user could set the QoS properties for the VNIC itself, overriding the network's default QoS properties for VNIC (only for that specific VNIC). Leaving the QoS properties empty will result in using the default setting defined by the network. If no default setting were defined the VNIC traffic will not be shaped.
-
-The QoS properties (like the other VNIC properties) will be kept in migration and when VM is saved as template and exported/imported.
-
-Since the QoS properties can be inherited from the network to the VNIC, any change in the QoS properties on the network will require network to be synched (for the change to get to the hosts).
-
 ## GUI
 
 The UI for setting of QoS properties will be added to the Add/Edit Network and VNIC dialogs.

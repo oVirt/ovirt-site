@@ -237,4 +237,10 @@ We should make sure that \`rpm -V vdsm\` is happily quiet even after setSafeConf
 
 Until the engine vdsm syncing is improved, we persist all the configured networks.
 
+## Special previous behavior to maintain
+
+If a bond had previous non-vdsm IP configuration (ipaddr + netmask), adding a bridgeless Network using this bond will not flush the ip config from the bond and the new ip config will be set as secondary IPv4 address. Removing the network will break the bond and remove any previous configuration
+
+For nics, the previous scenario deletes the previous IP configuration and sets the new one.
+
 <Category:Feature> <Category:Networking>

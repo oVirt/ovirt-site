@@ -132,10 +132,10 @@ This support helps complete the story/use-case from a virt. admin perspective !
 
 ### Setting up a GlusterFS storage volume for using it as a storage domain
 
-*   Setting GlusterFS volume manually
+*   Creating GlusterFS volume manually
     -   Use GlusterFS cli to create a volume with sufficient space to be used as oVirt storage domain
     -   Set the GlusterFS volume options as specified in the Pre-req section (see above)
-*   Using oVirt GUI to setp GlusterFS volume
+*   Using oVirt GUI to create GlusterFS volume
     -   Go to 'Volumes' tab in oVirt GUI and setup GlusterFS volume
     -   Click on 'Optimize for virt store' opton, to make the GlusterFS volume accessible by oVirt
     -   Set the GlusterFS volume options as specified in the Pre-req section (see above)

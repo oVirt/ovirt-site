@@ -21,7 +21,7 @@ This feature supports the disaster recovery agenda, and should allow quickly swi
          Name: Alissa Bonas
 `   Email: `<abonas@redhat.com>
 
-### Current Status
+### Current Status and tasks
 
 Updated June 4 2013
 

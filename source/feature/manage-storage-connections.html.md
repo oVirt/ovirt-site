@@ -45,8 +45,6 @@ The storage types that are in scope of this feature are: NFS, Posix, local, iSCS
 
 The new connection details should be of the same storage type as the original connection. Meaning - NFS storage connection cannot be edited to point to iSCSI.
 
-Open issue: do lun_id and physical_volume_id need also to be updated for iSCSI?
-
 ## GUI
 
 Storage domain and connection are managed together in webadmin UI in Storage tab --> specific storage entry open in a popup dialog. Till now, storage domain's edit was enabled only for active storage domains and allowed updating only their name and description.

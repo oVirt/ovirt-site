@@ -13,7 +13,7 @@ wiki_last_updated: 2013-12-25
          - updated tag update() docs
          - enable correct generation of Boolean getters/setters to enable Bean Introspection apis
            (bollean getters will be prefixed with getX())
-         -  fixed docs for GlusterBricks add|update
+         - fixed docs for GlusterBricks add|update
          - fixed docs for add|update Tag
          - added [network.usages.usage] to ClusterNetworks
          - in add TemplateNICs, network.id|name is no longer mandatory

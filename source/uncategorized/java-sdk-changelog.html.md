@@ -8,13 +8,12 @@ wiki_last_updated: 2013-12-25
 
 # Java-sdk-changelog
 
-         * Thu  June 4 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.7-1
+        * Thu  June 4 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.7-1
          - updated storagedomain add()/update() docs
          - updated tag update() docs
-         - enable correct generation of Boolean getters/setters
-           to enable Bean Introspection apis (bollean getters will
-           be prefixed with getX())
-         - fixed docs for GlusterBricks add|update
+         - enable correct generation of Boolean getters/setters to enable Bean Introspection apis
+           (bollean getters will be prefixed with getX())
+         -  fixed docs for GlusterBricks add|update
          - fixed docs for add|update Tag
          - added [network.usages.usage] to ClusterNetworks
          - in add TemplateNICs, network.id|name is no longer mandatory

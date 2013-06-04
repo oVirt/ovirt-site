@@ -128,7 +128,23 @@ This support helps complete the story/use-case from a virt. admin perspective !
 *   Using QEMU to boot a VM image on GlusterFS volume - [3](http://www.youtube.com/watch?v=JG3kF_djclg)
 *   Storage Virtualization for KVM - [4](http://www.linuxplumbersconf.org/2012/wp-content/uploads/2012/09/2012-lpc-virt-storage-virt-kvm-rao.pdf)
 
-## Comments and Discussion
+## Testing
+
+### Setting up a GlusterFS storage volume for using it as a storage domain
+
+*   Setting GlusterFS volume manually
+    -   Use GlusterFS cli to create a volume with sufficient space to be used as oVirt storage domain
+    -   Set the GlusterFS volume options as specified in the Pre-req section (see above)
+*   Using oVirt GUI to setp GlusterFS volume
+    -   Go to 'Volumes' tab in oVirt GUI and setup GlusterFS volume
+    -   Click on 'Optimize for virt store' opton, to make the GlusterFS volume accessible by oVirt
+    -   Set the GlusterFS volume options as specified in the Pre-req section (see above)
+
+### Making oVirt use the GlusterFS volume as a native storage domain
+
+*   GlusterFS storage domain is similar to any other oVirt storage domain... so the standard steps of.... creating a new DC (select GlusterFS type), cluster and adding host(s) apply.
+*   While creating a new storage domain... user will be prompted to provide the GlusterFS volume details (hostname:volumename), which when provided, oVirt will use that GlusterFS volume as a native storage domain.
+*   Once storage domain is created, follow usual steps to create a disk, create a new VM, attach disk to VM and start the VM. oVirt will ensure that the VM is started using QEMU's GlusterFS block backend, which provides a efficient way of accessing vmdisk images stored on GlusterFS volumes.
 
 ## Future Work
 

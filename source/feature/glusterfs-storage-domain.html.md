@@ -132,6 +132,7 @@ This support helps complete the story/use-case from a virt. admin perspective !
 
 ### Setting up a GlusterFS storage volume for using it as a storage domain
 
+*   NOTE: You can choose the use the VDSM host itself to serve GlusterFS volume or any other non-VDSM host should work too
 *   Creating GlusterFS volume manually
     -   Use GlusterFS cli to create a volume with sufficient space to be used as oVirt storage domain
     -   Set the GlusterFS volume options as specified in the Pre-req section (see above)

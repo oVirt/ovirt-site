@@ -31,6 +31,8 @@ Updated June 4 2013
 *   Edit NFS, Posix connection properties in REST (design phase)
 *   Edit ISCSI connection properties in REST (design phase)
 *   Edit ISCSI connection properties in webadmin UI (not started)
+*   Create a new connection - add validation to existing addStorageServerConnection command if connection with same details already exists (for file domains) (in implementation)
+*   Create a new connection - extend functionality of existing addStorageServerConnection command to create also block domains (not started). (It's needed because currently a connection for block domains is created via AddSanStorageDomain command directly)
 *   Blocking bug in vdsm : <https://bugzilla.redhat.com/show_bug.cgi?id=950055>
 
 ## Detailed Description

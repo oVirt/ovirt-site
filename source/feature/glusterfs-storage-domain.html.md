@@ -146,6 +146,8 @@ This support helps complete the story/use-case from a virt. admin perspective !
 *   GlusterFS storage domain is similar to any other oVirt storage domain... so the standard steps of.... creating a new DC (select GlusterFS type), cluster and adding host(s) apply.
 *   While creating a new storage domain... user will be prompted to provide the GlusterFS volume details (hostname:volumename), which when provided, oVirt will use that GlusterFS volume as a native storage domain.
 *   Once storage domain is created, follow usual steps to create a disk, create a new VM, attach disk to VM and start the VM. oVirt will ensure that the VM is started using QEMU's GlusterFS block backend, which provides a efficient way of accessing vmdisk images stored on GlusterFS volumes.
+*   A screencast/demo on how to use GlusterFS storage domain in oVirt is available @
+    -   <http://www.youtube.com/watch?v=0iIuHCz8L04&feature=youtu.be>
 
 ## Future Work
 

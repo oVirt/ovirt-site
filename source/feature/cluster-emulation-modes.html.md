@@ -65,6 +65,10 @@ will set the cluster definition for the rest of the hosts in that cluster
       if (!operational)
           set host non operationl, reason = UNSUPPORTED_EMULATION_MODE
 
+#### New UI subtab field (readonly)
+
+TODO A sketch of cluster subtab
+
 ### Benefit to oVirt
 
 ### Documentation / External references

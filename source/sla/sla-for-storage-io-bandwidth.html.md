@@ -98,7 +98,7 @@ How to generate minimum IO limit?
 
 ### Quota(advanced feature)
 
-As the design in <http://www.ovirt.org/Features/Quota>, quota provides the administrator a logic mechanism for managing resources allocation for users and groups in the Data Centre. You need to create the relevant quota, and define the user as a quota consumer .
+==== Disk bandwidth quota As the design in <http://www.ovirt.org/Features/Quota>, quota provides the administrator a logic mechanism for managing resources allocation for users and groups in the Data Centre. You need to create the relevant quota, and define the user as a quota consumer .
 
 We would like to add one kind of quota for disk bandwidth IO control.
 
@@ -115,7 +115,7 @@ For example, the following Quota configuration, is for A and B team:
              A team
              B team
 
-#### VM IO bandwidth limit and reserve
+#### IO bandwidth limit and reserve
 
 A vm created by quota consumer(users/groups) consumes quota for the related storage domain. To better allocate this quota to vDisks of these VMs, we add a vDisk minimum IO limit value in VM's configuration. This value is used for reserving the bandwidth resource to VM's vDisk.
 

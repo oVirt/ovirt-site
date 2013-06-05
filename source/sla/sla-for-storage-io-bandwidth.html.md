@@ -66,9 +66,11 @@ The initial IO limit of vDisks bandwidth can be set to the value when vm is crea
 
 IO limit is tuned by a mechanism in MOM. Each vDisk has a priority and that may be derived from the priority of vm. For each vDisk, its IO bandwidth limit should be above a minimum limit value. This minimum value is associated with the priority. Higher priority vDisk has a larger minimum limit value. This ensures that higher priority vDisk has a higher IO limit when the IO bandwidth is quite scarce.
 
-       e.g. minimum limit value of  vDisk
-         high priority:  8MB/s
-         low  priority:   4MB/s
+e.g. minimum limit value of vDisk
+
+high priority: 8MB/s
+
+low priority: 4MB/s
 
 These values are set different for different storage domains, since they have diverse backends.
 
@@ -76,15 +78,13 @@ Here, we assume that vDisks can be either high priority or low priority. We use 
 
 *   If the I/O congestion of storage domain is detected:
     -   IO limit of each vDisk is decreased by a certain percent. The percent are different for different priorities. After the tuning , the IO limit value should above minimum limit value of this vDisk.
+    -   e.g. The decreased percent of IO limit: high priority: 5%, low priority: 10%
 
-e.g. The decreased percent of IO limit
-
-high priority: 5%
-
-low priority: 10%
+<!-- -->
 
 *   If the I/O congestion of storage domain is not detected:
-    -   IO limit of some vDisks are increased by a certain percent. Different from congestion, vDisks of different priorities are increased by the same percent, but only part of vDisks' IO bandwidth limits are increased. The vDisks are those whose IO bandwidth limit cannot meet its requirements. During the selection of vDisks, it should distinguish the situation that vm actually uses most of its allocated bandwidth and it requests more but limited by the IO limit.
+    -   IO limit of some vDisks are increased by a certain percent.
+    -   Different from congestion, vDisks of different priorities are increased by the same percent, but only part of vDisks' IO bandwidth limits are increased. The vDisks are those whose IO bandwidth limit cannot meet its requirements. During the selection of vDisks, it should distinguish the situation that vm actually uses most of its allocated bandwidth and it requests more but limited by the IO limit.
 
 #### Discussion
 
@@ -115,7 +115,7 @@ For example, the following Quota configuration, is for A and B team:
              A team
              B team
 
-### VM IO bandwidth limit and reserve
+#### VM IO bandwidth limit and reserve
 
 A vm created by quota consumer(users/groups) consumes quota for the related storage domain. To better allocate this quota to vDisks of these VMs, we add a vDisk minimum IO limit value in VM's configuration. This value is used for reserving the bandwidth resource to VM's vDisk.
 

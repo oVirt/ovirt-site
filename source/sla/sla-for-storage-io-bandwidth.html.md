@@ -90,7 +90,7 @@ Here, we assume that vDisks can be either high priority or low priority. We use 
 
 There should be a way to detect I/O congestion of storage domain by MOM, and the way need to be discussed.
 
-How to judge that the vDisk need more IO bandwidth limit. This can be obtained from cmd like iostat's util. How about other kind of disks(NFS, GlusterFs)?
+How to judge that the vDisk need more IO bandwidth limit. This can be obtained from cmd like iostat's util.
 
 Is it proper to use total_bytes_sec to describe vDisk bandwidth and tune this value dynamically?
 

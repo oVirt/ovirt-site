@@ -60,7 +60,7 @@ In the following chapters, we will explain how to tune this IO bandwidth limit d
 
 #### Initial IO limit value
 
-The initial IO limit of vDisks bandwidth can be set to the value when vm is created, dynamically set via VDSM API. By default, it will use the bandwidth vDisk used as upper bound when the congestion is detected by MOM.
+The initial IO limit of vDisks bandwidth can be set to the value when vm is created, dynamically set via VDSM API. By default, it uses unlimited(0) and will be set to the bandwidth vDisk used when the congestion is detected by MOM.
 
 #### IO bandwidth limit tuning
 

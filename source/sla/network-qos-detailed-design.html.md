@@ -70,7 +70,7 @@ When a Template is created from a VM the Network Profile will be kept along with
 
 Network Profiles could not be deleted from the engine as long as one or more VM/Templates are using those profiles.
 
-The Network Profiles will be exported and imported together with the VNIC. If the user will import a VM which is using a profile not exist in the system, he will be notified and until the VNIC is connected to a valid profile it will not be functional.
+The Network Profiles will be exported and imported together with the VNIC. If the user will import a VM which is using a profile not exist in the system, he will be notified and the VNIC will be connected to a default minimal profile defined in the system.
 
 #### Benefit to oVirt
 

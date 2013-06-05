@@ -39,13 +39,11 @@ Updated June 6 2013
 
 While in UI and REST storage domain and the storage connection are presented as one united entity to the user, current backend implementation actually manages them separately.
 
-In order to allow user to edit the connection details, there's a need to separate the notion of storage domain from its connection details, and allow editing just the connection details without editing the storage domain itself. Since the storage domain is not changed, it will continue to point to the same connection entity which connectoin details (such as path, for example) will be updated by the user.
+In order to allow user to edit the connection details, there's a need to separate the notion of storage domain from its connection details, and allow editing just the connection details without editing the storage domain itself.
 
-Connection is allowed to be edited when the storage domain is set to maintenance state, and in condition that the new location where it will point already has a sync/backup with the original storage contents.
+In the first phase, a connection may only be edited when all storage domains referencing it are set to maintenance state. It is the user's responsibility to make sure that after editing the connection the system can indeed reach the data/luns of the relevant storage domains.To ease the administration process, an optional connectivity test may be run to make sure that the storage is indeed accessible.
 
-The storage types that are in scope of this feature are: NFS, Posix, local, iSCSI.
-
-The new connection details should be of the same storage type as the original connection. Meaning - NFS storage connection cannot be edited to point to iSCSI.
+The storage types that are in scope of this feature are: NFS, Posix, local, iSCSI. The new connection details should be of the same storage type as the original connection. For example, an NFS storage connection cannot be edited to point to iSCSI
 
 ## GUI
 

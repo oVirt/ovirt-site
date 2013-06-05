@@ -23,7 +23,7 @@ This feature supports the disaster recovery agenda, and should allow quickly swi
 
 ### Current Status and tasks
 
-Updated June 5 2013
+Updated June 6 2013
 
 *   Edit NFS connection properties in webadmin UI - ready (http://gerrit.ovirt.org/#/c/12372/)
 *   Edit Posix connection properties in webadmin UI -ready (http://gerrit.ovirt.org/#/c/13640/)
@@ -31,7 +31,7 @@ Updated June 5 2013
 *   Edit NFS, Posix connection properties in REST (design phase)
 *   Edit ISCSI connection properties in REST (design phase)
 *   Edit ISCSI connection properties in webadmin UI (not started)
-*   Changes in new connection creation flow - Prevent addition of duplicate connections in AddStorageServerConnection command for file domains. (in implementation)
+*   Changes in new connection creation flow - Prevent addition of duplicate connections in AddStorageServerConnection command for file domains. (in review) <http://gerrit.ovirt.org/#/c/15388/>
 *   Extend functionality of existing AddStorageServerConnection command to create also iSCSI connections. (Currently a connection for block domains is created via AddSanStorageDomain command directly). (not started)
 *   Blocking bug in vdsm : <https://bugzilla.redhat.com/show_bug.cgi?id=950055>
 

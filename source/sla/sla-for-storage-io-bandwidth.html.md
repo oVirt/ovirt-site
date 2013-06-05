@@ -67,8 +67,8 @@ The initial IO limit of vDisks bandwidth can be set to the value when vm is crea
 IO limit is tuned by a mechanism in MOM. Each vDisk has a priority and that may be derived from the priority of vm. For each vDisk, its IO bandwidth limit should be above a minimum limit value. This minimum value is associated with the priority. Higher priority vDisk has a larger minimum limit value. This ensures that higher priority vDisk has a higher IO limit when the IO bandwidth is quite scarce.
 
        e.g. minimum limit value of  vDisk
-        high priority:  8MB/s
-        low  priority:   4MB/s
+         high priority:  8MB/s
+         low  priority:   4MB/s
 
 These values are set different for different storage domains, since they have diverse backends.
 
@@ -78,8 +78,8 @@ If the I/O congestion of storage domain is detected:
 
        IO limit of each vDisk is decreased by a certain percent. The percent  are different for different priorities.
        e.g.   The decreased percent of IO limit
-       high priority: 5%
-       low priority: 10%
+         high priority: 5%
+         low priority: 10%
        After the tuning the IO limit, the IO limit value should above minimum limit value of  this vDisk.
 
 If the I/O congestion of storage domain is not detected:
@@ -89,9 +89,15 @@ If the I/O congestion of storage domain is not detected:
        vDisk need  more IO bandwidth limit.
        This should distinguish the situation that vm actually uses most of its allocated bandwidth and it requests more but limited by the IO limit.
 
-### Discussion
+#### Discussion
 
-There should be a way to detect I/O congestion of storage domain by MOM, and the way need to be discussed. How to judge that the vDisk need more IO bandwidth limit. This can be obtained from cmd like iostat's util. How about other kind of disks(NFS, GlusterFs)? I suggest to use total_bytes_sec to describe vDisk bandwidth and tune this value dynamically. How to generate minimum IO limit?
+There should be a way to detect I/O congestion of storage domain by MOM, and the way need to be discussed.
+
+How to judge that the vDisk need more IO bandwidth limit. This can be obtained from cmd like iostat's util. How about other kind of disks(NFS, GlusterFs)?
+
+Is it proper to use total_bytes_sec to describe vDisk bandwidth and tune this value dynamically?
+
+How to generate minimum IO limit?
 
 ### Quota(advanced feature)
 
@@ -141,9 +147,17 @@ All the above will not cause a resource deallocation. However, users will not be
 
 ### Functionality
 
-Basic: Users can set the elements Detailed Description Section for a specific vDisk when a VM is created or running. These elements are kept in migration. This requires support of this in VDSM API: create VM, hot plug and update VM device. Dynamic setting these elements should also be supported.
+Basic:
 
-Advanced: Users can set the SD quota in engine and define cosumers(users/groups). Users can set the vDisk minimum IO limit in engine.
+Users can set the elements Detailed Description Section for a specific vDisk when a VM is created or running. These elements are kept in migration.
+
+This requires support of this in VDSM API: create VM, hot plug and update VM device. Dynamic setting these elements should also be supported.
+
+Advanced:
+
+Users can set the SD quota in engine and define cosumers(users/groups).
+
+Users can set the vDisk minimum IO limit in engine.
 
 ## Documentation / External references
 

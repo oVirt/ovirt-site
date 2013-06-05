@@ -66,10 +66,9 @@ The initial IO limit of vDisks bandwidth can be set to the value when vm is crea
 
 IO limit is tuned by a mechanism in MOM. Each vDisk has a priority and that may be derived from the priority of vm. For each vDisk, its IO bandwidth limit should be above a minimum limit value. This minimum value is associated with the priority. Higher priority vDisk has a larger minimum limit value. This ensures that higher priority vDisk has a higher IO limit when the IO bandwidth is quite scarce.
 
-e.g. minimum limit value of vDisk
-
-              high priority:  8MB/s
-              low  priority:   4MB/s
+       e.g. minimum limit value of  vDisk
+        high priority:  8MB/s
+        low  priority:   4MB/s
 
 These values are set different for different storage domains, since they have diverse backends.
 
@@ -77,8 +76,7 @@ Here, we assume that vDisks can be either high priority or low priority. We use 
 
 If the I/O congestion of storage domain is detected:
 
-*   IO limit of each vDisk is decreased by a certain percent. The percent are different for different priorities.
-
+       IO limit of each vDisk is decreased by a certain percent. The percent  are different for different priorities.
        e.g.   The decreased percent of IO limit
        high priority: 5%
        low priority: 10%
@@ -86,7 +84,7 @@ If the I/O congestion of storage domain is detected:
 
 If the I/O congestion of storage domain is not detected:
 
-      *IO limit of some vDisk is increased by a certain percent.
+       IO limit of some vDisk is increased by a certain percent.
        These vDisks are selected according to the following rules:
        vDisk need  more IO bandwidth limit.
        This should distinguish the situation that vm actually uses most of its allocated bandwidth and it requests more but limited by the IO limit.

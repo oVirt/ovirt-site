@@ -89,6 +89,10 @@ wiki_last_updated: 2015-05-29
 
 *   use <interface type='network'>. In the future, this would allow us to migrate a VM from a bridge-based network to funkier types of networks defined in <http://libvirt.org/formatnetwork.html> <http://gerrit.ovirt.org/#/c/9441/>
 
+<!-- -->
+
+*   make the *macspoof* hook of <https://bugzilla.redhat.com/908704> per vnic, using <http://www.ovirt.org/Features/Device_Custom_Properties>
+
 ### refactoring
 
 *   In vm.py, libvirtvm.py, clientIF.py there is a mess of prepare\*Path functions (end their respective teardowns), which is too complex to fathom. We have to convert all drive specifications (PDIV,GUID,path) into Drive object at the API entry.

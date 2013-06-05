@@ -13,7 +13,8 @@ wiki_last_updated: 2013-06-10
 #### Summary
 
 Network Quality of Service feature will be added to oVirt from version 3.3 and will support cluster version 3.3 or higher.
-The feature will allow the user to limit the inbound and outbound network traffic in two layers (in current implementation): host level, virtual NIC level.
+The feature will allow the user to limit the inbound and outbound network traffic in virtual NIC level.
+In order to define more natural coupling of the QoS to a VNIC we define a new concept called **Network Profile**. The Network profile will be applied in oVirt 3.3 to all clusters and will wrap few of the properties currently defined directly on the VNIC
 
 #### Owner
 
@@ -28,9 +29,11 @@ The feature will allow the user to limit the inbound and outbound network traffi
 
 #### Detailed Description
 
-Traffic shaping is a very common practice in network management. Traffic shaping allows the network administrator to prevent over consumption of network resources by limiting the bandwidth in several layers. Current implementation of libvirt allows limiting the bandwidth in the Host level and in the virtual NIC level for both inbound and outbound traffic. The Network QoS on oVirt make use of that API and allows the network administrator to define network limitations on specific VNICs and specific networks.
+### QoS
 
-The QoS properties are properties which defines the traffic shaping applied on the virtual NIC \\ network. QoS properties currently include:
+Traffic shaping is a very common practice in network management. Traffic shaping allows the network administrator to prevent over consumption of network resources by limiting the bandwidth in several layers. Current implementation of libvirt allows limiting the bandwidth in the virtual NIC level for both inbound and outbound traffic. The Network QoS on oVirt make use of that API and allows the network administrator to define network limitations on specific VNICs.
+
+The QoS properties are properties which defines the traffic shaping applied on the virtual NIC . QoS properties currently include:
 
 *   Inbound
     -   Average - long-term limit around which traffic should float (Mbps)
@@ -44,6 +47,24 @@ The QoS properties are properties which defines the traffic shaping applied on t
 For example: if average is set to 100 units, peak to 200 and burst to 50, after sending those 50 units of data at rate 200, the rate will fall down to 100.
 
 Traffic shaping using the Network QoS feature will be available only for oVirt networks at this stage. Externally provided networks (such as Quantum) may be supported in future extensions.
+
+### Network Profile
+
+The Network Profile concept embodies a predefined package of network setting which will define the network service a VNIC will get.
+Network Profile include:
+\* Profile name
+
+*   Network
+*   Quality of Service
+*   Port mirroring
+*   Custom properties
+
+When creating a new VNIC or editing an existing one the user will select a Network Profile (instead of the current implementation in which the user selects a network and sets port mirroring and custom properties).
+The network administrator could create several Network Profiles for each network. He could then granted users with the permission to use (consume) each profile. The user will only be able to use profiles which he was granted access to.
+
+For example: the network admin will create two Network profiles for network "blue": Profile "Gold" - with better QoS and no port mirroring and profile "Silver" with lower QoS and enabled port mirroring. He will then define the user-group "students" as user of profile "Silver" and user-group "teachers" as user of profile "Gold". In this case the teachers will enjoy better quality of service then the students. When a teacher will add/edit a virtual NIC he could select profile "Gold" for that NIC - the VNIC will be connected to network "blue" with high QoS and no port mirroring.
+
+The Network Profile could be edited by the network administrator at any time. the changes will seep down to all VNICs using the profile. After editing a profile the network will be "un synched"
 
 #### Benefit to oVirt
 

@@ -98,7 +98,9 @@ How to generate minimum IO limit?
 
 ### Quota(advanced feature)
 
-==== Disk bandwidth quota As the design in <http://www.ovirt.org/Features/Quota>, quota provides the administrator a logic mechanism for managing resources allocation for users and groups in the Data Centre. You need to create the relevant quota, and define the user as a quota consumer .
+#### Disk bandwidth quota
+
+As the design in <http://www.ovirt.org/Features/Quota>, quota provides the administrator a logic mechanism for managing resources allocation for users and groups in the Data Centre. You need to create the relevant quota, and define the user as a quota consumer .
 
 We would like to add one kind of quota for disk bandwidth IO control.
 

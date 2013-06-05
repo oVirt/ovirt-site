@@ -48,7 +48,7 @@ For example: if average is set to 100 units, peak to 200 and burst to 50, after 
 
 Traffic shaping using the Network QoS feature will be available only for oVirt networks at this stage. Externally provided networks (such as Quantum) may be supported in future extensions.
 
-### Network Profile
+##### Network Profile
 
 The Network Profile concept embodies a predefined package of network setting which will define the network service a VNIC will get.
 Network Profile include:
@@ -64,7 +64,13 @@ The network administrator could create several Network Profiles for each network
 
 For example: the network admin will create two Network profiles for network "blue": Profile "Gold" - with better QoS and no port mirroring and profile "Silver" with lower QoS and enabled port mirroring. He will then define the user-group "students" as user of profile "Silver" and user-group "teachers" as user of profile "Gold". In this case the teachers will enjoy better quality of service then the students. When a teacher will add/edit a virtual NIC he could select profile "Gold" for that NIC - the VNIC will be connected to network "blue" with high QoS and no port mirroring.
 
-The Network Profile could be edited by the network administrator at any time. the changes will seep down to all VNICs using the profile. After editing a profile the network will be "un synched"
+The Network Profile could be edited by the network administrator at any time. The changes will seep down to all VNICs using the profile. In case VNIC using the edited profile are connected to running VMs the chnage will not take effect automatically. Instead, the user will be presented with a "non synchronized" icon on the specific VNIC and could manually synchronize it. Manual synchronization will only be possible in cases which can be handled while the VNIC is connected (such as rewire network or redefine QoS values). If changes in the profile require unplugging the VNIC the manual synchronization will be blocked and the user will be advised to unplug the vnic and try again.
+
+When a Template is created from a VM the Network Profile will be kept along with the VNIC. When a VM is created from template the Network Profiles will be taken from the template's VNICs.
+
+Network Profiles could not be deleted from the engine as long as one or more VM/Templates are using those profiles.
+
+The Network Profiles will be exported and imported together with the VNIC. If the user will import a VM which is using a profile not exist in the system, he will be notified and until the VNIC is connected to a valid profile it will not be functional.
 
 #### Benefit to oVirt
 

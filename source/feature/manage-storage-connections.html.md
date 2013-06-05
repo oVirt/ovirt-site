@@ -23,16 +23,16 @@ This feature supports the disaster recovery agenda, and should allow quickly swi
 
 ### Current Status and tasks
 
-Updated June 4 2013
+Updated June 5 2013
 
 *   Edit NFS connection properties in webadmin UI - ready (http://gerrit.ovirt.org/#/c/12372/)
 *   Edit Posix connection properties in webadmin UI -ready (http://gerrit.ovirt.org/#/c/13640/)
-*   Allow deletion of connection only if no storage domains (nor lun disk in Iscsi case) are using it. (in review) <http://gerrit.ovirt.org/#/c/15269/>
+*   Allow deletion of a connection only when it is not in use by any storage domain/direct lun. (in review) <http://gerrit.ovirt.org/#/c/15269/>
 *   Edit NFS, Posix connection properties in REST (design phase)
 *   Edit ISCSI connection properties in REST (design phase)
 *   Edit ISCSI connection properties in webadmin UI (not started)
-*   Create a new connection - add validation to existing addStorageServerConnection command if connection with same details already exists (for file domains) (in implementation)
-*   Create a new connection - extend functionality of existing addStorageServerConnection command to create also block domains (not started). (It's needed because currently a connection for block domains is created via AddSanStorageDomain command directly)
+*   Changes in new connection creation flow - Prevent addition of duplicate connections in AddStorageServerConnection command for file domains. (in implementation)
+*   Extend functionality of existing AddStorageServerConnection command to create also iSCSI connections. (Currently a connection for block domains is created via AddSanStorageDomain command directly). (not started)
 *   Blocking bug in vdsm : <https://bugzilla.redhat.com/show_bug.cgi?id=950055>
 
 ## Detailed Description

@@ -14,7 +14,7 @@ wiki_last_updated: 2014-07-13
 
 ### Summary
 
-This feature supports the disaster recovery agenda, and should allow quickly switching to work with another storage that holds a backup/sync of the contents of the current storage in case of primary storage failure. The feature introduces the ability to edit (update) connection properties of an existing storage domain, rather than delete the old one and create a new one.
+This feature adds the ability to edit, add and delete storage connections. This is required in order to support configuration changes including adding paths for multipathing, changes of hardware, and ease failover to remote sites. by quickly switching to work with another storage that holds a backup/sync of the contents of the current storage in case of primary storage failure.
 
 ### Owner
 

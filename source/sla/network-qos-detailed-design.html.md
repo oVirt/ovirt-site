@@ -74,7 +74,8 @@ The Network Profiles will be exported and imported together with the VNIC. If th
 
 #### Benefit to oVirt
 
-We would like to expose to the user the ability to configure the Network Quality of Service (QoS) properties of each virtual NIC and each network.
+We would like to expose to the user the ability to configure the Network Quality of Service (QoS) properties of each virtual NIC. The Network QoS feature will add this ability to the engine. The Network profile will improve the usability of the network configuration on the VM. On the user side - Network profiles will allow the user to configure a VNIC in relative ease. On the network administrator side - Network Profiles will allow the administrator keep control of all the VNICs connected to the network in a simpler way.
+The combination of the two will allow the network admin to define, control and dispense different service qualities (different priorities) to different users or groups.
 
 ## Design and Implementation
 

@@ -29,7 +29,7 @@ In order to define more natural coupling of the QoS to a VNIC we define a new co
 
 #### Detailed Description
 
-### QoS
+##### QoS
 
 Traffic shaping is a very common practice in network management. Traffic shaping allows the network administrator to prevent over consumption of network resources by limiting the bandwidth in several layers. Current implementation of libvirt allows limiting the bandwidth in the virtual NIC level for both inbound and outbound traffic. The Network QoS on oVirt make use of that API and allows the network administrator to define network limitations on specific VNICs.
 

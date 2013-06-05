@@ -32,38 +32,63 @@ must comply to a configurable list of values and then set it thereafter.
 We want to keep the cluster homogeneous but be able to have different types cross-cluster i.e one cluster to be RHELs and another to be Fedora based.
 to achieve that we need a config value, per version with a list of supported emulation types, order by priority:
 
-#### new Config value
+#### New Config value
 
-ClusterEmulationModes(3.0,"rhel6.2.0, pc-1.0") ClusterEmulationModes(3.1,"rhel6.3.0, pc-1.0") ClusterEmulationModes(3.2,"rhel6.4.0, pc-1.0") ClusterEmulationModes(3.3,"rhel6.4.0, pc-1.0")
+      ClusterEmulationModes(3.0,"rhel6.2.0, pc-1.0")
+      ClusterEmulationModes(3.1,"rhel6.3.0, pc-1.0")
+      ClusterEmulationModes(3.2,"rhel6.4.0, pc-1.0")
+      ClusterEmulationModes(3.3,"rhel6.4.0, pc-1.0")
 
-==== New Host emulated
+#### New Host field
+
+new "emulatedMachines" field will be added to vds_dynamic table.
+
+      vds_dynamic.emulated_machines
 
 #### Cluster field
 
 A cluster entity will be added by a new field - emulatedMachine.
-The default is NULL which means the value would be set once a host during the first refresh would have
+ vds_group.emulated_machine default NULL varchar(255) The default is NULL which means the value would be set once a host during the first refresh would have
 its reported emulatedMachines list match against the Config Value
+If the cluster is null then the host will be matched against the config values. That match
+will set the cluster definition for the rest of the hosts in that cluster
  consider this pseudo-code:
 
+      operational = false 
       if cluster.emulationMode == NULL
-       for val in Config.ClusterEmulationMode(3.3)
-          if HOST.
+       for configVal in Config.ClusterEmulationMode(3.3)
+          if configVal in host.emulationModes 
+              cluster.emulationMode = configVal
+              operational = true
+       else if clusterEmulationMode in host.emulationMode
+             operational = true
+      if (!operational)
+          set host non operationl, reason = UNSUPPORTED_EMULATION_MODE
 
 ### Benefit to oVirt
 
-What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
-
-### Dependencies / Related Features
-
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
-
 ### Documentation / External references
 
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
+Please see <https://bugzilla.redhat.com/show_bug.cgi?id=927874>
 
 ### Testing
 
-Explain how this feature may be tested by a user or a quality engineer. List relevant use cases and expected results.
+*   Test case: **Vm start up - A cluster of fedora nodes and cluster of RHEL6 should be both supported out of the box**
+    -   setup:
+
+Cluster "f" has 1 fedora host, compat version 3.3
+Cluster "R" has 1 RHEL6 host. compat version 3.3
+DB config values for clusterEmulationMode = "el6,pc-1.0" version 3.3
+\*\*test: create a VM on each cluster and start it
+
+*   -   expected result:
+
+A vm is able to start on each of the clusters.
+
+*   Test case: **Host with unsupported emulation mode goes NON-OPERATIONAL with reason UNSUPPORTED_EMULATION_MODE**
+    -   setup: use the same setup as the former case
+    -   test: add a RHEL6 node to cluster "f"
+    -   expected result: host should go NON_OPERATIONAL with reason UNSUPPORTED_EMULATION_MODE
 
 ### Comments and Discussion
 

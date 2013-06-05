@@ -13,7 +13,7 @@ wiki_last_updated: 2014-12-15
 ### Summary
 
 This feature will enable per cluster emulation mode. EmulatedMachine is a property passed to QEMU as -M flag and Instead of a system-wide config value
- a cluster could have a specific value which all host must comply to. If the cluster has no value set, the first host that is active
+A cluster could have a specific value which all host must comply to. If the cluster has no value set, the first host that is active
 must comply to a configurable list of values and then set it thereafter.
 
 ### Owner

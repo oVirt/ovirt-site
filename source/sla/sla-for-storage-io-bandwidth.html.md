@@ -22,7 +22,7 @@ This wiki page focuses on the design of storage I/O bandwidth Service Level Agre
 ## Current Status
 
 *   Status: design
-*   Last updated: 3 June
+*   Last updated: 5 June
 *   patchset
 
 ## Detailed Description

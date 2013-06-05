@@ -79,13 +79,17 @@ If the I/O congestion of storage domain is detected:
 
 *   IO limit of each vDisk is decreased by a certain percent. The percent are different for different priorities.
 
-e.g. The decreased percent of IO limit high priority: 5% low priority: 10% After the tuning the IO limit, the IO limit value should above minimum limit value of this vDisk.
+       e.g.   The decreased percent of IO limit
+       high priority: 5%
+       low priority: 10%
+       After the tuning the IO limit, the IO limit value should above minimum limit value of  this vDisk.
 
 If the I/O congestion of storage domain is not detected:
 
       *IO limit of some vDisk is increased by a certain percent.
-
-These vDisks are selected according to the following rules: vDisk need more IO bandwidth limit. This should distinguish the situation that vm actually uses most of its allocated bandwidth and it requests more but limited by the IO limit.
+       These vDisks are selected according to the following rules:
+       vDisk need  more IO bandwidth limit.
+       This should distinguish the situation that vm actually uses most of its allocated bandwidth and it requests more but limited by the IO limit.
 
 ### Discussion
 

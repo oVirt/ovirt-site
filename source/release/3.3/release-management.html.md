@@ -19,11 +19,11 @@ wiki_warnings: table-style
 
 *' These are tentative planning dates and may change*'
 
-*   General availability: **2013-07-01**
-    -   Beta release: **2013-05-31**
-    -   Feature freeze: **2013-05-31**
-    -   Test Day: **2013-06-05**
-    -   RC Build: **2013-06-14**
+*   General availability: **2013-08-01**
+    -   Beta release: **2013-07-01**
+    -   Feature freeze: **2013-07-01**
+    -   Test Day: **2013-07-05**
+    -   RC Build: **2013-07-14**
 
 ## Tracker Bug
 

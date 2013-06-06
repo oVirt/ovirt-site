@@ -199,6 +199,8 @@ VDSM will not be affected by the Network Profiles. The engine will encapsulate t
 
 #### Expected unit-tests
 
+* Unit test handling network selection and VNIC settings are expected to change
+
 ### Special considerations
 
 ### Dependencies / Related Features

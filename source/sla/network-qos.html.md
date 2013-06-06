@@ -60,7 +60,7 @@ Network Profile include:
 *   Custom properties
 
 When creating a new VNIC or editing an existing one the user will select a Network Profile (instead of the current implementation in which the user selects a network and sets port mirroring and custom properties).
-The network administrator could create several Network Profiles for each network. He could then granted users with the permission to use (consume) each profile. The user will only be able to use profiles which he was granted access to.
+The network administrator could create several Network Profiles for each network. He could then grant a users with the permission to use (consume) each profile. The user will only be able to use profiles which he was granted access to.
 
 For example: the network admin will create two Network profiles for network "blue": Profile "Gold" - with better QoS and no port mirroring and profile "Silver" with lower QoS and enabled port mirroring. He will then define the user-group "students" as user of profile "Silver" and user-group "teachers" as user of profile "Gold". In this case the teachers will enjoy better quality of service then the students. When a teacher will add/edit a virtual NIC he could select profile "Gold" for that NIC - the VNIC will be connected to network "blue" with high QoS and no port mirroring.
 

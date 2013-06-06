@@ -14,7 +14,7 @@ The actual name of your feature page should look something like: "Your feature n
 
 ### Summary
 
-This feature would help users setup rules to automatically scale out their applications based on their
+This feature would help users setup rules to automatically scale out their applications based on their load data.
 
 ### Owner
 

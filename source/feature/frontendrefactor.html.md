@@ -76,7 +76,7 @@ This is to document the things we need to test in the unit test suite.
 *   Make sure that the error handler is NOT called for failures that are supposed to be ignored. (Is this still a true statement?)
 *   Make sure that the query started event is raised.
 *   Make sure that the query complete event is raised once the query completes regardless of success/failure.
-*   Make sure queries don't run if you are not logged in.
+*   Make sure queries don't run if you are not logged in (currently a backend check only, maybe make it frontend as well?).
 
 ##### RunPublicQuery
 

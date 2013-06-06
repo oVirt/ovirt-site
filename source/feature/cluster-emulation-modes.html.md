@@ -43,7 +43,7 @@ to achieve that we need a config value, per version with a list of supported emu
 
 new "emulatedMachines" field will be added to vds_dynamic table.
 
-      vds_dynamic.emulated_machines
+      vds_dynamic.supported_emulated_machines
 
 #### New Cluster field
 

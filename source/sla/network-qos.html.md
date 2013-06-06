@@ -78,6 +78,8 @@ Network Profiles could not be deleted from the engine as long as one or more VM/
 
 The Network Profiles will be exported and imported together with the VNIC. If the user will import a VM which is using a profile not exist in the system, he will be notified and the VNIC will be connected to a default minimal profile defined in the system.
 
+In 3.2 or lower clusters versions not all of the profile properties are supported. in those clusters only Profile name, Network and Port mirroring will be enabled.
+
 #### Benefit to oVirt
 
 We would like to expose to the user the ability to configure the Network Quality of Service (QoS) properties of each virtual NIC. The Network QoS feature will add this ability to the engine. The Network profile will improve the usability of the network configuration on the VM. On the user side - Network profiles will allow the user to configure a VNIC in relative ease. On the network administrator side - Network Profiles will help the administrator to keep control of all the VNICs connected to the network in a simpler way.

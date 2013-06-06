@@ -41,8 +41,9 @@ to achieve that we need a config value, per version with a list of supported emu
 
 #### New Host field
 
-new "emulatedMachines" field will be added to vds_dynamic table.
+new "supportedEmulatedMachines" field will be added to VDS entitu and vds_dynamic table.
 
+      VDS.supportedEmulatedMachines
       vds_dynamic.supported_emulated_machines
 
 #### New Cluster field

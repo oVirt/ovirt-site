@@ -70,7 +70,7 @@ Profile "Silver" with lower QoS and enabled port mirroring.
 
 He will then define the user-group "students" as user of profile "Silver" and user-group "teachers" as user of profile "Gold". In this case the teachers will enjoy better quality of service then the students. When a teacher will add/edit a virtual NIC he could select profile "Gold" for that NIC - the VNIC will be connected to network "blue" with high QoS and no port mirroring.
 
-The VNIC Profile could be edited by the network administrator at any time. The changes will seep down to all VNICs using the profile. In case VNIC using the edited profile are connected to running VMs the chnage will not take effect automatically. Instead, the user will be presented with a "non synchronized" icon on the specific VNIC and could manually synchronize it. Manual synchronization will only be possible in cases which can be handled while the VNIC is connected (such as rewire network or redefine QoS values). If changes in the profile require unplugging the VNIC the manual synchronization will be blocked and the user will be advised to unplug the vnic and try again.
+The VNIC Profile could be edited by the network administrator at any time. The changes will seep down to all VNICs using the profile. In case VNIC using the edited profile are connected to running VMs the change will apply only on the VM next run.
 
 When a Template is created from a VM the VNIC Profile will be kept along with the VNIC. When a VM is created from template the VNIC Profiles will be taken from the template's VNICs.
 

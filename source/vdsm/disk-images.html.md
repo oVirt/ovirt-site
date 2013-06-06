@@ -40,7 +40,7 @@ A Virtual disk can be stored on disk using different formats. VDSM currently sup
 
 When creating a virtual disk there are normally two ways of allocating the storage blocks needed to store the data that will reside on the virtual disk -
 a. allocate everything ahead of time (a.k.a preallocated) - has the benefit of having the storage blocks contiguous which can improve performance and does not require any layer that would translate logical to physical offsets (again, can be a performance improvement).
- This, however, comes at the cost of needing to dedicate all the potential disk space ahead of time, which is wasteful.
+This, however, comes at the cost of needing to dedicate all the potential disk space ahead of time, which is wasteful.
 b. allocate as you go (a.k.a thin provisioning) - similar to files in any modern file system, storage is allocated as data is being written to the file.
  Has the advantage of saving on disk space, but can cause defragmentation and have performance implications (not an issue on SSDs).
 

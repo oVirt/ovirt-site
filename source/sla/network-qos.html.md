@@ -86,69 +86,28 @@ The Network QoS feature includes two main parts:
 
 The two parts will be developed in parallel
 
-see : <http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design> for detailed design
+see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
 
 ### VNIC level QoS
 
-Target release: 3.3 (p1)
-
-QoS properties for VNIC will be attached to VNIC, but since not all users which can attach VNICs could edit those properties, we also define default QoS properties for VNIC which can be defined per each network. A user with a NetworkAdmin role would be able to define those default values for VNIC on each network. The default values will be inherited by each VNIC attached to the network, unless they have been overridden in the VNIC itself. only a user holding a NetworkAdmin role could override the default properties.
-
-If QoS properties were overridden in the VNIC itself the set properties will be kept if the VM holding that VNIC when saved to Template, exported and imported. If the QoS properties were not overridden in the VNIC, they will remain at synch with the default values for VNIC set on the network.
-
 #### GUI
 
-The UI for setting of QoS properties will be added to the Add/Edit VNIC dialog.
-The newly added part will be visible only to user with the permission to edit QoS properties, both in Administrator and User portal.
+The UI for setting of QoS properties will be added to the Add/Edit Profile dialog.
+ **Add/Edit Profile dialog**
+<IMAGE>
 
-**UI addition to the Add/Edit VNIC dialog**
-![](QoS.png "fig:QoS.png")
-
-In the Add/Edit Network two parts will be added:
-* QoS properties of the network(discussed in the next phase)
-* QoS properties default for VNICs attached to the network (discussed here).
- **UI addition to the Add/Edit Network dialog**
-![](Network_quality_of_service_2.png "fig:Network_quality_of_service_2.png")
-
-The user could enable/disable the QoS properties (for each inbound / outbound). Disabled QoS will mean no limitation on the traffic in this direction
-The panel holding the properties will be collapsed by default (extendable panel).
+The network administrator could enable/disable the QoS properties (for each inbound / outbound). Disabled QoS will mean no limitation on the traffic in this direction
 Once inbound/outbound was enabled all three field must be filled (This will be verified before allowing to close the dialog).
-If QoS properties were set in the network dialog as default for all VNICs attached to that network - these setting will appear in the VNIC. The user can override them in the VNIC dialog. If the default values were overridden a "Revert to network default" hyperlink will appear, allowing the user to easily revert to network defaults.
-
-User with no permission to edit the QoS properties will see no change in the UI.
 
 #### Backend
 
-We define a new entity called "NetworkQoS" - the QoS properties will be contained in this object. A NetworkQoS object will be added to NetworkInterface entity A new entity will be created (NetworkQoS) which will hold the QoS properties. NetworkQoS field will be added to NetworkInterface object and Network object. Fields values will be seved in DB and ovf.
-
-##### Classes
-
-***engine.core.common.businessentities.network.NetworkQoS**' - new entity with fields: inboundAverage(Integer), inboundPeak(Integer), inboundBurst(Long), outboundAverage(Integer), outboundPeak(Integer), outboundBurst(Long)
-***engine.core.common.businessentities.network.NetworkInterface**'' - add fields: networkQoS(NetworkQoS)
-***engine.core.common.businessentities.network.Network**'' - add fields: networkQoS(NetworkQoS)
-***engine.core.vdsbroker.vdsbroker.VmInfoBuilder**'' - add support to the QoS properties
-***engine.core.utils.ovf.OvfWriter**' - add support to the QoS properties
-***engine.core.utils.ovf.OvfReader**' - add support to the QoS properties
-***engine.core.dao.network.VmNetworkQoSDao**'' - new Dao
-***engine.core.dao.network.VmNetworkInterfaceDao**'' - add support to the NetworkQoS field
-***engine.core.dao.network.VmNetworkDao*** - add support to the NetworkQoS field
+We define a new entity called "NetworkQoS" - the QoS properties will be contained in this object. A NetworkQoS object will be added to NetworkProfile entity.
+see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
 
 #### DB Change
 
-Add NetworkQoS table with 7 columns.
-
-| Column Name       | Column Type | Null? / Default |
-|-------------------|-------------|-----------------|
-| id                | UUID        |                 |
-| inbound_average  | Integer     |                 |
-| inbound_peak     | Integer     |                 |
-| inbound_burst    | Integer     |                 |
-| outbound_average | Integer     |                 |
-| outbound_peak    | Integer     |                 |
-| outbound_burst   | Integer     |                 |
-
-Add network_QoS_id(UUID | null) to the **vm_interface** table - Represents the properties of the virtual NIC.
-Add network_QoS_id(UUID | null) and network_QoS_default_for_vnic_id(UUID | null) to the **network** table.
+Add NetworkQoS table.
+see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
 
 #### REST API
 
@@ -161,9 +120,9 @@ libvirt version 1.0.1 or higher is required to enable the QoS feature (vdsm 3.3 
 *   Add support of QoS properties in VDSM API: run VM, hot plug and update VM device verbs (update in schema)
 *   Add support in the vnic object and the vnic to_xml()
 
-### Network Profiles
+see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
 
-Target release: 3.3
+### Network Profiles
 
 #### GUI (Network Network Profiles)
 
@@ -185,19 +144,24 @@ supported action: add / remove
 
 A new dialog will be created for add/edit profile. the dialog will include the following fields: Name (text box) Port mirroring (check box) Inbound QoS (3 text boxes) Outbound QoS (3 text boxes) Custom properties (Selection box and +/- buttons)
 
-'''Add/Edit Profile dialog"
+'''Add/Edit Profile dialog" <IMAGE>
 
 ### Backend
 
-#### Classes
+We define a new entity: NetworkProfile.
+ see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
 
 #### DB Change
+
+see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
 
 #### REST API
 
 Not supported in this version
 
 #### VDSM
+
+VDSM will not be affected by the Network Profiles. The engine will encapsulate this abstraction and will keep
 
 ### Tests
 

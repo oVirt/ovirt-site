@@ -210,9 +210,13 @@ Affected ovirt projects:
 *   Webadmin
 *   User Portal
 
-Others:
+Others projects:
 
 *   vdsm
+
+Affected features:
+
+*   Custom properties
 
 ### Documentation / External references
 

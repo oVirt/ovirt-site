@@ -113,6 +113,7 @@ This is to document the things we need to test in the unit test suite.
     -   If some of the actions resulted in failure, have those failures properly reported.
 *   Make sure that the error handler is called with the correct error message if a problem occurs.
 *   Make sure that the error handler is NOT called for failures that are supposed to be ignored. (Is this still a true statement?)
+*   Make sure queries don't run if you are not logged in (currently a backend check only, maybe make it frontend as well?).
 
 ##### RunMultipleActions
 

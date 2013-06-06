@@ -152,6 +152,12 @@ A new dialog will be created for add/edit profile. the dialog will include the f
 
 '''Add/Edit Profile dialog" <IMAGE>
 
+The Add/Edit VNIC dialog will be added a Profile selection box.
+The network which will be available for selection in the Network selection box will only be networks which the user have a permission to use at least on of their profiles.
+After selecting a network the Profile selection box will be populated with all profiles of the selected network which the user have permission to use.
+
+**Profile Selection** ![](Profile_selection.png "fig:Profile_selection.png")
+
 ### Backend
 
 We define a new entity: NetworkProfile.

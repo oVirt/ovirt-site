@@ -164,6 +164,8 @@ A new dialog will be created for add/edit profile. the dialog will include the f
 *   Outbound QoS (3 text boxes)
 *   Custom properties (Selection box and +/- buttons)
 
+* In clusters supporting version 3.2 or lower the QoS and Custom properties fields will be visible but disabled.
+
 '''Add/Edit Profile dialog"
 <IMAGE>
 

@@ -86,6 +86,8 @@ The Network QoS feature includes two main parts:
 
 The two parts will be developed in parallel
 
+see : <http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design> for detailed design
+
 ### VNIC level QoS
 
 Target release: 3.3 (p1)

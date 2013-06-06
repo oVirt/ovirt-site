@@ -60,8 +60,8 @@ its reported emulatedMachines list match against the Config Value
 #### HandleVdsCpuFlagsOrClusterChangedCommand
 
 This commands will match an activated Host against the cluster definition.
-If the cluster is null then the host will be matched against the config values. That match
-will set the cluster definition for the rest of the hosts in that cluster
+If the cluster definition is null then the host will be matched against the config values.
+That match will set the cluster definition for the rest of the hosts in that cluster
  consider this pseudo-code:
 
       operational = false 

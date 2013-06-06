@@ -24,7 +24,7 @@ TODO add download link for complete plugin
 
 ### Level 1: I Can Has UI Plugin
 
-Our journey starts in `/usr/share/ovirt-engine/ui-plugins` directory, the home of plugin meta-data (descriptors) and other plugin resources. Let's go ahead and create [descriptor](Features/UIPlugins#Plugin_descriptor) for our plugin inside this directory:
+Our journey starts in `/usr/share/ovirt-engine/ui-plugins` directory, home of plugin meta-data and other plugin resources. Let's go ahead and create [descriptor](Features/UIPlugins#Plugin_descriptor) for our plugin inside this directory:
 
       /usr/share/ovirt-engine/ui-plugins/space-shooter.json
 
@@ -70,11 +70,13 @@ Having the plugin descriptor in place, all that remains is plugin host page. Let
     <body></body>
     </html>
 
-And that's about it! It takes only two files to create a minimal UI plugin. *Simple things should be simple, complex things should be possible.* ([Alan Kay](http://en.wikiquote.org/wiki/Alan_Kay))
+And that's about it! **It takes only two files to create a minimal UI plugin.**
+
+*Simple things should be simple, complex things should be possible.* ([Alan Kay](http://en.wikiquote.org/wiki/Alan_Kay))
 
 Without even restarting Engine, reload WebAdmin in your browser, log in and embrace the awesome *Woohoo!* alert window.
 
-As you can see, plugin host page is your typical HTML web page with some JavaScript to interact with plugin API. As you may have guessed, with JavaScript around, the sky is the limit - design and implement your plugin **your way**. Want to use popular JavaScript libraries like [jQuery](http://jquery.com/) or tools like [CoffeeScript](http://coffeescript.org/)? You can. Want to write your plugin using vanilla JavaScript? You can. Plugin API is designed to be simple and not to get in your way, regardless of how you choose to write your plugin.
+As you can see, plugin host page is your typical HTML web page with some JavaScript to interact with plugin API. As you may have guessed, with JavaScript around, the sky is the limit - **design and implement your plugin your way**. Want to use popular JavaScript libraries like [jQuery](http://jquery.com/) or tools like [CoffeeScript](http://coffeescript.org/)? You can. Want to write your plugin using vanilla JavaScript? You can. Plugin API is designed to be simple and not to get in your way, regardless of how you choose to write your plugin.
 
 Note that there's no HTML markup within the plugin host page and for a good reason - the purpose of this page is to bootstrap actual plugin code. WebAdmin evaluates plugin host page via invisible `iframe` element attached to HTML DOM, so **any UI extensions should be done via plugin API**.
 
@@ -154,7 +156,7 @@ Here, we want to do following things:
 *   Allow opening game dialog only if the user selects a specific Data Center
 *   Since a shooter game might distract admins from doing their work, allow opening game dialog only via context-menu item
 *   Once opened, the dialog cannot be closed unless you win at least once
-*   Those who cannot beat the game (it can happen!) can use Cheat`*` button
+*   Those who cannot beat the game (it can happen!) can use Cheat button`*`
 
 `*` Cheating works in video games. In real life, cheaters always lose.
 
@@ -180,12 +182,14 @@ First, we need to register some more event handler callbacks:
         var gameContentWindow = null; // Reference to game dialog content's Window object
 
         api.register({
+
             // Plugin init callback, ideal for one-time UI extensions
             UiInit: function() {
                 if (browserRocks()) {
                     init(); // Defined later on
                 }
             },
+
             // Data Center main tab item selection callback, useful for keeping track
             // of currently selected Data Center entity in the corresponding main tab
             DataCenterSelectionChange: function() {
@@ -197,6 +201,7 @@ First, we need to register some more event handler callbacks:
                     dataCenter = null;
                 }
             },
+
             // HTML5 message event callback, ideal for cross-window communication that
             // works across different origins, i.e. unconstrained by Same-Origin Policy
             MessageReceived: function(data, sourceWindow) {
@@ -212,9 +217,10 @@ First, we need to register some more event handler callbacks:
                         break;
                 }
             }
+
         });
 
-Since we want the game to notify our plugin upon specific occasions, we use `api.options` to configure source origin(s) from which HTML5 `message` events will be accepted. Our snippet uses <http://127.0.0.1:8700> so we assume Engine runs on localhost and WebAdmin is available at port 8700 over HTTP protocol.
+Since we want the game to notify our plugin upon specific occasions, we use `api.options` to configure source origin(s) from which HTML5 `message` events will be accepted. Above snippet uses <http://127.0.0.1:8700> so we assume Engine runs on localhost and WebAdmin is available at port 8700 over HTTP protocol.
 
 The `DataCenterSelectionChange` callback receives currently selected items (entities) as function `arguments`. Since we only care for single Data Center selected in the main tab, we check `arguments.length` and remember or forget current selection.
 
@@ -243,7 +249,7 @@ Let's modify `game.js` under `game` directory to add the missing bits:
 
 Since game content is shown via `iframe` element attached to HTML DOM, `parent` refers to WebAdmin `Window` object.
 
-Remember the missing `init<code> function used inside our <code>UiInit` callback? Let's add this function and complete our plugin:
+Remember the missing `init` function used inside our `UiInit` callback? Let's add this function and complete our plugin:
 
       /usr/share/ovirt-engine/ui-plugins/space-shooter-resources/start.html
 
@@ -308,19 +314,19 @@ Remember the missing `init<code> function used inside our <code>UiInit` callback
             }
         };
 
-Instead of showing new modal dialog with game content right away, the `init<code> function adds new ''action button'' to Data Center main tab via <code>api.addMainTabActionButton`. Think of action button as a button located in corresponding main tab's upper panel. For example, *New*, *Edit* and *Remove* are all action buttons living inside Data Center main tab. Each action button usually gets reflected into context menu for the given main tab, but there can be exceptions.
+Instead of showing new modal dialog with game content right away, the `init` function adds new *action button* to Data Center main tab via `api.addMainTabActionButton`. Think of action button as a button located in corresponding main tab's upper panel. For example, *New*, *Edit* and *Remove* are all action buttons living inside Data Center main tab. Each action button usually gets reflected into context menu for given main tab, but there can be exceptions.
 
 TODO screenshot of DC action buttons + context menu items
 
 In our case, we want the *Protect DataCenter from Alien Invasion* button to be visible only via context-menu item, so we customize `location` within `addMainTabActionButton` options. Each time item selection changes in Data Center main tab, `isEnabled` callback will be fired to determine whether the button should be enabled or disabled. In case the button is enabled, `onClick` callback will be fired when a user clicks the button. Note that both callbacks receive currently selected items (entities) as function `arguments`.
 
-The `openDialog<code> function is pretty much straight-forward, we just pass some extra options to customize the dialog and add some buttons to it. On the other hand, <code>cheatGame` shows an interesting pattern - utilizing two-way communication between game and plugin by invoking function (`winGame`) on game content's `Window` object.
+The `openDialog` function is pretty much straight-forward, we just pass some extra options to customize the dialog and add some buttons to it. On the other hand, `cheatGame` shows an interesting pattern - utilizing two-way communication between game and plugin by invoking function (`winGame`) on game content's `Window` object.
 
 TODO screenshot
 
 ### Secret Level: Making Things Configurable
 
-Blasting through waves of aliens is nice, but what if someone accessed WebAdmin from a remote machine? Assuming WebAdmin would be exposed at <https://engine-machine:8080>, someone would need to modify `allowedMessageOrigins` inside plugin host page to ensure that communication between game content and plugin code works properly. Of course, we could still use `*` as the value for `allowedMessageOrigins` to accept `message` events from any origin, however doing this opens a back door for malicious JavaScript to exploit our plugin.
+Blasting through waves of aliens is nice, but what if someone accessed WebAdmin from a remote machine? Assuming WebAdmin would be exposed at <https://engine-machine:8080>, someone would need to modify `allowedMessageOrigins` inside plugin host page to ensure that communication between game and plugin works properly. Of course, we could still use `*` as the value for `allowedMessageOrigins` to accept `message` events from any origin, however doing this would open back door for malicious JavaScript to exploit our plugin.
 
 To make things a bit more configurable, let's add new configuration option right into plugin descriptor:
 
@@ -344,7 +350,7 @@ The `config` attribute is completely optional and can be used to contain default
             "allowedOrigins": ["http://127.0.0.1:8700", "https://engine-machine:8080"]
         }
 
-Each time our plugin gets loaded in WebAdmin, UI plugin infrastructure will merge user configuration (if any) on top of default configuration (if any).
+Each time our plugin gets loaded in WebAdmin, UI plugin infrastructure takes care of merging user configuration (if any) on top of default configuration (if any). In our case, `allowedOrigins` from user configuration would override `allowedOrigins` from default configuration.
 
 Accessing plugin configuration at runtime is as easy as calling `api.configObject`:
 
@@ -360,7 +366,7 @@ Accessing plugin configuration at runtime is as easy as calling `api.configObjec
 
 ### Level 4: Final Touches
 
-Let's add one more feature to our plugin - the ability to track score (games won) per each Data Center via custom sub tab under Data Center main tab. Heroic deeds of admins blasting through waves of aliens shouldn't be forgotten, right?
+Let's add one more feature to our plugin: the ability to track score (games won) per each Data Center via custom sub tab under Data Center main tab. Heroic deeds of admins blasting through waves of aliens shouldn't be forgotten, right?
 
       /usr/share/ovirt-engine/ui-plugins/space-shooter-resources/start.html
 
@@ -495,8 +501,10 @@ And we're done! Take a break from coding and play the game to see new score and 
 
 TODO screenshot
 
-### Where to go next
+### Mission Accomplished
 
-See [UI plugin feature page](Features/UIPlugins) for detailed information on UI plugin infrastructure and API reference.
+Congratulations! You've made it past all the levels, you should have a pretty good understanding of UI plugins now.
+
+See [UI plugin feature page](Features/UIPlugins) for detailed information on UI plugin infrastructure, plugin API reference and other information necessary to write plugins.
 
 <Category:Tutorial>

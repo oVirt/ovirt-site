@@ -102,6 +102,7 @@ This is to document the things we need to test in the unit test suite.
 *   Make sure that the passed in callback is properly called when the request completes.
 *   Make sure that the error handler is called with the correct error message if a problem occurs.
 *   Make sure that the error handler is NOT called for failures that are supposed to be ignored. (Is this still a true statement? After more investigation, it looks like it has something to do with pressing escape while the query is running, based on some of the comments)
+*   Make sure queries don't run if you are not logged in (currently a backend check only, maybe make it frontend as well?).
 
 ##### RunMultipleAction
 

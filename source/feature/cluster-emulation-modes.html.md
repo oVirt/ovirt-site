@@ -91,18 +91,31 @@ Please see <https://bugzilla.redhat.com/show_bug.cgi?id=927874>
     -   setup:
 
 Cluster "f" has 1 fedora host, compat version 3.3
+
 Cluster "R" has 1 RHEL6 host. compat version 3.3
+
 DB config values for clusterEmulationMode = "el6,pc-1.0" version 3.3
-\*\*test: create a VM on each cluster and start it
+
+*   -   test:
+
+create a VM on each cluster and start it
 
 *   -   expected result:
 
 A vm is able to start on each of the clusters.
 
 *   Test case: **Host with unsupported emulation mode goes NON-OPERATIONAL with reason UNSUPPORTED_EMULATION_MODE**
-    -   setup: use the same setup as the former case
-    -   test: add a RHEL6 node to cluster "f"
-    -   expected result: host should go NON_OPERATIONAL with reason UNSUPPORTED_EMULATION_MODE
+    -   setup:
+
+use the same setup as the former case
+
+*   -   test:
+
+add a RHEL6 node to cluster "f"
+
+*   -   expected result:
+
+host should go NON_OPERATIONAL with reason UNSUPPORTED_EMULATION_MODE
 
 ### Comments and Discussion
 

@@ -82,9 +82,9 @@ The combination of the two will allow the network admin to define, control and d
 The Network QoS feature includes two main parts:
 
 *   VNIC level QoS
-*   Network level (host level) QoS
+*   Network Profiles
 
-The two parts will be developed in two independent phases
+The two parts will be developed in parallel
 
 ### VNIC level QoS
 
@@ -94,7 +94,7 @@ QoS properties for VNIC will be attached to VNIC, but since not all users which 
 
 If QoS properties were overridden in the VNIC itself the set properties will be kept if the VM holding that VNIC when saved to Template, exported and imported. If the QoS properties were not overridden in the VNIC, they will remain at synch with the default values for VNIC set on the network.
 
-#### GUI (VNIC level)
+#### GUI
 
 The UI for setting of QoS properties will be added to the Add/Edit VNIC dialog.
 The newly added part will be visible only to user with the permission to edit QoS properties, both in Administrator and User portal.
@@ -159,14 +159,31 @@ libvirt version 1.0.1 or higher is required to enable the QoS feature (vdsm 3.3 
 *   Add support of QoS properties in VDSM API: run VM, hot plug and update VM device verbs (update in schema)
 *   Add support in the vnic object and the vnic to_xml()
 
-### Network level QoS
+### Network Profiles
 
-Target release: 3.3 (p2)
+Target release: 3.3
 
-#### GUI (Network level)
+#### GUI (Network Network Profiles)
 
-**UI addition to the Add/Edit Network dialog**
-![](Network_quality_of_service_2.png "fig:Network_quality_of_service_2.png")
+A new sub tab will be added to the Network main tab (positioned second, after General)
+The sub tab will show the available Profiles for each network. Columns will be:
+
+*   Name - string
+*   Port Mirroring - Boolean
+*   Inbound QoS - formatted string
+*   outbound QoS - formatted string
+
+supported actions: add, edit, remove
+
+The sub tab will include a right pane which will hold "Permissions"/"Consumers" tab where the user will define the user which can use the selected profile.
+supported action: add / remove
+
+**Profiles sub tab**
+![](Network_profiles.png "fig:Network_profiles.png")
+
+A new dialog will be created for add/edit profile. the dialog will include the following fields: Name (text box) Port mirroring (check box) Inbound QoS (3 text boxes) Outbound QoS (3 text boxes) Custom properties (Selection box and +/- buttons)
+
+'''Add/Edit Profile dialog"
 
 ### Backend
 

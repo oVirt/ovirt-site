@@ -130,6 +130,12 @@ see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implem
 
 ### Network Profiles
 
+#### Upgrade
+
+Upgrade process will include automatic creation of two Profiles for each network, one with Port mirroring enabled and the other with port mirroring disabled.
+A vnic connected to a network x in 3.2 will automatically be connected to the correlating profile in 3.3 (according to the port mirroring settings).
+A user which had a permission to use a network in 3.2 will be granted the permission to use the correlating profile in 3.3 (according to the port mirroring settings).
+
 #### GUI (Network Network Profiles)
 
 A new sub tab will be added to the Network main tab (positioned second, after General)

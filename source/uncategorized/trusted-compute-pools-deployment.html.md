@@ -226,7 +226,7 @@ Notes: "0" means PCR 0, the value could be got via "# cat /sys/.../pcrs" on oat 
 
       # bash oat_host -a -h oatserver.*.com '{"HostName":"agent.*.com","IPAddress":"192.168.1.1","Port":"9999","BIOS_Name":"NewMLE1","BIOS_Version":"v123","BIOS_Oem":"OEM1","VMM_Name":"NewMLE2","VMM_Version":"v123","VMM_OSName":"OS1","VMM_OSVersion":"v1","Email":"","AddOn_Connection_String":"","Description":""}'
 
-Notes: by far, "IPAddress" and "Port" are not really used, so just leave a placeholder there. "HostName":"agent.\*.com" should be the host name of the oat agent.
+Notes: by far, "IPAddress" and "Port" are not really used, so just leave a placeholder there. "HostName":"agent.\*.com" should be the host name of the oat agent (same as what hostname cmd returns on the oat agent system).
 
 *   query the trust state of the node
 

@@ -62,7 +62,13 @@ Network Profile include:
 When creating a new VNIC or editing an existing one the user will select a Network Profile (instead of the current implementation in which the user selects a network and sets port mirroring and custom properties).
 The network administrator could create several Network Profiles for each network. He could then grant a users with the permission to use (consume) each profile. The user will only be able to use profiles which he was granted access to.
 
-For example: the network admin will create two Network profiles for network "blue": Profile "Gold" - with better QoS and no port mirroring and profile "Silver" with lower QoS and enabled port mirroring. He will then define the user-group "students" as user of profile "Silver" and user-group "teachers" as user of profile "Gold". In this case the teachers will enjoy better quality of service then the students. When a teacher will add/edit a virtual NIC he could select profile "Gold" for that NIC - the VNIC will be connected to network "blue" with high QoS and no port mirroring.
+For example: the network admin will create two Network profiles for network "blue":
+
+Profile "Gold" - with better QoS and no port mirroring
+
+Profile "Silver" with lower QoS and enabled port mirroring.
+
+He will then define the user-group "students" as user of profile "Silver" and user-group "teachers" as user of profile "Gold". In this case the teachers will enjoy better quality of service then the students. When a teacher will add/edit a virtual NIC he could select profile "Gold" for that NIC - the VNIC will be connected to network "blue" with high QoS and no port mirroring.
 
 The Network Profile could be edited by the network administrator at any time. The changes will seep down to all VNICs using the profile. In case VNIC using the edited profile are connected to running VMs the chnage will not take effect automatically. Instead, the user will be presented with a "non synchronized" icon on the specific VNIC and could manually synchronize it. Manual synchronization will only be possible in cases which can be handled while the VNIC is connected (such as rewire network or redefine QoS values). If changes in the profile require unplugging the VNIC the manual synchronization will be blocked and the user will be advised to unplug the vnic and try again.
 

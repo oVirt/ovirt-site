@@ -148,11 +148,11 @@ And start the engine service.
 *Optional:* Create database, provided the user is engine, password engine:
 
       # su - postgresql -c psql -c "create database engine_dao owner engine;"
-      $ PGPASSWORD=engine ./backend/manager/dbscripts/create_schema.sh -d engine_dao -u engine
+      $ PGPASSWORD=engine ./backend/manager/dbscripts/create_schema.sh -d engine_test -u engine
 
 Build with tests:
 
-      $ make BUILD_TEST_FLAGS=" -D engine.db.username=engine -D engine.db.password=engine -D engine.db.url=jdbc:postgresql://localhost/engine_dao -P enable-dao-tests"
+      $ make BUILD_TEST_FLAGS=" -D engine.db.username=engine -D engine.db.password=engine -D engine.db.url=jdbc:postgresql://localhost/engine_test -P enable-dao-tests"
 
 #### Upgrade DAO database
 

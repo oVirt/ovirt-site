@@ -199,6 +199,10 @@ As developer you might need to add many hosts into your environment for tests. V
 
 ### Troubleshooting Fake KVM Support
 
+**Problems adding the fake Host in the engine**
+
+The vdsm bootstrapper was deprecated and replaced by ovirt-host-deploy, the /usr/share/doc/ovirt-host-deploy-1.1.0/README file includes details about how to configure a fake host.
+
 **Failed: Server does not support virtualization**
 
 If during the installation of the host you received the message "Server does not support virtualization" from oVirt Engine, it's probably because your vdsm version doesn't include the patch: <http://gerrit.ovirt.org/#/c/5611/3> (might be a bug as well).

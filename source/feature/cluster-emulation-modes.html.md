@@ -50,6 +50,16 @@ new "emulatedMachines" field will be added to vds_dynamic table.
 A cluster entity will be added by a new field - emulatedMachine.
  vds_group.emulated_machine default NULL varchar(255) The default is NULL which means the value would be set once a host during the first refresh would have
 its reported emulatedMachines list match against the Config Value
+
+#### New NON_OPERATIONAL reason
+
+      NonOperationalReason
+       ...,
+       UNSUPPORTED_EMULATION_MODE;
+
+#### HandleVdsCpuFlagsOrClusterChangedCommand
+
+This commands will match an activated Host against the cluster definition.
 If the cluster is null then the host will be matched against the config values. That match
 will set the cluster definition for the rest of the hosts in that cluster
  consider this pseudo-code:

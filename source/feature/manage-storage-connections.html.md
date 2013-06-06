@@ -27,7 +27,7 @@ Updated June 6 2013
 
 *   Edit NFS connection properties in webadmin UI - ready (http://gerrit.ovirt.org/#/c/12372/)
 *   Edit Posix connection properties in webadmin UI -ready (http://gerrit.ovirt.org/#/c/13640/)
-*   Allow deletion of a connection only when it is not in use by any storage domain/direct lun. (in review) <http://gerrit.ovirt.org/#/c/15269/>
+*   Allow deleting a connection only when it is not in use by any storage domain/direct lun. (in review) <http://gerrit.ovirt.org/#/c/15269/>
 *   Edit NFS, Posix connection properties in REST (design phase)
 *   Edit ISCSI connection properties in REST (design phase)
 *   Edit ISCSI connection properties in webadmin UI (not started)

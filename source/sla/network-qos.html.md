@@ -72,6 +72,8 @@ He will then define the user-group "students" as user of profile "Silver" and us
 
 The VNIC Profile could be edited by the network administrator at any time. The changes will seep down to all VNICs using the profile. In case VNIC using the edited profile are connected to running VMs the change will apply only on the VM next run.
 
+Hotplug and Dynamically Rewire will continue to be fully supported. Devices which will be hotpluged or rewired will use the updated profile connected to the VNIC.
+
 When a Template is created from a VM the VNIC Profile will be kept along with the VNIC. When a VM is created from template the VNIC Profiles will be taken from the template's VNICs.
 
 VNIC Profiles could not be deleted from the engine as long as one or more VM/Templates are using those profiles.

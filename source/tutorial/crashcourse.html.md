@@ -20,7 +20,7 @@ The *oVirt Space Shooter* plugin we will create is based on [Alien Invasion](htt
 
 No prior [JavaScript](http://en.wikipedia.org/wiki/JavaScript) programming experience is required, just make sure you have an oVirt Engine [up and running](http://www.ovirt.org/Installing_ovirt-engine_from_rpm) on your system. Oh, and once we're done creating our plugin, be prepared to blast some aliens!
 
-TODO add download link for complete plugin
+Download complete plugin: [oVirt Space Shooter](media:Space-shooter-ui-plugin-06062013.tar.gz) (6.6.2013)
 
 ### Level 1: I Can Has UI Plugin
 
@@ -145,7 +145,7 @@ We moved plugin code to `body` due to Modernizr usage, but other than that, it's
 
 Reload WebAdmin in your browser, log in and see what happens! Don't spend too much time playing the game, though. There's always more to learn.
 
-TODO screenshot
+![](OVirt_Space_Shooter_1.png "OVirt_Space_Shooter_1.png")
 
 ### Level 3: Data Center Under Attack
 
@@ -316,13 +316,13 @@ Remember the missing `init` function used inside our `UiInit` callback? Let's ad
 
 Instead of showing new modal dialog with game content right away, the `init` function adds new *action button* to Data Center main tab via `api.addMainTabActionButton`. Think of action button as a button located in corresponding main tab's upper panel. For example, *New*, *Edit* and *Remove* are all action buttons living inside Data Center main tab. Each action button usually gets reflected into context menu for given main tab, but there can be exceptions.
 
-TODO screenshot of DC action buttons + context menu items
+![](OVirt_Space_Shooter_2.png "OVirt_Space_Shooter_2.png")
 
 In our case, we want the *Protect DataCenter from Alien Invasion* button to be visible only via context-menu item, so we customize `location` within `addMainTabActionButton` options. Each time item selection changes in Data Center main tab, `isEnabled` callback will be fired to determine whether the button should be enabled or disabled. In case the button is enabled, `onClick` callback will be fired when a user clicks the button. Note that both callbacks receive currently selected items (entities) as function `arguments`.
 
 The `openDialog` function is pretty much straight-forward, we just pass some extra options to customize the dialog and add some buttons to it. On the other hand, `cheatGame` shows an interesting pattern - utilizing two-way communication between game and plugin by invoking function (`winGame`) on game content's `Window` object.
 
-TODO screenshot
+![](OVirt_Space_Shooter_3.png "OVirt_Space_Shooter_3.png")
 
 ### Secret Level: Making Things Configurable
 
@@ -364,7 +364,7 @@ Accessing plugin configuration at runtime is as easy as calling `api.configObjec
             allowedMessageOrigins: config.allowedOrigins
         });
 
-### Level 4: Final Touches
+### Level 4: Insert Coin And Keep The Score
 
 Let's add one more feature to our plugin: the ability to track score (games won) per each Data Center via custom sub tab under Data Center main tab. Heroic deeds of admins blasting through waves of aliens shouldn't be forgotten, right?
 
@@ -499,7 +499,7 @@ Finally, we need to add `dc-score.html` representing custom sub tab content:
 
 And we're done! Take a break from coding and play the game to see new score and ranking feature in action.
 
-TODO screenshot
+![](OVirt_Space_Shooter_4.png "OVirt_Space_Shooter_4.png")
 
 ### Mission Accomplished
 

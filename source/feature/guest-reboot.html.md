@@ -16,7 +16,9 @@ Support reboot in both engine and vdsm. Enable users to restart guest with singl
 
 #### Current Condition
 
-The current behavior in the engine requires the user who wishes to reboot VM to wait until the VM is `Down`, then press run and wait until it is `Up` again. Adding a new button/REST action (with configurable behavior, see later) would solve this issue.
+The current behavior in the engine requires the user who wishes to reboot VM to wait until the VM is `Down`, then press run and wait until it is `Up` again.
+
+Adding a new button/REST action (with configurable behavior, see later) would solve this issue.
 
 #### Proposed changes
 
@@ -25,6 +27,8 @@ The current behavior in the engine requires the user who wishes to reboot VM to 
 *   Backend
 *   VDSM
 *   Guest Agent
+
+### Possible Issues
 
 ### Owner
 

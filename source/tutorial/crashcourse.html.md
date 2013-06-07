@@ -344,7 +344,7 @@ To make things a bit more configurable, let's add new configuration option right
         ...
     }
 
-The `config` attribute is completely optional and can be used to contain default (plugin-specific) configuration. **Users shouldn't modify plugin descriptor directly** - if you need to override default configuration, create [plugin user configuration](Features/UIPlugins#Plugin_user_configuration_.28optional.29) inside `/etc/ovirt-engine/ui-plugins` directory (using `-config` suffix):
+The `config` attribute is completely optional and can be used to contain default (plugin-specific) configuration. **Users shouldn't modify plugin descriptor directly** - if you need to override default configuration, create [plugin user configuration](Features/UIPlugins#Plugin_user_configuration) inside `/etc/ovirt-engine/ui-plugins` directory (using `-config` suffix):
 
       /etc/ovirt-engine/ui-plugins/space-shooter-config.json
 

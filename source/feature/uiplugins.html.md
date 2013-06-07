@@ -151,7 +151,7 @@ Following code snippet shows a sample plugin host page:
 
     </html>
 
-Prior to evaluating actual plugin code, host page can load dependent scripts or other resources as necessary (1). Plugin code can be evaluated either within `head` (2) or `body` (3) section of the HTML document. In addition to embedding plugin code inline into host page, code can be also loaded asynchronously as external script, i.e. `<script type="text/javascript" src="..."></script>`. There are no specific rules on how to load plugin code within the host page, the only requirement is that loading host page HTML document should evaluate plugin code eventually.
+Prior to evaluating actual plugin code, host page can load dependent scripts or other resources as necessary (1). Plugin code can be evaluated either within `head` (2) or `body` (3) section of the HTML document. In addition to embedding plugin code inline into host page, code can be also loaded asynchronously as external script, i.e. `<script type="text/javascript" src="...">`. There are no specific rules on how to load plugin code within the host page, the only requirement is that loading host page HTML document should evaluate plugin code eventually.
 
 Note that WebAdmin [loads](#Loading_plugins) the given plugin via hidden HTML `iframe` element. This has following implications:
 
@@ -190,15 +190,69 @@ Following code snippet illustrates the above mentioned pattern:
 
 ### Plugin lifecycle
 
-TODO
+UI plugin infrastructure maintains a common lifecycle to control execution of individual plugins. The lifecycle consists of possible states and transitions between these states at runtime.
+
+![Plugin lifecycle](Plugin-lifecycle.png "Plugin lifecycle")
+
+DEFINED  
+The plugin has been defined through its meta-data. A corresponding `iframe` element has been created. This is the initial state for all plugins.
+
+<!-- -->
+
+LOADING  
+The `iframe` element has been attached to DOM, causing plugin host page to be fetched asynchronously in the background. We are waiting for the plugin to report back as ready.
+
+<!-- -->
+
+READY  
+The plugin has indicated that it is ready for use. We expect the event handler object (object containing [event handler functions](#Application_event_reference)) to be registered by now. While in plugin invocation context`*`, proceed with plugin initialization. Otherwise, initialize plugin upon entering plugin invocation context.
+
+<!-- -->
+
+INITIALIZING  
+The plugin is being initialized by calling `UiInit` event handler function. The `UiInit` function will be called just once during the lifetime of a plugin, before calling other event handler functions.
+
+<!-- -->
+
+IN_USE  
+The `UiInit` function completed successfully, we can now call other event handler functions as necessary. The plugin is in use.
+
+<!-- -->
+
+FAILED  
+An uncaught exception escaped while calling plugin event handler function, indicating internal error within plugin code. The `iframe` element has been detached from DOM. The plugin is removed from service.
+
+`*` Plugin invocation context starts when user logs into WebAdmin and ends when user logs out. Processing [event handler functions](#Application_event_reference) as well as [plugin API](#API_function_reference) calls is constrained by this context, i.e. plugins are in effect only while user remains authenticated in WebAdmin.
 
 ### Application event reference
 
 TODO
 
+*   UiInit
+*   UserLogin
+*   UserLogout
+*   RestApiSessionAcquired
+*   <Entity>SelectionChange
+*   MessageReceived
+
 ### API function reference
 
 TODO
+
+*   register
+*   ready
+*   options
+*   configObject
+*   addMainTab
+*   addSubTab
+*   setTabContentUrl
+*   setTabAccessible
+*   addMainTabActionButton
+*   showDialog
+*   setDialogContentUrl
+*   closeDialog
+*   loginUserName
+*   loginUserId
 
 ### UI plugin cheat sheet
 

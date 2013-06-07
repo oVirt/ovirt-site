@@ -12,31 +12,30 @@ wiki_last_updated: 2015-05-13
 
 ### Summary
 
-This feature provides an infrastructure and API for implementing and deploying custom user interface (UI) plugins for oVirt web administration application.
+This feature provides an infrastructure and API for implementing and deploying custom user interface plugins for oVirt web administration application.
 
 ### Owner
 
 *   Name: [Vojtech Szocs](User:Vszocs)
 *   Email: <vszocs@redhat.com>
-*   IRC: vszocs at #ovirt (irc.oftc.net)
 
 ### Current status
 
 *   Plugin infrastructure implementation complete and working
-*   Plugin API to be improved in near future
-*   Sample plugins showcasing supported API to be contributed in near future
+*   In progress: improve and extend plugin API to cover more use-cases
+*   In progress: resolve issues with JavaScript vs. REST API communication
 
 ### Overview
 
-oVirt web administration application (WebAdmin) is the main UI for managing all components of a virtual system infrastructure. In addition to existing WebAdmin functionality, there can be times when administrators want to expose additional features or to integrate with other systems through WebAdmin UI. This is where UI plugins come into play: each plugin represents a set of user interface extensions that can be packaged and distributed for use with oVirt Engine via WebAdmin.
+oVirt web administration application (WebAdmin) is the main graphical user interface for managing all components of a virtual system infrastructure. In addition to existing WebAdmin functionality, there can be times when administrators want to expose additional features or to integrate with other systems through WebAdmin UI. This is where UI plugins come into play: each plugin represents a set of user interface extensions that can be packaged and distributed for deployment on oVirt Engine via WebAdmin.
 
 ### Introduction
 
-UI plugins integrate with WebAdmin directly on the client (web browser) using [JavaScript](http://en.wikipedia.org/wiki/JavaScript) programming language. Plugin invocation is driven by WebAdmin and happens right within the context of web browser's JavaScript runtime, using JavaScript language as the lowest common denominator between WebAdmin ([GWT](http://en.wikipedia.org/wiki/Google_Web_Toolkit)) and individual plugins. UI plugins can take full advantage of JavaScript language and its rich ecosystem of libraries.
+UI plugins integrate with WebAdmin directly on the client (web browser) using [JavaScript](http://en.wikipedia.org/wiki/JavaScript) programming language. Plugin invocation is driven by WebAdmin and happens right within the context of web browser's JavaScript runtime, using JavaScript language as the lowest common denominator between WebAdmin ([GWT](http://en.wikipedia.org/wiki/Google_Web_Toolkit)) and individual plugins. UI plugins can take full advantage of JavaScript language and its rich ecosystem of libraries. There are no specific rules on how to implement UI plugins, plugin API is designed to be simple and not to get in developer's way, regardless of how a developer chooses to write the plugin.
 
-At key events during runtime, WebAdmin invokes individual plugins via [event handler functions](#Supported_application_events) representing WebAdmin → plugin communication. Even though WebAdmin supports multiple event handler functions, a plugin only declares functions which are of interest to its implementation. Each plugin must register relevant event handler functions as part of [plugin bootstrap sequence](#Plugin_bootstrap_sequence), before the plugin is put to use by WebAdmin.
+At key events during runtime, WebAdmin invokes individual plugins via [event handler functions](#Application_event_reference) representing WebAdmin → plugin communication. Even though WebAdmin supports many different event handler functions, a plugin only declares functions which are of interest to its implementation. Each plugin must register relevant event handler functions as part of its [bootstrap sequence](#Plugin_bootstrap_sequence), before the plugin is put to use by WebAdmin.
 
-To facilitate plugin → WebAdmin communication that drives UI extension, WebAdmin exposes [plugin API](#Supported_API_functions) as global (top-level) `pluginApi` JavaScript object for individual plugins to consume. Each plugin obtains specific `pluginApi` instance, allowing WebAdmin to control plugin API function invocation per each plugin with regard to [plugin lifecycle](#Plugin_lifecycle).
+To facilitate plugin → WebAdmin communication that drives UI extension, WebAdmin exposes [plugin API](#API_function_reference) as global (top-level) `pluginApi` JavaScript object for individual plugins to consume. Each plugin obtains specific `pluginApi` instance, allowing WebAdmin to control plugin API function invocation per each plugin with regard to [plugin lifecycle](#Plugin_lifecycle).
 
 ### Discovering plugins
 
@@ -44,13 +43,13 @@ Before a plugin can be [loaded](#Loading_plugins) and [bootstrapped](#Plugin_boo
 
 ![Discovering plugins](Discovering-plugins.png "Discovering plugins")
 
-[Plugin descriptor](#Plugin_descriptor) is the entry point to [plugin discovery](#Discovering_plugins) process, containing important plugin meta-data as well as (optional) default plugin-specific configuration.
+[Plugin descriptor](#Plugin_descriptor) is the entry point to discovery process, containing plugin meta-data as well as (optional) default plugin-specific configuration.
 
-As part of handling WebAdmin HTML page request (1), UI plugin infrastructure attempts to discover and load plugin descriptors from local file system (2). For each plugin descriptor, the infrastructure also attempts to load corresponding [plugin user configuration](#Plugin_user_configuration) used to override default plugin-specific configuration (if any) and tweak plugin runtime behavior. Note that providing plugin user configuration is completely optional. After loading descriptors and corresponding user configuration files, oVirt Engine aggregates UI plugin data and embeds it into WebAdmin HTML page for runtime evaluation (3).
+As part of handling WebAdmin HTML page request (1), UI plugin infrastructure attempts to discover and load plugin descriptors from local file system (2). For each descriptor, the infrastructure also attempts to load corresponding [plugin user configuration](#Plugin_user_configuration) used to override default plugin-specific configuration (if any) and tweak plugin runtime behavior. Note that providing plugin user configuration is completely optional. After loading descriptors and corresponding user configuration files (if any), oVirt Engine aggregates UI plugin data and embeds it into WebAdmin HTML page for runtime evaluation (3).
 
-By default, plugin descriptors are expected to reside in `$ENGINE_USR/ui-plugins` directory, with a default mapping `ENGINE_USR=/usr/share/ovirt-engine` as defined by oVirt Engine local configuration. Plugin descriptors are expected to comply with [JSON](http://en.wikipedia.org/wiki/JSON) format specification, with the addition of allowing Java/C++ style comments (both `/`+`*` and `//` varieties).
+Descriptor files are expected to reside in `$ENGINE_USR/ui-plugins` directory, with default mapping `ENGINE_USR=/usr/share/ovirt-engine` as defined by oVirt Engine local configuration. Descriptor files should comply with [JSON](http://en.wikipedia.org/wiki/JSON) format specification with the addition of allowing Java/C++ style comments, i.e. both `/* comment */` and `// comment` varieties.
 
-By default, plugin user configuration files are expected to reside in `$ENGINE_ETC/ui-plugins` directory, with a default mapping `ENGINE_ETC=/etc/ovirt-engine` as defined by oVirt Engine local configuration. Plugin user configuration files are expected to comply with same content format rules as plugin descriptors. Note that plugin user configuration files generally follow `<descriptorFileName>-config.json` naming convention.
+User configuration files are expected to reside in `$ENGINE_ETC/ui-plugins` directory, with default mapping `ENGINE_ETC=/etc/ovirt-engine` as defined by oVirt Engine local configuration. User configuration files should comply with same content format rules as descriptors. Note that user configuration files generally follow `<descriptorFileName>-config.json` naming convention, i.e. using `-config` suffix.
 
 ### Loading plugins
 
@@ -58,55 +57,61 @@ After a plugin has been [discovered](#Discovering_plugins) and its data embedded
 
 ![Loading plugins](Loading-plugins.png "Loading plugins")
 
-For each plugin, WebAdmin creates an HTML `iframe` element used to load [plugin host page](#Plugin_host_page) (1). Plugin host page is the entry point to [plugin bootstrap](#Plugin_bootstrap_sequence) process, used to evaluate plugin code (JavaScript) within the context of the corresponding `iframe` element. UI plugin infrastructure supports serving plugin resource files, such as plugin host page, from local file system (2). Plugin host page gets loaded into the `iframe` element and the plugin code is evaluated (3). From this point forward, plugin communicates with WebAdmin via plugin API (4).
+For each plugin, WebAdmin creates hidden HTML `iframe` element used to load [plugin host page](#Plugin_host_page) (1). Plugin host page is the entry point to [bootstrap](#Plugin_bootstrap_sequence) process, used to evaluate plugin code (JavaScript) within the context of the corresponding `iframe` element. UI plugin infrastructure supports serving plugin resource files, such as host page, from local file system (2). Host page gets loaded into `iframe` element and plugin code is evaluated (3). From this point forward, plugin communicates with WebAdmin via plugin API (4). Since the purpose of host page is to bootstrap plugin code, any UI extensions should be done via [plugin API](#API_function_reference) rather than direct HTML DOM manipulation.
 
-By default, plugin resource files are expected to reside in `$ENGINE_USR/ui-plugins/<resourcePath>` directory, with `resourcePath` value defined by the corresponding attribute in [plugin descriptor](#Plugin_descriptor).
+Plugin resource files are expected to reside in `$ENGINE_USR/ui-plugins/<resourcePath>` directory, with `resourcePath` value defined by the corresponding attribute in [plugin descriptor](#Plugin_descriptor). For example:
+
+*   Client requests URL `/webadmin/webadmin/plugin/<pluginName>/path/to/file`
+*   Engine serves content of `$ENGINE_USR/ui-plugins/<resourcePath>/path/to/file`
 
 ### Plugin descriptor
 
-Plugin descriptor is the entry point to [plugin discovery](#Discovering_plugins) process, containing important plugin meta-data as well as (optional) default plugin-specific configuration.
+Plugin descriptor contains plugin meta-data as well as default plugin-specific configuration.
 
-Following code snippet shows a sample plugin descriptor: `/usr/share/ovirt-engine/ui-plugins/myPlugin.json`
+Following code snippet shows a sample plugin descriptor:
+
+      /usr/share/ovirt-engine/ui-plugins/example.json
 
     {
 
-        // A name that uniquely identifies the plugin (required).
-        // Not related to descriptor file name, must not be empty.
-        "name": "MyPlugin",
+        // Unique name of the plugin (required)
+        // Unrelated to descriptor file name, must not be empty
+        "name": "ExamplePlugin",
 
-        // URL of plugin host page used to evaluate plugin code (required).
-        // Using UI plugin infrastructure support to serve plugin resource files.
-        // This URL maps to $ENGINE_USR/ui-plugins/<resourcePathForMyPlugin>/start.html
-        "url": "/webadmin/webadmin/plugin/MyPlugin/start.html",
+        // URL of plugin host page that bootstraps plugin code (required)
+        // This URL maps to $ENGINE_USR/ui-plugins/example-resources/start.html
+        "url": "/webadmin/webadmin/plugin/ExamplePlugin/start.html",
 
-        // Default configuration object associated with the plugin (optional).
+        // Default configuration associated with the plugin (optional)
         "config": { "band": "ZZ Top", "score": 10 },
 
-        // Path to plugin resource files, relative to plugin descriptor location (optional).
-        // Required when using UI plugin infrastructure support to serve plugin resource files.
-        // This path maps to $ENGINE_USR/ui-plugins/my-files
-        "resourcePath": "my-files"
+        // Path to plugin resource files relative to descriptor (optional)
+        // Required when using UI plugin infrastructure to serve plugin resource files
+        // This path maps to $ENGINE_USR/ui-plugins/example-resources
+        "resourcePath": "example-resources"
 
     }
 
 ### Plugin user configuration
 
-Plugin user configuration (optional) is used to override default plugin-specific configuration (if any) and tweak plugin runtime behavior.
+Plugin user configuration contains custom plugin-specific configuration and attributes to tweak plugin runtime behavior.
 
-Following code snippet shows a sample plugin user configuration: `/etc/ovirt-engine/ui-plugins/myPlugin-config.json`
+Following code snippet shows a sample plugin user configuration:
+
+      /etc/ovirt-engine/ui-plugins/example-config.json
 
     {
 
-        // Custom configuration object associated with the plugin (optional).
-        // This overrides the default (plugin descriptor) configuration, if any.
+        // Custom configuration associated with the plugin (optional)
+        // This overrides default configuration within descriptor, if any
         "config": { "band": "AC/DC" },
 
-        // Whether the plugin should be loaded on WebAdmin startup (optional).
-        // Default value is 'true'.
+        // Whether the plugin should be loaded on WebAdmin startup (optional)
+        // Default value is "true"
         "enabled": true,
 
-        // Relative order in which the plugin will be loaded (optional).
-        // Default value is Integer.MAX_VALUE (lowest order).
+        // Relative order in which the plugin will be loaded (optional)
+        // Default value is Integer.MAX_VALUE (lowest order)
         "order": 0
 
     }
@@ -115,106 +120,117 @@ As part of [discovering plugins](#Discovering_plugins), UI plugin infrastructure
 
 *   Plugin descriptor defines `config` attribute as `{ "band": "ZZ Top", "score": 10 }`
 *   Plugin user configuration defines `config` attribute as `{ "band": "AC/DC" }`
-*   Resulting plugin configuration, accessible to the given plugin at runtime, will be `{ "band": "AC/DC", "score": 10 }`
+*   Resulting plugin configuration, accessible to given plugin at runtime, will be `{ "band": "AC/DC", "score": 10 }`
 
 ### Plugin host page
 
-Plugin host page is the entry point to [plugin bootstrap](#Plugin_bootstrap_sequence) process, used to evaluate plugin code (JavaScript) within the context of the corresponding `iframe` element.
+Plugin host page [bootstraps](#Plugin_bootstrap_sequence) plugin code by evaluating JavaScript within the context of the corresponding `iframe` element.
 
-Following code snippet shows a sample plugin host page: `/usr/share/ovirt-engine/ui-plugins/my-files/start.html`
+Following code snippet shows a sample plugin host page:
+
+      /usr/share/ovirt-engine/ui-plugins/example-resources/start.html
 
     <!DOCTYPE html>
     <html>
+
     <head>
-    <!--
-        Can fetch dependent scripts or other resources as necessary (1).
-        <script type="text/javascript" src="/webadmin/webadmin/plugin/MyPlugin/libs/example1.js"></script>
-        <script type="text/javascript" src="libs/example2.js"></script>
-    -->
-    <script>
-
-        // Plugin code goes here (2).
-
-    </script>
+        <!--
+            Load additional scripts or other resources as necessary (1)
+            <script type="text/javascript" src="/webadmin/webadmin/plugin/ExamplePlugin/js/useful-library.js"></script>
+        -->
+        <script type="text/javascript">
+            // Plugin code, evaluated within HTML head section (2)
+        </script>
     </head>
+
     <body>
-    <!--
-        HTML body is intentionally empty (3).
-    -->
+        <script type="text/javascript">
+            // Plugin code, evaluated within HTML body section (3)
+        </script>
     </body>
+
     </html>
 
-Prior to evaluating actual plugin code, [plugin host page](#Plugin_host_page) can fetch and evaluate dependent scripts or other resources as necessary (1). Actual [plugin code](#Plugin_bootstrap_sequence) is typically evaluated via HTML `head` section (2). Since the `iframe` element used to load the plugin host page is not visible in WebAdmin UI, any markup placed within HTML `body` section will have no effect in practice (3).
+Prior to evaluating actual plugin code, host page can load dependent scripts or other resources as necessary (1). Plugin code can be evaluated either within `head` (2) or `body` (3) section of the HTML document. In addition to embedding plugin code inline into host page, code can be also loaded asynchronously as external script, i.e. `<script type="text/javascript" src="..."></script>`. There are no specific rules on how to load plugin code within the host page, the only requirement is that loading host page HTML document should evaluate plugin code eventually.
+
+Note that WebAdmin [loads](#Loading_plugins) the given plugin via hidden HTML `iframe` element. This has following implications:
+
+*   Plugin code runs within the context of the corresponding `iframe` element, i.e. not WebAdmin (top-level) context
+*   Plugin code should use [plugin API](#API_function_reference) to make UI extensions, i.e. avoid direct HTML DOM manipulation
+*   Any markup placed within HTML `body` section will have no effect since the `iframe` element is hidden from WebAdmin view
 
 ### Plugin bootstrap sequence
 
-A typical plugin bootstrap sequence consists of following steps:
+Plugin code that runs due to host page being loaded typically follows a common pattern:
 
-*   Obtain `pluginApi` instance for the given plugin
-*   Obtain runtime plugin configuration object (optional)
-*   Register relevant event handler functions
+*   Get `pluginApi` instance for the given plugin
+*   Get runtime plugin configuration (optional)
+*   Customize API options that affect specific features of plugin API (optional)
+*   Register relevant [event handler functions](#Application_event_reference)
 *   Notify UI plugin infrastructure to proceed with plugin initialization
 
-Following code snippet illustrates the above mentioned steps in practice:
+Following code snippet illustrates the above mentioned pattern:
 
-    // Access plugin API using 'parent' due to this code being evaluated within the context of an iframe element.
-    // As 'parent.pluginApi' is subject to Same-Origin Policy, this will only work when WebAdmin HTML page and plugin
-    // host page are served from same origin. WebAdmin HTML page and plugin host page will always be on same origin
-    // when using UI plugin infrastructure support to serve plugin resource files.
-    var api = parent.pluginApi('MyPlugin');
+    // Get plugin API for "ExamplePlugin" using "parent" due to plugin code being evaluated within an iframe context
+    // Note that "parent.pluginApi" is subject to Same-Origin Policy, this implies WebAdmin HTML page and plugin host
+    // page must be on same origin, i.e. this holds true when using UI plugin infrastructure to serve plugin resource files
+    var api = parent.pluginApi('ExamplePlugin');
 
-    // Runtime configuration object associated with the plugin (or an empty object).
-    var config = api.configObject();
+    // Get runtime plugin configuration, i.e. custom configuration (if any) merged on top of default configuration (if any)
+    var cfg = api.configObject();
 
-    // Register event handler function(s) for later invocation by UI plugin infrastructure.
-    api.register({
-        // UiInit event handler function.
-        UiInit: function() {
-            // Handle UiInit event.
-            window.alert('Favorite music band is ' + config.band);
-        }
-    });
+    // Customize API options that affect specific features of plugin API, i.e. override default API options
+    api.options({ ... });
 
-    // Notify UI plugin infrastructure to proceed with plugin initialization.
+    // Register relevant event handler functions for later invocation by UI plugin infrastructure
+    api.register({ ... });
+
+    // Notify UI plugin infrastructure to proceed with plugin initialization, i.e. expect UiInit event callback
     api.ready();
 
 ### Plugin lifecycle
 
-UI plugin infrastructure
+TODO
 
-### Supported application events
+### Application event reference
 
 TODO
 
-### Supported API functions
+### API function reference
 
-TODO don't forget screenshots
+TODO
 
 ### UI plugin cheat sheet
 
-Minimalistic plugin descriptor: `/usr/share/ovirt-engine/ui-plugins/helloWorld.json`
+Minimal plugin descriptor:
+
+      /usr/share/ovirt-engine/ui-plugins/minimal.json
 
     {
-        "name": "HelloWorld",
-        "url": "/webadmin/webadmin/plugin/HelloWorld/start.html",
-        "resourcePath": "hello-files"
+        "name": "MinimalPlugin",
+        "url": "/webadmin/webadmin/plugin/MinimalPlugin/start.html",
+        "resourcePath": "minimal-resources"
     }
 
-Minimalistic plugin host page: `/usr/share/ovirt-engine/ui-plugins/hello-files/start.html`
+Minimal plugin host page:
+
+      /usr/share/ovirt-engine/ui-plugins/minimal-resources/start.html
 
     <!DOCTYPE html><html><head>
-    <script>
-        var api = parent.pluginApi('HelloWorld');
+
+    <script type="text/javascript">
+        var api = parent.pluginApi('MinimalPlugin');
         api.register({
-            UiInit: function() { window.alert('Hello world'); }
+            UiInit: function() { window.alert('Hello world!'); }
         });
         api.ready();
     </script>
+
     </head><body></body></html>
 
 ### Sample UI plugins
 
-TODO don't forget link to git repository
+Repository hosting sample UI plugins: `git://gerrit.ovirt.org/samples-uiplugins` ([Gerrit web](http://gerrit.ovirt.org/gitweb?p=samples-uiplugins.git))
 
 ### Real-world UI plugins
 

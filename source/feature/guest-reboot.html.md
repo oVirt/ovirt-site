@@ -31,7 +31,7 @@ Add new button ![](reboot.png "fig:reboot.png") in the main VM toolbar between t
 *   VDSM
 *   Guest Agent
 
-Support additional boolean parameter in the desktopShutdown call determining wether we want normal shutdown (`reboot=False`) or reboot (`reboot=True`).
+Support additional boolean parameter in the desktopShutdown call determining wether we want normal shutdown (`reboot=False`) or reboot.
 
 This is the simplest change as it boils down to passing -h or -r flag to the underlying script performing the shutdown.
 

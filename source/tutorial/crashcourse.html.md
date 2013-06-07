@@ -336,8 +336,6 @@ To make things a bit more configurable, let's add new configuration option right
 
     {
         ...
-        // Default plugin-specific configuration, can be overridden via "config"
-        // attribute in /etc/ovirt-engine/ui-plugins/space-shooter-config.json
         "config": {
             "allowedOrigins": ["http://127.0.0.1:8700"]
         }

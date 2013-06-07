@@ -205,7 +205,7 @@ The `iframe` element has been attached to DOM, causing plugin host page to be fe
 <!-- -->
 
 READY  
-The plugin has indicated that it is ready for use. We expect the event handler object (object containing [event handler functions](#Application_event_reference)) to be registered by now. While in plugin invocation context`*`, proceed with plugin initialization. Otherwise, initialize plugin upon entering plugin invocation context.
+The plugin has indicated that it is ready for use. We expect the event handler object (object containing [event handler functions](#Application_event_reference)) to be registered by now. While in plugin invocation context`*`, proceed with plugin initialization. Otherwise, initialize the plugin upon entering next invocation context.
 
 <!-- -->
 
@@ -222,7 +222,7 @@ The `UiInit` function completed successfully, we can now call other event handle
 FAILED  
 An uncaught exception escaped while calling plugin event handler function, indicating internal error within plugin code. The `iframe` element has been detached from DOM. The plugin is removed from service.
 
-`*` Plugin invocation context starts when user logs into WebAdmin and ends when user logs out. Processing [event handler functions](#Application_event_reference) as well as [plugin API](#API_function_reference) calls is constrained by this context, i.e. plugins are in effect only while user remains authenticated in WebAdmin.
+`*` Plugin invocation context starts when user logs into WebAdmin and ends when user logs out. Processing [event handler functions](#Application_event_reference) as well as [plugin API](#API_function_reference) calls is constrained by this context, i.e. plugins are in effect only while user stays authenticated in WebAdmin.
 
 ### Application event reference
 

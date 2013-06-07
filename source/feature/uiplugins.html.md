@@ -214,7 +214,7 @@ The plugin is being initialized by calling `UiInit` event handler function. The 
 
 <!-- -->
 
-IN_USE  
+IN USE  
 The `UiInit` function completed successfully, we can now call other event handler functions as necessary. The plugin is in use.
 
 <!-- -->
@@ -254,6 +254,13 @@ TODO
 *   loginUserName
 *   loginUserId
 
+### Resources and tutorials
+
+*   Tutorial: [oVirt Space Shooter](Tutorial/UIPlugins/CrashCourse)
+*   Presentation slides: [UI Plugins PoC Overview](Media:UI_Plugins_PoC_Overview_2012.pdf) (October 2012)
+*   Presentation slides: [UI Plugins at oVirt Workshop Sunnyvale](Media:UI_Plugins_at_oVirt_Workshop_Sunnyvale_2013.pdf) (January 2013)
+*   Miscellaneous: [Original Design Notes](Features/UIPluginsOriginalDesignNotes), [UI Plugin Figures](Media:Ui-plugin-figures.tar.gz)
+
 ### UI plugin cheat sheet
 
 Minimal plugin descriptor:
@@ -284,7 +291,7 @@ Minimal plugin host page:
 
 ### Sample UI plugins
 
-Repository hosting sample UI plugins: `git://gerrit.ovirt.org/samples-uiplugins` ([Gerrit web](http://gerrit.ovirt.org/gitweb?p=samples-uiplugins.git))
+Repository hosting sample UI plugins: <git://gerrit.ovirt.org/samples-uiplugins> ([Gerrit web](http://gerrit.ovirt.org/gitweb?p=samples-uiplugins.git))
 
 ### Real-world UI plugins
 
@@ -319,10 +326,6 @@ Using oVirt WebAdmin, make SSH connection to a host and emulate a terminal via [
 *   UI plugin source code: available from [sample UI plugin repository](#Sample_UI_plugins) as `shellinabox-plugin`
 
 ![Shell Box sub tab](ShellBox SubTab.png "fig:Shell Box sub tab")
-
-### References
-
-*   [Original design notes](Features/UIPluginsOriginalDesignNotes)
 
 ### Comments and discussion
 

@@ -33,6 +33,8 @@ Adding a new button/REST action (with configurable behavior, see later) would so
 
 *   Add VM action for reboot (subject to power-down policy)
 *   Add VM action for forced-reboot (precise name open to discussion)
+*   Add vm attribute for power-down policy
+*   Add vm attribute for graceful power-down delay
 
 ##### Backend
 

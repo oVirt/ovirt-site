@@ -10,7 +10,7 @@ wiki_last_updated: 2013-06-24
 
 ### Summary
 
-Support reboot in both engine and vdsm. Enable users to restart guest with single command.
+Support reboot in both engine and vdsm. Enable users to restart VM with single command.
 
 ### Detailed description
 

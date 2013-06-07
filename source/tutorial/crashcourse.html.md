@@ -20,7 +20,7 @@ The *oVirt Space Shooter* plugin we will create is based on [Alien Invasion](htt
 
 No prior [JavaScript](http://en.wikipedia.org/wiki/JavaScript) programming experience is required, just make sure you have an oVirt Engine [up and running](http://www.ovirt.org/Installing_ovirt-engine_from_rpm) on your system. Oh, and once we're done creating our plugin, be prepared to blast some aliens!
 
-Download complete plugin: [oVirt Space Shooter](media:Space-shooter-ui-plugin-06062013.tar.gz) (6.6.2013)
+Download complete plugin: [oVirt Space Shooter](Media:Space-shooter-ui-plugin-06062013.tar.gz) (6.6.2013)
 
 If you have any questions or find any issues, send your feedback to [Vojtech Szocs](User:Vszocs) <vszocs@redhat.com>
 

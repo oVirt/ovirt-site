@@ -24,11 +24,19 @@ Adding a new button/REST action (with configurable behavior, see later) would so
 
 ##### Frontend
 
-Add new button ![](reboot.png "fig:reboot.png") in the main VM toolbar between the current stop and console buttons.
+*   Add new button ![](reboot.png "fig:reboot.png") in the main VM toolbar between the current stop and console buttons.
+*   Add 'Reboot' option to the VM context menu.
+*   Add context menu option for forced reboot - equivalent of 'Power Off' for reboot.
+*   Add power-down policy selection checkbox (see later) and textbox for specifying delay for graceful period shutdown/reboot to EditVM dialog.
 
 ##### REST API
 
+*   Add VM action for reboot (subject to power-down policy)
+*   Add VM action for forced-reboot (precise name open to discussion)
+
 ##### Backend
+
+At the engine level we can differentiate between VMs that the user considers "important" and should not be forcibly terminated if the guest OS doesn't gracefully power down after given timeout and VMs which the users expects to be rebooted by any means necessary. This power-down policy should be specified as `vm_static` attribute and would by applied on both the shutown and the reboot action.
 
 ##### VDSM
 

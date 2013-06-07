@@ -30,9 +30,11 @@ Adding a new button/REST action (with configurable behavior, see later) would so
 
 ### Possible Issues
 
-*   Run Once behavior: Do we want to preserve the run-once configuration after reboot (effectively becoming "run-twice") or do we treat it as equivalent to stop(); start()? Do we provide option to the user to select the desired behavior?
+*   Run Once behavior
 
-<!-- -->
+Do we want to preserve the run-once configuration after reboot (effectively becoming "run-twice") or do we treat it as equivalent to stop(); start()?
+
+Do we provide option to the user to select the desired behavior?
 
 *   Stateless VM
 

@@ -74,7 +74,7 @@ Having the plugin descriptor in place, all that remains is plugin host page. Let
 
 And that's about it! **It takes only two files to create a minimal UI plugin.**
 
-*Simple things should be simple, complex things should be possible.* ([Alan Kay](http://en.wikiquote.org/wiki/Alan_Kay))
+*"Simple things should be simple, complex things should be possible."* ([Alan Kay](http://en.wikiquote.org/wiki/Alan_Kay))
 
 Without even restarting Engine, reload WebAdmin in your browser, log in and embrace the awesome *Woohoo!* alert window.
 

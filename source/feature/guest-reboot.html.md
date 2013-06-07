@@ -36,7 +36,7 @@ The current behavior in the engine requires the user who wishes to reboot VM to 
 
 ##### Backend
 
-At the engine level we can differentiate between VMs that the user considers "important" and should not be forcibly terminated if the guest OS doesn't gracefully power down after given timeout and VMs which the users expects to be rebooted by any means necessary. This power-down policy should be specified as `vm_static` attribute and would by applied on both the shutown and the reboot action. If the user would wish for the "harder" behavior he can edit the policy for given VM or just pick the appropriate action from the context menu.
+At the engine level we can differentiate between VMs that the user considers "important" and should not be forcibly terminated if the guest OS doesn't gracefully power down after given timeout and VMs which the users expects to be rebooted by any means necessary. This power-down policy should be specified as `vm_static` attribute and would by applied on both the shutown and the reboot action. If the user would wish for the "harder" behavior he can edit the policy for given VM or just pick the appropriate action from the context menu. We should also provide the user with the ability to specify the graceful-delay as another `vm_static` attribute. This delay will be used by VDSM/guest-agent and specifies how long to wait for the guest-agent/acpi until we return failure or resort to the forced destroy/reset.
 
 ##### VDSM
 

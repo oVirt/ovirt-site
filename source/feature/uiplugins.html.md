@@ -89,9 +89,9 @@ Following code snippet shows a sample plugin descriptor: `/usr/share/ovirt-engin
 
     }
 
-### Plugin user configuration (optional)
+### Plugin user configuration
 
-Plugin user configuration is used to override default plugin-specific configuration (if any) and tweak plugin runtime behavior.
+Plugin user configuration (optional) is used to override default plugin-specific configuration (if any) and tweak plugin runtime behavior.
 
 Following code snippet shows a sample plugin user configuration: `/etc/ovirt-engine/ui-plugins/myPlugin-config.json`
 

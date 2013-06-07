@@ -22,6 +22,8 @@ No prior [JavaScript](http://en.wikipedia.org/wiki/JavaScript) programming exper
 
 Download complete plugin: [oVirt Space Shooter](media:Space-shooter-ui-plugin-06062013.tar.gz) (6.6.2013)
 
+If you have any questions or find any issues, send your feedback to [Vojtech Szocs](User:Vszocs) <vszocs@redhat.com>
+
 ### Level 1: I Can Has UI Plugin
 
 Our journey starts in `/usr/share/ovirt-engine/ui-plugins` directory, home of plugin meta-data and other plugin resources. Let's go ahead and create [descriptor](Features/UIPlugins#Plugin_descriptor) for our plugin inside this directory:

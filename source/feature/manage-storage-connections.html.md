@@ -52,9 +52,11 @@ For iSCSI there will not be an option (in the scope of this feature) to edit the
 
 # REST
 
-In order to allow editing connections, a new root resource will be introduced that will allow add/edit/delete/get of connections to storage.
+TBD: model the new connection entity. Should represent several storage types.
 
-TODO: model the new connection entity. Should represent several storage types.
+### Get existing connection (GET)
+
+All storage connections will be accessible in a new root resource: api/connections. For each storage domain it should be possible to view (GET) its storage connections by approaching it via a specific subresource: /api/storagedomains/<storageDomainId>/connections. For each lun disk (direct lun) it should be possible to view (GET) its storage connections by approaching it via a specific subresource: /api/disks/<diskId>/connections. . Note - connections subresource for lun disks is not in scope for 3.3
 
 ### New connection (POST)
 
@@ -67,10 +69,6 @@ Deletion of connection will be possible only if no storage domain is connected t
 ### Update existing connection (PUT)
 
 It will be possible to update connection details when storage domain connected to it is in maintenance state. Most of connection fields can be updated (such as path/iqn/address/port/user/password) - each storage type has its relevant set of fields, id of connection will be immutable.
-
-### Get existing connection (GET)
-
-All storage connections will be accessible in a new root resource: api/connections. For each storage domain it should be possible to view (GET) its storage connections by approaching it via a specific subresource: /api/storagedomains/<storageDomainId>/connections. For each lun disk (direct lun) it should be possible to view (GET) its storage connections by approaching it via a specific subresource: /api/disks/<diskId>/connections. . Note - connections subresource for lun disks is not in scope for 3.3
 
 # Database
 

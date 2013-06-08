@@ -21,18 +21,29 @@ This feature adds the ability to edit, add and delete storage connections. This 
 
 ### Current Status and tasks
 
-Updated June 6 2013
+Updated June 8 2013
+
+#### GUI
 
 *   Edit NFS connection properties in webadmin UI - ready (http://gerrit.ovirt.org/#/c/12372/)
 *   Edit Posix connection properties in webadmin UI -ready (http://gerrit.ovirt.org/#/c/13640/)
-*   Allow deleting a connection only when it is not in use by any storage domain/direct lun. (in review) <http://gerrit.ovirt.org/#/c/15269/>
-*   Edit NFS, Posix connection properties in REST (design phase)
-*   Edit ISCSI connection properties in REST (design phase)
 *   Edit ISCSI connection properties in webadmin UI (not started)
+*   Add "connectivity test" functionality - not started.
+
+#### Server (backend)
+
+*   Allow deleting a connection only when it is not in use by any storage domain/direct lun. (in review) <http://gerrit.ovirt.org/#/c/15269/>
 *   Changes in new connection creation flow - Prevent addition of duplicate connections in AddStorageServerConnection command for file domains. (in review) <http://gerrit.ovirt.org/#/c/15388/>
 *   Extend functionality of existing AddStorageServerConnection command to create also iSCSI connections. (Currently a connection for block domains is created via AddSanStorageDomain command directly). (not started)
+
+#### REST (backend)
+
+*   Edit NFS, Posix connection properties in REST (design phase)
+*   Edit ISCSI connection properties in REST (design phase)
+
+#### Blockers
+
 *   Blocking bug in vdsm : <https://bugzilla.redhat.com/show_bug.cgi?id=950055>
-*   Add connectivity test functionality - not started.
 
 # Detailed Description
 

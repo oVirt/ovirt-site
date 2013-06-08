@@ -36,11 +36,9 @@ Updated June 6 2013
 
 # Detailed Description
 
-While in UI and REST storage domain and the storage connection are presented as one united entity to the user, current backend implementation actually manages them separately.
+While in UI and REST storage domain and the storage connection are presented as one united entity to the user, current backend implementation actually manages them separately. In order to allow user to edit the connection details, there's a need to separate the notion of storage domain from its connection details, and allow editing just the connection details without editing the storage domain itself.
 
-In order to allow user to edit the connection details, there's a need to separate the notion of storage domain from its connection details, and allow editing just the connection details without editing the storage domain itself.
-
-In the first phase, a connection may only be edited when all storage domains referencing it are set to maintenance state. It is the user's responsibility to make sure that after editing the connection the system can indeed reach the data/luns of the relevant storage domains.To ease the administration process, an optional connectivity test may be run to make sure that the storage is indeed accessible.
+In the first phase, a connection may only be edited when all storage domains referencing it are set to maintenance state. For direct lun (lun disks), in order to edit their storage connection, all VMs using those disks should be powered off. It is the user's responsibility to make sure that after editing the connection the system can indeed reach the data/luns of the relevant storage domains.To ease the administration process, an optional connectivity test may be run to make sure that the storage is indeed accessible.
 
 # GUI
 

@@ -22,8 +22,7 @@ This wiki page focuses on the design of storage I/O bandwidth Service Level Agre
 ## Current Status
 
 *   Status: design
-*   Last updated: 5 June
-*   patchset
+*   Last updated: 8 June
 
 ## Detailed Description
 
@@ -50,113 +49,75 @@ In the plan, we make use of this functionality to implement the IO bandwidth con
 
 ## Benefit to oVirt
 
-This feature will allow qos and SLA for storage bandwidth IO control.
+This feature will allow QoS and SLA for storage bandwidth IO control.
 
 ## Design
+
+### vDisk Profile in engine
+
+In order to define more natural coupling of the SLA to a vDisk of VM, we define a new concept called vDisk Profile in engine as network Profile. This will wrap few of the properties currently defined directly on the vDisk. vDisk profile includes: initial IO bandwidth limit value(optional, e.g. total_bytes_sec, if not set, it is 0 which implies no limit) MOM auto tuning range: max bandwidth limit, min bandwidth limit(required) decreased percent when congestion is detected increased percent when no congestion is detected other existing vDisk info
+
+A new average latency threshold (e.g.s/MB) should be added to storage domain and set in engine. This can be set at SD creation and stored in meta data of that domain.
+
+We suggest to use total_bytes_sec only as IO bandwidth limit, since it includes reading an writing operations and takes the IO size into account.
+
+When creating a new vDisk or editing an existing one the user will select a vDisk Profile. The administrator could create several vDisk Profiles for each storage domain. He could then grant a users with the permission to use some of the profiles.
+
+For example: the admin will create two vDisk profiles for storage domain SD-1:
+
+*   Profile "Gold" -
+    -   initial IO bandwidth limit value: 8MB/s
+    -   max bandwidth limit: 10MB/s
+    -   min bandwidth limit: 6MB/s
+    -   decreased percent when congestion is detected: 5%
+    -   increased percent when congestion is detected: 5%
+*   Profile "Silver" with lower QoS and enabled port mirroring.
+    -   initial IO bandwidth limit value: 5MB/s
+    -   max bandwidth limit: 7MB/s
+    -   min bandwidth limit: 3MB/s
+    -   decreased percent when congestion is detected: 10%
+    -   increased percent when congestion is detected:5%
+
+Higher priority user group can use profile "Gold", while lower priority user group can use profile "Silver".
+
+The vDisk Profile could be edited by the network administrator at any time. The changes will seep down to all vDisks using the profile. In case vDisk using the edited profile are connected to running VMs the change will apply only on the VM next started. Devices which will be hotpluged or updated will use the updated profile connected to the vDisk.
+
+When a Template is created from a VM the vDisk Profile will be kept along with the vDisk. When a VM is created from template the vDisk Profiles will be taken from the template's vdisks. vDisk Profiles could not be deleted from the engine as long as one or more VM/Templates are using those profiles. When a vDisk is exported and imported, a new profile should be selected which is related to an granted access to the user when the vm is powered on.
 
 ### Automatic per-device tuning for IO bandwidth limit(basic feature)
 
 In the following chapters, we will explain how to tune this IO bandwidth limit dynamically . The adjustment is performed by MOM. This section gives the way to set initial value. This value is used as start point when IO limit is adjusted. The IO limit is then tuned according to IO bandwidth usage.
 
-#### Initial IO limit value
+#### Initial IO bandwidth limit value
 
 The initial IO limit of vDisks bandwidth can be set to the value when vm is created, dynamically set via VDSM API. By default, it uses unlimited(0) and will be set to the bandwidth vDisk used when the congestion is detected by MOM.
 
 #### IO bandwidth limit tuning
 
-IO limit is tuned by a mechanism in MOM. Each vDisk has a priority and that may be derived from the priority of vm. For each vDisk, its IO bandwidth limit should be above a minimum limit value. This minimum value is associated with the priority. Higher priority vDisk has a larger minimum limit value. This ensures that higher priority vDisk has a higher IO limit when the IO bandwidth is quite scarce.
+IO limit is tuned by a mechanism in MOM. For each vDisk, its IO bandwidth limit should be in range (min bandwidth limit, max bandwidth limit) which is set in engine.
 
-e.g. minimum limit value of vDisk
+Here, we assume that vDisks can be either high priority or low priority. We use the following policy to automatic tuning the IO limit: First of all, mom should detect the congestion in local host. It uses the following method
 
-high priority: 8MB/s
+*   It collects latency, io/s and bytes/s info of every vm in this host from ovirt guest agent.
+*   The average latency is calculated:
 
-low priority: 4MB/s
+       SD average latency = sum of vDisk average latency/ vDisk average IO size* weight (for vDisks residing in the SD)
+       vDisk average IO size = bytes per second /io per second
+       weight = vDisk iops/sum of SD's vDisk iops
 
-These values are set different for different storage domains, since they have diverse backends.
-
-Here, we assume that vDisks can be either high priority or low priority. We use the following policy to automatic tuning the IO limit:
-
-*   If the I/O congestion of storage domain is detected:
-    -   IO limit of each vDisk is decreased by a certain percent. The percent are different for different priorities. After the tuning , the IO limit value should above minimum limit value of this vDisk.
-    -   e.g. The decreased percent of IO limit: high priority: 5%, low priority: 10%
-
-<!-- -->
-
-*   If the I/O congestion of storage domain is not detected:
+*   Check if the average latency exceed the threshold of SD (e.g.s/MB) and tune accordingly.
+    -   If the I/O congestion of storage domain is detected:
+        -   IO limit of each vDisk is decreased by a certain percent. After the tuning , the IO limit value should in the range of bandwidth limit of this vDisk.
+    -   If the I/O congestion of storage domain is not detected:
     -   IO limit of some vDisks are increased by a certain percent.
-    -   Different from congestion, vDisks of different priorities are increased by the same percent, but only part of vDisks' IO bandwidth limits are increased. The vDisks are those whose IO bandwidth limit cannot meet its requirements. During the selection of vDisks, it should distinguish the situation that vm actually uses most of its allocated bandwidth and it requests more but limited by the IO limit.
 
 #### Discussion
 
-There should be a way to detect I/O congestion of storage domain by MOM, and the way need to be discussed.
-
-How to judge that the vDisk need more IO bandwidth limit. This can be obtained from cmd like iostat in ovirt guest agent.
-
-Is it proper to use total_bytes_sec to describe vDisk bandwidth and tune this value dynamically?
-
-How to generate minimum IO limit?
-
-### Quota(advanced feature)
-
-#### Disk bandwidth quota
-
-As the design in <http://www.ovirt.org/Features/Quota>, quota provides the administrator a logic mechanism for managing resources allocation for users and groups in the Data Centre. You need to create the relevant quota, and define the user as a quota consumer .
-
-We would like to add one kind of quota for disk bandwidth IO control.
-
-For example, the following Quota configuration, is for A and B team:
-
-         Name: ExampleQuota
-         Description: Quota configured for A and B team
-         Data Center: Data_Center_1
-         Resource limitations:
-             Storage I/O bandwidth Limitations::
-                 Storage Domain 1:  total_bytes_sec 10MB/s
-                 Storage Domain 2: total_bytes_sec 8MB/s
-         List of Users/Groups:
-             A team
-             B team
-
-#### IO bandwidth limit and reserve
-
-A vm created by quota consumer(users/groups) consumes quota for the related storage domain. To better allocate this quota to vDisks of these VMs, we add a vDisk minimum IO limit value in VM's configuration. This value is used for reserving the bandwidth resource to VM's vDisk.
-
-When quota is a constant, we'd like to make sure:
-
-SD IO bandwidth quota for certain users >= sum of vDisk( related volume in this SD) minimum IO limit value
-
-The vms consume the quota are created by the users defined as consumer, and they should be in running, suspend, hibernate state, but not in shutdown state.
-
-We use the following policy:
-
-*   When a new vm is started, the operation will fail if others vDisks minimum IO limit value adding the new vm vDisks' minimum limit exceeds the quota.
-*   This vDisks minimum IO limit value can be adjusted dynamically.
-    -   If the minimum IO limit is deflated, it will not exceed the quota, the operation can always succeed.
-    -   If the minimum IO limit is inflated and will not exceed the quota, the operation can succeed. However, the operation will fail if the sum of new value and others vDisks minimum IO limit value exceeds the quota.
-
-As in the quota design, quota object parameters modifications can result in exceeding the resource limitations:
-
-*   reducing the disk IO limitation of some storage domain
-
-<!-- -->
-
-*   removing a user from the list of users permitted to use the quota
-
-All the above will not cause a resource deallocation. However, users will not be able to exceed the quota limitations again after the resources are released. Also, if a user was removed from the list of permitted users it won't result in an immediate interruptive action. However, that user won't be able to use this quota again, unless permitted to.
+There should be a way to detect I/O congestion of storage domain by MOM, and the way presented in this wiki need to be discussed. Is it proper to use total_bytes_sec to describe vDisk bandwidth and tune this value dynamically?
 
 ### Functionality
 
-Basic:
-
-Users can set the elements Detailed Description Section for a specific vDisk when a VM is created or running. These elements are kept in migration.
-
-This requires support of this in VDSM API: create VM, hot plug and update VM device. Dynamic setting these elements should also be supported.
-
-Advanced:
-
-Users can set the SD quota in engine and define cosumers(users/groups).
-
-Users can set the vDisk minimum IO limit in engine.
+Basic: Admin can created the SD profile and grant to users Users can select the profile for a specific vDisk when a VM is created . These elements are kept in migration. This requires support of this in VDSM API: create VM, hot plug and update VM device. Dynamic setting these elements should also be supported.
 
 ## Documentation / External references
 

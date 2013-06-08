@@ -42,8 +42,6 @@ In order to allow user to edit the connection details, there's a need to separat
 
 In the first phase, a connection may only be edited when all storage domains referencing it are set to maintenance state. It is the user's responsibility to make sure that after editing the connection the system can indeed reach the data/luns of the relevant storage domains.To ease the administration process, an optional connectivity test may be run to make sure that the storage is indeed accessible.
 
-The storage types that are in scope of this feature are: NFS, Posix, local, iSCSI. The new connection details should be of the same storage type as the original connection. For example, an NFS storage connection cannot be edited to point to iSCSI
-
 # GUI
 
 Storage domain and connection are managed together in webadmin UI in Storage tab --> specific storage domain entity open in a popup dialog. Till now, storage domain's edit was enabled only for active storage domains and allowed updating only their name and description.

@@ -65,13 +65,13 @@ When creating a new vDisk or editing an existing one the user will select a vDis
 
 For example: the admin will create two vDisk profiles for storage domain SD-1:
 
-*   Profile "Gold" -
+*   Profile "Gold"
     -   initial IO bandwidth limit value: 8MB/s
     -   max bandwidth limit: 10MB/s
     -   min bandwidth limit: 6MB/s
     -   decreased percent when congestion is detected: 5%
     -   increased percent when congestion is detected: 5%
-*   Profile "Silver" with lower QoS and enabled port mirroring.
+*   Profile "Silver"
     -   initial IO bandwidth limit value: 5MB/s
     -   max bandwidth limit: 7MB/s
     -   min bandwidth limit: 3MB/s

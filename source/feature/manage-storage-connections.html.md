@@ -8,13 +8,11 @@ wiki_revision_count: 207
 wiki_last_updated: 2014-07-13
 ---
 
-# Manage Storage Connections
-
-## Edit Connection Properties
+# Manage storage connections
 
 ### Summary
 
-This feature adds the ability to edit, add and delete storage connections. This is required in order to support configuration changes including adding paths for multipathing, changes of hardware, and ease failover to remote sites. by quickly switching to work with another storage that holds a backup/sync of the contents of the current storage in case of primary storage failure.
+This feature adds the ability to edit, add and delete storage connections. This is required in order to support configuration changes including adding paths for multipathing, changes of hardware, and ease failover to remote sites. by quickly switching to work with another storage that holds a backup/sync of the contents of the current storage in case of primary storage failure. The storage types that are in scope of this feature are: NFS, Posix, local, iSCSI. The new connection details should be of the same storage type as the original connection. For example, an NFS storage connection cannot be edited to point to iSCSI
 
 ### Owner
 
@@ -36,7 +34,7 @@ Updated June 6 2013
 *   Blocking bug in vdsm : <https://bugzilla.redhat.com/show_bug.cgi?id=950055>
 *   Add connectivity test functionality - not started.
 
-## Detailed Description
+# Detailed Description
 
 While in UI and REST storage domain and the storage connection are presented as one united entity to the user, current backend implementation actually manages them separately.
 
@@ -46,7 +44,7 @@ In the first phase, a connection may only be edited when all storage domains ref
 
 The storage types that are in scope of this feature are: NFS, Posix, local, iSCSI. The new connection details should be of the same storage type as the original connection. For example, an NFS storage connection cannot be edited to point to iSCSI
 
-## GUI
+# GUI
 
 Storage domain and connection are managed together in webadmin UI in Storage tab --> specific storage domain entity open in a popup dialog. Till now, storage domain's edit was enabled only for active storage domains and allowed updating only their name and description.
 
@@ -54,7 +52,7 @@ In the scope of this feature, in order to allow editing the connection's details
 
 For iSCSI there will not be an option (in the scope of this feature) to edit the connection (target) details in webadmin UI.
 
-## REST
+# REST
 
 In order to allow editing connections, a new root resource will be introduced that will allow add/edit/delete/get of connections to storage.
 
@@ -74,7 +72,7 @@ It will be possible to update connection details when storage domain connected t
 
 In addition, for each storage domain it should be possible to view (GET) its storage connections by approaching it via a specific subresource: /api/storagedomains/<storageDomainId>/connections
 
-## Database
+# Database
 
 Storage connections are managed today in storage_server_connections table. The edit action will update an existing record in this table. The connection id will remained unchanged, thus the references to the connection will remain correct and will not need a modification.
 

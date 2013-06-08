@@ -70,13 +70,13 @@ For example: the admin will create two vDisk profiles for storage domain SD-1:
     -   max bandwidth limit: 10MB/s
     -   min bandwidth limit: 6MB/s
     -   decreased percent when congestion is detected: 5%
-    -   increased percent when congestion is detected: 5%
+    -   increased percent when congestion is not detected: 5%
 *   Profile "Silver"
     -   initial IO bandwidth limit value: 5MB/s
     -   max bandwidth limit: 7MB/s
     -   min bandwidth limit: 3MB/s
     -   decreased percent when congestion is detected: 10%
-    -   increased percent when congestion is detected:5%
+    -   increased percent when congestion is not detected:5%
 
 Higher priority user group can use profile "Gold", while lower priority user group can use profile "Silver".
 

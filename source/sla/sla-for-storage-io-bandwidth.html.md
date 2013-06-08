@@ -96,7 +96,7 @@ The initial IO limit of vDisks bandwidth can be set to the value when vm is crea
 
 IO limit is tuned by a mechanism in MOM. For each vDisk, its IO bandwidth limit should be in range (min bandwidth limit, max bandwidth limit) which is set in engine. We use the following policy to automatic tuning the IO limit:
 
-*   MOM collects vDisk latency, io/s and bytes/s info of every vm in this host from ovirt guest agent.
+*   MOM collects vDisk io latency, io/s and bytes/s info of every vm in this host from ovirt guest agent.
 *   The average latency is calculated:
 
        average latency = sum of vDisk average latency/ vDisk average IO size* weight (for vDisks residing in the SD)
@@ -108,7 +108,7 @@ IO limit is tuned by a mechanism in MOM. For each vDisk, its IO bandwidth limit 
     -   If the I/O congestion of storage domain is detected:
         -   IO limit of each vDisk is decreased by a certain percent. After the tuning , the IO limit value should in the range of bandwidth limit of this vDisk.
     -   If the I/O congestion of storage domain is not detected:
-    -   IO limit of some vDisks are increased by a certain percent.
+        -   IO limit of some vDisks are increased by a certain percent.
 
 #### Discussion
 

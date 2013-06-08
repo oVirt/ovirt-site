@@ -55,7 +55,15 @@ This feature will allow QoS and SLA for storage bandwidth IO control.
 
 ### vDisk Profile in engine
 
-In order to define more natural coupling of the SLA to a vDisk of VM, we define a new concept called vDisk Profile in engine as network Profile. This will wrap few of the properties currently defined directly on the vDisk. vDisk profile includes: initial IO bandwidth limit value(optional, e.g. total_bytes_sec, if not set, it is 0 which implies no limit) MOM auto tuning range: max bandwidth limit, min bandwidth limit(required) decreased percent when congestion is detected increased percent when no congestion is detected other existing vDisk info
+In order to define more natural coupling of the SLA to a vDisk of VM, we define a new concept called vDisk Profile in engine as network Profile. This will wrap few of the properties currently defined directly on the vDisk. vDisk profile includes:
+
+initial IO bandwidth limit value(optional, e.g. total_bytes_sec, if not set, it is 0 which implies no limit)
+
+MOM auto tuning range: max bandwidth limit, min bandwidth limit(required)
+
+MOM auto tuning percent: decreased percent when congestion is detected, increased percent when no congestion is not detected
+
+other existing vDisk info
 
 A new average latency threshold (e.g.s/MB) should be added to storage domain and set in engine. This can be set at SD creation and stored in meta data of that domain.
 

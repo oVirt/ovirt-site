@@ -116,7 +116,11 @@ There should be a way to detect I/O congestion of storage domain by MOM, and the
 
 ### Functionality
 
-Basic: Admin can created the SD profile and grant to users Users can select the profile for a specific vDisk when a VM is created . These elements are kept in migration. This requires support of this in VDSM API: create VM, hot plug and update VM device. Dynamic setting these elements should also be supported.
+Basic: Admin can created the SD profile and grant to users
+
+Users can select the profile for a specific vDisk when a VM is created . These elements are kept in migration.
+
+Support in VDSM API: create VM, hot plug and update VM device. Dynamic setting these elements should also be supported.
 
 ## Documentation / External references
 

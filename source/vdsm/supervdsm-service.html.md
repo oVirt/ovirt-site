@@ -69,8 +69,8 @@ Supervdsm is responsible for all privileged operations. Currently Supervdsm is m
 
 1.  Vdsmd.init starts vdsm as vdsm user
 2.  Supervdsmd.init starts supervdsm as root
-3.  Both services are managed by respawn and start over again after crash
-4.  When vdsm cannot connect to supervdsm socket, it restarts supervdsm service 3 tries
+3.  Both services are managed by service manager and restart after a crash.
+4.  No need to handle broken connection. When supervdsm or vdsm fails to start an automatically restart takes care of establishing recommunication.
 
 ## Exception flows to consider
 

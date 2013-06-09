@@ -12,7 +12,7 @@ wiki_last_updated: 2014-07-13
 
 ### Summary
 
-This feature adds the ability to edit, add and delete storage connections. This is required in order to support configuration changes including adding paths for multipathing, changes of hardware, and ease failover to remote sites. by quickly switching to work with another storage that holds a backup/sync of the contents of the current storage in case of primary storage failure. The storage types that are in scope of this feature are: NFS, Posix, local, iSCSI. The new connection details should be of the same storage type as the original connection. For example, an NFS storage connection cannot be edited to point to iSCSI
+This feature adds the ability to add, edit and delete storage connections. This is required in order to support configuration changes including adding paths for multipathing, changes of hardware, and ease failover to remote sites, by quickly switching to work with another storage that holds a backup/sync of the contents of the current storage in case of primary storage failure. The storage types that are in scope of this feature are: NFS, Posix, local, iSCSI. The new connection details should be of the same storage type as the original connection. For example, an NFS storage connection cannot be edited to point to iSCSI
 
 ### Owner
 

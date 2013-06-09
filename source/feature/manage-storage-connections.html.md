@@ -53,11 +53,9 @@ In the first phase, a connection may only be edited when all storage domains ref
 
 # GUI
 
-Storage domain and connection are managed together in webadmin UI in Storage tab --> specific storage domain entity open in a popup dialog. Till now, storage domain's edit was enabled only for active storage domains and allowed updating only their name and description.
+Storage domain and connection are managed together in webadmin UI in Storage tab . Till now, storage domain's edit was enabled only for active storage domains and allowed updating only their name and description.
 
-In the scope of this feature, in order to allow editing the connection's details such as path/mount options, etc. for Posix and NFS storage domains, the edit button is now enabled for storage domains that are in maintenance state as well. In that case, name and description are disabled for edit.
-
-For iSCSI there will not be an option (in the scope of this feature) to edit the connection (target) details in webadmin UI.
+Previously edit domain button was disabled while the domain was in maintenance mode. In order to allow editing the connection details, the edit button will now be enabled. However, editing the domain name and description will be disabled when in this state as it requires connectivity to the storage. N.B. There will not be an option (in the scope of this feature in 3.3) to edit iSCSI connection details via the webadmin UI.
 
 # REST
 

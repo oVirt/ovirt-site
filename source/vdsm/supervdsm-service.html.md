@@ -12,7 +12,7 @@ wiki_last_updated: 2013-08-04
 
 ## General
 
-Supervdsm is responsible for all privileged operations. Currently Supervdsm is managed (started and restarted) by unprivileged process 'vdsm'. To perform that, Vdsm process runs privileged operations, manage process that runs as root, and communicate with it by external UDS. All that leads to races between new and old instances of the process. Aim of this feature is to get Vdsm to be a pure unprivileged process and simplify the handling of crashes and re-establish communication between Vdsm and Supervdsm after failures.
+Supervdsm is responsible for all privileged operations. Currently Supervdsm is managed (started and restarted) by unprivileged process 'vdsm' and vdsm starts up by init service manager. To perform that, Vdsm process runs privileged operations, manage process that runs as root, and communicate with it by external UDS. All that leads to races between new and old instances of the process. Aim of this feature is to get Vdsm to be a pure unprivileged deamon and simplify the handling of crashes and re-establish communication between Vdsm and Supervdsm after failures.
 
 ## Owner
 
@@ -24,27 +24,22 @@ Supervdsm is responsible for all privileged operations. Currently Supervdsm is m
 *   Email: <lvroyce@linux.vnet.ibm.com>
 *   Email: <ybronhei@redhat.com>
 
-## Current status
-
-*   Considering using dbus implementation for communication between the services.
-*   Authentication method is limited to only using hardcoded auth code that saved in file.
-
-## Background
+## Background - History until 3.3
 
 *   current solution
 
-1.  Vdsmd.init start vdsm with user “vdsm”
-2.  Launch supervdsm when it is not running by sudo command
-3.  Vdsm tries to call supervdsm
-4.  When authentication error, re-launch (kill old instance and initiate new one), other errors just raise
-5.  When vdsm dies, supervdsm distinguish it and kill itself automatically, next vdsm instance starts new supervdsm process
+1.  Vdsm deamon script starts vdsm with user “vdsm”
+2.  Vdsm process launches supervdsm process when it is not running by sudo command
+3.  Vdsm tries to send uds packets to supervdsm to establish communication
+4.  When authentication error is raised, vdsm tries to re-launch (kill old instance and initiate new one)
+5.  When vdsm crashes, supervdsm distinguish it and kill itself automatically, next vdsm instance starts new supervdsm process
 
 ![](First launch.jpeg "fig:First launch.jpeg")![](Normal call.jpeg "fig:Normal call.jpeg") ![](Auth error.jpeg "fig:Auth error.jpeg")
 
-*   Current problems
+*   Current flow errors
 
 1.  Unprivileged vdsm and proxy need to call previleged “sudo launch” and “sudo kill”
-2.  Redundent key between vdsm and supervdsm as they are parent and child
+2.  Redundant key between vdsm and supervdsm as they are parent and child
 3.  Error handling cause races between old and new instance of supervdsm and vdsm
 
 *   Last updated: ,
@@ -53,17 +48,17 @@ Supervdsm is responsible for all privileged operations. Currently Supervdsm is m
 
 *   Proposal A:[patch for proposal A](http://gerrit.ovirt.org/gitweb?p=vdsm.git;a=commit;h=976dbb13e6cd8136b12ed58ccd2a5176b730bddf)
 
-1.  Vdsmd.init starts vdsm as root
+1.  Vdsm init script starts vdsm as root
 2.  Vdsm forks supervdsm server and then drop privilege
-3.  When vdsm exit, supervdsm probe vdsm heart beat stop and exit
+3.  When vdsm exits, supervdsm probe vdsm heart beat stop and exit
 4.  Vdsm call supervdsm may discover supervdsm server exit, vdsm will exit itself and restart
 
 *   Proposal B:[patch for proposal B](http://gerrit.ovirt.org/gitweb?p=vdsm.git;a=commit;h=033ef4bc73dbbb36dd8180049626e7f4cde56334)
 
-1.  vdsmd.init starts supervdsm as root
-2.  supervdsm forks vdsm as child process
-3.  when vdsm dies, supervdsm kill itself and start over again
-4.  when supervdsm, vdsm distinguish that and kill itself
+1.  Vdsm init script starts supervdsm as root
+2.  Supervdsm forks vdsm as child process
+3.  When vdsm dies, supervdsm kill itself and start over again
+4.  When supervdsm, vdsm distinguish that and kill itself
 
 *   proposal C:[patch for proposal C](http://gerrit.ovirt.org/#/c/11051/) -> **Selected solution.**
 
@@ -76,18 +71,14 @@ Supervdsm is responsible for all privileged operations. Currently Supervdsm is m
 
 *   Exception flows:
 
-1.  One of supervdsm server export function raise error
-    -   expected result: raise to proxy caller
+1.  One of Supervdsm server export function raise error
+    -   Expected result: Raise to proxy caller, supervdsm restarts automatically without trying to call the same function again. The proxy caller should handle exceptions specifically.
 
-2.  Supervdsm main thread died during a call (need to test)
-    -   expected result: raise to proxy caller EOFError
-    -   supervdsm restarts automatically and vdsm call to the same function again
+2.  Supervdsm main thread died during a call or before call
+    -   Expected result: Raise to proxy caller related exception. Supervdsm proxy caller should handle exceptions specifically.
 
-3.  supervdsm main thread killed before call
-    -   expected result:restart supervdsm and call
-
-4.  vdsm crash
-    -   supervdsm stays up and vdsm re-establish communication to supervdsm socket
+3.  Vdsm crash
+    -   supervdsm stays up and vdsm re-establish communication to supervdsm socket after restart.
 
 ## Proposal comparison
 
@@ -129,15 +120,5 @@ As we can see from the above, proposal B will involve more complex logic when su
 
 1.  Clean vdsm priviledge usage
 2.  Clean and stable vdsm/supervdsm exception flow and races
-
-## Documentation / External references
-
-*   TODO: paste corresponding bugzilla link and gerrit link here
-
-## Comments and Discussion
-
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
-
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
 
 <Category:Feature> <Category:Vdsm>

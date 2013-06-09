@@ -75,7 +75,7 @@ Deletion of connection will be possible only if no storage domain is referencing
 
 ### Update existing connection (PUT)
 
-It will be possible to update connection details when storage domain connected to it is in maintenance state. Most of connection fields can be updated (such as path/iqn/address/port/user/password) - each storage type has its relevant set of fields, id of connection will be immutable.
+It will only be possible to update connection details when all storage domains referencing it are in maintenance mode. Most of the connection fields may be updated (such as path/iqn/address/port/user/password) - each storage type has its relevant set of fields. Connection ID however, will be immutable.
 
 # Database
 

@@ -38,21 +38,21 @@ vm_device table already has a is_readonly column. No update to the DB is needed.
 
 #### Backend
 
-AddDiskCommand, AttachDiskToVmCommand - Add the RO property and propagate until VMDevice creation.
-All relating Parameters classes should now contain this info. Therefore, VmDiskOperationParameterBase will be added a new readOnly data member.
+The following commands need amending in order to process read-only setting: AddDiskCommand (done, verified), AttachDiskToVmCommand (done) - Add the read-only property using params object and propagate until VMDevice creation.
+All relating Parameters classes should now contain this info, either using the Disk diskInfo object (if set), or a new readOnly data member (if diskInfo set to null).
 ImagesHandler.addDiskToVm() - will get the RO data and propagate it.
- No changes needed in:
-HotPlugDiskToVmCommand
-UpdateVmDiskCommand
-DetachDiskFromVmCommand
-CreateCloneOfTemplateCommand
-AddVmTemplateDevice
-AddVmFromTemplateCommand
-CreateSnapshotFromTemplate
-AddVmFromSnapshotCommand
-AddVmAndCloneImageCommand
-OvfReader.readVmDevice() (already reads the readOnly property).
+UpdateVmDiskCommand (step 2) - new disk read-only state is being read correctly at this point (verified), but vm_device is not updated at this point. The proper update should be added to the command at second phase
+ The following commands don't need any changes, but it should be verified that they don't affect the read-only setting: HotPlugDiskToVmCommand
+DetachDiskFromVmCommand - verify that attach after detach is consistent with read-only value before detaching.
+AddVmTemplateDevice - verify new disk's read-only state is the same as template's
+AddVmFromTemplateCommand - verify disk's read-only state in new vm is the same as template's
+AddVmFromSnapshotCommand - verify disk's read-only state in new vm is the same as snapshot's
+AddVmAndCloneImageCommand - verify new disk's read-only state is the same as original disk
+CreateSnapshotFromTemplate - verify disk's read-only state in new vm is the same as template's
+TryBackToAllSnapshotsOfVmCommand -(preview snapshot) - verify disk's read-only state is the same as snapshot's</br> RestoreAllSnapshotsCommand (undo & commit snapshot) </br> RunVmCommand - verify read-only disks are indeed so (done)
+ import, export: OvfReader.readVmDevice() (already reads the readOnly property).
 OvfWriter.writeVmDeviceInfo() (already writes the readOnly property).
+ ImagesHandler.addDiskToVm() - will get the RO data and propagate it.
 
 ##### Templates
 
@@ -64,7 +64,7 @@ Disks properties can be changed when creating a vm from template as it is.
 
 There's no need to save the images of RO disk to the images table.
 There is, however, a need to update the ovf file so that it does include the RO disks (images).
-Verified - the OvfReader does read the RO property, so no problem with snapshots uses.
+Verified - the OvfReader does read the RO property, so no changes need to be made to snapshots uses.
 
 #### UI
 

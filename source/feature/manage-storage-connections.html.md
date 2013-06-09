@@ -71,7 +71,7 @@ It will be possible to create a new connection without adding a storage domain a
 
 ### Delete connection
 
-Deletion of connection will be possible only if no storage domain is connected to it (orphan connection).
+Deletion of connection will be possible only if no storage domain is referencing it (orphan connection).
 
 ### Update existing connection (PUT)
 

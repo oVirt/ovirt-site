@@ -86,18 +86,18 @@ Supervdsm is responsible for all privileged operations. Currently Supervdsm is m
 
 1.  First launch
     -   A: Supervdsm server process lauched by priviledged vdsm, then vdsm drop priviledge
-    -   B: Supervdsm server process lauched by vdsmd.init
-    -   C: Supervdsm server process launched by supervdsmd.init
+    -   B: Supervdsm server process lauched by service manager
+    -   C: Supervdsm server process launched by service manager
 
 2.  One of supervdsm server export function raise error
-    -   A:Just raise to Proxy Caller
-    -   B:Just raise to Proxy Calller
-    -   C:Just raise to Proxy Calller
+    -   A: Raise to Proxy Caller
+    -   B: Raise to Proxy Calller
+    -   C: Raise to Proxy Calller
 
 3.  Supervdsm main thread killed when calling
     -   A: Discover when call return EOFError and then restart
     -   B: Vdsmd as supervdsm's child should kill itself when receive EOFError
-    -   C: Supervdsmd restarts supervdsmServer and vdsm call the method again
+    -   C: Services manager restarts supervdsm. Caller should handle the returned exception.
 
 4.  Supervdsm main thread killed before call
     -   A: Discover when "isRunning" raise error, then restart
@@ -107,12 +107,12 @@ Supervdsm is responsible for all privileged operations. Currently Supervdsm is m
 5.  Supervdsm server thread killed(not started) before call
     -   A: Connect error, restart
     -   B: Supervdsm restart itself
-    -   C: Supervdsmd restarts, if still doesn't work for 3 reties vdsm call panic and restarts
+    -   C: Service manager restarts Supervdsm.
 
 6.  Vdsm process died
-    -   A: Supervdsm has heart beat for vdsm to kill itself
-    -   B: Supervdsm joined vdsm and restart all over
-    -   C: Nothing.
+    -   A: Supervdsm has heart beat for Vdsm to kill itself
+    -   B: Supervdsm joined Vdsm and restart all over
+    -   C: Service manager restarts Vdsm.
 
 As we can see from the above, proposal B will involve more complex logic when supervdsm died, vdsm will probe its heart beat or supervdsm should kill vdsm for next time, but vdsm still in the middle of some operations, possible inconsistent situation will happen. Proposal C is intuitive, easier, and less complex than both A and B proposals. The main odd is that every code update of vdsm we need restart both services, as they both share same code.
 

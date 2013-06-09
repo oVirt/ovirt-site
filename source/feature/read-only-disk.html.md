@@ -54,7 +54,9 @@ AddVmFromTemplateCommand - verify disk's read-only state in new vm is the same a
 AddVmFromSnapshotCommand - verify disk's read-only state in new vm is the same as snapshot's.
 AddVmAndCloneImageCommand - verify new disk's read-only state is the same as original disk.
 CreateSnapshotFromTemplate - verify disk's read-only state in new vm is the same as template's.
-TryBackToAllSnapshotsOfVmCommand -(preview snapshot) - verify disk's read-only state is the same as snapshot's.</br> RestoreAllSnapshotsCommand (undo & commit snapshot).</br> RunVmCommand - verify read-only disks are indeed so (done).
+TryBackToAllSnapshotsOfVmCommand -(preview snapshot) - verify disk's read-only state is the same as snapshot's.
+RestoreAllSnapshotsCommand (undo & commit snapshot).
+RunVmCommand - verify read-only disks are indeed so (done).
 
 *   import, export:
 

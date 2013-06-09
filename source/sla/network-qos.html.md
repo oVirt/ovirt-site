@@ -179,6 +179,23 @@ After selecting a network the Profile selection box will be populated with all p
 **Profile Selection**
 ![](Profile_selection.png "fig:Profile_selection.png")
 
+#### Permissions
+
+In current implementation two roles are defined for networks:
+
+*   NetworkAdmin - can create/remove/edit/assign to cluster/configure for VM/ configure for Template on **Network** entity
+*   NetworkUser - can configure for VM/configure for Template on **Network** entity
+
+In The new implementation:
+
+*   NetworkAdmin - can create/remove/edit/assign to cluster/configure for VM/ configure for Template on **Network** entity
+*   NetworkAdmin - can create/remove/edit/configure for VM/configure for Template on **VNICProfile** entity
+*   NetworkUser - can configure for VM/configure for Template on **VNICProfile** entity
+*   [Optional] NetworkUser - can configure for VM/configure for Template on **Network** entity - this will allow the NetworkUser to use any VNICProfile attached to this Network
+
+NetworkAdmin permissions on **VNICProfile** entity will be added in the upgrade process.
+NetworkUser permission on **Network** entity will be changed to permissions on **VNICProfile** entity in the upgrade process
+
 #### Backend
 
 We define a new entity: NetworkProfile.

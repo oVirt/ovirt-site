@@ -170,7 +170,7 @@ A new dialog will be created for add/edit profile. the dialog will include the f
 * In clusters supporting version 3.2 or lower the QoS and Custom properties fields will be visible but disabled.
 
 '''Add/Edit Profile dialog"
-<IMAGE>
+![](Vnic_profile.png "fig:Vnic_profile.png")
 
 The Add/Edit VNIC dialog will be added a Profile selection box.
 The network which will be available for selection in the Network selection box will only be networks which the user have a permission to use at least on of their profiles.

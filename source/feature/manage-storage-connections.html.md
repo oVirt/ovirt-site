@@ -67,7 +67,7 @@ All storage connections will be accessible in a new root resource: api/connectio
 
 ### New connection (POST)
 
-It will be possible to create a new connection without adding a storage domain along with it, and later on create a storage domain and relate it to existing connection by providing the connection id.
+It will be possible to create a new connection without adding a storage domain along with it, and only later reference it from any domain by providing the connection id.
 
 ### Delete connection
 

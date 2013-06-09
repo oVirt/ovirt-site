@@ -89,7 +89,7 @@ For iSCSI, the reference to connection id is made via lun_storage_server_connect
 
 physical_volume_id is the id used by lvm, and since it will be copied by lun replication, it will be the same in the new (backup) lun, so it needs no update in db. lun_id can be the same or change during lun replication (setup dependent) - in the scope of this feature, the lun_id will remain the same cross the source and the target system, thus there is no need to update lun_id in db.
 
-# MLA (permissions
+# MLA (permissions)
 
 TBD
 

@@ -102,14 +102,14 @@ see : [QoS Feature overview](Features/Network_QoS)
 
 Add vnic_profiles table with 7 columns.
 
-| Column Name        | Column Type | Null? / Default | comments |
-|--------------------|-------------|-----------------|----------|
-| id                 | UUID        | key             |          |
-| name               | String      | Not Null        |          |
-| network_id        | UUID        | Not Null        |          |
-| qos_id            | UUID        | Null            |          |
-| port_mirroring    | Boolean     | Null            |          |
-| custom_properties | String      | Null            |          |
+| Column Name        | Column Type | Null? / Default | comments                      |
+|--------------------|-------------|-----------------|-------------------------------|
+| id                 | UUID        | key             |                               |
+| name               | String      | Not Null        |                               |
+| network_id        | UUID        | Not Null        |                               |
+| qos_id            | UUID        | Null            |                               |
+| port_mirroring    | Boolean     | Null            | moved from network_interface |
+| custom_properties | String      | Null            |                               |
 
 Add network_profile_id(UUID | null) to the **vm_interface** table - Represents the properties of the virtual NIC.
 

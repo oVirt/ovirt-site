@@ -40,8 +40,10 @@ Updated June 10 2013
 
 #### REST (backend)
 
-*   Edit NFS, Posix connection properties in REST (design phase)
-*   Edit ISCSI connection properties in REST (design phase)
+*   Create root resource for connections that will perform GET (not started)
+*   Add functionality to root resource for add/delete/edit NFS, Posix connection properties in REST (design phase)
+*   Add functionality to root resource for add/delete/edit ISCSI connection properties in REST (design phase)
+*   Create subresource for connections under domains (api/storagedomains/<domainId>/connections (not started)
 
 #### Blockers
 

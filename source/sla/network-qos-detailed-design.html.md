@@ -117,8 +117,6 @@ Add network_profile_id(UUID | null) to the **vm_interface** table - Represents t
 
 Not supported in this version
 
-#### VDSM
-
 ### Tests
 
 #### Expected unit-tests

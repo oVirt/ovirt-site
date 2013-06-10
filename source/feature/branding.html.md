@@ -32,9 +32,9 @@ Popup windows include anything that allows you create/edit/update a particular e
 *   Border
 *   Header image on the left
 *   Header center image
-*   Header right image
 
 As illustrated by the following image:
+![](popup-window-border.png "fig:popup-window-border.png")
 
 #### Login Screen
 

@@ -61,12 +61,12 @@ Add NetworkQoS table with 7 columns.
 | Column Name       | Column Type | Null? / Default |
 |-------------------|-------------|-----------------|
 | id                | UUID        |                 |
-| inbound_average  | Integer     |                 |
-| inbound_peak     | Integer     |                 |
-| inbound_burst    | Integer     |                 |
-| outbound_average | Integer     |                 |
-| outbound_peak    | Integer     |                 |
-| outbound_burst   | Integer     |                 |
+| inbound_average  | Integer     | Null            |
+| inbound_peak     | Integer     | Null            |
+| inbound_burst    | Integer     | Null            |
+| outbound_average | Integer     | Null            |
+| outbound_peak    | Integer     | Null            |
+| outbound_burst   | Integer     | Null            |
 
 Add network_QoS_id(UUID | null) to the **vm_interface** table - Represents the properties of the virtual NIC.
 Add network_QoS_id(UUID | null) and network_QoS_default_for_vnic_id(UUID | null) to the **network** table.

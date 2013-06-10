@@ -27,8 +27,8 @@ Updated June 10 2013
 
 *   Edit NFS connection properties in webadmin UI - ready (http://gerrit.ovirt.org/#/c/12372/)
 *   Edit Posix connection properties in webadmin UI -ready (http://gerrit.ovirt.org/#/c/13640/)
+*   Edit local storage connection properties in webadmin UI (in implementation)
 *   Edit ISCSI connection properties in webadmin UI (not started)
-*   Edit local storage connection properties in webadmin UI (not started)
 *   Add "connectivity test" functionality - not started.
 
 #### Server (backend)

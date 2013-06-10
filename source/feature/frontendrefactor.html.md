@@ -178,3 +178,5 @@ Another possible approach is to create a javascript sdk for the REST api, and th
 
 4.  Optimize performance by basically doing the opposite of above. We can take all the individual operations in the queue, and generate a single call to the server with all the operations in it. So if the queue contains 5 operations, then this gets turned into a single request to the server. The server will need to support this. Then when we get the result we can make the appropriate callbacks. This merging of the operations into a single call to the server will like only happen if there are a lot of calls coming into the queue at once and the connections are busy with other operations, which is precisely the time when we need to optimize things.
 5.  Since we are introducing state into a static class, we should instead everything being static , create a singleton and have the static methods reference that singleton.
+
+<Category:Design>

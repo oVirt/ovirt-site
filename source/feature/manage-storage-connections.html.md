@@ -34,7 +34,7 @@ Updated June 10 2013
 
 *   Allow deleting a connection only when it is not in use by any storage domain/direct lun. (in review) <http://gerrit.ovirt.org/#/c/15269/>
 *   Changes in new connection creation flow - Prevent addition of duplicate connections in AddStorageServerConnection command for file domains. (in review) <http://gerrit.ovirt.org/#/c/15388/>
-*   Extend functionality of existing AddStorageServerConnection command to create also iSCSI connections. (Currently a connection for block domains is created via AddSanStorageDomain command directly). (not started)
+*   Extend functionality of existing AddStorageServerConnection command to create also iSCSI connections. (Currently a connection for block domains is created via AddSanStorageDomain command directly). (in implementation)
 *   MLA (permissions) - not started
 
 #### REST (backend)

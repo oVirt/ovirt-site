@@ -50,15 +50,7 @@ A NetworkQoS object will be added as a property of the VnicProfile entity.
 
 ##### Classes
 
-***engine.core.common.businessentities.network.NetworkQoS**' - new entity with fields: inboundAverage(Integer), inboundPeak(Integer), inboundBurst(Integer), outboundAverage(Integer), outboundPeak(Integer), outboundBurst(Integer)
-***engine.core.common.businessentities.network.NetworkInterface**'' - add fields: networkQoS(NetworkQoS)
-***engine.core.common.businessentities.network.Network**'' - add fields: networkQoS(NetworkQoS)
-***engine.core.vdsbroker.vdsbroker.VmInfoBuilder**'' - add support to the QoS properties
-***engine.core.utils.ovf.OvfWriter**' - add support to the QoS properties
-***engine.core.utils.ovf.OvfReader**' - add support to the QoS properties
-***engine.core.dao.network.VmNetworkQoSDao**'' - new Dao
-***engine.core.dao.network.VmNetworkInterfaceDao**'' - add support to the NetworkQoS field
-***engine.core.dao.network.VmNetworkDao*** - add support to the NetworkQoS field
+'**'engine.core.common.businessentities.network.NetworkQoS**' - new entity with fields: inboundAverage(Integer), inboundPeak(Integer), inboundBurst(Integer), outboundAverage(Integer), outboundPeak(Integer), outboundBurst(Integer)
 
 #### DB Change
 

@@ -45,11 +45,12 @@ see : [QoS Feature overview](Features/Network_QoS)
 
 #### Backend
 
-We define a new entity called "NetworkQoS" - the QoS properties will be contained in this object. A NetworkQoS object will be added to NetworkInterface entity A new entity will be created (NetworkQoS) which will hold the QoS properties. NetworkQoS field will be added to NetworkInterface object and Network object. Fields values will be seved in DB and ovf.
+We define a new entity called "NetworkQoS" - the QoS properties will be contained in this object.
+A NetworkQoS object will be added as a property of the VnicProfile entity.
 
 ##### Classes
 
-***engine.core.common.businessentities.network.NetworkQoS**' - new entity with fields: inboundAverage(Integer), inboundPeak(Integer), inboundBurst(Long), outboundAverage(Integer), outboundPeak(Integer), outboundBurst(Long)
+***engine.core.common.businessentities.network.NetworkQoS**' - new entity with fields: inboundAverage(Integer), inboundPeak(Integer), inboundBurst(Integer), outboundAverage(Integer), outboundPeak(Integer), outboundBurst(Integer)
 ***engine.core.common.businessentities.network.NetworkInterface**'' - add fields: networkQoS(NetworkQoS)
 ***engine.core.common.businessentities.network.Network**'' - add fields: networkQoS(NetworkQoS)
 ***engine.core.vdsbroker.vdsbroker.VmInfoBuilder**'' - add support to the QoS properties

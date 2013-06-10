@@ -56,7 +56,7 @@ A NetworkQoS object will be added as a property of the VnicProfile entity.
 
 #### DB Change
 
-Add NetworkQoS table with 7 columns.
+Add network_qos table with 7 columns.
 
 | Column Name       | Column Type | Null? / Default |
 |-------------------|-------------|-----------------|

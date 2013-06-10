@@ -90,6 +90,15 @@ see : [QoS Feature overview](Features/Network_QoS)
 
 ##### Classes
 
+***engine.core.common.businessentities.network.VnicProfile*** - new class holding the VNIC profile properties ***engine.core.common.businessentities.network.NetworkInterface**'' - add fields: vnicProfile(VnicProfile)
+***engine.core.common.businessentities.network.Network**'' - add fields: nnicProfile(VnicProfile)
+***engine.core.vdsbroker.vdsbroker.VmInfoBuilder**'' - add support to the QoS properties
+***engine.core.utils.ovf.OvfWriter**' - add support to the QoS properties
+***engine.core.utils.ovf.OvfReader**' - add support to the QoS properties
+***engine.core.dao.network.VmVnicProfileDao**'' - new Dao
+***engine.core.dao.network.VmNetworkInterfaceDao**'' - add support to the VnicProfile field
+***engine.core.dao.network.VmNetworkDao**'' - add support to the VnicProfile field
+
 #### DB Change
 
 #### REST API

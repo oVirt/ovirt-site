@@ -50,7 +50,7 @@ UpdateVmDiskCommand (step 2) - new disk read-only state is being read correctly 
 
 HotPlugDiskToVmCommand- verify that hot-plug after hot-unplug is consistent with read-only value before unplugging.
 DetachDiskFromVmCommand
-AddVmTemplateDevice - verify new disk's read-only state is the same as template's.
+AddVmTemplateCommand - verify new disk's read-only state is the same as template's.
 AddVmFromTemplateCommand - verify disk's read-only state in new vm is the same as template's.
 AddVmFromSnapshotCommand - verify disk's read-only state in new vm is the same as snapshot's.
 AddVmAndCloneImageCommand - verify new disk's read-only state is the same as original disk.

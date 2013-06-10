@@ -46,10 +46,10 @@ All relating Parameters classes should now contain this info, either using the D
 ImagesHandler.addDiskToVm() - will get the RO data and propagate it.
 UpdateVmDiskCommand (step 2) - new disk read-only state is being read correctly at this point (verified), but vm_device is not updated at this point. The proper update should be added to the command at second phase.
 
-*   The following commands don't need any changes, but it should be verified that they don't affect the read-only setting:
+*   The following commands don't need any changes, but it should be verified that they don't affect the read-only setting and that UI isn't broken as a result:
 
-HotPlugDiskToVmCommand
-DetachDiskFromVmCommand - verify that attach after detach is consistent with read-only value before detaching.
+HotPlugDiskToVmCommand- verify that hot-plug after hot-unplug is consistent with read-only value before unplugging.
+DetachDiskFromVmCommand
 AddVmTemplateDevice - verify new disk's read-only state is the same as template's.
 AddVmFromTemplateCommand - verify disk's read-only state in new vm is the same as template's.
 AddVmFromSnapshotCommand - verify disk's read-only state in new vm is the same as snapshot's.

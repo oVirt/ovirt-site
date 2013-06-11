@@ -12,6 +12,13 @@ wiki_last_updated: 2013-06-11
 
 The goal of this page is to detail the performance optimizing and scalability improvement work done by the oVirt team, and to direct development resources to the most urgent tasks.
 
+## Scenarios
+
+*   1 server, 5 VMs. Idle.
+*   1 server, 5 VMs. 5 users logged in admin console.
+*   50 servers, 200 VMs (using FakeVDSM). Idle.
+*   50 servers, 200 VMs (using FakeVDSM). LDAP connectivity. 50 users logged in user console.
+
 ## Tasks
 
 ### Database Access
@@ -27,6 +34,10 @@ Enable the option of sending multiple insert/update stored procedure calls as a 
 *   Multi dimensional arrays
 
 Using multiple dimensional arrays as stored procedure parameters to replace the use of fnspliter
+
+*   Transaction boundaries
+
+Improve transaction boundaries, so transactions will decrease in duration and make better use of JavaEE transactions.
 
 ### UI/Admin
 

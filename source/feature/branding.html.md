@@ -66,4 +66,14 @@ As illustrated by the following image:
 
 #### Web admin main header
 
+The web admin main header has the following attributes that can be changed:
+
+*   Logo
+*   left and center background
+*   right background
+*   Text to the right of the logo
+
+As illustrated by the following image:
+![](Wed_admin_header.png "fig:Wed_admin_header.png") As the oVirt default branding is itself a branding theme you can look at the oVirt branding in packaging/branding/ovirt.branding in the source tree to see which css classes are available. The classes for the user portal header are in ovirt_webadmin.css
+
 #### Tabbing elements

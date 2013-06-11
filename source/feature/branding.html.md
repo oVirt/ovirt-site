@@ -113,4 +113,4 @@ The available messages are defined in ovirt_messages.properties which is a stand
 
 For additional information see the README.branding in the root of the oVirt source code tree.
 
-<Category:Features>
+<Category:Feature>

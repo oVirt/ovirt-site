@@ -53,7 +53,7 @@ Install 3rd party packages:
 
       # apt-get install git openjdk-7-jdk maven openssl postgresql \
           python-m2crypto python-psycopg2 python-cheetah python-daemon \
-          jboss-as
+          jboss-as unzip
 
 Download jboss-as-7.1.1 from [jboss site](http://www.jboss.org/jbossas/downloads/) and extract to $HOME.
 

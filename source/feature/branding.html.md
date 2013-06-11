@@ -77,3 +77,5 @@ As illustrated by the following image:
 ![](Wed_admin_header.png "fig:Wed_admin_header.png") As the oVirt default branding is itself a branding theme you can look at the oVirt branding in packaging/branding/ovirt.branding in the source tree to see which css classes are available. The classes for the user portal header are in ovirt_webadmin.css
 
 #### Tabbing elements
+
+![](User_portal_tab.png "fig:User_portal_tab.png") ![](User_portal_tab_popup.png "fig:User_portal_tab_popup.png")

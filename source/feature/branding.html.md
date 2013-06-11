@@ -49,9 +49,20 @@ The user portal and web admin share the same login screen, so in the default bra
 *   Text in the header center
 
 As illustrated by the following image:
-![](login-window.png "fig:login-window.png")
+![](login-window.png "fig:login-window.png") As the oVirt default branding is itself a branding theme you can look at the oVirt branding in packaging/branding/ovirt.branding in the source tree to see which css classes are available. The classes for the login window are in ovirt_common.css and gwt_common.css
 
 #### User portal main header
+
+The user portal main header has the following attributes that can be changed:
+
+*   Logo
+*   Center background image
+*   Right background image
+*   The border around the main grid
+*   Text right above the 'logged in user' label.
+
+As illustrated by the following image:
+![](User_portal_header.png "fig:User_portal_header.png") As the oVirt default branding is itself a branding theme you can look at the oVirt branding in packaging/branding/ovirt.branding in the source tree to see which css classes are available. The classes for the user portal header are in ovirt_user_portal.css
 
 #### Web admin main header
 

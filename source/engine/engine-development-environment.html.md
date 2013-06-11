@@ -168,7 +168,7 @@ If you do not wish to drop database and create it again, or you want do test the
 
 #### GWT Debug
 
-      $ make install-dev PREFIX="${HOME}/ovirt-engine"
+      $ make install-dev PREFIX="$HOME/ovirt-engine"
 `$ make gwt-debug DEBUG_MODULE=`<module>
 
 While <module> is webadmin or userportal-gwtp.

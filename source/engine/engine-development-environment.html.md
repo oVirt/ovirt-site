@@ -36,7 +36,7 @@ Install 3rd party packages:
 
       # yum install git java-devel maven openssl postgresql-server \
           m2crypto python-psycopg2 python-cheetah python-daemon \
-          jboss-as
+          jboss-as unzip
 
 Install ovirt packages:
 

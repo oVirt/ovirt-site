@@ -21,7 +21,7 @@ This feature adds the ability to add, edit and delete storage connections. This 
 
 ### Current Status and tasks
 
-Updated June 10 2013
+Updated June 11 2013
 
 #### GUI
 

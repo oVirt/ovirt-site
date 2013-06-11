@@ -35,7 +35,7 @@ Set up nightly repository `/etc/yum.repos.d/ovirt-nightly.repo`, replace `Fedora
 Install 3rd party packages:
 
       # yum install git java-devel maven openssl postgresql-server \
-          m2crypto python-psycopg2 python-cheetah python-daemon \
+          m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
           jboss-as unzip
 
 Install ovirt packages:

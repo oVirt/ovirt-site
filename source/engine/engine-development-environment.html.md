@@ -139,6 +139,10 @@ When performing code change which do not touch modify database, there is no need
 
 And start the engine service.
 
+To rebuild everything use:
+
+      make clean install-dev PREFIX="$HOME/ovirt-engine"
+
 ### Advanced Usage
 
 #### Enable Unit Tests

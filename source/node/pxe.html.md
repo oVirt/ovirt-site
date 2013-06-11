@@ -16,7 +16,7 @@ To prepare files, you need to do the following :
 
 1. download the iso file :
 
-      $ wget "`[`http://ovirt.org/releases/beta/tools/ovirt-node-iso-2.5.5-0.1.fc17.iso`](http://ovirt.org/releases/beta/tools/ovirt-node-iso-2.5.5-0.1.fc17.iso)`"
+      $ wget "`[`http://resources.ovirt.org/releases/beta/iso/ovirt-node-iso-2.6.1-20120228.fc18.iso`](http://resources.ovirt.org/releases/beta/iso/ovirt-node-iso-2.6.1-20120228.fc18.iso)`"
 
 Check if you have script "/usr/bin/livecd-iso-to-pxeboot". If so, skip steps 2, 3 and 4.
 
@@ -28,15 +28,15 @@ You can also yum install livecd-tool to get the script.
 
 3. Mount image on it :
 
-      $ mount -o loop ovirt-node-iso-2.5.5-0.1.fc17.iso iso
+      $ mount -o loop ovirt-node-iso-2.6.1-20120228.fc18.iso
 
 4. Extract needed informations with provided script :
 
-      $ ./iso/LiveOS/livecd-iso-to-pxeboot ovirt-node-iso-2.5.5-0.1.fc17.iso.iso
+      $ ./iso/LiveOS/livecd-iso-to-pxeboot ovirt-node-iso-2.6.1-20120228.fc18.iso
 
 or
 
-      $ livecd-iso-to-pxeboot ovirt-node-iso-2.5.5-0.1.fc17.iso
+      $ livecd-iso-to-pxeboot ovirt-node-iso-2.6.1-20120228.fc18.iso
 
 You now have a ./tftpboot folder.
 
@@ -47,7 +47,7 @@ You now have a ./tftpboot folder.
 This is an example of what needs to be outputed by ipxe script :
 
       #!ipxe
-      kernel `[`http://path/to/vmlinuz0`](http://path/to/vmlinuz0)` rootflags=loop initrd=initrd0.img root=live:/ovirt-node-iso-2.5.5-0.1.fc17.iso rootfstype=auto ro liveimg nomodeset check rootflags=ro crashkernel=512M-2G:64M,2G-:128M elevator=deadline install quiet rd_NO_LVM rd.luks=0 rd.md=0 rd.dm=0
+      kernel `[`http://path/to/vmlinuz0`](http://path/to/vmlinuz0)` rootflags=loop initrd=initrd0.img root=live:/ovirt-node-iso-2.6.1-20120228.fc18.iso rootfstype=auto ro liveimg nomodeset check rootflags=ro crashkernel=512M-2G:64M,2G-:128M elevator=deadline install quiet rd.lvm=0 rd.luks=0 rd.md=0 rd.dm=0
 `initrd `[`http://path/to/initrd0.img`](http://path/to/initrd0.img)
       boot
 

@@ -37,8 +37,7 @@ Popup windows include anything that allows you create/edit/update a particular e
 
 As illustrated by the following image:
 ![](popup-window-border.png "fig:popup-window-border.png")
-
-As the oVirt default branding is itself a branding theme you can look at the oVirt branding in packaging/branding/ovirt.branding in the source tree to see which css classes are available. The classes for the popup window are in ovirt_common.css and gwt_common.css
+ As the oVirt default branding is itself a branding theme you can look at the oVirt branding in packaging/branding/ovirt.branding in the source tree to see which css classes are available. The classes for the popup window are in ovirt_common.css and gwt_common.css
 
 #### Login Screen
 
@@ -51,7 +50,8 @@ The user portal and web admin share the same login screen, so in the default bra
 *   Text in the header center
 
 As illustrated by the following image:
-![](login-window.png "fig:login-window.png") As the oVirt default branding is itself a branding theme you can look at the oVirt branding in packaging/branding/ovirt.branding in the source tree to see which css classes are available. The classes for the login window are in ovirt_common.css and gwt_common.css
+![](login-window.png "fig:login-window.png")
+As the oVirt default branding is itself a branding theme you can look at the oVirt branding in packaging/branding/ovirt.branding in the source tree to see which css classes are available. The classes for the login window are in ovirt_common.css and gwt_common.css
 
 #### User portal main header
 
@@ -64,7 +64,8 @@ The user portal main header has the following attributes that can be changed:
 *   Text right above the 'logged in user' label.
 
 As illustrated by the following image:
-![](User_portal_header.png "fig:User_portal_header.png") As the oVirt default branding is itself a branding theme you can look at the oVirt branding in packaging/branding/ovirt.branding in the source tree to see which css classes are available. The classes for the user portal header are in ovirt_user_portal.css
+![](User_portal_header.png "fig:User_portal_header.png")
+As the oVirt default branding is itself a branding theme you can look at the oVirt branding in packaging/branding/ovirt.branding in the source tree to see which css classes are available. The classes for the user portal header are in ovirt_user_portal.css
 
 #### Web admin main header
 
@@ -76,7 +77,8 @@ The web admin main header has the following attributes that can be changed:
 *   Text to the right of the logo
 
 As illustrated by the following image:
-![](Wed_admin_header.png "fig:Wed_admin_header.png") As the oVirt default branding is itself a branding theme you can look at the oVirt branding in packaging/branding/ovirt.branding in the source tree to see which css classes are available. The classes for the user portal header are in ovirt_webadmin.css
+![](Wed_admin_header.png "fig:Wed_admin_header.png")
+As the oVirt default branding is itself a branding theme you can look at the oVirt branding in packaging/branding/ovirt.branding in the source tree to see which css classes are available. The classes for the user portal header are in ovirt_webadmin.css
 
 #### Tabbing elements
 
@@ -86,13 +88,15 @@ There are two types of tabbing elements in the user portal. The main page tabbin
 *   Inactive tab
 
 As illustrated by the following image:
-![](User_portal_tab.png "fig:User_portal_tab.png") A lot of pop-up windows will have a tabbing element on it as well these elements are common between the user portal and web admin interfaces. The following attributes can be changed:
+![](User_portal_tab.png "fig:User_portal_tab.png")
+A lot of pop-up windows will have a tabbing element on it as well these elements are common between the user portal and web admin interfaces. The following attributes can be changed:
 
 *   Active tab
 *   Inactive tab
 
 As illustrated by the following image:
-![](User_portal_tab_popup.png "fig:User_portal_tab_popup.png") As the oVirt default branding is itself a branding theme you can look at the oVirt branding in packaging/branding/ovirt.branding in the source tree to see which css classes are available. The classes for the tabbing elements are in ovirt_common.css and ovirt_user_portal.css
+![](User_portal_tab_popup.png "fig:User_portal_tab_popup.png")
+As the oVirt default branding is itself a branding theme you can look at the oVirt branding in packaging/branding/ovirt.branding in the source tree to see which css classes are available. The classes for the tabbing elements are in ovirt_common.css and ovirt_user_portal.css
 
 ## Adding new brandable styles
 

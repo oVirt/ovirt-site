@@ -6,9 +6,11 @@ wiki_revision_count: 20
 wiki_last_updated: 2014-04-30
 ---
 
-# Branding Support
+# Branding
 
-### Overview
+<big>Branding Support</big>
+
+## Overview
 
 The oVirt user portal and web admin recently obtained new functionality to allow one to partially skin/override some of the existing styles. This document gives a description of what is change-able and where to look to make it happen. The purpose of the current implementation is to prove the framework and give some basic styling abilities as well as some ability to change some of the messages. As the user portal and web admin are both web applications developed in GWT, they use standard cascading style sheets (CSS) to style the application. GWT does some magic to in-line styles to make them available faster, so to allow external styles takes a little bit work.
 
@@ -91,3 +93,24 @@ As illustrated by the following image:
 
 As illustrated by the following image:
 ![](User_portal_tab_popup.png "fig:User_portal_tab_popup.png") As the oVirt default branding is itself a branding theme you can look at the oVirt branding in packaging/branding/ovirt.branding in the source tree to see which css classes are available. The classes for the tabbing elements are in ovirt_common.css and ovirt_user_portal.css
+
+## Adding new brandable styles
+
+### CSS
+
+Because this is a GWT application most of the styles are compiled into the application when the application is build. As part of this process the style class names are obfuscated and they change each time the application is build. GWT provides some guidance on how to solve this problem [here](https://developers.google.com/web-toolkit/doc/latest/DevGuideClientBundle#External_and_legacy_scopes). In order to add new brand-able style classes the following will have to be considered:
+
+*   Any class name you define needs to marked with @external
+*   All the class names should start with obrand_ this is signify to theme authors that the class can be used to override styles.
+*   Any images normally cannot be changed with a style sheet, so we cheated a little and used style sheets to set the background image on an image tag. In order to not display a broken image icon you need to set the src of the image to something transparent and small. Luckily GWT provides an image like that already in 'clear.cache.gif'
+*   Other than this any normal style properties can be set in your external style sheet.
+
+### Text messages
+
+GWT provides a mechanism that allows you to define messages for your application and have them automatically translated during the compile process if you have provided a proper translation in a standard Java properties file. GWT provides a 'Messages' and 'Constants' interface for this purpose. Since the translations are compiled into the application during compile time this does not allow one to use an external file to override particular messages. In order to solve this we pass a messages Javascript object to the GWT application using the host page. This object is then processed and used to override some predefined messages.
+
+The available messages are defined in ovirt_messages.properties which is a standard Java resource bundle. The resource bundle is consumed and translated into a Javascript object and placed in the host page. Since it is a standard resource bundle you can have multiple locales.
+
+For additional information see the README.branding in the root of the oVirt source code tree.
+
+<Category:Features>

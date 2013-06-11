@@ -78,4 +78,16 @@ As illustrated by the following image:
 
 #### Tabbing elements
 
-![](User_portal_tab.png "fig:User_portal_tab.png") ![](User_portal_tab_popup.png "fig:User_portal_tab_popup.png")
+There are two types of tabbing elements in the user portal. The main page tabbing elements (to switch between basic and extended) and the tabs on the left side of the screen when you have the extended tab selected. The following attributes can be changed:
+
+*   Active tab
+*   Inactive tab
+
+As illustrated by the following image:
+![](User_portal_tab.png "fig:User_portal_tab.png") A lot of pop-up windows will have a tabbing element on it as well these elements are common between the user portal and web admin interfaces. The following attributes can be changed:
+
+*   Active tab
+*   Inactive tab
+
+As illustrated by the following image:
+![](User_portal_tab_popup.png "fig:User_portal_tab_popup.png") As the oVirt default branding is itself a branding theme you can look at the oVirt branding in packaging/branding/ovirt.branding in the source tree to see which css classes are available. The classes for the tabbing elements are in ovirt_common.css and ovirt_user_portal.css

@@ -162,6 +162,19 @@ If you do not wish to drop database and create it again, or you want do test the
 
       $ PGPASSWORD=engine ./backend/manager/dbscripts/upgrade.sh -u engine -d engine_dao 
 
+#### GWT Debug
+
+      $ make install-dev PREFIX="${HOME}/ovirt-engine"
+`$ make gwt-debug DEBUG_MODULE=`<module>
+
+While <module> is webadmin or userportal-gwtp.
+
+Debug port is 8000, usage instructions are available at[https://developers.google.com/web-toolkit/doc/latest/DevGuideCompilingAndDebugging 1](https://developers.google.com/web-toolkit/doc/latest/DevGuideCompilingAndDebugging 1).
+
+Common URLs, provided components running on same machine:
+
+:{| |- | WebAdmin || <http://127.0.0.1:8080/webadmin/webadmin/WebAdmin.html?gwt.codesvr=127.0.0.1:9997> |- | UserPortal || <http://127.0.0.1:8080/UserPortal/org.ovirt.engine.ui.userportal.UserPortal/UserPortal.html?gwt.codesvr=127.0.0.1:9997> |}
+
 ## Packaging
 
 ### RPM packaging

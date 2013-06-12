@@ -340,6 +340,8 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 20. in doc change parameters format to javaDoc style (done)
 
+21. make API.java thread safe
+
 ## Change Log
 
 [java-sdk-changelog](java-sdk-changelog)

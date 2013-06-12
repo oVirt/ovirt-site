@@ -56,6 +56,16 @@ Do we provide option to the user to select the desired behavior?
 
 *   Stateless VM
 
+Do we want to clear the state of VM or preserve the running state for the user?
+
+*   Pool VMs
+
+Same state consideration for the state as in Stateless VM + need to make sure we do the stop();start(); atomically so we do not enable the possibility for another user to "steal" this VM
+
+#### Current goals for oVirt 3.3
+
+Since most issues reside in the engine-level handling stop(); start() sequence for various special VM types the focus is now on implementing the soft version of reboot, that is implementable with minimal changes to both vdsm and guest-agent and on the engine side essentialy consists of adding a button and new command, and provides a feature to the users that covers a very common case when the configuration has not changed and the guest is willing to gracefully reboot. In the next release we would also focus on implementing the rest of the full reboot capabilities, with power-down policy and configurable delay for graceful shutdown.
+
 ### Owner
 
 *   Name: [Martin Betak](User:Mbetak)

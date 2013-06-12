@@ -70,7 +70,7 @@ Profile "Silver" with lower QoS and enabled port mirroring.
 
 He will then define the user-group "students" as user of profile "Silver" and user-group "teachers" as user of profile "Gold". In this case the teachers will enjoy better quality of service then the students. When a teacher will add/edit a virtual NIC he could select profile "Gold" for that NIC - the VNIC will be connected to network "blue" with high QoS and no port mirroring.
 
-The VNIC Profile could be edited by the network administrator at any time. The changes will seep down to all VNICs using the profile. In case VNIC using the edited profile are connected to running VMs the change will apply only on the VM next run. The engine will constantly monitor the actual configuration of the profile properties on the VNIC (using the network statistics mechanism) and the networked administrator will be presented with the state of each VNIC (synched/unsynched).
+The VNIC Profile could be edited by the network administrator at any time. The changes will seep down to all VNICs using the profile. In case VNIC using the edited profile are connected to running VMs the change will apply only on the VM next run. The engine will retrieve the actual configuration of the profile properties on the VNIC from VDSM (using the network statistics mechanism) and the networked administrator will be presented with the state of each VNIC (synched/unsynched).
 
 Hotplug and Dynamically Rewire will continue to be fully supported. Devices which will be hotpluged or rewired will use the updated profile connected to the VNIC.
 

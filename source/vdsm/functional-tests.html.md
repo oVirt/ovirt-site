@@ -41,7 +41,7 @@ mom.conf must include KSM and HostKSM in controllers and host collectors respect
 
 ### Balloon tests
 
-mom.conf must include Balloon and GuestBalloon in controllers and guest collectors respectively. For this test, you can reference <http://gerrit.ovirt.org/#/c/13156/>. This test requires at least one running vm equipped with active ovirt-guest-agent service before the tests.
+mom.conf must include Balloon in controllers, and HostMemory, GuestBalloon and GuestMemory in guest collectors. For this test, you can reference <http://gerrit.ovirt.org/#/c/13156/>. This test requires at least one running vm equipped with active ovirt-guest-agent service before the tests.
 
 # SOS Plugin Tests
 

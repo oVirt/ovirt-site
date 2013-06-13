@@ -12,30 +12,30 @@ wiki_last_updated: 2015-01-08
 
 ### Summary
 
-The aim of this feature is to make it possible to connect to VM consoles using HTML 5 VNC client called "noVNC" in browsers supporting websockets and HTML5 postMessage function (webkit browsers, Firefox, IE > 9).
+The aim of this feature is to make it possible to connect to VM consoles using HTML 5 VNC client called "noVNC" in browsers supporting websockets and HTML5 postMessage function (webkit browsers, Firefox, IE > 10).
 
 ### Status
 
-*   Engine part of implementation (loading noVNC client and making it connect to websocket proxy using postMessage) - PREPARING FOR REVIEW
+*   Engine part of implementation (loading noVNC client and making it connect to websocket proxy using postMessage) - DONE
 *   Websockets proxy customization - DONE
 *   Security over TLS - DONE
 
 ### Benefit to oVirt
 
 *   enhancing the possibilities of connecting to the console in oVirt
-*   there is no need to have native VNC client installed when using noVNC
+*   there is no need for userns to have native VNC client installed when using noVNC
 
 ### Details
 
-The noVNC client utilizes websockets for passing VNC data. However, VNC server in qemu doesn't support websockets natively and there must be a websocket proxy placed between the client and VNC server. This proxy can run either on any node that has access to the host network, or it can run on each host. Our implementation ensures both ways are possible.
+The noVNC client utilizes websockets for passing VNC data. However, VNC server in qemu doesn't support websockets natively and there must be a websocket proxy placed between the client and VNC server. This proxy can run either on any node that has access to the host network, or it can run on each host.
 
-      (Note: There is a patch that integrates websockets directly to qemu, but it will not be merged into DS at the time we need it to be there. As soon as it's merged, we should switch to using this  feature instead of standalone websockets server).
+      (Note: There is a patch that integrates websockets directly to qemu, but it  will not be merged into DS at the time we need it to be there. As soon as it's  merged, we should switch to using this  feature instead of standalone websockets server).
 
-The noVNC client is a html5 page with javascript which talks to websocket server (python-websockify). This page is served by the websocket server.
+The noVNC client is a html5 page with javascript which talks to websocket server (e.g. python-websockify). This page is served by engine itself.
 
-Upon establishing the VNC session, the noVNC client (HTML + js) must know where to connect. For passing such information, the HTML5 window.postMessage function can be used. As soon as the client receives the information, it connects to websockets proxy (and passes appopriate information to it via cookies).
+Upon establishing the VNC session, the noVNC client (HTML + js) must know where to connect. For passing such information, the HTML5 window.postMessage function can be used. As soon as the client receives the information, it connects to websockets proxy which runs on a particular host:port. Now the VNC information (vnc host:port, ticket) must be passed to the proxy to know where to connect. This information is passed via url path.
 
-The websockets proxy reads data from cookies and establishes connection to the VNC server.
+The websockets proxy reads data from the path and establishes connection to the VNC server.
 
 ### noVNC client and python-websockify customization
 
@@ -45,9 +45,12 @@ There are two changes that must be made to noVNC client and websockify.
 
 For our purposes, the noVNC client html page must listen to VNC information passed from the engine using HTML5 postMessage. This requires adding event listener "message" to the page. The handler receives information required for establishing VNC connection via websockets and passes it to websockets proxy. This information is:
 
-*   vnc websockets proxy host:port
 *   vnc host:port
 *   vnc password (ticket)
+
+Additional information that client has to know is:
+
+*   websocket proxy host:port (passed via parameters in url)
 
 The implementation modifies vnc_auto.html page that comes from noVNC client.
 
@@ -55,52 +58,30 @@ The implementation modifies vnc_auto.html page that comes from noVNC client.
 
 The implementation is based on nova-novnc proxy which reads a token from a cookie, makes an rpc call to the nova consoleauth node and retrieves all connection information (which is connected to this token).
 
-In VDSM we have no such thing as nova token. We must pass all the connection info in the cookie. This information is:
-
-*   vnc host:port
-*   password(ticket)
+In VDSM we have no such thing as nova token. We must pass all the connection info somehow. In the initial implementation it was passed via a cookie. However the new implementation passes it using url path.
 
 After the proxy receives the data, it establishes the vnc connection.
-
-### Schema
-
-TODO tbd
 
 ### Location of the websockets server
 
 There are three possible places where the websocket server can run:
 
 1.  On the machine where engine runs
-2.  On single machine outside engine internal network (FWs would still apply)
-3.  On each host
+2.  On single machine where engine does not run
+3.  (On each host)
 
 The implementation support each of these scenarios, the behavior in the engine is set in vdc_options.
 
 ### Security considerations
 
-The websocket server runs on a specific port and allows clients to connect to any port on its machine. This is potential security risk (the attacker could bypass the firewall on server). For further info see <https://github.com/kanaka/noVNC/issues/49>. OpenStack implements customized version of the proxy (openstack-nova-novncproxy package) and verifies the security related information before connection to the target host is actually created. With oVirt this is not easily possible since we don't store the VNC ticket in the engine (afaik the only place in the system with knowledge of the ticket, is the target host), so the verification is impossible. This has to be discussed.
+The websocket server runs on a specific port and allows clients to connect to any port on its machine. This is potential security risk (the attacker could bypass the firewall on server). For further info see <https://github.com/kanaka/noVNC/issues/49>. OpenStack implements customized version of the proxy (openstack-nova-novncproxy package) and verifies the security related information before connection to the target host is actually created. With oVirt this is not easily possible since we don't store the VNC ticket in the engine (afaik the only place in the system with knowledge of the ticket, is the target host), so the verification is impossible.
 
-(Maybe the alternative would be to run the websockets server on a separate machine (point #3 in previous paragraph -- TODO add a link) and configure the FW to restrict connections from this machine to hosts and ports that conform to VNC endpoints).
-
-In any case, the websocket proxy must have restricted access to hosts (only allow access to ports that conform to VNC).
+To address this issues, the websocket proxy uses digital signature to verify vnc data. This data is signed by the engine.
 
 ### Secure communication
 
-Secure communication is ensured by using TLS. For this reason, websockets server must posses a key and certificate of a server that serves the noVNC client files. The current implementation FORBIDS insecure communication which implies that the websockets proxy instance(s) must be aware of some key/cert pair (which is not protected by a password [e.g.] VDSM key/cert pair).
+Secure communication is ensured by using TLS. For this reason, websockets server must posses a key and certificate that is used for TLS communication. Moreover the certificate must be trusted by users in their web browsers!
 
-The distribution of the key/certificate must be discussed, it depends on the where are the client files served from:
-
-*   Client is served the engine/other (single) machine
-    -   In this case the key/cert of the engine can be used. In this case the key/cert must be pulled out of the engine's keystore.
-
-      Note the websocket proxy assumes the key/cert pair to be in PEM without password protection.
-
-*   Client is served from hosts
-    -   In this case each host runs its own websockets proxy which serves the client
-    -   The vdsm certificate (in PEM format) could be used for websocket proxy.
-
-### Downloads
-
-TODO add tarball
+The creation of key/cert pair could be part of engine setup process (together with jboss, apache and engine key/cert pairs).
 
 <Category:Feature>

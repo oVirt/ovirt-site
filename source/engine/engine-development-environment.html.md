@@ -112,7 +112,7 @@ Build product and install at `$HOME/ovirt-engine`, execute the following as unpr
 
       $ make install-dev PREFIX="$HOME/ovirt-engine"
 
-Build may be customized, refer to [README.developer](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.developer;hb=HEAD) for farther information.
+Build may be customized, refer to [README.developer](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.developer;hb=HEAD) for further information.
 
 Setup product by executing the following command and replying to questions, if you followed the database creation above then your database user is 'engine', its password is 'engine' and the database name is 'engine':
 

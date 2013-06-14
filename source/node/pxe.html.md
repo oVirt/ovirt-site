@@ -16,7 +16,7 @@ To prepare files, you need to do the following :
 
 1. download the iso file :
 
-      $ wget "`[`http://resources.ovirt.org/releases/beta/iso/ovirt-node-iso-2.6.1-20120228.fc18.iso`](http://resources.ovirt.org/releases/beta/iso/ovirt-node-iso-2.6.1-20120228.fc18.iso)`"
+      $ wget "`[`http://resources.ovirt.org/releases/3.2/iso/ovirt-node-iso-2.6.1-20120228.fc18.iso`](http://resources.ovirt.org/releases/3.2/iso/ovirt-node-iso-2.6.1-20120228.fc18.iso)`"
 
 Check if you have script "/usr/bin/livecd-iso-to-pxeboot". If so, skip steps 2, 3 and 4.
 

@@ -254,4 +254,4 @@ User may want to configure vdc_options to overwrite the default values, these co
 *   Overwrite the default values. Currently, only attestation server must be specified and modified, for other options, it is okay with the default value, please follow these script to modify "AttestationServer" :
 
       insert into vdc_options (option_name, option_value) values (' AttestationServer','oat-server');
-      update vdc_options set option_value = ‘oat-server. ***.com’ where option_name = 'AttestationServer
+      update vdc_options set option_value = ‘oat-server. ***.com’ where option_name = 'AttestationServer'

@@ -129,6 +129,18 @@ And subsequently fix the NicMapper to map properly from VmInterface to NIC and v
 
 As this is a 3.3 feature, all 3.2 (and down) cluster related entities should not be allowed (at the GUI level ) to customize device properties. In the engine special care needs to be taken at canDoAction to disallow custom device properties for 3.2 and down.
 
+### Testing
+
+*   Use the engine-config tool to insert the property 'label': 'red' to vNics, and 'capped': 'True' to disks. Specify the regex on the 'capped' property to 'True|False'
+*   Verify that the properties were inserted into the DB
+*   From the Engine, edit a vNic and place the label property, and the capped property on a disk
+*   Verify that you may only place the label property on vNics and not disks, and the capped property on disks and not vNics.
+*   Verify that the 'True|False' regex works properly on 'capped'
+*   Examine the vdsm.log to verify that the custom properties were sent during the updateDevice verb
+*   [Create a new VDSM hook](Vdsm_Hooks) that occurs during before updateDevice that prints the value for the 'label' and 'capped' environment variables, and the domxml of the device the hook received
+*   Verify that when the device received is a nic, 'red' is printed, and when the device received is a disk, 'True' is printed
+*   Finally, use the same hook for all relevant hook points: vmCreate, vmHotplugNic, vmHotunplugNic, vmHotplugDisk, vmHotunplugDisk, vmMigrate
+
 ### Documentation / External references
 
 *   Benoit ML asking for per-vNIC custom properties: <http://lists.ovirt.org/pipermail/users/2012-November/010857.html>

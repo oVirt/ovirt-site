@@ -54,7 +54,7 @@ Just another step in offering some enhanced networking stuff in Node.
 
 ### Documentation / External references
 
-*   Coming Soon
+*   <https://bugzilla.redhat.com/show_bug.cgi?id=831318>
 
 ### Comments and Discussion
 

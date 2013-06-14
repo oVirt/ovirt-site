@@ -40,6 +40,8 @@ This syntax will be represented in three new config keys:
     OVIRT_BOND_SLAVES
     OVIRT_BOND_OPTIONS
 
+The created bond device can then be modified like any other device (e.g. a VLAN can be assigned)
+
 ### Benefit to oVirt
 
 Just another step in offering some enhanced networking stuff in Node.

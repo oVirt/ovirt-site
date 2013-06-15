@@ -40,6 +40,10 @@ wiki_last_updated: 2015-05-29
 
 *   ~~running vdsClient from the project root dir ends with tears. Some PYTHONPATH games should fix this.~~ done.
 
+<!-- -->
+
+*   require only what we actually use in libvirt, instead of the whole libvirt.rpm.
+
 ### Testing
 
 *   ~~write an automatic script that runs on each and every new change to gerrit, and adds an insulting comment if `pyflakes` fails for the new change.~~ Thanks, Robert!

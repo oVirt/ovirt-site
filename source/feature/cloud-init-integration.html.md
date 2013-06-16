@@ -65,7 +65,7 @@ There is a long list of configuration options supported by cloud-init. The ones 
 Some additional options for later investigation:
 
 *   create users and/or set user passwords
-*   auto-generate system ssh key (public & private)
+*   auto-generate system ssh key (public & private) - should consider using [virtio-rng before doing so](http://libvirt.org/formatdomain.html#elementsRng)
 *   assign system ssh key to user-specified value (public & private)
 *   "phone home" once system is up
 *   shut down and/or reboot

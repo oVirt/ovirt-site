@@ -4,6 +4,7 @@ authors: amedeos, danken, gpadgett, herrold, ofrenkel, sven, vfeenstr
 wiki_title: Features/Cloud-Init Integration
 wiki_revision_count: 18
 wiki_last_updated: 2014-12-22
+wiki_warnings: references
 ---
 
 # Cloud-Init Integration
@@ -156,11 +157,29 @@ Related features:
 
 ### Documentation / External References
 
-1.  Cloud-init documentation: <https://launchpad.net/cloud-init/>
-2.  Config-Drive version 2 readme: <http://bazaar.launchpad.net/~cloud-init-dev/cloud-init/trunk/view/head:/doc/sources/configdrive/README.rst>
-3.  OpenStack meta-data example: <http://docs.openstack.org/trunk/openstack-compute/admin/content/config-drive.html>
-4.  User-data example: <http://bazaar.launchpad.net/~cloud-init-dev/cloud-init/trunk/view/head:/doc/examples/cloud-config.txt>
+<references>
+1.  [5]
+2.  [6]
+3.  [7]
+4.  [8]
 
+<references>
 ### Comments and Discussion
 
 *   Refer to [Talk:Cloud-Init Integration](Talk:Cloud-Init Integration)
+
+[1] 
+
+[2] 
+
+[3] 
+
+[4] 
+
+[5] Cloud-init documentation: <https://launchpad.net/cloud-init/>
+
+[6] "Config-Drive version 2 readme: <http://bazaar.launchpad.net/~cloud-init-dev/cloud-init/trunk/view/head:/doc/sources/configdrive/README.rst>
+
+[7] OpenStack meta-data example: <http://docs.openstack.org/trunk/openstack-compute/admin/content/config-drive.html>
+
+[8] User-data example: <http://bazaar.launchpad.net/~cloud-init-dev/cloud-init/trunk/view/head:/doc/examples/cloud-config.txt>

@@ -58,7 +58,7 @@ This feature will also allow new feaures to build on it.
 
 Engine and external scheduler API:
 
-*   Discover(void): returns a JSON containing all available policy units and configurations (configuration is optional).
+*   Discover(void): returns a XML containing all available policy units and configurations (configuration is optional).
 
 Discover will iterate all plugins and config files and extract the data.
 

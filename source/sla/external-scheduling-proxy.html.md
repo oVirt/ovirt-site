@@ -105,7 +105,7 @@ runCostFunctions will execute a set of cost function plugins sequentially (provi
 
 #### runLoadBalancing
 
-*   <UUID, List<UUID>> runLoadBalancing(balanceName, Hosts(as xml), properties_map)
+*   Map <UUID, List<UUID>> runLoadBalancing(balanceName, Hosts(as xml), properties_map)
 
 Will execute the balance plugin named balance name on the hosts and properties_map.
 

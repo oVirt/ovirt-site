@@ -100,7 +100,7 @@ runFilters will execute a set of filters plugins sequentially (provided as a nam
 
 #### runCostFunctions
 
-*   List<UUID, int> runCostFunctions(<costFunction,Factor>List, Hosts(as xml), VM(as xml), properties_map)
+*   Map<UUID, int> runCostFunctions(<costFunction,Factor>List, Hosts(as xml), VM(as xml), properties_map)
 
 runCostFunctions will execute a set of cost function plugins sequentially (provided as a name list), then calculate a cost table (using factors) and return it to the engine.
 

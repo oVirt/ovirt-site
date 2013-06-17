@@ -46,7 +46,7 @@ This feature is building on the [oVirt sceduler API](oVirtSchedulerAPI) feature.
 
 ### Documentation / External references
 
-#### Discover
+#### discover
 
 Engine and external scheduler API:
 

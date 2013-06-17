@@ -277,7 +277,7 @@ The external scheduler is a daemon and its purpose is for oVirt users to extend 
       ssl=true/false (true)
       plugins_path=/path ($PYTHONPATH/ovirt_scheduler/plugins)
 
-Additionally for every python plugin an optional config file can be added (etc/ovirt/scheduler/plugins/{NAME}.conf).
+*   Additionally for every python plugin an optional config file can be added (etc/ovirt/scheduler/plugins/{NAME}.conf).
 
 #### External Daemon RPCs
 

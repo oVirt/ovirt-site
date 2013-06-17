@@ -285,7 +285,7 @@ Engine and external scheduler API:
 
 *   Discover(void): returns a JSON containing all available policy units and configurations (configuration is optional).
 
-Dicover will iterate all plugins and config files and extract the data.
+Discover will iterate all plugins and config files and extract the data.
 
 Sample:
 

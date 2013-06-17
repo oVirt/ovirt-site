@@ -26,6 +26,16 @@ wiki_last_updated: 2013-10-07
 
 ### Detailed Description
 
+The external scheduler is a daemon and its purpose is for oVirt users to extend the scheduling process with custom python filters, scoring functions and load balancing functions. As mentioned above any plugin file {NAME}.py must implement at least one of the functions. The service will be started by the installer, and the engine will be able to communicate with it using XML-RPC.
+
+*   Scheduler conf file (etc/ovirt/scheduler/scheduler.conf), optional (defaults):
+
+      listerning port=# (18781)
+      ssl=true/false (true)
+      plugins_path=/path ($PYTHONPATH/ovirt_scheduler/plugins)
+
+*   Additionally for every python plugin an optional config file can be added (etc/ovirt/scheduler/plugins/{NAME}.conf).
+
 ### Benefit to oVirt
 
 ### Dependencies / Related Features

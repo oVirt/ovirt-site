@@ -38,6 +38,8 @@ The external scheduler is a daemon and its purpose is for oVirt users to extend 
 
 ### Benefit to oVirt
 
+The external scheduler will allow system administrators to extend the scheduling logic by writing host selection filters in python.
+
 ### Dependencies / Related Features
 
 ### Documentation / External references

@@ -46,6 +46,10 @@ This feature is building on the [oVirt sceduler API](oVirtSchedulerAPI) feature.
 
 ### Documentation / External references
 
+* All except discover function returns UUID instead of a full business entity since there is no need for serialization.
+
+* Prior to invoking the remote procedure, the engine translates Host and VM business entities to their REST representations (rest mappers) and then convert it to XML string (using JAXB marshaling), then in the daemon it will be serialized back to python entity using ovirt-python-sdk (import ovirtsdk.xml.params.parseString auto generated module). This is similar to the way REST-API works.
+
 #### discover
 
 Engine and external scheduler API:
@@ -84,12 +88,6 @@ The engine will call this method during initialization to expose all plugins. It
          * additional plugins: audit log.
          * deleted plugins: need to make sure that the plugins isn't in use, if so disable the policy and audit log.
          * edited plugins: save checksum?
-
-The following methods are similar to the engine's flow explained above with one exception: serialization.
-
-* Returns UUID instead of a full business entity (no need for serialization).
-
-* Prior to invoking the remote procedure, the engine translates Host and VM business entities to their REST representations (rest mappers) and then convert it to XML string (using JAXB marshaling), then in the daemon it will be serialized back to python entity using ovirt-python-sdk (import ovirtsdk.xml.params.parseString auto generated module). This is similar to the way REST-API works.
 
 #### runFilters
 

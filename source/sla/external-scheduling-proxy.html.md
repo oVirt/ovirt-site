@@ -30,9 +30,9 @@ The external scheduler is a daemon and its purpose is for oVirt users to extend 
 
 *   Scheduler conf file (etc/ovirt/scheduler/scheduler.conf), optional (defaults):
 
-      listerning port=# (18781)
-      ssl=true/false (true)
-      plugins_path=/path ($PYTHONPATH/ovirt_scheduler/plugins)
+      #listerning port=18781
+      #ssl=true
+      #plugins_path=$PYTHONPATH/ovirt_scheduler/plugins
 
 *   Additionally for every python plugin an optional config file can be added (etc/ovirt/scheduler/plugins/{NAME}.conf).
 

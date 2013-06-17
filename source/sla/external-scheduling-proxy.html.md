@@ -42,6 +42,8 @@ The external scheduler will allow system administrators to extend the scheduling
 
 ### Dependencies / Related Features
 
+This feature is building on the [oVirt sceduler API](oVirtSchedulerAPI) feature.
+
 ### Documentation / External references
 
 ### Testing

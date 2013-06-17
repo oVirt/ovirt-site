@@ -64,26 +64,25 @@ Discover will iterate all plugins and config files and extract the data.
 
 Sample of data returned by the discover function:
 
-         {
-           "PolicyUnits": {
-             "Filters": {
-               "Filter": [
-                 { "name": "Memory" },
-                 {
-                   "name": "Heat",
-                   "filter_custom_properties": "server_ip=\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b;threshold={0-99}",
-                   "default_values": "127.0.0.1;70"
-                 }
-               ]
-             },
-             "CostFunctions": {
-               "CostFunction": { "name": "Memory" }
-             },
-             "Balances": {
-               "Balance": { "name": "Memory" }
-             }
-           }
-         }
+`     `<PolicyUnits>
+`       `<Filters>
+`         `<Filter>
+`           `<name>`Memory`</name>
+`           `<Properties>
+`             `<name>`Heat`</name>
+`             `<custom_properties>`server_ip=\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b;threshold={0-99}`</custom_properties>
+`             `<default_values>`127.0.0.1;70`</default_values>
+`           `</Properties>
+`         `</Filter>
+`       `</Filters>
+`       `<CostFunctions>
+`         `<CostFunction name="Memory"/>
+`       `</CostFunctions>
+`       `<Balances>
+`         `<Balance name="Memory"/>
+`       `<Balances>
+`     `</PolicyUnits>
+         
 
 note: name is the file name and filter_custom_properties and default_values are fetched from plugin config file.
 

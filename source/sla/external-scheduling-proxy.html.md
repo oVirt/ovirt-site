@@ -50,9 +50,8 @@ This feature will also allow new feaures to build on it.
 
 ### Documentation / External references
 
-* All except discover function returns UUID instead of a full business entity since there is no need for serialization.
-
-* Prior to invoking the remote procedure, the engine translates Host and VM business entities to their REST representations (rest mappers) and then convert it to XML string (using JAXB marshaling), then in the daemon it will be serialized back to python entity using ovirt-python-sdk (import ovirtsdk.xml.params.parseString auto generated module). This is similar to the way REST-API works.
+*   All except discover function returns only UUID instead of a full business entity since there is no need for serialization.
+*   Prior to invoking the remote procedure, the engine translates Host and VM business entities to their REST representations (rest mappers) and then convert it to XML string (using JAXB marshaling), then in the daemon it will be serialized back to python entity using ovirt-python-sdk (import ovirtsdk.xml.params.parseString auto generated module). This is similar to the way REST-API works.
 
 #### discover
 

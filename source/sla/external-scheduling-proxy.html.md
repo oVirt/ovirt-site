@@ -54,7 +54,7 @@ Engine and external scheduler API:
 
 Discover will iterate all plugins and config files and extract the data.
 
-Sample:
+Sample of data returned by the discover function:
 
          {
            "PolicyUnits": {

@@ -70,7 +70,7 @@ Sample of data returned by the discover function:
 `           `<name>`Memory`</name>
 `           `<Properties>
 `             `<name>`Heat`</name>
-`             `<custom_properties>`server_ip=\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b;threshold={0-99}`</custom_properties>
+`             `<CustomProperties>`server_ip=\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b;threshold={0-99}`</CustomProperties>
 `             `<default_values>`127.0.0.1;70`</default_values>
 `           `</Properties>
 `         `</Filter>
@@ -84,7 +84,7 @@ Sample of data returned by the discover function:
 `     `</PolicyUnits>
          
 
-note: name is the file name and filter_custom_properties and default_values are fetched from plugin config file.
+note: name is the file name and customProperties and defaultValues are fetched from plugin config file.
 
 The engine will call this method during initialization to expose all plugins. It will compare its persistent data (policy unit table) with returned plugins/configurations, and handle changes:
 

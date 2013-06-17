@@ -12,7 +12,7 @@ wiki_last_updated: 2015-04-07
 
 ### Summary
 
-As long oVirt is progressing and continue to gather features, there is an ever growing actual need for better scheduling: configurable,
+As oVirt is progressing and continue to gather features, there is an ever growing actual need for better scheduling: configurable,
 customized and flexible, both in the programmatic and functionality levels.
 It is known that the scheduling problem has NP-complete complexity, therefore there's a need to optimize the problem solution,
 to do that each scheduler implementation should focus on it's own subjective needs. To accomplish that we propose to have a scheduling

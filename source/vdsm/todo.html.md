@@ -50,6 +50,10 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
+*   enable coverage during Jenkins tests.
+
+<!-- -->
+
 *   extend the former script, so that it runs a complete `` `make distcheck && make install` `` in a confined environment (chroot, VM) and reports if there is an error.
 
 <!-- -->

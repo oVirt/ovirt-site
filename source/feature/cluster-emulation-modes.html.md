@@ -58,6 +58,10 @@ its reported emulatedMachines list match against the Config Value
        ...,
       EMULATED_MACHINES_INCOMPATIBLE_WITH_CLUSTER ;
 
+This new REASON if for host which can't join the cluster becuase they
+don't comply with the Config ClusterEmulatedMachines or the clusters
+emulatedMachine field which is a subset of the config.
+
 #### HandleVdsCpuFlagsOrClusterChangedCommand
 
 This commands will match an activated Host against the cluster definition.

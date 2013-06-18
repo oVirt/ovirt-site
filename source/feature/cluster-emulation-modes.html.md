@@ -76,6 +76,10 @@ That match will set the cluster definition for the rest of the hosts in that clu
       if (!operational)
           set host non operationl, reason = EMULATED_MACHINES_INCOMPATIBLE_WITH_CLUSTER
 
+#### Run VM
+
+The OVFs emulatedMachine property will be populated by the cluster's emulatedMachine field and not by the global config value, which will be deleted as it is not relevant any more
+
 #### New UI subtab field (readonly)
 
 TODO A sketch of cluster subtab

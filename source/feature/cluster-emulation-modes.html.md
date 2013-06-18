@@ -74,7 +74,7 @@ That match will set the cluster definition for the rest of the hosts in that clu
        else if clusterEmulationMode in host.emulationMode
              operational = true
       if (!operational)
-          set host non operationl, reason = UNSUPPORTED_EMULATION_MODE
+          set host non operationl, reason = EMULATED_MACHINES_INCOMPATIBLE_WITH_CLUSTER
 
 #### New UI subtab field (readonly)
 

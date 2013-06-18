@@ -23,7 +23,7 @@ must comply to a configurable list of values and then set it thereafter.
 
 ### Current status
 
-*   Draft Design
+*   Implementation is done. Review phase. See <http://gerrit.ovirt.org/#/q/status:open+project:ovirt-engine+branch:master+topic:cluster_emulation_modes,n,z>
 *   Last updated: ,
 *   Target Release: 3.3
 

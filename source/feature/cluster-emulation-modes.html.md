@@ -56,7 +56,7 @@ its reported emulatedMachines list match against the Config Value
 
       NonOperationalReason
        ...,
-       UNSUPPORTED_EMULATION_MODE;
+      EMULATED_MACHINES_INCOMPATIBLE_WITH_CLUSTER ;
 
 #### HandleVdsCpuFlagsOrClusterChangedCommand
 

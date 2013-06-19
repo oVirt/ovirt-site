@@ -8,9 +8,7 @@ wiki_revision_count: 22
 wiki_last_updated: 2013-10-07
 ---
 
-# oVirt External Scheduling Proxy
-
-## External scheduler
+# External Scheduler Proxy
 
 ### Summary
 

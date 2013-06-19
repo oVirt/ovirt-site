@@ -56,7 +56,7 @@ Notes:
 Make sure JBoss AS is running and launch Development Mode for the given Frontend application:
 
     $ cd $GWT_APP_DIR
-    $ mvn gwt:debug -Pgwtdev,gwt-admin,gwt-user -Dgwt.noserver=true
+    $ mvn gwt:debug -Pgwtdev,gwt-admin -Dgwt.noserver=true
 
 Notes:
 

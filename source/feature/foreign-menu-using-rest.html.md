@@ -8,7 +8,7 @@ wiki_revision_count: 4
 wiki_last_updated: 2013-06-27
 ---
 
-# Foreign_Menu_Using_REST
+# Foreign Menu Using REST
 
 ### Summary
 

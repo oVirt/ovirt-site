@@ -29,7 +29,7 @@ The current way of enriching the SPICE menu from oVirt WebAdmin/UserPortal is to
 
 The proposed solution is to create a support to get the menu from the oVirt REST and on selection call the REST back.
 
-      == Design ==
+### Design
 
 The menu would be returned by calling the
 

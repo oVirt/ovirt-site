@@ -191,13 +191,13 @@ Note: get_id function is:
       # configuring QPID host
       /usr/bin/openstack-config --set ${Q_CONF} DEFAULT rpc_backend quantum.openstack.common.rpc.impl_qpid
       /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_hostname ${QPID_HOST}
-      if [ [ -n "$qpid_username" ]]; then
+      if [[ -n "$qpid_username" ]]; then
           /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_username $qpid_username
       fi
-      if [ [ -n "$qpid_password" ]]; then
+      if [[ -n "$qpid_password" ]]; then
           /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_password $qpid_password
       fi
-      if [ [ -n "$qpid_port" ]]; then
+      if [[ -n "$qpid_port" ]]; then
           /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_port $qpid_port
       fi
       # edit /etc/quantum/plugin.ini physical_interface_mappings

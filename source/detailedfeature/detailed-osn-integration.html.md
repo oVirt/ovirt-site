@@ -221,18 +221,45 @@ Once the properties are set, the following sequence will install, configure and 
 
 #### OVS Agent installation steps
 
+The following properties are required:
+
+      QPID_HOST - the QPID host address
+      BRIDGE_MAPPINGS - List of `<physical_network>`:`<bridge>`, each specifying the OVS bridge used by the agent for a connected physical network.
+      INTERNAL_BRIDGE - the OVS integration bridge (default br-int)
+
+The following properties are optional:
+
+      qpid_username - QPID server's username
+      qpid_password - QPID server user's password
+      qpid_port - QPID server port
+
+Once the properties are set, the following sequence will install, configure and start the OVS agent:
+
       sudo yum install -y openstack-quantum-openvswitch
-      QPID_HOST=${QPID_HOST_ADDRESS}
       OVS_CONF=/etc/quantum/plugins/openvswitch/ovs_quantum_plugin.ini
-      BRIDGE_MAPPINGS=physnet1:br-eth0
-      sudo /usr/bin/quantum-node-setup --plugin openvswitch --qhost ${QPID_HOST} --skip-nova
-      sudo /usr/bin/openstack-config --set ${OVS_CONF} OVS bridge_mappings ${BRIDGE_MAPPINGS}
+      Q_CONF=/etc/quantum/quantum.conf
+      # configuring QPID host
+      /usr/bin/openstack-config --set ${Q_CONF} DEFAULT rpc_backend quantum.openstack.common.rpc.impl_qpid
+      /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_hostname ${QPID_HOST}
+      if [[ -n "${qpid_username}" ]]; then
+          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_username ${qpid_username}
+      fi
+      if [[ -n "${qpid_password}" ]]; then
+          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_password ${qpid_password}
+      fi
+      if [[ -n "${qpid_port}" ]]; then
+          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_port ${qpid_port}
+      fi
+      rm -f /etc/quantum/plugin.ini
+      ln -s ${OVS_CONF} /etc/quantum/plugin.ini
+      /usr/bin/openstack-config --set ${OVS_CONF} OVS bridge_mappings ${BRIDGE_MAPPINGS}
       service openvswitch start
       chkconfig openvswitch on
-      ovs-vsctl add-br br-int
-      ovs-vsctl add-br br-ex
-      sudo service quantum-openvswitch-agent start
-      sudo chkconfig quantum-openvswitch-agent on
+      ovs-vsctl add-br ${INTERNAL_BRIDGE}
+      ovs-vsctl add-br br-eth0 # should create bridge for each network as specified on ${BRIDGE_MAPPINGS}
+      service quantum-openvswitch-agent start
+      chkconfig quantum-openvswitch-agent on
+      chkconfig quantum-ovs-cleanup on
 
 ### Events
 

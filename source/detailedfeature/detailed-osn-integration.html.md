@@ -183,16 +183,28 @@ Note: get_id function is:
 
 #### Linuxbridge Agent installation steps
 
-      setenforce 0 #currently the service fails to start in Enforcing mode
-      sudo yum install -y openstack-quantum-linuxbridge
+      yum install -y openstack-quantum-linuxbridge
       LB_CONF=/etc/quantum/plugins/linuxbridge/linuxbridge_conf.ini
-      QPID_HOST=${QPID_HOST_ADDRESS}
+      Q_CONF=/etc/quantum/quantum.conf
+      QPID_HOST=10.35.0.192
       INTERFACE_MAPPING=default:eth0
-      sudo /usr/bin/quantum-node-setup --plugin linuxbridge --qhost ${QPID_HOST} --skip-nova
+      # configuring QPID host
+      /usr/bin/openstack-config --set ${Q_CONF} DEFAULT rpc_backend quantum.openstack.common.rpc.impl_qpid
+      /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_hostname ${QPID_HOST}
+      if [ [ -n "$qpid_username" ]]; then
+          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_username $qpid_username
+      fi
+      if [ [ -n "$qpid_password" ]]; then
+          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_password $qpid_password
+      fi
+      if [ [ -n "$qpid_port" ]]; then
+          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_port $qpid_port
+      fi
+      # edit /etc/quantum/plugin.ini physical_interface_mappings
       /usr/bin/openstack-config --set ${LB_CONF} LINUX_BRIDGE physical_interface_mappings ${INTERFACE_MAPPING}
       systemctl daemon-reload
-      sudo service quantum-linuxbridge-agent start
-      sudo chkconfig quantum-linuxbridge-agent on
+      service quantum-linuxbridge-agent start
+      chkconfig quantum-linuxbridge-agent on
 
 #### OVS Agent installation steps
 

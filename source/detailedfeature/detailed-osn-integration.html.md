@@ -183,22 +183,33 @@ Note: get_id function is:
 
 #### Linuxbridge Agent installation steps
 
+The following properties are required:
+
+      QPID_HOST - the QPID host address
+      INTERFACE_MAPPING - the physical interface mapping, e.g. default:eth1.
+
+The following properties are optional:
+
+      qpid_username - QPID server's username
+      qpid_password - QPID server user's password
+      qpid_port - QPID server port
+
+Once the properties are set, the following sequence will install, configure and start the linuxbridge agent:
+
       yum install -y openstack-quantum-linuxbridge
       LB_CONF=/etc/quantum/plugins/linuxbridge/linuxbridge_conf.ini
       Q_CONF=/etc/quantum/quantum.conf
-      QPID_HOST=10.35.0.192
-      INTERFACE_MAPPING=default:eth0
       # configuring QPID host
       /usr/bin/openstack-config --set ${Q_CONF} DEFAULT rpc_backend quantum.openstack.common.rpc.impl_qpid
       /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_hostname ${QPID_HOST}
-      if [[ -n "$qpid_username" ]]; then
-          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_username $qpid_username
+      if [[ -n "${qpid_username}" ]]; then
+          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_username ${qpid_username}
       fi
-      if [[ -n "$qpid_password" ]]; then
-          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_password $qpid_password
+      if [[ -n "${qpid_password}" ]]; then
+          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_password ${qpid_password}
       fi
-      if [[ -n "$qpid_port" ]]; then
-          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_port $qpid_port
+      if [[ -n "${qpid_port}" ]]; then
+          /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_port ${qpid_port}
       fi
       # edit /etc/quantum/plugin.ini physical_interface_mappings
       /usr/bin/openstack-config --set ${LB_CONF} LINUX_BRIDGE physical_interface_mappings ${INTERFACE_MAPPING}

@@ -25,7 +25,7 @@ The new connection details should be of the same storage type as the original co
 
 ### Current Status and tasks
 
-Updated June 19 2013
+Updated June 20 2013
 
 #### GUI
 
@@ -42,7 +42,7 @@ Updated June 19 2013
 *   Add non empty iqn validation - extend functionality of existing AddStorageServerConnection command to create also iSCSI connections. (Currently a connection for block domains is created via AddSanStorageDomain command directly). (ready) <http://gerrit.ovirt.org/#/c/15516/>
 *   Add non empty port validation - extend functionality of existing AddStorageServerConnection command to create also iSCSI connections. (not started)
 *   Extend functionality of existing UpdateStorageServerConnection command to update iSCSI connections. Check connection validity to target, VG properties - whether they are correct. (in implementation)
-*   Change update connection flow not to fail if there are no domains using the connection . If there are domains using the connection - lock them during the update and update their stats. (in implementation)
+*   Change update connection flow not to fail if there are no domains using the connection . If there are domains using the connection - lock them during the update and update their stats. (in testing) <http://gerrit.ovirt.org/#/c/15952/>
 *   Add validation of non empty connection field and appropriate error to be used by AddStorageConnection and UpdateStorageConnection commands. (ready) <http://gerrit.ovirt.org/#/c/15560/>
 *   MLA (permissions) - not started
 

@@ -189,11 +189,25 @@ Note: get_id function is:
       QPID_HOST=${QPID_HOST_ADDRESS}
       INTERFACE_MAPPING=default:eth0
       sudo /usr/bin/quantum-node-setup --plugin linuxbridge --qhost ${QPID_HOST} --skip-nova
-      # edit /etc/quantum/plugin.ini physical_interface_mappings
       /usr/bin/openstack-config --set ${LB_CONF} LINUX_BRIDGE physical_interface_mappings ${INTERFACE_MAPPING}
       systemctl daemon-reload
       sudo service quantum-linuxbridge-agent start
       sudo chkconfig quantum-linuxbridge-agent on
+
+#### OVS Agent installation steps
+
+      sudo yum install -y openstack-quantum-openvswitch
+      QPID_HOST=${QPID_HOST_ADDRESS}
+      OVS_CONF=/etc/quantum/plugins/openvswitch/ovs_quantum_plugin.ini
+      BRIDGE_MAPPINGS=physnet1:br-eth0
+      sudo /usr/bin/quantum-node-setup --plugin openvswitch --qhost ${QPID_HOST} --skip-nova
+      sudo /usr/bin/openstack-config --set ${OVS_CONF} OVS bridge_mappings ${BRIDGE_MAPPINGS}
+      service openvswitch start
+      chkconfig openvswitch on
+      ovs-vsctl add-br br-int
+      ovs-vsctl add-br br-ex
+      sudo service quantum-openvswitch-agent start
+      sudo chkconfig quantum-openvswitch-agent on
 
 ### Events
 

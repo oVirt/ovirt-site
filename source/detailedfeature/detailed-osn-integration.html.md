@@ -181,6 +181,20 @@ Note: get_id function is:
 4.  When using Linux Bridge only:
     1.  Override file for creating a tap connected to dummy bridge
 
+#### Linuxbridge Agent installation steps
+
+      setenforce 0 #currently the service fails to start in Enforcing mode
+      sudo yum install -y openstack-quantum-linuxbridge
+      LB_CONF=/etc/quantum/plugins/linuxbridge/linuxbridge_conf.ini
+      QPID_HOST=${QPID_HOST_ADDRESS}
+      INTERFACE_MAPPING=default:eth0
+      sudo /usr/bin/quantum-node-setup --plugin linuxbridge --qhost ${QPID_HOST} --skip-nova
+      # edit /etc/quantum/plugin.ini physical_interface_mappings
+      /usr/bin/openstack-config --set ${LB_CONF} LINUX_BRIDGE physical_interface_mappings ${INTERFACE_MAPPING}
+      systemctl daemon-reload
+      sudo service quantum-linuxbridge-agent start
+      sudo chkconfig quantum-linuxbridge-agent on
+
 ### Events
 
 ## Dependencies / Related Features and Projects

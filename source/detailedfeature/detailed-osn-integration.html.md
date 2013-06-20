@@ -211,10 +211,8 @@ Once the properties are set, the following sequence will install, configure and 
       if [[ -n "${qpid_port}" ]]; then
           /usr/bin/openstack-config --set ${Q_CONF} DEFAULT qpid_port ${qpid_port}
       fi
-
       rm -f /etc/quantum/plugin.ini
       ln -s ${LB_CONF} /etc/quantum/plugin.ini
-
       # edit /etc/quantum/plugin.ini physical_interface_mappings
       /usr/bin/openstack-config --set ${LB_CONF} LINUX_BRIDGE physical_interface_mappings ${INTERFACE_MAPPING}
       systemctl daemon-reload

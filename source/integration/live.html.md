@@ -84,7 +84,8 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 #### Download
 
-[Download oVirt Live 1.0](http://resources.ovirt.org/releases/3.2/tools/ovirt-live-1.0.iso)
+*   Fedora 18 based: [Download oVirt Live 1.0](http://resources.ovirt.org/releases/3.2/tools/ovirt-live-1.0.iso)
+*   EL6 based: [Download oVirt Live 1.0](http://resources.ovirt.org/releases/3.2/tools/ovirt-live-el6.iso)
 
 #### change-log
 

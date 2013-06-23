@@ -10,7 +10,7 @@ wiki_last_updated: 2013-06-23
 
 ## General Information
 
-oVirt 3.1 was released as Fedora 16 package while 3.2 is targeted Fedora 18. Due to the nature of this upgrade, we DO NOT recommend it, users are advised to do a 3.2 clean installation, and to import all VM's and template into the new installation.
+oVirt 3.1 was released as Fedora 17 package while 3.2 is targeted Fedora 18. Due to the nature of this upgrade, we DO NOT recommend it, users are advised to do a 3.2 clean installation, and to import all VM's and template into the new installation.
 
 ## Upgrade Instructions
 

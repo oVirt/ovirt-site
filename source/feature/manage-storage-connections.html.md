@@ -44,6 +44,7 @@ Updated June 23 2013
 *   Extend functionality of existing UpdateStorageServerConnection command to update iSCSI connections. Check connection validity to target, VG properties - whether they are correct. (in implementation)
 *   Change update connection flow not to fail if there are no domains using the connection . If there are domains using the connection - lock them during the update and update their stats. (in review) <http://gerrit.ovirt.org/#/c/15952/>
 *   Add validation of non empty connection field and appropriate error to be used by AddStorageConnection and UpdateStorageConnection commands. (ready) <http://gerrit.ovirt.org/#/c/15560/>
+*   Create a storage connection validator that will validate that the mandatory fields of each storage type's typical connection are filled correctly. Will be used by AddStorageServerConnection and UpdateStorageServerConnection. (not started)
 *   MLA (permissions) - not started
 
 #### REST (backend)

@@ -41,6 +41,7 @@ Updated June 23 2013
 *   Changes in new connection creation flow - Prevent addition of duplicate connections in AddStorageServerConnection command for file domains. (ready) <http://gerrit.ovirt.org/#/c/15388/>
 *   New connection creation flow - Prevent addition of duplicate connections in AddStorageServerConnection command for block domains. (not started)
 *   Add lock that locks the connection's id in UpdateStorageServerConnection and RemoveStorageServerConnection. (for cases where no storage domain exists, so the lock of domain's id is irrelevant). (in review) <http://gerrit.ovirt.org/#/c/16009/>
+*   Add lock that will properly lock connection of block domains for add/edit/remove connection (instead of path that is locked for file domains, need to lock iqn,adress, etc.) (not started)
 *   Add non empty iqn validation - extend functionality of existing AddStorageServerConnection command to create also iSCSI connections. (Currently a connection for block domains is created via AddSanStorageDomain command directly). (ready) <http://gerrit.ovirt.org/#/c/15516/>
 *   Add non empty port validation - extend functionality of existing AddStorageServerConnection command to create also iSCSI connections. (not started)
 *   Extend functionality of existing UpdateStorageServerConnection command to update iSCSI connections. Check connection validity to target, VG properties - whether they are correct. (in implementation)

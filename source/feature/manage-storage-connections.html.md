@@ -38,7 +38,7 @@ Updated June 20 2013
 #### Server (backend)
 
 *   Allow deleting a connection only when it is not in use by any storage domain/direct lun. (ready) <http://gerrit.ovirt.org/#/c/15269/>
-*   Changes in new connection creation flow - Prevent addition of duplicate connections in AddStorageServerConnection command for file domains. (ready, waiting for merge after rebase) <http://gerrit.ovirt.org/#/c/15388/>
+*   Changes in new connection creation flow - Prevent addition of duplicate connections in AddStorageServerConnection command for file domains. (ready) <http://gerrit.ovirt.org/#/c/15388/>
 *   Add non empty iqn validation - extend functionality of existing AddStorageServerConnection command to create also iSCSI connections. (Currently a connection for block domains is created via AddSanStorageDomain command directly). (ready) <http://gerrit.ovirt.org/#/c/15516/>
 *   Add non empty port validation - extend functionality of existing AddStorageServerConnection command to create also iSCSI connections. (not started)
 *   Extend functionality of existing UpdateStorageServerConnection command to update iSCSI connections. Check connection validity to target, VG properties - whether they are correct. (in implementation)

@@ -56,9 +56,7 @@ Updated June 24 2013
 *   Add functionality to root resource for add/delete/edit NFS, Posix connection properties in REST (design phase)
 *   Add functionality to root resource for add/delete/edit ISCSI connection properties in REST (design phase)
 *   Create subresource for connections under domains (api/storagedomains/<domainId>/connections (not started)
-*   Add functionality to add storage domain with a reference to an already existing storage connection (instead of embedded properties of a connection that will be created
-
-along with the storage domain). (not started.)
+*   Add functionality to add storage domain with a reference to an already existing storage connection (instead of embedded properties of a connection that will be created along with the storage domain). (not started.)
 
 #### Blockers
 

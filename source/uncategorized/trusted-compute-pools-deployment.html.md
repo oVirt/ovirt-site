@@ -46,6 +46,11 @@ Download [oat-appraiser](http://gwei3.fedorapeople.org/package_review/oat/v1/oat
 
       # yum install oat-appraiser
 
+*   make sure tomcat is running after package installation, otherwise, start tomcat service manually.
+
+      # service tomcat6 status (check status)
+      # service tomcat6 start (start service)
+
 #### Generate Client Files
 
 Generate client files after installing oat-appraiser package, execute this command is enough.

@@ -20,14 +20,14 @@ The current behavior in the engine requires the user who wishes to reboot VM to 
 
 #### Proposed changes
 
-The reboot will essentially act as a macro of actions shutdown and run with all the consequences for run-once and stateless VM's. The shutdown part of the reboot is subject to VM's power-down policy but in case the VM's config has changed we need to destroy the VM eventually so the shutdown part is forced so we can apply new configuration on run.
+The reboot will essentially act as a macro of actions shutdown and run with all the consequences for run-once and stateless VM's. The shutdown part of the reboot is subject to VM's power-down policy but in case the VM's config has changed we need to destroy the VM eventually (for the new configuration to be applied on run) so the shutdown part of reboot is in this case forced.
 
 ##### Frontend
 
 *   Add new button ![](reboot.png "fig:reboot.png") in the main VM toolbar between the current stop and console buttons.
 *   Add 'Reboot' option to the VM context menu.
 *   Add context menu option for forced reboot - equivalent of 'Power Off' for reboot.
-*   Add power-down policy selection checkbox (see later) and textbox for specifying delay for graceful period shutdown/reboot to EditVM dialog.
+*   Add power-down policy selection checkbox (checked if we want to force powerdown) and textbox for specifying number of seconds for graceful powerdown period to EditVM dialog.
 
 ##### REST API
 

@@ -20,6 +20,8 @@ The current behavior in the engine requires the user who wishes to reboot VM to 
 
 #### Proposed changes
 
+The reboot will essentially act as a macro of actions shutdown and run with all the consequences for run-once and stateless VM's. The shutdown part of the reboot is subject to VM's power-down policy but in case the VM's config has changed we need to destroy the VM eventually so the shutdown part is forced so we can apply new configuration on run.
+
 ##### Frontend
 
 *   Add new button ![](reboot.png "fig:reboot.png") in the main VM toolbar between the current stop and console buttons.
@@ -30,7 +32,7 @@ The current behavior in the engine requires the user who wishes to reboot VM to 
 ##### REST API
 
 *   Add VM action for reboot (subject to power-down policy)
-*   Add VM action for forced-reboot (precise name open to discussion)
+*   Add VM action for forced-reboot (powercycle)
 *   Add VM attribute for power-down policy
 *   Add VM attribute for graceful power-down delay
 
@@ -45,26 +47,6 @@ Alter the API of `shutdown`. Add two optional boolean parameters: `force` and `r
 ##### Guest Agent
 
 Support additional boolean parameter in the desktopShutdown call determining wether we want normal shutdown (`reboot=False`) or reboot. This is the simplest change as it boils down to passing -h or -r flag to the underlying script performing the shutdown.
-
-### Possible Issues
-
-*   Run Once behavior
-
-Do we want to preserve the run-once configuration after reboot (effectively becoming "run-twice") or do we treat it as equivalent to stop(); start()?
-
-Do we provide option to the user to select the desired behavior?
-
-*   Stateless VM
-
-Do we want to clear the state of VM or preserve the running state for the user?
-
-*   Pool VMs
-
-Same state consideration for the state as in Stateless VM + need to make sure we do the stop();start(); atomically so we do not enable the possibility for another user to "steal" this VM
-
-#### Current goals for oVirt 3.3
-
-Since most issues reside in the engine-level handling stop(); start() sequence for various special VM types the focus is now on implementing the soft version of reboot, that is implementable with minimal changes to both vdsm and guest-agent and on the engine side essentialy consists of adding a button and new command, and provides a feature to the users that covers a very common case when the configuration has not changed and the guest is willing to gracefully reboot. In the next release we would also focus on implementing the rest of the full reboot capabilities, with power-down policy and configurable delay for graceful shutdown.
 
 ### Owner
 

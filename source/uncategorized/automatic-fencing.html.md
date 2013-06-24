@@ -26,7 +26,7 @@ more information:
 
 # Automatic Fencing in oVirt 3.3
 
-Fencing process in oVirt 3.3 has been extended of **SSH Soft Fencing** prior to real fencing. **SSH Soft Fencing** tries to restart VDSM using SSH connection. The executed command can be configured in RestartVdsmBySshCommand per cluster level. The fencing process is based on this flow:
+Fencing process in oVirt 3.3 has been extended of **SSH Soft Fencing** prior to real fencing. **SSH Soft Fencing** tries to restart VDSM using SSH connection. The executed command can be configured in SshSoftFencingCommand per cluster level. The fencing process is based on this flow:
 
 1.  Fencing is configured and enabled on the host.
 2.  There is a valid proxy host (another host in the same data-center in UP status).

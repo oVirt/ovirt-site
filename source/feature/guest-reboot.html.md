@@ -20,7 +20,7 @@ The current behavior in the engine requires the user who wishes to reboot VM to 
 
 #### Proposed changes
 
-The reboot will essentially act as a macro of actions shutdown and run with all the consequences for run-once and stateless VM's. The shutdown part of the reboot is subject to VM's power-down policy but in case the VM's config has changed we need to destroy the VM eventually (for the new configuration to be applied on run) so the shutdown part of reboot is in this case forced.
+The reboot will essentially act as a macro of actions shutdown and run with all the consequences for run-once and stateless VM's. The shutdown part of the reboot is subject to VM's power-down policy but in case the VM's config has changed we need to destroy the VM eventually (for the new configuration to be applied on run) so the shutdown part of reboot is in this case forced. Under forced powerdown (shutdown or first phase of reboot) we understand that after the all the graceful method have been tried and the graceful period has timed out we will proceed with vm.destroy() as opposed to just returning the VM to **Up** state.
 
 ##### Frontend
 

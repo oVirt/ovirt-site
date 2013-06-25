@@ -48,6 +48,7 @@ Updated June 24 2013
 *   Change update connection flow not to fail if there are no domains using the connection . If there are domains using the connection - lock them during the update and update their stats. (in review) <http://gerrit.ovirt.org/#/c/15952/>
 *   Add validation of non empty connection field and appropriate error to be used by AddStorageConnection and UpdateStorageConnection commands. (ready) <http://gerrit.ovirt.org/#/c/15560/>
 *   Create a storage connection validator that will validate that the mandatory fields of each storage type's typical connection are filled correctly. Will be used by AddStorageServerConnection and UpdateStorageServerConnection. Mostly take existing validation code and put it in central place for a better reuse. (not started)
+*   Restrict compatibility version of edit storage connections feature in engine to 3.3. ready. <http://gerrit.ovirt.org/#/c/14249/>
 *   MLA (permissions) - not started
 
 #### REST (backend)

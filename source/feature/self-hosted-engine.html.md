@@ -63,6 +63,7 @@ This feature will deal with two main issues:
 *   The host currently running the engine should report additional resources used, just like we reserve an extra CPU for the SPM, and compensate for that.
 *   Some resources (especially RAM) should be reserved on one or two nodes in the cluster, in case the engine VM has to migrate over
 *   ovirt-node should have a TUI for the initial deployment and configuration of the Engine VM
+*   Should support importing an existing installed engine ovf as installation media
 
 # Detailed Description
 

@@ -13,7 +13,7 @@ wiki_last_updated: 2013-06-25
 
 # Building oVirt engine
 
-<big><font color="lightgray" style="background-color: darkred">ATTENTION: This page is obsoleted for >=ovirt-engine-3.3 by [oVirt Engine Development Environment](OVirt_Engine_Development_Environment)</font></big>
+<big><span class="label label-warning">ATTENTION: This page is obsoleted for >=ovirt-engine-3.3 by [oVirt Engine Development Environment](OVirt_Engine_Development_Environment)</span></big>
 
 ## Introduction
 

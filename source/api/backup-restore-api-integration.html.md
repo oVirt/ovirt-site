@@ -14,7 +14,7 @@ wiki_last_updated: 2014-12-28
 
 ### Summary
 
-This feature allows oVirt users to backup and restore VMs using Independent Software Vendors. New set of APIs will be introduced in oVirt to facilitate taking full VM backup, as well as full or file level restore of VMs.
+This feature provides the ability for ISVs to backup and restore VMs. New set of APIs will be introduced in oVirt to facilitate taking full VM backup, as well as full or file level restore of VMs. Backup and Restore will be REST API driven (and not GUI/User driven).
 
 ### Owner
 

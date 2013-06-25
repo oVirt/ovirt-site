@@ -36,6 +36,8 @@ Last updated: ,
 
 ### API
 
+Note on pending resources: whatever usage data is passed over to the engine, it must pass over the used and the pending resources together.
+
 #### Schedule
 
 Called by Engine's commands: Run VM and Migrate VM- replaces current VdsSelector logic.

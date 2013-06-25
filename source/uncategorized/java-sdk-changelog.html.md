@@ -15,7 +15,6 @@ wiki_last_updated: 2013-12-25
         - to datacenter added new field [comment]
         - to disk added [sgio] field to enable|disable filtering for the ScsiGenericIo
         - to StorageDomain.delete() added storagedomain.host.id|name
-        - implement basic debugging capabilities
         - to VmPool added MaxUserVMs property
         - to cluster.update() added [cluster.data_center.id]
         - to host.fence() added action.fence_type

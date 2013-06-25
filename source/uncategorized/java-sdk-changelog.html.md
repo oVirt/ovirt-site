@@ -8,6 +8,21 @@ wiki_last_updated: 2013-12-25
 
 # Java-sdk-changelog
 
+        * Thu  Jun 25 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.8-1
+        - implement support for the /capabilities resource
+        - implement basic debugging capabilities
+        - added VMApplications sub-collection
+        - to datacenter added new field [comment]
+        - to disk added [sgio] field to enable|disable filtering for the ScsiGenericIo
+        - to StorageDomain.delete() added storagedomain.host.id|name
+        - implement basic debugging capabilities
+        - to VmPool added MaxUserVMs property
+        - to cluster.update() added [cluster.data_center.id]
+        - to host.fence() added action.fence_type
+        - to storagedomain.delete() added [storagedomain.format]
+        - to nic added [nic.custom_properties.custom_property]
+        - to vm.add(), vm.update() added [vm.memory_policy.guaranteed]
+
         * Thu  June 4 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.7-1
          - updated storagedomain add()/update() docs
          - updated tag update() docs

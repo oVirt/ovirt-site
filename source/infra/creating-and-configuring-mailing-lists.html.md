@@ -16,7 +16,7 @@ This standard operating procedure (SOP) describes how to create and configure a 
 
 1.  Run `sudo /usr/lib/mailman/bin/newlist $listname` to create a new list.
     -   Fill out details as requested by Mailman, noting the password.
-        -   There appears to be a length of 11 characters for admin passwords in Mailman 2
+        -   There appears to be a length of 12 characters for admin passwords in Mailman 2
 
 2.  Add the sections Mailman outputs to */etc/aliases* for each mailing list, then run `sudo newaliases`.
 3.  Add the list administrator password to the file */root/passwords*.

@@ -189,7 +189,7 @@ Features being considered for inclusion/already in master:
 *   [Features/oVirt_scheduler](Features/oVirt_scheduler) Wrapping scheduling functionalities as a separate package
 *   [Features/Scheduling_API](Features/Scheduling_API) (depends on [Features/oVirt_scheduler](Features/oVirt_scheduler)) exposing user-level scheduling API
 *   [Features/Watchdog_engine_support](Features/Watchdog_engine_support)
-*   <http://wiki.ovirt.org/Features/Network_QoS>
+*   [Features/Network_QoS](Features/Network_QoS)
 
 ### Gluster
 

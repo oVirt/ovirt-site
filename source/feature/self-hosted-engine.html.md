@@ -79,7 +79,7 @@ This feature will deal with two main issues:
           please specify the shared storage location to use
           please indicate nic to set mgmt-bridge on [eth0]
           please specify engine FQDN
-          please specify installation media you would like to use (pxe,iso,ova)   
+          please specify installation media you would like to use (pxe,iso,ovf)   
 
 *   output: spice/terminal console to the new vm
 *   once liveliness page is up install current host using sdk/cli call (no reboot)

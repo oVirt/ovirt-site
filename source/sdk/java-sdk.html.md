@@ -322,7 +322,7 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 11. implement timeout in SDK constructor
 
-12. implement sdk debug mode
+12. implement sdk debug mode (done)
 
 13. remove @SuppressWarnings("unused") from decorators
 
@@ -340,7 +340,7 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 20. in doc change parameters format to javaDoc style (done)
 
-21. make API.java thread safe
+21. make API.java thread safe (done)
 
 ## Change Log
 

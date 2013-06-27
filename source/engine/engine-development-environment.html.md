@@ -164,7 +164,7 @@ Build with tests:
 
 If you do not wish to drop database and create it again, or you want do test the upgrade cycle of the database, run the following command, assumption of credentials are the same as in create:
 
-      $ PGPASSWORD=engine ./packaging/dbscripts/upgrade.sh -u engine -d engine 
+      $ PGPASSWORD=engine ./packaging/dbscripts/upgrade.sh -u engine -d engine_dao 
 
 #### GWT Debug
 

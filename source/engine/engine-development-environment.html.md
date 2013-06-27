@@ -147,13 +147,13 @@ To rebuild everything use:
 
 #### Enable Unit Tests
 
-      $ make install-dev PREFIX="$HOME/ovirt-enigne" BUILD_TEST_FLAGS=""
+      $ make install-dev PREFIX="$HOME/ovirt-enigne" BUILD_UT=1
 
-#### Enable DAO Tests
+      === Enable DAO Tests ===
 
-*Optional:* Create database, provided the user is engine, password engine:
+      ''Optional:'' Create database, provided the user is engine, password engine:
 
-      # su - postgresql -c psql -c "create database engine_dao owner engine;"
+       <nowiki># su - postgresql -c psql -c "create database engine_dao owner engine;"
       $ PGPASSWORD=engine ./backend/manager/dbscripts/create_schema.sh -d engine_dao -u engine
 
 Build with tests:

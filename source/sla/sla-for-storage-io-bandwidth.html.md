@@ -22,7 +22,7 @@ This wiki page focuses on the design of storage I/O bandwidth Service Level Agre
 ## Current Status
 
 *   Status: design
-*   Last updated: 8 June
+*   Last updated: 28 June
 
 ## Detailed Description
 
@@ -55,16 +55,14 @@ This feature will allow QoS and SLA for storage bandwidth IO control.
 
 ### vDisk Profile in engine
 
-In order to define more natural coupling of the SLA to a vDisk of VM, we define a new concept called vDisk Profile in engine as network Profile. This will wrap few of the properties currently defined directly on the vDisk.
+In order to define more natural coupling of the SLA to a vDisk of VM, we define a new concept called vDisk Profile in engine as disk Profile. This will wrap few of the properties currently defined directly on the vDisk.
 
 vDisk profile includes:
 
 *   initial IO bandwidth limit value(optional, e.g. total_bytes_sec, if not set, it is 0 which implies no limit)
-*   MOM auto tuning range: max bandwidth limit, min bandwidth limit(required)
-*   MOM auto tuning percent: decreased percent when congestion is detected, increased percent when no congestion is not detected
+*   MOM auto tuning range: min bandwidth limit(required)
+*   priority: higher priority has smaller value
 *   other existing vDisk info
-
-A new average latency threshold (e.g.s/MB) should be added to storage domain and set in engine. This can be set at SD creation and stored in meta data of that domain.
 
 We suggest to use total_bytes_sec only as IO bandwidth limit, since it includes reading an writing operations and takes the IO size into account.
 
@@ -73,21 +71,20 @@ When creating a new vDisk or editing an existing one the user will select a vDis
 For example: the admin will create two vDisk profiles for storage domain SD-1:
 
 *   Profile "Gold"
-    -   initial IO bandwidth limit value: 8MB/s
-    -   max bandwidth limit: 10MB/s
+    -   initial IO bandwidth limit value: 100MB/s
     -   min bandwidth limit: 6MB/s
-    -   decreased percent when congestion is detected: 5%
-    -   increased percent when congestion is not detected: 5%
+    -   priority:0
+
+<!-- -->
+
 *   Profile "Silver"
-    -   initial IO bandwidth limit value: 5MB/s
-    -   max bandwidth limit: 7MB/s
-    -   min bandwidth limit: 3MB/s
-    -   decreased percent when congestion is detected: 10%
-    -   increased percent when congestion is not detected:5%
+    -   initial IO bandwidth limit value: 100MB/s
+    -   min bandwidth limit: 4MB/s
+    -   priority:1
 
 Higher priority user group can use profile "Gold", while lower priority user group can use profile "Silver".
 
-The vDisk Profile could be edited by the network administrator at any time. The changes will seep down to all vDisks using the profile. In case vDisk using the edited profile are connected to running VMs the change will apply only on the VM next started. Devices which will be hotpluged or updated will use the updated profile connected to the vDisk.
+The vDisk Profile could be edited by the administrator at any time. The changes will seep down to all vDisks using the profile. In case vDisk using the edited profile are connected to running VMs the change will apply only on the VM next started. Devices which will be hotpluged or updated will use the updated profile connected to the vDisk.
 
 When a Template is created from a VM the vDisk Profile will be kept along with the vDisk. When a VM is created from template the vDisk Profiles will be taken from the template's vdisks. vDisk Profiles could not be deleted from the engine as long as one or more VM/Templates are using those profiles. When a vDisk is exported and imported, a new profile should be selected which is related to an granted access to the user when the vm is powered on.
 

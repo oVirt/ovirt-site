@@ -104,28 +104,26 @@ The basic idea is that when congestion happens, MOM find the highest priority di
 
 If a host find a vDisk is congested it will report related info to engine by get stats. Then engine will tell other hosts' MOM . They will adjusted used the policy above.
 
-The algorithm is as follows initialization: vDisk[i].climit = very big number (similar to unlimited)
+The algorithm is as follows
 
-Each run: vDiskTuneUp = [] vDiskCongested = []() \* priorityCount # classCount表示优先级的级别数目
+       initialization:
+       vDisk[i].climit =  very big number (similar to unlimited)
 
-for disk in vDisk:
-
+       Each run:
+       vDiskTuneUp = []
+       vDiskCongested = `[]()` * priorityCount  
+       for disk in vDisk:
          if disk.throughput >= disk.climit * 90%:
              vDiskTuneUp.append(vm)
-
          if vm.throughput < vm.climit * 70% && vm.util > 90%:
              vDiskCongested[vm.priority].append(vm) 
-
-for diskPriority = 0 to priorityCount - 1:
-
+       for diskPriority = 0 to priorityCount - 1:
          if len(vDiskCongested[diskPriority]) == 0:
              continue  # no disk is congested for this diskPriority
          break  
        else:
          diskPriority = priorityCount
-
-for disk in vDisk:
-
+       for disk in vDisk:
          if disk.priority > diskPriority:
              # decrease those whose priorities are lower
              disk.climit = disk.throughput - (vm.disk - vm.blimit) * 10%

@@ -8,6 +8,9 @@ wiki_last_updated: 2013-12-25
 
 # Java-sdk-changelog
 
+        * Fri  Jun 28 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.9-1
+        - configure log4j programmatically
+
         * Thu  Jun 25 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.8-1
         - implement support for the /capabilities resource
         - implement basic debugging capabilities

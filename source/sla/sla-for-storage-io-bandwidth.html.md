@@ -121,8 +121,8 @@ The algorithm is as follows
          if len(vDiskCongested[diskPriority]) == 0:
              continue  # no disk is congested for this diskPriority
          break  
-       else:
-         diskPriority = priorityCount
+         else:
+             diskPriority = priorityCount
        for disk in vDisk:
          if disk.priority > diskPriority:
              # decrease those whose priorities are lower

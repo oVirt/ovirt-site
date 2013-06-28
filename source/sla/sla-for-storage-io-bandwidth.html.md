@@ -115,7 +115,7 @@ The algorithm is as follows
        for disk in vDisk:
          if disk.throughput >= disk.climit * 90%:
              vDiskTuneUp.append(vm)
-         if vm.throughput < vm.climit * 70% && vm.util > 90%:
+         if vm.throughput < vm.climit * 90% && vm.util > 90%:
              vDiskCongested[vm.priority].append(vm) 
        for diskPriority = 0 to priorityCount - 1:
          if len(vDiskCongested[diskPriority]) == 0:

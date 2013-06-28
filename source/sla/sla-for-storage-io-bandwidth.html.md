@@ -94,29 +94,47 @@ In the following chapters, we will explain how to tune this IO bandwidth limit d
 
 #### Initial IO bandwidth limit value
 
-The initial IO limit of vDisks bandwidth can be set to the value when vm is created, dynamically set via VDSM API. By default, it uses unlimited(0) and will be set to the bandwidth vDisk used when the congestion is detected by MOM.
+The initial IO limit of vDisks bandwidth can be set to the value when vm is created. By default, it uses unlimited(0).
 
 #### IO bandwidth limit tuning
 
-IO limit is tuned by a mechanism in MOM. For each vDisk, its IO bandwidth limit should be in range (min bandwidth limit, max bandwidth limit) which is set in engine. We use the following policy to automatic tuning the IO limit:
+IO limit is tuned by a mechanism in MOM. For each vDisk, its IO bandwidth limit should be in range (min bandwidth limit, max bandwidth limit) which is set in engine. We use the following policy to automatic tuning the IO limit.
 
-*   MOM collects vDisk IO latency, IO/s and bytes/s info of every vm in this host from ovirt guest agent (via iostat toool in guest vm).
-*   The average IO latency is calculated for each host:
+The basic idea is that when congestion happens, MOM find the highest priority disk which is congested. MOM then decreases the IO limit of those disk whose priority lower than this congested vDisk, and increase the IO limit of those whose priority are higher or equal to the congested vDisk and throughput is almost current IO limit. When no vDisk is congested, the IO limit of vDisks who use almost current IO limit will be increased.
 
-       average IO latency = sum of vDisk average IO latency/ vDisk average IO size* weight (for vDisks residing in the SD and related vm running in this host)
-       vDisk average IO size = bytes per second /IO per second
-       weight = vDisk iops/sum of SD's vDisk iops(for vDisks residing in the SD and related vm running in this host))
+If a host find a vDisk is congested it will report related info to engine by get stats. Then engine will tell other hosts' MOM . They will adjusted used the policy above.
 
-*   Check if the average IO latency exceed the threshold of SD (e.g.s/MB) . If so, congestion is detected.
-*   Tune according to congestion.
-    -   If the I/O congestion of storage domain is detected:
-        -   IO limit of each vDisk is decreased by a certain percent. After the tuning , the IO limit value should in the range of bandwidth limit of this vDisk.
-    -   If the I/O congestion of storage domain is not detected:
-        -   IO limit of some vDisks are increased by a certain percent.
+The algorithm is as follows initialization: vDisk[i].climit = very big number (similar to unlimited)
+
+Each run: vDiskTuneUp = [] vDiskCongested = []() \* priorityCount # classCount表示优先级的级别数目
+
+for disk in vDisk:
+
+         if disk.throughput >= disk.climit * 90%:
+             vDiskTuneUp.append(vm)
+
+         if vm.throughput < vm.climit * 70% && vm.util > 90%:
+             vDiskCongested[vm.priority].append(vm) 
+
+for diskPriority = 0 to priorityCount - 1:
+
+         if len(vDiskCongested[diskPriority]) == 0:
+             continue  # no disk is congested for this diskPriority
+         break  
+       else:
+         diskPriority = priorityCount
+
+for disk in vDisk:
+
+         if disk.priority > diskPriority:
+             # decrease those whose priorities are lower
+             disk.climit = disk.throughput - (vm.disk - vm.blimit) * 10%
+         else if  disk in vDiskTuneUp:
+             disk.climit = disk.climit * 110%
 
 #### Discussion
 
-There should be a way to detect I/O congestion of storage domain by MOM, and the way presented in this wiki need to be discussed. Is it proper to use total_bytes_sec to describe vDisk bandwidth and tune this value dynamically?
+Is it proper to use total_bytes_sec to describe vDisk bandwidth and tune this value dynamically?
 
 ### Functionality
 
@@ -125,6 +143,8 @@ Basic: Admin can created the SD profile and grant to users
 Users can select the profile for a specific vDisk when a VM is created . These elements are kept in migration.
 
 Support in VDSM API: create VM, hot plug and update VM device. Dynamic setting these elements should also be supported.
+
+The ovirt gust agent should collect info like util.
 
 ## Documentation / External references
 

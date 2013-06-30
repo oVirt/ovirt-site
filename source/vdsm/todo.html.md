@@ -62,7 +62,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   add a unit test for domxml generation, with several examplary vmParams.
+*   add more cases to vmTests.testBuildCmdLine: add more examplary vmParams and their domxml.
 
 <!-- -->
 

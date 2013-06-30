@@ -99,7 +99,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   make the *macspoof* hook of <https://bugzilla.redhat.com/908704> per vnic, using <http://www.ovirt.org/Features/Device_Custom_Properties>
+*   ~~make the *macspoof* hook of <https://bugzilla.redhat.com/908704> per vnic, using <http://www.ovirt.org/Features/Device_Custom_Properties>~~
 
 ### refactoring
 

@@ -163,11 +163,11 @@ Build with tests:
           -D engine.db.password=engine \
           -D engine.db.url=jdbc:postgresql://localhost/engine_test"
 
-#### Upgrade DAO database
+#### Upgrade Test database
 
 If you do not wish to drop database and create it again, or you want do test the upgrade cycle of the database, run the following command, assumption of credentials are the same as in create:
 
-      $ PGPASSWORD=engine ./packaging/dbscripts/upgrade.sh -u engine -d engine_dao 
+      $ PGPASSWORD=engine ./packaging/dbscripts/upgrade.sh -u engine -d engine_test 
 
 #### GWT Debug
 

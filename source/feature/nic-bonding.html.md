@@ -52,6 +52,14 @@ Just another step in offering some enhanced networking stuff in Node.
     -   ovirt-node
     -   vdsm (possibly)
 
+### Testing
+
+Cover all methods for creating and removing bonds.
+
+| Test         | Steps                                                                | Expected Result                                                 | Status | Version |
+|--------------|----------------------------------------------------------------------|-----------------------------------------------------------------|--------|---------|
+| Auto-install | Create a bond using `bond=bond0:eth1,eth2 BOOTIF=bond0 storage_init` | bond0 device is created, persisted and used during auto-install |        |         |
+
 ### Documentation / External references
 
 *   <https://bugzilla.redhat.com/show_bug.cgi?id=831318>

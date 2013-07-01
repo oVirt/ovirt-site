@@ -161,7 +161,7 @@ Build with tests:
       $ make maven BUILD_GWT=0 BUILD_UT=1 EXTRA_BUILD_FLAGS="-P enable-dao-tests \
           -D engine.db.username=engine \
           -D engine.db.password=engine \
-          -D engine.db.url=jdbc:postgresql://localhost/engine_dao"
+          -D engine.db.url=jdbc:postgresql://localhost/engine_test"
 
 #### Upgrade DAO database
 

@@ -6,7 +6,7 @@ wiki_revision_count: 2
 wiki_last_updated: 2013-07-01
 ---
 
-# Disks Block Aligment
+# Disks Block Alignment
 
 This pages describes the Disk Block Alignment feature. The main scope of this feature is to provide a way in oVirt to find the virtual disks with misaligned partitions. For more information on this matter please refer to the [virt-alignment-scan](http://libguestfs.org/virt-alignment-scan.1.html) tool and to the NetApp document that summarises the problem: <http://media.netapp.com/documents/tr-3747.pdf>
 

@@ -193,6 +193,7 @@ Features being considered for inclusion/already in master:
 *   [Features/Scheduling_API](Features/Scheduling_API) (depends on [Features/oVirt_scheduler](Features/oVirt_scheduler)) exposing user-level scheduling API
 *   [Features/Watchdog_engine_support](Features/Watchdog_engine_support)
 *   [Features/Network_QoS](Features/Network_QoS)
+*   [Trusted_compute_pools](Trusted_compute_pools)
 
 ### Gluster
 

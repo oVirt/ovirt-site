@@ -153,21 +153,21 @@ To rebuild everything use:
 
 *Optional:* Create database, provided the user is engine, password engine:
 
-      # su - postgres -c "psql -d template1 -c "create database engine_test owner engine;""
-      $ PGPASSWORD=engine ./packaging/dbscripts/create_schema.sh -d engine_test -u engine
+      # su - postgres -c "psql -d template1 -c "create database engine_dao_tests owner engine;""
+      $ PGPASSWORD=engine ./packaging/dbscripts/create_schema.sh -d engine_dao_tests -u engine
 
 Build with tests:
 
       $ make maven BUILD_GWT=0 BUILD_UT=1 EXTRA_BUILD_FLAGS="-P enable-dao-tests \
           -D engine.db.username=engine \
           -D engine.db.password=engine \
-          -D engine.db.url=jdbc:postgresql://localhost/engine_test"
+          -D engine.db.url=jdbc:postgresql://localhost/engine_dao_tests"
 
 #### Upgrade Test database
 
 If you do not wish to drop database and create it again, or you want do test the upgrade cycle of the database, run the following command, assumption of credentials are the same as in create:
 
-      $ PGPASSWORD=engine ./packaging/dbscripts/upgrade.sh -u engine -d engine_test 
+      $ PGPASSWORD=engine ./packaging/dbscripts/upgrade.sh -u engine -d engine_dao_tests 
 
 #### GWT Debug
 

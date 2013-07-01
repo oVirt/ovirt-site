@@ -153,8 +153,8 @@ To rebuild everything use:
 
 *Optional:* Create database, provided the user is engine, password engine:
 
-      # su - postgresql -c psql -c "create database engine_dao owner engine;"
-      $ PGPASSWORD=engine ./backend/manager/dbscripts/create_schema.sh -d engine_dao -u engine
+      # su - postgres -c "psql -d template1 -c "create database engine_test owner engine;""
+      $ PGPASSWORD=engine ./packaging/dbscripts/create_schema.sh -d engine_test -u engine
 
 Build with tests:
 

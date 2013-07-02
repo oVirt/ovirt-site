@@ -279,4 +279,92 @@ Otherwise, it should be hidden (including for System).
 
 TBD as soon as the specific requirements will be clarified
 
+### Testing
+
+The current implementation covers only the GUI changes as presented in the attached mockups.
+
+#### Test Logical Network Editor
+
+Have a cluster of version 3 and one logical network
+
+##### Test Case 1
+
+*   Press new VM button
+*   One network interface should be present with a combo box containing the logical network and an empty line
+*   Select the logical network and create the VM
+*   New VM should be created with the NIC created and the logical network assigned
+
+##### Test Case 2
+
+*   Press new VM button
+*   One network interface should be present with a combo box containing the logical network and an empty line
+*   Select the empty line and create the VM
+*   New VM should be created with the NIC created and no logical network assigned
+
+##### Test Case 3
+
+Have a VM with 2 NICs. One of them has the logical network assigned and one does not
+
+*   Select that VM and press the edit button
+*   The NICs should be present in the dialog and the correct values selected in the corresponding virtual network combo boxes
+*   Select the opposite value for both NICs (e.g. no network for the one with network and the network for the one without it)
+*   Save
+*   The VM should have the NICs with correctly assigned networks
+
+##### Test Case 4
+
+Have a VM without NICs
+
+*   Select that VM and open the edit VM dialog
+*   There should be no networks on the dialog listed
+
+##### Test Case 5
+
+Have a template with 2 NICs
+
+*   Press new VM and in new VM dialog select this template
+*   The NICs from the template should be present in the dialog
+*   Assign them the network and press OK
+*   Verify that the NICs are the correct copy of the templates' NICs and have the correct networks assigned
+
+#### Test Server/Desktop Unification
+
+##### Test Case 1
+
+*   Verify there is no new Server/ new Desktop buttons anymore - only one new VM
+
+##### Test Case 2
+
+*   Press new VM and set the VM type to Server
+*   The Console/Soundcard checkbox should be checked
+*   Set the VM type to Desktop
+*   The Console/Soundcard checkbox should be unchecked
+
+##### Test Case 3
+
+*   Verify that if the Console/Soundcard checkbox is checked the VM contains the soundcard device regardless the VM type
+
+##### Test Case 4
+
+*   Verify that the VM type is taken from the Template
+*   Verify that the VM type is editable after VM creation
+
+#### Type Aheads
+
+##### Test Case 1
+
+*   Open new VM dialog
+*   Verify that the Data Center and cluster is unifyed under the name of Cluster
+*   Click into the Cluster text box
+*   The text type ahead suggestions should contain the following text: <Cluster Name> | <Data Center Description - if the DC has no Description than DC name>
+*   Click into the Template text box
+*   The type ahead suggestions should contain the following text: <Template Name | <Template description or nothing if there is no description for the template>
+
+##### Test Case 2
+
+*   Verify you can select the the value from each type ahead using keyboard, mouse or using typing
+*   Verify that if you add incorrect value to the type ahead than it returns to the previous one
+*   Verify that if you enter no value it returns to the previous one
+*   Verify that type ahead works also with different locales
+
 <Category:Feature> <Category:Template>

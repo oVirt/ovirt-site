@@ -141,6 +141,10 @@ Example: ![](IDEA-EclipseFormatter-Settings.png "fig:IDEA-EclipseFormatter-Setti
 
 Set "use single class import" as checked, and "class count" and "name count" settings to 99
 
+*   If you want the code formatting to run when you save a file, a-la Eclipse, you can follow [these instructions](http://stackoverflow.com/questions/946993/intellij-reformat-on-file-save).
+
+<!-- -->
+
 *   Maven configuration (not mandatory) - for easier development work (not need to use command line)
 
 First, make sure that IntelliJ is pointed at the correct Maven configuration, especially if you have several different versions.

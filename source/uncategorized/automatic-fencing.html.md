@@ -38,6 +38,8 @@ Fencing process in oVirt 3.3 has been extended of **SSH Soft Fencing** prior to 
     -   Wait if host recovers for previously specified time (ask 3 times VDSM for status or wait an interval of time that depends on host's load)
     -   If the host doesn't respond during this time, it's status will change to **non responsive** and it will be fenced.
 
+Attention: SSH Soft Fencing is also executed on hosts without power management configured unlike real fencing that is executed only for hosts with power management configured.
+
 # Troubleshooting
 
 Check that you can run the fence agent from the command line. Use the fence script that corresponds with the fence type you are setting up.

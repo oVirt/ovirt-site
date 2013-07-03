@@ -53,7 +53,7 @@ Updated July 3 2013
 
 #### REST (backend)
 
-*   Create root resource for connections that will perform GET. In the scope of this patch, create a backend query that will get all connections from db. (not started)
+*   Create root resource for connections that will perform GET. In the scope of this patch, create a backend query that will get all connections from db. (in implementation)
 *   Add functionality to root resource for add/delete/edit NFS, Posix connection properties in REST (design phase)
 *   Add functionality to root resource for add/delete/edit ISCSI connection properties in REST (design phase)
 *   Create subresource for connections under domains (api/storagedomains/<domainId>/connections (not started)

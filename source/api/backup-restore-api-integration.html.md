@@ -74,8 +74,7 @@ File level restore can be performed in-guest or off-host. Mount the volumes of t
 2.  get VM Config (new API)
 3.  prepare backup disk (new api, should probably accept: hostid, disk;
 
-      - return: paths to device on host as well as map of changed blocks, eg. below
-      -                 {'GUID': `<guid-of-dm-device>`, 'cbtInfo':{...}}
+      - return: paths to device on host as well as map of changed blocks, eg. {'GUID': `<guid-of-dm-device>`, 'cbtInfo':{...}}
       - this should be called for every disk that needs to be backed up.  Note that VM snapshot takes a snap of *all* disks of the VM.
 
 1.  attach disk to backup vm (the api call exists today. This assumes virt app) - also has to be called per disk to back up

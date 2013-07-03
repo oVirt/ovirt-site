@@ -132,6 +132,7 @@ As this is a 3.3 feature, all 3.2 (and down) cluster related entities should not
 ### Testing
 
 *   Use the engine-config tool to insert the property 'label': 'red' to vNics, and 'capped': 'True' to disks. Specify the regex on the 'capped' property to 'True|False'
+*   For example: engine-config -s CustomDeviceProperties="{type=interface;prop={speed=^([0-9]{1,5})$;duplex=^(full|half)$}}" will set two custom properties for vNics: speed and duplex.
 *   Verify that the properties were inserted into the DB
 *   From the Engine, edit a vNic and place the label property, and the capped property on a disk
 *   Verify that you may only place the label property on vNics and not disks, and the capped property on disks and not vNics.

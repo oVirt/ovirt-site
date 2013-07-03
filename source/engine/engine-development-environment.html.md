@@ -143,6 +143,16 @@ To rebuild everything use:
 
       make clean install-dev PREFIX="$HOME/ovirt-engine"
 
+To rebuild a single artifact
+
+      make clean install-dev PREFIX=$HOME/ovirt-engine DEV_EXTRA_BUILD_FLAGS="-pl org.ovirt.engine.core:vdsbroker" EXTRA_BUILD_FLAGS="-pl org.ovirt.engine.core:vdsbroker"
+
+Now make the ear:
+
+      make clean install-dev PREFIX=$HOME/ovirt-engine DEV_EXTRA_BUILD_FLAGS="-pl org.ovirt.engine:engine-server-ear" EXTRA_BUILD_FLAGS="-pl org.ovirt.engine:engine-server-ear"
+
+Now your updated artifact is in place.
+
 ### Advanced Usage
 
 #### Enable Unit Tests

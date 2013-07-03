@@ -49,6 +49,7 @@ Updated July 2 2013
 *   Create a storage connection validator that will validate that the mandatory fields of each storage type's typical connection are filled correctly. Will be used by AddStorageServerConnection and UpdateStorageServerConnection. Mostly take existing validation code and put it in central place for a better reuse. (not started)
 *   Restrict compatibility version of edit storage connections feature in engine to 3.3. ready. <http://gerrit.ovirt.org/#/c/14249/>
 *   MLA (permissions) - not started
+*   Refactor AddSANStorageDomainCommand so it will not add storage server connection, and rather use existing one (that was either created right before by add connection command, or in the past). This will involve rewriting San domain creation in webadmin (StorageListModel) to call AddStorageServerConnection before AddSANStorageDomainCommand. not started.
 
 #### REST (backend)
 

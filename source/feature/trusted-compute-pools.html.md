@@ -221,4 +221,11 @@ None.
 
 Define later
 
+*   Create trusted cluster
+
+1.  Login webadmin
+2.  Open "cluster" page
+3.  Click "New" button to open the new cluster window
+4.  Check "Enable Trusted Service" checkbox and click "OK"
+
 <Category:Feature>

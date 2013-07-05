@@ -56,9 +56,12 @@ Just another step in offering some enhanced networking stuff in Node.
 
 Cover all methods for creating and removing bonds.
 
-| Test         | Steps                                                                | Expected Result                                                 | Status | Version |
-|--------------|----------------------------------------------------------------------|-----------------------------------------------------------------|--------|---------|
-| Auto-install | Create a bond using `bond=bond0:eth1,eth2 BOOTIF=bond0 storage_init` | bond0 device is created, persisted and used during auto-install |        |         |
+| Test                              | Steps                                                                                                                | Expected Result                                                                    | Status | Version |
+|-----------------------------------|----------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|--------|---------|
+| Auto-install                      | Create a bond using `bond=bond0:eth1,eth2 BOOTIF=bond0 storage_init`                                                 | bond0 device is created, persisted and used during auto-install.                   |        |         |
+| Auto-install with vlan            | Create a bond with vlan using `bond=bond0:eth1,eth2 vlan=42 BOOTIF=bond0 storage_init`                               | bond0 and vlan devices are created, persisted and used during auto-install         |        |         |
+| Auto-install with bridge          | Create a bond and bridge using `bond=bond0:eth1,eth2 network_layout=bridged BOOTIF=bond0 storage_init`               | bond0 and bridge devices are created, persisted and used during auto-install       |        |         |
+| Auto-install with bridge and vlan | Create a bond, bridge and vlan using `bond=bond0:eth1,eth2 network_layout=bridged vlan=42 BOOTIF=bond0 storage_init` | bond0, bridge and vlan devices are created, persisted and used during auto-install |        |         |
 
 ### Documentation / External references
 

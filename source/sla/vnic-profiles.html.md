@@ -142,6 +142,25 @@ NetworkUser permission on **Network** entity will be changed to permissions on *
 We define a new entity: NetworkProfile.
 The NetworkProfile will be added as a property of NetworkInterface.
 
+Affected flows:
+
+*   AddVmNetworkInterface
+*   UpdateVmNetworkInterface
+*   AddVmTemplateNetworkInterface
+*   UpdateVmTemplateNetworkInterface
+*   RemoveNetworkCommand
+
+New flows:
+
+*   AddVnicProfile
+*   UpdateVnicProfile
+*   RemoveVnicProfile
+
+DB Queries:
+
+*   GetAllVnicProfiles()
+*   GetAllForNetwork(Guid NetworkId)
+
 see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
 
 #### DB Change

@@ -85,9 +85,9 @@ The benefit for oVirt from these changes is to have better usage of SPM tasks in
 
 This feature is mostly code change and introduces changes that should be implemented by various commands. Currently, 3 commands/flows in the system use the new mechanism:
 
-      * Hibernate VM
-      * Create Template
-      * Create snapshot
+*   Hibernate VM
+*   Create Template
+*   Create snapshot
 
 The things that can be tested are: 1. Test case 1 (Check for regression) Make sure that the 3 commands are normally , as they did in oVirt 3.3 After each flow execution make sure that async_tasks table is clear.
 

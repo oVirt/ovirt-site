@@ -81,6 +81,18 @@ Reach the decision of whether endAction should be executed based on the parent c
 
 The benefit for oVirt from these changes is to have better usage of SPM tasks in the system - by giving better handling of cases of engine crashes , providing a better mechanism for execution validation of commands and and to give better association between tasks and the command execution flows.
 
+### Testing
+
+This feature is mostly code change and introduces changes that should be implemented by various commands. Currently, 3 commands/flows in the system use the new mechanism:
+
+      * Hibernate VM
+      * Create Template
+      * Create snapshot
+
+The things that can be tested are: 1. Test case 1 (Check for regression) Make sure that the 3 commands are normally , as they did in oVirt 3.3 After each flow execution make sure that async_tasks table is clear.
+
+2. Test case 2 (Restart ) Try to restart engine during execution of commands. The commands should not suceed, unless all tasks were executed on VDSM.
+
 ### Dependencies / Related Features
 
 These fixes are a part of the on going effort around the Async Task Manager changes. See also [1](http://wiki.ovirt.org/wiki/Wiki/AsyncTaskManagerChanges)

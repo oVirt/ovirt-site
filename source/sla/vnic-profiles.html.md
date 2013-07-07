@@ -173,6 +173,8 @@ Affected flows:
 *   UpdateVmNetworkInterface
 *   AddVmTemplateNetworkInterface
 *   UpdateVmTemplateNetworkInterface
+*   AddNetworkCommand
+*   UpdateNetworkCommand
 *   RemoveNetworkCommand
 *   ExportVmCommand
 *   ImportVmCommand

@@ -54,8 +54,8 @@ Updated July 7 2013
 #### REST (backend)
 
 *   Create root resource for connections that will perform GET. In the scope of this patch, create a backend query that will get all connections from db. (in implementation)
-*   Add functionality to root resource for add/delete/edit NFS, Posix connection properties in REST (design phase)
-*   Add functionality to root resource for add/delete/edit ISCSI connection properties in REST (design phase)
+*   Add functionality to root resource for add/delete/edit NFS, Posix connection properties in REST (not started)
+*   Add functionality to root resource for add/delete/edit ISCSI connection properties in REST (not started)
 *   Create subresource for connections under domains (api/storagedomains/<domainId>/connections (not started)
 *   Add functionality to add storage domain with a reference to an already existing storage connection (instead of embedded properties of a connection that will be created along with the storage domain). (not started.)
 

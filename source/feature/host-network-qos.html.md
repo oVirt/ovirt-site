@@ -14,7 +14,7 @@ wiki_last_updated: 2014-09-04
 
 #### Summary
 
-In order to provide better control of networks traffic, we need to define traffic boundaries for incoming and outgoing traffic. This goal is achieved by providing a general traffic shaping template which can be applied to an abstract network entity and can optionally be redefined on a per host network basis.
+In order to provide better control of networks traffic, we need to define traffic boundaries for incoming and outgoing traffic. This goal is achieved by providing a general traffic shaping template which can be applied to an abstract network entity. User can optionally redefine the traffic shaping template on a per host network basis.
 
 #### Owner
 

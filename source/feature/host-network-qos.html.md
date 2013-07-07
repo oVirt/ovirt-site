@@ -55,7 +55,19 @@ A new role icon should be associated with the network in Logical Networks list a
 
 ## Implementation
 
+### Backend
+
 TBD
+
+### DB Change
+
+TBD
+
+### Rest API
+
+TBD
+
+### VDSM
 
 ## Comments and Discussion
 

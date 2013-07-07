@@ -25,7 +25,7 @@ The new connection details should be of the same storage type as the original co
 
 ### Current Status and tasks
 
-Updated July 4 2013
+Updated July 7 2013
 
 #### GUI
 
@@ -43,7 +43,7 @@ Updated July 4 2013
 *   Add lock that locks the connection's id in UpdateStorageServerConnection and RemoveStorageServerConnection. (for cases where no storage domain exists, so the lock of domain's id is irrelevant). (ready) <http://gerrit.ovirt.org/#/c/16009/>
 *   Add non empty iqn validation - extend functionality of existing AddStorageServerConnection command to create also iSCSI connections. (Currently a connection for block domains is created via AddSanStorageDomain command directly). (ready) <http://gerrit.ovirt.org/#/c/15516/>
 *   Add non empty port validation - extend functionality of existing AddStorageServerConnection command to create also iSCSI connections. (not started)
-*   Extend functionality of existing UpdateStorageServerConnection command to update iSCSI connections. Check connection validity to target (needs check with lun replication), VG properties - whether they are correct, if there are domains using the connection that they are in maintenance, and if there are lun disks - the vm are in proper state. Add lock that will properly lock connection of block domains for add/edit/remove connection (instead of path that is locked for file domains, need to lock iqn,adress, etc.) . Also lock lun disk/vm/storage domain using the edited connection. Add locking of target in AddStorageServerConnectionCommand as well so edit/add will not interfere each other. (in review) <http://gerrit.ovirt.org/#/c/16203/>
+*   Extend functionality of existing UpdateStorageServerConnection command to update iSCSI connections. Check connection validity to target (needs check with lun replication), VG properties - whether they are correct, if there are domains using the connection that they are in maintenance, and if there are lun disks - the vm are in proper state. Add lock that will properly lock connection of block domains for add/edit/remove connection (instead of path that is locked for file domains, need to lock iqn,adress, etc.) . Also lock lun disk/vm/storage domain using the edited connection. Add locking of target in AddStorageServerConnectionCommand as well so edit/add will not interfere each other. (ready) <http://gerrit.ovirt.org/#/c/16203/>
 *   Change update connection flow not to fail if there are no domains using the connection . If there are domains using the connection - lock them during the update and update their stats. (ready) <http://gerrit.ovirt.org/#/c/15952/>
 *   Add validation of non empty connection field and appropriate error to be used by AddStorageConnection and UpdateStorageConnection commands. (ready) <http://gerrit.ovirt.org/#/c/15560/>
 *   Create a storage connection validator that will validate that the mandatory fields of each storage type's typical connection are filled correctly. Will be used by AddStorageServerConnection and UpdateStorageServerConnection. Mostly take existing validation code and put it in central place for a better reuse. (not started)

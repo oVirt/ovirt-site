@@ -174,6 +174,10 @@ Affected flows:
 *   AddVmTemplateNetworkInterface
 *   UpdateVmTemplateNetworkInterface
 *   RemoveNetworkCommand
+*   ExportVmCommand
+*   ImportVmCommand
+*   ExportVmTemplateCommand
+*   ImportVmTemplateCommand
 
 New flows:
 
@@ -183,8 +187,12 @@ New flows:
 
 DB Queries:
 
-*   GetAllVnicProfiles()
-*   GetAllForNetwork(Guid NetworkId)
+*   VnicProfileDao.GetAll()
+*   VnicProfileDao.GetAllForNetwork(Guid NetworkId, Guid userId, boolean filtered)
+
+At the convenience of the UI:
+
+*   VnicProfileDao.GetAllForVm(Guid NetworkId, Guid userId, boolean filtered) - will return a map of <Network, List<Profiles>>
 
 see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
 

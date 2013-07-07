@@ -100,7 +100,8 @@ When a network role is modified to be a 'non-VM network', all vNic profiles asso
 *   We should handle VMs that are pointing to a network directly for backward compatibility.
 *   We need to select first profile that is on that network that the user has permissions on.
 
-Question: Do we wish to support it export from 3.3 and import to 3.2 or below? Question: A user can import/export a VM/Template even if he doesn't have permissions on the networks. Is the next flow valid ?
+Question: Do we wish to support it export from 3.3 and import to 3.2 or below?
+Question: A user can import/export a VM/Template even if he doesn't have permissions on the networks. Is the next flow valid ?
 
 *   The profile name should be saved in the OVF (in addition to the network name which is saved today).
 *   During import, if both (network name, profile name) exist on the target DC, the vnic will get the profile id.

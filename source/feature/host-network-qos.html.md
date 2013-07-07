@@ -57,7 +57,7 @@ A new role icon should be associated with the network in Logical Networks list a
 
 ### Backend
 
-TBD
+We should reuse the entity NetworkQoS as defined in [Network QoS for Vnic](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design#Backend).
 
 ### DB Change
 

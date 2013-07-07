@@ -37,15 +37,20 @@ VNIC Profile include:
 *   Custom properties
 
 When creating a new VNIC or editing an existing one the user will select a VNIC Profile (instead of the current implementation in which the user selects a network and sets port mirroring and custom properties).
+
+##### Adding a Profile
+
 The network administrator could create several VNIC Profiles for each network. He could then grant a users with the permission to use (consume) each profile. The user will only be able to use profiles which he was granted access to.
 
 For example: the network admin will create two VNIC profiles for network "blue":
 
-Profile "Gold" - with better QoS and no port mirroring
+Profile "Gold" - with better QoS and with port mirroring
 
-Profile "Silver" with lower QoS and enabled port mirroring.
+Profile "Silver" with lower QoS and without port mirroring.
 
-He will then define the user-group "students" as user of profile "Silver" and user-group "teachers" as user of profile "Gold". In this case the teachers will enjoy better quality of service then the students. When a teacher will add/edit a virtual NIC he could select profile "Gold" for that NIC - the VNIC will be connected to network "blue" with high QoS and no port mirroring.
+He will then define the user-group "students" as user of profile "Silver" and user-group "teachers" as user of profile "Gold". In this case the teachers will enjoy better quality of service then the students. When a teacher will add/edit a virtual NIC he could select profile "Gold" for that NIC - the VNIC will be connected to network "blue" with high QoS and with port mirroring.
+
+Question: In the same matter we allowed via the UI to grant 'NetworkUser' to 'everyone' user, wouldn't it ease the use of Profiles if we support it in this context as well?
 
 ##### Editing a Profile
 
@@ -94,10 +99,15 @@ When a network role is modified to be a 'non-VM network', all vNic profiles asso
 *   We should handle VMs that are pointing to a network directly for backward compatibility.
 *   We need to select first profile that is on that network that the user has permissions on.
 
-Question: How would export from 3.3 and import to 3.2 will work? Question: A user can import/export a VM/Template even if he doesn't have permissions on the networks. We should save to the OVF both network name and profile name. During import, if both (network name, profile name) exist on the target DC, the vnic will get the profile id. If any of these are missing, the vnic's profile will be set with 'none' profile.
+Question: Do we wish to support it export from 3.3 and import to 3.2 or below? Question: A user can import/export a VM/Template even if he doesn't have permissions on the networks. Is the next flow valid ?
+
+*   The profile name should be saved in the OVF (in addition to the network name which is saved today).
+*   During import, if both (network name, profile name) exist on the target DC, the vnic will get the profile id.
+*   If the network exists in the Data-Center, but has no profile as specified in the OVF, the user will be notified (event log) and the VNIC will be connected to a default minimal profile defined in the system, regardless the permissions the user has on the network.
+
+If failed to find any matching vNic profile, the vnic's profile will be set with 'none'.
 
 *   When a Template is created from a VM the VNIC Profile will be kept along with the VNIC. When a VM is created from template the VNIC Profiles will be taken from the template's VNICs.
-*   The VNIC Profiles will be exported and imported together with the VNIC. If the user will import a VM which is using a profile not exist in the system, he will be notified and the VNIC will be connected to a default minimal profile defined in the system.
 
 In 3.2 or lower clusters versions not all of the profile properties are supported. In those clusters only Profile name, Network and Port mirroring will be enabled.
 

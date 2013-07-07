@@ -100,8 +100,6 @@ The Network QoS feature includes two main parts:
 
 The two parts will be developed in parallel
 
-see : ___ for detailed design
-
 #### Upgrade
 
 Upgrade process will include automatic creation of two Profiles for each network, one with Port mirroring enabled and the other with port mirroring disabled. In case no VNIC are using a specific network with/without port mirroring - only the relevant profiles will be created.

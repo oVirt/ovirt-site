@@ -245,7 +245,7 @@ TBD
 
 ## Working with SSL (Secure Socket Layer)
 
-oVirt Java-SDK provides full support for HTTP over Secure Sockets Layer (SSL) or IETF Transport Layer Security (TLS) protocols by leveraging the Java Secure Socket Extension (JSSE). JSSE has been integrated into the Java 2 platform as of version 1.4 and works with Java-SDK out of the box. On older Java 2 versions JSSE needs to be manually installed and configured. Installation instructions can be found at <http://java.sun.com/products/jsse/doc/guide/API_users_guide.html#Installation>
+oVirt Java-SDK provides full support for HTTP over Secure Sockets Layer (SSL) or IETF Transport Layer Security (TLS) protocols by leveraging the Java Secure Socket Extension (JSSE). JSSE has been integrated into the Java 2 platform as of version 1.4 and works with Java-SDK out of the box. On older Java 2 versions JSSE needs to be manually installed and configured. Installation instructions can be found at [here](http://java.sun.com/products/jsse/doc/guide/API_users_guide.html#Installation).
 
 Once you have JSSE correctly installed, secure HTTP communication over SSL should be as simple as plain HTTP communication, however Java-SDK need to be supplied with KeyStore containing host CA certeficate in order to validate the destination host identity:
 

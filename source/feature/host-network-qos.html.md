@@ -43,7 +43,15 @@ Shaping network traffic is useful for network administrators, where they can pro
 
 ## User experience
 
-TBD
+A user can define traffic shaping either during creation of a logical network or when editing a network's parameters during a Setup Host Networks task (see images below):
+
+![](new_lnetwork_bandwidth.png "new_lnetwork_bandwidth.png")
+
+Selecting the checkbox (Incoming/Outgoing or both) a user can specify the needed parameters.
+
+![](edit_lnetwork_bandwidth.png "edit_lnetwork_bandwidth.png")
+
+A new role icon should be associated with the network in Logical Networks list and the "Setup Host Networks" UI and in case it uses traffic shaping.
 
 ## Implementation
 

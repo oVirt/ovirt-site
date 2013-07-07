@@ -259,7 +259,7 @@ Once you have JSSE correctly installed, secure HTTP communication over SSL shoul
 
          keytool -import -alias "server.crt truststore" -file server.crt -keystore server.truststore
 
-### make Java-SDK aware of the keystore
+### Make Java-SDK aware of the keystore
 
 this can be achieved in one of two ways:
 
@@ -276,7 +276,7 @@ use this signature: Api(String url, String username, String password, String key
 
          Api api = new Api(url, user, password, "/path/server.truststore");
 
-### disable host identity validation
+### Disable host identity validation
 
 This method SHOULD NOT be used for productive systems due to security reasons, unless it is a conscious decision and you are perfectly aware of security implications of not validating host identity.
 

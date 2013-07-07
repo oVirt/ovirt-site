@@ -35,7 +35,7 @@ In order to provide better control of networks traffic, we need to define traffi
 *   Burst: Burst, amount of Mb that can be burst at peak speed (Mb).
 *   Peak: Maximum rate at which interface can send data (Mbps).
 
-For example defining a network "Students" with outbound traffic defined with average, burst and peak respectively 20, 200, 40 means that traffic will flow at 20 Mbps on average and the interface will be able to send a maximum of 200 Mb at the peak speed of 40 Mbps.
+For example defining a network "Students" with outbound traffic defined with average, burst and peak respectively 20, 200, 40 means that traffic will flow at 20 Mbps on average and the interface will be able to send a maximum of 200 Mb at the peak speed of 40 Mbps, for the shaped network.
 
 #### Benefit to Ovirt
 

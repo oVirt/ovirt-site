@@ -70,9 +70,24 @@ VNIC Profiles could not be deleted from the engine as long as one or more VM/Tem
 *   Changing the profile a VM is using while the VM is running should behave like dynamic wiring (changing the VM network while it is running).
 *   Hot-plug of a vnic will will use will use the updated profile connected to the VNIC.
 
+##### Adding a Network
+
+*   When adding a network, a user can provide an option to create a vNic Profile for it.
+
+Question: Is it s default profile ? what are its properties ? Question: What about 'Public Use' option ? Are they still relevant in the context of adding new networks or we should eliminate them and move it only to 'Add vNic Profile' dialog?
+
+##### Updating a Network
+
+When a network role is modified to be a 'non-VM network', all vNic profiles associated with it should be deleted.
+
 ##### Removing a Network
 
 *   Should remove all profiles on that network
+
+##### Adding an Empty Data-Center
+
+*   Currently, When creating a new Data-Center, the management network is automatically created.
+*   From 3.3, a default vNic profile will be created for the management network.
 
 ##### VM snapshot/import/export
 

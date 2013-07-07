@@ -143,7 +143,7 @@ The sub tab will show the available Profiles for each network. Columns will be:
 *   Inbound QoS - formatted string
 *   outbound QoS - formatted string
 
-supported actions: add, edit, remove
+The inbound/outbound units will appear in Mb and Mbps, however, they will be converted to Kb and Kbs on the engine side when sent to VDSM. supported actions: add, edit, remove
 
 The sub tab will include a right pane which will hold "Permissions"/"Consumers" tab where the user will define the user which can use the selected profile.
 supported action: add / remove

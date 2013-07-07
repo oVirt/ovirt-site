@@ -44,23 +44,22 @@ The network administrator could create several VNIC Profiles for each network. H
 
 For example: the network admin will create two VNIC profiles for network "blue":
 
-Profile "Gold" - with better QoS and with port mirroring
+Profile "teacher-blue" - with better QoS and with port mirroring
 
-Profile "Silver" with lower QoS and without port mirroring.
+Profile "student-blue" with lower QoS and without port mirroring.
 
-He will then define the user-group "students" as user of profile "Silver" and user-group "teachers" as user of profile "Gold". In this case the teachers will enjoy better quality of service then the students. When a teacher will add/edit a virtual NIC he could select profile "Gold" for that NIC - the VNIC will be connected to network "blue" with high QoS and with port mirroring.
+He will then define the user-group "students" as user of profile "student-blue" and user-group "teachers" as user of profile "teacher-blue". In this case the teachers will enjoy better quality of service (e.g. Gold) than the students (e.g Silver). When a teacher will add/edit a virtual NIC he could select profile "teacher-blue" for that NIC - the VNIC will be connected to network "blue" with high QoS and with port mirroring.
 
-Question: In the same matter we allowed via the UI to grant 'NetworkUser' to 'everyone' user, wouldn't it ease the use of Profiles if we support it in this context as well?
+*   An option to select 'Allow all users to use this profile' will be added to the dialog. If selected, a permission on the the vnic profile will be granted to 'everyone'.
 
 ##### Editing a Profile
 
 *   A user should be able to edit the profile properties (including profile name) while VMs are attached and are using this Profile (reference should be done by id).
-*   Changing the network of a vNic profile will be allowed only if no VMs are using the profile.
+*   Changing the network of a vNic profile will be allowed if all the VMs that are using the profile are in status down.
     -   Since we have no way to distinguish between running and current configurations, the expected behavior of such a change is unpredictable and less intuitive to the user (especially since dynamic wiring is supported).
 *   The changes will seep down to all VNICs using the profile.
     -   In case VNIC using the edited profile are connected to running VMs, the change will apply only on the VM next run.
-
-Question: What about Hibernate/Suspend VM ? will the resume VM action uses the original configuration for the vnics when the VM was started ?
+*   The profile change would only apply after next VM reboot.
 
 ##### Deleting a Profile
 
@@ -68,27 +67,31 @@ VNIC Profiles could not be deleted from the engine as long as one or more VM/Tem
 
 ##### Reporting vNic actual configuration
 
-*   The engine will retrieve the actual configuration of the profile properties on the VNIC from VDSM (using the network statistics mechanism) and the networked administrator will be presented with the state of each VNIC (synched/unsynched).
+*   The engine will retrieve the actual configuration of the profile properties on the VNIC from VDSM (using the network statistics mechanism) and the networked administrator will be presented with the the reported values within the vm network interface's 'guest agent data' sub-tab.
 
 ##### Editing a VNIC / Changing a VNIC profile
 
 *   Changing the profile a VM is using while the VM is running should behave like dynamic wiring (changing the VM network while it is running).
-*   Hot-plug of a vnic will will use will use the updated profile connected to the VNIC.
+*   Hot plug will be fully supported: the user can choose any permitted profile while plugging a new device or when activating an existing one.
 
 ##### Adding a Network
 
 *   When adding a network, a user can provide an option to create a vNic Profile for it.
+*   All VNIC-QoS-objects will be displayed and the users could tick next to the QoS they are interested in, for each QoS that was chosen a profile would be created,
 
-Question: Is it s default profile ? what are its properties ?
-Question: What about 'Public Use' option ? Are they still relevant in the context of adding new networks or we should eliminate them and move it only to 'Add vNic Profile' dialog?
+and for each vnic profile there will be an option for 'public use' (and port mirroring ?)
+
+*   The vNic profile name will be NetworkNamePolicyName, e.g. blueGold. The user will be able to rename the profile and its properties from the vnic profile sub-tab.
+
+The option to check the network for a public use will be removed from the 'Add network' dialog.
 
 ##### Updating a Network
 
-When a network role is modified to be a 'non-VM network', all vNic profiles associated with it should be deleted.
+When a network role is modified to be a 'non-VM network', all vNic profiles associated with it should be deleted and permissions associated with these profiles.
 
 ##### Removing a Network
 
-*   Should remove all profiles on that network
+*   Should remove all profiles on that network and associated permissions.
 
 ##### Adding an Empty Data-Center
 
@@ -100,7 +103,6 @@ When a network role is modified to be a 'non-VM network', all vNic profiles asso
 *   We should handle VMs that are pointing to a network directly for backward compatibility.
 *   We need to select first profile that is on that network that the user has permissions on.
 
-Question: Do we wish to support it export from 3.3 and import to 3.2 or below?
 Question: A user can import/export a VM/Template even if he doesn't have permissions on the networks. Is the next flow valid ?
 
 *   The profile name should be saved in the OVF (in addition to the network name which is saved today).

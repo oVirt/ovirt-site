@@ -39,7 +39,7 @@ For example defining a network "Students" with outbound traffic defined with ave
 
 #### Benefit to Ovirt
 
-Shaping network traffic is useful for network administrators, where they can provide a different class of service according to the different kind of usages they need to satisfy. It might be also useful to limit the bandwidth of a [migration network](Features/Migration_Network) or in general to every network who could possibly saturate the overall interface bandwidth.
+Shaping network traffic is useful for network administrators, where they can provide a different class of service according to the different kind of usages they need to satisfy. It might be also useful to limit the bandwidth of a [migration network](Features/Migration_Network) or in general to every network who could possibly choke/saturate the overall interface bandwidth.
 
 ## User experience
 

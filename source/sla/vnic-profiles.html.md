@@ -47,17 +47,44 @@ Profile "Silver" with lower QoS and enabled port mirroring.
 
 He will then define the user-group "students" as user of profile "Silver" and user-group "teachers" as user of profile "Gold". In this case the teachers will enjoy better quality of service then the students. When a teacher will add/edit a virtual NIC he could select profile "Gold" for that NIC - the VNIC will be connected to network "blue" with high QoS and no port mirroring.
 
-The VNIC Profile could be edited by the network administrator at any time. The changes will seep down to all VNICs using the profile. In case VNIC using the edited profile are connected to running VMs the change will apply only on the VM next run. The engine will retrieve the actual configuration of the profile properties on the VNIC from VDSM (using the network statistics mechanism) and the networked administrator will be presented with the state of each VNIC (synched/unsynched).
+##### Editing a Profile
 
-Hotplug and Dynamically Rewire will continue to be fully supported. Devices which will be hotpluged or rewired will use the updated profile connected to the VNIC.
+*   A user should be able to edit the profile properties (including profile name) while VMs are attached and are using this Profile (reference should be done by id).
+*   Changing the network of a vNic profile will be allowed only if no VMs are using the profile.
+    -   Since we have no way to distinguish between running and current configurations, the expected behavior of such a change is unpredictable and less intuitive to the user (especially since dynamic wiring is supported).
+*   The changes will seep down to all VNICs using the profile.
+    -   In case VNIC using the edited profile are connected to running VMs, the change will apply only on the VM next run.
 
-When a Template is created from a VM the VNIC Profile will be kept along with the VNIC. When a VM is created from template the VNIC Profiles will be taken from the template's VNICs.
+Question: What about Hibernate/Suspend VM ? will the resume VM action uses the original configuration for the vnics when the VM was started ?
+
+##### Deleting a Profile
 
 VNIC Profiles could not be deleted from the engine as long as one or more VM/Templates are using those profiles.
 
-The VNIC Profiles will be exported and imported together with the VNIC. If the user will import a VM which is using a profile not exist in the system, he will be notified and the VNIC will be connected to a default minimal profile defined in the system.
+##### Reporting vNic actual configuration
 
-In 3.2 or lower clusters versions not all of the profile properties are supported. in those clusters only Profile name, Network and Port mirroring will be enabled.
+*   The engine will retrieve the actual configuration of the profile properties on the VNIC from VDSM (using the network statistics mechanism) and the networked administrator will be presented with the state of each VNIC (synched/unsynched).
+
+##### Editing a VNIC / Changing a VNIC profile
+
+*   Changing the profile a VM is using while the VM is running should behave like dynamic wiring (changing the VM network while it is running).
+*   Hot-plug of a vnic will will use will use the updated profile connected to the VNIC.
+
+##### Removing a Network
+
+*   Should remove all profiles on that network
+
+##### VM snapshot/import/export
+
+*   We should handle VMs that are pointing to a network directly for backward compatibility.
+*   We need to select first profile that is on that network that the user has permissions on.
+
+Question: How would export from 3.3 and import to 3.2 will work? Question: A user can import/export a VM/Template even if he doesn't have permissions on the networks. We should save to the OVF both network name and profile name. During import, if both (network name, profile name) exist on the target DC, the vnic will get the profile id. If any of these are missing, the vnic's profile will be set with 'none' profile.
+
+*   When a Template is created from a VM the VNIC Profile will be kept along with the VNIC. When a VM is created from template the VNIC Profiles will be taken from the template's VNICs.
+*   The VNIC Profiles will be exported and imported together with the VNIC. If the user will import a VM which is using a profile not exist in the system, he will be notified and the VNIC will be connected to a default minimal profile defined in the system.
+
+In 3.2 or lower clusters versions not all of the profile properties are supported. In those clusters only Profile name, Network and Port mirroring will be enabled.
 
 #### Benefit to oVirt
 

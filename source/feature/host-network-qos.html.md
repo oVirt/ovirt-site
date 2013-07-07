@@ -59,15 +59,28 @@ A new role icon should be associated with the network in Logical Networks list a
 
 We should reuse the entity NetworkQoS and network_qos database table as defined in [Network QoS for Vnic](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design#Backend).
 
-### DB Change
-
-TBD
-
 ### Rest API
 
-TBD
+TBD.
 
 ### VDSM
+
+Proposed [vdsm api](http://gerrit.ovirt.org/#/c/15724/) allows to provide traffic shaping parameters as part of NetworkOptions or setupNetworkNetAttributes used respectively by the addNetwork and setupNetworks verbs. In order to apply the configuration on the host network the Engine should convert attributes' values from Mb to kb (Megabit to Kilobit). VDSM generates a similar libvirt xml definition.
+
+        `<network>`                                          
+`    `<name>`vdsm-FinalAnswer`</name>
+          ...
+`    `<bandwidth>
+`      `<inbound average='30000' burst='200000'  peak='40000'/>
+`      `<outbound average='30000' burst='200000'  peak='40000' />
+`    `</bandwidth>
+`  `</network>
+
+Example vdscli:
+
+    from vdsm import vdscli
+    connection = vdscli.connect()
+    connection.addNetwork('whatever', '', '', ['p1p4'], {'qosInbound':{'average': '10000', 'burst': '48000', 'peak':'12000' }})
 
 ## Comments and Discussion
 

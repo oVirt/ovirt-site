@@ -116,6 +116,8 @@ On May 9th, 2013, The oVirt workshop will also have two tracks running. The Deve
 </div>
 <div class="row">
 <div class="span6 pad-sides">
+The agenda is also available at the [Intel site](http://software.intel.com/zh-cn/2013_Intel_oVirt_Workshop) for the workshop.
+
 ### Venue and Travel Information
 
 #### Venue

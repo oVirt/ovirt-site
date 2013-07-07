@@ -47,11 +47,11 @@ A user can define traffic shaping either during creation of a logical network or
 
 ![](new_lnetwork_bandwidth.png "new_lnetwork_bandwidth.png")
 
-Selecting the checkbox (Incoming/Outgoing or both) a user can specify the needed parameters.
+Selecting the checkbox (Incoming/Outgoing or both) a user can shape the related kind of traffic using the needed parameters. A user needs to specify all three parameters: average, burst and peak.
 
 ![](edit_lnetwork_bandwidth.png "edit_lnetwork_bandwidth.png")
 
-A new role icon should be associated with the network in Logical Networks list and the "Setup Host Networks" UI and in case it uses traffic shaping.
+A new role icon should be associated with the network in Logical Networks list and the "Setup Host Networks" UI in case it adopts traffic shaping.
 
 ## Implementation
 

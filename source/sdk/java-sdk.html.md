@@ -278,7 +278,7 @@ use this signature: Api(String url, String username, String password, String key
 
 ### disable host identity validation
 
-This method SHOULD NOT be used for productive systems due to security reasons, unless it is a concious decision and you are perfectly aware of security implications of not validating host identity.
+This method SHOULD NOT be used for productive systems due to security reasons, unless it is a conscious decision and you are perfectly aware of security implications of not validating host identity.
 
 use this signature: Api(String url, String username, String password, boolean noHostVerification)
 

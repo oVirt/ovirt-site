@@ -103,17 +103,30 @@ When a network role is modified to be a 'non-VM network', all vNic profiles asso
 *   We should handle VMs that are pointing to a network directly for backward compatibility.
 *   We need to select first profile that is on that network that the user has permissions on.
 
-Question: A user can import/export a VM/Template even if he doesn't have permissions on the networks. Is the next flow valid ?
+<!-- -->
 
 *   The profile name should be saved in the OVF (in addition to the network name which is saved today).
-*   During import, if both (network name, profile name) exist on the target DC, the vnic will get the profile id.
-*   If the network exists in the Data-Center, but has no profile as specified in the OVF, the user will be notified (event log) and the VNIC will be connected to a default minimal profile defined in the system, regardless the permissions the user has on the network.
 
-If failed to find any matching vNic profile, the vnic's profile will be set with 'none'.
+The import of a VM/Template will be performed according to the following logic:
+
+*   For 3.3 vms
+    -   If the vnic profile doesn't exist, set 'none' for it.
+*   For 3.2 vms
+    -   If the network doesn't exist, set 'none' for it.
+    -   If the network exists, and has no profiles, set 'none' for it.
+    -   If the network exists, and has profiles, prefer selecting a vnic profile the user has permissions on, else select any other arbitrary profile with event log.
+*   For 3.1 vms
+    -   If the network doesn't exist, remove the network interface.
+    -   If the network exists, and has no profiles, remove the network interface.
+    -   If the network exists, and has profiles, prefer selecting a vnic profile the user has permissions on, else, any other arbitrary profile with event log.
+
+<!-- -->
 
 *   When a Template is created from a VM the VNIC Profile will be kept along with the VNIC. When a VM is created from template the VNIC Profiles will be taken from the template's VNICs.
 
-In 3.2 or lower clusters versions not all of the profile properties are supported. In those clusters only Profile name, Network and Port mirroring will be enabled.
+##### Backward Compatibility
+
+In 3.2 or lower clusters versions not all of the profile properties are supported. In those clusters only Profile name, Network and Port mirroring will be enabled. For time been, we'll keep the networkName in the vmNetworkInterface, however when rest support will be added, the field will be removed.
 
 #### Benefit to oVirt
 

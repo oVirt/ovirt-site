@@ -119,10 +119,16 @@ The import of a VM/Template will be performed according to the following logic:
     -   If the network doesn't exist, remove the network interface.
     -   If the network exists, and has no profiles, remove the network interface.
     -   If the network exists, and has profiles, prefer selecting a vnic profile the user has permissions on, else, any other arbitrary profile with event log.
-
-<!-- -->
-
+*   Vnic profile with port-mirroring will not be allowed to be created implicitly.
 *   When a Template is created from a VM the VNIC Profile will be kept along with the VNIC. When a VM is created from template the VNIC Profiles will be taken from the template's VNICs.
+
+The OVF will contain the Vnic Profile name and the network- name as its sub-element:
+
+*   Network Interface
+    -   Profile Name
+        -   Network Name
+
+The Network Name on Vnic level will be deprecated.
 
 ##### Backward Compatibility
 

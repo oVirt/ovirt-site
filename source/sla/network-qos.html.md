@@ -152,15 +152,16 @@ The following action groups will be added:
 *   CREATE_NETWORK_VNIC_PROFILE - will be part of roles that have the CREATE_STORAGE_POOL_NETWORK action group
 *   DELETE_NETWORK_VNIC_PROFILE - will be part of roles that have the DELETE_STORAGE_POOL_NETWORK action group
 
-A VNICProfileUser role will be added, with the following action groups:
+A VNICProfileUser role will be added, instead of the NetworkUser role. This role will contain the exact same action groups:
 
 *   CONFIGURE_VM_NETWORK
 *   CONFIGURE_TEMPLATE_NETWORK
 *   LOGIN
 
-On upgrade of the permissions, we will do the following:
+When upgrading the permissions table, we will do the following:
 
-*   Remove the
+*   Remove each NetworkUser role on network objects, replacing it with a VNICProfileUser on the created network profiles.
+*   Replacing each NetworkUser role on other types of objects with a VNICProfileUser
 
 #### GUI (VNIC Profiles)
 

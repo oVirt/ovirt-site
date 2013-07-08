@@ -8,6 +8,11 @@ wiki_last_updated: 2013-12-25
 
 # Java-sdk-changelog
 
+       * Thu  Jul 8 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.10-1
+       - to cluster.add()/.update() added [trusted_service] property
+       - implement Secure Socket Layer (SSL) host verification (CA certificate)
+       - allow nullifying headers via passing NULL as header value
+
         * Fri  Jun 28 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.9-1
         - configure log4j programmatically
 

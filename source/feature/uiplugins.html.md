@@ -256,9 +256,9 @@ TODO
 
 ### Tutorials
 
-#### [oVirt Space Shooter](Tutorial/UIPlugins/CrashCourse)
+#### UI Plugins Crash Course
 
-Simple tutorial that walks you through the basics of creating your first UI plugin (includes complete plugin ready for download)
+The [oVirt Space Shooter](Tutorial/UIPlugins/CrashCourse) tutorial walks you through the basics of creating your first UI plugin.
 
 ![oVirt Space Shooter](OVirt_Space_Shooter_3.png "oVirt Space Shooter")
 
@@ -286,13 +286,13 @@ Minimal plugin host page:
 
     <!DOCTYPE html><html><head>
 
-    <script type="text/javascript">
-        var api = parent.pluginApi('MinimalPlugin');
-        api.register({
-            UiInit: function() { window.alert('Hello world!'); }
-        });
-        api.ready();
-    </script>
+        <script type="text/javascript">
+            var api = parent.pluginApi('MinimalPlugin');
+            api.register({
+                UiInit: function() { window.alert('Hello world!'); }
+            });
+            api.ready();
+        </script>
 
     </head><body></body></html>
 

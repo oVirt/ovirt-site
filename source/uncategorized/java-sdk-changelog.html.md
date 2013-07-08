@@ -10,8 +10,10 @@ wiki_last_updated: 2013-12-25
 
        * Thu  Jul 8 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.10-1
        - to cluster.add()/.update() added [trusted_service] property
-       - implement Secure Socket Layer (SSL) host verification (CA certificate)
+       - implement Secure Socket Layer (SSL) host verification (CA certificate) [1]
        - allow nullifying headers via passing NULL as header value
+       
+` [1] `[`http://www.ovirt.org/Java-sdk#Working_with_SSL_.28Secure_Socket_Layer.29`](http://www.ovirt.org/Java-sdk#Working_with_SSL_.28Secure_Socket_Layer.29)
 
         * Fri  Jun 28 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.9-1
         - configure log4j programmatically

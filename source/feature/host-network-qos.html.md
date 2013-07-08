@@ -43,7 +43,7 @@ Shaping network traffic is useful for network administrators, where they can pro
 
 ## User experience
 
-A user can define traffic shaping either during creation of a logical network or when editing a network's parameters during a Setup Host Networks task (see images below):
+A user can define traffic shaping during creation of a logical network. Traffic shaping can be redefined when attaching a logical network to the physical host interfaces during a Setup Host Networks task (see images below):
 
 ![](new_lnetwork_bandwidth.png "new_lnetwork_bandwidth.png")
 

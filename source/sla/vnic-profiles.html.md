@@ -150,9 +150,51 @@ The two parts will be developed in parallel
 
 #### Upgrade
 
-Upgrade process will include automatic creation of two Profiles for each network, one with Port mirroring enabled and the other with port mirroring disabled. In case no VNIC are using a specific network with/without port mirroring - only the relevant profiles will be created.
-A vnic connected to a network x in 3.2 will automatically be connected to the correlating profile in 3.3 (according to the port mirroring settings).
-A user which had a permission to use a network in 3.2 will be granted the permission to use the correlating profile in 3.3 (according to the port mirroring settings).
+In the upgrade process we will do the following:
+
+*   Create a VNIC profile for each network, without port mirroring
+*   Create a VNIC profile with port mirroring for every network which has a VNIC with port mirroring
+*   A VNIC connected to a network x in 3.2 will automatically be connected to the correlating profile in 3.3 (according to the port mirroring settings).
+*   Comment: when we say VNIC we mean either a VM VNIC or a Template VNIC
+*   A user which had a permission to use a network in 3.2 will be granted the permission to use the correlating profile in 3.3 (according to the port mirroring settings).
+
+#### Permissions
+
+The following action groups will be added:
+
+*   CONFIGURE_NETWORK_VNIC_PROFILE - will be part of roles that have the CONFIGURE_STORAGE_POOL_NETWORK action group
+*   CREATE_NETWORK_VNIC_PROFILE - will be part of roles that have the CREATE_STORAGE_POOL_NETWORK action group
+*   DELETE_NETWORK_VNIC_PROFILE - will be part of roles that have the DELETE_STORAGE_POOL_NETWORK action group
+
+A VNICProfileUser role will be added, instead of the NetworkUser role. This role will contain the exact same action groups:
+
+*   CONFIGURE_VM_NETWORK
+*   CONFIGURE_TEMPLATE_NETWORK
+*   LOGIN
+
+When upgrading the permissions table, we will do the following:
+
+*   Remove each NetworkUser role on network objects, replacing it with a VNICProfileUser on the created network profiles.
+*   Replacing each NetworkUser role on other types of objects with a VNICProfileUser
+
+We will also remove the PORT_MIRRORING action group, replacing it with proper logic in the different backend commands.
+
+##### Permission Views
+
+User (as opposed to an administrator), will be limited to the networks and VNIC profiles he can see.
+===== VNIC Profiles ===== NOTE: the permissions used below besides the direct one, and the VM/Template one, must allow the user to view the child objects
+
+*   The user has direct user permissions on the VNIC profile
+*   The user has user permissions on the VNIC profile's network
+*   The user has user permissions on the Profile-Network's Data-Center
+*   The user has user permissions on a Profile-Network's Cluster
+*   The user has user permissions on a VM with a VNIC using the VNIC Profile
+*   The user has user permissions on a Template with a VNIC using the VNIC Profile
+*   The user has user permissions on the System object
+
+###### Networks
+
+*   The user has permission on a VNIC profile that's part of this network
 
 #### GUI
 

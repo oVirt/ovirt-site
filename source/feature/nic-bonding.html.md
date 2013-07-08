@@ -42,6 +42,18 @@ This syntax will be represented in three new config keys:
 
 The created bond device can then be modified like any other device (e.g. a VLAN can be assigned)
 
+The introduction of bonds opens up a wider range of network configruations which can be setup using the setup UI, e.g.:
+
+    direct layout
+    -------------
+    bond0     slaves=ens1, ens2
+    bond0.42  slaves=ens1, ens2
+
+    bridged layout
+    --------------
+    brbond0   bridge-slave=bond0
+    brbond0   bridge-slave=bond0.42
+
 ### Benefit to oVirt
 
 Just another step in offering some enhanced networking stuff in Node.

@@ -324,6 +324,16 @@ The purpose of this plugin is to allow administrators to see details on [Foreman
 
 ![Foreman Details sub tab](Foreman view details.png "fig:Foreman Details sub tab")
 
+#### UI-VDSM-Hooks Plugin
+
+Using CGI scripts located on the host's web-server, VDSM commands (vdsClient) can be invoked directly from the WebAdmin UI.
+
+*   Author: Daniel Erez <derez@redhat.com>
+*   Documentation: <http://derezvir.blogspot.co.il/2013/06/ovirt-ui-vdsm-hooks-plugin.html>
+*   UI plugin source code: available from [sample UI plugin repository](#Sample_UI_plugins) as `ui-vdsm-hooks-plugin`
+
+![UI-VDSM-Hooks context menu](UI-VDSM-Hooks-Examples.png "fig:UI-VDSM-Hooks context menu")
+
 #### Shell In A Box UI Plugin
 
 Using oVirt WebAdmin, make SSH connection to a host and emulate a terminal via [Shell In A Box](http://code.google.com/p/shellinabox/).

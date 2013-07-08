@@ -53,6 +53,8 @@ Selecting the checkbox (Incoming/Outgoing or both) a user can shape the related 
 
 An icon should be associated with the network in Logical Networks list and the "Setup Host Networks" UI in order to provide a visual feedback for bandwidth shaped networks.
 
+todo: replace network traffic limit label to host traffic limit - it might be misleading.
+
 ## Implementation
 
 ### Backend / DB Change

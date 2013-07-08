@@ -67,7 +67,7 @@ VNIC Profiles could not be deleted from the engine as long as one or more VM/Tem
 
 ##### Reporting vNic actual configuration
 
-*   The engine will retrieve the actual configuration of the profile properties on the VNIC from VDSM (using the network statistics mechanism) and the networked administrator will be presented with the the reported values within the vm network interface's 'guest agent data' sub-tab.
+*   The engine will retrieve the actual configuration of the profile properties on the VNIC from VDSM (using the network statistics mechanism) and the networked administrator will be presented with the the reported values within the vm network interface's in a new 'QoS' sub-tab.
 
 ##### Editing a VNIC / Changing a VNIC profile
 

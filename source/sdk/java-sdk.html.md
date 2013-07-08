@@ -353,7 +353,7 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 6. implement SSL support (done)
 
-7. implement SSL CA certificate validation (in-progress)
+7. implement SSL CA certificate validation (done)
 
 8. implement client validation
 
@@ -369,11 +369,11 @@ gerrit.ovirt.org:ovirt-engine-sdk-java
 
 14. move get/list methods from the decorators to the parent classes
 
-15. implement unique treatment for COLLECTION2ENTITY pattern exceptions
+15. implement unique treatment for COLLECTION2ENTITY pattern exceptions (in-progress)
 
 16. implement logger in codegen
 
-17. add deployment capabilities
+17. add deployment capabilities (done)
 
 18. upload artifacts to mvn repo (done)
 

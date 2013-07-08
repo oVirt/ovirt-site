@@ -176,7 +176,7 @@ User (as opposed to an administrator), will be limited to the networks and VNIC 
 *   The user has user permissions on a Template with a VNIC using the VNIC Profile
 *   The user has user permissions on the System object
 
-### Networks
+##### Networks
 
 *   The user has permission on a VNIC profile that's part of this network
 

@@ -51,7 +51,7 @@ Selecting the checkbox (Incoming/Outgoing or both) a user can shape the related 
 
 ![](edit_lnetwork_bandwidth.png "edit_lnetwork_bandwidth.png")
 
-A new role icon should be associated with the network in Logical Networks list and the "Setup Host Networks" UI in case it adopts traffic shaping.
+An icon should be associated with the network in Logical Networks list and the "Setup Host Networks" UI in order to provide a visual feedback for bandwidth shaped networks.
 
 ## Implementation
 

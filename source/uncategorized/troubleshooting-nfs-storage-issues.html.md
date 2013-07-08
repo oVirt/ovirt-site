@@ -75,7 +75,7 @@ A new nfs check script is now available to test whether an NFS export is ready f
 
       # /etc/init.d/nfs-kernel-server restart 
 
-#### Fedora 16
+#### Fedora 16 or higher
 
       #> groupadd kvm -g 36
       #> useradd vdsm -u 36 -g kvm

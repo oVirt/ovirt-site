@@ -165,8 +165,10 @@ When upgrading the permissions table, we will do the following:
 
 We will also remove the PORT_MIRRORING action group, replacing it with proper logic in the different backend commands.
 
+##### Permission Views
+
 User (as opposed to an administrator), will be limited to the networks and VNIC profiles he can see.
-==== VNIC Profiles ==== NOTE: the permissions used below besides the direct one, and the VM/Template one, must allow the user to view the child objects
+===== VNIC Profiles ===== NOTE: the permissions used below besides the direct one, and the VM/Template one, must allow the user to view the child objects
 
 *   The user has direct user permissions on the VNIC profile
 *   The user has user permissions on the VNIC profile's network
@@ -176,7 +178,7 @@ User (as opposed to an administrator), will be limited to the networks and VNIC 
 *   The user has user permissions on a Template with a VNIC using the VNIC Profile
 *   The user has user permissions on the System object
 
-##### Networks
+###### Networks
 
 *   The user has permission on a VNIC profile that's part of this network
 

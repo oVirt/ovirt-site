@@ -136,9 +136,31 @@ see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implem
 
 #### Upgrade
 
-Upgrade process will include automatic creation of two Profiles for each network, one with Port mirroring enabled and the other with port mirroring disabled. In case no VNIC are using a specific network with/without port mirroring - only the relevant profiles will be created.
-A vnic connected to a network x in 3.2 will automatically be connected to the correlating profile in 3.3 (according to the port mirroring settings).
-A user which had a permission to use a network in 3.2 will be granted the permission to use the correlating profile in 3.3 (according to the port mirroring settings).
+In the upgrade process we will do the following:
+
+*   Create a VNIC profile for each network, without port mirroring
+*   Create a VNIC profile with port mirroring for every network which has a VNIC with port mirroring
+*   A VNIC connected to a network x in 3.2 will automatically be connected to the correlating profile in 3.3 (according to the port mirroring settings).
+*   Comment: when we say VNIC we mean either a VM VNIC or a Template VNIC
+*   A user which had a permission to use a network in 3.2 will be granted the permission to use the correlating profile in 3.3 (according to the port mirroring settings).
+
+#### Permissions
+
+The following action groups will be added:
+
+*   CONFIGURE_NETWORK_VNIC_PROFILE - will be part of roles that have the CONFIGURE_STORAGE_POOL_NETWORK action group
+*   CREATE_NETWORK_VNIC_PROFILE - will be part of roles that have the CREATE_STORAGE_POOL_NETWORK action group
+*   DELETE_NETWORK_VNIC_PROFILE - will be part of roles that have the DELETE_STORAGE_POOL_NETWORK action group
+
+A VNICProfileUser role will be added, with the following action groups:
+
+*   CONFIGURE_VM_NETWORK
+*   CONFIGURE_TEMPLATE_NETWORK
+*   LOGIN
+
+On upgrade of the permissions, we will do the following:
+
+*   Remove the
 
 #### GUI (VNIC Profiles)
 

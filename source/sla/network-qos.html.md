@@ -163,6 +163,8 @@ When upgrading the permissions table, we will do the following:
 *   Remove each NetworkUser role on network objects, replacing it with a VNICProfileUser on the created network profiles.
 *   Replacing each NetworkUser role on other types of objects with a VNICProfileUser
 
+We will also remove the PORT_MIRRORING action group, replacing it with proper logic in the different backend commands.
+
 #### GUI (VNIC Profiles)
 
 A new sub tab will be added to the Network main tab (positioned second, after General)

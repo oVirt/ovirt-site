@@ -21,7 +21,7 @@ For each VM the data currently contains much more information than actually need
 
 #### New Verbs
 
-##### getAllRuntimeStats
+##### getAllVmRuntimeStats
 
 Get runtime information of all VMs
 Returns for each VM a map with UUID and a value of:
@@ -41,7 +41,7 @@ Hashes consists of:
 *   **@status** Hash of the VmStatusInfo data
 *   **@guestDetails** Hash of the VmGuestDetails data
 
-##### getStatus
+##### getVmStatus
 
 Get status information about a list of VMs
 Parameters:
@@ -58,7 +58,7 @@ Returns for each VM in vmIDs a map with UUID and a value of:
 *   **guestIPs** A space separated string of assigned IPv4 addresses
 *   **pauseCode** Indicates the reason a VM has been paused
 
-##### getConfInfo
+##### getVmConfInfo
 
 Get configuration information about a list of VMs
 Parameters:
@@ -78,7 +78,7 @@ Returns for each VM in vmIDs a map with UUID and a value of:
 *   **cdrom** ***optional*** The path to an ISO image used in the VM's CD-ROM device
 *   **boot** ***optional*** An alias for the type of device used to boot the VM
 
-##### getAllDeviceStats
+##### getAllVmDeviceStats
 
 VM device statistics containing information for getting statistics and SLA information
 Returns for each VM a map with UUID and a value of:
@@ -89,7 +89,7 @@ Returns for each VM a map with UUID and a value of:
 *   **network** Network bandwidth/utilization statistics
 *   **disks** Disk bandwidth/utilization statistics
 
-##### getGuestDetails
+##### getVmGuestDetails
 
 Get details from the guest OS from a list of VMs
 Parameters:
@@ -107,8 +107,8 @@ Currently the engine is requesting currently every 3 seconds the vm list from ea
 
 The change would be as follows:
 
-The engine requests every 3 seconds getAllRuntimeStats from vdsm which will give the engine the most used data. If the engine has a mismatch of the hashes returned by getAllRuntimeStats it should request the data changed.
+The engine requests every 3 seconds getAllVmRuntimeStats from vdsm which will give the engine the most used data. If the engine has a mismatch of the hashes returned by getAllVmRuntimeStats it should request the data changed.
 
-if hashes.info changed => request getConfInfo with all vmIDs on that host where the hash changed if hashes.status changed => request getStatus with all vmIDs on that host where the hash changed if hashes.guestDetails changed => request getGuestDetails with all vmIDs on that host where the hash changed
+if hashes.info changed => request getVmConfInfo with all vmIDs on that host where the hash changed if hashes.status changed => request getVmStatus with all vmIDs on that host where the hash changed if hashes.guestDetails changed => request getVmGuestDetails with all vmIDs on that host where the hash changed
 
-Request getAllDeviceStats periodically e.g. every 5 minutes, which should be sufficient for the DWH, in case it is not it could be even configurable.
+Request getAllVmDeviceStats periodically e.g. every 5 minutes, which should be sufficient for the DWH, in case it is not it could be even configurable.

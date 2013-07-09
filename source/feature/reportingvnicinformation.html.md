@@ -42,7 +42,7 @@ New attributes will be added to VM nics collection /api/vms/{vm:id}/nics:
 `           `<name>`nic1`</name>
                  ...
 `           `<reported_data>
-`               `<rel="devices" href=/api/vms/{vm:id}/nics/xxx/devices>
+`               `<rel="devices" href=/api/vms/{vm:id}/nics/{nic:id}/devices>
 `           `<reported_data/>
 `      `<nic/>
              ...

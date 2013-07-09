@@ -226,33 +226,86 @@ An uncaught exception escaped while calling plugin event handler function, indic
 
 ### Application event reference
 
-TODO
-
-*   UiInit
-*   UserLogin
-*   UserLogout
-*   RestApiSessionAcquired
-*   <Entity>SelectionChange
-*   MessageReceived
+| Function                      | Arguments                                                       | Description                                                                                                                                                                                                                                                                                                                                                                         |
+|-------------------------------|-----------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ### Core functions            |
+| `UiInit`                      | N/A                                                             | Called by the infrastructure as part of plugin initialization. The `UiInit` function will be called just once during the lifetime of a plugin, before calling other event handler functions. This function is a good place for one-time UI extensions via [plugin API](#API_function_reference).                                                                         |
+| ### User information          |
+| `UserLogin`                   | `userNameWithDomain` (string)                                   
+                                  `userId` (string)                                               | Called after a user logs into WebAdmin.                                                                                                                                                                                                                                                                                                                                             |
+| `UserLogout`                  | N/A                                                             | Called after a user logs out of WebAdmin.                                                                                                                                                                                                                                                                                                                                           |
+| ### Main tab item selection   |
+| `{EntityType}SelectionChange` | objects representing items currently selected in given main tab | Called when item selection changes in given main tab. Replace `{EntityType}` with one of [supported entity types](#Entity_type_reference).                                                                                                                                                                                                                               |
+| ### REST API integration      |
+| `RestApiSessionAcquired`      | `sessionId` (string)                                            | Called upon acquiring oVirt Engine [REST API](REST-Api) [persistent session](Features/RESTSessionManagement) after each successful login. The `sessionId` represents a REST API session bound to current (WebAdmin) user and shared between all plugins. The session is acquired with reasonably long timeout (360 minutes) and won't be closed after logout. |
+| ### Cross-window messaging    |
+| `MessageReceived`             | `data` (string or object)                                       
+                                  `sourceWindow` (window object)                                  | Called when another window (i.e. custom content contributed by a plugin) sends a message to WebAdmin (top-level) window via HTML5 [postMessage](http://en.wikipedia.org/wiki/Web_Messaging) API. In order to receive messages via `MessageReceived` function, a plugin must configure `allowedMessageOrigins` via [API options](#API_option_reference).                  |
 
 ### API function reference
 
-TODO
+| Function                 | Arguments | Description | Example |
+|--------------------------|-----------|-------------|---------|
+| ### Core functions       |
+| `options`                |
+| `register`               |
+| `ready`                  |
+| `configObject`           |
+| ### User information     |
+| `loginUserName`          |
+| `loginUserId`            |
+| ### Main and sub tabs    |
+| `addMainTab`             |
+| `addSubTab`              |
+| `setTabContentUrl`       |
+| `setTabAccessible`       |
+| `addMainTabActionButton` |
+| `addSubTabActionButton`  |
+| ### Dialogs              |
+| `showDialog`             |
+| `setDialogContentUrl`    |
+| `closeDialog`            |
 
-*   register
-*   ready
-*   options
-*   configObject
-*   addMainTab
-*   addSubTab
-*   setTabContentUrl
-*   setTabAccessible
-*   addMainTabActionButton
-*   showDialog
-*   setDialogContentUrl
-*   closeDialog
-*   loginUserName
-*   loginUserId
+### API option reference
+
+| Option                                           | Default value | Description                                                                                                                                                                                                                                                                                                                                                                                                                          |
+|--------------------------------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ### Cross-window messaging                       |
+| `allowedMessageOrigins` (string or string array) | empty array   | Defines allowed source [origins](http://en.wikipedia.org/wiki/Same_origin_policy#Origin_determination_rules) from which HTML5 `message` events will be accepted and passed to `MessageReceived` event handler function. The value can be either a string (single origin) or a string array (multiple origins). `*` translates to "any origin", as per HTML5 [postMessage](http://en.wikipedia.org/wiki/Web_Messaging) specification. |
+
+### Entity type reference
+
+| Name             | Object representation (exposed attributes) |
+|------------------|--------------------------------------------|
+| `DataCenter`     | `id` (string)                              
+                     `name` (string)                            |
+| `Cluster`        | `id` (string)                              
+                     `name` (string)                            |
+| `Host`           | `id` (string)                              
+                     `name` (string)                            
+                     `hostname` (string)                        |
+| `Network`        | `id` (string)                              
+                     `name` (string)                            |
+| `Storage`        | `id` (string)                              
+                     `name` (string)                            |
+| `Disk`           | `id` (string)                              |
+| `VirtualMachine` | `id` (string)                              
+                     `name` (string)                            
+                     `ipaddress` (string)                       |
+| `Pool`           | `id` (string)                              
+                     `name` (string)                            |
+| `Template`       | `id` (string)                              
+                     `name` (string)                            |
+| `GlusterVolume`  | `id` (string)                              
+                     `name` (string)                            |
+| `Provider`       | `id` (string)                              
+                     `name` (string)                            |
+| `User`           | `id` (string)                              
+                     `username` (string)                        
+                     `domain` (string)                          |
+| `Quota`          | `id` (string)                              
+                     `name` (string)                            |
+| `Event`          | `id` (string)                              |
 
 ### Tutorials
 
@@ -285,7 +338,6 @@ Minimal plugin host page:
       /usr/share/ovirt-engine/ui-plugins/minimal-resources/start.html
 
     <!DOCTYPE html><html><head>
-
         <script type="text/javascript">
             var api = parent.pluginApi('MinimalPlugin');
             api.register({
@@ -293,7 +345,6 @@ Minimal plugin host page:
             });
             api.ready();
         </script>
-
     </head><body></body></html>
 
 ### Sample UI plugins

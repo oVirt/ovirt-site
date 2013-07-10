@@ -96,7 +96,7 @@ When a network role is modified to be a 'non-VM network', all vNic profiles asso
 ##### Adding an Empty Data-Center
 
 *   Currently, When creating a new Data-Center, the management network is automatically created.
-*   From 3.3, a default vNic profile will be created for the management network.
+*   A default vNic profile will be created for the management network.
 
 ##### VM snapshot/import/export
 

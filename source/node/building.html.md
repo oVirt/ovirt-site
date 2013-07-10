@@ -57,7 +57,7 @@ This boils (on a fresh and minimal Fedora 18) down to:
 
     $ visudo
     $ yum install livecd-tools appliance-tools-minimizer fedora-packager python-devel rpm-build createrepo \
-      selinux-policy-doc checkpolicy selinux-policy-devel autoconf automake python-mock
+      selinux-policy-doc checkpolicy selinux-policy-devel autoconf automake python-mock python-lockfile
 
 #### Build ovirt-node packages
 

@@ -235,6 +235,9 @@ After selecting a network the Profile selection box will be populated with all p
 **Profile Selection**
 ![](Profile_selection.png "fig:Profile_selection.png")
 
+**Add New Logical Network dialog**
+![](New_netwrok_profiles.png "fig:New_netwrok_profiles.png")
+
 #### Permissions
 
 In current implementation two roles are defined for networks:

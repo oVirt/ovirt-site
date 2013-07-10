@@ -207,6 +207,8 @@ The function would ask the server for the operating system list:
 
         }
 
+## Development Phases
+
 ## Benefits to oVirt
 
 oVirt will be able to support IBM POWER processor based hosts and have a code base design suitable to include new architectures.

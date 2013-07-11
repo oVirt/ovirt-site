@@ -104,7 +104,7 @@ Request type - GET
 
 It will be possible to create a new connection without adding a storage domain along with it, and only later reference it from any domain by providing the connection id.
 
-### Delete connection
+### Delete connection (DELETE)
 
 Deletion of connection will be possible only if no storage domain nor lun disks is referencing it (orphan connection).
 

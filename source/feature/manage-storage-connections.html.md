@@ -108,7 +108,11 @@ It will be possible to create a new connection without adding a storage domain a
 
 Deletion of connection will be possible only if no storage domain nor lun disks is referencing it (orphan connection).
 
-<b>Example</b> [http://host:port/api/storageconnections/](http://host:port/api/storageconnections/)<connectionId> Connection Id is of format GUID, for instance - ffb489f6-b144-4770-84d0-22167024bb5c request type is DELETE A host is required for the deletion process, thus there's a need in request body in deletion request to contain host details. Example of host element structure in the body (it can contain either host id or name):
+<b>Example</b> [http://host:port/api/storageconnections/](http://host:port/api/storageconnections/)<connectionId>
+Connection Id is of format GUID, for instance - ffb489f6-b144-4770-84d0-22167024bb5c
+Request type is DELETE
+A host is required for the deletion process, thus there's a need in request body in deletion request to contain host details.
+Example of host element structure in the body (it can contain either host id or name):
 
 <host>
 `   `<name>`MyHost`</name>

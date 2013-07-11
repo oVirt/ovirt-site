@@ -207,15 +207,92 @@ The function would ask the server for the operating system list:
 
         }
 
-## Development Phases
+The ovirt PPC64 support is planned to be developed in 3 phases, which phase 1 is actually under review:
 
-### Phase 1
+### Phase 1 (WIP)
 
-### Phase 2
+On this phase all strategy structure was created to handle the architecture specific code. In order not add hard-coded parameters, a property file to store architecture data was create and it works like OS property file. As each OS refers to an architecture, the property file as modified to handle the architecture type, where each OS refers to an architecture.
 
-### Phase 3
+**1. File "archinfo-defaults.properties"**
 
-### Phase 4
+This is the architecture data file and is read like an osinfo property file. It stores all disk interfaces, default OS and if it supports hot plugging for each architecture. File content for x84_64:
+
+      arch.x86_64.devices.diskInterfaces.value = ide, virtio
+      arch.x86_64.devices.diskInterfaces.value.version.3.3 = ide, scsi, virtio
+      arch.x86_64.devices.diskHotPluggingSupported.value = true
+      arch.x86_64.defaultOs.value = 1000
+
+**2. Modification in the file osinfo-defaults.properties**
+
+Each OS need to be architecture specific, so to handle that, the unassigned OS was splited into two: os.Unassigned_x86_64 and os.Unassigned_ppc64. All other OSes are derived from one of these. The OS filter is done on runtime based on the architecture type. Content for unassigned x86_64 OS:
+
+      os.Unassigned_x86_64.id.value = 0
+      os.Unassigned_x86_64.name.value = default OS
+      os.Unassigned_x86_64.family.value = Other
+      os.Unassigned_x86_64.cpuArchitecture.value = x86_64
+      os.Unassigned_x86_64.bus.value = 32
+      os.Unassigned_x86_64.resources.minimum.ram.value = 256
+      os.Unassigned_x86_64.resources.maximum.ram.value = 64000
+      os.Unassigned_x86_64.resources.minimum.disksize.value = 1
+      os.Unassigned_x86_64.resources.minimum.numberOsCpus.value = 1
+      os.Unassigned_x86_64.spiceSupport.value = true
+      os.Unassigned_x86_64.id.value = 0
+      os.Unassigned_x86_64.devices.audio.value = ich6
+      os.Unassigned_x86_64.devices.network.value =  rtl8139, e1000, pv
+
+Sample of OS based on unassigned x86_64:
+
+      os.Windows.id.value = 200
+      os.Windows.name.value = Windows
+      os.Windows.derivedFrom.value = Unassigned_x86_64
+      os.Windows.description.value = General Windows OS
+      os.Windows.family.value = windows
+      os.Windows.devices.audio.value = ac97
+      os.Windows.sysprepPath.value = ""
+      os.Windows.productKey.value = ""
+
+**3. The Strategy Design Patter was added and is based on the classes:**
+
+ArchStrategyFactor This class is the factory for strategy, which can be obtained by architecture name or by cpu name and cluster version. ArchStrategy The abstract class, which is the base for each architecture supported by the system. This class contains all the generic methods. X86_64Strategy Specific class for x84_64 architecture. Actually this class is empty (no methods), because all architecture specific itens, untill now, are placed in the "archinfo-defaults.properties" file. This class will contain methods when a specific architecture code become necessary. PPC64Strategy Specific class for PPC64 architecture. It is an empty (no methods) class for the same reason of X86_64Strategy class.
+
+**4. ArchitectureData Class**
+
+This class was created to store all information about architecture from the "archinfo-defaults.properties" during the run time. It is initialized when server goes up and on the client side right after the user login.
+
+**5. ArchStrategy functionalities**
+
+For this first phase the folowing functionalities are being handled by ArchStrategy: Check which OSes are supported Check which disk interfaces are supported Check if hot plugging is supported Get the default OS for each architecture Check which clusters are supported Check if a CPU is supported Check is two different CPUs are compatible
+
+**All these changes were placed on the code and tested to do not create bugs on the functionality. The system will work with no changes for the final user.***Italic text*
+
+**6. Changes in the CpuFlagsManagerHandler class**
+
+The CpuFlagsManagerHandler was modified to support the POWER architecture, the ServerCpuList field of the vdc_options table was changed to include the architecture of each supported processor and to be able to handle CPUs manufactured by IBM.
+
+**7. Changes in the frontend**
+
+Small changes in the frontend were implemented to avoid the creation of invalid VM configurations and improper configurations of clusters, pools, VMs, templates and hosts. Additional details are listed in the commit message of the associated gerrit change.
+
+**8. Code submited for review**
+
+[Patch 1 - <http://gerrit.ovirt.org/#/c/16700/>](http://gerrit.ovirt.org/#/c/16700/)
+[Patch 2 - <http://gerrit.ovirt.org/#/c/16701/>](http://gerrit.ovirt.org/#/c/16701/)
+[Patch 3 - <http://gerrit.ovirt.org/#/c/16702/>](http://gerrit.ovirt.org/#/c/16702/)
+
+### Phase 2 (Planned)
+
+The code for providing the support for IBM POWER systems will be added. The encapsulation done in the previous phase will reduce the effort to include this feature into the engine. The other changes that will be introduced in this phase include:
+
+* Modifications in the frontend to avoid running a VM created on a POWER host in a x86-64 host (and vice-versa),
+* All the dynamically provided capacities of the first phase will be implemented according to the capacities of the QEMU/KVM on POWER
+* The POWER processors will be available as an option in the list of processor names (this will imply in significant changes in the backend)
+
+### Phase 3 (Planned)
+
+Adapt secondary features to polish the support for POWER:
+
+* OVF import and export of VMs running in POWER hosts
+* Dynamic searches capable of finding hosts, pools, vms and clusters according to their architectures
 
 ## Benefits to oVirt
 

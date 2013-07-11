@@ -79,7 +79,7 @@ VNIC Profiles could not be deleted from the engine as long as one or more VM/Tem
 *   When adding a network, a user can provide an option to create a vNic Profile for it.
 *   All VNIC-QoS-objects will be displayed and the users could tick next to the QoS they are interested in, for each QoS that was chosen a profile would be created,
 
-and for each vnic profile there will be an option for 'public use' (and port mirroring ?)
+and for each vnic profile there will be an option for 'public use'.
 
 *   The vNic profile name will be NetworkNamePolicyName, e.g. blueGold. The user will be able to rename the profile and its properties from the vnic profile sub-tab.
 

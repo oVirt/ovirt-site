@@ -74,7 +74,7 @@ A connection may be edited whether there are no storage domains connected to it 
 
 If there are storage domains using a connection , it may only be edited when all storage domains referencing it are set to maintenance state. During this update operation, the domains (if such exist) will become locked (status=locked) and then their statistics will be updated based on the new pointed connection's properties (the new storage location). The domains will be unlocked once the update will be completed.
 
-For direct lun (lun disks), in order to edit their storage connection, all VMs using those disks should be powered off. It is the user's responsibility to make sure that after editing the connection the system can indeed reach the data/luns of the relevant storage domains. To ease the administration process, an optional connectivity test may be run to make sure that the storage is indeed accessible. (currently connectivity test is out of scope for 3.3)
+For direct lun (lun disks), in order to edit their storage connection, all VMs using those disks (disks that are plugged) should be powered off. It is the user's responsibility to make sure that after editing the connection the system can indeed reach the data/luns of the relevant storage domains. To ease the administration process, an optional connectivity test may be run to make sure that the storage is indeed accessible. (currently connectivity test is out of scope for 3.3)
 
 Removing a connection is possible only if there are no storage domains nor lun disks using it.
 

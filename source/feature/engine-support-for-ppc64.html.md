@@ -19,6 +19,7 @@ Implement support in ovirt-engine to manage KVM on IBM POWER processor based hos
 *   Feature owner: Paulo de Rezende Pinatti <ppinatti@linux.vnet.ibm.com>
     -   GUI Component owner: Nathan Augusto Ozelim <natoze@linux.vnet.ibm.com>
     -   Engine Component owner: Fernando Granha Jeronimo <fgranha@linux.vnet.ibm.com>
+    -   Developers: Leonardo Bianconi <leonardo.bianconi@eldorado.org.br>; Vitor de Lima <vitor.lima@eldorado.org.br>; Gustavo Pedrosa <gustavo.pedrosa@eldorado.org.br>
 
 ## Current status
 

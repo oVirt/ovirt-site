@@ -113,9 +113,9 @@ multipass.lab.somecompanyname.com
 
 </address>
 `   `<path>`/export/storagedata/username/data20`</path>
-<host>
-`   `<name>`Host111`</name>
-` `</host>
+`   `<host>
+`       `<name>`Host111`</name>
+`    `</host>
 ` `</storage>
 
 ### Delete connection (DELETE)

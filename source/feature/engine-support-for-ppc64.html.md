@@ -265,7 +265,7 @@ This class was created to store all information about architecture from the "arc
 
 For this first phase the folowing functionalities are being handled by ArchStrategy: Check which OSes are supported Check which disk interfaces are supported Check if hot plugging is supported Get the default OS for each architecture Check which clusters are supported Check if a CPU is supported Check is two different CPUs are compatible
 
-**All these changes were placed on the code and tested to do not create bugs on the functionality. The system will work with no changes for the final user.***Italic text*
+**All these changes were placed on the code and tested to do not create bugs on the functionality. The system will work with no changes for the final user.**
 
 **6. Changes in the CpuFlagsManagerHandler class**
 

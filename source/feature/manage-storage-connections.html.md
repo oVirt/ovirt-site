@@ -104,7 +104,8 @@ Request type - GET
 
 It will be possible to create a new connection without adding a storage domain along with it, and only later reference it from any domain by providing the connection id.
 
-Example [http://host:port/api/storageconnections](http://host:port/api/storageconnections)
+<b>Example</b>
+ [http://host:port/api/storageconnections](http://host:port/api/storageconnections)
 Request type is POST
 A host is required for the deletion process, thus there's a need in request body in deletion request to contain host details.
 Example of request body

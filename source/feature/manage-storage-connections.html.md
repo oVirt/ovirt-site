@@ -104,6 +104,20 @@ Request type - GET
 
 It will be possible to create a new connection without adding a storage domain along with it, and only later reference it from any domain by providing the connection id.
 
+<storage>
+`   `<type>`nfs`</type>
+         
+
+<address>
+multipass.lab.somecompanyname.com
+
+</address>
+`   `<path>`/export/storagedata/username/data20`</path>
+<host>
+`   `<name>`Host111`</name>
+` `</host>
+` `</storage>
+
 ### Delete connection (DELETE)
 
 Deletion of connection will be possible only if no storage domain nor lun disks is referencing it (orphan connection).

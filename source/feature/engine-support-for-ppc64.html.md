@@ -207,6 +207,8 @@ The function would ask the server for the operating system list:
 
         }
 
+## Development Phases
+
 The ovirt PPC64 support is planned to be developed in 3 phases, which phase 1 is actually under review:
 
 ### Phase 1 (WIP)

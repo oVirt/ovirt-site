@@ -90,7 +90,15 @@ TBD: model the new connection entity. Should represent several storage types.
 
 ### Get existing connection (GET)
 
-All storage connections will be accessible in a new root resource: api/connections. For each storage domain it should be possible to view (GET) its storage connections by approaching it via a specific subresource: /api/storagedomains/<storageDomainId>/connections. For each lun disk (direct lun) it should be possible to view (GET) its storage connections by approaching it via a specific subresource: /api/disks/<diskId>/connections. . Note - connections subresource for lun disks is not in scope for 3.3
+1.  All storage connections will be accessible in a new root resource: api/storageconnections.
+2.  For each storage domain it should be possible to view (GET) its storage connections by approaching it via a specific subresource: /api/storagedomains/<storageDomainId>/storageconnections.
+3.  For each lun disk (direct lun) it should be possible to view (GET) its storage connections by approaching it via a specific subresource: /api/disks/<diskId>/connections. .
+
+Note - connections subresource for lun disks is not in scope for 3.3
+
+<b>Usage example:</b>
+Request type - GET
+[http://host:port/api/storageconnections](http://host:port/api/storageconnections)
 
 ### New connection (POST)
 

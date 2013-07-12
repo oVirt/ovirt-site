@@ -10,6 +10,12 @@ wiki_last_updated: 2013-07-23
 
 # Console settings dialog in Webadmin and User Portal
 
+### Owner
+
+`* Name: `[`Frank` `Kobzik`](User:Fkobzik)
+
+*   Email: <fkobzik@redhat.com>
+
 ### Description/status
 
 This feature has these aims:

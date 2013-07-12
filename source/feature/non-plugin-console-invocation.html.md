@@ -41,4 +41,15 @@ The activex-plugin way of invoking RDP console allows automatic user logon. The 
 *   Provide an alternative way of invoking consoles.
 *   Allow invoking console from browsers that don't support console plugins (SPICE in chrome, RDP in Firefox on MS Windows).
 
+## Testing
+
+### RDP
+
+#### Test case
+
+*   Create a VM with Windows OS type set, install Windows on it, allow Remote Desktop connections on it.
+*   Select 'Native client' in Console Options dialog.
+*   Click console button to invoke console.
+*   Expected result: The RDP console is invoked (with possible dialog window informing user that they are invoking RDP console) with Windows logon screen.
+
 <Category:Feature>

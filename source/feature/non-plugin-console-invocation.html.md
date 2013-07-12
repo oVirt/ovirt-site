@@ -16,7 +16,7 @@ This feature allows connecting to VM console from the engine frontend without th
 
 ### Detailed description
 
-This feature adds to the engine the possibility of serving configuration files for console viewer on the client system. The user can then associate corresponding viewer application to this file (using MIME type registration in browser).
+This feature adds to the engine the possibility of serving configuration files for console viewer on the client system. The user can then associate corresponding viewer application to this file (using MIME type registration in browser) or alternatively use a script that parses the config file and runs appropriate application.
 
 ### Configuration
 

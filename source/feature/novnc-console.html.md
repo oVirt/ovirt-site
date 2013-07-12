@@ -78,7 +78,7 @@ To address this issues, the websocket proxy uses digital signature to verify vnc
 
 ## Secure communication
 
-Secure communication is ensured by using TLS. For this reason, websockets server must posses a key and certificate that is used for TLS communication. Moreover the certificate must be trusted by users in their web browsers!
+Secure communication is ensured by using TLS. For this reason, websockets server must posses a key and certificate that is used for TLS communication. Moreover the certificate must be trusted by users in their web browsers (or the client browser must trust engine's CA)!
 
 The creation of key/cert pair could be part of engine setup process (together with jboss, apache and engine key/cert pairs).
 

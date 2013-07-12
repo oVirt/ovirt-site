@@ -22,8 +22,8 @@ This feature adds to the engine the possibility of generating and serving config
 
 The actual invocation behavior can be configured via Console Options dialog in portals. The default behavior is configured separately for SPICE and RDP protocols using `engine-config`:
 
-*   SPICE: `engine-config -s ClientModeSpiceDefault=value`, where `value` is one of `Auto`, `Plugin` and `Native`.
-*   RDP: `engine-config -s ClientModeRdpDefault=value`, where `value` is one of `Auto`, `Plugin` and `Native`.
+*   SPICE: `engine-config -s ClientModeSpiceDefault=value`, where `value` is one of `Auto`, `Plugin` or `Native`.
+*   RDP: `engine-config -s ClientModeRdpDefault=value`, where `value` is one of `Auto`, `Plugin` or `Native`.
 *   (for VNC the default behavior is always 'Native' as the only alternative is noVNC for the moment and this is not available on all deployments)
 
 Explanation of client modes:

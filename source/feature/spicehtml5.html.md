@@ -14,6 +14,11 @@ wiki_last_updated: 2013-07-12
 
 This feature adds spice-html5 console to the engine. spice-html5 is a spice answer to novnc webbrowser console client. spice-html5 is still a little bit experimental yet under active development. Similarly to the novnc, spice-html5 uses websockets to communicate with websocket proxy which talks directly to spice server.
 
+## Owner
+
+*   Name: [Frank Kobzik](User:Fkobzik)
+*   Email: <fkobzik@redhat.com>
+
 ## Design
 
 The design, architecture and implementation is almost same as the noVNC case. That means:

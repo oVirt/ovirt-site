@@ -14,6 +14,11 @@ wiki_last_updated: 2013-07-12
 
 Non plugin console invocation allows connecting to VM console from the engine frontend without the need of browser plugin. The feature is available for SPICE, VNC and RDP protocols.
 
+## Owner
+
+*   Name: [Frank Kobzik](User:Fkobzik)
+*   Email: <fkobzik@redhat.com>
+
 ## Detailed description
 
 This feature adds to the engine the possibility of generating and serving configuration files for console viewer on the client system. The user can then associate corresponding viewer application to this file (using MIME type registration in browser) or alternatively use a script that parses the config file and runs appropriate application.

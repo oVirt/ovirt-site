@@ -14,6 +14,11 @@ wiki_last_updated: 2015-01-08
 
 The aim of this feature is to make it possible to connect to VM consoles using HTML 5 VNC client called "noVNC" in browsers supporting websockets and HTML5 postMessage function (webkit browsers, Firefox, IE > 10).
 
+## Owner
+
+*   Name: [Frank Kobzik](User:Fkobzik)
+*   Email: <fkobzik@redhat.com>
+
 ## Status
 
 *   Engine part of implementation (loading noVNC client and making it connect to websocket proxy using postMessage) - DONE

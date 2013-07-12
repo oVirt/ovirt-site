@@ -82,4 +82,44 @@ Secure communication is ensured by using TLS. For this reason, websockets server
 
 The creation of key/cert pair could be part of engine setup process (together with jboss, apache and engine key/cert pairs).
 
+## Testing
+
+### Test case 1 - Websocket Proxy on the engine's machine
+
+Prerequisities: Browser that has proper websockets and postmessage support (tested with FF and Chrome)
+
+*   Install the engine and in the engine-setup answer 'Yes' to 'Configure websocket proxy on the machine'
+*   Import CA of the engine in your browser
+*   Set up a VM as usual, set its Display Type to VNC and run it.
+*   In Console Options dialog, select 'noVNC'
+*   Click the console button to invoke the console.
+    -   (The console opens in a new tab and this behavior is usualy blocked by browsers. For opening the console you must allow displaying pop-up windows from engine's domain.)
+
+Results: The new browser tab with noVNC session appears.
+
+### Test case 2 - Websocket Proxy on a separate machine
+
+Prerequisities: Browser that has proper websockets and postmessage support (tested with FF and Chrome)
+
+*   Install the engine
+*   Install ovirt-websocket-proxy on a machine that is reachable from clients and that can reach the hosts.
+*   Set up the engine
+    -   engine-config -s WebSocketProxy=X:Y
+        -   X is the hostname/ip of the machine, where the proxy runs
+        -   Y is the port of the proxy
+*   Set up the websocket proxy
+    -   Install the websocket proxy from the package (ovirt-engine-websocket-proxy)
+    -   Configure it in the /etc/ovirt-engine/ovirt-websocket-proxy.conf.d/10-setup.conf
+        -   
+
+<!-- -->
+
+*   Import
+*   Set up a VM as usual, set its Display Type to VNC and run it.
+*   In Console Options dialog, select 'noVNC'
+*   Click the console button to invoke the console.
+    -   (The console opens in a new tab and this behavior is usualy blocked by browsers. For opening the console you must allow displaying pop-up windows from engine's domain.)
+
+Results: The new browser tab with noVNC session appears.
+
 <Category:Feature>

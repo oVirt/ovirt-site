@@ -10,27 +10,35 @@ wiki_last_updated: 2013-07-12
 
 # Non plugin console invocation
 
-### Summary
+## Summary
 
-This feature allows connecting to VM console from the engine frontend without the need of browser plugin.
+Non plugin console invocation allows connecting to VM console from the engine frontend without the need of browser plugin. The feature is available for SPICE, VNC and RDP protocols.
 
-### Detailed description
+## Detailed description
 
-This feature adds to the engine the possibility of serving configuration files for console viewer on the client system. The user can then associate corresponding viewer application to this file (using MIME type registration in browser) or alternatively use a script that parses the config file and runs appropriate application.
+This feature adds to the engine the possibility of generating and serving configuration files for console viewer on the client system. The user can then associate corresponding viewer application to this file (using MIME type registration in browser) or alternatively use a script that parses the config file and runs appropriate application.
 
-### Configuration
+## Configuration
 
-      engine-config -s ClientConsoleModeDefault=value
+The actual invocation behavior can be configured via Console Options dialog in portals. The default behavior is configured separately for SPICE and RDP protocols using `engine-config`:
 
-where value is a string that can be Plugin, Native or Auto. This settings will affect behavior of the connect-to-console button on the frontend.
+*   SPICE: `engine-config -s ClientModeSpiceDefault=value`, where `value` is one of `Auto`, `Plugin` and `Native`.
+*   RDP: `engine-config -s ClientModeRdpDefault=value`, where `value` is one of `Auto`, `Plugin` and `Native`.
+*   (for VNC the default behavior is always 'Native' as the only alternative is noVNC for the moment and this is not available on all deployments)
 
-      Plugin - current behavior. The browser plugin is used for connecting to the console.
-      Native - the console configuration file is served to the client and then the native console client is used.
-      Auto - if there is the console plugin installed in the browser, it is used. Otherwise native client is used.
+Explanation of client modes:
 
-### Benefit to oVirt
+*   Plugin - The browser plugin is used for connecting to the console.
+*   Native - The console configuration file is served to the client and then the native console client or alternative application is used.
+*   Auto - if there is the console plugin installed in the browser, it is used. Otherwise native client is used.
 
-      - The possibility of invoking VNC connections from the browser.
-      - The possibility of invoking SPICE connections from browsers that do not support spice-xpi plugin (Firefox in MS Windows, Google Chrome...).
+## Note on Automatic Login feature with RDP
+
+The activex-plugin way of invoking RDP console allows automatic user logon. The non plugin way doesn't support this feature for the moment (so the user has to punch in the credentials on console invocation). The reason for this is that RDP descriptor support storing passwords in plaintext (for security concerns).
+
+## Benefit to oVirt
+
+*   Provide an alternative way of invoking consoles.
+*   Allow invoking console from browsers that don't support console plugins (SPICE in chrome, RDP in Firefox on MS Windows).
 
 <Category:Feature>

@@ -101,20 +101,18 @@ Results: The new browser tab with noVNC session appears.
 
 Prerequisities: Browser that has proper websockets and postmessage support (tested with FF and Chrome)
 
-*   Install the engine
+*   Install the engine as usual
 *   Install ovirt-websocket-proxy on a machine that is reachable from clients and that can reach the hosts.
-*   Set up the engine
-    -   engine-config -s WebSocketProxy=X:Y
+*   Set up the engine:
+    -   `engine-config -s WebSocketProxy=X:Y`
         -   X is the hostname/ip of the machine, where the proxy runs
         -   Y is the port of the proxy
-*   Set up the websocket proxy
+*   Set up the websocket proxy:
     -   Install the websocket proxy from the package (ovirt-engine-websocket-proxy)
-    -   Configure it in the /etc/ovirt-engine/ovirt-websocket-proxy.conf.d/10-setup.conf
-        -   
-
-<!-- -->
-
-*   Import
+    -   Configure it in the /etc/ovirt-engine/ovirt-websocket-proxy.conf.d/10-setup.conf (see [Examples](Examples))
+        1.  Please bear in mind that the certificate (`SSL_CERTIFICATE` (or their CA) must be recognized client browsers
+        2.  If the `FORCE_DATA_VERIFICATION=True`, then the `CERT_FOR_DATA_VERIFICATION` must be the engine's certificate (engine uses its key to sign tickets for websocket proxy).
+    -   Run the proxy
 *   Set up a VM as usual, set its Display Type to VNC and run it.
 *   In Console Options dialog, select 'noVNC'
 *   Click the console button to invoke the console.

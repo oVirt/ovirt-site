@@ -10,11 +10,22 @@ wiki_last_updated: 2014-01-29
 
 ## Draft - Changing the hostname of an oVirt Manager/engine
 
+This is a DRAFT.
+
+### How to
+
+1.  Prepare relevant DNS and/or /etc/hosts records for the new name.
+2.  If using DHCP, update the DHCP server's configuration.
+3.  Change the hostname. This is usually done by editing /etc/hostname and rebooting. There are other options and details which are not in the scope of this document.
+4.  Run the script ovirt-engine-rename-manager-host.
+
+### discussion
+
 When running engine-setup on a clean system, one of the things it does is create the following set of keys and certs:
 
-*   A CA (certificate authority) key and a self-signed cert for it
-*   A key for httpd, the admin web server, and a CA-signed certificate for it. This is used for https access to the admin site.
-*   A key for the engine, the jboss application managing the oVirt database and system, and a CA-signed certificate for it.
+1.  A CA (certificate authority) key and a self-signed cert for it
+2.  A key for httpd, the admin web server, and a CA-signed certificate for it. This is used for https access to the admin site.
+3.  A key for the engine, the jboss application managing the oVirt database and system, and a CA-signed certificate for it.
 
 All three certificates (CA, httpd, engine) are for the Common Name (CN) whose value is the hostname entered during engine-setup, which is supposed to be the hostname of the engine's machine, exist in the dns (forward and reverse records), and point to an IP address of the engine's machine.
 

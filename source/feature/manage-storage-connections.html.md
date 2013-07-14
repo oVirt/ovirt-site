@@ -50,6 +50,7 @@ Updated July 11 2013
 *   Restrict compatibility version of edit storage connections feature in engine to 3.3. ready. <http://gerrit.ovirt.org/#/c/14249/>
 *   MLA (permissions) - not started
 *   Refactor AddSANStorageDomainCommand so it will not add storage server connection, and rather use existing one (that was either created right before by add connection command, or in the past). This will involve rewriting San domain creation in webadmin (StorageListModel) to call AddStorageServerConnection before AddSANStorageDomainCommand. not started.
+*   Rethink - should we disconnect from just one host or all hosts when deleting a connection?
 
 #### REST (backend)
 

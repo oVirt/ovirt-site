@@ -25,7 +25,7 @@ The new connection details should be of the same storage type as the original co
 
 ### Current Status and tasks
 
-Updated July 11 2013
+Updated July 14 2013
 
 #### GUI
 

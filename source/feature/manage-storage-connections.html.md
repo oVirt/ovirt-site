@@ -145,21 +145,6 @@ Example of host element structure in the body (it can contain either host id or 
 
 It will only be possible to update connection details when all storage domains referencing it are in maintenance mode. Most of the connection fields may be updated (such as path/iqn/address/port/user/password) - each storage type has its relevant set of fields. Connection ID however, will be immutable.
 
-<storage>
-
-`  `<type>`nfs`</type>
-        
-
-<address>
-multipass.lab.somecompanyname.com
-
-</address>
-`  `<path>`/export/storagedata/username/data25`</path>
-`  `<host>
-`      `<name>`MyHost`</name>
-`   `</host>
-</storage>
-
 # Database
 
 This feature doesn't require any database structure change nor upgrade. The below is a description of the existing structure as it is today, and how it will be used in the scope of this feature.

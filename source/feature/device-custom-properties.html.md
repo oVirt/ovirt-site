@@ -52,6 +52,7 @@ These extensions, and many others, can be made available by allowing per-device 
 This feature affects the following Vdsm verbs:
 
 *   vmCreate
+*   vmDestroy
 *   vmHotplugNic
 *   vmHotunplugNic
 *   vmHotplugDisk

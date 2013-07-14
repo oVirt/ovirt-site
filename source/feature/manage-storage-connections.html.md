@@ -92,9 +92,10 @@ TBD: model the new connection entity. Should represent several storage types.
 
 ### Get existing connection (GET)
 
-1.  All storage connections will be accessible in a new root resource: api/storageconnections.
-2.  For each storage domain it should be possible to view (GET) its storage connections by approaching it via a specific subresource: /api/storagedomains/<storageDomainId>/storageconnections.
-3.  For each lun disk (direct lun) it should be possible to view (GET) its storage connections by approaching it via a specific subresource: /api/disks/<diskId>/connections. .
+1.  All storage connections that exist in the oVirt setup will be accessible in a new root resource: api/storageconnections.
+2.  A specific storage connection can be viewed in api/storageconnections/<connectionid>
+3.  For each storage domain it should be possible to view (GET) its storage connections by approaching it via a specific subresource: /api/storagedomains/<storageDomainId>/storageconnections.
+4.  For each lun disk (direct lun) it should be possible to view (GET) its storage connections by approaching it via a specific subresource: /api/disks/<diskId>/connections. .
 
 Note - connections subresource for lun disks is not in scope for 3.3
 

@@ -175,4 +175,20 @@ As the hooks present in the servers are periodically synchronized with engine da
 
 **\1**
 
+*' \* Test case 12:- Try to ENABLE a hook in a cluster having atleast one server in UP state*'
+
+**\1**
+
+*' \* Test case 13:- Resolve Conflicts : Missing (Remove the missing hook)*'
+
+**\1**
+
+*' \* Test case 14:- Create all 3 Conflicts: Content + Status + Missing*'
+
+**\1**
+
+*' \* Test case 15:- Resolve all 3 Conflicts: Content + Status + Missing*'
+
+**\1**
+
 <Category:Feature>

@@ -14,7 +14,7 @@ wiki_last_updated: 2013-09-23
 
 Network Quality of Service feature will be added to oVirt from version 3.3 and will support cluster version 3.3 or higher.
 The feature will allow the user to limit the inbound and outbound network traffic in virtual NIC level.
-In order to define more natural coupling of the QoS to a VNIC we define a new concept called **VNIC Profile**. The VNIC profile will be introduced in oVirt 3.3 to all clusters and will wrap few of the properties currently defined directly on the VNIC
+In order to define more natural coupling of the QoS to a VNIC we define a new concept called **[VNIC Profile](Features/Vnic_Profiles)**. The VNIC profile will be introduced in oVirt 3.3 to all clusters and will wrap few of the properties currently defined directly on the VNIC
 
 #### Owner
 
@@ -23,13 +23,10 @@ In order to define more natural coupling of the QoS to a VNIC we define a new co
 
 #### Current status
 
-*   Status: design
+*   Status: Network QoS done. waiting for [VNIC Profiles](Features/Vnic_Profiles)
 *   Last updated: ,
-*   patchset
 
 #### Detailed Description
-
-##### QoS
 
 Traffic shaping is a very common practice in network management. Traffic shaping allows the network administrator to prevent over consumption of network resources by limiting the bandwidth in several layers. Current implementation of libvirt allows limiting the bandwidth in the virtual NIC level for both inbound and outbound traffic. The Network QoS on oVirt make use of that API and allows the network administrator to define network limitations on specific VNICs.
 
@@ -48,75 +45,34 @@ For example: if average is set to 100 units, peak to 200 and burst to 50, after 
 
 Traffic shaping using the Network QoS feature will be available only for oVirt networks at this stage. Externally provided networks (such as Quantum) may be supported in future extensions.
 
-##### VNIC Profile
-
-The VNIC Profile concept embodies a predefined package of network setting which will define the network service a VNIC will get.
-VNIC Profile include:
-\* Profile name
-
-*   Network
-*   Quality of Service
-*   Port mirroring
-*   Custom properties
-
-When creating a new VNIC or editing an existing one the user will select a VNIC Profile (instead of the current implementation in which the user selects a network and sets port mirroring and custom properties).
-The network administrator could create several VNIC Profiles for each network. He could then grant a users with the permission to use (consume) each profile. The user will only be able to use profiles which he was granted access to.
-
-For example: the network admin will create two VNIC profiles for network "blue":
-
-Profile "Gold" - with better QoS and no port mirroring
-
-Profile "Silver" with lower QoS and enabled port mirroring.
-
-He will then define the user-group "students" as user of profile "Silver" and user-group "teachers" as user of profile "Gold". In this case the teachers will enjoy better quality of service then the students. When a teacher will add/edit a virtual NIC he could select profile "Gold" for that NIC - the VNIC will be connected to network "blue" with high QoS and no port mirroring.
-
-The VNIC Profile could be edited by the network administrator at any time. The changes will seep down to all VNICs using the profile. In case VNIC using the edited profile are connected to running VMs the change will apply only on the VM next run. The engine will retrieve the actual configuration of the profile properties on the VNIC from VDSM (using the network statistics mechanism) and the networked administrator will be presented with the state of each VNIC (synched/unsynched).
-
-Hotplug and Dynamically Rewire will continue to be fully supported. Devices which will be hotpluged or rewired will use the updated profile connected to the VNIC.
-
-When a Template is created from a VM the VNIC Profile will be kept along with the VNIC. When a VM is created from template the VNIC Profiles will be taken from the template's VNICs.
-
-VNIC Profiles could not be deleted from the engine as long as one or more VM/Templates are using those profiles.
-
-The VNIC Profiles will be exported and imported together with the VNIC. If the user will import a VM which is using a profile not exist in the system, he will be notified and the VNIC will be connected to a default minimal profile defined in the system.
-
-In 3.2 or lower clusters versions not all of the profile properties are supported. in those clusters only Profile name, Network and Port mirroring will be enabled.
-
 #### Benefit to oVirt
 
-We would like to expose to the user the ability to configure the Network Quality of Service (QoS) properties of each virtual NIC. The Network QoS feature will add this ability to the engine. The VNIC profile will improve the usability of the network configuration on the VM. On the user side - VNIC profiles will allow the user to configure a VNIC in relative ease. On the network administrator side - VNIC Profiles will help the administrator to keep control of all the VNICs connected to the network in a simpler way.
-The combination of the two will allow the network admin to define, control and dispense different service levels to different users or groups (which may have different priorities).
+We would like to expose to the user the ability to configure the Network Quality of Service (QoS) properties of each virtual NIC. The Network QoS feature will add this ability to the engine.
 
 ## Design and Implementation
 
-The Network QoS feature includes two main parts:
-
-*   VNIC level QoS
-*   VNIC Profiles
-
-The two parts will be developed in parallel
-
 see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
-
-### VNIC level QoS
 
 #### GUI
 
 The UI for setting of QoS properties will be added to the Add/Edit Profile dialog.
- **Add/Edit Profile dialog**
-![](Vnic_profile.png "fig:Vnic_profile.png")
+ **Network QoS sub tab**
+![](Qos_new_tab.png "fig:Qos_new_tab.png") The Network QoS will be added as sub tab of Data Center (administrator port6al only) . The administrator will be able to Add/Remove/Edit Network QoS entities. The QoS name and all 6 properties will be viewed in the table.
 
-The network administrator could enable/disable the QoS properties (for each inbound / outbound). Disabled QoS will mean no limitation on the traffic in this direction
-Once inbound/outbound was enabled all three field must be filled (This will be verified before allowing to close the dialog).
+**Add/Edit Network QoS dialog**
+![](File:Qos_neq_dialog.png "fig:File:Qos_neq_dialog.png") The Add/Edit Network QoS dialog will include text field for name and six text fields for the values.
+The administrator could enable/disable the QoS properties (for each inbound / outbound). Disabled QoS will mean no limitation on the traffic in this direction
+Once inbound/outbound was enabled all three field must be filled (This will be verified before allowing to close the dialog). The Peak and Burst fields will be automatically filled when entering Average value (and could be edited manually).
 
 #### Backend
 
-We define a new entity called "NetworkQoS" - the QoS properties will be contained in this object. A NetworkQoS object will be added to NetworkProfile entity.
+We define a new entity called "NetworkQoS" - the QoS properties will be contained in this object.
+A NetworkQoS object will be added to NetworkProfile entity.
 see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
 
 #### DB Change
 
-Add NetworkQoS table.
+Add network_qos table.
 see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
 
 #### REST API
@@ -132,123 +88,17 @@ libvirt version 1.0.1 or higher is required to enable the QoS feature (vdsm 3.3 
 
 see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
 
-### VNIC Profiles
-
-#### Upgrade
-
-In the upgrade process we will do the following:
-
-*   Create a VNIC profile for each network, without port mirroring
-*   Create a VNIC profile with port mirroring for every network which has a VNIC with port mirroring
-*   A VNIC connected to a network x in 3.2 will automatically be connected to the correlating profile in 3.3 (according to the port mirroring settings).
-*   Comment: when we say VNIC we mean either a VM VNIC or a Template VNIC
-*   A user which had a permission to use a network in 3.2 will be granted the permission to use the correlating profile in 3.3 (according to the port mirroring settings).
-
-#### Permissions
-
-The following action groups will be added:
-
-*   CONFIGURE_NETWORK_VNIC_PROFILE - will be part of roles that have the CONFIGURE_STORAGE_POOL_NETWORK action group
-*   CREATE_NETWORK_VNIC_PROFILE - will be part of roles that have the CREATE_STORAGE_POOL_NETWORK action group
-*   DELETE_NETWORK_VNIC_PROFILE - will be part of roles that have the DELETE_STORAGE_POOL_NETWORK action group
-
-A VNICProfileUser role will be added, instead of the NetworkUser role. This role will contain the exact same action groups:
-
-*   CONFIGURE_VM_NETWORK
-*   CONFIGURE_TEMPLATE_NETWORK
-*   LOGIN
-
-When upgrading the permissions table, we will do the following:
-
-*   Remove each NetworkUser role on network objects, replacing it with a VNICProfileUser on the created network profiles.
-*   Replacing each NetworkUser role on other types of objects with a VNICProfileUser
-
-We will also remove the PORT_MIRRORING action group, replacing it with proper logic in the different backend commands.
-
-##### Permission Views
-
-User (as opposed to an administrator), will be limited to the networks and VNIC profiles he can see.
-===== VNIC Profiles ===== NOTE: the permissions used below besides the direct one, and the VM/Template one, must allow the user to view the child objects
-
-*   The user has direct user permissions on the VNIC profile
-*   The user has user permissions on the VNIC profile's network
-*   The user has user permissions on the Profile-Network's Data-Center
-*   The user has user permissions on a Profile-Network's Cluster
-*   The user has user permissions on a VM with a VNIC using the VNIC Profile
-*   The user has user permissions on a Template with a VNIC using the VNIC Profile
-*   The user has user permissions on the System object
-
-###### Networks
-
-*   The user has permission on a VNIC profile that's part of this network
-
-#### GUI (VNIC Profiles)
-
-A new sub tab will be added to the Network main tab (positioned second, after General)
-The sub tab will show the available Profiles for each network. Columns will be:
-
-*   Name - string
-*   Port Mirroring - Boolean
-*   Inbound QoS - formatted string
-*   outbound QoS - formatted string
-
-supported actions: add, edit, remove
-
-The sub tab will include a right pane which will hold "Permissions"/"Consumers" tab where the user will define the user which can use the selected profile.
-supported action: add / remove
-
-In The Virtual Machine sub-tab (under the Network main tab) "Profile" column will be added to the table.
- **Profiles sub tab**
-![](Network_profiles.png "fig:Network_profiles.png")
-
-A new dialog will be created for add/edit profile. the dialog will include the following fields:
-
-*   Name (text box)
-*   Port mirroring (check box)
-*   Inbound QoS (3 text boxes)
-*   Outbound QoS (3 text boxes)
-*   Custom properties (Selection box and +/- buttons)
-
-* In clusters supporting version 3.2 or lower the QoS and Custom properties fields will be visible but disabled.
-
-'''Add/Edit Profile dialog"
-![](Vnic_profile.png "fig:Vnic_profile.png")
-
-The Add/Edit VNIC dialog will be added a Profile selection box.
-The network which will be available for selection in the Network selection box will only be networks which the user have a permission to use at least on of their profiles.
-After selecting a network the Profile selection box will be populated with all profiles of the selected network which the user have permission to use.
-
-**Profile Selection**
-![](Profile_selection.png "fig:Profile_selection.png")
-
-#### Backend
-
-We define a new entity: NetworkProfile.
-The NetworkProfile will be added as a property of NetworkInterface.
-
-see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
-
-#### DB Change
-
-Adding a new table, network_profiles see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
-
-#### REST API
-
-Not supported in this version
-
-#### VDSM
-
-VDSM will not be affected by the VNIC Profiles. The engine will encapsulate this abstraction and will keep
-
 ### Tests
 
 #### Expected unit-tests
 
-* Unit test handling network selection and VNIC settings are expected to change
+* Unit test for Dao - Unit test for Commands (add/update/remove) - Unit test for query
 
 ### Special considerations
 
 ### Dependencies / Related Features
+
+*   Dependent on the feature [Vnic Profiles](/Features/Vnic_Profiles)
 
 Affected ovirt projects:
 
@@ -260,10 +110,6 @@ Affected ovirt projects:
 Others projects:
 
 *   vdsm
-
-Affected features:
-
-*   Custom properties
 
 ### Documentation / External references
 

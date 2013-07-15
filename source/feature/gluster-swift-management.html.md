@@ -166,7 +166,7 @@ Note :Unknown state can be seen by making an server go into non responsive state
 *   Validate messages while starting/stopping/restarting swift at server level.
     -   click on the cluster which has nodes present in it.
     -   click on the any one of the server which is present in the cluster
-    -   Go to GlusterSwift Subtab.
+    -   Go to Gluster Swift Sub tab.
     -   Click on Start Swift link and verify for the message "SWIFT services started on <Nodename> on cluster <Cluster Name>."
     -   Click on Stop Swift link and verify for the message "SWIFT services stopped on <NodeName> on cluster <ClusterName>."
     -   Click on Restart Swift link and verify for the message " SWIFT services re-started on <NodeName> on cluster <ClusterName>."
@@ -276,5 +276,48 @@ Note :Unknown state can be seen by making an server go into non responsive state
     -   Click on the Stop radio button in the manage gluster swift services popup.
     -   Click on OK button.
     -   Verify for the message "SWIFT Services stopped on cluster <cluster Name>".
+
+<!-- -->
+
+*   Verify start Swift at cluster level
+    -   Should have a cluster created and servers attached to it.
+    -   Click on the Clusters tab.
+    -   Go to Manage link under the clusters general sub tab.
+    -   Click on the Start radio button in the manage gluster swift services popup.
+    -   Click on OK button.
+    -   Verify for the message "SWIFT Services started on cluster <cluster Name>".
+
+<!-- -->
+
+*   Verify Swift Status at cluster level.
+    -   Should have cluster created and rhs nodes added to it.
+    -   Should have Swift Services installed in rhs nodes.
+    -   Click on the clusters tab and select the cluster to see the status.
+    -   Verify that in the General sub tab of a cluster Gluster Swift status will be shown "DOWN" by default.
+
+<!-- -->
+
+*   Validate UI of Manage link
+    -   should have cluster created and nodes attached to it.
+    -   Click on the clusters tab and select default cluster.
+    -   Go to Manage link.
+    -   Verify for the following in the popup which comes :
+
+    1.  Title of the popup should be "Manage Gluster Swift"
+    2.  A label called ""Gluster Swift Status : DOWN".
+    3.  Three radio buttons: Start,Stop and Restart.
+    4.  A tabular column with the following values: Server,Service (Should have GLUSTER_SWIFT),Status ,Start (enabled),Stop(will be disabled) and Restart (enabled).
+    5.  Two buttons OK and close.
+    6.  A check box called "Manage swift on individual servers".
+
+<!-- -->
+
+*   Validate UI of swift tabs.
+    -   Should have a cluster created and nodes added to that.
+    -   Select the cluster created.
+    -   Verify for the following in the clusters general tab:
+
+    1.  A label called "Gluster Swift Status" with status as "Down".
+    2.  A Button called "Manage".
 
 <Category:Feature>

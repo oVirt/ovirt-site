@@ -87,8 +87,6 @@ In order to allow editing the connection details, the edit button will now be en
 
 # REST
 
-TBD: model the new connection entity. Should represent several storage types.
-
 ### Get existing connection (GET)
 
 1.  All storage connections that exist in the oVirt setup will be accessible in a new root resource: api/storageconnections.

@@ -113,4 +113,86 @@ Periodic sync job will report if service status changes in a server.
 
 ### Test Cases
 
+*   Verify UNKNOWN state of a cluster SWIFT Services by aggregation from all the servers.
+    -   Click on the cluster which is empty i.e. which does not have any nodes as a part of it.
+    -   Verify that under the clusters general sub tab the status will be shown "UNKNOWN".
+
+<!-- -->
+
+*   Verify NOT_INSTALLED state of a cluster SWIFT Services by aggregation from all the servers.
+    -   Should have a cluster created and nodes attached to it.(NOTE :Gluster SWIFT will not be installed for the states being tested.)
+    -   Go to clusters tab.
+    -   Verify that for the following cases, Status under cluster general tab should be shown "NOT_INSTALLED".(Assuming that we have two servers in the cluster)
+
+    1.  Gluster Swift Services NOT_INSTALLED in server1 and server2.
+    2.  Gluster Swift ServicesNOT_INSTALLED in server1 and UNKNOWN in server2.(Unknown state can be seen by making an server go into non responsive state).
+
+<!-- -->
+
+*   Verify Partially UP state of a cluster SWIFT Services by aggregation from all the servers.
+    -   Go to Clusters tab.
+    -   Verify that Cluster general tab shows the status as "partially up" state in the following cases:(Assuming that we have two servers in the cluster)
+
+    1.  Gluster Swift services in Server1 up and in server 2 down.
+    2.  Gluster Swift services Server1 up and server2 partiallyup.
+    3.  Gluster Swift Services in Server1 up and Server2 not installed.
+    4.  Gluster Swift Services in Server1 up and Server 2 UNKNOWN.
+    5.  Gluster Swift Services n Server1 Down and Server 2 Partially up.
+    6.  Gluster Swift Services in Server1 and Server 2 are Partially UP.
+    7.  Gluster Swift Services in Not installed and Server 2 are Partially UP.
+    8.  Gluster Swift Services in UNKNOWN and Server 2 are Partially UP.
+
+Note :Unknown state can be seen by making an server go into non responsive state, i.e by stopping vdsm.
+
+*   Verify UP state of a cluster SWIFT Services by aggregation from all the servers.
+    -   Click on the cluster which has nodes present in it.
+    -   Click on the Manage button which is present in Cluster Genera tab.
+    -   Click on the start radio button of SWIFT Service Type for all the servers which are present in the cluster in the Manage Gluster Swift Popup.
+    -   Click on OK button.
+    -   Verify that under the clusters general sub tab the status will be shown "UP".
+
+<!-- -->
+
+*   Verify Down state of a cluster SWIFT Services by aggregation from all the servers.
+    -   Click on the cluster which has nodes present in it.
+    -   Verify that Gluster Swift services status goes "DOWN" state in the following cases(Assuming that there are two servers in the cluster)
+
+    1.  Gluster Swift Services in Server1 and Server2 all the services are stopped.
+    2.  Gluster Swift Services are stopped in server1 and server2 services are NOT_INSTALLED
+    3.  Gluster Swift Services are stopped in server1 and server2 services are UNKNOWN.
+
+<!-- -->
+
+*   Validate messages while starting/stopping/restarting swift at server level.
+    -   click on the cluster which has nodes present in it.
+    -   click on the any one of the server which is present in the cluster
+    -   Go to GlusterSwift Subtab.
+    -   Click on Start Swift link and verify for the message "SWIFT services started on <Nodename> on cluster <Cluster Name>."
+    -   Click on Stop Swift link and verify for the message "SWIFT services stopped on <NodeName> on cluster <ClusterName>."
+    -   Click on Restart Swift link and verify for the message " SWIFT services re-started on <NodeName> on cluster <ClusterName>."
+
+<!-- -->
+
+*   Verify Restarting of Swift Services at server level.
+    -   Click on the cluster which has servers present in it.
+    -   Click on the server in which Gluster Swift Services needs to be restarted.
+    -   Go to Gluster Swift Sub tab.
+    -   Click on the Restart Swift link .
+    -   Verify that Status column of all the services shows "UP" .
+    -   Verify for the following message for all the services present in the server.
+
+    1.  Status of service <Service Type> on server <server Name> changed from Down to Up. Updating in engine now.
+
+<!-- -->
+
+*   Verify Stop Swift Services at server level.
+    -   Click on the cluster which has servers present in it.
+    -   Click on the server in which Gluster Swift Services needs to be restarted.
+    -   Go to Gluster Swift Sub tab.
+    -   Click on the Stop Swift link .
+    -   Verify that Status column of all the services shows "Down" .
+    -   Verify for the following message for all the services present in the server.
+
+    1.  Status of service <Service Type> on server <server Name> changed from Up to Down. Updating in engine now.
+
 <Category:Feature>

@@ -58,8 +58,8 @@ Updated July 14 2013
 *   Create root resource for connections (in implementation) <http://gerrit.ovirt.org/#/c/16617/>
     -   Perform GET all connections. In the scope of this patch, create a backend query that will get all connections from db.
     -   Add functionality to root resource for add/delete NFS, Posix connection properties in REST
-    -   Add functionality to root resource for add/delete iSCSI connection properties in REST (not started)
-*   Add functionality to edit a connection (nfs,posix,iSCSI) (not started)
+    -   Add functionality to root resource for add/delete iSCSI connection properties in REST
+    -   Add functionality to edit a connection (nfs,posix,iSCSI)
 *   Create subresource for connections under domains (api/storagedomains/<domainId>/connections that will retrieve connections (GET). not started
 *   Add functionality to add storage domain with a reference to an already existing storage connection (instead of embedded properties of a connection that will be created along with the storage domain). (not started.)
 *   Add functionality to add an additional connection to block storage domain - multipathing. no started.

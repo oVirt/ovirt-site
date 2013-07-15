@@ -187,12 +187,94 @@ Note :Unknown state can be seen by making an server go into non responsive state
 
 *   Verify Stop Swift Services at server level.
     -   Click on the cluster which has servers present in it.
-    -   Click on the server in which Gluster Swift Services needs to be restarted.
+    -   Click on the server in which Gluster Swift Services needs to be stopped.
     -   Go to Gluster Swift Sub tab.
     -   Click on the Stop Swift link .
     -   Verify that Status column of all the services shows "Down" .
     -   Verify for the following message for all the services present in the server.
 
     1.  Status of service <Service Type> on server <server Name> changed from Up to Down. Updating in engine now.
+
+<!-- -->
+
+*   Verify Start Swift Services at Server level.
+    -   click on the cluster which has severs present in it.
+    -   Click on the server in which Gluster Swift Services needs to be started.
+    -   Go to Gluster Swift Sub tab.
+    -   Click on the Start Swift link .
+    -   Verify that Status column of all the services shows "Up" .
+    -   Verify for the following message for all the services present in the server.
+
+    1.  Status of service <Service Type> on server <server Name> changed from Up to Down. Updating in engine now.
+
+<!-- -->
+
+*   Verify Not_Installed state of a Gluster Swift services.
+    -   connect to any of the server which has Gluster Swift installed in it.
+    -   Remove the gluster swift services by typing the command yum remove <gluster service> and repeat this for all the Gluster Swift Services.
+    -   Click on the server from which the gluster swift services were removed.
+    -   Go to Gluster Swift sub tab.
+    -   Verify that status column of all the services shows NOT_INSTALLED.
+    -   Verify for the message "Status of service <glusterservice> on server <server Name> changed from Up to NOT_AVAILABLE. Updating in engine now."
+
+<!-- -->
+
+*   Verify status of gluster swift after removing hosts from the cluster.
+    -   Should have cluster created and nodes present in it.
+    -   Move the servers into maintenance mode.
+    -   Now remove the servers from the cluster.
+    -   Verify that Gluster swift status should be "UNKNOWN".
+
+<!-- -->
+
+*   Verify swift status at server level.
+    -   Should have a cluster created and nodes present in it.
+    -   Click on the servers tab.
+    -   Go to Gluster Swift tab.
+    -   Verify that it lists all of the following services with status of the services as "Down":
+
+    1.  gluster-swift-account
+    2.  gluster-swift-container
+    3.  gluster-swift-object
+    4.  gluster-swift-proxy
+    5.  memcached
+
+<!-- -->
+
+*   Verify Gluster Swift Sub tab .
+    -   Should have a cluster created and servers attached to it.
+    -   Click on the servers tab .
+    -   Click on the Gluster Swift Sub tab.
+    -   Verify for the following under the Gluster Swift Sub tab:
+
+    1.  Start Swift link
+    2.  Stop Swift link
+    3.  Restart Swift link
+
+    -   Verify for the tabular column for the following columns:
+
+    1.  Service - Should list all the Gluster swift services. i.e (gluster-swift-account,gluster-swift-container,gluster-swift-object,gluster-swift-proxy,memcached)
+    2.  Status - should show the status of a service.
+
+<!-- -->
+
+*   Verify restarting of Swift at cluster level
+    -   Should have a cluster created and servers attached to it.
+    -   Click on the Clusters tab.
+    -   Go to Manage link under the clusters general sub tab.
+    -   Click on the Restart radio button in the manage gluster swift services in the popup.
+    -   Click on OK button.
+    -   Verify for the message "SWIFT Services re-started on cluster <cluster Name>
+    -   Verify that Gluster Swift status shows as "UP" in the general subtab of cluster.
+
+<!-- -->
+
+*   Verify Stop SWIFT at cluster level
+    -   Should have a cluster created and servers attached to it.
+    -   Click on the Clusters tab.
+    -   Go to Manage link under the clusters general sub tab.
+    -   Click on the Stop radio button in the manage gluster swift services popup.
+    -   Click on OK button.
+    -   Verify for the message "SWIFT Services stopped on cluster <cluster Name>".
 
 <Category:Feature>

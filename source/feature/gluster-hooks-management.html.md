@@ -118,4 +118,15 @@ As the hooks present in the servers are periodically synchronized with engine da
 
 ### Test Cases
 
+*   Test case 1: Enable Hook
+    -   Manually create one or more hooks in the RHS servers from its back-end.
+    -   Click on "Clusters" and select a <Cluster>
+    -   Click on the "Gluster Hooks" sub-tab which will list all the hooks in the cluster.
+    -   Select any disabled Hook and click on "Enable"
+*   Expected Results:
+    1.  Enable button/option should be seen (for disabled hooks) when viewing the list of hooks
+    2.  Should be able to click on enable button/option so that the hook is enabled on all nodes in the cluster
+    3.  Event message should be generated for the above action
+    4.  The status of the Hook should now be changed to "Enabled"
+
 <Category:Feature>

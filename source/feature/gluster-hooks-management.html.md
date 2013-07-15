@@ -134,11 +134,27 @@ As the hooks present in the servers are periodically synchronized with engine da
 
 **\1**
 
+*   Create and Enable one or more hooks using the step [3] in Setup
+*   Click on "Clusters" and select a <Cluster>
+*   Click on the "Gluster Hooks" sub-tab and it lists the hooks in the cluster
+*   Select any Hook and click on "Disable"
+
 '' Expected Results: ''
+
+1.  Disable button should be seen (for enabled hooks) when viewing the list of hooks
+2.  Should get a confirmation pop-up window
+3.  Event message should be generated for the above action
+4.  The status of the Hook should now be changed to "Disabled"
 
 **\1**
 
+*   Click on "Clusters" and select a <Cluster>
+*   Click on the "Gluster Hooks" sub-tab and it lists the hooks in the cluster
+*   Select the created Hook with type 'Text' and click on "View Content"
+
 '' Expected Results: ''
+
+1.  Content of the hook can be viewed in a pop-up ONLY if the hook content type is 'Text'.
 
 *' \* Test case 4- Resolve Conflicts : Missing (Copy the hook to all the servers)*'
 

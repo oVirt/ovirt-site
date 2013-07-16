@@ -55,11 +55,10 @@ He will then define the user-group "students" as user of profile "student-blue" 
 ##### Editing a Profile
 
 *   A user should be able to edit the profile properties (including profile name) while VMs are attached and are using this Profile (reference should be done by id).
-*   Changing the network of a vNic profile will be allowed if all the VMs that are using the profile are in status down.
+*   Changing the network of a vNic profile will be blocked.
     -   Since we have no way to distinguish between running and current configurations, the expected behavior of such a change is unpredictable and less intuitive to the user (especially since dynamic wiring is supported).
 *   The changes will seep down to all VNICs using the profile.
     -   In case VNIC using the edited profile are connected to running VMs, the change will apply only on the VM next run.
-*   The profile change would only apply after next VM reboot.
 
 ##### Deleting a Profile
 

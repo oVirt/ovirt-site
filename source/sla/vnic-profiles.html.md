@@ -281,6 +281,11 @@ see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implem
 
 Adding a new table, network_profiles see : [http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design Implementation details) for detailed design
 
+*   Add new view - vnic_profile_network_view, contains all vnic_profiles fields and network_name, data_center_name and compatibility_version.
+
+The new view will be mapped into **VnicProfileView** entity which extends the VnicProfile with the aforementioned fields.
+The **VnicProfileView** will serve the UI.
+
 #### REST API
 
 The vnic profiles will be modeled as a top collection:

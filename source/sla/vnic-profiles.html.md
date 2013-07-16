@@ -82,6 +82,10 @@ and for each vnic profile there will be an option for 'public use'.
 
 *   The vNic profile name will be NetworkNamePolicyName, e.g. blueGold. The user will be able to rename the profile and its properties from the vnic profile sub-tab.
 
+<!-- -->
+
+*   A default vnic profile will be created implicitly by the engine when creating a new network, unless specifically asked not create it.
+
 The option to check the network for a public use will be removed from the 'Add network' dialog.
 
 ##### Updating a Network

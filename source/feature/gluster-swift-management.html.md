@@ -114,18 +114,19 @@ Periodic sync job will report if service status changes in a server.
 ### Test Cases
 
 *   Verify Swift Status at cluster level.
-    -   Should have cluster created and rhs nodes added to it.
-    -   Should have Swift Services installed in rhs nodes.
+    -   Should have a cluster with "gluster service" enabled created and servers attached to it.
+    -   Should have gluster-swift package installed on the servers.
     -   Click on the clusters tab and select the cluster to see the status.
-    -   Verify that in the General sub tab of a cluster Gluster Swift status will be shown "DOWN" by default.
+    -   Verify that in the General sub tab of a cluster, Gluster Swift status will be shown "DOWN" by default.
 
 <!-- -->
 
 *   Verify swift status at server level.
-    -   Should have a cluster created and nodes present in it.
+    -   Should have a cluster with "gluster service" enabled created and servers attached to it.
+    -   Should have gluster-swift package installed on the servers.
     -   Click on the servers tab.
     -   Go to Gluster Swift tab.
-    -   Verify that it lists all of the following services with status of the services as "Down":
+    -   Verify that the following services are listed with status of the services as "Down":
 
     1.  gluster-swift-account
     2.  gluster-swift-container
@@ -136,7 +137,7 @@ Periodic sync job will report if service status changes in a server.
 <!-- -->
 
 *   Verify start Swift at cluster level
-    -   Should have a cluster created and servers attached to it.
+    -   Should have a cluster with "gluster service" enabled created and servers attached to it.
     -   Click on the Clusters tab.
     -   Go to Manage link under the clusters general sub tab.
     -   Click on the Start radio button in the manage gluster swift services popup.
@@ -146,7 +147,7 @@ Periodic sync job will report if service status changes in a server.
 <!-- -->
 
 *   Verify Stop SWIFT at cluster level
-    -   Should have a cluster created and servers attached to it.
+    -   Should have a cluster with "gluster service" enabled created and servers attached to it.
     -   Click on the Clusters tab.
     -   Go to Manage link under the clusters general sub tab.
     -   Click on the Stop radio button in the manage gluster swift services popup.
@@ -156,7 +157,7 @@ Periodic sync job will report if service status changes in a server.
 <!-- -->
 
 *   Verify restarting of Swift at cluster level
-    -   Should have a cluster created and servers attached to it.
+    -   Should have a cluster with "gluster service" enabled created and servers attached to it.
     -   Click on the Clusters tab.
     -   Go to Manage link under the clusters general sub tab.
     -   Click on the Restart radio button in the manage gluster swift services in the popup.

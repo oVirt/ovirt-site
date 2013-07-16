@@ -29,14 +29,6 @@ In order to provide control of a network traffic, we need to define traffic boun
 
 #### Detailed description
 
-[Current implementation of libvirt](http://libvirt.org/formatnetwork.html) allows shaping of incoming (inbound) and outgoing (outbound) traffic in a network, both types of traffic can be shaped independently. Shaping a network traffic requires the definition of 3 attributes:
-
-*   Average: Average bit rate on the interface being shaped (Mbps).
-*   Burst: Burst, amount of Mb that can be burst at peak speed (Mb).
-*   Peak: Maximum rate at which interface can send data (Mbps).
-
-For example defining a network "Students" with outbound traffic defined with average, burst and peak respectively 20, 200, 40 means that traffic will flow at 20 Mbps on average and the interface will be able to send a maximum of 200 Mb at the peak speed of 40 Mbps, for the shaped network.
-
 The user should be able to select one of the available Network QoS or create a new Network QoS during creation of a new logical network.
 
 #### Benefit to Ovirt

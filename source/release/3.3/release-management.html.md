@@ -69,6 +69,7 @@ Tracker bug: <https://bugzilla.redhat.com/918494>
 *   **MUST**: Have Release Notes with feature specific information
 *   **MUST**: Have updated quick start guide available
 *   **MUST**: No regressions from 3.1 Release
+*   **MUST**: Have release announcement for front page of ovirt.org and for mailing lists
 
 ### SHOULD
 

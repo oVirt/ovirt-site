@@ -14,7 +14,7 @@ wiki_last_updated: 2014-09-04
 
 #### Summary
 
-In order to provide better control of networks traffic, we need to define traffic boundaries for incoming and outgoing traffic. This goal is achieved by associating a [Network QoS](http://www.ovirt.org/Features/Network_QoS) to an abstract network entity.
+In order to provide better control of networks traffic, we need to define traffic boundaries for incoming and outgoing traffic. This goal is achieved by associating a [ Network QoS](http://www.ovirt.org/Features/Network_QoS) to an abstract network entity.
 
 #### Owner
 

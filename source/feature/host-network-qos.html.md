@@ -29,7 +29,7 @@ In order to provide control of a network traffic, we need to define traffic boun
 
 #### Detailed description
 
-The user should be able to select one of the available Network QoS or create a new Network QoS during creation of a new logical network.
+The user (admin /network admin) should be able to select one of the available Network QoS or create a new Network QoS if the available ones don't satisfy his needs, during creation of a new logical network.
 
 #### Benefit to Ovirt
 

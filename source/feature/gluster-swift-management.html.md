@@ -100,17 +100,6 @@ Periodic sync job will report if service status changes in a server.
 
 ### Dependencies / Related Features and Projects
 
-### Documentation / External references
-
-*   <http://www.gluster.org/community/documentation/index.php/GlusterFS_Swift>
-*   <http://www.gluster.org/community/documentation/index.php/Arch/Understanding_Swift_Integration>
-
-### Comments and Discussion
-
-<http://www.ovirt.org/wiki/Talk:Features/Gluster_Swift_Management>
-
-### Open Issues
-
 ### Test Cases
 
 *   Verify Swift Status at cluster level.
@@ -200,5 +189,16 @@ Periodic sync job will report if service status changes in a server.
     -   Verify for the following message for all the services present in the server.
 
     1.  Status of service <Service Type> on server <server Name> changed from Down to Up. Updating in engine now.
+
+### Documentation / External references
+
+*   <http://www.gluster.org/community/documentation/index.php/GlusterFS_Swift>
+*   <http://www.gluster.org/community/documentation/index.php/Arch/Understanding_Swift_Integration>
+
+### Comments and Discussion
+
+<http://www.ovirt.org/wiki/Talk:Features/Gluster_Swift_Management>
+
+### Open Issues
 
 <Category:Feature>

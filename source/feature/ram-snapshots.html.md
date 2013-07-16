@@ -21,10 +21,8 @@ Save memory state in live snapshots.
 
 ### Current status
 
-*   Status:
-    -   final design stage
-    -   implementation started
-*   Targeted: oVirt-3.3
+*   Status: Merged
+*   Targete Release:3.3
 *   Last updated: ,
 
 ### Detailed Description

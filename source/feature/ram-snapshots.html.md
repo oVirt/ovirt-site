@@ -228,7 +228,7 @@ The snapshot section in OVF file of VM will include the memory volume of the sna
 
 ### Testing
 
-#### Snapshots creations
+#### Snapshot creations
 
 ##### Test case 1
 

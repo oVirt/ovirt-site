@@ -13,7 +13,7 @@ wiki_last_updated: 2013-11-14
          - remove support for --password option #983713
          - add option to define auto connect #918908
          - "exit" command fails after "disconnect" from script #971285
-         - list permits format better error when not enough parameters #962472)
+         - list permits format better error when not enough parameters #962472
          - ovirt-shell should contain the hostname of the system #866319
          - certificate file keys are not exposed in .ovirtshellrc #960983
          - add brick operation fails from ovirt-shell #923169

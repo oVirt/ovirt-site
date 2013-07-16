@@ -130,7 +130,7 @@ As the hooks present in the servers are periodically synchronized with engine da
 
 **\1**
 
-*   Manually create one or more hooks in the RHS servers from its back-end.
+*   Manually create one or more hooks in the servers from the back-end.
 *   Click on "Clusters" and select a <Cluster>
 *   Click on the "Gluster Hooks" sub-tab which will list all the hooks in the cluster.
 *   Select any disabled Hook and click to "Enable"

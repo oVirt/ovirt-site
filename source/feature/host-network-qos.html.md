@@ -29,7 +29,7 @@ In order to provide traffic control for a network, we need to define boundaries 
 
 #### Detailed description
 
-During creation of a new logical network or when editing a network associated to a physical interface (Setup host networks), the user (admin /network admin) should be able to define the related TS. Applying TS to a logical network doesn't involve any change in the DC hosts. TS on a host network is applied when a logical network is associated with the host interface or when editing a previously shaped network.
+During creation of a new logical network or when editing a network associated to a physical interface, the user (admin /network admin) should be able to define the related TS. Applying TS to a logical network doesn't involve any change in the DC hosts. TS on a host network is applied when a logical network is associated with the host interface or when editing a previously shaped network.
 
 #### Benefit to Ovirt
 

@@ -161,14 +161,14 @@ As the hooks present in the servers are periodically synchronized with engine da
 
 '' Expected Results: ''
 
-1.  Verify that the manually created hooks are getting synced and listed in the UI succesfully.
+1.  Verify that the manually created hooks are getting synced and listed in the UI successfully.
 
 **\1**
 
 *   Check for Status Conflict:
 *   If there are conflicts in hook scripts across the servers in the cluster, click on "Resolve Conflicts". This will open a new window for conflict resolution.
 *   Now resolve the Content Conflict either by:
-    -   Applying the content of the hook from one of the servers OR
+    -   Applying the content of the hook from one of the servers '' OR ''
     -   Applying the content of the hook from the engine copy
 
 **\1** Verify that the content conflicts are successfully resolved after performing the corresponding actions
@@ -189,13 +189,13 @@ As the hooks present in the servers are periodically synchronized with engine da
 *   Check for Content and Status Conflict:
 *   If there are conflicts in hook scripts across the servers in the cluster, click on "Resolve Conflicts". This will open a new window for conflict resolution.
 *   Now resolve the Content Conflict either by:
-    -   Applying the content of the hook from one of the servers OR
+    -   Applying the content of the hook from one of the servers '' OR ''
     -   Applying the content of the hook from the engine copy
 
 <!-- -->
 
 *   Now resolve the Status Conflict either by:
-    -   Changing the hook status to either "Disable" or "Enable" in the "Resolve Conflicts" pop-up OR
+    -   Changing the hook status to either "Disable" or "Enable" in the "Resolve Conflicts" pop-up '' OR ''
     -   Manually fixing it from the back-end by renaming the file with prefix "K" or "S" as required.
 
 **\1**
@@ -218,8 +218,7 @@ As the hooks present in the servers are periodically synchronized with engine da
 *   Check for Missing Conflict:
 *   Select the hook having conflict and click on "Resolve Conflicts". This will open a new window for conflict resolution.
 *   Now resolve the Missing Conflict by selecting:
-
-      * Remove the missing hook
+    -   Remove the missing hook
 
 **\1**
 

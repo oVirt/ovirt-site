@@ -333,7 +333,81 @@ The snapshot section in OVF file of VM will include the memory volume of the sna
 
 ##### Test case 1
 
+*   Run VM
+*   Create live snapshot with memory
+*   Stop VM
+*   Preview the snapshot
+*   Commit to the snapshot
+*   Export the VM
+*   Remove the VM
+*   Import the VM
+*   Check that there are two snapshots with memory in the snapshots subtab
+*   Run VM
+*   Check that the initial status is 'restoring state' and then 'up'
+*   Connect to the VM and check that the previous state was restored (opened applications, clipboard content, etc)
+
 ##### Test case 2
+
+*   Run VM
+*   Create live snapshot with memory
+*   Stop VM
+*   Preview the snapshot
+*   Commit to the snapshot
+*   Export the VM
+*   Import the VM as clone (that's the only way to do so, as the VM already exists)
+*   Check that there is only one snapshot (the active snapshot) with no memory in the snapshots subtab
+*   Run VM
+*   Check that the initial status is 'powering up' and then 'up'
+*   Connect to the VM and check that it looks like it should be after boot
+
+##### Test case 3
+
+*   On NFS storage:
+*   Run VM
+*   Create live snapshot with memory
+*   Stop VM
+*   Preview the snapshot
+*   Commit to the snapshot
+*   Export the VM
+*   On block-based storage:
+*   Import the VM
+*   Run VM
+*   Check that the initial status is 'restoring state' and then 'up'
+*   Connect to the VM and check that the previous state was restored (opened applications, clipboard content, etc)
+
+##### Test case 4
+
+As previous test case, but do the first steps on block-based storage and the latest on file based storage
+
+##### Test case 5
+
+*   Run VM
+*   Create live snapshot with memory
+*   Stop VM
+*   Preview the snapshot
+*   Commit to the snapshot
+*   Export the VM using 'Collapse Snapshots'
+*   Remove the VM
+*   Import the VM
+*   Check that there is only the active snapshot with memory
+*   Run VM
+*   Check that the initial status is 'restoring state' and then 'up'
+*   Connect to the VM and check that the previous state was restored (opened applications, clipboard content, etc)
+
+##### Test case 6
+
+*   Run VM
+*   Create live snapshot with memory
+*   Stop VM
+*   Preview the snapshot
+*   Commit to the snapshot
+*   Export the VM
+*   Remove the VM
+*   Import the VM using 'Collapse Snapshots'
+*   Check that there is only the active snapshot with memory
+*   Run VM
+*   Check that the initial status is 'restoring state' and then 'up'
+*   Connect to the VM and check that the previous state was restored (opened applications, clipboard content, etc)
 
 ### Future enhancements
 

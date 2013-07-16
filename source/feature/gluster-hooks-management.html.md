@@ -120,6 +120,16 @@ As the hooks present in the servers are periodically synchronized with engine da
 
 **\1**
 
+*   Click on "Clusters" and select a <Cluster>
+*   Click on the "Gluster Hooks" sub-tab
+
+**\1**
+
+1.  Verify that it lists all the hooks in the cluster including the ones that are manually created
+2.  Verify that "Enable" button is present for "Disabled" hooks and "Disable" button is present for "Enabled" hooks
+
+**\1**
+
 *   Manually create one or more hooks in the RHS servers from its back-end.
 *   Click on "Clusters" and select a <Cluster>
 *   Click on the "Gluster Hooks" sub-tab which will list all the hooks in the cluster.
@@ -129,67 +139,112 @@ As the hooks present in the servers are periodically synchronized with engine da
 '' Expected Results: ''
 
 1.  Enable button should be seen (for disabled hooks) when viewing the list of hooks and Disable button should be seen (for enabled hooks) when viewing the list of hooks
-2.  Should be able to click on Enable/Disable button so that the hook gets Enabled/Disabled on all nodes in the cluster
-3.  Should get a confirmation pop-up window during Disable hooks
-4.  Event message should be generated for the above actions
-5.  The status of the Hook should get updated accordingly
+2.  Should get a confirmation pop-up window during Disabling hooks
+3.  Event message should be generated for the above actions
+4.  The status of the Hook should get updated accordingly
 
 **\1**
 
 *   Click on "Clusters" and select a <Cluster>
 *   Click on the "Gluster Hooks" sub-tab and it lists the hooks in the cluster
-*   Select the created Hook with type 'Text' and click on "View Content"
+*   Select a Hook with "Content Type" 'Text' and click on "View Content"
 
 '' Expected Results: ''
 
 1.  Content of the hook can be viewed in a pop-up ONLY if the hook content type is 'Text'.
 
-*' \* Test case 4- Resolve Conflicts : Missing (Copy the hook to all the servers)*'
+**\1**
+
+*   Click on "Clusters" and select a <Cluster>
+*   Click on the "Gluster Hooks" sub-tab
+*   Click on "Sync"
 
 '' Expected Results: ''
 
-**\1**
+1.  Verify that the manually created hooks are getting synced and listed in the UI succesfully.
 
 **\1**
 
-**\1**
+*   Check for Status Conflict:
+*   If there are conflicts in hook scripts across the servers in the cluster, click on "Resolve Conflicts". This will open a new window for conflict resolution.
+*   Now resolve the Content Conflict either by:
+
+<!-- -->
+
+*   -   Applying the content of the hook from one of the servers OR
+    -   Applying the content of the hook from the engine copy
+
+**\1** Verify that the content conflicts are successfully resolved after performing the corresponding actions
 
 **\1**
 
-**\1**
+*   Check for Status Conflict:
+*   If there are conflicts in hook scripts across the servers in the cluster, click on "Resolve Conflicts". This will open a new window for conflict resolution.
+*   Now resolve the Status Conflict by:
+
+<!-- -->
+
+*   -   Changing the hook status to either "Disable" or "Enable" in the "Resolve Conflicts" pop-up
 
 **\1**
 
-**\1**
+    1. Verify that the status conflicts are successfully resolved
 
 **\1**
 
-**\1**
+*   Check for Content and Status Conflict:
+*   If there are conflicts in hook scripts across the servers in the cluster, click on "Resolve Conflicts". This will open a new window for conflict resolution.
+*   Now resolve the Content Conflict either by:
+
+<!-- -->
+
+*   -   Applying the content of the hook from one of the servers OR
+    -   Applying the content of the hook from the engine copy
+
+<!-- -->
+
+*   Now resolve the Status Conflict either by:
+
+<!-- -->
+
+*   -   Changing the hook status to either "Disable" or "Enable" in the "Resolve Conflicts" pop-up OR
+    -   Manually fixing it from the back-end by renaming the file with prefix "K" or "S" as required.
 
 **\1**
 
-**\1**
+    1. Verify that the status conflicts are successfully resolved
+
+*' \* Test case 8- Resolve Conflicts : Missing (Copy the hook to all the servers)*'
+
+*   Check for Missing Conflict:
+*   Select the hook having conflict and click on "Resolve Conflicts". This will open a new window for conflict resolution.
+*   Now resolve the Missing Conflict by selecting:
+
+      ** Copy the hook to all the servers
+
+'' Expected Results: ''
+
+1.  Verify that the Missing conflict is successfully resolved after performing the corresponding actions and the hook is copied to all the servers
+
+*' \* Test case 9:- Resolve Conflicts : Missing (Remove the missing hook)*'
+
+*   Check for Missing Conflict:
+*   Select the hook having conflict and click on "Resolve Conflicts". This will open a new window for conflict resolution.
+*   Now resolve the Missing Conflict by selecting:
+
+      * Remove the missing hook
 
 **\1**
 
-*' \* Test case 11:- Try to DISABLE a hook in a cluster having atleast one server in UP state*'
+    1. Verify that the Missing conflict is successfully resolved and the hooks is removed from the Gluster Hooks tab
+
+*' \* Test case 10:- Resolve all 3 Conflicts: Content + Status + Missing*'
+
+*   Click on "Resolve Conflicts"
+*   Select the appropriate Resolve Actions for all 3 types of conflicts and click on OK
 
 **\1**
 
-*' \* Test case 12:- Try to ENABLE a hook in a cluster having atleast one server in UP state*'
-
-**\1**
-
-*' \* Test case 13:- Resolve Conflicts : Missing (Remove the missing hook)*'
-
-**\1**
-
-*' \* Test case 14:- Create all 3 Conflicts: Content + Status + Missing*'
-
-**\1**
-
-*' \* Test case 15:- Resolve all 3 Conflicts: Content + Status + Missing*'
-
-**\1**
+:#All the conflicts shoiuld be successfully resolved
 
 <Category:Feature>

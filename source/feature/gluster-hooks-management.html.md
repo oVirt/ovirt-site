@@ -168,10 +168,7 @@ As the hooks present in the servers are periodically synchronized with engine da
 *   Check for Status Conflict:
 *   If there are conflicts in hook scripts across the servers in the cluster, click on "Resolve Conflicts". This will open a new window for conflict resolution.
 *   Now resolve the Content Conflict either by:
-
-<!-- -->
-
-*   -   Applying the content of the hook from one of the servers OR
+    -   Applying the content of the hook from one of the servers OR
     -   Applying the content of the hook from the engine copy
 
 **\1** Verify that the content conflicts are successfully resolved after performing the corresponding actions
@@ -181,10 +178,7 @@ As the hooks present in the servers are periodically synchronized with engine da
 *   Check for Status Conflict:
 *   If there are conflicts in hook scripts across the servers in the cluster, click on "Resolve Conflicts". This will open a new window for conflict resolution.
 *   Now resolve the Status Conflict by:
-
-<!-- -->
-
-*   -   Changing the hook status to either "Disable" or "Enable" in the "Resolve Conflicts" pop-up
+    -   Changing the hook status to either "Disable" or "Enable" in the "Resolve Conflicts" pop-up
 
 **\1**
 
@@ -195,19 +189,13 @@ As the hooks present in the servers are periodically synchronized with engine da
 *   Check for Content and Status Conflict:
 *   If there are conflicts in hook scripts across the servers in the cluster, click on "Resolve Conflicts". This will open a new window for conflict resolution.
 *   Now resolve the Content Conflict either by:
-
-<!-- -->
-
-*   -   Applying the content of the hook from one of the servers OR
+    -   Applying the content of the hook from one of the servers OR
     -   Applying the content of the hook from the engine copy
 
 <!-- -->
 
 *   Now resolve the Status Conflict either by:
-
-<!-- -->
-
-*   -   Changing the hook status to either "Disable" or "Enable" in the "Resolve Conflicts" pop-up OR
+    -   Changing the hook status to either "Disable" or "Enable" in the "Resolve Conflicts" pop-up OR
     -   Manually fixing it from the back-end by renaming the file with prefix "K" or "S" as required.
 
 **\1**
@@ -219,8 +207,7 @@ As the hooks present in the servers are periodically synchronized with engine da
 *   Check for Missing Conflict:
 *   Select the hook having conflict and click on "Resolve Conflicts". This will open a new window for conflict resolution.
 *   Now resolve the Missing Conflict by selecting:
-
-      ** Copy the hook to all the servers
+    -   Copy the hook to all the servers
 
 '' Expected Results: ''
 
@@ -245,6 +232,6 @@ As the hooks present in the servers are periodically synchronized with engine da
 
 **\1**
 
-:#All the conflicts shoiuld be successfully resolved
+:#All the conflicts should be successfully resolved
 
 <Category:Feature>

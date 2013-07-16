@@ -14,7 +14,7 @@ wiki_last_updated: 2014-09-04
 
 #### Summary
 
-In order to provide traffic control of a network, we need to define boundaries for incoming and outgoing traffic. This goal is achieved by defining inbound and outbound traffic (as defined in [Features/Network_QoS#Detailed_Description Network QoS](Features/Network_QoS#Detailed_Description_Network_QoS)) for an abstract network entity.
+In order to provide traffic control for a network, we need to define boundaries for incoming and outgoing traffic. This goal is achieved by defining inbound and outbound traffic (as defined in [Features/Network_QoS#Detailed_Description Network QoS](Features/Network_QoS#Detailed_Description_Network_QoS)) for an abstract network entity.
 
 #### Owner
 

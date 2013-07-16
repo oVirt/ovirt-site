@@ -14,7 +14,7 @@ wiki_last_updated: 2014-09-04
 
 #### Summary
 
-In order to provide control of a network traffic, we need to define traffic boundaries for incoming and outgoing traffic (Network QoS). This goal is achieved by associating a [http://www.ovirt.org/Features/Network_QoS Network QoS](http://www.ovirt.org/Features/Network_QoS Network QoS) to an abstract network entity. Network QoS is used in the context of a Vnic Profile but it's relevant also to define QoS for Networks having common traffic shaping attributes.
+In order to provide control of a network traffic, we need to define traffic boundaries for incoming and outgoing traffic (Network QoS). This goal is achieved by associating a [http://www.ovirt.org/Features/Network_QoS Network QoS](http://www.ovirt.org/Features/Network_QoS Network QoS) to an abstract network entity. Network QoS is used in the context of a Vnic Profile but it's relevant also for defining QoS for Networks having common traffic shaping attributes.
 
 #### Owner
 

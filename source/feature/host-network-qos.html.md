@@ -51,8 +51,6 @@ An icon should be associated with the network in Logical Networks list and the "
 
 ### Backend / DB Change
 
-We should reuse the entity NetworkQoS and network_qos database table as defined in [Network QoS for Vnic](http://www.ovirt.org/Features/Design/Network_QoS_-_detailed_design#Backend).
-
 ### Rest API
 
 TBD.

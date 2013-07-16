@@ -14,7 +14,7 @@ wiki_last_updated: 2014-09-04
 
 #### Summary
 
-In order to provide better control of networks traffic, we need to define traffic boundaries for incoming and outgoing traffic. This goal is achieved by providing a general traffic shaping template which can be applied to an abstract network entity. User can optionally redefine the traffic shaping template on a per host network basis.
+In order to provide better control of networks traffic, we need to define traffic boundaries for incoming and outgoing traffic. This goal is achieved by associating a [Network QoS](http://www.ovirt.org/Features/Network_QoS) to an abstract network entity.
 
 #### Owner
 
@@ -36,6 +36,8 @@ In order to provide better control of networks traffic, we need to define traffi
 *   Peak: Maximum rate at which interface can send data (Mbps).
 
 For example defining a network "Students" with outbound traffic defined with average, burst and peak respectively 20, 200, 40 means that traffic will flow at 20 Mbps on average and the interface will be able to send a maximum of 200 Mb at the peak speed of 40 Mbps, for the shaped network.
+
+The user should be able to select one of the available Network QoS or create a new Network QoS during creation of a new logical network.
 
 #### Benefit to Ovirt
 

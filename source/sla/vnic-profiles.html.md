@@ -296,7 +296,28 @@ Adding a new table, network_profiles see : [http://www.ovirt.org/Features/Design
 
 #### REST API
 
-Not supported in this version
+The vnic profiles will be modeled as a top collection:
+
+      api/vnicprofiles
+
+The vnic profiles will be available as a sub collection of the networks top collection:
+
+      api/networks/{network:id}/vnicprofiles/{profile:id}
+
+However the vnic profile will not be update-able via the sub-collection.
+
+For REST backward compatibility, a new parameter set will be added to a vm network interface Add and Update actions.
+The current parameter set includes either network name and port mirroring as today.
+The new parameter set will include the vnic profile id.
+\* Add vnic:
+
+      /api/vms/{vm:id}/nics|rel=add
+
+*   Update vnic:
+
+      /api/vms/{vm:id}/nics/{nic:id}|rel=update
+
+The returned entity will include the the vnic profile id as well.
 
 #### VDSM
 

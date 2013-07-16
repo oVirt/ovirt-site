@@ -22,7 +22,7 @@ Save memory state in live snapshots.
 ### Current status
 
 *   Status: Merged
-*   Targete Release:3.3
+*   Targete Release: 3.3
 *   Last updated: ,
 
 ### Detailed Description
@@ -35,29 +35,35 @@ The affected operations in the system are:
 
 #### Create snapshot
 
-The user will be able to choose whether to save the memory state when taking live snapshot. If a snapshot contains memory, its configuration will contain the volume in which the memory is saved and the user will have indication in the UI that the snapshot contains memory.
+The user will be able to choose whether to save the memory state or not when taking live snapshot. If a snapshot contains memory, its configuration will contain the volumes in which the memory related data (memory dump and configuration of the VM at the moment the snapshot was taken) are saved.
+
+During live snapshot with memory creation, the VM will be locked to prevent it from being changed. When the memory dump is being saved, the VM will be switched to 'paused' state.
+
+The user will have indication whether snapshot contains memory or not.
 
 #### Remove snapshot
 
-Removing a snapshot that has memory state will remove the memory state volume as well.
+Removing a snapshot that contains memory state will remove the memory state volumes as well.
 
 #### Create VM from snapshot
 
-**Update:** when creating VM from snapshot that contains memory, the created VM will not restore the memory state from the snapshot.
+**Update:** when creating VM from snapshot that contains memory, the VM will be created without the saved memory.
 
-#### Preview snapshot
+#### Preview/Revert to snapshot
 
-In case a VM is set to preview a snapshot that includes memory state, the user will choose whether to restore the saved memory or not.
+In case a VM is set to preview or revert to a snapshot that includes memory, the user will be able to choose whether to restore the saved memory or not.
 
-#### Commit to snapshot
+#### Commit snapshot
 
-On commit, if the previous preview operation was set to be with memory, then when running the VM, the memory from the previewed snapshot will be restored. If snapshots are removed because of committing to previous snapshot, the memory of each removed snapshot will be also removed (if exists).
+Commit to snapshot operation will preserve the memory state of the previewed VM.
+
+If snapshots are being removed during the commit operation (snapshots which are newer than the snapshot we commit to), their memory states will also be removed (if exists).
 
 #### Run VM
 
-When running a VM that preview or has been committed to snapshot that contains memory that memory will be restored (instead of regular boot), in the same way hibernated VM is restored.
+When running a VM that was set to preview or was committed to snapshot that contains memory, that memory will be restored (instead of regular boot), in the same way hibernated VM is restored.
 
-It is only true for the first time the VM is run after set to preview or committing to snapshot that contains memory for non-stateless VM. for stateless VM, every time the VM is run, the memory will be restored.
+Note that it holds only for the first time the VM is being run after it was set to preview or was committed to the snapshot if the VM is not stateless. For stateless VM, the memory will be restored on each run.
 
 Note: it is our responsibility to ensure that the disks state is the same as it was when the live snapshot was taken, when restoring memory state that was saved during the live snapshot. there is no validation in libvirt for that, and it may cause data corruption. So it is important to clear the memory state when there is a chance that the disks or the memory state was changed.
 
@@ -67,7 +73,7 @@ Note: it is our responsibility to ensure that the disks state is the same as it 
 
 *   Notes:
     -   including the active snapshot.
-    -   not including snapshots that collapsed.
+    -   not including snapshots that were collapsed.
     -   only when the import is not set to 'import as clone'
 
 #### Export VM
@@ -220,9 +226,122 @@ The snapshot section in OVF file of VM will include the memory volume of the sna
 *   A boolean flag indicating whether to take snapshot for the memory or not will be added to the snapshot creation request
 *   A boolean flag will be added to the snapshot representation inidicating whether it contains memory or not
 
+### Testing
+
+#### Snapshots creations
+
+##### Test case 1
+
+*   Run VM
+*   Open 'create snapshot' dialog
+*   Select 'Save Memory' option and press OK
+*   Check that the created snapshot contains memory (it should appear in the snapshots subtab)
+
+##### Test case 2
+
+*   Run VM
+*   Open 'create snapshot' dialog
+*   Do not select 'Save Memory' option and press OK
+*   Check that the created snapshot does not contain memory (it should appear in the snapshots subtab)
+
+##### Test case 3
+
+*   This test should be made on cluser with compitability version which is less that 3.3
+*   Run VM
+*   Open 'create snapshot' dialog
+*   Check that there is no 'Save Memory' option in the dialog and press OK
+*   Check that the created snapshot does not contain memory (it should appear in the snapshots subtab)
+
+#### Preview snapshot
+
+##### Test case 1
+
+*   Open 'preview' dialog for snapshot with memory
+*   Select 'Restore Memory' option and press ok
+*   Run the VM
+*   Check that the initial status is 'restoring state' and then 'up'
+*   Connect to the VM and check that the previous state was restored (opened applications, clipboard content, etc)
+
+##### Test case 2
+
+*   Open 'preview' dialog for snapshot with memory
+*   Do not select 'Restore Memory' option and press ok
+*   Run the VM
+*   Check that the initial status is 'powering up' and then 'up'
+*   Connect to the VM and check that it looks like it should be after boot
+
+##### Test case 3
+
+*   This test should be made on cluser with compitability version which is less that 3.3
+*   Open 'preview' dialog for snapshot with memory
+*   Check that there is no 'Restore Memory' option in the dialog and press ok
+*   Run the VM
+*   Check that the initial status is 'powering up' and then 'up'
+*   Connect to the VM and check that it looks like it should be after boot
+
+#### Commit to snapshot
+
+##### Test case 1
+
+*   Open 'preview' dialog for snapshot with memory
+*   Select 'Restore Memory' option and press ok
+*   Select 'commit' from the snapshots subtab
+*   Check that the active snapshot appears with memory in the snapshots subtab
+*   Run the VM
+*   Check that the initial status is 'restoring state' and then 'up'
+*   Connect to the VM and check that the previous state was restored (opened applications, clipboard content, etc)
+
+##### Test case 2
+
+*   Open 'preview' dialog for snapshot with memory
+*   Do not select 'Restore Memory' option and press ok
+*   Select 'commit' from the snapshots subtab
+*   Check that the active snapshot appears without memory in the snapshots subtab
+*   Run the VM
+*   Check that the initial status is 'powering up' and then 'up'
+*   Connect to the VM and check that it looks like it should be after boot
+
+#### Run VM
+
+##### Test case 1
+
+*   Open 'preview' dialog for snapshot with memory
+*   Select 'Restore Memory' option and press ok
+*   Select 'commit' from the snapshots subtab
+*   Run the VM
+*   Check that the initial status is 'restoring state' and then 'up'
+*   Connect to the VM and check that the previous state was restored (opened applications, clipboard content, etc)
+*   Stop VM
+*   Run the VM
+*   Check that the initial status is 'powering up' and then 'up'
+*   Connect to the VM and check that it looks like it should be after boot
+
+##### Test case 2
+
+*   Open 'preview' dialog for snapshot with memory
+*   Select 'Restore Memory' option and press ok
+*   Select 'commit' from the snapshots subtab
+*   Run the VM in stateless mode
+*   Check that the initial status is 'restoring state' and then 'up'
+*   Connect to the VM and check that the previous state was restored (opened applications, clipboard content, etc)
+*   Stop VM
+*   Run the VM
+*   Check that the initial status is 'restoring state' and then 'up'
+*   Connect to the VM and check that the previous state was restored (opened applications, clipboard content, etc)
+
+#### Export-Import VM
+
+##### Test case 1
+
+##### Test case 2
+
 ### Future enhancements
 
-*   The memory volume is going to be represented by the standard pool-domain-image-volume quartet. That is OK for now since that is the representation of images we create. when we'll support creation of images on lun or local path, the memory volume representation can be changed to support such locations.
+*   Memory state is going to be represented by the standard pool-domain-image-volume quartet. That is OK for now since that is the representation of images we create. when we'll support creation of images on lun or local path, the memory volume representation should be changed to support such locations.
+*   Not to save the memory configuration in the moment the snapshot is taken in a different volume. The configuration can be retrieve by the engine and then to be sent to vdsm.
+*   Until the enhancement above is implemented, the saving of the vm configuration saving in vdsm should be made as oop
+*   Use the snapshot's memory, if exists, for cloned VM from snapshot.
+*   Use the active snapshot's memory, if exists, for VM that was imported as clone.
 
 ### Documentation / External references
 

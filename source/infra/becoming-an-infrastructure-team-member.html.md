@@ -24,7 +24,7 @@ In general, the team hangs out on the general #ovirt IRC channel on OFTC (irc.of
 
 To start getting involved in the Infrastructure team, introduce yourself on the mailing list. Your self-introduction should include your name, relevant experience, and why you are interested in helping with oVirt infrastructure. Also, start attending the team meetings, if possible.
 
-In step 1, you should and [ its members](Infrastructure team administrators), the skills we have, the infrastructure we use (such as [ git](Infrastructure git repository) and [ puppet](Infrastructure Puppet details)) and [the things we have on our agenda to accomplish](http://fedorahosted.org/ovirt/report/1). You can read our team and .
+In step 1, you should [ get familiar with the team goals](:Category:Infrastructure) and [ its members](Infrastructure team administrators), the skills we have, the infrastructure we use (such as [ git](Infrastructure git repository) and [ puppet](Infrastructure Puppet details)) and [the things we have on our agenda to accomplish](http://fedorahosted.org/ovirt/report/1). You can read our team [documentation](:Category:Infrastructure documentation) and [standard procedures](:Category:Infrastructure SOP).
 
 Perhaps you have the time and skills to make suggestions as to how something might be accomplished, or research possible solutions to a problem and make a proposal, to allow other team members to put a solution in place quickly? Perhaps you've noticed something which can be improved, and you would like to add an issue to our Trac instance to help ensure it gets done.
 
@@ -47,4 +47,4 @@ When you begin all this work with the intention of joining the team, you will be
 
 After an incubation period, whose length will depend on the quality and quantity of your contributions, and your cultural fit with the team, you will become . Congratulations!
 
-[ get familiar with the team goals](Category:Infrastructure) [documentation](Category:Infrastructure documentation) [standard procedures](Category:Infrastructure SOP) [ a core team member](Category:Infrastructure#Team) <Category:Infrastructure> [Category:Infrastructure documentation](Category:Infrastructure documentation)
+[ a core team member](Category:Infrastructure#Team) <Category:Infrastructure> [Category:Infrastructure documentation](Category:Infrastructure documentation)

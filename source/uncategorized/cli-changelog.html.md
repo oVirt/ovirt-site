@@ -8,6 +8,17 @@ wiki_last_updated: 2013-11-14
 
 # Cli-changelog
 
+         * Tue Jul  16 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.3.0.3-1
+         - refactor "connect" command help
+         - remove support for --password option #983713
+         - add option to define auto-connect #918908
+         - "exit" command fails after "disconnect" from script #971285
+         - list permits format better error when not enough parameters(#962472)
+         - ovirt-shell should contain the hostname of the system #866319
+         - certificate file keys are not exposed in .ovirtshellrc #960983
+         - Add brick operation fails from ovirt-shell(#923169)
+         - Add brick operation fails from ovirt-shell(#923169)
+
          * Wed May  1 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.3.0.2-1
          - datetime.datetime object has no attribute __dict__ #957519
          - remove pexpect dependency

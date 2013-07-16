@@ -29,7 +29,7 @@ In order to provide control of network traffic, we need to define traffic bounda
 
 #### Detailed description
 
-The user (admin /network admin) should be able to select one of the available Network QoS or create a new Network QoS if the available ones don't satisfy his needs, during creation of a new logical network.
+During creation of a new logical network or when editing a logical network associated to a physical interface (Setup host networks), the user (admin /network admin) should be able to select one of the available Network QoS in the DC or create a new Network QoS if the available ones don't satisfy his needs.
 
 #### Benefit to Ovirt
 

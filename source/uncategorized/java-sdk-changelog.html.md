@@ -8,6 +8,11 @@ wiki_last_updated: 2013-12-25
 
 # Java-sdk-changelog
 
+      * Tue  Jul 16 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.11-1
+      - added "watchdog" feature #947977
+      - added "external tasks" feature #872719
+      - snapshot can persist/restore memory state now #960931
+
        * Thu  Jul 8 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.10-1
        - to cluster.add()/.update() added [trusted_service] property
        - implement Secure Socket Layer (SSL) host verification (CA certificate) [1]

@@ -51,6 +51,8 @@ An icon should be associated with the network in Logical Networks list and the "
 
 ### Backend / DB Change
 
+A change in the network_qos table and in the related business entities might be needed in order to make a distinction of quality of service related to a vnic or to a network.
+
 ### Classes (not complete list yet)
 
 *Reuse:*

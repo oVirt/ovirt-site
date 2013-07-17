@@ -49,7 +49,7 @@ With this feature the user will be able to
 
 ## Design
 
-### View All Geo Replication Sessions
+### View All Geo-Replication Sessions
 
 A new sub tab will be added to the Volumes main tab in oVirt webadmin UI which will list all the geo-replication sessions for the selected volume.
 

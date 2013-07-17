@@ -53,7 +53,38 @@ Geo-replication feature is designed to enable creation and maintenance of geo-re
 
 ### Entity Description
 
-<TBD>
+#### Geo Replication Slave
+
+This entity stores the details of remote (slave) for a geo-replication setup.
+
+*   Master Cluster Id
+*   Master Host Id
+*   Slave Host IP
+
+#### Gluster Geo Replication
+
+This entity stores the details of the individual geo-replication sessions
+
+*   Master Cluster Id
+*   Master Host Id
+*   Slave Host IP
+*   Master Volume Name
+*   Slave Volume Name
+
+#### Gluster GEo Replication Status
+
+This entity stores the status of individual geo-replication sessions maintained in oVirt engine
+
+*   Master Cluster Id
+*   Master Host Id
+*   Master Volume Name
+*   Slave Host IP
+*   Slave Volume Name
+*   Status - Valid values from GlusterGeoRepStatus
+    -   Stable
+    -   Faulty
+    -   Initializing
+    -   Not Started
 
 ### User Experience
 

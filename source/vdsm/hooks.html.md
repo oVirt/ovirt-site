@@ -36,7 +36,7 @@ In order to activate the mac spoof hook on a VM:
 7.  Type true as the value
 8.  Start the VM
 
-## Device Custom Properties
+### Device Custom Properties
 
 If you want to use a hook that runs at the device level (And not the VM level), you need to edit the 'CustomDeviceProperties' database key and not the 'UserDefinedVMProperties' key.
 

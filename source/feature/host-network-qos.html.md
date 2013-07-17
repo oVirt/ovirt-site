@@ -29,7 +29,7 @@ In order to provide traffic control for a network, we need to define boundaries 
 
 #### Detailed description
 
-The admin /network admin is the only user who should be able to define Traffic Shaping. TS defined in a logical network in the DC acts like a template, so any changes to the TS in the host network doesn't affect the TS template in the logical network. If the user changes the TS definition in the Logical network this will not affect previously associated TS in the host network. Natural consequence is that logical network definition is not tied to the running network definition. The logical network definition is only copied over the running definition for the first time, both are completely independent.
+The admin /network admin is the only user who should be able to define Traffic Shaping. TS defined in a logical network in the DC acts like a template, so any changes to the TS in the host network doesn't affect the TS template in the logical network. If the user changes the TS definition in the Logical network this will not affect previously associated TS in the host network. Natural consequence is that logical network definition is not tied to the running network definition. The logical network definition is only copied over the running definition for the first time later on they are completely independent.
 
 #### Benefit to Ovirt
 

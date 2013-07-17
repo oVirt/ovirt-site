@@ -144,7 +144,9 @@ It will only be possible to update connection details when all storage domains r
 Connection ID however, will be immutable.
 Example body - changing the address:
 
-<storage> <type>iscsi</type>
+<storage>`   `
+`  `<type>`iscsi`</type>
+        
 
 <address>
 dhcp-1-120.my.lab.a.com

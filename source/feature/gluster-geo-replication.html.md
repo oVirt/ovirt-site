@@ -65,13 +65,15 @@ The user will be given two choices
 
 ### Create a new Geo-Replication Session
 
+<TBD>
+
 ### View All Geo-Replication Sessions
 
 A new sub tab will be added to the Volumes main tab in oVirt webadmin UI which will list all the geo-replication sessions for the selected volume.
 
 ### Start a new Geo-Replication Session
 
-A new action named **Start** will be shown in the **Geo Replication** tab. On clicking of the action will open the following dialog.
+A new action named **Start** will be shown in the **Geo-Replication** tab. On clicking of the action will open the following dialog.
 
 ![](Geo-Replication-Start.png "Geo-Replication-Start.png")
 
@@ -85,5 +87,11 @@ A new action named **Start** will be shown in the **Geo Replication** tab. On cl
 *   If the user wants to override the default configuration, he/she can deselect **Use Default** checkbox and provide different configuration. In this case no password less SSH verification will be made.
 
 ### Stop a Geo-Replication Session
+
+<TBD>
+
+### Remove a Geo-Replication Session
+
+<TBD>
 
 <Category:Feature>

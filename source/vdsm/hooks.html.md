@@ -20,6 +20,8 @@ Install the hook on all hosts:
 
 Most hooks check for VM or device (Network interface or disk, for example) custom properties to know if they should be used. Meaning that even if you installed the macspoof hook as described above, the hook will not be used because the 'macspoof' VM custom property won't be present.
 
+### VM-level hooks
+
 On the server that has the engine installed:
 
       # engine-config -s "UserDefinedVMProperties=macspoof=(true|false)"
@@ -36,7 +38,7 @@ In order to activate the mac spoof hook on a VM:
 7.  Type true as the value
 8.  Start the VM
 
-### Device Custom Properties
+### Device-level hooks
 
 If you want to use a hook that runs at the device level (And not the VM level), you need to edit the 'CustomDeviceProperties' database key and not the 'UserDefinedVMProperties' key.
 

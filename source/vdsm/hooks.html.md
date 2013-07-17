@@ -10,6 +10,32 @@ wiki_last_updated: 2014-02-26
 
 # Vdsm Hooks
 
+## Installing a hook
+
+We'll install the macspoof hook as an example. This hook allows nested virtualization as it removes mac spoof filtering on the host.
+
+Install the hook on all hosts:
+
+      # yum install vdsm-hook-macspoof
+
+Most hooks check for VM or device (Network interface or disk, for example) custom properties to know if they should be used. Meaning that even if you installed the macspoof hook as described above, the hook will not be used because the 'macspoof' VM custom property won't be present.
+
+On the server that has the engine installed:
+
+      # engine-config -s "UserDefinedVMProperties=macspoof=(true|false)"
+      # service ovirt-engine restart
+
+In order to activate the mac spoof hook on a VM:
+
+1.  Bring down the VM
+2.  edit the VM
+3.  Click advanced
+4.  Go to custom properties
+5.  Add a key
+6.  Select macspoof
+7.  Type true as the value
+8.  Start the VM
+
 ## Writing a new hook
 
 This patch may be used as reference: <http://gerrit.ovirt.org/#/c/12833/>
@@ -35,13 +61,4 @@ where hook_event is one of before_vm_start, before_migrate_source and so on.
 
 This patch may be used as reference: <http://gerrit.ovirt.org/#/c/13411/>
 
-If needed additional hook points may be implemented to respond to new events.
-
-Four changes need to be made:
-
-1.  vdsm.spec.in - Insert your new event (Which might actually be two as you often implement before and after the event) at the section under line 795. This will add your new directories to the RPM listing.
-2.  vdsm/hooks.py - Add your new hook points. Your new function will call _runHooksDir, which simply executes all scripts in the directory you pass it.
-3.  vdsm/vdsmd.8.in - VDSM's man page lists all of the different hook points and so you must add yours to the list. It is required you read the man page and see if any additional changes have to be made because of your new hook point.
-4.  vdsm_hooks/Makefile.am - Add your new folder names to the section under line 61. This will cause the new hook point directories to be created during installation.
-
-<Category:Vdsm> <Category:Documentation>
+If needed additional hook points may be implemented to respond to new

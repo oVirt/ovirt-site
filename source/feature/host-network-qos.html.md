@@ -53,7 +53,13 @@ An icon should be associated with the network in Logical Networks list and the "
 
 ### Classes
 
-**engine.core.common.businessentities.network.Network** -
+*Reuse:*
+
+*   **engine.core.common.businessentities.network.NetworkQoS**
+
+*Update:*
+
+*   **engine.core.common.businessentities.network.Network** - add field networkQos (NetworkQos)
 
 ### DB
 

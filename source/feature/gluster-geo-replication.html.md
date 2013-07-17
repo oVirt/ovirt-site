@@ -60,6 +60,7 @@ This entity stores the details of remote (slave) for a geo-replication setup.
 *   Master Cluster Id
 *   Master Host Id
 *   Slave Host IP
+*   Slave SSH Key Fingerprint
 
 #### Gluster Geo Replication
 

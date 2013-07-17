@@ -51,7 +51,7 @@ An icon should be associated with the network in Logical Networks list and the "
 
 ### Backend / DB Change
 
-### Classes
+### Classes (not complete list yet)
 
 *Reuse:*
 

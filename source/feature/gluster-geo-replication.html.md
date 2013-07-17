@@ -49,6 +49,22 @@ With this feature the user will be able to
 
 ## Design
 
+### Setting up Password less SSH
+
+Password less SSH communication should be enabled between one node of the master cluster and one node of remote (slave) cluster before creating a geo-replication session between the identified master and slave clusters. If the Password less SSH communication failed between the hosts at the time of starting the geo-replication session, the following dialog will be shown.
+
+![](Geo-Replication-Start-SSH-Setup.png "Geo-Replication-Start-SSH-Setup.png")
+
+The user will be given two choices
+
+*   **Use a different private key** by providing the location of the key file. Password less SSH communication will be verified using this private key file.
+
+(or)
+
+*   Provide the password of the user in remote host which is entered in the [Geo-Replication-Start](:File:Geo-Replication-Start.png) dialog to setup password less SSH.
+
+### Create a new Geo-Replication Session
+
 ### View All Geo-Replication Sessions
 
 A new sub tab will be added to the Volumes main tab in oVirt webadmin UI which will list all the geo-replication sessions for the selected volume.
@@ -59,27 +75,15 @@ A new action named **Start** will be shown in the **Geo Replication** tab. On cl
 
 ![](Geo-Replication-Start.png "Geo-Replication-Start.png")
 
-*   **Start Geo Replication from Host** field will list all the servers in the cluster which are in **UP** state. When the user selects one of the host, SSH Fingerprint of the host will be fetched and shown.
+*   **Start Geo-Replication from Host** field will list all the servers in the cluster which are in **UP** state. When the user selects one of the host, SSH Fingerprint of the host will be fetched and shown.
 *   **Remote Host** could be either a standalone machine or part of another cluster.
 *   **Remote Volume/Path** will accept either name of a volume in a remote cluster or a directory in the remote host. If it doesn't starts with **/**, it will be considered as a volume in the remote cluster.
 *   After providing all the details and when the user clicks **Ok**,
-    -   Passwordless SSH communication between the origin host and **Remote Host** will be verified.
-    -   If that succeeded, the geo replication session for the selected volume started
+    -   Password less SSH communication between the origin host and **Remote Host** will be verified.
+    -   If that succeeded, the geo-replication session for the selected volume started
     -   Else the [Passwordless SSH Setup](:File:Geo-Replication-Start-SSH-Setup[.png) dialog will be shown.
-*   If the user wants to override the default configuration, he/she can deselect **Use Default** checkbox and provide different configuration. In this case no Passwordless SSH verification will be made.
+*   If the user wants to override the default configuration, he/she can deselect **Use Default** checkbox and provide different configuration. In this case no password less SSH verification will be made.
 
-### Setting up Passwordless SSH
-
-If the Passwordless SSH communication failed between the hosts at the time of starting the geo replication session, the following dialog will be shown.
-
-![](Geo-Replication-Start-SSH-Setup.png "Geo-Replication-Start-SSH-Setup.png")
-
-The user will be given two choices
-
-*   **Use a different privake key** by providing the location of the key file. Passwordless SSH communication will be verified using this private key file.
-
-(or)
-
-*   Provide the password of the user in remote host which is entered in the [Geo-Replication-Start](:File:Geo-Replication-Start.png) dialog to setup Passwordless SSH.
+### Stop a Geo-Replication Session
 
 <Category:Feature>

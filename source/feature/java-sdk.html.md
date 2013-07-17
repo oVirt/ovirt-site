@@ -8,4 +8,4 @@ wiki_last_updated: 2013-07-17
 
 # Java SDK
 
-[Java SDK](http://www.ovirt.org/Java-sdk)
+[Java SDK (a Java bindings for oVirt engine)](http://www.ovirt.org/Java-sdk)

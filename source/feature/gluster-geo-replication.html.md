@@ -18,9 +18,9 @@ To read more about GlusterFS geo-replication, see <http://gluster.org/community/
 
 ## Owner
 
-*   Feature owner: Shireesh Anjal <sanjal@redhat.com>
+*   Feature owner: Shubhendu Tripathi <shtripat@redhat.com>
     -   GUI Component owner: Kanagaraj Mayilsamy <kmayilsa@redhat.com>
-    -   Engine Component owner: Selvasundaram Subramaniam <sesubram@redhat.com>
+    -   Engine Component owner: Shubhendu Tripathi <shtripat@redhat.com>
     -   VDSM Component owner: Balamurugan Arumugam <barumuga@redhat.com>
     -   QA Owner: Sudhir Dharanendraiah <sdharane@redhat.com>
 

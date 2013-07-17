@@ -104,8 +104,6 @@ The user will be given two choices
 
 #### Create a new Geo-Replication Session
 
-<TBD>
-
 #### View All Geo-Replication Sessions
 
 A new sub tab will be added to the Volumes main tab in oVirt webadmin UI which will list all the geo-replication sessions for the selected volume.
@@ -127,11 +125,9 @@ A new action named **Start** will be shown in the **Geo-Replication** tab. On cl
 
 #### Stop a Geo-Replication Session
 
-<TBD>
-
 #### Remove a Geo-Replication Session
 
-<TBD>
+#### Configurations of Geo-Replication Session
 
 ## Dependencies / Related Features and Projects
 

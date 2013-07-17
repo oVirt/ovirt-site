@@ -142,10 +142,9 @@ Example of host element structure in the body (it can contain either host id or 
 
 It will only be possible to update connection details when all storage domains referencing it are in maintenance mode. Most of the connection fields may be updated (such as path/iqn/address/port/user/password) - each storage type has its relevant set of fields.
 Connection ID however, will be immutable.
-Example body - changing the address: <storage>
+Example body - changing the address:
 
-`  `<type>`iscsi`</type>
-        
+<storage> <type>iscsi</type>
 
 <address>
 dhcp-1-120.my.lab.a.com

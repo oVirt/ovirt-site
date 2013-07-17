@@ -34,19 +34,18 @@ To read more about GlusterFS geo-replication, see <http://gluster.org/community/
 GlusterFS Geo-replication uses a master–slave model, whereby replication and mirroring occurs between the following partners:
 
 *   Master – A GlusterFS volume
-*   Slave – A slave can be of the following types:
-    -   A directory in a remote host.
-    -   A GlusterFS Volume in a remote host/cluster.
+*   Slave – A GlusterFS Volume in a remote cluster
 
 With this feature the user will be able to
 
-*   View all active/inactive geo replication sessions in the cluster
-*   Start a new Geo-Replication session
-*   Setup Passwordless SSH between one of the servers in the cluster and remote host
-*   Change the configuration before starting the session or later (ssh command, gsync command)
-*   Stop any running Geo-Replication session
-*   Monitor the statuses of Geo-Replication session in a cluster
-*   Remove any inactive session
+*   View all active/inactive geo-replication sessions in the cluster
+*   Setup a new ge-replication session
+*   Start a geo-replication session
+*   Stop a geo-replication session
+*   Remove an inactive geo-replication session
+*   Setup password less SSH between one of the hosts in the cluster and remote host
+*   View and update the configuration before starting the session or later (ssh command, gsync command)
+*   Monitor the status of geo-replication sessions in a cluster
 
 ## Design
 

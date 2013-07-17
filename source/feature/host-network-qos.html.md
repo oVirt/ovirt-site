@@ -59,8 +59,8 @@ An icon should be associated with the network in Logical Networks list and the "
 
 *Update:*
 
-*   **engine.core.common.businessentities.network.Network** - add field networkQos (NetworkQos) - (logical network entity?)
-*   **engine.core.common.businessentities.network.VdsNetworkInterface** - add field networkQos (NetworkQos) (host network entity?)
+*   **engine.core.common.businessentities.network.Network** - add field networkQos (NetworkQos)
+*   **engine.core.common.businessentities.network.VdsNetworkInterface** - add field networkQos (NetworkQos)
 
 ### DB
 

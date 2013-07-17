@@ -49,7 +49,15 @@ With this feature the user will be able to
 
 ## Design
 
-### Setting up Password less SSH
+Geo-replication feature is designed to enable creation and maintenance of geo-replication sessions across clusters in GlusterFS. A geo-replication session can be setup between a GlusterFS managed master cluster and remote (slave) GlusterFS managed cluster.
+
+### Entity Description
+
+<TBD>
+
+### User Experience
+
+#### Setting up Password less SSH
 
 Password less SSH communication should be enabled between one node of the master cluster and one node of remote (slave) cluster before creating a geo-replication session between the identified master and slave clusters. If the Password less SSH communication failed between the hosts at the time of starting the geo-replication session, the following dialog will be shown.
 
@@ -63,15 +71,15 @@ The user will be given two choices
 
 *   Provide the password of the user in remote host which is entered in the [Geo-Replication-Start](:File:Geo-Replication-Start.png) dialog to setup password less SSH.
 
-### Create a new Geo-Replication Session
+#### Create a new Geo-Replication Session
 
 <TBD>
 
-### View All Geo-Replication Sessions
+#### View All Geo-Replication Sessions
 
 A new sub tab will be added to the Volumes main tab in oVirt webadmin UI which will list all the geo-replication sessions for the selected volume.
 
-### Start a new Geo-Replication Session
+#### Start a new Geo-Replication Session
 
 A new action named **Start** will be shown in the **Geo-Replication** tab. On clicking of the action will open the following dialog.
 
@@ -86,11 +94,11 @@ A new action named **Start** will be shown in the **Geo-Replication** tab. On cl
     -   Else the [Passwordless SSH Setup](:File:Geo-Replication-Start-SSH-Setup[.png) dialog will be shown.
 *   If the user wants to override the default configuration, he/she can deselect **Use Default** checkbox and provide different configuration. In this case no password less SSH verification will be made.
 
-### Stop a Geo-Replication Session
+#### Stop a Geo-Replication Session
 
 <TBD>
 
-### Remove a Geo-Replication Session
+#### Remove a Geo-Replication Session
 
 <TBD>
 

@@ -48,7 +48,7 @@ For Ovirt 3.2 or later
 
 ## Adding VM custom properties (macspoof)
 
-      # engine-config -s "UserDefinedVMProperties=macspoof=(True|False)"
+      # engine-config -s "UserDefinedVMProperties=macspoof=(true|false)"
       # service ovirt-engine restart 
 
 Then edit the VM, click advanced, go to custom properties, add a key - Select macspoof, select True as the value and restart the VM.

@@ -55,7 +55,7 @@ Updated July 15 2013
 
 #### REST (backend)
 
-*   Create root resource for connections (in implementation) <http://gerrit.ovirt.org/#/c/16617/>
+*   Create root resource for connections (in review) <http://gerrit.ovirt.org/#/c/16617/>
     -   Perform GET all connections. In the scope of this patch, create a backend query that will get all connections from db.
     -   Add functionality to root resource for add/delete connection properties in REST
     -   Add functionality to edit a connection

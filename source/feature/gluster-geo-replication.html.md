@@ -51,7 +51,7 @@ With this feature the user will be able to
 
 ### View All Geo Replication Sessions
 
-A new main tab will be added to the oVirt webadmin UI which will list all the geo replications in the cluster. This tab will not be available in the System level and this will be shown if a Gluster enabled cluster is selected in the System Tree.
+A new sub tab will be added to the Volumes main tab in oVirt webadmin UI which will list all the geo-replication sessions for the selected volume.
 
 ### Start a new Geo-Replication Session
 

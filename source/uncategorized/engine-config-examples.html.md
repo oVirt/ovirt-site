@@ -51,4 +51,13 @@ For Ovirt 3.2 or later
       # engine-config -s "UserDefinedVMProperties=macspoof=(true|false)"
       # service ovirt-engine restart 
 
-Then edit the VM, click advanced, go to custom properties, add a key - Select macspoof, select True as the value and restart the VM.
+In order to deactivate mac spoof filtering on a VM:
+
+1.  Bring down the VM
+2.  edit the VM
+3.  Click advanced
+4.  Custom properties
+5.  Add a key
+6.  Select macspoof
+7.  Type true as the value
+8.  Start the VM

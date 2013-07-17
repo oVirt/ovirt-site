@@ -168,8 +168,6 @@ Features being considered for inclusion/already in master:
 *   [Features/Supervdsm_service](Features/Supervdsm_service)
 *   [Features/Java_SDK](Features/Java_SDK)
 
-<http://www.ovirt.org/Features/JavaSDK>
-
 ### Networking
 
 *   [Features/Migration Network](Features/Migration Network)

@@ -45,3 +45,7 @@ For Ovirt 3.2 or later
 
       # engine-config -s AdminPassword=interactive
       # service ovirt-engine restart 
+
+## Adding VM custom properties (macspoof)
+
+1.  engine-config -s "UserDefinedVMProperties=macspoof=True"

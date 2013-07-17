@@ -56,6 +56,7 @@ An icon should be associated with the network in Logical Networks list and the "
 *Reuse:*
 
 *   **engine.core.common.businessentities.network.NetworkQoS**
+*   **engine.core.dao.network.NetworkQoSDao**
 
 *Update:*
 

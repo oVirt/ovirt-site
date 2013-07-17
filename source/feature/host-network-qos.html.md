@@ -51,6 +51,8 @@ An icon should be associated with the network in Logical Networks list and the "
 
 ### Backend / DB Change
 
+For the purpose we can reuse the network_qos table as defined in [Network QoS](Features/Design/Network_QoS#DB_Change_2). Affected tables are the network table (logical network) and the vds_interface table (running host information). In particular we need to provide to both tables a reference to a definition of QoS available in the network_qos table.
+
 ### Rest API
 
 TBD.

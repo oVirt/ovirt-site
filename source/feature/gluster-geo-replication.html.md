@@ -71,7 +71,7 @@ This entity stores the details of the individual geo-replication sessions
 *   Master Volume Name
 *   Slave Volume Name
 
-#### Gluster GEo Replication Status
+#### Gluster Geo Replication Status
 
 This entity stores the status of individual geo-replication sessions maintained in oVirt engine
 
@@ -81,10 +81,10 @@ This entity stores the status of individual geo-replication sessions maintained 
 *   Slave Host IP
 *   Slave Volume Name
 *   Status - Valid values from GlusterGeoRepStatus
-    -   Stable
-    -   Faulty
-    -   Initializing
-    -   Not Started
+    -   STABLE
+    -   FAULTY
+    -   INITIALIZING
+    -   NOT_STARTED
 
 ### User Experience
 

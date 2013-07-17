@@ -14,7 +14,7 @@ wiki_last_updated: 2014-09-04
 
 #### Summary
 
-In order to provide traffic control for a network, we need to define boundaries for incoming and outgoing traffic (Traffic Shaping - TS for simplicity). This goal is achieved by defining inbound and outbound traffic (as defined in [Features/Network_QoS#Detailed_Description Network QoS](Features/Network_QoS#Detailed_Description_Network_QoS)) for an host network by enabling TS when editing a previously associated logical network (during a Setup Host Network task).
+In order to provide traffic control for a network, we need to define boundaries for incoming and outgoing traffic (Traffic Shaping - TS for simplicity). This goal is achieved by defining inbound and outbound traffic (as defined in [Features/Network_QoS#Detailed_Description Network QoS](Features/Network_QoS#Detailed_Description_Network_QoS)) for an host network by enabling TS when creating a new logical network or when editing a previously associated logical network, i.e. an host network.
 
 #### Owner
 

@@ -120,7 +120,7 @@ Password less SSH communication should be enabled between one node of the master
 
 #### Re-establish password less communication with slave host
 
-[Filegeo_replication_slave3_reestablish.png](Filegeo_replication_slave3_reestablish.png)
+![](geo_replication_slave3_reestablish.png "geo_replication_slave3_reestablish.png")
 
 #### Create a new Geo-Replication Session
 

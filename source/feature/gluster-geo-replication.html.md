@@ -141,7 +141,7 @@ A new sub tab will be added to the Volumes main tab in oVirt webadmin UI which w
 *   Removal of an existing ge-replication session
 *   Starting a geo-replication session
 *   Stopping a geo-replication session
-*   Creation/Update of configurations for a gen-replication session
+*   Update configurations for a geo-replication session
 
 ![](volume_georeplication2_subtab.png "volume_georeplication2_subtab.png")
 

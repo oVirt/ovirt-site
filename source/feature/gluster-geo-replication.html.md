@@ -122,6 +122,8 @@ Password less SSH communication should be enabled between one node of the master
 
 #### Re-establish password less communication with slave host
 
+The below dialog provides a mechanism for re-establishing a broken master/slave communication between master and slave clusters. It captures the details again and re-establishes the communication between master and slave cluster.
+
 ![](geo_replication_slave3_reestablish.png "geo_replication_slave3_reestablish.png")
 
 #### View All Geo-Replication Sessions

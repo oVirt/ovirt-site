@@ -87,6 +87,13 @@ This entity stores the status of individual geo-replication sessions maintained 
     -   INITIALIZING
     -   NOT_STARTED
 
+#### Geo Replication Config
+
+This entity stores the configuration details of a geo-replication session
+
+*   Config Name
+*   Config Value
+
 ### User Experience
 
 #### Setting up Password less SSH

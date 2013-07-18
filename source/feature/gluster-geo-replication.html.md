@@ -147,6 +147,8 @@ A new sub tab will be added to the Volumes main tab in oVirt webadmin UI which w
 
 #### Create a new Geo-Replication Session
 
+The below dialog captures the details and creates the geo-replication session between master and slave gluster volumes.
+
 ![](volume_georeplication1_new.png "volume_georeplication1_new.png")
 
 #### Start a new Geo-Replication Session

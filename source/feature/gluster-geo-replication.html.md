@@ -108,7 +108,9 @@ Valid configuration categories would be maintained as an enum GlusterConfigurati
 
 ### User Experience
 
-==== All the existing Slaves === ![](geo_replication_slave2_subtab.png "fig:geo_replication_slave2_subtab.png")
+#### All the existing Slaves
+
+![](geo_replication_slave2_subtab.png "geo_replication_slave2_subtab.png")
 
 #### Add/Attach a new Slave Cluster
 

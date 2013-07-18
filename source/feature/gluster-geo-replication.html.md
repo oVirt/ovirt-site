@@ -116,7 +116,9 @@ A new sub-tab will be introduced under Cluster tab which would list all the exis
 
 #### Add/Attach a new Slave Cluster
 
-Password less SSH communication should be enabled between one node of the master cluster and one node of slave cluster before creating a geo-replication session between the identified master and slave clusters. ![](geo_replication_slave1_new.png "fig:geo_replication_slave1_new.png")
+Password less SSH communication should be enabled between one node of the master cluster and one node of slave cluster before creating a geo-replication session between the identified master and slave clusters. The below dialog "New Geo-Replication Slave" would capture the required details for adding a new slave cluster for geo-replication session.
+
+![](geo_replication_slave1_new.png "geo_replication_slave1_new.png")
 
 #### Re-establish password less communication with slave host
 

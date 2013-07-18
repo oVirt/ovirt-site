@@ -68,7 +68,7 @@ A complete re-write of engine-setup, engine-cleanup, engine-upgrade and AIO plug
 | Support ISO_DOMAIN_NAME option                                       | Done                    | Done                 | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Support CONFIG_NFS option                                             | Done                    | Done[15]             | [ Sandro Bonazzola](User:SandroBonazzola) |          |             |
 | Display summary in interactive mode                                    | Done                    | Done                 |                                                      | Low      |             |
-| Initialize MiniYum                                                     | Done                    | Not implemented      |                                                      | Medium   |             |
+| Initialize MiniYum                                                     | Done                    | Done                 |                                                      | Medium   |             |
 | Handle second execution warning                                        | Done                    | Not required[16]     | [ Sandro Bonazzola](User:SandroBonazzola) | Medium   |             |
 | Handle loading and validating params from answer file                  | Done                    | Done[17]             |                                                      |          |             |
 | Mask input sets                                                        | Done                    | Done                 |                                                      | Low      |             |

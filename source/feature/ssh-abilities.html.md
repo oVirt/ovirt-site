@@ -38,9 +38,21 @@ Modifying VdsDynamic
 
 2. Rest API
 Modifying Host and Action objects
-\* Adding 'User' reference to each that includes username and password fields, making rootPassword field deprecated for backward compatibility.
+\* Adding SSH field for both Host and Action to allow flexibility in the authentication protocol, this includes port, authentication method, and fingerprint - When authentication method's default value is Password. Under ssh field we add 'User' reference that includes username and password fields. keeping rootPassword field deprecated for backward compatibility.
 
-*   Adding SSH field to allow flexibility in the authentication protocol, this includes port, authentication method, and fingerprint - When authentication default value is Password.
+<host>
+        `<rootPassword>`123`</rootPassword>` -> Still in use for backward compatibility
+`  `<ssh>
+`    `<port>`22`</port>
+`    `<fingerprint>`11:22:33:44:55:66:77:88`</fingerprint>
+`    `<authentication_method>`publickey`</authentication_method>
+`    `<user>
+`       `<user_name>`ybronhei`</user_name>
+             `<password>`123`</password>` - When this set we ignore the rootPassword
+             ... - There are more fields under user, we don't use the other fields during install, update and approve host
+`    `</user>
+` `</ssh>
+</host>
 
 4. UI
 Adding Authentication area in Add/Edit host that allows the user the option to choose between authenticate with the engine's public key or privileged username and password. After first installation we use public key as default. The public key is stored on host as part of the deploy process. 3. Backend
@@ -61,7 +73,7 @@ Modifying VdsDynamic
 2. Rest API
 Modifying Host and Action
 
-*   Adding SSH field to allow flexibility in the authentication protocol, this includes port, authentication method, and fingerprint. The API allows missing fingerprint value for backward comparability. When missing using the fetched fingerprint.
+*   Adding SSH field to allow flexibility in the authentication protocol, this includes port, authentication method, and fingerprint. The API allows missing fingerprint value for backward comparability. When missing using the fetched fingerprint (The scheme is described above).
 
 3. UI
 Add\\Edit Host

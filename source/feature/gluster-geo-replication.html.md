@@ -110,6 +110,8 @@ Valid configuration categories would be maintained as an enum GlusterConfigurati
 
 #### All the existing Slaves
 
+A new sub-tab will be introduced under Cluster tab which would list all the existing geo-replication slaves for the current cluster. It also provides options for creation or new slaves and removal of the slaves. Testing the validity/availability of a slave is possible using the action "Test". Administrator can re-establish a broken master/slave session as well using the action "Re-establish".
+
 ![](geo_replication_slave2_subtab.png "geo_replication_slave2_subtab.png")
 
 #### Add/Attach a new Slave Cluster

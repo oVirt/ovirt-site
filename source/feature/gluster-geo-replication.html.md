@@ -122,10 +122,9 @@ Password less SSH communication should be enabled between one node of the master
 
 If the user select the **Copy master cluster hosts public keys to slave cluster** then the following steps will happen
 
-*   `gluster system:: execute gsec_create` command will be executed in one of the hosts of the Master cluster
-    -   This will create a public key file, which will have the public keys of all the hosts of the Master cluster
+*   `gluster system:: execute gsec_create` command will be executed in one of the hosts of the Master cluster. This will create a public key file, which will have the public keys of all the hosts of the Master cluster
 *   Public key file will be copied to the Slave host (through password less ssh)
-*   
+*   `gluster system:: execute add_secret_pub` command is used to distribute the public file to all the host of the Slave Cluster
 
 #### Re-establish password less communication with slave host
 

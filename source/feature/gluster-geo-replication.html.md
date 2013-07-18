@@ -120,6 +120,13 @@ Password less SSH communication should be enabled between one node of the master
 
 ![](geo_replication_slave1_new.png "geo_replication_slave1_new.png")
 
+If the user select the **Copy master cluster hosts public keys to slave cluster** then the following steps will happen
+
+*   `gluster system:: execute gsec_create` command will be executed in one of the hosts of the Master cluster
+    -   This will create a public key file, which will have the public keys of all the hosts of the Master cluster
+*   Public key file will be copied to the Slave host (through password less ssh)
+*   
+
 #### Re-establish password less communication with slave host
 
 The below dialog provides a mechanism for re-establishing a broken master/slave communication between master and slave clusters. It captures the details again and re-establishes the communication between master and slave cluster.

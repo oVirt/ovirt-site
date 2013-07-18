@@ -165,6 +165,8 @@ A new action named **Remove** will be shown in the **Geo-Replication** tab
 
 #### Configurations of Geo-Replication Session
 
+The below dialog fetches and lists the default values of all the configurations for a geo-replication session. It provides and option to change the values of the configurations.
+
 ![](volume_georeplication3_config.png "volume_georeplication3_config.png")
 
 ## Dependencies / Related Features and Projects

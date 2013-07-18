@@ -189,6 +189,7 @@ Features being considered for inclusion/already in master:
 *   [Backup and Restore API for Independent Software Vendors](Features/Backup-Restore_API_Integration)
 *   Allow resign/force re-election of SPM
 *   [Disks Block Alignment](Features/DiskAlignment)
+*   [Integration with Glance](Features/Glance_Integration)
 
 ### SLA & Scheduling
 

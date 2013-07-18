@@ -122,15 +122,17 @@ Password less SSH communication should be enabled between one node of the master
 
 ![](geo_replication_slave3_reestablish.png "geo_replication_slave3_reestablish.png")
 
-#### Create a new Geo-Replication Session
-
 #### View All Geo-Replication Sessions
 
-A new sub tab will be added to the Volumes main tab in oVirt webadmin UI which will list all the geo-replication sessions for the selected volume.
+A new sub tab will be added to the Volumes main tab in oVirt webadmin UI which will list all the geo-replication sessions for the selected volume. ![](volume_georeplication2_subtab.png "fig:volume_georeplication2_subtab.png")
+
+#### Create a new Geo-Replication Session
+
+![](volume_georeplication1_new.png "volume_georeplication1_new.png")
 
 #### Start a new Geo-Replication Session
 
-A new action named **Start** will be shown in the **Geo-Replication** tab. On clicking of the action will open the following dialog.
+A new action named **Start** will be shown in the **Geo-Replication** tab
 
 ![](Geo-Replication-Start.png "Geo-Replication-Start.png")
 
@@ -148,6 +150,8 @@ A new action named **Start** will be shown in the **Geo-Replication** tab. On cl
 #### Remove a Geo-Replication Session
 
 #### Configurations of Geo-Replication Session
+
+![](volume_georeplication3_config.png "volume_georeplication3_config.png")
 
 ## Dependencies / Related Features and Projects
 

@@ -128,7 +128,15 @@ The below dialog provides a mechanism for re-establishing a broken master/slave 
 
 #### View All Geo-Replication Sessions
 
-A new sub tab will be added to the Volumes main tab in oVirt webadmin UI which will list all the geo-replication sessions for the selected volume. ![](volume_georeplication2_subtab.png "fig:volume_georeplication2_subtab.png")
+A new sub tab will be added to the Volumes main tab in oVirt webadmin UI which will list all the geo-replication sessions for the selected volume. It also provides actions for -
+
+*   Creation of new geo-replication sessions between master and slave gluster volumes
+*   Removal of an existing ge-replication session
+*   Starting a geo-replication session
+*   Stopping a geo-replication session
+*   Creation/Update of configurations for a gen-replication session
+
+![](volume_georeplication2_subtab.png "volume_georeplication2_subtab.png")
 
 #### Create a new Geo-Replication Session
 

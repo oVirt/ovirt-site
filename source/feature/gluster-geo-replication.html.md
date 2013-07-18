@@ -108,11 +108,11 @@ Valid configuration categories would be maintained as an enum GlusterConfigurati
 
 ### User Experience
 
+==== All the existing Slaves === ![](geo_replication_slave2_subtab.png "fig:geo_replication_slave2_subtab.png")
+
 #### Add/Attach a new Slave Cluster
 
-Password less SSH communication should be enabled between one node of the master cluster and one node of slave cluster before creating a geo-replication session between the identified master and slave clusters.
-
-![](geo_replication_slave1_new.png "geo_replication_slave1_new.png")
+Password less SSH communication should be enabled between one node of the master cluster and one node of slave cluster before creating a geo-replication session between the identified master and slave clusters. ![](geo_replication_slave1_new.png "fig:geo_replication_slave1_new.png")
 
 #### Create a new Geo-Replication Session
 

@@ -102,6 +102,10 @@ When a network role is modified to be a 'non-VM network', all vNic profiles asso
 *   Currently, When creating a new Data-Center, the management network is automatically created.
 *   A default vNic profile will be created for the management network.
 
+##### Removing Data-Center
+
+Should remove all data center's networks and their associated permissions.
+
 ##### VM snapshot/import/export
 
 *   We should handle VMs that are pointing to a network directly for backward compatibility.

@@ -124,7 +124,7 @@ If the user select the **Copy master cluster hosts public keys to slave cluster*
 
 *   `gluster system:: execute gsec_create` command will be executed in one of the hosts of the Master cluster. This will create a public key file, which will have the public keys of all the hosts of the Master cluster
 *   Public key file will be copied to the Slave host (through password less ssh)
-*   `gluster system:: execute add_secret_pub` command is used to distribute the public file to all the host of the Slave Cluster
+*   `gluster system:: execute add_secret_pub` command is used to distribute the public file to all the hosts of the Slave Cluster
 *   Now all the hosts of the Master cluster can initiate geo sync task in the hosts of the slave cluster
 
 #### Re-establish password less communication with slave host

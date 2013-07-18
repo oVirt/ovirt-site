@@ -108,19 +108,11 @@ Valid configuration categories would be maintained as an enum GlusterConfigurati
 
 ### User Experience
 
-#### Setting up Password less SSH
+#### Add/Attach a new Slave Cluster
 
-Password less SSH communication should be enabled between one node of the master cluster and one node of remote (slave) cluster before creating a geo-replication session between the identified master and slave clusters. If the Password less SSH communication failed between the hosts at the time of starting the geo-replication session, the following dialog will be shown.
+Password less SSH communication should be enabled between one node of the master cluster and one node of slave cluster before creating a geo-replication session between the identified master and slave clusters.
 
-![](Geo-Replication-Start-SSH-Setup.png "Geo-Replication-Start-SSH-Setup.png")
-
-The user will be given two choices
-
-*   **Use a different private key** by providing the location of the key file. Password less SSH communication will be verified using this private key file.
-
-(or)
-
-*   Provide the password of the user in remote host which is entered in the [Geo-Replication-Start](:File:Geo-Replication-Start.png) dialog to setup password less SSH.
+![](geo_replication_slave1_new.png "geo_replication_slave1_new.png")
 
 #### Create a new Geo-Replication Session
 

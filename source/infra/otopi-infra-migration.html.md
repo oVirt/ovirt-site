@@ -264,7 +264,13 @@ TBD
       Run engine-setup-2
        check that a log file is created in /tmp dir
        check that a summary of the configuration is logged
+      Run engine-cleanup-2
+       check that a log file is created in /tmp dir
+       check that a summary of the configuration is logged
+
       Run engine-setup-2 --log=filename
+       check that a log file is created at specified path
+      Run engine-cleanup-2 --log=filename
        check that a log file is created at specified path
 
 #### Test case: firewall manager configuration

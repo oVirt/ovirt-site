@@ -305,7 +305,7 @@ TBD
        check that there is a message telling where to find the log file
        check that there is an info message finalizing the successful cleanup
 
-#### Test case: Local database configuration
+#### Test case: local database configuration
 
       Run engine-setup-2 on a clean system
        select local database
@@ -319,6 +319,8 @@ TBD
        fill required connection parameters
        check that the setup completes successfully
        check that the engine is running correctly at setup end
+
+#### Test case: remote database configuration
 
       Run engine-setup-2 on a clean system
        select remote database

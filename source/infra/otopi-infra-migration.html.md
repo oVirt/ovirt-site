@@ -313,6 +313,13 @@ TBD
        check that mod_ssl was configured for using engine apache keys
        check that Apache was configured as proxy for the requests to the jboss service
 
+#### Test case: tools configuration
+
+      Run engine-setup-2 on a clean system
+       check that ovirt-log-collector is configured
+       check that ovirt-iso-uploader is configured
+       check that ovirt-image-uploader is configured
+
 #### Test case: AIO plugin Hardware requirements validation
 
       Install ovirt-engine-setup-plugins-allinone and run engine-setup-2

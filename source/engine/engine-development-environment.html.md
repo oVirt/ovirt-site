@@ -231,6 +231,6 @@ Example:
 ### Cannot deploy oVirt Node - Unexpected connection termination
 
        engine.log says: stderr: bash: /tmp/ovirt-Vs4bg68pau/setup: No such file or directory
-       Suggestion: Make sure ovirt-host-deploy and otopi packages are installed.
+       Suggestion: Make sure ovirt-host-deploy and otopi packages are installed. If needed try to reinstall it.
 
 <Category:Engine> [Category:How to](Category:How to)

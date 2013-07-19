@@ -226,4 +226,11 @@ Example:
 
       rpmbuild -D"ovirt_build_minimal 1" -tb @tarball@
 
+## Troubleshooting
+
+### Cannot deploy oVirt Node - Unexpected connection termination
+
+       engine.log says: stderr: bash: /tmp/ovirt-Vs4bg68pau/setup: No such file or directory
+       Suggestion: Make sure ovirt-host-deploy and otopi packages are installed.
+
 <Category:Engine> [Category:How to](Category:How to)

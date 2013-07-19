@@ -183,6 +183,126 @@ TBD
 
 *   Refer to <Talk:Features/Otopi_Infra_Migration>
 
+### Basic Testing
+
+#### Test case: setup
+
+      Run engine-setup-2 on a clean system
+       check that the procedure ends successfully
+       check that the portal is reachable
+       check that the engine is running as it was installed using legacy setup
+
+#### Test case: setup with AIO plugin
+
+      On a clean system install AIO plugin and run engine-setup-2 
+       check that the procedure ends successfully
+       check that the portal is reachable
+       check that the engine is running as it was installed using legacy setup with AIO plugin
+
+#### Test case: cleanup
+
+      Run engine-cleanup-2 on a system installed using engine-setup-2
+       check that the items you confirmed to be removed will be really removed from the system
+
+#### Test case: upgrade from previous version
+
+      Install stable version on a supported OS (Fedora 19 is not supported by 3.2)
+      Upgrade ovirt-engine-setup to 3.3.0
+      Run engine-setup-2
+       check that the package are upgraded to 3.3.0
+       check that the DB schema is upgraded
+       check that the configuration is upgraded
+       check that the portal is reachable after upgrade
+       check that the engine is running after upgrade
+
+#### Test case: upgrade to latest nightly from engine-setup-2
+
+      Install beta version using engine-setup-2
+      Upgrade ovirt-engine-setup to latest nightly
+      Run engine-setup-2
+       check that the package are upgraded to latest nightly
+       check that the DB schema is upgraded
+       check that the configuration is upgraded
+       check that the portal is reachable after upgrade
+       check that the engine is running after upgrade
+
+#### Test case: upgrade to latest nightly from legacy engine-setup
+
+      Install beta version using legacy engine-setup
+      Upgrade ovirt-engine-setup to latest nightly
+      Run engine-setup-2
+       check that the package are upgraded to latest nightly
+       check that the DB schema is upgraded
+       check that the configuration is upgraded
+       check that the portal is reachable after upgrade
+       check that the engine is running after upgrade
+
+### Detailed Features Testing
+
+#### Test case: minimum hardware requirements validation
+
+      Run engine-setup-2 on a system with less than 4 GB of memory
+       Check that a warning is issued about not enough available memory on the Host
+
+#### Test case: recommended hardware requirements validation
+
+      Run engine-setup-2 on a system with less than 16 GB of memory
+      Check that a warning is issued about running on a system with less than recommended memory
+
+#### Test case: generate answer file
+
+      Run engine-setup-2 --generate-answer=filename
+      check that at the end of the execution the file was generated
+
+#### Test case : use answer file
+
+      Run engine-setup-2 --config-append=filename where filename is an answer file generated in a previous execution
+      check that engine-setup-2 runs without any question
+
+#### Test case: logging
+
+      Run engine-setup-2
+       check that a log file is created in /tmp dir
+       check that a summary of the configuration is logged
+      Run engine-setup-2 --log=filename
+       check that a log file is created at specified path
+
+#### Test case: firewall manager configuration
+
+      Run engine-setup-2 on a clean system
+       check that if only firewalld is installed, the system prompt if you want to configure it.
+       check that if only iptables is installed,  the system prompt if you want to configure it.
+       check that if both firewalld and iptables are installed the system prompt first for firewalld and if the answer is no it also ask for iptables.
+       check that at the end of the execution only the selected firewall manager is running
+       check that if no firewall manager was selected an informative message is given to the user allowing to configure the firewall manager manually.
+
+#### Test case: password masked
+
+      Run engine-setup-2
+       check that when typing a password nothing is printed on screen
+       check that the entered passwords are not visible in logs
+
+#### Test case: output messages
+
+      Run engine-setup-2
+       check that there is a message telling where to find the log file
+       check that a summary of the configuration is presented when running without an answer file before applying changes to the system allowing the user to abort the procedure
+       check that there is an info message finalizing the successful install
+
+#### Test case: Apache configuration
+
+      Run engine-setup-2 on a clean system
+       check that if selinux is enabled  httpd_can_network_connect flag is enabled on http and https ports
+       check that existing httpd configuration were backed up
+       check that mod_ssl was configured for using engine apache keys
+       check that Apache was configured as proxy for the requests to the jboss service
+
+#### Test case: AIO plugin Hardware requirements validation
+
+      Install ovirt-engine-setup-plugins-allinone and run engine-setup-2
+       check that you can configure vdsm if cpu hardware support for virtualization is enabled
+       check that you can't configure vdsm if cpu hardware support for virtualization is disabled by bios or not supported by the CPU
+
 <Category:Feature>
 
 [1] 

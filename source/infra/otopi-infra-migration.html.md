@@ -254,6 +254,9 @@ TBD
       Run engine-setup-2 --generate-answer=filename
       check that at the end of the execution the file was generated
 
+      Run engine-cleanup-2 --generate-answer=filename
+      check that at the end of the execution the file was generated
+
 #### Test case : use answer file
 
       Run engine-setup-2 --config-append=filename where filename is an answer file generated in a previous execution

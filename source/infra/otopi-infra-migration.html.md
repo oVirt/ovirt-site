@@ -301,6 +301,10 @@ TBD
        check that a summary of the configuration is presented when running without an answer file before applying changes to the system allowing the user to abort the procedure
        check that there is an info message finalizing the successful install
 
+      Run engine-cleanup-2
+       check that there is a message telling where to find the log file
+       check that there is an info message finalizing the successful cleanup
+
 #### Test case: Apache configuration
 
       Run engine-setup-2 on a clean system

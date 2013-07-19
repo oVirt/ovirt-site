@@ -262,6 +262,9 @@ TBD
       Run engine-setup-2 --config-append=filename where filename is an answer file generated in a previous execution
       check that engine-setup-2 runs without any question
 
+      Run engine-cleanup-2 --config-append=filename where filename is an answer file generated in a previous execution
+      check that engine-cleanup-2 runs without any question
+
 #### Test case: logging
 
       Run engine-setup-2

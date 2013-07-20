@@ -159,7 +159,7 @@ Now your updated artifact is in place.
 
 #### Enable Unit Tests
 
-      $ make install-dev PREFIX="$HOME/ovirt-enigne" BUILD_UT=1
+      $ make install-dev PREFIX="$HOME/ovirt-engine" BUILD_UT=1
 
 #### Enable DAO Tests
 

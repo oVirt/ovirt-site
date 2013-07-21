@@ -62,7 +62,7 @@ Updated July 21 2013
     -   Add functionality to edit a connection
 *   Create subresource for connections under domains (api/storagedomains/<domainId>/connections that will retrieve connections (GET). not started
 *   Add functionality to add a file storage domain with a reference to an already existing storage connection (instead of embedded properties of a connection that will be created along with the storage domain). (in review) <http://gerrit.ovirt.org/#/c/17177/>
-*   Add functionality to add a file storage domain with a reference to an already existing storage connection (instead of embedded properties of a connection that will be created along with the storage domain). (not started)
+*   Add functionality to add a file storage domain with a reference to an already existing storage connection (instead of embedded properties of a connection that will be created along with the storage domain). (design)
 *   Add functionality to add an additional connection to block storage domain - multipathing. no started.
 
 #### Blockers

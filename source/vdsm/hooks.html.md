@@ -40,22 +40,12 @@ In order to activate the mac spoof hook on a VM:
 
 ### Device-level hooks
 
-If you want to use a hook that runs at the device level (And not the VM level), you need to edit the 'CustomDeviceProperties' database key and not the 'UserDefinedVMProperties' key.
+If you want to use a hook that runs at the device level (And not the VM level), you need to edit 'CustomDeviceProperties', and not 'UserDefinedVMProperties'.
 
       # engine-config -s CustomDeviceProperties="{type=interface;prop={speed=^([0-9]{1,5})$;duplex=^(full|half)$}}"
       # service ovirt-engine restart
 
 That will set two custom properties for virtual network interface cards. Speed (A number of 1 to 5 digits) and duplex (Which may be full or half).
-
-oVirt 3.2:
-
-1.  Select a VM (It is not required to bring it down)
-2.  Select a virtual network interface card
-3.  Click edit
-4.  Insert a new custom property
-5.  Select the key (speed or duplex)
-6.  Enter a value
-7.  Hit ok
 
 oVirt 3.3:
 
@@ -69,7 +59,7 @@ oVirt 3.3:
 8.  Select the updated or new vnic profile
 9.  Hit ok
 
-If the device-specific hook runs at VM start, the next time the VM is restarted the hook will be ran with the updated device custom properties.
+If the device-specific hook runs at before_update_device then the new custom properties will be used. If the device-specific hook runs at VM start, the next time the VM is restarted the hook will be ran with the updated device custom properties.
 
 ## Writing a new hook
 

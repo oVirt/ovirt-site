@@ -159,7 +159,7 @@ dhcp-1-120.my.lab.a.com
 `   `</host>
 </storage>
 
-### Add new storage domain with existing storage connection (POST)
+### Add new file (nfs/posix/local) storage domain with existing storage connection (POST)
 
 [http://host:port/api/storagedomains](http://host:port/api/storagedomains)
 

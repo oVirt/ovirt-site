@@ -78,7 +78,7 @@ The zeus02 host is connected via eth0 to one router, and via eth1 (bridged over 
 
 ![](Ip rule.png "Ip rule.png")
 
-And finally, here's the host's main routing table. Note that in this configuration the main routing table is **never used**, however it still has some significance during an upgrade process. This will be explained later in the upgrade section of this document.
+And finally, here's the host's main routing table. Any traffic coming **in** to the host will use the ip rules and an interface's routing table. The main routing table is only used for traffic originating **from** the host.
 
 ![](Ip route.png "Ip route.png")
 

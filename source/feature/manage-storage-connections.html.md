@@ -158,6 +158,19 @@ dhcp-1-120.my.lab.a.com
 `   `</host>
 </storage>
 
+### Add new storage domain with existing storage connection (POST)
+
+[http://host:port/api/storagedomains](http://host:port/api/storagedomains)
+
+<storage_domain>
+`  `<name>`mynewdomain`</name>
+`  `<type>`data`</type>
+` `<storage id="ad3ca1ff-26a6-482e-ac6b-16ee23f12529"/>
+`  `<host>
+`    `<name>`MyHost`</name>
+`  `</host>
+</storage_domain>
+
 # Database
 
 This feature doesn't require any database structure change nor upgrade. The below is a description of the existing structure as it is today, and how it will be used in the scope of this feature.

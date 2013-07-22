@@ -228,9 +228,7 @@ Example:
 
 ## Troubleshooting
 
-### Cannot deploy oVirt Node - Unexpected connection termination
-
-       engine.log says: stderr: bash: /tmp/ovirt-Vs4bg68pau/setup: No such file or directory
-       Suggestion: Make sure ovirt-host-deploy and otopi packages are installed. If needed try to reinstall it.
+       First, check if all prerequisites are installed.
+` `[`http://www.ovirt.org/OVirt_Engine_Development_Environment#Prerequisites`](http://www.ovirt.org/OVirt_Engine_Development_Environment#Prerequisites)
 
 <Category:Engine> [Category:How to](Category:How to)

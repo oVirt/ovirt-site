@@ -56,19 +56,20 @@ Geo-replication feature is designed to enable creation and maintenance of geo-re
 
 ### Entity Description
 
-#### Geo Replication Slave
+#### Gluster Geo Replication Slaves
 
 This entity stores the details of remote (slave) for a geo-replication setup.
 
 | Column name             | Type   | description                                                    | Nullable |
 |-------------------------|--------|----------------------------------------------------------------|----------|
+| Id                      | UUID   | Primary Key                                                    | No       |
 | Vds_Group_Id          | UUID   | Id of the Master Cluster                                       | No       |
 | Server_Id              | UUID   | Host of the Master Cluster                                     | No       |
 | Slave_Host_IP         | String | Host part of remote/slave cluster                              | No       |
 | Slave_SSH_Fingerprint | String | SSH key fingerprint of slave host                              | No       |
 | Connection_Status      | String | Password less connection status between master and slave nodes | No       |
 
-#### Gluster Geo Replication
+#### Gluster Geo Replication Sessions
 
 This entity stores the details of the individual geo-replication sessions
 

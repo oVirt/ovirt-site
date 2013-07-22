@@ -60,8 +60,7 @@ User should be able to start any of these tasks as follows:
     -   Add 'GLUSTER' as external system type to check if a job has tasks.
 *   Add a stored procedure GetStepsByExternalTaskId
     -   Returns the Step entities associated with an external task id
-
-      used to update status of step when external task status changes.
+        -   used to update status of step when external task status changes.
 
 ### Class Diagram
 

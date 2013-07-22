@@ -142,7 +142,7 @@ A new sub tab "Geo-Replication Sessions" will be added to the Volumes main tab i
 
 #### View All Geo-Replication Sessions
 
-      Geo-Replication Session subtab  also provides actions for -
+Geo-Replication Session subtab also provides actions for
 
 *   Removal of an existing geo-replication session
 *   Starting a geo-replication session

@@ -93,19 +93,7 @@ This entity stores the status of individual geo-replication sessions maintained 
 
 #### Gluster Geo Replication Session Config
 
-This entity stores the configuration details of a geo-replication session
-
-*   Config Name
-*   Config Value
-
-Configuration details would be maintained under a generic configuration maintenance system. Details captured as part of the same are -
-
-*   Configuration Category - Broadly divides the configuration in categories like Gluster Geo-Replication, Gluster Volume Options etc.
-*   Configuration Sub Category - Next level of logical grouping of configurations e.g. generic, logging, session etc in case of Configuration category as Gluster Geo-Replication
-*   Configuration Name - Name of the configuration
-*   Configuration Value - Value of the configuration
-
-Valid configuration categories would be maintained as an enum GlusterConfigurationTypes. Valid configuration sub categories would be maintained as an enum GlusterConfigurationSubTypes. This enum maintains enclosing main configuration category as a parameter.
+Refer the URL <http://www.ovirt.org/Features/Entity_Configuration_Management#Comments_and_Discussion> for more details on configuration maintenance.
 
 ### User Experience
 

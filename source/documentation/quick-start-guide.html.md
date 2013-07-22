@@ -476,7 +476,7 @@ Note: This document provides instructions to create a single storage domain, whi
 
 Because you have selected NFS as your default storage type during the Manager installation, you will now create an NFS storage domain. An NFS type storage domain is a mounted NFS share that is attached to a data center and used to provide storage for virtual machine disk images.
 
-Important: If you are using NFS storage, you must first create and export the directories to be used as storage domains from the NFS server. These directories must have their numerical user and group ownership set to 36:36 on the NFS server, to correspond to the vdsm user and kvm group respectively on the oVirt Engine server. In addition, these directories must be exported with the read write options (rw). For more information see the [oVirt Installation Guide](oVirt Installation Guide).
+**Important:** If you are using NFS storage, you must **first create and export the directories to be used as storage domains from the NFS server**. These directories must have their numerical user and group ownership set to 36:36 on the NFS server, to correspond to the vdsm user and kvm group respectively on the oVirt Engine server. In addition, these directories must be exported with the read write options (rw). For more information see the [oVirt Installation Guide](oVirt Installation Guide).
 
 **To add NFS storage:**
 

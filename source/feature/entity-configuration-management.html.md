@@ -12,7 +12,9 @@ wiki_last_updated: 2013-07-25
 
 ## Summary
 
-This feature allows the administrator to create, modify and delete the configuration parameters at entity level. With this the administrator can create set of configuration parameters specific to an entity as key value pair and at a later stage the same can be modified or deleted as well. Currently all the entities maintain its own ways for maintenance of configurations. This feature would standardize the way the configurations are maintained for entities. On top of this generic way for maintenance of configurations, the specific entities maintenance options can optionally have mechanism for modification and deletion of the configurations.
+This feature allows the administrator to create, modify and delete the configuration parameters at entity level. With this the administrator can create set of configuration parameters specific to an entity as key value pair and at a later stage the same can be modified or deleted as well.
+
+Currently all the entities maintain its own ways for maintenance of configurations. This feature would standardize the way the configurations are maintained for entities. On top of this generic way for maintenance of configurations, the specific entities maintenance options can optionally have mechanism for modification and deletion of the configurations.
 
 ## Owner
 

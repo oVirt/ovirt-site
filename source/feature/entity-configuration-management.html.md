@@ -44,6 +44,8 @@ With this feature the user will be able to
 
 The Entity Configuration Management feature is designed to enable common standard mechanism for maintenance of entity specific configuration parameters. The configuration parameters can later be updated / deleted even from entity specific screens if needed (parameters specific to the entity only can be managed).
 
+### Entity Description
+
 The entity description for the generic configuration management system is as below -
 
 | Column name                   | Type   | Description                                                         |
@@ -54,6 +56,14 @@ The entity description for the generic configuration management system is as bel
 | Configuration Parameter Value | String | Value of the configuration parameter                                |
 
 Valid entity types would be evaluated against the Entity Types defined in oVirt engine. The administrator can decide on the categories of the configurations based on entity types.
+
+### User Experience
+
+#### Add / Create a new configuration parameter
+
+#### Modify a configuration parameter
+
+#### Delete a configuration parameter
 
 ## Dependencies / Related Features and Projects
 

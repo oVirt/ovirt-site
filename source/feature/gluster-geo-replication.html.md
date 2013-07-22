@@ -109,17 +109,17 @@ Valid configuration categories would be maintained as an enum GlusterConfigurati
 
 ### User Experience
 
-#### All the existing Slaves
-
-A new sub-tab will be introduced under Cluster tab which would list all the existing geo-replication slaves for the current cluster. It also provides options for creation or new slaves and removal of the slaves. Testing the validity/availability of a slave is possible using the action "Test". Administrator can re-establish a broken master/slave communication as well using the action "Re-establish".
-
-![](geo_replication_slave2_subtab.png "geo_replication_slave2_subtab.png")
-
 #### Add/Attach a new Slave Cluster
 
-Password less SSH communication should be enabled between one node of the master cluster and one node of slave cluster before creating a geo-replication session between the identified master and slave clusters. The below dialog "New Geo-Replication Slave" would capture the required details for adding a new slave cluster for geo-replication session.
+A new sub-tab will be introduced under Cluster tab which would list all the existing geo-replication slaves for the current cluster. Password less SSH communication should be enabled between one node of the master cluster and one node of slave cluster before creating a geo-replication session between the identified master and slave clusters. The below dialog "New Geo-Replication Slave" would capture the required details for adding a new slave cluster for geo-replication session.
 
 ![](geo_replication_slave1_new.png "geo_replication_slave1_new.png")
+
+#### All the existing Slaves
+
+All existing geo-replication slaves attached to the cluster will be show for the cluster along with their status. It also provides options for creation or new slaves and removal of the slaves. Testing the validity/availability of a slave is possible using the action "Test". Administrator can re-establish a broken master/slave communication as well using the action "Re-establish".
+
+![](geo_replication_slave2_subtab.png "geo_replication_slave2_subtab.png")
 
 If the user select the **Copy master cluster hosts public keys to slave cluster** then the following steps will happen
 
@@ -134,23 +134,22 @@ The below dialog provides a mechanism for re-establishing a broken master/slave 
 
 ![](geo_replication_slave3_reestablish.png "geo_replication_slave3_reestablish.png")
 
+#### Create a new Geo-Replication Session
+
+A new sub tab will be added to the Volumes main tab in oVirt webadmin UI which will list all the geo-replication sessions for the selected volume. The below dialog captures the details and creates the geo-replication session between master and slave gluster volumes.
+
+![](volume_georeplication1_new.png "volume_georeplication1_new.png")
+
 #### View All Geo-Replication Sessions
 
-A new sub tab will be added to the Volumes main tab in oVirt webadmin UI which will list all the geo-replication sessions for the selected volume. It also provides actions for -
+      Geo-Replication Session subtab  also provides actions for -
 
-*   Creation of new geo-replication sessions between master and slave gluster volumes
-*   Removal of an existing ge-replication session
+*   Removal of an existing geo-replication session
 *   Starting a geo-replication session
 *   Stopping a geo-replication session
 *   Update configurations for a geo-replication session
 
 ![](volume_georeplication2_subtab.png "volume_georeplication2_subtab.png")
-
-#### Create a new Geo-Replication Session
-
-The below dialog captures the details and creates the geo-replication session between master and slave gluster volumes.
-
-![](volume_georeplication1_new.png "volume_georeplication1_new.png")
 
 #### Start a new Geo-Replication Session
 

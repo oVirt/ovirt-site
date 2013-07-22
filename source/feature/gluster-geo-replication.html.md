@@ -153,15 +153,15 @@ Geo-Replication Session subtab also provides actions for
 
 #### Start a new Geo-Replication Session
 
-A new action named **Start** will be shown in the **Geo-Replication** tab
+A new action named **Start** will be shown in the **Geo-Replication Sessions** tab
 
 #### Stop a Geo-Replication Session
 
-A new action named **Stop** will be shown in the **Geo-Replication** tab
+A new action named **Stop** will be shown in the **Geo-Replication Sessions** tab
 
 #### Remove a Geo-Replication Session
 
-A new action named **Remove** will be shown in the **Geo-Replication** tab
+A new action named **Remove** will be shown in the **Geo-Replication Sessions** tab
 
 #### Configurations of Geo-Replication Session
 

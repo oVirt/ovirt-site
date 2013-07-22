@@ -31,24 +31,14 @@ Currently all the entities maintain its own ways for maintenance of configuratio
 
 ## Detailed Description
 
-GlusterFS Geo-replication uses a master–slave model, whereby replication and mirroring occurs between the following partners:
-
-*   Master – A GlusterFS volume
-*   Slave – A GlusterFS Volume in a remote cluster
+Currently the individual entity options provide its own ways for maintenance of configuration parameters, and there is not standardization available for the same. The proposed design introduces a standard and common mechanism for maintenance of configuration parameters for different entities in oVirt engine.
 
 With this feature the user will be able to
 
-*   View all the slaves attached to a cluster
-*   Add a new slave and enable password less communication between a host of master cluster and a host of slave cluster
-*   Test password less communication to slave cluster/host
-*   Remove(Detach) a slave cluster
-*   View all active/inactive geo-replication sessions for a volume
-*   Setup a new ge-replication session
-*   Start a geo-replication session
-*   Stop a geo-replication session
-*   Remove an inactive geo-replication session
-*   View and update the configuration before starting the session or later (ssh command, gsync command)
-*   Monitor the status of geo-replication sessions in a cluster
+*   Create a new configuration parameter for an entity from common UI of Entity Configuration Management
+*   Update the value of existing configuration parameter UI of Entity Configuration Management
+*   Delete an existing configuration parameter UI of Entity Configuration Management
+*   Update/Delete the the configuration parameters for entity specific UI screens
 
 ## Design
 

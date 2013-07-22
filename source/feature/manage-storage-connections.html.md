@@ -193,6 +193,13 @@ TBD
 
 1.  NFS - edit in webadmin UI:
 
-preparation: copy the contents of the storage domain manually from the current path to the new (target) path Scenario: maintenance the data domain right click - edit the storage domain - change the mount path to another storage server - edit NFS advancedoptions: Retransmissions,timeout Activate the domain
+preparation: copy the contents of the storage domain manually from the current path to the new (target) path
+Scenario:
+
+*   -   maintenance the data domain
+    -   right click - edit the storage domain
+    -   change the mount path to another storage server
+    -   edit NFS advanced options: retransmissions, timeout
+    -   activate the domain
 
 <Category:Feature>

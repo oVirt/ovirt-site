@@ -18,11 +18,11 @@ Currently all the entities maintain its own ways for maintenance of configuratio
 
 ## Owner
 
-*   Feature owner: Shubhendu Tripathi <shtripat@redhat.com>
-    -   GUI Component owner: Kanagaraj Mayilsamy <kmayilsa@redhat.com>
-    -   Engine Component owner: Shubhendu Tripathi <shtripat@redhat.com>
+*   Feature owner:
+    -   GUI Component owner:
+    -   Engine Component owner:
     -   VDSM Component owner:
-    -   QA Owner: Sudhir Dharanendraiah <sdharane@redhat.com>
+    -   QA Owner:
 
 ## Current Status
 

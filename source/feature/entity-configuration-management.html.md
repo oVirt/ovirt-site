@@ -48,12 +48,13 @@ The Entity Configuration Management feature is designed to enable common standar
 
 The entity description for the generic configuration management system is as below -
 
-| Column name                   | Type   | Description                                                         |
-|-------------------------------|--------|---------------------------------------------------------------------|
-| Entity Id                     | UUID   | Id of the entity for which the configuration is maintained          |
-| Configuration Category        | String | There could be broad categorization of the configuration parameters |
-| Configuration Parameter Name  | String | Name of the configuration parameter                                 |
-| Configuration Parameter Value | String | Value of the configuration parameter                                |
+| Column name            | Type   | Description                                                         |
+|------------------------|--------|---------------------------------------------------------------------|
+| Configuration Id       | UUID   | Unique identifier for the configuration parameter                   |
+| Entity Id              | UUID   | Id of the entity for which the configuration is maintained          |
+| Configuration Category | String | There could be broad categorization of the configuration parameters |
+| Configuration Name     | String | Name of the configuration parameter                                 |
+| Configuration Value    | String | Value of the configuration parameter                                |
 
 Valid entity types would be evaluated against the Entity Types defined in oVirt engine. The administrator can decide on the categories of the configurations based on entity types.
 

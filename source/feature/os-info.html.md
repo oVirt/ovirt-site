@@ -208,9 +208,9 @@ Other Host architecture such as **PPC** [1] could be added more easily as now th
 | 4. Version value are effective                           | append to 20-overrload.properties with os.other.resources.minimum.ram.value.3.3=2042 . Restart Jboss                                | repeat test case #3 . values lower than 2042 should fail for VMs on cluster level 3.3.                                |
 | 5. Add new os                                            | append to 20-overload.properties                                                                                                    
 
-                                                            ` os.osx_11.id.value = 3000`                                                                                                         
-                                                            ` os.osx_11.name.value = Snow Leopard`                                                                                               
-                                                            ` os.osx_11.derivedFrom.value = linux`                                                                                               
+                                                            ` os.osx_10_6.id.value = 3000`                                                                                                       
+                                                            ` os.osx_10_6.name.value = Snow Leopard`                                                                                             
+                                                            ` os.osx_10_6.derivedFrom.value = linux`                                                                                             
 
                                                             Restart jboss                                                                                                                        | Edit a current VM and change its os to "Snow Leopard". Test case #2 should pass.                                      |
 

@@ -476,7 +476,19 @@ Note: This document provides instructions to create a single storage domain, whi
 
 Because you have selected NFS as your default storage type during the Manager installation, you will now create an NFS storage domain. An NFS type storage domain is a mounted NFS share that is attached to a data center and used to provide storage for virtual machine disk images.
 
-**Important:** If you are using NFS storage, you must **first create and export the directories to be used as storage domains from the NFS server**. These directories must have their numerical user and group ownership set to 36:36 on the NFS server, to correspond to the vdsm user and kvm group respectively on the oVirt Engine server. In addition, these directories must be exported with the read write options (rw). For more information see the [oVirt Installation Guide](oVirt Installation Guide).
+**Important:** If you are using NFS storage, you must **first create and export the directories to be used as storage domains from the NFS server**. These directories must have their numerical user and group ownership set to 36:36 on the NFS server, to correspond to the vdsm user and kvm group respectively on the oVirt Engine server. You should create at least three NFS exports, one for each type of storage domain: data, iso and import/export. Typical NFS export names would be /export/data, /export/iso, and /export/import_export. In addition, these directories must be exported with the read write options (rw).
+
+Information on how to create NFS exports can be found at <http://fedoraproject.org/wiki/Administration_Guide_Draft/NFS>.
+
+A sample /etc/exports configuration might look like:
+
+    # Please refer to the NFS documentation for your operating system on how to setup NFS security.
+    # As they exist here, these shares have no access restrictions.
+    /export/iso            *(rw,sync,no_subtree_check,all_squash,anonuid=36,anongid=36)
+    /export/data           *(rw,sync,no_subtree_check,all_squash,anonuid=36,anongid=36)
+    /export/import_export  *(rw,sync,no_subtree_check,all_squash,anonuid=36,anongid=36)
+
+Once you have setup the NFS exports, you can now add them in oVirt.
 
 **To add NFS storage:**
 
@@ -494,7 +506,7 @@ Configure the following options:
 
 Use Host: Select any of the hosts from the drop down menu. Only hosts which belong in the pre-selected data center will display in this list.
 
-    * Export path: Enter the IP address or a resolvable hostname of the chosen host. The export path should be in the format of 192.168.0.10:/data or domain.example.com:/data
+    * Export path: Enter the IP address or a resolvable hostname of the NFS server. The export path should be in the format of 192.168.0.10:/data or domain.example.com:/data
 
 3. Click OK. The new NFS data domain displays on the Storage tab. It will remain with a Locked status while it is being prepared for use. When ready, it is automatically attached to the data center.
 

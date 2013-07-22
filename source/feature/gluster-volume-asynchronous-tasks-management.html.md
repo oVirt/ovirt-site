@@ -26,7 +26,7 @@ This feature provide the support for managing the asynchronous tasks on Gluster 
 ## Current Status
 
 *   Status: Development in progress
-*   Last updated date: Wed Feb 20 2013
+*   Last updated date: ,
 
 ## Detailed Description
 

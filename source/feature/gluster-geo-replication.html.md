@@ -93,7 +93,7 @@ This entity stores the status of individual geo-replication sessions maintained 
 
 #### Gluster Geo Replication Session Config
 
-Refer the URL <http://www.ovirt.org/Features/Entity_Configuration_Management#Comments_and_Discussion> for more details on configuration maintenance.
+Refer the URL <http://www.ovirt.org/Features/Entity_Configuration_Management> for more details on configuration maintenance.
 
 ### User Experience
 

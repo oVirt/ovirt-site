@@ -60,41 +60,38 @@ Geo-replication feature is designed to enable creation and maintenance of geo-re
 
 This entity stores the details of remote (slave) for a geo-replication setup.
 
-| Column name             | Type   | description                                                    | Nullable |
-|-------------------------|--------|----------------------------------------------------------------|----------|
-| Id                      | UUID   | Primary Key                                                    | No       |
-| Vds_Group_Id          | UUID   | Id of the Master Cluster                                       | No       |
-| Server_Id              | UUID   | Host of the Master Cluster                                     | No       |
-| Slave_Host_IP         | String | Host part of remote/slave cluster                              | No       |
-| Slave_SSH_Fingerprint | String | SSH key fingerprint of slave host                              | No       |
-| Connection_Status      | String | Password less connection status between master and slave nodes | No       |
+| Column name             | Type   | description                                                        |
+|-------------------------|--------|--------------------------------------------------------------------|
+| Id                      | UUID   | Primary Key                                                        |
+| Vds_Group_Id          | UUID   | Id of the Master Cluster                                           |
+| Server_Id              | UUID   | Host of the Master Cluster                                         |
+| Slave_Host_IP         | String | Host part of remote/slave cluster                                  |
+| Slave_SSH_Fingerprint | String | SSH key fingerprint of slave host                                  |
+| Connection_Status      | String | Password less connection status between master node and slave node |
 
 #### Gluster Geo Replication Sessions
 
 This entity stores the details of the individual geo-replication sessions
 
-*   Master Cluster Id
-*   Master Host Id
-*   Slave Host IP
-*   Master Volume Name
-*   Slave Volume Name
+| Column name   | Type   | description                                |
+|---------------|--------|--------------------------------------------|
+| Id            | UUID   | Primary Key                                |
+| Slave_id     | UUID   | References Id of gluster_geo_rep_slaves |
+| Volume_id    | UUID   | References Id of gluster_volumes          |
+| Slave_Volume | String | Name of the volume in slave cluster        |
 
-#### Gluster Geo Replication Status
+#### Gluster Geo Replication Session Status
 
 This entity stores the status of individual geo-replication sessions maintained in oVirt engine
 
-*   Master Cluster Id
-*   Master Host Id
-*   Master Volume Name
-*   Slave Host IP
-*   Slave Volume Name
-*   Status - Valid values from GlusterGeoRepStatus
-    -   STABLE
-    -   FAULTY
-    -   INITIALIZING
-    -   NOT_STARTED
+| Column name | Type   | description                                             |
+|-------------|--------|---------------------------------------------------------|
+| Id          | UUID   | Primary Key                                             |
+| Session_id | UUID   | References Id of gluster_geo_rep_session             |
+| Server_id  | UUID   | Host in the master cluster                              |
+| Status      | String | Valid values STABLE, FAULTY, INITIALIZING, NOT_STARTED |
 
-#### Geo Replication Config
+#### Gluster Geo Replication Session Config
 
 This entity stores the configuration details of a geo-replication session
 

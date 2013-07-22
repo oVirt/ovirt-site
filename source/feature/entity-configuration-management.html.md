@@ -71,10 +71,6 @@ Valid entity types would be evaluated against the Entity Types defined in oVirt 
 
 ## Documentation / External references
 
-<http://www.gluster.org/community/documentation/index.php/GlusterFS_Geo_Replication>
-
-<http://gluster.org/community/documentation/index.php/Gluster_3.2:_Starting_GlusterFS_Geo-replication>
-
 ## Comments and Discussion
 
 <http://www.ovirt.org/Talk:Features/Gluster_Geo_Replication>

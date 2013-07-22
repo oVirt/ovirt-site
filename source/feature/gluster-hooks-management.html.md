@@ -26,8 +26,9 @@ To read more about gluster hooks <http://www.gluster.org/community/documentation
 
 ### Current Status
 
-*   Status: In Development
+*   Status: Completed
 *   Last updated: ,
+*   Available in: version 3.3
 
 ### Design
 

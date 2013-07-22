@@ -191,8 +191,7 @@ TBD
 
 # Testing
 
-1.  NFS - edit in webadmin UI:
-
+1. NFS - edit in webadmin UI:
 Preparation: copy the contents of the storage domain manually from the current path to the new (target) path
 Scenario:
 
@@ -202,8 +201,7 @@ Scenario:
     -   edit NFS advanced options: retransmissions, timeout
     -   activate the domain
 
-1.  Posix - edit in webadmin UI:
-
+2. Posix - edit in webadmin UI:
 Preparation: copy the contents of the storage domain manually from the current path to the new (target) path
 Scenario:
 

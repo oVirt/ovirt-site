@@ -73,7 +73,7 @@ Valid entity types would be evaluated against the Entity Types defined in oVirt 
 
 ## Comments and Discussion
 
-<http://www.ovirt.org/Talk:Features/Gluster_Geo_Replication>
+<http://www.ovirt.org/Talk:Features/Entity_Configuration_Management>
 
 ## Open Issues
 

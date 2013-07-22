@@ -18,7 +18,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Upcoming meetings
 
-#### 2013-06-10
+#### 2013-07-22
 
 *   Introductions
 *   Review of action items
@@ -30,9 +30,45 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Past meetings
 
+#### 2013-07-08
+
+*[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-07-08-13.59.html)*
+
+*   Introductions
+*   Review of action items
+*   Hosting
+*   Puppet
+*   Jenkins
+*   Other business?
+*   Trac review
+
+#### 2013-06-17
+
+*[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-06-17-14.03.html)*
+
+*   Introductions
+*   Review of action items
+*   Hosting
+*   Puppet
+*   Jenkins
+*   Other business?
+*   Trac review
+
+#### 2013-06-10
+
+*[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-06-10-14.02.html)*
+
+*   Introductions
+*   Review of action items
+*   Hosting
+*   Puppet
+*   Jenkins
+*   Other business?
+*   Trac review
+
 #### 2013-06-03
 
-<http://ovirt.org/meetings/ovirt/2013/ovirt.2013-06-03-14.24.html>
+*[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-06-03-14.24.html)*
 
 *   Introductions
 *   Review of action items

@@ -200,7 +200,13 @@ Other Host architecture such as **PPC** [1] could be added more easily as now th
 
 ### Testing
 
-TODO
+| Test case                                                | setup                                                                                                                                                      | expected                                                                                |
+|----------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| 1. \*.properties files are loaded by order               | place 20-overload.properties under /etc/ovirt-engine/osinfo.conf.d                                                                                         | check the logs record for loading and see values from the files are effective           |
+| 2. minimum memory is enforced                            | add new vm, provision memory lower than 256mb and hit OK                                                                                                   | you get a canDo action with the range of allowed values                                 |
+| 3. override os.other.resources.minimum.ram.value to 1024 | place a 20-overrload.properties with os.other.resources.minimum.ram.value=1024 under /etc/ovirt-engine/osinfo.conf.d. Restart Jboss                        | repeat test case #2. values lower than 1024 should fail.                               |
+| 4. version value are effective                           | append to 20-overrload.properties with os.other.resources.minimum.ram.value.3.3=2042 . Restart Jboss                                                       | repeat test case #3 . values lower than 2042 should fail for VMs on cluster level 3.3. |
+| 5. add new os                                            | append to 20-overload.properties os.osx_11.id.value = 3000 \\ os.osx_11.name.value = Snow Leopard \\ os.osx_11.derivedFrom.value = linux. Restart jboss | Edit a current VM and change its os to "Snow Leopard". Test case #2 should pass.       |
 
 ### Comments and Discussion
 

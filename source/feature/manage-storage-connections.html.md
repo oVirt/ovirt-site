@@ -189,4 +189,10 @@ physical_volume_id is the id used by lvm, and since it will be copied by lun rep
 
 TBD
 
+# Testing
+
+1.  NFS - edit in webadmin UI:
+
+preparation: copy the contents of the storage domain manually from the current path to the new (target) path Scenario: maintenance the data domain right click - edit the storage domain - change the mount path to another storage server - edit NFS advancedoptions: Retransmissions,timeout Activate the domain
+
 <Category:Feature>

@@ -163,7 +163,7 @@ Related features:
 3.  [7]
 4.  [8]
 
-<references>
+</references>
 ### Comments and Discussion
 
 *   Refer to [Talk:Cloud-Init Integration](Talk:Cloud-Init Integration)

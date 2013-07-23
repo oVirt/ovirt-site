@@ -37,7 +37,7 @@ The backup machine will protect virtual machines by offloading backup workloads 
 
 ### High Level Architecture
 
-There will be 1 Backup Appliance per DC. The Backup Appliance can be in the form of a Virtual Appliance (VirtApp) or Host Appliance (HostApp). Currently we are targetting VirtApp usecase, HostApp usecase will be targetted later. Backup & Restore will be driven by API and not GUI. IBM Tivoli Storage Manager (TSM) is being used as the external Backup/Restore vendor application which will drive these APIs
+There will be 1 Backup Appliance per DC. The Backup Appliance can be in the form of a Virtual Appliance (VirtApp) or Host Appliance (HostApp). **Currently we are targetting VirtApp usecase, HostApp usecase will be targetted later.** Backup & Restore will be driven by API and not GUI. IBM Tivoli Storage Manager (TSM) is being used as the external Backup/Restore vendor application which will drive these APIs
 
 ### Full VM restore
 

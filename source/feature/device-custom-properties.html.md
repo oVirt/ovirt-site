@@ -64,7 +64,7 @@ Each of these verbs accepts a dictionary (of type VmInterfaceDevice) that descri
 
 Vdsm would pass device custom properties to its hook scripts.
 
-In hooks scripts of per-device verbs (nic hotplug, for example) the properties would be passed as environment variables of the hook scripts being executed. For vmCreate, a hook script called before_device_create and after_device_create would be executed per each device that has "custom" in its VmInterfaceDevice device definition.
+In hooks scripts of per-device verbs (nic hotplug, for example) the properties would be passed as environment variables of the hook scripts being executed. For vmCreate, two new hook events were created. Hook scripts called before_device_create and after_device_create would be executed per each device that has "custom" in its VmInterfaceDevice device definition.
 
 The reasoning behind the vmCreate behavior is that we should pass different properties for each device. At the stage that before_vm_create hook is executed, the alias of devices is not necessarily known, and the ordering of devices may be changed by other hooks. Thus we have no means to designate which property belong to which device - save for executing a different script for each device, passing that device's xml definition.
 

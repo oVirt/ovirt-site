@@ -106,7 +106,6 @@ Add the ability to do full , file-level & incremental backups/restores of a runn
 ### Documentation / External references
 
 *   <http://www.ovirt.org/Live_Snapshots>
-*   <http://wiki.qemu.org/Features/Asynchronous_NBD>
 *   <http://www.ovirt.org/Features/Design/LiveMerge>
 
 ### Comments and Discussion

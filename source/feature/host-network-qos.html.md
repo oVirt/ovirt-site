@@ -8,9 +8,7 @@ wiki_revision_count: 76
 wiki_last_updated: 2014-09-04
 ---
 
-# Host Network QoS
-
-## Network traffic shaping
+# Host Network traffic shaping
 
 #### Summary
 
@@ -35,7 +33,7 @@ The admin /network admin is the only user who should be able to define Traffic S
 
 Shaping network traffic is useful for network administrators, where they can provide a different class of service according to the different kind of usages they need to satisfy. It might be also useful to limit the bandwidth of a [migration network](Features/Migration_Network) or in general to every network who could possibly choke/saturate the overall interface bandwidth.
 
-## User experience
+# User experience
 
 A user can define traffic shaping during creation of a logical network. Traffic shaping can be redefined when attaching a logical network to the physical host interfaces during a Setup Host Networks task (see images below):
 
@@ -47,7 +45,7 @@ Selecting the checkbox (Incoming/Outgoing or both) a user can shape the related 
 
 An icon should be associated with the network in Logical Networks list and the "Setup Host Networks" UI in order to provide a visual feedback for bandwidth shaped networks.
 
-## Implementation
+# Implementation
 
 ### Backend / DB Change
 
@@ -118,7 +116,7 @@ the expected result should be something similar to:
      'qosOutbound': '',
      'stp': 'off'}
 
-## Comments and Discussion
+# Comments and Discussion
 
 *   Refer to [Talk: Host Network Traffic Shaping](Talk: Host Network Traffic Shaping)
 *   On the arch@ovirt.org mailing list.

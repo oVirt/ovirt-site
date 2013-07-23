@@ -43,6 +43,21 @@ This feature allows oVirt users to resize virtual disks while they are in use by
 *   Shrinking of the virtual drive currently is not supported
 *   Floating disk, the disk which is not attached to any VM, is not supported
 
+# User Experience
+
+User can extend virtual drive size using UI or REST API.
+
+##### UI:
+
+*   Go to "Virtual Machines" tab and select virtual machine
+*   Go to "Disks" sub tab and select disk
+*   Click on "Edit", pay attention that if disk is locked or VM has other status than "UP", "PAUSED", "DOWN" or "SUSPENDED", editing is not allowed so "Edit" option is grayed out.
+*   Use "Extend Size By(GB)" field to insert the size in GB which should be added to the existing size
+
+![](OnlineVirtualDiskResizeDiagram4.png "OnlineVirtualDiskResizeDiagram4.png")
+
+##### REST API:
+
 # Detailed Description
 
 1.  A request from oVirt Engine is sent to the SPM to extend the image. The scope of this request is mainly to extend the Logical Volume where the image resides and to update the metadata. The extension relevant only when the image is RAW and resides on both a block device and file domain. QCOW images will be treated as a NO-OP at this phase. In the case of a RAW image on a file domain a “truncate” command will be issued on the image to add additional sparse space at the end but we expect the QEMU process to do this anyway as part of its implementation. A preallocated RAW file will be extended using a non-sparse dd command to add zeroes at the end of the image (this is for consistence even if preallocating data on NFS doesn't guarantee that the space is actually reserved).

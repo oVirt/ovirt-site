@@ -35,4 +35,19 @@ This feature has these aims:
 
 This feature will allow quick changing of console parameters from frontend.
 
+### Testing
+
+#### Mission 1 - Test dialog functionality
+
+*   Create 2 VMs with SPICE and VNC display protocol, run them.
+*   Open Console Option dialog for them and then try selecting various combinations of options for the dialog and then connect to VM .
+
+#### Mission 2 - Testing options persistence
+
+*   Open Console Options dialog for a VM
+*   Change some options, click OK
+*   Refresh the browser window (to reinitialize gwt app)
+*   Open Console Options dialog for that VM again
+*   Check if previously selected options are selected now.
+
 <Category:Feature>

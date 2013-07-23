@@ -118,11 +118,6 @@ Currently, only when setting the management network, a gateway may be specified.
 *   Verify that spice traffic travels through the designated host.
 *   Test the above both with static addresses and with DHCP.
 
-Another, more complex test is:
-
-*   Set up two hosts in a cluster, and define a migration network between them. The interfaces designated for migration, should not sit on the same broadcast domain, but rather communicate via a router.
-*   Start a VM and migrate it from one host to another. Verify that migration traffic flows through the defined gateway.
-
 ### External References
 
 ### Comments and Discussion

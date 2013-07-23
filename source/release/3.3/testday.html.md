@@ -14,12 +14,9 @@ wiki_warnings: table-style
 
 ### Objective
 
-The purpose of test days initiative is to accomplish the following goals:
-
-*   Get multiple engineers and stakeholders to have hands-on opportunity to learn more about Ovirt functionality and features.
-*   Improve the quality of oVirt.
-*   Introducing and validating new oVirt 3.3 features
-*   While learning about the project, the stakeholders can come with their own test cases, in different categories
+*   engage project users and stakeholders to a hands-on experiences with oVirt new release.
+*   improve the quality of oVirt.
+*   Introduce and validating new oVirt 3.3 features
 
 ### What I should do
 

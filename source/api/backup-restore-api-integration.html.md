@@ -87,7 +87,7 @@ File level restore can be performed in-guest or off-host. Mount the volumes of t
 
 N/A
 
-#### This feature will be implemented in phases:
+### This feature will be implemented in phases:
 
 1.  Phase1 will cover Full backup/restore for VirtApp usecase. File level restore (non-agent based) should be possible (to confirm).
 2.  Phase 2 will cover HostApp usecase and supporting qemu-ga for Win. guests (depends on the ongoing qemu-ga work in the community).

@@ -48,10 +48,12 @@ I used following scenario to test SSH Soft Fencing for hosts with PM configured:
 
 1.  Create a 3.3 data center, create a cluster in it and add two hosts to it with PM properly configured
 2.  Testing scenario: SSH Soft Fencing will help and host will change status to Up after it
-    1.  Stop engine, connect to engine database and check if "SshSoftFencingCommand" option is set to correct value "/usr/bin/vdsm-tool service-restart vdsmd</code>) using following SQL command: <code>
-    2.  Check if both hosts are Up
-    3.  Stop VDSM on selected host
-    4.  Wait a few minutes to see if host status changes to Up
+    1.  Stop engine, connect to engine database and check if "SshSoftFencingCommand" option is set to correct value "/usr/bin/vdsm-tool service-restart vdsmd" using following SQL command: `select * from vdc_options where option_name='SshSoftFencingCommand' and version='3.3'`
+    2.  If the value is different, please correct it with SQL command: `update vdc_options set option_value='/usr/bin/vdsm-tool service-restart vdsmd' where option_name='SshSoftFencingCommand' and version='3.3'`
+    3.  Start engine
+    4.  Check if both hosts are Up
+    5.  Stop VDSM on selected host
+    6.  Wait a few minutes to see if host status changes to Up
 
 3.  Testing scenario: SSH Soft Fencing command throws error on execution, real fencing will start immediately after it
     1.  Stop engine
@@ -69,6 +71,24 @@ I used following scenario to test SSH Soft Fencing for hosts with PM configured:
     5.  After a few minutes SSH Soft Fencing command will be executed, but the host will remain Non Responsive
     6.  After another few minutes real fencing (server restart) will be executed for selected host
     7.  After restart host will become Up
+
+I used following scenario to test SSH Soft Fencing for hosts without PM configured:
+
+1.  Create a 3.3 data center, create a cluster in it and add two hosts to it without PM properly configured
+2.  Testing scenario: SSH Soft Fencing will help and host will change status to Up after it
+    1.  Stop engine, connect to engine database and check if "SshSoftFencingCommand" option is set to correct value "/usr/bin/vdsm-tool service-restart vdsmd" using following SQL command: `select * from vdc_options where option_name='SshSoftFencingCommand' and version='3.3'`
+    2.  If the value is different, please correct it with SQL command: `update vdc_options set option_value='/usr/bin/vdsm-tool service-restart vdsmd' where option_name='SshSoftFencingCommand' and version='3.3'`
+    3.  Start engine
+    4.  Check if both hosts are Up
+    5.  Stop VDSM on selected host
+    6.  Wait a few minutes to see if host status changes to Up
+
+3.  Testing scenario: SSH Soft Fencing will not help, host stays Non Responsive after it
+    1.  Stop engine
+    2.  Connect to engine database and execute following SQL command: `update vdc_options set option_value='echo 0' where option_name='SshSoftFencingCommand' and version='3.3'`
+    3.  Start engine and check if both hosts are Up
+    4.  Stop VDSM on selected host
+    5.  After a few minutes SSH Soft Fencing command will be executed, but the host will remain Non Responsive
 
 # Troubleshooting
 

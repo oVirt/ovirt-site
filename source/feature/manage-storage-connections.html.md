@@ -191,6 +191,10 @@ TBD
 
 # Testing
 
+**Please note the blocking bug in vdsm that prevents editing the path more than once for same storage domain without restarting vdsm between operations:**
+
+[`https://bugzilla.redhat.com/show_bug.cgi?id=950055`](https://bugzilla.redhat.com/show_bug.cgi?id=950055)
+
 1. NFS - edit in webadmin UI:
 Preparation: copy the contents of the storage domain manually from the current path to the new (target) path
 Scenario:

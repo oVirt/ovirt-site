@@ -58,7 +58,7 @@ This feature affects the following Vdsm verbs:
 *   vmHotplugDisk
 *   vmHotunplugDisk
 *   vmMigrate
-*   vmUpdateDevice (In the [future](https://bugzilla.redhat.com/895294))
+*   vmUpdateDevice
 
 Each of these verbs accepts a dictionary (of type VmInterfaceDevice) that describes the relevant device (note that vmCreate accepts a **list** of devices). A new optional key "custom" would be added to VmInterfaceDevice. Its value is a dictionary of custom properties and their string value.
 

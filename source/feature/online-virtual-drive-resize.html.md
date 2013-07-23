@@ -27,14 +27,14 @@ This feature allows oVirt users to resize virtual disks while they are in use by
 *   Libvirt
     -   libvirt needs to expose an API to use such capability: **Done**
 *   VDSM
-    -   changes to block devices (new SPM API call): **Work In Progress**
-    -   additional API call to passthrough to libvirt: **Work In Progress**
+    -   changes to block devices (new SPM API call): **Done**
+    -   additional API call to passthrough to libvirt: **Done**
 *   oVirt engine
-    -   need to create a new command to coordinate the entire flow (call to SPM and then call to VM): **To be implemented**
+    -   need to create a new command to coordinate the entire flow (call to SPM and then call to VM): **Done**
 *   oVirt GUI
-    -   need to expose the new functionality: **To be implemented**
+    -   need to expose the new functionality: **Done**
 *   Rest API
-    -   need to expose the new functionality: **To be implemented**
+    -   need to expose the new functionality: **Done**
 *   QEMU-GA
     -   support for notifying the guest and updating the size of the visible disk: **To be integrated**
 

@@ -10,9 +10,9 @@ wiki_last_updated: 2014-04-04
 wiki_warnings: table-style
 ---
 
-# **oVirt 3.2 test day**
+# OVirt 3.3 TestDay
 
-# Objective
+## Objective
 
 The purpose of test days initiative is to accomplish the following goals:
 
@@ -21,7 +21,7 @@ The purpose of test days initiative is to accomplish the following goals:
 *   Introducing and validating new oVirt 3.3 features
 *   While learning about the project, the stakeholders can come with their own test cases, in different categories
 
-# What I should do
+## What I should do
 
 *   If you already have the hardware, verify if it meets the hardware requirement, refer information detail section below
 *   Update the Participants section.
@@ -29,7 +29,7 @@ The purpose of test days initiative is to accomplish the following goals:
 *   Accomplish the goals set in objective section , run the tests, update the test matrix.
 *   Running into any issues - Try to get answer from IRC | email to users list | [open a BZ](https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt)
 
-# Participants
+## Participants
 
 Test Days are open to anyone. If you have your own setup we will provide all the software packages and the required information. Please refer - [What to do as a participant](Testing/OvirtTestDay#What_to_do_as_a_participant) - in the section below, if you're willing to participate please add yourself to the below table:
 
@@ -37,7 +37,7 @@ Test Days are open to anyone. If you have your own setup we will provide all the
 |-----------------|-------------------------|--------|
 | jdoe@redhat.com | Watchdog engine support | EL6    |
 
-# Test Dates
+## Test Dates
 
 The overall test dates are spread across multiple duration which are driven by the beta releases from the engineering. The following are the list of test days scheduled -
 
@@ -45,7 +45,7 @@ The overall test dates are spread across multiple duration which are driven by t
 *   Jun 14th, 2012 - Second Release (3.1)
 *   JAN 31th, 2013 - Third Release (3.2)
 
-# Execution Plan and Guidelines
+## Execution Plan and Guidelines
 
 for **installation** check: [Ovirt_Information_Details](http://www.ovirt.org/Testing/OvirtTestDay#Ovirt_Information_Details) deployment options:
 
@@ -219,7 +219,7 @@ oVirt Node image is not currently available for the Test Day. The image should b
 | Run VMs                                                  |      |
 | Go to resources tab and see that quota usage makes sance |      |
 
-# Ovirt Information Details
+## Ovirt Information Details
 
 Beta RPMs for Fedora 18 are available from <http://resources.ovirt.org/releases/beta/rpm/Fedora/18>. In order to use it create a `/etc/yum.repos.d/ovirt-engine-beta.repo` file with the following content:
 
@@ -247,7 +247,7 @@ Please refer the following document for 'virt-to-date' tool, simple tool for set
 
 In case you would like to test a product with a new test case, there is a template to be used for creating test cases. Please copy this template for the test case, and update the link in this document to point to the results table below. It is not necessary that the person who is writing the test case will also be the person executing the test case, please make sure the instructions are explicit enough that anyone who may want to participate in the test day can follow them, and execute it.
 
-# Bug Reporting
+## Bug Reporting
 
 *   ovirt - <https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt>
 *   Spice - <https://bugs.freedesktop.org/> under Spice product
@@ -255,13 +255,13 @@ In case you would like to test a product with a new test case, there is a templa
 
 Tracker bug for the release - <https://bugzilla.redhat.com/881006>
 
-# Miscellaneous
+## Miscellaneous
 
 IRC - #ovirt at irc.oftc.net
 
-# Current Issues
+## Current Issues
 
-# 3.3 Features Test Status Table
+## 3.3 Features Test Status Table
 
 | Functional team | Feature                                                                                                                                | Owner                                                                                                | Dev - Status                                                | Test page                                                                                                                  | Tested By/ Distro | BZs | remarks |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|-------------------|-----|---------|

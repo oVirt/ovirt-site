@@ -164,6 +164,44 @@ Related features:
 4.  [8]
 
 </references>
+### Testing
+
+*   Test case: **Initialize vm parameters**
+    -   setup:
+
+Create VM in 3.3 cluster
+
+Make sure the vm OS is set correctly ("Other Linux" should be a good choice to fit any linux)
+:Install latest Fedora/RHEL/Ubuntu and install cloud-init package ("yum/apt-get install cloud-init")
+:When done shut down the vm.
+
+*   -   test:
+
+Click 'run-once' in the webadmin, under 'Inital Run' click 'Use Cloud-Init'
+
+Fill in some initialization fields as described in the screenshot above
+
+Click 'OK'
+
+Connect to the VM and observe the changes filled before were applied.
+
+*   Test case: **Initialize vm parameters and attach a CD**
+    -   setup:
+
+Same as first test
+
+*   -   test:
+
+Click 'run-once' in the webadmin, under Boot select 'attach CD' and select any cd to attach to the vm
+
+Under 'Inital Run' click 'Use Cloud-Init'
+
+Fill in some initialization fields as described in the screenshot above
+
+Click 'OK'
+
+Connect to the VM and observe the CD indeed attached and other changes filled before were applied.
+
 ### Comments and Discussion
 
 *   Refer to [Talk:Cloud-Init Integration](Talk:Cloud-Init Integration)

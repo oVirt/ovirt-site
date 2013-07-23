@@ -26,6 +26,8 @@ more information:
 
 # Automatic Fencing in oVirt 3.3
 
+### SSH Soft Fencing
+
 Fencing process in oVirt 3.3 has been extended of **SSH Soft Fencing** prior to real fencing. **SSH Soft Fencing** tries to restart VDSM using SSH connection. The executed command can be configured in SshSoftFencingCommand per cluster level. The fencing process is based on this flow:
 
 1.  Fencing is configured and enabled on the host.
@@ -39,6 +41,34 @@ Fencing process in oVirt 3.3 has been extended of **SSH Soft Fencing** prior to 
     -   If the host doesn't respond during this time, it's status will change to **non responsive** and it will be fenced.
 
 Attention: SSH Soft Fencing is also executed on hosts without power management configured unlike real fencing that is executed only for hosts with power management configured.
+
+### Testing
+
+I used following scenario to test SSH Soft Fencing for hosts with PM configured:
+
+1.  Create a 3.3 data center, create a cluster in it and add two hosts to it with PM properly configured
+2.  Testing scenario: SSH Soft Fencing will help and host will change status to Up after it
+    1.  Stop engine, connect to engine database and check if "SshSoftFencingCommand" option is set to correct value "/usr/bin/vdsm-tool service-restart vdsmd</code>) using following SQL command: <code>
+    2.  Check if both hosts are Up
+    3.  Stop VDSM on selected host
+    4.  Wait a few minutes to see if host status changes to Up
+
+3.  Testing scenario: SSH Soft Fencing command throws error on execution, real fencing will start immediately after it
+    1.  Stop engine
+    2.  Connect to engine database and execute following SQL command: `update vdc_options set option_value='servi vdsmd restart' where option_name='SshSoftFencingCommand' and version='3.3'`
+    3.  Start engine and check if both hosts are Up
+    4.  Stop VDSM on selected host
+    5.  After a few minutes SSH Soft Fencing command error appears in engine.log and real fencing (server restart) will be executed for selected host immediately
+    6.  After restart host will become Up
+
+4.  Testing scenario: SSH Soft Fencing will not help, real fencing will be executed in few minutes after SSH Soft Fencing execution
+    1.  Stop engine
+    2.  Connect to engine database and execute following SQL command: `update vdc_options set option_value='echo 0' where option_name='SshSoftFencingCommand' and version='3.3'`
+    3.  Start engine and check if both hosts are Up
+    4.  Stop VDSM on selected host
+    5.  After a few minutes SSH Soft Fencing command will be executed, but the host will remain Non Responsive
+    6.  After another few minutes real fencing (server restart) will be executed for selected host
+    7.  After restart host will become Up
 
 # Troubleshooting
 

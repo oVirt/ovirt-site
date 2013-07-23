@@ -91,7 +91,7 @@ N/A
 
 1.  Phase1 will cover Full backup/restore for VirtApp usecase. File level restore (non-agent based) should be possible (to confirm).
 2.  Phase 2 will cover HostApp usecase and supporting qemu-ga for Win. guests (depends on the ongoing qemu-ga work in the community).
-3.  Phase 3 will cover Change Block Tracking (CBT) to cover incremental backups. This also on the ongoing community work in qemu block layer to provide differential info.
+3.  Phase 3 will cover Change Block Tracking (CBT) to cover incremental backups. This also depends on the ongoing community work in qemu block layer to provide differential info.
 
 ### Benefits to oVirt
 

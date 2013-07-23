@@ -178,7 +178,7 @@ Related features:
 
 [5] Cloud-init documentation: <https://launchpad.net/cloud-init/>
 
-[6] "Config-Drive version 2 readme: <http://bazaar.launchpad.net/~cloud-init-dev/cloud-init/trunk/view/head:/doc/sources/configdrive/README.rst>
+[6] Config-Drive version 2 readme: <http://bazaar.launchpad.net/~cloud-init-dev/cloud-init/trunk/view/head:/doc/sources/configdrive/README.rst>
 
 [7] OpenStack meta-data example: <http://docs.openstack.org/trunk/openstack-compute/admin/content/config-drive.html>
 

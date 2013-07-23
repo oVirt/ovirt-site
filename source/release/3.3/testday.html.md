@@ -29,9 +29,7 @@ The purpose of test days initiative is to accomplish the following goals:
 *   Accomplish the goals set in objective section , run the tests, update the test matrix.
 *   Running into any issues - [ Try to get answer ](Community) or [<https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt>| open a BZ]
 
-## Participants
-
-Test Days are open to anyone. If you have your own setup we will provide all the software packages and the required information. Please refer - [What to do as a participant](Testing/OvirtTestDay#What_to_do_as_a_participant) - in the section below, if you're willing to participate please add yourself to the below table:
+## Participants Table
 
 | Name            | Tested Features         | Distro |
 |-----------------|-------------------------|--------|

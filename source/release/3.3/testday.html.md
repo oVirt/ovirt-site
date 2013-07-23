@@ -35,17 +35,6 @@ The purpose of test days initiative is to accomplish the following goals:
 |-----------------|-------------------------|--------|
 | jdoe@redhat.com | Watchdog engine support | EL6    |
 
-## Execution Plan and Guidelines
-
-for **installation** check: [Ovirt_Information_Details](http://www.ovirt.org/Testing/OvirtTestDay#Ovirt_Information_Details) deployment options:
-
-*   f18 manager (vm) + f18 hypervisors
-*   f18 manager (vm) + el6 hypervisors
-*   f18 manager AIO (nested virt - [http://www.ovirt.org/Vdsm_Developers#Running_Node_as_guest_-_Nested_KVM Nested_KVM](http://www.ovirt.org/Vdsm_Developers#Running_Node_as_guest_-_Nested_KVM_Nested_KVM))
-*   ovirt-live - <http://wiki.ovirt.org/OVirt_Live>
-
-The following is the list of categories which we would like to focus on. this is basically regression testing:
-
 ### General
 
 You need at least two physical servers to install and configure a basic yet complete oVirt environment with shared storage to exercise the following:

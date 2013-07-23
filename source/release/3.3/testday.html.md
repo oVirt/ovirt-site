@@ -58,16 +58,16 @@ The following is the list of categories which we would like to focus on. this is
 
 You need at least two physical servers to install and configure a basic yet complete oVirt environment with shared storage to exercise the following:
 
-| Scenario                                                                                                                                                                                                              | Bugs                                                         |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| Setup oVirt engine using either Active Directory or Local IPA, two hosts configured as hypervisors (Fedora / Ovirt-Node / other) with power management (Storage Domains - Data Domain / ISO Domain and Export Domain) |                                                              |
-| Setup oVirt engine - basic AIO flow                                                                                                                                                                                   | [906544](https://bugzilla.redhat.com/show_bug.cgi?id=906544) |
-| Use ISO Uploader to populate images of OS and tools                                                                                                                                                                   |                                                              |
-| Basic Network Configuration                                                                                                                                                                                           |                                                              |
-| Create virtual machines and assign them to users                                                                                                                                                                      |                                                              |
-| Migrate Virtual Machines between the hypervisors                                                                                                                                                                      |                                                              |
-| Collect log file using the log collector tool                                                                                                                                                                         |                                                              |
-| Upgrade from 3.1 to 3.2 including Fedora upgrade                                                                                                                                                                      | [906270](https://bugzilla.redhat.com/show_bug.cgi?id=906270) |
+| Scenario                                                                                                                                                                                                              | Bugs |
+|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
+| Setup oVirt engine using either Active Directory or Local IPA, two hosts configured as hypervisors (Fedora / Ovirt-Node / other) with power management (Storage Domains - Data Domain / ISO Domain and Export Domain) |      |
+| Setup oVirt engine - basic AIO flow                                                                                                                                                                                   |      |
+| Use ISO Uploader to populate images of OS and tools                                                                                                                                                                   |      |
+| Basic Network Configuration                                                                                                                                                                                           |      |
+| Create virtual machines and assign them to users                                                                                                                                                                      |      |
+| Migrate Virtual Machines between the hypervisors                                                                                                                                                                      |      |
+| Collect log file using the log collector tool                                                                                                                                                                         |      |
+| Upgrade from 3.1 to 3.2 including Fedora upgrade                                                                                                                                                                      |      |
 
 ### Configuration
 

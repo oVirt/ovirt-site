@@ -103,18 +103,18 @@ A new sub-tab will be introduced under Cluster tab which would list all the exis
 
 ![](geo_replication_slave1_new.png "geo_replication_slave1_new.png")
 
-#### All the existing Slaves
-
-All existing geo-replication slaves attached to the cluster will be show for the cluster along with their status. It also provides options for creation or new slaves and removal of the slaves. Testing the validity/availability of a slave is possible using the action "Test". Administrator can re-establish a broken master/slave communication as well using the action "Re-establish".
-
-![](geo_replication_slave2_subtab.png "geo_replication_slave2_subtab.png")
-
 If the user select the **Copy master cluster hosts public keys to slave cluster** then the following steps will happen
 
 *   `gluster system:: execute gsec_create` command will be executed in one of the hosts of the Master cluster. This will create a public key file, which will have the public keys of all the hosts of the Master cluster
 *   Public key file will be copied to the Slave host (through password less ssh)
 *   `gluster system:: execute add_secret_pub` command is used to distribute the public file to all the hosts of the Slave Cluster
 *   Now all the hosts of the Master cluster can initiate geo sync task in the hosts of the slave cluster
+
+#### All the existing Slaves
+
+All existing geo-replication slaves attached to the cluster will be show for the cluster along with their status. It also provides options for creation or new slaves and removal of the slaves. Testing the validity/availability of a slave is possible using the action "Test". Administrator can re-establish a broken master/slave communication as well using the action "Re-establish".
+
+![](geo_replication_slave2_subtab.png "geo_replication_slave2_subtab.png")
 
 #### Re-establish password less communication with slave host
 

@@ -63,6 +63,6 @@ This feature allows oVirt users to resize virtual disks while they are in use by
 
 ### Future Work
 
-*   Adding ability to extend size of the floating disks.
+*   Enable to extend size of the floating disks.
 
 <Category:Feature>

@@ -92,6 +92,32 @@ Example vdscli:
     connection = vdscli.connect()
     connection.addNetwork('whatever', '', '', ['p1p4'], {'qosInbound':{'average': '10000', 'burst': '48000', 'peak':'12000' }})
 
+It's possible to retrieve the QoS defined for an host's network with the following code:
+
+    from vdsm import vdscli
+    connection = vdscli.connect()
+    connection.getVdsCapabilities()['info']['networks']['whatever']
+
+the expected result should be something similar to:
+
+    {'addr': '',
+     'bridged': True,
+     'cfg': {'DELAY': '0',
+             'DEVICE': 'goofy',
+             'NM_CONTROLLED': 'no',
+             'ONBOOT': 'yes',
+             'TYPE': 'Bridge'},
+     'gateway': '0.0.0.0',
+     'iface': 'goofy',
+     'ipv6addrs': ['fe80::210:18ff:fee1:6d2a/64'],
+     'ipv6gateway': '::',
+     'mtu': '1500',
+     'netmask': '',
+     'ports': ['p1p2'],
+     'qosInbound': {'average': '10000' , 'burst': '48000', 'peak': '12000'},
+     'qosOutbound': '',
+     'stp': 'off'}
+
 ## Comments and Discussion
 
 *   Refer to [Talk:Network Traffic Shaping](Talk:Network Traffic Shaping)

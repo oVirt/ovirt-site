@@ -22,7 +22,7 @@ wiki_warnings: table-style
 *   General availability: **2013-08-14**
     -   Beta release: **2013-07-18**
     -   Feature freeze: **2013-07-17**
-    -   [ oVirt 3.3 Test Day:](OVirt_3.3_TestDay) **2013-07-24** [
+    -   [ oVirt 3.3 Test Day:](OVirt_3.3_TestDay) **2013-07-24**
     -   RC Build: **2013-08-01**
 
 ## Tracker Bug

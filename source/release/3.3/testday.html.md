@@ -35,14 +35,6 @@ The purpose of test days initiative is to accomplish the following goals:
 |-----------------|-------------------------|--------|
 | jdoe@redhat.com | Watchdog engine support | EL6    |
 
-## Test Dates
-
-The overall test dates are spread across multiple duration which are driven by the beta releases from the engineering. The following are the list of test days scheduled -
-
-*   JAN 18th, 2012 - First Release (3.0)
-*   Jun 14th, 2012 - Second Release (3.1)
-*   JAN 31th, 2013 - Third Release (3.2)
-
 ## Execution Plan and Guidelines
 
 for **installation** check: [Ovirt_Information_Details](http://www.ovirt.org/Testing/OvirtTestDay#Ovirt_Information_Details) deployment options:

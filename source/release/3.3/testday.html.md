@@ -27,7 +27,7 @@ The purpose of test days initiative is to accomplish the following goals:
 *   Update the Participants section.
 *   Go a head and [install oVirt](Download)
 *   Accomplish the goals set in objective section , run the tests, update the test matrix.
-*   Running into any issues - Try to get answer from IRC | email to users list | [open a BZ](https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt)
+*   Running into any issues - [ Try to get answer ](Community) or [<https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt>| open a BZ]
 
 ## Participants
 

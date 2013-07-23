@@ -38,6 +38,11 @@ This feature allows oVirt users to resize virtual disks while they are in use by
 *   QEMU-GA
     -   support for notifying the guest and updating the size of the visible disk: **To be integrated**
 
+### Limitations
+
+*   Shrinking of the virtual drive currently is not supported
+*   Floating disk, the disk which is not attached to any VM, is not supported
+
 # Detailed Description
 
 1.  A request from oVirt Engine is sent to the SPM to extend the image. The scope of this request is mainly to extend the Logical Volume where the image resides and to update the metadata. The extension relevant only when the image is RAW and resides on a block device. Most of the time this call can be optimized out or would be treated as a NO-OP on the SPM. In the case of a RAW image on a file domain a “truncate” commad could be issued on the image to add additional sparse space at the end but we expect the QEMU process to do this anyway as part of its implementation. A preallocated RAW file can be extended using a non-sparse dd command to add zeroes at the end of the image (this is for consistence even if preallocating data on NFS doesn't guarantee that the space is actually reserved).

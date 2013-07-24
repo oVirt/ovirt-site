@@ -14,6 +14,12 @@ Examples on each step are based on work done in [patch](http://gerrit.ovirt.org/
 
 ### Creating BE in api.xsd
 
+First, we will have do define the new BE in the api.xsd
+This is a XML meta-data file that helps to generate the new BE classes.
+In the example we will see a new *Job* entity and a new "Step" entity
+There is an heirarchy between "Job" and "Step" , A "Job" can contain several tests.
+Also, keep in mind that steps can be nested, we will get to that later.
+
 ### Working with nested entities (i.e disks under a vm , steps under a job etc.)
 
 ### Adding Mappers

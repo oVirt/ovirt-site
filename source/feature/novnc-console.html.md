@@ -116,7 +116,7 @@ Prerequisities: Browser that has proper websockets and postmessage support (test
     -   Generate certificates for the proxy on the engine machine
         1.  Run `/usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh --name=websocket-proxy-standalone --password=$CONST_CA_PASS$ --subject=/C=$C$/O=$O$/CN=$CN$`, substitute $VARS$ according to these rules:
             -   $CONST_CA_PASS$ can be read from /usr/share/ovirt-engine/scripts/basedefs.py
-            -   $C$, $O$ and $CN$ variables can be $openssl x509 -text -in ca.pem | grep Issuer
+            -   $C$, $O$ and $CN$ variables can be read from `openssl x509 -text -in /etc/pki/ovirt-engine/ca.pem  | grep Issuer`
             -   (Example:`/usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh --name=websocket-proxy-standalone --password=mypass --subject=/C=US/O=company/CN=company.com`)
             -   Now the key and certificate pair should be generated in /etc/pki/ovirt-engine/keys and /etc/pki/ovirt-engine/certs respectively.
 

@@ -26,9 +26,9 @@ To read more about gluster swift integration, see <http://www.gluster.org/commun
 
 ### Current Status
 
-*   Status: In Development
+*   Status: Completed
 *   Last updated: ,
-*   Planned for future : Gluster Swift configuration
+*   Available In : version 3.3
 
 ### Design
 

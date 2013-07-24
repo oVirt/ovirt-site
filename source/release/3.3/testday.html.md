@@ -28,12 +28,12 @@ wiki_warnings: table-style
 
 ### Installation notes
 
-*   make sure you have either a fedora 19 or centos 6.4 machine (vm) installed.
-*   add the beta repos for the testday
+*   make sure you have either a fedora 19 or centos 6.4 machine installed.
+*   install the release pkg:
 
-[`http://resources.ovirt.org/releases/beta/rpm/Fedora/19/`](http://resources.ovirt.org/releases/beta/rpm/Fedora/19/)
-[`http://resources.ovirt.org/releases/beta/rpm/EL/6/`](http://resources.ovirt.org/releases/beta/rpm/EL/6/)
+`sudo yum localinstall `[`http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm`](http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm)
 
+*   make sure to enable the [ovirt-beta] repo and disable the [ovirt-nightly] repo.
 *   if you're using centos, make sure you have epel repo enabled as well:
 
       [epel]
@@ -42,7 +42,12 @@ wiki_warnings: table-style
       enabled=1
       gpgcheck=0
 
-*   install oVirt [install oVirt](Download)
+*   install & run setup
+
+      sudo yum install -y ovirt-engine
+      sudo engine-setup
+
+*   for more info, checkout [install oVirt](Download)
 
 ### oVirt 3.3 New Features - Test Status Table
 

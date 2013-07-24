@@ -210,7 +210,7 @@ Step
 Sub-step
 
 <step>
-`    `<parent_id>`"yyy"`</parent_id>
+`    `<parent_step  id="yyy" />
 `    `<description></description>
 `    `<type></type>
 `    `<status>

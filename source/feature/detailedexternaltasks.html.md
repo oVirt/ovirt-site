@@ -200,7 +200,6 @@ Adding a new Job/Step will be implemented by the POST operation
 Step
 
 <step>
-`    `<parent_job id="xxx" href="/api/jobs/xxx></parent_job>
 `    `<description></description>
 `    `<type></type>
 `    `<status></status>

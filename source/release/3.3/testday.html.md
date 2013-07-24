@@ -137,6 +137,7 @@ You need at least two physical servers to install and configure a basic yet comp
 
 #### Network
 
+*   Important Note: Known Fedora 19 bug: If the ovirtmgmt bridge is not successfully installed during initial host-setup, manually click on the host, setup networks, and add the ovirtmgmt bridge.
 *   Base config - single NIC, bridge on top, VMs attached to NIC
 *   Advanced configurations:
 

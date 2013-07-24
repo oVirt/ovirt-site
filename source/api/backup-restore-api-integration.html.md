@@ -57,6 +57,10 @@ File level restore can be performed in-guest or off-host. Mount the volumes of t
 
 #### Single file level restore (Typically to source VM, or other VM)
 
+### LAN Free backup
+
+Support for LAN-Free backup: oVirt provides SAN access to the disk devices out of the box.
+
 ### High level flow of Backup Process
 
 1.  Contact the ovirt-engine containing the target virtual machine.

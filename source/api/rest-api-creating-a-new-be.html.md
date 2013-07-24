@@ -25,7 +25,7 @@ wiki_last_updated: 2013-07-24
 
 #### Adding tests
 
-### Enable parameter passing in the URL
+### Enabling parameter passing in the URL
 
 #### Adding tests
 

@@ -291,3 +291,4 @@ Tracker bug for the release - <https://bugzilla.redhat.com/881006>
 | [omasad](User:Omasad)                   | [bz#892260](bz#892260)                                                                                    | Fedora 19             |
 | [ahadas](User:ahadas)                   | [Online_Virtual_Drive_Resize](Features/Online_Virtual_Drive_Resize)                                     | Fedora 19             |
 | [mtayer](User:mtayer)                   | [bz#866319](bz#866319), [bz#854369](bz#854369) - both are small cli features                  | Fedora 19             |
+| [emsika](User:mtayer)                   | Compressing DWH DB backup                                                                                             | Fedora 19             |

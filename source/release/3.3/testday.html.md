@@ -50,6 +50,8 @@ wiki_warnings: table-style
 
 *   for more info, checkout [install oVirt](Download)
 
+Known issues: Fedora 19: If the ovirtmgmt bridge is not successfully installed during initial host-setup, manually click on the host, setup networks, and add the ovirtmgmt bridge. It is recommended to disable NetworkManager as well.
+
 ### oVirt 3.3 New Features - Test Status Table
 
 | Functional team | Feature                                                                                                                                | Owner                                                                                                | Dev - Status              | Test page                                                                                                                  | Tested By/ Distro                                                        | BZs                                                                                                                        | remarks                                             |

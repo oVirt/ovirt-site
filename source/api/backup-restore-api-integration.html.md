@@ -127,7 +127,6 @@ Add the ability to do full , file-level & incremental backups/restores of a runn
 1.  Create VM from flat OVF: a new API call for creating a VM from flat OVF (will create a VM entity and empty disks, (make all disks on block domains "preallocated". (thin provisioning will be covered in later phase). This API can be an extension of today's 'import' but without expecting to copy disk data.
 
 *   Block Device ID management considerations: method to track the device ID once attached to the Backup virtual appliance.
-*   Support for LAN-Free backup: oVirt provide SAN access to the disk devices out of the box.
 *   We should just name the snapshot with a proper prefix (e.g. "TSM Backup") to make it clear what it's about.
 
 ### Future Work

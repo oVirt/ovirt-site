@@ -11,7 +11,7 @@ wiki_last_updated: 2013-07-24
 
 ### Creating BE in api.xsd
 
-### working with nested entities (i.e disks under a vm , steps under a job etc.)
+### Working with nested entities (i.e disks under a vm , steps under a job etc.)
 
 ### Adding Mappers
 

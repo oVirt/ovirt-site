@@ -243,6 +243,7 @@ Tracker bug for the release - <https://bugzilla.redhat.com/881006>
 
 ### Participants Table
 
-| Name            | Tested Features         | Distro |
-|-----------------|-------------------------|--------|
-| jdoe@redhat.com | Watchdog engine support | EL6    |
+| Name                                               | Tested Features                                                                                  | Distro                |
+|----------------------------------------------------|--------------------------------------------------------------------------------------------------|-----------------------|
+| jdoe@redhat.com                                    | Watchdog engine support                                                                          | EL6                   |
+| [SandroBonazzola](User:SandroBonazzola) | [Normalized_ovirtmgmt_Initialization](Features/Normalized_ovirtmgmt_Initialization) | Fedora 19, oVirt Node |

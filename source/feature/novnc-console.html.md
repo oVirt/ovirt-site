@@ -104,50 +104,52 @@ Results: The new browser tab with noVNC session appears.
 
 ### Test case 2 - Websocket Proxy on a separate machine
 
-Prerequisities: Browser that has proper websockets and postmessage support (tested with FF and Chrome)
+#### At engine machine
 
-*   Install the engine as usual
-*   Set up the engine:
-    -   `engine-config -s WebSocketProxy=X:Y`
-        -   X is the hostname/ip of the machine, where the proxy will run
-        -   Y is the port of the proxy
-*   Install ovirt-websocket-proxy (package `ovirt-engine-websocket-proxy`) on a machine that is reachable from clients and that can reach the hosts.
-*   Set up the websocket proxy:
-    -   Generate certificates for the proxy on the engine machine
-        1.  Run `/usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh --name=websocket-proxy-standalone --password=$CONST_CA_PASS$ --subject=/C=$C$/O=$O$/CN=$CN$`, substitute $VARS$ according to these rules:
-            -   $CONST_CA_PASS$ can be read from /usr/share/ovirt-engine/scripts/basedefs.py
-            -   $C$, $O$ and $CN$ variables can be read from `openssl x509 -text -in /etc/pki/ovirt-engine/ca.pem  | grep Issuer`
-            -   (Example:`/usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh --name=websocket-proxy-standalone --password=mypass --subject=/C=US/O=company/CN=company.com`)
-            -   Now the key and certificate pair should be generated in /etc/pki/ovirt-engine/keys and /etc/pki/ovirt-engine/certs respectively.
+Install product.
 
-        2.  After this you need to convert the key and certificate since python doesn't like PKCS #12 (you will need the password from previous command since following commands ask for it).
-            -   `openssl pkcs12 -in /etc/pki/ovirt-engine/keys/websocket-proxy-standalone.p12 -nokeys > websocket-proxy-standalone.cer`
-            -   `openssl pkcs12 -in /etc/pki/ovirt-engine/keys/websocket-proxy-standalone.p12 -nocerts -nodes > websocket-proxy-standalone.key`
+Run, replace <host>:<port> with websocket proxy location.
 
-        3.  Finally, copy these files and also engine certificate file (`/etc/pki/ovirt-engine/certs/engine.cer`) to machine with websocket proxy.
-        4.  Configure it in the `/etc/ovirt-engine/ovirt-websocket-proxy.conf.d/10-setup.conf` (see below).
-            -   (Please bear in mind that the certificate (`SSL_CERTIFICATE` (or their CA) must be recognized client browsers.)
+`engine-config -s WebSocketProxy=`<host>`:`<port>
 
-<!-- -->
+Generate certificate and key, substitute <fqdn> with the DNS name of the host. Substitute <country>, <organization> to suite your environment.
 
-*   -   Run the proxy
+      /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh --name=websocket-proxy-standalone --password=mypass --subject="/C=`<country>`/O=`<organization>`/CN=`<fqdn>`"
+
+Copy /etc/pki/ovirt-engine/keys/websocket-proxy-standalone.p12 and /etc/pki/ovirt-engine/certs/engine.cer to proxy machine at /etc/pki/ovirt-websocket-proxy
+
+#### At websocket-proxy machine
+
+Install ovirt-engine-websocket-proxy package.
+
+Extract keys:
+
+      cd /etc/pki/websocket-proxy
+      openssl pkcs12 -in websocket-proxy-standalone.p12 -nokeys -out websocket-proxy-standalone.cer
+      openssl pkcs12 -in websocket-proxy-standalone.p12 -nocerts -nodes -out websocket-proxy-standalone.key
+      chown ovirt:ovirt *
+      chmod 0600 *
+
+Configure service: /etc/ovirt-engine/ovirt-websocket-proxy.conf.d/10-setup.conf
+
+      PROXY_PORT=6100
+      SSL_CERTIFICATE=/etc/pki/ovirt-websocket-proxy/websocket-proxy-standalone.cer
+      SSL_KEY=/etc/pki/ovirt-websocket-proxy/websocket-proxy-standalone.key
+      FORCE_DATA_VERIFICATION=True
+      CERT_FOR_DATA_VERIFICATION=/etc/pki/ovirt-websocket-proxy/engine.cer
+      SSL_ONLY=True
+
+NOTE: the certificate (`SSL_CERTIFICATE` (or their CA) must be recognized client browsers.)
+
+Start the service
+
+      service ovirt-websocket-proxy start
+
 *   Set up a VM as usual, set its Display Type to VNC and run it.
 *   In Console Options dialog, select 'noVNC'
 *   Click the console button to invoke the console.
     -   (The console opens in a new tab and this behavior is usualy blocked by browsers. For opening the console you must allow displaying pop-up windows from engine's domain.)
 
 Results: The new browser tab with noVNC session appears.
-
-#### Example `ovirt-engine-websocket-proxy` config file
-
-File /etc/ovirt-engine/ovirt-websocket-proxy.conf.d/10-setup.conf
-
-      PROXY_PORT=6100
-      SSL_CERTIFICATE=/etc/pki/ovirt-engine/certs/websocket-proxy.cer
-      SSL_KEY=/etc/pki/ovirt-engine/keys/websocket-proxy.key.nopass
-      FORCE_DATA_VERIFICATION=True
-      CERT_FOR_DATA_VERIFICATION=/etc/pki/ovirt-engine/certs/engine.cer
-      SSL_ONLY=True
-       
 
 <Category:Feature>

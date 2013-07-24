@@ -33,7 +33,7 @@ wiki_warnings: table-style
 
 `sudo yum localinstall `[`http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm`](http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm)
 
-*   make sure to enable the [ovirt-beta] repo and disable the [ovirt-nightly] repo.
+*   make sure to enable the [ovirt-beta] & [ovirt-stable] repos and disable the [ovirt-nightly] repo.
 *   if you're using centos, make sure you have epel repo enabled as well:
 
       [epel]

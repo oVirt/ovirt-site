@@ -125,4 +125,15 @@ Prerequisities: Browser that has proper websockets and postmessage support (test
 
 Results: The new browser tab with noVNC session appears.
 
+#### Example `ovirt-engine-websocket-proxy` config file
+
+`
+PROXY_PORT=6100
+SSL_CERTIFICATE=/etc/pki/ovirt-engine/certs/websocket-proxy.cer
+SSL_KEY=/etc/pki/ovirt-engine/keys/websocket-proxy.key.nopass
+FORCE_DATA_VERIFICATION=True
+CERT_FOR_DATA_VERIFICATION=/etc/pki/ovirt-engine/certs/engine.cer
+SSL_ONLY=True
+`
+
 <Category:Feature>

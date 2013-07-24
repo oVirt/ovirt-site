@@ -20,25 +20,17 @@ In the example we will see a new *Job* entity and a new "Step" entity
 There is an heirarchy between "Job" and "Step" , A "Job" can contain several tests.
 Also, keep in mind that steps can be nested, we will get to that later.
 
+The following is a type definition for all relevants parts that may appear in the URI
+/api/jobs /api/jobs/<job_id> /api/jobs/<job_id>/steps /api/jobs/<job_id>/steps/<steps_id>
+
 <xs:element name="jobs" type="Jobs"/>
 <xs:element name="job" type="Job"/>
 <xs:element name="steps" type="Steps"/>` `
 <xs:element name="step" type="Step"/>
 
-<xs:element name="step_types" type="StepTypes"/>
-` `<xs:complexType name="StepTypes">
-`   `<xs:sequence>
-`     `<xs:element name="step_type" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
-`      `<xs:annotation>
-`         `<xs:appinfo>
-`           `<jaxbroperty name="StepTypes"/>
-`         `</xs:appinfo>
-`       `</xs:annotation>
-`    `</xs:element>
-`   `</xs:sequence>
-` `</xs:complexType>
+This is the "Step"definition
 
-` `<xs:complexType name="Step">
+<xs:complexType name="Step">
 `   `<xs:annotation>
 `     `<xs:appinfo>
 `        `<jaxb:class name="Step"/>
@@ -60,6 +52,8 @@ Also, keep in mind that steps can be nested, we will get to that later.
 `   `</xs:complexContent>
 ` `</xs:complexType>
 
+This is the "Step" collection definition
+
 <xs:complexType name="Steps">
 `   `<xs:complexContent>
 `     `<xs:extension base="BaseResources">
@@ -75,7 +69,9 @@ Also, keep in mind that steps can be nested, we will get to that later.
 `   `</xs:complexContent>
 </xs:complexType>
 
-<xs:complexType name="Job">
+This is the "job" definition
+ <xs:complexType name="Job">
+
 `   `<xs:annotation>
 `     `<xs:appinfo>
 `        `<jaxb:class name="Job"/>
@@ -96,7 +92,9 @@ Also, keep in mind that steps can be nested, we will get to that later.
 `   `</xs:complexContent>
 ` `</xs:complexType>
 
-<xs:complexType name="Jobs">
+This is the "Job" collection definition
+ <xs:complexType name="Jobs">
+
 `   `<xs:complexContent>
 `     `<xs:extension base="BaseResources">
 `       `<xs:sequence>

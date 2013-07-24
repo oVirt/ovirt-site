@@ -271,3 +271,4 @@ Tracker bug for the release - <https://bugzilla.redhat.com/881006>
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------|-----------------------|
 | jdoe@redhat.com                                    | Watchdog engine support                                                                          | EL6                   |
 | [SandroBonazzola](User:SandroBonazzola) | [Normalized_ovirtmgmt_Initialization](Features/Normalized_ovirtmgmt_Initialization) | Fedora 19, oVirt Node |
+| [Amureini](User:Amureini)               | [Features/AsyncTaskManagerChanges 3.3](Features/AsyncTaskManagerChanges 3.3)          | EL6                   |

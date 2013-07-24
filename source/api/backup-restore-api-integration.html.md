@@ -25,7 +25,7 @@ This feature provides the ability for ISVs to backup and restore VMs. New set of
 ### Current Status
 
 *   Live snapshot : Done. Available in oVirt.
-*   Qemu-nbd : Not being used
+*   Live Merge: To be integrated in oVirt
 *   Qemu-ga: To be integrated.
 *   VDSM support : <http://gerrit.ovirt.org/#/q/status:open+project:vdsm+branch:master+topic:backup-restore,n,z>
 *   oVirt Engine / API support : <http://gerrit.ovirt.org/#/c/16284/3>

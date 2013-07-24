@@ -210,7 +210,7 @@ Step
 Sub-step
 
 <step>
-`    `<parent_step id="yyy" href="/api/jobs/xxx/steps/yyy></parent_step id>
+`    `<parent_id>`"yyy"`</parent_id>
 `    `<description></description>
 `    `<type></type>
 `    `<status>

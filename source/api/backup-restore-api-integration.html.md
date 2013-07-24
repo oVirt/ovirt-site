@@ -51,6 +51,12 @@ Back up an entire virtual machine to the backup machine storage as a single obje
 
 File level restore can be performed in-guest or off-host. Mount the volumes of the VM backup as a virtual volume. Then, copy the files that you want to restore.
 
+### Full restore to source VM
+
+### Full restore to a new VM
+
+### Single file level restore (Typically to source VM, or other VM)
+
 ### High level flow of Backup Process
 
 1.  Contact the ovirt-engine containing the target virtual machine.

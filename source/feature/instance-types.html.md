@@ -336,9 +336,9 @@ Have a template with 2 NICs
 ##### Test Case 2
 
 *   Press new VM and set the VM type to Server
-*   The Console/Soundcard checkbox should be checked
-*   Set the VM type to Desktop
 *   The Console/Soundcard checkbox should be unchecked
+*   Set the VM type to Desktop
+*   The Console/Soundcard checkbox should be checked
 
 ##### Test Case 3
 

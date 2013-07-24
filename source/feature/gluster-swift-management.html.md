@@ -106,6 +106,9 @@ Periodic sync job will report if service status changes in a server.
 
 1.  Engine - setup with Gluster or Both application mode, in order to create clusters with gluster service enabled.
 2.  Two or more servers to be added to cluster. The servers should have the gluster repo added so that while engine bootstraps host, the gluster rpms can be installed.
+3.  Install gluster-swift rpms and memcached if they are not already installed.
+4.  start the swift service by using the command "swift-init main start"
+5.  start the memcached service by using the command "service memcached start"
 
 #### Test Cases
 

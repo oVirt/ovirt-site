@@ -116,7 +116,7 @@ Build may be customized, refer to [README.developer](http://gerrit.ovirt.org/git
 
 Setup product by executing the following command and replying to questions, if you followed the database creation above then your database user is 'engine', its password is 'engine' and the database name is 'engine':
 
-      $ $HOME/ovirt-engine/bin/engine-setup-2
+      $ $HOME/ovirt-engine/bin/engine-setup
 
 If jboss is installed at alternate location, add the following while JBOSS_HOME contains the location: `--jboss-home="${JBOSS_HOME}"`
 

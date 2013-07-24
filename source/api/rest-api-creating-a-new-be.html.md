@@ -20,6 +20,97 @@ In the example we will see a new *Job* entity and a new "Step" entity
 There is an heirarchy between "Job" and "Step" , A "Job" can contain several tests.
 Also, keep in mind that steps can be nested, we will get to that later.
 
+<xs:element name="jobs" type="Jobs"/>
+<xs:element name="job" type="Job"/>
+<xs:element name="steps" type="Steps"/>` `
+<xs:element name="step" type="Step"/>
+
+<xs:element name="step_types" type="StepTypes"/>
+` `<xs:complexType name="StepTypes">
+`   `<xs:sequence>
+`     `<xs:element name="step_type" type="xs:string"  minOccurs="0" maxOccurs="unbounded">
+`      `<xs:annotation>
+`         `<xs:appinfo>
+`           `<jaxbroperty name="StepTypes"/>
+`         `</xs:appinfo>
+`       `</xs:annotation>
+`    `</xs:element>
+`   `</xs:sequence>
+` `</xs:complexType>
+
+` `<xs:complexType name="Step">
+`   `<xs:annotation>
+`     `<xs:appinfo>
+`        `<jaxb:class name="Step"/>
+`     `</xs:appinfo>
+`   `</xs:annotation>
+`   `<xs:complexContent>
+`     `<xs:extension base="BaseResource">
+`       `<xs:sequence>
+`         `<xs:element name="parent_step" type="Step" minOccurs="0" maxOccurs="1"/>
+`         `<xs:element name="job" type="Job" minOccurs="0" maxOccurs="1"/>
+`         `<xs:element name="type" type="xs:string" minOccurs="0" maxOccurs="1"/>
+`         `<xs:element name="number" type="xs:int" minOccurs="0" maxOccurs="1"/>
+`         `<xs:element ref="status" minOccurs="0" maxOccurs="1"/>
+`         `<xs:element name="start_time" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+`         `<xs:element name="end_time" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+`         `<xs:element name="external" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+`       `</xs:sequence>
+`     `</xs:extension>
+`   `</xs:complexContent>
+` `</xs:complexType>
+
+<xs:complexType name="Steps">
+`   `<xs:complexContent>
+`     `<xs:extension base="BaseResources">
+`       `<xs:sequence>
+`         `<xs:annotation>
+`           `<xs:appinfo>
+`               `<jaxb:property name="Steps"/>
+`           `</xs:appinfo>
+`         `</xs:annotation>
+`         `<xs:element ref="step" minOccurs="0" maxOccurs="unbounded"/>
+`       `</xs:sequence>
+`     `</xs:extension>
+`   `</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Job">
+`   `<xs:annotation>
+`     `<xs:appinfo>
+`        `<jaxb:class name="Job"/>
+`     `</xs:appinfo>
+`   `</xs:annotation>
+`   `<xs:complexContent>
+`     `<xs:extension base="BaseResource">
+`       `<xs:sequence>
+`         `<xs:element ref="status" minOccurs="0" maxOccurs="1"/>
+`         `<xs:element name="owner" type="User" minOccurs="0" maxOccurs="1"/>
+`         `<xs:element name="start_time" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+`         `<xs:element name="end_time" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+`         `<xs:element name="last_updated" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+`         `<xs:element name="external" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+`         `<xs:element name="auto_cleared" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+`       `</xs:sequence>
+`     `</xs:extension>
+`   `</xs:complexContent>
+` `</xs:complexType>
+
+<xs:complexType name="Jobs">
+`   `<xs:complexContent>
+`     `<xs:extension base="BaseResources">
+`       `<xs:sequence>
+`         `<xs:annotation>
+`           `<xs:appinfo>
+`               `<jaxb:property name="Jobs"/>
+`           `</xs:appinfo>
+`         `</xs:annotation>
+`         `<xs:element ref="job" minOccurs="0" maxOccurs="unbounded"/>
+`       `</xs:sequence>
+`     `</xs:extension>
+`   `</xs:complexContent>
+</xs:complexType>
+
 ### Working with nested entities (i.e disks under a vm , steps under a job etc.)
 
 ### Adding Mappers

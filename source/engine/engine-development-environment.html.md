@@ -231,9 +231,8 @@ Example:
        First, check if all prerequisites are installed.
 ` `[`http://www.ovirt.org/OVirt_Engine_Development_Environment#Prerequisites`](http://www.ovirt.org/OVirt_Engine_Development_Environment#Prerequisites)
 
-       There are issues when building oVirt engine using the IBM JDK, more details can be found in the following page:
-` `[`https://code.google.com/p/google-web-toolkit/issues/detail?id=7530`](https://code.google.com/p/google-web-toolkit/issues/detail?id=7530)
+There are issues when building oVirt engine using the IBM JDK, more details can be found in the following page: <https://code.google.com/p/google-web-toolkit/issues/detail?id=7530>
 
-       The workaround to this problem is removing all the .gwtar files that are inside the gwt-user.jar package and building the project using the "-Dgwt.usearchives=false" parameter in maven.
+The workaround to this problem is removing all the .gwtar files that are inside the gwt-user.jar package and building the project using the "-Dgwt.usearchives=false" parameter in maven.
 
 <Category:Engine> [Category:How to](Category:How to)

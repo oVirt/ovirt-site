@@ -11,7 +11,11 @@ wiki_last_updated: 2013-07-24
 
 # Ovirt Test Day
 
-## **oVirt 3.2 test day**
+## oVirt 3.3 test day
+
+[oVirt 3.3 test day page](OVirt_3.3_TestDay)
+
+## oVirt 3.2 test day
 
 ## Objective
 

@@ -9,7 +9,7 @@ wiki_last_updated: 2013-07-24
 
 # REST API - Adding a new BE
 
-### creating BE in api.xsd
+### Creating BE in api.xsd
 
 ### working with nested entities (i.e disks under a vm , steps under a job etc.)
 

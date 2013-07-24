@@ -44,6 +44,8 @@ Software:
 
     * Fedora 18 (for easy installation)
 
+    * Fedora 19 is not supported for 3.2, please use 3.3 if you want to use Fedora 19
+
 </div>
 <div class="span6">
 Recommended web browsers for Engine:  

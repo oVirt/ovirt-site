@@ -202,7 +202,9 @@ Step
 <step>
 `    `<description></description>
 `    `<type></type>
-`    `<status></status>
+`    `<status>
+`         `<state></state>
+`    `</status>
 <step>
 
 Sub-step
@@ -211,7 +213,9 @@ Sub-step
 `    `<parent_step id="yyy" href="/api/jobs/xxx/steps/yyy></parent_step id>
 `    `<description></description>
 `    `<type></type>
-`    `<status></status>
+`    `<status>
+`         `<state></state>
+`    `</status>
 <step>
 
 Ending an existing Job/Step will be done via a supported **action** on the Job/Step business entity

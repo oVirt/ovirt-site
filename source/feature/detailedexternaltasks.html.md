@@ -223,6 +223,21 @@ Ending an existing Job/Step will be done via a supported **action** on the Job/S
       /api/Jobs/`<job_id>`/end - will end the given job
       /api/Jobs/`<job_id>`/steps/`<step_id>`/end - will end the given step
 
+End a job
+
+<action>
+`  `<status>
+`     `<state>`FAILED`</state>
+        `</status>`>
+`  `<force>`false`</force>
+</action>
+
+End a Step
+
+<action>
+`  `<succeeded>`true`</succeeded>
+</action>
+
 ### User Experience
 
 External Jobs and their Steps will be displayen in the oVirt Task Monitor

@@ -57,8 +57,6 @@ File level restore can be performed in-guest or off-host. Mount the volumes of t
 
 #### Single file level restore (Typically to source VM, or other VM)
 
-### Full restore to a new VM
-
 ### Single file level restore (Typically to source VM, or other VM)
 
 ### High level flow of Backup Process

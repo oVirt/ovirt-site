@@ -279,10 +279,10 @@ Tracker bug for the release - <https://bugzilla.redhat.com/881006>
 
 ### Participants Table
 
-| Name                                               | Tested Features                                                                                  | Distro                |
-|----------------------------------------------------|--------------------------------------------------------------------------------------------------|-----------------------|
-| jdoe@redhat.com                                    | Watchdog engine support                                                                          | EL6                   |
-| [SandroBonazzola](User:SandroBonazzola) | [Normalized_ovirtmgmt_Initialization](Features/Normalized_ovirtmgmt_Initialization) | Fedora 19, oVirt Node |
-| [Amureini](User:Amureini)               | [Features/AsyncTaskManagerChanges 3.3](Features/AsyncTaskManagerChanges 3.3)          | EL6                   |
-| [omasad](User:Omasad)                   | [bz#892260](bz#892260)                                                               | Fedora 19             |
-| [ahadas](User:ahadas)                   | [Online_Virtual_Drive_Resize](Features/Online_Virtual_Drive_Resize)                | Fedora 19             |
+| Name                                               | Tested Features                                                                                                       | Distro                |
+|----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|-----------------------|
+| jdoe@redhat.com                                    | Watchdog engine support                                                                                               | EL6                   |
+| [SandroBonazzola](User:SandroBonazzola) | [Normalized_ovirtmgmt_Initialization](Features/Normalized_ovirtmgmt_Initialization), Network Base config | Fedora 19, oVirt Node |
+| [Amureini](User:Amureini)               | [Features/AsyncTaskManagerChanges 3.3](Features/AsyncTaskManagerChanges 3.3)                               | EL6                   |
+| [omasad](User:Omasad)                   | [bz#892260](bz#892260)                                                                                    | Fedora 19             |
+| [ahadas](User:ahadas)                   | [Online_Virtual_Drive_Resize](Features/Online_Virtual_Drive_Resize)                                     | Fedora 19             |

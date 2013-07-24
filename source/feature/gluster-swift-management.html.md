@@ -100,7 +100,14 @@ Periodic sync job will report if service status changes in a server.
 
 ### Dependencies / Related Features and Projects
 
-### Test Cases
+### Testing
+
+#### Prerequisites
+
+1.  Engine - setup with Gluster or Both application mode, in order to create clusters with gluster service enabled.
+2.  Two or more servers to be added to cluster. The servers should have the gluster repo added so that while engine bootstraps host, the gluster rpms can be installed.
+
+#### Test Cases
 
 *   Verify Swift Status at cluster level.
     -   Should have a cluster with "gluster service" enabled created and servers attached to it.

@@ -50,7 +50,9 @@ wiki_warnings: table-style
 
 *   for more info, checkout [install oVirt](Download)
 
-### Known issues
+#### Known issues
+
+##### host installation
 
 Fedora 19: If the ovirtmgmt bridge is not successfully installed during initial host-setup, manually click on the host, setup networks, and add the ovirtmgmt bridge. It is recommended to disable NetworkManager as well.
 

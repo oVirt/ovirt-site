@@ -107,13 +107,12 @@ Results: The new browser tab with noVNC session appears.
 Prerequisities: Browser that has proper websockets and postmessage support (tested with FF and Chrome)
 
 *   Install the engine as usual
-*   Install ovirt-websocket-proxy on a machine that is reachable from clients and that can reach the hosts.
 *   Set up the engine:
     -   `engine-config -s WebSocketProxy=X:Y`
-        -   X is the hostname/ip of the machine, where the proxy runs
+        -   X is the hostname/ip of the machine, where the proxy will run
         -   Y is the port of the proxy
+*   Install ovirt-websocket-proxy (package `ovirt-engine-websocket-proxy`) on a machine that is reachable from clients and that can reach the hosts.
 *   Set up the websocket proxy:
-    -   Install the websocket proxy from the package (ovirt-engine-websocket-proxy)
     -   Generate certificates for the proxy on the engine machine
         1.  Run `/usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh --name=websocket-proxy-standalone --password=$CONST_CA_PASS$ --subject=/C=$C$/O=$O$/CN=$CN$`, substitute $VARS$ according to these rules:
             -   $CONST_CA_PASS$ can be read from /usr/share/ovirt-engine/scripts/basedefs.py

@@ -22,9 +22,27 @@ wiki_warnings: table-style
 
 *   If you already have the hardware, verify if it meets the hardware requirement, refer information detail section below
 *   Update the Participants section.
-*   Go a head and [install oVirt](Download)
+*   Go a head and [ install ovirt ](OVirt_3.3_TestDay#Installation_notes)
 *   Accomplish the goals set in objective section , run the tests, update the test matrix.
 *   Running into any issues - [ Try to get answer ](Community) or [<https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt>| open a BZ]
+
+### Installation notes
+
+*   make sure you have either a fedora 19 or centos 6.4 machine (vm) installed.
+*   add the beta repos for the testday
+
+[`http://resources.ovirt.org/releases/beta/rpm/Fedora/19/`](http://resources.ovirt.org/releases/beta/rpm/Fedora/19/)
+[`http://resources.ovirt.org/releases/beta/rpm/EL/6/`](http://resources.ovirt.org/releases/beta/rpm/EL/6/)
+
+*   if you're using centos, make sure you have epel repo enabled as well:
+
+      [epel]
+      name=Extra Packages for Enterprise Linux 6 - $basearch
+      mirrorlist=`[`https://mirrors.fedoraproject.org/metalink?repo=epel-6&arch`](https://mirrors.fedoraproject.org/metalink?repo=epel-6&arch)`=$basearch
+      enabled=1
+      gpgcheck=0
+
+*   install oVirt [install oVirt](Download)
 
 ### oVirt 3.3 New Features - Test Status Table
 

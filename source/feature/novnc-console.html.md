@@ -125,8 +125,8 @@ Prerequisities: Browser that has proper websockets and postmessage support (test
             -   `openssl pkcs12 -in /etc/pki/ovirt-engine/keys/websocket-proxy-standalone.p12 -nokeys > websocket-proxy-standalone.cer`
             -   `openssl pkcs12 -in /etc/pki/ovirt-engine/keys/websocket-proxy-standalone.p12 -nocerts -nodes > websocket-proxy-standalone.key`
 
-        3.  Finally, copy these files and also engine certificate file (/etc/pki/ovirt-engine/certs/engine.cer) to machine with websocket proxy.
-        4.  Configure it in the /etc/ovirt-engine/ovirt-websocket-proxy.conf.d/10-setup.conf (see [Examples](Examples))
+        3.  Finally, copy these files and also engine certificate file (`/etc/pki/ovirt-engine/certs/engine.cer`) to machine with websocket proxy.
+        4.  Configure it in the `/etc/ovirt-engine/ovirt-websocket-proxy.conf.d/10-setup.conf` (see below).
             -   (Please bear in mind that the certificate (`SSL_CERTIFICATE` (or their CA) must be recognized client browsers.)
 
 <!-- -->

@@ -31,17 +31,17 @@ To read more about GlusterFS geo-replication, see <http://gluster.org/community/
 
 ## Detailed Description
 
-GlusterFS Geo-replication uses a master–slave model, whereby replication and mirroring occurs between the following partners:
+GlusterFS Geo-replication uses a Source–Destination model, whereby replication and mirroring occurs between the following partners:
 
-*   Master – A GlusterFS volume
-*   Slave – A GlusterFS Volume in a remote cluster
+*   Source – A GlusterFS volume
+*   Destination – A GlusterFS Volume in a remote cluster
 
 With this feature the user will be able to
 
-*   View all the slaves attached to a cluster
-*   Add a new slave and enable password less communication between a host of master cluster and a host of slave cluster
-*   Test password less communication to slave cluster/host
-*   Remove(Detach) a slave cluster
+*   View all the destinations attached to a cluster
+*   Add a new destination and enable password less communication between a host of source cluster and a host of destination cluster
+*   Test password less communication to destination cluster/host
+*   Remove(Detach) a destination cluster
 *   View all active/inactive geo-replication sessions for a volume
 *   Setup a new ge-replication session
 *   Start a geo-replication session
@@ -52,33 +52,33 @@ With this feature the user will be able to
 
 ## Design
 
-Geo-replication feature is designed to enable creation and maintenance of geo-replication sessions across clusters in GlusterFS. A geo-replication session can be setup between a GlusterFS managed master cluster and remote (slave) GlusterFS managed cluster.
+Geo-replication feature is designed to enable creation and maintenance of geo-replication sessions across clusters in GlusterFS. A geo-replication session can be setup between a GlusterFS managed source cluster and remote (destination) GlusterFS managed cluster.
 
 ### Entity Description
 
-#### Gluster Geo Replication Slaves
+#### Gluster Geo Replication Destinations
 
-This entity stores the details of remote (slave) for a geo-replication setup.
+This entity stores the details of remote (destination) for a geo-replication setup.
 
-| Column name             | Type   | description                                                        |
-|-------------------------|--------|--------------------------------------------------------------------|
-| Id                      | UUID   | Primary Key                                                        |
-| Vds_Group_Id          | UUID   | Id of the Master Cluster                                           |
-| Server_Id              | UUID   | Host of the Master Cluster                                         |
-| Slave_Host_IP         | String | Host part of remote/slave cluster                                  |
-| Slave_SSH_Fingerprint | String | SSH key fingerprint of slave host                                  |
-| Connection_Status      | String | Password less connection status between master node and slave node |
+| Column name             | Type   | description                                                              |
+|-------------------------|--------|--------------------------------------------------------------------------|
+| Id                      | UUID   | Primary Key                                                              |
+| Vds_Group_Id          | UUID   | Id of the Source Cluster                                                 |
+| Server_Id              | UUID   | Host of the Source Cluster                                               |
+| Slave_Host_IP         | String | Host part of remote/destination cluster                                  |
+| Slave_SSH_Fingerprint | String | SSH key fingerprint of destination host                                  |
+| Connection_Status      | String | Password less connection status between source node and destination node |
 
 #### Gluster Geo Replication Sessions
 
 This entity stores the details of the individual geo-replication sessions
 
-| Column name   | Type   | description                                |
-|---------------|--------|--------------------------------------------|
-| Id            | UUID   | Primary Key                                |
-| Slave_id     | UUID   | References Id of gluster_geo_rep_slaves |
-| Volume_id    | UUID   | References Id of gluster_volumes          |
-| Slave_Volume | String | Name of the volume in slave cluster        |
+| Column name   | Type   | description                                      |
+|---------------|--------|--------------------------------------------------|
+| Id            | UUID   | Primary Key                                      |
+| Slave_id     | UUID   | References Id of gluster_geo_rep_destinations |
+| Volume_id    | UUID   | References Id of gluster_volumes                |
+| Slave_Volume | String | Name of the volume in destination cluster        |
 
 #### Gluster Geo Replication Session Status
 
@@ -88,7 +88,7 @@ This entity stores the status of individual geo-replication sessions maintained 
 |-------------|--------|---------------------------------------------------------|
 | Id          | UUID   | Primary Key                                             |
 | Session_id | UUID   | References Id of gluster_geo_rep_session             |
-| Server_id  | UUID   | Host in the master cluster                              |
+| Server_id  | UUID   | Host in the source cluster                              |
 | Status      | String | Valid values STABLE, FAULTY, INITIALIZING, NOT_STARTED |
 
 #### Gluster Geo Replication Session Config
@@ -97,34 +97,34 @@ Refer the URL <http://www.ovirt.org/Features/Entity_Configuration_Management> fo
 
 ### User Experience
 
-#### Add/Attach a new Slave Cluster
+#### Add/Attach a new Destination Cluster
 
-A new sub-tab will be introduced under Cluster tab which would list all the existing geo-replication slaves for the current cluster. Password less SSH communication should be enabled between one node of the master cluster and one node of slave cluster before creating a geo-replication session between the identified master and slave clusters. The below dialog "New Geo-Replication Slave" would capture the required details for adding a new slave cluster for geo-replication session.
+A new sub-tab will be introduced under Cluster tab which would list all the existing geo-replication destinations for the current cluster. Password less SSH communication should be enabled between one node of the source cluster and one node of destination cluster before creating a geo-replication session between the identified source and destination clusters. The below dialog "New Geo-Replication Destination" would capture the required details for adding a new destination cluster for geo-replication session.
 
 ![](geo_replication_slave1_new.png "geo_replication_slave1_new.png")
 
-If the user select the **Copy master cluster hosts public keys to slave cluster** then the following steps will happen
+If the user select the **Copy source cluster hosts public keys to destination cluster** then the following steps will happen
 
-*   `gluster system:: execute gsec_create` command will be executed in one of the hosts of the Master cluster. This will create a public key file, which will have the public keys of all the hosts of the Master cluster
-*   Public key file will be copied to the Slave host (through password less ssh)
-*   `gluster system:: execute add_secret_pub` command is used to distribute the public file to all the hosts of the Slave Cluster
-*   Now all the hosts of the Master cluster can initiate geo sync task in the hosts of the slave cluster
+*   `gluster system:: execute gsec_create` command will be executed in one of the hosts of the source cluster. This will create a public key file, which will have the public keys of all the hosts of the source cluster
+*   Public key file will be copied to the destination host (through password less ssh)
+*   `gluster system:: execute add_secret_pub` command is used to distribute the public file to all the hosts of the destination Cluster
+*   Now all the hosts of the source cluster can initiate geo sync task in the hosts of the destination cluster
 
-#### All the existing Slaves
+#### All the existing Destinations
 
-All existing geo-replication slaves attached to the cluster will be show for the cluster along with their status. It also provides options for creation or new slaves and removal of the slaves. Testing the validity/availability of a slave is possible using the action "Test". Administrator can re-establish a broken master/slave communication as well using the action "Re-establish".
+All existing geo-replication destinations attached to the cluster will be show for the cluster along with their status. It also provides options for creation or new destinations and removal of the destinations. Testing the validity/availability of a destination is possible using the action "Test". Administrator can re-establish a broken source/destination communication as well using the action "Re-establish".
 
 ![](geo_replication_slave2_subtab.png "geo_replication_slave2_subtab.png")
 
-#### Re-establish password less communication with slave host
+#### Re-establish password less communication with destination host
 
-The below dialog provides a mechanism for re-establishing a broken master/slave communication between master and slave clusters. It captures the details again and re-establishes the communication between master and slave cluster.
+The below dialog provides a mechanism for re-establishing a broken source/destination communication between source and destination clusters. It captures the details again and re-establishes the communication between source and destination cluster.
 
 ![](geo_replication_slave3_reestablish.png "geo_replication_slave3_reestablish.png")
 
 #### Create a new Geo-Replication Session
 
-A new sub tab "Geo-Replication Sessions" will be added to the Volumes main tab in oVirt webadmin UI which will list all the geo-replication sessions for the selected volume. The below dialog captures the details and creates the geo-replication session between master and slave gluster volumes.
+A new sub tab "Geo-Replication Sessions" will be added to the Volumes main tab in oVirt webadmin UI which will list all the geo-replication sessions for the selected volume. The below dialog captures the details and creates the geo-replication session between source and destination gluster volumes.
 
 ![](volume_georeplication1_new.png "volume_georeplication1_new.png")
 

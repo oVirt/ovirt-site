@@ -60,25 +60,25 @@ Geo-replication feature is designed to enable creation and maintenance of geo-re
 
 This entity stores the details of remote (destination) for a geo-replication setup.
 
-| Column name             | Type   | description                                                              |
-|-------------------------|--------|--------------------------------------------------------------------------|
-| Id                      | UUID   | Primary Key                                                              |
-| Vds_Group_Id          | UUID   | Id of the Source Cluster                                                 |
-| Server_Id              | UUID   | Host of the Source Cluster                                               |
-| Slave_Host_IP         | String | Host part of remote/destination cluster                                  |
-| Slave_SSH_Fingerprint | String | SSH key fingerprint of destination host                                  |
-| Connection_Status      | String | Password less connection status between source node and destination node |
+| Column name                   | Type   | description                                                              |
+|-------------------------------|--------|--------------------------------------------------------------------------|
+| Id                            | UUID   | Primary Key                                                              |
+| Vds_Group_Id                | UUID   | Id of the Source Cluster                                                 |
+| Server_Id                    | UUID   | Host of the Source Cluster                                               |
+| Destination_Host_IP         | String | Host part of remote/destination cluster                                  |
+| Destination_SSH_Fingerprint | String | SSH key fingerprint of destination host                                  |
+| Connection_Status            | String | Password less connection status between source node and destination node |
 
 #### Gluster Geo Replication Sessions
 
 This entity stores the details of the individual geo-replication sessions
 
-| Column name   | Type   | description                                      |
-|---------------|--------|--------------------------------------------------|
-| Id            | UUID   | Primary Key                                      |
-| Slave_id     | UUID   | References Id of gluster_geo_rep_destinations |
-| Volume_id    | UUID   | References Id of gluster_volumes                |
-| Slave_Volume | String | Name of the volume in destination cluster        |
+| Column name         | Type   | description                                      |
+|---------------------|--------|--------------------------------------------------|
+| Id                  | UUID   | Primary Key                                      |
+| Destination_id     | UUID   | References Id of gluster_geo_rep_destinations |
+| Volume_id          | UUID   | References Id of gluster_volumes                |
+| Destination_Volume | String | Name of the volume in destination cluster        |
 
 #### Gluster Geo Replication Session Status
 

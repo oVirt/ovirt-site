@@ -31,14 +31,14 @@ Currently all the entities maintain its own ways for maintenance of configuratio
 
 ## Detailed Description
 
-Currently the individual entity options provide its own ways for maintenance of configuration parameters, and there is not standardization available for the same. The proposed design introduces a standard and common mechanism for maintenance of configuration parameters for different entities in oVirt engine.
+Currently the individual entity options provide its own ways for maintenance of configuration parameters, and there is no standardization available for the same. The proposed design introduces a standard and common mechanism for maintenance of configuration parameters for different entities in oVirt engine.
 
 With this feature the user will be able to
 
-*   Create a new configuration parameter for an entity from common UI of Entity Configuration Management
-*   Update the value of existing configuration parameter UI of Entity Configuration Management
-*   Delete an existing configuration parameter UI of Entity Configuration Management
-*   Update/Delete the the configuration parameters for entity specific UI screens
+*   Create a new configuration parameter for an entity in common UI of Entity Configuration Management
+*   Update the value of existing configuration parameter in common UI of Entity Configuration Management
+*   Delete an existing configuration parameter in common UI of Entity Configuration Management
+*   Update/Delete the the configuration parameters in entity specific UI screens
 
 ## Design
 

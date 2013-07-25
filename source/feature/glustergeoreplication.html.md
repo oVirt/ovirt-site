@@ -138,6 +138,41 @@ The below dialog fetches and lists the default values of all the configurations 
 
 The details of the REST for gluster geo-replication feature are as below -
 
-*   api/clusters/{id}/geo-replication-sessions
+#### Listing APIs
+
+*   api/clusters/{id}/geo-replication-destinations - lists all the geo-replication destinations from current cluster
+*   /api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id} - lists the details of the individual geo-replication destination
+
+<!-- -->
+
+*   api/volumes/{id}/geo-replication-sessions - lists all the geo-replication sessions for the current volume
+*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id} - lists the detail of an individual geo-replication session
+*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/configurations - lists all the configurations for a geo-replication session
+*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/configurations/{config-id} - shows the details of an individual configuration for a geo-replication session
+
+#### Actions Supported
+
+*   api/clusters/{id}/create-geo-rep-destination - creates a new geo-replication destination for the cluster
+    -   Parameters
+        -   source_host - uuid
+        -   destination_host - uuid
+        -   destination_root_passwd - string
+*   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id}/remove - Removes the given geo-replication destination
+*   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id}/reestablish - reestablishes the communication between geo-replication source-destination
+*   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id}/test - checks the validity of communication between geo-replication source-destination
+
+<!-- -->
+
+*   api/volumes/{id}/create-geo-rep-session - Creates a new geo-replication session for the volume
+    -   Parameters
+        -   destination_host
+        -   destination_volume
+*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/start - starts the given geo-replication session
+*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/stop - stops the given geo-replication session
+*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/remove - removes the given geo-replication session
+*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/set-config - sets a configuration value for a geo-replication session
+    -   Parameters
+        -   configuration_name - string
+        -   configuration_value - string
 
 [Category: Feature](Category: Feature)

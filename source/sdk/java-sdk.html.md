@@ -243,6 +243,18 @@ TBD
          // #4 - run an action on sub-resource
          Action result = disk.activate(actionParam);
 
+### Best Practices
+
+The api should be shutdown in a finally block so daemon resources are freed:
+
+       Api api = new Api(URL, USER, PASSWORD);
+       try {
+           api.api.getDataCenters().add(new DataCenter());
+           ...
+       } finally {
+           api.shutdown();
+       }
+
 ## Working with SSL (Secure Socket Layer)
 
 oVirt Java-SDK provides full support for HTTP over Secure Sockets Layer (SSL) or IETF Transport Layer Security (TLS) protocols by leveraging the Java Secure Socket Extension (JSSE). JSSE has been integrated into the Java 2 platform as of version 1.4 and works with Java-SDK out of the box. On older Java 2 versions JSSE needs to be manually installed and configured. Installation instructions can be found at [here](http://java.sun.com/products/jsse/doc/guide/API_users_guide.html#Installation).

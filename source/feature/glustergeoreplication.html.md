@@ -142,31 +142,91 @@ The details of the REST for gluster geo-replication feature are as below -
 
 *   api/clusters/{id}/geo-replication-destinations - lists all the geo-replication destinations from current cluster
 
-Output: <geo-replication-destinations>
+Output:
 
-` `<geo-replication-destination>
-`   `<id>`geo replication destination id`</id>
-`   `<cluster>`Cluster Id`</cluster>
-`   `<source_host>`Source Host Id`</source-host>
-`   `<destination_host>`Destination Host Id`</destination_host>
-` `</geo-replication-destination>
-` `<geo-replication-destination>
-`   `<id>`geo replication destination id`</id>
-`   `<cluster>`Cluster Id`</cluster>
-`   `<source_host>`Source Host Id`</source-host>
-`   `<destination_host>`Destination Host Id`</destination_host>
-` `</geo-replication-destination>
-
-</geo-replication-destinations>
+    <geo-replication-destinations>
+      <geo-replication-destination>
+        <id>geo replication destination id</id>
+        <cluster>Cluster Id</cluster>
+        <source_host>Source Host Id</source-host>
+        <destination_host>Destination Host Id</destination_host>
+      </geo-replication-destination>
+      <geo-replication-destination>
+        <id>geo replication destination id</id>
+        <cluster>Cluster Id</cluster>
+        <source_host>Source Host Id</source-host>
+        <destination_host>Destination Host Id</destination_host>
+      </geo-replication-destination>
+    </geo-replication-destinations>
 
 *   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id} - lists the details of the individual geo-replication destination
 
-<!-- -->
+Output:
+
+      <geo-replication-destination>
+        <id>geo replication destination id</id>
+        <cluster>Cluster Id</cluster>
+        <source_host>Source Host Id</source-host>
+        <destination_host>Destination Host Id</destination_host>
+      </geo-replication-destination>
 
 *   api/volumes/{id}/geo-replication-sessions - lists all the geo-replication sessions for the current volume
+
+Output:
+
+    <geo-replication-sessions>
+      <geo-replication-session>
+        <id>geo replication session id</id>
+        <volume>source volume id</volume>
+        <source_host>Source Host Id</source-host>
+        <destination_host>Destination Host Id</destination_host>
+        <destination_volume>destination volume id</destination_volume>
+        <status>Stable/Faulty/Initializing/Not Started</status>
+      </geo-replication-session>
+      <geo-replication-session>
+        <id>geo replication session id</id>
+        <volume>source volume id</volume>
+        <source_host>Source Host Id</source-host>
+        <destination_host>Destination Host Id</destination_host>
+        <destination_volume>destination volume id</destination_volume>
+        <status>Stable/Faulty/Initializing/Not Started</status>
+      </geo-replication-session>
+    </geo-replication-sessions>
+
 *   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id} - lists the detail of an individual geo-replication session
+
+Output:
+
+      <geo-replication-session>
+        <id>geo replication session id</id>
+        <volume>source volume id</volume>
+        <source_host>Source Host Id</source-host>
+        <destination_host>Destination Host Id</destination_host>
+        <destination_volume>destination volume id</destination_volume>
+        <status>Stable/Faulty/Initializing/Not Started</status>
+      </geo-replication-session>
+
 *   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/configurations - lists all the configurations for a geo-replication session
+
+Output:
+
+    <geo_replication_configurations>
+      <configuration>
+        <id>Configuration Id</id>
+        <configuration_name>Name of the configuration</configuration_name>
+        <configuration_value>Value of the configuration</configuration_value>
+      </configuration>
+    </geo_replication_configurations>
+
 *   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/configurations/{config-id} - shows the details of an individual configuration for a geo-replication session
+
+Output:
+
+      <configuration>
+        <id>Configuration Id</id>
+        <configuration_name>Name of the configuration</configuration_name>
+        <configuration_value>Value of the configuration</configuration_value>
+      </configuration>
 
 #### Actions Supported
 

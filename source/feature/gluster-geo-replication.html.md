@@ -159,6 +159,8 @@ The below dialog fetches and lists the default values of all the configurations 
 
 ![](volume_georeplication3_config.png "volume_georeplication3_config.png")
 
+### REST APIs
+
 ## Dependencies / Related Features and Projects
 
 ## Test Cases

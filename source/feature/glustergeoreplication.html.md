@@ -136,4 +136,8 @@ The below dialog fetches and lists the default values of all the configurations 
 
 ### REST APIs
 
+The details of the REST for gluster geo-replication feature are as below -
+
+*   api/clusters/{id}/geo-replication-sessions
+
 [Category: Feature](Category: Feature)

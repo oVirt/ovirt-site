@@ -141,6 +141,24 @@ The details of the REST for gluster geo-replication feature are as below -
 #### Listing APIs
 
 *   api/clusters/{id}/geo-replication-destinations - lists all the geo-replication destinations from current cluster
+
+Output: <geo-replication-destinations>
+
+` `<geo-replication-destination>
+`   `<id>`geo replication destination id`</id>
+`   `<cluster>`Cluster Id`</cluster>
+`   `<source_host>`Source Host Id`</source-host>
+`   `<destination_host>`Destination Host Id`</destination_host>
+` `</geo-replication-destination>
+` `<geo-replication-destination>
+`   `<id>`geo replication destination id`</id>
+`   `<cluster>`Cluster Id`</cluster>
+`   `<source_host>`Source Host Id`</source-host>
+`   `<destination_host>`Destination Host Id`</destination_host>
+` `</geo-replication-destination>
+
+</geo-replication-destinations>
+
 *   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id} - lists the details of the individual geo-replication destination
 
 <!-- -->

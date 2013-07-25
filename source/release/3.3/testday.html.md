@@ -292,3 +292,4 @@ Tracker bug for the release - <https://bugzilla.redhat.com/881006>
 | [ahadas](User:ahadas)                   | [Online_Virtual_Drive_Resize](Features/Online_Virtual_Drive_Resize)                                     | Fedora 19             |
 | [mtayer](User:mtayer)                   | [bz#866319](bz#866319), [bz#854369](bz#854369) - both are small cli features                  | Fedora 19             |
 | [emsika](User:mtayer)                   | Compressing DWH DB backup                                                                                             | Fedora 19             |
+| [ofrenkel](User:Ofrenkel)               | Select host as SPM                                                                                                    | Fedora 19             |

@@ -235,6 +235,15 @@ Output:
         -   source_host - uuid
         -   destination_host - uuid
         -   destination_root_passwd - string
+
+Input:
+
+    <action>
+      <source_host>Source Host Id</source_host>
+      <destination_host>Destination Host Id</destination_host>
+      <destination_root_passwd>Destination Host root password</destination_root_passwd>
+    </action>
+
 *   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id}/remove - Removes the given geo-replication destination
 *   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id}/reestablish - reestablishes the communication between geo-replication source-destination
 *   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id}/test - checks the validity of communication between geo-replication source-destination
@@ -245,6 +254,14 @@ Output:
     -   Parameters
         -   destination_host
         -   destination_volume
+
+Input:
+
+    <action>
+      <destination_host>Destination Host Id</destination_host>
+      <destination_volume>Destination Volume Id</destination_volume>
+    </action>
+
 *   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/start - starts the given geo-replication session
 *   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/stop - stops the given geo-replication session
 *   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/remove - removes the given geo-replication session
@@ -252,5 +269,12 @@ Output:
     -   Parameters
         -   configuration_name - string
         -   configuration_value - string
+
+Input:
+
+    <action>
+      <configuration_name>Name of the configuration</configuration_name>
+      <configuration_value>Value of the configuration</configuration_value>
+    </action>
 
 [Category: Feature](Category: Feature)

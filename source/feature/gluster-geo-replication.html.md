@@ -50,6 +50,8 @@ With this feature the user will be able to
 *   View and update the configuration before starting the session or later (ssh command, gsync command)
 *   Monitor the status of geo-replication sessions in a cluster
 
+### Setting up Geo Replication - Functional Work Flow
+
 ## Design
 
 Geo-replication feature is designed to enable creation and maintenance of geo-replication sessions across clusters in GlusterFS. A geo-replication session can be setup between a GlusterFS managed source cluster and remote (destination) GlusterFS managed cluster.

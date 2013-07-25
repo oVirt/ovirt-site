@@ -140,7 +140,7 @@ The details of the REST for gluster geo-replication feature are as below -
 
 #### Listing APIs
 
-*   api/clusters/{id}/geo-replication-destinations - lists all the geo-replication destinations from current cluster
+*   [api/clusters/{id}/geo-replication-destinations](api/clusters/{id}/geo-replication-destinations) - lists all the geo-replication destinations from current cluster
 *   /api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id} - lists the details of the individual geo-replication destination
 
 <!-- -->

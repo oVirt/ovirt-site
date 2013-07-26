@@ -158,7 +158,7 @@ Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster)
 
 Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , and [#Add a trusted host](#Add_a_trusted_host)
 
-1.  go to the "Hosts" tab
+1.  go to the **Hosts** tab
 2.  reboot the host in the trusted cluster(s) manually
 3.  after the host start, right click **Confirm 'Host has been rebooted**'
 4.  check whether the host is **Up** status

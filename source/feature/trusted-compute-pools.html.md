@@ -115,86 +115,90 @@ None.
 
 ### Test cases
 
-*   Create a trusted cluster
+#### Create a trusted cluster
 
 1.  go to the **Clusters** tab
 2.  click on the **New** button
-3.  set cluster name
+3.  set cluster **Name**
 4.  select **Enable Virt Service** checkbox
 5.  select **Enable Trusted Service** checkbox
-6.  click "OK" button
+6.  click ok
 
-*   Add a trusted host
+#### Add a trusted host
 
-Dependens on [Create a trusted cluster](Create a trusted cluster)
+Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster)
 
 1.  go to the **Hosts** tab
 2.  click on **New** button
-3.  select a trusted cluster as a cluster and click "OK"
+3.  set host **Name** and **Address**, and make sure the host is trusted attested by attestation server
+4.  select a trusted cluster as a cluster
+5.  click ok
 
-*   Add an untrusted node
+#### Add an untrusted host
 
-1.  Open the "host" page
-2.  Click "New" button to open the new host page
-3.  Choose a trusted cluster from the dropdown list with label "Host Cluster" and click "OK"
+Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster)
 
-*   Reboot engine host
+1.  open the **Hosts** tab
+2.  click on **New** button
+3.  set host **Name** and **Address**, and make sure the host is untrusted attested by attestation server
+4.  select a trusted cluster as a cluster
+5.  click ok
 
-1.  Make sure there is one trusted host with "UP" status
-2.  Restart the engine service
-3.  Open the Host panel, check the trusted host's status
+#### Reboot the trusted host
 
-*   Reboot node in untrusted cluster
+Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , and [#Add a trusted host](#Add_a_trusted_host)
 
-1.  Set the untrusted host's status to maintenance
-2.  Reboot the node manually
-3.  After the host is started, perform "Confirm 'Host has been rebooted'" operation
+1.  go to the "Hosts" tab
+2.  reboot the host in the trusted cluster(s) manually
+3.  after the host start, right click **Confirm 'Host has been rebooted**'
+4.  check whether the host is **Up** status
 
-*   Reboot a trusted node in trusted cluster
+#### Reboot the untrusted host
 
-1.  Set the untrusted host's status to maintenance
-2.  Reboot the trusted host manually
-3.  After the host start, click "Confirm 'Host has been rebooted'"
+Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , and [#Add an untrusted host](#Add_an_untrusted_host)
 
-*   Reboot the untrusted node in the trusted cluster
+1.  go to the "Hosts" tab
+2.  reboot the host in the untrusted cluster(s) manually
+3.  after the host start, right click **Confirm 'Host has been rebooted**'
+4.  check whether the host is **Nonoperational** status
 
-1.  Set the untrusted host's status to maintenance
-2.  Reboot the node manually
-3.  After the host is started, perform "Confirm 'Host has been rebooted'" operation
+#### Reboot engine
 
-*   Reboot the untrusted node after fixing the issue
+Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , [#Add a trusted host](#Add_a_trusted_host), and [#Add an untrusted host](#Add_an_untrusted_host)
 
-1.  Set the untrusted host's status to maintenance
-2.  Reboot the node manually
-3.  After the host is started, perform "Activate'" operation
+1.  make sure there are at least two hosts in the trusted cluster(s), and one is trusted and the other is untrusted
+2.  restart the engine service
+3.  back to the *' Hosts*' tab, and check the hosts' status in trusted cluster(s). (trusted one: nonoperational-> Up & untrusted one: nonoperational)
 
-*   Reboot the trusted node after tampering with the PCR
-
-1.  Set the untrusted host's status to maintenance
-2.  Reboot the node manually
-3.  After the host is started, perform "Activate'" operation
-
-*   Activate the untrusted node in trusted cluster
-
-1.  Set the untrusted host's status to maintenance
-2.  Reboot the untrusted host manually
-3.  After the host is started, right click the host and activate the host
-
-*   Create one truster cluster via restful API
+#### Create a truster cluster via restful API
 
 1.  Exec command: curl -v -u "admin@internal:abc123" -H "Content-type: application/xml" -d '<cluster><name>my_trust_cluster</name><data_center><name>"Default"</name></data_center> <version minor="2" major="3"/> <cpu id="Intel SandyBridge Family"/><trusted_service>true</trusted_service></cluster>' '<http://engine>.\*\*\*.com:80/api/clusters'
+2.  go to the **Clusters** tab
+3.  choose the trusted cluster that has just been created , and here is **my_trust_cluster**
+4.  click **Edit** button
+5.  check if **Enable Trusted Service** is checked
 
-*   Export VM
+#### Create a trusted VM
 
-1.  Open "Virtual Machines" page, choose the trusted VM and click "Export"
-2.  Open "Storage" page, import a new trusted VM
+Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , and [#Add a trusted host](#Add_a_trusted_host)
 
-*   Export template
+1.  go to **Virtual Machines** tab
+2.  click on **New** button
+3.  choose a trusted cluster as a cluster, here you need make sure the trusted host is **Up** status
+4.  click ok
+
+===== Export a VM ====
+
+1.  open **Virtual Machines** tab
+2.  right click the trusted host and choose **Export**
+3.  go to **Storage** tab, import a new trusted VM
+
+#### Export template
 
 1.  Open "Template" page, choose the template and click "Export"
 2.  Open "Storage" page, import a new template
 
-*   Run the exported VM
+#### Run the exported VM
 
 1.  Open "Virtual Machines" page, choose the exported VM
 2.  Right click the VM and run this VM

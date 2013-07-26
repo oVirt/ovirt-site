@@ -47,66 +47,11 @@ Remote Attestation server performs host verification through following steps:
 
 ![](figure7.jpg "figure7.jpg")
 
-By far, we got two implementation approaches for TCP feature:
+By far, we got following implementation approach for TCP feature:
 
-*   Approach 1: trust property in VM level policy, POC done, Pending for VM migration implementation & performance optimization.
-*   Approach 2: trust property in cluster level policy, WIP. The biggest benefits are VM migration can work without specific changes, and no performance impact for VM creation.
+*   Approach: trust property in cluster level policy. The biggest benefits are VM migration can work without specific changes, and no performance impact for VM creation.
 
-#### Approach 1: trust property in VM level policy (Pending)
-
-##### Frontend changes
-
-Trusted compute pools support on the UI will be found on the new/edit VM/template window, besides, this feature will also support import /export for ovf relevant function (ongoing efforts). The latest status for UI changes have provides end user a choice of running a VM on a trusted host, includes create a new VM, edit an exited VM.
-
-1. Create / Edit a trusted VM based on GUI radio box.
-
-Choose to run guest VM on a trusted node, please refer to figure 2. After guest VM is created, this VM could also be served as the VM template via import/export template function provided from GUI.
-
-![](figure5.jpg "figure5.jpg")
-
-2. Create a trusted VM based on the template generated from the trusted VM we created.
-
-![](figure1.jpg "figure1.jpg")
-
-3. Based on our current consideration, migration is not allowed for a trusted VM. If end user wants to launch a VM on a trusted host, migration options will be disabled to avoid complicated modification and logical confusion.
-
-![](figure6.jpg "figure6.jpg")
-
-##### Backend changes
-
-*   Both Vm (creation and edit) and Template will support for trusted compute pools.
-*   Define a hostValidator to support the physical host's attestation, only trusted physical server can be added to vds candidate list.
-*   Add a cache manager module to improve system's performance in case of large concurrent requests (Details about cache will be illustrated here).
-
-To launch guest VM on trusted host, engine server will filter all of nodes according to each host’s trustworthiness, only trusted hosts will be chosen as candidates. Open Attestation SDK will take some time to check whether a node is trusted or not, thus, cache is very important here to guarantee engine server’s performance with large concurrent requests. Here, we cache all nodes’ trustworthiness when the first guest VM try to launch on a trusted node. Node’s status is valid only in a given time and this time is configurable. In case of any node’s status becomes invalid or some new nodes add in cloud computing environment, all of nodes’ status will be updated at the same time, refer to figure 3 for flow diagram.
-
-The decision to update all nodes in the trust status cache while one node's cache gets expired is based on three points below:
-
-1.  the expiration time should be very close for all node statuses since they were all accessed in a very short period.
-2.  we assume other nodes will be accessed soon
-3.  there is a fact for Query toward attestation service: query(nodeA, nodeB) will take less time than query(nodeA) then query(nodeB). So if we can predict needs for query multiple nodes, we try our best to align them into one query request.
-
-![](figure3.jpg "figure3.jpg")
-
-##### Database changes
-
-*   table of vm_static will add a new field, true value of this field implies end users want to launch a VM on a trusted physical host.
-*   procedure of InsertVmStatic/ UpdateVmStatic/ DeleteVmStatic will modified accordingly to support VM's creation, modification and deletion.
-*   procedure of InsertVmTemplate / UpdateVmTemplate modified accordingly to support VM template.
-
-##### REST API changes
-
-Create a trusted VM via restful API, curl command may like this.
-
-      curl -v -u "admin@internal:abc123" -H "Content-type: application/xml" -d '`<vm><name>`my_new_vm`</name><cluster><name>`Default`</name></cluster><template><name>`Blank`</name></template><trusted_host_flag>`true`</trusted_host_flag></vm>`' '`[`http://`](http://)`***:80/api/vms'
-
-Key relevant modification includes api.xsd and VmMapper.java.
-
-##### OVF related changes
-
-When the VM created in the trusted cluster was exported as OVF file, OVF file should have a new flag to indicate this is a trusted VM running in a trusted host. Key relevant classes include OvfTemplateReader.java, OvfTemplateWriter.java, OvfVmReader.java and OvfVmWriter.java. We define this new property in export file as “TrustedHostFlag”.
-
-#### Approach 2: trust property in cluster level policy (WIP)
+#### Approach : trust property in cluster level policy
 
 ##### Frontend changes
 

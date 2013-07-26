@@ -206,8 +206,8 @@ Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , and [#Add 
 
 #### Export template
 
-1.  Open "Template" page, choose the template and click "Export"
-2.  Open "Storage" page, import a new template
+1.  Open **Template** tab, choose the template and click **Export**
+2.  Open **Storage** tab, import a new template
 
 #### Run the exported VM
 

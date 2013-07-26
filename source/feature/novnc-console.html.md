@@ -114,6 +114,8 @@ Run, replace <host>:<port> with websocket proxy location.
 
 `engine-config -s WebSocketProxy=`<host>`:`<port>
 
+*   Note: the port on the proxy machine must be opened on firewall.
+
 Generate certificate and key, substitute <fqdn> with the DNS name of the host. Substitute <country>, <organization> to suite your environment.
 
       /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh --name=websocket-proxy-standalone --password=mypass --subject="/C=`<country>`/O=`<organization>`/CN=`<fqdn>`"

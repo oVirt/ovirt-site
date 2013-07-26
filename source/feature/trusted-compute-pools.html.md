@@ -24,13 +24,12 @@ Trusted Compute Pools provide a way for Administrator to deploy VMs on trusted h
 
 ### Current status
 
-*   Finished POC in approach 1(@ <http://gerrit.ovirt.org/11237>)
-*   WIP for approach 2
+*   Merged
     -   Engine change: <http://gerrit.ovirt.org/#/c/14605/>
     -   Webadmin change: <http://gerrit.ovirt.org/#/c/14611/>
     -   REST api change: <http://gerrit.ovirt.org/#/c/14692/>
     -   OVF change: <http://gerrit.ovirt.org/#/c/14729/>
-*   Last updated date: May 14, 2013
+*   Last updated date: July 26, 2013
 
 ### Detailed Description
 

@@ -172,11 +172,14 @@ Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , [#Add a tr
 
 #### Create a truster cluster via restful API
 
-1.  Exec command: curl -v -u "admin@internal:abc123" -H "Content-type: application/xml" -d '<cluster><name>my_trust_cluster</name><data_center><name>"Default"</name></data_center> <version minor="2" major="3"/> <cpu id="Intel SandyBridge Family"/><trusted_service>true</trusted_service></cluster>' '<http://engine>.\*\*\*.com:80/api/clusters'
-2.  go to the **Clusters** tab
-3.  choose the trusted cluster that has just been created , and here is **my_trust_cluster**
-4.  click **Edit** button
-5.  check if **Enable Trusted Service** is checked
+1.  Exec command:
+
+        curl -v -u "admin@internal:abc123" -H "Content-type: application/xml" -d '`<cluster><name>`my_trust_cluster`</name><data_center><name>`"Default"`</name></data_center>` `<version minor="2"    major="3"/>` `<cpu id="Intel SandyBridge Family"/><trusted_service>`true`</trusted_service></cluster>`' '`[`http://engine`](http://engine)`.***.com:80/api/clusters'
+
+1.  go to the **Clusters** tab
+2.  choose the trusted cluster that has just been created , and here is **my_trust_cluster**
+3.  click **Edit** button
+4.  check if **Enable Trusted Service** is checked
 
 #### Create a trusted VM
 

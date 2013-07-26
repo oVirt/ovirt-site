@@ -178,7 +178,8 @@ Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , [#Add a tr
 
 1.  make sure there are at least two hosts in the trusted cluster(s), and one is trusted and the other is untrusted
 2.  restart the engine service
-3.  back to the *' Hosts*' tab, and check the hosts' status in trusted cluster(s). (trusted one: nonoperational-> Up & untrusted one: nonoperational)
+3.  back to the *' Hosts*' tab, and check the hosts' status.
+4.  the trusted host(s) status change from **Nonoperational** to **Up**; the untrusted host(s) is always **Nonoperational**
 
 #### Create a truster cluster via restful API
 

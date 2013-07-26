@@ -158,4 +158,6 @@ Qemu-ga provides filesystem-level consistency for Linux, a hook can be executed 
 
 ### Open Issues
 
+1.  'transient' support is libvirt is still not supported for QEMU/KVM. See <https://bugs.launchpad.net/qemu/+bug/1192780/> and <https://bugzilla.redhat.com/show_bug.cgi?id=832194>
+
 <Category:Feature>

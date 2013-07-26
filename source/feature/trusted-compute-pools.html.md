@@ -51,8 +51,6 @@ By far, we got following implementation approach for TCP feature:
 
 *   Approach: trust property in cluster level policy. The biggest benefits are VM migration can work without specific changes, and no performance impact for VM creation.
 
-#### Approach : trust property in cluster level policy
-
 ##### Frontend changes
 
 Divide cluster policy side tab into two sections, "scheduling policy" and "additional properties". "Enable Trusted Service" checkbox must be selected to create a trusted cluster.

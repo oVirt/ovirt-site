@@ -118,49 +118,6 @@ None.
 
 ### Test cases
 
-#### For Approach 1
-
-*   Create a trusted VM from GUI
-
-1.  Create a new server.
-2.  In the popup window, select "Host" tab and then select "Run on Trusted Host" radiobox for the "Run on" options.
-3.  Fill other required value.
-4.  Click "OK" button, a VM with trusted flag enabled is created.
-
-*   View/eidt VM to set or unset "Run on Trusted Host"
-
-1.  Choose a VM with "Run On" options set as "Any Host in Cluster".
-2.  Reset "Run On" options with "Run on Trusted Host".
-3.  Right click the VM to edit this VM.
-4.  Check whether "Run On" options is configured as "Run on Trusted Host".
-
-*   Make template based on an existed trusted VM
-
-1.  Make sure the trusted VM is in power-off status.
-2.  Click "Make Template" button right up on all of the VMs.
-3.  Fill all of the required value.
-4.  Click "OK" button, a trusted VM template is created.
-5.  Create a new VM, switch to "general" tab, a trusted VM template will be found in the "Based on Template" drop down list.
-
-*   Support OVF-related function
-
-1.  Make sure the trusted VM is in power-off status.
-2.  Click "Export" button right up on all of the VMs.
-3.  An ovf-formatted file which includes all of the VM info will be created.
-4.  Copy the ovf file to another ovirt setup env and create a trusted VM based on this ovf file.
-
-*   Restful API (under consideration)
-
-<!-- -->
-
-*   Launch a trusted VM, and check if this VM is spawning on a trusted physical host
-
-1.  Prepare at least two nodes with one trusted physical host and one untrusted physical host.
-2.  Right click the trusted VM and choose "Run Once" item.
-3.  Fill all of the required value.
-4.  Click "OK" button.
-5.  Check whether the trusted VM is running on a trusted node.
-
 #### For Approach 2
 
 *   Create trusted cluster

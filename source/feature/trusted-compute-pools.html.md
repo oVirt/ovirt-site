@@ -131,6 +131,8 @@ None.
 4.  select **Enable Virt Service** checkbox
 5.  select **Enable Trusted Service** checkbox
 6.  click ok
+7.  if user has not configured the attestation server, check whether to give the user a notification
+8.  make sure configure correctly it, then click ok
 
 #### Add a trusted host
 

@@ -118,8 +118,6 @@ None.
 
 ### Test cases
 
-#### For Approach 2
-
 *   Create trusted cluster
 
 1.  Login webadmin

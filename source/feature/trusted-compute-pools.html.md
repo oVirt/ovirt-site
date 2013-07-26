@@ -187,7 +187,7 @@ Dependens on [#Create a trusted cluster](#Create_a_trusted_cluster) , and [#Add 
 3.  choose a trusted cluster as a cluster, here you need make sure the trusted host is **Up** status
 4.  click ok
 
-===== Export a VM ====
+#### Export a VM
 
 1.  open **Virtual Machines** tab
 2.  right click the trusted host and choose **Export**

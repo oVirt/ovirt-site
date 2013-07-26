@@ -115,26 +115,28 @@ None.
 
 ### Test cases
 
-*   Create trusted cluster
+*   Create a trusted cluster
 
-1.  Login webadmin
-2.  Open "cluster" page
-3.  Click "New" button to open the new cluster window
-4.  Check "Enable Trusted Service" checkbox and click "OK"
+1.  go to the **Clusters** tab
+2.  click on the **New** button
+3.  set cluster name
+4.  select **Enable Virt Service** checkbox
+5.  select **Enable Trusted Service** checkbox
+6.  click "OK" button
 
-*   Add one trusted node
+*   Add a trusted host
 
-1.  Login webadmin
-2.  Open the "host" page
-3.  Click "New" button to open the new host page
-4.  Choose a trusted cluster from the dropdown list with label "Host Cluster" and click "OK"
+Dependens on [Create a trusted cluster](Create a trusted cluster)
 
-*   Add one untrusted node
+1.  go to the **Hosts** tab
+2.  click on **New** button
+3.  select a trusted cluster as a cluster and click "OK"
 
-1.  Login webadmin
-2.  Open the "host" page
-3.  Click "New" button to open the new host page
-4.  Choose a trusted cluster from the dropdown list with label "Host Cluster" and click "OK"
+*   Add an untrusted node
+
+1.  Open the "host" page
+2.  Click "New" button to open the new host page
+3.  Choose a trusted cluster from the dropdown list with label "Host Cluster" and click "OK"
 
 *   Reboot engine host
 

@@ -45,7 +45,7 @@ Remote Attestation server performs host verification through following steps:
 
 4. Attestation server verifies those measurements against good/known database to determine hosts' trustworthiness
 
-![](figure7.jpg "figure7.jpg")
+![](figure7.jpg "fig:figure7.jpg") ![](figure10.jpg "fig:figure10.jpg")
 
 By far, we got following implementation approach for TCP feature:
 

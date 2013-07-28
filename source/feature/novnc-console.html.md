@@ -128,7 +128,7 @@ Install ovirt-engine-websocket-proxy package.
 
 Extract keys:
 
-      cd /etc/pki/websocket-proxy
+      cd /etc/pki/ovirt-websocket-proxy
       openssl pkcs12 -in websocket-proxy-standalone.p12 -nokeys -out websocket-proxy-standalone.cer
       openssl pkcs12 -in websocket-proxy-standalone.p12 -nocerts -nodes -out websocket-proxy-standalone.key
       chown ovirt:ovirt *

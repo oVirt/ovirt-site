@@ -134,6 +134,8 @@ Extract keys:
       chown ovirt:ovirt *
       chmod 0600 *
 
+Note: You may have to create user ovirt.
+
 Configure service: /etc/ovirt-engine/ovirt-websocket-proxy.conf.d/10-setup.conf
 
       PROXY_PORT=6100

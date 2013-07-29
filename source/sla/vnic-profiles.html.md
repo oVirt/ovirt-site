@@ -117,17 +117,10 @@ Should remove all data center's networks and their associated permissions.
 
 The import of a VM/Template will be performed according to the following logic:
 
-*   For 3.3 vms
-    -   If the vnic profile doesn't exist, set 'none' for it.
-*   For 3.2 vms
-    -   If the network doesn't exist, set 'none' for it.
-    -   If the network exists, and has no profiles, set 'none' for it.
-    -   If the network exists, and has profiles, prefer selecting a vnic profile the user has permissions on, else select any other arbitrary profile with event log.
-*   For 3.1 vms
-    -   If the network doesn't exist, remove the network interface.
-    -   If the network exists, and has no profiles, remove the network interface.
-    -   If the network exists, and has profiles, prefer selecting a vnic profile the user has permissions on, else, any other arbitrary profile with event log.
-*   Vnic profile with port-mirroring will not be allowed to be created implicitly.
+*   If the network name and vnic profile are provided, the vnic profile will be resolved.
+    -   If no matching vnic profile, an attempt to obtain a different vnic profile by permission for the user of that network.
+        -   Vnic profile with port-mirroring will not be allowed to be created implicitly.
+        -   If no profile found, 'none' value will be set for it and an event will be written to the events log.
 *   When a Template is created from a VM the VNIC Profile will be kept along with the VNIC. When a VM is created from template the VNIC Profiles will be taken from the template's VNICs.
 
 ##### Backward Compatibility

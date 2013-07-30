@@ -110,7 +110,6 @@ It will be possible to create a new connection without adding a storage domain a
 <b>Example</b>
  [http://host:port/api/storageconnections](http://host:port/api/storageconnections)
 Request type is POST
-A host is required for the deletion process, thus there's a need in request body in deletion request to contain host details.
 Example of request body
 
 <storage>

@@ -143,7 +143,9 @@ Example of host element structure in the body (it can contain either host id or 
 
 ### Update existing connection (PUT)
 
-It will only be possible to update connection details when all storage domains referencing it are in maintenance mode. Most of the connection fields may be updated (such as path/iqn/address/port/user/password) - each storage type has its relevant set of fields. Host section is optional. Specifying host (vdsm) will lead the host to attempt to connect to the newly specified storage details. Not specifying host will lead to just update the details in engine db.
+It will only be possible to update connection details when all storage domains referencing it are in maintenance mode. Most of the connection fields may be updated (such as path/iqn/address/port/user/password) - each storage type has its relevant set of fields.
+Host section is optional. Specifying host (vdsm) will lead the host to attempt to connect to the newly specified storage details.
+Not specifying host will lead to just update the details in engine db.
 Connection ID however, will be immutable.
 Example body - changing the address:
 

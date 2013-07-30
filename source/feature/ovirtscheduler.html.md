@@ -109,6 +109,8 @@ it's adviced to add your logic in Java. Either way the scheduler will timeout if
 in a given time period. So readers should be aware of the implications of slowing down the scheduling
 process.
 
+Since internal filters and load balancers can run much faster, the engine will invoke all internal filters before any external filters.
+
 ### Detailed Design
 
 The specific API and design details can be found in the following page: [Features/oVirtSchedulerAPI](Features/oVirtSchedulerAPI)

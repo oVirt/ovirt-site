@@ -25,7 +25,7 @@ The new connection details should be of the same storage type as the original co
 
 ### Current Status and tasks
 
-Updated July 23 2013
+Updated July 30 2013
 
 #### GUI
 
@@ -47,11 +47,12 @@ Updated July 23 2013
 *   Extend functionality of existing UpdateStorageServerConnection command to update iSCSI connections. Check connection validity to target (needs check with lun replication), VG properties - whether they are correct, if there are domains using the connection that they are in maintenance, and if there are lun disks - the vm are in proper state. Add lock that will properly lock connection of block domains for add/edit/remove connection (instead of path that is locked for file domains, need to lock iqn,adress, etc.) . Also lock lun disk/vm/storage domain using the edited connection. Add locking of target in AddStorageServerConnectionCommand as well so edit/add will not interfere each other. (ready) <http://gerrit.ovirt.org/#/c/16203/>
 *   Change update connection flow not to fail if there are no domains using the connection . If there are domains using the connection - lock them during the update and update their stats. (ready) <http://gerrit.ovirt.org/#/c/15952/>
 *   Add validation of non empty connection field and appropriate error to be used by AddStorageConnection and UpdateStorageConnection commands. (ready) <http://gerrit.ovirt.org/#/c/15560/>
-*   Retrieve correct domain status when updating the connection. (in review) <http://gerrit.ovirt.org/#/c/17070/>
+*   Retrieve correct domain status when updating the connection. (abandoned, but fixed in other patch by amureini) <http://gerrit.ovirt.org/#/c/17070/>
 *   Create a storage connection validator that will validate that the mandatory fields of each storage type's typical connection are filled correctly. Will be used by AddStorageServerConnection and UpdateStorageServerConnection. Mostly take existing validation code and put it in central place for a better reuse. (not started)
 *   Restrict compatibility version of edit storage connections feature in engine to 3.3. ready. <http://gerrit.ovirt.org/#/c/14249/>
 *   MLA (permissions) - not started
 *   Refactor AddSANStorageDomainCommand so it will not add storage server connection, and rather use existing one (that was either created right before by add connection command, or in the past). This will involve rewriting San domain creation in webadmin (StorageListModel) to call AddStorageServerConnection before AddSANStorageDomainCommand. not started.
+*   Support edit for unattached storage domains (not only those in maintenance). not started.
 *   Rethink - should the "delete connection" action disconnect from just one host , or all hosts when deleting a connection?
 *   For post 3.3 - add ability to "detach" a connection from storage domain without deleting the connection.
 
@@ -63,7 +64,6 @@ Updated July 23 2013
     -   Add functionality to edit a connection
 *   Create subresource for connections under domains (api/storagedomains/<domainId>/connections that will retrieve connections (GET). (in implementation) <http://gerrit.ovirt.org/#/c/17245/>
 *   Add functionality to add a file storage domain with a reference to an already existing storage connection (instead of embedded properties of a connection that will be created along with the storage domain). (in review) <http://gerrit.ovirt.org/#/c/17177/>
-*   Add functionality to add a block storage domain with a reference to an already existing storage connection (instead of embedded properties of a connection that will be created along with the storage domain). (design)
 *   Add functionality to add an additional connection to block storage domain - multipathing. no started.
 
 #### Blockers

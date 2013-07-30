@@ -106,11 +106,13 @@ Request type - GET
 ### New connection (POST)
 
 It will be possible to create a new connection without adding a storage domain along with it, and only later reference it from any domain by providing the connection id.
+Passing host id/name is optional. Providing it will lead to attempt to connect to the storage via the host.
+Not providing host will lead to just persisting storage details in db.
 
 <b>Example</b>
  [http://host:port/api/storageconnections](http://host:port/api/storageconnections)
 Request type is POST
-Example of request body
+Example of request body - NFS
 
 <storage>
 `   `<type>`nfs`</type>
@@ -124,6 +126,19 @@ multipass.lab.somecompanyname.com
 `   `<host>
 `       `<name>`Host111`</name>
 `    `</host>
+` `</storage>
+
+Example of request body - Posix <storage>
+
+`   `<type>`posixfs`</type>
+         
+
+<address>
+multipass.lab.somecompanyname.com
+
+</address>
+`   `<path>`/export/storagedata/username/dataNewData`</path>
+`   `<vfs_type>`nfs`</vfs_type>
 ` `</storage>
 
 ### Delete connection (DELETE)

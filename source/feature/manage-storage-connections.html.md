@@ -128,8 +128,9 @@ multipass.lab.somecompanyname.com
 `    `</host>
 ` `</storage>
 
-Example of request body - Posix <storage>
+Example of request body - Posix
 
+` `<storage>
 `   `<type>`posixfs`</type>
          
 

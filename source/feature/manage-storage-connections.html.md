@@ -156,6 +156,11 @@ Example of host element structure in the body (it can contain either host id or 
 `   `<name>`MyHost`</name>
 ` `</host>
 
+Example passing host id (in this case - empty):
+
+<host id="00000000-0000-0000-0000-000000000000">
+` `</host>
+
 ### Update existing connection (PUT)
 
 It will only be possible to update connection details when all storage domains referencing it are in maintenance mode. Most of the connection fields may be updated (such as path/iqn/address/port/user/password) - each storage type has its relevant set of fields.

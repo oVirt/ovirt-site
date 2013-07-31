@@ -38,6 +38,8 @@ With growing importance of protocol IPv6 there is need to provide this functiona
 *   Ifcfg files have to have IPv6 capabilities as are described here <http://www.cyberciti.biz/faq/rhel-redhat-fedora-centos-ipv6-network-configuration/>
     -   ifcfg.ConfigWriter._createConfFile(),
 *   Iproute2 configurator (http://gerrit.ovirt.org/#/c/15301/) looks like there shouldn't be made any changes?
+*   jsonrpc: make TCPReactor IPv6 capable
+    -   <http://gerrit.ovirt.org/#/c/11740>
 
 #### Ovirt-Engine GUI
 

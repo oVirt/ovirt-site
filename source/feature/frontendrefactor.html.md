@@ -174,11 +174,11 @@ This is the class diagram of the new design. Frontend is now a singleton with de
 
 ![](Frontend_class_diagram.png "Frontend_class_diagram.png")
 
-#### Frontend.java
+###### Frontend.java
 
 This is the main class being refactored. All the existing static methods have been preserved, they are just marked deprecated. All the existing static methods now have an equivalent non-static method. For instance if we had public static void RunQuery, we now have a public void runQuery with the same parameters. We added a static getInstance method in cases where it was hard to inject the singleton using GIN. The resulting functionality should be identical to the current Frontend class.
 
-#### VdcOperationManager
+###### VdcOperationManager
 
 This is the class that manages all operations going into the queue. Operations are allowed to go into the queue if one of the following is true:
 
@@ -186,6 +186,12 @@ This is the class that manages all operations going into the queue. Operations a
     -   actions are allowed to be duplicate in the queue, only queries are not allowed to be duplicate.
 
 2.  The user is not logged in and the operation is a public operation.
+
+After the operation has been added to the queue alert the OperationProcessor that new operations are available in the queue.
+
+###### VdcOperation
+
+This is the container for a specific operation. The container hold the type operation, and the parameters to the operation.
 
 ##### Special considerations
 

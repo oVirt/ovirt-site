@@ -168,6 +168,10 @@ Another possible approach is to create a javascript sdk for the REST api, and th
 [6] The operation completed, and the callback is called with the appropriate information. If multiple operations where merged into a single request, then multiple callbacks will be called.
 ![](Overview.png "fig:Overview.png")
 
+===== Class Diagram of new Design ==== This is the class diagram of the new design. Frontend is now a singleton with deprecated static methods. All the operations (runQuery/runAction/etc) all create the appropriate VdcOperation object, which is then passed to the VdcOperationManager. The manager then puts the operation(s) into the queue and alerts the processor that new operations are available. The OperationProcessor then takes the available operations in the queue and processes them. After manipulating the operations appropriately the OperationProcessor calls transmitOperationList on the CommunicationsProvider. The communications provider calls the appropriate back-end services to do the operations.
+
+![](Frontend_class_diagram.png "Frontend_class_diagram.png")
+
 ##### Special considerations
 
 1.  When the user logs out the queue is purged and any outstanding operations are completed but no callbacks are called.

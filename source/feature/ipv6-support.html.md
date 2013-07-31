@@ -29,6 +29,34 @@ This feature enable to connect to vdsm and ovirt-engine via IPv6 protocol.
 
 With growing importance of protocol IPv6 there is need to provide this functionality in Ovirt. This feature enable IPv6 at the Vdsm and Ovirt-engine side, so the users won't need to use IPv4 anymore.
 
+### Changes in code
+
+#### Vdsm
+
+*   New class 'netmodels.IPv6'. Similar like netmodels.IPv4, for address validation and representation
+    -   This brings changes in class netmodels.IpConfig, configNetwork.objectivizeNetwork,
+
+#### Ovirt-Engine GUI
+
+In the GUI of engine there will be need to change this items:
+
+*   ipAddressValidation - add recognition of IPv6 address
+*   hosAddressValidation - same as ip
+
+Fields that can contain IPv6 address:
+
+*   Host address in adding new host
+*   network address in Setup Host Network -> edit network -> boot protocol: static :
+    -   IP
+    -   subnet mask - in IPv4 subnet mask has form of doted decimal number, same as IPv4 address. In IPv6 subnet is made of single number from 0-128 that depicts the number of bits from start that belongs to site. Mostly here will be number 64.
+    -   gateway - regular IPv6 address
+*   address of nics in network interfaces - this should be just basic content of cell of table, so arbitrary string
+*   add/import storage address
+
+#### Pending patches
+
+On the Vdsm side there are this pending patches <http://gerrit.ovirt.org/#/q/status:open+project:vdsm+branch:master+topic:ipv6_support,n,z> .
+
 ### Benefit to oVirt
 
 By implementing this feature oVirt will be prepared for users that are using IPv6 protocol.

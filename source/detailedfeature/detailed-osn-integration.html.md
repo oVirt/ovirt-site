@@ -173,6 +173,18 @@ Note: get_id function is:
             2.  Change: tenant_network_type = vlan
             3.  Edit: network_vlan_ranges = <label>:<tag start>:<tag end>,physnet1:1000:2999
 
+#### oVirt Engine required configuration
+
+You need to configure the keystone URL:
+
+1.  engine-config --set KeystoneAuthUrl=<http://><host.fqdn>:35357
+
+You also need to enable a setting that only required networks are considered for VM scheduling:
+
+1.  engine-config --set OnlyRequiredNetworksMandatoryForVdsSelection=true
+
+Don't forget to restart the ovirt-engine service!
+
 #### Agent installation on host
 
 1.  Install quantum plugin (same plugin as in the manager)

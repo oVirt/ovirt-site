@@ -136,7 +136,7 @@ This support helps complete the story/use-case from a virt. admin perspective !
 *   NOTE: Pls see the Dependencies section above to ensure you have the right versions of the different tools (qemu, libvirt, glusterfs)
 *   Creating GlusterFS volume manually
     -   Use GlusterFS cli to create a volume with sufficient space to be used as oVirt storage domain
-    -   Set the GlusterFS volume options as specified in the <http://www.ovirt.org/Features/GlusterFS_Storage_Domain#Important_Pre-requisites> section (see above)
+    -   Set the GlusterFS volume options as specified in the [Features/GlusterFS_Storage_Domain#Important_Pre-requisites](Features/GlusterFS_Storage_Domain#Important_Pre-requisites) section (see above)
 *   Using oVirt GUI to create GlusterFS volume
     -   Go to 'Volumes' tab in oVirt GUI and setup GlusterFS volume
     -   Click on 'Optimize for virt store' opton, to make the GlusterFS volume accessible by oVirt

@@ -35,6 +35,8 @@ With growing importance of protocol IPv6 there is need to provide this functiona
 
 *   New class 'netmodels.IPv6'. Similar like netmodels.IPv4, for address validation and representation
     -   This brings changes in class netmodels.IpConfig, configNetwork.objectivizeNetwork
+*   There is need to change configNetwork.setupNetworks verb also, because we had to add ipv6 triplet (address, netmask, gateway)
+    -   so change of vdsmapi-schema.json@SetupNetworkNetAttributes (add ipv6), vdsmapi-schema.json@NetworkOptions
 *   Ifcfg files have to have IPv6 capabilities as are described here <http://www.cyberciti.biz/faq/rhel-redhat-fedora-centos-ipv6-network-configuration/>
     -   ifcfg.ConfigWriter._createConfFile(),
 *   Iproute2 configurator (http://gerrit.ovirt.org/#/c/15301/) looks like there shouldn't be made any changes?

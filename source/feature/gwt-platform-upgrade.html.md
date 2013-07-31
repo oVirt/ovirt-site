@@ -20,8 +20,8 @@ This feature provides an upgrade to existing UI technology stack shared by oVirt
 ### Current status
 
 *   Change documentation - complete
-*   Essential upgrade changes - patch in progress
-*   Non-essential upgrade changes - will be addressed later on
+*   Essential upgrade changes - complete
+*   Non-essential upgrade changes - in progress
 
 ### Overview
 

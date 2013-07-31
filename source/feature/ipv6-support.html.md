@@ -37,7 +37,7 @@ With growing importance of protocol IPv6 there is need to provide this functiona
     -   This brings changes in class netmodels.IpConfig, configNetwork.objectivizeNetwork
 *   Ifcfg files have to have IPv6 capabilities as are described here <http://www.cyberciti.biz/faq/rhel-redhat-fedora-centos-ipv6-network-configuration/>
     -   ifcfg.ConfigWriter._createConfFile(),
-*   Iproute2 configurator looks like there shouldn't be made any changes?
+*   Iproute2 configurator (http://gerrit.ovirt.org/#/c/15301/) looks like there shouldn't be made any changes?
 
 #### Ovirt-Engine GUI
 

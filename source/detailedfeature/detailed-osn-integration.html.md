@@ -177,11 +177,11 @@ Note: get_id function is:
 
 You need to configure the keystone URL:
 
-1.  engine-config --set KeystoneAuthUrl=<http://><host.fqdn>:35357
+      engine-config --set KeystoneAuthUrl=`[`http://`](http://)<host.fqdn>`:35357
 
 You also need to enable a setting that only required networks are considered for VM scheduling:
 
-1.  engine-config --set OnlyRequiredNetworksMandatoryForVdsSelection=true
+      engine-config --set OnlyRequiredNetworksMandatoryForVdsSelection=true
 
 Don't forget to restart the ovirt-engine service!
 

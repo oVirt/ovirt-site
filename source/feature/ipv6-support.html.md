@@ -73,6 +73,10 @@ There is also need to say that each nic which we address have more than one IPv6
 
 Interesting attribute of address is its scope. The scope can be determined from the address. There stays a question if we want explicitly tell user the scope of address or it is redundant information to him.
 
+#### REST API
+
+TBD
+
 #### Pending patches
 
 On the Vdsm side there are this pending patches <http://gerrit.ovirt.org/#/q/status:open+project:vdsm+branch:master+topic:ipv6_support,n,z> .

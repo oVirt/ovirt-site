@@ -66,6 +66,7 @@ Updated July 30 2013
 *   Add functionality to add a file storage domain with a reference to an already existing storage connection (instead of embedded properties of a connection that will be created along with the storage domain). (in review) <http://gerrit.ovirt.org/#/c/17177/>
 *   Add ability to remove (delete) a connection without specifying the host. not started
 *   Add functionality to add an additional connection to block storage domain - multipathing. no started.
+*   post 3.3 - add connections subresource to lun disks - For each lun disk (direct lun) view (GET) its storage connections by approaching it via a specific subresource: /api/disks/<diskId>/connections. not started
 
 #### Blockers
 

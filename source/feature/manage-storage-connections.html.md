@@ -116,7 +116,7 @@ Not providing host will lead to just persisting storage details in db.
 Request type is POST
 Example of request body - NFS
 
-<storageconnection>
+<storage_connection>
 `   `<type>`nfs`</type>
          
 
@@ -128,11 +128,11 @@ multipass.lab.somecompanyname.com
 `   `<host>
 `       `<name>`Host111`</name>
 `    `</host>
-` `</storageconnection>
+` `</storage_connection>
 
 Example of request body - Posix
 
-` `<storageconnection>
+` `<storage_connection>
 `   `<type>`posixfs`</type>
          
 
@@ -142,7 +142,7 @@ multipass.lab.somecompanyname.com
 </address>
 `   `<path>`/export/storagedata/username/dataNewData`</path>
 `   `<vfs_type>`nfs`</vfs_type>
-` `</storageconnection>
+` `</storage_connection>
 
 ### Delete connection (DELETE)
 

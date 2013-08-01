@@ -204,6 +204,8 @@ This interface defines the call back interface for operations. It contains an on
 
 ###### VdcOperationCallbackList
 
+The list version of the operation call back. This one is used when the operation expects a list of results.
+
 ###### VdcUserCallback
 
 ###### OperationProcessor

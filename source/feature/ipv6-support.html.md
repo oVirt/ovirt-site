@@ -66,7 +66,7 @@ Fields that can contain IPv6 address:
     -   IP
     -   subnet mask - in IPv4 subnet mask has form of doted decimal number, same as IPv4 address. In IPv6 subnet is made of single number from 0-128 that depicts the number of bits from start that belongs to site. Mostly here will be number 64.
     -   gateway - regular IPv6 address
-*   address of nics in network interfaces - this should be just basic content of cell of table, so arbitrary string
+*   address of nics in network interfaces - add column for IPv6 address
 *   add/import storage address
 
 There is also need to say that each nic which we address have more than one IPv6 address, therefore we should enable inserting multiple addresses.

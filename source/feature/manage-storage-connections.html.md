@@ -171,7 +171,7 @@ Not specifying host will lead to just update the details in engine db.
 Connection ID however, will be immutable.
 Example body - changing the address:
 
-<storage>`   `
+<storageconnection>`   `
         
 
 <address>
@@ -181,7 +181,7 @@ dhcp-1-120.my.lab.a.com
 `  `<host>
 `      `<name>`MyHost`</name>
 `   `</host>
-</storage>
+</storageconnection>
 
 ### Add new file (nfs/posix/local) storage domain with existing storage connection (POST)
 

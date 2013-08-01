@@ -214,6 +214,8 @@ Call back for user operations. This is used when the user logs in and logs out.
 
 ###### CommunicationProvider
 
+This interface defines what a communications provider should provide. The interface is very simple. It should allow a list of operations to be passed into it. It also should allow the user to login and log out. The actual implementation of this interface will determine how the client communicates with the back end.
+
 ###### GWTRPCCommunicationProvider
 
 ##### Special considerations

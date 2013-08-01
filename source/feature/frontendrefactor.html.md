@@ -200,6 +200,8 @@ This is the container for a specific operation. Each operation defines the follo
 
 ###### VdcOperationCallback
 
+This interface defines the call back interface for operations. It contains an onSuccess and onFailure method.
+
 ###### VdcOperationCallbackList
 
 ###### VdcUserCallback

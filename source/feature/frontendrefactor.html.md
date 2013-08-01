@@ -208,6 +208,8 @@ The list version of the operation call back. This one is used when the operation
 
 ###### VdcUserCallback
 
+Call back for user operations. This is used when the user logs in and logs out.
+
 ###### OperationProcessor
 
 ###### CommunicationProvider

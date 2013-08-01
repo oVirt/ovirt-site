@@ -60,6 +60,10 @@ Fields that can contain IPv6 address:
 *   address of nics in network interfaces - this should be just basic content of cell of table, so arbitrary string
 *   add/import storage address
 
+There is also need to say that each nic which we address have more than one IPv6 address, therefore we should enable inserting multiple addresses.
+
+Interesting attribute of address is its scope. The scope can be determined from the address. There stays a question if we want explicitly tell user the scope of address or it is redundant information to him.
+
 #### Pending patches
 
 On the Vdsm side there are this pending patches <http://gerrit.ovirt.org/#/q/status:open+project:vdsm+branch:master+topic:ipv6_support,n,z> .

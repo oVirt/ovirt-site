@@ -42,6 +42,10 @@ With growing importance of protocol IPv6 there is need to provide this functiona
 *   Iproute2 configurator (http://gerrit.ovirt.org/#/c/15301/) looks like there shouldn't be made any changes?
 *   jsonrpc: make TCPReactor IPv6 capable
     -   <http://gerrit.ovirt.org/#/c/11740>
+*   jsonRpcUtils
+    -   jsonRpcUtils.getFreePort() [AF_INET nad 0.0.0.0],
+    -   jsonRpcUtils._tcpServerConstructor() [there should be distinction of using 'localhost' and localhost6]
+    -   jsonRpcUtils._protonServerConstructor()[127.0.0.1]
 
 #### Ovirt-Engine GUI
 

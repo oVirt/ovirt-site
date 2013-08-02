@@ -74,7 +74,7 @@ Fields that can contain IPv6 address:
 
 *   address of nics in network interfaces - add column for IPv6 address
 
-<!-- -->
+![](Ipv6 network interfaces.png "Ipv6 network interfaces.png")
 
 *   add/import storage address
 

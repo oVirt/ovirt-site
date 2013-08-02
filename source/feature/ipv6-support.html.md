@@ -29,6 +29,17 @@ This feature enable to connect to vdsm and ovirt-engine via IPv6 protocol.
 
 With growing importance of protocol IPv6 there is need to provide this functionality in Ovirt. This feature enable IPv6 at the Vdsm and Ovirt-engine side, so the users won't need to use IPv4 anymore.
 
+====Vdsm api ===
+
+*   Schemas that contains only IPv4 not IPv6 addresses
+    -   @NetworkOptions
+    -   @SetupNetworkNetAttributes
+    -   @Host.fenceNode
+    -   @VmDefinition
+    -   @RunningVmStats
+
+TBD
+
 ### Changes in code
 
 #### Vdsm
@@ -41,16 +52,9 @@ With growing importance of protocol IPv6 there is need to provide this functiona
 *   jsonrpc: make TCPReactor IPv6 capable
     -   <http://gerrit.ovirt.org/#/c/11740>
 *   jsonRpcUtils
-    -   jsonRpcUtils.getFreePort() [AF_INET nad 0.0.0.0],
+    -   jsonRpcUtils.getFreePort() [AF_INET and 0.0.0.0],
     -   jsonRpcUtils._tcpServerConstructor() [there should be distinction of using 'localhost' and localhost6]
     -   jsonRpcUtils._protonServerConstructor()[127.0.0.1]
-
-#### Vdsm api
-
-*   There is need to change configNetwork.setupNetworks verb also, because we had to add ipv6 triplet (address, netmask, gateway)
-    -   so change of vdsmapi-schema.json@SetupNetworkNetAttributes (add ipv6), vdsmapi-schema.json@NetworkOptions
-
-TBD
 
 #### Ovirt-Engine GUI
 
@@ -107,8 +111,6 @@ By implementing this feature oVirt will be prepared for users that are using IPv
 
 ### Documentation / External references
 
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
-
 ### Testing
 
 #### Vdsm
@@ -139,8 +141,8 @@ Where 'IPv6 link-local addr' is address of IPv6 link local address of bridge ovi
 
 *   Should we provide option to add more IPv6 addresses to Edit Network static configuration? Is it possible to use with parameter in IPV6ADDR_SECONDARIES in ifcfg <http://www.cyberciti.biz/faq/redhat-centos-rhel-fedora-linux-add-multiple-ip-samenic/>
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
+#### Discussion
 
-*   Refer to [Talk:IPv6 support](Talk:IPv6 support)
+On the arch@ovirt.org mailing list.
 
 <Category:Feature>

@@ -29,7 +29,7 @@ This feature enable to connect to vdsm and ovirt-engine via IPv6 protocol.
 
 With growing importance of protocol IPv6 there is need to provide this functionality in Ovirt. This feature enable IPv6 at the Vdsm and Ovirt-engine side, so the users won't need to use IPv4 anymore.
 
-====Vdsm api ===
+### Vdsm api
 
 *   Schemas that contains only IPv4 not IPv6 addresses
     -   @NetworkOptions

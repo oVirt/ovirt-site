@@ -192,10 +192,10 @@ After the operation has been added to the queue alert the OperationProcessor tha
 
 This is the container for a specific operation. Each operation defines the following properties:
 
-1.  The type of operations (query, action)
-2.  The parameters to the operations. For instance search string.
-3.  The callback to call once the operation completes. The callback defines both a success and a failure method which can be called depending on the outcome of the operation.
-4.  A flag that determines if this is a public operation, in other words if you don't have to logged in to execute the operation.
+*   The type of operations (query, action)
+*   The parameters to the operations. For instance search string.
+*   The callback to call once the operation completes. The callback defines both a success and a failure method which can be called depending on the outcome of the operation.
+*   A flag that determines if this is a public operation, in other words if you don't have to logged in to execute the operation.
 
 ###### VdcOperationCallback
 

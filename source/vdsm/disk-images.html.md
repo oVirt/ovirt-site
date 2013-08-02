@@ -21,16 +21,16 @@ Volumes have 2 major properties:
     -   *qcow2* - means that the storage will be accessed as a qcow2 image and all that this entails
 
 2.  **allocation** - How should VDSM allocated the storage
-    -   *preallocated* - VDSM will try it's best to guaranty that the all the storage that was requested. Some storage configuration may render preallocation pointless.
-    -   *sparse* - space will be allocated for the volume as needed
+    -   *preallocated* - VDSM will try it's best to guaranty that all the storage that was requested is allocated right away. Some storage configuration may render preallocation pointless.
+    -   *sparse/thin provision* - space will be allocated for the volume as needed
 
-|--------|--------------|------------|
-| |      | Preallocated | Sparse     |
-| | Raw  | \*file/block | file       |
-| |qcow2 | \*file/block | file/block |
+|--------|--------------|-----------------------|
+| |      | Preallocated | Sparse/Thin provision |
+| | Raw  | \*file/block | file                  |
+| |qcow2 | \*file/block | file/block            |
 
       *  Preallocating on file domains will cause Vdsm to write zeroes to the file.
-         This might not actually preallocate on some file system.
+         This might not actually preallocate on some file systems.
 
 ### Disk Type
 
@@ -41,7 +41,7 @@ A Virtual disk can be stored on disk using different formats. VDSM currently sup
 When creating a virtual disk there are normally two ways of allocating the storage blocks needed to store the data that will reside on the virtual disk -
 a. allocate everything ahead of time (a.k.a preallocated) - has the benefit of having the storage blocks contiguous which can improve performance and does not require any layer that would translate logical to physical offsets (again, can be a performance improvement).
 This, however, comes at the cost of needing to dedicate all the potential disk space ahead of time, which is wasteful.
-b. allocate as you go (a.k.a thin provisioning) - similar to files in any modern file system, storage is allocated as data is being written to the file.
+b. allocate as you go (a.k.a sparse/thin provisioning) - similar to files in any modern file system, storage is allocated as data is being written to the file.
  Has the advantage of saving on disk space, but can cause defragmentation and have performance implications (not an issue on SSDs).
 
 On file based storage domains, files thinly provisioned by design (the file system provides this). "preallocation" is achieved by writing zeros to the file right after creating it which does not guarantee preallocation when using smart storage (compression / dedup would cause the zeros not to be written to disk and not to allocate the actual disk space).

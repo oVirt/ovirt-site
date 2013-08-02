@@ -197,6 +197,8 @@ This is the container for a specific operation. Each operation defines the follo
 *   The callback to call once the operation completes. The callback defines both a success and a failure method which can be called depending on the outcome of the operation.
 *   A flag that determines if this is a public operation, in other words if you don't have to logged in to execute the operation.
 
+VdcOperations are immutable, aka all the member variables are final.
+
 ###### VdcOperationCallback
 
 This interface defines the call back interface for operations. It contains an onSuccess and onFailure method.

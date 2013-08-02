@@ -66,6 +66,12 @@ Fields that can contain IPv6 address:
 
 ![](Ipv6 new host.png "Ipv6 new host.png")
 
+*   External providers - In add external provider dialog, there will be need to add IPv6 validation to:
+    -   General -> Provider URL
+    -   Set Network plugin to Open vSwitch or Linux Bridge -> Agent Configuration -> Host
+
+<!-- -->
+
 *   network address in Setup Host Network -> edit network -> boot protocol: static :
     -   IP
     -   subnet mask - in IPv4 subnet mask has form of doted decimal number, same as IPv4 address. In IPv6 subnet is made of single number from 0-128 that describes the number of bits from start that belongs to site. Mostly here will be numbers 64/56/48.
@@ -128,6 +134,10 @@ Now you should be able to control vdsmd with vdsClient using IPv6 addresses:
 Where 'IPv6 link-local addr' is address of IPv6 link local address of bridge ovirtmgmt (e.g. [fe80::5054:ff:fe05:25f3%ovirtmgmt]). Each of this command should work as in normal manner.
 
 ### Comments and Discussion
+
+#### Opened questions
+
+*   Should we provide option to add more IPv6 addresses to Edit Network static configuration? Is it possible to use with parameter in IPV6ADDR_SECONDARIES in ifcfg <http://www.cyberciti.biz/faq/redhat-centos-rhel-fedora-linux-add-multiple-ip-samenic/>
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 

@@ -182,10 +182,9 @@ This is the main class being refactored. All the existing static methods have be
 
 This is the class that manages all operations going into the queue. Operations are allowed to go into the queue if one of the following is true:
 
-1.  The user is logged in, and the operation is not public, and the operation is not already in the queue or being processed.
+*   The user is logged in, and the operation is not public, and the operation is not already in the queue or being processed.
     -   actions are allowed to be duplicate in the queue, only queries are not allowed to be duplicate.
-
-2.  The user is not logged in and the operation is a public operation.
+*   The user is not logged in and the operation is a public operation.
 
 After the operation has been added to the queue alert the OperationProcessor that new operations are available in the queue.
 

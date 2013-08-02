@@ -218,6 +218,13 @@ This interface defines what a communications provider should provide. The interf
 
 ###### GWTRPCCommunicationProvider
 
+The GWT RPC communication provider is the client interface with the GWT RPC backend. The provider uses the GenericApiGWTServiceAsync class to do the actual communication. When the provider receives a list of operations, it splits them out into actions and queries. If there are more than one actions, the provider calls runMultipleActions. If there is only one action it calls runAction. A similar procedure happens with queries, only it calls runMultipleQueries and runQuery. If an operation is public the provider calls runPublicQuery.
+
+The result of RunQuery, RunAction, RunPublicQuery are not that interesting. We just call the call back based on success or failure of the operation. RunMultipleActions, and RunMultipleQueries is more interesting as we potentially muxed a lot of unrelated operations together, and we need to make sure that all the appropriate call backs are being called. The process of doing this is slightly different between actions and queries.
+
+*   Actions. Because we can't mix different action types in a RunMultipleActions call, we have to make several calls, one for each action type. Since it is theoretically possible to have the same action type with different parameters **and** different call backs, we have to make sure that we look at the results of the action, and pass the result to the appropriate call back.
+*   Queries. We can mix and match as many queries as we want into a single query, we will only have to make a single call to RunMultipleQueries. Obviously untangling the result from that query and making the proper call backs is a little more complicated, but not impossible.
+
 ##### Special considerations
 
 1.  When the user logs out the queue is purged and any outstanding operations are completed but no callbacks are called.

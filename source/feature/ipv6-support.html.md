@@ -62,14 +62,20 @@ In the GUI of engine there will be need to change this items:
 Fields that can contain IPv6 address:
 
 *   Host address in adding new host
+
+![](Ipv6 new host.png "Ipv6 new host.png")
+
 *   network address in Setup Host Network -> edit network -> boot protocol: static :
     -   IP
-    -   subnet mask - in IPv4 subnet mask has form of doted decimal number, same as IPv4 address. In IPv6 subnet is made of single number from 0-128 that depicts the number of bits from start that belongs to site. Mostly here will be number 64.
+    -   subnet mask - in IPv4 subnet mask has form of doted decimal number, same as IPv4 address. In IPv6 subnet is made of single number from 0-128 that describes the number of bits from start that belongs to site. Mostly here will be numbers 64/56/48.
+    -   gateway - regular IPv6 address
 
 ![](Ipv6 edit management network.png "Ipv6 edit management network.png")
 
-*   -   gateway - regular IPv6 address
 *   address of nics in network interfaces - add column for IPv6 address
+
+<!-- -->
+
 *   add/import storage address
 
 ![](Ipv6 new domain storage.png "Ipv6 new domain storage.png")

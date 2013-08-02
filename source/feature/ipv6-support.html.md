@@ -65,9 +65,14 @@ Fields that can contain IPv6 address:
 *   network address in Setup Host Network -> edit network -> boot protocol: static :
     -   IP
     -   subnet mask - in IPv4 subnet mask has form of doted decimal number, same as IPv4 address. In IPv6 subnet is made of single number from 0-128 that depicts the number of bits from start that belongs to site. Mostly here will be number 64.
-    -   gateway - regular IPv6 address
+
+![](Ipv6 edit management network.png "Ipv6 edit management network.png")
+
+*   -   gateway - regular IPv6 address
 *   address of nics in network interfaces - add column for IPv6 address
 *   add/import storage address
+
+![](Ipv6 new domain storage.png "Ipv6 new domain storage.png")
 
 There is also need to say that each nic which we address have more than one IPv6 address, therefore we should enable inserting multiple addresses.
 

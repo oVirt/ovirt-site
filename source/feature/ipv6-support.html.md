@@ -61,8 +61,8 @@ In the GUI of engine there will be need to change this items:
 
 Fields that can contain IPv6 address:
 
-*   Host address in adding new host
-    -   the field for new IPv6 address will be added everytime when we start to write to empty one.
+*   Host address in adding new host will have ability to accept IPv6 address
+    -   same behaviour will be in power management-> address
 
 ![](Ipv6 new host.png "Ipv6 new host.png")
 

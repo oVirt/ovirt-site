@@ -211,6 +211,16 @@ Call back for user operations. This is used when the user logs in and logs out.
 
 ###### OperationProcessor
 
+This is more or less the heart of the refactoring. This class takes the operations in the queue and processes them before sending the operations to the communications provider. The processing consists mainly of replacing the existing callback objects with new ones that allow the processor to add special processing when the operation completes. Replacing the callbacks allows us to do things before calling the original call backs. For instance:
+
+*   If there is a failure that might be resolved by a retry, we can automatically retry without having the caller worry about it.
+*   Manipulate the return codes, or error messages without having the caller worry about it.
+*   Anything else we want before making the call back to the caller.
+
+Since VdcOperations are immutable objects (all the member variables are final), replacing the callback represents an interesting problem. We can't simply assign a new call back as it is final, as well as if it was possible we would lose the original call back which we will need. To solve this problem, I added a copy constructor which takes two parameters, the original operation, and a callback. In the constructor, we store the original operation, and copy all the values from the original operation, as well as assign the call back to the operation.
+
+To ensure that we don't assign different new call backs to the same original call back (As would be the case when the original call to Fronted would be a runMultipleQueries) we store the original callback and the new callback in a map while processing all the operations. If a matching original call back is found, we replace it with the one from the map, otherwise we create a new one and put it in the map.
+
 ###### CommunicationProvider
 
 This interface defines what a communications provider should provide. The interface is very simple. It should allow a list of operations to be passed into it. It also should allow the user to login and log out. The actual implementation of this interface will determine how the client communicates with the back end.

@@ -72,6 +72,7 @@ Updated August 1, 2013
 #### Blockers
 
 *   Blocking bug in vdsm : <https://bugzilla.redhat.com/show_bug.cgi?id=950055>
+*   Bug in engine: <https://bugzilla.redhat.com/show_bug.cgi?id=991797>
 
 # Detailed Description
 

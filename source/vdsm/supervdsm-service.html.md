@@ -12,7 +12,7 @@ wiki_last_updated: 2013-08-04
 
 ## General
 
-Supervdsm is responsible for all privileged operations. Currently Supervdsm is managed (started and restarted) by unprivileged process 'vdsm' and vdsm starts up by init service manager. To perform that, Vdsm process runs privileged operations, manage process that runs as root, and communicate with it by external UDS. All that leads to races between new and old instances of the process. Aim of this feature is to get Vdsm to be a pure unprivileged deamon and simplify the handling of crashes and re-establish communication between Vdsm and Supervdsm after failures.
+Supervdsm is responsible for all privileged operations. Currently Supervdsm is managed (started and restarted) by unprivileged process 'vdsm' and vdsm starts up by init service manager. To perform that, Vdsm process runs privileged operations, manage process that runs as root, and communicate with it by external UDS. All that leads to races between new and old instances of the process. Aim of this feature is to get Vdsm to be a pure unprivileged daemon and simplify the handling of crashes and re-establish communication between Vdsm and Supervdsm after failures.
 
 ## Owner
 
@@ -28,7 +28,7 @@ Supervdsm is responsible for all privileged operations. Currently Supervdsm is m
 
 *   current solution
 
-1.  Vdsm deamon script starts vdsm with user “vdsm”
+1.  Vdsm daemon script starts vdsm with user “vdsm”
 2.  Vdsm process launches supervdsm process when it is not running by sudo command
 3.  Vdsm tries to send uds packets to supervdsm to establish communication
 4.  When authentication error is raised, vdsm tries to re-launch (kill old instance and initiate new one)

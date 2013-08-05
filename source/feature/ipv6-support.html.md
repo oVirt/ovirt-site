@@ -126,6 +126,8 @@ By implementing this feature oVirt will be prepared for users that are using IPv
 
 ### Dependencies / Related Features
 
+*   [Features/Node ipv6 support](Features/Node ipv6 support)
+
 ### Documentation / External references
 
 ### Testing

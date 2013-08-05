@@ -70,7 +70,7 @@ A short description for the columns in the above table
 *   **No.of Stable Sessions** - No.of Geo-Replication sessions in stable state between source and destination clusters
 *   **No.of Faulty Sessions** - No.of Geo-Replication sessions in faulty or problematic between source and destination clusters
 
-#### Add/Attach a new Destination Cluster
+#### Add a new Destination Cluster
 
 Password less SSH communication should be enabled between one host of the source cluster and one host of destination cluster before creating a geo-replication session between the identified source and destination clusters. The below dialog "New Geo-Replication Destination" would capture the required details for adding a new destination cluster.
 

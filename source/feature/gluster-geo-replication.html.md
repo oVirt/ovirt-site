@@ -64,9 +64,9 @@ A new sub-tab named "Geo-Replication Destinations" will be added to Clusters. Al
 
 #### Add/Attach a new Destination Cluster
 
-A new sub-tab will be introduced under Cluster tab which would list all the existing geo-replication destinations for the current cluster. Password less SSH communication should be enabled between one node of the source cluster and one node of destination cluster before creating a geo-replication session between the identified source and destination clusters. The below dialog "New Geo-Replication Destination" would capture the required details for adding a new destination cluster for geo-replication session.
+Password less SSH communication should be enabled between one host of the source cluster and one host of destination cluster before creating a geo-replication session between the identified source and destination clusters. The below dialog "New Geo-Replication Destination" would capture the required details for adding a new destination cluster.
 
-![](geo_replication_slave1_new.png "geo_replication_slave1_new.png")
+![](Georepdest2new.png "Georepdest2new.png")
 
 If the user select the **Copy source cluster hosts public keys to destination cluster** then the following steps will happen
 

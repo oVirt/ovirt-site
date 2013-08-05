@@ -54,6 +54,8 @@ Once started, a rebalance volume or remove-brick can be stopped while in progres
 *   For rebalance volume, clicking on the volume which is being rebalanced will enable a UI option to stop the task
 *   For remove brick, clicking on one or more bricks that have a remove brick operation in progress will enable a UI option to stop the task.
 
+## Dependencies / Related Features
+
 ## User Flows
 
 ### Rebalance Volume
@@ -95,5 +97,9 @@ Once started, a rebalance volume or remove-brick can be stopped while in progres
 <!-- -->
 
 *   To stop the data migration for remove brick while in progress, the can use the Remove --> Stop option
+
+## Detailed Design
+
+Please see [ Detailed Gluster Volume Asynchronous Tasks Management](Features/Detailed_Gluster_Volume_Asynchronous_Tasks_Management)
 
 <Category:Feature>

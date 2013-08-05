@@ -30,27 +30,29 @@ This feature provide the support for managing the asynchronous tasks on Gluster 
 
 ## Detailed Description
 
-Support managing the following gluster async tasks from the oVirt UI
+Support managing the following gluster operations that run asynchronously, from the oVirt UI
 
 *   rebalance volume
-*   replace brick
 *   remove brick
 
-User should be able to start any of these tasks as follows:
+User should be able to start any of these operations as follows:
 
 *   Select a volume and click on the button "Start Rebalance"
-*   Select a brick and click on the button "Replace"
-*   When removing a brick, select/un-select a checkbox "Retain data". If selected, the remove brick operation should be triggered in asynchronous fashion. If not, it should be performed in a synchronous way by passing the "force" option to "gluster volume remove-brick" command
+*   Select a brick and click on the button "Remove"
+    -   When removing a brick, select/un-select a checkbox "Migrate data". If selected, the remove brick operation will be triggered in asynchronous fashion by first migrating the data from the brick to be removed.This is the default option. If not checked, the remove is performed with the "force" option to "gluster volume remove-brick" command. This is a synchronous operation
 
 **Task Monitoring**
 
-*   Introduce a new sub-tab "Tasks" under "Clusters", which lists all running gluster tasks on the selected cluster, along with the current status.
-*   User should be able to select a task in this view, and perform any of the operations supported on that task. These could be any of
+*   Tasks can be monitored using the Tasks sub-tab in the bottom pane of the UI
+*   A child step is added to the Executing step, the status of which is periodically updated as long as the task is in progress
+*   User can also check the status of the task from the Volume/Bricks tabs by selecting the volume/brick.
 
-      - pause
-      - resume
-      - abort
-      - commit
+**Task Operations**
+
+Once started, a rebalance volume or remove-brick can be stopped while in progress. This can be done from the Volumes/Bricks tab depending on the operation.
+
+*   For rebalance volume, clicking on the volume which is being rebalanced will enable a UI option to stop the task
+*   For remove brick, clicking on one or more bricks that have a remove brick operation in progress will enable a UI option to stop the task.
 
 ## Design
 

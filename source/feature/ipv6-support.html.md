@@ -85,7 +85,7 @@ Records that DOES NOT need change, need testing:
 *   @IscsiSessionInfo - @connection
 *   @NfsConnectionParameters - @export
 
-Fields that already contains IPv6 fields, need testing:
+Records that already contains IPv6 fields, need testing:
 
 *   @NetInfoBridgedNetwork
 *   @NetInfoNic

@@ -32,8 +32,8 @@ This feature provide the support for managing the asynchronous tasks on Gluster 
 
 Support managing the following gluster operations that run asynchronously, from the oVirt UI
 
-*   rebalance volume
-*   remove brick
+*   Rebalance volume
+*   Remove brick
 
 User should be able to start any of these operations as follows:
 

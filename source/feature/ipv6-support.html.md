@@ -31,6 +31,8 @@ With growing importance of protocol IPv6 there is need to provide this functiona
 
 ### Vdsm api
 
+Records that need change:
+
 *   @NetworkOptions
     -   add optional fields: '\*ipv6addr', '\*ipv6netmask', '\*ipv6gateway'
 
@@ -56,6 +58,40 @@ With growing importance of protocol IPv6 there is need to provide this functiona
               '*delay': 'uint', '*onboot': 'bool', '*remove': 'bool',
               '*qosInbound': 'BandwidthParams',
               '*qosOutbound': 'BandwidthParams'}}
+
+*   @RunningVmStats
+    -   @displayIp, @clientIp should be able to contain IPv4 or IPv6 addresses
+    -   add @guestIPv6s - @guestIPs handles just IPv4 addresses of nics
+
+<!-- -->
+
+     {'type': 'RunningVmStats',
+     'data': {'displayPort': 'uint', 'displaySecurePort': 'uint',
+             ....
+              'username': 'str', 'session': 'GuestSessionState',
+              'appsList': ['str'], 'guestIPs': 'str', 'guestIPv6s': 'str',
+              'memoryStats': 'GuestMemoryStats', 'balloonInfo': 'BalloonInfo',
+              'disksUsage': ['GuestMountInfo'],
+              'netIfaces': ['GuestNetworkDeviceInfo'],
+              'watchdogEvent': '*WatchdogEvent', 'guestFQDN': 'str'}}
+
+Records that DOES NOT need change, need testing:
+
+*   @Host.fenceNode - we need to put just one IP address of host, we can use field @addr for IPv6 also because type of @addr is str
+*   @VmDefinition - same situation with fields @clientIp, @displayIp
+*   @IscsiPortal - @host
+*   @ISCSIConnection.discoverSendTargets - @host, Returns
+*   @MigrateParams - @dst, @dstqemu
+*   @IscsiSessionInfo - @connection
+*   @NfsConnectionParameters - @export
+
+Fields that already contains IPv6 fields, need testing:
+
+*   @NetInfoBridgedNetwork
+*   @NetInfoNic
+*   @NetInfoBond
+*   @NetInfoVlan
+*   @GuestNetworkDeviceInfo
 
 ### Ovirt-Engine GUI
 

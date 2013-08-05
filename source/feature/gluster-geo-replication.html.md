@@ -68,12 +68,7 @@ Password less SSH communication should be enabled between one host of the source
 
 ![](Georepdest2new.png "Georepdest2new.png")
 
-If the user select the **Copy source cluster hosts public keys to destination cluster** then the following steps will happen
-
-*   `gluster system:: execute gsec_create` command will be executed in one of the hosts of the source cluster. This will create a public key file, which will have the public keys of all the hosts of the source cluster
-*   Public key file will be copied to the destination host (through password less ssh)
-*   `gluster system:: execute add_secret_pub` command is used to distribute the public file to all the hosts of the destination Cluster
-*   Now all the hosts of the source cluster can initiate geo sync task in the hosts of the destination cluster
+The user needs to select the **Fingerprint Verified** before submitting the details. This is to make sure the connection is not established with a malicious host.
 
 #### Re-establish password less communication with destination host
 

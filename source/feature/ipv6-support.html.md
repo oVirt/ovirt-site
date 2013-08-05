@@ -168,6 +168,15 @@ Records that contains "href" as string, should be tested if works with IPv6:
     -   jsonRpcUtils._tcpServerConstructor() [there should be distinction of using 'localhost' and localhost6]
     -   jsonRpcUtils._protonServerConstructor()[127.0.0.1]
 
+##### VDSM tests
+
+There will be need to change/extend tests in tests/:
+
+*   configNetworkTests.py - try to create only IPv6 network/nics, IPv4 and IPv6
+*   guestIFTests.py - added att4ribute guestIPv6s
+*   jsonRpcUtils.py - extend with IPv6 addresses, where IPv4 is used
+*   netmodelsTests.py - testIsIpv6valid, testIsNetmaskIPv6valid
+
 #### Ovirt-Engine frontend
 
 This classes validate form of ip addresses:
@@ -216,6 +225,22 @@ Now you should be able to control vdsmd with vdsClient using IPv6 addresses:
        vdsClient -s ['IPv6 link-local addr'%ovirtmgmt]:54321 getVdsCaps
 
 Where 'IPv6 link-local addr' is address of IPv6 link local address of bridge ovirtmgmt (e.g. [fe80::5054:ff:fe05:25f3%ovirtmgmt]). Each of this command should work as in normal manner.
+
+#### VDSM API
+
+1.  Test functionality of newly added attributes to @NetworkOptions, @SetupNetworkNetAttributes, @RunningVmStats
+2.  Test that every api schema that can contain IP address, can contain IPv6 address. Listed in [#Vdsm api](#Vdsm_api) Records that DOES NOT need change.
+3.  Test functionality of IPv6 related fields. Listed in [#Vdsm api](#Vdsm_api) Records that already contains IPv6 fields.
+
+#### Ovirt-Engine GUI
+
+1.  Test that to every address field can be inserted IPv6 address. Test every form of IPv6 address: full form, omited leading zeros, changed group of zeros (https://en.wikipedia.org/wiki/IPv6_address#Presentation).
+2.  Test every combination of Edit Network, every boot protocol with combination of IPv6 or IPv4 addresses. There should always be selected at least one protocol, otherwise the error should raise.
+
+#### REST API
+
+1.  Check that record "Network" and "HostNic" contains "ips", that every "ip" has selected proper "version" and all IPs are listed.
+2.  Check that every records with "address" or "href" properly handle IPv6 format.
 
 ### Comments and Discussion
 

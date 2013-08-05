@@ -62,6 +62,14 @@ A new sub-tab named "Geo-Replication Destinations" will be added to Clusters. Al
 
 ![](Georepdest1list.png "Georepdest1list.png")
 
+A short description for the columns in the above table
+
+*   **Destination Cluster Host** - A host which is part of the destination/remote cluster
+*   **Password less communication verification** - Able to communicate with the **Destination Cluster Host** without any password from one of the host in the source cluster
+*   **Total no.of sessions** - No.of Geo-Replication sessions created from the source cluster to destination cluster
+*   **No.of Stable Sessions** - No.of Geo-Replication session in active between source and destination clusters
+*   **No.of Faulty Sessions** - No.of Geo-Replication session in faulty or problematic between source and destination clusters
+
 #### Add/Attach a new Destination Cluster
 
 Password less SSH communication should be enabled between one host of the source cluster and one host of destination cluster before creating a geo-replication session between the identified source and destination clusters. The below dialog "New Geo-Replication Destination" would capture the required details for adding a new destination cluster.

@@ -56,6 +56,12 @@ With this feature the user will be able to
 
 ### User Experience
 
+#### Listing the Geo-Replication Destinations
+
+A new sub-tab named "Geo-Replication Destinations" will be added to Clusters. All existing geo-replication destinations attached to the cluster will be show for the cluster along with their status. It also provides options for adding/removing destination clusters.
+
+![](Georepdest1list.png "Georepdest1list.png")
+
 #### Add/Attach a new Destination Cluster
 
 A new sub-tab will be introduced under Cluster tab which would list all the existing geo-replication destinations for the current cluster. Password less SSH communication should be enabled between one node of the source cluster and one node of destination cluster before creating a geo-replication session between the identified source and destination clusters. The below dialog "New Geo-Replication Destination" would capture the required details for adding a new destination cluster for geo-replication session.
@@ -69,17 +75,13 @@ If the user select the **Copy source cluster hosts public keys to destination cl
 *   `gluster system:: execute add_secret_pub` command is used to distribute the public file to all the hosts of the destination Cluster
 *   Now all the hosts of the source cluster can initiate geo sync task in the hosts of the destination cluster
 
-#### All the existing Destinations
-
-All existing geo-replication destinations attached to the cluster will be show for the cluster along with their status. It also provides options for creation or new destinations and removal of the destinations. Testing the validity/availability of a destination is possible using the action "Test". Administrator can re-establish a broken source/destination communication as well using the action "Re-establish".
-
-![](geo_replication_slave2_subtab.png "geo_replication_slave2_subtab.png")
-
 #### Re-establish password less communication with destination host
 
 The below dialog provides a mechanism for re-establishing a broken source/destination communication between source and destination clusters. It captures the details again and re-establishes the communication between source and destination cluster.
 
 ![](geo_replication_slave3_reestablish.png "geo_replication_slave3_reestablish.png")
+
+Testing the validity/availability of a destination is possible using the action "Test". Administrator can re-establish a broken source/destination communication as well using the action "Re-establish".
 
 #### Create a new Geo-Replication Session
 

@@ -86,4 +86,14 @@ Once started, a rebalance volume or remove-brick can be stopped while in progres
 
 ![](StartRemovebrick.png "StartRemovebrick.png")
 
+*   Once remove brick operation is started, the UI is updated as follows (similar to Rebalance volume in progress)
+
+![](Removebrickview.png "Removebrickview.png")
+
+*   User can check the detailed status of the remove brick operation using Remove --> Status (it will invoke a UI similar to volume rebalance status)
+
+<!-- -->
+
+*   To stop the data migration for remove brick while in progress, the can use the Remove --> Stop option
+
 <Category:Feature>

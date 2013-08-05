@@ -56,4 +56,15 @@ Once started, a rebalance volume or remove-brick can be stopped while in progres
 
 ## User Flows
 
+*   Users can initiate a rebalance operation on a volume using the following UI
+
+![](Start vol rebalance.png "Start vol rebalance.png")
+
+*   If volume rebalance is in progress, the UI will be updated as follows:
+
+![](View vol rebalance.png "View vol rebalance.png")
+
+*   -   The icon in the Activities column indicates that "Rebalance" operation is in progress
+    -   User can check status/ stop operation from the Rebalance menu
+
 <Category:Feature>

@@ -158,6 +158,7 @@ Where 'IPv6 link-local addr' is address of IPv6 link local address of bridge ovi
 
 *   Should we provide option to add more IPv6 addresses to Edit Network static configuration? Is it possible to use with parameter in IPV6ADDR_SECONDARIES in ifcfg <http://www.cyberciti.biz/faq/redhat-centos-rhel-fedora-linux-add-multiple-ip-samenic/>
 *   What is the meaning of having both IPv4 AND IPv6 address for the same network?
+*   How to handle multiple gateways with IPv6?
 
 #### Discussion
 

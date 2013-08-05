@@ -31,14 +31,31 @@ With growing importance of protocol IPv6 there is need to provide this functiona
 
 ### Vdsm api
 
-*   Schemas that contains only IPv4 not IPv6 addresses
-    -   @NetworkOptions
-    -   @SetupNetworkNetAttributes
-    -   @Host.fenceNode
-    -   @VmDefinition
-    -   @RunningVmStats
+*   @NetworkOptions
+    -   add optional fields: '\*ipv6addr', '\*ipv6netmask', '\*ipv6gateway'
 
-TBD
+<!-- -->
+
+    {'type': 'NetworkOptions',
+     'data': {'*ipaddr': 'str', '*netmask': 'str', '*gateway': 'str',
+              '*ipv6addr': 'str', '*ipv6netmask': 'str', '*ipv6gateway': 'str',
+              '*bootproto': 'str', '*delay': 'uint', '*onboot': 'str',
+              '*bondingOptions', 'str',
+              '*qosInbound': 'BandwidthParams',
+              '*qosOutbound': 'BandwidthParams'}}
+
+*   @SetupNetworkNetAttributes
+    -   add optional fields: '\*ipv6addr', '\*ipv6netmask', '\*ipv6gateway'
+
+<!-- -->
+
+    {'type': 'SetupNetworkNetAttributes',
+     'data': {'*vlan': 'str', '*bonding': 'str', '*nic': ['str'], '*ipaddr': 'str',
+              '*netmask': 'str', '*gateway': 'str',  '*ipv6addr': 'str', 
+              '*ipv6netmask': 'str', '*ipv6gateway': 'str',  '*bootproto': 'str',
+              '*delay': 'uint', '*onboot': 'bool', '*remove': 'bool',
+              '*qosInbound': 'BandwidthParams',
+              '*qosOutbound': 'BandwidthParams'}}
 
 ### Changes in code
 

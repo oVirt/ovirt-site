@@ -57,23 +57,7 @@ With growing importance of protocol IPv6 there is need to provide this functiona
               '*qosInbound': 'BandwidthParams',
               '*qosOutbound': 'BandwidthParams'}}
 
-### Changes in code
-
-#### Vdsm
-
-*   New class 'netmodels.IPv6'. Similar like netmodels.IPv4, for address validation and representation
-    -   This brings changes in class netmodels.IpConfig, configNetwork.objectivizeNetwork
-*   Ifcfg files have to have IPv6 capabilities as are described here <http://www.cyberciti.biz/faq/rhel-redhat-fedora-centos-ipv6-network-configuration/>
-    -   ifcfg.ConfigWriter._createConfFile(),
-*   Iproute2 configurator (http://gerrit.ovirt.org/#/c/15301/) looks like there shouldn't be made any changes?
-*   jsonrpc: make TCPReactor IPv6 capable
-    -   <http://gerrit.ovirt.org/#/c/11740>
-*   jsonRpcUtils
-    -   jsonRpcUtils.getFreePort() [AF_INET and 0.0.0.0],
-    -   jsonRpcUtils._tcpServerConstructor() [there should be distinction of using 'localhost' and localhost6]
-    -   jsonRpcUtils._protonServerConstructor()[127.0.0.1]
-
-#### Ovirt-Engine GUI
+### Ovirt-Engine GUI
 
 In the GUI of engine there will be need to change this items:
 
@@ -112,9 +96,25 @@ There is also need to say that each nic which we address have more than one IPv6
 
 Interesting attribute of address is its scope. The scope can be determined from the address. There stays a question if we want explicitly tell user the scope of address or it is redundant information to him.
 
-#### REST API
+### REST API
 
 TBD
+
+### Changes in code
+
+#### Vdsm
+
+*   New class 'netmodels.IPv6'. Similar like netmodels.IPv4, for address validation and representation
+    -   This brings changes in class netmodels.IpConfig, configNetwork.objectivizeNetwork
+*   Ifcfg files have to have IPv6 capabilities as are described here <http://www.cyberciti.biz/faq/rhel-redhat-fedora-centos-ipv6-network-configuration/>
+    -   ifcfg.ConfigWriter._createConfFile(),
+*   Iproute2 configurator (http://gerrit.ovirt.org/#/c/15301/) looks like there shouldn't be made any changes?
+*   jsonrpc: make TCPReactor IPv6 capable
+    -   <http://gerrit.ovirt.org/#/c/11740>
+*   jsonRpcUtils
+    -   jsonRpcUtils.getFreePort() [AF_INET and 0.0.0.0],
+    -   jsonRpcUtils._tcpServerConstructor() [there should be distinction of using 'localhost' and localhost6]
+    -   jsonRpcUtils._protonServerConstructor()[127.0.0.1]
 
 #### Pending patches
 

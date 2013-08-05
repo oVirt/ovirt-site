@@ -95,11 +95,6 @@ Fields that already contains IPv6 fields, need testing:
 
 ### Ovirt-Engine GUI
 
-In the GUI of engine there will be need to change this items:
-
-*   ipAddressValidation - add recognition of IPv6 address
-*   hosAddressValidation - same as ip
-
 Fields that can contain IPv6 address:
 
 *   Host address in adding new host will have ability to accept IPv6 address
@@ -172,6 +167,13 @@ Records that contains "href" as string, should be tested if works with IPv6:
     -   jsonRpcUtils.getFreePort() [AF_INET and 0.0.0.0],
     -   jsonRpcUtils._tcpServerConstructor() [there should be distinction of using 'localhost' and localhost6]
     -   jsonRpcUtils._protonServerConstructor()[127.0.0.1]
+
+#### Ovirt-Engine frontend
+
+This classes validate form of ip addresses:
+
+*   IpAddressValidation - add recognition of IPv6 address
+*   HostAddressValidation - same as ip
 
 #### Pending patches
 

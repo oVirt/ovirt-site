@@ -68,7 +68,7 @@ Note that on the domain side, VDSM still uses gluster mount point as the root of
 *   The below settings/options of GlusterFS volume must also be enabled for it to be able to work as a oVirt storage domain. Currently its not possible to set these from oVirt GlusterFS GUI
     -   option rpc-auth-allow-insecure on ==> in glusterd.vol (ensure u restart glusterd service... for this to take effect)
     -   volume set <volname> server.allow-insecure on ==> (ensure u stop and start the volume.. for this to take effect)
-*   Other packages that are needed are...
+*   Other packages that are needed on the hypervisor host (aka VDSM host) are...
     -   Needs minm libvirt version 1.0.1 (which has the gluster protocol/network disk support)
     -   Needs qemu version 1.3 (which has the gluster block backend support)
 

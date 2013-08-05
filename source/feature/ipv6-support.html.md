@@ -134,7 +134,28 @@ Interesting attribute of address is its scope. The scope can be determined from 
 
 ### REST API
 
-TBD
+REST API now contains record "ip" and it already has attribute "version". Record "ip" is present in next records:
+
+*   ips - container of "ip"
+*   Network
+*   HostNic
+
+For both Network and HostNic should be used rather "ips" so it can contain multiple addresses with selected version.
+
+Records that contains "address" as string, should be tested if works with IPv6:
+
+*   Agent
+*   PowerManagement
+*   Host
+*   NfsStorage
+*   IscsiTarget
+*   Display
+
+Records that contains "href" as string, should be tested if works with IPv6:
+
+*   Link
+*   BaseResource
+*   RSDL
 
 ### Changes in code
 

@@ -34,39 +34,39 @@ With growing importance of protocol IPv6 there is need to provide this functiona
 Records that need change:
 
 *   @NetworkOptions
-    -   add optional fields: '\*ipv6' (we have to explicitly say that we want IPv6 protocol, it is for case where we don't specify ipv6addr (BOOTPROTO == static), if only ipv6 bool is triggered stateless autoconfiguration protocol is used), '\*ipv6addr', '\*ipv6gateway', '\*dhcpv6' (DHCPv6 has to be specified because we can't specify it in BOOTPROTO - it would not make sense for IPv4, also it can be used together with stateless configuration)
+    -   add optional fields: ''\*ipv6addr', '\*ipv6gateway', '\*ipv6autoconf' (it has to be specified whether use stateless autoconfiguration, because it can be set together with DHCPv6), '\*dhcpv6' (DHCPv6 has to be specified because we can't specify it in BOOTPROTO - it would not make sense for IPv4, also it can be used together with stateless configuration)
 
 <!-- -->
 
     # @ipv6addr:       #optional Assign this static IPv6 address to the interface (in the format of '<ip>[/<prefixlen>]')
     # @ipv6gateway:    #optional IPv6 address of the network gateway
-    # @ipv6autoconf:   #optional Whether to use IPv6 
+    # @ipv6autoconf:   #optional Whether use stateless autoconfiguration
     # @dhcpv6:         #optional Whether use DHCPv6
 
     {'type': 'NetworkOptions',
      'data': {'*ipaddr': 'str', '*netmask': 'str', '*gateway': 'str',
-              '*ipv6': 'bool', '*ipv6addr': 'str', '*ipv6gateway': 'str',
-              '*dhcpv6': 'bool', 
+              '*ipv6addr': 'str', '*ipv6gateway': 'str',
+              '*ipv6autoconf': 'bool', '*dhcpv6': 'bool', 
               '*bootproto': 'str', '*delay': 'uint', '*onboot': 'str',
               '*bondingOptions', 'str',
               '*qosInbound': 'BandwidthParams',
               '*qosOutbound': 'BandwidthParams'}}
 
 *   @SetupNetworkNetAttributes
-    -   add optional fields: '\*ipv6', '\*ipv6addr', '\*ipv6gateway', '\*dhcpv6'
+    -   add optional fields: '\*ipv6addr', '\*ipv6gateway', '\*ipv6autoconf', '\*dhcpv6'
 
 <!-- -->
 
-    # @ipv6:          #optional Whether to use IPv6 
-    # @ipv6addr:      #optional Assign this static IPv6 address to the interface (in the format of '<ip>[/<prefixlen>]')
-    # @ipv6gateway:   #optional IPv6 address of the network gateway
-    # @dhcpv6:        #optional Whether use DHCPv6
+    # @ipv6addr:       #optional Assign this static IPv6 address to the interface (in the format of '<ip>[/<prefixlen>]')
+    # @ipv6gateway:    #optional IPv6 address of the network gateway
+    # @ipv6autoconf:   #optional Whether use stateless autoconfiguration
+    # @dhcpv6:         #optional Whether use DHCPv6
 
     {'type': 'SetupNetworkNetAttributes',
      'data': {'*vlan': 'str', '*bonding': 'str', '*nic': ['str'], '*ipaddr': 'str',
-              '*netmask': 'str', '*gateway': 'str',  '*ipv6': 'bool',
-             '*ipv6addr': 'str', '*ipv6gateway': 'str',  '*dhcpv6': 'bool'.
-              '*bootproto': 'str',
+              '*netmask': 'str', '*gateway': 'str', '*ipv6addr': 'str',
+              '*ipv6gateway': 'str', '*ipv6autoconf': 'bool',
+              '*dhcpv6': 'bool', '*bootproto': 'str',
               '*delay': 'uint', '*onboot': 'bool', '*remove': 'bool',
               '*qosInbound': 'BandwidthParams',
               '*qosOutbound': 'BandwidthParams'}}

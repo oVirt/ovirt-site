@@ -60,8 +60,8 @@ Records that need change:
               '*qosOutbound': 'BandwidthParams'}}
 
 *   @RunningVmStats
-    -   @displayIp, @clientIp should be able to contain IPv4 or IPv6 addresses
-    -   add @guestIPv6s - @guestIPs handles just IPv4 addresses of nics
+    -   @displayIp, @clientIp **should** be able to contain IPv4 or IPv6 addresses
+    -   We already report guest IPv6 addresses per guest nic (within the inet6 field of netIfaces item)
 
 <!-- -->
 

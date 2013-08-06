@@ -8,6 +8,8 @@ wiki_last_updated: 2014-12-07
 
 # LDAP Quick Start
 
+Ovirt manager uses external directory services for user authentication and information. When a directory server is attached to the manger (using engine-manage-domain), existing users from it can be added as ovirt users and assigned different roles and permissions.
+
 The purpose of this page is
 
 1.  Provide quick installation instructions of a simple a LDAP stack.
@@ -15,7 +17,7 @@ The purpose of this page is
 
 This installation instructions provided here are for fedora 19.
 
-### Installation instructions
+## Installation instructions
 
 #> at the beginning of the command stands for execution as root.
 

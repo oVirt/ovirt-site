@@ -295,6 +295,14 @@ The new parameter set will include the vnic profile id.
 
       /api/vms/{vm:id}/nics|rel=add
 
+The POST'ed elemet should look like:
+
+`   `<vnic_profile>
+`       `<name>`profile1`</name>
+`       `<network id="00000000-0000-0000-0000-000000000009"/>
+`       `<port_mirroring>`true`</port_mirroring>
+`   `</vnic_profile>
+
 *   Update vnic:
 
       /api/vms/{vm:id}/nics/{nic:id}|rel=update

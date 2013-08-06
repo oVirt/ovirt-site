@@ -75,17 +75,17 @@ Records that need change:
               'netIfaces': ['GuestNetworkDeviceInfo'],
               'watchdogEvent': '*WatchdogEvent', 'guestFQDN': 'str'}}
 
-Records that DOES NOT need change, need testing:
+Records that DO NOT need to change, TESTONLY:
 
 *   @Host.fenceNode - we need to put just one IP address of host, we can use field @addr for IPv6 also because type of @addr is str
 *   @VmDefinition - same situation with fields @clientIp, @displayIp
-*   @IscsiPortal - @host
-*   @ISCSIConnection.discoverSendTargets - @host, Returns
-*   @MigrateParams - @dst, @dstqemu
-*   @IscsiSessionInfo - @connection
-*   @NfsConnectionParameters - @export
+*   @IscsiPortal - @host **should** be capable of carrying an IPv6 address.
+*   @ISCSIConnection.discoverSendTargets - @host, Returns a list of discovered targets in the form: '<host>:<port>,<tpgt> <iqn>'
+*   @MigrateParams - @dst, @dstqemu: both destination Vdsm and destination qemu addresses **should** accept IPv6.
+*   @IscsiSessionInfo - @connection, which is the hostname of the iSCSI target, **should** accept IPv6. We should test the *createStorageDomain* and *extendStorageDomain* verbs over IPv6.
+*   @NfsConnectionParameters - NFS @export should accept IPv6 too. We **must** make sure that multiple colon characters in address do not confuse us.
 
-Records that already contains IPv6 fields, need testing:
+Records that already contains IPv6 fields, could use further testing:
 
 *   @NetInfoBridgedNetwork
 *   @NetInfoNic

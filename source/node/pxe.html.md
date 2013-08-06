@@ -12,45 +12,60 @@ wiki_last_updated: 2014-07-14
 
 You can boot an ovirt-node ISO image directly via PXE.
 
-To prepare files, you need to do the following :
+To prepare files the files necessary to PXE boot, you need to do the following :
 
-1. download the iso file :
+*   Download the ISO file:
 
-      $ wget "`[`http://resources.ovirt.org/releases/3.2/iso/ovirt-node-iso-2.6.1-20120228.fc18.iso`](http://resources.ovirt.org/releases/3.2/iso/ovirt-node-iso-2.6.1-20120228.fc18.iso)`"
+<!-- -->
 
-Check if you have script "/usr/bin/livecd-iso-to-pxeboot". If so, skip steps 2, 3 and 4.
+    wget http://resources.ovirt.org/releases/3.2/iso/ovirt-node-iso-2.6.1-20120228.fc18.iso
 
-You can also yum install livecd-tool to get the script.
+Check whether or not you have:
 
-2. Create a mountpoint :
+    /usr/bin/livecd-iso-to-pxeboot
 
-      $ mkdir iso
+If so, skip steps 2 and 3.
 
-3. Mount image on it :
+If not, you can try to install it with
 
-      $ mount -o loop ovirt-node-iso-2.6.1-20120228.fc18.iso
+    yum install livecd-tools
 
-4. Extract needed informations with provided script :
+Manually:
 
-      $ ./iso/LiveOS/livecd-iso-to-pxeboot ovirt-node-iso-2.6.1-20120228.fc18.iso
+*   Create a mountpoint :
 
-or
+<!-- -->
 
-      $ livecd-iso-to-pxeboot ovirt-node-iso-2.6.1-20120228.fc18.iso
+    mkdir iso
+
+*   Mount the image :
+
+<!-- -->
+
+    mount -o loop ovirt-node-iso-2.6.1-20120228.fc18.iso iso
+
+*   Extract needed informations with provided script :
+
+<!-- -->
+
+    /iso/LiveOS/livecd-iso-to-pxeboot ovirt-node-iso-2.6.1-20120228.fc18.iso
+
+    livecd-iso-to-pxeboot ovirt-node-iso-2.6.1-20120228.fc18.iso
 
 You now have a ./tftpboot folder.
 
-5. Put files "vmlinuz0" and "initrd0.img" somewhere publicly available via HTTP.
+*   Put files "vmlinuz0" and "initrd0.img" somewhere publicly available via HTTP or TFTP, depending on whether you're using iPXE or not.
 
-6. Open file tftpboot/pxelinux.cfg/default and copy all flags in APPEND line, and append it to 'kernel' line in pxe output.
+<!-- -->
 
-This is an example of what needs to be outputed by ipxe script :
+*   Open tftpboot/pxelinux.cfg/default and add the arguments to your pxelinux.cfg if you're using pxelinux. If you're using iPXE:
 
-      #!ipxe
-      kernel `[`http://path/to/vmlinuz0`](http://path/to/vmlinuz0)` rootflags=loop initrd=initrd0.img root=live:/ovirt-node-iso-2.6.1-20120228.fc18.iso rootfstype=auto ro liveimg nomodeset check rootflags=ro crashkernel=512M-2G:64M,2G-:128M elevator=deadline install quiet rd.lvm=0 rd.luks=0 rd.md=0 rd.dm=0
-`initrd `[`http://path/to/initrd0.img`](http://path/to/initrd0.img)
-      boot
+This is an example of what needs to be returned by your iPXE :
 
-Boot your server on IPXE : ISO is loaded through the network. Play with boot parameters on line 'kernel' above to pass custom parameters.
+     kernel http://path/to/vmlinuz0 rootflags=loop initrd=initrd0.img root=live:/ovirt-node-iso-2.6.1-20120228.fc18.iso rootfstype=auto ro liveimg nomodeset check rootflags=ro crashkernel=512M-2G:64M,2G-:128M elevator=deadline install quiet rd.lvm=0 rd.luks=0 rd.md=0 rd.dm=0
+     initrd http://path/to/initrd0.img
+     boot
+
+Play with boot parameters on line 'kernel' above to pass custom parameters.
 
 <Category:Node>

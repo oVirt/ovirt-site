@@ -170,10 +170,9 @@ Records that contains "href" as string, should be tested if works with IPv6:
 
 ##### VDSM tests
 
-There will be need to change/extend tests in tests/:
+There should be a change/extension to tests under the tests/ directory:
 
-*   configNetworkTests.py - try to create only IPv6 network/nics, IPv4 and IPv6
-*   guestIFTests.py - added att4ribute guestIPv6s
+*   configNetworkTests.py - try to create IPv6-only network/nics, both IPv4 and IPv6
 *   jsonRpcUtils.py - extend with IPv6 addresses, where IPv4 is used
 *   netmodelsTests.py - testIsIpv6valid, testIsNetmaskIPv6valid
 

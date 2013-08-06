@@ -34,7 +34,7 @@ With growing importance of protocol IPv6 there is need to provide this functiona
 Records that need change:
 
 *   @NetworkOptions
-    -   add optional fields: ''\*ipv6addr', '\*ipv6gateway', '\*ipv6autoconf' (it has to be specified whether use stateless autoconfiguration, because it can be set together with DHCPv6), '\*dhcpv6' (DHCPv6 has to be specified because we can't specify it in BOOTPROTO - it would not make sense for IPv4, also it can be used together with stateless configuration)
+    -   add optional fields: '\*ipv6addr', '\*ipv6gateway', '\*ipv6autoconf' (it has to be specified whether use stateless autoconfiguration, because it can be set together with DHCPv6), '\*dhcpv6' (DHCPv6 has to be specified because we can't specify it in BOOTPROTO - it would not make sense for IPv4, also it can be used together with stateless configuration)
 
 <!-- -->
 

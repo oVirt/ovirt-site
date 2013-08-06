@@ -34,27 +34,39 @@ With growing importance of protocol IPv6 there is need to provide this functiona
 Records that need change:
 
 *   @NetworkOptions
-    -   add optional fields: '\*ipv6addr', '\*ipv6prefixlen', '\*ipv6gateway'
+    -   add optional fields: '\*ipv6' (we have to explicitly say that we want IPv6 protocol, it is for case where we don't specify ipv6addr (BOOTPROTO == static) , or where we don't use DHCPv6), '\*ipv6addr', '\*ipv6gateway', '\*dhcpv6'
 
 <!-- -->
 
+    # @ipv6                          #optional Whether to use IPv6 
+    # @ipv6addr:                #optional Assign this static IPv6 address to the interface (in the format of '<ip>[/<prefixlen>]')
+    # @ipv6gateway:         #optional IPv6 address of the network gateway
+    # @dhcpv6                    #optional Whether use DHCPv6
+
     {'type': 'NetworkOptions',
      'data': {'*ipaddr': 'str', '*netmask': 'str', '*gateway': 'str',
-              '*ipv6addr': 'str', '*ipv6prefixlen': 'uint', '*ipv6gateway': 'str',
+              '*ipv6': 'bool', '*ipv6addr': 'str', '*ipv6gateway': 'str',
+              '*dhcpv6': 'bool', 
               '*bootproto': 'str', '*delay': 'uint', '*onboot': 'str',
               '*bondingOptions', 'str',
               '*qosInbound': 'BandwidthParams',
               '*qosOutbound': 'BandwidthParams'}}
 
 *   @SetupNetworkNetAttributes
-    -   add optional fields: '\*ipv6addr', '\*ipv6prefixlen', '\*ipv6gateway'
+    -   add optional fields: '\*ipv6', '\*ipv6addr', '\*ipv6gateway', '\*dhcpv6'
 
 <!-- -->
 
+    # @ipv6                          #optional Whether to use IPv6 
+    # @ipv6addr:                #optional Assign this static IPv6 address to the interface (in the format of '<ip>[/<prefixlen>]')
+    # @ipv6gateway:         #optional IPv6 address of the network gateway
+    # @dhcpv6                    #optional Whether use DHCPv6
+
     {'type': 'SetupNetworkNetAttributes',
      'data': {'*vlan': 'str', '*bonding': 'str', '*nic': ['str'], '*ipaddr': 'str',
-              '*netmask': 'str', '*gateway': 'str',  '*ipv6addr': 'str', 
-              '*ipv6prefixlen': 'uint', '*ipv6gateway': 'str',  '*bootproto': 'str',
+              '*netmask': 'str', '*gateway': 'str',  '*ipv6': 'bool',
+             '*ipv6addr': 'str', '*ipv6gateway': 'str',  '*dhcpv6': 'bool'.
+              '*bootproto': 'str',
               '*delay': 'uint', '*onboot': 'bool', '*remove': 'bool',
               '*qosInbound': 'BandwidthParams',
               '*qosOutbound': 'BandwidthParams'}}

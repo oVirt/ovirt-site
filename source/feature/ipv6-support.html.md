@@ -244,11 +244,11 @@ Where 'IPv6 link-local addr' is address of IPv6 link local address of bridge ovi
 
 ### Comments and Discussion
 
-#### Opened questions
+#### Open questions
 
-*   Should we provide option to add more IPv6 addresses to Edit Network static configuration? Is it possible to use with parameter in IPV6ADDR_SECONDARIES in ifcfg <http://www.cyberciti.biz/faq/redhat-centos-rhel-fedora-linux-add-multiple-ip-samenic/>
-*   What is the meaning of having both IPv4 AND IPv6 address for the same network?
-*   How to handle multiple gateways with IPv6?
+*   Should we provide option to add more than one IPv6 address to Edit Network static configuration? Is it possible to use with parameter in IPV6ADDR_SECONDARIES in ifcfg <http://www.cyberciti.biz/faq/redhat-centos-rhel-fedora-linux-add-multiple-ip-samenic/>
+*   What is the meaning of having both IPv4 AND IPv6 address for the same network? E.g., if this is a migration network, which of the addresses should qemu use?
+*   How to handle multiple gateways with IPv6? Currently the sourceRoute.py code assumes IPv6, and our understanding of IPv6 routing is poor.
 
 #### Discussion
 

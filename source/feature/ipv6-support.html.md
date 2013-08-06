@@ -34,7 +34,7 @@ With growing importance of protocol IPv6 there is need to provide this functiona
 Records that need change:
 
 *   @NetworkOptions
-    -   add optional fields: '\*ipv6addr', '\*ipv6gateway', '\*ipv6autoconf' (it has to be specified whether use stateless autoconfiguration, because it can be set together with DHCPv6), '\*dhcpv6' (DHCPv6 has to be specified because we can't specify it in BOOTPROTO - it would not make sense for IPv4, also it can be used together with stateless configuration)
+    -   add optional fields: '\*ipv6addr', '\*ipv6gateway', '\*ipv6autoconf' (it has to be specified whether use stateless autoconfiguration, because it can be set together with DHCPv6 <http://www.prolixium.com/ipv6_autocfg/node8.html> 4th paragraph), '\*dhcpv6' (DHCPv6 has to be specified because we can't specify it in BOOTPROTO - it would not make sense for IPv4, also it can be used together with stateless configuration)
 
 <!-- -->
 
@@ -227,14 +227,30 @@ Where 'IPv6 link-local addr' is address of IPv6 link local address of bridge ovi
 
 #### VDSM API
 
-1.  Test functionality of newly added attributes to @NetworkOptions, @SetupNetworkNetAttributes, @RunningVmStats
-2.  Test that every api schema that can contain IP address, can contain IPv6 address. Listed in [#Vdsm api](#Vdsm_api) Records that DOES NOT need change.
-3.  Test functionality of IPv6 related fields. Listed in [#Vdsm api](#Vdsm_api) Records that already contains IPv6 fields.
+1.  Test functionality of newly added attributes to @NetworkOptions, @SetupNetworkNetAttributes
+
+*   -   Create Network with both with static IPv4 and IPv6 addresses.
+    -   Create Network where IPv6 will be using Stateless autoconfiguration and DHCPv6 at the same time.
+
+1.  Test that every api schema that can contain IP address, can contain IPv6 address. Listed in [#Vdsm api](#Vdsm_api) Records that DO NOT need to change.
+
+*   -   Try to fence node addressed with IPv6 address.
+    -   Create IP on IPv6 network only, reported IPv6 address should be IPv6.
+
+1.  Test functionality of IPv6 related fields. Listed in [#Vdsm api](#Vdsm_api) Records that already contains IPv6 fields.
 
 #### Ovirt-Engine GUI
 
 1.  Test that to every address field can be inserted IPv6 address. Test every form of IPv6 address: full form, omited leading zeros, changed group of zeros (https://en.wikipedia.org/wiki/IPv6_address#Presentation).
-2.  Test every combination of Edit Network, every boot protocol with combination of IPv6 or IPv4 addresses. There should always be selected at least one protocol, otherwise the error should raise.
+
+*   -   Add host addressed by IPv6 address.
+    -   Add external provider using IPv6 address.
+    -   Add storage using IPv6 address.
+
+1.  Test every combination of Edit Network, every boot protocol with combination of IPv6 or IPv4 addresses. There should always be selected at least one protocol, otherwise the error should raise.
+
+*   -   Edit network to use static configuration and fill in IPv4 and IPv6 addresses.
+    -   Use DHCP configuration for IPv4 and stateless configuration for IPv6.
 
 TBD list of interesting IPv6-related actions that should be tested.
 

@@ -34,13 +34,13 @@ With growing importance of protocol IPv6 there is need to provide this functiona
 Records that need change:
 
 *   @NetworkOptions
-    -   add optional fields: '\*ipv6' (we have to explicitly say that we want IPv6 protocol, it is for case where we don't specify ipv6addr (BOOTPROTO == static) , or where we don't use DHCPv6), '\*ipv6addr', '\*ipv6gateway', '\*dhcpv6'
+    -   add optional fields: '\*ipv6' (we have to explicitly say that we want IPv6 protocol, it is for case where we don't specify ipv6addr (BOOTPROTO == static), if only ipv6 bool is triggered stateless autoconfiguration protocol is used), '\*ipv6addr', '\*ipv6gateway', '\*dhcpv6' (DHCPv6 has to be specified because we can't specify it in BOOTPROTO - it would not make sense for IPv4, also it can be used together with stateless configuration)
 
 <!-- -->
 
-    # @ipv6:           #optional Whether to use IPv6 
     # @ipv6addr:       #optional Assign this static IPv6 address to the interface (in the format of '<ip>[/<prefixlen>]')
     # @ipv6gateway:    #optional IPv6 address of the network gateway
+    # @ipv6autoconf:   #optional Whether to use IPv6 
     # @dhcpv6:         #optional Whether use DHCPv6
 
     {'type': 'NetworkOptions',

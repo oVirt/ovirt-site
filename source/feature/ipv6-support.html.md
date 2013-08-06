@@ -38,10 +38,10 @@ Records that need change:
 
 <!-- -->
 
-    # @ipv6                          #optional Whether to use IPv6 
-    # @ipv6addr:                #optional Assign this static IPv6 address to the interface (in the format of '<ip>[/<prefixlen>]')
-    # @ipv6gateway:         #optional IPv6 address of the network gateway
-    # @dhcpv6                    #optional Whether use DHCPv6
+    # @ipv6 :                    #optional Whether to use IPv6 
+    # @ipv6addr:           #optional Assign this static IPv6 address to the interface (in the format of '<ip>[/<prefixlen>]')
+    # @ipv6gateway:    #optional IPv6 address of the network gateway
+    # @dhcpv6:               #optional Whether use DHCPv6
 
     {'type': 'NetworkOptions',
      'data': {'*ipaddr': 'str', '*netmask': 'str', '*gateway': 'str',
@@ -57,10 +57,10 @@ Records that need change:
 
 <!-- -->
 
-    # @ipv6                          #optional Whether to use IPv6 
-    # @ipv6addr:                #optional Assign this static IPv6 address to the interface (in the format of '<ip>[/<prefixlen>]')
-    # @ipv6gateway:         #optional IPv6 address of the network gateway
-    # @dhcpv6                    #optional Whether use DHCPv6
+    # @ipv6:                      #optional Whether to use IPv6 
+    # @ipv6addr:             #optional Assign this static IPv6 address to the interface (in the format of '<ip>[/<prefixlen>]')
+    # @ipv6gateway:      #optional IPv6 address of the network gateway
+    # @dhcpv6:                #optional Whether use DHCPv6
 
     {'type': 'SetupNetworkNetAttributes',
      'data': {'*vlan': 'str', '*bonding': 'str', '*nic': ['str'], '*ipaddr': 'str',

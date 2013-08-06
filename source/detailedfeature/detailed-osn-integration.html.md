@@ -12,7 +12,7 @@ wiki_last_updated: 2014-03-24
 
 ## Summary
 
-We intend to add support for OpenStack Quantum as a network provider. Please see further details in [Features/Quantum_Integration](Features/Quantum_Integration)
+We intend to add support for OpenStack Neutron as a network provider. Please see further details in [Features/OSN_Integration](Features/OSN_Integration)
 
 ## Owner
 
@@ -25,7 +25,7 @@ We intend to add support for OpenStack Quantum as a network provider. Please see
 ## Current status
 
 *   Target Release: oVirt 3.3
-*   Status: Implementation
+*   Status: Finished
 *   Last updated: ,
 
 ## Detailed Description
@@ -34,13 +34,13 @@ The integration of network providers into oVirt will be incremental. The followi
 
 ### Phase 1 - Tech Preview
 
-*   Add Quantum as an external provider.
+*   Add Neutron as an external provider.
     -   Support for Linux Bridge plugin
     -   Support for OVS plugin?
-*   Each quantum plugin will have a corresponding vNIC driver in VDSM, that can connect the vNIC to quantum.
+*   Each Neutron plugin will have a corresponding vNIC driver in VDSM, that can connect the vNIC to Neutron.
     -   Current implementation will be done by hooks.
 *   No support for pre-built ovirt-node (or RHEV-H).
-*   Integration - with Quantum Grizzly.
+*   Integration - with Neutron Grizzly.
 
 #### Network provider entity
 
@@ -70,7 +70,7 @@ The integration of network providers into oVirt will be incremental. The followi
 *   If a network is externally provided, it will **not** be editable in oVirt, since the external provider is responsible for managing the actual network configuration.
 *   External network will always be non required.
     -   Scheduling for the cluster the network is attached to will not take the network into host selection consideration.
-    -   This effectively means that the user is responsible for quantum availability on all the hosts in a given cluster the external network is attached to.
+    -   This effectively means that the user is responsible for Neutron availability on all the hosts in a given cluster the external network is attached to.
 *   Port mirroring is not available for virtual NICs connected to external networks.
 *   Block deleting provider if there are VMs using the networks it provides.
 
@@ -128,7 +128,7 @@ The integration of network providers into oVirt will be incremental. The followi
 *   When a specific Provider is chosen, subtabs displaying information concerning that Provider will appear (as with any other entity). To begin with, General and Networks subtabs will be implemented.
 *   The main function in the Provider/Networks subtab will be to "Discover" the networks provided, which will open a popup window enabling attachment of provided networks to DC(s).
 *   The user will also be able to create new networks to be attached to the Provider from within oVirt.
-*   The provider entity should also be reflected in the system tree. We are currently intending to add another node between the System node and the specific DCs called "Data Centers", and on the same level a node called "Providers" (as they are not part of the DCs, but rather interfaces to external entities). Under the Providers node, will be displayed the Providers that exist in the engine's DB. We haven't thought about icons for these entities - maybe something general for Providers and something to do with Quantum for the current network providers (future providers will have other icons corresponding to their types).
+*   The provider entity should also be reflected in the system tree. We are currently intending to add another node between the System node and the specific DCs called "Data Centers", and on the same level a node called "Providers" (as they are not part of the DCs, but rather interfaces to external entities). Under the Providers node, will be displayed the Providers that exist in the engine's DB. We haven't thought about icons for these entities - maybe something general for Providers and something to do with Neutron for the current network providers (future providers will have other icons corresponding to their types).
 *   The link between the Provider and its provided entity (in our case, a network) needs to also be reflected in the provided entity. Therefore, we'll add a Provider column to each network tab/subtab. Also, to make access to the Provider easier for the user, we're planning to have the text link to the actual Provider tab.
 
 ### Installation/Upgrade
@@ -147,10 +147,10 @@ Good documentation is available at <https://access.redhat.com/site/documentation
     1.  Steps described at: <http://docs.openstack.org/developer/keystone/installing.html#installing-from-packages-fedora>
     2.  And: <http://fedoraproject.org/wiki/Getting_started_with_OpenStack_on_Fedora_17#Initial_Keystone_setup>
 
-2.  Configure quantum in keystone
+2.  Configure Neutron in keystone
     1.  Steps described at: <http://docs.openstack.org/grizzly/openstack-network/admin/content/keystone.html>
-        1.  Add quantum service
-        2.  Add quantum admin user
+        1.  Add Neutron service
+        2.  Add Neutron admin user
 
 Note: get_id function is:
 
@@ -158,11 +158,11 @@ Note: get_id function is:
       `     echo `"$@" | grep ' id ' | awk '{print $4}'` `
       }
 
-##### Configure Quantum manager
+##### Configure Neutron manager
 
-1.  Install quantum manger
+1.  Install Neutron manger
     1.  Steps described at: <http://docs.openstack.org/trunk/openstack-network/admin/content/install_fedora.html>
-        1.  Install quantum plugin
+        1.  Install Neutron plugin
         2.  Run plugin self configuration (This will create the DB)
         3.  Configure /etc/quantum/quantum.conf:
             1.  Choose rabbit / qpid by un-commenting the corresponding values
@@ -187,8 +187,8 @@ Don't forget to restart the ovirt-engine service!
 
 #### Agent installation on host
 
-1.  Install quantum plugin (same plugin as in the manager)
-2.  Configure the quantum manger IP (rabbit_host =)
+1.  Install Neutron plugin (same plugin as in the manager)
+2.  Configure the Neutron manger IP (rabbit_host =)
 3.  Run plugin self configuration (for creating the link of plugin.ini to the specific config)
 4.  When using Linux Bridge only:
     1.  Override file for creating a tap connected to dummy bridge
@@ -277,41 +277,41 @@ Once the properties are set, the following sequence will install, configure and 
 
 ## Dependencies / Related Features and Projects
 
-Please see the [feature page](Features/Quantum_Integration).
+Please see the [feature page](Features/OSN_Integration).
 
 ## Documentation / External references
 
-*   <https://wiki.openstack.org/wiki/Quantum/APIv2-specification>
+*   <https://wiki.openstack.org/wiki/Neutron/APIv2-specification>
 *   <http://docs.openstack.org/api/openstack-network/2.0/content/>
 *   <http://docs.openstack.org/trunk/openstack-network/admin/content/>
 
 ## Comments and Discussion
 
-<Talk:Features/Detailed_Quantum_Integration>
+<Talk:Features/Detailed_OSN_Integration>
 
 ## Open Issues
 
 *   Authentication - how to do it?
-    -   Quantum supports only noauth/keystone auth modes.
+    -   Neutron supports only noauth/keystone auth modes.
         -   Configuring keystone adds an additional dependency for the administrator to handle.
     -   Need to decide which of these modes we will support in Phase 1 (actually, noauth is already supported, but obviously not secure).
 *   Scheduling:
-    -   Quantum doesn't expose an API to know which hosts will be able to provision it's networks.
+    -   Neutron doesn't expose an API to know which hosts will be able to provision it's networks.
     -   Perhaps Grizzly will have better support for it, still not certain.
-*   [Libvirt bug](https://bugzilla.redhat.com/878481) still not solved, Linux Bridge support requires quantum hack (or push as a fix for the agent).
+*   [Libvirt bug](https://bugzilla.redhat.com/878481) still not solved, but we have a fix for it as a post-start hook.
 *   REST API support will not be available in Phase 1, how will this effect the REST API clients?
 
 ## Proof of Concept
 
-A POC was done with the proposed ideas in "Phase 1" section, integrating [Openstack Quantum](https://wiki.openstack.org/wiki/Quantum) as an external network provider. the POC is available for review & testing.
+A POC was done with the proposed ideas in "Phase 1" section, integrating [Openstack Neutron](https://wiki.openstack.org/wiki/Neutron) as an external network provider. the POC is available for review & testing.
 
 ### POC Sources
 
 The POC sources can be found in the oVirt gerrit under a topic branch: <http://gerrit.ovirt.org/#/q/status:open+project:ovirt-engine+branch:master+topic:POC_NetworkProvider,n,z>
 
-### Hack in Quantum linux bridge agent
+### Hack in Neutron linux bridge agent
 
-Due to a bug in libvirt (https://bugzilla.redhat.com/show_bug.cgi?id=878481) we had to connect the vNIC to the ;vdsmdummy; bridge in VDSM. The Quantum agent will detect the tap device (the physical implementation of the vNIC) and attempt to connect it to it's bridge but fail because it's already connected to the dummy bridge.
+Due to a bug in libvirt (https://bugzilla.redhat.com/show_bug.cgi?id=878481) we had to connect the vNIC to the ;vdsmdummy; bridge in VDSM. The Neutron agent will detect the tap device (the physical implementation of the vNIC) and attempt to connect it to it's bridge but fail because it's already connected to the dummy bridge.
 
 To fix this, you would need to edit the installed linuxbridge_quantum_agent.py file and add this line of code:
 

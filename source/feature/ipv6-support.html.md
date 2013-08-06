@@ -160,6 +160,7 @@ Records that contains "href" as string, should be tested if works with IPv6:
     -   This brings changes in class netmodels.IpConfig, configNetwork.objectivizeNetwork
 *   Ifcfg files have to have IPv6 capabilities as are described here <http://www.cyberciti.biz/faq/rhel-redhat-fedora-centos-ipv6-network-configuration/>
     -   ifcfg.ConfigWriter._createConfFile(),
+    -   There is a change from Hunt Xu <http://gerrit.ovirt.org/#/c/11741> that seems outdated now, but that dealed with new shape of ifcfg files.
 *   Iproute2 configurator (http://gerrit.ovirt.org/#/c/15301/) looks like there shouldn't be made any changes?
 *   jsonrpc: make TCPReactor IPv6 capable
     -   <http://gerrit.ovirt.org/#/c/11740>

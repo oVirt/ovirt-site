@@ -10,11 +10,11 @@ wiki_last_updated: 2013-08-06
 
 # OSN Integration
 
-## Integrating OpenStack Quantum as a network provider in oVirt
+## Integrating OpenStack Neutron as a network provider in oVirt
 
 ### Summary
 
-We intend to add support for OpenStack Quantum as a network provider.
+We intend to add support for OpenStack Neutron as a network provider.
 
 A network provider is an external provider that can provide networking capabilities for consumption by oVirt hosts and/or virtual machines. The network provider has the knowledge about the networks that it manages, and works autonomously from oVirt. The provider should enable integration on 3 points:
 
@@ -29,7 +29,7 @@ A network provider is an external provider that can provide networking capabilit
 
 ### Current status
 
-*   Planned for oVirt 3.3
+*   Available in oVirt 3.3 as tech preview
 *   Last updated: ,
 
 ### Detailed Description
@@ -42,7 +42,7 @@ Currently, the engine assumes that the networks provided by the provider are ava
 
 #### Network provisioning
 
-The network can be exported from oVirt into the network provider, which means a user will be able to add the network to Quantum via oVirt, instead of using the Quantum API directly. However, from that moment on it will be as if the network was discovered from the provider - i.e. if it goes out of sync, that's OK from oVirt's perspective.
+The network can be exported from oVirt into the network provider, which means a user will be able to add the network to Neutron via oVirt, instead of using the Neutron API directly. However, from that moment on it will be as if the network was discovered from the provider - i.e. if it goes out of sync, that's OK from oVirt's perspective.
 
 #### Virtual NIC provisioning
 
@@ -52,11 +52,11 @@ There should also be an option to "un-provision" a virtual NIC so that is being 
 
 #### More details
 
-Please see [Features/Detailed_Quantum_Integration](Features/Detailed_Quantum_Integration)
+Please see [Features/Detailed_OSN_Integration](Features/Detailed_OSN_Integration)
 
 ### Benefit to oVirt
 
-*   Ability to use various technologies that OpenStack Quantum provides for it's networks, such as IPAM, L3 Routing, Security Groups, etc.
+*   Ability to use various technologies that OpenStack Neutron provides for it's networks, such as IPAM, L3 Routing, Security Groups, etc.
 *   Ability to use technologies that aren't supported natively in oVirt (OVS, various controllers) for VM networks.
 
 ### Dependencies / Related Features
@@ -71,12 +71,12 @@ Depends on:
 In order to test the feature follow these steps:
 
 *   Make sure to run the tests in the sequence they're written
-*   Install Neutron server & 'Linux Bridge' plugin per the steps at [Features/Detailed_Quantum_Integration](Features/Detailed_Quantum_Integration)
+*   Install Neutron server & 'Linux Bridge' plugin per the steps at [Features/Detailed_OSN_Integration](Features/Detailed_OSN_Integration)
     -   Make sure you're using 'noauth' authentication to make things easier - no need to install Keystone at this point
     -   Make sure you're defining:
         -   tenant_network_type = vlan
         -   network_vlan_ranges = red:1:1000,blue:1001:2000,green
-*   Make sure hosts run in selinux=permissive mode (quantum limitation)
+*   Make sure hosts run in selinux=permissive mode (Neutron limitation)
 *   Add a couple of test networks to the neutron service via the API
 
 | Test                               | Steps                                                                                                                             | Expected Result                                                                                        | Status | Post action                                                              |
@@ -175,6 +175,6 @@ In order to test the feature follow these steps:
 
 ### Comments and Discussion
 
-*   Refer to <Talk:Features/Quantum_Integration>
+*   Refer to <Talk:Features/OSN_Integration>
 
 <Category:Feature>

@@ -78,11 +78,15 @@ Password less SSH communication should be enabled between one host of the source
 
 The user needs to select the **Fingerprint Verified** before submitting the details. This is to make sure the connection is not established with a malicious host.
 
+#### Remove a Geo-Replication Destination
+
+The user can select the Geo-Replication destination which needs to be removed and click on **Remove** action to remove it. Removing a geo-replication session is allowed only if doesn't have any geo-replication sessions configured.
+
 #### Re-establish password less communication with destination host
 
-The below dialog provides a mechanism for re-establishing a broken source/destination communication between source and destination clusters. It captures the details again and re-establishes the communication between source and destination cluster.
+The below dialog provides a mechanism for re-establishing a broken password less communication between source and destination cluster hosts. It captures the details again and enables password less communication between a host of source cluster and a host of destination cluster.
 
-![](geo_replication_slave3_reestablish.png "geo_replication_slave3_reestablish.png")
+![](Georepdest3reestablish.png "Georepdest3reestablish.png")
 
 Testing the validity/availability of a destination is possible using the action "Test". Administrator can re-establish a broken source/destination communication as well using the action "Re-establish".
 

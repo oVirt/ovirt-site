@@ -34,27 +34,27 @@ With growing importance of protocol IPv6 there is need to provide this functiona
 Records that need change:
 
 *   @NetworkOptions
-    -   add optional fields: '\*ipv6addr', '\*ipv6netmask', '\*ipv6gateway'
+    -   add optional fields: '\*ipv6addr', '\*ipv6prefixlen', '\*ipv6gateway'
 
 <!-- -->
 
     {'type': 'NetworkOptions',
      'data': {'*ipaddr': 'str', '*netmask': 'str', '*gateway': 'str',
-              '*ipv6addr': 'str', '*ipv6netmask': 'str', '*ipv6gateway': 'str',
+              '*ipv6addr': 'str', '*ipv6prefixlen': 'uint', '*ipv6gateway': 'str',
               '*bootproto': 'str', '*delay': 'uint', '*onboot': 'str',
               '*bondingOptions', 'str',
               '*qosInbound': 'BandwidthParams',
               '*qosOutbound': 'BandwidthParams'}}
 
 *   @SetupNetworkNetAttributes
-    -   add optional fields: '\*ipv6addr', '\*ipv6netmask', '\*ipv6gateway'
+    -   add optional fields: '\*ipv6addr', '\*ipv6prefixlen', '\*ipv6gateway'
 
 <!-- -->
 
     {'type': 'SetupNetworkNetAttributes',
      'data': {'*vlan': 'str', '*bonding': 'str', '*nic': ['str'], '*ipaddr': 'str',
               '*netmask': 'str', '*gateway': 'str',  '*ipv6addr': 'str', 
-              '*ipv6netmask': 'str', '*ipv6gateway': 'str',  '*bootproto': 'str',
+              '*ipv6prefixlen': 'uint', '*ipv6gateway': 'str',  '*bootproto': 'str',
               '*delay': 'uint', '*onboot': 'bool', '*remove': 'bool',
               '*qosInbound': 'BandwidthParams',
               '*qosOutbound': 'BandwidthParams'}}
@@ -162,7 +162,7 @@ There should be a change/extension to tests under the tests/ directory:
 
 *   configNetworkTests.py - try to create IPv6-only network/nics, both IPv4 and IPv6
 *   jsonRpcUtils.py - extend with IPv6 addresses, where IPv4 is used
-*   netmodelsTests.py - testIsIpv6valid, testIsNetmaskIPv6valid
+*   netmodelsTests.py - testIsIpv6valid, testIPv6Prefixlenvalid
 
 #### Ovirt-Engine frontend
 

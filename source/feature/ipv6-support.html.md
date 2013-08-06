@@ -102,15 +102,15 @@ Fields that can contain IPv6 address:
 
 ![](Ipv6 new host.png "Ipv6 new host.png")
 
-*   External providers - In add external provider dialog, there will be need to add IPv6 validation to:
+*   External providers - the *Add External Provider* dialog *'should*; accept IPv6 addresses in:
     -   General -> Provider URL
     -   Set Network plugin to Open vSwitch or Linux Bridge -> Agent Configuration -> Host
 
 <!-- -->
 
-*   network address in Setup Host Network -> edit network -> boot protocol: static :
+*   Network address in Setup Host Network -> edit network -> boot protocol: static :
     -   IP
-    -   subnet mask - in IPv4 subnet mask has form of doted decimal number, same as IPv4 address. In IPv6 subnet is made of single number from 0-128 that describes the number of bits from start that belongs to site. Mostly here will be numbers 64/56/48.
+    -   subnet mask - in IPv4 subnet mask has the form of dotted decimal number, same as IPv4 address. In IPv6 subnet is made of single number from 0-128 that describes the number of bits from start that belongs to site. Usually here will be the numbers 64/56/48.
     -   gateway - regular IPv6 address
 
 ![](Ipv6 edit management network.png "Ipv6 edit management network.png")

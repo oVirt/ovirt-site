@@ -227,37 +227,30 @@ Where 'IPv6 link-local addr' is address of IPv6 link local address of bridge ovi
 
 #### VDSM API
 
-1.  Test functionality of newly added attributes to @NetworkOptions, @SetupNetworkNetAttributes
-
-*   -   Create Network with both with static IPv4 and IPv6 addresses.
+*   Test functionality of newly added attributes to @NetworkOptions, @SetupNetworkNetAttributes
+    -   Create Network with both with static IPv4 and IPv6 addresses.
     -   Create Network where IPv6 will be using Stateless autoconfiguration and DHCPv6 at the same time.
-
-1.  Test that every api schema that can contain IP address, can contain IPv6 address. Listed in [#Vdsm api](#Vdsm_api) Records that DO NOT need to change.
-
-*   -   Try to fence node addressed with IPv6 address.
+*   Test that every api schema that can contain IP address, can contain IPv6 address. Listed in [#Vdsm api](#Vdsm_api) Records that DO NOT need to change.
+    -   Try to fence node addressed with IPv6 address.
     -   Create IP on IPv6 network only, reported IPv6 address should be IPv6.
-
-1.  Test functionality of IPv6 related fields. Listed in [#Vdsm api](#Vdsm_api) Records that already contains IPv6 fields.
+*   Test functionality of IPv6 related fields. Listed in [#Vdsm api](#Vdsm_api) Records that already contains IPv6 fields.
 
 #### Ovirt-Engine GUI
 
-1.  Test that to every address field can be inserted IPv6 address. Test every form of IPv6 address: full form, omited leading zeros, changed group of zeros (https://en.wikipedia.org/wiki/IPv6_address#Presentation).
-
-*   -   Add host addressed by IPv6 address.
+*   Test that to every address field can be inserted IPv6 address. Test every form of IPv6 address: full form, omited leading zeros, changed group of zeros (https://en.wikipedia.org/wiki/IPv6_address#Presentation).
+    -   Add host addressed by IPv6 address.
     -   Add external provider using IPv6 address.
     -   Add storage using IPv6 address.
-
-1.  Test every combination of Edit Network, every boot protocol with combination of IPv6 or IPv4 addresses. There should always be selected at least one protocol, otherwise the error should raise.
-
-*   -   Edit network to use static configuration and fill in IPv4 and IPv6 addresses.
+*   Test every combination of Edit Network, every boot protocol with combination of IPv6 or IPv4 addresses. There should always be selected at least one protocol, otherwise the error should raise.
+    -   Edit network to use static configuration and fill in IPv4 and IPv6 addresses.
     -   Use DHCP configuration for IPv4 and stateless configuration for IPv6.
 
 TBD list of interesting IPv6-related actions that should be tested.
 
 #### REST API
 
-1.  Check that record "Network" and "HostNic" contains "ips", that every "ip" has selected proper "version" and all IPs are listed.
-2.  Check that every records with "address" or "href" properly handle IPv6 format.
+*   Check that record "Network" and "HostNic" contains "ips", that every "ip" has selected proper "version" and all IPs are listed.
+*   Check that every records with "address" or "href" properly handle IPv6 format.
 
 ### Comments and Discussion
 

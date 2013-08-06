@@ -236,6 +236,8 @@ Where 'IPv6 link-local addr' is address of IPv6 link local address of bridge ovi
 1.  Test that to every address field can be inserted IPv6 address. Test every form of IPv6 address: full form, omited leading zeros, changed group of zeros (https://en.wikipedia.org/wiki/IPv6_address#Presentation).
 2.  Test every combination of Edit Network, every boot protocol with combination of IPv6 or IPv4 addresses. There should always be selected at least one protocol, otherwise the error should raise.
 
+TBD list of interesting IPv6-related actions that should be tested.
+
 #### REST API
 
 1.  Check that record "Network" and "HostNic" contains "ips", that every "ip" has selected proper "version" and all IPs are listed.

@@ -72,6 +72,7 @@ Once started, a rebalance volume or remove-brick can be stopped while in progres
 *   -   The icon in the Activities column indicates that "Rebalance" operation is in progress
     -   User can check status/ stop operation from the Rebalance menu. Rebalance --> Start, Rebalance --> Stop
     -   The tasks tab in the bottom pane is updated periodically with short summary status of task
+    -   **\1**
 
 <!-- -->
 

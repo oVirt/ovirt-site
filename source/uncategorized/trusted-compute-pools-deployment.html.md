@@ -302,7 +302,7 @@ scp oatserver.\*.com:/etc/intel/cloudsecurity/ovirt.jks /usr/share/TrustStore.jk
 
 *   Configure attestation server
 
-update vdc_options set option_value = ‘oat-server. \*\*\*.com’ where option_name = 'AttestationServer'
+       update vdc_options set option_value = ‘oat-server. ***.com’ where option_name = 'AttestationServer'
 
 *   Configure attestation port
 

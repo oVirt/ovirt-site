@@ -129,7 +129,7 @@ Interesting attribute of address is its scope (link-local or global). The scope 
 
 ### REST API
 
-REST API now contains a record called "ip" which already has the attribute "version" (4 or 6 at the moment). Record "ip" is present in following records:
+REST API now contains a record called "ip" which already has the attribute "version" (4 or 6 at the moment). Record "ip" is present in following records (file ovirt-engine/backend/manager/modules/restapi/interface/definition/src/main/resources/api.xsd):
 
 *   ips - container of "ip"
 *   Network
@@ -137,6 +137,15 @@ REST API now contains a record called "ip" which already has the attribute "vers
     -   we can perform two action with HostNic: attach and detach
 
 Both Network and HostNic **should** use "ips" rather than a single "ip", so they can contain multiple addresses with selected version.
+
+Actions that will be affected (where IP is optional or mandatory argument) with change of records (from the file ovirt-engine/backend/manager/modules/restapi/interface/definition/src/main/resources/rsdl_metadata.yaml):
+
+*   Network
+    -   /api/networks/{network:id}|rel=update
+    -   /api/networks|rel=add
+*   HostNic
+    -   /api/hosts/{host:id}/nics/{nic:id}|rel=update
+    -   /api/hosts/{host:id}/nics/setupnetworks|rel=setupnetworks
 
 Records that contains "address" as string, should be tested they work with IPv6 TESTONLY:
 

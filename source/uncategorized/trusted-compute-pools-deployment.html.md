@@ -271,6 +271,8 @@ you can refer to <https://github.com/OpenAttestation/OpenAttestation/wiki/OAT-%2
 
 #### Install Fedora for Legacy Boot
 
+refer to [Install Fedora for Legacy Boot](Install Fedora for Legacy Boot)
+
 #### Enable Intel® TXT in BIOS
 
 #### Install TPM Driver

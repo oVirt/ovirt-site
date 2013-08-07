@@ -287,6 +287,10 @@ Refer to **1.3.4 Install tboot**
 
 ### Provision White list Databse
 
-In order to add OEM, OS, MLE, and HOST information to Attestation Server’s White List database. <http://oatserver>.\*.com:8080/WhiteListPortal/home.html <http://oatserver>.\*.com:8080/TrustDashBoard/home.html. Notes: oatserver.\*.com should be the host name of oat server. As to data ,you can refer to **1.5 Provision White List Database**.
+At least OEM, OS, MLE, and HOST information should be added to Attestation Server’s White List database.
+
+Follow below exmaple to make a oVirt node recognized as "trusted" by the attestation service. You can open the following two links, and add corresponding information into database. <http://oatserver>.\*.com:8080/WhiteListPortal/home.html <http://oatserver>.\*.com:8080/TrustDashBoard/home.html
+Notes: oatserver.\*.com should be the host name of oat server.
+As to data ,you can refer to **1.5 Provision White List Database**.
 
 ### Configuration in oVirt Engine

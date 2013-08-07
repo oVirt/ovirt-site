@@ -66,7 +66,7 @@ This feature provide the support for managing the asynchronous tasks on Gluster 
 *   GlusterAsyncTask - encapsulates information about the Gluster task
 *   GlusterTaskType
     -   REBALANCE
-    -   REPLACE_BRICK
+    -   REMOVE_BRICK
 *   GlusterTaskStatus
     -   RUNNING
     -   FAILED
@@ -82,5 +82,25 @@ All long running commands will inherit from
     -   Creates a SUB-STEP on execution of command and associate the step with external task id
     -   Abstract method getStepType - inheriting classes to return the StepEnum to be added as Sub step when executing the command
     -   Abstract method executeAndReturnTask which inheriting classes should implement by calling the corresponding VDS command. The method should return a GlusterAsyncTask object that holds the id of the gluster task that was started due to the command.
+
+### REST API
+
+Add rebalance action on the gluster volumes resource
+
+*   /api/clusters/{id}/glustervolumes/{id}/rebalance
+
+      This will return a step id which can be monitored from jobs/step api url
+
+Modify the delete verb for bricks
+
+*   /api/clusters/{id}/glustervolumes/{id}/bricks/remove
+
+Allow a collection of bricks to be removed. This will not migrate data first
+
+Add migrate action to the gluster bricks resource
+
+*   /api/clusters/{id}/glustervolumes/{id}/bricks/migrate
+
+Allow data on collection of bricks to be migrated. This will return a step id which can be monitored from jobs/step api url
 
 <Category:DetailedFeature>

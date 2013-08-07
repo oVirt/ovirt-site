@@ -87,19 +87,19 @@ All long running commands will inherit from
 
 Add rebalance action on the gluster volumes resource
 
-*   /api/clusters/{id}/glustervolumes/{id}/rebalance
+      /api/clusters/{id}/glustervolumes/{id}/rebalance
 
-      This will return a step id which can be monitored from jobs/step api url
+This will return a step id which can be monitored from jobs/step api url
 
 Modify the delete verb for bricks
 
-*   /api/clusters/{id}/glustervolumes/{id}/bricks/remove
+      /api/clusters/{id}/glustervolumes/{id}/bricks/remove
 
 Allow a collection of bricks to be removed. This will not migrate data first
 
 Add migrate action to the gluster bricks resource
 
-*   /api/clusters/{id}/glustervolumes/{id}/bricks/migrate
+      /api/clusters/{id}/glustervolumes/{id}/bricks/migrate
 
 Allow data on collection of bricks to be migrated. This will return a step id which can be monitored from jobs/step api url
 

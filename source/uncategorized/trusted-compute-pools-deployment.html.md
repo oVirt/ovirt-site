@@ -265,7 +265,7 @@ User may want to configure vdc_options to overwrite the default values, these co
 
 ### Deploy Attestation Service
 
-refer to <https://github.com/OpenAttestation/OpenAttestation/wiki/OAT-%282.0%29-Packages-Installation>
+Refer to <https://github.com/OpenAttestation/OpenAttestation/wiki/OAT-%282.0%29-Packages-Installation>
 
 ### Deploy Host Agent on VDS
 

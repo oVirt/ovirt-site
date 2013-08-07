@@ -294,7 +294,7 @@ Refer to **1.3.4 Install tboot**
 
 Notes: In the installation process, you need to enter the username and pasword to download some files from server. Here the username is "admin" and password is "mountwilson".
 
-*   Make sure tagent service is active after package installation, otherwise, start taegnt service manually.
+*   Make sure tagent service is active after package installation, otherwise, start tagent service manually.
 
         service tagent status(check service)
         service tagent start(start service)

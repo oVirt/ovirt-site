@@ -63,10 +63,10 @@ Updated August 4, 2013
     -   Add functionality to root resource for add/delete connection properties in REST
     -   Add functionality to edit a connection
 *   Create subresource for connections under domains (api/storagedomains/<domainId>/connections that will retrieve connections (GET). (in review) <http://gerrit.ovirt.org/#/c/17245/>
-*   Add functionality to add a file storage domain with a reference to an already existing storage connection (instead of embedded properties of a connection that will be created along with the storage domain). (in review) <http://gerrit.ovirt.org/#/c/17177/>
+*   Add functionality to add a file storage domain with a reference to an already existing storage connection (instead of embedded properties of a connection that will be created along with the storage domain). (ready) <http://gerrit.ovirt.org/#/c/17177/>
 *   Use a new storage_connection REST object instead of Storage. ready. <http://gerrit.ovirt.org/#/c/17565/>
-*   Add ability to remove (delete) a connection without specifying the host. (in review) <http://gerrit.ovirt.org/#/c/17568/>
-*   Add functionality to add an additional connection to block storage domain - multipathing. no started.
+*   Add ability to remove (delete) a connection without specifying the host. (ready) <http://gerrit.ovirt.org/#/c/17568/>
+*   Add functionality to add an additional connection to block storage domain - multipathing. started design.
 *   post 3.3 - add connections subresource to lun disks - For each lun disk (direct lun) view (GET) its storage connections by approaching it via a specific subresource: /api/disks/<diskId>/connections. not started
 
 #### Blockers

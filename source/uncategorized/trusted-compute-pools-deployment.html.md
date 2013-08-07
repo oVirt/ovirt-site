@@ -10,13 +10,13 @@ This is a manual for how to deploy trusted compute pools feature in oVirt.
 
 # Trusted Compute Pools deployment
 
-### Owner
+#### Owner
 
 *   Name: [ Gang Wei](User:gwei3)
 *   Last updated date: May 24, 2013
 *   Email: <gang.wei@intel.com>
 
-### Deploy Attestation Service
+#### Deploy Attestation Service
 
 Two approaches (all-in-one packages for f18, yum install in f19) are provided to deploy Attestation Service. Install via yum command will be available after oat package is merged in fedora 19 repository(WIP).
 pls note:
@@ -30,11 +30,11 @@ pls note:
 
 *   oat package might not able to be pushed into fedora 18 since some dependencies can't be pushed in f18.
 
-#### Install basic packages (for all-in-one approach)
+##### Install basic packages (for all-in-one approach)
 
       # yum -y install httpd mysql mysql-server php php-mysql openssl java-1.7.0-openjdk.x86_64
 
-#### Install Attestation Server Package
+##### Install Attestation Server Package
 
 *   Install all-in-one package
 
@@ -51,7 +51,7 @@ Download [oat-appraiser](http://gwei3.fedorapeople.org/package_review/oat/v1/oat
       # service tomcat6 status (check status)
       # service tomcat6 start (start service)
 
-#### Generate Client Files
+##### Generate Client Files
 
 Generate client files after installing oat-appraiser package, execute this command is enough.
 
@@ -59,18 +59,18 @@ Generate client files after installing oat-appraiser package, execute this comma
 
 Client files will be output in this directory “/var/lib/oat-appraiser/ClientFiles/”. Part of these files are needed in agent’s side.
 
-### Deploy Host Agent on VDS
+#### Deploy Host Agent on VDS
 
 Two approaches (all-in-one packages for f18, yum install in f19) are provided to deploy Host Agent. Install via yum command will be available after oat package is merged in fedora 19 repository(WIP).
 
-#### Install Fedora for Legacy Boot
+##### Install Fedora for Legacy Boot
 
 The Fedora18/19 x86-64 system should be installed to run in legacy boot instead of EFI boot. Many new systems will by default boot as EFI boot, so you need to explicitly boot the installation media (DVD or USB) with legacy mode. Below is a example on HP8300:
 
 *   at the beginning of booting, ESC, enter setup password, F9 -> Boot Menu -> legacy boot from DVD
 *   install Fedora18/19 x86-64 from DVD
 
-#### Enable Intel® TXT in BIOS
+##### Enable Intel® TXT in BIOS
 
 Client system must have TPM 1.2 compliant device with driver installed, and TPM/TXT enabled in BIOS to perform the operation. Below is a example for HP8300 system:
 
@@ -79,13 +79,13 @@ Client system must have TPM 1.2 compliant device with driver installed, and TPM/
 *   Security->System Security, enable vtx/vtd/Embeded Security Device/Trusted Execution Technology, F10 save it.
 *   File->Save Changes and Exit.
 
-#### Install TPM Driver
+##### Install TPM Driver
 
       # yum install kernel-modules-extra
 
 Reboot system and verify that /dev/tpm0 existed. Make sure the installed kernel-modules-extra version is the same with the kernel are you using, otherwise upgrade to a new kernel version.
 
-#### Install tboot
+##### Install tboot
 
 Download corresponding sinit zip package from below url, copied the .BIN in it to /boot. (SKIP this step on server platforms)
 
@@ -129,13 +129,13 @@ Check the PCR values in TPM via the sysfs interface provided by TPM driver, make
       PCR-22: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
       PCR-23: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 
-#### Install basic Packages (for all-in-one approach)
+##### Install basic Packages (for all-in-one approach)
 
       # yum -y install trousers-devel java-1.7.0-openjdk
 
 Make sure the TrouSers service is started before moving on. Service name is “tcsd”
 
-#### Install Host Agent Package
+##### Install Host Agent Package
 
 *   Install all-in-one package
 
@@ -147,7 +147,7 @@ Download [oat-client](http://gwei3.fedorapeople.org/package_review/oat/v1/oat-cl
 
       # yum install oat-client
 
-#### File copying and Agent Registration
+##### File copying and Agent Registration
 
 Copy “PrivacyCA.cer” and “TrustStore.jks” from server side to agent side. Find these files under this directory (server side):
 
@@ -178,7 +178,7 @@ Start oat client service, make sure TrouSers service is running
 
       # service oat-client start
 
-### Install oat-command tool
+#### Install oat-command tool
 
 *   Install all-in-one package
 
@@ -195,7 +195,7 @@ You will find below 11 scripts in “/usr/bin” directory:
       # ls /usr/bin/oat_*
       oat_cert  oat_host  oat_mle  oat_mle_search  oat_oem  oat_os  oat_pcrwhitelist  oat_pollhosts  oat_view_mle  oat_view_oem  oat_view_os
 
-### Provision White List Database
+#### Provision White List Database
 
 At least OEM, OS, MLE, and HOST information should be added to Attestation Server’s White List database.
 
@@ -241,7 +241,7 @@ Once you got response like below the you can continue to configure oVirt engine 
 
       {"hosts":[{"host_name":"agent.*.com","trust_lvl":"trusted","vtime":"2013-05-16T14:14:44.881+08:00"}]}
 
-### Configuration in oVirt Engine
+#### Configuration in oVirt Engine
 
 User may want to configure vdc_options to overwrite the default values, these configurations include:
 
@@ -260,3 +260,5 @@ User may want to configure vdc_options to overwrite the default values, these co
 
       insert into vdc_options (option_name, option_value) values (' AttestationServer','oat-server');
       update vdc_options set option_value = ‘oat-server. ***.com’ where option_name = 'AttestationServer'
+
+ OAT2.0 installation

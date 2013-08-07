@@ -44,7 +44,8 @@ User should be able to start any of these operations as follows:
 **Task Monitoring**
 
 *   Tasks can be monitored using the Tasks sub-tab in the bottom pane of the UI
-*   A child step is added to the Executing step, the status of which is periodically updated as long as the task is in progress
+*   A child step is added to the Executing step, the status of which is periodically updated for as long as the task is in progress
+*   If rebalance or remove-brick operations are started from the Gluster CLI, these can also be monitored using the Tasks sub-tab. A job entry is created for any such operation which is associated with the gluster task id.
 *   User can also check the status of the task from the Volume/Bricks tabs by selecting the volume/brick.
 
 **Task Operations**

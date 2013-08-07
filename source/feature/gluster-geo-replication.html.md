@@ -115,27 +115,29 @@ A new sub tab **Geo-Replication Session** will be added to the **Volumes** main 
 
 The below dialog captures the details and creates the geo-replication session between source and destination gluster volumes.
 
-![](volume_georeplication1_new.png "volume_georeplication1_new.png")
-
-![](volume_georeplication2_subtab.png "volume_georeplication2_subtab.png")
+![](Georepsession2new.png "Georepsession2new.png")
 
 #### Start a new Geo-Replication Session
 
-A new action named **Start** will be shown in the **Geo-Replication Sessions** tab
+A new action named **Start** will be shown in the **Geo-Replication Sessions** tab, which will start the selected geo-replication session(s).
 
 #### Stop a Geo-Replication Session
 
-A new action named **Stop** will be shown in the **Geo-Replication Sessions** tab
+A new action named **Stop** will be shown in the **Geo-Replication Sessions** tab, which will stop the selected geo-replication session(s).
 
 #### Remove a Geo-Replication Session
 
-A new action named **Remove** will be shown in the **Geo-Replication Sessions** tab
+A new action named **Remove** will be shown in the **Geo-Replication Sessions** tab, which will remove the selected geo-replication session(s).
+
+#### Individual Geo-Replication Sessions
+
+![](Georepsession3details.png "Georepsession3details.png")
 
 #### Configurations of Geo-Replication Session
 
-The below dialog fetches and lists the default values of all the configurations for a geo-replication session. It provides and option to change the values of the configurations.
+The below dialog fetches and lists the default values of all the configurations for a geo-replication session. It provides and option to change the values of the configurations. User can change the values of the configuration properties any point of time after creating the geo-replication session. The geo-replication session will be restarted automatically if the user changes any configuration when the session is already started.
 
-![](volume_georeplication3_config.png "volume_georeplication3_config.png")
+![](Georepsession4config.png "Georepsession4config.png")
 
 Refer the URL: <http://www.ovirt.org/Features/Design/GlusterGeoReplication> for detailed design of the feature.
 

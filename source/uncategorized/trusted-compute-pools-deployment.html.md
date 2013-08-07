@@ -8,7 +8,7 @@ wiki_last_updated: 2014-04-01
 
 This is a manual for how to deploy trusted compute pools feature in oVirt.
 
-### Trusted Compute Pools deployment
+### Trusted Compute Pools deployment (OAT 1.6)
 
 #### Owner
 

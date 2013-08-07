@@ -298,7 +298,7 @@ Notes: oatserver.\*.com should be the host name of oat server.
 
 *   Copy "TrustStore.jks" from attestation server to engine server.
 
-scp oatserver.\*.com:/etc/intel/cloudsecurity/ovirt.jks /usr/share/TrustStore.jks
+       scp oatserver.*.com:/etc/intel/cloudsecurity/ovirt.jks /usr/share/TrustStore.jks
 
 *   Configure attestation server
 
@@ -306,4 +306,4 @@ scp oatserver.\*.com:/etc/intel/cloudsecurity/ovirt.jks /usr/share/TrustStore.jk
 
 *   Configure attestation port
 
-update vdc_options set option_value = 8181 where option_name = ' AttestationPort'
+       update vdc_options set option_value = 8181 where option_name = ' AttestationPort'

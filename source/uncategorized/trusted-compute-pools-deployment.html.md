@@ -295,3 +295,15 @@ You can open the following two links, and refer to **1.5 Provision White List Da
 Notes: oatserver.\*.com should be the host name of oat server.
 
 ### Configuration in oVirt Engine
+
+*   Copy "TrustStore.jks" from attestation server to engine server.
+
+scp oatserver.\*.com:/etc/intel/cloudsecurity/ovirt.jks /usr/share/TrustStore.jks
+
+*   Configure attestation server
+
+update vdc_options set option_value = ‘oat-server. \*\*\*.com’ where option_name = 'AttestationServer'
+
+*   Configure attestation port
+
+update vdc_options set option_value = 8181 where option_name = ' AttestationPort'

@@ -131,6 +131,8 @@ A new action named **Remove** will be shown in the **Geo-Replication Sessions** 
 
 #### Individual Geo-Replication Sessions
 
+With the distributed geo-replication, when a geo-replication session is created for a volume, internally more than one session will be created depends on the type of the volume and where bricks are residing. This view will list all the individual sessions, their status and Up time.
+
 ![](Georepsession3details.png "Georepsession3details.png")
 
 #### Configurations of Geo-Replication Session

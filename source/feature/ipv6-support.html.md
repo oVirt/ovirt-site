@@ -134,6 +134,7 @@ REST API now contains a record called "ip" which already has the attribute "vers
 *   ips - container of "ip"
 *   Network
 *   HostNic
+    -   we can perform two action with HostNic: attach and detach
 
 Both Network and HostNic **should** use "ips" rather than a single "ip", so they can contain multiple addresses with selected version.
 

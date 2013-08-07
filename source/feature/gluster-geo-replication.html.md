@@ -98,20 +98,24 @@ List of the geo-replication sessions created from the source to destination clus
 
 Testing/Verifying the password less communication from (one host of) the source cluster to (one host of the) destination cluster can be done by selecting a geo-replication destination and clicking the **Test Communication** action. After the verification process is completed, the **Password less communication verification** field of the selected destination will be changed to either **Success** or **Failed**.
 
-#### Create a new Geo-Replication Session
+#### Geo-Replication Sessions
 
-A new sub tab "Geo-Replication Sessions" will be added to the Volumes main tab in oVirt webadmin UI which will list all the geo-replication sessions for the selected volume. The below dialog captures the details and creates the geo-replication session between source and destination gluster volumes.
+A new sub tab **Geo-Replication Session** will be added to the **Volumes** main tab in oVirt webadmin UI which will list all the geo-replication sessions for the selected volume. Geo-Replication Sessions subtab also provides actions for
 
-![](volume_georeplication1_new.png "volume_georeplication1_new.png")
-
-#### View All Geo-Replication Sessions
-
-Geo-Replication Session subtab also provides actions for
-
-*   Removal of an existing geo-replication session
+*   Creating a new geo-replication session
 *   Starting a geo-replication session
 *   Stopping a geo-replication session
+*   View details of a geo-replication sessions, this includes the list of individual geo-replication session and their respective status
 *   Update configurations for a geo-replication session
+*   Removing an existing geo-replication session
+
+![](Georepsession1list.png "Georepsession1list.png")
+
+#### Create a new Geo-Replication Session
+
+The below dialog captures the details and creates the geo-replication session between source and destination gluster volumes.
+
+![](volume_georeplication1_new.png "volume_georeplication1_new.png")
 
 ![](volume_georeplication2_subtab.png "volume_georeplication2_subtab.png")
 

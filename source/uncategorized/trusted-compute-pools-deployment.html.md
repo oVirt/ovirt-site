@@ -271,7 +271,7 @@ you can refer to <https://github.com/OpenAttestation/OpenAttestation/wiki/OAT-%2
 
 #### Install Fedora for Legacy Boot
 
-refer to [1.3.1 Install Fedora for Legacy Boot](1.3.1 Install Fedora for Legacy Boot) [Configuration in oVirt Engine](Configuration in oVirt Engine)
+refer to **1.3.1 Install Fedora for Legacy Boot**
 
 #### Enable Intel® TXT in BIOS
 

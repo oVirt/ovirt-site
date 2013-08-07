@@ -275,10 +275,18 @@ Refer to **1.3.1 Install Fedora for Legacy Boot**
 
 #### Enable Intel® TXT in BIOS
 
+Refer to **1.3.2 Enable Intel® TXT in BIOS**
+
 #### Install TPM Driver
+
+Refer to **1.3.3 Install TPM Driver**
 
 #### Install tboot
 
+Refer to **1.3.4 Install tboot**
+
 ### Provision White list Databse
+
+In order to add OEM, OS, MLE, and HOST information to Attestation Server’s White List database. <http://oatserver>.\*.com:8080/WhiteListPortal/home.html <http://oatserver>.\*.com:8080/TrustDashBoard/home.html. Notes: oatserver.\*.com should be the host name of oat server. As to data ,you can refer to **1.5 Provision White List Database**.
 
 ### Configuration in oVirt Engine

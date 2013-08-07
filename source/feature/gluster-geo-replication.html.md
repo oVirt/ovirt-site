@@ -141,6 +141,12 @@ The below dialog fetches and lists the default values of all the configurations 
 
 ![](Georepsession4config.png "Georepsession4config.png")
 
+#### Creating Geo-Replication Sessions for Multiple Volumes
+
+![](Georepsession5list.png "Georepsession5list.png")
+
+![](Georepsession6multiple.png "Georepsession6multiple.png")
+
 Refer the URL: <http://www.ovirt.org/Features/Design/GlusterGeoReplication> for detailed design of the feature.
 
 ## Dependencies / Related Features and Projects

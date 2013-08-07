@@ -285,6 +285,20 @@ Refer to **1.3.3 Install TPM Driver**
 
 Refer to **1.3.4 Install tboot**
 
+#### Install Host Agent Package
+
+*   Copy client installer from attestation server located in trust-agent/TrustAgentLinuxInstaller/target/TrustAgentLinuxInstaller-1.2-SNAPSHOT.bin.
+*   Run this bin package, you can just type the following command:
+
+       ./TrustAgentLinuxInstaller-1.2-SNAPSHOT.bin
+
+Notes: In the installation process, you need to enter the username and pasword to download some files from server. Here the username is "admin" and password is "mountwilson".
+
+*   Make sure tagent service is active after package installation, otherwise, start taegnt service manually.
+
+        service tagent status(check service)
+        service tagent start(start service)
+
 ### Provision White list Databse
 
 At least OEM, OS, MLE, and HOST information should be added to Attestation Server’s White List database.

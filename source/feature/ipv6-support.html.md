@@ -258,8 +258,15 @@ Where 'IPv6 link-local addr' is address of IPv6 link local address of bridge ovi
 
 #### REST API
 
+Use REST API for:
+
 *   Check that record "Network" and "HostNic" contains "ips", that every "ip" has selected proper "version" and all IPs are listed.
+    -   Update Network with IPv6 address.
+    -   Create new Network with IPv6 address.
+    -   Use setupnetworks verb to add network with IPv6 address.
+    -   Update HostNic with IPv6 address.
 *   Check that every records with "address" or "href" properly handle IPv6 format.
+    -   Add host with IPv6 address in field address.
 
 ### Comments and Discussion
 

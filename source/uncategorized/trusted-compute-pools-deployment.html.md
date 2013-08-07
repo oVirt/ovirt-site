@@ -324,7 +324,7 @@ Notes: oatserver.\*.com should be the host name of oat server.
 
 *   Configure attestation server
 
-       update vdc_options set option_value = ‘oat-server. ***.com’ where option_name = 'AttestationServer'
+       update vdc_options set option_value = ‘oatserver. ***.com’ where option_name = 'AttestationServer'
 
 *   Configure attestation port
 

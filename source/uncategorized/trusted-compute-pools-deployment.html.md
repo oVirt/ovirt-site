@@ -8,7 +8,7 @@ wiki_last_updated: 2014-04-01
 
 This is a manual for how to deploy trusted compute pools feature in oVirt.
 
-# Trusted Compute Pools deployment
+### Trusted Compute Pools deployment
 
 #### Owner
 
@@ -261,6 +261,20 @@ User may want to configure vdc_options to overwrite the default values, these co
       insert into vdc_options (option_name, option_value) values (' AttestationServer','oat-server');
       update vdc_options set option_value = ‘oat-server. ***.com’ where option_name = 'AttestationServer'
 
- OAT(2.0) deployment
+# OAT(2.0) deployment
 
-<https://github.com/OpenAttestation/OpenAttestation/wiki/OAT-%282.0%29-Packages-Installation>
+### Deploy Attestation Service
+
+you can refer to <https://github.com/OpenAttestation/OpenAttestation/wiki/OAT-%282.0%29-Packages-Installation>. ==Deploy Host Agent on VDS
+
+#### Install Fedora for Legacy Boot
+
+#### Enable Intel® TXT in BIOS
+
+#### Install TPM Driver
+
+#### Install tboot
+
+### Provision White list Databse
+
+==Configuration in oVirt Engine

@@ -88,6 +88,12 @@ The below dialog provides a mechanism for re-establishing a broken password less
 
 ![](Georepdest3reestablish.png "Georepdest3reestablish.png")
 
+#### View Geo-Replication Sessions
+
+![](Georepdest4sessions.png "Georepdest4sessions.png")
+
+#### Test password less communication
+
 Testing the validity/availability of a destination is possible using the action "Test". Administrator can re-establish a broken source/destination communication as well using the action "Re-establish".
 
 #### Create a new Geo-Replication Session

@@ -37,6 +37,20 @@ This feature provide the support for managing the asynchronous tasks on Gluster 
     -   Returns the Step entities associated with an external task id
         -   used to update status of step when external task status changes.
 
+#### Entity Changes
+
+<big>gluster_volumes</big>
+
+| Column | Type          | Change   | Description                                                     |
+|--------|---------------|----------|-----------------------------------------------------------------|
+| taskid | int, nullable | Addition | stores the gluster task id for operation in progress on volume. |
+
+<big>gluster_volume_bricks</big>
+
+| Column | Type          | Change   | Description                                                    |
+|--------|---------------|----------|----------------------------------------------------------------|
+| taskid | int, nullable | Addition | stores the gluster task id for operation in progress on brick. |
+
 ### Class Diagram
 
 ![](GlusterAsyncTaskClassDiagram.png "GlusterAsyncTaskClassDiagram.png")

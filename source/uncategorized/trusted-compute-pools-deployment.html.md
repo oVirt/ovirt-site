@@ -263,6 +263,12 @@ User may want to configure vdc_options to overwrite the default values, these co
 
 # Trusted Compute Pools deployment (OAT 2.0)
 
+### Owner
+
+*   Name: [ Gang Wei](User:gwei3)
+*   Last updated date: Aug 7, 2013
+*   Email: <gang.wei@intel.com>
+
 ### Deploy Attestation Service
 
 Refer to <https://github.com/OpenAttestation/OpenAttestation/wiki/OAT-%282.0%29-Packages-Installation>

@@ -65,7 +65,7 @@ A new sub-tab named "Geo-Replication Destinations" will be added to Clusters. Al
 A short description for the columns in the above table
 
 *   **Destination Cluster Host** - FQDN or IP of a host which is part of the destination/remote cluster
-*   **Password less communication verification** - Able to communicate with the **Destination Cluster Host** without any password from one of the host in the source cluster
+*   **Password less communication verification** - Able to communicate with the **Destination Cluster Host** without any password from one of the host in the source cluster. This could be **Unknown** if there were no password less communication verfication happened before.
 *   **Total no.of sessions** - No.of Geo-Replication sessions created from the source cluster to destination cluster
 *   **No.of Stable Sessions** - No.of Geo-Replication sessions in stable state between source and destination clusters
 *   **No.of Faulty Sessions** - No.of Geo-Replication sessions in faulty or problematic between source and destination clusters
@@ -90,11 +90,13 @@ The below dialog provides a mechanism for re-establishing a broken password less
 
 #### View Geo-Replication Sessions
 
+List of the geo-replication sessions created from the source to destination cluster will be shown in the following dialog. The status of the respective sessions will be show as well. The user can click on **Re-start** button to re-start a geo-replication session which is in faulty state.
+
 ![](Georepdest4sessions.png "Georepdest4sessions.png")
 
 #### Test password less communication
 
-Testing the validity/availability of a destination is possible using the action "Test". Administrator can re-establish a broken source/destination communication as well using the action "Re-establish".
+Testing/Verifying the password less communication from (one host of) the source cluster to (one host of the) destination cluster can be done by selecting a geo-replication destination and clicking the **Test Communication** action. After the verification process is completed, the **Password less communication verification** field of the selected destination will be changed to either **Success** or **Failed**.
 
 #### Create a new Geo-Replication Session
 

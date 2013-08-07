@@ -87,7 +87,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   Add configurable QoS controls on vnics <http://libvirt.org/formatdomain.html#elementQoS>
+*   ~~Add configurable QoS controls on vnics <http://libvirt.org/formatdomain.html#elementQoS>~~
 
 <!-- -->
 

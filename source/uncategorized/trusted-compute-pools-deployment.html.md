@@ -261,4 +261,6 @@ User may want to configure vdc_options to overwrite the default values, these co
       insert into vdc_options (option_name, option_value) values (' AttestationServer','oat-server');
       update vdc_options set option_value = ‘oat-server. ***.com’ where option_name = 'AttestationServer'
 
- OAT2.0 installation
+ OAT(2.0) installation
+
+<https://github.com/OpenAttestation/OpenAttestation/wiki/OAT-%282.0%29-Packages-Installation>

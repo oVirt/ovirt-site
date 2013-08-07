@@ -143,9 +143,13 @@ The below dialog fetches and lists the default values of all the configurations 
 
 #### Creating Geo-Replication Sessions for Multiple Volumes
 
+If the user want to create geo-replication sessions for multiple volumes at the same time, then the user needs to multi-select the volumes which needs to be geo-replicated and click on the **Geo Replicate** action, it will open the following multiple creation window.
+
 ![](Georepsession5list.png "Georepsession5list.png")
 
 ![](Georepsession6multiple.png "Georepsession6multiple.png")
+
+If the user is selected only one volume before clicking the **Geo Replicate** action, then the normal **New Geo-Replication Session** [#Create_a_new_Geo-Replication_Session](#Create_a_new_Geo-Replication_Session) will be shown.
 
 Refer the URL: <http://www.ovirt.org/Features/Design/GlusterGeoReplication> for detailed design of the feature.
 

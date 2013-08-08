@@ -284,7 +284,11 @@ codegen
 
 ### sdk
 
-*   supporting several proxy instances in application (i.e cache peer proxy instance)
+*   supporting several proxy instances in application (done)
+
+<!-- -->
+
+*   refactor caching mechanism
 
 <!-- -->
 

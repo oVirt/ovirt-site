@@ -85,11 +85,17 @@ All long running commands will inherit from
 
 ### REST API
 
-*   Add rebalance action on the gluster volumes resource
+*   Add startrebalance action on the gluster volumes resource
 
-      /api/clusters/{id}/glustervolumes/{id}/rebalance
+      /api/clusters/{id}/glustervolumes/{id}/startrebalance
 
 This will return a step id which can be monitored from jobs/step api url
+
+*   Add stoprebalance action on the gluster volumes resource
+
+      /api/clusters/{id}/glustervolumes/{id}/stoprebalance
+
+This will stop the rebalance action that is currently in progress
 
 *   Modify the delete verb for bricks
 
@@ -99,8 +105,16 @@ Allow a collection of bricks to be removed. This will not migrate data first
 
 *   Add migrate action to the gluster bricks resource
 
-      /api/clusters/{id}/glustervolumes/{id}/bricks/migrate
+      /api/clusters/{id}/glustervolumes/{id}/bricks/startmigrate
 
 Allow data on collection of bricks to be migrated. This will return a step id which can be monitored from jobs/step api url
+
+*   Add stop migrate action to the gluster bricks resource
+
+      /api/clusters/{id}/glustervolumes/{id}/bricks/stopmigrate
+
+This will stop the migration of data from the bricks that is currently in progress
+
+TBD: How do we monitor the status of the rebalance and remove-brick operations? Can we use step ids or task ids?
 
 <Category:DetailedFeature>

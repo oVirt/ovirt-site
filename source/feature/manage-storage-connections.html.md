@@ -25,14 +25,14 @@ The new connection details should be of the same storage type as the original co
 
 ### Current Status and tasks
 
-Updated August 7, 2013
+Updated August 8, 2013
 
 #### GUI
 
 *   Edit NFS connection properties in webadmin UI - ready <http://gerrit.ovirt.org/#/c/12372/>
 *   Edit Posix connection properties in webadmin UI -ready <http://gerrit.ovirt.org/#/c/13640/>
 *   Edit local storage connection properties in webadmin UI - ready <http://gerrit.ovirt.org/#/c/15540/>
-*   Allow edit connection in unattached status too (in addition to maintenance). not started
+*   Allow edit connection in unattached status too (in addition to maintenance). in review. <http://gerrit.ovirt.org/#/c/17774/>
 *   Edit ISCSI connection properties in webadmin UI (not started)
 *   Add "connectivity test" functionality - not started.
 
@@ -53,9 +53,9 @@ Updated August 7, 2013
 *   MLA (permissions) - not started
 *   Refactor AddSANStorageDomainCommand so it will not add storage server connection, and rather use existing one (that was either created right before by add connection command, or in the past). This will involve rewriting San domain creation in webadmin (StorageListModel) to call AddStorageServerConnection before AddSANStorageDomainCommand. not started.
 *   Perform connectStorageServer when creating a domain because the connection might be previously created without mounting it. in review. <http://gerrit.ovirt.org/#/c/17680/>
-*   Support edit for unattached storage domains (not only those in maintenance). not started.
+*   Support edit for unattached storage domains (not only those in maintenance). in review. <http://gerrit.ovirt.org/#/c/17774/>
 *   Rethink - should the "delete connection" action disconnect from just one host , or all hosts when deleting a connection?
-*   For post 3.3 - add ability to "detach" a connection from storage domain without deleting the connection.
+*   Add ability to "attach/detach" an existing connection from/to storage domain without deleting the connection. for iscsi only. not started.
 
 #### REST (backend)
 

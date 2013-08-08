@@ -22,7 +22,7 @@ This page is mostly to absorb community experience into the certified procedures
 
 #### RPM based
 
-Set up nightly repository `/etc/yum.repos.d/ovirt-nightly.repo`, replace `Fedora` with `EL` if you are using RHEL or an equivalent:
+Set up nightly repository `/etc/yum.repos.d/ovirt-nightly.repo`, replace `Fedora` with `EL` if you are using RHEL or an equivalent distribution:
 
       [ovirt-nightly]
       name=ovirt-nightly

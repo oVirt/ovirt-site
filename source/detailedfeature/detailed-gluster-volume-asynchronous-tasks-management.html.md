@@ -74,7 +74,10 @@ This feature provide the support for managing the asynchronous tasks on Gluster 
     -   ABORTED
     -   PAUSED
 
-If GlusterTaskService returns a task that is not currently in the database, the information related to the task needs to be persisted in the engine database for further monitoring. -- TODO -- Can we use External Tasks --> AddExternalJobCommand to create this?
+If GlusterTaskService returns a task that is not currently in the database, the information related to the task needs to be persisted in the engine database for further monitoring.
+
+      -- TODO --
+      Can we use External Tasks --> AddExternalJobCommand to create this?
 
 All long running commands will inherit from
 
@@ -82,6 +85,8 @@ All long running commands will inherit from
     -   Creates a SUB-STEP on execution of command and associate the step with external task id
     -   Abstract method getStepType - inheriting classes to return the StepEnum to be added as Sub step when executing the command
     -   Abstract method executeAndReturnTask which inheriting classes should implement by calling the corresponding VDS command. The method should return a GlusterAsyncTask object that holds the id of the gluster task that was started due to the command.
+
+The following sequence diagram explains the Gluster tasks monitoring mechanism ![](GlusterTasksSeqDiagram.png "fig:GlusterTasksSeqDiagram.png")
 
 ### REST API
 

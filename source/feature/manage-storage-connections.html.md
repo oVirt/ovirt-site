@@ -154,7 +154,7 @@ Deletion of connection will be possible only if no storage domain nor lun disks 
 <b>Example</b> [http://host:port/api/storageconnections/](http://host:port/api/storageconnections/)<connectionId>
 Connection Id is of format GUID, for instance - ffb489f6-b144-4770-84d0-22167024bb5c
 Request type is DELETE
-A host is required for the deletion process, thus there's a need in request body in deletion request to contain host details.
+A host is optional for the deletion process. Supplying it will disconnect (unmount) the connection from that host. If host is passed, there's a need in request body in deletion request to contain host details.
 Example of host element structure in the body (it can contain either host id or name):
 
 <host>

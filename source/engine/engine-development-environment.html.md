@@ -22,11 +22,11 @@ This page is mostly to absorb community experience into the certified procedures
 
 #### RPM based
 
-Set up nightly repository `/etc/yum.repos.d/ovirt-nightly.repo`, replace `Fedora/18` with your distribution name and version (if available):
+Set up nightly repository `/etc/yum.repos.d/ovirt-nightly.repo`, replace `Fedora` with `EL` if you are using RHEL or an equivalent:
 
       [ovirt-nightly]
       name=ovirt-nightly
-      baseurl=http://resources.ovirt.org/releases/nightly/rpm/Fedora/18/
+      baseurl=http://resources.ovirt.org/releases/nightly/rpm/Fedora/$releasever/
       enabled=1
       gpgcheck=0
       priority=1

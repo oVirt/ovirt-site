@@ -292,6 +292,10 @@ codegen
 
 <!-- -->
 
+*   implement __exit__ in proxy
+
+<!-- -->
+
 *   refactoring internal exceptions for better error handling on client side
 
 ## Change Log

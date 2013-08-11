@@ -91,7 +91,7 @@ Removing a connection is possible only if there are no storage domains nor lun d
 
 Storage domain and connection are managed together in webadmin UI in Storage tab . Till now, storage domain's edit was enabled only for active storage domains and allowed updating only their name and description.
 
-In order to allow editing the connection details, the edit button will now be enabled when storage domain is set in maintenance mode. However, editing the domain name and description will be disabled when in this state as it requires connectivity to the storage. N.B. There will not be an option (in the scope of this feature in 3.3) to edit iSCSI connection details via the webadmin UI.
+In order to allow editing the connection details, the edit button will now be enabled when storage domain is set in maintenance or unattached mode. However, editing the domain name and description will be disabled when in this state as it requires connectivity to the storage. N.B. There will not be an option (in the scope of this feature in 3.3) to edit iSCSI connection details via the webadmin UI.
 
 # REST
 

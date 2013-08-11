@@ -63,11 +63,11 @@ Updated August 8, 2013
     -   Perform GET all connections/get a connection by id. In the scope of this patch, create a backend query that will get all connections from db.
     -   Add functionality to root resource for add/delete connection properties in REST
     -   Add functionality to edit a connection
-*   Create subresource for connections under domains (api/storagedomains/<domainId>/connections that will retrieve connections (GET). (in review) <http://gerrit.ovirt.org/#/c/17245/>
+*   Create subresource for connections under domains (api/storagedomains/<domainId>/connections that will retrieve connections (GET). (ready) <http://gerrit.ovirt.org/#/c/17245/>
 *   Add functionality to add a file storage domain with a reference to an already existing storage connection (instead of embedded properties of a connection that will be created along with the storage domain). (ready) <http://gerrit.ovirt.org/#/c/17177/>
 *   Use a new storage_connection REST object instead of Storage. ready. <http://gerrit.ovirt.org/#/c/17565/>
 *   Add ability to remove (delete) a connection without specifying the host. (ready) <http://gerrit.ovirt.org/#/c/17568/>
-*   Add functionality to add an additional connection to block storage domain - multipathing. started design.
+*   Add functionality to add an additional connection to block storage domain - multipathing. in implementation by Daniel Erez.
 *   post 3.3 - add connections subresource to lun disks - For each lun disk (direct lun) view (GET) its storage connections by approaching it via a specific subresource: /api/disks/<diskId>/connections. not started
 
 #### Blockers

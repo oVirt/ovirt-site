@@ -53,7 +53,7 @@ Updated August 11, 2013
 *   MLA (permissions) - not started
 *   Refactor AddSANStorageDomainCommand so it will not add storage server connection, and rather use existing one (that was either created right before by add connection command, or in the past). This will involve rewriting San domain creation in webadmin (StorageListModel) to call AddStorageServerConnection before AddSANStorageDomainCommand. not started.
 *   Perform connectStorageServer when creating a domain because the connection might be previously created without mounting it. ready. <http://gerrit.ovirt.org/#/c/17680/>
-*   Support edit for unattached storage domains (not only those in maintenance). in review. <http://gerrit.ovirt.org/#/c/17774/>
+*   Support edit for unattached storage domains (not only those in maintenance). ready. <http://gerrit.ovirt.org/#/c/17774/>
 *   Rethink - should the "delete connection" action disconnect from just one host , or all hosts when deleting a connection?
 *   Add ability to "attach/detach" an existing connection from/to storage domain without deleting the connection. for iscsi only. in implementation by Daniel Erez.
 

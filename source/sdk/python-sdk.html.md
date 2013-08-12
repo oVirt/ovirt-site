@@ -185,7 +185,7 @@ params lookup as shown in [2].
 ### Releasing resources when SDK proxy is no longer needed
 
        try:
-         api = API(url='`[`http://localhost:8080/api`](http://localhost:8080/api)`', username='admin@internal', password='letmein!')
+         api = API(url='...', username='...', password='...')
        finally:
          api.disconnect()
 

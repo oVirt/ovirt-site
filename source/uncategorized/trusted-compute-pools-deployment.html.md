@@ -38,7 +38,7 @@ pls note:
 
 *   Install all-in-one package
 
-Download [oat-appraiser](http://gwei3.fedorapeople.org/package_review/oat/v1/oat-appraiser-1.6.0-1.fc18.x86_64.rpm) rpm package, and then
+This step is only needed in case when oat appraiser is prepared with bundled jar packages. Download [oat-appraiser](http://gwei3.fedorapeople.org/package_review/oat/v1/oat-appraiser-1.6.0-1.fc18.x86_64.rpm) rpm package, and then
 
       # rpm -i oat-appraiser-1.6.0-1.fc18.x86_64.rpm
 

@@ -59,8 +59,6 @@ Client files will be output in this directory “/var/lib/oat-appraiser/ClientFi
 
 ### Deploy Host Agent on VDS
 
-Two approaches (all-in-one packages for f18, yum install in f19) are provided to deploy Host Agent. Install via yum command will be available after oat package is merged in fedora 19 repository.
-
 #### Install Fedora for Legacy Boot
 
 The Fedora18/19 x86-64 system should be installed to run in legacy boot instead of EFI boot. Many new systems will by default boot as EFI boot, so you need to explicitly boot the installation media (DVD or USB) with legacy mode. Below is a example on HP8300:

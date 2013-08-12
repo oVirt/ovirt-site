@@ -186,6 +186,7 @@ params lookup as shown in [2].
 
        try:
          api = API(url='...', username='...', password='...')
+         ...
        finally:
          api.disconnect()
 

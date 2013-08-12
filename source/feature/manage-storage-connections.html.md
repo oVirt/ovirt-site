@@ -56,6 +56,7 @@ Updated August 11, 2013
 *   Support edit for unattached storage domains (not only those in maintenance). ready. <http://gerrit.ovirt.org/#/c/17774/>
 *   Rethink - should the "delete connection" action disconnect from just one host , or all hosts when deleting a connection?
 *   Add ability to "attach/detach" an existing connection from/to storage domain without deleting the connection. for iscsi only. in implementation by Daniel Erez.
+    -   TODO: consolidate all commands' canDo to use StorageConnectionValidator.
 
 #### REST (backend)
 

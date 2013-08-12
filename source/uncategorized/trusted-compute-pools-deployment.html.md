@@ -42,7 +42,7 @@ Download [oat-appraiser](http://gwei3.fedorapeople.org/package_review/oat/v1/oat
 
       # rpm -i oat-appraiser-1.6.0-1.fc18.x86_64.rpm
 
-*   Yum Install oat server package from fedora19 repository (not available yet).
+*   Yum Install oat server package from fedora19 repository.
 
       # yum install oat-appraiser
 

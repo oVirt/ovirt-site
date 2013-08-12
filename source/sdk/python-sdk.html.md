@@ -168,6 +168,8 @@ api = API(url='[http://host:port](http://host:port)', username='user@domain', pa
 
 ## Development tips
 
+### Parameters holder type location
+
 If you find difficult locating appropriate type while constructing
 
 parameter environment, like in [1] for instance, you can reuse internal
@@ -179,6 +181,13 @@ params lookup as shown in [2].
 
        [2] topology = params.findRootClass("topology") 
            in this case will be returned CpuTopology type.
+
+### Releasing resources when SDK proxy is no longer needed
+
+       try:
+         api = API(url='`[`http://localhost:8080/api`](http://localhost:8080/api)`', username='admin@internal', password='letmein!')
+       finally:
+         api.disconnect()
 
 ## Deployment
 

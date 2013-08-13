@@ -18,9 +18,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Upcoming meetings
 
-#### 2013-08-12
-
-"[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-08-12-14.01.html)"
+#### 2013-08-19
 
 *   Introductions
 *   Review of action items
@@ -32,7 +30,9 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Past meetings
 
-#### 2013-08-19
+#### 2013-08-12
+
+"[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-08-12-14.01.html)"
 
 *   Introductions
 *   Review of action items

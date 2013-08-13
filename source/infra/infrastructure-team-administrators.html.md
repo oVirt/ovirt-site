@@ -51,7 +51,7 @@ Project coordinator: Kiril Nesenko <knesenko@redhat.com>
 
     ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA124a2/78sptq4NmxoFG6j+6StlMmWpqkbPCIBTnt3ACp7D7h8CdIRNVquBuuf5PicmrhGZ0yWLZpHQp5Eux8Eld4Kc4ZF/J0hDZU9BurBjRiJln+ikSjhABhudNo6255ZroUhI2hmsyerToR++NO/r8ilGihZdP/Mwm8++K/pDpM6jr0KUmtdDwgcIrv58NLgOkBl4q0shdJVvAZVobuEoctJ/CDaCtNiaPov1KetE/qCZ6EXn8ouZlxMS+yZtNyXzwfXx7znldajt3EoONDk2jUy1Ns4eC6ANE8HgnAw625HSL8neq8FcEp+YsIhT1Yc51574CCtK1ycJtFxbzsew== mburns@beelzebub
 
-*   oschreib (maintainer)
+*   oschreib (apprentice)
 
 <!-- -->
 

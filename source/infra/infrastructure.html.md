@@ -50,6 +50,7 @@ The team uses the same [collaborative decision process](https://blogs.apache.org
 
 The maintainers of the Infrastructure project are:
 
+*   [Kiril Nesenko](User:Knesenko)
 *   [Mike Burns](User:Mburns)
 *   [Eyal Edri](User:Eyal)
 *   [Itamar Heim](User:Iheim)

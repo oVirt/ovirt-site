@@ -12,6 +12,8 @@ wiki_last_updated: 2015-04-12
 
 This page lists administrator assignments of the Infrastructure team.
 
+Project coordinator: Kiril Nesenko <knesenko@redhat.com>
+
 *   Jenkins - jenkins.ovirt.org: eedri, dcaro, knesenko
 *   Gerrit - gerrit.ovirt.org: iheim, rydekull
 *   Mailman - lists.ovirt.org: quaid
@@ -79,7 +81,7 @@ This page lists administrator assignments of the Infrastructure team.
 
     ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAtyoVzBXA7ufgTaJiUeotNHSHuz6hXT+DzIGMKI6WHGXVZQMQch6mhptTWqoY2wCqRmCDd96mrByWTt152g+/AniTu2s/XQ7syzrbPsQthVbfuGUQt1u8uW8oG7fdZFwfBE0PbtgXGv8gFyGeHRtzr/PIyILyFJ9TitUyUqswO2O+sptlPzCQYIehji3rf5TipTcrVMtVAk2OgPlF83bHLD/qTYxE96Gpb0xHON5MlCRlhKqvdoyHyInP9Wg2GXXxPQ2tTSkfPdEt0S/qkSCUp7BDcgsmFm+bXCEwfP8BMdWufecVJWbbm0FBu4XXzoerxxrMeWi6vB/xBimvStGZsQ== dneary@redhat.com
 
-*   knesenko (apprentice)
+*   knesenko (maintainer)
 
 <!-- -->
 

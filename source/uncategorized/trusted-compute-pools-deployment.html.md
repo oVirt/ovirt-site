@@ -47,7 +47,7 @@ Download rpm package here, [oat-appraiser](http://gwei3.fedorapeople.org/package
 
 #### Open Attestation (2.0) bundled with jar packages
 
-Refer to <https://github.com/OpenAttestation/OpenAttestation/wiki/Open-Attestation-%282.0%29-Packages-Installation>
+Refer to <https://github.com/OpenAttestation/OpenAttestation/wiki/OAT-%282.0%29-Packages-Installation>
 
 #### Generate Client Files
 

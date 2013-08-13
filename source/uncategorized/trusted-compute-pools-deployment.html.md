@@ -13,12 +13,12 @@ This is a manual for how to deploy trusted compute pools feature in oVirt.
 ### Owner
 
 *   Name: [ Gang Wei](User:gwei3)
-*   Last updated date: August 12, 2013
+*   Last updated date: May 24, 2013
 *   Email: <gang.wei@intel.com>
 
 ### Deploy Attestation Service
 
-Different instructions are provided for different version of open attestation to deploy Attestation Service.
+Two approaches (all-in-one packages for f18, yum install in f19) are provided to deploy Attestation Service. Install via yum command will be available after oat package is merged in fedora 19 repository(WIP).
 pls note:
 \* we encourage you to disable iptables | firewalld service, instead, config iptable to accept 8443 port, add follow line into "/etc/sysconfig/iptables"
 
@@ -29,25 +29,27 @@ pls note:
       SELINUX=permissive
 
 *   oat package might not able to be pushed into fedora 18 since some dependencies can't be pushed in f18.
+
+#### Install basic packages (for all-in-one approach)
+
+      # yum -y install httpd mysql mysql-server php php-mysql openssl java-1.7.0-openjdk.x86_64
+
+#### Install Attestation Server Package
+
+*   Install all-in-one package
+
+Download [oat-appraiser](http://gwei3.fedorapeople.org/package_review/oat/v1/oat-appraiser-1.6.0-1.fc18.x86_64.rpm) rpm package, and then
+
+      # rpm -i oat-appraiser-1.6.0-1.fc18.x86_64.rpm
+
+*   Yum Install oat server package from fedora19 repository (not available yet).
+
+      # yum install oat-appraiser
+
 *   make sure tomcat is running after package installation, otherwise, start tomcat service manually.
 
       # service tomcat6 status (check status)
       # service tomcat6 start (start service)
-
-#### Open Attestation (1.6) bundled with jar packages
-
-1.  yum -y install httpd mysql mysql-server php php-mysql openssl java-1.7.0-openjdk.x86_64
-2.  rpm -i oat-appraiser-1.6.0-1.fc18.x86_64.rpm
-
-Download rpm package here, [oat-appraiser](http://gwei3.fedorapeople.org/package_review/oat/v1/oat-appraiser-1.6.0-1.fc18.x86_64.rpm)
-
-#### Open Attestation (1.6) packages in fedora 19 repository
-
-      # yum install oat-appraiser
-
-#### Open Attestation (2.0) bundled with jar packages
-
-Refer to <https://github.com/OpenAttestation/OpenAttestation/wiki/OAT-%282.0%29-Packages-Installation>
 
 #### Generate Client Files
 
@@ -58,6 +60,8 @@ Generate client files after installing oat-appraiser package, execute this comma
 Client files will be output in this directory “/var/lib/oat-appraiser/ClientFiles/”. Part of these files are needed in agent’s side.
 
 ### Deploy Host Agent on VDS
+
+Two approaches (all-in-one packages for f18, yum install in f19) are provided to deploy Host Agent. Install via yum command will be available after oat package is merged in fedora 19 repository(WIP).
 
 #### Install Fedora for Legacy Boot
 
@@ -125,33 +129,23 @@ Check the PCR values in TPM via the sysfs interface provided by TPM driver, make
       PCR-22: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
       PCR-23: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
 
-#### Open Attestation (1.6) bundled with jar packages
+#### Install basic Packages (for all-in-one approach)
 
-1.  yum -y install trousers-devel java-1.7.0-openjdk
-2.  rpm -i oat-client-1.6.0-1.fc18.x86_64.rpm
+      # yum -y install trousers-devel java-1.7.0-openjdk
 
-Download rpm package from here: [oat-client](http://gwei3.fedorapeople.org/package_review/oat/v1/oat-client-1.6.0-1.fc18.x86_64.rpm) rpm package
 Make sure the TrouSers service is started before moving on. Service name is “tcsd”
 
-#### Open Attestation (1.6) packages in fedora 19 repository
+#### Install Host Agent Package
+
+*   Install all-in-one package
+
+Download [oat-client](http://gwei3.fedorapeople.org/package_review/oat/v1/oat-client-1.6.0-1.fc18.x86_64.rpm) rpm package, and then
+
+      # rpm -i oat-client-1.6.0-1.fc18.x86_64.rpm
 
 *   Yum Install oat client package from fedora19 repository
 
       # yum install oat-client
-
-#### Open Attestation (2.0) bundled with jar packages
-
-*   Copy client installer from attestation server located in trust-agent/TrustAgentLinuxInstaller/target/TrustAgentLinuxInstaller-1.2-SNAPSHOT.bin.
-*   Run this bin package, you can just type the following command:
-
-       ./TrustAgentLinuxInstaller-1.2-SNAPSHOT.bin
-
-Notes: In the installation process, you need to enter the username and pasword to download some files from server. Here the username is "admin" and password is "mountwilson".
-
-*   Make sure tagent service is active after package installation, otherwise, start tagent service manually.
-
-        service tagent status(check service)
-        service tagent start(start service)
 
 #### File copying and Agent Registration
 
@@ -175,18 +169,18 @@ pls input the host name instead of the IP address of oat server (IP address is n
 
 Start oat client service, make sure TrouSers service is running
 
-*   Open Attestation (1.6) bundled with jar packages
+*   all-in-one approach
 
       # chmod 755 /etc/init.d/OATClient (this bug will be fixed in the next release for all-in-one packages)
       # service OATClient start
 
-*   Open Attestation (1.6) packages in fedora 19 repository
+*   yum install approach
 
       # service oat-client start
 
 ### Install oat-command tool
 
-*   Open Attestation (1.6) bundled with jar packages
+*   Install all-in-one package
 
 Download [oat-commandtool](http://gwei3.fedorapeople.org/package_review/oat/v1/oat-commandtool-1.6.0-1.fc18.x86_64.rpm) rpm package, and then
 
@@ -266,28 +260,3 @@ User may want to configure vdc_options to overwrite the default values, these co
 
       insert into vdc_options (option_name, option_value) values (' AttestationServer','oat-server');
       update vdc_options set option_value = ‘oat-server. ***.com’ where option_name = 'AttestationServer'
-
-# Provision White list Databse
-
-At least OEM, OS, MLE, and HOST information should be added to Attestation Server’s White List database.
-
-You can open the following two links, and refer to **1.5 Provision White List Database** to add a trusted host.
-
-       `[`http://oatserver`](http://oatserver)`.*.com:8080/WhiteListPortal/home.html
-       `[`http://oatserver`](http://oatserver)`.*.com:8080/TrustDashBoard/home.html
-
-Notes: oatserver.\*.com should be the host name of oat server.
-
-# Configuration in oVirt Engine
-
-*   Copy "TrustStore.jks" from attestation server to engine server.
-
-       scp oatserver.*.com:/etc/intel/cloudsecurity/ovirt.jks /usr/share/TrustStore.jks
-
-*   Configure attestation server
-
-       update vdc_options set option_value = ‘oatserver. ***.com’ where option_name = 'AttestationServer'
-
-*   Configure attestation port
-
-       update vdc_options set option_value = 8181 where option_name = ' AttestationPort'

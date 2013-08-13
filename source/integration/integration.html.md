@@ -33,12 +33,13 @@ Outstanding contributes:
 Maintainers:
 
 *   Keith Robertson <kroberts@redhat.com>
+*   Sandro Bonazzola <sbonazzo@redhat.com>
+*   Kiril Nesenko <knesenko@redhat.com>
 
 Outstanding contributes:
 
 *   Alex Lourie <alourie@redhat.com>
-*   Sandro Bonazzola <sbonazzo@redhat.com>
-*   Kiril Nesenko <knesenko@redhat.com>
+*   Alon Bar Lev <alonbl@redhat.com>
 
 ### oVirt-live
 

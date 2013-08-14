@@ -69,7 +69,7 @@ A new sub tab **Geo-Replication** will be added to the **Volumes** main tab in o
 
 The below dialog captures the details and creates the geo-replication session between source and destination gluster volumes.
 
-![](Georepsession2new.png "Georepsession2new.png")
+![](Georepsession2new.png "fig:Georepsession2new.png") ![](Georepsession2newvolumes.png "fig:Georepsession2newvolumes.png")
 
 #### Start a new Geo-Replication Session
 
@@ -83,17 +83,17 @@ A new action named **Stop** will be shown in the **Geo-Replication** tab, which 
 
 A new action named **Remove** will be shown in the **Geo-Replication** tab, which will remove the selected geo-replication session(s).
 
-#### Individual Geo-Replication Sessions
-
-With the distributed geo-replication, when a geo-replication session is created for a volume, internally more than one session will be created depends on the type of the volume and where bricks are residing. This view will list all the individual sessions, their status and Up time.
-
-![](Georepsession3details.png "Georepsession3details.png")
-
 #### Configuration Options for Geo-Replication Session
 
 The below dialog fetches and lists the default values of all the configurations for a geo-replication session. It provides and option to change the values of the configurations. User can change the values of the configuration properties any point of time after creating the geo-replication session. The geo-replication session will be restarted automatically if the user changes any configuration when the session is already started.
 
-![](Georepsession4config.png "Georepsession4config.png")
+![](Georepsession3config.png "Georepsession3config.png")
+
+#### Individual Geo-Replication Sessions
+
+With the distributed geo-replication, when a geo-replication session is created for a volume, internally more than one session will be created depends on the type of the volume and where bricks are residing. This view will list all the individual sessions, their status and Up time.
+
+![](Georepsession4details.png "Georepsession4details.png")
 
 Refer the URL: <http://www.ovirt.org/Features/Design/GlusterGeoReplication> for detailed design of the feature.
 

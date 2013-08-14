@@ -69,7 +69,11 @@ A new sub tab **Geo-Replication** will be added to the **Volumes** main tab in o
 
 The below dialog captures the details and creates the geo-replication session between source and destination gluster volumes.
 
-![](Georepsession2new.png "fig:Georepsession2new.png") ![](Georepsession2newvolumes.png "fig:Georepsession2newvolumes.png")
+![](Georepsession2new.png "Georepsession2new.png")
+
+The user can manually enter the **Volume** or click on **Show Volumes** to fetch the list of existing volumes in the cluster and select a volume from that list.
+
+![](Georepsession2newvolumes.png "Georepsession2newvolumes.png")
 
 #### Start a new Geo-Replication Session
 

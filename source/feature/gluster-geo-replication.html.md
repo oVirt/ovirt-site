@@ -59,7 +59,7 @@ A new sub tab **Geo-Replication** will be added to the **Volumes** main tab in o
 *   Creating a new geo-replication session
 *   Starting a geo-replication session
 *   Stopping a geo-replication session
-*   View details of a geo-replication sessions, this includes the list of individual geo-replication session and their respective status
+*   View details of a geo-replication session, this includes the list of individual geo-replication session and their respective status
 *   Update configurations for a geo-replication session
 *   Removing an existing geo-replication session
 
@@ -93,9 +93,9 @@ The below dialog fetches and lists the default values of all the configurations 
 
 ![](Georepsession3config.png "Georepsession3config.png")
 
-#### Individual Geo-Replication Sessions
+#### Geo-Replication Session Details
 
-With the distributed geo-replication, when a geo-replication session is created for a volume, internally more than one session will be created depends on the type of the volume and where bricks are residing. This view will list all the individual sessions, their status and Up time.
+With the distributed geo-replication, when a geo-replication session is created for a volume, internally more than one session will be created depends on the type of the volume and where bricks are residing. This view will list all the individual sessions, their status and Up time. Additionally this will also contain the detailed status of the geo-replication session.
 
 ![](Georepsession4details.png "Georepsession4details.png")
 

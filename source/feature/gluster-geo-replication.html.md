@@ -46,8 +46,6 @@ With this feature the user will be able to
 *   View and update the configuration before starting the session or later (ex: change detector)
 *   Monitor the status of geo-replication sessions
 
-### Setting up Geo Replication - Functional Work Flow
-
 ## Design
 
 ### User Experience

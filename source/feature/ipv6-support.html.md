@@ -210,8 +210,7 @@ By implementing this feature oVirt will be prepared for users that are using IPv
 ### Dependencies / Related Features
 
 *   [Features/Node ipv6 support](Features/Node ipv6 support)
-
-We need to define requirements for customers, who want to use IPv6 in Ovirt. RIPE NCC already make a list of requirements for IPv6 support so we can use it <http://www.ripe.net/ripe/docs/ripe-554>
+*   We need to define requirements for customers, who want to use IPv6 in Ovirt. RIPE NCC already make a list of requirements for IPv6 support so we can use it <http://www.ripe.net/ripe/docs/ripe-554>
 
 ### Documentation / External references
 

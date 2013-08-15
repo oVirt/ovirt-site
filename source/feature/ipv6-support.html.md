@@ -213,6 +213,8 @@ By implementing this feature oVirt will be prepared for users that are using IPv
 
 ### Documentation / External references
 
+*   Presentation for Ovirt networking team ![](Ipv6-session.odp "fig:Ipv6-session.odp")
+
 ### Testing
 
 #### Vdsm

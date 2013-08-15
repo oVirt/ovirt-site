@@ -115,6 +115,6 @@ GWT provides a mechanism that allows you to define messages for your application
 
 The available messages are defined in ovirt_messages.properties which is a standard Java resource bundle. The resource bundle is consumed and translated into a Javascript object and placed in the host page. Since it is a standard resource bundle you can have multiple locales.
 
-For additional information see the [README.branding](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.branding;hb=HEAD) in the root of the oVirt source code tree.
+For step-by-step instructions, see the [README.branding](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.branding;hb=HEAD) in the root of the oVirt source code tree.
 
 <Category:Feature>

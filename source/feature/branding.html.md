@@ -109,6 +109,8 @@ Because this is a GWT application most of the styles are compiled into the appli
 *   Any images normally cannot be changed with a style sheet, so we cheated a little and used style sheets to set the background image on an image tag. In order to not display a broken image icon you need to set the src of the image to something transparent and small. Luckily GWT provides an image like that already in 'clear.cache.gif'
 *   Other than this any normal style properties can be set in your external style sheet.
 
+For step-by-step instructions, see the [README.branding](http://gerrit.ovirt.org/gitweb?p=ovirt-engine.git;a=blob;f=README.branding;hb=HEAD) in the root of the oVirt source code tree.
+
 ### Text messages
 
 GWT provides a mechanism that allows you to define messages for your application and have them automatically translated during the compile process if you have provided a proper translation in a standard Java properties file. GWT provides a 'Messages' and 'Constants' interface for this purpose. Since the translations are compiled into the application during compile time this does not allow one to use an external file to override particular messages. In order to solve this we pass a messages Javascript object to the GWT application using the host page. This object is then processed and used to override some predefined messages.

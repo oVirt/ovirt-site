@@ -97,6 +97,11 @@ With the distributed geo-replication, when a geo-replication session is created 
 
 ![](Georepsession4details.png "Georepsession4details.png")
 
+### Limitations
+
+*   Showing the source volume information for a volume which is being used as destination is not supported
+*   Cascaded viewing is not available. (Sometimes a volume can be used as both source as well as destination)
+
 Refer the URL: <http://www.ovirt.org/Features/Design/GlusterGeoReplication> for detailed design of the feature.
 
 ## Dependencies / Related Features and Projects

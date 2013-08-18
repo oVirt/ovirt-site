@@ -201,6 +201,18 @@ dhcp-1-120.my.lab.a.com
 `  `</host>
 </storage_domain>
 
+### Attach an additional storage connection to an existing iscsi storage domain (POST)
+
+[http://host:port](http://host:port) /api/storagedomains/{storageDomainid}
+
+<storage_connection id="{connection_id}">
+
+</storage_connection>
+
+### Detach a storage connection from iscsi storage domain (DELETE)
+
+[http://host:port](http://host:port) /api/storagedomains/{storageDomainid}/storageconnections/{connection_id}
+
 # Database
 
 This feature doesn't require any database structure change nor upgrade. The below is a description of the existing structure as it is today, and how it will be used in the scope of this feature.

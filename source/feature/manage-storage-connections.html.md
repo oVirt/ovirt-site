@@ -205,9 +205,8 @@ dhcp-1-120.my.lab.a.com
 
 [http://host:port](http://host:port) /api/storagedomains/{storageDomainid}
 
-<storage_connection id="{connection_id}">
-
-</storage_connection>
+`  `<storage_connection id="{connection_id}">
+`  `</storage_connection>
 
 ### Detach a storage connection from iscsi storage domain (DELETE)
 

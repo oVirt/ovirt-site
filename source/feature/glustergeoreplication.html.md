@@ -35,7 +35,7 @@ Geo-replication feature is designed to enable creation and maintenance of geo-re
 
 #### Gluster Geo Replication Destinations
 
-This entity stores the details of remote (destination) for a geo-replication setup.
+This entity stores the details of remote (destination) for a geo-replication setup. While creation of a geo-replication session if it is first time that the geo-replication session is being setup being the source and destination cluster then an entry in maintained as part of this entity. For further geo-replication sessions the existing entry if referred for details.
 
 | Column name                   | Type   | description                                                              |
 |-------------------------------|--------|--------------------------------------------------------------------------|

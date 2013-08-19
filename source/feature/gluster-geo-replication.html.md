@@ -87,7 +87,7 @@ A new action named **Remove** will be shown in the **Geo-Replication** tab, whic
 
 #### Configuration Options for Geo-Replication Session
 
-The below dialog fetches and lists the default values of all the configurations for a geo-replication session. It provides and option to change the values of the configurations. User can change the values of the configuration properties any point of time after creating the geo-replication session. The geo-replication session will be restarted automatically if the user changes any configuration when the session is already started.
+The below dialog fetches and lists the default values of all the configurations for a geo-replication session. It provides an option to change the values of the configurations. User can change the values of the configuration properties at any point of time after creating the geo-replication session. The geo-replication session will be restarted automatically if the user changes any configuration when the session is already started.
 
 ![](Georepsession3config.png "Georepsession3config.png")
 

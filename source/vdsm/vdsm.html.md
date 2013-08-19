@@ -35,7 +35,7 @@ There is [#vdsm on freenode](irc://irc.freenode.org/vdsm), including [logs](http
 
 ## Requirements
 
-Currently, Vdsm requires Red Hat Enterprise Linux 6.2 or Fedora 16 to run properly.
+Currently, Vdsm requires at least Red Hat Enterprise Linux 6.2 or Fedora 16 to run properly.
 
 ## Caveats
 

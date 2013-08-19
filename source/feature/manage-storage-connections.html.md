@@ -89,6 +89,8 @@ For direct lun (lun disks), in order to edit their storage connection, all VMs u
 
 Removing a connection is possible only if there are no storage domains nor lun disks using it.
 
+For iSCSI domains, there's an additional option to add (attach) an additional storage connection (target) to same domain. Similarly, there's an option to detach a connection from iSCSI domain. The attach/detach options are available only via REST api.
+
 # GUI
 
 Storage domain and connection are managed together in webadmin UI in Storage tab . Till now, storage domain's edit was enabled only for active storage domains and allowed updating only their name and description.

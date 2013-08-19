@@ -30,7 +30,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Past meetings
 
-#### 2013-08-12
+#### 2013-08-19
 
 "[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-08-19-14.01.html)"
 

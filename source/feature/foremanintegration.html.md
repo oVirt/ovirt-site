@@ -29,7 +29,25 @@ Implementation
 
 #### Use Cases
 
-In the Foreman integration feature we plan to support the following use-cases:
+First, in order to use Foreman you need to add a Foreman provider:
+
+##### Adding Foreman provider
+
+*   In the tree on the left, press the "External Providers" tree item, and then you'll see the Providers main tab on the right:
+
+![](Providers-tree.png "Providers-tree.png")
+
+*   Press "Add", fill in the details:
+
+![](Fill-provider-details.png "Fill-provider-details.png")
+
+*   In order to check connectivity and credentials to the external provider, press the "Test" button. The result will appear:
+
+![](Test-provider.png "Test-provider.png")
+
+*   If the provider is secured (https), the certificates will be read from it, and you'll have an option to add them as trusted certificates.
+
+Using the Foreman provider:
 
 ##### Adding installed Foreman hosts as oVirt hosts
 

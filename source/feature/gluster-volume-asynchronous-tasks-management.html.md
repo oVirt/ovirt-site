@@ -96,23 +96,32 @@ Once started, a rebalance volume or remove-brick can be stopped while in progres
 ![](StartRemovebrick.png "StartRemovebrick.png")
 
 *   -   In Gluster CLI, remove brick is a two-step process - where data is first migrated using **remove-brick start** and then user calls **remove-brick commit** to remove the brick
-    -   In the engine UI, we allow the user to perform these actions as separate steps
-        -   Migrate - to start the process of moving data from the bricks.
-        -   Remove - to remove the bricks. If migration was not done prior to calling this, the user is shown the migrate data checkbox option, which starts the data migration process. Once the process is completed, the commit is called automatically (without any user intervention) to remove the brick.
+    -   In the engine UI, once a user clicks on Remove -> Start, he/she is presented with a dialog that has 2 checkboxes
+        -   Migrate data from bricks is ON by default. This is needed to ensure data migration before brick is removed. If unchecked, the engine will call a remove-brick force, which could lead to data loss on the bricks being removed
+        -   Auto commit. If checked, once the migration of data is complete, the engine will automatically call commit on remove-brick in CLI, which removes the brick.
 
 <!-- -->
 
-*   Once migrate brick operation is started, the UI is updated as follows (similar to Rebalance volume in progress)
+*   -   If the user chooses to Remove brick without auto commit option, once migration of data is complete, the Tasks tab is updated with message that user needs to commit for the remove brick operation to take effect.
+
+<!-- -->
+
+*   Once remove brick operation is started, the UI is updated as follows (similar to Rebalance volume in progress)
 
 ![](Removebrickview.png "Removebrickview.png")
 
-*   User can check the detailed status of the migrate brick operation using Migrate --> Status (it will invoke a UI similar to volume rebalance status)
+*   User can check the detailed status of the remove brick operation using Remove --> Status (it will invoke a UI similar to volume rebalance status)
+
+![](Removebrickstatus.png "Removebrickstatus.png")
+
+*   -   The dialog is periodically refreshed when open. If Migration of data is complete, the commit button will be enabled.
+    -   User can choose to stop the remove brick operation by clicking on the "Stop Remove" button. This will ask for confirmation and display the Stop dialog as below
 
 <!-- -->
 
-*   To stop the data migration for migrate brick while in progress, the can use the Migrate --> Stop option
+*   To stop the remove brick operation while in progress, user can use the Remove --> Stop option. This will ask for confirmation, and if confirmed will display a dialog as below
 
-      If a user initiates a remove-brick operation from gluster CLI, it will be mapped to a Migrate Data operation on the brick.
+![](Removebrickstop.png "Removebrickstop.png")
 
 ## Detailed Design
 

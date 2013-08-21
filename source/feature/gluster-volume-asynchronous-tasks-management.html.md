@@ -80,6 +80,11 @@ Once started, a rebalance volume or remove-brick can be stopped while in progres
 
 ![](Vol rebalance status.png "Vol rebalance status.png")
 
+*   -   The status dialog gets refreshed automatically (a periodic refresh for as long as dialog is open) When the rebalance operation is done, it would also append the string "(Rebalance Completed)" to 'Status at' field.
+    -   User can stop rebalance from the status window by clicking on "Stop Rebalance" button. User will be prompted for confirmation and after confirmation, it will stop the rebalance operation and show the Stop dialog as below
+
+<!-- -->
+
 *   To stop, the rebalance operation, user can use the Rebalance --> Stop option, which will ask for confirmation and once stopped display the status of rebalance operation as below:
 
 ![](Stop vol rebalance.png "Stop vol rebalance.png")

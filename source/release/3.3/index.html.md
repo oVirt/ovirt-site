@@ -134,18 +134,14 @@ The oVirt 3.3 release includes these notable changes.
 #### UX
 
 *   User Portal performance improvements for IE8
-    -   <http://gerrit.ovirt.org/#/c/11975/>
-    -   <http://gerrit.ovirt.org/#/c/12104/>
-    -   <http://gerrit.ovirt.org/#/c/10509/>
-    -   <http://gerrit.ovirt.org/#/c/10579/>
-    -   <http://gerrit.ovirt.org/#/c/12213/>
-    -   <http://gerrit.ovirt.org/#/c/12301/>
-    -   <http://gerrit.ovirt.org/#/c/12340/>
-    -   <http://gerrit.ovirt.org/#/c/12524/>
-*   Branding support
-    -   <http://gerrit.ovirt.org/#/c/13181/>
-*   Frontend Clean-up/Refactoring (at least partial/first phase) [Features/Design/FrontendRefactor](Features/Design/FrontendRefactor)
-*   Upgrade Google Web Toolkit & related framework versions
+
+<!-- -->
+
+*   Support for Branding the oVirt Management Console
+
+<!-- -->
+
+*   [Frontend Clean-up/Refactoring](Features/Design/FrontendRefactor)
 
 ### Deep dives
 

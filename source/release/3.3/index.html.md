@@ -67,16 +67,43 @@ The oVirt 3.3 release includes these notable changes.
 
 #### Storage
 
-*   [Enable online virtual drive resize](Features/Online_Virtual_Drive_Resize)
-*   [Virtio-SCSI support](Features/Virtio-SCSI)
-*   [ Read Only Disks ](Features/Read_Only_Disk)
-*   [Edit Connection Properties](Features/Edit_Connection_Properties)
-*   [Adding VDSM hooks for hotplugging/unplugging a disk](Features/Disk_Hooks)
-*   [Separating "Move" vm operation to "Copy" and "Delete" operations to improve VM availability](Features/MoveAsCopyAndDelete)
-*   [Backup and Restore API for Independent Software Vendors](Features/Backup-Restore_API_Integration)
+*   [Online Virtual Drive Resize](Features/Online_Virtual_Drive_Resize) allows oVirt users to resize virtual disks while they are in use by one or more virtual machines without the need of pausing, hibernating or rebooting the guests.
+
+<!-- -->
+
+*   [Virtio-SCSI](Features/Virtio-SCSI) is a new para-virtualized SCSI controller device which provides the same performance as the virtio-blk device, while improving scalability, supporting standard SCSI command sets and device naming, allowing for SCSI device passthrough.
+
+<!-- -->
+
+*   [ Read Only Disk](Features/Read_Only_Disk) enables users to assign a read-only property to the VM-Disk relationship when adding/attaching a disk to a vm through the oVirt engine.
+
+<!-- -->
+
+*   [Manage Storage Connections](Features/Edit_Connection_Properties) adds the ability to add, edit and delete storage connections. The new connection details must match those of the original connection. For example, an NFS storage connection cannot be edited to point to iSCSI.
+
+<!-- -->
+
+*   [Disk Hooks](Features/Disk_Hooks) adds VDSM hooking points before and after disk hot plug and hot unplug events, enabling the running of guest-level operations on the disks when they're plugged/unplugged.
+
+<!-- -->
+
+*   [MoveAsCopyAndDelete](Features/MoveAsCopyAndDelete) splits disk moving operations in oVirt into separate copy and delete operations, where, previously, they had been carried out by vdsm in a single operation. This change improves availability and error-handling.
+
+<!-- -->
+
+*   [Backup-Restore API Integration](Features/Backup-Restore_API_Integration) provides the ability for ISVs to backup and restore VMs. A new set of APIs will be introduced in oVirt to facilitate taking full VM backup, as well as full or file level restore of VMs.
+
+<!-- -->
+
 *   Allow resign/force re-election of SPM
-*   [Disks Block Alignment](Features/DiskAlignment)
-*   [Integration with Glance](Features/Glance_Integration)
+
+<!-- -->
+
+*   [Disks Block Alignment](Features/DiskAlignment) provides a way in oVirt to find virtual disks with misaligned partitions.
+
+<!-- -->
+
+*   [Glance Integration](Features/Glance_Integration) allows oVirt users to consume, export and share images with Glance. These images are exposed as oVirt Templates.
 
 #### SLA & Scheduling
 

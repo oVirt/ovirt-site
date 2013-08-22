@@ -117,8 +117,8 @@ The oVirt 3.3 release includes these notable changes.
 
 #### Node
 
-*   [Universal Node Image](Features/Universal Image) makes the ovirt-node image generic for use with non-oVirt Projects
-*   [Node VDSM Plugin](Features/Node vdsm plugin) extract all vdsm and oVirt Engine specific code from ovirt-node into a plugin
+*   [Universal Node Image](Features/Universal Image) converts the oVirt Node image into a generic image that can be customized for many different projects using Node Plugins.
+*   [Node VDSM Plugin](Features/Node vdsm plugin) converts the generic oVirt Node image into an image customized use with oVirt Engine.
 *   oVirt Node works on a different asynchronous release schedule from the rest of oVirt.
     -   At the time of the oVirt 3.3 release, the current version of ovirt-node will be 3.0.0.
     -   Feature for oVirt node 3.0.0 can be found on the [oVirt Node 3.0.0 release page](Node_3.0_release-management)

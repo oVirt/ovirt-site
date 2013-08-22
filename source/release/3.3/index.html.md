@@ -106,10 +106,10 @@ The oVirt 3.3 release includes these notable changes.
 #### SLA & Scheduling
 
 *   [Features/oVirt_scheduler](Features/oVirt_scheduler) Wrapping scheduling functionalities as a separate package
-*   [Features/Scheduling_API](Features/Scheduling_API) (depends on [Features/oVirt_scheduler](Features/oVirt_scheduler)) exposing user-level scheduling API
-*   [Features/Watchdog_engine_support](Features/Watchdog_engine_support)
-*   [Features/Network_QoS](Features/Network_QoS)
-*   [Trusted_compute_pools](Trusted_compute_pools)
+*   [oVirt Scheduler API](Features/Scheduling_API) allows users to implement their own private optimized schedulers by extending or modifying the default oVirt scheduler.
+*   [Watchdog Engine Support](Features/Watchdog_engine_support) adds support for watchdog devices to oVirt Engine.
+*   [Network QoS](Features/Network_QoS) allows users to limit the inbound and outbound network traffic at the virtual NIC level.
+*   [Trusted Compute Pools](Trusted_compute_pools) provide a way for administrators to deploy VMs on trusted hosts.
 
 #### Gluster
 

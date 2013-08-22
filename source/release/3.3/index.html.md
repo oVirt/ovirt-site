@@ -129,7 +129,7 @@ The oVirt 3.3 release includes these notable changes.
 
 <!-- -->
 
-*   [Self Hosted Engine](Features/Self_Hosted_Engine) enables administrators to run the Engine as a VM on the hosts that are managed by this Engine, in an HA configuration, when the Engine VM can start on any of the hosts. The ability to run the Engine as a VM on the hosts that are managed by this Engine, in an HA configuration, when the Engine VM can start on any of the hosts.
+*   [Self Hosted Engine](Features/Self_Hosted_Engine) enables administrators to run the Engine as a VM on the hosts that are managed by this Engine, in an HA configuration, when the Engine VM can start on any of the hosts.
 
 #### UX
 

@@ -21,26 +21,49 @@ The oVirt 3.3 release includes these notable changes.
 
 #### Virt
 
-*   [Features/RAM Snapshots](Features/RAM Snapshots)
-*   [Features/noVNC console](Features/noVNC console)
-*   [Features/GlusterFS_Storage_Domain](Features/GlusterFS_Storage_Domain)
-*   [Features/Cloud-Init_Integration](Features/Cloud-Init_Integration)
+*   [RAM Snapshots](Features/RAM Snapshots) enable users to save (and later restore) the memory state of a VM when creating a live snapshot.
+
+<!-- -->
+
+*   [noVNC console](Features/noVNC console) integration makes it possible to connect to VM consoles using the HTML 5 VNC client called "noVNC" in browsers supporting websockets and the HTML5 postMessage function (webkit browsers, Firefox, IE > 10).
+
+<!-- -->
+
+*   [GlusterFS Storage Domain](Features/GlusterFS_Storage_Domain) is a new storage domain and data center type which uses gluster as the storage backend. VMs created using this domain take advantage of QEMU's gluster block backend for improved performance.
+
+<!-- -->
+
+*   [Cloud-Init Integration](Features/Cloud-Init_Integration) facilitates provisioning of virtual machines by enabling oVirt to perform initial setup (including networking, SSH keys, timezone, user data injection, and more) of guest instances configured with cloud-init.
 
 #### Infra
 
-*   [Features/Device Custom Properties](Features/Device Custom Properties)
-*   [Features/ExternalTasks](Features/ExternalTasks)
-*   [Features/Supervdsm_service](Features/Supervdsm_service)
-*   [Features/Java_SDK](Features/Java_SDK)
-*   [Features/Ssh_Abilities](Features/Ssh_Abilities)
+*   [Device Custom Properties](Features/Device Custom Properties) allow administrators to define special parameters per VM virtual device, and pass them down to vdsm hooks, as has previously been possible on a per VM basis. Device custom properties will allow, for instance, for users to connect vNICs to non-standard host networks.
+
+<!-- -->
+
+*   [External Tasks Support](Features/ExternalTasks) makes it possible for a third-party plugin to inject tasks into oVirt Engine using the REST API, to change task statuses and allow them to be tracked from the UI.
+
+<!-- -->
+
+*   [SuperVDSM Service](Features/Supervdsm_service) enables Vdsm to be run as an unprivileged daemon, thereby simplifying the handling of crashes and the process of re-establishing communication between Vdsm and Supervdsm after failures.
+
+<!-- -->
+
+*   [Java-SDK](Features/Java_SDK) is an auto-generated software development kit for the oVirt engine api.
+
+<!-- -->
+
+*   [Public Key SSH Authentication](Features/Ssh_Abilities) is now available as a means of conducting authentication for host-deploy and node upgrade operations, supplementing the existing user/password mechanism.
 
 #### Networking
 
-*   [Features/Migration Network](Features/Migration Network)
-*   [Features/Normalized ovirtmgmt Initialization](Features/Normalized ovirtmgmt Initialization)
-*   [Features/Quantum_Integration](Features/Quantum_Integration)
-*   [Feature/NetworkReloaded](Feature/NetworkReloaded) reimplementation of configNetwork in vdsm. Should have zero (0) effect on users, but required for future support for ovs/NM
-*   [Features/Multiple Gateways](Features/Multiple Gateways) configure more gateways on host, on top of the default one.
+*   [Migration Networks](Features/Migration Network) enable administrators to assign networks for carrying migration data.
+*   [Normalized ovirtmgmt Initialization](Features/Normalized ovirtmgmt Initialization) involves generating the ovirtmgmt network based on DC definitions using the setupNetworks function, rather than during new host deployment.
+*   [OpenStack Neutron Integration](Features/Quantum_Integration) adds support for using OpenStack Neutron as an external network provider, which can provide networking capabilities for consumption by oVirt hosts and/or virtual machines.
+
+*\* [Feature/NetworkReloaded](Feature/NetworkReloaded) reimplementation of configNetwork in vdsm. Should have zero (0) effect on users, but required for future support for ovs/NM*
+
+*   [Multiple Gateways](Features/Multiple Gateways) allows users to define a gateway per logical network, where, previously, the gateway defined on the ovirtmgmt logical network had been treated as the host-wide default gateway.
 
 #### Storage
 

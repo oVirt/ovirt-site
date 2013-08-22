@@ -71,24 +71,24 @@ Vdsm automatically builds using the latest tagged version. If you want to explic
 
 ## Code Style
 
-*   variables and arguments are in mixedCase
-*   class names are in CamelCase
-*   function and method names are in mixedCase
-*   all indentation is made of space characters
-*   a space character follows any comma
-*   spaces surround operators, but
-*   no spaces between
+*   Variables and arguments are in mixedCase
+*   Class names are in CamelCase
+*   Function and method names are in mixedCase
+*   All indentation is made of space characters
+*   A space character follows any comma
+*   Spaces surround operators, but
+*   No spaces between
 
-      def f(arg=its_default_value)
+      def f(arg=its_default_value):
 
-*   lines longer than 80 chars are frowned upon
-*   whitespace between functions and within stanza help to breath while reading code
-*   a space char follows a comment's hash char
-*   let logging method do the formatting for you:
+*   Lines longer than 80 chars are frowned upon
+*   Whitespace between functions and within stanza help to breath while reading code
+*   A space char follows a comment's hash char
+*   Let logging method do the formatting for you:
 
       logging.debug('hello %s', 'world')
 
-rather than
+Rather than
 
       logging.debug('hello %s' % 'world')
 

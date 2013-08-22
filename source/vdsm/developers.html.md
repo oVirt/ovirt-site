@@ -13,17 +13,7 @@ wiki_last_updated: 2015-05-21
 
 # Vdsm Developers
 
-## Getting the source
-
-Our public git repo is located on [oVirt.org](http://gerrit.ovirt.org/gitweb?p=vdsm.git)
-
-you can clone it with
-
-`git clone `[`http://gerrit.ovirt.org/p/vdsm.git`](http://gerrit.ovirt.org/p/vdsm.git)
-
-## Building a Vdsm RPM
-
-Vdsm uses autoconf and automake as it's build system.
+## Installing required packages
 
 Note: If you are working on EL6, please make sure you have defined EPEL yum repository (for installing python-ordereddict and pyton-pthreading), and make sure you take <http://danken.fedorapeople.org/python-pep8-1.3.3-3.el6.noarch.rpm> (older pep8 versions have a bug that's tickled by vdsm).
 
@@ -42,6 +32,18 @@ Fedora users should verify the following packages are installed before attemptin
        yum -y install autoconf automake pyflakes logrotate gcc python-pep8 libvirt-python python-devel \
        python-nose rpm-build sanlock-python genisoimage python-ordereddict python-pthreading libselinux-python\
        python-ethtool m2crypto python-dmidecode python-netaddr python-inotify git
+
+## Getting the source
+
+Our public git repo is located on [oVirt.org](http://gerrit.ovirt.org/gitweb?p=vdsm.git)
+
+you can clone it with
+
+`git clone `[`http://gerrit.ovirt.org/p/vdsm.git`](http://gerrit.ovirt.org/p/vdsm.git)
+
+## Building a Vdsm RPM
+
+Vdsm uses autoconf and automake as it's build system.
 
 To configure the build env:
 

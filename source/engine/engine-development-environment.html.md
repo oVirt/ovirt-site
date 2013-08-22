@@ -67,6 +67,10 @@ Make sure openjdk is the java preferred:
 
 #### Database
 
+On Fedora 19, you need to enable postresql service:
+
+      # chkconfig postresql on 
+
 Based on your distribution it may be that you require to initialize the database.
 
       Fedora: # postgresql-setup initdb

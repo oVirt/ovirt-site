@@ -60,9 +60,7 @@ The oVirt 3.3 release includes these notable changes.
 *   [Migration Networks](Features/Migration Network) enable administrators to assign networks for carrying migration data.
 *   [Normalized ovirtmgmt Initialization](Features/Normalized ovirtmgmt Initialization) involves generating the ovirtmgmt network based on DC definitions using the setupNetworks function, rather than during new host deployment.
 *   [OpenStack Neutron Integration](Features/Quantum_Integration) adds support for using OpenStack Neutron as an external network provider, which can provide networking capabilities for consumption by oVirt hosts and/or virtual machines.
-
-*\* [Feature/NetworkReloaded](Feature/NetworkReloaded) reimplementation of configNetwork in vdsm. Should have zero (0) effect on users, but required for future support for ovs/NM*
-
+*   [Feature/NetworkReloaded](Feature/NetworkReloaded) reimplementation of configNetwork in vdsm. Should have zero (0) effect on users, but required for future support for ovs/NM
 *   [Multiple Gateways](Features/Multiple Gateways) allows users to define a gateway per logical network, where, previously, the gateway defined on the ovirtmgmt logical network had been treated as the host-wide default gateway.
 
 #### Storage

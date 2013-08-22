@@ -25,12 +25,6 @@ you can clone it with
 
 Vdsm uses autoconf and automake as it's build system.
 
-Fedora users should verify the following packages are installed before attempting to build:
-
-       yum -y install autoconf automake pyflakes logrotate gcc python-pep8 libvirt-python python-devel \
-       python-nose rpm-build sanlock-python genisoimage python-ordereddict python-pthreading libselinux-python\
-       python-ethtool m2crypto python-dmidecode python-netaddr python-inotify git
-
 Note: If you are working on EL6, please make sure you have defined EPEL yum repository (for installing python-ordereddict and pyton-pthreading), and make sure you take <http://danken.fedorapeople.org/python-pep8-1.3.3-3.el6.noarch.rpm> (older pep8 versions have a bug that's tickled by vdsm).
 
       [epel]
@@ -42,6 +36,12 @@ Note: If you are working on EL6, please make sure you have defined EPEL yum repo
       gpgcheck=1
       gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
        
+
+Fedora users should verify the following packages are installed before attempting to build:
+
+       yum -y install autoconf automake pyflakes logrotate gcc python-pep8 libvirt-python python-devel \
+       python-nose rpm-build sanlock-python genisoimage python-ordereddict python-pthreading libselinux-python\
+       python-ethtool m2crypto python-dmidecode python-netaddr python-inotify git
 
 To configure the build env:
 

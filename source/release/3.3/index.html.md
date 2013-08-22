@@ -113,11 +113,7 @@ The oVirt 3.3 release includes these notable changes.
 
 #### Gluster
 
-*   [Features/Gluster Hooks Management](Features/Gluster Hooks Management) Managing gluster hooks from console
-    -   Status : In Progress
-    -   gerrit :
-        -   <http://gerrit.ovirt.org/#/q/project:ovirt-engine+branch:master+topic:gluster-hooks,n,z>
-        -   <http://gerrit.ovirt.org/#/c/14145>
+*   [Gluster Hooks Management](Features/Gluster Hooks Management) allows users to manage Gluster hooks (Volume lifecycle extensions) from oVirt Engine. Read more about Gluster hooks at the [Gluster project site](http://www.gluster.org/community/documentation/index.php/Features/Hooks).
 
 #### Node
 

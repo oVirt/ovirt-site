@@ -28,15 +28,15 @@ RHEL 6 users must add EPEL yum repository for installing python-ordereddict and 
       gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
        
 
-RHEL 6 users should install this version of pep8. Older pep8 versions have a bug that's tickled by vdsm.
-
-      yum install http://danken.fedorapeople.org/python-pep8-1.3.3-3.el6.noarch.rpm 
-
 Fedora users should verify the following packages are installed before attempting to build:
 
        yum -y install autoconf automake pyflakes logrotate gcc python-pep8 libvirt-python python-devel \
        python-nose rpm-build sanlock-python genisoimage python-ordereddict python-pthreading libselinux-python\
        python-ethtool m2crypto python-dmidecode python-netaddr python-inotify git
+
+RHEL 6 users should install this version of pep8. Older pep8 versions have a bug that's tickled by vdsm.
+
+      yum install http://danken.fedorapeople.org/python-pep8-1.3.3-3.el6.noarch.rpm 
 
 ## Getting the source
 

@@ -23,7 +23,8 @@ Note: If you are working on RHEL 6, please make sure you have defined EPEL yum r
       mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&arch=$basearch
       failovermethod=priority
       enabled=1
-      gpgcheck=1
+      # Disabled since gpgkey is missing RHEL 6.4 install
+      gpgcheck=0
       gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
        
 

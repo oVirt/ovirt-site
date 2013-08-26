@@ -15,18 +15,9 @@ wiki_last_updated: 2015-05-21
 
 ## Installing required packages
 
-RHEL 6 users must add EPEL yum repository for installing python-ordereddict and pyton-pthreading.
+RHEL 6 users must add EPEL yum repository for installing python-ordereddict and pyton-pthreading. The rpm bellow will install the epel yum repo and required gpg keys.
 
-      [epel]
-      name=Extra Packages for Enterprise Linux 6 - $basearch
-      #baseurl=http://download.fedoraproject.org/pub/epel/6/$basearch
-      mirrorlist=https://mirrors.fedoraproject.org/metalink?repo=epel-6&arch=$basearch
-      failovermethod=priority
-      enabled=1
-      # Disabled since gpgkey is missing RHEL 6.4 install
-      gpgcheck=0
-      gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-6
-       
+      rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm 
 
 Fedora users should verify the following packages are installed before attempting to build:
 

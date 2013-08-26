@@ -270,6 +270,8 @@ install generateDS
 
       easy_install generateDS
 
+note: currently we support only 2.9a
+
 codegen
 
       1. compile + deploy new ovirt-engine

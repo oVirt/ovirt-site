@@ -11,7 +11,7 @@ wiki_last_updated: 2014-06-25
 
 By default ovirt engine will try to install vdsm and configure host SSL keys when adding a host. This is a good default for production, but unproductive when connecting vdsm development build to oVirt.
 
-## Disable installVds option
+## Disable installVds option in ovirt engine
 
 Run this command:
 

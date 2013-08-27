@@ -17,7 +17,7 @@ Run this command:
 
       psql engine -U engine -c "UPDATE vdc_options set option_value = 'false' where option_name = 'InstallVds'"
 
-And restart oVirt service:
+And restart oVirt service if running:
 
       service ovirt-engine restart
 

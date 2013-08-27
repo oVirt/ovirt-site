@@ -171,7 +171,6 @@ Configuration example: ![](Maven-Configurations.png "fig:Maven-Configurations.pn
 
 *   Same as Net Beans...
 *   [Backend with jrebel](Backend with jrebel)
-*   [OVirt - disable SSL in VDSM](OVirt - disable SSL in VDSM)
 
 ### Troubleshooting
 

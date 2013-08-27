@@ -115,6 +115,8 @@ Finally start the vdsmd service:
 
       service vdsmd start
 
+**Note: if you want to connect this host to ovirt-engine, see [OVirt_-_connecting_development_vdsm_to_ovirt_engine](OVirt_-_connecting_development_vdsm_to_ovirt_engine).**
+
 ## Creating local yum repo to test vdsm changes
 
 1) First you will need to generate the rpm with your changes, from the vdsm source directory:

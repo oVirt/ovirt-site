@@ -83,14 +83,18 @@ Configure PostgreSQL to accept network connection by locating `pg_hba.conf` file
 | Debian | /etc/postgresql/\*/main/pg_hba.conf |
 | Gentoo | /etc/postgresql-\*/pg_hba.conf      |
 
-Locate: 127.0.0.1/32 and ::1/128 and allow password authentication.
+Locate: 127.0.0.1/32 and ::1/128 and allow "password" authentication for IPv4 and IPv6 connections, and "ident" authentication for unix domain socket connections.
 
       # IPv4 local connections:
       host    all             all             127.0.0.1/32            password
       # IPv6 local connections:
       host    all             all             ::1/128                 password
+      # "local" is for Unix domain socket connections only
+      local   all             all                                     ident
 
-Restart PostgreSQL service for definitions to take effect.
+Restart PostgreSQL service for definitions to take effect:
+
+      service postgres restart
 
 Create database and user, usually using the following commands as root:
 

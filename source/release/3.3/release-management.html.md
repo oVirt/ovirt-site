@@ -19,7 +19,7 @@ wiki_warnings: table-style
 
 *' These are tentative planning dates and may change*'
 
-*   General availability: **2013-08-28**
+*   General availability: **2013-09-04**
     -   Beta release: **2013-07-18**
     -   Feature freeze: **2013-07-17**
     -   [ oVirt 3.3 Test Day:](OVirt_3.3_TestDay) **2013-07-24**

@@ -8,7 +8,7 @@ wiki_last_updated: 2013-08-27
 
 # OVirt - disable InstallVds
 
-By default oVirt will try to install vdsm and configure host SSL keys when adding a host. This is a good default for production, but unproductive when connecting vdsm development build to oVirt.
+By default ovirt engine will try to install vdsm and configure host SSL keys when adding a host. This is a good default for production, but unproductive when connecting vdsm development build to oVirt.
 
 ## Disable installVds option
 
@@ -22,7 +22,7 @@ And restart oVirt service:
 
 ## Disabling SSL
 
-When installVds option is disabled, you also want to disable SSL on both oVirt and host sides, since host SSL keys are not configured. Alternativly, you can configure SSL keys manually.
+When installVds option is disabled, you also want to disable SSL on both ovirt engine and host sides, since host SSL keys are not configured. Alternativly, you can configure SSL keys manually.
 
 ### Disable SSL in VDSM
 

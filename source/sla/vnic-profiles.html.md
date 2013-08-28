@@ -64,10 +64,6 @@ He will then define the user-group "students" as user of profile "student-blue" 
 
 VNIC Profiles could not be deleted from the engine as long as one or more VM/Templates are using those profiles.
 
-##### Reporting vNic actual configuration
-
-*   The engine will retrieve the actual configuration of the profile properties on the VNIC from VDSM (using the network statistics mechanism) and the networked administrator will be presented with the reported values within the vm network interface's 'Statistics' sub-tab.
-
 ##### Editing a VNIC / Changing a VNIC profile
 
 *   Changing the profile a VM is using while the VM is running should behave like dynamic wiring (changing the VM network while it is running).

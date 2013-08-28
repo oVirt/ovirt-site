@@ -12,6 +12,8 @@ This page was created as a result of a [http://lists.ovirt.org/pipermail/engine-
 
 ## Architecture
 
+![](engine_ha_architecture.jpg "engine_ha_architecture.jpg")
+
 ## Issues with current implementation
 
 1.  Locking. Currently Engine makes extensive use of Java synchronized capabilities to lock multiple requests hitting the same VDSM at the same time. This should be extended to be cross-machine.

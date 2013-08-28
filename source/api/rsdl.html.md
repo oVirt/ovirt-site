@@ -816,7 +816,7 @@ each URI in RSDL contains "rel" and "description" describing the meaning of the 
 
 ## Repository
 
-*   <git://gerrit.ovirt.org/ovirt-engine> (restapi is one of the engine modules located under ovirt/ovirt-engine/backend/manager/modules/restapi/)
+*   <git://gerrit.ovirt.org/ovirt-engine>
 
 ## Maintainer
 

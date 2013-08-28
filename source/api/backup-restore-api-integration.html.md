@@ -22,80 +22,61 @@ This feature provides the ability for ISVs to backup and restore VMs. New set of
 *   Engine Component owner: Liron Aravot <laravot@redhat.com>
 *   VDSM Component owner: Deepak C Shetty <deepakcs@linux.vnet.ibm.com>
 
+### Detailed Description
+
+The Backup API provides set of operations that can be used for implemenating backup solution for VMs/Data using oVirt.
+
+### High Level Architecture
+
+The Backup Appliance can be in the form of a Virtual Appliance (VirtApp) or Host Appliance (HostApp). **Currently we are targetting VirtApp usecase, HostApp usecase will be targetted later.** Backup & Restore API will can be driven by API while some functionallities would be available by GUI as well. Backup/Restore software from ISV will drive these APIs.
+
+## VM Backup/Restore possible flows
+
+### Full VM backups
+
+Full VM backup can be implemented for example by using the following oVirt capabillities:
+
+1.  Take a vm snapshot for the vm targeted for backup - (existing oVirt REST API operation)
+2.  Backup the vm configuration at the time of the snapshot (Disks configuration can be backed up as well if needed) - (added capabillity to oVirt as part of the Backup API)
+3.  Attach the disk snapshots that were created in (1) to the virtual appliance for data backup - (added capabillity to oVirt as part of the Backup API)
+4.  <data can be backed up>
+5.  Detach the disk snapshots that were attached in (4) from the virtual appliance - (added capabillity to oVirt as part of the Backup API)
+
+### Full VM restore
+
+1.  Create disks for restore
+2.  Attach the disks for restore to the virtual appliance (Restore the data to it)
+3.  Detach the disks from the virtual appliance.
+4.  Create a vm using the configuration that was saved as part of the backup flow - (added capabillity to oVirt as part of the Backup API)
+5.  Attach the restored disks to the created vm.
+
+#### DIfference between Virtual appliance and Host appliance
+
+Currently per the design, the difference is in the way that the data is would be exposed/restored. Backup - the disks snapshot for backup should be exposed on some host so it could be mounted and backed up through the needed HostApp with the backup software. Restore - an abillity to restore the data to an ovirt disk should be introduced.
+
+### File level backup/restore
+
+File level restore/backed is essentially the same as the described VM backup/restore flows - as soon as the data is accessible by the backup provider the needed files can be backed up/restored.
+
+### LAN Free backup
+
+Support for LAN-Free backup: oVirt provides SAN access to the disk devices out of the box.
+
+### User interface
+
+N/A
+
 ### Current Status
 
 *   Live snapshot : Done. Available in oVirt.
 *   Live Merge: To be integrated in oVirt
 *   Qemu-ga: To be integrated.
 *   VDSM support : <http://gerrit.ovirt.org/#/q/status:open+project:vdsm+branch:master+topic:backup-restore,n,z>
-*   oVirt Engine / API support : <http://gerrit.ovirt.org/#/c/16284/3>
+*   oVirt Engine / API support :
+    -   Attach/Detach/Hotplug/Hotunplug Disk snapshot to a vm: <http://gerrit.ovirt.org/#/c/17679/>
+    -   Add VM from configuration : <http://gerrit.ovirt.org/15894>
+    -   Get snapshot vm ovf configuration: <http://gerrit.ovirt.org/#/c/16176/>
 *   UI support : N/A
-
-### Detailed Description
-
-The backup machine will protect virtual machines by offloading backup workloads to a centralized server and providing multiple restore capabilities.
-
-### High Level Architecture
-
-There will be 1 Backup Appliance per DC. The Backup Appliance can be in the form of a Virtual Appliance (VirtApp) or Host Appliance (HostApp). **Currently we are targetting VirtApp usecase, HostApp usecase will be targetted later.** Backup & Restore will be driven by API and not GUI. Backup/Restore software from ISV will drive these APIs
-
-### Full VM restore
-
-The entire VM is restored to the state it existed when it was originally backed up.
-
-### Full VM backups
-
-Back up an entire virtual machine to the backup machine storage as a single object (image). This is an entire VM image snapshot, which is a single snapshot that contains all of the VM disks. All data is backed up at the disk block level. The data can then be restored to a disk, or mounted as a virtual volume for an individual file restore. These backups are managed and retained according to storage policies set up by the backup machine administrator.
-
-### File level restore
-
-File level restore can be performed in-guest or off-host. Mount the volumes of the VM backup as a virtual volume. Then, copy the files that you want to restore.
-
-#### Full restore to source VM
-
-#### Full restore to a new VM
-
-#### Single file level restore (Typically to source VM, or other VM)
-
-### LAN Free backup
-
-Support for LAN-Free backup: oVirt provides SAN access to the disk devices out of the box.
-
-### High level flow of Backup Process
-
-1.  Contact the ovirt-engine containing the target virtual machine.
-2.  Command that ovirt-engine to produce a snapshot of the target virtual machine.
-3.  Use the ovirt-engine to gain access to the virtual disk(s) and files in the snapshot.
-4.  Capture the virtual disk data and virtual machine configuration information.
-5.  Command the ovirt-engine to remove the backup snapshot.
-
-### High level flow of Restore Process
-
-1.  Contact the ovirt-engine.
-2.  Command the ovirt-engine to create a new virtual machine and its virtual disks using the configuration information in step 4 of the backup process above.
-3.  Transfer the virtual disk data to the newly created virtual disk(s).
-
-### REST API flow for VirtApp usecase
-
-#### Following API calls will be needed for backup –
-
-1.  create vm snapshot (the api call exists today)
-2.  get VM Config (new API)
-3.  Attach disk == Create a temp. r/w snapshot and hotplug it into the VirtApp
-4.  <... The backup s/w will backup the data ...>
-5.  Detach disk == Hotunplug the temp. snapshot from the VirtApp
-
-#### Following API calls will be needed for restore (to confirm)–
-
-1.  create vm (vmconfig)
-2.  prepare restore (hostid)
-3.  attach disk()
-4.  tear down restore()
-5.  detach disk()
-
-### User interface
-
-N/A
 
 ### This feature will be implemented in phases:
 
@@ -103,28 +84,7 @@ N/A
 2.  Phase 2 will cover HostApp usecase and guest quiesce for application-level consistency. (depends on the ongoing qemu-ga work in the community)
 3.  Phase 3 will cover Change Block Tracking (CBT) to cover incremental backups. This also depends on the ongoing community work in qemu block layer to provide differential info
 
-### Benefits to oVirt
-
-Add the ability to do full , file-level & incremental backups/restores of a running VM.
-
-### Dependencies / Related Features and Projects
-
-*   Live Snapshots - already available in oVirt.
-*   Temp. / Transient snapshot - need to add support in oVirt.
-*   LiveMerge - needs support in oVirt. Has some dependencies on Qemu supporting the same.
-
-### Documentation / External references
-
-*   <http://www.ovirt.org/Live_Snapshots>
-*   <http://www.ovirt.org/Features/Design/LiveMerge>
-
-### Comments and Discussion
-
 ### Recommendations:
-
-*   In order to capture the virtual machine configuration information, a flat OVF new API will be required. The flat OVF will have no snapshots and will contain only current virtual hardware configuration. The following calls will need to be addressed:
-
-1.  Create VM from flat OVF: a new API call for creating a VM from flat OVF (will create a VM entity and empty disks, (make all disks on block domains "preallocated". (thin provisioning will be covered in later phase). This API can be an extension of today's 'import' but without expecting to copy disk data.
 
 *   Block Device ID management considerations: method to track the device ID once attached to the Backup virtual appliance.
 *   We should just name the snapshot with a proper prefix (e.g. "TSM Backup") to make it clear what it's about.
@@ -151,13 +111,17 @@ The Backup and Restore API will provide integration with Microsoft Windows Volum
 
 Qemu-ga provides filesystem-level consistency for Linux, a hook can be executed to allow online disk snapshot for online-backup with application-level consistency of the snapshot image. A hook can provide the opportunity to quiesce applications before the snapshot is taken on fsfreeze-freeze/thaw.
 
-#### Portability of VMs
-
-*   The backup product should be able to recover a virtual machine to another location (host, storage, network etc.) without having to manually edit the OVF information. There should be a mechanism to indicate that virtual machine configuration information is going to be applied to a new location. The backup product should have the ability to indicate " use this OVF file to define the configuration and use this new host destination". Not every single parameter inside the configuration should be allowed to be overwrittten - the most important are the host, storage and network paramenters which could be set to alternate locations.
-*   virtual machine configuration information should be documented clearly for the customer so that the user understands what parameters can be preserved by a backup product.
-
 ### Open Issues
 
-1.  'transient' support is libvirt is still not supported for QEMU/KVM. See <https://bugs.launchpad.net/qemu/+bug/1192780/> and <https://bugzilla.redhat.com/show_bug.cgi?id=832194>
+### Benefits to oVirt
+
+Complete API providing abillity to do full , file-level & incremental backups/restores of a running VM.
+
+### Documentation / External references
+
+*   <http://www.ovirt.org/Live_Snapshots>
+*   <http://www.ovirt.org/Features/Design/LiveMerge>
+
+### Comments and Discussion
 
 <Category:Feature>

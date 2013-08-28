@@ -49,8 +49,8 @@ After this is done, restart vdsm. If you misconfigured something, vdsm will comp
 
 Disable SSLEnabled and UseSecureConnectionWithServers options:
 
-      psql engine -U engine -c "UPDATE vdc_options set option_value = 'false' where option_name = 'SSLEnabled'"
-      psql engine -U engine -c "UPDATE vdc_options set option_value = 'false' where option_name = 'UseSecureConnectionWithServers'"
+      su - postgres -c "psql engine -c "UPDATE vdc_options set option_value = 'false' where option_name = 'SSLEnabled'""
+      su - postgres -c "psql engine -c "UPDATE vdc_options set option_value = 'false' where option_name = 'UseSecureConnectionWithServers'""
 
 And restart oVirt service if running:
 

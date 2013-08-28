@@ -31,3 +31,5 @@ This page was created as a result of a [http://lists.ovirt.org/pipermail/engine-
 
 1.  Quartz. DB configuration for Quartz should enable High Availability.
 2.  Database. DB clustering should be out of scope of this task.
+
+[Eli] We may consider that as well , please see [PostgresSQL HA](http://www.openscg.com/postgresql-ha-automatic-failover/)

@@ -14,8 +14,6 @@ News and Review contacts who cover virtualization:
 
 Paul Venezia, Infoworld <http://www.infoworld.com/author-bios/paul-venezia>
 
-Cameron Sturdevant, eWEEK <http://www.eweek.com/cp/bio/Cameron-Sturdevant/>
-
 Paul Ferrill, Serverwatch <http://www.serverwatch.com/author/Paul-Ferrill-3660.htm>
 
 Frank Ohlhorst, eWEEK, TechTarget, others <http://www.eweek.com/cp/bio/Frank-Ohlhorst/>

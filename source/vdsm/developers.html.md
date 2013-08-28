@@ -23,9 +23,9 @@ RHEL 6 users must install this version of pep8. Older pep8 versions have a bug t
 
       yum install http://danken.fedorapeople.org/python-pep8-1.3.3-3.el6.noarch.rpm 
 
-RHEL 6 users must add the glusterfs repository, as vdsm depends now on glusterfs-3.4.0:
+RHEL 6 users must add the ovirt repositories, providing packages that are not available yet on RHEL 6.
 
-      wget -P /etc/yum.repos.d http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/glusterfs-epel.repo
+      yum install http://resources.ovirt.org/releases/ovirt-release-el6-8-1.noarch.rpm
 
 Fedora and RHEL 6 users must verify the following packages are installed before attempting to build:
 

@@ -110,6 +110,7 @@ Once started, a rebalance volume or remove-brick can be stopped while in progres
 
 ![](Removebrickview.png "Removebrickview.png")
 
+*   ''UX input required - Need a way in Bricks sub tab to indicate that remove brick is in progress on one or more bricks - Icon or colour coding rows? ''
 *   User can check the detailed status of the remove brick operation using Remove --> Status (it will invoke a UI similar to volume rebalance status)
 
 ![](Removebrickstatus.png "Removebrickstatus.png")

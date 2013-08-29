@@ -9,11 +9,13 @@ wiki_last_updated: 2014-06-25
 
 # OVirt - connecting development vdsm to ovirt engine
 
-By default ovirt engine will try to install vdsm and configure host SSL keys when adding a host. This is a good default for production, but unproductive when connecting vdsm development build to oVirt.
+How to configure a develoment host that should be attached to ovirt-engine.
 
-## Disable installVds option in ovirt engine
+## Disable automatic host installation
 
-Run this command:
+By default ovirt engine will try to install vdsm and configure host networking and SSL keys when adding a host. If you disable this feature, you will have to configure host networking yourself.
+
+If you want to disable this feature, run this command:
 
       su - postgres -c "psql engine -c "UPDATE vdc_options set option_value = 'false' where option_name = 'InstallVds'""
 
@@ -23,7 +25,7 @@ And restart oVirt service if running:
 
 ## Disabling SSL
 
-When installVds option is disabled, you also want to disable SSL on both ovirt engine and host sides, since host SSL keys are not configured. Alternativly, you can configure SSL keys manually.
+When automatic host installation is disabled, you also want to disable SSL on both ovirt engine and host sides, since host SSL keys are not configured. Alternativly, you can configure SSL keys manually.
 
 ### Disable SSL in VDSM
 

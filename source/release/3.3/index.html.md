@@ -19,6 +19,7 @@ The oVirt Project is pleased to announce the availability of its fourth formal r
 
 *   [Neutron Integration](Features/Quantum_Integration) adds support for using OpenStack Neutron as an external network provider, which can provide networking capabilities for consumption by oVirt hosts and/or virtual machines. For more information, watch this deep dive [presentation on oVirt / Neutron integration](http://www.youtube.com/watch?v=S16AfFylcHk).
 *   [Glance Integration](Features/Glance_Integration) allows oVirt users to consume, export and share images with Glance. These images are exposed as oVirt Templates. For more information, watch this deep dive [presentation on oVirt / Glance integration](http://www.youtube.com/watch?v=_Nyi1xyiQnY).
+*   [Cloud-Init Integration](Features/Cloud-Init_Integration) facilitates provisioning of virtual machines by enabling oVirt to perform initial setup (including networking, SSH keys, timezone, user data injection, and more) of guest instances configured with cloud-init.
 
 ### Enhanced Gluster Support
 
@@ -41,7 +42,6 @@ The oVirt Project is pleased to announce the availability of its fourth formal r
 
 *   [RAM Snapshots](Features/RAM Snapshots) enable users to save (and later restore) the memory state of a VM when creating a live snapshot.
 *   [noVNC console](Features/noVNC console) integration makes it possible to connect to VM consoles using the HTML 5 VNC client called "noVNC" in browsers supporting websockets and the HTML5 postMessage function (webkit browsers, Firefox, IE > 10).
-*   [Cloud-Init Integration](Features/Cloud-Init_Integration) facilitates provisioning of virtual machines by enabling oVirt to perform initial setup (including networking, SSH keys, timezone, user data injection, and more) of guest instances configured with cloud-init.
 
 #### Infra
 
@@ -84,10 +84,10 @@ The oVirt Project is pleased to announce the availability of its fourth formal r
 
 *   [Otopi Infra Migration](Features/Otopi_Infra_Migration) involves a complete rewrite of the engine-setup, engine-cleanup, engine-upgrade and All-in-One plugin using otopi.
 *   [Self Hosted Engine](Features/Self_Hosted_Engine) enables administrators to run the Engine as a VM on the hosts that are managed by this Engine, in an HA configuration, when the Engine VM can start on any of the hosts.
-    <div class="alert alert-info">
-    This feature is not included in oVirt 3.3, but will be added in an upcoming release
+    -   <div class="alert alert-info">
+        This feature is not included in oVirt 3.3, but will be added in an upcoming release
 
-    </div>
+        </div>
 
 #### UX Enhancements
 

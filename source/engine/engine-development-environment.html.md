@@ -22,7 +22,13 @@ This page is mostly to absorb community experience into the certified procedures
 
 #### RPM based
 
-Set up nightly repository `/etc/yum.repos.d/ovirt-nightly.repo`, replace `Fedora` with `EL` if you are using RHEL or an equivalent distribution:
+Set up nightly repository:
+
+**Option 1:** Install the repository file for Fedora (replace `fedora` with `el` for RHEL or equivalent distribution):
+
+      # yum install http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm
+
+**Option 2:** Create manually at `/etc/yum.repos.d/ovirt-nightly.repo`, replace `Fedora` with `EL` if you are using RHEL or an equivalent distribution:
 
       [ovirt-nightly]
       name=ovirt-nightly
@@ -40,7 +46,7 @@ Install 3rd party packages:
 
 Install ovirt packages:
 
-      # yum install ovirt-host-deploy
+      # yum install --enablerepo ovirt-nightly ovirt-host-deploy
 
 Make sure openjdk is the java preferred:
 

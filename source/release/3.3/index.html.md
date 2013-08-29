@@ -84,6 +84,10 @@ The oVirt Project is pleased to announce the availability of its fourth formal r
 
 *   [Otopi Infra Migration](Features/Otopi_Infra_Migration) involves a complete rewrite of the engine-setup, engine-cleanup, engine-upgrade and All-in-One plugin using otopi.
 *   [Self Hosted Engine](Features/Self_Hosted_Engine) enables administrators to run the Engine as a VM on the hosts that are managed by this Engine, in an HA configuration, when the Engine VM can start on any of the hosts.
+    <div class="alert alert-info">
+    This feature is not included in oVirt 3.3, but will be added in an upcoming release
+
+    </div>
 
 #### UX Enhancements
 

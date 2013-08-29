@@ -85,3 +85,10 @@ Dan Kusnetzky, ZDNet <http://www.zdnet.com/meet-the-team/us/dan.kusnetzky/>
 Howard Marks, Network Computing <http://www.networkcomputing.com/blogs/author/6607>
 
 Nancy Gohring, PC World <http://www.pcworld.com/author/Nancy-Gohring>
+
+# Analysts/commentators
+
+*   RedMonk: Stephen O'Grady, James Governor, Donnie Berkholz
+*   Matt Asay
+*   Ben Kepes
+*   Others?

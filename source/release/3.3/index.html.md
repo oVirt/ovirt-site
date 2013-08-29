@@ -13,6 +13,8 @@ wiki_last_updated: 2013-10-02
 
 The oVirt Project is pleased to announce the availability of its fourth formal release, oVirt 3.3.
 
+oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization.
+
 ## What's New in 3.3?
 
 ### OpenStack Integration

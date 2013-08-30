@@ -64,20 +64,19 @@ This feature provide the support for managing the asynchronous tasks on Gluster 
 *which returns*
 
 *   GlusterAsyncTask - encapsulates information about the Gluster task
-*   GlusterTaskType
-    -   REBALANCE
-    -   REMOVE_BRICK
-*   GlusterTaskStatus
-    -   RUNNING
-    -   FAILED
-    -   COMPLETED
-    -   ABORTED
-    -   PAUSED
+    -   GlusterTaskType
+        -   REBALANCE
+        -   REMOVE_BRICK
+    -   GlusterTaskStatus
+        -   RUNNING
+        -   FAILED
+        -   COMPLETED
+        -   ABORTED
+        -   PAUSED
 
 If GlusterTaskService returns a task that is not currently in the database, the information related to the task needs to be persisted in the engine database for further monitoring.
 
-      -- TODO --
-      Can we use External Tasks --> AddExternalJobCommand to create this?
+*   AddInternalJobCommand to be introduced to achieve this
 
 All long running commands will inherit from
 
@@ -85,6 +84,7 @@ All long running commands will inherit from
     -   Creates a SUB-STEP on execution of command and associate the step with external task id
     -   Abstract method getStepType - inheriting classes to return the StepEnum to be added as Sub step when executing the command
     -   Abstract method executeAndReturnTask which inheriting classes should implement by calling the corresponding VDS command. The method should return a GlusterAsyncTask object that holds the id of the gluster task that was started due to the command.
+    -   Start of async operations will acquire a lock. The lock will be released when Stop of corresponding command is called by the user or when the tasks sync job discovers that the task has been completed.
 
 The following sequence diagram explains the Gluster tasks monitoring mechanism ![](GlusterTasksSeqDiagram.png "fig:GlusterTasksSeqDiagram.png")
 

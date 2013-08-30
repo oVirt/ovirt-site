@@ -100,7 +100,7 @@ Locate: 127.0.0.1/32 and ::1/128 and allow "password" authentication for IPv4 an
 
 Restart PostgreSQL service for definitions to take effect:
 
-      service postgres restart
+      service postgresql restart
 
 Create database and user, usually using the following commands as root:
 

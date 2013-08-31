@@ -33,3 +33,8 @@ This page was created as a result of a [http://lists.ovirt.org/pipermail/engine-
 2.  Database. DB clustering should be out of scope of this task.
 
 [Eli] We may consider that as well , please see [PostgresSQL HA](http://www.openscg.com/postgresql-ha-automatic-failover/)
+
+1.  Configuration. All configuration files should be placed in shared storage/database
+2.  VDSM "Sharding". Should all engines be able to handle all VDSMs, or should we divide VDSMs between running engines (and rebalance once an engine goes down)?
+
+<sub>For now I think this is a complex task that we can push for a later stage

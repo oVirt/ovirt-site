@@ -112,7 +112,7 @@ Deletes a collection of bricks without data migration.
 
        /api/clusters/{id}/glustervolumes/{id}/bricks/startmigrate
 
-      Allow data on collection of bricks to be migrated. This will  return a step id which can be monitored from jobs/step api url. If false, data is lost and remove returns synchronously.
+Allow data on collection of bricks to be migrated. This will return a step id which can be monitored from jobs/step api url. If false, data is lost and remove returns synchronously.
 
 *   Add stop migrate action to the gluster bricks resource
 

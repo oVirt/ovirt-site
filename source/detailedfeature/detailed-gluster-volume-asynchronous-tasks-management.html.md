@@ -106,13 +106,13 @@ This will stop the rebalance action that is currently in progress
 
       /api/clusters/{id}/glustervolumes/{id}/bricks/remove
 
-Allow a collection of bricks to be removed. This will not migrate data first
+Deletes a collection of bricks without data migration.
 
 *   Add migrate action to the gluster bricks resource
 
-      /api/clusters/{id}/glustervolumes/{id}/bricks/startmigrate
+       /api/clusters/{id}/glustervolumes/{id}/bricks/startmigrate
 
-Allow data on collection of bricks to be migrated. This will return a step id which can be monitored from jobs/step api url
+      Allow data on collection of bricks to be migrated. This will  return a step id which can be monitored from jobs/step api url. If false, data is lost and remove returns synchronously.
 
 *   Add stop migrate action to the gluster bricks resource
 
@@ -120,6 +120,9 @@ Allow data on collection of bricks to be migrated. This will return a step id wh
 
 This will stop the migration of data from the bricks that is currently in progress
 
-TBD: How do we monitor the status of the rebalance and remove-brick operations? Can we use step ids or task ids?
+TBD: How do we monitor the status of the rebalance and remove-brick operations?
+
+*   -   Can we use step ids or task ids?
+    -   Introduce /rebalancestatus and /migratestatus actions?
 
 <Category:DetailedFeature>

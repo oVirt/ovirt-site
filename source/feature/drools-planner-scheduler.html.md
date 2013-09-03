@@ -8,6 +8,8 @@ wiki_revision_count: 27
 wiki_last_updated: 2013-09-03
 ---
 
+<big> This feature did not make into oVirt and very likely never will, a scheduling similar to OpenStack Nova was implemented in oVirt 3.3 There is no further plan for implementing it. </big>
+
 # Drools Planner scheduler
 
 ### Summary

@@ -12,7 +12,7 @@ wiki_last_updated: 2013-09-17
 
 ## What is oVirt
 
-oVirt is a KVM management application for datacenter management. It is the leading open source alternative to VMware vSphere. You can use oVirt to manage hundreds of KVM hypervisor nodes, running thousands of VMs.
+oVirt is a KVM management application for datacenter management. It is the leading open source alternative to VMware vSphere. You can use oVirt to manage hundreds of KVM hypervizor nodes, running thousands of VMs.
 
 oVirt provides a very sophisticated management application for systems administrators, while also providing a simpler self-service user console which exposes basic functiopnality related to creating and managing virtual machine instances. The management interface gives you a central location to manage all of your storage, network and compute resources, and to handle authentication and authorization for users of your virtualized infrastructure.
 
@@ -22,7 +22,7 @@ oVirt provides all of the features you expect from a datacenter management appli
 *   Live storage migration
 *   Templates and snapshots of running VMs
 *   Make your VMs highly available
-*   A small footprint hypervisor operating system ready to deploy
+*   A small footprint hypervizor operating system ready to deploy
 *   RESTful APIs to allow easy automation of VM lifecycle
 *   Integration of remote desktop access to VM instances
 *   Support for iSCSI, FCoE, NFS, and Gluster for shared storage
@@ -33,7 +33,13 @@ oVirt builds on KVM, the only hypervizor technology integrated into the heart of
 
 ### OpenStack and oVirt: A match made in heaven
 
-Overview of the various integration points which exist today between oVirt and OpenStack, and teasers for the future
+OpenStack has made a huge impact in the industry since its launch 3 years ago. It is one of the fastest growing, fastest improving open source projects on the planet, and there is a huge amount of interest in it as an Infrastructure as a Service provider. The oVirt project has been working to ensure that oVirt and OpenStack work well together. Like OpenStack, oVirt needs to be able to store VM images and snapshots, we need to configure multiple virtual LANs for multiple tenants, and we need a reliable, scalable storage back-end for persistent storage.
+
+In oVirt 3.3, we have added integration with the Glance image storage service, allowing oVirt users to import images from Glance as templates in oVirt, and to export templates and snapshots from oVirt to Glance, where they can be used to launch new instances on OpenStack.
+
+We also leverage the Neutron service for the definition of VLANs, virtual routing and virtual NICs. oVirt can discover networked configured in OpenStack, and also use the oVirt management UI, via the Neutron APIs, to define network configurations.
+
+More is planned for the future, as we work to make it easier to use oVirt for your scale-out workloads while continuing to use oVirt for traditional virtualized workloads where quality of service and high availability are critical.
 
 ### Gluster: tight integration of software defined scale-out storage
 

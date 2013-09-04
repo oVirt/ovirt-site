@@ -38,3 +38,23 @@ This page was created as a result of a [http://lists.ovirt.org/pipermail/engine-
 2.  VDSM "Sharding". Should all engines be able to handle all VDSMs, or should we divide VDSMs between running engines (and rebalance once an engine goes down)?
 
 <sub>For now I think this is a complex task that we can push for a later stage
+
+## Possible solutions
+
+1.  To add infinispan clustered cache, we can add replicate or distribute cache in jboss configuration file(ovirt-engine.xml)
+    -   perhapse also need to add jgroups configuration
+    -   if we consider multiple jboss instance in one machine(convenient for developing purpose), we may need to customize jboss.node.name, port-offset and engine-debug-port property to solve conflicts
+
+2.  engine-setup
+    -   all nodes should share one copy of pki, we may offer an option to use existing pki files in CA setup
+    -   all nodes should connect to one database, we may offer an option to use a existing DB connection in DB setup
+
+3.  Use CDI to inject cache into java code
+4.  For Singletons, we can use infinispan to replicate the variables in singleton instances.
+    -   For instance, EventQueueMonitor, we can put poolsLockMap, poolsEventsMap, and poolCurrentEventMap to clustered cache, if these three map are all that need to be synchronized among the cluster, it should work.
+    -   Other singletons can be much more complex than EventQueueMonitor, but using the same trick might work...
+
+5.  For command locking, we can still use infinispan tricks, like event listeners. But this may have performance problem
+    -   For instance, if engine A is invoking on a vdsm, it can put a corresponding entry in clustered synchronized cache. other engines would be noticed and can block or fail on invoking the same command on that vdsm, after engine A's invocation is complete, it can remove that entry, and other engines can be noticed for free invoking.
+
+6.  thingking more...

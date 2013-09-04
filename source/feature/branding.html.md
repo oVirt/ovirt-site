@@ -98,6 +98,21 @@ As illustrated by the following image:
 ![](User_portal_tab_popup.png "fig:User_portal_tab_popup.png")
 As the oVirt default branding is itself a branding theme you can look at the oVirt branding in `packaging/branding/ovirt.branding` in the source tree to see which css classes are available. The classes for the tabbing elements are in `ovirt_common.css` and `ovirt_user_portal.css`
 
+#### Welcome page
+
+#### File not found page
+
+Whenever a user goes to a page that is not found inside the oVirt engine web application, a custom page not found error page is displayed. We are able to customize certain aspects of that page not found page. The following aspects can be changed:
+
+*   Page title
+*   The header (left, center, right)
+*   The error message
+*   The link to forward to as well as the associated message for the link.
+
+As illustrated by the following image:
+![](Page_not_found_page.png "fig:Page_not_found_page.png")
+As the oVirt default branding is itself a branding theme you can look at the oVirt branding in `packaging/branding/ovirt.branding` in the source tree to see which css classes are available. The classes for the page not found page are in `welcome_style.css`. The page not found page shares a lot of the structure of the welcome page.
+
 ## Adding new brandable styles
 
 ### CSS

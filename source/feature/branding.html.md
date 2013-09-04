@@ -100,6 +100,9 @@ As the oVirt default branding is itself a branding theme you can look at the oVi
 
 #### Welcome page
 
+As illustrated by the following image:
+![](Welcome_page.png "fig:Welcome_page.png")
+
 #### File not found page
 
 Whenever a user goes to a page that is not found inside the oVirt engine web application, a custom page not found error page is displayed. We are able to customize certain aspects of that page not found page. The following aspects can be changed:

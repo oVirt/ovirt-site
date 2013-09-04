@@ -100,6 +100,23 @@ As the oVirt default branding is itself a branding theme you can look at the oVi
 
 #### Welcome page
 
+When a user initially goes to the oVirt engine web application, they are greeted with the welcome page. The welcome page by default has links to:
+
+*   The user portal.
+*   The administrator portal.
+*   The reports portal.
+
+Branding allows one to add more links to the welcome page (for instance to extra documentation, or internal web sites). These links will NOT overwrite the above mentioned links, but will be added into their own section below them. The extra links are added by creating a template file just like the one found in `packaging/branding/ovirt.branding/welcome_page.template`. You can name the file anything you want, as long as you denote the correct file name in branding.properties.
+
+The template file is regular html, but without the HTML, HEAD, and BODY tags. As the contents of the template will be directly inserted into the out welcome page. The template file can also contain place holder string that look like this: {user_portal}. While processing the place holders will be replaced with messages from the messages.properties file in the current user locale. All the keys in the messages.properties should start with 'obrand.welcome'. One exception is the {userLocale} place holder. This will be replaced by the short version of the current user locale. For instance if the current user locale is 'Spanish, spain' then {userLocale} will be replaced by 'es_ES'. This is to allow for link to locale specific files.
+
+Besides the template the following aspects can be changed:
+
+*   Page title
+*   The header (left, center, right)
+*   The error message
+*   The link to forward to as well as the associated message for the link.
+
 As illustrated by the following image:
 ![](Welcome_page.png "fig:Welcome_page.png")
 

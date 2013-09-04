@@ -86,11 +86,11 @@ And finally, here's the host's main routing table. Any traffic coming **in** to 
 
 The proposed solution is to create a python script that expects an interface's new IP address, subnet mask, network name and gateway. The script will then use the appropriate commands to generate a new routing table, populate it with two rows: One to link the network ip range with the NIC, and another that defines the gateway. Finally, the script will add two new rules that define when to use the new routing table. Of course, the rules define to use the new routing table whenever traffic is destined to or from the new ip network range. For an example, see the previous section. Another script will be created that reverses the aforementioned effects.
 
-**DHCP:** During VDSM installation, two additional scripts will be created under /etc/dhcp, called dhclient-up-hooks and dhclient-down-hooks. We will use DHCP hooks to call our new scripts whenever a DHCP interface is brought up or down.
+**DHCP:** During VDSM installation, an additional script will be created under /etc/dhcp/dhclient.d/, called sourceRouting.sh. We will use DHCP hooks to call our new scripts whenever a DHCP interface is brought up or down.
 
 **Static IP:** We'll call the aforementioned script for statically configured interfaces during addNetwork and delNetwork. Two files will be created during addNetwork. delNetwork will delete the same files. The files are route-<interface> and rule-<interface>, placed in /etc/sysconfig/network-scripts. New routing rules will be placed in the route file, and new rules in the rule file. Both of these files are called during the ifup init script.
 
-**Summary:** multipleGateways.py will be called whenever a DHCP interface goes up or down, and will create and delete the needed rules every time it is called. For statically configured interfaces, it will be called once during addNetwork, and once during delNetwork. These runs will place init scripts, that in turn will be called during ifup and ifdown.
+**Summary:** Multiple gateways code will be called whenever a DHCP interface goes up or down (Via our DHCP hook), and will create and delete the needed rules every time it is called. For statically configured interfaces, it will be called once during addNetwork, and once during delNetwork. These runs will place init scripts, that in turn will be called during ifup and ifdown.
 
 #### Upgrading
 

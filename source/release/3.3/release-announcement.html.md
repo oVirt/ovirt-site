@@ -43,8 +43,19 @@ More is planned for the future, as we work to make it easier to use oVirt for yo
 
 ### Gluster: tight integration of software defined scale-out storage
 
-Summarise all of the Gluster integration work we've done since 3.1
+GlusterFS is a clustered file-system capable of scaling to several peta-bytes, by grouping many storage bricks together into one continuous filesystem. The oVirt project has supported GlusterFS as a storage back-end for VMs managed by oVirt since version 3.1.
+
+Since then, we have worked with the Gluster team to create an even tighter integration. With oVirt 3.3 and Gluster 3.4, Gluster users can now use oVirt to manage their Gluster clusters, changes made to Gluster are reflected automatically in the oVirt management interface, or optimise their storage for a virtualization use-case. oVirt users get smooth integration of network-distributed storage, and Gluster users get the easy management of their Gluster domains from a user friendly user interface.
 
 ### Extensibility and automation
 
-Provide a summary of the types of things that administrators can do to automate, script, and extend in oVirt to give them total control over their virtualization management engine
+oVirt provides a rich set of possibilities to integrate with and extend the oVirt engine.
+
+*   Automate and script operations related to your VM lifecycle using the oVirt CLI and REST API, including starting and stop VMs, automation of back-ups, scheduling operations, creation of storage and network resources, and more
+*   A rich collection of hooks which can be used to perform custom actions via scripts during a VM's lifecycle
+*   APIs in a variety of programming languages, including Java and Python, to allow programmatic control of oVirt in your preferred language
+*   A UI plug-in framework which allows you to add advanced functionality to the management interface. For example, [ integration of Nagios monitoring](Features/UIPlugins#oVirt_Monitoring_UI_Plugin), [ Foreman for system configuration](Features/UIPlugins#Foreman_UI_Plugin), or [the management of NetApp storage](//captainkvm.com/2012/09/how-is-netapp-integrating-with-ovirt-and-rhev/),
+
+The ability to extend and integrate your VM management application into your IT operations gives you the flexibility and power you need to get the most from your infrastructure.
+
+<Category:Releases> <Category:Documentation>

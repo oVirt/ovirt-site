@@ -58,4 +58,12 @@ oVirt provides a rich set of possibilities to integrate with and extend the oVir
 
 The ability to extend and integrate your VM management application into your IT operations gives you the flexibility and power you need to get the most from your infrastructure.
 
+## Further information
+
+If you want to find out more about the new features we have added in the oVirt 3.3 release, have a look at our [ release notes](OVirt 3.3 release notes).
+
+To find out where to download oVirt 3.3 and try it out, visit the [download](download) page.
+
+You can also find out more [about oVirt](about oVirt) in general on [ this site](Home). Join the oVirt [community](community)! oVirt is an open source project with an open participation model, and we are always eager to hear from happy users and interested participants.
+
 <Category:Releases> <Category:Documentation>

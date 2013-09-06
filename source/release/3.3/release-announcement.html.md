@@ -45,7 +45,14 @@ More is planned for the future, as we work to make it easier to use oVirt for yo
 
 GlusterFS is a clustered file-system capable of scaling to several peta-bytes, by grouping many storage bricks together into one continuous filesystem. The oVirt project has supported GlusterFS as a storage back-end for VMs managed by oVirt since version 3.1.
 
-Since then, we have worked with the Gluster team to create an even tighter integration. With oVirt 3.3 and Gluster 3.4, Gluster users can now use oVirt to manage their Gluster clusters, changes made to Gluster are reflected automatically in the oVirt management interface, or optimise their storage for a virtualization use-case. oVirt users get smooth integration of network-distributed storage, and Gluster users get the easy management of their Gluster domains from a user friendly user interface.
+Over the past year, we have worked with the Gluster team to create an even tighter integration between the projects. oVirt users now have smooth integration of network-distributed storage, and Gluster users get easy management of their Gluster domains from a user friendly user interface.
+
+With oVirt 3.3 and Gluster 3.4:
+
+*   Gluster users can use oVirt to manage their Gluster clusters
+*   Changes made with the Gluster command line tool are reflected automatically in oVirt
+*   oVirt users can optimise their GlusterFS storage for a virtualization use-case
+*   oVirt loads VM images over a native GlusterFS interface via QEMU
 
 ### Extensibility and automation
 

@@ -27,7 +27,7 @@ oVirt provides all of the features you expect from a datacenter management appli
 *   Integration of remote desktop access to VM instances
 *   Support for iSCSI, FCoE, NFS, and Gluster for shared storage
 
-oVirt builds on KVM, the only hypervizor technology integrated into the heart of the Linux kernel. Add more stuff about how great KVM and qemu are.
+oVirt builds on KVM, the only hypervisor technology integrated into the heart of the Linux kernel. QEMU and KVM give you get near-native performance for virtualized applications, by running guest code directly on the host hardware, while providing watertight security through SELinux for guest operating systems.
 
 ## What's hot in 3.3
 

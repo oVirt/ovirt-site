@@ -33,11 +33,11 @@ oVirt builds on KVM, the only hypervizor technology integrated into the heart of
 
 ### OpenStack and oVirt: A match made in heaven
 
-OpenStack has made a huge impact in the industry since its launch 3 years ago. It is one of the fastest growing, fastest improving open source projects on the planet, and there is a huge amount of interest in it as an Infrastructure as a Service provider. The oVirt project has been working to ensure that oVirt and OpenStack work well together. Like OpenStack, oVirt needs to be able to store VM images and snapshots, we need to configure multiple virtual LANs for multiple tenants, and we need a reliable, scalable storage back-end for persistent storage.
+[OpenStack](http://www.openstack.org) has made a huge impact in the industry since its launch 3 years ago. It is one of the fastest growing, fastest improving open source projects on the planet, and there is a huge amount of interest in it as an Infrastructure as a Service provider. The oVirt project has been working to ensure that oVirt and OpenStack work well together. Like OpenStack, oVirt needs to be able to store VM images and snapshots, we need to configure multiple virtual LANs for multiple tenants, and we need a reliable, scalable storage back-end for persistent storage.
 
 In oVirt 3.3, we have added integration with the Glance image storage service, allowing oVirt users to import images from Glance as templates in oVirt, and to export templates and snapshots from oVirt to Glance, where they can be used to launch new instances on OpenStack.
 
-We also leverage the Neutron service for the definition of VLANs, virtual routing and virtual NICs. oVirt can discover networked configured in OpenStack, and also use the oVirt management UI, via the Neutron APIs, to define network configurations.
+We also leverage the Neutron service for the definition of VLANs, virtual routing and virtual NICs. oVirt can discover networks configured in OpenStack, and also use the oVirt management UI, via the Neutron APIs, to define network configurations.
 
 More is planned for the future, as we work to make it easier to use oVirt for your scale-out workloads while continuing to use oVirt for traditional virtualized workloads where quality of service and high availability are critical.
 

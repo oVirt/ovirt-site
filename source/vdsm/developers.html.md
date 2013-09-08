@@ -27,6 +27,10 @@ RHEL 6 users must add the ovirt repositories, providing packages that are not av
 
       yum install http://resources.ovirt.org/releases/ovirt-release-el6-8-1.noarch.rpm
 
+Fedora users must add the ovirt repositories, providing packages that are not available yet on Fedora.
+
+      yum install http://resources.ovirt.org/releases/ovirt-release-fedora-8-1.noarch.rpm
+
 Fedora and RHEL 6 users must verify the following packages are installed before attempting to build:
 
        yum -y install make autoconf automake pyflakes logrotate gcc python-pep8 libvirt-python python-devel \

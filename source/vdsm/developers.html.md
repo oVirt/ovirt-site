@@ -23,7 +23,7 @@ RHEL 6 users must install this version of pep8. Older pep8 versions have a bug t
 
       yum install http://danken.fedorapeople.org/python-pep8-1.3.3-3.el6.noarch.rpm 
 
-Add the ovirt repositories, providing packages that are not available yet on the standard repositories.
+RHEL 6 users must add the ovirt repositories, providing packages that are not available yet on RHEL 6.
 
       yum install http://resources.ovirt.org/releases/ovirt-release-el6-8-1.noarch.rpm
 

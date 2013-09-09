@@ -246,7 +246,7 @@ Example:
 
 =
 
-Check if all prerequisites are installed, refer to [#Prerequisites](#Prerequisites)
+Check if all prerequisites are installed, refer to [prerequisites](#Prerequisites)
 
 #### IBM JDK
 

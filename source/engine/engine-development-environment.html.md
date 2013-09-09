@@ -73,10 +73,6 @@ Make sure openjdk is the java preferred:
 
 #### Database
 
-On Fedora 19, you need to enable postgresql service:
-
-      # chkconfig postgresql on 
-
 Based on your distribution it may be that you require to initialize the database.
 
       Fedora: # postgresql-setup initdb
@@ -100,7 +96,7 @@ Locate: 127.0.0.1/32 and ::1/128 and allow "password" authentication for IPv4 an
 
 Restart PostgreSQL service for definitions to take effect:
 
-      service postgresql restart
+You may consider set the postgresql service to start at boot.
 
 Create database and user, usually using the following commands as root:
 

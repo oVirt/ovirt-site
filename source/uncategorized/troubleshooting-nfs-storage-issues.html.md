@@ -23,11 +23,11 @@ oVirt currently requires that NFS exports be configured in a specific way. This 
 
 ### Permissions
 
-*   The exported directory must be readable and writeable to the user/group with uid **36** which is the **vdsm** user. There are two ways to ensure this:
+*   Basically the exported directory must be readable and writeable for the user **vdsm** that has the uid **36** and gid **36**. Nevertheless some daemons on the hypervisor hosts (e.g. sanlock) use a different user id but need access to the directory too. The advise is to map all incoming NFS requests to the mentioned uid/gid. Two steps are required to ensure this:
     -   Chown the directory being exported 36:36.
-    -   Add the **anonuid=36** and **anongid=36** options on the export in **/etc/exports**.
+    -   Add the **anonuid=36**, **anongid=36** and **all_squash** options on the export in **/etc/exports**.
 
-      /exports/iso       *(rw,anonuid=36,anongid=36)
+      /exports/yourexportdirectory       *(rw,anonuid=36,anongid=36,all_squash)
 
 *   The exported directory should have permissions **0755**:
 *   The NFS server must actually be running.

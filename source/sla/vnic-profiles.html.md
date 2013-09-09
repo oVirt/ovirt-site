@@ -16,8 +16,8 @@ In order to define more natural coupling of the QoS to a VNIC we define a new co
 
 #### Owner
 
-*   Name:
-*   Email:
+*   Name: Moti Asayag
+*   Email: masayag@redhat.com
 
 #### Current status
 

@@ -18,7 +18,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Upcoming meetings
 
-#### 2013-08-26
+#### 2013-09-09
 
 *   Introductions
 *   Review of action items

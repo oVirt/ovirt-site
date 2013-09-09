@@ -10,6 +10,8 @@ wiki_last_updated: 2013-09-09
 
 # Alter Way case study
 
+<div class="row">
+<div class="span7 offset1 pad-sides">
 ## oVirt in Alter Way
 
 [Alter Way](//alterway.fr), a French hosting and services company founded in 2006, has been using oVirt in its public cloud offering, [H2O](//h2o.alterway.fr/), since last year. The service launched in October 2012, and there are already over 300 VMs being managed on the service for clients. We caught up with Stéphane Vincent, Director of Strategic Services and Innovation, recently to talk about why Alter Way chose oVirt, how they are using it, and what excites them about the 3.3 release.
@@ -22,4 +24,17 @@ The oVirt 3.3 release is a significant one for Stéphane. "When we chose oVirt, 
 
 And what does the future hold? "We are very happy with our choice of oVirt, and we are happy to see that interoperability is a high priority", says Stéphane. "We plan to expand our usage of oVirt. As a service provider, we will respond to customer needs, and there are a number of use-cases which oVirt addresses which are not possible with alternative solutions."
 
+</div>
+<div class="span4 pad-sides">
+<div class="well">
+![](AlterWay.jpg "AlterWay.jpg")
+
+**Company name:** Alter Way
+**Activity:** Computer services and hosting
+**Founded:** 2006
+**Size:** 110 employees, €11M revenues
+
+</div>
+</div>
+</div>
 <Category:Community> [Category:Case studies](Category:Case studies)

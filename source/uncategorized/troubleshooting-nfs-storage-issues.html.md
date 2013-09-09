@@ -120,7 +120,8 @@ A new nfs check script is now available to test whether an NFS export is ready f
 Normally the NFS server of any distro should work out of the box. Using older NFS servers or following different tuning advices throughout the internet may lead to a misconfiguration that gives lockups/freezes/stalls. Rule of thumb is to always ensure that the tcp window size parameters of your server are larger than the wsize and rsize mount option of your hypervisor hosts. E.g. using Fedora 19 as a hypervisor node these parameters are set to 1 MB.
 
        # df
-      10.10.30.253:/var/nas3/ovirt on /rhev/data-center/mnt/10.10.30.253:_var_nas3_ovirt type nfs (...,vers=3,rsize=1048576,wsize=1048576,...)
+      ...
+      10.10.30.253:/var/nas3/ovirt on /rhev/data-center/mnt/10.10.30.253:_var_nas3_ovirt type nfs (...,rsize=1048576,wsize=1048576,...)
       ...
        
 

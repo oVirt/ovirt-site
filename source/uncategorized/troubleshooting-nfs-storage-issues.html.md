@@ -113,7 +113,30 @@ A new nfs check script is now available to test whether an NFS export is ready f
 
       # /etc/init.d/nfs restart 
 
-## Workarounds
+## Workarounds for known issues
+
+### NFS Lockups
+
+Normally the NFS server of any distro should work out of the box. Using older NFS servers or following different tuning advices throughout the internet may lead to a misconfiguration that gives lockups/freezes/stalls. Rule of thumb is to always ensure that the tcp window size parameters of your server are larger than the wsize and rsize mount option of your hypervisor hosts. E.g. using Fedora 19 as a hypervisor node these parameters are set to 1 MB.
+
+       # df
+      10.10.30.253:/var/nas3/ovirt on /rhev/data-center/mnt/10.10.30.253:_var_nas3_ovirt type nfs (...,vers=3,rsize=1048576,wsize=1048576,...)
+      ...
+       
+
+In this case it is a good idea to set the tcp window parameters on the NFS server to at least 4 MB in /etc/sysctl.conf.
+
+       # cat /etc/sysctl.conf
+      net.ipv4.tcp_mem=4096 65536 4194304
+      net.ipv4.tcp_rmem=4096 65536 4194304
+      net.ipv4.tcp_wmem=4096 65536 4194304
+      net.core.rmem_max=8388608
+      net.core.wmem_max=8388608
+       
+
+To activate these settings for the running server reload them with
+
+       # sysctl -p 
 
 ### NFS Storage Domain Failure on Fedora 17
 

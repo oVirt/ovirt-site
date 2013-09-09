@@ -12,6 +12,8 @@ wiki_last_updated: 2013-09-09
 
 <big>this page is not maintained and outdated, at the time of writing this, there is no plan for clustering the engine for failover or load balancing</big>
 
+--[Lhornyak](User:Lhornyak) ([talk](User talk:Lhornyak)) 07:25, 9 September 2013 (GMT)
+
 ## Ideas for backend clustering
 
 ### Problems of backend clustering

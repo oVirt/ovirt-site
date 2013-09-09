@@ -108,5 +108,6 @@ In anticipation of the 3.3 release, a number of deep dive presentations into 3.3
 *   Async Task Manager changes for oVirt 3.3 Deep Dive ![](Async_task_mgr_23_july_2013_ovirt_final.odp "fig:Async_task_mgr_23_july_2013_ovirt_final.odp")
 *   Network QoS / vNIC Profiles presentation ![](VNIC_Profiles.odp "fig:VNIC_Profiles.odp")
 *   Scheduling in oVirt 3.3 deep dive ![](Scheduler-Deep-Dive-oVirt.pdf "fig:Scheduler-Deep-Dive-oVirt.pdf")
+*   Hosted engine deep dive ![](Hosted Engine Deep Dive.pdf "fig:Hosted Engine Deep Dive.pdf")
 
 <Category:Documentation> <Category:Releases>

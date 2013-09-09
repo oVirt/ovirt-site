@@ -6,7 +6,13 @@ wiki_revision_count: 4
 wiki_last_updated: 2013-09-09
 ---
 
-# Ideas for backend clustering
+# ideas for backend clustering
+
+## outdated
+
+<big>this page is not maintained and outdated, at the time of writing this, there is no plan for clustering the engine for failover or load balancing</big>
+
+## Ideas for backend clustering
 
 ### Problems of backend clustering
 

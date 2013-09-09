@@ -105,7 +105,7 @@ Restart PostgreSQL service for definitions to take effect:
 Create database and user, usually using the following commands as root:
 
       su - postgres -c "psql -d template1 -c "create user engine password 'engine';""
-      su - postgres -c "psql -d template1 -c "create database engine owner engine;""
+      su - postgres -c "psql -d template1 -c "create database engine owner engine template template0 encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';""
 
 It basically logins into PostgreSQL database using privileged user, creates a user and creates a database owned by the user.
 

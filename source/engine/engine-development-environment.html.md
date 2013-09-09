@@ -22,31 +22,37 @@ This page is mostly to absorb community experience into the certified procedures
 
 #### RPM based
 
-Set up nightly repository:
+##### Set up nightly repository
 
-**Option 1:** Install the repository file for Fedora (replace `fedora` with `el` for RHEL or equivalent distribution):
+###### Automatically
 
-      # yum install http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm
+Execute the following, replace `@distro@` with `fedora` for Fedora or `el` for RHEL or equivalent distribution.
 
-**Option 2:** Create manually at `/etc/yum.repos.d/ovirt-nightly.repo`, replace `Fedora` with `EL` if you are using RHEL or an equivalent distribution:
+      # yum install `[`http://ovirt.org/releases/ovirt-release`](http://ovirt.org/releases/ovirt-release)`-@distro@.noarch.rpm
+
+###### Manually
+
+Create `/etc/yum.repos.d/ovirt-nightly.repo`, replace `@distro@` with `fedora` for Fedora or `el` for RHEL or equivalent distribution.
 
       [ovirt-nightly]
       name=ovirt-nightly
-      baseurl=http://resources.ovirt.org/releases/nightly/rpm/Fedora/$releasever/
+      baseurl=http://resources.ovirt.org/releases/nightly/rpm/@distro@/$releasever/
       enabled=1
       gpgcheck=0
       priority=1
       protect=1
 
-Install 3rd party packages:
+##### Install 3rd party packages
 
       # yum install git java-devel maven openssl postgresql-server \
           m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
           jboss-as unzip
 
-Install ovirt packages:
+##### Install ovirt packages
 
       # yum install --enablerepo ovirt-nightly ovirt-host-deploy
+
+##### Setup Java
 
 Make sure openjdk is the java preferred:
 

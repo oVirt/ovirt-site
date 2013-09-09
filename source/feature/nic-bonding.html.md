@@ -25,7 +25,7 @@ This feature will allow Node to create NIC bonds, either through the UI or using
 
 ### Current status
 
-*   Status: **In Progress**
+*   Status: **Done**
 *   Last updated: ,
 
 ### Detailed Description

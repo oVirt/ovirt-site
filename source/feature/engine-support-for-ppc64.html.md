@@ -45,36 +45,40 @@ It is highly undesirable that a new architecture increases the burden of develop
 
 An interesting design pattern that can be used is the Strategy pattern mentioned in the GoF book. It encapsulates the specifics of a set algorithms proving a standard interface no matter the underlying implementation, allowing the client to remain decoupled of the unnecessary details. This behaviour is extremely desirable in the canDoAction methods of bll package, once the code will not need to explicitly differentiate an architecture.
 
-For instance, in the specific case of AddVmInterfaceCommand.java a verification similar to the one shown below can be added to the canDoAction:
+For instance, in the VmInfoBuilder.java, an architecture specific code similar to the one shown below can be added to the addCdDetails:
 
-    if (!getVm().validateVmInterface(parameters.getInterfaceType()) {
-        addCanDoActionMessage(VdcBllMessages.NETWORK_INTERFACE_WRONG_TYPE);
-            return false;
-    }
+        // CDROM addresses for PPC64 must be treated differently from x86_64
+        strategy.addCdromAddress(struct);
 
-And in the Vm object the method would make use of the appropriate arch strategy object:
+And in the VmInfoBuilder object the method would make use of the appropriate arch strategy logic
 
-    public boolean validateVmInterface(InterfaceType iface) {
-        ArchStrategy archStrategy = getArchStrategy();
-        boolean result = archStrategy.validateInterface(iface);
-        if (!result) {
-            return false;
+        public class ArchStrategyFactory {
+            private static final EnumMap<ArchitectureType, ArchStrategy> architectureArchStrategyMap =  new EnumMap<ArchitectureType, ArchStrategy>(ArchitectureType.class);
+
+            public static ArchStrategy getStrategy(ArchitectureType architecture) { 
+                return architectureArchStrategyMap.get(architecture);
+            }
+        } 
+
+        public void addCdromAddress(Map<String, Object> cdromDevice) {
+            Map<String, String> cdromAddress = new HashMap<String, String>();
+            /*... create the appropriate addresses for architecture specific*/
+            cdromDevice.put(VdsProperties.Address, cdromAddress);
         }
-        /* Some more optional validating code
-           ...
-        */
 
-        return true
-    }
+Moreover, the strategy class can be used to list domain values. Instead of directly accessing an arch specific enum it would get the strategy associated to the context and ask it to list the available types and default values such as `contextObject.listDisplayTypes();` and `contextObject.getDefaultDisplayType();` (Important, this is only an example, since the OSInfo handle many of these cases).
 
-    private ArchStrategy getArchStrategy() {   
-        ArchStrategy strategy = strategyFactory.get(getArch(), getVersion());
-        return strategy;
-    }
+### OSInfo Repository
 
-Moreover, the strategy class can be used to list domain values. Instead of directly accessing an arch specific enum it would get the strategy associated to the context and ask it to list the available types and default values such as `contextObject.listVmInterfaceTypes();` and `contextObject.getDefaultVmInterfaceType();`.
+After OSInfo implementation, many hard-coded architecture code specific will be removed, such as display types, network interfaces, etc. For that, the OSInfo will handle a basic PPC64 OS, which will set the basic configuration for PPC64 Platform. Example:
 
-As suggested by Itamar, a new general 'filter' parameter can be created in config to differentiate cpus and devices (disk, network, display) by architecture (such as filter:x86_64). This would be used by the strategy object to validate actions or return valid options.
+    os.other_ppc64.cpuArchitecture.value = ppc64
+    os.other_ppc64.name.value = Other OS
+    os.other_ppc64.spiceSupport.value = true
+    os.other_ppc64.displayProtocols.value = vnc/cirrus
+    ...
+
+For new PPC64 OSes, will be only necessary create a new OS instance, which derivate from the generic one, like all other x86_64.
 
 ### CPU flags and families
 

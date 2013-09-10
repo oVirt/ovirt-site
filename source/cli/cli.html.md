@@ -564,15 +564,9 @@ option to appropriate option format adding prefix or suffix.
 
 ### Scripting
 
-#### From linux shell
+#### Writing a script
 
-         [mpastern@lp /]#  ovirt-shell --connec -l ... -u ... -p ... -f /home/mpastern/script
-
-#### From ovirt shell
-
-        [oVirt shell (connected)]# file /home/mpastern/script
-
-#### Script format
+##### Format
 
 no special format, just commands in plain text
 
@@ -581,33 +575,46 @@ no special format, just commands in plain text
          
         list vms
         show vm test | grep status
-        list vms --query "name=test" --show-all | grep status
-
+        list vms --query "name=test*" --show-all | grep status
         list clusters
-
         list datacenters
+        ...
+
+#### Executing script
+
+##### From linux shell
+
+         [mpastern@lp /]#  ovirt-shell --connec -l ... -u ... -p ... -f /home/mpastern/script
+
+##### From ovirt shell
+
+        [oVirt shell (connected)]# file /home/mpastern/script
 
 #### Examples
 
 ##### Run all vms
 
-1. run rhevm command and process the output saving it in to tmp data holder
+###### The script
 
-       [RHEVM shell (connected)]# list vms | grep name | sed s/'name       :'/'action vm'/ | sed -e 's/$/ start/' > /home/mpastern/new_script_to_run
-
-2. invoke new script at runtime
-
-       [RHEVM shell (connected)]# file /home/mpastern/new_script_to_run
-
-3. actual script (less run_all_vms.txt) will look like:
+1. the script (less run_all_vms.txt) will look like:
 
        list vms | grep name | sed s/'name       :'/'action vm'/ | sed -e 's/$/ start/' > /home/mpastern/new_script_to_run
        file /home/mpastern/new_script_to_run
        
 
-4. run the script
+2. run the script
 
        [RHEVM shell (connected)]# file /home/mpastern/run_all_vms
+
+###### Explanations
+
+1. run rhevm command and process the output saving it in to temp script new_script_to_run
+
+       [RHEVM shell (connected)]# list vms | grep name | sed s/'name       :'/'action vm'/ | sed -e 's/$/ start/' > /home/mpastern/new_script_to_run
+
+2. invoke temp script internally at runtime
+
+       [RHEVM shell (connected)]# file /home/mpastern/new_script_to_run
 
 ## Tweaks
 

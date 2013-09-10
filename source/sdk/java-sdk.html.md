@@ -296,10 +296,6 @@ use this signature: Api(String url, String username, String password, boolean no
 
          Api api = new Api(url, user, password, true);
 
-## Repository
-
-gerrit.ovirt.org:ovirt-engine-sdk-java
-
 ## Deployment
 
 ### Maven deployment

@@ -615,10 +615,6 @@ no special format, just commands in plain text
 
        at /home/user/.ovirtshellrc change autopage to False
 
-## Repository
-
-*   <git://gerrit.ovirt.org/ovirt-engine-cli>
-
 ## Deployment
 
 ### pypi

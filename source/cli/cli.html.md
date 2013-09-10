@@ -610,11 +610,11 @@ no special format, just commands in plain text
 
 1. run rhevm command and process the output saving it in to temp script new_script_to_run
 
-       [RHEVM shell (connected)]# list vms | grep name | sed s/'name       :'/'action vm'/ | sed -e 's/$/ start/' > /home/mpastern/new_script_to_run
+       list vms | grep name | sed s/'name       :'/'action vm'/ | sed -e 's/$/ start/' > /home/mpastern/new_script_to_run
 
 2. invoke temp script internally at runtime
 
-       [RHEVM shell (connected)]# file /home/mpastern/new_script_to_run
+       file /home/mpastern/new_script_to_run
 
 ## Tweaks
 

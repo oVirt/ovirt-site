@@ -212,94 +212,115 @@ The function would ask the server for the operating system list:
 
         }
 
-## Development Phases
+## Development
 
-The ovirt PPC64 support is planned to be developed in 3 phases, which phase 1 is actually under review:
+The oVirt PPC64 support is in development status and the following changes are under review:
 
-### Phase 1 (WIP)
+### Frontend related changes
 
-On this phase all strategy structure was created to handle the architecture specific code. In order not add hard-coded parameters, a property file to store architecture data was create and it works like OS property file. As each OS refers to an architecture, the property file as modified to handle the architecture type, where each OS refers to an architecture.
+**Cluster and architecture related changes**
 
-**1. File "archinfo-defaults.properties"**
+The following validations for cluster architecture were added:
 
-This is the architecture data file and is read like an osinfo property file. It stores all disk interfaces, default OS and if it supports hot plugging for each architecture. File content for x84_64:
+*   Do not allow clusters to change their architecture (processor name of different architecture) while there are VMs and hosts attached
+*   Do not allow clusters to accept hosts with different architectures
 
-      arch.x86_64.devices.diskInterfaces.value = ide, virtio
-      arch.x86_64.devices.diskInterfaces.value.version.3.3 = ide, scsi, virtio
-      arch.x86_64.devices.diskHotPluggingSupported.value = true
-      arch.x86_64.defaultOs.value = 1000
+**Architecture support for VM and Template**
 
-**2. Modification in the file osinfo-defaults.properties**
+Commands and UI validation were added with this change. The following rules were added:
 
-Each OS need to be architecture specific, so to handle that, the unassigned OS was splited into two: os.Unassigned_x86_64 and os.Unassigned_ppc64. All other OSes are derived from one of these. The OS filter is done on runtime based on the architecture type. Content for unassigned x86_64 OS:
+*   Check if template has the same architecture of the selected cluster when adding VMs and pools
+*   Check if the selected cluster has blank processor name when updating and adding VMs, templates and pools
+*   Check compatibility of cluster architecture when editing host and VMs
+*   When migrating VMs the destination host must have the same architecture of the cluster
+*   Do not allow VMs to change their clusters if the destination cluster has a different architecture
 
-      os.Unassigned_x86_64.id.value = 0
-      os.Unassigned_x86_64.name.value = default OS
-      os.Unassigned_x86_64.family.value = Other
-      os.Unassigned_x86_64.cpuArchitecture.value = x86_64
-      os.Unassigned_x86_64.bus.value = 32
-      os.Unassigned_x86_64.resources.minimum.ram.value = 256
-      os.Unassigned_x86_64.resources.maximum.ram.value = 64000
-      os.Unassigned_x86_64.resources.minimum.disksize.value = 1
-      os.Unassigned_x86_64.resources.minimum.numberOsCpus.value = 1
-      os.Unassigned_x86_64.spiceSupport.value = true
-      os.Unassigned_x86_64.id.value = 0
-      os.Unassigned_x86_64.devices.audio.value = ich6
-      os.Unassigned_x86_64.devices.network.value =  rtl8139, e1000, pv
+**Show only supported displays**
 
-Sample of OS based on unassigned x86_64:
+This change uses the information from osinfo to avoid the selection of SPICE on operating systems that do not support it. This is also used to disable the SPICE protocol on POWER hosts, because the operating systems are architecture specific.
 
-      os.Windows.id.value = 200
-      os.Windows.name.value = Windows
-      os.Windows.derivedFrom.value = Unassigned_x86_64
-      os.Windows.description.value = General Windows OS
-      os.Windows.family.value = windows
-      os.Windows.devices.audio.value = ac97
-      os.Windows.sysprepPath.value = ""
-      os.Windows.productKey.value = ""
+OSInfo property responsible to hide SPICE protocol:
 
-**3. The Strategy Design Patter was added and is based on the classes:**
+    os.other_ppc64.spiceSupport.value = false
 
-ArchStrategyFactor This class is the factory for strategy, which can be obtained by architecture name or by cpu name and cluster version. ArchStrategy The abstract class, which is the base for each architecture supported by the system. This class contains all the generic methods. X86_64Strategy Specific class for x84_64 architecture. Actually this class is empty (no methods), because all architecture specific itens, untill now, are placed in the "archinfo-defaults.properties" file. This class will contain methods when a specific architecture code become necessary. PPC64Strategy Specific class for PPC64 architecture. It is an empty (no methods) class for the same reason of X86_64Strategy class.
+**Show only supported disk interfaces**
 
-**4. ArchitectureData Class**
+It uses information from the osinfo to avoid the selection of disk interfaces that are not supported by the chosen operating system. This was created in order to avoid the use of IDE interfaces on POWER hosts.
 
-This class was created to store all information about architecture from the "archinfo-defaults.properties" during the run time. It is initialized when server goes up and on the client side right after the user login.
+OSInfo property responsible to show specific disk interfaces:
 
-**5. ArchStrategy functionalities**
+    os.other_ppc64.devices.diskInterfaces.value = VirtIO, VirtIO_SCSI
 
-For this first phase the folowing functionalities are being handled by ArchStrategy: Check which OSes are supported Check which disk interfaces are supported Check if hot plugging is supported Get the default OS for each architecture Check which clusters are supported Check if a CPU is supported Check is two different CPUs are compatible
+**Show only compatible OSes**
 
-**All these changes were placed on the code and tested to do not create bugs on the functionality. The system will work with no changes for the final user.**
+It modifies the frontend to show only OSes compatible with the architecture of the VM or pool being created. The filter is based on the OSInfo property bellow:
 
-**6. Changes in the CpuFlagsManagerHandler class**
+Example for PPC64:
 
-The CpuFlagsManagerHandler was modified to support the POWER architecture, the ServerCpuList field of the vdc_options table was changed to include the architecture of each supported processor and to be able to handle CPUs manufactured by IBM.
+    os.other_ppc64.cpuArchitecture.value = ppc64
 
-**7. Changes in the frontend**
+**Show only supported watchdogs**
 
-Small changes in the frontend were implemented to avoid the creation of invalid VM configurations and improper configurations of clusters, pools, VMs, templates and hosts. Additional details are listed in the commit message of the associated gerrit change.
+On fontend, only the compatible watchdogs with the OS are displayed. These compatible values are found in the OSInfo propety file. The following property contains the compatible watchdogs for each OS:
 
-**8. Code submited for review**
+    os.other.watchDogModels.value = i6300esb,ib700
 
-[Patch 1 - <http://gerrit.ovirt.org/#/c/16700/>](http://gerrit.ovirt.org/#/c/16700/)
-[Patch 2 - <http://gerrit.ovirt.org/#/c/16701/>](http://gerrit.ovirt.org/#/c/16701/)
-[Patch 3 - <http://gerrit.ovirt.org/#/c/16702/>](http://gerrit.ovirt.org/#/c/16702/)
+### Backend related changes
 
-### Phase 2 (Planned)
+**Add POWER 7 to the CPU list**
 
-The code for providing the support for IBM POWER systems will be added. The encapsulation done in the previous phase will reduce the effort to include this feature into the engine. The other changes that will be introduced in this phase include:
+This change introduces the POWER 7 to the list of supported CPUs in the oVirt data base. This also includes an Enum (called `ArchitectureType`) to distinguish the architecture of each supported processor. The `ClusterEmulatedMachines` configuration value was changed to include the "pseries" emulated machine. Power CPUs added:
 
-* Modifications in the frontend to avoid running a VM created on a POWER host in a x86-64 host (and vice-versa),
-* All the dynamically provided capacities of the first phase will be implemented according to the capacities of the QEMU/KVM on POWER
-* The POWER processors will be available as an option in the list of processor names (this will imply in significant changes in the backend)
+    IBM POWER 7 v2.3
+    IBM POWER 7 v2.0
+    IBM POWER 7 v2.1
 
-### Phase 3 (Planned)
+**Initial support for alternative architectures**
 
-Adapt secondary features to polish the support for POWER:
+It intorduces a field to indicate the target architecture of VM, Templates and clusters present in the engine. This field is used in architecture related code in order to introduce support for the IBM POWER systems. The commands responsible for adding and updating these entities were modified, along with the REST API, the DAOs, the database and the frontend.
 
-* OVF import and export of VMs running in POWER hosts
-* Dynamic searches capable of finding hosts, pools, vms and clusters according to their architectures
+**New OS for IBM POWER support**
+
+This change introduces an operating system which contains the characteristics of the IBM POWER architecture. It includes also some information about disk interfaces that will be used in other following patches. See bellow the new OS added in the OSInfo property file:
+
+    os.other_ppc64.id.value = 1001
+    os.other_ppc64.name.value = Other OS
+    os.other_ppc64.linux.derivedFrom.value = other
+    os.other_ppc64.cpuArchitecture.value = ppc64
+    os.other_ppc64.bus.value = 64
+    os.other_ppc64.spiceSupport.value = false
+    os.other_ppc64.devices.network.value = pv
+    os.other_ppc64.devices.diskInterfaces.value = VirtIO, VirtIO_SCSI
+
+**Fill and check arch when importing VM and Template from OVF**
+
+When importing a VM or Template from OVF files, the architecture is obtained from its OS. The system reads the OS and using the OSInfo property file, the architecture is taken.
+
+**OS type validation**
+
+For VM ant Template the OS must be compatible with its architecture. In all commands for these structures were added a validation to check this compatibility.
+
+**SCSI CD-ROM on PPC64 VMs**
+
+This change introduces the proper creation of the virtual CD device on PPC64 VMs. This device must be attached to a SPAPR VSCSI controller, since currently the SCSI CD doesn't work with the VirtIO SCSI controller. For that, the following lines were added in the OSInfo property file:
+
+    # for x86_64
+    os.other.cdInterface.value = ide
+
+    # for ppc_64
+    os.other_ppc64.cdInterface.value = scsi
+
+**Display type validation**
+
+This change displays an error if the display type is not compatible with the selected operating system.
+
+**VM Device Type for Display Type**
+
+This change adds VM Device Type for Display Type in property file. The attribute VM Device Type for each OS is present in the os info property file as bellow:
+
+    os.other.displayProtocols.value = vnc/cirrus,qxl/qxl
+
+The attribute VM Device Type in the Display Type now is the default value if none is found in the os file.
 
 ## Benefits to oVirt
 

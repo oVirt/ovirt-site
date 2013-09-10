@@ -28,6 +28,8 @@ Scans a Storage Domain in use by oVirt for disk images that it does not currentl
 
 In development. Hoping for inclusion in oVirt 3.2.
 
+**Update 2013/09/10**: the domain scan code is included in oVirt since 3.2.
+
 ### Detailed Description
 
 This feature provides a way of detecting disks that are not not recognized within oVirt. Some reasons why these disks would not be recognized by oVirt are that they were created at the storage level directly, they're orphaned disks that were not deleted completely, or are disks on a preexisting domain that has not been added to oVirt. This feature can be used to mount or remove these disks from storage.

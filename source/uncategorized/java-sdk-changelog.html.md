@@ -24,15 +24,15 @@ wiki_last_updated: 2013-12-25
                                                  String expect, String correlationId) signature
       - add ParameterSet descriptions
       - implement AutoCloseable interface
-      - in Cluster added glusterhooks (ClusterGlusterHooks) sub -collection
+      - in Cluster added glusterhooks (ClusterGlusterHooks) sub-collection
       - in DataCenterCluster added glusterhooks (DataCenterClusterGlusterhooks)
-       sub -collection
-      - in StorageDomain added images (StorageDomainImages) sub -collection
+        sub -collection
+      - in StorageDomain added images (StorageDomainImages) sub-collection
 
       * Tue  Aug 13 2013 Michael Pasternak `<mpastern@redhat.com>`  - 1.0.0.14 -1
       - added VnicProfiles root -collection
       - to network added VnicProfiles sub -collection
-      - to storagedomain added StorageConnections sub -collection
+      - to storagedomain added StorageConnections sub-collection
       - to VnicProfile added Permission sub -collection
       - to network.add()/.updated added [network.profile_required]
       - to NICs.add() added new overload with [nic.vnic_profile.id]

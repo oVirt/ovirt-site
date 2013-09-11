@@ -8,6 +8,72 @@ wiki_last_updated: 2013-12-25
 
 # Java-sdk-changelog
 
+      * Wed  Sep 11 2013 Michael Pasternak `<mpastern@redhat.com>`  - 1.0.0.17 -1
+      - VCpuPin renamed to VCpuPin
+      - Host.getRebootAfterInstallation() returns False (null was expected) #985842
+      - make all sdk exceptions serializable
+
+      * Tue  Sep 3 2013 Michael Pasternak `<mpastern@redhat.com>`  - 1.0.0.16 -1
+      - mvn compile with jdk 1.7
+
+      * Tue  Sep 3 2013 Michael Pasternak `<mpastern@redhat.com>`  - 1.0.0.15 -1
+      - added StorageDomainStorageConnection.delete() signature
+      - added StorageDomainStorageConnection.delete(Boolean async) signature
+      - added StorageDomainStorageConnections.add(StorageConnection storageconnection) signature
+      - added StorageDomainStorageConnections.add(StorageConnection storageconnection,
+                                                 String expect, String correlationId) signature
+      - add ParameterSet descriptions
+      - implement AutoCloseable interface
+      - in Cluster added glusterhooks (ClusterGlusterHooks) sub -collection
+      - in DataCenterCluster added glusterhooks (DataCenterClusterGlusterhooks)
+       sub -collection
+      - in StorageDomain added images (StorageDomainImages) sub -collection
+
+      * Tue  Aug 13 2013 Michael Pasternak `<mpastern@redhat.com>`  - 1.0.0.14 -1
+      - added VnicProfiles root -collection
+      - to network added VnicProfiles sub -collection
+      - to storagedomain added StorageConnections sub -collection
+      - to VnicProfile added Permission sub -collection
+      - to network.add()/.updated added [network.profile_required]
+      - to NICs.add() added new overload with [nic.vnic_profile.id]
+      - to NIC.update() added new overload with [nic.vnic_profile.id]
+      - to VMSnapshots.list()/.get() added [String allContent] parameter
+      - to VMs.add() added new overload based on [vm.initialization.configuration.type|data]
+      - added root collection StorageConnections
+      - added [host.override_iptables]
+      - added [template.cpu_shares]
+      - added [template.display.single_qxl_pci]
+      - added [vm.display.single_qxl_pci]
+      - added [vm.cpu_shares]
+      - to template added:
+      - [@param template.console.enabled: boolean] #878459
+      - to vm added:
+      - [@param vm.console.enabled: boolean] #878459
+      - to Cluster added:    
+        *[@param cluster.comment: string]
+        *[@param cluster.ballooning_enabled: boolean]
+        *[@param cluster.tunnel_migration: boolean]
+      - to Host added:
+        *[@param host.comment: string]
+        *[@param host.ssh.port: int]
+        *[@param host.ssh.fingerprint: string]
+        *[@param host.ssh.authentication_type: string]
+        *[@param host.ssh.password: string]
+        *forceselectspm() action
+      - to Network added:
+        *[@param network.comment: string]
+      - to StorageDomain
+        *[@param storagedomain.comment: string]
+      - to Template added:
+        *[@param template.comment: string]
+        *[@param template.permissions.clone: boolean]
+      - to VM added:
+        *[@param vm.comment: string]
+        *[@param vm.permissions.clone: boolean]
+
+      * Thu  Jul 18 2013 Michael Pasternak `<mpastern@redhat.com>`  - 1.0.0.13 -1
+      - dependencies changes
+
       * Tue  Jul 16 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.11-1
       - added "watchdog" feature #947977
       - added "external tasks" feature #872719

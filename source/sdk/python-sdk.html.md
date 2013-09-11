@@ -196,7 +196,7 @@ params lookup as shown in [2].
 
 <http://pypi.python.org/pypi/ovirt-engine-sdk>
 
-      easy_install ovirt-engine-sdk
+      easy_install ovirt-engine-sdk-python
 
 ### rpm
 

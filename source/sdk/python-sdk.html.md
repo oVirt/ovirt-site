@@ -194,7 +194,7 @@ params lookup as shown in [2].
 
 ### pypi
 
-<http://pypi.python.org/pypi/ovirt-engine-sdk>
+<http://pypi.python.org/pypi/ovirt-engine-sdk-python>
 
       easy_install ovirt-engine-sdk-python
 

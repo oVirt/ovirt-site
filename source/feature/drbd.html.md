@@ -22,6 +22,7 @@ wiki_last_updated: 2013-09-11
 ### Current status
 
 *   Right now this is in planing stage. We need to discuss two possible approaches with people that are interested in that.
+*   There is a perfectly working [solution for 2 nodes](Features/DRBD/solution_for_2_nodes).
 *   Last updated: ,
 
 ### Detailed Description

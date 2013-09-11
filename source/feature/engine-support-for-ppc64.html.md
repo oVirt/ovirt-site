@@ -23,9 +23,9 @@ Implement support in ovirt-engine to manage KVM on IBM POWER processor based hos
 
 ## Current status
 
-Status: Phase 1 work in progress.
+Status: Development in progress.
 
-Last updated: Jul 11, 2013
+Last updated: Sep 11, 2013
 
 ## Detailed description
 

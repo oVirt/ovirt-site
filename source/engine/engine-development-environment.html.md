@@ -244,11 +244,9 @@ Example:
 
 ### Before you begin
 
-=
-
 Check if all prerequisites are installed, refer to [prerequisites](#Prerequisites)
 
-#### IBM JDK
+### IBM JDK
 
 There is [issues](https://code.google.com/p/google-web-toolkit/issues/detail?id=7530) when building oVirt engine using the IBM JDK.
 

@@ -32,7 +32,7 @@ wiki_warnings: table-style
 *   install the release pkg:
 
 `(f19) sudo yum localinstall `[`http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm`](http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm)
-`(el) sudo yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release-el6-7-1.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release-el6-7-1.noarch.rpm)
+`(el) sudo yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release-el.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release-el.noarch.rpm)
 
 *   make sure to enable the [ovirt-beta] & [ovirt-stable] repos and disable the [ovirt-nightly] repo.
 *   if you're using centos, make sure you have epel repo enabled as well:

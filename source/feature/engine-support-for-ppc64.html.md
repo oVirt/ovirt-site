@@ -220,32 +220,38 @@ The oVirt PPC64 support is in development status and the following changes are u
 
 **Cluster and architecture related changes**
 
-The following validations for cluster architecture were added:
+After have added the architecture field in the cluster, the following validations are necessary:
 
-*   Do not allow clusters to change their architecture (processor name of different architecture) while there are VMs and hosts attached
-*   Do not allow clusters to accept hosts with different architectures
+* Do not allow cluster architecture be changed (processor name of different architecture) while there are VMs and hosts attached.
+
+* Do not allow hosts of different architectures be attached in the same cluster.
 
 **Architecture support for VM and Template**
 
-Commands and UI validation were added with this change. The following rules were added:
+After have added the architecture field in VM and Template, commands and UI validation related with architecture were added:
 
-*   Check if template has the same architecture of the selected cluster when adding VMs and pools
-*   Check if the selected cluster has blank processor name when updating and adding VMs, templates and pools
-*   Check compatibility of cluster architecture when editing host and VMs
-*   When migrating VMs the destination host must have the same architecture of the cluster
-*   Do not allow VMs to change their clusters if the destination cluster has a different architecture
+* Do not allow add VMs and Pools if the selected template (except the blank one) hasn't the same architecture of the selected cluster.
+
+* Do not allow add VMs, Templates or Pool if the selected cluster has blank processor name (processor name indicates the architecture).
+
+* Do not allow change the cluster on host and VM if they have different architecture.
+
+* Do not allow migrate VMs if the destination host has different architectures.
+
+* Do not allow change the cluster of a VM if the destination cluster has a different architecture.
 
 **Show only supported displays**
 
-This change uses the information from osinfo to avoid the selection of SPICE on operating systems that do not support it. This is also used to disable the SPICE protocol on POWER hosts, because the operating systems are architecture specific.
+Some displays are not compatible with a specific architecture, for example the Spice one is not compatible with PPC64 architecture. So this change uses information from the osinfo property file to load a list of supported displays per OS and blocks the selection of the ones that are not in the list, since there is an enum to handle all supported displays in the system.
+Also this change adds the display and its protocol, so a protocol can be related to different displays.
 
-OSInfo property responsible to hide SPICE protocol:
+OSInfo property responsible for display protocols:
 
-    os.other_ppc64.spiceSupport.value = false
+    os.other.displayProtocols.value = vnc/cirrus,qxl/qxl
 
 **Show only supported disk interfaces**
 
-It uses information from the osinfo to avoid the selection of disk interfaces that are not supported by the chosen operating system. This was created in order to avoid the use of IDE interfaces on POWER hosts.
+As displays, some disk interfaces, cannot be compatible with an OS or an architecture, so a new property was added in the OSInfo file to handle this case.
 
 OSInfo property responsible to show specific disk interfaces:
 
@@ -253,15 +259,13 @@ OSInfo property responsible to show specific disk interfaces:
 
 **Show only compatible OSes**
 
-It modifies the frontend to show only OSes compatible with the architecture of the VM or pool being created. The filter is based on the OSInfo property bellow:
-
-Example for PPC64:
+For oVirt support for multiplatform, the OSes in the OSInfo property file are architecture specific. In the frontend they must be filtered based on the architecture, so this change shows only the compatible OSes on the VM and Pool screen. The filter is based on the OSInfo property bellow:
 
     os.other_ppc64.cpuArchitecture.value = ppc64
 
 **Show only supported watchdogs**
 
-On fontend, only the compatible watchdogs with the OS are displayed. These compatible values are found in the OSInfo propety file. The following property contains the compatible watchdogs for each OS:
+This change adds, for each OS, the list of watchdogs supported and filters it on the screen. The following property is the one created in the OSInfo property file:
 
     os.other.watchDogModels.value = i6300esb,ib700
 

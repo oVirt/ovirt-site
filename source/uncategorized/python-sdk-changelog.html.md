@@ -8,7 +8,7 @@ wiki_last_updated: 2013-12-25
 
 # Python-sdk-changelog
 
-         * Tue  Sep 3 2013 Michael Pasternak `<mpastern@redhat.com>`     - 3.3.0.6-1
+         * Tue  Sep 3 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.3.0.6-1
          - added StorageDomainStorageConnection.delete(async) signature
          - added StorageDomainStorageConnections.add(storageconnection, expect, correlationId) signature
          - implement support for with-resources statement
@@ -16,11 +16,11 @@ wiki_last_updated: 2013-12-25
          - in DataCenterCluster added glusterhooks (DataCenterClusterGlusterhooks) sub-collection
          - in StorageDomain added images (StorageDomainImages) sub-collection
 
-         * Wed  Aug 14 2013 Michael Pasternak `<mpastern@redhat.com>`     - 3.3.0.5-1
+         * Wed  Aug 14 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.3.0.5-1
           - implicitly disconnect and perform cleanup
           - encapsulate context removal
 
-         * Tue Aug  13 2013 Michael Pasternak `<mpastern@redhat.com>`     - 3.3.0.4-1
+         * Tue Aug  13 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.3.0.4-1
          - added VnicProfiles root-collection
          - to network added VnicProfiles sub-collection
          - to storagedomain added StorageConnections sub-collection

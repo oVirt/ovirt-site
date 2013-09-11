@@ -17,7 +17,7 @@ To provide a highly avialable virtualization environment with oVirt we are going
 
 ![](drbd_pacemaker_iscsi_ovirt.png "drbd_pacemaker_iscsi_ovirt.png")
 
-For the full guide is available as .pdf. Download **High-Availability oVirt-Cluster with iSCSI-Storage** from [LINBIT's tech-guide page](http://www.linbit.com/en/downloads/tech-guides).
+The full guide is available as .pdf. Download **High-Availability oVirt-Cluster with iSCSI-Storage** from [LINBIT's tech-guide page](http://www.linbit.com/en/downloads/tech-guides).
 
 ### Owner
 

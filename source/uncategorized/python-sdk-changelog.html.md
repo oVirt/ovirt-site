@@ -8,6 +8,65 @@ wiki_last_updated: 2013-12-25
 
 # Python-sdk-changelog
 
+         * Tue  Sep 3 2013 Michael Pasternak `<mpastern@redhat.com>`     - 3.3.0.6-1
+         - added StorageDomainStorageConnection.delete(async) signature
+         - added StorageDomainStorageConnections.add(storageconnection, expect, correlationId) signature
+         - implement support for with-resources statement
+         - in Cluster added glusterhooks (ClusterGlusterHooks) sub-collection
+         - in DataCenterCluster added glusterhooks (DataCenterClusterGlusterhooks) sub-collection
+         - in StorageDomain added images (StorageDomainImages) sub-collection
+
+         * Wed  Aug 14 2013 Michael Pasternak `<mpastern@redhat.com>`     - 3.3.0.5-1
+          - implicitly disconnect and perform cleanup
+          - encapsulate context removal
+
+         * Tue Aug  13 2013 Michael Pasternak `<mpastern@redhat.com>`     - 3.3.0.4-1
+         - added VnicProfiles root-collection
+         - to network added VnicProfiles sub-collection
+         - to storagedomain added StorageConnections sub-collection
+         - to VnicProfile added Permission sub-collection
+         - to network.add()/.updated added [network.profile_required]
+         - to NICs.add() added new overload with [nic.vnic_profile.id]
+         - to NIC.update() added new overload with [nic.vnic_profile.id]
+         - to VMSnapshots.list()/.get() added [String allContent] parameter
+         - to VMs.add() added new overload based on [vm.initialization.configuration.type|data]
+         - added root collection StorageConnections
+         - added [host.override_iptables]
+         - added [template.cpu_shares]
+         - added [template.display.single_qxl_pci]
+         - added [vm.display.single_qxl_pci]
+         - added [vm.cpu_shares]
+         - to template added:
+          * [@param template.console.enabled: boolean]
+         - to vm added:
+          * [@param vm.console.enabled: boolean]
+         - to Cluster added:
+          * [@param cluster.comment: string]
+          * [@param cluster.ballooning_enabled: boolean]
+          * [@param cluster.tunnel_migration: boolean]
+         - to Host added:
+          * [@param host.comment: string]
+          * [@param host.ssh.port: int]
+          * [@param host.ssh.fingerprint: string]
+          * [@param host.ssh.authentication_type: string]
+          * [@param host.ssh.password: string]
+          * forceselectspm() action
+         - to Network added:
+          * [@param host.ssh.fingerprint: string]
+          * [@param host.ssh.authentication_type: string]
+          * [@param host.ssh.password: string]
+          * forceselectspm() action
+         - to Network added:
+          * [@param network.comment: string]
+         - to StorageDomain
+          * [@param storagedomain.comment: string]
+         - to Template added:
+          * [@param template.comment: string]
+          * [@param template.permissions.clone: boolean]
+         - to VM added:
+          * [@param vm.comment: string]
+          * [@param vm.permissions.clone: boolean]
+
          * Tue Jul  16 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.3.0.3-1
          - rename package to ovirt-engine-sdk-python
          - added "watchdog" feature #947977

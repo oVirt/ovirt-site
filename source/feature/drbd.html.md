@@ -74,8 +74,9 @@ When it is clear how to integrate DRBD on the nodes, managing DRBD replication l
 
 ### Documentation / External references
 
-[DRBD documentation for 8.4.x](http://www.drbd.org/users-guide-8.4/)
-[post copy live migration](http://wiki.qemu.org/Features/PostCopyLiveMigration) [Working solution for 2 nodes](Features/DRBD/solution_for_2_nodes)
+*   [DRBD documentation for 8.4.x](http://www.drbd.org/users-guide-8.4/)
+*   [post copy live migration](http://wiki.qemu.org/Features/PostCopyLiveMigration)
+*   [Working solution for 2 nodes](Features/DRBD/solution_for_2_nodes)
 
 ### Comments and Discussion
 

@@ -48,8 +48,15 @@ SERVER:PORT:/api/vms/GUID/snapshots/GUID/disks
 When creating a disk you will have to pass the the disk id and the snapshot id such as the following example:
 
 ` `<disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
-`    `<snapshot id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
-`  `</disk>
+`   `<snapshot id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
+` `</disk>
+
+After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters:
+
+      Method = DELETE
+      URL indicates to the specific disk in the VM: 
+`     `[`http://SERVER:PORT/api/vms/GUID/disks/GUID`](http://SERVER:PORT/api/vms/GUID/disks/GUID)
+`Body=`<action><detach>`true`</detach></action>
 
 ### The Backup Process
 

@@ -287,6 +287,25 @@ This change adds, for each OS, the list of watchdogs supported and filters it on
 
     os.other.watchDogModels.value = i6300esb,ib700
 
+**Watchdog model validation** [[18448]](http://gerrit.ovirt.org/#/c/18448)
+
+It introduces a validation to check if the watchdog model is compatible with the selected operating system.
+
+**Architecture parameter on search backend** [[19010]](http://gerrit.ovirt.org/#/c/19010)
+
+This change adds a search parameter used to filter the architecture of VMs, Templates, Clusters, Pools and Hosts. In other words, the user can show only entities with a specific architecture.
+
+**Vnic hotplug validation** [[19188]](http://gerrit.ovirt.org/#/c/19188)
+
+This change modifies the way hotplus is indicated in the system, adding it to the OSInfo property file. The following lines were added:
+
+       os.{id}.devices.network.hotplugSupport.value = true
+       os.{id}.devices.network.hotplugSupport.value.3.0 = false
+
+**Vnic hotplug validation** [[19189]](http://gerrit.ovirt.org/#/c/19189)
+
+Based on the change **19188**, this change add the new way to check if a nic can be hotpluged.
+
 ### Backend related changes
 
 **Add POWER 7 to the CPU list** [[17853]](http://gerrit.ovirt.org/17853)

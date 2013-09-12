@@ -50,7 +50,7 @@ For instance, in the VmInfoBuilder.java, an architecture specific code similar t
         // CDROM addresses for PPC64 must be treated differently from x86_64
         strategy.addCdromAddress(struct);
 
-And in the VmInfoBuilder object the method would make use of the appropriate arch strategy logic
+And in the VmInfoBuilder object the method would make use of the appropriate arch strategy logic:
 
         public class ArchStrategyFactory {
             private static final EnumMap<ArchitectureType, ArchStrategy> architectureArchStrategyMap =  new EnumMap<ArchitectureType, ArchStrategy>(ArchitectureType.class);

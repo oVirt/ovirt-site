@@ -244,10 +244,8 @@ Affected oVirt projects:
 
 ### Future Work
 
-*   There should be a new business entity which will represent a group of storage domains as one unit.
-    The new business entity will be named, Virtual Storage Group, and should be referenced in the quota as a business entity and have storage restrictions on it.
-*   Enforcement of network usage and storage throughput using the Quota entity.
-*   Add historic Quota utilization to history database.
+*   UI - would be handled in a following patch (the information is accessible through REST)
+*   possibly further inspection of permissions
 
 ### Open Issues
 

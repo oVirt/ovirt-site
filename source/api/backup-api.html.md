@@ -37,6 +37,8 @@ If the new backup disk will be a boot disk and will have an OS installed on it t
 
 *   If the backup VM will not contain a boot disk with OS installed on it, then the original boot disk will act as a boot disk which the VM will start the boot from.
 
+If the user will try to remove the backup disk snapshot it will remove the disk from the entire setup (also from the original VM)
+
 ### Example
 
 1. Navigate to the wanted disk snapshot from REST by accessing:

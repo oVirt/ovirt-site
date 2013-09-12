@@ -33,7 +33,9 @@ In case of hot unplug of the disk snapshot vdsm should delete the temp snapshot.
 
 The new backup disk is not a regular disk and will be blocked from being exported/ use in a template/ or be part of the backup VM snapshot.
 If the new backup disk will be a boot disk and will have an OS installed on it then there can be one of the other use cases:
-1. If the backup VM will already contain a boot disk with OS installed on it, then the original boot disk will be remained. 2. If the backup VM will not contain a boot disk with OS installed on it, then the original boot disk will act as a boot disk which the VM will start the boot from.
+\* If the backup VM will already contain a boot disk with OS installed on it, then the original boot disk will be remained.
+
+*   If the backup VM will not contain a boot disk with OS installed on it, then the original boot disk will act as a boot disk which the VM will start the boot from.
 
 ### Example
 

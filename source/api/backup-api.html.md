@@ -33,8 +33,8 @@ User can back up a virtual machine by an externalized application by the followi
 
 #### Functionality
 
-Before this change, when attaching a disk to a vm only the active volume was used, if the user wanted to see the disk content at some snapshot he had to preview that snapshot.
-After this change, a snapshot of a disk can be attached to another vm, regardless of the disk not being marked as shareable - when doing so, VDSM should create a temp snapshot allowing read/write access above the selected snapshot, the above should happend when hotplugging a disk/ running a vm. In case of hot unplug of the disk snapshot vdsm should delete the temp snapshot.
+When attaching a disk to a vm only the active volume was used, if the user wanted to see the disk content at some snapshot he had to preview that snapshot.
+As part of the backup API feature, a snapshot of a disk can be attached to another vm, regardless of the disk not being marked as shareable - when doing so, VDSM should create a temp snapshot allowing read/write access above the selected snapshot, the above should happend when hotplugging a disk/ running a vm. In case of hot unplug of the disk snapshot vdsm should delete the temp snapshot.
 
 #### Example
 

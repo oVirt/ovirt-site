@@ -218,7 +218,7 @@ The oVirt PPC64 support is in development status and the following changes are u
 
 ### Frontend related changes
 
-**Cluster and architecture related changes**
+**Cluster and architecture related changes** [[18226]](http://gerrit.ovirt.org/18226)
 
 After have added the architecture field in the cluster, the following validations are necessary:
 
@@ -226,7 +226,7 @@ After have added the architecture field in the cluster, the following validation
 
 * Do not allow hosts of different architectures be attached in the same cluster.
 
-**Architecture support for VM and Template**
+**Architecture support for VM and Template** [[18227]](http://gerrit.ovirt.org/18227)
 
 After have added the architecture field in VM and Template, commands and UI validation related with architecture were added:
 
@@ -240,7 +240,7 @@ After have added the architecture field in VM and Template, commands and UI vali
 
 * Do not allow change the cluster of a VM if the destination cluster has a different architecture.
 
-**Show only supported displays**
+**Show only supported displays** [[17885]](http://gerrit.ovirt.org/17885)
 
 Some displays are not compatible with a specific architecture, for example the Spice one is not compatible with PPC64 architecture. So this change uses information from the osinfo property file to load a list of supported displays per OS and blocks the selection of the ones that are not in the list, since there is an enum to handle all supported displays in the system.
 Also this change adds the display and its protocol, so a protocol can be related to different displays.
@@ -249,7 +249,7 @@ OSInfo property responsible for display protocols:
 
     os.other.displayProtocols.value = vnc/cirrus,qxl/qxl
 
-**Show only supported disk interfaces**
+**Show only supported disk interfaces** [[17964]](http://gerrit.ovirt.org/17964)
 
 As displays, some disk interfaces, cannot be compatible with an OS or an architecture, so a new property was added in the OSInfo file to handle this case.
 
@@ -257,13 +257,13 @@ OSInfo property responsible to show specific disk interfaces:
 
     os.other_ppc64.devices.diskInterfaces.value = VirtIO, VirtIO_SCSI
 
-**Show only compatible OSes**
+**Show only compatible OSes** [[17972]](http://gerrit.ovirt.org/17972)
 
 For oVirt support for multiplatform, the OSes in the OSInfo property file are architecture specific. In the frontend they must be filtered based on the architecture, so this change shows only the compatible OSes on the VM and Pool screen. The filter is based on the OSInfo property bellow:
 
     os.other_ppc64.cpuArchitecture.value = ppc64
 
-**Show only supported watchdogs**
+**Show only supported watchdogs** [[18221]](http://gerrit.ovirt.org/18221)
 
 This change adds, for each OS, the list of watchdogs supported and filters it on the screen. The following property is the one created in the OSInfo property file:
 

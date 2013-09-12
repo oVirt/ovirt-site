@@ -240,6 +240,20 @@ After have added the architecture field in VM and Template, commands and UI vali
 
 * Do not allow change the cluster of a VM if the destination cluster has a different architecture.
 
+**Prevent architecture mismatches in the frontend** [[19132]](http://gerrit.ovirt.org/#/c/19132)
+
+This patch introduces some changes in the frontend in order to prevent the user from making mistakes and receive errors from the backend commands. These changes include:
+
+* Show only CPUs compatible with the cluster's current CPU when editing clusters
+
+* Show only clusters with the same architecture as the host when editing hosts
+
+* Show only clusters with the same architecture as the VM, Pool or Template when editing them
+
+* Show only clusters with the same architecture as the VM used as a model when creating a template
+
+* Hide clusters without a CPU name in the 'New VM' and 'New Pool' dialogs
+
 **Show only supported displays** [[17885]](http://gerrit.ovirt.org/17885)
 
 Some displays are not compatible with a specific architecture, for example the Spice one is not compatible with PPC64 architecture. So this change uses information from the osinfo property file to load a list of supported displays per OS and blocks the selection of the ones that are not in the list, since there is an enum to handle all supported displays in the system.
@@ -256,6 +270,10 @@ As displays, some disk interfaces, cannot be compatible with an OS or an archite
 OSInfo property responsible to show specific disk interfaces:
 
     os.other_ppc64.devices.diskInterfaces.value = VirtIO, VirtIO_SCSI
+
+**Disk interface validation** [[18648]](http://gerrit.ovirt.org/#/c/18648)
+
+It introduces a validation to check if the disk interface is compatible with the selected operating system.
 
 **Show only compatible OSes** [[17972]](http://gerrit.ovirt.org/17972)
 

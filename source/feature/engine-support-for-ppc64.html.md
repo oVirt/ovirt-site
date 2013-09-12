@@ -318,6 +318,10 @@ An new operating system was introduced in this change, which contains the charac
 
 The OVF files doesn't have a field to handle the architecture, so when importing a VM or Template from it, the architecture is obtained from its OS. The system reads the OS and using the OSInfo property file, the architecture is obtained.
 
+**OVF import in multiple architecture scenario** [[19012]](http://gerrit.ovirt.org/#/c/19012)
+
+This change prevents the user from import VMs and templates with different architectures into the same cluster. This is done by showing a warning when there are selected VMs with different architectures in the Import VM and Import Template dialog. Also, when the Import VM dialog is shown the only clusters displayed in the dialog are the ones compatible with the architecture of the selected VMs and templates.
+
 **OS type validation** [[18347]](http://gerrit.ovirt.org/18347)
 
 For multiplatform support, the OSes now are architecture specific, so VM must be compatible with the OS used to create it. In all commands for these structures were added a validation to check this compatibility.

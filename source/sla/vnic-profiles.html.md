@@ -88,6 +88,7 @@ The option to check the network for a public use will be removed from the 'Add n
 ##### Updating a Network
 
 When a network role is modified to be a 'non-VM network', all vNic profiles associated with it should be deleted and permissions associated with these profiles.
+When a non-vm network is modified to be a 'VM network', a default vnic profile will be created if the action is done in the webadmin. Performing the update network operation via the api will not create a default vnic profile and the user will have to create one himself so the network could be used by VMs.
 
 ##### Removing a Network
 

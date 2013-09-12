@@ -273,7 +273,7 @@ This change adds, for each OS, the list of watchdogs supported and filters it on
 
 **Add POWER 7 to the CPU list**
 
-This change introduces the POWER 7 to the list of supported CPUs in the oVirt data base. This also includes an Enum (called `ArchitectureType`) to distinguish the architecture of each supported processor. The `ClusterEmulatedMachines` configuration value was changed to include the "pseries" emulated machine. Power CPUs added:
+It introduces the POWER 7 CPU names to the list of supported CPUs in the oVirt data base. Along with this change, a new CPU attribute was created, the architecture. Now each processor name in the data base is related with an architecture type. This also includes an Enum (called `ArchitectureType`) to internally distinguish the architecture of each supported processor. The `ClusterEmulatedMachines configuration` value was changed to include the "pseries" emulated machine. See bellow the Power CPUs added:
 
     IBM POWER 7 v2.3
     IBM POWER 7 v2.0
@@ -281,32 +281,32 @@ This change introduces the POWER 7 to the list of supported CPUs in the oVirt da
 
 **Initial support for alternative architectures**
 
-It intorduces a field to indicate the target architecture of VM, Templates and clusters present in the engine. This field is used in architecture related code in order to introduce support for the IBM POWER systems. The commands responsible for adding and updating these entities were modified, along with the REST API, the DAOs, the database and the frontend.
+It introduces a field to indicate the target architecture of VM, Templates and clusters present in the engine. This field is used in architecture related code in order to introduce support for the IBM POWER systems. The commands responsible for adding and updating these entities were modified, along with the REST API, the DAOs, the database and the frontend.
 
 **New OS for IBM POWER support**
 
-This change introduces an operating system which contains the characteristics of the IBM POWER architecture. It includes also some information about disk interfaces that will be used in other following patches. See bellow the new OS added in the OSInfo property file:
+An new operating system was introduced in this change, which contains the characteristics of the PPC64 architecture. It includes also some information about disk interfaces that will be used in other following patches. See bellow the new OS added in the OSInfo property file:
 
     os.other_ppc64.id.value = 1001
     os.other_ppc64.name.value = Other OS
     os.other_ppc64.linux.derivedFrom.value = other
     os.other_ppc64.cpuArchitecture.value = ppc64
     os.other_ppc64.bus.value = 64
-    os.other_ppc64.spiceSupport.value = false
+    os.other.displayProtocols.value = vnc/vga
     os.other_ppc64.devices.network.value = pv
     os.other_ppc64.devices.diskInterfaces.value = VirtIO, VirtIO_SCSI
 
 **Fill and check arch when importing VM and Template from OVF**
 
-When importing a VM or Template from OVF files, the architecture is obtained from its OS. The system reads the OS and using the OSInfo property file, the architecture is taken.
+The OVF files doesn't have a field to handle the architecture, so when importing a VM or Template from it, the architecture is obtained from its OS. The system reads the OS and using the OSInfo property file, the architecture is obtained.
 
 **OS type validation**
 
-For VM ant Template the OS must be compatible with its architecture. In all commands for these structures were added a validation to check this compatibility.
+For multiplatform support, the OSes now are architecture specific, so VM must be compatible with the OS used to create it. In all commands for these structures were added a validation to check this compatibility.
 
 **SCSI CD-ROM on PPC64 VMs**
 
-This change introduces the proper creation of the virtual CD device on PPC64 VMs. This device must be attached to a SPAPR VSCSI controller, since currently the SCSI CD doesn't work with the VirtIO SCSI controller. For that, the following lines were added in the OSInfo property file:
+It introduces the proper creation of the virtual CD device on PPC64 VMs. This device must be attached to a SPAPR VSCSI controller, since currently the SCSI CD doesn't work with the VirtIO SCSI controller. For that, the following lines were added in the OSInfo property file:
 
     # for x86_64
     os.other.cdInterface.value = ide
@@ -316,7 +316,9 @@ This change introduces the proper creation of the virtual CD device on PPC64 VMs
 
 **Display type validation**
 
-This change displays an error if the display type is not compatible with the selected operating system.
+The operating system, described in the OSInfo property file, now has a property to set the supported displays. This change checks the compatibility between the selected displays and the operating system. OSInfo property used to check compatibility:
+
+    os.other_ppc64.devices.diskInterfaces.value = VirtIO, VirtIO_SCSI
 
 **VM Device Type for Display Type**
 

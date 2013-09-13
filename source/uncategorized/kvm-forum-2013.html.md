@@ -22,18 +22,32 @@ During the new KVM management track at the KVM Forum, there will be a number of 
 
 There are a number of oVirt presentations during the CloudOpen Europe conference, which is happening at the same time as the KVM Forum.
 
-*   RAM Snapshots in oVirt - Arik Hadas
-*   oVirt and Cloud-Init integration - Omer Frenkel
-*   Empowering Data Center Virtualization Using KVM - Livnat Peer
-*   Converged Infrastrucure with Open Source - Theron Conrey
-*   GlusterFS Architecture & Roadmap - Vijay Bellur
-*   Cloud Computing with KVM - Tony Gargya
+**Monday, October 21:**
+
+11:00, Lammemuir 1  
+[RAM Snapshots in oVirt](//sched.co/12jgMw9) - Arik Hadas, Red Hat
+
+12:00, Lammemuir 1  
+[oVirt and Cloud-Init integration](//sched.co/14woFvG) - Omer Frenkel, Red Hat
+
+14:20, Lammemuir 1  
+[Empowering Data Center Virtualization Using KVM](//sched.co/12jdF7e) - Livnat Peer, Red Hat
+
+16:40, Monteith  
+[Converged Infrastrucure with Open Source](//sched.co/16ryeiF) - Theron Conrey
+
+**Tuesday, October 22:**
+
+11:10, Lenox 1  
+[GlusterFS Architecture & Roadmap](//sched.co/19AwNDi) - Vijay Bellur, Red Hat
+
+12:10, Lowtheir  
+[Cloud Computing with KVM](//sched.co/13BNaNg) - Tony Gargya, IBM
 
 There is also a two-hour tutorial on the scripting and extensibility features of oVirt:
 
-*   Scripting And Integration with the oVirt Engine - Oved Ourfali
-
-(times and dates to be added)
+Wednesday, October 23, 11:05, Monteith  
+[Scripting And Integration with the oVirt Engine](//sched.co/13BEfLQ) - Oved Ourfali
 
 # oVirt Developer Summit
 

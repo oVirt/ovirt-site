@@ -68,6 +68,10 @@ wiki_last_updated: 2015-05-29
 
 *   make `getAllVolumesTests` more meaningful, not only counting the number of volumes, but testing the image structure.
 
+<!-- -->
+
+*   Add coverage report to jenkins
+
 ### Features
 
 *   Support striping for disk images.

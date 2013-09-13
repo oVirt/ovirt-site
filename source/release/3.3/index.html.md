@@ -32,7 +32,12 @@ To find out more about features which were added in previous oVirt releases, che
 
 ### More Extensibility Options
 
-*   [oVirt Scheduler API](Features/Scheduling_API) allows users to implement their own private optimized schedulers by extending or modifying the default oVirt scheduler.
+*   [oVirt Scheduler API](Features/Scheduling_API) allows users to implement their own private optimized schedulers y extending or modifying the default oVirt scheduler.
+    -   <div class="alert alert-info">
+        This feature is not included in oVirt 3.3, but will be added in an upcoming release during the 3.3 release cycle
+
+        </div>
+
 *   [Device Custom Properties](Features/Device Custom Properties) allow administrators to define special parameters per VM virtual device, and pass them down to vdsm hooks, as has previously been possible on a per VM basis. Device custom properties will allow, for instance, for users to connect vNICs to non-standard host networks.
 *   [External Tasks Support](Features/ExternalTasks) makes it possible for a third-party plugin to inject tasks into oVirt Engine using the REST API, to change task statuses and allow them to be tracked from the UI.
 *   [Backup-Restore API Integration](Features/Backup-Restore_API_Integration) provides the ability for ISVs to backup and restore VMs. A new set of APIs will be introduced in oVirt to facilitate taking full VM backup, as well as full or file level restore of VMs.

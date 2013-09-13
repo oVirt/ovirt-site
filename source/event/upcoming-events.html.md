@@ -10,7 +10,9 @@ wiki_last_updated: 2015-06-03
 
 ## Upcoming events
 
-<noinclude> <startfeed/> </noinclude> <noinclude> <endfeed/>
+<noinclude> <startfeed/> </noinclude>
+
+<noinclude> <endfeed/>
 
 </noinclude>
 

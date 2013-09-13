@@ -59,7 +59,7 @@ Day 3 of the KVM Forum will see one track dedicated to the oVirt developers summ
 
 ### Presentations
 
-There are three oVirt talks in oVirt developer meeting:
+There are three oVirt talks in oVirt developer meeting, all taking place on Wednesday October 23 in the morning:
 
 *   The State of oVirt (Itamar Heim)
 *   oVirt hosted engine: the egg that hosts its parent chicken (Doron

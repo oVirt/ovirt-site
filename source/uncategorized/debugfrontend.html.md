@@ -148,7 +148,7 @@ By default, Frontend applications are compiled only for English (en) locale.
 For example, to compile WebAdmin and UserPortal for English, French and Japanese:
 
     $ cd $OVIRT_HOME
-    $ mvn clean install -Pdep,gwt-admin,gwt-user -Dgwt.locale=en,fr,ja
+    $ mvn clean install -Pdep,gwt-admin,gwt-user -Dgwt.locale=en_US,fr_FR,ja_JP
 
 To compile Frontend applications for all supported locales, just use the `all-langs` profile:
 

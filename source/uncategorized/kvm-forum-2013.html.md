@@ -12,11 +12,15 @@ wiki_last_updated: 2013-12-19
 
 During the new KVM management track at the KVM Forum, there will be a number of oVirt related topics presented.
 
-*   Empowering Data Center Virtualization using KVM (Livnat Peer)
-*   Kimchi: Simplified KVM Management (Adam Litke)
-*   Providing quality of service for VMs in oVirt (Martin Sivak)
-*   Linux storage stack for the cloud (Yeela Kaplan)
-*   Trusted Compute Pools Feature in oVirt (Gang Wei)
+**Tuesday, October 22:**
+
+*   **13:45** - Empowering Data Center Virtualization using KVM (Livnat Peer, Red Hat) (similar to her session in CloudOpen, but with a stronger focus on KVM)
+*   **14:30** - Kimchi: Simplified KVM Management (Adam Litke, IBM)
+*   **15:30** - Providing quality of service for VMs in oVirt (Martin Sivak, Red Hat)
+*   **16:30** - Linux storage stack for the cloud (Yeela Kaplan, Red Hat)
+*   **17:00** - Trusted Compute Pools Feature in oVirt (Gang Wei, Intel)
+
+In addition, there is lots of other content related to libvirt, QEMU, Spice, virtio and other topics which will be of great interest to oVirt developers.
 
 ### CloudOpen Europe presentations
 

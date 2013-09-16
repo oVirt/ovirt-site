@@ -10,6 +10,24 @@ wiki_last_updated: 2013-11-19
 
 # oVirt Node Release Notes
 
+# 3.0.1 Release Notes
+
+*   Several bug fixes
+
+# **3.0.0 Release Notes**
+
+*   For an detailed overview take a look at the [Node 3.0 release-management](Node 3.0 release-management) page
+*   Universal Image - Remove VDSM specific bits to make the image more general (an VDSM image is still provided)
+*   Improved upgrade tool
+*   Software iSCSI root
+*   Puppet configuration management
+*   Bridegeless Networking
+*   NIC Bonds
+*   New installer TUI
+*   IPv6 support in the setup TUI
+*   Diagnostics page in the setup TUI
+*   Images for Fedora 19 and EL6
+
 # 2.6.1 Release Notes
 
 *   Fix for [CVE-2013-0293](https://bugzilla.redhat.com/show_bug.cgi?id=911699)

@@ -28,6 +28,11 @@ To find out more about features which were added in previous oVirt releases, che
 ### Enhanced Gluster Support
 
 *   [GlusterFS Storage Domain](Features/GlusterFS_Storage_Domain) is a new storage domain and data center type which uses gluster as the storage backend. VMs created using this domain take advantage of QEMU's gluster block backend for improved performance.
+    -   <div class="alert alert-info">
+        This feature is currently only available on Fedora 19. We're working on a solution for EL6 and hope to have it available soon.
+
+        </div>
+
 *   [Gluster Hooks Management](Features/Gluster Hooks Management) allows users to manage Gluster hooks (Volume lifecycle extensions) from oVirt Engine. Read more about Gluster hooks at the [Gluster project site](http://www.gluster.org/community/documentation/index.php/Features/Hooks).
 
 ### More Extensibility Options

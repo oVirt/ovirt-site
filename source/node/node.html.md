@@ -31,7 +31,8 @@ The oVirt Node sub-project is geared toward building a small, robust operating s
 *   oVirt Node 3.0.1
     -   [Node Release Notes](Node Release Notes)
 *   Images
-    -   *Note: These are base images, without VDSM, use edit-node to add plugins to add required plugins to an image*
+    -   *Note: These are base images, without VDSM, use edit-node to add the required plugins to the image*
+        -   *Note: There is also an image with the latest available vdsm pre-installed in the oVirt release area starting with the 3.3 release*
     -   Fedora 19: <http://resources.ovirt.org/releases/node-base/3.0.0/iso/ovirt-node-iso-3.0.1-1.0.2.fc19.iso>
     -   EL6: <http://resources.ovirt.org/releases/node-base/3.0.0/iso/ovirt-node-iso-3.0.1-1.0.2.el6.iso>
 *   Source tarball

@@ -24,25 +24,26 @@ The oVirt Node sub-project is geared toward building a small, robust operating s
 
 ## Next Release
 
-oVirt Node 3.0.0
-
-*   Planning: [Node 3.0 release-management](Node 3.0 release-management)
-*   Target date: 2013-06-30
-*   List of issues targeted: [Node_Backlog](Node_Backlog)
+*   oVirt Node 3.0.2
 
 ## Current Release
 
-oVirt Node 2.6.1-1
-
-*   [Node Release Notes](Node Release Notes)
-*   [image](http://resources.ovirt.org/releases/stable/iso/ovirt-node-iso-2.6.1-20120228.fc18.iso)
-*   [Source Tarball](http://resources.ovirt.org/releases/stable/src/ovirt-node-2.6.1.tar.gz)
-*   [RPM Package](http://resources.ovirt.org/releases/stable/rpm/Fedora/18/noarch/ovirt-node-2.6.1-1.fc18.noarch.rpm)
-*   [Tools Package](http://resources.ovirt.org/releases/stable/rpm/Fedora/18/noarch/ovirt-node-tools-2.6.1-1.fc18.noarch.rpm)
-*   [Recipe Package](http://resources.ovirt.org/releases/stable/rpm/Fedora/18/noarch/ovirt-node-recipe-2.6.1-1.fc18.noarch.rpm)
-*   [CIM Plugin Package](http://resources.ovirt.org/releases/stable/rpm/Fedora/18/noarch/ovirt-node-plugin-cim-2.6.1-1.fc18.noarch.rpm)
-*   [SNMP Plugin Package](http://resources.ovirt.org/releases/stable/rpm/Fedora/18/noarch/ovirt-node-plugin-snmp-2.6.1-1.fc18.noarch.rpm)
-*   [ISO RPM Package](http://resources.ovirt.org/releases/stable/rpm/Fedora/18/noarch/ovirt-node-iso-2.6.1-20120228.fc18.noarch.rpm)
+*   oVirt Node 3.0.1
+    -   [Node Release Notes](Node Release Notes)
+*   Images
+    -   *Note: These are base images, without VDSM, use edit-node to add plugins to add required plugins to an image*
+    -   Fedora 19: <http://resources.ovirt.org/releases/node-base/3.0.0/iso/ovirt-node-iso-3.0.1-1.0.2.fc19.iso>
+    -   EL6: <http://resources.ovirt.org/releases/node-base/3.0.0/iso/ovirt-node-iso-3.0.1-1.0.2.el6.iso>
+*   Source tarball
+    -   <http://resources.ovirt.org/releases/node-base/3.0.0/src/ovirt-node-3.0.1.tar.gz>
+*   Packages (Fedora 19, Fedora 20 and EL6)
+    -   <http://resources.ovirt.org/releases/node-base/3.0.0/rpm/>
+    -   Available plugin packages
+        -   CIM
+        -   SNMP
+        -   Igor Slave
+        -   Puppet
+        -   VDSM
 
 ## Technologies Used
 

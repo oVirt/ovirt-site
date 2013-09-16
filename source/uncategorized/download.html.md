@@ -19,7 +19,7 @@ We’re working hard to make oVirt easy to install and available everywhere.
 
 Since oVirt is a relatively young project, setting it up is still a little tricky… but it’s getting easier with every release.
 
-Right now, oVirt runs best on Fedora — and we tailored our quickstart guide to reflect this fact — but if you’re not afraid of compiling from source, we also have guides on how to install [ the oVirt engine](Building oVirt engine) and [ oVirt Node](Node Building) from source.
+Right now, oVirt runs best on Fedora or CentOS/RHEL — and we tailored our quickstart guide to reflect this fact — but if you’re not afraid of compiling from source, we also have guides on how to install [ the oVirt engine](Building oVirt engine) and [ oVirt Node](Node Building) from source.
 
 You can also [ help us make oVirt easier to install everywhere](porting oVirt) too.
 

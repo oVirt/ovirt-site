@@ -8,13 +8,13 @@ wiki_revision_count: 17
 wiki_last_updated: 2013-11-19
 ---
 
-# oVirt Node Release Notes
+# Node Release Notes
 
-# 3.0.1 Release Notes
+## 3.0.1 Release Notes
 
 *   Several bug fixes
 
-# **3.0.0 Release Notes**
+## **3.0.0 Release Notes**
 
 *   For an detailed overview take a look at the [Node 3.0 release-management](Node 3.0 release-management) page
 *   Universal Image - Remove VDSM specific bits to make the image more general (an VDSM image is still provided)
@@ -28,12 +28,12 @@ wiki_last_updated: 2013-11-19
 *   Diagnostics page in the setup TUI
 *   Images for Fedora 19 and EL6
 
-# 2.6.1 Release Notes
+## 2.6.1 Release Notes
 
 *   Fix for [CVE-2013-0293](https://bugzilla.redhat.com/show_bug.cgi?id=911699)
 *   Updated vdsm and latest Fedora 18 packages
 
-# 2.6.0 Release Notes
+## 2.6.0 Release Notes
 
 *   Move to Fedora 18 base
 *   Add new Setup UI (based on python-urwid)
@@ -41,25 +41,25 @@ wiki_last_updated: 2013-11-19
 *   Full Plugin enablement
 *   various other enhancements and bug fixes
 
-# 2.5.5 Release Notes
+## 2.5.5 Release Notes
 
 *   include dns_resolver kmod to fix nfs mounting issues
 
-# 2.5.4 Release Notes
+## 2.5.4 Release Notes
 
 *   Fix selinux booleans related to sanlock
 
-# 2.5.3 Release Notes
+## 2.5.3 Release Notes
 
 *   Include /bin/hostname command
 
-# 2.5.2 Release Notes
+## 2.5.2 Release Notes
 
 *   This build includes the fixed vdsm to allow nfs
 
 based domains to be attached.
 
-# 2.5.1 Release Notes
+## 2.5.1 Release Notes
 
 *   Refactoring for pep8 compliance
 *   Various bug fixes for oVirt 3.1 support
@@ -69,7 +69,7 @@ based domains to be attached.
 
 *   See Current Backlog for other issues [Node_Backlog](Node_Backlog)
 
-# 2.4.0 Release Notes
+## 2.4.0 Release Notes
 
 *   Move to F17 Base
 *   Various spec file cleanups
@@ -80,7 +80,7 @@ based domains to be attached.
 
 *   See Current Backlog for other issues [Node_Backlog](Node_Backlog)
 
-# 2.3.0 Release Notes
+## 2.3.0 Release Notes
 
 *   Migrate to systemd for fedora based images
 *   Add support for detecting and cleaning fakeraid devices
@@ -94,7 +94,7 @@ based domains to be attached.
 
 *   See Current Backlog for other issues [Node_Backlog](Node_Backlog)
 
-# 2.2.3 Release Notes
+## 2.2.3 Release Notes
 
 *   Add kickstarts for F18
 *   Configuring networking even if autoinstall fails
@@ -106,7 +106,7 @@ based domains to be attached.
 
 *   See Current Backlog for other issues [Node_Backlog](Node_Backlog)
 
-# 2.2.2 Release Notes
+## 2.2.2 Release Notes
 
 *   UEFI installation should be fixed [Bug 761540](https://bugzilla.redhat.com/show_bug.cgi?id=761540)
 *   Spec file cleanup
@@ -120,7 +120,7 @@ based domains to be attached.
 
 *   See Current Backlog for other issues [Node_Backlog](Node_Backlog)
 
-# 2.2.1 Release Notes
+## 2.2.1 Release Notes
 
 *   UEFI installation does not work with internal drives, only usb drives [Bug 761540](https://bugzilla.redhat.com/show_bug.cgi?id=761540)
 *   Registration directly from ovirt-node will fail [Bug 782663](https://bugzilla.redhat.com/show_bug.cgi?id=782663)
@@ -133,7 +133,7 @@ based domains to be attached.
     -   Cannot reproduce on desktop hardware or virtual machines
 *   See Current Backlog for other issues [Node_Backlog](Node_Backlog)
 
-# 2.2.0 Release Notes
+## 2.2.0 Release Notes
 
 *   Registration with oVirt Engine is non-functional due to vdsm bugs
     -   [Bug 752464](https://bugzilla.redhat.com/show_bug.cgi?id=752464)

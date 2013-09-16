@@ -62,28 +62,74 @@ Help [ port oVirt](porting oVirt) to [Debian](http://www.debian.org), [Ubuntu](h
 </div>
 <div class="row">
 <div class="span10 offset1">
-### Quickstart guide ([Fedora 18](http://fedoraproject.org/download-splash?file=http://download.fedoraproject.org/pub/fedora/linux/releases/18/Live/x86_64/Fedora-18-x86_64-Live-Desktop.iso))
+### Quickstart guide
 
-Our recommended method of installing oVirt is to use the pre-built packages for Fedora. It makes installing oVirt very easy. Naturally, you can run any Linux distribution or several other operating systems (e.g. Windows) as guests inside of oVirt instances.
+Our recommended method of installing oVirt is to use the pre-built packages for Fedora or an EL6 distribution. It makes installing oVirt very easy. Naturally, you can run any Linux distribution or several other operating systems (e.g. Windows) as guests inside of oVirt instances.
+
+If you are looking to preview the project without permanently dedicating a machine, you can also try the LiveCD image. This image will appear under the [tools](http://resources.ovirt.org/releases/stable/tools) directory. This generally appears a week or two after a release, due to the need to have final release packages available.
+
+#### [Fedora 19](http://fedoraproject.org/en/download-splash?file=http://download.fedoraproject.org/pub/fedora/linux/releases/19/Live/x86_64/Fedora-Live-Desktop-x86_64-19-1.iso)
 
 1.  Add the official oVirt repository for Fedora. <kbd>
         sudo yum localinstall http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm
 
     </kbd>
 
+    -   This will add repositories from ovirt.org to your host allowing you to get the latest and greatest oVirt rpms.
+    -   It will also enable the [virt-preview](http://fedoraproject.org/wiki/Virtualization_Preview_Repository) repository on your machine giving you access to the latest versions of things like libvirt and KVM.
+
 2.  Install oVirt Engine. <kbd>
         sudo yum install -y ovirt-engine
 
     </kbd>
 
-3.  Set up oVirt Engine. <kbd>
+3.  Optionally install the All-In-One plugin if you want to host VMs on your Engine Host <kbd>
+        sudo yum install -y ovirt-engine-setup-plugin-allinone
+
+    </kbd>
+
+4.  Set up oVirt Engine. <kbd>
         sudo engine-setup
 
     </kbd>
 
-4.  Once you have successfully installed oVirt Engine, you will be provided with instructions to access oVirt's web-based management interface.
-5.  Congratulations! oVirt Engine is now installed!
-6.  For every virtualization server you'd like to manage, you can now [ set them up as oVirt nodes](Quick Start Guide#Install_Hosts) .
+5.  Follow the on screen prompts to configure and install the engine
+6.  Once you have successfully installed oVirt Engine, you will be provided with instructions to access oVirt's web-based management interface.
+7.  Congratulations! oVirt Engine is now installed!
+8.  For every virtualization server you'd like to manage, you can now [ set them up as oVirt hosts](Quick Start Guide#Install_Hosts) .
+
+#### Enterprise Linux 6
+
+These instructions should work for both Red Hat Enterprise Linux and CentOS. They will likely work with other binary compatible EL6 version as well, but they were not tested. It is strongly recommended that you use at least version 6.4.
+
+1.  Add the official oVirt repository for EL6. <kbd>
+        sudo yum localinstall http://ovirt.org/releases/ovirt-release-el.noarch.rpm
+
+    </kbd>
+
+    -   This will add repositories from ovirt.org to your host allowing you to get the latest and greatest oVirt rpms.
+    -   It will also enable the gluster repository for their 3.4.0 release, so you will get those updates correctly as well
+
+2.  Add (or enable) the [EPEL yum repository](http://dl.fedoraproject.org/pub/epel/6/x86_64/)
+3.  Install oVirt Engine. <kbd>
+        sudo yum install -y ovirt-engine
+
+    </kbd>
+
+4.  Optionally install the All-In-One plugin if you want to host VMs on your Engine Host <kbd>
+        sudo yum install -y ovirt-engine-setup-plugin-allinone
+
+    </kbd>
+
+5.  Set up oVirt Engine. <kbd>
+        sudo engine-setup
+
+    </kbd>
+
+6.  Follow the on screen prompts to configure and install the engine
+7.  Once you have successfully installed oVirt Engine, you will be provided with instructions to access oVirt's web-based management interface.
+8.  Congratulations! oVirt Engine is now installed!
+9.  For every virtualization server you'd like to manage, you can now [ set them up as oVirt nodes](Quick Start Guide#Install_Hosts) .
 
 ------------------------------------------------------------------------
 

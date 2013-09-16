@@ -100,6 +100,24 @@ oVirt, the first truly open and comprehensive data center virtualization managem
 You're encouraged to [ join the oVirt community](Community), and help us bring open source software to virtual datacenters worldwide.
 
 </div>
-<div class="span4 pad-left pad-right">
+<div class="span4 pad-left-small pad-right">
+</div>
+<div class="span4 pad-left-small pad-right">
+<div class="well">
+### User Case Study
+
+<div class="text-center">
+![](AlterWay.jpg "AlterWay.jpg")
+
+</div>
+Meet [Alter Way case study | Alter Way], a French hosting company who deploys oVirt in production for their clients, because ""it allowed us to scale up as well as scale out our client workloads".
+
+The main points which swayed their decision? "A very active community, an ambitious technical roadmap with regular releases, and the involvement of companies including Red Hat, Intel, NetApp, Cisco and IBM reassured us that the project would be around for the duration."
+
+<div class="pull-right">
+Read the full [Alter Way case study](Alter Way case study)
+
+</div>
+</div>
 </div>
 </div>

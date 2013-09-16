@@ -66,7 +66,10 @@ oVirt version 3.3.0 was released on September 16, 2013. This release includes ti
 
 <div class="pull-right">
 [ Read the 3.3 release announcement »](oVirt 3.3 talking points)
-[ Get started with oVirt 3.3 now!](Download)
+
+</div>
+<div class="pull-right">
+[ Get started with oVirt 3.3 now »](Download)
 
 </div>
 </div>

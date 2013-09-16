@@ -60,12 +60,12 @@ oVirt is powered by the Open Source you know - KVM on Linux.
 </div>
 <div class="row">
 <div class="span4 pad-left pad-right-small">
-### 3.2.1 Available Now!
+### oVirt 3.3.0 released!
 
-oVirt version 3.2.1 was released on March 14, 2013 and contains several fixes, changes for firewalld configurations with selinux, as well as patches to enable el6 builds!
+oVirt version 3.3.0 was released on September 16, 2013. This release includes tight integration with Gluster storage, improvements in extensibility, scheduling and automation, and integration with OpenStack services Glance and Neutron. [ Get started with oVirt 3.3 now!](Download)
 
 <div class="pull-right">
-[ Read the full 3.2 release notes »](oVirt 3.2 release notes)
+[ Read the 3.3 release announcement »](oVirt 3.3 talking points)
 
 </div>
 </div>

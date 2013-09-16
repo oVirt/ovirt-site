@@ -12,7 +12,7 @@ wiki_last_updated: 2013-09-17
 
 ## What is oVirt
 
-oVirt is a KVM management application for datacenter management. It is the leading open source alternative to VMware vSphere. You can use oVirt to manage hundreds of KVM hypervizor nodes, running thousands of VMs.
+oVirt is a KVM management application for datacenter management. It is the leading open source alternative to VMware vSphere. You can use oVirt to manage hundreds of KVM hypervisor nodes, running thousands of VMs.
 
 oVirt provides a very sophisticated management application for systems administrators, while also providing a simpler self-service user console which exposes basic functiopnality related to creating and managing virtual machine instances. The management interface gives you a central location to manage all of your storage, network and compute resources, and to handle authentication and authorization for users of your virtualized infrastructure.
 

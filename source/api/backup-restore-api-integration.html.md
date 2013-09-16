@@ -19,7 +19,7 @@ This feature provides the ability for ISVs to backup and restore VMs. New set of
 ### Owner
 
 *   Feature owner: Ayal Baron <abaron@redhat.com>
-*   Engine Component owner: Liron Aravot <laravot@redhat.com>
+*   Engine Component owner: Liron Aravot <laravot@redhat.com> Maor Lipchuk <mlipchuk@redhat.com>
 *   VDSM Component owner: Deepak C Shetty <deepakcs@linux.vnet.ibm.com>
 
 ### Detailed Description

@@ -68,7 +68,7 @@ User can back up a virtual machine by an externalized application by the followi
 *   Attach this disk snapshot to the target virtual machine for back up
 *   Capture the virtual disk data and virtual machine configuration information (vim.vm.ConfigInfo).
 *   Open and read the virtual disk and snapshot files. Copy them to backup media, along with configuration information.
-*   Remove the disk
+*   Detach the disk
 
 ### Future Work
 

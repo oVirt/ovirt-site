@@ -147,11 +147,19 @@ Complete API providing abillity to do full , file-level & incremental backups/re
 
 ## Appendix
 
-1. Navigate to the wanted disk snapshot from REST by accessing: ![](FileRestDesc.jpeg "fig:FileRestDesc.jpeg")
+### Example for backup disk
 
-2. POST the copied disk with the disk id and the snapshot id: ![](AttachDisk.jpg "fig:AttachDisk.jpg")
+#### Get disk snapshot data
 
-3. After the backup VM copy the data from the disk, detach the disk snapshot from the VM using the REST : ![](DetachDisk.jpeg "fig:DetachDisk.jpeg")
+Navigate to the wanted disk snapshot from REST by accessing: ![](FileRestDesc.jpeg "fig:FileRestDesc.jpeg")
+
+#### Attach disk to backup VM
+
+POST the copied disk with the disk id and the snapshot id: ![](AttachDisk.jpg "fig:AttachDisk.jpg")
+
+#### Detach disk from backup VM
+
+After the backup VM copy the data from the disk, detach the disk snapshot from the VM using the REST : ![](DetachDisk.jpeg "fig:DetachDisk.jpeg")
 
 ### Comments and Discussion
 

@@ -63,7 +63,7 @@ After copying the data from the disk detach the disk snapshot from the VM using 
 `     `[`http://SERVER:PORT/api/vms/GUID/disks/GUID`](http://SERVER:PORT/api/vms/GUID/disks/GUID)
 `Body=`<action><detach>`true`</detach></action>
 
-![](detachDisk "detachDisk")
+![](DetachDisk.jpeg "DetachDisk.jpeg")
 
 ### Full VM restore
 

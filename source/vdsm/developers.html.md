@@ -358,4 +358,22 @@ Works out of the box.
 
 More info about nested-kvm: <https://github.com/torvalds/linux/blob/master/Documentation/virtual/kvm/nested-vmx.txt>
 
+## Troubleshooting
+
+### Missing dependencies on RHEL 6.4
+
+Since c0729453573, vdsm requires newer libvirt and selinux-policy packages, which are not available yet in RHEL or Centos repositories, and is not kept in ovirt repositories (such as ovirt-nightly). Use these commands to install the required packages:
+
+      yum remove libvirt-client libvirt-python libvirt
+      yum install \
+          http://download.devel.redhat.com/brewroot/packages/libvirt/0.10.2/18.el6_4.10/x86_64/libvirt-client-0.10.2-18.el6_4.10.x86_64.rpm \
+          http://download.devel.redhat.com/brewroot/packages/libvirt/0.10.2/18.el6_4.10/x86_64/libvirt-python-0.10.2-18.el6_4.10.x86_64.rpm \
+          http://download.devel.redhat.com/brewroot/packages/libvirt/0.10.2/18.el6_4.10/x86_64/libvirt-0.10.2-18.el6_4.10.x86_64.rpm \
+          http://download.devel.redhat.com/brewroot/packages/libvirt/0.10.2/18.el6_4.10/x86_64/libvirt-lock-sanlock-0.10.2-18.el6_4.10.x86_64.rpm
+
+      yum remove selinux-policy selinux-policy-targeted
+      yum install \
+          http://download.devel.redhat.com/brewroot/packages/selinux-policy/3.7.19/213.el6/noarch/selinux-policy-3.7.19-213.el6.noarch.rpm \
+          http://download.devel.redhat.com/brewroot/packages/selinux-policy/3.7.19/213.el6/noarch/selinux-policy-targeted-3.7.19-213.el6.noarch.rpm
+
 <Category:Vdsm> <Category:Documentation> [Category:Development environment](Category:Development environment)

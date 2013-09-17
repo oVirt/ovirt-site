@@ -32,6 +32,13 @@ The Backup Appliance can be in the form of a Virtual Appliance (VirtApp) or Host
 
 ## VM Backup/Restore possible flows
 
+### General functionality
+
+Ovirt provides the user the ability to create snapshot on every VM in its setup.
+This snapshot reflects the VM configuration and its disks data as it was in a specific point in time.
+For each image in the VM a new volume in being created and it is based on the previous volume which becomes R/O and associated with the new snapshot.
+The snapshot feature is being used by the backup API.
+
 ### Full VM backups
 
 Full VM backup can be implemented for example by using the following oVirt capabillities:

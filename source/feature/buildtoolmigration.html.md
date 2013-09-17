@@ -27,7 +27,25 @@ This feature will move the build process for the iso image from livecd-creator t
 
 ### Current status
 
-In Progress
+**In Progress**
+
+*'Issues to resolve':*
+
+*   Requires a net install iso for minimal boot and installation run
+
+**Kickstart Changes so far:**
+
+*   clearpart --all
+*   / partition needs ondisk=sda added and size increased roughly to size=3200 from 1536 to fit
+*   libguestfs\* pulls in linux-firmware and causes install to freeze
+*   ovirt-node-selinux causes OOM error on vm with 1GB
+
+**Packages needed to be added**
+
+*   syslinux
+*   memtest86+
+
+<!-- -->
 
 *   Last updated: ,
 

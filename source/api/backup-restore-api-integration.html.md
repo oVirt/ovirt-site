@@ -56,7 +56,7 @@ When creating a disk you will have to pass the the disk id and the snapshot id s
 `   `<snapshot id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
 ` `</disk>
 
-After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters:
+3. After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters:
 
       Method = DELETE
       URL indicates to the specific disk in the VM: 
@@ -144,6 +144,14 @@ Complete API providing abillity to do full , file-level & incremental backups/re
 
 *   <http://www.ovirt.org/Live_Snapshots>
 *   <http://www.ovirt.org/Features/Design/LiveMerge>
+
+## Appendix
+
+1. Navigate to the wanted disk snapshot from REST by accessing: ![](FileRestDesc.jpeg "fig:FileRestDesc.jpeg")
+
+2. POST the copied disk with the disk id and the snapshot id: ![](AttachDisk.jpg "fig:AttachDisk.jpg")
+
+3. After the backup VM copy the data from the disk, detach the disk snapshot from the VM using the REST : ![](DetachDisk.jpeg "fig:DetachDisk.jpeg")
 
 ### Comments and Discussion
 

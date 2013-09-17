@@ -45,16 +45,18 @@ Full VM backup can be implemented for example by using the following oVirt capab
 #### Example for VM backup
 
 1. Navigate to the wanted disk snapshot from REST by accessing:
-SERVER:PORT:/api/vms/GUID/snapshots/GUID/disks
+SERVER:PORT:/api/vms/GUID/snapshots/GUID/disks ![](FileRestDesc.jpeg "fig:FileRestDesc.jpeg")
 
 2. POST the copied disk with the disk id and the snapshot id:
- [http://SERVER:PORT/api/vms/GUID/disks/](http://SERVER:PORT/api/vms/GUID/disks/) ![](FileRestDesc.jpeg "fig:FileRestDesc.jpeg")
+ [http://SERVER:PORT/api/vms/GUID/disks/](http://SERVER:PORT/api/vms/GUID/disks/)
 
 When creating a disk you will have to pass the the disk id and the snapshot id such as the following example:
 
 ` `<disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
 `   `<snapshot id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
 ` `</disk>
+
+![](AttachDisk.jpg "AttachDisk.jpg")
 
 After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters:
 

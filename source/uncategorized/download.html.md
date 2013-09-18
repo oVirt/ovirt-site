@@ -102,7 +102,7 @@ If you are looking to preview the project without permanently dedicating a machi
 
 These instructions should work for both Red Hat Enterprise Linux and CentOS. They will likely work with other binary compatible EL6 version as well, but they were not tested. It is strongly recommended that you use at least version 6.4.
 
-<div class="alert">
+<div class="alert alert-info">
 Warning: Native GlusterFS support will not work with Red Hat Enterprise Linux 6.4 at this time
 
 </div>

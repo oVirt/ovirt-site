@@ -102,6 +102,8 @@ If you are looking to preview the project without permanently dedicating a machi
 
 These instructions should work for both Red Hat Enterprise Linux and CentOS. They will likely work with other binary compatible EL6 version as well, but they were not tested. It is strongly recommended that you use at least version 6.4.
 
+<span class="label label-warning">`Warning: Native GlusterFS support will not work with Red Hat Enterprise Linux 6.4 at this time`</span>
+
 1.  Add the official oVirt repository for EL6. <kbd>
         sudo yum localinstall http://ovirt.org/releases/ovirt-release-el.noarch.rpm
 

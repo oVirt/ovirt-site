@@ -19,7 +19,9 @@ You either install git inside the VM, or sit at another machine where you have g
 
 So you´ll end up with a directory called ovirt-guest-agent. Inside of it is another directory also called ovirt-guest-agent (to not complicate matters..), and inside of that is a file called "README-windows.txt" that very clearly explains how to install the service.
 
-1) Install Python for Windows 2) Install Python for Windows extension 3) Install py2exe
+1.  Install Python for Windows
+2.  Install Python for Windows extension
+3.  Install py2exe
 
 |----------------------------------------------------------------------------------------------------|
 | %EXTRACTDIR%\\ovirt-guest-agent\\ovirt-guest-agent> C:\\Python27\\python.exe setup.py py2exe -b 1 |

@@ -38,7 +38,7 @@ All or selected XML requests/responses are optionally logged into a directory (/
 
 VDSM Fake is a Maven configured project. Source code:
 
-*   git clone <git://github.com/lspevak/ovirt-vdsmfake.git>
+*   git clone <git://gerrit.ovirt.org/ovirt-vdsmfake.git>
 
 ## Installation
 

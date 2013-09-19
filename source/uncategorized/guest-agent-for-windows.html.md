@@ -28,7 +28,9 @@ So you´ll end up with a directory called ovirt-guest-agent. Inside of it is ano
 
 And you´ll get two files in .\\dist\\ called "OVirtGuestService.exe" and "w9xpopen.exe". Take them, along with .\\ovirt-guest-agent.ini, create an appropriate folder for them, e.g. "C:\\Program Files\\Guest Agents\\oVirt Guest Agent" and copy those files there. Then you execute a couple of commands to get it installed:
 
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| C:\\Program Files\\Guest Agents\\oVirt Guest Agent> OVirtGuestService.exe -install C:\\Program Files\\Guest Agents\\oVirt Guest Agent> net start OVirtGuestService C:\\Program Files\\Guest Agents\\oVirt Guest Agent> sc config "OVirtGuestService" start=auto |
+|---------------------------------------------------------------------------------------------------|
+| 1.  C:\\Program Files\\Guest Agents\\oVirt Guest Agent> OVirtGuestService.exe -install           
+ 2.  C:\\Program Files\\Guest Agents\\oVirt Guest Agent> net start OVirtGuestService               
+ 3.  C:\\Program Files\\Guest Agents\\oVirt Guest Agent> sc config "OVirtGuestService" start=auto  |
 
 Everything is then installed so you can delete the "%EXTRACTDIR%\\ovirt-guest-agent", you won´t be needing it anymore.

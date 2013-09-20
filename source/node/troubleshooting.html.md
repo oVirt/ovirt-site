@@ -12,7 +12,7 @@ wiki_last_updated: 2014-05-23
 
 Since oVirt Node is a non-standard Operating System, the way to debug things is also somewhat different. This page is a just a quick snapshot of things that I know of for debugging what's going on on a running oVirt Node System.
 
-### Boot up problems
+## Boot up problems
 
 *   Q: "I booted the image and got a login prompt, what is the default password?"
 *   A: There isn't a default password. You're actually hitting a bug in that the system is not booting correctly. Immediate workaround steps will depend on the actual issue that you're facing.
@@ -38,36 +38,36 @@ nqsaxeG1J8l1U
     -   If none present, try running "su - admin"
     -   This should dump an error out to the screen
 
-### General
+## General
 
 **Disclaimer:** Changes made from the command line are done at your own risk. Making changes has the potential to leave your system in an unusable state.
 
-#### Log Files
+## Log Files
 
 *   Visible by Pressing F8 on any TUI screen
 *   Node specific
     -   /var/log/ovirt.log
     -   /tmp/ovirt.log (in rare cases)
 
-#### Shell access
+## Shell access
 
 *   Warning -- Changes you make from the shell are not persistent by default and will be lost if you reboot the host
 *   Press F2 from any TUI screen
 
-#### Making changes on the host
+## Making changes on the host
 
 *   Warning -- Changes you make from the shell are not persistent by default and will be lost if you reboot the host
 *   Help, I dropped to the shell but I can't change anything!?
     -   By default, the root file system of oVirt Node is read only. To make changes temporarily on the system, you can remount it read/write
     -   mount -o rw,remount /
 
-#### Bind mounts and tmpfs
+## Bind mounts and tmpfs
 
 *   Node heavily relies on bindfs - to persist some files - and tmpfs.
     -   `mount` won't show all the bind mounts on all distributions, looking at `/proc/mounts` might help here. But both methods don't allow to get the complete source of a bindmount if the sources is e.g. a file.
     -   `findmnt` can be used to get an overview over mount targets *and* their sources
 
-#### RPM changes
+### RPM changes
 
 *   Warning -- Changes you make from the shell are not persistent by default and will be lost if you reboot the host
 
@@ -87,7 +87,7 @@ For debugging purposes, you can update an rpm, but it's strongly discouraged for
 *   install/update rpms using the rpm command
     -   yum is currently not installed on oVirt Node
 
-#### Making changes last
+### Making changes last
 
 *   You keep warning me that changes made from the shell are not persistent. How can I make them persistent?
     -   Disclaimer: This will not work for all changes and can cause your system to be un-usable.
@@ -102,7 +102,7 @@ For debugging purposes, you can update an rpm, but it's strongly discouraged for
         -   It may work if you upload the original .py file, make changes, re-compile, then persist the .pyc and .pyo files.
 *   Be aware the the partition for storing changes like this is very small (<10MB). Because of this, it's not recommended that you persist large files or entire rpms.
 
-#### I broke something, Help!
+### I broke something, Help!
 
 *   Q: I accidentally removed or changed a key file while doing stuff from the command line. How do I fix this?
 *   A: Well, you were warned that making changes was dangerous. You're best bet is to re-install.
@@ -114,7 +114,7 @@ For debugging purposes, you can update an rpm, but it's strongly discouraged for
     -   If those don't work, you can try manually hacking the changed files again to fix it, but you're on you're own with that.
     -   If the above all fail, then re-install is really you're only option.
 
-#### Too many logins
+### Too many logins
 
 As debug purpose only, to increase the number of tty users logging into oVirt Node (currently it's 3), edit:
 
@@ -122,11 +122,11 @@ As debug purpose only, to increase the number of tty users logging into oVirt No
        *    -    maxlogins 3  
       # persist /etc/security/limits.conf
 
-#### Setting manually oVirt Node root password
+### Setting manually oVirt Node root password
 
 On TUI press **F2** to go to shell and execute **/usr/libexec/ovirt-config-password**
 
-#### certificate/ssl problems?
+### certificate/ssl problems?
 
 As debugging approach, to validate your current vdsmcert with cacert, execute:
 
@@ -141,11 +141,11 @@ To show the certificate data:
        # openssl x509 -in /etc/pki/vdsm/certs/vdsmcert.pem -noout -text | grep -i issuer (show only issuer)
        # openssl x509 -in /etc/pki/vdsm/certs/cacert.pem -noout -text | grep -i subject (show only subject) 
 
-#### Using yum
+### Using yum
 
 Yum is only supported in offline image editing. On a running system, it's disabled. A how-to for editing an ISO image after creation will be coming soon.
 
-#### Upgrading oVirt Node
+### Upgrading oVirt Node
 
 The log of upgrade operation are:
 

@@ -17,25 +17,23 @@ Since oVirt Node is a non-standard Operating System, the way to debug things is 
 ### I booted the image and got a login prompt, what is the default password?
 
 *   A: There isn't a default password. You're actually hitting a bug in that the system is not booting correctly. Immediate workaround steps will depend on the actual issue that you're facing.
-    -   First thing: reboot and set the root user's password from the kernel command line
-        -   on a separate system, generate a hashed password
-            -   openssl passwd
+*   First thing: reboot and set the root user's password from the kernel command line
+*   On a separate system, generate a hashed password run:
 
 `
 $ openssl passwd -salt 42 ovirt
 42OLJtXwdXtEY
 `
 
-*   -   Boot the image
-    -   Hit <TAB> on the boot menu on the "Start oVirt Node" option
-    -   Add "rootpw=<hashed_passwd>" (no quotes, and no <>) to the command line
-        -   rootpw=nqsaxeG1J8l1U
-    -   Hit enter
-    -   When the login screen comes up, enter root, then the password that you gave to openssl (ovirt in the above example)
-    -   Check the various log files listed in the Log Files section of this FAQ
-    -   Look for python errors
-    -   If none present, try running "su - admin"
-    -   This should dump an error out to the screen
+*   Boot the image
+*   Hit <TAB> on the boot menu on the "Install or Updgrade oVirt Node" option
+*   Add "rootpw=<hashed_passwd>" (no quotes, and no <>) to the command line, e.g. `rootpw=42OLJtXwdXtEY`
+*   Hit enter
+*   When the login screen comes up, enter `root`, then the password that you gave to openssl (`ovirt` in the above example)
+*   Check the various log files listed in the Log Files section of this FAQ
+*   Look for python errors
+*   If none present, try running "su - admin"
+*   This should dump an error out to the screen
 
 ## General
 
@@ -52,7 +50,7 @@ $ openssl passwd -salt 42 ovirt
 
 ### Shell access
 
-*   Warning -- Changes you make from the shell are not persistent by default and will be lost if you reboot the host
+*   **Warning** -- Changes you make from the shell are not persistent by default and will be lost if you reboot the host
 *   Press F2 from any TUI screen
 
 ### Debug Mode
@@ -64,45 +62,44 @@ $ openssl passwd -salt 42 ovirt
 
 ### Setting manually oVirt Node root password
 
-On TUI press **F2** to go to shell and execute **/usr/libexec/ovirt-config-password**
+*   On TUI press **F2** to go to shell and execute **/usr/libexec/ovirt-config-password**
 
-### certificate/ssl problems?
+### Certificate and/or SSL problems?
 
 As debugging approach, to validate your current vdsmcert with cacert, execute:
 
-       # openssl verify -CAfile /etc/pki/vdsm/certs/cacert.pem /etc/pki/vdsm/certs/vdsmcert.pem
-       vdsmcert.pem: OK  (returning OK) 
+    # openssl verify -CAfile /etc/pki/vdsm/certs/cacert.pem /etc/pki/vdsm/certs/vdsmcert.pem
+     vdsmcert.pem: OK  (returning OK)
 
-To show the certificate data:
+1.  openssl x509 -in /etc/pki/vdsm/certs/cacert.pem -noout -text
 
-       # openssl x509 -in /etc/pki/vdsm/certs/cacert.pem -noout -text
-       # openssl x509 -in /etc/pki/vdsm/certs/vdsmcert.pem -noout -text 
-       
-       # openssl x509 -in /etc/pki/vdsm/certs/vdsmcert.pem -noout -text | grep -i issuer (show only issuer)
-       # openssl x509 -in /etc/pki/vdsm/certs/cacert.pem -noout -text | grep -i subject (show only subject) 
+      # openssl x509 -in /etc/pki/vdsm/certs/vdsmcert.pem -noout -text 
+      # openssl x509 -in /etc/pki/vdsm/certs/vdsmcert.pem -noout -text | grep -i issuer (show only issuer)
+      # openssl x509 -in /etc/pki/vdsm/certs/cacert.pem -noout -text | grep -i subject (show only subject)
 
+</pre>
 ### Using yum
 
 Yum is only supported in offline image editing. On a running system, it's disabled. A how-to for editing an ISO image after creation will be coming soon.
 
 ### Upgrading oVirt Node
 
+**Warning** This information is outdated
+
 The log of upgrade operation are:
 
-       /var/log/ovirt.log
-       /var/log/vdsm-reg/vds_bootstrap_upgrade.XXX_XX.log
+*   /var/log/ovirt.log
+*   /var/log/vdsm-reg/vds_bootstrap_upgrade.XXX_XX.log
 
 Upgrade configuration are under /etc/vdsm-reg/vdsm-reg.conf
 
-       upgrade_iso_file=/data/updates/ovirt-node-image.iso
-        # Where's located the new ovirt-node-image ISO
+     upgrade_iso_file=/data/updates/ovirt-node-image.iso
+      # Where's located the new ovirt-node-image ISO
 
-        upgrade_mount_point=/live
-        # Where's the ovirt-node-image is mounted to be used by vdsm-upgrade tool
+      upgrade_mount_point=/live
+      # Where's the ovirt-node-image is mounted to be used by vdsm-upgrade tool
 
-Tool that executes the upgrade:
-
-       /usr/share/vdsm-reg/vdsm-upgrade
+Tool that executes the upgrade is `/usr/share/vdsm-reg/vdsm-upgrade`
 
 Example, (developer mode only) upgrading manually from ovirt-node 2.5.0-2.0 to 2.5.1-1.0
 
@@ -116,10 +113,10 @@ Example, (developer mode only) upgrading manually from ovirt-node 2.5.0-2.0 to 2
 
 ## Making changes on the host
 
-*   Warning -- Changes you make from the shell are not persistent by default and will be lost if you reboot the host
+*   **Warning** -- Changes you make from the shell are not persistent by default and will be lost if you reboot the host
 *   Help, I dropped to the shell but I can't change anything!?
     -   By default, the root file system of oVirt Node is read only. To make changes temporarily on the system, you can remount it read/write
-    -   mount -o rw,remount /
+    -   `mount -o rw,remount /`
 
 ### Bind mounts and tmpfs
 
@@ -129,14 +126,9 @@ Example, (developer mode only) upgrading manually from ovirt-node 2.5.0-2.0 to 2
 
 ### RPM changes
 
-*   Warning -- Changes you make from the shell are not persistent by default and will be lost if you reboot the host
-
-<!-- -->
-
-*   Can I update an rpm on a running system?
-*   I need RPM xxx installed on oVirt Node. Can do I add it?
-
-The answer to these is, in general, "No, you can't update or add an RPM to a running oVirt Node."
+*   **Warning** -- Changes you make from the shell are not persistent by default and will be lost if you reboot the host
+*   Can I update an rpm on a running system? I need RPM xxx installed on oVirt Node. Can do I add it?
+    -   The answer to these is, in general, "No, you can't update or add an RPM to a running oVirt Node."
 
 For debugging purposes, you can update an rpm, but it's strongly discouraged for long term use.
 
@@ -146,20 +138,20 @@ For debugging purposes, you can update an rpm, but it's strongly discouraged for
 
     $ remount / re-write
     $ cd /tmp
-    $ wget rpm files (need to get all dependencies as well)
-    $ install/update rpms using the rpm command
+    $ wget rpm-files (need to get all dependencies as well)
+    $ rpm … (install/update rpms using the rpm command)
 
-*   Note: yum is currently not installed on oVirt Node
+*   **Note**: yum is currently not installed on oVirt Node
 
-### Making changes last
+### Making changes last / Persisting changes
 
 *   You keep warning me that changes made from the shell are not persistent. How can I make them persistent?
     -   Disclaimer: This will not work for all changes and can cause your system to be un-usable.
-    -   The persist and unpersist commands will allow you to make a file and/or directory persistent across reboots.
+    -   The `persist` and `unpersist` commands will allow you to make a file and/or directory persistent across reboots.
     -   You will need to make the changes, then persist each file/directory individually
 *   Where doesn't this work correctly?
     -   Kernel modules and kernel updates will **NOT** work at all
-    -   Modprobe.conf changes will not work
+    -   modprobe.conf changes will not work
     -   Other files used very early in the boot process may not work
     -   Python file changes may not work correctly
         -   The base .py files are removed from the image

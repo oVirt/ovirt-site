@@ -105,6 +105,14 @@ wiki_last_updated: 2015-05-29
 
 *   ~~make the *macspoof* hook of <https://bugzilla.redhat.com/908704> per vnic, using <http://www.ovirt.org/Features/Device_Custom_Properties>~~
 
+<!-- -->
+
+*   work in conjunction with Network Manager.
+
+<!-- -->
+
+*   report 'bootproto' and bonding_opts not via cfg.
+
 ### refactoring
 
 *   In vm.py, libvirtvm.py, clientIF.py there is a mess of prepare\*Path functions (end their respective teardowns), which is too complex to fathom. We have to convert all drive specifications (PDIV,GUID,path) into Drive object at the API entry.

@@ -111,7 +111,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   report 'bootproto' and bonding_opts not via cfg.
+*   report 'bootproto' and bonding_opts not via cfg. <https://bugzilla.redhat.com/987813>
 
 ### refactoring
 

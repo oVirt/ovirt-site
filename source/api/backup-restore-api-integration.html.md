@@ -80,7 +80,7 @@ When creating a disk you will have to pass the the disk id and the snapshot id s
 
 #### Example for VM restore
 
-1. Create a disk to restore: POST the new disk : ([Example](Features/Backup-Restore_API_Integration#Create_disk_to_restore))
+1. Create a disk to restore: POST the new disk : ([Example](Features/Backup-Restore_API_Integration#Backup-Restore_API_Integration))
  [http://SERVER:PORT/api/disks/](http://SERVER:PORT/api/disks/)
 
 2. Attach the disk to the virtual appliance: POST the copied disk with the disk id :

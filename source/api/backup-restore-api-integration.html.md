@@ -78,6 +78,24 @@ When creating a disk you will have to pass the the disk id and the snapshot id s
 4.  Create a vm using the configuration that was saved as part of the backup flow - (added capabillity to oVirt as part of the Backup API)
 5.  Attach the restored disks to the created vm.
 
+#### Example for VM restore
+
+1. Create a disk to restore: POST the new disk : ([Example](Features/Backup-Restore_API_Integration#Create_disk_to_restore))
+ [http://SERVER:PORT/api/disks/](http://SERVER:PORT/api/disks/)
+
+2. Attach the disk to the virtual appliance: POST the copied disk with the disk id :
+ [http://SERVER:PORT/api/vms/GUID/disks/](http://SERVER:PORT/api/vms/GUID/disks/)
+
+` `<disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
+` `</disk>
+
+3. After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters ([Example](Features/Backup-Restore_API_Integration#Detach_disk_from_backup_VM)):
+
+      Method = DELETE
+      URL indicates to the specific disk in the VM: 
+`     `[`http://SERVER:PORT/api/vms/GUID/disks/GUID`](http://SERVER:PORT/api/vms/GUID/disks/GUID)
+`Body=`<action><detach>`true`</detach></action>
+
 #### DIfference between Virtual appliance and Host appliance
 
 Currently per the design, the difference is in the way that the data is would be exposed/restored. Backup - the disks snapshot for backup should be exposed on some host so it could be mounted and backed up through the needed HostApp with the backup software. Restore - an abillity to restore the data to an ovirt disk should be introduced.

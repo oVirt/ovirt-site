@@ -205,7 +205,7 @@ dhcp-1-120.my.lab.a.com
 
 ### Attach an additional storage connection to an existing iscsi storage domain (POST)
 
-[http://host:port](http://host:port) /api/storagedomains/{storageDomainid}
+[http://host:port](http://host:port) /api/storagedomains/{storageDomainid}/storageconnections
 
 `  `<storage_connection id="{connection_id}">
 `  `</storage_connection>

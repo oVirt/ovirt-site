@@ -399,4 +399,4 @@ use this signature: Api(String url, String username, String password, boolean no
 
 Michael Pasternak <mpastern@redhat.com>
 
-<Category:SDK>
+<Category:SDK> <Category:Feature>

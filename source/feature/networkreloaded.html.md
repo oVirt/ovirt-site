@@ -197,17 +197,43 @@ The thread could work in the following way:
 
 ### Unified persistence
 
-The old-style ifcfg persistence currently defined on the ConfigWriter class will be kept and will be selectable by setting:
+#### Motivation
+
+VDSM is on a path to deprecate the usage of initscripts. We currently use initscripts to supply both networking persistence and configuration. The iproute2 configurator will replace the usage of initscripts for configuration, and unified network persistence will supply the new persistence model. The new network model will have three uses (All currently supplied by the ifcfg persistence model, saved at /etc/sysconfig/network-scripts)
+
+1.  Persist networking configuration through host reboots
+2.  Provide rollback mechanisms for the iproute2 configurator (In case an add/delNetwork fails midway due to an exception or connectivity loss we rollback any changes made)
+3.  Provide an easily accessible representation of the current networking configuration
+
+#### ifcfg Persistence Overview (History)
+
+*   Persistence:
+
+To ensure that any networking configuration changes are persisted we use initscripts. These are network device configuration files saved at /etc/sysconfig/network-scripts (In Red Hat based distributions). Upon host reboot the 'network' service is started, which looks for those configuration files and configures the network devices accordingly. We supply an additional feature where the network admin can mark a networking configuration as 'safe' from the engine. Marking the current configuration as safe is done via the 'setSafeConfig' verb. Upon host bootup, the current implementation looks for the existence of ifcfg in a specific VDSM folder. If these files exist then they are copied over to /etc/sysconfig/network-scripts, and when the 'network' service is started it will use these newly copied files. The 'setSafeConfig' then simply deletes the backups from the backups folder, marking the ifcfg files in /etc/sysconfig/network-scripts 'final'.
+
+*   Rollbacks:
+
+The 'set current networking configuration as safe' feature is only done on host bootup, and is separate from the rollback feature. We rollback any failed add/delNetwork if an exception was thrown, or if the operation succeeded but it caused networking connectivity loss to the host. These rollbacks are done by backing up any changes made to ifcfg files before actually writing the files during an add/delNetwork verb. If an exception is thrown or a networking connectivity loss is detected we bring back the backups and perform the needed ifdown/ifups.
+
+*   Networking configuration lookup:
+
+The ifcfg files provide a convenient way to lookup the current networking configuration, such as the boot protocol on a device, or the bonding options on a bond.
+
+#### Implementation Overview
+
+#### Implementation Details
+
+The persistence model may be selected by editing
 
 *   /etc/vdsm/vdsm.conf
 
-         persistence = ifcfg
+And setting:
 
-If that is not specified, the unified persistence will be used. The way in which it works is the following:
+         persistence = [ifcfg | unified]
 
-1.  After each successful addNetwork/delNetwork writes a network and bond dictionary serialization (using json) to:
-    -   /run/vdsm/nets/
-    -   /run/vdsm/bonds/
+1.  When VDSM gets a new setupNetworks, it breaks it into a series of addNetwork and delNetwork (Currently editNetwork is done via a del followed by an add). After each successful add or del network we then persist the new network and bond changes, represented by dictionary and written to disk via json serialization to:
+    -   /var/run/vdsm/persistence/nets/
+    -   /var/run/vdsm/persistence/bonds/
 
 <!-- -->
 
@@ -218,7 +244,7 @@ If that is not specified, the unified persistence will be used. The way in which
 <!-- -->
 
 1.  Split vdsm-restore-net service in:
-    -   vdsm-remove-net-persistance (before network.service): Deletes all the persistance done by the configurator and also removes libvirt's persistent vdsm networks. For ifcfg that would be:
+    -   vdsm-remove-net-persistence (before network.service): Deletes all the persistence done by the configurator and also removes libvirt's persistent vdsm networks. For ifcfg that would be:
         -   Remove all the ifcfg-\* files that have the newly defined vdsm header: "# This file was created by vdsm. Do not edit it, as it is not persisted across reboots."
         -   Remove libvirt networks starting with vdsm-\*
     -   vdsm-restore-persistent-nets (after vdsmd.service): Constructs a setupNetwork command by putting together the networks and bonds in /var/lib/vdsm/nets and /var/lib/vdsm/bonds and calls vdsCli setupNetworks

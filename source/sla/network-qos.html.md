@@ -23,7 +23,7 @@ In order to define more natural coupling of the QoS to a VNIC we define a new co
 
 #### Current status
 
-*   Status: Network QoS done. waiting for [VNIC Profiles](Features/Vnic_Profiles)
+*   Status: Network QoS done.
 *   Last updated: ,
 
 #### Detailed Description

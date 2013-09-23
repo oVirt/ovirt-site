@@ -121,6 +121,16 @@ The following Guest OS drivers are available:
         ...
 </disk>
 
+##### VirtIO_SCSI flag
+
+<vm>
+        ...
+`  `<virtio_scsi>
+`     `<enabled>`true|false`</enabled>
+`  `</virtio_scsi>
+        ...
+</vm>
+
 #### UI
 
 ##### Add Disk

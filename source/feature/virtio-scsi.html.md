@@ -96,6 +96,11 @@ The following Guest OS drivers are available:
     -   CONFIGURE_SCSI_GENERIC_IO ActionGroup
     -   Check on Disk entity
     -   Add to SuperUser/DataCenterAdmin roles
+*   VirtIO-SCSI enabled flag:
+    -   When enabled, a VirtIO-SCSI controller device is added to vm_device table.
+    -   Used for maintaining stable address to the pci controller.
+    -   Necessary for hot-plugging a disk with VirtIO-SCSI interface.
+    -   The flag is defaulted to true on cluster >= 3.3.
 
 #### REST-API
 

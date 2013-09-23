@@ -14,6 +14,12 @@ wiki_last_updated: 2013-11-06
 
 Currently it is assumed that the host-wide default gateway is the gateway defined on the ovirtmgmt logical network. This feature will enable the user to define a gateway per logical network.
 
+The feature is only relevant for deployments with hosts with more than one network device. Without the feature, any traffic going in the device that needs to be returned to a network not directly on the host will be routed out through the default gateway regardless of the device which the traffic came in. With the feature, any traffic going in that needs to be returned to a network outside of the host's own subnets will be routed back via the device that the traffic came in through.
+
+The motivation is to ensure that if outside traffic was routed through a firewall to the host, then it will be returned the way it came in through the same firewall. Additionally, if a special administrative network (Mainly display network) was placed on a device then this feature ensures that return traffic will remain on the same display network and not router back from the host's default gateway, which may be a different network.
+
+Previously users solved the issue with source routing manually, this feature simply automates the process.
+
 ### Owner
 
 *   Name: [ Assaf Muller](User:amuller)

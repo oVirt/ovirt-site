@@ -227,11 +227,8 @@ We've defined two new terms:
 *   Persistent configuration - During the 'setSafeConfig' verb we copy the running configuration from one folder to another. Any changes made between 'setSafeConfig' received from the engine are only reflected in the running configuration.
 
 1.  The persistent configuration is used for networking persistence on host reboot.
-2.  The running configuration is used for rollbacks - We know the state of the running configuration before the start of an add or delNetwork, and we know
-
-what was added or deleted, and so we can use the diff to revert any changes using setupNetworks itself. (Note: As of 23/09/2013 this part is still unimplemented and is under debate).
-
-1.  We also use the running configuration to perform lookups of the current networking configuration.
+2.  The running configuration is used for rollbacks - We know the state of the running configuration before the start of an add or delNetwork, and we know what was added or deleted, and so we can use the diff to revert any changes using setupNetworks itself. (Note: As of 23/09/2013 this part is still unimplemented and is under debate).
+3.  We also use the running configuration to perform lookups of the current networking configuration.
 
 #### Implementation Details
 
@@ -247,15 +244,11 @@ And setting:
     -   /var/run/vdsm/netconf/nets/
     -   /var/run/vdsm/netconf/bonds/
 
-<!-- -->
-
-1.  After setSafeConfig we atomically copy:
+2.  After setSafeConfig we atomically copy:
     -   var/run/vdsm/netconf/nets/\* -> /var/lib/vdsm/persistence/netconf/nets
     -   var/run/vdsm/netconf/bonds/\* ->/var/lib/vdsm/persistence/netconf/bonds
 
-<!-- -->
-
-1.  Split vdsm-restore-net service to:
+3.  Split vdsm-restore-net service to:
     -   vdsm-remove-net-persistence (before network.service): Deletes all the persistence done by the configurator and also removes libvirt's persistent vdsm networks. For ifcfg that would be:
         -   Remove all the ifcfg-\* files that have the newly defined vdsm header: "# This file was created by vdsm. Do not edit it, as it is not persisted across reboots."
         -   Remove libvirt networks starting with vdsm-\*

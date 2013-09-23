@@ -318,4 +318,4 @@ codegen
 
 Michael Pasternak: mpastern@redhat.com
 
-<Category:SDK>
+<Category:SDK> <Category:Feature>

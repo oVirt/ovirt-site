@@ -665,4 +665,4 @@ That will install lxml, because EPEL's python-lxml is not yet up to the version 
 
 Michael Pasternak: mpastern@redhat.com
 
-<Category:CLI>
+<Category:CLI> <Category:Feature>

@@ -171,6 +171,18 @@ Now your updated artifact is in place.
 
 ### Advanced Usage
 
+#### Enable DEBUG log
+
+There is a file share/ovirt-engine/services/ovirt-engine/ovirt-engine.xml.in in the deployed engine environment. Open it and look for <subsystem xmlns="urn:jboss:domain:logging:1.1"> section. This section contains all output handlers (server.log, engine.log and console output) with associated level filters.
+
+To actually get the DEBUG messages to those handlers add the following to the end of the subsystem section:
+
+<logger category="org.ovirt._package_you_are_interested_in">
+`  `<level name="DEBUG"/>
+</logger>
+
+Restart the Jboss instance and you should see the logs.
+
 #### Enable Unit Tests
 
       $ make install-dev PREFIX="$HOME/ovirt-engine" BUILD_UT=1

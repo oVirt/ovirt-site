@@ -209,6 +209,10 @@ Issues to address specifically:
 *   In VDSM handling of operations like live snapshot (hoplug the new volume lease), live storage migration (hotplug all the new volume leases on the new storage and hotunplug all the old ones), disk hotplug/hotunplug (hotplug/hotunplug the volume lease), etc. must be handled properly (currently these cases are not handled).
 *   VDSM is currently limited to only one Storage Pool, thus it's currently impossible to store the Engine VM not in the same Storage Pool as other VMs that will be managed.
 
+#### Required modifications
+
+FSM diagram for hosted engine agent states (generated from README.AGENT-FSM.gv in agent source tree): ![](hosted-engine-agent-fsm.svg "fig:hosted-engine-agent-fsm.svg")
+
 # Comments and Discussion
 
 *   Refer to [Talk:Self Hosted Engine](Talk:Self Hosted Engine)

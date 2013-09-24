@@ -14,7 +14,9 @@ wiki_last_updated: 2014-12-28
 
 ### Summary
 
-This feature provides the ability for ISVs to backup and restore VMs. New set of APIs will be introduced in oVirt to facilitate taking full VM backup, as well as full or file level restore of VMs. Backup and Restore will be REST API driven (and not GUI/User driven).
+This feature provides the ability for ISVs to backup and restore VMs.
+New set of APIs will be introduced in oVirt to facilitate taking full VM backup, as well as full or file level restore of VMs.
+Backup and Restore will be REST API driven (and not GUI/User driven).
 
 ### Owner
 
@@ -32,12 +34,16 @@ The Backup Appliance can be in the form of a Virtual Appliance (VirtApp) or Host
 
 ## VM Backup/Restore possible flows
 
-### General functionality
+### General background
 
-Ovirt provides the user the ability to create snapshot on every VM in its setup.
-This snapshot reflects the VM configuration and its disks data as it was in a specific point in time.
-For each image in the VM a new volume in being created and it is based on the previous volume which becomes R/O and associated with the new snapshot.
-The snapshot feature is being used by the backup API.
+The Ovirt snapshot feature provides the user the ability to seize the VM in a specific point in time.
+The snapshot will contain the VM configuration and its disks data in a static way
+The underline operation, is to create for each disk in the VM a new volume which will be based on the previous volume using qcow2 format, the original volume will becomes R/O and the new volume will only indicate the differences from the original volume.
+
+The Backup API use the snapshot feature to provide the user a temporary volume on the backup appliance.
+The temporary volume will act as an active volume based on the destination snapshot of the VM about to be backed up.
+The new temporary volume will provide the backup appliance access to the VM data.
+This snapshot which is created as part of the backup API will not be exposed to the user, but will only be exposed at the system level and by the API to the backup appliance.
 
 ### Full VM backups
 

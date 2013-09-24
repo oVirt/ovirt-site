@@ -50,6 +50,12 @@ After reboot the following packages are on the system:
       ovirt-iso-uploader-3.3.0-1.fc19.noarch
       ovirt-engine-tools-3.2.3-1.fc18.noarch
 
+You may need to execute the following commands in order to have yum working correctly:
+
+      # yum clean all
+      # yum update
+      # ln -s /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-19-primary /etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-x86_64
+
 Apache and PosgreSQL are up and running but the following error will be found:
 
       # service ovirt-engine status
@@ -61,8 +67,6 @@ Apache and PosgreSQL are up and running but the following error will be found:
 
 You must now update oVirt:
 
-      # yum clean all
-      # yum update
       # engine-setup
 
 The setup will guide you during the oVirt upgrade.
@@ -72,4 +76,4 @@ If you want to enable novnc/spice html5:
       # yum -y install ovirt-engine-websocket-proxy
       # engine-setup
 
-and access <https://><fqdn>:6100 for accepting the certificate
+and access https: //<fqdn>:6100 for accepting the certificate

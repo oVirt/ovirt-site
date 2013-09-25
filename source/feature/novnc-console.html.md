@@ -87,9 +87,9 @@ Secure communication is ensured by using TLS. For this reason, websockets server
 
 The creation of key/cert pair could be part of engine setup process (together with jboss, apache and engine key/cert pairs).
 
-## Testing
+## Setup
 
-### Test case 1 - Websocket Proxy on the engine's machine
+### Setup Websocket Proxy on the Engine During Install
 
 Prerequisities: Browser that has proper websockets and postmessage support (tested with FF and Chrome)
 
@@ -104,11 +104,19 @@ Prerequisities: Browser that has proper websockets and postmessage support (test
 
 Results: The new browser tab with noVNC session appears.
 
-### Test case 2 - Websocket Proxy on a separate machine
+### Setup Websocket Proxy on the Enging Post Install
+
+*   Install the ovirt-engine-websocket-proxy package
+*   Open a port on the firewall. The default websocket-proxy port is 6100, and you can add it to firewalld by using "firewall-cmd --permanent --add-port=6100/tcp"
+*   Start the ovirt-engine-websocket-proxy service by using "systemctl start ovirt-engine-websocket-proxy.service"
+*   Using the engine-config command, enable the websocket-proxy by using "engine-config -s WebSocketProxy=<FQDN>:<PORT>" where <FQDN> is the hostname or IP address of your engine, and the port is the port you opened on the firewall.
+*   For the engine-config command to take effect, you must restart the engine service. You can do this by running "systemctl restart ovirt-engine"
+
+### Setup Websocket Proxy on a Separate Machine
 
 #### At engine machine
 
-Install product.
+Install ovirt-engine.
 
 Run, replace <host>:<port> with websocket proxy location.
 

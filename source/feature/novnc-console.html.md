@@ -116,19 +116,16 @@ Results: The new browser tab with noVNC session appears.
 
 #### At engine machine
 
-Install ovirt-engine.
+*   Install ovirt-engine.
+*   Using the engine-config command, enable the websocket-proxy by using "engine-config -s WebSocketProxy=<FQDN>:<PORT>" where <FQDN> is the hostname or IP address of your websocket-proxy host, and the port you wish to use.
 
-Run, replace <host>:<port> with websocket proxy location.
+*Note: the port on the proxy machine must be opened on firewall.*
 
-`engine-config -s WebSocketProxy=`<host>`:`<port>
-
-*   Note: the port on the proxy machine must be opened on firewall.
-
-Generate certificate and key, substitute <fqdn> with the DNS name of the host. Substitute <country>, <organization> to suite your environment.
+On the engine, generate a certificate and key. substitute <FQDN> with the DNS name of the host. Substitute <country>, <organization> to suite your environment.
 
       /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh --name=websocket-proxy-standalone --password=mypass --subject="/C=`<country>`/O=`<organization>`/CN=`<fqdn>`"
 
-Copy /etc/pki/ovirt-engine/keys/websocket-proxy-standalone.p12 and /etc/pki/ovirt-engine/certs/engine.cer to proxy machine at /etc/pki/ovirt-websocket-proxy
+Copy /etc/pki/ovirt-engine/keys/websocket-proxy-standalone.p12 and /etc/pki/ovirt-engine/certs/engine.cer from the engine to the proxy machine at /etc/pki/ovirt-websocket-proxy
 
 #### At websocket-proxy machine
 
@@ -159,11 +156,12 @@ Start the service
 
       service ovirt-websocket-proxy start
 
-*   Set up a VM as usual, set its Display Type to VNC and run it.
-*   In Console Options dialog, select 'noVNC'
-*   Click the console button to invoke the console.
-    -   (The console opens in a new tab and this behavior is usualy blocked by browsers. For opening the console you must allow displaying pop-up windows from engine's domain.)
+## Using noVNC
 
-Results: The new browser tab with noVNC session appears.
+*   Select or create a VM. While editing it, under console set its Display Type to VNC. Save and start the VM.
+*   Right click the VM and choose Console Options.
+*   Select 'noVNC', and click OK to save.
+*   Click the console button to invoke the console.
+    -   (The console opens in a new tab and this behavior is usualy blocked by browsers. For opening the console you must allow displaying pop-up windows from engine's domain. You may need to navigate to <https://><fqdn>:<port> to accept the certificate the first time)
 
 <Category:Feature>

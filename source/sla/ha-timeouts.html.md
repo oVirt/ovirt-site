@@ -55,8 +55,7 @@ takes approx 63s (**vdsTimeout**, the kernel cuts to 63s any value larger than t
 and we need 2 consecutive failures to start fencing: 63sec \* 3 \* 2 ~ 6min.
 
 For a more predictable fencing the following parameters need to be changed:
-# engine-config -s vdsConnectionTimeout=2
-# engine-config -s vdsRetries=0
+ # engine-config -s vdsConnectionTimeout=2 # engine-config -s vdsRetries=0
 
 With this settings the host should be fenced approx **1 minute** after it stops responding,
 and this happens because now the **VDSAttemptsToResetCount** and **TimeoutToResetVdsInSeconds**

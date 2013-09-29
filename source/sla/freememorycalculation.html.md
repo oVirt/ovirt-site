@@ -8,7 +8,7 @@ wiki_revision_count: 4
 wiki_last_updated: 2013-09-29
 ---
 
-# SLA: Free Memory Calculations
+# SLA: Free memory calculations explained
 
 ### Summary
 

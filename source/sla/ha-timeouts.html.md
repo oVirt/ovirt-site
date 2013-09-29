@@ -10,7 +10,7 @@ wiki_last_updated: 2013-10-02
 
 # ha-timeouts
 
-## SLA: HA timeouts explained
+## SLA: High Availability timeouts explained
 
 ### Summary
 

@@ -154,10 +154,10 @@ DEPENDENCIES
   builder (~> 3.0)
   less
   middleman (~> 3.1.5)
-  middleman-blog (~> 3.3.0)
+  middleman-blog
   middleman-bootstrap-navbar
   middleman-favicon-maker
-  middleman-livereload (~> 3.1.0)
+  middleman-livereload
   middleman-syntax
   nokogiri
   redcarpet

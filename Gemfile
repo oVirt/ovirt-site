@@ -5,7 +5,7 @@ source 'http://rubygems.org'
 gem "middleman", "~>3.1.5"
 
 # Live-reloading plugin
-gem "middleman-livereload", "~> 3.1.0"
+gem "middleman-livereload"
 
 # Cross-templating language block fix for Ruby 1.8
 platforms :mri_18 do
@@ -20,7 +20,7 @@ gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
 # General plugins
 
 # Blog plugin
-gem "middleman-blog", "~> 3.3.0"
+gem "middleman-blog"
 
 # favicon support (favicon PNG should be 144×144)
 gem "middleman-favicon-maker"

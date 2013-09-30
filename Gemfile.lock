@@ -104,6 +104,7 @@ GEM
     multi_json (1.8.0)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
+    oj (2.1.4)
     rack (1.5.2)
     rack-livereload (0.3.15)
       rack
@@ -160,6 +161,7 @@ DEPENDENCIES
   middleman-livereload
   middleman-syntax
   nokogiri
+  oj
   redcarpet
   ruby18_source_location
   therubyracer

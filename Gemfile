@@ -34,6 +34,9 @@ gem "middleman-syntax"
 # For feed.xml.builder
 gem "builder", "~> 3.0"
 
+# Better JSON lib
+gem "oj"
+
 
 #####
 # Bootstrap
@@ -41,8 +44,9 @@ gem "builder", "~> 3.0"
 # Bootstrap, as SASS 3 version (from master branch, until official release):
 gem "bootstrap-sass", github: "thomas-mcdonald/bootstrap-sass"
 
-# Bootstrap 3 version (from a fork; temporary also):
+# Bootstrap 3 version of navbar (from a fork; temporary also):
 gem "bootstrap-navbar", github: "delynn/bootstrap-navbar"
+
 # Bootstrap-navbar integration for Middleman
 gem "middleman-bootstrap-navbar"
 

@@ -1,0 +1,18 @@
+---
+title: Page not found
+---
+
+- content_for :page_styles do
+  = stylesheet_link_tag "404.css"
+
+%h1
+  Not found
+  %span :(
+%p Sorry, but the page you were trying to view does not exist.
+%p It looks like this was the result of either:
+%ul
+  %li a mistyped address
+  %li an out-of-date link
+:javascript
+  var GOOG_FIXURL_LANG = (navigator.language || '').slice(0,2),GOOG_FIXURL_SITE = location.host;
+%script{:src => "http://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"}

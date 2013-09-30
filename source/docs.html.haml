@@ -1,0 +1,48 @@
+%h1 hello
+
+-#= sitemap.where(:path.include => "docs").order_by(:priority).limit(10)
+=# find_resource_by_path('docs')
+
+=# current_page.path
+=# puts sitemap
+
+%ul
+  Children
+  - current_page.children.each do |p|
+    %li
+      Child:
+      %a{:href => p.url}
+        = p.path
+      = p.metadata[:page]['title'] || p.url.split('/').last.humanize
+
+      -# not working — not sure why
+      - p.children.each do |q|
+        %li
+          Foo?
+          = q.path
+
+-# not sure why this isn't working
+%p
+  = current_page.eponymous_directory_path
+  Hmm
+  = sitemap.find_resource_by_destination_path('docs/')
+
+%ul
+  Siblings:
+  - current_page.siblings.each do |p|
+    %li
+      Sibling:
+      = p.path
+
+Hmm
+
+%h1 tigert stuff:
+
+Sitemap:
+- sitemap.resources.each do |p|
+  %li
+    path:
+    = p.path
+
+%h3 Lorem Ipsum
+= lorem.paragraphs 10

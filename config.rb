@@ -47,6 +47,7 @@ set :partials_dir, 'layouts'
 # Blog settings
 ###
 
+=begin
 activate :blog do |blog|
   blog.prefix = "blog/"
   blog.tag_template = "tag.html"
@@ -70,6 +71,7 @@ activate :blog do |blog|
   blog.per_page = 10
   blog.page_link = "page/:num"
 end
+=end
 
 # Enable blog layout for all blog pages
 with_layout :blog_layout do

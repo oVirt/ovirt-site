@@ -41,7 +41,7 @@ ie- both exceeded.
 complete, its default value is **180s** (3 minutes). This value shouldn't be
 changed, as some VDSM operations require that time to complete.
 
-**vdsConnectionRetries** controls how long the engine waits for a connection
+**vdsConnectionTimeout** controls how long the engine waits for a connection
 to VDSM to complete. Its default value is 180s (3 minutes). This value should be
 reduced, and in fact its default value has already been changed to **2s** in 3.3.
 

@@ -18,7 +18,31 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Upcoming meetings
 
-#### 2013-09-09
+#### 2013-10-07
+
+#### Agenda
+
+*   Introductions
+*   Review of action items
+*   Hosting
+    -   rackspace03 installed?
+*   Puppet
+*   Jenkins
+*   Other business?
+*   Trac review
+
+#### Action items from last week
+
+*   ewoud puppetize artifactory
+*   ewoud deploy settings.xml to all jenkins slaves
+*   dcaro make sure jobs use the new settings.xml file
+*   dcaro investigate jenkins@linode01 emails origin
+
+## Past meetings
+
+#### 2013-09-30
+
+"[Minutes](http://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-09-30-13.58.html)"
 
 *   Introductions
 *   Review of action items
@@ -28,7 +52,17 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Other business?
 *   Trac review
 
-## Past meetings
+#### 2013-09-09
+
+"[Minutes](http://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-09-09-13.59.html)"
+
+*   Introductions
+*   Review of action items
+*   Hosting
+*   Puppet
+*   Jenkins
+*   Other business?
+*   Trac review
 
 #### 2013-08-19
 
@@ -131,31 +165,6 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 ### 2013-05-13
 
 *[Minutes](http://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-05-13-14.07.html)*
-
-#### Agenda
-
-*   Introductions
-*   Review of action items
-*   Hosting
-    -   rackspace01 installed?
-*   Puppet
-*   Jenkins
-*   Other business?
-*   Trac review
-
-#### Action items from last week
-
-*   eedri to send a vote request to list on making knesenko infra memeber for administrating jenkins,foreman,puppet
-*   eedri document the new infra member process as it goes on
-*   quaid look for compatible times for a docs sprint
-*   dcaro eedri install the rackspace servers
-*   Rydekull Add the jenkins slaves on a list on the wiki
-*   ewoud restart the puppet ML thread
-*   ewoud look into running piwik on openshift
-*   knesenko talk to eedri about making work more transparant
-*   knesenko handle jenkins backup and add script to jenkins git repo
-*   ewoud install foreman.ovirt.org
-*   dneary set up piwik
 
 ### 2013-05-06
 

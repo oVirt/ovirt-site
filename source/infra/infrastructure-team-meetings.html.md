@@ -20,7 +20,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 #### 2013-10-07
 
-#### Agenda
+###### Agenda
 
 *   Introductions
 *   Review of action items
@@ -31,7 +31,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Other business?
 *   Trac review
 
-#### Action items from last week
+###### Action items from last week
 
 *   ewoud puppetize artifactory
 *   ewoud deploy settings.xml to all jenkins slaves

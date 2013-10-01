@@ -183,6 +183,10 @@ To actually get the DEBUG messages to those handlers add the following to the en
 
 Restart the Jboss instance and you should see the logs.
 
+#### Enable query by query postgresql log
+
+Go to /var/lib/pgsql/data/postgresql.conf and change *log_statement* to 'all'. You can then find the logs in /var/lib/pgsql/data/pg_log/.
+
 #### Enable Unit Tests
 
       $ make install-dev PREFIX="$HOME/ovirt-engine" BUILD_UT=1

@@ -1,21 +1,40 @@
 - wrap_layout :layout do
-  = yield
-  %aside
-    %h2 Recent Articles
-    %ol
-      - blog.articles[0...10].each do |article|
-        %li
-          = link_to article.title, article
-          %span= article.date.strftime('%b %e')
-    %h2 Tags
-    %ol
-      - blog.tags.each do |tag, articles|
-        %li
-          = link_to tag, tag_path(tag)
-          (#{articles.size})
-    %h2 By Year
-    %ol
-      - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
-        %li
-          = link_to year, blog_year_path(year)
-          (#{articles.size})
+  .row
+
+    .col-sm-8
+
+      %h2= current_page.data.title
+
+      .meta
+        = pretty_date(current_page.data.date)
+        = current_page.data.authors
+        -# current_page.data.authors.split(',').each do |author|
+          = pluralize current_page.data.authors.split(','), "Author:"
+          - each current_page.data.authors.split(',') do |author|
+            %p= author
+
+      = yield
+
+    .col-sm-4
+
+      %aside
+        %h3 Recent Articles
+        %ol
+          - blog.articles[0...10].each do |article|
+            %li
+              = link_to article.title, article
+              %span= pretty_date(article.date)
+
+        %h3 Tags
+        %ol
+          - blog.tags.each do |tag, articles|
+            %li
+              = link_to tag, tag_path(tag)
+              (#{articles.size})
+
+        %h3 By Year
+        %ol
+          - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
+            %li
+              = link_to year, blog_year_path(year)
+              (#{articles.size})

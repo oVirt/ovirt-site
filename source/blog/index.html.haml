@@ -9,18 +9,18 @@ pageable: true
   .post
 
     %a{:href => article.url}
-      %h3= article.title
+      %h2= article.title
 
-    %p= article.summary
+    %p= article.summary 200000
 
     .post_info
       .date
-        = article.date.strftime('%b %d, %Y')
+        = pretty_date(article.date)
 
     %a.btn{:href => article.url} Read
 
 
-- if prev_page || next_page
+- if prev_page or next_page
 
   %ul.pagination
 
@@ -32,7 +32,7 @@ pageable: true
       - else
         %span Prev
 
-    - (page_number - 2 .. page_number + 2).select{|i| i > 0 && i <= num_pages}.each do |i|
+    - (page_number - 4 .. page_number + 4).select{|i| i > 0 && i <= num_pages}.each do |i|
 
       - if i == page_number
         %li.active

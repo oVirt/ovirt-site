@@ -71,15 +71,15 @@ activate :blog do |blog|
   #blog.taglink = "tags/:tag.html"
 
   #blog.summary_separator = /(READMORE)/
-  #blog.summary_length = 250
+  #blog.summary_length = 99999
 
   blog.paginate = true
   blog.per_page = 10
   blog.page_link = "page/:num"
 end
 
-activate :authors
-activate :drafts
+#activate :authors
+#activate :drafts
 
 # Enable blog layout for all blog pages
 with_layout :blog_layout do
@@ -140,11 +140,27 @@ page "/sitemap.xml", :layout => false
 #     "Helping"
 #   end
 # end
-
 helpers do
   def find_url(dirty_URL)
     r = url_for Middleman::Util.normalize_path(dirty_URL)
     r.sub(/\/$/, '')
+  end
+
+  # FIXME: This is a WIP; it's not working though...
+  def pretty_date(sometime)
+    #sometime = ActiveSupport::TimeZone[zone].parse(sometime) unless sometime.is_a?(Date)
+    sometime = Date.strptime(sometime, "%Y-%m-%d") if sometime.is_a?(String)
+=begin
+    if date.is_a?(String)
+      date = Date.parse(date)
+    end
+
+    result = date.strftime("%B %d")
+    result << date.strftime(", %Y") if date.year > Time.now.year
+=end
+
+    #return sometime.to_formatted_s(:short)
+    return sometime#.strftime("%d %B")
   end
 end
 

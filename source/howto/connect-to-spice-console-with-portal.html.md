@@ -58,6 +58,13 @@ So what happens when you hit the "Console" button?
 
 ### Make JBoss aware of the Files
 
+#### ovirt-engine-3.3.1 and newer
+
+1.  . Put spice artifacts (cabs) into a directory, example /usr/share/spice
+2.  . Create symlink /usr/share/ovirt-engine/files/spice -> /usr/share/spice
+
+#### ovirt-engine-3.3.0 and older
+
 *   You will now need to let JBoss know how to host, where to host and what type of files these are
 *   This will require the following modifications to /usr/share/ovirt-engine/engine.ear/root.war/WEB-INF/web.xml
 *   Open /usr/share/ovirt-engine/engine.ear/root.war/WEB-INF/web.xml and make the following modifications:

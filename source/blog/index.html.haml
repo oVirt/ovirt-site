@@ -1,0 +1,54 @@
+---
+title: My Blog
+body_class: index
+pageable: true
+---
+
+- page_articles.each do |article|
+
+  .post
+
+    %a{:href => article.url}
+      %h3= article.title
+
+    %p= article.summary
+
+    .post_info
+      .date
+        = article.date.strftime('%b %d, %Y')
+
+    %a.btn{:href => article.url} Read
+
+
+- if prev_page || next_page
+
+  %ul.pagination
+
+    %li{:class => prev_page ? "" : "disabled"}
+
+      - if prev_page
+        =link_to "Prev", prev_page.url
+
+      - else
+        %span Prev
+
+    - (page_number - 2 .. page_number + 2).select{|i| i > 0 && i <= num_pages}.each do |i|
+
+      - if i == page_number
+        %li.active
+          %span= i
+
+      - else
+        %li
+          - p = nil
+          - (i ... page_number).each do p = p ? p.metadata[:locals]['prev_page'] : prev_page; end
+          - (page_number ... i).each do p = p ? p.metadata[:locals]['next_page'] : next_page; end
+          =link_to "#{i}", (p && p.url)
+
+    %li{:class => next_page ? "" : "disabled"}
+
+      - if next_page
+        =link_to "Next", next_page.url
+
+      - else
+        %span Next

@@ -46,7 +46,7 @@ to VDSM to complete. Its default value is 180s (3 minutes). This value should be
 reduced, and in fact its default value has already been changed to **2s** in 3.3.
 
 **vdsRetries** controls how many times failed VDSM operations should be
-retried. Its default value is 3.
+retried. Its default value is 3 in 3.2, while in 3.3 it was changed to 0.
 
 With these default values a host that goes completely down and doesn't respond
 at all will take at least 6 minutes to be fenced: the reason is that any operation will

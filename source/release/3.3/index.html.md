@@ -120,5 +120,6 @@ In anticipation of the 3.3 release, a number of deep dive presentations into 3.3
 *   Network QoS / vNIC Profiles presentation ![](VNIC_Profiles.odp "fig:VNIC_Profiles.odp")
 *   Scheduling in oVirt 3.3 deep dive ![](Scheduler-Deep-Dive-oVirt.pdf "fig:Scheduler-Deep-Dive-oVirt.pdf")
 *   Hosted engine deep dive ![](Hosted Engine Deep Dive.pdf "fig:Hosted Engine Deep Dive.pdf")
+*   Packaging ![](ovirt 3.3 - packaging.pdf "fig:ovirt 3.3 - packaging.pdf")
 
 <Category:Documentation> <Category:Releases>

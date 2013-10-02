@@ -21,6 +21,11 @@ gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
 
 # Blog plugin
 gem "middleman-blog"
+gem "middleman-blog-drafts"
+gem "middleman-blog-authors"
+
+# Thumbnailer
+#gem "middleman-thumbnailer", github: "nhemsley/middleman-thumbnailer"
 
 # favicon support (favicon PNG should be 144×144)
 gem "middleman-favicon-maker"

@@ -78,6 +78,9 @@ activate :blog do |blog|
   blog.page_link = "page/:num"
 end
 
+activate :authors
+activate :drafts
+
 # Enable blog layout for all blog pages
 with_layout :blog_layout do
   page "/blog.html"

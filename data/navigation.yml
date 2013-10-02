@@ -1,4 +1,9 @@
-about: "#foo"
-q&a: "#foo"
-tools: "#foo"
-docs: "#foo"
+- Home: "/"
+- Blog: /blog
+- Menu1: "optional_nojs_fallback_link"
+  boo: "#bleh"
+  boo2: "#bleh"
+- Menu w/o link:
+  boo: "#bleh"
+- text string
+- text string w/o a link:

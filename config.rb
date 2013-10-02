@@ -17,22 +17,30 @@ activate :automatic_image_sizes
 # Syntax highlighting
 activate :syntax
 
+# Bootstrap navbar
+activate :bootstrap_navbar
+
 # Make URLs relative
 set :relative_links, true
 
 # Set HAML to render HTML5 by default (when unspecified)
-set :haml, { :format => :html5 }
+set :haml, :format => :html5
 
 # Set Markdown features for RedCarpet
 # (So our version of Markdown resembles GitHub's)
-set :markdown, {
+set :markdown,
   :tables => true,
   :autolink => true,
   :gh_blockcode => true,
   :fenced_code_blocks => true,
   :smartypants => true
-}
+
 set :markdown_engine, :redcarpet
+
+set :asciidoctor,
+  :toc => true,
+  :numbered => true
+
 
 # Set directories
 set :css_dir, 'stylesheets'
@@ -42,25 +50,23 @@ set :images_dir, 'images'
 set :partials_dir, 'layouts'
 
 
-
 ###
 # Blog settings
 ###
 
-=begin
 activate :blog do |blog|
   blog.prefix = "blog/"
+  blog.layout = "blog_layout"
   blog.tag_template = "tag.html"
   blog.calendar_template = "calendar.html"
-
   blog.default_extension = ".md"
+
   blog.sources = ":year-:month-:day-:title.html"
   blog.permalink = ":year/:month/:day/:title.html"
   blog.year_link = ":year.html"
   blog.month_link = ":year/:month.html"
   blog.day_link = ":year/:month/:day.html"
 
-  blog.layout = "blog_layout"
 
   #blog.taglink = "tags/:tag.html"
 
@@ -71,7 +77,6 @@ activate :blog do |blog|
   blog.per_page = 10
   blog.page_link = "page/:num"
 end
-=end
 
 # Enable blog layout for all blog pages
 with_layout :blog_layout do
@@ -133,6 +138,13 @@ page "/sitemap.xml", :layout => false
 #   end
 # end
 
+helpers do
+  def find_url(dirty_URL)
+    r = url_for Middleman::Util.normalize_path(dirty_URL)
+    r.sub(/\/$/, '')
+  end
+end
+
 
 ###
 # Development-only configuration
@@ -147,8 +159,6 @@ configure :development do
     config.sass_options = {:debug_info => true, :line_comments => true}
   end
 end
-
-
 
 # Build-specific configuration
 configure :build do
@@ -183,6 +193,9 @@ configure :build do
   # Or use a different image path
   # set :http_path, "/Content/images/"
 
-  # Favicon PNG should be 144×144 and in source/favicon_base.png
-  activate :favicon_maker
+  # Favicon PNG should be 144×144 and in source/images/favicon_base.png
+  activate :favicon_maker,
+    favicon_maker_input_dir: "source/images",
+    favicon_maker_output_dir: "build/images",
+    favicon_maker_base_image: "favicon_base.png"
 end

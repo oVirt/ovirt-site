@@ -21,7 +21,7 @@ Backup and Restore will be REST API driven (and not GUI/User driven).
 ### Owner
 
 *   Feature owner: Ayal Baron <abaron@redhat.com>
-*   Engine Component owner: Liron Aravot <laravot@redhat.com> Maor Lipchuk <mlipchuk@redhat.com>
+*   Engine Component owner: Liron Aravot <laravot@redhat.com>
 *   VDSM Component owner: Federico Simoncelli <fsimonce@redhat.com>
 
 ### Detailed Description

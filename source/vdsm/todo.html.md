@@ -44,6 +44,10 @@ wiki_last_updated: 2015-05-29
 
 *   ~~require only what we actually use in libvirt, instead of the whole libvirt.rpm.~~ done in Vdsm and mom. <http://gerrit.ovirt.org/#/c/15760/>
 
+<!-- -->
+
+*   make vdsm.rpm noarch by moving safelease to its own subrpm
+
 ### Testing
 
 *   ~~write an automatic script that runs on each and every new change to gerrit, and adds an insulting comment if `pyflakes` fails for the new change.~~ Thanks, Robert!

@@ -71,6 +71,7 @@ Note that on the domain side, VDSM still uses gluster mount point as the root of
 *   Other packages that are needed on the hypervisor host (aka VDSM host) are...
     -   Needs minm libvirt version 1.0.1 (which has the gluster protocol/network disk support)
     -   Needs qemu version 1.3 (which has the gluster block backend support)
+    -   Needs vdsm-gluster plugin, which pulls in all the related requirements (glusterfs, etc)
 
 ### Performance Numbers
 

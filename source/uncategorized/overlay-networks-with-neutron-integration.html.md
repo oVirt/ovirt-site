@@ -10,4 +10,6 @@ wiki_last_updated: 2013-12-23
 
 Install oVirt 3.3 Setup a couple of hosts
 
-Setup a couple of (separate) RHEL 6.5 hosts to be used by OpenStack On RHEL 6.5 OpenStack hosts, install iproute 2 that supports namespaces (For example 2.6.32-130): <https://brewweb.devel.redhat.com/buildinfo?buildID=297968>
+Setup a couple of (separate) RHEL 6.5 hosts to be used by OpenStack
+
+On RHEL 6.5 OpenStack hosts, install iproute 2 that supports namespaces (For example 2.6.32-130): <https://brewweb.devel.redhat.com/buildinfo?buildID=297968>

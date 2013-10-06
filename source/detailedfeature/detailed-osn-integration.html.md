@@ -76,13 +76,18 @@ The integration of network providers into oVirt will be incremental. The followi
 
 #### Integration with virtual NIC lifecycle
 
-*   Integration will be done at this phase for running virtual machine and hot plug/unplug of NICs.
+*   Port creation on the external network will be done at this phase for running virtual machine and hot plug of NICs.
     -   Rewiring will **not** be supported for externally provided networks (Will be supported in a future phase).
 *   When VM is being run we need to include all hosts in the cluster for scheduling decision of available networks.
-*   For each virtual NIC that is using an externally provided network, we would need to provision the NIC on the provider and receive the NIC connection details prior to running the VM.
+*   For each virtual NIC that is using an externally provided network, we would need to provision the NIC (create port or use existing one) on the provider and receive the NIC connection details prior to running the VM.
     -   Once we have all the details available, we would need to pass those details to VDSM.
         -   This requires API change in the 'create' verb that would pass the connection details for each NIC.
-*   On VM stop, we need to "un-provision" the NIC of each externally provided network from the relevant provider
+*   The port will be deleted in these cases:
+    -   The virtual NIC is deleted from the VM.
+    -   The virtual VNIC profile is changed, so that it is no longer connected to the external network.
+    -   The VM is deleted.
+    -   The data center containing the external networks is deleted forcefully.
+    -   Snapshot operations (Preview, Commit, Undo) on the VM.
 
 ### Future phases
 

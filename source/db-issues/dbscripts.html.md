@@ -14,7 +14,9 @@ If those parameters are not given, defaults defined in *dbcustomfunctions.sh* *s
 
 ### How to create a new database?
 
-       create_db.sh [-h] [-s SERVERNAME [-p PORT]] [-d DATABASE] [-u USERNAME] [-f UUID] [-l LOGFILE] [-v]
+From root account perform:
+
+      su - postgres -c "psql -d template1 -c "create database `<database_name>`  owner engine;""
 
 ### How to create a new database for developers?
 

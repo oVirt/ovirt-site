@@ -291,13 +291,9 @@ Please see the [feature page](Features/OSN_Integration).
 
 ## Open Issues
 
-*   Authentication - how to do it?
-    -   Neutron supports only noauth/keystone auth modes.
-        -   Configuring keystone adds an additional dependency for the administrator to handle.
-    -   Need to decide which of these modes we will support in Phase 1 (actually, noauth is already supported, but obviously not secure).
 *   Scheduling:
-    -   Neutron doesn't expose an API to know which hosts will be able to provision it's networks.
-    -   Perhaps Grizzly will have better support for it, still not certain.
+    -   Neutron exposes an API (Agent Scheduler) which can be used to know which hosts will be able to provision it's networks.
+        -   Need to take advantage of this.
 *   [Libvirt bug](https://bugzilla.redhat.com/878481) still not solved, but we have a fix for it as a post-start hook.
 *   REST API support will not be available in Phase 1, how will this effect the REST API clients?
 

@@ -369,6 +369,10 @@ This change adds VM Device Type for Display Type in property file. The attribute
 
 The attribute VM Device Type in the Display Type now is the default value if none is found in the os file.
 
+### TODO
+
+*   change DisplayType.qxl to DisplayType.spice which is more appropriate and reads clearer both in config and in the code
+
 ## Benefits to oVirt
 
 oVirt will be able to support IBM POWER processor based hosts and have a code base design suitable to include new architectures.

@@ -22,9 +22,11 @@ No need for a yum update or reboot.
 
 Install packstack: sudo yum install -y openstack-packstack
 
-packstack --allinone (On the controller host)
+Make packstack generate an answer file:
 
-An answer file will be created in /root/
+packstack --gen-answer-file=<file name>
+
+An answer file will be created in /root/<file name>
 
 Edit it, change:
 
@@ -38,6 +40,10 @@ And change the tunnel ranges to:
 
 CONFIG_NEUTRON_OVS_TUNNEL_RANGES=1:1000
 
-Now re-run: packstack --answer-file=$file
+Finally, add the compute nodes IP to this comma separated list:
+
+CONFIG_NOVA_COMPUTE_HOSTS=
+
+Now run: packstack --answer-file=<file name>
 
 Check if required: NOTE: When using GRE, set the MTU in the Guest to 1400, this will allow for the GRE header and no packet fragmentation. Also you should set TSO to off on the instance machine for outbound traffic to work. This can be done by this command : ethtool -K eth0 tso off . You can create a bash script for init.d to run it at startup.

@@ -76,6 +76,8 @@ The integration of network providers into oVirt will be incremental. The followi
 
 #### Integration with virtual NIC lifecycle
 
+![A flow chart outlining the major lifecycle stages and the transitions between them.](Neutron_vNIC_lifecycle.png "A flow chart outlining the major lifecycle stages and the transitions between them.")
+
 *   Port creation on the external network will be done at this phase for running virtual machine and hot plug of NICs.
     -   Rewiring will **not** be supported for externally provided networks (Will be supported in a future phase).
 *   When VM is being run we need to include all hosts in the cluster for scheduling decision of available networks.

@@ -18,10 +18,6 @@ From root account perform:
 
       su - postgres -c "psql -d template1 -c "create database `<database_name>`  owner engine;""
 
-### How to create a new database for developers?
-
-       create_db_devel.sh [-h] [-s SERVERNAME [-p PORT]] [-d DATABASE] [-u USERNAME] [-f UUID] [-l LOGFILE] [-v]
-
 ### How to upgrade a database?
 
        upgrade.sh [-h] [-s SERVERNAME] [-p PORT] [-d DATABASE] [-u USERNAME] [-f VERSION] [-c] [-v]

@@ -372,6 +372,7 @@ The attribute VM Device Type in the Display Type now is the default value if non
 ### TODO
 
 *   change DisplayType.qxl to DisplayType.spice which is more appropriate and reads clearer both in config and in the code
+*   refactor and cleanup CpuFlagManager so it would be open to extention - started with <http://gerrit.ovirt.org/#/c/19905>
 
 ## Benefits to oVirt
 

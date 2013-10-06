@@ -21,3 +21,5 @@ No need for a yum update or reboot.
 "Due to the quantum/neutron rename, SELinux policies are currently broken for Havana, so SELinux must be disabled/permissive on machines running neutron services, edit /etc/selinux/config to set SELINUX=permissive."
 
 Install packstack: sudo yum install -y openstack-packstack
+
+packstack --allinone (On the controller host)

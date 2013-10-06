@@ -22,4 +22,6 @@ No need for a yum update or reboot.
 
 Install packstack: sudo yum install -y openstack-packstack
 
-packstack --allinone (On the controller host)
+packstack --allinone (On the controller host) (???)
+
+Check if required: NOTE: When using GRE, set the MTU in the Guest to 1400, this will allow for the GRE header and no packet fragmentation. Also you should set TSO to off on the instance machine for outbound traffic to work. This can be done by this command : ethtool -K eth0 tso off . You can create a bash script for init.d to run it at startup.

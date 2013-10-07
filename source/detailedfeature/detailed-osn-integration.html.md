@@ -25,7 +25,7 @@ We intend to add support for OpenStack Neutron as a network provider. Please see
 ## Current status
 
 *   Target Release: oVirt 3.3
-*   Status: Finished
+*   Status: Finished phase 1
 *   Last updated: ,
 
 ## Detailed Description

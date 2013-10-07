@@ -1,10 +1,12 @@
--# If data_source isn't specified in locals, then default to "navigation"
+-# If source isn't specified in locals, then default to "navigation"
 -#
--# Example for custom data_source:
+-# Example for custom source:
 -#
--#   = partial :nav, locals: { data_source: "navigation" }
+-#   = partial :nav, locals: { source: "navigation" }
 -#
-- data_source ||= "navigation"
+
+- source ||= "navigation"
+
 
 -# Additional classes are also supported on the nav
 -#
@@ -12,14 +14,16 @@
 -#
 -#   = partial :nav, locals: { nav_class: "nav_inverse" }
 -#
-- nav_class ||= "nav-pills"
+-# nav_class ||= "nav-pills"
+-# nav_class ||= "nav-stacked"
+- nav_class ||= "nav-stacked"
 
 -# Unless specified, the link for any brand used is /
 -#
 - brand_link ||= "/"
 
 
--# Navigation is automatically rendered from ../../data/{DATA_SOURCE}.yml
+-# Navigation is automatically rendered from ../../data/{source}.yml
 -# There is support for one-level depth.
 -# Top level items should start with a "-"; second-level should be indented.
 -#
@@ -34,34 +38,68 @@
 -# Bar is a dropdown title (with an optional link — it can be empty), as it has children
 -# Baz and Baz2 are children links to Bar.
 
-- if data.has_key? data_source
+:ruby
+
+  def nav_link(text, link)
+    active_class = normalize_url(link) == normalize_url(current_page.url) ? '.active' : ''
+
+    text = link.split('/').last.humanize if text.empty? || text == "-"
+
+    html = capture_haml do
+      haml_tag "li" + active_class do
+        haml_tag :a, text, { href: link || '#' }
+      end
+    end
+
+    #link_to text, link || '#', class: 'navlink-' + text.parameterize + active_class
+
+    html
+    #current_page.url
+  end
+
+  def nav_header(text)
+    capture_haml do
+      haml_tag "li.disabled" do
+        haml_tag :a, text
+      end
+    end
+  end
+
+
+- if data.has_key? source
 
   %ul.nav(role="navigation" class="#{nav_class}")
 
-    - data[data_source].each do |item|
+    - data[source].each do |item|
 
       - if item.is_a?(String)
 
-        -#%p.nav-text= item.parameterize
-
-      - elsif item.count == 1
-        
-        - item.each do |text, link|
-
-          - if link
-            %li= link_to text, link, class: 'nav-' + text.parameterize
-
-          - else
-            -#%p.nav-text{class: text.parameterize}= text
+        = nav_header item
 
       - else
 
-        %li.dropdown
-          %a.dropdown-toggle(data-toggle="dropdown" href="#{item.first[1] || '#'}" class="#{item.first[0].parameterize}")
-            = item.first[0]
-            %span.caret
+        - item.each do |text, link|
 
-          %ul.dropdown-menu(role="menu")
-            - item.each do |text, link|
-              - unless text == item.first[0]
-                %li= link_to text, link, class: 'nav-' + text.parameterize
+          - if item.count == 1
+
+            - if link
+              = nav_link text, link
+
+            - else
+              = nav_header text
+
+          - else
+
+            %li
+
+              -# Check for the existance of a link
+              - if !link
+                = nav_header text
+
+              - else
+                = nav_link text, link
+
+              %ul.nav(role="menu")
+                - item.each do |text, link|
+                  - unless text == text
+                    = nav_link text, link

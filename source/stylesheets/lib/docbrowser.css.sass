@@ -1,0 +1,22 @@
+.nav.docbrowser
+  background-color: #f2f2f2
+  border-radius: 6px
+  overflow: hidden
+
+  li
+
+    a
+      //border-radius: 6px
+
+    &.active
+      a
+        background-color: mix(#bdf, #eee, 50)
+
+    &.disabled
+      font-size: 12pt
+
+      a
+        cursor: default !important
+
+      &:not(:first-child)
+        padding-top: 1em

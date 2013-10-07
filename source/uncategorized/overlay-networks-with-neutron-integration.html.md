@@ -8,6 +8,8 @@ wiki_last_updated: 2013-12-23
 
 # Overlay Networks with Neutron Integration
 
+![](oVirt_Neutron_GRE.jpeg "oVirt_Neutron_GRE.jpeg")
+
 Install oVirt 3.3 Setup a couple of RHEL 6.5 hosts, run yum update.
 
 On the RHEL 6.5 host that will be used as the Neutron server, L3 agent and DHCP agent - Install iproute 2 that supports namespaces (For example 2.6.32-130): <https://brewweb.devel.redhat.com/buildinfo?buildID=297968>

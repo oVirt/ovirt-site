@@ -1,5 +1,6 @@
 - Home: "/"
 - Blog: /blog
+- Documentation: /documentation
 - Menu1: "optional_nojs_fallback_link"
   boo: "#bleh"
   boo2: "#bleh"

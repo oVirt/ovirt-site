@@ -89,7 +89,7 @@ The integration of network providers into oVirt will be incremental. The followi
     -   The virtual VNIC profile is changed, so that it is no longer connected to the external network.
     -   The VM is deleted.
     -   The data center containing the external networks is deleted forcefully.
-    -   Snapshot operations (Preview, Commit, Undo) on the VM.
+    -   Snapshot operations (Preview, Undo) on the VM.
 
 ### Future phases
 

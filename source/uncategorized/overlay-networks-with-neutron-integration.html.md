@@ -42,6 +42,12 @@ And change the tunnel ranges to:
 
 CONFIG_NEUTRON_OVS_TUNNEL_RANGES=1:1000
 
+Finally change:
+
+CONFIG_NEUTRON_OVS_TUNNEL_IF=<ethX>
+
+To the device which faces the compute nodes.
+
 Now run: packstack --answer-file=<file name>
 
 Check if required: NOTE: When using GRE, set the MTU in the Guest to 1400, this will allow for the GRE header and no packet fragmentation. Also you should set TSO to off on the instance machine for outbound traffic to work. This can be done by this command : ethtool -K eth0 tso off . You can create a bash script for init.d to run it at startup.

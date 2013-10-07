@@ -40,27 +40,31 @@
 
 :ruby
 
-  def nav_link(text, link)
-    active_class = normalize_url(link) == normalize_url(current_page.url) ? '.active' : ''
-
-    text = link.split('/').last.humanize if text.empty? || text == "-"
-
-    html = capture_haml do
-      haml_tag "li" + active_class do
-        haml_tag :a, text, { href: link || '#' }
-      end
-    end
-
-    #link_to text, link || '#', class: 'navlink-' + text.parameterize + active_class
-
-    html
-    #current_page.url
-  end
-
-  def nav_header(text)
+  def nav_header text
     capture_haml do
       haml_tag "li.disabled" do
         haml_tag :a, text
+      end
+    end
+  end
+
+
+  def nav_link text, link, &block
+    return if text.empty? && link.empty?
+
+    # If there's no link, call nav_header instead
+    return nav_header(text) if link.nil?
+
+    # Set the active class, if applicable
+    active_class = normalize_url(link) == normalize_url(current_page.url) ? '.active' : ''
+
+    # If the title wasn't specified in YAML, use the filename
+    text = link.split('/').last.humanize if (text.empty? || text == "-")
+
+    capture_haml do
+      haml_tag "li" + active_class do
+        haml_tag :a, text, { href: link || '#' }
+        block.call if defined? block
       end
     end
   end
@@ -90,14 +94,7 @@
 
           - else
 
-            %li
-
-              -# Check for the existance of a link
-              - if !link
-                = nav_header text
-
-              - else
-                = nav_link text, link
+            = nav_link text, link do
 
               %ul.nav(role="menu")
                 - item.each do |text, link|

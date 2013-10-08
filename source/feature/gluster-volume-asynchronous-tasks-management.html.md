@@ -65,13 +65,21 @@ User flow that's given in "Rebalance Volume" and "Remove Brick" section, has bee
 
 Now the "Rebalance" menu does not have any of the Start, Stop and Status sub-menu. And this menu would come before the "Optimization for Virt Store".
 
-To Start Rebalance operation on a volume: User goes to the volume tab and selects one or more volume and clicks the "Rebalance" menu (Note : Rebalance menu will not be activated, when no row in the Volume table is selected. Currently no default row is selected when the user comes to the volume page ). This will start the rebalance operation on the selected Volume(s) and the "Activities" column for those volume will show an icon indicating that the rebalance operation is on progress on those volumes. The rebalance-progress icon will be changed to rebalance-completed-successfully icon, once the rebalance task on the volume is finished successfully. If the rebalance operation fails on any of the selected volumes, then the icon will change to rebalance-fail icon.
+To Start Rebalance operation on a volume: User goes to the volume tab and selects one or more volume and clicks the "Rebalance" menu (Note : Rebalance menu will not be activated, when no row in the Volume table is selected. Currently no default row is selected when the user comes to the volume page ). This will start the rebalance operation on the selected Volume(s) and the "Activities" column for those volume will show an icon indicating that the rebalance operation is on progress on those volumes. The rebalance-progress icon will be changed to rebalance-completed-successfully icon, once the rebalance task on the volume is finished successfully. If the rebalance operation fails on any of the selected volumes, then the icon will change to rebalance-fail icon. If all the bricks of the selected volume is down ( volume status is shown with yellow-exclamation mark ), then the pressing Rebalance menu would give a proper warning, saying rebalance operation can not be started.
 
 The rebalance progress icon, will also have a drop down arrow, which can be clicked by the end user to get the context sensitive menu. Upon clicking that, a menu will be shown. If the rebalance operation is in-progress on the volume, then the following two menu items will be shown. "Stop" and "Status". Otherwise, it will show only the "Status" menu.
 
 If the user clicks the "Stop" menu, user will be given a confirmation dialogue, which would ask "Do you want to stop the rebalance operation on the selected volume?". If the user presses the "Yes", then the rebalance operation on that volume will be stopped and rebalance-status dialogue will be shown (no change in status dialogue). If the user presses the "No" button, then the rebalance operation will not be stopped and this dialogue will be closed.
 
 If the user clicks the "Status" menu, then rebalance-status dialogue will be shown (it will be same as already given description bellow)
+
+Smilarly the Remove brick
+
+Few other items, that are modified in the course of Corbett are as follows : There is not a whole lot of change, but it makes sense to have them captured....
+
+1. When one or more brick is down in a volume, volume status would be shown as Yellow-Up arrow ( volume service is still up )
+
+2. If all the bricks are down in a volume, volume status would be shown as Yellow-Up Arrow + Yellow-exclamation mark ( volume service is till up )
 
 ### Rebalance Volume
 

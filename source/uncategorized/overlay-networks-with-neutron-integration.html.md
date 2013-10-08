@@ -34,6 +34,14 @@ An answer file will be created in /root/<file name>
 
 Edit it, change:
 
+All of the IP addresses to the IP address of the host's "internal" network's device, apart from:
+
+CONFIG_HORIZON_HOST=<public_network_ip>
+
+CONFIG_NOVA_VNCPROXY_HOST=<public_network_ip>
+
+For neutron GRE:
+
 CONFIG_NEUTRON_OVS_TENANT_NETWORK_TYPE=local
 
 To:

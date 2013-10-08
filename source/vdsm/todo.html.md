@@ -95,7 +95,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   Use tmpfile.d when needed.
+*   ~~Use tmpfile.d when needed.~~
 
 <!-- -->
 

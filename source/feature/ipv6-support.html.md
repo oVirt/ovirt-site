@@ -240,6 +240,11 @@ Now you should be able to control vdsmd with vdsClient using IPv6 addresses:
 
 Where 'IPv6 link-local addr' is address of IPv6 link local address of bridge ovirtmgmt (e.g. [fe80::5054:ff:fe05:25f3%ovirtmgmt]). Each of this command should work as in normal manner.
 
+*   define a VM with IPv6 display network, and connect to it via vnc and spice.
+*   migrate a VM over a migration network with an IPv6 address
+*   connect to an NFS/iSCSI storage server over IPv6
+*   fence a host over IPv6.
+
 #### VDSM API
 
 *   Test functionality of newly added attributes to @NetworkOptions, @SetupNetworkNetAttributes

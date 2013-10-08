@@ -58,7 +58,9 @@ $ openssl passwd -salt 42 ovirt
 *   To enable the debug mode during install pass `node.log_level=debug` as a kernel argument
 *   The setup TUI also has a debug mode - this will log much mroe stuff and print the stracktraces on the screen. This mode can be entered by following the steps:
     -   Drop to shell (using F2)
-    -   re-run th eseutp using `ovirt-node-setup --debug`
+    -   re-run the setup using `ovirt-node-setup --debug`
+
+All relevant config files are named in the [Log Files](Log Files) section.
 
 ### Setting manually oVirt Node root password
 

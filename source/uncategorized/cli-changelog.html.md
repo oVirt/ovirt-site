@@ -8,6 +8,13 @@ wiki_last_updated: 2013-11-14
 
 # Cli-changelog
 
+         * Wed Oct  9 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.3.0.5-1
+         - incorrect property to python built-in symbol encapsulation #1015975
+         - make ctrl-c breaking the command rather than existing shell #869269
+         - unclear error message when logging into cli with bad formatted url #960876
+         - update power management agent type via CLI failed #1005751
+         - fix session_timeout help #1005749
+
          * Tue Jul  16 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.3.0.3-1
          - refactor "connect" command help
          - remove support for --password option #983713

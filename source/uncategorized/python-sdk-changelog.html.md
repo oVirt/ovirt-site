@@ -8,6 +8,16 @@ wiki_last_updated: 2013-12-25
 
 # Python-sdk-changelog
 
+         * Wed  Oct 9 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.3.0.7-1
+         - added fqdn property to GuestInfo
+         - to DataCenterStorageDomainDisk added export() action
+         - to StorageDomainDisk added export() action
+         - to TemplateDisk added export() action
+         - to VMDisk added export() action
+         - to Disk added export() action
+         - refine host add()/update() documentation
+         - VCpuPin parameter rename
+
          * Tue  Sep 3 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.3.0.6-1
          - added StorageDomainStorageConnection.delete(async) signature
          - added StorageDomainStorageConnections.add(storageconnection, expect, correlationId) signature

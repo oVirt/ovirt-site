@@ -8,6 +8,19 @@ wiki_last_updated: 2013-12-25
 
 # Java-sdk-changelog
 
+      * Wed  Oct 9 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.18-1
+      - added fqdn property to GuestInfo
+      - refine host add()/update() documentation
+      - to DataCenterStorageDomainDisk added exportDisk() action
+      - to StorageDomainDisk added exportDisk() action
+      - to TemplateDisk added exportDisk() action
+      - to VMDisk added exportDisk() action
+      - to Disk added exportDisk() action
+      - update function doesn't have overloading methods #1008176
+      - setupnetworks doesn't work #1008458
+      - apache PropertyUtilsBean throws NoSuchMethodException #1007266
+      - session_timeout parameter doesn't exists in API constructor #1007231
+
       * Wed  Sep 11 2013 Michael Pasternak `<mpastern@redhat.com>`  - 1.0.0.17 -1
       - VCpuPin renamed to VCpuPin
       - Host.getRebootAfterInstallation() returns False (null was expected) #985842

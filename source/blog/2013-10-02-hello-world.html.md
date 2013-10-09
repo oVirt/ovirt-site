@@ -27,7 +27,10 @@ something is foo.html.ad and the default is markdown, then the `.ad`
 file will be rendered using asciidoctor whereas the rest of the `.md`
 files will be markdown.)
 
-Also, anything marked as `published: false` in the frontmatter metadata
-(the block at the top) will not be published. Blog articles dated in the
-future will also not be published, but will be included in the site
-build once that date has passed.
+Also, anything marked as `published: false` in the frontmatter
+metadata (the block at the top) will not be published. Blog articles
+dated in the future will also not be published, but will be included
+in the site build once that date has passed. However, since this is a
+static site generator, this will not magically happen by itself, but
+you need to have some means to build the site when you wish to have
+"future posts" become visible.

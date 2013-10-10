@@ -47,6 +47,8 @@ $ openssl passwd -salt 42 ovirt
     -   /var/log/ovirt-node.log
     -   /var/log/ovirt-node.debug.log (when running the installer or setup in debug mode)
     -   /tmp/ovirt.log (in rare cases)
+*   Engine related
+    -   /var/log/vdsm\*
 
 ### Shell access
 

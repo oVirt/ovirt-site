@@ -1,9 +1,9 @@
-# Munity
+# Middleman-Springboard
 
-Munity is a starter-pack for Middleman, for quickly whipping together
-static-based community websites.
+Springboard is a starter-pack for Middleman, for quickly whipping together
+static-based comSpringboard websites.
 
-Think of "community" without the "com". Munity means "freedom" and
+Think of "comSpringboard" without the "com". Springboard means "freedom" and
 "security" — which are things a static site can help to bring (on
 a small scale).
 
@@ -13,11 +13,11 @@ a small scale).
 1. Clone this repo into `~/.middleman`. You will need to create this
    directory if it doesn't exist.
 
-  `$ git clone GIT_URL_HERE ~/.middleman/munity`
+  `$ git clone GIT_URL_HERE ~/.middleman/springboard`
 
 2. Initialize middleman on a new or existing folder 
 
-  `$ middleman init path_to_project --template=munity`
+  `$ middleman init path_to_project --template=springboard`
 
 
 ## Usage

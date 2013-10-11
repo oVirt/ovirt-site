@@ -29,15 +29,14 @@ Trusted Compute Pools provide a way for Administrator to deploy VMs on trusted h
     -   Webadmin change: <http://gerrit.ovirt.org/#/c/14611/>
     -   REST api change: <http://gerrit.ovirt.org/#/c/14692/>
     -   OVF change: <http://gerrit.ovirt.org/#/c/14729/>
-*   left-overs status: WIP
-    -   notification supports:
-        -   <http://gerrit.ovirt.org/#/c/16987/>
+    -   left-overs for notification and some corner case handling
+        -   <http://gerrit.ovirt.org/#/c/16595/>
+        -   <http://gerrit.ovirt.org/#/c/16596/>
         -   <http://gerrit.ovirt.org/#/c/16598/>
         -   <http://gerrit.ovirt.org/#/c/16600/>
-        -   <http://gerrit.ovirt.org/#/c/16596/>
+        -   <http://gerrit.ovirt.org/#/c/16987/>
         -   <http://gerrit.ovirt.org/#/c/16990/>
-        -   <http://gerrit.ovirt.org/#/c/16595/>
-*   Last updated date: July 26, 2013
+*   Last updated date: Sept 16, 2013
 
 ### Detailed Description
 

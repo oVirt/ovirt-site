@@ -21,3 +21,5 @@ This is a sample screen that shows a fresh banner/ masthead and also how we coul
 ![](OVirt-Admin-Full.png  "OVirt-Admin-Full.png ")
 
 Based on feedback and consensus, it is possible to roll out this fresh look in phases. For example, we could start with just the log in and the header. See example below, where a updated header is tacked on to the current interface.
+
+![](OVirt-Admin-Banner-Only.png "OVirt-Admin-Banner-Only.png")

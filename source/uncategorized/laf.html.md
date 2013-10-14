@@ -10,4 +10,6 @@ wiki_last_updated: 2014-02-18
 
 Here are some proposals to update and freshen the Ovirt look & feel. Your feedback is very welcome.
 
+**Login Screen**
+
 ![](OVirt-Login.png "OVirt-Login.png")

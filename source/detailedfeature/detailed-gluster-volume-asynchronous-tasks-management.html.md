@@ -104,7 +104,7 @@ This will stop the rebalance action that is currently in progress
 
 *   Modify the delete verb for bricks
 
-      /api/clusters/{id}/glustervolumes/{id}/bricks/remove
+      DELETE /api/clusters/{id}/glustervolumes/{id}/bricks/
 
 Deletes a collection of bricks without data migration.
 
@@ -120,9 +120,15 @@ Allow data on collection of bricks to be migrated. This will return a step id wh
 
 This will stop the migration of data from the bricks that is currently in progress
 
+*   Add commit action to the gluster bricks resource
+
+      /api/clusters/{id}/glustervolumes/{id}/bricks/commit
+
+This will commit the removal of brick. This can be called only when data is successfully migrated from the brick
+
 How do we monitor the status of the rebalance and remove-brick operations?
 
-*   -   Step id will be used to monitor the status of the rebalance and remove-brick operation
-    -   Step id will contain step details that will provide the details of the task status.
+*   -   Step id will be used to monitor the status of the rebalance and migrate operation. This will be returned once remove or migrate is called
+    -   api/jobs/{id}/steps/{id} will contain detailed status if All-Content is set to true
 
 <Category:DetailedFeature>

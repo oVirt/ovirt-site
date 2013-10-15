@@ -35,8 +35,8 @@ keywords:
 #
 # There are two  methods for using OpenShift: rsync and git
 #
-# Both use the basic httpd cartridge at:
-# https://github.com/stefanozanella/openshift-cartridge-httpd
+# Both utilize the basic httpd cartridge at:
+# http://cartreflect-claytondev.rhcloud.com/reflect?github=stefanozanella/openshift-cartridge-httpd
 #
 # When creating a new gear, use the URL above at the bottom of the page,
 # in the entry box.

@@ -253,7 +253,7 @@ else
   # For OpenShift,
   #
   # 1) use the barebones httpd cartridge from:
-  #    https://github.com/stefanozanella/openshift-cartridge-httpd
+  #    http://cartreflect-claytondev.rhcloud.com/reflect?github=stefanozanella/openshift-cartridge-httpd
   #    (Add as URL at the bottom of the create from cartridge page)
   #
   # 2) Copy your new site's git repo URL and use it for 'production':

@@ -1,0 +1,73 @@
+name: Your Site's name here
+domain: yourdomain.org
+logo: logo.png
+
+# Owner is used for the automatic copyright string.
+# If no owner is specified, then copyright will default to site name.)
+#owner: SomeCorp, Inc.
+
+# The year your site was established (for the copyright)
+#founding_year: 2013 # Defaults to current year if commented
+
+# Manual copyright string, to override the automatic one
+#copyright: "&copy; 2013 YOUR_NAME_HERE"
+
+
+## If unspecified, timezone defaults to UTC
+## For more TZs, see the top of:
+## https://github.com/rails/rails/blob/master/activesupport/lib/active_support/values/time_zone.rb
+#timezone: Berlin
+#timezone: America/New_York
+#timezone: Eastern Time (US & Canada)
+
+
+# Global meta tags on each page <>
+# To have page-specific tags added, please add a YAML list to "tags:"
+# in that page's frontmatter block (the part at the top between ---)
+keywords:
+  - Middleman
+  - Springboard
+  - Static site
+
+##
+# Deployment: OpenShift
+##
+#
+# There are two  methods for using OpenShift: rsync and git
+#
+# Both use the basic httpd cartridge at:
+# https://github.com/stefanozanella/openshift-cartridge-httpd
+#
+# When creating a new gear, use the URL above at the bottom of the page,
+# in the entry box.
+#
+# If you'd like to use git via rsync (faster), use the following line to
+# add your user@host contained within your git repo. (You may also use
+# the entire git repo line).
+
+#openshift: 12fea2b4c1b98683b3eae078@site-user.rhcloud.com
+
+# If you'd rather use OpenShift via git instead of rsync, comment out
+# the above line and add your git URL as a 'production' remote.
+#
+# Example:
+#    git remote add production OPENSHIFT_GIT_REMOTE_HERE
+#
+# (Note: This also works for non-OpenShift sites, provided the git
+# remote is 'production' and is deployed to 'master')
+#
+# You still will deploy the same way, either method, by running:
+#    bundle exec middleman deploy
+
+###
+# Deployment: rsync
+##
+#
+# You can easily use rsync instead of OpenShift.
+#
+# Be sure to comment out openshift above. If you don't specify a port,
+# it will default to 22 (ssh). If you do not specify a user, it will use
+# the username of the person deploying. (You probably want to specify
+# a username.)
+#
+#rsync: ssh://foo@bar.com:99/some/path/here/

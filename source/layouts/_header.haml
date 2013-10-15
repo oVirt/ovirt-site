@@ -1,6 +1,7 @@
 .masthead
   -# %h1
     = link_to "/" do
-      = image_tag site_logo, class: "logo", alt: site_name
+      = image_tag data.site.logo, class: "logo", alt: data.site.name
 
-  = partial :navbar, locals: { nav_class: "nav-pills" }
+  -# Navigation is automatically rendered from ../../data/navigation.yml
+  = partial :nav, locals: { source: "navigation", nav_class: "nav-pills" }

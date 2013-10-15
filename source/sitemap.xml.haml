@@ -3,5 +3,5 @@
 %urlset{:xmlns => "http://www.sitemaps.org/schemas/sitemap/0.9"}
   - pages.each do |p|
     %url
-      %loc http://#{site_domain}/#{p.destination_path.gsub('/index.html','')}
+      %loc http://#{data.site.domain}/#{p.destination_path.gsub('/index.html','')}
       %priority 0.7

@@ -1,2 +1,9 @@
 #footer.text-center
-  &copy; #{ DateTime.now.year } #{ site_name }
+  =# data.site.founding_year
+  - founding = data.site.founding_year
+  - year_string = if founding && founding.to_i < Time.now.year
+    - founding.to_s + '&ndash;' + Time.now.year.to_s
+  - else
+    - Time.now.year.to_s
+
+  = data.site.copyright || "&copy; #{year_string} #{data.site.owner || data.site.name}"

@@ -64,7 +64,7 @@
     capture_haml do
       haml_tag "li" + active_class do
         haml_tag :a, text, { href: link || '#' }
-        block.call if defined? block
+        #block.call if defined? block
       end
     end
   end

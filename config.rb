@@ -2,11 +2,10 @@
 # Site settings
 ###
 
-set :site_name, "Software Collections"
-set :site_logo, "softwarecollections-logo.png"
-set :site_domain, "softwarecollections.org"
+# Look in data/site.yml for general site configuration
 
-Time.zone = "UTC"
+
+Time.zone = data.site.timezone || "UTC"
 
 # Make pretty URLs
 activate :directory_indexes
@@ -134,12 +133,6 @@ end
 # Helpers
 ###
 
-# Automatic image dimensions on image_tag helper
-# activate :automatic_image_sizes
-
-# Reload the browser automatically whenever files change
-# activate :livereload
-
 # Methods defined in the helpers block are available in templates
 # helpers do
 #   def some_helper
@@ -201,6 +194,7 @@ configure :build do
   # Minify JavaScript and CSS on build
   activate :minify_javascript
   activate :minify_css
+  activate :gzip
 
   # Force a browser reload for new content by using
   # asset_hash or cache buster (but not both)
@@ -223,4 +217,59 @@ configure :build do
     favicon_maker_input_dir: "source/images",
     favicon_maker_output_dir: "build/images",
     favicon_maker_base_image: "favicon_base.png"
+end
+
+
+###
+# Deployment
+##
+
+if data.site.openshift
+  os_token, os_host = data.site.openshift.match(/([0-9a-f]+)@([^\/]+)/).captures
+
+  deploy_config = {
+    method: :rsync,
+    user: os_token,
+    host: os_host,
+    path: "/var/lib/openshift/#{os_token}/app-root/repo",
+    clean: true, # remove orphaned files on remote host
+    build_before: true # default false
+  }
+
+elsif data.site.rsync
+  rsync = URI.parse(data.site.rsync)
+
+  deploy_config = {
+    method: :rsync,
+    user: rsync.user || ENV[:USER],
+    host: rsync.host,
+    path: rsync.path,
+    port: rsync.port || 22,
+    clean: true, # remove orphaned files on remote host
+    build_before: true # default false
+  }
+
+else
+  # For OpenShift,
+  #
+  # 1) use the barebones httpd cartridge from:
+  #    https://github.com/stefanozanella/openshift-cartridge-httpd
+  #    (Add as URL at the bottom of the create from cartridge page)
+  #
+  # 2) Copy your new site's git repo URL and use it for 'production':
+  #    git remote add production OPENSHIFT_GIT_REMOTE_HERE
+  #
+  # 3) Now, you can easily deploy to your new OpenShift site!
+  #    bundle exec middleman deploy
+
+  deploy_config = {
+    method: :git,
+    remote: "production",
+    branch: "master",
+    build_before: true # default false
+  }
+end
+
+activate :deploy do |deploy|
+  deploy_config.each {|key, val| deploy[key] = val }
 end

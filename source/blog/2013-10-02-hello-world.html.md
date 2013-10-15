@@ -7,13 +7,13 @@ authors: Default Author
 
 Welcome to the blog. This is the example post.
 
-## Creating new posts
+### Creating new posts
 
 To create another post, run `middleman article "Post title here"` and
 middleman will create a file with the correct name and metadata in the
 appropriate location.
 
-## Formatting posts
+### Formatting posts
 
 You can blog in any format middleman supports. By default, this is
 markdown, with a `.md` file. However, you may edit `config.rb` and

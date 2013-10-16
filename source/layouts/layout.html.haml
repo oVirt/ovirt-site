@@ -32,26 +32,24 @@
     - if data.page.stylesheet
       = stylesheet_link_tag "global", data.page.stylesheet
 
-  %body{:class => page_classes || 'page'}
+  %body{:class => (page_classes || 'page') + " source-#{current_page.source_file.split('.').last}" }
 
-    .container
+    - unless data.page.hide_header
+      = partial "header"
 
-      - unless data.page.hide_header
-        = partial "header"
+    .content{class: data.page.no_container.nil? ? 'container' : '' }
 
-      .content
+      -# Show a warning for those using < IE6 or lower
+      /[if lt IE 7]
+        <p class="chromeframe">You are using an outdated browser.
+        <a href="http://browsehappy.com/">Upgrade your browser today</a> or
+        <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
 
-        -# Show a warning for those using < IE6 or lower
-        /[if lt IE 7]
-          <p class="chromeframe">You are using an outdated browser.
-          <a href="http://browsehappy.com/">Upgrade your browser today</a> or
-          <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+      -# Render actual page content
+      = yield
 
-        -# Render actual page content
-        = yield
-
-      - unless data.page.hide_footer
-        = partial "footer"
+    - unless data.page.hide_footer
+      = partial "footer"
 
     = javascript_include_tag 'application'
 

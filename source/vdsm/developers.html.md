@@ -121,7 +121,7 @@ Please be verbose in your commit message. Explain the motivations for your patch
 
 The commit message should follow the guidelines in the DISCUSSION section of <http://kernel.org/pub/software/scm/git/docs/git-commit.html> : short subject line, empty line, verbose paragraphs.
 
-General development discussions are in `vdsm-devel@lists.fedorahosted.org`.
+General development discussions are in [vdsm-devel@lists.fedorahosted.org](https://lists.fedorahosted.org/mailman/listinfo/vdsm-devel).
 
 ## Creating local yum repo to test vdsm changes
 

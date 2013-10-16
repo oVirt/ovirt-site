@@ -1,0 +1,15 @@
+@import ../bootstrap-custom
+@import bootstrap/mixins
+@import bootstrap/tables
+
+// Special stylings for markdown
+.source-md,
+.source-markdown,
+.source-mdown
+
+  // Pull in Bootstrap's table SASS and apply it to markdown files
+  table
+    @extend .table
+    @extend .table-bordered
+    @extend .table-striped
+    //@extend .table-responsive

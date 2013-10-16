@@ -375,6 +375,10 @@ The attribute VM Device Type in the Display Type now is the default value if non
 *   refactor and cleanup CpuFlagManager so it would be open to extention - started with <http://gerrit.ovirt.org/#/c/19905> - Roy
 *   ensure the Version (3.3? 3.4?) ppc emulated machine is reported on
 
+## DEMO version
+
+<https://bitbucket.org/gustavo_temple/ovirtenginemultiplatform>
+
 ## Benefits to oVirt
 
 oVirt will be able to support IBM POWER processor based hosts and have a code base design suitable to include new architectures.

@@ -14,11 +14,11 @@
       - if data.page.title
         #{data.page.title} &mdash;
       = data.site.name
-    
+
     %meta(charset="utf-8")
-    %meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
-    %meta(name="description" content="")
-    %meta(name="author" content="")
+    -#%meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+    %meta(name="description" content="#{data.site.description || ''}")
+    %meta(name="author" content="#{data.site.author || data.site.owner || ''}")
     %meta(content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" name="viewport")
 
     -# App Icons

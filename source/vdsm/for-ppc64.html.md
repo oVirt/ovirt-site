@@ -82,7 +82,7 @@ At the minimum following user interfaces will be affected
 
 ## DEMO Version
 
-<https://bitbucket.org/gustavo_temple/ovirtvdsmmultiplatform>
+<https://bitbucket.org/gustavo_temple/ovirtvdsmmultiplatform> (Oct 14, 2013)
 
 ## Benefits to oVirt
 

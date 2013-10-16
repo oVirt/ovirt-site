@@ -1,16 +1,26 @@
+@import ../bootstrap-custom
+
 .nav.docbrowser
-  background-color: #f2f2f2
   border-radius: 6px
   overflow: hidden
 
   li
+    $nav-padding-x: 20px
+    $nav-padding-y: 10px
+    $selected-bar: 5px
+    padding-right: 2ex
 
     a
-      //border-radius: 6px
+      padding: $nav-padding-y $nav-padding-x
+
+      &:hover
+        background-color: rgba($component-active-bg, 0.1)
 
     &.active
       a
-        background-color: mix(#bdf, #eee, 50)
+        background-color: rgba($component-active-bg, 0.2)
+        padding-right: $nav-padding-x - $selected-bar
+        border-right: $selected-bar solid rgba($component-active-bg, 0.3)
 
     &.disabled
       font-size: 12pt

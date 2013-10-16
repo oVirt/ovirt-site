@@ -8,6 +8,8 @@ wiki_last_updated: 2013-12-23
 
 # Overlay Networks with Neutron Integration
 
+## **NOTE: This guide is a work in progress! Do not use!**
+
 ![](oVirt_Neutron_GRE.jpeg "oVirt_Neutron_GRE.jpeg")
 
 Install oVirt 3.3 Setup a couple of RHEL 6.5 hosts, run yum update.

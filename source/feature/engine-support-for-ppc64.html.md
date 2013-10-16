@@ -377,7 +377,7 @@ The attribute VM Device Type in the Display Type now is the default value if non
 
 ## DEMO version
 
-<https://bitbucket.org/gustavo_temple/ovirtenginemultiplatform>
+<https://bitbucket.org/gustavo_temple/ovirtenginemultiplatform> (Oct 14, 2013)
 
 ## Benefits to oVirt
 

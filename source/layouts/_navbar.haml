@@ -42,7 +42,7 @@
         %span.sr-only
           Toggle navigation
 
-        - 3.times do 
+        - 3.times do
           %span.icon-bar
 
       - if defined? brand
@@ -60,7 +60,7 @@
             %p.navbar-text= item.parameterize
 
           - elsif item.count == 1
-            
+
             - item.each do |text, link|
 
               - if link

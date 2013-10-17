@@ -52,7 +52,7 @@ you can clone it with
 
 ## Building a Vdsm RPM
 
-Vdsm uses autoconf and automake as it's build system.
+Vdsm uses autoconf and automake as its build system.
 
 To configure the build env:
 

@@ -115,3 +115,5 @@ tunnel_types = gre
 Then restart the agent's service:
 
 service neutron-openvswitch-agent restart
+
+yum install vdsm-hook-openstacknet

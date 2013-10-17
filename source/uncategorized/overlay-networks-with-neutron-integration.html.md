@@ -66,4 +66,52 @@ Check if required: NOTE: When using GRE, set the MTU in the Guest to 1400, this 
 
 oVirt Configuration: engine-config --set KeystoneAuthUrl=<http://><host.fqdn>:35357/v2.0 engine-config --set OnlyRequiredNetworksMandatoryForVdsSelection=true Add Neutron as an external provider
 
-The next step is to add hosts to oVirt. It requires a few yum repositories. For VDSM: ovirt-nightly or similar For ovs layer 2 agent: sudo yum install -y <http://rdo.fedorapeople.org/openstack-havana/rdo-release-havana.rpm> oVirt can install the layer 2 agent on the host if external provider is selected during host install. However, it is currently broken with OpenStack Havana until <https://bugzilla.redhat.com/show_bug.cgi?id=1019818> is resolved. To install layer 2 ovs agent follow the instructions on (Until the bug is fixed): <http://www.ovirt.org/Features/Detailed_Quantum_Integration#OVS_Agent_installation_steps> When the bug is fixed simply select external provider when adding the host. Edit: /etc/neutron/neutron.conf Under [agent] Change: root_helper = sudo quantum-rootwrap /etc/quantum/rootwrap.conf To: root_helper = sudo neutron-rootwrap /etc/neutron/rootwrap.conf
+The next step is to add hosts to oVirt. It requires a few yum repositories.
+
+For VDSM: ovirt-nightly or similar
+
+For ovs layer 2 agent: sudo yum install -y <http://rdo.fedorapeople.org/openstack-havana/rdo-release-havana.rpm>
+
+oVirt can install the layer 2 agent on the host if external provider is selected during host install. However, it is currently broken with OpenStack Havana until <https://bugzilla.redhat.com/show_bug.cgi?id=1019818> is resolved. GRE/VXLAN integration is also not supported on any version of OpenStack. Until it is fixed, follow these manual steps on each host:
+
+To install layer 2 ovs agent follow the instructions on (Until the bug is fixed): <http://www.ovirt.org/Features/Detailed_Quantum_Integration#OVS_Agent_installation_steps>
+
+When the bug is fixed simply select external provider when adding the host.
+
+Edit:
+
+/etc/neutron/neutron.conf
+
+Under [agent]
+
+Change:
+
+root_helper = sudo quantum-rootwrap /etc/quantum/rootwrap.conf
+
+To:
+
+root_helper = sudo neutron-rootwrap /etc/neutron/rootwrap.conf
+
+Edit:
+
+/etc/neutron/plugins/openvswitch/ovs_plugin.ini:
+
+[ovs]
+
+tenant_network_type = gre
+
+enable_tunneling = True
+
+tunnel_type = gre
+
+tunnel_id_ranges = 5000:10000
+
+local_ip = <ip of nic that should bring up GRE tunnels>
+
+[agent]
+
+tunnel_types = gre
+
+Then restart the agent's service:
+
+service neutron-openvswitch-agent restart

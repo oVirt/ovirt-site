@@ -58,6 +58,14 @@ The oVirt 3.1 release includes these notable changes.
 *   Added support for cloning a Virtual Machine from a specific Snapshot ([Features/CloneVmFromSnapshot](Features/CloneVmFromSnapshot)).
 *   Support has been added for virtualization hosts with Intel Sandybridge and Opteron G4 based CPUs.
 
+<!-- -->
+
+*   "windows" and "linux" OS Types are removed from the OS repository as they have no real use. This will break import of those OSs. To fix the import its enough to add to *$PREFIX/etc/ovirt-engine/osinfo.conf.d/20-import-export-linux-windows-fix.properties*
+
+       20-import-export-linux-windows-fix.properties:
+       backwardCompatibility.linux = 5
+       backwardCompatibility.windows = 1
+
 ### SLA
 
 *   Added support for the definition quotas restricting user resource usage ([Features/Quota](Features/Quota)).

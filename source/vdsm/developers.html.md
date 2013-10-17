@@ -43,10 +43,12 @@ Fedora and RHEL 6 users must verify the following packages are installed before 
        python-ethtool m2crypto python-dmidecode python-netaddr python-inotify python-argparse git \
        python-cpopen bridge-utils libguestfs-tools-c pyparted
 
-Based on traffic from the mailing list in October 2013, and depending on the prior state of your text machine, it may be necessary to manually remove 'python-cpopen' and install 'vdsm-python-cpopen' . This may be done thus:
+Based on traffic from the mailing list in October 2013, and depending on the prior state of your test machine, it may be necessary to manually remove 'python-cpopen' and install 'vdsm-python-cpopen' . This may be done thus:
 
       rpm -e python-cpopen
       yum -y install vdsm-python-cpopen
+
+Which is needed as s a needed dependency of the prior vdsm-xmlrpc on vdsm-python-cpopen -- but the 'make rpm' test is coded to look for the package 'python-cpopen' in changes made Oct 13 2013 for 4.13.0, so this should simply be a note relevant to the transition to the later version of vdsm
 
 ## Getting the source
 

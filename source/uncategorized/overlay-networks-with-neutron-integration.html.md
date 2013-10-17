@@ -12,9 +12,11 @@ wiki_last_updated: 2013-12-23
 
 ![](oVirt_Neutron_GRE.jpeg "oVirt_Neutron_GRE.jpeg")
 
-Install oVirt 3.3
+**Install oVirt 3.3**
 
-Setup a couple of RHEL 6.5 hosts, run yum update.
+Setup a couple of RHEL 6.5 hosts, run yum update. These will be used to host guests.
+
+**Install Neutron Controller**
 
 On the RHEL 6.5 host that will be used as the Neutron server, L3 agent and DHCP agent - Install iproute 2 that supports namespaces (For example 2.6.32-130): <https://brewweb.devel.redhat.com/buildinfo?buildID=297968>
 
@@ -26,9 +28,11 @@ No need for a yum update or reboot.
 
 "Due to the quantum/neutron rename, SELinux policies are currently broken for Havana, so SELinux must be disabled/permissive on machines running neutron services, edit /etc/selinux/config to set SELINUX=permissive."
 
-On the controller: Install Neutron manually or use Packstack.
+Install Neutron manually or use Packstack.
 
-Install packstack: sudo yum install -y openstack-packstack
+Install packstack:
+
+sudo yum install -y openstack-packstack
 
 Make packstack generate an answer file:
 
@@ -38,11 +42,11 @@ An answer file will be created in /root/<file name>
 
 Edit it and change:
 
-Only install required services (CHECK WHICH THESE ARE)
+Only install required services (Neutron only would be ideal but as of 17.10.13 Packstack fails if you don't select Nova as well)
 
 Make sure Neutron server IP is reachable from the host that will act as the oVirt engine
 
-For neutron GRE:
+From:
 
 CONFIG_NEUTRON_OVS_TENANT_NETWORK_TYPE=local
 
@@ -64,19 +68,29 @@ Now run: packstack --answer-file=<file name>
 
 Check if required: NOTE: When using GRE, set the MTU in the Guest to 1400, this will allow for the GRE header and no packet fragmentation. Also you should set TSO to off on the instance machine for outbound traffic to work. This can be done by this command : ethtool -K eth0 tso off . You can create a bash script for init.d to run it at startup.
 
-oVirt Configuration: engine-config --set KeystoneAuthUrl=<http://><host.fqdn>:35357/v2.0 engine-config --set OnlyRequiredNetworksMandatoryForVdsSelection=true Add Neutron as an external provider
+**oVirt Configuration**
+
+engine-config --set KeystoneAuthUrl=<http://><host.fqdn>:35357/v2.0
+
+engine-config --set OnlyRequiredNetworksMandatoryForVdsSelection=true
+
+Add Neutron as an external provider
+
+**Hosts Configuration**
 
 The next step is to add hosts to oVirt. It requires a few yum repositories.
 
 For VDSM: ovirt-nightly or similar
 
-For ovs layer 2 agent: sudo yum install -y <http://rdo.fedorapeople.org/openstack-havana/rdo-release-havana.rpm>
+For ovs layer 2 agent:
+
+sudo yum install -y <http://rdo.fedorapeople.org/openstack-havana/rdo-release-havana.rpm>
 
 oVirt can install the layer 2 agent on the host if external provider is selected during host install. However, it is currently broken with OpenStack Havana until <https://bugzilla.redhat.com/show_bug.cgi?id=1019818> is resolved. GRE/VXLAN integration is also not supported on any version of OpenStack. Until it is fixed, follow these manual steps on each host:
 
-To install layer 2 ovs agent follow the instructions on (Until the bug is fixed): <http://www.ovirt.org/Features/Detailed_Quantum_Integration#OVS_Agent_installation_steps>
+To install layer 2 ovs agent follow the instructions on (Until the bug is fixed):
 
-When the bug is fixed simply select external provider when adding the host.
+<http://www.ovirt.org/Features/Detailed_Quantum_Integration#OVS_Agent_installation_steps>
 
 Edit:
 
@@ -117,3 +131,12 @@ Then restart the agent's service:
 service neutron-openvswitch-agent restart
 
 yum install vdsm-hook-openstacknet
+
+**Enjoying the Results**
+
+1.  Create the desired networks in Neutron
+2.  From oVirt: Import those networks
+3.  Connect VMs to those networks
+4.  Start the VMs!
+
+The VMs should be able to connect to both oVirt networks and Neutron networks.

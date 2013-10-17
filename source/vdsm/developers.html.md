@@ -34,7 +34,7 @@ Fedora users must add the ovirt repositories, providing packages that are not av
 RHEL 6 users must add the glusterfs repository, providing newer glusterfs not available on RHEL 6. Optionally install 'wget' if not present
 
       rpm -q wget 2> /dev/null || yum -y install wget
-      wget -P /etc/yum.repos.d http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/glusterfs-epel.repo
+`wget -P /etc/yum.repos.d `[`http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/glusterfs-epel.repo`](http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/glusterfs-epel.repo)
 
 Fedora and RHEL 6 users must verify the following packages are installed before attempting to build:
 
@@ -42,6 +42,11 @@ Fedora and RHEL 6 users must verify the following packages are installed before 
        python-nose rpm-build sanlock-python genisoimage python-ordereddict python-pthreading libselinux-python\
        python-ethtool m2crypto python-dmidecode python-netaddr python-inotify python-argparse git \
        python-cpopen bridge-utils libguestfs-tools-c pyparted
+
+Based on traffic from the mailing list in October 2013, and depending on the prior state of your text machine, it may be necessary to manually remove 'python-cpopen' and install 'vdsm-python-cpopen' . This may be done thus:
+
+      rpm -e python-cpopen
+      yum -y install vdsm-python-cpopen
 
 ## Getting the source
 

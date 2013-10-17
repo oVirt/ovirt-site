@@ -162,6 +162,16 @@ helpers do
     #return sometime.to_formatted_s(:short)
     return sometime#.strftime("%d %B")
   end
+
+  # Use the title from frontmatter metadata,
+  # or peek into the page to find the H1,
+  # or fallback to a filename-based-title
+  def discover_title(page = current_page)
+    page.data.title || page.render({layout: false}).match(/<h1>(.*?)<\/h1>/) do |m|
+      m ? m[1] : page.url.split(/\//).last.titleize
+    end
+  end
+
 end
 
 

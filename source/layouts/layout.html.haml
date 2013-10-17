@@ -11,8 +11,8 @@
   %head
 
     %title
-      - if data.page.title
-        #{data.page.title} &mdash;
+      - page_title = discover_title
+      = "#{page_title} &mdash;" if page_title
       = data.site.name
 
     %meta(charset="utf-8")

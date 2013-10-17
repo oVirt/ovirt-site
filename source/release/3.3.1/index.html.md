@@ -95,8 +95,8 @@ Using user provided code may have a performance impact, so administrators are ad
 
 #### oVirt Engine
 
-* [ovirt][engine][webadmin][RFE] - domain selection list in login screen should be sorted alphabetically
- - PRD33 - RFE: add support for multiple monitors on QXL device (single device with more RAM)
+* domain selection list in login screen should be sorted alphabetically
+ - support for multiple monitors on QXL device (single device with more RAM)
  - webadmin [Tree]: when "x" main tab is displayed and "x1" (type "x") item is selected on the tree, hide "New" + "Remove" actions, and disable Name editing of the item.
  - [RHEVM] [backend] [Host Networking] [TEXT] Bridged network rhevm is attached to multiple interfaces: <UNKNOWN> on Host
  - ovirt-engine-backend: No event for ticket VM command
@@ -160,7 +160,7 @@ Using user provided code may have a performance impact, so administrators are ad
  - VM UUID is not shown prominently in Web UI
  - Disk entries remain in database after deleting the datacenter
  - Fence via second power management not working
- - PRD33 - Provide MoTD on logon screen
+ - Provide MoTD on logon screen
  - [RHEVM] [webadmin] sync network button does not appear when network gets out of sync with host
  - [engine-backend] engine fails to revert a failed cloneImage task, after that, user cannot do anything on the system
  - Cannot start a VM with USB Native - Exit message: internal error Could not format channel target type.

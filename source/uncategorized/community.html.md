@@ -72,5 +72,11 @@ Remember to be polite and [ read our etiquette guide](community guidelines).
 
 Join all of the following mailing lists that interest you.
 
+### Infrastructure Team
+
+The Infrastructure Team consists of dedicated volunteers and professionals managing the servers, building the tools and utilities, and creating new applications to make oVIrt development a smoother process. We're located all over the globe and communicate primarily by the [#ovirt channel on irc.OFTC.net](irc://irc.oftc.net/ovirt) and [ signing up for the infra@ovirt.org mailing list](mailing lists#Infra).
+
+Please navigate [ here](Infrastructure) to the Infrastructure home page.
+
 </div>
 </div>

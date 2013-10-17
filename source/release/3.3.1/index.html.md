@@ -124,6 +124,7 @@ The [vnic profiles](Features/Vnic_Profiles) feature was developed as a requireme
  - We get enum instead of a message when user tries to run more VMs from the User portal then he has permissions to
  - edit vm - unnecessary update of nics is performed and appears in event log
  - We should have maximum value for Maximum number of VMs per user
+ - [REST-API] Adding a cluster with incomplete version fails with exception
  - [ExternalTasks] Cannot add sub-step under existing (parent) step
  - [ExternalTasks] When adding new step, type is always EXECUTING
  - [ExternalTasks] When adding new step, state is always STARTED

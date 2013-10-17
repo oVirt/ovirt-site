@@ -22,6 +22,75 @@ To find out more about features which were added in previous oVirt releases, che
 
 The [vnic profiles](Features/Vnic_Profiles) feature was developed as a requirement for the Network QoS feature. Users can now limit the inbound and outbound network traffic on a virtual NIC level by applying profiles which define custom properties such as port mirroring or quality of service (QoS).
 
+### Neutron Host Deploy
+
+It is now possible to specify a Neutron external network provider when re-installing a host in order to configure it for Neutron networking (rather than only when deploying a new one).
+
+### Neutron UI Links
+
+Linking has been added between network providers and their provided networks; this enables quick navigation from the providers tab where a provider might be configured to a provided network's main tab view where most of the management will be performed.
+
+### Add / remove vnics in add/edit VM dialog
+
+It is now possible to add/remove network interfaces in the add/edit VM dialog, which enables further customization of a VM's networking configuration as soon as it's created (complement to Instance Types feature).
+
+### Manage Storage Connections
+
+The [Manage Storage Connections](Features/Manage_Storage_Connections) adds the ability to add, edit and delete storage connections. This helps supporting configuration changes such as adding paths (multipathing), changes of hardware, and ease failover to remote sites, by quickly switching to work with another storage that holds a backup/sync of the contents of the current storage.
+
+### Multiple Monitors
+
+[Multiple Monitors](Features/MultipleMonitors) feature added the ability to channel Spice display protocol up to 4 different PCI channels in a single VM
+
+### oVirt Scheduler
+
+oVirt now includes a new scheduler to handle VM placement, allowing users to create new scheduling policies, and also write their own logic in Python and include it in a policy.
+
+The new oVirt scheduler serves VM scheduling requests during VM running or migration. The scheduling process is done by applying hard constraints and soft constraints to get the optimal host for that request at this point of time.
+
+**Scheduling policy elements**:
+
+*   Filter: a basic logic unit which filters out hypervisors who do not satisfy the hard constraints for placing a given VM.
+*   Weight function: a function that calculates a score to a given host based on its internal logic. This is a way to implement soft constraints in the
+
+scheduling process. Since these are weights, low score is considered to be better.
+
+*   Load balancing module: code implementing a logic to distribute the load. So far the definition of load was mostly CPU
+
+related, so migrating a VM would help to resolve that. The new scheduler allows users to write their own logic to handle other load types (network, I/O, etc) by other means such as integrating with 3rd party systems.
+
+**Scheduling process description**
+
+Every cluster has a scheduling policy. So far we had 3 main policies (None, Even distribution and Power saving), and now administrators can create their own policies or use he built-in policies. Each policy contains a list of filters, weight functions (one or more) and a single load balancing module. The scheduling process takes all relevant hosts and run them through the relevant filters of a specific policy. Note that Filter order is meaningless. The filtered host list is then used as an input to the relevant weight functions of that policy, which creates a cost table. The cost table indicates the host with the lowest weight (cost), which is the optimal solution for the given request. Multiple Weight functions may be prioritized using a factor.
+
+**Important note:**
+
+New scheduling policies created by administrators are not validated by the system. This may end up with unexpected results, so it is highly important to verify a new policy is not introducing issues or instability to the system.
+
+**Adding User Code:**
+
+The infrastructure allowing users to extend the new scheduler, is based on a service called ovirt-scheduler-proxy. The service's purpose is for RHEV admins to extend the scheduling process with custom python filters, weight functions and load balancing modules.
+
+The daemon is waiting for engine requests using XML-RPC. Engine request may e one of:
+
+*   runDiscover: returns an XML containing all available policy units and configurations (configuration is optional).
+*   runFilters: executes a set of filters plugins sequentially (provided as a name list).
+*   runScores: executes a set of weight function plugins sequentially (provided as a name list), then calculate a cost table (using factors) and return
+
+it to the engine.
+
+*   runBalance: executes the balance plugin named {balance name} on the hosts using the given properties_map.
+
+Any plugin file {NAME}.py the user writes must implement at least one of the functions (do_filter, do_scores, do_balance). These files reside in $PYTHONPATH/ovirt_scheduler/plugins folder, unless changes in the proxy's configuration file /etc/ovirt/scheduler/scheduler.conf. For more information on user code you can check the provided samples.
+
+During the daemon initialization, it will scan this folder to detect user files, and analyze the files for the relevant functionality. The results are kept in the daemon's cache, and provided to the engine when the runDiscover is called. Note that the engine will call it only when it starts up, so in order to introduce a new code, the administrator needs to restart the proxy service, and then RHEV engine.
+
+The scheduling proxy is packaged as a separate optional RPM which is not installed by default. After installing it, the admin needs to allow it in RHEV DB by setting ExternalSchedulerEnabled to True using the configuration utility.
+
+**Important note:**
+
+Using user provided code may have a performance impact, so administrators are advised to carefully test their code and the general performance changes before using it in live setups.
+
 ### Bugs fixed
 
 #### oVirt Engine

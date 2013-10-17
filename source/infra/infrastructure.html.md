@@ -54,12 +54,14 @@ As this small team defines process, content will be added to this page.
 
 The main thing is, come [communicate with us](#Communication) if you have any questions, are interested in learning more, or what to participate in supporting oVirt infrastructure.
 
-## Communication
+Interested to join the Infrastructure Team ? [Click here](Becoming_an_Infrastructure_team_member)
+
+### Communication
 
 *   [Mailing list infra@ovirt.org](http://lists.ovirt.org/mailman/listinfo/infra)
 *   [IRC channel #ovirt on OFTC](irc://irc.oftc.net/#ovirt)
 
-## Meetings
+### Meetings
 
 [ Infrastructure Meetings](Infrastructure_team_meetings)
 
@@ -76,3 +78,11 @@ The team uses the same [collaborative decision process](https://blogs.apache.org
 *   +/-0 is an abstention
 *   3 or more +1 votes are required for anything substantial, important, or far-reaching
 *   0 or more votes will pass a minor proposition - "If no one objects, it passes."
+
+## Our Architecture
+
+An overview of our technical architecture is available online. If you have a question or comment about our architecture please send an e-mail to **infra@ovirt.org** inbox or stop by the [IRC channel #ovirt on OFTC](irc://irc.oftc.net/#ovirt).
+
+#### oVirt Instances
+
+We have some oVirt instances installed and we use them for our infrastructure. For more information please click [here](Infrastructure oVirt Instances)

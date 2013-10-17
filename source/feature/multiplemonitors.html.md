@@ -10,7 +10,7 @@ wiki_last_updated: 2014-05-12
 
 ### Summary
 
-Ability to channel Spice display up to 4 different PCI channels
+Ability to channel Spice display protocol up to 4 different PCI channels in a single VM
 
 ### Owner
 

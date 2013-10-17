@@ -22,6 +22,10 @@ To find out more about features which were added in previous oVirt releases, che
 
 The [vnic profiles](Features/Vnic_Profiles) feature was developed as a requirement for the Network QoS feature. Users can now limit the inbound and outbound network traffic on a virtual NIC level by applying profiles which define custom properties such as port mirroring or quality of service (QoS).
 
+**Important note:**
+
+This feature has been identified as an area of specific attention for beta testing.
+
 ### Neutron Host Deploy
 
 It is now possible to specify a Neutron external network provider when re-installing a host in order to configure it for Neutron networking (rather than only when deploying a new one).
@@ -413,6 +417,6 @@ Using user provided code may have a performance impact, so administrators are ad
  - Edit VM Disk causes NullPointerException
  - Cannot set disk interface in user portal
  - [oVirt][Neutron] External network not blocked for hot updating
-}} - REST-API: Inconsistent schema implementation in PayloadFile
+ - REST-API: Inconsistent schema implementation in PayloadFile
 
 <Category:Documentation> <Category:Releases>

@@ -31,8 +31,9 @@ Fedora users must add the ovirt repositories, providing packages that are not av
 
       yum install http://resources.ovirt.org/releases/ovirt-release-fedora-8-1.noarch.rpm
 
-RHEL 6 users must add the glusterfs repository, providing newer glusterfs not available on RHEL 6.
+RHEL 6 users must add the glusterfs repository, providing newer glusterfs not available on RHEL 6. Optionally install 'wget' if not present
 
+      rpm -q wget 2> /dev/null || yum -y install wget
       wget -P /etc/yum.repos.d http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/glusterfs-epel.repo
 
 Fedora and RHEL 6 users must verify the following packages are installed before attempting to build:

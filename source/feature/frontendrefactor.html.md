@@ -8,7 +8,16 @@ wiki_revision_count: 56
 wiki_last_updated: 2014-04-30
 ---
 
-<big>`Frontend class re-factoring effort`</big>
+# Frontend class re-factoring effort
+
+### Summary
+
+This feature improves the modularity and maintainability of the Frontend class in the UI. This class is used for communication with the backend
+
+### Owner
+
+*   Name: [Alexander Wels](User:awels)
+*   Email: <awels@redhat.com>
 
 # Frontend public api methods
 
@@ -50,7 +59,7 @@ The current implementation has the following methods exposed to the outside worl
     -   Determine the currently logged in user.
     -   This method is a legacy call and no longer in use, we can remove this method.
 
-##### Things to consider
+###### Things to consider
 
 *   Max number of concurrent connects from the browser to the server is limited.
 *   Even though login and logout are very important operations, they really are not that special that they require separate code. In essence they are just a special case of an operation.
@@ -61,11 +70,11 @@ The current implementation has the following methods exposed to the outside worl
 *   We need to make sure that the new design doesn't break any existing functionality, so we should write a unit test suite for the existing implementation (if possible) and use that to measure if the new implementation meets our needs.
 *   We need to implement the new design in such a way that it can easily be unit tested, unlike the current implementation.
 
-# Unit test testSuite
+### Unit test testSuite
 
 This is to document the things we need to test in the unit test suite.
 
-##### RunQuery
+###### RunQuery
 
 *   Make sure the correct query is called based on the query type.
 *   Make sure parameters are passed correctly.
@@ -78,11 +87,11 @@ This is to document the things we need to test in the unit test suite.
 *   Make sure that the query complete event is raised once the query completes regardless of success/failure.
 *   Make sure queries don't run if you are not logged in (currently a backend check only, maybe make it frontend as well?).
 
-##### RunPublicQuery
+###### RunPublicQuery
 
 *   Make sure that you can run the query even if you are not logged in
 
-##### RunMultipleQueries
+###### RunMultipleQueries
 
 *   Make sure the correct queries are called based on the query type.
 *   Make sure parameters are passed correctly.
@@ -95,7 +104,7 @@ This is to document the things we need to test in the unit test suite.
 *   Make sure that the query complete event is raised once the query completes regardless of success/failure.
 *   Make sure queries don't run if you are not logged in (currently a backend check only, maybe make it frontend as well?).
 
-##### RunAction
+###### RunAction
 
 *   Make sure the correct action is called based on the action type.
 *   Make sure parameters are passed correctly.
@@ -104,7 +113,7 @@ This is to document the things we need to test in the unit test suite.
 *   Make sure that the error handler is NOT called for failures that are supposed to be ignored. (Is this still a true statement? After more investigation, it looks like it has something to do with pressing escape while the query is running, based on some of the comments)
 *   Make sure queries don't run if you are not logged in (currently a backend check only, maybe make it frontend as well?).
 
-##### RunMultipleAction
+###### RunMultipleAction
 
 *   Make sure the correct action is called based on the action type.
 *   Make sure parameters are passed correctly.
@@ -115,17 +124,17 @@ This is to document the things we need to test in the unit test suite.
 *   Make sure that the error handler is NOT called for failures that are supposed to be ignored. (Is this still a true statement? After more investigation, it looks like it has something to do with pressing escape while the query is running, based on some of the comments)
 *   Make sure queries don't run if you are not logged in (currently a backend check only, maybe make it frontend as well?).
 
-##### RunMultipleActions
+###### RunMultipleActions
 
 *   Not sure what to test here, pending discussion on transactional actions.
 
-##### LoginAsync
+###### LoginAsync
 
 *   Make sure that the passed in username/password/domain are passed properly.
 *   On success make sure that the getLoginHandler is called.
 *   Make sure that the error handler is called with the correct error message if a problem occurs.
 
-##### LogoffAsync
+###### LogoffAsync
 
 *   Make sure the passed in username is passed properly.
 *   On success make sure that the getLoginHandler is called.
@@ -135,7 +144,7 @@ This is to document the things we need to test in the unit test suite.
 
 I propose a scheme fairly similar to a database connection pool manager combined with an operation queue. The operations are added to the end of the queue by an enQueueOperation method. The pool manager pulls operations from the front of the queue and sends it to one of the available connections. If there is a problem with the operation the manager is responsible for retrying the operation or returning the error to the callback (maybe have an error handler similar to the one we have now instead). If there are more operations than available connections the pool manager does nothing until a connection becomes available. This is your classic producer/consumer setup where the enQueue operation is the producer and the pool manager is the consumer.
 
-##### Cross cutting concerns
+###### Cross cutting concerns
 
 There are several cross cutting concerns the new design needs to take into account.
 
@@ -152,13 +161,13 @@ There are several cross cutting concerns the new design needs to take into accou
     -   Fire an event right before we execute the request containing the operation.
     -   Fire an event after the result is returned from the request, but before doing any callbacks or error handling.
 
-##### GWT-RPC vs REST
+###### GWT-RPC vs REST
 
 Our current implementation uses GWT-RPC to do communication between the client and the server. In the future we are planning on moving to a REST based communication architecture. There are significant differences between REST and GWT-RPC and the new design needs to take those into account so we can easily swap out GWT-RPC for REST. I found a library that should make this easy for us [RestyGWT](http://restygwt.fusesource.org/) (Apache License version 2.0). This should allow us to keep almost the same programming model, but use REST instead.
 
 Another possible approach is to create a javascript sdk for the REST api, and the use GWT JNI to call the methods of the javascript SDK.
 
-##### Dataflow example
+###### Dataflow example
 
 [1] Caller calls one of the existing operations like RunQuery. RunQuery calls enQueue operation with the appropriate parameters for the request.
 [2] The enQueue operation optionally turns a multiple operation request into multiple operations in the queue.
@@ -168,17 +177,17 @@ Another possible approach is to create a javascript sdk for the REST api, and th
 [6] The operation completed, and the callback is called with the appropriate information. If multiple operations where merged into a single request, then multiple callbacks will be called.
 ![](Overview.png "fig:Overview.png")
 
-##### Class Diagram of new Design
+###### Class Diagram of new Design
 
 This is the class diagram of the new design. Frontend is now a singleton with deprecated static methods. All the operations (runQuery/runAction/etc) all create the appropriate VdcOperation object, which is then passed to the VdcOperationManager. The manager then puts the operation(s) into the queue and alerts the processor that new operations are available. The OperationProcessor then takes the available operations in the queue and processes them. After manipulating the operations appropriately the OperationProcessor calls transmitOperationList on the CommunicationsProvider. The communications provider calls the appropriate back-end services to do the operations.
 
 ![](Frontend_class_diagram.png "Frontend_class_diagram.png")
 
-###### Frontend.java
+####### Frontend.java
 
 This is the main class being refactored. All the existing static methods have been preserved, they are just marked deprecated. All the existing static methods now have an equivalent non-static method. For instance if we had public static void RunQuery, we now have a public void runQuery with the same parameters. We added a static getInstance method in cases where it was hard to inject the singleton using GIN. The resulting functionality should be identical to the current Frontend class.
 
-###### VdcOperationManager
+####### VdcOperationManager
 
 This is the class that manages all operations going into the queue. Operations are allowed to go into the queue if one of the following is true:
 
@@ -188,7 +197,7 @@ This is the class that manages all operations going into the queue. Operations a
 
 After the operation has been added to the queue alert the OperationProcessor that new operations are available in the queue.
 
-###### VdcOperation
+####### VdcOperation
 
 This is the container for a specific operation. Each operation defines the following properties:
 
@@ -199,19 +208,19 @@ This is the container for a specific operation. Each operation defines the follo
 
 VdcOperations are immutable, aka all the member variables are final.
 
-###### VdcOperationCallback
+####### VdcOperationCallback
 
 This interface defines the call back interface for operations. It contains an onSuccess and onFailure method.
 
-###### VdcOperationCallbackList
+####### VdcOperationCallbackList
 
 The list version of the operation call back. This one is used when the operation expects a list of results.
 
-###### VdcUserCallback
+####### VdcUserCallback
 
 Call back for user operations. This is used when the user logs in and logs out.
 
-###### OperationProcessor
+####### OperationProcessor
 
 This is more or less the heart of the refactoring. This class takes the operations in the queue and processes them before sending the operations to the communications provider. The processing consists mainly of replacing the existing callback objects with new ones that allow the processor to add special processing when the operation completes. Replacing the callbacks allows us to do things before calling the original call backs. For instance:
 
@@ -223,11 +232,11 @@ Since VdcOperations are immutable objects (all the member variables are final), 
 
 To ensure that we don't assign different new call backs to the same original call back (As would be the case when the original call to Fronted would be a runMultipleQueries) we store the original callback and the new callback in a map while processing all the operations. If a matching original call back is found, we replace it with the one from the map, otherwise we create a new one and put it in the map.
 
-###### CommunicationProvider
+####### CommunicationProvider
 
 This interface defines what a communications provider should provide. The interface is very simple. It should allow a list of operations to be passed into it. It also should allow the user to login and log out. The actual implementation of this interface will determine how the client communicates with the back end.
 
-###### GWTRPCCommunicationProvider
+####### GWTRPCCommunicationProvider
 
 The GWT RPC communication provider is the client interface with the GWT RPC backend. The provider uses the GenericApiGWTServiceAsync class to do the actual communication. When the provider receives a list of operations, it splits them out into actions and queries. If there are more than one actions, the provider calls runMultipleActions. If there is only one action it calls runAction. A similar procedure happens with queries, only it calls runMultipleQueries and runQuery. If an operation is public the provider calls runPublicQuery.
 
@@ -236,7 +245,7 @@ The result of RunQuery, RunAction, RunPublicQuery are not that interesting. We j
 *   Actions. Because we can't mix different action types in a RunMultipleActions call, we have to make several calls, one for each action type. Since it is theoretically possible to have the same action type with different parameters **and** different call backs, we have to make sure that we look at the results of the action, and pass the result to the appropriate call back.
 *   Queries. We can mix and match as many queries as we want into a single query, we will only have to make a single call to RunMultipleQueries. Obviously untangling the result from that query and making the proper call backs is a little more complicated, but not impossible.
 
-##### Special considerations
+###### Special considerations
 
 1.  When the user logs out the queue is purged and any outstanding operations are completed but no callbacks are called.
 2.  If the user is not logged in, then no operations are allowed into the queue, except for the logon operation.

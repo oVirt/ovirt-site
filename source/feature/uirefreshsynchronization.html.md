@@ -33,6 +33,6 @@ Quite frequently it happens that one performs an action on lets say a VM, and af
 
 ### The event log is updated, but the rest of the UI elements are not
 
-This is related but slightly different problem from the one described above. In this case something in the system caused an event to be generated and this event shows up in the event log in the UI but there is no corresponding change in the rest of the UI. For instance someone removed a VM and the event shows up in the event log, however the VM is still visible in the VM grid. This is illustrated in the following image. ![](Event_out_of_sync.png "fig:Event_out_of_sync.png")
+This is related but slightly different problem from the one described above. In this case something in the system caused an event to be generated and this event shows up in the event log in the UI but there is no corresponding change in the rest of the UI. For instance someone removed a VM and the event shows up in the event log, however the VM is still visible in the VM grid. This is illustrated in the following image. ![](Event_out_of_sync.png "fig:Event_out_of_sync.png") This is caused by the fact that the event log is refresh at a different interval than the rest of the UI, in fact you cannot change the refresh of the event log, but you can change the refresh of the rest of the UI (like the VM grid).
 
 <Category:Feature>

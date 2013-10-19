@@ -26,7 +26,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   have a logrotate-dependent logrotate.conf that works on Fedora and EL equally well.
+*   ~~have a logrotate-dependent logrotate.conf that works on Fedora and EL equally well.~~ Our current 'sed' of the EL6-offensive line is good enough.
 
 <!-- -->
 
@@ -34,7 +34,11 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   Simplify the SysV init script, split most of its code to a "[vdsm-tool](http://gerrit.ovirt.org/295)". vdsm-tool should assume responsibility on hairy stuff such as [configuring multipath](http://bugzilla.redhat.com/547424), which should not be the business of Vdsm proper.
+*   ~~Simplify the SysV init script, split most of its code to a "[vdsm-tool](http://gerrit.ovirt.org/295)"~~. Mostly done by Zhou ZhengSheng & Co.
+
+<!-- -->
+
+*   vdsm-tool should assume responsibility on hairy stuff such as [configuring multipath](http://bugzilla.redhat.com/547424), which should not be the business of Vdsm proper.
 
 <!-- -->
 
@@ -46,7 +50,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   make vdsm.rpm noarch by moving safelease to its own subrpm
+*   make vdsm.rpm noarch by moving safelease to its own rpm
 
 ### Testing
 

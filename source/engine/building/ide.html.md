@@ -115,7 +115,9 @@ If the above didn't help try also removing
 
        File-->Open Project
 
-Select the main pom.xml located at the root of the ovirt-engine directory. It should then open the project structure on the left pane. (there is a package-based view as well similar to Eclipse. In order to switch to it, select in left upper corner of the left pane: "view as: Packages") It also detects automatically the project is working with Git and its settings, and the right click menu adjusts to the Git integration.
+Select the main pom.xml located at the root of the ovirt-engine directory.
+It should then open the project structure on the left pane (there is a package-based view as well similar to Eclipse. In order to switch to it, select in left upper corner of the left pane: "view as: Packages").
+It also detects automatically the project is working with Git and its settings, and the right click menu adjusts to the Git integration.
 
 *   Eclipse code formatter - in order to be aligned with code formatting along the project, it is advised to work with the code styling configuration file that is based on Eclipse.
 

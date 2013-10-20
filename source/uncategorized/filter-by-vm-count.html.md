@@ -31,7 +31,7 @@ This filter only returns host ids of hosts with less running VMs then the specif
              engine_hosts = connection.hosts.list(
                  query=" or ".join(["id=%s" % u for u in host_ids]))
              return engine_hosts
-         def do_filter(self, hosts_ids, vm_id, args_map):
+`   def do_filter(self, hosts_ids, vm_id, args_map): //<-- `**`This` `is` `the` `function` `that` `will` `be` `called` `by` `the` `external` `scheduler` `proxy`**
              conn = self._get_connection()
              if conn is None:
                  return

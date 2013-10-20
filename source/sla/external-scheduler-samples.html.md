@@ -1,0 +1,42 @@
+---
+title: External Scheduler Samples
+category: sla
+authors: doron, nslomian
+wiki_category: SLA
+wiki_title: External Scheduler Samples
+wiki_revision_count: 5
+wiki_last_updated: 2013-10-24
+---
+
+# External Scheduler Samples
+
+## Introduction
+
+When running or migrating VMs the external scheduler proxy is used to Introduce user written logic in to the selection process of hosts . The user can effect the selection process In two ways
+
+*   filtering hosts
+*   scoring hosts
+
+He can also replace the entire load balancing logic with an entity suitably called
+
+*   load balance
+
+## Filtering
+
+Filtering is referring to the act of disqualifying hosts from being a candidates for running a VM. For instance, a VM count filter may rule out hosts already running a certain number of VMS.
+
+The external scheduler ships with this sample filter doing just that: [Filter By VM Count](Filter By VM Count)
+
+## Scoring
+
+Scoring is referring to the act of giving hosts scores representing how well are they suited to run a specific VM. For instance, ksm scoring may give hosts running similar VMs a higher rank. making them more likely to be selected.
+
+Luckily we have just that sample already shipping with the external proxy, this proxy scores based on the similarity of the VMs operating system: [Score_KSM_OS](Score_KSM_OS)
+
+## Load Balancing
+
+Load balancing is an optional settings telling the engine to periodically check if some hosts are overloaded and migrate VMs from those hosts. There are a few default load balancers shipping with Ovirt, but the user can replace them with a custom load balancer of his own. For instance a memory load balancer may move a VM from hosts that are under memory pressure (for instance due to overcommitting)
+
+An example of this can be found here: [Host_Memory_balance](Host_Memory_balance)
+
+**This includes a complete explanation of every part of the code, I would recommend taking a look at it if you wish to write one your external scheduling component**

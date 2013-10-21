@@ -20,25 +20,31 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Upcoming meetings
 
-#### 2013-10-07
+#### 2013-10-28
 
 ###### Agenda
 
 *   Introductions
 *   Review of action items
 *   Hosting
-    -   rackspace03 installed?
 *   Puppet
 *   Jenkins
 *   Other business?
 *   Trac review
 
-###### Action items from last week
+## Past meetings
 
-*   ewoud puppetize artifactory
-*   ewoud deploy settings.xml to all jenkins slaves
-*   dcaro make sure jobs use the new settings.xml file
-*   dcaro investigate jenkins@linode01 emails origin
+#### 2013-10-21
+
+"[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-10-21-14.02.log.html)"
+
+*   Introductions
+*   Review of action items
+*   Hosting
+*   Puppet
+*   Jenkins
+*   Other business?
+*   Trac review
 
 ## Past meetings
 

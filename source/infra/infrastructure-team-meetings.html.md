@@ -46,8 +46,6 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Other business?
 *   Trac review
 
-## Past meetings
-
 #### 2013-09-30
 
 "[Minutes](http://resources.ovirt.org/meetings/ovirt/2013/ovirt.2013-09-30-13.58.html)"

@@ -45,4 +45,8 @@ We can reverse the situation and make the models aware of which actions would re
 
 ### Event solution
 
+The problem is something besides the interactions of the user with the UI has made changes to a model or a set of models on the back-end and the front-end doesn't know about these changes. Interactions by the user are captured by the 'action solution' above. Some/all of those changes generate an event which is retrieved using a periodic event query. This event query is not in sync with the rest of the normal model queries. So we can get a situation where an event is reported in the event log but the associated UI elements have not been updated yet.
+
+The solution to this problem is very similar to the solution of the actions. Instead of looking for action results, we look for query results for the event query. If we find such a results we can fire a similar event to the action completed event and have models listen for that event. Then the models can decide if they need to be refreshed or not.
+
 <Category:Feature>

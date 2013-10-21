@@ -8,18 +8,32 @@ wiki_last_updated: 2014-01-29
 
 # Changing Engine Hostname
 
-## Draft - Changing the hostname of an oVirt Manager/engine
-
-This is a DRAFT.
+## Changing the hostname of an oVirt Manager/engine
 
 ### How to
 
 1.  Prepare relevant DNS and/or /etc/hosts records for the new name.
 2.  If using DHCP, update the DHCP server's configuration.
 3.  Change the hostname. This is usually done by editing /etc/hostname and rebooting. There are other options and details which are not in the scope of this document.
-4.  Run the script ovirt-engine-rename-manager-host.
+4.  Run the script ovirt-engine-rename:
 
-### discussion
+         # /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename
+
+It's otopi-based. This means, among other things, that it looks similar to the new engine-setup/cleanup, and provides similar logging, options, etc.
+
+Options specific to it:
+
+`   --newname=`<newname>
+
+An example run, which does everything in batch and does not ask questions, if possible:
+
+         # /usr/share/ovirt-engine/setup/bin/ovirt-engine-rename \
+         --newname=ovirte1n.home.local \
+         --otopi-environment="OSETUP_RENAME/forceIgnoreAIAInCA=bool:'True' \
+         OVESETUP_CORE/engineStop=bool:'True' \
+         OSETUP_RENAME/confirmForceOverwrite=bool:'False'"
+
+### Discussion
 
 When running engine-setup on a clean system, one of the things it does is create the following set of keys and certs:
 
@@ -31,7 +45,7 @@ All three certificates (CA, httpd, engine) are for the Common Name (CN) whose va
 
 Later, when adding hosts to oVirt, these hosts also get certificates signed by the CA. The engine and VDSM can thus verify each others' identity.
 
-Currently, the script ovirt-engine-rename-manager-host does not touch the CA's or the engine's certificate. It does create a new certificate for the httpd web server. This means that when you rename the host using this script, and then login using the admin interface to the new hostname, you'll get in your browser a certificate for the new hostname, signed by the CA, accompanied by the certificate of the CA, which is for the old hostname.
+Currently, the script ovirt-engine-rename does not touch the CA's or the engine's certificate. It does create a new certificate for the httpd web server. This means that when you rename the host using this script, and then login using the admin interface to the new hostname, you'll get in your browser a certificate for the new hostname, signed by the CA, accompanied by the certificate of the CA, which is for the old hostname.
 
 This means that if/when the old hostname is gone, it will not be possible anymore to try and verify the entire "trust path" from the root (CA) to the services - httpd and the engine. Is this a concern? For the web server, it's not too big of a concern. At most, you'll get some extra warnings from your web browser when trying to connect to the admin interface, which you can ignore.
 

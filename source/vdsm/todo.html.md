@@ -135,9 +135,9 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   factor betterPopen and betterThreading out of vdsm. They deserve a pipy review under the names [cPopen](https://pypi.python.org/pypi/cpopen) and [pthreading](http://pypi.python.org/pypi/pthreading) respectively.
+*   <strike>factor betterPopen and betterThreading out of vdsm. They deserve a pipy review under the names [cPopen](https://pypi.python.org/pypi/cpopen) and [pthreading](http://pypi.python.org/pypi/pthreading) respectively.
 
-<https://bugzilla.redhat.com/show_bug.cgi?id=903246>
+<https://bugzilla.redhat.com/show_bug.cgi?id=903246></strike>
 
 *   factor the task framework out of storage. Networking may need it, too.
 

@@ -179,6 +179,8 @@ Records that contains "href" as string, should be tested if works with IPv6:
     -   jsonRpcUtils._tcpServerConstructor() [there should be distinction of using 'localhost' and localhost6]
     -   jsonRpcUtils._protonServerConstructor()[127.0.0.1]
 *   The [multiple gateways](Features/Multiple_Gateways) feature was not designed with IPv6 in mind
+*   New class handling source route in vdsm/sourceRoute.py
+*   Minor changes to lib/vdsm/ipwrapper.py to be ipv6 aware
 
 ##### VDSM tests
 

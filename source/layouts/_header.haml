@@ -3,5 +3,10 @@
     = link_to "/" do
       = image_tag data.site.logo, class: "logo", alt: data.site.name
 
-  -# Navigation is automatically rendered from ../../data/navigation.yml
-  = partial :nav, locals: { source: "navigation", nav_class: "nav-pills" }
+  -# A few options/examples below:
+
+  -# Use static top navbar include (default on springboard example site)
+  = partial "navbar_static_top"
+
+  -# "Dynamic" navigation is automatically rendered from ../../data/navigation.yml
+  -# = partial :nav, locals: { source: "navigation", nav_class: "nav-pills" }

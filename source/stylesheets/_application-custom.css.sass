@@ -1,0 +1,37 @@
+// Here you can put your own custom CSS styling, SASS syntax.
+// Font web font definitions and imports should go in _fonts.css.
+// 
+// As you can see, you should use SASS syntax (http://sass-lang.com/).
+// You can also use Compass mixins (http://compass-style.org/).
+
+// Springboard! logo is styled text
+a.navbar-brand, .sitelogo
+  font-weight: bold
+  font-family: Molle, Sans-Serif
+  font-size: 1.5em
+  color: white !important
+  @import "compass/css3/text-shadow"
+  +single-text-shadow(0, 0, 9px, false, rgba(255,32,128,0.5))
+
+// Bootstrap jumbotron has default light background.
+// We want our wallpaper to show through.
+.jumbotron
+  background: none
+
+// This is the "Get started" part in frontpage, 
+// setting dark background and light text colors
+.getstarted
+  @import "compass/css3/images"
+  +background-image(radial-gradient(rgba(0,0,0,0.74), rgba(0,0,0,0.9)))
+  color: $gray-light
+  pre, code
+    color: white
+    background: none
+    border: none
+  @import "compass/utilities/links/link-colors"
+  a 
+    +link-colors(#cc3366)
+
+// Slightly more relaxed spacing on front page blocks
+.getstarted, .moreinfo
+  padding: 12px

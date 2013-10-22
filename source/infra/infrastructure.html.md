@@ -83,7 +83,7 @@ The team uses the same [collaborative decision process](https://blogs.apache.org
 
 ## Our Architecture
 
-An overview of our technical architecture is available online. If you have a question or comment about our architecture please send an e-mail to **infra@ovirt.org** inbox or stop by the [IRC channel #ovirt on OFTC](irc://irc.oftc.net/#ovirt).
+An overview of our technical architecture is available [online](http://monitoring.ovirt.org). If you have a question or comment about our architecture please send an e-mail to **infra@ovirt.org** inbox or stop by the [IRC channel #ovirt on OFTC](irc://irc.oftc.net/#ovirt).
 
 #### oVirt Instances
 

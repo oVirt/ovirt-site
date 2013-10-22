@@ -8,26 +8,26 @@
 // Grays
 // -------------------------
 
-//$gray-darker: lighten(black, 13.5%)
+$gray-darker: lighten(black, 13.5%)
 
 // #222
-//$gray-dark: lighten(black, 20%)
+$gray-dark: lighten(black, 20%)
 
 // #333
-//$gray: lighten(black, 33.5%)
+$gray: lighten(black, 33.5%)
 
 // #555
-//$gray-light: lighten(black, 60%)
+$gray-light: lighten(black, 60%)
 
 // #999
-//$gray-lighter: lighten(black, 93.5%)
+$gray-lighter: lighten(black, 93.5%)
 
 // #eee
 
 // Brand colors
 // -------------------------
 
-$brand-primary: #8bca42
+$brand-primary: #660033
 //$brand-success: #5cb85c
 //$brand-warning: #f0ad4e
 //$brand-danger: #d9534f
@@ -54,7 +54,7 @@ $font-family-monospace: "Droid Sans Mono", monospace
 
 //$font-family-base: $font-family-sans-serif
 
-$font-size-base: 16px
+$font-size-base: 14px
 //$font-size-large: ceil($font-size-base * 1.25)
 
 // ~18px
@@ -577,12 +577,12 @@ $headings-font-weight: 400
 
 // Code
 // ------------------------
-//$code-color: #c7254e
-//$code-bg: #f9f2f4
+$code-color: $gray-dark
+$code-bg: rgba(255,255,255,0.2)
 
-//$pre-bg: whitesmoke
-//$pre-color: $gray-dark
-//$pre-border-color: #cccccc
+$pre-bg: $code-bg
+$pre-color: $code-color
+$pre-border-color: none
 //$pre-scrollable-max-height: 340px
 
 // Type

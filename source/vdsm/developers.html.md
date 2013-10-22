@@ -33,12 +33,12 @@ Fedora users must add the ovirt repositories, providing packages that are not av
 
 RHEL 6 users must add the glusterfs repository, providing newer glusterfs not available on RHEL 6. Optionally install 'wget' if not present
 
-      rpm -q wget 2> /dev/null || yum -y install wget
+      rpm -q wget 2> /dev/null || yum install wget
 `wget -P /etc/yum.repos.d `[`http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/glusterfs-epel.repo`](http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/glusterfs-epel.repo)
 
 Fedora and RHEL 6 users must verify the following packages are installed before attempting to build:
 
-       yum -y install make autoconf automake pyflakes logrotate gcc python-pep8 libvirt-python python-devel \
+       yum install make autoconf automake pyflakes logrotate gcc python-pep8 libvirt-python python-devel \
        python-nose rpm-build sanlock-python genisoimage python-ordereddict python-pthreading libselinux-python\
        python-ethtool m2crypto python-dmidecode python-netaddr python-inotify python-argparse git \
        python-cpopen bridge-utils libguestfs-tools-c pyparted

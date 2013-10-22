@@ -1,13 +1,13 @@
-name: Your Site's name here
+name: Springboard for Middleman
 domain: yourdomain.org
 logo: logo.png
 
 # Owner is used for the automatic copyright string.
 # If no owner is specified, then copyright will default to site name.)
-#owner: SomeCorp, Inc.
+owner: Red Hat, Inc.
 
 # The year your site was established (for the copyright)
-#founding_year: 2013 # Defaults to current year if commented
+founding_year: 2013 # Defaults to current year if commented
 
 # Manual copyright string, to override the automatic one
 #copyright: "&copy; 2013 YOUR_NAME_HERE"

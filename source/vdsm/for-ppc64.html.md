@@ -82,7 +82,49 @@ At the minimum following user interfaces will be affected
 
 ## DEMO Version
 
-<https://bitbucket.org/gustavo_temple/ovirtvdsmmultiplatform> (Oct 14, 2013)
+There is a branch of VDSM with PPC64 support at: <https://bitbucket.org/gustavo_temple/ovirtvdsmmultiplatform> (Oct 14, 2013)
+
+You can follow these steps to test the PPC64 code using the QEMU emulated mode in x86-64 hosts:
+
+*   Configure the bridge Interface:
+
+<http://www.ovirt.org/Installing_VDSM_from_rpm#Configuring_the_bridge_Interface>
+
+*   Install required packages (with libvirt version <= 1.1.0):
+
+<http://www.ovirt.org/Vdsm_Developers#Installing_required_packages>
+
+*   Get the source:
+
+<http://www.ovirt.org/Vdsm_Developers#Getting_the_source>
+
+*   Checkout:
+
+<http://gerrit.ovirt.org/#/c/18718>
+
+*   Build a Vdsm RPM:
+
+<http://www.ovirt.org/Vdsm_Developers#Building_a_Vdsm_RPM>
+
+*   Install:
+
+<http://www.ovirt.org/Vdsm_Developers#Basic_installation>
+
+*   Create the '50-fake.conf' file:
+
+<https://github.com/oVirt/ovirt-host-deploy/blob/master/README> /etc/ovirt-host-deploy.conf.d/50-fake.conf [environment:enforce] VDSM/checkVirtHardware=bool:False VDSM/configOverride=bool:False
+
+*   Create the file '50-development.conf':
+
+<https://github.com/oVirt/ovirt-host-deploy/blob/master/README> /etc/ovirt-host-deploy.conf.d/50-development.conf [environment:enforce] VDSM/configOverride=bool:False
+
+*   Enable the fake mode in the vdsm.conf file:
+
+/etc/vdsm/vdsm.conf fake_kvm_support = True fake_kvm_architecture = ppc64
+
+*   Execute the command:
+
+systemctl restart vdsmd.service
 
 ## Benefits to oVirt
 

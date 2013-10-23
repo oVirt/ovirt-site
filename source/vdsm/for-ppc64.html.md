@@ -112,11 +112,20 @@ You can follow these steps to test the PPC64 code using the QEMU emulated mode i
 
 *   Create the '50-fake.conf' file:
 
-<https://github.com/oVirt/ovirt-host-deploy/blob/master/README> /etc/ovirt-host-deploy.conf.d/50-fake.conf [environment:enforce] VDSM/checkVirtHardware=bool:False VDSM/configOverride=bool:False
+<https://github.com/oVirt/ovirt-host-deploy/blob/master/README>
+
+    /etc/ovirt-host-deploy.conf.d/50-fake.conf
+    [environment:enforce]
+    VDSM/checkVirtHardware=bool:False
+    VDSM/configOverride=bool:False
 
 *   Create the file '50-development.conf':
 
-<https://github.com/oVirt/ovirt-host-deploy/blob/master/README> /etc/ovirt-host-deploy.conf.d/50-development.conf [environment:enforce] VDSM/configOverride=bool:False
+<https://github.com/oVirt/ovirt-host-deploy/blob/master/README>
+
+    /etc/ovirt-host-deploy.conf.d/50-development.conf
+    [environment:enforce]
+    VDSM/configOverride=bool:False
 
 *   Enable the fake mode in the vdsm.conf file:
 

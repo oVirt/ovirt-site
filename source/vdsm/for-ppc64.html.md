@@ -129,7 +129,11 @@ You can follow these steps to test the PPC64 code using the QEMU emulated mode i
 
 *   Enable the fake mode in the vdsm.conf file:
 
-/etc/vdsm/vdsm.conf fake_kvm_support = True fake_kvm_architecture = ppc64
+<!-- -->
+
+    /etc/vdsm/vdsm.conf
+    fake_kvm_support = True
+    fake_kvm_architecture = ppc64
 
 *   Execute the command:
 

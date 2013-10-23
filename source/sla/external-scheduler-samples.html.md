@@ -12,7 +12,7 @@ wiki_last_updated: 2013-10-24
 
 ## Introduction
 
-When running or migrating VMs the external scheduler proxy is used to Introduce user written logic in to the selection process of hosts . The user can effect the selection process In two ways
+When running or migrating VMs the external scheduler proxy is used to introduce user written logic in to the selection process of hosts . The user can effect the selection process In two ways
 
 *   filtering hosts
 *   scoring hosts

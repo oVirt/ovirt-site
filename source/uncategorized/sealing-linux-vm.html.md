@@ -23,13 +23,14 @@ For Handling the above we have the process of sysprep. For guests with Windows O
 3.  touch /.unconfigured
 4.  Remove ssh host keys:
 5.  rm -i /etc/ssh/ssh_host_\*
-6.  Set HOSTNAME=localhost.localdomain in /etc/sysconfig/network
-7.  Remove UDEV rules:
-8.  rm -i /etc/udev/rules.d/70-persistent\*
-9.  Remove the HWADDR= line from /etc/sysconfig/network-scripts/ifcfg-\*
-10. [optionally] Delete the logs from /var/log
-11. [Optionally] Delete the build logs from /root.
-12. Shut down the virtual machine.
+6.  Optionally, for environments where a host cannot determine its own name via DNS based lookups:
+7.  echo "HOSTNAME=localhost.localdomain" >> /etc/sysconfig/network
+8.  Remove UDEV rules:
+9.  rm -i /etc/udev/rules.d/70-persistent\*
+10. Remove the HWADDR= line from /etc/sysconfig/network-scripts/ifcfg-\*
+11. [optionally] Delete the logs from /var/log
+12. [Optionally] Delete the build logs from /root.
+13. Shut down the virtual machine.
 
 ## Future work
 

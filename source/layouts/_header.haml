@@ -1,12 +1,10 @@
 .masthead
-  -# %h1
+  %h1
     = link_to "/" do
-      = image_tag data.site.logo, class: "logo", alt: data.site.name
-
-  -# A few options/examples below:
-
-  -# Use static top navbar include (default on springboard example site)
-  = partial "navbar_static_top"
+      - if data.site.logo
+        = image_tag data.site.logo, class: "logo", alt: data.site.name
+      - else
+        = data.site.name
 
   -# "Dynamic" navigation is automatically rendered from ../../data/navigation.yml
-  -# = partial :nav, locals: { source: "navigation", nav_class: "nav-pills" }
+  = partial :nav, locals: { source: "navigation", nav_class: "nav-pills" }

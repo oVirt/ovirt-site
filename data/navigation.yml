@@ -1,10 +1,5 @@
 - Home: "/"
 - Blog: /blog
-- Documentation: /documentation
-- Menu1: "optional_nojs_fallback_link"
-  boo: "#bleh"
-  boo2: "#bleh"
-- Menu w/o link:
-  boo: "#bleh"
-- text string
-- text string w/o a link:
+- Software: /software
+- Standards: /standards
+- Events: /events

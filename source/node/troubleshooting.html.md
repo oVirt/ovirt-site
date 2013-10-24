@@ -42,14 +42,14 @@ $ openssl passwd -salt 42 ovirt
 ### Log Files
 
 *   Visible by Pressing F8 on any TUI screen
-*   Node specific
+*   **Node** specific
     -   /var/log/ovirt.log
     -   /var/log/ovirt-node.log
     -   /var/log/ovirt-node.debug.log (when running the installer or setup in debug mode)
     -   /tmp/ovirt.log (in rare cases)
-*   Engine related
+*   **Engine** related
     -   /var/log/vdsm\*
-*   Gluster related
+*   **Gluster** related
     -   /var/log/vdsm\*
     -   /var/log/glusterfs\*
 

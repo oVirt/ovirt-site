@@ -49,6 +49,9 @@ $ openssl passwd -salt 42 ovirt
     -   /tmp/ovirt.log (in rare cases)
 *   Engine related
     -   /var/log/vdsm\*
+*   Gluster related
+    -   /var/log/vdsm\*
+    -   /var/log/glusterfs\*
 
 ### Shell access
 

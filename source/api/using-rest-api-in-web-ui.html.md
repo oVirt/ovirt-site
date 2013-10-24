@@ -44,7 +44,7 @@ The primary goal of utilizing [Engine REST API](REST-Api) in oVirt web UI is to 
 *   no need for GWT-specific hacks, such as tricking GWT compiler into thinking that all shared code is live
 *   not using Java `BackendLocal` interface directly, i.e. abstract away from query/action concept used internally by Engine backend
 
-The secondary goal of this effort is to provide implementation utilizing Engine REST API in a way that allows reuse by any JavaScript-based web application, be it oVirt web UI, [[Features/UIPlugins|UI plugins] or any other application.
+The secondary goal of this effort is to provide implementation utilizing Engine REST API in a way that allows reuse by any JavaScript-based application, be it oVirt web UI, [UI plugins](Features/UIPlugins) or any other web application.
 
 ### Design Proposal
 

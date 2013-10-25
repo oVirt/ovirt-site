@@ -29,4 +29,8 @@ security-private at ovirt.org
 
 You will be invited to subscribe to this list if you are subscribed to security at ovirt.org.
 
+## Security advisories
+
+The [security advisories](security advisories) page lists all security vulnerabilities fixed in oVirt.
+
 <Category:Security>

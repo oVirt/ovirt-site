@@ -1,12 +1,12 @@
 ---
-title: Hello World! (Read me to learn how blogging works!)
-date: 2013-10-02 13:35 UTC
-tags: info, blog, docs
-authors: Default Author
+title: Blogging and how it works
 ---
 
-Welcome to the blog. This is the example post. It also serves as documentation
-on how to write blog posts.
+There is a blogging component under `source/blog` which makes it
+pretty easy to do blog posts. There is automatic index and rss feed
+generation etc. There is also a template for blog posts under layouts,
+which you might want to have a look at if you are interested in how it
+is done.
 
 ### Creating new posts
 

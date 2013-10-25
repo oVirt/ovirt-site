@@ -13,11 +13,6 @@ a.navbar-brand, .sitelogo
   @import "compass/css3/text-shadow"
   +single-text-shadow(0, 0, 9px, false, rgba(255,32,128,0.5))
 
-// Bootstrap jumbotron has default light background.
-// We want our wallpaper to show through.
-.jumbotron
-  background: none
-
 // This is the "Get started" part in frontpage, 
 // setting dark background and light text colors
 .getstarted
@@ -35,3 +30,13 @@ a.navbar-brand, .sitelogo
 // Slightly more relaxed spacing on front page blocks
 .getstarted, .moreinfo
   padding: 12px
+
+.nav.docbrowser li.active a
+  font-weight: bold
+  background: none 
+  border: none
+.nav.docbrowser li a:hover
+  background: rgba(white, 0.2)
+  @import "compass/css3/border-radius"
+  border-radius: 5px
+  

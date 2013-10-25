@@ -5,7 +5,7 @@
 
       %h2= current_page.data.title
 
-      .meta
+      .post_info
         = pretty_date(current_page.data.date)
         = current_page.data.authors
         -# current_page.data.authors.split(',').each do |author|
@@ -23,18 +23,18 @@
           - blog.articles[0...10].each do |article|
             %li
               = link_to article.title, article
-              %span= pretty_date(article.date)
+              %span.post_info= pretty_date(article.date)
 
         %h3 Tags
         %ol
           - blog.tags.each do |tag, articles|
             %li
               = link_to tag, tag_path(tag)
-              (#{articles.size})
+              %span.post_info (#{articles.size})
 
         %h3 By Year
         %ol
           - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
             %li
               = link_to year, blog_year_path(year)
-              (#{articles.size})
+              %span.post_info (#{articles.size})

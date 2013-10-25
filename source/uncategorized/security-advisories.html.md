@@ -12,10 +12,48 @@ This page lists all security vulnerabilities fixed in oVirt. Each vulnerability 
 
 ## [Moderate] CVE-2013-4367 ovirt-engine: some config files left world-writable due to improper use of os.chmod()
 
-Affected versions: This vulnerability only affects ovirt-engine 3.2 running on a Linux kernel 3.1
+### Description
 
-Description: It was found that ovirt-engine would create certain files world-writable (such as /etc/sysconfig/nfs). This is due to an upstream [kernel change](https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/commit/fs/open.c?id=e57712ebebbb9db7d8dcef216437b3171ddcf115) which impacts how python's os.chmod() works when passed a mode of '-1'. Prior to this kernel change, a mode of '-1' would have implied "do nothing", however with the upstream kernel change this will turn all possible bits on (thus making the file world-writable).
+It was found that ovirt-engine would create certain files world-writable (such as /etc/sysconfig/nfs). This is due to an upstream [kernel change](https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/commit/fs/open.c?id=e57712ebebbb9db7d8dcef216437b3171ddcf115) which impacts how python's os.chmod() works when passed a mode of '-1'. Prior to this kernel change, a mode of '-1' would have implied "do nothing", however with the upstream kernel change this will turn all possible bits on (thus making the file world-writable).
 
 As a result, this only affects ovirt-engine (or other python scripts using os.chmod() in this way) with newer Linux kernels (version 3.1 and newer).
 
-This has been in [upstream git](http://gerrit.ovirt.org/#/c/19472/) to fix permissions on installations that upgrade from 3.2. In 3.3, the entire setup package was rewritten and the copyFile() function (from common_utils.py, where this os.chmod() call is made) has been removed. As a result, this only affects ovirt-engine 3.2 running on a Linux kernel 3.1.
+This has been addressed to fix permissions on installations that upgrade from 3.2. In 3.3, the entire setup package was rewritten and the copyFile() function (from common_utils.py, where this os.chmod() call is made) has been removed. As a result, this only affects ovirt-engine 3.2 running on a Linux kernel 3.1.
+
+### Affected versions
+
+This vulnerability only affects ovirt-engine 3.2 running on Linux kernel 3.1.
+
+### Patch commit(s)
+
+<http://gerrit.ovirt.org/#/c/19472/>
+
+## [Moderate] CVE-2013-4181 ovirt-engine: RedirectServlet cross-site scripting flaw
+
+### Description
+
+A reflected cross-site scripting (XSS) flaw was found in the RedirectServlet component of ovirt-engine. Access to RedirectServlet does not require authentication.
+
+### Affected versions
+
+All versions of ovirt-engine prior to 3.3.0 are affected.
+
+### Patch commit(s)
+
+<http://gerrit.ovirt.org/#/c/19152/>
+
+## [Moderate] CVE-2012-3533 ovirt-engine: does not validate server identity in new python SDK and CLI
+
+### Description
+
+It was reported that oVirt 3.1 did not properly validate SSL certificates of the server when the client would connect. This could permit man-in-the-middle attacks.
+
+In oVirt sdk, the python httplib.HTTPSConnection function is used to let the programmer specify the client's pair of certificates, but does not force the underlying SSL library to check the server certificate against the client keys. Because of this, the oVirt CLI tool does not check certificates upon connection. The new python SDK (ovirt-engine-sdk) and new python CLI (ovirt-engine-cli) were introduced in oVirt 3.1 ; earlier versions are not affected by this flaw.
+
+### Affected versions
+
+All versions ovirt-engine-sdk 3.1 prior to 3.1.0.6 and ovrt-engine-cli 3.1 prior to 3.1.0.8 are affected. The new python SDK (ovirt-engine-sdk) and new python CLI (ovirt-engine-cli) were introduced in oVirt 3.1 ; earlier versions are not affected by this flaw.
+
+### Patch commit(s)
+
+<http://gerrit.ovirt.org/#/c/7209/> <http://gerrit.ovirt.org/#/c/7249/>

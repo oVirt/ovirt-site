@@ -73,3 +73,5 @@ gem "wikicloth"
 
 # Markdown, with GitHub flavoring
 gem "redcarpet"
+
+gem 'reverse_markdown'

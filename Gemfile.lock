@@ -125,6 +125,8 @@ GEM
       ffi (>= 0.5.0)
     redcarpet (3.0.0)
     ref (1.0.5)
+    reverse_markdown (0.4.6)
+      nokogiri
     rouge (0.3.10)
       thor
     ruby18_source_location (0.2)
@@ -172,6 +174,7 @@ DEPENDENCIES
   nokogiri
   oj
   redcarpet
+  reverse_markdown
   ruby18_source_location
   therubyracer
   wdm (~> 0.1.0)

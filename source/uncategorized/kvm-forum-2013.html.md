@@ -62,10 +62,11 @@ Day 3 of the KVM Forum will see one track dedicated to the oVirt developers summ
 There are three oVirt talks in oVirt developer meeting, all taking place on Wednesday October 23 in the morning:
 
 *   The State of oVirt (Itamar Heim)
-*   oVirt hosted engine: the egg that hosts its parent chicken (Doron
-
-Fediuck) [Slides](:Media:Kvm-forum-hosted-engine.pdf)
-
+    -   [Slides](https://docs.google.com/file/d/0ByCzJ3AoWZuuWUdmZTdaeVl6Z2s)
+    -   [Session recording](https://www.youtube.com/watch?v=NXnB6Xwdb30)
+*   oVirt hosted engine: the egg that hosts its parent chicken (Doron Fediuck)
+    -   [Slides](:Media:Kvm-forum-hosted-engine.pdf)
 *   oVirt for PowerPC (Otavio Luiz Ferrant)
+    -   [Session recording](https://www.youtube.com/watch?v=JNZ8YzI2JOw)
 
 In the afternoon, we will have a series of working sessions, with a leader setting the stage, followed by group discussion, and a conclusion of priorities for the project.

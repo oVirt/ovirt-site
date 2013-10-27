@@ -64,7 +64,7 @@ There are three oVirt talks in oVirt developer meeting, all taking place on Wedn
 *   The State of oVirt (Itamar Heim)
 *   oVirt hosted engine: the egg that hosts its parent chicken (Doron
 
-Fediuck)
+Fediuck) <Media:Kvm-forum-hosted-engine.pdf>
 
 *   oVirt for PowerPC (Otavio Luiz Ferrant)
 

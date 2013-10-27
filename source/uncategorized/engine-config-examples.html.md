@@ -61,3 +61,15 @@ In order to deactivate mac spoof filtering on a VM:
 6.  Select macspoof
 7.  Type true as the value
 8.  Start the VM
+
+## MacPoolRanges
+
+MacPoolRanges provide a pool of MAC addresses to be used by all of the datacenters managed by the ovirt engine. Of course, in a LAN this doesn't make much difference as the possibility of MAC "hijack" from a hardware vendor is extremely low. The 3 first bytes in a MAC specify the vendor ID, and the 3 last bytes the "card" address (explained in <http://en.wikipedia.org/wiki/MAC_address>). If you run into the **Not enough MAC addresses left in MAC Address Pool.** error, you will need to expand this pool. If you are running multiple ovirt-engines or other virtualization platforms on the same network you may need to update this setting
+
+Also please notice you can have multiple ranges separated by comma
+
+      MacPoolRanges: 00:1A:4A:97:5E:00-00:1A:4A:97:5E:FF,00:1A:4A:97:5F:00-00:1A:4A:97:5F:FF
+
+## MaxMacsCountInPool
+
+Limits the MAC pool size so if you have a pool that is too big the engine won't start. So for example if you have pools 00:1A:4A:97:5E:00-00:1A:4A:97:5E:FF,00:1A:4A:97:5F:00-00:1A:4A:97:5F:FF it's OK since there are 256 + 256 = 512 < 100000 MACs But, if you have pools 00:1A:4A:00:00:00-00:1A:4A:00:FF:FF,00:1A:4A:01:00:00-00:1A:4A:01:FF:FF it will fail since there are 65536 + 65536 = 131072 > 100000 MACs

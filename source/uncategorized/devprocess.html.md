@@ -35,7 +35,20 @@ The oVirt project uses gerrit in order to review patches. For more on Gerrit and
 4.  All discussions on the patch must be done on Gerrit
 5.  Consensus formed, ACK or NAK agreed
 
+#### Java Development
+
+*   adhere to standard [Java naming convention](http://www.oracle.com/technetwork/java/javase/documentation/codeconventions-135099.html#367)
+*   format the code using config/engine-code-format.xml - just plugin[import in eclipse code formatter UI or Intellij's ](Building_oVirt_Engine/IDE#Setting_up_oVirt_engine_development_environment_in_Eclipse)
+
 #### Patch Format
+
+*   ovirt-engine patch format
+
+use the project template for a commit message
+
+      git commit -s -t config/engine-commit-template.txt
+
+*   other patch format (VDSM)
 
        component: short summary under 75 chars (#xxxxxx)
        https://bugzilla.redhat.com/XXXXXX

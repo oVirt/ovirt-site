@@ -95,7 +95,11 @@ The oVirt project uses gerrit in order to review patches. For more on Gerrit and
 
 ##### Topic branches
 
-Create a branch for everything you work on
+Create a branch for everything you work on. It can be done by either postfixing the topic to the push link
+
+      push origin HEAD:refs/publish/master/name_of_topic
+
+or using gerrit's review page directly by clicking on the topic
 
 ##### Interactive Rebase
 

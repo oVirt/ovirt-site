@@ -50,14 +50,15 @@ use the project template for a commit message
 
 *   other patch format (VDSM)
 
-       component: short summary under 75 chars (#xxxxxx)
-       https://bugzilla.redhat.com/XXXXXX
-       
+      short summary under 80 chars
+
        Longer description.
-       
-       With multiple paragraphs if necessary.
-       
+       With multiple paragraphs if necessary. 
        Wrapped at ~80 chars.
+
+      Bug-Url: https://bugzilla.redhat.com/XXXXXX
+      Signed-off-by: full name <mail>
+
        
 
 #### Sending a Patch For Work In Progress

@@ -97,7 +97,7 @@ The oVirt project uses gerrit in order to review patches. For more on Gerrit and
 
 Create a branch for everything you work on. It can be done by either postfixing the topic to the push link
 
-      push origin HEAD:refs/publish/master/name_of_topic
+      push origin HEAD:refs/publish/master/{NAME_OF_YOUR_TOPIC}
 
 or using gerrit's review page directly by clicking on the topic
 

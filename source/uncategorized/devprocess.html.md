@@ -60,16 +60,15 @@ use the project template for a commit message
        Wrapped at ~80 chars.
        
 
-#### Patch Format For Work In Progress
+#### Sending a Patch For Work In Progress
 
-       component: WIP: short summary under 75 chars (#xxxxxx)
-       https://bugzilla.redhat.com/XXXXXX
-       
-       Longer description.
-       
-       With multiple paragraphs if necessary.
-       
-       Wrapped at ~80 chars.
+Use gerrit's draft capabilities.
+
+Patches in draft are blocked from being merged until they are "published"
+
+To push a patch to drafts:
+
+      git push origin HEAD:refs/drafts/master
        
 
 #### Describe your changes properly

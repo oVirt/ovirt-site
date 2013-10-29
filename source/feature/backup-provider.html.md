@@ -39,10 +39,15 @@ The backup will be on the system level, applied to all DC's in the system as def
 
 #### Phase 2
 
-=
-
 *   Persist the ovf to the following different locations (in addition to MSD):
-*   Local FS
+    -   Local FS - We may want to persist the ovfs to a DB. Other than the relative simplicity of using SQL rather than FS hierarchy for the ovf files, another motivation for this metod is the fact that we need to display all VMs to the user when restoring (The user may want to pick which VMs he wants to restore). For this, we need VM identities, specifically names. Since Guids aren't enough it might be simplest to use a DB to hold the some more data on the ovf.
+    -   Swift (?)
+    -   Debug (?) - We may want to create a Debug Provider for debug purposes only, not exposed to the end user.
+    -   NoOp - We may want to use nothing. Backup, if used, should be chroned every x minutes. It may be easier to run it anyway, just as a default NoOp Backup Provider should no other provider is specificaly configured. Still to be decided.
+*   Restore the system. The user will be able to pick which VMs he wants to restore, and how many of each of them, resembling import.
+*   Attach existing Backup Provider. For example, should a user stop backup and then want to re-attach it. The user may be also able to add an existing Backup Provider (with data) to a new system.
+
+The user should be prompted whether to pick up from latest backup or start from scratch.
 
 ### Benefit to oVirt
 

@@ -49,7 +49,7 @@ Start jboss-as service
 ### engine-db-tool.py
 
 engine-db-tool helps to backup/restore engine database
-Download: <https://raw.github.com/dougsland/misc-rhev/master/engine-db-tool.py>
+Download: <https://raw.github.com/dougsland/misc-rhev/master/engine-db-tool.py> The preceding link is stale as of October 2013; see instead: <https://github.com/dougsland/misc-rhev> and link: <https://github.com/dougsland/misc-rhev/raw/master/engine-db-tool.py>
 
 Example of usage:
 

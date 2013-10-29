@@ -101,12 +101,14 @@ The integration of network providers into oVirt will be incremental. The followi
 ### Phase 2 - Enhanced VM networking
 
 *   Enhance network editing via oVirt.
+*   Support proper scheduling for VMs on hosts.
 *   Add support for IPAM.
 *   Add support for security groups.
 
 #### Enhanced network support
 
-*   Add ability to delete the network from neutron as well, when deleting the network from oVirt.
+*   Add ability to delete the network from neutron as well.
+    -   When deleting the network from oVirt the user can check a box saying "Delete from external provider".
 *   Add a way to know network no longer exists on the provider.
 *   Experimental - add a way to convert an oVirt network to an external network.
     -   The user can choose to export the network to an external provider.
@@ -123,7 +125,6 @@ The integration of network providers into oVirt will be incremental. The followi
     -   CIDR - An IP address specifying the network name plus the net mask prefix. e.g. 10.0.0.0/24
         -   This will be used to allocate addresses to VMs on the subnet.
     -   IP version - Can choose either ipv4 (default) or ipv6
-    -   Gateway IP - Optional to specify if a gateway exists on the subnet or not (if null).
 *   The subnet will be used to allocate IPs to VMs on the external network.
     -   If no subnets exist, the VM will not receive an IP.
     -   If a subnet exists, the VM will receive an IP from it.

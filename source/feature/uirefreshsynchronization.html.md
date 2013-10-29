@@ -53,4 +53,8 @@ The problem is something besides the interactions of the user with the UI has ma
 
 The solution to this problem is very similar to the solution of the actions. Instead of looking for action results, we look for query results for the event query. If we find such a results we can fire a similar event to the action completed event and have models listen for that event. Then the models can decide if they need to be refreshed or not.
 
+As demonstrated by the following figure:
+
+![](UI_Sync_event.png "UI_Sync_event.png")
+
 <Category:Feature>

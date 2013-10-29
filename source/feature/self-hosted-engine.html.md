@@ -213,6 +213,13 @@ Issues to address specifically:
 
 FSM diagram for hosted engine agent states (generated from README.AGENT-FSM.gv in agent source tree): ![](hosted-engine-agent-fsm.png "fig:hosted-engine-agent-fsm.png")
 
+#### Maintenance Flows
+
+The HA Agent will support 2 types of maintenance:
+
+*   Global maintenance: all HA agents in the cluster will ignore the engine VM state while this mode is enabled, allowing an administrator to start/stop/modify the engine VM without any worry of interference from the HA agents. To accomplish this, a flag will be written to the HA metadata residing on shared storage, and all HA agents will heed this flag and enter a mode where the only actions they take will be to a) remain initialized, b) update their scores, and c) watch for the flag to become unset. Once the flag is unset, the agents will discover the status of the VM as they do upon starting up, and then will resume normal operation.
+*   Local maintenance: an individual HA agent will stop the VM and not attempt to restart it while this mode is enabled, in an effort to allow the local host to enter maintenance mode (in vdsm/engine). Another host in the cluster should attempt to start the engine VM, at which time maintenance operations on the first host can proceed. A shortcut to initiate this process is to shut down the engine VM manually, as any unexpected shutdown of the VM on a given host will cause the HA agent on that host to temporarily drop its score to 0. In this event, the administrator should still log into the host and enter maintenance mode to ensure the score does not recover, possibly causing the host to reacquire the engine VM. Once local maintenance mode is disabled, the score on this host will recover and the agent will resume normal operation.
+
 # Comments and Discussion
 
 *   Refer to [Talk:Self Hosted Engine](Talk:Self Hosted Engine)

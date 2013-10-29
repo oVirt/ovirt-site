@@ -98,6 +98,44 @@ The integration of network providers into oVirt will be incremental. The followi
     -   The data center containing the external networks is deleted forcefully.
     -   Snapshot operations (Preview, Undo) on the VM.
 
+### Phase 2 - Enhanced VM networking
+
+*   Enhance network editing via oVirt.
+*   Add support for IPAM.
+*   Add support for security groups.
+
+#### Enhanced network support
+
+*   Add ability to delete the network from neutron as well, when deleting the network from oVirt.
+*   Add a way to know network no longer exists on the provider.
+*   Experimental - add a way to convert an oVirt network to an external network.
+    -   The user can choose to export the network to an external provider.
+    -   The network needs to be manually removed from hosts that have it (or perhaps with host profile this can be improved).
+    -   The network parameters will be exported to the provider, the existing configuration (vNICs, profiles, permissions) will remain.
+
+#### Subnets sub-tab for external networks
+
+*   A sub-tab will be added listing the subnets defined for the external network.
+    -   Sub-tab contents will be taken from the external provider itself, not cached by oVirt.
+    -   It will be possible to add/edit/delete the subnets.
+*   A subnet entity will consist of:
+    -   Name - A name for the subnet
+    -   CIDR - An IP address specifying the network name plus the net mask prefix. e.g. 10.0.0.0/24
+        -   This will be used to allocate addresses to VMs on the subnet.
+    -   IP version - Can choose either ipv4 (default) or ipv6
+    -   Gateway IP - Optional to specify if a gateway exists on the subnet or not (if null).
+*   The subnet will be used to allocate IPs to VMs on the external network.
+    -   If no subnets exist, the VM will not receive an IP.
+    -   If a subnet exists, the VM will receive an IP from it.
+    -   If more than one subnet exists, the VM will receive an IP from either of the subnets.
+*   IP will be delivered to the guest OS via DHCP (provided by the Neutron service).
+
+#### Security groups
+
+*   A custom property for specifying the security group will be added to the vNIC custom properties list.
+    -   Using this propery the user can specify on profile level what security group this profile uses.
+*   The custom property support will be added to the VDSM hooks.
+
 ### Future phases
 
 #### REST API support

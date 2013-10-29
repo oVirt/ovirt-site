@@ -136,9 +136,14 @@ Plugins are a way to extend oVirt Node ISOs. To add a plugin to an existing imag
 3.  Edit the ISO using \`edit-node\`:
     1.  \`ovirt-node/tools/edit-node --repo edit-node.repo --install <package-name> <iso-name>\`
 
+**Note**: \`edit-node\` must be run on the same OS which is used within the image. So an Fedora image must be edited on a Fedora host.
+
 <!-- -->
 
-    $ ovirt-node/tools/edit-node --repo edit-node.repo --install ovirt-node-plugin-vdsm ovirt-node-iso-3.0.2-1.0.0.fc19.iso
+    $ ovirt-node/tools/edit-node \
+        --repo edit-node.repo \
+        --install ovirt-node-plugin-vdsm \
+        ovirt-node-iso-3.0.2-1.0.0.fc19.iso
 
 ## Where to go from now
 

@@ -43,6 +43,10 @@ The problem is the fact that an action changes the state of a particular model o
 
 We can reverse the situation and make the models aware of which actions would require them to refresh themselves. This way we can fire an event when an action completes and all interested models in that event can check if they are interested in the action associated with that event. Based on that information the model can decide if it wants to refresh or not. This of course has the potential for many models to be notified at once, so we can maybe utilize action groups or something to lower the number of models that get notified. We can also remove/add the listeners based on if the standard refresh timer is active on that model.
 
+As demonstrated in this figure:
+
+![](UI_Sync_action.png "UI_Sync_action.png")
+
 ### Event solution
 
 The problem is something besides the interactions of the user with the UI has made changes to a model or a set of models on the back-end and the front-end doesn't know about these changes. Interactions by the user are captured by the 'action solution' above. Some/all of those changes generate an event which is retrieved using a periodic event query. This event query is not in sync with the rest of the normal model queries. So we can get a situation where an event is reported in the event log but the associated UI elements have not been updated yet.

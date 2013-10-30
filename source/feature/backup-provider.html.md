@@ -50,7 +50,7 @@ The backup will be on the system level, applied to all DCs in the system as defa
 
 ### Benefit to oVirt
 
-What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
+This feature will allow actual Backing up and Restoring oVirt systems. Current Backup doesn't actually backup the system, mainly since there's no restore. Other than the obvious most needed restore, this feature will arrange the Backup into a Provider, allowing the user to set and use it easily. Adding the varied Provider types will add diversity to the system. Specifically adding the called-for local FS Backup Provider. The Benefit to oVirt users will be an easy-to-use backup-restore capabilities, at system level.
 
 ### Dependencies / Related Features
 

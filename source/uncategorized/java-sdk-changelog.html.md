@@ -8,6 +8,14 @@ wiki_last_updated: 2013-12-25
 
 # Java-sdk-changelog
 
+      * Wed  Oct 30 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.19-1
+      - to host.install() added ssh related arguments
+      - to template added virtio_scsi.enabled
+      - to vm added virtio_scsi.enabled
+      - added ability to attach a disk snapshot to the virtual machine
+      - to File class added 'content' field
+      - Payload class now reuses Files instead of own PayloadFile collection
+
       * Wed  Oct 9 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.18-1
       - added fqdn property to GuestInfo
       - refine host add()/update() documentation

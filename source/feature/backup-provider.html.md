@@ -12,7 +12,7 @@ wiki_last_updated: 2013-11-10
 
 ### Summary
 
-Add support of an ovirt system backup and restore using persisted ovf files.
+Add support of an oVirt system backup and restore using persisted ovf files.
 
 ### Owner
 

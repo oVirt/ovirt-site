@@ -58,7 +58,7 @@ Now suppose we are ready to do the cutoff.
 
 On host-a, we stop the engine: service ovirt-engine stop
 
-We update our dns to point the name 'my-engine.example.com' to the IP address of the new VM 'new-engine'.
+We update our dns to point the name 'my-engine.example.com' to the IP address of the new VM 'new-engine'. Alternatively, if we did not have separate dns entries 'host-a' and 'my-engine', but just e.g. 'my-engine', we'll probably want to change the entry 'my-engine' to 'old-my-engine' and create a new entry 'my-engine' pointing at the address of 'new-engine'.
 
 Then on new-engine we run setup: engine-setup
 

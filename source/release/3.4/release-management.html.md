@@ -22,3 +22,7 @@ wiki_last_updated: 2014-03-27
 ## Features Status Table
 
 To try and improve 3.4 planning over the wiki approach in 3.3, this google doc <http://bit.ly/17qBn6F> has been created.
+
+## Tracker Bug
+
+*   [Tracker - 1024889](https://bugzilla.redhat.com/show_bug.cgi?id=1024889)

@@ -54,20 +54,15 @@ This feature will allow actual Backing up and Restoring oVirt systems. Current B
 
 ### Dependencies / Related Features
 
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
-
 ### Documentation / External references
-
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
 
 ### Testing
 
-Explain how this feature may be tested by a user or a quality engineer. List relevant use cases and expected results.
+The main idea will be to make sure the ovfs were all persisted to the required location according to the type and that later on the system can be restored as a whole, as well as partial systems (when the user picks certain Vms, and not the whole system).
+Tests should be done on each Backup Provider separately, followed by backup and restore tests on a system with several Backup Providers.
 
 ### Comments and Discussion
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
-
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
+*   Refer to <Talk:Backup_Provider>
 
 <Category:Feature>

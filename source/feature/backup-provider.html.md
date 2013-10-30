@@ -46,9 +46,7 @@ The backup will be on the system level, applied to all DCs in the system as defa
     -   Debug (?) - We may want to create a Debug Provider for debug purposes only, not exposed to the end user.
     -   NoOp - No use of Backup will be supported. If Backup is indeed used, it should be chroned every x minutes. It may be easier to run it anyway, just as a default NoOp Backup Provider should no other provider is specifically configured. Still to be decided whether to chrone the job with NoOp or not chrone it at all if no Backup Provider is assigned to the system.
 *   Restore the system. The user will be able to pick which VMs he wants to restore, and how many of each of them, resembling import. To be discussed - restore flow in case there are multiple Backup Providers configured for the system.
-*   Attach existing Backup Provider. For example, should a user stop backup and then want to re-attach it. The user should also be able to add an existing Backup Provider (with data) to a new system.
-
-The user should be prompted whether to pick up from latest backup or start from scratch.
+*   Attach existing Backup Provider. For example, should a user stop backup and then want to re-attach it. The user should also be able to add an existing Backup Provider (with data) to a new system. In this case the user should be prompted whether to pick up from latest backup or start from scratch.
 
 ### Benefit to oVirt
 

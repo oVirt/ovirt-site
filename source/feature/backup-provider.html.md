@@ -36,7 +36,7 @@ Finally we will add the restore functionality, which is currently missing from t
 #### Phase 1
 
 Extract the current code into a Backup Provider.
-The backup will be on the system level, applied to all DC's in the system as default, with the option to do it for only one DC. The code extraction will result in one specific Provider of type MSD.
+The backup will be on the system level, applied to all DCs in the system as default, with the option apply for only one DC. The code extraction will result in one specific Provider of type MSD.
 
 #### Phase 2
 

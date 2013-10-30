@@ -26,7 +26,7 @@ Add support of an ovirt system backup and restore using persisted ovf files.
 
 ### Detailed Description
 
-The situation prior to this feature is the following:
+The situation prior to this feature addition is the following:
 There's code collecting data into an ovf in the Master Storage Domain (MSD from here on). That's it. No other code is implemented for reading it (restore).
 This feature's intention is first to rearrange the code taking care of generating the ovf files as a Provider - Backup Provider.
 This feature will also add other persisting methods other than MSD, enabling different types of the Backup Provider. The Settings for each Backup Provider will vary according to what the specific type requires.

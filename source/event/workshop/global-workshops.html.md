@@ -87,7 +87,7 @@ Details for this workshop are still to be confirmed, though we have confirmed th
 ### LinuxCon Europe 2012
 
 *   Workshop Dates: November 7-9, 2012
-*   [ Workshop schedule and slides](LinuxCon Europe workshop schedule)
+*   [ Workshop schedule and slides](LinuxCon Europe 2012 workshop schedule)
 *   [LinuxCon Europe Website](https://events.linuxfoundation.org/events/linuxcon-europe)
 *   [KVM Forum/oVirt Workshop Website](https://events.linuxfoundation.org/events/kvm-forum)
 *   [Registration Link](http://www.regonline.com/Register/Checkin.aspx?EventID=1032806)

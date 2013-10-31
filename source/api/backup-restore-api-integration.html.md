@@ -132,11 +132,8 @@ N/A
 
 ### This feature will be implemented in phases:
 
-1.  Phase1 will cover Full backup/restore for VirtApp usecase as well as single file level restore, as well will cover HostApp usecase and guest quiesce for application-level consistency.
-
-The oVirt Backup and Restore API will provide integration with Microsoft Windows Volume Shadow Copy Service (VSS) using QEMU-GA. QEMU-GA provides VSS support and live snapshot automatically tries to quiesce whenever possible. (The VSS provider registration will be made in the guest level as part of the Guest Tools deployment.)
-
-1.  Phase 2 will cover Change Block Tracking (CBT) to cover incremental backups. This also depends on the ongoing community work in qemu block layer to provide differential info
+1.  Phase1 will cover Full backup/restore for VirtApp usecase as well as single file level restore, as well will cover HostApp usecase and guest quiesce for application-level consistency. The oVirt Backup and Restore API will provide integration with Microsoft Windows Volume Shadow Copy Service (VSS) using QEMU-GA. QEMU-GA provides VSS support and live snapshot automatically tries to quiesce whenever possible. (The VSS provider registration will be made in the guest level as part of the Guest Tools deployment.)
+2.  Phase 2 will cover Change Block Tracking (CBT) to cover incremental backups. This also depends on the ongoing community work in qemu block layer to provide differential info
 
 ### Recommendations:
 

@@ -84,7 +84,7 @@ Vdsm automatically builds using the latest tagged version. If you want to explic
 When building from source, you should enale the ovirt-beta repository, to satisfy dependencies that are not available yet in the release repository.
 
        cd ~/rpmbuild/RPMS
-       yum install --enablerepo=ovirt-beta x86_64/* noarch/vdsm-xml* noarch/vdsm-cli*
+       yum install --enablerepo=ovirt-beta x86_64/* noarch/vdsm-xml* noarch/vdsm-cli* noarch/vdsm-python-zombiereaper*
 
 If needed, enable the vdsm service:
 

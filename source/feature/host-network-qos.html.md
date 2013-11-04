@@ -8,13 +8,19 @@ wiki_revision_count: 76
 wiki_last_updated: 2014-09-04
 ---
 
-# Host Network traffic shaping
+# Host Network QoS
 
 #### Summary
 
-In order to provide traffic control for a network, we need to define boundaries for incoming and outgoing traffic (Traffic Shaping - TS for simplicity). This goal is achieved by defining inbound and outbound traffic (as defined in [Features/Network_QoS#Detailed_Description Network QoS](Features/Network_QoS#Detailed_Description_Network_QoS)) for an host network by enabling TS when creating a new logical network or when editing a previously associated logical network, i.e. an host network.
+This feature provides means by which to control the traffic of a specific network through a host's physical interface. It is a natural extension of the [VM Network QoS](Features/Network_QoS) feature, which provided the same functionality for a VM network through a VM's virtual interface.
 
 #### Owner
+
+*   Name: Lior Vernia
+*   E-mail: lvernia@redhat.com
+*   IRC: lvernia at #ovirt (irc.oftc.net)
+
+#### Original Owner
 
 *   Name: [ Giuseppe Vallarelli](User:gvallarelli)
 *   Email: <gvallare@redhat.com>
@@ -25,13 +31,24 @@ In order to provide traffic control for a network, we need to define boundaries 
 *   Status: design
 *   Last updated: ,
 
-#### Detailed description
+#### Detailed Description
 
-The admin /network admin is the only user who should be able to define Traffic Shaping. TS defined in a logical network in the DC acts like a template, so any changes to the TS in the host network doesn't affect the TS template in the logical network. If the user changes the TS definition in the Logical network this will not affect previously associated TS in the host network. Simply put the logical network definition is not tied to the running network definition, TS associated to a logical network definition is only copied over the operational host for the first time later on they are completely independent. In case an host with traffic shaping defined is moved over a different DC and for some reasons is marked as not operational (for example due to a different vlan id) before editing the network the running configuration should be synchronized to the logical one, before being able to edit the host network.
+Generally speaking, network QoS (Quality of Service) in oVirt could be applied on a variety of different levels:
 
-#### Benefit to Ovirt
+*   VM - control the traffic passing through a virtual NIC (virtual Network Interface Controller).
+*   Host - control the traffic from a specific network passing through a physical NIC.
+*   DC (Data Center) - control the traffic related to a specific logical network throughout the entire DC, including through its infrastructure (e.g. L2 switches).
 
-Shaping network traffic is useful for network administrators, where they can provide a different class of service according to the different kind of usages they need to satisfy. It might be also useful to limit the bandwidth of a [migration network](Features/Migration_Network) or in general to every network who could possibly choke/saturate the overall interface bandwidth.
+The VM level was taken care of as part of the [VM Network QoS](Features/Network_QoS) feature in oVirt 3.3, whereas this feature aims to take care of the host level in a similar manner; it will be possible to cap bandwidth usage of a specific network on a specific network interface of a host, both for average usage and peak usage for a short period of time ("burst"), so that no single network could "clog" an entire physical interface.
+
+DC-wide QoS remains to be handled in the future.
+
+#### Benefit to oVirt
+
+Two features were introduced in oVirt 3.3, which would be nicely complemented by Host QoS:
+
+*   [Migration Network](Features/Migration_Network) enabled to designate a specific network to be used for VM migration, to avoid burdening the management network. However, for the management network (or any other network for that matter) to continue functioning properly, it would likely have to be attached to a different network interface on the host, otherwise migration-related traffic could easily lead to congestion. Host QoS Could prevent that.
+*   [Multiple Gateways](Features/Multiple_Gateways) enabled to define different gateways for different networks, in order to avoid creating a "bottleneck" at the single gateway of all networks. However, in some topologies this could move the bottleneck to the hosts' physical interfaces, in which Host QoS could further allow networks to function independently (of course in other cases the next bottleneck could be different, e.g. limited infrastructure bandwidth).
 
 # User experience
 

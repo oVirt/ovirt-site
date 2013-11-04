@@ -22,7 +22,7 @@ This feature enable to connect to vdsm and ovirt-engine via IPv6 protocol.
 
 ### Current status
 
-*   Status: On VDSM side is everything implemented, now feature is in status TESTING
+*   Status: On VDSM still missing to implement: jsonRpcUtils, multiple gateways, sourceRoute; now feature is in status TESTING
 *   Last updated: ,
 
 ### Detailed Description

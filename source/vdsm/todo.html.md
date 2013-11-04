@@ -50,7 +50,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   make vdsm.rpm noarch by moving safelease to its own rpm
+*   vdsm/sampling.py: stop storing self._ifids and _rates in the thread. Rate can sit in the interfaces dict per sample.
 
 ### Testing
 

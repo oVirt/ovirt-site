@@ -63,30 +63,6 @@ An icon should be associated with the network in Logical Networks list and the "
 
 # Implementation
 
-### Backend / DB Change
-
-A change in the network_qos table and in the related business entities might be needed in order to make a distinction of quality of service related to a vnic or to a network.
-
-### Classes (not complete list yet)
-
-*Reuse:*
-
-*   **engine.core.common.businessentities.network.NetworkQoS**
-*   **engine.core.dao.network.NetworkQoSDao**
-
-*Update:*
-
-*   **engine.core.common.businessentities.network.Network** - add field networkQos (NetworkQos)
-*   **engine.core.common.businessentities.network.VdsNetworkInterface** - add field networkQos (NetworkQos)
-
-### DB
-
-For the purpose we can reuse the network_qos table as defined in [Network QoS](Features/Design/Network_QoS#DB_Change_2). Affected tables are the network table (logical network) and the vds_interface table (running host information). In particular we need to provide to both tables a reference to a definition of QoS available in the network_qos table.
-
-### Rest API
-
-TBD.
-
 ### VDSM
 
 Proposed [vdsm api](http://gerrit.ovirt.org/#/c/15724/) allows to provide traffic shaping parameters as part of NetworkOptions or setupNetworkNetAttributes used respectively by the addNetwork and setupNetworks verbs. In order to apply the configuration on the host network the Engine should convert attributes' values from Mb to kb (Megabit to Kilobit). VDSM generates a similar libvirt xml definition.

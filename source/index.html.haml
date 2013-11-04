@@ -2,20 +2,28 @@
 title: Main
 # this lets you do your own full-width containers yourself
 no_container: true
+# custom stylesheet for this page only, in /stylesheets/landingpage.css.sass
+stylesheet: landingpage
 ---
 
-.container
-  .jumbotron
+-# the jumbotron is has a custom background and we want to make it
+-# span the full width of the browser - thus we have the jumbotron
+-# outside the .container this time.
+.jumbotron
+  .container
     .row
-      .col-md-3
+      .col-sm-3.hidden-sm.hidden-xs
         %img( src="/images/springboard.png" )
-      .col-md-9
+      .col-xs-12.col-sm-12.col-md-9
         %h2 Say hello to Middleman and Springboard!
         %p 
           Springboard is a project template for
           %a( href="http://middlemanapp.com" ) Middleman 
-          that adds useful modules like blogging, documentation browser and some web development grease
-          to make your life easier.
+          that adds useful modules like blogging, documentation browser and some web development grease to make your life easier.
+
+-# set jumbotron background for this page
+%script
+  $(".jumbotron").backstretch("/images/main_jumbotron_background.jpg");
 
 .getstarted
   .container

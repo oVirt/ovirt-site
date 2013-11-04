@@ -22,7 +22,7 @@ This feature enable to connect to vdsm and ovirt-engine via IPv6 protocol.
 
 ### Current status
 
-*   Status: Design
+*   Status: On VDSM side is everything implemented, now feature is in status TESTING
 *   Last updated: ,
 
 ### Detailed Description
@@ -160,7 +160,7 @@ Records that contains "href" as string, should be tested if works with IPv6:
 
 *   Link
 *   BaseResource
-*   RSDL ??
+*   RSDL
 
 ### Changes in code
 
@@ -205,6 +205,15 @@ We are currently using class IPAddress to represent ip, it uses class java.net.I
 
 On the Vdsm side there are this pending patches <http://gerrit.ovirt.org/#/q/status:open+project:vdsm+branch:master+topic:ipv6_support,n,z> .
 
+#### Merged patches
+
+*   Add IPv6 support to configNetwork <http://gerrit.ovirt.org/#/c/18284/>
+*   jsonrpc: make TCPReactor IPv6 capable <http://gerrit.ovirt.org/#/c/11740/>
+*   vdscli: update cannonize helper function for IPv6 environment <http://gerrit.ovirt.org/#/c/16225/>
+*   XMLRPCServer: make XMLRPCServer able to listen on IPv6 addresses <http://gerrit.ovirt.org/#/c/11520/>
+*   netinfo: report IPv6 information <http://gerrit.ovirt.org/#/c/9382/>
+*   netinfo: implement functions gathering IPv6 information <http://gerrit.ovirt.org/#/c/9381/>
+
 ### Benefit to oVirt
 
 By implementing this feature oVirt will be prepared for users that are using IPv6 protocol.
@@ -221,6 +230,11 @@ By implementing this feature oVirt will be prepared for users that are using IPv
 ### Testing
 
 #### Vdsm
+
+*   define a VM with IPv6 display network, and connect to it via vnc and spice.
+*   migrate a VM over a migration network with an IPv6 address
+*   connect to an NFS/iSCSI storage server over IPv6
+*   fence a host over IPv6.
 
 Currently there is need to specify management_ip in config file to be in IPv6 format, so after build and installation of Vdsm update file /etc/vdsm/vdsm.conf, and change management_ip under address section to:
 
@@ -241,11 +255,6 @@ Now you should be able to control vdsmd with vdsClient using IPv6 addresses:
        vdsClient -s ['IPv6 link-local addr'%ovirtmgmt]:54321 getVdsCaps
 
 Where 'IPv6 link-local addr' is address of IPv6 link local address of bridge ovirtmgmt (e.g. [fe80::5054:ff:fe05:25f3%ovirtmgmt]). Each of this command should work as in normal manner.
-
-*   define a VM with IPv6 display network, and connect to it via vnc and spice.
-*   migrate a VM over a migration network with an IPv6 address
-*   connect to an NFS/iSCSI storage server over IPv6
-*   fence a host over IPv6.
 
 #### VDSM API
 

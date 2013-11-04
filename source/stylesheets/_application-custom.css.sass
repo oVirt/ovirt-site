@@ -13,24 +13,6 @@ a.navbar-brand, .sitelogo
   @import "compass/css3/text-shadow"
   +single-text-shadow(0, 0, 9px, false, rgba(255,32,128,0.5))
 
-// This is the "Get started" part in frontpage, 
-// setting dark background and light text colors
-.getstarted
-  @import "compass/css3/images"
-  +background-image(radial-gradient(rgba(0,0,0,0.74), rgba(0,0,0,0.9)))
-  color: $gray-light
-  pre, code
-    color: white
-    background: none
-    border: none
-  @import "compass/typography/links/link-colors"
-  a 
-    +link-colors(#cc3366)
-
-// Slightly more relaxed spacing on front page blocks
-.getstarted, .moreinfo
-  padding: 12px
-
 .nav.docbrowser li.active a
   font-weight: bold
   background: none 

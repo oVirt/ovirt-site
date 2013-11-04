@@ -29,7 +29,7 @@ This feature provides means by which to control the traffic of a specific networ
 #### Current Status
 
 *   Status: design
-*   Last updated: ,
+*   Last updated: November 4th, 2013.
 
 #### Detailed Description
 

@@ -75,3 +75,4 @@ gem "wikicloth"
 gem "redcarpet"
 
 gem 'reverse_markdown'
+gem 'chronic'

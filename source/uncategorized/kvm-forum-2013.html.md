@@ -14,7 +14,7 @@ During the new KVM management track at the KVM Forum, there will be a number of 
 
 **Tuesday, October 22:**
 
-*   **13:45** - Empowering Data Center Virtualization using KVM (Livnat Peer, Red Hat) (similar to her session in CloudOpen, but with a stronger focus on KVM)
+*   **13:45** - Empowering Data Center Virtualization using KVM (Livnat Peer, Red Hat) (similar to her session in CloudOpen, but with a stronger focus on KVM) - [Slides](Media:OVirt-kvm-forum-2013.odp)
 *   **14:30** - Kimchi: Simplified KVM Management (Adam Litke, IBM) - [Slides](https://docs.google.com/file/d/0ByCzJ3AoWZuuUXZYMjAxdG81ZW8), [Session recording](https://www.youtube.com/watch?v=iDXs0OW819M)
 *   **15:30** - Providing quality of service for VMs in oVirt (Martin Sivak, Red Hat) - [Slides](https://docs.google.com/file/d/0ByCzJ3AoWZuuaHVraVZaR3lOa28), [Session recording](https://www.youtube.com/watch?v=PRYo1uOniFo)
 *   **16:00** - You Want How Much Space? Virtualisation at Keele, and How Not To Do It - (Martin Gold, Keele University) [Session recording](https://www.youtube.com/watch?v=tMl_xZo-bGE)

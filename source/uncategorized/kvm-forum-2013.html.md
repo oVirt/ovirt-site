@@ -16,7 +16,7 @@ During the new KVM management track at the KVM Forum, there will be a number of 
 
 *   **13:45** - Empowering Data Center Virtualization using KVM (Livnat Peer, Red Hat) (similar to her session in CloudOpen, but with a stronger focus on KVM)
 *   **14:30** - Kimchi: Simplified KVM Management (Adam Litke, IBM) - [Slides](https://docs.google.com/file/d/0ByCzJ3AoWZuuUXZYMjAxdG81ZW8), [Session recording](https://www.youtube.com/watch?v=iDXs0OW819M)
-*   **15:30** - Providing quality of service for VMs in oVirt (Martin Sivak, Red Hat)
+*   **15:30** - Providing quality of service for VMs in oVirt (Martin Sivak, Red Hat) - [Slides](https://docs.google.com/file/d/0ByCzJ3AoWZuuaHVraVZaR3lOa28), [Session recording](https://www.youtube.com/watch?v=PRYo1uOniFo)
 *   **16:30** - Linux storage stack for the cloud (Yeela Kaplan, Red Hat) - [Slides](https://drive.google.com/file/d/0ByCzJ3AoWZuuRXNyYzN6MkVmUHM), [Session recording](https://www.youtube.com/watch?v=hH4EIz9yoQg)
 *   **17:00** - Trusted Compute Pools Feature in oVirt (Gang Wei, Intel) - [Slides](https://docs.google.com/file/d/0ByCzJ3AoWZuuS19lVXl3blZZaUU), [Session recording](https://www.youtube.com/watch?v=gLc7I7znojI)
 

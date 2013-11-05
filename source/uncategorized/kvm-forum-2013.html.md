@@ -68,3 +68,19 @@ There are three oVirt talks in oVirt developer meeting, all taking place on Wedn
     -   [Session recording](https://www.youtube.com/watch?v=JNZ8YzI2JOw)
 
 In the afternoon, we will have a series of working sessions, with a leader setting the stage, followed by group discussion, and a conclusion of priorities for the project.
+
+*   Community outreach - growing the oVirt community and ecosystem (Dave Neary)
+    -   [Slides](https://drive.google.com/file/d/0ByCzJ3AoWZuuMTU2MnQ2U2RzV3M)
+    -   [Session recording](https://www.youtube.com/watch?v=BOzK-HpSOmI)
+
+<!-- -->
+
+*   Using oVirt and Spice for VDI (Frantisek Kobzik)
+    -   [Slides](https://docs.google.com/file/d/0ByCzJ3AoWZuuX0tfQnpGUnphQzQ)
+    -   [Session recording](https://www.youtube.com/watch?v=bv6Cz0J9O-8)
+
+<!-- -->
+
+*   Integration Points for oVirt Storage and Storage Consumption (Sean Cohen, Ayal Baron)
+    -   [Slides](https://docs.google.com/file/d/0ByCzJ3AoWZuuOVJxYkppX2haUUU)
+    -   [Session recording](https://www.youtube.com/watch?v=ytzzzfhcm3o)

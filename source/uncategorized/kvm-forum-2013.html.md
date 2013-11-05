@@ -84,3 +84,9 @@ In the afternoon, we will have a series of working sessions, with a leader setti
 *   Integration Points for oVirt Storage and Storage Consumption (Sean Cohen, Ayal Baron)
     -   [Slides](https://docs.google.com/file/d/0ByCzJ3AoWZuuOVJxYkppX2haUUU)
     -   [Session recording](https://www.youtube.com/watch?v=ytzzzfhcm3o)
+
+<!-- -->
+
+*   oVirt Networking (Livnat Peer)
+    -   [Slides](https://docs.google.com/file/d/0ByCzJ3AoWZuuLUhlVXNqTGtPVVU)
+    -   [Session recording](https://www.youtube.com/watch?v=5v33z9mdBOo)

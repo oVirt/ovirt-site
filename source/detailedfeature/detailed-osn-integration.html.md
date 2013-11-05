@@ -235,7 +235,7 @@ Note: get_id function is:
 
 You need to configure the keystone URL:
 
-      engine-config --set KeystoneAuthUrl=http://<host.fqdn>:35357
+      engine-config --set KeystoneAuthUrl=http://<host.fqdn>:35357/v2.0/
 
 You also need to enable a setting that only required networks are considered for VM scheduling:
 

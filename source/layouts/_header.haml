@@ -1,10 +1,15 @@
-.masthead
-  %h1
-    = link_to "/" do
-      - if data.site.logo
-        = image_tag data.site.logo, class: "logo", alt: data.site.name
-      - else
-        = data.site.name
+%header#branding.masthead(role="banner")
+  %section.hgroup
+    %h1
+      = link_to "/" do
+        - if data.site.logo
+          = image_tag data.site.logo, id: "rhlogo", class: "logo", alt: data.site.name
+        - else
+          = data.site.name
 
-  -# "Dynamic" navigation is automatically rendered from ../../data/navigation.yml
-  = partial :nav, locals: { source: "navigation", nav_class: "nav-pills" }
+    - if data.site.subhead
+      %h1#site-title
+        = data.site.subhead
+
+  #access
+    = partial :nav, locals: { source: "navigation", nav_class: "nav-pills" }

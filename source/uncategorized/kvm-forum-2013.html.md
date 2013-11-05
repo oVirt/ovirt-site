@@ -32,7 +32,7 @@ There are a number of oVirt presentations during the CloudOpen Europe conference
 [RAM Snapshots in oVirt](//sched.co/12jgMw9) - Arik Hadas, Red Hat
 
 12:00, Lammemuir 1  
-[oVirt and Cloud-Init integration](//sched.co/14woFvG) - Omer Frenkel, Red Hat [Session recording](https://www.youtube.com/watch?v=PRD3JdPKnYU)
+[oVirt and Cloud-Init integration](//sched.co/14woFvG) - Omer Frenkel, Red Hat [Session recording](https://www.youtube.com/watch?v=PRD3JdPKnYU) [Slides](https://docs.google.com/file/d/0ByCzJ3AoWZuuQWU1aG1NMVBoS1k)
 
 14:20, Lammemuir 1  
 [Empowering Data Center Virtualization Using KVM](//sched.co/12jdF7e) - Livnat Peer, Red Hat

@@ -469,25 +469,19 @@ Adds new button to the action panel and/or context menu for the given sub tab. S
 
 title, dialogToken, contentUrl, width, height, options
 
-TODO DESC
-
-TODO EXAMPLE
+TODO DESC + EXAMPLE
 
       setDialogContentUrl
 
 dialogToken, contentUrl
 
-TODO DESC
-
-TODO EXAMPLE
+TODO DESC + EXAMPLE
 
       closeDialog
 
 dialogToken
 
-TODO DESC
-
-TODO EXAMPLE
+TODO DESC + EXAMPLE
 
 ### API option reference
 

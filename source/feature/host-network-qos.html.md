@@ -28,8 +28,9 @@ This feature provides means by which to control the traffic of a specific networ
 
 #### Current Status
 
+*   Target Release: 3.4
 *   Status: design
-*   Last updated: November 4th, 2013.
+*   Last updated: November 6th, 2013.
 
 #### Detailed Description
 
@@ -49,68 +50,8 @@ This feature would help to prevent situations in which two or more networks are 
 
 One oVirt 3.3 feature that could specifically benefit from host-level QoS is [Migration Network](Features/Migration_Network), which enabled to designate a specific network to be used for VM migration, to avoid burdening the management network. For the management network to continue functioning properly, it would likely have to be attached to a different network interface on the host, otherwise migration-related traffic could easily lead to congestion. Being able to configure network QoS on the host level means that these two networks could now reside on the same physical NIC without fear of congestion.
 
-# User experience
+#### Comments and Discussion
 
-A user can define traffic shaping during creation of a logical network. Traffic shaping can be redefined when attaching a logical network to the physical host interfaces during a Setup Host Networks task (see images below):
-
-![](new_lnetwork_bandwidth.png "new_lnetwork_bandwidth.png")
-
-Selecting the checkbox (Incoming/Outgoing or both) a user can shape the related kind of traffic using the needed parameters. A user needs to specify all three parameters: average, burst and peak.
-
-![](Ledit_network.png "Ledit_network.png")
-
-An icon should be associated with the network in Logical Networks list and the "Setup Host Networks" UI in order to provide a visual feedback for bandwidth shaped networks.
-
-# Implementation
-
-### VDSM
-
-Proposed [vdsm api](http://gerrit.ovirt.org/#/c/15724/) allows to provide traffic shaping parameters as part of NetworkOptions or setupNetworkNetAttributes used respectively by the addNetwork and setupNetworks verbs. In order to apply the configuration on the host network the Engine should convert attributes' values from Mb to kb (Megabit to Kilobit). VDSM generates a similar libvirt xml definition.
-
-        `<network>`                                          
-`    `<name>`vdsm-FinalAnswer`</name>
-          ...
-`    `<bandwidth>
-`      `<inbound average='30000' burst='200000'  peak='40000'/>
-`      `<outbound average='30000' burst='200000'  peak='40000' />
-`    `</bandwidth>
-`  `</network>
-
-Example vdscli:
-
-    from vdsm import vdscli
-    connection = vdscli.connect()
-    connection.addNetwork('whatever', '', '', ['p1p4'], {'qosInbound':{'average': '10000', 'burst': '48000', 'peak':'12000' }})
-
-It's possible to retrieve the QoS defined for an host's network with the following code:
-
-    from vdsm import vdscli
-    connection = vdscli.connect()
-    connection.getVdsCapabilities()['info']['networks']['whatever']
-
-the expected result should be something similar to:
-
-    {'addr': '',
-     'bridged': True,
-     'cfg': {'DELAY': '0',
-             'DEVICE': 'goofy',
-             'NM_CONTROLLED': 'no',
-             'ONBOOT': 'yes',
-             'TYPE': 'Bridge'},
-     'gateway': '0.0.0.0',
-     'iface': 'goofy',
-     'ipv6addrs': ['fe80::210:18ff:fee1:6d2a/64'],
-     'ipv6gateway': '::',
-     'mtu': '1500',
-     'netmask': '',
-     'ports': ['p1p2'],
-     'qosInbound': {'average': '10000' , 'burst': '48000', 'peak': '12000'},
-     'qosOutbound': '',
-     'stp': 'off'}
-
-# Comments and Discussion
-
-*   Refer to [Talk: Host Network Traffic Shaping](Talk: Host Network Traffic Shaping)
 *   On the arch@ovirt.org mailing list.
 
 <Category:Feature>

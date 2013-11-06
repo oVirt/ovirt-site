@@ -100,13 +100,7 @@ The proposed solution is to create a python script that expects an interface's n
 
 #### Upgrading
 
-When upgrading a host to the VDSM version that will support multiple gateways, multiple scenarios are possible. The bottom line is that the current proposal is to offer no upgrade script, and let the users know what steps they must take if they upgrade VDSM and want to utilize the multiple gateways feature.
-
-**Scenario 1:** The user already setup multiple gateways using source routing and multiple routing tables. Any network added will work as expected. Networks deleted won't delete the rules and table created previously by the user. If the same network is added again the new rules and routing table we insert might conflict with the previous rules / routing table that was not deleted, and so their insertion might fail.
-
-**Scenario 2:** The user only used one NIC and one network (ovirtmgmt). When adding a 2nd network, its rules and routing table will be created, **and the default gateway in the main routing table will be changed to be that of the new network.** This is because the proposed solution, apart from creating new rules and a routing table, also writes a network's gateway in the NIC's cfg file. Meaning that whenever the NIC is activated, its gateway is inserted into the main routing table. Only one gateway may reside in a routing table at a time, so whenever a NIC is activated its gateway replaces the one currently residing in the main routing table. Back to scenario 2: The host's gateway in the main routing table will be changed to that of the new network, and ovirtmgmt doesn't have its own rules or routing table, and so any traffic originating from ovirtmgmt will use the new network's gateway. To summarize: The user must be advised to sync the ovirtmgmt network in order to create its rules and routing table during or after the addition of the new network.
-
-**Scenario 3:** The user had multiple networks, but only configured ovirtmgmt's gateway via the engine, and did not use manual source routing. This scenario is similar in effect to the previous one, and the user must again be advised to sync the ovirtmgmt network in order to generate the required routing table and rules after upgrading the host.
+When a host upgrades to a VDSM that supports multiple gateways all of its interfaces will have no source routing configured. Any new setup networks will configure source routing on the affected networks / interfaces. Since the current implementation keeps the management network as the host's default gateway, connectivity should never be lost and no actual upgrade script is offered.
 
 #### API
 

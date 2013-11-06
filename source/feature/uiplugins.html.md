@@ -294,7 +294,7 @@ Registers the event handler object, i.e. object containing [event handler functi
     api.register({
         UiInit: function() {
             api.addSubTab('Host', 'Special Host Tab', 'special-host-tab',
-                '/ovirt-engine/webadmin/plugin/ExamplePlugin/special-host-tab.html');
+                '/ovirt-engine/webadmin/plugin/ExamplePlugin/special-tab.html');
             api.setTabAccessible('special-host-tab', false);
         },
         HostSelectionChange: function() {
@@ -331,33 +331,163 @@ Returns the runtime plugin configuration object containing custom configuration 
     var conf = api.configObject();
     var favoriteBand = conf.band || ;
 
-#### User information
+#### Authentication
 
       loginUserName
 
+-
+
+Returns user name and domain of currently logged in user, following `user@domain` convention.
+
+    var userNameWithDomain = api.loginUserName();
+    var domain = userNameWithDomain.substring(userNameWithDomain.indexOf('@') + 1);
+
       loginUserId
+
+-
+
+Returns [UUID](http://en.wikipedia.org/wiki/Universally_unique_identifier) of currently logged in user.
+
+    var userId = api.loginUserId();
 
 #### Main and sub tabs
 
       addMainTab
 
+      string label
+ `string historyToken`
+ `string contentUrl`
+ `string options`
+
+Adds new main tab with content provided from given URL. All arguments are required except for `options`. The `label` is the text displayed on tab header. The `historyToken` serves as unique identifier of the tab, with its value reflected in tab header URL. Recommended `historyToken` format is `letters-with-dashes`. The `contentUrl` is passed to `src` attribute of `iframe` element which renders tab content. The `options` can be undefined, null or object containing additional tab options:
+
+*   `alignRight` - controls horizontal tab header alignment, default value is `false`
+
+<!-- -->
+
+    api.addMainTab('Custom Tab One', 'custom-tab-one',
+        '/ovirt-engine/webadmin/plugin/ExamplePlugin/one.html'
+    );
+    api.addMainTab('Custom Tab Two, 'custom-tab-two',
+        '/ovirt-engine/webadmin/plugin/ExamplePlugin/two.html',
+        {
+            alignRight: true
+        }
+    );
+
       addSubTab
+
+      string entityTypeName
+ `string label`
+ `string historyToken`
+ `string contentUrl`
+ `string options`
+
+Adds new sub tab with content provided from given URL. All arguments are required except for `options`. Semantics of `label`, `historyToken`, `contentUrl` and `options` are identical to ones declared by `addMainTab` function. The `entityTypeName` identifies existing main tab to which the newly added sub tab should be associated (only standard main tabs are supported). Refer to [entity types](#Entity_type_reference) for details on supported entity names.
+
+    api.addSubTab('Host', 'Custom Host Tab One', 'custom-host-tab-one',
+        '/ovirt-engine/webadmin/plugin/ExamplePlugin/host-one.html'
+    );
+    api.addSubTab('Host', 'Custom Host Tab Two, 'custom-host-tab-two',
+        '/ovirt-engine/webadmin/plugin/ExamplePlugin/host-two.html',
+        {
+            alignRight: true
+        }
+    );
 
       setTabContentUrl
 
+      string historyToken
+ `string contentUrl`
+
+Updates the content URL of given (main or sub) tab. Semantics of `historyToken` and `contentUrl` are identical to ones declared by `addMainTab` function. The `setTabContentUrl` function works only for tabs added through plugin API.
+
+    api.setTabContentUrl('custom-tab',
+        '/ovirt-engine/webadmin/plugin/ExamplePlugin/tab-content.html');
+
       setTabAccessible
+
+      string historyToken
+ `boolean tabAccessible`
+
+Controls the accessibility of given (main or sub) tab. Semantics of `historyToken` is identical to one declared by `addMainTab` function. If `tabAccessible` is `false`, corresponding tab header will be hidden in WebAdmin UI and attempts to reveal the given tab manually by manipulating URL will be denied. The `setTabAccessible` function works only for tabs added through plugin API.
+
+    api.setTabAccessible('custom-tab', false);
 
       addMainTabActionButton
 
+      string entityTypeName
+ `string label`
+ `object actionButtonInterface`
+
+Adds new button to the action panel and/or context menu for the given main tab. Semantics of `entityTypeName` is identical to one declared by `addSubTab` function. The `label` is the text displayed on button. The `actionButtonInterface` is an object containing (optional) functions and values that override default button behavior:
+
+*   `onClick` - function called when user clicks the button, arguments are items currently selected in given main tab, no-op by default
+*   `isEnabled` - function called to determine whether the button should be enabled (clickable), arguments are items currently selected in given main tab, returns `true` by default
+*   `isAccessible` - function called to determine whether the button should be accessible (visible), arguments are items currently selected in given main tab, returns `true` by default
+*   `location` - controls button location in action panel and main tab's context menu, supported values:
+    -   `OnlyFromContext` - button available only from context menu
+    -   `OnlyFromToolBar` - button available only from action panel
+    -   `ContextAndToolBar` - button available from both action panel and context menu (default value)
+
+<!-- -->
+
+    api.addMainTabActionButton('Host', 'Custom Button', {
+        onClick: function() {
+            var selectedHost = arguments[0];
+            var specialHostSelected = selectedHost.name.indexOf('special') != -1;
+            api.setTabAccessible('custom-tab', specialHostSelected);
+        },
+        isEnabled: function() {
+            return arguments.length == 1;
+        }
+    });
+
       addSubTabActionButton
+
+      string mainTabEntityTypeName
+ `string subTabEntityTypeName`
+ `string label`
+ `object actionButtonInterface`
+
+Adds new button to the action panel and/or context menu for the given sub tab. Semantics of `label` and `actionButtonInterface` are identical to ones declared by `addMainTabActionButton` function. The `mainTabEntityTypeName` and `subTabEntityTypeName` together identify existing sub tab to which the newly added button should be associated (only standard sub tabs are supported). Refer to [entity types](#Entity_type_reference) for details on supported entity names.
+
+    api.addSubTabActionButton('Host', 'Event', 'Custom Button', {
+        onClick: function() {
+            var selectedHostEvent = arguments[0];
+            var specialHostEventSelected = selectedHostEvent.message.indexOf('special') != -1;
+            api.setTabAccessible('custom-tab', specialHostEventSelected);
+        },
+        isEnabled: function() {
+            return arguments.length == 1;
+        }
+    });
 
 #### Dialogs
 
       showDialog
 
+title, dialogToken, contentUrl, width, height, options
+
+TODO DESC
+
+TODO EXAMPLE
+
       setDialogContentUrl
 
+dialogToken, contentUrl
+
+TODO DESC
+
+TODO EXAMPLE
+
       closeDialog
+
+dialogToken
+
+TODO DESC
+
+TODO EXAMPLE
 
 ### API option reference
 

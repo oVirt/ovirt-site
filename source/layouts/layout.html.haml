@@ -40,19 +40,24 @@
     - unless data.page.hide_header
       = partial "header"
 
-    .content{class: data.page.no_container.nil? ? 'container' : '' }
 
-      -# Show a warning for those using < IE6 or lower
-      /[if lt IE 7]
-        <p class="chromeframe">You are using an outdated browser.
-        <a href="http://browsehappy.com/">Upgrade your browser today</a> or
-        <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    %section#page-wrap.container
 
-      -# Render actual page content
-      = yield
+      %section#page
 
-    - unless data.page.hide_footer
-      = partial "footer"
+        %section#content.content{class: data.page.no_container.nil? ? 'container' : '' }
+
+          -# Show a warning for those using < IE6 or lower
+          /[if lt IE 7]
+            <p class="chromeframe">You are using an outdated browser.
+            <a href="http://browsehappy.com/">Upgrade your browser today</a> or
+            <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+
+          -# Render actual page content
+          = yield
+
+        - unless data.page.hide_footer
+          = partial "footer"
 
     - if build?
 

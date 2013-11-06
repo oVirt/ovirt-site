@@ -18,4 +18,8 @@ wiki_warnings: conversion-fallback
 
 ## Participants
 
-Test Days are open to anyone. If you have your own setup we will provide all the software packages and the required information. Please refer - [What to do as a participant](Testing/Ovirt_3.3.1_testing#What%20to%20do%20as%20a%20participant) - in the section below, if you're willing to participate please add yourself to the below table:
+Test Days are open to anyone.
+
+If you have your own setup we will provide all the software packages and the required information.
+
+If you're willing to participate please add yourself to the below table:

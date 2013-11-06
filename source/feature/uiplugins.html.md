@@ -6,6 +6,8 @@ wiki_category: Feature
 wiki_title: Features/UIPlugins
 wiki_revision_count: 55
 wiki_last_updated: 2015-05-13
+wiki_conversion_fallback: true
+wiki_warnings: conversion-fallback
 ---
 
 # UI Plugins
@@ -16,8 +18,8 @@ This feature provides an infrastructure and API for implementing and deploying c
 
 ### Owner
 
-*   Name: [Vojtech Szocs](User:Vszocs)
-*   Email: <vszocs@redhat.com>
+*   Name: [Vojtech Szocs](user:Vszocs)
+*   Email: <<vszocs@redhat.com>></<vszocs@redhat.com>>
 
 ### Overview
 
@@ -35,7 +37,7 @@ To facilitate plugin → WebAdmin communication that drives UI extension, WebAdm
 
 Before a plugin can be [loaded](#Loading_plugins) and [bootstrapped](#Plugin_bootstrap_sequence) by WebAdmin, it has to be discovered by UI plugin infrastructure in the first place.
 
-![Discovering plugins](Discovering-plugins.png "Discovering plugins")
+![](Discovering-plugins.png "Discovering plugins")
 
 [Plugin descriptor](#Plugin_descriptor) is the entry point to discovery process, containing plugin meta-data as well as (optional) default plugin-specific configuration.
 
@@ -43,20 +45,20 @@ As part of handling WebAdmin HTML page request (1), UI plugin infrastructure att
 
 Descriptor files are expected to reside in `$ENGINE_USR/ui-plugins` directory, with default mapping `ENGINE_USR=/usr/share/ovirt-engine` as defined by oVirt Engine local configuration. Descriptor files should comply with [JSON](http://en.wikipedia.org/wiki/JSON) format specification with the addition of allowing Java/C++ style comments, i.e. both `/* comment */` and `// comment` varieties.
 
-User configuration files are expected to reside in `$ENGINE_ETC/ui-plugins` directory, with default mapping `ENGINE_ETC=/etc/ovirt-engine` as defined by oVirt Engine local configuration. User configuration files should comply with same content format rules as descriptors. Note that user configuration files follow `<descriptorFileName>-config.json` naming convention, i.e. using `-config` suffix.
+User configuration files are expected to reside in `$ENGINE_ETC/ui-plugins` directory, with default mapping `ENGINE_ETC=/etc/ovirt-engine` as defined by oVirt Engine local configuration. User configuration files should comply with same content format rules as descriptors. Note that user configuration files follow `-config.json` naming convention, i.e. using `-config` suffix.
 
 ### Loading plugins
 
 After a plugin has been [discovered](#Discovering_plugins) and its data embedded into WebAdmin HTML page, WebAdmin will attempt to load the given plugin as part of application startup (unless configured otherwise).
 
-![Loading plugins](Loading-plugins.png "Loading plugins")
+![](Loading-plugins.png "Loading plugins")
 
 For each plugin, WebAdmin creates hidden HTML `iframe` element used to load [plugin host page](#Plugin_host_page) (1). Plugin host page is the entry point to [bootstrap](#Plugin_bootstrap_sequence) process, used to evaluate plugin code (JavaScript) within the context of the corresponding `iframe` element. UI plugin infrastructure supports serving plugin resource files, such as host page, from local file system (2). Host page gets loaded into `iframe` element and plugin code is evaluated (3). From this point forward, plugin communicates with WebAdmin via plugin API (4). Since the purpose of host page is to bootstrap plugin code, any UI extensions should be done via [plugin API](#API_function_reference) rather than direct HTML DOM manipulation.
 
-Plugin resource files are expected to reside in `$ENGINE_USR/ui-plugins/<resourcePath>` directory, with `resourcePath` value defined by the corresponding attribute in [plugin descriptor](#Plugin_descriptor). For example:
+Plugin resource files are expected to reside in `$ENGINE_USR/ui-plugins/` directory, with `resourcePath` value defined by the corresponding attribute in [plugin descriptor](#Plugin_descriptor). For example:
 
-*   Client requests URL `/ovirt-engine/webadmin/plugin/<pluginName>/path/to/file`
-*   Engine serves content of `$ENGINE_USR/ui-plugins/<resourcePath>/path/to/file`
+*   Client requests URL `/ovirt-engine/webadmin/plugin//path/to/file`
+*   Engine serves content of `$ENGINE_USR/ui-plugins//path/to/file`
 
 ### Plugin descriptor
 
@@ -124,28 +126,13 @@ Following code snippet shows a sample plugin host page:
 
       /usr/share/ovirt-engine/ui-plugins/example-resources/start.html
 
-    <!DOCTYPE html>
-    <html>
-
-    <head>
-        <!--
-            Load additional scripts or other resources as necessary (1)
-            <script type="text/javascript" src="/ovirt-engine/webadmin/plugin/ExamplePlugin/js/useful-library.js"></script>
-        -->
-        <script type="text/javascript">
             // Plugin code, evaluated within HTML head section (2)
-        </script>
-    </head>
 
-    <body>
-        <script type="text/javascript">
             // Plugin code, evaluated within HTML body section (3)
-        </script>
-    </body>
 
-    </html>
+Prior to evaluating actual plugin code, host page can load dependent scripts or other resources as necessary (1). Plugin code can be evaluated either within `head` (2) or `body` (3) section of the HTML document. In addition to embedding plugin code inline into host page, code can be also loaded asynchronously as external script, i.e. ``
 
-Prior to evaluating actual plugin code, host page can load dependent scripts or other resources as necessary (1). Plugin code can be evaluated either within `head` (2) or `body` (3) section of the HTML document. In addition to embedding plugin code inline into host page, code can be also loaded asynchronously as external script, i.e. `<script type="text/javascript" src="...">`. There are no specific rules on how to load plugin code within the host page, the only requirement is that loading host page HTML document should evaluate plugin code eventually.
+. There are no specific rules on how to load plugin code within the host page, the only requirement is that loading host page HTML document should evaluate plugin code eventually.
 
 Note that WebAdmin [loads](#Loading_plugins) the given plugin via hidden HTML `iframe` element. This has following implications:
 
@@ -153,7 +140,7 @@ Note that WebAdmin [loads](#Loading_plugins) the given plugin via hidden HTML `i
 *   Plugin code should use [plugin API](#API_function_reference) to make UI extensions, i.e. avoid direct HTML DOM manipulation of WebAdmin UI
 *   Any markup placed within HTML `body` section will have no effect since the `iframe` element is hidden from WebAdmin view
 
-### Why load plugins via `iframe` element?
+### Why load plugins via iframe element?
 
 From UI plugin infrastructure perspective, each plugin represents a standalone web application that integrates with WebAdmin through [plugin API](#API_function_reference).
 
@@ -198,122 +185,276 @@ Following code snippet illustrates the above mentioned pattern:
 
 UI plugin infrastructure maintains a common lifecycle to control execution of individual plugins. The lifecycle consists of possible states and transitions between these states at runtime.
 
-![Plugin lifecycle](Plugin-lifecycle.png "Plugin lifecycle")
+![](Plugin-lifecycle.png "Plugin lifecycle")
 
-DEFINED  
+DEFINED
+
 The plugin has been defined through its meta-data. A corresponding `iframe` element has been created. This is the initial state for all plugins.
 
-<!-- -->
+LOADING
 
-LOADING  
 The `iframe` element has been attached to DOM, causing plugin host page to be fetched asynchronously in the background. We are waiting for the plugin to report back as ready.
 
-<!-- -->
+READY
 
-READY  
 The plugin has indicated that it is ready for use. We expect the event handler object (object containing [event handler functions](#Application_event_reference)) to be registered by now. While in plugin invocation context`*`, proceed with plugin initialization. Otherwise, initialize the plugin upon entering next invocation context.
 
-<!-- -->
+INITIALIZING
 
-INITIALIZING  
 The plugin is being initialized by calling `UiInit` event handler function. The `UiInit` function will be called just once during the lifetime of a plugin, before calling other event handler functions.
 
-<!-- -->
+IN USE
 
-IN USE  
 The `UiInit` function completed successfully, WebAdmin will call other event handler functions as necessary. The plugin is in use.
 
-<!-- -->
+FAILED
 
-FAILED  
 An uncaught exception escaped while calling plugin event handler function, indicating internal error within plugin code. The `iframe` element has been detached from DOM. The plugin is removed from service.
 
 `*` Plugin invocation context starts when user logs into WebAdmin and ends when user logs out. Processing [event handler functions](#Application_event_reference) as well as [plugin API](#API_function_reference) calls is constrained by this context, i.e. plugins are in effect only while user stays authenticated in WebAdmin UI.
 
 ### Application event reference
 
-| Function                      | Arguments`*`                                                                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-|-------------------------------|-----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ### Core functions            |
-| `UiInit`                      | -                                                                                       | Called by the infrastructure as part of plugin initialization. The `UiInit` function will be called just once during the lifetime of a plugin, before WebAdmin calls other event handler functions. This function is a good place for one-time UI extensions.                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ### Authentication            |
-| `UserLogin`                   | `<span style="color:blue">string</span> userNameWithDomain`                             
-                                  `<span style="color:blue">string</span> userId`                                         | Called after a user logs into WebAdmin. The `userNameWithDomain` follows `user@domain` convention.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| `UserLogout`                  | -                                                                                       | Called after a user logs out of WebAdmin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ### Main tab item selection   |
-| `{EntityType}SelectionChange` | `<span style="color:magenta">arguments</span>`                                          | Called when item selection changes in the given main tab. Replace `{EntityType}` with name of desired entity. Refer to [supported entity types](#Entity_type_reference) for details.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ### REST API integration      |
-| `RestApiSessionAcquired`      | `<span style="color:blue">string</span> sessionId`                                      | Called upon acquiring oVirt Engine [REST API](REST-Api) [persistent session](Features/RESTSessionManagement) after successful login. The `sessionId` maps to REST API session bound to current WebAdmin user, which means this value is shared between all plugins. The REST API session is acquired with timeout equal to oVirt Engine user session timeout. WebAdmin will try to keep the REST API session (and corresponding Engine user session) alive by sending heartbeat requests while user stays authenticated in WebAdmin UI. WebAdmin won't close the session upon logout, as there might be other systems still working with it. |
-| ### Cross-window messaging    |
-| `MessageReceived`             | `{<span style="color:blue">string</span>|<span style="color:green">object</span>} data` 
-                                  `<span style="color:green">object</span> sourceWindow`                                  | Called when another `Window` (i.e. custom UI contributed by a plugin) sends message to WebAdmin `Window` via HTML5 [postMessage](http://en.wikipedia.org/wiki/Web_Messaging) API. In a typical scenario, custom UI living in `iframe` context sends message to WebAdmin (parent) `Window` which in turn dispatches the message to individual plugins. Refer to `allowedMessageOrigins` in [API options](#API_option_reference) for details on customizing origins from which messages will be accepted. The `sourceWindow` can be used to establish two-way communication between plugin code and sender's `Window` object.                             |
+<caption>Supported event handler functions</caption>
 
-`*` If specified, `<span style="color:magenta">arguments</span>` represent the built-in (implicit) JavaScript function argument array.
+Function
+
+Arguments`*`
+
+Description
+
+#### Core functions
+
+      UiInit
+
+-
+
+Called by the infrastructure as part of plugin initialization. The `UiInit` function will be called just once during the lifetime of a plugin, before WebAdmin calls other event handler functions. This function is a good place for one-time UI extensions.
+
+#### Authentication
+
+      UserLogin
+
+      string userNameWithDomain
+ `string userId`
+
+Called after a user logs into WebAdmin. The `userNameWithDomain` follows `user@domain` convention.
+
+      UserLogout
+
+-
+
+Called after a user logs out of WebAdmin.
+
+#### Main tab item selection
+
+      {EntityType}SelectionChange
+
+      arguments
+
+Called when item selection changes in the given main tab. Replace `{EntityType}` with name of desired entity. Refer to [entity types](#Entity_type_reference) for details on supported entity names and their object representations.
+
+#### REST API integration
+
+      RestApiSessionAcquired
+
+      string sessionId
+
+Called upon acquiring oVirt Engine [REST API](REST-Api) [persistent session](Features/RESTSessionManagement) after successful login. The `sessionId` maps to REST API session bound to current WebAdmin user, which means this value is shared between all plugins. The REST API session is acquired with timeout equal to oVirt Engine user session timeout. WebAdmin will try to keep the REST API session (and corresponding Engine user session) alive by sending heartbeat requests while user stays authenticated in WebAdmin UI. WebAdmin won't close the session upon logout, as there might be other systems still working with it.
+
+#### Cross-window messaging
+
+      MessageReceived
+
+      object data
+ `object sourceWindow`
+
+Called when another `Window` (i.e. custom UI contributed by a plugin) sends message to WebAdmin `Window` via HTML5 [postMessage](http://en.wikipedia.org/wiki/Web_Messaging) API. In a typical scenario, custom UI living in `iframe` context sends message to WebAdmin (parent) `Window` which in turn dispatches the message to individual plugins. Refer to `allowedMessageOrigins` in [API options](#API_option_reference) for details on customizing origins from which messages will be accepted. The `sourceWindow` can be used to establish two-way communication between plugin code and sender's `Window` object.
+
+`*` If specified, `arguments` represent the implicit JavaScript [function argument object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments).
 
 ### API function reference
 
-| Function                 | Arguments | Description | Example |
-|--------------------------|-----------|-------------|---------|
-| ### Core functions       |
-| `options`                |
-| `register`               |
-| `ready`                  |
-| `configObject`           |
-| ### User information     |
-| `loginUserName`          |
-| `loginUserId`            |
-| ### Main and sub tabs    |
-| `addMainTab`             |
-| `addSubTab`              |
-| `setTabContentUrl`       |
-| `setTabAccessible`       |
-| `addMainTabActionButton` |
-| `addSubTabActionButton`  |
-| ### Dialogs              |
-| `showDialog`             |
-| `setDialogContentUrl`    |
-| `closeDialog`            |
+<caption>Supported API functions</caption>
+
+Function
+
+Arguments
+
+Description
+
+#### Core functions
+
+      register
+
+      object eventHandlerObject
+
+Registers the event handler object, i.e. object containing [event handler functions](#Application_event_reference) which facilitate WebAdmin → plugin communication. The `register` function must be called with valid `eventHandlerObject` before calling `ready` function. The `eventHandlerObject` must be an object declaring event handler functions as its properties, or an empty object. After the `eventHandlerObject` has been set for given plugin, calling `register` function has no effect.
+
+    api.register({
+        UiInit: function() {
+            api.addSubTab('Host', 'Special Host Tab', 'special-host-tab',
+                '/ovirt-engine/webadmin/plugin/ExamplePlugin/special-host-tab.html');
+            api.setTabAccessible('special-host-tab', false);
+        },
+        HostSelectionChange: function() {
+            var specialHostSelected = arguments.length == 1
+                && arguments[0].name.indexOf('special') != -1;
+            api.setTabAccessible('special-host-tab', specialHostSelected);
+        }
+    });
+
+      options
+
+      object apiOptionsObject
+
+Provides custom API options that affect specific features of plugin API, overriding default API options. The `options` function can be called anytime during the lifetime of a plugin. Refer to [API options](#API_option_reference) for details.
+
+    api.options({
+        allowedMessageOrigins: ['http://one.com', 'https://two.org']
+    });
+
+      ready
+
+-
+
+Notifies the infrastructure to proceed with plugin initialization, calling `UiInit` event handler function (if defined) as soon as the plugin invocation context is entered (refer to [plugin lifecycle](#Plugin_lifecycle) for details). The `register` function must be called with valid `eventHandlerObject` before calling `ready` function, otherwise the `ready` function has no effect.
+
+    api.ready();
+
+      configObject
+
+-
+
+Returns the runtime plugin configuration object containing custom configuration (if any) merged on top of default configuration (if any). Refer to [plugin user configuration](#Plugin_user_configuration) for details. In case neither the default nor custom configuration is available for given plugin, the `configObject` function returns an empty object.
+
+    var conf = api.configObject();
+    var favoriteBand = conf.band || ;
+
+#### User information
+
+      loginUserName
+
+      loginUserId
+
+#### Main and sub tabs
+
+      addMainTab
+
+      addSubTab
+
+      setTabContentUrl
+
+      setTabAccessible
+
+      addMainTabActionButton
+
+      addSubTabActionButton
+
+#### Dialogs
+
+      showDialog
+
+      setDialogContentUrl
+
+      closeDialog
 
 ### API option reference
 
-| Option                                           | Default value | Description                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|--------------------------------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ### Cross-window messaging                       |
-| `allowedMessageOrigins` (string or string array) | empty array   | Defines allowed source [origins](http://en.wikipedia.org/wiki/Same_origin_policy#Origin_determination_rules) from which HTML5 `message` events will be accepted and passed to `MessageReceived` event handler function. The value can be either a string (single origin) or a string array (multiple origins). `*` translates to "any origin", as per HTML5 [postMessage](http://en.wikipedia.org/wiki/Web_Messaging) specification. |
+<caption>Supported plugin API options</caption>
+
+Option
+
+Default value
+
+Description
+
+#### Cross-window messaging
+
+`allowedMessageOrigins` (string or string array)
+
+empty array
+
+Defines allowed source [origins](http://en.wikipedia.org/wiki/Same_origin_policy#Origin_determination_rules) from which HTML5 `message` events will be accepted and passed to `MessageReceived` event handler function. The value can be either a string (single origin) or a string array (multiple origins). `*` translates to "any origin", as per HTML5 [postMessage](http://en.wikipedia.org/wiki/Web_Messaging) specification.
 
 ### Entity type reference
 
-| Name             | Object representation (exposed attributes) |
-|------------------|--------------------------------------------|
-| `DataCenter`     | `id` (string)                              
-                     `name` (string)                            |
-| `Cluster`        | `id` (string)                              
-                     `name` (string)                            |
-| `Host`           | `id` (string)                              
-                     `name` (string)                            
-                     `hostname` (string)                        |
-| `Network`        | `id` (string)                              
-                     `name` (string)                            |
-| `Storage`        | `id` (string)                              
-                     `name` (string)                            |
-| `Disk`           | `id` (string)                              |
-| `VirtualMachine` | `id` (string)                              
-                     `name` (string)                            
-                     `ipaddress` (string)                       |
-| `Pool`           | `id` (string)                              
-                     `name` (string)                            |
-| `Template`       | `id` (string)                              
-                     `name` (string)                            |
-| `GlusterVolume`  | `id` (string)                              
-                     `name` (string)                            |
-| `Provider`       | `id` (string)                              
-                     `name` (string)                            |
-| `User`           | `id` (string)                              
-                     `username` (string)                        
-                     `domain` (string)                          |
-| `Quota`          | `id` (string)                              
-                     `name` (string)                            |
-| `Event`          | `id` (string)                              |
+<caption>Supported entity types</caption>
+
+Name
+
+Object representation (exposed attributes)
+
+      DataCenter
+
+`id` (string)
+ `name` (string)
+
+      Cluster
+
+`id` (string)
+ `name` (string)
+
+      Host
+
+`id` (string)
+ `name` (string)
+ `hostname` (string)
+
+      Network
+
+`id` (string)
+ `name` (string)
+
+      Storage
+
+`id` (string)
+ `name` (string)
+
+      Disk
+
+`id` (string)
+
+      VirtualMachine
+
+`id` (string)
+ `name` (string)
+ `ipaddress` (string)
+
+      Pool
+
+`id` (string)
+ `name` (string)
+
+      Template
+
+`id` (string)
+ `name` (string)
+
+      GlusterVolume
+
+`id` (string)
+ `name` (string)
+
+      Provider
+
+`id` (string)
+ `name` (string)
+
+      User
+
+`id` (string)
+ `username` (string)
+ `domain` (string)
+
+      Quota
+
+`id` (string)
+ `name` (string)
+
+      Event
+
+`id` (string)
 
 ### Tutorials
 
@@ -321,13 +462,13 @@ An uncaught exception escaped while calling plugin event handler function, indic
 
 The [oVirt Space Shooter](Tutorial/UIPlugins/CrashCourse) tutorial walks you through the basics of creating your first UI plugin.
 
-![oVirt Space Shooter](OVirt_Space_Shooter_3.png "oVirt Space Shooter")
+![](OVirt_Space_Shooter_3.png "oVirt Space Shooter")
 
 ### Resources
 
-*   Presentation slides: [UI Plugins PoC Overview](Media:UI_Plugins_PoC_Overview_2012.pdf) (October 2012)
-*   Presentation slides: [UI Plugins at oVirt Workshop Sunnyvale](Media:UI_Plugins_at_oVirt_Workshop_Sunnyvale_2013.pdf) (January 2013)
-*   Miscellaneous: [Original Design Notes](Features/UIPluginsOriginalDesignNotes), [UI Plugin Figures](Media:Ui-plugin-figures.tar.gz)
+*   Presentation slides: ![](UI_Plugins_PoC_Overview_2012.pdf "UI Plugins PoC Overview") (October 2012)
+*   Presentation slides: ![](UI_Plugins_at_oVirt_Workshop_Sunnyvale_2013.pdf "UI Plugins at oVirt Workshop Sunnyvale") (January 2013)
+*   Miscellaneous: [Original Design Notes](Features/UIPluginsOriginalDesignNotes), ![](Ui-plugin-figures.tar.gz "UI Plugin Figures")
 
 ### UI plugin cheat sheet
 
@@ -345,19 +486,15 @@ Minimal plugin host page:
 
       /usr/share/ovirt-engine/ui-plugins/minimal-resources/start.html
 
-    <!DOCTYPE html><html><head>
-        <script type="text/javascript">
             var api = parent.pluginApi('MinimalPlugin');
             api.register({
                 UiInit: function() { window.alert('Hello world!'); }
             });
             api.ready();
-        </script>
-    </head><body></body></html>
 
 ### Sample UI plugins
 
-Repository hosting sample UI plugins: <git://gerrit.ovirt.org/samples-uiplugins> ([Gerrit web](http://gerrit.ovirt.org/gitweb?p=samples-uiplugins.git))
+Repository hosting sample UI plugins: git://gerrit.ovirt.org/samples-uiplugins ([Gerrit web](http://gerrit.ovirt.org/gitweb?p=samples-uiplugins.git))
 
 ### Real-world UI plugins
 
@@ -365,46 +502,44 @@ Repository hosting sample UI plugins: <git://gerrit.ovirt.org/samples-uiplugins>
 
 This plugin brings integration with [Nagios](http://www.nagios.org/) or [Icinga](https://www.icinga.org/) monitoring solution into oVirt.
 
-*   Author: René Koch <r.koch@ovido.at>
+*   Author: René Koch <<r.koch@ovido.at>></<r.koch@ovido.at>>
 *   Project web site: <https://labs.ovido.at/monitoring/wiki/ovirt-monitoring-ui-plugin>
 *   Installation documentation: <https://labs.ovido.at/monitoring/wiki/ovirt-monitoring-ui-plugin:install>
 *   UI plugin source code: <https://labs.ovido.at/monitoring/wiki/ovirt-monitoring-ui-plugin:svn>
 
-![Monitoring Details sub tab](Ovirt-monitoring hosts graph.png "fig:Monitoring Details sub tab")
+ ![](Ovirt-monitoring%20hosts%20graph.png "Monitoring Details sub tab")
 
 #### Foreman UI Plugin
 
 The purpose of this plugin is to allow administrators to see details on [Foreman](http://theforeman.org/) related entities (such as VMs).
 
-*   Author: Oved Ourfali <ovedo@redhat.com>
+*   Author: Oved Ourfali <<ovedo@redhat.com>></<ovedo@redhat.com>>
 *   Documentation: <http://ovedou.blogspot.co.il/2012/12/ovirt-foreman-ui-plugin.html>
 *   Foreman plugin source code: <https://github.com/oourfali/foreman_ovirt>
 *   UI plugin source code: available from [sample UI plugin repository](#Sample_UI_plugins) as `foreman-plugin`
 
-![Foreman Details sub tab](Foreman view details.png "fig:Foreman Details sub tab")
+ ![](Foreman%20view%20details.png "Foreman Details sub tab")
 
 #### UI-VDSM-Hooks Plugin
 
 Using CGI scripts located on the host's web-server, VDSM commands (vdsClient) can be invoked directly from the WebAdmin UI.
 
-*   Author: Daniel Erez <derez@redhat.com>
+*   Author: Daniel Erez <<derez@redhat.com>></<derez@redhat.com>>
 *   Documentation: <http://derezvir.blogspot.co.il/2013/06/ovirt-ui-vdsm-hooks-plugin.html>
 *   UI plugin source code: available from [sample UI plugin repository](#Sample_UI_plugins) as `ui-vdsm-hooks-plugin`
 
-![UI-VDSM-Hooks context menu](UI-VDSM-Hooks-Examples.png "fig:UI-VDSM-Hooks context menu")
+ ![](UI-VDSM-Hooks-Examples.png "UI-VDSM-Hooks context menu")
 
 #### Shell In A Box UI Plugin
 
 Using oVirt WebAdmin, make SSH connection to a host and emulate a terminal via [Shell In A Box](http://code.google.com/p/shellinabox/).
 
-*   Author: Daniel Erez <derez@redhat.com>
+*   Author: Daniel Erez <<derez@redhat.com>></<derez@redhat.com>>
 *   Documentation: <http://derezvir.blogspot.co.il/2013/01/ovirt-webadmin-shellinabox-ui-plugin.html>
 *   UI plugin source code: available from [sample UI plugin repository](#Sample_UI_plugins) as `shellinabox-plugin`
 
-![Shell Box sub tab](ShellBox SubTab.png "fig:Shell Box sub tab")
+ ![](ShellBox%20SubTab.png "Shell Box sub tab")
 
 ### Comments and discussion
 
-*   Refer to [UI plugins discussion page](Talk:Features/UIPlugins).
-
-<Category:Feature>
+*   Refer to [UI plugins discussion page](talk:Features/UIPlugins).

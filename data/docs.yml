@@ -1,8 +1,5 @@
-- Getting Started:
-  Basic Concepts: /documentation/
-- Specialized Components:
-  Blogging: /documentation/blogging/
-  Doc Browser: /documentation/docs/
-- Design:
-  Template Structure: /documentation/templates/
-  
+# This is the navigation for Documentation browser
+- Section Title:
+  Document Title: /documentation/
+- Another Section:
+  Foo Bar: /documentation/foo/  

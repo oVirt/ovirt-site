@@ -213,6 +213,12 @@ An uncaught exception escaped while calling plugin event handler function, indic
 
 `*` Plugin invocation context starts when user logs into WebAdmin and ends when user logs out. Processing [event handler functions](#Application_event_reference) as well as [plugin API](#API_function_reference) calls is constrained by this context, i.e. plugins are in effect only while user stays authenticated in WebAdmin UI.
 
+### Terms used in API reference
+
+#### JavaScript interface object
+
+Object implementing a contract (interface) by declaring corresponding functions. Unlike the traditional concept of interface abstract type in object-oriented languages, an interface object doesn't necessarily have to declare all functions of the given interface in order to "implement" such interface. In fact, an empty object can be used as a valid interface object. Missing functions will be treated as empty (no-op) functions with default return values, as defined by the contract of such functions. An interface object can "implement" multiple interfaces simply by declaring functions of those interfaces.
+
 ### Application event reference
 
 <caption>Supported event handler functions</caption>
@@ -298,9 +304,8 @@ Registers the event handler object, i.e. object containing [event handler functi
             api.setTabAccessible('special-host-tab', false);
         },
         HostSelectionChange: function() {
-            var specialHostSelected = arguments.length == 1
-                && arguments[0].name.indexOf('special') != -1;
-            api.setTabAccessible('special-host-tab', specialHostSelected);
+            var isSpecial = arguments.length == 1 && arguments[0].name.indexOf('special') != -1;
+            api.setTabAccessible('special-host-tab', isSpecial);
         }
     });
 
@@ -357,9 +362,9 @@ Returns [UUID](http://en.wikipedia.org/wiki/Universally_unique_identifier) of cu
       string label
  `string historyToken`
  `string contentUrl`
- `string options`
+ `object options`
 
-Adds new main tab with content provided from given URL. All arguments are required except for `options`. The `label` is the text displayed on tab header. The `historyToken` serves as unique identifier of the tab, with its value reflected in tab header URL. Recommended `historyToken` format is `letters-with-dashes`. The `contentUrl` is passed to `src` attribute of `iframe` element which renders tab content. The `options` can be undefined, null or object containing additional tab options:
+Adds new main tab with content provided from given URL. All arguments are required except for `options`. The `label` is the text displayed on tab header. The `historyToken` serves as unique identifier of the tab, with its value reflected in tab header URL. Recommended `historyToken` format is `letters-with-dashes`. The `contentUrl` is passed to `src` attribute of the `iframe` element which renders tab content. The `options` can be undefined, null or object containing additional tab options:
 
 *   `alignRight` - controls horizontal tab header alignment, default value is `false`
 
@@ -381,7 +386,7 @@ Adds new main tab with content provided from given URL. All arguments are requir
  `string label`
  `string historyToken`
  `string contentUrl`
- `string options`
+ `object options`
 
 Adds new sub tab with content provided from given URL. All arguments are required except for `options`. Semantics of `label`, `historyToken`, `contentUrl` and `options` are identical to ones declared by `addMainTab` function. The `entityTypeName` identifies existing main tab to which the newly added sub tab should be associated (only standard main tabs are supported). Refer to [entity types](#Entity_type_reference) for details on supported entity names.
 
@@ -400,7 +405,7 @@ Adds new sub tab with content provided from given URL. All arguments are require
       string historyToken
  `string contentUrl`
 
-Updates the content URL of given (main or sub) tab. Semantics of `historyToken` and `contentUrl` are identical to ones declared by `addMainTab` function. The `setTabContentUrl` function works only for tabs added through plugin API.
+Updates the content URL of given (main or sub) tab. Semantics of `historyToken` and `contentUrl` are identical to ones declared by `addMainTab` function. The `setTabContentUrl` function works only for tabs added via plugin API.
 
     api.setTabContentUrl('custom-tab',
         '/ovirt-engine/webadmin/plugin/ExamplePlugin/tab-content.html');
@@ -410,7 +415,7 @@ Updates the content URL of given (main or sub) tab. Semantics of `historyToken` 
       string historyToken
  `boolean tabAccessible`
 
-Controls the accessibility of given (main or sub) tab. Semantics of `historyToken` is identical to one declared by `addMainTab` function. If `tabAccessible` is `false`, corresponding tab header will be hidden in WebAdmin UI and attempts to reveal the given tab manually by manipulating URL will be denied. The `setTabAccessible` function works only for tabs added through plugin API.
+Controls the accessibility of given (main or sub) tab. Semantics of `historyToken` is identical to one declared by `addMainTab` function. If `tabAccessible` is `false`, corresponding tab header will be hidden in WebAdmin UI and attempts to reveal the given tab manually by manipulating URL will be denied. The `setTabAccessible` function works only for tabs added via plugin API.
 
     api.setTabAccessible('custom-tab', false);
 
@@ -420,7 +425,7 @@ Controls the accessibility of given (main or sub) tab. Semantics of `historyToke
  `string label`
  `object actionButtonInterface`
 
-Adds new button to the action panel and/or context menu for the given main tab. Semantics of `entityTypeName` is identical to one declared by `addSubTab` function. The `label` is the text displayed on button. The `actionButtonInterface` is an object containing (optional) functions and values that override default button behavior:
+Adds new button to the action panel and/or context menu for the given main tab. Semantics of `entityTypeName` is identical to one declared by `addSubTab` function. The `label` is the text displayed on button. The `actionButtonInterface` is an [interface object](#JavaScript_interface_object) that overrides button behavior via following properties:
 
 *   `onClick` - function called when user clicks the button, arguments are items currently selected in given main tab, no-op by default
 *   `isEnabled` - function called to determine whether the button should be enabled (clickable), arguments are items currently selected in given main tab, returns `true` by default
@@ -435,8 +440,8 @@ Adds new button to the action panel and/or context menu for the given main tab. 
     api.addMainTabActionButton('Host', 'Custom Button', {
         onClick: function() {
             var selectedHost = arguments[0];
-            var specialHostSelected = selectedHost.name.indexOf('special') != -1;
-            api.setTabAccessible('custom-tab', specialHostSelected);
+            var isSpecial = selectedHost.name.indexOf('special') != -1;
+            api.setTabAccessible('custom-tab', isSpecial);
         },
         isEnabled: function() {
             return arguments.length == 1;
@@ -455,33 +460,77 @@ Adds new button to the action panel and/or context menu for the given sub tab. S
     api.addSubTabActionButton('Host', 'Event', 'Custom Button', {
         onClick: function() {
             var selectedHostEvent = arguments[0];
-            var specialHostEventSelected = selectedHostEvent.message.indexOf('special') != -1;
-            api.setTabAccessible('custom-tab', specialHostEventSelected);
+            var isSpecial = selectedHostEvent.message.indexOf('special') != -1;
+            api.setTabAccessible('custom-tab', isSpecial);
         },
         isEnabled: function() {
             return arguments.length == 1;
         }
     });
 
+<span style="color:red">Limitation:</span> `subTabEntityTypeName` currently supports only `Event` value.
+
 #### Dialogs
 
       showDialog
 
-title, dialogToken, contentUrl, width, height, options
+      string title
+ `string dialogToken`
+ `string contentUrl`
+ `string width`
+ `string height`
+ `object options`
 
-TODO DESC + EXAMPLE
+Shows new dialog with content provided from given URL. All arguments are required except for `options`. The `title` is the text displayed on dialog header. The `dialogToken` serves as unique identifier of the dialog. The `dialogToken` can be null in case the plugin doesn't need to reference the dialog after showing it, i.e. in case the dialog is meant to be closed via close icon or by pressing Escape key. Recommended `dialogToken` format is `letters-with-dashes`. The `contentUrl` is passed to `src` attribute of the iframe element which renders dialog content. The `width` and `height` are used to define dialog dimensions in CSS units. The `options` can be undefined, null or object containing additional dialog options:
+
+*   `buttons` - array defining buttons to display in dialog's footer area, empty by default, each element is an [interface object](#JavaScript_interface_object) that overrides button behavior via following properties:
+    -   `label` - controls text displayed on button, default value is empty string
+    -   `onClick` - function called when user clicks the button, no arguments, no-op by default
+*   `resizeEnabled` - controls whether the dialog can be resized with mouse, default value is `false`
+*   `closeIconVisible` - controls whether the close icon (located in right-hand part of dialog header) is visible, default value is `true`
+*   `closeOnEscKey` - controls whether the dialog can be closed by pressing Escape key, default value is `true`
+
+<!-- -->
+
+    api.showDialog('Custom Dialog One', 'custom-dialog-one',
+        '/ovirt-engine/webadmin/plugin/ExamplePlugin/dialog-one.html',
+        '640px', '480px'
+    );
+    api.showDialog('Custom Dialog Two', 'custom-dialog-two',
+        '/ovirt-engine/webadmin/plugin/ExamplePlugin/dialog-two.html',
+        '640px', '480px',
+        {
+            buttons: [
+                {
+                    label: 'Close',
+                    onClick: function() {
+                        api.closeDialog('custom-dialog-two');
+                    }
+                }
+            ],
+            resizeEnabled: true,
+            closeIconVisible: false,
+            closeOnEscKey: false
+        }
+    );
 
       setDialogContentUrl
 
-dialogToken, contentUrl
+      string dialogToken
+ `string contentUrl`
 
-TODO DESC + EXAMPLE
+Updates the content URL of given dialog. Semantics of `dialogToken` and `contentUrl` are identical to ones declared by `showDialog` function. The `setDialogContentUrl` function has no effect if the given dialog is already closed. The `setDialogContentUrl` function works only for dialogs shown via plugin API.
+
+    api.setDialogContentUrl('custom-dialog',
+        '/ovirt-engine/webadmin/plugin/ExamplePlugin/dialog-content.html');
 
       closeDialog
 
-dialogToken
+      string dialogToken
 
-TODO DESC + EXAMPLE
+Closes the given dialog. Semantics of `dialogToken` is identical to one declared by `showDialog` function. Once closed, the dialog is destroyed.
+
+    api.closeDialog('custom-dialog');
 
 ### API option reference
 

@@ -1,77 +1,13 @@
 ---
 title: Main
-# this lets you do your own full-width containers yourself
-no_container: true
-# custom stylesheet for this page only, in /stylesheets/landingpage.css.sass
-stylesheet: landingpage
 ---
-
--# the jumbotron is has a custom background and we want to make it
--# span the full width of the browser - thus we have the jumbotron
--# outside the .container this time.
-.jumbotron
-  .container
-    .row
-      .col-sm-3.hidden-sm.hidden-xs
-        %img( src="/images/springboard.png" )
-      .col-xs-12.col-sm-12.col-md-9
-        %h2 Say hello to Middleman and Springboard!
-        %p 
-          Springboard is a project template for
-          %a( href="http://middlemanapp.com" ) Middleman 
-          that adds useful modules like blogging, documentation browser and some web development grease to make your life easier.
-
--# set jumbotron background for this page
-%script
-  $(".jumbotron").backstretch("/images/main_jumbotron_background.jpg");
-
-.getstarted
-  .container
-    %h4 Get Started, the quick way
-    %pre 
-      -# this needs to be hosted somewhere public eventually, so the url will likely be shorter :)
-      git clone git@gitlab.osas.lab.eng.rdu2.redhat.com:garrett/middleman-devel.git ~/.middleman/springboard
-      middleman init project_name --template=springboard
-      cd project_name
-
+-# this is HAML, and we use Bootstrap as our building blocks.
+.container
+  .jumbotron
+    %h2 Say hello to Middleman and Springboard!
     %p 
-      Edit 
-      %code source/index.haml 
-      and replace this (and other bits of the site) with your own content. 
-      %em Done!
-
-    %p 
-      To learn more, first
-      %a( href="http://middlemanapp.com/getting-started/") get started with Middleman
-      &mdash; then see
-      %a( href="/documentation/" ) what Springboard offers
-      to make your life easier!
-
-.container.moreinfo
-  .row
-    .col-md-6
-      %h4 
-        %a( href="/blog/" ) News &raquo; 
-      %p 
-        Latest changes and development news are hilighted in the blog,
-        which also happens to be one of the components included in Springboard.
-      %p
-
-      %ul
-        // this is a snippet of inline ruby that pulls in blog items
-        - page_articles.first(5).each do |article|
-          %li
-            %a{:href => article.url}
-              = article.title
-
-    .col-md-6
-      %h4 About us
-      %p 
-        We are designers in the OSAS (open source and standards) team at 
-        %a( href="http://www.redhat.com") Red Hat. 
-        We help software projects, both new and old, grow and become successful by
-        building web sites, among many other things. 
-
-      %p 
-        Springboard was built to take care of the boring bits once, 
-        so we can focus on more interesting stuff.
+      Springboard is a project template for
+      %a( href="http://middlemanapp.com" ) Middleman 
+      that adds useful modules like blogging, documentation browser
+      and some web development grease to make your life easier. If you
+      are reading this, replace this with your own content!

@@ -43,7 +43,7 @@ Migration is complicated by the fact that migrating VM with assigned PCI device 
 
 ### Engine side
 
-*   find suitable host in cluster for starting a VM
-*   force disable migration of VMs with migration-incapable devices
+*   Finding a suitable host in cluster based on required devices for starting a VM
+*   Migration should be force-disabled for VM's with devices without migration support
 
 <Category:Feature>

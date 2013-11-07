@@ -468,7 +468,7 @@ Adds new button to the action panel and/or context menu for the given sub tab. S
         }
     });
 
-**Limitation:** `subTabEntityTypeName` currently supports only `Event` value.
+**Limitation:** `subTabEntityTypeName` currently supports only `Event` value, see [RFE ticket](https://bugzilla.redhat.com/1028124).
 
 #### Dialogs
 

@@ -7,9 +7,6 @@
 
 Time.zone = data.site.timezone || "UTC"
 
-# Make pretty URLs
-activate :directory_indexes
-
 # Automatic image dimensions on image_tag helper
 activate :automatic_image_sizes
 
@@ -62,10 +59,11 @@ activate :blog do |blog|
   blog.default_extension = ".md"
 
   blog.sources = ":year-:month-:day-:title.html"
-  blog.permalink = ":year/:month/:day/:title.html"
+  #blog.permalink = ":year/:month/:day/:title.html"
+  blog.permalink = ":year/:month/:title.html"
   blog.year_link = ":year.html"
   blog.month_link = ":year/:month.html"
-  blog.day_link = ":year/:month/:day.html"
+  #blog.day_link = ":year/:month/:day.html"
 
 
   #blog.taglink = "tags/:tag.html"
@@ -86,6 +84,9 @@ with_layout :blog_layout do
   page "/blog.html"
   page "/blog/*"
 end
+
+# Make pretty URLs
+activate :directory_indexes
 
 
 ###

@@ -468,6 +468,8 @@ Adds new button to the action panel and/or context menu for the given sub tab. S
         }
     });
 
+------------------------------------------------------------------------
+
 **Limitation:** `subTabEntityTypeName` currently supports only `Event` value, see [RFE ticket](https://bugzilla.redhat.com/1028124).
 
 #### Dialogs
@@ -549,6 +551,10 @@ Description
 empty array
 
 Defines [origins](http://en.wikipedia.org/wiki/Same_origin_policy#Origin_determination_rules) from which HTML `message` events will be accepted and dispatched to plugin via `MessageReceived` event handler function. The value can be a string (single origin) or a string array (multiple origins). `*` translates to "any origin", as per HTML [postMessage](http://en.wikipedia.org/wiki/Web_Messaging) specification. Refer to `MessageReceived` function for details on cross-window messaging workflow.
+
+------------------------------------------------------------------------
+
+**Limitation:** plugins currently have to customize `allowedMessageOrigins` value to accept messages that originate from content served through UI plugin infrastructure, i.e. plugin resource files requested as `/ovirt-engine/webadmin/plugin//path/to/file`. Since Engine origin is generally considered safe, `allowedMessageOrigins` default value should be changed to Engine origin, see [RFE ticket](https://bugzilla.redhat.com/972226).
 
 ### Entity type reference
 

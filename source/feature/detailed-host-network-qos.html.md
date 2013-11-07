@@ -32,7 +32,7 @@ This feature provides means by which to control the traffic of a specific networ
 
 *   Target Release: 3.4
 *   Status: design
-*   Last updated: November 6th, 2013.
+*   Last updated: November 7th, 2013.
 
 #### Detailed Description
 

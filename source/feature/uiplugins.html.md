@@ -275,7 +275,7 @@ Called upon acquiring oVirt Engine [REST API](REST-Api) [persistent session](Fea
       string` or `object data
  `object sourceWindow`
 
-Called when another `Window` (i.e. custom UI contributed by a plugin) sends message to WebAdmin `Window` via HTML [postMessage](http://en.wikipedia.org/wiki/Web_Messaging) API. In a typical scenario, custom UI living in `iframe` context sends message to WebAdmin (parent) `Window` which in turn dispatches the message to individual plugins. Refer to `allowedMessageOrigins` in [API options](#API_option_reference) for details on customizing origins from which messages will be accepted. The `sourceWindow` can be used to establish two-way communication between plugin code and sender's `Window` object. Note that some browsers might support only `string` values when passing data through HTML postMessage API.
+Called when another `Window` (i.e. custom UI contributed by a plugin) sends message to WebAdmin `Window` via HTML5 [postMessage](http://en.wikipedia.org/wiki/Web_Messaging) API. In a typical scenario, custom UI living in `iframe` context sends message to WebAdmin (parent) `Window` which in turn dispatches the message to individual plugins. Refer to `allowedMessageOrigins` in [API options](#API_option_reference) for details on customizing origins from which messages will be accepted. The `sourceWindow` can be used to establish two-way communication between plugin code and sender's `Window` object. Note that some browsers might support only `string` values when passing data through HTML5 postMessage API.
 
 `*` If specified, `arguments` represent the implicit JavaScript [function argument object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments).
 
@@ -550,7 +550,7 @@ Description
 
 empty array
 
-Defines [origins](http://en.wikipedia.org/wiki/Same_origin_policy#Origin_determination_rules) from which HTML `message` events will be accepted and dispatched to plugin via `MessageReceived` event handler function. The value can be a string (single origin) or a string array (multiple origins). `*` translates to "any origin", as per HTML [postMessage](http://en.wikipedia.org/wiki/Web_Messaging) specification. Refer to `MessageReceived` function for details on cross-window messaging workflow.
+Defines [origins](http://en.wikipedia.org/wiki/Same_origin_policy#Origin_determination_rules) from which `message` events will be accepted and dispatched to plugin via `MessageReceived` event handler function. The value can be a string (single origin) or a string array (multiple origins). `*` translates to "any origin", as per HTML5 [postMessage](http://en.wikipedia.org/wiki/Web_Messaging) specification. Refer to `MessageReceived` function for details on cross-window messaging workflow.
 
 ------------------------------------------------------------------------
 

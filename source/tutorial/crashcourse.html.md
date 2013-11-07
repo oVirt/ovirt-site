@@ -32,7 +32,7 @@ Our journey starts in `/usr/share/ovirt-engine/ui-plugins` directory, home of pl
 
     {
             "name": "space-shooter",
-            "url": "/webadmin/webadmin/plugin/space-shooter/start.html",
+            "url": "/ovirt-engine/webadmin/plugin/space-shooter/start.html",
             "resourcePath": "space-shooter-resources"
     }
 
@@ -42,7 +42,7 @@ For those who are curious about the meaning of each attribute:
 *   `url` points to [plugin host page](Features/UIPlugins#Plugin_host_page) which is basically an HTML page that bootstraps plugin code
 *   `resourcePath` tells Engine where to find plugin resource files, such as the plugin host page
 
-Note that `url` generally follows `/webadmin/webadmin/plugin/<pluginName>/<relativePath>` pattern so you can use this to fetch plugin resource files that reside under `resourcePath` directory. In other words, **you don't have to run your own custom web server to serve plugin resource files**, Engine does this for you out-of-the-box.
+Note that `url` generally follows `/ovirt-engine/webadmin/plugin/<pluginName>/<relativePath>` pattern so you can use this to fetch plugin resource files that reside under `resourcePath` directory. In other words, **you don't have to run your own custom web server to serve plugin resource files**, Engine does this for you out-of-the-box.
 
 Having the plugin descriptor in place, all that remains is plugin host page. Let's create `space-shooter-resources` sub-directory along with plugin host page inside this directory:
 
@@ -103,7 +103,7 @@ Let's open plugin host page and add some more JavaScript:
     <html>
     <head>
         <!-- Use Modernizr for detecting necessary HTML5 features like Canvas -->
-        <script type='text/javascript' src='/webadmin/webadmin/plugin/space-shooter/modernizr.custom.js'></script>
+        <script type='text/javascript' src='/ovirt-engine/webadmin/plugin/space-shooter/modernizr.custom.js'></script>
     </head>
     <body>
 
@@ -117,7 +117,7 @@ Let's open plugin host page and add some more JavaScript:
             api.showDialog(
                             'Aliens are attacking', // Title
                 'space-shooter-dialog', // Unique token
-                            '/webadmin/webadmin/plugin/space-shooter/game/index.html', // Content URL
+                            '/ovirt-engine/webadmin/plugin/space-shooter/game/index.html', // Content URL
                             '340px', // Width
                             '560px' // Height
                     );
@@ -256,7 +256,7 @@ Remember the missing `init` function used inside our `UiInit` callback? Let's ad
       /usr/share/ovirt-engine/ui-plugins/space-shooter-resources/start.html
 
         var dialogToken = 'space-shooter-dialog';
-        var dialogUrl = '/webadmin/webadmin/plugin/space-shooter/game/index.html';
+        var dialogUrl = '/ovirt-engine/webadmin/plugin/space-shooter/game/index.html';
 
         var init = function() {
             // Add new action button to Data Center main tab
@@ -373,7 +373,7 @@ Let's add one more feature to our plugin: the ability to track score (games won)
         var subTabWindow = null; // Reference to custom sub tab content's Window object
 
         var subTabToken = 'space-shooter-dc-score';
-        var subTabUrl = '/webadmin/webadmin/plugin/space-shooter/dc-score.html';
+        var subTabUrl = '/ovirt-engine/webadmin/plugin/space-shooter/dc-score.html';
 
         var init = function() {
             // Add new action button to Data Center main tab

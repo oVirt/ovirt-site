@@ -32,9 +32,6 @@
     - if data.page.stylesheet
       = stylesheet_link_tag "global", data.page.stylesheet
 
-    -# moved this before content so you can use jquery plugins within page content too
-    = javascript_include_tag 'application'
-
   %body{:class => (page_classes || 'page') + " source-#{current_page.source_file.split('.').last}" }
 
     - unless data.page.hide_header
@@ -59,8 +56,11 @@
         - unless data.page.hide_footer
           = partial "footer"
 
+    = javascript_include_tag 'application'
+
+    %script
+
     - if build?
 
       - # Place JS in javascripts/production and it'll show up only for production
       = javascript_include_tag 'production'
-

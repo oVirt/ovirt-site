@@ -88,10 +88,10 @@ Download the game and put its files under `/usr/share/ovirt-engine/ui-plugins/sp
 
 Plugin file structure should now look like this:
 
-*   `/usr/share/ovirt-engine/ui-plugins/space-shooter.json`
-*   `/usr/share/ovirt-engine/ui-plugins/space-shooter-resources/game/...`
-*   `/usr/share/ovirt-engine/ui-plugins/space-shooter-resources/modernizr.custom.js`
-*   `/usr/share/ovirt-engine/ui-plugins/space-shooter-resources/start.html`
+*   `/usr/share/ovirt-engine/ui-plugins/space-shooter.json` - plugin descriptor
+*   `/usr/share/ovirt-engine/ui-plugins/space-shooter-resources/game/...` - game files
+*   `/usr/share/ovirt-engine/ui-plugins/space-shooter-resources/modernizr.custom.js` - Modernizr library
+*   `/usr/share/ovirt-engine/ui-plugins/space-shooter-resources/start.html` - plugin host page
 
 Let's open plugin host page and add some more JavaScript:
 
@@ -344,9 +344,13 @@ The `config` attribute is completely optional and can be used to contain default
 
       /etc/ovirt-engine/ui-plugins/space-shooter-config.json
 
+    {
+        ...
         "config": {
             "allowedOrigins": ["http://127.0.0.1:8080", "https://engine-machine:8765"]
         }
+        ...
+    }
 
 Each time our plugin gets loaded in WebAdmin, UI plugin infrastructure takes care of merging user configuration (if any) on top of default configuration (if any). In our case, `allowedOrigins` from user configuration would override `allowedOrigins` from default configuration.
 

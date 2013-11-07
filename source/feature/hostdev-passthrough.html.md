@@ -21,7 +21,7 @@ This feature will allow VDSM to assign pci device to guest using passthrough
 
 ### Current status
 
-*   Last updated date: Mon Nov 05 2013
+*   Last updated date: Mon Nov 06 2013
 
 * waiting for refactored device handling in VDSM
 
@@ -43,6 +43,7 @@ Migration is complicated by the fact that migrating VM with assigned PCI device 
 
 ### Engine side
 
-TODO
+*   find suitable host in cluster for starting a VM
+*   force disable migration of VMs with migration-incapable devices
 
 <Category:Feature>

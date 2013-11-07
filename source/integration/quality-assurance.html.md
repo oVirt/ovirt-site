@@ -10,7 +10,11 @@ wiki_last_updated: 2015-04-28
 
 # OVirt Quality Assurance
 
-Welcome to the oVirt QA project page. oVirt QA is the project which covers all testing of the software that makes up oVirt. It's our goal to continually improve the quality of oVirt releases and updates.
+Welcome to the oVirt QA project page.
+
+oVirt QA is the project which covers all testing of the software that makes up oVirt.
+
+It's our goal to continually improve the quality of oVirt releases and updates.
 
 ## Activities
 

@@ -68,7 +68,7 @@ MacPoolRanges provide a pool of MAC addresses to be used by all of the datacente
 
 Also please notice you can have multiple ranges separated by comma
 
-      MacPoolRanges: 00:1A:4A:97:5E:00-00:1A:4A:97:5E:FF,00:1A:4A:97:5F:00-00:1A:4A:97:5F:FF
+      engine-config -s "MacPoolRanges: 00:1A:4A:97:5E:00-00:1A:4A:97:5E:FF,00:1A:4A:97:5F:00-00:1A:4A:97:5F:FF"
 
 ## MaxMacsCountInPool
 

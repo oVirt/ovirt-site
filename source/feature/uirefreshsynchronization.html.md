@@ -51,6 +51,8 @@ As demonstrated in this figure:
 
 ![](UI_Sync_action.png "UI_Sync_action.png")
 
+Unfortunately this does not solve the problem of an action taking a little longer to complete. The refresh happens immediately and afterwards there is no notification that the action completed one way or the other. To remedy this situation the ideal solution would be some sort of notification from the back-end that the action completed and that we can refresh the model. Unfortunately we not yet ready to fully support push technology so we have to use some create solutions.
+
 ### Event solution
 
 The problem is something besides the interactions of the user with the UI has made changes to a model or a set of models on the back-end and the front-end doesn't know about these changes. Interactions by the user are captured by the 'action solution' above. Some/all of those changes generate an event which is retrieved using a periodic event query. This event query is not in sync with the rest of the normal model queries. So we can get a situation where an event is reported in the event log but the associated UI elements have not been updated yet.

@@ -64,17 +64,20 @@ NetworkQoS could either be changed to include a type (i.e. VM QoS or Host QoS) o
 
 Since at the moment there's no apparent reason to differentiate between VM and host QoS, and seeing as the upgrade script is simpler moving from typeless to typed (the price of an error is lower), the preference should probably be to stick with typeless NetworkQoS entities that may be shared by VM and host networks.
 
-##### User experience
+##### User Experience
 
-A user can define traffic shaping during creation of a logical network. Traffic shaping can be redefined when attaching a logical network to the physical host interfaces during a Setup Host Networks task (see images below):
+Since the Host Network QoS is only relevant in the context of a specific host interface (i.e. it could have completely different a QoS setup on each host interface), the most natural place to configure it would be when editing a network attached to a host interface, similarly to boot protocol configuration. This is accessible through the Setup Host Networks dialog, and clicking the Edit icon that appears when hovering over a specific network attached to an interface. Following is a short discussion of how QoS would be configured in that dialog; screenshots will be added soon...
 
-![](new_lnetwork_bandwidth.png "new_lnetwork_bandwidth.png")
+The simplest thing to do would be to add a list box to the dialog, where users could choose one of the pre-configured Network QoS entities in the DC. However, we would like to enable users to also create a new Network QoS entity from this dialog, in case they had neglected to create a fitting QoS configuration beforehand (through the DC/QoS subtab). To this end, I suggest two alternatives:
 
-Selecting the checkbox (Incoming/Outgoing or both) a user can shape the related kind of traffic using the needed parameters. A user needs to specify all three parameters: average, burst and peak.
+*   Rather than a list box, we can use a suggest box, coupled to a Network QoS widget such as the one that appears in the Add/Edit QoS dialog (where the parameters of the QoS configuration are input). When one of the pre-existing, suggested QoS names is selected, the QoS widget will be filled with the details of that QoS configuration, but will appear disabled. Whenever the name is changed to a name that doesn't yet exist, the widget will become enabled and users will be able to change its values. Upon pressing OK in the underlying Setup Host Networks dialog, the new QoS entity/entities will be created and attached to the proper network(s) on the host.
+*   While still using a list box, we could add a button that would allow users to create a new QoS entity. Pressing on this button will open the same New QoS dialog as in the DC/QoS subtab, and upon creation of a new QoS entity through it, it will be added to the list box.
+
+The disadvantage of the first alternative is that the Network QoS widget is quite big and might not fit well in that small dialog, while the disadvantage of the second alternative is that we would end up with 3 dialogs layered on top of another (which as I recall is unprecedented in oVirt). The best solution might be to go with the first alternative, and push the QoS configuration to a different tab in the dialog.
+
+The following in an out-of-date screenshot of how the Edit Host Network dialog might look with a Network QoS widget for creating unnamed QoS entities (that could not be shared between different networks on different interfaces, as discussed earlier):
 
 ![](Ledit_network.png "Ledit_network.png")
-
-An icon should be associated with the network in Logical Networks list and the "Setup Host Networks" UI in order to provide a visual feedback for bandwidth shaped networks.
 
 ##### VDSM
 

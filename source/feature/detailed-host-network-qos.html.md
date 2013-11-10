@@ -126,7 +126,6 @@ the expected result should be something similar to:
 
 ## Comments and Discussion
 
-*   Refer to [Talk: Host Network Traffic Shaping](Talk: Host Network Traffic Shaping)
 *   On the arch@ovirt.org mailing list.
 
 <Category:Feature>

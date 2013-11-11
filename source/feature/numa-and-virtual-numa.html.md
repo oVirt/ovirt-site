@@ -26,7 +26,7 @@ The hypervisor’s default policy is to schedule and run the guest on any availa
 
 ### Detailed Description
 
-Label should be "Pass through host CPU". When this is set the VM should be marked as non-migratable
+When this is set the VM should be marked as non-migratable
 
 ### Benefit to oVirt
 

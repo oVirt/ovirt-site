@@ -5,89 +5,85 @@ pageable: true
 ---
 
 .container.blog-archive
-  .row
-    .col-md-12
 
-      %h1 Posts
+  %section.articles
 
-      %section.articles
+    - page_articles.each do |article|
 
-        - page_articles.each do |article|
+      -#.post
 
-          -#.post
+        %article.post
+          %footer.meta
+            %time= pretty_date(article.date)
 
-            %article.post
-              %footer.meta
-                %time= pretty_date(article.date)
+          %header
+            %a{href: article.url}= article.title
 
-              %header
-                %a{href: article.url}= article.title
+          -#%p= article.summary 200000
 
-              -#%p= article.summary 200000
-
-            -#%a.btn{:href => article.url} Read
+        -#%a.btn{:href => article.url} Read
 
 
-          %article.post
+      %article.post
 
-            %header.post-header
+        %header.post-header
 
-              %h2.post-title
-                - if defined? article.url
-                  = link_to article.title, article.url
-                - else
-                  = article.title
-
-              %time{datetime: article.date.iso8601}
-                = pretty_date article.date
-
-            %section.post-content
-              = article.summary 2000000
-
-            %footer.post-meta
-              -# Author
-              -# Share
-
-              -#.meta
-                = current_page.data.authors
-                -# current_page.data.authors.split(',').each do |author|
-                  = pluralize current_page.data.authors.split(','), "Author:"
-                  - each current_page.data.authors.split(',') do |author|
-                    %p= author
-
-
-      - if prev_page or next_page
-
-        %ul.pagination
-
-          %li{:class => prev_page ? "" : "disabled"}
-
-            - if prev_page
-              =link_to "Prev", prev_page.url
-
+          %h2.post-title
+            - if defined? article.url
+              = link_to article.title, article.url
             - else
-              %span Prev
+              = article.title
 
-          - (page_number - 4 .. page_number + 4).select{|i| i > 0 && i <= num_pages}.each do |i|
+          %time{datetime: article.date.iso8601}
+            = pretty_date article.date
 
-            - if i == page_number
-              %li.active
-                %span= i
+        %section.post-content
+          = article.summary 2000000
 
-            - else
-              %li
-                - p = nil
-                - (i ... page_number).each do p = p ? p.metadata[:locals]['prev_page'] : prev_page; end
-                - (page_number ... i).each do p = p ? p.metadata[:locals]['next_page'] : next_page; end
-                =link_to "#{i}", (p && p.url)
+        %footer.post-meta
+          -# Author
+          -# Share
 
-          %li{:class => next_page ? "" : "disabled"}
+          -#.meta
+            = current_page.data.authors
+            -# current_page.data.authors.split(',').each do |author|
+              = pluralize current_page.data.authors.split(','), "Author:"
+              - each current_page.data.authors.split(',') do |author|
+                %p= author
 
-            - if next_page
-              =link_to "Next", next_page.url
 
-            - else
-              %span Next
+  - if prev_page or next_page
+
+    %ul.pagination
+
+      %li{:class => prev_page ? "" : "disabled"}
+
+        - if prev_page
+          =link_to "Prev", prev_page.url
+
+        - else
+          %span Prev
+
+      - (page_number - 4 .. page_number + 4).select{|i| i > 0 && i <= num_pages}.each do |i|
+
+        - if i == page_number
+          %li.active
+            %span= i
+
+        - else
+          %li
+            - p = nil
+            - (i ... page_number).each do p = p ? p.metadata[:locals]['prev_page'] : prev_page; end
+            - (page_number ... i).each do p = p ? p.metadata[:locals]['next_page'] : next_page; end
+            =link_to "#{i}", (p && p.url)
+
+      %li{:class => next_page ? "" : "disabled"}
+
+        - if next_page
+          =link_to "Next", next_page.url
+
+        - else
+          %span Next
 
       -#.stuff
         %aside

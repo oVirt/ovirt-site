@@ -27,7 +27,8 @@
 
         %h3 Tags
         %ol
-          - blog.tags.each do |tag, articles|
+          -# blog.tags.sort({|l, r| l[1] <=> r[1] }).each do |tag, articles|
+          - blog.tags.sort.first(15).each do |tag, articles|
             %li
               = link_to tag, tag_path(tag)
               %span.post_info (#{articles.size})

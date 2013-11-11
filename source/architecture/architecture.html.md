@@ -120,7 +120,7 @@ The following diagram illustrates the Hook mechanism in the VM lifetime cycle:
 
 ![ [MoM](MoM) Integration diagram with [VDSM](VDSM) ](mom-vdsm.jpg " MoM Integration diagram with VDSM ")
 
-VDSM is integrated with [MoM](MoM). MoM is running as a separate daemon process and is controlling the memory balloons of each VM running on the host. The behavior of MOM is configured with policies. With these policies users can fine tune the host for high memory overcommit or safe operation.
+VDSM is integrated with [MoM](MoM). The behavior of MOM is configured with policies. With these policies users can fine tune the host for high memory overcommit or safe operation. In order to control its mom instance, vdsm does ship a mom configuration file and a mom policy file that sets mom's default behavior. At startup, vdsmd imports mom and initializes it with the configuration and policy files. From that point on, mom interacts with vdsm through the well-defined API in API.py and is controlling the memory balloons of each VM running on the host. The MOM Instance runs as a thread within the vdsm daemon.
 
 ### REST API
 

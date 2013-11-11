@@ -20,7 +20,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Upcoming meetings
 
-#### 2013-11-11
+#### 2013-11-18
 
 ###### Agenda
 
@@ -33,6 +33,18 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Trac review
 
 ## Past meetings
+
+#### 2013-11-11
+
+"[Minutes](http://ovirt.org/meetings/ovirt/2013/ovirt.2013-11-11-14.59.log.html)"
+
+*   Introductions
+*   Review of action items
+*   Hosting
+*   Puppet
+*   Jenkins
+*   Other business?
+*   Trac review
 
 #### 2013-11-04
 

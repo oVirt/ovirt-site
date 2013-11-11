@@ -26,6 +26,16 @@ The hypervisor’s default policy is to schedule and run the guest on any availa
 
 ### Detailed Description
 
+*   engine modifications:
+    -   Modify the Add/Edit VM dialog, add new tab NUMA
+    -   Add two input, one is for NUMA nodeset, another is for Virtual NUMA / topology
+
+![](NUMA_and_Virtual_NUMA.png "NUMA_and_Virtual_NUMA.png")
+
+*   vsdm modifications:
+    -   Add numatune/memory in domain documents
+    -   Add cpu/numa/cell in domain documents
+
 When this is set the VM should be marked as non-migratable
 
 ### Benefit to oVirt

@@ -88,8 +88,8 @@ When building from source, you should enable the ovirt-beta repository, to satis
 
 Before starting the VDSM service for the first time, you must configure and restart libvirt service:
 
-         vdsm-tool libvirt-configure
-         vdsm-tool libvirt-configure-services-restart
+       vdsm-tool libvirt-configure
+       vdsm-tool libvirt-configure-services-restart
 
 If needed, enable the vdsm service:
 

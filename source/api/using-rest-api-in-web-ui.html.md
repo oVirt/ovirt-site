@@ -36,7 +36,7 @@ Conceptually, data displayed (or otherwise acted upon) by client is different th
 
 Simply put, client and server each serve different purposes, so the underlying data representations should reflect their purposes as much as possible. Sharing data representations (entities) between client and server restricts both client and server; in our case, server drives entity design and client makes best effort to adapt to that design. This typically leads to problems such as client requesting data updates and having to deserialize "heavy" objects just to display a small subset of received data to the user.
 
-The primary goal of utilizing [Engine REST API](REST-Api) in oVirt web UI is to decouple client from server while using standard API to communicate with Engine backend. In addition, this should bring following positive side effects:
+*The primary goal* of utilizing [Engine REST API](REST-Api) in oVirt web UI is to decouple client from server while using standard API to communicate with Engine backend. In addition, this should bring following positive side effects:
 
 *   server having full control over backend business entities and related objects, unconstrained and independent from any client
 *   client having the freedom to use whatever data representation is suitable, i.e. representation that overlays raw data returned by REST API
@@ -44,7 +44,9 @@ The primary goal of utilizing [Engine REST API](REST-Api) in oVirt web UI is to 
 *   no need for GWT-specific hacks, such as tricking GWT compiler into thinking that all shared code is live
 *   not using Java `BackendLocal` interface directly, i.e. abstract away from query/action concept used internally by Engine backend
 
-The secondary goal of this effort is to provide implementation utilizing REST API in a way that allows reuse by any JavaScript-based application, be it oVirt web UI, [UI plugins](Features/UIPlugins) or any other web application. This means the REST API will be used by more clients; considering the added potential for change requests driven by client-specific requirements, this should result in overall improvement of REST API itself.
+*The secondary goal* of this effort is to provide implementation utilizing REST API in a way that allows reuse by any JavaScript-based application, be it oVirt web UI, [UI plugins](Features/UIPlugins) or any other web application. This means the REST API will be used by more clients; considering the added potential for change requests driven by client-specific requirements, this should result in overall improvement of REST API itself.
+
+*Note:* due to deRPC "experimental" status, any further GWT SDK upgrade has potential to introduce regressions to deRPC implementation, including semantics of custom field serializers and rules for serializable user-defined types. In oVirt UI, we should therefore consider upgrading GWT SDK only after having a well-defined migration path to REST API.
 
 ### Design Proposal
 

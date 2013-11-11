@@ -51,7 +51,9 @@ As demonstrated in this figure:
 
 ![](UI_Sync_action.png "UI_Sync_action.png")
 
-Unfortunately this does not solve the problem of an action taking a little longer to complete. The refresh happens immediately and afterwards there is no notification that the action completed one way or the other. To remedy this situation the ideal solution would be some sort of notification from the back-end that the action completed and that we can refresh the model. Unfortunately we not yet ready to fully support push technology so we have to use some create solutions.
+Unfortunately this does not solve the problem of an action taking a little longer to complete. The refresh happens immediately and afterwards there is no notification that the action completed one way or the other. To remedy this situation the ideal solution would be some sort of notification from the back-end that the action completed and that we can refresh the model. Unfortunately we not yet ready to fully support push technology so we have to use some creative solutions.
+
+As with the solution above we can immediately refresh like before, but at the same time if we just completed an action we can set the refresh timer to be really fast so we will be guaranteed to get the update when it completes. In order not to spam the back-end completely we should stop after a period of time. A good period of time is the current refresh timer. If the action takes that long to complete we can return to a normal refresh period after one period has expired. We should also slow down the refresh the further we get into the refresh time period. The longer the action takes to complete the longer we can have the refresh interval without giving a bad experience to the end user.
 
 ### Event solution
 

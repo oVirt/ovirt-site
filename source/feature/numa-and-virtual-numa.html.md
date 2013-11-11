@@ -30,7 +30,7 @@ Label should be "Pass through host CPU". When this is set the VM should be marke
 
 ### Benefit to oVirt
 
-Allows the users to get better performance from their VM's through using all CPU related memory - including the ones not handled by qemu/kvm Allows the users to get better performance from their VM's through split virtual NUMA node.
+Allows the users to get better performance from their VM's through using all CPU related memory - including the ones not handled by qemu/kvm. Allows the users to get better performance from their VM's through split virtual NUMA node.
 
 ### Dependencies / Related Features
 

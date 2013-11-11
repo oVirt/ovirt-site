@@ -238,6 +238,7 @@ Using user provided code may have a performance impact, so administrators are ad
  - [rhevm-manage-domains] /var/log/ovirt-engine/engine-manage-domains.log doesn't exist
  - engine-install with all-in-one fails if ssh is configure for non-standard port
  - VM failed to start running after changing the interface of bootable disk in UI.
+ - [engine-backend] LocalAdminPassword exception after RHEVM host reboot
  - Failed attached Export Storage Domain - Could not obtain lock
  - Users cannot log into UserPortal
  - Newly added Cluster policy populates the list in random position
@@ -354,6 +355,7 @@ Using user provided code may have a performance impact, so administrators are ad
  - Not possible to select quota, which is assigned to specific storage.
  - emulated machine reset on cluster compatibility level change
  - [engine-backend] [external-provider] there is no indicator by engine about failure in DownloadImage
+ - Upgrade script missing field in vm_template
  - engine.log doesn't include log on custom properties.
  - Can't set QoS from edit network window
  - RHEVM-RESTAPI: "Start" vm sent as run once
@@ -362,6 +364,7 @@ Using user provided code may have a performance impact, so administrators are ad
  - Creating a new VM, the "Virtual Disk" configuration never updates that the new disk was created.
  - [rhevm] Webadmin - Tags - Create new tag reveals two new tabs - Provider & VM Interface Profiles
  - Audit logs must be added to guest alignment feature.
+ - [Admin Portal] OS type is wrong when importing VM with RHEV origin from an export domain
  - [engine-backend] [external-provider] disk gets stuck in 'Locked' state when importing an image which had been deleted from glance
  - Uninformative error message when trying to do disk alignment on disk that has snapshots while VM is running.
  - gluster - deactivate UFO/SWIFT on cluster for 3.3
@@ -418,5 +421,8 @@ Using user provided code may have a performance impact, so administrators are ad
  - Cannot set disk interface in user portal
  - [oVirt][Neutron] External network not blocked for hot updating
  - REST-API: Inconsistent schema implementation in PayloadFile
+ - Import Template(s) window shows loading but never timeout nor shows information to import the template.
+ - problems in engine-backup.sh
+ - last pull of translations from Zanata for rhev-m 3.3 product.  - Creating VM from Foreman fails with oVirt 3.3.1 beta.
 
 <Category:Documentation> <Category:Releases>

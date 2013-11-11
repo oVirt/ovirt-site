@@ -111,18 +111,33 @@ the expected result should be something similar to:
 
 ##### User Experience
 
-Since the Host Network QoS is only relevant in the context of a specific host interface (i.e. it could have completely different a QoS setup on each host interface), the most natural place to configure it would be when editing a network attached to a host interface, similarly to boot protocol configuration. This is accessible through the Setup Host Networks dialog, and clicking the Edit icon that appears when hovering over a specific network attached to an interface. Following is a short discussion of how QoS would be configured in that dialog; screenshots will be added soon...
+Since the Host Network QoS is only relevant in the context of a specific host interface (i.e. it could have completely different a QoS setup on each host interface), the most natural place to configure it would be when editing a network attached to a host interface, similarly to boot protocol configuration. This is accessible through the "Setup Host Networks" dialog, and clicking the "Edit" icon that appears when hovering over a specific network attached to an interface. Following is a short discussion of how QoS would be configured in that dialog; screenshots will be added soon...
 
 The simplest thing to do would be to add a list box to the dialog, where users could choose one of the pre-configured Network QoS entities in the DC. However, we would like to enable users to also create a new Network QoS entity from this dialog, in case they had neglected to create a fitting QoS configuration beforehand (through the DC/QoS subtab). To this end, I suggest two alternatives:
 
-*   Rather than a list box, we can use a suggest box, coupled to a Network QoS widget such as the one that appears in the Add/Edit QoS dialog (where the parameters of the QoS configuration are input). When one of the pre-existing, suggested QoS names is selected, the QoS widget will be filled with the details of that QoS configuration, but will appear disabled. Whenever the name is changed to a name that doesn't yet exist, the widget will become enabled and users will be able to change its values. Upon pressing OK in the underlying Setup Host Networks dialog, the new QoS entity/entities will be created and attached to the proper network(s) on the host.
-*   While still using a list box, we could add a button that would allow users to create a new QoS entity. Pressing on this button will open the same New QoS dialog as in the DC/QoS subtab, and upon creation of a new QoS entity through it, it will be added to the list box.
+*   Rather than a list box, we can use a suggest box, coupled to a Network QoS widget such as the one that appears in the "Add/Edit Network QoS" dialog (where the parameters of the QoS configuration are input). When one of the pre-existing, suggested QoS names is selected, the QoS widget will be filled with the details of that QoS configuration, but will appear disabled. Whenever the name is changed to a name that doesn't yet exist, the widget will become enabled and users will be able to change its values. Upon pressing "OK" in the underlying "Setup Host Networks" dialog, the new QoS entity/entities will be created and attached to the proper network(s) on the host.
+*   While still using a list box, we could add a button that would allow users to create a new QoS entity. Pressing on this button will open the same "Add Network QoS" dialog as in the DC/QoS subtab, and upon creation of a new QoS entity through it, it will be added to the list box.
 
-The disadvantage of the first alternative is that the Network QoS widget is quite big and might not fit well in that small dialog, while the disadvantage of the second alternative is that we would end up with 3 dialogs layered on top of another (which as I recall is unprecedented in oVirt). The best solution might be to go with the first alternative, and push the QoS configuration to a different tab in the dialog.
+The disadvantage of the first alternative is that the Network QoS widget is quite big and might not fit well in that small dialog, while the disadvantage of the second alternative is that we would end up with 3 dialogs layered on top of another (which as I recall is unprecedented in oVirt). The best solution might be to go with the first alternative, and place the entire QoS configuration in a dedicated tab in the dialog.
 
-The following in an out-of-date screenshot of how the Edit Host Network dialog might look with a Network QoS widget for creating unnamed QoS entities (that could not be shared between different networks on different interfaces, as discussed earlier):
+The following in an out-of-date screenshot of how the "Edit Host Network" dialog might look with a Network QoS widget for creating unnamed QoS entities (that could not be shared between different networks on different interfaces, as discussed earlier):
 
 ![](Ledit_network.png "Ledit_network.png")
+
+##### User Work-flows
+
+The standard work-flow for an administrator to configure QoS on a host network would be as follows:
+
+*   Create a new Network QoS entity in the DC/QoS subtab.
+*   Head to the Host/Interfaces subtab and click on the "Setup Host Networks" button.
+*   Edit the desired network, by clicking the "Edit" icon when hovering over the network (which has to be attached to an interface).
+*   In the dialog that opens, choose the pre-configured Network QoS entity by its name.
+
+An alternative to that, as discussed above, would be as follows:
+
+*   Start from the "Setup Host Networks" dialog.
+*   Edit the desired network.
+*   Create a new Network QoS entity from the dialog that opens (in whatever way is agreed-upon, among the alternatives discussed above).
 
 ## Comments and Discussion
 

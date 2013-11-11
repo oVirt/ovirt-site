@@ -20,11 +20,11 @@ Replace current GWT RPC mechanism with implementation utilizing Engine REST API.
 
 ### Overview
 
-oVirt web applications (i.e. WebAdmin and UserPortal) currently rely on GWT RPC mechanism to invoke operations and communicate with Engine backend. The exact RPC implementation in use, Direct-Eval RPC aka deRPC, [isn't officially supported anymore](http://www.gwtproject.org/doc/latest/DevGuideServerCommunication.html#DevGuideDeRPC); in fact, it never left "experimental" stage and is currently discouraged by GWT team.
+oVirt web applications (i.e. WebAdmin and UserPortal) currently rely on GWT RPC mechanism to communicate with Engine backend. The exact RPC implementation in use, Direct-Eval RPC aka deRPC, [isn't officially supported anymore](http://www.gwtproject.org/doc/latest/DevGuideServerCommunication.html#DevGuideDeRPC); in fact, it never left "experimental" stage and is currently discouraged by GWT team.
 
 Up to now, oVirt web UI used deRPC because it seemed to be the only GWT RPC implementation to fully support the kind of (Java) objects transferred between client and server. We've encountered [problems](http://gerrit.ovirt.org/#/c/19122/) when trying to use [standard GWT RPC implementation](http://www.gwtproject.org/doc/latest/DevGuideServerCommunication.html#DevGuideCreatingServices), some of them occuring at runtime and others occuring during GWT compilation phase.
 
-More generally, oVirt web UI used GWT RPC mechanism because it allowed sharing same (Java) business entities and related objects between client and server. While seemingly convenient and easy at first, it led us into situation where client and server are coupled together by means of shared objects. GWT client code and its RPC implementation aim for JavaScript runtime environment (i.e. web browser) and therefore impose various restrictions to such shared objects, which in turn hinders the flexibility of Engine backend.
+More generally, oVirt web UI uses GWT RPC mechanism because it allows sharing (Java) business entities and related objects between client and server. While seemingly convenient and easy at first, it led us into situation where client and server are coupled together by means of shared objects. GWT client code and its RPC implementation aim for JavaScript runtime environment (i.e. web browser) and therefore impose various restrictions to such shared objects, which in turn hinders the flexibility of Engine backend.
 
 In addition to client/server coupling, the concept of using backend business entities in client code carries additional limitations, such as:
 
@@ -36,30 +36,60 @@ Conceptually, data displayed (or otherwise acted upon) by client is different th
 
 Simply put, client and server each serve different purposes, so the underlying data representations should reflect their purposes as much as possible. Sharing data representations (entities) between client and server restricts both client and server; in our case, server drives entity design and client makes best effort to adapt to that design. This typically leads to problems such as client requesting data updates and having to deserialize "heavy" objects just to display a small subset of received data to the user.
 
-The primary goal of utilizing [Engine REST API](REST-Api) in oVirt web UI is to decouple client from server while reusing standard API to invoke operations and communicate with Engine backend. In addition, this should bring following positive side effects:
+The primary goal of utilizing [Engine REST API](REST-Api) in oVirt web UI is to decouple client from server while using standard API to communicate with Engine backend. In addition, this should bring following positive side effects:
 
 *   server having full control over backend business entities and related objects, unconstrained and independent from any client
-*   client having the freedom to use whatever data representation is suitable, i.e. representation that overlays raw data returned by Engine REST API
+*   client having the freedom to use whatever data representation is suitable, i.e. representation that overlays raw data returned by REST API
 *   less shared code means less code for GWT client to compile, improving compile times and reducing generated JavaScript footprint
 *   no need for GWT-specific hacks, such as tricking GWT compiler into thinking that all shared code is live
 *   not using Java `BackendLocal` interface directly, i.e. abstract away from query/action concept used internally by Engine backend
 
-The secondary goal of this effort is to provide implementation utilizing Engine REST API in a way that allows reuse by any JavaScript-based application, be it oVirt web UI, [UI plugins](Features/UIPlugins) or any other web application.
+The secondary goal of this effort is to provide implementation utilizing REST API in a way that allows reuse by any JavaScript-based application, be it oVirt web UI, [UI plugins](Features/UIPlugins) or any other web application. This means the REST API will be used by more clients; considering the added potential for change requests driven by client-specific requirements, this should result in overall improvement of REST API itself.
 
 ### Design Proposal
 
-Engine REST API is described by `rsdl_metadata.yaml` (RESTful operations) and `api.xsd` (resource types) within `restapi-definition` module.
+Engine REST API is described by `api.xsd` (resource types) and `rsdl_metadata.yaml` (RESTful operations) within the `restapi-definition` module.
 
-**Engine JavaScript SDK** would be a separate module containing JavaScript code to interact with Engine REST API. To keep JavaScript SDK in sync with REST API, code inside this module would be auto-generated as part of Engine build process. JavaScript SDK file(s) would be served through Engine server itself, i.e. accessible via HTTP protocol. Using JavaScript SDK in a web application would be as simple as adding following code into its HTML page:
+**Engine JavaScript SDK** would be a new module containing JavaScript code to interact with REST API. As we plan to separate oVirt web UI from Engine backend in terms of source repository and related aspects (i.e. build process and z-stream), the JavaScript SDK would be managed within the oVirt web UI source repository. In terms of packaging, oVirt web UI `rpm` would have dependency to JavaScript SDK `rpm`, i.e. JavaScript SDK must be installed in order to be used by web applications. Serving JavaScript SDK files via HTTP protocol can be implemented in different ways, one of them is to deploy JavaScript SDK as a separate web application to Engine backend, alongside oVirt web applications.
 
-    <script type='text/javascript' src='http://engine-server/ovirt-engine/engine-sdk.js'></script>
+#### SDK Requirements
 
-Placing the `script` element in HTML `head` section and actual code utilizing JavaScript SDK in HTML `body` section would always ensure that SDK gets loaded before invoking actual code.
+TODO
 
-**TODO finalize design proposal**
+#### SDK Structure
 
-*   using DDD approach - JS objects that overlay resource representations and provide methods to work with them
-*   consume JSON if possible, otherwise need to add XML to/from JSON mapping layer into SDK
+JavaScript SDK would consist of two API layers:
+
+*   **low-level API**
+    -   essentially a native (JavaScript) binding to REST API in terms of resource types (objects) and RESTful operations (functions)
+    -   there would be a namespace per each supported REST API version, i.e. "complete" namespace for lowest version and "delta" namespaces for higher versions
+    -   code *could* be generated at build time from REST API descriptor files
+    -   code *should* be validated at build time against REST API descriptor files, i.e. make sure the low-level binding reflects supported REST API versions
+
+<!-- -->
+
+*   **high-level API**
+    -   uses low-level API in a more abstract way suitable for clients to consume
+    -   implements automatic REST API version detection in order to use appropriate low-level API namespace
+    -   place for adding common and useful functionality to work with REST API, i.e. logical operations possibly spanning multiple physical REST API requests
+    -   place for manual workarounds and any functionality desired but not supported by REST API
+    -   code maintained manually
+    -   code *should* be validated at build time to detect potential errors
+
+JavaScript SDK would support the notion of backward compatibility with regard to version provided by REST API. In practice, this would mean:
+
+*   SDK version X + Engine version X+1 → rely on backward compatibility of REST API
+*   SDK version X + Engine version X-1 → use appropriate low-level API namespace mapping to older REST API version
+
+In both cases mentioned above, web application using JavaScript SDK should still work.
+
+#### Client Consumption
+
+Using JavaScript SDK in web applications would be as simple as adding following code into application's HTML page:
+
+    <script type='text/javascript' src='http://path/to/sdk.js'></script>
+
+Placing the `script` element in HTML `head` and code utilizing the SDK in HTML `body` ensures the SDK gets loaded before use by client code.
 
 ### Comments and discussion
 

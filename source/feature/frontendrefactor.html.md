@@ -19,6 +19,10 @@ This feature improves the modularity and maintainability of the Frontend class i
 *   Name: [Alexander Wels](User:awels)
 *   Email: <awels@redhat.com>
 
+### Current status
+
+*   **Complete**: Solution implementation finished and merged into master
+
 # Frontend public api methods
 
 The current implementation has the following methods exposed to the outside world:

@@ -55,6 +55,10 @@ Unfortunately this does not solve the problem of an action taking a little longe
 
 As with the solution above we can immediately refresh like before, but at the same time if we just completed an action we can set the refresh timer to be really fast so we will be guaranteed to get the update when it completes. In order not to spam the back-end completely we should stop after a period of time. A good period of time is the current refresh timer. If the action takes that long to complete we can return to a normal refresh period after one period has expired. We should also slow down the refresh the further we get into the refresh time period. The longer the action takes to complete the longer we can have the refresh interval without giving a bad experience to the end user.
 
+This is illustrated here. dots are refreshes while pipes are the refresh timeout.
+
+    |.... . . . .  .  .  .  .    .    .    .    .     .     .     .|                                                             .|
+
 ### Event solution
 
 The problem is something besides the interactions of the user with the UI has made changes to a model or a set of models on the back-end and the front-end doesn't know about these changes. Interactions by the user are captured by the 'action solution' above. Some/all of those changes generate an event which is retrieved using a periodic event query. This event query is not in sync with the rest of the normal model queries. So we can get a situation where an event is reported in the event log but the associated UI elements have not been updated yet.

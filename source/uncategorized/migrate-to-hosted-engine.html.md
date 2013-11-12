@@ -20,12 +20,6 @@ I installed, using the nightly repo, ovirt-engine on ovirttest, ran 'engine-setu
 
 Now I wanted to migrate this installation to hosted engine.
 
-## Backup existing engine
-
-I ran a backup. On ovirttest:
-
-      # engine-backup --mode=backup --file=backup1 --log=backup1.log
-
 ## Hosted engine deploy - part one
 
 I installed a new host with fedora 19, gave it hostname 'didi-box1.home.local'.
@@ -172,27 +166,31 @@ On he1vm, after enabling the ovirt nightly repo:
 
       # yum install ovirt-engine
 
-Copied backup1 from ovirttest to oe1vm. On ovirttest:
+### The cutoff point
 
-      # scp -p backup1 he1vm:
-
-Then restored the backup using a database I already created on another machine. On he1vm:
-
-      # engine-backup --mode=restore --file=backup1 --log=backup1-restore.log --change-db-credentials --db-host=didi-lap --db-user=engine --db-password --db-name=engine
-
-This restores files and the database, but still does not start the service nor does other stuff which is normally done by setup.
-
-Note that you can also create a local database and restore to it. You'll then need to manually enable postgresql to start on reboot and open the firewall to be able to access it.
-
-## The cutoff point
-
-Now suppose we are ready to do the cutoff.
+Now suppose we are ready to do the cutoff. We stop the engine on the old machine, backup, restore on the new machine, and setup there. Note that running backup does not require the engine to be down, but we do not want users to make changes in the old machine that will not be copied to the new one. We also do not want both the old and the new engines to try and manage the same existing hosts and VMs.
 
 On ovirttest, we stop the engine:
 
       # service ovirt-engine stop
 
 We update our dns to point the name 'my-engine.example.com' to the IP address of the new VM 'he1vm'. Alternatively, if we did not have separate dns entries 'ovirttest' and 'my-engine', but just e.g. 'my-engine', we'll probably want to change the entry 'my-engine' to 'old-my-engine' and create a new entry 'my-engine' pointing at the address of 'he1vm'.
+
+Then we backup, still on ovirttest:
+
+      # engine-backup --mode=backup --file=backup1 --log=backup1.log
+
+Copy backup1 from ovirttest to oe1vm. E.g., on ovirttest:
+
+      # scp -p backup1 he1vm:
+
+Then restore the backup using a database we already created on another machine. On he1vm:
+
+      # engine-backup --mode=restore --file=backup1 --log=backup1-restore.log --change-db-credentials --db-host=didi-lap --db-user=engine --db-password --db-name=engine
+
+This restores files and the database, but still does not start the service nor does other stuff which is normally done by setup.
+
+Note that you can also create a local database and restore to it. You'll then still need to manually enable postgresql to start on reboot and open the firewall to be able to access it.
 
 Next, run engine-setup. It will identify the existing files and database and do an "upgrade", including fixing around stuff that restore does not do. Still on he1vm:
 

@@ -32,7 +32,7 @@ You may also refer to the [detailed feature page](Features/Detailed_Host_Network
 
 *   Target Release: 3.4
 *   Status: design
-*   Last updated: November 6th, 2013.
+*   Last updated: November 12th, 2013.
 
 #### Detailed Description
 

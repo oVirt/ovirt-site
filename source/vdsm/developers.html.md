@@ -21,7 +21,7 @@ RHEL 6 users must add EPEL yum repository for installing python-ordereddict and 
 
 RHEL 6 users must install this version of pep8. Older pep8 versions have a bug that's tickled by vdsm.
 
-      yum install http://danken.fedorapeople.org/python-pep8-1.3.3-3.el6.noarch.rpm 
+      yum install http://danken.fedorapeople.org/python-pep8-1.4.5-2.el6.noarch.rpm
 
 RHEL 6 users must add the ovirt repositories, providing packages that are not available yet on RHEL 6.
 

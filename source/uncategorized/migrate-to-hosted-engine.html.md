@@ -8,7 +8,7 @@ wiki_last_updated: 2014-12-03
 
 # Migrate to Hosted Engine
 
-An example showing how to migrate an existing engine installation to [ Self Hosted Engine](Features/Self_Hosted_Engine), using backup/restore.
+An example showing how to migrate an existing engine installation to [ Self Hosted Engine](Features/Self_Hosted_Engine), using [ backup/restore](Ovirt-engine-backup).
 
 ## Preparations
 

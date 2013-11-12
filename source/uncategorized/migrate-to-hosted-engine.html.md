@@ -174,6 +174,14 @@ On ovirttest, we stop the engine:
 
       # service ovirt-engine stop
 
+We should also prevent the service from starting on a reboot. This can be done with
+
+      # service ovirt-engine disable
+
+for fedora 19, or, for el6 machines, with
+
+      # chkconfig ovirt-engine off
+
 We update our dns to point the name 'my-engine.example.com' to the IP address of the new VM 'he1vm'. Alternatively, if we did not have separate dns entries 'ovirttest' and 'my-engine', but just e.g. 'my-engine', we'll probably want to change the entry 'my-engine' to 'old-my-engine' and create a new entry 'my-engine' pointing at the address of 'he1vm'.
 
 Then we backup, still on ovirttest:

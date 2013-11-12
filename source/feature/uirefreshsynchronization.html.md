@@ -57,7 +57,7 @@ As with the solution above we can immediately refresh like before, but at the sa
 
 This is illustrated here. dots are refreshes while pipes are the refresh timeout.
 
-    |.... . . . .  .  .  .  .    .    .    .    .     .     .     .|                                                   .|
+    |.... . . . .  .  .  .  .    .    .    .    .     .     .     |.                                                   |.
 
 ### Event solution
 

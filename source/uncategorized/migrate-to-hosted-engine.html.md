@@ -20,13 +20,13 @@ I installed, using the nightly repo, ovirt-engine on ovirttest, ran 'engine-setu
 
 Now I wanted to migrate this installation to hosted engine.
 
-## backup existing engine
+## Backup existing engine
 
 I ran a backup. On ovirttest:
 
       # engine-backup --mode=backup --file=backup1 --log=backup1.log
 
-## hosted engine deploy - part one
+## Hosted engine deploy - part one
 
 I installed a new host with fedora 19, gave it hostname 'didi-box1.home.local'.
 
@@ -182,6 +182,8 @@ Then restored the backup using a database I already created on another machine. 
 
 This restores files and the database, but still does not start the service nor does other stuff which is normally done by setup.
 
+Note that you can also create a local database and restore to it. You'll then need to manually enable postgresql to start on reboot and open the firewall to be able to access it.
+
 ## The cutoff point
 
 Now suppose we are ready to do the cutoff.
@@ -190,7 +192,7 @@ On ovirttest, we stop the engine:
 
       # service ovirt-engine stop
 
-We update our dns to point the name 'my-engine.example.com' to the IP address of the new VM 'he1vm'. Alternatively, if we did not have separate dns entries 'host-a' and 'my-engine', but just e.g. 'my-engine', we'll probably want to change the entry 'my-engine' to 'old-my-engine' and create a new entry 'my-engine' pointing at the address of 'new-engine'.
+We update our dns to point the name 'my-engine.example.com' to the IP address of the new VM 'he1vm'. Alternatively, if we did not have separate dns entries 'ovirttest' and 'my-engine', but just e.g. 'my-engine', we'll probably want to change the entry 'my-engine' to 'old-my-engine' and create a new entry 'my-engine' pointing at the address of 'he1vm'.
 
 Next, run engine-setup. It will identify the existing files and database and do an "upgrade", including fixing around stuff that restore does not do. Still on he1vm:
 

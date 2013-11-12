@@ -55,7 +55,7 @@ It seems that the advantages of the first approach outweigh those of the second 
 
 ##### Entity Description
 
-No new entities need to be implemented, but VdsNetworkInterface should be changed to include a reference to an attached NetworkQoS entity's GUID, as well as the QoS parameters retrieved from VDSM; both of them would be needed to check whether the interface is in sync, from a QoS point of view (similarly to what is done with networks).
+No new entities need to be implemented, but VdsNetworkInterface should be changed to include at least a NetworkQoS GUID member, that states what QoS configuration is attached to that interface (null would mean unlimited). It might be preferable though to also hold the QoS parameters retrieved from VDSM; these could then be compared with the definition of the attached QoS, thereby checking if the QoS configuration is "in sync" (similarly to what is done with networks). If the QoS configuration is out-of-sync, the host network itself would also be marked as out-of-sync.
 
 NetworkQoS could either be changed to include a type (i.e. VM QoS or Host QoS) or not. The question is whether these two types could actually be different or not, and therefore if there's good reason to not enable one NetworkQoS configuration to be shared by both VMs and hosts. Even if in the future some features would be implemented first for, say, VM QoS and not for host QoS, it would probably be okay to just not apply the feature-specific parameters when the NetworkQoS entity is attached to a host's network. Either way we go, if we change our mind in the future the upgrade script would be reasonably straightforward:
 

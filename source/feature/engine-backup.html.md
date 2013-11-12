@@ -28,7 +28,7 @@ A simple utility to create and restore a complete ovirt-engine environment.
 
 #### Phase
 
-In design
+First version released in ovirt 3.3.
 
 #### Features
 
@@ -77,8 +77,48 @@ TBD
 
 ### Documentation / External references
 
-*   [Ovirt Host Deploy Presentation](:File:ovirt-host-deploy 3.2.pdf)
-*   [This shold be the link to feature bug](https://bugzilla.redhat.com/show_bug.cgi?id=911191)
+      # engine-backup --help
+      engine-backup: backup and restore ovirt-engine environment
+      USAGE:
+          /usr/bin/engine-backup [--mode=MODE] [--scope=SCOPE] [--file=FILE] [--log=FILE]
+       MODE is one of the following:
+          backup                  backup system into FILE
+          restore                 restore system from FILE
+       SCOPE is one of the following:
+          all                     complete backup/restore (default)
+          db                      database only
+       --file=FILE                file to use during backup or restore
+       --log=FILE                 log file to use
+       --change-db-credentials    activate the following options, to restore
+                                  the database to a different location etc.
+                                  If used, existing credentials are ignored.
+       --db-host=host             set database host
+       --db-port=port             set database port
+       --db-user=user             set database user
+       --db-passfile=file         set database password - read from file
+       --db-password=pass         set database password
+       --db-password              set database password - interactively
+       --db-name=name             set database name
+       --db-secured               set a secured connection
+       --db-secured-validation    validate host
+       ENVIRONMENT VARIABLES
+       OVIRT_ENGINE_DATABASE_PASSWORD
+           Database password as if provided by --db-password=pass option.
+       To create a new user/database:
+       create user `<user>` password '`<password>`';
+       create database `<database>` owner `<user>` template template0
+       encoding 'UTF8' lc_collate 'en_US.UTF-8 lc_ctype 'en_US.UTF-8';
+       Open access in the firewall/iptables/etc. to the postgresql port,
+       5432/tcp by default.
+       Locate pg_hba.conf within your distribution,
+       common locations are:
+        - /var/lib/pgsql/data/pg_hba.conf
+        - /etc/postgresql-*/pg_hba.conf
+        - /etc/postgresql/*/main/pg_hba.conf
+       and open access there by adding the following lines:
+       host    `<database>`      `<user>`          0.0.0.0/0               md5
+       host    `<database>`      `<user>`          ::0/0                   md5
+       Replace `<user>`, `<password>`, `<database>` with appropriate values.
 
 ### Comments and Discussion
 

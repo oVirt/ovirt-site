@@ -23,7 +23,7 @@ Solve UI consistency issues related to the UI not being updated when certain act
 
 *   **Complete**: Solution implementation in initial stages, dependent on merge of [Features/Design/FrontendRefactor](Features/Design/FrontendRefactor)
 *   **Complete**: Identify existing issues
-*   In progress: Design solution based on the existing issues.
+*   In progress: Design solution based on the existing issues and proposed solutions.
 
 # Existing problems
 

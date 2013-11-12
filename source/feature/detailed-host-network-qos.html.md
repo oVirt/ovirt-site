@@ -32,7 +32,7 @@ This feature provides means by which to control the traffic of a specific networ
 
 *   Target Release: 3.4
 *   Status: design
-*   Last updated: November 7th, 2013.
+*   Last updated: November 12th, 2013.
 
 #### Detailed Description
 
@@ -139,8 +139,16 @@ An alternative to that, as discussed above, would be as follows:
 *   Edit the desired network.
 *   Create a new Network QoS entity from the dialog that opens (in whatever way is agreed-upon, among the alternatives discussed above).
 
-## Comments and Discussion
+#### Comments and Discussion
 
-*   On the arch@ovirt.org mailing list.
+On the arch@ovirt.org mailing list.
+
+#### Open Issues
+
+The following are what seem to be the talking points arising from the above description:
+
+*   Whether Host Network QoS should be configured similarly to VM Network QoS by creating shareable entities, or to have "anonymous" QoS configured on networks attached to host interfaces.
+*   Assuming similar configuration paradigm, whether Network QoS should have a type associated with them.
+*   The UX design of the feature - how exactly to incorporate QoS in the existing host networking dialogs.
 
 <Category:Feature>

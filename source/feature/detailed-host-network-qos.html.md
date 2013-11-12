@@ -16,6 +16,8 @@ wiki_last_updated: 2015-02-01
 
 This feature provides means by which to control the traffic of a specific network through a host's physical interface. It is a natural extension of the [VM Network QoS](Features/Network_QoS) feature, which provided the same functionality for a VM network through a VM's virtual interface.
 
+You may also refer to the [simple feature page](Features/Host_Network_QoS).
+
 #### Owner
 
 *   Name: Lior Vernia

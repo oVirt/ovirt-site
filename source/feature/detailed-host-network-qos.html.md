@@ -51,7 +51,7 @@ DC-wide QoS remains to be handled in the future.
 Implementation-wise, we could take one of two different approaches:
 
 *   Proceed with the VM Network QoS paradigm, that is creating named Network QoS entities that can be shared between different networks. The advantages here are that the administrator is accustomed to the same QoS usage flow across VM and host networking, and that a few QoS configurations could be easily shared by many instances of networks on host interfaces.
-*   Define QoS parameters directly on the host's interfaces when networks are attached to them (similarly to boot protocol, for example). The advantage in this approach is added simplicity when the number of different QoS configurations is similar to the number of host NICs where QoS needs to be configured.
+*   Define QoS parameters directly on the host's interfaces when networks are attached to them (similarly to boot protocol, for example). The advantage in this approach is when there's a low amount of hosts and host NICs. Configuring the NICs directly would save the extra step of defining the QoS profiles.
 
 It seems that the advantages of the first approach outweigh those of the second approach, therefore I will from now on assume that the first has been chosen (I will remark though that some of its advantage may be offset by a Host Template feature, if that is introduced in the near future).
 

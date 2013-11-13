@@ -53,7 +53,7 @@ Implementation-wise, we could take one of two different approaches:
 *   Proceed with the VM Network QoS paradigm, that is creating named Network QoS entities that can be shared between different networks. The advantages here are that the administrator is accustomed to the same QoS usage flow across VM and host networking, and that a few QoS configurations could be easily shared by many instances of networks on host interfaces.
 *   Define QoS parameters directly on the host's interfaces when networks are attached to them (similarly to boot protocol, for example). The advantage in this approach is when there's a low amount of hosts and host NICs. Configuring the NICs directly would save the extra step of defining the QoS profiles.
 
-It seems that the advantages of the first approach outweigh those of the second approach, therefore I will from now on assume that the first has been chosen (I will remark though that some of its advantage may be offset by a Host Template feature, if that is introduced in the near future).
+It seems that the advantages of the first approach outweigh those of the second approach, therefore I will assume from now on that the first has been chosen (I will remark though that some of its advantage may be offset by a Host Template feature, if that is introduced in the near future).
 
 ##### Entity Description
 
@@ -122,7 +122,7 @@ The simplest thing to do would be to add a list box to the dialog, where users c
 
 The disadvantage of the first alternative is that the Network QoS widget is quite big and might not fit well in that small dialog, while the disadvantage of the second alternative is that we would end up with 3 dialogs layered on top of another (which as I recall is unprecedented in oVirt). The best solution might be to go with the first alternative, and place the entire QoS configuration in a dedicated tab in the dialog.
 
-The following in an out-of-date screenshot of how the "Edit Host Network" dialog might look with a Network QoS widget for creating unnamed QoS entities (that could not be shared between different networks on different interfaces, as discussed earlier):
+The following out-of-date screenshot of how the "Edit Host Network" dialog might look with a Network QoS widget for creating unnamed QoS entities (that could not be shared between different networks on different interfaces, as discussed earlier):
 
 ![](Ledit_network.png "Ledit_network.png")
 

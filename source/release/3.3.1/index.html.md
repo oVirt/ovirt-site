@@ -423,6 +423,7 @@ Using user provided code may have a performance impact, so administrators are ad
  - REST-API: Inconsistent schema implementation in PayloadFile
  - Import Template(s) window shows loading but never timeout nor shows information to import the template.
  - problems in engine-backup.sh
- - last pull of translations from Zanata for rhev-m 3.3 product.  - Creating VM from Foreman fails with oVirt 3.3.1 beta.
+ - last pull of translations from Zanata for rhev-m 3.3 product.
+ - Creating VM from Foreman fails with oVirt 3.3.1 beta.
 
 <Category:Documentation> <Category:Releases>

@@ -198,14 +198,15 @@ The sub tab will show the available Profiles for each network. Columns will be:
 
 The inbound/outbound units will appear in Mb and Mbps, however, they will be converted to Kb and Kbs on the engine side when sent to VDSM. supported actions: add, edit, remove
 
-The sub tab will include a right pane which will hold "Permissions"/"Consumers" tab where the user will define the user which can use the selected profile.
+The vNIC Profiles is implemented as a main-tab in context of network or data-center when those selected on the system tree.
+The vNIC Profiles permissions are managed in a sub tab of that vNIC Profile main tab.
 supported action: add / remove
 
-In The Virtual Machine sub-tab (under the Network main tab) "Profile" column will be added to the table.
- **Profiles sub tab**
+**Profiles main tab**
 ![](Network_profiles.png "fig:Network_profiles.png")
 
-A new dialog will be created for add/edit profile. the dialog will include the following fields:
+In The Virtual Machine sub-tab (under the Network main tab) "Profile" column will be added to the table.
+ A new dialog will be created for add/edit profile. the dialog will include the following fields:
 
 *   Name (text box)
 *   Port mirroring (check box)

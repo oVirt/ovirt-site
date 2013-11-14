@@ -10,13 +10,13 @@ wiki_last_updated: 2013-12-19
 
 # OVirt 3.3.1 release notes
 
-The oVirt Project is pleased to announce the availability of oVirt 3.3.1 BETA release for testing.
+The oVirt Project is pleased to announce the availability of oVirt 3.3.1 release for testing.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization.
 
 To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.3 release notes](oVirt 3.3 release notes), [oVirt 3.2 release notes](oVirt 3.2 release notes) and [oVirt 3.1 release notes](oVirt 3.1 release notes). For a general overview of oVirt, read [ the oVirt 3.0 feature guide](oVirt 3.0 Feature Guide) and the [about oVirt](about oVirt) page.
 
-## What's New in 3.3.1 BETA?
+## What's New in 3.3.1?
 
 ### Vnic Profiles
 
@@ -95,9 +95,17 @@ The scheduling proxy is packaged as a separate optional RPM which is not install
 
 Using user provided code may have a performance impact, so administrators are advised to carefully test their code and the general performance changes before using it in live setups.
 
-### Bugs fixed
+## Known issues
 
-#### oVirt Engine
+The Vdsm rebase during ovirt-3.3.1 caused an unintended change in how gluster storage domains are implemented: Instead of using glusterfs, it is using gluster-fuse.
+
+This change has a positive side effect:  - "Snapshots on GlusterFS w/ libgfapi enabled" makes it impossible to use gluster VMs with snapshots on ovirt-3.3.0; that should be possible now.
+
+If you would like to maintain the former behavior, you can apply a hackish patch <http://gerrit.ovirt.org/21151/> to your Vdsms.
+
+## Bugs fixed
+
+### oVirt Engine
 
 * domain selection list in login screen should be sorted alphabetically
  - support for multiple monitors on QXL device (single device with more RAM)

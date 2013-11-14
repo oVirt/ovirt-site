@@ -8,6 +8,23 @@ wiki_last_updated: 2013-11-14
 
 # Cli-changelog
 
+         * Thu Nov  14 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.4.0.1-1
+         - implement CLI invocation capabilities #895559
+         - expose api capabilities in cli #891227
+         - ovirt-shell does not exit when using -f option #854519
+         - add the option to retrieve partial history #957499
+         - construct object using factory on update #950684
+         - eliminate ambiguity by adding suffix -identifier to parent's options #1027281
+         - do not ask for credentials for /help in auto-connect mode #1026798
+         - list xxx --show all - output is not well formatted #890038
+         - added new state - UNAUTHORIZED
+         - implement StateMachine
+         - implement event driven messaging
+         - implement visualization effects
+         - history length was limited to 3000 records
+         - raise CommandError on generic errors
+         - implicitly disconnect on exit
+
          * Wed Oct  9 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.3.0.5-1
          - incorrect property to python built-in symbol encapsulation #1015975
          - make ctrl-c breaking the command rather than existing shell #869269

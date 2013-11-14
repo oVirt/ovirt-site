@@ -324,6 +324,7 @@ Using user provided code may have a performance impact, so administrators are ad
  - Policy creation dialog: fields reset when changing options
  - Network QoS parameters aren't sent to vdsm on nic hotplug
  - error message in engine.log regarding a 404 response when attempting to read "/doc/ovirt-engine/manual/DocumentationPath.csv"
+ - Cannot create same Local SD path on different Hosts
  - VnicProfiles action groups are missing in RolesTreeView
  - UserVmManager has import_export_vm permission, but there is no such action in UserPortal.
  - Failures to remove images from an import domain result in imported images on data domains being marked as illegal.
@@ -384,7 +385,7 @@ Using user provided code may have a performance impact, so administrators are ad
  - [ovirt-engine-notifier] - Mail - Cannot send mails with SSL ("Connection refused")
  - Gateway field can be updated for non-rhevm network on 3.2 and 3.1 Cluster and it should not exist on such a Cluster
  - [RHEVM] [backend] it is not possible to create new VM without vNIC
- - Install fails due to relation "tags_vm_pool_map" already exist
+ - Change multi-monitor setting in VM Console option dialog for 3.2 compatible cluster  - Install fails due to relation "tags_vm_pool_map" already exist
  - [ja_JP][Admin Portal] Networks tab -> Import Networks window -> "Network Provider" is not aligned with dropdown box due to insufficient space
  - Java update breaks ovirt-engine start
  - GUI / welcome page: locale drop down is not clickable when the page contains a scroll-bar
@@ -425,5 +426,7 @@ Using user provided code may have a performance impact, so administrators are ad
  - problems in engine-backup.sh
  - last pull of translations from Zanata for rhev-m 3.3 product.
  - Creating VM from Foreman fails with oVirt 3.3.1 beta.
+ - support relative answer file name
+ - answer files are world-readable and contain passwords
 
 <Category:Documentation> <Category:Releases>

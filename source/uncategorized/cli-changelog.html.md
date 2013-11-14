@@ -8,6 +8,9 @@ wiki_last_updated: 2013-11-14
 
 # Cli-changelog
 
+         * Thu Nov  14 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.4.0.2-1
+         - added missing packages in setup.py (required for easy_install deployment)
+
          * Thu Nov  14 2013 Michael Pasternak `<mpastern@redhat.com>` - 3.4.0.1-1
          - implement CLI invocation capabilities #895559
          - expose api capabilities in cli #891227

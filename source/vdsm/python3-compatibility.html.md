@@ -44,7 +44,7 @@ To help us achieve that, this page will keep links to some useful resources and 
 | vdsm              | 0          | 1         | vdsm's main code                                                                | No                                         |
 | lib/vdsm/tool     | 0          | 1         | vdsm's utilities (mainly for command line)                                      | No                                         |
 | vdsClient         | 0          | 1         | vdsm's command line client                                                      | No                                         |
-| python-ethtool    | 1          | 0         | vdsm's network dependency for setting/retrieving netlink and ioctl information. | No                                         |
+| python-ethtool    | 1          | 0         | vdsm's network dependency for setting/retrieving netlink and ioctl information. | Patch submitted upstream                   |
 | python-nose       | 1          | 0         | vdsm's testing dependency.                                                      | Yes                                        |
 | python-pep8       | 1          | 0         | vdsm's formatting checks build-dependency.                                      | Yes                                        |
 | python-pthreading | 1          | 0         | vdsm's better threading.                                                        | Yes (not necessary in Python3)             |

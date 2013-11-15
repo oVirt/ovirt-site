@@ -263,12 +263,22 @@ Optional:
 
 Note: Sending unknown commands in current implementation will issue error within logs of both components, no other side effect.
 
-##### <b>guest agent</b>
+##### <b>guest agent (method#1, method#2)</b>
 
 *   If 'credentials-key' is received store encryption key.
 *   If 'client-connect' is received communicate with the VDI to acquire the encrypted blob, if encrypted, decrypt using the credentials key. NOTE: we support plain text credentials as well.
 *   If blob contains TGT validate TGT and extract user, perform local authentication without password and make TGT available to user.
 *   If blob contains user,password extract user and password and perform current logic.
+*   If console is locked, user must patch current logged on user.
+
+##### <b>guest agent (method#3)</b>
+
+*   If SASL VDI device is detected, perform SASL negotiation.
+*   If success try to extract delegated TGT.
+*   If no delegated TGT as client for TGT over SASL.
+*   If no TGT ask for user/password.
+*   If TGT available, validate TGT and extract user, perform local authentication without password and make TGT available to user.
+*   If user, password available perform current logic.
 *   If console is locked, user must patch current logged on user.
 
 ##### <b>ovirt-engine (method#1)</b>

@@ -359,7 +359,6 @@ If you would like to maintain the former behavior, you can apply a hackish patch
  - Host: Exit message: internal error No more available PCI addresses
  - ISO Domain set-up during run of 'engine-setup' fails to attach to Data Center
  - Host name is not valid: The following addreses: 192.168.100.7 can't be mapped to non loopback devices on this host
- - [Admin Portal] Attempt to add a 3.2 host into 3.3 env fails but the host cannot be removed
  - Not possible to select quota, which is assigned to specific storage.
  - emulated machine reset on cluster compatibility level change
  - [engine-backend] [external-provider] there is no indicator by engine about failure in DownloadImage

@@ -66,14 +66,14 @@ activate :blog do |blog|
   #blog.day_link = ":year/:month/:day.html"
 
 
-  #blog.taglink = "tags/:tag.html"
+  blog.taglink = "tags/:tag.html"
 
   #blog.summary_separator = /(READMORE)/
   #blog.summary_length = 99999
 
   blog.paginate = true
   blog.per_page = 10
-  blog.page_link = "page/:num"
+  blog.page_link = "page=:num"
 end
 
 #activate :authors

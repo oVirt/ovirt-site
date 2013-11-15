@@ -393,7 +393,8 @@ If you would like to maintain the former behavior, you can apply a hackish patch
  - [ovirt-engine-notifier] - Mail - Cannot send mails with SSL ("Connection refused")
  - Gateway field can be updated for non-rhevm network on 3.2 and 3.1 Cluster and it should not exist on such a Cluster
  - [RHEVM] [backend] it is not possible to create new VM without vNIC
- - Change multi-monitor setting in VM Console option dialog for 3.2 compatible cluster  - Install fails due to relation "tags_vm_pool_map" already exist
+ - Change multi-monitor setting in VM Console option dialog for 3.2 compatible cluster
+ - Install fails due to relation "tags_vm_pool_map" already exist
  - [ja_JP][Admin Portal] Networks tab -> Import Networks window -> "Network Provider" is not aligned with dropdown box due to insufficient space
  - Java update breaks ovirt-engine start
  - GUI / welcome page: locale drop down is not clickable when the page contains a scroll-bar

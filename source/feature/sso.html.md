@@ -60,15 +60,30 @@ The domain, user and password that it used are the credentials used to login int
 
 #### Auto login sequence
 
-1.  User request graphical session to a VM within user portal.
-2.  ovirt-engine generates random "ticket".
-3.  ovirt-engine via vdsm sends the ticket to qemu with hard coded validity period of 120 seconds.
-4.  ovirt-egnine via vdsm sends desktop login command along with domain, user, password to guest agent running within the virtual machine, this is done via the side band vdsm<->guest agent channel.
-5.  guest agent uses the credentials to automate login sequence using one of various methods.
-6.  ovirt-engine trigger execution of spice/vnc at client machine passing the ticket.
-7.  spice/vnc at client connects to qemu passing the ticket and establish connection.
-8.  when spice/vnc session disconnects qemu will issue disconnection event to vdsm which in turn will issue lock-screen command to guest agent.
-9.  vdsm will revive ticket so it will be valid again in case of virtual migration, to enable client re-connection.
+           Desktop      ovirt-engine  vdsm             libvirt            qemu            guest-agent     Guest OS
+       1.     ---HTTPS-----> login
+       2.     ---HTTPS-----> Start Graphical
+       3.
+       4.                  ---HTTPS(m.auth)--->---usock------------------>Ticket
+       5.                  ---HTTPS(m.auth)--->---usock------------------>---serial------>user/password
+       6.                                                                                      -------------->
+       7.     <--HTTPS--- Execute spice/vnc client with Ticket, host, port
+       8.     ---SSL----------------------------------------------------->Ticket
+       9.                             <--usock------------------------- disconnect
+      10                              ---usock--------------------------->---serial-------->lock-screen
+      11.                             ---usock--------------------------->Ticket
+
+1.  User login into ovirt-engine user portal.
+2.  User request graphical session to a VM within user portal.
+3.  ovirt-engine generates random "ticket".
+4.  ovirt-engine via vdsm sends the ticket to qemu with hard coded validity period of 120 seconds.
+5.  ovirt-egnine via vdsm sends desktop login command along with domain, user, password to guest agent running within the virtual machine, this is done via the side band vdsm<->guest agent channel.
+6.  guest agent uses the credentials to automate login sequence using one of various methods.
+7.  ovirt-engine trigger execution of spice/vnc at client machine passing the ticket.
+8.  spice/vnc at client connects to qemu passing the ticket and establish connection.
+9.  when spice/vnc session disconnects qemu will issue disconnection event to vdsm.
+10. vdsm sends lock-screen command to guest agent.
+11. vdsm will revive ticket so it will be valid again in case of virtual migration, to enable client re-connection.
 
 \* in case of webscoket proxy another ticket is issued signed by engine key and validated against engine public key at websocket proxy, ticket contains destination ip and port to establish communication with.
 

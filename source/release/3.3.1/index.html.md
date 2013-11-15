@@ -275,7 +275,6 @@ If you would like to maintain the former behavior, you can apply a hackish patch
  - When selecting an active VM the console button is not enabled immediately
  - canDoAction fails when removing imported vm from export domain
  - [upgrade] correctly detect if packages can be rollbacked
- - GuideMe AddHost does not pass OverrideFirewall
  - SPM priority doesn't affect the SPM selection
  - VM permissions entries remain in database after force deleting data-center
  - It's impossible to create/change the VNIC profile to an empty one

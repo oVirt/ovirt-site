@@ -1,0 +1,66 @@
+:ruby
+  # To use this partial, you must reference this partial like so,
+  # passing locals:
+  #
+  # = partial :blog_posts, locals: locals
+
+  def author_name nickname
+    data.authors[nickname] ? data.authors[nickname].name : nickname
+  end
+
+  def author_link nickname
+    nickname
+  end
+
+  def author_card nickname
+    author = data.authors[nickname]
+
+    if author && author['description']
+      author['description']
+    end
+  end
+
+%section.articles
+
+  - page_articles.each do |article|
+
+    %article.post
+
+      %header.post-header
+
+        %h2.post-title
+          - if defined? article.url
+            = link_to article.title, article.url
+          - else
+            = article.title
+
+        .author
+          = author_name article.data.author
+          =# data.authors
+
+        %time{datetime: article.date.iso8601}
+          = pretty_date article.date
+
+      %section.post-content
+        = article.summary 2000000
+
+      %footer.post-meta
+        -# Author
+        -# Share
+
+        - if article.data.tags
+          .tags
+            Tags:
+
+            %ul.taglist
+            - article.data.tags.sort {|a,b| a.downcase <=> b.downcase}.each do |tag|
+              %li= link_to tag, tag_path(tag)
+
+        -#.meta
+          = current_page.data.authors
+          -# current_page.data.authors.split(',').each do |author|
+            = pluralize current_page.data.authors.split(','), "Author:"
+            - each current_page.data.authors.split(',') do |author|
+              %p= author
+
+  = partial :blog_pagination, locals: locals

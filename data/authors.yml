@@ -1,0 +1,30 @@
+admin:
+  name: Red Hat OSAS Team
+
+jzb:
+  name: Joe Brockmeier
+  description: |
+     Joe Brockmeier works for Red Hat on the Open Source and Standards
+     team. Passionate fan of Linux and open source, Vim, music, art,
+     cats, and polar bears. Not necessarily in that order.
+
+jbrooks:
+  name: Jason Brooks
+
+johnmark:
+  name: John Mark Walker
+
+jottinger:
+  name: Joseph Ottinger
+
+suehle:
+  name: Ruth Suehle
+
+ncoghlan:
+  name: Nick Coghlan
+
+rbowen:
+  name: Rich Bowen
+
+alarsson:
+  name: Alexander Larsson

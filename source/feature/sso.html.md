@@ -60,18 +60,18 @@ The domain, user and password that it used are the credentials used to login int
 
 #### Auto login sequence
 
-           Desktop      ovirt-engine  vdsm             libvirt            qemu            guest-agent     Guest OS
-       1.     ---HTTPS-----> login
-       2.     ---HTTPS-----> Start Graphical
+           Desktop    ovirt-engine    vdsm    libvirt    qemu     guest-agent  Guest OS
+       1.     ---HTTPS---> login
+       2.     ---HTTPS---> Start Graphical
        3.
-       4.                  ---HTTPS(m.auth)--->---usock------------------>Ticket
-       5.                  ---HTTPS(m.auth)--->---usock------------------>---serial------>user/password
-       6.                                                                                      -------------->
-       7.     <--HTTPS--- Execute spice/vnc client with Ticket, host, port
-       8.     ---SSL----------------------------------------------------->Ticket
-       9.                             <--usock------------------------- disconnect
-      10                              ---usock--------------------------->---serial-------->lock-screen
-      11.                             ---usock--------------------------->Ticket
+       4.                ---HTTPS(m.auth)-->---usock--->Ticket
+       5.                ---HTTPS(m.auth)-->---usock--->---serial-->user/password
+       6.                                                            -------------->
+       7.     <--HTTPS- Execute spice/vnc client with Ticket, host, port
+       8.     ---SSL----------------------------------->Ticket
+       9.                           <--usock--------- disconnect
+      10                            ---usock----------->---serial-->lock-screen
+      11.                           ---usock----------->Ticket
 
 1.  User login into ovirt-engine user portal.
 2.  User request graphical session to a VM within user portal.

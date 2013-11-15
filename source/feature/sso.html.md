@@ -229,6 +229,16 @@ NOTE: this infrastructure change will work in non-oVirt configurations as long a
 ##### <b>Spice client (method#3)</b>
 
 *   Implement SASL VDI - enables SASL negotiation on top of virtual serial or any other stream device.
+*   Parameters (or command-line):
+    -   Optional: Remote service principal name.
+    -   Trust any service principal name (disabled per default)
+    -   Offer TGT to untrusted for delegation services (disabled per default).
+    -   Optional: User/password.
+*   If remote service principal name is provided, request ticket to that service name.
+*   If remote service principal name is not provided, ask remote for its service principal name, prompt user for approval before continue.
+*   Perform SASL negotiation with TGT delegation.
+*   if fails and "Offer TGT to untrusted for delegation services" is enabled perform SASL negotiation without TGT delegation, send TGT.
+*   If has no TGT prompt the user for user, password and send to host.
 
 NOTE: this infrastructure change will work in non-oVirt configurations as long as there is a cooperative component running on target OS.
 

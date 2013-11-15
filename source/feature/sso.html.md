@@ -187,14 +187,14 @@ If user login without delegating TGT there are some options:
 
 ##### SASL solution (method#3)
 
-*   Do not enhance the security sensitivity of the engine.
-*   Has the potential to handle TGT expiration.
+*   Completely independent from ovirt-engine.
 *   Will not support spice-html5/novnc
 *   Every virtual machine to which SSO should be enabled, must have valid kerberos credentials (service principal name and keytab).
 
 ###### Preparations
 
 *   mod_auth_kerb5 is installed at engine to enable kerberos SSO.
+*   Issue kerberos credentials to all VMs.
 
 ###### Sequence
 
@@ -203,7 +203,7 @@ If user login without delegating TGT there are some options:
 3.  User requests graphic session, in addition to current implementation ovirt-engine query guest agent for its service principal name, it also instructs spice to use SASL VDI and provide the name of the remove service principal.
 4.  Guest agent wait for connection establish then initiate SASL negotiation on the SASL VDI.
 5.  Client verify service principal name and performs SASL negotiation to guest agent.
-6.  Client uses SASL channel to transfer its TGT.
+6.  Client uses SASL channel to transfer its TGT with or without delegation.
 
 #### Components' major changes
 

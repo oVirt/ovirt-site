@@ -384,7 +384,6 @@ If you would like to maintain the former behavior, you can apply a hackish patch
  - Add/Edit network | profile name should be grayed out when network is non-vm
  - ovirt-engine-notifier cannot be stopped properly
  - [RHEVM] [webadmin] [UI] Remove custom MAC address checkbox and Example text from Blank Template NIC
- - [RHS-C] warning: user ovirt does not exist - using root / warning: group ovirt does not exist - using root
  - Windows template created on 3.2 setup has Single PCI checked after import to 3.3
  - When pintohost filter is active, then vm which is not pinned fail to migrate.
  - Scroll bar is missing when picking up a VNIC profile during VM creation

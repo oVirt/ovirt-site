@@ -202,7 +202,8 @@ If user login without delegating TGT there are some options:
 2.  User access ovirt-engine user portal.
 3.  User requests graphic session, in addition to current implementation ovirt-engine query guest agent for its service principal name, it also instructs spice to use SASL VDI and provide the name of the remove service principal.
 4.  Guest agent wait for connection establish then initiate SASL negotiation on the SASL VDI.
-5.  Client requests S4U2proxy ticket and forward it guest agent via SASL.
+5.  Client verify service principal name and performs SASL negotiation to guest agent.
+6.  Client uses SASL channel to transfer its TGT.
 
 #### Components' major changes
 

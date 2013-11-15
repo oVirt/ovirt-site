@@ -185,6 +185,25 @@ If user login without delegating TGT there are some options:
 5.  Guest agent wait for connection establish then use the key to decrypt the blob available at client to have a valid TGT.
 6.  Guest agent validate TGT and resolve it to local user and performs local login without farther authentication, while making TGT available to the user.
 
+##### SASL solution (method#3)
+
+*   Do not enhance the security sensitivity of the engine.
+*   Has the potential to handle TGT expiration.
+*   Will not support spice-html5/novnc
+*   Every virtual machine to which SSO should be enabled, must have valid kerberos credentials (service principal name and keytab).
+
+###### Preparations
+
+*   mod_auth_kerb5 is installed at engine to enable kerberos SSO.
+
+###### Sequence
+
+1.  User login into his desktop using kerberos.
+2.  User access ovirt-engine user portal.
+3.  User requests graphic session, in addition to current implementation ovirt-engine query guest agent for its service principal name, it also instructs spice to use SASL VDI and provide the name of the remove service principal.
+4.  Guest agent wait for connection establish then initiate SASL negotiation on the SASL VDI.
+5.  Client requests S4U2proxy ticket and forward it guest agent via SASL.
+
 #### Components' major changes
 
 ##### <b>Spice client (method#1)</b>
@@ -206,13 +225,25 @@ NOTE: this infrastructure change will work in non-oVirt configurations as long a
 
 NOTE: this infrastructure change will work in non-oVirt configurations as long as there is a cooperative component running on target OS.
 
+##### <b>Spice client (method#3)</b>
+
+*   SASL VDI - enables SASL negotiation on top of virtual serial or any other stream device.
+
+NOTE: this infrastructure change will work in non-oVirt configurations as long as there is a cooperative component running on target OS.
+
 ##### <b>vnc client</b>
 
 The encrypted credentials blob visibility to target host should be implemented in similar way to spice.
 
-##### <b>virtviewer</b>
+##### <b>virt-viewer (method#1, method#2)</b>
 
 Support the new spice credentials blob feature, enable passing key/blob via command line or within configuration file.
+
+##### <b>virt-viewer (method#3)</b>
+
+*   Support loading SASL VDI.
+*   Optionally accepting target service principal name.
+*   If no service principal name optionally prompt the user to approve target service principal name before performing negotiation.
 
 ##### <b>vdsm</b>
 
@@ -251,6 +282,12 @@ Note: Sending unknown commands in current implementation will issue error within
 *   If kerberos SSO is enabled.
 *   Generate key, send key instead of user/password to guest agent via vdsm.
 *   Send key to virtvieweer instructing it to use it and send encrypted kerberos credentials.
+
+##### <b>ovirt-engine (method#3)</b>
+
+*   If kerberos SSO is enabled.
+*   Acquire VM machine service principal name via guest agent.
+*   Send key to service principal name instructing it to enable the SASL VDI.
 
 ##### <b>ovirt-engine (method#1 future)</b>
 

@@ -141,39 +141,14 @@ end
 #     "Helping"
 #   end
 # end
-helpers do
-  def normalize_url(dirty_URL)
-    r = url_for Middleman::Util.normalize_path(dirty_URL)
-    r.sub(/\/$/, '')
-  end
+#helpers do
+#end
 
-  # FIXME: This is a WIP; it's not working though...
-  def pretty_date(sometime)
-    #sometime = ActiveSupport::TimeZone[zone].parse(sometime) unless sometime.is_a?(Date)
-    sometime = Date.strptime(sometime, "%Y-%m-%d") if sometime.is_a?(String)
-=begin
-    if date.is_a?(String)
-      date = Date.parse(date)
-    end
+require 'lib/site_helpers.rb'
+activate :site_helpers
 
-    result = date.strftime("%B %d")
-    result << date.strftime(", %Y") if date.year > Time.now.year
-=end
-
-    #return sometime.to_formatted_s(:short)
-    return sometime#.strftime("%d %B")
-  end
-
-  # Use the title from frontmatter metadata,
-  # or peek into the page to find the H1,
-  # or fallback to a filename-based-title
-  def discover_title(page = current_page)
-    page.data.title || page.render({layout: false}).match(/<h1>(.*?)<\/h1>/) do |m|
-      m ? m[1] : page.url.split(/\//).last.titleize
-    end
-  end
-
-end
+require 'lib/confcal.rb'
+activate :confcal
 
 
 ###

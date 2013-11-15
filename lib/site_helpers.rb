@@ -12,7 +12,7 @@ class SiteHelpers < Middleman::Extension
 
     # FIXME: This is a WIP; it's not working though...
     def pretty_date(sometime)
-      Date.strptime(sometime, "%Y-%m-%d") if sometime.is_a?(String)
+      sometime.to_time.strftime('%A %e %B %Y') rescue ""
     end
 
     # Use the title from frontmatter metadata,

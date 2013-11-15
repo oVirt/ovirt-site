@@ -58,7 +58,7 @@ The domain, user and password that it used are the credentials used to login int
       user: spice/novnc        native  --SSL(vnc/spice)-->  qemu
       user  novnc/spice-html5: browser --SSL(webscoket)--> websocket proxy --TCP(vnc/spice)--> qemu
 
-#### Auro login sequence
+#### Auto login sequence
 
 1.  User request graphical session to a VM within user portal.
 2.  ovirt-engine generates random "ticket".

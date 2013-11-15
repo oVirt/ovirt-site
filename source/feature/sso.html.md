@@ -228,7 +228,7 @@ NOTE: this infrastructure change will work in non-oVirt configurations as long a
 
 ##### <b>Spice client (method#3)</b>
 
-*   SASL VDI - enables SASL negotiation on top of virtual serial or any other stream device.
+*   Implement SASL VDI - enables SASL negotiation on top of virtual serial or any other stream device.
 
 NOTE: this infrastructure change will work in non-oVirt configurations as long as there is a cooperative component running on target OS.
 

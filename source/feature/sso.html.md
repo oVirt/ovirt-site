@@ -213,12 +213,28 @@ If user login without delegating TGT there are some options:
 
 ###### Sequence
 
+           Desktop    ovirt-engine    vdsm    libvirt    qemu     guest-agent  Guest OS
+       1.
+       2.     ---HTTPS---> login
+       3.     ---HTTPS---> Start Graphical
+       4.                ---HTTPS(m.auth)-->---usock--->---serial-->get SPN
+       5.
+       6.                ---HTTPS(m.auth)-->---usock--->Ticket
+       7.     <--HTTPS- Execute spice/vnc client with Ticket, host, port, SPN
+       8.     ---SSL----------------------------------->Ticket
+       9.     ---SSL----------------------------------->---serial-->SASL
+      10.                                                             ----------->
+
 1.  User login into his desktop using kerberos.
 2.  User access ovirt-engine user portal.
-3.  User requests graphic session, in addition to current implementation ovirt-engine query guest agent for its service principal name, it also instructs spice to use SASL VDI and provide the name of the remove service principal.
-4.  Guest agent wait for connection establish then initiate SASL negotiation on the SASL VDI.
-5.  Client verify service principal name and performs SASL negotiation to guest agent.
-6.  Client uses SASL channel to transfer its TGT with or without delegation.
+3.  User requests graphic session.
+4.  ovirt-engine queries guest agent for its service principal name.
+5.  ovirt-engine generates random "ticket".
+6.  ovirt-engine via vdsm sends the ticket to qemu with hard coded validity period of 120 seconds.
+7.  ovirt-engine trigger execution of spice/vnc at client machine passing the ticket and the service principal name.
+8.  spice/vnc at client connects to qemu passing the ticket and establish connection.
+9.  spice/vnc client negotiate using SASL directly with the guest agent delegating TGT or other credentials.
+10. guest agent uses the credentials to automate login sequence using one of various methods.
 
 #### Components' major changes
 

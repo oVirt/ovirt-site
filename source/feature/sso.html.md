@@ -288,8 +288,6 @@ Support the new spice credentials blob feature, enable passing key/blob via comm
 ##### <b>vdsm</b>
 
 *   Forward libvirt GRAPHICS event phase INITIALIZE into new guest agent 'client-connect' command.
-*   Forward credentials encrypted blob into new guest 'credentials-key' command.
-*   Expose API command to allow engine feed credentials key to a vm.
 
 Optional:
 
@@ -301,6 +299,15 @@ Optional:
 *   Add command to return guest agent protocol version of an active vm to engine so engine be aware of new features availability.
 
 Note: Sending unknown commands in current implementation will issue error within logs of both components, no other side effect.
+
+##### <b>vdsm (method#1, method#2)</b>
+
+*   Forward credentials encrypted blob into new guest 'credentials-key' command.
+*   Expose API command to allow engine feed credentials key to a vm.
+
+##### <b>vdsm (method#1, method#3)</b>
+
+*   Add 'get-spn' command.
 
 ##### <b>guest agent (method#1, method#2)</b>
 

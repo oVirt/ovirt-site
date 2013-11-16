@@ -312,12 +312,14 @@ Note: Sending unknown commands in current implementation will issue error within
 
 ##### <b>guest agent (method#3)</b>
 
-*   If SASL VDI device is detected, perform SASL negotiation.
-*   If success try to extract delegated TGT.
-*   If no delegated TGT ask client for TGT over SASL.
-*   If SASL fails ask for user/password.
-*   If TGT available, validate TGT and extract user, perform local authentication without password and make TGT available to user.
-*   If user, password available perform current logic.
+*   Add get-spn command to return service principal name of guest agent.
+*   If SASL VDI device is detected
+    -   perform SASL negotiation.
+    -   If success try to extract delegated TGT.
+    -   If no delegated TGT ask client for TGT over SASL.
+    -   If SASL fails ask for user/password.
+    -   If TGT available, validate TGT and extract user, perform local authentication without password and make TGT available to user.
+    -   If user, password available perform current logic.
 *   If console is locked, user must patch current logged on user.
 
 ##### <b>ovirt-engine (method#1)</b>

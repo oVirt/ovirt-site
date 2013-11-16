@@ -27,6 +27,12 @@ There is an [ongoing effort](https://github.com/celebdor/vdsm-aur) of packaging 
 
 One of the challenges is the fact that vdsm is usually packaged into subpackages, which is supported by recent versions of makepkg and pacman, but it is unsupported by AUR. One possible solution would be for oVirt to host its own Arch repository for just the vdsm package and subpackages.
 
+*   Different Service names
+
+| Fedora | Arch Linux |
+|--------|------------|
+| iscsid | open-iscsi |
+
 ### Missing code
 
 It is needed to finish merging the iproute2 configurator so that networking becomes functional.

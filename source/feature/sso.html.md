@@ -305,7 +305,7 @@ Note: Sending unknown commands in current implementation will issue error within
 *   Forward credentials encrypted blob into new guest 'credentials-key' command.
 *   Expose API command to allow engine feed credentials key to a vm.
 
-##### <b>vdsm (method#1, method#3)</b>
+##### <b>vdsm (method#3)</b>
 
 *   Add 'get-spn' command.
 

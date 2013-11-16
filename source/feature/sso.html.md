@@ -313,6 +313,7 @@ Note: Sending unknown commands in current implementation will issue error within
 ##### <b>guest agent (method#3)</b>
 
 *   Add get-spn command to return service principal name of guest agent.
+*   If 'client-connect' is received try to detect SASL VDI.
 *   If SASL VDI device is detected
     -   perform SASL negotiation.
     -   If success try to extract delegated TGT.

@@ -18,21 +18,15 @@ You may also refer to the [detailed feature page](Features/Detailed_Host_Network
 
 #### Owner
 
-*   Name: Lior Vernia
+*   Name: Lior Vernia (previously owned by Giuseppe Vallarelli)
 *   E-mail: lvernia@redhat.com
 *   IRC: lvernia at #ovirt (irc.oftc.net)
-
-#### Original Owner
-
-*   Name: [ Giuseppe Vallarelli](User:gvallarelli)
-*   Email: <gvallare@redhat.com>
-*   IRC: gvallarelli at #ovirt (irc.oftc.net)
 
 #### Current Status
 
 *   Target Release: 3.4
 *   Status: design
-*   Last updated: November 12th, 2013.
+*   Last updated: November 17th, 2013.
 
 #### Detailed Description
 

@@ -43,6 +43,19 @@ Outstanding contributes:
 *   Alex Lourie <alourie@redhat.com>
 *   Alon Bar Lev <alonbl@redhat.com>
 
+### Hosted Engine
+
+*   ovirt-hosted-engine-setup
+
+Maintainers:
+
+*   Sandro Bonazzola <sbonazzo@redhat.com>
+
+Outstanding contributes:
+
+*   Alex Lourie <alourie@redhat.com>
+*   Yedidyah Bar David <didi@redhat.com>
+
 ### oVirt-live
 
 wiki: [OVirt_Live](OVirt_Live)

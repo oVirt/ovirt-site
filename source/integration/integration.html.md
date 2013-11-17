@@ -17,12 +17,14 @@ wiki_last_updated: 2015-01-20
 Maintainers:
 
 *   Ofer Schreiber <oschreib@redhat.com>
-*   Juan Antonio Hernandez Fernandez <jhernand@redhat.com>
+*   Sandro Bonazzola <sbonazzo@redhat.com>
 
 Outstanding contributes:
 
 *   Alex Lourie <alourie@redhat.com>
-*   Sandro Bonazzola <sbonazzo@redhat.com>
+*   Alon Bar-Lev <alonbl@redhat.com>
+*   Juan Antonio Hernandez Fernandez <jhernand@redhat.com>
+*   Yedidyah Bar David <didi@redhat.com>
 
 ### Tools
 

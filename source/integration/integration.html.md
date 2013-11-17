@@ -57,7 +57,7 @@ Outstanding contributes:
 
 ## oVirt 3.3 features
 
-| Feature                                                              | Status                   | Date     |
-|----------------------------------------------------------------------|--------------------------|----------|
-| [Otopi_Infra_Migration](Features/Otopi_Infra_Migration) | In Progress              | 8/3/2013 |
-| [Hosted_Engine](Features/Self_Hosted_Engine)             | Started playing with poc | 8/3/2013 |
+| Feature                                                              | Status           | Date       |
+|----------------------------------------------------------------------|------------------|------------|
+| [Otopi_Infra_Migration](Features/Otopi_Infra_Migration) | Done             | 19/7/2013  |
+| [Hosted_Engine](Features/Self_Hosted_Engine)             | Work in progress | 17/11/2013 |

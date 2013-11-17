@@ -30,7 +30,7 @@ To try and improve 3.4 planning over the wiki approach in 3.3, this google doc <
 
 *   [Tracker - 1024889](https://bugzilla.redhat.com/show_bug.cgi?id=1024889)
 
-## Release Criteria
+## Release Criteria (WIP)
 
 ### General
 

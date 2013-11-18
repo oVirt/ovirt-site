@@ -16,7 +16,7 @@ This feature will allow to hot plug cpus to a running VM from ovirt engine UI an
 
 ### Owner
 
-*   Name: [ Roy](User:MyUser)
+*   Name: [ Roy Golan](User:MyUser)
 *   Email: rgolan@redhat.com
 
 ### Current status

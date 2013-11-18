@@ -11,7 +11,7 @@ wiki_last_updated: 2014-05-15
 
 ### Summary
 
-Replace current GWT RPC mechanism with implementation utilizing Engine REST API.
+Replace current GWT RPC mechanism with implementation utilizing oVirt REST API.
 
 ### Owner
 
@@ -36,7 +36,7 @@ Conceptually, data displayed (or otherwise acted upon) by client is different th
 
 Simply put, client and server each serve different purposes, so the underlying data representations should reflect their purposes as much as possible. Sharing data representations (entities) between client and server restricts both client and server; in our case, server drives entity design and client makes best effort to adapt to that design. This typically leads to problems such as client requesting data updates and having to deserialize "heavy" objects just to display a small subset of received data to the user.
 
-*The primary goal* of utilizing [oVirt REST API](REST-Api) in oVirt web UI is to decouple client from server while using standard API to communicate with Engine backend. In addition, this should bring following positive side effects:
+*The primary goal* of utilizing [oVirt REST API](REST-Api) in web UI is to decouple client from server while using standard API to communicate with Engine backend. In addition, this should bring following positive side effects:
 
 *   server having full control over backend business entities and related objects, unconstrained and independent from any client
 *   client having the freedom to use whatever data representation is suitable, i.e. representation that overlays raw data returned by REST API
@@ -72,11 +72,11 @@ Simply put, client and server each serve different purposes, so the underlying d
 Before proceeding any further, we should consider improving the process for gathering REST API definition:
 
 *   building [Java SDK](#Analysis_of_Java_SDK) requires running Engine, this isn't optimal from build automation perspective
-*   complete REST API definition reflecting the state of API for given Engine version (including possibly multiple API versions) can be generated using a standard format during the Engine build
+*   complete REST API definition reflecting the state of API for given Engine version (including possibly multiple API versions) can be generated in a standard format during the Engine build
 *   Java SDK could use the generated REST API definition as input for code generation, instead of using running Engine (up to Java SDK maintainers to consider)
 *   any other SDK could use the generated REST API definition as input for code generation
 
-Simply put, the API resolution logic currently implemented in Java SDK (i.e. taking XSD schema and RSDL definition to produce input for subsequent code generation) should be standardized and implemented as part of the Engine build. This will ease the maintenance of all SDKs and allow SDK authors to focus on code generation itself. Conceptually, RSDL language is great for describing RESTful services (in context of given resource or collection) from REST client perspective, but it's not that easy to process by tools geared towards SDK code generation.
+Simply put, the API resolution logic currently implemented in Java SDK (i.e. taking XSD schema and RSDL definition to produce input for subsequent code generation) should be standardized and implemented as part of the Engine build. This will ease the maintenance of all SDKs and allow SDK authors to focus on code generation itself.
 
 **oVirt JavaScript SDK** would be an umbrella term for two different projects:
 

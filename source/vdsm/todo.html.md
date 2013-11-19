@@ -111,7 +111,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   work in conjunction with Network Manager.
+*   ~~work in conjunction with Network Manager.~~ works in F20.
 
 <!-- -->
 

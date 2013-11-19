@@ -134,9 +134,11 @@ Available more commands than actually used.
 
 #### Outline
 
-Create a channel between client and guest and transfer credentials using stream protocol on top of the channel. The protocol may be based on SASL to exchange credentials information.
+Establish a channel between client and guest and transfer credentials using stream protocol on top of the channel. The protocol may be based on SASL to exchange credentials information.
 
 This solution can be used outside of the oVirt project scope, so it should be relatively easy to push missing bits into spice upstream.
+
+This solution unlikely to support spice-html5/novnc.
 
 ###### Preparations
 
@@ -170,56 +172,117 @@ This solution can be used outside of the oVirt project scope, so it should be re
 
 #### Components' major changes
 
-##### <b>Spice client (method#1)</b>
+##### **Spice client**
 
-*   Establish/leverage a new virtual device interface to hold credentials blob, accessible by target host.
-*   Add API and command-line parameter to accept blob as file and make it available to target host.
+It turns out[2](http://lists.freedesktop.org/archives/spice-devel/2013-November/015504.html) the spice client is monolithic software, design that should not happen in the 21th century... but ovirt-engine and vdsm are aligned in this sense. So it won't be that easy to introduce new functionality.
 
-The format of the blob should not be important to the implementation.
+There is an existing project named vd_agent[3](http://cgit.freedesktop.org/spice/linux/vd_agent) which is guest agent. It implements mouse offload and X server helper. The guest agent already interacts with the spice client using virtual serial device.
 
-NOTE: this infrastructure change will work in non-oVirt configurations as long as there is a cooperative component running on target OS.
+The easiest implementation is probably to push more code into spice client and the vd_agent projects. However, this will not be productive for future maintenance of the functionality, nor it will help the spice project to be able to support similar efforts in future.
 
-##### <b>Spice client (method#2)</b>
+There are two options of implementation to help the spice project to open up:
 
-*   Establish/leverage a new virtual device interface to hold credentials blob, accessible by target hist.
-*   Add API and command-line parameter to enable kerberos credentials forward.
-*   Add API and command-line optional parameter of credentials encryption key.
-*   Define format of credentials blob, example: json format with salt, timestamp, credentials type (user, password, TGT), credentials blob encoded as base64.
-*   Optionally encrypt the credentials blob using the provided key.
+*   Modularizing the interface at client side, allowing to dynamically load components that can serve spice channels. This will require much resources and will likely be a long process to complete.
+*   Modularizing only the spice port at client side implementation, this will provide a solution to any stream based implementation including our own, while splitting the work between spice developer and agent developer.
 
-NOTE: this infrastructure change will work in non-oVirt configurations as long as there is a cooperative component running on target OS.
+I suggest to focus on modularizing only the spice port at client side, the solution will be to fork a process attaching usock to its stdin/stdout and proxy the spice port stream into the usock. Once this mechanism is in place the implementation of the software that interact with the agent is quite simple and completely detached from spice internals.
 
-##### <b>Spice client (method#3)</b>
+Spice client should accept the following additional parameters:
 
-*   Implement SASL VDI - enables SASL negotiation on top of virtual serial or any other stream device.
-*   Parameters (or command-line):
-    -   Optional: Remote service principal name.
-    -   Trust any service principal name (disabled per default)
-    -   Offer TGT to untrusted for delegation services (disabled per default).
-    -   Optional: User/password.
-*   If remote service principal name is provided, request ticket to that service name.
-*   If remote service principal name is not provided, ask remote for its service principal name, prompt user for approval before continue.
-*   Perform SASL negotiation with TGT delegation.
-*   if fails and "Offer TGT to untrusted for delegation services" is enabled perform SASL negotiation without TGT delegation, send TGT.
-*   If has no TGT prompt the user for user, password and send to host.
+*   port name.
+*   executable to run. The path should be relative to some pre-defined spice plugin folder, example ${libdir}/spice/, so that only approved plugins will be allowed to be loaded.
+*   parameters to pass.
 
-NOTE: this infrastructure change will work in non-oVirt configurations as long as there is a cooperative component running on target OS.
+Once spice client connects, if port exists on remote, it will fork the process with parameters and usock as stdin/stdout, and proxy all data. It should be generic implementation.
 
-##### <b>vnc client</b>
+##### **spice-sso-client**
 
-The encrypted credentials blob visibility to target host should be implemented in similar way to spice.
+A new component to be loaded by spice-client for the sso channel to interact with the guest agent for credentials delegation and refresh.
 
-##### <b>virt-viewer (method#1, method#2)</b>
+At qemu side, define spice port for the interaction:
 
-Support the new spice credentials blob feature, enable passing key/blob via command line or within configuration file.
+      -device virtio-serial-pci
+      -device virtserialport,chardev=spicesso,name=spice.sso.0
+      -chardev spicevmc,id=myappl,name=spicesso
 
-##### <b>virt-viewer (method#3)</b>
+At guest a serial device at /dev/virtio-ports/spice.sso.0 will be available for guest agent use.
 
-*   Support of loading and configuring the SASL VDI.
+At client configure spice client to execute spice-sso-client for spice.sso.0 spice port, the parameters it accept are:
 
-##### <b>vdsm</b>
+*   Optional: Remote service principal name.
+*   Trust any service principal name (disabled per default)
+*   Offer TGT to untrusted for delegation services (disabled per default).
+*   Perform password authentication (disabled per default)
+*   Optional: User/password.
+
+###### Protocol highlights
+
+*   SIGNATURE - sent by guest agent when connected or reseted.
+*   SIGNATURE - sent by spice-client-sso to reset guest agent in case of inability for guest to detect disconnect of spice port.
+*   startTLS - sent by spice-client-sso to start TLS negotiation over the channel, optional.
+*   startSASL - sent by spice-client-sso to start SASL negotiation over the channel, optional.
+*   credentials type blob - sent by spice-client-sso to delegate credentials, blob is encoded using base64.
+*   authenticate type type type... - sent by guest agent when credentials are required, while specifying supported types.
+*   info attr - sent by spice-client-sso to retrieve information, example 'spn' or 'time'.
+*   ok
+*   error code string
+
+###### Sequence
+
+            Client                                       Guest
+       1.1    <---SIGNATURE---------------------------------
+       1.2.1  ---SIGNATURE--------------------------------->
+       1.2.2  <---SIGNATURE---------------------------------
+       2.     <--authenticate kerberos password-------------
+       3.     ---error 300, delay-------------------------->
+       4.     ---startTLS---------------------------------->
+       5.     <--error 400, unsupported ------------------->
+       6.     ---startSASL--------------------------------->
+       7.     <--ok-----------------------------------------
+       8.     <--------------SASL negotiation-------------->
+       9      <---SIGNATURE---------------------------------
+      10.1    <--authenticate kerberos password-------------
+      10.2     ---ok---------------------------------------->
+      10.3     ---credentials kerberos AAEK12DS==----------->
+      10.4     <--ok-----------------------------------------
+
+1.  Signature exchange
+    1.  Guest detect new client connection and sends signature.
+    2.  In case we cannot detect connection at guest and/or at client
+        1.  Client will send signature to reset guest state.
+        2.  Guest was rested so it sends signature when reseted.
+
+2.  Guest asks for authentication using kerberos or password.
+3.  Client delay this request.
+4.  Client tries to initiate TLS.
+5.  Guest does not support TLS.
+6.  Client tries to initiate SASL
+7.  Guest support SASL.
+8.  SASL negotiation
+    1.  If no spn given in command-line acquire spn from guest (weak), if not trust all spn parameter set prompt user for acknowledge spn.
+    2.  Acquire service ticket by using the service principal name.
+    3.  If TGT is forwardable forward TGT using SASL negotiation, guest will extract TGT out of negotiation.
+    4.  If TGT is not forwardable perform plain SASL negotiation.
+
+9.  Guest sends signature.
+10. In case ticket was not forwardable and configuration allows passing TGT
+    1.  Guest asks for authentication using kerberos or password.
+    2.  Client support types.
+    3.  Client sends kerberos TGT.
+    4.  Guest accepts.
+
+##### **vnc client**
+
+Needs support of stream between client and guest in similar manner as spice.
+
+##### **virt-viewer**
+
+Support of new features of spice client within its configuration file format.
+
+##### **vdsm**
 
 *   Forward libvirt GRAPHICS event phase INITIALIZE into new guest agent 'client-connect' command.
+*   Add 'get-spn' command to acquire service principal name of the guest agent.
 
 Optional:
 
@@ -232,57 +295,17 @@ Optional:
 
 Note: Sending unknown commands in current implementation will issue error within logs of both components, no other side effect.
 
-##### <b>vdsm (method#1, method#2)</b>
-
-*   Forward credentials encrypted blob into new guest 'credentials-key' command.
-*   Expose API command to allow engine feed credentials key to a vm.
-
-##### <b>vdsm (method#3)</b>
-
-*   Add 'get-spn' command.
-
-##### <b>guest agent (method#1, method#2)</b>
-
-*   If 'credentials-key' is received store encryption key.
-*   If 'client-connect' is received communicate with the VDI to acquire the encrypted blob, if encrypted, decrypt using the credentials key. NOTE: we support plain text credentials as well.
-*   If blob contains TGT validate TGT and extract user, perform local authentication without password and make TGT available to user.
-*   If blob contains user,password extract user and password and perform current logic.
-*   If console is locked, user must patch current logged on user.
-
-##### <b>guest agent (method#3)</b>
+##### **guest agent**
 
 *   Add get-spn command to return service principal name of guest agent.
 *   If 'client-connect' is received try to detect SASL VDI.
-*   If SASL VDI device is detected
-    -   perform SASL negotiation.
-    -   If success try to extract delegated TGT.
-    -   If no delegated TGT ask client for TGT over SASL.
-    -   If SASL fails ask for user/password.
-    -   If TGT available, validate TGT and extract user, perform local authentication without password and make TGT available to user.
-    -   If user, password available perform current logic.
+*   Implement the spice-client-sso protocol.
 *   If console is locked, user must patch current logged on user.
 
-##### <b>ovirt-engine (method#1)</b>
-
-*   If kerberos SSO is enabled.
-*   Acquire user's TGT from http servlet request attributes.
-*   Generate key and encrypt TGT, send key instead of user/password to guest agent via vdsm.
-*   Send encrypted blob to virtviewer instructing it to actually use it.
-
-##### <b>ovirt-engine (method#2)</b>
-
-*   If kerberos SSO is enabled.
-*   Generate key, send key instead of user/password to guest agent via vdsm.
-*   Send key to virtvieweer instructing it to use it and send encrypted kerberos credentials.
-
-##### <b>ovirt-engine (method#3)</b>
+##### **ovirt-engine**
 
 *   If kerberos SSO is enabled.
 *   Acquire VM machine service principal name via guest agent.
-*   Send key to service principal name instructing it to enable the SASL VDI.
-
-##### <b>ovirt-engine (method#1 future)</b>
-
-*   Enable pluggable creation of the blob, to support non kerberos SSO technologies.
+*   Send service principal name to virtviewer instructing it to enable the spice-client-sso component.
 
 <Category:Feature>

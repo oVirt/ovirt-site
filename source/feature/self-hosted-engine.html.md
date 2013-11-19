@@ -116,7 +116,36 @@ This feature will deal with two main issues:
        image (optional)
        connect iso (optional)
        direct lun (optional)
-       
+
+*   /etc/ovirt-hosted-engine-ha/broker.conf
+
+      [email]
+      smtp-server=
+
+<address of the smtp server to send notification emails with>
+      smtp-port=25
+`destination-emails=`<single email address that will be used as the sender's address>
+`source-email=`<comma separated list of email addresses to send the notification emails to>
+
+      [notify] <- keys configure the list of event types we are interested in
+      state_transition=maintenance|start|stop|migrate|on
+      ^- key is event type, value is regular expression,
+         when it matches part of the internal detail field, the mail will be sent
+
+*   /etc/ovirt-hosted-engine-ha/notifications/<event type>.txt - Files in this directory are used as templates for the notification emails. The template has to contain proper email message compliant to rfc822. That means both header and body parts. Some strings are replaced by the notification engine:
+    -   {source-email} - source email address
+    -   {destination-emails} - list of destination email addresses
+    -   {detail} - the detail field of the event
+    -   {hostname} - the hostname of machine that sent the event
+    -   {time} - numeric timestamp of the message (0 = 1st of Jan 1970)
+    -   {type} - type of the message, matches the filename
+
+      state_transition.txt
+      --------------------
+      From: {source-email}
+      To: {destination-emails}
+      Subject: ovirt-hosted-engine state transition {detail} at {hostname}
+      The state machine changed state.
 
 ### Logic
 

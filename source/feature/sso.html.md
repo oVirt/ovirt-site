@@ -308,4 +308,18 @@ Note: Sending unknown commands in current implementation will issue error within
 *   Acquire VM machine service principal name via guest agent.
 *   Send service principal name to virtviewer instructing it to enable the spice-client-sso component.
 
+### Resource Estimation
+
+| Resource              | Task                                                                 | Estimation |
+|-----------------------|----------------------------------------------------------------------|------------|
+| Spice developer       | Implement the spice-port<->usock proxy                             | 4w         |
+| AAA developer         | Implement the spice-client-sso and guest agent component, verify TGT | 8w         |
+| Guest agent developer | Wrap all up, handle local login, tests                               | 4w         |
+| AAA developer         | Setup environment at rhev office                                     | 3d         |
+| Virt developer        | Setup environment at rhev office                                     | 3d         |
+| Virt developer        | Implement sequence within vdsm, ovirt-engine                         | 1w         |
+| QE                    | Test                                                                 | 2w         |
+| Manager               | Overhead                                                             | 1w         |
+| Peers                 | Review                                                               | 2w         |
+
 <Category:Feature>

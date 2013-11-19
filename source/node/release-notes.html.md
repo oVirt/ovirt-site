@@ -13,11 +13,10 @@ wiki_last_updated: 2013-11-19
 ## 3.0.2 Release Notes
 
 *   Bug fixes
-
-         * Fixes to let gluster work oob
-         * Fix link detection with some NICs
-         * Add some module dependencies
-         * Better debugging informations
+    -   Fixes to let gluster work oob
+    -   Fix link detection with some NICs
+    -   Add some module dependencies
+    -   Better debugging informations
 
 ## 3.0.1 Release Notes
 

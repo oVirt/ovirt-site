@@ -134,77 +134,9 @@ Available more commands than actually used.
 
 #### Outline
 
-Guest agent will acquire user credentials from two different sources:
+Create a channel between client and guest and transfer credentials using stream protocol on top of the channel. The protocol may be based on SASL to exchange credentials information.
 
-1.  vdsm<->guest agent channel - a key.
-2.  guest<->client - encrypted credentials blob.
-
-It then use the key to decrypt the credentials blob and use the information in order to perform local and network authentication.
-
-This approach has several benefits:
-
-1.  It provides mutual authentication between client and destination VM, as login cannot be performed without client connection.
-2.  It enables support of various authentication methods without modifying the protocol between engine->vdsm->guest agent.
-3.  User credentials can be collected from client machine as well be provided by management server. This mean that the solution can be re-used without management server, allowing users of plain spice and qemu to enjoy SSO.
-
-##### Kerberos solution
-
-There can be, at least, two viable kerberos based solutions, both can be seen as complementary solutions and can be supported in parallel, however, for simplicity batter to select one for starters.
-
-##### Kerberos solution (method#1)
-
-*   The least changes to 3rd party components.
-*   Makes ovirt-engine more security critical component.
-*   Supports setup in which initial authentication is performed to oVirt web authentication (no TGT at client machine).
-*   Supports potential spice-html5 setup.
-*   Caveat: Unsure how to handle TGT expiration.
-
-###### Preparations
-
-*   ovirt-engine https service is to be marked as trusted for delegation in the kdc.
-*   Client firefox browser is configured with network.negotiate-auth.delegation-uris to enable the ovirt-engine uri.
-*   mod_auth_kerb5 is installed at engine to enable kerberos SSO, it is configured to pass the kebreros ticket as request attribute to be available for ovirt-engine.
-
-###### Sequence
-
-1.  User logon into his desktop using kerberos.
-2.  User access ovirt-engine user portal.
-3.  ovirt-engine receives user's TGT.
-4.  User requests graphic session, in addition to current implementation ovirt-engine generate random key, encrypts TGT, then sends the key to the guest agent via vdsm and the encrypted TGT is sent along with the qemu ticket to the client.
-5.  Spice client makes the encrypted blob available to target vm.
-6.  Guest agent wait for connection establish then use the key to decrypt the blob available at client to have a valid TGT.
-7.  Guest agent validate TGT and resolve it to local user and performs local login without farther authentication, while making TGT available to the user.
-
-If user login without delegating TGT there are some options:
-
-1.  mod_auth_kerb5 is capable to perform basic authentication and enforce authentication using kerberos at web server side.
-2.  ovirt-engine can use the password obtained from user to retrieve TGT from KDC.
-3.  Disable automatic login functionality.
-
-##### Kerberos solution (method#2)
-
-*   More cooperation of spice team.
-*   Do not enhance the security sensitivity of the engine.
-*   Has the potential to handle TGT expiration.
-
-###### Preparations
-
-*   mod_auth_kerb5 is installed at engine to enable kerberos SSO.
-
-###### Sequence
-
-1.  User login into his desktop using kerberos.
-2.  User access ovirt-engine user portal.
-3.  User requests graphic session, in addition to current implementation ovirt-engine generate random key, send the key to guest agent via vdsm and the key is sent along with the qemu ticket to the client, it also instructs spice to forward kerberos credentials.
-4.  Spice acquire user's TGT, encrypt it using the key and makes this blob available to the target vm.
-5.  Guest agent wait for connection establish then use the key to decrypt the blob available at client to have a valid TGT.
-6.  Guest agent validate TGT and resolve it to local user and performs local login without farther authentication, while making TGT available to the user.
-
-##### SASL solution (method#3)
-
-*   Completely independent from ovirt-engine.
-*   Will not support spice-html5/novnc
-*   Every virtual machine to which SSO should be enabled, must have valid kerberos credentials (service principal name and keytab).
+This solution can be used outside of the oVirt project scope, so it should be relatively easy to push missing bits into spice upstream.
 
 ###### Preparations
 

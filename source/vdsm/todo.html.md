@@ -119,7 +119,11 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   a hook for fancier VM connectivity
+*   a hook for fancier VM connectivity (e.g. nat)
+
+<!-- -->
+
+*   a hook for getVdsCaps (to allow faking network reporting, etc).
 
 ### refactoring
 

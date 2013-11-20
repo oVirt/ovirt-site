@@ -242,9 +242,9 @@ At client configure spice client to execute spice-sso-client for spice.sso.0 spi
        8.     <--------------SASL negotiation-------------->
        9      <---SIGNATURE---------------------------------
       10.1    <--authenticate kerberos password-------------
-      10.2     ---ok---------------------------------------->
-      10.3     ---credentials kerberos AAEK12DS==----------->
-      10.4     <--ok-----------------------------------------
+      10.2    ---ok---------------------------------------->
+      10.3    ---credentials kerberos AAEK12DS==----------->
+      10.4    <--ok-----------------------------------------
 
 1.  Signature exchange
     1.  Guest detect new client connection and sends signature.

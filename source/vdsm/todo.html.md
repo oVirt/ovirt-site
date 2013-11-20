@@ -52,6 +52,10 @@ wiki_last_updated: 2015-05-29
 
 *   vdsm/sampling.py: stop storing self._ifids and _rates in the thread. Rate can sit in the interfaces dict per sample.
 
+<!-- -->
+
+*   avoid putting HWADDR in ifcfg files; things mess up when you replace a NIC.
+
 ### Testing
 
 *   ~~write an automatic script that runs on each and every new change to gerrit, and adds an insulting comment if `pyflakes` fails for the new change.~~ Thanks, Robert!

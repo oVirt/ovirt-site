@@ -113,7 +113,7 @@ Core functionality offered by oVirt.js would include:
 
 *   *JavaScript Binding bootstrap mechanism* - given the URL of running Engine and preferred API version, detect and load appropriate JavaScript Binding
 *   *common and useful functionality on top of JavaScript Binding* - including any workarounds or functionality desired but not supported by REST API
-*   *dynamic API error detection* - given a specific JavaScript Binding, detect errors when delegating calls to JavaScript Binding and report them to client (i.e. client attempts to use operation or entity that's not supported by given Engine version / API version combination)
+*   *dynamic API error detection* - detect errors when delegating calls to JavaScript Binding and report them to client (i.e. client attempts to use operation or entity that's not supported by given Engine version / API version combination)
 
 For web UI that relies on Java / GWT technology, this would imply following changes:
 
@@ -122,7 +122,7 @@ For web UI that relies on Java / GWT technology, this would imply following chan
 *   oVirt.js would be declared as external JavaScript in [GWT module descriptor](http://www.gwtproject.org/doc/latest/DevGuideOrganizingProjects.html#DevGuideModuleXml), i.e. `<script src='oVirt.js' />`
 *   GWT code would contain [JSNI](http://www.gwtproject.org/doc/latest/DevGuideCodingBasicsJSNI.html) bindings to oVirt.js which are subject to code analysis during GWT compilation
 
-As for backward compatibility, oVirt.js would just delegate to specific JavaScript Binding and report any errors back to client. The client is therefore responsible for using oVirt.js together with appropriate Engine version / API version combination. This is similar to using Java SDK, with oVirt.js as additional library with useful functionality above the "bare minimum" SDK (i.e. API entity and collection proxies).
+As for backward compatibility, oVirt.js would just delegate to specific JavaScript Binding and report any errors back to client. The client is therefore responsible for using oVirt.js together with appropriate Engine version / API version combination. This is similar to using Java SDK, with oVirt.js acting as library with useful functionality above the "bare minimum" SDK.
 
 Proposed technologies and tools for development:
 

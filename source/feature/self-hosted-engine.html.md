@@ -363,26 +363,57 @@ Both commands are documented with man pages, so please refer to them in order to
 
 ### Logic
 
-*   based on vdsClient (bash)/ import vdsm (python) create SP infra
+*   ovirt-hosted-engine-setup executables relies on vdsClient and vdsm python API for preparing the storage infra and handling the VM.
+*   create the bridge if missing
+
+       addNetwork
+
+*   first check for existing pool and abort if any is found.
+
+       getConnectedStoragePoolsList
+
+*   validate the specified path, checking if there's already a domain there
+
+       connectStorageServer
+       getStorageDomainsList
+       getStorageDomainInfo
+       getStoragePoolInfo
+       disconnectStorageServer
+
+*   if a new domain has to be created, create it
 
        connectStorageServer
        createStorageDomain
        createStoragePool
-       create vm image (vdsm cli/api)
-       connectStoragePool (should be removed later on)
+       connectStoragePool
        spmStart
-       getSpmStatus
+       activateStorageDomain
+
+*   if a new vm image has to be created, create it
+
        createVolume
-       getAllTasksStatuses
-       clearTask
+
+*   stop the pool and start the domain monitor
+
+       spmStop
+       disconnectStoragePool
+       startMonitoringDomain
 
 *   run vm with installation media
+
+       create
+
 *   provide spice/terminal console
 
-<!-- -->
+       setVmTicket
 
+*   wait for os to be installed and then reboot
+*   start again the VM as before
+*   wait for engine to be installed
 *   polling on liveliness till engine is up
-*   install host --no-reboot (first host)
+*   add host without rebooting it.
+*   wait for the host to be operational
+*   hand over the VM to the HA daemons (shutdown the VM and start daemons which will take care now of the VM)
 
 ### Enhancements
 

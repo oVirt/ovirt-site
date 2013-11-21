@@ -69,4 +69,6 @@ draft: thread per host draft: update hibernation volumes without VDS lock draft:
 *   Change scheduler to schedule multiple VMs together instead of each one separately.
 *   Improve the VM statistics mechanism to work in a bulk
 
-[1] we need to think whether VmRunner and AutoStartVmsRunner could be combined together or AutoStartVmsRunner will use VmRunner. [2] we need to think about rerun
+[1] we need to think whether VmRunner and AutoStartVmsRunner could be combined together or AutoStartVmsRunner will use VmRunner.
+
+[2] we need to think about rerun

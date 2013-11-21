@@ -434,8 +434,9 @@ Both commands are documented with man pages, so please refer to them in order to
 
 ### Limitations
 
-*   NFS/Gluster FS only (Block to be supported at a later stage)
+*   NFS FS only (Gluster and Block to be supported at a later stage)
 *   RHEV-H not supported
+*   Only one VM is deployed and managed by HA daemons (support for additional VMs to be added at a later stage).
 
 ### Operational Routine
 

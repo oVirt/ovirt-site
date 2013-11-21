@@ -41,6 +41,10 @@ The benefits of having VmRunner: 1. Run VM commands can be cached before sending
 
 Caching the RunVmCommands and sending them in a bulk to vdsm is expected to reduce the time spent on waiting for the synchronized call to the create verb in vdsm to end. A diagram that demonstrates the current flow:
 
+![](Old_engine_vdsm.png "Old_engine_vdsm.png")
+
+As we can see, the engine call the 'create' verb, which in turn start vm creation thread in vdsm and only then the call ends and the engine continue to the next RunVmCommand that invokes the next 'create' verb. It should not be long time to end the synchronous call though (~2 sec in our tests), but when it comes to high number of calls it accumulated and thus noticable. Assuming the destination host is capable to run multiple VMs in parallel (it depends on its number of cores), we can reduce the overhead by combining the different calls to one call:
+
 how long we cache..
 
 [1] we need to think whether VmRunner and AutoStartVmsRunner could be combined together or AutoStartVmsRunner will use VmRunner.

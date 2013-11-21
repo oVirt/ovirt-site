@@ -16,7 +16,7 @@ Save memory state in live snapshots.
 
 ### Owner
 
-*   Name: [ Arik](User:Arik)
+*   Name: [ Arik Hadas](User:Arik)
 *   Email: <ahadas@redhat.com>
 
 ### Current status

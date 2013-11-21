@@ -96,49 +96,37 @@ Here is an example of a first host deployment:
          [ INFO  ] Stage: Programs detection
          [ INFO  ] Stage: Environment setup
          [ INFO  ] Stage: Environment customization
-                 
                  --== STORAGE CONFIGURATION ==--
-                 
                  During customization use CTRL-D to abort.
                  Please specify the full shared storage connection path to use (example: host:/path): myhost.home:/export
          [ INFO  ] Installing on first host
-                 Please provide storage domain name [hosted_storage]: 
-                 Local storage datacenter name [hosted_datacenter]: 
-                 
+                 Please provide storage domain name [hosted_storage]:
+                 Local storage datacenter name [hosted_datacenter]:
                  --== SYSTEM CONFIGURATION ==--
-                 
-                 
                  --== NETWORK CONFIGURATION ==--
-                 
-                 iptables was detected on your computer, do you wish setup to configure it? (Yes, No)[Yes]: 
+                 iptables was detected on your computer, do you wish setup to configure it? (Yes, No)[Yes]:
                  Please indicate a pingable gateway IP address: 10.1.1.1
-                 
                  --== VM CONFIGURATION ==--
-                 
                  Please specify the device to boot the VM from (cdrom, disk, pxe) [cdrom]: pxe
                  The following CPU types are supported by this host:
                      - model_Conroe: Intel Conroe Family
-                 Please specify the CPU type to be used by the VM [model_Conroe]: 
-                 Please specify the number of virtual CPUs for the VM [Defaults to minimum requirement: 2]: 
-                 Please specify the disk size of the VM in GB [Defaults to minimum requirement: 25]: 
-                 Please specify the memory size of the VM in MB [Defaults to minimum requirement: 4096]: 
-                 Please specify the console type you would like to use to connect to the VM (vnc, spice) [vnc]: 
-                 
+                 Please specify the CPU type to be used by the VM [model_Conroe]:
+                 Please specify the number of virtual CPUs for the VM [Defaults to minimum requirement: 2]:
+                 Please specify the disk size of the VM in GB [Defaults to minimum requirement: 25]:
+                 Please specify the memory size of the VM in MB [Defaults to minimum requirement: 4096]:
+                 Please specify the console type you would like to use to connect to the VM (vnc, spice) [vnc]:
                  --== HOSTED ENGINE CONFIGURATION ==--
-                 
-                 Enter the name which will be used to identify this host inside the Administrator Portal [hosted_engine_1]: 
-                 Enter 'admin@internal' user password that will be used for accessing the Administrator Portal: 
-                 Confirm 'admin@internal' user password: 
+                 Enter the name which will be used to identify this host inside the Administrator Portal [hosted_engine_1]:
+                 Enter 'admin@internal' user password that will be used for accessing the Administrator Portal:
+                 Confirm 'admin@internal' user password:
                  Please provide the FQDN for the engine you would like to use. This needs to match the FQDN that you will use for the engine installation within the VM: hosted-engine.home
-         [WARNING] Failed to resolve hosted.engine.home using DNS, it can be resolved only locally
-                 Please provide the name of the SMTP server through which we will send notifications [localhost]: 
-                 Please provide the TCP port number of the SMTP server [25]: 
-                 Please provide the email address from which notifications will be sent [root@localhost]: 
-                 Please provide a comma-separated list of email addresses which will get notifications [root@localhost]: 
+         [WARNING] Failed to resolve hosted-engine.home using DNS, it can be resolved only locally
+                 Please provide the name of the SMTP server through which we will send notifications [localhost]:
+                 Please provide the TCP port number of the SMTP server [25]:
+                 Please provide the email address from which notifications will be sent [root@localhost]:
+                 Please provide a comma-separated list of email addresses which will get notifications [root@localhost]:
          [ INFO  ] Stage: Setup validation
-                 
                  --== CONFIGURATION PREVIEW ==--
-                 
                  Engine FQDN                        : hosted-engine.home
                  Bridge name                        : rhevm
                  SSH daemon port                    : 22
@@ -153,7 +141,6 @@ Here is an example of a first host deployment:
                  Boot type                          : pxe
                  Number of CPUs                     : 2
                  CPU Type                           : model_Conroe
-                 
                  Please confirm installation settings (Yes, No)[No]: yes
          [ INFO  ] Generating answer file '/etc/ovirt-hosted-engine/answers.conf'
          [ INFO  ] Stage: Transaction setup

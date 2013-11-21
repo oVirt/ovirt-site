@@ -37,6 +37,8 @@ And how has their experience been with the oVirt community? "It would be great t
 </div>
 <div class="span4 pad-sides">
 <div class="well well-lg">
+![](Keele logo.png "Keele logo.png")
+
 **Name:** [Keele University](//www.keele.ac.uk/)
 **Activity:** Education
 **Location:** Keele, Staffordshire, United Kingdom

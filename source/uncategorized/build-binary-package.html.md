@@ -8,8 +8,6 @@ wiki_last_updated: 2014-07-01
 
 # Build Binary Package
 
-## Building RPM for the oVirt project
-
 Most components of oVirt project use standard sequence to build rpms.
 
 Summary of sequence is:

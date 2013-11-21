@@ -74,17 +74,158 @@ This feature will deal with two main issues:
 
 ### UI - first host deployment
 
-*   yum install ovirt-hosted-engine (rpm level installation)
-*   hosted-engine --deploy
+Here is an example of a first host deployment:
 
-          please specify the shared storage location to use
-          please indicate nic to set mgmt-bridge on [eth0]
-          please specify engine FQDN
-          please specify installation media you would like to use (pxe,iso,ovf)   
+         # yum install ovirt-hosted-engine-setup
+         # hosted-engine --deploy
+         [ INFO  ] Stage: Initializing
+                 Continuing will configure this host for serving as hypervisor and create a VM where oVirt Engine will be installed afterwards.
+                 Are you sure you want to continue? (Yes, No)[Yes]: yes
+                 It has been detected that this program is executed through an SSH connection without using screen.
+                 Continuing with the installation may lead to broken installation if the network connection fails.
+                 It is highly recommended to abort the installation and run it inside a screen session.
+                 Do you want to continue anyway? (Yes, No)[No]: yes
+         [ INFO  ] Generating a temporary VNC password.
+         [ INFO  ] Stage: Environment setup
+                 Configuration files: []
+                 Log file: /var/log/ovirt-hosted-engine-setup/ovirt-hosted-engine-setup-20131121151103.log
+                 Version: otopi-1.1.1 (otopi-1.1.1-1.el6ev)
+         [ INFO  ] Hardware supports virtualization
+         [ INFO  ] Bridge rhevm already created
+         [ INFO  ] Stage: Environment packages setup
+         [ INFO  ] Stage: Programs detection
+         [ INFO  ] Stage: Environment setup
+         [ INFO  ] Stage: Environment customization
+                 
+                 --== STORAGE CONFIGURATION ==--
+                 
+                 During customization use CTRL-D to abort.
+                 Please specify the full shared storage connection path to use (example: host:/path): myhost.home:/export
+         [ INFO  ] Installing on first host
+                 Please provide storage domain name [hosted_storage]: 
+                 Local storage datacenter name [hosted_datacenter]: 
+                 
+                 --== SYSTEM CONFIGURATION ==--
+                 
+                 
+                 --== NETWORK CONFIGURATION ==--
+                 
+                 iptables was detected on your computer, do you wish setup to configure it? (Yes, No)[Yes]: 
+                 Please indicate a pingable gateway IP address: 10.1.1.1
+                 
+                 --== VM CONFIGURATION ==--
+                 
+                 Please specify the device to boot the VM from (cdrom, disk, pxe) [cdrom]: pxe
+                 The following CPU types are supported by this host:
+                     - model_Conroe: Intel Conroe Family
+                 Please specify the CPU type to be used by the VM [model_Conroe]: 
+                 Please specify the number of virtual CPUs for the VM [Defaults to minimum requirement: 2]: 
+                 Please specify the disk size of the VM in GB [Defaults to minimum requirement: 25]: 
+                 Please specify the memory size of the VM in MB [Defaults to minimum requirement: 4096]: 
+                 Please specify the console type you would like to use to connect to the VM (vnc, spice) [vnc]: 
+                 
+                 --== HOSTED ENGINE CONFIGURATION ==--
+                 
+                 Enter the name which will be used to identify this host inside the Administrator Portal [hosted_engine_1]: 
+                 Enter 'admin@internal' user password that will be used for accessing the Administrator Portal: 
+                 Confirm 'admin@internal' user password: 
+                 Please provide the FQDN for the engine you would like to use. This needs to match the FQDN that you will use for the engine installation within the VM: hosted-engine.home
+         [WARNING] Failed to resolve hosted.engine.home using DNS, it can be resolved only locally
+                 Please provide the name of the SMTP server through which we will send notifications [localhost]: 
+                 Please provide the TCP port number of the SMTP server [25]: 
+                 Please provide the email address from which notifications will be sent [root@localhost]: 
+                 Please provide a comma-separated list of email addresses which will get notifications [root@localhost]: 
+         [ INFO  ] Stage: Setup validation
+                 
+                 --== CONFIGURATION PREVIEW ==--
+                 
+                 Engine FQDN                        : hosted-engine.home
+                 Bridge name                        : rhevm
+                 SSH daemon port                    : 22
+                 Firewall manager                   : iptables
+                 Gateway address                    : 10.1.1.1
+                 Host name for web application      : hosted_engine_1
+                 Host ID                            : 1
+                 Image size GB                      : 25
+                 Storage connection                 : myhost.home:/export
+                 Console type                       : vnc
+                 Memory size MB                     : 4096
+                 Boot type                          : pxe
+                 Number of CPUs                     : 2
+                 CPU Type                           : model_Conroe
+                 
+                 Please confirm installation settings (Yes, No)[No]: yes
+         [ INFO  ] Generating answer file '/etc/ovirt-hosted-engine/answers.conf'
+         [ INFO  ] Stage: Transaction setup
+         [ INFO  ] Stage: Misc configuration
+         [ INFO  ] Stage: Package installation
+         [ INFO  ] Stage: Misc configuration
+         [ INFO  ] Configuring libvirt
+         [ INFO  ] Generating VDSM certificates
+         [ INFO  ] Configuring VDSM
+         [ INFO  ] Starting vdsmd
+         [ INFO  ] Waiting for VDSM hardware info
+         [ INFO  ] Waiting for VDSM hardware info
+         [ INFO  ] Creating Storage Domain
+         [ INFO  ] Creating Storage Pool
+         [ INFO  ] Connecting Storage Pool
+         [ INFO  ] Verifying sanlock lockspace initialization
+         [ INFO  ] Initializing sanlock lockspace
+         [ INFO  ] Initializing sanlock metadata
+         [ INFO  ] Creating VM Image
+         [ INFO  ] Disconnecting Storage Pool
+         [ INFO  ] Start monitoring domain
+         [ INFO  ] Configuring VM
+         [ INFO  ] Updating hosted-engine configuration
+         [ INFO  ] Stage: Transaction commit
+         [ INFO  ] Stage: Closing up
+         [ INFO  ] Creating VM
+                 You can now connect to the VM with the following command:
+                     /usr/bin/remote-viewer vnc://localhost:5900
+                 Use temporary password "1015iuUQ" to connect to vnc console.
+                 Please note that in order to use remote-viewer you need to be able to run graphical applications.
+                 This means that if you are using ssh you have to supply the -Y flag (enables trusted X11 forwarding).
+                 Otherwise you can run the command from a terminal in your preferred desktop environment.
+                 If you cannot run graphical applications you can connect to the graphic console from another host or connect to the console using the following command:
+                 virsh -c qemu+tls://10.1.1.10/system console HostedEngine
+                 If you need to reboot the VM you will need to start it manually using the command:
+                 hosted-engine --vm-start
+                 You can then set a temporary password using the command:
+`           hosted-engine --add-console-password=`<password>
+                 Please install the OS on the VM.
+                 When the installation is completed reboot or shutdown the VM: the system will wait until then
+                 Has the OS installation been completed successfully?
+                 Answering no will allow you to reboot from the previously selected boot media. (Yes, No)[Yes]: yes
+         [ INFO  ] Creating VM
+                 You can now connect to the VM with the following command:
+                     /usr/bin/remote-viewer vnc://localhost:5900
+                 Use temporary password "1015iuUQ" to connect to vnc console.
+                 Please note that in order to use remote-viewer you need to be able to run graphical applications.
+                 This means that if you are using ssh you have to supply the -Y flag (enables trusted X11 forwarding).
+                 Otherwise you can run the command from a terminal in your preferred desktop environment.
+                 If you cannot run graphical applications you can connect to the graphic console from another host or connect to the console using the following command:
+                 virsh -c qemu+tls://10.1.1.10/system console HostedEngine
+                 If you need to reboot the VM you will need to start it manually using the command:
+                 hosted-engine --vm-start
+                 You can then set a temporary password using the command:
+`           hosted-engine --add-console-password=`<password>
+                 Please install the engine in the VM, hit enter when finished.
+         [ INFO  ] Engine replied: DB Up!Welcome to Health Status!
+         [ INFO  ] Waiting for the host to become operational in the engine. This may take several minutes...
+         [ INFO  ] Still waiting for VDSM host to become operational...
+         [ INFO  ] Still waiting for VDSM host to become operational...
+         [ INFO  ] The VDSM Host is now operational
+                 Please shutdown the VM allowing the system to launch it as a monitored service.
+                 The system will wait until the VM is down.
+         [ INFO  ] Enabling and starting HA services
+                 Hosted Engine successfully set up
+         [ INFO  ] Stage: Clean up
+         [ INFO  ] Stage: Pre-termination
+         [ INFO  ] Stage: Termination
 
-*   output: spice/terminal console to the new vm
-*   once liveliness page is up install current host using sdk/cli call (no reboot)
-*   deploy ended successfully
+**Notes:**
+
+*   Remember to setup the same hostname you specified as FQDN while you're installing the OS on the VM.
 
 ### UI - additional host deployment
 

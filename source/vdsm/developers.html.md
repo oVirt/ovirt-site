@@ -375,4 +375,10 @@ More info about nested-kvm: <https://github.com/torvalds/linux/blob/master/Docum
 
 Since c0729453573, vdsm requires newer libvirt and selinux-policy packages, which are not available yet in RHEL or Centos repositories, and is not kept in ovirt repositories (such as ovirt-nightly).
 
+### autogen.sh fails with "package version not defined"
+
+You have no tags in your repo. If you want to push your repo from another machine, you must also push the tags:
+
+      git push --tags remote 
+
 <Category:Vdsm> <Category:Documentation> [Category:Development environment](Category:Development environment)

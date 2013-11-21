@@ -216,9 +216,97 @@ Here is an example of a first host deployment:
 
 ### UI - additional host deployment
 
-*   install host through rhevm
-*   yum install ovirt-hosted-engine
-*   configuration file should be add to this host with modifications
+Here is an example of deployment on an additional host:
+
+         # yum install ovirt-hosted-engine-setup
+         # hosted-engine --deploy
+         [ INFO  ] Stage: Initializing
+                 Continuing will configure this host for serving as hypervisor and create a VM where oVirt Engine will be installed afterwards.
+                 Are you sure you want to continue? (Yes, No)[Yes]: yes
+                 It has been detected that this program is executed through an SSH connection without using screen.
+                 Continuing with the installation may lead to broken installation if the network connection fails.
+                 It is highly recommended to abort the installation and run it inside a screen session.
+                 Do you want to continue anyway? (Yes, No)[No]: yes
+         [ INFO  ] Generating a temporary VNC password.
+         [ INFO  ] Stage: Environment setup
+                 Configuration files: []
+                 Log file: /var/log/ovirt-hosted-engine-setup/ovirt-hosted-engine-setup-20131121170637.log
+                 Version: otopi-1.1.1 (otopi-1.1.1-1.el6ev)
+         [ INFO  ] Hardware supports virtualization
+         [ INFO  ] Bridge rhevm already created
+         [ INFO  ] Stage: Environment packages setup
+         [ INFO  ] Stage: Programs detection
+         [ INFO  ] Stage: Environment setup
+         [ INFO  ] Stage: Environment customization
+                 --== STORAGE CONFIGURATION ==--
+                 During customization use CTRL-D to abort.
+                 Please specify the full shared storage connection path to use (example: host:/path): myhost.home:/export
+                 The specified storage location already contains a data domain. Is this an additional host setup (Yes, No)[Yes]? yes
+         [ INFO  ] Installing on additional host
+                 Please specify the Host ID [Must be integer, default: 2]:
+                 --== SYSTEM CONFIGURATION ==--
+         [WARNING] A configuration file must be supplied to deploy Hosted Engine on an additional host.
+                 The answer file may be fetched from the first host using scp.
+                 If you do not want to download it automatically you can abort the setup answering no to the following question.
+                 Do you want to scp the answer file from the first host? (Yes, No)[Yes]:
+                 Please provide the FQDN or IP of the first host: 10.1.1.10
+                 Enter 'root' user password for host 10.1.1.10:
+         [ INFO  ] Answer file successfully downloaded
+                 --== NETWORK CONFIGURATION ==--
+                 The following CPU types are supported by this host:
+                     - model_Nehalem: Intel Nehalem Family
+                     - model_Penryn: Intel Penryn Family
+                     - model_Conroe: Intel Conroe Family
+                 --== HOSTED ENGINE CONFIGURATION ==--
+                 Enter the name which will be used to identify this host inside the Administrator Portal [hosted_engine_2]:
+                 Enter 'admin@internal' user password that will be used for accessing the Administrator Portal:
+                 Confirm 'admin@internal' user password:
+         [WARNING] Failed to resolve hosted-engine.home using DNS, it can be resolved only locally
+         [ INFO  ] Stage: Setup validation
+                 --== CONFIGURATION PREVIEW ==--
+                 Engine FQDN                        : hosted-engine.home
+                 Bridge name                        : rhevm
+                 SSH daemon port                    : 22
+                 Firewall manager                   : iptables
+                 Gateway address                    : 10.1.1.1
+                 Host name for web application      : hosted_engine_2
+                 Host ID                            : 2
+                 Image size GB                      : 25
+                 Storage connection                 : myhost.home:/export
+                 Console type                       : vnc
+                 Memory size MB                     : 4096
+                 Boot type                          : disk
+                 Number of CPUs                     : 2
+                 CPU Type                           : model_Conroe
+                 Please confirm installation settings (Yes, No)[No]: yes
+         [ INFO  ] Generating answer file '/etc/ovirt-hosted-engine/answers.conf'
+         [ INFO  ] Stage: Transaction setup
+         [ INFO  ] Stage: Misc configuration
+         [ INFO  ] Stage: Package installation
+         [ INFO  ] Stage: Misc configuration
+         [ INFO  ] Configuring libvirt
+         [ INFO  ] Generating VDSM certificates
+         [ INFO  ] Configuring VDSM
+         [ INFO  ] Starting vdsmd
+         [ INFO  ] Waiting for VDSM hardware info
+         [ INFO  ] Waiting for VDSM hardware info
+         [ INFO  ] Connecting Storage Domain
+         [ INFO  ] Configuring VM
+         [ INFO  ] Updating hosted-engine configuration
+         [ INFO  ] Stage: Transaction commit
+         [ INFO  ] Stage: Closing up
+         [ INFO  ] Engine replied: DB Up!Welcome to Health Status!
+         [ INFO  ] Waiting for the host to become operational in the engine. This may take several minutes...
+         [ INFO  ] The VDSM Host is now operational
+         [ INFO  ] Enabling and starting HA services
+                 Hosted Engine successfully set up
+         [ INFO  ] Stage: Clean up
+         [ INFO  ] Stage: Pre-termination
+         [ INFO  ] Stage: Termination
+
+**Notes**
+
+*   remember to use the same storage path you used on first host.
 
 ### UI - operations
 

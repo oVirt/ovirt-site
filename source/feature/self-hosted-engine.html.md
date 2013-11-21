@@ -235,11 +235,9 @@ Here is an example of a first host deployment:
 
 ### UI - operations
 
-       hosted-engine --deploy (deploys first host)
-       hosted-engine --vm-status (shows the vm status based on sanlock)
-       hosted-engine --vm-stop (stops the vm if running on the host)
-       hosted-engine --vm-start (try starts the vm)
-       hosted-engein --check-liveliness (checks liveliness page of engine)
+The host deployment may be done both using **hosted-engine --deploy** or **ovirt-hosted-engine-setup**.
+
+Both commands are documented with man pages, so please refer to them in order to have the list of supported operations.
 
 ### Configuration files
 

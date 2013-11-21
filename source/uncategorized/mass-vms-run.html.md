@@ -45,6 +45,8 @@ Caching the RunVmCommands and sending them in a bulk to vdsm is expected to redu
 
 As we can see, the engine call the 'create' verb, which in turn start vm creation thread in vdsm and only then the call ends and the engine continue to the next RunVmCommand that invokes the next 'create' verb. It should not be long time to end the synchronous call though (~2 sec in our tests), but when it comes to high number of calls it accumulated and thus noticable. Assuming the destination host is capable to run multiple VMs in parallel (it depends on its number of cores), we can reduce the overhead by combining the different calls to one call:
 
+![](New_engine_vdsm.png "New_engine_vdsm.png")
+
 how long we cache..
 
 [1] we need to think whether VmRunner and AutoStartVmsRunner could be combined together or AutoStartVmsRunner will use VmRunner.

@@ -14,7 +14,7 @@ wiki_last_updated: 2014-01-15
 <div class="span7 offset1 pad-sides">
 ## Free, open source consolidated management for KVM
 
-Keele University has been using oVirt 3.2 in production since mid 2013. At the KVM Forum in Edinburgh, we spoke with Martin Goldstone and Gary Lloyd, system administrators at the university, to talk about their experiences, how they are using it, what they've liked, and what they're looking forward to seeing in the future.
+[Keele University](//www.keele.ac.uk/) has been using oVirt 3.2 in production since mid 2013. At the KVM Forum in Edinburgh, we spoke with Martin Goldstone and Gary Lloyd, system administrators at the university, to talk about their experiences, how they are using it, what they've liked, and what they're looking forward to seeing in the future.
 
 "We have been aware of oVirt for a long time", says Martin, "We started looking at oVirt seriously after the 3.2 release, and we have been using it in production now for about 3 months." When making their choice, a few factors swayed them towards using oVirt. "oVirt was really the best project out there for managing KVM hypervisors", says Martin. When asked which features were important to them, they cited consolidated management of hosts and VMs, live migration, cost and open source. "Choosing oVirt has saved us tens of thousands of pounds over proprietary alternatives like VMware. Open source wins the philosophical debate for us", said Gary. "We wanted something which was mature and well supported", said Martin, "and when we looked at the feature list for oVirt we were very impressed".
 
@@ -37,7 +37,7 @@ And how has their experience been with the oVirt community? "It would be great t
 </div>
 <div class="span4 pad-sides">
 <div class="well well-lg">
-**Name:** Keele University
+**Name:** [Keele University](//www.keele.ac.uk/)
 **Activity:** Education
 **Location:** Keele, Staffordshire, United Kingdom
 **Founded:** 1949

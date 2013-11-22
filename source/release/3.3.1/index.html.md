@@ -16,6 +16,17 @@ oVirt is an open source alternative to VMware vSphere, and provides an awesome K
 
 To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.3 release notes](oVirt 3.3 release notes), [oVirt 3.2 release notes](oVirt 3.2 release notes) and [oVirt 3.1 release notes](oVirt 3.1 release notes). For a general overview of oVirt, read [ the oVirt 3.0 feature guide](oVirt 3.0 Feature Guide) and the [about oVirt](about oVirt) page.
 
+## Install / Upgrade from previous versions
+
+If you're installing oVirt 3.3.1 on a clean host you should read our [Quick Start Guide](Quick Start Guide)
+
+If you're upgrading from oVirt 3.2 you should read [oVirt 3.2 to 3.3 upgrade](oVirt 3.2 to 3.3 upgrade)
+
+If you're upgrading from oVirt 3.3 you should just execute:
+
+      # yum update ovirt-engine-setup
+      # engine-setup
+
 ## What's New in 3.3.1?
 
 ### Vnic Profiles

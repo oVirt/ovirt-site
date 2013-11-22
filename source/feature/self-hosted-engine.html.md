@@ -213,6 +213,10 @@ Here is an example of a first host deployment:
 **Notes:**
 
 *   Remember to setup the same hostname you specified as FQDN while you're installing the OS on the VM.
+*   If you want to install ovirt-engine-dwh and ovirt-engine-reports after the deployment is completed or update the engine, remember that you need to set the system in global maintenance using
+        # hosted-engine ----set-maintenance=global
+
+    because the engine service must be stopped during setup / upgrade operations.
 
 ### UI - additional host deployment
 

@@ -53,7 +53,7 @@ set :partials_dir, 'layouts'
 
 activate :blog do |blog|
   blog.prefix = "blog/"
-  blog.layout = "blog_layout"
+  blog.layout = "post"
   blog.tag_template = "tag.html"
   blog.calendar_template = "calendar.html"
   blog.default_extension = ".md"

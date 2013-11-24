@@ -33,13 +33,14 @@ We know about multiple processes in the system which can be more efficient, both
 
 ### Stage 1
 
-Intoroducing central place in the engine, VmsRunner, which is responsible to run VMs. The VmsRunner will be similar to AutoStartVmsRunner which is responsible to run HA VMs that went down [1]. All the requests to run VM (automatically by VdsUpdateRuntimeInfo, automatically by the job that run prestarted VMs, REST api, UI [2]) will be made with the VmsRunner job.
+Intoroducing a central place in the engine, VmsRunner, which will be responsible to run VMs. The VmsRunner will be similar to AutoStartVmsRunner which is responsible to run HA VMs that went down [1]. All the requests to run VM (automatically by VdsUpdateRuntimeInfo (rerun [2])/AutoStartVmsRunner,/Prestarted VMs monitoring job, REST api, UI) will be made through the VmsRunner job.
 
 The benefits of having VmsRunner:
 
+*   Run VM requests which came around the same time can be prioritiezed (run highly available VMs that went down can get the highest priority, then rerun and then the others)
 *   VMs that should be run can be aggregated and then scheduled in a bulk
-*   Run VM commands can be cached before sending them to VDSM. It will make it possible to send multiple requests for run VMs on the same host together as part of the same message to VDSM.
-*   The history of the VMs that were run on each host recently can be saved in one place in the memory.
+*   Run VM commands which are targeted to the same host can be grouped together and be sent in one message to vdsm
+*   The history of VMs that were run on each host recently can be saved in one place in the memory
 
 Caching the RunVmCommands and sending them in a bulk to vdsm is expected to reduce the time spent on waiting for the synchronized call to the create verb in vdsm to end. A diagram that demonstrates the current flow:
 
@@ -57,8 +58,6 @@ The expected benefits of such change are:
 *   This design is a step forward for being ready to call the scheduler for scheduling multiple VMs in a bulk
 
 There's a trade-off when it comes to declare for how long should we aggregate the run VM request: on the one hand, setting it to too short period mean that we may end up with too many calls to host as we had before. On the other hand, setting it to long period would mean that the VMs could maybe be run faster by sending them separately.
-
-Another issue to think of is the 'over-commiting' problem. When we'll try to run 2 VMs, we'll call the scheduler for each of them sequentially. On the scheduling process of the second VM we have to assume that the first VM is taking all the memory that it can theoretically have. It means that the scheduler might return that the second VM couldn't run because of the 'over-commiting' done for the first VM. Currently we try to avoid reaching this state by scheduling the VMs sequencially and update the memory of each VM to the actual memory it consumes as soon as possible. I'm suggesting another way to handle it: it is ok to fail because of 'over-committing', as long as can know the reason and try to run it again (in a similar way to how we retry to run HA VM in high frequency when we fail to run it because we could not acquire the required lock to run it).
 
 ### Stage 2
 

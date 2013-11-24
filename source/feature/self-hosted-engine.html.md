@@ -527,4 +527,4 @@ The HA Agent will support 2 types of maintenance:
 
 *   Refer to [Talk:Self Hosted Engine](Talk:Self Hosted Engine)
 
-<Category:Feature>
+<Category:Feature> <Category:SLA>

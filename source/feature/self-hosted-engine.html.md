@@ -312,6 +312,10 @@ Here is an example of deployment on an additional host:
 
 *   remember to use the same storage path you used on first host.
 
+### Migrating an existing engine
+
+See [Migrate to Hosted Engine](Migrate to Hosted Engine)
+
 ### UI - operations
 
 The host deployment may be done both using **hosted-engine --deploy** or **ovirt-hosted-engine-setup**.

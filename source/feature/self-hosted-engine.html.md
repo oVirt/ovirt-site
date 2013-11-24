@@ -324,20 +324,40 @@ Both commands are documented with man pages, so please refer to them in order to
 
 ### Configuration files
 
-*   /etc/ovirt-engine/hosted-engine.conf
+*   /etc/ovirt-hosted-engine/hosted-engine.conf
 
          FQDN of the engine machine
          shared storage
+         domainType=nfs
+         conf=/etc/ovirt-hosted-engine/vm.conf - see below
          service_start_timeout
-         vm_disk_id (sanlock host id) = (host_fqdn by default)
+         vm_disk_id
+         vmid
+         host_id=1 for first host, more for next ones
+         console=vnc
+         spUUID=uuid
+         sdUUID=uuid
+         connectionUUID=uuid
+         ca_cert=/etc/pki/vdsm/libvirt-spice/ca-cert.pem
+         ca_subject=CA certificate subject
+         vdsm_use_ssl=true
+         gateway=ipaddress should be pingable from the host
+         bridge=ovirtmgmt
 
-*   /etc/ovirt-engine/vm.xml(or vm.conf)
+*   /etc/ovirt-hosted-engine/vm.conf
 
-       mem
-       cpu
-       image (optional)
-       connect iso (optional)
-       direct lun (optional)
+         vmId
+         memSize
+         cpuType
+         display
+         devices
+         vmName=HostedEngine
+         spiceSecureChannels
+         smp= number of virtual cores
+         emulatedMachine=pc
+         image (optional)
+         connect iso (optional)
+         direct lun (optional)
 
 *   /etc/ovirt-hosted-engine-ha/broker.conf
 

@@ -149,7 +149,7 @@ On the arch@ovirt.org mailing list.
 
 The following are what seem to be the talking points arising from the above description:
 
-*   Should Host Network QoS be configured similarly to VM Network QoS by creating shareable entities, or should "anonymous" QoS be configured on networks attached to host interfaces?
+*   Should Host Network QoS be configured similarly to VM Network QoS by creating shareable entities, or should "anonymous" QoS be configured on networks attached to host interfaces? Keep in mind that "anonoymous" QoS could possibly be shared by multiple hosts in the future using a Host Template.
     -   If the VM Network QoS paradigm is preserved:
         -   What is the proper behavior when a QoS entity, that had been attached to host networks, is updated?
         -   Should Network QoS entities have a type associated with them (VM/host)?

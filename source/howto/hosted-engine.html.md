@@ -89,7 +89,7 @@ As with the first node, this will take you to the process completion.
 
 # **Maintaining the setup**
 
-The HA Agent will support 2 types of maintenance:
+The HA services has 2 maintenance types for different tasks.
 
 #### **Global maintenance**
 

@@ -28,7 +28,7 @@ You may also refer to the [simple feature page](Features/Host_Network_QoS).
 
 *   Target Release: 3.4
 *   Status: design
-*   Last updated: November 17th, 2013.
+*   Last updated: November 24th, 2013.
 
 #### Detailed Description
 

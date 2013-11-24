@@ -43,7 +43,7 @@ These extensions, and many others, can be made available by allowing per-device 
 
 ### User Experience
 
-![](NetworkCustomProperties.png "NetworkCustomProperties.png")
+Under the Networks main tab -> Profiles subtab: ![](NetworkCustomProperties.png "fig:NetworkCustomProperties.png")
 
 ### Implementation
 

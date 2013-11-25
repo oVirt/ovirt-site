@@ -37,7 +37,7 @@ Intoroducing a central place in the engine, VmsRunner, which will be responsible
 
 The benefits of having a central place which is reponsible for running VMs:
 
-*   Run VM requests which came around the same time can be prioritiezed (run highly available VMs that went down can get the highest priority, then rerun and then the others)
+*   Run VM requests which came around the same time can be prioritiezed [2]
 *   VMs that should be run can be aggregated and then scheduled in a bulk
 *   Run VM commands which are targeted to the same host can be grouped together and be sent in one message to vdsm
 *   The history of VMs that were run on each host recently can be easily saved in memory and be accessed when inspecting further run requests

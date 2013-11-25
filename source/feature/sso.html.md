@@ -140,12 +140,71 @@ This solution can be used outside of the oVirt project scope, so it should be re
 
 This solution unlikely to support spice-html5/novnc.
 
-###### Preparations
+##### Design principals
+
+*   Make solution usable to non-oVirt projects.
+*   Tight component - each component should do one task and only one.
+*   Decoupling - components should share the minimum required implementation with each other.
+*   Interfaces - interaction between components should be done via well defined interfaces.
+*   Reuse - any effort invested should be reused for similar cases.
+
+##### Implementation Summary
+
+This section is written mostly for spice developers to understand the reasoning.
+
+*   The current spice client is monolithic, a new functionality cannot be added without modifying the code. Establishing a stream channel between client and guest is usable for many solutions:
+    -   Credentials delegation (aka SSO), this initiative.
+    -   Private key usage delegation, solutions such as gpg-agent, ssh-agent forwarding.
+    -   Access to other client side agents, such as gnome-keyring.
+    -   Client software execution, such as stream URLs.
+    -   Biometric.
+*   serial<->usock proxy - instead of implementing the SSO initiative within the current monolithic implementation, this solution recommends to support serial device delegation into unix domain socket and implement the logic within separate component, this meets design principals:
+    -   Tight components - the spice client core is "Remote Desktop" while "SSO" is, well, "SSO", two different unrelated tasks.
+    -   Decoupling - there is nothing common between "SSO" and the logic of how to implement remote devices except of that the "SSO" component requires to establish a stream channel over the protocol into the guest. "SSO" component may be usable for other setups, such as vnc or direct tcp connection.
+    -   Interfaces - there is no programmatic usage between "SSO", or any similar solution, and the spice implementation, except of tunneling a stream between client and guest. Unix domain socket is an interface that provides all required interaction between components:
+        -   Both sides can detect that the channel is alive.
+        -   Bidirectional full duplex communication.
+        -   Async IO support.
+        -   In-process and out-of-process support.
+    -   Reuse - implementation of serial<->usock proxy will enable other components such as those which are outlined above to be implemented with zero effort.
+*   spice-client-sso - once serial<->usock proxy is available, the client component aka spice-client-sso can be implemented to interact with guest and delegate credentials.
+    -   The author of this component can be completely detached from spice-gtk implementation considerations, hence we add more potential contributers.
+    -   The author of this component can know nothing about spice nor its protocol, hence we add more potential contributers.
+    -   The component can be reused with any stream channel such as vnc or plain tcp connection.
+    -   The component can be managed/maintained/reside at spice project or as standalone project.
+    -   If the protocol is designed properly, various of guest agent implementation may reuse this component for establishing SSO.
+*   sso-guest-agent - guest agent is responsible of accepting the credentials, it is the most complex piece of software in this solution.
+    -   pam module.
+    -   gdm2 plugin.
+    -   gdm1 plugin.
+    -   kde greeter.
+    -   windows credprov
+    -   gina
+    -   agent logic.
+    -   Credentials accept, interacts with spice-client-sso to acquire credentials.
+*   ovirt-guest-agent is the most complete agent to provide the sso-guest-agent functionality, there is no point in re-inventing the wheel. The addition of credentials accept is minor compared to the other required functionality. The functionality of the sso-guest-agent can be reused and split out of the ovirt-guest-agent when we have a working solution, to enable component reuse at other projects.
+
+Regardless this design comes from the oVirt project it had been written as if spice team is to implement the functionality regardless of oVirt. The same principals and arguments had been introduced as well and the conclusion had been the same. Modularity is better than monolithic, reuse of effort invested for future component implementation to extend the eco-system of spice is important.
+
+I would like to separate the argument of who is maintaining the spice-client-sso component from the discussion, as it should not impact the resource allocation.
+
+Open up the spice implementation for external component does not imply losing control of the components nor fragmentation of these. Forbidding external components damage innovation and limiting the size of the eco-system. Please keep in mind that nothing prevents the spice team to maintain the spice-client-sso as separate component in-tree, out-of-tree or at letting 3rd party maintain it.
+
+Also be aware that spice client side SSO solution is the least work in maintaining a solution, most of the work is at guest agent. As far as I want to perceive the solution the spice-client-sso has far more in common with the guest agent than with the spice client, both in term of code and knowledge. Unlike supporting remote desktop, the SSO is derived from IT infrastructure, and far from being stable, every day we witness new technologies and there should be flexible method for people to provide a solution that is synced not between the guest agent and client but between the guest agent and the spice-client-sso component.
+
+In term of packaging it would be something like the following:
+
+*   Install the following at guest: xxxagent-sso.
+*   Install the following at client: spice-gtk, xxxagent-spice-sso.
+
+The xxxagent can as well be vdagent, however per the tight and decoupling design principals, there is nothing common between the current vdagent which is used for core interaction (display, mouse, clipboard) and SSO, both in term of functionality and knowledge required to maintain each component. BTW: I believe that in future at least the clipboard integration can be implemented using the same approach of usock<->serial channel quite easily.
+
+##### Preparations
 
 *   mod_auth_kerb5 is installed at engine to enable kerberos SSO.
 *   Issue kerberos credentials to all VMs.
 
-###### Sequence
+##### Sequence
 
            Desktop    ovirt-engine    vdsm    libvirt    qemu     guest-agent  Guest OS
        1.
@@ -164,7 +223,7 @@ This solution unlikely to support spice-html5/novnc.
 3.  User requests graphic session.
 4.  ovirt-engine queries guest agent for its service principal name.
 5.  ovirt-engine generates random "ticket".
-6.  ovirt-engine via vdsm sends the ticket to qemu with hard coded validity period of 120 seconds.
+6.  ovirt-engine via vdsm sends the ticket to qemu with hard coded validity period of 120 seconds. NOTE: in standalone mode this can be replaced with SASL negotiation.
 7.  ovirt-engine trigger execution of spice/vnc at client machine passing the ticket and the service principal name.
 8.  spice/vnc at client connects to qemu passing the ticket and establish connection.
 9.  spice/vnc client negotiate using SASL directly with the guest agent delegating TGT or other credentials.

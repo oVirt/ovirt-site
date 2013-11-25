@@ -37,12 +37,14 @@ Intoroducing a central place in the engine, VmsRunner, which will be responsible
 
 The benefits of having a central place which is reponsible for running VMs:
 
-*   Run VM requests which came around the same time can be prioritiezed [2]
+*   Run VM requests which came around the same time can be prioritiezed [2] [3]
 *   VMs that should be run can be aggregated and then scheduled in a bulk
 *   Run VM commands which are targeted to the same host can be grouped together and be sent in one message to vdsm
 *   The history of VMs that were run on each host recently can be easily saved in memory and be accessed when inspecting further run requests
 
-The VmsRunner will be a quartz job, similar to AutoStartVmsRunner which was recently introduced for running highly available VMs that went down unexpectedly.
+The VmsRunner will be a quartz job, similar to AutoStartVmsRunner which was recently introduced for running highly available VMs that went down unexpectedly: when request to run VM come, the VM will be added to internal data-structure in VmsRunner. When the VmsRunner job wake up, it will go over all the VMs in the internal data-structure and try to run them. The time interval for the job will be configurable. The api will provide a way to run the VM in regular/run once mode and as internal/external command.
+
+There are two special cases: 1. In AttachUserToVmFromPoolAndRunCommand, instead of firing the run vm command right after the attaching the user, the VM will be placed in the VmsRunner. That means that we'll need to ensure that if the run fails, 2. UI
 
 Caching the RunVmCommands and sending them in a bulk to vdsm is expected to reduce the time spent on waiting for the synchronized call to the create verb in vdsm to end. A diagram that demonstrates the current flow:
 
@@ -72,4 +74,6 @@ draft: thread per host draft: update hibernation volumes without VDS lock draft:
 
 [1] The places where run vm requests come from: 1. The monitoring (VdsUpdateRuntimeInfo) automatically starts highly available VMs that went down 2. The monitoring trigger rerun for failed migration/run commands 3. The prestarted VMs monitoring job 4. REST api 5. UI
 
-[2] we need to think about rerun
+[2] The priority of running VMs should probably be: 1. run highly available VMs that went down 2. rerun attempts 3. the prioritization made by RunVMActionRunner
+
+[3] Currently we prioritize only bulk of run requests that comes from the UI (in RunVMActionRunner), prioritize them in the VmsRunner will be more general.

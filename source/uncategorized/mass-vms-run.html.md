@@ -33,14 +33,16 @@ We know about multiple processes in the system which can be more efficient, both
 
 ### Stage 1
 
-Intoroducing a central place in the engine, VmsRunner, which will be responsible to run VMs. The VmsRunner will be similar to AutoStartVmsRunner which is responsible to run HA VMs that went down [1]. All the requests to run VM (automatically by VdsUpdateRuntimeInfo (rerun [2])/AutoStartVmsRunner,/Prestarted VMs monitoring job, REST api, UI) will be made through the VmsRunner job.
+Intoroducing a central place in the engine, VmsRunner, which will be responsible to run VMs. All the requests to run VM [1] (except reruns) will be made through this place.
 
-The benefits of having VmsRunner:
+The benefits of having a central place which is reponsible for running VMs:
 
 *   Run VM requests which came around the same time can be prioritiezed (run highly available VMs that went down can get the highest priority, then rerun and then the others)
 *   VMs that should be run can be aggregated and then scheduled in a bulk
 *   Run VM commands which are targeted to the same host can be grouped together and be sent in one message to vdsm
-*   The history of VMs that were run on each host recently can be saved in one place in the memory
+*   The history of VMs that were run on each host recently can be easily saved in memory and be accessed when inspecting further run requests
+
+The VmsRunner will be a quartz job, similar to AutoStartVmsRunner which was recently introduced for running highly available VMs that went down unexpectedly.
 
 Caching the RunVmCommands and sending them in a bulk to vdsm is expected to reduce the time spent on waiting for the synchronized call to the create verb in vdsm to end. A diagram that demonstrates the current flow:
 
@@ -68,6 +70,6 @@ draft: thread per host draft: update hibernation volumes without VDS lock draft:
 *   Change scheduler to schedule multiple VMs together instead of each one separately.
 *   Improve the VM statistics mechanism to work in a bulk
 
-[1] we need to think whether VmRunner and AutoStartVmsRunner could be combined together or AutoStartVmsRunner will use VmRunner.
+[1] The places where run vm requests come from: 1. The monitoring (VdsUpdateRuntimeInfo) automatically starts highly available VMs that went down 2. The monitoring trigger rerun for failed migration/run commands 3. The prestarted VMs monitoring job 4. REST api 5. UI
 
 [2] we need to think about rerun

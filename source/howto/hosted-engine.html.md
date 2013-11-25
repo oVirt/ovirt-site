@@ -21,14 +21,14 @@ Feature Owners:
 Sean Cohen <scohen@redhat.com>, Doron Fediuck <doron@redhat.com>
 Setup Component owners:
 Sandro Bonazzola <sbonazzo@redhat.com>, Yedidyah Bar David <didi@redhat.com>
-HA Component owner:
+HA Component owners:
 Greg Padgett <gpadgett@redhat.com>, Martin Sivak <msivak@redhat.com>
 
 # **Requirements**
 
-*   2 hypervisors (hosts)
-*   Shared storage- NFS
-*   Access to oVirt repo
+*   Two hypervisors (hosts)
+*   NFS-based shared storage
+*   Access to the oVirt repository
 
 # **Fresh Install**
 
@@ -37,7 +37,7 @@ Assuming you're using ovirt RPMs, you should start with install and deploy:
          # yum install ovirt-hosted-engine-setup
          # hosted-engine --deploy
 
-During the deployment you'll be asked for input on host name, storage path and other relevant information. The installer will configure the system and run an empty VM, so you can install an OS inside;
+During the deployment you'll be asked for input on host name, storage path and other relevant information. The installer will configure the system and run an empty VM, so you can install an OS inside:
 
          [ INFO  ] Creating VM
                  ...
@@ -46,7 +46,7 @@ During the deployment you'll be asked for input on host name, storage path and o
                  When the installation is completed reboot or shutdown the VM: the system will wait until then
                  Has the OS installation been completed successfully?
 
-After completing this part, we move on to installing the engine in the new VM;
+After completing this part, we move on to installing the engine in the new VM:
 
         [ INFO  ] Creating VM
                  ...
@@ -57,20 +57,19 @@ This will take you to completion of the process and having your hosted engine VM
 
 **Notes:**
 
-*   Remember to setup the same hostname you specified as FQDN while you're installing the OS on the VM.
-*   If you want to install ovirt-engine-dwh and ovirt-engine-reports or update the engine after the deployment is completed , remember that you need to set the system in global maintenance using
+*   Remember to setup the same hostname you specified as FQDN during deploy while you're setting up the engine on the VM.
+*   If you want to install ovirt-engine-dwh and ovirt-engine-reports, or update the engine after the deployment is completed, remember that you need to set the system in global maintenance using
         # hosted-engine --set-maintenance=global
 
     because the engine service must be stopped during setup / upgrade operations.
 
 # **Migrate existing setup to a VM**
 
-Moving an existing setup into a VM is based upon backing up the existing setup,
-and restoring it into a hosted engine VM. For full details see [Migrate_to_Hosted_Engine](Migrate_to_Hosted_Engine)
+Moving an existing setup into a VM is similar to a fresh install, but instead of running a fresh engine-setup inside the VM, we restore there a backup of the existing engine. For full details see [Migrate_to_Hosted_Engine](Migrate_to_Hosted_Engine)
 
 # **Installing additional nodes**
 
-Here is an example of deployment on an additional host:
+Here is an example of a deployment on an additional host:
 
          # yum install ovirt-hosted-engine-setup
          # hosted-engine --deploy
@@ -89,7 +88,7 @@ As with the first node, this will take you to the process completion.
 
 # **Maintaining the setup**
 
-The HA services have 2 maintenance types for different tasks.
+The HA services have two maintenance types for different tasks.
 
 #### **Global maintenance**
 

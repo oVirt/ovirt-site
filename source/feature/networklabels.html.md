@@ -41,7 +41,7 @@ The amount of request actions by the administrator are significantly reduced and
 
 ### Dependencies / Related Features
 
-The feature will use the mass host network configuration feature to achieve it goals: [Edit Provisioned Network](Features/EditProvisionedNetwork)
+The feature will use the [Edit Provisioned Network](Features/EditProvisionedNetwork) feature to achieve its goals.
 
 ### Documentation / External references
 

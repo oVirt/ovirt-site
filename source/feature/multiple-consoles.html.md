@@ -8,25 +8,27 @@ wiki_revision_count: 27
 wiki_last_updated: 2013-12-12
 ---
 
-# Multiple Consoles for single VM
+# Multiple Consoles
 
-### Owner
+Multiple Consoles for single VM
+
+## Owner
 
 *   Name: [Frank Kobzik](User:Fkobzik)
 *   Email: <fkobzik@redhat.com>
 
-### Brief description
+## Brief description
 
 This feature will allow a VM to have multiple consoles (e.g. SPICE and VNC at the same time) so that user can switch clients without restarting that VM.
 
-### Status
+## Status
 
 *   1st phase
     -   VDSM part - design
     -   Backend part - design
 *   2nd phase - frontend
 
-### Detailed descripiton
+## Detailed descripiton
 
 There are two libvirt devices that are related to this feature: `video` and `graphics`.
 
@@ -38,6 +40,6 @@ Currently engine sends only `video` device to the vdsm. The `graphics` device is
 *   The first phase consists of changing modeling the `graphics` device. It should be treated as a regular device. For this both Engine and VDSM must be changed. This would also allow us to set these devices separately (various `video` and `graphics` combinations).
 *   The second phase is to reflect these changes to frontend. There should be a way to configure `graphics` type and `video` type in the New/Edit VM/Template dialog.
 
-### Engine <---> VDSM Communication scheme
+## Engine <---> VDSM Communication scheme
 
 <Category:Feature>

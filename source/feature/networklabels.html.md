@@ -45,8 +45,6 @@ The feature will use the mass host network configuration feature to achieve it g
 
 ### Documentation / External references
 
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
-
 ### Testing
 
 Explain how this feature may be tested by a user or a quality engineer. List relevant use cases and expected results.

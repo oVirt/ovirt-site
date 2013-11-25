@@ -26,9 +26,13 @@ Due to legacy issue, the protocol that is being used is SSLv3 and not TLS.
 
 ovirt-engine is capable of authenticating using its certificate public key to hosts using SSH protocol. This feature is optional for generic hosts, and mandatory during deploy post registration and upgrade of ovirt-node distribution.
 
-#### ovirt-engine<---->database
+#### ovirt-engine--SSL-->database
 
-Sensitive fields are encrypted using engine certificate, it should have used own certificate but due to legacy reasons it remained the same.
+Based on connection setting, the database connection can use SSL, the trusted certificate authority are the jre trusted certificate authorities at $JAVA_HOME/lib/security/cacerts.
+
+#### ovirt-egnine database fields
+
+Sensitive database fields are encrypted using engine certificate, it should have used own certificate but due to legacy reasons it remained the same.
 
 #### User--SSL-->apache--AJP-->ovirt-engine
 

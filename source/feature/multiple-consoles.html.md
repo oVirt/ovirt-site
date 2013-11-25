@@ -42,9 +42,34 @@ Currently engine sends only `video` device to the vdsm. The `graphics` device is
 
 ### Engine <-> VDSM Communication scheme
 
-#### Current situation
+#### Current situation - pseudocode
 
 *   Engine -> VDSM
+    -   Creating VM
+
+<!-- -->
+
+    // VmInfoBulder class sends this map to VDSM
+    {
+      'display': 'qxl',
+      'devices': {
+          'video': {'type': 'video' , 'device': 'qxl' , 'specParams': {} }
+        ...}
+    }
+
+*   -   Setting VM ticket for console auth
+
+<!-- -->
+
+    // SetVmTicket class
+    {
+      'display': 'qxl',
+      'devices': {
+          'video': {'type': 'video' , 'device': 'qxl' , 'specParams': {} }
+        ...}
+    }
+
+*   VDSM -> Engine
 
 #### Proposal
 

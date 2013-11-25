@@ -12,8 +12,12 @@ wiki_last_updated: 2014-09-15
 
 ### Summary
 
-Network labels allow to tag networks with a label and to use that label on the host's interface, so the label abstracts the networks from the physical interface.
-The network label can be attached to several hosts on different interfaces. Once the host interface is tagged with the label, managing the host configuration for that interface can be done via the network label (by tagging network with the label or by removing network from the label).
+Network labels allow to tag networks with a label and to use that label on the host's interface, so the label abstracts the networks from the physical interface:
+The host network configuration can be done by manipulating the network label:
+
+*   Tagging a network with label will attach that network to all hosts nics which are tagged with that label.
+*   Removing a tag from a network will trigger its removal from all hosts nics which are tagged with that label.
+*   Modifying a network will update all hosts nics which are tagged with that label.
 
 ### Owner
 
@@ -22,7 +26,7 @@ The network label can be attached to several hosts on different interfaces. Once
 
 ### Current status
 
-*   On Design - DRAFT
+*   On Design
 *   Planned for ovirt-engine-3.4
 *   Last updated: ,
 
@@ -32,11 +36,12 @@ Expand on the summary, if appropriate. A couple sentences suffices to explain th
 
 ### Benefit to oVirt
 
-What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
+The main advantages of the feature is to ease and simplify the maintenance of a data-center with multiple hosts.
+The amount of request actions by the administrator are significantly reduced and in a relative simple manner the host network configuration is kept in-sync with the logical network definition.
 
 ### Dependencies / Related Features
 
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
+The feature will use the mass host network configuration feature to achieve it goals: [Edit Provisioned Network](Features/EditProvisionedNetwork)
 
 ### Documentation / External references
 
@@ -46,10 +51,4 @@ Is there upstream documentation on this feature, or notes you have written yours
 
 Explain how this feature may be tested by a user or a quality engineer. List relevant use cases and expected results.
 
-### Comments and Discussion
-
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
-
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
-
-<Category:Feature> <Category:Template>
+<Category:Feature>

@@ -26,9 +26,9 @@ You may also refer to the [simple feature page](Features/Host_Network_QoS).
 
 #### Current Status
 
-*   Target Release: 3.4
+*   Target Release: oVirt 3.4
 *   Status: design
-*   Last updated: November 24th, 2013.
+*   Last updated: November 25th, 2013.
 
 #### Detailed Description
 

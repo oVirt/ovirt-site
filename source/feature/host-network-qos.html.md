@@ -24,9 +24,9 @@ You may also refer to the [detailed feature page](Features/Detailed_Host_Network
 
 #### Current Status
 
-*   Target Release: 3.4
+*   Target Release: oVirt 3.4
 *   Status: design
-*   Last updated: November 17th, 2013.
+*   Last updated: November 25th, 2013.
 
 #### Detailed Description
 
@@ -50,6 +50,6 @@ One oVirt 3.3 feature that could specifically benefit from host-level QoS is [Mi
 
 #### Comments and Discussion
 
-*   On the arch@ovirt.org mailing list.
+On the arch@ovirt.org and users@ovirt.org mailing lists.
 
 <Category:Feature>

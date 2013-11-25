@@ -22,7 +22,7 @@ There are solution to automate the login process via API, this implies that with
 
 ### Why don't we use the network login capabilities of the system?
 
-In theory there should be no need to hijack remote system console, as every modern operating system supports remote login protocol and graphics redirection.
+In theory there should be no need to hijack remote system console, as every modern operating system supports remote login protocol and graphics redirection, in other words there is no need for spice protocols, as we could use native system remote desktop capabilities.
 
 In practice there are no mature Windows based solutions for graphics redirection leveraging the local and remote GPUs.
 

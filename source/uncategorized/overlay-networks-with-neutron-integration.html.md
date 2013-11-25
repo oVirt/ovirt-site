@@ -8,13 +8,15 @@ wiki_last_updated: 2013-12-23
 
 # Overlay Networks with Neutron Integration
 
+## oVirt & Neutron GRE Integration
+
 ![](oVirt_Neutron_GRE.jpeg "oVirt_Neutron_GRE.jpeg")
 
-**Install oVirt 3.3**
+### The oVirt Side
 
-Setup a couple of RHEL 6.5 hosts, run yum update. These will be used to host guests.
+[Install the engine on a host.](Quick Start Guide) Setup a couple of RHEL 6.5 compatible hosts, run yum update. These will be used to host guests. You can use oVirt's GUI to add the hosts now. If you do, you can select 'reinstall' later to install the Neutron agents.
 
-**Install Neutron Controller**
+### Install Neutron Controller
 
 On the RHEL 6.5 host that will be used as the Neutron server, L3 agent and DHCP agent - Install iproute 2 that supports namespaces (For example 2.6.32-130): <https://brewweb.devel.redhat.com/buildinfo?buildID=297968>
 
@@ -70,7 +72,7 @@ Now run:
 
 When using GRE, set the MTU in the Guest to 1400, this will allow for the GRE header and no packet fragmentation. Also you should set TSO to off on the instance machine for outbound traffic to work. This can be done by this command : ethtool -K eth0 tso off . You can create a bash script for init.d to run it at startup.
 
-**oVirt Configuration**
+### oVirt Configuration
 
 On the machine that runs the oVirt engine:
 
@@ -79,21 +81,33 @@ On the machine that runs the oVirt engine:
 
 From the GUI, add Neutron as an external provider
 
-**Hosts Configuration**
+### Hosts Configuration
 
 The next step is to add hosts to oVirt. It requires a few yum repositories.
 
-For VDSM: ovirt-stable
+#### Repositories
 
-For ovs layer 2 agent:
+For VDSM: ovirt-stable for Fedora:
+
+    sudo yum install -y http://resources.ovirt.org/releases/ovirt-release-fedora.noarch.rpm
+
+Or for RHEL:
+
+    sudo yum install -y http://resources.ovirt.org/releases/ovirt-release-el.noarch.rpm
+
+Additionally, for the Open vSwitch layer 2 agent:
 
     sudo yum install -y http://rdo.fedorapeople.org/openstack-havana/rdo-release-havana.rpm
+
+#### Configuration
 
 oVirt can install the layer 2 agent on the host if external provider is selected during host install. However, it is currently broken with OpenStack Havana until <https://bugzilla.redhat.com/show_bug.cgi?id=1019818> is resolved. GRE/VXLAN integration is also not currently supported in 3.3. Until it is fixed, follow these manual steps on each host:
 
 To install layer 2 ovs agent follow the instructions on (Until the bug is fixed):
 
 <http://www.ovirt.org/Features/Detailed_Quantum_Integration#OVS_Agent_installation_steps>
+
+After you complete that set of instructions, please make the following additional modifications:
 
 Edit:
 
@@ -133,11 +147,13 @@ Then restart the agent's service:
 
     service neutron-openvswitch-agent restart
 
+### VDSM Hook
+
 Finally install the oVirt VDSM hook that enables Neutron integration:
 
     yum install vdsm-hook-openstacknet
 
-**Enjoying the Results**
+### Enjoying the Results
 
 1.  Create the desired networks in Neutron
 2.  From oVirt: Import those networks

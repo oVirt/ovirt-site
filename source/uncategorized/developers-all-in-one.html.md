@@ -29,7 +29,7 @@ Currently compatible for working in non-secure mode only.
 ### Installing vdsm
 
       $> git clone http://gerrit.ovirt.org/p/vdsm
-      $> yum install pyflakes python-pep8 automake autoconf
+      $> yum install pyflakes python-pep8 automake autoconf python-devel python-nose
       $> ./autogen.sh --system && ./configure
       $> make rpm
       $> yum localinstall ~/rpmbuild/RPMS/x86_64/vdsm ~/rpmbuild/RPMS/x86_64/vdsm_python ~/rpmbuild/RPMS/noarch/vdsm_cli ~/rpmbuild/RPMS/noarch/vdsm_xmlrpc ~/rpmbuild/RPMS/noarch/vdsm_bootstrap

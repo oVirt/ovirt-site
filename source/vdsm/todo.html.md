@@ -82,6 +82,10 @@ wiki_last_updated: 2015-05-29
 
 ### Features
 
+*   ~~add hooks for network operations~~ - We now have a before/after setupNetworks hook BUT it receives no parameters! It should receive the nets, bonds and options received by the setupNetworks call and (maybe) the running config before the setupNetworks
+
+<!-- -->
+
 *   Support striping for disk images.
 
 <!-- -->
@@ -95,10 +99,6 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   add hooks for network operations
-
-<!-- -->
-
 *   ~~Add configurable QoS controls on vnics <http://libvirt.org/formatdomain.html#elementQoS>~~
 
 <!-- -->
@@ -108,10 +108,6 @@ wiki_last_updated: 2015-05-29
 <!-- -->
 
 *   use <interface type='network'>. In the future, this would allow us to migrate a VM from a bridge-based network to funkier types of networks defined in <http://libvirt.org/formatnetwork.html> <http://gerrit.ovirt.org/#/c/9441/>
-
-<!-- -->
-
-*   ~~make the *macspoof* hook of <https://bugzilla.redhat.com/908704> per vnic, using <http://www.ovirt.org/Features/Device_Custom_Properties>~~
 
 <!-- -->
 

@@ -40,6 +40,12 @@ Currently engine sends only `video` device to the vdsm. The `graphics` device is
 *   The first phase consists of changing modeling the `graphics` device. It should be treated as a regular device. For this both Engine and VDSM must be changed. This would also allow us to set these devices separately (various `video` and `graphics` combinations).
 *   The second phase is to reflect these changes to frontend. There should be a way to configure `graphics` type and `video` type in the New/Edit VM/Template dialog.
 
-## Engine <---> VDSM Communication scheme
+### Engine <-> VDSM Communication scheme
+
+#### Current situation
+
+*   Engine -> VDSM
+
+#### Proposal
 
 <Category:Feature>

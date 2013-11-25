@@ -80,7 +80,7 @@ end
 #activate :drafts
 
 # Enable blog layout for all blog pages
-with_layout :blog_layout do
+with_layout :post do
   page "/blog.html"
   page "/blog/*"
 end

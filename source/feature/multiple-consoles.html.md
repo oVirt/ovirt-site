@@ -44,8 +44,9 @@ Currently engine sends only `video` device to the vdsm. The `graphics` device is
 
 #### Current situation - pseudocode
 
-*   Engine -> VDSM
-    -   Creating VM
+##### Engine -> VDSM
+
+*   -   Creating VM
 
 <!-- -->
 
@@ -66,13 +67,13 @@ Currently engine sends only `video` device to the vdsm. The `graphics` device is
       //todo
     }
 
-*   VDSM -> Engine
+##### VDSM -> Engine
 
 VdsBrokerObjectsBuilder processes these fields:
 
-*   -   displayPort
-    -   displaySecurePort
-    -   displayType - same value as 'display' that is sent from Engine on VM create.
+*   displayPort
+*   displaySecurePort
+*   displayType - same value as 'display' that is sent from Engine on VM create.
 
 #### Proposal
 

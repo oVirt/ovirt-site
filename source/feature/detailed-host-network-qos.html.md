@@ -143,7 +143,7 @@ If the "anonymous" QoS approach is taken (or the "named" approach is implemented
 
 #### Comments and Discussion
 
-On the arch@ovirt.org mailing list.
+On the arch@ovirt.org and users@ovirt.org mailing lists.
 
 #### Open Issues
 

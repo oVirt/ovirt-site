@@ -12,7 +12,8 @@ wiki_last_updated: 2014-09-15
 
 ### Summary
 
-Network labels allow to tag networks with a label and to use that label on the host's interface, so the label abstracts the networks from the physical interface. The network label can be attached to several hosts on different interfaces. Once the host interface is attached with the label, managing the host configuration for that interface can be done via the network label (by tagging network with the label or by removing network from the label)
+Network labels allow to tag networks with a label and to use that label on the host's interface, so the label abstracts the networks from the physical interface.
+The network label can be attached to several hosts on different interfaces. Once the host interface is tagged with the label, managing the host configuration for that interface can be done via the network label (by tagging network with the label or by removing network from the label).
 
 ### Owner
 

@@ -39,13 +39,17 @@ In addition, the feature reduces the risk of having hosts network configuration 
 
 A new property 'apply' will be added to 'Update Network' command which triggers the hosts network configuration sync with the update network definition.
 The 'UpdateNetworkCommand' will be changed to a non-transactive. Its execution will be consisted of 2 steps:
-# Updating the network logical definition on the DB and handles vnic profile accordingly (remove all if network changed to non-vm network).
+# Updating the network logical definition on the DB and handles vnic profile accordingly (remove all if network changed to non-vm network) will run in a new transaction scope.
 
 1.  Applying the network changes by executing a 'setup network' command for each host which the network is assigned to.
 
 The Setup Networks command will use the 'sync network' for the modified network.
 A dedicated multiple action runner will be added to run the 'Setup Networks' commands in parallel.
-Updating the network is blocked for network which is used by VMs. As part of the feature we should permit the change only for networks that aren't used by VMs or the VMs are down.
+Currently, Updating the network is blocked for network which is used by VMs. As part of the feature we should permit the change in these cases:
+
+*   Networks that aren't used by VMs
+*   The VMs are down and the change doesn't include modifying a VM network to a non-VM network.
+
 The feature will be enabled only for 3.1 clusters and above since it relies on the 'Setup Networks' which introduced in 3.1.
 
 #### Phase 2

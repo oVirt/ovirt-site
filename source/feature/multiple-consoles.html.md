@@ -74,6 +74,22 @@ Currently engine sends only `video` device to the vdsm. The `graphics` device is
       //todo
     }
 
+This call will result in adding following devices:
+
+    <graphics
+      autoport="yes"
+      keymap="en-us" 
+      listen="0"
+      passwd="*****"
+      passwdValidTo="1970-01-01T00:00:01"
+      port="-1"
+      type="vnc"/>
+
+    <video>
+        <address bus="0x00" domain="0x0000" function="0x0" slot="0x02" type="pci"/>
+        <model heads="1" type="cirrus" vram="32768"/>
+    </video>
+
 ##### VDSM -> Engine
 
 VdsBrokerObjectsBuilder processes these fields:

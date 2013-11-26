@@ -32,7 +32,36 @@ The host network configuration can be done by manipulating the network label:
 
 ### Detailed Description
 
-Expand on the summary, if appropriate. A couple sentences suffices to explain the goal, but the more details you can provide the better.
+*   A new property 'labels' will be added to the network.
+*   A new property 'labels' will be added to the host interface.
+
+The property 'labels' represents the list of labels that the network/nic are marked with.
+Both network/nics can be marked with few labels.
+ The labels represent a varied list of networks, according to the cluster network assignment:
+\* The network is defined on the data-center level.
+
+*   Network can be attached to a host only if it is assigned to a cluster.
+
+For example:
+
+       label 'users' is tagged on 'red' and 'blue'
+       network 'red' is assigned to cluster A and B. 
+       network 'blue' is assigned to cluster B.
+       
+
+Therefore label 'users' represents only network 'red' in the context of cluster A and represents 'red' and 'blue' in the context of cluster B.
+Once network 'blue' is assigned to cluster A, label 'users' will stand for it as well as for network 'red'. Therefore it should trigger adding the network 'red' to all of the hosts in the cluster which their interfaces are labelled 'users'.
+If network 'blue' will be unassigned from cluster B, label 'users' will represents only network 'red'. Therefore it should trigger the removal of network 'blue' from all of the hosts in the cluster which their interfaces are labelled 'users'.
+ When a change is made to the network labels field, it will trigger an action for all of the hosts which one of their interfaces is labelled with the same label:
+
+       Network 'red' - label A
+       Network 'blue' - labels A,B
+       
+       Host X - eth0 - label A
+       Host Y - bond0 - label A,B
+       
+       * Removing 'label A' from Network A will trigger the removal of 'red' from eth0 (Host X) and from bond0 (Host Y)
+       * Adding network 'green' with label A will trigger the addition of 'green' to eth0 (Host X) and to bond0 (Host Y)
 
 ### Benefit to oVirt
 

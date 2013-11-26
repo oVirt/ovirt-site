@@ -71,9 +71,9 @@ Currently engine sends only `video` device to the vdsm. The `graphics` device is
 
 VdsBrokerObjectsBuilder processes these fields:
 
-*   displayPort - port of graphics framebuffer (no matter if it's SPICE or VNC)
-*   displaySecurePort - SPICE secured graphics port
-*   displayType - same value as 'display' that is sent from Engine on VM create.
+*   `displayPort` - port of graphics framebuffer (no matter if it's SPICE or VNC)
+*   `displaySecurePort` - SPICE secured graphics port
+*   `displayType` - same value as 'display' that is sent from Engine on VM create.
 
 #### Proposal
 
@@ -97,11 +97,11 @@ VdsBrokerObjectsBuilder processes these fields:
 
 In future we'll need to report more ports (for multiple graphics devices). There are various solutions, but for sake of simlicity and backward compatibility I'm inclined in introducing a new field 'additionalDisplayPort' to ports mentioned in [VDSM -> Engine](VDSM -> Engine). The data 'sent' by VDSM would look like this:
 
-*   displayPort - port of first graphics framebuffer - two corner cases might happen
+*   `displayPort` - port of first graphics framebuffer - two corner cases might happen
     -   Both SPICE and VNC are configured: In this case this field would contain _SPICE_ port and the additionalDisplayPort would be dedicated the VNC port
     -   Only VNC is configured: In this case displayPort would contain VNC port and additionalDisplayPort would be empty.
-*   displaySecurePort - SPICE secured graphics port
-*   additionalDisplayPort - port of VNC graphics framebuffer (only used when both SPICE and VNC are configured)
+*   `displaySecurePort` - SPICE secured graphics port
+*   `additionalDisplayPort` - port of VNC graphics framebuffer (only used when both SPICE and VNC are configured)
 
 This behavior is not certainly ideal, but is backward compatible with current version of the engine.
 

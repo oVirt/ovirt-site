@@ -108,9 +108,6 @@ VdsBrokerObjectsBuilder processes these fields "sent" by VDSM:
 
     // New "vmCreate" JSON sent from Engine to VDSM
     {
-        displayPort: -1,
-        displaySecurePort: -1,
-        // engine -> vdsm video device
         'devices': [
           {'device': 'cirrus',
            'type': 'video',

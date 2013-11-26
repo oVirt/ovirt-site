@@ -108,7 +108,7 @@ Results: The new browser tab with noVNC session appears.
 
 *   Install the ovirt-engine-websocket-proxy package
 *   Open a port on the firewall. The default websocket-proxy port is 6100, and you can add it to firewalld by using "firewall-cmd --permanent --add-port=6100/tcp"
-*   Start the ovirt-engine-websocket-proxy service by using "systemctl start ovirt-engine-websocket-proxy.service"
+*   Start the ovirt-engine-websocket-proxy service by using "systemctl start ovirt-websocket-proxy.service"
 *   Using the engine-config command, enable the websocket-proxy by using "engine-config -s WebSocketProxy=<FQDN>:<PORT>" where <FQDN> is the hostname or IP address of your engine, and the port is the port you opened on the firewall.
 *   For the engine-config command to take effect, you must restart the engine service. You can do this by running "systemctl restart ovirt-engine"
 

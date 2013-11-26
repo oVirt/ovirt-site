@@ -10,12 +10,12 @@ class SiteHelpers < Middleman::Extension
       r.sub(/\/$/, '')
     end
 
-    def pretty_date(sometime)
+    def pretty_date(sometime, length = "long")
       return unless sometime
 
       sometime = Time.parse(sometime) if sometime.class == String
 
-      format = "%A %e %B"
+      format = length == "short" ? "%a %e %b" : "%A %e %B"
       format << " %Y" unless sometime.year == Time.now.year
 
       sometime.to_time.strftime(format) rescue ""

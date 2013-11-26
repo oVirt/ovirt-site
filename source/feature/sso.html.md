@@ -173,6 +173,7 @@ This section is written mostly for spice developers to understand the reasoning.
     -   The component can be reused with any stream channel such as vnc or plain tcp connection.
     -   The component can be managed/maintained/reside at spice project or as standalone project.
     -   If the protocol is designed properly, various of guest agent implementation may reuse this component for establishing SSO.
+    -   Easier to debug, and perform integration tests.
 *   sso-guest-agent - guest agent is responsible of accepting the credentials, it is the most complex piece of software in this solution.
     -   pam module.
     -   gdm2 plugin.

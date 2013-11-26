@@ -92,7 +92,7 @@ This call will result in adding following devices:
 
 ##### VDSM -> Engine
 
-VdsBrokerObjectsBuilder processes these fields:
+VdsBrokerObjectsBuilder processes these fields "sent" by VDSM:
 
 *   `displayPort` - port of graphics framebuffer (no matter if it's SPICE or VNC)
 *   `displaySecurePort` - SPICE secured graphics port

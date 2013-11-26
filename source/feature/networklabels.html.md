@@ -68,6 +68,25 @@ If network 'blue' will be unassigned from cluster B, label 'users' will represen
 The main advantages of the feature is to ease and simplify the maintenance of a data-center with multiple hosts.
 The amount of request actions by the administrator are significantly reduced and in a relative simple manner the host network configuration is kept in-sync with the logical network definition.
 
+#### User Experience
+
+*   In 'Add/Edit VM' dialog a new property *labels* will be added.
+*   In 'network main tab' a *labels* column will present the labels.
+*   In Network main tab ---> the 'Hosts sub-tab' will contain a 'labels' column.
+*   In 'Setup Networks' dialog a new property *labels* will be added.
+*   In host interfaces sub-tab a column *labels* will present the labels.
+
+#### REST
+
+TBD
+
+#### Search Engine
+
+For phase 2:
+
+*   A query for all hosts which are labelled with specific label will be supported.
+*   A query for all networks which are labelled with specific label will be supported.
+
 ### Dependencies / Related Features
 
 The feature will use the [Edit Provisioned Network](Features/EditProvisionedNetwork) feature to achieve its goals.

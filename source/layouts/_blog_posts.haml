@@ -4,59 +4,9 @@
   #
   # = partial :blog_posts, locals: locals
 
-  def author_name nickname
-    data.authors[nickname] ? data.authors[nickname].name : nickname
-  end
-
-  def author_link nickname
-    nickname
-  end
-
-  def author_card nickname
-    author = data.authors[nickname]
-
-    if author && author['description']
-      author['description']
-    end
-  end
-
 %section.articles
 
   - page_articles.each do |article|
-
-    %article.post
-
-      %header.post-header
-
-        %h2.post-title
-          - if defined? article.url
-            = link_to article.title, article.url
-          - else
-            = article.title
-
-        .author
-          = author_name article.data.author
-
-        %time{datetime: article.date.iso8601}
-          = pretty_date article.date
-
-      %section.post-content
-        = article.summary 2000000
-
-      %footer.post-meta
-        - if article.data.tags
-          - tags = article.data.tags
-
-          -# Handle a comma-separated list of tags
-          - tags = tags.parse_csv.map{|s| s.strip} if tags.class == String
-
-          .tags
-            Tags:
-
-            %ul.taglist
-            - tags.sort {|a,b| a.downcase <=> b.downcase}.each do |tag|
-              %li= link_to tag, tag_path(tag)
-
-        -# Share
+    = partial :blog_post, locals: {article: article, locals: locals}
 
   = partial :blog_pagination, locals: locals

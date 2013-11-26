@@ -4,19 +4,15 @@
 
     .col-lg-10.col-lg-offset-1
 
-      %h2= current_page.data.title
+      - blog_post = current_page.data.date
 
-      .meta
-        = pretty_date(current_page.data.date)
-        = current_page.data.authors
-        -# current_page.data.authors.split(',').each do |author|
-          = pluralize current_page.data.authors.split(','), "Author:"
-          - each current_page.data.authors.split(',') do |author|
-            %p= author
+      - if blog_post
+        = partial :blog_post, locals: {article: current_page, locals: locals}
 
-      = yield
+        %section#blog-comments
 
-      %section#blog-comments
+      - else
+        = yield
 
   -#
     .col-sm-4

@@ -38,6 +38,23 @@ class SiteHelpers < Middleman::Extension
       content.to_s.gsub(/\n\n/, '!ಠ_ಠ!').gsub(/\n/, ' ').squeeze(' ').gsub(/!ಠ_ಠ!/, "\n\n")
     end
 
+    def demote_headings content
+      h_add = case content
+        when /<h1>/
+          2
+        when /<h2>/
+          1
+        else
+          nil
+      end
+
+      if h_add
+        content.to_str.gsub(/<(\/?)h([1-6])>/) {|m| "<#{$1}h#{$2.to_i + h_add}>"}.html_safe
+      else
+        content
+      end
+    end
+
   end
 end
 

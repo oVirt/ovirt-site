@@ -130,4 +130,16 @@ In future we'll need to report more ports (for multiple graphics devices). There
 
 This behavior is not certainly ideal, but is backward compatible with current version of the engine.
 
+#### Note about backwards compatibility
+
+Firstly, this feature will require certain cluster level (planned for 3.4).
+
+Changes proposed by this page would be backward compatible:
+
+*   'Old' Engine + 'New' VDSM
+    -   *aoeu* 'New' VDSM would still check if incoming vmCreate JSON contains regular graphics device(s), if not, it'd switch to legacy behavior (i.e. using 'display' field in vmCreate JSON).
+    -   
+
+*   'Old' VDSM + 'New' Engine
+
 <Category:Feature>

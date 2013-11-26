@@ -29,7 +29,7 @@
   %header.post-header
 
     %h2.post-title
-      - if defined? article.url
+      - if (defined? article.url) && article.url != current_page.url
         = link_to article.title, article.url
       - else
         = article.title

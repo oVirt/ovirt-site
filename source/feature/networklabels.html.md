@@ -16,7 +16,7 @@ Network labels allow to tag networks with a label and to use that label on the h
 The host network configuration can be done by manipulating the network label:
 
 *   Tagging a network with label will attach that network to all hosts nics which are tagged with that label.
-*   Removing a tag from a network will trigger its removal from all hosts nics which are tagged with that label.
+*   Removing a tag from the network will trigger its removal from all hosts nics which are tagged with that label.
 *   Modifying a network will update all hosts nics which are tagged with that label.
 
 ### Owner

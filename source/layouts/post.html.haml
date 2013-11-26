@@ -7,7 +7,7 @@
       - blog_post = current_page.data.date
 
       - if blog_post
-        = partial :blog_post, locals: {article: current_page, locals: locals}
+        = partial :blog_post, locals: {article: current_page}
 
         %section#blog-comments
 

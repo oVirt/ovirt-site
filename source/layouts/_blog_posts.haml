@@ -7,6 +7,6 @@
 %section.articles
 
   - page_articles.each do |article|
-    = partial :blog_post, locals: {article: article, locals: locals}
+    = partial :blog_post, locals: {article: article}
 
   = partial :blog_pagination, locals: locals

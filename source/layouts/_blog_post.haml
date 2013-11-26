@@ -1,12 +1,11 @@
 :ruby
-  # To use this partial, you must reference this partial like so,
-  # passing locals:
+  # Example invocation (with optional "summarize"):
   #
-  # = partial :blog_post, locals: {article: article, locals: locals}
+  # = partial :blog_post, locals: {article: article, summarize: 300}
   #
   #      ...or include the current_page as article (in some cases):
   #
-  # = partial :blog_post, locals: {article: current_page, locals: locals}
+  # = partial :blog_post, locals: {article: current_page}
 
   def author_name nickname
     data.authors[nickname] ? data.authors[nickname].name : nickname
@@ -45,7 +44,12 @@
         = pretty_date article.date
 
   %section.post-content
-    = article.summary 2000000
+    - if defined? summarize
+      = demote_headings article.summary summarize
+      .read-more
+        = link_to "Read More &raquo;", article.url
+    - else
+      = demote_headings article.body
 
   %footer.post-meta
     - if article.data.tags

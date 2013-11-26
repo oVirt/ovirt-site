@@ -137,9 +137,9 @@ Firstly, this feature will require certain cluster level (planned for 3.4).
 Changes proposed by this page would be backward compatible:
 
 *   'Old' Engine + 'New' VDSM
-    -   *aoeu* 'New' VDSM would still check if incoming vmCreate JSON contains regular graphics device(s), if not, it'd switch to legacy behavior (i.e. using 'display' field in vmCreate JSON).
-    -   
-
+    -   **Engine -> VDSM:** 'New' VDSM would still check if incoming vmCreate JSON contains regular graphics device(s), if not, it'd switch to legacy behavior (i.e. using 'display' field in vmCreate JSON).
+    -   **VDSM -> Engine:** As noted in 'proposal' section, the displayPort and securedDisplayPort would contain same information as with old VDSM.
 *   'Old' VDSM + 'New' Engine
+    -   In this case engine would contain logic that switches behavior of VmInfoBuilder and VdsObjectsBrokerBuilder classes depending on cluster level of given VM.
 
 <Category:Feature>

@@ -166,6 +166,7 @@ This section is written mostly for spice developers to understand the reasoning.
         -   Bidirectional full duplex communication.
         -   Async IO support.
         -   In-process and out-of-process support.
+        -   Windows name pipe is similar to unix domain sockets in this regard.
     -   Reuse - implementation of serial<->usock proxy will enable other components such as those which are outlined above to be implemented with zero effort.
 *   spice-client-sso - once serial<->usock proxy is available, the client component aka spice-client-sso can be implemented to interact with guest and delegate credentials.
     -   The author of this component can be completely detached from spice-gtk implementation considerations, hence we add more potential contributers.

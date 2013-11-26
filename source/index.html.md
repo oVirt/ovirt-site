@@ -114,7 +114,7 @@ You're encouraged to [ join the oVirt community](Community), and help us bring o
 ![](AlterWay.jpg "AlterWay.jpg")
 
 </div>
-Meet [ Alter Way](Alter Way case study), a French hosting company who deploys oVirt in production for their clients, because ""it allowed us to scale up as well as scale out our client workloads".
+Meet [ Alter Way](Alter Way case study), a French hosting company who deploys oVirt in production for their clients, because "it allowed us to scale up as well as scale out our client workloads".
 
 The main points which swayed their decision? "A very active community, an ambitious technical roadmap with regular releases, and the involvement of companies including Red Hat, Intel, NetApp, Cisco and IBM reassured us that the project would be around for the duration."
 

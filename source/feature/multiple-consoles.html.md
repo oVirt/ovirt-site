@@ -112,7 +112,7 @@ VdsBrokerObjectsBuilder processes these fields:
         'devices': [
           {'device': 'cirrus',
            'type': 'video',
-           'deviceId': '0ec7c2b9-62c9-4578-b096-f453b5cfc677', 'address': ..., 'specParams': {'vram': '32768', 'heads': '1'}
+           'deviceId': 'blah', 'address': ..., 'specParams': {'vram': '32768', 'heads': '1'}
           },
           {'device': 'qxl', 'type': 'graphics', 'specParams': {} },  //send graphics as a regular device
           {'device': 'vnc', 'type': 'graphics', 'specParams': {} }  //dtto

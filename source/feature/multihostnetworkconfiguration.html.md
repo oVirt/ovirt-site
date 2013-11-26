@@ -58,7 +58,7 @@ The same behaviour will be added to 'Remove Network' action as well in a similar
 
 A checkbox will be added to the 'Edit Network' dialog with caption 'Apply network change to all hosts'.
 The only supported properties to be apply on the hosts are: vlan, mtu, network type (vm/non-vm) and STP.
-Modifying the network name is permitted, but it will not be applied to hosts. Therefore attempt to modify network name and applying it to hosts will be blocked.
+Modifying the network name is permitted, as long as it was not marked to be applied to hosts. Therefore attempt to modify network name and applying it to hosts will be blocked.
  We may consider as a lower priority to allow the user to specify the list of hosts on which to apply the changes instead of the entire hosts.
 
 #### REST

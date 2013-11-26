@@ -50,12 +50,19 @@ Currently engine sends only `video` device to the vdsm. The `graphics` device is
 
 <!-- -->
 
-    // VmInfoBulder class sends this map to VDSM
+    // "vmCreate" JSON sent from Engine to VDSM
     {
-      'display': 'qxl',
-      'devices': [
-          {'type': 'video' , 'device': 'qxl' , 'specParams': {} }
-        ...]
+        display: 'vnc'
+        displayPort: -1
+        displaySecurePort: -1
+        // engine -> vdsm video device
+        'devices': {
+          'device': 'cirrus',
+          'specParams': {'vram': '32768', 'heads': '1'},
+          'type': 'video',
+          'deviceId': '0ec7c2b9-62c9-4578-b096-f453b5cfc677',
+          'address': ...
+        }
     }
 
 *   -   Setting VM ticket for console auth

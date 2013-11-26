@@ -41,7 +41,8 @@ A new property 'apply' will be added to 'Update Network' command which triggers 
 The 'UpdateNetworkCommand' will be changed to a non-transactive. Its execution will be consisted of 2 steps:
 # Updating the network logical definition on the DB and handles vnic profile accordingly (remove all if network changed to non-vm network) will run in a new transaction scope.
 
-1.  Applying the network changes by executing a 'setup network' command for each host which the network is assigned to.
+1.  Applying the network changes by executing a 'setup networks' command for each host which the network is assigned to.
+2.  Save the network changes to the host upon a successful 'setup networks'
 
 The Setup Networks command will use the 'sync network' for the modified network.
 A dedicated multiple action runner will be added to run the 'Setup Networks' commands in parallel.

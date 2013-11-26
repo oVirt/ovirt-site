@@ -41,12 +41,32 @@ body.archive
   position: static
 
 article.post
-  h2
+  h2:first-child
     padding-top: 2em
 
   &:first-child
-    margin-top: -2em
+    margin-top: -3em
 
-.post-content > p:first-child > img:first-child
-  float: left
-  margin: 0 3ex 1ex 0
+.post-meta
+  color: #777
+
+  /* FIXME: display tags in a nice way
+  /* (For now, we'll just temporarily hide them.)
+  .tags
+    display: none
+
+.post-content
+  margin-top: 2em
+
+  > p:first-child
+
+    > a > img:first-child,
+    > img:first-child
+      float: left
+      margin: 0 3ex 1ex 0
+
+  ul
+    margin: 10px
+
+  li > p
+    margin: 0

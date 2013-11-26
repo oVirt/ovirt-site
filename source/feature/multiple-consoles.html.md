@@ -46,7 +46,7 @@ Currently engine sends only `video` device to the vdsm. The `graphics` device is
 
 ##### Engine -> VDSM
 
-*   -   Creating VM
+*   Creating VM
 
 <!-- -->
 
@@ -63,7 +63,7 @@ Currently engine sends only `video` device to the vdsm. The `graphics` device is
         }, ... // other devices
       ]}
 
-*   -   Setting VM ticket for console auth
+*   Setting VM ticket for console auth
 
 <!-- -->
 

@@ -16,9 +16,15 @@ Let the users define a proxy which will be used by SPICE client to connect to th
 
 ### Detailed Description
 
+There are three places where to set the SPICE proxy up:
+
+*   Global Configuration
+*   Cluster (overrides the global configuration)
+*   VM Pool (overrides global configuration and cluster configuration)
+
 #### Global Configuration
 
-Currently, the only possibility to define a SPICE proxy is using the engine-config tool globally for the whole application. Example:
+The engine-config tool is used to globally configure the SPICE proxy for the whole application. Example:
 
       engine-config -s SpiceProxyDefault=someProxy
        

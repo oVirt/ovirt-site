@@ -58,6 +58,8 @@ The same behaviour will be added to 'Remove Network' action as well in a similar
 
 *   By providing the property 'apply' the network will be removed from all of the hosts which the network is configured on.
 
+We may consider as a lower priority to allow the user to specify the list of hosts/clusters on which to apply the changes instead of the entire hosts.
+
 #### User Experience
 
 A checkbox will be added to the 'Edit Network' dialog with caption 'Apply network change to all hosts'.

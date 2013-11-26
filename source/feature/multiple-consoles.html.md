@@ -144,4 +144,8 @@ Changes proposed by this page would be backward compatible:
 *   'Old' VDSM + 'New' Engine
     -   In this case engine would contain logic that switches behavior of VmInfoBuilder and VdsObjectsBrokerBuilder classes depending on cluster level of given VM.
 
+### Frontend
+
+Nothing interesting so far.
+
 <Category:Feature>

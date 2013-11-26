@@ -66,6 +66,10 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
+*   run developer jobs on patches with +2 and V+1.
+
+<!-- -->
+
 *   extend the former script, so that it runs a complete `` `make distcheck && make install` `` in a confined environment (chroot, VM) and reports if there is an error.
 
 <!-- -->

@@ -38,7 +38,7 @@ There are two libvirt devices that are related to this feature: `video` and `gra
 Currently engine sends only `video` device to the vdsm. The `graphics` device is created according to 'display' element in JSON structure that is sent on createVM. Possible values of this 'display' value are inconsistent (it's either 'vnc' or 'qxl', which doesn't make any sense).
 
 *   The first phase consists of changing modeling the `graphics` device. It should be treated as a regular device. For this both Engine and VDSM must be changed. This would also allow us to set these devices separately (various `video` and `graphics` combinations).
-*   The second phase is to reflect these changes to frontend. There should be a way to configure `graphics` type and `video` type in the New/Edit VM/Template dialog.
+*   The second phase is to reflect these changes to frontend. There should be a way to configure `graphics` type and `video` type in the New/Edit VM/Template dialog. Current frontend implementation of console must be slightly refactored since now the VM doesn't allow SPICE and VNC to be set simultaneously.
 
 ### Engine <-> VDSM Communication scheme
 

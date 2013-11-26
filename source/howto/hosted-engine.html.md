@@ -37,7 +37,7 @@ Assuming you're using ovirt RPMs, you should start with install and deploy:
          # yum install ovirt-hosted-engine-setup
          # hosted-engine --deploy
 
-During the deployment you'll be asked for input on host name, storage path and other relevant information. The installer will configure the system and run an empty VM, so you can install an OS inside:
+During the deployment you'll be asked for input on host name, storage path and other relevant information. The installer will configure the system and run an empty VM. Access the VM and install an OS:
 
          [ INFO  ] Creating VM
                  ...
@@ -46,14 +46,19 @@ During the deployment you'll be asked for input on host name, storage path and o
                  When the installation is completed reboot or shutdown the VM: the system will wait until then
                  Has the OS installation been completed successfully?
 
-After completing this part, we move on to installing the engine in the new VM:
+After completing the OS installation on the VM, return to the host and continue. The installer on the host will sync with the VM and ask for the engine to be installed on the new VM:
 
         [ INFO  ] Creating VM
                  ...
                  ...
                  Please install the engine in the VM, hit enter when finished.
 
-This will take you to completion of the process and having your hosted engine VM up and running!
+On the VM:
+
+         # yum install ovirt-engine
+         # engine-setup
+
+When the engine-setup has completed on the VM, return to the host and complete the configuration. Your hosted engine VM is up and running!
 
 **Notes:**
 

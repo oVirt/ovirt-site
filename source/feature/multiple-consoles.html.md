@@ -100,7 +100,7 @@ VdsBrokerObjectsBuilder processes these fields:
 
 ##### Engine -> VDSM
 
-*   -   Creating VM
+*   Creating VM
 
 <!-- -->
 

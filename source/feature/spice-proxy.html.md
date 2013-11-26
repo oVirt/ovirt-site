@@ -23,6 +23,8 @@ There are three places where to set the SPICE proxy up:
 *   VM Pool (overrides global configuration and cluster configuration)
 *   Disabling any config per VM
 
+If the proxy is set in any of this places and not disabled it will be filled into the Proxy property of the SPICE client by WebAdmin/UserPortal. If the proxy is not set nothing is filled into this property.
+
 #### Global Configuration
 
 The engine-config tool is used to globally configure the SPICE proxy for the whole application. Example:
@@ -34,8 +36,6 @@ To turn the proxy off, just clear it:
 
       engine-config -s SpiceProxyDefault=""
        
-
-If the proxy is set, it will be by default filled into the Proxy property of the SPICE client by WebAdmin/UserPortal. If the proxy is not set, nothing is filled into this property.
 
 #### Cluster
 

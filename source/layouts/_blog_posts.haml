@@ -36,7 +36,6 @@
 
         .author
           = author_name article.data.author
-          =# data.authors
 
         %time{datetime: article.date.iso8601}
           = pretty_date article.date
@@ -45,22 +44,19 @@
         = article.summary 2000000
 
       %footer.post-meta
-        -# Author
-        -# Share
-
         - if article.data.tags
+          - tags = article.data.tags
+
+          -# Handle a comma-separated list of tags
+          - tags = tags.parse_csv.map{|s| s.strip} if tags.class == String
+
           .tags
             Tags:
 
             %ul.taglist
-            - article.data.tags.sort {|a,b| a.downcase <=> b.downcase}.each do |tag|
+            - tags.sort {|a,b| a.downcase <=> b.downcase}.each do |tag|
               %li= link_to tag, tag_path(tag)
 
-        -#.meta
-          = current_page.data.authors
-          -# current_page.data.authors.split(',').each do |author|
-            = pluralize current_page.data.authors.split(','), "Author:"
-            - each current_page.data.authors.split(',') do |author|
-              %p= author
+        -# Share
 
   = partial :blog_pagination, locals: locals

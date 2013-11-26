@@ -52,18 +52,16 @@ Currently engine sends only `video` device to the vdsm. The `graphics` device is
 
     // "vmCreate" JSON sent from Engine to VDSM
     {
-        display: 'vnc'
-        displayPort: -1
-        displaySecurePort: -1
+        display: 'vnc',
+        displayPort: -1,
+        displaySecurePort: -1,
         // engine -> vdsm video device
-        'devices': {
+        'devices': [{
           'device': 'cirrus',
-          'specParams': {'vram': '32768', 'heads': '1'},
           'type': 'video',
-          'deviceId': '0ec7c2b9-62c9-4578-b096-f453b5cfc677',
-          'address': ...
-        }
-    }
+          'deviceId': '0ec7c2b9-62c9-4578-b096-f453b5cfc677', 'address': ..., 'specParams': {'vram': '32768', 'heads': '1'}
+        }, ... // other devices
+      ]}
 
 *   -   Setting VM ticket for console auth
 
@@ -106,15 +104,19 @@ VdsBrokerObjectsBuilder processes these fields:
 
 <!-- -->
 
-    // VmInfoBulder class would send this map to VDSM
+    // New "vmCreate" JSON sent from Engine to VDSM
     {
-      'devices': [
-          {'type': 'video' , 'device': 'qxl' , 'specParams': {} },
-          {'type': 'graphics', 'device': 'spice' , 'specParams': {} },
-          {'type': 'graphics', 'device': 'vnc' , 'specParams': {} }
-        ...]
-      // no 'display'!
-    }
+        displayPort: -1,
+        displaySecurePort: -1,
+        // engine -> vdsm video device
+        'devices': [
+          {'device': 'cirrus',
+           'type': 'video',
+           'deviceId': '0ec7c2b9-62c9-4578-b096-f453b5cfc677', 'address': ..., 'specParams': {'vram': '32768', 'heads': '1'}
+          },
+          {'device': 'qxl', 'type': 'graphics', 'specParams': {} },  //send graphics as a regular device
+          {'device': 'vnc', 'type': 'graphics', 'specParams': {} }  //dtto
+      ]}
 
 ##### VDSM -> Engine
 

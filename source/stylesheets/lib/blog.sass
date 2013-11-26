@@ -34,13 +34,18 @@ body.archive
 
 /** Article
 
-/* Article padding
-
 .singular .hentry, .hentry
   padding: 0
 
 .singular .entry-header .entry-meta, .entry-header .entry-meta
   position: static
+
+article.post
+  h2
+    padding-top: 2em
+
+  &:first-child
+    margin-top: -2em
 
 .post-content > p:first-child > img:first-child
   float: left

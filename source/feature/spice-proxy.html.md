@@ -43,7 +43,7 @@ The global configuration can be overridden on cluster level. In webadmin in the 
 
 #### VM Pool
 
-The global or cluster configuration can be overridden in the VM Pool level. It webadmin in the new/edit pool dialog in the Console side tab (in advanced mode). In REST the "vmpools" has been enriched by a new property "spice_proxy".
+The global or cluster configuration can be overridden in the VM Pool level. In webadmin in the new/edit pool dialog in the Console side tab (in advanced mode). In REST the "vmpools" has been enriched by a new property "spice_proxy".
 
 #### Disabling any config per VM
 

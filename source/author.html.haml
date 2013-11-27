@@ -1,0 +1,31 @@
+:ruby
+  def author_name nickname
+    data.authors[nickname] ? data.authors[nickname].name : nickname
+  end
+
+  def author_card nickname
+    author = data.authors[nickname]
+
+    if author && author['description']
+      author['description']
+    end
+  end
+
+- if author_card author
+  %h2
+    About
+    = author_name author
+  = author_card author
+
+- else
+  %h2
+    Articles from
+    = author_name author
+
+- if pages
+
+  - pages.each do |page|
+    - if (defined? page.title) && (defined? page.published && page.published?)
+
+      -#%li= page.public_methods
+      = partial :blog_post, locals: {article: page, summarize: 400}

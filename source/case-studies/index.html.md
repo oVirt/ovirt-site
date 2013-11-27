@@ -12,6 +12,8 @@ wiki_last_updated: 2015-02-24
 
 We are collecting stories of oVirt users and how they are using the software. We have feedback and experiences from hosting companies, small business and educational institutions, and we are always looking to hear from our users!
 
+<div class="row">
+<div class="span6 pad-left pad-right-small">
 ### Alter Way
 
 ![](AlterWay.jpg "AlterWay.jpg")
@@ -20,10 +22,10 @@ Meet [ Alter Way](Alter Way case study), a French hosting company who deploys oV
 
 The main points which swayed their decision? "A very active community, an ambitious technical roadmap with regular releases, and the involvement of companies including Red Hat, Intel, NetApp, Cisco and IBM reassured us that the project would be around for the duration."
 
-<div class="pull-right">
 Read the full [Alter Way case study](Alter Way case study)
 
 </div>
+<div class="span6 pad-left pad-right-small">
 ### Keele University
 
 ![](Keele logo.png "Keele logo.png")
@@ -34,8 +36,7 @@ Read the full [Alter Way case study](Alter Way case study)
 
 One feature they are looking forward to rolling out to their users is the oVirt user console. "The user console looks great, because it means we can farm out some of the basic admin tasks to people who want to do things like spin up new VMs."
 
-<div style="clear:both; display: inline-block;">
-<div class="pull-right">
 Read the full [Keele University case study](Keele University case study)
 
+</div>
 </div>

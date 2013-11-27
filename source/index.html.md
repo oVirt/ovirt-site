@@ -126,6 +126,10 @@ The main points which swayed their decision? "A very active community, an ambiti
 Read the full [Alter Way case study](Alter Way case study)
 
 </div>
+<div class="pull-right">
+See other [ user case studies](:Category:Case studies)
+
+</div>
 </div>
 </div>
 </div>

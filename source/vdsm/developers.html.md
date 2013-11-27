@@ -354,4 +354,143 @@ You have no tags in your repo. If you want to push your repo from another machin
 
       git push --tags remote 
 
+## Building new releases for Fedora/EPEL with fedpkg
+
+      The following example, we will build 3.3.2 from 3.3.x series.
+
+1) Download vdsm package from Fedora repo
+
+        $ mkdir ~/vdsm-fedora && cd ~/vdsm-fedora
+        $ fedpkg clone vdsm && cd vdsm
+
+Switch the stable branches (at moment f21 is rawhide) and check the last patch added to the build from changelog:
+
+        $ fedpkg switch-branch f20
+        $ vi vdsm.spec
+        
+        Example:
+        * Tue Nov 12 2013 Douglas Schilling Landgraf `<xxx@xxx>` - 4.13.0-11
+        - update from branch ovirt-3.3 which include:
+          upgrade-fix-v3ResetMetaVolSize-argument
+          lvm-Do-not-use-udev-cache-for-obtaining-device-list
+          Fix-ballooning-rules-for-computing-the-minimum-avail
+         Avoid-M2Crypto-races
+         spec-declare-we-provide-an-existing-python-cpopen
+         configuring-selinux-allowing-qemu-kvm-to-generate-co
+`  `<snip>
+
+So, the last patch added to the build 3.3.1 was **configuring-selinux-allowing-qemu-kvm-to-generate-co**, based on that you can use **git format-patch** to generate the patches to be included into next build
+
+2) Download the vdsm tree:
+
+        $ mkdir ~/vdsm-upstream && cd ~/vdsm-upstream
+`  $ git clone `[`git://gerrit.ovirt.org/vdsm`](git://gerrit.ovirt.org/vdsm)
+
+3) Go to branch that hold the patches for 3.3.2, in this case **ovirt-3.3**
+
+        $ git checkout remotes/origin/ovirt-3.3 -b 3.3.2
+        Branch 3.3.2 set up to track remote branch ovirt-3.3 from origin.
+        Switched to a new branch '3.3.2'
+
+3) Select the patches that you want to add to the build using **format-patch**
+
+        Examples:
+        * Last 3 patches:
+`    # git format-patch `**`-3`**
+          0001-fuserTests-fix-for-f20-and-arch.patch
+          0002-Adding-debian-folder-makefile.patch
+          0003-Fix-Makefile.am-in-debian-folder.patch
+
+        * Specifying the commit:
+          # git format-patch `**<commit id>**` -1
+          0001-fuserTests-fix-for-f20-and-arch.patch
+
+In our case, the last patch is **configuring-selinux-allowing-qemu-kvm-to-generate-co**
+
+        $ git format-patch -19
+        0001-Invalidate-filters-on-HSMs-before-rescanning-extende.patch
+        0002-vm-refresh-raw-disk-before-live-extension.patch
+        0003-Renaming-etc-sysctl.d-vdsm-to-etc-sysctl.d-vdsm.conf.patch
+`  `<snip>
+
+Again, why -19 ? Because we are 19 patches behind from version **3.3.1** You can use **git log** to check how many patches we do have after **configuring-selinux-allowing-qemu-kvm-to-generate-co**
+
+      Copy the 19 patches to the  ~/vdsm-fedora dir
+         $ cp *.patch ~/vdsm-fedora dir/vdsm/
+
+4) Build new vdsm with the new patches
+
+         $ cd ~/vdsm-fedora/vdsm/
+         $ vi vdsm.spec
+
+Example:
+
+`  `<snip>
+`  Url:            `[`http://www.ovirt.org/wiki/Vdsm`](http://www.ovirt.org/wiki/Vdsm)
+        # The source for this package was pulled from upstream's vcs.
+        # Use the following commands to generate the tarball:
+`  #  git clone `[`http://gerrit.ovirt.org/p/vdsm`](http://gerrit.ovirt.org/p/vdsm)
+        #  cd vdsm
+        #  git reset --hard {vdsm_release}
+        #  ./autogen.sh --system
+        #  make VERSION={version}-{vdsm_release} dist
+        Source0:        %{vdsm_name}-%{version}%{?vdsm_relttag}.tar.gz
+        # ovirt-3.3.2 patches
+        Patch0:         0001-Invalidate-filters-on-HSMs-before-rescanning-extende.patch
+        Patch1:         0002-vm-refresh-raw-disk-before-live-extension.patch
+        Patch2:         0003-Renaming-etc-sysctl.d-vdsm-to-etc-sysctl.d-vdsm.conf.patch
+        ...
+        Patch18:       0019-Fix-Makefile.am-in-debian-folder.patch
+`  `</snip>
+
+.... continue until the last patch then add the patch macro in the spec for **all patches**
+
+` `<snip>
+       %description gluster
+       Gluster plugin enables VDSM to serve Gluster functionalities.
+       %endif
+       %prep
+       %setup -q
+       # ovirt-3.3.2 patches
+       %patch0 -p1
+       %patch1 -p1
+       %patch2 -p1
+       ...
+       %patch23 -p1
+` `</snip>
+
+**PLEASE NOTE: if the patches touch in spec file, you MUST manually update the FEDORA spec.**
+
+Time to increase the **Release** in the spec and **changelog**
+
+` `<snip>
+       Release:        `**`12`**`%{?dist}%{?extra_release}
+` `</snip>
+
+       %changelog
+       * Thu Nov 28 2013 PERSON_NAME `<xxx@xxx.com>` - 4.13.0-12
+       - lvm: Do not use udev cache for obtaining device list (BZ#1014942)
+       - Fix ballooning rules for computing the minimum available memory (BZ#1025845)
+       ....
+       - Fix Makefile.am in debian folder
+
+Ok, build the new spec locally for initial test:
+
+       $ fedpkg local
+
+Hopefully it worked, now let's make a test build in Koji systems:
+
+` $ fedpkg --dist f19 scratch-build --srpm ~/rpmbuild/SRPM/`<vdsm-package.srpm>
+` $ fedpkg --dist f20 scratch-build --srpm ~/rpmbuild/SRPM/`<vdsm-package.srpm>
+` $ fedpkg --dist el6 scratch-build --srpm ~/rpmbuild/SRPM/`<vdsm-package.srpm>
+
+If it worked correctly, you can use fedpkg import ~/rpmbuild/SRPM/<vdsm-package.srpm> in each branch or use import into master and then git merge in the branches
+
+       $ fedpkg switch-branch f19
+` $ fedpkg import  ~/rpmbuild/SRPM/`<vdsm-package.srpm>
+       $ fedpkg build
+       $ fepkg update
+
+Which fedpkg build will generate a koji url that will provide the RPMs and can be shared to release engineers/testers.
+
 <Category:Vdsm> <Category:Documentation> [Category:Development environment](Category:Development environment)

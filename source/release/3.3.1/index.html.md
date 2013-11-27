@@ -66,6 +66,18 @@ Instructions on how to install it can be found at <http://wiki.gentoo.org/wiki/O
 
 Feedback is welcomed.
 
+### oVirt Node
+
+The updates for oVirt Node can be found [here](http://resources.ovirt.org/releases/3.3/iso/). Images:
+
+*   [Fedora 19 based image](http://resources.ovirt.org/releases/3.3/iso/ovirt-node-iso-3.0.3-1.1.vdsm.fc19.iso)
+
+**Note:** Currently there is only an ISO based on Fedora 19. A CentOS based image will follow.
+
+**Note:** An RPM containing the oVirt Node image is also missing, this currently prevents an update through oVirt Engine.
+
+Upgrade instructions can be found on the [Node_Troubleshooting#Upgrading_oVirt_Node](Node_Troubleshooting#Upgrading_oVirt_Node) page.
+
 ## What's New in 3.3.1?
 
 ### Vnic Profiles

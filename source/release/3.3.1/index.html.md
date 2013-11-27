@@ -120,7 +120,7 @@ New scheduling policies created by administrators are not validated by the syste
 
 The infrastructure allowing users to extend the new scheduler, is based on a service called ovirt-scheduler-proxy. The service's purpose is for RHEV admins to extend the scheduling process with custom python filters, weight functions and load balancing modules.
 
-The daemon is waiting for engine requests using XML-RPC. Engine request may e one of:
+The daemon is waiting for engine requests using XML-RPC. Engine request may be one of:
 
 *   runDiscover: returns an XML containing all available policy units and configurations (configuration is optional).
 *   runFilters: executes a set of filters plugins sequentially (provided as a name list).
@@ -132,9 +132,9 @@ it to the engine.
 
 Any plugin file {NAME}.py the user writes must implement at least one of the functions (do_filter, do_scores, do_balance). These files reside in $PYTHONPATH/ovirt_scheduler/plugins folder, unless changes in the proxy's configuration file /etc/ovirt/scheduler/scheduler.conf. For more information on user code you can check the provided samples.
 
-During the daemon initialization, it will scan this folder to detect user files, and analyze the files for the relevant functionality. The results are kept in the daemon's cache, and provided to the engine when the runDiscover is called. Note that the engine will call it only when it starts up, so in order to introduce a new code, the administrator needs to restart the proxy service, and then RHEV engine.
+During the daemon initialization, it will scan this folder to detect user files, and analyse the files for the relevant functionality. The results are kept in the daemon's cache, and provided to the engine when the runDiscover is called. Note that the engine will call it only when it starts up, so in order to introduce a new code, the administrator needs to restart the proxy service, and then restart the ovirt-engine.
 
-The scheduling proxy is packaged as a separate optional RPM which is not installed by default. After installing it, the admin needs to allow it in RHEV DB by setting ExternalSchedulerEnabled to True using the configuration utility.
+The scheduling proxy is packaged as a separate optional RPM which is not installed by default. After installing it, the admin needs to allow it in ovirt-engine DB by setting ExternalSchedulerEnabled to True using the configuration utility (engine-config).
 
 **Important note:**
 

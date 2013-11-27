@@ -99,3 +99,38 @@ VDSM won't start and /var/log/messages reports detected unhandled Python excepti
 Check the permissions on /var/log/vdsm/vdsm.log. The owner and group should be vdsm:kvm.
 
 ### Usage
+
+## engine-manage-domains
+
+### Adding an IPA domain to ovirt engine
+
+Adding an IPA domain to ovirt engine fails with an error that begins:
+
+      General error has occurednull
+      java.lang.NegativeArraySizeException
+
+We have seen a similar issue with OpenLDAP that required to set the minimum security strength factor (SSF) to 1 instead of the default 0. This default triggers a bug in the Java virtual machine Kerberos support.
+
+IPA uses the 389 directory server, and it also has the possibility to configure this, as described here:
+
+<http://directory.fedoraproject.org/wiki/Minimum_SSF_Setting>
+
+To check that you can run a query like this in your IPA installation:
+
+      # kinit admin
+      # ldapsearch \
+      -H `[`ldap://your_ipa_server`](ldap://your_ipa_server)` \
+      -Y GSSAPI \
+      -LLL \
+      -b 'cn=config' \
+      -s base \
+      nsslapd-minssf
+
+The output will probably be like this:
+
+      dn: cn=config
+      nsslapd-minssf: 0
+
+The important thing there is the value 0. You can try to change it to 1, via LDAP or modifying directly the file /etc/dirsrv/slapd-YOUR-REALM/dse.ldif. Do this with the directory server stopped, and remember how to revert it in case things fail.
+
+From: <http://lists.ovirt.org/pipermail/users/2013-November/017853.html>

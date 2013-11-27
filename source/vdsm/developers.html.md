@@ -320,7 +320,7 @@ Example:
 
        # service vdsmd restart 
 
-After vdsm restarts, you can check to see that your hooks are installed in your host’s “Host Hooks” tab:
+After vdsm restarts, you can check to see that your hooks are installed in your host’s “Host Hooks” tab: ![](Nestedvt hook.png "fig:Nestedvt hook.png")
 
 ### AMD
 

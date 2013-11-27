@@ -125,9 +125,7 @@ The following Guest OS drivers are available:
 
 <vm>
         ...
-`  `<virtio_scsi>
-`     `<enabled>`true|false`</enabled>
-`  `</virtio_scsi>
+`  `<virtio_scsi enabled="true|false"/>
         ...
 </vm>
 

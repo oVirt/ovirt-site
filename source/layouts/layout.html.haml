@@ -53,8 +53,8 @@
           -# Render actual page content
           = yield
 
-        - unless data.page.hide_footer
-          = partial "footer"
+    - unless data.page.hide_footer
+      = partial "footer"
 
     = javascript_include_tag 'application'
 

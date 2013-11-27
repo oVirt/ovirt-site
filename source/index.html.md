@@ -111,7 +111,7 @@ You're encouraged to [ join the oVirt community](Community), and help us bring o
 <div class="span4 pad-left-small pad-right">
 </div>
 <div class="span4 pad-left-small pad-right">
-<div class="well">
+<div class="well well-lg">
 ### User Case Study
 
 <div class="text-center">
@@ -122,13 +122,15 @@ Meet [ Alter Way](Alter Way case study), a French hosting company who deploys oV
 
 The main points which swayed their decision? "A very active community, an ambitious technical roadmap with regular releases, and the involvement of companies including Red Hat, Intel, NetApp, Cisco and IBM reassured us that the project would be around for the duration."
 
+<div style="clear:both; display: inline-block;">
 <div class="pull-right">
 Read the full [Alter Way case study](Alter Way case study)
 
 </div>
 <div class="pull-right">
-See other [ user case studies](:Category:Case studies)
+Find other [ user case studies](:Category:Case studies)
 
+</div>
 </div>
 </div>
 </div>

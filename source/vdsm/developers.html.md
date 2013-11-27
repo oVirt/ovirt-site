@@ -316,7 +316,7 @@ Example:
 
        # yum install -y vdsm-hook-nestedvt 
 
-*   6) Restart vdsm on hypervisor
+*   6) Restart vdsmd on hypervisor
 
        # service vdsmd restart 
 

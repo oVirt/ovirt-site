@@ -476,7 +476,7 @@ Time to increase the **Release** in the spec and **changelog**
 
 Ok, build the new spec locally for initial test:
 
-       $ fedpkg local
+       $ fedpkg local  (or fedpkg srpm)
 
 Hopefully it worked, now let's make a test build in Koji systems:
 

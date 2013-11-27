@@ -384,13 +384,13 @@ So, the last patch added to the build 3.3.1 was **configuring-selinux-allowing-q
 
         Examples:
         * Last 3 patches:
-`    # git format-patch `**`-3`**
+`    $ git format-patch `**`-3`**
           0001-fuserTests-fix-for-f20-and-arch.patch
           0002-Adding-debian-folder-makefile.patch
           0003-Fix-Makefile.am-in-debian-folder.patch
 
         * Specifying the commit:
-          # git format-patch `**<commit id>**` -1
+          $ git format-patch `**<commit id>**` -1
           0001-fuserTests-fix-for-f20-and-arch.patch
 
 In our case, the last patch is **configuring-selinux-allowing-qemu-kvm-to-generate-co**

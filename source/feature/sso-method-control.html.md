@@ -10,17 +10,18 @@ wiki_last_updated: 2013-12-02
 
 # SSO Method Control
 
-SSO Control in the Engine
-
 ## Owner
 
 *   Name: [Frank Kobzik](User:Fkobzik)
 *   Email: <fkobzik@redhat.com>
 
-## Brief description
+## Description
+
+This feature enables user to switch between various SSO methods in the UI. The first version of the patch only allows switching between guest agent SSO (current approach) and disabling SSO.
 
 ## Status
 
-## Detailed descripiton
+*   Backend - review pending (http://gerrit.ovirt.org/#/c/19619/)
+*   Frontend - review pending (http://gerrit.ovirt.org/#/c/19620/)
 
 <Category:Feature>

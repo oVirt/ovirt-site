@@ -356,14 +356,14 @@ You have no tags in your repo. If you want to push your repo from another machin
 
 ## Building new releases for Fedora/EPEL with fedpkg
 
-      The following example, we will build 3.3.2 from 3.3.x series.
+In the following example we will build vdsm-4.13.0 using patches for ovirt-3.3.2
 
-1) Download vdsm package from Fedora repo
+1) Clone vdsm package from Fedora git
 
         $ mkdir ~/vdsm-fedora && cd ~/vdsm-fedora
         $ fedpkg clone vdsm && cd vdsm
 
-Switch the stable branches (at moment f21 is rawhide) and check the last patch added to the build from changelog:
+Switch the stable branches (at moment f21 is **rawhide**) and check the last patch added to the build from changelog:
 
         $ fedpkg switch-branch f20
         $ vi vdsm.spec
@@ -381,7 +381,7 @@ Switch the stable branches (at moment f21 is rawhide) and check the last patch a
 
 So, the last patch added to the build 3.3.1 was **configuring-selinux-allowing-qemu-kvm-to-generate-co**, based on that you can use **git format-patch** to generate the patches to be included into next build
 
-2) Download the vdsm tree:
+2) Clone the vdsm tree:
 
         $ mkdir ~/vdsm-upstream && cd ~/vdsm-upstream
 `  $ git clone `[`git://gerrit.ovirt.org/vdsm`](git://gerrit.ovirt.org/vdsm)
@@ -459,7 +459,7 @@ Example:
        %patch23 -p1
 ` `</snip>
 
-**PLEASE NOTE: if the patches touch in spec file, you MUST manually update the FEDORA spec.**
+*'PLEASE NOTE: if patches are being added to the upstream spec file you MUST manually update the FEDORA spec as well*
 
 Time to increase the **Release** in the spec and **changelog**
 

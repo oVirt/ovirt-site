@@ -342,7 +342,7 @@ Works out of the box.
 
 More info about nested-kvm: <https://github.com/torvalds/linux/blob/master/Documentation/virtual/kvm/nested-vmx.txt>
 
-## Building new releases for Fedora/EPEL with fedpkg
+## Building new releases for Fedora or EPEL with fedpkg
 
 In the following example we will build vdsm-4.13.0 using patches for ovirt-3.3.2
 

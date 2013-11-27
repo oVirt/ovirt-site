@@ -139,7 +139,7 @@ proxy "/.htaccess", "/.htaccess.html", :locals => {}, :ignore => true
 # Add author pages
 ready do
   sitemap.resources.group_by {|p| p.data["author"]}.each do |author, pages|
-    proxy "/blog/author/#{author}.html", "author.html", locals: {author: author, pages: pages}
+    proxy "/blog/author/#{author}.html", "author.html", locals: {author: author, pages: pages} if author
   end
 end
 

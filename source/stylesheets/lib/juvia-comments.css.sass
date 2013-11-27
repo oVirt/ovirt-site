@@ -9,7 +9,7 @@
 /* Juvia structure
 
 .juvia-container
-  margin-top: 5em
+  //margin-top: 5em
 
 .juvia-self-ad
   display: none
@@ -58,6 +58,12 @@
 
 /* Comment
 
+.juvia-comments
+  margin: 3em 0
+
+.juvia-no-comments
+  display: none
+
 .juvia-comment
   @extend .row
   margin:
@@ -67,6 +73,9 @@
 .juvia-avatar
   @extend .col-sm-2
   text-align: right
+
+  img
+    border-radius: 100%
 
 .juvia-author
   @extend .col-sm-6
@@ -88,3 +97,6 @@
     @extend .glyphicon-share-alt
     margin-right: 1ex
     opacity: 0.5
+
+.juvia-preview
+  padding: 3em 0 0

@@ -19,6 +19,8 @@ wiki_last_updated: 2013-12-02
 
 This feature enables user to switch between various SSO methods in the UI. The first version of the patch only allows switching between guest agent SSO (current approach) and disabling SSO.
 
+The feature can be set per VM/Template/Pool via the VM popup dialog.
+
 ## Status
 
 *   Backend - review pending (http://gerrit.ovirt.org/#/c/19619/)

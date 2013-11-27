@@ -18,14 +18,49 @@ To find out more about features which were added in previous oVirt releases, che
 
 ## Install / Upgrade from previous versions
 
-If you're installing oVirt 3.3.1 on a clean host you should read our [Quick Start Guide](Quick Start Guide)
+### Fedora / CentOS / RHEL
 
-If you're upgrading from oVirt 3.2 you should read [oVirt 3.2 to 3.3 upgrade](oVirt 3.2 to 3.3 upgrade)
+If you're installing oVirt 3.3.1 on a clean host you should read our [Quick Start Guide](Quick Start Guide)
 
 If you're upgrading from oVirt 3.3 you should just execute:
 
       # yum update ovirt-engine-setup
       # engine-setup
+
+If you're upgrading from oVirt 3.2 you should read [oVirt 3.2 to 3.3 upgrade](oVirt 3.2 to 3.3 upgrade)
+
+If you're upgrading from oVirt 3.1 you should upgrade to 3.2 before upgrading to 3.3.1. Please read [oVirt 3.1 to 3.2 upgrade](oVirt 3.1 to 3.2 upgrade) before starting the upgrade.
+On CentOS and RHEL: For upgrading to 3.2 you'll need 3.2 stable repository.
+So, first step is disable 3.3 / stable repository and enable 3.2 in /etc/yum.repos.d/ovirt.repo:
+
+      [ovirt-32]
+      name=Stable builds of the oVirt 3.2 project
+`baseurl=`[`http://ovirt.org/releases/3.2/rpm/EL/$releasever/`](http://ovirt.org/releases/3.2/rpm/EL/$releasever/)
+      enabled=1
+      skip_if_unavailable=1
+      gpgcheck=0
+
+Then
+
+      # yum update ovirt-engine-setup
+
+should install ovirt-engine-setup-3.2.3-1.el6.noarch.rpm
+if you have already updated to 3.3.x please use distro-sync or downgrade instead of update.
+Then:
+
+      # engine-upgrade
+
+this will upgrade your system to latest 3.2.
+Once you've all working on 3.2, enable 3.3/stable repository, then just
+
+      # yum update ovirt-engine-setup
+      # engine-setup
+
+will upgrade to latest 3.3.
+
+### Gentoo
+
+Experimental Gentoo support for ovirt-engine-3.3.1 is available at <https://github.com/alonbl/ovirt-overlay>, feedback is welcomed.
 
 ## What's New in 3.3.1?
 

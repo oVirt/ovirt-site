@@ -60,7 +60,11 @@ will upgrade to latest 3.3.
 
 ### Gentoo
 
-Experimental Gentoo support for ovirt-engine-3.3.1 is available at <https://github.com/alonbl/ovirt-overlay>, feedback is welcomed.
+Experimental Gentoo support for ovirt-engine-3.3.1 is available at <https://github.com/alonbl/ovirt-overlay>
+
+Instructions on how to install it can be found at <http://wiki.gentoo.org/wiki/OVirt>
+
+Feedback is welcomed.
 
 ## What's New in 3.3.1?
 

@@ -308,36 +308,13 @@ Example:
 
        # grub2-mkconfig -o /boot/grub2/grub.cfg
 
-*   4) Reboot the system:
+*   4) Install hook for nested virtualization on hypervisor/hypervisors. This will configure both the host and guest for nested KVM. [More details](http://community.redhat.com/testing-ovirt-3-3-with-nested-kvm/):
+
+      # yum install -y vdsm-hook-nestedvt 
+
+*   5) Reboot the system:
 
        # reboot
-
-*   5) Install oVirt Node as guest with virt-manager (or any other distro) and shutdown after the installation
-
-<!-- -->
-
-*   6) Copy the cpu model, vendor and vmx flag from **Hypervisor** to the guest:
-
-       # virsh capabilities  (collecting data from hypervisor)
-        ...
-          <cpu match='exact'>
-            <model>Penryn</model>
-            <vendor>Intel</vendor>
-            <feature policy='require' name='vmx'/>
-          </cpu>
-        ....
-
-Note that I have removed all flags from my Hypervisor, just leaving he vmx but you can use all of them if you want.
-
-Alright, time to add to your virtual machine (**guest**) the vmx flag:
-
-       # vi /etc/libvirt/qemu/ovirt-node-2-5.xml (or virsh edit?)
-        <domain type='kvm'>
-          <cpu match='exact'>
-            <model>Penryn</model>
-            <vendor>Intel</vendor>
-            <feature policy='require' name='vmx'/>
-          </cpu>
 
 Of course, all the above steps could be automated/improved. Fell free to change it.
 

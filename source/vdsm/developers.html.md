@@ -342,18 +342,6 @@ Works out of the box.
 
 More info about nested-kvm: <https://github.com/torvalds/linux/blob/master/Documentation/virtual/kvm/nested-vmx.txt>
 
-## Troubleshooting
-
-### Missing dependencies on RHEL 6.4
-
-Since c0729453573, vdsm requires newer libvirt and selinux-policy packages, which are not available yet in RHEL or Centos repositories, and is not kept in ovirt repositories (such as ovirt-nightly).
-
-### autogen.sh fails with "package version not defined"
-
-You have no tags in your repo. If you want to push your repo from another machine, you must also push the tags:
-
-      git push --tags remote 
-
 ## Building new releases for Fedora/EPEL with fedpkg
 
 In the following example we will build vdsm-4.13.0 using patches for ovirt-3.3.2
@@ -492,5 +480,17 @@ If it worked correctly, you can use fedpkg import ~/rpmbuild/SRPM/<vdsm-package.
        $ fepkg update
 
 Which fedpkg build will generate a koji url that will provide the RPMs and can be shared to release engineers/testers.
+
+## Troubleshooting
+
+### Missing dependencies on RHEL 6.4
+
+Since c0729453573, vdsm requires newer libvirt and selinux-policy packages, which are not available yet in RHEL or Centos repositories, and is not kept in ovirt repositories (such as ovirt-nightly).
+
+### autogen.sh fails with "package version not defined"
+
+You have no tags in your repo. If you want to push your repo from another machine, you must also push the tags:
+
+      git push --tags remote 
 
 <Category:Vdsm> <Category:Documentation> [Category:Development environment](Category:Development environment)

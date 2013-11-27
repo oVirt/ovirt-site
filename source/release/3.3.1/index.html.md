@@ -101,13 +101,8 @@ The new oVirt scheduler serves VM scheduling requests during VM running or migra
 **Scheduling policy elements**:
 
 *   Filter: a basic logic unit which filters out hypervisors who do not satisfy the hard constraints for placing a given VM.
-*   Weight function: a function that calculates a score to a given host based on its internal logic. This is a way to implement soft constraints in the
-
-scheduling process. Since these are weights, low score is considered to be better.
-
-*   Load balancing module: code implementing a logic to distribute the load. So far the definition of load was mostly CPU
-
-related, so migrating a VM would help to resolve that. The new scheduler allows users to write their own logic to handle other load types (network, I/O, etc) by other means such as integrating with 3rd party systems.
+*   Weight function: a function that calculates a score to a given host based on its internal logic. This is a way to implement soft constraints in the scheduling process. Since these are weights, low score is considered to be better.
+*   Load balancing module: code implementing a logic to distribute the load. So far the definition of load was mostly CPU related, so migrating a VM would help to resolve that. The new scheduler allows users to write their own logic to handle other load types (network, I/O, etc) by other means such as integrating with 3rd party systems.
 
 **Scheduling process description**
 

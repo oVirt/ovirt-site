@@ -308,13 +308,17 @@ Example:
 
        # grub2-mkconfig -o /boot/grub2/grub.cfg
 
-*   4) Install hook for nested virtualization on hypervisor/hypervisors. This will configure both the host and guest for nested KVM. [More details](http://community.redhat.com/testing-ovirt-3-3-with-nested-kvm/):
-
-      # yum install -y vdsm-hook-nestedvt 
-
-*   5) Reboot the system:
+*   4) Reboot the system:
 
        # reboot
+
+*   5) Install hook for nested virtualization on hypervisor/hypervisors. This will configure both the host and guest for nested KVM. [More details](http://community.redhat.com/testing-ovirt-3-3-with-nested-kvm/):
+
+       # yum install -y vdsm-hook-nestedvt 
+
+*   6) Restart vdsm on hypervisor
+
+       # service vdsmd restart 
 
 ### AMD
 

@@ -9,13 +9,10 @@
 
   %ul.pagination
 
-    %li{:class => prev_page ? "" : "disabled"}
-
-      - if prev_page
-        =link_to "Newer", prev_page.url
-
-      - else
-        -#%span Prev
+    - if prev_page
+      %li
+        - if prev_page
+          =link_to "Newer", prev_page.url
 
     - (page_number - 4 .. page_number + 4).select{|i| i > 0 && i <= num_pages}.each do |i|
 
@@ -30,10 +27,6 @@
           - (page_number ... i).each do p = p ? p.metadata[:locals]['next_page'] : next_page; end
           =link_to "#{i}", (p && p.url)
 
-    %li{:class => next_page ? "" : "disabled"}
-
-      - if next_page
+    - if next_page
+      %li
         =link_to "Older", next_page.url
-
-      - else
-        -#%span Next

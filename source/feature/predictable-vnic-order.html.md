@@ -58,7 +58,7 @@ Without predictable vNIC order, the cloned VM may have eth0 leading to BLUE, and
 
 #### Transactional MAC allocation
 
-When a VM is first created, or is cloned from a template, make sure that [mac] matches [name]. This leads to a predictable [name]-[mac]-[pci] mapping, which in sane, clean guests, leads to predictable [name]-[guest].
+mac addresses should not be allocated when a vNIC is first added to the VM. Only when a VM is first run, or is cloned from a template, allocate all addresses and make sure that [mac] matches [name]. This leads to a predictable [name]-[mac]-[pci] mapping, which in sane, clean guests, leads to predictable [name]-[guest].
 
 Cons:
 
@@ -70,7 +70,7 @@ Cons:
 
 <!-- -->
 
-*   Does not give explicit control on [boot]
+*   Does not give explicit control on [boot], but nic1 boots first on template and on clones.
 
 Pros:
 

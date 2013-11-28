@@ -95,7 +95,8 @@ Pros:
 
 Cons:
 
-*   requires intimacy with each guest OS.
+*   Requires intimacy with each guest OS.
+*   Guests that already have a predictable naming convention are going to suffer unneeded level of complexity.
 
 ### User Experience
 

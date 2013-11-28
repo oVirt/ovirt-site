@@ -71,8 +71,11 @@ The network label should contain only numbers, digits, dash or underscore (compl
 
 #### Adding a network label
 
-If the host interface is the first to be labelled and later on a new network is labelled with the same label, the 'Add Network' action will trigger the attachment of the network to all of the hosts.
-If the network is labelled prior to labelling the the host interface, labelling the interface will be done as part of the 'Setup Networks' action. The 'Setup Networks' will be the responsible to convert the label into the appropriate list of networks it represents and to validate the correctness of the label.
+When the host interface is the first to be labelled and later on a new network is labelled with the same label, the 'Add Network' action will trigger the attachment of the network to all of the hosts.
+When the network is labelled prior to labelling the the host interface, labelling the interface will be done as part of the 'Setup Networks' action. The 'Setup Networks' will be the responsible to translate the label into the appropriate list of networks it represents and to validate the correctness of the label.
+
+If the network is labelled with 2 labels and on of these labels already tagged on the host, tagging the host with the second label will have no impact on the host.
+Removing that label will also have no impact on the host.
 
 #### Deleting a network label
 

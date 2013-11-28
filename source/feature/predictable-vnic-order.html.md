@@ -97,6 +97,7 @@ Cons:
 
 *   Requires intimacy with each guest OS.
 *   Guests that already have a predictable naming convention are going to suffer unneeded level of complexity.
+*   Not workable for guests based on the blank template, or when the guest host is re-installed.
 
 ### User Experience
 

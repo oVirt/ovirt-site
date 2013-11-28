@@ -85,7 +85,10 @@ A network label can be removed either by updating the network and removing the l
 The property 'Apply to all hosts' (introduced in [Edit Provisioned Network feature](Features/EditProvisionedNetwork#Phase_1)) will be reused in 'Update Network' operation to notate the network should be removed from all of the hosts.
 Deleting the label from the host interface will not cause the removal of the networks which are already attached to that interface. However, it will cause the host interface not to be managed according to that label any more.
 
-#### Deleting a network label
+#### Renaming a network label
+
+This actions is considered as adding and removing of a network label.
+In order not to cause the removal of the network from all of the hosts, rename should be done on the hosts first, or not to mark the 'Apply to all hosts' checkbox when renaming the label on 'Edit Network'.
 
 #### Changes to 'Setup Networks' api
 

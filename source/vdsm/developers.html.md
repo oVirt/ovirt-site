@@ -405,7 +405,7 @@ Again, why -19 ? Because we are 19 patches behind from version **3.3.1** You can
 
 Copy the 19 patches to the ~/vdsm-fedora dir
 
-         $ cp *.patch ~/vdsm-fedora dir/vdsm/
+         $ cp *.patch ~/vdsm-fedora/vdsm
 
 4) Build new vdsm with the new patches
 

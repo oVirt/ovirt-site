@@ -50,7 +50,7 @@ Another, somewhat related problem, is the need to control the boot order [boot].
 
 ### Benefit to oVirt
 
-Assume that we have two networks. RED is classified, and BLUE is public. We would like to have several intrusion detection VMs, monitoring BLUE and sending reports to RED. We create such a VM, find out that eth0 leads to RED and eth1 leads to BLUE, and configure our application appropriately. We create a template from it, and clone a VM there.
+Assume that we have two networks. RED is classified, and BLUE is public. We would like to have several intrusion detection VMs, monitoring BLUE and sending reports to RED. We create such a VM, find out that eth0 leads to RED and eth1 leads to BLUE, and configure our application appropriately. We create a template from the VM, and clone another VM from it.
 
 Without predictable vNIC order, the cloned VM may have eth0 leading to BLUE, and our IDS would leak information from the classified network to the public one. That's bad.
 

@@ -112,7 +112,44 @@ The amount of request actions by the administrator are significantly reduced and
 
 #### REST
 
-TBD
+Defining network label on host level is done via POST */api/hosts/{host:id}/nics/setupnetworks* :
+
+<action>
+`  `<host_nics>
+`    `<host_nic>
+`      `<network_labels>
+`        `<network_label>`lbl1`</network_label>
+`        `<network_label>`lbl2`</network_label>
+`        `<network_label>`lbl3`</network_label>
+`      `</network_labels>
+          ...
+`    `</host_nic>
+          ...
+` `</host_nics>
+</action>
+
+The host interface will also contain the network labels when performing GET for an interface which is labelled in */api/hosts/{host:id}/nics/{nic:id}* :
+
+` `<host_nic>
+`   `<network_labels>
+`     `<network_label>`lbl1`</network_label>
+`     `<network_label>`lbl2`</network_label>
+`     `<network_label>`lbl3`</network_label>
+`   `</network_labels>
+         ...
+` `</host_nic>
+
+On the network level either via POST to */api/networks/* or via PUT to */api/networks/{network:id}*:
+
+` `<network>
+         ...
+`   `<network_labels>
+`     `<network_label>`lbl1`</network_label>
+`     `<network_label>`lbl2`</network_label>
+`     `<network_label>`lbl3`</network_label>
+`   `</network_labels>
+         ...
+` `<network>
 
 #### Search Engine
 

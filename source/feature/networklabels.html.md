@@ -108,11 +108,18 @@ The amount of request actions by the administrator are significantly reduced and
 
 #### User Experience
 
-*   In 'Add/Edit VM' dialog a new property *labels* will be added.
-*   In 'network main tab' a *labels* column will present the labels.
 *   In Network main tab ---> the 'Hosts sub-tab' will contain a 'labels' column.
 *   In 'Setup Networks' dialog a new property *labels* will be added.
 *   In host interfaces sub-tab a column *labels* will present the labels.
+
+For managing labels on network level: Alternative 1:
+
+*   In 'Add/Edit VM' dialog a new property *labels* will be added.
+*   In 'network main tab' a *labels* column will present the labels.
+
+Alternative 2:
+
+*   In 'Add/Edit VM' dialog a 'labels' left tab will be added, using the Add/Remove row widget to manage the labels.
 
 #### REST
 

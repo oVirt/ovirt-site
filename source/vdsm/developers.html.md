@@ -448,7 +448,7 @@ Example:
        %patch23 -p1
 ` `</snip>
 
-**PLEASE NOTE**: if patches are being added to the upstream spec file you MUST manually update the FEDORA spec as well
+**PLEASE NOTE**: if changes/patches are being added to the upstream spec file you MUST manually update the FEDORA spec as well
 
 Time to increase the **Release** in the spec and **changelog**
 

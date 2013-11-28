@@ -8,8 +8,6 @@ wiki_last_updated: 2013-11-28
 
 # Networks
 
-## Introduction
-
 Networking in oVirt comprises of several layers:
 
 *   The logical network definition (Data center + cluster network)
@@ -26,9 +24,24 @@ The first and foremost container of a network is the data center. The data cente
 
 The availabke fields of a network entity represent the L2 properties that can be set on the network:
 
-*   Name - used to identify the network (propogates to the hosts)
-*   VLAN tag - If selected, the specific VLAN tag to use, otherwise traffic is untagged (No 802.1Q field in the frame header)
-*   VM network - If selected, the network can be consumed by VMs (via vNIC profiles), otherwise it is not consumable by VMs (See hosts section for more details)
+*   Name
+    -   Used to identify the network (propogates to the hosts)
+*   VLAN tag
+    -   If selected, the specific VLAN tag to use, otherwise traffic is untagged (No 802.1Q field in the frame header)
+*   VM network
+    -   If selected, the network can be consumed by VMs (via vNIC profiles), otherwise it is not consumable by VMs
+    -   Non-VM networks are implemented without a bridge, so their performance is faster and also can be combined with VLAN networks on the same NIC (more on this in the hosts section)
+        -   This is useful for
 *   MTU - If specified, this MTU will be used, otherwise the OS default (usually 1500) of the host is used
 
 Optionally, it's possible to export the network to an external provider upon creation. This topic is covered by the [Features/Detailed_OSN_Integration](Features/Detailed_OSN_Integration) feature and includes extra configuration to work.
+
+### The Attachment of a Network to a Cluster
+
+In order to be able to actually use the network, you must attach it to the cluster first. Once a network is attached to the cluster, you can use it in VMs and templates, and set it up on the hosts.
+
+The cluster attachment allows these usages of a network:
+
+*   Required/Non-Required
+    -   Required networks cause the hosts to go to Non-Operational state if they don't have the network, while Not-Required networks are more flexible.
+    -   However, if the network is used by a VM and is marked as non required, only those hosts in the cluster that have the network will be able to run it.

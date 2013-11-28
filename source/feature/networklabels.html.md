@@ -76,6 +76,8 @@ When the network is labelled prior to labelling the the host interface, labellin
 
 If the network is labelled with 2 labels and on of these labels already tagged on the host, tagging the host with the second label will have no impact on the host.
 Removing that label will also have no impact on the host.
+ Defining a network label on network indicates the administrator enhances the usage of the network labels feature to apply a network to all of the hosts carrying the same label on their interfaces.
+Hence, no need to specify explicitly the desire to add the network to all of the hosts (i.e. by property 'Apply to all hosts').
 
 #### Deleting a network label
 

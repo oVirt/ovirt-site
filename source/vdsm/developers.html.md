@@ -477,6 +477,7 @@ If it worked correctly, you can use fedpkg import ~/rpmbuild/SRPM/<vdsm-package.
 
        $ fedpkg switch-branch f19
 ` $ fedpkg import  ~/rpmbuild/SRPM/`<vdsm-package.srpm>
+       $ fedpkg commit -p
        $ fedpkg build
        $ fepkg update
 

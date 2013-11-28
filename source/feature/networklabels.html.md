@@ -92,6 +92,12 @@ In order not to cause the removal of the network from all of the hosts, rename s
 
 #### Changes to 'Setup Networks' api
 
+The host interface entity will be extended with a set of labels.
+'Setup Networks' api will support both labelling and attaching networks the interface/bond.
+At the first step of the 'Setup Networks' parameters validation, a translation of the labels to a list of networks will be done.
+The administrator will be capable to remove a network attached to the interface, even if the network and the interface itself are labelled.
+If the label remains on the host, next action on that network marked to be applied to all hosts will add that network to the host.
+
 #### Network Label constraints
 
 The network labels feature relies on the 'Setup Networks' api to configure the networks on the hosts.

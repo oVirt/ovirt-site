@@ -30,8 +30,9 @@ The availabke fields of a network entity represent the L2 properties that can be
     -   If selected, the specific VLAN tag to use, otherwise traffic is untagged (No 802.1Q field in the frame header)
 *   VM network
     -   If selected, the network can be consumed by VMs (via vNIC profiles), otherwise it is not consumable by VMs
-    -   Non-VM networks are implemented without a bridge, so their performance is faster and also can be combined with VLAN networks on the same NIC (more on this in the hosts section)
-        -   This is useful for
+    -   Non-VM networks are implemented without a bridge, so:
+        -   Their performance is faster
+        -   They can be combined with VLAN networks on the same NIC (more on this in the hosts section)
 *   MTU - If specified, this MTU will be used, otherwise the OS default (usually 1500) of the host is used
 
 Optionally, it's possible to export the network to an external provider upon creation. This topic is covered by the [Features/Detailed_OSN_Integration](Features/Detailed_OSN_Integration) feature and includes extra configuration to work.

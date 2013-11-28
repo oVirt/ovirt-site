@@ -16,7 +16,7 @@ Networking in oVirt comprises of several layers:
 
 This document will try to cover the various networking aspects and some basic usages.
 
-## The Logical Network Difeinitions
+## The Logical Network Definitions
 
 ### The Data Center Networks
 

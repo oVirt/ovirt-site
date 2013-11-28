@@ -51,12 +51,6 @@ this feature will enable this powerful use cases:
 | VDSM      | hook support - is it needed for this feature?                                                                                     | 0           |
 | VDSM      | check migration of a VM that was hotplugged with cpus and remigrate it (not sure changes needed)                                  | 0           |
 
-| Header text | Header text | Header text |
-|-------------|-------------|-------------|
-| Example     | Example     | Example     |
-| Example     | Example     | Example     |
-| Example     | Example     | Example     |
-
 ### Dependencies / Related Features
 
 KVM support for hot plug libvirt support for hotattach device

@@ -81,6 +81,9 @@ Hence, no need to specify explicitly the desire to add the network to all of the
 
 #### Deleting a network label
 
+A network label can be removed either by updating the network and removing the label or by removing the label from the host interface.
+A new property 'Apply to all hosts' should be added to this operation to note the network should be removed from all of the hosts.
+
 #### Deleting a network label
 
 #### Changes to 'Setup Networks' api

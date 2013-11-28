@@ -96,36 +96,103 @@ Details subject to change:
 
 **API Design**
 
-Details TBD, maybe something like this:
+Example of usage:
 
 <vm>
        ...
-`   `<initialization type='cloud-init'>
-`       `<network>
-`           `<interface name='eth0'>
-`               `<proto>`static`</proto>
-`               `<ip>`192.168.0.25`</ip>
-`               `<netmask>`24`</netmask>
-`               `<gateway>`192.168.0.1`</gateway>
-`               `<onboot>`true`</onboot>
-`               `<dns-nameservers>
-`                  `<dns-nameserver>`192.168.0.1`</dns-nameserver>
-`               `</dns-nameservers>
-`               `<dns-search>`domain.com`</dns-search>
-`           `</interface>
-`       `</network>
-`       `<hostname>`vm01`</hostname>
+`    `<initialization>
+`     `<cloud_init>
+`       `<host>
+               
+
+<address>
+cloudInitInstanceName
+
+</address>
+`       `</host>
 `       `<authorized_keys>
-`           `<key user='root'>`ssh-rsa AAAAB3Nza[...]sODU/NH+w== user@domain.com`</key>
+`         `<authorized_key>
+`           `<user>
+`             `<user_name>`root`</user_name>
+`           `</user>
+`           `<key>`ssh-rsa AAAAB3Nza[...]75zkdD user@domain.com`</key>
+`         `</authorized_key>
 `       `</authorized_keys>
-`       `<timezone>`Antarctica/South_Pole`</timezone>
+`       `<regenerate_ssh_keys>`true`</regenerate_ssh_keys>
+`       `<timezone>`Asia/Jerusalem`</timezone>
+`       `<users>
+`         `<user>
+`           `<user_name>`root`</user_name>
+`           `<password>`myPass`</password>
+`         `</user>
+`       `</users>
+`       `<network>
+`         `<nics>
+`           `<nic>
+`             `<name>`eth0`</name>
+`             `<boot_protocol>`STATIC`</boot_protocol>
+`             `<network>
+`               `<ip address="192.168.2.11" netmask="255.255.0.0" gateway="192.168.2.1" />
+`             `</network>
+`             `<on_boot>`true`</on_boot>
+`           `</nic>
+`           `<nic>
+`             `<name>`eth1`</name>
+`             `<boot_protocol>`DHCP`</boot_protocol>
+`           `</nic>
+`           `<nic>
+`             `<name>`eth2`</name>
+`             `<boot_protocol>`NONE`</boot_protocol>
+`             `<on_boot>`true`</on_boot>
+`           `</nic>
+`         `</nics>
+`         `<dns>
+`           `<servers>
+`             `<host>
+                     
+
+<address>
+1.1.2.2
+
+</address>
+`             `</host>
+`             `<host>
+                     
+
+<address>
+1.2.3.4
+
+</address>
+`             `</host>
+`           `</servers>
+`           `<search_domains>
+`             `<host>
+                     
+
+<address>
+qa.lab
+
+</address>
+`             `</host>
+`             `<host>
+                     
+
+<address>
+google.com
+
+</address>
+`             `</host>
+`           `</search_domains>
+`         `</dns>
+`       `</network>
 `       `<files>
-`           `<file>
-`               `<path>`/usr/local/bin/hello.py`</path>
-`               `<permissions>`0777`</permissions>
-`               `<content encoding='base64'>`IyEvdXNyL2Jpbi9weXRob24KcHJpbnQgJ0hlbGxvIFdvcmxkIScK`</content>
-`           `</file>
+`         `<file>
+`           `<name>`/tmp/testFile1.txt`</name>
+`           `<content>`temp content`</content>
+`           `<type>`PLAINTEXT`</type>
+`         `</file>
 `       `</files>
+`     `</cloud_init>
 `   `</initialization>
 </vm>
 

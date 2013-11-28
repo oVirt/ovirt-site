@@ -36,6 +36,27 @@ this feature will enable this powerful use cases:
 *   allow utilizing spare hardware - its common to see systems overdimentioned x3 for an average max load
 *   allow dynamically to scale vertically, down or up, a system hardware according to needs \*without restarting\* the VM
 
+### changes
+
+| Component | requirement                                                                                                                       | completed   |
+|-----------|-----------------------------------------------------------------------------------------------------------------------------------|-------------|
+| Engine    | add a new Vds command setNumberOfCpus VmId: Guid, numberOfCpus: int                                                               | 0           |
+| Engine    | UpdateVmCommand permits number of cpus change while VM is running                                                                 | 0           |
+| Engine    | UpdateVmCommand canDo fail if # of cpus is not supported on host (config value?, get the actual number from caps?)               | 0           |
+| Engine    | UpdateVmCommand send setNumberOfCpus verb when cpus changes                                                                       | 0           |
+| Engine    | UpdateVmCommand stores the new number of CPUs only if the call to setNumberOfCpus succeeded AND in a different db call            | 0           |
+| Engine    | create informative Audit log when setNumberOfCpus fails                                                                           | 0           |
+| VDSM      | create one new verb 'setNumberOfCpus'. it would be used for both plug/unplug cpus (its really "online" a cpu rather than hotplug) | patch ready |
+| VDSM      | in vm.py, bind the verb to an underling call to libvirt's setVcpus                                                                | patch ready |
+| VDSM      | hook support - is it needed for this feature?                                                                                     | 0           |
+| VDSM      | check migration of a VM that was hotplugged with cpus and remigrate it (not sure changes needed)                                  | 0           |
+
+| Header text | Header text | Header text |
+|-------------|-------------|-------------|
+| Example     | Example     | Example     |
+| Example     | Example     | Example     |
+| Example     | Example     | Example     |
+
 ### Dependencies / Related Features
 
 KVM support for hot plug libvirt support for hotattach device

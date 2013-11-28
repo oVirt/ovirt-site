@@ -40,10 +40,19 @@ Optionally, it's possible to export the network to an external provider upon cre
 
 ### The Attachment of a Network to a Cluster
 
-In order to be able to actually use the network, you must attach it to the cluster first. Once a network is attached to the cluster, you can use it in VMs and templates, and set it up on the hosts.
+In order to be able to actually use the network, you must attach it to the cluster first. Once a network is attached to the cluster, you can use it in VMs and templates, and set it up on the hosts. The attachment also denotes special roles this network has (by default the management network performs all these, but oVirt offers flexibility to separate them).
 
 The cluster attachment allows these usages of a network:
 
 *   Required/Non-Required
     -   Required networks cause the hosts to go to Non-Operational state if they don't have the network, while Not-Required networks are more flexible.
+        -   This behaviour happens only if the network state is "Operational" which is reached once all hosts in the cluster have it (so that when deploying new network, all existing hosts will not turn non-operational).
     -   However, if the network is used by a VM and is marked as non required, only those hosts in the cluster that have the network will be able to run it.
+*   Display Network
+    -   This network will be used to transfer the display (VNC/Spice) data from the VMs.
+        -   The network must exist on a host AND have an IP in order to run VMs, otherwise the host won't be able to run VMs.
+    -   If no network is selected on a cluster, the management network is used.
+*   Migration Network
+    -   This network will be used to transfer the migration data when a VM is live-migrating.
+        -   If network doesn't exist on source or destination host, the management network will be used.
+    -   If no network is selected on a cluster, the management network is used.

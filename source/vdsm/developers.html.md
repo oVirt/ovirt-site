@@ -351,7 +351,7 @@ In the following example we will build vdsm-4.13.0 using patches for ovirt-3.3.2
         $ mkdir ~/vdsm-fedora && cd ~/vdsm-fedora
         $ fedpkg clone vdsm && cd vdsm
 
-Switch the stable branches (at moment f21 is **rawhide**) and check the last patch added to the build from changelog:
+Switch the stable branches (at moment f21 is **rawhide**, not stable) and check the last patch added to the build from changelog:
 
         $ fedpkg switch-branch f20
         $ vi vdsm.spec

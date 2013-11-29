@@ -476,7 +476,7 @@ Hopefully it worked, now let's make a test build in Koji systems:
 If it worked correctly, you can use fedpkg import ~/rpmbuild/SRPM/<vdsm-package.srpm> in each branch or use import into master and then git merge in the branches
 
        $ fedpkg switch-branch f19
-` $ fedpkg import  ~/rpmbuild/SRPM/`<vdsm-package.srpm>
+       $ fedpkg import  ~/rpmbuild/SRPM/`<vdsm-package.srpm>`  (you can import f20 build into f19 for example, it will be build again anyway)
        $ fedpkg commit -p
        $ fedpkg build
        $ fepkg update

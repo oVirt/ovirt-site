@@ -11,8 +11,8 @@
     data.authors[nickname] ? data.authors[nickname].name : nickname
   end
 
-  def author_link nickname
-    link_to (author_name nickname), "/blog/author/#{nickname}/"
+  def author_link nickname, text = author_name(nickname)
+    link_to text, "/blog/author/#{nickname}/"
   end
 
   def author_card nickname
@@ -22,6 +22,10 @@
       author['description']
     end
   end
+
+  ###
+
+  author = article.data.author
 
 %article.post
 
@@ -64,5 +68,17 @@
         %ul.taglist
         - tags.sort {|a,b| a.downcase <=> b.downcase}.each do |tag|
           %li= link_to tag, tag_path(tag)
+
+    - if author
+
+      .author
+
+        %h2
+          About
+          = author_name author
+
+        .author-blurb= author_card author
+
+        = author_link(author, "View all posts by #{author_name author} &raquo;")
 
     -# Share

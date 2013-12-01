@@ -26,19 +26,22 @@ this means that when creating VM from a template, user could also select the ver
 
 ### Detailed Description
 
-This feature will allow adding new versions to existing templates, by selecting a vm and using it to create a new version to a template.
+This feature will allow adding new versions to existing templates, There will be two methods to create a version for a template:
+
+*   by selecting a vm and using it to create a new version to a template.
+*   by editing a template, and when saving, selecting save as version.
 
 Version of template could be deleted if no vms are using it (same as current delete template logic).
 
-Stateless vms and vms from vm-pool will use new version automatically on new runs. (please see open issues section below about this).
+When creating vm from template, user will also select the version of the template to use, or 'latest'. Stateless vms and vms from vm-pool that are using 'latest' version, will use new version automatically on new runs.
 
 **Use Case**
 
 The most interesting use case is for VM-Pools, where vms are stateless.
 
-*   admin can create pool of vms from template
+*   admin can create pool of vms from template (from a specific version or 'latest')
 *   after some time create a new version for the template
-*   update the pool to use new version of template
+*   if the pool is not from 'latest', update the pool to use new version of template
 *   from this point, every vm that is taken from the pool will have the new version.
 
       vms in use will not be affected.
@@ -49,7 +52,10 @@ The most interesting use case is for VM-Pools, where vms are stateless.
 
 **\1**
 
-*   Version of a template is a new type of template, which linked to the base template it is version for.
+*   Version of a template is a template, which linked to the base template it is a version for.
+*   A new property for template - 'version' to save its version
+*   A new property for vm - 'version' to save the version it is using, null means latest
+*   On upgrade all templates will get version 1
 
 <!-- -->
 
@@ -63,9 +69,9 @@ The most interesting use case is for VM-Pools, where vms are stateless.
 <!-- -->
 
 *   On version update:
-    -   find all stateless vms created from the template (and marked for auto update? [see open issues])
+    -   find all stateless vms created from the template that use 'latest' version
     -   recreate them, keeping: ID, name, description, cluster, comment, stateless flag
-    -   find all vm-pools that are using the template
+    -   find all vm-pools that are using the template with 'latest' version
     -   recreate all down vms
     -   for each vm that moves to down, if there is a new version, recreate it
 

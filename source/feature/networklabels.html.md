@@ -114,11 +114,6 @@ There are certain configurations which aren't supported by the 'Setup Networks' 
 
 2.  A VM network and vlan networks
 
-### Benefit to oVirt
-
-The main advantages of the feature is to ease and simplify the maintenance of a data-center with multiple hosts.
-The amount of request actions by the administrator are significantly reduced and in a relative simple manner the host network configuration is kept in-sync with the logical network definition.
-
 #### User Experience
 
 *   In Network main tab ---> the 'Hosts sub-tab' will contain a 'labels' column.

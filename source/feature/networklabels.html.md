@@ -12,12 +12,12 @@ wiki_last_updated: 2014-09-15
 
 ### Summary
 
-**Network labels** feature provides the ability to label networks with one or more labels and to use the label(s) on the host's interfaces, so the label abstracts the networks from the physical interface/bond which can be labelled with one or more labels:
+**Network labels** feature provides the ability to label networks with a label to use that label on the host's interfaces, so the label abstracts the networks from the physical interface/bond which can be labelled with one or more labels:
 The host network configuration can be done by manipulating the network label:
 
 *   Labelling a network will attach that network to all hosts interfaces which are tagged with that label.
 *   Removing a label from the network will trigger the network removal from all hosts interfaces/bonds which are tagged with that label.
-*   Modifying a network label will update all hosts interfacse/bonds which are tagged with that label (either adding or removing that network).
+*   Renaming a network label will update all hosts interfaces/bonds which are tagged with that label (either adding or removing that network).
 
 ### Owner
 

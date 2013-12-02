@@ -1,3 +1,9 @@
+@import ../_bootstrap-includes.sass
+@import ../_bootstrap-custom.sass
+@import bootstrap/variables
+@import bootstrap/mixins
+@import bootstrap/grid
+
 /* Hide archive title
 
 body.archive
@@ -51,18 +57,13 @@ article.post
   margin: 3em 0 0
 
 .post-meta
+  @extend .container
   color: #777
 
   /* FIXME: display tags in a nice way
   /* (For now, we'll just temporarily hide them.)
   .tags
     display: none
-
-@import ../_bootstrap-includes.sass
-@import ../_bootstrap-custom.sass
-@import bootstrap/variables
-@import bootstrap/mixins
-@import bootstrap/grid
 
 .author-info
   @extend .row

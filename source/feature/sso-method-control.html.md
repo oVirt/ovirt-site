@@ -23,7 +23,8 @@ The feature can be set per VM/Template/Pool via the VM popup dialog.
 
 ## Status
 
-*   Backend - review pending (http://gerrit.ovirt.org/#/c/19619/)
-*   Frontend - review pending (http://gerrit.ovirt.org/#/c/19620/)
+*   Backend - DONE (http://gerrit.ovirt.org/#/c/19619/)
+*   Frontend - DONE (http://gerrit.ovirt.org/#/c/19620/)
+*   Restapi - review pending (http://gerrit.ovirt.org/#/c/21911/)
 
 <Category:Feature>

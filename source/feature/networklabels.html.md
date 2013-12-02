@@ -32,8 +32,8 @@ The host network configuration can be done by manipulating the network label:
 
 ### Benefit to oVirt
 
-The main advantages of the feature is to ease and simplify the maintenance of a data-center with multiple hosts.
-The amount of request actions by the administrator are significantly reduced and in a relative simple manner the host network configuration is kept in-sync with the logical network definition.
+**Network labels** designed to ease and to simplify the maintenance of a data-center with multiple hosts.
+With the **Network labels** feature the amount of actions required by the administrator are significantly reduced. Also, in a relative simple manner the host network configuration is kept in-sync with the logical network definition.
 
 ### Detailed Description
 

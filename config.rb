@@ -26,11 +26,17 @@ set :haml, :format => :html5, :ugly => true
 # Set Markdown features for RedCarpet
 # (So our version of Markdown resembles GitHub's)
 set :markdown,
-  :tables => true,
-  :autolink => true,
-  :gh_blockcode => true,
-  :fenced_code_blocks => true,
-  :smartypants => true
+  autolink: true,
+  fenced_code_blocks: true,
+  footnotes: true,
+  gh_blockcode: true,
+  highlight: true,
+  no_intra_emphasis: true,
+  quote: true,
+  smartypants: true,
+  strikethrough: true,
+  superscript: true,
+  tables: true
 
 set :markdown_engine, :redcarpet
 

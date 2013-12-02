@@ -95,12 +95,12 @@ Deleting the label from the host interface will not cause the removal of the net
 This actions is considered as adding and removing of a network label.
 In order not to cause the removal of the network from all of the hosts, rename should be done on the hosts first, or not to mark the 'Apply to all hosts' checkbox when renaming the label on 'Edit Network'.
 
-#### Changes to 'Setup Networks' api
+#### Pre-'Setup Networks' execution
 
-The host interface entity will be extended with a set of labels.
-'Setup Networks' api will support both labelling and attaching the networks to the interface/bond.
 At the first step of the 'Setup Networks' parameters validation, a translation of the labels to a list of networks will be done.
-The administrator will be capable to remove a network which is attached to the interface, even if the network and the interface itself are labelled.
+The translation will rely on the host interface's set of labels.
+'Setup Networks' api will support both labelling and attaching the networks to the interface/bond.
+ The administrator will be capable to remove a network which is attached to the interface, even if the network and the interface itself are labelled.
 If the label remains on the host, next action on that network marked to be applied to all hosts will add that network to the host.
 
 #### Assign Network to Cluster

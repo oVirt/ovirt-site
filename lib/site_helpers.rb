@@ -30,12 +30,16 @@ class SiteHelpers < Middleman::Extension
       end
     end
 
+    def word_unwrap content
+      content.to_s.gsub(/\n\n/, '!ಠ_ಠ!').gsub(/\n/, ' ').squeeze(' ').gsub(/!ಠ_ಠ!/, "\n\n")
+    end
+
     def markdown_to_html content
       Tilt['markdown'].new { content.strip }.render if content
     end
 
-    def word_unwrap content
-      content.to_s.gsub(/\n\n/, '!ಠ_ಠ!').gsub(/\n/, ' ').squeeze(' ').gsub(/!ಠ_ಠ!/, "\n\n")
+    def markdown_to_plaintext content
+      word_unwrap Nokogiri::HTML(markdown_to_html(content)).text
     end
 
     def demote_headings content

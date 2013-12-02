@@ -72,6 +72,7 @@ Modifying the network name is permitted, as long as it was not marked to be appl
 Editing the network is done on rest via PUT method on:
 
        api/networks/{network:id}/
+       api/datacenters/{datacenter:id}/networks/{network:id}/
 
 By providing the optional element *apply* (default is *false*):
 

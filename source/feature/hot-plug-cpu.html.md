@@ -61,6 +61,18 @@ KVM support for hot plug libvirt support for hotattach device
 *   [oVIrt VDSM RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1036492)
 *   [QEMU hotplug cpu feature wiki page](http://wiki.qemu.org/Features/CPUHotplug)
 
+### Open Issues
+
+##### Possible error when migrating a VM which its max cpu is lower than what currently in **'' <vcpu current=n>m</vcpu>**''
+
+The current VM on the source has ***n*** cpus attached and need ***m*** maximum to be able to online more.
+if ***m1*** is the max cores on the the source ***H1*** host and ***m2*** is the maximum on destination host ***H2***
+if ***m1 > m2*** the underlying migration should fail?
+
+##### Possible CPU pinning problems
+
+if we have cpu pinning for cpu 1-4 and we start the VM with 4 CPU and then we offline 2 CPUs and then we online them back - is the pinning is kept?
+
 ### Testing
 
 TODO

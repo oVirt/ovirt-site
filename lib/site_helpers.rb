@@ -39,7 +39,7 @@ class SiteHelpers < Middleman::Extension
     end
 
     def markdown_to_plaintext content
-      word_unwrap Nokogiri::HTML(markdown_to_html(content)).text
+      word_unwrap Nokogiri::HTML(markdown_to_html(content)).text.strip
     end
 
     def demote_headings content

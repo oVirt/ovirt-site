@@ -202,6 +202,8 @@ configure :build do
   ignore 'stylesheets/vendor/*'
   ignore 'stylesheets/lib/*'
 
+  ignore 'events-yaml*'
+
   # Minify JavaScript and CSS on build
   activate :minify_javascript
   activate :minify_css

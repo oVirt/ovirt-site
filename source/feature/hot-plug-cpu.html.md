@@ -57,7 +57,9 @@ KVM support for hot plug libvirt support for hotattach device
 
 ### Documentation / External references
 
-OS support matrix for hot add/remove CPU - TODO
+*   OS support matrix for hot add/remove CPU - TODO
+*   [oVIrt VDSM RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1036492)
+*   [QEMU hotplug cpu feature wiki page](http://wiki.qemu.org/Features/CPUHotplug)
 
 ### Testing
 

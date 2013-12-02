@@ -58,6 +58,29 @@ article.post
   .tags
     display: none
 
+@import ../_bootstrap-includes.sass
+@import ../_bootstrap-custom.sass
+@import bootstrap/variables
+@import bootstrap/mixins
+@import bootstrap/grid
+
+.author-info
+  @extend .row
+
+  a
+    @extend .col-md-12
+
+.author-photo
+  @extend .col-md-2
+  vertical-align: middle
+  text-align: right
+
+  img
+    border-radius: 48px
+
+.author-blurb.with-photo
+  @extend .col-md-10
+
 .post-content
   margin-top: 2em
 

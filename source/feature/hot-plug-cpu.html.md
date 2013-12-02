@@ -48,7 +48,6 @@ this feature will enable this powerful use cases:
 | Engine    | create informative Audit log when setNumberOfCpus fails                                                                           | 0           |
 | VDSM      | create one new verb 'setNumberOfCpus'. it would be used for both plug/unplug cpus (its really "online" a cpu rather than hotplug) | patch ready |
 | VDSM      | in vm.py, bind the verb to an underling call to libvirt's setVcpus                                                                | patch ready |
-| VDSM      | hook support - is it needed for this feature?                                                                                     | 0           |
 | VDSM      | check migration of a VM that was hotplugged with cpus and remigrate it (not sure changes needed)                                  | 0           |
 
 ### Dependencies / Related Features

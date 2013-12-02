@@ -39,7 +39,7 @@ With the **Network labels** feature the amount of actions required by the admini
 
 For simplicity, we'd avoid introducing a 'label' entity. The label will be defined by:
 
-*   A new property 'labels' will be added to the network.
+*   A new property 'labels' will be added to the network: We start with a single label, and if needed we can extend label on network label to represent few labels.
 *   A new property 'labels' will be added to the host interface.
     -   Labelling are permitting only for interfaces or bonds (no vlans/bridge labelling allowed).
 

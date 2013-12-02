@@ -58,9 +58,9 @@
 
     = javascript_include_tag 'application'
 
-    %script
-
     - if build?
 
       - # Place JS in javascripts/production and it'll show up only for production
-      = javascript_include_tag 'production'
+      -#= javascript_include_tag 'production'
+
+      = partial "production_only"

@@ -177,10 +177,13 @@ On the network level either via POST to */api/networks/* or via PUT to */api/net
 
 #### Search Engine
 
+For phase 1:
+
+*   A query for all networks which are labelled with specific label will be supported.
+
 For phase 2:
 
 *   A query for all hosts which are labelled with specific label will be supported.
-*   A query for all networks which are labelled with specific label will be supported.
 
 ### Dependencies / Related Features
 

@@ -169,8 +169,6 @@ On the network level either via POST to */api/networks/* or via PUT to */api/net
          ...
 `   `<network_labels>
 `     `<network_label>`lbl1`</network_label>
-`     `<network_label>`lbl2`</network_label>
-`     `<network_label>`lbl3`</network_label>
 `   `</network_labels>
          ...
 ` `<network>

@@ -52,7 +52,7 @@ this feature will enable this powerful use cases:
 
 ### Dependencies / Related Features
 
-*   running qemu-guest-agent
+*   running [qemu-guest-agent](http://wiki.qemu.org/Features/QAPI/GuestAgent)
 
 ### Documentation / External references
 

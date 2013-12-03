@@ -52,7 +52,7 @@ this feature will enable this powerful use cases:
 
 ### Dependencies / Related Features
 
-KVM support for hot plug libvirt support for hotattach device
+*   running qemu-guest-agent
 
 ### Documentation / External references
 

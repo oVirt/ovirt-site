@@ -81,7 +81,9 @@ By providing the optional element *apply* (default is *false*):
 `     `<apply>`true`</apply>
 ` `</network>
 
-phase 2: Removing the network is done via DELETE method on:
+##### Phase 2
+
+Removing the network is done via DELETE method on:
 
        api/networks/{network:id}/
        api/datacenters/{datacenter:id}/networks/{network:id}/

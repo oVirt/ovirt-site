@@ -69,6 +69,8 @@ Modifying the network name is permitted, as long as it was not marked to be appl
 
 #### REST
 
+##### Phase 1
+
 Editing the network is done on rest via PUT method on:
 
        api/networks/{network:id}/

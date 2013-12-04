@@ -38,8 +38,8 @@ The requirements are the same as spice-html5.
 
 *   Native
 
-The requirements are the same as for Native Client for SPICE protocol.
+Client application that is capable of parsing an RDP file and invoke console session (e.g. mstsc.exe on MS Windows).
 
 *   Plugin
 
-Usage of the plugin doesn't require user intervention and is invoked automatically.
+<b>(MS Internet Explorer only)</b> Usage of the plugin doesn't require user intervention and is invoked automatically.

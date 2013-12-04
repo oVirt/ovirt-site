@@ -38,7 +38,7 @@ The requirements are the same as spice-html5.
 
 *   Native
 
-Client application that is capable of parsing an RDP file and invoke console session (e.g. mstsc.exe on MS Windows).
+Client application capable of parsing an RDP file and invoking console session (e.g. mstsc.exe on MS Windows).
 
 *   Plugin
 

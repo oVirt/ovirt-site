@@ -23,7 +23,7 @@ The feature allows the administrator to modify a network (i.e. vlan-id, mtu) whi
 
 ### Current status
 
-*   On Design
+*   On development
 *   Planned for ovirt-engine-3.4
 *   Last updated: ,
 

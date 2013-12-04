@@ -56,11 +56,10 @@ The feature will be enabled only for 3.1 clusters and above since it relies on t
 #### Phase 2
 
 1.  The same behaviour will be added to 'Remove Network' action as well in a similar manner:
+    -   By providing the property 'apply' the network will be removed from all of the hosts which the network is configured on.
 
-*   By providing the property 'apply' the network will be removed from all of the hosts which the network is configured on.
-
-1.  We may consider as a lower priority to allow the user to specify the list of hosts/clusters on which to apply the changes instead of the entire hosts.
-2.  Change which includes the renaming of the network will be permitted to be applied to hosts.
+2.  We may consider as a lower priority to allow the user to specify the list of hosts/clusters on which to apply the changes instead of the entire hosts.
+3.  Change which includes the renaming of the network will be permitted to be applied to hosts.
 
 #### User Experience
 

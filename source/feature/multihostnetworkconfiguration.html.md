@@ -65,7 +65,7 @@ The feature will be enabled only for 3.1 clusters and above since it relies on t
 
 A checkbox will be added to the 'Edit Network' dialog with caption 'Apply network change to all hosts'.
 The only supported properties to be apply on the hosts are: vlan, mtu, network type (vm/non-vm) and STP.
-Modifying the network name is permitted, as long as it was not marked to be applied to hosts. Therefore attempt to modify network name and applying it to hosts will be blocked.
+Modifying the network name is permitted, as long as it was not marked to be applied to hosts. Therefore attempt to modify network name and applying it to hosts will be blocked. (This limitation will be removed once p2 is implemented)
 
 #### REST
 

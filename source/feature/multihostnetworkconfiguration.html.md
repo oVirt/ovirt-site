@@ -51,7 +51,7 @@ Currently, Updating the network is blocked for network which is used by VMs. As 
 *   Networks that aren't used by VMs
 *   The VMs are down and the change doesn't include modifying a VM network to a non-VM network.
 
-The feature will be enabled only for 3.1 clusters and above since it relies on the 'Setup Networks' which introduced in 3.1.
+The feature will be enabled only for 3.1 clusters and above since it relies on the 'Setup Networks' which was introduced in 3.1.
 
 #### Phase 2
 

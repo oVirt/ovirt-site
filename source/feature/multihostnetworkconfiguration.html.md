@@ -81,6 +81,17 @@ By providing the optional element *apply* (default is *false*):
 `     `<apply>`true`</apply>
 ` `</network>
 
+phase 2: Removing the network is done via DELETE method on:
+
+       api/networks/{network:id}/
+       api/datacenters/{datacenter:id}/networks/{network:id}/
+
+The 'apply' property will be added to that action:
+
+` `<action>
+`     `<apply>`true`</apply>
+` `</action>
+
 #### Events
 
 If the can-do-action of the 'Setup Networks' command fails, an event log should be reported including the host names.

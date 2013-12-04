@@ -59,7 +59,7 @@ The feature will be enabled only for 3.1 clusters and above since it relies on t
     -   By providing the property 'apply' the network will be removed from all of the hosts which the network is configured on.
 
 2.  Change which includes the renaming of the network will be permitted to be applied to hosts:
-    -   This enhancement has a further implication: If the network is used by vms (in status 'down'), and the network failed to be configured on the hosts, any host that wasn't configured properly with the new network name will not be eligible by the scheduler to run vms as it misses the network. Such result requires a further intervention by the administrator. Since the action isn't transactive, there will be no rollback once the network name changed.
+    -   This enhancement has a further implication: If the network is used by vms (in status 'down'), and the network failed to be configured on the hosts, any host that wasn't configured properly with the new network name will not be eligible by the scheduler to run vms as it misses the network. Such result requires a further intervention by the administrator. Since the action isn't transactive, there will be no rollback once the network name has changed.
 
 #### User Experience
 

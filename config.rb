@@ -152,6 +152,7 @@ ready do
   sitemap.resources.group_by {|p| p.data["author"]}.each do |author, pages|
     proxy "/blog/author/#{author}.html", "author.html", locals: {author: author, pages: pages}, :ignore => true if author
   end
+  proxy "/blog/author.html", "author.html", :ignore => true
 end
 
 

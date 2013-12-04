@@ -44,6 +44,9 @@
 
         %h2= author_name author
 
+        - if author_card author
+          %p= author_card author
+
         %ul
           - pages.each do |page|
             %li= link_to page.title, page.url

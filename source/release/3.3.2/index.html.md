@@ -18,6 +18,10 @@ To find out more about features which were added in previous oVirt releases, che
 
 ## What's New in 3.3.2?
 
+### VM creation "Guide Me" sequence
+
+The ability to add VM network interfaces has been dropped from the New VM "Guide Me" sequence, as they can now be added/removed directly in the New VM dialog. As always, administrators are encouraged to maintain templates which include networking configurations commonly used in their deployments of oVirt; for special cases, networking should now be configured in the New VM dialog instead of the "Guide Me" sequence.
+
 ## Known issues
 
 ## Bugs fixed

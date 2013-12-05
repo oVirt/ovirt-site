@@ -70,6 +70,12 @@ will upgrade to latest 3.3.
 
 The ability to add VM network interfaces has been dropped from the New VM "Guide Me" sequence, as they can now be added/removed directly in the New VM dialog. As always, administrators are encouraged to maintain templates which include networking configurations commonly used in their deployments of oVirt; for special cases, networking should now be configured in the New VM dialog instead of the "Guide Me" sequence.
 
+### Backup and Restore API for Independent Software Vendors
+
+oVirt now provides an API set for Independent Software Vendors to backup and restore virtual machines.
+For backup, a snapshot of a virtual machine's disk is created then attached to a virtual appliance.
+For restore, disks are attached to a virtual appliance, the data is restored to the disks, then the disks are attached to a virtual machine.
+
 ## Known issues
 
 ## Bugs fixed

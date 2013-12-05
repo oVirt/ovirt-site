@@ -28,7 +28,7 @@ Include you email address that you can be reached should people want to contact 
 
 ### Current status
 
-(To be replaced to a link when a desing page will be created)
+(To be replaced to a link when a design page will be created)
 
       * Drop DB - works both on local and remote
       * Remove keystore (not perfect)

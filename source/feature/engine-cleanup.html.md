@@ -52,27 +52,45 @@ Missing to comply with the purpose definition:
 
 The cleanup should provide:
 
-1. Reset a failed installation to a state in which you can safely rerun engine-setup
+1. Reset a failed installation to a state in which you can safely rerun: engine-setup
 
-2. Cleanup before a new installation before or after the user has run yum remove and now tries it all over.
+2. Clean up before a new installation before or after the user has run:
 
-        Meaning the sequence I : engine-cleanup, yum remove ovirt-engine, yum install ovirt-engine, engine-setup
-        Or the sequence      II: yum remove ovirt-engine, yum install ovirt-engine, engine-cleanup, engine-setup
-        If sequence II is not possible don't start cleanup at all, but exit with proper message. 
+      # yum remove
 
-3. Reset an exiting installation without dropping DB.
+and the later tries it a second time without a formal clean-up being performed
 
-        Use cases: fix failed upgrade or a corrupted installation
-        Next required 'Manual' steps: 
-                             yum remove engine
-                             yum install engine
-                             engine-setup (it should know how to reuse this DB and upgrade if necessary)
+* Meaning the sequence I (first example) :
+
+      # engine-cleanup
+      # yum remove ovirt-engine
+      # yum install ovirt-engine
+      # engine-setup 
+
+* Or the sequence II (second example):
+
+      # yum remove ovirt-engine,
+      # yum install ovirt-engine
+      # engine-cleanup
+      #  engine-setup
+
+* If sequence II is not possible, don't start cleanup at all, but exit with proper message.
+
+3. Reset an existing installation without dropping DB.
+
+* Use cases: fix failed upgrade or a corrupted installation
+
+* Next required 'Manual' steps:
+
+      # yum remove engine
+      # yum install engine
+      # engine-setup   # This script should know how to reuse an existing DB, and to perform an upgrade if necessary
 
 Note 1: The above includes Reports and DHW
 
 Note 2. This utility is not intended to leave the machine clean for other application to reuse - only to be reused by a oVirt Manager
 
-Note 3: Preserve DB is not intended to relocate db from local to remote and vice verse - Need to provide a procedure to do that.
+Note 3: Preserve DB is not intended to relocate db from local to remote and vice versa - Need to provide a procedure to do that.
 
 Note 4: It will not remove any local NFS export, including the one it created during last installation. If we wish for engine-setup to reuse, this is enhancement to for engine-setup.
 

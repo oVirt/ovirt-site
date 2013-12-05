@@ -5,6 +5,9 @@ domain: yourdomain.org
 # Optional logo. If commented out, it will not be used.
 logo: logo.png
 
+# optional, set to true if your site uses SSL by default
+#ssl: true
+
 # Owner is used for the automatic copyright string.
 # If no owner is specified, then copyright will default to site name.)
 #owner: Your Name or Company

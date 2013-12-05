@@ -108,6 +108,6 @@ Is there upstream documentation on this feature, or notes you have written yours
 
 This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
 
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
+*   Refer to <Talk:engine-cleanup>
 
 <Category:Feature> <Category:Template>

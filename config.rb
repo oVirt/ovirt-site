@@ -172,6 +172,9 @@ end
 require 'lib/site_helpers.rb'
 activate :site_helpers
 
+require 'lib/blog_helpers.rb'
+activate :blog_helpers
+
 require 'lib/confcal.rb'
 activate :confcal
 

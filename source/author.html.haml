@@ -1,17 +1,3 @@
-:ruby
-  def author_name nickname
-    data.authors[nickname] ? data.authors[nickname].name : nickname
-  end
-
-  def author_card nickname
-    author = data.authors[nickname]
-
-    if author && author['description']
-      author['description']
-    end
-  end
-
-
 - if defined? author
 
   - if author_card author

@@ -60,27 +60,31 @@
   author = article.data.author
   article_view = (article.url == current_page.url)
 
-%article.post
+%article.post.hentry
 
   %header.post-header
 
-    %h2.post-title
+    %h2.post-title.entry-title
       - if (defined? article.url) && article.url != current_page.url
         = link_to article.title, article.url
       - else
         = article.title
 
     %header.post-meta
-      by
-      %span.author
-        = author_link article.data.author
+      %span.byline
+        by
+        %span.author.vcard
+          = author_link article.data.author
 
       &ndash;
 
-      %time{datetime: article.date.iso8601}
+      %time.published{datetime: article.date.iso8601}
         = pretty_date article.date
 
-  %section.post-content
+      - if defined? article.data.summary
+        .entry-summary.hidden= markdown_to_html article.data.summary
+
+  %section.post-content.entry-content
     - if defined? summarize
       = demote_headings article.summary summarize
       .more-link

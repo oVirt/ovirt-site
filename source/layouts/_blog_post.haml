@@ -12,54 +12,58 @@
 
 
 - if article_view
+  :ruby
+    transport = data.site.ssl ? "https://" : "http://"
+
+    author_data = data.authors[author]
+    twitter_name = author_data['twitter']
+
+    article_summary = article.data.summary || Nokogiri::HTML(article.summary(200)).text.strip
+
+    open_graph = {
+      "og:type" => "article",
+      "og:title" => article.title,
+      "og:description" => article_summary,
+      "og:url" => "#{transport}#{data.site.domain}#{article.url}",
+      "article:published_time" => article.date.iso8601,
+      "article:author:username" => author
+    }
+
+    social_sites = {
+      twitter: "https://twitter.com/",
+      googleplus: "https://twitter.com/+",
+      facebook: "https://facebook.com/",
+    }
+
+    twitter_card = {
+      "twitter:card" => "summary",
+      "twitter:site" => data.site.twitter ? "@#{data.site.twitter}" : nil,
+      "twitter:creator" => twitter_name ? "@#{twitter_name}" : nil,
+      "twitter:title" => article.title,
+      "twitter:description" => article_summary,
+      #"twitter:image:src" => "",
+      #"twitter:domain" => ""
+    }
+
   - content_for :meta do
 
-    - article_summary = article.data.summary || Nokogiri::HTML(article.summary(200)).text.strip
-    - transport = data.site.ssl ? "https://" : "http://"
-
-    - twitter_name = data.authors[author]['twitter']
-    - googleplus_id = data.authors[author]['googleplus']
-    - facebook_id = data.authors[author]['facebook']
-
     / Open Graph (FB / G+)
-    %meta{content: "article", property: "og:type"}
-    %meta{content: article.title, property: "og:title"}
-    %meta{content: article_summary, property: "og:description"}
-    -#%meta{content: image_preview, property: "og:image"}
-    %meta{content: "#{transport}#{data.site.domain}#{article.url}", property: "og:url"}
-    %meta{content: article.date.iso8601, property: "article:published_time"}
+    - open_graph.each do |property, content|
+      %meta{property: property, content: content}
 
-    -#%meta{content: author_name(author), property: "article:author"}
-
-    - if twitter_name
-      %meta{content: "https://twitter.com/#{twitter_name}", property: "article:author"}
-
-    - if googleplus_id
-      %meta{content: "https://plus.google.com/+#{googleplus_id}", property: "article:author"}
-
-    - if facebook_id
-      %meta{content: "https://facebook.com/#{facebook_id}", property: "article:author"}
-
-    %meta{content: author, property: "article:author:username"}
+    - social_sites.each do |site, link|
+      - if author_data[site]
+        %meta{property: "article:author", content: "#{link}#{author_data[site]}"}
 
     - if article.data.tags
       - article.data.tags.sort {|a,b| a.downcase <=> b.downcase}.each do |tag|
-        %meta{content: tag, property: "article:tag"}
+        %meta{property: "article:tag", content: tag}
 
     / Twitter card
-    %meta{content: "summary", name: "twitter:card"}
+    - twitter_card.each do |name, content|
+      - if content
+        %meta{name: name, content: content}
 
-    - if data.site.twitter
-      %meta{content: "@#{data.site.twitter}", name: "twitter:site"}
-
-    - if twitter_name
-      %meta{content: "@#{twitter_name}", name: "twitter:creator"}
-
-    %meta{content: article.title, name: "twitter:title"}
-    %meta{content: article_summary, name: "twitter:description"}
-
-    -#%meta{content: ", name: "twitter:image:src"}
-    -#%meta{content: ", name: "twitter:domain"}
 
 %article.post.hentry
 

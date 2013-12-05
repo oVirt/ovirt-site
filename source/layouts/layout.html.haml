@@ -17,7 +17,10 @@
 
     %meta(charset="utf-8")
     %meta(name="description" content="#{data.site.description || ''}")
-    %meta(name="author" content="#{data.site.author || data.site.owner || ''}")
+
+    - meta_author = author_name current_page.data.author || data.site.author || data.site.owner || ''
+
+    %meta(name="author" content="#{meta_author}")
     %meta(content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" name="viewport")
 
     = yield_content :meta

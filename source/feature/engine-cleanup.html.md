@@ -102,7 +102,13 @@ This feature saved the need to re-install the host OS if a re-install of the eng
 
 ### Documentation / External references
 
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
+The clean-up script should be idempotent. If not, it needs a bug filed noting the deficiency. That is, one should be able to repeatedly run:
+
+      # engine-cleanup
+      # engine-cleanup
+      # engine-cleanup # ... 
+
+with no additional changes occurring on the second and following runs, beyond what occurred on the first, and supplementation of the log files
 
 ### Comments and Discussion
 

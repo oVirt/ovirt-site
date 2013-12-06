@@ -24,6 +24,8 @@ Integrating support for it into oVirt will help facilitate provisioning of virtu
 
 Implementation
 
+[open bug](https://bugzilla.redhat.com/show_bug.cgi?id=1039009) can't use cloud-init /run once via api
+
 ### Detailed Description
 
 **Use Case**

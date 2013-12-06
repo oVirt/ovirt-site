@@ -45,7 +45,8 @@
       #"twitter:domain" => ""
     }
 
-  - content_for :meta do
+  - content_for :head do
+    %link(href="/blog/feed.xml" rel="alternate" title="Atom feed" type="application/atom+xml")
 
     / Open Graph (FB / G+)
     - open_graph.each do |property, content|
@@ -58,6 +59,8 @@
     - if article.data.tags
       - article.data.tags.sort {|a,b| a.downcase <=> b.downcase}.each do |tag|
         %meta{property: "article:tag", content: tag}
+        %link(href="/blog/tag/#{tag.downcase}.xml" rel="alternate" title="Atom feed" type="application/atom+xml")
+
 
     / Twitter card
     - twitter_card.each do |name, content|

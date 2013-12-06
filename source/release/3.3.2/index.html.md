@@ -226,4 +226,6 @@ For restore, disks are attached to a virtual appliance, the data is restored to 
 
 ### ovirt-node-plugin-vdsm
 
+No bugs reported at moment.
+
 <Category:Documentation> <Category:Releases>

@@ -41,8 +41,8 @@ OR
 
 Install qxl graphic driver and spice vdagent separately:
 
-*   Download qxl driver (zip file) from <http://spice-space.org/download/binaries/qxl-0.10-20112808.zip>, unpack and install suitable version of qxl driver on Windows guest (i.e. with using Device Manager).
-*   Download spice vdagent (zip file) from <http://spice-space.org/download/binaries/vdagent-win32_20111124.zip>, unapck and install suitable version of service following way:
+*   Download qxl driver (zip file) from <http://www.spice-space.org/download/windows/qxl/qxl-0.1-19/> , unpack and install suitable version of qxl driver on Windows guest (i.e. with using Device Manager).
+*   Download spice vdagent (zip file) from <http://www.spice-space.org/download/windows/vdagent/vdagent-win-0.7.2> , unpack and install suitable version of service following way:
 
 1.  Start cmd under Administrator (It's important to run it as Administrator).
 2.  Move to location where you unpacked binaries (vdservice.exe and vdagent.exe).

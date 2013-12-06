@@ -72,7 +72,7 @@ activate :blog do |blog|
   #blog.day_link = ":year/:month/:day.html"
 
 
-  blog.taglink = "tags/:tag.html"
+  blog.taglink = "tag/:tag.html"
 
   #blog.summary_separator = /(READMORE)/
   #blog.summary_length = 99999
@@ -123,8 +123,7 @@ activate :directory_indexes
 # end
 
 # Don't have a layout for XML
-page "/feed.xml", :layout => false
-page "/sitemap.xml", :layout => false
+page "*.xml", :layout => false
 
 # Docs all have the docs layout
 with_layout :docs do
@@ -153,6 +152,12 @@ ready do
     proxy "/blog/author/#{author}.html", "author.html", locals: {author: author, pages: pages}, :ignore => true if author
   end
   proxy "/blog/author.html", "author.html", :ignore => true
+
+  # Add blog feeds
+  blog.tags.each do |tag_name, tag_data|
+    proxy "/blog/tag/#{tag_name.downcase}.xml", "feed.xml", locals: {tag_name: tag_name}, :ignore => true if tag_name
+  end
+  proxy "/blog/feed.xml", "feed.xml", :ignore => true
 end
 
 

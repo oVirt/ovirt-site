@@ -9,8 +9,6 @@ wiki_last_updated: 2015-01-19
 
 # How to install the guest agent in Ubuntu
 
-**Warning: This page is currently in the process of being written and currently refers to FEDORA. Please check back for updates. When this message is gone, it's ready for use with UBUNTU**
-
 Installing the Guest Agent in a Ubuntu virtual machine is fairly simple and will provide the oVirt-engine with additional information about the VM. The process has two main steps which is adding an install source and installing the ovirt-guest-agent package. Presently the ovirt-guest-agent package for Ubuntu is not in the official repos, but is available through zhshzhou who currently maintains the package.
 
 ## Methods for Installation
@@ -37,40 +35,28 @@ At present the oVirt guest agent is not available in the Ubuntu repositories add
 
 ### Using apt-get via terminal to install the oVirt Guest Tools
 
-From a terminal session, type the following
+For Ubuntu Precise, Raring, and Sausy
 
-    sudo yum install ovirt-guest-agent
+1.  From a terminal session, type the following
 
-Accept the prompt to install **ovirt-guest-agent-common** and any required dependencies.
+<!-- -->
 
-### Using an RPM to install the oVirt Guest Tools
+    wget https://launchpad.net/~zhshzhou/+archive/vdsm-ubuntu/+files/ovirt-guest-agent_1.0.8.201309301944.gitb7f8f2-1ppa1_all.deb
 
-1.  Using a computer or virtual machine that is connected to the internet, navigate to <http://resources.ovirt.org/releases/>
-2.  Click the folder of the version of oVirt that you are using, such as 3.2
-3.  Click the RPM folder
-4.  Click Fedora
-5.  Click the number that represents the version of Fedora that you are using, for example, Fedora 18
-6.  Click on noarch
-7.  Your path may look something like this:
-        http://resources.ovirt.org/releases/3.2/rpm/Fedora/18/noarch/
+The above will download the ovirt-guest-agent package from Zhshzhou's repository.
 
-8.  From the list of files, right click the one that starts with **ovirt-guest-agent-common** and save it to a location on your computer.
-9.  Copy the **ovirt-guest-agent-common** rpm file to the VM that requires the ovirt-guest-agent
-10. Install it by using the command below, and accept the prompt to install the package.
-        yum localinstall /path/to/ovirt-guest-agent-common.rpm
+    sudo dpkg -i ovirt-guest-agent_1.0.8.201309301944.gitb7f8f2-1ppa1_all.deb
+
+The above will extract the downloaded package. It will warn about missing dependencies. As long as you have an internet connection this will not matter.
+
+    sudo apt-get -f install
+
+The above will install ovirt-guest-agent. Accept the prompt to install **ovirt-guest-agent** and any required dependencies.
 
 ## Starting the service
 
-From a terminal, enter the following commands to start the oVirt Guest Agent service
-
-    sudo systemctl enable ovirt-guest-agent.service && sudo systemctl start ovirt-guest-agent.service
-
-The above command will enable the service to always start at boot, and start the service now so you do not need to reboot the VM.
+Ubuntu automatically starts the ovirt-guest-agent service.
 
 ## Troubleshooting
 
-The web admin interface may take some time to start displaying the memory usage and other types of information. If you find that after some time this information has not been populated, restart the VM by performing a shut down or power off, power on, and verify that the service is started by running.
-
-    sudo systemctl status ovirt-guest-agent.service
-
-A reboot of the virtual machine did not seem to resolve the issue.
+The web admin interface may take some time to start displaying the memory usage and other types of information. If you find that after some time this information has not been populated, restart the VM by performing a shut down or power off, power on, and verify that the service is started by running. A reboot of the virtual machine did not seem to resolve the issue.

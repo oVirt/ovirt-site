@@ -62,14 +62,13 @@ If network 'blue' will be unassigned from cluster 'B', label 'lbl1' will represe
  **More examples:** When a change is made to the network label, it will trigger an action for all of the hosts which one of their interfaces is labelled with the same label:
 
        Network 'red' - lbl1
-       Network 'blue' - lbl1,lbl2
+       Network 'blue' - lbl1
        
        Host X - eth0 - lbl1
-       Host Y - bond0 - lbl1,lbl2
+       Host Y - bond0 - lbl1
        
        * Removing 'lbl1' from network 'red' will trigger the removal of network 'red' from eth0 (Host X) and from bond0 (Host Y)
        * Adding network 'green' with label 'lbl1' will trigger the addition of network 'green' to eth0 (Host X) and to bond0 (Host Y)
-       * Adding network 'yellow' with label 'lbl2' will trigger the addition of network 'yellow' only to bond0 (Host Y)
 
 The network label should contain only numbers, digits, dash or underscore (comply with the pattern [0-9a-zA-Z_-]+).
 

@@ -11,7 +11,15 @@ wiki_last_updated: 2015-01-19
 
 **Warning: This page is currently in the process of being written and currently refers to FEDORA. Please check back for updates. When this message is gone, it's ready for use with UBUNTU**
 
-Installing the Guest Agent in a Ubuntu virtual machine is fairly simple and will provide the oVirt-engine with additional information about the VM. The process has one main which is installing the ovirt-guest-agent package.
+Installing the Guest Agent in a Ubuntu virtual machine is fairly simple and will provide the oVirt-engine with additional information about the VM. The process has two main steps which is adding an install source and installing the ovirt-guest-agent package. Presently the ovirt-guest-agent package for Ubuntu is not in the official repos, but is available through zhshzhou who currently maintains the package.
+
+## Adding the Installation Source
+
+1.  Visit <https://launchpad.net/~zhshzhou/+archive/vdsm-ubuntu/+packages>
+    1.  For Ubuntu Precise, Raring, and Sausy open Ovirt-Guest-Agent for the source Precise
+        1.  Below Builds, click i386
+
+    2.  For Debian open Ovirt-Guest-Agent for the source Raring, per [the mailing list](https://www.mail-archive.com/users@ovirt.org/msg10171.html)
 
 ## Methods for Installation
 

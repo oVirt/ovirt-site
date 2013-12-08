@@ -39,16 +39,15 @@ With the **Network labels** feature the amount of actions required by the admini
 
 For simplicity, we'd avoid introducing a 'label' entity. The label will be defined by:
 
-*   A new property 'labels' will be added to the network: We start with a single label, and if needed we can extend label on network label to represent few labels.
+*   A new property 'label' will be added to the network: We start with a single label, and if needed we can extend label on network label to represent few labels.
 *   A new property 'labels' will be added to the host interface.
+    -   The property 'labels' represents the list of labels that the nic are marked with.
     -   Labelling are permitting only for interfaces or bonds (no vlans/bridge labelling allowed).
 
-The property 'labels' represents the list of labels that the network/nic are marked with.
-Both network/nics can be marked with multiple labels.
- The labels represent a varied list of networks, depending on the network assignment to the cluster:
+The labels represent a varied list of networks, depending on the network assignment to the cluster:
 \* The network is defined on the data-center level.
 
-*   Network can be attached to a host only if it is assigned to a cluster.
+*   Network can be attached to a host only if it is assigned to its cluster.
 
 **For example:**
 
@@ -60,7 +59,7 @@ Both network/nics can be marked with multiple labels.
 Therefore in the context of cluster 'A' label 'lbl1' represents only network 'red' and in the context of cluster 'B' it represents 'red' and 'blue'.
 Once network 'blue' is assigned to cluster 'A', label 'lbl1' will stand for it as well as for network 'red'. Assigning 'blue' to cluster 'A' triggers adding the network 'red' to all of the hosts interfaces in the cluster which are labelled 'lbl1'.
 If network 'blue' will be unassigned from cluster 'B', label 'lbl1' will represent only network 'red'. Therefore it should trigger the removal of network 'blue' from all of the hosts interfaces in the cluster which are labelled 'lbl1'.
- **More examples:** When a change is made to the network labels field, it will trigger an action for all of the hosts which one of their interfaces is labelled with the same label:
+ **More examples:** When a change is made to the network label, it will trigger an action for all of the hosts which one of their interfaces is labelled with the same label:
 
        Network 'red' - lbl1
        Network 'blue' - lbl1,lbl2
@@ -76,13 +75,11 @@ The network label should contain only numbers, digits, dash or underscore (compl
 
 #### Adding a network label
 
-When the host interface is the first to be labelled and later on a new network is labelled with the same label, the 'Add Network' action will trigger the attachment of the network to all of the hosts.
+When the host interface is the first to be labelled and later on a new network is labelled with the same label, the 'Add Network' action will trigger the attachment of the network to all of the hosts carrying that label on one of their interfaces.
 When the network is labelled prior to labelling the the host interface, labelling the interface will be done as part of the 'Setup Networks' action. The 'Setup Networks' will be the responsible to translate the label into the appropriate list of networks it represents and to validate the correctness of the label.
 
-If the network is labelled with 2 labels and on of these labels already tagged on the host, tagging the host with the second label will have no impact on the host.
-Removing that label will also have no impact on the host.
- Defining a network label on network indicates the administrator enhances the usage of the network labels feature to apply a network to all of the hosts carrying the same label on their interfaces.
-Hence, no need to specify explicitly the desire to add the network to all of the hosts (i.e. by property 'Apply to all hosts').
+Defining a network label on network indicates the administrator enhances the usage of the network labels feature to apply a network to all of the hosts carrying the same label on their interfaces.
+Hence, no further indication is required add the network to all of the hosts (i.e. by property 'Apply to all hosts').
 
 #### Deleting a network label
 
@@ -105,12 +102,12 @@ If the label remains on the host, next action on that network marked to be appli
 
 #### Assign Network to Cluster
 
-When attaching a labelled network to a cluster, which the label already specified on the cluster's host interfaces will result in adding that network to all of the hosts.
+When attaching a labelled network to a cluster, which the label already specified on the cluster's host interfaces will result in adding that network to all of the hosts in that cluster carrying that label on their interfaces.
 
 #### Network Label constraints
 
 The network labels feature relies on the 'Setup Networks' api to configure the networks on the hosts.
-There are certain configurations which aren't supported by the 'Setup Networks' api and the defining the network label in that manner will fail the operation and will result in a useless label declaration. The following network configuration on a single interface are prohibited:
+There are certain configurations which aren't supported by the 'Setup Networks' api and defining the network label in that manner will fail the operation and will result in a useless label declaration. The following network configuration on a single interface are prohibited:
 
 1.  Any combination of 2 non-vlan networks:
     1.  2 VM networks
@@ -121,18 +118,16 @@ There are certain configurations which aren't supported by the 'Setup Networks' 
 
 #### User Experience
 
+For managing labels on host level:
+
 *   In Network main tab ---> the 'Hosts sub-tab' will contain a 'labels' column.
-*   In 'Setup Networks' dialog a new property *labels* will be added.
+*   In 'Setup Networks' dialog an option to adding the *labels* will be added, represented as a tag icon on the interface (left side of the setup networks dialog). Clicking the tag icon opens a new dialog for type the labels, in a drop-down/combo-box which will auto-complete the label name based on other labels that are in use in the same data-center (by hosts or by networks).
 *   In host interfaces sub-tab a column *labels* will present the labels.
 
 For managing labels on network level: Alternative 1:
 
-*   In 'Add/Edit VM' dialog a new property *labels* will be added.
-*   In 'network main tab' a *labels* column will present the labels.
-
-Alternative 2:
-
-*   In 'Add/Edit VM' dialog a 'labels' left tab will be added, using the Add/Remove row widget to manage the labels.
+*   In 'Add/Edit Network' dialog a new property *label* will be added.
+*   In 'network main tab' a *label* column will present the labels.
 
 #### REST
 
@@ -172,6 +167,8 @@ On the network level either via POST to */api/networks/* or via PUT to */api/net
 `   `</network_labels>
          ...
 ` `<network>
+
+Since we intend to start with a single label per network entity, the first specified label will be selected.
 
 #### Search Engine
 

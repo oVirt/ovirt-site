@@ -100,7 +100,7 @@ The translation will rely on the host interface's set of labels.
  The administrator will be capable to remove a network which is attached to the interface, even if the network and the interface itself are labelled.
 If the label remains on the host, next action on that network marked to be applied to all hosts will add that network to the host.
 
-#### Assign Network to Cluster
+#### Assigning Network to Cluster
 
 When attaching a labelled network to a cluster, which the label already specified on the cluster's host interfaces will result in adding that network to all of the hosts in that cluster carrying that label on their interfaces.
 

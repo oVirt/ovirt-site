@@ -115,6 +115,13 @@ Already supported.
 
 ### Testing
 
+*   Verify that create snapshot flow has no regressions.
+*   Verify that the 'regular' preview/undo/commit flow has no regressions.
+*   Create a snapshot with a subset of disks.
+*   Custom preview a snapshot from various point of times.
+*   Undo/commit a custom previewed snapshot.
+*   
+
 ### Comments and Discussion
 
 ### Future Work

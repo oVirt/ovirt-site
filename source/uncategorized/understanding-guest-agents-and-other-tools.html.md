@@ -71,10 +71,16 @@ No information is available at this time
 
 ### Linux Guests
 
-|-------------------|------------------------------------------------------------|----------|----------|------------------------------------------------------------|
-|                   | Fedora                                                     | RHEL     | CentOS   | Ubuntu                                                     |
-| oVirt Guest Agent | [Yes](How_to_install_the_guest_agent_in_Fedora) |          |          | [Yes](How_to_install_the_guest_agent_in_Ubuntu) |
-| VirtIO Drivers    | Built-in                                                   | Built-in | Built-in | Built-in                                                   |
-| Spice Drivers     | Yes                                                        |          |          | Yes                                                        |
-| QXL Drivers       |                                                            |          |          |                                                            |
-| QEMU Drivers      |                                                            |          |          |                                                            |
+|-------------------|------------------------------------------------------------|-------------|-------------|------------------------------------------------------------|
+|                   | Fedora                                                     | RHEL        | CentOS      | Ubuntu                                                     |
+| oVirt Guest Agent | [Yes](How_to_install_the_guest_agent_in_Fedora) |             |             | [Yes](How_to_install_the_guest_agent_in_Ubuntu) |
+| VirtIO Drivers    | Built-in(3)                                                | Built-in(3) | Built-in(3) | Built-in(3)                                                |
+| Spice Drivers     | Yes                                                        |             |             | Yes                                                        |
+| QXL Drivers       |                                                            |             |             |                                                            |
+| QEMU Drivers      |                                                            |             |             |                                                            |
+
+*(1) XP Does not support VirtIO-SCSI*
+
+''(2) The spice drivers currently work with Windows 7 and below. ''
+
+*(3) Supported in Kernel 2.6.35 and above*

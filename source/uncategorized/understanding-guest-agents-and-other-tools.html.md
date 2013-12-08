@@ -24,7 +24,7 @@ There are five tools which together can provide the best experience when using a
 
 ### oVirt Guest Agent
 
-The oVirt Guest Agent provides information, notifications, and actions between the oVirt web interface and the guest. A more detailed description can be found at [Guest_Agent](Guest_Agent). The agent provides the Machine Name, Operating System, IP Addresses, Installed Applications, Network and RAM usage and others details to the web interface. It also assists the VM in powering up and down from the web interface and also enables Single Sign On so a authenticated user to the web interface does not need to authenticate again when connected to a VM.
+The oVirt Guest Agent provides information, notifications, and actions between the oVirt web interface and the guest. A more detailed description can be found at [Guest Agent](Guest_Agent). The agent provides the Machine Name, Operating System, IP Addresses, Installed Applications, Network and RAM usage and others details to the web interface. The agent also provides Single Sign On so a authenticated user to the web interface does not need to authenticate again when connected to a VM.
 
 ### Spice Agent
 
@@ -51,7 +51,7 @@ The drivers include support for
 *   VirtIO Network - Used for communication with physical and virtual networks
 *   Memory Ballooning - Used for freeing memory so that it can be made available to other VMs.
 
-VirtIO is built into the Linux kernel so no additional installation is required for Linux VMs with recent kernels (2.6.35 and newer). For Windows VMs the drivers must be installed. The VirtIO drivers are available on [ISO from Fedora](http://alt.fedoraproject.org/pub/alt/virtio-win/latest/) for easy adding to guests at run time and install time. Without the VirtIO drivers a Windows based VM can still function but it requires a IDE based virtual hard drive and e1000 or rtl8139 network devices which may not be optimal.
+VirtIO is built into the Linux kernel so no additional installation is required for Linux VMs with recent kernels (2.6.35 and newer). For Windows VMs the drivers must be installed. The VirtIO drivers are available on an [ISO from Fedora](http://alt.fedoraproject.org/pub/alt/virtio-win/latest/) for easy installation to guests at run time and install time. Without the VirtIO drivers a Windows based VM can still function but it requires a IDE based virtual hard drive and e1000 or rtl8139 network devices which may not be optimal.
 
 ### QXL Drivers
 

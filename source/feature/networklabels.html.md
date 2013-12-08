@@ -32,7 +32,7 @@ The host network configuration can be done by manipulating the network label:
 
 ### Benefit to oVirt
 
-**Network labels** designed to ease and to simplify the maintenance of a data-center with multiple hosts.
+**Network labels** designed to ease and to simplify the maintenance of a data-center, in respect to hosts network configuration.
 With the **Network labels** feature the amount of actions required by the administrator are significantly reduced. Also, in a relative simple manner the host network configuration is kept in-sync with the logical network definition.
 
 ### Detailed Description

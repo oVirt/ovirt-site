@@ -27,18 +27,19 @@ When a vNic Template applies only to host nics it is called vNic profile. When i
 
 ## Current oVirt UCS-M networking integration state
 
-Nowadays the virtual functions are reported as regular nics that, unless configured via UCS-M to have a mac address and connectivity would not be able to be used for Host networking.
+Nowadays the virtual functions are reported to Engine as regular nics. VFs that have not been configured via UCS-M to have a mac address and connectivity are still reported, despite their uselessness for Host networking.
 
-There is a hook, vdsm-hook-vmfex that runs on VM creation and migration that:
+There is a Vdsm hook, [vdsm-hook-vmfex](http://resources.ovirt.org/releases/3.3/rpm/EL/6/noarch/vdsm-hook-vmfex-4.13.0-11.el6.noarch.rpm) that after being installed on each host, takes action upon VM creation and migration that:
 
 *   Sets up a pool of virtual functions (thanks to the pool, migration is possible. As far as there are unused devices in the pool, we can assign a vnic to a virtual function).
-*   Assigns the engine specified MAC address to a virtual function from the pool.
-*   Specifies a \*Port Profile\* the virtual function should adopt.
+*   Assigns the Engine-specified MAC address to a virtual function from the pool.
+*   Specifies a *Port Profile* the virtual function should adopt.
 *   Creates a macvtap device connected to the virtual function and replaces the VM nic definition with it.
 
-For the hook to work, one must manually specify the VM custom properties with {'XX:XX:XX:XX:XX:XX': 'port_profile_name1',
+For the hook to work, one must manually specify the VM custom properties with
 
-      'YY:YY:YY:YY:YY:YY': 'port_profile_name2'}
+      {'XX:XX:XX:XX:XX:XX': 'port_profile_name1',
+       'YY:YY:YY:YY:YY:YY': 'port_profile_name2'}
 
 This implies that the administrator must manually copy the port profile names from UCS-M and the MAC addresses assigned by the engine and write the above dictionary.
 

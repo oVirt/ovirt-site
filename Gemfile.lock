@@ -16,7 +16,6 @@ GEM
     bootstrap-sass (3.0.0.0)
       sass (~> 3.2)
     builder (3.2.2)
-    chronic (0.10.2)
     chunky_png (1.2.9)
     coderay (1.1.0)
     coffee-script (2.2.0)
@@ -115,7 +114,7 @@ GEM
     net-ssh (2.7.0)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
-    oj (2.1.7)
+    oj (2.2.1)
     open-uri-cached (0.0.5)
     pry (0.9.12.4)
       coderay (~> 1.0)
@@ -140,8 +139,6 @@ GEM
       ffi (>= 0.5.0)
     redcarpet (3.0.0)
     ref (1.0.5)
-    reverse_markdown (0.4.6)
-      nokogiri
     rouge (0.3.10)
       thor
     ruby18_source_location (0.2)
@@ -179,7 +176,6 @@ DEPENDENCIES
   bootstrap-navbar!
   bootstrap-sass (= 3.0.0)
   builder (~> 3.0)
-  chronic
   less
   middleman (~> 3.2)
   middleman-blog
@@ -195,7 +191,6 @@ DEPENDENCIES
   pry-debugger
   pry-stack_explorer
   redcarpet
-  reverse_markdown
   ruby18_source_location
   therubyracer
   wdm (~> 0.1.0)

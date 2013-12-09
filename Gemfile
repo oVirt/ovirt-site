@@ -81,10 +81,3 @@ gem "wikicloth"
 gem "redcarpet"
 
 gem 'open-uri-cached'
-gem 'reverse_markdown'
-gem 'chronic'
-#gem 'geocoder'
-#gem 'tzinfo'
-#gem 'tzinfo-data'
-#gem 'json'
-#gem 'timezone'

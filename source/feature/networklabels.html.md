@@ -100,7 +100,7 @@ The translation will rely on the host interface's set of labels.
 'Setup Networks' api will support both labeling and attaching the networks to the interface/bond.
  Removing a labelled network from a labelled interface will be blocked, as labelled networks should be managed according to the interface label. In order to remove a network, the administrator should remove the label from the interface and manage the interface individually.
 
-#### Assigning Network to Cluster
+#### Assigning Network to a Cluster
 
 When attaching a labelled network to a cluster, which the label already specified on the cluster's host interfaces will result in adding that network to all of the hosts in that cluster carrying that label on their interfaces.
 

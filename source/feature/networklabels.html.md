@@ -86,7 +86,7 @@ A network label can be removed either by clearing the label on network update or
 \* Removing the label from the host interface will remove all of the networks which are associated to that label.
 
 *   Removing the label from the network will remove the label from all of the interfaces that have this label.
-*   In conjunction with the 'apply to all hosts', the removed network will be removed from all of the labelled interfaces, and the network will be updated on all of the other eligible hosts.
+*   In conjunction with the 'apply to all hosts', the network will be removed from all of the labelled interfaces, and the network will be updated on all of the other eligible hosts.
 
 #### Changing a label of a network or an interface
 

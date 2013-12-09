@@ -1,5 +1,23 @@
-%ul
-  %li= link_to "blog", "/blog/"
-  %li= link_to "events", "/events/"
-  %li= link_to "software", "/software/"
-  %li= link_to "standards", "/standards/"
+---
+pageable: true
+---
+
+- content_for :head do
+  %link(href="/blog/feed.xml" rel="alternate" title="Atom feed" type="application/atom+xml")
+
+- if defined? page_number && page_number < 2
+
+  -# First-page only stuff here
+  -# (If a blog is included below, then it may paginate)
+
+.row
+
+  %section.blog-posts
+
+    %section.container
+
+      %h2
+        = data.site.name
+        News
+
+      = partial :blog_posts, locals: locals

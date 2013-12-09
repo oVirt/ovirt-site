@@ -98,8 +98,26 @@ The 'apply' property will be added to that action:
 
 #### Events
 
-If the can-do-action of the 'Setup Networks' command fails, an event log should be reported including the host names.
-Each host individually will have its own logging for the 'Setup network' command.
+The following events will be logged for the command when applied to all hosts:
+
+1.  For partial hosts update: "${TotalUpdaedHosts} are planned to be updated, however only ${ActualUpdaedHosts} could be updated."
+2.  If a 'setup networks' action is not supported by cluster version: "${Network} network changes will not be applied to clusters: ${UnsupportedClusterNames} due to unsupported cluster version."
+
+<!-- -->
+
+1.  The event log for the update action: "Network ${Network} changes will be applied to ${UpdaedHostsCounter} host(s)"
+2.  For each host being updated:
+    1.  "1/3 applying network ${Network} on host ${Host}"
+    2.  "2/3 applying network ${Network} on host ${Host}"
+    3.  "3/3 applying network ${Network} on host ${Host}"
+
+And for their completion:
+
+1.  "1/3 network ${Network} were updated on host ${Host}"
+2.  "2/3 failed to update ${Network} changes on host ${Host} due to: ${Failure}"
+3.  "3/3 network ${Network} were updated on host ${Host}"
+
+All the actions should contain the same correlation-id.
 
 ### Dependencies / Related Features
 

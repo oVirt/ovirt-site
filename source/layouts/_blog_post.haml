@@ -10,13 +10,16 @@
   author = article.data.author
   article_view = (article.url == current_page.url)
 
+  def author_data item
+    data.authors[item] if defined? data.authors[item]
+  end
+
 
 - if article_view
   :ruby
     transport = data.site.ssl ? "https://" : "http://"
 
-    author_data = data.authors[author]
-    twitter_name = author_data['twitter']
+    twitter_name = author_data 'twitter'
 
     article_summary = article.data.summary || Nokogiri::HTML(article.summary(200)).text.strip
 
@@ -53,8 +56,8 @@
       %meta{property: property, content: content}
 
     - social_sites.each do |site, link|
-      - if author_data[site]
-        %meta{property: "article:author", content: "#{link}#{author_data[site]}"}
+      - if author_data site
+        %meta{property: "article:author", content: "#{link}#{author_data site}"}
 
     - if article.data.tags
       - article.data.tags.sort {|a,b| a.downcase <=> b.downcase}.each do |tag|

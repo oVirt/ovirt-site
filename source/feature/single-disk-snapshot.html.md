@@ -60,7 +60,7 @@ In addition, adds a new functionality of creating a customized snapshot composed
 
 ###### Video
 
-[Custom Preview Dialog - Video](media:custom_preview_dialog_video.odt)
+[Custom Preview Dialog - Video](media:custom_preview_dialog_video.gz)
 
 #### REST-API
 

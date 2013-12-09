@@ -14,7 +14,7 @@ There are five tools which together can provide the best experience when using a
 
 *   oVirt Guest Agent - Recommended
 *   VirtIO Drivers - Recommended
-*   Spice Drivers - Recommended
+*   Spice Drivers - Recommended if you use the Spice console
 *   QXL Drivers - Optional
 *   QEMU Agent - Optional
 

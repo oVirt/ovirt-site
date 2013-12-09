@@ -29,7 +29,7 @@ Customization of snapshots with regards to VM configuration and disks.
 *   Custom snapshot preview:
     -   Previewing a new state by selecting VM configuration and disks from various snapshots.
     -   Support commit to the new state and undo to the previous one.
-*   Features based on specific disks snapshots, such as LSM, will benefit from the new support
+*   Features based on specific disks snapshots, such as [Storage Live Migration](Features/Design/Storage Live Migration), will benefit from the new support
     -   E.g. LSM will take a snapshot only on the migrated disks - as opposed to the current situation in which a snapshot is taken on all disks.
 
 ### Detailed Description

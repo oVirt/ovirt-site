@@ -14,7 +14,7 @@ wiki_last_updated: 2014-09-15
 
 **Network labels** feature provides the ability to label networks with a label to use that label on the host's interfaces, so the label abstracts the networks from the physical interface/bond which can be labelled with one or more labels.
 The host network configuration can be done by manipulating the network label:
-\* Labelling a network will attach that network to all hosts interfaces which are tagged with that label.
+\* Labeling a network will attach that network to all hosts interfaces which are tagged with that label.
 
 *   Removing a label from the network will trigger the network removal from all hosts interfaces/bonds which are tagged with that label.
 *   Renaming a network label will update all hosts interfaces/bonds which are tagged with that label (either adding or removing that network).
@@ -42,7 +42,7 @@ For simplicity, we'd avoid introducing a 'label' entity. The label will be defin
 *   A new property 'label' will be added to the network: We start with a single label, and if needed we can extend label on network label to represent few labels.
 *   A new property 'labels' will be added to the host interface.
     -   The property 'labels' represents the list of labels that the nic are marked with.
-    -   Labelling are permitting only for interfaces or bonds (no vlans/bridge labelling allowed).
+    -   Labeling are permitting only for interfaces or bonds (no vlans/bridge labeling allowed).
 
 The labels represent a varied list of networks, depending on the network assignment to the cluster:
 \* The network is defined on the data-center level.
@@ -72,32 +72,33 @@ If network 'blue' will be unassigned from cluster 'B', label 'lbl1' will represe
 
 The network label should contain only numbers, digits, dash or underscore (comply with the pattern [0-9a-zA-Z_-]+).
 
-#### Adding a network label
+#### Labeling a network or an interface
 
-When the host interface is the first to be labelled and later on a new network is labelled with the same label, the 'Add Network' action will trigger the attachment of the network to all of the hosts carrying that label on one of their interfaces.
-When the network is labelled prior to labelling the the host interface, labelling the interface will be done as part of the 'Setup Networks' action. The 'Setup Networks' will be the responsible to translate the label into the appropriate list of networks it represents and to validate the correctness of the label.
+When the host interface is the first to be labelled and later on a new network is labelled with the same label, the 'Assign Network to cluster' action will trigger the attachment of the network to all of the hosts carrying that label on one of their interfaces.
+When the network is labelled prior to labeling the the host interface, labeling the interface will be done as part of the 'Setup Networks' action. The 'Setup Networks' will be the responsible to translate the label into the appropriate list of networks it represents and to validate the correctness of the label.
 
 Defining a network label on network indicates the administrator enhances the usage of the network labels feature to apply a network to all of the hosts carrying the same label on their interfaces.
 Hence, no further indication is required add the network to all of the hosts (i.e. by property 'Apply to all hosts').
 
-#### Deleting a network label
+#### Unlabeling a network or an interface
 
-A network label can be removed either by updating the network and removing the label or by removing the label from the host interface.
-The property 'Apply to all hosts' (introduced in [Edit Provisioned Network feature](Features/EditProvisionedNetwork#Phase_1)) will be reused in 'Update Network' operation to notate the network should be removed from all of the hosts.
-Deleting the label from the host interface will not cause the removal of the networks which are already attached to that interface. However, it will cause the host interface not to be managed according to that label any more.
+A network label can be removed either by clearing the label on network update or by removing the label from the host interface via 'setup networks':
+\* Removing the label from the host interface will remove all of the networks which are associated to that label.
 
-#### Renaming a network label
+*   Removing the label from the network will remove the label from all of the interfaces that have this label.
+*   In conjunction with the 'apply to all hosts', the removed network will be removed from all of the labelled interfaces, and the network will be updated on all of the other eligible hosts.
+
+#### Changing a label of a network or an interface
 
 This actions is considered as adding and removing of a network label.
-In order not to cause the removal of the network from all of the hosts, rename should be done on the hosts first, or not to mark the 'Apply to all hosts' checkbox when renaming the label on 'Edit Network'.
+Changing a label of a network will remove it the network from all of the hosts which had their interfaces labelled with the old name and will add that network to any other interface in that data-center tagged with the new label.
 
 #### Pre-'Setup Networks' execution
 
 At the first step of the 'Setup Networks' parameters validation, a translation of the labels to a list of networks will be done.
 The translation will rely on the host interface's set of labels.
-'Setup Networks' api will support both labelling and attaching the networks to the interface/bond.
- The administrator will be capable to remove a network which is attached to the interface, even if the network and the interface itself are labelled.
-If the label remains on the host, next action on that network marked to be applied to all hosts will add that network to the host.
+'Setup Networks' api will support both labeling and attaching the networks to the interface/bond.
+ Removing a labelled network from a labelled interface will be blocked, as labelled networks should be managed according to the interface label. In order to remove a network, the administrator should remove the label from the interface and manage the interface individually.
 
 #### Assigning Network to Cluster
 

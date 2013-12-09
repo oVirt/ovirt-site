@@ -53,25 +53,25 @@ Considering the current level of integration (using the current vdsm-hook-vmfex)
 
 ### Level IV: "A New Hook"
 
-This level of integration consists on reworking the existing vdsm-hook-vmfex so that the oVirt administrator can set up the integration at the guest device level instead of at the VM level. The advantage of this is that only the port profile will need to be specified (since the MAC address is already part of the VM's NIC properties given by the engine).
+This level of integration consists of reworking the existing vdsm-hook-vmfex so that the oVirt administrator can set up the integration at the guest device level instead of at the VM level. The advantage of this is that only the port profile will need to be specified (since the MAC address is already part of the VM's NIC properties given by the Engine).
 
 Things to be done:
 
-*   Filter out virtual functions from being reported as nics.
+*   Filter out unused virtual functions from being reported as nics.
 *   Clone and refactor the current hook to use custom device properties and to run "before_device_create".
 
 ### Level V: "The Network provider strikes back"
 
-This level of integration builds on top of the work that was laid out for the Neutron integration, i.e., Network providers, so that we can use the UCS-M API (it exposes all entities via XML HTTP requests) to retrieve the port profiles defined in the system. These port profiles would available for selection in the VM nic creation dialog.
+This level of integration builds on top of the work that was laid out for the Neutron integration, i.e., Network providers, so that we can use the UCS-M API (it exposes all entities via XML HTTP requests) to retrieve the port profiles defined in the system. These port profiles would be available for selection in the VM nic creation dialog.
 
 Things to be done:
 
 *   Implement a Network provider that talks to UCS-M via its XML RPC.
-*   Make the scheduler aware of virtual function availability for scheduling VMs that use the integration. (This could be retrieved from the hosts vdsm or maybe from UCS-M as part of the vnic-conn-policy, specifically its dynamic eth attribute).
+*   Make the scheduler aware of virtual function availability for scheduling VMs that use the integration. (This could be retrieved from the hosts' Vdsm or maybe from UCS-M as part of the vnic-conn-policy, specifically its dynamic eth attribute. The former has the benefit of helping non-UCS sriov setups.).
 
 ### Level VI: "The return of the Port Profile"
 
-This level of integration would make it possible for the oVirt engine to go from simply retrieving Port Profiles to exporting oVirt networks to UCS-M as Port Profiles.
+This level of integration would make it possible for the oVirt Engine to go from simply retrieving Port Profiles to exporting oVirt networks to UCS-M as Port Profiles.
 
 *   Define a good matching abstraction between oVirt's QoS and UCS's.
 *   Extend the network provider for creating profiles in UCS-M.

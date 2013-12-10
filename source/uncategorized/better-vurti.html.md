@@ -61,7 +61,6 @@ current situation a high-level
                                                                         | vm is down?
                                                                         | memory checks
                                                                         | watchdog events,network checks etc...
-
                               | free exclusive lock
                                          
                                                

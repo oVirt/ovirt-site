@@ -47,7 +47,6 @@ current situation a high-level
                             |
                             | ------------[other status, Unassigned]
                                                   | refresh HW caps and cluster checks
-
                             |
                             | refresh VM stats
                                                | ------[time for stats]----
@@ -63,7 +62,10 @@ current situation a high-level
                                                                                        | memory checks
                                                                                        | watchdog events,network checks etc...
 
-                            [
-                             
+### poll to push - event driven
 
-while 2 way communication with hosts is still not ready, we can prepare fo it by eliminating the pool proccess
+while not ready 2 way communnication can lead us to get rif of polling. this would elimiate the need for a constant thread
+
+per abstract in this layer adopting to simulate the poll to push by programming event driven style, using CDI events.
+
+high level scketch of event driven flow:

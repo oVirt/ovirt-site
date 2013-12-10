@@ -13,6 +13,7 @@ wiki_last_updated: 2014-02-23
 ### Summary
 
 The feature allows the administrator to modify a network (i.e. vlan-id, mtu) which is already provisioned by the hosts and to apply the network changes to all of the hosts within the data-center to which the network is assigned.
+The feature will be enabled for 3.1 data-centers and above, regardless cluster level in order to avoid inconsistency between hosts network configuration in various clusters.
 
 ### Owner
 

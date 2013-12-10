@@ -67,7 +67,7 @@ class BlogHelpers < Middleman::Extension
     end
 
     def author_link nickname, text = author_name(nickname)
-      link_to text, "/blog/author/#{nickname}/"
+      link_to text, "/blog/author/#{nickname.parameterize.downcase}/"
     end
 
     def author_card nickname

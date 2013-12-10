@@ -73,4 +73,18 @@ while not ready 2 way communication can lead us to get rid of polling. this woul
 
 per abstract in this layer adopting to simulate the poll to push by programming event driven style, using CDI events.
 
-high level sketch of event driven flow:
+### Phase 1 - Abstract the communication layer
+
+today the sequence of action is linear - we lock, poll data from vdsm, iterate, take actions, do state change, save all to db and free lock.
+
+the communication layer is coupled inside, we don't have a way around it. to overcome this we introduce another level of indirection - the PushAdapter.
+
+#### PushAdapter
+
+Typically the PushAdapter will poll for data exactly as made today but instead of just iterating and doing the regular stuff it will throw events.
+
+The adapter main role is to crunch the fetch data and dispatch events accordingaly, i.e
+
+VMStateChanged is an example of an aggregating event the will be fired. multiple subscribers(a.k.a observers) can react to that (ordering of events is
+
+==== E

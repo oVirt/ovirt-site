@@ -49,16 +49,15 @@ Currently, Updating the network is blocked for network which is used by VMs. As 
 *   Networks that aren't used by VMs
 *   The VMs are down and the change doesn't include modifying a VM network to a non-VM network.
 
-The feature will be enabled only for 3.1 data-center and above since it relies on the 'Setup Networks' which was introduced in 3.1.
+The feature will be enabled only for 3.1 data-center and above since it relies on the 'Setup Networks' which was introduced in 3.1. Renaming of network which is used by the hosts, vms or templates will be blocked, since it will make the network on hosts as "unmanaged" and leave the vm/templates without a required network.
+
+1.  This will revert the fix for bug [Don't block removing/updating network "used" by host](https://bugzilla.redhat.com/show_bug.cgi?id=909820)
+2.  The user should create a new network instead of renaming a used network.
 
 #### Phase 2
 
 1.  The same behaviour will be added to 'Remove Network' action as well in a similar manner:
     -   Removing a network from the system will attempt to remove it from all of the hosts it is defined on.
-
-2.  Renaming of network which is used by the hosts, vms or templates will be blocked, since it will make the network on hosts as "unmanaged" and leave the vm/templates without a required network.
-    -   This will revert the fix for bug [Don't block removing/updating network "used" by host](https://bugzilla.redhat.com/show_bug.cgi?id=909820)
-    -   The user should create a new network instead of renaming a used network.
 
 #### User Experience
 

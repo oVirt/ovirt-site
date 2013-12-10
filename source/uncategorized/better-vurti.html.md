@@ -38,15 +38,15 @@ current situation a high-level
                             *
                             | [exclusive lock]
                             * 
-                            | ------------[if status is Up or going to Maintenance...]
-                                                  |
-                                                  | VDSM::GetVdsStats
-                                                  | ----------------------------[Failed]--------- Non Oper
-                                                  | [sucess]
-                                                  | DB::save VdsDynamic and Statistics
+                            | ----------[if status is Up or going to Maintenance...]
+                                               |
+                                               | VDSM::GetVdsStats
+                                               | ----------------------------[Failed]--------- Non Oper
+                                               | [sucess]
+                                               | DB::save VdsDynamic and Statistics
                             |
-                            | ------------[other status, Unassigned]
-                                                  | refresh HW caps and cluster checks
+                            | ----------[other status, Unassigned]
+                                               | refresh HW caps and cluster checks
                             |
                             | refresh VM stats
                                                | ------[time for stats]----
@@ -56,16 +56,22 @@ current situation a high-level
                                                | VDSM::GetVMsList
                                                |
                                                | compare list of db vms and running vms
-                                                                                       | migration ended?
-                                                                                       | vm is up?
-                                                                                       | vm is down?
-                                                                                       | memory checks
-                                                                                       | watchdog events,network checks etc...
+                                                                        | migration ended?
+                                                                        | vm is up?
+                                                                        | vm is down?
+                                                                        | memory checks
+                                                                        | watchdog events,network checks etc...
 
-### poll to push - event driven
+                              | free exclusive lock
+                                         
+                                               
+                                               
+                                               
 
-while not ready 2 way communnication can lead us to get rif of polling. this would elimiate the need for a constant thread
+### poll to push - Reactive Programming
+
+while not ready 2 way communication can lead us to get rid of polling. this would eliminate the need for a constant thread
 
 per abstract in this layer adopting to simulate the poll to push by programming event driven style, using CDI events.
 
-high level scketch of event driven flow:
+high level sketch of event driven flow:

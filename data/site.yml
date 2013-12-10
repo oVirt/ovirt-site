@@ -2,7 +2,7 @@ name: Springboard for Middleman
 domain: yourdomain.org
 
 # Optional logo. If commented out, it will not be used.
-#logo: logo.png
+logo: logo.png
 
 # Owner is used for the automatic copyright string.
 # If no owner is specified, then copyright will default to site name.)

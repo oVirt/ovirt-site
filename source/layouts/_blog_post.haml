@@ -82,10 +82,11 @@
         = article.title
 
     %header.post-meta
-      %span.byline
-        by
-        %span.author.vcard
-          = author_link article.data.author
+      - if article.data.author
+        %span.byline
+          by
+          %span.author.vcard
+            = author_link article.data.author
 
       &ndash;
 

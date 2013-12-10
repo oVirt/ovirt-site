@@ -7,9 +7,6 @@
 
 Time.zone = data.site.timezone || "UTC"
 
-# Make pretty URLs
-activate :directory_indexes
-
 # Automatic image dimensions on image_tag helper
 activate :automatic_image_sizes
 
@@ -29,11 +26,17 @@ set :haml, :format => :html5, :ugly => true
 # Set Markdown features for RedCarpet
 # (So our version of Markdown resembles GitHub's)
 set :markdown,
-  :tables => true,
-  :autolink => true,
-  :gh_blockcode => true,
-  :fenced_code_blocks => true,
-  :smartypants => true
+  autolink: true,
+  fenced_code_blocks: true,
+  footnotes: true,
+  gh_blockcode: true,
+  highlight: true,
+  no_intra_emphasis: true,
+  quote: true,
+  smartypants: true,
+  strikethrough: true,
+  superscript: true,
+  tables: true
 
 set :markdown_engine, :redcarpet
 
@@ -56,36 +59,40 @@ set :partials_dir, 'layouts'
 
 activate :blog do |blog|
   blog.prefix = "blog/"
-  blog.layout = "blog_layout"
+  blog.layout = "post"
   blog.tag_template = "tag.html"
   blog.calendar_template = "calendar.html"
   blog.default_extension = ".md"
 
   blog.sources = ":year-:month-:day-:title.html"
-  blog.permalink = ":year/:month/:day/:title.html"
+  #blog.permalink = ":year/:month/:day/:title.html"
+  blog.permalink = ":year/:month/:title.html"
   blog.year_link = ":year.html"
   blog.month_link = ":year/:month.html"
-  blog.day_link = ":year/:month/:day.html"
+  #blog.day_link = ":year/:month/:day.html"
 
 
-  #blog.taglink = "tags/:tag.html"
+  blog.taglink = "tag/:tag.html"
 
   #blog.summary_separator = /(READMORE)/
   #blog.summary_length = 99999
 
   blog.paginate = true
   blog.per_page = 10
-  blog.page_link = "page/:num"
+  blog.page_link = "page=:num"
 end
 
 #activate :authors
 #activate :drafts
 
 # Enable blog layout for all blog pages
-with_layout :blog_layout do
+with_layout :post do
   page "/blog.html"
   page "/blog/*"
 end
+
+# Make pretty URLs
+activate :directory_indexes
 
 
 ###
@@ -116,8 +123,7 @@ end
 # end
 
 # Don't have a layout for XML
-page "/feed.xml", :layout => false
-page "/sitemap.xml", :layout => false
+page "*.xml", :layout => false
 
 # Docs all have the docs layout
 with_layout :docs do
@@ -125,9 +131,30 @@ with_layout :docs do
   page "/documentation*"
 end
 
+# Don't make these URLs have pretty URLs
+page "/404.html", :directory_index => false
+page "/.htacces.html", :directory_index => false
+
 # Proxy pages (http://middlemanapp.com/dynamic-pages/)
 # proxy "/this-page-has-no-template.html", "/template-file.html", :locals => {
 #  :which_fake_page => "Rendering a fake page with a local variable" }
+
+proxy "/.htaccess", "/.htaccess.html", :locals => {}, :ignore => true
+
+ready do
+  # Add author pages
+  sitemap.resources.group_by {|p| p.data["author"]}.each do |author, pages|
+    proxy "/blog/author/#{author.parameterize.downcase}.html", "author.html", locals: {author: author, pages: pages}, :ignore => true if author
+  end
+  proxy "/blog/author.html", "author.html", :ignore => true
+
+  # Add blog feeds
+  blog.tags.each do |tag_name, tag_data|
+    proxy "/blog/tag/#{tag_name.downcase}.xml", "feed.xml", locals: {tag_name: tag_name}, :ignore => true if tag_name
+  end
+  proxy "/blog/feed.xml", "feed.xml", :ignore => true
+  proxy "/blog/tag/index.html", "tag.html", :ignore => true
+end
 
 
 ###
@@ -140,39 +167,14 @@ end
 #     "Helping"
 #   end
 # end
-helpers do
-  def normalize_url(dirty_URL)
-    r = url_for Middleman::Util.normalize_path(dirty_URL)
-    r.sub(/\/$/, '')
-  end
+#helpers do
+#end
 
-  # FIXME: This is a WIP; it's not working though...
-  def pretty_date(sometime)
-    #sometime = ActiveSupport::TimeZone[zone].parse(sometime) unless sometime.is_a?(Date)
-    sometime = Date.strptime(sometime, "%Y-%m-%d") if sometime.is_a?(String)
-=begin
-    if date.is_a?(String)
-      date = Date.parse(date)
-    end
+require 'lib/site_helpers.rb'
+activate :site_helpers
 
-    result = date.strftime("%B %d")
-    result << date.strftime(", %Y") if date.year > Time.now.year
-=end
-
-    #return sometime.to_formatted_s(:short)
-    return sometime#.strftime("%d %B")
-  end
-
-  # Use the title from frontmatter metadata,
-  # or peek into the page to find the H1,
-  # or fallback to a filename-based-title
-  def discover_title(page = current_page)
-    page.data.title || page.render({layout: false}).match(/<h1>(.*?)<\/h1>/) do |m|
-      m ? m[1] : page.url.split(/\//).last.titleize
-    end
-  end
-
-end
+require 'lib/blog_helpers.rb'
+activate :blog_helpers
 
 
 ###
@@ -202,6 +204,8 @@ configure :build do
   ignore 'stylesheets/vendor/*'
   ignore 'stylesheets/lib/*'
 
+  ignore 'events-yaml*'
+
   # Minify JavaScript and CSS on build
   activate :minify_javascript
   activate :minify_css
@@ -213,7 +217,7 @@ configure :build do
   # activate :asset_hash
 
   # Use relative URLs for all assets
-  activate :relative_assets
+  #activate :relative_assets
 
   # Compress PNGs after build
   # First: gem install middleman-smusher

@@ -2,10 +2,15 @@
 # the following line to use "https"
 source 'http://rubygems.org'
 
-gem "middleman", "~>3.1.5"
+gem "middleman", "~>3.2"
 
 # Live-reloading plugin
 gem "middleman-livereload"
+
+# Debugger / REPL alternative to irb
+gem 'pry'
+gem 'pry-debugger'
+gem 'pry-stack_explorer'
 
 # Cross-templating language block fix for Ruby 1.8
 platforms :mri_18 do
@@ -48,8 +53,9 @@ gem "oj"
 #####
 # Bootstrap
 
-# Bootstrap, as SASS 3 version (from master branch, until official release):
-gem "bootstrap-sass", github: "thomas-mcdonald/bootstrap-sass"
+# Bootstrap, as SASS 3 version (there's a bug in 3.0.1+, so we're
+# locking to 3.0.0 for now
+gem "bootstrap-sass", "3.0.0"
 
 # Bootstrap 3 version of navbar (from a fork; temporary also):
 gem "bootstrap-navbar", github: "delynn/bootstrap-navbar"
@@ -73,3 +79,5 @@ gem "wikicloth"
 
 # Markdown, with GitHub flavoring
 gem "redcarpet"
+
+gem 'open-uri-cached'

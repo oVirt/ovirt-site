@@ -1,7 +1,3 @@
-//= require _fonts
-//= require_tree ./vendor
-//= require_tree ./lib
-
 // Various variables to customize bootstrap
 // Uncomment a line and change its value to change the look of your site
 @import bootstrap-custom
@@ -11,5 +7,13 @@
 // sass-convert -F scss -T sass {bootstrap-sass}/vendor/assets/stylesheets/bootstrap/bootstrap.scss
 @import bootstrap-includes
 
-// Site-specific custom rules can be added here
-@import application-custom
+//@import vendor/normalize.css
+@import fonts/fonts.css
+@import vendor/solarized-light.sass
+
+@import lib/scrollbar-on.sass
+@import lib/juvia-comments.sass
+
+@import lib/site.sass
+@import lib/markdown.sass
+@import lib/blog.sass

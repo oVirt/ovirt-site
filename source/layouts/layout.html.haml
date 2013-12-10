@@ -17,8 +17,13 @@
 
     %meta(charset="utf-8")
     %meta(name="description" content="#{data.site.description || ''}")
-    %meta(name="author" content="#{data.site.author || data.site.owner || ''}")
+
+    - meta_author = author_name current_page.data.author || data.site.author || data.site.owner || ''
+
+    %meta(name="author" content="#{meta_author}")
     %meta(content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" name="viewport")
+
+    = yield_content :head
 
     -# App Icons
     %link(rel="shortcut icon" href="/images/favicon.ico")
@@ -32,30 +37,35 @@
     - if data.page.stylesheet
       = stylesheet_link_tag "global", data.page.stylesheet
 
-    -# moved this before content so you can use jquery plugins within page content too
-    = javascript_include_tag 'application'
-
   %body{:class => (page_classes || 'page') + " source-#{current_page.source_file.split('.').last}" }
 
     - unless data.page.hide_header
       = partial "header"
 
-    .content{class: data.page.no_container.nil? ? 'container' : '' }
 
-      -# Show a warning for those using < IE6 or lower
-      /[if lt IE 7]
-        <p class="chromeframe">You are using an outdated browser.
-        <a href="http://browsehappy.com/">Upgrade your browser today</a> or
-        <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    %section#page-wrap.container
 
-      -# Render actual page content
-      = yield
+      %section#page
+
+        %section#content.content{class: data.page.no_container.nil? ? 'container' : '' }
+
+          -# Show a warning for those using < IE6 or lower
+          /[if lt IE 7]
+            <p class="chromeframe">You are using an outdated browser.
+            <a href="http://browsehappy.com/">Upgrade your browser today</a> or
+            <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+
+          -# Render actual page content
+          = yield
 
     - unless data.page.hide_footer
       = partial "footer"
 
+    = javascript_include_tag 'application'
+
     - if build?
 
       - # Place JS in javascripts/production and it'll show up only for production
-      = javascript_include_tag 'production'
+      -#= javascript_include_tag 'production'
 
+      = partial "production_only"

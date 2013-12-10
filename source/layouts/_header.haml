@@ -1,12 +1,15 @@
-.masthead
-  -# %h1
-    = link_to "/" do
-      = image_tag data.site.logo, class: "logo", alt: data.site.name
+%header#branding.masthead(role="banner")
+  %section.hgroup
+    %h1
+      = link_to "/" do
+        - if data.site.logo
+          = image_tag data.site.logo, id: "rhlogo", class: "logo", alt: data.site.name
+        - else
+          = data.site.name
 
-  -# A few options/examples below:
+    - if data.site.subhead
+      %h2#site-title
+        = data.site.subhead
 
-  -# Use static top navbar include (default on springboard example site)
-  = partial "navbar_static_top"
-
-  -# "Dynamic" navigation is automatically rendered from ../../data/navigation.yml
-  -# = partial :nav, locals: { source: "navigation", nav_class: "nav-pills" }
+  #access
+    = partial :nav, locals: { source: "navigation", nav_class: "nav-pills" }

@@ -1,0 +1,12 @@
+:ruby
+  # To use this partial, you must reference this partial like so,
+  # passing locals:
+  #
+  # = partial :blog_posts, locals: locals
+
+%section.articles
+
+  - page_articles.each do |article|
+    = partial :blog_post, locals: {article: article}
+
+  = partial :blog_pagination, locals: locals

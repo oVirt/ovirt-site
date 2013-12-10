@@ -1,13 +1,23 @@
 ---
-title: Main
+pageable: true
 ---
--# this is HAML, and we use Bootstrap as our building blocks.
-.container
-  .jumbotron
-    %h2 Say hello to Middleman and Springboard!
-    %p 
-      Springboard is a project template for
-      %a( href="http://middlemanapp.com" ) Middleman 
-      that adds useful modules like blogging, documentation browser
-      and some web development grease to make your life easier. If you
-      are reading this, replace this with your own content!
+
+- content_for :head do
+  %link(href="/blog/feed.xml" rel="alternate" title="Atom feed" type="application/atom+xml")
+
+- if defined? page_number && page_number < 2
+
+  -# First-page only stuff here
+  -# (If a blog is included below, then it may paginate)
+
+.row
+
+  %section.blog-posts
+
+    %section.container
+
+      %h2
+        = data.site.name
+        News
+
+      = partial :blog_posts, locals: locals

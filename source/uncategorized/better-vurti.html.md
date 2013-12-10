@@ -11,10 +11,10 @@ wiki_last_updated: 2014-04-02
 ## Motivation
 
 *   We want to scale easily
-*   Limited num of host and cms
-*   Hi Peromance costs with large deployment
+*   Limited number of host and VMs
+*   High performance costs with large deployment
 *   Want to prepare for the 2-way messaging with hosts
-*   write better loosly coupled code - more testable, maintanable, easy to add
+*   write better loosely coupled code - more testable, maintainable, easy to add
 
 ## Problem statement
 

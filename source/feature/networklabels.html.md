@@ -190,4 +190,4 @@ The feature will use the [Multi-Host Network Configuration](Features/MultiHostNe
 
 Explain how this feature may be tested by a user or a quality engineer. List relevant use cases and expected results.
 
-<Category:Feature>
+<Category:Feature> <Category:Networking>

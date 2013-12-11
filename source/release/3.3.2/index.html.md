@@ -238,6 +238,10 @@ For restore, disks are attached to a virtual appliance, the data is restored to 
  - vdsm fails to start if reconfiguring of libvirt was performed.
  - LVM logical volumes on FC SDs are activated automatically after hypervisor reboot.
  - VDSM does not report the qemu version in capabilities, if qemu-kvm-rhev is used.
+ - _highWrite should not extend a drive if the highest allocated extent is outside the capacity of the volume.
+ - Tune dirty_ratio and dirty_background_ratio not set on Fedora >= 19.
+ - [vdsm] VM disk does not get resized when performing live virtual disk resize on block storage
+ - SD is partially accessible after extending.
 
 ### ovirt-node-plugin-vdsm
 

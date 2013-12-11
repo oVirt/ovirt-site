@@ -224,6 +224,13 @@ For restore, disks are attached to a virtual appliance, the data is restored to 
 
 ### VDSM
 
+* Paused VM not unpaused when vdsm is starting and storage domain is valid
+ - Domain monitoring stops after disconnecting and reconnecting storage pool leading to bogus "No space left" error
+ - hosted-engine --vm-shutdown throws an exception when ha agent tries to stop engine vm after maintenance mode on the host was set to "local".
+ - Cannot disable KSM.
+ - [vdsm] vdsm.spec restorecon verbosity.
+ - [RHS-C] Error while executing action Add Gluster Hook: Internal Engine Error.
+
 ### ovirt-node-plugin-vdsm
 
 No bugs reported at moment.

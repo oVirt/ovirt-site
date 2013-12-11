@@ -12,42 +12,63 @@ wiki_last_updated: 2013-12-19
 
 Bug-Url: <https://bugzilla.redhat.com/show_bug.cgi?id=1035238>
 
-Goals:
+## Goals
 
-*   shutdown a host when Powersaving is selected and engine clears the host (migrates all VMs elsewhere)
+*   shutdown hosts when Powersaving is selected and engine clears the host (migrates all VMs elsewhere)
 *   wake up a host when the available resources get below configured level
 
-Design:
+## Design
 
-*   shutdown methods: standard engine's fencing methods - IPMI, SSH, Drac
-*   wake methods: standard methods - IPMI, SSH, ... - with fallback to WOL when needed and supported
+*   shutdown methods:
+    -   graceful shutdown - SSH, IPMI (if it supports that)
+    -   standard engine's fencing methods - IPMI, Drac, ...
+*   wake methods:
+    -   standard fencing methods - IPMI, SSH, ... - with fallback to WOL when needed and supported
 *   use Start/StopVdsCommand internally
 
-Shutdown rules:
+### Shutdown rules
 
 *   decided as part of load balancing thread
-*   host has been empty for some time (configurable timeout)
 *   there is enough available hosts in the cluster even without this host
 *   make sure spm is not killed
 
-Wake Up rule:
+### Wake Up rule
 
 *   decided as part of load balancing thread
 *   not enough free hosts in the cluster
 
-UI:
+### Shutdown procedure
+
+*   qualifying Hosts in the Up state (one at a time) will be moved to maintenance and managedByPolicy set to true by the load balancer
+*   qualifying Hosts in the Maintenance state that also have managedByPolicy flag set will be shut down
+
+### Wake up procedure
+
+*   when the load balancer decides to wake up a host or the user clicks the Activate button
+*   engine will start the host and clear the managedByPolicy flag when the startup is finished
+
+## DB changes
+
+*   new boolean flag for Host - managedByPolicy - meaning the host was shut down or to maintenance by the automatic policy
+*   new boolean flag for Host - disableAutomaticPowerManagement - that will make this host invisible to the power management policy
+
+## new Power saving policy attributes
 
 *   Cluster policy needs to allow the user to set:
     -   the minimum amount of free hosts
     -   whether host shutdown is allowed
-    -   how long does a host need to be empty to be considered for shutdown
+    -   (how long does a host need to be empty to be considered for shutdown)
+
+## UI
+
 *   Each host needs a boolean that will override the shutdown (persistent host)
 
-Known issues:
+## Known issues
 
 *   when user tries to start a Vm that is pinned to a powered down host, we will fail the start
+*   if there is no spare available we might need to fail RunVm and inform the user to try again once we start more hosts
 
-Possible future enhancements:
+## Possible future enhancements
 
 *   Reserve defined in terms of power, memory, ...
     -   useful for reserving space for fast start of some important VM

@@ -56,7 +56,7 @@ Without predictable vNIC order, the cloned VM may have eth0 leading to BLUE, and
 
 ### Possible Solutions
 
-#### Transactional MAC allocation
+#### Transactional MAC allocation - Chosen Solution
 
 mac addresses should not be allocated when a vNIC is first added to the VM. Only when a VM is first run, or is cloned from a template, allocate all addresses and make sure that [mac] matches [name]. This leads to a predictable [name]-[mac]-[pci] mapping, which in sane, clean guests, leads to predictable [name]-[guest].
 
@@ -75,6 +75,15 @@ Cons:
 Pros:
 
 *   Would soothe the pains of most of users.
+
+Transactional MAC allocation should take place in the following occasions:
+
+*   Create Vm from template
+*   Create Vm from snapshot
+*   Add Vm dialog
+*   Import Vm
+
+On such the addresses should be allocated to NIC entities based on the original order (on the template, snapshot, or exported Vm). If the information is missing, the MAC order should match the NIC name order.
 
 #### User control on libvirt order
 

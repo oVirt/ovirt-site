@@ -228,4 +228,20 @@ For restore, disks are attached to a virtual appliance, the data is restored to 
 
 No bugs reported at moment.
 
+### ovirt-image-uploader
+
+* image not showing up with --nfs-server option
+ - RHEV message seen after upgrade to 3.2 from 3.1 "WARNING: A deprecated configuration key has been found. Please replace the deprecated key, 'rhevm', with the new one 'engine'"
+
+### ovirt-iso-uploader
+
+* RHEV message seen after upgrade to 3.2 from 3.1 "WARNING: A deprecated configuration key has been found. Please replace the deprecated key, 'rhevm', with the new one 'engine'"
+
+### ovirt-log-collector
+
+* RHEV message seen after upgrade to 3.2 from 3.1 "WARNING: A deprecated configuration key has been found. Please replace the deprecated key, 'rhevm', with the new one 'engine'"
+ - When calling the API the LC does not provide a max value, limiting the returned results to 100 by default.
+ - [LOG_COLLECTOR] - infinite loop in configuration parser
+ - warning suggesting the user to use filters when collected logs are too big
+
 <Category:Documentation> <Category:Releases>

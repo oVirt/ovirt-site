@@ -27,7 +27,7 @@ This feature will allow a VM to have multiple consoles (e.g. SPICE and VNC at th
     -   VDSM part - design
     -   Backend part - design
 *   2nd phase - Frontend part
-    -   Refactoring frontend models to support more graphics - in progress (patch: <http://gerrit.ovirt.org/#/c/21488/>)
+    -   Refactoring frontend models to support more graphics - merged (patch: <http://gerrit.ovirt.org/#/c/21488/>)
     -   UI patch - adding new UI elements to VM/Template dialog - waiting for ^
 
 ## Detailed descripiton

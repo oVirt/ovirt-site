@@ -52,4 +52,4 @@ One oVirt 3.3 feature that could specifically benefit from host-level QoS is [Mi
 
 On the arch@ovirt.org and users@ovirt.org mailing lists.
 
-<Category:Feature>
+<Category:Feature> <Category:Networking>

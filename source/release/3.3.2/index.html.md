@@ -78,6 +78,8 @@ For restore, disks are attached to a virtual appliance, the data is restored to 
 
 ## Known issues
 
+*   EL >= 6.5 or cloud-init >= 0.7.2 are needed for cloud-init feature support ()
+
 ## Bugs fixed
 
 ### oVirt Engine

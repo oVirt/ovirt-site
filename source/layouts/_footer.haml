@@ -1,4 +1,7 @@
 #footer.text-center
+
+  %hr.visible-print
+
   =# data.site.founding_year
   - founding = data.site.founding_year
   - year_string = if founding && founding.to_i < Time.now.year

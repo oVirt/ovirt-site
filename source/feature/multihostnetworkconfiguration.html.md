@@ -103,4 +103,4 @@ To test the feature, a setup should include at least one host within the data-ce
 2.  Approve the command.
 3.  Verify network 'red' was modified correctly on the relevant data-center's hosts.
 
-<Category:Feature> <Category:Template>
+<Category:Feature> <Category:Networking>

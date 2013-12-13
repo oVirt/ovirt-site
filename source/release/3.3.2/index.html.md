@@ -130,7 +130,8 @@ For restore, disks are attached to a virtual appliance, the data is restored to 
  - /etc/sysconfig/nfs is deleted on cleanup
  - Number of images listed in glance domains shouldn't be limited by server-side configuration
  - [REST-API] no ssh-publickey support for install host action
- - The automatic install in RHEV-M 3.3 does not have all the values in the config file it uses.v  - "Resources" tab on the Power User Portal unable to display all virtual machine disks
+ - The automatic install in RHEV-M 3.3 does not have all the values in the config file it uses.
+ - "Resources" tab on the Power User Portal unable to display all virtual machine disks
  - [ovirt-engine-backend] cloud-init fake-cdrom is attached even during normal Run action
  - support for configurable attachment of VirtIO-SCSI controller
  - in PM only selecting apc or ipmilan changes the options, choosing other types is static
@@ -195,6 +196,7 @@ For restore, disks are attached to a virtual appliance, the data is restored to 
  - [engine] Allocated size not calculated correctly for storage domains
  - disk stays in "image locked" status long after action (snapshot preview) failure when all related task are gone from vdsm and engine
  - Add osinfo configuration instruction and warning not to override defaults
+ - sysprep floppy is not attached to Windows 2008 R2 machine - even when specifically checked in Run Once
  - Removing VM without removing its disks releases quota of the disks wrongfully
  - ovirt-engine is killed by oom-killer in is21
  - Required/non-required networks gone from setup networks dialog
@@ -207,9 +209,11 @@ For restore, disks are attached to a virtual appliance, the data is restored to 
  - Make the UseFqdnForRdpIfAvailable engine-config option available
  - Possibility to edit Network description and comment while attached to VMs
  - add NIC to VM failed on create VM from template
+ - require openjdk version which solves the memory leak in RHEV-M: service ovirt-engine gets OOM killed after few days of uptime
  - rhevm-setup fails do to missing 'file' tool
  - export isn't executed because of space check performed not only for relevant disks
  - memory volumes aren't being exported for diskless vms
+ - getallfromvmtemplates stored in procedure execution takes long time making VM creation take long time when having more than 80 templates
  - taskcleaner.sh '-l' option does not produce logfile
  - when exporting vm with memory snapshots, the tasks for export the memory volumes are never cleaned
  - [RHEVM][webadmin] check if network profile exists on DC before creating VM
@@ -221,8 +225,14 @@ For restore, disks are attached to a virtual appliance, the data is restored to 
  - The GWT applications should use /api/ instead of /api to avoid sending credentials to /rhevm-reports
  - RHEL 6 VM gets ac97 soundcard (osinfo overrides broken?)
  - TryBackToAllSnapshotsOfVm threw NullPointerException during snapshot-preview because of random disk attached to VM
+ - [RHEV][host deploy] Support OpenStack Havana layer 2 agent integration
  - Unable to run regular yum update due to implicit (undeclared) version lock on rhevm-websocket-proxy
  - Updating info from Host fails when a VM without a balloon is found
+ - [postgres provisioning] when locale is non unicode non unicode password may be generate failing java database access
+ - [AIO] ssh issues
+ - can't use cloud-init /run once via api
+ - [REST API] Network object has no attribute ID
+ - restapi: cloud-init incorrectly implements RSDL metadata at vm.start()
 
 ### VDSM
 

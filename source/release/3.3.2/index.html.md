@@ -264,5 +264,6 @@ No bugs reported at moment.
  - When calling the API the LC does not provide a max value, limiting the returned results to 100 by default.
  - [LOG_COLLECTOR] - infinite loop in configuration parser
  - warning suggesting the user to use filters when collected logs are too big
+ - rhevm-log-collector does not collect database dump
 
 <Category:Documentation> <Category:Releases>

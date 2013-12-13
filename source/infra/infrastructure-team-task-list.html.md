@@ -43,7 +43,7 @@ wiki_last_updated: 2013-12-13
     -   MySQL
 *   Services upgrades
 *   DNS requests
-*   
+*   [Adding new users to infra team](Adding new users to infra team)
 
 ## Standard procedures
 

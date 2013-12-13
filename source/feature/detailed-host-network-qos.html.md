@@ -64,6 +64,12 @@ NetworkQoS could either be changed to include a type (i.e. VM QoS or Host QoS) o
 
 Since at the moment there's no apparent reason to differentiate between VM and host QoS, and seeing as the upgrade script is simpler moving from typeless to typed (the price of an error is lower), the preference should probably be to stick with typeless NetworkQoS entities that may be shared by VM and host networks.
 
+As for the handling of permissions, it remains to be shown that the current permission model on Network QoS isn't broken:
+
+*   Attaching a pre-existing Network QoS entity to a network is not a problem, as a user editing a network has usage permissions on the DC and therefore the QoS entities in it.
+*   Creating a new "named" Network QoS to be attached to a network will be performed by a separate call to the AddNetworkQoS action (and not as part of the Add/Edit Network action), therefore the user's permissions will be properly checked; the operation will fail if they don't have sufficient permissions on the DC.
+*   Creating/updating the "anonymous" QoS configuration on a host's interface will be performed as part of the SetupNetworks action, so as long as the user has proper permissions of the host they'll be able to edit the interfaces' "anonymous" QoS values.
+
 ##### VDSM
 
 Proposed [vdsm api](http://gerrit.ovirt.org/#/c/15724/) allows to provide traffic shaping parameters as part of NetworkOptions or setupNetworkNetAttributes used respectively by the addNetwork and setupNetworks verbs. In order to apply the configuration on the host network the Engine should convert attributes' values from Mb to kb (Megabit to Kilobit). VDSM generates a similar libvirt xml definition.

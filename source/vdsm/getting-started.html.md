@@ -19,11 +19,29 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 ## Configuring Vdsm
 
-Vdsm configuration file can be placed under */etc/vdsm/vdsm.conf*. If no such file exists Vdsm will only use its built-in defaults. Until you configure you Vdsm's private key and certificates, you should disable ssl. To do that, have your */etc/vdsm/vdsm.conf* have
+Vdsm configuration file can be placed under */etc/vdsm/vdsm.conf*. If no such file exists Vdsm will only use its built-in defaults.
+
+### SSL
+
+Until you configure you Vdsm's private key and certificates, you should disable ssl. To do that, have your */etc/vdsm/vdsm.conf* have
 
     [vars]
     ssl = false
 
 Note: this is enough to make VDSM run without ssl, but spice, quemu and the ovirt engine need some [further configuration](OVirt_-_disable_SSL_in_VDSM).
+
+### max outgoing migrations
+
+Maximum concurrent outgoing migrations. Should be 3 or less for 1 gig links. Prior to ovirt 3.3 it was set to 5.
+
+      [vars]
+      max_outgoing_migrations = 3
+
+### migration max bandwidth
+
+Maximum bandwidth for migration, in MiBps, 0 means libvirt's 'default, since 0.10.x default in libvirt is unlimited
+
+      [vars]
+      migration_max_bandwidth = 32
 
 <Category:Vdsm> <Category:Documentation>

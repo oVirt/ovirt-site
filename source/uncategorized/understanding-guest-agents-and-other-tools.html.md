@@ -71,13 +71,13 @@ No information is available at this time
 
 ### Linux Guests
 
-|-------------------|------------------------------------------------------------|-------------|-------------|------------------------------------------------------------|
-|                   | Fedora                                                     | RHEL        | CentOS      | Ubuntu                                                     |
-| oVirt Guest Agent | [Yes](How_to_install_the_guest_agent_in_Fedora) |             |             | [Yes](How_to_install_the_guest_agent_in_Ubuntu) |
-| VirtIO Drivers    | Built-in(3)                                                | Built-in(3) | Built-in(3) | Built-in(3)                                                |
-| Spice Drivers     | Yes                                                        |             |             | Yes                                                        |
-| QXL Drivers       |                                                            |             |             |                                                            |
-| QEMU Drivers      |                                                            |             |             |                                                            |
+|-------------------|-------------------------------------------------------------|-------------|-------------|------------------------------------------------------------|
+|                   | [Fedora](How_to_create_a_Fedora_Virtual_Machine) | RHEL        | CentOS      | Ubuntu                                                     |
+| oVirt Guest Agent | [Yes](How_to_install_the_guest_agent_in_Fedora)  |             |             | [Yes](How_to_install_the_guest_agent_in_Ubuntu) |
+| VirtIO Drivers    | Built-in(3)                                                 | Built-in(3) | Built-in(3) | Built-in(3)                                                |
+| Spice Drivers     | Yes                                                         |             |             | Yes                                                        |
+| QXL Drivers       |                                                             |             |             |                                                            |
+| QEMU Drivers      |                                                             |             |             |                                                            |
 
 *(1) XP Does not support VirtIO-SCSI*
 

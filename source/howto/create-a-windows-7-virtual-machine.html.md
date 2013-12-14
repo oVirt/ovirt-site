@@ -15,6 +15,15 @@ wiki_last_updated: 2014-02-24
 
 In your current configuration, you should have at least one host available for running virtual machines, and uploaded the required installation images to your ISO domain. This section guides you through the creation of a Windows 7 virtual machine. You will perform a normal attended installation using a virtual DVD.
 
+### VirtIO interfaces
+
+**Please read this section** before jumping to the installation part. If you are familiar with Linux VMs on oVirt you know that the default options work fairly well. This is not the case with Windows.
+
+*   For Disks there are three interface options - VirtIO, VirtIO-SCSI, and IDE. **VirtIO** (default) is the recommended interface but it requires additional drivers to be present at install and after the installation, much like servers or desktops with RAID and SCSI interfaces. **IDE** is an optional alternative that does not require the additional drivers but may show some performance issues.
+*   For Networking there are three interface options - VirtIO, e1000, and rtl8139. **VirtIO** (default) is the recommended interface but it requires additional drivers to be present after the installation which is a common issue for Windows desktops and servers after reinstalling the OS. **e1000** and **rtl8139** are optional alternatives that do not require the additional drivers (depending on the Windows OS) but may show some performance issues. The network interface can be changed after installing.
+
+Loading the VirtIO drivers and using the alternatives is covered in the install directions below. If you would like to use the VirtIO interfaces you only need to add the VirtIO disk to your ISO domain. [Please see this section to download the VirtIO ISO from Fedora](Understanding_Guest_Agents_and_Other_Tools#VirtIO_Drivers) which contains signed drivers for Windows.
+
 ## Creating a Windows 7 VM
 
 1.  From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
@@ -30,8 +39,6 @@ In your current configuration, you should have at least one host available for r
 5.  Under Optimized For, choose Desktop.
 6.  Add a Name (required) and a comment or description (optional).
 7.  Finally, attach a Network Interface (optional) to the VM by selecting one from the dropdown.
-    1.  Note: When using the default Network interface (VirtIO) additional drivers are required for network connectivity. **Expandbox here for VirtIO/e1000, etc**
-
 8.  Click OK
     1.  Note: By clicking “Additional Options” you can configure other details such as memory and CPU resources. You can change these after creating a VM as well,
 
@@ -45,10 +52,11 @@ In your current configuration, you should have at least one host available for r
     1.  The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary.
     2.  ![](Add_Virtual_Disk_Win7.jpg "fig:Add_Virtual_Disk_Win7.jpg")
     3.  Figure 1.4. Add Virtual Disk configurations
+    4.  Note: [As mentioned above](How_to_create_a_Windows_7_Virtual_Machine#VirtIO_interfaces) When using the VirtIO interface (recommended) additional drivers are required at install time. You can use the IDE interface instead which does not require the additional drivers. The OS install guide covers both VirtIO and IDE interfaces below.
 
-13. Close the Guide Me window by clicking Configure Later. Your new Fedora virtual machine will display in the Virtual Machines tab.
+13. Close the Guide Me window by clicking Configure Later. Your new Windows 7 virtual machine will display in the Virtual Machines tab.
 
-You have now created your Fedora virtual machine. Before you can use your virtual machine, install an operating system on it.
+You have now created your Windows 7 virtual machine. Before you can use your virtual machine you need to install an operating system on it.
 
 ## Installing an Operating System
 
@@ -61,10 +69,9 @@ You have now created your Fedora virtual machine. Before you can use your virtua
     2.  Figure 2.1. Run once menu
     3.  Retain the default settings for the other options and click OK to start the virtual machine.
 
-4.  Select the virtual machine and click the Console ( ) icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system. For further instructions, see the [Fedora Installation Guide](https://docs.fedoraproject.org/en-US/Fedora/17/html/Installation_Guide/index.html).
-5.  After the installation has completed, shut down the virtual machine and reboot from the hard drive.
+4.  Select the virtual machine and click the Console ( ) icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system.
 
-You can now connect to your Fedora virtual machine and start using it.
+If you choose to use the VirtIO interface for your hard disks, expand this box: (put box here) If you choose to use the IDE interface for your hard disks, expand this box: (put box here)
 
 ## Post Install Additions
 

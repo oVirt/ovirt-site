@@ -88,7 +88,7 @@ You have now created your Windows 8 virtual machine. Before you can use your vir
 6.  The VirtIO Drivers should appear. Choose "Red Hat VirtIO SCSI Controller", and then click Next![Drivers Available](Install_Windows7_VirtIO_Drivers.jpg "fig:Drivers Available")
 7.  The driver should install and return to the "Where do you want to install Windows?" screen now showing a disk to install to. Note that a message has appeared that "Windows cannot be installed to this disk"
 8.  On the Navigation Tabs, click Change CD
-9.  From the drop down list select the Windows 7 install media and click ok.
+9.  From the drop down list select the Windows 8 install media and click ok.
 10. On the console, click "Refresh". The "Windows cannot be installed to this disk" message should disappear as the system can see the Windows install media again.
 11. Continue with the install as normal
 

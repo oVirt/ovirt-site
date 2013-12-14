@@ -93,7 +93,7 @@ If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, yo
 
 Note: The drivers for Ethernet Controller (VirtIO based) and SCSI Controller/pass-through (VirtIO based) do not work correctly. The latter is intentional.
 
-      === Graphics ===
+#### Graphics
 
 ### Guest Tools
 

@@ -78,17 +78,22 @@ You have now created your Windows XP virtual machine. Before you can use your vi
 
 ### Drivers
 
-If you choose to use the VirtIO disk interface, the VirtIO network interface, or wish to use the oVirt Guest Tools through the VirtIO-Serial interface, you need to install additional drivers. ![Device Manager](Device_Manager_WinXP_Missing_Drivers_VirtIO.jpg "fig:Device Manager")
+#### VirtIO
+
+If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, you need to install additional drivers. ![Device Manager](Device_Manager_WinXP_Missing_Drivers_VirtIO.jpg "fig:Device Manager")
 
 1.  On the console, open the Device Manger
 2.  On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
 3.  From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
-4.  On the console, right click the first device that is missing drivers
+4.  On the console, right click the "PCI Simple Communications Controller" device that is missing drivers
 5.  Select "Update Driver", and then click Next
 6.  Choose "Install from a list or a specific location", and then click Next
 7.  Choose "Search for the best driver in these locations", check "Search removable media", and then click Next
 8.  When prompted, choose "Continue Anyway"
-9.  Repeat the above for the remaining missing drivers, except for the "Video Controller (VGA Compatible)"
+
+Note: The drivers for Ethernet Controller (VirtIO based) and SCSI Controller/pass-through (VirtIO based) do not work correctly. The latter is intentional.
+
+      === Graphics ===
 
 ### Guest Tools
 

@@ -16,10 +16,12 @@ In your current configuration, you should have at least one host available for r
 ## Creating a Fedora VM
 
 1.  From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
-    1.  Figure 1.2: The navigation tabs
+    1.  ![](Navigation_Tabs.jpg "fig:Navigation_Tabs.jpg")
+    2.  Figure 1.2: The navigation tabs
 
 2.  The “New Virtual Machine” popup appears.
-    1.  Figure 1.2: Create new linux virtual machine
+    1.  ![](New_VM_Fedora.jpg "fig:New_VM_Fedora.jpg")
+    2.  Figure 1.2: Create new linux virtual machine
 
 3.  Under General, your default Cluster and Template will be fine.
 4.  For Operating System, choose Red Hat Enterprise Linux (for i386/i686 Fedora) or Red Hat Enterprise Linux x64 (for x86_64 Fedora).
@@ -30,13 +32,15 @@ In your current configuration, you should have at least one host available for r
     1.  Note: By clicking “Additional Options” you can configure other details such as memory and CPU resources. You can change these after creating a VM as well,
 
 9.  A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
-    1.  Figure 1.3. New Virtual Machine – Guide Me
+    1.  ![](Guide_Me.jpg "fig:Guide_Me.jpg")
+    2.  Figure 1.3. New Virtual Machine – Guide Me
 
 10. Click Configure Virtual Disks to add storage to the virtual machine.
 11. Enter a Size for the disk.
 12. Click OK
     1.  The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary.
-    2.  Figure 1.4. Add Virtual Disk configurations
+    2.  ![](Add_Virtual_Disk_Fedora.jpg "fig:Add_Virtual_Disk_Fedora.jpg")
+    3.  Figure 1.4. Add Virtual Disk configurations
 
 13. Close the Guide Me window by clicking Configure Later. Your new Fedora virtual machine will display in the Virtual Machines tab.
 
@@ -49,8 +53,9 @@ You have now created your Fedora virtual machine. Before you can use your virtua
     1.  Note: If you do not have any in the list, you need to upload one.
 
 3.  Click Ok
-    1.  Figure 2.1. Run once menu
-    2.  Retain the default settings for the other options and click OK to start the virtual machine.
+    1.  ![](Run_Once_Fedora.jpg "fig:Run_Once_Fedora.jpg")
+    2.  Figure 2.1. Run once menu
+    3.  Retain the default settings for the other options and click OK to start the virtual machine.
 
 4.  Select the virtual machine and click the Console ( ) icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system. For further instructions, see the [Fedora Installation Guide](https://docs.fedoraproject.org/en-US/Fedora/17/html/Installation_Guide/index.html).
 5.  After the installation has completed, shut down the virtual machine and reboot from the hard drive.

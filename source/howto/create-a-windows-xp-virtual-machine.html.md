@@ -78,16 +78,16 @@ You have now created your Windows XP virtual machine. Before you can use your vi
 
 ### Drivers
 
-If you choose to use the VirtIO disk interface, the VirtIO network interface, or wish to use the oVirt Guest Tools through the VirtIO-Serial interface, you need to install additional drivers. ![Device Manager](Device_Manager_Win7_Missing_Drivers_VirtIO.jpg "fig:Device Manager")
+If you choose to use the VirtIO disk interface, the VirtIO network interface, or wish to use the oVirt Guest Tools through the VirtIO-Serial interface, you need to install additional drivers. ![Device Manager](Device_Manager_WinXP_Missing_Drivers_VirtIO.jpg "fig:Device Manager")
 
 1.  On the console, open the Device Manger
 2.  On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
 3.  From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
 4.  On the console, right click the first device that is missing drivers
 5.  Select "Update Driver Software", and then "Browse my computer for driver software"
-6.  Browse to the CD, Win7 folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK.
+6.  Browse to the CD, WXP folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK.
 7.  When prompted to install the driver, check "Always trust software from Red Hat, Inc" and click Install.
-8.  Repeat the above for the remaining missing drivers.
+8.  Repeat the above for the remaining missing drivers, except for the "Video Controller (VGA Compatible)"
 
 ### Guest Tools
 

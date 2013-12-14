@@ -84,10 +84,11 @@ If you choose to use the VirtIO disk interface, the VirtIO network interface, or
 2.  On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
 3.  From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
 4.  On the console, right click the first device that is missing drivers
-5.  Select "Update Driver Software", and then "Browse my computer for driver software"
-6.  Browse to the CD, WXP folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK.
-7.  When prompted to install the driver, check "Always trust software from Red Hat, Inc" and click Install.
-8.  Repeat the above for the remaining missing drivers, except for the "Video Controller (VGA Compatible)"
+5.  Select "Update Driver", and then click Next
+6.  Choose "Install from a list or a specific location", and then click Next
+7.  Choose "Search for the best driver in these locations", check "Search removable media", and then click Next
+8.  When prompted, choose "Continue Anyway"
+9.  Repeat the above for the remaining missing drivers, except for the "Video Controller (VGA Compatible)"
 
 ### Guest Tools
 

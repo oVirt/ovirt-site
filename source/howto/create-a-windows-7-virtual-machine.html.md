@@ -9,8 +9,6 @@ wiki_last_updated: 2014-02-24
 
 # How to create a Windows 7 Virtual Machine
 
-**Warning: This page is currently being written or edited. When this notice is gone it is safe to use the directions.**
-
 ## Introduction
 
 In your current configuration, you should have at least one host available for running virtual machines, and uploaded the required installation images to your ISO domain. This section guides you through the creation of a Windows 7 virtual machine. You will perform a normal attended installation using a virtual DVD.

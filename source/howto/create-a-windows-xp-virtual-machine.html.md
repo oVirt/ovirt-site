@@ -95,6 +95,8 @@ Note: The drivers for Ethernet Controller (VirtIO based) and SCSI Controller/pas
 
 #### Graphics
 
+To install the graphics driver (aka "Video Controller (VGA compatible)") if you are using the Spice console, download and install the [Spice Guest Tools](http://www.spice-space.org/download/windows/spice-guest-tools/spice-guest-tools-0.65.1.exe). When prompted, click "Continue Anyway".
+
 ### Guest Tools
 
 Adding a few guest tools may improve your experience.

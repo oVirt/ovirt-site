@@ -102,7 +102,7 @@ Prerequisities: Browser that has proper websockets and postmessage support (test
 
 Results: The new browser tab with noVNC session appears.
 
-### Setup Websocket Proxy on the Enging Post Install
+### Setup Websocket Proxy on the Engine Post Install
 
 Execute:
 

@@ -15,7 +15,7 @@ wiki_warnings: list-item?
 
 DRAFT DRAFT DRAFT DRAFT
 
-This quick start guide is adapted from the [RHEV 3.0 quick start guide](http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Virtualization/3.0/html/Quick_Start_Guide/index.html). The fundamentals are the same between RHEV and oVirt, but this document could use more checking against oVirt 3.2.
+This quick start guide is adapted from the [RHEV 3.0 quick start guide](http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Virtualization/3.0/html/Quick_Start_Guide/index.html). The fundamentals are the same between RHEV and oVirt, but this document could use more checking against oVirt 3.3.1
 
 ## Introduction
 
@@ -27,10 +27,10 @@ The following requirements are typical for small- to medium-sized installations.
 
 #### oVirt Engine
 
-*   Minimum - Dual core server with 4 GB RAM, with 25 GB free disk space and 1 Gbps network interface.
+*   Minimum - Dual core server with 4 GB RAM, with 20 GB free disk space and 1 Gbps network interface.
 *   Recommended - Dual Sockets/Quad core server with 16 GB RAM, 50 GB free disk space on multiple disk spindles and 1 Gbps network interface.
     The breakdown of the server requirements are as below:
-    -   For the Fedora 18 operating system: minimum 1 GB RAM and 5 GB local disk space.
+    -   For the Fedora 19 operating system: minimum 1 GB RAM and 10 GB local disk space.
     -   For the oVirt Engine: minimum 3 GB RAM, 3 GB local disk space and 1 Gbps network controller bandwidth.
     -   If you wish to create an ISO domain on the Engine server, you need minimum 15 GB disk space.
 *   The oVirt Engine must be configured to receive updates from the oVirt project's software repository, as provided by the [ovirt-release](http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm) package.
@@ -63,7 +63,7 @@ The following requirements are typical for small- to medium-sized installations.
 
 oVirt Engine is the control center of the oVirt environment. It allows you to define hosts, configure data centers, add storage, define networks, create virtual machines, manage user permissions and use templates from one central location.
 
-1. Install Fedora 18 on a server. When prompted for the software packages to install, select the minimal install option. See the [Fedora Installation Guide](http://docs.fedoraproject.org/en-US/Fedora/18/html/Installation_Guide/index.html) for more details.
+1. Install Fedora 19 on a server. When prompted for the software packages to install, select the minimal install option. See the [Fedora Installation Guide](http://docs.fedoraproject.org/en-US/Fedora/19/html/Installation_Guide/index.html) for more details.
 
 2. After you have installed your server, update all the packages on it. Run:
 

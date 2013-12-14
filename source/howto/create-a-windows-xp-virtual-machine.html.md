@@ -19,7 +19,7 @@ In your current configuration, you should have at least one host available for r
 
 **Please read this section** before jumping to the installation part. If you are familiar with Linux VMs on oVirt you know that the default options work fairly well. This is not the case with Windows.
 
-*   For Disks there are three interface options - VirtIO, VirtIO-SCSI, and IDE. **VirtIO** (default) is the recommended interface but it requires additional drivers to be present at install and after the installation, much like servers or desktops with RAID and SCSI interfaces. **IDE** is an optional alternative that does not require the additional drivers but may show some performance issues.
+*   For Disks there are three interface options - VirtIO, VirtIO-SCSI, and IDE. **VirtIO** (default) is the recommended interface but it requires additional drivers to be present at install and after the installation, much like servers or desktops with RAID and SCSI interfaces. **The VirtIO drivers cannot be installed at install time** in Windows XP, therefore **IDE** is what must be used as it does not require the additional drivers but may show some performance issues.
 *   For Networking there are three interface options - VirtIO, e1000, and rtl8139. **VirtIO** (default) is the recommended interface but it requires additional drivers to be present after the installation which is a common issue for Windows desktops and servers after reinstalling the OS. **e1000** and **rtl8139** are optional alternatives that do not require the additional drivers (depending on the Windows OS) but may show some performance issues. The network interface can be changed after installing.
 
 Loading the VirtIO drivers and using the alternatives is covered in the install directions below. If you would like to use the VirtIO interfaces you only need to add the VirtIO disk to your ISO domain. [Please see this section to download the VirtIO ISO from Fedora](Understanding_Guest_Agents_and_Other_Tools#VirtIO_Drivers) which contains signed drivers for Windows.
@@ -48,13 +48,14 @@ Loading the VirtIO drivers and using the alternatives is covered in the install 
 
 10. Click Configure Virtual Disks to add storage to the virtual machine.
 11. Enter a Size for the disk.
-12. Click OK
+12. Change the Interface to IDE
+13. Click OK
     1.  The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary.
     2.  ![](Add_Virtual_Disk_WinXP.jpg "fig:Add_Virtual_Disk_WinXP.jpg")
     3.  Figure 1.4. Add Virtual Disk configurations
-    4.  Note: [As mentioned above](How_to_create_a_Windows_XP_Virtual_Machine#VirtIO_interfaces) When using the VirtIO interface (recommended) additional drivers are required at install time. You can use the IDE interface instead which does not require the additional drivers. The OS install guide covers both VirtIO and IDE interfaces below.
+    4.  Note: [As mentioned above](How_to_create_a_Windows_XP_Virtual_Machine#VirtIO_interfaces) XP does not support using the VirtIO interface and the additional drivers cannot be installed. You must use the IDE interface instead which does not require the additional drivers.
 
-13. Close the Guide Me window by clicking Configure Later. Your new Windows XP virtual machine will display in the Virtual Machines tab.
+14. Close the Guide Me window by clicking Configure Later. Your new Windows XP virtual machine will display in the Virtual Machines tab.
 
 You have now created your Windows XP virtual machine. Before you can use your virtual machine you need to install an operating system on it.
 
@@ -64,39 +65,14 @@ You have now created your Windows XP virtual machine. Before you can use your vi
 2.  Check “Attach CD” and choose a disk from the list
     1.  Note: If you do not have any in the list, you need to upload one.
 
-3.  Click Ok
+3.  Change the boot order so that CDROM is first
+4.  Click Ok
     1.  ![](Run_Once_WinXP.jpg "fig:Run_Once_WinXP.jpg")
     2.  Figure 2.1. Run once menu
     3.  Retain the default settings for the other options and click OK to start the virtual machine.
 
-4.  Select the virtual machine and click the Console ( ) icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system.
-5.  Continue with the Windows XP install as normal.
-
-### Installing with a VirtIO interface
-
-<div class="toccolours mw-collapsible mw-collapsed" style="width:800px">
-"Setup did not detect any hard disk drives installed in your computer". Click to expand this section.
-
-<div class="mw-collapsible-content">
-![No disks available](Install_Windows7_VirtIO_Disk.jpg "fig:No disks available") You need to load the VirtIO driver.
-
-1.  On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
-2.  From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
-3.  On the console, click "Load Drivers"
-4.  On the "Load Driver" popup, click Browse
-5.  Browse to the CD, Win7 folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK.
-6.  The VirtIO Drivers should appear. Choose "Red Hat VirtIO SCSI Controller", and then click Next![Drivers Available](Install_Windows7_VirtIO_Drivers.jpg "fig:Drivers Available")
-7.  The driver should install and return to the "Where do you want to install Windows?" screen now showing a disk to install to. Note that a message has appeared that "Windows cannot be installed to this disk"
-8.  On the Navigation Tabs, click Change CD
-9.  From the drop down list select the Windows 7 install media and click ok.
-10. On the console, click "Refresh". The "Windows cannot be installed to this disk" message should disappear as the system can see the Windows install media again.
-11. Continue with the install as normal
-
-</div>
-</div>
-### Installing with a IDE interface
-
-"Where do you want to install Windows?" shows a disk to install to. Continue as normal.
+5.  Select the virtual machine and click the Console ( ) icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system.
+6.  Continue with the Windows XP install as normal.
 
 ## Post Install Additions
 

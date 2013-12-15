@@ -75,7 +75,7 @@ You have now created your Fedora virtual machine. Before you can use your virtua
 
 ![](Run_Once_Fedora.jpg "Run_Once_Fedora.jpg")
 
-Figure 2.1. Run once menu
+Figure 3.1. Run once menu
 
       Retain the default settings for the other options and click OK to start the virtual machine. 
 

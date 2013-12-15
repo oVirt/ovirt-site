@@ -694,6 +694,37 @@ Figure 5.4. Add Virtual Disk configurations
 
 You have now created your Fedora virtual machine. Before you can use your virtual machine, install an operating system on it.
 
+##### Installing an Operating System
+
+1. Right click the virtual machine and select Run Once.
+
+2. Check “Attach CD” and choose a disk from the list
+
+      Note: If you do not have any in the list, you need to upload one.
+
+3. Click Ok
+
+![](Run_Once_Fedora.jpg "Run_Once_Fedora.jpg")
+
+Figure 3.1. Run once menu
+
+      Retain the default settings for the other options and click OK to start the virtual machine. 
+
+4. Select the virtual machine and click the Console ( ) icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system. For further instructions, see the [Fedora Installation Guide](https://docs.fedoraproject.org/en-US/Fedora/19/html/Installation_Guide/index.html).
+
+5. After the installation has completed, shut down the virtual machine and reboot from the hard drive.
+
+You can now connect to your Fedora virtual machine and start using it.
+
+##### Post Install Additions
+
+Adding a few guest tools may improve your experience.
+
+*   oVirt Guest Agent allows oVirt to show the Memory and Network utilization of the VM, the IP address of the VM, the installed Applications, Enable Single Sign On (SSO) and more.
+*   Spice-vdagent allows for copy and paste support (text & image), better mouse functionality, and automatic adjustment of the screen resolution based on the size of your window.
+
+Add the oVirt Guest Agent by following the directions at [How to install the guest agent in Fedora](How_to_install_the_guest_agent_in_Fedora)
+
 #### Create a Windows Virtual Machine
 
 You now know how to create a Red Hat Enterprise Linux virtual machine from scratch. The procedure of creating a Windows virtual machine is similar, except that it requires additional virtio drivers. This example uses Windows 7, but you can also use other Windows operating systems. You will perform a normal attended installation using a virtual DVD.

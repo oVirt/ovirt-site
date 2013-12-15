@@ -19,13 +19,13 @@ In your current configuration, you should have at least one host available for r
 
 ![](Navigation_Tabs.jpg "Navigation_Tabs.jpg")
 
-Figure 1.2: The navigation tabs
+Figure 2.1: The navigation tabs
 
 2. The “New Virtual Machine” popup appears.
 
 ![](New_VM_Fedora.jpg "New_VM_Fedora.jpg")
 
-Figure 1.2: Create new linux virtual machine
+Figure 2.2: Create new linux virtual machine
 
 3. Under General, your default Cluster and Template will be fine.
 
@@ -45,7 +45,7 @@ Figure 1.2: Create new linux virtual machine
 
 ![](Guide_Me.jpg "Guide_Me.jpg")
 
-Figure 1.3. New Virtual Machine – Guide Me
+Figure 2.3. New Virtual Machine – Guide Me
 
 10. Click Configure Virtual Disks to add storage to the virtual machine.
 
@@ -57,7 +57,7 @@ Figure 1.3. New Virtual Machine – Guide Me
 
 ![](Add_Virtual_Disk_Fedora.jpg "Add_Virtual_Disk_Fedora.jpg")
 
-Figure 1.4. Add Virtual Disk configurations
+Figure 2.4. Add Virtual Disk configurations
 
 13. Close the Guide Me window by clicking Configure Later. Your new Fedora virtual machine will display in the Virtual Machines tab.
 

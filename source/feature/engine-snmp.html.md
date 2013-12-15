@@ -12,7 +12,7 @@ wiki_last_updated: 2014-10-22
 
 ### Summary
 
-Enable oVirt engine to send SNMP traps of events to monitoring systems
+Enable oVirt engine to send SNMP traps of events to monitoring systems RHEV-M OID 1.3.6.1.4.1.2312.13.1
 
 ### Owner
 

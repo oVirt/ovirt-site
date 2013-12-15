@@ -79,7 +79,7 @@ Figure 3.1. Run once menu
 
       Retain the default settings for the other options and click OK to start the virtual machine. 
 
-4. Select the virtual machine and click the Console ( ) icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system. For further instructions, see the [Fedora Installation Guide](https://docs.fedoraproject.org/en-US/Fedora/17/html/Installation_Guide/index.html).
+4. Select the virtual machine and click the Console ( ) icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system. For further instructions, see the [Fedora Installation Guide](https://docs.fedoraproject.org/en-US/Fedora/19/html/Installation_Guide/index.html).
 
 5. After the installation has completed, shut down the virtual machine and reboot from the hard drive.
 

@@ -104,6 +104,11 @@ The translation will rely on the host interface's set of labels.
 
 When attaching a labelled network to a cluster, which the label already specified on the cluster's host interfaces will result in adding that network to all of the hosts in that cluster carrying that label on their interfaces.
 
+#### Moving host between clusters
+
+Moving host between cluster that supports 'network labels' to a cluster which doesn't will be blocked if labels are used on that host.
+\* Moving a host that uses labels from version greater than 3.0 to cluster 3.0 will be blocked.
+
 #### Network Label constraints
 
 The network labels feature relies on the 'Setup Networks' api to configure the networks on the hosts.

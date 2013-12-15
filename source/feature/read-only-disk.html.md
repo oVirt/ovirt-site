@@ -6,7 +6,6 @@ wiki_category: Feature
 wiki_title: Features/Read Only Disk
 wiki_revision_count: 41
 wiki_last_updated: 2014-07-03
-wiki_warnings: references
 ---
 
 # Read Only Disk
@@ -20,7 +19,7 @@ VDSM already has a read-only disk capability. This feature adds that functionali
 *   Name: [Vered Volansky](User:vvolansk)
 *   Email: vered@redhat.com
 
-[1]=== Current status ===
+### Current status
 
 *   Target Release: 3.4
 *   Status: Done
@@ -103,5 +102,3 @@ This features allows the usage of read only disks. This is useful where we'd lik
 *   Refer to [Talk:Features/Read Only Disk](Talk:Features/Read Only Disk)
 
 <Category:Feature>
-
-[1] Insert footnote text here

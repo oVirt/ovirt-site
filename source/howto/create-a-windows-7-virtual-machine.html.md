@@ -76,17 +76,23 @@ You have now created your Windows 7 virtual machine. Before you can use your vir
 
 ## Installing an Operating System
 
-1.  Right click the virtual machine and select Run Once.
-2.  Check “Attach CD” and choose a disk from the list
-    1.  Note: If you do not have any in the list, you need to upload one.
+1. Right click the virtual machine and select Run Once.
 
-3.  Click Ok
-    1.  ![](Run_Once_Win7.jpg "fig:Run_Once_Win7.jpg")
-    2.  Figure 2.1. Run once menu
-    3.  Retain the default settings for the other options and click OK to start the virtual machine.
+2. Check “Attach CD” and choose a disk from the list
 
-4.  Select the virtual machine and click the Console ( ) icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system.
-5.  Continue with the Windows 7 install as normal until you reach "Where do you want to install Windows?"
+      Note: If you do not have any in the list, you need to upload one.
+
+3. Click Ok
+
+![](Run_Once_Win7.jpg "Run_Once_Win7.jpg")
+
+Figure 3.1. Run once menu
+
+      Retain the default settings for the other options and click OK to start the virtual machine. 
+
+4. Select the virtual machine and click the Console ( ) icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system.
+
+5. Continue with the Windows 7 install as normal until you reach "Where do you want to install Windows?"
 
 ### Installing with a VirtIO interface
 
@@ -96,16 +102,26 @@ You have now created your Windows 7 virtual machine. Before you can use your vir
 <div class="mw-collapsible-content">
 ![No disks available](Install_Windows7_VirtIO_Disk.jpg "fig:No disks available") You need to load the VirtIO driver.
 
-1.  On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
-2.  From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
-3.  On the console, click "Load Drivers"
-4.  On the "Load Driver" popup, click Browse
-5.  Browse to the CD, Win7 folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK.
-6.  The VirtIO Drivers should appear. Choose "Red Hat VirtIO SCSI Controller", and then click Next![Drivers Available](Install_Windows7_VirtIO_Drivers.jpg "fig:Drivers Available")
-7.  The driver should install and return to the "Where do you want to install Windows?" screen now showing a disk to install to. Note that a message has appeared that "Windows cannot be installed to this disk"
-8.  On the Navigation Tabs, click Change CD
-9.  From the drop down list select the Windows 7 install media and click ok.
+1. On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+
+2. From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
+
+3. On the console, click "Load Drivers"
+
+4. On the "Load Driver" popup, click Browse
+
+5. Browse to the CD, Win7 folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK.
+
+6. The VirtIO Drivers should appear. Choose "Red Hat VirtIO SCSI Controller", and then click Next![Drivers Available](Install_Windows7_VirtIO_Drivers.jpg "fig:Drivers Available")
+
+7. The driver should install and return to the "Where do you want to install Windows?" screen now showing a disk to install to. Note that a message has appeared that "Windows cannot be installed to this disk"
+
+8. On the Navigation Tabs, click Change CD
+
+9. From the drop down list select the Windows 7 install media and click ok.
+
 10. On the console, click "Refresh". The "Windows cannot be installed to this disk" message should disappear as the system can see the Windows install media again.
+
 11. Continue with the install as normal
 
 </div>

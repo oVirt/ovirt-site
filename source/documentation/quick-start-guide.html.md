@@ -725,57 +725,135 @@ Adding a few guest tools may improve your experience.
 
 Add the oVirt Guest Agent by following the directions at [How to install the guest agent in Fedora](How_to_install_the_guest_agent_in_Fedora)
 
-#### Create a Windows Virtual Machine
+#### Creating a Windows 7 VM
 
-You now know how to create a Red Hat Enterprise Linux virtual machine from scratch. The procedure of creating a Windows virtual machine is similar, except that it requires additional virtio drivers. This example uses Windows 7, but you can also use other Windows operating systems. You will perform a normal attended installation using a virtual DVD.
+1. From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
 
-**To create a Windows desktop**
+![](Navigation_Tabs.jpg "Navigation_Tabs.jpg")
 
-1. Navigate to the Tree pane and click Expand All. Click the VMs icon under the Default cluster. On the Virtual Machines tab, click New Desktop.
+Figure 5.1: The navigation tabs
 
-![Figure 4.7. Create New Windows Virtual Machine](new-win-desktop.png "Figure 4.7. Create New Windows Virtual Machine")
+2. The “New Virtual Machine” popup appears.
 
-You only need to fill in the Name field and select Windows 7 as your Operating System. You may alter other settings but in this example we will retain the defaults. Click OK to create the virtual machine.
+![](New_VM_Win7.jpg "New_VM_Win7.jpg")
 
-<!-- -->
+Figure 5.2: Create new Windows virtual machine
 
-2. A New Virtual Machine - Guide Me window opens. This allows you to define networks for the virtual machine. Click Configure Network Interfaces. See Figure 4.4, “New Network Interface configurations” for details.
+3. Under General, your default Cluster and Template will be fine.
 
-3. You are returned to the Guide Me window. This time, click Configure Virtual Disks to add storage to the virtual machine. See Figure 4.5, “New Virtual Disk configurations” for details.
+4. For Operating System, choose Windows 7 (for 32-bit Windows) or Windows7 x64 (for 64-bit Windows).
 
-4. Close the Guide Me windows. Your new Windows 7 virtual machine will display in the Virtual Machines tab.
+5. Under Optimized For, choose Desktop.
 
-**To install Windows guest operating system**
+6. Add a Name (required) and a comment or description (optional).
 
-1. Right click the virtual machine and select Run Once. The Run Once dialog displays as in Figure 4.6, “Run Linux Virtual Machine”. Configure the following options:
+7. Finally, attach a Network Interface (optional) to the VM by selecting one from the dropdown.
 
-*   Attach Floppy: virtio-win
-*   Attach CD: Windows 7
-*   Boot sequence: CD-ROM
-*   Display protocol: SPICE
+8. Click OK
 
-Retain the default settings for the other options and click OK to start the virtual machine.
+      Note: By clicking “Additional Options” you can configure other details such as memory and CPU resources. You can change these after creating a VM as well, 
 
-<!-- -->
+9. A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
 
-2. Select the virtual machine and click the Console ( ) icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system.
+![](Guide_Me.jpg "Guide_Me.jpg")
 
-3. Accept the default settings and enter the required information as necessary. The only change you must make is to manually install the VirtIO drivers from the virtual floppy disk (vfd) image. To do so, select the Custom (advanced) installation option and click Load Driver. Press Ctrl and select:
+Figure 5.3. New Virtual Machine – Guide Me
 
-*   Red Hat VirtIO Ethernet Adapter
-*   Red Hat VirtIO SCSI Controller
+11. Click Configure Virtual Disks to add storage to the virtual machine.
 
-The installation process commences, and the system will reboot itself several times.
+12. Enter a Size for the disk.
 
-<!-- -->
+13. Click OK
 
-4. Back on the administration portal, when the virtual machine's status changes back to Up, right click on it and select Change CD. From the list of images, select RHEV-toolsSetup to attach the Guest Tools ISO which provides features including USB redirection and SPICE display optimization.
+      The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary. 
 
-5. Click Console and log in to the virtual machine. Locate the CD drive to access the contents of the Guest Tools ISO, and launch the RHEV-toolsSetup executable. After the tools have been installed, you will be prompted to restart the machine for changes to be applied.
+![](Add_Virtual_Disk_Win7.jpg "Add_Virtual_Disk_Win7.jpg")
 
-<!-- -->
+Figure 5.4. Add Virtual Disk configurations
 
-You can now connect to your Windows virtual machine and start using it.
+      Note: `[`As` `mentioned` `above`](How_to_create_a_Windows_7_Virtual_Machine#VirtIO_interfaces)` When using the VirtIO interface (recommended) additional drivers are required at install time. You can use the IDE interface instead which does not require the additional drivers. The OS install guide covers both VirtIO and IDE interfaces below.
+
+15. Close the Guide Me window by clicking Configure Later. Your new Windows 7 virtual machine will display in the Virtual Machines tab.
+
+You have now created your Windows 7 virtual machine. Before you can use your virtual machine you need to install an operating system on it.
+
+##### Installing an Operating System
+
+1. Right click the virtual machine and select Run Once.
+
+2. Check “Attach CD” and choose a disk from the list
+
+      Note: If you do not have any in the list, you need to upload one.
+
+3. Click Ok
+
+![](Run_Once_Win7.jpg "Run_Once_Win7.jpg")
+
+Figure 5.5. Run once menu
+
+      Retain the default settings for the other options and click OK to start the virtual machine. 
+
+4. Select the virtual machine and click the Console ( ) icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system.
+
+5. Continue with the Windows 7 install as normal until you reach "Where do you want to install Windows?"
+
+###### Installing with a VirtIO interface
+
+<div class="toccolours mw-collapsible mw-collapsed" style="width:800px">
+"Where do you want to install Windows?" does not show any disks. Click to expand this section.
+
+<div class="mw-collapsible-content">
+![No disks available](Install_Windows7_VirtIO_Disk.jpg "fig:No disks available") You need to load the VirtIO driver.
+
+1. On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+
+2. From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
+
+3. On the console, click "Load Drivers"
+
+4. On the "Load Driver" popup, click Browse
+
+5. Browse to the CD, Win7 folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK.
+
+6. The VirtIO Drivers should appear. Choose "Red Hat VirtIO SCSI Controller", and then click Next![Drivers Available](Install_Windows7_VirtIO_Drivers.jpg "fig:Drivers Available")
+
+7. The driver should install and return to the "Where do you want to install Windows?" screen now showing a disk to install to. Note that a message has appeared that "Windows cannot be installed to this disk"
+
+8. On the Navigation Tabs, click Change CD
+
+9. From the drop down list select the Windows 7 install media and click ok.
+
+10. On the console, click "Refresh". The "Windows cannot be installed to this disk" message should disappear as the system can see the Windows install media again.
+
+11. Continue with the install as normal
+
+</div>
+</div>
+###### Installing with a IDE interface
+
+"Where do you want to install Windows?" shows a disk to install to. Continue as normal.
+
+##### Post Install Additions
+
+###### Drivers
+
+If you choose to use the VirtIO disk interface, the VirtIO network interface, or wish to use the oVirt Guest Tools through the VirtIO-Serial interface, you need to install additional drivers. ![Device Manager](Device_Manager_Win7_Missing_Drivers_VirtIO.jpg "fig:Device Manager")
+
+1. On the console, open the Device Manger
+
+2. On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+
+3. From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
+
+4. On the console, right click the first device that is missing drivers
+
+5. Select "Update Driver Software", and then "Browse my computer for driver software"
+
+6. Browse to the CD, Win7 folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK.
+
+7. When prompted to install the driver, check "Always trust software from Red Hat, Inc" and click Install.
+
+8. Repeat the above for the remaining missing drivers.
 
 ### Using Templates
 

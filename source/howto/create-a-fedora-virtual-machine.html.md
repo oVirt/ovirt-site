@@ -15,32 +15,49 @@ In your current configuration, you should have at least one host available for r
 
 ## Creating a Fedora VM
 
-1.  From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
-    1.  ![](Navigation_Tabs.jpg "fig:Navigation_Tabs.jpg")
-    2.  Figure 1.2: The navigation tabs
+1. From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
 
-2.  The “New Virtual Machine” popup appears.
-    1.  ![](New_VM_Fedora.jpg "fig:New_VM_Fedora.jpg")
-    2.  Figure 1.2: Create new linux virtual machine
+![](Navigation_Tabs.jpg "Navigation_Tabs.jpg")
 
-3.  Under General, your default Cluster and Template will be fine.
-4.  For Operating System, choose Red Hat Enterprise Linux (for i386/i686 Fedora) or Red Hat Enterprise Linux x64 (for x86_64 Fedora).
-5.  Under Optimized For, choose Desktop if you are creating a desktop VM, or Server if you are creating a server VM.
-6.  Add a Name (required) and a comment or description (optional).
-7.  Finally, attach a Network Interface (optional) to the VM by selecting one from the dropdown.
-8.  Click OK
-    1.  Note: By clicking “Additional Options” you can configure other details such as memory and CPU resources. You can change these after creating a VM as well,
+Figure 1.2: The navigation tabs
 
-9.  A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
-    1.  ![](Guide_Me.jpg "fig:Guide_Me.jpg")
-    2.  Figure 1.3. New Virtual Machine – Guide Me
+2. The “New Virtual Machine” popup appears.
+
+![](New_VM_Fedora.jpg "New_VM_Fedora.jpg")
+
+Figure 1.2: Create new linux virtual machine
+
+3. Under General, your default Cluster and Template will be fine.
+
+4. For Operating System, choose Red Hat Enterprise Linux (for i386/i686 Fedora) or Red Hat Enterprise Linux x64 (for x86_64 Fedora).
+
+5. Under Optimized For, choose Desktop if you are creating a desktop VM, or Server if you are creating a server VM.
+
+6. Add a Name (required) and a comment or description (optional).
+
+7. Finally, attach a Network Interface (optional) to the VM by selecting one from the dropdown.
+
+8. Click OK
+
+      Note: By clicking “Additional Options” you can configure other details such as memory and CPU resources. You can change these after creating a VM as well, 
+
+9. A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
+
+![](Guide_Me.jpg "Guide_Me.jpg")
+
+Figure 1.3. New Virtual Machine – Guide Me
 
 10. Click Configure Virtual Disks to add storage to the virtual machine.
+
 11. Enter a Size for the disk.
+
 12. Click OK
-    1.  The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary.
-    2.  ![](Add_Virtual_Disk_Fedora.jpg "fig:Add_Virtual_Disk_Fedora.jpg")
-    3.  Figure 1.4. Add Virtual Disk configurations
+
+      The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary. 
+
+![](Add_Virtual_Disk_Fedora.jpg "Add_Virtual_Disk_Fedora.jpg")
+
+Figure 1.4. Add Virtual Disk configurations
 
 13. Close the Guide Me window by clicking Configure Later. Your new Fedora virtual machine will display in the Virtual Machines tab.
 

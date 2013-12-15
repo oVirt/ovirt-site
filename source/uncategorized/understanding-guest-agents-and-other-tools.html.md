@@ -61,13 +61,13 @@ No information is available at this time
 
 ### Windows Guests
 
-|-------------------|------------------------------------------------------------------------|---------------------------------------------------------------------|--------------------------------------------------------------|-------------|----------------|-------------|----------------|-------------|----------------|
-|                   | [Win XP](How_to_create_a_Windows_XP_Virtual_Machine)        | [Win 7](How_to_create_a_Windows_7_Virtual_Machine)       | [Win8](How_to_create_a_Windows_8_Virtual_Machine) | Server 2003 | Server 2003 R2 | Server 2008 | Server 2008 R2 | Server 2012 | Server 2012 R2 |
-| oVirt Guest Agent |                                                                        |                                                                     |                                                              |             |                |             |                |             |                |
-| VirtIO Drivers    | [Yes(1)](How_to_create_a_Windows_XP_Virtual_Machine#VirtIO) | [Yes](How_to_create_a_Windows_7_Virtual_Machine#Drivers) | Yes                                                          | Yes         | Yes            | Yes         | Yes            | Yes         |                |
-| Spice Drivers     | [Yes](How_to_create_a_Windows_XP_Virtual_Machine#Graphics)  | Yes                                                                 | No(2)                                                        | Yes?        | Yes?           | Yes?        | Yes?           | No          | No             |
-| QXL Drivers       |                                                                        |                                                                     |                                                              |             |                |             |                |             |                |
-| QEMU Drivers      |                                                                        |                                                                     |                                                              |             |                |             |                |             |                |
+|-------------------|------------------------------------------------------------------------|---------------------------------------------------------------------|--------------------------------------------------------------|----------------|----------------|----------------|
+|                   | [Win XP](How_to_create_a_Windows_XP_Virtual_Machine)        | [Win 7](How_to_create_a_Windows_7_Virtual_Machine)       | [Win8](How_to_create_a_Windows_8_Virtual_Machine) | Server 2003/R2 | Server 2008/R2 | Server 2012/R2 |
+| oVirt Guest Agent |                                                                        |                                                                     |                                                              |                |                |                |
+| VirtIO Drivers    | [Yes(1)](How_to_create_a_Windows_XP_Virtual_Machine#VirtIO) | [Yes](How_to_create_a_Windows_7_Virtual_Machine#Drivers) | Yes                                                          | Yes            | Yes            |                |
+| Spice Drivers     | [Yes](How_to_create_a_Windows_XP_Virtual_Machine#Graphics)  | Yes                                                                 | No(2)                                                        | Yes?           | Yes?           | No(2)          |
+| QXL Drivers       |                                                                        |                                                                     |                                                              |                |                |                |
+| QEMU Drivers      |                                                                        |                                                                     |                                                              |                |                |                |
 
 ### Linux Guests
 

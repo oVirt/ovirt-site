@@ -79,7 +79,7 @@ No information is available at this time
 | QXL Drivers       |                                                             |             |             |                                                             |
 | QEMU Drivers      |                                                             |             |             |                                                             |
 
-*(1) XP Does not support VirtIO-SCSI and SCSI Pass-through[1](https://bugzilla.redhat.com/show_bug.cgi?id=1043198)*
+*(1) XP Does not support VirtIO-SCSI[1](https://bugzilla.redhat.com/show_bug.cgi?id=1043198)*
 
 ''(2) The spice drivers currently work with Windows 7 and below. ''
 

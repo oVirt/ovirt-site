@@ -10,7 +10,7 @@ wiki_last_updated: 2013-12-19
 
 # OVirt 3.3.2 release notes
 
-The oVirt Project is preparing oVirt 3.3.2 beta release for testing. This page is still a work in progress.
+The oVirt Project is preparing oVirt 3.3.2 release candidate for testing. This page is still a work in progress.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization.
 
@@ -20,9 +20,9 @@ To find out more about features which were added in previous oVirt releases, che
 
 ### BETA RELEASE
 
-oVirt 3.3.2 is still in beta. In order to install it you've to enable oVirt beta repository.
+oVirt 3.3.2 release candidate is available for testing. In order to install it you've to enable ovirt-updates-testing repository.
 
-If you're going to test oVirt 3.3.2 beta, please add yourself to [Testing/Ovirt 3.3.2 testing](Testing/Ovirt 3.3.2 testing).
+If you're going to test oVirt 3.3.2 release candidate, please add yourself to [Testing/Ovirt 3.3.2 testing](Testing/Ovirt 3.3.2 testing).
 
 ### Fedora / CentOS / RHEL
 
@@ -79,6 +79,7 @@ For restore, disks are attached to a virtual appliance, the data is restored to 
 ## Known issues
 
 *   EL >= 6.5 or cloud-init >= 0.7.2 are needed for cloud-init feature support ()
+*   On Fedora 19 with recent versions of PostgreSQL it may be necessary to manually change kernel.shmmax settings ()
 
 ## Bugs fixed
 

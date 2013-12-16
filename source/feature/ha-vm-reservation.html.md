@@ -31,8 +31,8 @@ oVirt Manager has the capability to flag individual VMs for High Availability, m
 
 #### UI
 
-Overall the UI will be change at two places:
-One UI change will be a configuration change, enable the user to switch this featue On and Off. under the Configure popup, a radio button will be added to TBD.
+Overall the UI will be changed at two places:
+One UI change will be a configuration change, enable the user to switch this feature On and Off. under the Configure popup, a radio button will be added to TBD.
 A second UI change will be at the Alert window, in case the system will recognize the scenario in which a HA VM cannot be migrated after a Host failover, a new alert will show specifying the problematic cluster and list of problematic Hosts in that cluster.
 
 #### ENGINE

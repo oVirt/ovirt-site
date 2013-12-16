@@ -9,8 +9,6 @@ wiki_last_updated: 2013-12-16
 
 # How to create a Windows 8 Virtual Machine
 
-**The page is in the process of being written or edited. When this message is no longer present, these directions are ready to be used.**
-
 ## Introduction
 
 In your current configuration, you should have at least one host available for running virtual machines, and uploaded the required installation images to your ISO domain. This section guides you through the creation of a Windows 8 virtual machine. You will perform a normal attended installation using a virtual DVD.

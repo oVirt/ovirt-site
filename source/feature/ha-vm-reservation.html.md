@@ -39,13 +39,13 @@ A second UI change will be at the Alert window, in case the system will recogniz
 
 This feature mainly implemented by the engine, the engine will need to monitor the hosts in each cluster, for each host the engine will check if:
 1. In case of a failover, is there another host in the cluster to take its place.
-2. If (1) is false, then check for available hosts that together will take all the HA VMs from the problematic Host(the VMs will be scattered over the cluster).
+2. If (1) is false, then check for available hosts that together will take all the HA VMs from the problematic host(the VMs will be scattered over the cluster).
  To establish a list of potential candidates, we will keep track on two main criterias: RAM and CPU.
- For (1), the engine will need to check that there is at least one Host who meet the criteria:
-RAM: making sure a potential Host has a satisfactory amount of RAM(larger then the current RAM usage in the Host). CPU: TBD
+For (1), the engine will need to check that there is at least one Host who meet the criteria:
+RAM: making sure a potential Host has a satisfactory amount of RAM(larger than the current RAM usage in the Host). CPU: TBD
 
-For (2), the engine will need to walk through each HA VM in the host and foe each VM:
-RAM: making sure a potential Host has a satisfactory amount of RAM(larger then the current RAM usage of the VM).
+For (2), the engine will need to walk through each HA VM in the host and for each VM:
+RAM: making sure a potential host has a satisfactory amount of RAM(larger than the current RAM usage of the VM).
 CPU:TBD
 
 In case a potential host/hosts were not found for (1) and (2) and the feature is switched on, an Alert will be triggered.

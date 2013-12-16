@@ -18,7 +18,7 @@ To find out more about features which were added in previous oVirt releases, che
 
 ## Install / Upgrade from previous versions
 
-### BETA RELEASE
+### RELEASE CANDIDATE
 
 oVirt 3.3.2 release candidate is available for testing. In order to install it you've to enable ovirt-updates-testing repository.
 

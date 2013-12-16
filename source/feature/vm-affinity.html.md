@@ -79,7 +79,7 @@ Edits a relation, allow to add/remove VMs to/from the relation.
 
 Tables: relations: id, name, cluster_id (foreign key to vds_groups + delete cascade), relation_type (positive/negative), enforcement(hard/soft).
 
-relation_members: relation_id (foreign key to relations + delete cascade), member_id (foreign key to vm_static + delete cascade).
+open Q: generate cluster_id in the SP with join or update it when VM is changing cluster. relation_members: relation_id (foreign key to relations + delete cascade), member_id (foreign key to vm_static + delete cascade).
 
 #### UI
 
@@ -111,7 +111,7 @@ Filters out host according to affinity enforce mode (hard).
 
 *   Fetches all (schedule) VM <big>soft</big> relations.
 *   Fetches all VMs in the scheduled VM affinity groups (relations).
-*   Score the hosts according to the rules (positive/negative/no affinity).
+*   Score the hosts according to the affinity rules (positive/negative/no affinity).
 
 #### REST API
 

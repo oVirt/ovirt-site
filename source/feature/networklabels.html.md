@@ -136,34 +136,41 @@ For managing labels on network level: Alternative 1:
 
 #### REST
 
-Defining network label on host level is done via POST */api/hosts/{host:id}/nics/setupnetworks* :
+The network label on host nic level are represented as a sub-collection of the nic resource:
+
+       GET to `*`/api/hosts/{host:id}/nics/{nic:id}/labels/{label:id}`*` returns a specific label:
+` `<network_label id="label_name" />
+       
+       GET to ''/api/hosts/{host:id}/nics/{nic:id}/labels/ returns a collection:
+` `<network_labels>
+`   `<network_label id="label_name_1" />
+`   `<network_label id="label_name_2" />
+` `</network_labels>
+       
+       POST to `*`/api/hosts/{host:id}/nics/{nic:id}/labels`*` adds a new label (and will trigger setupNetworks which will be interpreted to attaching all of the matching labelled networks to the nic. ?)
+       DELETE to `*`/api/hosts/{host:id}/nics/{nic:id}/labels/{label:id}`*` removes a label (and will trigger setupNetworks to remove the label and the networks from the nic ?).
+
+The user will be able to provide the list of labels per nic via POST */api/hosts/{host:id}/nics/setupnetworks* :
 
 <action>
 `  `<host_nics>
 `    `<host_nic>
 `      `<network_labels>
-`        `<network_label>`lbl1`</network_label>
-`        `<network_label>`lbl2`</network_label>
-`        `<network_label>`lbl3`</network_label>
+              `<network_label id="label_name_1" />` 
+              `<network_label id="label_name_2" />` 
 `      `</network_labels>
-          ...
+            ...
 `    `</host_nic>
           ...
 ` `</host_nics>
 </action>
 
-The host interface will also contain the network labels when performing GET for an interface which is labelled in */api/hosts/{host:id}/nics/{nic:id}* :
+The network level are represent as a sub-collection of network:
 
-` `<host_nic>
-`   `<network_labels>
-`     `<network_label>`lbl1`</network_label>
-`     `<network_label>`lbl2`</network_label>
-`     `<network_label>`lbl3`</network_label>
-`   `</network_labels>
-         ...
-` `</host_nic>
-
-On the network level either via POST to */api/networks/* or via PUT to */api/networks/{network:id}*:
+       GET on `*`/api/networks/{network:id}/labels`*` - returns all of the labels for a specific network
+       GET on `*`/api/networks/{network:id}/labels/{label:id}`*` - returns a specific label
+       POST on `*`/api/networks/{network:id}/labels/`*` - adds a label to network
+       DELETE on `*`/api/networks/{network:id}/labels/{label:id}`*` - remove a label from network
 
 ` `<network>
          ...

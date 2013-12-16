@@ -23,6 +23,8 @@ A gluster storage administrator would like to view the capacity information (tot
 
 ## Detailed Description
 
+<TO DO>
+
 ## Dependencies / Related Features
 
 ## User Flows

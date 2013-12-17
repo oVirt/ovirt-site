@@ -34,6 +34,14 @@ The HA VM reservation feature ensure the safety of HA VMs in case of host failov
 
 oVirt Manager has the capability to flag individual VMs for High Availability, meaning that in the event of a host failure, these VMs will be rebooted on an alternate hypervisor host. Today, it is possible that the resultant utilization of a cluster during a host failure may either not allow or could cause a notable performance degradation when HA VMs are rebooted. HA VM Reservations will serve as a mechanism to ensure appropriate capacity exists within a cluster for HA VMs in the event the host they currently resides on fails unexpectedly.
 
+**Terminology** n+1 failover - A scenario in which VMs recover from a single-host failure within a cluster n+x failover - A scenario in which VMs recover from a multi-host failure within a cluster
+
+For the first iteration of HA VM Reservations, oVirt shall consider a single host failure (n+1). Scenarios involving multiple host failures (n+x) shall be deferred to a future release due to the complexity incurred from the individual VM HA setting approach (vs. Cluster Level HA Policy).
+
+**Concept** The HA VM reservation mechanism will be implemented in two phases: for the first phase the oVirt manager will be enhanced with monitoring capabilities. oVirt will continuously monitor the clusters in the system, for each Cluster the system will analyze its hosts, determining if the HA VMs on that host can survive the failover of that host by migrating to another host. in case a HA VM cannot migrate upon a failover, an Alert will be presented to the end user.
+
+second phase of the implementation is to extend the monitoring capabilities to the "Run VM" and "Migration" actions. the oVirt manager will be able to predict the change of status in cases of run/migrate of HA VMs, it will need to take into account the resources the new or migrated VM takes. In case of a new HA VM it is needed to take into account not only the resources that the VM consumes from the host but also be aware that the HA VMs resources are lager now, and in case of failover the replacement host must have the appropriate amount of available resources.
+
 ## Detailed Design
 
 Detailed design can be found here [HA_VM_reservation_detailedDesign](Features/HA_VM_reservation_detailedDesign)

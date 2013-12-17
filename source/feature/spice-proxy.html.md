@@ -14,6 +14,14 @@ wiki_last_updated: 2014-01-30
 
 Let the users define a proxy which will be used by SPICE client to connect to the guest. It is useful when the user (e.g. using user portal) is outside of the network where the hypervisors are.
 
+### Client Dependencies
+
+The proxy support for SPICE client has been added in the following versions of the following components:
+
+*   spice-gtk v0.15
+*   virt-viewer v0.5.5
+*   spice-xpi v2.8.90
+
 ### Detailed Description
 
 There are three places where to set the SPICE proxy up:

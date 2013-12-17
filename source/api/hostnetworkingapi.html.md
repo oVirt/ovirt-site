@@ -25,4 +25,35 @@ The current host networking api suffers from various limitations:
 
 ### Proposed Solution
 
-Introducing new sub-collections to reflect the host network configuration
+Introducing new sub-collections to reflect the host network configuration:
+
+*   A collection of networks that are attached to a specific physical interface or a bond:
+
+       /api/hosts/{host:id}/nics/{nic:id}/networks
+
+*   -   Supported actions:
+        1.  GET returns a list of networks attached to the nic
+        2.  POST attaches a network to the nic
+
+       /api/hosts/{host:id}/nics/{nic:id}/networks/{network:id}
+
+*   -   Supported actions:
+        1.  GET returns a specific network which is attached to the nic
+        2.  DELETE detaches a network from the nic
+
+<!-- -->
+
+*   A collection of network connections which represent how the network is provisioned on the host
+
+       /api/hosts/{host:id}/networkconnections
+
+*   -   Supported actions:
+        1.  GET returns a list of networks configured on the host
+        2.  POST provision a network on the host
+
+       /api/hosts/{host:id}/networkconnections/{networkconnection:id}
+
+*   -   Supported actions:
+        1.  GET returns a specific network configured on the host
+        2.  PUT update a network configured on the host
+        3.  DELETE removes a network from the host

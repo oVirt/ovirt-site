@@ -44,6 +44,8 @@ The HA VM reservation mechanism will be implemented in two phases: for the first
 
 second phase of the implementation is to extend the monitoring capabilities to the "Run VM" and "Migration" actions. the oVirt manager will be able to predict the change of status in cases of run/migrate of HA VMs, it will need to take into account the resources the new or migrated VM takes. In case of a new HA VM it is needed to take into account not only the resources that the VM consumes from the host but also be aware that the HA VMs resources are lager now, and in case of failover the replacement host must have the appropriate amount of available resources.
 
+## GUI
+
 ## Detailed Design
 
 Detailed design can be found here [HA_VM_reservation_detailedDesign](Features/HA_VM_reservation_detailedDesign)

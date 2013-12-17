@@ -24,7 +24,7 @@ The HA VM reservation feature ensure the safety of HA VMs in case of host failov
 ## Current status
 
 *   Target Release: 3.4
-*   Status: work in progress
+*   Status: design
 *   Last updated: ,
 
 ## Detailed Description

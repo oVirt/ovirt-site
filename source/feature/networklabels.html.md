@@ -129,10 +129,11 @@ For managing labels on host level:
 *   In 'Setup Networks' dialog an option to adding the *labels* will be added, represented as a tag icon on the interface (left side of the setup networks dialog). Clicking the tag icon opens a new dialog for type the labels, in a drop-down/combo-box which will auto-complete the label name based on other labels that are in use in the same data-center (by hosts or by networks).
 *   In host interfaces sub-tab a column *labels* will present the labels.
 
-For managing labels on network level: Alternative 1:
+For managing labels on network level:
 
 *   In 'Add/Edit Network' dialog a new property *label* will be added.
-*   In 'network main tab' a *label* column will present the labels.
+    -   Before submitting, an verification for the validity of the label is being examined: If two networks which are attached to a specific cluster cannot co-exit on the host nic by that label, a warning message will be appeared to the user.
+*   In 'network main tab' a *label* icon is added next to the network name, when hovers it displays the label name.
 
 #### REST
 

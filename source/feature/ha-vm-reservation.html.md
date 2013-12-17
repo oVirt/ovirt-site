@@ -46,6 +46,10 @@ second phase of the implementation is to extend the monitoring capabilities to t
 
 ## GUI
 
+Enabling or disabling the HA VM Reservation will be possible via the Configure popup. A sketch of the Configure window: ![](configurewin.png "fig:configurewin.png")
+
+Illustration of the Alert panel: ![](alert.png "fig:alert.png")
+
 ## Detailed Design
 
 Detailed design can be found here [HA_VM_reservation_detailedDesign](Features/HA_VM_reservation_detailedDesign)

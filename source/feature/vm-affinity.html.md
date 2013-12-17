@@ -28,7 +28,10 @@ The oVirt scheduler capabilities introduced in version 3.3 have opened opportuni
 
 ### Benefits to oVirt
 
---------------------------------MISSING--------------------------------
+*   Leverages the oVirt Scheduler to manually assign VM workload affinity policies
+*   Enables users to accommodate advanced workload scenarios
+    -   Strict licensing requirements
+    -   High Availability Workload planning
 
 #### Terminology
 
@@ -45,76 +48,86 @@ ie. VM A, VM B, and VM C Must Run Together on Host 1.
 
 ### Detailed Description
 
-Define a new entity in the system called Relation. Relation can be categorized according to type, and currently will be in use by VM-affinity, later we can generalize it to other entities.
+Define a new entity in the system called Affinity Group. Affinity Group will hold a set of VMs (later on could be other entities) and properties. Each VM can be associated with several groups. The VM will be scheduled according to its affinity groups (properties and members) rules.
 
 #### Engine
 
 ##### Queries
 
-*   getAllRelationsByClusterId
+*   getAllAffinityGroupsByClusterId
 
-Populates Relations subtab in clusters main tab
+Populates Affinity Groups subtab in clusters main tab
 
-*   getRelationsByVmId
+*   getAffinityGroupsByVmId
 
-Populates Relations subtab in VMs main tab
+Populates Affinity Groups subtab in VMs main tab
 
 ##### Commands
 
-Adding CRUD actions for relations, only supported in admin portal (user portal support will be added later- if needed) MLA: new action group for manipulate relations (including all CRUD commads), this action group will be added to ClusterAdmin Role and above.
+Adding CRUD actions for Affinity Groups, currently supported only in admin portal (user portal support will be added later- if needed) MLA: adding new action group for manipulate Affinity Groups (including all CRUD commands), this action group will be added to ClusterAdmin Role and above.
 
-*   AddRelation
+New commands:
 
-Adds a relation to engine.
+*   AddAffinityGroup
 
-*   RemoveRelation
+Adds a Affinity Group to engine.
 
-Removes a relation from engine.
+*   RemoveAffinityGroup
 
-*   EditRelation
+Removes a Affinity Group from engine.
 
-Edits a relation, allow to add/remove VMs to/from the relation.
+*   EditAffinityGroup
+
+Edits a Affinity Group, allow to add/remove VMs to/from the Affinity Group. Altered Commands:
+
+*   ChangeVmCluster
+
+When changing VM cluster, we need to remove its reference from all Affinity Groups (open question: should we fail if VM is associated to Affinity Group?).
 
 #### Data Base
 
-Tables: relations: id, name, cluster_id (foreign key to vds_groups + delete cascade), relation_type (positive/negative), enforcement(hard/soft).
+Tables: affinity_groups: id, name, cluster_id (foreign key to vds_groups + delete cascade), affinity_group_type (positive/negative), enforcement (hard/soft).
 
-open Q: generate cluster_id in the SP with join or update it when VM is changing cluster. relation_members: relation_id (foreign key to relations + delete cascade), member_id (foreign key to vm_static + delete cascade).
+affinity_group_members: affinity_group_id (foreign key to affinity_groups + delete cascade), member_id (foreign key to vm_static + delete cascade).
 
 #### UI
 
 ![Relations sub tab under clusters](relation-cluster.png "Relations sub tab under clusters")
 
-An overview of all relations in cluster.
+An overview of all Affinity Groups in the cluster.
 
 ![Relations sub tab under clusters](relation-vm.png "Relations sub tab under clusters")
 
-All relations per a single VM.
+All Affinity Groups associated with a single VM.
 
 ![Add/Edit Relation Dialog](relation-dialog.png "Add/Edit Relation Dialog")
 
-Dialog for adding/editing a single relation, specifying Name, polarity, enforcement mode, and members (VMs).
+Dialog for adding/editing a single relation, specifying Name, polarity, enforcement mode, and members (VMs). VM's dropdown should support typing (suggestion combobox), for quick selection.
 
 #### Scheduling
 
-Add affinity filter and weight module to oVirt's scheduler, and to all defined cluster policies (inc. user defined).
+Add affinity filter and weight module to oVirt's scheduler, and add those to all cluster policies (inc. user defined).
 
 ##### Affinity Filter
 
 Filters out host according to affinity enforce mode (hard).
 
-*   Fetches all (schedule) VM <big>hard</big> relations.
-*   Fetches all VMs in the scheduled VM affinity groups (relations).
-*   Removes all hosts that doesn't meet the relation hard enforce.
+*   Fetches all (scheduled) VM <big>hard</big> Affinity Groups.
+*   Fetches all VMs who are members in the scheduled VM Affinity Groups.
+*   Removes all hosts that doesn't meet the Affinity Group hard enforce:
+    -   for positive affinity, in case a VM of the group is running on a certain host, remove all other hosts.
+    -   for negative affinity, for each running VM in the group, remove its host.
 
 ##### Affinity Weight Module
 
-*   Fetches all (schedule) VM <big>soft</big> relations.
-*   Fetches all VMs in the scheduled VM affinity groups (relations).
-*   Score the hosts according to the affinity rules (positive/negative/no affinity).
+*   Fetches all (schedule) VM <big>soft</big> Affinity Groups.
+*   Fetches all VMs who are members in the scheduled VM Affinity Groups.
+*   Score the hosts according to the soft enforcement Affinity Groups:
+    -   for positive affinity, in case a VM of the group is running on a certain host, give all other hosts a higher weight.
+    -   for negative affinity, for each running VM in the group, give the VM's host higher weight.
 
 #### REST API
 
-TBD
+under discussion.
 
 <Category:SLA>

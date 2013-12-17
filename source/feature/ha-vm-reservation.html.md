@@ -21,6 +21,11 @@ The HA VM reservation feature ensure the safety of HA VMs in case of host failov
 *   Name: [Kobi Ianko](User:kianku)
 *   Email: kobi@redhat.com
 
+<!-- -->
+
+*   Name: [Scott Herold](User:sherold)
+*   Email: sherold@redhat.com
+
 ## Current status
 
 *   Target Release: 3.4

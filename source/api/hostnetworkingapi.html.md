@@ -27,6 +27,8 @@ The current host networking api suffers from various limitations:
 
 Introducing new sub-collections to reflect the host network configuration:
 
+#### Network sub-collection of the nic resource
+
 *   A collection of networks that are attached to a specific physical interface or a bond:
 
        /api/hosts/{host:id}/nics/{nic:id}/networks
@@ -36,6 +38,8 @@ Introducing new sub-collections to reflect the host network configuration:
 
     \*# **POST** attaches a network to the nic
 
+##### Network resource
+
        /api/hosts/{host:id}/nics/{nic:id}/networks/{network:id}
 
 *   Supported actions:
@@ -43,12 +47,14 @@ Introducing new sub-collections to reflect the host network configuration:
 
     \*# **DELETE** detaches a network from the nic
 
+##### Network statistics sub-collection
+
        /api/hosts/{host:id}/nics/{nic:id}/networks/{network:id}/statistics
 
 *   Supported actions:
     \*# **GET** returns a specific statistics for a network (if reported) which is attached to the nic
 
-<!-- -->
+##### Network connectons sub-collection
 
 *   A collection of network connections which represent how the network is provisioned on the host
 
@@ -59,6 +65,8 @@ Introducing new sub-collections to reflect the host network configuration:
 
     \*# **POST** provision a network on the host
 
+##### Network connecton resource
+
        /api/hosts/{host:id}/networkconnections/{networkconnection:id}
 
 *   Supported actions:
@@ -67,3 +75,10 @@ Introducing new sub-collections to reflect the host network configuration:
     \*# **PUT** update a network configured on the host
 
     \*# **DELETE** removes a network from the host
+
+##### Network connecton statistics sub-collection
+
+       /api/hosts/{host:id}/networkconnections/{networkconnection:id}/statistics
+
+*   Supported actions:
+    \*# **GET** returns a specific statistics for a network (if reported) which is attached to the host

@@ -12,7 +12,7 @@ wiki_last_updated: 2014-12-22
 
 ## Summary
 
-A gluster storage administrator would like to view the capacity information (total , used and free) on a volume as well as on bricks. This feature provides support for that.
+A gluster storage administrator would like to view the capacity information (total , used and free) on a volume. This feature provides support for that.
 
 ## Owner
 

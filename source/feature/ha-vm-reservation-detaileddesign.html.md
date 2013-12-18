@@ -71,7 +71,7 @@ In case we did not find a match, the second logical unit will split the host int
           8.                 mark v as migrated;
           9  if all HA VMs are marked as migrated -> ClusterHAStateOK else ClusterHAStateFailed(raise Alert)
 
-##### monitoring/acting on run/migrate actions
+##### acting on run/migrate actions
 
 This part is a bit more tricky, we would like oVirt to have the capability of not only monitor the current state of the cluster but to actually make an active decision when running/migrating a VM. by selecting the best host to place the VM.
 

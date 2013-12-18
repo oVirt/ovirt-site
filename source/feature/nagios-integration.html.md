@@ -38,6 +38,11 @@ TO DO
 
 ## Dependencies / Related Features
 
+*   Nagios Core
+*   Nagios Addons - NRPE , NSCA, MK Livestatus, PNP4Nagios etc
+*   Nagios pluggins
+*   Ovirt UI Monitoring Plugin
+
 ## User Flows
 
 ## Scale

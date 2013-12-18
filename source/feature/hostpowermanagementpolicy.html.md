@@ -39,17 +39,17 @@ Bug-Url: <https://bugzilla.redhat.com/show_bug.cgi?id=1035238>
 
 ### Shutdown procedure
 
-*   qualifying Hosts in the Up state (one at a time) will be moved to maintenance and managedByPolicy set to true by the load balancer
-*   qualifying Hosts in the Maintenance state that also have managedByPolicy flag set will be shut down
+*   qualifying Hosts (powerManagementControlledByPolicy==true) in the Up state (one at a time) will be moved to maintenance and powerManagementControlledByPolicy kept as true by the load balancer
+*   qualifying Hosts in the Maintenance state that also have powerManagementControlledByPolicy flag set will be shut down
 
 ### Wake up procedure
 
 *   when the load balancer decides to wake up a host or the user clicks the Activate button
-*   engine will start the host and clear the managedByPolicy flag when the startup is finished
+*   engine will start the host and set powerManagementControlledByPolicy to true flag when the startup is finished
 
 ## DB changes
 
-*   new boolean flag for Host - managedByPolicy - meaning the host was shut down or to maintenance by the automatic policy
+*   new boolean flag for Host - powerManagementControlledByPolicy - meaning the host can be controlled by the automatic policy, will be cleared by user triggered PM actions and set every time the host goes Up
 *   new boolean flag for Host - disableAutomaticPowerManagement - that will make this host invisible to the power management policy
 
 ## new Power saving policy attributes

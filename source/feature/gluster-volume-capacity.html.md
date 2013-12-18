@@ -23,7 +23,7 @@ A gluster storage administrator would like to view the capacity information (tot
 
 ## Detailed Description
 
-<TO DO>
+This feature enables the user to check the capacities of one/more volumes by clicking on "Capacity" menu in "Volumes" sub-tab.
 
 ## Dependencies / Related Features
 

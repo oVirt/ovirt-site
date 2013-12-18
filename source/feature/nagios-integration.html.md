@@ -27,7 +27,7 @@ A storage administrator want Red Hat Storage Server to be capable of being monit
 
 Monitoring the system/Gluster resources and services includes:
 
-*   Monitoring of RHSS critical entities such as servers, networking, volumes, clusters and services
+*   Monitoring of critical entities such as servers, networking, volumes, clusters and services
 *   Alerting when critical infrastructure components fail and recover, providing administrators with notice of important events. Alerts can be delivered via email, SMS or SNMP.
 *   Reports providing a historical record of outages, events, notifications, and alert response for later review.
 *   Trending and capacity planning graphs and reports that allow for infrastructure upgrades before failures occur.

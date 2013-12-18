@@ -16,7 +16,7 @@ wiki_last_updated: 2014-03-03
 
 *' These are tentative planning dates and may change*'
 
-*   General availability: **2013-12-18**
+*   General availability: **2013-12-19**
 *   RC Build: **2013-12-16**
 *   Beta release: **2013-11-29**
 

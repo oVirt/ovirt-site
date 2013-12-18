@@ -70,7 +70,8 @@ The monitoring procedure can be logically be divided into two. The first logical
 
 ## GUI
 
-Enabling or disabling the HA VM Reservation will be possible via the Configure popup. A sketch of the Configure window: ![](configurewin.png "fig:configurewin.png")
+Enabling or disabling the HA VM Reservation will be possible via the Configure popup.
+A sketch of the Configure window: ![](configurewin.png "fig:configurewin.png")
 
 Illustration of the Alert panel: ![](alert.png "fig:alert.png")
 

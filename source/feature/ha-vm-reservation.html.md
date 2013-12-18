@@ -41,7 +41,7 @@ n+x failover - A scenario in which VMs recover from a multi-host failure within 
 For the first iteration of HA VM Reservations, oVirt shall consider a single host failure (n+1). Scenarios involving multiple host failures (n+x) shall be deferred to a future release due to the complexity incurred from the individual VM HA setting approach (vs. Cluster Level HA Policy).
 
 **Concept**
-The HA VM reservation mechanism will be implemented in two phases: for the first phase the oVirt manager will be enhanced with monitoring capabilities. oVirt will continuously monitor the clusters in the system, for each Cluster the system will analyze its hosts, determining if the HA VMs on that host can survive the failover of that host by migrating to another host. in case a HA VM cannot migrate upon a failover, an Alert will be presented to the end user.
+The HA VM reservation mechanism will be implemented in two phases: for the first phase the oVirt manager will be enhanced with monitoring capabilities. oVirt will continuously monitor the clusters in the system, for each Cluster the system will analyze its hosts, determining if the HA VMs on that host can survive the failover of that host by migrating to another host. In the event that an HA VM cannot migrate upon a Host failure, an Alert will be presented to the end user.
 
 The monitoring procedure can be logically be divided into two. The first logical unit will search for a single host that can contain all of VMs from the failover host.
 

@@ -14,7 +14,7 @@ wiki_last_updated: 2014-01-12
 
 ## Summary
 
-The HA VM reservation feature ensure the safety of HA VMs in case of host failover, without negatively impacting performance.
+High level design can be found at [Features/HA_VM_reservation](Features/HA_VM_reservation)
 
 ## Owner
 

@@ -25,7 +25,12 @@ A storage administrator want Red Hat Storage Server to be capable of being monit
 
 ## Detailed Description
 
-This includes: Monitoring of RHSS critical entities such as servers, networking, volumes, clusters and services Alerting when critical infrastructure components fail and recover, providing administrators with notice of important events. Alerts can be delivered via email, SMS, or custom script or SNMP traps. Response mechanisms such that IT staff can acknowledge alerts and begin resolving outages and investigating security alerts immediately. Mechanism should include Alert Escalation to different groups if alerts are not acknowledged in a timely manner. Reports providing a historical record of outages, events, notifications, and alert response for later review. Availability reports help ensure SLAs are being met. Trending and capacity planning graphs and reports that allow for infrastructure upgrades before failures occur.
+Monitoring the system/Gluster resources and services includes:
+
+*   Monitoring of RHSS critical entities such as servers, networking, volumes, clusters and services
+*   Alerting when critical infrastructure components fail and recover, providing administrators with notice of important events. Alerts can be delivered via email, SMS or SNMP.
+*   Reports providing a historical record of outages, events, notifications, and alert response for later review.
+*   Trending and capacity planning graphs and reports that allow for infrastructure upgrades before failures occur.
 
 ## Dependencies / Related Features
 

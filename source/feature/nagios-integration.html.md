@@ -32,9 +32,17 @@ Monitoring the system/Gluster resources and services includes:
 *   Reports providing a historical record of outages, events, notifications, and alert response for later review.
 *   Trending and capacity planning graphs and reports that allow for infrastructure upgrades before failures occur.
 
+## Productization and Packaging
+
 ## Dependencies / Related Features
 
 ## User Flows
+
+## Scale
+
+## High Availability
+
+## Acceptance Criteria
 
 ## Detailed Design
 

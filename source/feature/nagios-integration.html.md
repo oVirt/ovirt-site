@@ -47,6 +47,10 @@ Monitoring the system/Gluster resources and services includes:
 
 ## User Flows
 
+*   Overview
+
+![](Example.jpg "Example.jpg")
+
 ## Detailed Design
 
 <Category:Feature>

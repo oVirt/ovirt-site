@@ -34,7 +34,7 @@ Monitoring the system/Gluster resources and services includes:
 
 ## Productization and Packaging
 
-To Do
+TO DO
 
 ## Dependencies / Related Features
 

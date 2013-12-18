@@ -47,7 +47,7 @@ Monitoring the system/Gluster resources and services includes:
 
 ## User Flows
 
-*   Overview
+## Overview
 
 ![](Setup.png "Setup.png")
 

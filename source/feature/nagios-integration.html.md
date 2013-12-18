@@ -32,18 +32,18 @@ Monitoring the system/Gluster resources and services includes:
 *   Reports providing a historical record of outages, events, notifications, and alert response for later review.
 *   Trending and capacity planning graphs and reports that allow for infrastructure upgrades before failures occur.
 
-## Productization and Packaging
-
-*   UI Monitoring plugin will be packaged and installed along with Ovirt.
-*   Nagios core will not be packaged and installed along with Ovirt
-*   Nagios addons and plugins will not be packaged and installed. This needs to taken done separately on the the monitoring nodes and the server
-
 ## Dependencies / Related Features
 
 *   Nagios Core
 *   Nagios Addons - NRPE , NSCA, MK Livestatus, PNP4Nagios etc
 *   Nagios pluggins
 *   Ovirt UI Monitoring Plugin
+
+## Productization and Packaging
+
+*   UI Monitoring plugin will be packaged and installed along with Ovirt.
+*   Nagios core will not be packaged and installed along with Ovirt
+*   Nagios addons and plugins will not be packaged and installed. This needs to taken done separately on the the monitoring nodes and the server
 
 ## User Flows
 

@@ -49,7 +49,7 @@ Monitoring the system/Gluster resources and services includes:
 
 *   Overview
 
-![](Example.jpg "Example.jpg")
+![](Setup.png "Setup.png")
 
 ## Detailed Design
 

@@ -105,7 +105,7 @@ Cluster <clusterName> might suffer some performance downgrade in case of failove
 
 The engine will implement the logic of this feature, it will be responsible for the scoring mechanism shown above, and maintaining the background task of monitoring the state of the clusters. for the monitoring task we will use Quartz to run a job every 5 minutes. the job will implement the pseudo code shown above for the monitoring task.
 
-<todo: Add quartz Impl notes here>
+<todo: Add quartz Impl notes here> <todo: Add run/migrate Impl notes here>
 
 #### DB
 

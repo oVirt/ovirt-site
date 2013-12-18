@@ -88,7 +88,14 @@ And for their completion:
 2.  "2/3 failed to update ${Network} changes on host ${Host} due to: ${Failure}"
 3.  "3/3 network ${Network} were updated on host ${Host}"
 
-All the actions should contain the same correlation-id.
+*   All the actions should contain the same correlation-id.
+
+<!-- -->
+
+*   UpdateNetworkCommand can-do-action messages should be modify to reflect the proper message:
+    -   Changing A vm network to a non-vm network is not permitted while VMs or templates are using the VM.
+    -   Changing A vm network properties while running VMs are using it is not permitted.
+    -   Renaming a network which is configured on hosts is not supported.
 
 ### Dependencies / Related Features
 

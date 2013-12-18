@@ -45,12 +45,6 @@ TO DO
 
 ## User Flows
 
-## Scale
-
-## High Availability
-
-## Acceptance Criteria
-
 ## Detailed Design
 
 <Category:Feature>

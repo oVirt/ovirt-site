@@ -14,9 +14,9 @@ wiki_last_updated: 2014-03-27
 
 *' These are tentative planning dates and may change*'
 
-*   General availability: **end of January**
+*   General availability: **2014-01-31**
     -   Beta release: **\1**
-    -   Feature freeze: **end of December**
+    -   Feature freeze: **2013-12-31**
     -   [ oVirt 3.4 Test Day:](OVirt_3.4_TestDay) **\1**
     -   RC Build: **\1**
 

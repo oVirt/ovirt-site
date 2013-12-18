@@ -33,8 +33,8 @@ High level design can be found at [Features/HA_VM_reservation](Features/HA_VM_re
 
 The HA VM reservation feature purpose is to inform the end user on scenarios that a failover of a host might cause a performance downgrade. To do that, the oVirt engine will monitor the hosts on each cluster and raise alerts in cases it uncovers such a scenario. The monitoring will be perform:
 
-*   as a background task, tracking changes in the VMs that might cause a scenario as described above.
-*   for each run/migrate command, tracking the changes cause by the command.
+*   As a background task, tracking changes in the VMs that might cause a scenario as described above.
+*   For each run/migrate command, tracking the changes cause by the command.
 
 ##### measuring the vm resources
 

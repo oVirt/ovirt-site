@@ -51,6 +51,8 @@ You can also join oVirt users mailing list, where quality assurance related topi
     -   [oVirt 3.3.2 release notes](OVirt_3.3.2_release_notes)
     -   [oVirt 3.3.2 testing](Testing/Ovirt_3.3.2_testing)
 
+*   3.3.z:
+    -   [OVirt_3.3.z_release-management](OVirt_3.3.z_release-management)
 *   3.4.0:
     -   Tracker: oVirt 3.4.0 release
 

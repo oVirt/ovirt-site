@@ -47,7 +47,7 @@ A dedicated multiple action runner will be added to run the 'Setup Networks' com
 Currently, Updating the network is blocked for network which is used by VMs. As part of the feature we should permit the change in these cases:
 
 *   Networks that aren't used by VMs
-*   The VMs are down and the change doesn't include modifying a VM network to a non-VM network.
+*   No running VMs using the network and the change doesn't include modifying a VM network to a non-VM network.
 
 The feature will be enabled only for 3.1 data-center and above since it relies on the 'Setup Networks' which was introduced in 3.1. Renaming of network which is used by the hosts, vms or templates will be blocked, since it will make the network on hosts as "unmanaged" and leave the vm/templates without a required network.
 

@@ -51,7 +51,6 @@ Monitoring the system/Gluster resources and services includes:
 
 ## Productization and Packaging
 
-*   UI Monitoring plugin will be packaged and installed along with Ovirt.
 *   Nagios core will not be packaged and installed along with Ovirt
 *   Nagios addons and plugins will not be packaged and installed. This needs to taken done separately on the the monitoring nodes and the server
 

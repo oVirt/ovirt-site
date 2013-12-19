@@ -67,9 +67,9 @@ Monitoring the system/Gluster resources and services includes:
 <!-- -->
 
 *   List of Logical Resources that need to be monitored :
-    1.  Cluster
-    2.  Volume
-    3.  Brick
+    1.  Cluster(Gluster specific)
+    2.  Volume(Gluster specific)
+    3.  Brick(Gluster specific)
     4.  LVM
 
 <!-- -->
@@ -79,6 +79,27 @@ Monitoring the system/Gluster resources and services includes:
     2.  Utilization
     3.  Capacity
     4.  Usage
+
+## Services/Operations to be monitored
+
+*   Monitoring of Access Services such as:
+    1.  NFS (and CTDB)
+    2.  Swift/Object
+    3.  SMB (and CTDB)
+
+<!-- -->
+
+*   Monitoring of background operations such as:
+    1.  Remove Brick(Gluster specific)
+    2.  Re-balance(Gluster specific)
+    3.  Self-Heal(Gluster specific)
+    4.  Geo-Replication(Gluster specific)
+    5.  System Monitoring(Gluster specific)
+    6.  Replace Brick(Gluster specific)
+
+<!-- -->
+
+*   Alerting mechanisms needed for spilt-brain
 
 ## User Flows
 

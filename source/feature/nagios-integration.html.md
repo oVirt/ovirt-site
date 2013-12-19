@@ -84,6 +84,13 @@ Monitoring the system/Gluster resources and services includes:
 
 ### Generating SNMP Traps From Nagios Server
 
+![](trap.png "trap.png")
+
+*   External Program/script or cron jobs or Application hooks monitor the status of specific resources/services.
+*   The results are passed on to the NSCA client which in turn pass the results to NSCA server on the monitoring server.
+*   Nagios server will process the result and invokes the event handler script configured for generating the SNMP traps.
+*   Event handler script generate the SNMP traps with the help of the SNMP trap generator(Netsnmp or anything similar).
+
 ### Generating traps/alerts Based on the Syslog Entries
 
 ## Detailed Design

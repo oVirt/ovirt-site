@@ -49,7 +49,7 @@ There are a number of oVirt presentations during the CloudOpen Europe conference
 There is also a two-hour tutorial on the scripting and extensibility features of oVirt:
 
 Wednesday, October 23, 11:05, Monteith  
-[Scripting And Integration with the oVirt Engine](//sched.co/13BEfLQ) - Oved Ourfali
+[Scripting And Integration with the oVirt Engine](//sched.co/13BEfLQ) - Oved Ourfali [Session recording](http://www.youtube.com/watch?v=d1WSS0xX0Gc)
 
 # oVirt Developer Summit
 

@@ -12,6 +12,17 @@ wiki_last_updated: 2013-12-19
 
 Bug-Url: <https://bugzilla.redhat.com/show_bug.cgi?id=1035238>
 
+## Owner
+
+*   Martin Sivak <msivak@redhat.com>
+
+## Status
+
+*   Basic implementation in gerrit verified to work with the nice scenarios:
+    -   <http://gerrit.ovirt.org/22376>
+    -   <http://gerrit.ovirt.org/22488>
+    -   <http://gerrit.ovirt.org/22520>
+
 ## Goals
 
 *   shutdown hosts when Powersaving is selected and engine clears the host (migrates all VMs elsewhere)
@@ -67,6 +78,9 @@ Bug-Url: <https://bugzilla.redhat.com/show_bug.cgi?id=1035238>
 
 *   when user tries to start a Vm that is pinned to a powered down host, we will fail the start
 *   if there is no spare available we might need to fail RunVm and inform the user to try again once we start more hosts
+*   if we initiate host shutdown and it takes long time, we might try to start it up again - we need a way of distinguishing initiated shutdown and real down state
+*   if we are powering up a host and it fails, it is possible we will select the same host for the next attempt
+*   power operations might need to be executed in a separate thread to not block the balancer operations
 
 ## Possible future enhancements
 
@@ -76,3 +90,5 @@ Bug-Url: <https://bugzilla.redhat.com/show_bug.cgi?id=1035238>
 *   Wake On Lan fencing method:
     -   each host has to report MAC and WOL capability for each NIC
     -   locality information to know who can send the proper WOL packet (each host will report it's ARP database of visible MAC addresses for each NIC)
+
+<Category:Feature> <Category:SLA>

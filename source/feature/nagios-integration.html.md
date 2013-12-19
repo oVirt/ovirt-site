@@ -57,6 +57,8 @@ Monitoring the system/Gluster resources and services includes:
 *   Remote Nodes send alerts to the Nagios server in case of any status change(Passive checks)
 *   Nagios server can send alerts(SNMP, e-mail, SMS) to Ovirt or any third party management applications(Tivoli, HP OpenView, BMC, CA Insight etc )
 
+### Auto Configuration
+
 ## Detailed Design
 
 <Category:Feature>

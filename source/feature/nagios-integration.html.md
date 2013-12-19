@@ -117,6 +117,7 @@ Monitoring the system/Gluster resources and services includes:
 *   Active checks are initiated by the Nagios and run on a regularly scheduled basis.
 *   To execute active checks on gluster nodes, NRPE add-on will be used
     -   NRPE will execute plug-ins to monitor local resources/attributes like disk usage, CPU load, memory usage, etc. on the gluster nodes
+*   Check results will be send back to the Nagios server and if there is a service state change, alerts/traps will be send based on the configuration.
 
 ### Passive checks on Remote Nodes
 

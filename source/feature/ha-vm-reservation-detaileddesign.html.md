@@ -116,7 +116,13 @@ The engine will implement the logic of this feature, it will be responsible for 
 
 #### DB
 
-Since there is no use of persisting the data, because it is relevant for a short period of time, no DB changes are needed.
+Since there is no use of persisting the data, because it is relevant for a short period of time, no DB changes are needed. On the other hand the configuration should be persistent.
+
+for saving the configuration we will add a new record to the vdc_options table
+
+         insert into vdc_options(option_name,option_value) values ('EnableHaVmReservation','true');
+
+possible values for this field are true/false according to the user selection in the checkbox at the popup window (shown at the UI section).
 
 #### Rest API
 

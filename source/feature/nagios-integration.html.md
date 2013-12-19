@@ -12,7 +12,7 @@ wiki_last_updated: 2014-06-27
 
 ## Summary
 
-A storage administrator want Red Hat Storage Server to be capable of being monitored using Nagios - an open IT infrastructure monitoring framework (http://www.nagios.org/) - to monitor the system/Gluster resources and services.
+A storage administrator want storage nodes to be capable of being monitored using Nagios - an open IT infrastructure monitoring framework (http://www.nagios.org/) - to monitor the system/Gluster resources and services.
 
 ## Owner
 

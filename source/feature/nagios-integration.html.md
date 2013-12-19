@@ -72,6 +72,8 @@ Monitoring the system/Gluster resources and services includes:
 *   To execute active checks on gluster nodes, NRPE add-on will be used
     -   NRPE will execute plug-ins to monitor local resources/attributes like disk usage, CPU load, memory usage, etc. on the gluster nodes
 
+### Passive checks on Gluster Nodes
+
 ## Detailed Design
 
 <Category:Feature>

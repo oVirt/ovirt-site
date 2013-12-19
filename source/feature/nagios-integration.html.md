@@ -82,6 +82,10 @@ Monitoring the system/Gluster resources and services includes:
     -   The external application passes the results to the NSCA client, which in turn send it to the NSCA server on the monitoring monitoring server.
     -   Nagios server will process the service check result and execute the the specific action if configured.
 
+### Generating SNMP Traps From Nagios Server
+
+### Generating traps/alerts Based on the Syslog Entries
+
 ## Detailed Design
 
 <Category:Feature>

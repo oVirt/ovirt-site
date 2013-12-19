@@ -44,7 +44,7 @@ In many cloud platforms the following concepts and terminology are used:
 
 **Instance Type (or flavor)**
 Used to describe the hardware configuration of the virtual machines.
-For example “medium” including 1 virtual CPU and 4GB of memory.
+For example “medium” including 1 virtual CPU and 4GB of memory. It will be a top-level entity (e.g. not bound to any DC/Cluster). It could be by default enabled/disabled and than this enable/disable overridden per cluster. For example an instance type named "Huge" could be by default disabled and enabled only for a one specific cluster.
 
 **Image**
 Used to describe the virtual machine disk image. (Amazon uses the term AMI) This is the base operating system image including applications. The image is stateless, any changes made to the image are lost after stopping the virtual machine.

@@ -9,7 +9,13 @@ wiki_revision_count: 30
 wiki_last_updated: 2013-12-19
 ---
 
-# Installing
+# Installing PostgreSQL DB
+
+## Warning
+
+This page contains obsolete information and has been recommended for deletion!
+
+## Installing
 
 Please take into account that installing and starting a database is a system administration task, so all the commands suggested in this page are to be executed with the `root` user.
 
@@ -27,7 +33,7 @@ Make sure you are using PostgreSQL 8.4.8 or later. Check your version with:
 
 Note: for earlier PostgreSQL versions, a patch is needed.
 
-# Running the service
+## Running the service
 
 #### From PostgreSQL 9
 
@@ -74,7 +80,7 @@ It is recommended to configure the service so that it is automatically started t
 
     # chkconfig postgresql on
 
-# Connecting to the database
+## Connecting to the database
 
 Note that this instructions are mostly the same for all distributions, the main difference is the location of the configuration files. For reference see the PostgreSQL documentation [here](http://www.postgresql.org/docs/9.2/interactive/auth-pg-hba-conf.html).
 
@@ -98,7 +104,7 @@ Edit the `/etc/postgresql/9.1/main/pg_hba.conf` file and set authentication para
 
 After that run `/etc/init.d/postgresql restart` so that the new settings will take effect.
 
-# Connecting from other hosts (optional)
+## Connecting from other hosts (optional)
 
 If you want to be able to connect to PostgreSQL from other hosts (i.e. not from localhost only) you will need to change the `listen_addresses` parameter, as the default is to accept local connections only.
 
@@ -126,7 +132,7 @@ After all these changes restart the PostgreSQL service:
 
     # /etc/init.d/postgresql restart
 
-# External Resources
+## External Resources
 
 *   If you upgraded/installed Fedora 16, then check this blog for more info: <http://asaf-shakarchi.blogspot.com/2011/11/fedora-15-16-postgresql-issues.html>
 

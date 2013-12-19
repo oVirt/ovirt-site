@@ -215,17 +215,17 @@ In *Virtual Machines* main tab click the "New VM" button. Select the data center
 
 ### Runtime
 
-When a virtual machine is run the complete configuration should be constructed in the following method:
+When a virtual machine is run the complete configuration should already been constructed
 \* The instance type is used to provide the hardware configuration for the VM.
 
-*   -   This setting should be applied at runtime not at configuration time
-    -   If an instance type is updated (eg. added 2GB of memory) then the next time this VM is launched it should pickup the new instance configuration
+*   -   This setting should be applied at configuration not at runtime time
+    -   If an instance type is updated (eg. added 2GB of memory) then the next time this VM is launched it should still run with the old configuration
 
 \* The operating system type and disks are taken from the Image
 
 *   -   If the VM is set to be stateless then the disks from the Image are set to be stateless
-    -   Note: For stateless disks the image are applied at run time not at the time that the virtual machine was defined
-    -   If a Image is updated then the next time a stateless VM is run from this Image then the image will be updated
+    -   Note: For stateless disks the images are applied at run time not at the time that the virtual machine was defined
+    -   If an Image is updated then the next time a stateless VM is run from this Image then the image will be updated
 
 <!-- -->
 

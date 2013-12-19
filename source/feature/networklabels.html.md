@@ -137,21 +137,40 @@ For managing labels on network level:
 
 #### REST
 
-The network label on host nic level are represented as a sub-collection of the nic resource:
+##### Host level
 
-       GET to `*`/api/hosts/{host:id}/nics/{nic:id}/labels/{label:id}`*` returns a specific label:
+The network label on host nic level are represented as a sub-collection of the nic resource:
+ /api/hosts/{host:id}/nics/{nic:id}/labels Supported actions:
+
+*   **GET** returns a list of nic's labels
+*   **POST** adds a new label and will trigger setupNetworks which will be interpreted to attaching all of the matching labelled networks to the nic.
+    -   The setup-networks designed to maintain consistency of the label on the host.
+
+       /api/hosts/{host:id}/nics/{nic:id}/labels/{label:id}
+
+Supported actions:
+
+*   **GET** returns a specific label
+*   **DELETE** removes a label from a nic and removes the networks managed by it
+    -   The setup-networks designed to maintain consistency of the label on the host.
+
+A representation of **network_label** element:
+
 ` `<network_label id="label_name" />
-       
-       GET to ''/api/hosts/{host:id}/nics/{nic:id}/labels/ returns a collection:
+
+A representation of **network_labels** element:
+
 ` `<network_labels>
 `   `<network_label id="label_name_1" />
 `   `<network_label id="label_name_2" />
 ` `</network_labels>
        
-       POST to `*`/api/hosts/{host:id}/nics/{nic:id}/labels`*` adds a new label (and will trigger setupNetworks which will be interpreted to attaching all of the matching labelled networks to the nic. ?)
-       DELETE to `*`/api/hosts/{host:id}/nics/{nic:id}/labels/{label:id}`*` removes a label (and will trigger setupNetworks to remove the label and the networks from the nic ?).
 
-The user will be able to provide the list of labels per nic via POST */api/hosts/{host:id}/nics/setupnetworks* :
+The user will be able to provide the list of labels per nic via as part of the setupnetworks api:
+
+` `*`/api/hosts/{host:id}/nics/setupnetworks`*
+
+**POST** request example:
 
 <action>
 `  `<host_nics>
@@ -166,12 +185,25 @@ The user will be able to provide the list of labels per nic via POST */api/hosts
 ` `</host_nics>
 </action>
 
+##### Network level
+
 The network level are represent as a sub-collection of network:
 
-       GET on `*`/api/networks/{network:id}/labels`*` - returns all of the labels for a specific network
-       GET on `*`/api/networks/{network:id}/labels/{label:id}`*` - returns a specific label
-       POST on `*`/api/networks/{network:id}/labels/`*` - adds a label to network
-       DELETE on `*`/api/networks/{network:id}/labels/{label:id}`*` - remove a label from network
+       /api/networks/{network:id}/labels
+
+Supported actions:
+
+*   **GET** returns all of the labels for a specific network
+*   **POST** add a label to network (starting with a single label per network)
+
+       /api/networks/{network:id}/labels/{label:id}
+
+Supported actions:
+
+*   **GET** returns a specific label
+*   **DELETE** - removes a label from network
+
+A representation of **network_label** element:
 
 ` `<network>
          ...
@@ -180,8 +212,6 @@ The network level are represent as a sub-collection of network:
 `   `</network_labels>
          ...
 ` `<network>
-
-Since we intend to start with a single label per network entity, the first specified label will be selected.
 
 #### Search Engine
 

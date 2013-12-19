@@ -139,7 +139,7 @@ Monitoring the system/Gluster resources and services includes:
 *   Event handler script generate the SNMP traps with the help of the SNMP trap generator(Netsnmp or anything similar).
 *   If there is a service state change, Nagios will send alerts(SMS, Email) based on the configuration.
 
-*Similarly Traps/alerts can be generated based on the result of an active check*
+*Alternatively Traps/alerts can be generated based on the result of an active check*
 
 ### Generating traps/alerts Based on the Syslog Entries
 

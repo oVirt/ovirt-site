@@ -64,7 +64,13 @@ Monitoring the system/Gluster resources and services includes:
 *   Nagios configuration needs to be updated when there is any addition/deletion/modification of any logical or physical entities from Ovirt.
 *   This needs to be handled smoothly without any manual intervention from the user.
 
-### Heading text
+### Active checks on remote nodes
+
+![](active.png "active.png")
+
+*   Active checks are initiated by the Nagios and run on a regularly scheduled basis.
+*   To execute active checks on gluster nodes, NRPE add-on will be used
+    -   NRPE will execute plug-ins to monitor local resources/attributes like disk usage, CPU load, memory usage, etc. on the gluster nodes
 
 ## Detailed Design
 

@@ -99,7 +99,15 @@ A second UI change will be at the Alert window, in case the system will recogniz
 The message to be presented to the user:
 Cluster <clusterName> might suffer some performance downgrade in case of failover in hosts: <hostName1>, <hostName2>, ...
 
-<todo: add gui code notes>
+Adding a new tab at the configure popup (ConfigurePopupView.ui.xml)
+
+`   `<t:tab>
+`   `<t:DialogTab ui:field="HAVMReservationTab">
+`       `<t:content>
+`                           `<g:SimplePanel addStyleNames="{style.panel}" ui:field="haVmReservationTabPanel" />
+`       `</t:content>
+`   `</t:DialogTab>
+`   `</t:tab>
 
 #### ENGINE
 

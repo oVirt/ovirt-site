@@ -32,6 +32,14 @@ Monitoring the system/Gluster resources and services includes:
 *   Reports providing a historical record of outages, events, notifications, and alert response for later review.
 *   Trending and capacity planning graphs and reports that allow for infrastructure upgrades before failures occur.
 
+![](Setup.png "Setup.png")
+
+*   Ovirt will talk to the Nagios server through UI Monitoring plugin
+*   Nagios core with the help of addons and plugins , collect the monitoring data from the remote nodes(eg. Gluster Node)
+*   Nagios server executes checks on remote Nodes(Active checks)
+*   Remote Nodes send alerts to the Nagios server in case of any status change(Passive checks)
+*   Nagios server can send alerts(SNMP, e-mail, SMS) to Ovirt or any third party management applications(Tivoli, HP OpenView, BMC, CA Insight etc )
+
 ## Dependencies / Related Features
 
 *   Nagios Core
@@ -46,16 +54,6 @@ Monitoring the system/Gluster resources and services includes:
 *   Nagios addons and plugins will not be packaged and installed. This needs to taken done separately on the the monitoring nodes and the server
 
 ## User Flows
-
-### Overview
-
-![](Setup.png "Setup.png")
-
-*   Ovirt will talk to the Nagios server through UI Monitoring plugin
-*   Nagios core with the help of addons and plugins , collect the monitoring data from the remote nodes(eg. Gluster Node)
-*   Nagios server executes checks on remote Nodes(Active checks)
-*   Remote Nodes send alerts to the Nagios server in case of any status change(Passive checks)
-*   Nagios server can send alerts(SNMP, e-mail, SMS) to Ovirt or any third party management applications(Tivoli, HP OpenView, BMC, CA Insight etc )
 
 ### Auto Configuration
 

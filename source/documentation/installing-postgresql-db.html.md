@@ -82,9 +82,9 @@ Note that this instructions are mostly the same for all distributions, the main 
 
 Edit the `/var/lib/pgsql/data/pg_hba.conf` file and set authentication parameters as follows:
 
-    local   all         all                               trust
-    host    all         all         127.0.0.1/32          trust
-    host    all         all         ::1/128               trust
+    local   all         all                               peer
+    host    all         all         127.0.0.1/32          md5
+    host    all         all         ::1/128               md5
 
 After that run `systemctl restart postgresql.service` so that the new settings will take effect.
 
@@ -92,10 +92,9 @@ After that run `systemctl restart postgresql.service` so that the new settings w
 
 Edit the `/etc/postgresql/9.1/main/pg_hba.conf` file and set authentication parameters as follows:
 
-    local   all         postgres                          trust
-    local   all         all                               trust
-    host    all         all         127.0.0.1/32          trust
-    host    all         all         ::1/128               trust
+    local   all         all                               peer
+    host    all         all         127.0.0.1/32          md5
+    host    all         all         ::1/128               md5
 
 After that run `/etc/init.d/postgresql restart` so that the new settings will take effect.
 

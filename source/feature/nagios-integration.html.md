@@ -59,6 +59,11 @@ Monitoring the system/Gluster resources and services includes:
 
 ### Auto Configuration
 
+*   Nagios works with configuration files. It uses configuration files to schedule the jobs to execute the checks(to collect monitoring data), send alerts and for everything.
+*   The configuration files spread over multiple files and directories.
+*   Nagios configuration needs to be updated when there is any addition/deletion/modification of any logical or physical entities from Ovirt.
+*   This needs to be handled smoothly without any manual intervention from the user.
+
 ## Detailed Design
 
 <Category:Feature>

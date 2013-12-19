@@ -20,7 +20,7 @@ A storage administrator want Red Hat Storage Server to be capable of being monit
 
 ## Current Status
 
-*   Status: Feature Requirement Discussion in progress
+*   Status: Design
 *   Last updated date: ,
 
 ## Detailed Description

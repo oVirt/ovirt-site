@@ -91,7 +91,7 @@ The specific values means:
 | vmt_guid                 | Internal link to template object             | N        |       | N             |       |
 | OS                        | Operating System Type                        | Y        |       | Y             |       |
 | description               | description set by user for vm and template  | Y        |       | Y             |       |
-| vds_group_id            | vm cluster                                   | Y        |       | N             |       |
+| vds_group_id            | vm cluster                                   | Y        |       | Y             |       |
 | domain                    | directory services domain                    | Y        |       | N             |       |
 | creation_date            | internal. creation date                      | N        |       | N             |       |
 | num_of_monitors         | number of monitors                           | Y        |       | N             |       |

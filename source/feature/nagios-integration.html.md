@@ -95,7 +95,14 @@ Monitoring the system/Gluster resources and services includes:
 
 ![](syslog.png "syslog.png")
 
-*   
+*   Nagios server initiates the check by invoking the NRPE client.
+*   NRPE client passes the information to NRPE server running on the remote host, which in turn executes the check_logfiles plugin.
+*   If there is any matching pattern :
+    1.  Configured action scripts get executed, which will send traps/alerts to the Nagios server
+    2.  Status will be returned back to Nagios server.
+*   Nagios server will process the alerts/traps and invokes the event handler script to perform additional actions(SNMP traps, SMS, E-mail etc.).
+
+*'Alternatively check_logfiles plugin can be executed from an external program as passive check*
 
 ## Detailed Design
 

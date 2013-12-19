@@ -57,6 +57,29 @@ Monitoring the system/Gluster resources and services includes:
 
 ## Resources to be Monitored
 
+*   List of Physical Resources that need to be monitored :
+    1.  Hosts (Servers)
+    2.  CPU
+    3.  Memory/Swap
+    4.  Network
+    5.  Disks
+
+<!-- -->
+
+*   List of Logical Resources that need to be monitored :
+    1.  Cluster
+    2.  Volume
+    3.  Brick
+    4.  LVM
+
+<!-- -->
+
+*   Parameters that should be monitored for logical and physical resources :
+    1.  Operational Status
+    2.  Utilization
+    3.  Capacity
+    4.  Usage
+
 ## User Flows
 
 ### Auto Configuration

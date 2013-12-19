@@ -127,7 +127,7 @@ Monitoring the system/Gluster resources and services includes:
 *   To execute passive checks on gluster nodes, NSCA add-on will be used
     -   An external application(crontab / application hook / syslog monitor ) checks the status of a host or service.
     -   The external application passes the results to the NSCA client, which in turn send it to the NSCA server on the monitoring monitoring server.
-    -   Nagios server will process the service check result and execute the the specific action if configured.
+*   Nagios server will process the service check result and execute the the specific action if configured.
 
 ### Generating SNMP Traps/Alerts From Nagios Server
 

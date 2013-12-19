@@ -74,6 +74,14 @@ Monitoring the system/Gluster resources and services includes:
 
 ### Passive checks on Remote Nodes
 
+![](passive.png "passive.png")
+
+*   Passive checks are initiated and performed external applications/processes and results are submitted to Nagios for processing
+*   To execute passive checks on gluster nodes, NSCA add-on will be used
+    -   An external application(crontab / application hook / syslog monitor ) checks the status of a host or service.
+    -   The external application passes the results to the NSCA client, which in turn send it to the NSCA server on the monitoring monitoring server.
+    -   Nagios server will process the service check result and execute the the specific action if configured.
+
 ## Detailed Design
 
 <Category:Feature>

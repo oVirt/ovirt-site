@@ -102,7 +102,7 @@ Monitoring the system/Gluster resources and services includes:
     2.  Status will be returned back to Nagios server.
 *   Nagios server will process the alerts/traps and invokes the event handler script to perform additional actions(SNMP traps, SMS, E-mail etc.).
 
-*'Alternatively check_logfiles plugin can be executed from an external program as passive check*
+*'Alternatively check_logfiles plugin can be executed from an external program as a passive check*
 
 ## Detailed Design
 

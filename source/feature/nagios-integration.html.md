@@ -64,7 +64,7 @@ Monitoring the system/Gluster resources and services includes:
 *   Nagios configuration needs to be updated when there is any addition/deletion/modification of any logical or physical entities from Ovirt.
 *   This needs to be handled smoothly without any manual intervention from the user.
 
-### Active checks on remote nodes
+### Active Checks on Remote Nodes
 
 ![](active.png "active.png")
 

@@ -152,4 +152,6 @@ Monitoring the system/Gluster resources and services includes:
 
 ## Detailed Design
 
+TO DO
+
 <Category:Feature>

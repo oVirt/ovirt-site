@@ -93,6 +93,10 @@ Monitoring the system/Gluster resources and services includes:
 
 ### Generating traps/alerts Based on the Syslog Entries
 
+![](syslog.png "syslog.png")
+
+*   
+
 ## Detailed Design
 
 <Category:Feature>

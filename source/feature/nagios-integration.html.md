@@ -53,7 +53,8 @@ Monitoring the system/Gluster resources and services includes:
 
 *   Ovirt will talk to the Nagios server through UI Monitoring plugin
 *   Nagios core with the help of addons and plugins , collect the monitoring data from the remote nodes(eg. Gluster Node)
-*   Remote Nodes send alerts to the Nagios server in case of any status change
+*   Nagios server executes checks on remote Nodes(Active checks)
+*   Remote Nodes send alerts to the Nagios server in case of any status change(Passive checks)
 *   Nagios server can send alerts(SNMP, e-mail, SMS) to Ovirt or any third party management applications(Tivoli, HP OpenView, BMC, CA Insight etc )
 
 ## Detailed Design

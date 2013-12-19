@@ -57,7 +57,7 @@ This level of integration consists of reworking the existing vdsm-hook-vmfex so 
 
 Things to be done:
 
-*   Filter out unused virtual functions from being reported as nics.
+*   [Filter out unused virtual functions from being reported as nics](http://gerrit.ovirt.org/#/c/22559/).
 *   [Clone and refactor the current hook to use custom device properties and to run "before_device_create" and "before_device_hotplug"](http://gerrit.ovirt.org/#/c/22529/).
 
 ### Level V: "The Network provider strikes back"

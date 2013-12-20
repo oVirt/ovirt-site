@@ -54,56 +54,6 @@ Monitoring the system resources and services includes:
 *   Nagios core will not be packaged and installed along with Ovirt
 *   Nagios addons and plugins will not be packaged and installed. This needs to taken done separately on the the monitoring nodes and the server
 
-## Plugins
-
-*   Nagios plugins needs to be developed to monitor specific scenarios of interest for Ovirt
-
-### Resources to be Monitored
-
-*   List of Physical Resources that need to be monitored :
-    1.  Hosts (Servers)
-    2.  CPU
-    3.  Memory/Swap
-    4.  Network
-    5.  Disks
-
-<!-- -->
-
-*   List of Logical Resources that need to be monitored :
-    1.  Cluster(Gluster specific)
-    2.  Volume(Gluster specific)
-    3.  Brick(Gluster specific)
-    4.  LVM
-
-<!-- -->
-
-*   Parameters that should be monitored for logical and physical resources :
-    1.  Operational Status
-    2.  Utilization
-    3.  Capacity
-    4.  Usage
-
-## Services/Operations to be monitored
-
-*   Monitoring of Access Services such as:
-    1.  NFS
-    2.  Swift/Object
-    3.  SMB
-    4.  CTDB
-
-<!-- -->
-
-*   Monitoring of background operations such as:
-    1.  Remove Brick(Gluster specific)
-    2.  Re-balance(Gluster specific)
-    3.  Self-Heal(Gluster specific)
-    4.  Geo-Replication(Gluster specific)
-    5.  Replace Brick(Gluster specific)
-
-<!-- -->
-
-*   Alerting mechanisms needed for spilt-brain
-
 ## User Flows
 
 ### Auto Configuration
@@ -156,6 +106,57 @@ Monitoring the system resources and services includes:
 *   Nagios server will process the alerts/traps and invokes the event handler script to perform additional actions(SNMP traps, SMS, E-mail etc.).
 
 *'Alternatively check_logfiles plugin can be executed from an external program as a passive check*
+
+## Plugins
+
+*   Nagios plugins needs to be developed to monitor specific scenarios of interest for Ovirt
+*   Nagios/External applications will execute these plugins periodically(Active/Passive checks) and update the status of monitored resources/services/operations
+
+### Resources to be Monitored
+
+*   List of Physical Resources that need to be monitored :
+    1.  Hosts (Servers)
+    2.  CPU
+    3.  Memory/Swap
+    4.  Network
+    5.  Disks
+
+<!-- -->
+
+*   List of Logical Resources that need to be monitored :
+    1.  Cluster(Gluster specific)
+    2.  Volume(Gluster specific)
+    3.  Brick(Gluster specific)
+    4.  LVM
+
+<!-- -->
+
+*   Parameters that should be monitored for logical and physical resources :
+    1.  Operational Status
+    2.  Utilization
+    3.  Capacity
+    4.  Usage
+
+## Services/Operations to be monitored
+
+*   Monitoring of Access Services such as:
+    1.  NFS
+    2.  Swift/Object
+    3.  SMB
+    4.  CTDB
+
+<!-- -->
+
+*   Monitoring of background operations such as:
+    1.  Remove Brick(Gluster specific)
+    2.  Re-balance(Gluster specific)
+    3.  Self-Heal(Gluster specific)
+    4.  Geo-Replication(Gluster specific)
+    5.  Replace Brick(Gluster specific)
+
+<!-- -->
+
+*   Alerting mechanisms needed for spilt-brain
 
 ## Detailed Design
 

@@ -37,7 +37,23 @@ This feature comes from customer request, so benefit to ovirt is a better custom
 
 ### Documentation / External references
 
-* TBD
+pseudo code for the balance() method
+
+getVDSWithHighestVMCount():
+
+       worstVDS = allVDS[0]
+       for vds in allVDS:
+         if vds.activeVMSCount() > MAX_VMS_COUNT AND vds.activeVMSCount() > worstVDS.activeVMSCount():
+           worstVDS = vds
+
+       return  worstVDS if @@TBD
+       
+
+    balance():
+      worstVDS = getVDSWithHighestVMCount()
+      possibleTargets = [ vds for vds in allVDS if worstVDS() - vds.activeVMCount() > 2 ]
+
+      return (possibleTargets, vmToMigrate)
 
 ### Testing
 

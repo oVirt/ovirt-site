@@ -25,7 +25,7 @@ An administrator want managed nodes to be capable of being monitored using Nagio
 
 ## Detailed Description
 
-Monitoring the system/Gluster resources and services includes:
+Monitoring the system resources and services includes:
 
 *   Monitoring of critical entities such as servers, networking, volumes, clusters and services
 *   Alerting when critical infrastructure components fail and recover, providing administrators with notice of important events. Alerts can be delivered via email, SMS or SNMP.

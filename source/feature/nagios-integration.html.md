@@ -158,6 +158,10 @@ Monitoring the system resources and services includes:
 
 *   Alerting mechanisms needed for spilt-brain
 
+**Below table has the details about the plugins that needs to be developed**
+
+![](plugin_details.png "plugin_details.png")
+
 ## Detailed Design
 
 TO DO

@@ -72,6 +72,51 @@ Makes a call to Gluster and get the volume capacity details. The details are ret
 
       /api/clusters/{cluster-id}/glustervolumes/{volume-id}/statistics
 
-This will return the volume capacity details
+This will return the volume capacity details. The details listed under volume capacity details would be -
+
+*   Free Size
+*   Used Size
+*   Total Size
+
+The output format would look like -
+
+    <statistics>
+        <statistic id="{id}">
+            <name>memory.total.size</name>
+            <description>Total size</description>
+            <values type="INTEGER">
+                <value>
+                    <datum>{value}</datum>
+                </value>
+            </values>
+            <type>GAUGE</type>
+            <unit>BYTES</unit>
+            <gluster_volume href="/ovirt-engine/api/clusters/{cluster-id}/glustervolumes/{volume-id}" id="{volume-id}"/>
+        </statistic>
+        <statistic id="{id}">
+            <name>memory.free.size</name>
+            <description>Free size</description>
+            <values type="INTEGER">
+                <value>
+                    <datum>{value}</datum>
+                </value>
+            </values>
+            <type>GAUGE</type>
+            <unit>BYTES</unit>
+            <gluster_volume href="/ovirt-engine/api/clusters/{cluster-id}/glustervolumes/{volume-id}" id="{volume-id}"/>
+        </statistic>
+        <statistic id="{id}">
+            <name>memory.used.size</name>
+            <description>Used size</description>
+            <values type="INTEGER">
+                <value>
+                    <datum>{value}</datum>
+                </value>
+            </values>
+            <type>GAUGE</type>
+            <unit>BYTES</unit>
+            <gluster_volume href="/ovirt-engine/api/clusters/{cluster-id}/glustervolumes/{volume-id}" id="{volume-id}"/>
+        </statistic>
+    </statistics> 
 
 <Category:Feature>

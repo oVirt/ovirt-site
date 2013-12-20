@@ -123,11 +123,11 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   a hook for fancier VM connectivity (e.g. nat)
+*   a hook for getVdsCaps (to allow faking network reporting, etc).
 
 <!-- -->
 
-*   a hook for getVdsCaps (to allow faking network reporting, etc).
+*   On recovery, keep reporting VM until an explicit destroy().
 
 ### refactoring
 

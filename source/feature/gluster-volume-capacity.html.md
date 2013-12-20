@@ -31,6 +31,22 @@ This feature enables the user to check the capacities of one/more volumes by cli
 
 To view Gluster Volume Capacity, User goes to "Volumes" tab and clicks "Capacity" menu. ![](StatsMenu.jpg "fig:StatsMenu.jpg") A dialog pops up with the details like names of selected volumes,their total capacities,their usage,their percentage of usage and any comments if applicable. For example, Volume full if the volume is completely used up. The dialog also lists separately the list of volumes that are completely filled up and also the list of volumes that are nearing completion in terms of usage. ![](VolumeCapacity.jpg "fig:VolumeCapacity.jpg")
 
+## Getting the volume capacity details
+
+The possibility for determining the volume capacity details are as below -
+
+### Using libgfapi
+
+In this approach VDSM uses the APIs from libgfapi to get the details of a gluster volume. There are certain issues with the said API and not opting for using this option.
+
+### By mounting the volume and running "df" command
+
+In this approach VDSM mounts the gluster volume first and then uses the "df" command to get the volume capacity details. This approach is bit expensive but foolproof. Opted to use this approach and go ahead.
+
+### By collating details from advanced volume details
+
+In this approach VDSM needs to collate the details from advanced details of the volume and populate the capacity details. This approach would be light weight. Planning to migrate to this approach at later stage as more details like raw capacity for volumes, bricks etc. are required.
+
 ## Detailed Design
 
 ### Entities

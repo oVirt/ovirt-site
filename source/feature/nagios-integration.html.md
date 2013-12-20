@@ -82,9 +82,10 @@ Monitoring the system resources and services includes:
 ## Services/Operations to be monitored
 
 *   Monitoring of Access Services such as:
-    1.  NFS (and CTDB)
+    1.  NFS
     2.  Swift/Object
-    3.  SMB (and CTDB)
+    3.  SMB
+    4.  CTDB
 
 <!-- -->
 

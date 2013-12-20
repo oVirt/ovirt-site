@@ -54,7 +54,11 @@ Monitoring the system resources and services includes:
 *   Nagios core will not be packaged and installed along with Ovirt
 *   Nagios addons and plugins will not be packaged and installed. This needs to taken done separately on the the monitoring nodes and the server
 
-## Resources to be Monitored
+## Plugins
+
+*   Nagios plugins needs to be developed to monitor specific scenarios of interest for Ovirt
+
+### Resources to be Monitored
 
 *   List of Physical Resources that need to be monitored :
     1.  Hosts (Servers)

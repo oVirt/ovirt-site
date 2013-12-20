@@ -94,8 +94,7 @@ Monitoring the system resources and services includes:
     2.  Re-balance(Gluster specific)
     3.  Self-Heal(Gluster specific)
     4.  Geo-Replication(Gluster specific)
-    5.  System Monitoring(Gluster specific)
-    6.  Replace Brick(Gluster specific)
+    5.  Replace Brick(Gluster specific)
 
 <!-- -->
 

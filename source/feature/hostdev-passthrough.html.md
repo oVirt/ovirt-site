@@ -34,7 +34,7 @@ Structures
 
 Hot(un)plug is accomplished by hotplugHostdev and hotunplugHostdev calls, which only take vmId and name field of the device to be added/removed.
 
-#### Migration
+### Migration
 
 Migration should be disabled for any VM with hostdev device.
 

@@ -105,7 +105,7 @@ Available more commands than actually used.
     The assumption that the password used to login into the ovirt web interface is available or can be used in order to login into guest is incorrect. Authentication using kerberos, SSL certificate, OpenID or any password based SSO will not provide usable password to the engine.
 
 *   Always enable automatic login when guest agent is available may cause user lockout
-    If password on guest differs, the lock reference of the user will be incremented at any attempt.
+    If password on guest differs, the lock reference of the user will be incremented at any attempt (should be solved in 3.4).
 
 *   Webadmin does not support automatic login
 *   No mutual authentication between client and virtual machine

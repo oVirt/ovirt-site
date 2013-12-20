@@ -63,6 +63,14 @@ Used for registration protocol, the web certificate is pulled out of the SSL han
 
 Uses the same method and keys of ovirt-engine to access hosts.
 
+### Expiration
+
+| Component           | Default  | Configuration                                  |
+|---------------------|----------|------------------------------------------------|
+| Engine internal CA  | 15 years |                                                |
+| Engine Certificates | 15 years |                                                |
+| VDSM Certificates   | 5 years  | VdsCertificateValidityInYears at engine config |
+
 ### File locations
 
 #### ovirt-engine

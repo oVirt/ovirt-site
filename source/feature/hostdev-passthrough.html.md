@@ -21,29 +21,25 @@ This feature will allow VDSM to assign pci device to guest using passthrough
 
 ### Current status
 
-*   Last updated date: Mon Nov 06 2013
-
-* waiting for refactored device handling in VDSM
+*   Last updated date: Fri Dec 20 2013
 
 ### VDSM side
 
-Unlike virtual devices, PCI passthrough uses real host hardware, making the number of such assigned devices limited. VDSM has to internally keep list (dict) of PCI devices and their assignments and report this data to engine. As these devices are persisted in libvirt XML, we don't need to persist the list itself but reconstruct it using getUnderlying\* function. VMs that are assigned devices that do not exist anymore will refuse to boot, reporting libvirterror message to engine.
+Unlike virtual devices, PCI passthrough uses real host hardware, making the number of such assigned devices limited. VDSM will report available devices in vdsCapabilities using keyword hostDevices. The list itself does not (and by philosophy cannot) report the assignments itself. These are reported in VM devices section, identified by type 'hostdev'.
+
+Structures
+
+    vdsCapabilities 'hostDevices': [{'name': '...', 'vendor': '...', 'product': '...'}]
+    VM: 'devices': [... {'type': 'hostdev', 'name': '...', 'vendor': '...', 'product': '...'} ...]
+
+Hot(un)plug is accomplished by hotplugHostdev and hotunplugHostdev calls, which only take vmId and name field of the device to be added/removed.
 
 #### Migration
 
-Migration is complicated by the fact that migrating VM with assigned PCI device will cause such device to be hot-unplugged and hot-plugged after the migration is done, causing possible downtime in service. Therefore, migration will not be allowed for devices with specific hardware assigned to them (such as GPU).
-
-*   **Devices with possible migration:**
-    -   VMs with physical NIC can be migrated without downtime of service using bonding [1](http://net.pku.edu.cn/vc/read/VM_OLS08.pdf).
-
-<!-- -->
-
-*   **Devices where migration is not easily possible:**
-    -   GPU, TPM (passthrough), ... (probably more)
+Migration should be disabled for any VM with hostdev device.
 
 ### Engine side
 
-*   Finding a suitable host in cluster based on required devices for starting a VM
-*   Migration should be force-disabled for VM's with devices without migration support
+Engine needs to internally keep track of device assignments for individual hosts. Device assignment should preferably look similar to virt-manager, displaying list of (name product vendor) available for assignment. User also needs to have a way of hot(un)plugging these devices.
 
 <Category:Feature>

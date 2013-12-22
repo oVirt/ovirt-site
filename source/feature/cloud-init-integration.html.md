@@ -128,7 +128,7 @@ cloudInitInstanceName
 `           `<password>`myPass`</password>
 `         `</user>
 `       `</users>
-`       `<network>
+`       `<network_configuration>
 `         `<nics>
 `           `<nic>
 `             `<name>`eth0`</name>
@@ -186,7 +186,7 @@ google.com
 `             `</host>
 `           `</search_domains>
 `         `</dns>
-`       `</network>
+`       `</network_configuration>
 `       `<files>
 `         `<file>
 `           `<name>`/tmp/testFile1.txt`</name>

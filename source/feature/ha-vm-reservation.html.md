@@ -47,12 +47,14 @@ The monitoring procedure can be logically be divided into two. The first logical
 
 *   A pseudo code for that:
 
-         1. for each host x in the cluster do:
-          2.     calculate the host x HA resources -> resourceHA(x)
-          3.     for each host y in the cluster, y<>x do:
-          4.         calculate the host y free resources -> resourceFree(y);
-          5.         if  resourceHA(x) < resourceFree(x) return ClusterHAStateOK;
-          6. ClusterHAStateFailed, raise Alert
+         1. mark for each host x:  ClusterHAStateOK(x) = false;
+         2. for each host x in the cluster do:
+          3.     calculate the host x HA resources -> resourceHA(x)
+          4.     for each host y in the cluster, y<>x do:
+          5.         calculate the host y free resources -> resourceFree(y);
+          6.         if  (resourceHA(x) < resourceFree(y) )  then mark ClusterHAStateOK(x) = true; //x can be migrated in case of failover
+          7. for each host x  do: if ClusterHAStateOK(x) == false, add to Alert
+          8. raise Alert
 
 In case we did not find a match, the second logical unit will split the host into VMs and will try to find several host that will replace the failover host.
 

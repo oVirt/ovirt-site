@@ -49,29 +49,29 @@ The monitoring procedure can be logically be divided into two. The first logical
 
          1. mark for each host x:  ClusterHAStateOK(x) = false;
          2. for each host x in the cluster do:
-          3.     calculate the host x HA resources -> resourceHA(x)
-          4.     for each host y in the cluster, y<>x do:
-          5.         calculate the host y free resources -> resourceFree(y);
-          6.         if  (resourceHA(x) < resourceFree(y) )  then mark ClusterHAStateOK(x) = true; //x can be migrated in case of failover
-          7. for each host x  do: if ClusterHAStateOK(x) == false, add to Alert
-          8. raise Alert
+         3.     calculate the host x HA resources -> resourceHA(x)
+         4.     for each host y in the cluster, y<>x do:
+         5.         calculate the host y free resources -> resourceFree(y);
+         6.         if  (resourceHA(x) < resourceFree(y) )  then mark ClusterHAStateOK(x) = true; //x can be migrated in case of failover
+         7. for each host x  do: if ClusterHAStateOK(x) == false, add to Alert
+         8. raise Alert
 
 In case we did not find a match, the second logical unit will split the host into VMs and will try to find several host that will replace the failover host.
 
 *   A pseudo code for that:
 
          1. for each host x in the cluster do:
-          2.     calculate HA VMs resources -> resourceHA(x,vm(i))
-          3.     for each host y in the cluster, y<>x do:
-          4.         calculate the host y free resources -> resourceFree(y);
-          5.         for each HA VM v for host x do:
-          6.             while resourceFree(y) >= resourceHA(x,vm(v))
-          7.                 resourceFree(y) = resourceFree(y) - resourceHA(x,vm(v));
-          8.                 mark v as migrated;
-          9  if all HA VMs are marked as migrated -> ClusterHAStateOK else ClusterHAStateFailed(raise Alert)
-**`Important` `-` `because` `of` `the` `complexity` `of` `this` `scheduling` `problem,` `we` `have` `decided` `to` `use` `a` `naive` `approach`**
+         2.     calculate HA VMs resources -> resourceHA(x,vm(i))
+         3.     for each host y in the cluster, y<>x do:
+         4.         calculate the host y free resources -> resourceFree(y);
+         5.         for each HA VM v for host x do:
+         6.             while resourceFree(y) >= resourceHA(x,vm(v))
+         7.                 resourceFree(y) = resourceFree(y) - resourceHA(x,vm(v));
+         8.                 mark v as migrated;
+         9  if all HA VMs are marked as migrated -> ClusterHAStateOK else ClusterHAStateFailed(raise Alert)
 
-Second phase of the implementation is to extend the monitoring capabilities to the "Run VM" and "Migration" actions.
+**Important - because of the complexity of this scheduling problem, we have decided to use a naive approach**
+ Second phase of the implementation is to extend the monitoring capabilities to the "Run VM" and "Migration" actions.
 For migrating a VM the task is relatively simple, because changing a host in the cluster will not change the balance of the cluster. The HA VM reservation state will not change because of a migration action.
 For running a new HA VM we will need to place it at the most suitable host, for that we will use the scheduling mechanism and add to it a new functionality to take the HA resources taken on each host into account.
 Basically the Engine will calculate the amount of used HA resources, the host with the lowest usage will get the highest score.

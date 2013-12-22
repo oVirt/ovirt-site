@@ -77,9 +77,9 @@ More details on this functionality can be found at the detailed design page.
 
 ## GUI
 
-Enabling or disabling the HA VM Reservation will be possible via the Configure popup.
+Enabling or disabling the HA VM Reservation will be possible via the Cluster new/edit popup.
 A sketch of the Configure window:
-![](configurewin.png "fig:configurewin.png")
+![](editclusterwin.png "fig:editclusterwin.png")
 
 ## Detailed Design
 

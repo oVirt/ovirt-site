@@ -42,8 +42,6 @@ TBA
 
 #### NOTES
 
-      OVF'S of VMs/Templates that are being/were updated exactly during their processing by OvfAutoUpdater run will have their OVF updated in the storage the next OvfAutoUpdater run, DB updates will occur regulary.
-
 ### Comments and Discussion
 
 <Category:Feature>

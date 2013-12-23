@@ -101,9 +101,9 @@ Additionally, for the Open vSwitch layer 2 agent:
 
 #### Configuration
 
-oVirt can install the layer 2 agent on the host if external provider is selected during host install. However, it is currently broken with OpenStack Havana until <https://bugzilla.redhat.com/show_bug.cgi?id=1019818> is resolved. GRE/VXLAN integration is also not currently supported in 3.3. Until it is fixed, follow these manual steps on each host:
+oVirt can install the layer 2 agent on the host if external provider is selected during host install. However, it is currently broken with OpenStack Havana until oVirt 3.3.3 is released. GRE/VXLAN integration is also not currently supported in 3.3. Until it is fixed, follow these manual steps on each host:
 
-To install layer 2 ovs agent follow the instructions on (Until the bug is fixed):
+To install layer 2 ovs agent follow the instructions on (If not using using oVirt 3.3.3+):
 
 <http://www.ovirt.org/Features/Detailed_Quantum_Integration#OVS_Agent_installation_steps>
 

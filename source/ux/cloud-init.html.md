@@ -12,14 +12,20 @@ wiki_last_updated: 2013-12-23
 
 There is interest to embed the cloud init feature into the Create and Edit VM dialog and this poses an interesting display issue as it increases the amount of hierarchical levels of information to be presented. Here are a few alternate concepts for how this could be presented. Your feedback on these are welcome.
 
-**Concept 1 - Separate dialog**
+**Base concept - Separate dialog**
 
 Although we try to avoid dialog upon dialog overlay, this may be ok here since the cloud init is a sizeable set of fields that needs to be configured as a supplementary task during the creation or editing of the VM. In the mockup below, the user would see the general fields for Initial Run but a button for Cloud init config and upon clicking of that button, the Cloud init dialog will show up with all relevant fields there. The user would make changes , press ok or cancel and then resume VM configuration here.
 
 ![](Concept0 Button.png "Concept0 Button.png")
 
-**Concept 2 - Sub Sections**
+**Alternate Concept 1 - Sub Sections**
 
 In this concept, on the sub tab panel, 'Cloud Init' is represented in an indented manner and the sections for cloud init are represented as sub section links on the right in the content area. A sub section like Networks can have further nesting of content with the expand/ collapse sections. **NOTE:** We are reserving this type of UI paradigm for cases when the same set of information fields may appear multiple times - in this case the Nic related info.
 
 ![](Concept 1 Sub Sections.png "Concept 1 Sub Sections.png")
+
+**Alternate Concept 2 - Sub Sections**
+
+In this concept, the subtab panel represents the correct hierarchy of information via traditional indentation. It is possible that the Cloud init and the categories under it display only when the Initial run step is selected. If the Cloud Init step itself has no content, this could be a dummy step and clicking it leads to the first step under it. Content for each step displays on the right including any expand/ collapse sections outlined above in alternate concept 1.
+
+![](Concept2 Indent.png "Concept2 Indent.png")

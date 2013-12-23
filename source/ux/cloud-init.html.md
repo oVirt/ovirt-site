@@ -30,7 +30,13 @@ In this concept, the subtab panel represents the correct hierarchy of informatio
 
 ![](Concept2 Indent.png "Concept2 Indent.png")
 
-Alternate Concept 3 - Pages on the left
+**Alternate Concept 3 - Pages on the left**
+
+In this concept, there is a representation of the sections within cloud init as pages in the form of circles. The user can click on the circle when it changes color to indicate selected state. The name of the section could show as a tooltip on hover but essentially the pages are identified on the right. This concept could work only if the number of sections is limited to 2-5 at max.
+
+![](Concept 3 pages on left.png "Concept 3 pages on left.png")
+
+**Alternate Concept 4 - Pages on the left**
 
 In this concept, there is a representation of the sections within cloud init as pages in the form of circles. The user can click on the circle when it changes color to indicate selected state. The name of the section could show as a tooltip on hover but essentially the pages are identified on the right. This concept could work only if the number of sections is limited to 2-5 at max.
 

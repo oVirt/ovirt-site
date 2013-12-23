@@ -18,8 +18,8 @@ Although we try to avoid dialog upon dialog overlay, this may be ok here since t
 
 ![](Concept0 Button.png "Concept0 Button.png")
 
-**Concept 2 - Separate dialog**
+**Concept 2 - Sub Sections**
 
-Although we try to avoid dialog upon dialog overlay, this may be ok here since the cloud init is a sizeable set of fields that needs to be configured as a supplementary task during the creation or editing of the VM. In the mockup below, the user would see the general fields for Initial Run but a button for Cloud init config and upon clicking of that button, the Cloud init dialog will show up with all relevant fields there. The user would make changes , press ok or cancel and then resume VM configuration here.
+In this concept, on the sub tab panel, 'Cloud Init' is represented in an indented manner and the sections for cloud init are represented as sub section links on the right in the content area. A sub section like Networks can have further nesting of content with the expand/ collapse sections. **NOTE:** We are reserving this type of UI paradigm for cases when the same set of information fields may appear multiple times - in this case the Nic related info.
 
-![](Concept0 Button.png "Concept0 Button.png")
+![](Concept 1 Sub Sections.png "Concept 1 Sub Sections.png")

@@ -40,6 +40,4 @@ By adding a new table for initialization purpose of VMs the Domain field will mo
          winkey
          custom_script
 
-      ===Run-Once Screenshot===
-
 ![](Cloud_init.jpg "Cloud_init.jpg")

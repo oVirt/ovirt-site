@@ -8,9 +8,12 @@ wiki_last_updated: 2013-12-23
 
 # Overlay Networks with Neutron Integration
 
-## oVirt & Neutron GRE Integration
-
 ![](oVirt_Neutron_GRE.jpeg "oVirt_Neutron_GRE.jpeg")
+
+### Current Status
+
+*   Adding hosts from the GUI uses hard-coded Quantum names (And so won't work for OpenStack Havana). This is fixed in oVirt 3.3.3
+*   The oVirt GUI currently does not support GRE and VXLAN tenant networks, only VLAN. For this reason we will configure the compute nodes manually
 
 ### The oVirt Side
 
@@ -30,7 +33,7 @@ No need for a yum update or reboot.
 
 "Due to the quantum/neutron rename, SELinux policies are currently broken for Havana, so SELinux must be disabled/permissive on machines running neutron services, edit /etc/selinux/config to set SELINUX=permissive."
 
-Install Neutron manually or use Packstack.
+Install Neutron manuall, using Foreman or Packstack.
 
 Via packstack:
 
@@ -40,7 +43,9 @@ Make packstack generate an answer file:
 
     packstack --gen-answer-file=<file name>
 
-An answer file will be created in /root/<file name>
+An answer file will be created in the current directory.
+
+Packstack supports GRE, but does not support VXLAN until <https://bugzilla.redhat.com/show_bug.cgi?id=1021778> is resolved. Make the following changes both for GRE and VXLAN. For VXLAN an **additional** step will follow. Either way, since we're only using Packstack to install the Neutron server, configuring the compute nodes will be done manually until GRE/VXLAN support is added to oVirt.
 
 Edit it and change:
 
@@ -69,8 +74,6 @@ To the device which faces the compute nodes.
 Now run:
 
     packstack --answer-file=<file name>
-
-When using GRE, set the MTU in the Guest to 1400, this will allow for the GRE header and no packet fragmentation. Also you should set TSO to off on the instance machine for outbound traffic to work. This can be done by this command : ethtool -K eth0 tso off . You can create a bash script for init.d to run it at startup.
 
 ### oVirt Configuration
 
@@ -101,13 +104,13 @@ Additionally, for the Open vSwitch layer 2 agent:
 
 #### Configuration
 
-oVirt can install the layer 2 agent on the host if external provider is selected during host install. However, it is currently broken with OpenStack Havana until oVirt 3.3.3 is released. GRE/VXLAN integration is also not currently supported in 3.3. Until it is fixed, follow these manual steps on each host:
+oVirt can install the layer 2 agent on the host if external provider is selected during host install. However, GRE/VXLAN integration is not currently supported in 3.3. Until it is fixed, follow these manual steps on each host:
 
 To install layer 2 ovs agent follow the instructions on (If not using using oVirt 3.3.3+):
 
 <http://www.ovirt.org/Features/Detailed_Quantum_Integration#OVS_Agent_installation_steps>
 
-After you complete that set of instructions, please make the following additional modifications:
+After installing the layer 2 ovs agent (Either manually or via oVirt's 3.3.3), please make the following additional modifications:
 
 Edit:
 
@@ -128,30 +131,32 @@ Edit:
 /etc/neutron/plugins/openvswitch/ovs_plugin.ini:
 
     [ovs]
-
-    tenant_network_type = gre
-
+    tenant_network_type = (gre | vxlan)
     enable_tunneling = True
-
-    tunnel_type = gre
-
-    tunnel_id_ranges = 5000:10000
-
-    local_ip = <ip of nic that should bring up GRE tunnels>
+    tunnel_type = (gre | vxlan)
+    tunnel_id_ranges = 1:1000
+    local_ip = <ip of nic that should bring up tunnels>
 
     [agent]
+    tunnel_types = (gre | vxlan)
+    vxlan_udp_port = 8472 (Open this port on your network's firewalls for VXLAN)
 
-    tunnel_types = gre
+Then eradicate the OVS db and restart the agent's service:
 
-Then restart the agent's service:
-
-    service neutron-openvswitch-agent restart
+    ovs-vsctl emer-reset && service openstack-openvswitch-agent
 
 ### VDSM Hook
 
 Finally install the oVirt VDSM hook that enables Neutron integration:
 
     yum install vdsm-hook-openstacknet
+
+### MTU
+
+Resolve packet fragmentation (And increase throughput) via **one** of the following changes:
+
+1.  Decrease the MTU in all VMs to 1480~
+2.  Increase the MTU on all physical network devices to 1520~
 
 ### Enjoying the Results
 

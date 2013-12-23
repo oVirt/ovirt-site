@@ -36,8 +36,8 @@ In this concept, there is a representation of the sections within cloud init as 
 
 ![](Concept 3 pages on left.png "Concept 3 pages on left.png")
 
-**Alternate Concept 4 - Pages on the left**
+**Alternate Concept 4 - Nested Details**
 
-In this concept, there is a representation of the sections within cloud init as pages in the form of circles. The user can click on the circle when it changes color to indicate selected state. The name of the section could show as a tooltip on hover but essentially the pages are identified on the right. This concept could work only if the number of sections is limited to 2-5 at max.
+In this concept, the expand/collapse sections are utilized for the cloud init categories and the next level of information is nested in the form of a master and detail. Specifically, the NICs are added and then for the selected NIC, the details are nested below. This way, the expand collapse is not used for two different levels and types ( categories vs multiple instances of the same info) of information.
 
-![](Concept 3 pages on left.png "Concept 3 pages on left.png")
+![](Concept4 nested details.png "Concept4 nested details.png")

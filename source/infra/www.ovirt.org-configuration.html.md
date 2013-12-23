@@ -53,13 +53,10 @@ Occasionally, the site has slowed dramatically due to a gear on the same host (p
 
 Disk is limited by standard quotas:
 
-[wiki-ovirt.rhcloud.com 847edb45aea84198838f915be6faa066]\\> quota -s Disk quotas for user 847edb45aea84198838f915be6faa066 (uid 3689):
-
-          Filesystem  blocks   quota   limit   grace   files   quota   limit   grace
-
-/dev/mapper/EBSStore01-user_home01
-
-                       4911M       0   5120M            9571       0    200k
+    [wiki-ovirt.rhcloud.com 847edb45aea84198838f915be6faa066]> quota -s
+    Disk quotas for user 847edb45aea84198838f915be6faa066 (uid 3689):
+         Filesystem  blocks   quota   limit   grace   files   quota   limit   grace /dev/mapper/EBSStore01-user_home01
+                      4911M       0   5120M            9571       0    200k
 
 The first figure is the occupied blocks, the third is the upper limit, the fourth is the number of files and the sixth is the upper limit for that. We can see that we are using 4911M blocks of a quota of 5120M - over 98% of capacity.
 

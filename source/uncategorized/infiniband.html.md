@@ -49,7 +49,8 @@ If you are not afraid of compiling kernels yourself and you know what you are do
 
         ...
         if (!ib_query_port(hca, port, &attr))
-          /* Limit max MTU to 3KB */
+          /* Limit max MTU to 3KB                          */
           /* priv->max_ib_mtu = ib_mtu_enum_to_int(attr.max_mtu); */
           priv->max_ib_mtu = 3072;
         else {
+        ...

@@ -54,3 +54,14 @@ If you are not afraid of compiling kernels yourself and you know what you are do
           priv->max_ib_mtu = 3072;
         else {
         ...
+
+## NFS over RDMA
+
+In this setup NFS sunrpc layer driectly accesses the basic infiniband mechanisms to exchange data between NFS server and client. The setup is explained [here](https://www.kernel.org/doc/Documentation/filesystems/nfs/nfs-rdma.txt). With current Linux kernel versions it is totally broken. Current bugs include:
+
+*   [Cannot read more than 812 bytes from NFS server file](https://bugzilla.redhat.com/show_bug.cgi?id=1046011)
+*   [NFS crashes](http://www.mail-archive.com/linux-rdma@vger.kernel.org/msg14145.html)
+
+## SRP
+
+SCSI Remote Protocol can be compared to iSCSI and comes close to wire speed. It is not yet implemented in OVirt.

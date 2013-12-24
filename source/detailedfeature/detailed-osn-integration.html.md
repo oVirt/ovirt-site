@@ -133,8 +133,8 @@ The integration of network providers into oVirt will be incremental. The followi
 
 #### Security groups
 
-*   A custom property for specifying the security group will be added to the vNIC custom properties list.
-    -   Using this property the user can specify on profile level what security group this profile uses.
+*   A custom property for specifying the security group(s) will be added to the vNIC custom properties list.
+    -   Using this property the user can specify on profile level what security group(s) this profile uses.
 
 ### Future phases
 

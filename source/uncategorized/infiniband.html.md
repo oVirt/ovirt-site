@@ -27,3 +27,23 @@ On the hypervisor node you have to load the IPoIB required modules. These consis
 After loading these modules you should see an Infiniband interface ib0 with ifconfig (additionally ib1 if you have a two port card). Add a new network inside OVirt and assign it with a static IP to the interface.
 
 ### Issues
+
+This is a compilation of known problems. Feel free to extend it.
+
+#### Mellanox TSO bug
+
+The kernel advertises TSO for Mellanox ConnectX cards although it is not supported. Therefore the hardware creates corrupt IP fragments on sender side during large requests and the receiving client cannot use LRO. The result of a lengthy discussion is stated [here](http://www.spinics.net/lists/linux-rdma/msg17787.html). So check if your Mellanox card has revision **a0**. Here an example of a non TSO compatible card:
+
+      lspci | grep Mellanox
+      03:00.0 InfiniBand: Mellanox Technologies MT25418 [ConnectX VPI PCIe 2.0 2.5GT/s - IB DDR / 10GigE] (rev a0)
+
+If you have such an old card disable TSO and make that setting permanent in some startup script.
+
+      ` isOldCard=`lspci | grep Mellanox | grep a0 | wc -l` `
+      if [ $isOldCard -gt 0 ]; then
+        ethtool -K ib0 tso off
+        ethtool -K ib1 tso off
+      fi
+
+*   Slow performance on
+*   Bulleted list item

@@ -45,5 +45,6 @@ If you have such an old card disable TSO and make that setting permanent in some
         ethtool -K ib1 tso off
       fi
 
-*   Slow performance on
-*   Bulleted list item
+#### Old hardware and MTU 2044
+
+If you are running on old switch hardware than your maximum IPoIB MTU will be limited to 2044 bytes. That is no problem at all - at least on switch level. On your NFS server and hypervisor nodes this can result in unneccessary high CPU load. Once again a reference to a [discussion thread](http://www.spinics.net/lists/linux-rdma/msg15133.html).

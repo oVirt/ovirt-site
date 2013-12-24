@@ -42,7 +42,7 @@ By adding a new table for initialization purpose of VMs the Domain field will mo
 
 ### UX Design
 
-[UX Design page](/UX/cloud_init)
+[UX Design page](UX/cloud_init)
 
 ![](Cloud_init.jpg "Cloud_init.jpg")
 

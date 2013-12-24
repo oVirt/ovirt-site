@@ -24,6 +24,6 @@ On the hypervisor node you have to load the IPoIB required modules. These consis
       ib_ipoib
       ib_umad
 
-After loading these modules you should see an Infiniband interface ib0 with ifconfig (additionally ib1 if you have a two port card)
+After loading these modules you should see an Infiniband interface ib0 with ifconfig (additionally ib1 if you have a two port card). Add a new network inside OVirt and assign it with a static IP to the interface.
 
 ### Issues

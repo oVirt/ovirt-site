@@ -118,13 +118,13 @@ The engine will implement the logic of this feature, it will be responsible for 
 
 #### DB
 
-Since there is no use of persisting the data, because it is relevant for a short period of time, no DB changes are needed. On the other hand the configuration should be persistent.
+Since there is no use of persisting the data, because it is relevant for a short period of time, no DB changes are needed. On the other hand the configuration should be persistent. For each Cluster we will save it own ha reservation selection(true or false)
 
-for saving the configuration we will add a new record to the vdc_options table
+for saving the configuration we will add a new field to the vds_group "ha_reservation" with a default of false.
 
-         insert into vdc_options(option_name,option_value) values ('EnableHaVmReservation','true');
+         ha_reservation boolean NOT NULL DEFAULT false
 
-possible values for this field are true/false according to the user selection in the checkbox at the popup window (shown at the UI section).
+possible values for this field are true/false according to the user selection in the checkbox at the cluster popup window (shown at the UI section).
 
 #### Rest API
 

@@ -109,11 +109,6 @@ The integration of network providers into oVirt will be incremental. The followi
 
 *   Add ability to delete the network from neutron as well.
     -   When deleting the network from oVirt the user can check a box saying "Delete from external provider".
-*   Add a way to know network no longer exists on the provider.
-*   Experimental - add a way to convert an oVirt network to an external network (nice to have).
-    -   The user can choose to export the network to an external provider.
-    -   The network needs to be manually removed from hosts that have it (or perhaps with host profile this can be improved).
-    -   The network parameters will be exported to the provider, the existing configuration (vNICs, profiles, permissions) will remain.
 
 #### Scheduling changes
 
@@ -139,7 +134,7 @@ The integration of network providers into oVirt will be incremental. The followi
 #### Security groups
 
 *   A custom property for specifying the security group will be added to the vNIC custom properties list.
-    -   Using this propery the user can specify on profile level what security group this profile uses.
+    -   Using this property the user can specify on profile level what security group this profile uses.
 
 ### Future phases
 

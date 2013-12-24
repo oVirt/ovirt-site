@@ -151,15 +151,13 @@ The integration of network providers into oVirt will be incremental. The followi
     -   The imported network would have a new ID which is oVirt internal.
     -   The imported network would have a link to it's origin network (The resource in the provider/capability context).
 
-#### Allow provisioning networks on external providers
+#### Better provisioning of networks on external providers
 
-*   It would be possible to define a network in oVirt and "push" it to external providers. This network will then be treated as is it was discovered on the provider, and will be the sole responsibility of the provider.
-*   The provider will be responsible for providing the connectivity of the network.
-
-#### Support other provider capabilities
-
-*   Providers could be added to enable capabilities such as storage.
-*   Provider type should be supported as well, to differentiate between the various providers.
+*   Add a way to know network no longer exists on the provider.
+*   Experimental - add a way to convert an oVirt network to an external network (nice to have).
+    -   The user can choose to export the network to an external provider.
+    -   The network needs to be manually removed from hosts that have it (or perhaps with host profile this can be improved).
+    -   The network parameters will be exported to the provider, the existing configuration (vNICs, profiles, permissions) will remain.
 
 #### Auto-Discovery of networks
 
@@ -167,9 +165,8 @@ The integration of network providers into oVirt will be incremental. The followi
 
 #### Leverage advanced technologies
 
-*   IPAM could be used to manage the IP address allocation.
 *   L3 routing for creating virtual routers.
-*   Security groups for controlling traffic on the networks.
+*   VPNAAS, LBAAS
 
 ### User Experience
 

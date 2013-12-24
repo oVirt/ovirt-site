@@ -14,4 +14,10 @@ Although targeted at high performance computing Infiniband networks may be a qui
 
 ## IPoIB
 
-IP over Infiniband (IPoIB) is an encapsulation of TCP packets inside Infiniband packets. That adds a lot of overhead but comined with an NFS server it is the easiest setup that is fully implemented in OVirt.
+IP over Infiniband (IPoIB) is an encapsulation of TCP packets inside Infiniband packets. That adds a lot of overhead but comined with an NFS server it is the easiest setup that is fully supported within OVirt.
+
+### Hypervisor node setup
+
+On the hypervisor node you have to load the IPoIB required modules. These consist of the driver of your card, the transport and a managing module. For Mellanox ConnectX cards create a /etc/modules-load.d/ib.conf with the following lines
+
+mlx4_ib ib_ipoib ib_umad

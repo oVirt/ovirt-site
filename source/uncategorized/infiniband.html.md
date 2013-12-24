@@ -20,7 +20,9 @@ IP over Infiniband (IPoIB) is an encapsulation of TCP packets inside Infiniband 
 
 On the hypervisor node you have to load the IPoIB required modules. These consist of the driver of your card, the transport and a managing module. For Mellanox ConnectX cards create a /etc/modules-load.d/ib.conf with the following lines
 
-mlx4_ib ib_ipoib ib_umad
+mlx4_ib
+
+ib_ipoib ib_umad</nowiki>
 
 After loading these modules you should see an Infiniband interface ib0 with ifconfig (additionally ib1 if you have a two port card)
 

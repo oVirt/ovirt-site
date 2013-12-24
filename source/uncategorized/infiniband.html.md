@@ -26,11 +26,7 @@ On the hypervisor node you have to load the IPoIB required modules. These consis
 
 After loading these modules you should see an Infiniband interface ib0 with ifconfig (additionally ib1 if you have a two port card). Add a new network inside OVirt and assign it with a static IP to the interface.
 
-### Issues
-
-This is a compilation of known problems. Feel free to extend it.
-
-#### Mellanox TSO bug
+### Issue: Mellanox TSO bug
 
 The kernel advertises TSO for Mellanox ConnectX cards although it is not supported. Therefore the hardware creates corrupt IP fragments on sender side during large requests and the receiving client cannot use LRO. The result of a lengthy discussion is stated [here](http://www.spinics.net/lists/linux-rdma/msg17787.html). So check if your Mellanox card has revision **a0**. Here an example of a non TSO compatible card:
 
@@ -45,6 +41,15 @@ If you have such an old card disable TSO and make that setting permanent in some
         ethtool -K ib1 tso off
       fi
 
-#### Old hardware and MTU 2044
+### Issue: Old hardware and MTU 2044
 
-If you are running on old switch hardware than your maximum IPoIB MTU will be limited to 2044 bytes. That is no problem at all - at least on switch level. On your NFS server and hypervisor nodes this can result in unneccessary high CPU load. Once again a reference to a [discussion thread](http://www.spinics.net/lists/linux-rdma/msg15133.html).
+If you are running on old switch hardware than your maximum IPoIB MTU will be limited to 2044 bytes. That is no problem at all - at least on switch level. On your NFS server and hypervisor nodes this can result in unneccessary CPU cycles and reduced throughput. Once again a reference to a [discussion thread](http://www.spinics.net/lists/linux-rdma/msg15133.html).
+
+If you are not afraid of compiling kernels yourself and you know what you are doing than you can benefit from a dirty hack that limits the IPoIB MTU inside the kernel to 3072 bytes. With that receive operations will be served within a single 4K page and unneccessary copy operations can be avoided. Add the following modification to ipoib_add_port() in drivers/infiniband/ulp/ipoib/ipoib_main.c:
+
+        ...
+        if (!ib_query_port(hca, port, &attr))
+          /* Limit max MTU to 3KB */
+          /* priv->max_ib_mtu = ib_mtu_enum_to_int(attr.max_mtu); */
+          priv->max_ib_mtu = 3072;
+        else {

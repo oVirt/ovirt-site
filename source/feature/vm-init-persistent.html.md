@@ -40,4 +40,10 @@ By adding a new table for initialization purpose of VMs the Domain field will mo
          winkey
          custom_script
 
+### UX Design
+
+[UX Design page](/UX/cloud_init)
+
 ![](Cloud_init.jpg "Cloud_init.jpg")
+
+![](Cloud_init_collapsed.png "Cloud_init_collapsed.png")

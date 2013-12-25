@@ -13,7 +13,7 @@ wiki_last_updated: 2013-12-29
 
 A pNFS type Storage Domain is a mounted pNFS share attached to a POSIX data center. It provides storage for virtualized guest images and ISO boot media. After you have exported pNFS storage, it must be attached to the Red Hat Enterprise Virtualization Manager using the Administration Portal.
 
-## owner
+## Owner
 
 Aharon Canan - aharonca@gmail.com
 

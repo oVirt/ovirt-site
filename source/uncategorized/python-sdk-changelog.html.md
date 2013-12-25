@@ -33,7 +33,7 @@ wiki_last_updated: 2013-12-25
          - to DataCenter added Networks sub-collection
          - to ClusterGlusterVolumeGlusterBricks added activate method
          - to ClusterGlusterVolume added stoprebalance method
-         - to entry    -point API added Permissions collection (for managing system-permissions)
+         - to entry-point API added Permissions collection (for managing system-permissions)
          - to host.install() added ssh related arguments
          - to template added virtio_scsi.enabled
          - to vm added virtio_scsi.enabled

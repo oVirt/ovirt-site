@@ -103,6 +103,10 @@ The translation will rely on the host interface's set of labels.
 
 When attaching a labelled network to a cluster, which the label already specified on the cluster's host interfaces will result in adding that network to all of the hosts in that cluster carrying that label on their interfaces.
 
+#### Detaching Network from a Cluster
+
+When a labelled network is detached from a cluster, the network will be removed from any labelled interface within that cluster.
+
 #### Moving host between clusters
 
 Moving host between cluster that supports 'network labels' to a cluster which doesn't will be blocked if labels are used on that host.

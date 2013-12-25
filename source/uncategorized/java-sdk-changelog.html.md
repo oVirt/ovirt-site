@@ -35,8 +35,7 @@ wiki_last_updated: 2013-12-25
       - to File class added 'content' field
       - Payload class now reuses Files instead of own PayloadFile collection
 
-*   Wed Oct 30 2013 Michael Pasternak <mpastern@redhat.com> - 1.0.0.19-1
-
+      * Wed  Oct 30 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.19-1
       - to host.install() added ssh related arguments
       - to template added virtio_scsi.enabled
       - to vm added virtio_scsi.enabled

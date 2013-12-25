@@ -8,7 +8,36 @@ wiki_last_updated: 2013-12-25
 
 # Java-sdk-changelog
 
-      * Wed  Oct 30 2013 Michael Pasternak `<mpastern@redhat.com>` - 1.0.0.19-1
+*   Tue Dec 17 2013 Michael Pasternak <mpastern@redhat.com> - 3.4.0.1-1
+
+      - to vms.add() added [action.vm.initialization.cloud-init]
+      - to NIC added OnBoot/BootProtocol properties
+      - to VersionCaps added a list of supported payload-encodings
+      - to Step added externalType
+      - to NIC added vnicProfile and bootProtocol
+      - to CPU added architecture 
+      - to VnicProfilePermission added delete() method
+      - to Disk added readOnly
+      - to VMs.add() added [vm.cpu.architecture], [action.vm.initialization.cloud_init.*] arguments
+      - to Templates.add() added [template.cpu.architecture], [action.template.initialization.cloud_init.*] arguments
+      - to UserRoles.add() added permit.id|name arguments
+      - at VMSnapshot removed preview/undo/commit methods
+      - to DataCenterClusterGlusterVolumeGlusterBricks added activate/stopmigrate/migrate actions
+      - to NetworkVnicProfile added Permissions sub-collection
+      - to Cluster added [cluster.cpu.architecture]
+      - to DataCenter added Networks sub-collection
+      - to ClusterGlusterVolumeGlusterBricks added activate method
+      - to ClusterGlusterVolume added stoprebalance method
+      - to entry-point API added Permissions collection (for managing system-permissions)
+      - to host.install() added ssh related arguments
+      - to template added virtio_scsi.enabled
+      - to vm added virtio_scsi.enabled
+      - added ability to attach a disk snapshot to the virtual machine
+      - to File class added 'content' field
+      - Payload class now reuses Files instead of own PayloadFile collection
+
+*   Wed Oct 30 2013 Michael Pasternak <mpastern@redhat.com> - 1.0.0.19-1
+
       - to host.install() added ssh related arguments
       - to template added virtio_scsi.enabled
       - to vm added virtio_scsi.enabled

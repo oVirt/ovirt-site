@@ -15,9 +15,9 @@ wiki_last_updated: 2013-12-25
          - to File class added 'content' field
          - Payload class now reuses Files instead of own List of `<PayloadFile>` objects
          - added ability to attach a disk snapshot to the virtual machine
-         - to vms.add() added [action.vm.initialization.cloud    -init]
+         - to vms.add() added [action.vm.initialization.cloud-init]
          - to NIC added OnBoot/BootProtocol properties
-         - to VersionCaps added a list of supported payload    -encodings
+         - to VersionCaps added a list of supported payload-encodings
          - to Step added externalType
          - to NIC added vnicProfile and bootProtocol
          - to CPU added architecture 

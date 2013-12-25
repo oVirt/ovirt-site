@@ -8,8 +8,7 @@ wiki_last_updated: 2013-12-25
 
 # Java-sdk-changelog
 
-*   Tue Dec 17 2013 Michael Pasternak <mpastern@redhat.com> - 3.4.0.1-1
-
+      * Tue  Dec 17 2013 Michael Pasternak `<mpastern@redhat.com>`  - 3.4.0.1-1
       - to vms.add() added [action.vm.initialization.cloud-init]
       - to NIC added OnBoot/BootProtocol properties
       - to VersionCaps added a list of supported payload-encodings

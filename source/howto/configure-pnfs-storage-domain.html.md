@@ -15,7 +15,7 @@ A pNFS type Storage Domain is a mounted pNFS share attached to a POSIX data cent
 
 ## Owner
 
-Aharon Canan - aharonca@gmail.com
+QA: Aharon Canan <aharonca@gmail.com>
 
 ## Attaching pNFS Storage
 

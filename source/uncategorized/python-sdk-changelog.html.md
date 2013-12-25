@@ -30,7 +30,7 @@ wiki_last_updated: 2013-12-25
          - to DataCenterClusterGlusterVolumeGlusterBricks added activate/stopmigrate/migrate actions
          - to NetworkVnicProfile added Permissions sub-collection
          - to Cluster added [cluster.cpu.architecture]
-         - to DataCenter added Networks sub    -collection
+         - to DataCenter added Networks sub-collection
          - to ClusterGlusterVolumeGlusterBricks added activate method
          - to ClusterGlusterVolume added stoprebalance method
          - to entry    -point API added Permissions collection (for managing system-permissions)

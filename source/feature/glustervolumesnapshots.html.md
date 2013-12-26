@@ -83,147 +83,214 @@ This entity stores the details of a configuration parameter for volume snapshot.
 |--------|----------------|----------|--------------------------------------------------------------------------|
 | cgId   | UUID, nullable | Addition | stores the consistency group id if volume is part of a consistency group |
 
+### Sync Jobs
+
+The Gluster volume snapshot and consistency group details would be periodically fetched and updated into engine using the GlusterSyncJob's lightweight sync mechanism.
+
 ### REST APIs
 
-The details of the REST for gluster geo-replication feature are as below -
+The details of the REST for Gluster Volume Snapshot feature are as below -
 
 #### Listing APIs
 
-*   api/clusters/{id}/geo-replication-destinations - lists all the geo-replication destinations from current cluster
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/glustersnapshots|rel=get - lists all the snapshots for a given volume
 
 Output:
 
-    <geo-replication-destinations>
-      <geo-replication-destination>
-        <id>geo replication destination id</id>
-        <cluster>Cluster Id</cluster>
-        <source_host>Source Host Id</source-host>
-        <destination_host>Destination Host Id</destination_host>
-      </geo-replication-destination>
-      <geo-replication-destination>
-        <id>geo replication destination id</id>
-        <cluster>Cluster Id</cluster>
-        <source_host>Source Host Id</source-host>
-        <destination_host>Destination Host Id</destination_host>
-      </geo-replication-destination>
-    </geo-replication-destinations>
+        <glustersnapshots>
+            <glustersnapshot href="" id="">
+                <actions>
+                </actions>
+                <name>{name}</name>
+                <link>{link}</link>
+                <volume href="" id=""/>
+                <description>{description}</description>
+                <status>{status}</status>
+            </glustersnapshot>
+        </glustersnapshots>
 
-*   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id} - lists the details of the individual geo-replication destination
+*   /api/clusters/{cluster-id}/consistencygroups|rel=get - lists all the consistency groups
 
 Output:
 
-      <geo-replication-destination>
-        <id>geo replication destination id</id>
-        <cluster>Cluster Id</cluster>
-        <source_host>Source Host Id</source-host>
-        <destination_host>Destination Host Id</destination_host>
-      </geo-replication-destination>
+        <consistencygroups>
+            <consistencygroup href="" id="">
+                <actions>
+                </actions>
+                <name>{name}</name>
+                <link>{link}</link>
+                <volumes>
+                    <volume href="" id=""/>
+                    <volume href="" id=""/>
+                </volumes>
+                <description>{description}</description>
+                <status>{status}</status>
+            </consistencygroup>
+        </consistencygroups>
 
-*   api/volumes/{id}/geo-replication-sessions - lists all the geo-replication sessions for the current volume
-
-Output:
-
-    <geo-replication-sessions>
-      <geo-replication-session>
-        <id>geo replication session id</id>
-        <volume>source volume id</volume>
-        <source_host>Source Host Id</source-host>
-        <destination_host>Destination Host Id</destination_host>
-        <destination_volume>destination volume id</destination_volume>
-        <status>Stable/Faulty/Initializing/Not Started</status>
-      </geo-replication-session>
-      <geo-replication-session>
-        <id>geo replication session id</id>
-        <volume>source volume id</volume>
-        <source_host>Source Host Id</source-host>
-        <destination_host>Destination Host Id</destination_host>
-        <destination_volume>destination volume id</destination_volume>
-        <status>Stable/Faulty/Initializing/Not Started</status>
-      </geo-replication-session>
-    </geo-replication-sessions>
-
-*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id} - lists the detail of an individual geo-replication session
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/glustersnapshots/{snapshot-id}|rel=get - lists the details of a specific snapshot
 
 Output:
 
-      <geo-replication-session>
-        <id>geo replication session id</id>
-        <volume>source volume id</volume>
-        <source_host>Source Host Id</source-host>
-        <destination_host>Destination Host Id</destination_host>
-        <destination_volume>destination volume id</destination_volume>
-        <status>Stable/Faulty/Initializing/Not Started</status>
-      </geo-replication-session>
+        <glustersnapshot href="" id="">
+            <actions>
+            </actions>
+            <name>{name}</name>
+            <link>{link}</link>
+            <volume href="" id=""/>
+            <description>{description}</description>
+            <status>{status}</status>
+        </glustersnapshot>
 
-*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/configurations - lists all the configurations for a geo-replication session
-
-Output:
-
-    <geo_replication_configurations>
-      <configuration>
-        <id>Configuration Id</id>
-        <configuration_name>Name of the configuration</configuration_name>
-        <configuration_value>Value of the configuration</configuration_value>
-      </configuration>
-    </geo_replication_configurations>
-
-*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/configurations/{config-id} - shows the details of an individual configuration for a geo-replication session
+*   /api/clusters/{cluster-id}/consistencygroups/{consistencygroup-id}|rel=get - lists the detail of an individual consistency group
 
 Output:
 
-      <configuration>
-        <id>Configuration Id</id>
-        <configuration_name>Name of the configuration</configuration_name>
-        <configuration_value>Value of the configuration</configuration_value>
-      </configuration>
+        <consistencygroup href="" id="">
+            <actions>
+            </actions>
+            <name>{name}</name>
+            <link>{link}</link>
+            <volumes>
+                <volume href="" id=""/>
+                <volume href="" id=""/>
+            </volumes>
+            <description>{description}</description>
+            <status>{status}</status>
+        </consistencygroup>
+
+*   /api/clusters/{cluster-id}/glustervolumes|rel=get - Gluster volume listing would be updated to list the snapshot configuration parameters as well
+
+Output:
+
+            <glustervolume>
+            ........
+        <snapshot_config>
+            <option name="" value=""/>
+            <option name="" value=""/>
+        </snapshot_config>
+            </glustervolume>
 
 #### Actions Supported
 
-*   api/clusters/{id}/create-geo-rep-destination - creates a new geo-replication destination for the cluster
+*   /ap/clusters/{cluster-id}/glustervolumes/{volume-id}/glustersnapshots|rel=add - creates and adds a new snapshot for the given volume
     -   Parameters
-        -   source_host - uuid
-        -   destination_host - uuid
-        -   destination_root_passwd - string
+        -   name - String
+        -   volume_name - String
+        -   description - string
 
 Input:
 
     <action>
-      <source_host>Source Host Id</source_host>
-      <destination_host>Destination Host Id</destination_host>
-      <destination_root_passwd>Destination Host root password</destination_root_passwd>
-    </action>
+        <snapshot>
+            <name>{name}</name>
+            <volume_name>{volume-name}</volume_name>
+            <description>{description}</description>
+        </snapshot>
 
-*   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id}/remove - Removes the given geo-replication destination
-*   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id}/reestablish - reestablishes the communication between geo-replication source-destination
-*   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id}/test - checks the validity of communication between geo-replication source-destination
-
-<!-- -->
-
-*   api/volumes/{id}/create-geo-rep-session - Creates a new geo-replication session for the volume
+*   /api/clusters/{cluster-id}/consistencygroups|rel=add - creates and adds a new consistency group
     -   Parameters
-        -   destination_host
-        -   destination_volume
+        -   name - String
+        -   volumes - list of volume names
+        -   description - String
 
 Input:
 
     <action>
-      <destination_host>Destination Host Id</destination_host>
-      <destination_volume>Destination Volume Id</destination_volume>
+        <consistencygroup>
+            <name>{name}</name>
+            <volumes>
+                <volume>
+                                <name>{name}</name>
+                            </volume>
+                <volume>
+                                <name>{name}</name>
+                            </volume>
+            </volumes>
+            <description>{description}</description>
+        </consistencygroup>
     </action>
 
-*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/start - starts the given geo-replication session
-*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/stop - stops the given geo-replication session
-*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/remove - removes the given geo-replication session
-*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/set-config - sets a configuration value for a geo-replication session
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/glustersnapshot|rel=delete - deletes snapshots
     -   Parameters
-        -   configuration_name - string
-        -   configuration_value - string
+        -   snapshot-id / snapshot-name / volume-name
 
 Input:
 
-    <action>
-      <configuration_name>Name of the configuration</configuration_name>
-      <configuration_value>Value of the configuration</configuration_value>
-    </action>
+        <snapshot id="{id}" />
+
+or
+
+        <snapshot>
+            <name>{name}</name>
+        </snapshot>
+
+or
+
+        <snapshot>
+            <volume_name>{vol-name}</volume_name>
+        </snapshot>
+
+*   /api/clusters/{cluster-id}/consistencygroups|rel=delete - deletes consistency group
+    -   Parameters
+        -   cg-id / cg-name
+
+Input:
+
+        <consistencygroup id="id" />
+
+or
+
+        <consistencygroup>
+            <name>{name}</name>
+        </consistencygroup>
+
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/glustersnapshots/{snapshot-id}/start|rel=start - starts the given snapshot
+
+Input:
+
+        <action/>
+
+*   /api/clusters/{cluster-id}/consistencygroups/{consistency-group-id}/start|rel=start - starts a consistency group
+
+Input:
+
+        <action/>
+
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/glustersnapshots/{snapshot-id}/stop|rel=stop - stops the given snapshot
+
+Input:
+
+        <action/>
+
+*   /api/clusters/{cluster-id}/consistencygroups/{consistency-group-id}/stop|rel=stop - stops the given consistency group
+
+Input:
+
+        <action/>
+
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/glustersnapshots/{snapshot-id}/restore|rel=restore - restores the given volume to the given snapshot
+
+Input:
+
+        <action/>
+
+*   /api/clusters/{clusters-id}/consistencygroups/{consistency-group-id}/restore|rel=restore - allows for all the volumes which have a snapshot in the mentioned CG to be restored that point in time. This provides roll-back mechanisms for the multiple volumes which were snapped together.
+
+Input:
+
+        <action/>
+
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/setsnapshotconfig|rel=setsnapshotconfig - sets a snapshot configuration parameter value for the given volume
+    -   Parameters
+        -   Option-name
+        -   Option-value
+
+Input:
+
+        <action>
+            <option_name>{name}</name>
+            <option_value>{value}</option_value>
+        </action>
 
 [Category: Feature](Category: Feature)

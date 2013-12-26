@@ -37,19 +37,21 @@ An online snapshot is a feature where the file-system and associated data contin
 
 On the other hand, an offline snapshot makes the file-system offline or unavailable for a deterministic time-window till the snapshot is taken. While offline snapshots are relatively easy to administer, the inaccessibility to the volume(s)/data is a major disadvantage.
 
+### Consistency Group
+
+Applications might consume multiple Gluster volumes and might require the resulting snapshot of these volumes to be from the same point in time view. This group of volumes forms a consistency group. If a volume belongs to a consistency group, then that volume can only be snapped as part of the named consistency group. Restore would also be permitted only on the consistency group. Addition or removal of volumes to/from a consistency group is allowed.
+
 With this feature the user will be able to
 
 *   Create snaps of volumes
 *   View all the snaps taken for a volume
 *   Restore a volume to a given snapshot
-*   Define a consistency
-*   View all a geo-replication sessions for a volume
-*   Setup a new ge-replication session
-*   Start a geo-replication session
-*   Stop a geo-replication session
-*   Remove an inactive geo-replication session
-*   View and update the configuration before starting the session or later (ex: change detector)
-*   Monitor the status of geo-replication sessions
+*   Define a consistency group
+*   Delete an existing snapshot
+*   Start / Stop a snapshot
+*   View the current status of snapshot
+*   Define the values for the snapshot configuration parameters
+*   List view the snapshot configuration parameters
 
 ## Design
 

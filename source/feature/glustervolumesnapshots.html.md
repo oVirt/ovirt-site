@@ -67,9 +67,7 @@ Refer the URL: <http://www.ovirt.org/Features/Design/GlusterVolumeSnapshots> for
 
 ## Documentation / External references
 
-<http://www.gluster.org/community/documentation/index.php/GlusterFS_Geo_Replication>
-
-<http://gluster.org/community/documentation/index.php/Gluster_3.2:_Starting_GlusterFS_Geo-replication>
+<https://forge.gluster.org/snapshot/pages/Home>
 
 ## Comments and Discussion
 

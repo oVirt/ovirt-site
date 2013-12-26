@@ -30,22 +30,37 @@ This feature allows the administrators to create, start, stop, delete and restor
 
 ## Design
 
-Geo-replication feature is designed to enable creation and maintenance of geo-replication sessions across clusters in GlusterFS. A geo-replication session can be setup between a GlusterFS managed source cluster and remote (destination) GlusterFS managed cluster.
+The snapshot feature is being designed to enable administrators to define a consistency group, create and maintain volume snapshots. It also provides mechanism to restore a volume to a point in time snap of the volume in a crash situation.
 
-### Entity Description
+### New Entities
 
-#### Gluster Geo Replication Destinations
+#### GlusterVolumeConsistencyGroup
 
-This entity stores the details of remote (destination) for a geo-replication setup. While creation of a geo-replication session if it is first time that the geo-replication session is being setup being the source and destination cluster then an entry in maintained as part of this entity. For further geo-replication sessions the existing entry if referred for details.
+This entity stores the details of a Gluster volume consistency group. While definition of a consistency group different volumes are assigned the newly created consistency group's identity to make sure they belong to the said consistency group.
 
-| Column name                   | Type   | description                                                              |
-|-------------------------------|--------|--------------------------------------------------------------------------|
-| Id                            | UUID   | Primary Key                                                              |
-| Vds_Group_Id                | UUID   | Id of the Source Cluster                                                 |
-| Server_Id                    | UUID   | Host of the Source Cluster                                               |
-| Destination_Host_IP         | String | Host part of remote/destination cluster                                  |
-| Destination_SSH_Fingerprint | String | SSH key fingerprint of destination host                                  |
-| Connection_Status            | String | Password less connection status between source node and destination node |
+| Column name | Type   | Description                          |
+|-------------|--------|--------------------------------------|
+| Id          | UUID   | Primary Key                          |
+| CGName      | String | Name of the consistency group        |
+| Description | String | Description of the consistency group |
+
+### Entities changes
+
+*   Change to store consistency group id for a volume
+    -   Add a field cgId of UUID type in gluster_volumes table to store a consistency group id, if volume is part of a consistency group
+*   Change to mark if a volume is a snap volume
+    -   Add a flag isSnap of character type in glusyer_volumes table to indicate if a volume is a snapshot (Internally snapshots are stored as volumes only)
+
+<big>gluster_volumes</big>
+
+| Column | Type           | Change   | Description                                                                            |
+|--------|----------------|----------|----------------------------------------------------------------------------------------|
+| cgId   | UUID, nullable | Addition | stores the consistency group id if volume is part of a consistency group               |
+| isSnap | char           | Addition | stores the flag which mentions is the said volume is a snap volume or a regular volume |
+
+### Database changes
+
+Modify all the stored procedures on gluster_volumes tables to add additional WHERE clause with 'isSnap=N'
 
 #### Gluster Geo Replication Sessions
 

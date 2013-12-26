@@ -44,6 +44,16 @@ This entity stores the details of a Gluster volume consistency group. While defi
 | CGName      | String | Name of the consistency group        |
 | Description | String | Description of the consistency group |
 
+#### GlusterVolumeSnapshotConfig
+
+This entity stores the details of a configuration parameter for volume snapshot. Volume specific values for the parameters would be maintained as part of this entity, whereas the system level configuration parameters would be maintained as part of vdc_options only.
+
+| Column name | Type   | Description                          |
+|-------------|--------|--------------------------------------|
+| VolumeId    | UUID   | Id of the reference volume           |
+| ParamName   | String | Name of the configuration parameter  |
+| ParamValue  | String | Value of the configuration parameter |
+
 ### Entities changes
 
 *   Change to store consistency group id for a volume

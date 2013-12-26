@@ -28,8 +28,8 @@ To read more about GlusterFS geo-replication, see <https://forge.gluster.org/sna
 
 ## Current Status
 
-*   Status:
-*   Last updated date:
+*   Status: Inception
+*   Last updated date: 26 Dec, 2013
 
 ## Detailed Description
 

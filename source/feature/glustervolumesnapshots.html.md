@@ -83,32 +83,6 @@ This entity stores the details of a configuration parameter for volume snapshot.
 |--------|----------------|----------|--------------------------------------------------------------------------|
 | cgId   | UUID, nullable | Addition | stores the consistency group id if volume is part of a consistency group |
 
-#### Gluster Geo Replication Sessions
-
-This entity stores the details of the individual geo-replication sessions
-
-| Column name         | Type   | description                                      |
-|---------------------|--------|--------------------------------------------------|
-| Id                  | UUID   | Primary Key                                      |
-| Destination_id     | UUID   | References Id of gluster_geo_rep_destinations |
-| Volume_id          | UUID   | References Id of gluster_volumes                |
-| Destination_Volume | String | Name of the volume in destination cluster        |
-
-#### Gluster Geo Replication Session Status
-
-This entity stores the status of individual geo-replication sessions maintained in oVirt engine
-
-| Column name | Type   | description                                             |
-|-------------|--------|---------------------------------------------------------|
-| Id          | UUID   | Primary Key                                             |
-| Session_id | UUID   | References Id of gluster_geo_rep_session             |
-| Server_id  | UUID   | Host in the source cluster                              |
-| Status      | String | Valid values STABLE, FAULTY, INITIALIZING, NOT_STARTED |
-
-#### Gluster Geo Replication Session Config
-
-Refer the URL <http://www.ovirt.org/Features/Entity_Configuration_Management> for more details on configuration maintenance.
-
 ### REST APIs
 
 The details of the REST for gluster geo-replication feature are as below -

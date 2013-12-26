@@ -1,22 +1,20 @@
 ---
 title: GlusterVolumeSnapshots
 category: feature
-authors: sahina, sandrobonazzola, shtripat
-wiki_category: Feature|GlusterVolumeSnapshots
-wiki_title: Features/GlusterVolumeSnapshots
-wiki_revision_count: 136
-wiki_last_updated: 2015-01-20
+authors: sandrobonazzola, shtripat
+wiki_category: Feature
+wiki_title: Features/Design/GlusterVolumeSnapshots
+wiki_revision_count: 110
+wiki_last_updated: 2014-12-23
 ---
 
 # Gluster Volume Snapshots
 
 ## Summary
 
-This feature allows the administrators to maintain the snapshots of a Gluster volume. Administrator can create, start, stop, delete and restore to a given snapshot. Gluster volume snapshot provides an online crash consistency mechanism for the Gluster volumes. The volume snaps provide a point in time view of the volume. In a case of inconsistency, these snaps could be used to restore the volume to a consistent stage. The snaps are also a mechanism of volume backup for future references.
+This document describes the design for the volume snapshot feature under Gluster. GlusterFS provides crash recoverability for the vloumes through snapshot feature and RHS-C needs to provide a web based mechanism to achieve the same feature.
 
-Using this feature, an admin can take scheduled or unscheduled snapshots of and thereby backup a Gluster volume. This also provides a check-point in time to restore to, if and when necessary.
-
-To read more about GlusterFS geo-replication, see <https://forge.gluster.org/snapshot/pages/Home>.
+This feature allows the administrators to create, start, stop, delete and restore to a given snapshot. With this administrators can view all the available snaps taken for a volume and in case of crash can opt to restore to a point in time view using the existing snapshots.
 
 ## Owner
 
@@ -24,59 +22,198 @@ To read more about GlusterFS geo-replication, see <https://forge.gluster.org/sna
     -   GUI Component owner:
     -   Engine Component owner: Shubhendu Tripathi <shtripat@redhat.com>
     -   VDSM Component owner:
-    -   QA Owner:
 
 ## Current Status
 
 *   Status: Inception
 *   Last updated date: Thu Dec 26 2013
 
-## Detailed Description
-
-An online snapshot is a feature where the file-system and associated data continue to be available for the clients, while the snapshot is being taken. Here the onus lies on the application to periodically sync data, so that the snap created has the desired data consistent view.
-
-On the other hand, an offline snapshot makes the file-system offline or unavailable for a deterministic time-window till the snapshot is taken. While offline snapshots are relatively easy to administer, the inaccessibility to the volume(s)/data is a major disadvantage.
-
-### Consistency Group
-
-Applications might consume multiple Gluster volumes and might require the resulting snapshot of these volumes to be from the same point in time view. This group of volumes forms a consistency group. If a volume belongs to a consistency group, then that volume can only be snapped as part of the named consistency group. Restore would also be permitted only on the consistency group. Addition or removal of volumes to/from a consistency group is allowed.
-
-With this feature the user will be able to
-
-*   Create snaps of volumes
-*   View all the snaps taken for a volume
-*   Restore a volume to a given snapshot
-*   Define a consistency group
-*   Delete an existing snapshot
-*   Start / Stop a snapshot
-*   View the current status of snapshot
-*   Define the values for the snapshot configuration parameters
-*   List view the snapshot configuration parameters
-
 ## Design
 
-### User Experience and control flows
+Geo-replication feature is designed to enable creation and maintenance of geo-replication sessions across clusters in GlusterFS. A geo-replication session can be setup between a GlusterFS managed source cluster and remote (destination) GlusterFS managed cluster.
 
-### Limitations
+### Entity Description
 
-Refer the URL: <http://www.ovirt.org/Features/Design/GlusterVolumeSnapshots> for detailed design of the feature.
+#### Gluster Geo Replication Destinations
 
-## Dependencies / Related Features and Projects
+This entity stores the details of remote (destination) for a geo-replication setup. While creation of a geo-replication session if it is first time that the geo-replication session is being setup being the source and destination cluster then an entry in maintained as part of this entity. For further geo-replication sessions the existing entry if referred for details.
 
-## Test Cases
+| Column name                   | Type   | description                                                              |
+|-------------------------------|--------|--------------------------------------------------------------------------|
+| Id                            | UUID   | Primary Key                                                              |
+| Vds_Group_Id                | UUID   | Id of the Source Cluster                                                 |
+| Server_Id                    | UUID   | Host of the Source Cluster                                               |
+| Destination_Host_IP         | String | Host part of remote/destination cluster                                  |
+| Destination_SSH_Fingerprint | String | SSH key fingerprint of destination host                                  |
+| Connection_Status            | String | Password less connection status between source node and destination node |
 
-## Documentation / External references
+#### Gluster Geo Replication Sessions
 
-<https://forge.gluster.org/snapshot/pages/Home>
+This entity stores the details of the individual geo-replication sessions
 
-<https://sourceware.org/lvm2/>
+| Column name         | Type   | description                                      |
+|---------------------|--------|--------------------------------------------------|
+| Id                  | UUID   | Primary Key                                      |
+| Destination_id     | UUID   | References Id of gluster_geo_rep_destinations |
+| Volume_id          | UUID   | References Id of gluster_volumes                |
+| Destination_Volume | String | Name of the volume in destination cluster        |
 
-<http://www.gluster.org/community/documentation/index.php/Features/snapshot>
+#### Gluster Geo Replication Session Status
 
-## Comments and Discussion
+This entity stores the status of individual geo-replication sessions maintained in oVirt engine
 
-<http://www.ovirt.org/Talk:Features/GlusterVolumeSnapshots>
+| Column name | Type   | description                                             |
+|-------------|--------|---------------------------------------------------------|
+| Id          | UUID   | Primary Key                                             |
+| Session_id | UUID   | References Id of gluster_geo_rep_session             |
+| Server_id  | UUID   | Host in the source cluster                              |
+| Status      | String | Valid values STABLE, FAULTY, INITIALIZING, NOT_STARTED |
 
-## Open Issues
+#### Gluster Geo Replication Session Config
 
-<Category:Feature>
+Refer the URL <http://www.ovirt.org/Features/Entity_Configuration_Management> for more details on configuration maintenance.
+
+### REST APIs
+
+The details of the REST for gluster geo-replication feature are as below -
+
+#### Listing APIs
+
+*   api/clusters/{id}/geo-replication-destinations - lists all the geo-replication destinations from current cluster
+
+Output:
+
+    <geo-replication-destinations>
+      <geo-replication-destination>
+        <id>geo replication destination id</id>
+        <cluster>Cluster Id</cluster>
+        <source_host>Source Host Id</source-host>
+        <destination_host>Destination Host Id</destination_host>
+      </geo-replication-destination>
+      <geo-replication-destination>
+        <id>geo replication destination id</id>
+        <cluster>Cluster Id</cluster>
+        <source_host>Source Host Id</source-host>
+        <destination_host>Destination Host Id</destination_host>
+      </geo-replication-destination>
+    </geo-replication-destinations>
+
+*   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id} - lists the details of the individual geo-replication destination
+
+Output:
+
+      <geo-replication-destination>
+        <id>geo replication destination id</id>
+        <cluster>Cluster Id</cluster>
+        <source_host>Source Host Id</source-host>
+        <destination_host>Destination Host Id</destination_host>
+      </geo-replication-destination>
+
+*   api/volumes/{id}/geo-replication-sessions - lists all the geo-replication sessions for the current volume
+
+Output:
+
+    <geo-replication-sessions>
+      <geo-replication-session>
+        <id>geo replication session id</id>
+        <volume>source volume id</volume>
+        <source_host>Source Host Id</source-host>
+        <destination_host>Destination Host Id</destination_host>
+        <destination_volume>destination volume id</destination_volume>
+        <status>Stable/Faulty/Initializing/Not Started</status>
+      </geo-replication-session>
+      <geo-replication-session>
+        <id>geo replication session id</id>
+        <volume>source volume id</volume>
+        <source_host>Source Host Id</source-host>
+        <destination_host>Destination Host Id</destination_host>
+        <destination_volume>destination volume id</destination_volume>
+        <status>Stable/Faulty/Initializing/Not Started</status>
+      </geo-replication-session>
+    </geo-replication-sessions>
+
+*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id} - lists the detail of an individual geo-replication session
+
+Output:
+
+      <geo-replication-session>
+        <id>geo replication session id</id>
+        <volume>source volume id</volume>
+        <source_host>Source Host Id</source-host>
+        <destination_host>Destination Host Id</destination_host>
+        <destination_volume>destination volume id</destination_volume>
+        <status>Stable/Faulty/Initializing/Not Started</status>
+      </geo-replication-session>
+
+*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/configurations - lists all the configurations for a geo-replication session
+
+Output:
+
+    <geo_replication_configurations>
+      <configuration>
+        <id>Configuration Id</id>
+        <configuration_name>Name of the configuration</configuration_name>
+        <configuration_value>Value of the configuration</configuration_value>
+      </configuration>
+    </geo_replication_configurations>
+
+*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/configurations/{config-id} - shows the details of an individual configuration for a geo-replication session
+
+Output:
+
+      <configuration>
+        <id>Configuration Id</id>
+        <configuration_name>Name of the configuration</configuration_name>
+        <configuration_value>Value of the configuration</configuration_value>
+      </configuration>
+
+#### Actions Supported
+
+*   api/clusters/{id}/create-geo-rep-destination - creates a new geo-replication destination for the cluster
+    -   Parameters
+        -   source_host - uuid
+        -   destination_host - uuid
+        -   destination_root_passwd - string
+
+Input:
+
+    <action>
+      <source_host>Source Host Id</source_host>
+      <destination_host>Destination Host Id</destination_host>
+      <destination_root_passwd>Destination Host root password</destination_root_passwd>
+    </action>
+
+*   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id}/remove - Removes the given geo-replication destination
+*   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id}/reestablish - reestablishes the communication between geo-replication source-destination
+*   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id}/test - checks the validity of communication between geo-replication source-destination
+
+<!-- -->
+
+*   api/volumes/{id}/create-geo-rep-session - Creates a new geo-replication session for the volume
+    -   Parameters
+        -   destination_host
+        -   destination_volume
+
+Input:
+
+    <action>
+      <destination_host>Destination Host Id</destination_host>
+      <destination_volume>Destination Volume Id</destination_volume>
+    </action>
+
+*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/start - starts the given geo-replication session
+*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/stop - stops the given geo-replication session
+*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/remove - removes the given geo-replication session
+*   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/set-config - sets a configuration value for a geo-replication session
+    -   Parameters
+        -   configuration_name - string
+        -   configuration_value - string
+
+Input:
+
+    <action>
+      <configuration_name>Name of the configuration</configuration_name>
+      <configuration_value>Value of the configuration</configuration_value>
+    </action>
+
+[Category: Feature](Category: Feature)

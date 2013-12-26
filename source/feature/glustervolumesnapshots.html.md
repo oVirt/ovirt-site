@@ -67,7 +67,11 @@ Refer the URL: <http://www.ovirt.org/Features/Design/GlusterVolumeSnapshots> for
 
 ## Documentation / External references
 
-<https://forge.gluster.org/snapshot/pages/Home> <https://sourceware.org/lvm2/> <http://www.gluster.org/community/documentation/index.php/Features/snapshot>
+<https://forge.gluster.org/snapshot/pages/Home>
+
+<https://sourceware.org/lvm2/>
+
+<http://www.gluster.org/community/documentation/index.php/Features/snapshot>
 
 ## Comments and Discussion
 

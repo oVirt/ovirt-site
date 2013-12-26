@@ -71,7 +71,7 @@ Refer the URL: <http://www.ovirt.org/Features/Design/GlusterVolumeSnapshots> for
 
 ## Comments and Discussion
 
-<http://www.ovirt.org/Talk:Features/Gluster_Geo_Replication>
+<http://www.ovirt.org/Talk:Features/GlusterVolumeSnapshots>
 
 ## Open Issues
 

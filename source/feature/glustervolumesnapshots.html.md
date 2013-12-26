@@ -55,61 +55,11 @@ With this feature the user will be able to
 
 ## Design
 
-### User Experience
-
-#### Geo-Replication Sessions
-
-A new sub tab **Geo-Replication** will be added to the **Volumes** main tab in oVirt webadmin UI which will list all the geo-replication sessions for the selected volume. Geo-Replication Sessions subtab also provides actions for
-
-*   Creating a new geo-replication session
-*   Starting a geo-replication session
-*   Stopping a geo-replication session
-*   View details of a geo-replication session, this includes the list of individual geo-replication session and their respective status
-*   Update configurations for a geo-replication session
-*   Removing an existing geo-replication session
-
-![](Georepsession1list.png "Georepsession1list.png")
-
-#### Create a new Geo-Replication Session
-
-The below dialog captures the details and creates the geo-replication session between source and destination gluster volumes.
-
-![](Georepsession2new.png "Georepsession2new.png")
-
-The user can manually enter the **Volume** or click on **Show Volumes** to fetch the list of existing volumes in the destination cluster and select a volume from that list.
-
-![](Georepsession2newvolumes.png "Georepsession2newvolumes.png")
-
-#### Start a new Geo-Replication Session
-
-A new action named **Start** will be shown in the **Geo-Replication** tab, which will start the selected geo-replication session(s).
-
-#### Stop a Geo-Replication Session
-
-A new action named **Stop** will be shown in the **Geo-Replication** tab, which will stop the selected geo-replication session(s).
-
-#### Remove a Geo-Replication Session
-
-A new action named **Remove** will be shown in the **Geo-Replication** tab, which will remove the selected geo-replication session(s).
-
-#### Configuration Options for Geo-Replication Session
-
-The below dialog fetches and lists the default values of all the configurations for a geo-replication session. It provides an option to change the values of the configurations. User can change the values of the configuration properties at any point of time after creating the geo-replication session. The geo-replication session will be restarted automatically if the user changes any configuration when the session is already started.
-
-![](Georepsession3config.png "Georepsession3config.png")
-
-#### Geo-Replication Session Details
-
-With the distributed geo-replication, when a geo-replication session is created for a volume, internally more than one session will be created depending on the type of the volume and where the bricks are residing. This view will list all the individual sessions, their status and Up time. Additionally this will also contain the detailed status of the geo-replication session.
-
-![](Georepsession4details.png "Georepsession4details.png")
+### User Experience and control flows
 
 ### Limitations
 
-*   Showing the source volume information for a volume which is being used as destination is not supported
-*   Cascaded viewing is not available. (Sometimes a volume can be used as both source as well as destination)
-
-Refer the URL: <http://www.ovirt.org/Features/Design/GlusterGeoReplication> for detailed design of the feature.
+Refer the URL: <http://www.ovirt.org/Features/Design/GlusterVolumeSnapshots> for detailed design of the feature.
 
 ## Dependencies / Related Features and Projects
 

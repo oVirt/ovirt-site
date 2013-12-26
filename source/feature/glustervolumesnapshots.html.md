@@ -57,6 +57,11 @@ This entity stores the snapshot details created on gluster volumes. Different vo
 | description | String | Description                    |
 | Status      | String | Current status of the snapshot |
 
+*   GlusterVolumeSnapshotStatus
+    -   IN_USE
+    -   STOPPED
+    -   DECOMMISSIONED
+
 #### GlusterVolumeSnapshotConfig
 
 This entity stores the details of a configuration parameter for volume snapshot. Volume specific values for the parameters would be maintained as part of this entity, whereas the system level configuration parameters would be maintained as part of vdc_options only.

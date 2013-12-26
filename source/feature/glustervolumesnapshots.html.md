@@ -22,7 +22,7 @@ To read more about GlusterFS geo-replication, see <https://forge.gluster.org/sna
 
 *   Feature owner:
     -   GUI Component owner:
-    -   Engine Component owner:
+    -   Engine Component owner: Shubhendu Ram Tripathi
     -   VDSM Component owner:
     -   QA Owner:
 

@@ -6,6 +6,8 @@ wiki_category: Feature
 wiki_title: Features/Design/GlusterVolumeSnapshots
 wiki_revision_count: 110
 wiki_last_updated: 2014-12-23
+wiki_conversion_fallback: true
+wiki_warnings: conversion-fallback
 ---
 
 # Gluster Volume Snapshots
@@ -18,9 +20,9 @@ This feature allows the administrators to create, start, stop, delete and restor
 
 ## Owner
 
-*   Feature owner: Shubhendu Tripathi <shtripat@redhat.com>
+*   Feature owner: Shubhendu Tripathi <<shtripat@redhat.com>></<shtripat@redhat.com>>
     -   GUI Component owner:
-    -   Engine Component owner: Shubhendu Tripathi <shtripat@redhat.com>
+    -   Engine Component owner: Shubhendu Tripathi <<shtripat@redhat.com>></<shtripat@redhat.com>>
     -   VDSM Component owner:
 
 ## Current Status
@@ -38,21 +40,109 @@ The snapshot feature is being designed to enable administrators to define a cons
 
 This entity stores the details of a Gluster volume consistency group. While definition of a consistency group different volumes are assigned the newly created consistency group's identity to make sure they belong to the said consistency group.
 
-| Column name | Type   | Description                          |
-|-------------|--------|--------------------------------------|
-| Id          | UUID   | Primary Key                          |
-| CGName      | String | Name of the consistency group        |
-| Description | String | Description of the consistency group |
+<caption>GlusterVolumeConsistencyGroups</caption>
+
+Column name
+
+Type
+
+Description
+
+Id
+
+UUID
+
+Primary Key
+
+CGName
+
+String
+
+Name of the consistency group
+
+Description
+
+String
+
+Description of the consistency group
+
+#### GlusterVolumeSnapshots
+
+This entity stores the snapshot details created on gluster volumes. Different volumes can have snapshots with same names.
+
+<caption>GlusterVolumeSnapshots</caption>
+
+Column name
+
+Type
+
+Description
+
+VolumeId
+
+UUID
+
+Id of the reference volume
+
+SnapId
+
+UUID
+
+Id of the new snapshot
+
+SnapName
+
+String
+
+Name of the snapshot
+
+SanpTime
+
+Date
+
+Creation time of the snapshot
+
+description
+
+String
+
+Description
+
+Status
+
+String
+
+Current status of the snapshot
 
 #### GlusterVolumeSnapshotConfig
 
 This entity stores the details of a configuration parameter for volume snapshot. Volume specific values for the parameters would be maintained as part of this entity, whereas the system level configuration parameters would be maintained as part of vdc_options only.
 
-| Column name | Type   | Description                          |
-|-------------|--------|--------------------------------------|
-| VolumeId    | UUID   | Id of the reference volume           |
-| ParamName   | String | Name of the configuration parameter  |
-| ParamValue  | String | Value of the configuration parameter |
+<caption>GlusterVolumeSnapshotConfig</caption>
+
+Column name
+
+Type
+
+Description
+
+VolumeId
+
+UUID
+
+Id of the reference volume
+
+ParamName
+
+String
+
+Name of the configuration parameter
+
+ParamValue
+
+String
+
+Value of the configuration parameter
 
 ### Entities changes
 
@@ -61,7 +151,7 @@ This entity stores the details of a configuration parameter for volume snapshot.
 *   Change to mark if a volume is a snap volume
     -   Add a flag isSnap of character type in glusyer_volumes table to indicate if a volume is a snapshot (Internally snapshots are stored as volumes only)
 
-<big>gluster_volumes</big>
+gluster_volumes
 
 | Column | Type           | Change   | Description                                                                            |
 |--------|----------------|----------|----------------------------------------------------------------------------------------|
@@ -76,23 +166,73 @@ Modify all the stored procedures on gluster_volumes tables to add additional WHE
 
 This entity stores the details of the individual geo-replication sessions
 
-| Column name         | Type   | description                                      |
-|---------------------|--------|--------------------------------------------------|
-| Id                  | UUID   | Primary Key                                      |
-| Destination_id     | UUID   | References Id of gluster_geo_rep_destinations |
-| Volume_id          | UUID   | References Id of gluster_volumes                |
-| Destination_Volume | String | Name of the volume in destination cluster        |
+<caption>gluster_geo_rep_session</caption>
+
+Column name
+
+Type
+
+description
+
+Id
+
+UUID
+
+Primary Key
+
+Destination_id
+
+UUID
+
+References Id of gluster_geo_rep_destinations
+
+Volume_id
+
+UUID
+
+References Id of gluster_volumes
+
+Destination_Volume
+
+String
+
+Name of the volume in destination cluster
 
 #### Gluster Geo Replication Session Status
 
 This entity stores the status of individual geo-replication sessions maintained in oVirt engine
 
-| Column name | Type   | description                                             |
-|-------------|--------|---------------------------------------------------------|
-| Id          | UUID   | Primary Key                                             |
-| Session_id | UUID   | References Id of gluster_geo_rep_session             |
-| Server_id  | UUID   | Host in the source cluster                              |
-| Status      | String | Valid values STABLE, FAULTY, INITIALIZING, NOT_STARTED |
+<caption>gluster_geo_rep_session_status</caption>
+
+Column name
+
+Type
+
+description
+
+Id
+
+UUID
+
+Primary Key
+
+Session_id
+
+UUID
+
+References Id of gluster_geo_rep_session
+
+Server_id
+
+UUID
+
+Host in the source cluster
+
+Status
+
+String
+
+Valid values STABLE, FAULTY, INITIALIZING, NOT_STARTED
 
 #### Gluster Geo Replication Session Config
 
@@ -108,89 +248,69 @@ The details of the REST for gluster geo-replication feature are as below -
 
 Output:
 
-    <geo-replication-destinations>
-      <geo-replication-destination>
-        <id>geo replication destination id</id>
-        <cluster>Cluster Id</cluster>
-        <source_host>Source Host Id</source-host>
-        <destination_host>Destination Host Id</destination_host>
-      </geo-replication-destination>
-      <geo-replication-destination>
-        <id>geo replication destination id</id>
-        <cluster>Cluster Id</cluster>
-        <source_host>Source Host Id</source-host>
-        <destination_host>Destination Host Id</destination_host>
-      </geo-replication-destination>
-    </geo-replication-destinations>
+        geo replication destination id
+        Cluster Id
+        Source Host Id
+        Destination Host Id
+
+        geo replication destination id
+        Cluster Id
+        Source Host Id
+        Destination Host Id
 
 *   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id} - lists the details of the individual geo-replication destination
 
 Output:
 
-      <geo-replication-destination>
-        <id>geo replication destination id</id>
-        <cluster>Cluster Id</cluster>
-        <source_host>Source Host Id</source-host>
-        <destination_host>Destination Host Id</destination_host>
-      </geo-replication-destination>
+        geo replication destination id
+        Cluster Id
+        Source Host Id
+        Destination Host Id
 
 *   api/volumes/{id}/geo-replication-sessions - lists all the geo-replication sessions for the current volume
 
 Output:
 
-    <geo-replication-sessions>
-      <geo-replication-session>
-        <id>geo replication session id</id>
-        <volume>source volume id</volume>
-        <source_host>Source Host Id</source-host>
-        <destination_host>Destination Host Id</destination_host>
-        <destination_volume>destination volume id</destination_volume>
-        <status>Stable/Faulty/Initializing/Not Started</status>
-      </geo-replication-session>
-      <geo-replication-session>
-        <id>geo replication session id</id>
-        <volume>source volume id</volume>
-        <source_host>Source Host Id</source-host>
-        <destination_host>Destination Host Id</destination_host>
-        <destination_volume>destination volume id</destination_volume>
-        <status>Stable/Faulty/Initializing/Not Started</status>
-      </geo-replication-session>
-    </geo-replication-sessions>
+        geo replication session id
+        source volume id
+        Source Host Id
+        Destination Host Id
+        destination volume id
+        Stable/Faulty/Initializing/Not Started
+
+        geo replication session id
+        source volume id
+        Source Host Id
+        Destination Host Id
+        destination volume id
+        Stable/Faulty/Initializing/Not Started
 
 *   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id} - lists the detail of an individual geo-replication session
 
 Output:
 
-      <geo-replication-session>
-        <id>geo replication session id</id>
-        <volume>source volume id</volume>
-        <source_host>Source Host Id</source-host>
-        <destination_host>Destination Host Id</destination_host>
-        <destination_volume>destination volume id</destination_volume>
-        <status>Stable/Faulty/Initializing/Not Started</status>
-      </geo-replication-session>
+        geo replication session id
+        source volume id
+        Source Host Id
+        Destination Host Id
+        destination volume id
+        Stable/Faulty/Initializing/Not Started
 
 *   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/configurations - lists all the configurations for a geo-replication session
 
 Output:
 
-    <geo_replication_configurations>
-      <configuration>
-        <id>Configuration Id</id>
-        <configuration_name>Name of the configuration</configuration_name>
-        <configuration_value>Value of the configuration</configuration_value>
-      </configuration>
-    </geo_replication_configurations>
+        Configuration Id
+        Name of the configuration
+        Value of the configuration
 
 *   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/configurations/{config-id} - shows the details of an individual configuration for a geo-replication session
 
 Output:
 
-      <configuration>
-        <id>Configuration Id</id>
-        <configuration_name>Name of the configuration</configuration_name>
-        <configuration_value>Value of the configuration</configuration_value>
-      </configuration>
+        Configuration Id
+        Name of the configuration
+        Value of the configuration
 
 #### Actions Supported
 
@@ -202,18 +322,13 @@ Output:
 
 Input:
 
-    <action>
-      <source_host>Source Host Id</source_host>
-      <destination_host>Destination Host Id</destination_host>
-      <destination_root_passwd>Destination Host root password</destination_root_passwd>
-    </action>
+      Source Host Id
+      Destination Host Id
+      Destination Host root password
 
 *   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id}/remove - Removes the given geo-replication destination
 *   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id}/reestablish - reestablishes the communication between geo-replication source-destination
 *   api/clusters/{id}/geo-replication-destinations/{geo-rep-destination-id}/test - checks the validity of communication between geo-replication source-destination
-
-<!-- -->
-
 *   api/volumes/{id}/create-geo-rep-session - Creates a new geo-replication session for the volume
     -   Parameters
         -   destination_host
@@ -221,10 +336,8 @@ Input:
 
 Input:
 
-    <action>
-      <destination_host>Destination Host Id</destination_host>
-      <destination_volume>Destination Volume Id</destination_volume>
-    </action>
+      Destination Host Id
+      Destination Volume Id
 
 *   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/start - starts the given geo-replication session
 *   api/volumes/{id}/geo-replication-sessions/{geo-rep-session-id}/stop - stops the given geo-replication session
@@ -236,9 +349,5 @@ Input:
 
 Input:
 
-    <action>
-      <configuration_name>Name of the configuration</configuration_name>
-      <configuration_value>Value of the configuration</configuration_value>
-    </action>
-
-[Category: Feature](Category: Feature)
+      Name of the configuration
+      Value of the configuration

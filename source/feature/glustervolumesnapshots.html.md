@@ -116,7 +116,7 @@ The Gluster volume snapshot and consistency group details would be periodically 
 
 ### VDSM Verbs
 
-*   glusterVolumeSnapshotCreate - creates a volume snapshot
+*   <big>glusterVolumeSnapshotCreate</big> - creates a volume snapshot
     -   Input
         -   volumeName
         -   snapName
@@ -126,7 +126,7 @@ The Gluster volume snapshot and consistency group details would be periodically 
 
 <!-- -->
 
-*   glusterConsistencyGroupCreate - creates a consistency group
+*   <big>glusterConsistencyGroupCreate</big> - creates a consistency group
     -   Input
         -   volumeNames
         -   cgName
@@ -136,7 +136,7 @@ The Gluster volume snapshot and consistency group details would be periodically 
 
 <!-- -->
 
-*   glusterVolumeSanpshotList - gets the list of snapshots for a volume
+*   <big>glusterVolumeSanpshotList</big> - gets the list of snapshots for a volume
     -   Input
         -   volumeName
         -   [option -d]
@@ -145,7 +145,7 @@ The Gluster volume snapshot and consistency group details would be periodically 
 
 <!-- -->
 
-*   glusterConsistencyGroupsList - gets the details of a consistency group
+*   <big>glusterConsistencyGroupsList</big> - gets the details of a consistency group
     -   Input
         -   cgName
         -   [option -d]
@@ -154,7 +154,7 @@ The Gluster volume snapshot and consistency group details would be periodically 
 
 <!-- -->
 
-*   glusterVolumeSnapshotRename - renames a given snapshot with new name
+*   <big>glusterVolumeSnapshotRename</big> - renames a given snapshot with new name
     -   Input
         -   oldSnapName
         -   newSnapName
@@ -163,7 +163,7 @@ The Gluster volume snapshot and consistency group details would be periodically 
 
 <!-- -->
 
-*   glusterConsistencyGroupRename - renames a given consistency group with new name
+*   <big>glusterConsistencyGroupRename</big> - renames a given consistency group with new name
     -   Input
         -   oldCgName
         -   newCgName
@@ -172,7 +172,7 @@ The Gluster volume snapshot and consistency group details would be periodically 
 
 <!-- -->
 
-*   glusterVolumeSnapshotRestore - restores the given volume to the given snapshot
+*   <big>glusterVolumeSnapshotRestore</big> - restores the given volume to the given snapshot
     -   Input
         -   volumeName
         -   snapshotName
@@ -181,7 +181,7 @@ The Gluster volume snapshot and consistency group details would be periodically 
 
 <!-- -->
 
-*   glusterConsistencyGroupRestore - allows for all the volumes which have a snapshot in the mentioned CG to be restored that point in time
+*   <big>glusterConsistencyGroupRestore<big> - allows for all the volumes which have a snapshot in the mentioned CG to be restored that point in time
     -   Input
         -   cgName
     -   Output
@@ -189,7 +189,7 @@ The Gluster volume snapshot and consistency group details would be periodically 
 
 <!-- -->
 
-*   glusterVolumeSnapshotSetConfig - sets the snapshot configuration parameters for the given volume
+*   <big>glusterVolumeSnapshotSetConfig</big> - sets the snapshot configuration parameters for the given volume
     -   Input
         -   volumeName
         -   configList(name=value pair)
@@ -198,7 +198,7 @@ The Gluster volume snapshot and consistency group details would be periodically 
 
 Note: volumeName can be passed as ALL and the configurations would be set for all the volumes
 
-*   glusterVolumeSnapshotGetConfig - gets the value of the given snapshot configuration parameter for the given volume
+*   <big>glusterVolumeSnapshotGetConfig</big> - gets the value of the given snapshot configuration parameter for the given volume
     -   Input
         -   volumeName
         -   [optionName]
@@ -207,7 +207,7 @@ Note: volumeName can be passed as ALL and the configurations would be set for al
 
 Note: volumeName can be passed as ALL and it would list system level configurations set for snapshot. If option-name is passed only that value is returned
 
-*   glusterVolumeSnapshotCancel - cancels the given snapshot
+*   <big>glusterVolumeSnapshotCancel</big> - cancels the given snapshot
     -   Input
         -   snapName/cgName/taskId
         -   optionType (-s, -t)
@@ -216,7 +216,7 @@ Note: volumeName can be passed as ALL and it would list system level configurati
 
 <!-- -->
 
-*   glusterConsistencyGroupCancel - cancels the given consistency group
+*   <big>glusterConsistencyGroupCancel</big> - cancels the given consistency group
     -   Input
         -   cgName/taskId
         -   optionType (-c, -t)
@@ -225,7 +225,7 @@ Note: volumeName can be passed as ALL and it would list system level configurati
 
 <!-- -->
 
-*   glusterVolumeSnapshotStatus - gets the status of the given snapshot
+*   <big>glusterVolumeSnapshotStatus</big> - gets the status of the given snapshot
     -   Input
         -   [snapName/volumeName]
         -   optionType (-s, -v)
@@ -234,7 +234,7 @@ Note: volumeName can be passed as ALL and it would list system level configurati
 
 Note: If no input passed at all, status details of all the snapshots is listed
 
-*   glusterConsistencyGroupStatus - gets the status of given consistency group
+*   <big>glusterConsistencyGroupStatus</big> - gets the status of given consistency group
     -   Input
         -   cgName/taskId
         -   optionType (-c, -t)
@@ -243,7 +243,7 @@ Note: If no input passed at all, status details of all the snapshots is listed
 
 <!-- -->
 
-*   glusterVolumeSnapshotDelete - deletes the given snapshot
+*   <big>glusterVolumeSnapshotDelete</big> - deletes the given snapshot
     -   Input
         -   volumeName
         -   [snapName]
@@ -252,7 +252,7 @@ Note: If no input passed at all, status details of all the snapshots is listed
 
 Note: If snapName is not passed all the snaps would be deleted for the volume
 
-*   glusterConsistencyGroupDelete - deletes the consistency group
+*   <big>glusterConsistencyGroupDelete</big> - deletes the consistency group
     -   Input
         -   cgName
     -   Output
@@ -260,7 +260,7 @@ Note: If snapName is not passed all the snaps would be deleted for the volume
 
 <!-- -->
 
-*   glusterVolumeSnapshotStop - stops the given snapshot
+*   <big>glusterVolumeSnapshotStop</big> - stops the given snapshot
     -   Input
         -   snapName/volumeName
         -   [optionType (-v)]
@@ -269,7 +269,7 @@ Note: If snapName is not passed all the snaps would be deleted for the volume
 
 Note: the optionType value -v is required if volumeName is passed as first parameter
 
-*   glusterConsistencyGroupStop - stops the given consistency group
+*   <big>glusterConsistencyGroupStop</big> - stops the given consistency group
     -   Input
         -   cgName
     -   Output
@@ -277,7 +277,7 @@ Note: the optionType value -v is required if volumeName is passed as first param
 
 <!-- -->
 
-*   glusterVolumeSnapshotStart - starts the given snapshot
+*   <big>glusterVolumeSnapshotStart</big> - starts the given snapshot
     -   Input
         -   snapName/volumeName
         -   [optionType (-v)]
@@ -286,7 +286,7 @@ Note: the optionType value -v is required if volumeName is passed as first param
 
 Note: the optionType value -v is required if volumeName is passed as first parameter
 
-*   glusterConsistencyGroupStart - starts the given consistency group
+*   <big>glusterConsistencyGroupStart</big> - starts the given consistency group
     -   Input
         -   cgName
     -   Output

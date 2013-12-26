@@ -87,6 +87,211 @@ This entity stores the details of a configuration parameter for volume snapshot.
 
 The Gluster volume snapshot and consistency group details would be periodically fetched and updated into engine using the GlusterSyncJob's lightweight sync mechanism.
 
+### BLL commands
+
+*   AddGlusterVolumeSnapshot - adds a snapshot
+*   AddGlusterVolumeConsistencyGroup - adds a consistency group
+*   RestoreGlusterVolumeSnapshot - restore a given volume to a snapshot
+*   RestoreGlusterVolumeConsistencyGroup - allows for all the volumes which have a snapshot in the mentioned CG to be restored that point in time. This provides roll-back mechanisms for the multiple volumes which were snapped together
+*   RemoveGlusterVolumeSnapshot - removes the given snapshot
+*   RemoveGlusterVolumeConsistencyGroup - removes the given consistency group
+*   StopGlusterVolumeSnapshot - stops the given snapshot
+*   StartGlusterVolumeSnapshot - starts the given snapshot
+*   RenameGlusterVolumeSnapshot - renames the given snapshot
+*   StopGlusterVolumeConsistencyGroup - stops the given consistency group
+*   StartGlusterVolumeConsistencyGroup - starts the given consistency group
+*   RenameGlusterVolumeConsistencyGroup - renames the given consistency group
+
+### Engine Queries
+
+*   GetGlusterVolumeSnapshotsByVolumeId - lists all the snapshot for a given volume
+*   GetGlusterVolumeSnapshotByVolumeIdAndSnapshotId - lists snapshot for the given snapshot id and volume id
+*   GetGlusterVolumeConsistencyGroupById - lists the consistency group by id
+*   GetGlusterVolumeSnapshotConfigDetails - lists all the snapshot configuration details
+*   GetGlusterVolumeSnapshotConfigDetailsForVolume - lists all the snapshot configuration details for a volume
+*   GetAllGlusterVolumeSnapshotStatus - lists all the snapshot with their status
+*   GetGlusterVolumeSnapshotStatusForSnapshot - gets the status of a specific snapshot
+*   GetGlusterVolumeSnapshotStatusForConsistencyGroup - lists snapshot status for a consistency group
+*   GetGlusterVolumeSnapshotStatusForVolume - lists snapshot status details for a volume and its snapshots
+
+### VDSM Verbs
+
+*   glusterVolumeSnapshotCreate - creates a volume snapshot
+    -   Input
+        -   volumeName
+        -   snapName
+        -   [description]
+    -   Output
+        -   Success/Failure
+
+<!-- -->
+
+*   glusterConsistencyGroupCreate - creates a consistency group
+    -   Input
+        -   volumeNames
+        -   cgName
+        -   [description]
+    -   Output
+        -   Success/Failure
+
+<!-- -->
+
+*   glusterVolumeSanpshotList - gets the list of snapshots for a volume
+    -   Input
+        -   volumeName
+        -   [option -d]
+    -   Output
+        -   snapsList
+
+<!-- -->
+
+*   glusterConsistencyGroupsList - gets the details of a consistency group
+    -   Input
+        -   cgName
+        -   [option -d]
+    -   Output
+        -   cgList
+
+<!-- -->
+
+*   glusterVolumeSnapshotRename - renames a given snapshot with new name
+    -   Input
+        -   oldSnapName
+        -   newSnapName
+    -   Ouptut
+        -   Success/Failure
+
+<!-- -->
+
+*   glusterConsistencyGroupRename - renames a given consistency group with new name
+    -   Input
+        -   oldCgName
+        -   newCgName
+    -   Output
+        -   Success/Failure
+
+<!-- -->
+
+*   glusterVolumeSnapshotRestore - restores the given volume to the given snapshot
+    -   Input
+        -   volumeName
+        -   snapshotName
+    -   Output
+        -   Success/Failure
+
+<!-- -->
+
+*   glusterConsistencyGroupRestore - allows for all the volumes which have a snapshot in the mentioned CG to be restored that point in time
+    -   Input
+        -   cgName
+    -   Output
+        -   Success/Failure
+
+<!-- -->
+
+*   glusterVolumeSnapshotSetConfig - sets the snapshot configuration parameters for the given volume
+    -   Input
+        -   volumeName
+        -   configList(name=value pair)
+    -   Output
+        -   Success/Failure
+
+Note: volumeName can be passed as ALL and the configurations would be set for all the volumes
+
+*   glusterVolumeSnapshotGetConfig - gets the value of the given snapshot configuration parameter for the given volume
+    -   Input
+        -   volumeName
+        -   [optionName]
+    -   Ouptut
+        -   Name=Value pair list
+
+Note: volumeName can be passed as ALL and it would list system level configurations set for snapshot. If option-name is passed only that value is returned
+
+*   glusterVolumeSnapshotCancel - cancels the given snapshot
+    -   Input
+        -   snapName/cgName/taskId
+        -   optionType (-s, -t)
+    -   Output
+        -   Success/Failure
+
+<!-- -->
+
+*   glusterConsistencyGroupCancel - cancels the given consistency group
+    -   Input
+        -   cgName/taskId
+        -   optionType (-c, -t)
+    -   Output
+        -   Success/Failure
+
+<!-- -->
+
+*   glusterVolumeSnapshotStatus - gets the status of the given snapshot
+    -   Input
+        -   [snapName/volumeName]
+        -   optionType (-s, -v)
+    -   Output
+        -   SUCCESS/FAILED/IN_PROGRESS/OFFLINE
+
+Note: If no input passed at all, status details of all the snapshots is listed
+
+*   glusterConsistencyGroupStatus - gets the status of given consistency group
+    -   Input
+        -   cgName/taskId
+        -   optionType (-c, -t)
+    -   Output
+        -   SUCCESS/FAILED/IN_PROGRESS/OFFLINE
+
+<!-- -->
+
+*   glusterVolumeSnapshotDelete - deletes the given snapshot
+    -   Input
+        -   volumeName
+        -   [snapName]
+    -   Output
+        -   Success/Failure
+
+Note: If snapName is not passed all the snaps would be deleted for the volume
+
+*   glusterConsistencyGroupDelete - deletes the consistency group
+    -   Input
+        -   cgName
+    -   Output
+        -   Success/Failure
+
+<!-- -->
+
+*   glusterVolumeSnapshotStop - stops the given snapshot
+    -   Input
+        -   snapName/volumeName
+        -   [optionType (-v)]
+    -   Output
+        -   Success/Failure
+
+Note: the optionType value -v is required if volumeName is passed as first parameter
+
+*   glusterConsistencyGroupStop - stops the given consistency group
+    -   Input
+        -   cgName
+    -   Output
+        -   Success/Failure
+
+<!-- -->
+
+*   glusterVolumeSnapshotStart - starts the given snapshot
+    -   Input
+        -   snapName/volumeName
+        -   [optionType (-v)]
+    -   Output
+        -   Success/Failure
+
+Note: the optionType value -v is required if volumeName is passed as first parameter
+
+*   glusterConsistencyGroupStart - starts the given consistency group
+    -   Input
+        -   cgName
+    -   Output
+        -   Success/Failure
+
 ### REST APIs
 
 The details of the REST for Gluster Volume Snapshot feature are as below -

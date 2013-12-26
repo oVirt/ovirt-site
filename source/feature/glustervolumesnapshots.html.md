@@ -181,7 +181,7 @@ The Gluster volume snapshot and consistency group details would be periodically 
 
 <!-- -->
 
-*   <big>glusterConsistencyGroupRestore<big> - allows for all the volumes which have a snapshot in the mentioned CG to be restored that point in time
+*   <big>glusterConsistencyGroupRestore</big> - allows for all the volumes which have a snapshot in the mentioned CG to be restored that point in time
     -   Input
         -   cgName
     -   Output

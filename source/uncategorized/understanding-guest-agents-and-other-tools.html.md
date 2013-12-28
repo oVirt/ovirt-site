@@ -10,15 +10,11 @@ wiki_last_updated: 2015-03-26
 
 ## Introduction
 
-There are five tools which together can provide the best experience when using a virtual machine with oVirt.
+There are three tools which together can provide the best experience when using a virtual machine with oVirt.
 
 *   oVirt Guest Agent - Recommended
 *   VirtIO Drivers - Recommended
 *   Spice Drivers - Recommended if you use the Spice console
-*   QXL Drivers - Optional
-*   QEMU Agent - Optional
-
-*The QEMU agent may be recommended in later version of oVirt to support additional features.*
 
 ## Agents
 
@@ -33,10 +29,6 @@ The Spice agent works with the Spice protocol to offer a better guest console ex
 *   Copy & Paste of text and images between the guest and client machine
 *   Automatic adjustment of resolution when the client screen changes - e.g. if you make the Spice console full screen the guest resolution will adjust to match it rather than letterboxing.
 *   Better mouse integration - The mouse can be captured and released without needing to click inside the console or press keys to release it. The performance of mouse movement is also improved.
-
-### QEMU Agent
-
-No information is available at this time
 
 ## Drivers
 
@@ -53,10 +45,6 @@ The drivers include support for
 
 VirtIO is built into the Linux kernel so no additional installation is required for Linux VMs with recent kernels (2.6.35 and newer). For Windows VMs the drivers must be installed. The VirtIO drivers are available on an [ISO from Fedora](http://alt.fedoraproject.org/pub/alt/virtio-win/latest/) for easy installation to guests at run time and install time. Without the VirtIO drivers a Windows based VM can still function but it requires a IDE based virtual hard drive and e1000 or rtl8139 network devices which may not be optimal.
 
-### QXL Drivers
-
-No information is available at this time
-
 ## Availability & Install Instructions
 
 ### Windows Guests
@@ -66,18 +54,14 @@ No information is available at this time
 | oVirt Guest Agent | -                                                                      | -                                                                   | -                                                                   | -                                                                         | -              | -              |
 | VirtIO Drivers    | [Yes(1)](How_to_create_a_Windows_XP_Virtual_Machine#VirtIO) | [Yes](How_to_create_a_Windows_7_Virtual_Machine#Drivers) | [Yes](How_to_create_a_Windows_8_Virtual_Machine#Drivers) | [Yes(1)](How_to_create_a_Windows_2003_Virtual_Machine#VirtIO)  | Yes            | -              |
 | Spice Drivers     | [Yes](How_to_create_a_Windows_XP_Virtual_Machine#Graphics)  | Yes                                                                 | No(2)                                                               | Yes?                                                                      | Yes?           | No(2)          |
-| QXL Drivers       | -                                                                      | -                                                                   | -                                                                   | -                                                                         | -              | -              |
-| QEMU Drivers      | -                                                                      | -                                                                   | -                                                                   | -                                                                         | -              | -              |
 
 ### Linux Guests
 
 |-------------------|-------------------------------------------------------------|-------------|-------------|-------------------------------------------------------------|
 |                   | [Fedora](How_to_create_a_Fedora_Virtual_Machine) | RHEL        | CentOS      | [Ubuntu](How_to_create_a_Ubuntu_Virtual_Machine) |
-| oVirt Guest Agent | [Yes](How_to_install_the_guest_agent_in_Fedora)  |             |             | [Yes](How_to_install_the_guest_agent_in_Ubuntu)  |
+| oVirt Guest Agent | [Yes](How_to_install_the_guest_agent_in_Fedora)  | -           | -           | [Yes](How_to_install_the_guest_agent_in_Ubuntu)  |
 | VirtIO Drivers    | Built-in(3)                                                 | Built-in(3) | Built-in(3) | Built-in(3)                                                 |
-| Spice Drivers     | Yes                                                         |             |             | Yes                                                         |
-| QXL Drivers       |                                                             |             |             |                                                             |
-| QEMU Drivers      |                                                             |             |             |                                                             |
+| Spice Drivers     | Yes                                                         | -           | -           | Yes                                                         |
 
 *(1) XP Does not support VirtIO-SCSI[1](https://bugzilla.redhat.com/show_bug.cgi?id=1043198)*
 

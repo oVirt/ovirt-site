@@ -24,34 +24,53 @@ Loading the VirtIO drivers and using the alternatives is covered in the install 
 
 ## Creating a Windows 2003 VM
 
-1.  From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
-    1.  ![](Navigation_Tabs.jpg "fig:Navigation_Tabs.jpg")
-    2.  Figure 1.2: The navigation tabs
+1. From the navigation tabs, select Virtual Machines. On the Virtual Machines tab, click New VM.
 
-2.  The “New Virtual Machine” popup appears.
-    1.  ![](New_VM_Win2003.jpg "fig:New_VM_Win2003.jpg")
-    2.  Figure 1.2: Create new Windows virtual machine
+![](Navigation_Tabs.jpg "Navigation_Tabs.jpg")
 
-3.  Under General, your default Cluster and Template will be fine.
-4.  For Operating System, choose Windows 2003 (for 32-bit Windows) or Windows 2003 x64 (for 64-bit Windows).
-5.  Under Optimized For, choose Server.
-6.  Add a Name (required) and a comment or description (optional).
-7.  Finally, attach a Network Interface (optional) to the VM by selecting one from the dropdown.
-8.  Click OK
-    1.  Note: By clicking “Additional Options” you can configure other details such as memory and CPU resources. You can change these after creating a VM as well,
+Figure 2.1: The navigation tabs
 
-9.  A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
-    1.  ![](Guide_Me.jpg "fig:Guide_Me.jpg")
-    2.  Figure 1.3. New Virtual Machine – Guide Me
+2. The “New Virtual Machine” popup appears.
+
+![](New_VM_Win2003.jpg "New_VM_Win2003.jpg")
+
+Figure 2.2: Create new Windows virtual machine
+
+3. Under General, your default Cluster and Template will be fine.
+
+4. For Operating System, choose Windows 2003 (for 32-bit Windows) or Windows 2003 x64 (for 64-bit Windows).
+
+5. Under Optimized For, choose Server.
+
+6. Add a Name (required) and a comment or description (optional).
+
+7. Finally, attach a Network Interface (optional) to the VM by selecting one from the dropdown.
+
+8. Click OK
+
+      Note: By clicking “Additional Options” you can configure other details such as memory and CPU resources. You can change these after creating a VM as well, 
+
+9. A New Virtual Machine - Guide Me window opens. This allows you to add storage disks to the virtual machine.
+
+![](Guide_Me.jpg "Guide_Me.jpg")
+
+Figure 2.3. New Virtual Machine – Guide Me
 
 10. Click Configure Virtual Disks to add storage to the virtual machine.
+
 11. Enter a Size for the disk.
+
 12. Change the Interface to IDE
+
 13. Click OK
-    1.  The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary.
-    2.  ![](Add_Virtual_Disk_Win2003.jpg "fig:Add_Virtual_Disk_Win2003.jpg")
-    3.  Figure 1.4. Add Virtual Disk configurations
-    4.  Note: [As mentioned above](How_to_create_a_Windows_2003_Virtual_Machine#VirtIO_interfaces) 2003 does not support using the VirtIO interface and the additional drivers cannot be installed. You must use the IDE interface instead which does not require the additional drivers.
+
+      The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary. 
+
+![](Add_Virtual_Disk_Win2003.jpg "Add_Virtual_Disk_Win2003.jpg")
+
+Figure 2.4. Add Virtual Disk configurations
+
+      Note: `[`As` `mentioned` `above`](How_to_create_a_Windows_2003_Virtual_Machine#VirtIO_interfaces)` 2003 does not support using the VirtIO interface and the additional drivers cannot be installed. You must use the IDE interface instead which does not require the additional drivers. 
 
 14. Close the Guide Me window by clicking Configure Later. Your new Windows 2003 virtual machine will display in the Virtual Machines tab.
 
@@ -59,18 +78,25 @@ You have now created your Windows 2003 virtual machine. Before you can use your 
 
 ## Installing an Operating System
 
-1.  Right click the virtual machine and select Run Once.
-2.  Check “Attach CD” and choose a disk from the list
-    1.  Note: If you do not have any in the list, you need to upload one.
+1. Right click the virtual machine and select Run Once.
 
-3.  Change the boot order so that CDROM is first
-4.  Click Ok
-    1.  ![](Run_Once_Win2003.jpg "fig:Run_Once_Win2003.jpg")
-    2.  Figure 2.1. Run once menu
-    3.  Retain the default settings for the other options and click OK to start the virtual machine.
+2. Check “Attach CD” and choose a disk from the list
 
-5.  Select the virtual machine and click the Console ( ) icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system.
-6.  Continue with the Windows 2003 install as normal.
+      Note: If you do not have any in the list, you need to upload one.
+
+3. Change the boot order so that CDROM is first
+
+4. Click Ok
+
+![](Run_Once_Win2003.jpg "Run_Once_Win2003.jpg")
+
+Figure 3.1. Run once menu
+
+      Retain the default settings for the other options and click OK to start the virtual machine. 
+
+5. Select the virtual machine and click the Console ( ) icon. This displays a window to the virtual machine, where you will be prompted to begin installing the operating system.
+
+6. Continue with the Windows 2003 install as normal.
 
 ## Post Install Additions
 
@@ -80,38 +106,55 @@ You have now created your Windows 2003 virtual machine. Before you can use your 
 
 If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, the VirtIO network interface, or a SCSI disk you need to install additional drivers. ![Device Manager](Device_Manager_Win2003_Missing_Drivers_VirtIO.jpg "fig:Device Manager")
 
-1.  On the console, open the Device Manger
-2.  On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
-3.  From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
+1. On the console, open the Device Manger
+
+2. On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+
+3. From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
 
 ##### VirtIO Serial
 
-1.  On the console, right click the **PCI Simple Communications Controller** device that is missing drivers
-2.  Select "Update Driver", and then click Next
-3.  Choose "Install from a list or a specific location", and then click Next
-4.  **UNCHECK Search removable media or else it will install the Windows 8 drivers and error**
-5.  Check "Include this location in the search", Browse to "X:\\WXP\\X86" and then click Next
-6.  When prompted, choose "Continue Anyway"
+1. On the console, right click the **PCI Simple Communications Controller** device that is missing drivers
+
+2. Select "Update Driver", and then click Next
+
+3. Choose "Install from a list or a specific location", and then click Next
+
+4. **UNCHECK Search removable media or else it will install the Windows 8 drivers and error**
+
+5. Check "Include this location in the search", Browse to "X:\\WXP\\X86" and then click Next
+
+6. When prompted, choose "Continue Anyway"
 
 ##### VirtIO Networking
 
-1.  On the console, right click the **Ethernet Controller** device that is missing drivers
-2.  Select "Update Driver", and then click Next
-3.  Choose "Install from a list or a specific location", and then click Next
-4.  **UNCHECK Search removable media or else it will install the Windows 8 drivers and error**
-5.  Check "Include this location in the search", Browse to "X:\\XP\\X86" (yes, this time X:\\XP\\X86) and then click Next
-6.  When prompted, choose "Continue Anyway"
+1. On the console, right click the **Ethernet Controller** device that is missing drivers
+
+2. Select "Update Driver", and then click Next
+
+3. Choose "Install from a list or a specific location", and then click Next
+
+4. **UNCHECK Search removable media or else it will install the Windows 8 drivers and error**
+
+5. Check "Include this location in the search", Browse to "X:\\XP\\X86" (yes, this time X:\\XP\\X86) and then click Next
+
+6. When prompted, choose "Continue Anyway"
 
 ##### VirtIO SCSI
 
-1.  On the console, right click the **SCSI Controller** device that is missing drivers
-2.  Select "Update Driver", and then click Next
-3.  Choose "Install from a list or a specific location", and then click Next
-4.  **UNCHECK Search removable media or else it will install the Windows 8 drivers and error**
-5.  Check "Include this location in the search", Browse to "X:\\WXP\\X86" and then click Next
-6.  If prompted, choose "Continue Anyway"
+1. On the console, right click the **SCSI Controller** device that is missing drivers
 
-Note: There may be two "SCSI Controllers" which need drivers. There are drivers for one "Red Hat SCSI Controller", but there are no XP drivers for "Red Hat SCSI Pass-through"If the drivers do not install on one, try the other SCSI Controller if a second exists.
+2. Select "Update Driver", and then click Next
+
+3. Choose "Install from a list or a specific location", and then click Next
+
+4. **UNCHECK Search removable media or else it will install the Windows 8 drivers and error**
+
+5. Check "Include this location in the search", Browse to "X:\\WXP\\X86" and then click Next
+
+6. If prompted, choose "Continue Anyway"
+
+      Note: There may be two "SCSI Controllers" which need drivers. There are drivers for one "Red Hat SCSI Controller", but there are no XP drivers for "Red Hat SCSI Pass-through"If the drivers do not install on one, try the other SCSI Controller if a second exists.
 
 #### Graphics
 

@@ -82,7 +82,9 @@ Pros:
 
 Cons:
 
-*   When debugging a host, the user-chosen name would not be available
+*   When debugging a host, the user-chosen name would not be available. This condition already exists with disk names, and is [not loved by users](http://lists.ovirt.org/pipermail/users/2013-December/019079.html). To avoid that, we can add a "description" field per network, where Engine would pass the human-readable name/description of the network, to be stored in the ifcfg file or as a comment in the libvirt definition of the network.
+
+CAVEAT: upgrade A cluster of level 3.4 has to use short network names, for backward compatibility. But even if all of its hosts have been upgraded to 3.5, it would need to keep using the short names - since running VMs keep referring to them, and hosts have them configured. On an upgraded cluster, existing networks should keep their short names. New networks, can have unrestricted names, and have their UUID used in the API.
 
 #### Documentation / External references
 

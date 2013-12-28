@@ -124,7 +124,7 @@ If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, th
 
 4. **UNCHECK Search removable media or else it will install the Windows 8 drivers and error**
 
-5. Check "Include this location in the search", Browse to "X:\\WXP\\X86" and then click Next
+5. Check "Include this location in the search", Browse to "X:\\Wnet\\X86" (for 32-bit) or "X:\\Wnet\\AMD64" (for 64-bit) and then click Next
 
 6. When prompted, choose "Continue Anyway"
 
@@ -138,7 +138,7 @@ If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, th
 
 4. **UNCHECK Search removable media or else it will install the Windows 8 drivers and error**
 
-5. Check "Include this location in the search", Browse to "X:\\XP\\X86" (yes, this time X:\\XP\\X86) and then click Next
+5. Check "Include this location in the search", Browse to "X:\\XP\\X86" (for 32-bit and yes, this time X:\\XP\\X86) or "X:\\XP\\AMD64" (for 64-bit)and then click Next
 
 6. When prompted, choose "Continue Anyway"
 
@@ -152,11 +152,11 @@ If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, th
 
 4. **UNCHECK Search removable media or else it will install the Windows 8 drivers and error**
 
-5. Check "Include this location in the search", Browse to "X:\\WXP\\X86" and then click Next
+5. Check "Include this location in the search", Browse to "X:\\Wnet\\X86" (for 32-bit) or "X:\\Wnet\\AMD64" (for 64-bit) and then click Next
 
 6. If prompted, choose "Continue Anyway"
 
-      Note: There may be two "SCSI Controllers" which need drivers. There are drivers for one "Red Hat SCSI Controller", but there are no XP drivers for "Red Hat SCSI Pass-through"If the drivers do not install on one, try the other SCSI Controller if a second exists.
+      Note: There may be two "SCSI Controllers" which need drivers. There are drivers for one "Red Hat SCSI Controller", but there are no 2003 drivers for "Red Hat SCSI Pass-through"If the drivers do not install on one, try the other SCSI Controller if a second exists.
 
 #### Graphics
 

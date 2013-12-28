@@ -77,7 +77,7 @@ Instead of passing the user-defined network name to Vdsm, Engine would use the n
 Pros:
 
 *   If a IFNAMSIZ-long slice is used, there's almost no change at all on Vdsm side. (The only one is that Vdsm cannot assume the management role of a network based on its `ovirtmgmt` name)
-*   That what OpenStack Neutron does.
+*   That what OpenStack Neutron does; that's an important argument when it provides networks to oVirt.
 *   The "name" of a network becomes a user-editable string, that can be changed with no effect on the distributed hosts.
 
 Cons:

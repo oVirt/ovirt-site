@@ -157,16 +157,16 @@ Supported actions:
 *   **DELETE** removes a label from a nic and removes the networks managed by it
     -   The setup-networks designed to maintain consistency of the label on the host.
 
-A representation of **network_label** element:
+A representation of **label** element:
 
-` `<network_label id="label_name" />
+` `<label id="label_name" />
 
-A representation of **network_labels** element:
+A representation of **labels** element:
 
-` `<network_labels>
-`   `<network_label id="label_name_1" />
-`   `<network_label id="label_name_2" />
-` `</network_labels>
+` `<labels>
+`   `<label id="label_name_1" />
+`   `<label id="label_name_2" />
+` `</labels>
        
 
 The user will be able to provide the list of labels per nic via as part of the setupnetworks api:
@@ -178,10 +178,10 @@ The user will be able to provide the list of labels per nic via as part of the s
 <action>
 `  `<host_nics>
 `    `<host_nic>
-`      `<network_labels>
-              `<network_label id="label_name_1" />` 
-              `<network_label id="label_name_2" />` 
-`      `</network_labels>
+`      `<labels>
+              `<label id="label_name_1" />` 
+              `<label id="label_name_2" />` 
+`      `</labels>
             ...
 `    `</host_nic>
           ...
@@ -206,13 +206,13 @@ Supported actions:
 *   **GET** returns a specific label
 *   **DELETE** - removes a label from network
 
-A representation of **network_label** element:
+A representation of **label** element:
 
 ` `<network>
          ...
-`   `<network_labels>
-`     `<network_label>`lbl1`</network_label>
-`   `</network_labels>
+`   `<labels>
+`     `<label>`lbl1`</label>
+`   `</labels>
          ...
 ` `<network>
 

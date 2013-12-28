@@ -56,11 +56,11 @@ Figure 2.2: Create new Windows virtual machine
 
 Figure 2.3. New Virtual Machine – Guide Me
 
-11. Click Configure Virtual Disks to add storage to the virtual machine.
+10. Click Configure Virtual Disks to add storage to the virtual machine.
 
-12. Enter a Size for the disk.
+11. Enter a Size for the disk.
 
-13. Click OK
+12. Click OK
 
       The parameters in the following figure such as Interface and Allocation Policy are recommended, but can be edited as necessary. 
 
@@ -70,7 +70,7 @@ Figure 2.4. Add Virtual Disk configurations
 
       Note: `[`As` `mentioned` `above`](How_to_create_a_Windows_7_Virtual_Machine#VirtIO_interfaces)` When using the VirtIO interface (recommended) additional drivers are required at install time. You can use the IDE interface instead which does not require the additional drivers. The OS install guide covers both VirtIO and IDE interfaces below.
 
-15. Close the Guide Me window by clicking Configure Later. Your new Windows 7 virtual machine will display in the Virtual Machines tab.
+13. Close the Guide Me window by clicking Configure Later. Your new Windows 7 virtual machine will display in the Virtual Machines tab.
 
 You have now created your Windows 7 virtual machine. Before you can use your virtual machine you need to install an operating system on it.
 

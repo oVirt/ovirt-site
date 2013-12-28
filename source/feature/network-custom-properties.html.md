@@ -22,7 +22,7 @@ Define special parameters per network, and pass them down to Vdsm hooks when the
 
 ### Current Status
 
-*   To be proposed to oVirt-3.4
+*   To be proposed to oVirt-3.5
 *   Last updated: ,
 
 ### Detailed Description

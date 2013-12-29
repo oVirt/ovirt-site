@@ -149,7 +149,7 @@ If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, th
 1.  On the console, right click the **PCI Simple Communications Controller** device that is missing drivers
 2.  Select "Update Driver", and then click Next
 3.  Choose "Browse my computer for driver software"
-4.  Browse to the CD, Win8 folder folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK., and then Next.
+4.  Browse to the CD, Win8 folder folder. Choose the appropriate architecture (AMD64 for 64-bit) and click OK., and then Next.
 5.  If prompted, choose "Install this driver software anyway"
 6.  When prompted, choose "Always trust software from Red Hat Inc.", and click Install.
 
@@ -158,7 +158,7 @@ If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, th
 1.  On the console, right click the **Ethernet Controller** device that is missing drivers
 2.  Select "Update Driver", and then click Next
 3.  Choose "Browse my computer for driver software"
-4.  Browse to the CD, Win8 folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK., and then Next.
+4.  Browse to the CD, Win8 folder. Choose the appropriate architecture (AMD64 for 64-bit) and click OK., and then Next.
 5.  If prompted, choose "Install this driver software anyway"
 6.  When prompted, choose "Always trust software from Red Hat Inc.", and click Install.
 
@@ -167,7 +167,7 @@ If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, th
 1.  On the console, right click the **SCSI Controller** device that is missing drivers
 2.  Select "Update Driver", and then click Next
 3.  Choose "Browse my computer for driver software"
-4.  Browse to the CD, Win8 folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK., and then Next.
+4.  Browse to the CD, Win8 folder. Choose the appropriate architecture (AMD64 for 64-bit) and click OK., and then Next.
 5.  If prompted, choose "Install this driver software anyway"
 6.  When prompted, choose "Always trust software from Red Hat Inc.", and click Install.
 

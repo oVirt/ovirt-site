@@ -136,27 +136,44 @@ Figure 3.1. Run once menu
 
 ### Drivers
 
-If you choose to use the VirtIO disk interface, the VirtIO network interface, or wish to use the oVirt Guest Tools through the VirtIO-Serial interface, you need to install additional drivers. ![Device Manager](Device_Manager_Win2008_Missing_Drivers_VirtIO.jpg "fig:Device Manager")
+#### VirtIO
 
-1. On the console, open the Device Manger
+If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, the VirtIO network interface, or a SCSI disk you need to install additional drivers. ![Device Manager](Device_Manager_Win2008_Missing_Drivers_VirtIO.jpg "fig:Device Manager")
 
-2. On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+1.  On the console, open the Device Manger
+2.  On the Navigation Tabs, click Change CD![Change CD](Navigation_Tabs_Change_CD.jpg "fig:Change CD")
+3.  From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
 
-3. From the drop down list select the virtio CD and click ok.![VirtIO CD](Change CD virtio.jpg "fig:VirtIO CD")
+##### VirtIO Serial
 
-4. On the console, right click the first device that is missing drivers
+1.  On the console, right click the **PCI Simple Communications Controller** device that is missing drivers
+2.  Select "Update Driver", and then click Next
+3.  Choose "Browse my computer for driver software"
+4.  Browse to the CD, Wlh folder (Server 2008) or Win7 (2008 R2) folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK., and then Next.
+5.  If prompted, choose "Install this driver software anyway"
+6.  When prompted, choose "Always trust software from Red Hat Inc.", and click Install.
 
-5. Select "Update Driver Software", and then "Browse my computer for driver software"
+##### VirtIO Networking
 
-6. Browse to the CD, Vista folder (Server 2008) or Win7 (2008 R2) folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK.
+1.  On the console, right click the **Ethernet Controller** device that is missing drivers
+2.  Select "Update Driver", and then click Next
+3.  Choose "Browse my computer for driver software"
+4.  Browse to the CD, Vista folder (Server 2008) or Win7 (2008 R2) folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK., and then Next.
+5.  If prompted, choose "Install this driver software anyway"
+6.  When prompted, choose "Always trust software from Red Hat Inc.", and click Install.
 
-7. When prompted to install the driver, check "Always trust software from Red Hat, Inc" and click Install.
+##### VirtIO SCSI
 
-8. Repeat the above for the remaining missing drivers.
+1.  On the console, right click the **SCSI Controller** device that is missing drivers
+2.  Select "Update Driver", and then click Next
+3.  Choose "Browse my computer for driver software"
+4.  Browse to the CD, Wlh folder (Server 2008) or Win7 (2008 R2) folder. Choose the appropriate architecture (AMD64 for 64-bit, x86 for 32-bit) and click OK., and then Next.
+5.  If prompted, choose "Install this driver software anyway"
+6.  When prompted, choose "Always trust software from Red Hat Inc.", and click Install.
 
 #### Graphics
 
-To install the graphics driver (aka "Video Controller (VGA compatible)") if you are using the Spice console, download and install the [Spice Guest Tools](http://www.spice-space.org/download/windows/spice-guest-tools/spice-guest-tools-0.65.1.exe). When prompted, click "Continue Anyway".
+If you are using the Spice console, download and install the [Spice Guest Tools](http://www.spice-space.org/download/windows/spice-guest-tools/spice-guest-tools-0.65.1.exe). When prompted, click "Continue Anyway".
 
 ### Guest Tools
 

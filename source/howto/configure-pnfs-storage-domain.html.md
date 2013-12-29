@@ -39,4 +39,4 @@ The new pNFS data domain is displayed on the Storage tab with a status of Locked
 
 **Important**
 
-All communication to the storage domain comes from the selected host and not from the Red Hat Enterprise Virtualization Manager. At least one active host must be attached to the chosen Data Center before the storage is configured.
+All communication to the storage domain comes from the selected host and not from Ovirt. At least one active host must be attached to the chosen Data Center before the storage is configured.

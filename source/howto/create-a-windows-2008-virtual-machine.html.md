@@ -9,8 +9,6 @@ wiki_last_updated: 2013-12-29
 
 # How to create a Windows 2008 Virtual Machine
 
-**This page is still in the process of being written. When this notice is no longer present it is safe to use these directions.**
-
 ## Introduction
 
 In your current configuration, you should have at least one host available for running virtual machines, and uploaded the required installation images to your ISO domain. This section guides you through the creation of a Windows 2008 virtual machine. You will perform a normal attended installation using a virtual DVD.

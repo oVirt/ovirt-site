@@ -169,7 +169,9 @@ A representation of **labels** element:
 ` `</labels>
        
 
-For phase 2 (when UI will use the restapi): The user will be able to provide the list of labels per nic via as part of the setupnetworks api:
+###### Phase 2 (when UI will use the restapi)
+
+The user will be able to provide the list of labels per nic via as part of the setupnetworks api:
 
 ` `*`/api/hosts/{host:id}/nics/setupnetworks`*
 

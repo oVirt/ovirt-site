@@ -9,8 +9,6 @@ wiki_last_updated: 2014-01-01
 
 # How to create a Windows 2012 Virtual Machine
 
-**This page is still being written. When this message is no longer present, it should be safe to use these directions.**
-
 ## Introduction
 
 In your current configuration, you should have at least one host available for running virtual machines, and uploaded the required installation images to your ISO domain. This section guides you through the creation of a Windows 2012 virtual machine. You will perform a normal attended installation using a virtual DVD.

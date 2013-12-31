@@ -300,7 +300,7 @@ Note: If snapName is not passed, status of all the snaps are listed
         -   cgName
         -   [snapName]
     -   Output
-        -   SUCCESS/FAILED/IN_PROGRESS/OFFLINE
+        -   UNKNOWN/INIT/IN_USE/RESTORED/DECOMMISSIONED
 
 Note: If snapName is not passed, status of all the snaps are listed for the consistency group
 

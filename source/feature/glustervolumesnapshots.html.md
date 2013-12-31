@@ -48,18 +48,21 @@ This entity stores the details of a Gluster volume consistency group. While defi
 
 This entity stores the snapshot details created on gluster volumes. Different volumes can have snapshots with same names.
 
-| Column name | Type   | Description                    |
-|-------------|--------|--------------------------------|
-| VolumeId    | UUID   | Id of the reference volume     |
-| SnapId      | UUID   | Id of the new snapshot         |
-| SnapName    | String | Name of the snapshot           |
-| SanpTime    | Date   | Creation time of the snapshot  |
-| description | String | Description                    |
-| Status      | String | Current status of the snapshot |
+| Column name | Type   | Description                                                                   |
+|-------------|--------|-------------------------------------------------------------------------------|
+| VolumeId    | UUID   | Id of the reference volume                                                    |
+| CgId        | UUID   | Id of the reference consistency group, if snapshot is for a consistency group |
+| SnapId      | UUID   | Id of the new snapshot                                                        |
+| SnapName    | String | Name of the snapshot                                                          |
+| SanpTime    | Date   | Creation time of the snapshot                                                 |
+| description | String | Description                                                                   |
+| Status      | String | Current status of the snapshot                                                |
 
 *   GlusterVolumeSnapshotStatus
+    -   UNKNOWN
+    -   INIT
     -   IN_USE
-    -   STOPPED
+    -   RESTORED
     -   DECOMMISSIONED
 
 #### GlusterVolumeSnapshotConfig

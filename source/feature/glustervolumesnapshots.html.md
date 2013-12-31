@@ -66,7 +66,7 @@ An additional main tab item would be introduced for "Consistency Groups". This t
 *   Volumes (# of volumes in the consistency group)
 *   Snaps (# of snaps taken for the consistency group)
 
-![](Start vol rebalance.png "Start vol rebalance.png")
+![](CGList.png "CGList.png")
 
 Actions supported for the main tab are -
 
@@ -75,6 +75,8 @@ Actions supported for the main tab are -
 *   Create Snap - takes a snapshot of the consistency group
 *   Add Volumes - add new volumes to the consistency group
 *   Remove Volumes - removes volumes from the consistency group
+
+![](CGList1.png "CGList1.png")
 
 The sub-tabs for the individual consistency groups would be having tabs -
 

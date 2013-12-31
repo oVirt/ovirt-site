@@ -349,12 +349,12 @@ The details of the REST for Gluster Volume Snapshot feature are as below -
 
 #### Listing APIs
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/glustersnapshots|rel=get - lists all the snapshots for a given volume
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/snapshots|rel=get - lists all the snapshots for a given volume
 
 Output:
 
-    <glustersnapshots>
-        <glustersnapshot href="" id="">
+    <snapshots>
+        <snapshot href="" id="">
             <actions>
             </actions>
             <name>{name}</name>
@@ -362,8 +362,34 @@ Output:
             <volume href="" id=""/>
             <description>{description}</description>
             <status>{status}</status>
-        </glustersnapshot>
-    </glustersnapshots>
+        </snapshot>
+    </snapshots>
+
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/snapshots/{snapshot-id}|rel=get - lists the details of a specific snapshot of a volume
+
+Output:
+
+    <snapshot href="" id="">
+        <actions>
+        </actions>
+        <name>{name}</name>
+        <link>{link}</link>
+        <volume href="" id=""/>
+        <description>{description}</description>
+        <status>{status}</status>
+    </snapshot>
+
+*   /api/clusters/{cluster-id}/glustervolumes|rel=get - Gluster volume listing would be updated to list the snapshot configuration parameters as well
+
+Output:
+
+    <glustervolume>
+    ........
+    <snapshot_config>
+        <option name="" value=""/>
+        <option name="" value=""/>
+    </snapshot_config>
+    </glustervolume>
 
 *   /api/clusters/{cluster-id}/consistencygroups|rel=get - lists all the consistency groups
 
@@ -381,22 +407,12 @@ Output:
             </volumes>
             <description>{description}</description>
             <status>{status}</status>
+                    <snapshot_config>
+                    <option name="" value=""/>
+                    <option name="" value=""/>
+                    </snapshot_config>
         </consistencygroup>
     </consistencygroups>
-
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/glustersnapshots/{snapshot-id}|rel=get - lists the details of a specific snapshot
-
-Output:
-
-    <glustersnapshot href="" id="">
-        <actions>
-        </actions>
-        <name>{name}</name>
-        <link>{link}</link>
-        <volume href="" id=""/>
-        <description>{description}</description>
-        <status>{status}</status>
-    </glustersnapshot>
 
 *   /api/clusters/{cluster-id}/consistencygroups/{consistencygroup-id}|rel=get - lists the detail of an individual consistency group
 
@@ -413,19 +429,41 @@ Output:
         </volumes>
         <description>{description}</description>
         <status>{status}</status>
+            <snapshot_config>
+            <option name="" value=""/>
+            <option name="" value=""/>
+            </snapshot_config>
     </consistencygroup>
 
-*   /api/clusters/{cluster-id}/glustervolumes|rel=get - Gluster volume listing would be updated to list the snapshot configuration parameters as well
+*   /api/clusters/{cluster-id}/consistencygroups/{consistencygroup-id}/snapshots|rel=get - lists the snapshots of an individual consistency group
 
 Output:
 
-    <glustervolume>
-    ........
-    <snapshot_config>
-        <option name="" value=""/>
-        <option name="" value=""/>
-    </snapshot_config>
-    </glustervolume>
+    <snapshots>
+        <snapshot href="" id="">
+            <actions>
+            </actions>
+            <name>{name}</name>
+            <link>{link}</link>
+            <consistencygroup href="" id=""/>
+            <description>{description}</description>
+            <status>{status}</status>
+        </snapshot>
+    </snapshots>
+
+*   /api/clusters/{cluster-id}/consistencygroups/{consistencygroup-id}/snapshots/{snapshot-id}|rel=get - lists the individual snapshot of an individual consistency group
+
+Output:
+
+    <snapshot href="" id="">
+        <actions>
+        </actions>
+        <name>{name}</name>
+        <link>{link}</link>
+        <consistencygroup href="" id=""/>
+        <description>{description}</description>
+        <status>{status}</status>
+    </snapshot>
 
 #### Actions Supported
 

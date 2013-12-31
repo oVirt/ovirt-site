@@ -73,7 +73,7 @@ Refer the URL: <http://www.ovirt.org/Features/Design/GlusterVolumeSnapshots> for
 
 <https://forge.gluster.org/snapshot/pages/Home>
 
-<https://sourceware.org/lvm2/>
+<http://sources.redhat.com/lvm/>
 
 <http://www.gluster.org/community/documentation/index.php/Features/snapshot>
 

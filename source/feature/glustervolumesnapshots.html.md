@@ -116,25 +116,7 @@ The Gluster volume snapshot and consistency group details would be periodically 
 
 ### VDSM Verbs
 
-*   <big>glusterVolumeSnapshotCreate</big> - creates a volume snapshot
-    -   Input
-        -   volumeName
-        -   snapName
-        -   [description]
-    -   Output
-        -   Success/Failure
-
-<!-- -->
-
-*   <big>glusterCGSnapshotCreate</big> - creates a snapshot of the consistency group
-    -   Input
-        -   cgName
-        -   snapName
-        -   [description]
-    -   Output
-        -   Success/Failure
-
-<!-- -->
+#### VDSM Verbs for consistency group maintenance
 
 *   <big>glusterConsistencyGroupCreate</big> - creates a consistency group
     -   Input
@@ -156,23 +138,44 @@ The Gluster volume snapshot and consistency group details would be periodically 
 
 <!-- -->
 
-*   <big>glusterVolumeSanpshotList</big> - gets the list of snapshots for a volume
-    -   Input
-        -   volumeName
-        -   [snapName]
-    -   Output
-        -   snapsList
-
-<!-- -->
-
-*   <big>glusterCGSnapshotList</big> - gets the details of a consistency group
+*   <big>glusterConsistencyGroupDeleteVolume</big> - deletes the volumes from the consistency group
     -   Input
         -   cgName
-        -   [snapName]
+        -   [volumeNames]
     -   Output
-        -   snapsList
+        -   Success/Failure
+
+Note: If no volumes passed, the consistency group would be deleted. if a volume gets deleted from the CG, it cannot be restore to a older snap.
+
+*   <big>glusterConsistencyGroupsList</big> - lists the consistency groups
+    -   Input
+        -   [cgName]
+    -   Output
+        -   cgList
+
+Note: If no consistency group name passed, it would list all the consistency groups.
+
+#### VDSM verbs for Snapshot creation
+
+*   <big>glusterVolumeSnapshotCreate</big> - creates a volume snapshot
+    -   Input
+        -   volumeName
+        -   snapName
+        -   [description]
+    -   Output
+        -   Success/Failure
 
 <!-- -->
+
+*   <big>glusterCGSnapshotCreate</big> - creates a snapshot of the consistency group
+    -   Input
+        -   cgName
+        -   snapName
+        -   [description]
+    -   Output
+        -   Success/Failure
+
+#### VDSM verbs for restoring snaps
 
 *   <big>glusterVolumeSnapshotRestore</big> - restores the given volume to the given snapshot
     -   Input
@@ -183,14 +186,56 @@ The Gluster volume snapshot and consistency group details would be periodically 
 
 <!-- -->
 
-*   <big>glusterConsistencyGroupRestore</big> - allows to restore a CG to the specified snap
+*   <big>glusterCGSnapshotRestore</big> - allows to restore a CG to the specified snap
     -   Input
         -   cgName
         -   snapName
     -   Output
         -   Success/Failure
 
-<!-- -->
+#### VDSM verbs for deleting snaps
+
+*   <big>glusterVolumeSnapshotDelete</big> - deletes the given snapshot
+    -   Input
+        -   volumeName
+        -   [snapName]
+    -   Output
+        -   Success/Failure
+
+Note: If snapName is not passed all the snaps would be deleted for the volume
+
+*   <big>glusterCGSnapshotDelete</big> - deletes the given consistency group snapshot
+    -   Input
+        -   cgName
+        -   [snapName]
+    -   Output
+        -   Success/Failure
+
+Note: If no snapName is passed, all the snaps would be deleted for the consistency group
+
+#### VDSM verbs for listing snaps
+
+=
+
+*   <big>glusterVolumeSanpshotList</big> - gets the list of snapshots for a volume
+    -   Input
+        -   volumeName
+        -   [snapName]
+    -   Output
+        -   snapsList
+
+Note: If snapName is not passed, all the snaps of the volume are listed
+
+*   <big>glusterCGSnapshotList</big>
+    -   Input
+        -   cgName
+        -   [snapName]
+    -   Output
+        -   Success/Failure
+
+Note: If snapName is not passed, all the snaps for the consistency group are listed
+
+#### VDSM verbs for snapshot configuration
 
 *   <big>glusterVolumeSnapshotSetConfig</big> - sets the snapshot configuration parameters for the given volume
     -   Input
@@ -212,100 +257,87 @@ The Gluster volume snapshot and consistency group details would be periodically 
 
 <!-- -->
 
-*   <big>glusterVolumeSnapshotGetConfig</big> - gets the value of the given snapshot configuration parameter for the given volume
+*   <big>glusterVolumeSnapshotGetConfig</big> - gets the value of the snapshot configuration parameter for the given volume
     -   Input
         -   [volumeName]
-        -   [optionName]
     -   Ouptut
         -   Name=Value pair list
 
-Note: volumeName can be passed as ALL and it would list system level configurations set for snapshot. If option-name is passed only that value is returned
+Note: If volumeName is not passed, configuration values for all the volumes are listed
 
-*   <big>glusterVolumeSnapshotCancel</big> - cancels the given snapshot
+*   <big>glusterCGSnapshotGetConfig</big> - gets the value of snapshot configuration parameter for the given consistency group
     -   Input
-        -   snapName/cgName/taskId
-        -   optionType (-s, -t)
+        -   [cgName]
     -   Output
-        -   Success/Failure
+        -   Name=Value pair list
+
+Note: If cgName is passed, all the configurations for the all the consistency groups are listed
+
+#### VDSM verbs for the snapshots status
+
+*   <big>glusterAllVolumeSnapshotStatus</big> - gets the status of all the snapshots. This includes brick details, LVM details, process details etc.
+    -   Input
+    -   Output
 
 <!-- -->
 
-*   <big>glusterConsistencyGroupCancel</big> - cancels the given consistency group
+*   <big>glusterVolumeSnapshotStatus</big> - gets the snapshot status details for a volume
     -   Input
-        -   cgName/taskId
-        -   optionType (-c, -t)
-    -   Output
-        -   Success/Failure
-
-<!-- -->
-
-*   <big>glusterVolumeSnapshotStatus</big> - gets the status of the given snapshot
-    -   Input
-        -   [snapName/volumeName]
-        -   optionType (-s, -v)
+        -   volumeName
+    -   [snapName]
     -   Output
         -   SUCCESS/FAILED/IN_PROGRESS/OFFLINE
 
-Note: If no input passed at all, status details of all the snapshots is listed
+Note: If snapName is not passed, status of all the snaps are listed
 
-*   <big>glusterConsistencyGroupStatus</big> - gets the status of given consistency group
+*   <big>glusterCGSnapshotStatus</big> - gets the snapshot status of given consistency group
     -   Input
-        -   cgName/taskId
-        -   optionType (-c, -t)
+        -   cgName
+        -   [snapName]
     -   Output
         -   SUCCESS/FAILED/IN_PROGRESS/OFFLINE
 
-<!-- -->
+Note: If snapName is not passed, status of all the snaps are listed for the consistency group
 
-*   <big>glusterVolumeSnapshotDelete</big> - deletes the given snapshot
+#### VDSM verbs for starting a snapshot
+
+*   <big>glusterVolumeSnapshotStart</big> - starts the given snapshot
     -   Input
         -   volumeName
         -   [snapName]
     -   Output
         -   Success/Failure
 
-Note: If snapName is not passed all the snaps would be deleted for the volume
+Note: If snapName not passed, all the snapshots of the volume are started
 
-*   <big>glusterConsistencyGroupDelete</big> - deletes the volumes from the consistency group
+*   <big>glusterCGSnapshotStart</big> - starts the snapshots of the given consistency group
     -   Input
         -   cgName
-        -   volumeNames
+        -   [snapName]
     -   Output
         -   Success/Failure
 
-<!-- -->
+Note: If snapName is not passed, all the snapshots of the consistency group are started
+
+#### VDSM verbs for stopping the snapshots
 
 *   <big>glusterVolumeSnapshotStop</big> - stops the given snapshot
     -   Input
-        -   snapName/volumeName
-        -   [optionType (-v)]
+        -   volumeName
+        -   [snapName]
     -   Output
         -   Success/Failure
 
-Note: the optionType value -v is required if volumeName is passed as first parameter
+Note: If snapName is not passed, all the snaps of the volume are stopped
 
-*   <big>glusterConsistencyGroupStop</big> - stops the given consistency group
+*   <big>glusterCGSnapshotStop</big> - stops the snapshots of the given consistency group
     -   Input
         -   cgName
+        -   [snapName]
     -   Output
         -   Success/Failure
 
-<!-- -->
-
-*   <big>glusterVolumeSnapshotStart</big> - starts the given snapshot
-    -   Input
-        -   snapName/volumeName
-        -   [optionType (-v)]
-    -   Output
-        -   Success/Failure
-
-Note: the optionType value -v is required if volumeName is passed as first parameter
-
-*   <big>glusterConsistencyGroupStart</big> - starts the given consistency group
-    -   Input
-        -   cgName
-    -   Output
-        -   Success/Failure
+Note: If snapName is not passed, all the snaps of the consistency group are stoppped
 
 ### REST APIs
 

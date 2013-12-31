@@ -467,11 +467,11 @@ Output:
 
 #### Actions Supported
 
-*   /ap/clusters/{cluster-id}/glustervolumes/{volume-id}/glustersnapshots|rel=add - creates and adds a new snapshot for the given volume
+*   /ap/clusters/{cluster-id}/glustervolumes/{volume-id}/snapshots|rel=add - creates and adds a new snapshot for the given volume
     -   Parameters
         -   name - String
         -   volume_name - String
-        -   description - string
+        -   [description] - string
 
 Input:
 
@@ -487,7 +487,7 @@ Input:
     -   Parameters
         -   name - String
         -   volumes - list of volume names
-        -   description - String
+        -   [force] - boolean
 
 Input:
 
@@ -502,8 +502,41 @@ Input:
                            <name>{name}</name>
                     </volume>
         </volumes>
-        <description>{description}</description>
+        <force>true/false</force>
     </consistencygroup>
+    </action>
+
+*   /ap/clusters/{cluster-id}/consistencygroups/{consistencygroup-id}/snapshots|rel=add - creates and adds a new snapshot for the given volume
+    -   Parameters
+        -   name - String
+        -   volume_name - String
+        -   [description] - string
+
+Input:
+
+    <action>
+        <snapshot>
+            <name>{name}</name>
+            <volume_name>{volume-name}</volume_name>
+            <description>{description}</description>
+        </snapshot>
+    </action>
+
+*   /ap/clusters/{cluster-id}/consistencygroups/{consistencygroup-id}rel=addvolume - adds set of volumes to the consistency group
+    -   Parameters
+        -   volumes - list of volume names
+
+Input:
+
+    <action>
+        <volumes>
+            <volume>
+                           <name>{name}</name>
+                    </volume>
+            <volume>
+                           <name>{name}</name>
+                    </volume>
+        </volumes>
     </action>
 
 *   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/glustersnapshot|rel=delete - deletes snapshots

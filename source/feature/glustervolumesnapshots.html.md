@@ -119,7 +119,7 @@ Actions supported for this sub-tab are -
 *   Restore - restores the consistency group to the said snapshot
 *   Remove - removes the selected snapshots
 
-![](SnapsList.png "SnapsList.png")
+![](SnapsList1.png "SnapsList1.png")
 
 #### Sub-tab "Volumes --> Snapshot"
 

@@ -110,12 +110,16 @@ This sub-tab lists the snapshots for the consistency group in a tabular form. Th
 *   Description
 *   Creation Time (makes easy for administrator to decide while restore)
 
+![](SnapsList.png "SnapsList.png")
+
 Actions supported for this sub-tab are -
 
 *   Start - starts the snapshot
 *   Stop - stops the snapshot
 *   Restore - restores the consistency group to the said snapshot
 *   Remove - removes the selected snapshots
+
+![](SnapsList.png "SnapsList.png")
 
 #### Sub-tab "Volumes --> Snapshot"
 

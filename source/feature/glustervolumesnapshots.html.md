@@ -89,18 +89,21 @@ The Gluster volume snapshot and consistency group details would be periodically 
 
 ### BLL commands
 
-*   <big>AddGlusterVolumeSnapshot</big> - adds a snapshot
-*   <big>AddGlusterVolumeConsistencyGroup</big> - adds a consistency group
+*   <big>AddGlusterVolumeConsistencyGroup</big> - creates a consistency group
+*   <big>AddGlusterVolumesToConsistencyGroup</big> - adds volumes to consistency group
+*   <big>RemoveGlusterVolumeConsistencyGroup</big> - removes said volumes from the consistency group (if list of volumes passed as parameters). If no volumes passed, the consistency group itself is deleted.
+*   <big>AddGlusterVolumeSnapshot</big> - creates a volume snapshot
+*   <big>AddGlusterVolumeConsistencyGroupSnapshot</big> - creates a consistency group snapshot
 *   <big>RestoreGlusterVolumeSnapshot</big> - restore a given volume to a snapshot
 *   <big>RestoreGlusterVolumeConsistencyGroup</big> - allows for all the volumes which have a snapshot in the mentioned CG to be restored that point in time. This provides roll-back mechanisms for the multiple volumes which were snapped together
 *   <big>RemoveGlusterVolumeSnapshot</big> - removes the given snapshot
-*   <big>RemoveGlusterVolumeConsistencyGroup</big> - removes the given consistency group
-*   <big>StopGlusterVolumeSnapshot</big> - stops the given snapshot
+*   <big>RemoveGlusterVolumeConsistencyGroupSnapshot</big> - removes the given consistency group snapshot
+*   <big>UpdateGlusterVolumeSnapshotConfig</big> - sets the configuration values for a given volume snapshot
+*   <big>UpdateGlusterVolumeConsistencyGroupSnapshotConfig</big> - sets the configuration values for a given consistency group
 *   <big>StartGlusterVolumeSnapshot</big> - starts the given snapshot
-*   <big>RenameGlusterVolumeSnapshot</big> - renames the given snapshot
-*   <big>StopGlusterVolumeConsistencyGroup</big> - stops the given consistency group
-*   <big>StartGlusterVolumeConsistencyGroup</big> - starts the given consistency group
-*   <big>RenameGlusterVolumeConsistencyGroup</big> - renames the given consistency group
+*   <big>StartGlusterVolumeConsistencyGroupSnapshot</big> - starts the given consistency group
+*   <big>StopGlusterVolumeSnapshot</big> - stops the given snapshot
+*   <big>StopGlusterVolumeConsistencyGroupSnapshot</big> - stops the given consistency group
 
 ### Engine Queries
 

@@ -66,6 +66,8 @@ An additional main tab item would be introduced for "Consistency Groups". This t
 *   Volumes (# of volumes in the consistency group)
 *   Snaps (# of snaps taken for the consistency group)
 
+![](Start vol rebalance.png "Start vol rebalance.png")
+
 Actions supported for the main tab are -
 
 *   New - creates a new consistency group

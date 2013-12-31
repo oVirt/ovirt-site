@@ -291,7 +291,7 @@ Note: If cgName is passed, all the configurations for the all the consistency gr
         -   volumeName
     -   [snapName]
     -   Output
-        -   SUCCESS/FAILED/IN_PROGRESS/OFFLINE
+        -   UNKNOWN/INIT/IN_USE/RESTORED/DECOMMISSIONED
 
 Note: If snapName is not passed, status of all the snaps are listed
 

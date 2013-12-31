@@ -222,8 +222,6 @@ Note: If no snapName is passed, all the snaps would be deleted for the consisten
 
 #### VDSM verbs for listing snaps
 
-=
-
 *   <big>glusterVolumeSanpshotList</big> - gets the list of snapshots for a volume
     -   Input
         -   volumeName

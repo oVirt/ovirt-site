@@ -133,8 +133,16 @@ The integration of network providers into oVirt will be incremental. The followi
 
 #### Security groups
 
+**Note:** Security groups are an API extensions which is only supported by some plugins. Since it's supported by OVS and LB plugins this should work out of the box.
+
 *   A custom property for specifying the security group(s) will be added to the vNIC custom properties list.
     -   Using this property the user can specify on profile level what security group(s) this profile uses.
+    -   When using the property:
+        -   If not specifying it, the default Neutron behavior will occur (the default security group should be used).
+        -   If specifying with empty value, no security group should apply.
+        -   If specifying a list of one or more UUIDs of security groups, these groups will be used.
+*   The hook on VDSM will be changed to allow applying security groups (when necessary).
+    -   OVS does not support security groups yet, so the vNIC will be connected to a dedicated LB which will have the securtiy groups applied on. The LB will be connected to the integration OVS bridge using a veth pair (mimicking a patch cable).
 
 ### Future phases
 

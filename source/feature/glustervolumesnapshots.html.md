@@ -93,7 +93,7 @@ Actions supported for this sub-tab are -
 *   Reset - Reset the value of the configuration parameter to system value
 *   Reset All - Reset the value of all the configuration parameters to system values
 
-#### Sub-tab "Snapshots"
+#### Sub-tab "Consistency Groups --> Snapshots"
 
 This sub-tab lists the snapshots for the consistency group in a tabular form. The details listed for a snapshot in the list are -
 

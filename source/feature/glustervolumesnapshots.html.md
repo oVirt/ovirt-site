@@ -522,7 +522,7 @@ Input:
         </snapshot>
     </action>
 
-*   /ap/clusters/{cluster-id}/consistencygroups/{consistencygroup-id}rel=addvolume - adds set of volumes to the consistency group
+*   /ap/clusters/{cluster-id}/consistencygroups/{consistencygroup-id}/addvolume|rel=addvolume - adds set of volumes to the consistency group
     -   Parameters
         -   volumes - list of volume names
 
@@ -539,7 +539,7 @@ Input:
         </volumes>
     </action>
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/glustersnapshot|rel=delete - deletes snapshots
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/snapshots|rel=delete - deletes snapshots
     -   Parameters
         -   snapshot-id / snapshot-name / volume-name
 
@@ -553,13 +553,7 @@ or
         <name>{name}</name>
     </snapshot>
 
-or
-
-    <snapshot>
-        <volume_name>{vol-name}</volume_name>
-    </snapshot>
-
-*   /api/clusters/{cluster-id}/consistencygroups|rel=delete - deletes consistency group
+*   /api/clusters/{cluster-id}/consistencygroups/{consistencygroup-id}/snapshots|rel=delete - deletes consistency group
     -   Parameters
         -   cg-id / cg-name
 
@@ -573,13 +567,76 @@ or
         <name>{name}</name>
     </consistencygroup>
 
+*   /api/clusters/{cluster-id}/consistencygroups/{consistencygroup-id}/deletevolume|rel=deletevolume - removes volumes from the consistency group
+    -   Parameters
+        -   volumes - list of volume names
+
+Input:
+
+    <action>
+        <volumes>
+            <volume>
+                           <name>{name}</name>
+                    </volume>
+            <volume>
+                           <name>{name}</name>
+                    </volume>
+        </volumes>
+    </action>
+
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/snapshots/{snapshot-id}/restore|rel=restore - restores the given volume to the given snapshot
+
+Input:
+
+    <action/>
+
+*   /api/clusters/{clusters-id}/consistencygroups/{consistencygroup-id}/snapshots/{snapshot-id}/restore|rel=restore - allows for all the volumes which have a snapshot in the mentioned CG to be restored that point in time. This provides roll-back mechanisms for the multiple volumes which were snapped together.
+
+Input:
+
+    <action/>
+
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/setsnapshotconfig|rel=setsnapshotconfig - sets a snapshot configuration parameter value for the given volume
+    -   Parameters
+        -   name-value pair of configuration parameters
+
+Input:
+
+    <action>
+            <config>
+            <name>{name-1}</name>
+            <value>{value-1}</value>
+            </config>
+            <config>
+            <name>{name-2}</name>
+            <value>{value-2}</value>
+            </config>
+    </action>
+
+*   /api/clusters/{cluster-id}/consistencygroups/{consistencygroup-id}/setsnapshotconfig|rel=setsnapshotconfig - sets a snapshot configuration parameter value for the given consistency group
+    -   Parameters
+        -   name-value pair of configuration parameters
+
+Input:
+
+    <action>
+            <config>
+            <name>{name-1}</name>
+            <value>{value-1}</value>
+            </config>
+            <config>
+            <name>{name-2}</name>
+            <value>{value-2}</value>
+            </config>
+    </action>
+
 *   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/glustersnapshots/{snapshot-id}/start|rel=start - starts the given snapshot
 
 Input:
 
     <action/>
 
-*   /api/clusters/{cluster-id}/consistencygroups/{consistency-group-id}/start|rel=start - starts a consistency group
+*   /api/clusters/{cluster-id}/consistencygroups/{consistency-group-id}/snapshots/{snapshot-id}/start|rel=start - starts a consistency group snapshot
 
 Input:
 
@@ -591,54 +648,10 @@ Input:
 
     <action/>
 
-*   /api/clusters/{cluster-id}/consistencygroups/{consistency-group-id}/stop|rel=stop - stops the given consistency group
+*   /api/clusters/{cluster-id}/consistencygroups/{consistency-group-id}/snapshots/{snapshot-id}/stop|rel=stop - stops the given consistency group snapshot
 
 Input:
 
     <action/>
-
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/glustersnapshots/{snapshot-id}/restore|rel=restore - restores the given volume to the given snapshot
-
-Input:
-
-    <action/>
-
-*   /api/clusters/{clusters-id}/consistencygroups/{consistency-group-id}/restore|rel=restore - allows for all the volumes which have a snapshot in the mentioned CG to be restored that point in time. This provides roll-back mechanisms for the multiple volumes which were snapped together.
-
-Input:
-
-    <action/>
-
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/setsnapshotconfig|rel=setsnapshotconfig - sets a snapshot configuration parameter value for the given volume
-    -   Parameters
-        -   Option-name
-        -   Option-value
-
-Input:
-
-    <action>
-        <option_name>{name}</name>
-        <option_value>{value}</option_value>
-    </action>
-
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/glustersnapshots/{snapshot-id}|rel=rename - renames the given snspshot
-    -   Parameters
-        -   New snapshot name
-
-Input:
-
-    <snapshot>
-        <name>{name}</name>
-    </snapshot>
-
-*   /api/clusters/{cluster-id}/consistencygroups/{consistency-group-id}|rel=rename - renames the given consistency group
-    -   Parameters
-        -   New consistency group name
-
-Input:
-
-    <consistencygroup>
-        <name>{name}</name>
-    </consistencygroup>
 
 [Category: Feature](Category: Feature)

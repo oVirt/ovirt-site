@@ -57,7 +57,18 @@ With this feature the user will be able to
 
 ### User Experience and control flows
 
-TBD
+An additional main tab item would be introduced for "Consistency Groups". This tab would list the consistency group in the cluster in tabular form having the columns -
+
+*   Status Column as icon
+*   Name
+*   Cluster
+*   Volumes (# of volumes in the consistency group)
+*   Snaps (# of snaps taken for the consistency group)
+
+The sub-tabs for the individual consistency groups would be having tabs -
+
+*   Configurations
+*   Snapshots
 
 ### Limitations
 

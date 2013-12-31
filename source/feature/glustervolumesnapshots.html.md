@@ -109,6 +109,10 @@ Actions supported for this sub-tab are -
 *   Restore - restores the consistency group to the said snapshot
 *   Remove - removes the selected snapshots
 
+#### Sub-tab "Volumes --> Snapshot"
+
+This sub-tab under the main tab Volumes lists the snapshots created for individual volumes. This is same as the above mentioned sub-tab Snapshots under Consistency Group. It lists the same details and supports the same set of actions.
+
 ### Limitations
 
 NA

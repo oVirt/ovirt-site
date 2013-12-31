@@ -90,12 +90,16 @@ This sub-tab lists the snapshot configuration values set for the consistency gro
 *   Parameter Name
 *   Parameter Value
 
+![](ParamList.png "ParamList.png")
+
 Actions supported for this sub-tab are -
 
 *   Add - to add a new configuration parameter
 *   Edit - Edit the value of a configuration parameter
 *   Reset - Reset the value of the configuration parameter to system value
 *   Reset All - Reset the value of all the configuration parameters to system values
+
+![](ParamList1.png "ParamList1.png")
 
 #### Sub-tab "Consistency Groups --> Snapshots"
 

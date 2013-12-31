@@ -110,12 +110,13 @@ The Gluster volume snapshot and consistency group details would be periodically 
 *   <big>GetGlusterVolumeSnapshotsByVolumeId</big> - lists all the snapshot for a given volume
 *   <big>GetGlusterVolumeSnapshotByVolumeIdAndSnapshotId</big> - lists snapshot for the given snapshot id and volume id
 *   <big>GetGlusterVolumeConsistencyGroupById</big> - lists the consistency group by id
-*   <big>GetGlusterVolumeSnapshotConfigDetails</big> - lists all the snapshot configuration details
-*   <big>GetGlusterVolumeSnapshotConfigDetailsForVolume</big> - lists all the snapshot configuration details for a volume
+*   <big>GetGlusterVolumeConsistencyGroupSnapshotByCgIdAndSnapId</big> - lists the consistency group snapshot by consistency group id and snap id
+*   <big>GetGlusterVolumeSnapshotConfigDetailsByVolumeId</big> - lists all the snapshot configuration details for the given volume id
+*   <big>GetGlusterVolumeConsistencyGroupConfigDetailsByCgId</big> - lists all the snapshot configuration details for the given cg id
 *   <big>GetAllGlusterVolumeSnapshotStatus</big> - lists all the snapshot with their status
-*   <big>GetGlusterVolumeSnapshotStatusForSnapshot</big> - gets the status of a specific snapshot
-*   <big>GetGlusterVolumeSnapshotStatusForConsistencyGroup</big> - lists snapshot status for a consistency group
-*   <big>GetGlusterVolumeSnapshotStatusForVolume</big> - lists snapshot status details for a volume and its snapshots
+*   <big>GetGlusterVolumeSnapshotStatusByVolumeId</big> - gets the status of a snapshot for a specific volume
+*   <big>GetGlusterVolumeSnapshotStatusBySnapId</big> - gets the status of a specific snapshot
+*   <big>GetGlusterVolumeSnapshotStatusById</big> - lists snapshot status for a consistency group
 
 ### VDSM Verbs
 

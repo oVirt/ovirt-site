@@ -337,7 +337,7 @@ Note: If snapName is not passed, all the snaps of the volume are stopped
     -   Output
         -   Success/Failure
 
-Note: If snapName is not passed, all the snaps of the consistency group are stoppped
+Note: If snapName is not passed, all the snaps of the consistency group are stopped
 
 ### REST APIs
 

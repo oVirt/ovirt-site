@@ -169,10 +169,6 @@ If you wish to use the oVirt Guest Tools through the VirtIO-Serial interface, th
 5.  If prompted, choose "Install this driver software anyway"
 6.  When prompted, choose "Always trust software from Red Hat Inc.", and click Install.
 
-#### Graphics
-
-If you are using the Spice console, download and install the [Spice Guest Tools](http://www.spice-space.org/download/windows/spice-guest-tools/spice-guest-tools-0.65.1.exe). When prompted, click "Continue Anyway".
-
 ### Guest Tools
 
 Adding a few guest tools may improve your experience.

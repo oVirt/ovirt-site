@@ -45,5 +45,3 @@ SNMP_SERVER - IP address or DNS name of the SNMP service to receive SNMP traps s
 SNMP_PORT
 COMMUNITY_STRING -
 OID [Default 1.3.6.1.4.1.2312.13.1]
-
-RFE BZ <https://bugzilla.redhat.com/show_bug.cgi?id=643924>

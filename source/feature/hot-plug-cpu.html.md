@@ -79,7 +79,10 @@ if we have cpu pinning for cpu 1-4 and we start the VM with 4 CPU and then we of
 
 ##### hook support
 
-is it needed for this feature?
+hook support is provided to solve potential problems with online/offline the cpu after the actual addition to the VM system. Its not clear if some linux versions will have the cpu added but offline in the system so the hook is to cover the gap.
+
+      /usr/libexec/vdsm/hooks/before_set_num_of_cpu
+      /usr/libexec/vdsm/hooks/after_set_num_of_cpu
 
 ### Testing
 

@@ -602,6 +602,7 @@ Input:
 Input:
 
     <action>
+        <configurations>
             <config>
             <name>{name-1}</name>
             <value>{value-1}</value>
@@ -610,6 +611,7 @@ Input:
             <name>{name-2}</name>
             <value>{value-2}</value>
             </config>
+        </configurations>
     </action>
 
 *   /api/clusters/{cluster-id}/consistencygroups/{consistencygroup-id}/setsnapshotconfig|rel=setsnapshotconfig - sets a snapshot configuration parameter value for the given consistency group
@@ -619,6 +621,7 @@ Input:
 Input:
 
     <action>
+        <configurations>
             <config>
             <name>{name-1}</name>
             <value>{value-1}</value>
@@ -627,6 +630,7 @@ Input:
             <name>{name-2}</name>
             <value>{value-2}</value>
             </config>
+        </configurations>
     </action>
 
 *   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/glustersnapshots/{snapshot-id}/start|rel=start - starts the given snapshot

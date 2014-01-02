@@ -128,6 +128,8 @@ Filters out host according to affinity enforce mode (hard).
 
 #### REST API
 
+##### clsuters
+
 /GET /api/clusters/{clsuter_id}/affinitygroups <affinity_groups>
 
 ` `<affinity_group href="">
@@ -142,6 +144,10 @@ Filters out host according to affinity enforce mode (hard).
 `   `</members>
 ` `</affinity_group>
 
-</affinity_groups> /POST /api/clusters/{clsuter_id}/affinitygroups /DELETE, /PUT /api/clusters/{clsuter_id}/affinitygroups/{affinity_group_id}
+</affinity_groups> /POST /api/clusters/{clsuter_id}/affinitygroups <affinity_group></affinity_group> /PUT /api/clusters/{clsuter_id}/affinitygroups/{affinity_group_id} <affinity_group></affinity_group> /DELETE /api/clusters/{clsuter_id}/affinitygroups/{affinity_group_id}
+
+##### vms
+
+under discussion
 
 <Category:Feature> <Category:SLA>

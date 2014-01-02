@@ -148,6 +148,21 @@ Filters out host according to affinity enforce mode (hard).
 
 ##### vms
 
-under discussion
+GET .../vms <vm>
+
+` `<placement_policy>
+
+...
+
+`   `<affinity_groups>
+`     `<affinity_group href=""/>
+`     `<affinity_group href=""/>
+`   `</affinity_groups>
+
+...
+
+` `</placement_policy>
+
+</vm>
 
 <Category:Feature> <Category:SLA>

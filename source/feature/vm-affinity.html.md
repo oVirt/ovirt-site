@@ -128,6 +128,20 @@ Filters out host according to affinity enforce mode (hard).
 
 #### REST API
 
-under discussion.
+/GET /api/clusters/{clsuter_id}/affinitygroups <affinity_groups>
+
+` `<affinity_group href="">
+`   `<name></name>
+`   `<description></description>
+`   `<cluster href=""></cluster>
+`   `<positive>`true`</positive>
+`   `<enforcing>`true`</enforcing>
+`   `<members>
+`     `<vm href=""/>
+`     `<vm href=""/>
+`   `</members>
+` `</affinity_group>
+
+</affinity_groups> /POST /api/clusters/{clsuter_id}/affinitygroups /DELETE, /PUT /api/clusters/{clsuter_id}/affinitygroups/{affinity_group_id}
 
 <Category:Feature> <Category:SLA>

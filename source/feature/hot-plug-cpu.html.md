@@ -38,17 +38,17 @@ this feature will enable this powerful use cases:
 
 ### changes
 
-| Component       | requirement                                                                                                                       | completed   |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------|-------------|
-| Engine          | UpdateVmCommand permits number of cpus change while VM is running                                                                 | 0           |
-| Engine          | UpdateVmCommand canDo fail if # of cpus is not supported on host (config value?, get the actual number from caps?)               | 0           |
-| Engine          | UpdateVmCommand send setNumberOfCpus verb when cpus changes                                                                       | 0           |
-| Engine          | UpdateVmCommand stores the new number of CPUs only if the call to setNumberOfCpus succeeded AND in a different db call            | 0           |
-| Engine - osinfo | create configuration for plug/unplug                                                                                              | 0           |
-| Engine          | create informative Audit log when setNumberOfCpus fails                                                                           | 0           |
-| VDSM            | create one new verb 'setNumberOfCpus'. it would be used for both plug/unplug cpus (its really "online" a cpu rather than hotplug) | patch ready |
-| VDSM            | in vm.py, bind the verb to an underling call to libvirt's setVcpus                                                                | patch ready |
-| VDSM            | call before/after hooks for plug/unplug to enable various method for onlining the CPU at the guest OS                             | 0           |
+| Component       | requirement                                                                                                                       | completed                                                    |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| Engine          | UpdateVmCommand permits number of cpus change while VM is running                                                                 | Done                                                         |
+| Engine          | UpdateVmCommand canDo fail if # of cpus is not supported on host (config value?, get the actual number from caps?)               | 0                                                            |
+| Engine          | UpdateVmCommand send setNumberOfCpus verb when cpus changes                                                                       | Done                                                         |
+| Engine          | UpdateVmCommand stores the new number of CPUs only if the call to setNumberOfCpus succeeded                                       | Done                                                         |
+| Engine - osinfo | create configuration for plug/unplug                                                                                              | not clear which OSs we block/allow - PPC is blocked entirely |
+| Engine          | create informative Audit log when setNumberOfCpus fails                                                                           | Done                                                         |
+| VDSM            | create one new verb 'setNumberOfCpus'. it would be used for both plug/unplug cpus (its really "online" a cpu rather than hotplug) | Done                                                         |
+| VDSM            | in vm.py, bind the verb to an underling call to libvirt's setVcpus                                                                | Done                                                         |
+| VDSM            | call before/after hooks for plug/unplug to enable various method for onlining the CPU at the guest OS                             | Done                                                         |
 
       === check list ===
 

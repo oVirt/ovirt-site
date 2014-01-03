@@ -41,8 +41,8 @@ For simplicity, we'd avoid introducing a 'label' entity. The label will be defin
 
 *   A new property 'label' will be added to the network: We start with a single label, and if needed we can extend label on network label to represent few labels.
 *   A new property 'labels' will be added to the host interface.
-    -   The property 'labels' represents the list of labels that the nic are marked with.
-    -   Labeling are permitting only for interfaces or bonds (no vlans/bridge labeling allowed).
+    -   The property 'labels' represents the list of labels that the NIC are marked with.
+    -   Labeling is allowed only for physical interfaces or bonds (VLANs/bridge labeling is not allowed).
 
 The labels represent a varied list of networks, depending on the network assignment to the cluster:
 \* The network is defined on the data-center level.
@@ -52,8 +52,8 @@ The labels represent a varied list of networks, depending on the network assignm
 **For example:**
 
        networks 'red' and 'blue' labelled 'lbl1'
-       network 'red' is assigned to cluster 'A' and 'B'. 
-       network 'blue' is assigned to cluster 'B'.
+       network 'red' is assigned to a cluster 'A' and 'B'. 
+       network 'blue' is assigned to a cluster 'B'.
        
 
 Therefore in the context of cluster 'A' label 'lbl1' represents only network 'red' and in the context of cluster 'B' it represents 'red' and 'blue'.
@@ -75,7 +75,7 @@ The network label should contain only numbers, digits, dash or underscore (compl
 #### Labeling a network or an interface
 
 When the host interface is the first to be labelled and later on a new network is labelled with the same label, the 'Assign Network to cluster' action will trigger the attachment of the network to all of the hosts carrying that label on one of their interfaces.
-When the network is labelled prior to labeling the the host interface, labeling the interface will be done as part of the 'Setup Networks' action. The 'Setup Networks' will be the responsible to translate the label into the appropriate list of networks it represents and to validate the correctness of the label.
+When the network is labelled prior to labeling the host interface, labeling the interface will be done as part of the 'Setup Networks' action. The 'Setup Networks' will be the responsible to translate the label into the appropriate list of networks it represents and to validate the correctness of the label.
 
 Defining a network label on network indicates the administrator enhances the usage of the network labels feature to apply a network to all of the hosts carrying the same label on their interfaces.
 Hence, no further indication is required add the network to all of the hosts (i.e. by property 'Apply to all hosts').

@@ -42,7 +42,7 @@ For simplicity, we'd avoid introducing a 'label' entity. The label will be defin
 *   A new property 'label' will be added to the network: We start with a single label, and if needed we can extend label on network label to represent few labels.
 *   A new property 'labels' will be added to the host interface.
     -   The property 'labels' represents the list of labels that the NIC are marked with.
-    -   Labeling is allowed only for physical interfaces or bonds (VLANs/bridge labeling is not allowed).
+    -   On **host** labeling is allowed only for physical interfaces or bonds (VLANs/bridge labeling is not allowed).
 
 The labels represent a varied list of networks, depending on the network assignment to the cluster:
 \* The network is defined on the data-center level.

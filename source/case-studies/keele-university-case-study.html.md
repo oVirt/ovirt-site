@@ -24,7 +24,7 @@ Their virtual infrastructure is typical of a university IT set-up. "Most of what
 
 The workloads they are running on the virtual machines are also very standard. "We run a good portion of our enterprise databases, active directory, file servers, web servers, and user accounts all to virtual infrastructure. We have 10,000 students, about 2,000 staff, and about 20,000 user accounts, for some reason. So all of those user accounts and files are on virtualized boxes," says Martin. "The majority of the servers are running Linux - mostly CentOS - and we have quite a few Windows servers also."
 
-## Favourite feaures and issues
+## Favourite features and issues
 
 One of the things which they are planning to roll out shortly is the user console, to allow staff to create and administer their own VMs on demand. "The user console looks great, because it means we can farm out some of the basic admin tasks to people who want to do things like spin up new VMs."
 

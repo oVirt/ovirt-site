@@ -42,4 +42,4 @@ SNMP parameters are configured in oVirt event notifier configuration file /etc/o
 SNMP_SERVER - IP address or DNS name of the SNMP service to receive SNMP traps sent from oVirt event notifier
 SNMP_PORT
 COMMUNITY_STRING
-OID [Default 1.3.6.1.4.1.2312.13.1.#]
+OID [Default 1.3.6.1.4.1.2312.13.1.#] (each event is sent with OID where # is event ID)

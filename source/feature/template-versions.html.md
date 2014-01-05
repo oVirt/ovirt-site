@@ -83,6 +83,20 @@ The most interesting use case is for VM-Pools, where vms are stateless.
 
 Details TBD
 
+### UI Mock-Ups
+
+*   templates grid view with versioned templates:
+
+![](Tm_vr_template.png "Tm_vr_template.png")
+
+*   new template dialog
+
+![](Tm_vr_create_template.png "Tm_vr_create_template.png")
+
+*   new vm dialog
+
+![](Tm_vr_new_vm.png "Tm_vr_new_vm.png")
+
 ### Testing
 
 *   Test case: **Create new version for template**

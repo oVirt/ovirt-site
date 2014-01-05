@@ -38,7 +38,7 @@ Allow oVirt users to monitor their virtualization environment with open source o
 
 This feature extends the capabilities of the event notifier to send all engine events and events' severity via SNMP traps.
 SNMP parameters are configured in oVirt event notifier configuration file /etc/ovirt-engine/notifier/notifier.conf
- New Parameters:
+ New parameters in configuration file:
 SNMP_SERVER - IP address or DNS name of the SNMP service to receive SNMP traps sent from oVirt event notifier
 SNMP_PORT
 COMMUNITY_STRING

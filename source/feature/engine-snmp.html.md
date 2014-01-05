@@ -14,8 +14,6 @@ wiki_last_updated: 2014-10-22
 
 Enable oVirt engine to send SNMP traps of to monitoring systems
 
-Add a link to the main feature page as well: [Your feature name](Your feature name)
-
 ### Owner
 
 *   Name: [Mooli Tayer](User:mtayer)

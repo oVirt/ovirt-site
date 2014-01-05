@@ -12,7 +12,7 @@ wiki_last_updated: 2014-10-22
 
 ### Summary
 
-Enable oVirt engine to send SNMP traps of to monitoring systems
+This feature extends events notifier capabilities and enables it to generate SNMP traps out of system events to integrate oVirt with generic monitoring systems.
 
 ### Owner
 

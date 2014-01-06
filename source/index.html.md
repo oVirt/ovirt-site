@@ -60,12 +60,23 @@ oVirt is powered by the Open Source you know - KVM on Linux.
 </div>
 <div class="row">
 <div class="span4 pad-left pad-right-small">
-### oVirt 3.3.1 released!
+### oVirt 3.3.2 released!
 
-oVirt version 3.3.1 was released on November 21st, 2013. This release is a significant feature and bug fix release in the 3.3 series, including tight integration with Gluster storage, improvements in extensibilityand automation, and integration with OpenStack services Glance and Neutron, improvements in network quotas, and a brand new scheduling API to allow tight control of VM deployment and lifecycle management.
+The oVirt development team is very happy to announce the general availability of oVirt 3.3.2 as of December 19th 2013. This release solidifies oVirt as a leading KVM management application and open source alternative to VMware vSphere.
+
+oVirt is available now for Fedora 19 and Red Hat Enterprise Linux 6.5 (or similar).
+
+This release of oVirt includes 175 bug fixes and the first release of the Backup and Restore API, which enables backup programs to integrate with oVirt. This release also simplifies the Guide Me VM-creation wizard. See the release notes [1] for a list of the new features and bugs fixed.
+
+IMPORTANT NOTE: If you're upgrading from a previous version, please update ovirt-release to the latest version (10) and verify you have the correct repositories enabled by running the following commands
+
+1.  yum update ovirt-release
+2.  yum repolist enabled
+
+before upgrading with the usual procedure. You should see the ovirt-3.3.2 and ovirt-stable repositories listed in the output of the repolist command.
 
 <div class="pull-right">
-[ Read the 3.3.1 release notes »](oVirt 3.3.1 release notes)
+[ Read the 3.3.2 release notes »](oVirt 3.3.2 release notes)
 
 </div>
 <div class="pull-right">

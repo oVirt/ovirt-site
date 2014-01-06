@@ -20,7 +20,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Upcoming meetings
 
-#### 2013-12-30
+#### 2014-01-13
 
 ###### Agenda
 
@@ -30,6 +30,12 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Other business?
 
 ## Past meetings
+
+#### 2014-01-06
+
+"[Minutes](http://ovirt.org/meetings/ovirt/2014/ovirt.2014-01-06-15.06.log.html)"
+
+*   Hosting
 
 #### 2013-12-23
 

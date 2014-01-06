@@ -233,11 +233,11 @@ If you do not wish to drop database and create it again, or you want do test the
 
 While <module> is webadmin or userportal-gwtp.
 
-Debug port is 8000, usage instructions are available at[https://developers.google.com/web-toolkit/doc/latest/DevGuideCompilingAndDebugging 1](https://developers.google.com/web-toolkit/doc/latest/DevGuideCompilingAndDebugging 1).
+Debug port is 8000, detailed instructions for GWT debugging are [here](http://wiki.ovirt.org/DebugFrontend).
 
-Common URLs, provided components running on same machine:
+GWT debug URLs, provided components running on same machine:
 
-:{| |- | WebAdmin || <http://127.0.0.1:8080/webadmin/webadmin/WebAdmin.html?gwt.codesvr=127.0.0.1:9997> |- | UserPortal || <http://127.0.0.1:8080/UserPortal/org.ovirt.engine.ui.userportal.UserPortal/UserPortal.html?gwt.codesvr=127.0.0.1:9997> |}
+:{| |- | WebAdmin || <http://127.0.0.1:8080/ovirt-engine/webadmin/WebAdmin.html?gwt.codesvr=127.0.0.1:9997> |- | UserPortal || <http://127.0.0.1:8080/ovirt-engine/userportal/UserPortal.html?gwt.codesvr=127.0.0.1:9997> |}
 
 ## Packaging
 

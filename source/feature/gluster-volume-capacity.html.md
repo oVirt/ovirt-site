@@ -23,7 +23,7 @@ A gluster storage administrator would like to view the capacity information (tot
 
 ## Detailed Description
 
-This feature enables the user to check the capacities of one/more volumes by clicking on "Capacity" menu in "Volumes" sub-tab.
+This feature helps the user to know the volume capacity information. Capacity information will be shown in the Volumes tab and it will be updated in the background by the Ovirt Engine.
 
 ## Dependencies / Related Features
 

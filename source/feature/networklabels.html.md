@@ -96,7 +96,7 @@ Changing a label of a network will remove it the network from all of the hosts w
 
 At the first step of the 'Setup Networks' parameters validation, a translation of the labels to a list of networks will be done.
 The translation will rely on the host interface's set of labels.
-'Setup Networks' api will support both labeling and attaching the networks to the interface/bond.
+'Setup Networks' API will support both labeling and attaching the networks to the interface/bond.
  Removing a labelled network from a labelled interface will be blocked, as labelled networks should be managed according to the interface label. In order to remove a network, the administrator should remove the label from the interface and manage the interface individually.
 
 #### Assigning Network to a Cluster
@@ -114,8 +114,8 @@ Moving host between cluster that supports 'network labels' to a cluster which do
 
 #### Network Label constraints
 
-The network labels feature relies on the 'Setup Networks' api to configure the networks on the hosts.
-There are certain configurations which aren't supported by the 'Setup Networks' api and defining the network label in that manner will fail the operation and will result in a useless label declaration. The following network configuration on a single interface are prohibited:
+The network labels feature relies on the 'Setup Networks' API to configure the networks on the hosts.
+There are certain configurations which aren't supported by the 'Setup Networks' API and defining the network label in that manner will fail the operation and will result in a useless label declaration. The following network configuration on a single interface are prohibited:
 
 1.  Any combination of 2 non-vlan networks:
     1.  2 VM networks
@@ -169,9 +169,9 @@ A representation of **labels** element:
 ` `</labels>
        
 
-###### Phase 2 (when UI will use the restapi)
+###### Phase 2 (when UI will use the RESTAPI)
 
-The user will be able to provide the list of labels per nic via as part of the setupnetworks api:
+The user will be able to provide the list of labels per nic via as part of the setupnetworks API:
 
 ` `*`/api/hosts/{host:id}/nics/setupnetworks`*
 

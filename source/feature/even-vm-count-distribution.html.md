@@ -39,18 +39,19 @@ This feature comes from customer request, so benefit to ovirt is a better custom
 
 pseudo code for the balance() method
 
-getVDSWithHighestVMCount():
+    getOverloadedVDS():
+      worstVDS = None
+      for vds in allVDS:
+        if vds.activeVMSCount() > MAX_VMS_COUNT AND (worstVDS == None OR vds.activeVMSCount() > worstVDS.activeVMSCount()):
+          worstVDS = vds
 
-       worstVDS = allVDS[0]
-       for vds in allVDS:
-         if vds.activeVMSCount() > MAX_VMS_COUNT AND vds.activeVMSCount() > worstVDS.activeVMSCount():
-           worstVDS = vds
-
-       return  worstVDS if @@TBD
-       
+      return  worstVDS  # returns None (null) if no VDS has above MAX_VMS_COUNT running vms
 
     balance():
-      worstVDS = getVDSWithHighestVMCount()
+      worstVDS = getOverloadedVDS()
+      if worstVDS == None:  # nothing to balance
+         return None
+
       possibleTargets = [ vds for vds in allVDS if worstVDS() - vds.activeVMCount() > 2 ]
 
       return (possibleTargets, vmToMigrate)

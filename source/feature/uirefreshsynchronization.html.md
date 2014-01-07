@@ -21,9 +21,9 @@ Solve UI consistency issues related to the UI not being updated when certain act
 
 ### Current status
 
-*   **Complete**: Solution implementation in initial stages, dependent on merge of [Features/Design/FrontendRefactor](Features/Design/FrontendRefactor)
+*   **Complete**: Solution implementation merged into master
 *   **Complete**: Identify existing issues
-*   In progress: Design solution based on the existing issues and proposed solutions.
+*   **Complete**: Design solution based on the existing issues and proposed solutions.
 
 # Existing problems
 

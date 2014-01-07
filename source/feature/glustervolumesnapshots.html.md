@@ -88,7 +88,9 @@ If user opts for creation of snapshot for the individual volume another dialog p
 
 ![](CreateVolumeSnapshot1.png "CreateVolumeSnapshot1.png")
 
-![](Create "Create")
+If the user opts for snapshot creation as group, then a dialog pops asking for Snapshot Group Name and Snapshot Name. User provides the required details and snapshot creation is triggered,
+
+![](CreateCGSnapshot1.png "CreateCGSnapshot1.png")
 
 *   User
 

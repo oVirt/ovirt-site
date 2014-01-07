@@ -94,7 +94,7 @@ If the user opts for snapshot creation as group, then a dialog pops asking for S
 
 *   User does not select a volume from the volume list table and clicks the menu option "Volume Snapshot --> Create Snapshot". In this scenario a multi tabbed dialog pops up with lists of snapshot groups and individual volumes in two separate tabs. User can select a snapshot group or individual volume and create a snapshot.
 
-![](CreateSnapshot.png "CreateSnapshot.png")
+![](CreateSnapshot.png "fig:CreateSnapshot.png") ![](CreateSnapshot1.png "fig:CreateSnapshot1.png")
 
 <big>2. Restore a Snapshot</big>
 

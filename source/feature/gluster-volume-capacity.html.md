@@ -6,8 +6,6 @@ wiki_category: Feature
 wiki_title: Features/Gluster Volume Capacity
 wiki_revision_count: 26
 wiki_last_updated: 2014-12-22
-wiki_conversion_fallback: true
-wiki_warnings: conversion-fallback
 ---
 
 # Gluster Volume Capacity
@@ -33,7 +31,7 @@ This feature helps the user to know the volume capacity information. Capacity in
 
 To view Gluster Volume Capacity, User goes to "Volumes" tab where capacity information will be displayed as part of each volume row. A new column 'Capacity' will be shown just before the 'Activities' column. Capacity information will be shown as graphic with total space available and percentage of usage ,etc.
 
-![File:VolumeCapacity.png](VolumeCapacity.png "File:VolumeCapacity.png")
+![](VolumeCapacity.png "VolumeCapacity.png")
 
 ## Getting the volume capacity details
 
@@ -57,7 +55,7 @@ In this approach VDSM needs to collate the details from advanced details of the 
 
 #### Gluster_Volumes
 
-      Following three columns will be added to gluster_volumes table.
+       Following three columns will be added to gluster_volumes table.
 
 | Column    | Type | Description       |
 |-----------|------|-------------------|
@@ -67,56 +65,16 @@ In this approach VDSM needs to collate the details from advanced details of the 
 
 #### GlusterVolumeSizeInfo
 
-      A new entity GlusterVolumeSizeInfo will be added to GlusterVolumeEntity. 
+       A new entity GlusterVolumeSizeInfo will be added to GlusterVolumeEntity. 
 
-<table>
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Column</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">volumeId</td>
-<td align="left">GUID</td>
-<td align="left">respective gluster volume id</td>
-</tr>
-<tr class="even">
-<td align="left">volumeName</td>
-<td align="left">String</td>
-<td align="left">Volume Name</td>
-</tr>
-<tr class="odd">
-<td align="left">totalSize</td>
-<td align="left">long</td>
-<td align="left">total volume size</td>
-</tr>
-<tr class="even">
-<td align="left">freeSize</td>
-<td align="left">long</td>
-<td align="left">free volume size</td>
-</tr>
-<tr class="odd">
-<td align="left">usedSize</td>
-<td align="left">long</td>
-<td align="left">used volume size</td>
-</tr>
-<tr class="even">
-<td align="left">updatedAt</td>
-<td align="left">Date</td>
-<td align="left"></td>
-</tr>
-</tbody>
-</table>
-
-Capacity Info Lasted updated at
+| Column     | Type   | Description                     |
+|------------|--------|---------------------------------|
+| volumeId   | GUID   | respective gluster volume id    |
+| volumeName | String | Volume Name                     |
+| totalSize  | long   | total volume size               |
+| freeSize   | long   | free volume size                |
+| usedSize   | long   | used volume size                |
+| updatedAt  | Date   | Capacity Info Lasted updated at |
 
 ### Query
 
@@ -128,9 +86,7 @@ Makes a call to Gluster and get the volume capacity details. The details are ret
 
 *   Add statistics GET action on the gluster volume resource
 
-<!-- -->
-
-     /api/clusters/{cluster-id}/glustervolumes/{volume-id}/statistics
+      /api/clusters/{cluster-id}/glustervolumes/{volume-id}/statistics
 
 This will return the volume capacity details. The details listed under volume capacity details would be -
 
@@ -140,26 +96,43 @@ This will return the volume capacity details. The details listed under volume ca
 
 The output format would look like -
 
-            memory.total.size
-            Total size
+    <statistics>
+        <statistic id="{id}">
+            <name>memory.total.size</name>
+            <description>Total size</description>
+            <values type="INTEGER">
+                <value>
+                    <datum>{value}</datum>
+                </value>
+            </values>
+            <type>GAUGE</type>
+            <unit>BYTES</unit>
+            <gluster_volume href="/ovirt-engine/api/clusters/{cluster-id}/glustervolumes/{volume-id}" id="{volume-id}"/>
+        </statistic>
+        <statistic id="{id}">
+            <name>memory.free.size</name>
+            <description>Free size</description>
+            <values type="INTEGER">
+                <value>
+                    <datum>{value}</datum>
+                </value>
+            </values>
+            <type>GAUGE</type>
+            <unit>BYTES</unit>
+            <gluster_volume href="/ovirt-engine/api/clusters/{cluster-id}/glustervolumes/{volume-id}" id="{volume-id}"/>
+        </statistic>
+        <statistic id="{id}">
+            <name>memory.used.size</name>
+            <description>Used size</description>
+            <values type="INTEGER">
+                <value>
+                    <datum>{value}</datum>
+                </value>
+            </values>
+            <type>GAUGE</type>
+            <unit>BYTES</unit>
+            <gluster_volume href="/ovirt-engine/api/clusters/{cluster-id}/glustervolumes/{volume-id}" id="{volume-id}"/>
+        </statistic>
+    </statistics> 
 
-                    {value}
-
-            GAUGE
-            BYTES
-
-            memory.free.size
-            Free size
-
-                    {value}
-
-            GAUGE
-            BYTES
-
-            memory.used.size
-            Used size
-
-                    {value}
-
-            GAUGE
-            BYTES
+<Category:Feature>

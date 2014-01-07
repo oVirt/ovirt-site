@@ -96,6 +96,8 @@ If the user opts for snapshot creation as group, then a dialog pops asking for S
 
 ![](CreateSnapshot.png "fig:CreateSnapshot.png") ![](CreateSnapshot1.png "fig:CreateSnapshot1.png")
 
+Based on option selected by user for creation of snapshot above mentioned dialogs pop asking for snapshot name and then trigger the snapshot creation.
+
 <big>2. Restore a Snapshot</big>
 
 Without selecting a volume from the list, if the user clicks the action "Volume Snapshot --> Restore", the Restore Snapshot dialog opens. User can select a consistency group or volume and all the snaps of the same get listed in a table. User can select the snap he/she wants to restore to and click the button "OK". User is prompted for a confirmation for restore and then restore is triggered.

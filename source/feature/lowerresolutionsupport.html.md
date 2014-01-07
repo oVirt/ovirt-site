@@ -43,6 +43,48 @@ In addition to this the action button bar does the same thing, as illustrated he
 
 ### Scrollable Tab bar
 
+The standard solution for many applications that have tabs that if there is not enough space to hold all the tabs is to introduce the ability to scroll the tabs left or right. Aside from the scrolling buttons there is usually also a menu drop down that lists all the tabs for easy access to all the different tabs without the need to scroll. Our UIX designer created the following mockup as the base of the design.
+
 ![](dropdown_design.png "dropdown_design.png")
+
+Once this is implemented the following will happen when there is not enough room to hold all the tabs (for instance at 1024x768 resolutions).
+
+*   A left scroll button will appear
+    -   The button will be enabled if there are tabs that can be visible on the left but are not visible.
+*   A right scroll button will appear.
+    -   The button will be enabled if there are tabs that can be visible on the right but are not visible.
+*   A drop down button will appear.
+    -   Clicking the dropdown will show you a menu with **all** the tab names, clicking an item in the menu will take you to the associated tab.
+
+### Cascading tool bar
+
+![](cascade_action.png "cascade_action.png")
+
+for qa: need to test the following scenarios:
+
+* low resolutions (e.g. 1024x768) - non-maximized window size - left-pane width is significantly extended [bug 755550] -> main-tabs view width is significantly narrowed down
+
+need to verify that:
+
+(1) when main tab panel doesn't have enough real-estate to be fully displayed:
+
+       * left/right navigation arrows appear in the main tab panel and behave correctly. 
+       * tabs-navigation-drop-down-button appears in the main tab panel and behaves correctly
+
+[behavior should be similar to the behavior of Firefox browser when there are a lot of opened tabs in it] make sure to test interesting scenarios, which include a lot of main-tabs that are displayed:
+
+       * 'System' left-pane-tree-node selected
+       * a specific Data-Center left-pane-tree-node is selected
+       * RHEV Reports is installed (i.e. Dashboard main tab is displayed)
+       * RHEV ui-plugin(s) that are adding main tab(s) are installed.
+       * etc.
+
+(2) when any sub-tab panel doesn't have enough real estate to be fully displayed: behavior should be similar to the one described in (1) above. Make sure to test a case of many sub-tabs using the ui-plugins mechanism.
+
+(3) when any action-button-panel (either in main tab or in sub-tab) doesn't have enough real estate to be fully displayed: an action-navigation-drop-down button appears and behaves correctly. Make sure to test interesting scenarios: Tabs with many built-in buttons (e.g. VMs main tab), tab with a lot of actions added via the ui plugins infrastructure, etc.
+
+*   -   (3) is relevant for the power user portal as well \*\*
+
+all other things (e.g. dialogs, etc.) were not treated in the context of this BZ and should not be tested. Please look for existing BZs (e.g. bug 871420 for dialogs) or open new BZs for other issues.
 
 <Category:Feature>

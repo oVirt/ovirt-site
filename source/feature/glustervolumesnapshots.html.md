@@ -76,7 +76,7 @@ There are three scenarios for creation of snapshot
 
 If user confirms the snapshot creation, a dialog would pop up and asks for the snap name and optional description for creation of the snapshot.
 
-![](CreateCGSanpshot.png "CreateCGSanpshot.png")
+![](CreateCGSnapshot.png "CreateCGSnapshot.png")
 
 User provides the required details clicks the button "OK" and snapshot creation gets triggered.
 

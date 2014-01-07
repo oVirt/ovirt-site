@@ -64,6 +64,15 @@ Help [ port oVirt](porting oVirt) to [Debian](http://www.debian.org), [Ubuntu](h
 <div class="span10 offset1">
 ### Quickstart guide
 
+<div class="alert alert-info">
+IMPORTANT NOTE: If you're upgrading from a previous version, please update ovirt-release to the latest version (10) and verify you have the correct repositories enabled by running the following commands
+
+1.  yum update ovirt-release
+2.  yum repolist enabled
+
+before upgrading with the usual procedure. You should see the ovirt-3.3.2 and ovirt-stable repositories listed in the output of the repolist command.
+
+</div>
 Our recommended method of installing oVirt is to use the pre-built packages for Fedora or an EL6 distribution. It makes installing oVirt very easy. Naturally, you can run any Linux distribution or several other operating systems (e.g. Windows) as guests inside of oVirt instances.
 
 If you are looking to preview the project without permanently dedicating a machine, you can also try the LiveCD image. This image will appear under the [tools](http://resources.ovirt.org/releases/stable/tools) directory. This generally appears a week or two after a release, due to the need to have final release packages available.

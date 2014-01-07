@@ -55,7 +55,7 @@ In this approach VDSM needs to collate the details from advanced details of the 
 
 #### Gluster_Volumes
 
-       Following three columns will be added to gluster_volumes table.
+Following three columns will be added to gluster_volumes table.
 
 | Column    | Type | Description       |
 |-----------|------|-------------------|

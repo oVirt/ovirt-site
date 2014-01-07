@@ -128,6 +128,8 @@ A new action group "Volume Snapshot" would be introduced under actions for a vol
 *   Create Snapshot
 *   Restore
 
+[VolumeList.png](VolumeList.png)
+
 #### Sub-tab "Volumes --> Snapshot"
 
 This sub-tab under the main tab Volumes lists the snapshots created for individual volumes. This is same as the above mentioned sub-tab Snapshots under Consistency Group. It lists the same details and supports the same set of actions.

@@ -41,12 +41,12 @@ The cluster is considered unbalanced if there is VDS with more than MAX_VMS_COUN
 
 ![](balancing-after2iter.png "balancing-after2iter.png")
 
-#### 1. iteration:
+#### 1. iteration
 
 1.  VM1 moved from VDS1 to VDS3 (there is no special logic involved in selecting the VDS, so even though VDS5 is also a good target we simply take whatever comes first)
 2.  The balance window top moved from 12 to 11 and minimum is now 7
 
-#### 2. iteration:
+#### 2. iteration
 
 1.  VM2 moved to VDS5 (the only possible target, because it's the only one outside of the balancing window)
 2.  The balancing window top moved from 11 to 10 and the minimum is now 6 which means the cluster is balanced because every VDS has VM count inside the balancing window

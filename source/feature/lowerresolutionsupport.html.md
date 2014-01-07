@@ -58,33 +58,80 @@ Once this is implemented the following will happen when there is not enough room
 
 ### Cascading tool bar
 
-![](cascade_action.png "cascade_action.png")
+The standard way of handling too many items on a menu bar is to have them cascade off the right side of the toolbar and show up in a drop down menu. Only the items that cannot be shown in the tool bar show up in the menu. This is illustrated in the following screenshot: ![](cascade_action.png "fig:cascade_action.png")
 
-for qa: need to test the following scenarios:
+# Testing
 
-* low resolutions (e.g. 1024x768) - non-maximized window size - left-pane width is significantly extended [bug 755550] -> main-tabs view width is significantly narrowed down
+### low resolutions (e.g. 1024x768)
 
-need to verify that:
+Verify the following for low resolutions:
 
-(1) when main tab panel doesn't have enough real-estate to be fully displayed:
+1.  when main tab panel doesn't have enough real-estate to be fully displayed:
+    -   left/right navigation arrows appear in the main tab panel and behave correctly.
+    -   tabs-navigation-drop-down-button appears in the main tab panel and behaves correctly [behavior should be similar to the behavior of Firefox browser when there are a lot of opened tabs in it]
 
-       * left/right navigation arrows appear in the main tab panel and behave correctly. 
-       * tabs-navigation-drop-down-button appears in the main tab panel and behaves correctly
+2.  make sure to test interesting scenarios, which include a lot of main-tabs that are displayed:
+    -   'System' left-pane-tree-node selected
+    -   a specific Data-Center left-pane-tree-node is selected
+    -   RHEV Reports is installed (i.e. Dashboard main tab is displayed)
+    -   RHEV ui-plugin(s) that are adding main tab(s) are installed.
 
-[behavior should be similar to the behavior of Firefox browser when there are a lot of opened tabs in it] make sure to test interesting scenarios, which include a lot of main-tabs that are displayed:
+3.  when any sub-tab panel doesn't have enough real estate to be fully displayed: behavior should be similar to the one described in (1) above.
+    -   Make sure to test a case of many sub-tabs using the ui-plugins mechanism.
 
-       * 'System' left-pane-tree-node selected
-       * a specific Data-Center left-pane-tree-node is selected
-       * RHEV Reports is installed (i.e. Dashboard main tab is displayed)
-       * RHEV ui-plugin(s) that are adding main tab(s) are installed.
-       * etc.
+4.  when any action button bar (either in main tab or in sub-tab) doesn't have enough real estate to be fully displayed:
+    -   an action navigation drop down button appears and
+        -   When clicked opens up a menu containing just the items that are no longer on the action bar.
+    -   Make sure to test interesting scenarios: Tabs with many built-in buttons (e.g. VMs main tab), tab with a lot of actions added via the ui plugins infrastructure, etc.
 
-(2) when any sub-tab panel doesn't have enough real estate to be fully displayed: behavior should be similar to the one described in (1) above. Make sure to test a case of many sub-tabs using the ui-plugins mechanism.
+(4) is relevant for the power user portal as well, make sure that the action button bar properly shows the drop down when not enough room is available.
 
-(3) when any action-button-panel (either in main tab or in sub-tab) doesn't have enough real estate to be fully displayed: an action-navigation-drop-down button appears and behaves correctly. Make sure to test interesting scenarios: Tabs with many built-in buttons (e.g. VMs main tab), tab with a lot of actions added via the ui plugins infrastructure, etc.
+### non-maximized window size
 
-*   -   (3) is relevant for the power user portal as well \*\*
+Verify the following for non-maximized window size:
 
-all other things (e.g. dialogs, etc.) were not treated in the context of this BZ and should not be tested. Please look for existing BZs (e.g. bug 871420 for dialogs) or open new BZs for other issues.
+1.  when main tab panel doesn't have enough real-estate to be fully displayed:
+    -   left/right navigation arrows appear in the main tab panel and behave correctly.
+    -   tabs-navigation-drop-down-button appears in the main tab panel and behaves correctly [behavior should be similar to the behavior of Firefox browser when there are a lot of opened tabs in it]
+
+2.  make sure to test interesting scenarios, which include a lot of main-tabs that are displayed:
+    -   'System' left-pane-tree-node selected
+    -   a specific Data-Center left-pane-tree-node is selected
+    -   RHEV Reports is installed (i.e. Dashboard main tab is displayed)
+    -   RHEV ui-plugin(s) that are adding main tab(s) are installed.
+
+3.  when any sub-tab panel doesn't have enough real estate to be fully displayed: behavior should be similar to the one described in (1) above.
+    -   Make sure to test a case of many sub-tabs using the ui-plugins mechanism.
+
+4.  when any action button bar (either in main tab or in sub-tab) doesn't have enough real estate to be fully displayed:
+    -   an action navigation drop down button appears and
+        -   When clicked opens up a menu containing just the items that are no longer on the action bar.
+    -   Make sure to test interesting scenarios: Tabs with many built-in buttons (e.g. VMs main tab), tab with a lot of actions added via the ui plugins infrastructure, etc.
+
+(4) is relevant for the power user portal as well, make sure that the action button bar properly shows the drop down when not enough room is available.
+
+### left-pane width is significantly extended -> main-tabs view width is significantly narrowed down
+
+Verify the following for wide left panes.
+
+1.  when main tab panel doesn't have enough real-estate to be fully displayed:
+    -   left/right navigation arrows appear in the main tab panel and behave correctly.
+    -   tabs-navigation-drop-down-button appears in the main tab panel and behaves correctly [behavior should be similar to the behavior of Firefox browser when there are a lot of opened tabs in it]
+
+2.  make sure to test interesting scenarios, which include a lot of main-tabs that are displayed:
+    -   'System' left-pane-tree-node selected
+    -   a specific Data-Center left-pane-tree-node is selected
+    -   RHEV Reports is installed (i.e. Dashboard main tab is displayed)
+    -   RHEV ui-plugin(s) that are adding main tab(s) are installed.
+
+3.  when any sub-tab panel doesn't have enough real estate to be fully displayed: behavior should be similar to the one described in (1) above.
+    -   Make sure to test a case of many sub-tabs using the ui-plugins mechanism.
+
+4.  when any action button bar (either in main tab or in sub-tab) doesn't have enough real estate to be fully displayed:
+    -   an action navigation drop down button appears and
+        -   When clicked opens up a menu containing just the items that are no longer on the action bar.
+    -   Make sure to test interesting scenarios: Tabs with many built-in buttons (e.g. VMs main tab), tab with a lot of actions added via the ui plugins infrastructure, etc.
+
+(4) is relevant for the power user portal as well, make sure that the action button bar properly shows the drop down when not enough room is available.
 
 <Category:Feature>

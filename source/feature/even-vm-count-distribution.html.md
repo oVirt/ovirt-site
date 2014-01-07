@@ -43,7 +43,7 @@ The cluster is considered unbalanced if there is VDS with more than MAX_VMS_COUN
 
 #### 1. iteration
 
-1.  VM1 moved from VDS1 to VDS3 (there is no special logic involved in selecting the VDS, so even though VDS5 is also a good target we simply take whatever comes first)
+1.  VM1 moved from VDS1 to VDS3 (to make the example simple, there is no special logic involved in selecting the VDS, so even though VDS5 is also a good target we simply take whatever comes first, but the target VDS should and will be selected by the scoring mechanism based on the count of running VMs on the VDS)
 2.  The balance window top moved from 12 to 11 and minimum is now 7
 
 #### 2. iteration

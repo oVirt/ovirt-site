@@ -23,7 +23,7 @@ A gluster storage administrator would like to view the capacity information (tot
 
 ## Detailed Description
 
-This feature helps the user to know the volume capacity information. Capacity information will be shown in the Volumes tab and it will be updated in the background by the Ovirt Engine.
+This feature helps the user to know the volume capacity information. Capacity information will be shown in the Volumes tab and it will be updated in background by the Ovirt Engine.
 
 ## Dependencies / Related Features
 

@@ -130,9 +130,15 @@ A new action group "Volume Snapshot" would be introduced under actions for a vol
 
 ![](VolumeList.png "VolumeList.png")
 
-On click of the action "Create Snapshot" a the create snapshot dialog opens. User can snap the individual consistency groups and volumes using the dialog by selecting them clicking the button "Snap". User can also create a fresh consistency group and snap it using this dialog by selecting multiple volumes from the list and clicking the button "Snap as Consistency Group".
+1. Create Snapshot Without selecting a volume from the list, if user clicks the action "Create Snapshot", the create snapshot dialog opens. User can snap the individual consistency groups and volumes using the dialog by selecting them clicking the button "Snap". User can also create a fresh consistency group and snap it using this dialog by selecting multiple volumes from the list and clicking the button "Snap as Consistency Group".
 
 ![](CreateSnap.png "CreateSnap.png")
+
+If user selects an individual volume from the list and clicks the menu option "Volume Snapshot --> Create Snapshot" the snapshot creation is triggered without opening a dialog. Similarly if a volume is selected from the table which is part of consistency group and clicks the menu option "Volume Snapshot --> Create Snapshot", a confirmation dialog stating "Volume [Volume Name] is part of a consistency group. Do you want to take snapshot for the consistency group?" asks for the confirmation of taking a snap of the consistency group it belongs to. If user selects to create the snapshot, it is triggered accordingly.
+
+![](CreateCGSnapConfirmation.png "CreateCGSnapConfirmation.png")
+
+2. Restore a Snapshot
 
 #### Sub-tab "Volumes --> Snapshot"
 

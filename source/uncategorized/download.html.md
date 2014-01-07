@@ -67,8 +67,8 @@ Help [ port oVirt](porting oVirt) to [Debian](http://www.debian.org), [Ubuntu](h
 <div class="alert alert-info">
 IMPORTANT NOTE: If you're upgrading from a previous version, please update ovirt-release to the latest version (10) and verify you have the correct repositories enabled by running the following commands
 
-1.  yum update ovirt-release
-2.  yum repolist enabled
+    # yum update ovirt-release
+    # yum repolist enabled
 
 before upgrading with the usual procedure. You should see the ovirt-3.3.2 and ovirt-stable repositories listed in the output of the repolist command.
 

@@ -66,7 +66,29 @@ A new action group "Volume Snapshot" would be introduced under actions for a vol
 
 ![](VolumeList.png "VolumeList.png")
 
-<big>1. Create Snapshot</big>
+<big>1. Creating a snapshot</big>
+
+There are three scenarios for creation of snapshot
+
+*   User select a volume from the volume list table which part of a snapshot group and clicks the menu option "Volume Snapshot --> Create Snapshot". In this scenario first a confirmation dialog would be popped saying that volume is part of a snapshot group and does user want to continue.
+
+![](CreateCGSnapConfirmation.png "CreateCGSnapConfirmation.png")
+
+If user confirms the snapshot creation, a dialog would pop up and asks for the snap name and optional description for creation of the snapshot.
+
+![](CreateCGSanpshot.png "CreateCGSanpshot.png")
+
+User provides the required details clicks the button "OK" and snapshot creation gets triggered.
+
+*   User selects an individual volume and click the menu option "Volume Snapshot --> Create Snapshot". In this scenario a dialog pops up listing of all the individual volumes with selected volume auto checked in the list. User has option to creating the snapshot of the selected volume as an individual by clicking the button "Create Snapshot". If the user wants to create snapshot of the selected volume with other volumes as snapshot group, he/she can click the button "Create Snapshot as group". In this scenario a fresh snapshot group would be formed and snapshot would be created for the group.
+
+![](CreateVolumeSnapshot.png "CreateVolumeSnapshot.png")
+
+If user opts for creation of snapshot for the individual volume another dialog pops asking for the snapshot name and triggers the creation of snapshot.
+
+![](Create "Create")
+
+*   User
 
 Without selecting a volume from the list, if user clicks the action "Create Snapshot", the create snapshot dialog opens. User can snap the individual consistency groups and volumes using the dialog by selecting them clicking the button "Snap". User can also create a fresh consistency group and snap it using this dialog by selecting multiple volumes from the list and clicking the button "Snap as Consistency Group".
 

@@ -121,7 +121,7 @@ Actions supported for this sub-tab are -
 
 ![](SnapsList1.png "SnapsList1.png")
 
-#### Main tab Volumes
+#### Main tab "Volumes"
 
 A new action group "Volume Snapshot" would be introduced under actions for a volume as a drop down. The set of actions under this action group would be -
 

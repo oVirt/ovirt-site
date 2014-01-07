@@ -65,7 +65,7 @@ Following three columns will be added to gluster_volumes table.
 
 #### GlusterVolumeSizeInfo
 
-       A new entity GlusterVolumeSizeInfo will be added to GlusterVolumeEntity. 
+A new entity GlusterVolumeSizeInfo will be added to GlusterVolumeEntity.
 
 | Column     | Type   | Description                     |
 |------------|--------|---------------------------------|

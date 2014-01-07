@@ -31,7 +31,7 @@ This feature helps the user to know the volume capacity information. Capacity in
 
 To view Gluster Volume Capacity, User goes to "Volumes" tab where capacity information will be displayed as part of each volume row. A new column 'Capacity' will be shown just before the 'Activities' column. Capacity information will be shown as graphic with total space available and percentage of usage ,etc.
 
-![](VolumeCapacity.jpg "VolumeCapacity.jpg")
+![](VolumeCapacity.png "VolumeCapacity.png")
 
 ## Getting the volume capacity details
 

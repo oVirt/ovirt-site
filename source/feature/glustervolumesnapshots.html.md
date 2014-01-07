@@ -148,6 +148,8 @@ Without selecting a volume from the list, if the user clicks the action "Volume 
 
 If the user selects an individual volume from the list and clicks the menu "Volume Snapshots --> Restore", the above dialog pops up with volume name auto populated and disabled. User can select a snap to restore to and clock "OK". If the user selects a volume which is part of a consistency group and clicks the menu option "Volume Snapshots --> Restore", the Restore snapshot dialog opens with name of consistency group already populated and disabled. User can select the snap to restore to and click "OK". User is prompted for a confirmation for restore and then restore is triggered.
 
+![](RestoreSnapConfirmation.png "RestoreSnapConfirmation.png")
+
 #### Sub-tab "Volumes --> Snapshot"
 
 This sub-tab under the main tab Volumes lists the snapshots created for individual volumes. The set of supported actions are -

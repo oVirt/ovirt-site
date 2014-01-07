@@ -35,7 +35,7 @@ To view Gluster Volume Capacity, User goes to "Volumes" tab where capacity infor
 
 ## Getting the volume capacity details
 
-The possibility for determining the volume capacity details are as below -
+      Volume capacity information will be fetched by GlusterSyncJob as part of getting Volume advanced details. 'glusterVolumeStatus' VDSM verb will be enhanced to get the capacity information as part of volume status. Capacity information will be fetched when 'detail' options is passed. Internally VDSM can use any of the following ways to determine the capacity information.
 
 ### Using libgfapi
 

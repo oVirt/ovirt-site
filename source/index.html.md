@@ -68,13 +68,6 @@ oVirt is available now for Fedora 19 and Red Hat Enterprise Linux 6.5 (or simila
 
 This release of oVirt includes 175 bug fixes and the first release of the Backup and Restore API, which enables backup programs to integrate with oVirt. This release also simplifies the Guide Me VM-creation wizard. See the release notes [1] for a list of the new features and bugs fixed.
 
-IMPORTANT NOTE: If you're upgrading from a previous version, please update ovirt-release to the latest version (10) and verify you have the correct repositories enabled by running the following commands
-
-1.  yum update ovirt-release
-2.  yum repolist enabled
-
-before upgrading with the usual procedure. You should see the ovirt-3.3.2 and ovirt-stable repositories listed in the output of the repolist command.
-
 <div class="pull-right">
 [ Read the 3.3.2 release notes »](oVirt 3.3.2 release notes)
 

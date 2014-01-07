@@ -25,7 +25,17 @@ The goal of this feature is to provide a cluster policy that evenly distributes 
 
 ### Detailed Description
 
-![|Unbalanced cluster](balancing-before.png "fig:|Unbalanced cluster") **Unbalanced cluster** ![](balancing-after1iter.png "fig:balancing-after1iter.png") **Cluster after 1 balancing iteration** ![](balancing-after2iter.png "fig:balancing-after2iter.png") **Cluster after 2 balancing iterations**
+**Unbalanced cluster**
+
+![|Unbalanced cluster](balancing-before.png "|Unbalanced cluster")
+
+**Cluster after 1 balancing iteration**
+
+![](balancing-after1iter.png "balancing-after1iter.png")
+
+**Cluster after 2 balancing iterations**
+
+![](balancing-after2iter.png "balancing-after2iter.png")
 
 # 1. iteration:
 

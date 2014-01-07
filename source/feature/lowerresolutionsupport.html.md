@@ -31,6 +31,10 @@ The web admin interface and to some degree also the user portal interface are no
 
 Currently in the web admin when the resolution is too low to hold all the tabs, the tabs wrap onto the next line and overlap the action bar. This is illustrated here: ![](overlap_tab_highlight.png "fig:overlap_tab_highlight.png")
 
+The same thing happens to any sub tabs that have a tab bar. This is illustrated here: ![](overlap_sub_tab.png "fig:overlap_sub_tab.png")
+
+### Grid action bar wraps when the resolution is low
+
 In addition to this the action button bar does the same thing, as illustrated here: ![](overlap_action_highlight.png "fig:overlap_action_highlight.png")
 
 <Category:Feature>

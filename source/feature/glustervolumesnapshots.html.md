@@ -130,9 +130,7 @@ A new action group "Volume Snapshot" would be introduced under actions for a vol
 
 ![](VolumeList.png "VolumeList.png")
 
-<big>1. Create Snapshot</big>
-
-Without selecting a volume from the list, if user clicks the action "Create Snapshot", the create snapshot dialog opens. User can snap the individual consistency groups and volumes using the dialog by selecting them clicking the button "Snap". User can also create a fresh consistency group and snap it using this dialog by selecting multiple volumes from the list and clicking the button "Snap as Consistency Group".
+<big>1. Create Snapshot</big> Without selecting a volume from the list, if user clicks the action "Create Snapshot", the create snapshot dialog opens. User can snap the individual consistency groups and volumes using the dialog by selecting them clicking the button "Snap". User can also create a fresh consistency group and snap it using this dialog by selecting multiple volumes from the list and clicking the button "Snap as Consistency Group".
 
 ![](CreateSnap.png "CreateSnap.png")
 
@@ -140,7 +138,11 @@ If user selects an individual volume from the list and clicks the menu option "V
 
 ![](CreateCGSnapConfirmation.png "CreateCGSnapConfirmation.png")
 
-<big>2. Restore a Snapshot</big>
+<big>2. Restore a Snapshot</big> Without selecting a volume from the list, if the user clicks the action "Volume Snapshot --> Restore", the Restore Snapshot dialog opens. User can select a consistency group or volume and all the snaps of the same get listed in a table. User can select the snap he/she wants to restore to and click the button "OK". User is prompted for a confirmation for restore and then restore is triggered.
+
+![](RestoreSnap.png "RestoreSnap.png")
+
+If the user selects an individual volume from the list and clicks the menu "Volume Snapshots --> Restore", the above dialog pops up with volume name auto populated and disabled. User can select a snap to restore to and clock "OK". If the user selects a volume which is part of a consistency group and clicks the menu option "Volume Snapshots --> Restore"
 
 #### Sub-tab "Volumes --> Snapshot"
 

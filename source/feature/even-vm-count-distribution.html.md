@@ -52,7 +52,7 @@ pseudo code for the balance() method
       if worstVDS == None:  # nothing to balance
          return None
 
-      possibleTargets = [ vds for vds in allVDS if worstVDS() - vds.activeVMCount() > 2 ]
+      possibleTargets = [ vds for vds in allVDS if worstVDS() - vds.activeVMCount() > BALANCE_WINDOW_WIDTH ]
 
       return (possibleTargets, vmToMigrate)
 

@@ -136,7 +136,12 @@ On click of the action "Create Snapshot" a the create snapshot dialog opens. Use
 
 #### Sub-tab "Volumes --> Snapshot"
 
-This sub-tab under the main tab Volumes lists the snapshots created for individual volumes. This is same as the above mentioned sub-tab Snapshots under Consistency Group. It lists the same details and supports the same set of actions.
+This sub-tab under the main tab Volumes lists the snapshots created for individual volumes. The set of supported actions are -
+
+*   Restore
+*   Remove
+
+![](VolumeSnapsList.png "VolumeSnapsList.png")
 
 ### Limitations
 

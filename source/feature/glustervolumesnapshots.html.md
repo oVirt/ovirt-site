@@ -159,6 +159,8 @@ This sub-tab under the main tab Volumes lists the snapshots created for individu
 
 ![](VolumeSnapsList.png "VolumeSnapsList.png")
 
+While Restore action, the user is asked for confirmation and the action is triggered. Similarly while Remove action, user is asked for a confirmation and if user opts for deletion the action is triggered.
+
 ### Limitations
 
 NA

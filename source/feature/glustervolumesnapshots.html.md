@@ -128,7 +128,7 @@ A new action group "Volume Snapshot" would be introduced under actions for a vol
 *   Create Snapshot
 *   Restore
 
-[VolumeList.png](VolumeList.png)
+![](VolumeList.png "VolumeList.png")
 
 #### Sub-tab "Volumes --> Snapshot"
 

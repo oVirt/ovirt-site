@@ -29,7 +29,9 @@ This feature helps the user to know the volume capacity information. Capacity in
 
 ## User Flows
 
-To view Gluster Volume Capacity, User goes to "Volumes" tab and clicks "Capacity" menu. ![](StatsMenu.jpg "fig:StatsMenu.jpg") A dialog pops up with the details like names of selected volumes,their total capacities,their usage,their percentage of usage and any comments if applicable. For example, Volume full if the volume is completely used up. The dialog also lists separately the list of volumes that are completely filled up and also the list of volumes that are nearing completion in terms of usage. ![](VolumeCapacity.jpg "fig:VolumeCapacity.jpg")
+To view Gluster Volume Capacity, User goes to "Volumes" tab where capacity information will be displayed as part of each volume row. A new column 'Capacity' will be shown just before the 'Activities' column. Capacity information will be shown as graphic with total space available and percentage of usage ,etc. Different color coding will be used based on amount space used to show the capacity information.
+
+![](VolumeCapacity.jpg "VolumeCapacity.jpg")
 
 ## Getting the volume capacity details
 

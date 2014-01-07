@@ -53,6 +53,16 @@ In this approach VDSM needs to collate the details from advanced details of the 
 
 ### Entities
 
+#### Gluster_Volumes
+
+       Following three columns will be added to the gluster_volumes tables. 
+
+| Column    | Type | Description       |
+|-----------|------|-------------------|
+| totalSize | long | total volume size |
+| freeSize  | long | free volume size  |
+| usedSize  | long | used volume size  |
+
 #### GlusterVolumeSizeInfo
 
 | Column    | Type | Description                  |

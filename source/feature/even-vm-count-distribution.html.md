@@ -25,6 +25,10 @@ The goal of this feature is to provide a cluster policy that evenly distributes 
 
 ### Detailed Description
 
+MAX_VMS_COUNT - the threshold to specify the minimal BALANCING_WINDOW_WIDTH - the minimum difference in running VMs count on two VDS to migrate VMs between them
+
+The cluster is considered unbalanced if there is VDS with more than MAX_VMS_COUNT VMs running on it AND there is at least one VDS with more then BALANCING_WINDOW_WIDTH less VMs
+
 **Unbalanced cluster**
 
 ![|Unbalanced cluster](balancing-before.png "|Unbalanced cluster")
@@ -46,6 +50,8 @@ The goal of this feature is to provide a cluster policy that evenly distributes 
 
 1.  VM2 moved to VDS5 (the only possible target, because it's the only one outside of the balancing window)
 2.  The balancing window top moved from 11 to 10 and the minimum is now 6 which means the cluster is balanced because every VDS has VM count inside the balancing window
+
+The cluster from this example is balanced after the 2nd iteration the
 
 ### Benefit to oVirt
 

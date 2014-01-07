@@ -37,7 +37,7 @@ The goal of this feature is to provide a cluster policy that evenly distributes 
 
 ![](balancing-after2iter.png "balancing-after2iter.png")
 
-# 1. iteration:
+#### 1. iteration:
 
 1.  VM1 moved from VDS1 to VDS3 (there is no special logic involved in selecting the VDS, so even though VDS5 is also a good target we simply take whatever comes first)
 2.  The balance window top moved from 12 to 11 and minimum is now 7

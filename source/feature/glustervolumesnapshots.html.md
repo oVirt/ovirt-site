@@ -57,6 +57,46 @@ With this feature the user will be able to
 
 ### User Experience and control flows
 
+#### Main tab "Volumes"
+
+A new action group "Volume Snapshot" would be introduced under actions for a volume as a drop down. The set of actions under this action group would be -
+
+*   Create Snapshot
+*   Restore
+
+![](VolumeList.png "VolumeList.png")
+
+<big>1. Create Snapshot</big>
+
+Without selecting a volume from the list, if user clicks the action "Create Snapshot", the create snapshot dialog opens. User can snap the individual consistency groups and volumes using the dialog by selecting them clicking the button "Snap". User can also create a fresh consistency group and snap it using this dialog by selecting multiple volumes from the list and clicking the button "Snap as Consistency Group".
+
+![](CreateSnap.png "CreateSnap.png")
+
+If user selects an individual volume from the list and clicks the menu option "Volume Snapshot --> Create Snapshot" the snapshot creation is triggered without opening a dialog. Similarly if a volume is selected from the table which is part of consistency group and clicks the menu option "Volume Snapshot --> Create Snapshot", a confirmation dialog stating "Volume [Volume Name] is part of a consistency group. Do you want to take snapshot for the consistency group?" asks for the confirmation of taking a snap of the consistency group it belongs to. If user selects to create the snapshot, it is triggered accordingly.
+
+![](CreateCGSnapConfirmation.png "CreateCGSnapConfirmation.png")
+
+<big>2. Restore a Snapshot</big>
+
+Without selecting a volume from the list, if the user clicks the action "Volume Snapshot --> Restore", the Restore Snapshot dialog opens. User can select a consistency group or volume and all the snaps of the same get listed in a table. User can select the snap he/she wants to restore to and click the button "OK". User is prompted for a confirmation for restore and then restore is triggered.
+
+![](RestoreSnap.png "RestoreSnap.png")
+
+If the user selects an individual volume from the list and clicks the menu "Volume Snapshots --> Restore", the above dialog pops up with volume name auto populated and disabled. User can select a snap to restore to and clock "OK". If the user selects a volume which is part of a consistency group and clicks the menu option "Volume Snapshots --> Restore", the Restore snapshot dialog opens with name of consistency group already populated and disabled. User can select the snap to restore to and click "OK". User is prompted for a confirmation for restore and then restore is triggered.
+
+![](RestoreSnapConfirmation.png "RestoreSnapConfirmation.png")
+
+#### Sub-tab "Volumes --> Snapshot"
+
+This sub-tab under the main tab Volumes lists the snapshots created for individual volumes. The set of supported actions are -
+
+*   Restore
+*   Remove
+
+![](VolumeSnapsList.png "VolumeSnapsList.png")
+
+While Restore action, the user is asked for confirmation and the action is triggered. Similarly while Remove action, user is asked for a confirmation and if user opts for deletion the action is triggered.
+
 #### Main Tab "Consistency Groups"
 
 An additional main tab item would be introduced for "Consistency Groups". This tab would list the consistency group in the cluster in tabular form having the columns -
@@ -120,46 +160,6 @@ Actions supported for this sub-tab are -
 *   Remove - removes the selected snapshots
 
 ![](SnapsList1.png "SnapsList1.png")
-
-#### Main tab "Volumes"
-
-A new action group "Volume Snapshot" would be introduced under actions for a volume as a drop down. The set of actions under this action group would be -
-
-*   Create Snapshot
-*   Restore
-
-![](VolumeList.png "VolumeList.png")
-
-<big>1. Create Snapshot</big>
-
-Without selecting a volume from the list, if user clicks the action "Create Snapshot", the create snapshot dialog opens. User can snap the individual consistency groups and volumes using the dialog by selecting them clicking the button "Snap". User can also create a fresh consistency group and snap it using this dialog by selecting multiple volumes from the list and clicking the button "Snap as Consistency Group".
-
-![](CreateSnap.png "CreateSnap.png")
-
-If user selects an individual volume from the list and clicks the menu option "Volume Snapshot --> Create Snapshot" the snapshot creation is triggered without opening a dialog. Similarly if a volume is selected from the table which is part of consistency group and clicks the menu option "Volume Snapshot --> Create Snapshot", a confirmation dialog stating "Volume [Volume Name] is part of a consistency group. Do you want to take snapshot for the consistency group?" asks for the confirmation of taking a snap of the consistency group it belongs to. If user selects to create the snapshot, it is triggered accordingly.
-
-![](CreateCGSnapConfirmation.png "CreateCGSnapConfirmation.png")
-
-<big>2. Restore a Snapshot</big>
-
-Without selecting a volume from the list, if the user clicks the action "Volume Snapshot --> Restore", the Restore Snapshot dialog opens. User can select a consistency group or volume and all the snaps of the same get listed in a table. User can select the snap he/she wants to restore to and click the button "OK". User is prompted for a confirmation for restore and then restore is triggered.
-
-![](RestoreSnap.png "RestoreSnap.png")
-
-If the user selects an individual volume from the list and clicks the menu "Volume Snapshots --> Restore", the above dialog pops up with volume name auto populated and disabled. User can select a snap to restore to and clock "OK". If the user selects a volume which is part of a consistency group and clicks the menu option "Volume Snapshots --> Restore", the Restore snapshot dialog opens with name of consistency group already populated and disabled. User can select the snap to restore to and click "OK". User is prompted for a confirmation for restore and then restore is triggered.
-
-![](RestoreSnapConfirmation.png "RestoreSnapConfirmation.png")
-
-#### Sub-tab "Volumes --> Snapshot"
-
-This sub-tab under the main tab Volumes lists the snapshots created for individual volumes. The set of supported actions are -
-
-*   Restore
-*   Remove
-
-![](VolumeSnapsList.png "VolumeSnapsList.png")
-
-While Restore action, the user is asked for confirmation and the action is triggered. Similarly while Remove action, user is asked for a confirmation and if user opts for deletion the action is triggered.
 
 ### Limitations
 

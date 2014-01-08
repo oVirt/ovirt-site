@@ -95,6 +95,8 @@ pseudo (python) code for the balance() method
       vmToMigrate = getBestVmToMigrate(worstVDS.getAllRunningVMS())
       return (possibleTargets, vmToMigrate)
 
+[Algorithm simulation in python](http://jmoskovc.fedorapeople.org/even_vm_distribution.py)
+
 ### Testing
 
 * TBD

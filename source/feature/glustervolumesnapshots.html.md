@@ -110,13 +110,13 @@ If user opts for the restore of a snapshot group, a pop up listing the snapshots
 
 ![](RestoreCGSnapshot.png "RestoreCGSnapshot.png")
 
-Without selecting a volume from the list, if the user clicks the action "Volume Snapshot --> Restore", the Restore Snapshot dialog opens. User can select a consistency group or volume and all the snaps of the same get listed in a table. User can select the snap he/she wants to restore to and click the button "OK". User is prompted for a confirmation for restore and then restore is triggered.
+*   User selects an individual volume from the volume list table and clicks the menu "Volume Snapshot --> Restore". In this scenario a dialog pops wu listing all the snapshots taken for the said volume. User can snapshot to restore to and click "OK".
 
 ![](RestoreSnap.png "RestoreSnap.png")
 
-If the user selects an individual volume from the list and clicks the menu "Volume Snapshots --> Restore", the above dialog pops up with volume name auto populated and disabled. User can select a snap to restore to and clock "OK". If the user selects a volume which is part of a consistency group and clicks the menu option "Volume Snapshots --> Restore", the Restore snapshot dialog opens with name of consistency group already populated and disabled. User can select the snap to restore to and click "OK". User is prompted for a confirmation for restore and then restore is triggered.
+*   User does not select anything from the volume list table and clicks the menu option "Volume Snapshot --> Restore". In this scenario a multi-tabbed dialog pops up. This dialog allows the user to select either a snapshot group or a volume name from a combo and all the corresponding snapshots get listed. User an select the snapshot to restore to click "OK".
 
-![](RestoreSnapConfirmation.png "RestoreSnapConfirmation.png")
+![](RestoreSnap1.png "RestoreSnap1.png")
 
 #### Sub-tab "Volumes --> Snapshot"
 

@@ -146,7 +146,7 @@ This actions sets / edits the snapshot related configuration parameters for the 
 
 ![](SnapshotConfiguration.png "SnapshotConfiguration.png")
 
-#### Main Tab "Consistency Groups"
+#### Sub Tab "Clusters --> "
 
 An additional main tab item would be introduced for "Consistency Groups". This tab would list the consistency group in the cluster in tabular form having the columns -
 
@@ -155,7 +155,7 @@ An additional main tab item would be introduced for "Consistency Groups". This t
 *   Volumes (# of volumes in the consistency group)
 *   Snaps (# of snaps taken for the consistency group)
 
-![](CGList.png "CGList.png")
+![](ClusterSnapshotGroups.png "ClusterSnapshotGroups.png")
 
 Actions supported for the main tab are -
 

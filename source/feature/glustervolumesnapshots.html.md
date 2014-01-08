@@ -363,6 +363,7 @@ Output:
             <volume href="" id=""/>
             <description>{description}</description>
             <status>{status}</status>
+                    <snaptime>{timestamp}</snaptime>
         </snapshot>
     </snapshots>
 
@@ -378,6 +379,7 @@ Output:
         <volume href="" id=""/>
         <description>{description}</description>
         <status>{status}</status>
+            <snaptime>{timestamp}</snaptime>
     </snapshot>
 
 *   /api/clusters/{cluster-id}/glustervolumes|rel=get - Gluster volume listing would be updated to list the snapshot configuration parameters as well
@@ -386,55 +388,75 @@ Output:
 
     <glustervolume>
     ........
-    <snapshot_config>
-        <option name="" value=""/>
-        <option name="" value=""/>
-    </snapshot_config>
+    <snapshot_config_params>
+        <parameter>
+        <name>snap-max-limit</name>
+            <value>{value}</value>
+        </parameter>
+        <parameter>
+        <name>snap-max-soft-limit</name>
+            <value>{value}</value>
+        </parameter>
+    </snapshot_config_params>
     </glustervolume>
 
-*   /api/clusters/{cluster-id}/consistencygroups|rel=get - lists all the consistency groups
+*   /api/clusters/{cluster-id}/snapshotgroups|rel=get - lists all the snapshot groups
 
 Output:
 
-    <consistencygroups>
-        <consistencygroup href="" id="">
-            <actions>
-            </actions>
-            <name>{name}</name>
+    <snapshotgroups>
+        <snapshotgroup href="" id="">
+                <actions>
+                </actions>
+                <name>{name}</name>
             <link>{link}</link>
+                   <cluster href="" id=""/>
             <volumes>
                 <volume href="" id=""/>
                 <volume href="" id=""/>
-            </volumes>
+                    </volumes>
             <description>{description}</description>
-                    <snapshot_config>
-                    <option name="" value=""/>
-                    <option name="" value=""/>
-                    </snapshot_config>
-        </consistencygroup>
-    </consistencygroups>
+                    <snapshot_config_params>
+                        <parameter>
+                        <name>snap-max-limit</name>
+                            <value>{value}</value>
+                        </parameter>
+                        <parameter>
+                        <name>snap-max-soft-limit</name>
+                           <value>{value}</value>
+                        </parameter>
+                    </snapshot_config_params>
+        </snapshotgroup>
+    </snapshotgroups>
 
-*   /api/clusters/{cluster-id}/consistencygroups/{consistencygroup-id}|rel=get - lists the detail of an individual consistency group
+*   /api/clusters/{cluster-id}/snapshotgroups/{snapshotgroup-id}|rel=get - lists the detail of an individual snapshot group
 
 Output:
 
-    <consistencygroup href="" id="">
+    <snapshotgroup href="" id="">
         <actions>
         </actions>
         <name>{name}</name>
         <link>{link}</link>
+           <cluster href="" id=""/>
         <volumes>
             <volume href="" id=""/>
             <volume href="" id=""/>
         </volumes>
         <description>{description}</description>
-            <snapshot_config>
-            <option name="" value=""/>
-            <option name="" value=""/>
-            </snapshot_config>
-    </consistencygroup>
+            <snapshot_config_params>
+                     <parameter>
+                        <name>snap-max-limit</name>
+                            <value>{value}</value>
+                        </parameter>
+                        <parameter>
+                        <name>snap-max-soft-limit</name>
+                           <value>{value}</value>
+                        </parameter>
+            </snapshot_config_params>
+    </snapshotgroup>
 
-*   /api/clusters/{cluster-id}/consistencygroups/{consistencygroup-id}/snapshots|rel=get - lists the snapshots of an individual consistency group
+*   /api/clusters/{cluster-id}/snapshotgroups/{snapshotgroup-id}/snapshots|rel=get - lists the snapshots of an individual snapshot group
 
 Output:
 
@@ -444,13 +466,14 @@ Output:
             </actions>
             <name>{name}</name>
             <link>{link}</link>
-            <consistencygroup href="" id=""/>
+            <snapshotgroup href="" id=""/>
             <description>{description}</description>
             <status>{status}</status>
+                    <snaptime>{timestamp}</snaptime>
         </snapshot>
     </snapshots>
 
-*   /api/clusters/{cluster-id}/consistencygroups/{consistencygroup-id}/snapshots/{snapshot-id}|rel=get - lists the individual snapshot of an individual consistency group
+*   /api/clusters/{cluster-id}/snapshotgroups/{snapshotgroup-id}/snapshots/{snapshot-id}|rel=get - lists the individual snapshot of an individual snapshot group
 
 Output:
 
@@ -462,6 +485,7 @@ Output:
         <consistencygroup href="" id=""/>
         <description>{description}</description>
         <status>{status}</status>
+            <snaptime>{timestamp}</snaptime>
     </snapshot>
 
 #### Actions Supported

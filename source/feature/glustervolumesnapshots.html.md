@@ -49,15 +49,15 @@ This entity stores the details of a Gluster volume snapshot group. While definit
 
 This entity stores the snapshots created on gluster volumes. Different volumes can have snapshots with same names.
 
-| Column name     | Type   | Description                                                             |
-|-----------------|--------|-------------------------------------------------------------------------|
-| SnapId          | UUID   | Id of the new snapshot                                                  |
-| SnapName        | String | Name of the snapshot                                                    |
-| VolumeId        | UUID   | Id of the reference volume                                              |
-| SnapshotGroupId | UUID   | Id of the reference snapshot group, if snapshot is for a snapshot group |
-| CreatedAt       | Date   | Creation time of the snapshot                                           |
-| Description     | String | Description                                                             |
-| Status          | String | Current status of the snapshot                                          |
+| Column name       | Type   | Description                                                                  |
+|-------------------|--------|------------------------------------------------------------------------------|
+| SnapId            | UUID   | Id of the new snapshot                                                       |
+| SnapName          | String | Name of the snapshot                                                         |
+| ReferenceEntityId | UUID   | Id of the reference volume or snapshot group for which the snapshot is taken |
+| SnapshotType      | String | Type of the snapshot (if its for a volume or a snapshot group)               |
+| CreatedAt         | Date   | Creation time of the snapshot                                                |
+| Description       | String | Description                                                                  |
+| Status            | String | Current status of the snapshot                                               |
 
 *   GlusterVolumeSnapshotStatus
     -   UNKNOWN

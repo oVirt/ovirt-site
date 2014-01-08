@@ -98,7 +98,7 @@ Cluster <ClusterName> failed the HA Reservation check, HA VMs on host(s): <Host1
 
 The engine will implement the logic of this feature, it will be responsible for the scoring mechanism shown above, and maintaining the background task of monitoring the state of the clusters. for the monitoring task we will use Quartz to run a job every 5 minutes. the job will implement the pseudo code shown above for the monitoring task.
 
-<todo: Add quartz Impl notes here> <todo: Add run/migrate Impl notes here>
+The quartz task will be configured in the SchedulingManager class, and set to execute every 5 minutes. since it is a singleton class we will schedule the job at the getInstance method.
 
 #### DB
 

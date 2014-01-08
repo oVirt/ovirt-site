@@ -116,7 +116,7 @@ If user opts for the restore of a snapshot group, a pop up listing the snapshots
 
 *   User does not select anything from the volume list table and clicks the menu option "Volume Snapshot --> Restore". In this scenario a multi-tabbed dialog pops up. This dialog allows the user to select either a snapshot group or a volume name from a combo and all the corresponding snapshots get listed. User an select the snapshot to restore to click "OK".
 
-![](RestoreSnap1.png "RestoreSnap1.png")
+![](RestoreSnap1.png "fig:RestoreSnap1.png") ![](RestoreSnap2.png "fig:RestoreSnap2.png")
 
 #### Sub-tab "Volumes --> Snapshot"
 

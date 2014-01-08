@@ -38,28 +38,20 @@ The HA VM reservation feature purpose is to inform the end user on scenarios tha
 
 ##### measuring the vm resources
 
-For us to begin monitoring the cluster, we need to decide how this monitoring will be performed. The aspects of a VM that are relevant for our monitoring are the CPU and RAM usage of the VM.
+For us to begin monitoring the cluster, we need to decide how this monitoring will be performed.
 
-A VM resources will be a combination of: RAM usage can be the current RAM usage of the VM in Mbytes. CPU usage can be the current CPU usage of the VM, (percentage will serve the cause as well since in the cluster the CPU should be of the same kind).
+For the weight & balancing functions: The aspects of a VM that are relevant for our monitoring are the amount of HA VMs in host. There is no need to calculate CPU and RAM consumption, this will be handled for us by the other weight functions (evenly distributed, power saving, ...).
+
+For the monitoring task: The aspects of a VM that are relevant for our monitoring are the CPU and RAM. our goal is to determine if other hosts have enough free CPU and RAM resources to take the place of a certain host. when calculating the cpu usage of a VM we will need to take into account the number of cores/threads on the VM and host. the following calculation will return the usage percentage of the VM from the host: int curVmCpuPercent =
+
+                         vm.getUsageCpuPercent() * vm.getNumOfCpus()
+                                 / vds.getCpuCores()/*(or Threads)*/);
+
+RAM usage will be simpler: int curVmMemSize = (int) Math.round(vm.getMemSizeMb() \* (vm.getUsageMemPercent() / 100.0)); curVmMemSize is the used Ram in MB by the VM.
 
 ##### monitoring background task
 
-Once we know how to calculate the VM resource, we can monitor it, the following pseudo code will show the monitoring strategy.
-
-The monitoring procedure can be logically be divided into two. The first logical unit will search for a single host that can contain all of VMs from the failover host.
-
-*   A pseudo code for that:
-
-         1. mark for each host x:  ClusterHAStateOK(x) = false;
-         2. for each host x in the cluster do:
-         3.     calculate the host x HA resources -> resourceHA(x)
-         4.     for each host y in the cluster, y<>x do:
-         5.         calculate the host y free resources -> resourceFree(y);
-         6.         if  (resourceHA(x) < resourceFree(y) )  then mark ClusterHAStateOK(x) = true; //x can be migrated in case of failover
-         7. for each host x  do: if ClusterHAStateOK(x) == false, add to Alert
-         8. raise Alert
-
-In case we did not find a match, the second logical unit will split the host into VMs and will try to find several host that will replace the failover host.
+Once we know how to calculate the VM resource, we can monitor it, the following pseudo code will show the monitoring strategy. split the host into HA VMs and will try to find several host that will replace the failover host.
 
 *   A pseudo code for that:
 
@@ -82,7 +74,7 @@ For that we will add a new weight function to the existing one presented in the 
 *   The scoring method
 
 The scoring method will enable the Ovirt engine to make the best decision to where should the VM run(on which host).
-F(VMi) = the amount of HA VM resources that is currently used in the host.
+F(VMi) = the amount of HA VM in the host.
 
 *   Adding a HA VM
 

@@ -29,7 +29,7 @@ This feature helps the user to know the volume capacity information. Capacity in
 
 ## User Flows
 
-To view Gluster Volume Capacity, User goes to "Volumes" tab where capacity information will be displayed as part of each volume row. A new column 'Capacity' will be shown just before the 'Activities' column. Capacity information will be shown as graphic with total space available and percentage of usage ,etc.
+To view Gluster Volume Capacity, User goes to "Volumes" tab where capacity information will be displayed as part of each volume row. A new column 'Space Used' will be shown just before the 'Activities' column. Capacity information will be shown as progress bar with percentage of usage and a clock icon to refresh the detail.On hovering the clock icon user can get information about when the last update was made.
 
 ![](VolumeCapacity.png "VolumeCapacity.png")
 

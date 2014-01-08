@@ -70,7 +70,7 @@ A new action group "Volume Snapshot" would be introduced under actions for a vol
 
 There are three scenarios for creation of snapshot
 
-*   User selects a volume from the volume list table which part of a snapshot group and clicks the menu option "Volume Snapshot --> Create Snapshot". In this scenario first a confirmation dialog would be popped saying that volume is part of a snapshot group and does user want to continue.
+*   User selects a volume from the volume list table which is part of a snapshot group and clicks the menu option "Volume Snapshot --> Create Snapshot". In this scenario first a confirmation dialog would be popped saying that volume is part of a snapshot group and does user want to continue.
 
 ![](CreateCGSnapConfirmation.png "CreateCGSnapConfirmation.png")
 
@@ -80,7 +80,7 @@ If user confirms the snapshot creation, a dialog would pop up and asks for the s
 
 User provides the required details clicks the button "OK" and snapshot creation gets triggered.
 
-*   User selects an individual volume and click the menu option "Volume Snapshot --> Create Snapshot". In this scenario a dialog pops up listing of all the individual volumes with selected volume auto checked in the list. User has option to creating the snapshot of the selected volume as an individual by clicking the button "Create Snapshot". If the user wants to create snapshot of the selected volume with other volumes as snapshot group, he/she can click the button "Create Snapshot as group". In this scenario a fresh snapshot group would be formed and snapshot would be created for the group.
+*   User selects an individual volume and click the menu option "Volume Snapshot --> Create Snapshot". In this scenario a dialog pops up listing of all the individual volumes with selected volume auto checked in the list. User has option to create the snapshot of the selected volume as an individual by clicking the button "Create Snapshot". If the user wants to create snapshot of the selected volume with other volumes as snapshot group, he/she can click the button "Create Snapshot as group". In this scenario a fresh snapshot group would be formed and snapshot would be created for the group.
 
 ![](CreateVolumeSnapshot.png "CreateVolumeSnapshot.png")
 

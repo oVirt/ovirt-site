@@ -10,11 +10,26 @@ wiki_last_updated: 2014-03-03
 
 # OVirt 3.3.z release management
 
-## oVirt 3.3.2
+## oVirt 3.3.3
 
 ### Timeline
 
 *' These are tentative planning dates and may change*'
+
+*   General availability: **2014-01-28**
+*   RC Build: **2014-01-21**
+*   Beta release: **2014-01-13**
+
+### Release criteria
+
+*   See [OVirt 3.3 release-management](OVirt 3.3 release-management) Release Criteria
+*   Release notes must be filled: [oVirt 3.3.3 release notes](oVirt 3.3.3 release notes)
+*   Blocking bugs must be fixed:  - Tracker: oVirt 3.3.3 release
+*   QE must test the release: [Testing/Ovirt 3.3.3 testing](Testing/Ovirt 3.3.3 testing)
+
+## oVirt 3.3.2
+
+### Timeline
 
 *   General availability: **2013-12-19**
 *   RC Build: **2013-12-16**

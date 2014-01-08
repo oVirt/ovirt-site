@@ -146,31 +146,38 @@ This actions sets / edits the snapshot related configuration parameters for the 
 
 ![](SnapshotConfiguration.png "SnapshotConfiguration.png")
 
-#### Sub Tab "Clusters --> "
+#### Sub Tab "Clusters --> Snapshot Groups"
 
-An additional main tab item would be introduced for "Consistency Groups". This tab would list the consistency group in the cluster in tabular form having the columns -
+An additional sub tab would be introduced for main tab "Clusters". This sub tab would list the snapshot groups in the cluster in a tabular form having the columns -
 
 *   Name
 *   Cluster
-*   Volumes (# of volumes in the consistency group)
-*   Snaps (# of snaps taken for the consistency group)
+*   Description
 
 ![](ClusterSnapshotGroups.png "ClusterSnapshotGroups.png")
 
-Actions supported for the main tab are -
+Actions supported for this sub tab are -
 
-*   New - creates a new consistency group
-*   Remove - removes the consistency group
-*   Create Snap - takes a snapshot of the consistency group
-*   Add Volumes - add new volumes to the consistency group
-*   Remove Volumes - removes volumes from the consistency group
+*   Remove - removes the snapshot group
+*   Configure - lists and provides option to edit the snapshot related configuration parameters for snapshot group
 
-![](CGList1.png "CGList1.png")
+<big>1. Removing Snapshot Group</big>
 
-The sub-tabs for the individual consistency groups would be having tabs -
+User can select snapshot groups and click Remove for deleting the same. A confirmation id popped up and if user confirms, the snapshot groups would be deleted.
 
-*   Configurations
-*   Snapshots
+<big>2. Configuring snapshot group</big>
+
+This feature same as mentioned above in the case of single volume configuration. This allows to set the snapshot related configuration parameters for the said snapshot group.
+
+On selecting a snapshot group from the list, it shows an extended sub tab listing the participating volumes and available snapshots for the snapshot group in the right half.
+
+*   In the volumes volumes list there are actions available for adding or removing the participating volumes for the snapshot group.
+
+![](ClusterSnapshotGroups1.png "ClusterSnapshotGroups1.png")
+
+*   In the snapshots list there are actions available for removing, restoring of the individual snapshot for the snapshot group.
+
+![](ClusterSnapshotGroups2.png "ClusterSnapshotGroups2.png")
 
 #### Sub-tab "Consistency Groups --> Configurations"
 

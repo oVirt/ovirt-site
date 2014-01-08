@@ -41,6 +41,7 @@ This entity stores the details of a Gluster volume snapshot group. While definit
 | Column name | Type   | Description                       |
 |-------------|--------|-----------------------------------|
 | Id          | UUID   | Primary Key                       |
+| ClusterId   | UUID   | reference cluster id              |
 | Name        | String | Name of the snapshot group        |
 | Description | String | Description of the snapshot group |
 

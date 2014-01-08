@@ -81,7 +81,7 @@ pseudo (python) code for the balance() method
 
       possibleTargets = []
       for vds in allVDS:
-         if (worstVDS.activeVMCount() - vds.activeVMCount()) > BALANCE_WINDOW_WIDTH
+         if (worstVDS.activeVMCount() - vds.activeVMCount()) > BALANCE_WINDOW_WIDTH:
             possibleTargets.add(vds)
 
       return (possibleTargets, vmToMigrate)

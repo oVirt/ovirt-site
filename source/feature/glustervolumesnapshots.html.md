@@ -132,11 +132,17 @@ This sub-tab under the main tab "Volumes" lists the snapshots created for indivi
 
 ![](VolumeSnapsList.png "VolumeSnapsList.png")
 
-<big>1. Restoring a snapshot</big> This action same as restoring a snapshot for a single volume mentioned above.
+<big>1. Restoring a snapshot</big>
 
-<big>2. Remove a snapshot</big> This action asks for a confirmation and then removes the selected snapshot(s).
+This action is same as restoring a snapshot for a single volume mentioned above.
 
-<big>3. Configurations for volume snapshot</big> This actions sets / edits the snapshot related configuration parameters for the specific volume. On click of the action, a pop up dialog opens with values set for the configuration parameters. User has option to edit the values using the Edit action in the pop up dialog.
+<big>2. Remove a snapshot</big>
+
+This action asks for a confirmation and then removes the selected snapshot(s).
+
+<big>3. Configurations for volume snapshot</big>
+
+This actions sets / edits the snapshot related configuration parameters for the specific volume. On click of the action, a pop up dialog opens with values set for the configuration parameters. User has option to edit the values using the Edit action in the pop up dialog.
 
 ![](VolumeSnapConfiguration.png "VolumeSnapConfiguration.png")
 

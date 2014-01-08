@@ -66,6 +66,14 @@ This feature comes from customer request, so benefit to ovirt is a better custom
 
 pseudo (python) code for the balance() method
 
+    getBestVmToMigrate(VMS):  # just select the VM with the least CPU usage
+      bestVMToMigrate = VMS[0]
+      for vm in VMS:
+        if vm.cpuUsage() < bestVMToMigrate.cpuUsage():
+          bestVMToMigrate = vm
+
+      return bestVMToMigrate
+
     getOverloadedVDS():
       worstVDS = None
       for vds in allVDS:
@@ -81,9 +89,10 @@ pseudo (python) code for the balance() method
 
       possibleTargets = []
       for vds in allVDS:
-         if (worstVDS.activeVMCount() - vds.activeVMCount()) > BALANCE_WINDOW_WIDTH:
+         if (worstVDS.activeVMCount() - vds.activeVMCount()) >= BALANCE_WINDOW_WIDTH:
             possibleTargets.add(vds)
 
+      vmToMigrate = getBestVmToMigrate(worstVDS.getAllRunningVMS())
       return (possibleTargets, vmToMigrate)
 
 ### Testing

@@ -82,25 +82,17 @@ using the already existing mechanism when adding a VM the system do the followin
 
 #### UI
 
-Overall the UI will be changed at two places:
-One UI change will be a configuration change, enable the user to switch this feature On and Off.
+Enabling or disabling the HA VM Reservation will be possible via the Cluster new/edit popup.
+A sketch of the edit Cluster window:
+![](editclusterwin.png "fig:editclusterwin.png")
 
-A sketch of the Configure window:
-![](configurewin.png "fig:configurewin.png")
+When enabled the weight and balancing methods will kick into action as well as the monitoring task that will trigger an alert to the user when needed.
 
 A second UI change will be at the Alert window, in case the system will recognize the scenario in which a HA VM cannot be migrated after a Host failover without causing a performance downgrade, a new alert will show specifying the problematic cluster and list of problematic Hosts in that cluster.
 
 The message to be presented to the user:
-Cluster <clusterName> might suffer some performance downgrade in case of failover in hosts: <hostName1>, <hostName2>, ...
-Adding a new tab at the configure popup (ConfigurePopupView.ui.xml)
-
-`   `<t:tab>
-`       `<t:DialogTab ui:field="HAVMReservationTab">
-`           `<t:content>
-`               `<g:SimplePanel addStyleNames="{style.panel}" ui:field="haVmReservationTabPanel" />
-`           `</t:content>
-`       `</t:DialogTab>
-`   `</t:tab>
+Cluster <ClusterName> failed the HA Reservation check, HA VMs on host(s): <Host1, Host2, ...> will fail to migrate in case of a failover, consider adding resources or shutting down unused VMs.
+ The new weight function, "optimal for HA Reservation", was added to all the default cluster policies, to view or edit the policies go to cluster policies configuration tab in the configure popup windows.
 
 #### ENGINE
 

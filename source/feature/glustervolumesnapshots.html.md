@@ -179,44 +179,6 @@ On selecting a snapshot group from the list, it shows an extended sub tab listin
 
 ![](ClusterSnapshotGroups2.png "ClusterSnapshotGroups2.png")
 
-#### Sub-tab "Consistency Groups --> Configurations"
-
-This sub-tab lists the snapshot configuration values set for the consistency group. The configuration parameters are listed in tabular form having two columns -
-
-*   Parameter Name
-*   Parameter Value
-
-![](ParamList.png "ParamList.png")
-
-Actions supported for this sub-tab are -
-
-*   Add - to add a new configuration parameter
-*   Edit - Edit the value of a configuration parameter
-*   Reset - Reset the value of the configuration parameter to system value
-*   Reset All - Reset the value of all the configuration parameters to system values
-
-![](ParamList1.png "ParamList1.png")
-
-#### Sub-tab "Consistency Groups --> Snapshots"
-
-This sub-tab lists the snapshots for the consistency group in a tabular form. The details listed for a snapshot in the list are -
-
-*   Status (as an icon)
-*   Name
-*   Description
-*   Creation Time (makes easy for administrator to decide while restore)
-
-![](SnapsList.png "SnapsList.png")
-
-Actions supported for this sub-tab are -
-
-*   Start - starts the snapshot
-*   Stop - stops the snapshot
-*   Restore - restores the consistency group to the said snapshot
-*   Remove - removes the selected snapshots
-
-![](SnapsList1.png "SnapsList1.png")
-
 ### Limitations
 
 NA

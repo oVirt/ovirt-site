@@ -64,7 +64,7 @@ This feature comes from customer request, so benefit to ovirt is a better custom
 
 ### Documentation / External references
 
-pseudo code for the balance() method
+pseudo (python) code for the balance() method
 
     getOverloadedVDS():
       worstVDS = None
@@ -79,7 +79,10 @@ pseudo code for the balance() method
       if worstVDS == None:  # nothing to balance
          return None
 
-      possibleTargets = [ vds for vds in allVDS if worstVDS() - vds.activeVMCount() > BALANCE_WINDOW_WIDTH ]
+      possibleTargets = []
+      for vds in allVDS:
+         if (worstVDS.activeVMCount() - vds.activeVMCount()) > BALANCE_WINDOW_WIDTH
+            possibleTargets.add(vds)
 
       return (possibleTargets, vmToMigrate)
 

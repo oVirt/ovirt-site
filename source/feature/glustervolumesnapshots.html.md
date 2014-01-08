@@ -104,6 +104,12 @@ There are 3 scenarios while restoring a snapshot -
 
 *   User selects a volume from the volume list table which part of a snapshot group and clicks the menu option "Volume Snapshot --> Restore". In this scenario a dialog would pop up saying volume part of a snapshot group and if the user wants to restore the snapshot group.
 
+![](RestoreCGSnapshotConfirmation.png "RestoreCGSnapshotConfirmation.png")
+
+If user opts for the restore of a snapshot group, a pop up listing the snapshots for the snapshot group pops up. User can select a snap t0 restore to and clicks "OK".
+
+![](RestoreCGSnapshot.png "RestoreCGSnapshot.png")
+
 Without selecting a volume from the list, if the user clicks the action "Volume Snapshot --> Restore", the Restore Snapshot dialog opens. User can select a consistency group or volume and all the snaps of the same get listed in a table. User can select the snap he/she wants to restore to and click the button "OK". User is prompted for a confirmation for restore and then restore is triggered.
 
 ![](RestoreSnap.png "RestoreSnap.png")

@@ -43,20 +43,7 @@ For the first iteration of HA VM Reservations, oVirt shall consider a single hos
 **Concept**
 The HA VM reservation mechanism will be implemented in two phases: for the first phase the oVirt manager will be enhanced with monitoring capabilities. oVirt will continuously monitor the clusters in the system, for each Cluster the system will analyze its hosts, determining if the HA VMs on that host can survive the failover of that host by migrating to another host. In the event that an HA VM cannot migrate upon a Host failure, an Alert will be presented to the end user.
 
-The monitoring procedure can be logically be divided into two. The first logical unit will search for a single host that can contain all of VMs from the failover host.
-
-*   A pseudo code for that:
-
-         1. mark for each host x:  ClusterHAStateOK(x) = false;
-         2. for each host x in the cluster do:
-         3.     calculate the host x HA resources -> resourceHA(x)
-         4.     for each host y in the cluster, y<>x do:
-         5.         calculate the host y free resources -> resourceFree(y);
-         6.         if  (resourceHA(x) < resourceFree(y) )  then mark ClusterHAStateOK(x) = true; //x can be migrated in case of failover
-         7. for each host x  do: if ClusterHAStateOK(x) == false, add to Alert
-         8. raise Alert
-
-In case we did not find a match, the second logical unit will split the host into VMs and will try to find several host that will replace the failover host.
+The monitoring procedure can be logic: split the host into HA VMs and try to find several host that will replace the failover host.
 
 *   A pseudo code for that:
 
@@ -76,6 +63,8 @@ For migrating a VM the task is relatively simple, because changing a host in the
 For running a new HA VM we will need to place it at the most suitable host, for that we will use the scheduling mechanism and add to it a new functionality to take the HA resources taken on each host into account.
 Basically the Engine will calculate the amount of used HA resources, the host with the lowest usage will get the highest score.
 More details on this functionality can be found at the detailed design page.
+
+another module that will be enhanced is the balancing mechanism, a new balancing method will be added making sure that HA VMs will be well spread thru the cluster. the balancing mechanism is self triggered run runs in the background, no user action is needed for this method to perform.
 
 ## GUI
 

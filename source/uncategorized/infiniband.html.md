@@ -14,7 +14,7 @@ Although targeted at high performance computing Infiniband networks may be a qui
 
 ## IPoIB
 
-IP over Infiniband (IPoIB) is an encapsulation of TCP packets inside Infiniband packets. That adds a lot of overhead but comined with an NFS server it is the easiest setup that is fully supported within OVirt.
+IP over Infiniband (IPoIB) is an encapsulation of TCP packets inside Infiniband packets. That adds a lot of overhead but combined with an NFS server it is the easiest setup that is fully supported within OVirt.
 
 ### Hypervisor node setup
 

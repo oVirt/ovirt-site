@@ -175,7 +175,7 @@ On selecting a snapshot group from the list, it shows an extended sub tab listin
 
 ![](ClusterSnapshotGroups1.png "ClusterSnapshotGroups1.png")
 
-*   In the snapshots list there are actions available for removing, restoring of the individual snapshot for the snapshot group.
+*   In the snapshots list there are actions available for removing and restoring the individual snapshot for the snapshot group.
 
 ![](ClusterSnapshotGroups2.png "ClusterSnapshotGroups2.png")
 

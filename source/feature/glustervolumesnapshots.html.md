@@ -94,7 +94,9 @@ If the user opts for snapshot creation as group, then a dialog pops asking for S
 
 *   User does not select a volume from the volume list table and clicks the menu option "Volume Snapshot --> Create Snapshot". In this scenario a multi tabbed dialog pops up with lists of snapshot groups and individual volumes in two separate tabs. User can select a snapshot group or individual volume and create a snapshot.
 
-![](CreateSnapshot.png "fig:CreateSnapshot.png") ![](CreateSnapshot1.png "fig:CreateSnapshot1.png")
+![](CreateSnapshot.png "CreateSnapshot.png")
+
+![](CreateSnapshot1.png "CreateSnapshot1.png")
 
 Based on option selected by user for creation of snapshot above mentioned dialogs pop asking for snapshot name and then trigger the snapshot creation.
 
@@ -116,7 +118,9 @@ If user opts for the restore of a snapshot group, a pop up listing the snapshots
 
 *   User does not select anything from the volume list table and clicks the menu option "Volume Snapshot --> Restore". In this scenario a multi-tabbed dialog pops up. This dialog allows the user to select either a snapshot group or a volume name from a combo and all the corresponding snapshots get listed. User an select the snapshot to restore to click "OK".
 
-![](RestoreSnap1.png "fig:RestoreSnap1.png") ![](RestoreSnap2.png "fig:RestoreSnap2.png")
+![](RestoreSnap1.png "RestoreSnap1.png")
+
+![](RestoreSnap2.png "RestoreSnap2.png")
 
 #### Sub-tab "Volumes --> Snapshot"
 

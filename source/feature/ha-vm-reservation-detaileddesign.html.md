@@ -138,6 +138,10 @@ also we will need to add a new weight and balance functions and assign them to a
          INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('5a2b0939-7d46-4b73-a469-e9c2c7fc6a53','93431200-6d7e-11e3-981f-0800200c9a66',0,1);
          INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('b4ed2332-a7ac-4d5f-9596-99a439cb2812','93431200-6d7e-11e3-981f-0800200c9a66',0,1);
 
+and we will need to register our new alert so user will receive notification emails if selected in the Users -> Event Notifier tab:
+
+         insert into event_map(event_up_name, event_down_name) values('CLUSTER_ALERT_HA_RESERVATION', '');
+
 #### Rest API
 
 A small change to the Rest Api, adding a new property to the Cluster object to enable/disable the HA Reservation, named "ha_reservation" with valid values of true/false.

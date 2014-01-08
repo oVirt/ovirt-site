@@ -120,6 +120,24 @@ for saving the configuration we will add a new field to the vds_group "ha_reserv
 
 possible values for this field are true/false according to the user selection in the checkbox at the cluster popup window (shown at the UI section).
 
+also we will need to add a new weight and balance functions and assign them to all the default policies:
+
+         INSERT INTO policy_units (id, name, is_internal, custom_properties_regex, type, description) VALUES ('7f262d70-6cac-11e3-981f-0800200c9a66', 'OptimalForHaReservation', true, '{
+           "ScaleDown" : "(100|[1-9]|[1-9][0-9])$"
+         }', 1, 'Weights hosts according to their HA score regardless of hosted engine');
+
+         INSERT INTO policy_units (id, name, is_internal, custom_properties_regex, type, description) VALUES ('93431200-6d7e-11e3-981f-0800200c9a66', 'OptimalForHaReservation', true, '{
+           "OverUtilization" : "([1-3][0-9][0-9])$"
+         }', 2, 'balance hosts according to their HA score regardless of hosted engine');
+
+         INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('20d25257-b4bd-4589-92a6-c4c5c5d3fd1a','7f262d70-6cac-11e3-981f-0800200c9a66',0,1);
+         INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('5a2b0939-7d46-4b73-a469-e9c2c7fc6a53','7f262d70-6cac-11e3-981f-0800200c9a66',0,1);
+         INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('b4ed2332-a7ac-4d5f-9596-99a439cb2812','7f262d70-6cac-11e3-981f-0800200c9a66',0,1);
+
+         INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('20d25257-b4bd-4589-92a6-c4c5c5d3fd1a','93431200-6d7e-11e3-981f-0800200c9a66',0,1);
+         INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('5a2b0939-7d46-4b73-a469-e9c2c7fc6a53','93431200-6d7e-11e3-981f-0800200c9a66',0,1);
+         INSERT INTO cluster_policy_units (cluster_policy_id,policy_unit_id,filter_sequence,factor) values ('b4ed2332-a7ac-4d5f-9596-99a439cb2812','93431200-6d7e-11e3-981f-0800200c9a66',0,1);
+
 #### Rest API
 
 A small change to the Rest Api, adding a new property to the Cluster object to enable/disable the HA Reservation, named "ha_reservation" with valid values of true/false.

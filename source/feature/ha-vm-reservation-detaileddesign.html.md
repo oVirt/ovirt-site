@@ -122,7 +122,7 @@ possible values for this field are true/false according to the user selection in
 
 #### Rest API
 
-Since the configuration does not have a Rest api, no changes in the Rest api are needed.
+A small change to the Rest Api, adding a new property to the Cluster object to enable/disable the HA Reservation, named "ha_reservation" with valid values of true/false.
 
 #### Backwards Compatibility
 

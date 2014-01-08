@@ -636,6 +636,7 @@ Input:
 *   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/setsnapshotconfig|rel=setsnapshotconfig - sets a snapshot configuration parameter value for the given volume
     -   Parameters
         -   name-value pair of configuration parameters
+        -   [force]
 
 Input:
 
@@ -650,6 +651,7 @@ Input:
             <value>{value-2}</value>
             </config>
         </configurations>
+        <force>true/false</force>
     </action>
 
 *   /api/clusters/{cluster-id}/snapshotgroups/{snapshotgroup-id}/setsnapshotconfig|rel=setsnapshotconfig - sets a snapshot configuration parameter value for the given snapshot group
@@ -669,6 +671,7 @@ Input:
             <value>{value-2}</value>
             </config>
         </configurations>
+        <force>true/false</force>
     </action>
 
 *   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/glustersnapshots/{snapshot-id}/start|rel=start - starts the given snapshot

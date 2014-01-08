@@ -25,8 +25,8 @@ The goal of this feature is to provide a cluster policy that evenly distributes 
 
 ### Detailed Description
 
-*   MAX_VMS_COUNT - the threshold to specify the minimal
-*   BALANCING_WINDOW_WIDTH - the minimum difference in running VMs count on two VDS to migrate VMs between them
+*   MAX_VMS_COUNT - Maximum VM limit. Exceeding it qualifies the host as overloaded.
+*   BALANCING_MIGRATION_THRESHOLD - defines a buffer before we start migrating VMs from the host
 
 The cluster is considered unbalanced if there is VDS with more than MAX_VMS_COUNT VMs running on it AND there is at least one VDS with more then BALANCING_WINDOW_WIDTH less VMs
 

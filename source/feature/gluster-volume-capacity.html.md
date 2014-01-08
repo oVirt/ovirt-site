@@ -33,6 +33,10 @@ To view Gluster Volume Capacity, User goes to "Volumes" tab where capacity infor
 
 ![](VolumeCapacity.png "VolumeCapacity.png")
 
+The brick capacities are listed in the "Bricks" sub tab of the "Volumes" tab.User can click on a specific volume and view the capacities of its bricks in the "Bricks" sub tab.On refreshing the volume capacity in the volume tab by clicking on the clock icon in the volume tab,the bricks capacities are also refreshed.Details such as the progress bar containing the brick usage percentage are shown across each brick in the selected volume.
+
+![](VolumeBrickCapacity.png "VolumeBrickCapacity.png")
+
 ## Getting the volume capacity details
 
 Volume capacity information will be fetched by GlusterSyncJob as part of getting Volume advanced details. 'glusterVolumeStatus' VDSM verb will be enhanced to get the capacity information as part of volume status. Capacity information will be fetched when 'detail' options is passed. Internally VDSM can use any of the following ways to determine the capacity information.

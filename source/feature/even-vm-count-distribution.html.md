@@ -25,8 +25,9 @@ The goal of this feature is to provide a cluster policy that evenly distributes 
 
 ### Detailed Description
 
-*   HighVMSCount - Maximum VM limit. Exceeding it qualifies the host as overloaded.
-*   MigrationThreshold - defines a buffer before we start migrating VMs from the host
+*   **HighVMSCount** - Maximum VM limit. Exceeding it qualifies the host as overloaded.
+*   **MigrationThreshold** - defines a buffer before we start migrating VMs from the host
+*   **SPMVMCountGrace** - defines how many slots for VMs should be reserved on SPM hosts (the SPM host should have less load than others, so this variable defines how many VM less it should have)
 
 The cluster is considered unbalanced if there is VDS with more than HighVMSCount VMs running on it AND there is at least one VDS with more then MigrationThreshold less VMs
 

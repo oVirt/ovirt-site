@@ -39,17 +39,11 @@ You can also join oVirt users mailing list, where quality assurance related topi
 
 ## Next releases
 
-*   3.3.1:
-    -   Tracker: oVirt 3.3.1 release
+*   3.3.3:
+    -   Tracker: oVirt 3.3.3 release
 
-    -   [oVirt 3.3.1 release notes](OVirt_3.3.1_release_notes)
-    -   [oVirt 3.3.1 testing](Testing/Ovirt_3.3.1_testing)
-
-*   3.3.2:
-    -   Tracker: oVirt 3.3.2 release
-
-    -   [oVirt 3.3.2 release notes](OVirt_3.3.2_release_notes)
-    -   [oVirt 3.3.2 testing](Testing/Ovirt_3.3.2_testing)
+    -   [oVirt 3.3.3 release notes](OVirt_3.3.3_release_notes)
+    -   [oVirt 3.3.3 testing](Testing/Ovirt_3.3.3_testing)
 
 *   3.3.z:
     -   [OVirt_3.3.z_release-management](OVirt_3.3.z_release-management)
@@ -57,6 +51,7 @@ You can also join oVirt users mailing list, where quality assurance related topi
     -   Tracker: oVirt 3.4.0 release
 
     -   [OVirt_3.4_release-management](OVirt_3.4_release-management)
+    -   [oVirt 3.4.0 release notes](OVirt_3.4.0_release_notes)
 
 ## Notes:
 

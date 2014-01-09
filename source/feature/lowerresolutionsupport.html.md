@@ -77,8 +77,8 @@ Verify the following for low resolutions:
 2.  make sure to test interesting scenarios, which include a lot of main-tabs that are displayed:
     -   'System' left-pane-tree-node selected
     -   a specific Data-Center left-pane-tree-node is selected
-    -   RHEV Reports is installed (i.e. Dashboard main tab is displayed)
-    -   RHEV ui-plugin(s) that are adding main tab(s) are installed.
+    -   oVirt Reports are installed (i.e. Dashboard main tab is displayed)
+    -   oVirt ui-plugin(s) that are adding main tab(s) are installed.
 
 3.  when any sub-tab panel doesn't have enough real estate to be fully displayed: behavior should be similar to the one described in (1) above.
     -   Make sure to test a case of many sub-tabs using the ui-plugins mechanism.
@@ -101,8 +101,8 @@ Verify the following for non-maximized window size:
 2.  make sure to test interesting scenarios, which include a lot of main-tabs that are displayed:
     -   'System' left-pane-tree-node selected
     -   a specific Data-Center left-pane-tree-node is selected
-    -   RHEV Reports is installed (i.e. Dashboard main tab is displayed)
-    -   RHEV ui-plugin(s) that are adding main tab(s) are installed.
+    -   oVirt Reports are installed (i.e. Dashboard main tab is displayed)
+    -   oVirt ui-plugin(s) that are adding main tab(s) are installed.
 
 3.  when any sub-tab panel doesn't have enough real estate to be fully displayed: behavior should be similar to the one described in (1) above.
     -   Make sure to test a case of many sub-tabs using the ui-plugins mechanism.
@@ -125,8 +125,8 @@ Verify the following for wide left panes.
 2.  make sure to test interesting scenarios, which include a lot of main-tabs that are displayed:
     -   'System' left-pane-tree-node selected
     -   a specific Data-Center left-pane-tree-node is selected
-    -   RHEV Reports is installed (i.e. Dashboard main tab is displayed)
-    -   RHEV ui-plugin(s) that are adding main tab(s) are installed.
+    -   oVirt Reports are installed (i.e. Dashboard main tab is displayed)
+    -   oVirt ui-plugin(s) that are adding main tab(s) are installed.
 
 3.  when any sub-tab panel doesn't have enough real estate to be fully displayed: behavior should be similar to the one described in (1) above.
     -   Make sure to test a case of many sub-tabs using the ui-plugins mechanism.

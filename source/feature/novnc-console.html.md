@@ -137,6 +137,8 @@ Extract keys:
 
 Note: You may have to create user ovirt.
 
+(Note 2: If you're prompted for a password, you should use the value that corresponds to password when generating key/cert pair for websocket proxy (see above).)
+
 Configure service: /etc/ovirt-engine/ovirt-websocket-proxy.conf.d/10-setup.conf
 
       PROXY_PORT=6100

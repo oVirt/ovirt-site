@@ -23,7 +23,11 @@ The web admin interface and to some degree also the user portal interface are no
 
 *   **Complete**: Identify existing issues
 *   **Complete**: Design solution based on the existing issues
-*   In Progress: Implement proposed solution.
+*   **Complete**: Implement proposed solution: <http://gerrit.ovirt.org/#/c/21716/>
+
+### Available in Version
+
+*   ovirt-3.4
 
 # Existing problems
 

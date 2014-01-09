@@ -52,7 +52,7 @@ The cluster is considered unbalanced if there is VDS with more than HighVMSCount
 1.  VM2 moved to VDS5 (the only possible target, because it's the only one outside of the balancing window)
 2.  The MigrationThreshold top moved from 11 to 10 and the minimum is now 6 which means the cluster is balanced because every VDS has VM count inside the MigrationThreshold
 
-The cluster from this example is balanced after the 2nd iteration. The final VM distribution is shown on img "Cluster after 2nd iteration".
+The cluster from this example is balanced after the 2nd iteration. The final VM distribution is shown on img "Cluster after 2 balancing iterations".
 
 ### Benefit to oVirt
 

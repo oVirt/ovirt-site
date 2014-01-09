@@ -66,6 +66,11 @@ This feature comes from customer request, so benefit to ovirt is a better custom
 
 pseudo (python) code for the balance() method
 
+    getOccupiedVMSlots(VDS):
+       occupiedVMSlots = VDS.activeVMSCount()
+       if VDS.isSPM():
+          occupiedVMSlots = occupiedVMSlots + SPMVMCountGrace
+
     getBestVmToMigrate(VMS):  # just select the VM with the least CPU usage
       bestVMToMigrate = VMS[0]
       for vm in VMS:

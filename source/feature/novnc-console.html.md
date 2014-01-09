@@ -117,7 +117,7 @@ Execute:
 
 *Note: the port on the proxy machine must be opened on firewall.*
 
-On the engine, generate a certificate and key. substitute <FQDN> with the DNS name of the host. Substitute <country>, <organization> to suite your environment.
+On the engine, generate a certificate and key. substitute <FQDN> with the DNS name of the host. Substitute <country>, <organization> to suite your environment (i.e. the values must match values in the certificate authority of your engine).
 
       /usr/share/ovirt-engine/bin/pki-enroll-pkcs12.sh --name=websocket-proxy-standalone --password=mypass --subject="/C=`<country>`/O=`<organization>`/CN=`<fqdn>`"
 

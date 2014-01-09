@@ -21,7 +21,11 @@ To find out more about features which were added in previous oVirt releases, che
 
 ### ALPHA RELEASE
 
-oVirt 3.4.0 is still in alpha. In order to install it you've to enable oVirt alpha repository and disable nightly repository if you're using it. You'll need to add the following lines in your /etc/yum.repos.d/ovirt.repo:
+oVirt 3.4.0 is still in alpha, **please wait for official announcement before trying to install it**.
+
+In order to install it you've to enable oVirt alpha repository and disable nightly repository if you're using it.
+
+You'll need to add the following lines in your /etc/yum.repos.d/ovirt.repo:
 
 for CentOS / RHEL:
 

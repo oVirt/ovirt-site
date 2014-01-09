@@ -50,7 +50,7 @@ The cluster is considered unbalanced if there is VDS with more than HighVMSCount
 #### 2. iteration
 
 1.  VM2 moved to VDS5 (the only possible target, because it's the only one outside of the balancing window)
-2.  The balancing window top moved from 11 to 10 and the minimum is now 6 which means the cluster is balanced because every VDS has VM count inside the balancing window
+2.  The MigrationThreshold top moved from 11 to 10 and the minimum is now 6 which means the cluster is balanced because every VDS has VM count inside the MigrationThreshold
 
 The cluster from this example is balanced after the 2nd iteration the
 

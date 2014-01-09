@@ -25,10 +25,10 @@ The goal of this feature is to provide a cluster policy that evenly distributes 
 
 ### Detailed Description
 
-*   MAX_VMS_COUNT - Maximum VM limit. Exceeding it qualifies the host as overloaded.
-*   BALANCING_MIGRATION_THRESHOLD - defines a buffer before we start migrating VMs from the host
+*   HighVMSCount - Maximum VM limit. Exceeding it qualifies the host as overloaded.
+*   MigrationThreshold - defines a buffer before we start migrating VMs from the host
 
-The cluster is considered unbalanced if there is VDS with more than MAX_VMS_COUNT VMs running on it AND there is at least one VDS with more then BALANCING_WINDOW_WIDTH less VMs
+The cluster is considered unbalanced if there is VDS with more than HighVMSCount VMs running on it AND there is at least one VDS with more then MigrationThreshold less VMs
 
 **Unbalanced cluster**
 

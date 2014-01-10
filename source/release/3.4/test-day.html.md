@@ -22,20 +22,20 @@ wiki_last_updated: 2014-03-27
 
 *   If you already have the hardware, verify if it meets the hardware requirement, refer information detail section below
 *   Update the Participants section.
-*   Go a head and [ install ovirt ](OVirt_3.4_TestDay#Installation_notes)
+*   Go a head and [ install ovirt ](oVirt_3.4_TestDay#Installation_notes)
 *   Accomplish the goals set in objective section , run the tests, update the test matrix.
-*   Running into any issues - [ Try to get answer ](Community) or [open a BZ](https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt)
+*   Running into any issues? [ Try to get answer ](Community) or [open a BZ](https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt) ticket.
 
 <!-- -->
 
-*   make sure you have either a fedora 19 or centos 6.5 machine installed.
-*   install the release pkg:
+*   Make sure you have either a Fedora 19 or CentOS 6.5 machine installed.
+*   Install the release pkg:
 
 `(f19) sudo yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release-fedora.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release-fedora.noarch.rpm)
 `(el) sudo yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release-el.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release-el.noarch.rpm)
 
-*   make sure to enable the [ovirt-beta] & [ovirt-stable] repos and disable the [ovirt-nightly] repo.
-*   if you're using centos, make sure you have epel repo enabled as well:
+*   Make sure to enable the [ovirt-beta] & [ovirt-stable] repos and disable the [ovirt-nightly] repo.
+*   If you're using CentOS, make sure you have epel repo enabled as well:
 
       [epel]
       name=Extra Packages for Enterprise Linux 6 - $basearch
@@ -108,12 +108,12 @@ You need at least two physical servers to install and configure a basic yet comp
 *   Base config - single NIC, bridge on top, VMs attached to NIC
 *   Advanced configurations:
 
-![](Vlan bonding.jpg "fig:Vlan bonding.jpg") make sure each of the configs can:
+![](Vlan bonding.jpg "fig:Vlan bonding.jpg") Make sure each of the configs can:
 
-*   survive a reboot
-*   test network at both host and VM level
-*   ping and transfer large amounts of data (2Gb size files should be enough)
-*   remain operational over time (1hr of uptime should be sufficient for the basic testing)
+*   Survive a reboot
+*   Test network at both host and VM level
+*   Ping and transfer large amounts of data (2Gb size files should be enough)
+*   Remain operational over time (1hr of uptime should be sufficient for the basic testing)
 
 #### Tools
 

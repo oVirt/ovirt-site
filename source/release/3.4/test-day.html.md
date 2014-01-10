@@ -26,7 +26,7 @@ wiki_last_updated: 2014-03-27
 *   Accomplish the goals set in objective section , run the tests, update the test matrix.
 *   Running into any issues? [ Try to get help from the community ](Community) or [open a bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt) ticket.
 
-<!-- -->
+### Installation notes
 
 *   Make sure you have either a Fedora 19 or CentOS 6.5 machine installed.
 *   Install the release pkg:

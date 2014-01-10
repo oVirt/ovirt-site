@@ -38,8 +38,8 @@ If you're upgrading from oVirt 3.3, you should just execute:
 If you're upgrading from oVirt 3.2, you should read [oVirt 3.2 to 3.3 upgrade](oVirt 3.2 to 3.3 upgrade)
 
 If you're upgrading from oVirt 3.1, you should upgrade to 3.2 before upgrading to 3.3.3. Please read [oVirt 3.1 to 3.2 upgrade](oVirt 3.1 to 3.2 upgrade) before starting the upgrade.
-On CentOS and RHEL: For upgrading to 3.2 you'll need 3.2 stable repository.
-So, first step is disable 3.3 / stable repository and enable 3.2 in /etc/yum.repos.d/ovirt.repo:
+ On CentOS and RHEL: For upgrading to 3.2 you'll need the 3.2 stable repository.
+So, the first step is disable 3.3 / stable repository and enable 3.2 in /etc/yum.repos.d/ovirt.repo:
 
       [ovirt-32]
       name=Stable builds of the oVirt 3.2 project

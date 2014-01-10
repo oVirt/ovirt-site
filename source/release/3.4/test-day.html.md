@@ -24,7 +24,7 @@ wiki_last_updated: 2014-03-27
 *   Update the Participants section.
 *   Go ahead and [ install ovirt ](oVirt_3.4_TestDay#Installation_notes)
 *   Accomplish the goals set in objective section , run the tests, update the test matrix.
-*   Running into any issues? [ Try to get answer ](Community) or [open a BZ](https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt) ticket.
+*   Running into any issues? [ Try to get help from the community ](Community) or [open a bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt) ticket.
 
 <!-- -->
 

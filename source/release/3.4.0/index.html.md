@@ -15,15 +15,15 @@ The oVirt Project is preparing oVirt 3.4.0 alpha release for testing. This page 
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization.
 
-To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.3.2 release notes](oVirt 3.3.2 release notes), [oVirt 3.3.1 release notes](oVirt 3.3.1 release notes), [oVirt 3.3 release notes](oVirt 3.3 release notes), [oVirt 3.2 release notes](oVirt 3.2 release notes) and [oVirt 3.1 release notes](oVirt 3.1 release notes). For a general overview of oVirt, read [ the oVirt 3.0 feature guide](oVirt 3.0 Feature Guide) and the [about oVirt](about oVirt) page.
+To find out more about features that were added in previous oVirt releases, check out the [oVirt 3.3.2 release notes](oVirt 3.3.2 release notes), [oVirt 3.3.1 release notes](oVirt 3.3.1 release notes), [oVirt 3.3 release notes](oVirt 3.3 release notes), [oVirt 3.2 release notes](oVirt 3.2 release notes), and [oVirt 3.1 release notes](oVirt 3.1 release notes). For a general overview of oVirt, read [ the oVirt 3.0 feature guide](oVirt 3.0 Feature Guide) and the [about oVirt](about oVirt) page.
 
 ## Install / Upgrade from previous versions
 
 ### ALPHA RELEASE
 
-oVirt 3.4.0 is still in alpha, **please wait for official announcement before trying to install it**.
+oVirt 3.4.0 is still in alpha. **Please wait for official announcement before trying to install it.**
 
-In order to install it you've to enable oVirt alpha repository and disable nightly repository if you're using it.
+In order to install it, you need to enable the oVirt alpha repository and disable the nightly repository if you're using it.
 
 You'll need to add the following lines in your /etc/yum.repos.d/ovirt.repo:
 
@@ -47,7 +47,7 @@ for Fedora:
 
 ### Fedora / CentOS / RHEL
 
-If you're installing oVirt 3.4.0 alpha on a clean host you should read our [Quick Start Guide](Quick Start Guide)
+If you're installing oVirt 3.4.0 alpha on a clean host, you should read our [Quick Start Guide](Quick Start Guide)
 
 If you're upgrading from oVirt 3.3 you should just execute:
 

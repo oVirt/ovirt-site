@@ -22,7 +22,7 @@ wiki_last_updated: 2014-03-27
 
 *   If you already have the hardware, verify if it meets the hardware requirement, refer information detail section below
 *   Update the Participants section.
-*   Go a head and [ install ovirt ](oVirt_3.4_TestDay#Installation_notes)
+*   Go ahead and [ install ovirt ](oVirt_3.4_TestDay#Installation_notes)
 *   Accomplish the goals set in objective section , run the tests, update the test matrix.
 *   Running into any issues? [ Try to get answer ](Community) or [open a BZ](https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt) ticket.
 

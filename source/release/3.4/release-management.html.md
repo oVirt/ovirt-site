@@ -22,7 +22,7 @@ wiki_last_updated: 2014-03-27
     -   Branching / Feature freeze: **2014-01-15**
     -   Alpha release: **2014-01-09**
 
-**more details on test days, etc to come in the next few weeks**
+**More details on test days, etc. to come in the next few weeks**
 
 ## Features Status Table
 

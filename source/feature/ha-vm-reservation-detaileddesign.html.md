@@ -96,11 +96,7 @@ Cluster <ClusterName> failed the HA Reservation check, HA VMs on host(s): <Host1
 
 *   User configurable settings
 
-At the cluster popup edit window, the user may select his policy for the cluster. when selecting a policy with a HA Reservation weight/balance function, two parameters could be changed by the user: 1. overUtilization: a percentage number that represent the over utilization threshold (default is 200%) from the optimal use case. For example in case the optimal HA VMs for a host is 2,
-
-      and overUtilization is 200, HA VM will not be migrated by the balance method until the host has at least 5 HA VMs (>2*200%).
-
-2. scaleDown: a number to reduce by the result of the HA Reservation weight score (default is 1). For example if the score of a host is 90 and scaleDown is 2, then the final score for this host will be 45. this parameter enable the user to reduce the impact the HA Reservation weight function has on the total scoring of the host.
+At the cluster popup edit window, the user may select his policy for the cluster. when selecting a policy with a HA Reservation weight/balance function, two parameters could be changed by the user: 1. overUtilization: a percentage number that represent the over utilization threshold (default is 200%) from the optimal use case. For example in case the optimal HA VMs for a host is 2, and overUtilization is 200, HA VM will not be migrated by the balance method until the host has at least 5 HA VMs (>2\*200%). 2. scaleDown: a number to reduce by the result of the HA Reservation weight score (default is 1). For example if the score of a host is 90 and scaleDown is 2, then the final score for this host will be 45. this parameter enable the user to reduce the impact the HA Reservation weight function has on the total scoring of the host.
 
 *   please note that usually there is no need for the user to change the default setting.
 

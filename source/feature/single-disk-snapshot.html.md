@@ -107,11 +107,14 @@ Already supported.
     -   What to display at the bottom section?
         -   "Result" - i.e. the state to preview.
         -   VM configuration - i.e. the bottom section updates on configuration selection.
+        -   Decision: the bottom section displays the 'result' snapshot.
     -   Memory (applicable only for live snapshot)
         -   Should we allow configuration/memory decoupling?
         -   Or, configuration selection enforces the selection of memory from same snapshot (and vice versa)?
+        -   Decision: VM configuration and memory are coupled. I.e. one cannot preview memory of a snapshot without selecting the same snapshot's configuration.
     -   Allow excluding a disk from preview (deselecting entire column)?
         -   Excluding a disk implications are similar to deleting a disk (will result with an illegal disk on previous snapshots).
+        -   Decision: allow disk exclude for now.
 
 ### Testing
 

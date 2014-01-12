@@ -80,6 +80,10 @@ F(VMi) = the amount of HA VM in the host.
 
 using the already existing mechanism when adding a VM the system do the following: 1. filter out non relevant hosts, using the hard constraints filters. 2. apply the weight function to scoring the hosts based on the cluster policy. 3. apply the HA reservation weight function scoring the hosts taking into account the HA resources taken for each host. 4. merge (2) and (3) to a single number representing the score of the host based on the cluster policy and HA resources. 5. the host that will score the lowest will be the one to receive the VM.
 
+*   Balancing the cluster
+
+using the existing balancing mechanism, we will add a new balance method that will be based on the existing even distribution method, this new method will return a VM to migrate in cases there are too many VMs on a host, with special attention to HA VMs. The method will return a vm and a list of potential hosts to migrate to.
+
 #### UI
 
 Enabling or disabling the HA VM Reservation will be possible via the Cluster new/edit popup.

@@ -68,7 +68,7 @@ For running a new HA VM we will need to place it at the most suitable host, for 
 Basically the Engine will calculate the amount of used HA resources, the host with the lowest usage will get the highest score.
 More details on this functionality can be found at the detailed design page.
 
-another module that will be enhanced is the balancing mechanism, a new balancing method will be added making sure that HA VMs will be well spread thru the cluster. the balancing mechanism is self triggered run runs in the background, no user action is needed for this method to perform.
+another module that will be enhanced is the balancing mechanism, a new balancing method will be added making sure that HA VMs will be well spread thru the cluster. the balancing mechanism is self triggered run runs in the background, no user action is needed for this method to perform. The balancing method will be based on the existing even-distributed one, the method will add treatment to HA VMs, making sure the HA VMs are more balanced over the cluster.
 
 ## GUI
 

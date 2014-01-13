@@ -6,7 +6,7 @@ wiki_revision_count: 7
 wiki_last_updated: 2014-07-01
 ---
 
-# Build Binary Package
+# Build Source Package
 
 Most components of oVirt project use standard sequence to build rpms.
 
@@ -17,9 +17,12 @@ Summary of sequence is:
       [ -r configure.ac ] && autoreconf -ivf
       [ -r configure ] && ./configure
       make dist                # <-- will output source tarball
-      rpmbuild -tb `<tarball>`   # <-- will output rpms
 
-If autoreconf is required, install autoconf, automake optionally gettext-devel packages.
+Note: If autoreconf is required, install autoconf, automake optionally gettext-devel packages.
+
+# Build RPM Package
+
+      rpmbuild -tb `<tarball>`   # <-- will output rpms
 
 Another useful command is createrepo which scans directory and prepare rpm repository that can be added to yum via /etc/yum.repos.d/xxx.repo
 

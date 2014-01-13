@@ -102,7 +102,7 @@ version section is optional because user might be creating a base template If ve
 
 *   PUT: (update template)
 
-only version name can be updated no update is supported for version section in 3.4 for base id nor numbering.
+only version name can be updated. no update is supported for version section in 3.4 for base id nor numbering.
 
 VMs usecase for a vm - template id field continues to be reused (existing) new field - "useLatest" of type boolean - relevant only for stateless VMs
 

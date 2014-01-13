@@ -84,15 +84,17 @@ The most interesting use case is for VM-Pools, where vms are stateless.
     -   recreate all down vms
     -   for each vm that moves to down, if there is a new version, recreate it
 
-**UI**
+#### UI
 
 *   add an option to select template version when creating vm, by default latest should be selected
 
-**REST API**
+#### REST API
 
 Templates management usecase:
 
-For each template version we have a separate REST entity of template. GET: new section <version> will be introduced to include all 3 properties: version number, version name and base template id (GUID) for base templates: base will have base id empty, base version numbering = 1
+For each template version we have a separate REST entity of template.
+
+GET: new section <version> will be introduced to include all 3 properties: version number, version name and base template id (GUID) for base templates: base will have base id empty, base version numbering = 1
 
 POST: (add new template) version section is optional because user might be creating a base template If version section will be defined, user will have to fill the following fields: base id - required, version name =optional version numbering cannot be filled (it's calculated by the engine), if user fills it - ignore
 
@@ -102,7 +104,7 @@ VMs usecase for a vm - template id field continues to be reused (existing) new f
 
 VM Pools usecase TBD
 
-**DB**
+#### DB
 
 *   2 new fields for vm_static:
     -   template_version - int - save a numeric, sequential, version number of the template

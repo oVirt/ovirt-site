@@ -93,6 +93,214 @@ will upgrade to latest 3.3.
 
 ### oVirt Engine
 
+* [RFE] Webadmin's layout is broken when not enough display real-estate [main-tab clutter, sub-tab clutter, buttons-panel clutter]
+ - [RFE] Please allow to search in a case-insensitive manner from the search bar
+ - [engine-core] Activating an already active domain through REST fails with "domain inaccessible"
+ - createVG failures are not logged in vdsm logs
+ - [RFE] Adding Disk to a VM which is not down adds a Disk that is not activated
+ - webadmin - centralized refreshing logic
+ - ovirt-engine-webadmin-portal: New VM Pool button should be grayed out when there are no templates (except Blank template)
+ - [UserPortal] User is not able to see newly added permissions on object if he inherited this permission on that object.
+ - [RHS-C] SHD service status details are not displayed in "Services" tab in Cluster
+ - VMs are not migrated properly when NFS storage is blocked on host
+ - [RHS-C] Creating a Distributed Stripe volume using the default Stripe Count (4) actually creates only a Stripe volume
+ - [RFE] collect the "created_by" field of a VM into it's configuration history
+ - [oVirt-webadmin] [setupNetworks] "No valid Operation for <network_name> and Unassigned Logical Networks panel"
+ - [oVirt] [network] Audit log message for unmanaged network
+ - REST-API: Allow copy/move disk from disks collection
+ - Deadlock detected during creation vms in pool
+ - engine: DeactivateStorageDomainCommand fails with vdsm error: 'Operation not allowed while SPM is active' because we do not actually send SpmStop while there are unknown tasks
+ - [event tab] better phrasing for actions done by unauthenticated users, currently appears as <UNKNOWN>
+ - Change "Guide" link to Power User Portal Guide
+ - [Admin Portal] sort roles in alphabetical order in Configure|Roles window
+ - [vdsm] remove mapping fails after extend storage domain with force=True
+ - Define meaningful Expires for static css|ico files
+ - [RHS-C] No event messages are generated in UI when a brick goes from UP --> DOWN / DOWN --> UP
+ - [RFE] ovirt-engine URI rework
+ - webadmin: when unchecking the "collapse snapshot" tag in import dialogue it will change the disks allocation policy in the dialogue view to thinprovision no matter what the original disk is
+ - Migrating VM vm_name to Host <UNKNOWN>
+ - [RHEVM][webadmin] weird scroll-bar flickering on Host -> Network Interfaces sub-tab when refresh button is pressed
+ - [User Portal] Displaying incorrect events after renaming VM
+ - engine: LiveMigrateDisk: java.lang.reflect.InvocationTargetException when vm is removed before the deleteImage step is cleared on wipe=true disk
+ - [RHS-C] Detected server host3 removed from Cluster <UNKNOWN>, and removed it from engine DB.
+ - [RHS-C] Binary hook contents are being displayed during Resolve Conflicts
+ - [RHS-C] Remove all the RHEVM related events from "Manage Events"
+ - [RFE] spice proxy support at cluster/vm-pool granularity
+ - event names partially overlap in "manage events" dialog
+ - [RHSC] Cluster Compatibility Version version should default to the latest version
+ - engine: no alert for user that specific disks cannot be moved when we move multiple disks at once
+ - [User Portal] Disable strict user checking - warning, confirmation and then error
+ - Export and Import of a VM do not save the plugged/unplugged status of its disks
+ - [restapi] Missing permissions link at /vmpools url
+ - 'Remove' button on quota consumer should be enabled immediately, after click on user.
+ - [RHSC] When a host is moved to Maintenance after being Non-operational, it is removed from the cluster, if another host in the cluster is UP.
+ - osinfo file - deriving properties from NON-existing section causes 'General command validation failure.' in UI
+ - engine [logger]: same exception is logged multiple times in engine log
+ - [RHSC] Import cluster when one of the peers is unresolvable or unreachable from the engine, fails.
+ - [RHSC] Remove hooks from a cluster, when all servers in the cluster are removed from engine.
+ - [oVirt] [provider] Dialog doesn't update unless focus lost
+ - RHS-C: No error message seen while starting "ovirt-engine-notifier" when "MAIL_SERVER" is NOT defined
+ - [Admin Portal] Setting config value DefaultWindowsTimeZone has no effect
+ - [RHEVM][UI][TEXT] Comment tooltip is not well adjusted to its text
+ - VdsManager.OnTimer loads VDS instead of VdsDynamic
+ - [RHSC] Console allows addition of a host to a cluster, that has the same UUID as that of a host that is already present in the cluster
+ - Change column header for clusters on which a policy is applied for usability
+ - [Admin Portal] Deleted config of UI plugin is not reflected, data are kept until engine is restarted
+ - [RHS-C] AddVdsCommand should use LockManagerProperly
+ - scheduling policy: please rename the predefined Functions / Weights Modules / Factors
+ - [RHEVM-ENGINE] Authentication method doesn't change when using arrow keys
+ - It is possible to change an iscsi storage connection and set an empty target
+ - [rhevm] Webadmin - Vms - Vms:Hosts autocomplete is incorrect
+ - [rhevm] Webadmin - Users - SearchBox doesnt display Templates in search for Users (Users: Templates.name =R\*)
+ - [rhevm] Webadmin - Hosts - SearchBox "Host:user.usrname =\*" doesn't filter correctly
+ - REST-API: --parent-tag-id option doesn't exists in 'update tag' options
+ - [ovirt-engine-notifier] - Mail - Incorrect mail headline on Error (Issue Solved Notification, Failed to query for notifications)
+ - [scale] The thread pool is out of limit
+ - Cannot add hypervisor host when use chinese support
+ - [RHSC] Error message seen on starting rebalance on a volume with one brick needs improvement
+ - [oVirt] In gluster-only mode, permissions for every user has roles not relevant to a gluster-user.
+ - [RHSC] Show error pop-up when user tries to stop a volume which has rebalance in progress
+ - RHS-C: Introduce a Force option in the UI to allow creation of bricks in the root partition
+ - [es_ES] [Admin Portal] Virtual Machines tab- Chart heading "Time executing" does not fit in the available space
+ - exportDbSchema scripts generates output file with wrong name
+ - Tabbing navigation in Add host tab should go from password field to OK buton
+ - RHS-C: Rebalance Status refresh was not occuring properly
+ - [RHSC] Not able to close rebalance status dialog .
+ - [RHSC] Bricks tab for a volume not displaying the bricks and remains in the loading state for very long - more than 15 minutes.
+ - Glance download is not interrupted when the InputStream is closed
+ - [spice-html5] Unable to send ctrl-alt-del to a Windows guest while using spice-html5 console
+ - [RHSC] - Rebalance status title should be changed.
+ - [RHSC] - Brick advanced details gives error.
+ - [RHSC] - An event message should be displayed when rebalance completes on a volume.
+ - [RHSC] 'Add Network' dialog for a cluster contains fields not relevant to RHS
+ - [ovirt-engine-backend] there are dos end of lines in engine.log
+ - Exception thrown on import vm failure
+ - [RFE] Addition of os disk indicator on VM import screen
+ - [RHSC] - No event message generated when rebalance is started from CLI.
+ - [RHSC] A user with permissions to manipulate volumes cannot delete a volume
+ - core/GUI: prevent potential serialization exceptions post upgrade to GWT 2.5
+ - [vdsm] engine fails to add host with vdsm version 4.13.0
+ - Description for the creation of cluster is incorrect
+ - [RFE] Diplay client IP in the VM Sessions tab
+ - REST-API: role should not be added to user without having a resource in context
+ - REST-API: Inconsistent schema implementation in PayloadFile
+ - call to ClusterGlusterVolumeBricks::add() successfully adds brick to volume but throws exception
+ - [RHS-C] The menu option "Rebalance" should appear after "Stop" in Volume tab
+ - [RHS-C] Drop down menu in Activities column for volumes should have a box on mouse hover
+ - [RHS-C] Remove bricks status dialog should show host names instead of IP address
+ - [RHS-C] In the Hosts tab, the sub-tab "Gluster Bricks" should be renames as "Bricks"
+ - [RHS-C] Hide all the virt related fields and menus from RHSC
+ - [RHS-C] Status of the volume in activities column after Stop rebalance should be in sync with gluster CLI output
+ - [RHS-C] Show units of time (sec/ min) in runtime column in remove brick status dialog
+ - RHS-C: Hide NFS setup, Application mode and Datacenter storage type from CONFIGURATION PREVIEW during rhsc-setup
+ - [RHSC] - Stop Rebalance button does not get disabled once rebalance is complete.
+ - [RHSC] - Completed text in the status dialog needs to be highlighted or made bold.
+ - [RHSC] Error message on failure to start remove-brick is incorrect
+ - Power Managent with cisco_ucs problem
+ - [notifier] sent notification should be visible in INFO log level
+ - [RHSC] - Skipped file count is getting displayed as failed file count in rebalance status dialog.
+ - [notifier] If Alert and Issue Solved Notifications are both discovered during next iteration, the order is messed
+ - [RHSC] - Node column should be sorted in the rebalance status dialog.
+ - [RHSC] In the task tab, show the size of rebalanced files in MB or GB
+ - [notifier][RFE] Use STARTTLS
+ - [RHSC] - Cancel button is not working in the stop rebalance dialog box.
+ - [RHSC] - Stop rebalance confirmation dialog does not display the volumes on which rebalance is going to be stopped.
+ - [text] spelling mistakes in engine event log
+ - Creating VM from Foreman fails with oVirt 3.3.1 beta.
+ - [RHSC] 'CPU Name' field for a host is empty and 'CPU Type' is scrollable
+ - [RHSC] Status of bricks that reside on a server which is down, should be shown as down.
+ - message in the 'remove' confirmation dialog cannot be overridden in some cases
+ - [RHSC] Import host dialog hangs
+ - [RHSC] After starting rebalance on a volume, the rebalance button is active for some time.
+ - [RHSC] - Remove brick warning for distributed replicate volume has an extra parameter which is not relevant .
+ - RHS-C: Commit and Retain buttons are disabled in Remove brick status pop-up even though it's ready for Commit/Retain
+ - RHS-C: Typo in Events during Remove brick
+ - [RHSC] Menu items in the remove-brick menu are all disabled
+ - [RHSC] - Stopped At field is not getting dispalyed in the rebalance status dialog once rebalance is stopped.
+ - [RHSC] Rebalance status dialog appears on the Console on clicking on the Status button and immediately disappears
+ - [RHSC] - Monitoring stop rebalance from CLI does not work.
+ - Upgrade from ovirt-engine-3.3 to master fails
+ - Storage and dc are up although there is no host
+ - [oVirt-webadmin][network] Network roles in cluster management should be radio buttons
+ - [RFE] add trigger to stop etl connection via engine db value.
+ - [RHSC] - Table in the rebalance status dialog should be same as that of CLI.
+ - [RHS-C] In Add Bricks" pop-up, reference of "Servers" is NOT changed to "Hosts"
+ - [RHS-C] Host detach fails but does not show an error in UI
+ - [RHS-C] Stop remove brick does not show the remove brick status
+ - Users with GlusterAdmin role should be able to Add/Remove Cluster and Hosts
+ - [RHSC] Brick advance details dialogue should have the heading “Brick Advanced Detail”. In the General tab of Brick Advance details, swap the last two items “Mount options” and “File System” position.
+ - [RHS-C] Remove brick status dialogue : Rename the column from “File Rebalanced” to “Files Migrated”
+ - Rename Gluster Host to Host in detach Host dialog
+ - [RHSC] In the bricks sub-tab for a server, show the bricks in sorted order
+ - Put – (dash) before every item name for the purpose of consistency in confirmation dialogues. Particularly in Maintenance Confirmation dialogue...
+ - [RHS-C] Error pop up has empty title
+ - [RHSC] Retain button in the remove-brick status dialog does not work.
+ - [RHSC] - Close button in commit remove bricks dialog should be changed to 'Cancel'
+ - Remove Multiple hosts throws error
+ - [RHS-C] Remove-brick icon in the Volumes tab and Bricks tab should appear simultaneously
+ - [RHSC] General Tab under Host : All the rows has to be properly aligned
+ - [RHEVM] [webadmin] fix Edit Role dialog layout
+ - Webadmin - Events - Search box: filtering events by time shows bogus results
+ - Starting rebalance should reflect in UI immediately that task has started
+ - backend search returns only first page when given max=-1
+ - Create DB Scripts - incompatible code breaking dwh cross compatibility
+ - [oVirt] [webadmin] In VM Guide Me, button Configure Virtual Disks doesn't change
+ - Duplicated login events
+ - Webadmin UI is now requesting two slashes in front of URLs
+ - Default DC & Cluster has fixed UUIDs
+ - Volumes tab and sub-tabs not taking equal space
+ - Possibility to edit Network description and comment
+ - [RHSC] Remove-brick status dialog hangs when glusterd goes down on the storage node
+ - Reinstall host by rest api fails on root_password field requirement
+ - [RHS-C] About dialog does not have a title.
+ - [RHSC] After committing remove-brick or retaining the brick, buttons 'Commit' and 'Retain' are not disabled in the remove-brick status dialog
+ - [RHSC] Edit Role Dialog Should Read "Volumes" instead of "Gluster"
+ - restore.sh - wrong example commands in --help
+ - [restore.sh] restore.sh is doing restore.sh.log in /usr directory
+ - [engine-webadmin] inappropriate message when trying to perform an operation on a locked disk
+ - [RHSC] Unable to remove more than one pair of bricks from a distributed-replicate ( 3x2 ) volume
+ - REST-API: Session based authentication in 3.4 is broken
+ - [RHSC] Events log message seen on adding and removing a role needs improvement.
+ - REST: unable to resolve hook content conflict by copying from another host
+ - [RFE] engine.log is missing the iso file name, for run once \\ boot from CD.
+ - REST: can not remove brick from distributed-replicate volume
+ - An event message for commit remove brick should mention the number of bricks removed.
+ - [RHSC] 'Could not fetch remove brick status of volume' message lists all the bricks of the volume
+ - Updating info from Host fails when a VM without a balloon is found
+ - [RFE] [oVirt][webadmin] Change comment column title to icon, and move to right of name
+ - [RHSC] Remove-brick icon disappears from the UI, when glusterd is killed on the node which was running remove-brick
+ - Paused VM can be resumed on host that is not UP
+ - Make default VNC console mode configurable
+ - [RHS-C] Replace "GLuster" with "Gluster" in "Add Event Notification" under Users tab
+ - [RHSC] Bricks status is not getting synched when gluster CLI output shows the port as N/A
+ - Engine does not verify that proxy supports PM agent
+ - [RHS-C] 'Add Event Notification' should show an error message if MAIL_SERVER is NOT configured and if "ovirt-engine-notifier" service is NOT started
+ - [RFE] High Availability flag should be included when exporting/importing from Export Domain
+ - [RFE] Make reservations for HA VMs to make sure there's enough capacity to start them if N hosts fail
+ - CreateVDSCommand Logging message does not report NIC devices
+ - [RHSC] After retaining a brick using the Retain button in the status dialog, the 'Stopped At' field does not appear
+ - when rebalance or remove-brick happens volume name gets updated as UNKNOWN in the tasks pane
+ - [REPORTS] - dashboard results an error, after reports were installed
+ - REST: migrating step's type is unknown
+ - REST: rsdl definition for brick migrate is incorrectly defined
+ - add events for remote console connection
+ - [RFE] Predictable vNIC order
+ - rest api: incorrect error message commiting part of the migrated brick set
+ - Rebalance start from gluster CLI does not update icon in the volume activities column.
+ - No event message gets generated when remove-brick is stopped from CLI
+ - Virt related links are returned in RSDL when engine is in Gluster only mode
+ - Save user's console setting per pool
+ - Show name of the template in General tab for a vm if the vm is deployed from template via clone allocation.
+ - [RFE] Track downtime for inactive VMs
+ - [RHSC] Server removed from DB after being in Up state
+ - In the event of a full host power outage (including fence devices) a user must wait 19 mins (3 x 3 minute timeouts + 10 minutes for the transaction reaper) until they can manually fence a host to relocate guests.
+ - [RFE] Virtual pxe boots out of order - NICs ordered according to the MAC addresses
+ - In the event of a full host power outage (including fence devices) VDS_ALERT_FENCE_STATUS_VERIFICATION_FAILED alert remains in audit log
+ - [RFE] Add drac7 fence agent with ipmilan as implemintation
+ - RHEVM-CLI: action <type> <id> <action> command accepts async and grace_period-expiry parameters but they are missing in auto-completion
+ - cleandb.sh does not obey '-l logfile'
+ - Fix SPICE ActiveX issues with MS Internet Explorer 11
+
 ### VDSM
 
 ### ovirt-node-plugin-vdsm

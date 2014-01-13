@@ -26,7 +26,7 @@ You may also refer to the [detailed feature page](Features/Detailed_Host_Network
 
 *   Target Release: oVirt 3.4
 *   Status: design
-*   Last updated: November 25th, 2013.
+*   Last updated: January 13th, 2014.
 
 #### Detailed Description
 
@@ -47,6 +47,22 @@ This feature would help to prevent situations in which two or more networks are 
 ![](Host_network_qos.png "Host_network_qos.png")
 
 One oVirt 3.3 feature that could specifically benefit from host-level QoS is [Migration Network](Features/Migration_Network), which enabled to designate a specific network to be used for VM migration, to avoid burdening the management network. For the management network to continue functioning properly, it would likely have to be attached to a different network interface on the host, otherwise migration-related traffic could easily lead to congestion. Being able to configure network QoS on the host level means that these two networks could now reside on the same physical NIC without fear of congestion, as can be seen in the diagram above.
+
+#### Testing
+
+The following steps should be tested:
+
+1.  Create a non-VM network and assign it to a host.
+2.  Edit the network, create a new (non-empty) QoS entity from that dialog.
+3.  Verify that the newly-created QoS entity is the default selection in the list box, and approve of the dialog.
+4.  Verify that the network appears as out-of-sync in the host's Setup Networks dialog.
+5.  Edit the network (hover + click on pencil icon), mark it to be synchronized and approve of the Setup Networks dialog.
+6.  Verify that the network's QoS configuration is applied to the host (possibly by running "vdsClient [-s] 0 getVdsCaps" on the host's command line).
+7.  Edit the network on the host again, this time checking the "QoS override" checkbox and configuring other QoS values directly on the interface.
+8.  Again verify that the QoS configuration is applied to the host.
+9.  Edit the network entity, and set its QoS configuration to "Unlimited".
+10. Verify that the network does NOT appear as out-of-sync on the host.
+11. Functional test - initiate usage of the network to which QoS had been applied, monitor the traffic on it and verify that it is capped according to the QoS limitations.
 
 #### Comments and Discussion
 

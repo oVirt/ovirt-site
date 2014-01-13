@@ -119,7 +119,7 @@ the expected result should be something similar to:
 
 ##### RESTful API
 
-As part of the VM Network QoS feature, no API was defined for the DC-level QoS entities, for various reasons. If the "named" QoS entity paradigm is preserved in this feature, I do not see any reason to hurry the process and force the definition of that API. However, if the "anonymous" QoS is also implemented, the values that define the QoS entity could be passed in the Setup Networks command as part of the NIC properties, and doesn't have to rely upon the REST implementation of the DC-level Network QoS entitiyes. This seems to be borderline for oVirt 3.4 at the moment.
+As part of the VM Network QoS feature, no API was defined for the DC-level QoS entities, for various reasons. If the "named" QoS entity paradigm is preserved in this feature, I do not see any reason to hurry the process and force the definition of that API. However, if the "anonymous" QoS is also implemented, the values that define the QoS entity could be passed in the Setup Networks command as part of the NIC properties, and doesn't have to rely upon the REST implementation of the DC-level Network QoS entitiyes. This hasn't been implemented for oVirt 3.4.
 
 ##### User Experience
 

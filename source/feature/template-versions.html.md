@@ -98,7 +98,7 @@ for base templates: base will have base id empty, base version numbering = 1
 
 *   POST: (add new template)
 
-version section is optional because user might be creating a base template If version section will be defined, user will have to fill the following fields: base id - required, version name =optional version numbering cannot be filled (it's calculated by the engine), if user fills it - ignore
+version section is optional because user might be creating a base template If version section will be defined, user will have to fill the following fields: base id - required (template object with id of the base template) version name =optional version numbering cannot be filled (it's calculated by the engine), if user fills it - ignore
 
 *   PUT: (update template)
 

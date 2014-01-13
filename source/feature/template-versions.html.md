@@ -90,15 +90,19 @@ The most interesting use case is for VM-Pools, where vms are stateless.
 
 #### REST API
 
-Templates management usecase:
+Templates management usecase: For each template version we have a separate REST entity of template.
 
-For each template version we have a separate REST entity of template.
+*   -   GET: new section <version> will be introduced to include all 3 properties: version number, version name and base template id (GUID)
 
-GET: new section <version> will be introduced to include all 3 properties: version number, version name and base template id (GUID) for base templates: base will have base id empty, base version numbering = 1
+for base templates: base will have base id empty, base version numbering = 1
 
-POST: (add new template) version section is optional because user might be creating a base template If version section will be defined, user will have to fill the following fields: base id - required, version name =optional version numbering cannot be filled (it's calculated by the engine), if user fills it - ignore
+*   -   POST: (add new template)
 
-update template: only version name can be updated no update is supported for version section in 3.4 for base id nor numbering.
+version section is optional because user might be creating a base template If version section will be defined, user will have to fill the following fields: base id - required, version name =optional version numbering cannot be filled (it's calculated by the engine), if user fills it - ignore
+
+*   -   PUT: (update template)
+
+only version name can be updated no update is supported for version section in 3.4 for base id nor numbering.
 
 VMs usecase for a vm - template id field continues to be reused (existing) new field - "useLatest" of type boolean - relevant only for stateless VMs
 

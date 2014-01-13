@@ -75,7 +75,7 @@ if ***m1 > m2*** the underlying migration should fail?
 
 ##### Possible CPU pinning problems
 
-if we have cpu pinning for cpu 1-4 and we start the VM with 4 CPU and then we offline 2 CPUs and then we online them back - is the pinning is kept?
+if we have cpu pinning for cpu 1-4 and we start the VM with 4 CPU and then we offline 2 CPUs and then we online them back - is the pinning kept?
 
 ##### hook support
 

@@ -96,6 +96,14 @@ oVirt Node can be updated in two ways:
     -   An interactive upgrade dialog appears and guides you through the upgrade process
 *   Through oVirt Engine
 
+### SELinux
+
+SELinux is being used by default on oVirt Node. SELinux works by describing how a system should work - if something is not working like expected (e.g. a daemon writes to a file which SELinux doesn't know about), then this write get's blocked. This can lead to all sorts of problems.
+
+If things on Node don't work, just try running Node in "permissive" mode. In "permissive" mode, SELinux logs unexpected behaviour, but doesn't block it. To enable permissive mode, add the following line to the bootloaders kernel line:
+
+    enforce=0
+
 ## Making changes on the host
 
 *   **Warning** -- Changes you make from the shell are not persistent by default and will be lost if you reboot the host

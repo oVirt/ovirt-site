@@ -28,7 +28,7 @@ You may also refer to the [simple feature page](Features/Host_Network_QoS).
 
 *   Target Release: oVirt 3.4
 *   Status: design
-*   Last updated: December 2nd, 2013.
+*   Last updated: January 13th, 2014.
 
 #### Detailed Description
 
@@ -48,6 +48,8 @@ Implementation-wise, two different approaches naturally arise from the existing 
 *   Define QoS parameters directly on the host's interfaces when networks are attached to them (similarly to boot protocol, for example) - let's refer to this as "anonymous" QoS. The advantage in this approach is when there's a low amount of hosts and host NICs, and their QoS configurations differ (i.e. there's not much value in sharing the configurations), configuring the NICs directly will save the extra step of defining the QoS entities. This also greatly simplifies the relation between host network entities and QoS entities, but at the cost of not being able to share the same QoS configuration between different instances of networks attached to host interfaces.
 
 It is also possible to take on a hybrid approach, where users could EITHER configure an "anonymous" QoS on a host network OR attach a pre-existing QoS entity. This would probably be the preferred approach, as it provides users with flexibility and accommodates any use case. For the coming oVirt 3.4 feature, the plan is to make the existing paradigm - that of shareable, "named" QoS - a first priority; it is of the least risk to implement, and it draws upon the "already familiar" usage flows from oVirt 3.3.
+
+**Aftermath: the hybrid approach had been taken, where a QoS entity may be attached to the network on the DC level, but the QoS configuration on each host interface may be overridden from within the Setup Host Networks dialog.**
 
 ##### Entity Description
 
@@ -126,8 +128,6 @@ As mentioned earlier, to improve the common user experience, we'd like to initia
 However, we would like to enable users to also create a new Network QoS entity from this dialog, in case they had neglected to create a fitting QoS configuration beforehand (through the DC/QoS subtab). To this end, we could add a button that would allow users to create a new QoS entity. Pressing on this button will open the same "Add Network QoS" dialog as in the DC/QoS subtab, and upon creation of a new QoS entity through it, it will be added to the list box.
 
 The most natural place for configuring "anonymous" QoS directly on one of the host's interfaces is in the existing dialog for editing networks as they are attached to the host's interfaces. This is accessible through the "Setup Host Networks" dialog, and clicking the "Edit" icon that appears when hovering over a specific network attached to an interface. Following is a short discussion of how QoS would be configured in that dialog. It is only required to somehow incorporate the QoS widget into the "Edit Host Network" dialog, for example like this (fancier possibilities exist to make the widget less intimidating):
-
-![](Ledit_network.png "Ledit_network.png")
 
 ##### User Work-flows
 

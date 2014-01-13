@@ -123,6 +123,8 @@ As part of the VM Network QoS feature, no API was defined for the DC-level QoS e
 
 ##### User Experience
 
+![ thumb | right](NetworkDialogQos.png  "fig: thumb | right") ![ thumb | right](InterfaceQosOverride.png  "fig: thumb | right")
+
 As mentioned earlier, to improve the common user experience, we'd like to initially configure Host Network QoS on the DC-wide Network entity. This means adding some ability to configure it in the Add/Edit Network dialog. Since we'd like to start with the ability to attach a "named" QoS configuration, the straightforward thing to do would be to add a list box to the dialog, where users could choose one of the pre-configured Network QoS entities in the DC.
 
 However, we would like to enable users to also create a new Network QoS entity from this dialog, in case they had neglected to create a fitting QoS configuration beforehand (through the DC/QoS subtab). To this end, we could add a button that would allow users to create a new QoS entity. Pressing on this button will open the same "Add Network QoS" dialog as in the DC/QoS subtab, and upon creation of a new QoS entity through it, it will be added to the list box.

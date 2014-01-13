@@ -63,6 +63,7 @@ The following steps should be tested:
 9.  Edit the network entity, and set its QoS configuration to "Unlimited".
 10. Verify that the network does NOT appear as out-of-sync on the host.
 11. Functional test - initiate usage of the network to which QoS had been applied, monitor the traffic on it and verify that it is capped according to the QoS limitations.
+12. Move the host to a different cluster, whose compatibility version is smaller than 3.4; verify that it is no longer possible to override the QoS configuration on an interface via the Setup Networks dialog.
 
 #### Comments and Discussion
 

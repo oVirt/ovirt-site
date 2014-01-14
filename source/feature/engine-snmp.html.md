@@ -67,7 +67,7 @@ This feature extends the capabilities of the ovirt-engine-notifier to send all e
 Notes:
 
 *   At least one of (SNMP_MANAGER|MAIL_SERVER) must be properly defined in order for the notifier to run.
-*   SNMP_OID stands for :
+*   The default SNMP_OID stands for 1.3.6.1.4.1.2312.13.1:
 
 <!-- -->
 

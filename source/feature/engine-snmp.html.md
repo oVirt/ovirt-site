@@ -27,7 +27,7 @@ This feature extends events notifier capabilities and enables it to generate SNM
 ### Current status
 
 *   Target Release: 3.4
-*   Status: Assigned
+*   Status: Post
 *   Last updated: ,
 
 ### Benefit to oVirt

@@ -59,7 +59,7 @@ Following are the key changes that will be required
 
 KVM on IBM POWER supports the following device models for guest
 
-*   virt-io, spapr-vscsi for disk
+*   VirtIO-SCSI, virt-io, spapr-vscsi for disk
 *   virt-io, e1000, rtl and spapr-vlan for network
 *   vga device is supported for guest video
 *   Only VNC backend is supported for guest console access.

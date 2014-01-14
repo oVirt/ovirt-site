@@ -55,6 +55,7 @@ This feature extends the capabilities of the ovirt-engine-notifier to send all e
 
      # Object Identifier identifying ovirt engine SNMP trap messages.
      SNMP_OID=1.3.6.1.4.1.2312.13.1
+     # 1[iso].3[organization].6[DoD].1[Internet].4[private].1[enterprises].2312[redhat].13[ovirt-engine].1[audit-log]
 
      # comma separated list of event names to notify on.
      #WHITELIST=""
@@ -67,14 +68,6 @@ This feature extends the capabilities of the ovirt-engine-notifier to send all e
 Notes:
 
 *   At least one of (SNMP_MANAGER|MAIL_SERVER) must be properly defined in order for the notifier to run.
-*   The default SNMP_OID stands for 1.3.6.1.4.1.2312.13.1:
-
-<!-- -->
-
-     1[iso].3[organization].6[DoD].1[Internet].4[private].1[enterprises].2312[redhat].13[ovirt-engine].1[audit-log]
-
-see messages section for details.
-
 *   Since by default WHITELIST is commented out and BLACKLIST is "", if an SNMP_MANAGER is defined all events will generate traps.
 
 ### Messages

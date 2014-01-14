@@ -21,7 +21,7 @@ To find out more about features that were added in previous oVirt releases, chec
 
 ### ALPHA RELEASE
 
-oVirt 3.4.0 is still in alpha. **Please wait for official announcement before trying to install it.**
+oVirt 3.4.0 is still in alpha.
 
 In order to install it, you need to enable the oVirt alpha repository and disable the nightly repository if you're using it.
 

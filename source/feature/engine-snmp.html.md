@@ -65,6 +65,14 @@ Notes:
 
       1[iso].3[organization].6[DoD].1[Internet].4[private].1[enterprises].2312[redhat].13[ovirt-engine].1[audit-log]
 
-see messages for details.
+see messages section for details.
 
 *   Since by default WHITELIST is commented out and BLACKLIST is "", if an SNMP_MANAGER is defined all events will generate traps.
+
+### Messages
+
+Using the default value for SNMP_OID (1.3.6.1.4.1.2312.13.1), traps will show up as:
+
+      SNMPv2-MIB::snmpTrapOID.0 = OID: SNMPv2-SMI::enterprises.2312.13.1.0.30    SNMPv2-SMI::enterprises.2312.13.1.0.30.0 = STRING: "User admin@internal logged in." SNMPv2-SMI::enterprises.2312.13.1.0.30.1 = STRING: "NORMAL" SNMPv2-SMI::enterprises.2312.13.1.0.30.2 = STRING: "alertMessage"   SNMPv2-SMI::enterprises.2312.13.1.0.30.3 = STRING: "2014-01-12 07:14:22.576"
+
+2014-01-14 15:17:33 NET-SNMP version 5.7.2 Stopped. Stopping snmptrapd

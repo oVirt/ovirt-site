@@ -36,12 +36,35 @@ Allow oVirt users to monitor their virtualization environment with open source o
 
 ### Detailed Description
 
-This feature extends the capabilities of the event notifier to send all engine events and events' data via SNMP traps version 2c.
-SNMP parameters are available in oVirt event notifier configuration file /etc/ovirt-engine/notifier/notifier.conf
- New parameters in configuration file:
- SNMP_MANAGER= IP address or DNS name of the SNMP service to receive SNMP traps sent from oVirt event notifier. empty by default. At least one of (SNMP_MANAGER|MAIL_SERVER) must be properly defined in order for the notifier to run. SNMP_PORT= Default is 162.
-SNMP_COMMUNITY= A community string to be used in traps. Default is 'public'. SNMP_OID= An Object Identifier identifying ovirt engine SNMP trap messages. Default 1.3.6.1.4.1.2312.13.1 which stands for: 1[iso].3[organization].6[DoD].1[Internet].4[private].1[enterprises].2312[redhat].13[ovirt-engine].1[audit-log] see messages for details.
+This feature extends the capabilities of the ovirt-engine-notifier to send all engine events and events' data via SNMP traps version 2c.
+SNMP parameters are available in ovirt-engine-notifier default configuration file: /share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf
+(It's advisable to leave that file as is and define an override file under etc/ovirt-engine/notifier/notifier.conf.d/)
 
-WHITELIST= a comma separated list of trap generating event names. by default this is commented out BLACKLIST= a comma separated list of ignored events names. by default this is ''.
+      #-------------------------#
+      # SNMP_TRAP Notifications #
+      #-------------------------#
+      # Send v2c snmp notifications
+      # IP address or DNS name of an SNMP manager to receive SNMP traps.
+      SNMP_MANAGER=
+      # The snmp manager's port
+      SNMP_PORT=162
+      # community string
+      SNMP_COMMUNITY=public
+      # Object Identifier identifying ovirt engine SNMP trap messages.
+      SNMP_OID=1.3.6.1.4.1.2312.13.1
+      # comma separated list of event names to notify on.
+      #WHITELIST=""
+      # notify on all but these comma separated list of events:
+      BLACKLIST=""
+      # note: if both WHITELIST and BLACKLIST are defined only WHITELIST is considered.
 
-Note: As you can see from the above, by default all events will generate traps. Note: If both WHITELIST and BLACKLIST are defined, only WHITELIST is considered.
+Notes:
+
+*   At least one of (SNMP_MANAGER|MAIL_SERVER) must be properly defined in order for the notifier to run.
+*   SNMP_OID stands for :
+
+      1[iso].3[organization].6[DoD].1[Internet].4[private].1[enterprises].2312[redhat].13[ovirt-engine].1[audit-log]
+
+see messages for details.
+
+*   Since by default WHITELIST is commented out and BLACKLIST is "", if an SNMP_MANAGER is defined all events will generate traps.

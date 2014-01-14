@@ -100,6 +100,7 @@ The integration of network providers into oVirt will be incremental. The followi
 
 ### Phase 2 - Enhanced VM networking
 
+*   Supporting Havana version.
 *   Enhance network editing via oVirt.
 *   Support proper scheduling for VMs on hosts.
 *   Add support for IPAM.

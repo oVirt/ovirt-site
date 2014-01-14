@@ -6,6 +6,9 @@ wiki_category: Feature|All In One
 wiki_title: Feature/AllInOne
 wiki_revision_count: 25
 wiki_last_updated: 2015-01-16
+feature_name: All in One
+feature_modules: engine,node
+feature_status: Released
 ---
 
 # All in One

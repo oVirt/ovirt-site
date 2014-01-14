@@ -18,7 +18,7 @@ Qemu and Libvirt support for KVM on IBM POWER processors is already available an
 
 All POWER Linux distributions (RHEL 6.x, SLES 11.x, Debian 6.x, Fedora 16+) that support Power7 native mode are supported as KVM guests. This limits older distributions, such as SUSE 10 and RHEL 5.x
 
-## Owner
+## Original Owners
 
 *   Feature owner: Pradipta Kr. Banerjee <bpradip@in.ibm.com>
     -   REST Component owner: Ricardo Marin Matinata <rmm@br.ibm.com>

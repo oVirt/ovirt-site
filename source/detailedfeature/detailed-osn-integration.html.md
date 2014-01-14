@@ -24,8 +24,8 @@ We intend to add support for OpenStack Neutron as a network provider. Please see
 
 ## Current status
 
-*   Target Release: oVirt 3.3
-*   Status: Finished phase 1
+*   Target Release: oVirt 3.4
+*   Status: Finished phase 2
 *   Last updated: ,
 
 ### Change log
@@ -34,6 +34,10 @@ We intend to add support for OpenStack Neutron as a network provider. Please see
 
 *   Virtual NIC integration:
     -   Instead of deleting the port on the Neutron network when VM is stopped, it is now deleted when the virtual NIC no longer uses the network or exists.
+
+#### Planned changes for 3.4
+
+*   Implement the items detailed at [Features/Detailed_OSN_Integration#Phase_2_-_Enhanced_VM_networking](Features/Detailed_OSN_Integration#Phase_2_-_Enhanced_VM_networking)
 
 ## Detailed Description
 

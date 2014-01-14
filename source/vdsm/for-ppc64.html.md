@@ -28,7 +28,7 @@ All POWER Linux distributions (RHEL 6.x, SLES 11.x, Debian 6.x, Fedora 16+) that
 
 ## Current Status
 
-*   Status: Design Stage
+*   Status: Merged
 
 ## Detailed Description
 

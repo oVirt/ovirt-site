@@ -22,7 +22,7 @@ For a general overview of oVirt, read [ the oVirt 3.0 feature guide](oVirt 3.0 F
 
 ### BETA RELEASE
 
-oVirt 3.3.3 is still in beta. In order to install it, you need to enable oVirt beta repository. **Please wait for official announcement before trying to install it**.
+oVirt 3.3.3 is still in beta. In order to install it, you need to enable oVirt beta repository.
 
 If you're going to test oVirt 3.3.3 beta, please add yourself to [Testing/Ovirt 3.3.3 testing](Testing/Ovirt 3.3.3 testing).
 

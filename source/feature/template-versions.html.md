@@ -115,6 +115,7 @@ VM Pools usecase TBD
         -   for template its automatic handled during add template, not user changeable.
         -   for vm this is the selected templated, null marks 'use latest'
     -   template_version_name - varchar - for template, save the name of version as entered by the user
+*   Reuse of existing field in vm_static - vmt_guid to save the base template id
 
 ### UI Mock-Ups
 

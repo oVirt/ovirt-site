@@ -43,7 +43,7 @@ And how has their experience been with the oVirt community? "It would be great t
 **Activity:** Education
 **Location:** Keele, Staffordshire, United Kingdom
 **Founded:** 1949
-**Size:** Approx. 200 staff, 10,000 students
+**Size:** Approx. 2,000 staff, 10,000 students
 
 </div>
 </div>

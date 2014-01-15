@@ -167,6 +167,28 @@ Note: If volumeName is not passed, configuration values for all the volumes are 
 
 Note: If snapName is not passed, status of all the snaps are listed
 
+#### VDSM verbs for starting a snapshot
+
+*   <big>glusterVolumeSnapshotStart</big> - starts the given snapshot
+    -   Input
+        -   volumeName
+        -   [snapName]
+    -   Output
+        -   Success/Failure
+
+Note: If snapName not passed, all the snapshots of the volume are started
+
+#### VDSM verbs for stopping the snapshots
+
+*   <big>glusterVolumeSnapshotStop</big> - stops the given snapshot
+    -   Input
+        -   volumeName
+        -   [snapName]
+    -   Output
+        -   Success/Failure
+
+Note: If snapName is not passed, all the snaps of the volume are stopped
+
 ### REST APIs
 
 The details of the REST for Gluster Volume Snapshot feature are as below -

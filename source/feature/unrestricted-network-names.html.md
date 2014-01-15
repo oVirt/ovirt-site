@@ -36,6 +36,7 @@ That has to change. 15 characters are not enough for humans; spaces, and other s
 ### Benefit to oVirt
 
 *   The limitations on network names seem arbitrary and annoy users.
+*   When importing a network from Neutron, we'd like to refer to it with its Neutron-native name, not some partly-legible shorthand.
 *   It's plain wrong to expose Linux's IFNAMSIZ all the way up to the GUI.
 
 ### Dependencies / Related Features

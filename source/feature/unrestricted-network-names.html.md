@@ -65,6 +65,14 @@ Instead of adding visible_name and changing REST/UI to expose it, we could add "
 
 The user interface currently takes advantage of the narrow name field for networks. Once we lift the restrictions, and allow names in languages such a Japanese which commonly requires wide text columns, we would have to make some UI adjustments. Possible tricks are: tooltip showing the complete name, adjustable tables, in-UI limitation on name lengths.
 
+This would affect anywhere a network name shows up, and in particular:
+
+*   the setup networks dialog
+*   host interfaces sub-tab and vm interfaces sub tab
+*   the Add/Edit vm dialog
+*   the vm's boot sequence dialog.
+*   ...
+
 #### Debuggability Drawback
 
 Currently, if a user has a connectivity issue regarding a network FOO on one of his hosts, he can easily look FOO up in Engine. Now this would become more difficult, as the host is no longer exposed to a human-legible name. We should supply means to alleviate this:

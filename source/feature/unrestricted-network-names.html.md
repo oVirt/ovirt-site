@@ -67,7 +67,7 @@ The user interface currently takes advantage of the narrow name field for networ
 
 #### Debuggability Drawback
 
-Currently, if a user has a connectivity issue regarding a network FOO on one of his hosts, he can easily look FOO up in Engine. Now this would become more difficult, as the host is no longer exposed to a human-legible name. To alleviate this, we should supply a usable GUI and commandline abilities to map a brXXXXXXXXXXXXX name into its owning network.
+Currently, if a user has a connectivity issue regarding a network FOO on one of his hosts, he can easily look FOO up in Engine. Now this would become more difficult, as the host is no longer exposed to a human-legible name. To alleviate this, we should supply a usable GUI and commandline abilities to map a `brXXXXXXXXXXXXX` name into its owning network.
 
 Another possible remedy is to expose visible_name to the host when setting or changing a network via `setupNetwork`. visible_name would be persisted as comments on the local host, and would be available for inspection by debuggers.
 

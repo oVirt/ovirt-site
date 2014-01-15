@@ -8,7 +8,7 @@ wiki_last_updated: 2015-02-24
 
 # Case studies
 
-## oVirt user case studies
+## oVirt User Case Studies
 
 We are collecting stories of oVirt users and how they are using the software. We have feedback and experiences from hosting companies, small business and educational institutions, and we are always looking to hear from our users!
 

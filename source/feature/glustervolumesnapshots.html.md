@@ -1,11 +1,11 @@
 ---
 title: GlusterVolumeSnapshots
 category: feature
-authors: sandrobonazzola, shtripat
-wiki_category: Feature
-wiki_title: Features/Design/GlusterVolumeSnapshots
-wiki_revision_count: 110
-wiki_last_updated: 2014-12-23
+authors: sahina, sandrobonazzola, shtripat
+wiki_category: Feature|GlusterVolumeSnapshots
+wiki_title: Features/GlusterVolumeSnapshots
+wiki_revision_count: 136
+wiki_last_updated: 2015-01-20
 feature_name: Gluster Volume Snapshot
 feature_modules: engine
 feature_status: Not Started
@@ -15,9 +15,11 @@ feature_status: Not Started
 
 # Summary
 
-This document describes the design for the volume snapshot feature under Gluster. GlusterFS provides crash recoverability for the volumes through snapshot feature and console needs to provide a web based mechanism to achieve the same feature.
+This feature allows the administrators to maintain the snapshots of a Gluster volume. Administrator can create, list, delete and restore to a given snapshot. Gluster volume snapshot provides an online crash consistency mechanism for the Gluster volumes. The volume snapshots provide a point in time view of the volume. In a case of inconsistency, these snapshots could be used to restore the volume to a consistent stage. The snapshots are also a mechanism of volume backup for future references.
 
-This feature allows the administrators to create, list, delete, start, stop and restore to a given snapshot. With this administrators can view all the available snapshots taken for a volume and in case of crash can opt to restore to a point in time view using the existing snapshots.
+Using this feature, an admin can take scheduled or unscheduled snapshots of and thereby backup a Gluster volume. This also provides a check-point in time to restore to, if and when necessary.
+
+To read more about Gluster volume snapshot feature, see <https://forge.gluster.org/snapshot/pages/Home>.
 
 # Owner
 
@@ -25,283 +27,116 @@ This feature allows the administrators to create, list, delete, start, stop and 
     -   GUI Component owner:
     -   Engine Component owner: Shubhendu Tripathi <shtripat@redhat.com>
     -   VDSM Component owner:
+    -   QA Owner:
 
 # Current Status
 
 *   Status: Inception
 *   Last updated date: Thu Dec 26 2013
 
+# Detailed Description
+
+An on-line snapshot is a feature where the file-system and associated data continue to be available for the clients, while the snapshot is being taken. Here the onus lies on the application to periodically sync data, so that the snapshot created has the desired data consistent view.
+
+On the other hand, an off-line snapshot makes the file-system off-line or unavailable for a deterministic time-window till the snapshot is taken. While off-line snapshots are relatively easy to administer, the inaccessibility to the volume(s)/data is a major disadvantage.
+
+With this feature the user will be able to
+
+*   Take snapshot of a volume
+*   View all the snapshots taken for a volume
+*   Restore a volume to a given snapshot
+*   Delete an existing snapshot
+*   View the current status of snapshot
+*   Define the values for the snapshot related configuration parameters for a volume
+*   List view the snapshot configuration parameters
+
 # Design
 
-The snapshot feature is being designed to enable administrators to create and maintain individual volumes snapshots. It also provides mechanism to restore a volume to a point in time snapshot in a crash situation.
+### User Experience and control flows
 
-### New Entities
+#### Main tab "Volumes"
 
-#### GlusterVolumeSnapshots
+A new action group "Volume Snapshot" would be introduced under actions for a volume as a drop down. The set of actions under this action group would be -
 
-This entity stores the snapshots created for gluster volumes. Different volumes can have snapshots with same names.
+*   Take Snapshot
+*   Restore
 
-| Column name       | Type   | Description                                                |
-|-------------------|--------|------------------------------------------------------------|
-| SnapId            | UUID   | Id of the new snapshot                                     |
-| SnapName          | String | Name of the snapshot                                       |
-| ReferenceEntityId | UUID   | Id of the reference volume for which the snapshot is taken |
-| CreatedAt         | Date   | Creation time of the snapshot                              |
-| Description       | String | Description                                                |
-| Status            | String | Current status of the snapshot                             |
+![](VolumeList.png "VolumeList.png")
 
-*   GlusterVolumeSnapshotStatus
-    -   UNKNOWN
-    -   INIT
-    -   IN_USE
-    -   RESTORED
-    -   DECOMMISSIONED
+<big>1. Taking a snapshot</big>
 
-#### GlusterVolumeSnapshotConfig
+There are two scenarios while taking snapshots for the volumes -
 
-This entity stores the details of a configuration parameter for volume related to snapshot feature. Volume specific values for the parameters would be maintained as part of this entity.
+*   User selects a volume from the list and click the menu option "Volume Snapshot --> Create Snapshot". A dialog pops up asking for the snapshot name and optional description. User would provide the required details and click the button "OK" to trigger the creation of snapshot.
 
-| Column name | Type   | Description                          |
-|-------------|--------|--------------------------------------|
-| EntityId    | UUID   | Id of the reference volume           |
-| ParamName   | String | Name of the configuration parameter  |
-| ParamValue  | String | Value of the configuration parameter |
+![](CreateVolumeSnapshot1.png "CreateVolumeSnapshot1.png")
 
-### Sync Jobs
+*   User does not select a volume from the volume list table and clicks the menu option "Volume Snapshot --> Create Snapshot". In this scenario a dialog pops up with lists of individual volumes. User can select an individual volume and create a snapshot.
 
-The Gluster volume snapshot details would be periodically fetched and updated into engine using the GlusterSyncJob's lightweight sync mechanism.
+![](CreateSnapshot1.png "CreateSnapshot1.png")
 
-### BLL commands
+User is prompted a dialog asking for snapshot name and then triggers the snapshot creation.
 
-*   <big>AddGlusterVolumeSnapshot</big> - creates a volume snapshot
-*   <big>RestoreGlusterVolumeSnapshot</big> - restore a given volume to a snapshot
-*   <big>RemoveGlusterVolumeSnapshot</big> - removes the given snapshot
-*   <big>UpdateGlusterVolumeSnapshotConfig</big> - sets the configuration values for a given volume
+<big>2. Restore a Snapshot</big>
 
-### Engine Queries
+There are two scenarios while restoring a snapshot -
 
-*   <big>GetGlusterVolumeSnapshotsByVolumeId</big> - lists all the snapshot for a given volume
-*   <big>GetGlusterVolumeSnapshotByVolumeIdAndSnapshotId</big> - lists snapshot for the given snapshot id and volume id
-*   <big>GetGlusterVolumeSnapshotConfigDetailsByVolumeId</big> - lists all the snapshot configuration details for the given volume id
-*   <big>GetAllGlusterVolumeSnapshotStatus</big> - lists all the snapshots with their status
-*   <big>GetGlusterVolumeSnapshotStatusByVolumeId</big> - gets the status of a snapshot for a specific volume
-*   <big>GetGlusterVolumeSnapshotStatusBySnapshotId</big> - gets the status of a specific snapshot
+*   User selects an individual volume from the volume list table and clicks the menu "Volume Snapshot --> Restore". In this scenario a dialog pops up listing all the snapshots taken for the said volume. User can snapshot to restore to and click "OK".
 
-### VDSM Verbs
+![](RestoreSnap.png "RestoreSnap.png")
 
-#### VDSM verbs for Snapshot creation
+*   User does not select anything from the volume list table and clicks the menu option "Volume Snapshot --> Restore". In this scenario a dialog pops up listing all the snapshots taken for all the volumes. This dialog allows the user to select a volume name from a combo and all the corresponding snapshots get listed. User an select the snapshot to restore to click "OK".
 
-*   <big>glusterVolumeSnapshotCreate</big> - creates a volume snapshot
-    -   Input
-        -   volumeName
-        -   snapName
-        -   [description]
-    -   Output
-        -   Success/Failure
+![](RestoreSnap2.png "RestoreSnap2.png")
 
-#### VDSM verbs for restoring snaps
+#### Sub-tab "Volumes --> Snapshot"
 
-*   <big>glusterVolumeSnapshotRestore</big> - restores the given volume to the given snapshot
-    -   Input
-        -   volumeName
-        -   snapshotName
-    -   Output
-        -   Success/Failure
+This sub-tab under the main tab "Volumes" lists the snapshots created for individual volumes. The set of supported actions are -
 
-#### VDSM verbs for deleting snaps
+*   Restore
+*   Remove
+*   Configure
 
-*   <big>glusterVolumeSnapshotDelete</big> - deletes the given snapshot
-    -   Input
-        -   volumeName
-        -   [snapName]
-    -   Output
-        -   Success/Failure
+![](VolumeSnapsList.png "VolumeSnapsList.png")
 
-Note: If snapName is not passed all the snaps would be deleted for the volume
+<big>1. Restoring a snapshot</big>
 
-#### VDSM verbs for listing snaps
+This action is same as restoring a snapshot for a single volume mentioned above.
 
-*   <big>glusterVolumeSanpshotList</big> - gets the list of snapshots for a volume
-    -   Input
-        -   volumeName
-        -   [snapName]
-    -   Output
-        -   snapsList
+<big>2. Remove a snapshot</big>
 
-Note: If snapName is not passed, all the snaps of the volume are listed
+This action asks for a confirmation and then removes the selected snapshot(s).
 
-#### VDSM verbs for snapshot configuration
+<big>3. Snapshot related Configurations Parameters for volume</big>
 
-*   <big>glusterVolumeSnapshotSetConfig</big> - sets the snapshot configuration parameters for the given volume
-    -   Input
-        -   volumeName
-        -   configList(name=value pair)
-        -   [force]
-    -   Output
-        -   Success/Failure
-
-<!-- -->
-
-*   <big>glusterVolumeSnapshotGetConfig</big> - gets the value of the snapshot configuration parameter for the given volume
-    -   Input
-        -   [volumeName]
-    -   Ouptut
-        -   Name=Value pair list
-
-Note: If volumeName is not passed, configuration values for all the volumes are listed
-
-#### VDSM verbs for the snapshots status
-
-*   <big>glusterAllVolumeSnapshotStatus</big> - gets the status of all the snapshots. This includes brick details, LVM details, process details etc.
-    -   Input
-    -   Output
-
-<!-- -->
-
-*   <big>glusterVolumeSnapshotStatus</big> - gets the snapshot status details for a volume
-    -   Input
-        -   volumeName
-    -   [snapName]
-    -   Output
-        -   UNKNOWN/INIT/IN_USE/RESTORED/DECOMMISSIONED
-
-Note: If snapName is not passed, status of all the snaps are listed
-
-#### VDSM verbs for starting a snapshot
-
-*   <big>glusterVolumeSnapshotStart</big> - starts the given snapshot
-    -   Input
-        -   volumeName
-        -   [snapName]
-    -   Output
-        -   Success/Failure
-
-Note: If snapName not passed, all the snapshots of the volume are started
+This actions sets / edits the snapshot related configuration parameters for the specific volume. On click of the action, a pop up dialog opens with values already set for the configuration parameters. User has option to change the values and update them.
 
-#### VDSM verbs for stopping the snapshots
+![](SnapshotConfiguration.png "SnapshotConfiguration.png")
 
-*   <big>glusterVolumeSnapshotStop</big> - stops the given snapshot
-    -   Input
-        -   volumeName
-        -   [snapName]
-    -   Output
-        -   Success/Failure
+### Limitations
 
-Note: If snapName is not passed, all the snaps of the volume are stopped
+NA
 
-### REST APIs
+Refer the URL: <http://www.ovirt.org/Features/Design/GlusterVolumeSnapshots> for detailed design of the feature.
 
-The details of the REST for Gluster Volume Snapshot feature are as below -
+# Dependencies / Related Features and Projects
 
-#### Listing APIs
+<<Volume creation has dependencies as they could be marked for snapshot creation later>>
 
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/snapshots|rel=get - lists all the snapshots for a given volume
+# Test Cases
 
-Output:
-
-    <snapshots>
-        <snapshot href="" id="">
-            <actions>
-            </actions>
-            <name>{name}</name>
-            <link>{link}</link>
-            <volume href="" id=""/>
-            <description>{description}</description>
-            <status>{status}</status>
-                    <snaptime>{timestamp}</snaptime>
-        </snapshot>
-    </snapshots>
-
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/snapshots/{snapshot-id}|rel=get - lists the details of a specific snapshot of a volume
-
-Output:
-
-    <snapshot href="" id="">
-        <actions>
-        </actions>
-        <name>{name}</name>
-        <link>{link}</link>
-        <volume href="" id=""/>
-        <description>{description}</description>
-        <status>{status}</status>
-            <snaptime>{timestamp}</snaptime>
-    </snapshot>
-
-*   /api/clusters/{cluster-id}/glustervolumes|rel=get - Gluster volume listing would be updated to list the snapshot configuration parameters as well
-
-Output:
-
-    <glustervolume>
-    ........
-    <snapshot_config_params>
-        <parameter>
-        <name>snap-max-limit</name>
-            <value>{value}</value>
-        </parameter>
-        <parameter>
-        <name>snap-max-soft-limit</name>
-            <value>{value}</value>
-        </parameter>
-    </snapshot_config_params>
-    </glustervolume>
-
-#### Actions Supported
-
-*   /ap/clusters/{cluster-id}/glustervolumes/{volume-id}/snapshots|rel=add - creates and adds a new snapshot for the given volume
-    -   Parameters
-        -   name - String
-        -   volume_name - String
-        -   [description] - string
-
-Input:
-
-    <action>
-        <snapshot>
-            <name>{name}</name>
-            <volume_name>{volume-name}</volume_name>
-            <description>{description}</description>
-        </snapshot>
-    </action>
-
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/snapshots|rel=delete - deletes snapshot
-    -   Parameters
-        -   snapshot-id / snapshot-name
-
-Input:
-
-    <snapshot id="{id}" />
-
-or
-
-    <snapshot>
-        <name>{name}</name>
-    </snapshot>
-
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/snapshots/{snapshot-id}/restore|rel=restore - restores the given volume to the given snapshot
-
-Input:
-
-    <action/>
-
-*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/setsnapshotconfig|rel=setsnapshotconfig - sets a snapshot configuration parameter value for the given volume
-    -   Parameters
-        -   name-value pair of configuration parameters
-        -   [force]
-
-Input:
-
-    <action>
-        <configurations>
-            <config>
-            <name>{name-1}</name>
-            <value>{value-1}</value>
-            </config>
-            <config>
-            <name>{name-2}</name>
-            <value>{value-2}</value>
-            </config>
-        </configurations>
-        <force>true/false</force>
-    </action>
-
-[Category: Feature](Category: Feature)
+# Documentation / External references
+
+<https://forge.gluster.org/snapshot/pages/Home>
+
+<http://sources.redhat.com/lvm/>
+
+<http://www.gluster.org/community/documentation/index.php/Features/snapshot>
+
+# Comments and Discussion
+
+<http://www.ovirt.org/Talk:Features/GlusterVolumeSnapshots>
+
+# Open Issues
+
+<Category:Feature>

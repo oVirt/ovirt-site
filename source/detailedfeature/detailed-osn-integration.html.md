@@ -241,7 +241,7 @@ You need to configure the keystone URL:
 
       engine-config --set KeystoneAuthUrl=http://<host.fqdn>:35357/v2.0/
 
-You also need to enable a setting that only required networks are considered for VM scheduling:
+For oVirt versions less than 3.4, You also need to enable a setting that only required networks are considered for VM scheduling:
 
       engine-config --set OnlyRequiredNetworksMandatoryForVdsSelection=true
 

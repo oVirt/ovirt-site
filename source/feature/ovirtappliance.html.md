@@ -13,3 +13,17 @@ feature_status: In Progress
 
 # o Virt Appliance
 
+oVirt Appliance
+
+## Summary
+
+oVirt appliance will be a raw disk or an ova file that you can import to your existing virtual machine manager and boot it with a complete pre installed oVirt setup.
+
+## Owner
+
+*   Name: [ Ohad Basan ](User:obasan)
+*   Email: obasan@redhat.com
+
+## Current status
+
+In Development.

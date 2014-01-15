@@ -59,7 +59,7 @@ On upgrade, the "name" of existing networks would be copied into they "visible_n
 
 #### Alternative
 
-Instead of adding visible_name and changing REST/UI to expose it, we could add "vdsm_name" and lift current restrictions from "name". This would requiring renaming name validation, VM startup, and network monitoring code.
+Instead of adding visible_name and changing REST/UI to expose it, we could add "vdsm_name" and lift current restrictions from "name". This may require renaming the field in name validation, VM startup, and network monitoring code.
 
 #### UI considerations
 

@@ -109,7 +109,7 @@ This action asks for a confirmation and then removes the selected snapshot(s).
 
 <big>3. Configurations for volume snapshot</big>
 
-This actions sets / edits the snapshot related configuration parameters for the specific volume. On click of the action, a pop up dialog opens with values set for the configuration parameters. User has option to edit the values using the Edit action in the pop up dialog.
+This actions sets / edits the snapshot related configuration parameters for the specific volume. On click of the action, a pop up dialog opens with values already set for the configuration parameters. User has option to change the values and update them.
 
 ![](SnapshotConfiguration.png "SnapshotConfiguration.png")
 

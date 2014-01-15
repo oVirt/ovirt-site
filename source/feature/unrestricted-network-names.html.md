@@ -41,7 +41,7 @@ That has to change. 15 characters are not enough for humans; spaces, and other s
 
 ### Dependencies / Related Features
 
-Currently, the Engine/Vdsm API hinges on the network name, and assumes that (for VM networks) the created bridge would be named just like network. Any solution must allow migration of VMs from existing hosts to hosts with this new feature enabled.
+Currently, the Engine/Vdsm API hinges on the network name, and assumes that (for VM networks) the created bridge would be named just like its network. Any solution must allow migration of VMs from existing hosts to hosts with this new feature enabled, as well as a seamless upgrade from an old clusterLevel to a clusterLevel supported unrestricted names.
 
 ### Possible Solutions
 

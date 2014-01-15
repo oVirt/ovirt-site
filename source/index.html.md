@@ -82,7 +82,7 @@ This release of oVirt includes 175 bug fixes and the first release of the Backup
 </div>
 </div>
 <div class="span8 pad-left-small pad-right">
-### Packed with features
+### Packed with Features
 
 <div class="column-split">
 *   choice of stand-alone Hypervisor or install-on-top of your existing Linux installation

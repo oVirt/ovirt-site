@@ -34,9 +34,19 @@ Read the full [Alter Way case study](Alter Way case study)
 
 "Choosing oVirt has saved us tens of thousands of pounds over proprietary alternatives like VMware. Open source wins the philosophical debate for us." Cost, freedom and a robust consolidated management solution for their KVM virtualization were the main reasons they adopted oVirt.
 
-One feature they are looking forward to rolling out to their users is the oVirt user console. "The user console looks great, because it means we can farm out some of the basic admin tasks to people who want to do things like spin up new VMs."
-
 Read the full [Keele University case study](Keele University case study)
+
+</div>
+<div class="span6 pad-left pad-right-small">
+### Nieuwland Geo-Informatie
+
+![](Nwld_logo.png "Nwld_logo.png")
+
+Dutch software development company [ Nieuwland Geo-Informatie](Nieuwland case study) creates mobile applications that need to tap into a lot of geographic information in a reliable and fast manner. To do this, they needed a virtualization solution that would have high availability at a reasonable cost
+
+“We didn't want VMware. Too expensive. There was already a heavy investment in Linux, so switching to Microsoft HyperV was no option, either; too costly,” Beyond cost, live migration and an outstanding community were two other major reasons Nieuwland decided to go with oVirt.
+
+Read the full [Nieuwland case study](Nieuwland case study)
 
 </div>
 </div>

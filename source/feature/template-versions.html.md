@@ -35,7 +35,7 @@ There will be two methods to create a version for a template:
 *   by selecting a vm and using it to create a new version to a template.
 *   by editing a template, and when saving, selecting save as version.
 
-Version of template could be deleted if no vms are using it (same as current delete template logic).
+Version of template could be deleted if no vms are using it (same as current delete template logic). If a base template is deleted, all its versions will be deleted as well.
 
 When creating vm from template, user will also select the version of the template to use, or 'latest'.
 Stateless vms and vms from vm-pool that are using 'latest' version, will use new version automatically on new runs.

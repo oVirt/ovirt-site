@@ -105,7 +105,7 @@ This release of oVirt includes 175 bug fixes and the first release of the Backup
 </div>
 <div class="row">
 <div class="span4 pad-left pad-right-small">
-### Community is key
+### Community is Key
 
 oVirt, the first truly open and comprehensive data center virtualization management initiative, provides a venue for user and developer cooperation. The heart of the project is the open source code of oVirt, and the community is governed openly, modeled after the Apache Foundation, Eclipse, LVM, and many other well functioning Linux communities.
 

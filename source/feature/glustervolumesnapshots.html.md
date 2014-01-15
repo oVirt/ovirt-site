@@ -65,33 +65,13 @@ A new action group "Volume Snapshot" would be introduced under actions for a vol
 
 <big>1. Taking a snapshot</big>
 
-There are three scenarios for taking a snapshot
+There are two scenarios while taking snapshots for the volumes -
 
-*   User selects a volume from the volume list table which is part of a snapshot group and clicks the menu option "Volume Snapshot --> Create Snapshot". In this scenario first a confirmation dialog would be popped saying that volume is part of a snapshot group and does user want to continue.
-
-![](CreateCGSnapConfirmation.png "CreateCGSnapConfirmation.png")
-
-If user confirms the snapshot creation, a dialog would pop up and asks for the snap name and optional description for creation of the snapshot.
-
-![](CreateCGSnapshot.png "CreateCGSnapshot.png")
-
-User provides the required details clicks the button "OK" and snapshot creation gets triggered.
-
-*   User selects an individual volume and click the menu option "Volume Snapshot --> Create Snapshot". In this scenario a dialog pops up listing of all the individual volumes with selected volume auto checked in the list. User has option to create the snapshot of the selected volume as an individual by clicking the button "Create Snapshot". If the user wants to create snapshot of the selected volume with other volumes as snapshot group, he/she can click the button "Create Snapshot as group". In this scenario a fresh snapshot group would be formed and snapshot would be created for the group.
-
-![](CreateVolumeSnapshot.png "CreateVolumeSnapshot.png")
-
-If user opts for creation of snapshot for the individual volume another dialog pops asking for the snapshot name and optional description. User would provide the required details and click the button "OK" to trigger the creation of snapshot.
+*   User selects a volume from the list and click the menu option "Volume Snapshot --> Create Snapshot". A dialog pops up asking for the snapshot name and optional description. User would provide the required details and click the button "OK" to trigger the creation of snapshot.
 
 ![](CreateVolumeSnapshot1.png "CreateVolumeSnapshot1.png")
 
-If the user opts for snapshot creation as group, then a dialog pops asking for Snapshot Group Name and Snapshot Name. User provides the required details and snapshot creation is triggered,
-
-![](CreateCGSnapshot1.png "CreateCGSnapshot1.png")
-
-*   User does not select a volume from the volume list table and clicks the menu option "Volume Snapshot --> Create Snapshot". In this scenario a multi tabbed dialog pops up with lists of snapshot groups and individual volumes in two separate tabs. User can select a snapshot group or individual volume and create a snapshot.
-
-![](CreateSnapshot.png "CreateSnapshot.png")
+*   User does not select a volume from the volume list table and clicks the menu option "Volume Snapshot --> Create Snapshot". In this scenario a dialog pops up with lists of individual volumes. User can select an individual volume and create a snapshot.
 
 ![](CreateSnapshot1.png "CreateSnapshot1.png")
 

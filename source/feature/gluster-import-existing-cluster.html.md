@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Features/Gluster Import Existing Cluster
 wiki_revision_count: 19
 wiki_last_updated: 2014-01-15
+feature_name: Import cluster
+feature_modules: engine,gluster
+feature_status: Released
 ---
 
 # Gluster Import Existing Cluster
@@ -47,7 +50,7 @@ The list of hosts which are part of the cluster will be shown. The **Name** colu
 
 ## User Work flow
 
-1.  Click on **New** in Clsuter Main Tab, the Create Cluster dialog opens
+1.  Click on **New** in Cluster Main Tab, the Create Cluster dialog opens
 2.  Select **Enable Gluster Service** and **Import existing gluster configuration** checkboxes.
 3.  Enter the IP Address/Host name of any server in the cluster
 4.  Wait for the **Fingerprint** to load, and make sure we are communicating with the correct host

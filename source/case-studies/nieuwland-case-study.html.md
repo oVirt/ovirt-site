@@ -69,7 +69,7 @@ The oVirt community has been a big plus for the platform as well at Nieuwland. V
 </div>
 <div class="span4 pad-sides">
 <div class="well well-lg">
-![](Keele logo.png "Keele logo.png")
+![](Nwld_logo.png "Nwld_logo.png")
 
 **Name:** [Nieuwland Geo-Informati](//nieuwland.nl/)
 **Activity:** Software Development

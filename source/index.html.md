@@ -85,10 +85,10 @@ This release of oVirt includes 175 bug fixes and the first release of the Backup
 ### Packed with Features
 
 <div class="column-split">
-*   choice of stand-alone Hypervisor or install-on-top of your existing Linux installation
-*   high availability
-*   live migration
-*   load balancing
+*   Choice of stand-alone Hypervisor or install-on-top of your existing Linux installation
+*   High availability
+*   Live migration
+*   Load balancing
 *   Web-based management interface
 *   iSCSI, FC, NFS, and local storage
 *   Enhanced security: SELinux and Mandatory Access Control for VMs and hypervisor

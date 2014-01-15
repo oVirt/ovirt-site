@@ -24,7 +24,7 @@ Let users give any name to their network
 
 ### Current status
 
-*   Not yet scheduled to a specific release
+*   To be proposed for oVirt-3.5
 *   Last updated: ,
 
 ### Detailed Description

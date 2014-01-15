@@ -107,7 +107,7 @@ This action is same as restoring a snapshot for a single volume mentioned above.
 
 This action asks for a confirmation and then removes the selected snapshot(s).
 
-<big>3. Snapshot related Configurations Parameters for volume</big>
+<big>3. Snapshot related Configuration Parameters for volume</big>
 
 This actions sets / edits the snapshot related configuration parameters for the specific volume. On click of the action, a pop up dialog opens with values already set for the configuration parameters. User has option to change the values and update them.
 

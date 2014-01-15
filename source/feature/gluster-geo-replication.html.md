@@ -6,6 +6,9 @@ wiki_category: Feature|Gluster Geo Replication
 wiki_title: Features/Gluster Geo Replication
 wiki_revision_count: 121
 wiki_last_updated: 2014-12-22
+feature_name: Geo replication
+feature_modules: engine,gluster
+feature_status: Design
 ---
 
 # Gluster Geo Replication

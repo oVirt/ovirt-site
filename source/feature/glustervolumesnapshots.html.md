@@ -11,27 +11,27 @@ feature_modules: engine
 feature_status: Not Started
 ---
 
-# Gluster Volume Snapshots
+# Gluster Volume Snapshot
 
-## Summary
+# Summary
 
 This document describes the design for the volume snapshot feature under Gluster. GlusterFS provides crash recoverability for the vloumes through snapshot feature and RHS-C needs to provide a web based mechanism to achieve the same feature.
 
 This feature allows the administrators to create, start, stop, delete and restore to a given snapshot. With this administrators can view all the available snaps taken for a volume and in case of crash can opt to restore to a point in time view using the existing snapshots.
 
-## Owner
+# Owner
 
 *   Feature owner: Shubhendu Tripathi <shtripat@redhat.com>
     -   GUI Component owner:
     -   Engine Component owner: Shubhendu Tripathi <shtripat@redhat.com>
     -   VDSM Component owner:
 
-## Current Status
+# Current Status
 
 *   Status: Inception
 *   Last updated date: Thu Dec 26 2013
 
-## Design
+# Design
 
 The snapshot feature is being designed to enable administrators to create and maintain individual volumes snapshots and snapshots for a group of volumes (snapshot group). It also provides mechanism to restore a volume or snapshot group to a point in time snapshot in a crash situation.
 

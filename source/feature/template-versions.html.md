@@ -103,7 +103,7 @@ If version section will be defined, user will have to fill the following fields:
 *base_template* - required to fill (a template object with id of the base template). Not filling it will result with error and the request will fail. Filling a non existing base template id will also fail the request.
 *version_name* - optional
 *version_number* should not be filled by the user. (it's calculated by the engine), if user fills it, it will be ignored
- **Example for adding a template version** - this section should be added as part of body inside the template element
+ **Example for adding a template version** - this section should be added as part of body inside the template element. The relevant url is: api/templates
 
 <version>
 ` `<base_template id="1c4f1c18-030f-4a78-9b61-e17ca1d45cb0"/>
@@ -113,6 +113,12 @@ If version section will be defined, user will have to fill the following fields:
 *   PUT: (update a template version)
 
 Only the version name can be updated. No update is supported for version section in 3.4 for base template id nor numbering.
+
+Example for editing: Relevant api is the same as updating a template : api/templates/<templateId>
+
+<version>
+         `<version_name>`"new name of this version"`</version_name>` 
+</version>
 
 VMs usecase for a vm - template id field continues to be reused (existing) new field - "useLatest" of type boolean - relevant only for stateless VMs
 

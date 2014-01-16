@@ -112,7 +112,7 @@ If version section will be defined, user will have to fill the following fields:
 
 *   PUT: (update a template version)
 
-only version name can be updated. no update is supported for version section in 3.4 for base id nor numbering.
+Only the version name can be updated. No update is supported for version section in 3.4 for base template id nor numbering.
 
 VMs usecase for a vm - template id field continues to be reused (existing) new field - "useLatest" of type boolean - relevant only for stateless VMs
 

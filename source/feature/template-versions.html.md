@@ -94,9 +94,7 @@ Templates management usecase: For each template version we have a separate REST 
 
 *   GET :
 
-      new section `<version>` will be introduced to include all 3 properties: version number, version name and base template id (GUID) 
-
-for base templates: base will have base id empty, base version numbering = 1
+new section <version> will be introduced to include all 3 properties: version number, version name and base template id (GUID) for base templates: base will have base id empty, base version numbering = 1
 
 *   POST: (add new template version)
 

@@ -114,7 +114,7 @@ If version section will be defined, user will have to fill the following fields:
 
 Only the version name can be updated. No update is supported for version section in 3.4 for base template id nor numbering.
 
-Example for editing: Relevant api is the same as updating a template : api/templates/<templateId>
+Example for editing a template's version name: (add the version part inside the template element in the request body) Relevant api is the same as updating a template : api/templates/<templateId>
 
 <version>
          `<version_name>`"new name of this version"`</version_name>` 

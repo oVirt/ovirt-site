@@ -22,6 +22,6 @@ If you have your own setup, we will provide all the software packages and the re
 
 If you're willing to participate, please add yourself to the table below:
 
-| Name | part tested | Storage | Networking | Distribution | Bugs |
-|------|-------------|---------|------------|--------------|------|
-| -    | -           | -       | -          | -            | -    |
+| Name            | part tested                                               | Storage         | Networking | Distribution | Bugs |
+|-----------------|-----------------------------------------------------------|-----------------|------------|--------------|------|
+| Gianluca Cecchi | Update infra from 3.3.2 to 3.3.3beta1 without VM downtime | GlusterFS 3.4.2 | -          | Fedora 19    | -    |

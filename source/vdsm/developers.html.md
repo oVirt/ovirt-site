@@ -86,14 +86,10 @@ When building from source, you should enable the ovirt-beta repository, to satis
       # cd ~/rpmbuild/RPMS
       # yum install --enablerepo=ovirt-beta x86_64/* noarch/vdsm-xml* noarch/vdsm-cli* noarch/vdsm-python-zombiereaper*
 
-Before starting the VDSM service for the first time, you must configure and restart libvirt service:
+Before starting vdsmd service for the first time vdsm requires some configuration procedures for external services that being used by vdsmd. To ease this process vdsm provides a utility (vdsm-tool). To perform full reconfiguration of external services perform:
 
-      # vdsm-tool libvirt-configure
-      # vdsm-tool libvirt-configure-services-restart
-
-If needed, enable the vdsm service:
-
-      # chkconfig vdsmd on
+      # vdsm-tool configure --force
+      (for more information read "vdsm-tool --help") 
 
 Finally start the vdsmd service:
 

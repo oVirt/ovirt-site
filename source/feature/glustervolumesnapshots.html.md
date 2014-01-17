@@ -133,6 +133,8 @@ Refer the URL: <http://www.ovirt.org/Features/Design/GlusterVolumeSnapshots> for
 
 <http://www.gluster.org/community/documentation/index.php/Features/snapshot>
 
+<http://lxadm.wordpress.com/2012/10/17/lvm-thin-provisioning/>
+
 # Comments and Discussion
 
 <http://www.ovirt.org/Talk:Features/GlusterVolumeSnapshots>

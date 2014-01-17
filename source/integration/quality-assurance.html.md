@@ -26,10 +26,20 @@ The Quality Assurance project is engaged in the following activities:
 *   Running test days to coordinate focused testing on a specific feature or component
 *   Working with developers to maintain the release criteria, which are used to determine what bugs should be fixed before a release of oVirt is made
 *   Verifying bugs fixed by oVirt developers
+*   Triage oVirt bugs in Bugzilla. Request missing information, verify correct component has been chosen, and close duplicates.
 
 ## Get Involved
 
-We're always eager to have new contributors to the QA project, no matter your experience level. If you'd like to get involved with helping to make oVirt better, join oVirt [Community](Community)
+We're always eager to have new contributors to the QA project, no matter your experience level.
+
+If you'd like to get involved with helping to make oVirt better, join oVirt [Community](Community)
+
+We've also created a user in bugzilla as default QA assignee: bugs@ovirt.org so if you want to be updated on QE bugs activity you can just add that user to your bugzilla account watch list:
+
+*   go to <https://bugzilla.redhat.com/userprefs.cgi?tab=email>
+*   select Watch user list -> add "bugs@ovirt.org"
+
+Any email sent by bugzilla to that user will be also sent to you.
 
 ## Communicate
 

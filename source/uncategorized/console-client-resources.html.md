@@ -24,6 +24,10 @@ This way make use of locally installed virt-viewer application. You can install 
 
 For using web-browser-based console clients, the certificate authority must be imported in your browser since the communication is secured. You can download the certificate authority by navigating '<https://><your engine address>/ca.crt'.
 
+*   SPICE Drivers
+
+For making use the best of SPICE features install SPICE vdagent and SPICE video drivers that are available for download here: <http://www.spice-space.org/download.html> (in the "Guest" section).
+
 ### VNC Protocol
 
 *   Native Client

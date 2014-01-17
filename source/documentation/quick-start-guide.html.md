@@ -256,7 +256,7 @@ b. Select the oVirt Engine tab. Configure the following options:
 *   Management Server: Enter the oVirt Engine domain name in the format of ovirt.demo.example.com.
 *   Management Server Port: Enter the management server port number. The default is 443.
 *   Connect to the oVirt Engine and Validate Certificate: Tick this checkbox if you wish to verify the oVirt Engine security certificate.
-*   Set oVirt Engine Admin Password: This field allows you to specify the root password for the hypervisor, and enable SSH password authentication from the oVirt Engine. This field is optional, and is covered in more detail in the [oVirt Installation Guide](oVirt Installation Guide).
+*   Set oVirt Engine Admin Password: This field allows you to specify the root password for the hypervisor, and enable SSH password authentication from the oVirt Engine. This field is optional, and is covered in more detail in the [oVirt Installation Guide](http://www.ovirt.org/images/a/a9/OVirt-3.0-Installation_Guide-en-US.pdf).
 
 <!-- -->
 

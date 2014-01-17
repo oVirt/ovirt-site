@@ -26,7 +26,7 @@ For using web-browser-based console clients, the certificate authority must be i
 
 *   SPICE Drivers
 
-For making use the best of SPICE features install SPICE vdagent and SPICE video drivers that are available for download here: <http://www.spice-space.org/download.html> (in the "Guest" section).
+For making the best use of SPICE features install SPICE vdagent and SPICE QXL video drivers on your guests. They are available for download on <http://www.spice-space.org/download.html> (in the "Guest" section). If you use GNU/Linux, your distribution may contain QXL video driver package.
 
 ### VNC Protocol
 

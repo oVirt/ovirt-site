@@ -72,7 +72,7 @@ No changes are required to the api.
 The following events will be logged for the command when applied to all hosts:
 
 1.  For partial hosts update: "${TotalUpdatedHosts} are planned to be updated, however only ${ActualUpdatedHosts} could be updated."
-2.  If a 'setup networks' action is not supported by cluster version: "${Network} network changes will not be applied to clusters: ${UnsupportedClusterNames} due to unsupported cluster version."
+2.  If a 'setup networks' action is not supported by data center version: "${Network} network changes will not be applied to data center: ${UnsupportedDCName} due to unsupported data center version."
 3.  For each host being updated:
     1.  "1/3 applying network ${Network} on host ${Host}"
     2.  "2/3 applying network ${Network} on host ${Host}"

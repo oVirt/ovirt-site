@@ -23,4 +23,4 @@ Now you need to start the "Terminal" application. Click the blue Spotlight icon 
 |-----------------------------------------------------------------------------------|
 | $ /Applications/RemoteViewer.app/Contents/MacOS/RemoteViewer Downloads/console.vv |
 
-Tested on Mac OS X 10.7.5 with oVirt-3.3.1
+Tested on Mac OS X 10.7.5 and 10.9.1 with oVirt-3.3.1

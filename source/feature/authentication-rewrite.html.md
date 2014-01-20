@@ -49,13 +49,21 @@ Webadmin and UserPortal present the list of available profiles at the login scre
 
 ### Detailed description of flows
 
-1. Engine restart - At oVirt Engine restart engine gets the list of domains from DB, and creates for each one of them a profile based on Provisional Directory and Authenticator. The profiles are then registered to later usage (the profile will be identified by the domain name). Engine scans a directory that holds configuration files, and for each one of them the configuration file is loaded and creates a profile for them. At Phase 1 the directory is empty and it's still under a debate the location under the filesystem that will hold the directory.
+1. Engine restart
 
-2. Login The login commands get the the profile by the domain name supplied by the parameters. The associated Authenticator is used to authenticate. The Authenticators have a mechanism to resolve error messages to allow oVirt Engine return the UI detailed information on why the authentication failed (for example - for a password based Authenticator such message may be that the password of the user has expired). The associated Directory will be used to query the user by its name. The returned user information will be used to get the user information from the database, and run the MLA check if the login action is authorized.
+At oVirt Engine restart engine gets the list of domains from DB, and creates for each one of them a profile based on Provisional Directory and Authenticator. The profiles are then registered to later usage (the profile will be identified by the domain name). Engine scans a directory that holds configuration files, and for each one of them the configuration file is loaded and creates a profile for them. At Phase 1 the directory is empty and it's still under a debate the location under the filesystem that will hold the directory.
 
-3. Search users & groups Each Directory should contain in its configuration the required information in order to perform a search of users. For example, an LDAP directory may need to define the user (currently known as "domain user") to perform the search queries with, the authentication method for the user (may be SIMPLE, SASL or others). Bare in mind that this configuration, even if contains authentication details (for example -user, encrypted password, usage of SASL with GSSAPI as mechanism) is unrelated to the configuration of the Authenticator. The search queries for users and groups will be run agasint query methods at the Directory object.
+2. Login
 
-4. Support different LDAP vendors via configuration (Phase-2) In order to achieve support for different LDAP vendors, the configuration should include the following information:
+The login commands get the the profile by the domain name supplied by the parameters. The associated Authenticator is used to authenticate. The Authenticators have a mechanism to resolve error messages to allow oVirt Engine return the UI detailed information on why the authentication failed (for example - for a password based Authenticator such message may be that the password of the user has expired). The associated Directory will be used to query the user by its name. The returned user information will be used to get the user information from the database, and run the MLA check if the login action is authorized.
+
+3. Search users & groups
+
+Each Directory should contain in its configuration the required information in order to perform a search of users. For example, an LDAP directory may need to define the user (currently known as "domain user") to perform the search queries with, the authentication method for the user (may be SIMPLE, SASL or others). Bare in mind that this configuration, even if contains authentication details (for example -user, encrypted password, usage of SASL with GSSAPI as mechanism) is unrelated to the configuration of the Authenticator. The search queries for users and groups will be run agasint query methods at the Directory object.
+
+4. Support different LDAP vendors via configuration (Phase-2)
+
+In order to achieve support for different LDAP vendors, the configuration should include the following information:
 
 *   Root DSE handling -
 

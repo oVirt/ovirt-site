@@ -236,6 +236,12 @@ The feature will use the [Multi-Host Network Configuration](Features/MultiHostNe
 
 ### Testing
 
-Explain how this feature may be tested by a user or a quality engineer. List relevant use cases and expected results.
+Testing can be done on a host with 1 nic - it requires to define the management network on the data-center level as non-vm network. If there are more than a single nic, the management network can be a vm network. The constraint is due to the fact that no mix of vm network (non-tagged) can co-exist on the same nic with any other network type.
+
+Via API: 1. Set label 'lbl' to network 'red' and 'blue' (both vlan) and attach them to cluster X: POST <label id="lbl"/> to /api/networks/{network:id}/labels for each network. 2. Send a POST label request to an unassigned host's nic in that cluster to /api/hosts/{host:id}/nics/{nic:id}/labels: <label id="lbl"/> 3. Verify label is created 4. Verify networks 'red' and 'blue' were attached to the labeled nic. 5. Delete 'lbl' from that nic by sending a DELETE to /api/hosts/{host:id}/nics/{nic:id}/labels/lbl 6. Verify both 'red' and 'blue' were removed from that host.
+
+Via Webadmin: 1. Label vlan network 'green' with label 'aaa', assign the network to a cluster where the host resides. 2. Label nic on host cluster via 'setup networks' dialog 3. Verify 'green' was automatically dragged on that nic. 4. Confirm the action, and verify 'green' appears on top of that host in the host's interface sub-tab. 5. Detach 'green' from that cluster 6. Verify 'green' is no longer configured on that host 7. Attach 'green' to that cluster 8. Verify 'green' is no configured on that host.
+
+The test can be expanded to several hosts, and to multiple actions (all networks should be tagged/vlan) such as: 1. Label host nics with labels 'aaa' and 'bbb' 2. Label networks X and Y with 'aaa' and A and B with 'bbb'. 3. Via the cluster tab, select the target cluster and from the networks sub tab open click the 'manage networks' button 4. Check X, Y, A and B to be assigned to that cluster and confirm. 5. Open setup networks dialog of that host and verify the networks were properly attached to the nics by the label 6. From the same 'manage networks' dialog detach networks X and A from the cluster 7. Confirm networks X and A were removed from the host, and only networks Y and B are assigned. 8. Edit X network and remove the label from it. 9. Verify network X was removed from the host. 10. Edit X network and label it with 'bbb'. 11. Verify network X was configured on the host.
 
 <Category:Feature> <Category:Networking>

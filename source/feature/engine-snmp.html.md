@@ -80,12 +80,10 @@ Using the default value for SNMP_OID (1.3.6.1.4.1.2312.13.1), traps will show up
 *   SNMPv2-MIB::snmpTrapOID represents the trap id for this event. we have our OID appended with 0 (because this is an enterprise specific trap). finally 30 is appended as well. This value is specific to this trap type: USER_VDC_LOGIN.
 *   After that you can see different values associated with this trap:
 
-| OID                       | Type   | Value                                      |
-|---------------------------|--------|--------------------------------------------|
-| SNMPv2-MIB::snmpTrapOID.0 | STRING | event message                              |
-| SNMPv2-MIB::snmpTrapOID.1 | STRING | Severity (NORMAL, WARNING or ERROR)        |
-| SNMPv2-MIB::snmpTrapOID.2 | STRING | Type (ALERT_MESSAGE or RESOLVED_MESSAGE) |
-| SNMPv2-MIB::snmpTrapOID.3 | STRING | Log time                                   |
+| header 1      | header 2      | header 3      |
+|---------------|---------------|---------------|
+| row 1, cell 1 | row 1, cell 2 | row 1, cell 3 |
+| row 2, cell 1 | row 2, cell 2 | row 2, cell 3 |
 
 ### Testing
 

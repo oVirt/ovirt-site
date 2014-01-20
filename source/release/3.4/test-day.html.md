@@ -84,11 +84,12 @@ You need at least two physical servers to install and configure a basic yet comp
 
 #### Infra
 
-| Scenario                                                                                                                                                                      | Bugs |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
-| Start vdsm-3.4 after fresh install over rhel 6.5\\rhel6.4\\fedora 19\\fedora 20 - check clear outputs and clear start - report in any misunderstanding of the startup process |      |
-| Upgrade from vdsm-3.3 to vdsm-3.4 after running with vdsm 3.3, same for downgrade from 3.4 to 3.3 - verify that libvirtd configured and started properly                      |      |
-| Check each vdsm-tool verbs of configurator module and its outputs - for misunderstanding of the output or the help instructions please report                                 |      |
+| Scenario                                                                                                                                                                                   | Bugs |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
+| Start vdsm-3.4 after fresh install over rhel 6.5\\rhel6.4\\fedora 19\\fedora 20 - check clear outputs and clear start - report in any misunderstanding of the startup process              |      |
+| Upgrade from vdsm-3.3 to vdsm-3.4 after running with vdsm 3.3, same for downgrade from 3.4 to 3.3 - verify that libvirtd configured and started properly                                   |      |
+| Check each vdsm-tool verbs of configurator module and its outputs - for misunderstanding of the output or the help instructions please report                                              |      |
+| Add more that one domain using manage-domains. Check that login , search for users and groups is working. Check that a a user belonging to a group can login if the group has permissions. |      |
 
 #### Storage
 

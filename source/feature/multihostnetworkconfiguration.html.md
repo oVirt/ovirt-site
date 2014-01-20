@@ -22,7 +22,7 @@ The feature will be enabled for 3.1 data-centers and above, regardless cluster l
 
 ### Current status
 
-*   On development
+*   Ready
 *   Planned for ovirt-engine-3.4
 *   Last updated: ,
 

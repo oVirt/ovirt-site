@@ -25,13 +25,16 @@ Since the entire communication to the virtualization management system is throug
 
 Currently, Ovirt-guest-agent can run on:
 
-*   Red Hat Enterprise Linux 6.2
-*   CentOS 6.2
-*   Fedora 15
+*   Red Hat Enterprise Linux 5.x
+*   Red Hat Enterprise Linux 6.x
+*   CentOS 6.x
+*   Fedora 16-20
 *   Windows XP (32)
 *   Windows 7 (32/64)
+*   Windows 8.x (32/64)
 *   Windows 2003 (32/64/R2)
 *   Windows 2008 (32/64/R2)
+*   Windows 2012 (32/64/R2)
 
 For Linux systems - it requires python and a vioserial device
 For windows systems - it requires python and pywin32 packages installed

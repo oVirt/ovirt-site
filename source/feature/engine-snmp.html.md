@@ -79,3 +79,39 @@ Using the default value for SNMP_OID (1.3.6.1.4.1.2312.13.1), traps will show up
 
 *   SNMPv2-MIB::snmpTrapOID represents the trap id for this event. we have our OID appended with 0 (because this is an enterprise specific trap). finally 30 is appended as well. This value is specific to this trap type: USER_VDC_LOGIN.
 *   After that you can see different values associated with this trap:
+
+| OID                       | Type   | Value                                      |
+|---------------------------|--------|--------------------------------------------|
+| SNMPv2-MIB::snmpTrapOID.0 | STRING | event message                              |
+| SNMPv2-MIB::snmpTrapOID.1 | STRING | Severity (NORMAL, WARNING or ERROR)        |
+| SNMPv2-MIB::snmpTrapOID.2 | STRING | Type (ALERT_MESSAGE or RESOLVED_MESSAGE) |
+| SNMPv2-MIB::snmpTrapOID.3 | STRING | Log time                                   |
+
+### Testing
+
+This section contains instructions on setting up an snmp manager capable of receiving traps.
+ Tested under fedora 20 (please update if it worked for you on a different version).
+
+     # yum install -y net-snmp
+
+Edit the trap daemon configuration file, /etc/snmp/snmptrapd.conf:
+
+     # Example configuration file for snmptrapd
+     #
+     # No traps are handled by default, you must edit this file!
+     #
+     authCommunity   log,execute,net public
+     # traphandle SNMPv2-MIB::coldStart    /usr/bin/bin/my_great_script cold
+     [snmp]
+     logOption f /tmp/snmptrapd.log
+
+Start the service:
+
+     # service snmptrapd start
+
+Test service by sending a trap:
+
+     # yum install -y  net-snmp-utils
+     $ snmptrap -v 2c -c public localhost  1.2 SNMPv2-MIB::sysLocation.0 s "just here"
+
+Incoming traps should now be available in /tmp/snmptrapd.log

@@ -83,4 +83,12 @@ The following is an example (still work in progress) for the mapping part in con
 
 ### Testing
 
-As currently only Phase-1 is implemented , the tests should be done to see no regression were introduced - 1. Use manage-domains, add a domain with addPermissions option and perform a login 2. Use-manage-domain, add another domain with addPermissioons option and perform login (positive fow - check support for multiple domains) 3. Give permissions to a group to perform a login, login using a user from that group 4. Try to login with a user that does not exist in the domain 5. Try to login with a user that does not have permissions to login 6. Try to login with an account that is either locked/disabled or that the user has expired password - see that a proper message appears at UI 7. Remove a domain , check that you cannot logg in with users from that domain.
+As currently only Phase-1 is implemented , the tests should be done to see no regression were introduced -
+
+1.  Use manage-domains, add a domain with addPermissions option and perform a login
+2.  Use-manage-domain, add another domain with addPermissioons option and perform login (positive fow - check support for multiple domains)
+3.  Give permissions to a group to perform a login, login using a user from that group
+4.  Try to login with a user that does not exist in the domain
+5.  Try to login with a user that does not have permissions to login
+6.  Try to login with an account that is either locked/disabled or that the user has expired password - see that a proper message appears at UI
+7.  Remove a domain , check that you cannot logg in with users from that domain.

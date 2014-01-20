@@ -36,6 +36,7 @@ Allow oVirt users to monitor their virtualization environment with open source o
 ### Detailed Description
 
 This feature extends the capabilities of the ovirt-engine-notifier to send all engine events and events' data via SNMP traps version 2c.
+ Note that in contrary to email notification added through the UI, where only a subset of events are defined, here all events are sent by edfault.
  SNMP parameters are available in ovirt-engine-notifier default configuration file: /share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf
  (It's advisable to leave that file as is and define an override file under etc/ovirt-engine/notifier/notifier.conf.d/)
 
@@ -44,26 +45,26 @@ This feature extends the capabilities of the ovirt-engine-notifier to send all e
      #-------------------------#
      # Send v2c snmp notifications
 
-     # IP address or DNS name of an SNMP manager to receive SNMP traps.
-     SNMP_MANAGER=
+     # A whitespace separated list of IP addresses or DNS names of SNMP managers to receive SNMP traps.
+     # Can include an optional port, default is 162
+     # SNMP_MANAGERS=manager1.example.com manager2.example.com:164
+     SNMP_MANAGERS=
 
-     # The snmp manager's port
-     SNMP_PORT=162
-
-     # community string
+     # Community String
      SNMP_COMMUNITY=public
 
      # Object Identifier identifying ovirt engine SNMP trap messages.
-     SNMP_OID=1.3.6.1.4.1.2312.13.1
-     # 1[iso].3[organization].6[DoD].1[Internet].4[private].1[enterprises].2312[redhat].13[ovirt-engine].1[audit-log]
+     SNMP_OID=1.3.6.1.4.1.2312.13.1.1
+     # 1[iso].3[organization].6[DoD].1[Internet].4[private].1[enterprises].2312[redhat].13[ovirt-engine].1[notifications].
+     # 1[audit-log]
 
-     # comma separated list of event names to notify on.
-     #WHITELIST=""
+     # exclude: notify on all events except for those listed in SNMP_FILTER.
+     # include: notify only on events listed in SNMP_FILTER.
+     # SNMP_FILTER_MODE=exclude|include
+     SNMP_FILTER_MODE=exclude
 
-     # notify on all but these comma separated list of events:
-     BLACKLIST=""
-
-     # note: if both WHITELIST and BLACKLIST are defined only WHITELIST is considered.
+     # A whitespace separated events list.
+     SNMP_FILTER=
 
 Notes:
 

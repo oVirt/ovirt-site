@@ -90,7 +90,7 @@ The most interesting use case is for VM-Pools, where vms are stateless.
 
 #### REST API
 
-Templates management usecase: For each template version we have a separate REST entity of template.
+**Templates management usecase: For each template version we have a separate REST entity of template.**
 
 *   GET :
 

@@ -77,7 +77,7 @@ This would affect anywhere a network name shows up, and in particular:
 
 Currently, if a user has a connectivity issue regarding a network FOO on one of his hosts, he can easily look FOO up in Engine. Now this would become more difficult, as the host is no longer exposed to a human-legible name. We should supply means to alleviate this:
 
-1.  An ovirt-engine-shell script to map a `brXXXXXXXXXXXXX` name into the visible name of its owning network.
+1.  ovirt-engine-shell should be able to list the `brXXXXXXXXXXXXX` name per each network. A script built upon it (using grep, possibly) would be abole to map a `brXXXXXXXXXXXXX` name into the visible name of its owning network.
 2.  Make it possible to look a network up based on its vdsm_name (`brXXXXXXXXXXXXX`) in the network tab and in via the search box
 3.  Another possible remedy is to expose visible_name to the host when setting or changing a network via `setupNetwork`. The human-visible name would be persisted as comments on the local host, and would be available for inspection by debuggers.
 

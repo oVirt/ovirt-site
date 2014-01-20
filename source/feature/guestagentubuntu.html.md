@@ -30,6 +30,8 @@ Packaging the ovirt-guest-agent for Ubuntu
 
 ### Detailed Description
 
+This feature should provide ovirt-guest-agent packages for Ubuntu
+
 ### Benefit to oVirt
 
 ### Dependencies / Related Features

@@ -73,31 +73,7 @@ Users and groups attributes may be defined differently in different LDAP vendors
 
 The generated query by the search mechanism is an abstract LDAP query in a sense it does not contain vendor specific attributes, but placeholders , for example - $ACCOUNTTYPE these attributes should be replaced to vendor specific ones.
 
-The following is an example (still work in progress) for the mapping part in configuration file for IPA -
-
-ldap.query.pagesize=1
-
-1.  root DSE related
-
-ldap.query.rootdse.handlerclass=org.ovirt.engine.core.authentication.ldap.DefaultRootDSEQueryHandler ldap.query.rootdse.mapping.namingcontexts=namingContexts
-
-1.  search translations
-
-ldap.search.$GIVENNAME=givenname ldap.search.$USER_ACCOUNT_TYPE=&(objectClass=posixAccount)(objectClass=krbPrincipalAux) ldap.search.$PRINCIPAL_NAME=krbPrincipalName ldap.search.$LDAP_GROUP_CATEGORY=objectClass=ipaUserGroup ldap.search.$CN=cn ldap.search.$USER_ACCOUNT_NAME=uid ldap.search.$SAMACCOUNTNAME=SAMACCOUNTNAME ldap.search.$SN=SN ldap.search.$DEPARTMENT=DEPARTMENT ldap.search.$TITLE=TITLE
-
-1.  user queries
-
-ldap.query.user.mapping.id=ipaUniqueId ldap.query.user.mapping.name=krbPrincipalName ldap.query.user.mapping.firstName=givenname ldap.query.user.mapping.lastName=sn ldap.query.user.mapping.email=mail ldap.query.user.mapping.title=title ldap.query.user.mapping.memberof=memberof ldap.query.user.mapping.department=department
-
-ldap.query.getUserByGuid.multiple=false ldap.query.getUserByGuid.template=(ipaUniqueID=%1$s)
-
-ldap.query.getUserByName.multiple=false ldap.query.getUserByName.template=(&(objectClass=posixAccount)(objectClass=krbPrincipalAux)(uid=%1$s))
-
-1.  group queries
-
-ldap.query.group.mapping.id=ipaUniqueId ldap.query.group.mapping.memberof=memberof ldap.query.group.mapping.name=distinguishedname
-
-ldap.query.getGroupByName.multiple=false ldap.query.getGroupByName.template=(&(objectClass=ipaUserGroup)(cn=%1$s))
+The following is an example (still work in progress) for the mapping part in configuration file for IPA -![](ipa_configuration.odt "fig:ipa_configuration.odt")
 
 ### Open issues
 

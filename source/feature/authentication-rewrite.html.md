@@ -32,7 +32,7 @@ to support the internal domain, and the Provisional Authenticator and Directory 
 
 ### Benefits to oVirt
 
-*   Allows to introduce new types of Authenticators(not just password based) and Directories - not necessarily Kerberos based and LDAP based.
+*   Allows to introduce new types of Authenticators(not just password based) and Directories - not necessarily Kerberos based and LDAP based - this can be done in external modules and does not require recompilation of ovirt Engine and delivery of a new RPM for it.
 *   Allows change of configuration to support new LDAP prvoiders or changes in LDAP schema (no code change is required).
 
 #### Terminology

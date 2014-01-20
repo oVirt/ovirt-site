@@ -120,7 +120,9 @@ Example for editing a template's version name: (add the version part inside the 
          `<version_name>`"new name of this version"`</version_name>` 
 </version>
 
-**VMs usecase** template field continues to be reused and will contain version details where applicable. <b> VM will have a new "useLatestTemplateVersion" boolean property that is relevant for stateless VMs. User will be able to pass it when creating or updating a VM. If user will try to create a new stateful VM with this property set to true, an error will be returned.
+**VMs usecase**
+
+template field continues to be reused and will contain version details where applicable. <b> VM will have a new useLatestTemplateVersion boolean property that is relevant for stateless VMs. User will be able to pass it when creating or updating a VM. If user will try to create a new stateful VM with this property set to true, an error will be returned.
 When doing GET, this property will be propagated from backend, set to 'false' for stateful VMs.
  VM Pools usecase TBD
 

@@ -14,6 +14,8 @@ wiki_last_updated: 2014-08-05
 
 ### Summary
 
+Packaging the ovirt-guest-agent for Ubuntu
+
 ### Owner
 
 *   Name: [ Vinzenz 'evilissimo' Feenstra](User:Vfeenstr)

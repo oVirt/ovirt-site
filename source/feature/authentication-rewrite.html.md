@@ -28,7 +28,7 @@ to support the internal domain, and the Provisional Authenticator and Directory 
 #### Current status
 
 *   status: Phase 1 - done. Phase 2 - in progress
-*   Last updated: {{January} ,
+*   Last updated: January 19, 2014
 
 ### Benefits to oVirt
 

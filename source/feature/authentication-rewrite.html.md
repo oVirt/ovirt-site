@@ -96,7 +96,8 @@ As currently only Phase-1 is implemented , the tests should be done to see no re
 1.  Use manage-domains, add a domain with addPermissions option and perform a login
 2.  Use-manage-domain, add another domain with addPermissioons option and perform login (positive fow - check support for multiple domains)
 3.  Give permissions to a group to perform a login, login using a user from that group
-4.  Try to login with a user that does not exist in the domain
-5.  Try to login with a user that does not have permissions to login
-6.  Try to login with an account that is either locked/disabled or that the user has expired password - see that a proper message appears at UI
-7.  Remove a domain , check that you cannot logg in with users from that domain.
+4.  Give permissions to a user , and login with that user
+5.  Try to login with a user that does not exist in the domain
+6.  Try to login with a user that does not have permissions to login
+7.  Try to login with an account that is either locked/disabled or that the user has expired password - see that a proper message appears at UI
+8.  Remove a domain , check that you cannot logg in with users from that domain.

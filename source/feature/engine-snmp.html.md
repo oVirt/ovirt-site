@@ -115,3 +115,5 @@ Test service by sending a trap:
       $ snmptrap -v 2c -c public localhost '' 1.2 SNMPv2-MIB::sysLocation.0 s "just here"
 
 Incoming traps should now be available in /tmp/snmptrapd.log.
+
+See [fodora instructions for net-snmp](http://docs.fedoraproject.org/en-US/Fedora/16/html/System_Administrators_Guide/sect-System_Monitoring_Tools-Net-SNMP-Configuring.html) and the [net-snmp project page](http://www.net-snmp.org/) for further instructions.

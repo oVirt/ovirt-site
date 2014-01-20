@@ -123,7 +123,7 @@ Example for editing a template's version name: (add the version part inside the 
 **VMs usecase**
 
 template field continues to be reused and will contain version details where applicable.
-VM will have a new latest_template_version boolean property that is relevant for stateless VMs. It indicates whether the latest template version should be used.
+VM will have a new use_latest_template_version boolean property that is relevant for stateless VMs. It indicates whether the latest template version should be used.
 User will be able to pass it when creating or updating a VM. If user will try to create a new stateful VM with this property set to true, an error will be returned.
 When doing GET, this property will be propagated from backend, set to 'false' for stateful VMs.
  VM Pools usecase TBD

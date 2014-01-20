@@ -26,7 +26,7 @@ The host network configuration can be done by manipulating the network label:
 
 ### Current status
 
-*   On Design
+*   Ready
 *   Planned for ovirt-engine-3.4
 *   Last updated: ,
 

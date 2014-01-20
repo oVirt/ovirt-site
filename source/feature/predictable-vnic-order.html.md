@@ -22,7 +22,7 @@ Make the in-guest order of NICs predictable, given their visual order.
 
 ### Current Status
 
-*   oVirt-3.4 hopeful
+*   Submitted oVirt-3.4
 *   Last updated: ,
 
 ### Background

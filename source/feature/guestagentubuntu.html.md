@@ -40,6 +40,8 @@ It'll be easier to install the ovirt-guest-agent on Ubuntu guests.
 
 ### Documentation / External references
 
+The ovirt-guest-agent for Ubuntu is available here: <https://launchpad.net/~zhshzhou/+archive/vdsm-ubuntu>
+
 ### Testing
 
 ### Comments and Discussion

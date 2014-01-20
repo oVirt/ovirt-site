@@ -34,6 +34,8 @@ This feature should provide ovirt-guest-agent packages for Ubuntu
 
 ### Benefit to oVirt
 
+It'll be easier to install the ovirt-guest-agent on Ubuntu guests.
+
 ### Dependencies / Related Features
 
 ### Documentation / External references

@@ -89,57 +89,32 @@ This command will download the oVirt Engine installation software and resolve al
 
 Example 2.1. oVirt Engine installation
 
-Welcome to oVirt Engine setup utility
-
-oVirt Engine uses httpd to proxy requests to the application server.
-
-It looks like the httpd installed locally is being actively used.
-
-The installer can override current configuration .
-
-Alternatively you can use JBoss directly (on ports higher than 1024)
-
-Do you wish to override current httpd configuration and restart the service? ['yes'| 'no'] [yes] :
-
-HTTP Port [80] :
-
-HTTPS Port [443] :
-
-Host fully qualified domain name. Note: this name should be fully resolvable [ovirt.demo.example.com] :
-
-The IP (10.35.18.235) which was resolved from the FQDN ovirt.demo.example.com is not configured on any interface on this host
-
-User input failed validation, do you still wish to use it? (yes|no): yes
-
-Enter a password for an internal oVirt Engine administrator user (admin@internal) :
-
-Warning: Weak Password.
-
-Confirm password :
-
-Organization Name for the Certificate [demo.example.com] :
-
-The default storage type you will be using ['NFS'| 'FC'| 'ISCSI'| 'POSIXFS'] [NFS] :
-
-Enter DB type for installation ['remote'| 'local'] [local] :
-
-Enter a password for a local oVirt Engine DB admin user (engine) :
-
-Warning: Weak Password.
-
-Confirm password :
-
-Configure NFS share on this server to be used as an ISO Domain? ['yes'| 'no'] [yes] :
-
-Local ISO domain path [/var/lib/exports/iso] :
-
-Firewall ports need to be opened.
-
-The installer can configure firewall automatically overriding the current configuration. The old configuration will be backed up.
-
-Alternately you can configure the firewall later using an example file.
-
-Which firewall do you wish to configure? ['None'| 'Firewalld']: Firewalld
+         Welcome to oVirt Engine setup utility
+         oVirt Engine uses httpd to proxy requests to the application server.
+         It looks like the httpd installed locally is being actively used.
+         The installer can override current configuration .
+         Alternatively you can use JBoss directly (on ports higher than 1024)
+         Do you wish to override current httpd configuration and restart the service? ['yes'| 'no']  [yes] : 
+         HTTP Port  [80] : 
+         HTTPS Port  [443] : 
+         Host fully qualified domain name. Note: this name should be fully resolvable  [ovirt.demo.example.com] : 
+         The IP (10.35.18.235) which was resolved from the FQDN ovirt.demo.example.com is not configured on any interface on this host
+         User input failed validation, do you still wish to use it? (yes|no): yes
+         Enter a password for an internal oVirt Engine administrator user (admin@internal) :
+         Warning: Weak Password.
+         Confirm password :
+         Organization Name for the Certificate  [demo.example.com] : 
+         The default storage type you will be using  ['NFS'| 'FC'| 'ISCSI'| 'POSIXFS']  [NFS] : 
+         Enter DB type for installation ['remote'| 'local']  [local] : 
+         Enter a password for a local oVirt Engine DB admin user (engine) :
+         Warning: Weak Password.
+         Confirm password :
+         Configure NFS share on this server to be used as an ISO Domain? ['yes'| 'no']  [yes] : 
+         Local ISO domain path  [/var/lib/exports/iso] : 
+         Firewall ports need to be opened.
+         The installer can configure firewall automatically overriding the current configuration. The old configuration will be backed up.
+         Alternately you can configure the firewall later using an example file. 
+         Which firewall do you wish to configure? ['None'| 'Firewalld']: Firewalld
 
 Important points to note:
 
@@ -151,35 +126,21 @@ Important points to note:
 
 Example 2.2. Confirm Engine installation settings
 
-oVirt Engine will be installed using the following configuration:
-
-=================================================================
-
-override-httpd-config: yes
-
-http-port: 80
-
-https-port: 443
-
-host-fqdn: ovirt.demo.example.com
-
-auth-pass: \*\*\*\*\*\*\*\*
-
-org-name: demo.example.com
-
-default-dc-type: NFS
-
-db-remote-install: local
-
-db-local-pass: \*\*\*\*\*\*\*\*
-
-nfs-mp: /var/lib/exports/iso
-
-config-nfs: yes
-
-override-firewall: Firewalld
-
-Proceed with the configuration listed above? (yes|no): yes
+         oVirt Engine will be installed using the following configuration:
+         =================================================================
+         override-httpd-config:         yes
+         http-port:                     80
+         https-port:                    443
+         host-fqdn:                     ovirt.demo.example.com
+         auth-pass:                     ********
+         org-name:                      demo.example.com
+         default-dc-type:               NFS
+         db-remote-install:             local
+         db-local-pass:                 ********
+         nfs-mp:                        /var/lib/exports/iso
+         config-nfs:                    yes
+         override-firewall:             Firewalld
+         Proceed with the configuration listed above? (yes|no): yes
 
 8. The installation commences. The following message displays, indicating that the installation was successful.
 

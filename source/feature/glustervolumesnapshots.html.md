@@ -285,6 +285,18 @@ Input:
 
     <action/>
 
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/snapshots/{snapshot-id}/activate|rel=activate - activates the given volume snapshot
+
+Input:
+
+    <action/>
+
+*   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/snapshots/{snapshot-id}/deactivate|rel=deactivate - deactivates the given volume snapshot
+
+Input:
+
+    <action/>
+
 *   /api/clusters/{cluster-id}/glustervolumes/{volume-id}/setsnapshotconfig|rel=setsnapshotconfig - sets a snapshot configuration parameter value for the given volume
     -   Parameters
         -   name-value pair of configuration parameters

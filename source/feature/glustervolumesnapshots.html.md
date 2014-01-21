@@ -121,7 +121,7 @@ Gluster volumes can be enabled for snapshots only if they are thinly provisioned
 
 During volume creation, the dialog would have an additional check-box to mark the volume enabled for snapshots. If the check-box is selected during volume creation, set of pre-volume-creation hooks would validate if the volume bricks are thinly provisioned and then volume creation would go ahead. Additional flag would be maintained with each volume for snapshot feature enabled purpose.
 
-![](VolumeCreate.png "VolumeCreate.png")
+![](CreateVolume.png "CreateVolume.png")
 
 # Test Cases
 

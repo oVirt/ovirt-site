@@ -169,16 +169,16 @@ Note: If volumeName is not passed, configuration values for all the volumes are 
 
 Note: If snapName is not passed, status of all the snaps are listed
 
-#### VDSM verbs for starting a snapshot
+#### VDSM verbs for activating a snapshot
 
-*   <big>glusterVolumeSnapshotStart</big> - starts the given snapshot
+*   <big>glusterVolumeSnapshotActivate</big> - activates the given snapshot
     -   Input
         -   volumeName
         -   [snapName]
     -   Output
         -   Success/Failure
 
-Note: If snapName not passed, all the snapshots of the volume are started
+Note: If snapName not passed, all the snapshots of the volume are activated
 
 #### VDSM verbs for stopping the snapshots
 

@@ -35,7 +35,7 @@ This page is for captuaring Networking related features we would like to have in
 
 *   UCS integration
 *   Blade Harmony
-*   quantum integration
+*   quantum/neutron integration - Available in 3.3, extended in 3.4
 *   'network-manager' architecture - looking into re-designing the engine networking code.
 *   open flow
 *   Using Network manager vs. using scripts (VDSM level)

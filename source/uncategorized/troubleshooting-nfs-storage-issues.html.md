@@ -43,8 +43,9 @@ oVirt currently requires that NFS exports be configured in a specific way. This 
 The easiest way to definitively test that an NFS export is ready for use by oVirt is to:
 
 *   Create the **vdsm** user with uid **36** on the ovirt-engine host if it does not already exist.
-*   Change to the **vdsm** user using **su - vdsm**. If vdsm user was not hand-created, then chances are su - vdsm might fail. Do **su - vdsm -s /bin/bash**
-*   Attempt to mount the export to a temporary directory and touch a file on it.
+*   Change to the **vdsm** user using **su - vdsm -s /bin/bash**
+*   Attempt to mount the export on a temporary directory (for example, /tmpmnt) using the following command form: **/usr/bin/sudo -n /bin/mount -t nfs -o soft,nosharecache,timeo=600,retrans=6,nfsvers=3 *servername:/path/of/export* /tmpmnt**
+*   If the mount succeeds, then try to create a file in it via the **touch** command, i.e. **touch /tmpmnt/tempfile**
 
 ### nfs-check program
 

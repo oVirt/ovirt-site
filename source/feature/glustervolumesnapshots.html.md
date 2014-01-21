@@ -68,18 +68,6 @@ If user selects a volume from the list and click the menu option "Snapshot", a d
 
 ![](CreateVolumeSnapshot1.png "CreateVolumeSnapshot1.png")
 
-<big>2. Restore a Snapshot</big>
-
-There are two scenarios while restoring a snapshot -
-
-*   User selects an individual volume from the volume list table and clicks the menu "Volume Snapshot --> Restore". In this scenario a dialog pops up listing all the snapshots taken for the said volume. User can snapshot to restore to and click "OK".
-
-![](RestoreSnap.png "RestoreSnap.png")
-
-*   User does not select anything from the volume list table and clicks the menu option "Volume Snapshot --> Restore". In this scenario a dialog pops up listing all the snapshots taken for all the volumes. This dialog allows the user to select a volume name from a combo and all the corresponding snapshots get listed. User an select the snapshot to restore to click "OK".
-
-![](RestoreSnap2.png "RestoreSnap2.png")
-
 #### Sub-tab "Volumes --> Snapshot"
 
 This sub-tab under the main tab "Volumes" lists the snapshots created for individual volumes. The set of supported actions are -

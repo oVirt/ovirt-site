@@ -63,7 +63,7 @@ A new action group "Volume Snapshot" would be introduced under actions for a vol
 *   Take Snapshot
 *   Restore
 
-![](VolumeList.png "VolumeList.png")
+![](VolumeList1.png "VolumeList1.png")
 
 <big>1. Taking a snapshot</big>
 

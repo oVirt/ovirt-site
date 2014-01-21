@@ -14,21 +14,21 @@ This page is for captuaring Networking related features we would like to have in
 
 ## Features
 
-*   SR-IOV support
+*   SR-IOV support - Available via VDSM hook
 *   IPV6 support
-*   network SLA
+*   network SLA - VM QoS in 3.3, Host QoS in 3.4
 *   user defined networks (vlan ranges)
-*   IP allocations (melange in openstack, but forman has support as well)
-*   security groups
+*   IP allocations (melange in openstack, but forman has support as well) - 3.4 via Neutron integration
+*   security groups - 3.4 via Neutron integration
 *   permissions on networks (control who may attach what to which network)
 *   open vSwitch
-*   GRE tunneling (VPC - virtual private network)
-*   Network roles (storage / live migration network etc.)
+*   GRE tunneling (VPC - virtual private network) - 3.3 via Neutron integration
+*   Network roles (storage / live migration network etc.) - Migration in 3.3
 *   Sniff guest IP and report to the engine without guest tools
 *   Anti-spoofing layer two/three
 *   network groups
 *   dynamic network
-*   network lables
+*   network lables - Available in 3.4
 *   Support nested vlans. (QinQ)
 
 ## Technologies / Stuff

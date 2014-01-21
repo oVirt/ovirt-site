@@ -124,7 +124,7 @@ The integration of network providers into oVirt will be incremental. The followi
 
 *   A sub-tab will be added listing the subnets defined for the external network.
     -   Sub-tab contents will be taken from the external provider itself, not cached by oVirt.
-    -   It will be possible to add/edit/delete the subnets.
+    -   It will be possible to add/delete the subnets.
 *   A subnet entity will consist of:
     -   Name - A name for the subnet
     -   CIDR - An IP address specifying the network name plus the net mask prefix. e.g. 10.0.0.0/24

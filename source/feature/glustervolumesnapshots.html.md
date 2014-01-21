@@ -92,7 +92,15 @@ This action asks for a confirmation and then removes the selected snapshot(s).
 
 ![](RemoveSnapshotConfirmation.png "RemoveSnapshotConfirmation.png")
 
-<big>3. Snapshot related Configuration Parameters for volume</big>
+<big>3. Activating a snapshot</big>
+
+This action makes the snapshot on-line for further activities. User selects a snapshot from the list and clicks the menu option "Activate" to perform the action.
+
+<big>4. De-activating a snapshot</big>
+
+If a snapshot is already activated, the same can be de-activated by this action. Snapshot becomes read only after the de-activation and no changes would be possible. User selects a snaspshot from the list and clicks the menu "Deactivate" to perform the action.
+
+<big>5. Snapshot related Configuration Parameters for volume</big>
 
 This actions sets / edits the snapshot related configuration parameters for the specific volume. On click of the action, a pop up dialog opens with values already set for the configuration parameters. User has option to change the values and update them.
 

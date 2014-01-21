@@ -58,26 +58,15 @@ With this feature the user will be able to
 
 #### Main tab "Volumes"
 
-A new action group "Volume Snapshot" would be introduced under actions for a volume as a drop down. The set of actions under this action group would be -
-
-*   Take Snapshot
-*   Restore
+A new action "Snapshot" would be introduced under actions for a volume. This action could be performed on a selected volume from the list -
 
 ![](VolumeList1.png "VolumeList1.png")
 
-<big>1. Taking a snapshot</big>
+<big>Taking a snapshot</big>
 
-There are two scenarios while taking snapshots for the volumes -
-
-*   User selects a volume from the list and click the menu option "Volume Snapshot --> Create Snapshot". A dialog pops up asking for the snapshot name and optional description. User would provide the required details and click the button "OK" to trigger the creation of snapshot.
+If user selects a volume from the list and click the menu option "Snapshot", a dialog pops up asking for the snapshot name and optional description. User would provide the required details and click the button "OK" to trigger the creation of snapshot.
 
 ![](CreateVolumeSnapshot1.png "CreateVolumeSnapshot1.png")
-
-*   User does not select a volume from the volume list table and clicks the menu option "Volume Snapshot --> Create Snapshot". In this scenario a dialog pops up with lists of individual volumes. User can select an individual volume and create a snapshot.
-
-![](CreateSnapshot1.png "CreateSnapshot1.png")
-
-User is prompted a dialog asking for snapshot name and then triggers the snapshot creation.
 
 <big>2. Restore a Snapshot</big>
 

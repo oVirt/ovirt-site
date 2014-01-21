@@ -49,11 +49,11 @@ The easiest way to definitively test that an NFS export is ready for use by oVir
 
 ### nfs-check program
 
-A new nfs check script is now available to test whether an NFS export is ready for use by oVirt :
+A new **nfs-check** script is now available to test whether an NFS export is ready for use by oVirt :
 
-*   **nfs-check.py** is a python script to validate nfs targets to use with oVirt project. Some operations includes: mount the nfs target, create a file as vdsm:kvm and remove it.
-*   **nfs-check.py** available in **vdsm/contrib/** directory of the vdsm source
-*   Run it as **python nfs-check.py server:/target**
+*   **nfs-check.py** is a python script to validate nfs targets to use with oVirt project. Some operations include: mount the nfs target, create a file as vdsm:kvm and then remove it.
+*   **nfs-check.py** is available in the **vdsm/contrib/** directory of the vdsm source
+*   Run it on a node via **\1**
 
        $ git clone http://gerrit.ovirt.org/p/vdsm.git
        $ cd vdsm/contrib

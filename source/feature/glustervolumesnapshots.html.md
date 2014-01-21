@@ -80,13 +80,17 @@ This sub-tab under the main tab "Volumes" lists the snapshots created for indivi
 
 ![](VolumeSnaps1.png "VolumeSnaps1.png")
 
-<big>1. Restoring a snapshot</big>
+<big>1. Restoring a Snapshot</big>
 
-This action is same as restoring a snapshot for a single volume mentioned above.
+If user selects an individual snapshot from the volume snapshots list table and clicks the menu "Restore", a dialog pops up asking for a confirmation for restoring the volume to the state of the selected snapshot. User clicks "OK" to restore the snapshot.
+
+![](RestoreSnapConfirmation.png "RestoreSnapConfirmation.png")
 
 <big>2. Remove a snapshot</big>
 
 This action asks for a confirmation and then removes the selected snapshot(s).
+
+![](RemoveSnapshotConfirmation.png "RemoveSnapshotConfirmation.png")
 
 <big>3. Snapshot related Configuration Parameters for volume</big>
 

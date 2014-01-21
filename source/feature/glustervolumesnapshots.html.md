@@ -180,16 +180,16 @@ Note: If snapName is not passed, status of all the snaps are listed
 
 Note: If snapName not passed, all the snapshots of the volume are activated
 
-#### VDSM verbs for stopping the snapshots
+#### VDSM verbs for deactivating the snapshots
 
-*   <big>glusterVolumeSnapshotStop</big> - stops the given snapshot
+*   <big>glusterVolumeSnapshotDeactivate</big> - deactivates the given snapshot
     -   Input
         -   volumeName
         -   [snapName]
     -   Output
         -   Success/Failure
 
-Note: If snapName is not passed, all the snaps of the volume are stopped
+Note: If snapName is not passed, all the snaps of the volume are deactivated
 
 ### REST APIs
 

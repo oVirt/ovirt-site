@@ -78,7 +78,7 @@ This sub-tab under the main tab "Volumes" lists the snapshots created for indivi
 *   De-activate
 *   Configure
 
-![](VolumeSnapsList.png "VolumeSnapsList.png")
+![](VolumeSnaps1.png "VolumeSnaps1.png")
 
 <big>1. Restoring a snapshot</big>
 

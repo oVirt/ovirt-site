@@ -49,6 +49,8 @@ With this feature the user will be able to
 *   View the current status of snapshot
 *   Define the values for the snapshot related configuration parameters for a volume
 *   List view the snapshot configuration parameters
+*   Activate a snapshot
+*   De-activate a snapshot
 
 # Design
 

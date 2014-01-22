@@ -94,7 +94,8 @@ GLUSTER_HOOK_ENABLE USER_REMOVE_VG_FAILED GLUSTER_HOOK_REFRESH_FAILED VM_CONSOLE
 
 #### Event Map
 
-      event_up_name                                          |event_down_name            
+      event_up_name                                          |event_down_name       
+           
       VDC_STOP                                               | VDC_START
       IRS_FAILURE                                            | UNASSIGNED
       IRS_DISK_SPACE_LOW                                     | UNASSIGNED

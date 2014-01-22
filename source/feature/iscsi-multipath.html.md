@@ -37,8 +37,6 @@ The Device-Mapper is a Linux kernel framework which used for mapping block devic
 
 ### Detailed Description
 
-### Installation flow
-
 ### API
 
 ### Comments and Discussion

@@ -196,20 +196,32 @@ Webadmin:
 
 | Scenario                                                                                        | Steps                                                                                              | Bugs |
 |-------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|------|
-| Positive/negative affinity between group of VMs                                                 | Step 1: login and define XXX                                                                       |      |
-|                                                                                                 | Step 2: Edit a VM and verify YYYY                                                                  |      |
-| Power saving policy powering off machines (requires PM support)                                 | Step 1:                                                                                            |      |
+| power saving policy powering off machines                                                       | Step 1:                                                                                            |      |
 |                                                                                                 | Step 2: YYYY                                                                                       |      |
-| High Availability flag should be included when exporting/importing from Export Domain           | Step 1: Have a VM marked as highly available.                                                      |      |
-|                                                                                                 | Step 2: export the VM                                                                              |      |
-|                                                                                                 | Step 3: rename the original VM                                                                     |      |
-|                                                                                                 | Step 4: import the VM from step (2)                                                                |      |
-|                                                                                                 | Step 5: Verify the imported VM is defined as highly available                                      |      |
+| High Availability flag should be included when exporting/importing from Export Domain           | Step 1:                                                                                            |      |
+|                                                                                                 | Step 2: YYYY                                                                                       |      |
 | Even Distribution Policy by number of VMs                                                       | Step 1:                                                                                            |      |
 |                                                                                                 | Step 2: YYYY                                                                                       |      |
-| Make reservations for HA VMs to make sure there's enough capacity to start them if N hosts fail | Step 1: have 2 hosts and 2 HA running VMs on one of them.                                          |      |
+| Make reservations for HA VMs to make sure there's enough capacity to start them if N hosts fail | Step 1: have 2 hosts and 2 running VMs on one of them.                                             |      |
 |                                                                                                 | Step 2: Edit cluster policy and set HA reservations to "on"                                        |      |
 |                                                                                                 | Step 3: turn off the empty host. This should trigger an alert within ~3 minutes about HA capacity. |      |
+
+#### Affinity Groups
+
+| Scenario                                   | Steps                                    | Bugs |
+|--------------------------------------------|------------------------------------------|------|
+| affinity group CRUD commands               | CRUD via webadmin                        |      |
+|                                            | CRUD via REST API                        |      |
+| implicitly remove VM from affinity group   | delete VM                                |      |
+|                                            | change VM cluster                        |      |
+| run/migrate VM                             | hard enforcing, positive affinity        |      |
+|                                            | soft enforcing, positive affinity        |      |
+|                                            | hard enforcing, negative affinity        |      |
+|                                            | soft enforcing, negative affinity        |      |
+| VM in several affinity groups (transitive) | all positive - hard enforcing            |      |
+|                                            | all negative - hard enforcing            |      |
+|                                            | mixed positive negative - hard enforcing |      |
+|                                            | mixed hard/soft enforcing                |      |
 
 ## Bug Reporting
 

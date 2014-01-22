@@ -70,6 +70,7 @@ A new 'Event subscribers' section is now available in the notifier's configurati
 
 A profile defines a target and data associated with it. For MAIL it is simply an email address defined by MAIL_SUBSCRIBER.
 For SNMP a profile consists of SNMP_MANAGERS, SNMP_COMMUNITY and SNMP_OID (see [Features/engine-snmp](Features/engine-snmp) for additional info).
+ The important thing to understand about profiles is that each one of it's settings is optional and overrides the default profile. Lets look at an example;
 
 ### DB v.s Configuration
 

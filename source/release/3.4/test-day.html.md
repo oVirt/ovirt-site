@@ -207,7 +207,7 @@ Webadmin:
 |                                                                                                 | Step 5: Verify the imported VM is defined as highly available                                      |      |
 | Even Distribution Policy by number of VMs                                                       | Step 1:                                                                                            |      |
 |                                                                                                 | Step 2: YYYY                                                                                       |      |
-| Make reservations for HA VMs to make sure there's enough capacity to start them if N hosts fail | Step 1: have 2 hosts and 2 running VMs on one of them.                                             |      |
+| Make reservations for HA VMs to make sure there's enough capacity to start them if N hosts fail | Step 1: have 2 hosts and 2 HA running VMs on one of them.                                          |      |
 |                                                                                                 | Step 2: Edit cluster policy and set HA reservations to "on"                                        |      |
 |                                                                                                 | Step 3: turn off the empty host. This should trigger an alert within ~3 minutes about HA capacity. |      |
 

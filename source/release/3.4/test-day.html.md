@@ -194,18 +194,19 @@ Webadmin:
 
 ### SLA
 
-| Scenario                                                                                        | Steps                             | Bugs |
-|-------------------------------------------------------------------------------------------------|-----------------------------------|------|
-| positive/negative affinity between group of VMs                                                 | Step 1: login and define XXX      |      |
-|                                                                                                 | Step 2: Edit a VM and verify YYYY |      |
-| power saving policy powering off machines                                                       | Step 1:                           |      |
-|                                                                                                 | Step 2: YYYY                      |      |
-| High Availability flag should be included when exporting/importing from Export Domain           | Step 1:                           |      |
-|                                                                                                 | Step 2: YYYY                      |      |
-| Even Distribution Policy by number of VMs                                                       | Step 1:                           |      |
-|                                                                                                 | Step 2: YYYY                      |      |
-| Make reservations for HA VMs to make sure there's enough capacity to start them if N hosts fail | Step 1:                           |      |
-|                                                                                                 | Step 2: YYYY                      |      |
+| Scenario                                                                                        | Steps                                                                                              | Bugs |
+|-------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|------|
+| positive/negative affinity between group of VMs                                                 | Step 1: login and define XXX                                                                       |      |
+|                                                                                                 | Step 2: Edit a VM and verify YYYY                                                                  |      |
+| power saving policy powering off machines                                                       | Step 1:                                                                                            |      |
+|                                                                                                 | Step 2: YYYY                                                                                       |      |
+| High Availability flag should be included when exporting/importing from Export Domain           | Step 1:                                                                                            |      |
+|                                                                                                 | Step 2: YYYY                                                                                       |      |
+| Even Distribution Policy by number of VMs                                                       | Step 1:                                                                                            |      |
+|                                                                                                 | Step 2: YYYY                                                                                       |      |
+| Make reservations for HA VMs to make sure there's enough capacity to start them if N hosts fail | Step 1: have 2 hosts and 2 running VMs on one of them.                                             |      |
+|                                                                                                 | Step 2: Edit cluster policy and set HA reservations to "on"                                        |      |
+|                                                                                                 | Step 3: turn off the empty host. This should trigger an alert within ~3 minutes about HA capacity. |      |
 
 ## Bug Reporting
 

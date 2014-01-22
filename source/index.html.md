@@ -64,9 +64,7 @@ oVirt is powered by the Open Source you know - KVM on Linux.
 
 The oVirt development team is very happy to announce the general availability of oVirt 3.3.2 as of December 19th 2013. This release solidifies oVirt as a leading KVM management application and open source alternative to VMware vSphere.
 
-oVirt is available now for Fedora 19 and Red Hat Enterprise Linux 6.5 (or similar).
-
-This release of oVirt includes 175 bug fixes and the first release of the Backup and Restore API, which enables backup programs to integrate with oVirt. This release also simplifies the Guide Me VM-creation wizard. See the release notes [1] for a list of the new features and bugs fixed.
+This release of oVirt includes 175 bug fixes and the first release of the Backup and Restore API, which enables backup programs to integrate with oVirt.
 
 <div class="pull-right">
 [ Read the 3.3.2 release notes »](oVirt 3.3.2 release notes)

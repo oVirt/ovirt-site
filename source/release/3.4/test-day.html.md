@@ -194,24 +194,13 @@ Webadmin:
 
 ### SLA
 
-| Scenario                                                 | Bugs |
-|----------------------------------------------------------|------|
-| Set DC Quota enforcement mode to 'Enforced'              |      |
-| Create new Quota which limits storage                    |      |
-| Create new Quota which limits cpu and memory             |      |
-| Define consumers for the quotas                          |      |
-| Asign the quotas to VMs and Disks                        |      |
-| Run VM with quota                                        |      |
-| Move a disk                                              |      |
-| Snapshot a vm (disk)                                     |      |
-| Stop VM                                                  |      |
-| Commit snapshot                                          |      |
-| See that quota usage makes sance                         |      |
-| Open User Portal                                         |      |
-| Log-in as a user defined as quota consumer               |      |
-| Create VMs and Disks                                     |      |
-| Run VMs                                                  |      |
-| Go to resources tab and see that quota usage makes sance |      |
+| Scenario                                                                                        | Bugs |
+|-------------------------------------------------------------------------------------------------|------|
+| positive/negative affinity between group of VMs                                                 |      |
+| power saving policy powering off machines                                                       |      |
+| High Availability flag should be included when exporting/importing from Export Domain           |      |
+| Even Distribution Policy by number of VMs                                                       |      |
+| Make reservations for HA VMs to make sure there's enough capacity to start them if N hosts fail |      |
 
 ## Bug Reporting
 

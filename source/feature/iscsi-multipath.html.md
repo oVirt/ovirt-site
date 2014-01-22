@@ -44,7 +44,18 @@ it can be empty, with no networks configured in it, or configured with one or mo
 Once the iSCSI multipath is configured with networks all the Hosts in the Data Center will connect to the iSCSI Storage Domain through this iSCSI bond the user configured.
 The path selection for the connection to the iSCSI storage will be configured by the multipath.conf in each host.
 
-### API
+### User Experience
+
+For the user to start using the iSCSI bond, it will need to do the following:
+
+      *  add an iSCSI Storage to the Data Center
+      * Make sure the Data Center contains networks.
+      * Go to the Data Center main tab and choose the specific Data Center
+      * At the sub tab choose "iSCSI Bond"
+      * press the "new" button to add a new iSCSI Bond
+      * Configure the networks you want to add to the new iSCSI Bond.
+
+Once a new iSCSI bond is configured, The Hosts in the Data Center connects to the iSCSI through that bond.
 
 ### Comments and Discussion
 

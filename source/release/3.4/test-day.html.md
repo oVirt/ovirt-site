@@ -196,9 +196,9 @@ Webadmin:
 
 | Scenario                                                                                        | Steps                                                                                              | Bugs |
 |-------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|------|
-| positive/negative affinity between group of VMs                                                 | Step 1: login and define XXX                                                                       |      |
+| Positive/negative affinity between group of VMs                                                 | Step 1: login and define XXX                                                                       |      |
 |                                                                                                 | Step 2: Edit a VM and verify YYYY                                                                  |      |
-| power saving policy powering off machines                                                       | Step 1:                                                                                            |      |
+| Power saving policy powering off machines (requires PM support)                                 | Step 1:                                                                                            |      |
 |                                                                                                 | Step 2: YYYY                                                                                       |      |
 | High Availability flag should be included when exporting/importing from Export Domain           | Step 1: Have a VM marked as highly available.                                                      |      |
 |                                                                                                 | Step 2: export the VM                                                                              |      |

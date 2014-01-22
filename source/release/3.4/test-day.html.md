@@ -45,9 +45,11 @@ wiki_last_updated: 2014-03-27
 
 #### Known issues
 
-### oVirt 3.4 New Features - Test Status Table
+### oVirt 3.4 New Features
 
 You can find a list of the new features and a link to features page here: <http://bit.ly/17qBn6F>
+
+Refer to single feature pages in order to know what and how to test them.
 
 Please report test results on the [report etherpad](http://etherpad.ovirt.org/p/3.4-testday-1)
 

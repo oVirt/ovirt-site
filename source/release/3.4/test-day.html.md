@@ -31,24 +31,10 @@ wiki_last_updated: 2014-03-27
 *   Make sure you have either a Fedora 19 or CentOS 6.5 machine installed.
 *   Install the release pkg:
 
-`(f19) sudo yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release-fedora.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release-fedora.noarch.rpm)
-`(el) sudo yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release-el.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release-el.noarch.rpm)
+`(f19) sudo yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release-fedora-10.0.1-1.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release-fedora-10.0.1-1.noarch.rpm)
+`(el) sudo yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release-el6-10.0.1-1.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release-el6-10.0.1-1.noarch.rpm)
 
-*   Make sure to enable the [ovirt-beta] & [ovirt-stable] repos and disable the [ovirt-nightly] repo.
-*   If you're using CentOS, make sure you have epel repo enabled as well:
-
-      [epel]
-      name=Extra Packages for Enterprise Linux 6 - $basearch
-      mirrorlist=`[`https://mirrors.fedoraproject.org/metalink?repo=epel-6&arch`](https://mirrors.fedoraproject.org/metalink?repo=epel-6&arch)`=$basearch
-      enabled=1
-      gpgcheck=0
-
-*   install & run setup
-
-      sudo yum install -y ovirt-engine
-      sudo engine-setup
-
-*   for more info, checkout [install oVirt](Download)
+*   follow [ Install instructions in release notes](OVirt_3.4.0_release_notes#Install_.2F_Upgrade_from_previous_versions)
 
 #### Known issues
 

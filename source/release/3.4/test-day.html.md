@@ -208,6 +208,8 @@ Webadmin:
 
 #### Affinity Groups
 
+<http://www.ovirt.org/Features/VM-Affinity>
+
 | Scenario                                   | Steps                                    | Bugs |
 |--------------------------------------------|------------------------------------------|------|
 | affinity group CRUD commands               | CRUD via webadmin                        |      |

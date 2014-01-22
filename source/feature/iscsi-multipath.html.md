@@ -46,14 +46,7 @@ The path selection for the connection to the iSCSI storage will be configured by
 
 ### User Experience
 
-For the user to start using the iSCSI bond, it will need to do the following:
-
-      *  add an iSCSI Storage to the Data Center
-      * Make sure the Data Center contains networks.
-      * Go to the Data Center main tab and choose the specific Data Center
-      * At the sub tab choose "iSCSI Bond"
-      * press the "new" button to add a new iSCSI Bond
-      * Configure the networks you want to add to the new iSCSI Bond.
+For the user to start using the iSCSI bond, it will need to do the following: 1. add an iSCSI Storage to the Data Center 1. Make sure the Data Center contains networks. 1. Go to the Data Center main tab and choose the specific Data Center 1. At the sub tab choose "iSCSI Bond" 1. press the "new" button to add a new iSCSI Bond 1. Configure the networks you want to add to the new iSCSI Bond.
 
 Once a new iSCSI bond is configured, The Hosts in the Data Center connects to the iSCSI through that bond.
 

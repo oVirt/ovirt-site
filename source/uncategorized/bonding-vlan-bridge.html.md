@@ -148,4 +148,4 @@ CentOS:
 
     # service vdsmd restart
 
- **Please note!** Jumbo Frames must only be active on interfaces that isn´t routed, since the default routing size is 1500.
+ **Please note!** Jumbo Frames must only be active on interfaces that aren´t routed, since the default routing size is 1500.

@@ -37,6 +37,13 @@ The Device-Mapper is a Linux kernel framework which used for mapping block devic
 
 ### Detailed Description
 
+The iSCSI multipath is an entity managed under the Data Center.
+At the moment the Data Center is attached with iSCSI storage, the user can configure the iSCSI bond with the appropriate networks.
+The User can choose which networks the iSCSI multipath will be assembled from.
+it can be empty, with no networks configured in it, or configured with one or more networks related to the Data Center.
+Once the iSCSI multipath is configured with networks all the Hosts in the Data Center will connect to the iSCSI Storage Domain through this iSCSI bond the user configured.
+The path selection for the connection to the iSCSI storage will be configured by the multipath.conf in each host.
+
 ### API
 
 ### Comments and Discussion

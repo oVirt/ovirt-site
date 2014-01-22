@@ -32,8 +32,6 @@ iSCSI multipath feature enables the user to configure the iSCSI multipath from o
 
 ### API
 
-#### Installation using answer file
-
 ### Comments and Discussion
 
 *   Refer to [Talk: iSCSIMultiPath](Talk: iSCSIMultiPath)

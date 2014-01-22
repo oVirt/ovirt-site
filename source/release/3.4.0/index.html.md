@@ -101,6 +101,7 @@ will upgrade to latest 3.3.
 
 *   EL >= 6.5 or cloud-init >= 0.7.2 are needed for cloud-init feature support ()
 *   On Fedora 19 with recent versions of PostgreSQL it may be necessary to manually change kernel.shmmax settings ()
+*   all-in-one is not currently working due to issues in SDK and setup
 
 ## Bugs fixed
 

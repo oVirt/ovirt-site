@@ -57,8 +57,8 @@ A new 'Event subscribers' section is now available in the notifier's configurati
       # FILTER="VDC_START,VDC_STOP"
       #
       # 2.) add notifications on all but 2 events to the default mail subscriber as well as to mike@example.com.
-      # MAIL_SUBSCRIBER=admin@example.com
-      # MAIL_SUBSCRIBER_MIKE=mike@example.com
+      # MAIL_ADDRESS=admin@example.com
+      # MAIL_ADDRESS=mike@example.com
       # FILTER="${FILTER} -DATABASE_UNREACHABLE,SYSTEM_VDS_RESTART(MAIL) -DATABASE_UNREACHABLE,SYSTEM_VDS_RESTART(MAIL:MIKE)"
       #
       # 3.) add a new snmp subscriber to all events using default definitions, overriding only the oid.
@@ -70,8 +70,22 @@ A new 'Event subscribers' section is now available in the notifier's configurati
 
 A profile defines a target and data associated with it. For MAIL it is simply an email address defined by MAIL_SUBSCRIBER.
 For SNMP a profile consists of SNMP_MANAGERS, SNMP_COMMUNITY and SNMP_OID (see [Features/engine-snmp](Features/engine-snmp) for additional info).
- The important thing to understand about profiles is that each one of it's settings is optional and overrides the default profile. Lets look at an example;
+ The important thing to understand about profiles is that each one of it's settings is optional and overrides the default profile. Lets look at a simple example;
+
+      MAIL_ADDRESS=default@example.com
+      FILTER="${FILTER} -(MAIL:MATTHEW)"
+
+In the above file the MAIL profile MATTHEW is subscribed to all events while no such profile is defined
+That's not a problem thought since for MAIL as well as SNMP any missing profile definitions are taken from the default definitions.
 
 ### DB v.s Configuration
+
+While the current list of subscribers is a union of that taken from the configuration and that taken from the DB (and defined in the UI), There are a few things to note:
+
+*   While the UI only permits subscription to a subset of selected events the configuration enables subscription to them all.
+*   While UI/DB subscribers subscribe to "event_up_name" events and get notifications on their matching "event_down_name"
+
+according to the 'event_map' configuration subscribers need to register to each individual event to allow better granularity.
+The event_map as well as the complete event list is found in the following section to ease accurate subscriptions.
 
 ### Available Events

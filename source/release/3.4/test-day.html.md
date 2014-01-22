@@ -21,8 +21,7 @@ wiki_last_updated: 2014-03-27
 ## What I should do
 
 *   If you already have the hardware, verify if it meets the hardware requirement, refer information detail section below
-*   Update the Participants section.
-*   Write down the configuration you used (HW, console, etc) in the [report etherpad](http://etherpad.ovirt.org/p/3.4-testday-1)
+*   Write down the configuration you used (HW, console, etc) and what you've tested in the [report etherpad](http://etherpad.ovirt.org/p/3.4-testday-1)
 *   Go ahead and [ install ovirt ](oVirt_3.4_Test_Day#Installation_notes)
 *   Follow the documentation to setup your environment, and test drive the new features.
 *   Please remember we expect to see some issues, and anything you come up with will save a you when you'll install final release

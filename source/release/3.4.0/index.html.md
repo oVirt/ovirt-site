@@ -23,13 +23,11 @@ To find out more about features that were added in previous oVirt releases, chec
 
 oVirt 3.4.0 is still in beta.
 
-In order to install it, you need to enable the oVirt beta repository and disable the nightly repository if you're using it.
+In order to install it, you need to update ovirt-release to 10.0.1 by running
 
-Note that if you're using nightly repo you'll need to run:
+      # yum update ovirt-release
 
-       # yum update "ovirt-engine-setup*"
-
-You'll need to add the following lines in your /etc/yum.repos.d/ovirt.repo:
+and then enable ovirt-3.4.0-prerelease repository
 
 for CentOS / RHEL:
 

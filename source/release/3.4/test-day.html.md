@@ -194,20 +194,25 @@ Webadmin:
 
 ### SLA
 
-| Scenario                                                                                        | Steps                                                                                              | Bugs |
-|-------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|------|
-| power saving policy powering off machines                                                       | Step 1:                                                                                            |      |
-|                                                                                                 | Step 2: YYYY                                                                                       |      |
-| High Availability flag should be included when exporting/importing from Export Domain           | Step 1:Have a VM marked as highly available.                                                       |      |
-|                                                                                                 | Step 2: export the VM                                                                              |      |
-|                                                                                                 | Step 3: rename the original VM                                                                     |      |
-|                                                                                                 | Step 4: import the VM from step (2)                                                                |      |
-|                                                                                                 | Step 5: Verify the imported VM is defined as highly available                                      |      |
-| Even Distribution Policy by number of VMs                                                       | Step 1:                                                                                            |      |
-|                                                                                                 | Step 2: YYYY                                                                                       |      |
-| Make reservations for HA VMs to make sure there's enough capacity to start them if N hosts fail | Step 1: have 2 hosts and 2 running VMs on one of them.                                             |      |
-|                                                                                                 | Step 2: Edit cluster policy and set HA reservations to "on"                                        |      |
-|                                                                                                 | Step 3: turn off the empty host. This should trigger an alert within ~3 minutes about HA capacity. |      |
+| Scenario                                                                                        | Steps                                                                                                                                     | Bugs |
+|-------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|------|
+| power saving policy powering off machines                                                       | Step 1: Setup a cluster with at least two hosts including power management for both of them                                               |      |
+|                                                                                                 | Step 2: Edit cluster and set Power saving as the cluster policy                                                                           |      |
+|                                                                                                 | Step 3: Add hosts_in_reserve and enable_autopm parameters to the policy and set them to 1 and true                                     |      |
+|                                                                                                 | Step 4: Wait for some time and you should see one of the hosts go to maintenance and after another minute or so move to Down              |      |
+|                                                                                                 | Step 5: Start a VM                                                                                                                        |      |
+|                                                                                                 | Step 6: The host from step 4 should move to Unresponsive and and then to Up state. Both transitions take at least a minute so be patient. |      |
+|                                                                                                 | Verify: a) The SPM won't shut down b) there is always hosts_in_reserve hosts with no VMs or the cluster is using all the hosts          |      |
+| High Availability flag should be included when exporting/importing from Export Domain           | Step 1:Have a VM marked as highly available.                                                                                              |      |
+|                                                                                                 | Step 2: export the VM                                                                                                                     |      |
+|                                                                                                 | Step 3: rename the original VM                                                                                                            |      |
+|                                                                                                 | Step 4: import the VM from step (2)                                                                                                       |      |
+|                                                                                                 | Step 5: Verify the imported VM is defined as highly available                                                                             |      |
+| Even Distribution Policy by number of VMs                                                       | Step 1:                                                                                                                                   |      |
+|                                                                                                 | Step 2: YYYY                                                                                                                              |      |
+| Make reservations for HA VMs to make sure there's enough capacity to start them if N hosts fail | Step 1: have 2 hosts and 2 running VMs on one of them.                                                                                    |      |
+|                                                                                                 | Step 2: Edit cluster policy and set HA reservations to "on"                                                                               |      |
+|                                                                                                 | Step 3: turn off the empty host. This should trigger an alert within ~3 minutes about HA capacity.                                        |      |
 
 #### Affinity Groups
 

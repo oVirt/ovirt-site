@@ -39,33 +39,24 @@ Allow oVirt users to monitor their virtualization environment with open source o
 ### Detailed Description
 
 This feature extends the capabilities of the ovirt-engine-notifier to send all engine events and events' data via SNMP traps version 2c.
-Note that in contrary to email notification added through the UI, where only a subset of events are defined, here all events are sent by edfault.
-SNMP parameters are available in ovirt-engine-notifier default configuration file: /share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf
-(It's advisable to leave that file as is and define an override file under etc/ovirt-engine/notifier/notifier.conf.d/)
+ A new 'SNMP_TRAP Notifications' section is now available in the notifier's configuration file under
+/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf
+(It's advisable to leave that file as is and define override file[s] under /etc/ovirt-engine/notifier/notifier.conf.d/) Lets take a look;
 
-1.  -------------------------#
-2.  SNMP_TRAP Notifications #
-3.  -------------------------#
-4.  Send v2c snmp notifications
-
-<!-- -->
-
-1.  The default profile's whitespace separated list of IP addresses or DNS names of SNMP managers to receive SNMP traps.
-2.  Can include an optional port, default is 162.
-3.  SNMP_MANAGERS=manager1.example.com manager2.example.com:164
-
-SNMP_MANAGERS=
-
-1.  The default profile's Community String.
-
-SNMP_COMMUNITY=public
-
-1.  The default profile's Object Identifier identifying ovirt engine SNMP trap messages.
-
-SNMP_OID=1.3.6.1.4.1.2312.13.1.1
-
-1.  1[iso].3[organization].6[DoD].1[Internet].4[private].1[enterprises].2312[redhat].13[ovirt-engine].1[notifications].
-2.  1[audit-log]
+      #-------------------------#
+      # SNMP_TRAP Notifications #
+      #-------------------------#
+      # Send v2c snmp notifications
+      # The default profile's whitespace separated list of IP addresses or DNS names of SNMP managers to receive SNMP traps.
+      # Can include an optional port, default is 162.
+      # SNMP_MANAGERS=manager1.example.com manager2.example.com:164
+      SNMP_MANAGERS=
+      # The default profile's Community String.
+      SNMP_COMMUNITY=public
+      # The default profile's Object Identifier identifying ovirt engine SNMP trap messages.
+      SNMP_OID=1.3.6.1.4.1.2312.13.1.1
+      # 1[iso].3[organization].6[DoD].1[Internet].4[private].1[enterprises].2312[redhat].13[ovirt-engine].1[notifications].
+      # 1[audit-log]
 
 Notes:
 

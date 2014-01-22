@@ -43,31 +43,33 @@ Note that in contrary to email notification added through the UI, where only a s
 SNMP parameters are available in ovirt-engine-notifier default configuration file: /share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf
 (It's advisable to leave that file as is and define an override file under etc/ovirt-engine/notifier/notifier.conf.d/)
 
-      #-------------------------#
-      # SNMP_TRAP Notifications #
-      #-------------------------#
-      # Send v2c snmp notifications
-      # A whitespace separated list of IP addresses or DNS names of SNMP managers to receive SNMP traps.
-      # Can include an optional port, default is 162
-      # SNMP_MANAGERS=manager1.example.com manager2.example.com:164
-      SNMP_MANAGERS=
-      # Community String
-      SNMP_COMMUNITY=public
-      # Object Identifier identifying ovirt engine SNMP trap messages.
-      SNMP_OID=1.3.6.1.4.1.2312.13.1.1
-      # 1[iso].3[organization].6[DoD].1[Internet].4[private].1[enterprises].2312[redhat].13[ovirt-engine].1[notifications].
-      # 1[audit-log]
-      # exclude: notify on all events except for those listed in SNMP_FILTER.
-      # include: notify only on events listed in SNMP_FILTER.
-      # SNMP_FILTER_MODE=exclude|include
-      SNMP_FILTER_MODE=exclude
-      # A whitespace separated events list.
-      SNMP_FILTER=
+1.  -------------------------#
+2.  SNMP_TRAP Notifications #
+3.  -------------------------#
+4.  Send v2c snmp notifications
+
+<!-- -->
+
+1.  The default profile's whitespace separated list of IP addresses or DNS names of SNMP managers to receive SNMP traps.
+2.  Can include an optional port, default is 162.
+3.  SNMP_MANAGERS=manager1.example.com manager2.example.com:164
+
+SNMP_MANAGERS=
+
+1.  The default profile's Community String.
+
+SNMP_COMMUNITY=public
+
+1.  The default profile's Object Identifier identifying ovirt engine SNMP trap messages.
+
+SNMP_OID=1.3.6.1.4.1.2312.13.1.1
+
+1.  1[iso].3[organization].6[DoD].1[Internet].4[private].1[enterprises].2312[redhat].13[ovirt-engine].1[notifications].
+2.  1[audit-log]
 
 Notes:
 
 *   At least one of (SNMP_MANAGER|MAIL_SERVER) must be properly defined in order for the notifier to run.
-*   Since by default WHITELIST is commented out and BLACKLIST is "", if an SNMP_MANAGER is defined all events will generate traps.
 
 ### Messages
 

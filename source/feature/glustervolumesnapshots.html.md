@@ -128,11 +128,9 @@ The Gluster volume snapshot details would be periodically fetched and updated in
 *   <big>glusterVolumeSnapshotDelete</big> - deletes the given snapshot
     -   Input
         -   volumeName
-        -   [snapName]
+        -   snapName
     -   Output
         -   Success/Failure
-
-Note: If snapName is not passed all the snaps would be deleted for the volume
 
 #### VDSM verbs for listing snaps
 

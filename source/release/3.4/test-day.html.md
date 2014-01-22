@@ -47,7 +47,9 @@ wiki_last_updated: 2014-03-27
 
 ### oVirt 3.4 New Features - Test Status Table
 
-TBD
+You can find a list of the new features and a link to features page here: <http://bit.ly/17qBn6F>
+
+Please report test results on the [report etherpad](http://etherpad.ovirt.org/p/3.4-testday-1)
 
 ### Regression testing
 

@@ -11,7 +11,7 @@ wiki_last_updated: 2014-03-28
 
 # OVirt 3.4.0 release notes
 
-The oVirt Project is preparing oVirt 3.4.0 alpha release for testing. This page is still a work in progress.
+The oVirt Project is preparing oVirt 3.4.0 beta release for testing. This page is still a work in progress.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization.
 
@@ -19,11 +19,11 @@ To find out more about features that were added in previous oVirt releases, chec
 
 ## Install / Upgrade from previous versions
 
-### ALPHA RELEASE
+### BETA RELEASE
 
-oVirt 3.4.0 is still in alpha.
+oVirt 3.4.0 is still in beta.
 
-In order to install it, you need to enable the oVirt alpha repository and disable the nightly repository if you're using it.
+In order to install it, you need to enable the oVirt beta repository and disable the nightly repository if you're using it.
 
 Note that if you're using nightly repo you'll need to run:
 
@@ -33,25 +33,25 @@ You'll need to add the following lines in your /etc/yum.repos.d/ovirt.repo:
 
 for CentOS / RHEL:
 
-      [ovirt-3.4.0-alpha]
-      name=Alpha builds of the oVirt 3.4 project
-`baseurl=`[`http://resources.ovirt.org/releases/3.4.0-alpha/rpm/EL/$releasever/`](http://resources.ovirt.org/releases/3.4.0-alpha/rpm/EL/$releasever/)
+      [ovirt-3.4.0-prerelease]
+      name=Pre release builds of the oVirt 3.4 project
+`baseurl=`[`http://resources.ovirt.org/releases/3.4.0_pre/rpm/EL/$releasever/`](http://resources.ovirt.org/releases/3.4.0_pre/rpm/EL/$releasever/)
       enabled=1
       skip_if_unavailable=1
       gpgcheck=0
 
 for Fedora:
 
-      [ovirt-3.4.0-alpha]
-      name=Alpha builds of the oVirt 3.4 project
-`baseurl=`[`http://resources.ovirt.org/releases/3.4.0-alpha/rpm/Fedora/$releasever/`](http://resources.ovirt.org/releases/3.4.0-alpha/rpm/Fedora/$releasever/)
+      [ovirt-3.4.0-prerelease]
+      name=Pre release builds of the oVirt 3.4 project
+`baseurl=`[`http://resources.ovirt.org/releases/3.4.0_pre/rpm/Fedora/$releasever/`](http://resources.ovirt.org/releases/3.4.0_pre/rpm/Fedora/$releasever/)
       enabled=1
       skip_if_unavailable=1
       gpgcheck=0
 
 ### Fedora / CentOS / RHEL
 
-If you're installing oVirt 3.4.0 alpha on a clean host, you should read our [Quick Start Guide](Quick Start Guide)
+If you're installing oVirt 3.4.0 beta on a clean host, you should read our [Quick Start Guide](Quick Start Guide)
 
 If you're upgrading from oVirt 3.3 you should just execute:
 
@@ -165,6 +165,7 @@ will upgrade to latest 3.3.
  - [RHSC] Show error pop-up when user tries to stop a volume which has rebalance in progress
  - RHS-C: Introduce a Force option in the UI to allow creation of bricks in the root partition
  - [es_ES] [Admin Portal] Virtual Machines tab- Chart heading "Time executing" does not fit in the available space
+ - [Admin Portal] Relogin with username/password via login screen after being automatically logged off causes HTTP auth dialog
  - Tabbing navigation in Add host tab should go from password field to OK buton
  - RHS-C: Rebalance Status refresh was not occuring properly
  - [RHSC] Not able to close rebalance status dialog .
@@ -246,6 +247,7 @@ will upgrade to latest 3.3.
  - Duplicated login events
  - Webadmin UI is now requesting two slashes in front of URLs
  - Default DC & Cluster has fixed UUIDs
+ - [RFE] Allow users to cluster level enable/disable KSM
  - Volumes tab and sub-tabs not taking equal space
  - [RHSC] Remove-brick status dialog hangs when glusterd goes down on the storage node
  - Reinstall host by rest api fails on root_password field requirement
@@ -254,6 +256,7 @@ will upgrade to latest 3.3.
  - [RHSC] Edit Role Dialog Should Read "Volumes" instead of "Gluster"
  - restore.sh - wrong example commands in --help
  - [restore.sh] restore.sh is doing restore.sh.log in /usr directory
+ - [RFE] RunOnce dialog can not set a vnc keymap itself
  - [engine-webadmin] inappropriate message when trying to perform an operation on a locked disk
  - [RHSC] Unable to remove more than one pair of bricks from a distributed-replicate ( 3x2 ) volume
  - REST-API: Session based authentication in 3.4 is broken
@@ -263,6 +266,7 @@ will upgrade to latest 3.3.
  - REST: can not remove brick from distributed-replicate volume
  - An event message for commit remove brick should mention the number of bricks removed.
  - [RHSC] 'Could not fetch remove brick status of volume' message lists all the bricks of the volume
+ - [RFE] Support for moving hosts to sleep when using Power Saving policy
  - [RFE] [oVirt][webadmin] Change comment column title to icon, and move to right of name
  - [RHSC] Remove-brick icon disappears from the UI, when glusterd is killed on the node which was running remove-brick
  - Paused VM can be resumed on host that is not UP
@@ -271,7 +275,9 @@ will upgrade to latest 3.3.
  - [RHSC] Bricks status is not getting synched when gluster CLI output shows the port as N/A
  - Engine does not verify that proxy supports PM agent
  - [RHS-C] 'Add Event Notification' should show an error message if MAIL_SERVER is NOT configured and if "ovirt-engine-notifier" service is NOT started
+ - [RFE] VM-VM Affinity
  - [RFE] High Availability flag should be included when exporting/importing from Export Domain
+ - [RFE] Even Distribution Policy by number of VMs
  - [RFE] Make reservations for HA VMs to make sure there's enough capacity to start them if N hosts fail
  - CreateVDSCommand Logging message does not report NIC devices
  - [RHSC] After retaining a brick using the Retain button in the status dialog, the 'Stopped At' field does not appear
@@ -290,12 +296,22 @@ will upgrade to latest 3.3.
  - [RFE] Track downtime for inactive VMs
  - [RHSC] Server removed from DB after being in Up state
  - In the event of a full host power outage (including fence devices) a user must wait 19 mins (3 x 3 minute timeouts + 10 minutes for the transaction reaper) until they can manually fence a host to relocate guests.
+ - [engine-setup] Encoding issue in /var/lib/ovirt-engine/setup-history.txt
  - [RFE] Virtual pxe boots out of order - NICs ordered according to the MAC addresses
  - In the event of a full host power outage (including fence devices) VDS_ALERT_FENCE_STATUS_VERIFICATION_FAILED alert remains in audit log
+ - tree view unsorted
+ - [oVirt][infra] Device custom properties syntax check is wrong
  - [RFE] Add drac7 fence agent with ipmilan as implemintation
  - RHEVM-CLI: action <type> <id> <action> command accepts async and grace_period-expiry parameters but they are missing in auto-completion
+ - [RHSC] - Values of Physical Memory and swap size in hosts general sub tab are incorrect.
+ - [RHSC] Unable to remove U1 Server after Server failed to add
  - cleandb.sh does not obey '-l logfile'
+ - [RFE] Add Reboot option for VM
+ - Fail to delete network using API
  - Fix SPICE ActiveX issues with MS Internet Explorer 11
+ - Newly-created QoS isn't saved for network
+ - Edit Host Network dialog can't be approved in clusters < 3.4
+ - [RFE] Enable configuration of maximum allowed downtime during live migration per guest
 
 ### VDSM
 

@@ -37,8 +37,8 @@ wiki_last_updated: 2014-03-27
 *   Make sure you have either a Fedora 19 or CentOS 6.5 machine installed.
 *   Install the release pkg:
 
-`(f19) sudo yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release-fedora-10.0.1-1.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release-fedora-10.0.1-1.noarch.rpm)
-`(el) sudo yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release-el6-10.0.1-1.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release-el6-10.0.1-1.noarch.rpm)
+`(f19) sudo yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release-fedora-10.0.1-2.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release-fedora-10.0.1-2.noarch.rpm)
+`(el) sudo yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release-el6-10.0.1-2.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release-el6-10.0.1-2.noarch.rpm)
 
 *   follow [ Install instructions in release notes](OVirt_3.4.0_release_notes#Install_.2F_Upgrade_from_previous_versions)
 

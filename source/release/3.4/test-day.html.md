@@ -198,8 +198,11 @@ Webadmin:
 |-------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|------|
 | power saving policy powering off machines                                                       | Step 1:                                                                                            |      |
 |                                                                                                 | Step 2: YYYY                                                                                       |      |
-| High Availability flag should be included when exporting/importing from Export Domain           | Step 1:                                                                                            |      |
-|                                                                                                 | Step 2: YYYY                                                                                       |      |
+| High Availability flag should be included when exporting/importing from Export Domain           | Step 1:Have a VM marked as highly available.                                                       |      |
+|                                                                                                 | Step 2: export the VM                                                                              |      |
+|                                                                                                 | Step 3: rename the original VM                                                                     |      |
+|                                                                                                 | Step 4: import the VM from step (2)                                                                |      |
+|                                                                                                 | Step 5: Verify the imported VM is defined as highly available                                      |      |
 | Even Distribution Policy by number of VMs                                                       | Step 1:                                                                                            |      |
 |                                                                                                 | Step 2: YYYY                                                                                       |      |
 | Make reservations for HA VMs to make sure there's enough capacity to start them if N hosts fail | Step 1: have 2 hosts and 2 running VMs on one of them.                                             |      |

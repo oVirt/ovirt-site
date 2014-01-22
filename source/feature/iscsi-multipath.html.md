@@ -19,8 +19,17 @@ iSCSI multipath feature enables the user to configure the iSCSI multipath from o
 
 #### A brief regarding multipath linux
 
-[Device-Mapper](Feature/iSCSI-Multipath#Device-Mapper) Multipath (DM-Multipath) is a Linux native multipath tool, which allows you to configure multiple I/O paths between server nodes and storage arrays into a single device.
+[Device-Mapper](Feature/iSCSI-Multipath#Device-Mapper) Multipath (DM-Multipath) is a Linux native multipath tool, which allows to configure multiple I/O paths between server nodes and storage arrays into a single device.
 Each multipath device has a World Wide Identifier (WWID), which is guaranteed to be globally unique and unchanging. By default, the name of a multipath device is set to its WWID
+
+##### Configuration of Multipath
+
+The configuration of the multipath service is being done on each host and it is the user responsibility to configure it at multipath.conf
+Some of the attributes being configured among many others are
+
+*   path_selector algorithm which determines which path to use for every I/O operation to the storage (round-robin, queue length, service time)
+*   path_grouping_policy - failover, multibus, group by
+*   checker_timeout - The timeout to use for path checkers that issue SCSI commands with an explicit timeout, in seconds. The default value is taken from sys/block/sdx/device/timeout
 
 ##### Device-Mapper
 

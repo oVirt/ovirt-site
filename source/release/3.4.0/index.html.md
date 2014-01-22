@@ -27,6 +27,8 @@ In order to install it, you need to update ovirt-release to 10.0.1 by running
 
       # yum update ovirt-release
 
+Note that on CentOS and RHEL you'll need also [EPEL](http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm) repositories enabled
+
 and then enable ovirt-3.4.0-prerelease repository
 
 for CentOS / RHEL:

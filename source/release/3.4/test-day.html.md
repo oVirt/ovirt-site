@@ -12,13 +12,13 @@ wiki_last_updated: 2014-03-27
 
 **This page is still a DRAFT**
 
-### Objective
+## Objective
 
 *   engage project users and stakeholders to a hands-on experiences with oVirt new release.
 *   improve the quality of oVirt.
 *   Introduce and validating new oVirt 3.4 features
 
-### What I should do
+## What I should do
 
 *   If you already have the hardware, verify if it meets the hardware requirement, refer information detail section below
 *   Update the Participants section.
@@ -33,7 +33,7 @@ wiki_last_updated: 2014-03-27
     -   [open a bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt) ticket or
     -   Report it on the [report etherpad](http://etherpad.ovirt.org/p/3.4-testday-1)
 
-### Installation notes
+## Installation notes
 
 *   Make sure you have either a Fedora 19 or CentOS 6.5 machine installed.
 *   Install the release pkg:
@@ -43,9 +43,9 @@ wiki_last_updated: 2014-03-27
 
 *   follow [ Install instructions in release notes](OVirt_3.4.0_release_notes#Install_.2F_Upgrade_from_previous_versions)
 
-#### Known issues
+### Known issues
 
-### oVirt 3.4 New Features
+## oVirt 3.4 New Features
 
 You can find a list of the new features and a link to features page here: <http://bit.ly/17qBn6F>
 
@@ -53,9 +53,9 @@ Refer to single feature pages in order to know what and how to test them.
 
 Please report test results on the [report etherpad](http://etherpad.ovirt.org/p/3.4-testday-1)
 
-### Regression testing
+## Regression testing
 
-#### General
+### General
 
 You need at least two physical servers to install and configure a basic yet complete oVirt environment with shared storage to exercise the following:
 
@@ -70,7 +70,7 @@ You need at least two physical servers to install and configure a basic yet comp
 | Collect log file using the log collector tool                                                                                                                                                                         |      |
 | Upgrade from 3.3 to 3.4                                                                                                                                                                                               |      |
 
-#### Configuration
+### Configuration
 
 | Scenario                                                                                                                                                            | Bugs |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
@@ -79,7 +79,7 @@ You need at least two physical servers to install and configure a basic yet comp
 | Live Migration Scenarios                                                                                                                                            |      |
 | Enable smartcard support for a VM and verify that the <smartcard mode="passthrough" type="spicevmc"/> is passed to libvirt                                          |      |
 
-#### Infra
+### Infra
 
 | Scenario                                                                                                                                                                                   | Bugs |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
@@ -88,7 +88,7 @@ You need at least two physical servers to install and configure a basic yet comp
 | Check each vdsm-tool verbs of configurator module and its outputs - for misunderstanding of the output or the help instructions please report                                              |      |
 | Add more that one domain using manage-domains. Check that login , search for users and groups is working. Check that a a user belonging to a group can login if the group has permissions. |      |
 
-#### Storage
+### Storage
 
 | Scenario                                                                                                            | Bugs |
 |---------------------------------------------------------------------------------------------------------------------|------|
@@ -108,7 +108,7 @@ You need at least two physical servers to install and configure a basic yet comp
 | Power User Portal provides power users the ability to create and manage virtual machines from the power user portal |      |
 | High Availability scenarios provides instructions to configure virtual machine and host high availability           |      |
 
-#### Network
+### Network
 
 *   Important Note: Known Fedora 19 bug: If the ovirtmgmt bridge is not successfully installed during initial host-setup, manually click on the host, setup networks, and add the ovirtmgmt bridge.
 *   Base config - single NIC, bridge on top, VMs attached to NIC
@@ -121,7 +121,7 @@ You need at least two physical servers to install and configure a basic yet comp
 *   Ping and transfer large amounts of data (2Gb size files should be enough)
 *   Remain operational over time (1hr of uptime should be sufficient for the basic testing)
 
-#### Tools
+### Tools
 
 *   Basic operations on iso-uploader:
 
@@ -137,20 +137,20 @@ You need at least two physical servers to install and configure a basic yet comp
 
 **engine-image-uploader --name=<new name here> -e <domain> upload my.ovf**
 
-##### New to v3.1:
+#### New to v3.1:
 
 *   port mirroring: one can setup a VM that sniffs all IP traffic between VMs on a network on a host.
 *   no mac spoofing: VMs cannot emit packets with spoofed mac address (unless specifically allowed to).
 *   Sync network: change network MTU (or other property) on host, verify that Engine may overwrite it with Sync network
 *   Jumbo packets: see if can be configured and used by storage
 
-##### New to v3.2:
+#### New to v3.2:
 
 *   Network main tab operational: you can search hosts and VM based on their network connectivity
 *   Guest agent reported devices: install guest agent on a VM and see it report internal information of the vNics (internal device name, IPv4 and IPv6)
 *   Network Linking: allow changing network the VM is connect to while it is running
 
-#### APIs
+### APIs
 
 by default we'll be using the webadmin as our API for testing on this section we'll try to have default deployment with the different APIs
 
@@ -174,7 +174,7 @@ by default we'll be using the webadmin as our API for testing on this section we
 
 Python API of the above scenarios can be found in: <http://www.ovirt.org/wiki/Testing/PythonApi>
 
-#### Spice
+### Spice
 
 For details about configuration check <http://www.ovirt.org/wiki/Testing/Spice>
 
@@ -187,13 +187,13 @@ For details about configuration check <http://www.ovirt.org/wiki/Testing/Spice>
 | Try to use client mouse mode and clipboard share between client and VM (with spice agent installed on VM)              |      |
 | Install AutoCAD or any other graphic application a try to work with it (with QXL driver installed on VM)               |      |
 
-#### User Interface
+### User Interface
 
 Webadmin:
 
-#### Node
+### Node
 
-#### SLA
+### SLA
 
 | Scenario                                                 | Bugs |
 |----------------------------------------------------------|------|
@@ -214,20 +214,10 @@ Webadmin:
 | Run VMs                                                  |      |
 | Go to resources tab and see that quota usage makes sance |      |
 
-### Bug Reporting
+## Bug Reporting
 
 *   ovirt - <https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt>
 *   Spice - <https://bugs.freedesktop.org/> under Spice product
 *   VDSM - <https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt> with vdsm component
 
 Tracker bug for the release - <https://bugzilla.redhat.com/1024889>
-
-## Test Day Summary
-
-### Release Blockers
-
-### Participants Table
-
-| Name            | Tested Features         | Distro |
-|-----------------|-------------------------|--------|
-| jdoe@redhat.com | Watchdog engine support | EL6    |

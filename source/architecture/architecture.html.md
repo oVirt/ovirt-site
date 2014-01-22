@@ -122,6 +122,28 @@ The following diagram illustrates the Hook mechanism in the VM lifetime cycle:
 
 VDSM is integrated with [MoM](MoM). The behavior of MOM is configured with policies. With these policies users can fine tune the host for high memory overcommit or safe operation. In order to control its mom instance, vdsm does ship a mom configuration file and a mom policy file that sets mom's default behavior. At startup, vdsmd imports mom and initializes it with the configuration and policy files. From that point on, mom interacts with vdsm through the well-defined API in API.py and is controlling the memory balloons of each VM running on the host. The MOM Instance runs as a thread within the vdsm daemon.
 
+### Web-based User Interface
+
+Following diagram provides a high level overview of oVirt user interface architecture:
+
+![](Ovirt-ui-architecture.png "Ovirt-ui-architecture.png")
+
+*   [Google Web Toolkit](http://www.gwtproject.org/overview.html): Java-based SDK providing tools and APIs for building web applications
+*   [GWT Platform](https://github.com/ArcBees/GWTP): [Model-View-Presenter](http://en.wikipedia.org/wiki/Model_View_Presenter) framework following GWT [best](http://www.gwtproject.org/articles/mvp-architecture.html) [practices](http://www.gwtproject.org/articles/mvp-architecture-2.html) ([slides](http://courses.coreservlets.com/Course-Materials/pdf/ajax/GWT-MVP-Intro.pdf))
+*   [GWT INjection](http://code.google.com/p/google-gin/wiki/GinTutorial): [dependency injection](http://en.wikipedia.org/wiki/Dependency_injection) framework for GWT
+*   oVirt GWT Common: module housing common components such as widgets, abstract classes, infrastructure-level components, etc.
+*   [oVirt UI Plugins](UIPlugins): feature allowing WebAdmin UI to be extended by JavaScript/HTML-based plugins at runtime
+
+Following diagram shows a typical GWT development workflow:
+
+![](Gwt-development-workflow.png "Gwt-development-workflow.png")
+
+oVirt UI is designed around following concepts:
+
+*   web browser as application platform, capable of delivering rich user experience through JavaScript-based applications
+*   dependency injection and event bus to employ loosely-coupled component architecture
+*   Model-View-Presenter for clean separation between presentation (View) and related business logic (Presenter)
+
 ### REST API
 
 RESTful API for integration with oVirt Engine:

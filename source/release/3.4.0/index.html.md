@@ -51,6 +51,11 @@ for Fedora:
 
 If you're installing oVirt 3.4.0 beta on a clean host, you should read our [Quick Start Guide](Quick Start Guide)
 
+If you're using nightly repo you'll need to run:
+
+       # yum update "ovirt-engine-setup*"
+       # engine-setup
+
 If you're upgrading from oVirt 3.3 you should just execute:
 
       # yum update ovirt-engine-setup

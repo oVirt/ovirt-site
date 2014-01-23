@@ -34,7 +34,7 @@ Customization of snapshots with regards to VM configuration and disks.
 
 ### Detailed Description
 
-Currently, a Snapshot represents a single point of time which contains the configuration of the VM and all attached disks.
+Currently, a Snapshot represents a single point in time that contains the configuration of the VM and all attached disks.
 
 I.e. creating/previewing/committing a snapshot must be done on the entire VM - including all the disks.
 

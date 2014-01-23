@@ -44,6 +44,10 @@ wiki_last_updated: 2014-03-27
 
 ### Known issues
 
+#### Not able to add a node to 3.4 Cluster in Ovirt 3.4 engine
+
+A Fedora 19 node goes to "non operational" state with the error "Host IPADDRESS is compatible with versions (3.0,3.1,3.2,3.3) and cannot join Cluster Default which is set to version 3.4.". The libvirt shipped by default on Fedora 19 does not support a feature needed by cluster Level 3.4. The recommended fix is to enable the fedora-virt-preview repo, delivered with the ovirt-release , and to update libvirt from it. Relevant bugzilla: <https://bugzilla.redhat.com/show_bug.cgi?id=1056918>
+
 ## oVirt 3.4 New Features - Test Status Table
 
 Please report test results on the [report etherpad](http://etherpad.ovirt.org/p/3.4-testday-1) or on the table below.

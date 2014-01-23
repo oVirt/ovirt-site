@@ -100,4 +100,4 @@ As currently only Phase-1 is implemented , the tests should be done to see no re
 5.  Try to login with a user that does not exist in the domain
 6.  Try to login with a user that does not have permissions to login
 7.  Try to login with an account that is either locked/disabled or that the user has expired password - see that a proper message appears at UI
-8.  Remove a domain , check that you cannot logg in with users from that domain.
+8.  Remove a domain , check that you cannot log in with users from that domain.

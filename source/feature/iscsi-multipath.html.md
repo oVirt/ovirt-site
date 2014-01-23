@@ -13,9 +13,19 @@ feature_status: Released
 
 # iSCSI MultiPath
 
+### Motivation
+
+oVirt support connection between Hosts and iSCSI Storage Domains.
+The connection between the Host and the iSCSI Storage Domain is being done using a bridge which used by a NIC, and gets connected to the Storage domain using that NIC.
+At some cases, we will want to configure a Host with multiple NICs, which some of them will be used to connect to relevant Storage Domains, and others for other issues.
+We will also might want to use the DM-multipath, for getting stable and reliable connection to the Storage Domain.
+Today, we can not configure this ability from oVirt, since the Host connects to the Storage Domain with a default NIC configured in the Host.
+iSCSI MultiPath Bond is an entity which tends to overcome this difficulty.
+With iSCSI MultiPath Bond the user can combine networks which will be used to connect to the iSCSI Storage Domain using the Hosts in the Data Center.
+
 ### Summary
 
-iSCSI multipath feature enables the user to configure the iSCSI multipath from oVirt, by specifying specific networks to be used by the multipath with that configuration the user can configure the Hosts to connect to the iSCSI server through this specific networks.
+iSCSI multipath feature enables the user to configure the iSCSI multipath from oVirt, by specifying the networks to be used by the the iSCSI multipath Bond</BR> The user can configure the Hosts to connect to the iSCSi server through this specific networks.
 
 ### A brief about multipath linux
 

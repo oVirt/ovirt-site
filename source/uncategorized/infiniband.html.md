@@ -59,8 +59,8 @@ If you are not afraid of compiling kernels yourself and you know what you are do
 
 In this setup NFS sunrpc layer driectly accesses the basic infiniband mechanisms to exchange data between NFS server and client. The setup is explained [here](https://www.kernel.org/doc/Documentation/filesystems/nfs/nfs-rdma.txt). The known bugs are
 
-*   [Cannot read more than 812 bytes from NFS server file](https://bugzilla.redhat.com/show_bug.cgi?id=1046011): The bug can be observed between kernels 3.7 and 3.13. It should be fixed with [this commit](http://article.gmane.org/gmane.linux.nfs/60953)
-*   [NFS crashes](http://www.mail-archive.com/linux-rdma@vger.kernel.org/msg14145.html)
+*   [Cannot read more than 812 bytes from NFS server file](https://bugzilla.redhat.com/show_bug.cgi?id=1046011): The bug can occur between kernels 3.7 and 3.13. It should be fixed with [this commit](http://article.gmane.org/gmane.linux.nfs/60953)
+*   [NFS crashes](http://www.mail-archive.com/linux-rdma@vger.kernel.org/msg14145.html): Not yet tested/observed.
 
 At the moment OVirt does not allow to mount NFS shares over RDMA. So the only option is to modify the mount operation in /usr/share/vdsm/storage/storageServer.py yourself.
 
@@ -69,7 +69,7 @@ At the moment OVirt does not allow to mount NFS shares over RDMA. So the only op
         DEFAULT_OPTIONS = ["soft", "nosharecache", "rdma", "port=20049"]
       ...
 
-A reqeust for enhancement of OVirt has been created as Redhad Bug [1057043](https://bugzilla.redhat.com/show_bug.cgi?id=1057043)
+A reqeust for enhancement of OVirt has been created as Redhat Bug [1057043](https://bugzilla.redhat.com/show_bug.cgi?id=1057043)
 
 ## SRP
 

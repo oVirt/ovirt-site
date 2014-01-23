@@ -22,3 +22,7 @@ From Reddit topic ["What are people using to manage KVM deployments?"](//www.red
 Another Reddit topic: [ProxMox vs oVirt, OpenStack...?](http://www.reddit.com/r/sysadmin/comments/1ni72n/proxmox_ve_ovirt_openstack_are_any_esxihyperv/)
 
 *   Extract oVirt comments here
+
+Some Twitter comments:
+
+*   "C.I. gvt migrates 1000 telco VMs from #vmware to #RedHat Virtualization (based on @ovirt) 3 min. overview <http://bit.ly/1axqCP1> @eric_gray"

@@ -10,8 +10,6 @@ wiki_last_updated: 2014-03-27
 
 # OVirt 3.4 Test Day
 
-**This page is still a DRAFT**
-
 ## Objective
 
 *   engage project users and stakeholders to a hands-on experiences with oVirt new release.

@@ -59,11 +59,11 @@ Every user with permissions on the Data Center, can add/change or remove iSCSI B
 
 ### iSCSI Bond behaviour
 
-*   Each Data Center with iSCSI storage can have one or more iSCSI Bonds. The iSCSI bond is not obligated.
-*   Each iSCSI bond can be configured with any of the networks configured in the Data Center. There is no obligation regarding the number of networks in an iSCSI Bond.
+*   Each Data Center with iSCSI storage can have one or more iSCSI Bonds. The iSCSI bond is not obligated in gthe Data Center.
+*   Each iSCSI bond can be configured with any of the networks configured in the Data Center. There is no obligation regarding the number of the networks configured in the iSCSI Bond.
 *   iSCSI Bond name should be a unique name in the Data Center.
-*   Once a network is being removed from a Data Center it should be automatically removed from the iSCSI Bond
-*   Once a Data Center is being removed all the iSCSI Bonds should be removed as well.
+*   Once a network is being removed from a Data Center it should be automatically removed from the iSCSI Bond as well.
+*   Once a Data Center is being removed all the iSCSI Bonds related to it should be removed as well.
 *   Once a network is being added to the iSCSI Bond, all the Hosts connected to the iSCSI storage which contains the added network should connect to the storage with the new network as well.
 *   Once a Host gets activate in the iSCSI Data Center it should connect to the iSCSI storage with all the networks available in the iSCSI Bond
 *   If the Host does not contain any of the networks configured in the iSCSI bond it should connect to the storage iSCSI with its default network

@@ -36,8 +36,8 @@ wiki_last_updated: 2014-03-27
 *   Install the release pkg:
 
 `(f19) sudo yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release-fedora-10.0.1-2.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release-fedora-10.0.1-2.noarch.rpm)
-`(el)   sudo yum localinstall `[`http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm`](http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm)
-`          sudo yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release-el6-10.0.1-2.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release-el6-10.0.1-2.noarch.rpm)
+`(el) sudo yum localinstall `[`http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm`](http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm)
+`       sudo yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release-el6-10.0.1-2.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release-el6-10.0.1-2.noarch.rpm)
 
 *   follow [ Install instructions in release notes](OVirt_3.4.0_release_notes#Install_.2F_Upgrade_from_previous_versions)
 *   guest agent rpms are available on <http://evilissimo.fedorapeople.org/repos/ovirt-guest-agent/ovirt-3.4/beta1/>

@@ -96,6 +96,7 @@ CentOS:
     ONBOOT="yes"
     IPADDR=XXX.XXX.XXX.XXX
     NETMASK=255.255.255.0
+    GATEWAY=XXX.XXX.XXX.XXX  # gateway goes into management network
     EOF
 
     # cat > /etc/sysconfig/network-scripts/ifcfg-br0 << EOF
@@ -106,12 +107,7 @@ CentOS:
     ONBOOT="yes"
     IPADDR=XXX.XXX.XXX.XXX
     NETMASK=255.255.255.0
-    EOF
-
- Gateway goes into:
-
-    # cat > /etc/sysconfig/network << EOF
-    GATEWAY=XXX.XXX.XXX.XXX
+    DEFROUTE=no
     EOF
 
  Last thing is to restart the network for the changes to take effect.

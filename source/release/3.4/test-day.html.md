@@ -41,6 +41,9 @@ wiki_last_updated: 2014-03-27
 
 *   follow [ Install instructions in release notes](OVirt_3.4.0_release_notes#Install_.2F_Upgrade_from_previous_versions)
 *   guest agent rpms are available on <http://evilissimo.fedorapeople.org/repos/ovirt-guest-agent/ovirt-3.4/beta1/>
+*   the following oVirt Node ISO (based on CentOS 6.5 and oVirt 3.4 components) can be used for the Test Day. **Important: You need to append enforcing=0 to the kernel when booting the ISO to prevent SELinux denials**
+
+[`http://fedorapeople.org/~fabiand/node/3.0.4/ovirt-node-iso-3.0.4-TestDay.vdsm.el6.iso`](http://fedorapeople.org/~fabiand/node/3.0.4/ovirt-node-iso-3.0.4-TestDay.vdsm.el6.iso)
 
 ### Known issues
 

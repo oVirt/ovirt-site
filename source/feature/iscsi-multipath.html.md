@@ -6,49 +6,25 @@ wiki_category: Feature|iSCSI Multipath
 wiki_title: Feature/iSCSI-Multipath
 wiki_revision_count: 28
 wiki_last_updated: 2014-12-15
-feature_name: iSCSI Multipath
+feature_name: Configure iSCSI Multipathing
 feature_modules: storage
 feature_status: Released
 ---
 
-# iSCSI MultiPath
+# i SCSI-Multipath
 
-### Motivation
-
-oVirt support connection between Hosts and iSCSI Storage Domains.
-The connection between the Host and the iSCSI Storage Domain is being done using a bridge which used by a NIC, and gets connected to the Storage domain using that NIC.
-At some cases, we will want to configure a Host with multiple NICs, which some of them will be used to connect to relevant Storage Domains, and others for other issues.
-We will also might want to use the DM-multipath, for getting stable and reliable connection to the Storage Domain.
-Today, we can not configure this ability from oVirt, since the Host connects to the Storage Domain with a default NIC configured in the Host.
-iSCSI MultiPath Bond is an entity which tends to overcome this difficulty.
-With iSCSI MultiPath Bond the user can combine networks which will be used to connect to the iSCSI Storage Domain using the Hosts in the Data Center.
+## Configure iSCSI Multipathing
 
 ### Summary
 
-iSCSI multipath feature enables the user to configure the iSCSI multipath from oVirt, by specifying the networks to be used by the the iSCSI multipath Bond</BR> The user can configure the Hosts to connect to the iSCSi server through this specific networks.
+Multipathing is a technique whereby there is more than one physical path between the server and the storage. This is a fault tolerant because in the case of a single path failure the operating system can route I/O through the remaining paths transparently to the application. In addition to path failover, multipathing provides load balancing by distributing I/O loads across multiple physical paths. This approach can reduce or remove potential bottlenecks.
 
-### A brief about multipath linux
-
-[Device-Mapper](Feature/iSCSI-Multipath#Device-Mapper) Multipath (DM-Multipath) is a Linux native multipath tool, which allows to [configure](Feature/iSCSI-Multipath#Configuration_of_Multipath) multiple I/O paths between server nodes and storage arrays into a single device.
-Each multipath device has a World Wide Identifier (WWID), which is guaranteed to be globally unique and unchanging. By default, the name of a multipath device is set to its WWID
-
-##### Configuration of Multipath
-
-The configuration of the multipath service is being done on each host and it is the user responsibility to configure it at multipath.conf
-Some of the attributes being configured among many others are
-
-*   path_selector algorithm which determines which path to use for every I/O operation to the storage (round-robin, queue length, service time)
-*   path_grouping_policy - failover, multibus, group by
-*   checker_timeout - The timeout to use for path checkers that issue SCSI commands with an explicit timeout, in seconds. The default value is taken from sys/block/sdx/device/timeout
-
-##### Device-Mapper
-
-The Device-Mapper is a Linux kernel framework which used for mapping block devices onto higher-level virtual block devices. In the Linux kernel, the device-mapper is a generic framework to map one block device into another. Device mapper works by passing data from a virtual block device (provided by the device mapper itself) to another block device.
+Up until now the iSCSI connection between the Host and the iSCSI Storage Domain is being done using only one "default" physical path. In case of a failure of any element in that path, such as an adapter, switch or cable the storage can't be reached from the Host which immediately becomes a non operational. Another problem is that VDSM can't actually control which path to use in order to establish connection to the storage so there is a possibility that storage traffic is routed through the busy management network.
 
 ### Owner
 
-*   Name:
-*   Email:
+*   Maor Lipchuk mlipchuk@redhat.com
+*   Sergey Gotliv sgotliv@redhat.com
 
 ### Current status
 
@@ -56,26 +32,25 @@ The Device-Mapper is a Linux kernel framework which used for mapping block devic
 
 ### Detailed Description
 
-The iSCSI multipath Bond is an entity managed under the Data Center.
-Once the Data Center has iSCSI storage attached to it, the user can configure an iSCSI bond with an appropriate networks.
-The User choose which networks the iSCSI multipath Bond will be assembled from.
-The iSCSI bond can be empty, with no networks configured in it, or it can be configured with one or more networks related to the Data Center.
-Once the iSCSI multipath is configured with networks all the Hosts in the Data Center will connect to the iSCSI Storage Domain through this iSCSI bond the user configured.
-The path selection for the connection to the iSCSI storage will be configured by the multipath.conf in each host.
+We introduce new managed entity, iSCSI Bond which grouping networks and storage targets reachable via these networks.
+User can configure an iSCSI Bond under the Data Center that contains at least one iSCSI Storage Domain.
+The User selects logical networks and iSCSI targets.
+The iSCSI bond must contain at least one logical network related to the Data Center.
+Once the iSCSI multipathing is configured all hosts in the Data Center will be connected to the selected iSCSI targets through the selected iSCSI networks.
 
 ### Permissions
 
-Every user with permissions on the Data Center, can add/change or remove iSCSI Bond.
+Every user with permissions on the Data Center, can add/edit or remove the iSCSI Bond.
 
 ### iSCSI Bond behaviour
 
-*   Each Data Center with iSCSI storage can have one or more iSCSI Bonds. The iSCSI bond is not obligated in gthe Data Center.
-*   Each iSCSI bond can be configured with any of the networks configured in the Data Center. There is no obligation regarding the number of the networks configured in the iSCSI Bond.
+*   Each Data Center with iSCSI storage can have one or more iSCSI Bonds. The iSCSI bond is not obligated in the Data Center.
+*   Each iSCSI bond can be configured with any of the networks configured in the Data Center.
 *   iSCSI Bond name should be a unique name in the Data Center.
 *   Once a network is being removed from a Data Center it should be automatically removed from the iSCSI Bond as well.
 *   Once a Data Center is being removed all the iSCSI Bonds related to it should be removed as well.
-*   Once a network is being added to the iSCSI Bond, all the Hosts connected to the iSCSI storage which contains the added network should connect to the storage with the new network as well.
-*   Once a Host gets activate in the iSCSI Data Center it should connect to the iSCSI storage with all the networks available in the iSCSI Bond
+*   Once a network is being added to the iSCSI Bond, all hosts are reconnected to the iSCSI targets related to the same Bond through all related networks including the newly added.
+*   Once a host gets activated in the iSCSI Data Center it should connect to all available iSCSI targets with all the networks available in the iSCSI Bond
 *   If the Host does not contain any of the networks configured in the iSCSI bond it should connect to the storage iSCSI with its default network
 *   If the Host does contain the networks configured in the iSCSI bond and it does not succeed to connect to the iSCSI storage with them then the Host should become non operational.
 

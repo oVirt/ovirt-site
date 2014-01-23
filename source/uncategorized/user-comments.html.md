@@ -18,3 +18,7 @@ From Reddit topic ["What are people using to manage KVM deployments?"](//www.red
     Highly recommend RHEV or Ovirt. It's KVM underneath so it'll have performance similar to what you're used to, but provides so much more functionality and ease-of-use features./p>
 
     Converting your VMs from KVM to it is also pretty easy and well documented using virtv2v."
+
+Another Reddit topic: [ProxMox vs oVirt, OpenStack...?](http://www.reddit.com/r/sysadmin/comments/1ni72n/proxmox_ve_ovirt_openstack_are_any_esxihyperv/)
+
+*   Extract oVirt comments here

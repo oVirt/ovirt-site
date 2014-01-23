@@ -25,4 +25,4 @@ Another Reddit topic: [ProxMox vs oVirt, OpenStack...?](http://www.reddit.com/r/
 
 Some Twitter comments:
 
-*   "C.I. gvt migrates 1000 telco VMs from #vmware to #RedHat Virtualization (based on @ovirt) 3 min. overview <http://bit.ly/1axqCP1> @eric_gray"
+*   "C.I. gvt migrates 1000 telco VMs from #vmware to #RedHat Virtualization (based on @ovirt) 3 min. overview <http://bit.ly/1axqCP1> "

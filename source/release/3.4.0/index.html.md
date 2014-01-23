@@ -104,6 +104,8 @@ will upgrade to latest 3.3.
 *   On Fedora 19 with recent versions of PostgreSQL it may be necessary to manually change kernel.shmmax settings ()
 *   all-in-one is not currently working due to issues in SDK and setup. Workaround - use the package ovirt-engine-sdk from the repo ovirt-nightly, and fedora-virt-preview as in the next item
 *   For using Fedora 19 as node on 3.4 clusters you need to enable fedora-virt-preview repository ()
+*   Node
+    -   Needs to be booted in permissive mode by appending: enforcing=0
 
 ## Bugs fixed
 

@@ -328,4 +328,6 @@ will upgrade to latest 3.3.
 
 ### ovirt-node-plugin-vdsm
 
+* UI: AttributeError("'module' object has no attribute 'configure_logging'",)
+
 <Category:Documentation> <Category:Releases>

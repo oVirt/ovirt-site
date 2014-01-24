@@ -10,11 +10,11 @@ wiki_last_updated: 2014-12-07
 
 ### Summary
 
-The feature deals with reimplementation of the Authenticating and Directory support at oVirt, which is currently based on Kerberos and "internal" user for authentication, and on LDAP and the DB (for internal domain). The work is dividied into two phases -
+The feature deals with reimplementation of the Authentication and Directory support at oVirt, which is currently based on Kerberos and "internal" user for authentication, and on LDAP and the DB (for internal domain). The work is dividied into two phases -
 
-*   Phase 1 - Redesign the implementation, introducing support for Authenticators and Directories and Implmenetation of Internal Authenticator and Directory
+*   Phase 1 - Redesign the implementation, introducing support for Authenticators and Directories, and implementation of Internal Authenticator and Directory to support the internal domain, and the Provisional Authenticator and Directory to support external. The Provisional directory gets the required configuration from the oVirt database, as it serves as a "bridge" to the existing implementation.
 
-to support the internal domain, and the Provisional Authenticator and Directory to support . The Provisional directory gets the required configuration from the oVirt database, as it serves as a "bridge" to the existing implementation.
+<!-- -->
 
 *   Phase 2 - Implementing Kerberos Authenticator and a new LDAP Directory. Supporting developing of new modules that contain authentication and directory code , not necessarily Kerberos and LDAP based. The configuration for the Authenticators and Directories will be read from a configuration file and will include query structure.
 

@@ -84,7 +84,7 @@ The following is an example (still work in progress) for the mapping part in con
 
 1. Phase 2 - location of directory to hold configuration files - See BZ1049876
 
-2. Phase-2 - Configuration structure for LDAP - patches are still under review, configuration strucutre may change
+2. Phase-2 - Configuration structure for LDAP - patches are still under review, configuration structure may change
 
 ### Testing
 

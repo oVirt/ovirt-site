@@ -56,7 +56,7 @@ The login commands get the the profile by the domain name supplied by the parame
 
 3. Search users & groups
 
-Each Directory should contain in its configuration the required information in order to perform a search of users. For example, an LDAP directory may need to define the user (currently known as "domain user") to perform the search queries with, the authentication method for the user (may be SIMPLE, SASL or others). Bare in mind that this configuration, even if contains authentication details (for example -user, encrypted password, usage of SASL with GSSAPI as mechanism) is unrelated to the configuration of the Authenticator. The search queries for users and groups will be run agasint query methods at the Directory object.
+Each Directory should contain in its configuration the required information in order to perform a search of users. For example, an LDAP directory may need to define the user (currently known as "domain user") to perform the search queries with, the authentication method for the user (may be SIMPLE, SASL or others). Bare in mind that this configuration, even if contains authentication details (for example -user, encrypted password, usage of SASL with GSSAPI as mechanism) is unrelated to the configuration of the Authenticator. The search queries for users and groups will be run against query methods at the Directory object.
 
 4. Support different LDAP vendors via configuration (Phase-2)
 
@@ -64,15 +64,15 @@ In order to achieve support for different LDAP vendors, the configuration should
 
 *   Root DSE handling -
 
-As ROOT DSE queries are used to collect information on the directory ("metadata") some vendors might hold differnet attributes in the ROOT DSE which may later on be utilizied for further directory queries. It is required to add an ability to provide a custom handler if needed and a default implementation. As the base DN under which the users and the groups will be queried for is also provided by the Root DSE, it is required to provide a mapping between an abstracted name of the attribute (for example - "namingContexts") to a vendor-specific name of the attribute (for example "defaultNamingContexts" at Active-Directory.
+As ROOT DSE queries are used to collect information on the directory ("metadata") some vendors might hold different attributes in the ROOT DSE which may later on be utilized for further directory queries. It is required to add an ability to provide a custom handler if needed and a default implementation. As the base DN under which the users and the groups will be queried for is also provided by the Root DSE, it is required to provide a mapping between an abstracted name of the attribute (for example - "namingContexts") to a vendor-specific name of the attribute (for example "defaultNamingContexts" at Active-Directory.
 
 *   Queries templates - Each query (i.e - "GetUserByName") should have a "template" that defines the query structure and allows to include parameters in it.
 
-Before a query is executed, the proper template should be resolved into a query string, by substituing the parameter place holders to parameter values. Such a template may be - ((objectClass=Person)(uid=%1$s)) the parameter place holder in this example is the "%1$s" sub string.
+Before a query is executed, the proper template should be resolved into a query string, by substituting the parameter place holders to parameter values. Such a template may be - ((objectClass=Person)(uid=%1$s)) the parameter place holder in this example is the "%1$s" sub string.
 
 *   Users and groups returning attributes mapping -
 
-Users and groups attributes may be defined differently in different LDAP vendors. A mapping between the vendor attrribute name (for example - "sn" at Acitve-Directory) to an abstracted attribute name used by the code (for example - "lastName" ) should be included.
+Users and groups attributes may be defined differently in different LDAP vendors. A mapping between the vendor attribute name (for example - "sn" in Active Directory) to an abstracted attribute name used by the code (for example - "lastName" ) should be included.
 
 *   Search attributes mapping -
 

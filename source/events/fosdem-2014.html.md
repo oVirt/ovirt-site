@@ -6,32 +6,28 @@ wiki_category: Events
 wiki_title: FOSDEM 2014
 wiki_revision_count: 12
 wiki_last_updated: 2014-02-10
-wiki_conversion_fallback: true
-wiki_warnings: conversion-fallback
 ---
 
 # oVirt at FOSDEM 2014
 
 There are a number of oVirt related activities during FOSDEM (the Free and Open Source Developers European Meeting) in Brussels, on February 1-2 2004.
 
-First, there are a number of oVirt related presentations happening as part of the [Virtualization and IaaS DevRoom](//fosdem.org/2014/schedule/track/virtualisation_and_iaas/). See [details on sessions](#Sessions%20).
+First, there are a number of oVirt related presentations happening as part of the [Virtualization and IaaS DevRoom](//fosdem.org/2014/schedule/track/virtualisation_and_iaas/). See [ details on sessions](#Sessions).
 
 We will also have a stand for the project, and we would be happy to have oVirt community members come and help spread the love about oVirt there. Our stand will be in building K at level K1 (near the infodesk, between OpenStack and OpenShift).
 
-Finally, we are going to [meet up for some drinks](#Social%20event%20) on Saturday evening in Brussels. You are welcome to come along to the bar "Au bon vieux temps", we'll be there from about 19h30 onwards.
+Finally, we are going to [ meet up for some drinks](#Social_event) on Saturday evening in Brussels. You are welcome to come along to the bar "Au bon vieux temps", we'll be there from about 19h30 onwards.
 
 ### Sessions
 
 There are oVirt related sessions in the [Virtualization & IaaS DevRoom](//fosdem.org/2014/schedule/track/virtualisation_and_iaas/) and one session in the [Lightning Talks track](//fosdem.org/2014/schedule/track/lightning_talks/).
 
-Virtualization & IaaS venue
-
+Virtualization & IaaS venue  
 Room: Chavanne
 
 Building: U .
 
-Lightning talks venue
-
+Lightning talks venue  
 Room: H.2215 (Ferrer)
 
 Building: H
@@ -40,27 +36,12 @@ For building locations, [see map](//fosdem.org/2014/practical/transportation/)
 
 #### Saturday 2014-02-01
 
-Time
-
-Name
-
-Session
-
-Federico Simoncelli
-
-oVirt and OpenStack Storage (present and future)
-
-Daniel Berrange
-
-New Developments and Advanced Features in the Libvirt Management API
-
-Ohad Levy
-
-Foreman Project
-
-Gilad Chaplik
-
-oVirt applying Nova scheduler concepts for data center virtualization
+| Time                                | Name                                             | Session                                                               |
+|-------------------------------------|--------------------------------------------------|-----------------------------------------------------------------------|
+| 13:40-14:20 | | Federico Simoncelli | oVirt and OpenStack Storage (present and future) |
+| 14:20-15:00                         | Daniel Berrange                                  | New Developments and Advanced Features in the Libvirt Management API  |
+| 15:40-16:20                         | Ohad Levy                                        | Foreman Project                                                       |
+| 17:40-18:20                         | Gilad Chaplik                                    | oVirt applying Nova scheduler concepts for data center virtualization |
 
 #### Sunday 2014-02-02
 
@@ -98,3 +79,5 @@ Saturday Feb 1st, from 19h30
 Drinks only, but there are restaurants and street food nearby.
 
 [Map](http://www.openstreetmap.org/#map=19/50.84817/4.35220)
+
+<Category:Events>

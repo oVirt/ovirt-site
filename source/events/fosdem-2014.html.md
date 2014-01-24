@@ -36,12 +36,12 @@ For building locations, [see map](//fosdem.org/2014/practical/transportation/)
 
 #### Saturday 2014-02-01
 
-| Time                                | Name                                             | Session                                                               |
-|-------------------------------------|--------------------------------------------------|-----------------------------------------------------------------------|
-| 13:40-14:20 | | Federico Simoncelli | oVirt and OpenStack Storage (present and future) |
-| 14:20-15:00                         | Daniel Berrange                                  | New Developments and Advanced Features in the Libvirt Management API  |
-| 15:40-16:20                         | Ohad Levy                                        | Foreman Project                                                       |
-| 17:40-18:20                         | Gilad Chaplik                                    | oVirt applying Nova scheduler concepts for data center virtualization |
+| Time        | Name                | Session                                                               |
+|-------------|---------------------|-----------------------------------------------------------------------|
+| 13:40-14:20 | Federico Simoncelli | oVirt and OpenStack Storage (present and future)                      |
+| 14:20-15:00 | Daniel Berrange     | New Developments and Advanced Features in the Libvirt Management API  |
+| 15:40-16:20 | Ohad Levy           | Foreman Project                                                       |
+| 17:40-18:20 | Gilad Chaplik       | oVirt applying Nova scheduler concepts for data center virtualization |
 
 #### Sunday 2014-02-02
 

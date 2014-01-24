@@ -37,14 +37,11 @@ The feature deals with reimplementation of the Authentication and Directory supp
 
 #### Terminology
 
-*   Authenticator - Responsible for performing the authencation (given a set of credentials, the Authenticator performs authentication and returns a result object indicating whether authentication has succeeded or not) to oVirt engine.
+*   Authenticator - Responsible for performing the authentication (given a set of credentials, the Authenticator performs authentication and returns a result object indicating whether authentication has succeeded or not) to oVirt engine.
 *   AuthenticatorFactory - Responsible for creating an Authenticator. Each type of Authenticator should have its own factory.
 *   Directory - responsible for querying information on users and groups.
 *   DirectoryFactory - Responsible for creating a Directory. Each type of Directory should have its own factory.
-*   Profile - a combination of Authenticator and Directory. Each profile has a name that identifies it uniquely. At Phase 2 - each configuration file must contain configuration for a profile (configuration for Authenticator and a Directory).
-
-Webadmin and UserPortal present the list of available profiles at the login screen under the domains list.
-
+*   Profile - a combination of Authenticator and Directory. Each profile has a name that identifies it uniquely. At Phase 2 - each configuration file must contain configuration for a profile (configuration for Authenticator and a Directory). Webadmin and UserPortal present the list of available profiles at the login screen under the domains list.
 *   ExternalId - Not all Directories my contain users and groups that have a UUID identifier. ExternalId is an abstraction representing an ID of an external entity.
 
 ### Detailed description of flows

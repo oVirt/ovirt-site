@@ -68,7 +68,7 @@ Add <disks> tag to create/restore snapshot.
 
 Note: preview only is not available from rest (restore = preview + commit).
 
-E.g. POST /api/vms/{vm_id}/snapshots:
+##### Create Snapshot: POST /api/vms/{vm_id}/snapshots
 
 ` `<snapshot>
 `   `<vm id="{vm_id}"/>
@@ -76,6 +76,18 @@ E.g. POST /api/vms/{vm_id}/snapshots:
 `     `<disk id="{disk_id}"/>
 `   `</disks>
 ` `</snapshot>
+
+##### Create Snapshot: POST /api/vms/{vm_id}/snapshots/{snapshot_id}/restore
+
+` `<action>
+`   `<restore_memory>`true|false`</restore_memory>
+`   `<disks>
+`     `<disk id="{disk_id}">
+`       `<image_id>`{image_id}`</image_id>
+`       `<snapshot id="{snapshot_id}"/>
+`     `</disk>
+`   `</disks>
+` `</action>
 
 #### Backend
 

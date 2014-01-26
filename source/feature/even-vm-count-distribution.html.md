@@ -83,7 +83,7 @@ pseudo (python) code for the balance() method
     getOverloadedVDS():
       worstVDS = None
       for vds in allVDS:
-        if vds.activeVMSCount() > HighVMSCount AND (worstVDS == None OR vds.activeVMSCount() > worstVDS.activeVMSCount()):
+        if getOccupiedVMSlots(vds) > HighVMSCount AND worstVDS == None OR getOccupiedVMSlots(vds) > getOccupiedVMSlots(worstVDS)):
           worstVDS = vds
 
       return  worstVDS  # returns None (null) if no VDS has above HighVMSCount running vms
@@ -95,7 +95,7 @@ pseudo (python) code for the balance() method
 
       possibleTargets = []
       for vds in allVDS:
-         if (worstVDS.activeVMCount() - vds.activeVMCount()) >= MigrationThreshold:
+         if (getOccupiedVMSlots(worstVDS) - getOccupiedVMSlots(vds)) >= MigrationThreshold:
             possibleTargets.add(vds)
 
       vmToMigrate = getBestVmToMigrate(worstVDS.getAllRunningVMS())

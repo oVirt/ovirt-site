@@ -77,7 +77,7 @@ Note: preview only is not available from rest (restore = preview + commit).
 `   `</disks>
 ` `</snapshot>
 
-##### Create Snapshot: POST /api/vms/{vm_id}/snapshots/{snapshot_id}/restore
+##### Restore Snapshot: POST /api/vms/{vm_id}/snapshots/{snapshot_id}/restore
 
 ` `<action>
 `   `<restore_memory>`true|false`</restore_memory>

@@ -131,8 +131,8 @@ Following diagram provides a high level overview of oVirt user interface archite
 *   [Google Web Toolkit](http://www.gwtproject.org/overview.html): Java-based SDK providing tools and APIs for building web applications
 *   [GWT Platform](https://github.com/ArcBees/GWTP): [Model-View-Presenter](http://en.wikipedia.org/wiki/Model_View_Presenter) framework following GWT [best](http://www.gwtproject.org/articles/mvp-architecture.html) [practices](http://www.gwtproject.org/articles/mvp-architecture-2.html) ([slides](http://courses.coreservlets.com/Course-Materials/pdf/ajax/GWT-MVP-Intro.pdf))
 *   [GWT INjection](http://code.google.com/p/google-gin/wiki/GinTutorial): [dependency injection](http://en.wikipedia.org/wiki/Dependency_injection) framework for GWT
-*   oVirt GWT Common: module housing common components such as widgets, abstract classes, infrastructure-level components, etc.
-*   [oVirt UI Plugins](UIPlugins): feature allowing WebAdmin UI to be extended by JavaScript/HTML-based plugins at runtime
+*   oVirt GWT-Common: module housing common components such as widgets, abstract and infra-level classes, etc.
+*   [oVirt UI Plugins](UIPlugins): feature allowing WebAdmin UI to be extended by JavaScript-based plugins at runtime
 
 Following diagram shows a typical GWT development workflow:
 

@@ -29,7 +29,7 @@ As of verion 3.3, a single data center had a specific storage type and with the 
 
 *   Data centers of version 3.0 can not contain mixed types (again with the exception of ISO & import/export domains) , if a block domain is the first to be attached to the data center, file domains will not be able to be attached and vice versa
 *   Gluster & Posix domains will not be able to be attached to data centers with a version that does not support the respective storage type (<3.3 for Gluster and <3.2 for Posix)
-*   Live storage migration from a file domain to a block domain is not be allowed
+*   Live storage migration from a block storage domain is only allowed to a destination of a block storage domain, same goes for live storage migration from file storage domain
 
 ### User Experience
 

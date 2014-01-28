@@ -20,7 +20,9 @@ The *oVirt Space Shooter* plugin we will create is based on [Alien Invasion](htt
 
 No prior [JavaScript](http://en.wikipedia.org/wiki/JavaScript) programming experience is required, just make sure you have oVirt Engine [up and running](http://www.ovirt.org/Installing_ovirt-engine_from_rpm) on your system. Oh, and once we're done creating our plugin, be prepared to blast some aliens!
 
-If you have any questions or find any issues, send your feedback to [Vojtech Szocs](User:Vszocs) <vszocs@redhat.com>
+*Note: this plugin was written in summer 2013 with only few cosmetic updates since that time. After reading [JavaScript: The Good Parts](http://shop.oreilly.com/product/9780596517748.do), I realized the plugin code isn't written too well in respect of good JavaScript coding practices. I'm planning to improve plugin code in future.*
+
+**Update (2014-01-28):** plugin code is available as [patch](http://gerrit.ovirt.org/#/c/23813/) for [samples-uiplugins](Features/UIPlugins#Sample_UI_plugins) repository, check out README file for details on installation.
 
 ### Level 1: Hello UI Plugins
 
@@ -29,9 +31,9 @@ Our journey starts in `/usr/share/ovirt-engine/ui-plugins` directory, home of pl
       /usr/share/ovirt-engine/ui-plugins/space-shooter.json
 
     {
-            "name": "space-shooter",
-            "url": "/ovirt-engine/webadmin/plugin/space-shooter/start.html",
-            "resourcePath": "space-shooter-resources"
+        "name": "space-shooter",
+        "url": "plugin/space-shooter/plugin.html",
+        "resourcePath": "space-shooter-resources"
     }
 
 For those who are curious about the meaning of each attribute:
@@ -40,21 +42,25 @@ For those who are curious about the meaning of each attribute:
 *   `url` points to [plugin host page](Features/UIPlugins#Plugin_host_page) which is basically an HTML page that bootstraps plugin code
 *   `resourcePath` tells Engine where to find plugin resource files, such as the plugin host page
 
-Note that `url` generally follows `/ovirt-engine/webadmin/plugin/<pluginName>/<relativePath>` pattern so you can use this to fetch plugin resource files that reside under `resourcePath` directory. In other words, **you don't have to run your own custom web server to serve plugin resource files**, Engine does this for you out-of-the-box.
+Note that the `url` in above snippet is relative and follows `plugin/<pluginName>/<relativePath>` pattern. You can use it to fetch plugin resource files that reside under `resourcePath` directory. In other words, **you don't have to run your own custom web server to serve plugin resource files**, Engine does this for you out-of-the-box.
 
-Having the plugin descriptor in place, all that remains is plugin host page. Let's create `space-shooter-resources` sub-directory along with plugin host page inside this directory:
+Having the plugin descriptor in place, all that remains is plugin host page. Let's create `space-shooter-resources` sub-directory along with plugin host page inside it:
 
       /usr/share/ovirt-engine/ui-plugins/space-shooter-resources/start.html
 
-    <!DOCTYPE html>
+    <!doctype html>
     <html>
     <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
     <script type='text/javascript'>
 
-        // Obtain plugin-specific API object for interacting with plugin infrastructure
+        // Get API object for 'space-shooter' plugin
+        // Note: using 'parent' due to plugin code being evaluated within an iframe context
         var api = parent.pluginApi('space-shooter');
 
-        // Register event handler functions that serve as callbacks on specific events
+        // Register event handler functions for later invocation by UI plugin infrastructure
         api.register({
             UiInit: function() {
                 alert('Woohoo!');
@@ -65,14 +71,10 @@ Having the plugin descriptor in place, all that remains is plugin host page. Let
         api.ready();
 
     </script>
-
-    </head>
-    <body></body>
+    </body>
     </html>
 
 And that's about it! **It takes only two files to create a minimal UI plugin.**
-
-*"Simple things should be simple, complex things should be possible."* ([Alan Kay](http://en.wikiquote.org/wiki/Alan_Kay))
 
 Without even restarting Engine, reload WebAdmin in your browser, log in and embrace the awesome *Woohoo!* alert window.
 
@@ -89,7 +91,7 @@ Download the game and put its files under `/usr/share/ovirt-engine/ui-plugins/sp
 Plugin file structure should now look like this:
 
 *   `/usr/share/ovirt-engine/ui-plugins/space-shooter.json` - plugin descriptor
-*   `/usr/share/ovirt-engine/ui-plugins/space-shooter-resources/game/...` - game files
+*   `/usr/share/ovirt-engine/ui-plugins/space-shooter-resources/game/*` - game files
 *   `/usr/share/ovirt-engine/ui-plugins/space-shooter-resources/modernizr.custom.js` - Modernizr library
 *   `/usr/share/ovirt-engine/ui-plugins/space-shooter-resources/start.html` - plugin host page
 
@@ -97,25 +99,24 @@ Let's open plugin host page and add some more JavaScript:
 
       /usr/share/ovirt-engine/ui-plugins/space-shooter-resources/start.html
 
-    <!DOCTYPE html>
+    <!doctype html>
     <html>
     <head>
+        <meta charset="utf-8">
         <!-- Use Modernizr for detecting necessary HTML5 features like Canvas -->
-        <script type='text/javascript' src='/ovirt-engine/webadmin/plugin/space-shooter/modernizr.custom.js'></script>
+        <script type='text/javascript' src='modernizr.custom.js'></script>
     </head>
     <body>
-
-    <!-- Put plugin code in HTML body to ensure required scripts like Modernizr execute before the page gets rendered -->
     <script type='text/javascript'>
 
         var api = parent.pluginApi('space-shooter');
 
         var openDialog = function() {
-            // Show modal dialog with game as content
+            // Show modal dialog with actual game content
             api.showDialog(
                             'Aliens are attacking', // Title
-                'space-shooter-dialog', // Unique token
-                            '/ovirt-engine/webadmin/plugin/space-shooter/game/index.html', // Content URL
+                'space-shooter-dialog', // Dialog token
+                            'plugin/space-shooter/game/index.html', // Content URL
                             '340px', // Width
                             '560px' // Height
                     );
@@ -137,11 +138,10 @@ Let's open plugin host page and add some more JavaScript:
         api.ready();
 
     </script>
-
     </body>
     </html>
 
-We moved plugin code to HTML `body` due to Modernizr usage, but other than that, it's pretty much straight-forward. `UiInit` callback performs HTML5 feature detection and calls `openDialog` if successful. `api.showDialog` takes care of opening new modal dialog with content loaded from the given URL. Notice that the URL points to game's `index.html` under `/usr/share/ovirt-engine/ui-plugins/space-shooter-resources/game/` directory.
+The code is pretty much straight-forward. `UiInit` callback performs HTML5 feature detection and calls `openDialog` if successful. `api.showDialog` takes care of opening new modal dialog with content loaded from the given URL. Notice that the URL points to game's `index.html` served from `/usr/share/ovirt-engine/ui-plugins/space-shooter-resources/game` directory.
 
 Reload WebAdmin in your browser, log in and see what happens! Don't spend too much time playing the game, though.
 
@@ -149,7 +149,7 @@ Reload WebAdmin in your browser, log in and see what happens! Don't spend too mu
 
 ### Level 3: Data Center Under Attack
 
-Opening new modal dialog upon login is just too easy. What if the aliens from outer space wanted to invade your precious Data Centers? Let's make this happen and move the battle from generic dialog into Data Center main tab.
+Opening new modal dialog on user login is just too easy. What if the aliens from outer space wanted to invade your precious Data Centers? Let's make this happen and move the battle from generic dialog into Data Center main tab.
 
 Here, we want to do following things:
 
@@ -172,29 +172,30 @@ First, we need to register some more event handler callbacks:
       /usr/share/ovirt-engine/ui-plugins/space-shooter-resources/start.html
 
     api.options({
-        // Configure source origin(s), i.e. protocol://domain:port, from which
-        // message events will be accepted (by default, this option is empty)
+        // Configure source origin(s), i.e. protocol://domain:port
+        // from which HTML5 message events will be accepted
         allowedMessageOrigins: ['http://127.0.0.1:8080']
     });
 
     var victory = false; // Has player won at least one game in the current game dialog?
     var dataCenter = null; // Data Center entity associated with the current game dialog
-    var gameContentWindow = null; // Reference to game dialog content's Window object
+    var gameContentWindow = null; // Reference to game Window object
 
     api.register({
 
-        // Plugin init callback, ideal for one-time UI extensions
+        // Called by the infrastructure as part of plugin initialization,
+        // will be called just once during the lifetime of a plugin
         UiInit: function() {
             if (browserRocks()) {
                 init(); // Defined later on
             }
         },
 
-        // Data Center main tab item selection callback, useful for keeping track
-        // of currently selected Data Center entity in the corresponding main tab
+        // Called when item selection changes in Data Center main tab,
+        // useful for keeping track of currently selected Data Center entity
         DataCenterSelectionChange: function() {
             if (arguments.length == 1) {
-                // If there is single entity selected, remember it
+                // Single entity was selected, remember it
                 dataCenter = arguments[0];
             } else {
                 // Otherwise, forget the entity
@@ -202,12 +203,13 @@ First, we need to register some more event handler callbacks:
             }
         },
 
-        // HTML5 message event callback, ideal for cross-window communication that
-        // works across different origins, i.e. unconstrained by Same-Origin Policy
+        // Called when another Window (i.e. custom UI contributed by a plugin)
+        // sends message to WebAdmin Window via HTML5 postMessage API,
+        // ideal for cross-window communication that works across different origins
         MessageReceived: function(data, sourceWindow) {
             // If we get here, we already passed allowed source origin check
             switch (data) {
-                // Game's HTML just loaded in the dialog
+                // Game content just got loaded
                 case 'GameInit':
                     gameContentWindow = sourceWindow;
                     break;
@@ -220,7 +222,7 @@ First, we need to register some more event handler callbacks:
 
     });
 
-Since we want the game to notify our plugin upon specific occasions, we use `api.options` to configure source origin from which `message` events will be accepted. Above snippet uses <http://127.0.0.1:8080> so we assume Engine runs on localhost and WebAdmin is available at port 8080 over HTTP protocol.
+Since we want the game to notify our plugin upon specific occasions, we use `api.options` to configure source origin from which `message` events will be accepted. Above snippet uses `http://127.0.0.1:8080` so we assume Engine runs locally and WebAdmin is available via HTTP at port 8080.
 
 The `DataCenterSelectionChange` callback receives currently selected items as function `arguments`. Since we only care for single Data Center selected in the main tab, we check `arguments.length` and remember or forget current selection.
 
@@ -238,11 +240,11 @@ Let's modify `game.js` under `game` directory to add the missing bits:
     ...
     var winGame = function() {
         Game.setBoard(3, new TitleScreen('You win!',  'Press fire to play again', playGame));
-        parent.postMessage('GameWin', '*');
+        parent.postMessage('GameWin', '*'); // Change here
     };
     ...
     window.addEventListener('load', function() {
-        parent.postMessage('GameInit', '*');
+        parent.postMessage('GameInit', '*'); // Change here
         Game.initialize('game', sprites, startGame);
     });
     ...
@@ -254,14 +256,14 @@ Remember the missing `init` function used inside our `UiInit` callback? Let's ad
       /usr/share/ovirt-engine/ui-plugins/space-shooter-resources/start.html
 
     var dialogToken = 'space-shooter-dialog';
-    var dialogUrl = '/ovirt-engine/webadmin/plugin/space-shooter/game/index.html';
+    var dialogUrl = 'plugin/space-shooter/game/index.html';
 
     var init = function() {
         // Add new action button to Data Center main tab
         api.addMainTabActionButton(
             'DataCenter', // To which main tab the button should be added to
             'Protect DataCenter from Alien Invasion', // Label
-            // Callbacks and extra options for addMainTabActionButton function
+            // Extra options for addMainTabActionButton function
             {
                 isEnabled: function() {
                     // Enable button only when selecting single Data Center
@@ -272,25 +274,26 @@ Remember the missing `init` function used inside our `UiInit` callback? Let's ad
                     victory = false;
                     openDialog();
                 },
-                location: 'OnlyFromContext' // Make button available only from context menu
+                location: 'OnlyFromContext' // Button available only from context menu
             });
     };
 
     var openDialog = function() {
-        // Show modal dialog with game as content
-        api.showDialog(dataCenter.name + ' under attack',
-            dialogToken, dialogUrl, '340px', '560px',
+        // Show modal dialog with actual game content
+        api.showDialog(dataCenter.name + ' under attack', dialogToken, dialogUrl, '340px', '560px',
             // Extra options for showDialog function
             {
-                closeIconVisible: false, // Remove the close icon in top-right corner of the dialog
-                closeOnEscKey: false, // Prevent closing the dialog when user hits Escape
-                resizeEnabled: true, // Allow resizing the dialog with mouse, just in case
+                closeIconVisible: false, // Hide dialog's close icon
+                closeOnEscKey: false, // Prevent user from closing dialog with Escape key
+                resizeEnabled: true, // Allow dialog resizing
                 buttons:
                 [
+                    // Button for those who cannot beat the game (it can happen!)
                     {
                         label: 'Cheat',
                         onClick: cheatGame
                     },
+                    // Button to close the dialog
                     {
                         label: 'Get me outta here',
                         onClick: closeDialog
@@ -309,7 +312,7 @@ Remember the missing `init` function used inside our `UiInit` callback? Let's ad
 
     var cheatGame = function() {
         if (gameContentWindow != null) {
-            // Invoke function on Window object representing the game
+            // Invoke function on game Window object
             gameContentWindow.winGame();
         }
     };
@@ -326,30 +329,22 @@ The `openDialog` function is pretty much straight-forward, we just pass some ext
 
 ### Secret Level: Making Things Configurable
 
-Blasting through waves of aliens is nice, but what if someone accessed WebAdmin from a remote machine? Assuming WebAdmin would be exposed at <https://engine-machine:8765>, someone would need to modify `allowedMessageOrigins` inside plugin host page to ensure that communication between game and plugin works properly. Of course, we could still use `*` as the value for `allowedMessageOrigins` to accept `message` events from any origin, however doing this would open back door for malicious JavaScript to exploit our plugin.
+Blasting through waves of aliens is nice, but what if someone accessed WebAdmin from a remote machine? Assuming WebAdmin would be exposed at `https://engine-domain:8765`, someone would need to modify `allowedMessageOrigins` inside plugin host page to ensure that communication between game and plugin works properly. Of course, we could still use `*` as the value for `allowedMessageOrigins` to accept `message` events from any origin, however doing this would open back door for malicious JavaScript to exploit our plugin.
 
 To make things a bit more configurable, let's add new configuration option right into plugin descriptor:
 
       /usr/share/ovirt-engine/ui-plugins/space-shooter.json
 
-    {
-        ...
-        "config": {
-            "allowedOrigins": ["http://127.0.0.1:8080"]
-        }
-        ...
+    "config": {
+        "allowedOrigins": ["http://127.0.0.1:8080"]
     }
 
-The `config` attribute is completely optional and can be used to contain default (plugin-specific) configuration. **Users shouldn't modify plugin descriptor directly** - if you need to override default configuration, create [plugin user configuration](Features/UIPlugins#Plugin_user_configuration) inside `/etc/ovirt-engine/ui-plugins` directory (using `-config` suffix):
+The `config` attribute is completely optional and can be used to contain default (plugin-specific) configuration. **Users shouldn't modify plugin descriptor directly** - if you need to override default configuration, create [plugin user configuration](Features/UIPlugins#Plugin_user_configuration) inside `/etc/ovirt-engine/ui-plugins` directory, using `-config` suffix:
 
       /etc/ovirt-engine/ui-plugins/space-shooter-config.json
 
-    {
-        ...
-        "config": {
-            "allowedOrigins": ["http://127.0.0.1:8080", "https://engine-machine:8765"]
-        }
-        ...
+    "config": {
+        "allowedOrigins": ["http://127.0.0.1:8080", "https://engine-domain:8765"]
     }
 
 Each time our plugin gets loaded in WebAdmin, UI plugin infrastructure takes care of merging user configuration (if any) on top of default configuration (if any). In our case, `allowedOrigins` from user configuration would override `allowedOrigins` from default configuration.
@@ -358,11 +353,12 @@ Accessing plugin configuration at runtime is as easy as calling `api.configObjec
 
       /usr/share/ovirt-engine/ui-plugins/space-shooter-resources/start.html
 
-    // Obtain plugin-specific config object containing merged (default + user) configuration
+    // Get runtime plugin configuration, i.e. custom configuration (if any)
+    // merged on top of default configuration (if any)
     var config = api.configObject();
 
     api.options({
-        // Note: config.allowedOrigins is JSON array that maps directly to JavaScript array
+        // Note: "config.allowedOrigins" is JSON array
         allowedMessageOrigins: config.allowedOrigins
     });
 
@@ -372,20 +368,20 @@ Let's add one more feature to our plugin: the ability to track score (games won)
 
       /usr/share/ovirt-engine/ui-plugins/space-shooter-resources/start.html
 
-    var subTabWindow = null; // Reference to custom sub tab content's Window object
+    var subTabWindow = null; // Reference to 'Score' sub tab Window object
 
     var subTabToken = 'space-shooter-dc-score';
-    var subTabUrl = '/ovirt-engine/webadmin/plugin/space-shooter/dc-score.html';
+    var subTabUrl = 'plugin/space-shooter/dc-score.html';
 
     var init = function() {
         // Add new action button to Data Center main tab
-        api.addMainTabActionButton(...);
+        api.addMainTabActionButton( ... );
 
-        // Add new sub tab under Data Center main tab
+        // Add new 'Score' sub tab under Data Center main tab
         api.addSubTab(
             'DataCenter', // To which main tab the sub tab should be added to
             'Space Shooter Score', // Label
-            subTabToken, // Unique token
+            subTabToken, // Sub tab token
             subTabUrl // Content URL
         );
     };
@@ -436,7 +432,7 @@ Let's add one more feature to our plugin: the ability to track score (games won)
                 break;
         }
 
-        // Update the custom sub tab
+        // Update 'Score' sub tab
         subTabWindow.update(dataCenter.name, score, rank, rankColor);
     };
 
@@ -444,7 +440,7 @@ Let's add one more feature to our plugin: the ability to track score (games won)
         ...
         MessageReceived: function(data, sourceWindow) {
             switch (data) {
-                // Game HTML just loaded in the dialog
+                // Game content just got loaded
                 case 'GameInit':
                     gameContentWindow = sourceWindow;
                     break;
@@ -454,7 +450,7 @@ Let's add one more feature to our plugin: the ability to track score (games won)
                     incScore();
                     updateSubTab();
                     break;
-                // Custom sub tab asks for current user score
+                // 'Score' sub tab asks for current user score
                 case 'GetDataCenterScore':
                     subTabWindow = sourceWindow;
                     updateSubTab();
@@ -472,13 +468,16 @@ Finally, we need to add `dc-score.html` representing custom sub tab content:
 
       /usr/share/ovirt-engine/ui-plugins/space-shooter-resources/dc-score.html
 
-    <!DOCTYPE html>
+    <!doctype html>
     <html>
-    <head></head>
+    <head>
+        <meta charset="utf-8">
+    </head>
     <body>
 
     <p>
-    Score for Data Center <span id='dataCenterName'>?</span>: <span id='score'>?</span> (<span id='rank'>?</span>)
+    Score for Data Center <span id='dataCenterName'>?</span>:
+    <span id='score'>?</span> (<span id='rank'>?</span>)
     </p>
 
     <script type='text/javascript'>
@@ -487,7 +486,7 @@ Finally, we need to add `dc-score.html` representing custom sub tab content:
         parent.postMessage('GetDataCenterScore', '*');
 
         // The plugin should call this function in response to GetDataCenterScore message
-        function update(dataCenterName, score, rank, rankColor) {
+        var update = function(dataCenterName, score, rank, rankColor) {
             document.getElementById('dataCenterName').innerHTML = '<em>' + dataCenterName + '</em>';
             document.getElementById('score').innerHTML = '<b>' + score + '</b>';
             document.getElementById('rank').innerHTML = '<b>' + rank + '</b>';

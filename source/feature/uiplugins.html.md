@@ -75,8 +75,8 @@ Following code snippet shows a sample plugin descriptor:
         "name": "ExamplePlugin",
 
         // URL of plugin host page that bootstraps plugin code (required)
-        // This URL maps to $ENGINE_USR/ui-plugins/example-resources/start.html
-        "url": "/ovirt-engine/webadmin/plugin/ExamplePlugin/start.html",
+        // This URL maps to $ENGINE_USR/ui-plugins/example-resources/plugin.html
+        "url": "/ovirt-engine/webadmin/plugin/ExamplePlugin/plugin.html",
 
         // Default configuration associated with the plugin (optional)
         "config": { "band": "ZZ Top", "score": 10 },
@@ -124,7 +124,7 @@ Plugin host page [bootstraps](#Plugin_bootstrap_sequence) plugin code by evaluat
 
 Following code snippet shows a sample plugin host page:
 
-      /usr/share/ovirt-engine/ui-plugins/example-resources/start.html
+      /usr/share/ovirt-engine/ui-plugins/example-resources/plugin.html
 
             // Plugin code, evaluated within HTML head section (2)
 
@@ -651,13 +651,13 @@ Minimal plugin descriptor:
 
     {
         "name": "MinimalPlugin",
-        "url": "/ovirt-engine/webadmin/plugin/MinimalPlugin/start.html",
+        "url": "/ovirt-engine/webadmin/plugin/MinimalPlugin/plugin.html",
         "resourcePath": "minimal-resources"
     }
 
 Minimal plugin host page:
 
-      /usr/share/ovirt-engine/ui-plugins/minimal-resources/start.html
+      /usr/share/ovirt-engine/ui-plugins/minimal-resources/plugin.html
 
             var api = parent.pluginApi('MinimalPlugin');
             api.register({

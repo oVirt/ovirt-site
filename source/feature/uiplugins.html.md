@@ -671,7 +671,11 @@ Minimal plugin host page:
 
 ### Sample UI plugins
 
-Repository hosting sample UI plugins: git://gerrit.ovirt.org/samples-uiplugins ([Gerrit web](http://gerrit.ovirt.org/gitweb?p=samples-uiplugins.git))
+Following repository hosts sample UI plugins contributed by community:
+
+    $ git clone git://gerrit.ovirt.org/samples-uiplugins
+
+Feel free to submit patches that introduce new plugins (or update existing ones) in this repository.
 
 ### Real-world UI plugins
 

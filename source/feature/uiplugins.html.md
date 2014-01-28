@@ -76,7 +76,7 @@ Following code snippet shows a sample plugin descriptor:
 
         // URL of plugin host page that bootstraps plugin code (required)
         // This URL maps to $ENGINE_USR/ui-plugins/example-resources/plugin.html
-        "url": "/ovirt-engine/webadmin/plugin/ExamplePlugin/plugin.html",
+        "url": "plugin/ExamplePlugin/plugin.html",
 
         // Default configuration associated with the plugin (optional)
         "config": { "band": "ZZ Top", "score": 10 },
@@ -87,6 +87,8 @@ Following code snippet shows a sample plugin descriptor:
         "resourcePath": "example-resources"
 
     }
+
+Notice the use of relative URL in `url` attribute. Since WebAdmin resides in `/ovirt-engine/webadmin` URL context, it's usually best to use relative URLs when referring to plugin resource files. This way, the plugin is more resilient to potential changes in WebAdmin base URL.
 
 ### Plugin user configuration
 
@@ -139,6 +141,8 @@ Note that WebAdmin [loads](#Loading_plugins) the given plugin via hidden HTML `i
 *   Plugin code runs within the context of the corresponding `iframe` element, i.e. not in WebAdmin (top-level) context
 *   Plugin code should use [plugin API](#API_function_reference) to make UI extensions, i.e. avoid direct HTML DOM manipulation of WebAdmin UI
 *   Any markup placed within HTML `body` section will have no effect since the `iframe` element is hidden from WebAdmin view
+
+Notice the use of relative URL to load additional script in above snippet. According to [plugin descriptor](#Plugin_descriptor), the host page resides in `/ovirt-engine/webadmin/plugin/ExamplePlugin` URL context. From this context, we can refer to plugin resource files directly using relative paths.
 
 ### Why load plugins via iframe element?
 
@@ -300,7 +304,7 @@ Registers the event handler object, i.e. object containing [event handler functi
     api.register({
         UiInit: function() {
             api.addSubTab('Host', 'Special Host Tab', 'special-host-tab',
-                '/ovirt-engine/webadmin/plugin/ExamplePlugin/special-tab.html');
+                'plugin/ExamplePlugin/special-tab.html');
             api.setTabAccessible('special-host-tab', false);
         },
         HostSelectionChange: function() {
@@ -371,10 +375,10 @@ Adds new main tab with content provided from given URL. All arguments are requir
 <!-- -->
 
     api.addMainTab('Custom Tab One', 'custom-tab-one',
-        '/ovirt-engine/webadmin/plugin/ExamplePlugin/one.html'
+        'plugin/ExamplePlugin/one.html'
     );
     api.addMainTab('Custom Tab Two, 'custom-tab-two',
-        '/ovirt-engine/webadmin/plugin/ExamplePlugin/two.html',
+        'plugin/ExamplePlugin/two.html',
         {
             alignRight: true
         }
@@ -391,10 +395,10 @@ Adds new main tab with content provided from given URL. All arguments are requir
 Adds new sub tab with content provided from given URL. All arguments are required except for `options`. Semantics of `label`, `historyToken`, `contentUrl` and `options` are identical to ones declared by `addMainTab` function. The `entityTypeName` identifies existing main tab to which the newly added sub tab should be associated (only standard main tabs are supported). Refer to [entity types](#Entity_type_reference) for details on supported entity names.
 
     api.addSubTab('Host', 'Custom Host Tab One', 'custom-host-tab-one',
-        '/ovirt-engine/webadmin/plugin/ExamplePlugin/host-one.html'
+        'plugin/ExamplePlugin/host-one.html'
     );
     api.addSubTab('Host', 'Custom Host Tab Two, 'custom-host-tab-two',
-        '/ovirt-engine/webadmin/plugin/ExamplePlugin/host-two.html',
+        'plugin/ExamplePlugin/host-two.html',
         {
             alignRight: true
         }
@@ -408,7 +412,7 @@ Adds new sub tab with content provided from given URL. All arguments are require
 Updates the content URL of given (main or sub) tab. Semantics of `historyToken` and `contentUrl` are identical to ones declared by `addMainTab` function. The `setTabContentUrl` function works only for tabs added via plugin API.
 
     api.setTabContentUrl('custom-tab',
-        '/ovirt-engine/webadmin/plugin/ExamplePlugin/tab-content.html');
+        'plugin/ExamplePlugin/tab-content.html');
 
       setTabAccessible
 
@@ -495,11 +499,11 @@ Shows new dialog with content provided from given URL. All arguments are require
 <!-- -->
 
     api.showDialog('Custom Dialog One', 'custom-dialog-one',
-        '/ovirt-engine/webadmin/plugin/ExamplePlugin/dialog-one.html',
+        'plugin/ExamplePlugin/dialog-one.html',
         '640px', '480px'
     );
     api.showDialog('Custom Dialog Two', 'custom-dialog-two',
-        '/ovirt-engine/webadmin/plugin/ExamplePlugin/dialog-two.html',
+        'plugin/ExamplePlugin/dialog-two.html',
         '640px', '480px',
         {
             buttons: [
@@ -524,7 +528,7 @@ Shows new dialog with content provided from given URL. All arguments are require
 Updates the content URL of given dialog. Semantics of `dialogToken` and `contentUrl` are identical to ones declared by `showDialog` function. The `setDialogContentUrl` function has no effect if the given dialog is already closed. The `setDialogContentUrl` function works only for dialogs shown via plugin API.
 
     api.setDialogContentUrl('custom-dialog',
-        '/ovirt-engine/webadmin/plugin/ExamplePlugin/dialog-content.html');
+        'plugin/ExamplePlugin/dialog-content.html');
 
       closeDialog
 
@@ -651,7 +655,7 @@ Minimal plugin descriptor:
 
     {
         "name": "MinimalPlugin",
-        "url": "/ovirt-engine/webadmin/plugin/MinimalPlugin/plugin.html",
+        "url": "plugin/MinimalPlugin/plugin.html",
         "resourcePath": "minimal-resources"
     }
 

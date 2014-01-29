@@ -18,6 +18,8 @@ For Handling the above we have the process of sysprep. For guests with Windows O
 
 ## The process for sealing a Linux guest template
 
+The following is RedHat specific:
+
 1.  SSH to the VM as root
 2.  flag the system for reconfiguring
 3.  touch /.unconfigured

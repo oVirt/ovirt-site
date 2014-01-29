@@ -52,3 +52,5 @@ This means that if/when the old hostname is gone, it will not be possible anymor
 The bigger concern is with the engine's certificate. Currently, to the best of our knowledge, there is no component that actually checks this trust. But it's possible, that in some future version of one of the relevant tools - vdsm, libvirt, etc. - such a check will actually be made, and even prevent connections. If this happens, the engine might not be able to connect to the hosts, and the worst case is that they will have to be reinstalled, thus loosing all the configuration and data accumulated by then.
 
 Certificates can include an optional extension called Authority Information Access. In oVirt releases up to and including 3.2, the CA certificate included this extension, pointing at the engine hostname. In 3.3 and later, this extension is no longer included. Systems installed with 3.2 or before, and upgraded to 3.3, will still include this extension. That's why it's safer to rename such systems by running cleanup and setup again if possible.
+
+See also [Features/PKI](Features/PKI).

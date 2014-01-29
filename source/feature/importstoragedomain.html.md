@@ -66,7 +66,7 @@ We will add a new column in the storage domains table which will be called isSto
 
 There should not be changes is detach storage domain Every user with permissions to create a Storage Domain on the Data Center, will be able to import a storage domain as well.
 
-#### Future Work
+### Future Work
 
 *   Detach Stroage Domain: Eventually if the user will choose all the storage domains at once then we will detach them all at once (Need to take into consideration this message could nag the user since we might always have VMs with disks on other storage domains)
 *   Import Storage Domain : supporting importing of iSCSI storage domain will be in later phase

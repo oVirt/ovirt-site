@@ -9,6 +9,8 @@ wiki_last_updated: 2014-01-29
 
 # How to change engine host name
 
+**This procedure is obsoleted by [Changing_Engine_Hostname](Changing_Engine_Hostname) in oVirt 3.3.2**
+
 **Manual procedure to change the host name of the machine where the engine runs (in release 3.1):**
 
 *initiated in oVirt user list thread at:* <http://lists.ovirt.org/pipermail/users/2012-October/004167.html>

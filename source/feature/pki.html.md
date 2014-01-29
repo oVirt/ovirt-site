@@ -34,7 +34,7 @@ Caveats: ovirt-engine does not perform revocation check, current setup does not 
 
 Based on connection setting, the database connection can use SSL, the trusted certificate authority are the jre trusted certificate authorities at $JAVA_HOME/lib/security/cacerts.
 
-#### ovirt-egnine database fields
+#### ovirt-engine database fields
 
 Sensitive database fields are encrypted using engine certificate, it should have used own certificate but due to legacy reasons it remained the same.
 

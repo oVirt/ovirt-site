@@ -66,6 +66,8 @@ The oVirt development team is very happy to announce the general availability of
 
 This release of oVirt includes 175 bug fixes and the first release of the Backup and Restore API, which enables backup programs to integrate with oVirt.
 
+Caution: If you are installing oVirt 3.3.2 or any hypervisor requiring VDSM, it is recommended that you install the latest version of python-cpopen before beginning the oVirt installation. Run yum install python-cpopen to ensure you have the latest version.
+
 <div class="pull-right">
 [ Read the 3.3.2 release notes »](oVirt 3.3.2 release notes)
 

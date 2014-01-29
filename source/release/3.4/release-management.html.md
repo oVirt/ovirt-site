@@ -15,10 +15,12 @@ wiki_last_updated: 2014-03-27
 *' These are tentative planning dates and may change*'
 
 *   General availability: **2014-02-24**
-    -   [ oVirt 3.4 Second Test Day:](OVirt_3.4_TestDay) **\1**
+    -   [ oVirt 3.4 Third Test Day:](OVirt_3.4_TestDay) **\1**
     -   RC Build: **\1**
+    -   [ oVirt 3.4 Second Test Day:](OVirt_3.4_TestDay) **\1**
+    -   Beta 2 release: **2014-02-06**
     -   [ oVirt 3.4 Test Day:](OVirt_3.4_TestDay) **\1**
-    -   Beta release: **2014-01-20**
+    -   Beta release: **2014-01-22**
     -   Branching / Feature freeze: **2014-01-15**
     -   Alpha release: **2014-01-09**
 

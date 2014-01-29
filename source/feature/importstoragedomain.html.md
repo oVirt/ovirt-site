@@ -74,7 +74,7 @@ There should not be changes is detach storage domain Every user with permissions
 *   Nice to have: A way to choose the VMs to import to the DC (instead automatically)
 *   Mock ups will be added.
 
-#### Related Issues
+### Related Features
 
 This feature is dependent on OVF on any domain
 

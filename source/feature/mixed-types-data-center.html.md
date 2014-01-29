@@ -12,7 +12,7 @@ wiki_last_updated: 2014-02-03
 
 ### Summary
 
-As of verion 3.3, a single data center had a specific storage type and with the exception of ISO & import/export domains, all attached domains had to be from the same storage type defined in the data center. This feature removes the storage type property from the data center and allows it to contain mixed storage domains from any storage types with the exception of local domains
+Up until oVirt 3.3 every data center had a specific storage type and with the exception of ISO & import/export domains, all attached domains had to be from the same storage type. This feature removes the storage type property from the data center and allows it to contain mixed storage domains from any storage types with the exception of local domains, mixing shared and local domains will only be possible after we get rid of the storage pool concept
 
 ### Owner
 

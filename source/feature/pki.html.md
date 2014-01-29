@@ -22,9 +22,13 @@ The communication between ovirt-engine and host is performed using mutually auth
 
 Due to legacy issue, the protocol that is being used is SSLv3 and not TLS.
 
+Caveats: vdsm does not perform revocation check, current setup does not support intermediate certificates.
+
 #### ovirt-engine--SSH-->hosts
 
 ovirt-engine is capable of authenticating using its certificate public key to hosts using SSH protocol. This feature is optional for generic hosts, and mandatory during deploy post registration and upgrade of ovirt-node distribution.
+
+Caveats: ovirt-engine does not perform revocation check, current setup does not support intermediate certificates.
 
 #### ovirt-engine--SSL-->database
 
@@ -51,13 +55,19 @@ qemu is configured to use the same certificate as vdsm, which is due to legacy d
 
 During session initiation the internal engine certificate authority is sent to the spice client as trusted root so session can be established.
 
+Caveats: current setup does not support intermediate certificates.
+
 #### libvirt--SSL-->libvirt or qemu--SSL-->qemu
 
 Used for migration, mutual authentication using vdsm certificate.
 
+Caveats: current setup does not support intermediate certificates.
+
 #### ovirt-node--SSL-->ovirt-engine
 
 Used for registration protocol, the web certificate is pulled out of the SSL handshake and trusted based on fingerprint. Then SSH public key (engine certificate public key) is retrieved and installed for root user.
+
+Caveats:ovirt-node does not perform revocation check.
 
 #### log-collector--SSH-->hosts
 

@@ -71,6 +71,6 @@ In User Portal/Web Admin SPICE proxy can be disabled / enabled per VM using the 
 
 The proxy has to follow the following form: [protocol://]<host>[:port]
 
-The proxy string may be specified with a protocol:// prefix to specify alternative proxy protocols. If no protocol is specified in the proxy string or if the string doesn't match a supported one, the proxy will be treated as a HTTP proxy.
+Only the http protocol is currently supported by SPICE clients. If https is specified, the client attempts to connect to the hypervisor and thereby ignores the proxy setting.
 
 <Category:Feature> <Category:SPICE>

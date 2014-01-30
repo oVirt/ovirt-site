@@ -41,6 +41,7 @@ In addition to the maintainers, there are newer Infrastructure team members who 
 *   [Garrett Lesage](User:Garrett)
 *   [Robert Middleswarth](User:Rmiddle)
 *   [Ofer Schreiber](User:Oschreib)
+*   [Brian Proffitt](User:Bproffitt)
 
 ## How we work
 

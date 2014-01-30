@@ -52,7 +52,7 @@ To try and improve 3.4 planning over the wiki approach in 3.3, this google doc <
 *   **MUST**: Upgrade from previous release
     -   **Features/bug list:**
     -   ...
-*   **MUST**: ovirt-node full cycle (register, approve and running VM)
+*   **MUST**: ovirt-node full cycle (register, approve and running VM, reboot and verify things still work)
     -   See [Node test procedure](Node test procedure)
 *   **MUST**: No known data corruptors
     -   **Current list of data corruptors:**

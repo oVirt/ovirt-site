@@ -14,39 +14,39 @@ Fist, you have to set up your Glusterfs domain in order to have the hosts that w
 
 List your volumes:
 
-1.  gluster volume list
+      # gluster volume list
 
 Stop and delete the one you want to change. If your hosts are part of more than one volume, you may need to remove all of them to remove the peer or find a way to replace it with another.
 
-1.  gluster volume stop <Name of volume>
-2.  gluster volume delete <Name of volume>
+`# gluster volume stop `<Name of volume>
+`# gluster volume delete `<Name of volume>
 
 Now, lets list the peers enrolled and detach them to re add them with the new IP:
 
 Show the hosts that act as peers to Gluster
 
-1.  gluster peer status
+      # gluster peer status
 
 Detach every host you need to modify
 
-1.  gluster peer detach <IP of the host to modify>
+`# gluster peer detach `<IP of the host to modify>
 
 Now, lets add them back with the new IP:
 
-1.  gluster peer probe <New host's IP>
+`# gluster peer probe `<New host's IP>
 
 As we are starting over, we are going to remove any trace of the past volume, so we need to clean the directory and set labels back in place:
 
-1.  setfattr -x trusted.glusterfs.volume-id Path_to_brick
-2.  setfattr -x trusted.gfid Path_to_brick
-3.  rm -rf Path_to_brick/.glusterfs
+      # setfattr -x trusted.glusterfs.volume-id Path_to_brick
+      # setfattr -x trusted.gfid Path_to_brick
+      # rm -rf Path_to_brick/.glusterfs
 
 Also, if you already used the volume as a Glusterfs Storage Domain in Ovirt, you need to clean Ovirt's data:
 
-1.  rm -rf Path_to_brick/\*
+      # rm -rf Path_to_brick/*
 
 Now we can create the volume again (stolen from man :-) ):
 
-1.  volume create <NEW-VOLNAME> [stripe <COUNT>] [replica <COUNT>] [device vg] [transport <tcp|rdma|tcp,rdma>] <NEW-BRICK>
+      # volume create `<NEW-VOLNAME>` [stripe `<COUNT>`] [replica `<COUNT>`] [device vg] [transport `<tcp|rdma|tcp,rdma>`] `<NEW-BRICK>` 
 
 and we are clear to go. Hope this helps and as I'm no guru at Ovirt or Gluster, feel free to correct anything you think is wrong.

@@ -34,37 +34,28 @@ Allows ovirt-engine-notifier users to subscribe to events.
 
 ### Detailed Description
 
-A new 'Event subscribers' section is now available in the notifier's configuration file under
+A new 'Event Filter' section is now available in the notifier's configuration file under
 /share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf
 (It's advisable to leave that file as is and define override file[s] under etc/ovirt-engine/notifier/notifier.conf.d/) Lets take a look;
 
-      #-------------------#
-      # Event subscribers #
-      #-------------------#
-      # specifies whether to treat event lists as whitelists or blacklits by default,
-      # can be overridden per event list.
-      # -: notify on all events except for those listed in FILTER.
-      # +: notify only on events listed in FILTER.
+      #--------------#
+      # Event Filter #
+      #--------------#
+
+      # Filter logic.
       #
-      # DEFAULT_FILTER_MODE=-|+
-      DEFAULT_FILTER_MODE=-
-      # A whitespace separated events list.
-      # each element contains an event list, an optional notification method, an optional profile and
-      # an optional filter mode.
+      # First match algorithm for include/exclude messages.
+      # Entry is message|*(subscriber|*)
+      # * = all messages/all subscribers.
+      # * as a subscriber should be used only for exclude.
       #
-      # Examples:
-      # 1.) send VDC START and STOP to all notification methods using their default profiles. assumes default filter is +.
-      # FILTER="VDC_START,VDC_STOP"
+      # examples:
+      # FILTER="include:VDC_START(smtp:mail@example.com) ${FILTER}"
+      # FILTER="exclude:VDC_START include:*(smtp:mail1@gmail.com) ${FILTER}"
       #
-      # 2.) add notifications on all but 2 events to the default mail subscriber as well as to mike@example.com.
-      # MAIL_ADDRESS=admin@example.com
-      # MAIL_ADDRESS=mike@example.com
-      # FILTER="${FILTER} -DATABASE_UNREACHABLE,SYSTEM_VDS_RESTART(MAIL) -DATABASE_UNREACHABLE,SYSTEM_VDS_RESTART(MAIL:MIKE)"
-      #
-      # 3.) add a new snmp subscriber to all events using default definitions, overriding only the oid.
-      # SNMP_OID_DAVE=1.2.3.4
-      # FILTER="${FILTER} -(SNMP:DAVE)"
-      FILTER=
+      # The final filter list contains FILTER  as well as 'event_subscriber' table records.
+      # database record are considered first.
+      FILTER="exclude:*"
 
 ### Whats in a profile?
 

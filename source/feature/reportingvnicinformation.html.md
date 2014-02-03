@@ -42,7 +42,7 @@ New attributes will be added to VM nics collection /api/vms/{vm:id}/nics:
 `           `<name>`nic1`</name>
                  ...
 `           `<reported_data>
-`               `<rel="devices" href=/api/vms/{vm:id}/nics/{nic:id}/devices>
+`               `<rel="devices" href=/api/vms/{vm:id}/nics/{nic:id}/reporteddevices>
 `           `<reported_data/>
 `      `<nic/>
              ...
@@ -50,7 +50,7 @@ New attributes will be added to VM nics collection /api/vms/{vm:id}/nics:
 
 device:id = UUID.fromString(name)
 
-` `<network_device id={device:id} href=/api/vms/{vm:id}/devices/{device:id}>
+` `<network_device id={device:id} href=/api/vms/{vm:id}/reporteddevices/{device:id}>
 `       `<name>`p1p2`</name>
 `       `<description>`guest reported data`</description>
 `       `<ips>
@@ -73,7 +73,7 @@ Note that the existing IPs reported on /api/vms/{vm:id} are left intact, however
 
 A new link will be added under the VM:
 
-` `<link rel="devices" href="/api/vms/6c56bd4b-ef18-4e50-b182-277ed78e819d/devices"/>
+` `<link rel="devices" href="/api/vms/6c56bd4b-ef18-4e50-b182-277ed78e819d/reporteddevices"/>
 
 device:id = UUID.fromString(name+mac)
 

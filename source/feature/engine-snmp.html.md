@@ -47,16 +47,31 @@ This feature extends the capabilities of the ovirt-engine-notifier to send all e
       # SNMP_TRAP Notifications #
       #-------------------------#
       # Send v2c snmp notifications
-      # The default profile's whitespace separated list of IP addresses or DNS names of SNMP managers to receive SNMP traps.
-      # Can include an optional port, default is 162.
+      # Minimum SNMP configuration
+      #
+      # Create @ENGINE_ETC@/notifier/notifier.conf.d/20-snmp.conf with:
+      # SNMP_MANAGER="host"
+      # FILTERS="include:*(snmp:) ${FILTERS}"
+      # Default whitespace separated IP/DNS list with optional port, default is 162.
       # SNMP_MANAGERS=manager1.example.com manager2.example.com:164
       SNMP_MANAGERS=
-      # The default profile's Community String.
+      # Default SNMP Community String.
       SNMP_COMMUNITY=public
-      # The default profile's Object Identifier identifying ovirt engine SNMP trap messages.
+      # Default TRAP Object Identifier for alerts.
+      #
+      # iso.organization.DoD.Internet.private.enterprises.redhat.ovirt-engine.notifications.audit-log
+      # 1.3.6.1.4.1.2312.13.1.1
       SNMP_OID=1.3.6.1.4.1.2312.13.1.1
-      # 1[iso].3[organization].6[DoD].1[Internet].4[private].1[enterprises].2312[redhat].13[ovirt-engine].1[notifications].
-      # 1[audit-log]
+      #
+      # SNMP profile support
+      #
+      # Multiple SNMP profiles are supported.
+      # Specify profile settings by using _profile suffix,
+      # for example, to define a profile to sent specific
+      # message to host3, specify:
+      # SNMP_MANAGERS_profile1=host3
+      # FILTER="include:VDC_START(snmp:profile1) ${FILTER}"
+      #
 
 Notes:
 

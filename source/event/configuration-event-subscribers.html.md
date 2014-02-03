@@ -75,7 +75,7 @@ While the current list of subscribers is a union of that taken from the configur
 *   While the UI only permits subscription to a subset of selected events the configuration enables subscription to them all.
 *   While UI/DB subscribers subscribe to "event_up_name" events and get notifications on their matching "event_down_name" according to the 'event_map' table, configuration subscribers need to register to each individual event to allow better granularity.
 
-The event_map as well as the complete event list is found in the following section to ease accurate subscriptions.
+The event_map as well as the complete event list is found in the following section.
 
 ### Available Events
 

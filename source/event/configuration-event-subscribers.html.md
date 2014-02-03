@@ -41,7 +41,6 @@ A new 'Event Filter' section is now available in the notifier's configuration fi
       #--------------#
       # Event Filter #
       #--------------#
-
       # Filter logic.
       #
       # First match algorithm for include/exclude messages.

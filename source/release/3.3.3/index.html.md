@@ -24,7 +24,7 @@ For a general overview of oVirt, read [ the oVirt 3.0 feature guide](oVirt 3.0 F
 
 If you're installing oVirt 3.3.3 on a clean host you should read our [Quick Start Guide](Quick Start Guide)
 
-**IMPORTANT NOTE:** If you're upgrading from a previous version please update ovirt-release to latest version (10) and ensure you've **ovirt-3.3.2** and **ovirt-stable** repository enabled.
+**IMPORTANT NOTE:** If you're upgrading from a previous version please update ovirt-release to latest version (10) and ensure you've **ovirt-3.3.3** and **ovirt-stable** repository enabled.
 
       # yum update ovirt-release
       # yum repolist enabled

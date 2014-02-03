@@ -51,7 +51,7 @@ Now we can create the volume again (stolen from man :-) ):
 
 The last thing to do is to set uid and gid of the volume to be vdsm:kvm as when you create a volume directly from Gluster those are set to root:
 
-1.  gluster volume set glusterfs storage.owner-uid 36
-2.  gluster volume set glusterfs storage.owner-gid 36
+      # gluster volume set glusterfs storage.owner-uid 36
+      # gluster volume set glusterfs storage.owner-gid 36
 
 and we are clear to go. Hope this helps and as I'm no guru at Ovirt or Gluster, feel free to correct anything you think is wrong.

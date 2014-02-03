@@ -44,6 +44,11 @@ The disks related to this Storage Domain (Which are related to the VMs) will be 
 The VMs could run but the inactive disks will not be part of the process.The user should confirm that the OS and the boot disk is on the active disks.
 Template Disk might be on multiple Storage Domains, in case some of the Storage Domains are unattached (isStorageExists is false), then the functionality of creating a VM from this Template will be the same as a maintenance Storage Domain.
 
+##### ALERT of importing used Storage Domain
+
+The main risk of Data Corruption that can be here, is when a user will import a Storage Domain which some other setup uses.
+To avoid this kind of Data Corruption, the engine will prompt a warning message before each import of Storage Domain with Meta Data that indicate it is already attached to a Storage Pool.
+
 ##### Importing Unattached Storage Domain
 
 The user can also import an unattached Storage Domain to the Data Center, which has already disks related to it.
@@ -55,12 +60,33 @@ once we will found a match, the engine will run over the properties of the Stora
 *   The Import of an NFS Storage Domain, will be the similar from the GUI perspective of importing Export/ISO domain.
 
 The user will enter the path of the storage domain and will start the import process.
-
-*   Unrelated disks will be disabled in the GUI
+\* Unrelated disks will be disabled in the GUI
 
 ##### DB Changes
 
-We will add a new column in the storage domains table which will be called isStorageExists. When this field is false then all the images related to it will be disabled in the GUI.
+We will add a new column in the storage domains table which will be called isStorageExists.
+When this field is false then all the images related to it will be disabled in the GUI.
+
+#### Phase 3 - Import block device Storage Domain
+
+On import a Block Device Storage Domain,
+The user will need to input a Storage Server name or IP, the engine will then connect to all the LUNs in the Storage Server and will group by their VGs.
+Each VG represents a Storage Domain in the engine.
+Eventually the engine should have a map of maps.
+The first map will link between VG and targets. each target is also a map which link between the target and its LUNs.
+ Open Question: What about external LUN disk, should it be considered as a new storage domain?
+
+##### GUI Perspective
+
+*   Once the user will decide to import a Block Device Domain, it will use a similar dialog as adding iSCSI/FC Storage Domain.
+
+The user will insert a Storage Server name or IP and press connect.
+Once the engine will finish connecting to all the LUNs, the user will see a list of VG guids, when the user will mark one VG he should see at the bottom of the dialog a list of targets belongs to that VG.
+Each target will have a '+' neer it, so if the user will press it, he can see the LUNs related to it.
+\* See: Future Work
+
+Once the user finished to import the VG he chose, he should provide it a name, and the engine will read the VM's OVFs from the file (Related to OVF on any domain), and the related disks of the Data Domain.
+From that on, the same behaviour should be the same as importing from NFS as described in phase 2.
 
 ### Permissions
 
@@ -73,6 +99,7 @@ There should not be changes is detach storage domain Every user with permissions
 *   Import Storage Domain : The user will be able to send a list of paths, and the engine will import them all at once
 *   Nice to have: A way to choose the VMs to import to the DC (instead automatically)
 *   Mock ups will be added.
+*   Phase 3 GUI Perspective : The user will be also able to see the LUNs as the main entity and get to know which VG it is related to.
 
 ### Related Features
 

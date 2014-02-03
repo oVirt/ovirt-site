@@ -15,7 +15,7 @@ See also [Features/engine-snmp](Features/engine-snmp).
 
 ### Summary
 
-This feature defines a generic way of subscribing to ovirt-engine-notifier events from configuration files.
+This feature defines a generic way of subscribing to ovirt-engine-notifier events in configuration files using a simple first match include/exclude algorithm.
 
 ### Owner
 

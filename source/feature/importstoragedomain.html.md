@@ -80,12 +80,9 @@ The first map will link between VG and targets. each target is also a map which 
 
 *   Once the user will decide to import a Block Device Domain, it will use a similar dialog as adding iSCSI/FC Storage Domain.
 
-The user will insert a Storage Server name or IP and press connect.
-Once the engine will finish connecting to all the LUNs, the user will see a list of VG guids, when the user will mark one VG he should see at the bottom of the dialog a list of targets belongs to that VG.
-Each target will have a '+' neer it, so if the user will press it, he can see the LUNs related to it.
-\* See: Future Work
-
-Once the user finished to import the VG he chose, he should provide it a name, and the engine will read the VM's OVFs from the file (Related to OVF on any domain), and the related disks of the Data Domain.
+The user will use the Storage Server name or IP as an input, and the Host which will do the connect, and will press connect.
+Once the engine will finish connecting to all the LUNs, the user should see a list of targets. When he will choose one target, he should see in another tab of the dialog, the Storage names where each one of them will have a list of Luns related to them Each Storage Server name will have a '+' near it, so if the user will press it, he can see the LUNs related to it.
+ Once the user finished to import the Storage Server he chose, he should provide it a name, and the engine will read the VM's OVFs from the file (Related to OVF on any domain), and the related disks of the Data Domain.
 From that on, the same behaviour should be the same as importing from NFS as described in phase 2.
 
 ### Permissions

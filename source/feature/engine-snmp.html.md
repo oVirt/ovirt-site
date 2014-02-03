@@ -50,7 +50,7 @@ This feature extends the capabilities of the ovirt-engine-notifier to send all e
       # Minimum SNMP configuration
       #
       # Create @ENGINE_ETC@/notifier/notifier.conf.d/20-snmp.conf with:
-      # SNMP_MANAGER="host"
+      # SNMP_MANAGERS="host"
       # FILTERS="include:*(snmp:) ${FILTERS}"
       # Default whitespace separated IP/DNS list with optional port, default is 162.
       # SNMP_MANAGERS=manager1.example.com manager2.example.com:164
@@ -75,7 +75,7 @@ This feature extends the capabilities of the ovirt-engine-notifier to send all e
 
 Notes:
 
-*   At least one of (SNMP_MANAGER|MAIL_SERVER) must be properly defined in order for the notifier to run.
+*   At least one of SNMP_MANAGERS & MAIL_SERVER must be properly defined in order for the notifier to run.
 
 ### Messages
 

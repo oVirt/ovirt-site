@@ -54,4 +54,6 @@ The last thing to do is to set uid and gid of the volume to be vdsm:kvm as when 
       # gluster volume set glusterfs storage.owner-uid 36
       # gluster volume set glusterfs storage.owner-gid 36
 
-and we are clear to go. Hope this helps and as I'm no guru at Ovirt or Gluster, feel free to correct anything you think is wrong.
+I think this is also done when you hit "Optimize for virt". It's important to use this option as it sets several variables of the volume in order to have it tuned.
+
+Hope this helps and as I'm no guru at Ovirt or Gluster, feel free to correct anything you think is wrong.

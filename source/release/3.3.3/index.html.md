@@ -20,12 +20,6 @@ For a general overview of oVirt, read [ the oVirt 3.0 feature guide](oVirt 3.0 F
 
 ## Install / Upgrade from previous versions
 
-### RELEASE CANDIDATE
-
-oVirt 3.3.3 release candidate is now ready for testing. In order to install it, you need to enable ovirt-updates-testing repository.
-
-If you're going to test oVirt 3.3.3 release candidate, please add yourself to [Testing/Ovirt 3.3.3 testing](Testing/Ovirt 3.3.3 testing).
-
 ### Fedora / CentOS / RHEL
 
 If you're installing oVirt 3.3.3 on a clean host you should read our [Quick Start Guide](Quick Start Guide)

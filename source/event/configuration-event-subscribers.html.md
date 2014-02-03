@@ -30,7 +30,7 @@ This feature defines a generic way of subscribing to ovirt-engine-notifier event
 
 ### Benefit to oVirt
 
-Allows ovirt-engine-notifier users to subscribe to events using a simple first match include/exclude filter.
+Allows ovirt-engine-notifier users to subscribe to events.
 
 ### Detailed Description
 

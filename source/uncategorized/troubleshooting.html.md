@@ -100,6 +100,13 @@ Check the permissions on /var/log/vdsm/vdsm.log. The owner and group should be v
 
 ### Usage
 
+Additional error details can be found in the VDSM log in **/var/log/vdsm/vdsm.log**
+
+If vdsm logs show problems executing sudo commands, check that the /etc/sudoers file contains the group definitions created by the install process. They end with
+
+      Defaults:vdsm !requiretty
+      Defaults:vdsm !syslog
+
 ## engine-manage-domains
 
 ### Adding an IPA domain to ovirt engine

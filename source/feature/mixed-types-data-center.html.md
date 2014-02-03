@@ -12,7 +12,7 @@ wiki_last_updated: 2014-02-03
 
 ### Summary
 
-Up until oVirt 3.3 every data center had a specific storage type and with the exception of ISO & import/export domains, all attached domains had to be from the same storage type. This feature removes the storage type property from the data center and allows it to contain mixed storage domains from any storage types with the exception of local domains, mixing shared and local domains will only be possible after we get rid of the storage pool concept
+Up until oVirt 3.3 every data center had a specific storage type and all attached domains had to be from the same storage type with the exception of ISO & export domains. This feature removes most storage types from the data center and will allow the user to mix storage domains from any storage type except local domains. Mixing shared and local domains will only be possible once the storage pool concept is removed from the system
 
 ### Owner
 
@@ -28,9 +28,9 @@ Up until oVirt 3.3 every data center had a specific storage type and with the ex
 ### Limitations
 
 *   Data centers of version 3.0 can not contain mixed types (again with the exception of ISO & import/export domains) , if a block domain is the first to be attached to the data center, file domains will not be able to be attached and vice versa
-*   Gluster domains cannot be attached to data centers of version lower than 3.3
-*   Posix domains cannot be attached to data centers of version lower than 3.2
-*   Live storage migration from a block storage domain is only allowed to a destination of a block storage domain, same goes for live storage migration from file storage domain
+*   Gluster domains can only be attached to data centers with compatibility version 3.3 or higher
+*   Posix domains can only be attached to data centers with conpatibility version 3.2 or higher
+*   Live storage migration will only be supported between block domains and between file domains but not from block to file or file to block
 
 ### User Experience
 

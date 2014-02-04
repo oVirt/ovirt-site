@@ -60,16 +60,18 @@ oVirt is powered by the Open Source you know - KVM on Linux.
 </div>
 <div class="row">
 <div class="span4 pad-left pad-right-small">
-### oVirt 3.3.2 Released!
+### oVirt 3.3.3 Released!
 
-The oVirt development team is very happy to announce the general availability of oVirt 3.3.2 as of December 19th 2013.
+The oVirt development team is very happy to announce the general availability of oVirt 3.3.3 as of February 3rd 2013. This release solidifies oVirt as a leading KVM management application and open source alternative to VMware vSphere.
 
-This release of oVirt includes 175 bug fixes and the first release of the Backup and Restore API, which enables backup programs to integrate with oVirt.
+oVirt is available now for Fedora 19 and Red Hat Enterprise Linux 6.5 (or similar).
 
-Caution: If you are installing oVirt 3.3.2 or any hypervisor requiring VDSM, it is recommended that you install the latest version of python-cpopen before beginning the oVirt installation. Run yum install python-cpopen to ensure you have the latest version.
+This release of oVirt includes numerous bug fixes. See the release notes for a list of the new features and bugs fixed.
+
+A new oVirt Node build will be available soon as well.
 
 <div class="pull-right">
-[ Read the 3.3.2 release notes »](oVirt 3.3.2 release notes)
+[ Read the 3.3.3 release notes »](oVirt 3.3.3 release notes)
 
 </div>
 <div class="pull-right">

@@ -100,7 +100,7 @@ You can follow these steps to test the PPC64 support using the QEMU emulated mod
 
 <http://www.ovirt.org/Vdsm_Developers#Building_a_Vdsm_RPM>
 
-*   Install:
+*   Install (don't forget to install the faqemu hook):
 
 <http://www.ovirt.org/Vdsm_Developers#Basic_installation>
 

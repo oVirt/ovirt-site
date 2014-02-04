@@ -36,7 +36,8 @@ Allows ovirt-engine-notifier users to subscribe to events.
 
 A new 'Event Filter' section is now available in the notifier's configuration file under
 /share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf
-(It's advisable to leave that file as is and define override file[s] under etc/ovirt-engine/notifier/notifier.conf.d/) Lets take a look;
+(It's advisable to leave that file as is and define override file[s] under etc/ovirt-engine/notifier/notifier.conf.d/)
+Lets take a look;
 
       #--------------#
       # Event Filter #

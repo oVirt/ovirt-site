@@ -106,6 +106,9 @@ will upgrade to latest 3.3.
 *   For using Fedora 19 as node on 3.4 clusters you need to enable fedora-virt-preview repository ()
 *   Node
     -   Needs to be booted in permissive mode by appending: enforcing=0
+*   ovirt-engine-reports, ovirt-engine-dwh
+    -   integrated to ovirt-engine setup.
+    -   Gentoo support.
 
 ## Bugs fixed
 

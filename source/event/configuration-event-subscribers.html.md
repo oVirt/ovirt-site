@@ -57,18 +57,6 @@ Lets take a look;
       # database record are considered first.
       FILTER="exclude:*"
 
-### Whats in a profile?
-
-A profile defines a target and data associated with it. For MAIL it is simply an email address defined by MAIL_SUBSCRIBER.
-For SNMP a profile consists of SNMP_MANAGERS, SNMP_COMMUNITY and SNMP_OID (see [Features/engine-snmp](Features/engine-snmp) for additional info).
- The important thing to understand about profiles is that each one of it's settings is optional and overrides the default profile. Lets look at a simple example;
-
-      MAIL_ADDRESS=default@example.com
-      FILTER="${FILTER} -(MAIL:MATTHEW)"
-
-In the above file the MAIL profile MATTHEW is subscribed to all events while no such profile is defined
-That's not a problem thought since for MAIL as well as SNMP any missing profile definitions are taken from the default definitions.
-
 ### DB v.s Configuration
 
 While the current list of subscribers is a union of that taken from the configuration and that taken from the DB (and defined in the UI), There are a few things to note:

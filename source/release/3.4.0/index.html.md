@@ -326,6 +326,8 @@ will upgrade to latest 3.3.
  - Newly-created QoS isn't saved for network
  - Edit Host Network dialog can't be approved in clusters < 3.4
  - [RFE] Enable configuration of maximum allowed downtime during live migration per guest
+ - [RFE] Cross arch support for ovirt
+ - [RFE] PPC arch support
 
 ### VDSM
 

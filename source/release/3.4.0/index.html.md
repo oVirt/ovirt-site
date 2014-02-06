@@ -328,6 +328,8 @@ will upgrade to latest 3.3.
  - [RFE] Enable configuration of maximum allowed downtime during live migration per guest
  - [RFE] Cross arch support for ovirt
  - [RFE] PPC arch support
+ - Memory snapshot on PPC64
+ - Migration on the ppc64 platform
 
 ### VDSM
 

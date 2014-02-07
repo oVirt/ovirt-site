@@ -23,7 +23,7 @@ To find out more about features that were added in previous oVirt releases, chec
 
 oVirt 3.4.0 is still in beta.
 
-In order to install it, you need to update ovirt-release to 10.0.1 by running
+In order to install it, you need to update ovirt-release to 10.0.1 or newer by running
 
       # yum update ovirt-release
 

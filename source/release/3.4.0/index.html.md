@@ -330,6 +330,67 @@ will upgrade to latest 3.3.
  - [RFE] PPC arch support
  - Memory snapshot on PPC64
  - Migration on the ppc64 platform
+ Fixed in oVirt 3.4.0 beta 2:
+
+* Management network VLAN tagging behaves badly
+ - [RFE] Hypervisor RHEV-H only connects to the Dell Equallogic using one connection. it is expected to do multipathing and have 4 connection to it.
+ - oVirt Node Upgrade: Support N configuration
+ - Storage connection is left in db table in case adding storage domain fails
+ - PRD34 - [RFE] Need to reclaim horizontal real estate by collapsing the tree panel
+ - Cannot read name of 'current' CD image through the REST API
+ - deleteImage task, which was started as part of snapshot creation (with save memory) roll-back remains running forever
+ - Change label for Network profiles to be more specific to VMs
+ - Add VM network icon in the Logical network dialog
+ - [engine-setup] engine-setup should detect if postgresql's shared_buffers are below active kernel.shmmax
+ - [OVIRT][ENGINE] Hot Plug CPU - Support dynamic virtual CPU allocation and deallocation
+ - [engine-backend] bad handling with code 205 response from vdsm to CopyImageVDS request in engine.log
+ - [RFE] Have ability to modify VM template - template versions
+ - [RFE] Allow domain of multiple types in a single Data Center
+ - XP VMs get virtio-scsi controller when created as a brand-new VM or from template
+ - Gluster brick sync does not work when host has multiple interfaces
+ - Setting shmmax on F19 is not enough for starting postgres
+ - [RHEVM-SETUP] - remote db configuration. rhevm-setup asks for different configuartion than the dwh & reports setups
+ - RHEVM SETUP REMOTE_DB: postgresProvisioning remains none in answer file
+ - Allow configuring Network QoS on host interfaces
+ - Not possible to power off VM that failed migration.
+ - sub-tab events in different main-tabs are being duplicated
+ - cloud-init options persistence / unification with sysprep options
+ - [notifier] MAIL_PORT=blabla does not make the app fail but it continues to send to port 25
+ - [notifier] MAIL_PORT=0 is nonsense as we are not binding but connecting to remote host
+ - [es-ES] sync option in network edit is not displayed
+ - [RFE] allow to provide a password change url on login failure when password expires
+ - [NetworkLabels] Attaching two labeled networks to a cluster result in failure of the latter
+ - QoS doesn't take effect when synchronizing network in cluster < 3.4
+ - Host with network QoS can be moved to cluster < 3.4
+ - [NetworkLabels] Detaching two labeled networks from a cluster result in failure of the latter
+ - [NetworkLabels] Host nics labels are being deleted when setup networks api is called
+ - [NetworkLabels] Missing 'Edit network' button on labeled networks which are attached to a nic in 'setup networks' dialog
+ - Events are being pulled from audit_log in a very inefficient way
+ - VDSM < 3.4 reporting QoS in 3.4 cluster produces ClassCastException
+ - RHEV 3.2 RHEV-M "Enforcing" typo in host reboot log message
+ - Updating a network on nic via 3.0 api fails
+ - Cannot update comment for VM in user portal
+ - Cannot create VM snapshot, dialog does not load
+ - duplicate commit button for snapshots
+ - [REST] Single disk snapshot fails without specifying storage domain
+ - Assigning a role to a user fails with an SQL error
+ - Some properties not persisted during Clone of VM Snapshot
+ - multiple storage domains - edit dialog always resets type to Shared
+ - engine-managed-domains - typos in usage report
+ - [engine] Files created on stateless vm are retained after powering off and back on
+ - Misaligned Host Network QoS columns on Chrome
+ - Templates are being pulled from template view in a very inefficient way
+ - Extend important limits to their hard limit
+ - Host network QOS get a null value if you cancel the creation of new Network QOS
+ - Unneeded line in Profiles subtab when creating the new network
+ - Do not override httpd ssl.conf and root on upgrade
+ - Port mirroring should be greyed out of VNIC profiles of networks imported/created in Neutron
+ - Neutron labels should be invisible for the Host NICs
+ - vdc_options - set version correctly
+ - [oVirt] NPE in update vm/template
+ - One display seen on a multi-monitor guest after rhev 3.0 to 3.2 migration
+ - Change NIC type from sPAPR VLAN to any other type causes error when starting the VM (PPC)
+ - [AIO] support RFC2317 reverse DNS lookup
 
 ### VDSM
 

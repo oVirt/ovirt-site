@@ -193,7 +193,13 @@ Speaking about the command grouping in function definitions using *{ ...; }*: If
 
 ##### Function names
 
-Function names should be all *lowercase* and have a good name. The function names should be human readable ones. A function named *f1* may be easy and quick to write down, but for debugging and especially for other people, it will tell nothing. Good names help to document the code without using extra comments. A more or less funny one: If not intended to do so, \*\*do not name your functions like common commands\*\*, typically new users tend to name their scripts or functions *test*, which collides with the UNIX *test* command! Unless absolutely necessary, only use alphanumeric characters and the underscore for function names. */bin/ls* is a valid function name in Bash, but it only makes limited sense.
+Function names should be all *lowercase* and have a good name. The function names should be human readable ones.
+
+A function named *f1* may be easy and quick to write down, but for debugging and especially for other people, it will tell nothing. Good names help to document the code without using extra comments.
+
+A more or less funny one: If not intended to do so, **do not name your functions like common commands**, typically new users tend to name their scripts or functions *test*, which collides with the UNIX *test* command!
+
+Unless absolutely necessary, only use alphanumeric characters and the underscore for function names. */bin/ls* is a valid function name in Bash, but it only makes limited sense.
 
 ##### Function parameters
 

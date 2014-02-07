@@ -292,3 +292,5 @@ If you can imagine a reason where you script is going to be executed on a machin
 # Other Coding style guidelines
 
 *   <http://www.opensolaris.org/os/project/shell/shellstyle/>
+
+<Category:Infrastructure>

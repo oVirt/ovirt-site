@@ -109,6 +109,7 @@ will upgrade to latest 3.3.
 *   ovirt-engine-reports, ovirt-engine-dwh
     -   integrated to ovirt-engine setup.
     -   Gentoo support.
+*   engine-setup: upgrade from 3.3 overwrites exports with acl None ()
 
 ## Bugs fixed
 

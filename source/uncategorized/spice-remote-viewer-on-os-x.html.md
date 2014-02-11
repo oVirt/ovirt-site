@@ -14,7 +14,7 @@ To be able to see your virtual machine´s console from OS X, you need to install
 
 [RemoteViewer-0.5.7 for OS X](http://people.freedesktop.org/~teuf/spice-gtk-osx/dmg/0.5.7/RemoteViewer-0.5.7-1.dmg)
 
-Double-click to mount and open the ".dmg"-file that´s been saved down to your Downloads folder (if you didn´t explicitly choose to save it to somewhere else) and click-and-drag the RemoteViewer application into your Applications folder.
+Double-click to mount and open the ".dmg" file that´s been saved down to your Downloads folder (if you didn´t explicitly choose to save it to somewhere else) and click-and-drag the RemoteViewer application into your Applications folder.
 
 Then, logged into oVirt Webadmin or Userportal, click on a VM, then click for console. The browser will probably at first block pop-ups, which you´ll need to allow. Then click for console again and download the generated ”console.vv” file (again, by default to your Downloads folder).
 

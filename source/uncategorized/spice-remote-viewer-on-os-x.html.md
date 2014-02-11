@@ -18,7 +18,7 @@ Double-click to mount and open the ".dmg" file that´s been saved down to your D
 
 Then, logged into oVirt Webadmin or Userportal, click on a VM, then click for console. The browser will probably at first block pop-ups, which you´ll need to allow. Then click for console again and download the generated ”console.vv” file (again, by default to your Downloads folder).
 
-Now you need to start the "Terminal" application. Click the blue Spotlight icon at the top right, type in "Terminal" and hit enter. Once the Terminal is started, you type in:
+Now you need to start the "Terminal" application. Click on the Spotlight icon at the top right, type in "Terminal" and hit enter. Once the Terminal is started, you type in:
 
 |-----------------------------------------------------------------------------------|
 | $ /Applications/RemoteViewer.app/Contents/MacOS/RemoteViewer Downloads/console.vv |

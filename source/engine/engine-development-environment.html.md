@@ -94,14 +94,15 @@ Make sure openjdk is the java preferred:
 Based on your distribution it may be that you require to initialize the database.
 
       Fedora: # postgresql-setup initdb
+      RHEL:   # /etc/init.d/postgresql initdb
       Gentoo: # emerge --config postgresql-server
 
 Configure PostgreSQL to accept network connection by locating `pg_hba.conf` file, locations includes:
 
-|--------|--------------------------------------|
-| Fedora | /var/lib/pgsql/data/pg_hba.conf     |
-| Debian | /etc/postgresql/\*/main/pg_hba.conf |
-| Gentoo | /etc/postgresql-\*/pg_hba.conf      |
+|-------------|--------------------------------------|
+| Fedora,RHEL | /var/lib/pgsql/data/pg_hba.conf     |
+| Debian      | /etc/postgresql/\*/main/pg_hba.conf |
+| Gentoo      | /etc/postgresql-\*/pg_hba.conf      |
 
 Locate: 127.0.0.1/32 and ::1/128 and allow "password" authentication for IPv4 and IPv6 connections.
 

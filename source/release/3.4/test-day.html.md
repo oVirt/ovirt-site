@@ -46,7 +46,7 @@ then enable also fedora-virt-preview repo repository.
 *   guest agent rpms are available on <http://evilissimo.fedorapeople.org/repos/ovirt-guest-agent/ovirt-3.4/beta1/>
 *   the following oVirt Node ISO (based on CentOS 6.5 and oVirt 3.4 components) can be used for the Test Day. **Important: You need to append enforcing=0 to the kernel when booting the ISO to prevent SELinux denials**
 
-[`http://fedorapeople.org/~fabiand/node/3.0.4/ovirt-node-iso-3.0.4-1.0.201401291204.vdsm.el6.iso`](http://fedorapeople.org/~fabiand/node/3.0.4/ovirt-node-iso-3.0.4-1.0.201401291204.vdsm.el6.iso)
+[`http://fedorapeople.org/~fabiand/node/3.0.4/ovirt-node-iso-3.0.4-1.0.201401291204.vdsm34.el6.iso`](http://fedorapeople.org/~fabiand/node/3.0.4/ovirt-node-iso-3.0.4-1.0.201401291204.vdsm34.el6.iso)
 
 ### Known issues
 

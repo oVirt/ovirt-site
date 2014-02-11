@@ -52,7 +52,7 @@ Create `/etc/yum.repos.d/ovirt-nightly.repo`, replace `@distro@` with `fedora` f
 
       # yum install jboss-as
 
-###### rhel
+###### RHEL
 
 Option 1, setup jboss channel, and install downstream jboss, JBOSS_HOME will be /usr/share/jbossas.
 

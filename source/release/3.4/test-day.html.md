@@ -50,7 +50,7 @@ then enable also fedora-virt-preview repo repository.
 
 ### Known issues
 
-*   A Fedora 19 node goes to "non operational" state with the error "Host IPADDRESS is compatible with versions (3.0,3.1,3.2,3.3) and cannot join Cluster Default which is set to version 3.4.". The recommended fix is to enable the fedora-virt-preview repo, delivered with the ovirt-release , and to update libvirt from it. ({{BZ|1056918||)
+*   A Fedora 19 node goes to "non operational" state with the error "Host IPADDRESS is compatible with versions (3.0,3.1,3.2,3.3) and cannot join Cluster Default which is set to version 3.4.". The recommended fix is to enable the fedora-virt-preview repo, delivered with the ovirt-release , and to update libvirt from it. ()
 *   Node
     -   Needs to be booted in permissive mode to prevent SELinux denials. Workaround: Append `enforcing=0` to the kernel on boot
 

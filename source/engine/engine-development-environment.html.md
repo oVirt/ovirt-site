@@ -48,7 +48,7 @@ Create `/etc/yum.repos.d/ovirt-nightly.repo`, replace `@distro@` with `fedora` f
           m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
           unzip
 
-###### fedora
+###### Fedora
 
       # yum install jboss-as
 

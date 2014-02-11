@@ -10,7 +10,7 @@ wiki_last_updated: 2014-02-11
 
 ## How to install and use RemoteViewer on OS X.
 
-To be able to see your virtual machine´s console in OS X, you need to install a small application called RemoteViewer. Start by downloading:
+To be able to see your virtual machine´s console from OS X, you need to install a small application called RemoteViewer. Start by downloading:
 
 [RemoteViewer-0.5.7 for OS X](http://people.freedesktop.org/~teuf/spice-gtk-osx/dmg/0.5.7/RemoteViewer-0.5.7-1.dmg)
 

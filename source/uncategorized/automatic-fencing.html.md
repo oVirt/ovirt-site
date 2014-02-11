@@ -90,6 +90,16 @@ I used following scenario to test SSH Soft Fencing for hosts without PM configur
     4.  Stop VDSM on selected host
     5.  After a few minutes SSH Soft Fencing command will be executed, but the host will remain Non Responsive
 
+# Automatic Fencing in oVirt 3.5
+
+*It's only proposal, not yet finalized!*
+
+Automatic fencing flow will be extended in oVirt 3.5:
+
+1.  SSH Soft Fencing can be turned on/off for each host in Power Management tab in Add/Edit host dialog
+2.  SSH Soft Fencing will be turned on by default. *Will it be beneficial to set default per cluster/DC, so admin won't be forced to set it on each host?*
+3.  Support for fence_kdump will be included (more details in [Fence kdump](Fence kdump))
+
 # Troubleshooting
 
 Check that you can run the fence agent from the command line. Use the fence script that corresponds with the fence type you are setting up.

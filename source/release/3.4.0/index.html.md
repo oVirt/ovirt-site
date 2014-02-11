@@ -19,7 +19,7 @@ To find out more about features that were added in previous oVirt releases, chec
 
 ## Install / Upgrade from previous versions
 
-### BETA RELEASE
+### SECOND BETA RELEASE
 
 oVirt 3.4.0 is still in beta.
 
@@ -98,17 +98,17 @@ will upgrade to latest 3.3.
 
 ## What's New in 3.4.0?
 
-## Known issues
-
-*   EL >= 6.5 or cloud-init >= 0.7.2 are needed for cloud-init feature support ()
-*   On Fedora 19 with recent versions of PostgreSQL it may be necessary to manually change kernel.shmmax settings ()
-*   all-in-one is not currently working due to issues in SDK and setup. Workaround - use the package ovirt-engine-sdk from the repo ovirt-nightly, and fedora-virt-preview as in the next item
-*   For using Fedora 19 as node on 3.4 clusters you need to enable fedora-virt-preview repository ()
-*   Node
-    -   Needs to be booted in permissive mode by appending: enforcing=0
 *   ovirt-engine-reports, ovirt-engine-dwh
     -   integrated to ovirt-engine setup.
     -   Gentoo support.
+
+## Known issues
+
+*   EL >= 6.5 or cloud-init >= 0.7.2 are needed for cloud-init feature support ()
+*   all-in-one requiures fedora-virt-preview repo as in the next item
+*   For using Fedora 19 as node on 3.4 clusters you need to enable fedora-virt-preview repository ()
+*   Node
+    -   Needs to be booted in permissive mode by appending: enforcing=0
 *   engine-setup: upgrade from 3.3 overwrites exports with acl None ()
 
 ## Bugs fixed

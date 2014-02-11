@@ -46,7 +46,19 @@ Create `/etc/yum.repos.d/ovirt-nightly.repo`, replace `@distro@` with `fedora` f
 
       # yum install git java-devel maven openssl postgresql-server \
           m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
-          jboss-as unzip
+          unzip
+
+###### fedora
+
+      # yum install jboss-as
+
+###### rhel
+
+Option 1, setup jboss channel, and install downstream jboss, JBOSS_HOME will be /usr/share/jbossas.
+
+      # yum install jbossas-standalone jbossas-bundles jbossas-modules-eap
+
+Option 2, setup jboss upstream, download jboss-as-7.1.1 from [jboss site](http://www.jboss.org/jbossas/downloads/) and extract to $HOME. JBOSS_HOME will be ${HOME}/jboss-as-<version>...
 
 ##### Install ovirt packages
 

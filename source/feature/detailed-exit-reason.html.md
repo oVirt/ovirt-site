@@ -31,6 +31,8 @@ Implementation vor VDSM and Engine in progress, patches posted on gerrit. See be
 
 #### Webadmin/Power User Portal
 
+No user-visible change.
+
 #### REST API
 
 Not affected.

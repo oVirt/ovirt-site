@@ -40,7 +40,10 @@ Now, I've bought some new servers, and decided to install RHEL7 hosts on them. I
 
 But hey... I have a new cool feature called hot-plug RAM, which is highly relevant for me, so I'd like to leverage that in my cluster. So I go to the cluster properties, selecting to enable the Hot-Plug RAM feature. I get a warning "note that hot-plug RAM isn't supported on some hosts in the cluster. Enabling that will make these hosts non-operational"... My options are:
 
-1. Create a new 3.5 cluster, adding these hosts to this cluster 2. Upgrade my other hosts to RHEL7 Well... that's not perfect, as I really wouldn't want to have hosts as non-operational, but on the other hand, my options before this feature was just to wait for cluster level 3.6 to be introduced, and only then to leverage the new RHEL features
+1.  Create a new 3.5 cluster, adding these hosts to this cluster
+2.  Upgrade my other hosts to RHEL7
+
+Well... that's not perfect, as I really wouldn't want to have hosts as non-operational, but on the other hand, my options before this feature was just to wait for cluster level 3.6 to be introduced, and only then to leverage the new RHEL features
 
 So, this feature allows oVirt as a project to support new features, without the need to create a new cluster level for each and every new feature that's added to the engine / hosts. So one would ask - what's cluster level good for?
 

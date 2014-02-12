@@ -49,11 +49,11 @@ You can also join oVirt users mailing list, where quality assurance-related topi
 
 ## Next releases
 
-*   3.3.3:
-    -   Tracker: oVirt 3.3.3 release
+*   3.3.4:
+    -   Tracker: oVirt 3.3.4 release
 
-    -   [oVirt 3.3.3 release notes](OVirt_3.3.3_release_notes)
-    -   [oVirt 3.3.3 testing](Testing/Ovirt_3.3.3_testing)
+    -   [oVirt 3.3.4 release notes](OVirt_3.3.4_release_notes)
+    -   [oVirt 3.3.4 testing](Testing/Ovirt_3.3.4_testing)
 
 *   3.3.z:
     -   [OVirt_3.3.z_release-management](OVirt_3.3.z_release-management)

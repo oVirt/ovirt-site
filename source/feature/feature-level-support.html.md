@@ -43,11 +43,11 @@ But hey... I have a new cool feature called hot-plug RAM, which is highly releva
 1.  Create a new 3.5 cluster, adding these hosts to this cluster
 2.  Upgrade my other hosts to RHEL7
 
-Well... that's not perfect, as I really wouldn't want to have hosts as non-operational, but on the other hand, my options before this feature was just to wait for cluster level 3.6 to be introduced, and only then to leverage the new RHEL features
+So, instead of having to wait for cluster level 3.6 to be introduced, and only then to leverage the new RHEL features, I can do that now using one of the alternatives above.
 
-So, this feature allows oVirt as a project to support new features, without the need to create a new cluster level for each and every new feature that's added to the engine / hosts. So one would ask - what's cluster level good for?
+This feature allows oVirt as a project to support new features, without the need to create a new cluster level for each and every new feature that's added to the engine / hosts. So one would ask - what's cluster level good for?
 
-Some will say it isn't good for anything... but IMO it gathers a set of tested functionality, i.e. all these features were tested together and they work in cluster level X. Want to use a new exciting feature Z? Go ahead and enable that... it might have been tested heavily, or might not, but you can use it. When we advance to cluster level X+0.1 it will probably be on all the time, and tested with other features that are available in cluster level X+0.1.
+It gathers a set of tested functionality, i.e. all these features were tested together and they work in cluster level X. Want to use a new exciting feature Z? Go ahead and enable that... it might have been tested heavily, or might not, but you can enable it and start using it. When we introduce cluster level X+0.1 it will be on all the time, and tested with other features that are available in this cluster level.
 
 Confused? If so I hope that the next section will help put some order in the details.
 

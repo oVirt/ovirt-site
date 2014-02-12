@@ -138,6 +138,7 @@ The specific values means:
 | vncKeyboardLayout         | VNC specific keyboard layout                 | Y        |       | N             |       |
 | tunnelMigration           | use libvirt-to-libvirt communication         | N        |       | N             |       |
 | migrationDowntime         | max downtime during migration                | Y        |       | N             |       |
+| watchdog                  | consists of model and action                 | Y        |       | N             |       |
 
 ### Entities' Details
 

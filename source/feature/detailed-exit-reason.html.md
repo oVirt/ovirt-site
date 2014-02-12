@@ -33,10 +33,7 @@ Implementation vor VDSM and Engine in progress, patches posted on gerrit. See be
 
 #### REST API
 
-Need new element suspend_type of following resources:
-
-*   Virtual machine
-*   Template
+Not affected.
 
 #### VDSM
 

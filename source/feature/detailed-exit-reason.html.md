@@ -29,6 +29,15 @@ Implementation vor VDSM and Engine in progress, patches posted on gerrit. See be
 
 ### Detailed Description
 
+This change is transparent to the user because will only affect the VDSM <=> engine communication. User will notice only indirectly through more precise reporting and better behaviour in general.
+
+Backward and forward compatibility must be ensured:
+
+*   updated engines must to deal properly with not-updated VDSMs and
+*   updated VDSMs must deal properly with not-updated engines.
+
+since the communication between VDSM and engine happens through XML-RPC, not-updated engines will just discard the extra field. In the case of an updated engine dealing with an old, not updated, VDSM, the missing field will be filled with a placeholder value with 'Value Unknown' semantics. In this case the engine must not rely internally on the value of the new field and must behave as before.
+
 #### Webadmin/Power User Portal
 
 No user-visible change.

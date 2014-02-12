@@ -40,6 +40,8 @@ Need new element suspend_type of following resources:
 
 #### VDSM
 
+change: <http://gerrit.ovirt.org/#/c/22631/> relevant bugzillas: <https://bugzilla.redhat.com/show_bug.cgi?id=557125>
+
 ### Documentation / External references
 
 <Category:Feature>

@@ -137,6 +137,7 @@ The specific values means:
 | is_disabled              | disabled-template (for templates only)       | Y        |       | N             |       |
 | vncKeyboardLayout         | VNC specific keyboard layout                 | Y        |       | N             |       |
 | tunnelMigration           | use libvirt-to-libvirt communication         | N        |       | N             |       |
+| migrationDowntime         | max downtime during migration                | Y        |       | N             |       |
 
 ### Entities' Details
 

@@ -13,6 +13,7 @@ wiki_last_updated: 2014-02-20
 ### Summary
 
 *   Add a detailed exit code on VDSM ExitedVmStats to represent the reason why a VM was shut down, either normally or because of an error.
+*   The new field will be called exitReason and will be an enumeration with errno-like semantics.
 *   Update engine to fetch and use this new value internally.
 *   The benefit for the engine is better reporting and better view of the status of the VM.
 

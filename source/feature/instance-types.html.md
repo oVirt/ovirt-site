@@ -131,7 +131,7 @@ The specific values means:
 | network interface         | binding of NIC to logical network            | N        |       | N             |       |
 | instance_type_id        | internal. link to vm's instance type         | N        |       | N             |       |
 | image_type_id           | internal. link to vm's image type            | N        |       | N             |       |
-| host_cpu_flags          | use host cpu flags                           | N        |       | N             |       |
+| host_cpu_flags          | use host cpu flags                           | Y        |       | N             |       |
 | db_generation            | internal                                     | N        |       | N             |       |
 | is_delete_protected     | protection from accidental deletion          | Y        |       | N             |       |
 | is_disabled              | disabled-template (for templates only)       | Y        |       | N             |       |

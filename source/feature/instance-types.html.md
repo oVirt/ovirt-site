@@ -125,7 +125,7 @@ The specific values means:
 | cpu_pinning              | cpu pinning                                  | N        |       | N             |       |
 | is_smartcard_enabled    | smartcard enabled                            | Y        |       | N             |       |
 | payload                   | payload (device, not in vm_static)          | Y        |       | N             |       |
-| thin/clone                |                                              | Y        |       | N             |       |
+| thin/clone                |                                              | N        |       | N             |       |
 | soundcard                 | payload (device, not in vm_static)          | N        |       | N             |       |
 | Balloon                   | payload (device, not in vm_static)          | N        |       | N             |       |
 | network interface         | binding of NIC to logical network            | N        |       | N             |       |

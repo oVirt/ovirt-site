@@ -30,7 +30,7 @@ Today, enforcement of the hosts in the cluster is set using a cluster level sett
 
 Allowing administrators to better utilize and customize their oVirt infrastructure to fir their needs, using cutting-edge features in their hypervisors.
 
-### Solution / How we solve the issue?
+### Solution / How do we tackle the issue?
 
 The feature level support functionality comes to solve this by adding another level of granularity. Instead of looking only at the cluster level, we will also look at the feature set supported on the hosts, allowing the administrator to select features that he would like to use in this cluster.
 

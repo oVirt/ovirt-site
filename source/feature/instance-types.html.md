@@ -139,6 +139,7 @@ The specific values means:
 | tunnelMigration           | use libvirt-to-libvirt communication         | N        |       | N             |       |
 | migrationDowntime         | max downtime during migration                | Y        |       | N             |       |
 | watchdog                  | consists of model and action                 | Y        |       | N             |       |
+| sso method                | none or guest agent                          | Y        |       | N             |       |
 
 ### Entities' Details
 

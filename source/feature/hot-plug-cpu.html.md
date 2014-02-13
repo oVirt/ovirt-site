@@ -69,6 +69,12 @@ If we returned with no error, the new number of CPUs is stored into db. The engi
 A pre-condition for adding more CPUs is that a VM has a MAX_VCPUS set in its xml. this means we have to start the VM with some configured maximum. this number doesn't affect any reosurce allocation on the VM itself. Till today the MAX_VCPUS was equal to the number of CPUs the VM started with. So its impossible to hot plug more CPUs
 to machines that started < 3.4 (i.e setup upgraded and the machines stayed UP)
 
+pseudo-code for building a VM xml we send to VDSM
+
+      if (hot plug is supported for this compat version) {
+          smp = ConfigValues.MaxNumOfVmCpus
+      }
+
 ### changes
 
 | Component       | requirement                                                                                                         | completed                                                    |

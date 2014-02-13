@@ -21,7 +21,8 @@ This feature will allow to hot plug cpus to a running VM from ovirt engine UI an
 
 ### Current status
 
-*   1st draft of wiki and VDSM code
+*   1st phase - Done
+*   limitations: unplug isn't supported fully due to libvirt's bug [#1017858](https://bugzilla.redhat.com/show_bug.cgi?id=1017858#c11)
 *   Last updated: ,
 
 ### Detailed Description
@@ -36,19 +37,51 @@ this feature will enable this powerful use cases:
 *   allow utilizing spare hardware - its common to see systems overdimentioned x3 for an average max load
 *   allow dynamically to scale vertically, down or up, a system hardware according to needs \*without restarting\* the VM
 
+### Detailed Design
+
+#### Client Usage
+
+The term plug/unplug CPUs is simpler from the user POV. The user just needs to set the desired number of sockets he needs. I.e we support a number which is the multiplication of the Cores per sockets and sockets.
+
+All of this means that the user can now simply change the number of sockets of a running VM while its status is UP. This would trigger a call to VDSM to setNumberOfCpus(vmId, num). there is no notion of plug/unplug.
+
+##### UI
+
+See that "Sockets" text input is editable while the VM is UP (its editable only when UP or DOWN statuses)
+
+![](Hotplug-cpu-gui.png "Hotplug-cpu-gui.png")
+
+##### REST
+
+This is a typical update to a VM resource. The number of sockets is changed to 2. this will hotplug 1 more CPU to the machine.
+
+      hotplug-cpu.xml
+`  `<vm><cpu><topology sockets="2" cores="1"></topology></cpu></vm>
+
+        curl -X PUT --user user@domain:pass -H "Content-Type:application/xml" -d@hotplug-cpu.xml  `[`http://localhost:8080/ovirt-engine/api/vms/`](http://localhost:8080/ovirt-engine/api/vms/)`${vmId}
+
+#### Engine
+
+Engine must allow updates to the number of sockets field while the VM is up. When calling the UpdateVmCommand, we will check
+if the current number is different then the stored number of sockets. if it is we then call VDSM setNumberOfCpus(vmId, num).
+If we returned with no error, the new number of CPUs is stored into db. The engine view of the actual vCpus of this machine is now syncronized.
+
+A pre-condition for adding more CPUs is that a VM has a MAX_VCPUS set in its xml. this means we have to start the VM with some configured maximum. this number doesn't affect any reosurce allocation on the VM itself. Till today the MAX_VCPUS was equal to the number of CPUs the VM started with. So its impossible to hot plug more CPUs
+to machines that started < 3.4 (i.e setup upgraded and the machines stayed UP)
+
 ### changes
 
-| Component       | requirement                                                                                                                       | completed                                                    |
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
-| Engine          | UpdateVmCommand permits number of cpus change while VM is running                                                                 | Done                                                         |
-| Engine          | UpdateVmCommand canDo fail if # of cpus is not supported on host (config value?, get the actual number from caps?)               | 0                                                            |
-| Engine          | UpdateVmCommand send setNumberOfCpus verb when cpus changes                                                                       | Done                                                         |
-| Engine          | UpdateVmCommand stores the new number of CPUs only if the call to setNumberOfCpus succeeded                                       | Done                                                         |
-| Engine - osinfo | create configuration for plug/unplug                                                                                              | not clear which OSs we block/allow - PPC is blocked entirely |
-| Engine          | create informative Audit log when setNumberOfCpus fails                                                                           | Done                                                         |
-| VDSM            | create one new verb 'setNumberOfCpus'. it would be used for both plug/unplug cpus (its really "online" a cpu rather than hotplug) | Done                                                         |
-| VDSM            | in vm.py, bind the verb to an underling call to libvirt's setVcpus                                                                | Done                                                         |
-| VDSM            | call before/after hooks for plug/unplug to enable various method for onlining the CPU at the guest OS                             | Done                                                         |
+| Component       | requirement                                                                                                         | completed                                                    |
+|-----------------|---------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| Engine          | UpdateVmCommand permits number of cpus change while VM is running                                                   | Done                                                         |
+| Engine          | UpdateVmCommand canDo fail if # of cpus is not supported on host (config value?, get the actual number from caps?) | 0                                                            |
+| Engine          | UpdateVmCommand send setNumberOfCpus verb when cpus changes                                                         | Done                                                         |
+| Engine          | UpdateVmCommand stores the new number of CPUs only if the call to setNumberOfCpus succeeded                         | Done                                                         |
+| Engine - osinfo | create configuration for plug/unplug                                                                                | not clear which OSs we block/allow - PPC is blocked entirely |
+| Engine          | create informative Audit log when setNumberOfCpus fails                                                             | Done                                                         |
+| VDSM            | create new verb 'setNumberOfCpus'. it would be used for both plug/unplug cpus                                       | Done                                                         |
+| VDSM            | in vm.py, bind the verb to an underling call to libvirt's setVcpus                                                  | Done                                                         |
+| VDSM            | call before/after hooks for plug/unplug to enable various method for onlining the CPU at the guest OS               | Done                                                         |
 
       === check list ===
 
@@ -81,8 +114,8 @@ if we have cpu pinning for cpu 1-4 and we start the VM with 4 CPU and then we of
 
 hook support is provided to solve potential problems with online/offline the cpu after the actual addition to the VM system. Its not clear if some linux versions will have the cpu added but offline in the system so the hook is to cover the gap.
 
-      /usr/libexec/vdsm/hooks/before_set_num_of_cpu
-      /usr/libexec/vdsm/hooks/after_set_num_of_cpu
+      /usr/libexec/vdsm/hooks/before_set_num_of_cpus
+      /usr/libexec/vdsm/hooks/after_set_num_of_cpus
 
 ### Testing
 

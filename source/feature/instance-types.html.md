@@ -60,9 +60,7 @@ Typically the image is stateless, when the virtual machine is stopped all change
 **Template**
 The old template used in the oVirt until now. User will be able to combine the VM from the triple instance type, image and template.
 
-### Design
-
-The following table enumerates all the fields involved and also how they are related to the entities.
+--[TJelinek](User:TJelinek) ([talk](User talk:TJelinek)) 10:30, 13 February 2014 (GMT)== Design == The following table enumerates all the fields involved and also how they are related to the entities.
 
 The specific columns means:
 
@@ -116,8 +114,8 @@ The specific values means:
 | kernel_url               | boot params                                  | Y        |       | Y             |       |
 | kernel_params            | boot params                                  | Y        |       | Y             |       |
 | migration_support        | migration support options                    | Y        |       | N             |       |
-| userdefined_properties   | custom properties                            | Y        |       | Y             |       |
-| predefined_properties    | custom properties                            | Y        |       | Y             |       |
+| userdefined_properties   | custom properties                            | N        |       | N             |       |
+| predefined_properties    | custom properties                            | N        |       | N             |       |
 | min_allocated_mem       | memory guaranteed                            | Y        |       | N             |       |
 | child_count              | internal. for template, not in use?          | N        |       | N             |       |
 | quota_id                 | link to quota                                | Y        |       | Y             |       |
@@ -131,7 +129,7 @@ The specific values means:
 | network interface         | binding of NIC to logical network            | N        |       | N             |       |
 | instance_type_id        | internal. link to vm's instance type         | N        |       | N             |       |
 | image_type_id           | internal. link to vm's image type            | N        |       | N             |       |
-| host_cpu_flags          | use host cpu flags                           | Y        |       | N             |       |
+| host_cpu_flags          | use host cpu flags                           | N        |       | N             |       |
 | db_generation            | internal                                     | N        |       | N             |       |
 | is_delete_protected     | protection from accidental deletion          | Y        |       | N             |       |
 | is_disabled              | disabled-template (for templates only)       | Y        |       | N             |       |

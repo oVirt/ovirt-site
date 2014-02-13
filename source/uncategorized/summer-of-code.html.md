@@ -8,7 +8,13 @@ wiki_last_updated: 2015-03-24
 
 # Summer of Code
 
-For more information about Google Summer of Code please refer to the official page[1](https://developers.google.com/open-source/soc/). <iframe width="640" src="//youtube.com/embed/QVnN34YGz8s" frameborder="0" allowfullscreen="true"> </iframe>
+__FORCETOC__
+
+For more information about Google Summer of Code please refer to the official page[1](https://developers.google.com/open-source/soc/).
+
+## Google Summer of Code Video Introduction
+
+<iframe width="640" src="//youtube.com/embed/QVnN34YGz8s" frameborder="0" allowfullscreen="true"> </iframe>
 
 ## Ideas for Google Summer of Code 2014
 

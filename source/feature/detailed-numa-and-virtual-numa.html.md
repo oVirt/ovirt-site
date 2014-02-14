@@ -16,6 +16,10 @@ You may also refer to the [simple feature page](http://www.ovirt.org/Features/NU
 
 ## Get Host NUMA topology
 
+### Overview
+
+![](Get Host NUMA topology.png "Get Host NUMA topology.png")
+
 ### Engine core
 
 *   A new VDS attribute - numanodes - will be added to support this feature.

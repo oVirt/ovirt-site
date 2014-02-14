@@ -10,6 +10,8 @@ wiki_last_updated: 2014-02-20
 
 # Detailed Exit Reason
 
+WARNING: work in progress
+
 ### Summary
 
 *   Add a detailed exit code on VDSM ExitedVmStats to represent the reason why a VM was shut down, either normally or because of an error.

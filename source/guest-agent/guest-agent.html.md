@@ -30,7 +30,7 @@ Currently, Ovirt-guest-agent can run on:
 *   CentOS 6.x
 *   Fedora 16-20
 *   Ubuntu 12.04+
-*   OpenSUSE 12.x+
+*   openSUSE 12.x+
 *   Windows XP (32)
 *   Windows 7 (32/64)
 *   Windows 8.x (32/64)

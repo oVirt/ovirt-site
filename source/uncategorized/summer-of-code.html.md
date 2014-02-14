@@ -37,3 +37,13 @@ For more information about Google Summer of Code please refer to the official pa
 **Knowledge Prerequisite:** Python, libvirt/QEMU (bonus), Java/JBoss (bonus)
 
 **Mentor:** Federico Simoncelli
+
+### **Idea:** oVirt unify rpc solutions
+
+**Description:** ovirt-engine uses XMLRPC or JSONRPC for communicating with VDSM. The JSONRPC server is using JSON schema for bridging between rpc calls and existing API classes. However, the bridge is not used to bridge the XMLRPC calls to the API, resulting in duplicate code and documentaion, and never ending synchronization between the different rpc solutions. This project is about unifing the rpc solutions so all of them will use the bridge and the schema, and duplication and manual synching is avoided.
+
+**Expected results:** All rpc calls should use the bridge, and documentation and input and output types apear once and only once.
+
+**Knowledge Prerequisite:** Python
+
+**Mentor:** Nir Soffer

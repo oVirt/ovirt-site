@@ -72,11 +72,11 @@ The user will enter the path of the storage domain and will start the import pro
 
 The following UI mockups contain guidelines for the different screens and wizards related for mount domains:
 An import screen for NFS Storage Domain :
-![](ImportNFSDomain.jpeg "fig:ImportNFSDomain.jpeg")
+![](ImportNFS.jpeg "fig:ImportNFS.jpeg")
 An import screen for POSIX Storage Domain :
-![](ImportPosixDomain "fig:ImportPosixDomain")
+![](ImportPosix "fig:ImportPosix")
 An import screen for Gluster Storage Domain :
-![](ImportGlusterDomain.jpeg "fig:ImportGlusterDomain.jpeg")
+![](ImportGluster.jpeg "fig:ImportGluster.jpeg")
 
 ###### DB Changes
 

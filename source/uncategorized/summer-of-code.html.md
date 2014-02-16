@@ -47,3 +47,13 @@ For more information about Google Summer of Code please refer to the official pa
 **Knowledge Prerequisite:** Python
 
 **Mentor:** Nir Soffer
+
+### **Idea:** Gerrit add potential reviewers
+
+**Description:** When we submit a patch into Gerrit, we can't be sure sometime which reviewers will be best to add to the review. Some of us use blame on the code lines or check which contributor changed most of the module recently. I want to add the the gerrit-review an option for adding a potential reviewers to the patch I have submitted. After the contributor will submit his patch, he can use the gerrit-review to add a potential reviewers by a specific method he will choose (blame on changed code, blame on module...)
+
+**Expected results:** The user will add the potential reviewers he will think will be best to review his patch.
+
+**Knowledge Prerequisite:** Python, gerrit-review
+
+**Mentor:** Maor Lipchuk

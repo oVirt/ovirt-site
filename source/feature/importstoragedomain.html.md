@@ -96,7 +96,7 @@ The following UI mockups contain guidelines for the different screens and wizard
 
 ![](FibreChannel.png "FibreChannel.png")
 
-![](Iscsi.png "Iscsi.png")
+![](Iscsi.jpeg "Iscsi.jpeg")
 
 #### Permissions
 

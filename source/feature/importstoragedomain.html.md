@@ -92,11 +92,9 @@ The user will use the Storage Server name or IP as an input, and the Host which 
 Once the engine will finish connecting to all the LUNs, the user should see a list of targets. When he will choose one target, he should see in another tab of the dialog, the Storage Domain names where each one of them will have a list of Luns related to them Once the user finished to import the Storage Server he chose, and the engine will read the VM's OVFs from the file (Related to OVF on any domain), and the related disks of the Data Domain.
 From that on, the same behaviour should be the same as importing from NFS as described in phase 2.
 
-The following UI mockups contain guidelines for the different screens and wizards related to the block domain:
+The following UI mockups contain guidelines for the different screens and wizards related to the block domain: An import screen for Fibre Channel Storage Domain : ![](FibreChannel.png "fig:FibreChannel.png")
 
-![](FibreChannel.png "FibreChannel.png")
-
-![](Iscsi.jpeg "Iscsi.jpeg")
+An import screen for iSCSI Storage Domain : ![](Iscsi.jpeg "fig:Iscsi.jpeg")
 
 #### Permissions
 

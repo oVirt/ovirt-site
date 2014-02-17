@@ -20,7 +20,7 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 
 ## Upcoming meetings
 
-#### 2014-02-10
+#### 2014-02-24
 
 ###### Agenda
 
@@ -30,6 +30,17 @@ This page is for tracking agenda, notes, logs, and etc. about each oVirt Infrast
 *   Other business?
 
 ## Past meetings
+
+#### 2014-02-17
+
+"[Minutes](http://ovirt.org/meetings/ovirt/2014/ovirt.2014-02-17-15.11.log.html)"
+
+*   Hosting
+*   Foreman and Puppet
+*   Jenkins
+*   Release Engineering and Builds
+
+==== 2014-0
 
 #### 2014-02-03
 

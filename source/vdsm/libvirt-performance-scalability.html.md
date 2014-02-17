@@ -38,13 +38,35 @@ VDSM collects statistics about running VMs from libvirt. Those statistics are di
 
 **ACTION PENDING**: build testcase(s) and run benchmarks to have baseline data.
 
+#### General performance considerations
+
+VDSM access libvirt through an UNIX domain socket on the same host. The most influential performance factors are expected to be
+
+*   the RTT across the domain socket
+*   the amount of syscall infolved
+*   the need to access QEMU to collect data
+
+**ACTION PENDING**: run benchmarks to verify this assumption; collect data to properly weight those factors.
+
+libvirt does not have any kind of bulk API, not per-category (e.g. get the CPU stats for all the active VM) neither per-VM (e.g. get all the stats of a given VM); each sample has to be extracted individually, adding many round trips.
+
+A path to improve is to trim those round trips, but this is not trivial due to the current architecture of libvirt.
+
 #### CPU statistics
 
-WRITEME
+VDSM collects the CPU statistics using the [virDomainGetCPUStats](http://libvirt.org/html/libvirt-libvirt.html#virDomainGetCPUStats) API. (v)CPUs can be hotplug/unplug-ed at runtime, and to cope with this the API has to be flexible. In practice, this means that under the hood VDSM has to issue two calls, one to get the active CPUs ID and one to gather the actual statistics.
+
+Inside libvirt, the CPU statistics are actually collected inside the QEMU driver, but using cgroups. Interaction with QEMU monitor is not needed.
+
+**ACTION PENDING**: verify if there is a limit of concurrent access to CPU statistics. Are there any locks inside the QEMU driver?
 
 #### Network statistics
 
-WRITEME
+VDSM collects the network statistics using the [virDomainInterfaceStats](http://libvirt.org/html/libvirt-libvirt.html#virDomainInterfaceStats) API.
+
+Inside libvirt, the network statistics are collected inside the QEMU driver, but using the standard /proc/net/dev linux interface. Interaction with QEMU monitor is not needed.
+
+**ACTION PENDING**: verify if there is a limit of concurrent access to CPU statistics. Are there any locks inside the QEMU driver?
 
 #### Block layer statistics
 
@@ -59,3 +81,7 @@ The libvirt developers recommend to use a separate thread to collect block stati
 Libvirt exposes a timeout infrastructure through the [virEventAddTimeout](http://libvirt.org/html/libvirt-libvirt.html#virEventAddTimeout) API. virDomainGetBlockInfo has not yet a direct way to setup a timeout.
 
 **ACTION PENDING**: make sure the best way forward is to use the generic timeout API.
+
+#### A possible bulk API extension for libvirt
+
+WRITEME

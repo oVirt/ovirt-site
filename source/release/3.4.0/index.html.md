@@ -415,6 +415,14 @@ will upgrade to latest 3.3.
  - API: setHaMaintenanceMode command
  - vm: discover volume path from xml definition
  - vm iface statistics: never report negative rates
+ - vdsm: fix RTC offset
+ - Adding configure sanlock on force
+ - spec: vdsm pkg for EL distro must include pkla
+ - vm: do not pause during refreshVolume
+ - vm: do not pause during refreshVolume
+gluster: adopt xml changes of rebalance and remove-brick status
+gluster: interpret and use correct xml elements
+gluster: add host uuid in volume status
 
 ### ovirt-node-plugin-vdsm
 

@@ -405,6 +405,17 @@ will upgrade to latest 3.3.
 
 ### VDSM
 
+* Validate conf in configure only if not forcing overriding
+ - sp: stop all poolMonitoredDomains on disconnect
+ - vm: Update LUN size when starting a vm
+ - hsm: Fix missing MAX_DOMAINS constant
+ - fencing: stop using a deprecated command
+ - clientIF: Teardown volume path only for VDSM images
+ - API: return additional Hosted Engine information from vdsStats
+ - API: setHaMaintenanceMode command
+ - vm: discover volume path from xml definition
+ - vm iface statistics: never report negative rates
+
 ### ovirt-node-plugin-vdsm
 
 * UI: AttributeError("'module' object has no attribute 'configure_logging'",)

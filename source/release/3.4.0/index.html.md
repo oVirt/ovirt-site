@@ -442,6 +442,11 @@ will upgrade to latest 3.3.
  - Malformed libvirt XML is causing Storage Live Migration failure.
  - New VMs use display network ports outside of documented 5634 to 6166 range
  - vdsClient should provide more debug info- in case of malformed XML response
+ - Bond "speed" does not reflect the correct speed
+ - PRD34 - [RFE] vdsm does not recognize hot-plugged host interfaces
+ - vdsm should monitor bond interfaces, sub-interfaces and bridges status
+ - Size of ISO images shown in 'Images' tab of ISO Domain wrong
+ - migration_timeout not honoured, live migration goes on beyond it
 
 ### ovirt-node-plugin-vdsm
 

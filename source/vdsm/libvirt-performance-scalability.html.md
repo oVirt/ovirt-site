@@ -43,7 +43,7 @@ VDSM collects statistics about running VMs from libvirt. Those statistics are di
 VDSM access libvirt through an UNIX domain socket on the same host. The most influential performance factors are expected to be
 
 *   the RTT across the domain socket
-*   the amount of syscall infolved
+*   the amount of syscall involved
 *   the need to access QEMU to collect data
 
 **ACTION PENDING**: run benchmarks to verify this assumption; collect data to properly weight those factors.

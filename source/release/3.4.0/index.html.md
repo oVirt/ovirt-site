@@ -405,24 +405,43 @@ will upgrade to latest 3.3.
 
 ### VDSM
 
-* Validate conf in configure only if not forcing overriding
- - sp: stop all poolMonitoredDomains on disconnect
- - vm: Update LUN size when starting a vm
- - hsm: Fix missing MAX_DOMAINS constant
- - fencing: stop using a deprecated command
- - clientIF: Teardown volume path only for VDSM images
- - API: return additional Hosted Engine information from vdsStats
- - API: setHaMaintenanceMode command
- - vm: discover volume path from xml definition
- - vm iface statistics: never report negative rates
+* VM fails to start when qemu.conf's spice_tls conflicts with vdsm.conf's ssl
+ - domain monitor does not stop during disconnectStoragePool on HSM during destroyStoragePool flow on SPM
+ - Direct LUN is not being updated after resizing
+ - Failed creating storage pool - AttributeError: 'module' object has no attribute 'MAX_DOMAINS'
+ - fenceNode passes wrong argument to the fence agent
+ - [LOG][vdsm] KeyError: 'domainID' during teardownImage in power-off to VM
+ - [Hosted Engine] Unify maintenance flows
+ - Migrating between older and newer RHEV-H images leads to flood "path /rhev/data-center/mnt/blockSD/<UUID>/images/<UUID>/<UUID> not assigned to domain"
+ - do not report negative rx/tx rate when Linux counters wrap
  - vdsm: fix RTC offset
- - Adding configure sanlock on force
- - spec: vdsm pkg for EL distro must include pkla
- - vm: do not pause during refreshVolume
- - vm: do not pause during refreshVolume
-gluster: adopt xml changes of rebalance and remove-brick status
-gluster: interpret and use correct xml elements
-gluster: add host uuid in volume status
+ - sanlock not configured with no error which fails vdsm service start and fails host installation
+ - Command PollVDS execution failed
+ -vm's status is changed to pause for a short moment during volume refresh (after an extend)
+ - vdsmd not starting on first run since vdsm logs are not included in rpm
+ - netconfig: set ETHTOOL_OPTS when a NIC goes up
+ iscsid daemon not started when vdsm starts and iscsi storage not available
+ Not able to add a node to 3.4 Cluster in Ovirt 3.4 engine
+ Gluster brick sync does not work when host has multiple interfaces
+ vdsm-tool configure outputs misleading error messages although it ends successfully
+ Cloud-Init: generated config-drive CD image is world-readable
+ Default route is not set properly for management network if downstream/upstream engine and VDSM are mixed
+ failed to add ovirtmgmt bridge when the host has static ip
+ yum transaction on rhel7: reading information on service vdsmd: No such file or directory
+ vdsm-hook-nestedvt uses kvm_intel-only syntax
+ [RFE] Prevent RHEV from requiring hwaddr lines within ifcfg files
+ Can't activate a host due to /etc/sudoer configuration
+ Resource lock split brain causes VM to get paused after migration
+ vdsm-tool configure fails stopping service
+ before_device_migrate_source not being called
+ [vdsm] getStorageDomainInfo fails due to key 'info' missing from poolInfo for master domain
+ VDSM - hooks - after_update_device_fail hook fails
+Cloud-Init: meta_data.json and user_data files on config-drive are world-readable
+ stray libvirt networks make vdsm fail to recognize management network on native interface with "Network defined withoutdevices" error of setupNetworks
+ Paused VM not unpaused when vdsm is starting and storage domain is valid
+ Malformed libvirt XML is causing Storage Live Migration failure.
+ New VMs use display network ports outside of documented 5634 to 6166 range
+ vdsClient should provide more debug info- in case of malformed XML response
 
 ### ovirt-node-plugin-vdsm
 

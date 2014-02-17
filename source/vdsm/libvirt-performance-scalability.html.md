@@ -52,6 +52,10 @@ The collection of statistics can be expensive. In particular, block layer statis
 
 There are no plans yet to make virDomainGetBlockInfo optionally not blocking. This may be caused by the fact the monitor protocol is JSON based.
 
-"""ACTION PENDING""": verify if there is a path to make virDomainGetBlockInfo not-blocking.
+**ACTION PENDING**: verify if there is a path to make virDomainGetBlockInfo not-blocking.
 
-The libvirt developers recommend to use a separate thread to collect block statistics, as VDSM currnently does.
+The libvirt developers recommend to use a separate thread to collect block statistics, as VDSM currently does. The blocking behaviour of virDomainGetBlockInfo has been source of bugs. A way to improve the reporting, and to avoid VDSM to wait indefinitely on it, is to add a timeout.
+
+Libvirt exposes a timeout infrastructure through the [virEventAddTimeout](http://libvirt.org/html/libvirt-libvirt.html#virEventAddTimeout) API. virDomainGetBlockInfo has not yet a direct way to setup a timeout.
+
+**ACTION PENDING**: make sure the best way forward is to use the generic timeout API.

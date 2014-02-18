@@ -79,7 +79,8 @@ Currently, if a user has a connectivity issue regarding a network FOO on one of 
 
 1.  ovirt-engine-shell should be able to list the `brXXXXXXXXXXXXX` name per each network. A script built upon it (using grep, possibly) would be abole to map a `brXXXXXXXXXXXXX` name into the visible name of its owning network.
 2.  Make it possible to look a network up based on its vdsm_name (`brXXXXXXXXXXXXX`) in the network tab and in via the search box
-3.  Another possible remedy is to expose visible_name to the host when setting or changing a network via `setupNetwork`. The human-visible name would be persisted as comments on the local host, and would be available for inspection by debuggers.
+3.  Let users control `vdsm_name` of a network before any running VM is using it. The user may choose a more human-friendly name for the bridge.
+4.  Another possible remedy is to expose visible_name to the host when setting or changing a network via `setupNetwork`. The human-visible name would be persisted as comments on the local host, and would be available for inspection by debuggers.
 
 #### Documentation / External references
 

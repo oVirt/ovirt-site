@@ -24,4 +24,8 @@ wiki_last_updated: 2014-03-04
 
 ### ovirt-node-plugin-vdsm
 
+* UI: AttributeError("'module' object has no attribute 'configure_logging'",)
+ - engine_page: use vdsm to detect mgmt interface
+ - engine_page: display url/port only on available
+
 <Category:Documentation> <Category:Releases>

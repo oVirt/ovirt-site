@@ -8,6 +8,8 @@ wiki_last_updated: 2014-02-18
 
 # Ovirt LAF
 
+### This proposal was accepted and spawned a feature. Feature page: [Features/NewLookAndFeelPatternFlyPhase1](Features/NewLookAndFeelPatternFlyPhase1)
+
 Here are some proposals to update and freshen the Ovirt look & feel. **Your feedback to the overall style and the specific treatments of various areas/ components is invited.** The new look and feel aims to maintain the colors and spirit associated with Ovirt while updating it with a new, modern, sleek and minimal look. The minimal design allows complex screens to look cleaner and airier and lets the user focus on the data and the tasks by removing all extraneous visual elements. The use of color is very judicious and limited to where it truly adds value - Besides that, the style is cool, flat and graphic. The interactions and behaviors remain unchanged in these proposals and the scope is limited to visual updates.
 
 **Login Screen**

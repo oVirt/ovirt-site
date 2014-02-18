@@ -66,6 +66,22 @@ none
 
 <http://lists.ovirt.org/pipermail/users/2013-October/017088.html>
 
+### Implementation notes
+
+*   This feature effectively brings Bootstrap3 CSS library into ovirt-engine for full use. Bootstrap itself is not included, but PatternFly is a skinned version of Bootstrap. All Bootstrap widgets are present and usable.
+
+<!-- -->
+
+*   Adds gwtbootstrap3 library. This library adds a bootstrap-aware rendering to GWT widgets. These widgets render with minimal GWT decoration (no wrapping divs, etc.) for easier hits to bootstrap selectors. We expect to use more gwtbootstrap3 as we transition the entire application over. The net result will be cleaner HTML and more reliance on CSS to achieve desired looks.
+
+<!-- -->
+
+*   Adds PatternFly (https://www.patternfly.org/) to the project. Since we are transitioning to PatternFly in phases, this first phase requires some hacks to be stacked on top of PatternFly. patternfly-custom-hacks.css includes these. It is possible that oVirt-specific widgets (or variations of widgets) will be contributed upstream to PatternFly. **Try to keep PatternFly in mind when doing new UI work.**
+
+<!-- -->
+
+*   A new hierarchy of PatternFly-aware widgets is introduced in this commit. These extend from AbstractValidatedPatternflyWidgetWithLabel. In the final phase of implementation, it is expected that all widgets will be PatternFly-aware, and we'll have no distinction between PatternFly-aware and not aware. (In other words, for the last phase, we intend to delete the non-PatternFly tree, or otherwise merge the two trees.)
+
 ### Testing
 
 Testing involves

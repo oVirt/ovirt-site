@@ -142,13 +142,13 @@ Initial tests (incomplete)
 
 SCSI fencing requires a large amount of configuration and coordination as well as hardware support, and is relevant only for SCSI storage types. sanlock fencing can work with all shared storage types (e.g FCP, NFS, glusterfs).
 
-### Why not use fence_sanlockd?
+#### Why not use fence_sanlockd?
 
 The fence_sanlock package provides a daemon that uses its own storage volume and sanlock to create a fencing solution. However, it requires a rather large (2G) storage volume for managing the fencing leases, that need to be initialized. This would require a new version of storage pool and upgrades from older versions, and these are hard and painful.
 
 In addition, most of the infrastructure required by fence_sanlock is already available and used by vdsm and sanlock. We think that it would be much easier to have a solution based on the existing infrastructure.
 
-### Why not use VM based leases?
+#### Why not use VM based leases?
 
 If we add VM based leases, sanlock would kill those VMs when fencing a host, or when access to storage is lost. In this case, we can check that host was stopped by polling vdsm and VMs leases on the shared storage, so we can decrease the downtime of a critical VM, starting the VM on another host as soon as the VM lease is free. Additionally, these lease protect from split-brain if we have engine error cause it to start two instance of the same VM.
 
@@ -156,7 +156,7 @@ VM leases must be stored today on the master domain. However, we plan to drop th
 
 For this version, we prefer to have simpler solution.
 
-### Why not use Disk based leases?
+#### Why not use Disk based leases?
 
 Using disk based leases, we can ensure that VMs are killed when sanlock loose the host id lease, even if we don't get a reset message acknowledge. It also allow fencing in the VM level, without rebooting the machine. We would like to have such disk leases for the live-merge feature, so using disk leases seems the correct long term solution.
 
@@ -164,7 +164,7 @@ Adding disk based lease will probably required a new storage domain format, as t
 
 For this version, we prefer to have simpler solution.
 
-### Comments and Discussion
+#### Comments and Discussion
 
 *   Refer to [Talk:Sanlock Fencing](Talk:Sanlock Fencing)
 

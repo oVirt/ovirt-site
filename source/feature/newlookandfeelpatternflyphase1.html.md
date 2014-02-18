@@ -50,7 +50,9 @@ none
 
 ### Documentation / External references
 
-<https://bugzilla.redhat.com/show_bug.cgi?id=1064543> <http://lists.ovirt.org/pipermail/users/2013-October/017088.html>
+<https://bugzilla.redhat.com/show_bug.cgi?id=1064543>
+
+<http://lists.ovirt.org/pipermail/users/2013-October/017088.html>
 
 ### Testing
 

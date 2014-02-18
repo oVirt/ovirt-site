@@ -52,8 +52,13 @@ Recommended web browsers for Engine:
 
     * Internet Explorer 9 or later
 
-Advanced; install [ Engine](Building oVirt engine) and [ Node](Node Building) from source:  
-Help [ port oVirt](porting oVirt) to [Debian](http://www.debian.org), [Ubuntu](http://www.ubuntu.com), [OpenSuse](http://www.opensuse.org) and other distributions, or help [ support Chrome for the Engine](supporting Chrome)
+Advanced  
+
+    * Installing [ Engine](Building oVirt engine) and [ Node](Node Building) from source
+
+    * Experimental builds for [ Debian/Ubuntu](ovirt build on debian/ubuntu), [Gentoo](//wiki.gentoo.org/wiki/OVirt)
+
+    * Help [ port](porting oVirt) oVirt to other distributions, or help [ support Chrome for the Engine](supporting Chrome)
 
 </div>
 </div>

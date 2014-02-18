@@ -38,7 +38,27 @@ For Phase I of this project, we will apply the new look and feel to the followin
 
 ### Detailed Description
 
-The best way to describe will be to show example screens. TODO: add screens
+The best way to describe will be to show example screens.
+
+### Welcome Page
+
+![](OVirt-LAF-Welcome-Page.png "OVirt-LAF-Welcome-Page.png")
+
+### 404 Page
+
+![](OVirt-LAF-404.png "OVirt-LAF-404.png")
+
+### Login Page (web admin/user portal)
+
+![](OVirt-LAF-LoginPage.png "OVirt-LAF-LoginPage.png")
+
+### Top Banner - web admin
+
+![](OVirt-LAF-Admin-Banner-Only.png "OVirt-LAF-Admin-Banner-Only.png")
+
+### Top Banner - user portal
+
+![](OVirt-LAF-Basic-Banner-Only.png "fig:OVirt-LAF-Basic-Banner-Only.png") ![](OVirt-LAF-Extended-Banner-Only.png "fig:OVirt-LAF-Extended-Banner-Only.png")
 
 ### Benefit to oVirt
 

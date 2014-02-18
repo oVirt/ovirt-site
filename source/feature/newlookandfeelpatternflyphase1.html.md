@@ -63,7 +63,9 @@ Testing involves
 
 ### Comments and Discussion
 
-The new design was proposed on the oVirt mailing list in October, 2013. <http://lists.ovirt.org/pipermail/users/2013-October/017088.html>
+The new design was proposed on the oVirt mailing list in October, 2013.
+
+<http://lists.ovirt.org/pipermail/users/2013-October/017088.html>
 
 *   Refer to [Talk:Your feature name](Talk:Your feature name)
 

@@ -71,7 +71,7 @@ none
 Testing involves
 
 *   Regression. Make sure screens that weren't touched haven't changed at all, in look or functionality. Check font sizes, button sizes, field sizes, borders, alignment, etc.
-*   Make sure changes pages and sections match the designs and are fully functional. For example, make sure the login pages look right and function correctly.
+*   Make sure changed pages and sections match the designs and are fully functional. For example, make sure the login pages look right and function correctly.
 
 ### Comments and Discussion
 

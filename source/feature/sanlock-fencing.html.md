@@ -1,0 +1,171 @@
+---
+title: Sanlock Fencing
+category: feature
+authors: nsoffer, vered, ybronhei
+wiki_category: Feature
+wiki_title: Features/Sanlock Fencing
+wiki_revision_count: 22
+wiki_last_updated: 2014-02-26
+feature_name: Sanlock Fencing
+feature_modules: engine,vdsm
+feature_status: Design
+---
+
+# Sanlock Fencing
+
+### Summary
+
+When a host becomes non-responsive, oVirt engine tries to fence the host; detaching it from the shared storage, and hopefully making it responsive again. This feature adds a new fencing mechanism, fencing via shared storage using sanlock. Using sanlock, we can provide a simple fencing solution when a soft or hard fencing are not available or fail, avoiding manual fencing, and increasing VM availability.
+
+### Owner
+
+*   Name: [ Nir Soffer](User:Nsoffer)
+*   Email: <nsoffer@redhat.com>
+
+### Current status
+
+This feature is in design phase.
+
+*   Last updated: ,
+
+### Why another fencing mechanism?
+
+oVirt 3.4 supports 2 types of fencing; soft fencing and hard (or real) fencing. Soft fencing is implemented by logging in to the fenced host and restarting the vdsmd service. Hard fencing is implemented by fence agents, connecting to various power management devices, stopping the host, and then starting it. This option is available if the host have a compatible power management hardware, and power management was configured.
+
+In a typical data center, hosts are connected to the network using one nic, and to the storage using other nics or though an HBA. It may happen that the host is not accessible through networking but still have access to the shared storage. Current fencing mechanisms will fail and require manual reboot of the unreachable host. Until rebooted, VMs running on the host cannot be started on another host.
+
+While the host is unreachable, we can communicate with it using the shared storage. Since oVirt 3.1, every host is running the sanlock daemon, used to acquire leases on the shared storage. sanlock fencing is using the available sanlock daemon to send a fence request to the fenced host, and on the fenced host, trigger a reboot.
+
+### Fencing goals
+
+Fencing has two main goals:
+
+1.  Make host release shared resources
+2.  Make the host responsive again
+
+A host may run a critical VM, writing to shared storage, and using shared resources such as network addresses. If the host is not accessible, we must not start the critical vm on another host, because both VMs will write to the same shared storage, corrupting data.
+
+Using sanlock fencing, we can trigger a reboot of the host, thus stopping vdsm and all running vms. Rebooting the host is typically whats needed to make it responsive again.
+
+### sanlock fencing - theory of operation
+
+Fencing using sanlock include these steps:
+
+1.  Engine picks a proxy host
+2.  Engine sends sanlock fencing request to the proxy host
+3.  Proxy host send sanlock fencing request sanlock daemon
+4.  Engine poll sanlock fencing status until fencing request is finished
+5.  Engine waits until host is up
+
+#### Engine picks a proxy host
+
+sanlock fencing will be available only on cluster using 3.5 compatibility version. This version will required vdsm version with sanlock fencing capability, which will required sanlock version that support fencing.
+
+Unlike hard fencing proxy search, a proxy for sanlock fencing must:
+
+*   Fencing host must be operational
+*   Both fencing host and fenced host must be from cluster 3.5
+*   Both fencing host and fenced host must have access to same storage domain
+*   Fencing host must not be busy fencing another host; the current sanlock fencing mechanism allow a host to fence one other host. We hope that sanlock will remove this limit or support more then one host.
+
+If cluster does not support sanlock fencing, or there is no available proxy host, sanlock fencing will fail and we will fall-back to the next fencing method.
+
+#### Engine sends sanlock fencing request to the proxy host
+
+We will use the current fencing API, using new fencing type.
+
+Since sanlock fencing is using different parameters then other fencing agents, we will try to fit the sanlock parameters into the standard fencing agents interface. For example, sending the sanlock host id and lockspace name in the address field.
+
+sanlock does not support the "stop" and "start" verbs, used by hard fencing. We need to find how to integrate sanlock with the current fencing code.
+
+#### Proxy host send sanlock fence request sanlock daemon
+
+We hope to have a sanlock fence request API, that send a reset message to the fenced host, and wait until the fenced host receive the message and stops renewing its lease.
+
+When a proxy get a fencing request, we will start a fencing thread, and run the sanlock fencing command in this thread.
+
+At this point, the proxy host will return a response to the engine, and the engine will move the next step in the fencing sequence. Engine will change the host state to "Rebooting" upon receiving this response.
+
+#### Engine poll sanlock fencing status until fencing request is finished
+
+While vdsm is running the fencing command, engine will poll vdsm fencing status. Until the sanlock fencing command returns, vdsm will return the same status that other fencing agents return today when a host is stopping.
+
+When sanlock command is finished, the fencing thread will wait for the next update, and return the result of the fence command. Engine will change the host status to "Non-Responsive".
+
+Unlike hard fencing, engine will \`\`\`not\`\` mark vms that were running on the host as not running, and will not start them on other hosts at this point, because we don't have any guarantee that the host was rebooted, or even is rebooting. This is why engine must move the next step.
+
+This step takes should take about 1 minute, depending sanlock configuration.
+
+#### Engine waits until host up
+
+At this point the fencing sequence is done, and engine will wait until the host is up. When the host is up, engine will query the host status normally, and update vm status.
+
+In the likely case, the host was just rebooted, and no VMs are running, so the engine can start high-available VMs on other hosts.
+
+In the very unlikely case when host lost access to storage just before we tried to fence it, and got back access to storage, VMs may be running, but if the hosts is responsive and well, we don't have anything to do.
+
+This step takes couple of minutes, depending on the host configuration.
+
+Note: we must validate that engine do update VMs status correctly when reconnecting to host.
+
+### Integration with existing mechanisms
+
+Since soft and hard fencing are fast, it seems a better option than sanlock fencing when a host is reachable. sanlock fencing will be used as a fall-back when soft and hard fencing are not available, or fail.
+
+For the first version, we may need to make sanlock fencing disabled by default and let users enable and disable it. This will require minor user interface changes.
+
+### Dependencies
+
+This feature requires fencing support in sanlock, discussed in the sanlock-devel mailing list:
+
+*   David Teigland patch - <https://lists.fedorahosted.org/pipermail/sanlock-devel/2014-January/000426.html>
+*   Thread discussing the patch - <https://lists.fedorahosted.org/pipermail/sanlock-devel/2014-January/000427.html>
+
+### Documentation
+
+*   [RFE] Add support for iscsi/scsi fencing in RHEV - <https://bugzilla.redhat.com/804272>
+*   <http://en.wikipedia.org/wiki/Fencing_%28computing%29>
+*   Red Hat GFS 6.0: Administrator's Guide: Using the Fencing System - <https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/3/html/GFS_6.0_Administration_Guide/ch-fence.html>
+
+### Testing
+
+Initial tests (incomplete)
+
+*   Setup soft fencing so it fails and disable hard fencing, and verify falling back to sanlock fencing
+*   Setup hard fencing so it fails, and verify falling back to sanlock fencing
+*   Regression: test that soft and hard fencing still works
+*   Test various failure modes of sanlock fencing (TBD)
+
+### FAQ
+
+#### Why not use ISCSI fencing?
+
+SCSI fencing requires a large amount of configuration and coordination as well as hardware support, and is relevant only for SCSI storage types. sanlock fencing can work with all shared storage types (e.g FCP, NFS, glusterfs).
+
+### Why not use fence_sanlockd?
+
+The fence_sanlock package provides a daemon that uses its own storage volume and sanlock to create a fencing solution. However, it requires a rather large (2G) storage volume for managing the fencing leases, that need to be initialized. This would require a new version of storage pool and upgrades from older versions, and these are hard and painful.
+
+In addition, most of the infrastructure required by fence_sanlock is already available and used by vdsm and sanlock. We think that it would be much easier to have a solution based on the existing infrastructure.
+
+### Why not use VM based leases?
+
+If we add VM based leases, sanlock would kill those VMs when fencing a host, or when access to storage is lost. In this case, we can check that host was stopped by polling vdsm and VMs leases on the shared storage, so we can decrease the downtime of a critical VM, starting the VM on another host as soon as the VM lease is free. Additionally, these lease protect from split-brain if we have engine error cause it to start two instance of the same VM.
+
+VM leases must be stored today on the master domain. However, we plan to drop the master domain in the next version, so VM leases do not have obvious place. Adding VM leases will probably required a new storage domain format, as the current leases volume can hold only 256-2000 leases (depending on sector size), and this may not be enough for some setups
+
+For this version, we prefer to have simpler solution.
+
+### Why not use Disk based leases?
+
+Using disk based leases, we can ensure that VMs are killed when sanlock loose the host id lease, even if we don't get a reset message acknowledge. It also allow fencing in the VM level, without rebooting the machine. We would like to have such disk leases for the live-merge feature, so using disk leases seems the correct long term solution.
+
+Adding disk based lease will probably required a new storage domain format, as the current leases volume can hold only 256-2000 leases (depending on sector size), and this may not be enough for some setups. Another issue, is how to pass leases from one VM to another during migration.
+
+For this version, we prefer to have simpler solution.
+
+### Comments and Discussion
+
+*   Refer to [Talk:Sanlock Fencing](Talk:Sanlock Fencing)
+
+<Category:Feature>

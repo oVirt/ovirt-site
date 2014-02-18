@@ -52,7 +52,7 @@ Recommended web browsers for Engine:
 
     * Internet Explorer 9 or later
 
-Advanced  
+Advanced:  
 
     * Installing [ Engine](Building oVirt engine) and [ Node](Node Building) from source
 

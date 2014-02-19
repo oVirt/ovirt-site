@@ -11,7 +11,7 @@ wiki_last_updated: 2014-09-08
 
 ## Summary
 
-VDSM uses libvirt to manage the life cycle of the VMs, and to collect the statistics about them. This page collects performance and scalability information, and discussion about possible improvements, about how VDSM uses libvirt.
+VDSM uses libvirt to manage the life cycle of the VMs, and to collect the statistics about them. This page collects performance and scalability information, and discussion about possible improvements, about how VDSM uses libvirt. A rewrite of the VM startup code is also planned and described on a [different page](VDSM_VM_startup)
 
 #### WARNING!
 

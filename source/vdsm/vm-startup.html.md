@@ -50,8 +50,20 @@ WRITEME
 
 *   avoid racy behaviour (see [bz912390](https://bugzilla.redhat.com/show_bug.cgi?id=912390))
 
-## Rewrite ideas
+## Rewrite proposals
 
 ### Draft 1
 
-WRITEME
+Meta-proposal: try to preserve orthogonality between the folling concepts; e.g. allow to drop the 'staging area' concept while preserving the 'separate control flow' concept. Avoid inter-dependent enhancements wherever feasible.
+
+*   clearly separate the control flows for each major startup mode (creation, recovery, restoring state); avoid multiplex-like functions like _run
+
+<!-- -->
+
+*   OK to create the VMs in a separate thread, throttle parallelism until we can fully depend on libvirt not being a bottleneck ([details here](VDSM_libvirt_performance_scalability#Startup_of_many_VMs))
+
+<!-- -->
+
+*   introduce 'staging area' for VMs being created, e.g. while the creation thread is running. In a nutshell, a separate private vmContainer-like structure to hold half-baked VMs. promote
+
+VMs to vmContainer -as it is now- only when they are fully created. Objective: improve transactional behaviour as seen from the outside (engine), and make code more robust.

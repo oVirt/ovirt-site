@@ -43,6 +43,14 @@ Backward and forward compatibility must be ensured:
 
 since the communication between VDSM and engine happens through XML-RPC, not-updated engines will just discard the extra field. In the case of an updated engine dealing with an old, not updated, VDSM, the missing field will be filled with a placeholder value with 'Value Unknown' semantics. In this case the engine must not rely internally on the value of the new field and must behave as before.
 
+#### Design Discussion
+
+=
+
+*   Why an extra field?
+
+ExitReason is (intentionally) a proper superset of ExitCode. When the values do overlap, they carry the same meaning. The main and only driving factor to add a new field is to maximize the backward compatibility between VDSM and engine. If this issue can be addressed better having just one field, or if the extra field is not worth the price, there are no technical reason to keep it, and we can just add values to ExitCode.
+
 #### Webadmin/Power User Portal
 
 No user-visible change.

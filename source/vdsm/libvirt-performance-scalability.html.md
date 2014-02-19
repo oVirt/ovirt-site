@@ -28,8 +28,6 @@ VDSM uses libvirt to manage the life cycle of the VMs, and to collect the statis
 
 ## VM Creation
 
-**WORK IN PROGRESS**
-
 The VM creation/startup process must be fast as possible to ensure the best user experience. The current oVirt stack (VDSM, libvirt, QEMU) and the interaction between layers must be took in account when considering performance figures and possible improvements.
 
 The focus of the performance improvement analysis and improvement is to be able to efficently and quickly start up many (dozens or even hundeds) of VMs with minimal delay and maximizing the usage of the hypervisor host. Improvement in the start up of a single VM in isolation are considered as well, but with lower priority.

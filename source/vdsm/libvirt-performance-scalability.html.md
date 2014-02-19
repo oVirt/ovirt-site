@@ -52,6 +52,8 @@ the VM is Up and running.
 
 **ACTION PENDING**: verify the status of the improvements in libvirt
 
+**ACTION PENDING**: verify the version of libvirt shipped in the distributions (RHEL/Fedora...)
+
 **ACTION PENDING**: benchmark the impact of the bounded semaphore with a modern libvirt/QEMU stack, and tune the value (possibly removing it entirely) accordingly
 
 **RESEARCH/FACT FINDING**:

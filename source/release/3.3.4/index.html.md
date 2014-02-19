@@ -20,7 +20,7 @@ To find out more about features which were added in previous oVirt releases, che
 
 ### BETA RELEASE
 
-oVirt 3.3.4 is still in beta. In order to install it you've to enable oVirt beta repository **please wait for official announcement before trying to install it**.
+oVirt 3.3.4 is still in beta. In order to install it you've to enable oVirt beta repository.
 
 If you're going to test oVirt 3.3.4 beta, please add yourself to [Testing/Ovirt 3.3.4 testing](Testing/Ovirt 3.3.4 testing).
 

@@ -19,7 +19,7 @@ To find out more about features that were added in previous oVirt releases, chec
 
 ## Install / Upgrade from previous versions
 
-### SECOND BETA RELEASE
+### THIRD BETA RELEASE
 
 oVirt 3.4.0 is still in beta.
 

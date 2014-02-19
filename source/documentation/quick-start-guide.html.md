@@ -34,7 +34,7 @@ The following requirements are typical for small- to medium-sized installations.
     -   For the CentOS 6.2 operating system: minimum 1 GB RAM and 5 GB local disk space.
     -   For the oVirt Engine: minimum 3 GB RAM, 3 GB local disk space and 1-Gbps network controller bandwidth.
     -   If you wish to create an ISO domain on the Engine server, you need minimum 15 GB disk space.
-*   The oVirt Engine must be configured to receive updates from the oVirt project's software repository, as provided by the [ovirt-release](http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm) package.
+*   The oVirt Engine must be configured to receive updates from the oVirt project's software repository, as provided by the [ovirt-release](http://resources.ovirt.org/releases/ovirt-release.noarch.rpm) package.
 *   A client for connecting to oVirt Engine.
 
 #### For each Host (oVirt Node, Fedora Host, CentOS Host)

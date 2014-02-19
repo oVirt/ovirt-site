@@ -16,7 +16,7 @@ wiki_last_updated: 2014-03-03
 
 *   General availability: **2014-03-04**
 *   RC Build: **2014-02-25**
-*   Beta release: **2014-02-18**
+*   Beta release: **2014-02-19**
 
 ### Release criteria
 

@@ -512,6 +512,7 @@ will upgrade to latest 3.3.
  - Bond "speed" does not reflect the correct speed
  - PRD34 - [RFE] vdsm does not recognize hot-plugged host interfaces
  - vdsm should monitor bond interfaces, sub-interfaces and bridges status
+ - Provide before and after network setup hooks
  - Size of ISO images shown in 'Images' tab of ISO Domain wrong
  - migration_timeout not honoured, live migration goes on beyond it
 

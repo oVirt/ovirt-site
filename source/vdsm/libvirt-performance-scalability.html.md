@@ -13,6 +13,10 @@ wiki_last_updated: 2014-09-08
 
 VDSM uses libvirt to manage the life cycle of the VMs, and to collect the statistics about them. This page collects performance and scalability information, and discussion about possible improvements, about how VDSM uses libvirt.
 
+#### WARNING!
+
+This document is work in progress and requently updated, both for content and for style/consistency/readability
+
 ### Owner
 
 *   Name: [Francesco Romani](User:Fromani)
@@ -24,7 +28,7 @@ VDSM uses libvirt to manage the life cycle of the VMs, and to collect the statis
 
 *   Target Release: oVirt 3.5 and following
 *   Status: Draft/Discussion
-*   Last updated: 17 Feb 2014
+*   Last updated: 2014-02-19
 
 ## VM Creation
 

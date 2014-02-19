@@ -476,7 +476,6 @@ will upgrade to latest 3.3.
 
 * VM fails to start when qemu.conf's spice_tls conflicts with vdsm.conf's ssl
  - domain monitor does not stop during disconnectStoragePool on HSM during destroyStoragePool flow on SPM
- - Direct LUN is not being updated after resizing
  - Failed creating storage pool - AttributeError: 'module' object has no attribute 'MAX_DOMAINS'
  - fenceNode passes wrong argument to the fence agent
  - [LOG][vdsm] KeyError: 'domainID' during teardownImage in power-off to VM

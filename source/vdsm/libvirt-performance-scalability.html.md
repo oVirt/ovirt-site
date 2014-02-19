@@ -50,7 +50,9 @@ the VM is Up and running.
 
 *   obvious worst offender and low hanging fruit: limitations of parallelism. Bounded Semaphore in VDSM to limit the number of concurrent Vm creations, in turn put in place to circumvent/mitigate the locking inside libvirt/qemu driver. Improvements are been made into libvirt, so this may be more harmful than beneficial
 
-**ACTION PENDING**: verify the status of the improvements in libvirt **ACTION PENDING**: benchmark the impact of the bounded semaphore with a modern libvirt/QEMU stack, and tune the value (possibly removing it entirely) accordingly
+**ACTION PENDING**: verify the status of the improvements in libvirt
+
+**ACTION PENDING**: benchmark the impact of the bounded semaphore with a modern libvirt/QEMU stack, and tune the value (possibly removing it entirely) accordingly
 
 **RESEARCH/FACT FINDING**:
 

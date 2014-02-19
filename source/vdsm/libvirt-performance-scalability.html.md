@@ -60,6 +60,8 @@ improvements are been made in libvirt with respect to locking/scalability. Sourc
 
 [Mailing List Thread](http://www.redhat.com/archives/libvir-list/2012-December/msg00717.html) summary: plans (2012-12) to remove the QEMU driver lock inside libvirt
 
+**libvirt implementation status** RW -lock (first point in the proposed enhancement plan above) landed 2014-01-22 (see commit c065984b58000a44c90588198d222a314ac532fd)
+
 [libvirt 1.0.0 slides](http://events.linuxfoundation.org/sites/events/files/cojp13_privoznik.pdf) summary: (2013) improvements in libvirt (see slide 13)
 
 ## VM Sampling

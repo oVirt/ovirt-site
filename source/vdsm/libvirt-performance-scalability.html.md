@@ -58,11 +58,19 @@ the VM is Up and running.
 
 improvements are been made in libvirt with respect to locking/scalability. Sources:
 
+[libvirt slides](http://events.linuxfoundation.org/sites/events/files/cojp13_privoznik.pdf) summary: (2013) improvements in libvirt (see slide 13)
+
 [Mailing List Thread](http://www.redhat.com/archives/libvir-list/2012-December/msg00717.html) summary: plans (2012-12) to remove the QEMU driver lock inside libvirt
 
-**libvirt implementation status** RW -lock (first point in the proposed enhancement plan above) landed 2014-01-22 (see commit c065984b58000a44c90588198d222a314ac532fd)
+**libvirt implementation status** (see link above, the bullet point at the end of the first email message reported here for the sake of clarity):
 
-[libvirt 1.0.0 slides](http://events.linuxfoundation.org/sites/events/files/cojp13_privoznik.pdf) summary: (2013) improvements in libvirt (see slide 13)
+      1. Create the virQEMUDriverConfigPtr object & move config file parameters into that. (seems done 2013-01-10 commit b090aa7d559a31b353a546dddfa37aff0655f668)
+
+      2. Encapsulte all read-writable state into objects with dedicated  locking
+
+      3. Turn QEMU driver mutex into a read-write lock (RW added 2014-01-22 commit c065984b58000a44c90588198d222a314ac532fd)
+
+      4. Convert all APIs to only hold read-locks on QEMU driver.
 
 ## VM Sampling
 

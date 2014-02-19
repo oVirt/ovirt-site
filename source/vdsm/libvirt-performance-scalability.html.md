@@ -52,7 +52,13 @@ the VM is Up and running.
 
 **ACTION PENDING**: verify the status of the improvements in libvirt **ACTION PENDING**: benchmark the impact of the bounded semaphore with a modern libvirt/QEMU stack, and tune the value (possibly removing it entirely) accordingly
 
-**RESEARCH/FACT FINDING**: improvements are been made in libvirt with respect to locking/scalability. Sources: [Mailing List Thread](http://www.redhat.com/archives/libvir-list/2012-December/msg00717.html) summary: plans (2012-12) to remove the QEMU driver lock inside libvirt [libvirt 1.0.0 slides](http://events.linuxfoundation.org/sites/events/files/cojp13_privoznik.pdf) summary: (2013) improvements in libvirt (see slide 13)
+**RESEARCH/FACT FINDING**:
+
+improvements are been made in libvirt with respect to locking/scalability. Sources:
+
+[Mailing List Thread](http://www.redhat.com/archives/libvir-list/2012-December/msg00717.html) summary: plans (2012-12) to remove the QEMU driver lock inside libvirt
+
+[libvirt 1.0.0 slides](http://events.linuxfoundation.org/sites/events/files/cojp13_privoznik.pdf) summary: (2013) improvements in libvirt (see slide 13)
 
 ## VM Sampling
 

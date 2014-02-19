@@ -34,7 +34,7 @@ This document is work in progress and requently updated, both for content and fo
 
 WRITEME
 
-## Key design decisions
+## Rewrite objectives
 
 *   add more tests! **both** unit-tests and functional (probably need to revamp vm functional tests as well)
 

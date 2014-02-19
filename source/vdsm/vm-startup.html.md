@@ -64,6 +64,6 @@ Meta-proposal: try to preserve orthogonality between the folling concepts; e.g. 
 
 <!-- -->
 
-*   introduce 'staging area' for VMs being created, e.g. while the creation thread is running. In a nutshell, a separate private vmContainer-like structure to hold half-baked VMs. promote
+*   introduce 'staging area' for VMs being created, e.g. while the creation thread is running. In a nutshell, a separate private vmContainer-like structure to hold half-baked VMs.
 
-VMs to vmContainer -as it is now- only when they are fully created. Objective: improve transactional behaviour as seen from the outside (engine), and make code more robust.
+move VMs to public vmContainer -as it is now- only when they are fully created. Rationale: improve transactional behaviour as seen from the outside (engine), and make code more robust.

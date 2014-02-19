@@ -402,6 +402,69 @@ will upgrade to latest 3.3.
  - One display seen on a multi-monitor guest after rhev 3.0 to 3.2 migration
  - Change NIC type from sPAPR VLAN to any other type causes error when starting the VM (PPC)
  - [AIO] support RFC2317 reverse DNS lookup
+ Fixed in oVirt 3.4.0 beta 3:
+
+* user-portal/web-admin: refresh rate across tabs/sections should be identical (currently each tab has its own refresh rate)
+ - [engine-manage-domains] should use POSIX parameter form and aliases as values
+ - [Storage] [Direct LUN] Wrong event message when removing direct LUN disk.
+ - PRD34 - [RFE] When changing the cluster and data centre compatibility versions, it should be clearly stated that changing from version 3.0 makes the data domains incompatible with RHEV 3,0 and roll back will not be possible.
+ - [REST-API] add descriptions to import vm/template SD source/destination params in RSDL
+ - engine: host stuck on Unassigned when moving from status Maintenance when storage is not availble from the host
+ - [RFE] Able to detach the ISO domain from the DataCenter though iso is attached and mounted in the VM
+ - engine: can't live migrate a disk if the vm also has an inactive disk attached on a domain which is in maintenance
+ - engine: no CanDoAction for creating vm from snapshot when snapshot has a disk on a maintenance domain
+ - manage domains should try to resolve FQDNs provided by -ldapServers
+ - Can not do scan alignment to several disks simultaneously. Scan alignment option is greyed out.
+ - No email notification sent when host recovers from previously reported condition
+ - [RFE] improve context-sensitive help csv mapping files
+ - PRD34 - [RFE] Export storage domain maintenance mode confirmation
+ - [Admin Portal] Local DC - The Cluster is fully configured and ready for use.
+ - When trying to create a vNicProfile without a network, an invalid error is returned
+ - PRD34 - [RFE] Add 'warnings' to Relocate VM disk "Move" and "Deactivate" actions
+ - Allow manual fence in connecting state
+ - Update vnic_profile fails for VM vnic.
+ - OVF descriptor file data via the REST API for the Active VM
+ - Source cluster and dc does not show up in Power Management tab while editing a previous added host [pm_proxy_preferences]
+ - no square-loading-animation when changing left-pane-tree selection
+ - [RFE] allow importing glance image as a template
+ - Missing storage allocation checks when extending a disk
+ - gracefully warn about unsupported upgrade from legacy releases
+ - [engine][network] Missing audit log for mass operations
+ - [engine-backend] [RO-disks] snapshot creation includes RO disks
+ - Creating a new VM fails with MAC_POOL_NOT_INITIALIZED
+ - Storage Live Migration should only snapshot the migrated disk
+ - [TEXT] engine-managed-domains - inconsistent cases in usage and error messages
+ - some administrators (admin@internal, admins added via engine-manage-domains?) are displayed with a 'user' icon by mistake.
+ - Guide me window - new is hidden by the icon
+ - Fail to add Event-Notification
+ - engine-managed-domains - insufficient validation of the "-report" parameter
+ - [RFE] engine-managed-domains - sort domains alphabetically when reporting
+ - vdsm: cannot start a vm in read only with IDE disk type
+ - Action buttons in the Hosts/Network interfaces subtab show 3.0 and 3.1 action simultaneously
+ - rhevm-config output when failing to change password is easy to miss and doesn't give any context
+ - [events] Incorrect mapping: DWH_STOPPED - History Service Started
+ - SD becomes inaccessible while adding a new lun to it
+ - [RFE] OVF descriptor file data via the REST API for the Active VM
+ - Bookmarks panel is not refreshing upon adding/editing/removing a Bookmark
+ - [RHSC] - Rebalance icon in the activities column chnages to unknown (?)
+ - [engine] Redundant Commit Network Changes command is sent to host when cluster is changed
+ - [engine] Audit log event for failure to commit network changes appears as INFO messages
+ - useDnsLookup flag is ignored at rhevm-manage-domains - krb5.conf file will always contain realms and "domain_realm" section
+ - Guest NIC initialization uses tag "nics" instead of "nic"
+ - [notifier] MAIL_SMTP_ENCRYPTION=tls falls back to plain-text SMTP if server does not advertise STARTTLS
+ - Unable to interact with user portal login dialog
+ - [REST API] duplicate "Nic" name from GuestNicsConfiguration
+ - Cannot login as admin@internal
+ - Type converters in XML schema confuse Java SDK generator
+ - allinone fails on upgrade - no admin password
+ - Cannot run VM for windows VM if sysprep is enabled
+ - task list in Webadmin - jobs disappear while still running
+ - restapi JAXBMarshallingException are not propogated
+ - engine-backup --mode=restore should point to documentation on failure
+ - When adding a user that belongs to a group, it does not inherit the group permissions
+ - [NetworkLabels] LABELED_NETWORK_ATTACHED_TO_WRONG_INTERFACE entry in AppErrors is split to two lines
+ - Disk name doesn't get assigned automatically after a CREATE command.
+ - Queries generated for data centers don't take into account the replacement of "type" with "local"
 
 ### VDSM
 

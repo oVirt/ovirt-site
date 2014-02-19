@@ -496,7 +496,6 @@ will upgrade to latest 3.3.
  - Cloud-Init: generated config-drive CD image is world-readable
  - Default route is not set properly for management network if downstream/upstream engine and VDSM are mixed
  - failed to add ovirtmgmt bridge when the host has static ip
- - yum transaction on rhel7: reading information on service vdsmd: No such file or directory
  - vdsm-hook-nestedvt uses kvm_intel-only syntax
  - [RFE] Prevent RHEV from requiring hwaddr lines within ifcfg files
  - Can't activate a host due to /etc/sudoer configuration

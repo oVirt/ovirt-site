@@ -46,7 +46,7 @@ the VM is Up and running.
 
 *   the overall startup time of all the VMs being started
 
-#### Improvements
+#### Possible improvements
 
 *   obvious worst offender and low hanging fruit: limitations of parallelism. Bounded Semaphore in VDSM to limit the number of concurrent Vm creations, in turn put in place to circumvent/mitigate the locking inside libvirt/qemu driver. Improvements are been made into libvirt, so this may be more harmful than beneficial
 

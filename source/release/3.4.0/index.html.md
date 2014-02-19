@@ -38,6 +38,7 @@ Fedora:
       # yum update ovirt-release-fedora
 
 *   **Note** that on CentOS and RHEL you'll need also [EPEL](http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm) repositories enabled.
+*   **Note** that on CentOS and RHEL for DWH you'll need also [jpackage 6](http://mirrors.dotsrc.org/jpackage/6.0/generic/free/RPMS/jpackage-release-6-3.jpp6.noarch.rpm) repositories enabled.
 *   **Note** that on Fedora 19 you'll need to enable fedora-updates repository for having updated openstack packages (was in fedora-updates-testing until Jan 23th - you might want to run 'yum clean all').
 *   **Note** that on Fedora 19 you'll need to enable fedora-virt-preview repository for using Fedora 19 as node on 3.4 clusters.
 

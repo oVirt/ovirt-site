@@ -28,7 +28,29 @@ VDSM uses libvirt to manage the life cycle of the VMs, and to collect the statis
 
 ## VM Creation
 
-WRITEME
+**WORK IN PROGRESS**
+
+The VM creation/startup process must be fast as possible to ensure the best user experience. The current oVirt stack (VDSM, libvirt, QEMU) and the interaction between layers must be took in account when considering performance figures and possible improvements.
+
+The focus of the performance improvement analysis and improvement is to be able to efficently and quickly start up many (dozens or even hundeds) of VMs with minimal delay and maximizing the usage of the hypervisor host. Improvement in the start up of a single VM in isolation are considered as well, but with lower priority.
+
+### Startup of many VMs
+
+**Use case: a single hypervisor hosts many (dozens or even hundereds) of VM and it boots them at the same time, perhaps in the morning.**
+
+What we want to improve:
+
+*   the average startup time of a given VM, defined by the time elapsed from the instant the user (either human or program) sends the command to the engine, and the instant
+
+the VM is Up and running.
+
+*   the overall startup time of all the VMs being started
+
+#### Improvements
+
+*   obvious worst offender and low hanging fruit: limitations of parallelism. Bounded Semaphore in VDSM to limit the number of concurrent Vm creations, in turn put in place to circumvent/mitigate the locking inside libvirt/qemu driver. Improvements are been made into libvirt, so this may be more harmful than beneficial
+
+**ACTION PENDING**: verify the status of the improvements in libvirt **ACTION PENDING**: benchmark the impact of the bounded semaphore with a modern libvirt/QEMU stack, and tune the value (possibly removing it entirely) accordingly
 
 ## VM Sampling
 

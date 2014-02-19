@@ -471,6 +471,7 @@ will upgrade to latest 3.3.
  - [NetworkLabels] LABELED_NETWORK_ATTACHED_TO_WRONG_INTERFACE entry in AppErrors is split to two lines
  - Disk name doesn't get assigned automatically after a CREATE command.
  - Queries generated for data centers don't take into account the replacement of "type" with "local"
+ - Cloud-init options persistence and unification with Windows Sysprep options
 
 ### VDSM
 

@@ -420,6 +420,7 @@ will upgrade to latest 3.3.
  - PRD34 - [RFE] Export storage domain maintenance mode confirmation
  - [Admin Portal] Local DC - The Cluster is fully configured and ready for use.
  - When trying to create a vNicProfile without a network, an invalid error is returned
+ - Force removal of DataCenter fails to remove vm_pool from DB
  - PRD34 - [RFE] Add 'warnings' to Relocate VM disk "Move" and "Deactivate" actions
  - Allow manual fence in connecting state
  - Update vnic_profile fails for VM vnic.
@@ -434,15 +435,18 @@ will upgrade to latest 3.3.
  - Creating a new VM fails with MAC_POOL_NOT_INITIALIZED
  - Storage Live Migration should only snapshot the migrated disk
  - [TEXT] engine-managed-domains - inconsistent cases in usage and error messages
+ - Change default display type for x86-64 VMs
  - some administrators (admin@internal, admins added via engine-manage-domains?) are displayed with a 'user' icon by mistake.
  - Guide me window - new is hidden by the icon
  - Fail to add Event-Notification
  - engine-managed-domains - insufficient validation of the "-report" parameter
  - [RFE] engine-managed-domains - sort domains alphabetically when reporting
+ - Unable to add group via RESTAPI
  - vdsm: cannot start a vm in read only with IDE disk type
  - Action buttons in the Hosts/Network interfaces subtab show 3.0 and 3.1 action simultaneously
  - rhevm-config output when failing to change password is easy to miss and doesn't give any context
  - [events] Incorrect mapping: DWH_STOPPED - History Service Started
+ - Vm update not work via REST api
  - SD becomes inaccessible while adding a new lun to it
  - [RFE] OVF descriptor file data via the REST API for the Active VM
  - Bookmarks panel is not refreshing upon adding/editing/removing a Bookmark
@@ -451,6 +455,7 @@ will upgrade to latest 3.3.
  - [engine] Audit log event for failure to commit network changes appears as INFO messages
  - useDnsLookup flag is ignored at rhevm-manage-domains - krb5.conf file will always contain realms and "domain_realm" section
  - Guest NIC initialization uses tag "nics" instead of "nic"
+ - RHEV 3.3 rhevm-shell 'show vm' not returning all guest attributes
  - [notifier] MAIL_SMTP_ENCRYPTION=tls falls back to plain-text SMTP if server does not advertise STARTTLS
  - Unable to interact with user portal login dialog
  - [REST API] duplicate "Nic" name from GuestNicsConfiguration

@@ -541,4 +541,9 @@ will upgrade to latest 3.3.
  - log-collector accesses /api instead of /ovirt-engine/api
  - [engine-log-collector] \`engine-log-collector --help' requires root credentials
 
+### oVirt ISO Uploader
+
+* [ovirt-engine-iso-uploader] engine-ca -> cert-file option switch, support old option name
+ - [engine-iso-uploader] /etc/ovirt-engine/isouploader.conf is world readable (can contain password!)
+
 <Category:Documentation> <Category:Releases>

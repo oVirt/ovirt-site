@@ -21,7 +21,8 @@ This feature will allow to hot plug cpus to a running VM from ovirt engine UI an
 
 ### Current status
 
-*   1st phase - Done
+*   phase 1 (i.e all content in this wiki) - Done
+*   phase 2 - desgin stage
 *   limitations: unplug isn't supported fully due to libvirt's bug [#1017858](https://bugzilla.redhat.com/show_bug.cgi?id=1017858#c11)
 *   Last updated: ,
 

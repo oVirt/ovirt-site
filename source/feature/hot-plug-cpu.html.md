@@ -240,6 +240,33 @@ hook support is provided to solve potential problems with online/offline the cpu
       /usr/libexec/vdsm/hooks/before_set_num_of_cpus
       /usr/libexec/vdsm/hooks/after_set_num_of_cpus
 
+### Phase 2
+
+Due to libvirt bug on unplug the engine has an inconsistent view of the amount of CPUs the VM has.
+i.e after unplugging 4 vcpus to 2 vcpus the VM entity in DB has 4 and in qemu process it will decrease to 2
+
+lets break to 2 problems to solve:
+
+*   inconsistent view
+
+to bridge a new entry under vm_dynamic will should the actual vcpu allocation
+
+this new field will be reported by the ***VDSM-guest-agent***
+
+the whole cpu topology will also be reported
+
+an audit log will be sent once a day if we detect that (actual vcpu) != (vm.socket \* vm.coresPerSocket)
+
+*   hot unplug bug workaround
+
+instead of unplugging , we can try to offline the cpu instead, again using the ***VDSM-guest-agent***
+
+this raises question about what happens to the virtualization thread that is dedicated for the cpu when it offlines - can the host use it
+
+for other VMs? i.e is this resource is reclaimed?
+
+VDSM-guest-agent work for reporting this is already in progress - <http://gerrit.ovirt.org/23268>
+
 ### Testing
 
 TODO

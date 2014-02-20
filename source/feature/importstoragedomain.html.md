@@ -42,12 +42,17 @@ The usability of the feature might be useful for various use cases, the followin
 
 [1] <http://www.ovirt.org/Feature/OvfOnWantedDomains>
 
-##### Phase 1 - Detach Storage Domain
+##### Phase 1 - Detach/Attach Storage Domain with VMs/Templates
 
-Today we can detach a Storage Domain from the DC, only if it does not contains any disks or VMs on it.
-As part of this feature, the user will be able to also detach Storage Domain which contains VMs and Disks, and re-attach it to other Data Center.
-If there will be VMs with disks on multiple Storage Domains or Template with disks on multiple Storage Domains as well the operation will fail and an event log will be presented, with the following message (see future work) :
- Cannot detach {Storage Domain Name}. The following VMs/Templates have disks related to the following storages {other Storage Domain Names}. Please move those disks to the {Storage Domain Name}.
+Today we can detach a Storage Domain from the DC, only if it is empty, i.e. does not contain any disks or VMs/Templates
+As part of Import Storage Domain feature, oVirt will add the ability for the user to detach a Storage Domain containing VMs/Templates and Disks, and re-attach it again to another Data Center.
+As part of phase 1, if the Storage Domain contains VMs or Tempaltes which contain disks on multiple Storage Domains the operation will fail and the following event will be presented to the user:
+\* Cannot detach {Storage Domain Name}. The following VMs/Templates have disks that reside on other storage domains: {vm names}. Please either detach those disks or move them to the storage domain.
+Shareable and direct lun disks are not supported in the OVF file today, hence if a VM includes a shareable or direct lun disks a warning will be prompt for the user, indicating the following:
+\* Attention, The following VMs contains shareable/direct lun disks which will not be part of the VM configuration after the detach will take place: {vmNames}.
+Only VMs'/Templates' OVF will be part of the Data Center on attach operation, for now there is a gap that VMs/Templates with no disks does not exists in the Storage Domain's OVF, therefore those VMs will not be present in the setup on attach operation.
+Open Issue: On detach of Storage Domain the VMs/Templates related to the Storage Domain should not be present in the engine, but will still be part of the OVF disk in the Storage Domain.
+On attach the user should assign those VMs/Templates the appropriate clusters before the user will start to use them.
 
 ##### Phase 2 - Import NFS Storage Domain
 

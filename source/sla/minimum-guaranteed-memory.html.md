@@ -20,7 +20,7 @@ wiki_last_updated: 2014-02-23
 #### Current status
 
 *   Status: design
-*   Last updated on // by
+*   Last updated on -- by
 *   patchset
 
 #### Detailed Description

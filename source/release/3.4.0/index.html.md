@@ -532,6 +532,13 @@ will upgrade to latest 3.3.
  - [DWH-SETUP] - remote user password is asked twice for authentication
  - Multiple daemons are not "registered" in /etc/rc[0-6].d directory hierarchy (chkconfig)
 
+### oVirt Reports
+
+* [RFE] ovirt-engine URI rework
+ - [RFE] Create Bin Overrider for application context files changes we do in JRS
+ - [REPORTS] - dashboard results an error, after reports were installed
+ - [REPORTS-SETUP] - remote user password is asked twice for authentication
+
 ### oVirt Log Collector
 
 * Collect ovirt-engine runtime configuration files

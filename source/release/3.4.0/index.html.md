@@ -473,6 +473,7 @@ will upgrade to latest 3.3.
  - Queries generated for data centers don't take into account the replacement of "type" with "local"
  - Cloud-init options persistence and unification with Windows Sysprep options
  - Have ability to modify VM template - Template Versions
+ - [RHEVM-RHS] - Brick advanced details gives error
 
 ### VDSM
 

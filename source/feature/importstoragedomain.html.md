@@ -62,7 +62,7 @@ The disks related to these Storage Domains (Which are related to the VMs) will b
 When the user will decide to import a Storage Domain to the setup, which already has disks related to this Storage Domain, the engine will verify if the target Data Center is the same as the Data Center where the unavailable Storage Domain exists,
 the engine will run over the properties of the Storage Domain configuration (Name, path ext.) and will change the configuration properly.
 If the Data Center does not match the Data Center of the unavailable Storage Domain, the user will be prompt with a can do action message that there is already reference of this Storage Domain in another Data Center, and the user should import it to the right Data Center.
-\* The user can decide that he/she does not want any relation to the unavailable Storage Domain's disks, in his/her setup, and can simply remove the unavailable Storage Domain it and all its disks references
+\* The user can decide that he/she does not want any relation to the unavailable Storage Domain's disks, in his/her setup, and can simply remove the unavailable Storage Domain and all its disks references.
 
 *   The disks imported from the imported Storage Domain will be the same as in the VM's OVF, which means plugged/unplugged to the VM.
 

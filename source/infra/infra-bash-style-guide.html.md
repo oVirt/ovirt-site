@@ -238,7 +238,7 @@ If able use builtin constructs instead of spawning external commands, for exampl
 
 #### Fail early
 
-*   -   Fail early\*\*, this sounds bad, but usually is good. Failing early means to error out as early as possible when checks indicate some error or unmet condition. Failing early means to error out \*\*before\*\* your script begins its work in a potentially broken state.
+**Fail early**, this sounds bad, but usually is good. Failing early means to error out as early as possible when checks indicate some error or unmet condition. Failing early means to error out **before** your script begins its work in a potentially broken state.
 
 #### Availability of commands
 

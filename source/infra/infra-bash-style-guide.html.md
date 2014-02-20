@@ -148,7 +148,7 @@ If used inside a function, declare as many variables as possible to be local, th
       my_nice_function() {
           local file="${1?}"
           echo "This file variable $file is not the same as the one used outside"
-         return 0
+          return 0
       }
       # local variable lowercase
       for file in "$MY_LOG_DIRECTORY"/*; do

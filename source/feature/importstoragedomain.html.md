@@ -123,8 +123,10 @@ Open issue: Could be also that CREATE_VM for creating VMs.
 
 OVF on any domain
 Quota - The user might import disks which will extend a defined Quota in DC. This scenario is similar to when a user enforce a quota though it already been extended.
-The default behaviour will treet that by letting the user still use the resources though he will not be able to create any more disks.
-Local Storage Domain - It should be the same behaviour as any other NFS Storage Domain. Gluster PosixFS
+The default behaviour will treat that by letting the user still use the resources though he/she will not be able to create any more disks.
+Local Storage Domain - Should be the same behaviour as any other NFS Storage Domain.
+Gluster
+PosixFS
 
 #### Comments and Discussion
 

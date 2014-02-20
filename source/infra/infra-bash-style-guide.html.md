@@ -22,7 +22,9 @@ Some good code layout helps you to read your own code after a while. And of cour
 
 To indent, use 4 spaces per indentation level, similar to python indentation.
 
-Avoid hard-tabs them if possible. They only make trouble. I can imagine one case where they're useful: Indenting here-documents.
+Avoid hard-tabs them if possible. I can imagine one case where they're useful: Indenting here-documents.
+
+But in any case, **DO NOT MIX THEM**. If you decide to use tabs instead of spaces, be consistent.
 
 #### Breaking up lines
 

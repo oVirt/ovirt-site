@@ -24,7 +24,7 @@ The feature will be enabled for 3.1 data-centers and above, regardless cluster l
 
 *   Ready
 *   Planned for ovirt-engine-3.4
-*   Last updated: ,
+*   Last updated on -- by
 
 ### Benefit to oVirt
 

@@ -24,7 +24,7 @@ This feature would help users setup rules to automatically scale out their appli
 ### Current status
 
 *   Status: proposal
-*   Last updated: ,
+*   Last updated on -- by
 
 ### Detailed Description
 

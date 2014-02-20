@@ -56,26 +56,13 @@ On attach the user should assign those VMs/Templates the appropriate clusters be
 
 ##### Phase 2 - Import NFS Storage Domain
 
-When importing a Storage Domain with OVF files referencing disks on additional Storage Domains which do not currently exist in the system, the system will automatically add a reference to these Storage Domains in the DC and denote them as unavailable. {DOMAIN_UUID}_unavailable
-The unavailable Storage Domains will behave the same as a Storage Domain in maintenance status.
-The disks related to these Storage Domains (Which are related to the VMs) will be shown as disabled in the GUI and will be inactive (unplugged)
-When the user will decide to import a Storage Domain to the setup, which already has disks related to this Storage Domain, the engine will verify if the target Data Center is the same as the Data Center where the unavailable Storage Domain exists,
-the engine will run over the properties of the Storage Domain configuration (Name, path ext.) and will change the configuration properly.
-If the Data Center does not match the Data Center of the unavailable Storage Domain, the user will be prompt with a can do action message that there is already reference of this Storage Domain in another Data Center, and the user should import it to the right Data Center.
-\* The user can decide that he/she does not want any relation to the unavailable Storage Domain's disks, in his/her setup, and can simply remove the unavailable Storage Domain and all its disks references.
-
-*   The disks imported from the imported Storage Domain will be the same as in the VM's OVF, which means plugged/unplugged to the VM.
-
-If the user will try to run a VM which contains disks on the unavailable Storage Domain, the behaviour should be the same as if the disks were on a Storage Domain in maintenance status.
-The operation should be blocked until the user will update the disks to be unplugged on the VM.
-\* A Template Disk might reside on multiple Storage Domains.
-The OVF of the template should not contain any reference to the copies of the disks, so there will be no references of copied disks when importing a Storage Domain.
-Once a Storage Domain will be imported which have the same UUID for an existing template disk, an appropriate event log will notify this to the user,
-and the user can copy the disks to whichever Storage Domains he or she pleases.
-
-*   When importing a Storage Domain the user needs to take care not to import a Storage Domain which is in use by another oVirt setup to avoid data corruption
-
-The system will prompt the user with a warning message before each import of Storage Domain with Meta Data that indicates it is already attached to a Storage Pool.
+*   When importing a Storage Domain with OVF files referencing disks on additional Storage Domains which do not currently exist in the system, the system will automatically add a reference to these Storage Domains in the DC and denote them as unavailable. {DOMAIN_UUID}_unavailable
+*   The unavailable Storage Domains will behave the same as a Storage Domain in maintenance status. The disks related to these Storage Domains (Which are related to the VMs) will be shown as disabled in the GUI and will be inactive (unplugged).
+*   When the user will decide to import a Storage Domain to the setup, which already has disks related to this Storage Domain, the engine will verify if the target Data Center is the same as the Data Center where the unavailable Storage Domain exists, the engine will run over the properties of the Storage Domain configuration (Name, path ext.) and will change the configuration properly. If the Data Center does not match the Data Center of the unavailable Storage Domain, the user will be prompt with a can do action message that there is already reference of this Storage Domain in another Data Center, and the user should import it to the right Data Center.
+*   The user can decide that he/she does not want any relation to the unavailable Storage Domain's disks, in his/her setup, and can simply remove the unavailable Storage Domain and all its disks references.
+*   The disks imported from the imported Storage Domain will be the same as in the VM's OVF, which means plugged/unplugged to the VM. If the user will try to run a VM which contains disks on the unavailable Storage Domain, the behaviour should be the same as if the disks were on a Storage Domain in maintenance status. The operation should be blocked until the user will update the disks to be unplugged on the VM.
+*   A Template Disk might reside on multiple Storage Domains. The OVF of the template should not contain any reference to the copies of the disks, so there will be no references of copied disks when importing a Storage Domain. Once a Storage Domain will be imported which have the same UUID for an existing template disk, an appropriate event log will notify this to the user, and the user can copy the disks to whichever Storage Domains he or she pleases.
+*   When importing a Storage Domain the user needs to take care not to import a Storage Domain which is in use by another oVirt setup to avoid data corruption. The system will prompt the user with a warning message before each import of Storage Domain with Meta Data that indicates it is already attached to a Storage Pool.
 
 ###### GUI Perspective
 

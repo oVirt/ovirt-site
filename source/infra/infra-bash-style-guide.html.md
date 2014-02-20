@@ -207,7 +207,7 @@ When able, passs all the needed information to the functions you use using param
 
 ##### Function return statements
 
-Most functions should not use the exit statements, instead, they should use the return statement and let the caller of the function handle the error. Some exceptions include the *die* function.
+Most functions should not use the exit statements, instead, they should use the return statement and let the caller of the function handle the error. Some exceptions include the *die* function. You should always write a return statement explicitly, to make sure that you return what you want and make it clear what the function will return. So usually, your functions will end with a return 0 statememt.
 
 ##### Command substitution
 

@@ -15,11 +15,16 @@ feature_status: Design
 
 ### Summary
 
-Support discovery of existing virtual machines on RHEV storage requirements. Today we able to import Export Storage Domain and ISO Storage Domain, though there is no support for importing an existing Storage Domain.
-Each Storage Domain should contain the disks and the VM's OVFs
-The VM's OVF is an XML standard representing the VM configuration, including disks, VM memory, CPU and more. The Import Storage Domain could be used for different types of use cases,
-for example when the database is gone and need to recover the Data.
-Another example is workaround for Export Domain if the user has a large amount of data the Export Domain can't contain
+Today, oVirt is able to import ISO and Export Storage Domains, however, there is no support for importing an existing Data Storage Domain.
+Each Data Storage Domain is an entity which contains disks and sometime VM's and Template's OVF.
+The OVF is an XML standard representing the VM configuration, including disks, VM memory, CPU and more.
+Based on this information stored in the Storage Domain,
+we can relate the disks, VMs and Templates to on any Data Center which we will relate the Storage Domain into.
+The usability of the feature might be useful for various use cases, the following are some of them:
+
+*   Recover after the loss of the oVirt Engine's database.
+*   Transfer VMs between setups without the need to copy the data into and out of the export domain.
+*   Support migrating Storage Domains between DCs and between different oVirt installations.
 
 ### Owner
 

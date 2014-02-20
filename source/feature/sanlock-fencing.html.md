@@ -26,7 +26,7 @@ When a host becomes non-responsive, oVirt engine tries to fence the host; detach
 
 This feature is in design phase.
 
-*   Last updated: ,
+*   Last updated on -- by
 
 ### Why another fencing mechanism?
 
@@ -113,6 +113,12 @@ Note: we must validate that engine do update VMs status correctly when reconnect
 Since soft and hard fencing are fast, it seems a better option than sanlock fencing when a host is reachable. sanlock fencing will be used as a fall-back when soft and hard fencing are not available, or fail.
 
 For the first version, we may need to make sanlock fencing disabled by default and let users enable and disable it. This will require minor user interface changes.
+
+### Limitations
+
+#### Hardware or power failure
+
+If a host has a hardware failure, or loose power, and will never come up, it will remain non responsive, and the running vm will not be started on other hosts. This situation requires manual fencing; checking that the host is down and confirming that it was rebooted. Using hard fencing, we can verify quickly that a host is not running and start VMs on other hosts, and we are do not care if the fenced host come up or not.
 
 ### Dependencies
 

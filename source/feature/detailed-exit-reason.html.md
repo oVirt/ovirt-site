@@ -47,7 +47,9 @@ since the communication between VDSM and engine happens through XML-RPC, not-upd
 
 *   Why an extra field?
 
-ExitReason is (intentionally) a superset of ExitCode. When the values do overlap, they carry the same meaning. The main driving factor to add a new field is to maximize the backward compatibility between VDSM and engine. However, ExitReason do not convey only error semantic, but also specify why a VM ha succesfully terminated (e.g. migration succeeded).
+ExitReason can be made a superset of ExitCode, meaning that when the values overlap, they carry the same meaning. ExitReason carries specific values for every possible VM termination outcome, either succesful or unsuccesful. So, for example, there is a specific ExitReason if a VM migrates succesfully, and not only a generic success value for all the possible correct terminations.
+
+We can make ExitReason backward compatible with ExitCode if we drop the specific success codes and we coalesce them in a single catch-all value.
 
 #### Webadmin/Power User Portal
 

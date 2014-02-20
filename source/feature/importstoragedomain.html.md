@@ -91,15 +91,12 @@ The user will need to input a Storage Server name or IP, the engine will then co
 Each VG represents a Storage Domain in the engine.
 Eventually the engine should have a map of maps.
 The first map will link between VG and targets. each target is also a map which link between the target and its LUNs.
-Open Question: What about external LUN disk, should it be considered as a new storage domain?
+Open Issue: We should have an indication of External LUN disk on the Lun
 
 ###### GUI Perspective
 
-*   Once the user will decide to import a Block Device Domain, it will use a similar dialog as adding iSCSI/FC Storage Domain.
-
-The user will use the Storage Server name or IP as an input, and the Host which will do the connect, and will press connect.
-Once the engine will finish connecting to all the LUNs, the user should see a list of targets. When he will choose one target, he should see in another tab of the dialog, the Storage Domain names where each one of them will have a list of Luns related to them Once the user finished to import the Storage Server he chose, and the engine will read the VM's OVFs from the file (Related to OVF on any domain), and the related disks of the Data Domain.
-From that on, the same behaviour should be the same as importing from NFS as described in phase 2.
+*   Once the user will decide to import a Block Device Domain, it will use a similar dialog as adding iSCSI/FC Storage Domain. The user will use the Storage Server name or IP as an input, and the Host chosen will connect to the Storage Server a display the targets on it.
+*   Once the user will check the targets he will want to connect and press the login button, the user should see a list of Storage Domains names and sizes, related to those targets chosen. Each Storage Target will have a tool tip once standing on it, it will present a list of LUN GUIDs related to it.
 
 The following UI mockups contain guidelines for the different screens and wizards related to the block domain:
 An import screen for Fibre Channel Storage Domain :

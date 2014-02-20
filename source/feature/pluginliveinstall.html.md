@@ -29,7 +29,7 @@ This feature will move allow for plugins to be installed while a node is running
 
 Not Started
 
-*   Last updated: ,
+*   Last updated on -- by
 
 ### Detailed Description
 

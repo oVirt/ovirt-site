@@ -525,4 +525,11 @@ will upgrade to latest 3.3.
  - engine_page: use vdsm to detect mgmt interface
  - engine_page: display url/port only on available
 
+### oVirt DWH
+
+* PRD34 - [RFE] collect the "created_by" field of a VM into it's configuration history
+ - [RFE] add trigger to stop etl connection via engine db value.
+ - [DWH-SETUP] - remote user password is asked twice for authentication
+ - Multiple daemons are not "registered" in /etc/rc[0-6].d directory hierarchy (chkconfig)
+
 <Category:Documentation> <Category:Releases>

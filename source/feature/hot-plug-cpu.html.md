@@ -97,7 +97,17 @@ pseudo-code for building a VM xml we send to VDSM
 
 ### Dependencies / Related Features
 
-*   running [qemu-guest-agent](http://wiki.qemu.org/Features/QAPI/GuestAgent)
+*   ***setNumOfCpus --guest*** (using qemu guest agent for plug/unplug)
+
+There is no direct dependency on QEMU's agent. But for the sake of documenting any detail we have, its worth mentioning that<b>
+
+libvirt's setNumOfCpus --guest will use the guest agent to offline/online the requested cpu instead of a real plug/unplug
+
+i.e that the as for RHEL, the guest alone handles the plug/unplug without the need of the agent to do the underling job.
+
+for more details see comment 14 on Bug
+
+[qemu-guest-agent](http://wiki.qemu.org/Features/QAPI/GuestAgent)
 
 ### Guest OS Support Matrix
 

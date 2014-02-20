@@ -99,6 +99,112 @@ pseudo-code for building a VM xml we send to VDSM
 
 *   running [qemu-guest-agent](http://wiki.qemu.org/Features/QAPI/GuestAgent)
 
+### Guest OS Support Matrix
+
+| OS                               | Version                                   | Arch      | Plug            | Unplug          |
+|----------------------------------|-------------------------------------------|-----------|-----------------|-----------------|
+| Red Hat Enterprise Linux 6.3     |                                           | x86       | <center>        
+                                                                                            +                
+
+                                                                                            </center>        | <center>        
+                                                                                                              -                
+
+                                                                                                              </center>        |
+| Red Hat Enterprise Linux 6.5     |                                           | x86       | <center>        
+                                                                                            +                
+
+                                                                                            </center>        | <center>        
+                                                                                                              +                
+
+                                                                                                              </center>        |
+| Microsoft Windows Server 2003    | All                                       | x86       | <center>        
+                                                                                            -                
+
+                                                                                            </center>        | <center>        
+                                                                                                              -                
+
+                                                                                                              </center>        |
+| Microsoft Windows Server 2003    | All                                       | x64       | <center>        
+                                                                                            -                
+
+                                                                                            </center>        | <center>        
+                                                                                                              -                
+
+                                                                                                              </center>        |
+| Microsoft Windows Server 2008    | All x86                                   | <center>  
+                                                                                -          
+
+                                                                                </center>  | <center>        
+                                                                                            -                
+
+                                                                                            </center>        |
+| Microsoft Windows Server 2008    | Standard, Enterprise                      | x64       | Reboot Required | Reboot Required |
+| Microsoft Windows Server 2008    | Datacenter                                | x64       | <center>        
+                                                                                            +                
+
+                                                                                            </center>        | <center>        
+                                                                                                              ?                
+
+                                                                                                              </center>        |
+| Microsoft Windows Server 2008 R2 | All                                       | x86       | <center>        
+                                                                                            -                
+
+                                                                                            </center>        | <center>        
+                                                                                                              -                
+
+                                                                                                              </center>        |
+| Microsoft Windows Server 2008 R2 | Standard, Enterprise                      | x64       | Reboot Required | Reboot Required |
+| Microsoft Windows Server 2008 R2 | Datacenter                                | x64       | <center>        
+                                                                                            +                
+
+                                                                                            </center>        | <center>        
+                                                                                                              ?                
+
+                                                                                                              </center>        |
+| Microsoft Windows Server 2012    | All                                       | x64       | <center>        
+                                                                                            +                
+
+                                                                                            </center>        | <center>        
+                                                                                                              ?                
+
+                                                                                                              </center>        |
+| Microsoft Windows Server 2012 R2 | All                                       | x64       | <center>        
+                                                                                            +                
+
+                                                                                            </center>        | <center>        
+                                                                                                              ?                
+
+                                                                                                              </center>        |
+| Microsoft Windows 7              | All                                       | x86       | <center>        
+                                                                                            -                
+
+                                                                                            </center>        | <center>        
+                                                                                                              -                
+
+                                                                                                              </center>        |
+| Microsoft Windows 7              | Starter, Home, Home Premium, Professional | x64       | Reboot Required | Reboot Required |
+| Microsoft Windows 7              | Enterprise, Ultimate                      | x64       | <center>        
+                                                                                            +                
+
+                                                                                            </center>        | <center>        
+                                                                                                              ?                
+
+                                                                                                              </center>        |
+| Microsoft Windows 8.x            | All                                       | x86       | <center>        
+                                                                                            +                
+
+                                                                                            </center>        | <center>        
+                                                                                                              ?                
+
+                                                                                                              </center>        |
+| Microsoft Windows 8.x            | All                                       | x64       | <center>        
+                                                                                            +                
+
+                                                                                            </center>        | <center>        
+                                                                                                              ?                
+
+                                                                                                              </center>        |
+
 ### Documentation / External references
 
 *   [oVIrt VDSM RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1036492)

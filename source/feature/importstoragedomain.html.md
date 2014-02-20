@@ -114,21 +114,10 @@ Open issue: Could be also that CREATE_VM for creating VMs.
 
 #### Future Work
 
-*   Detach Stroage Domain: Eventually if the user will choose all the storage domains at once then we will detach them all at once (Need to take into consideration this message could nag the user since we might always have VMs with disks on other storage domains)
-*   Import Storage Domain : supporting importing of iSCSI storage domain will be in later phase
-*   Import Storage Domain : The user will be able to send a list of paths, and the engine will import them all at once
-*   Nice to have: A way to choose the VMs to import to the DC (instead automatically)
-*   Mock ups will be added.
-*   Phase 3 GUI Perspective : The user will be also able to see the LUNs as the main entity and get to know which VG it is related to.
-*   Adding validation for checking image corruption after importing the Storage Domain. - Could be useful for indicating synchronization issues in the OVF.
-*   Metadata containing last setup data - The Meata Data should be updated once the Storage Domain is successfully imported and a copy of it containning the original data should be created in the same directory, so we will be able to have a trace.
-*   Import an Export Domain as a regualr Storage Domain
-
-##### Different scenarios
-
-Delete the Storage Domain while importing it - There could be a scenario which the import of the Storage Domain will be deleted in the middle of the process.
-If the mount for NFS or the Connect in Block Storage Domain already succeeded then the behaviour will be that the Storage Domain will become invalid.
-If the mount/connect did not succeeded then the operation will fail with an appropriate audit log.
+*   Detach Stroage Domain with VMs/Templates and disks: The user will be able to detach a list of Storage Domains all at once instead detaching each Storage Domain one by one.
+*   Import Storage Domain : The user will be able to import a list of Storage domains all at once.
+*   Adding validation for checking image corruption after importing the Storage Domain. - Mainly for sync issues with the OVF.
+*   Import an Export Domain as a regular Storage Domain
 
 #### Related Features
 

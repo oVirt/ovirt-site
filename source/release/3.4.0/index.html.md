@@ -532,4 +532,13 @@ will upgrade to latest 3.3.
  - [DWH-SETUP] - remote user password is asked twice for authentication
  - Multiple daemons are not "registered" in /etc/rc[0-6].d directory hierarchy (chkconfig)
 
+### oVirt Log Collector
+
+* Collect ovirt-engine runtime configuration files
+ - Do not collect .pgpass files from RHEV-M.
+ - rhevm-log-collector garbles the tty when multiple hosts are gathered and ssh is called with the "-t" flag
+ - [ovirt-engine-log-collector] engine-ca -> cert-file option switch, support old option name
+ - log-collector accesses /api instead of /ovirt-engine/api
+ - [engine-log-collector] \`engine-log-collector --help' requires root credentials
+
 <Category:Documentation> <Category:Releases>

@@ -264,7 +264,13 @@ The exit code is your only way to directly communicate with the calling process 
 *   *exit 0* (zero) if everything is okay
 *   *exit 1* - in general non-zero - if there was an error
 
-This, **and only this**, will enable the calling component to check the operation status of your script. You know: *"One of the main causes of the fall of the Roman Empire was that, lacking zero, they had no way to indicate successful termination of their C programs."* //-- Robert Firth//
+This, **and only this**, will enable the calling component to check the operation status of your script.
+
+You know:
+
+"One of the main causes of the fall of the Roman Empire was that, lacking zero, they had no way to indicate successful termination of their C programs."
+
+//-- Robert Firth//
 
 # Misc
 

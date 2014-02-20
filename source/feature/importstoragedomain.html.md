@@ -34,11 +34,13 @@ The usability of the feature might be useful for various use cases, the followin
 
 *   Design
 
-### General Restrictions
+### General Functionality
 
-*   Import of VMs OVFs in the Storage Domain will be supported only for supported versions of Storage Domain. If the Storage Domain is not in the supported version we will only import the disks without the VMs, the engine will also provide an audit log indicating the user should upgrade those storage domains so the import of the OVFs will also be supported.
-*   If the imported Storage Domain is visible only on one host and the other Hosts in the Data Center could not be able to mount to it, then the behaviour should be the same as adding a new Storage Domain, the other Hosts will become non-operational.
-*   The Import Storage Domain should be to an Active Data Center with an active master Storage Domain.
+*   The VMs'/Templates' OVFs will be imported from the OVF disk in the Storage Domain [see 1], the OvfOnWantedDomains feature, will be supported from oVirt 3.5.
+*   Imported domains will be imported as 'unattached' and can then be attached to a DC.
+*   If the OVF disk [see 1] will not be in the Storage Domain, then the only entities that will be imported are the disks in the Storage Domain (An appropriate event log will be notify it to the user).
+
+[1] <http://www.ovirt.org/Feature/OvfOnWantedDomains>
 
 ##### Phase 1 - Detach Storage Domain
 

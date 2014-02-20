@@ -546,4 +546,8 @@ will upgrade to latest 3.3.
 * [ovirt-engine-iso-uploader] engine-ca -> cert-file option switch, support old option name
  - [engine-iso-uploader] /etc/ovirt-engine/isouploader.conf is world readable (can contain password!)
 
+### oVirt Image Uploader
+
+* [ovirt-engine-image-uploader] engine-ca -> cert-file option switch, support old option name
+
 <Category:Documentation> <Category:Releases>

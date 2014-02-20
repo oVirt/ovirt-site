@@ -36,7 +36,7 @@ Moving around some dependencies and features so that other images can minimize t
 
 <!-- -->
 
-*   Last updated: ,
+*   Last updated on -- by
 
 ### Detailed Description
 

@@ -105,7 +105,7 @@ libvirt's setNumOfCpus --guest will use the guest agent to offline/online the re
 
 i.e that the as for RHEL, the guest alone handles the plug/unplug without the need of the agent to do the underling job.
 
-for more details see comment 14 on Bug
+for more details see comment 11 on Bug [#1017858](https://bugzilla.redhat.com/show_bug.cgi?id=1017858#c11)
 
 [qemu-guest-agent](http://wiki.qemu.org/Features/QAPI/GuestAgent)
 

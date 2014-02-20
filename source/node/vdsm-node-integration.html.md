@@ -42,9 +42,11 @@ management_server=vm-17-42.qa.eng.blg.redhat.com:10443
 
 management_server_fingerprint:
 
-This is the RHEVM CA certificate fingerprint, as it is produced by executing on RHEVM/Engine machine
+This is the RHEVM CA certificate fingerprint, as it is produced by executing on RHEVM/Engine machine:
 
-'grep SSLCACertificateFile /etc/httpd/conf.d/ssl.conf' 'openssl x509 -fingerprint -in /etc/pki/ovirt-engine/apache-ca.pem'
+grep SSLCACertificateFile /etc/httpd/conf.d/ssl.conf
+
+openssl x509 -fingerprint -in /etc/pki/ovirt-engine/apache-ca.pem
 
 An example:
 

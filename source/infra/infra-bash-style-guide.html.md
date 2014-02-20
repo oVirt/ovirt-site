@@ -294,7 +294,7 @@ Never blindly assume anything. If you want the user to input a number, **check t
 
 ### Potability
 
-If you can imagine a reason where you script is going to be executed on a machine where bash is not available (most common linux distributions and gnu based systems have bash as default shell), you should use the POSIX standard.
+If you can imagine a reason where you script is going to be executed on a machine where bash is not available (most common linux distributions and gnu based systems have bash as default shell), you should use the POSIX standard. For example, when creating a script that is going to be included in a project as part of the official build process.
 
 # Other Coding style guidelines
 

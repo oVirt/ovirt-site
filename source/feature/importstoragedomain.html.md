@@ -35,7 +35,7 @@ The usability of the feature might be useful for various use cases, the followin
 
 ### General Functionality
 
-*   The VMs'/Templates' OVFs will be imported from the OVF disk in the Storage Domain [see 1], the OvfOnWantedDomains feature, will be supported from oVirt 3.5.
+*   The VMs'/Templates' OVFs will be imported from the OVF disk in the Storage Domain [see 1]. The OvfOnWantedDomains feature, will be supported from oVirt 3.5.
 *   Imported domains will be imported as 'unattached' and can then be attached to a DC.
 *   If the OVF disk [see 1] will not be in the Storage Domain, then the only entities that will be imported are the disks in the Storage Domain (An appropriate event log will be notify it to the user).
 

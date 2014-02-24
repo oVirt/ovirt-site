@@ -34,7 +34,7 @@ Following options can be specified in in `/etc/kdump.conf` file:
 4.  Extra binaries to include into initramfs
 5.  And other not so important for oVirt options
 
-## About fence kdump
+## About Fence kdump
 
 Fence kdump is a method how to prevent fencing a host during its kdump process. The tool is packaged in fence-agents-kdump package and it contains two commands:
 

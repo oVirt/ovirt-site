@@ -116,8 +116,8 @@ The specific values means:
 | kernel_url               | boot params                                  | Y        |       | Y             |       |
 | kernel_params            | boot params                                  | Y        |       | Y             |       |
 | migration_support        | migration support options                    | Y        |       | N             |       |
-| userdefined_properties   | custom properties                            | N        |       | N             |       |
-| predefined_properties    | custom properties                            | N        |       | N             |       |
+| userdefined_properties   | custom properties                            | Y        |       | N             |       |
+| predefined_properties    | custom properties                            | Y        |       | N             |       |
 | min_allocated_mem       | memory guaranteed                            | Y        |       | N             |       |
 | child_count              | internal. for template, not in use?          | N        |       | N             |       |
 | quota_id                 | link to quota                                | Y        |       | Y             |       |
@@ -126,12 +126,12 @@ The specific values means:
 | is_smartcard_enabled    | smartcard enabled                            | Y        |       | N             |       |
 | payload                   | payload (device, not in vm_static)          | Y        |       | N             |       |
 | thin/clone                |                                              | N        |       | N             |       |
-| soundcard                 | payload (device, not in vm_static)          | N        |       | N             |       |
+| soundcard                 | payload (device, not in vm_static)          | Y        |       | N             |       |
 | Balloon                   | payload (device, not in vm_static)          | N        |       | N             |       |
 | network interface         | binding of NIC to logical network            | N        |       | N             |       |
 | instance_type_id        | internal. link to vm's instance type         | N        |       | N             |       |
 | image_type_id           | internal. link to vm's image type            | N        |       | N             |       |
-| host_cpu_flags          | use host cpu flags                           | N        |       | N             |       |
+| host_cpu_flags          | use host cpu flags                           | Y        |       | N             |       |
 | db_generation            | internal                                     | N        |       | N             |       |
 | is_delete_protected     | protection from accidental deletion          | Y        |       | N             |       |
 | is_disabled              | disabled-template (for templates only)       | Y        |       | N             |       |

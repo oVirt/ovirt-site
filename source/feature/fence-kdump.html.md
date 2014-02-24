@@ -21,7 +21,7 @@ The kdump service support is contained in kexec-tools package:
 1.  Configuration of kdump behavior is defined in `/etc/kdump.conf`
 2.  The initramfs file can be created from `/etc/kdump.conf` file executing `kdumpctl restart` (Fedora 19) or `service kdump restart` (RHEL 6)
 
-**Attention:** To enabled kdump these two things are needed:
+**Attention:** To enable kdump these two things are needed:
 
 1.  Main kernel has to be booted with `crashkernel=` parameter
 2.  kdump service has to be enabled and started

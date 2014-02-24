@@ -49,8 +49,6 @@ The tool has following limitations that should be considered when using it in oV
 2.  `fence_kdump` return success exit code only for one host at the time, messages from other hosts are ignored
 3.  Package fence-agents-kdump doesn't contain any scripts to integrate them into kdump kernel
 
-## Prerequisities
-
 ## Fencing flow with fence kdump
 
 ## Host configuration

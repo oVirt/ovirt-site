@@ -119,4 +119,10 @@ sos: plugin should ignore /var/run/vdsm/storage
  - engine_page: use vdsm to detect mgmt interface
  - engine_page: display url/port only on available
 
+### oVirt Log Collector
+
+* rhevm-log-collector garbles the tty when multiple hosts are gathered and ssh is called with the "-t" flag
+ - Do not collect .pgpass files from RHEV-M.
+ - Collect ovirt-engine runtime configuration files
+
 <Category:Documentation> <Category:Releases>

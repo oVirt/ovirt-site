@@ -342,6 +342,7 @@ will upgrade to latest 3.3.
  - [RFE] PPC arch support
  - Memory snapshot on PPC64
  - Migration on the ppc64 platform
+ - Allow to disable SSO per VM
  Fixed in oVirt 3.4.0 beta 2:
 
 * Management network VLAN tagging behaves badly

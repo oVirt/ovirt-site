@@ -12,6 +12,8 @@ wiki_last_updated: 2015-01-26
 
 *It's only proposal, not yet finalized*
 
+## About kdump
+
 ## About fence kdump
 
 Fence kdump is a method how to prevent fencing a host during its kdump process. The tool is packaged in fence-agents-kdump package and it contains two commands:

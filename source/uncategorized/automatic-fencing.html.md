@@ -100,6 +100,16 @@ Automatic fencing flow will be extended in oVirt 3.5:
 2.  SSH Soft Fencing will be turned on by default. *Will it be beneficial to set default per cluster/DC, so admin won't be forced to set it on each host?*
 3.  Support for fence_kdump will be included (more details in [Fence kdump](Fence kdump))
 
+Fencing flow in oVirt 3.5 will be defined as this:
+
+1.  On first network failure, host status will change to **Connecting**
+2.  Then engine will try 3 times more to ask vdsm for status (configuration: `VDSAttemptsToResetCount`) or wait an interval of time that depends on host's load (configured by the the config values `TimeoutToResetVdsInSeconds` + (`DelayResetPerVmInSeconds` \* (the count of running vms on host) + (`DelayResetForSpmInSeconds` \* (1 if host runs as SPM or 0 if not)).)
+3.  If the host doesn't respond during this time, execute VDSM restart using SSH connection. If command execution wasn't successful, proceed to fence kdump step immediately.
+4.  Wait if host recovers for previously specified time (ask 3 times VDSM for status or wait an interval of time that depends on host's load) If the host doesn't respond during this time, it's status will change to **Non responsive** and fence kdump step will be executed.
+5.  If fence kdump is enabled for the host, check if fence kdump message will be received. If message is received, set host status to **Reboot** and exit from fencing flow.
+6.  If message from **Non responsive** host is not received in specified timeout (`FenceKdumpMessageTimeout`), proceed to hard fencing step.
+7.  If hard fencing is configured for host, execute it. Otherwise exit from fencing flow
+
 # Troubleshooting
 
 Check that you can run the fence agent from the command line. Use the fence script that corresponds with the fence type you are setting up.

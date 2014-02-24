@@ -343,6 +343,7 @@ will upgrade to latest 3.3.
  - Memory snapshot on PPC64
  - Migration on the ppc64 platform
  - Allow to disable SSO per VM
+ - Fix Control-Alt-Delete functionality in console options
  Fixed in oVirt 3.4.0 beta 2:
 
 * Management network VLAN tagging behaves badly

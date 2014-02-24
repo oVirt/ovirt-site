@@ -51,4 +51,6 @@ The tool has following limitations that should be considered when using it in oV
 
 ## Fencing flow with fence kdump
 
+Fence kdump will be inserted into current fencing flow just before hard fencing, details are in [Automatic_Fencing#Automatic_Fencing_in_oVirt_3.5](Automatic_Fencing#Automatic_Fencing_in_oVirt_3.5).
+
 ## Host configuration

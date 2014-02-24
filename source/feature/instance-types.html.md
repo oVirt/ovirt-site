@@ -60,7 +60,9 @@ Typically the image is stateless, when the virtual machine is stopped all change
 **Template**
 The old template used in the oVirt until now. User will be able to combine the VM from the triple instance type, image and template.
 
---[TJelinek](User:TJelinek) ([talk](User talk:TJelinek)) 10:30, 13 February 2014 (GMT)== Design == The following table enumerates all the fields involved and also how they are related to the entities.
+### Design
+
+The following table enumerates all the fields involved and also how they are related to the entities.
 
 The specific columns means:
 
@@ -108,7 +110,7 @@ The specific values means:
 | default_boot_sequence   | boot sequence                                | Y        |       | N             |       |
 | default_display_type    | display type(SPICE, VNC)                     | Y        |       | N             |       |
 | priority                  | priority                                     | Y        |       | N             |       |
-| iso_path                 | cd                                           | Y        |       | Y             |       |
+| iso_path                 | cd                                           | Y        |       | Y ?           |       |
 | origin                    | internal. where the vm was created           | N        |       | N             |       |
 | initrd_url               | boot params                                  | Y        |       | Y             |       |
 | kernel_url               | boot params                                  | Y        |       | Y             |       |

@@ -74,7 +74,7 @@ If cluster does not support sanlock fencing, or there is no available proxy host
 
 We will use the current fencing API, using new fencing type.
 
-Since sanlock fencing is using different parameters then other fencing agents, we will try to fit the sanlock parameters into the standard fencing agents interface. For example, sending the sanlock host id and lockspace name in the address field.
+Since sanlock fencing is using different parameters than other fencing agents, we will try to fit the sanlock parameters into the standard fencing agents interface. For example, sending the sanlock host id and lockspace name in the address field.
 
 sanlock does not support the "stop" and "start" verbs, used by hard fencing. We need to find how to integrate sanlock with the current fencing code.
 

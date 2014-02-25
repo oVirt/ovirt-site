@@ -96,17 +96,17 @@ Unlike hard fencing, engine will \`\`\`not\`\` mark vms that were running on the
 
 This step takes should take about 1 minute, depending on sanlock configuration.
 
-#### Engine waits until host up
+#### Engine waits until host is up
 
-At this point the fencing sequence is done, and engine will wait until the host is up. When the host is up, engine will query the host status normally, and update vm status.
+At this point the fencing sequence is done, and engine will wait until the host is up. When the host is up, engine will query the host's status normally, and update vm status.
 
-In the likely case, the host was just rebooted, and no VMs are running, so the engine can start high-available VMs on other hosts.
+In the most likely case, the host was just rebooted, and no VMs are running, so the engine can start high-available VMs on other hosts.
 
-In the very unlikely case when host lost access to storage just before we tried to fence it, and got back access to storage, VMs may be running, but if the hosts is responsive and well, we don't have anything to do.
+In the very unlikely case when host lost access to storage just before we tried to fence it, and got back access to storage, VMs may be running, but if the host is responsive and well, we don't have anything to do.
 
-This step takes couple of minutes, depending on the host configuration.
+This step takes a couple of minutes, depending on the host's configuration.
 
-Note: we must validate that engine do update VMs status correctly when reconnecting to host.
+Note: we must validate that engine does update VMs' statuses correctly when reconnecting to the host.
 
 ### Integration with existing mechanisms
 

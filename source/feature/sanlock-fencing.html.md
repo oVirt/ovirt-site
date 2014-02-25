@@ -78,7 +78,7 @@ Since sanlock fencing is using different parameters than other fencing agents, w
 
 sanlock does not support the "stop" and "start" verbs, used by hard fencing. We need to find how to integrate sanlock with the current fencing code.
 
-#### Proxy host send sanlock fence request sanlock daemon
+#### Proxy host sends sanlock fence request sanlock daemon
 
 We hope to have a sanlock fence request API, to send a reset message to the fenced host, and wait until the fenced host receives the message and stops renewing its lease.
 

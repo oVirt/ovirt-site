@@ -59,6 +59,6 @@ After the contributor will submit his patch, he can use the gerrit-review to add
 
 **Expected results:** The user will add the potential reviewers he will think will be best to review his patch.
 
-**Knowledge Prerequisite:** Python, gerrit-review
+**Knowledge Prerequisite:** Python, gerrit-review, git, gerrit
 
 **Mentor:** Maor Lipchuk

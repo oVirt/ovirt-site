@@ -29,7 +29,7 @@ Enhancing oVirt template model to allow for more flexible options in creating vi
 
 ### Current status
 
-*   Target Release: 3.3
+*   Target Release: 3.5
 *   Status: under design and discussion.
 
 ### Background

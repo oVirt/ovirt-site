@@ -77,7 +77,7 @@ The oVirt platform consists of at least one oVirt Engine and one or more Nodes.
 
 *   oVirt Engine runs virtual machines. A physical server running Fedora 19, Red Hat Enterprise Linux 6 or CentOS 6 can also be configured as a host for virtual machines on the oVirt platform.
 
-### Install oVirt Engine
+### Install oVirt Engine (Fedora)
 
 oVirt Engine is the control center of the oVirt environment. It allows you to define hosts, configure data centers, add storage, define networks, create virtual machines, manage user permissions and use templates from one central location.
 

@@ -73,8 +73,8 @@ The specific columns means:
 *   **Comm**: comment for the entity
 *   **Perms**: new permissions needed
 *   **Adv Only**: the new VM dialog will contain a button "Advanced Options". If the field is marked as Adv Only: Y than it is visible only after clicking this button
-*   **Basic User**: if the user is not an admin user, only the fields which are marked as Basic User: Y will be editable for him
-*   **Marked**: if Y, it means the field is "special" and if the user changes it, the instance type will change to "custom"
+*   **Basic User**: The basic user is a user which has only the *Instance Creator* role (and not the *Vm Creator*). This user is meant only to create a VM from a non-custom (e.g. non empty) instance type and is allowed to edit only the fields marked as Basic User: Y
+*   **Marked**: if Y, it means this field is crucial to the instance type definition and if the user changes it, the instance type will change to "custom" (e.g. the VM is not based on that instance type anymore).
 *   **On Create**: default value when creating the VM
 
 The specific values means:

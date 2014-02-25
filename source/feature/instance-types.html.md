@@ -58,7 +58,10 @@ In these environments when provisioning a virtual machine a user picks an instan
 Typically the image is stateless, when the virtual machine is stopped all changes are lost. A user can add volumes to the virtual machines, which are persistent disks typically used as a data disk.
 
 **Template**
-The old template used in the oVirt until now. User will be able to combine the VM from the triple instance type, image and template.
+The old template used in the oVirt until now.
+
+**VM**
+The VM is a combination of the triple instance type, image and template (while any of this three can be empty). For details on where the specific fields will come from please see the detailed table: <http://wiki.ovirt.org/Features/Instance_Types#Design>
 
 ### Design
 

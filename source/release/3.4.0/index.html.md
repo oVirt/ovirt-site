@@ -122,6 +122,7 @@ will upgrade to latest 3.3.
     -   Needs to be booted in permissive mode by appending: enforcing=0
 *   engine-setup: upgrade from 3.3 overwrites exports with acl None ()
 *   Hosts with Fedora19 might not be able to discover iscsi targets due (), it's recommended to update selinux and selinux-target packages to version [3.12.1-74.19](https://admin.fedoraproject.org/updates/selinux-policy-3.12.1-74.19.fc19)
+*   Host deployment may fail on EL6 system due to a recent tuned regression (, ). Please downgrade tuned to previous version while waiting for a new tuned package solving this issue.
 
 ## Bugs fixed
 

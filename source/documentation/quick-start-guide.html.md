@@ -37,6 +37,8 @@ The following requirements are typical for small- to medium-sized installations.
 *   The oVirt Engine must be configured to receive updates from the oVirt project's software repository, as provided by the [ovirt-release](http://resources.ovirt.org/releases/ovirt-release.noarch.rpm) package.
 *   A client for connecting to oVirt Engine.
 
+**Note:** If installing on Fedora, Fedora 19 is the appropriate version on which to install oVirt 3.3.x.
+
 #### For each Host (oVirt Node, Fedora Host, CentOS Host)
 
 *   Minimum - Dual-core server, 10 GB RAM and 10 GB Storage, 1-Gbps network interface.

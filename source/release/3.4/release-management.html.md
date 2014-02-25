@@ -14,7 +14,7 @@ wiki_last_updated: 2014-03-27
 
 *' These are tentative planning dates and may change*'
 
-*   General availability: **2014-03-03**
+*   General availability: **2014-03-11**
     -   [ oVirt 3.4 Third Test Day:](OVirt_3.4_TestDay) **\1**
     -   RC Build: **\1**
     -   Beta 3 release: **\1**

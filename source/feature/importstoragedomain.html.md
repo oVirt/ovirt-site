@@ -96,8 +96,8 @@ Open Issue: We should have an indication of External LUN disk on the Lun
 
 ###### GUI Perspective
 
-*   Once the user will decide to import a Block Device Domain, it will use a similar dialog as adding iSCSI/FC Storage Domain. The user will use the Storage Server name or IP as an input, and the Host chosen will connect to the Storage Server a display the targets on it.
-*   Once the user will check the targets he will want to connect and press the login button, the user should see a list of Storage Domains names and sizes, related to those targets chosen. Each Storage Target will have a tool tip once standing on it, it will present a list of LUN GUIDs related to it.
+*   When the user decides to import a Block Device Domain, we will use a similar dialog to adding iSCSI/FC Storage Domain. The user will use the Storage Server name or IP as an input, and the chosen Host will connect to the Storage Server and display the targets on it.
+*   Once the user will check the targets he will want to connect and press the login button, the user should see a list of Storage Domains names and sizes, related to those targets chosen. Each Storage Target will have a tool tip, once standing on it, it will present a list of LUN GUIDs related to it.
 *   Once the user selects a storage domain to import, he will press the Import button, and the engine will read the VM OVFs from it (see: OVF on any domain feature), and the disks that reside on the Domain. From there on, the behaviour should be the same as importing from NFS as described in phase 2.
 
 The following UI mockups contain guidelines for the different screens and wizards related to the block domain:

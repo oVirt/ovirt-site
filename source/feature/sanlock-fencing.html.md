@@ -118,7 +118,7 @@ For the first version, we may need to make sanlock fencing disabled by default a
 
 #### Hardware or power failure
 
-If a host has a hardware failure, or loose power, and will never come up, it will remain non responsive, and the running vm will not be started on other hosts. This situation requires manual fencing; checking that the host is down and confirming that it was rebooted. Using hard fencing, we can verify quickly that a host is not running and start VMs on other hosts, and we are do not care if the fenced host come up or not.
+If a host has a hardware failure, or loose power, and will never come up, it will remain non responsive, and the running vm will not be started on other hosts. This situation requires manual fencing; checking that the host is down and confirming that it was rebooted. Using hard fencing, we can verify quickly that a host is not running and start VMs on other hosts, and we do not care if the fenced host comes up or not.
 
 ### Dependencies
 

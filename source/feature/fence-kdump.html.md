@@ -26,6 +26,8 @@ The kdump service support is contained in kexec-tools package:
 1.  Main kernel has to be booted with `crashkernel=` parameter
 2.  kdump service has to be enabled and started
 
+**Attention:** On RHEL6 you can specify `crashkernel=auto` (kernel calculates needed memory size based on RAM size), but this doesn't work on Fedora (you have to manually set memory size).
+
 Following options can be specified in in `/etc/kdump.conf` file:
 
 1.  Place where to store kernel core dump, currently it can be local, NFS, SSH or iSCSI (by default core dumps are saved to `/var/crash`)

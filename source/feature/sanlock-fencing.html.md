@@ -49,12 +49,12 @@ Using sanlock fencing, we can trigger a reboot of the host, thus stopping vdsm a
 
 ### sanlock fencing - theory of operation
 
-Fencing using sanlock include these steps:
+Fencing using sanlock includes the following steps:
 
 1.  Engine picks a proxy host
 2.  Engine sends sanlock fencing request to the proxy host
-3.  Proxy host send sanlock fencing request sanlock daemon
-4.  Engine poll sanlock fencing status until fencing request is finished
+3.  Proxy host sends sanlock fencing request to the sanlock daemon
+4.  Engine polls sanlock fencing status until fencing request is finished
 5.  Engine waits until host is up
 
 #### Engine picks a proxy host

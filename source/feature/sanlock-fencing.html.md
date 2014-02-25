@@ -86,7 +86,7 @@ When a proxy gets a fencing request, we will start a fencing thread, and run the
 
 At this point, the proxy host will return a response to the engine, and the engine will move the next step in the fencing sequence. The egine will change the host's state to "Rebooting" upon receiving this response.
 
-#### Engine poll sanlock fencing status until fencing request is finished
+#### Engine polls sanlock fencing status until fencing request is finished
 
 While vdsm is running the fencing command, engine will poll vdsm fencing status. Until the sanlock fencing command returns, vdsm will return the same status that other fencing agents return today when a host is stopping.
 
@@ -94,7 +94,7 @@ When sanlock command is finished, the fencing thread will wait for the next upda
 
 Unlike hard fencing, engine will \`\`\`not\`\` mark vms that were running on the host as not running, and will not start them on other hosts at this point, because we don't have any guarantee that the host was rebooted, or even is rebooting. This is why engine must move the next step.
 
-This step takes should take about 1 minute, depending sanlock configuration.
+This step takes should take about 1 minute, depending on sanlock configuration.
 
 #### Engine waits until host up
 

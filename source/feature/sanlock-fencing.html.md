@@ -80,11 +80,11 @@ sanlock does not support the "stop" and "start" verbs, used by hard fencing. We 
 
 #### Proxy host send sanlock fence request sanlock daemon
 
-We hope to have a sanlock fence request API, that send a reset message to the fenced host, and wait until the fenced host receive the message and stops renewing its lease.
+We hope to have a sanlock fence request API, to send a reset message to the fenced host, and wait until the fenced host receives the message and stops renewing its lease.
 
-When a proxy get a fencing request, we will start a fencing thread, and run the sanlock fencing command in this thread.
+When a proxy gets a fencing request, we will start a fencing thread, and run the sanlock fencing command in this thread.
 
-At this point, the proxy host will return a response to the engine, and the engine will move the next step in the fencing sequence. Engine will change the host state to "Rebooting" upon receiving this response.
+At this point, the proxy host will return a response to the engine, and the engine will move the next step in the fencing sequence. The egine will change the host's state to "Rebooting" upon receiving this response.
 
 #### Engine poll sanlock fencing status until fencing request is finished
 

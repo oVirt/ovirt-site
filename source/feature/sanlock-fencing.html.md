@@ -164,9 +164,9 @@ For this version, we prefer to have a simpler solution.
 
 #### Why not use Disk based leases?
 
-Using disk based leases, we can ensure that VMs are killed when sanlock loose the host id lease, even if we don't get a reset message acknowledge. It also allow fencing in the VM level, without rebooting the machine. We would like to have such disk leases for the live-merge feature, so using disk leases seems the correct long term solution.
+Using disk based leases, we can ensure that VMs are killed when sanlock looses the host id lease, even if we don't get a reset message acknowledgement. It also allows fencing in the VM level, without rebooting the machine. We would like to have such disk leases for the live-merge feature, so using disk leases seems the correct long term solution.
 
-Adding disk based lease will probably required a new storage domain format, as the current leases volume can hold only 256-2000 leases (depending on sector size), and this may not be enough for some setups. Another issue, is how to pass leases from one VM to another during migration.
+Adding disk based leases will probably require a new storage domain format, as the current leases volume can only hold 256-2000 leases (depending on sector size), and this may not be enough for some setups. Another issue, is how to pass leases from one VM to another during migration.
 
 For this version, we prefer to have simpler solution.
 

@@ -32,9 +32,9 @@ This feature is in design phase.
 
 oVirt 3.4 supports 2 types of fencing; soft fencing and hard (or real) fencing. Soft fencing is implemented by logging in to the fenced host and restarting the vdsmd service. Hard fencing is implemented by fence agents, connecting to various power management devices, stopping the host, and then starting it. This option is available if the host has a compatible power management hardware, and power management was configured.
 
-In a typical data center, hosts are connected to the network using one nic, and to the storage using other nics or though an HBA. It may happen that the host is not accessible through networking but still have access to the shared storage. Current fencing mechanisms will fail and require manual reboot of the unreachable host. Until rebooted, VMs running on the host cannot be started on another host.
+In a typical data center, hosts are connected to the network using one nic, and to the storage using other nics or through an HBA. It may occur that the host is inaccessible through networking, but still has access to the shared storage. Current fencing mechanisms will fail and require manual reboot of the unreachable host. Until rebooted, VMs running on the host cannot be started on another host.
 
-While the host is unreachable, we can communicate with it using the shared storage. Since oVirt 3.1, every host is running the sanlock daemon, used to acquire leases on the shared storage. sanlock fencing is using the available sanlock daemon to send a fence request to the fenced host, and on the fenced host, trigger a reboot.
+While the host is unreachable, we can communicate with it using the shared storage. Since oVirt 3.1, every host is running the sanlock daemon, used to acquire leases on the shared storage. Sanlock fencing is using the available sanlock daemon to send a fence request to the fenced host, and on the fenced host, trigger a reboot.
 
 ### Fencing goals
 

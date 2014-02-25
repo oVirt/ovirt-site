@@ -139,7 +139,7 @@ Initial tests (incomplete)
 
 *   Setup soft fencing so it fails and disable hard fencing, and verify falling back to sanlock fencing
 *   Setup hard fencing so it fails, and verify falling back to sanlock fencing
-*   Regression: test that soft and hard fencing still works
+*   Regression: test that soft and hard fencing still work
 *   Test various failure modes of sanlock fencing (TBD)
 
 ### FAQ

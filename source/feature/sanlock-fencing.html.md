@@ -156,11 +156,11 @@ In addition, most of the infrastructure required by fence_sanlock is already ava
 
 #### Why not use VM based leases?
 
-If we add VM based leases, sanlock would kill those VMs when fencing a host, or when access to storage is lost. In this case, we can check that host was stopped by polling vdsm and VMs leases on the shared storage, so we can decrease the downtime of a critical VM, starting the VM on another host as soon as the VM lease is free. Additionally, these lease protect from split-brain if we have engine error cause it to start two instance of the same VM.
+If we add VM based leases, sanlock would kill those VMs when fencing a host, or when access to storage is lost. In this case, we can check that the host was stopped by polling vdsm and VMs leases on the shared storage, so we can decrease the downtime of a critical VM, starting the VM on another host as soon as the VM lease is free. Additionally, these leases protect from a split-brain if we have engine an error cause it to start two instances of the same VM.
 
-VM leases must be stored today on the master domain. However, we plan to drop the master domain in the next version, so VM leases do not have obvious place. Adding VM leases will probably required a new storage domain format, as the current leases volume can hold only 256-2000 leases (depending on sector size), and this may not be enough for some setups
+In the current architecture, VM leases must be stored on the master domain. However, we plan to drop the master domain in the next version, so VM leases do not have an obvious place. Adding VM leases will probably require a new storage domain format, as the current leases volume can only hold 256-2000 leases (depending on sector size), and this may not be enough for some setups.
 
-For this version, we prefer to have simpler solution.
+For this version, we prefer to have a simpler solution.
 
 #### Why not use Disk based leases?
 

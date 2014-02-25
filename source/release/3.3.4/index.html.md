@@ -68,6 +68,8 @@ will upgrade to latest 3.3.
 
 ## Known issues
 
+*   Host deployment may fail on EL6 system due to a recent tuned regression (, ). Please downgrade tuned to previous version while waiting for a new tuned package solving this issue.
+
 ## Bugs fixed
 
 ### oVirt Engine

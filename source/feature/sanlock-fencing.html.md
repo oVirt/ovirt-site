@@ -43,9 +43,9 @@ Fencing has two main goals:
 1.  Make host release shared resources
 2.  Make the host responsive again
 
-A host may run a critical VM, writing to shared storage, and using shared resources such as network addresses. If the host is not accessible, we must not start the critical vm on another host, because both VMs will write to the same shared storage, corrupting data.
+A host may run a critical VM, writing to shared storage, and using shared resources such as network addresses. If the host is inaccessible, we must not start the critical vm on another host, because both VMs will write to the same shared storage, corrupting data.
 
-Using sanlock fencing, we can trigger a reboot of the host, thus stopping vdsm and all running vms. Rebooting the host is typically whats needed to make it responsive again.
+Using sanlock fencing, we can trigger a reboot of the host, thus stopping vdsm and all running vms. Rebooting the host is typically what's needed to make it responsive again.
 
 ### sanlock fencing - theory of operation
 

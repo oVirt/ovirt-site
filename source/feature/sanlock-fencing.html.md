@@ -34,7 +34,7 @@ oVirt 3.4 supports 2 types of fencing; soft fencing and hard (or real) fencing. 
 
 In a typical data center, hosts are connected to the network using one nic, and to the storage using other nics or through an HBA. It may occur that the host is inaccessible through networking, but still has access to the shared storage. Current fencing mechanisms will fail and require manual reboot of the unreachable host. Until rebooted, VMs running on the host cannot be started on another host.
 
-While the host is unreachable, we can communicate with it using the shared storage. Since oVirt 3.1, every host is running the sanlock daemon, used to acquire leases on the shared storage. Sanlock fencing is using the available sanlock daemon to send a fence request to the fenced host, and on the fenced host, the sanlock daemon reboot the machine.
+While the host is unreachable, we can communicate with it using the shared storage. Since oVirt 3.1, every host is running the sanlock daemon, used to acquire leases on the shared storage. Sanlock fencing is using the available sanlock daemon to send a fence request to the fenced host, and on the fenced host, the sanlock daemon reboots the machine.
 
 ### Fencing goals
 
@@ -89,13 +89,13 @@ At this point, the proxy host will return a response to the engine, and the engi
 
 While vdsm is running the fencing command, engine will poll vdsm fencing status. Until the sanlock fencing command returns, vdsm will return the same status that other fencing agents return today when a host is stopping.
 
-We assume that sanlock request will return when sanlock on the fencing host is sure that the fenced host did receive the reset message, stopped renewing its host id lease, and enough time has passed, so the watcdog on the fenced host did reset the machine. We also asssume that the watchdog on the fenced host cannot fail when resetting the machine.
+We assume that sanlock request will return when sanlock on the fencing host is sure that the fenced host received the reset message, stopped renewing its host id lease, and enough time has passed, so the watcdog on the fenced host did reset the machine. We also assume that the watchdog on the fenced host cannot fail when resetting the machine.
 
 When sanlock command is finished, the fencing thread will wait for the next update, and return the result of the fence command. Engine will change the host status to "Non-Responsive".
 
 At this point, engine can clear the VMs that were running on the fenced host and start them on another host.
 
-This step takes should take about 1-2 minutes, depending on sanlock configuration.
+This step should take about 1-2 minutes, depending on sanlock configuration.
 
 ### Integration with existing mechanisms
 
@@ -107,7 +107,7 @@ For the first version, we may need to make sanlock fencing disabled by default a
 
 #### Host fatal failures
 
-If a fenced host has a hardware failure, loose power, its kernel panics, or it cannot access storage, the host will stop renewing its lease. However, since we have no indication about the host status, we must assume that the host may write to storage any time. In this case we would not be able to fence the host using sanlock, and manual fencing will be required.
+If a fenced host has a hardware failure, looses power, its kernel panics, or it cannot access storage, the host will stop renewing its lease. However, since we have no indication about the host's status, we must assume that the host may write to storage any time. In this case we would not be able to fence the host using sanlock, and manual fencing will be required.
 
 ### Dependencies
 

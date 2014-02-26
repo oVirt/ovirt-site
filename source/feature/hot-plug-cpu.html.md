@@ -270,7 +270,11 @@ VDSM-guest-agent work for reporting this is already in progress - <http://gerrit
 
 ### Testing
 
-TODO
+TODO - add tests
+
+*   how to check the guest CPUs - LINUX
+
+      lscpu -e -a
 
 ### Comments and Discussion
 

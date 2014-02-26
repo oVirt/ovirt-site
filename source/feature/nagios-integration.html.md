@@ -12,7 +12,14 @@ wiki_last_updated: 2014-06-27
 
 ## Summary
 
-An administrator want managed nodes to be capable of being monitored using Nagios - an open IT infrastructure monitoring framework (http://www.nagios.org/) - to monitor the system/Gluster resources and services.
+Currently, administrators of gluster deployments have no easy mechanism to track the health of a Gluster installation - that is, when a brick goes down, split brain occurs, disk is full etc. oVirt only provides a poll based mechanism that uses the existing Gluster CLI to identify the volume's status and node status. This is not sufficient to get data about the network outages or issues like split-brain, un-synced entries etc. Also, there's a 5 min polling interval for brick status and hence the data displayed in oVirt may be considered stale. We need to provide an efficient way for:
+
+*   Monitoring of critical entities such as hosts, networking, volumes, clusters and services
+*   Alerting when critical infrastructure components fail and  recover, providing administrators with notice of important events.  Notification for Alerts can be delivered via email, SMS or SNMP. Alerts can be either seen on Nagios UI or on oVirt UI
+*   Reports providing a historical record of service outages, events and notifications for later review, through Nagios UI interface.
+*   Trending graphs and reports
+
+Since most enterprises already have or are familiar with existing monitoring frameworks like Nagios, we plan to integrate our monitoring solution with these, so that adoption is easier and time to market is much lesser.
 
 ## Owner
 
@@ -25,22 +32,9 @@ An administrator want managed nodes to be capable of being monitored using Nagio
 
 ## Detailed Description
 
-Monitoring the system resources and services includes:
-
-*   Monitoring of critical entities such as servers, networking, volumes, clusters and services
-*   Alerting when critical infrastructure components fail and recover, providing administrators with notice of important events. Alerts can be delivered via email, SMS or SNMP.
-*   Reports providing a historical record of outages, events, notifications, and alert response for later review.
-*   Trending and capacity planning graphs and reports that allow for infrastructure upgrades before failures occur.
-
 **The diagram below provides an overview about the proposed architecture**
 
-![](Setup.png "Setup.png")
-
-*   Ovirt will talk to the Nagios server through UI Monitoring plugin
-*   Nagios core with the help of addons and plugins , collect the monitoring data from the remote nodes(eg. Gluster Node)
-*   Nagios server executes checks on remote Nodes(Active checks)
-*   Remote Nodes send alerts to the Nagios server in case of any status change(Passive checks)
-*   Nagios server can send alerts(SNMP, e-mail, SMS) to Ovirt or any third party management applications(Tivoli, HP OpenView, BMC, CA Insight etc )
+![](Setup.png "fig:Setup.png") Nagios monitors storage clusters to ensure clusters, hosts, volumes, and software services are functioning properly. In the event of a failure, Nagios can alert technical staff of the problem, allowing them to begin remediation processes before outages affect business processes, end-users, or customers. This is achieved through the checks(Active/Passive) and these checks executed on the monitored resources. Nagios Analyzes the check result and if there is any event that meets the Alert definition, it would be flagged as an Alert on the Nagios server or on oVirt (if it’s deployed) and the appropriate configured notifications (Email, SMS, SNMP Traps) will be sent. , In the proposed architecture, we have four main functional blocks- oVirt, Nagios, the Gluster nodes and the external management station like HP-OvpenView. Nagios server will have the Nagios core installed and a set of infrastructure plugins/addons to execute the checks, process the check result and generate notifications. Gluster nodes will have the infrastructure plugins/addons for check execution and also the plugins which implement the check logic. oVirt will implement (As a UI Plugin) the alert dashboard and the plugins for trending and reporting so that administrator gets a clear view of what is happening in the storage network. External management stations can subscribe for SNMP traps from Nagios so that they get alerted as and when something goes wrong. At a high-level, each functional block will have the following software components: 1. Nagios Server Nagios Core Installed NSCA Server NRPE Client Mk-Livestatus PNP4Nagios NetSnmp Plugins that implements the check logic and also process the check result(like custom event handlers) 2. Gluster Nodes NRPE Server NSCA Client Pugins that implements the check logic. 3. oVirt UI plugins for alert dashboard, trending, reporting and configuring the nagios 4. External Management Station like HP-OV Not in the scope of work
 
 ## Dependencies / Related Features
 
@@ -49,23 +43,47 @@ Monitoring the system resources and services includes:
 *   Nagios pluggins
 *   Ovirt UI Monitoring Plugin
 
-## Productization and Packaging
+## Packaging
 
 *   Nagios core will not be packaged and installed along with Ovirt
-*   Nagios addons and plugins will not be packaged and installed. This needs to taken done separately on the the monitoring nodes and the server
+*   Nagios addons and plugins will not be packaged and installed. This needs to done separately on the the monitoring nodes and the server
 
 ## User Flows
 
-### Auto Configuration
+### External events from Nagios
 
-*   Nagios works with configuration files. It uses configuration files to schedule the jobs to execute the checks(to collect monitoring data), send alerts and for everything.
+If oVirt is integrated with Nagios for monitoring, any alert/event detected by Nagios needs to be sent to oVirt. This can be done through notification methods.
+
+A new contact will be created which will point to the oVirt REST API entry point and will have the link to the certificate and credentials required to access the API.
+
+The oVirt REST API contact can be associated with the notification method that will post the event details to be added as an external event in oVirt. Whenever a state change occurs that requires notification, this event with all its details is sent to oVirt REST API as an external event. The external event API will create an Audit Log entry for this event and mark the origin as Nagios. The oVirt Dashboard will display these events after applying various filters for cluster and volume events.
+
+![](NagiosToOvirt.png "NagiosToOvirt.png")
+
+#### Brick, Volume and Cluster State
+
+Cluster and volume state is determined by the state of its constituents. Ovirt will get all alerts from Nagios, and use these alerts to show a consolidated status. On an external event, further action will be taken to update the status of Brick, Volume and Cluster.
+
+Brick is a logical entity, which provides basic storage facility for gluster-cluster. A brick can be in one of the following states **UP** – If Brick service is up and brick storage has not crossed the Critical threashold **DOWN** – If either Brick service is down or brick has consumed all the storage capacity of the brick
+
+Volume is treated as a logical entity that serves data, and it's state needs to reflect this purpose. Volume can have the following states **UP** – Volume is operational and meeting all data serving requirements **UP-DEGRADED** – Volume is operational but not performing to full optimization. This is applicable to replicated volumes, when a replica brick is down **UP-PARTIAL** – Volume is operational but some parts of the file system could be inaccessible. This could happen when a sub-volume is down. Applicable for both Replicated and Distributed volumes. **DOWN** – Volume is crashed or all bricks are down. **STOPPED** – Volume is shut-down by the Admin intentionally ( Note : For a state change of this nature, no alerts should be generated and no notification needs to be sent. But the event should be generated )
+
+The volume states are determined by the participating brick states.
+
+In a cluster, there are services that provide additional functionality like NFS – for NFS access SMB – for SMB access CTDB – for High availability of SMB and NFS SHD – Self Heal daemon Glusterd – Gluster management daemon Quota – Enforcing quota limits on volume Geo-replication – To geo-replicate volume across clusters
+
+If one or more of these services are down, this will have an effect on the cluster state. The cluster state can be thought of as one of: **\1**- All volumes and services in cluster are operational **UNHEALTHY** – Either one or more volumes are in UP-PARTIAL or DOWN state or one or more services are not functioning properly. An unhealthy state could also be caused because there are issues detected in the cluster: volume split brain detected quorum not met volume is reached maximum capacity **DOWN** – All nodes in cluster are down or all volumes in cluster are down. ( Need to close out : Whether a single node a cluster? )
+
+![](Ovirt-dashboard.png "Ovirt-dashboard.png")
+
+## Nagios Specific
+
+### Auto Configuration/ Auto Discovery on Nagios
+
+*   Nagios works with configuration files. It uses configuration files to schedule the jobs to execute the checks(to collect monitoring data), send alerts and notifications
 *   The configuration files spread over multiple files and directories.
 *   Nagios configuration needs to be updated when there is any addition/deletion/modification of any logical or physical entities from Ovirt.
-    -   A config engine should be plugged into ovirt to generate Nagios configurations.
-    -   Whenever there is change in the any logical or physical entities, new configuration files will generated by the config engine.
-    -   These configuration files will be updated into the respective folders in the Nagios server.
-
-![](AutoConfiguring_Nagios.jpg "AutoConfiguring_Nagios.jpg")
+    -   This will be done through a script on Nagios server that will execute the "gluster peer status" and "gluster volume info" commands to discover new entities and update the configuration information
 
 ### Active Checks on Remote Nodes
 

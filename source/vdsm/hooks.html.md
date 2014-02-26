@@ -24,7 +24,7 @@ Most hooks check for VM or device (Network interface or disk, for example) custo
 
 On the server that has the engine installed:
 
-      # engine-config -s "UserDefinedVMProperties=macspoof=(true|false)"
+      # engine-config -s "UserDefinedVMProperties=macspoof=(true|false);another_property=regexp"
       # service ovirt-engine restart
 
 In order to activate the mac spoof hook on a VM:

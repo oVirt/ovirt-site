@@ -25,8 +25,7 @@ The agent provides the following information:
       * `**`Active` `user`**` - The user which currently is using the virtual machine's "physical hardware". Redundant since RHEV-M is treating the SPICE's ticket owner as the active user.
       * `**`Disks` `Usage`**` - VM Disks utilization.
       * `**`network-interfaces`**` - Internal guest network mapping (MAC, name, ipv4, ipv6).
-
-*   **FQDN** - Reports the configured (F)ully (Q)ualified (D)omain (N)ame of the guest os
+      * `**`FQDN`**` - Reports the configured (F)ully (Q)ualified (D)omain (N)ame of the guest os
 
 ### Notifications
 

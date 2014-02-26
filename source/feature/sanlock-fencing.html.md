@@ -15,7 +15,7 @@ feature_status: Design
 
 ### Summary
 
-When a host becomes non-responsive, oVirt engine tries to fence the host; detaching it from the shared storage, and hopefully making it responsive again. This feature adds a new fencing mechanism, fencing via shared storage using sanlock. Using sanlock, we can provide a simple fencing solution when a soft or hard fencing are not available or fail, avoiding manual fencing, and increasing VM availability.
+When a host becomes non-responsive, oVirt engine tries to fence the host; detaching it from the shared storage, and hopefully making it responsive again. This feature adds a new fencing mechanism, fencing via shared storage using sanlock. Using sanlock, we can provide a simple fencing solution when soft or hard fencing are not available or fail, avoiding manual fencing, and increasing VM availability.
 
 ### Owner
 
@@ -34,7 +34,7 @@ oVirt 3.4 supports 2 types of fencing; soft fencing and hard (or real) fencing. 
 
 In a typical data center, hosts are connected to the network using one nic, and to the storage using other nics or through an HBA. It may occur that the host is inaccessible through networking, but still has access to the shared storage. Current fencing mechanisms will fail and require manual reboot of the unreachable host. Until rebooted, VMs running on the host cannot be started on another host.
 
-While the host is unreachable, we can communicate with it using the shared storage. Since oVirt 3.1, every host is running the sanlock daemon, used to acquire leases on the shared storage. Sanlock fencing is using the available sanlock daemon to send a fence request to the fenced host, and on the fenced host, trigger a reboot.
+While the host is unreachable, we can communicate with it using the shared storage. Since oVirt 3.1, every host is running the sanlock daemon, used to acquire leases on the shared storage. Sanlock fencing is using the available sanlock daemon to send a fence request to the fenced host, and on the fenced host, the sanlock daemon reboot the machine.
 
 ### Fencing goals
 

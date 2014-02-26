@@ -95,7 +95,7 @@ The specific values means:
 | OS                        | Operating System Type                        | Y        |       | Y             |       |
 | description               | description set by user for vm and template  | Y        |       | Y             |       |
 | vds_group_id            | vm cluster                                   | Y        |       | Y             |       |
-| domain                    | directory services domain                    | Y        |       | N             |       |
+| domain                    | directory services domain                    | D        |       | D             |       |
 | creation_date            | internal. creation date                      | N        |       | N             |       |
 | num_of_monitors         | number of monitors                           | Y        |       | N             |       |
 | is_initialized           | internal. mark if vm was syspreped           | N        |       | N             |       |

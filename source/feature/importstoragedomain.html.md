@@ -37,7 +37,8 @@ The usability of the feature might be useful for various use cases, the followin
 
 *   The VMs'/Templates' OVFs will be imported from the OVF disk in the Storage Domain [see 1]. The OvfOnWantedDomains feature, will be supported from oVirt 3.5.
 *   Imported domains will be imported as 'unattached' and can then be attached to a DC.
-*   If the OVF disk [see 1] will not be in the Storage Domain, then the only entities that will be imported are the disks in the Storage Domain (An appropriate event log will notify the user).
+*   The feature will be dependent on the OVF disk [see 1]. If a Storage Domain will not contain the OVF disk the engine should block the detach operation.
+     The reason the operation will be blocked, is that since we don't keep the VMs/Templates we might have disks with snapshots based on the VMs, and the engine can not support such disks as floating.
 
 [1] <http://www.ovirt.org/Feature/OvfOnWantedDomains>
 
@@ -119,6 +120,10 @@ Open issue: Could be also that CREATE_VM for creating VMs.
 *   Import Storage Domain : The user will be able to import a list of Storage domains all at once.
 *   Adding validation for checking image corruption after importing the Storage Domain. - Mainly for sync issues with the OVF.
 *   Import an Export Domain as a regular Storage Domain
+
+#### Related Bugs
+
+<https://bugzilla.redhat.com/1069780> <https://bugzilla.redhat.com/1069173>
 
 #### Related Features
 

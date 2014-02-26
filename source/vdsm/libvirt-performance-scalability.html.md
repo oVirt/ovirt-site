@@ -60,6 +60,10 @@ Profiling of VDSM will be done using the [methods described here](Profiling_Vdsm
 
 **ACTION PENDING**: benchmark the impact of the bounded semaphore with a modern libvirt/QEMU stack, and tune the value (possibly removing it entirely) accordingly
 
+**DONE**: find suitable profilers
+
+**ACTION PENDING**: find a way to measure lock contention/time spent waiting for the Bounded Semaphore around libvirt on startup
+
 **RESEARCH/FACT FINDING**:
 
 improvements are been made in libvirt with respect to locking/scalability. Sources:

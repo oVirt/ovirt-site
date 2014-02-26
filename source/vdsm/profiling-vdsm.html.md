@@ -11,4 +11,4 @@ wiki_last_updated: 2014-03-17
 
 ## Summary
 
-This page collects informations and hints about how to profile VDSM.
+This page collects informations and hints about how to profile VDSM. To profile VDSM, you need to do some small and self-contained modifications. Make sure you have the cProfile package available.

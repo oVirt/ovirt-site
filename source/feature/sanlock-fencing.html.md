@@ -54,8 +54,7 @@ Fencing using sanlock includes the following steps:
 1.  Engine picks a proxy host
 2.  Engine sends sanlock fencing request to the proxy host
 3.  Proxy host sends sanlock fencing request to the sanlock daemon
-4.  Engine polls sanlock fencing status until fencing request is finished
-5.  Engine waits until host is up
+4.  Engine polls sanlock fencing status until host is assumed dead
 
 #### Engine picks a proxy host
 
@@ -86,27 +85,17 @@ When a proxy gets a fencing request, we will start a fencing thread, and run the
 
 At this point, the proxy host will return a response to the engine, and the engine will move the next step in the fencing sequence. The egine will change the host's state to "Rebooting" upon receiving this response.
 
-#### Engine polls sanlock fencing status until fencing request is finished
+#### Engine polls sanlock fencing status until host is assumed dead
 
 While vdsm is running the fencing command, engine will poll vdsm fencing status. Until the sanlock fencing command returns, vdsm will return the same status that other fencing agents return today when a host is stopping.
 
+We assume that sanlock request will return when sanlock on the fencing host is sure that the fenced host did receive the reset message, stopped renewing its host id lease, and enough time has passed, so the watcdog on the fenced host did reset the machine. We also asssume that the watchdog on the fenced host cannot fail when resetting the machine.
+
 When sanlock command is finished, the fencing thread will wait for the next update, and return the result of the fence command. Engine will change the host status to "Non-Responsive".
 
-Unlike hard fencing, engine will \`\`\`not\`\` mark vms that were running on the host as not running, and will not start them on other hosts at this point, because we don't have any guarantee that the host was rebooted, or even is rebooting. This is why engine must move the next step.
+At this point, engine can clear the VMs that were running on the fenced host and start them on another host.
 
-This step takes should take about 1 minute, depending on sanlock configuration.
-
-#### Engine waits until host is up
-
-At this point the fencing sequence is done, and engine will wait until the host is up. When the host is up, engine will query the host's status normally, and update vm status.
-
-In the most likely case, the host was just rebooted, and no VMs are running, so the engine can start high-available VMs on other hosts.
-
-In the very unlikely case when host lost access to storage just before we tried to fence it, and got back access to storage, VMs may be running, but if the host is responsive and well, we don't have anything to do.
-
-This step takes a couple of minutes, depending on the host's configuration.
-
-Note: we must validate that engine does update VMs' statuses correctly when reconnecting to the host.
+This step takes should take about 1-2 minutes, depending on sanlock configuration.
 
 ### Integration with existing mechanisms
 

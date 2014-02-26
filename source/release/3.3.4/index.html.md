@@ -100,8 +100,12 @@ will upgrade to latest 3.3.
  - [notifier] /etc/rc.d/init.d/ovirt-engine-notifier contains copy&paste header
  - Multiple daemons are not "registered" in /etc/rc[0-6].d directory hierarchy (chkconfig)
  - Support dual mode of password escaping within pgpassfile
+ - Tracker: oVirt 3.3.4 release
  - Update vnic_profile fails for VM vnic.
  - webadmin: we cannot edit the disk alias while vm is running because the edit button is greyed out
+ - Enable sync of LUNs after storage domain activation for FC
+ - UPGRADE_YUM_GROUP should be 'RHEV Manager' otherwise engine-setup won't find YUM group
+ - wrong memory usage report
 
 ### VDSM
 

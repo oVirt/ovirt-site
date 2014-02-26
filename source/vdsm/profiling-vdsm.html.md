@@ -25,7 +25,9 @@ This page collects informations and hints about how to profile VDSM. To profile 
 
 ## collecting and inspecting statistics
 
-WRITEME
+The advantage of using the standard python tools is that statistics are in the Pstats format, so the [standard way of inspecting them applies](http://docs.python.org/2/library/profile.html).
+
+TODO: add helper snippets/scripts
 
 ## profiling functions
 

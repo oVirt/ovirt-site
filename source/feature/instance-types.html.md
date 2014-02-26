@@ -109,11 +109,11 @@ The specific values means:
 | dedicated_vm_for_vds   | specific host for running vm                 | Y        |       | N             |       |
 | auto_startup             | HA                                           | Y        |       | N             |       |
 | vm_type                  | vm type (server/desktop)                     | Y        |       | N             |       |
-| nice_level               | vm nice level                                | Y        |       | N             |       |
+| nice_level               | vm nice level                                | D        |       | D             |       |
 | default_boot_sequence   | boot sequence                                | Y        |       | N             |       |
 | default_display_type    | display type(SPICE, VNC)                     | Y        |       | N             |       |
 | priority                  | priority                                     | Y        |       | N             |       |
-| iso_path                 | cd                                           | Y        |       | Y ?           |       |
+| iso_path                 | cd                                           | Y        |       | Y             |       |
 | origin                    | internal. where the vm was created           | N        |       | N             |       |
 | initrd_url               | boot params                                  | Y        |       | Y             |       |
 | kernel_url               | boot params                                  | Y        |       | Y             |       |
@@ -127,7 +127,7 @@ The specific values means:
 | allow_console_reconnect | allow reconnect to console                   | Y        |       | N             |       |
 | cpu_pinning              | cpu pinning                                  | N        |       | N             |       |
 | is_smartcard_enabled    | smartcard enabled                            | Y        |       | N             |       |
-| payload                   | payload (device, not in vm_static)          | Y        |       | N             |       |
+| payload                   | payload (device, not in vm_static)          | N        |       | N             |       |
 | thin/clone                |                                              | N        |       | N             |       |
 | soundcard                 | payload (device, not in vm_static)          | Y        |       | N             |       |
 | Balloon                   | payload (device, not in vm_static)          | N        |       | N             |       |

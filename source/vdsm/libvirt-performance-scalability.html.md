@@ -28,7 +28,7 @@ This document is work in progress and requently updated, both for content and fo
 
 *   Target Release: oVirt 3.5 and following
 *   Status: Draft/Discussion
-*   Last updated: 2014-02-19
+*   Last updated: 2014-02-25
 
 ## VM Creation
 

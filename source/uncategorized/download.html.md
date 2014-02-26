@@ -67,7 +67,7 @@ Advanced:
 </div>
 <div class="row">
 <div class="span10 offset1">
-### Quickstart guide
+### Quick Start Guide
 
 <div class="alert alert-info">
 IMPORTANT NOTE: If you're upgrading from a previous version, please update ovirt-release to the latest version (10) and verify you have the correct repositories enabled by running the following commands

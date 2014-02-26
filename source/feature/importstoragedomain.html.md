@@ -52,8 +52,9 @@ As part of phase 1, if the Storage Domain contains VMs or Tempaltes which contai
 Shareable and direct lun disks are not supported in the OVF file today, hence if a VM includes a shareable or direct lun disks, a warning will be prompted to the user, indicating the following:
 \* Attention, The following VMs contains shareable/direct lun disks which will not be part of the VM configuration after the detach will take place: {vmNames}.
 Only VMs'/Templates' OVF will be part of the Data Center on attach operation. For now there is a gap that VMs/Templates with no disks do not exist in the Storage Domain's OVF, therefore those VMs will not be present in the setup on attach operation.
-Open Issue: On detach of Storage Domain the VMs/Templates related to the Storage Domain should not be present in the engine, but will still be part of the OVF disk in the Storage Domain.
-On attach the user should assign those VMs/Templates the appropriate clusters before the user will start to use them.
+Open Issue: On detach of Storage Domain the VMs/Templates related to the Storage Domain should be deleted from the engine, but will still be part of the OVF disk in the Storage Domain.
+On attach the the engine will create appropriate clusters automatically per CPU architecture, and assign the VMs/Templates to the appropriate clusters.
+The clusters compatibility version will be equals to the lowest version of VM related to the Cluster.
 
 ##### Phase 2 - Import NFS Storage Domain
 

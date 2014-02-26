@@ -130,4 +130,12 @@ Libvirt exposes a timeout infrastructure through the [virEventAddTimeout](http:/
 
 #### A possible bulk API extension for libvirt
 
-WRITEME
+libvirt (1.2.x) lacks bulk APIs: it is impossible to fetch either all the stats of a given VM, or the value of a given stats for all the VMs.
+
+When VDSM runs, it takes ownership of all the VMs running in a box, and acts as the sole client of libvirt, then a bulk API is beneficial for VDSM because it reduces the communication overhead, improving the scalability when dealing with tens or hunderds of VMs. Additional benefit for VDSM would be easier and simpler way to collect statistics.
+
+For VDSM, the best bulk API would be one which allows to gather all the stats of a given VM at once, but given the architecture of libvirt the easiest to implement is the one to gather a statistic (say: CPU) for all the VMs.
+
+From the preliminary inquiries there is no strong belief that the bulk API would provide significant performance gains because the communications between VDSM and libvirt is through a local UNIX domain socket.
+
+Moreover, the most expensive statistic, the block information inquiry, must anyway talk which each qemu instance using the JSON-based monitor protocol. This is expected to be a bottleneck even in presence of the bulk API, which is expected to make faster just the communication between libvirt and VDSM, not between libvirt and each QEMU instance.

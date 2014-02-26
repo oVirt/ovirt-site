@@ -81,4 +81,4 @@ inside the vdsm entry point (vdsm/vdsm or /usr/share/vdsm/vdsm) right after the
 
          if __name__ == "__main__":
 
-line.
+line. The stats are gathered in a tempfile prefixed with the 'vdsm_yprof' string, one file per VDSM run, written when VDSM ends. It is recommended to let VDSM end cleanly.

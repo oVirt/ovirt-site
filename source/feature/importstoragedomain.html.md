@@ -27,7 +27,8 @@ The usability of the feature might be useful for various use cases, the followin
 
 ### Owner
 
-*   Maor Lipchuk mlipchuk@redhat.com
+*   Maor Lipchuk
+*   Email <mlipchuk@redhat.com>
 
 ### Current status
 

@@ -55,6 +55,8 @@ The "logging" module is already used extensively inside VDSM so it is assumed to
 
 To profile the entire VDSM, you may use [yappi](http://code.google.com/p/yappi/). Despite being a third-party solution, yappi fits nicely with VDSM because it is not intrusive and it is designed to work with long-running multi-threaded applications.
 
+yappi is eaily installable from pip. It is a C extension, so make sure you have the C compiler and the python development packages installed.
+
 A simple way to use yappi is to embed this snippet
 
              try:

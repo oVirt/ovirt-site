@@ -143,6 +143,9 @@ The specific values means:
 | migrationDowntime         | max downtime during migration                | Y        |       | N             |       |
 | watchdog                  | consists of model and action                 | Y        |       | N             |       |
 | sso method                | none or guest agent                          | Y        |       | N             |       |
+| cpu allocation            |                                              | N        |       | N             |       |
+| virtio-scsi               |                                              | N        |       | N             |       |
+| vm init                   | cloud-init or sysprep                        | N        |       | N             |       |
 
 ### Entities' Details
 

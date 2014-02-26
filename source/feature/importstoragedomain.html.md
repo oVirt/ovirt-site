@@ -123,7 +123,8 @@ Open issue: Could be also that CREATE_VM for creating VMs.
 
 #### Related Bugs
 
-<https://bugzilla.redhat.com/1069780> <https://bugzilla.redhat.com/1069173>
+*   <https://bugzilla.redhat.com/1069780>
+*   <https://bugzilla.redhat.com/1069173>
 
 #### Related Features
 

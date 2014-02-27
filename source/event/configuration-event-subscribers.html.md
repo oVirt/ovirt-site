@@ -30,7 +30,7 @@ An ovirt-engine-notifier feature defining a generic way of subscribing to audit 
 
 ### Benefit to oVirt
 
-Allows ovirt-engine-notifier users to subscribe to events.
+Allows ovirt-engine-notifier users to subscribe to events using configuration.
 
 ### Detailed Description
 

@@ -67,16 +67,18 @@ yappi is eaily installable from pip. It is a C extension, so make sure you have 
 
 A simple way to use yappi is to embed this snippet
 
+         def full_profile():
              try:
                  import yappi
+         
                  def dump_prof():
-                      from tempfile import NamedTemporaryFile
-                      ystats = yappi.get_func_stats()
-                      stats = yappi.convert2pstats(ystats)
-                      prof_file = NamedTemporaryFile(mode='w',
-                                                     prefix='vdsm_yprof',
-                                                     delete=False)
-                      stats.dump_stats(prof_file.name)
+                     from tempfile import NamedTemporaryFile
+                     ystats = yappi.get_func_stats()
+                     stats = yappi.convert2pstats(ystats)
+                     prof_file = NamedTemporaryFile(mode='w',
+                                                    prefix='vdsm_yprof',
+                                                    delete=False)
+                     stats.dump_stats(prof_file.name)
                  import atexit
                  atexit.register(dump_prof)
                  yappi.start()

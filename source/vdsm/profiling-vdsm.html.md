@@ -90,7 +90,3 @@ inside the vdsm entry point (vdsm/vdsm or /usr/share/vdsm/vdsm) right after the
          if __name__ == "__main__":
 
 line. The stats are gathered in a tempfile prefixed with the 'vdsm_yprof' string, one file per VDSM run, written when VDSM ends. It is recommended to let VDSM end cleanly.
-
-## inject profiling
-
-To easily inject the above profiling helpers into your VDSM installation, you can append ![](add_profiler.py "fig:add_profiler.py") this file which contains the snippets above to lib/vdsm/utils.py and then reinstall VDSM regularly (via sources, by rebuilding RPMs or any way you like). Remember to decorate the functions being profiled with @utils.profile or the enable the full profiling with utils.full_profile() like described above.

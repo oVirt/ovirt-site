@@ -223,11 +223,11 @@ Note: get_id function is:
 ##### Configure Neutron manager
 
 1.  Install Neutron manger
-    1.  Steps described at: <http://docs.openstack.org/trunk/openstack-network/admin/content/install_fedora.html>
+    1.  Steps described at: <http://docs.openstack.org/trunk/install-guide/install/yum/content/ch_neutron.html>
         1.  Install Neutron plugin
         2.  Run plugin self configuration (This will create the DB)
         3.  Configure /etc/quantum/quantum.conf:
-            1.  Choose rabbit / qpid by un-commenting the corresponding values
+            1.  Choose qpid by un-commenting the corresponding values
             2.  Un-comment notification_driver = quantum.openstack.common.notifier.list_notifier
 
         4.  Configure /etc/quantum/plugin.ini:

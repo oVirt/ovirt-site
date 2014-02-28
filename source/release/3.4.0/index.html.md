@@ -507,6 +507,7 @@ will upgrade to latest 3.3.
  - [engine] Extending a storage domain that is not attached to a datacenter fails with NullPointerException
  - utc_diff not updated according to a change in VM settings
  - [RHEVM] [Network Labels] moving host with labeled interface to Cluster 3.0 is not blocked
+ - VMs do not appear in virtual machine tab if host is selected in side pane (data-center > cluster > host > )
  - webadmin: customer preview allows you to select "Active vm before the preview" which causes the disk to become illegal and vm cannot be run with "CANNOT_RUN_FROM_DISK_WITHOUT_DISK"
  - search paging on event log does not use paging correctly
  - rest api Empty int fields in POST data causes JAXB parser to fail

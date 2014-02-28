@@ -14,15 +14,7 @@ There are a number of ways to communicate with the oVirt Community. [ Mailing li
 
 ## IRC
 
-*Primary channel*: #ovirt on irc.oftc.net
-
-*   Meetings are held here.
-*   This has been the main channel since moving from Freenode.
-
-*Secondary channel*: #ovirt on irc.freenode.net
-
-*   Some community members are in this channel to start and grow conversations with the Freenode community.
-*   Conversations are encouraged to move to the primary IRC channel, but not required.
+We are on **irc.oftc.net** server on **#ovirt** channel
 
 ### Weekly Meetings
 

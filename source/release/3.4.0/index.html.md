@@ -478,6 +478,62 @@ will upgrade to latest 3.3.
  - Cloud-init options persistence and unification with Windows Sysprep options
  - Have ability to modify VM template - Template Versions
  - [RHEVM-RHS] - Brick advanced details gives error
+ Fixed in oVirt 3.4.0 RC
+
+* Cannot import VM. The following disks already exist: . Please import as a clone.
+ - engine [TEXT]: unclear error when trying to remove a disk from a template when the template disk has only one copy on that specific domain
+ - [RHEVM][webadmin] New Data Center "Guide Me" does not reflect hosts presence
+ - Direct LUN is not being updated after resizing
+ - Add SNMP trap as notification method to to ovirt-engine-notification
+ - [oVirt][infra] Add host/Reinstall radio button text not actionable
+ - [Hosted Engine] Unify maintenance flows
+ - rhev 3.3 mtu field shows the wrong ip-mtu
+ - [NetworkLabels] Block labeling a bond without slaves
+ - FullListVdsCommand log message appears wrong with java class ref
+ - REST API: Search for an user in active directory by upn doesn't return any results (search by user name returns result)
+ - Edit Approve Host popup -> Cluster not updated
+ - UI: Bad vertical alignment in add user screen
+ - From GuideMe link, adding Host using SSH PublicKey Authentication fails with "Error while executing action: Cannot install Host with empty password."
+ - HA Vm reservation check ignores host status
+ - HA Vm reservation check failure event log is not well resolved
+ - webadmin: preallocated disk is reported as thinprovision in "Edit" dialogue
+ - general ldap provider should be removed from manage-domains
+ - upgrade from 3.3 overwrites exports with acl None
+ - Incorrect error message when trying to edit network attached to Template from VM to non-VM
+ - Move out downstream specific vdc_options changes into rhevm-setup-plugins
+ - REST API: Create user user@domain actually creates user only
+ - It's impossible to update the MTU/VLAN of the network that resides on unplugged NIC of the VM
+ - Error response to DELETE request of 'Everyone' group doesn't contains 'detail' field
+ - [engine] Extending a storage domain that is not attached to a datacenter fails with NullPointerException
+ - utc_diff not updated according to a change in VM settings
+ - [RHEVM] [Network Labels] moving host with labeled interface to Cluster 3.0 is not blocked
+ - webadmin: customer preview allows you to select "Active vm before the preview" which causes the disk to become illegal and vm cannot be run with "CANNOT_RUN_FROM_DISK_WITHOUT_DISK"
+ - search paging on event log does not use paging correctly
+ - rest api Empty int fields in POST data causes JAXB parser to fail
+ - Adding permissions to any thing doesn't work
+ - Listing templates takes noticeable amount of time, while listing many more VMs is prompt
+ - [RHEVM] [network labels] Failed to configure vm networks on host while changing its cluster.
+ - Adding a direct LUN disk doesn't work
+ - [engine-backend] cannot set domain to maintenance in case there are only unplugged disks located on it
+ - Missing data storage types on "Add More Storage"
+ - Enable sync of LUNs after storage domain activation for FC
+ - [database] plpgsql language is not created although it should
+ - Event list not updating when events happen.
+ - [engine-backend] Can add multiple boot disks to a vm
+ - [engine-webadmin] inappropriate error message when cloning a VM from snapshot which one of its disks is located on an inactive SD
+ - Cannot edit network is "setup networks" dialog
+ - Cannot create a bond in 'Setup networks' dialog
+ - [database] old psycopg2 does not accept unicode string as port name
+ - [engine-webadmin] unclear error message when starting a VM with disk that located on a domain in maintenance
+ - Cloud-init DNS settings should go inside the "iface" section
+ - wrong memory usage report
+ - tree based sub-tabs - missing action panel buttons
+ - Default route is not set properly for management network if downstream/upstream engine and VDSM are mixed
+ - RHEV 3.2 API changing IP on hypervisor bond sub-int reqs re-passing bond opts
+ - Override previous export of same template fail
+ - [REST]: Missing domain field on VM\\Template object.
+ - [REST-API] XSD schema validation error: response for create vm returned with 'type' and 'data' fields instead of with one of these fields
+ - [database] do not enable provisioning for remote database
 
 ### VDSM
 

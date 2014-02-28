@@ -11,7 +11,7 @@ wiki_last_updated: 2014-03-28
 
 # OVirt 3.4.0 release notes
 
-The oVirt Project is preparing oVirt 3.4.0 beta release for testing. This page is still a work in progress.
+The oVirt Project is preparing oVirt 3.4.0 release candidate for testing. This page is still a work in progress.
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization.
 
@@ -19,9 +19,9 @@ To find out more about features that were added in previous oVirt releases, chec
 
 ## Install / Upgrade from previous versions
 
-### THIRD BETA RELEASE
+### RELEASE CANDIDATE
 
-oVirt 3.4.0 is still in beta.
+oVirt 3.4.0 release candidate is now available for testing.
 
 In order to install it, you need to update ovirt-release to 10.0.1 or newer by running
 
@@ -64,7 +64,7 @@ for Fedora:
 
 ### Fedora / CentOS / RHEL
 
-If you're installing oVirt 3.4.0 beta on a clean host, you should read our [Quick Start Guide](Quick Start Guide)
+If you're installing oVirt 3.4.0 release candidate on a clean host, you should read our [Quick Start Guide](Quick Start Guide)
 
 If you're using nightly repo you'll need to run:
 

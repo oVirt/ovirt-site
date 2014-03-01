@@ -50,13 +50,20 @@ Recommended web browsers for Engine:
 
 </div>
 </div>
-### Supported Distributions
+</div>
+</div>
+</div>
+<div class="row">
+<div class="span10 offset1">
+### Supported Host Distributions
 
 *   Fedora 19
 *   CentOS 6.4
 *   Red Hat Enterprise Linux 6.4
 *   [Gentoo](//wiki.gentoo.org/wiki/OVirt) (experimental)
 *   [ Debian](ovirt build on debian/ubuntu) (experimental)
+
+### Supported Guest Distrbutions
 
 | Operating System                                                                                                                                                               | Architecture   | SPICE support |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|---------------|
@@ -70,7 +77,7 @@ Recommended web browsers for Engine:
 | Ubuntu 12.10 (Quantal Quetzal)                                                                                                                                                 | 32-bit, 64-bit | Yes           |
 | Ubuntu 13.04 (Raring Ringtail)                                                                                                                                                 | 32-bit, 64-bit | Yes           |
 | Ubuntu 13.10 (Saucy Salamander)                                                                                                                                                | 32-bit, 64-bit | Yes           |
-| Windows XP Service Pack 3 and newer                                                                                                                                            | 32-bit |Yes    |
+| Windows XP Service Pack 3 and newer                                                                                                                                            | 32-bit         | Yes           |
 | Windows 7                                                                                                                                                                      | 32-bit, 64-bit | Yes           |
 | Windows 8                                                                                                                                                                      | 32-bit, 64-bit | No            |
 | Windows Server 2003 Service Pack 2 and newer                                                                                                                                   | 32-bit, 64-bit | Yes           |
@@ -78,13 +85,6 @@ Recommended web browsers for Engine:
 | Windows Server 2008 R2                                                                                                                                                         | 64-bit         | Yes           |
 | Windows Server 2012 R2                                                                                                                                                         | 64-bit         | No            |
 
-Remote Desktop Protocol (RDP) is the default connection protocol for accessing Windows 8 and Windows 2012 guests from the user portal as Microsoft introduced changes to the Windows Display Driver Model that prevent SPICE from performing optimally.
-
-</div>
-</div>
-</div>
-<div class="row">
-<div class="span10 offset1">
 ### Quick Start Guide
 
 <div class="alert alert-info">

@@ -26,7 +26,7 @@ Experienced users can also compile from source, using the guides on [ the oVirt 
 </div>
 <div class="span6 pad-left-small pad-right">
 <div class="well">
-### Vital info
+### Vital Info
 
 <div class="row-fluid">
 <div class="span6">
@@ -39,13 +39,13 @@ Versions of oVirt
 
 <!-- -->
 
-Minimum hardware:  
+Minimum Hardware:  
 
     * 4 GB memory
 
     * 20 GB disk space
 
-Optional:  
+Optional Hardware:  
 
     * Network storage
 
@@ -63,7 +63,7 @@ Supported Hosts:
 
     * [ Debian](ovirt build on debian/ubuntu) (experimental)
 
-Recommended web browsers for Engine:  
+Recommended Web Browsers for Engine:  
 
     * Mozilla Firefox 17 or later
 

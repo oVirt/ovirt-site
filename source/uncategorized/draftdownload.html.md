@@ -13,13 +13,13 @@ __NOTOC__
 
 <div class="row">
 <div class="span6 pad-left pad-right-small">
-## Are You New To oVirt?
+## The Paths to oVirt
 
 oVirt is a virtual datacenter manager that delivers powerful management of multiple virtual machines on multiple hosts. Using KVM and libvirt, oVirt can be installed on Fedora, CentOS, or Red Hat Enterprise Linux hosts to set up and manage your virtual data center.
 
 If you are absolutely new to oVirt, try our [ Live version](OVirt_Live) where you can test-drive oVirt on CentOS without installing it on your machine.
 
-If you have some knowledge of installing packages on Linux, you should install our All-in-One solution.
+If you have some knowledge of installing packages on Linux, you should install our All-in-One solution using the [ Quick Start](#Quick_Start_Guide) instructions below.
 
 Experienced users can also compile from source, using the guides on [ the oVirt engine](Building oVirt engine) and [ oVirt Node](Node Building).
 
@@ -29,6 +29,15 @@ Experienced users can also compile from source, using the guides on [ the oVirt 
 ### Supported Hardware
 
 <div class="row-fluid">
+<div class="span6">
+Versions of oVirt  
+*   Stable (**Recommended**)
+
+*   Current Development
+
+*   Future Development
+
+</div>
 <div class="span6">
 Minimum hardware:  
 

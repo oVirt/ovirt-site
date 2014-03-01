@@ -26,7 +26,7 @@ Experienced users can also compile from source, using the guides on [ the oVirt 
 </div>
 <div class="span6 pad-left-small pad-right">
 <div class="well">
-### Supported Hardware
+### Vital info
 
 <div class="row-fluid">
 <div class="span6">

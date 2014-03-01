@@ -51,6 +51,20 @@ Optional:
 
 </div>
 <div class="span6">
+Supported Hosts:  
+
+    * Fedora 19
+
+    * CentOS 6.4
+
+    * Red Hat Enterprise Linux 6.4
+
+    * [Gentoo](//wiki.gentoo.org/wiki/OVirt) (experimental)
+
+    * [ Debian](ovirt build on debian/ubuntu) (experimental)
+
+</div>
+<div class="span6">
 Recommended web browsers for Engine:  
 
     * Mozilla Firefox 17 or later
@@ -64,14 +78,6 @@ Recommended web browsers for Engine:
 </div>
 <div class="row">
 <div class="span10 offset1">
-### Supported Host Distributions
-
-*   Fedora 19
-*   CentOS 6.4
-*   Red Hat Enterprise Linux 6.4
-*   [Gentoo](//wiki.gentoo.org/wiki/OVirt) (experimental)
-*   [ Debian](ovirt build on debian/ubuntu) (experimental)
-
 ### Supported Guest Distrbutions
 
 | Operating System                                                                                                                                                               | Architecture   | SPICE support |

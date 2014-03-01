@@ -37,8 +37,8 @@ Versions of oVirt
 
 *   Future Development
 
-</div>
-<div class="span6">
+<!-- -->
+
 Minimum hardware:  
 
     * 4 GB memory
@@ -63,8 +63,6 @@ Supported Hosts:
 
     * [ Debian](ovirt build on debian/ubuntu) (experimental)
 
-</div>
-<div class="span6">
 Recommended web browsers for Engine:  
 
     * Mozilla Firefox 17 or later

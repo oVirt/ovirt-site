@@ -52,13 +52,33 @@ Recommended web browsers for Engine:
 </div>
 ### Supported Distributions
 
-| Host                                                              | Guest                                                                                                                                                                  |
-|-------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Fedora 19                                                         | Any [http://www.linux-kvm.org/page/Guest_Support_Status KVM-supported](http://www.linux-kvm.org/page/Guest_Support_Status KVM-supported) operating system |
-| CentOS 6.4                                                        |                                                                                                                                                                        |
-| Red Hat Enterprise Linux 6.4                                      |                                                                                                                                                                        |
-| [Gentoo](//wiki.gentoo.org/wiki/OVirt) (experimental)              |                                                                                                                                                                        |
-| [ Debian](ovirt build on debian/ubuntu) (experimental) |                                                                                                                                                                        |
+*   Fedora 19
+*   CentOS 6.4
+*   Red Hat Enterprise Linux 6.4
+*   [Gentoo](//wiki.gentoo.org/wiki/OVirt) (experimental)
+*   [ Debian](ovirt build on debian/ubuntu) (experimental)
+
+| Operating System                                                                                                                                                               | Architecture   | SPICE support |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|---------------|
+| Red Hat Enterprise Linux 3                                                                                                                                                     | 32-bit, 64-bit | Yes           |
+| Red Hat Enterprise Linux 4                                                                                                                                                     | 32-bit, 64-bit | Yes           |
+| Red Hat Enterprise Linux 5                                                                                                                                                     | 32-bit, 64-bit | Yes           |
+| Red Hat Enterprise Linux 6                                                                                                                                                     | 32-bit, 64-bit | Yes           |
+| SUSE Linux Enterprise Server 10 (select Other Linux for the guest type in the user interface)                                                                                  | 32-bit, 64-bit | No            |
+| SUSE Linux Enterprise Server 11 (SPICE drivers (QXL) are not supplied by Red Hat. However, the distribution's vendor may provide spice drivers as part of their distribution.) | 32-bit, 64-bit | No            |
+| Ubuntu 12.04 (Precise Pangolin LTS)                                                                                                                                            | 32-bit, 64-bit | Yes           |
+| Ubuntu 12.10 (Quantal Quetzal)                                                                                                                                                 | 32-bit, 64-bit | Yes           |
+| Ubuntu 13.04 (Raring Ringtail)                                                                                                                                                 | 32-bit, 64-bit | Yes           |
+| Ubuntu 13.10 (Saucy Salamander)                                                                                                                                                | 32-bit, 64-bit | Yes           |
+| Windows XP Service Pack 3 and newer                                                                                                                                            | 32-bit |Yes    |
+| Windows 7                                                                                                                                                                      | 32-bit, 64-bit | Yes           |
+| Windows 8                                                                                                                                                                      | 32-bit, 64-bit | No            |
+| Windows Server 2003 Service Pack 2 and newer                                                                                                                                   | 32-bit, 64-bit | Yes           |
+| Windows Server 2008                                                                                                                                                            | 32-bit, 64-bit | Yes           |
+| Windows Server 2008 R2                                                                                                                                                         | 64-bit         | Yes           |
+| Windows Server 2012 R2                                                                                                                                                         | 64-bit         | No            |
+
+Remote Desktop Protocol (RDP) is the default connection protocol for accessing Windows 8 and Windows 2012 guests from the user portal as Microsoft introduced changes to the Windows Display Driver Model that prevent SPICE from performing optimally.
 
 </div>
 </div>

@@ -35,16 +35,16 @@ The main points are:
 
 ## Current status
 
-*   Implementing.
+*   Tuning and tweaking.
 
 | Step                                   | Description                                                                                                                   | Completion |
 |----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|------------|
-| Define object oriented representations | Find the best class representations for the network primitives for our usage                                                  | 95%        |
-| Define internal API                    | Define the API that will establish the relationship between the new network representation and the multiple network backends. | 90%        |
+| Define object oriented representations | Find the best class representations for the network primitives for our usage                                                  | 100%       |
+| Define internal API                    | Define the API that will establish the relationship between the new network representation and the multiple network backends. | 100%       |
 | Live Netinfo instance                  | Define a way to keep a netinfo.Netinfo instance updated based on the representations of the first point.                      | Postponed  |
-| ifcfg backend                          | refactor our current ifcfg-based implementation as backend, following the internal API.                                       | 85%        |
-| IProute2 backend                       | Create a network backend from iproute2 tools, following the internal API.                                                     | 30%        |
-| Objectified rollback                   | Modify the rollback mechanism into just feeding the pre-crash network object representation to the selected network backend   | 10%        |
+| ifcfg backend                          | refactor our current ifcfg-based implementation as backend, following the internal API.                                       | 100%       |
+| IProute2 backend                       | Create a network backend from iproute2 tools, following the internal API.                                                     | 90%        |
+| Objectified rollback                   | Modify the rollback mechanism into just feeding the pre-crash network object representation to the selected network backend   | 100%       |
 
 ## Components
 
@@ -238,7 +238,7 @@ The persistence model may be selected by editing
 
 And setting:
 
-         persistence = [ifcfg | unified]
+         net_persistence = [ifcfg | unified]
 
 1.  When VDSM gets a new setupNetworks, it breaks it into a series of addNetwork and delNetwork (Currently editNetwork is done via a del followed by an add). After each successful add or del network we then persist the new network and bond changes, represented by dictionary and written to disk via json serialization to:
     -   /var/run/vdsm/netconf/nets/
@@ -262,7 +262,7 @@ We should make sure that \`rpm -V vdsm\` is happily quiet even after setSafeConf
 
 /etc/vdsm/vdsm.conf has a setting
 
-         configurator = ifcfg
+         net_configurator = ifcfg
 
 *   Do we keep persistence for the management network only or for all the configured networks?
 
@@ -273,5 +273,44 @@ Until the engine vdsm syncing is improved, we persist all the configured network
 If a bond had previous non-vdsm IP configuration (ipaddr + netmask), adding a bridgeless Network using this bond will not flush the ip config from the bond and the new ip config will be set as secondary IPv4 address. Removing the network will break the bond and remove any previous configuration
 
 For nics, the previous scenario deletes the previous IP configuration and sets the new one.
+
+## Upgrading to the unified persistence and iproute2 as configurators
+
+### Flow 1 (No computer reboot)
+
+1.  Edit /etc/vdsm/vdsm.conf so that the vars section has at least:
+        [vars]
+        net_persistence = unified
+        net_configurator = iproute2
+
+2.  restart vdsm
+        service vdsmd stop
+        service supervdsmd stop
+        service vdsmd start
+
+     This will have loaded the unified persistence's RunningConfig and PersistentConfig.
+
+3.  restore vdsm networks
+        vdsm-tool restore-nets
+
+     This will use RunningConfig (from step 2) to take down the networks set up by the old configurator, flush all the configurators config files and finally use the PersistentConfig (from step 2) to recover the networking.
+
+4.  You're done ;-)
+
+### Flow 2 (Computer reboot)
+
+1.  Edit /etc/vdsm/vdsm.conf so that the vars section has at least:
+        [vars]
+        net_persistence = unified
+        net_configurator = iproute2
+
+2.  Reboot your computer.
+    What will happen is:
+    1.  on reboot, the old configurator files will still be there. They will be picked up by that configurator (its init service should still be enabled for this flow to succeed),
+    2.  The upgrade script will run generating RunningConfig and PersistentConfig
+    3.  /usr/share/vdsm/vdsm-restore-net-config will run and will do the equivalent of step 3 of the flow above.
+        </li>
+
+3.  You're done ;-)
 
 <Category:Feature> <Category:Networking>

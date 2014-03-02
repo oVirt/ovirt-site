@@ -224,7 +224,7 @@ Go to /var/lib/pgsql/data/postgresql.conf and change *log_statement* to 'all'. Y
 *Optional:* Create database, provided the user is engine, password engine:
 
       # su - postgres -c "psql -d template1 -c "create database engine_dao_tests owner engine;""
-      $ PGPASSWORD=engine ./packaging/dbscripts/create_schema.sh -d engine_dao_tests -u engine
+      $ PGPASSWORD=engine ./packaging/dbscripts/schema.sh -d engine_dao_tests -u engine -c apply
 
 Build with tests:
 

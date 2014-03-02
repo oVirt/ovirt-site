@@ -23,6 +23,8 @@ RHEL 6 users must install a newer pep8 version than the one shipped in EPEL6. Ol
 
       yum install http://danken.fedorapeople.org/python-pep8-1.4.5-2.el6.noarch.rpm
 
+oVirt repo:
+
       yum install http://resources.ovirt.org/releases/ovirt-release.noarch.rpm
 
 RHEL 6 users must add the glusterfs repository, providing newer glusterfs not available on RHEL 6. Optionally install 'wget' if not present

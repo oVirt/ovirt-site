@@ -91,8 +91,9 @@ oVirt release 3.3.3 is intended for production use and is available for the foll
 
 ### Supported Guest Distributions
 
-Once oVirt is installed and running, you can proceed to install any number of supported operating systems as guest virtual machines. The expandable table lists what operating systems are supported as guests.
+Once oVirt is installed and running, you can proceed to install any number of supported operating systems as guest virtual machines. The table below lists what operating systems are supported as guests.
 
+<div class= "mw-collapsible mw-collapsed" style="width:800px">
 | Operating System                                                                                                                    | Architecture   |     | SPICE support |
 |-------------------------------------------------------------------------------------------------------------------------------------|----------------|-----|---------------|
 | Red Hat Enterprise Linux 3                                                                                                          | 32-bit, 64-bit |     | Yes           |
@@ -113,6 +114,7 @@ Once oVirt is installed and running, you can proceed to install any number of su
 | Windows Server 2008 R2                                                                                                              | 64-bit         |     | Yes           |
 | Windows Server 2012 R2                                                                                                              | 64-bit         |     | No            |
 
+</div>
 ### Installation Guides
 
 Our recommended method of installing oVirt is to use the pre-built packages for Fedora or a supported EL6 distribution, such as CentOS or RHEL. This makes installing oVirt very easy. Naturally, you can run most Linux distributions or several other operating systems (e.g. Windows) as [ guests](#Supported_Guest_Distributions) inside of oVirt instances.

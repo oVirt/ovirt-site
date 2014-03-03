@@ -80,12 +80,12 @@ Recommended Web Browsers for Engine:
 
 oVirt release 3.3.3 is intended for production use and is available for the following platforms:
 
-*   oVirt for Fedora Core ([ Guide](#Fedora))
-*   oVirt for RHEL ([ Guide](#Red_Hat_Enterprise_Linux_6/CentOS))
-*   oVirt for CentOS ([ Guide](#Red_Hat_Enterprise_Linux_6/CentOS))
+*   oVirt for Fedora Core ([Guide](#Fedora))
+*   oVirt for RHEL ([Guide](#Red_Hat_Enterprise_Linux_6/CentOS))
+*   oVirt for CentOS ([Guide](#Red_Hat_Enterprise_Linux_6/CentOS))
 *   oVirt for Scientific Linux (Guide)
 *   oVirt for Gentoo ([Experimental](//wiki.gentoo.org/wiki/OVirt))
-*   oVirt for Debian ([ Guide](ovirt build on debian/ubuntu))
+*   oVirt for Debian ([Guide](ovirt build on debian/ubuntu))
 
 ### Supported Guest Distributions
 

@@ -535,6 +535,7 @@ will upgrade to latest 3.3.
  - Override previous export of same template fail
  - [REST]: Missing domain field on VM\\Template object.
  - [REST-API] XSD schema validation error: response for create vm returned with 'type' and 'data' fields instead of with one of these fields
+ - webadmin: Missing add new ISO option in data center "guide me" dialog
  - Failure to add domain via engine-manage-domains if the kerberos realm is not an uppercase of the domain
  - [database] do not enable provisioning for remote database
 

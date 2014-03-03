@@ -180,7 +180,7 @@ These instructions should work for both Red Hat Enterprise Linux and CentOS. The
 
 ------------------------------------------------------------------------
 
-Now that you have oVirt running, check out the [ documentation section](documentation) and be sure to [ join our community](community)!
+Now that you have oVirt running, check out the [ documentation section](documentation) for more information and be sure to [ join our community](community)!
 
 Help [ develop the software](develop), take part in discussions on the [mailing lists](mailing lists) and join us [ on IRC](communication#IRC).
 

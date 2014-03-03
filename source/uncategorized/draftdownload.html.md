@@ -30,15 +30,6 @@ Experienced users can also compile from source, using the guides for the [ oVirt
 
 <div class="row-fluid">
 <div class="span6">
-Versions of oVirt  
-*   Stable (**Recommended**)
-
-*   Current Development
-
-*   Future Development
-
-<!-- -->
-
 Minimum Hardware:  
 
     * 4 GB memory

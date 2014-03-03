@@ -121,6 +121,7 @@ Our recommended method of installing oVirt is to use the pre-built packages for 
 
 #### Fedora
 
+<div class= "mw-collapsible mw-collapsed">
 1.  Add the official oVirt repository for Fedora. <kbd>
         sudo yum localinstall http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm
 
@@ -149,8 +150,10 @@ Our recommended method of installing oVirt is to use the pre-built packages for 
 7.  Congratulations! oVirt Engine is now installed!
 8.  For every virtualization server you'd like to manage, you can now [ set them up as oVirt hosts](Quick Start Guide#Install_Hosts) .
 
+</div>
 #### Red Hat Enterprise Linux 6/CentOS
 
+<div class= "mw-collapsible mw-collapsed">
 These instructions should work for both Red Hat Enterprise Linux and CentOS. They will likely work with other binary compatible EL6 versions as well, but they were not tested. It is strongly recommended that you use at least version 6.4 of RHEL or CentOS.
 
 1.  Add the official oVirt repository for EL6. <kbd>
@@ -181,6 +184,8 @@ These instructions should work for both Red Hat Enterprise Linux and CentOS. The
 7.  Once you have successfully installed oVirt Engine, you will be provided with instructions to access oVirt's web-based management interface.
 8.  Congratulations! oVirt Engine is now installed!
 9.  For every virtualization server you'd like to manage, you can now [ set them up as oVirt nodes](Quick Start Guide#Install_Hosts) .
+
+</div>
 
 ------------------------------------------------------------------------
 

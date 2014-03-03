@@ -10,6 +10,27 @@ wiki_last_updated: 2014-03-03
 
 # OVirt 3.3.z release management
 
+## oVirt 3.3.5
+
+### Timeline
+
+*   General availability: **2014-04-09**
+*   RC Build: **2014-04-02**
+
+#### Nightly Builds
+
+Nightly builds are available enabling the oVirt 3.3 snapshots repositories:
+
+      # yum-config-manager --enable ovirt-3.3-snapshot
+      # yum-config-manager --enable ovirt-3.3-snapshot-static
+
+### Release criteria
+
+*   See [OVirt 3.3 release-management](OVirt 3.3 release-management) Release Criteria
+*   Release notes must be filled: [oVirt 3.3.5 release notes](oVirt 3.3.5 release notes)
+*   Blocking bugs must be fixed:  - Tracker: oVirt 3.3.5 release
+*   QE must test the release: [Testing/oVirt 3.3.5 testing](Testing/oVirt 3.3.5 testing)
+
 ## oVirt 3.3.4
 
 ### Timeline

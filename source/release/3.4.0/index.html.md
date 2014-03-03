@@ -512,6 +512,7 @@ will upgrade to latest 3.3.
  - search paging on event log does not use paging correctly
  - rest api Empty int fields in POST data causes JAXB parser to fail
  - Adding permissions to any thing doesn't work
+ - RHEV-M fails to detect 'AMD Opteron G5' as CPU_Type for hypervisors.
  - Listing templates takes noticeable amount of time, while listing many more VMs is prompt
  - [RHEVM] [network labels] Failed to configure vm networks on host while changing its cluster.
  - Adding a direct LUN disk doesn't work
@@ -534,6 +535,7 @@ will upgrade to latest 3.3.
  - Override previous export of same template fail
  - [REST]: Missing domain field on VM\\Template object.
  - [REST-API] XSD schema validation error: response for create vm returned with 'type' and 'data' fields instead of with one of these fields
+ - Failure to add domain via engine-manage-domains if the kerberos realm is not an uppercase of the domain
  - [database] do not enable provisioning for remote database
 
 ### VDSM

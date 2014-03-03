@@ -19,7 +19,7 @@ oVirt is a virtual datacenter manager that delivers powerful management of multi
 
 If you are absolutely new to oVirt, try our [ Live version](OVirt_Live) where you can test-drive oVirt on CentOS without installing it on your machine.
 
-If you have some knowledge of installing packages on Linux, you can install our [ All-in-One solution](#Install_oVirt_All-in-One).
+If you have some knowledge of installing packages on Linux, you can install [ oVirt](#Install_oVirt) directly on a host machine.
 
 Experienced users can also compile from source, using the guides for the [ oVirt engine](Building oVirt engine) and [ oVirt Node](Node Building).
 
@@ -40,8 +40,6 @@ Optional Hardware:
 
     * Network storage
 
-</div>
-<div class="span6">
 Supported Hosts:  
 
     * Fedora 19
@@ -56,6 +54,8 @@ Supported Hosts:
 
     * Debian GNU/Linux (experimental)
 
+</div>
+<div class="span6">
 Recommended Web Browsers for Engine:  
 
     * Mozilla Firefox 17 or later
@@ -69,7 +69,13 @@ Recommended Web Browsers for Engine:
 </div>
 <div class="row">
 <div class="span10 offset1">
-### Install oVirt All-in-One
+### Versions of oVirt
+
+*   Stable (**Recommended**)
+*   Current Development
+*   Future Development
+
+### Install oVirt
 
 oVirt release 3.3.3 is intended for production use and is available for the following platforms:
 
@@ -79,34 +85,6 @@ oVirt release 3.3.3 is intended for production use and is available for the foll
 *   oVirt for Scientific Linux (Guide)
 *   oVirt for Gentoo ([Experimental](//wiki.gentoo.org/wiki/OVirt))
 *   oVirt for Debian ([Guide](ovirt build on debian/ubuntu))
-
-### Supported Guest Distributions
-
-Once oVirt is installed and running, you can proceed to install any number of supported operating systems as guest virtual machines. The table below lists what operating systems are supported as guests.
-
-<div class= "mw-collapsible mw-collapsed" style="width:800px">
-| Operating System                                                                                                                    | Architecture   |     | SPICE support |
-|-------------------------------------------------------------------------------------------------------------------------------------|----------------|-----|---------------|
-| Red Hat Enterprise Linux 3                                                                                                          | 32-bit, 64-bit |     | Yes           |
-| Red Hat Enterprise Linux 4                                                                                                          | 32-bit, 64-bit |     | Yes           |
-| Red Hat Enterprise Linux 5                                                                                                          | 32-bit, 64-bit |     | Yes           |
-| Red Hat Enterprise Linux 6                                                                                                          | 32-bit, 64-bit |     | Yes           |
-| SUSE Linux Enterprise Server 10 (select Other Linux for the guest type in the user interface)                                       | 32-bit, 64-bit |     | No            |
-| SUSE Linux Enterprise Server 11 (SPICE drivers (QXL) are not supplied by Red Hat. Distribution's vendor may provide SPICE drivers.) | 32-bit, 64-bit |     | No            |
-| Ubuntu 12.04 (Precise Pangolin LTS)                                                                                                 | 32-bit, 64-bit |     | Yes           |
-| Ubuntu 12.10 (Quantal Quetzal)                                                                                                      | 32-bit, 64-bit |     | Yes           |
-| Ubuntu 13.04 (Raring Ringtail)                                                                                                      | 32-bit, 64-bit |     | Yes           |
-| Ubuntu 13.10 (Saucy Salamander)                                                                                                     | 32-bit, 64-bit |     | Yes           |
-| Windows XP Service Pack 3 and newer                                                                                                 | 32-bit         |     | Yes           |
-| Windows 7                                                                                                                           | 32-bit, 64-bit |     | Yes           |
-| Windows 8                                                                                                                           | 32-bit, 64-bit |     | No            |
-| Windows Server 2003 Service Pack 2 and newer                                                                                        | 32-bit, 64-bit |     | Yes           |
-| Windows Server 2008                                                                                                                 | 32-bit, 64-bit |     | Yes           |
-| Windows Server 2008 R2                                                                                                              | 64-bit         |     | Yes           |
-| Windows Server 2012 R2                                                                                                              | 64-bit         |     | No            |
-
-</div>
-### Installation Guides
 
 Our recommended method of installing oVirt is to use the pre-built packages for Fedora or a supported EL6 distribution, such as CentOS or RHEL. This makes installing oVirt very easy. Naturally, you can run most Linux distributions or several other operating systems (e.g. Windows) as [ guests](#Supported_Guest_Distributions) inside of oVirt instances.
 
@@ -126,7 +104,7 @@ Our recommended method of installing oVirt is to use the pre-built packages for 
 
     </kbd>
 
-3.  Optionally install the All-In-One plugin if you want to host VMs on your Engine Host <kbd>
+3.  Optionally, install the All-In-One plugin if you want to host VMs on your Engine Host <kbd>
         sudo yum install -y ovirt-engine-setup-plugin-allinone
 
     </kbd>
@@ -175,6 +153,32 @@ These instructions should work for both Red Hat Enterprise Linux and CentOS. The
 7.  Once you have successfully installed oVirt Engine, you will be provided with instructions to access oVirt's web-based management interface.
 8.  Congratulations! oVirt Engine is now installed!
 9.  For every virtualization server you'd like to manage, you can now [ set them up as oVirt nodes](Quick Start Guide#Install_Hosts) .
+
+</div>
+### Supported Guest Distributions
+
+Once oVirt is installed and running, you can proceed to install any number of supported operating systems as guest virtual machines. The table lists what operating systems are supported as guests.
+
+<div class= "mw-collapsible mw-collapsed" style="width:800px">
+| Operating System                                                                                                                    | Architecture   |     | SPICE support |
+|-------------------------------------------------------------------------------------------------------------------------------------|----------------|-----|---------------|
+| Red Hat Enterprise Linux 3                                                                                                          | 32-bit, 64-bit |     | Yes           |
+| Red Hat Enterprise Linux 4                                                                                                          | 32-bit, 64-bit |     | Yes           |
+| Red Hat Enterprise Linux 5                                                                                                          | 32-bit, 64-bit |     | Yes           |
+| Red Hat Enterprise Linux 6                                                                                                          | 32-bit, 64-bit |     | Yes           |
+| SUSE Linux Enterprise Server 10 (select Other Linux for the guest type in the user interface)                                       | 32-bit, 64-bit |     | No            |
+| SUSE Linux Enterprise Server 11 (SPICE drivers (QXL) are not supplied by Red Hat. Distribution's vendor may provide SPICE drivers.) | 32-bit, 64-bit |     | No            |
+| Ubuntu 12.04 (Precise Pangolin LTS)                                                                                                 | 32-bit, 64-bit |     | Yes           |
+| Ubuntu 12.10 (Quantal Quetzal)                                                                                                      | 32-bit, 64-bit |     | Yes           |
+| Ubuntu 13.04 (Raring Ringtail)                                                                                                      | 32-bit, 64-bit |     | Yes           |
+| Ubuntu 13.10 (Saucy Salamander)                                                                                                     | 32-bit, 64-bit |     | Yes           |
+| Windows XP Service Pack 3 and newer                                                                                                 | 32-bit         |     | Yes           |
+| Windows 7                                                                                                                           | 32-bit, 64-bit |     | Yes           |
+| Windows 8                                                                                                                           | 32-bit, 64-bit |     | No            |
+| Windows Server 2003 Service Pack 2 and newer                                                                                        | 32-bit, 64-bit |     | Yes           |
+| Windows Server 2008                                                                                                                 | 32-bit, 64-bit |     | Yes           |
+| Windows Server 2008 R2                                                                                                              | 64-bit         |     | Yes           |
+| Windows Server 2012 R2                                                                                                              | 64-bit         |     | No            |
 
 </div>
 

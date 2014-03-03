@@ -100,6 +100,10 @@ before upgrading with the usual procedure. You should see the ovirt-3.3.2 and ov
 #### Fedora
 
 <div class= "mw-collapsible mw-collapsed">
+<div class="alert alert-info">
+**Important:** It is recommended that you install oVirt on Fedora 19, which is the best supported version of the Fedora platform at this time.
+
+</div>
 1.  Add the official oVirt repository for Fedora. <kbd>
         sudo yum localinstall http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm
 

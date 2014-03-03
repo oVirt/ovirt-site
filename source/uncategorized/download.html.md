@@ -85,7 +85,7 @@ If you are looking to preview the project without permanently dedicating a machi
 #### [Fedora 19](http://fedoraproject.org/en/download-splash?file=http://download.fedoraproject.org/pub/fedora/linux/releases/19/Live/x86_64/Fedora-Live-Desktop-x86_64-19-1.iso)
 
 1.  Add the official oVirt repository for Fedora. <kbd>
-        sudo yum localinstall http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm
+        sudo yum localinstall http://ovirt.org/releases/ovirt-release.noarch.rpm
 
     </kbd>
 

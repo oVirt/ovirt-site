@@ -94,7 +94,7 @@ The creation of key/cert pair could be part of engine setup process (together wi
 Prerequisities: Browser that has proper websockets and postmessage support (tested with FF and Chrome)
 
 *   In the engine-setup answer 'Yes' to 'Configure websocket proxy on the machine'"
-*   Import CA of the engine in your browser
+*   Import CA of the engine in your browser. You can download the certificate authority by navigating '<https://><your engine address>/ca.crt'.
 *   Set up a VM as usual, set its Display Type to VNC and run it.
 *   In Console Options dialog, select 'noVNC'
 *   Click the console button to invoke the console.

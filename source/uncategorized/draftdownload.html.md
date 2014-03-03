@@ -19,9 +19,9 @@ oVirt is a virtual datacenter manager that delivers powerful management of multi
 
 If you are absolutely new to oVirt, try our [ Live version](OVirt_Live) where you can test-drive oVirt on CentOS without installing it on your machine.
 
-If you have some knowledge of installing packages on Linux, you should install our All-in-One solution using the [ Quick Start](#Quick_Start_Guide) instructions below.
+If you have some knowledge of installing packages on Linux, you can install our [ All-in-One solution](#oVirt_All-in-One).
 
-Experienced users can also compile from source, using the guides on [ the oVirt engine](Building oVirt engine) and [ oVirt Node](Node Building).
+Experienced users can also compile from source, using the guides for the [ oVirt engine](Building oVirt engine) and [ oVirt Node](Node Building).
 
 </div>
 <div class="span6 pad-left-small pad-right">
@@ -76,7 +76,20 @@ Recommended Web Browsers for Engine:
 </div>
 <div class="row">
 <div class="span10 offset1">
+### Install oVirt All-in-One
+
+oVirt release 3.3.3 is intended for production use and is available for the following platforms:
+
+*   oVirt for Fedora Core ([ Guide](#Fedora_19))
+*   oVirt for RHEL (Guide)
+*   oVirt for CentOS (Guide)
+*   oVirt for Scientific Linux (Guide)
+*   oVirt for Gentoo ([Experimental](//wiki.gentoo.org/wiki/OVirt))
+*   oVirt for Debian ([ Guide](ovirt build on debian/ubuntu))
+
 ### Supported Guest Distributions
+
+Once oVirt is installed and running, you can proceed to install any number of supported operating systems as guest virtual machines. The updated table lists what operating systems are supported as guests.
 
 | Operating System                                                                                                                    | Architecture   | SPICE support |
 |-------------------------------------------------------------------------------------------------------------------------------------|----------------|---------------|
@@ -98,17 +111,8 @@ Recommended Web Browsers for Engine:
 | Windows Server 2008 R2                                                                                                              | 64-bit         | Yes           |
 | Windows Server 2012 R2                                                                                                              | 64-bit         | No            |
 
-### Quick Start Guide
+### Installation Guides
 
-<div class="alert alert-info">
-IMPORTANT NOTE: If you're upgrading from a previous version, please update ovirt-release to the latest version (10) and verify you have the correct repositories enabled by running the following commands
-
-    # yum update ovirt-release
-    # yum repolist enabled
-
-before upgrading with the usual procedure. You should see the ovirt-3.3.2 and ovirt-stable repositories listed in the output of the repolist command.
-
-</div>
 Our recommended method of installing oVirt is to use the pre-built packages for Fedora or an EL6 distribution. It makes installing oVirt very easy. Naturally, you can run any Linux distribution or several other operating systems (e.g. Windows) as guests inside of oVirt instances.
 
 If you are looking to preview the project without permanently dedicating a machine, you can also try the LiveCD image. This image will appear under the [tools](http://resources.ovirt.org/releases/stable/tools) directory. This generally appears a week or two after a release, due to the need to have final release packages available.

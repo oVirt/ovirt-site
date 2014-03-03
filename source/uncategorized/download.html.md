@@ -121,7 +121,7 @@ Warning: Native GlusterFS support will not work with Red Hat Enterprise Linux 6.
 
 </div>
 1.  Add the official oVirt repository for EL6. <kbd>
-        sudo yum localinstall http://ovirt.org/releases/ovirt-release-el.noarch.rpm
+        sudo yum localinstall http://ovirt.org/releases/ovirt-release.noarch.rpm
 
     </kbd>
 

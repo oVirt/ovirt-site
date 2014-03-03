@@ -59,9 +59,11 @@ Supported Hosts:
 
     * Red Hat Enterprise Linux 6.4
 
-    * [Gentoo](//wiki.gentoo.org/wiki/OVirt) (experimental)
+    * Scientific Linux 6.4
 
-    * [ Debian](ovirt build on debian/ubuntu) (experimental)
+    * Gentoo Linux (experimental)
+
+    * Debian GNU/Linux (experimental)
 
 Recommended Web Browsers for Engine:  
 

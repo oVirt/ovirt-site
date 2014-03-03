@@ -36,6 +36,13 @@ In oVirt 3.3 and below, async tasks exist only for SPM (i.e., storage management
 *   Improve current VM-centric features like [Storage Live Migration](Features/Storage Live Migration)
 *   Facilitate future features such as live merge
 
+List of possible users:
+
+1.  Live merge
+2.  setupNetwork with slow DHCP servers
+3.  VM start up
+4.  migration
+
 ### Dependencies / Related Features
 
 *   See above

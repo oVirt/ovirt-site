@@ -80,9 +80,9 @@ Recommended Web Browsers for Engine:
 
 oVirt release 3.3.3 is intended for production use and is available for the following platforms:
 
-*   oVirt for Fedora Core ([ Guide](#Fedora_19))
-*   oVirt for RHEL (Guide)
-*   oVirt for CentOS (Guide)
+*   oVirt for Fedora Core ([ Guide](#Fedora))
+*   oVirt for RHEL ([ Guide](#Red_Hat_Enterprise_Linux_6/CentOS))
+*   oVirt for CentOS ([ Guide](#Red_Hat_Enterprise_Linux_6/CentOS))
 *   oVirt for Scientific Linux (Guide)
 *   oVirt for Gentoo ([Experimental](//wiki.gentoo.org/wiki/OVirt))
 *   oVirt for Debian ([ Guide](ovirt build on debian/ubuntu))
@@ -113,11 +113,9 @@ Once oVirt is installed and running, you can proceed to install any number of su
 
 ### Installation Guides
 
-Our recommended method of installing oVirt is to use the pre-built packages for Fedora or an EL6 distribution. It makes installing oVirt very easy. Naturally, you can run any Linux distribution or several other operating systems (e.g. Windows) as guests inside of oVirt instances.
+Our recommended method of installing oVirt is to use the pre-built packages for Fedora or a supported EL6 distribution, such as CentOS or RHEL. This makes installing oVirt very easy. Naturally, you can run most Linux distributions or several other operating systems (e.g. Windows) as [ guests](#Supported_Guest_Distributions) inside of oVirt instances.
 
-If you are looking to preview the project without permanently dedicating a machine, you can also try the LiveCD image. This image will appear under the [tools](http://resources.ovirt.org/releases/stable/tools) directory. This generally appears a week or two after a release, due to the need to have final release packages available.
-
-#### [Fedora 19](http://fedoraproject.org/en/download-splash?file=http://download.fedoraproject.org/pub/fedora/linux/releases/19/Live/x86_64/Fedora-Live-Desktop-x86_64-19-1.iso)
+#### Fedora
 
 1.  Add the official oVirt repository for Fedora. <kbd>
         sudo yum localinstall http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm
@@ -147,14 +145,10 @@ If you are looking to preview the project without permanently dedicating a machi
 7.  Congratulations! oVirt Engine is now installed!
 8.  For every virtualization server you'd like to manage, you can now [ set them up as oVirt hosts](Quick Start Guide#Install_Hosts) .
 
-#### Enterprise Linux 6
+#### Red Hat Enterprise Linux 6/CentOS
 
-These instructions should work for both Red Hat Enterprise Linux and CentOS. They will likely work with other binary compatible EL6 version as well, but they were not tested. It is strongly recommended that you use at least version 6.4.
+These instructions should work for both Red Hat Enterprise Linux and CentOS. They will likely work with other binary compatible EL6 versions as well, but they were not tested. It is strongly recommended that you use at least version 6.4 of RHEL or CentOS.
 
-<div class="alert alert-info">
-Warning: Native GlusterFS support will not work with Red Hat Enterprise Linux 6.4 at this time
-
-</div>
 1.  Add the official oVirt repository for EL6. <kbd>
         sudo yum localinstall http://ovirt.org/releases/ovirt-release-el.noarch.rpm
 

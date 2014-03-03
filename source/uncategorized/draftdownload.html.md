@@ -91,25 +91,25 @@ oVirt release 3.3.3 is intended for production use and is available for the foll
 
 Once oVirt is installed and running, you can proceed to install any number of supported operating systems as guest virtual machines. The updated table lists what operating systems are supported as guests.
 
-| Operating System                                                                                                                    | Architecture   | SPICE support |
-|-------------------------------------------------------------------------------------------------------------------------------------|----------------|---------------|
-| Red Hat Enterprise Linux 3                                                                                                          | 32-bit, 64-bit | Yes           |
-| Red Hat Enterprise Linux 4                                                                                                          | 32-bit, 64-bit | Yes           |
-| Red Hat Enterprise Linux 5                                                                                                          | 32-bit, 64-bit | Yes           |
-| Red Hat Enterprise Linux 6                                                                                                          | 32-bit, 64-bit | Yes           |
-| SUSE Linux Enterprise Server 10 (select Other Linux for the guest type in the user interface)                                       | 32-bit, 64-bit | No            |
-| SUSE Linux Enterprise Server 11 (SPICE drivers (QXL) are not supplied by Red Hat. Distribution's vendor may provide SPICE drivers.) | 32-bit, 64-bit | No            |
-| Ubuntu 12.04 (Precise Pangolin LTS)                                                                                                 | 32-bit, 64-bit | Yes           |
-| Ubuntu 12.10 (Quantal Quetzal)                                                                                                      | 32-bit, 64-bit | Yes           |
-| Ubuntu 13.04 (Raring Ringtail)                                                                                                      | 32-bit, 64-bit | Yes           |
-| Ubuntu 13.10 (Saucy Salamander)                                                                                                     | 32-bit, 64-bit | Yes           |
-| Windows XP Service Pack 3 and newer                                                                                                 | 32-bit         | Yes           |
-| Windows 7                                                                                                                           | 32-bit, 64-bit | Yes           |
-| Windows 8                                                                                                                           | 32-bit, 64-bit | No            |
-| Windows Server 2003 Service Pack 2 and newer                                                                                        | 32-bit, 64-bit | Yes           |
-| Windows Server 2008                                                                                                                 | 32-bit, 64-bit | Yes           |
-| Windows Server 2008 R2                                                                                                              | 64-bit         | Yes           |
-| Windows Server 2012 R2                                                                                                              | 64-bit         | No            |
+| Operating System                                                                                                                    | Architecture   |     | SPICE support |
+|-------------------------------------------------------------------------------------------------------------------------------------|----------------|-----|---------------|
+| Red Hat Enterprise Linux 3                                                                                                          | 32-bit, 64-bit |     | Yes           |
+| Red Hat Enterprise Linux 4                                                                                                          | 32-bit, 64-bit |     | Yes           |
+| Red Hat Enterprise Linux 5                                                                                                          | 32-bit, 64-bit |     | Yes           |
+| Red Hat Enterprise Linux 6                                                                                                          | 32-bit, 64-bit |     | Yes           |
+| SUSE Linux Enterprise Server 10 (select Other Linux for the guest type in the user interface)                                       | 32-bit, 64-bit |     | No            |
+| SUSE Linux Enterprise Server 11 (SPICE drivers (QXL) are not supplied by Red Hat. Distribution's vendor may provide SPICE drivers.) | 32-bit, 64-bit |     | No            |
+| Ubuntu 12.04 (Precise Pangolin LTS)                                                                                                 | 32-bit, 64-bit |     | Yes           |
+| Ubuntu 12.10 (Quantal Quetzal)                                                                                                      | 32-bit, 64-bit |     | Yes           |
+| Ubuntu 13.04 (Raring Ringtail)                                                                                                      | 32-bit, 64-bit |     | Yes           |
+| Ubuntu 13.10 (Saucy Salamander)                                                                                                     | 32-bit, 64-bit |     | Yes           |
+| Windows XP Service Pack 3 and newer                                                                                                 | 32-bit         |     | Yes           |
+| Windows 7                                                                                                                           | 32-bit, 64-bit |     | Yes           |
+| Windows 8                                                                                                                           | 32-bit, 64-bit |     | No            |
+| Windows Server 2003 Service Pack 2 and newer                                                                                        | 32-bit, 64-bit |     | Yes           |
+| Windows Server 2008                                                                                                                 | 32-bit, 64-bit |     | Yes           |
+| Windows Server 2008 R2                                                                                                              | 64-bit         |     | Yes           |
+| Windows Server 2012 R2                                                                                                              | 64-bit         |     | No            |
 
 ### Installation Guides
 

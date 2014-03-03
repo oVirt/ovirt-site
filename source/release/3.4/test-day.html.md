@@ -35,7 +35,7 @@ wiki_last_updated: 2014-03-27
 *   Make sure you have either a Fedora 19 or CentOS 6.5 machine installed.
 *   Install the release pkg:
 
-`(f19) sudo yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release-fedora-10.0.1-3.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release-fedora-10.0.1-3.noarch.rpm)
+`(f19) sudo yum localinstall `[`http://resources.ovirt.org/releases/3.4.0-rc/rpm/Fedora/19/noarch/ovirt-release-11.0.2-1.noarch.rpm`](http://resources.ovirt.org/releases/3.4.0-rc/rpm/Fedora/19/noarch/ovirt-release-11.0.2-1.noarch.rpm)
 
 then enable also fedora-virt-preview repo repository.
 

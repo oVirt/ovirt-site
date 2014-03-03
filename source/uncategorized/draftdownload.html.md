@@ -79,9 +79,9 @@ Recommended Web Browsers for Engine:
 
 oVirt release 3.3.3 is intended for production use and is available for the following platforms:
 
-*   oVirt for Fedora Core ([Guide](#Fedora))
-*   oVirt for RHEL ([Guide](#Red_Hat_Enterprise_Linux_6/CentOS))
-*   oVirt for CentOS ([Guide](#Red_Hat_Enterprise_Linux_6/CentOS))
+*   oVirt for Fedora Core ([Guide](#Fedora_Installation_Instructions))
+*   oVirt for RHEL ([Guide](#Red_Hat_Enterprise_Linux_6/CentOS_Installation_Instructions))
+*   oVirt for CentOS ([Guide](#Red_Hat_Enterprise_Linux_6/CentOS_Installation_Instructions))
 *   oVirt for Scientific Linux (Guide)
 *   oVirt for Gentoo ([Experimental](//wiki.gentoo.org/wiki/OVirt))
 *   oVirt for Debian ([Guide](ovirt build on debian/ubuntu))
@@ -89,15 +89,15 @@ oVirt release 3.3.3 is intended for production use and is available for the foll
 Our recommended method of installing oVirt is to use the pre-built packages for Fedora or a supported EL6 distribution, such as CentOS or RHEL. This makes installing oVirt very easy. Naturally, you can run most Linux distributions or several other operating systems (e.g. Windows) as [ guests](#Supported_Guest_Distributions) inside of oVirt instances.
 
 <div class="alert alert-info">
-**Important:** If you're upgrading from a previous version, please update ovirt-release to the latest version (10) and verify you have the correct repositories enabled by running the following commands
+**Important:** If you're upgrading from a previous version, please update ovirt-release to the latest version (10) and verify you have the correct repositories enabled by running the following commands before upgrading with the usual procedure.
 
           # yum update ovirt-release
           # yum repolist enabled
 
-before upgrading with the usual procedure. You should see the ovirt-3.3.2 and ovirt-stable repositories listed in the output of the repolist command.
+You should see the ovirt-3.3.3 and ovirt-stable repositories listed in the output of the repolist command.
 
 </div>
-#### Fedora
+#### Fedora Installation Instructions
 
 <div class= "mw-collapsible mw-collapsed">
 <div class="alert alert-info">
@@ -133,7 +133,7 @@ before upgrading with the usual procedure. You should see the ovirt-3.3.2 and ov
 8.  For every virtualization server you'd like to manage, you can now [ set them up as oVirt hosts](Quick Start Guide#Install_Hosts) .
 
 </div>
-#### Red Hat Enterprise Linux 6/CentOS
+#### Red Hat Enterprise Linux 6/CentOS Installation Instructions
 
 <div class= "mw-collapsible mw-collapsed">
 These instructions should work for both Red Hat Enterprise Linux and CentOS. They will likely work with other binary compatible EL6 versions as well, but they were not tested. It is strongly recommended that you use at least version 6.4 of RHEL or CentOS.

@@ -88,6 +88,15 @@ oVirt release 3.3.3 is intended for production use and is available for the foll
 
 Our recommended method of installing oVirt is to use the pre-built packages for Fedora or a supported EL6 distribution, such as CentOS or RHEL. This makes installing oVirt very easy. Naturally, you can run most Linux distributions or several other operating systems (e.g. Windows) as [ guests](#Supported_Guest_Distributions) inside of oVirt instances.
 
+<div class="alert alert-info">
+**Important:** If you're upgrading from a previous version, please update ovirt-release to the latest version (10) and verify you have the correct repositories enabled by running the following commands
+
+          # yum update ovirt-release
+          # yum repolist enabled
+
+before upgrading with the usual procedure. You should see the ovirt-3.3.2 and ovirt-stable repositories listed in the output of the repolist command.
+
+</div>
 #### Fedora
 
 <div class= "mw-collapsible mw-collapsed">
@@ -125,6 +134,10 @@ Our recommended method of installing oVirt is to use the pre-built packages for 
 <div class= "mw-collapsible mw-collapsed">
 These instructions should work for both Red Hat Enterprise Linux and CentOS. They will likely work with other binary compatible EL6 versions as well, but they were not tested. It is strongly recommended that you use at least version 6.4 of RHEL or CentOS.
 
+<div class="alert alert-info">
+**Warning:** Native GlusterFS support will not work with Red Hat Enterprise Linux 6.4 at this time.
+
+</div>
 1.  Add the official oVirt repository for EL6. <kbd>
         sudo yum localinstall http://ovirt.org/releases/ovirt-release-el.noarch.rpm
 

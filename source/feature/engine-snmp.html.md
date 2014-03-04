@@ -40,7 +40,7 @@ Allow oVirt users to monitor their virtualization environment with open source o
 
 This feature extends the capabilities of the ovirt-engine-notifier to send all engine events and events' data via SNMP traps version 2c.
  A new 'SNMP_TRAP Notifications' section is now available in the notifier's configuration file under
-/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf
+/usr/share/ovirt-engine/services/ovirt-engine-notifier/ovirt-engine-notifier.conf
 (It's advisable to leave that file as is and define override file[s] under /etc/ovirt-engine/notifier/notifier.conf.d/) Lets take a look;
 
       #-------------------------#

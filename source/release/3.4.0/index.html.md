@@ -116,10 +116,11 @@ will upgrade to latest 3.3.
 ## Known issues
 
 *   EL >= 6.5 or cloud-init >= 0.7.2 are needed for cloud-init feature support ()
-*   all-in-one requiures fedora-virt-preview repo as in the next item
+*   all-in-one requires fedora-virt-preview repo as in the next item
 *   For using Fedora 19 as node on 3.4 clusters you need to enable fedora-virt-preview repository ()
 *   Node
     -   Needs to be booted in permissive mode by appending: enforcing=0
+*   Fedora 20 does not work as an engine ()
 *   engine-setup: upgrade from 3.3 overwrites exports with acl None ()
 *   Hosts with Fedora19 might not be able to discover iscsi targets due (), it's recommended to update selinux and selinux-target packages to version [3.12.1-74.19](https://admin.fedoraproject.org/updates/selinux-policy-3.12.1-74.19.fc19)
 *   Host deployment may fail on EL6 system due to a recent tuned regression (, ). Please downgrade tuned to previous version while waiting for a new tuned package solving this issue.

@@ -204,6 +204,18 @@ Other use cases include specifying storage I/O priorty, network capping and thro
 
 The existing template mechanism can be used to handle *Images*.
 
+### Edit VM Based on Instance Type
+
+*   The instance type is changeable only if the VM is down.
+*   If the VM is not down and some field which is taken from instance type is changed, the VM gets detached from the instance type
+*   The edit VM dialog shows the fields as they are currently configured on the VM (which may change after the restart of the VM). For example:
+    -   A VM which is down is based on an instance type and it has e.g. 512 MB memory from it.
+    -   The instance type gets changed increasing the memory to 1024 MB
+    -   The edit VM is pressed
+    -   The dialog shows that the VM is based on the instance type and it has 512 MB memory
+    -   Than the dialog is closed and the VM is started and stopped again. Than the edit VM is pressed.
+    -   The dialog now shows that the VM has 1024 MB memory and is still based on the same instance type
+
 ### Example User Workflow
 
 This is an example of the user workflow, how the new Instance Types approach would be used.

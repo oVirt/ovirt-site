@@ -168,9 +168,26 @@ A migration is triggered using the 'migrate' verb and is implemented using the *
 
 Is worth to note that a lot of details are been skipped here and this summary just cover the basic succesfull case. See the migration page for a deeper explanation about migration, error scenarios and more detailed documentation.
 
-On the destination host, the 'Migration Destination' flow is the implemented with the following steps:
+On the destination host, the 'Migration Destination' flow is the implemented as follows. In the *_run* method:
 
-*   
+*   translation of the device data sent to engine in the internal data structure (*buildConfDevices*)
+*   normalization of devices and enforcing the device limits (*preparePaths*, *_prepareTransientDisks* et al. See point below)
+*   setup of the drive paths/images: oVirt uses shared storage and this has to be set before a VM can run; this is done by using the services provided by the VDSM storage subsystem
+
+In the *_waitForIncomingMigrationFinish* method:
+
+*   compute the migration timeout and wait for expiration
+*   wait for VM to come up, either by libvirt notification (successfull migration or error) or by timeout expiration. When this event triggers, the actual migration is likely still in progress,
+
+because the data has yet to be transferred; however, here the destination VM is created and running, and it is ready to receive (or already been receiving) such data.
+
+*   perform post-creation domain checks (*_domDependentInit*, as seen in the creation flow):
+*   if the VM was paused, recover the pause code; extend the VM drives if needed.
+
+**NOTE** just AFTER the destination VM has been sucesfully created we have to wait for the actual data transfer to take place. We need a running VM instance on the destination host for this. See the *waitForMigrationDestinationPrepare* method which
+
+*   estimates the duration of the migration and wait accordingly
+*   updates the destination VM data with the XML data received from the migration source
 
 ## Rewrite objectives
 

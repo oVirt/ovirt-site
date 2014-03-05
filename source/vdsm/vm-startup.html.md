@@ -98,7 +98,25 @@ The *_run* method is surrounded by a BoundingSemaphore to throttle the access to
 
 ### The VM Creation flow
 
-Work in progress...
+This execution flow boot up a VM previously reported as Down in the data center. It is named *creation* by borrowing the libvirt jargon (the libvirt call being used is domain.CreateXML). This is the only execution flow which do not assume a VM is already up and being handled by libvirt. VDSM recreates the VM definition in the XML format used by libvirt from the data provided by engine, and feed it into libvirt. libvirt will do the heavy lifting with qemu/kvm.
+
+The most important steps are:
+
+*   translation of the device data sent to engine in the internal data structure (*buildConfDevices*)
+*   normalization of devices and enforcing the device limits (*preparePaths*, ''_prepareTransientDisks et al. See point below)
+*   setup of the drive paths/images: oVirt uses shared storage and this has to be set before a VM can run; this is done by using the services provided by the VDSM storage subsystem
+*   translate the internal data representation into the libvirt XML format (*_buildCmdLine*)
+*   create the Domain (libvirt jargon) by using this XML, effectively starting up the VM
+*   perform post-creation domain checks (*_domDependentInit*, shared with the other flows):
+    -   resync data representation with the libvirt one (*_getUnderlyingVmInfo*)
+    -   update and resync the device information from libvirt (*_getUnderlyingVmDevicesInfo* and sub-methods)
+    -   start the statistics gathering thread, one per VM
+    -   (try to) connect to Guest Agent
+    -   handle paused VM, the most important task is handling VM paused for disk space exausted and handle this case appropriately
+    -   set up niceness and guest scheduler parameters
+*   last but not least, run the hooks
+
+This flows is composed to many steps but is may be the most striaghtforward because there is no state to be synchronized between parties. The engine has the reference state, VDSM is acting as middlemen for libvirt and mostly translating data from the engine representation to the libvirt representation. Moreover, most of actions involved, and most of the helpers which implements them, are shared with the other execution flows.
 
 ### The VM Recovery flow
 

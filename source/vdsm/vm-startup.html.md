@@ -152,6 +152,26 @@ In a nutshell, migration si performed through libvirt using the [peer to peer fl
 *   the control and the ownership of the VM is passed from source to destination after a succesfull migration
 *   if migration fails, the source keeps running and the destination is trasparently (= without explicit user intervention) destroyed
 
+A migration is triggered using the 'migrate' verb and is implemented using the *VM.migrate* method. A migration is carried by a service thread, *MigrationSourceThread*, which uses a couple more threads to monitor the operation:
+
+*   *MigrationMonitorThread* polls libvirt periodically and report the migration progress
+*   *MigrationDowntimeThread* controls the maximum allowed downtime and updates libvirt during the migration. The purpose is to avoid the guest OS go paused during the migration, or to minimize the pause duration
+
+*MigrationSourceThread* performs the following steps to do the migration (in the *run* method)
+
+*   establish a connection to the destination host, optionally secured unsing SSL, using the XML-RPC bindings and make sure a VM with the same ID is not running on that host. (*_setupVdsConnection*)
+*   prepares the destination machine parameters from the migration source: the destination VM must be a clone of the source VM, so the guest OS should see no difference.
+
+(*_setupRemoteMachineParams*)
+
+*   save the source state for checkpointing
+*   create the destination VM, empty. Here on the destination hosts starts the 'Migration Destination' startup flow. See below for more details. (*_startUnderlyingMigration*)
+*   run the Downtime control and the Migration Monitor threads. (*_startUnderlyingMigration*)
+*   starts the actual migration using libvirt's *migrateToURI2* call (*_startUnderlyingMigration*)
+*   if migration ends well, save the Source VM state and put the source VM Down with success code (*_finishSuccesfully*)
+
+Is worth to note that a lot of details are been skipped here and this summary just cover the basic succesfull case. See the migration page for a deeper explanation about migration, error scenarios and more detailed documentation.
+
 ## Rewrite objectives
 
 *   add more tests! **both** unit-tests and functional (probably need to revamp vm functional tests as well)

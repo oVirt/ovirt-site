@@ -114,6 +114,7 @@ The most important steps are:
     -   (try to) connect to Guest Agent
     -   handle paused VM, the most important task is handling VM paused for disk space exausted and handle this case appropriately
     -   set up niceness and guest scheduler parameters
+*   if the VM was paused, recover the pause code; extend the VM drives if needed.
 
 This flows is composed to many steps but is may be the most striaghtforward because there is no state to be synchronized between parties. The engine has the reference state, VDSM is acting as middlemen for libvirt and mostly translating data from the engine representation to the libvirt representation. Moreover, most of actions involved, and most of the helpers which implements them, are shared with the other execution flows.
 

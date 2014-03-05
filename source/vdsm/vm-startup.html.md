@@ -53,7 +53,7 @@ VM objects are created each in its independent thread, to make the caller not-bl
 
 Note that VM objects are registered inside *vmContainer* before the creation process starts, so they are exposed to while the actual creation is still in progress. For the migration flow, which uses more threads and background operation through libvirt/qemu, synchronization is achieved using *threading.Event*s, which are triggered after certain phases of the creation have been reached.
 
-The synchronization with the engine is regulated by te VM status parameter, which is in turn the result of the aggregation of various fields:
+The synchronization with the engine is regulated by te VM status parameter, which is in turn the result of the aggregation of various fields (see: *_getStatsInternal*, *status*, *_get_lastStatus*, *_set_lastStatus*)
 
 *   the internal VM status field *_lastStatus*
 *   a boolean flag reporting if the guest CPU is running or paused *_guestCpuRunning*
@@ -61,6 +61,26 @@ The synchronization with the engine is regulated by te VM status parameter, whic
 *   the reported responsiveness of the hypervisor *_monitorResponse*
 
 A VM objects may receive method invocations while the creation process is still ongoing (including, but not limited to *getStats* calls)
+
+pseudo-code-summary of the *_startUnderlyingVm* workhorse
+
+         def _startUnderlyingVm(self):
+             try:
+                 with throttle(libvirt)
+                     try:
+                         self._run()
+                     except Exception:
+                         handleExceptions()
+                 if ('migrationDest' in self.conf or 'restoreState' in self.conf) \
+                         and self.lastStatus != 'Down':
+                     self._waitForIncomingMigrationFinish()
+                 self.lastStatus = 'Up'
+                 self.saveState()
+             except Exception as e:
+                  handleExceptions()
+         
+
+This snippet is actually a simplified version of the actual code (please note that sime important parts are omitted here: status handling, exception handling, pause code handling). What we aim to highlight here is the creation flow is scatthered through methods at various nesting levels: *_startUnderlyingVm* itself, *_run*, *_waitForIncomingMigrationFinish*, and the logic to distinguish among creation flow is scatthered as well.
 
 ## Rewrite objectives
 

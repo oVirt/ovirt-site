@@ -33,7 +33,7 @@ The best way to reach out to the oVirt community about the GSoC is through these
 The ideas can be any project that is oVirt-related and can benefit the oVirt community. When adding a project idea, please try to follow those guidelines:
 
 *   Discuss your idea with oVirt community members in #ovirt to get their input and plan collaboration.
-*   Consider ideas that consist of manageable and relevant tasks that the student can land in oVirt throughout the internship period. See the information for mentors for more on preferred idea types.
+*   Consider ideas that consist of manageable and relevant tasks that the student can land in oVirt throughout the internship period.
 *   If you're interested in mentoring the idea, put your name. If not, then just leave it blank.
 *   Do not list multiple ideas with only one list item. Use multiple items instead.
 *   Briefly explain why this would be great for oVirt.

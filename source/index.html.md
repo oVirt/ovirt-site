@@ -107,9 +107,11 @@ A new oVirt Node build will be available soon as well.
 </div>
 <div class="row">
 <div class="span4 pad-left pad-right-small">
-### Community is Key
+### oVirt Joins Google Summer of Code!
 
-oVirt, the first truly open and comprehensive data center virtualization management initiative, provides a venue for user and developer cooperation. The heart of the project is the open source code of oVirt, and the community is governed openly, modeled after the Apache Foundation, Eclipse, LVM, and many other well functioning Linux communities.
+oVirt is please to be a part of the Google Summer of Code! If you're a student interested in participating in an open source project and earning some pay, too, check out our [ GSoC page](Summer of Code).
+
+### Community is Key
 
 Community is not just about software development--there are many excellent ways one can be a part of the community, from joining our helpful mailing lists to meeting us at fun events to sending us a note to tell us how you use the software!
 

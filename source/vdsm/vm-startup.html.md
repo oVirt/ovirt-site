@@ -103,7 +103,7 @@ This execution flow boot up a VM previously reported as Down in the data center.
 The most important steps are:
 
 *   translation of the device data sent to engine in the internal data structure (*buildConfDevices*)
-*   normalization of devices and enforcing the device limits (*preparePaths*, ''_prepareTransientDisks et al. See point below)
+*   normalization of devices and enforcing the device limits (*preparePaths*, *_prepareTransientDisks* et al. See point below)
 *   setup of the drive paths/images: oVirt uses shared storage and this has to be set before a VM can run; this is done by using the services provided by the VDSM storage subsystem
 *   translate the internal data representation into the libvirt XML format (*_buildCmdLine*)
 *   create the Domain (libvirt jargon) by using this XML, effectively starting up the VM

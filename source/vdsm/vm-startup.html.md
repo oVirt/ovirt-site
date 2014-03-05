@@ -133,8 +133,9 @@ The most important steps are:
 *   re-attach to the existing libvirt domain/VM
 *   check drive merge in progress, if any, and resync state with libvirt (*domain.blockJobInfo*)
 *   perform post-creation domain checks (*_domDependentInit*), as seen in the 'Creation' flow above
+*   if the VM was paused, recover the pause code; extend the VM drives if needed, as seen in the 'Creation' flow above
 
-WRITEME further not about recovery
+WRITEME further notes about recovery
 
 ### The VM Dehibernation flow
 

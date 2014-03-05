@@ -44,7 +44,7 @@ then enable also fedora-virt-preview repo repository.
 
 *   follow [ Install instructions in release notes](OVirt_3.4.0_release_notes#Install_.2F_Upgrade_from_previous_versions)
 *   guest agent rpms are available on <http://evilissimo.fedorapeople.org/repos/ovirt-guest-agent/ovirt-3.4/beta1/>
-*   the following oVirt Node ISO (based on CentOS 6.5 and oVirt 3.4 components) can be used for the Test Day. **Important: You need to append enforcing=0 to the kernel when booting the ISO to prevent SELinux denials**
+*   the following oVirt Node ISO (based on CentOS 6.5 and oVirt 3.4 components) can be used for the Test Day. **Important: If you run into problem first try to boot into SELinux permissive mode by appending enforcing=0 to the kernel when booting the ISO to prevent denials**
 
 [`http://fedorapeople.org/~fabiand/node/3.0.4/ovirt-node-iso-3.0.4-1.0.201401291204.vdsm34.el6.iso`](http://fedorapeople.org/~fabiand/node/3.0.4/ovirt-node-iso-3.0.4-1.0.201401291204.vdsm34.el6.iso)
 
@@ -52,7 +52,7 @@ then enable also fedora-virt-preview repo repository.
 
 *   A Fedora 19 node goes to "non operational" state with the error "Host IPADDRESS is compatible with versions (3.0,3.1,3.2,3.3) and cannot join Cluster Default which is set to version 3.4.". The recommended fix is to enable the fedora-virt-preview repo, delivered with the ovirt-release , and to update libvirt from it. ()
 *   Node
-    -   Needs to be booted in permissive mode to prevent SELinux denials. Workaround: Append `enforcing=0` to the kernel on boot
+    -   Should work in enforcing mode, but might be booted into permissive mode to debug denials. Permissive: Append `enforcing=0` to the kernel on boot
 
 ## oVirt 3.4 New Features - Test Status Table
 

@@ -34,7 +34,16 @@ This document is work in progress and requently updated, both for content and fo
 
 ## Summary of the status quo
 
-WRITEME
+### Introduction
+
+Inside VDSM, a VM object encapsulate all the data and methods needed to fullfill the oVirt engine requests and commands, to keep track of the VM status (e.g. resource accounting) and to interact with the hypervisor, theough libvirt.
+
+The creation of a VM object may be the result of different actions, all of which has the purpose to bring up and let the engine manage a virtual machine. Different actions demands for different code flows. The code flow that will lead to the creation of a VM are
+
+*   creation: the most simple flow. A new VM is booted up and brought to existence in a given hosts, while it was previously down on the data center.
+*   recovering: VDSM resyncs its internal state with libvirt, and retake ownership of the VMs found running in a given host.
+*   dehibernation: VDSM restores a VM which was hibernated, or from a checkpoint being saved in the past.
+*   migration destination: used internally, not directly exposed to users. VDSM create a VM to host the result of a migration of a VM from its source node.
 
 ## Rewrite objectives
 

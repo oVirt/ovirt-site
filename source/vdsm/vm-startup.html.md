@@ -94,6 +94,22 @@ The *_startUnderlyingVm* method does some generic preparation for the startup
 
 The *_run* method implements most of the remaining setup common to all the migration flows, and the the **creation** and **recovering** flows. Most of the **dehibernation** flow (aka *restoreState*) is handled here, while the remainder is done in *_waitForIncomingMigrationToFinish*, where the **migration destination** flow is also implemented.
 
+### The VM Creation flow
+
+Work in progress...
+
+### The VM Recovery flow
+
+Work in progress...
+
+### The VM Dehibernation flow
+
+Work in progress...
+
+### The VM Migration Destination flow
+
+Work in progress...
+
 ## Rewrite objectives
 
 *   add more tests! **both** unit-tests and functional (probably need to revamp vm functional tests as well)

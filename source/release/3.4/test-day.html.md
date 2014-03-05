@@ -20,7 +20,7 @@ wiki_last_updated: 2014-03-27
 ## What I should do
 
 *   If you already have the hardware, verify if it meets the hardware requirement, refer information detail section below
-*   Write down the configuration you used (HW, console, etc) and what you've tested in the [report etherpad](http://etherpad.ovirt.org/p/3.4-testday-2) ([first test day report etherpad](http://etherpad.ovirt.org/p/3.4-testday-1))
+*   Write down the configuration you used (HW, console, etc) and what you've tested in the [report etherpad](http://etherpad.ovirt.org/p/3.4-testday-3) ([first test day report etherpad](http://etherpad.ovirt.org/p/3.4-testday-1), [second test day report etherpad](http://etherpad.ovirt.org/p/3.4-testday-2))
 *   Go ahead and [ install ovirt ](oVirt_3.4_Test_Day#Installation_notes)
 *   Follow the documentation to setup your environment, and test drive the new features.
 *   Please remember we expect to see some issues, and anything you come up with will save a you when you'll install final release
@@ -29,7 +29,7 @@ wiki_last_updated: 2014-03-27
 *   Running into any issues?
     -   [ Try to get help from the community ](Community) on #ovirt IRC channel or
     -   [open a bugzilla](https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt) ticket or
-    -   Report it on the [report etherpad](http://etherpad.ovirt.org/p/3.4-testday-2) (first test day: [report etherpad](http://etherpad.ovirt.org/p/3.4-testday-1))
+    -   Report it on the [report etherpad](http://etherpad.ovirt.org/p/3.4-testday-3) ([first test day report etherpad](http://etherpad.ovirt.org/p/3.4-testday-1), [second test day report etherpad](http://etherpad.ovirt.org/p/3.4-testday-2))
 
 ## Installation notes
 
@@ -57,7 +57,7 @@ then enable also fedora-virt-preview repo repository.
 
 ## oVirt 3.4 New Features - Test Status Table
 
-Please report test results on the [report etherpad](http://etherpad.ovirt.org/p/3.4-testday-2) ([first test day report etherpad](http://etherpad.ovirt.org/p/3.4-testday-1) ) or on the table below.
+Please report test results on the [report etherpad](http://etherpad.ovirt.org/p/3.4-testday-3) ([first test day report etherpad](http://etherpad.ovirt.org/p/3.4-testday-1), [second test day report etherpad](http://etherpad.ovirt.org/p/3.4-testday-2)) or on the table below.
 
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|-----------------------------|--------------------------------------------------------------------------|----------------------------------------------------------------------|-----------------------|-----------------------------------|
 | Functional team | Feature                                                                                                                                  | Owner                                                      | Dev - Status                | Test page                                                                | Tested By/ Distro                                                    | BZs                   | remarks                           |

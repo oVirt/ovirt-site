@@ -144,7 +144,7 @@ Work in progress...
 
 In order to properly describe the 'Migration destination' flow is beneficial to step back and describe the whole migration flow on its entirety. On this page, the focus is still on the VM creation phase, so more detailed description of Migration is demanded to other wiki pages.
 
-In a nutshell, migration si performed through libvirt using the [peer to peer flow](http://libvirt.org/migration.html#flowpeer2peer). This means
+In a nutshell, migration si performed through libvirt using the [peer to peer flow](http://libvirt.org/migration.html#flowpeer2peer). This means:
 
 *   the actual migration is done by libvirt which in turn uses the facilities of the underlying QEMU
 *   the source host is in charge of control of the operation, thus
@@ -155,7 +155,7 @@ In a nutshell, migration si performed through libvirt using the [peer to peer fl
 A migration is triggered using the 'migrate' verb and is implemented using the *VM.migrate* method. A migration is carried by a service thread, *MigrationSourceThread*, which uses a couple more threads to monitor the operation:
 
 *   *MigrationMonitorThread* polls libvirt periodically and report the migration progress
-*   *MigrationDowntimeThread* controls the maximum allowed downtime and updates libvirt during the migration. The purpose is to avoid the guest OS go paused during the migration, or to minimize the pause duration
+*   *MigrationDowntimeThread* controls the maximum allowed downtime and updates libvirt during the migration. The purpose is to avoid the guest OS go paused during the migration, or to minimize the pause duration.
 
 *MigrationSourceThread* performs the following steps to do the migration (in the *run* method)
 
@@ -170,6 +170,8 @@ A migration is triggered using the 'migrate' verb and is implemented using the *
 Is worth to note that a lot of details are been skipped here and this summary just cover the basic succesfull case. See the migration page for a deeper explanation about migration, error scenarios and more detailed documentation.
 
 On the destination host, the 'Migration Destination' flow is the implemented with the following steps:
+
+*   
 
 ## Rewrite objectives
 

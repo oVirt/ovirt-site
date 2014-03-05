@@ -160,10 +160,7 @@ A migration is triggered using the 'migrate' verb and is implemented using the *
 *MigrationSourceThread* performs the following steps to do the migration (in the *run* method)
 
 *   establish a connection to the destination host, optionally secured unsing SSL, using the XML-RPC bindings and make sure a VM with the same ID is not running on that host. (*_setupVdsConnection*)
-*   prepares the destination machine parameters from the migration source: the destination VM must be a clone of the source VM, so the guest OS should see no difference.
-
-(*_setupRemoteMachineParams*)
-
+*   prepares the destination machine parameters from the migration source: the destination VM must be a clone of the source VM, so the guest OS should see no difference. (*_setupRemoteMachineParams*)
 *   save the source state for checkpointing
 *   create the destination VM, empty. Here on the destination hosts starts the 'Migration Destination' startup flow. See below for more details. (*_startUnderlyingMigration*)
 *   run the Downtime control and the Migration Monitor threads. (*_startUnderlyingMigration*)
@@ -171,6 +168,8 @@ A migration is triggered using the 'migrate' verb and is implemented using the *
 *   if migration ends well, save the Source VM state and put the source VM Down with success code (*_finishSuccesfully*)
 
 Is worth to note that a lot of details are been skipped here and this summary just cover the basic succesfull case. See the migration page for a deeper explanation about migration, error scenarios and more detailed documentation.
+
+On the destination host, the 'Migration Destination' flow is the implemented with the following steps:
 
 ## Rewrite objectives
 

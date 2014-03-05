@@ -20,7 +20,7 @@ To participate in GSoC as a student, you must be an individual enrolled in an ac
 
 Only coding projects are allowed for GGSoC.
 
-Please be sure you are familiar with answers to GSoC's [[frequently asked questions](//www.google-melange.com/gsoc/document/show/gsoc_program/google/gsoc2014/help_page). You can also review GSoC's [student guide](//en.flossmanuals.net/GSoCStudentGuide).
+Please be sure you are familiar with answers to GSoC's [frequently asked questions](//www.google-melange.com/gsoc/document/show/gsoc_program/google/gsoc2014/help_page). You can also review GSoC's [student guide](//en.flossmanuals.net/GSoCStudentGuide).
 
 ## Decide on a GSoC Project
 

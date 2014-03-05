@@ -207,12 +207,25 @@ On the destination host, the 'Migration Destination' flow is the implemented as 
 
 Meta-proposal: try to preserve orthogonality between the folling concepts; e.g. allow to drop the 'staging area' concept while preserving the 'separate control flow' concept. Avoid inter-dependent enhancements wherever feasible.
 
-*   clearly separate the control flows for each major startup mode (creation, recovery, restoring state); avoid multiplex-like functions like _run
+1 clearly separate the control flows for each major startup mode (creation, recovery, restoring state); avoid multiplex-like functions like _run
 
-<!-- -->
+2 OK to create the VMs in a separate thread, throttle parallelism until we can fully depend on libvirt not being a bottleneck ([details here](VDSM_libvirt_performance_scalability#Startup_of_many_VMs))
 
-*   OK to create the VMs in a separate thread, throttle parallelism until we can fully depend on libvirt not being a bottleneck ([details here](VDSM_libvirt_performance_scalability#Startup_of_many_VMs))
+3 introduce 'staging area' for VMs being created, e.g. while the creation thread is running. In a nutshell, a separate private vmContainer-like structure to hold half-baked VMs; move VMs to public vmContainer -as it is now- only when they are fully created. Rationale: improve transactional behaviour as seen from the outside (engine), and make code more robust.
 
-<!-- -->
+### Draft 2
 
-*   introduce 'staging area' for VMs being created, e.g. while the creation thread is running. In a nutshell, a separate private vmContainer-like structure to hold half-baked VMs; move VMs to public vmContainer -as it is now- only when they are fully created. Rationale: improve transactional behaviour as seen from the outside (engine), and make code more robust.
+Abandon staging area concept. Rationale: we can achieve the same result by enforcing states (e.g. a given method can run only in a given state) which will likely lead to simpler and more self-documenting code.
+
+1 clearly separate the control flows for each major startup mode (creation, recovery, restoring state); avoid multiplex-like functions like _run
+
+2 OK to create the VMs in a separate thread, throttle parallelism until we can fully depend on libvirt not being a bottleneck ([details here](VDSM_libvirt_performance_scalability#Startup_of_many_VMs))
+
+3 builder-like classmethod for every creation flow except the creation.
+
+         vm = Vm(params)  # creation
+         vm = Vm.from_recovery(params)
+         vm = Vm.from_snapshot(params)  # dehibernation/restoreState
+         vm = Vm.from_migration(params)  # migration destination
+
+4 better handling of exceptions when creating VMs **but behave properly on abort!** no changes in existing behaviour just deal better with cases like

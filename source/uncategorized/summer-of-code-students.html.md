@@ -12,7 +12,7 @@ Thank you for your interest in participating in Google Summer of Code with oVirt
 
 Google Summer of Code (GSoC) promotes open source software development by sponsoring students to work on open source projects. If you are a student interested in developing open source software, this program is for you! Don't worry if you have not developed open source software before. We are generally looking for students who are willing to learn, have good coding skills and, most importantly, have a keen interest in open source software development.
 
-Students who successfully complete GSoC will receive US$5000 for their work.
+Students who successfully complete GSoC will receive US$5500 for their work.
 
 ## How to Apply
 

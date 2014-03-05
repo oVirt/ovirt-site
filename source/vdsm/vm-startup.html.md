@@ -94,6 +94,8 @@ The *_startUnderlyingVm* method does some generic preparation for the startup
 
 The *_run* method implements most of the remaining setup common to all the migration flows, and the the **creation** and **recovering** flows. Most of the **dehibernation** flow (aka *restoreState*) is handled here, while the remainder is done in *_waitForIncomingMigrationToFinish*, where the **migration destination** flow is also implemented.
 
+The *_run* method is surrounded by a BoundingSemaphore to throttle the access to libvirt. In the current implementation no more than 4 (four) parallel accesses to libvirt are permitted. This affects the entire *creation* and *recovery* flow and partially the *dehibernation* flow, which is implemented partially in *_waitForIncomingMigrationFInish*.
+
 ### The VM Creation flow
 
 Work in progress...

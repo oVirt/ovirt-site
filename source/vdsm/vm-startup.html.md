@@ -142,6 +142,16 @@ Work in progress...
 
 ### Migrations and the VM Migration destination flow
 
+In order to properly describe the 'Migration destination' flow is beneficial to step back and describe the whole migration flow on its entirety. On this page, the focus is still on the VM creation phase, so more detailed description of Migration is demanded to other wiki pages.
+
+In a nutshell, migration si performed through libvirt using the [peer to peer flow](http://libvirt.org/migration.html#flowpeer2peer). This means
+
+*   the actual migration is done by libvirt which in turn uses the facilities of the underlying QEMU
+*   the source host is in charge of control of the operation, thus
+*   the destination hosts acts as receiver, and it is controlled by the source hosts (see below for a detailed description of the 'Migration Destination' startup)
+*   the control and the ownership of the VM is passed from source to destination after a succesfull migration
+*   if migration fails, the source keeps running and the destination is trasparently destroyed
+
 ## Rewrite objectives
 
 *   add more tests! **both** unit-tests and functional (probably need to revamp vm functional tests as well)

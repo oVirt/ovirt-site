@@ -120,7 +120,9 @@ This flows is composed to many steps but is may be the most striaghtforward beca
 
 ### The VM Recovery flow
 
-Work in progress...
+This execution flow recovers a VM after a VDSM restart, crash or genera unavailability. VM running in an host should not be affected by VDSM restarts, and they should continue to run. When VDSM returns up, it resyncs with the running VMs to regain the control and to be able again to manage them.
+
+Please note that we document here just the part of the recovery which affects a VM startup. Recovery is a broader process and other parts of VDSM (clientIF) are affected. The recovery flow is implemented in the *_run* method. VDSM uses the data saved by the *saveState* call to restore most of its internal state, and merges those informations with the data provided by libvirt.
 
 ### The VM Dehibernation flow
 

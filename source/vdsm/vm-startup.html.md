@@ -66,7 +66,7 @@ pseudo-code-summary of the *_startUnderlyingVm* workhorse
 
          def _startUnderlyingVm(self):
              try:
-                 with throttle(libvirt)
+                 with throttle(libvirt)  # BoundedSempahore initialized to 4
                      try:
                          self._run()
                      except Exception:

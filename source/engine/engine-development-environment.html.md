@@ -28,19 +28,24 @@ This page is mostly to absorb community experience into the certified procedures
 
 Execute the following, replace `@distro@` with `fedora` for Fedora or `el` for RHEL or equivalent distribution.
 
-      # yum install `[`http://ovirt.org/releases/ovirt-release`](http://ovirt.org/releases/ovirt-release)`-@distro@.noarch.rpm
+`# yum install `[`http://resources.ovirt.org/pub/ovirt-release.noarch.rpm`](http://resources.ovirt.org/pub/ovirt-release.noarch.rpm)
 
 ###### Manually
 
-Create `/etc/yum.repos.d/ovirt-nightly.repo`, replace `@distro@` with `fedora` for Fedora or `el` for RHEL or equivalent distribution.
+Create `/etc/yum.repos.d/ovirt-snapshots.repo`, replace `@distro@` with `fc` for Fedora or `el` for RHEL or equivalent distribution.
 
-      [ovirt-nightly]
-      name=ovirt-nightly
-      baseurl=http://resources.ovirt.org/releases/nightly/rpm/@distro@/$releasever/
+      [ovirt-snapshots]
+      name=local
+      baseurl=http://resources.ovirt.org/pub/ovirt-snapshot/rpm/@distro@$releasever
       enabled=1
       gpgcheck=0
-      priority=1
-      protect=1
+      priority=10
+      [ovirt-snapshots-static]
+      name=local
+      baseurl=http://resources.ovirt.org/pub/ovirt-snapshot-static/rpm/@distro@$releasever
+      enabled=1
+      gpgcheck=0
+      priority=10
 
 ##### Install 3rd party packages
 

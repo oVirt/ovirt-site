@@ -60,9 +60,9 @@ oVirt is powered by the Open Source you know - KVM on Linux.
 </div>
 <div class="row">
 <div class="span4 pad-left pad-right-small">
-### oVirt 3.3.3 Released!
+### oVirt 3.3.4 Released!
 
-The oVirt development team is very happy to announce the general availability of oVirt 3.3.3 as of February 3rd 2014. This release solidifies oVirt as a leading KVM management application and open source alternative to VMware vSphere.
+The oVirt development team is very happy to announce the general availability of oVirt 3.3.4 as of March 4, 2014. This release solidifies oVirt as a leading KVM management application and open source alternative to VMware vSphere.
 
 oVirt is available now for Fedora 19 and Red Hat Enterprise Linux 6.5 (or similar to RHEL).
 
@@ -71,7 +71,7 @@ This release of oVirt includes numerous bug fixes. See the release notes for a l
 A new oVirt Node build will be available soon as well.
 
 <div class="pull-right">
-[ Read the 3.3.3 release notes »](oVirt 3.3.3 release notes)
+[ Read the 3.3.4 release notes »](oVirt 3.3.4 release notes)
 
 </div>
 <div class="pull-right">
@@ -79,7 +79,7 @@ A new oVirt Node build will be available soon as well.
 
 </div>
 <div class="pull-right">
-[ Get started with oVirt 3.3 now »](Download)
+[ Get started with oVirt 3.3.4 now »](Download)
 
 </div>
 </div>

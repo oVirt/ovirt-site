@@ -18,7 +18,7 @@ Students who successfully complete GSoC will receive US$5500 for their work.
 
 To participate in GSoC as a student, you must be an individual enrolled in an accredited post-secondary institution. No group applications are allowed. Please check [eligibility section](//www.google-melange.com/gsoc/document/show/gsoc_program/google/gsoc2014/help_page#1._Are_there_any_age_restrictions_onGSoC) for more details.
 
-Only coding projects are allowed for GGSoC.
+Only coding projects are allowed for GSoC.
 
 Please be sure you are familiar with answers to GSoC's [frequently asked questions](//www.google-melange.com/gsoc/document/show/gsoc_program/google/gsoc2014/help_page). You can also review GSoC's [student guide](//en.flossmanuals.net/GSoCStudentGuide).
 

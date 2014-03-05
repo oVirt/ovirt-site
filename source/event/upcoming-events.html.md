@@ -12,8 +12,6 @@ wiki_last_updated: 2015-06-03
 
 <noinclude> <startfeed/> </noinclude>
 
-<noinclude> <endfeed/>
-
-</noinclude>
+<noinclude> <endfeed/> </noinclude>
 
 <Category:Events>

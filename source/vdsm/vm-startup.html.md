@@ -80,7 +80,19 @@ pseudo-code-summary of the *_startUnderlyingVm* workhorse
                   handleExceptions()
          
 
-This snippet is actually a simplified version of the actual code (please note that sime important parts are omitted here: status handling, exception handling, pause code handling). What we aim to highlight here is the creation flow is scatthered through methods at various nesting levels: *_startUnderlyingVm* itself, *_run*, *_waitForIncomingMigrationFinish*, and the logic to distinguish among creation flow is scatthered as well.
+Please note this snippet is **just pseudo-code stripped from important parts to unclutter the example and highlight the point below**'. Important parts omitted are: status handling, exception handling, pause code handling).
+
+What we aim to highlight here is the creation flow is scattered through methods at various nesting levels: *_startUnderlyingVm* itself, *_run*, *_waitForIncomingMigrationFinish*, and the logic to distinguish among creation flow is scattered as well.
+
+The *_startUnderlyingVm* method does some generic preparation for the startup
+
+*   sets the commited memory (stripped in the example)
+*   sets VM internal status (stripped in the example)
+*   handles the exception/failures triggered by helper methods and takes corrective action
+*   handles the VM pause reason (stripped in the example)
+*   saves the VM state for future recovery
+
+The *_run* method implements the bulk of the
 
 ## Rewrite objectives
 

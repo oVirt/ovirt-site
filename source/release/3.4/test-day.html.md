@@ -61,6 +61,7 @@ wiki_last_updated: 2014-03-27
 *   A Fedora 19 node goes to "non operational" state with the error "Host IPADDRESS is compatible with versions (3.0,3.1,3.2,3.3) and cannot join Cluster Default which is set to version 3.4.". The recommended fix is to enable the fedora-virt-preview repo, delivered with the ovirt-release , and to update libvirt from it. ()
 *   Node
     -   Should work in enforcing mode, but might be booted into permissive mode to debug denials. Permissive: Append `enforcing=0` to the kernel on boot
+*   Upgrade will fail if event_subscriber table is not empty Bug ()
 
 ## oVirt 3.4 New Features - Test Status Table
 

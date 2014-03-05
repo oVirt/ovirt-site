@@ -17,7 +17,7 @@ This page aims to document the internals and the execution flow of a VM startup/
 
 #### WARNING!
 
-This document is work in progress and requently updated, both for content and for style/consistency/readability
+This document is work in progress and requently updated, for content and for style/consistency/readability. Proof-reading is also in prgress.
 
 ### Owner
 

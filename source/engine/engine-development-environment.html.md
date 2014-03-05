@@ -22,7 +22,7 @@ This page is mostly to absorb community experience into the certified procedures
 
 #### RPM based
 
-##### Set up nightly repository
+##### Set up snapshot repository
 
 ###### Automatically
 

@@ -15,6 +15,7 @@ wiki_last_updated: 2014-03-27
 *   engage project users and stakeholders to a hands-on experiences with oVirt new release.
 *   improve the quality of oVirt.
 *   Introduce and validating new oVirt 3.4 features
+*   3rd test day will focus on complete installations and GA readiness using the RC release.
 
 ## What I should do
 

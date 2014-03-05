@@ -57,7 +57,7 @@ The synchronization with the engine is regulated by te VM status parameter, whic
 
 *   the internal VM status field *_lastStatus*
 *   a boolean flag reporting if the guest CPU is running or paused *_guestCpuRunning*
-*   the status of the guest agent "_guestEvent" (note this is **NOT** a *threading.Event*)
+*   the status of the guest agent *_guestEvent* (note this is **NOT** a *threading.Event*)
 *   the reported responsiveness of the hypervisor *_monitorResponse*
 
 A VM objects may receive method invocations while the creation process is still ongoing (including, but not limited to *getStats* calls)

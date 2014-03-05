@@ -13,7 +13,7 @@ wiki_last_updated: 2014-03-19
 
 This page gather the design of the VM startup revamp. The code which handles the VM startup in current (<= 4.14.x) has become tangled and hard to follow. A rewrite will be beneficial. Performance improvements about the VDSM startup are covered in a [separate page](VDSM_libvirt_performance_scalability)
 
-This page aims to document the internals and the execution flow of a VM startup/migration (because the migration flow is tightly correlated with VM creation). If you look for a gentler introduction to VDSM architecture, you'd probably better served by other wiki page. The remainder of this page will provide minimal context and minimal documentation about some other important parts of VDSM like the client interface, the API abstraction, the libvirt interaction and so on.
+This page aims to document the internals and the execution flow of a VM startup/migration; migration is covered here (because it is is tightly correlated with VM creation. If you look for a gentler introduction to VDSM architecture, you'd probably better served by other wiki page. The remainder of this page will provide minimal context and minimal documentation about some other important parts of VDSM like the client interface, the API abstraction, the libvirt interaction and so on.
 
 #### WARNING!
 

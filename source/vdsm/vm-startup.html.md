@@ -150,7 +150,7 @@ In a nutshell, migration si performed through libvirt using the [peer to peer fl
 *   the source host is in charge of control of the operation, thus
 *   the destination hosts acts as receiver, and it is controlled by the source hosts (see below for a detailed description of the 'Migration Destination' startup)
 *   the control and the ownership of the VM is passed from source to destination after a succesfull migration
-*   if migration fails, the source keeps running and the destination is trasparently destroyed
+*   if migration fails, the source keeps running and the destination is trasparently (= without explicit user intervention) destroyed
 
 ## Rewrite objectives
 

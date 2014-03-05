@@ -19,6 +19,7 @@ wiki_last_updated: 2014-03-27
 
 ## What I should do
 
+*   Specific tasks can be found in the 3_4-testday-3 tab of the [Google Doc](https://docs.google.com/spreadsheet/ccc?key=0AuAtmJW_VMCRdHJ6N1M3d1F1UTJTS1dSMnZwMF9XWVE&usp=sharing)
 *   If you already have the hardware, verify if it meets the hardware requirement, refer information detail section below
 *   Write down the configuration you used (HW, console, etc) and what you've tested in the [report etherpad](http://etherpad.ovirt.org/p/3.4-testday-3) ([first test day report etherpad](http://etherpad.ovirt.org/p/3.4-testday-1), [second test day report etherpad](http://etherpad.ovirt.org/p/3.4-testday-2))
 *   Go ahead and [ install ovirt ](oVirt_3.4_Test_Day#Installation_notes)

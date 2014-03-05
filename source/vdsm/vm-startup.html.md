@@ -45,6 +45,23 @@ The creation of a VM object may be the result of different actions, all of which
 *   dehibernation: VDSM restores a VM which was hibernated, or from a checkpoint being saved in the past.
 *   migration destination: used internally, not directly exposed to users. VDSM create a VM to host the result of a migration of a VM from its source node.
 
+### Implementation
+
+All the code which implements the vm creation flow is found in *vdsm/vm.py*. Code is referenced "like this" in the remainder of this page.
+
+VM objects are created each in its independent thread, to make the caller not-blocking. Each VM objects has its own "_creationThread" member (set in te constructor) which runs the "_startUnderlyingVm" method which actually implements the VM creation. Note that all the creation flow are intermixed here, and the code is branchy and scatthered through various helper methods. When "_startUnderlyingVm" ends its job, it sets the VM "_lastStatus" either to "Up" or "Down".
+
+Note that VM objects are registered inside "vmContainer" before the creation process starts, so they are exposed to while the actual creation is still in progress. For the migration flow, which uses more threads and background operation through libvirt/qemu, synchronization is achieved using "threading.Event"s, which are triggered after certain phases of the creation have been reached.
+
+The synchronization with the engine is regulated by te VM status parameter, which is in turn the result of the aggregation of various fields:
+
+*   the internal VM status field "_lastStatus"
+*   a boolean flag reporting if the guest CPU is running or paused "_guestCpuRunning"
+*   the status of the guest agent "_guestEvent" (note this is **NOT** a "threading.Event")
+*   the reported responsiveness of the hypervisor "_monitorResponse"
+
+A VM objects may receive method invocations while the creation process is still ongoing (including, but not limited to "getStats" calls)
+
 ## Rewrite objectives
 
 *   add more tests! **both** unit-tests and functional (probably need to revamp vm functional tests as well)

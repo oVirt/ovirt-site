@@ -92,7 +92,7 @@ The *_startUnderlyingVm* method does some generic preparation for the startup
 *   handles the VM pause reason (stripped in the example)
 *   saves the VM state for future recovery
 
-The *_run* method implements the bulk of the
+The *_run* method implements most of the remaining setup common to all the migration flows, and the the **creation** and **recovering** flows. Most of the **dehibernation** flow (aka *restoreState*) is handled here, while the remainder is done in *_waitForIncomingMigrationToFinish*, where the **migration destination** flow is also implemented.
 
 ## Rewrite objectives
 

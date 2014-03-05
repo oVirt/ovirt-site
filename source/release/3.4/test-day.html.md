@@ -36,12 +36,19 @@ wiki_last_updated: 2014-03-27
 *   Make sure you have either a Fedora 19 or CentOS 6.5 machine installed.
 *   Install the release pkg:
 
-`(f19) sudo yum localinstall `[`http://resources.ovirt.org/releases/3.4.0-rc/rpm/Fedora/19/noarch/ovirt-release-11.0.2-1.noarch.rpm`](http://resources.ovirt.org/releases/3.4.0-rc/rpm/Fedora/19/noarch/ovirt-release-11.0.2-1.noarch.rpm)
+`sudo yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release.noarch.rpm)
+      sudo yum-config-manager --enable ovirt-3.4.0-prerelease
 
-then enable also fedora-virt-preview repo repository.
+(f19) you need to enable also fedora-virt-preview repo repository.
 
-`(el) you need epel 1st - sudo yum localinstall `[`http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm`](http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm)
-`then ovirt repo -   sudo yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release-el6-10.0.1-3.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release-el6-10.0.1-3.noarch.rpm)
+      sudo yum-config-manager --enable fedora-virt-preview
+
+(el) you need to enable epel too
+
+       sudo yum-config-manager --enable ovirt-epel
+       sudo yum install epel-release
+       if the above commands doesn't work you can install it manually:
+` sudo yum install `[`http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm`](http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm)
 
 *   follow [ Install instructions in release notes](OVirt_3.4.0_release_notes#Install_.2F_Upgrade_from_previous_versions)
 *   guest agent rpms are available on <http://evilissimo.fedorapeople.org/repos/ovirt-guest-agent/ovirt-3.4/beta1/>

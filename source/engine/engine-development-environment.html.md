@@ -67,7 +67,7 @@ Option 2, setup jboss upstream, download jboss-as-7.1.1 from [jboss site](http:/
 
 ##### Install ovirt packages
 
-      # yum install --enablerepo ovirt-nightly ovirt-host-deploy
+      # yum install --enablerepo ovirt-snapshot ovirt-host-deploy
 
 ##### Setup Java
 

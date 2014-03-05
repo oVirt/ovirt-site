@@ -28,10 +28,10 @@ You can start by reviewing the GSoC project ideas on [ oVirt's ideas list](Summe
 
 The following things can help you select a project and prepare your idea:
 
-*   Read the project's wiki page on the oVirt wiki
+*   Read the project's wiki page on the [oVirt wiki](//www.ovirt.org)
 *   Lurk on the project's IRC channel
-*   Look at the open bugs for the project in the oVirt Bugzilla
-*   Read the recent discussion on the users@ovirt.org mailing list
+*   Look at the open bugs for the project in the [oVirt Bugzilla](//bugzilla.redhat.com/buglist.cgi?bug_status=__open__&content=oVirt&no_redirect=1&order=relevance%20desc&product=&query_format=specific)
+*   Read the recent discussion on the <users@ovirt.org> mailing list
 
 To prepare a strong proposal, you need to learn as many things as you can about what would be involved in implementing it and display that knowledge in your proposal.
 

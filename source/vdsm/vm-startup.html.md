@@ -132,7 +132,7 @@ The most important steps are:
 *   collection of the device using the saved data (*_run*)
 *   re-attach to the existing libvirt domain/VM
 *   check drive merge in progress, if any, and resync state with libvirt (*domain.blockJobInfo*)
-*   perform post-creation domain checks, as seen in the 'Creation' flow above
+*   perform post-creation domain checks (*_domDependentInit*), as seen in the 'Creation' flow above
 
 WRITEME further not about recovery
 

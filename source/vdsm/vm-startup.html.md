@@ -140,10 +140,6 @@ WRITEME further not about recovery
 
 Work in progress...
 
-### The VM Migration Destination flow
-
-Work in progress...
-
 ## Rewrite objectives
 
 *   add more tests! **both** unit-tests and functional (probably need to revamp vm functional tests as well)

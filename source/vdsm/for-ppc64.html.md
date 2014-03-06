@@ -84,52 +84,33 @@ At the minimum following user interfaces will be affected
 
 You can follow these steps to test the PPC64 support using the QEMU emulated mode in either x86-64 or ppc64 hosts:
 
-*   Configure the bridge Interface:
+*   Install the faqemu VDSM hook
 
-<http://www.ovirt.org/Installing_VDSM_from_rpm#Configuring_the_bridge_Interface>
+<!-- -->
 
-*   Install required packages:
+*   Create the '/etc/ovirt-host-deploy.conf.d/50-fake.conf' file with the following contents:
 
-<http://www.ovirt.org/Vdsm_Developers#Installing_required_packages>
+<!-- -->
 
-*   Get the source:
-
-<http://www.ovirt.org/Vdsm_Developers#Getting_the_source>
-
-*   Build a Vdsm RPM:
-
-<http://www.ovirt.org/Vdsm_Developers#Building_a_Vdsm_RPM>
-
-*   Install (don't forget to install the faqemu hook):
-
-<http://www.ovirt.org/Vdsm_Developers#Basic_installation>
-
-*   Create the '50-fake.conf' file:
-
-<https://github.com/oVirt/ovirt-host-deploy/blob/master/README>
-
-    /etc/ovirt-host-deploy.conf.d/50-fake.conf
     [environment:enforce]
     VDSM/checkVirtHardware=bool:False
     VDSM/configOverride=bool:False
 
-*   Create the file '50-development.conf':
-
-<https://github.com/oVirt/ovirt-host-deploy/blob/master/README>
-
-    /etc/ovirt-host-deploy.conf.d/50-development.conf
-    [environment:enforce]
-    VDSM/configOverride=bool:False
-
-*   Enable the fake mode in the vdsm.conf file:
+*   Create the file '/etc/ovirt-host-deploy.conf.d/50-development.conf' file with the following contents:
 
 <!-- -->
 
-    /etc/vdsm/vdsm.conf
+    [environment:enforce]
+    VDSM/configOverride=bool:False
+
+*   Enable the fake mode in the /etc/vdsm/vdsm.conf file:
+
+<!-- -->
+
     fake_kvm_support = true
     fake_kvm_architecture = ppc64
 
-*   Execute the command:
+*   Execute the command to restart VDSM:
 
 systemctl restart vdsmd.service
 

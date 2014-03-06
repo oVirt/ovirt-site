@@ -27,6 +27,26 @@ Status: Development in progress.
 
 Last updated: Sep 12, 2013
 
+## Important notes about ppc64 support
+
+Currently QEMU for ppc64 has some missings features which should not be used when administrating VMs for this architecture, these features include:
+
+*   Suspension
+
+The suspend option in the "Virtual Machines" tab should not be used until QEMU supports this feature.
+
+*   Migration
+
+Migration does not work, so as a workaround the "Do Not Migrate Virtual Machines" option in the "Resilience Policy" tab should be used when creating clusters. Also, every ppc64 VM should be pinned to a Host, this can be done by choosing the "Do not allow migration" in the "Migration Options" section of the "Host" tab in the "New Virtual Machine" dialog.
+
+*   Memory Snapshots
+
+Memory snapshots are not supported yet, so the "Save memory" option in the "Create Snapshot" dialog must not be checked.
+
+*   Boot order
+
+The "Boot Sequence" section in the "Boot Options" tab of the "New/Edit Virtual Machine" dialog is ignored by QEMU, the boot order is always fixed no matter what is defined in this section.
+
 ## Detailed description
 
 This feature will add ppc64 architecture awareness to the ovirt-engine code, which currently makes various assumptions based on the x86 architecture. When specifying virtual machine devices for example, what is suitable for x86 architecture may not be for POWER (or may not be available yet).

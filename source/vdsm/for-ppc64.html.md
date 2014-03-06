@@ -80,6 +80,94 @@ At the minimum following user interfaces will be affected
 *   Editing Virtual Disks and Editing Network Interfaces in webadmin
 *   New Cluster in webadmin
 
+## Installing VDSM in a ppc64 host
+
+*   Update your Fedora
+
+<!-- -->
+
+    yum update
+
+*   Build and install RPMs for recent versions of libvirt, libvirt-python and QEMU
+
+<!-- -->
+
+    yum install fedpkg
+
+    mkdir ~/srpms
+
+    cd ~/srpms
+    fedpkg co -a qemu
+    cd qemu
+    fedpkg srpm
+    yum-builddep *.src.rpm
+    rpmbuild --rebuild *.src.rpm
+
+    cd ~/srpms
+    fedpkg co -a libvirt
+    cd libvirt
+    fedpkg srpm
+    yum-builddep *.src.rpm
+    rpmbuild --rebuild *.src.rpm
+
+    cd ~/srpms
+    fedpkg co -a libvirt-python
+    cd libvirt-python
+    fedpkg srpm
+    yum-builddep *.src.rpm
+    rpmbuild --rebuild *.src.rpm
+
+    cd ~/rpmbuild/RPMS/ppc64
+    yum install *
+
+*   Replace your POWER7 optimized glibc for the generic ppc64 package:
+
+<!-- -->
+
+    rpm -e --nodeps --justdb glibc.ppc64p7
+    yum install glibc.ppc64
+
+*   Install python-cpopen, libguestfs and glusterfs from the Fedora updates repository, this can be done automatically using yum or manually, using the following commands:
+
+<!-- -->
+
+    mkdir ~/pkgs; cd ~/pkgs
+    wget http://mirrors.kernel.org/fedora-secondary/updates/20/ppc64/python-cpopen-1.3-1.fc20.ppc64.rpm
+    yum install python-cpopen-1.3-1.fc20.ppc64.rpm
+
+    wget http://mirrors.kernel.org/fedora-secondary/updates/20/ppc64/libguestfs-1.24.6-1.fc20.ppc64.rpm http://mirrors.kernel.org/fedora-secondary/updates/20/ppc64/libguestfs-tools-c-1.24.6-1.fc20.ppc64.rpm
+    yum install libguestfs-1.24.6-1.fc20.ppc64.rpm
+    yum install libguestfs-tools-c-1.24.6-1.fc20.ppc64.rpm
+
+    wget http://mirrors.kernel.org/fedora-secondary/updates/20/ppc64/glusterfs-3.4.2-1.fc20.ppc64.rpm http://mirrors.kernel.org/fedora-secondary/updates/20/ppc64/glusterfs-api-3.4.2-1.fc20.ppc64.rpm http://mirrors.kernel.org/fedora-secondary/updates/20/ppc64/glusterfs-api-devel-3.4.2-1.fc20.ppc64.rpm http://mirrors.kernel.org/fedora-secondary/updates/20/ppc64/glusterfs-cli-3.4.2-1.fc20.ppc64.rpm http://mirrors.kernel.org/fedora-secondary/updates/20/ppc64/glusterfs-devel-3.4.2-1.fc20.ppc64.rpm http://mirrors.kernel.org/fedora-secondary/updates/20/ppc64/glusterfs-fuse-3.4.2-1.fc20.ppc64.rpm http://mirrors.kernel.org/fedora-secondary/updates/20/ppc64/glusterfs-geo-replication-3.4.2-1.fc20.ppc64.rpm http://mirrors.kernel.org/fedora-secondary/updates/20/ppc64/glusterfs-libs-3.4.2-1.fc20.ppc64.rpm http://mirrors.kernel.org/fedora-secondary/updates/20/ppc64/glusterfs-rdma-3.4.2-1.fc20.ppc64.rpm http://mirrors.kernel.org/fedora-secondary/updates/20/ppc64/glusterfs-resource-agents-3.4.2-1.fc20.noarch.rpm http://mirrors.kernel.org/fedora-secondary/updates/20/ppc64/glusterfs-server-3.4.2-1.fc20.ppc64.rpm
+
+    yum install glusterfs-*
+
+*   Clone VDSM from the git repository, install its build dependencies, create and install RPMs
+
+<!-- -->
+
+    cd ~/
+    git clone git://gerrit.ovirt.org/vdsm
+    cd vdsm
+    yum install gcc python python-devel python-nose python-netaddr rpm-build dosfstools psmisc python-ethtool python-inotify python-pthreading python-cpopen libnl libselinux-python libvirt-python genisoimage openssl m2crypto python-dmidecode python-argparse python-ordereddict python-ethtool autoconf automake gettext-devel libtool pyflakes python-pep8 systemd-units
+    ./autogen.sh
+    make NOSE_EXCLUDE=testMirroring\|testMirroringWithDistraction\|testReplacePrio\|test_.*aligned_image\|testStressTest rpm
+
+    cd ~/rpmbuild/RPMS
+    yum install noarch/vdsm* ppc64/vdsm*
+
+*   Configure the bridge Interface:
+
+<http://www.ovirt.org/Installing_VDSM_from_rpm#Configuring_the_bridge_Interface>
+
+*   Configure and start VDSM
+
+<!-- -->
+
+    vdsm-tool configure --force
+    service vdsmd start
+
 ## Testing the PPC64 support
 
 You can follow these steps to test the PPC64 support using the QEMU emulated mode in either x86-64 or ppc64 hosts:

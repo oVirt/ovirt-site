@@ -47,6 +47,10 @@ Memory snapshots are not supported yet, so the "Save memory" option in the "Crea
 
 The "Boot Sequence" section in the "Boot Options" tab of the "New/Edit Virtual Machine" dialog is ignored by QEMU, the boot order is always fixed no matter what is defined in this section.
 
+*   Alignment scans
+
+libguestfs is not properly supported on ppc64 hosts, this affects only the "Scan Alignment" available in the context menu of Disks.
+
 ## Detailed description
 
 This feature will add ppc64 architecture awareness to the ovirt-engine code, which currently makes various assumptions based on the x86 architecture. When specifying virtual machine devices for example, what is suitable for x86 architecture may not be for POWER (or may not be available yet).

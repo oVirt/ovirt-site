@@ -120,7 +120,7 @@ At the minimum following user interfaces will be affected
     cd ~/rpmbuild/RPMS/ppc64
     yum install *
 
-*   Replace your POWER7 optimized glibc for the generic ppc64 package:
+*   Replace your POWER7 optimized glibc for the generic ppc64 package (this is a workaround for [this](https://bugzilla.redhat.com/show_bug.cgi?id=1059428) bug: ):
 
 <!-- -->
 

@@ -38,6 +38,7 @@ wiki_last_updated: 2014-03-27
 *   Install the release pkg:
 
 `sudo yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release.noarch.rpm)
+      sudo yum install yum-utils
       sudo yum-config-manager --enable ovirt-3.4.0-prerelease
 
 (f19) you need to enable also fedora-virt-preview repo repository.

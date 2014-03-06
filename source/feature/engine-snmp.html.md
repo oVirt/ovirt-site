@@ -122,7 +122,7 @@ Start the service:
 Test service by sending a trap:
 
       # yum install -y  net-snmp-utils
-      $ snmptrap -v 2c -c public localhost '' 1.2 SNMPv2-MIB::sysLocation.0 s "just here"
+      $ snmptrap -v 2c -c public localhost "" 1.2 SNMPv2-MIB::sysLocation.0 s "just here"
 
 Incoming traps should now be available in /tmp/snmptrapd.log.
 

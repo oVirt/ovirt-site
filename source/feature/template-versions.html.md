@@ -37,7 +37,7 @@ There will be two methods to create a version for a template:
 
 Version of template could be deleted if no vms are using it (same as current delete template logic). If a base template is deleted, all its versions will be deleted as well.
 
-When creating vm from template, user will also select the version of the template to use, or 'latest'.
+When creating a vm from template, the user will also select the version of the template to use, or 'latest'.
 Stateless vms and vms from vm-pool that are using 'latest' version, will use new version automatically on new runs.
 
 We should not allow creating version of a version (nested version, just one level of versioning).

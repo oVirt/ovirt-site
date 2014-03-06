@@ -49,7 +49,7 @@ The following requirements are typical for small- to medium-sized installations.
 
 #### Storage and Networking
 
-*   At least one of the supported storage types (NFS, iSCSI, FCP, Local, POSIX FS).
+*   At least one of the supported storage types (NFS, iSCSI, FCP, Local, POSIX FS, GlusterFS).
     -   For NFS storage, a valid IP address and export path is required.
     -   For iSCSI storage, a valid IP address and target information is required.
 *   Static IP addresses for the oVirt Engine server and for each host server.

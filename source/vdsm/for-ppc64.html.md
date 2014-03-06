@@ -82,6 +82,10 @@ At the minimum following user interfaces will be affected
 
 ## Installing VDSM in a ppc64 host
 
+*   Install Fedora Core 20 in your host
+
+<!-- -->
+
 *   Update your Fedora
 
 <!-- -->

@@ -182,6 +182,10 @@ You can follow these steps to test the PPC64 support using the QEMU emulated mod
 
 <!-- -->
 
+*   Create the directory '/etc/ovirt-host-deploy.conf.d'
+
+<!-- -->
+
 *   Create the '/etc/ovirt-host-deploy.conf.d/50-fake.conf' file with the following contents:
 
 <!-- -->

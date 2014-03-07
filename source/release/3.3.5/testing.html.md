@@ -1,12 +1,12 @@
 ---
-title: oVirt 3.3.5 testing
-authors: sandrobonazzola, stirabos
-wiki_title: Testing/oVirt 3.3.5 testing
-wiki_revision_count: 3
-wiki_last_updated: 2014-04-04
+title: OVirt 3.3.5 testing
+authors: sandrobonazzola
+wiki_title: Testing/OVirt 3.3.5 testing
+wiki_revision_count: 2
+wiki_last_updated: 2014-03-07
 ---
 
-# oVirt 3.3.5 testing
+# OVirt 3.3.5 testing
 
 ## What to do as a participant
 

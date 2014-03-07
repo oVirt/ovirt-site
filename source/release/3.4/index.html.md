@@ -67,6 +67,12 @@ oVirt 3.4 adds a preview of a [Hot-plug CPU](Hot_plug_cpu) feature that enables 
 
         </div>
 
+*   [Adding iproute2 support](Feature/NetworkReloaded), creating a network backend from iproute2 tools, following the internal API.
+    -   <div class="alert alert-info">
+        This feature is still partially implemented, and will be completed in an upcoming release during the 3.4 release cycle.
+
+        </div>
+
 *   [Multi-Host Network Configuration](Features/MultiHostNetworkConfiguration) allows the administrator to modify a network (i.e., VLAN-id or MTU) that is already provisioned by the hosts and to apply the network changes to all of the hosts within the datacenter to which the network is assigned. The feature will be enabled for 3.1 datacenters and above, regardless of cluster level in order to avoid inconsistency between hosts network configuration in various clusters.
 
 #### Storage

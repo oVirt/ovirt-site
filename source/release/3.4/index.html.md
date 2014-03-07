@@ -22,15 +22,15 @@ To find out more about features which were added in previous oVirt releases, che
 
 ### Hosted Engine
 
-*   oVirt 3.4 features [hosted engine](Hosted_Engine_Howto), which enables oVirt engine to be run as a virtual machine (VM) on the host it manages. Hosted engine solves the chicken-and-the egg problem for users: the basic challenge of deploying and running an oVirt engine inside a VM. This clustered solution enables users to configure multiple hosts to run the hosted engine, ensuring the engine still runs in the event of any one host failure.%%
+*   oVirt 3.4 features [hosted engine](Hosted_Engine_Howto), which enables oVirt engine to be run as a virtual machine (VM) on the host it manages. Hosted engine solves the chicken-and-the egg problem for users: the basic challenge of deploying and running an oVirt engine inside a VM. This clustered solution enables users to configure multiple hosts to run the hosted engine, ensuring the engine still runs in the event of any one host failure.
 
 ### Enhanced Gluster Support
 
-*   [Gluster Volume Asynchronous Tasks Management](Features/Gluster Volume Asynchronous Tasks Management) enables users to re-balance volumes and remove bricks In Gluster operations that run asynchronously, from within the oVirt user interface.%%
+*   [Gluster Volume Asynchronous Tasks Management](Features/Gluster Volume Asynchronous Tasks Management) enables users to re-balance volumes and remove bricks In Gluster operations that run asynchronously, from within the oVirt user interface.
 
 ### Preview: PPC64
 
-*   [Engine Support for PPC64](Features/Engine_support_for_PPC64) will add PPC64 architecture awareness to the ovirt-engine code, which currently makes various assumptions based on the x86 architecture. When specifying virtual machine devices, for example, what is suitable for x86 architecture may not be for POWER (or may not be available yet).%%
+*   [Engine Support for PPC64](Features/Engine_support_for_PPC64) will add PPC64 architecture awareness to the ovirt-engine code, which currently makes various assumptions based on the x86 architecture. When specifying virtual machine devices, for example, what is suitable for x86 architecture may not be for POWER (or may not be available yet).
 *   [VDSM Support for PPC64](Features/Vdsm_for_PPC64) introduces the capability of managing KVM on IBM POWER processors via oVirt. Administrators will be able to perform management functionalities such as adding or activating KVM, creating clusters of KVM and performing VM lifecycle management on any IBM POWER host.
     -   <div class="alert alert-info">
         Migration is still a work in progress for KVM on IBM POWER processor.

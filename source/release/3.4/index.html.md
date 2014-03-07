@@ -82,7 +82,7 @@ oVirt 3.4 adds a preview of a [Hot-plug CPU](Hot_plug_cpu) feature that enables 
 
 #### SLA & Scheduling
 
-*   [[Features/VM-Affinity|VM Affinity]} makes it possible to apply Affinity and Anti-Affinity rules to VMs to manually dictate scenarios in which VMs should run together on the same, or separately on different hypervisor hosts.
+*   [VM Affinity](Features/VM-Affinity) makes it possible to apply Affinity and Anti-Affinity rules to VMs to manually dictate scenarios in which VMs should run together on the same, or separately on different hypervisor hosts.
 *   [Power off capacity added to power policy](Features/HostPowerManagementPolicy) enables hosts to be shutdown and have the Engine clear the host to migrate all VMs elsewhere.
 *   [Even VM distribution based on VM count per host](Features/Even_VM_Count_Distribution) provides a cluster policy that evenly distributes VMs based on VM count.
 *   [High Availability VM Reservation](Features/HA_VM_reservation) serves as a mechanism to ensure appropriate capacity exists within a cluster for HA VMs in the event the host they currently resides on fails unexpectedly.

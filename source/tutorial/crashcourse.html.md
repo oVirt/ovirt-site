@@ -20,9 +20,11 @@ The *oVirt Space Shooter* plugin we will create is based on [Alien Invasion](htt
 
 No prior [JavaScript](http://en.wikipedia.org/wiki/JavaScript) programming experience is required, just make sure you have oVirt Engine [up and running](http://www.ovirt.org/Installing_ovirt-engine_from_rpm) on your system. Oh, and once we're done creating our plugin, be prepared to blast some aliens!
 
-*Note: this plugin was written in summer 2013 with only few cosmetic updates since that time. After reading [JavaScript: The Good Parts](http://shop.oreilly.com/product/9780596517748.do), I realized the plugin code isn't written too well in respect of good JavaScript coding practices. I'm planning to improve plugin code in future.*
+*Note: code presented here aims to demonstrate how to write a simple plugin, it's not meant to be a showcase of best JavaScript coding practices. When writing a real-world plugin, you should follow good JavaScript coding practices such as scoping your application within a single global variable, using closure for proper information hiding, etc.*
 
-**Update (2014-01-28):** plugin code is available as [patch](http://gerrit.ovirt.org/#/c/23813/) for [samples-uiplugins](Features/UIPlugins#Sample_UI_plugins) repository, check out README file for details on installation.
+Plugin source code is available from [sample UI plugin repository](Features/UIPlugins#Sample_UI_plugins) as `space-shooter-plugin` - see the README file for details on installation.
+
+If you have any questions or find any issues, send your feedback to [Vojtech Szocs](User:Vszocs) <vszocs@redhat.com>
 
 ### Level 1: Hello UI Plugins
 

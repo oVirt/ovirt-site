@@ -30,7 +30,9 @@ oVirt reports package provides a suite of pre-configured reports that enable you
        # yum install ovirt-engine-reports
        # engine-setup
 
-From 3.4.0 both ovirt-engine-dwh and ovirt-engine-reports are configurable just running engine-setup. They're now available also on CentOS.
+From 3.4.0 both ovirt-engine-dwh and ovirt-engine-reports are configurable just running engine-setup. They're now available also on CentOS but you may need to add the jpackage repository[1] in order to satisfy package dependencies.
+
+[1] <http://mirrors.dotsrc.org/jpackage/6.0/generic/free/repoview/>
 
 == oVirt Engine Report & DWH included in oVirt >= 3.2 < 3.4 == The below steps includes historical statistics database and a set of predefined reports for use and SSO to be able to run these reports vi the webadmin.
 

@@ -25,6 +25,7 @@ All POWER Linux distributions (RHEL 6.x, SLES 11.x, Debian 6.x, Fedora 16+) that
     -   Engine Component owner: Ricardo Marin Matinata <rmm@br.ibm.com>
     -   VDSM Component owner: Pradipta Kr. Banerjee <bpradip@in.ibm.com>
     -   QA Owner: Li AG Zhang <zhlbj@cn.ibm.com>
+    -   Developers: Leonardo Bianconi <leonardo.bianconi@eldorado.org.br>; Vitor de Lima <vitor.lima@eldorado.org.br>; Gustavo Frederico Temple Pedrosa <gustavo.pedrosa@eldorado.org.br>
 
 ## Current Status
 

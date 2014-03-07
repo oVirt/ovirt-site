@@ -37,7 +37,7 @@ To find out more about features which were added in previous oVirt releases, che
 
         </div>
 
-### Preview: Hot-plug CPUS
+### Preview: Hot-plug CPUs
 
 oVirt 3.4 adds a preview of a [Hot-plug CPU](Hot_plug_cpu) feature that enables administrators to ensure customer's service-level agreements are being met, the full utilization of spare hardware, and the capability to dynamically to scale vertically, down or up, a system's hardware according to application needs without restarting the virtual machine.
 

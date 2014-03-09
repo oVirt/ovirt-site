@@ -47,7 +47,7 @@ The creation of a VM object may be the result of different actions, all of which
 
 ### Implementation
 
-All the code which implements the vm creation flow is found in *vdsm/vm.py*. Code is referenced "like this" in the remainder of this page.
+All the code which implements the vm creation flow is found in *vdsm/vm.py*. Code is referenced *like this* in the remainder of this page.
 
 VM objects are created each in its independent thread, to make the caller not-blocking. Each VM objects has its own *_creationThread* member (set in te constructor) which runs the *_startUnderlyingVm* method which actually implements the VM creation. Note that all the creation flow are intermixed here, and the code is branchy and scatthered through various helper methods. When *_startUnderlyingVm* ends its job, it sets the VM *_lastStatus* either to "Up" or "Down".
 

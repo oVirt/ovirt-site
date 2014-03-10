@@ -12,7 +12,7 @@ wiki_last_updated: 2014-03-25
 
 **UNDER DEVELOPMENT**
 
-There are some coding guidelines in order to have a reference when submitting patches. It's based on the guidelines here <http://wiki.bash-hackers.org/scripting/style>
+These are some coding guidelines in order to have a reference when submitting patches. It's based on the guidelines here <http://wiki.bash-hackers.org/scripting/style>
 
 This is not an enforcement, it's meant to be just a reference, of course, compliance is preferred.
 

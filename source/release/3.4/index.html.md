@@ -26,7 +26,9 @@ To find out more about features which were added in previous oVirt releases, che
 
 ### Enhanced Gluster Support
 
-*   [Gluster Volume Asynchronous Tasks Management](Features/Gluster Volume Asynchronous Tasks Management) enables users to re-balance volumes and remove bricks In Gluster operations that run asynchronously, from within the oVirt user interface.
+*   [Gluster Volume Asynchronous Tasks Management](Features/Gluster Volume Asynchronous Tasks Management) enables users to re-balance volumes and remove bricks In Gluster
+
+operations/rebalance and remove bricks in Gluster volumes.
 
 ### Preview: PPC64
 

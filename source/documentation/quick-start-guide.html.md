@@ -91,7 +91,7 @@ Reboot your server for the updates to be applied.
 
 3. Subscribe the server to the oVirt project repository.
 
-`   # yum localinstall `[`http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm`](http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm)
+`   # yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release.noarch.rpm)
 
 4. You are now ready to install the oVirt Engine. Run the following command:
 
@@ -107,30 +107,68 @@ This command will download the oVirt Engine installation software and resolve al
 
 Example 1: oVirt Engine installation
 
-         Welcome to oVirt Engine setup utility
-         oVirt Engine uses httpd to proxy requests to the application server.
-         It looks like the httpd installed locally is being actively used.
-         The installer can override current configuration .
-         Alternatively you can use JBoss directly (on ports higher than 1024)
-         Do you wish to override current httpd configuration and restart the service? ['yes'| 'no']  [yes] : 
-         HTTP Port  [80] : 
-         HTTPS Port  [443] : 
-         Host fully qualified domain name. Note: this name should be fully resolvable  [ovirt.demo.example.com] : 
-         The IP (10.35.18.235) which was resolved from the FQDN ovirt.demo.example.com is not configured on any interface on this host
-         User input failed validation, do you still wish to use it? (yes|no): yes
-         Enter a password for an internal oVirt Engine administrator user (admin@internal) :
-         Confirm password :
-         Organization Name for the Certificate  [demo.example.com] : 
-         The default storage type you will be using  ['NFS'| 'FC'| 'ISCSI'| 'POSIXFS']  [NFS] : 
-         Enter DB type for installation ['remote'| 'local']  [local] : 
-         Enter a password for a local oVirt Engine DB admin user (engine) :
-         Confirm password :
-         Configure NFS share on this server to be used as an ISO Domain? ['yes'| 'no']  [yes] : 
-         Local ISO domain path  [/var/lib/exports/iso] : 
-         Firewall ports need to be opened.
-         The installer can configure firewall automatically overriding the current configuration. The old configuration will be backed up.
-         Alternately you can configure the firewall later using an example file. 
-         Which firewall do you wish to configure? ['None'| 'Firewalld']: Firewalld
+       [ INFO  ] Stage: Initializing
+       [ INFO  ] Stage: Environment setup
+               Configuration files: ['/etc/ovirt-engine-setup.conf.d/10-packaging.conf']
+               Log file: /var/log/ovirt-engine/setup/ovirt-engine-setup-20140310163840.log
+               Version: otopi-1.2.0_rc2 (otopi-1.2.0-0.7.rc2.fc19)
+       [ INFO  ] Stage: Environment packages setup
+       [ INFO  ] Stage: Programs detection
+       [ INFO  ] Stage: Environment setup
+       [ INFO  ] Stage: Environment customization
+              
+               --== PRODUCT OPTIONS ==--
+               --== PACKAGES ==--
+              
+       [ INFO  ] Checking for product updates...
+       [ INFO  ] No product updates found
+          
+               --== NETWORK CONFIGURATION ==--
+              
+               Host fully qualified DNS name of this server [server.name]: example.ovirt.org
+               Setup can automatically configure the firewall on this system.
+               Note: automatic configuration of the firewall may overwrite current settings.
+               Do you want Setup to configure the firewall? (Yes, No) [Yes]:
+       [ INFO  ] firewalld will be configured as firewall manager.
+              
+               --== DATABASE CONFIGURATION ==--
+              
+               Where is the Engine database located? (Local, Remote) [Local]: 
+               Setup can configure the local postgresql server automatically for the engine to run. This may conflict with existing applications.
+               Would you like Setup to automatically configure postgresql and create Engine database, or prefer to perform that manually? (Automatic, Manual) [Automatic]: 
+              
+               --== OVIRT ENGINE CONFIGURATION ==--
+              
+               Application mode (Both, Virt, Gluster) [Both]: 
+               Default storage type: (NFS, FC, ISCSI, POSIXFS) [NFS]: 
+               Engine admin password: 
+               Confirm engine admin password: 
+              
+               --== PKI CONFIGURATION ==--
+              
+               Organization name for certificate [ovirt.org]: 
+              
+               --== APACHE CONFIGURATION ==--
+              
+               Setup can configure apache to use SSL using a certificate issued from the internal CA.
+         
+               Do you wish Setup to configure that, or prefer to perform that manually? (Automatic, Manual) [Automatic]: 
+               Setup can configure the default page of the web server to present the application home page. This may conflict with existing applications.
+               Do you wish to set the application as the default page of the web server? (Yes, No) [Yes]: 
+              
+               --== SYSTEM CONFIGURATION ==--
+              
+               Configure WebSocket Proxy on this machine? (Yes, No) [Yes]: 
+               Configure an NFS share on this server to be used as an ISO Domain? (Yes, No) [Yes]: 
+               Local ISO domain path [/var/lib/exports/iso-20140310143916]: 
+               Local ISO domain ACL [0.0.0.0/0.0.0.0(rw)]: 
+               Local ISO domain name [ISO_DOMAIN]: 
+              
+               --== MISC CONFIGURATION ==--
+         
+               --== END OF CONFIGURATION ==--
+              
+       
 
 Important points to note:
 
@@ -142,21 +180,30 @@ Important points to note:
 
 Example 2: Confirm Engine installation settings
 
-         oVirt Engine will be installed using the following configuration:
-         =================================================================
-         override-httpd-config:         yes
-         http-port:                     80
-         https-port:                    443
-         host-fqdn:                     ovirt.demo.example.com
-         auth-pass:                     ********
-         org-name:                      demo.example.com
-         default-dc-type:               NFS
-         db-remote-install:             local
-         db-local-pass:                 ********
-         nfs-mp:                        /var/lib/exports/iso
-         config-nfs:                    yes
-         override-firewall:             Firewalld
-         Proceed with the configuration listed above? (yes|no): yes
+       [ INFO  ] Stage: Setup validation
+              
+                        --== CONFIGURATION PREVIEW ==--
+              
+               Engine database name                    : engine
+               Engine database secured connection      : False
+               Engine database host                    : localhost
+               Engine database user name               : engine
+               Engine database host name validation    : False
+               Engine database port                    : 5432
+               NFS setup                               : True
+               PKI organization                        : ovirt.org
+               Application mode                        : both
+               Firewall manager                        : firewalld
+               Update Firewall                         : True
+               Configure WebSocket Proxy               : True
+               Host FQDN                               : example.ovirt.org
+               NFS export ACL                          : 0.0.0.0/0.0.0.0(rw)
+               NFS mount point                         : /var/lib/exports/iso-20140310143916
+               Datacenter storage type                 : nfs
+               Configure local Engine database         : True
+               Set application as default page         : True
+               Configure Apache SSL                    : True
+               Please confirm installation settings (OK, Cancel) [OK]:
 
 8. The installation commences. The following message displays, indicating that the installation was successful.
 

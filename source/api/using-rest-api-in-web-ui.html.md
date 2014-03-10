@@ -20,21 +20,21 @@ Replace current GWT RPC mechanism with implementation utilizing oVirt REST API.
 
 ### Overview
 
-oVirt web applications (i.e. WebAdmin and UserPortal) currently rely on GWT RPC mechanism to communicate with Engine backend. The exact RPC implementation in use, Direct-Eval RPC aka deRPC, [isn't officially supported anymore](http://www.gwtproject.org/doc/latest/DevGuideServerCommunication.html#DevGuideDeRPC); in fact, it never left "experimental" stage and is currently discouraged by GWT team.
+oVirt web applications (WebAdmin and UserPortal) currently rely on GWT RPC mechanism to communicate with Engine backend. The exact RPC implementation in use, Direct-Eval RPC aka deRPC, [isn't officially supported anymore](http://www.gwtproject.org/doc/latest/DevGuideServerCommunication.html#DevGuideDeRPC); in fact, it never left "experimental" stage and is currently discouraged by GWT team.
 
 Up to now, oVirt web UI used deRPC because it seemed to be the only GWT RPC implementation to fully support the kind of (Java) objects transferred between client and server. We've encountered [problems](http://gerrit.ovirt.org/#/c/19122/) when trying to use [standard GWT RPC implementation](http://www.gwtproject.org/doc/latest/DevGuideServerCommunication.html#DevGuideCreatingServices), some of them occuring at runtime and others occuring during GWT compilation phase.
 
-More generally, oVirt web UI uses GWT RPC mechanism because it allows sharing (Java) business entities and related objects between client and server. While seemingly convenient and easy at first, it led us into situation where client and server are coupled together by means of shared objects. GWT client code and its RPC implementation aim for JavaScript runtime environment (i.e. web browser) and therefore impose various restrictions to such shared objects, which in turn hinders the flexibility of Engine backend.
+More generally, oVirt web UI uses GWT RPC mechanism because it allows sharing (Java) business entities and related objects between client and server. While seemingly convenient and easy at first, it led us into situation where client and server are coupled together by means of shared objects. GWT client code and its RPC implementation aim for JavaScript runtime environment (web browser) and therefore impose various restrictions to such shared objects, which in turn hinders the flexibility of Engine backend.
 
 In addition to client/server coupling, the concept of using backend business entities in client code carries additional limitations, such as:
 
 *   cloning existing entity objects on client (manually copying all properties) whenever we need separate entity instance to work with
-*   tricking GWT compiler into thinking that all shared code is live (i.e. shouldn't be pruned from generated JavaScript output) to avoid deserialization errors on server
+*   tricking GWT compiler into thinking that all shared code is live (shouldn't be pruned from generated JavaScript output) to avoid deserialization errors on server
 *   inability to introduce additional logic into entity objects beyond basic getters/setters and simple operations, considering both client and server perspective
 
-Conceptually, data displayed (or otherwise acted upon) by client is different than data managed by server; each one is used to achieve different goals. For example, from backend perspective, a "Host" business entity might hold data (and possibly additional logic) to represent host machine entity as a whole, cohesive object with well-defined purpose and responsibility. On the other hand, from client perspective, displaying data such as "Host name and number of running VMs on that host" would naturally lead to creating different kinds of entity representations suitable for client to display (or otherwise act upon); reusing backend business entities like "Host" or "VM" therefore doesn't seem appropriate from client perspective.
+Conceptually, data displayed (or otherwise acted upon) by client is different than data managed by server; each one is used to achieve different goals. For example, from backend perspective, a "Host" business entity might hold data (and possibly additional logic) to represent host machine entity as a whole, cohesive object with well-defined purpose and responsibility. On the other hand, from client perspective, displaying data such as "Host name and number of running VMs on that host" would naturally lead to creating different kinds of entity representations suitable for client to display (or otherwise act upon); reusing existing backend business entities like "Host" or "VM" therefore doesn't seem appropriate from client perspective.
 
-Simply put, client and server each serve different purposes, so the underlying data representations should reflect their purposes as much as possible. Sharing data representations (entities) between client and server restricts both client and server; in our case, server drives entity design and client makes best effort to adapt to that design. This typically leads to problems such as client requesting data updates and having to deserialize "heavy" objects just to display a small subset of received data to the user.
+Simply put, client and server each serve different purposes, so the underlying data representations should reflect their purposes as much as possible. Sharing data representations (entities) between client and server restricts both client and server; in our case, server drives entity design and client makes best effort to adapt to that design. This typically leads to problems such as client having to deserialize "heavy" objects just to display a small subset of their data to the user.
 
 *The primary goal* of utilizing [oVirt REST API](REST-Api) in web UI is to decouple client from server while using standard API to communicate with Engine backend. In addition, this should bring following positive side effects:
 
@@ -50,33 +50,40 @@ Simply put, client and server each serve different purposes, so the underlying d
 
 ### Analysis of Java SDK
 
-[oVirt Java SDK](Java-sdk) maintained by [Michael Pasternak](mailto:mpastern@redhat.com) has its code auto-generated from REST API definition. There are two Java modules in [ovirt-engine-sdk-java](git://gerrit.ovirt.org/ovirt-engine-sdk-java) repository:
+[oVirt Java SDK](Java-sdk) has its code auto-generated from REST API definition. There are two Java modules in [ovirt-engine-sdk-java](git://gerrit.ovirt.org/ovirt-engine-sdk-java) repository:
 
-*   `ovirt-engine-sdk-java-codegen` - responsible for generating:
-    -   API entities from XSD schema
-        1.  fetch XSD schema from **running Engine** via HTTP (`/api/?schema`) and persist it into local file
-        2.  invoke Java `xjc` tool to generate source files into `ovirt-engine-sdk-java` module's `src/main/java` directory (package `org.ovirt.engine.sdk.entities`)
-    -   decorators for API entities and entity collections from [RSDL](http://en.wikipedia.org/wiki/RSDL) definition
-        1.  fetch RSDL definition from **running Engine** via HTTP (`/api/?rsdl`) and unmarshal it into `RSDL` class (which is part of XSD schema)
-        2.  walk through RSDL definition by iterating over its `DetailedLink` instances, generating decorator per each resource and collection
-    -   SDK entry point (`Api` class) providing access to resources and collections accessible from REST API root URL
+*   `ovirt-engine-sdk-java-codegen`
+    -   fetch local copy of XSD (entities) and RSDL (operations) from running Engine: `mvn validate -Pupdate-metadata`
+    -   SDK code generation from XSD and RSDL: `mvn validate -Pupdate-code`
+        1.  generate API entities (POJOs with getters and setters) from XSD by running Java `xjc` tool
+        2.  generate API entity decorators (subclasses that add behavior) by walking RSDL tree
+        3.  generate API entry point providing access to resources and collections accessible from REST API root URL
 
 <!-- -->
 
-*   `ovirt-engine-sdk-java` - target of code generation:
-    -   everything under `src/main/java` is cleaned and re-created as part of `ovirt-engine-sdk-java-codegen` build
+*   `ovirt-engine-sdk-java`
+    -   target of code generation - files under `src/main/java` are updated each time SDK code is generated
     -   building this module produces the SDK distro (JAR file) and related artifacts (RPM package)
 
 ### Design Proposal
 
-Before proceeding any further, we should consider improving the process for gathering REST API definition:
+Before proceeding any further, we should consider improving the process of gathering REST API definition.
 
-*   building [Java SDK](#Analysis_of_Java_SDK) requires running Engine, this isn't optimal from build automation perspective
-*   complete REST API definition reflecting the state of API for given Engine version (including possibly multiple API versions) can be generated in a standard format during the Engine build
-*   Java SDK could use the generated REST API definition as input for code generation, instead of using running Engine (up to Java SDK maintainers to consider)
-*   any other SDK could use the generated REST API definition as input for code generation
+Java SDK currently takes following approach:
 
-Simply put, the API resolution logic currently implemented in Java SDK (i.e. taking XSD schema and RSDL definition to produce input for subsequent code generation) should be standardized and implemented as part of the Engine build. This will ease the maintenance of all SDKs and allow SDK authors to focus on code generation itself.
+*   caching XSD and RSDL that were previously fetched from running Engine, updating these files for given SDK version (for example, after new Engine version is released)
+*   Java SDK codegen module performs initial pre-processing (invoking `xjc` tool, parsing RSDL as XML document) before actual code generation takes place
+
+Instead of working with XSD and RSDL directly, there could be some intermediate format serving as REST API definition suitable for consumption by SDK code generators:
+
+*   at Engine build time, XSD and RSDL (full tree) could be generated
+*   at Engine build time, single JSON file describing all entities and related operations would be generated from XSD and RSDL
+*   SDK generators could simply consume such JSON file as input suitable for (and designed for) code generation
+
+Having such JSON file could simplify maintenance of all SDK code generators:
+
+*   no need for XSD/RSDL processing
+*   code generation input in an easy-to-consume format
 
 **oVirt JavaScript SDK** would be an umbrella term for two different projects:
 

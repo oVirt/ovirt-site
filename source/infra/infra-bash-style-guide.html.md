@@ -126,6 +126,14 @@ If possible (I know it's not always possible!), use a shebang. Be careful with *
 *   it specifies the interpreter when the script file is called directly: If you code for Bash, specify *bash*!
 *   it documents the desired interpreter (so: use *bash* when you write a Bash-script, use *sh* when you write a general Bourne/POSIX script, ...)
 
+Whenever able, use the *-e* flag, that will make sure your script fails if any of the commands fail:
+
+      #!/bin/bash -e
+
+If you don't really care about one of the commands failing (or returning != 0) you can use this:
+
+      mycommand || :
+
 ##### Cryptic constructs
 
 Cryptic constructs, we all know them, we all love them. If they are not 100% needed, avoid them, since nobody except you may be able to decipher them. It's - just like in C - the middle between smartness, efficiency and readablity. If you need to use a cryptic construct, place a small comment that actually tells what your monster is for.

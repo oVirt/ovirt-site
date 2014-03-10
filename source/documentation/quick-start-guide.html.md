@@ -136,7 +136,7 @@ Important points to note:
 
 *   The default ports 80 and 443 must be available to access the manager on HTTP and HTTPS respectively.
 *   If you elect to configure an NFS share it will be exported from the machine on which the manager is being installed.
-*   The storage type that you select will be used to create a data center and cluster. You will then be able to attach storage to these from the Administration Portal.
+*   The storage type that you select will be used to create a data center and cluster. You will then be able to attach storage to these from the Web Administration Portal.
 
 7. You are then presented with a summary of the configurations you have selected. Type yes to accept them.
 

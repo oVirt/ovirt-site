@@ -209,17 +209,41 @@ Example 2: Confirm Engine installation settings
 
 Example 3: Successful installation
 
-         Installing:
-         Creating JBoss Profile...                                [ DONE ]
-         Creating CA...                                           [ DONE ]
-         Setting Database Security...                             [ DONE ]
-         Creating Database...                                     [ DONE ]
-         Updating the Default Data Center Storage Type...         [ DONE ]
-         Editing JBoss Configuration...                           [ DONE ]
-         Editing oVirt Engine Configuration...                    [ DONE ]
-         Configuring the Default ISO Domain...                    [ DONE ]
-         Starting JBoss Service...                                [ DONE ]
-         Configuring Firewall (iptables)...                       [ DONE ]
+       [ INFO  ] Stage: Transaction setup
+       [ INFO  ] Stopping engine service
+       [ INFO  ] Stopping websocket-proxy service
+       [ INFO  ] Stage: Misc configuration
+       [ INFO  ] Stage: Package installation
+       [ INFO  ] Stage: Misc configuration
+       [ INFO  ] Creating PostgreSQL 'engine' database
+       [ INFO  ] Configuring PostgreSQL
+       [ INFO  ] Creating Engine database schema
+       [ INFO  ] Creating CA
+       [ INFO  ] Configuring WebSocket Proxy
+       [ INFO  ] Generating post install configuration file '/etc/ovirt-engine-setup.conf.d/20-setup-ovirt-post.conf'
+       [ INFO  ] Stage: Transaction commit
+       [ INFO  ] Stage: Closing up
+              
+               --== SUMMARY ==--
+              
+`         SSH fingerprint: `<SSH_FINGERPRINT>
+`         Internal CA: `<CA_FINGERPRINT>
+               Web access is enabled at:
+`             `[`http://example.ovirt.org:80/ovirt-engine`](http://example.ovirt.org:80/ovirt-engine)
+`             `[`https://example.ovirt.org:443/ovirt-engine`](https://example.ovirt.org:443/ovirt-engine)
+               Please use the user "admin" and password specified in order to login into oVirt Engine
+              
+               --== END OF SUMMARY ==--
+              
+       [ INFO  ] Starting engine service
+       [ INFO  ] Restarting httpd
+       [ INFO  ] Restarting nfs services
+       [ INFO  ] Generating answer file '/var/lib/ovirt-engine/setup/answers/20140310163837-setup.conf'
+       [ INFO  ] Stage: Clean up
+               Log file is located at /var/log/ovirt-engine/setup/ovirt-engine-setup-20140310163604.log
+       [ INFO  ] Stage: Pre-termination
+       [ INFO  ] Stage: Termination
+       [ INFO  ] Execution of setup completed successfully
          
          **** Installation completed successfully ******
 

@@ -52,17 +52,17 @@ The following steps are performed by the plugin:
 
 The following parameters are added by the plugin to the answer file:
 
-      CONFIG_ALLINONE=[yes/no]
-`STORAGE_PATH=`<local storage path>
-`SUPERUSER_PASS=`<root password>
+OVESETUP_AIO/configure
+
+OVESETUP_AIO/enable OVESETUP_AIO/storageDomainDir
 
 It is recommended to generate the answer file automatically:
 
-`engine-setup --gen-answer-file=`<answer file full path>
+`engine-setup --generate-answer=`<answer file full path>
 
-...and then update its parameters accordingly with the installation requirements. After that, proceed with installation using the answer file:
+... After that, proceed with installation using the answer file you have just created:
 
-`engine-setup --answer-file=`<answer file full path>
+`engine-setup --config=`<answer file full path>
 
 ### Comments and Discussion
 

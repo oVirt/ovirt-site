@@ -139,7 +139,7 @@ WRITEME further notes about recovery
 
 ### The VM Dehibernation flow
 
-Work in progress...
+This execution flow let a VM restart from a saved checkpoint, either from snapshot or from hibernation. Under the hood this is implemented as special case from migrations,
 
 ### Migrations and the VM Migration destination flow
 

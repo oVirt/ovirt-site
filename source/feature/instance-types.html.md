@@ -253,30 +253,29 @@ New permission will be needed:
 ### User Interface
 
 *   Templates:
-    -   **Templates** main tab should remain as-is
-    -   **Templates** main tab should be displayed only when selecting the **Templates** node below **[DC-Name]** in the left-pane-tree.
+    -   The templates should remain as-is
 
-Otherwise, it should be hidden (including for System).
+<!-- -->
 
 *   Instance Types:
-    -   A new **Instance Types** main tab should be added
-    -   A new **Instance Types** node should be added to the left-pane-tree under each **[DC-Name]**.
-    -   No items should exist under it (i.e. it is just a "link", just like the **VMs** tree-node).
-    -   When selected, only "Instance Types" main tab should be displayed, filtered according to the relevant DC.
-    -   **Instance Types** main tab should be displayed only if the **[DC-Name]** tree-node is selected or if the **Instance Types** tree-node under **[DC-Name]** is selected.
+    -   In the "Configure" dialog the new side tab "Instance Types" should be added. It should contain a list of instnace types and the add/edit/remove buttons. If selected the subtab should contain the details of the instance type. The new/edit dialog should be similar to new/edit VM dialogs but with relevant fields only. See screenshots:
 
-Otherwise, it should be hidden (including for System).
+<!-- -->
 
 *   Images:
-    -   A new **Images** main tab should be added.
-    -   A new **Images** node should be added to the left-pane tree under each "[DC-Name]".
+    -   In the VM main tab the new button "Create Image" should be added which would extract the image from the VM (similar to create template) and exposed some metadata to edit (the ones marked as "Present: Y" on the "Image" in the table above. The dialog should be similar to new/edit VM or template dialog with only the relevant parts exposed.
+    -   In the templates main tab a new radio button should be added where it will be possible to switch between Templates and Images to edit/delete them
 
-No items should exist under it (i.e. it is just a "link", just like the "VMs" tree-node). When selected, only "Images" main tab should be displayed, filtered according to the relevant DC.
+<!-- -->
 
 *   In the **Disks** main tab, there is an **Images** radio-button; this radio-button should be renamed, in order to avoid confusion.
-*   **Images** main tab should be displayed only if the **[DC-Name]** tree-node is selected or if the **Images** tree-node under **[DC-Name]** is selected.
 
-Otherwise, it should be hidden (including for System).
+<!-- -->
+
+*   VM:
+    -   The new/edit VM dialog will be enriched to contain also the instance type and image lists.
+    -   All the fields which are bound to instance type (marked as "Marked: Y" in the table above) will have a "chain" image next to them. If the field will be the same as on the instance type, the chain will be joined. If the user choose to change this field, the chain will become separated and the instance type will change to "custom"
+    -   If the user changes all the values back, the chain icon will again be joined and the instance type will move back to the one selected. See screenshots (this ones do not contain the "image" yet):
 
 ### REST API
 

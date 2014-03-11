@@ -16,7 +16,7 @@ This is not an enforcement, it's meant to be just a reference, of course, compli
 
 Some good code layout helps you to read your own code after a while. And of course it helps others to read the code.
 
-### Indention guidelines
+### Indentation guidelines
 
 To indent, use 4 spaces per indentation level, similar to python indentation.
 

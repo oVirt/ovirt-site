@@ -260,7 +260,9 @@ New permission will be needed:
 *   Instance Types:
     -   In the "Configure" dialog the new side tab "Instance Types" should be added. It should contain a list of instnace types and the add/edit/remove buttons. If selected the subtab should contain the details of the instance type. The new/edit dialog should be similar to new/edit VM dialogs but with relevant fields only. See screenshots:
 
-<!-- -->
+![](ConfigureDialog.png "ConfigureDialog.png")
+
+![](EditInstanceType.png "EditInstanceType.png")
 
 *   Images:
     -   In the VM main tab the new button "Create Image" should be added which would extract the image from the VM (similar to create template) and exposed some metadata to edit (the ones marked as "Present: Y" on the "Image" in the table above. The dialog should be similar to new/edit VM or template dialog with only the relevant parts exposed.
@@ -276,6 +278,12 @@ New permission will be needed:
     -   The new/edit VM dialog will be enriched to contain also the instance type and image lists.
     -   All the fields which are bound to instance type (marked as "Marked: Y" in the table above) will have a "chain" image next to them. If the field will be the same as on the instance type, the chain will be joined. If the user choose to change this field, the chain will become separated and the instance type will change to "custom"
     -   If the user changes all the values back, the chain icon will again be joined and the instance type will move back to the one selected. See screenshots (this ones do not contain the "image" yet):
+
+![](NewVmGeneral.png "NewVmGeneral.png")
+
+![](NewVmSystemJoined.png "NewVmSystemJoined.png")
+
+![](NewVmSystemSeparated.png "NewVmSystemSeparated.png")
 
 ### REST API
 

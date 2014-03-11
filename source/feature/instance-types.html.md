@@ -218,19 +218,7 @@ The existing template mechanism can be used to handle *Images*.
 
 This is an example of the user workflow, how the new Instance Types approach would be used.
 
-1: Create a new **Instance Type**
-
-In the Templates main tab click the *New Instance Type* button, than fill and save the provided dialog
-
-2: Create a new **Image**
-
-In the *Virtual Machines* main tab selct a VM, than click *Create Image* which will extract the image and the image specific configuration (similar to current *make template*)
-
-3: Create a new VM
-
-In *Virtual Machines* main tab click the "New VM" button. Select the data center, cluster, instance type, image and assigns the logical network to network interface, than click OK.
-
-4: Run the created VM 5: Edit *Instance Type* (e.g. added more memory to it) 6: The change is reflected also on the VM after restarting it
+1: Create a new **Instance Type**: Under the configure (top right corner) a new side tab called "Instance Types" will be present. Under that a list of instance types with new/edit/delete buttons will be present (similar to the VM dialog). By pressing a "new" or "edit" button the user will be provided by the same dialog than on new/edit VM or template (with relevant fields only). 2: Create a new **Image**: In the *Virtual Machines* main tab select a VM, than click *Create Image* which will extract the image and the image specific configuration (similar to current *make template*) 3: Create a new VM: In *Virtual Machines* main tab click the "New VM" button. Select the data center, cluster, instance type, image and template. Assigns the logical network to network interfaces, than click OK. 4: Run the created VM 5: Edit *Instance Type* (e.g. added more memory to it) 6: The change is reflected also on the VM after restarting it (but this will be implemented as a separate feature - <http://www.ovirt.org/Features/Edit_Running_VM>)
 
 ### Runtime
 

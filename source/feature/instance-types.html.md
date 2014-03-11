@@ -183,13 +183,13 @@ For consistency we should use the default OpenStack sizes.
 A user should be allowed to edit but not delete predefined instance types
 The administrator should be able to disable instance types.
 
-| Name      | Memory | vCPUs |
-|-----------|--------|-------|
-| m1.tiny   | 512 MB | 1     |
-| m1.small  | 2 GB   | 1     |
-| m1.medium | 4 GB   | 2     |
-| m1.large  | 8 GB   | 2     |
-| m1.xlarge | 16 GB  | 4     |
+| Name   | Memory | vCPUs |
+|--------|--------|-------|
+| tiny   | 512 MB | 1     |
+| small  | 2 GB   | 1     |
+| medium | 4 GB   | 2     |
+| large  | 8 GB   | 2     |
+| xlarge | 16 GB  | 4     |
 
 **Extra Instance Metadata**
  Within the design of the instance entity we should bear in mind that in the future we may need to incorporate elements from the SLA/QoS work.

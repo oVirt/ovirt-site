@@ -246,13 +246,9 @@ changing instance type will not take affect on this.
 
 ### Permissions
 
-New permissions will be needed:
+New permission will be needed:
 
-*   **Create Instance**: This permission will allow a user to create a new virtual machine from an existing instance type (but not edit the instance type itself)
-*   **Instance Owner**: This permission will allow a user to:
-    -   Add/Remove disks
-    -   Add/Remove NICS
-    -   Edit instance (VM) for a limited set of parameters (the "Basic User" from the table above)
+*   **Create Instance**: This permission will allow a user to create a new virtual machine from an existing instance type (but not edit the instance type itself). On the VM the user will not be allowed to use the "custom" instance type and will be able only edit the fields marked as "Basic User: Y" from the table above.
 
 ### User Interface
 

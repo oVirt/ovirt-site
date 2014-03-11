@@ -71,9 +71,9 @@ Recommended Web Browsers for Engine:
 <div class="span10 offset1">
 ### Versions of oVirt
 
-*   Stable (**Recommended**)
-*   Current Development
-*   Future Development
+*   [Stable](http://resources.ovirt.org/releases/stable/) (**Recommended**)
+*   [Current Development](http://resources.ovirt.org/releases/beta/)
+*   [Future Development](http://resources.ovirt.org/releases/updates-testing/)
 
 ### Install oVirt
 

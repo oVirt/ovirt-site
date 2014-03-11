@@ -69,7 +69,7 @@ Recommended Web Browsers for Engine:
 </div>
 <div class="row">
 <div class="span10 offset1">
-### Versions of oVirt
+### Version Releases of oVirt
 
 *   [Stable](http://resources.ovirt.org/releases/stable/) (**Recommended**)
 *   [Current Development](http://resources.ovirt.org/releases/beta/)

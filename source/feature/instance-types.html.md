@@ -193,7 +193,7 @@ The administrator should be able to disable instance types.
 
 **Extra Instance Metadata**
  Within the design of the instance entity we should bear in mind that in the future we may need to incorporate elements from the SLA/QoS work.
-None of these are appropriate for the 3.3 release.
+None of these are appropriate for the 3.5 release.
  For example adding quality of service parameters.
 As a point of reference OpenStack includes parameters such as “rxtx quota” that allows the administrator to cap the maximum amount of network I/O permitting (for example an ISP capping a customer to 5GB).
 Other use cases include specifying storage I/O priorty, network capping and throttling.

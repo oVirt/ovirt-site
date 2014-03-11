@@ -166,7 +166,7 @@ This are only the default values which will be present in the GUI - the user can
 
 #### Image
 
-Will be created from an existing VM using the **Create Image** - similar to the way how the templates are created today. Opened question: Do we want them to be stateless in 3.3?
+Will be created from an existing VM using the **Create Image** - similar to the way how the templates are created today.
 
 #### Volume
 

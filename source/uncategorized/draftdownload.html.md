@@ -40,6 +40,8 @@ Optional Hardware:
 
     * Network storage
 
+</div>
+<div class="span6">
 Supported Hosts:  
 
     * Fedora 19
@@ -54,8 +56,6 @@ Supported Hosts:
 
     * Debian GNU/Linux (experimental)
 
-</div>
-<div class="span6">
 Recommended Web Browsers for Engine:  
 
     * Mozilla Firefox 17 or later

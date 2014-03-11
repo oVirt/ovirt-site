@@ -128,8 +128,8 @@ option to appropriate option format adding prefix or suffix.
        
        2. set args:
           [ovirt-shell]
-          username = "user@domain"
-          url = "http[s]://server[:port]/api"
+          username = user@domain
+          url = http[s]://server[:port]/api
           #insecure = False
           #filter = False
           #timeout = -1

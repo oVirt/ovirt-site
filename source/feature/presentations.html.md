@@ -10,4 +10,5 @@ wiki_last_updated: 2014-03-13
 
 ### This page contains presentations regarding oVirt features:
 
-![](AsyncTaskManager.odp "fig:AsyncTaskManager.odp") - A presentations about the Asynchronous Task Manager mechanism in oVirt ![](storage-mailbox.odp "fig:storage-mailbox.odp")] - A presentation about thin provisioning and the storage mailbox
+*   ![](AsyncTaskManager.odp "fig:AsyncTaskManager.odp") - A presentations about the Asynchronous Task Manager mechanism in oVirt
+*   ![](storage-mailbox.odp "fig:storage-mailbox.odp") - A presentation about thin provisioning and the storage mailbox

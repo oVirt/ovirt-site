@@ -95,26 +95,7 @@ Finally start the vdsmd service:
 
 ## Code Style
 
-*   Variables and arguments are in mixedCase
-*   Class names are in CamelCase
-*   Function and method names are in mixedCase
-*   All indentation is made of space characters
-*   A space character follows any comma
-*   Spaces surround operators, but
-*   No spaces between
-
-      def f(arg=its_default_value):
-
-*   Lines longer than 80 chars are frowned upon
-*   Whitespace between functions and within stanza help to breath while reading code
-*   A space char follows a comment's hash char
-*   Let logging method do the formatting for you:
-
-      logging.debug('hello %s', 'world')
-
-Rather than
-
-      logging.debug('hello %s' % 'world')
+See [Vdsm Coding Guidelines](Vdsm Coding Guidelines).
 
 ## Sending patches
 

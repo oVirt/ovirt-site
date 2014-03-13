@@ -50,5 +50,6 @@ To help us achieve that, this page will keep links to some useful resources and 
 | python-pthreading | 1          | 0         | vdsm's better threading.                                                        | Yes (not necessary in Python3)                              |
 | python-cpopen     | 1          | 0         | vdsm's better popen.                                                            | Yes (not necessary in Python3)                              |
 | libvirt bindings  | 1          | 0         | vdsm's libvirt wrapper dependency.                                              | Latest libvirt-python GIT version builds wrappers for both. |
+| python-inotify    | 1          | 0         | -                                                                               | Yes                                                         |
 
 <Category:Feature>

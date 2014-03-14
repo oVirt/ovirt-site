@@ -113,6 +113,12 @@ will upgrade to latest 3.3.
     -   integrated to ovirt-engine setup.
     -   Gentoo support.
 
+### Node
+
+      oVirt Node for oVirt 3.4 can be found at `[`http://resources.ovirt.org/releases/3.4.0_pre/iso/`](http://resources.ovirt.org/releases/3.4.0_pre/iso/)` .
+
+There are no big known issues with it, if you run into issue please try Node in permissive mode by appending `enforcing=0` to the kernel cmdline.
+
 ## Known issues
 
 *   EL >= 6.5 or cloud-init >= 0.7.2 are needed for cloud-init feature support ()

@@ -132,15 +132,21 @@ If you don't really care about one of the commands failing (or returning != 0) y
 
       mycommand || :
 
-##### Cryptic constructs
+#### Cryptic constructs
 
 Cryptic constructs, we all know them, we all love them. If they are not 100% needed, avoid them, since nobody except you may be able to decipher them. It's - just like in C - the middle between smartness, efficiency and readablity. If you need to use a cryptic construct, place a small comment that actually tells what your monster is for.
 
-##### Configuration variables
+#### Configuration variables
 
 I call variables that are meant to be changed by the user "configuration variables" here. Make them easy to find (directly at the top of the script), give them useful names and maybe a short comment. Use *UPPERCASE* for them and avoid modifying them inside the script if you don't need to, it's really easy to loose track of where/when a global variable it's being modified.
 
-##### Local variables
+When parsing the parameters, if you use a function, initialize all the global variables with the default values (or unset) before the function so when reading the script you know what globals the function does modify. For example:
+
+      CONFIG_FILE="~/.config"
+      unset REQUIRED_PARAM
+      parse_params "$@"
+
+#### Local variables
 
 Since all reserved variables are *UPPERCASE*, the safest way is to only use *lowercase* variable names. This is true for reading user input, loop counting variables, etc., ... (in the example: *file*)
 
@@ -164,7 +170,7 @@ If used inside a function, declare as many variables as possible to be local, th
           my_nice_function "whatever"
       done
 
-##### Variable initialization
+#### Variable initialization
 
 As in C, it's always a good idea to initialize your variables, though, the shell will initialize fresh variables itself (better: Unset variables will generally behave like variables containing a nullstring). It's no problem to \*\*pass a variable\*\* you use \*\*as environment\*\* to the script. If you \*\*blindly assume\*\* that all variables you use are empty for the first time, somebody can \*\*inject\*\* a variable content by just passing it in the environment. The solution is simple and effective: \*\*Initialize them\*\*
 
@@ -174,7 +180,7 @@ As in C, it's always a good idea to initialize your variables, though, the shell
 
 If you do that for every variable you use, then you also have a kind of documentation for them.
 
-##### Parameter expansion
+#### Parameter expansion
 
 Unless you are really sure what you're doing, \*\*quote every parameter expansion\*\*. There are some cases where this isn't needed from a technical point of view, e.g.
 
@@ -190,7 +196,7 @@ But quoting these is never a mistake. If you get used to quote every parameter e
           ...
       done
 
-##### Function definitions
+#### Function definitions
 
 Unless the code has reasons to not do, all needed function definitions should be declared before the main script code is run. This gives a far better overview and ensures that all function names are known before they are used. Since a function isn't parsed before it is executed, you usually don't even have to ensure a specific order. The portable form of the function definition should be used, without the *function* keyword (here using the grouping compound command):
 
@@ -200,7 +206,7 @@ Unless the code has reasons to not do, all needed function definitions should be
 
 Speaking about the command grouping in function definitions using *{ ...; }*: If you don't have a good reason to use another compound command directly, you should always use this one.
 
-##### Function names
+#### Function names
 
 Function names should be all *lowercase* and have a good name. The function names should be human readable ones.
 
@@ -210,30 +216,30 @@ A more or less funny one: If not intended to do so, **do not name your functions
 
 Unless absolutely necessary, only use alphanumeric characters and the underscore for function names. */bin/ls* is a valid function name in Bash, but it only makes limited sense.
 
-##### Function parameters
+#### Function parameters
 
 When able, passs all the needed information to the functions you use using parameters instead of global variables, that helps keeping track of what infermation does the function require to run. If you ever need to use global variables inside the function, make sure that the function comments specify which ones you use. The parameters passed to the function should be stored in local variables at the start of the function, adding any required checks (the easiest one being just "${1?}" to make sure the param is not empty)
 
-##### Function return statements
+#### Function return statements
 
 Most functions should not use the exit statements, instead, they should use the return statement and let the caller of the function handle the error. Some exceptions include the *die* function. You should always write a return statement explicitly, to make sure that you return what you want and make it clear what the function will return. So usually, your functions will end with a return 0 statememt.
 
-##### Command substitution
+#### Command substitution
 
 As noted in [ the article about command substitution](http://wiki.bash-hackers.org/syntax/expansion/cmdsubst) you should use the *$( ... )* form. Though, if portability is a concern, you might have to use the backquoted form *\` ... \`*. In any case, if other expansions and word splitting are not wanted, you should quote the command substitution!
 
-##### Conditionals
+#### Conditionals
 
 When testing an expression, use double brackets as much as possible, they behave better that the old test command (single square brackets) and you'll have a lot less trouble handling spaces.
 
-##### Builtins
+#### Builtins
 
 If able use builtin constructs instead of spawning external commands, for example:
 
       myfile="${fullpath##*/}" # replaces dirname
       mydir="${fullpath%/*}"  # replaces basename
 
-##### Eval
+#### Eval
 
 **"If eval is the answer, surely you are asking the wrong question."** Avoid if, unless absolutely neccesary:
 

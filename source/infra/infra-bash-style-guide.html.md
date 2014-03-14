@@ -113,9 +113,12 @@ Some notes:
 The basic structure of a script simply reads:
 
       #!SHEBANG
-      CONFIGURATION_VARIABLES
+      GLOBAL_CONFIGURATION_CONSTANTS
       FUNCTION_DEFINITIONS
       MAIN_CODE
+        PARSING_OPTIONS
+        VERIFYING_OPTIONS
+        SIMPLE_MAIN_CODE
 
 ##### The shebang
 
@@ -262,12 +265,12 @@ If you use commands that might not be installed on the system, check for their a
       missing_counter=0
       for needed_command in $my_needed_commands; do
           if ! hash "$needed_command" >/dev/null 2>&1; then
-              printf "Command not found in PATH: %s\n" "$needed_command" >&2
-              ((missing_counter++))
+              echo "Command not found in PATH: $needed_command" >&2
+              missing_counter=$(($missing_counter + 1))
           fi
       done
-      if ((missing_counter > 0)); then
-          printf "Minimum %d commands are missing in PATH, aborting\n" "$missing_counter" >&2
+      if (($missing_counter > 0)); then
+          echo "Minimum $missing_counter commands are missing in PATH, aborting" >&2
           exit 1
       fi
 

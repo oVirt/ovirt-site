@@ -111,6 +111,10 @@ When a labelled network is detached from a cluster, the network will be removed 
 Moving host between cluster that supports 'network labels' to a cluster which doesn't will be blocked if labels are used on that host.
 \* Moving a host that uses labels from version greater than 3.0 to cluster 3.0 will be blocked.
 
+### Networks with roles
+
+If a labeled network is marked on a cluster to act as a display network or migration network, it will be configured on the host via the label with a DHCP boot protocol, so the host will be able to get an IP address automatically for that network. This is a limitation for role networks, and without IP address, the host will not be able to serve vms.
+
 #### Network Label constraints
 
 The network labels feature relies on the 'Setup Networks' API to configure the networks on the hosts.

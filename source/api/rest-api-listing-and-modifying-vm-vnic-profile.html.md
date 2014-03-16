@@ -66,6 +66,11 @@ Add a body(data) with your desired profile(taken from the list above): For examp
 
 An example using CURL client:
 
+    cat update.txt
+    <nic>
+    <vnic_profile href="/ovirt-engine/api/vnicprofiles/874a3706-62af-40ca-9c0e-7d1a1e92ae02" id="874a3706-62af-40ca-9c0e-7d1a1e92ae02"> </vnic_profile>
+    </nic>
+
     curl -v -u admin@internal:1 -H Content-type: application/xml -T update.txt GET http://localhost:8080/ovirt-engine/api/vms/f971c08b-53b6-433a-8b95-e7e1b6f47369/nics/141e8418-4f1e-4e64-8ed5-0257844b7905
 
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -84,11 +89,6 @@ An example using CURL client:
         <active>true</active>
         <plugged>true</plugged>
         <vnic_profile href="/ovirt-engine/api/vnicprofiles/874a3706-62af-40ca-9c0e-7d1a1e92ae02" id="874a3706-62af-40ca-9c0e-7d1a1e92ae02"/>
-    </nic>
-
-    cat update.txt
-    <nic>
-    <vnic_profile href="/ovirt-engine/api/vnicprofiles/874a3706-62af-40ca-9c0e-7d1a1e92ae02" id="874a3706-62af-40ca-9c0e-7d1a1e92ae02"> </vnic_profile>
     </nic>
 
 <Category:Api>

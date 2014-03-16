@@ -64,6 +64,31 @@ Add a body(data) with your desired profile(taken from the list above): For examp
 <vnic_profile href="/ovirt-engine/api/vnicprofiles/874a3706-62af-40ca-9c0e-7d1a1e92ae02" id="874a3706-62af-40ca-9c0e-7d1a1e92ae02"> </vnic_profile>
 </nic>
 
-An example using google’s simple rest client: [file: Change_vm_vnic_profile.png](file: Change_vm_vnic_profile.png)
+An example using CURL client:
+
+    curl -v -u admin@internal:1 -H Content-type: application/xml -T update.txt GET http://localhost:8080/ovirt-engine/api/vms/f971c08b-53b6-433a-8b95-e7e1b6f47369/nics/141e8418-4f1e-4e64-8ed5-0257844b7905
+
+    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <nic href="/ovirt-engine/api/vms/f971c08b-53b6-433a-8b95-e7e1b6f47369/nics/141e8418-4f1e-4e64-8ed5-0257844b7905" id="141e8418-4f1e-4e64-8ed5-0257844b7905">
+        <actions>
+            <link href="/ovirt-engine/api/vms/f971c08b-53b6-433a-8b95-e7e1b6f47369/nics/141e8418-4f1e-4e64-8ed5-0257844b7905/deactivate" rel="deactivate"/>
+            <link href="/ovirt-engine/api/vms/f971c08b-53b6-433a-8b95-e7e1b6f47369/nics/141e8418-4f1e-4e64-8ed5-0257844b7905/activate" rel="activate"/>
+        </actions>
+        <name>vmNic</name>
+        <link href="/ovirt-engine/api/vms/f971c08b-53b6-433a-8b95-e7e1b6f47369/nics/141e8418-4f1e-4e64-8ed5-0257844b7905/statistics" rel="statistics"/>
+        <vm href="/ovirt-engine/api/vms/f971c08b-53b6-433a-8b95-e7e1b6f47369" id="f971c08b-53b6-433a-8b95-e7e1b6f47369"/>
+        <network href="/ovirt-engine/api/networks/2cd31372-3700-4f80-a71d-62ab6086193f" id="2cd31372-3700-4f80-a71d-62ab6086193f"/>
+        <linked>true</linked>
+        <interface>virtio</interface>
+        <mac address="00:01:a4:a7:45:72"/>
+        <active>true</active>
+        <plugged>true</plugged>
+        <vnic_profile href="/ovirt-engine/api/vnicprofiles/874a3706-62af-40ca-9c0e-7d1a1e92ae02" id="874a3706-62af-40ca-9c0e-7d1a1e92ae02"/>
+    </nic>
+
+    cat update.txt
+    <nic>
+    <vnic_profile href="/ovirt-engine/api/vnicprofiles/874a3706-62af-40ca-9c0e-7d1a1e92ae02" id="874a3706-62af-40ca-9c0e-7d1a1e92ae02"> </vnic_profile>
+    </nic>
 
 <Category:Api>

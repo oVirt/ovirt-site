@@ -22,7 +22,9 @@ Use the Put method to change the VM’s nic profile at [http://yourServer:port/o
 
 Add a header for using xml: Content-Type: application/xml
 
-Add a body(data) with your desired profile(taken from the list above): For example: <nic> <vnic_profile href="/ovirt-engine/api/vnicprofiles/874a3706-62af-40ca-9c0e-7d1a1e92ae02" id="874a3706-62af-40ca-9c0e-7d1a1e92ae02"> </vnic_profile> </nic>
+Add a body(data) with your desired profile(taken from the list above): For example: <nic>
+<vnic_profile href="/ovirt-engine/api/vnicprofiles/874a3706-62af-40ca-9c0e-7d1a1e92ae02" id="874a3706-62af-40ca-9c0e-7d1a1e92ae02"> </vnic_profile>
+</nic>
 
 An example using google’s simple rest client: [file: Change_vm_vnic_profile.png](file: Change_vm_vnic_profile.png)
 

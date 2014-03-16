@@ -10,7 +10,7 @@ wiki_last_updated: 2015-01-21
 
 # Governance
 
-The oVirt is a collection of [subprojects](subprojects), each of which shares a framework for its governance, and commits to a common release schedule, but which has its own set of maintainers and community communication channels.
+The Metao is a collection of [subprojects](subprojects), each of which shares a framework for its governance, and commits to a common release schedule, but which has its own set of maintainers and community communication channels.
 
 For issues related to the charter of the oVirt project, and the management and co-ordination of the smooth running of the project, the [oVirt Board](oVirt Board) has ultimate authority. New board members can be voted onto the board by existing board members based on merit.
 

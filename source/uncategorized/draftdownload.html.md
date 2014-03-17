@@ -97,9 +97,12 @@ Our recommended method of installing oVirt is to use the pre-built packages for 
 You should see the ovirt-3.3.3 and ovirt-stable repositories listed in the output of the repolist command.
 
 </div>
+<span>
+
 #### Fedora Installation Instructions
 
-<div class= "mw-collapsible mw-collapsed">
+</span> <span class= "mw-collapsible mw-collapsed">
+
 <div class="alert alert-info">
 **Important:** It is recommended that you install oVirt on Fedora 19, which is the best supported version of the Fedora platform at this time.
 
@@ -132,7 +135,8 @@ You should see the ovirt-3.3.3 and ovirt-stable repositories listed in the outpu
 7.  Congratulations! oVirt Engine is now installed!
 8.  For every virtualization server you'd like to manage, you can now [ set them up as oVirt hosts](Quick Start Guide#Install_Hosts) .
 
-</div>
+</span>
+
 #### Red Hat Enterprise Linux 6/CentOS Installation Instructions
 
 <div class= "mw-collapsible mw-collapsed">

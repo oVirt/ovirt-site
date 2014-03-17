@@ -36,7 +36,9 @@ Minimum Hardware/Software:
 
     * 20 GB disk space
 
-    * Mozilla Firefox 17 or later
+    * Mozilla Firefox 17
+
+    * IE9 and above for the web-admin, IE8 and above for the user portal
 
 Optional Hardware:  
 

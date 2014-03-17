@@ -30,11 +30,13 @@ Experienced users can also compile from source, using the guides for the [ oVirt
 
 <div class="row-fluid">
 <div class="span6">
-Minimum Hardware:  
+Minimum Hardware/Software:  
 
     * 4 GB memory
 
     * 20 GB disk space
+
+    * Mozilla Firefox 17 or later
 
 Optional Hardware:  
 
@@ -55,12 +57,6 @@ Supported Hosts:
     * Gentoo Linux (experimental)
 
     * Debian GNU/Linux (experimental)
-
-Recommended Web Browsers for Engine:  
-
-    * Mozilla Firefox 17 or later
-
-    * Internet Explorer 9 or later
 
 </div>
 </div>

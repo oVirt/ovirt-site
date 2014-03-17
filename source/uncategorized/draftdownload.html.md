@@ -176,7 +176,7 @@ These instructions should work for both Red Hat Enterprise Linux and CentOS. The
 </div>
 ### Supported Guest Distributions
 
-Once oVirt is installed and running, you can proceed to install any number of supported operating systems as guest virtual machines. The table lists what operating systems are supported as guests.
+Once oVirt is installed and running, you can proceed to install any number of supported operating systems as guest virtual machines. The table below lists what operating systems are supported as guests.
 
 <div class= "mw-collapsible mw-collapsed" style="width:800px">
 | Operating System                                                                                                                    | Architecture   |     | SPICE support |

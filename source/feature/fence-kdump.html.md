@@ -90,8 +90,14 @@ There are currently several possible method how to listen for fence_kdump notifi
         -   Since fence_kdump_send can send notification only to predefined list of hosts, on each add/remove host from cluster we will need to update fence_kdump_nodes on each host in cluster and recreate initial ramding for kdump by executing `kdumpctl restart`
         -   Sending to notifications to huge list of hosts can be inefficient
 
-2.  **Host that engine is running on will be used as fencing proxy**
+2.  **Host. that engine is running on. will be used as fencing proxy**
     -   We can execute fence_kdump using same API as other fencing agents on the same host as engine is running on and by analyzing exit code we will know if Non Responsive host is in kdump flow (exit code `0`) or not
     -   **Problems**
         -   API to execute fencing agents on the same host as engine is running is not currently implemented, but it's requested as RFE [BZ891085](https://bugzilla.redhat.com/show_bug.cgi?id=891085)
+        -   UDP connection to port 7410 from all hosts to the host that engine is running on should be allowed
         -   fence_kdump executable can detect only one host in kdump flow at the same time, notifications received from other hosts then requested are ignored. fence_kdump is executed with host name or IP and timeout to wait for notification from the host. So on large clusters when fence_kdump detection will be required for multiple hosts at once and those hosts won't be non responsive due to kdump flow, the timeout before hard fencing is executed will depend on number of hosts to detect kdump on.
+
+3.  **New fence_kdump notification listener will be implemented**
+    -   We can easily implement new listener that will be part of engine and which will receive all fence_kdump notification and will store them in some kind of the map, where key can be IP address of host and value the timestamp when last notification was received. Using this listener we can easily detect kdump flow on multiple hosts at the same time
+    -   **Problems**
+        -   UDP connection to port 7410 from all hosts to the host that engine is running on should be allowed

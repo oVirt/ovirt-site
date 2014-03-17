@@ -94,7 +94,7 @@ Backup logic:
          5. Firewall
          6. Other
        * Create tar file from that directory
-       * Create database backup using pgdump (database configuration should be read from /etc and written into temporary .pgpass file)
+       * Create database backup using pg_dump (database configuration should be read from /etc and written into temporary .pgpass file)
 
 Restore: Phase one (BASH)
 
@@ -104,7 +104,7 @@ Restore: Phase one (BASH)
 Phase two (??)
 
       * Gather all needed information from the backup
-      *  Run otopi based ovirt-engine-setup with special parameters (use pgdump, don't create new PKI)
+      *  Run otopi based ovirt-engine-setup with special parameters (use pg_dump, don't create new PKI)
 
 ### Benefit to oVirt
 

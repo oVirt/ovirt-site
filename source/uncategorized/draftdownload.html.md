@@ -38,7 +38,9 @@ Minimum Hardware/Software:
 
     * Mozilla Firefox 17
 
-    * IE9 and above for the web-admin, IE8 and above for the user portal
+    * IE9 and above for the web-admin
+
+    * IE8 and above for the user portal
 
 Optional Hardware:  
 

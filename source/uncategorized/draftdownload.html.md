@@ -36,6 +36,10 @@ Minimum Hardware/Software:
 
     * 20 GB disk space
 
+Optional Hardware:  
+
+    * Network storage
+
 Recommended browsers:  
 
     * Mozilla Firefox 17
@@ -43,10 +47,6 @@ Recommended browsers:
     * IE9 and above for the web-admin
 
     * IE8 and above for the user portal
-
-Optional Hardware:  
-
-    * Network storage
 
 </div>
 <div class="span6">

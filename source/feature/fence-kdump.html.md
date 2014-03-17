@@ -111,7 +111,7 @@ There are currently several possible method how to listen for fence_kdump notifi
 *   Engine part implementation
     -   Add default fence_kdump_send configuration to engine-config
     -   Add enable/disable fence_kdump to Add/Edit host dialog
-    -   Move host to status Non Operational? if fence_kdump is enabled for host, but vdsm reports error on kdump status
-    -   Implement selectec fence_kdump listener mechanism (see [#Receiving_fence_kdump_notifications](#Receiving_fence_kdump_notifications))
+    -   Move host to status Non Operational if fence_kdump is enabled for host, but vdsm reports error on kdump status
+    -   Implement selected fence_kdump listener mechanism (see [#Receiving_fence_kdump_notifications](#Receiving_fence_kdump_notifications))
 *   oVirt Node
     -   Enable kdump support in kernel

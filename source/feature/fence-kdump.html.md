@@ -56,3 +56,32 @@ The tool has following limitations that should be considered when using it in oV
 Fence kdump will be inserted into current fencing flow just before hard fencing, details are in [Automatic Fencing in oVirt 3.5](Automatic_Fencing#Automatic_Fencing_in_oVirt_3.5).
 
 ## Host configuration
+
+### Enable kdump support
+
+### kdump configuration
+
+### fence_kdump configuration
+
+There's fence_kdump support in package kexec-tools 2.0.4.18, but unfortunately this support is tightly bound to Pacemaker software. Several patches has been proposed to kexec-tools package and you can found discussion about them in those threads:
+
+*   [Adding support for manually configured fence_kdump](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000574.html)
+*   [Adding support for manually configured fence_kdump v2](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000583.html)
+*   [fence_kdump configuration should be in one directory](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000601.html)
+*   [Rename is_fence_kdump to is_pcs_fence_kdump](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000602.html)
+*   [Rename check_fence_kdump to check_pcs_cluster_rebuild](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000603.html)
+*   [Move fence_kdump nodes filtering into separate function](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000604.html)
+*   [Add support for fence_kdump in generic cluster](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000605.html)
+
+If those patches will be accepted, fence_kdump will be configured automatically when executing `kdumpctl restart` if those conditions are satisfied:
+
+*   `/usr/libexec/fence_kdump_send` exists and is executable
+*   `/etc/sysconfig/fence_kdump_nodes` exists
+
+File `/etc/sysconfig/fence_kdump_nodes` should contain list of hosts separated by space which fence_kdump notification should be sent to, for example:
+
+      192.168.1.10 10.34.63.155
+
+There's also optional configuration file `/etc/sysconfig/fence_kdump` which contains fence_kdump_send command line arguments stored in `FENCE_KDUMP_OPTS` variable, for example:
+
+      FENCE_KDUMP_OPTS="-p 7410 -f auto -i 5"

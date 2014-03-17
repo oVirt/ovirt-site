@@ -79,3 +79,19 @@ File `/etc/sysconfig/fence_kdump_nodes` should contain list of hosts separated b
 There's also optional configuration file `/etc/sysconfig/fence_kdump` which contains fence_kdump_send command line arguments stored in `FENCE_KDUMP_OPTS` variable, for example:
 
       FENCE_KDUMP_OPTS="-p 7410 -f auto -i 5"
+
+## Receiving fence_kdump notifications
+
+There are currently several possible method how to listen for fence_kdump notification and detect that host is in kdump flow:
+
+1.  **Using fencing proxy same way as for hard fencing flow**
+    -   On the fencing proxy host (selected host from same cluster/DC as Non Responsive host) we can execute fence_kdump using same API as other fencing agents and by analyzing exit code we will know if Non Responsive host is in kdump flow (exit code `0`) or not
+    -   **Problems**
+        -   Since fence_kdump_send can send notification only to predefined list of hosts, on each add/remove host from cluster we will need to update fence_kdump_nodes on each host in cluster and recreate initial ramding for kdump by executing `kdumpctl restart`
+        -   Sending to notifications to huge list of hosts can be inefficient
+
+2.  **Host that engine is running on will be used as fencing proxy**
+    -   We can execute fence_kdump using same API as other fencing agents on the same host as engine is running on and by analyzing exit code we will know if Non Responsive host is in kdump flow (exit code `0`) or not
+    -   **Problems**
+        -   API to execute fencing agents on the same host as engine is running is not currently implemented, but it's requested as RFE [BZ891085](https://bugzilla.redhat.com/show_bug.cgi?id=891085)
+        -   fence_kdump executable can detect only one host in kdump flow at the same time, notifications received from other hosts then requested are ignored. fence_kdump is executed with host name or IP and timeout to wait for notification from the host. So on large clusters when fence_kdump detection will be required for multiple hosts at once and those hosts won't be non responsive due to kdump flow, the timeout before hard fencing is executed will depend on number of hosts to detect kdump on.

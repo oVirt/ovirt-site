@@ -90,7 +90,7 @@ There are currently several possible methods how to receive fence_kdump notifica
         -   Since fence_kdump_send can send notification only to predefined list of hosts, on each add/remove host from cluster we will need to update fence_kdump_nodes on each host in cluster and recreate initial ramding for kdump by executing `kdumpctl restart`
         -   Sending to notifications to huge list of hosts can be inefficient
 
-2.  **Host. that engine is running on. will be used as fencing proxy**
+2.  **Host, that engine is running on, will be used as fencing proxy**
     -   We can execute fence_kdump using same API as other fencing agents on the same host as engine is running on and by analyzing exit code we will know if Non Responsive host is in kdump flow (exit code `0`) or not
     -   **Problems**
         -   API to execute fencing agents on the same host as engine is running is not currently implemented, but it's requested as RFE [BZ891085](https://bugzilla.redhat.com/show_bug.cgi?id=891085)

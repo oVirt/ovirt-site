@@ -115,7 +115,7 @@ will upgrade to latest 3.3.
 
 ### Node
 
-      oVirt Node for oVirt 3.4 can be found at `[`http://resources.ovirt.org/releases/3.4.0_pre/iso/`](http://resources.ovirt.org/releases/3.4.0_pre/iso/)` .
+oVirt Node for oVirt 3.4 can be found at <http://resources.ovirt.org/releases/3.4.0_pre/iso/> .
 
 There are no big known issues with it, if you run into issue please try Node in permissive mode by appending `enforcing=0` to the kernel cmdline.
 

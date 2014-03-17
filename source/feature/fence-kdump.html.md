@@ -82,7 +82,7 @@ There's also optional configuration file `/etc/sysconfig/fence_kdump` which cont
 
 ## Receiving fence_kdump notifications
 
-There are currently several possible method how to listen for fence_kdump notification and detect that host is in kdump flow:
+There are currently several possible methods how to receive fence_kdump notification and detect that host is in kdump flow:
 
 1.  **Using fencing proxy same way as for hard fencing flow**
     -   On the fencing proxy host (selected host from same cluster/DC as Non Responsive host) we can execute fence_kdump using same API as other fencing agents and by analyzing exit code we will know if Non Responsive host is in kdump flow (exit code `0`) or not

@@ -65,28 +65,4 @@ To profile the entire VDSM, you may use [yappi](http://code.google.com/p/yappi/)
 
 yappi is eaily installable from pip. It is a C extension, so make sure you have the C compiler and the python development packages installed.
 
-A simple way to use yappi is to embed this snippet
-
-         def full_profile():
-             try:
-                 import yappi
-         
-                 def dump_prof():
-                     from tempfile import NamedTemporaryFile
-                     ystats = yappi.get_func_stats()
-                     stats = yappi.convert2pstats(ystats)
-                     prof_file = NamedTemporaryFile(mode='w',
-                                                    prefix='vdsm_yprof',
-                                                    delete=False)
-                     stats.dump_stats(prof_file.name)
-                 import atexit
-                 atexit.register(dump_prof)
-                 yappi.start()
-             except ImportError:
-                 pass
-
-inside the vdsm entry point (vdsm/vdsm or /usr/share/vdsm/vdsm) right after the
-
-         if __name__ == "__main__":
-
-line. The stats are gathered in a tempfile prefixed with the 'vdsm_yprof' string, one file per VDSM run, written when VDSM ends. It is recommended to let VDSM end cleanly.
+**FIXME** explain how to integrate yappi in VDSM

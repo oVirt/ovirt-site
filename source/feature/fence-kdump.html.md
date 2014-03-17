@@ -101,3 +101,5 @@ There are currently several possible method how to listen for fence_kdump notifi
     -   We can easily implement new listener that will be part of engine and which will receive all fence_kdump notification and will store them in some kind of the map, where key can be IP address of host and value the timestamp when last notification was received. Using this listener we can easily detect kdump flow on multiple hosts at the same time
     -   **Problems**
         -   UDP connection to port 7410 from all hosts to the host that engine is running on should be allowed
+
+## Steps required to implement feature

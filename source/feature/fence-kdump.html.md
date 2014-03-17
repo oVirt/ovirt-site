@@ -55,13 +55,7 @@ The tool has following limitations that should be considered when using it in oV
 
 Fence kdump will be inserted into current fencing flow just before hard fencing, details are in [Automatic Fencing in oVirt 3.5](Automatic_Fencing#Automatic_Fencing_in_oVirt_3.5).
 
-## Host configuration
-
-### Enable kdump support
-
-### kdump configuration
-
-### fence_kdump configuration
+## Host configuration to enable fence_kdump
 
 There's fence_kdump support in package kexec-tools 2.0.4.18, but unfortunately this support is tightly bound to Pacemaker software. Several patches has been proposed to kexec-tools package and you can found discussion about them in those threads:
 

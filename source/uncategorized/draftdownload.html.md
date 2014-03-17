@@ -97,9 +97,9 @@ Our recommended method of installing oVirt is to use the pre-built packages for 
 You should see the ovirt-3.3.3 and ovirt-stable repositories listed in the output of the repolist command.
 
 </div>
+<div class= "mw-collapsible mw-collapsed">
 #### Fedora Installation Instructions
 
-<div class= "mw-collapsible mw-collapsed">
 <div class="alert alert-info">
 **Important:** It is recommended that you install oVirt on Fedora 19, which is the best supported version of the Fedora platform at this time.
 

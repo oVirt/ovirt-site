@@ -36,6 +36,8 @@ Minimum Hardware/Software:
 
     * 20 GB disk space
 
+Recommended browsers:  
+
     * Mozilla Firefox 17
 
     * IE9 and above for the web-admin

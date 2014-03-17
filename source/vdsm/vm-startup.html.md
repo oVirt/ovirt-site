@@ -152,6 +152,7 @@ The most important steps are:
 *   reattach to the libvirt's Domain (libvirt jargon)
 *   perform post-creation domain checks (*_domDependentInit*, as seen above).
 *   if the VM was paused, recover the pause code; extend the VM drives if needed.
+*   let the domain continue the execution, sending the *resume* message to it (*_waitForIncomingMigrationFinish*)
 
 ### Migrations and the VM Migration destination flow
 

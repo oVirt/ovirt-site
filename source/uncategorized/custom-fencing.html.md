@@ -1,0 +1,27 @@
+---
+title: Custom Fencing
+authors: emesika
+wiki_title: Custom Fencing
+wiki_revision_count: 11
+wiki_last_updated: 2015-03-18
+---
+
+# Custom Fencing
+
+Here are detailed instructions how to add a custom agent:
+
+a) Add your new agent to VdsFenceType option_value in vdc_options table for the relevant cluster version
+b) Add agent options mappings to VdsFenceOptionMapping option_value in vdc_options table for the relevant cluster version
+c) If the agent maps actually to another agent , add that to FenceAgentMapping option_value in vdc_options
+ Example :
+
+        Adding zzz agent support for version 3.3 that maps internally to ipmi and have just port setting (from: port, slot, secure) that maps to the fencing script ipport
+        a) VdsFenceType for 3.3 becomes "apc,apc_snmp,bladecenter,cisco_ucs,drac5,eps,ilo,ilo2,ilo3,ilo4,ipmilan,rsa,rsb,wti,zzz"
+         b) VdsFenceOptionMapping for 3.3 becomes "apc:secure=secure,port=ipport,slot=port;apc_snmp:port=port;bladecenter:secure=secure,port=ipport,slot=port;cisco_ucs:secure=ssl,slot=port; drac5:secure=secure,slot=port;eps:slot=port;ilo:secure=ssl,port=ipport;ipmilan:;ilo2:secure=ssl,port=ipport;ilo3:;ilo4:;rsa:secure=secure,port=ipport;rsb:;wti:secure=secure,port=ipport,slot=port;zzz:port=ipport"
+         c) FenceAgentMapping becomes "ilo2=ilo,ilo3=ipmilan,ilo4=ipmilan,zzz=ipmilan"
+
+NOTES
+
+1) Please backup your database
+2) You should restart the engine for this to take place
+3) Custom definitions will be overridden in your next upgrade , for the long run please fill RFE so it will be part of the supported agents

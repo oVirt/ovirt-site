@@ -103,3 +103,15 @@ There are currently several possible method how to listen for fence_kdump notifi
         -   UDP connection to port 7410 from all hosts to the host that engine is running on should be allowed
 
 ## Steps required to implement feature
+
+*   Dependency to kexec-tools package should be added to vdsm package
+*   VDSM part implementation
+    -   Ability to detect status of kdump support for host
+    -   fence_kdump configuration management
+*   Engine part implementation
+    -   Add default fence_kdump_send configuration to engine-config
+    -   Add enable/disable fence_kdump to Add/Edit host dialog
+    -   Move host to status Non Operational? if fence_kdump is enabled for host, but vdsm reports error on kdump status
+    -   Implement selectec fence_kdump listener mechanism (see )
+*   oVirt Node
+    -   Enable kdump support in kernel

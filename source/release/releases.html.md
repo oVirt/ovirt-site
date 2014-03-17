@@ -12,50 +12,65 @@ wiki_last_updated: 2014-03-17
 
 Releases directory stucture
 
-      /var/www/html/releases
-      ├── nightly
-      │   ├── fedora
-      │   │   ├── 16
-      │   │   │   ├── i386
-      │   │   │   ├── noarch
-      │   │   │   │   └── ovirt-node-2.1-0.nightly.fc16.noarch.rpm
-      │   │   │   ├── SRPMS
-      │   │   │   │   └── ovirt-node-2.1-0.nightly.fc16.src.rpm
-      │   │   │   └── x86_64
-      │   │   └── 17
-      │   │       ├── i386
-      │   │       ├── noarch
-      │   │       │   └── ovirt-node-2.1-0.nightly.fc17.noarch.rpm
-      │   │       ├── SRPMS
-      │   │       │   └── ovirt-node-2.1-0.nightly.fc17.src.rpm
-      │   │       └── x86_64
-      │   ├── src
-      │   │   └── ovirt_node-2.1.tar.gz
-      │   ├── suse
-      │   │   └── appropriate suse packaging here
-      │   └── ubuntu
-      │       └── appropriate ubuntu packaging here
-      └── stable
-          ├── fedora
-          │   ├── 16
-          │   │   ├── i386
-          │   │   ├── noarch
-          │   │   │   └── ovirt-node-2.1-0.fc16.noarch.rpm
-          │   │   ├── SRPMS
-          │   │   │   └── ovirt-node-2.1-0.fc16.src.rpm
-          │   │   └── x86_64
-          │   └── 17
-          │       ├── i386
-          │       ├── noarch
-          │       │   └── ovirt-node-2.1-0.fc17.noarch.rpm
-          │       ├── SRPMS
-          │       │   └── ovirt-node-2.1-0.fc17.src.rpm
-          │       └── x86_64
-          ├── src
-          │   └── ovirt_node-2.1.tar.gz
-          └── suse
-          │   └── appropriate suse packaging here
-          └── ubuntu
-              └── appropriate ubuntu packaging here
+      For nightly repositories we use this layout. Each nightly (snapshot) needs its -static repo. See the example bellow.
+      ovirt-<version>-snapshot
+      ├── iso
+      ├── rpm
+      │   ├── el6
+      │   │   ├── noarch
+      │   │   ├── repodata
+      │   │   ├── SRPMS
+      │   │   └── x86_64
+      │   ├── fc18
+      │   │   ├── noarch
+      │   │   ├── repodata
+      │   │   └── SRPMS
+      │   └── fc19
+      │       ├── noarch
+      │       ├── repodata
+      │       ├── SRPMS
+      │       └── x86_64
+      └── src
+
+      ovirt-<version>-snapshot-static
+      ├── iso
+      ├── rpm
+      │   ├── el6
+      │   │   ├── noarch
+      │   │   ├── repodata
+      │   │   ├── SRPMS
+      │   │   └── x86_64
+      │   ├── fc18
+      │   │   ├── noarch
+      │   │   ├── repodata
+      │   │   └── SRPMS
+      │   └── fc19
+      │       ├── noarch
+      │       ├── repodata
+      │       ├── SRPMS
+      │       └── x86_64
+      └── src
+
+      For official releases we use:
+      ovirt-<version>
+      ├── iso
+      ├── rpm
+      │   ├── el6
+      │   │   ├── noarch
+      │   │   ├── repodata
+      │   │   ├── SRPMS
+      │   │   └── x86_64
+      │   ├── fc18
+      │   │   ├── noarch
+      │   │   ├── repodata
+      │   │   └── SRPMS
+      │   └── fc19
+      │       ├── noarch
+      │       ├── repodata
+      │       ├── SRPMS
+      │       └── x86_64
+      └── src
+
+      Everything will be inside the repo. Official released shipped with -static repos. You will get all packages inside the repo.
 
 <Category:Releases>

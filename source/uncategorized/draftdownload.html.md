@@ -137,7 +137,7 @@ You should see the ovirt-3.3.3 and ovirt-stable repositories listed in the outpu
 </div>
 #### <span class="mw-customtoggle-0" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Show/hide]</span></span>Red Hat Enterprise Linux 6/CentOS Installation Instructions
 
-<div class= "mw-collapsible mw-collapsed">
+<div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 These instructions should work for both Red Hat Enterprise Linux and CentOS. They will likely work with other binary compatible EL6 versions as well, but they were not tested. It is strongly recommended that you use at least version 6.4 of RHEL or CentOS.
 
 <div class="alert alert-info">

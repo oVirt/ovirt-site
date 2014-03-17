@@ -141,6 +141,18 @@ WRITEME further notes about recovery
 
 This execution flow let a VM restart from a saved checkpoint, either from snapshot or from hibernation. Under the hood this is implemented as special migration case, **migration to file**.
 
+The most important steps are:
+
+*   translation of the device data sent to engine in the internal data structure (*buildConfDevices*)
+*   normalization of devices and enforcing the device limits (*preparePaths*, *_prepareTransientDisks* et al. See point below)
+*   setup of the drive paths/images: oVirt uses shared storage and this has to be set before a VM can run; this is done by using the services provided by the VDSM storage subsystem
+*   translate the internal data representation into the libvirt XML format (*_buildCmdLine*)
+*   update the XML representation using the XML data recevied ([?] by engine? **TODO: verify**). Optionally, adjust the device/image paths
+*   prepare the volume paths (*prepareVolumePath*)
+*   reattach to the libvirt's Domain (libvirt jargon)
+*   perform post-creation domain checks (*_domDependentInit*, as seen above).
+*   if the VM was paused, recover the pause code; extend the VM drives if needed.
+
 ### Migrations and the VM Migration destination flow
 
 In order to properly describe the 'Migration destination' flow is beneficial to step back and describe the whole migration flow on its entirety. On this page, the focus is still on the VM creation phase, so more detailed description of Migration is demanded to other wiki pages.

@@ -12,8 +12,15 @@ wiki_last_updated: 2014-03-17
 
 Releases directory stucture
 
-      For nightly repositories we use this layout. Each nightly (snapshot) needs its -static repo. See the example bellow.
-      ovirt-<version>-snapshot
+**Nightly repositories**
+
+For nightly repositories we use this layout. Each nightly (snapshot) needs its -static repo. See the example bellow.
+
+**Official Releases**
+
+For official releases we use the bellow layouts. Official released shipped without -static repos. You will get all packages inside the repo.
+
+      ovirt-<version>[-snapshot]
       ├── iso
       ├── rpm
       │   ├── el6
@@ -50,27 +57,5 @@ Releases directory stucture
       │       ├── SRPMS
       │       └── x86_64
       └── src
-
-      For official releases we use:
-      ovirt-<version>
-      ├── iso
-      ├── rpm
-      │   ├── el6
-      │   │   ├── noarch
-      │   │   ├── repodata
-      │   │   ├── SRPMS
-      │   │   └── x86_64
-      │   ├── fc18
-      │   │   ├── noarch
-      │   │   ├── repodata
-      │   │   └── SRPMS
-      │   └── fc19
-      │       ├── noarch
-      │       ├── repodata
-      │       ├── SRPMS
-      │       └── x86_64
-      └── src
-
-      Everything will be inside the repo. Official released shipped with -static repos. You will get all packages inside the repo.
 
 <Category:Releases>

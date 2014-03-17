@@ -200,9 +200,6 @@ Once oVirt is installed and running, you can proceed to install any number of su
 | Windows Server 2012 R2                                                                                                              | 64-bit         |     | No            |
 
 </div>
-
-------------------------------------------------------------------------
-
 Now that you have oVirt running, check out the [ documentation section](documentation) for more information and be sure to [ join our community](community)!
 
 Help [ develop the software](develop), take part in discussions on the [mailing lists](mailing lists) and join us [ on IRC](communication#IRC).

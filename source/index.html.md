@@ -136,7 +136,7 @@ To date, the work has paid off very well, with nearly 1,100 VMware virtual machi
 
 <div style="clear:both; display: inline-block;">
 <div class="pull-right">
-Read the full [IT_Novum_case_study](IT_Novum_case_study)
+Read the full [ IT Novum case study](IT_Novum_case_study)
 
 </div>
 <div class="pull-right">

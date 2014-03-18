@@ -16,7 +16,7 @@ Some things are just going to be obvious from the start. For German open source 
 
 IT Novum is a provider of robust enterprise-grade open source business solutions, an SAP partner, and a long-time partner of open source infrastructure products and applications, explained Director of Infrastructure Solutions Steffen Rieger. The company was started in the 1990s as an SAP infrastruture provider for its parent organization KAP-AG, but in 2001, IT Novum became a provider to external customers as well. Today the company has about 60 customers and employs about 75 people in their offices in Fulda, Germany and Vienna, Austria.
 
-IT Novum is a company that's very focused on delivering open source, so when they decided to build a product and solution set for ther customers' datacenter needs, it made sense that oVirt was included.
+IT Novum is a company that's very focused on delivering open source, so when they decided to build a product and solution set for their customers' datacenter needs, it made sense that oVirt was included.
 
 But oVirt wasn't the first tool in IT Novum's open source datacenter project.
 

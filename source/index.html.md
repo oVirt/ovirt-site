@@ -125,18 +125,18 @@ You're encouraged to [ join the oVirt community](Community), and help us bring o
 ### User Case Study
 
 <div class="text-center">
-![](Nwld_logo.png "Nwld_logo.png")
+![](Itnovumlogo.png "Itnovumlogo.png")
 
 </div>
-Dutch software development company [ Nieuwland Geo-Informatie](Nieuwland case study) creates mobile applications that need to tap into a lot of geographic information in a reliable and fast manner. To do this, they needed a virtualization solution that would have high availability at a reasonable cost
+[IT Novum](IT_Novum_case_study) is a company that's very focused on delivering open source, so when they decided to build a product and solution set for their customers' datacenter needs, it made sense that oVirt was included.
 
-“We didn't want VMware. Too expensive. There was already a heavy investment in Linux, so switching to Microsoft HyperV was no option, either; too costly,” Beyond cost, live migration was another other major reason Nieuwland decided to go with oVirt.
+"RHEV and oVirt are the most advanced KVM management solutions and the only ones we found that were up to par with what VMware provides. Since oVirt is closer to the development process and the community is always helpful in solving problems, we decided to go with oVirt."
 
-It's not just about code; the oVirt community has been a big plus for Nieuwland, which is happy with the level of community support and being able to help others. This give-and take is a big part of why Nieuwland is pleased with oVirt.
+To date, the work has paid off very well, with nearly 1,100 VMware virtual machines successfully migrated to oVirt.
 
 <div style="clear:both; display: inline-block;">
 <div class="pull-right">
-Read the full [Nieuwland case study](Nieuwland case study)
+Read the full [IT_Novum_case_study](IT_Novum_case_study)
 
 </div>
 <div class="pull-right">

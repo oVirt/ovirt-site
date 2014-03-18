@@ -10,9 +10,9 @@ wiki_last_updated: 2014-07-31
 ## Vdsm Coding Guidelines
 
 *   Vdsm is written in Python (at least mostly), and its coding style should follow the best practices of Python coding, unless otherwise declared.
-*   PEP8 is holy
+*   [PEP8](http://legacy.python.org/dev/peps/pep-0008/) is holy.
 *   API calls and arguments are mixedCased, but new internal modules should use underscore_separated_names.
-*   Class names are in CamelCase
+*   Class names are in CamelCase.
 *   All indentation is made of the space characters. Tabs are evil. In makefiles, however, tabs are obligatory.
 *   Whitespace between code stanzas are welcome. They help to breath while reading long code. However, splitting them to helper functions could be even better.
 *   Let logging method do the formatting for you:

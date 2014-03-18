@@ -10,8 +10,6 @@ wiki_last_updated: 2014-07-21
 
 # OVirt 3.4 Release Notes
 
-DRAFT DRAFT DRAFT
-
 The oVirt Project is pleased to announce the availability of its fifth formal release, oVirt 3.4.
 
 oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
@@ -81,8 +79,9 @@ oVirt 3.4 adds a preview of a [Hot-plug CPU](Hot_plug_cpu) feature that enables 
 
 #### Storage
 
+*   [Multiple Storage Domains](Features/MultipleStorageDomains) enables a virtual machine to spread its disks across several storage domains within the same datacenter.
 *   [Read Only Disk for Engine](Features/Read_Only_Disk) gives Engine the read-only disk capability already found in VDSM.
-*   [Single-disc Snapshot](Features/Single_Disk_Snapshot) enables the creation of a customized snapshot, allowing the user to select from which disks to take a snapshot.
+*   [Single-disk Snapshot](Features/Single_Disk_Snapshot) enables the creation of a customized snapshot, allowing the user to select from which disks to take a snapshot.
 
 #### SLA & Scheduling
 

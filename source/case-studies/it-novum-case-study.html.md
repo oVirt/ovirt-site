@@ -63,3 +63,4 @@ Moving forward, IT Novum is integrating their open cloud management system, with
 </div>
 </div>
 </div>
+[Category:Case studies](Category:Case studies) <Category:Community>

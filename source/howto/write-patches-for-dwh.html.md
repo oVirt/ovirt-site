@@ -30,7 +30,7 @@ Follow the following steps:
 
          ./ovirt-dwh/packaging/dbscripts/upgrade/
 
-When necessary, update the new column values before removing a related column.
+When needed, update the new column values before removing a related column.
 
 *   Test to verify the expected results
 
@@ -42,4 +42,21 @@ In order to rerun an upgrade file, please remove from the "schema_version" table
 
 and change for the previous line the "current" column to TRUE.
 
--
+### If a change to the history views is required
+
+Follow the following steps:
+
+*   Have a cloned ovirt-engine git repository
+*   Setup a postgreSQL "engine" DB.
+*   Make the necessary changes for the latest views:
+
+        ./ovirt-dwh/packaging/dbscripts/create_views_X_Y.sql
+
+#### Maintain Legacy views - Make the necessary changes to former views
+
+*   If a column that existed in former versions was **removed** or its **type was changed**,
+
+It is **mandatory** to make the change to former views so the API will not brake.
+
+*   -   If Removed , add the column as Null value casted to the column type
+    -   If the type of the column changed, make sure to cast the column to the previous type.

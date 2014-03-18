@@ -26,7 +26,7 @@ First, Rieger explained, IT Novum started with a Nagios-based monitoring solutio
 
 The next step was migrating their service management tools to open source, building OTRS, a ticketing system for incidents and changes, and i-doit, a change management database.
 
-IT Novum would build their own open source storage platform as well, combining several open source tools under one Python front end, called openATTIC. Eventually, the company migrated all of their storage systems from NetApp to openATTIC.
+IT Novum would build their own open source storage platform as well, combining several open source tools under one Python front end, called openATTIC. Eventually, the company migrated all of their storage systems to openATTIC.
 
 Finally, IT Novum set their sights on an open source datacenter management platform. But initially, that wasn't oVirt: IT Novum first went with Red Hat Enterprise Virtualization Manager, but Rieger said, "we did not have such a good experience with this, so we changed to oVirt, which fulfilled all of the requirements we had."
 

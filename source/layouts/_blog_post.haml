@@ -9,6 +9,7 @@
 
   author = article.data.author
   article_view = (article.url == current_page.url)
+  summarize ||= summarize
 
   def author_data item
     data.authors[item] if defined? data.authors[item]
@@ -97,16 +98,21 @@
         .entry-summary.hidden= markdown_to_html article.data.summary
 
   %section.post-content.entry-content
-    - if defined? summarize
-      = demote_headings article.summary summarize
-      .more-link
-        = link_to "Read More &raquo;", article.url
-    - else
+    - summary = article.summary summarize
+
+    - if article_view
       = demote_headings article.body
 
-      - unless article_view
+    - else
+      = demote_headings summary
+
+      - if article.body == summary
         .more-link
           = link_to "Add a comment &raquo;", "#{article.url}#blog-comments"
+      - else
+        .more-link
+          = link_to "Read More &raquo;", article.url
+
 
   %footer.post-meta
     - if article.data.tags

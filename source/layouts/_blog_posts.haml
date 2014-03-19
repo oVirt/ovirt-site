@@ -4,9 +4,11 @@
   #
   # = partial :blog_posts, locals: locals
 
+  summarize ||= summarize
+
 %section.articles
 
   - page_articles.each do |article|
-    = partial :blog_post, locals: {article: article}
+    = partial :blog_post, locals: {article: article, summarize: summarize}
 
   = partial :blog_pagination, locals: locals

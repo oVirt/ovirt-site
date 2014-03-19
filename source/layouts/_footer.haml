@@ -1,6 +1,11 @@
-#footer.text-center
+%footer#footer.text-center
 
   %hr.visible-print
+
+  - if data.site.footer_links
+    %ul.footer-nav-list
+      - data.site.footer_links.each do |name, url|
+        %li= link_to name.strip, url.strip, target: "_blank"
 
   =# data.site.founding_year
   - founding = data.site.founding_year

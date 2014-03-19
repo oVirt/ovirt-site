@@ -119,22 +119,24 @@ If the above command doesn't work for you, try using a distribution-specific nam
 *   **Note:** On Fedora 19 you'll need to enable fedora-updates repository for having updated openstack packages (was in fedora-updates-testing until Jan 23th - you might want to run 'yum clean all').
 *   **Note:** On Fedora 19, you'll need to enable fedora-virt-preview repository for using Fedora 19 as node on 3.4 clusters.
 
-Once ovirt-release is updated, enable the ovirt-3.4.0 repository.
+Once ovirt-release is updated, you will have the ovirt-3.4-stable repository enabled by default.
+
+If you're updating from a pre release version and you want to have rollback support, you'll need to enable ovirt-3.4-prerelease repository.
 
 **For CentOS / RHEL:**
 
-          [ovirt-3.4.0-prerelease]
-          name=Pre release builds of the oVirt 3.4 project
-`    baseurl=`[`http://resources.ovirt.org/releases/3.4.0_pre/rpm/EL/$releasever/`](http://resources.ovirt.org/releases/3.4.0_pre/rpm/EL/$releasever/)
+          [ovirt-3.4-prerelease]
+          name=Latest oVirt 3.4 Pre Releases (Beta to Release Candidate)
+`    baseurl=`[`http://resources.ovirt.org/releases/3.4_pre/rpm/EL/$releasever/`](http://resources.ovirt.org/releases/3.4_pre/rpm/EL/$releasever/)
           enabled=1
           skip_if_unavailable=1
           gpgcheck=0
 
 **For Fedora:**
 
-          [ovirt-3.4.0-prerelease]
-          name=Pre release builds of the oVirt 3.4 project
-`    baseurl=`[`http://resources.ovirt.org/releases/3.4.0_pre/rpm/Fedora/$releasever/`](http://resources.ovirt.org/releases/3.4.0_pre/rpm/Fedora/$releasever/)
+          [ovirt-3.4-prerelease]
+          name=Latest oVirt 3.4 Pre Releases (Beta to Release Candidate)
+`    baseurl=`[`http://resources.ovirt.org/releases/3.4_pre/rpm/Fedora/$releasever/`](http://resources.ovirt.org/releases/3.4_pre/rpm/Fedora/$releasever/)
           enabled=1
           skip_if_unavailable=1
           gpgcheck=0
@@ -143,7 +145,7 @@ Once ovirt-release is updated, enable the ovirt-3.4.0 repository.
 
 If you're installing oVirt 3.4 on a clean host, you should read our [Quick Start Guide](Quick Start Guide).
 
-If you're using nightly repo you'll need to run:
+If you're using pre-release repo you'll need to run:
 
           # yum update "ovirt-engine-setup*"
           # engine-setup

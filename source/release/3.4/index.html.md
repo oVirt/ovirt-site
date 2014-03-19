@@ -10,6 +10,8 @@ wiki_last_updated: 2014-07-21
 
 # OVirt 3.4 Release Notes
 
+__NOTOC__
+
 The oVirt Project is pleased to announce the availability of its fifth formal release, oVirt 3.4.
 
 oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
@@ -73,7 +75,7 @@ oVirt 3.4 adds a preview of a [Hot-plug CPU](Hot_plug_cpu) feature that enables 
 
 *   [Multi-Host Network Configuration](Features/MultiHostNetworkConfiguration) allows the administrator to modify a network (i.e., VLAN-id or MTU) that is already provisioned by the hosts and to apply the network changes to all of the hosts within the datacenter to which the network is assigned. The feature will be enabled for 3.1 datacenters and above, regardless of cluster level in order to avoid inconsistency between hosts network configuration in various clusters.
 
-##### Planned Features: Networking
+**Planned Features: Networking**
 
 *   [Host Network Quality of Service](Features/Detailed_Host_Network_QoS) provides the means to control the traffic of a specific network through a host's physical interface. It is a natural extension of the [VM Network QoS](Features/Network_QoS) feature, which provided the same functionality for a VM network through a VM's virtual interface. This feature was planned for oVirt 3.4, but is postponed until oVirt 3.5.
 

@@ -28,7 +28,7 @@ Read the full [Alter Way case study](Alter Way case study)
 <div class="span6 pad-left pad-right-small">
 ### IT Novum
 
-![](Itnovumlogo.png "Itnovumlogo.png")
+![](It-novum.jpg‎ "It-novum.jpg‎")
 
 [IT Novum](IT_Novum_case_study) is a company that's very focused on delivering open source, so when they decided to build a product and solution set for their customers' datacenter needs, it made sense that oVirt was included.
 

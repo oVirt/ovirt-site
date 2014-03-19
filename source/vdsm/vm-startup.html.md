@@ -34,6 +34,8 @@ This document is work in progress and requently updated, for content and for sty
 
 ## Summary of the status quo
 
+A (more) succint presentation about the topics described on this page:
+
 ### Introduction
 
 Inside VDSM, a VM object encapsulate all the data and methods needed to fullfill the oVirt engine requests and commands, to keep track of the VM status (e.g. resource accounting) and to interact with the hypervisor, theough libvirt.

@@ -2,6 +2,9 @@ name: Springboard for Middleman
 subhead: Static site construction kit
 domain: yourdomain.org
 
+# Be sure to set up and install Juvia before enabling!
+#has_comments: true
+
 # Optional logo. If commented out, it will not be used.
 logo: logo.png
 

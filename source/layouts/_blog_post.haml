@@ -106,12 +106,13 @@
     - else
       = demote_headings summary
 
-      - if article.body == summary
-        .more-link
-          = link_to "Add a comment &raquo;", "#{article.url}#blog-comments"
-      - else
-        .more-link
-          = link_to "Read More &raquo;", article.url
+      - case
+        - when article.body == summary && data.site.has_comments
+          = link_to "Add a comment &raquo;", "#{article.url}#blog-comments", class: ".more-link.add-comment"
+        - when article.body == summary && !data.site.has_comments
+          = link_to "View article &raquo;", article.url, class: ".more-link.view-article"
+        - when article.body != summary
+          = link_to "Read More &raquo;", article.url, class: ".more-link.read-more"
 
 
   %footer.post-meta

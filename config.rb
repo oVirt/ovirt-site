@@ -13,9 +13,6 @@ activate :automatic_image_sizes
 # Syntax highlighting
 activate :syntax
 
-# Bootstrap navbar
-activate :bootstrap_navbar
-
 # Make URLs relative
 set :relative_links, true
 
@@ -39,6 +36,10 @@ set :markdown,
   tables: true
 
 set :markdown_engine, :redcarpet
+
+# Add an AsciiDoc filter to HAML
+# (Use ':asciidoc' for AsciiDoctor-powered blocks in HAML)
+Haml::Filters.register_tilt_filter "AsciiDoc"
 
 set :asciidoctor,
   :toc => true,
@@ -209,7 +210,7 @@ configure :build do
   # Minify JavaScript and CSS on build
   activate :minify_javascript
   activate :minify_css
-  activate :gzip
+  #activate :gzip
 
   # Force a browser reload for new content by using
   # asset_hash or cache buster (but not both)

@@ -57,12 +57,6 @@ gem "oj"
 # locking to 3.0.0 for now
 gem "bootstrap-sass", "3.0.0"
 
-# Bootstrap 3 version of navbar (from a fork; temporary also):
-gem "bootstrap-navbar", github: "delynn/bootstrap-navbar"
-
-# Bootstrap-navbar integration for Middleman
-gem "middleman-bootstrap-navbar"
-
 
 #####
 # Formats

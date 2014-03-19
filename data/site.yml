@@ -2,6 +2,9 @@ name: Springboard for Middleman
 subhead: Static site construction kit
 domain: yourdomain.org
 
+# Be sure to set up and install Juvia before enabling!
+#has_comments: true
+
 # Optional logo. If commented out, it will not be used.
 logo: logo.png
 
@@ -17,6 +20,12 @@ logo: logo.png
 
 # Manual copyright string, to override the automatic one
 #copyright: "&copy; 2013 YOUR_NAME_HERE"
+
+
+# Optional footer links
+#footer_links:
+  #About: /about
+  #Offsite example: http://example.com/
 
 
 ## If unspecified, timezone defaults to UTC

@@ -26,15 +26,15 @@ Read the full [Alter Way case study](Alter Way case study)
 
 </div>
 <div class="span6 pad-left pad-right-small">
-### IT Novum
+### it-novum
 
 ![](It-novum.jpg‎ "It-novum.jpg‎")
 
-[IT Novum](IT_Novum_case_study) is a company that's very focused on delivering open source, so when they decided to build a product and solution set for their customers' datacenter needs, it made sense that oVirt was included.
+[it-novum](IT_Novum_case_study) is a company that's very focused on delivering open source, so when they decided to build a product and solution set for their customers' datacenter needs, it made sense that oVirt was included.
 
 "RHEV and oVirt are the most advanced KVM management solutions and the only ones we found that were up to par with what VMware provides. Since oVirt is closer to the development process and the community is always helpful in solving problems, we decided to go with oVirt."
 
-Read the full [ IT Novum case study](IT_Novum_case_study)
+Read the full [ it-novum case study](IT_Novum_case_study)
 
 </div>
 <div class="span6 pad-left pad-right-small">

@@ -128,5 +128,6 @@ All files are relative to /etc/pki/ovirt-engine.
 *   No protocol for CA interaction to allow using different CA implementations.
 *   Certificate of database encryption should be separate certificate.
 *   Certificate of spice SSL should be separate certificate.
+*   Engine does not validate vdsm's certificate's name to match remote address.
 
 <Category:Feature> <Category:Security>

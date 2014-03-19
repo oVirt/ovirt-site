@@ -27,7 +27,7 @@ Remove PKI usage from Engine<-->VDSM communications.
 
 The mutual authentication method between engine<-->VDSM is internal implementation decision as no other component should access vdsm directly.
 
-### Solution
+### Solution #1
 
 As JSSE (Java) and Python SSL are only capable of using X.509 certificate for SSL key exchange, and due to export regulations implication of introducing a new encryption protocol, solution should not use own encryption algorithm nor encryption protocol.
 
@@ -39,8 +39,6 @@ When SSL connection is established, each party will acquire other party's self s
 
 Implementation should support several keys at each side to allow flexibility of several managers / fail over.
 
-File RFE against libvirt to allow sending generic messages between libvirt and libvirtd for vdsm to be able to communicate with other vdsm during migrationCreate, or use the engine as a transport.
-
 #### Optional Enhancement
 
 In order to support SSL termination proxy [Not supported right now, and unlikely that it will], another layer of authentication is required.
@@ -48,6 +46,14 @@ In order to support SSL termination proxy [Not supported right now, and unlikely
 One alternative is to use PK signature using both party's private keys.
 
 Another alternative is to use symmetric key authentication, a key that is generated and stored at host side and at engine database, by using symmetric key authentication sequence to authenticate, example Augmented PAKE.
+
+### Solution #2
+
+Have vdsm to connect using HTTPS to engine, and authenticate using PAKE based on symmetric key that is generated during host-deploy. This will remove the need to enroll certificate to all vdsms, and will enable us to issue engine certificate using 3rd party certificate with no complexity.
+
+### Prerequisites
+
+File RFE against libvirt to allow sending generic messages between libvirt and libvirtd for vdsm to be able to communicate with other vdsm during migrationCreate, or use the engine as a transport, or make the engine issue migrationCreate to destination.
 
 ### PKI
 

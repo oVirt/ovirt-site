@@ -100,11 +100,11 @@ oVirt 3.4 adds a preview of a [Hot-plug CPU](Hot_plug_cpu) feature that enables 
 
 ## Install / Upgrade from Previous Versions
 
-oVirt 3.4 is now available for use. In order to install it, you need to update ovirt-release to 10.0.1 or newer by running
+oVirt 3.4 is now available for use. In order to install it, you need to update the ovirt-release package to 10.0.1 or newer by running
 
            # yum update ovirt-release
 
-If the above command doesn't work for you, try using distribution specific name:
+If the above command doesn't work for you, try using a distribution-specific name:
 
 **CentOS:**
 
@@ -119,7 +119,7 @@ If the above command doesn't work for you, try using distribution specific name:
 *   **Note:** On Fedora 19 you'll need to enable fedora-updates repository for having updated openstack packages (was in fedora-updates-testing until Jan 23th - you might want to run 'yum clean all').
 *   **Note:** On Fedora 19, you'll need to enable fedora-virt-preview repository for using Fedora 19 as node on 3.4 clusters.
 
-and then enable ovirt-3.4.0 repository.
+Once ovirt-release is updated, enable the ovirt-3.4.0 repository.
 
 **For CentOS / RHEL:**
 

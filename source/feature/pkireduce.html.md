@@ -39,6 +39,8 @@ When SSL connection is established, each party will acquire other party's self s
 
 Implementation should support several keys at each side to allow flexibility of several managers / fail over.
 
+During migrationCreate engine will send the public key of the other side to each of the nodes, to enable status exchange.
+
 #### Optional Enhancement
 
 In order to support SSL termination proxy [Not supported right now, and unlikely that it will], another layer of authentication is required.

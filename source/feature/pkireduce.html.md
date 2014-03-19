@@ -1,0 +1,59 @@
+---
+title: PKIReduce
+category: feature
+authors: alonbl
+wiki_category: Feature
+wiki_title: Features/PKIReduce
+wiki_revision_count: 11
+wiki_last_updated: 2014-07-01
+---
+
+# PKI Reduce
+
+### Current Implementation
+
+[Features/PKI](Features/PKI)
+
+### Problems in Current Implementation
+
+[Features/PKI#Caveats](Features/PKI#Caveats)
+
+### Mission
+
+Remove PKI usage from Engine<-->VDSM communications.
+
+1.  Simpler implementation -- No need to manage expiration/revocation, there is no point in doing so since as long as host is added to engine it is active.
+2.  Easier to rational the reason not to use 3rd party CA for communications.
+
+The mutual authentication method between engine<-->VDSM is internal implementation decision as no other component should access vdsm directly.
+
+### Solution
+
+As JSSE (Java) and Python SSL are only capable of using X.509 certificate for SSL key exchange, and due to export regulations implication of introducing a new encryption protocol, solution should not use own encryption algorithm nor encryption protocol.
+
+Instead of using PKI, the engine and vdsm will use self signed certificates. Instead of using PKI (Public Key Infrastructure), the trust will be established using PK (no Infrastructure). This means that each party holds the public key of the other party, and use it to validate the authenticity of the connection.
+
+The host-deployment is performed using SSH session, in which the engine initiate the connection and optionally check the SSH public key fingerprint of remote host. Once deployed the engine will store its public key within host and retrieve the public key of the host into the database.
+
+When SSL connection is established, each party will acquire other party's self signed certificate and validate it against the expected one.
+
+Implementation should support several keys at each side to allow flexibility of several managers / fail over.
+
+#### Optional Enhancement
+
+In order to support SSL termination proxy [Not supported right now, and unlikely that it will], another layer of authentication is required.
+
+One alternative is to use PK signature using both party's private keys.
+
+Another alternative is to use symmetric key authentication, a key that is generated and stored at host side and at engine database, by using symmetric key authentication sequence to authenticate, example Augmented PAKE.
+
+### PKI
+
+The following component will will keep using PKI:
+
+1.  libvirt
+2.  spice/vnc
+
+Engine will be modified to be able to re-enroll these certificate without having to re-deploy vdsm, to allow renewal or transition between internal CA to 3rd party CA.
+
+<Category:Feature> <Category:Security>

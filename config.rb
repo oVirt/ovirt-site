@@ -210,7 +210,7 @@ configure :build do
   # Minify JavaScript and CSS on build
   activate :minify_javascript
   activate :minify_css
-  activate :gzip
+  #activate :gzip
 
   # Force a browser reload for new content by using
   # asset_hash or cache buster (but not both)

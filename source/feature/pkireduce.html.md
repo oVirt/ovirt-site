@@ -53,7 +53,7 @@ Another alternative is to use symmetric key authentication, a key that is genera
 
 Have vdsm to connect using HTTPS to engine, and authenticate using PAKE based on symmetric key that is generated during host-deploy. This will remove the need to enroll certificate to all vdsms, and will enable us to issue engine certificate using 3rd party certificate with no complexity.
 
-### Prerequisites
+#### Prerequisites
 
 Move migrationCreate to engine, once sanlock is used all over, so that vdsm will not need to send migrationCreate to the other vdsm. Or File RFE against libvirt to allow sending generic messages between libvirt and libvirtd for vdsm to be able to communicate with other vdsm during migrationCreate.
 

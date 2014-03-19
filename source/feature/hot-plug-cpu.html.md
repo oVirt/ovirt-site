@@ -247,7 +247,7 @@ Due to libvirt bug on unplug the engine has an inconsistent view of the amount o
 i.e after unplugging 4 vcpus to 2 vcpus the VM entity in DB has 4 and in qemu process it will decrease to 2
 
 **status:** in progress
- **related bugs:** [1075602](https://bugzilla.redhat.com/show_bug.cgi?id=1075602)
+ **related bugs:** [1077515](https://bugzilla.redhat.com/show_bug.cgi?id=1077515)
 
 #### block Unplug
 

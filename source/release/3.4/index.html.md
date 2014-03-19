@@ -194,7 +194,7 @@ will upgrade to latest 3.3.
 *   Host deployment may fail on EL6 system due to a recently tuned regression (, ). Please downgrade tuned to previous version while waiting for a new tuned package to solve this issue.
 
 </div>
-## <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Show/hide]</span></span>Bugs Fixed
+## <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed
 
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine

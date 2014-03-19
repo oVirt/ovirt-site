@@ -181,7 +181,7 @@ this will upgrade your system to latest 3.2. Once you've all working on 3.2, ena
 
 will upgrade to latest 3.3.
 
-## <span class="mw-customtoggle-0" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/hide]</span></span>Known Issues
+## <span class="mw-customtoggle-0" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Known Issues
 
 <div  id="mw-customcollapsible-0" class="mw-collapsible mw-collapsed">
 *   EL >= 6.5 or cloud-init >= 0.7.2 are needed for cloud-init feature support ()

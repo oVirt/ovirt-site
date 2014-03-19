@@ -53,7 +53,7 @@ Moving forward, IT Novum is integrating their open cloud management system, with
 </div>
 <div class="span4 pad-sides">
 <div class="well well-lg">
-![](Itnovumlogo.png "Itnovumlogo.png")
+![](It-novum.jpg‎ "It-novum.jpg‎")
 
 **Name:** [IT Novum](//www.it-novum.com/)
 **Activity:** IT Business Solutions

@@ -246,27 +246,31 @@ hook support is provided to solve potential problems with online/offline the cpu
 Due to libvirt bug on unplug the engine has an inconsistent view of the amount of CPUs the VM has.
 i.e after unplugging 4 vcpus to 2 vcpus the VM entity in DB has 4 and in qemu process it will decrease to 2
 
-lets break to 2 problems to solve:
+status: in progress related bugs: [1075602](https://bugzilla.redhat.com/show_bug.cgi?id=1075602)
 
-*   inconsistent view
+#### block Unplug
 
-to bridge a new entry under vm_dynamic will should the actual vcpu allocation
+*   block unplug operation (based on static vm cpu count)
+*   engine can do
+*   UI grey-out lower values
+*   vdc_option for unplug=false in 3.4 till otherwise be it supported.
+*   add it to engine-config so its exposed to admins
 
-this new field will be reported by the ***VDSM-guest-agent***
+#### notify VDSM Guest Agent
 
-the whole cpu topology will also be reported
+*   call vga (vdsm guest agent) setNumCpus(num:int)
+*   log if unsupported operation on guest
+*   call setnumofCpu will trigger a refresh
 
-an audit log will be sent once a day if we detect that (actual vcpu) != (vm.socket \* vm.coresPerSocket)
+#### report topology
 
-*   hot unplug bug workaround
+*   report the CPU topology under VM subtab
 
-instead of unplugging , we can try to offline the cpu instead, again using the ***VDSM-guest-agent***
+      TODO scketch it
 
-this raises question about what happens to the virtualization thread that is dedicated for the cpu when it offlines - can the host use it
+*   format of the topology (Vinzenz please fill in)
 
-for other VMs? i.e is this resource is reclaimed?
-
-VDSM-guest-agent work for reporting this is already in progress - <http://gerrit.ovirt.org/23268>
+note: VDSM-guest-agent work for reporting this is already in progress - <http://gerrit.ovirt.org/23268>
 
 ### Testing
 

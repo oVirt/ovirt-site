@@ -39,6 +39,8 @@ When SSL connection is established, each party will acquire other party's self s
 
 Implementation should support several keys at each side to allow flexibility of several managers / fail over.
 
+File RFE against libvirt to allow sending generic messages between libvirt and libvirtd for vdsm to be able to communicate with other vdsm during migrationCreate, or use the engine as a transport.
+
 #### Optional Enhancement
 
 In order to support SSL termination proxy [Not supported right now, and unlikely that it will], another layer of authentication is required.

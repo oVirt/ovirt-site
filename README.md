@@ -1,41 +1,59 @@
 # Middleman-Springboard
 
 Springboard is a starter-pack for Middleman, for quickly whipping together
-static-based comSpringboard websites.
+static-based websites.
 
-Think of "comSpringboard" without the "com". Springboard means "freedom" and
-"security" — which are things a static site can help to bring (on
-a small scale).
-
-
-## Installation
- 
-1. Clone this repo into `~/.middleman`. You will need to create this
-   directory if it doesn't exist.
-
-  `$ git clone GIT_URL_HERE ~/.middleman/springboard`
-
-2. Initialize middleman on a new or existing folder 
-
-  `$ middleman init path_to_project --template=springboard`
+To get started, you need to have Ruby and Ruby Gems installed, as well
+as "bundler".
 
 
-## Usage
+## Initial setup
 
-### View locally
+### Fedora, RHEL, & CentOS
 
-1. Start up Middleman by typing `bundle exec middleman` (or if you have
-   it in your path, just `middleman` works).
-   
-   Middleman will start up a development server. 
+```
+sudo yum install -y ruby-devel rubygems-devel gcc-c++ curl-devel rubygem-bundler
+git clone GIT_URL_HERE PROJECT_NAME
+cd PROJECT_NAME
+bundle install
+```
+
+
+## Running
+
+1. Start a local Middleman server that uses local gems by typing
+   `bundle exec middleman server`
+
+   (Note: 'server' is optional, but it helps if you're going through
+   command-history in bash or zsh with control-r, versus other middleman
+   commands like `console`, `build`, or `deploy`)
 
 2. Next, browse to <http://0.0.0.0:4567>
 
-3. Edit! 
+3. Edit!
 
    When you edit files (pages, layouts, CSS, etc.), the site will
    dyanmically update in development mode. (There's no need to refresh
    the page, unless you get a Ruby error.)
+
+
+## Updating
+
+When there are new gems in `Gemfile`, just run `bundle` again.
+
+
+## Customizing your site
+
+The site can be easily customized by editing `data/site.yml`.
+
+
+## Adding a Post
+
+To add a post to the community blog (or any blog managed by middleman) use:
+
+```
+bundle middleman article TITLE
+```
 
 
 ### Build your static site
@@ -47,12 +65,28 @@ After getting it how you want, you can build the static site by running:
 (If you have middleman in your path, you can just run `middleman build`.)
 
 
-### Add new parsers
+## Deploying
+
+### Setting up deployment
+
+FIXME: Right now, please reference <data/site.yml>
+
+### Actual deployment
+
+After copying your public key to the remote server and configuring your
+site in <data/site.yml>, deployment is one simple command:
+```
+bundle exec middleman deploy
+```
+
+
+### Add new features (parsers, etc.)
 
 Simply add a new `gem 'some-gem-here'` line in the `Gemfile` and run
 `bundle install`
 
+
 ## More info
 
-For more information, please check the excellent 
+For more information, please check the excellent
 [Middleman documentation](http://middlemanapp.com/getting-started/).

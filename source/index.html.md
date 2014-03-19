@@ -125,7 +125,7 @@ You're encouraged to [ join the oVirt community](Community), and help us bring o
 ### User Case Study
 
 <div class="text-center">
-![](Itnovumlogo.png "Itnovumlogo.png")
+![](It-novum.jpg‎ "It-novum.jpg‎")
 
 </div>
 [IT Novum](IT_Novum_case_study) is a company that's very focused on delivering open source, so when they decided to build a product and solution set for their customers' datacenter needs, it made sense that oVirt was included.

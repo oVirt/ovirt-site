@@ -544,12 +544,3 @@ directory_index: false
   <IfModule php5_module>
     php_value session.cookie_httponly true
   </IfModule>
-
-
--# Redirect old blog posts
-- page_articles.first(35).each do |article|
-  = "Redirect 301 /#{article.url.split('/').last}/ #{article.url}"
-  = "Redirect 301 /#{article.url.split('/').last} #{article.url}"
-
--# Redirect calendar
-RedirectMatch 301 /calendar/(.*)$ /events/$1

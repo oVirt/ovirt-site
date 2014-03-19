@@ -27,6 +27,14 @@ Remove PKI usage from Engine<-->VDSM communications.
 
 The mutual authentication method between engine<-->VDSM is internal implementation decision as no other component should access vdsm directly.
 
+### Trying to solve
+
+1.  Remove the term PKI from engine->vdsm communication to avoid these kind of discussions in future, as we are not really need 3rd party trust for manager->agent communication.
+2.  Avoid implementing missing PKI feature into vdsm/engine, at least CRL, OCSP, name validation, expiration, key usage, enhanced key usage.
+3.  Do not need to manage host life cycle - renew, revocation when removed.
+4.  Do not abuse CRL - adding host to CRL each time it is removed.
+5.  Allow re-enroll external components' certificate post host-deploy using internal CA or 3rd party, without losing connectivity to our agents.
+
 ### Solution #1
 
 As JSSE (Java) and Python SSL are only capable of using X.509 certificate for SSL key exchange, and due to export regulations implication of introducing a new encryption protocol, solution should not use own encryption algorithm nor encryption protocol.

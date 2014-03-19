@@ -13,9 +13,6 @@ activate :automatic_image_sizes
 # Syntax highlighting
 activate :syntax
 
-# Bootstrap navbar
-activate :bootstrap_navbar
-
 # Make URLs relative
 set :relative_links, true
 

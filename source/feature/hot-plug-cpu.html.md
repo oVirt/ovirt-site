@@ -246,7 +246,8 @@ hook support is provided to solve potential problems with online/offline the cpu
 Due to libvirt bug on unplug the engine has an inconsistent view of the amount of CPUs the VM has.
 i.e after unplugging 4 vcpus to 2 vcpus the VM entity in DB has 4 and in qemu process it will decrease to 2
 
-status: in progress related bugs: [1075602](https://bugzilla.redhat.com/show_bug.cgi?id=1075602)
+**status:** in progress
+ **related bugs:** [1075602](https://bugzilla.redhat.com/show_bug.cgi?id=1075602)
 
 #### block Unplug
 

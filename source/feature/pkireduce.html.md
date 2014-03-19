@@ -53,7 +53,7 @@ Have vdsm to connect using HTTPS to engine, and authenticate using PAKE based on
 
 ### Prerequisites
 
-File RFE against libvirt to allow sending generic messages between libvirt and libvirtd for vdsm to be able to communicate with other vdsm during migrationCreate, or use the engine as a transport, or make the engine issue migrationCreate to destination.
+Move migrationCreate to engine, once sanlock is used all over, so that vdsm will not need to send migrationCreate to the other vdsm. Or File RFE against libvirt to allow sending generic messages between libvirt and libvirtd for vdsm to be able to communicate with other vdsm during migrationCreate.
 
 ### PKI
 

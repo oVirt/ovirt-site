@@ -60,3 +60,11 @@ It is **mandatory** to make the change to former views so the API will not brake
 
 *   -   If Removed , add the column as Null value casted to the column type
     -   If the type of the column changed, make sure to cast the column to the previous type.
+
+### Update ETL process in Talend Open Studio
+
+*   Have the Talend open Studio installed in the project version.
+*   Update the Jobs with the required changes.
+*   Build the Job from the "History ETL" job.
+
+![](BuildJob.jpg "BuildJob.jpg")

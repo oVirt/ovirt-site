@@ -66,6 +66,9 @@ It is **mandatory** to make the change to former views so the API will not brake
 *   Have the Talend open Studio installed in the project version.
 *   Update the Jobs with the required changes.
 *   Close all open jobs.
+
+First,
+
 *   Build the Job from the "History ETL" job.
 
 ![](BuildJob.jpg "BuildJob.jpg")
@@ -95,3 +98,9 @@ To the git repository:
 To the git repository:
 
       . /ovirt-dwh/etl_export/src/routines
+
+Second,
+
+*   Export the project :
+
+![](ExportTalendProject.jpg "ExportTalendProject.jpg")

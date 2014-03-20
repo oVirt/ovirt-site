@@ -80,4 +80,8 @@ The following component will will keep using PKI:
 
 Engine will be modified to be able to re-enroll these certificate without having to re-deploy vdsm, to allow renewal or transition between internal CA to 3rd party CA.
 
+### TODO
+
+Consider using libvirt with self-signed certificates as well, it should be possible as the migrationCreate can send the certificate for both side for vdsm to feed libvirt when communicating to the other party. Maybe it requires small change in libvirtd to be configured with certificate per connection, or have connection certificate validation callback.
+
 <Category:Feature> <Category:Security>

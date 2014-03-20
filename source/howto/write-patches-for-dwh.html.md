@@ -78,11 +78,14 @@ To the git repository :
 
        ./ovirt-dwh/etl_export/src/ovirt_engine_dwh
 
-*   If you changed the context - for example added a variable
+*   When changing the context - for example added a variable ,
 
-      copy the 
+copy the context from the zip file:
+
        ./ovirt-dwh/etl_export/ovirt_engine_dwh
 
 To the git repository:
 
        ./ovirt-dwh/etl_export/ovirt_engine_dwh
+
+*   When upgrading a Talend version, copy the routines from the zip file:

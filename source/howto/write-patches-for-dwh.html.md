@@ -82,10 +82,16 @@ To the git repository :
 
 copy the context from the zip file:
 
-       ./ovirt-dwh/etl_export/ovirt_engine_dwh
+       ./HistoryETL/ovirt_engine_dwh/
 
 To the git repository:
 
        ./ovirt-dwh/etl_export/ovirt_engine_dwh
 
 *   When upgrading a Talend version, copy the routines from the zip file:
+
+       ./HistoryETL/src/routines/
+
+To the git repository:
+
+      . /ovirt-dwh/etl_export/src/routines

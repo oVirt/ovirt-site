@@ -8,15 +8,13 @@ wiki_revision_count: 28
 wiki_last_updated: 2014-07-21
 ---
 
-# OVirt 3.4 Release Notes
-
 The oVirt Project is pleased to announce the availability of its fifth formal release, oVirt 3.4.
 
 oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
 
 To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.3 release notes](oVirt 3.3 release notes), [oVirt 3.2 release notes](oVirt 3.2 release notes) and [oVirt 3.1 release notes](oVirt 3.1 release notes). For a general overview of oVirt, read [ the oVirt 3.0 feature guide](oVirt 3.0 Feature Guide) and the [about oVirt](about oVirt) page.
 
-## What's New in 3.4?
+# oVirt 3.4 Release Notes
 
 ### Hosted Engine
 
@@ -96,7 +94,7 @@ oVirt 3.4 adds a preview of a [Hot-plug CPU](Hot_plug_cpu) feature that enables 
 *   [UI Refresh Synchronization](Features/Design/UIRefreshSynchronization) solves UI consistency issues related to the UI not being updated when certain actions/events happen by centralizing the refresh logic.
 *   [Lower Resolution Support](Features/Design/UIRefreshSynchronization) repairs the issue of lower resolutions causing the tab bar and action menu wrap overlapping other UI elements by adding a scrollable tab bar for the tabs and a cascading menu bar for the action menu.
 
-## Install / Upgrade from Previous Versions
+# Install / Upgrade from Previous Versions
 
 oVirt 3.4 is now available for use. In order to install it, you need to update the ovirt-release package to 10.0.1 or newer by running
 
@@ -181,7 +179,7 @@ this will upgrade your system to latest 3.2. Once you've all working on 3.2, ena
 
 will upgrade to latest 3.3.
 
-## <span class="mw-customtoggle-0" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Known Issues
+# <span class="mw-customtoggle-0" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Known Issues
 
 <div  id="mw-customcollapsible-0" class="mw-collapsible mw-collapsed">
 *   EL >= 6.5 or cloud-init >= 0.7.2 are needed for cloud-init feature support ()
@@ -194,7 +192,7 @@ will upgrade to latest 3.3.
 *   Host deployment may fail on EL6 system due to a recently tuned regression (, ). Please downgrade tuned to previous version while waiting for a new tuned package to solve this issue.
 
 </div>
-## <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed
+# <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed
 
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine

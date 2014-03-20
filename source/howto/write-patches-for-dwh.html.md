@@ -70,7 +70,7 @@ It is **mandatory** to make the change to former views so the API will not brake
 
 ![](BuildJob.jpg "BuildJob.jpg")
 
-*   Open the zip file and copy the java files from:
+*   -   Open the zip file and copy the java files from:
 
        ./HistoryETL/src/ovirt_engine_dwh
 
@@ -78,7 +78,7 @@ To the git repository :
 
        ./ovirt-dwh/etl_export/src/ovirt_engine_dwh
 
-*   When changing the context - for example added a variable ,
+*   -   When changing the context - for example added a variable ,
 
 copy the context from the zip file:
 
@@ -88,7 +88,7 @@ To the git repository:
 
        ./ovirt-dwh/etl_export/ovirt_engine_dwh
 
-*   When upgrading a Talend version, copy the routines from the zip file:
+*   -   When upgrading a Talend version, copy the routines from the zip file:
 
        ./HistoryETL/src/routines/
 

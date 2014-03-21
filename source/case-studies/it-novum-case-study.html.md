@@ -28,9 +28,9 @@ The next step was migrating their service management tools to open source, build
 
 it-novum would build their own open source storage platform as well, combining several open source tools under one Python front end, called openATTIC. Eventually, the company migrated all of their storage systems to openATTIC.
 
-Finally, it-novum set their sights on an open source datacenter management platform. But initially, that wasn't oVirt: it-novum first went with Red Hat Enterprise Virtualization Manager, but Rieger said, "we did not have such a good experience with this, so we changed to oVirt, which fulfilled all of the requirements we had."
+Finally, it-novum set their sights on an open source datacenter management platform. After initially evaluating Red Hat Enterprise Virtualization Manager, Rieger finally settled on oVirt, , "which fulfilled all of the requirements we had."
 
-At the time, usability and the community support was what was missing for it-novum, and they settled on oVirt as the basis for their solution, specifically, oVirt 3.2.3 on Fedora 18. Rieger added that both "RHEV and oVirt are the most advanced KVM management solutions and the only ones we found that were up to par with what VMware provides. Since oVirt is closer to the development process and the community is always helpful in solving problems, we decided to go with oVirt."
+At the time, usability and the community support were the main reasons for it-novum's choice, and they settled on oVirt as the basis for their solution, specifically, oVirt 3.2.3 on Fedora 18. Rieger added that both "RHEV and oVirt are the most advanced KVM management solutions and the only ones we found that were up to par with what VMware provides. Since oVirt is closer to the development process and the community is always helpful in solving problems, we decided to go with oVirt."
 
 To date, the work has paid off very well, with nearly 1,100 VMware virtual machines successfully migrated to oVirt.
 

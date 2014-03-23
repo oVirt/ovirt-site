@@ -54,13 +54,13 @@ User-flow:
     1.  add the host to foreman using the API
     2.  Now there is a split:
         1.  oVirt-node hosts - will do the registration to the engine (assuming the kernel params are configured for that template)
-        2.  regular hosts- at first step won't do the registration by themselves, but foreman will do that using a plugin (plugin will send RestAPI call to add the host , or could it just register it same like RHEVH ? need to check)
+        2.  regular hosts- at first step won't do the registration by themselves, but foreman will do that using a plugin (plugin will send RestAPI call to add the host , or could it just register it same like oVirt-node?
 
 6.  The host now appears in the oVirt UI, it is being approved, we can modify the host properties, and bootstrapping starts.
 
 Open issues:
 
-1.  How to register the host in case of RHEL? What would be the oVirt API for that? Is it the same as the RHEV-H one?
+1.  How to register the host in case of a regular host? What would be the oVirt API for that? Is it the same as the oVirt-node one?
 2.  The proposal above assumes the operation is triggered from the Provider discovery sub-tab, which is different from the current way we add hosts. Need to verify that it is acceptable
 
 **\1**

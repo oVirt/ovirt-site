@@ -107,6 +107,20 @@ The commit message should follow the guidelines in the DISCUSSION section of <ht
 
 General development discussions are in [vdsm-devel@lists.fedorahosted.org](https://lists.fedorahosted.org/mailman/listinfo/vdsm-devel).
 
+### Reviewer Comments
+
+Sending a patch in the open-source world can be difficult. You code, your "baby", is scrutinized by people you do not know, who tend to find problems in it. The reviewer should comment on what's good in your patch, and what is to be improved, and rate your change accordingly.
+
+| Score | What it means                                                                         |
+|-------|---------------------------------------------------------------------------------------|
+| +2    | Changed approved. If it breaks and the author is gone, I'll debug it.                 |
+| +1    | Looks good to me, I'm fine with the change going in as it is.                         |
+| 0     | I did not review the patch, or otherwise do no have a solid opinion about it.         |
+| -1    | The change should not be merged as it is. A little (or more) work is required.        |
+| -2    | The change should not go in at all. It is badly designed or solves the wrong problem. |
+
+One you tick the "Verified" checkbox, remember explaining how exactly you performed the verification. If it was a simple \`make check\` or \`make rpm\` – say so.
+
 ## Creating local yum repo to test vdsm changes
 
 1) First you will need to generate the rpm with your changes, from the vdsm source directory:

@@ -63,6 +63,12 @@ Open issues:
 1.  How to register the host in case of a regular host? What would be the oVirt API for that? Is it the same as the oVirt-node one?
 2.  The proposal above assumes the operation is triggered from the Provider discovery sub-tab, which is different from the current way we add hosts. Need to verify that it is acceptable
 
+##### VM provisioning - add new VMs which will be configured by Foreman
+
+We have two options here: a. Add the VM through oVirt, and then add it to Foreman as bare-metal (add the oVirt compute resource) - only PXE installation, passing the MAC address to foreman b. Add the VM through foreman (using compute resource)
+
+I'd go with option "a", as it leaves the VM creation similar to what we have today. However, we don't really leverage oVirt templates with that approach.
+
 **\1**
 
 **API Design**

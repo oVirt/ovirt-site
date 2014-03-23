@@ -27,25 +27,11 @@ And restart oVirt service if running:
 
 When automatic host installation is disabled, you also want to disable SSL on both ovirt engine and host sides, since host SSL keys are not configured. Alternativly, you can configure SSL keys manually.
 
-### Disable SSL in VDSM
+### Disable or Enable SSL in VDSM
 
-*   In /etc/vdsm/vdsm.conf [vars] section: ssl = false
-*   In /etc/libvirt/libvirtd.conf: listen_tls=0
-*   In /etc/libvirt/libvirtd.conf: listen_tcp = 1
-*   In /etc/libvirt/libvirtd.conf: auth_tcp = "none"
-*   In /etc/libvirt/qemu.conf: spice_tls=0
-
-If you are changing from ssl to non-ssl or vice versa, run the following command:
-
-Fedora:
-
-      /lib/systemd/systemd-vdsmd reconfigure
-
-EL6:
-
-      service vdsmd reconfigure
-
-After this is done, restart vdsm. If you misconfigured something, vdsm will complain, so keep an eye on the error messages :)
+*   In /etc/vdsm/vdsm.conf modify [vars] section with: ssl = false (or ssl = true)
+*   run "vdsm-tool configure --module libvirt " (note that libvirtd service must be down, for full automation use --force flag)
+*   restart vdsmd service
 
 ### Disable SSL in ovirt engine
 

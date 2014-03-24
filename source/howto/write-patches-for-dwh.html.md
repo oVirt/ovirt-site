@@ -97,7 +97,7 @@ To the git repository:
 
 To the git repository:
 
-      . /ovirt-dwh/etl_export/src/routines
+      ./ovirt-dwh/etl_export/src/routines
 
 Second,
 

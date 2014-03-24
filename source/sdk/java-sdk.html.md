@@ -395,7 +395,7 @@ use this signature: Api(String url, String username, String password, boolean no
 
 [java-sdk-changelog](java-sdk-changelog)
 
-## Maintainer
+## Maintainers
 
 Michael Pasternak: mishka8520@yahoo.com, Juan Hernandez: juan.hernandez@redhat.com
 

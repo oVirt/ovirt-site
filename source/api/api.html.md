@@ -96,7 +96,9 @@ RSDL (RESTful Service Description Language) is a machine and human readable XML 
 
 ## Repository
 
-*   <git://gerrit.ovirt.org/ovirt-engine> (restapi is one of the engine modules located under ovirt/ovirt-engine/backend/manager/modules/restapi/)
+*   <git://gerrit.ovirt.org/ovirt-engine>
+
+(restapi is one of the engine modules located under ovirt/ovirt-engine/backend/manager/modules/restapi/)
 
 ## Maintainers
 

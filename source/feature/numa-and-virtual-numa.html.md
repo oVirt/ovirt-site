@@ -12,10 +12,13 @@ wiki_last_updated: 2014-08-14
 
 ### Summary
 
-This feature allow Enterprise customers to provision large guests for their traditional scale-up enterprise workloads and expect low overhead due to virtualization by two ways.
+This feature allow Enterprise customers to provision large guests for their traditional scale-up enterprise workloads and expect low overhead due to virtualization.
 
-*   Set NUMA node Tuning
-*   Set Guest NUMA topology
+*   Query target host’s NUMA topology
+*   NUMA bindings of guest resources (vCPUs & memory)
+*   Virtual NUMA topology
+
+You may also refer to the [detailed feature page](http://www.ovirt.org/Features/Detailed_NUMA_and_Virtual_NUMA).
 
 ### Owner
 
@@ -27,65 +30,82 @@ This feature allow Enterprise customers to provision large guests for their trad
 
 *   Target Release: oVirt 3.5
 *   Status: design
-*   Last updated: 13 Feb 2014
+*   Last updated: 24 Mar 2014
 
 ### Detailed Description
 
-*   Get Host NUMA topology
+*   Query target host’s NUMA topology
 
-Ability from the UI (with appropriate backend support) to query the host NUMA node topology, it contains node’s cpus, memory (total and free) and distance. This information is useful when trying to provision a midsized or large guests for enterprise workloads.
+Ability from the UI, RESTful API and other APIs to gather a given host’s NUMA topology(# of NUMA nodes, CPUs & total memory per node, NUMA node distances), NUMA statistics(Free memory per node, CPUs & memory usage per node). Besides consuming this information for planning/provisioning guests and oVirt scheduler etc. There may be other likely consumers for now and in the future.
 
-Dependencies: libvirt [Host Capability](http://libvirt.org/guide/html/Application_Development_Guide-Connections-Capability_Info.html)
+*   NUMA bindings of guest resources (vCPUs & memory)
 
-    <capabilities>
-      <host>
-      ...
-        <topology>
-          <cells num='1'>
-            <cell id='0'>
-              <cpus num='2'>
-                <cpu id='0'/>
-                <cpu id='1'/>
-              </cpus>
-            </cell>
-          </cells>
-        </topology>
-      </host>
-      ...
-    </capabilities>
+Ability from the UI, RESTful API and other APIs to optionally specify the bindings for backing memory of a guest (i.e. via numatune with mode set to: strict, preferred or interleave) along with the vCPU pinning across a desired set of host NUMA nodes. Automatic NUMA balancing feature will be introduced in RHEL 7.0. As this technology matures it should reduce the need for having to specify explicit NUMA bindings.
 
-*   Set Guest NUMA node tuning
+*   Virtual NUMA topology
 
-Ability from the UI (with appropriate backend support) to specify the host NUMA node information for the backing memory of a large guest (i.e. via numatune with mode set to: strict, preferred or interleave) across specified host NUMA nodes. Here is an example from a XML config file of a guest where the backing guest’s memory is interleaved between host NUMA nodes 0, 1
+Ability from the UI, RESTful API and other APIs to specify virtual NUMA nodes for a mid/large sized guest. This helps the OS running in the guest to do NUMA aware allocation of data structures and scale better. Automatic NUMA balancing in the guest kernel can take advantage of this too.
 
-Dependencies: libvirt [NUMA Node Tuning](http://libvirt.org/formatdomain.html#elementsNUMATuning)
+### Use case diagram
 
-    <domain>
-      ...
-      <numatune> 
-        <memory mode='interleave' nodeset='0-1'/> 
-      </numatune>
-      ...
-    </domain>
+![](Use_case_diagram.png "Use_case_diagram.png")
 
-*   Set Guest virtual NUMA topology
+*   Color of the use cases
+    -   Green - oVirt features are existed.
+    -   Blue - NUMA related feature.
+    -   Dashed - feature under discussion.
 
-Ability from the UI (with the appropriate backend support) to specify and expose virtual NUMA nodes in a guest that spans more than a single host node. This allows the OS instance in the guest to take NUMA aware decisions and this improves scaling/performance within the guest. Here is an example from a guest XML config file where there are two virtual NUMA nodes in the guest.
+<!-- -->
 
-Dependencies: [Guest NUMA topology](http://libvirt.org/formatdomain.html#elementsCPU)
+*   Use cases in detailed (v1 - current version, v2 - next version)
+    -   When ovirt engine add some host or refresh host capabilities, the Gather host NUMA topology will collect the number of NUMA nodes, CPU list and total memory per node, NUMA distances (v2), Automatic NUMA balancing support (v2) from vdsm.
+    -   When ovirt engine on timely to do get host statistics, the Gather host NUMA statistics will collect free memory per node, CPUs and memory usage per node from vdsm,
+    -   The CPUs usage per node is the sum of NUMA node’s CPUs usage depending on Gather per CPU statistics. It contains CPU’s system, user and idle usage. These data will be used not only by NUMA feature, oVirt scheduler and Report will use them.
+    -   By using user interface Show host NUMA information, administrator will take a loot at host NUMA information, then decide how to configure VM with NUMA aware.
+    -   Thus Manual binding NUMA node feature turn on, administrator should know the operation will let the VM lose high availability and live migration as same as CPU pinning feature. Binding NUMA node contain three steps:
+        -   Select NUMA tuning mode (strict, preferred or interleave)
+        -   Select NUMA node sets from specified host.
+        -   Check the CPU pinning is suitable for node sets.
+    -   If the VM has the large size (i.e., 40 vCPUs and 512G memory) and cross the NUMA node, the Guest NUMA topology is the suggested feature that make the system has better performance. There are two checkpoints:
+        -   The sum of Guest NUMA node’s CPUs count must equal to VM total CPU count.
+        -   The sum of Guest NUMA node’s memory size must equal to VM total memory size.
+    -   Follow up oVirt Scheduler with NUMA policy, these situation should consider:
+        -   When Manual binding NUMA node and CPU pinning are configured
+            -   If there is enough free memory (each or sum) for binding NUMA nodes to run VM. (v1)
+            -   If there is enough CPU idle (each or sum) for binding NUMA nodes to run VM. (v1)
+            -   If there is enough CPU idle (each or sum) for VM CPU pinning to run VM. (v2)
+        -   When Guest NUMA topology is configured
+            -   If there is enough free memory per NUMA node to run VM. (v2)
+            -   If there is enough CPU idle per NUMA node to run VM. (v2)
+    -   The NUMA topology section Restful API is under the Host and VM root section. It contains the list of NUMA nodes, each NUMA node’s CPUs and total memory, node distance (v2), automatic NUMA balancing support (v2).
+    -   The NUMA statistics section Restful API is under the Host root section, it contains each NUMA node’s free memory, CPUs & memory usage.
+    -   Search Host/VM by NUMA node count and MOM setting with NUMA are still in discussion and will be published in v2.
 
-    <domain>
-      ...
-      <cpu> 
-        <numa> 
-          <cell cpus='0-7' memory='10485760'/> 
-          <cell cpus='8-15' memory='10485760'/> 
-        </numa> 
-      </cpu>
-      ...
-    </domain>
+### UI design prototype
 
-You may also refer to the [detailed feature page](http://www.ovirt.org/Features/Detailed_NUMA_and_Virtual_NUMA).
+*   Host sub tab NUMA information
+
+![](Host_sub_tab_numa_information.png "Host_sub_tab_numa_information.png")
+
+*   -   Follow CPUs and Memory of each NUMA node information, CPU pinning and manual binding NUMA node on VM is much easier.
+    -   Click Show NUMA distances button will popup panel show distances map.
+*   Manual binding NUMA node
+
+![](Manual_binding_numa_node.png "Manual_binding_numa_node.png")
+
+*   -   Specific host changed on Host tabs will refresh Tuning nodes from the specified host.
+    -   Click Manual Binding NUMA node checkbox, the tuning mode selector and nodes checkboxes will enabled.
+    -   Tuning mode has these values: strict, preferred, interleave
+    -   There is one help box content: Configure wrong CPU pinning against NUMA nodes will take bad performance.
+*   Guest NUMA topology
+
+![](Guest_numa_topology.png "Guest_numa_topology.png")
+
+*   -   Left node0 CPUs and Memory be blank, system will ignore Guest NUMA topology configuration.
+    -   Click Add and Minus button will increase and decrease NUMA nodes.
+    -   On saving the VM, there are some checks in NUMA topology:
+    -   The sum of every node’s CPUs number should equal to Total Virtual CPUs
+    -   The sum of every node’s Memory number should equal to total Memory Size
 
 ### Benefit to oVirt
 

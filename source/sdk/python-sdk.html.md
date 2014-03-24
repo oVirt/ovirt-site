@@ -316,6 +316,6 @@ codegen
 
 ## Maintainer
 
-Michael Pasternak: mpastern@redhat.com
+Michael Pasternak: mishka8520@yahoo.com, Juan Hernandez: juan.hernandez@redhat.com
 
 <Category:SDK> <Category:Feature>

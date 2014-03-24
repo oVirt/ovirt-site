@@ -23,9 +23,8 @@ The oVirt scheduler capabilities introduced in version 3.3 have opened opportuni
 
 #### Current status
 
-*   status: merged (almost)
+*   status: merged, version: 3.4
 *   Last updated: ,
-*   version: 3.4
 
 ### Benefits to oVirt
 

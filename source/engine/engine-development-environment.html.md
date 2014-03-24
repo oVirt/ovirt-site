@@ -51,7 +51,7 @@ Create `/etc/yum.repos.d/ovirt-snapshots.repo`, replace `@distro@` with `fc` for
 
       # yum install git java-devel maven openssl postgresql-server \
           m2crypto python-psycopg2 python-cheetah python-daemon libxml2-python \
-          unzip otopi
+          unzip
 
 ###### Fedora
 

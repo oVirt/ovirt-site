@@ -663,6 +663,6 @@ That will install lxml, because EPEL's python-lxml is not yet up to the version 
 
 ## Maintainer
 
-Michael Pasternak: mpastern@redhat.com
+Michael Pasternak: mishka8520@yahoo.com, Juan Hernandez: juan.hernandez@redhat.com
 
 <Category:CLI> <Category:Feature>

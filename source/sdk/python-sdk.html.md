@@ -314,7 +314,7 @@ codegen
 
 [python-sdk-changelog](python-sdk-changelog)
 
-## Maintainer
+## Maintainers
 
 Michael Pasternak: mishka8520@yahoo.com, Juan Hernandez: juan.hernandez@redhat.com
 

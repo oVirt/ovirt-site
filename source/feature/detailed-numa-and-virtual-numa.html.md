@@ -179,32 +179,32 @@ To be continue...
 The above interfaces are defined with database design diagram ![](Database_design_diagram.png "fig:Database_design_diagram.png")
 
 *   Related database scripts change:
-    1.  Add numa_sp.sql to include the store procedures which handle the operations in table vm_numa_node, vds_numa_node, vm_numatune_nodeset and vds_numa_node_statistics. It will provide the store procedures to insert, update and delete data and kinds of query functions.
-    2.  Modify vds_sp.sql to add some store procedures which handle the operations in table vds_cpu_statistics, including insert, update, delete and kinds of query functions.
-    3.  Modify the function of InsertVdsDynamic, UpdateVdsDynamic in vds_sp.sql to add new columns auto_numa_banlancing, numa_node_distance_list and vds_numa_node_count.
-    4.  Modify the function of InsertVmStatic, UpdateVmStatic in vms_sp.sql to add three new columns numa_manual_binding, numatune_mode and vm_numa_node_count.
-    5.  Modify create_views.sql to add new columns numa_manual_binding, numatune_mode and vm_numa_node_count in view vms; add new columns auto_numa_banlancing, numa_node_distance_list and vds_numa_node_count in view vds.
-    6.  Modify create_views.sql to add new views, including view vds_numa_node_view which joins vds_static, vds_numa_node and vds_numa_node_statistics; view vm_numa_node_view which joins vm_static, vm_numa_node; view vm_numatune_nodeset_view which joins vm_static, vm_numatune_nodeset and vds_numa_node.
-    7.  Modify upgrade/post_upgrade/0010_add_object_column_white_list_table.sql to add new columns auto_numa_banlancing, numa_node_distance_list and vds_numa_node_count.
-    8.  Add one script under upgrade/ to create tables - vm_numa_node, vds_numa_node, vm_numatune_nodeset, vds_numa_node_statistics and vds_cpu_statistics and add columns in table vds_dynamic and vm_static.
+    1.  Add `numa_sp.sql` to include the store procedures which handle the operations in table `vm_numa_node`, `vds_numa_node`, `vm_numatune_nodeset` and `vds_numa_node_statistics`. It will provide the store procedures to insert, update and delete data and kinds of query functions.
+    2.  Modify `vds_sp.sql` to add some store procedures which handle the operations in table `vds_cpu_statistics`, including insert, update, delete and kinds of query functions.
+    3.  Modify the function of `InsertVdsDynamic`, `UpdateVdsDynamic` in `vds_sp.sql` to add new columns `auto_numa_banlancing`, `numa_node_distance_list` and `vds_numa_node_count`.
+    4.  Modify the function of `InsertVmStatic`, `UpdateVmStatic` in `vms_sp.sql` to add three new columns `numa_manual_binding`, `numatune_mode` and `vm_numa_node_count`.
+    5.  Modify `create_views.sql` to add new columns `numa_manual_binding`, `numatune_mode` and `vm_numa_node_count` in view `vms`; add new columns `auto_numa_banlancing`, `numa_node_distance_list` and `vds_numa_node_count` in view `vds`.
+    6.  Modify `create_views.sql` to add new views, including view `vds_numa_node_view` which joins `vds_static`, `vds_numa_node` and `vds_numa_node_statistics`; view `vm_numa_node_view` which joins `vm_static`, `vm_numa_node`; view `vm_numatune_nodeset_view` which joins `vm_static`, `vm_numatune_nodeset` and `vds_numa_node`.
+    7.  Modify `upgrade/post_upgrade/0010_add_object_column_white_list_table.sql` to add new columns `auto_numa_banlancing`, `numa_node_distance_list` and `vds_numa_node_count`.
+    8.  Add one script under `upgrade/` to create tables - `vm_numa_node`, `vds_numa_node`, `vm_numatune_nodeset`, `vds_numa_node_statistics` and `vds_cpu_statistics` and add columns in table `vds_dynamic` and `vm_static`.
     9.  Create the following indexes in the script mentioned in point 8:
-        -   Index on column vm_guid of table vm_numa_node
-        -   Index on column vds_numa_node_count of table vds_dynamic
-        -   Indexes on each of the columns vm_guid and vds_numa_node_id of table vm_numatune_nodeset
-        -   Indexes on each of the columns vds_id and cpu_count of table vds_numa_node
-        -   Indexes on each of the columns vds_id and vds_numa_node_id of table vds_cpu_statistics
+        -   Index on column `vm_guid` of table `vm_numa_node`
+        -   Index on column `vds_numa_node_count` of table `vds_dynamic`
+        -   Indexes on each of the columns `vm_guid` and `vds_numa_node_id` of table `vm_numatune_nodeset`
+        -   Indexes on each of the columns `vds_id` and `cpu_count` of table `vds_numa_node`
+        -   Indexes on each of the columns `vds_id` and `vds_numa_node_id` of table `vds_cpu_statistics`
 
-    10. Modify create_views.sql to add new columns auto_numa_balancing and numa_node_distance_list in view vds_with_tags.
+    10. Modify `create_views.sql` to add new columns `auto_numa_balancing` and `numa_node_distance_list` in view `vds_with_tags`.
 
 <!-- -->
 
 *   Related DAO change:
-    1.  Add VdsNumaNodeDAO and related implemention to provide data save, update, delete and kinds of queries in table vds_numa_node and vds_numa_node_statistics. Add VdsNumaNodeDAOTest for VdsNumaNodeDAO meanwhile.
-    2.  Add VmNumaNodeDAO and related implemention to provide data save, update, delete and kinds of queries in table vm_numa_node. Add VmNumaNodeDAOTest for VmNumaNodeDAO meanwhile.
-    3.  Add VmNumatuneNodesetDAO and related implemention to provide data save, update, delete in table vm_numatune_nodeset and queries to get vm configured VDS NUMA node which needs to join table vm_static, vm_numatune_nodeset and vds_numa_node. Add VmNumatuneNodesetDAOTest for VmNumatuneNodesetDAO meanwhile.
-    4.  Add VdsCpuStatisticsDao and related implementation to provide data save, update, delete and kinds of queries in table vds_cpu_statistics. Add VdsCpuStatisticsDAOTest for VdsCpuStatisticsDAO meanwhile.
-    5.  Modify VdsDynamicDAODbFacadeImpl and VdsDAODbFacadeImpl to add the map of new columns auto_numa_banlancing, numa_node_distance_list and vds_numa_node_count. Run VdsDynamicDAOTest to verify the modification.
-    6.  Modify VmStaticDAODbFacadeImpl and VmDAODbFacadeImpl to add the map of new columns numa_type, numatune_mode and numa_node_count. Run VmStaticDAOTest to verify the modification.
+    1.  Add `VdsNumaNodeDAO` and related implemention to provide data save, update, delete and kinds of queries in table `vds_numa_node` and `vds_numa_node_statistics`. Add `VdsNumaNodeDAOTest` for `VdsNumaNodeDAO` meanwhile.
+    2.  Add `VmNumaNodeDAO` and related implemention to provide data save, update, delete and kinds of queries in table `vm_numa_node`. Add `VmNumaNodeDAOTest` for `VmNumaNodeDAO` meanwhile.
+    3.  Add `VmNumatuneNodesetDAO` and related implemention to provide data save, update, delete in table `vm_numatune_nodeset` and queries to get vm configured VDS NUMA node which needs to join table `vm_static`,` vm_numatune_nodeset` and `vds_numa_node`. Add `VmNumatuneNodesetDAOTest` for `VmNumatuneNodesetDAO` meanwhile.
+    4.  Add `VdsCpuStatisticsDao` and related implementation to provide data save, update, delete and kinds of queries in table `vds_cpu_statistics`. Add `VdsCpuStatisticsDAOTest` for `VdsCpuStatisticsDAO` meanwhile.
+    5.  Modify `VdsDynamicDAODbFacadeImpl` and `VdsDAODbFacadeImpl` to add the map of new columns `auto_numa_banlancing`, `numa_node_distance_list` and `vds_numa_node_count`. Run `VdsDynamicDAOTest` to verify the modification.
+    6.  Modify `VmStaticDAODbFacadeImpl` and `VmDAODbFacadeImpl` to add the map of new columns `numa_type`, `numatune_mode` and `numa_node_count`. Run `VmStaticDAOTest` to verify the modification.
 
 <!-- -->
 
@@ -227,12 +227,12 @@ Currently, we plan to provide below search functions about NUMA feature, each fi
     -   Virtual NUMA node total memory
 
 3.  Manual NUMA binding and NUMA tune mode support enum value relation, the others support the numeric relation.
-    -   Modify org.ovirt.engine.core.searchbackend.SearchObjects to add new entry NUMANODES and VIRTUALNUMANODES.
-    -   Add org.ovirt.engine.core.searchbackend.NumaNodeConditionFieldAutoCompleter to provide NUMA node related filters auto completion;
-    -   Add org.ovirt.engine.core.searchbackend.VirtualNumaNodeConditionFieldAutoCompleter to provide virtual NUMA node related filters auto completion.
-    -   Modify org.ovirt.engine.core.searchbackend.SearchObjectAutoCompleter to add new joins, one is HOST joins NUMANODES on vds_id, the other is VM joins VIRTUALNUMANODES on vm_guid.
+    -   Modify `org.ovirt.engine.core.searchbackend.SearchObjects` to add new entry NUMANODES and VIRTUALNUMANODES.
+    -   Add `org.ovirt.engine.core.searchbackend.NumaNodeConditionFieldAutoCompleter` to provide NUMA node related filters auto completion;
+    -   Add `org.ovirt.engine.core.searchbackend.VirtualNumaNodeConditionFieldAutoCompleter` to provide virtual NUMA node related filters auto completion.
+    -   Modify `org.ovirt.engine.core.searchbackend.SearchObjectAutoCompleter` to add new joins, one is HOST joins NUMANODES on vds_id, the other is VM joins VIRTUALNUMANODES on vm_guid.
     -   Add new entries in entitySearchInfo accordingly. NUMANODES will use new added view vds_numa_node_view and VIRTUALNUMANODES will use new added view vm_numa_node_view.
-    -   Modify org.ovirt.engine.core.searchbackend.VdsCrossRefAutoCompleter to add auto complete entry NUMANODES; Modify org.ovirt.engine.core.searchbackend.VmCrossRefAutoCompleter to add auto complete entry VIRTUALNUMANODES.
+    -   Modify `org.ovirt.engine.core.searchbackend.VdsCrossRefAutoCompleter` to add auto complete entry NUMANODES; Modify `org.ovirt.engine.core.searchbackend.VmCrossRefAutoCompleter` to add auto complete entry VIRTUALNUMANODES.
 
 #### Interface and data structure in engine side
 

@@ -230,11 +230,17 @@ configure :build do
   # set :http_path, "/Content/images/"
 
   # Favicon PNG should be 144×144 and in source/images/favicon_base.png
-  # Note: If you activate this, you'll need ImageMagick installed
-  #activate :favicon_maker,
-    #favicon_maker_input_dir: "source/images",
-    #favicon_maker_output_dir: "build/images",
-    #favicon_maker_base_image: "favicon_base.png"
+  # Note: You need ImageMagick installed for favicon_maker to work
+  #activate :favicon_maker do |f|
+    #f.template_dir  = File.join(root, 'source','images')
+    #f.output_dir    = File.join(root, 'build','images')
+    #f.icons = {
+        #"favicon_base.png" => [
+                #{ icon: "favicon.png", size: "16x16" },
+                #{ icon: "favicon.ico", size: "64x64,32x32,24x24,16x16" },
+        #]
+    #}
+  #end
 end
 
 

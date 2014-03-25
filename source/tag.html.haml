@@ -39,7 +39,7 @@ per_page: 12
     def tag_size count, min, max
       min_percent, max_percent = 100, 300
 
-      size = min_percent + (count - min) * ((max_percent - min_percent) / (max - min))
+      size = min_percent + (count - min) * ((max_percent - min_percent) /  [(max - min),1].max)
 
       "font-size:#{size}%;"
     end

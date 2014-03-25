@@ -225,7 +225,28 @@ When able, passs all the needed information to the functions you use using param
 
 #### Function return statements
 
-Most functions should not use the exit statements, instead, they should use the return statement and let the caller of the function handle the error. Some exceptions include the *die* function. You should always write a return statement explicitly, to make sure that you return what you want and make it clear what the function will return. So usually, your functions will end with a return 0 statememt.
+Most functions should not use the exit statements, instead, they should use the return statement and let the caller of the function handle the error. Some exceptions include the *die* function. You should always write a return statement explicitly, to make sure that you return what you want and make it clear what the function will return. So usually, your functions will end with a return 0 statement.
+
+##### Example
+
+For example the following function, will return 1 when finishing correctly:
+
+      my_func() {
+          local res=0
+          do_something
+          res=$(($res + $?))
+          [[ $res -ne 0 ]] && die "custom message"
+      }
+
+Because the last statement return code will be the return code of the function, so to avoid confusions you should use:
+
+      my_func() {
+          local res=0
+          do_something
+          res=$(($res + $?))
+          [[ $res -ne 0 ]] && die "custom message"
+          return 0
+      }
 
 #### Command substitution
 

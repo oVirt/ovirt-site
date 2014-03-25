@@ -19,7 +19,7 @@ bundle install
 ```
 
 
-## Running
+## Running a local server
 
 1. Start a local Middleman server that uses local gems by typing
    `bundle exec middleman server`
@@ -56,7 +56,7 @@ bundle middleman article TITLE
 ```
 
 
-### Build your static site
+## Build your static site
 
 After getting it how you want, you can build the static site by running:
 

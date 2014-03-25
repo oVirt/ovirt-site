@@ -99,7 +99,8 @@ This is the detailed design page for NUMA and Virtual NUMA
 
 1.  I-1.3 Statistics data of each host CPU core which include %usr (%usr+%nice), %sys and %idle.
 2.  I-1.4 Data structure to be provided to MOM component
-3.  I-1.5 Automatic NUMA balancing on host
+3.  I-1.7 NUMA distances capture from command
+4.  I-1.8 Automatic NUMA balancing on host
 
 *   I-1.3 Sampling host CPU statistics data in `/proc/stat`, the whole data format is showing as below. We will use column 1 to 5 which include user, system, nice and idle CPU handlers to calculate CPU statistics data in engine side
 
@@ -116,11 +117,21 @@ This is the detailed design page for NUMA and Virtual NUMA
 
 To be continue...
 
-*   I-1.5 in rhel7 or above system, watch file `/sys/kernel/debug/sched_features` if contain `NUMA` or `NO_NUMA` check the Automatic NUMA balancing is turn on or off
+*   I-1.7 libivirt API do not support to get NUMA distances information, so we use command <code>numactl<code> to get the distances information
 
 <!-- -->
 
-    cat /sys/kernel/debug/sched_features
+    $ numactl -H
+    node distances:
+    node   0   1 
+      0:  10  20 
+      1:  20  10
+
+*   I-1.8 in rhel7 or above system, watch file `/sys/kernel/debug/sched_features` if contain `NUMA` or `NO_NUMA` check the Automatic NUMA balancing is turn on or off
+
+<!-- -->
+
+    $ cat /sys/kernel/debug/sched_features
     GENTLE_FAIR_SLEEPERS START_DEBIT NO_NEXT_BUDDY LAST_BUDDY CACHE_HOT_BUDDY WAKEUP_PREEMPTION ARCH_POWER NO_HRTICK NO_DOUBLE_TICK LB_BIAS NONTASK_POWER TTWU_QUEUE NO_FORCE_SD_OVERLAP RT_RUNTIME_SHARE NO_LB_MIN NUMA NUMA_FAVOUR_HIGHER NO_NUMA_RESIST_LOWER 
 
 #### Interface between VDSM and engine core

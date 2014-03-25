@@ -58,28 +58,28 @@ Ability from the UI, RESTful API and other APIs to specify virtual NUMA nodes fo
 <!-- -->
 
 *   Use cases in detailed (v1 - current version, v2 - next version)
-    -   When ovirt engine add some host or refresh host capabilities, the Gather host NUMA topology will collect the number of NUMA nodes, CPU list and total memory per node, NUMA distances (v2), Automatic NUMA balancing support (v2) from vdsm.
-    -   When ovirt engine on timely to do get host statistics, the Gather host NUMA statistics will collect free memory per node, CPUs and memory usage per node from vdsm,
-    -   The CPUs usage per node is the sum of NUMA node’s CPUs usage depending on Gather per CPU statistics. It contains CPU’s system, user and idle usage. These data will be used not only by NUMA feature, oVirt scheduler and Report will use them.
-    -   By using user interface Show host NUMA information, administrator will take a loot at host NUMA information, then decide how to configure VM with NUMA aware.
-    -   Thus Manual binding NUMA node feature turn on, administrator should know the operation will let the VM lose high availability and live migration as same as CPU pinning feature. Binding NUMA node contain three steps:
+    -   When ovirt engine add some host or refresh host capabilities, the `Gather host NUMA topology` will collect the number of NUMA nodes, CPU list and total memory per node, NUMA distances (v2), Automatic NUMA balancing support (v2) from vdsm.
+    -   When ovirt engine on timely to do get host statistics, the `Gather host NUMA statistics` will collect free memory per node, CPUs and memory usage per node from vdsm,
+    -   The CPUs usage per node is the sum of NUMA node’s CPUs usage depending on `Gather per CPU statistics`. It contains CPU’s system, user and idle usage. These data will be used not only by NUMA feature, oVirt scheduler and Report will use them.
+    -   By using user interface `Show host NUMA information`, administrator will take a loot at host NUMA information, then decide how to configure VM with NUMA aware.
+    -   Thus `Manual binding NUMA node` feature turn on, administrator should know the operation will let the VM lose high availability and live migration as same as CPU pinning feature. Binding NUMA node contain three steps:
         -   Select NUMA tuning mode (strict, preferred or interleave)
         -   Select NUMA node sets from specified host.
         -   Check the CPU pinning is suitable for node sets.
-    -   If the VM has the large size (i.e., 40 vCPUs and 512G memory) and cross the NUMA node, the Guest NUMA topology is the suggested feature that make the system has better performance. There are two checkpoints:
+    -   If the VM has the large size (i.e., 40 vCPUs and 512G memory) and cross the NUMA node, the `Guest NUMA topology` is the suggested feature that make the system has better performance. There are two checkpoints:
         -   The sum of Guest NUMA node’s CPUs count must equal to VM total CPU count.
         -   The sum of Guest NUMA node’s memory size must equal to VM total memory size.
-    -   Follow up oVirt Scheduler with NUMA policy, these situation should consider:
-        -   When Manual binding NUMA node and CPU pinning are configured
+    -   Follow up `oVirt Scheduler with NUMA policy`, these situation should consider:
+        -   When `Manual binding NUMA node` and `CPU pinning` are configured
             -   If there is enough free memory (each or sum) for binding NUMA nodes to run VM. (v1)
             -   If there is enough CPU idle (each or sum) for binding NUMA nodes to run VM. (v1)
             -   If there is enough CPU idle (each or sum) for VM CPU pinning to run VM. (v2)
-        -   When Guest NUMA topology is configured
+        -   When `Guest NUMA topology` is configured
             -   If there is enough free memory per NUMA node to run VM. (v2)
             -   If there is enough CPU idle per NUMA node to run VM. (v2)
-    -   The NUMA topology section Restful API is under the Host and VM root section. It contains the list of NUMA nodes, each NUMA node’s CPUs and total memory, node distance (v2), automatic NUMA balancing support (v2).
-    -   The NUMA statistics section Restful API is under the Host root section, it contains each NUMA node’s free memory, CPUs & memory usage.
-    -   Search Host/VM by NUMA node count and MOM setting with NUMA are still in discussion and will be published in v2.
+    -   The `NUMA topology section restful API` is under the Host and VM root section. It contains the list of NUMA nodes, each NUMA node’s CPUs and total memory, node distance (v2), automatic NUMA balancing support (v2).
+    -   The `NUMA statistics section restful API` is under the Host root section, it contains each NUMA node’s free memory, CPUs & memory usage.
+    -   `Search Host/VM by NUMA node count` and `MOM setting` with NUMA are still in discussion and will be published in v2.
 
 ### UI design prototype
 

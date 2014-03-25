@@ -12,7 +12,7 @@ wiki_last_updated: 2014-08-14
 
 ### Summary
 
-This feature allow Enterprise customers to provision large guests for their traditional scale-up enterprise workloads and expect low overhead due to virtualization.
+This feature allow Enterprise customers to provision large guests for their traditional scale-up enterprise workloads and expect low overhead due to visualization.
 
 *   Query target host’s NUMA topology
 *   NUMA bindings of guest resources (vCPUs & memory)
@@ -30,7 +30,7 @@ You may also refer to the [detailed feature page](http://www.ovirt.org/Features/
 
 *   Target Release: oVirt 3.5
 *   Status: design
-*   Last updated: 24 Mar 2014
+*   Last updated: 25 Mar 2014
 
 ### Detailed Description
 

@@ -34,6 +34,10 @@ This is the detailed design page for NUMA and Virtual NUMA
 
 ### Interface & data structure
 
+![](Data_Flow_Diagram.png "Data_Flow_Diagram.png")
+
+### Interface & data structure
+
 #### Interface between VDSM and libvirt
 
 1.  I-1.1 Host's NUMA node index and CPU id of each NUMA node

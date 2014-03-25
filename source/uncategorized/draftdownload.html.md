@@ -77,6 +77,10 @@ Supported Hosts:
 *   [Current Development](http://resources.ovirt.org/releases/beta/)
 *   [Future Development](http://resources.ovirt.org/releases/updates-testing/)
 
+### Mirrors for oVirt Downloads
+
+*   [Duke University](http://archive.linux.duke.edu/ovirt/) ([Stable](http://archive.linux.duke.edu/ovirt/releases/stable/) | [Current Development](http://archive.linux.duke.edu/ovirt/releases/beta/) | [Future Development](http://archive.linux.duke.edu/ovirt/releases/updates-testing/))
+
 ### Install oVirt
 
 oVirt release 3.4 is intended for production use and is available for the following platforms:

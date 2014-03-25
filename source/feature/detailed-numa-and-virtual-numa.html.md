@@ -6,51 +6,208 @@ wiki_revision_count: 56
 wiki_last_updated: 2014-05-06
 ---
 
-# Detailed NUMA and Virtual NUMA
+# NUMA and Virtual NUMA
 
-## Summary
+### Summary
 
-This is the detailed design page for NUMA and Virtual NUMA
+This feature allow Enterprise customers to provision large guests for their traditional scale-up enterprise workloads and expect low overhead due to visualization.
+
+*   Query target host’s NUMA topology
+*   NUMA bindings of guest resources (vCPUs & memory)
+*   Virtual NUMA topology
 
 You may also refer to the [simple feature page](http://www.ovirt.org/Features/NUMA_and_Virtual_NUMA).
 
-## Get Host NUMA topology
+### Owner
 
-### Overview
+*   Name: [ Jason Liao](User:JasonLiao), [ Bruce Shi](User:BruceShi)
+*   Email: <chuan.liao@hp.com>, <xiao-lei.shi@hp.com>
+*   IRC: jasonliao, bruceshi @ #ovirt (irc.oftc.net)
 
-![](Get Host NUMA topology.png "Get Host NUMA topology.png")
+### Current status
 
-### Engine core
+*   Target Release: oVirt 3.5
+*   Status: design
+*   Last updated: 25 Mar 2014
 
-*   A new VDS attribute - numanodes - will be added to support this feature.
-    -   Means a DB change: extend vds_dynamic to add it.
-*   The attribute will hold a string in a format
-    -   Format: i:c[,c]:tm:fm[;i:c[,c]:tm:fm]
-        -   i: numa node number
-        -   c: cpu inner numa node
-        -   tm: numa node total memory
-        -   fm: numa node free memory
-    -   Examples
-        -   0:0,1:16381:14428 => one numa node 0 has two cpus 0 1, total memory 16381, free memory 14428
-        -   0:0,2,4,6,8,10,12,14:49141:46783;1:1,3,5,7,9,11,13,15:49141:46783 => first numa node 0 has 8 cpus 0 2 4 6 8 10 12 14, total memory 49141, free memory 46783; second numa node 1 has 8 cpus 1 3 5 7 9 11 13 15, total memory 49141, free memory 46783
-*   Engine receives the information from VDSM xml-rpc invoke
+This is the detailed design page for NUMA and Virtual NUMA
 
-### VDSM
+### Interface & data structure
 
-### UI
+#### Interface between VDSM and libvirt
 
-## Set Guest NUMA node tuning
+1.  I-1.1 Host's NUMA node index and CPU id of each NUMA node
+2.  I-1.2 Host's NUMA node memory information, include total and free memory
+3.  I-1.5 Configuration of VM's memory allocation mode and memory comes from which NUMA nodes
+4.  I-1.6 Configuration of VM's virtual NUMA topology
 
-### Engine core
+*   I-1.1 Seek the host NUMA nodes information by using `getCapabilities` API in libvirt
 
-### VDSM
+<!-- -->
 
-### UI
+    <capabilities>
+        …
+        <host>
+            ...
+            <topology>
+                <cells num='1'>
+                    <cell id='0'>
+                        <cpus num='2'>
+                            <cpu id='0'/>
+                            <cpu id='1'/>
+                        </cpus>
+                    </cell>
+          </cells>
+            </topology>
+            …
+        </host>
+        …
+    </capabilities>
 
-## Set Guest virtual NUMA topology
+*   I-1.2 Seek the host NUMA nodes memory information by using `getMemoryStats` API in libvirt, the below is the data format of API returned value
 
-### Engine core
+<!-- -->
 
-### VDSM
+    { total: int, free: int }
 
-### UI
+*   I-1.5 Create a new function `appendNumaTune` in VDSM vm module to write the VM numatune configuration into libvirt domain xml follow the below format
+
+<!-- -->
+
+    <domain>
+        ...
+        <numatune>
+            <memory mode='interleave' nodeset='0-1'/>
+        </numatune>
+        …
+    </domain>
+
+*   I-1.6 Modify function `appendCpu` in VDSM vm module to write the VM virtual NUMA topology configuration into libvirt domain xml follow the below format
+
+<!-- -->
+
+    <cpu>
+        ...
+        <numa>
+          <cell cpus='0-7' memory='10485760'/>
+          <cell cpus='8-15' memory='10485760'/>
+        </numa>
+        ...
+    </cpu>
+
+#### Interface between VDSM and Host, which contain the below data
+
+1.  I-1.3 Statistics data of each host CPU core which include %usr (%usr+%nice), %sys and %idle.
+2.  I-1.4 Data structure to be provided to MOM component
+3.  I-1.5 Automatic NUMA balancing on host
+
+*   I-1.3 Sampling host CPU statistics data in `/proc/stat`, the whole data format is showing as below. We will use column 1 to 5 which include user, system, nice and idle CPU handlers to calculate CPU statistics data in engine side
+
+<!-- -->
+
+    $ cat /proc/stat
+    cpu  268492078 16093 132943706 6545294629 19023496 898 138160 0 57789592
+    cpu0 62042038 3012 52198814 1638619972 2438624 4 12068 0 16721375
+    cpu1 62779520 2733 25830756 1647361083 6001324 1 34617 0 16341547
+    cpu2 77892630 5788 32963856 1610093241 8367287 889 80447 0 8205583
+    cpu3 65777888 4559 21950279 1649220333 2216260 4 11027 0 16521086
+
+*   I-1.4 Data structure that provided to MOM component
+
+To be continue...
+
+*   I-1.5 in rhel7 or above system, watch file `/sys/kernel/debug/sched_features` if contain `NUMA` or `NO_NUMA` check the Automatic NUMA balancing is turn on or off
+
+<!-- -->
+
+    cat /sys/kernel/debug/sched_features
+    GENTLE_FAIR_SLEEPERS START_DEBIT NO_NEXT_BUDDY LAST_BUDDY CACHE_HOT_BUDDY WAKEUP_PREEMPTION ARCH_POWER NO_HRTICK NO_DOUBLE_TICK LB_BIAS NONTASK_POWER TTWU_QUEUE NO_FORCE_SD_OVERLAP RT_RUNTIME_SHARE NO_LB_MIN NUMA NUMA_FAVOUR_HIGHER NO_NUMA_RESIST_LOWER 
+
+#### Interface between VDSM and engine core
+
+1.  I-2.1 Report host support automatic NUMA balancing situation, NUMA node distances, NUMA nodes information, include NUMA node index, cpu ids and total memory, from VDSM to engine core
+2.  I-2.2 Report host NUMA nodes memory information (free memory and used memory percentage) and each cpu statistics (system, idle, user cpu percentage) from VDSM to engine core
+3.  I-2.3 Configuration of set VM's numatune and virtual NUMA topology from engine core to VDSM
+
+*   I-2.1 Transfer data format of host NUMA nodes information
+
+<!-- -->
+
+    'autoNumaBalancing': true/false
+    'numaDistances': 'str'
+    'numaNodes': {'<nodeIndex>': {'cpus': [int], 'totalMemory': 'str'}, …}
+
+*   I-2.2 Transfer data format of host CPU statistics and NUMA nodes memory information
+
+<!-- -->
+
+    'numaNodeMemFree': {'<nodeIndex>': {'memFree': 'str', 'memPercent': int}, …}
+    'cpuStatistics': {'<cpuId>': {'numaNodeIndex': int, 'cpuSys': 'str', 'cpuIdle': 'str', 'cpuUser': 'str'}, …}
+
+*   I-2.3 Transfer data format of set VM numatune and virtual NUMA topology
+
+<!-- -->
+
+    'numaTune': {'mode': 'str', 'nodeset': 'str'}
+    'guestNumaNodes': [{'cpus': 'str', 'memory': 'str'}, …]
+
+#### Interface between engine core and database (schema)
+
+1.  I-3.1 Schema modification of vds_dynamic table to include host's NUMA node distance information, NUMA node count and automatic NUMA balancing support flag.
+2.  I-3.2 Add table vds_cpu_statistics to include host cpu statistics information (system, user, idle cpu time and used cpu percentage)
+3.  I-3.3 Add table vds_numa_node_statistics to include host NUMA node statistics information (system, user, idle cpu time, used cpu percentage, free memory and used memory percentage)
+4.  I-3.4 Schema modification of vm_static table to include NUMA type, numatune mode configuration and virtual NUMA node count
+5.  I-3.5 Add table vds_numa_node to include host NUMA node information (node index, total memory, cpu count of each node, cpu list of each node)
+6.  I-3.6 Add table vm_numa_node to include vm virtual NUMA node information (node index, total memory, vCPU count of each node, vCPU list of each node)
+7.  I-3.7 Add table vm_numatune_nodeset to include vm numatune nodeset configuration (this is a relationship table, store the map relations between vm and vds_numa_node)
+
+The above interfaces are defined with database design diagram ![](Database_design_diagram.png "fig:Database_design_diagram.png")
+
+*   Related database scripts change:
+    1.  Add numa_sp.sql to include the store procedures which handle the operations in table vm_numa_node, vds_numa_node, vm_numatune_nodeset and vds_numa_node_statistics. It will provide the store procedures to insert, update and delete data and kinds of query functions.
+    2.  Modify vds_sp.sql to add some store procedures which handle the operations in table vds_cpu_statistics, including insert, update, delete and kinds of query functions.
+    3.  Modify the function of InsertVdsDynamic, UpdateVdsDynamic in vds_sp.sql to add new columns auto_numa_banlancing, numa_node_distance_list and vds_numa_node_count.
+    4.  Modify the function of InsertVmStatic, UpdateVmStatic in vms_sp.sql to add three new columns numa_manual_binding, numatune_mode and vm_numa_node_count.
+    5.  Modify create_views.sql to add new columns numa_manual_binding, numatune_mode and vm_numa_node_count in view vms; add new columns auto_numa_banlancing, numa_node_distance_list and vds_numa_node_count in view vds.
+    6.  Modify create_views.sql to add new views, including view vds_numa_node_view which joins vds_static, vds_numa_node and vds_numa_node_statistics; view vm_numa_node_view which joins vm_static, vm_numa_node; view vm_numatune_nodeset_view which joins vm_static, vm_numatune_nodeset and vds_numa_node.
+    7.  Modify upgrade/post_upgrade/0010_add_object_column_white_list_table.sql to add new columns auto_numa_banlancing, numa_node_distance_list and vds_numa_node_count.
+    8.  Add one script under upgrade/ to create tables - vm_numa_node, vds_numa_node, vm_numatune_nodeset, vds_numa_node_statistics and vds_cpu_statistics and add columns in table vds_dynamic and vm_static.
+    9.  Create the following indexes in the script mentioned in point 8:
+        -   Index on column vm_guid of table vm_numa_node
+        -   Index on column vds_numa_node_count of table vds_dynamic
+        -   Indexes on each of the columns vm_guid and vds_numa_node_id of table vm_numatune_nodeset
+        -   Indexes on each of the columns vds_id and cpu_count of table vds_numa_node
+        -   Indexes on each of the columns vds_id and vds_numa_node_id of table vds_cpu_statistics
+
+    10. Modify create_views.sql to add new columns auto_numa_balancing and numa_node_distance_list in view vds_with_tags.
+
+<!-- -->
+
+*   Related DAO change:
+    1.  Add VdsNumaNodeDAO and related implemention to provide data save, update, delete and kinds of queries in table vds_numa_node and vds_numa_node_statistics. Add VdsNumaNodeDAOTest for VdsNumaNodeDAO meanwhile.
+    2.  Add VmNumaNodeDAO and related implemention to provide data save, update, delete and kinds of queries in table vm_numa_node. Add VmNumaNodeDAOTest for VmNumaNodeDAO meanwhile.
+    3.  Add VmNumatuneNodesetDAO and related implemention to provide data save, update, delete in table vm_numatune_nodeset and queries to get vm configured VDS NUMA node which needs to join table vm_static, vm_numatune_nodeset and vds_numa_node. Add VmNumatuneNodesetDAOTest for VmNumatuneNodesetDAO meanwhile.
+    4.  Add VdsCpuStatisticsDao and related implementation to provide data save, update, delete and kinds of queries in table vds_cpu_statistics. Add VdsCpuStatisticsDAOTest for VdsCpuStatisticsDAO meanwhile.
+    5.  Modify VdsDynamicDAODbFacadeImpl and VdsDAODbFacadeImpl to add the map of new columns auto_numa_banlancing, numa_node_distance_list and vds_numa_node_count. Run VdsDynamicDAOTest to verify the modification.
+    6.  Modify VmStaticDAODbFacadeImpl and VmDAODbFacadeImpl to add the map of new columns numa_type, numatune_mode and numa_node_count. Run VmStaticDAOTest to verify the modification.
+
+#### Interface and data structure in engine side
+
+The below interfaces are defined with class diagram to easier understand the data relationship
+
+*   The information and setup of VM is defined in entity VM of engine core as below, the data interface in I-4.1, I-5.1 and I-6.1 will use these data
+
+1.  I-4.1 Provide vm NUMA configuration properties to scheduler (numaType, guestNumaNodeList)
+2.  I-5.1 Provide vm NUMA configuration properties which is binding to UI model (numaType, numaTuneMode, numaTuneNodeList, guestNumaNodeList)
+3.  I-6.1 Provide vm NUMA configuration properties which is showing vm NUMA information in restful API
+
+The above interfaces are defined with class diagram ![](Vm_class_diagram.png "fig:Vm_class_diagram.png")
+
+*   The information and setup of host is defined in entity VDS of engine core as below, the data interface in I-4.2, I-5.2, I-5.3 and I-6.2 will use these data
+
+1.  I-4.2 Provide host NUMA statistics information to scheduler, include free memory and used memory percentage of each NUMA node, total used cpu percentage of each NUMA node
+2.  I-5.2 Provide host NUMA node index list when create vm
+3.  I-5.3 Provide host NUMA statistics information, include free/total memory and used memory percentage, user/system/idle cpu percentage and total used cpu percentage
+4.  I-6.2 Provide host NUMA information which are mentioned above (host NUMA node and statistics information) in restful API
+
+The above interfaces are defined with class diagram ![](Vds_class_diagram.png "fig:Vds_class_diagram.png")

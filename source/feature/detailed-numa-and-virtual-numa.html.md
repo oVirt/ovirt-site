@@ -117,7 +117,7 @@ This is the detailed design page for NUMA and Virtual NUMA
 
 To be continue...
 
-*   I-1.7 libivirt API do not support to get NUMA distances information, so we use command <code>numactl<code> to get the distances information
+*   I-1.7 libivirt API do not support to get NUMA distances information, so we use command `numactl` to get the distances information
 
 <!-- -->
 

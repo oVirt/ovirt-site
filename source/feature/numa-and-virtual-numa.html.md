@@ -83,25 +83,18 @@ Ability from the UI, RESTful API and other APIs to specify virtual NUMA nodes fo
 
 ### UI design prototype
 
+Work in Progress...
+
 *   Host sub tab NUMA information
-
-![](Host_sub_tab_numa_information.png "Host_sub_tab_numa_information.png")
-
-*   -   Follow CPUs and Memory of each NUMA node information, CPU pinning and manual binding NUMA node on VM is much easier.
+    -   Follow CPUs and Memory of each NUMA node information, CPU pinning and manual binding NUMA node on VM is much easier.
     -   Click Show NUMA distances button will popup panel show distances map.
 *   Manual binding NUMA node
-
-![](Manual_binding_numa_node.png "Manual_binding_numa_node.png")
-
-*   -   Specific host changed on Host tabs will refresh Tuning nodes from the specified host.
+    -   Specific host changed on Host tabs will refresh Tuning nodes from the specified host.
     -   Click Manual Binding NUMA node checkbox, the tuning mode selector and nodes checkboxes will enabled.
     -   Tuning mode has these values: strict, preferred, interleave
     -   There is one help box content: Configure wrong CPU pinning against NUMA nodes will take bad performance.
 *   Guest NUMA topology
-
-![](Guest_numa_topology.png "Guest_numa_topology.png")
-
-*   -   Left node0 CPUs and Memory be blank, system will ignore Guest NUMA topology configuration.
+    -   Left node0 CPUs and Memory be blank, system will ignore Guest NUMA topology configuration.
     -   Click Add and Minus button will increase and decrease NUMA nodes.
     -   On saving the VM, there are some checks in NUMA topology:
     -   The sum of every node’s CPUs number should equal to Total Virtual CPUs

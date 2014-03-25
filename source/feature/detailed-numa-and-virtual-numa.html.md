@@ -32,7 +32,7 @@ You may also refer to the [simple feature page](http://www.ovirt.org/Features/NU
 
 This is the detailed design page for NUMA and Virtual NUMA
 
-### Interface & data structure
+### Data flow diagram
 
 ![](Data_Flow_Diagram.png "Data_Flow_Diagram.png")
 
@@ -168,13 +168,13 @@ To be continue...
 
 #### Interface between engine core and database (schema)
 
-1.  I-3.1 Schema modification of vds_dynamic table to include host's NUMA node distance information, NUMA node count and automatic NUMA balancing support flag.
-2.  I-3.2 Add table vds_cpu_statistics to include host cpu statistics information (system, user, idle cpu time and used cpu percentage)
-3.  I-3.3 Add table vds_numa_node_statistics to include host NUMA node statistics information (system, user, idle cpu time, used cpu percentage, free memory and used memory percentage)
-4.  I-3.4 Schema modification of vm_static table to include NUMA type, numatune mode configuration and virtual NUMA node count
-5.  I-3.5 Add table vds_numa_node to include host NUMA node information (node index, total memory, cpu count of each node, cpu list of each node)
-6.  I-3.6 Add table vm_numa_node to include vm virtual NUMA node information (node index, total memory, vCPU count of each node, vCPU list of each node)
-7.  I-3.7 Add table vm_numatune_nodeset to include vm numatune nodeset configuration (this is a relationship table, store the map relations between vm and vds_numa_node)
+1.  I-3.1 Schema modification of `vds_dynamic` table to include host's NUMA node distance information, NUMA node count and automatic NUMA balancing support flag.
+2.  I-3.2 Add table `vds_cpu_statistics` to include host cpu statistics information (system, user, idle cpu time and used cpu percentage)
+3.  I-3.3 Add table `vds_numa_node_statistics` to include host NUMA node statistics information (system, user, idle cpu time, used cpu percentage, free memory and used memory percentage)
+4.  I-3.4 Schema modification of `vm_static` table to include NUMA type, numatune mode configuration and virtual NUMA node count
+5.  I-3.5 Add table `vds_numa_node` to include host NUMA node information (node index, total memory, cpu count of each node, cpu list of each node)
+6.  I-3.6 Add table `vm_numa_node` to include vm virtual NUMA node information (node index, total memory, vCPU count of each node, vCPU list of each node)
+7.  I-3.7 Add table `vm_numatune_nodeset` to include vm numatune nodeset configuration (this is a relationship table, store the map relations between vm and `vds_numa_node`)
 
 The above interfaces are defined with database design diagram ![](Database_design_diagram.png "fig:Database_design_diagram.png")
 
@@ -205,6 +205,34 @@ The above interfaces are defined with database design diagram ![](Database_desig
     4.  Add VdsCpuStatisticsDao and related implementation to provide data save, update, delete and kinds of queries in table vds_cpu_statistics. Add VdsCpuStatisticsDAOTest for VdsCpuStatisticsDAO meanwhile.
     5.  Modify VdsDynamicDAODbFacadeImpl and VdsDAODbFacadeImpl to add the map of new columns auto_numa_banlancing, numa_node_distance_list and vds_numa_node_count. Run VdsDynamicDAOTest to verify the modification.
     6.  Modify VmStaticDAODbFacadeImpl and VmDAODbFacadeImpl to add the map of new columns numa_type, numatune_mode and numa_node_count. Run VmStaticDAOTest to verify the modification.
+
+<!-- -->
+
+*   Related search engine change
+
+Currently, we plan to provide below search functions about NUMA feature, each field support the numeric relation of “>”, “<”, “>=”, “<=”, “=”, “!=”.
+
+1.  Search hosts with the below NUMA related fields:
+    -   NUMA node number
+    -   NUMA node cpu count
+    -   NUMA node total memory
+    -   NUMA node memory usage
+    -   NUMA node cpu usage
+
+2.  Search vms with the below NUMA related fields:
+    -   Manual NUMA binding
+    -   NUMA tune mode
+    -   Virtual NUMA node number
+    -   Virtual NUMA node vcpu count
+    -   Virtual NUMA node total memory
+
+3.  Manual NUMA binding and NUMA tune mode support enum value relation, the others support the numeric relation.
+    -   Modify org.ovirt.engine.core.searchbackend.SearchObjects to add new entry NUMANODES and VIRTUALNUMANODES.
+    -   Add org.ovirt.engine.core.searchbackend.NumaNodeConditionFieldAutoCompleter to provide NUMA node related filters auto completion;
+    -   Add org.ovirt.engine.core.searchbackend.VirtualNumaNodeConditionFieldAutoCompleter to provide virtual NUMA node related filters auto completion.
+    -   Modify org.ovirt.engine.core.searchbackend.SearchObjectAutoCompleter to add new joins, one is HOST joins NUMANODES on vds_id, the other is VM joins VIRTUALNUMANODES on vm_guid.
+    -   Add new entries in entitySearchInfo accordingly. NUMANODES will use new added view vds_numa_node_view and VIRTUALNUMANODES will use new added view vm_numa_node_view.
+    -   Modify org.ovirt.engine.core.searchbackend.VdsCrossRefAutoCompleter to add auto complete entry NUMANODES; Modify org.ovirt.engine.core.searchbackend.VmCrossRefAutoCompleter to add auto complete entry VIRTUALNUMANODES.
 
 #### Interface and data structure in engine side
 

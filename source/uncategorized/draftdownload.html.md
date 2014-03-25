@@ -79,7 +79,7 @@ Supported Hosts:
 
 ### Mirrors for oVirt Downloads
 
-*   [Duke University](http://archive.linux.duke.edu/ovirt/) ([Stable](http://archive.linux.duke.edu/ovirt/releases/stable/) | [Current Development](http://archive.linux.duke.edu/ovirt/releases/beta/) | [Future Development](http://archive.linux.duke.edu/ovirt/releases/updates-testing/))
+*   [Duke University](http://archive.linux.duke.edu/ovirt/) ([Stable](http://archive.linux.duke.edu/ovirt/releases/stable/) | [Current](http://archive.linux.duke.edu/ovirt/releases/beta/) | [Future](http://archive.linux.duke.edu/ovirt/releases/updates-testing/))
 
 ### Install oVirt
 

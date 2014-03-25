@@ -23,8 +23,9 @@ wiki_last_updated: 2014-11-05
     -   Beta 2 release: **2014-**
     -   oVirt 3.5 Test Day: *' 2014-*'
     -   Beta release: **2014-**
-    -   Branching / Feature freeze: **2014-**
+    -   Branching: **2014-06-01**
     -   Alpha release: **2014-**
+    -   Feature freeze: **2014-05-01**
 
 **More details on test days, etc. to come in the next few weeks**
 

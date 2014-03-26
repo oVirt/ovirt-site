@@ -99,7 +99,7 @@ This is the detailed design page for NUMA and Virtual NUMA
         ...
     </cpu>
 
-#### Interface between VDSM and Host, which contain the below data
+#### Interface between VDSM and Host
 
 1.  I-1.3 Statistics data of each host CPU core which include %usr (%usr+%nice), %sys and %idle.
 2.  I-1.4 Data structure to be provided to MOM component
@@ -131,12 +131,12 @@ To be continue...
       0:  10  20 
       1:  20  10
 
-*   I-1.8 in rhel7 or above system, watch file `/sys/kernel/debug/sched_features` if contain `NUMA` or `NO_NUMA` check the Automatic NUMA balancing is turn on or off
+*   I-1.8 In kernels who having Automatic NUMA balancing feature, use command `sysctl -a |grep numa_balancing` to check the Automatic NUMA balancing value is turn on or off
 
 <!-- -->
 
-    $ cat /sys/kernel/debug/sched_features
-    GENTLE_FAIR_SLEEPERS START_DEBIT NO_NEXT_BUDDY LAST_BUDDY CACHE_HOT_BUDDY WAKEUP_PREEMPTION ARCH_POWER NO_HRTICK NO_DOUBLE_TICK LB_BIAS NONTASK_POWER TTWU_QUEUE NO_FORCE_SD_OVERLAP RT_RUNTIME_SHARE NO_LB_MIN NUMA NUMA_FAVOUR_HIGHER NO_NUMA_RESIST_LOWER 
+    $ sysctl -a | grep numa_balancing
+    kernel.numa_balancing = 1
 
 #### Interface between VDSM and engine core
 

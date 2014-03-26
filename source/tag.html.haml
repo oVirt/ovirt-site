@@ -12,7 +12,7 @@ per_page: 12
 
 - if defined? tagname
 
-  %h1
+  %h2
     Articles tagged '#{tagname}'
 
   - if paginate && num_pages > 1
@@ -46,7 +46,7 @@ per_page: 12
 
   - if blog.tags.count > 0
 
-    %h1 All tags
+    %h2 All tags
 
     - min_size = blog.tags.min_by {|t| t[1].count}[1].count
     - max_size = blog.tags.max_by {|t| t[1].count}[1].count
@@ -57,4 +57,4 @@ per_page: 12
 
   - else
 
-    %h1 No tags found
+    %h2 No tags found

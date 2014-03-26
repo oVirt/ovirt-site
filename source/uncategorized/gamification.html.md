@@ -35,6 +35,8 @@ in progress, code available as [patch](http://gerrit.ovirt.org/#/c/23013/) in ge
 
 ProgressBar is meant to encourage users to explore oVirt features through WebAdmin UI.
 
+![oVirt ProgressBar PoC](Progressbar-plugin-poc.png "oVirt ProgressBar PoC")
+
 **Basic concepts**
 
 *   achievement is the basic unit of tracking user's progress

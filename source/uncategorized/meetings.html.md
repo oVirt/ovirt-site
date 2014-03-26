@@ -43,18 +43,18 @@ This is the agenda for the 2013-01-16 meeting:
     -   Intercall (see [here](intercall) for more info) conference ID: 1814335863
 *   VDSM Bi-Weekly Sync
     -   Monday (bi-weekly) @ 14:30 UTC (may change during DST changes) - always at 16:30 Israel.
-    -   To see in your timezone '''date --date='TZ="Asia/Jerusalem" 16:30 next Mon' '''
+    -   To see in your timezone '''date --date='TZ="Asia/Jerusalem" 16:30 next Tue' '''
     -   To see if this is a week with a meeting,
 
-      ` wk=`date --date='TZ="Asia/Jerusalem" 16:30 next Mon' +"%W"`; `
+      ` wk=`date --date='TZ="Asia/Jerusalem" 16:30 next Tue' +"%W"`; `
       if [ $(($wk % 2)) == 1 ]; then
-        echo "Meeting next Monday";
+        echo "Meeting next Tuesday";
       else
-        echo "No meeting next Monday";
+        echo "No meeting next Tuesday";
       fi
 
 *   -   On IRC: #vdsm on chat.freenode.net
-    -   Intercall (see [here](intercall) for more info) conference ID: 842-597-391-5
+    -   Intercall (see [here](intercall) for more info) conference ID: 353-86-075-901
 
 ### MeetBot
 

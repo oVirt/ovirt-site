@@ -39,16 +39,22 @@ per_page: 12
     def tag_size count, min, max
       min_percent, max_percent = 100, 300
 
-      size = min_percent + (count - min) * ((max_percent - min_percent) /  [(max - min),1].max)
+      size = min_percent + (count - min) * ((max_percent - min_percent) /  [(max - min), 1].max)
 
       "font-size:#{size}%;"
     end
 
-  %h1 All tags
+  - if blog.tags.count > 0
 
-  - min_size = blog.tags.min_by {|t| t[1].count}[1].count
-  - max_size = blog.tags.max_by {|t| t[1].count}[1].count
+    %h1 All tags
 
-  .tag-cloud
-    - blog.tags.sort_by {|tag_name, d| tag_name.downcase}.each do |tag_name, tag_data|
-      %span.tag= link_to tag_name, "/blog/tag/#{tag_name.parameterize.downcase}/", style: tag_size(tag_data.count, min_size, max_size)
+    - min_size = blog.tags.min_by {|t| t[1].count}[1].count
+    - max_size = blog.tags.max_by {|t| t[1].count}[1].count
+
+    .tag-cloud
+      - blog.tags.sort_by {|tag_name, d| tag_name.downcase}.each do |tag_name, tag_data|
+        %span.tag= link_to tag_name, "/blog/tag/#{tag_name.parameterize.downcase}/", style: tag_size(tag_data.count, min_size, max_size)
+
+  - else
+
+    %h1 No tags found

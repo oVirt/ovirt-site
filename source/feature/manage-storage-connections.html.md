@@ -25,7 +25,7 @@ The new connection details should be of the same storage type as the original co
 
 ### Current Status and tasks
 
-Updated August 19, 2013
+Updated March 26, 2014
 
 #### GUI
 
@@ -68,8 +68,8 @@ Updated August 19, 2013
 *   Add functionality to add a file storage domain with a reference to an already existing storage connection (instead of embedded properties of a connection that will be created along with the storage domain). (ready) <http://gerrit.ovirt.org/#/c/17177/>
 *   Use a new storage_connection REST object instead of Storage. ready. <http://gerrit.ovirt.org/#/c/17565/>
 *   Add ability to remove (delete) a connection without specifying the host. (ready) <http://gerrit.ovirt.org/#/c/17568/>
-*   Add functionality to add/remove an additional connection to block storage domain - multipathing. (Daniel Erez) in review. <http://gerrit.ovirt.org/#/c/17864/>
-*   Sync luns when adding a new storage connections. (Daniel Erez) in review. <http://gerrit.ovirt.org/#/c/17919/>
+*   Add functionality to add/remove an additional connection to block storage domain - multipathing. (Daniel Erez) ready. <http://gerrit.ovirt.org/#/c/17864/>
+*   Sync luns when adding a new storage connections. (Daniel Erez) ready. <http://gerrit.ovirt.org/#/c/17919/>
 *   post 3.3 - add connections subresource to lun disks - For each lun disk (direct lun) view (GET) its storage connections by approaching it via a specific subresource: /api/disks/<diskId>/connections. not started
 
 #### Blockers

@@ -104,7 +104,7 @@ Work in Progress...
 
 The hypervisor’s default policy is to schedule and run the guest on any available resources on the host. As a result, the resources backing a given guest could end up getting spread out across multiple NUMA nodes and over a period of time may get moved around, leading to poor and unpredictable performance inside the guest. Use the NUMA feature configuration could allow the users to get better performance from their VM's through using all CPU related memory - including the ones not handled by qemu/kvm. Allows users to get better performance from their VM's through split virtual NUMA node
 
-Note: AutoNUMA/SchedNUMA balancing changes in the Linux kernel (i.e. upstream 3.13 kernel) should help reduce the need for having to explicitly specify this for a guest. But there will still be specific use cases where having this ability in the UI will prove useful.
+Note: Automatic NUMA balancing changes in the Linux kernel (i.e. upstream 3.8 kernel) should help reduce the need for having to explicitly specify this for a guest. But there will still be specific use cases where having this ability in the UI will prove useful.
 
 ### Documentation / External references
 

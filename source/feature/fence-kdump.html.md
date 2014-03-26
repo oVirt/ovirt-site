@@ -62,11 +62,13 @@ There's fence_kdump support in package kexec-tools 2.0.4.18, but unfortunately t
 *   [Adding support for manually configured fence_kdump](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000574.html)
 *   [Adding support for manually configured fence_kdump v2](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000583.html)
 *   [fence_kdump configuration should be in one directory](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000601.html)
-*   [Rename is_fence_kdump to is_pcs_fence_kdump](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000602.html)
-*   [Rename check_fence_kdump to check_pcs_cluster_rebuild](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000603.html)
-*   [Move fence_kdump nodes filtering into separate function](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000604.html)
-*   [Add support for fence_kdump in generic cluster](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000605.html)
 *   [Add fence_kdump support for generic cluster v3](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000676.html)
+*   [Rename FENCE_KDUMP_CONFIG to FENCE_KDUMP_CONFIG_FILE](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000679.html)
+*   [Rename FENCE_KDUMP_NODES to FENCE_KDUMP_NODES_FILE](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000680.html)
+*   [Move fence_kdump nodes filtering into separate function](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000681.html)
+*   [Rename is_fence_kdump to is_pcs_fence_kdump](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000682.html)
+*   [Rename check_fence_kdump to check_pcs_fence_kdump](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000683.html)
+*   [Add fence_kdump support for generic clusters](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000684.html)
 
 If those patches from v3 will be accepted, fence_kdump will be configured automatically when executing `kdumpctl restart` if `fence_kdump_nodes` option in `kdump.conf` will contain at least one host to send notification to, for example:
 

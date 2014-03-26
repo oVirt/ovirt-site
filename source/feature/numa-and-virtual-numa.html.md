@@ -40,7 +40,7 @@ Ability from the UI, RESTful API and other APIs to gather a given host’s NUMA 
 
 *   NUMA bindings of guest resources (vCPUs & memory)
 
-Ability from the UI, RESTful API and other APIs to optionally specify the bindings for backing memory of a guest (i.e. via numatune with mode set to: strict, preferred or interleave) along with the vCPU pinning across a desired set of host NUMA nodes. Automatic NUMA balancing feature will be introduced in RHEL 7.0. As this technology matures it should reduce the need for having to specify explicit NUMA bindings.
+Ability from the UI, RESTful API and other APIs to optionally specify the bindings for backing memory of a guest (i.e. via numatune with mode set to: strict, preferred or interleave) along with the vCPU pinning across a desired set of host NUMA nodes. Automatic NUMA balancing feature will be introduced in kernel 3.8. As this technology matures it should reduce the need for having to specify explicit NUMA bindings.
 
 *   Virtual NUMA topology
 

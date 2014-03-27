@@ -52,7 +52,7 @@ wiki_last_updated: 2014-03-27
        if the above commands doesn't work you can install it manually:
 ` sudo yum install `[`http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm`](http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm)
 
-*   follow [ Install instructions in release notes](OVirt_3.4_release_notes#Install_.2F_Upgrade_from_previous_versions)
+*   follow [ Install instructions in release notes](OVirt_3.4_Release_Notes)
 *   guest agent rpms are available on <http://evilissimo.fedorapeople.org/repos/ovirt-guest-agent/ovirt-3.4/beta1/>
 *   the following oVirt Node ISO (based on CentOS 6.5 and oVirt 3.4 components) can be used for the Test Day. **Important: If you run into problem first try to boot into SELinux permissive mode by appending enforcing=0 to the kernel when booting the ISO to prevent denials**
 

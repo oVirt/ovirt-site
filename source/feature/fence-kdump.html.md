@@ -111,6 +111,8 @@ So far options 3) or 4) looks most promising with the note that 3) is easier to 
 
 ## Steps required to implement feature
 
+Patches created to implement feature are tracked in [BZ1079821](https://bugzilla.redhat.com/show_bug.cgi?id=1079821)
+
 *   Dependency to kexec-tools package should be added to vdsm package
 *   VDSM part implementation
     -   Ability to detect status of kdump support for host

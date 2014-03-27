@@ -33,7 +33,7 @@ Design phase
 
 The following use-cases assume you already have a Foreman provider in the system. For more information on adding Foreman providers have a look at [2].
 
-##### Bare-Metal provisioning
+##### First phase - Bare-Metal provisioning
 
 Prerequisites:
 
@@ -62,7 +62,7 @@ Open issues:
 1.  How to register the host in case of a regular host? What would be the oVirt API for that? Is it the same as the oVirt-node one?
 2.  The proposal above assumes the operation is triggered from the Provider discovery sub-tab, which is different from the current way we add hosts. Need to verify that it is acceptable
 
-##### VM provisioning - add new VMs which will be configured by Foreman
+##### Second phase - VM provisioning - add new VMs which will be configured by Foreman
 
 We have two options here: a. Add the VM through oVirt, and then add it to Foreman as bare-metal (add the oVirt compute resource) - only PXE installation, passing the MAC address to foreman b. Add the VM through foreman (using compute resource)
 

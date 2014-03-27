@@ -122,5 +122,6 @@ Patches created to implement feature are tracked in [BZ1079821](https://bugzilla
     -   Add enable/disable fence_kdump to Add/Edit host dialog
     -   Show error when fence_kdump is enabled for host, but vdsm reports unknown/disabled in kdump status
     -   Implement selected fence_kdump listener mechanism (see [ Receiving fence_kdump notifications](#Receiving_fence_kdump_notifications))
+    -   Firewall configuration will need to be updated for selected fence_kdump listener mechanism (see [ Receiving fence_kdump notifications](#Receiving_fence_kdump_notifications))
 *   oVirt Node
     -   Enable kdump support in kernel

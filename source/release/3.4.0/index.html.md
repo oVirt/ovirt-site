@@ -19,9 +19,7 @@ To find out more about features that were added in previous oVirt releases, chec
 
 ## Install / Upgrade from previous versions
 
-### RELEASE CANDIDATE
-
-oVirt 3.4.0 release candidate is now available for testing.
+oVirt 3.4.0 release is now available!
 
 In order to install it, you need to update ovirt-release to 10.0.1 or newer by running
 

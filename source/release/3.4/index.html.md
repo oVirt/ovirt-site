@@ -605,8 +605,43 @@ will upgrade to latest 3.3.
  - [REST]: Missing domain field on VM\\Template object.
  - [REST-API] XSD schema validation error: response for create vm returned with 'type' and 'data' fields instead of with one of these fields
  - webadmin: Missing add new ISO option in data center "guide me" dialog
- - Failure to add domain via engine-manage-domains if the kerberos realm is not an uppercase of the domain
+ - Failure to add domain via engine-manage-domains if the kerberos realm is not an uppercase of the DNS domain
  - [database] do not enable provisioning for remote database
+ Fixed in oVirt 3.4.0 GA
+
+* Tracker: oVirt 3.4 release
+ - engine-setup should refuse using a non-empty remote database
+ - engine: cannot change to a different cpu family after installation without removing host from cluster
+ - Proper audit log handling should be added for various login failures
+ - Creating a VM from a Template without NICs might create a NIC
+ - RHEV 3.3 adding new host causes error logging for an attempt to remove host
+ - [RHEVM] [webadmin] [network labels] cannot remove network label from interface via Setup Host Networks
+ - webadmin: wipe after delete option is set by what ever domain is listed first (iscsi/nfs DC)
+ - [RHEVM] [webadmin] [network labels] Setup Host Networks dialog presents network configuration incorrectly
+ - Template is created with no default value for migration downtime
+ - Adding new node running VDSM 4.14 will not add
+ - [DWH-SETUP][TEXT] - misconfiguartion of remote DB setup
+ - [webadmin] [network labels] emphasize unconfigured interface in Setup Host Networks dialog
+ - [webadmin] [network labels] Same label on VLAN + bridged network + host interface blocks Setup Host Networks dialog
+ - Release maven artifacts with correct version numbers
+ - CPU Hotplug config value is wrong in the database creation scripts
+ - Cannot import disks from glance as templates
+ - [database] support postgres user length within schema version
+ - Notifier doesn't send any notifications via email
+ - [RFE] 3.4 product translation: translation update 1
+ - VM split brain caused by network outage
+ - remote database cannot be used
+ - provisioning with existing database 'engine' fails
+ - provisioning with existing database 'engine' logs the new password
+ - /permits subcollection of SuperUser role throws NullPointerException
+ - minimal snmp notifications conf section has wrong variable name
+ - Schema upgrade failure on 03_05_0050_event_notification_methods.sql
+ - On DB upgrade, readonly user and client custom users losses permissions to db views
+ - Restapi throws ClassCastException when search by unknow value
+ - Engine requires /etc/mime.types
+ - support snmp notifications to multiple managers
+ - RHEVM shows an event message of ETL service sampling has encountered an error
+ - [ovirt][engine-api] Force switch HTTPS to HTTP in REST API
 
 ### VDSM
 

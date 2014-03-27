@@ -109,7 +109,20 @@ There are currently several possible methods how to receive fence_kdump notifica
 
 So far options 3) or 4) looks most promising with the note that 3) is easier to implement.
 
-## Open questions
+## Open questions/issues
+
+1.  **Does kdump support all network configuration we need (bridge, VLAN, ...)?**
+    -   Bridges are supported, I successfully tested fence_kdump with ovirtmgmt bridge
+    -   According to [BZ752458](https://bugzilla.redhat.com/show_bug.cgi?id=752458) VLANs are supported
+
+2.  **Fence_kdump uses port 7410 by default (can be changed using command line argument) which is reserved for Ionix Network Monitor. Should we used by default another port?**
+3.  **Fence_kdump configuration will be updated only on host redeploy. Is it enough?**
+4.  **Kdump configuration will need to be refreshed after network configuration is updated because network configuration to reach host for fence_kdump is stored inside kdump initial ramdisk**
+    -   Can be achieved by executing `service kdump restart`, but this call should be added to VDSM module which is responsible for network configuration.
+
+5.  **We plan to update only fence_kdump options in kdump configuration, host admin will be responsible to configure other options and restart kdump service manually when done. In order to successfully report kdump status to engine this operation should be done only when host is in Maintenance.**
+6.  **Host from which fence_kdump message came is identified by IP address, but inside engine FQDN or IP of host is saved. Is it OK to resolve FQDN during kdump detection or do we need to save IP address of host in engine?**
+7.  **We are able only to allow access to fence_kdump port, but we cannot easily identify which IPs can access this port. This is task for administrator to modify firewall rules for enhanced security**
 
 ## Steps required to implement feature
 

@@ -35,12 +35,13 @@ The following use-cases assume you already have a Foreman provider in the system
 
 ##### Bare-Metal provisioning
 
-prerequisites:
+Prerequisites:
 
-*   Foreman admin has designated a host group(s) in foreman for that purpose
-*   That Host group has the relevant templates (PXE / kickstart files ) associated with that host group for the relevant OSs
-*   oVirt needs proper credentials to view relevant bare-metal hosts and host groups.
-*   For now we assume a host group has all the required defaults needed to provision the host
+*   Foreman admin has a designated host group(s) in foreman for that purpose
+*   Have the proper images for the OS installation
+*   That Host group has the relevant templates (PXE / kickstart files) associated with that host group for the relevant OSs
+*   oVirt needs proper permissions to view relevant bare-metal hosts and host groups
+*   The host group has all the required defaults needed to provision the host
 
 User-flow:
 
@@ -48,13 +49,13 @@ User-flow:
 2.  select a host group for this host
 3.  set the proper configuration needed for it (location/environment/other relevant properties)
 4.  Press Okay
-5.  Now, that will trigger the following system flow:
-    1.  add the host to foreman using the API
+5.  Now, the following system flow will occur:
+    1.  add the host to foreman using the API (Provision the discovered host)
     2.  Now there is a split:
-        1.  oVirt-node hosts - will do the registration to the engine (assuming the kernel params are configured for that template)
-        2.  regular hosts- at first step won't do the registration by themselves, but foreman will do that using a plugin (plugin will send RestAPI call to add the host , or could it just register it same like oVirt-node?
+        1.  oVirt-node hosts - the registration will occur through the oVirt-node (assuming the kernel parameters are configured for that Foreman template)
+        2.  regular hosts- at first step won't do the registration by themselves, but foreman will do that using a plugin (plugin will send REST-API call to add the host , or could it just register it same like oVirt-node?
 
-6.  The host now appears in the oVirt UI, it is being approved, we can modify the host properties, and bootstrapping starts.
+6.  The host now appears in the oVirt UI, and when approving the host we can modify the host properties, and bootstrapping starts
 
 Open issues:
 

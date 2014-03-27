@@ -26,8 +26,6 @@ wiki_last_updated: 2014-03-27
     -   Branching / Feature freeze: **2014-01-15**
     -   Alpha release: **2014-01-09**
 
-**More details on test days, etc. to come in the next few weeks**
-
 ## Features Status Table
 
 To try and improve 3.4 planning over the wiki approach in 3.3, this google doc <http://bit.ly/17qBn6F> has been created.

@@ -29,6 +29,13 @@ wiki_last_updated: 2014-11-05
 
 **More details on test days, etc. to come in the next few weeks**
 
+### Nightly Builds
+
+Nightly builds are available enabling the oVirt snapshots repositories:
+
+      # yum-config-manager --enable ovirt-snapshot
+      # yum-config-manager --enable ovirt-snapshot-static
+
 ## Features Status Table
 
 To try and improve 3.5 planning over the wiki approach in 3.3, this google doc <http://bit.ly/17qBn6F> has been created.

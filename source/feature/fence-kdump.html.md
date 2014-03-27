@@ -109,6 +109,8 @@ There are currently several possible methods how to receive fence_kdump notifica
 
 So far options 3) or 4) looks most promising with the note that 3) is easier to implement.
 
+## Open questions
+
 ## Steps required to implement feature
 
 Patches created to implement feature are tracked in [BZ1079821](https://bugzilla.redhat.com/show_bug.cgi?id=1079821)

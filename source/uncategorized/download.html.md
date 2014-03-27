@@ -149,7 +149,7 @@ These instructions should work for both Red Hat Enterprise Linux and CentOS. The
 
 </div>
 1.  Add the official oVirt repository for EL6. <kbd>
-        sudo yum localinstall http://ovirt.org/releases/ovirt-release-el.noarch.rpm
+        sudo yum localinstall http://resources.ovirt.org/releases/ovirt-release.noarch.rpm
 
     </kbd>
 

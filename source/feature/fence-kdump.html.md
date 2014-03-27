@@ -57,7 +57,7 @@ Fence kdump will be inserted into current fencing flow just before hard fencing,
 
 ## Host configuration to enable fence_kdump
 
-There's fence_kdump support in package kexec-tools 2.0.4.18, but unfortunately this support is tightly bound to Pacemaker software. Several patches has been proposed to kexec-tools package and you can found discussion about them in those threads:
+There's fence_kdump support in package kexec-tools 2.0.4.18, but unfortunately this support is tightly bound to Pacemaker software. Bug [1078134](https://bugzilla.redhat.com/show_bug.cgi?id=1078134) was created, several patches has been proposed to kexec-tools package and you can found discussion about them in those threads:
 
 *   [Adding support for manually configured fence_kdump](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000574.html)
 *   [Adding support for manually configured fence_kdump v2](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000583.html)

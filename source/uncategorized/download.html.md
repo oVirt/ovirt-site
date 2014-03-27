@@ -54,11 +54,11 @@ Supported Hosts:
 
     * Fedora 19
 
-    * CentOS 6.4
+    * CentOS 6.4/6.5
 
-    * Red Hat Enterprise Linux 6.4
+    * Red Hat Enterprise Linux 6.4/6.5
 
-    * Scientific Linux 6.4
+    * Scientific Linux 6.4/6.5
 
     * Gentoo Linux (experimental)
 

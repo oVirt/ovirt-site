@@ -111,7 +111,7 @@ You should see the ovirt-3.4 and ovirt-stable repositories listed in the output 
 
 </div>
 1.  Add the official oVirt repository for Fedora. <kbd>
-        sudo yum localinstall http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm
+        sudo yum localinstall http://resources.ovirt.org/releases/ovirt-release.noarch.rpm
 
     </kbd>
 

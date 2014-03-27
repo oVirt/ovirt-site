@@ -189,7 +189,7 @@ You can either create a new ISO Storage Domain or import an existing ISO Storage
              while api.vms.get(VM_NAME).status.state != 'down':
                  sleep(1)
          
-         except:
+         except Exception as e:
              print 'Failed to create VM with disk and NIC\n%s' % str(e)
 
 ### Start/hibernate/resume/stop VM

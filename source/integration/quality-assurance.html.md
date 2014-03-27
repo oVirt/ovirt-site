@@ -61,7 +61,7 @@ You can also join oVirt users mailing list, where quality assurance-related topi
     -   Tracker: oVirt 3.4.0 release
 
     -   [OVirt_3.4_release-management](OVirt_3.4_release-management)
-    -   [oVirt 3.4. release notes](OVirt_3.4_Release_Notes)
+    -   [oVirt 3.4 release notes](OVirt_3.4_Release_Notes)
 
 ## Notes:
 

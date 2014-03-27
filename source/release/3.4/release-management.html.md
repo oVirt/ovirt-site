@@ -43,20 +43,14 @@ To try and improve 3.4 planning over the wiki approach in 3.3, this google doc <
 ### MUST
 
 *   **MUST**: No blockers on the lower level components - libvirt, lvm,device-mapper,qemu-kvm, Jboss, postgres, iscsi-initiator
-    -   **Current blocker list:**
-    -   ...
 *   **MUST**: All image related operations work - copy, move, import, export, snapshot (vm and template)
 *   **MUST**: Ovirt/host installation should work flawlessly (w/o SSL)
 *   **MUST**: Fully operational flow (define DC hierarchy so you can run vm) with GUI/CLI/Python-API/REST-API
 *   **MUST**: vm life-cycle is working flawlessly (start,suspend,resume,stop,migrate)
 *   **MUST**: Upgrade from previous release
-    -   **Features/bug list:**
-    -   ...
 *   **MUST**: ovirt-node full cycle (register, approve and running VM, reboot and verify things still work)
     -   See [Node test procedure](Node test procedure)
 *   **MUST**: No known data corruptors
-    -   **Current list of data corruptors:**
-    -   ...
 *   **MUST**: Can define NFS, iSCSI, FC and local based storage domains
     -   See [storage test procedure](storage test procedure)
 *   **MUST**: Can define VLAN based networks, bond interfaces, and have VLANs over bonded interfaces

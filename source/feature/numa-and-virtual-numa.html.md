@@ -12,7 +12,7 @@ wiki_last_updated: 2014-08-14
 
 ### Summary
 
-This feature allow Enterprise customers to provision large guests for their traditional scale-up enterprise workloads and expect low overhead due to visualization.
+This feature allow Enterprise customers to provision large guests for their traditional scale-up enterprise workloads and expect low overhead due to virtualization.
 
 *   Query target host’s NUMA topology
 *   NUMA bindings of guest resources (vCPUs & memory)

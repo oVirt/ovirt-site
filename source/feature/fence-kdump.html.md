@@ -95,10 +95,19 @@ There are currently several possible methods how to receive fence_kdump notifica
         -   UDP connection to port 7410 from all hosts to the host that engine is running on should be allowed
         -   fence_kdump executable can detect only one host in kdump flow at the same time, notifications received from other hosts then requested are ignored. fence_kdump is executed with host name or IP and timeout to wait for notification from the host. So on large clusters when fence_kdump detection will be required for multiple hosts at once and those hosts won't be non responsive due to kdump flow, the timeout before hard fencing is executed will depend on number of hosts to detect kdump on.
 
-3.  **New fence_kdump notification listener will be implemented**
+3.  **New fence_kdump notification listener executed inside engine will be implemented**
     -   We can easily implement new listener that will be part of engine and which will receive all fence_kdump notification and will store them in some kind of the map, where key can be IP address of host and value the timestamp when last notification was received. Using this listener we can easily detect kdump flow on multiple hosts at the same time
     -   **Problems**
         -   UDP connection to port 7410 from all hosts to the host that engine is running on should be allowed
+        -   May introduce security threat to engine since fence_kdump notification are sent using UDP
+
+4.  **New standalone fence_kdump notification listener will be implemented**
+    -   We can easily implement new standalone listener which will receive all fence_kdump notification and will store them in some kind of the map, where key can be IP address of host and value the timestamp when last notification was received. Using this listener we can easily detect kdump flow on multiple hosts at the same time
+    -   **Problems**
+        -   UDP connection to port 7410 from all hosts to the host that listener is running on should be allowed
+        -   We will need to implement API for communication between engine and standalone listener
+
+So far options 3) or 4) looks most promising with the note that 3) is easier to implement.
 
 ## Steps required to implement feature
 

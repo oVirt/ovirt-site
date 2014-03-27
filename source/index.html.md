@@ -60,26 +60,26 @@ oVirt is powered by the Open Source you know - KVM on Linux.
 </div>
 <div class="row">
 <div class="span4 pad-left pad-right-small">
-### oVirt 3.3.4 Released!
+### oVirt 3.4 Released!
 
-The oVirt development team is very happy to announce the general availability of oVirt 3.3.4 as of March 4, 2014. This release solidifies oVirt as a leading KVM management application and open source alternative to VMware vSphere.
+The oVirt development team is very happy to announce the general availability of oVirt 3.4 as of March 27, 2014. This release features self-hosted engine, PPC64 support, and hot-plug CPUs.
 
-oVirt is available now for Fedora 19 and Red Hat Enterprise Linux 6.5 (or similar to RHEL).
+oVirt is available now for Fedora 19, Red Hat Enterprise Linux 6.5, and CentOS 6.5 (or similar to RHEL).
 
-This release of oVirt includes numerous bug fixes. See the release notes for a list of the new features and bugs fixed.
+This release of oVirt also includes numerous bug fixes. See the release notes for a complete list of the new features and bugs fixed.
 
 A new oVirt Node build will be available soon as well.
 
 <div class="pull-right">
-[ Read the 3.3.4 release notes »](oVirt 3.3.4 release notes)
+[ Read the 3.4 release notes »](OVirt_3.4_Release_Notes)
 
 </div>
 <div class="pull-right">
-[ Read more about the 3.3 release »](oVirt 3.3 release announcement)
+[ Read more about the 3.4 release »](OVirt_3.4_Release_Announcement)
 
 </div>
 <div class="pull-right">
-[ Get started with oVirt 3.3.4 now »](Download)
+[ Get started with oVirt 3.4 now »](Download)
 
 </div>
 </div>
@@ -92,6 +92,7 @@ A new oVirt Node build will be available soon as well.
 *   Live migration
 *   Load balancing
 *   Web-based management interface
+*   Self-hosted engine
 *   iSCSI, FC, NFS, and local storage
 *   Enhanced security: SELinux and Mandatory Access Control for VMs and hypervisor
 *   Scalability: up to 64 vCPU and 2TB vRAM per guest
@@ -107,10 +108,6 @@ A new oVirt Node build will be available soon as well.
 </div>
 <div class="row">
 <div class="span4 pad-left pad-right-small">
-### oVirt Joins Google Summer of Code!
-
-oVirt is please to be a part of the Google Summer of Code! If you're a student interested in participating in an open source project and earning some pay, too, check out our [ GSoC page](Summer of Code).
-
 ### Community is Key
 
 Community is not just about software development--there are many excellent ways one can be a part of the community, from joining our helpful mailing lists to meeting us at fun events to sending us a note to tell us how you use the software!

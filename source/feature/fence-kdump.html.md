@@ -105,11 +105,11 @@ There are currently several possible methods how to receive fence_kdump notifica
 *   Dependency to kexec-tools package should be added to vdsm package
 *   VDSM part implementation
     -   Ability to detect status of kdump support for host
-    -   fence_kdump configuration management
+    -   Configure fence_kdump during host deploy
 *   Engine part implementation
     -   Add default fence_kdump_send configuration to engine-config
     -   Add enable/disable fence_kdump to Add/Edit host dialog
-    -   Move host to status Non Operational if fence_kdump is enabled for host, but vdsm reports error on kdump status
+    -   Show error when fence_kdump is enabled for host, but vdsm reports unknown/disabled in kdump status
     -   Implement selected fence_kdump listener mechanism (see [ Receiving fence_kdump notifications](#Receiving_fence_kdump_notifications))
 *   oVirt Node
     -   Enable kdump support in kernel

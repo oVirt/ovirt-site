@@ -177,7 +177,7 @@ To be continue...
 7.  I-3.7 Add table `vm_numatune_nodeset` to include vm numatune nodeset configuration (this is a relationship table, store the map relations between vm and `vds_numa_node`)
 8.  I-3.8 Add table `vm_vds_numa_node_map` to include the configuration of vm virtual NUMA nodes pinning to host NUMA nodes (this is a relationship table, store the map relations between `vm_numa_node` and `vds_numa_node`)
 
-The above interfaces are defined with database design diagram ![](Database_design_diagram.png "fig:Database_design_diagram.png")
+The above interfaces are defined with database design diagram
 
 *   Related database scripts change:
     1.  Add `numa_sp.sql` to include the store procedures which handle the operations in table `vm_numa_node`, `vds_numa_node`, `vm_numatune_nodeset` and `vds_numa_node_statistics`. It will provide the store procedures to insert, update and delete data and kinds of query functions.

@@ -96,7 +96,11 @@ oVirt 3.4 adds a preview of a [Hot-plug CPU](Hot_plug_cpu) feature that enables 
 
 # Install / Upgrade from Previous Versions
 
-oVirt 3.4 is now available for use. In order to install it, you need to update the ovirt-release package to 10.0.1 or newer by running
+oVirt 3.4 is now available for use. In order to install it on a clean system, you need to install
+
+`     # yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release.noarch.rpm)
+
+If you already have ovirt-release package you need to update it to 10.0.1 or newer by running
 
            # yum update ovirt-release
 

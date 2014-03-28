@@ -36,7 +36,7 @@ Expand on the summary, if appropriate. A couple sentences suffices to explain th
 
 Having a simple way for the network administrator to set ethtool options for the oVirt defined networks will allow oVirt to cover a wider range of configurations and tweakings that can make managing a datacenter network a much more enjoyable experience.
 
-Up until now, oVirt used to persist it's network information in Fedora/EL specific files handled by the initscripts package. These files, known as ifcfg contained a series of shell definitions that were read and applied by the ifup-eth executable. oVirt auto-generates and writes these ifcfg files and as such, if the network admin wanted to tweak the ETHTOOL_OPTS definition that precluded the continued care-free modification of the network, as some of the configuration would be living only in the hypervisor node and would not be exposed to oVirt for persistence.
+Up until now, oVirt used to persist its network configuration in Fedora/EL specific files handled by the initscripts package. These files, known as ifcfg, contained a series of shell definitions that were read and applied by the ifup-eth executable. oVirt auto-generates and writes these ifcfg files and as such, if the network admin wanted to tweak the ETHTOOL_OPTS definition that precluded the continued care-free modification of the network, as some of the configuration would be living only in the hypervisor node and would not be exposed to oVirt for persistence.
 
 ### User experience
 

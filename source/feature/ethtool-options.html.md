@@ -56,11 +56,15 @@ When assigning a network to a NIC it will be possible to click on "edit" (icon m
 
 ### Ethtool options format
 
-The proposed format is based on dictionaries and the command line options to ethtool:
+The proposed format is just the command line ethtool syntax
 
-    {'coalesce':{'rx-usecs': 14, 'sample_interval': 3}, 
-     'offload':{'rx': True, 'lro': True, 'tcp-segmentation-offload': False},
-     'change':{'speed': 1000, 'duplex': 'half'}}
+    --coalesce ethX rx-usecs 14 sample_interval 3 --offload ethX rx on lroon tcp-segmentation-offload off --change ethX speed 1000 duplex half 
+
+If the property is being set on a bond, the user should make sure to specify the proper ethX/ethY/ethZ for each of the bond's nics that ethtool options should be set for. E.g., we have a bond with em1 and em2 and em2 should offload only rx and em1 only tx:
+
+    --offload em2 rx on --offload em1 tx on
+
+In the bonding case, the UI/Engine/vdsm code may want to check that there is no reference to a NIC that isn't enslaved to the bond.
 
 ### Dependencies / Related Features
 

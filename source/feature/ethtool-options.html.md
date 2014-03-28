@@ -30,7 +30,7 @@ This feature provides a way for the administrator to specify ethtool options for
 
 ### Detailed Description
 
-Expand on the summary, if appropriate. A couple sentences suffices to explain the goal, but the more details you can provide the better.
+TODO
 
 ### Benefit to oVirt
 

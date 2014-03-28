@@ -180,20 +180,21 @@ To be continue...
 The above interfaces are defined with database design diagram ![](Database_design_diagram.png "fig:Database_design_diagram.png")
 
 *   Related database scripts change:
-    1.  Add `numa_sp.sql` to include the store procedures which handle the operations in table `vm_numa_node`, `vds_numa_node`, `vm_numatune_nodeset` and `vds_numa_node_statistics`. It will provide the store procedures to insert, update and delete data and kinds of query functions.
+    1.  Add `numa_sp.sql` to include the store procedures which handle the operations in table `vm_numa_node`, `vds_numa_node`, `vm_numatune_nodeset`, `vds_numa_node_statistics` and `vm_vds_numa_node_map`. It will provide the store procedures to insert, update and delete data and kinds of query functions.
     2.  Modify `vds_sp.sql` to add some store procedures which handle the operations in table `vds_cpu_statistics`, including insert, update, delete and kinds of query functions.
     3.  Modify the function of `InsertVdsDynamic`, `UpdateVdsDynamic` in `vds_sp.sql` to add new columns `auto_numa_banlancing`, `numa_node_distance_list` and `vds_numa_node_count`.
     4.  Modify the function of `InsertVmStatic`, `UpdateVmStatic` in `vms_sp.sql` to add three new columns `numa_manual_binding`, `numatune_mode` and `vm_numa_node_count`.
     5.  Modify `create_views.sql` to add new columns `numa_manual_binding`, `numatune_mode` and `vm_numa_node_count` in view `vms`; add new columns `auto_numa_banlancing`, `numa_node_distance_list` and `vds_numa_node_count` in view `vds`.
-    6.  Modify `create_views.sql` to add new views, including view `vds_numa_node_view` which joins `vds_static`, `vds_numa_node` and `vds_numa_node_statistics`; view `vm_numa_node_view` which joins `vm_static`, `vm_numa_node`; view `vm_numatune_nodeset_view` which joins `vm_static`, `vm_numatune_nodeset` and `vds_numa_node`.
+    6.  Modify `create_views.sql` to add new views, including view `vds_numa_node_view` which joins `vds_static`, `vds_numa_node` and `vds_numa_node_statistics`; view `vm_numa_node_view` which joins `vm_static`, `vm_numa_node`; view `vm_numatune_nodeset_view` which joins `vm_static`, `vm_numatune_nodeset` and `vds_numa_node`; view `vm_vds_numa_node_view` which joins `vm_numa_node`, `vm_vds_numa_node_map` and `vds_numa_node`.
     7.  Modify `upgrade/post_upgrade/0010_add_object_column_white_list_table.sql` to add new columns `auto_numa_banlancing`, `numa_node_distance_list` and `vds_numa_node_count`.
-    8.  Add one script under `upgrade/` to create tables - `vm_numa_node`, `vds_numa_node`, `vm_numatune_nodeset`, `vds_numa_node_statistics` and `vds_cpu_statistics` and add columns in table `vds_dynamic` and `vm_static`.
+    8.  Add one script under `upgrade/` to create tables - `vm_numa_node`, `vds_numa_node`, `vm_numatune_nodeset`, `vds_numa_node_statistics`, `vds_cpu_statistics`, `vm_vds_numa_node_map` and add columns in table `vds_dynamic` and `vm_static`.
     9.  Create the following indexes in the script mentioned in point 8:
         -   Index on column `vm_guid` of table `vm_numa_node`
         -   Index on column `vds_numa_node_count` of table `vds_dynamic`
         -   Indexes on each of the columns `vm_guid` and `vds_numa_node_id` of table `vm_numatune_nodeset`
         -   Indexes on each of the columns `vds_id` and `cpu_count` of table `vds_numa_node`
         -   Indexes on each of the columns `vds_id` and `vds_numa_node_id` of table `vds_cpu_statistics`
+        -   Indexes on each of the columns `vm_numa_node_id` and `vds_numa_node_id` of table `vm_vds_numa_node_map`
 
     10. Modify `create_views.sql` to add new columns `auto_numa_balancing` and `numa_node_distance_list` in view `vds_with_tags`.
 
@@ -206,6 +207,7 @@ The above interfaces are defined with database design diagram ![](Database_desig
     4.  Add `VdsCpuStatisticsDao` and related implementation to provide data save, update, delete and kinds of queries in table `vds_cpu_statistics`. Add `VdsCpuStatisticsDAOTest` for `VdsCpuStatisticsDAO` meanwhile.
     5.  Modify `VdsDynamicDAODbFacadeImpl` and `VdsDAODbFacadeImpl` to add the map of new columns `auto_numa_banlancing`, `numa_node_distance_list` and `vds_numa_node_count`. Run `VdsDynamicDAOTest` to verify the modification.
     6.  Modify `VmStaticDAODbFacadeImpl` and `VmDAODbFacadeImpl` to add the map of new columns `numa_type`, `numatune_mode` and `numa_node_count`. Run `VmStaticDAOTest` to verify the modification.
+    7.  Add `VmNumaNodeMapDAO` and related implemention to provide data save, update, delete in table `vm_vds_numa_node_map` and queries about the relationship between `vm_numa_node` and `vds_numa_node` which needs to join table `vm_numa_node`, `vm_vds_numa_node_map` and `vds_numa_node`. Add `VmNumaNodeMapDAOTest` for `VmNumaNodeMapDAO` meanwhile.
 
 <!-- -->
 

@@ -175,6 +175,7 @@ To be continue...
 5.  I-3.5 Add table `vds_numa_node` to include host NUMA node information (node index, total memory, cpu count of each node, cpu list of each node)
 6.  I-3.6 Add table `vm_numa_node` to include vm virtual NUMA node information (node index, total memory, vCPU count of each node, vCPU list of each node)
 7.  I-3.7 Add table `vm_numatune_nodeset` to include vm numatune nodeset configuration (this is a relationship table, store the map relations between vm and `vds_numa_node`)
+8.  I-3.8 Add table `vm_vds_numa_node_map` to include the configuration of vm virtual NUMA nodes pinning to host NUMA nodes (this is a relationship table, store the map relations between `vm_numa_node` and `vds_numa_node`)
 
 The above interfaces are defined with database design diagram ![](Database_design_diagram.png "fig:Database_design_diagram.png")
 

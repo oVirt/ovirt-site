@@ -17,7 +17,7 @@ feature_status: To be Released
 
 ### Summary
 
-This feature provides a way for the administrator to specify ethtool options for the oVirt defined networks.
+This feature provides a way for the administrator to specify ethtool options for oVirt-defined networks.
 
 ### Owner
 

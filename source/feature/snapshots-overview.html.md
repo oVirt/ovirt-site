@@ -33,39 +33,39 @@ Snapshots overview and management in context of a storage domain.
 
 Currently, only a VM snapshot removal is supported - i.e. removing snapshots of disks requires removal of the entire set of disks in the VM snapshots. Hence, in order to furtherly decouple disks snapshots from VM snapshots, adding a new functionality of removing disks from snapshots. The UI will expose a flattened list of disks snapshots that reside on a specific storage domain in a new sub-tab. In which, the new action of removal should be available.
 
-#### UI
+### UI
 
-##### Sub-Tabs concept
+#### Sub-Tabs concept
 
-###### Storage -> Snapshots Sub-Tab
+##### Storage -> Snapshots Sub-Tab
 
 ![](storage_snapshots_subtab.png "storage_snapshots_subtab.png")
 
-###### [Future Work?] Storage Resources Usage Sub-Tab [Disks (active volumes) / Snapshots / Free space]
+##### [Future Work?] Storage Resources Usage Sub-Tab [Disks (active volumes) / Snapshots / Free space]
 
 ![](storage_resources_usage_subtab.png "storage_resources_usage_subtab.png")
 
-##### [DEPRECATED] Manage Snapshots concept
+#### [DEPRECATED] Manage Snapshots concept
 
 The solution is being neglected in favor of the sub-tabs concept as removing snapshot disks (merging) is a long operation; i.e. sub-tabs is the way to go when status indication is needed. Furthermore, since the interesting operation on snapshots in context of storage is merging, having a dedicate dialog seems redundant.
 
-###### [DEPRECATED] Manage Snapshots Dialog
+##### [DEPRECATED] Manage Snapshots Dialog
 
 [http://i.imgur.com/8EV9NfA.png Sketch](http://i.imgur.com/8EV9NfA.png Sketch)
 
-#### REST-API
+### REST-API
 
 Introducing new functionality of deleting a disk from a snapshot.
 
-##### Delete a snapshot disk:
+#### Delete a snapshot disk:
 
        DELETE /api/vms/{vm_id}/snapshots/{snapshot_id}/disks/{disk_id}
 
-##### [Future Work?] Get snapshots by storage domain
+#### [Future Work?] Get snapshots by storage domain
 
        GET /api/storagedomains/{storage_id}/diskssnapshots
 
-#### Backend
+### Backend
 
 *   RemoveSnapshotImagesCommand -> RemoveSnapshotImageTaskHandler:
     -   A new command (and task handler) for removing specific images from snapshots.
@@ -83,7 +83,7 @@ Introducing new functionality of deleting a disk from a snapshot.
 *   DiskImage -> vmSnapshotDescription member:
     -   Needed for displaying snapshot description in the UI (for easier image identification).
 
-#### VDSM
+### VDSM
 
 Already supported.
 

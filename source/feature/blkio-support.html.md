@@ -18,7 +18,9 @@ In a highly consolidated and shared environment found in the virtual datacenter,
 
 ### Owner
 
-Name: [ Gilad Chaplik](User:gchaplik) Email: <gchaplik@redhat.com>
+Name: [ Gilad Chaplik](User:gchaplik)
+
+Email: <gchaplik@redhat.com>
 
 ### Current status
 

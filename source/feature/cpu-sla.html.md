@@ -30,15 +30,11 @@ The CPU SLA feature enable the user to limit the CPU usage of a VM.
 
 CPU is one of the important component which each guest has.
 
-           Currently RHEV doesn't support SLA features which limits guest's
-           and qemu's cpu resource consumption. Therefore all guests working
-           on the same host may be affected by other guests' cpu workload.
+Currently RHEV doesn't support SLA features which limits guest's and qemu's cpu resource consumption. Therefore all guests working on the same host may be affected by other guests' cpu workload.
 
-           On the other hand, customers expect that virtualized systems work as
-           stably as the systems on bare servers.
+On the other hand, customers expect that virtualized systems work as stably as the systems on bare servers.
 
-           To provide same stability in virtualized environment, we need to limit
-           cpu bandwidth of each guest and isolate each guest from others.
+To provide same stability in virtualized environment, we need to limit cpu bandwidth of each guest and isolate each guest from others.
 
 ## GUI
 

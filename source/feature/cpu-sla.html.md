@@ -34,6 +34,9 @@ Another good use for this feature is in cases a growth in the number of VMs is e
 
 ## GUI
 
+The user will configure the CPU limitation at the VM popup, at the advance Resource Allocation section:
+![](cpuLimit.png "fig:cpuLimit.png")
+
 ## Benefit to oVirt
 
 ## Comments and Discussion

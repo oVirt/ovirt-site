@@ -22,7 +22,9 @@ Name: [ Gilad Chaplik](User:gchaplik) Email: <gchaplik@redhat.com>
 
 ### Current status
 
-Status: design Last updated: ,
+Status: design
+
+Last updated: ,
 
 ### Detailed Description
 

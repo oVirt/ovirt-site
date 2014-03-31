@@ -111,6 +111,8 @@ Users will be able to use iSCSI storage as data domain for Hosted Engine.
 
 ### Testing
 
+TBD
+
 ### Comments and Discussion
 
 *   Refer to <Talk:Feature/Self_Hosted_Engine_iSCSI_Support>

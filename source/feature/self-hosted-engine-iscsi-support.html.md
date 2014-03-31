@@ -52,6 +52,11 @@ if iscsi will be selected:
                Please specify the iSCSI portal password:
                Please specify the target name:
 
+#### Config files changes
+
+*   hosted-engine.conf may need to store some of the above iSCSI portal / target parameters
+*   answer file will need to store answers for all of the above questions except for portal password
+
 #### VDSM commands involved
 
       getDeviceList(storageType=3, options={})

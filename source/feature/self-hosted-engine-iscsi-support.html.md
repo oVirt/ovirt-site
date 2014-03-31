@@ -51,7 +51,9 @@ if iscsi will be selected:
                Please specify the iSCSI portal port [3260]: 
                Please specify the iSCSI portal user:
                Please specify the iSCSI portal password:
-               Please specify the target name:
+               Please specify the target name (values) [default]:
+
+The target name list can be obtained by the portal and a default can be set if only one is found or just the first of the list
 
 #### Config files changes
 

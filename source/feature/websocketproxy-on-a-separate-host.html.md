@@ -41,6 +41,7 @@ Assumption:
 *   The user still needs to install the needed RPMs on both the machine; the user have to install only the required RPMs, installing a not required RPM on one of the two machine can broken the process
 *   The user still need to run engine-setup on both the machine
 *   The user knows the root password of the first machine when on the second
+*   This process is relative to a new install
 
 Under this assumptions it can works this way:
 
@@ -66,11 +67,13 @@ Under this assumptions it can works this way:
     6.  engine-setup configures the service editing /etc/ovirt-engine/ovirt-websocket-proxy.conf.d/10-setup.conf
     7.  engine-setup starts the WebSocketProxy service
 
-Engine setup currently asks: 'Configure websocket proxy on the machine' accepting
-
 ### Benefit to oVirt
 
-The installation process will become easier for who needs to install the WebSocketProxy on a separate engine cause it will not require any successive manual procedure.
+The installation process will become easier for who needs to install the WebSocketProxy on a separate engine cause it will not require to manually:
+
+*   generate and sign the WebSocketProxy certs on the engine machine
+*   copy the certs on the websocketsproxy machine
+*   configure the websocketsproxy service editing a file on the websocketsproxy machine
 
 ### Dependencies / Related Features
 

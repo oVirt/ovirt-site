@@ -45,7 +45,8 @@ The WebSocketProxy is already able to run on a different host, only the engine s
 
 ### Documentation / External references
 
-[RFE] Allow setup of ovirt-websocket-proxy on separate machine - [2](https://bugzilla.redhat.com/show_bug.cgi?id=1080992) [RFE] rhevm-websocket-proxy - using as standalone service - automatic configuration - [3](https://bugzilla.redhat.com/show_bug.cgi?id=985945)
+*   [RFE] Allow setup of ovirt-websocket-proxy on separate machine - [2](https://bugzilla.redhat.com/show_bug.cgi?id=1080992)
+*   [RFE] rhevm-websocket-proxy - using as standalone service - automatic configuration - [3](https://bugzilla.redhat.com/show_bug.cgi?id=985945)
 
 ### Testing
 

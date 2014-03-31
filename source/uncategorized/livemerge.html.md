@@ -4,16 +4,12 @@ authors: aglitke
 wiki_title: LiveMerge
 wiki_revision_count: 20
 wiki_last_updated: 2014-04-09
-feature_name: Your feature name
-feature_modules: engine,network,vdsm
-feature_status: Released
+feature_name: Live Merge
+feature_modules: engine,vdsm
+feature_status: Development
 ---
 
 # Live Merge
-
-The actual name of your feature page should look something like: "Your feature name". Use natural language to [name the pages](How to make pages#Page_naming).
-
-## Your Feature Name
 
 ### Summary
 

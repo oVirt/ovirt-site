@@ -8,7 +8,7 @@ wiki_revision_count: 29
 wiki_last_updated: 2015-01-16
 feature_name: WebSocketProxy on a separate host
 feature_modules: websocket-proxy
-feature_status: tbd
+feature_status: Design
 ---
 
 # WebSocketProxy on a separate host
@@ -27,7 +27,7 @@ The aim of this feature is to enhance the engine setup being able to install and
 
 ### Current status
 
-*   To be discussed
+*   Design
 *   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 
 ### Detailed Description

@@ -252,11 +252,13 @@ Currently, we plan to provide below search functions about NUMA feature, each fi
 *   Action & Query
     -   `GetVdsNumaNodeByVdsId, GetVmNumaNodeByVmId, GetVmNumaNodeByVdsNumaNodeId, GetCpuStatsByVdsId` use same parameters `IdQueryParameters`
     -   `AddVmNumaNode, UpdateVmNuamNode, RemoveVmNuamNode` use same parameters `VmNumaNodeParameters`
-    -   `GetVmNumaNodeByVdsNumaNodeId` will query the `VmNumaNode`s under the <cdde>VdsNumaNode</code>
+    -   `GetVdsNumaNodeByVdsId` will return List<VdsNumaNode>
+    -   `GetVmNumaNodeByVmId, GetVmNumaNodeByVdsNumaNodeId` will return List<VmNumaNode>
+    -   `GetVmNumaNodeByVdsNumaNodeId` will query the `VmNumaNode`s under the `VdsNumaNode`
     -   `VmNumaNodeParameters` has one pair of `VmNumaNode` and `VdsNumaNode`, it will calculate below things
-        -   pin to host - VdsNumaNode.vdsId
+        -   Pin to host - VdsNumaNode.vdsId
         -   CPU pinning - VdsNumaNode.cpuIds and VmNumaNode.vcpusIds
-        -   numatune nodeset - VmNumaNode.vdsNumaNodeId
+        -   Numatune nodeset - VmNumaNode.vdsNumaNodeId
 
 #### Interface and data structure in ovirt scheduler
 

@@ -24,6 +24,7 @@ This feature enable the user to use iSCSI storage for Hosted Engine data domain.
 
 ### Current status
 
+*   Status: Design
 *   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 
 ### Detailed Description

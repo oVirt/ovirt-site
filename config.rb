@@ -129,8 +129,8 @@ page "*.xml", :layout => false
 
 # Docs all have the docs layout
 with_layout :docs do
-  page "/documentation/*"
-  page "/documentation*"
+  #page "/documentation/*"
+  #page "/documentation*"
 end
 
 # Don't make these URLs have pretty URLs

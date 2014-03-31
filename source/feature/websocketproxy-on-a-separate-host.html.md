@@ -36,6 +36,8 @@ The noVNC client used for VM web console utilizes websockets for passing VNC dat
 
 It's currently already possible run the WebSocketProxy on a separate host but it requires a manual procedure [1](http://www.ovirt.org/Features/noVNC_console#Setup_Websocket_Proxy_on_a_Separate_Machine). What we are proposing will automate the setup process so it will be configurable just using engine-setup command. The engine-setup process will be updated asking (both in the interactive way and in the answer file) for the details (fqdn, port) of the machine that will run the WebSocketProxy.
 
+Engine setup currently asks: 'Configure websocket proxy on the machine' accepting
+
 ### Benefit to oVirt
 
 The installation process will become easier for who needs to install the WebSocketProxy on a separate engine cause it will not require any successive manual procedure.

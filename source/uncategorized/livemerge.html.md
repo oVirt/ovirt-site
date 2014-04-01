@@ -34,11 +34,11 @@ Patches:
 
 ### Detailed Description
 
-The user presentation of the live merge feature is simple. The only noticeable change is that the 'Remove' snapshot command will no longer be disabled when a VM is running. Behind the scenes the flow is quite complex. Live merge is an asynchronous operation and maintaining the consistency of management metadata and actual VM storage requires delicate handling of many different error scenarios.
+The user presentation of the live merge feature is simple. The only noticeable change is that the 'Remove' snapshot command will no longer be disabled when a VM is running. Behind the scenes the flow is quite complex. Live merge is an asynchronous operation and maintaining the consistency of management metadata and actual VM storage requires delicate handling of many different error scenarios. The following is a detailed description of the flow and processes that will need to be in place on both the engine and on vdsm. See the flow diagram below for a graphical overview of the processes.
 
-The following is a detailed description of the flow and processes that will need to be in place on both the engine and on vdsm. See the flow diagram below for a graphical overview of the processes.
+Live merge is initiated when a user clicks the 'Remove' command associated with a single disk snapshot. If the VM is down then the existing Merge Snapshot flow will be followed. If the VM is up then this new Live Merge Snapshot flow will be followed. A new bll command (henceforth called LiveMergeSnapshotCommand) that relates to the existing RemoveSnapshotCommand will be called by the UI to begin the process. This command determines the host on which the VM is running and executes a VDSCommand on that host in order to start the live merge. When vdsm receives this command it executes the libvirt blockCommit API. If successful, vdsm updates its VM configuration structure to indicate that a block job is now running on the selected VM disk. An engine supplied job UUID is saved so that this block job can be correlated back to the engine initiated operation. A placeholder block job is added to vdsm's VM statistics structure so that engine will be aware of the active job immediately. See the special considerations section for more information on avoiding races with cached block job information. The vdsm VM stats thread will periodically poll libvirt for block job status on any vm disks that are annotated with an engine supplied job UUID. At this point, control returns to the engine upon successful initiation of the live merge operation.
 
-Live merge is initiated when a user clicks the 'Remove' command associated with a single disk snapshot. If the VM is down then the existing Merge Snapshot flow will be followed. If the VM is up then this new Live Merge Snapshot flow will be followed.
+The second part of LiveMergeSnapshotCommand is to begin tracking the live merge using a new TransientTask object. TransientTasks are a new concept within ovirt and are being designed to handle future asynchronous operations without the complexity and rigidity of the current SPMAsyncTasks. Transient Tasks have two key properties: 1) there is a well-defined way to check if the task is running or not running, and 2) if the task is not running, there is a well-defined way to check if the operation succeeded or failed. These two things are defined for a LiveMergeTransientTask as follows: 1) The task is running if and only if the engine-supplied job UUID appears in the list of block jobs that has been collected from the most recently run getAllVmStats VDSCommand. 2) The task succeeded if the disk snapshot
 
 #### Flow Diagram
 
@@ -50,6 +50,7 @@ Live merge is initiated when a user clicks the 'Remove' command associated with 
 
 #### Special considerations for vdsm
 
+*   How vdsm recovers from missed libvirt block job events and restarts
 *   The effects of caching block job information in the stats thread ...
 *   Combination of SPM and HSM operations for deleting a merged snapshot volume ...
 

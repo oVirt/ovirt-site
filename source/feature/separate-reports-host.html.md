@@ -27,16 +27,20 @@ Allow ovirt-engine-reports to be installed and configured by engine-setup on a s
 
 ### Current status
 
-In preparation.
+Design.
 
 ### Detailed Description
 
-We assume that engine is already setup and running on machine A. We assume that dwh is already setup and running on machine B. A and B can be same machine. We assume that user wants to install reports on machine C.
+We assume that engine is already setup and running on machine A.
 
-We need access to the engine's database and to dwh's database. We'll let the user choose between two options:
+If dwh is already installed and setup on machine B (can be same as A), and user wants to install reports on machine C, we need access to the engine's database and to dwh's database. We'll let the user choose between two options:
 
 *   provide root password of machine B, ssh there, get the credentials
 *   manually supply the credentials
+
+If dwh is to be setup on machine B and user wants to install reports on the same machine B, we already have the credentials.
+
+If dwh and reports are to be setup together on machine B, we need to make sure that setup recognizes that somehow, so that the reports plugin has access to needed info. Perhaps we'll decide to postpone that option - if we do, user will have to first setup dwh then reports.
 
 ### Benefit to oVirt
 

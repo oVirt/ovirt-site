@@ -256,6 +256,8 @@ Currently, we plan to provide below search functions about NUMA feature, each fi
     -   `GetVdsNumaNodeByVdsId` will return List<VdsNumaNode>
     -   `GetVmNumaNodeByVmId, GetVmNumaNodeByVdsNumaNodeId` will return List<VmNumaNode>
     -   `GetVmNumaNodeByVdsNumaNodeId` will query the `VmNumaNode`s under the `VdsNumaNode`
+    -   `GetCpuStatsByVdsId` will return List<CpuStatistics>
+    -   When `VmNumaNodeParameters.vdsNumaNodeId` is set to null, the VmNumaNode is unsigned.
 
 #### Interface and data structure in ovirt scheduler
 

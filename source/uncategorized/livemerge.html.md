@@ -47,8 +47,6 @@ Explain how this feature may be tested by a user or a quality engineer. List rel
 
 ### Comments and Discussion
 
-This below adds a link to the "discussion" tab associated with your page. This provides the ability to have ongoing comments or conversation without bogging down the main feature page
-
-*   Refer to [Talk:Your feature name](Talk:Your feature name)
+*   Refer to <Talk:LiveMerge>
 
 <Category:Feature> <Category:Template>

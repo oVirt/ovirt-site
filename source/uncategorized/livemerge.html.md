@@ -42,7 +42,9 @@ This feature hides the complexity of the Live Merge flows behind a simple clicka
 
 ### Dependencies / Related Features
 
-What other packages depend on this package? Are there changes outside the developers' control on which completion of this feature depends? In other words, completion of another feature owned by someone else and might cause you to not be able to finish on time or that you would need to coordinate? Other Features that might get affected by this feature?
+#### Libvirt
+
+*   [live snapshot merge (commit) of the active layer](https://bugzilla.redhat.com/show_bug.cgi?id=1062142)
 
 ### Documentation / External references
 

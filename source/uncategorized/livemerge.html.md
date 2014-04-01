@@ -73,7 +73,7 @@ This feature hides the complexity of the Live Merge flows behind a simple clicka
 
 ### Documentation / External references
 
-Is there upstream documentation on this feature, or notes you have written yourself? Link to that material here so other interested developers can get involved. Links to RFEs.
+*   [libvirt blockCommit API](http://libvirt.org/html/libvirt-libvirt.html#virDomainBlockCommit)
 
 ### Testing
 

@@ -22,7 +22,14 @@ Live merge makes it possible to delete VM disk snapshots that are no longer need
 
 ### Current status
 
-*   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
+Design and Development underway
+
+Patches:
+
+*   [LiveMerge: Add Image.getVolumeChain API](http://gerrit.ovirt.org/#/c/25918/)
+
+<!-- -->
+
 *   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 
 ### Detailed Description

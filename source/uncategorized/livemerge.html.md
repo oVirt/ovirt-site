@@ -13,17 +13,17 @@ feature_status: Development
 
 ### Summary
 
-A sentence or two summarizing what this feature is and what it will do. This information is used for the overall feature summary page for each release.
+Live merge makes it possible to delete VM disk snapshots that are no longer needed while the VM continues to run.
 
-### Owner
+### Owners
 
-This should link to your home wiki page so we know who you are
+*   Name: [ Adam Litke](User:AdamLitke)
+*   Email: <alitke@redhat.com>
 
-*   Name: [ My User](User:MyUser)
+<!-- -->
 
-Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
-
-*   Email: <my@email>
+*   Name: [ Greg Padgett](User:GregPadgett)
+*   Email: <gpadgett@redhat.com>
 
 ### Current status
 

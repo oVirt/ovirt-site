@@ -34,9 +34,24 @@ Patches:
 
 ### Detailed Description
 
+The user presentation of the live merge feature is simple. The only noticeable change is that the 'Remove' snapshot command will no longer be disabled when a VM is running. Behind the scenes the flow is quite complex. Live merge is an asynchronous operation and maintaining the consistency of management metadata and actual VM storage requires delicate handling of many different error scenarios.
+
+The following is a detailed description of the flow and processes that will need to be in place on both the engine and on vdsm. See the flow diagram below for a graphical overview of the processes.
+
+Live merge is initiated when a user clicks the 'Remove' command associated with a single disk snapshot. If the VM is down then the existing Merge Snapshot flow will be followed. If the VM is up then this new Live Merge Snapshot flow will be followed.
+
 #### Flow Diagram
 
 ![](live-merge-flow.png "live-merge-flow.png")
+
+#### Special considerations for ovirt-engine
+
+*   Greg, please note any additional special considerations I may have missed.
+
+#### Special considerations for vdsm
+
+*   The effects of caching block job information in the stats thread ...
+*   Combination of SPM and HSM operations for deleting a merged snapshot volume ...
 
 ### Benefit to oVirt
 

@@ -44,7 +44,9 @@ On the vdsm side, the live merge operation is performed by the running qemu proc
 
 If vdsm misses a block job completion event (because it was stopped or restarting) it will be able to resolve the status of the live merge by checking if the qemu volume chain matches vdsm's volume chain. When vdsm starts up and restores its state with respect to currently running VMs, it will check for any job UUIDs in VM disks (which indicate that a block job was or is running for that disk). It will then query libvirt for block job information and resume normally. Any block jobs which have stopped since vdsm was down will be handled as if they have completed at this time.
 
-Once the TransientTask is found by engine to be finished, a new GetVolumeChainVDSCommand will be executed to resolve the task as successful or failed. This command
+Once the TransientTask is found by engine to be finished, a new GetVolumeChainVDSCommand will be executed to resolve the task as successful or failed. This command asks vdsm for the actual volume chain for a VM disk. Vdsm will respond differently depending if the VM is running or not. If the VM is running, vdsm can return its cached version of the volume chain because it will have already synchronized with qemu as explained earlier. If the VM is down, the qemu-img command will be run on the underlying volumes directly in order to get the qcow volume chain. Engine will perform a membership test for the snapshot volume UUID against the vdsm returned list to see if the snapshot has been removed from the volume chain. If not, then the merge is marked failed and no further action is necessary. If the snapshot has been removed from the chain then the engine submits one final VDSCommand (called DeleteIllegalVolume) to remove the no longer needed volume from storage before returning successfully.
+
+DeleteIllegalVolume is a special vdsm command that will remove a volume from storage only if it has been previously marked illegal. This protects against accidentally deleting snapshots that haven't finished merging.
 
 #### Flow Diagram
 
@@ -56,8 +58,7 @@ Once the TransientTask is found by engine to be finished, a new GetVolumeChainVD
 
 #### Special considerations for vdsm
 
-*   How vdsm recovers from missed libvirt block job events and restarts
-*   The effects of caching block job information in the stats thread ...
+*   The list of active block jobs is gathered and cached by vdsm using the VmStatsThread. This improves efficiency by reducing the number of libvirt calls needed and by reusing an existing engine->host polling mechanism. Unfortunately it creates some potential race conditions between engine and the host. We must guarantee that the stats contain the new job as soon as we return success to engine regarding creation of the live merge job. Otherwise engine could mistakenly think the job has ended. Engine also needs to disregard any stats that it has cached prior to executing the live merge command because those stats will not contain the block job information either. We are thinking of using the VM generation ID to serialize this.
 *   Combination of SPM and HSM operations for deleting a merged snapshot volume ...
 
 ### Benefit to oVirt

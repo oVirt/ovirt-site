@@ -251,14 +251,11 @@ Currently, we plan to provide below search functions about NUMA feature, each fi
     -   `VdsNumaNode.cpuIds` links with `CpuStatistics.cpuId` to take a look inside NUMA node each CPU usage
 *   Action & Query
     -   `GetVdsNumaNodeByVdsId, GetVmNumaNodeByVmId, GetVmNumaNodeByVdsNumaNodeId, GetCpuStatsByVdsId` use same parameters `IdQueryParameters`
-    -   `AddVmNumaNode, UpdateVmNuamNode, RemoveVmNuamNode` use same parameters `VmNumaNodeParameters`
+    -   `AddVmNumaNode, UpdateVmNuamNode, RemoveVmNuamNode` use same parameters `VmNumaNodeParameters` to manage Virtual NUMA node in VM
+    -   `SetNumaTuneMode` use parameters `NumaTuneModeParameters` to set the NUMA tuning mode for VM
     -   `GetVdsNumaNodeByVdsId` will return List<VdsNumaNode>
     -   `GetVmNumaNodeByVmId, GetVmNumaNodeByVdsNumaNodeId` will return List<VmNumaNode>
     -   `GetVmNumaNodeByVdsNumaNodeId` will query the `VmNumaNode`s under the `VdsNumaNode`
-    -   `VmNumaNodeParameters` has one pair of `VmNumaNode` and `VdsNumaNode`, it will calculate below things
-        -   Pin to host - VdsNumaNode.vdsId
-        -   CPU pinning - VdsNumaNode.cpuIds and VmNumaNode.vcpusIds
-        -   Numatune nodeset - VmNumaNode.vdsNumaNodeId
 
 #### Interface and data structure in ovirt scheduler
 

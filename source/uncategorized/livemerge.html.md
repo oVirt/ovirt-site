@@ -50,7 +50,35 @@ Is there upstream documentation on this feature, or notes you have written yours
 
 ### Testing
 
-Explain how this feature may be tested by a user or a quality engineer. List relevant use cases and expected results.
+#### Positive flow (Create and remove a snapshot while a VM runs)
+
+*   In webadmin, start a VM and create a new snapshot
+*   Navigate to the VM's disks and for each disk, select the snapshot that was created and click the Remove button
+*   After a few seconds, the snapshots should be removed from the list
+
+#### Negative flow (engine restart during live merge)
+
+*   Start in webadmin with a running VM that has one or more snapshots
+*   Remove a snapshot as in the positive flow but immediately terminate ovirt-engine
+*   Wait for the operation to complete by using 'vdsClient getVolumeChain' on the virt host and watching for the volume to disappear
+*   Restart engine
+*   In webadmin, confirm that the snapshot is removed
+*   Check that the volume associated with the snapshot has been removed from storage
+
+#### Negative flow (vdsm restart during live merge)
+
+*   Start in webadmin with a running VM that has one or more snapshots
+*   Remove a snapshot as in the positive flow but immediately terminate vdsm
+*   Wait for the host to go unresponsive in the webadmin
+*   Restart vdsm and wait for the host to return to Up status
+*   In webadmin, confirm that the snapshot is removed
+*   Check that the volume associated with the snapshot has been removed from storage
+
+#### Negative flow (VM crashes during live merge)
+
+*   Start in webadmin with a running VM that has one or more snapshots
+*   Remove a snapshot as in the positive flow but immediately terminate the VM
+*   A live merge failure event should appear in the audit log and the snapshot should remain in the list
 
 ### Comments and Discussion
 

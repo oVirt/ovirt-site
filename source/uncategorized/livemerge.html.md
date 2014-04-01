@@ -17,13 +17,8 @@ Live merge makes it possible to delete VM disk snapshots that are no longer need
 
 ### Owners
 
-*   Name: [ Adam Litke](User:AdamLitke)
-*   Email: <alitke@redhat.com>
-
-<!-- -->
-
-*   Name: [ Greg Padgett](User:GregPadgett)
-*   Email: <gpadgett@redhat.com>
+*   Name: [ Adam Litke](User:AdamLitke) <alitke@redhat.com>
+*   Name: [ Greg Padgett](User:GregPadgett) <gpadgett@redhat.com>
 
 ### Current status
 

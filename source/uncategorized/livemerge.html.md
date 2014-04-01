@@ -34,7 +34,9 @@ Patches:
 
 ### Detailed Description
 
-Expand on the summary, if appropriate. A couple sentences suffices to explain the goal, but the more details you can provide the better.
+#### Flow Diagram
+
+![](live-merge-flow.png "live-merge-flow.png")
 
 ### Benefit to oVirt
 

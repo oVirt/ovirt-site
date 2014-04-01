@@ -8,7 +8,7 @@ wiki_revision_count: 16
 wiki_last_updated: 2015-01-16
 feature_name: Separate DWH Host
 feature_modules: engine
-feature_status: Planning
+feature_status: Design
 ---
 
 # Separate DWH Host
@@ -31,10 +31,12 @@ In preparation.
 
 ### Detailed Description
 
-TBD:
+We assume that engine is already setup and running on machine A. We assume that user wants to install dwh on machine B.
 
-*   Need access to the engine's database - if db is setup locally, we might ask the user for the root password and ssh to get the credentials
-*   We might want to try and understand that from some engine status page first, to not bother the user. Do we need the engine's FQDN for other things?
+We need access to the engine's database. We'll let the user choose between two options:
+
+*   provide root password of machine A, ssh there, get the credentials
+*   manually supply the credentials
 
 ### Benefit to oVirt
 

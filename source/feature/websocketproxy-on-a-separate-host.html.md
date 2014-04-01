@@ -41,7 +41,10 @@ Assumption:
 *   The user still needs to install the needed RPMs on both the machine; the user have to install only the required RPMs, installing a not required RPM on one of the two machine can broken the process
 *   The user still need to run engine-setup on both the machine
 *   The user knows the root password of the first machine when on the second
-*   This process is relative to a new install
+*   This process is relative to a new install but an upgrade of ovirt-engine-websocket-proxy should not be a problem
+*   The two hosts should be installed in strictly order:
+    -   first the host with the engine to setup also the CA
+    -   than the host with websocket-proxy
 
 Under this assumptions it can works this way:
 
@@ -62,7 +65,10 @@ Under this assumptions it can works this way:
         -   The fqdn of the WebSocketProxy (current) node
         -   The port to bind on
 
-    4.  engine-setup ask the user for the engine machine root password to download its own certs signed by the CA and also the private key with scp
+    4.  engine-setup ask the user for the engine machine root password to download its own certs signed by the CA and also the private key with scp; if websocket proxy cert is not available engine-setup, running on the second machine, can:
+        1.  connect to the first via ssh (is root squash in place?) to generate them
+        2.  configure the engine on the first machine with websocket-proxy address
+
     5.  Than engine-setup downloads CA and engine public cert for data validation over https
     6.  engine-setup configures the service editing /etc/ovirt-engine/ovirt-websocket-proxy.conf.d/10-setup.conf
     7.  engine-setup starts the WebSocketProxy service

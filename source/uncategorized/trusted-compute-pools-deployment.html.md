@@ -28,7 +28,7 @@ pls note:
 
       SELINUX=permissive
 
-*   oat package might not able to be pushed into fedora 18 since some dependencies can't be pushed in f18.
+*   oat package was not able to be pushed into fedora 18 since some dependencies can't be pushed in f18.
 
 #### Install basic packages (for all-in-one approach)
 
@@ -42,7 +42,7 @@ Download [oat-appraiser](http://gwei3.fedorapeople.org/package_review/oat/v1/oat
 
       # rpm -i oat-appraiser-1.6.0-1.fc18.x86_64.rpm
 
-*   Yum Install oat server package from fedora19 repository (not available yet).
+*   Yum Install oat server package from fedora19 repository
 
       # yum install oat-appraiser
 
@@ -61,7 +61,7 @@ Client files will be output in this directory “/var/lib/oat-appraiser/ClientFi
 
 ### Deploy Host Agent on VDS
 
-Two approaches (all-in-one packages for f18, yum install in f19) are provided to deploy Host Agent. Install via yum command will be available after oat package is merged in fedora 19 repository(WIP).
+Two approaches (all-in-one packages for f18, yum install in f19) are provided to deploy Host Agent.
 
 #### Install Fedora for Legacy Boot
 
@@ -171,7 +171,7 @@ Start oat client service, make sure TrouSers service is running
 
 *   all-in-one approach
 
-      # chmod 755 /etc/init.d/OATClient (this bug will be fixed in the next release for all-in-one packages)
+      # chmod 755 /etc/init.d/OATClient 
       # service OATClient start
 
 *   yum install approach

@@ -54,7 +54,7 @@ The current (proposed) list of the software to be included in the ISO:
 
 ### Benefit to oVirt
 
-What is the benefit to the oVirt project? If this is a major capability update, what has changed? If this is a new feature, what capabilities does it bring? Why will oVirt become a better distribution or project because of this feature?
+The ISO image will become a central repository for all the software that Windows based VMs require in order to function in most optimal way under oVirt / KVM.
 
 ### Dependencies / Related Features
 

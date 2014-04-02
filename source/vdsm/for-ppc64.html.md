@@ -234,6 +234,15 @@ KVM on IBM POWER : <http://www.linux-kvm.org/wiki/images/5/5d/2011-forum-KVM_on_
 
 ## Open Issues
 
-[Migration](http://bugzilla.redhat.com/show_bug.cgi?id=1057178) , [Suspend](http://bugzilla.redhat.com/show_bug.cgi?id=1070189) and [Memory Snapshot](http://bugzilla.redhat.com/show_bug.cgi?id=1061774) is still a work in progress for KVM on IBM POWER processor, so this features won't work yet.
+These features are still a work in progress, so won't work yet:
+
+*   [Migration](http://bugzilla.redhat.com/show_bug.cgi?id=1057178)
+*   [Suspend](http://bugzilla.redhat.com/show_bug.cgi?id=1070189)
+*   [Memory Snapshot](http://bugzilla.redhat.com/show_bug.cgi?id=1061774)
+
+And some limitations:
+
+*   [Support only in Fedora 20 and onwards](http://bugzilla.redhat.com/show_bug.cgi?id=1057724)
+*   [VDSM for ppc64 needs qemu 1.6](http://bugzilla.redhat.com/show_bug.cgi?id=1063799)
 
 <Category:Feature>

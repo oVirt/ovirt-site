@@ -88,6 +88,33 @@ will upgrade to latest 3.3.
 
 ### oVirt Engine
 
+* [race] Host stays in "Preparing for maintenance" forever if requested while incoming live migrations
+ - Force removal of DataCenter fails to remove vm_pool from DB
+ - engine: DeactivateStorageDomainCommand fails with vdsm error: 'Operation not allowed while SPM is active' because we do not actually send SpmStop while there are unknown tasks
+ - Listing templates takes noticeable amount of time, while listing many more VMs is prompt
+ - Pool VMs are being pulled from template view in a very inefficient way
+ - Allow manual fence in connecting state
+ - 'engine-backup --mode=restore' fails after engine-cleanup on postgres 8
+ - Typo in Cluster Policy Tool Tip
+ - Cloud-init DNS settings should go inside the "iface" section
+ - engine: host stuck on Unassigned when moving from status Maintenance when storage is not availble from the host
+ - 'engine-backup --mode=restore' fails after engine-cleanup on postgres 8
+ - Force removal of DataCenter fails to remove vm_pool from DB
+ - [restore.sh] restore.sh is doing restore.sh.log in /usr directory
+ - GuideMe AddHost does not pass OverrideFirewall
+ - VMs do not appear in virtual machine tab if host is selected in side pane (data-center > cluster > host > )
+ - Listing templates takes noticeable amount of time, while listing many more VMs is prompt
+ - RHEV-M fails to detect 'AMD Opteron G5' as CPU_Type for hypervisors.
+ - VM is not locked on run once
+ - VM split brain caused by network outage
+ - Failure to add domain via engine-manage-domains if the kerberos realm is not an uppercase of the domain
+ - CpuOverCommitDurationMinutes limited to a single digit value by regular expression in database scripts
+ - After a power outage two VMs marked as HA failed to start automatically, they were required to be started manually.
+ - Missing option create engine-setup answer-file template
+ - On DB upgrade, readonly user and client custom users losses permissions to db views
+ - Tasks are cleared while they are still running
+ - The RSDL documentation of the cloud-init hostname property should be host.address
+
 ### VDSM
 
 ### ovirt-node-plugin-vdsm

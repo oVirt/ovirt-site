@@ -109,6 +109,12 @@ As this is a 3.4 feature, all 3.3 (and down) cluster related entities should not
 
 ### Usages
 
+This section describes features that use the infrastructure above.
+
+#### Ethtool options
+
+#### Bridge options
+
 ### Documentation / External references
 
 *   TBD

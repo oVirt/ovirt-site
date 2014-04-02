@@ -29,7 +29,7 @@ If you're upgrading from a previous version of oVirt you must also ensure to hav
 
       # yum-config-manager --enable ovirt-3.3-stable
 
-Since oVirt 3.4.0 has been released, in order to install 3.3.5 RC you need to disable latest stable an latest 3.4 repositories:
+Since oVirt 3.4.0 has been released, in order to install 3.3.5 RC you need to disable latest stable and latest 3.4 repositories:
 
       # yum-config-manager --disable ovirt-stable
       # yum-config-manager --disable ovirt-3.4-stable

@@ -85,7 +85,7 @@ All optimization tasks need to know how does a possible solution look like and h
 
 There are couple of options for us to consider when writing the rules. We might also allow the user to select the desired task from a list if we decide that more than one is useful:
 
-1.  score according to the currently selected cluster policy -- The rationale here is that when VMs are started one by one then the assignment might be suboptimal, because the scheduling algorithm had no knowledge about the VMs that are yet to start. If we base our rules on the current cluster policy we might be able to compute a solution that takes all running VMs into account at once. This approach will then use:
+1.  score according to the currently selected cluster policy -- The rationale here is that when VMs are started one by one then the assignment might be suboptimal, because the scheduling algorithm has no knowledge about the VMs that are yet to start. If we base our rules on the current cluster policy we might be able to compute a solution that takes all running VMs into account at once. This approach will then use:
     -   filters as source for hard constraint score
     -   weights for the soft constraint score
     -   Another metric we should use here is the necessary number of actions to change the current situation to the computed "optimal" solution.

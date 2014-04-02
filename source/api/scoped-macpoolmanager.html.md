@@ -37,6 +37,7 @@ Definition of domains from which MAC addresses will be allocated for each "scope
 *   All defined "scoped" pools are initialized during startup, just like default MAC pool. When creating new data center/updating/removing "scoped" MAC pool is created/altered/removed in respect to that.
 *   When updated mac ranges for given "scope", notice, that MAC addresses currently will not get reassigned. Used MACs assigned from previous range definition will be added as manually specified MACs
 *   When specified mac ranges for given "scope", where there wasn't any definition previously, allocated MAC from default pool will not be moved to "scoped" one until next engine restart. Other way, when removing "scoped" mac pool definition, all MACs from this pool will be moved to default one.
+*   While ranges definition may differ per "scope", other variables -- 'MaxMacsCountInPool' and 'AllowDuplicateMacAddresses' are still system wide.
 
 ## Implementation details
 
@@ -53,6 +54,8 @@ command adding new data center will contain following code
 where storagePool is newly created storage pool.
 
 ### modification of scope
+
+let's say, that storage pool already exist, but without specified mac pool ranges, so after db is updated, new pool has to be created for it.
 
       ScopedMacPoolManager.updateScopeFor().storagePool(storagePool)
 

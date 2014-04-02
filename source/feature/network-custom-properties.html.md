@@ -195,6 +195,19 @@ The proposed format consists on 'key=value key2=value2', i.e., pairs of option-v
 
 ##### Testing
 
+To test this feature the tester should:
+
+*   set up bridge options at the logical level, assign the VM network to a nic/bond and use the following shell script to check that the options where applied:
+
+<!-- -->
+
+    for opt in `ls /sys/class/net/$bridge_name/bridge/ -w 1`; do
+        echo -n "$opt=$(cat /sys/class/net/$bridge_name/bridge/$opt) "
+    done
+
+*   Override (editing or removing) the bridge options set at the logical level and see, like in the previous step that the options are properly applied to the bridge.
+*   Define at the network assignment level bridge options for a network with no bridge options at the logical level and see that they are properly applied to the bridge.
+
 ### Documentation / External references
 
 *   TBD

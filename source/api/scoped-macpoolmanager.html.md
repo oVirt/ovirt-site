@@ -43,6 +43,8 @@ Definition of domains from which MAC addresses will be allocated for each "scope
 
 ![](MacPoolRangesOnDataCenter.png "MacPoolRangesOnDataCenter.png")
 
+[File:MacPoolRangesOnDataCenter.png|screenshot](File:MacPoolRangesOnDataCenter.png|screenshot)
+
 ## Implementation details
 
 While we're just talking about data center "scopes", it's possible that fine grained "scope" will be requested, or user could decide which "scope" he/she/... wants. To allow that, data center "scope" manipulation is done like this:

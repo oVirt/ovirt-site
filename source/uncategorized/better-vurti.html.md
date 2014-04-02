@@ -87,4 +87,16 @@ The adapter main role is to crunch the fetch data and dispatch events accordinga
 
 VMStateChanged is an example of an aggregating event the will be fired. multiple subscribers(a.k.a observers) can react to that (ordering of events is
 
-==== E
+### Phase 2 - Repository, Updater, Fetcher
+
+The main idea is to separate completely the responsibility of each component. instead of 2 classes today which area responsible for all monitoring vds, do state transition, care for migration and other side handling + monitoring the VMs + doing their state transion, migration etc we'll divide the responsibility to components and sub components.
+
+We need to manage 2 types, VDS and VM. Instead of managing a single VDS and its VMs, well manage (configurable) set of VDS. could be cluster scope or system scope or divided.
+
+This would be the **Repository** - VdsRepository and VmRepository.
+
+For each VdsRepository there would be a single VmRepository.
+
+Every Repository has to manage the lifecycle of its objects as well the create/retrieve/update/delete actions. This is the responsibility of the **Updater** - VdsUpdater and VmUpdater
+
+Each entity in the repository is fetched from an external resource and we must de-couple this details since we want to keep it flex and open for changes. This would be the responsibility of the **Fetcher** - VdsFetcher and VmFetcher

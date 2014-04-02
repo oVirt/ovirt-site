@@ -179,7 +179,7 @@ bridge options will be set per logical network and it will be possible to overri
 
 The options set above will be applied when the logical network is assigned to a hosts device, be it nic or bond, so that the network administrator does not need to set it for each host of the cluster. However, if the network administrator wishes, he'll have the option, as shown below, to override the network custom properties by clicking on the edit 'pencil' button.
 
-![](Override_setupNetworks.png "fig:Override_setupNetworks.png") (Insert 'edit network dialog' picture here)
+![](Override_setupNetworks.png "fig:Override_setupNetworks.png") ![](Override_bridge_options.png "fig:Override_bridge_options.png")
 
 When assigning a VM network to a NIC or Bond it will be possible to click on "edit" (icon marked in red in the first of the two images directly above) and:
 

@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Features/Network Custom Properties
 wiki_revision_count: 37
 wiki_last_updated: 2014-09-24
+feature_name: Network Custom Properties
+feature_modules: engine,network,vdsm
+feature_status: To be Released
 ---
 
 # Network Custom Properties
@@ -103,6 +106,8 @@ As this is a 3.4 feature, all 3.3 (and down) cluster related entities should not
 *   From the Engine, define a network and set the 'hostonly' property (Make sure the cluster level is 3.4+)
 *   [Create a new VDSM hook](Vdsm_Hooks) that occurs during before (and after) setupNetwork that prints the value for the 'hostonly' environment variabls, and the network definition that the hook received.
 *   Verify that 'True' is printed.
+
+### Usages
 
 ### Documentation / External references
 

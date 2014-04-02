@@ -27,6 +27,9 @@ wiki_last_updated: 2015-05-28
 
 ### Use cases
 
+*   VM start failed because of insufficient resources and the user want to know if there is a way to fit the VM
+*   The user wants to rebalance the cluster to "optimal" state
+
 ### Benefit to oVirt
 
 # **Requirements**

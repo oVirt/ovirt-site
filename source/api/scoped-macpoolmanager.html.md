@@ -39,6 +39,10 @@ Definition of domains from which MAC addresses will be allocated for each "scope
 *   When specified mac ranges for given "scope", where there wasn't any definition previously, allocated MAC from default pool will not be moved to "scoped" one until next engine restart. Other way, when removing "scoped" mac pool definition, all MACs from this pool will be moved to default one.
 *   While ranges definition may differ per "scope", other variables -- 'MaxMacsCountInPool' and 'AllowDuplicateMacAddresses' are still system wide.
 
+## Gui
+
+![](MacPoolRangesOnDataCenter.png "MacPoolRangesOnDataCenter.png")
+
 ## Implementation details
 
 While we're just talking about data center "scopes", it's possible that fine grained "scope" will be requested, or user could decide which "scope" he/she/... wants. To allow that, data center "scope" manipulation is done like this:

@@ -41,9 +41,7 @@ Definition of domains from which MAC addresses will be allocated for each "scope
 
 ## Gui
 
-![](MacPoolRangesOnDataCenter.png "MacPoolRangesOnDataCenter.png")
-
-[File:MacPoolRangesOnDataCenter.png|screenshot](File:MacPoolRangesOnDataCenter.png|screenshot)
+Style of entering mac pool ranges is hardly ideal, but it should suffice at first. ![](MacPoolRangesOnDataCenter.png "fig:MacPoolRangesOnDataCenter.png")
 
 ## Implementation details
 

@@ -19,9 +19,9 @@ Define special parameters per network, and pass them down to Vdsm hooks when the
 
 ### Owner
 
-*   Name: [ Dan Kenigsberg](User:Danken)
-*   Email: <danken@redhat.com>
-*   IRC: danken at #ovirt (irc.oftc.net)
+*   Name: [ Lior Vernia](User:lvernia)
+*   Email: <lvernia@redhat.com>
+*   IRC: lvernia at #ovirt (irc.oftc.net)
 
 ### Current Status
 

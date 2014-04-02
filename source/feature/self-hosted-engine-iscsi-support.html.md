@@ -99,7 +99,7 @@ Users will be able to use iSCSI storage as data domain for Hosted Engine.
 
 ### Dependencies / Related Features
 
-*   ovirt-hosted-engine-ha provides new class **FilesystemBackend** which provides the API for all the storage actions specific for the hosted engine
+*   ovirt-hosted-engine-ha provides a new class **FilesystemBackend** which provides the API for all the storage actions specific for the hosted engine
 *   the existing setup code has been ported to use this API
 
 ### Documentation / External references

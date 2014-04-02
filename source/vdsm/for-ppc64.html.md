@@ -240,9 +240,9 @@ These features are still a work in progress, so won't work yet:
 *   [Suspend](http://bugzilla.redhat.com/show_bug.cgi?id=1070189)
 *   [Memory Snapshot](http://bugzilla.redhat.com/show_bug.cgi?id=1061774)
 
-And some limitations:
+Known limitations:
 
-*   [Support only in Fedora 20 and onwards](http://bugzilla.redhat.com/show_bug.cgi?id=1057724)
+*   [Support only in the Fedora 20 and onwards](http://bugzilla.redhat.com/show_bug.cgi?id=1057724)
 *   [VDSM for ppc64 needs qemu 1.6](http://bugzilla.redhat.com/show_bug.cgi?id=1063799)
 
 <Category:Feature>

@@ -163,6 +163,34 @@ To test this feature the tester should:
 
 #### Bridge options
 
+This feature provides a way for the network administrator to easily set options for the bridges which implement VM networks.
+
+##### Benefit to oVirt
+
+Having a simple way for the network administrator to set bridge options for the oVirt defined VM networks will allow oVirt to cover a wider range of configurations and fine tuning that will make oVirt networking a better fit for very tightly managed network setups and/or those that require very specific behavior from the bridges.
+
+Up until now, oVirt used to persist its network configuration in Fedora/EL specific files handled by the initscripts package. These files, known as ifcfg, contained a series of shell definitions that were read and applied by the ifup-eth executable. oVirt auto-generates and writes these ifcfg files and as such, if the network admin wanted to tweak the BRIDGING_OPTS definition that precluded the continued care-free modification of the network, as some of the configuration would be living only in the hypervisor node and would not be exposed to oVirt for persistence.
+
+##### User experience
+
+bridge options will be set per logical network and it will be possible to override the setting on assignment to the host, i.e., on a host per host basis. It will only be possible to set this value in the GUI when the logical network is defined as a VM network, as non VM networks are not implemented by means of bridges, so they do no have an entity upon which to configure the settings.
+
+(insert picture here)
+
+The options set above will be applied when the logical network is assigned to a hosts device, be it nic or bond, so that the network administrator does not need to set it for each host of the cluster. However, if the network administrator wishes, he'll have the option, as shown below, to override the network custom properties by clicking on the edit 'pencil' button.
+
+![](Override_setupNetworks.png "fig:Override_setupNetworks.png") (Insert 'edit network dialog' picture here)
+
+When assigning a VM network to a NIC or Bond it will be possible to click on "edit" (icon marked in red in the first of the two images directly above) and:
+
+*   Add new bridge options,
+*   Edit for this host only the bridge options previously defined at the logical level,
+*   Remove any custom network property defined at the logical level.
+
+##### Properties format
+
+##### Testing
+
 ### Documentation / External references
 
 *   TBD

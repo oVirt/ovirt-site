@@ -189,6 +189,10 @@ When assigning a VM network to a NIC or Bond it will be possible to click on "ed
 
 ##### Properties format
 
+The proposed format consists on 'key=value key2=value2', i.e., pairs of option-value separated among themselves by an equality symbol and from other pairs by whitespace. E.g.:
+
+    forward_delay=1500 gc_timer=3765 group_addr=1:80:c2:0:0:0 group_fwd_mask=0x0 hash_elasticity=4 hash_max=512 hello_time=200 hello_timer=70 max_age=2000 multicast_last_member_count=2 multicast_last_member_interval=100 multicast_membership_interval=26000 multicast_querier=0 multicast_querier_interval=25500 multicast_query_interval=13000 multicast_query_response_interval=1000 multicast_query_use_ifaddr=0 multicast_router=1 multicast_snooping=1 multicast_startup_query_count=2 multicast_startup_query_interval=3125
+
 ##### Testing
 
 ### Documentation / External references

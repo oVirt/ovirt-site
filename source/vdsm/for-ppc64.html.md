@@ -234,4 +234,6 @@ KVM on IBM POWER : <http://www.linux-kvm.org/wiki/images/5/5d/2011-forum-KVM_on_
 
 ## Open Issues
 
+Migration, Suspend and Memory Snapshot is still a work in progress for KVM on IBM POWER processor, so this features won't work yet.
+
 <Category:Feature>

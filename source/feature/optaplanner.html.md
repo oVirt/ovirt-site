@@ -51,9 +51,9 @@ The following information is needed:
 
 The ideal situation would be if it was possible to get the described data in an atomic snapshot way. Which means that all the data will be valid at one single exactly defined moment in time.
 
-The Optaplanner service will use Java SDK to get the data.
+The Optaplanner service will use Java SDK to get the data and the idea is to get the data once and then (cache and) reuse them during the whole optimization run.
 
-### Representing the solution in Optplanner
+### Representing the solution in Optaplanner
 
 Optaplanner requires at least two java classes to be implemented:
 
@@ -98,6 +98,59 @@ There are two situations that should be avoided in the computed solutions:
 2.  Impossible solution -- if the user gets a solution from the optimization algorithm and then finds out that the cluster policy prevents him from reaching it, we will have an issue that the theoretical solution is totally useless for the user and this feature won't be thus useful to him at all
 
 In the case where no solution can be found (for example to the start VM case) we should inform the user that there is no solution with the current cluster policy rules, but that solution to the optimization can still be found if the rules are relaxed a bit. It is my opinion that the cluster policy rules reflect actual user's requirements and we should obey them.
+
+### Implementing the rules
+
+There are three possible ways to implement the rules:
+
+#### Reusing the existing engine's PolicyUnits
+
+This approach will use the existing ovirt-engine rpm on the OptaPlanner machine (just the files, no daemon or engine-setup necessary). The OptaPlanner service will then be implemented as Jboss module that requires some of the engine modules (rest mappers, common, bll, scheduling). The scheduling classes will be decoupled from the DbFacade using interface (DaoProviderInterface, see <http://gerrit.ovirt.org/#/c/26199/> and <http://gerrit.ovirt.org/#/c/26200/>) and so will be reusable in the scoring mechanism of OptaPlanner.
+
+Advantages are:
+
+*   scoring uses exactly the same code as the scheduling in engine and that guarantees that the solution is 100% valid in the engine as well
+*   no code duplication, the PolicyUnits are already implemented and in use
+*   PolicyUnits can be easily enabled/disabled in the scoring function depending on the cluster policy
+
+Disadvantages are:
+
+*   Users might be used to Drools rule language and might not be willing to use Java for extending the functionality
+*   A REST to common mapping will have to be done (already part of the engine though) to map Java SDK classes to Vds, Vm and other classes that are used in PolicyUnits
+*   Java modules have lower performance than drools' rule files
+*   Installing the ovirt-engine RPM file can pull unnecessary dependencies
+
+#### Writing the rules in the Drools rule language
+
+This approach will require that we copy the logic from our Java code to drools rules as exactly as possible. Any difference might cause the found solution to not be applicable to the actual cluster. The rules will have to follow strict naming scheme so we can enable/disable them according to the currently selected cluster policy.
+
+Advantages:
+
+*   Users might already be using Drools for other business logic purposes
+*   Better performance
+*   Can probably use Java SDK classes directly
+*   Smaller footprint (does not need the ovirt-engine)
+
+Disadvantages:
+
+*   Code duplication -- the rules will have to be kept in sync with engine's PolicyUnits or we might compromise the fitness of computed solutions
+*   Enabling/disabling rules according to cluster policy might not be easy
+
+#### Using the external scheduler infrastructure for scoring
+
+This idea is based on our ovirt-scheduler-proxy infrastructure. It would require us to implement our PolicyUnits in python and decouple them from the REST API to be able to pass the cached data there. OptaPlanner would then have to be able to execute the Python filters and weights to perform scoring.
+
+Advantages:
+
+*   We would get fully working external scheduling for future use
+*   Python is easy to write and read
+*   It would also support scheduling plugins provided by the customer
+
+Disadvantages:
+
+*   Code duplication again
+*   Decoupling the plugins from REST is not trivial, there is no API to pass the required information to the proxy together with the scheduling task
+*   Lower performance
 
 # Comments and Discussion
 

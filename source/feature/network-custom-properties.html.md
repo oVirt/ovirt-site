@@ -175,7 +175,7 @@ Up until now, oVirt used to persist its network configuration in Fedora/EL speci
 
 bridge options will be set per logical network and it will be possible to override the setting on assignment to the host, i.e., on a host per host basis. It will only be possible to set this value in the GUI when the logical network is defined as a VM network, as non VM networks are not implemented by means of bridges, so they do no have an entity upon which to configure the settings.
 
-(insert picture here)
+![](Bridge_opts_networks.png "Bridge_opts_networks.png")
 
 The options set above will be applied when the logical network is assigned to a hosts device, be it nic or bond, so that the network administrator does not need to set it for each host of the cluster. However, if the network administrator wishes, he'll have the option, as shown below, to override the network custom properties by clicking on the edit 'pencil' button.
 

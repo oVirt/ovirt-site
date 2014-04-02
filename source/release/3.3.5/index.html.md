@@ -22,8 +22,6 @@ To find out more about features which were added in previous oVirt releases, che
 
 oVirt 3.3.5 candidate release is available. In order to install it you've to enable oVirt 3.3 pre release repository.
 
-**please wait for official announcement before trying to install it.**
-
 `# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release.noarch.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release.noarch.rpm)
       # yum-config-manager --enable ovirt-3.3-prerelease
 

@@ -34,6 +34,8 @@ wiki_last_updated: 2015-05-28
 
 # **Requirements**
 
+The output should be a service that is able to compute the ideal VM to Host assignment and give the administrator hints about how to balance the cluster to utilize the resources better. The idea is to have the service free-running in an infinite loop and improve the solution over time while adapting to changes in the cluster.
+
 # Detailed Description
 
 This feature will allow the user to get a solution to his scheduling needs. Computing the solution might take a long time so an Optaplanner based service will run outside of the engine and will apply a set of rules to the current cluster's situation to get an optimized VM to Host assignments.

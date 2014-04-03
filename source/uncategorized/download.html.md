@@ -124,15 +124,9 @@ When using default configuration of yum package updating and installation tool i
 
 #### Currently used keys
 
-<kbd>
-
-    rpm signature
-    pub   2048R/FE590CB7 2014-03-30 [expires: 2016-04-02]
-          Key fingerprint = 31A5 D783 7FAD 7CB2 86CD  3469 AB8C 4F9D FE59 0CB7
-    uid                  oVirt <infra@ovirt.org>
-    sub   2048R/004BC303 2014-03-30
-
-</kbd>
+| Key ID   | Key Type     | Key Fingerprint                                   | Key Description | Created    | Expires    | Revoked | Notes |
+|----------|--------------|---------------------------------------------------|-----------------|------------|------------|---------|-------|
+| FE590CB7 | 2048-bit RSA | 31A5 D783 7FAD 7CB2 86CD 3469 AB8C 4F9D FE59 0CB7 | oVirt           | 2014-03-30 | 2016-04-02 |         |       |
 
 ### Install oVirt
 

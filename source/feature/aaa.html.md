@@ -116,7 +116,7 @@ The tool will create the user in the database and allocate a system permissions 
 
 *   Correctness of Extensions API
 *   Format for generic ldap configuraton
-    -   Should be determined during the
+    -   Should be determined during the development
 *   Format of generic ldap template file.
 
 ### Testing

@@ -269,4 +269,24 @@ Currently, we plan to provide below search functions about NUMA feature, each fi
 
 #### Interface and data structure in ovirt scheduler
 
+Add NUMA filter and weight module to oVirt's scheduler, and add those to all cluster policies (inc. user defined).
+
+*   NUMA Filter
+    -   Fetches the (scheduled) VM virutal NUMA nodes.
+    -   Fetches all virtual NUMA nodes topology ( CPU count, total memory ).
+    -   Fetches all hosts NUMA nodes topology ( CPU count, total memory ).
+    -   Remove all hosts that doesn't meet the matched NUMA nodes topology
+        -   for positive, host NUMA node's CPU count > virtual NUMA node's CPU count
+        -   for positive, host NUMA node's total memory > virtual NUMA node's total memory
+*   NUMA Weight Module
+    -   Fetches the (scheduled) VM virutal NUMA nodes.
+    -   Fetches all virtual NUMA nodes topology ( CPU count, total memory, NUMA distance ).
+    -   Fetches all hosts NUMA nodes topology and statistics ( CPU usage, free memory ).
+    -   Score the hosts according to each NUMA nodes score
+        -   for positive, in case a VM of the group is running on a certain host, give all other hosts a higher weight.
+        -   for positive, give the host higher weight if the host NUMA node's CPU usage use up.
+        -   for positive, give the host higher weight if the host NUMA node's memory use up.
+
+Scheduler generate virtual NUMA topology To be continue ...
+
 #### Interface and data structure in restful API

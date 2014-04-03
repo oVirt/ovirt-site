@@ -39,7 +39,11 @@ Introducing a new architecture to AAA.
 
 ### Detailed Description
 
-Currently the authentication and authorization mechanisms in engine are: a. based on DB configuration (entries at vdc_options table). b. We have only internal mechanism based on single user defined in db, and a Kerberos/Ldap mechanaism.
+Currently the authentication and authorization mechanisms in engine are:
+
+*   a. based on DB configuration (entries at vdc_options table).
+*   b. We have only internal mechanism based on single user defined in db, and a Kerberos/Ldap mechanaism.
+*   c. Tighltly coupled in BLL code
 
 In order to change that we suggest to provide a mechanism that is based on the following:
 

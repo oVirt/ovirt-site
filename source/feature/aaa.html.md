@@ -91,9 +91,7 @@ This will also require changes at Engine code to call the extensions API properl
 
 attributes to users/groups
 
-#### Tools
-
-*   In order to have the ability to ad
+### Tools
 
 ### Open Issues
 

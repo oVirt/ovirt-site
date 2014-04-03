@@ -42,6 +42,7 @@ In addition to the maintainers, there are newer Infrastructure team members who 
 *   [Robert Middleswarth](User:Rmiddle)
 *   [Ofer Schreiber](User:Oschreib)
 *   [Brian Proffitt](User:Bproffitt)
+*   [Michael Scherer](User:Misc)
 
 ## How we work
 

@@ -45,7 +45,7 @@ In order to change that we suggest to provide a mechanism that is based on the f
 
 #### Extensions
 
-= Extensions are software plugins that conform to the extensions API. Each extension has a configuration file. When engine starts it scans filesystem directories defined by the entry of ENGINE_EXTENSION_PATH at the configuration file ovirt-engine.cof
+Extensions are software plugins that conform to the extensions API. Each extension has a configuration file. When engine starts it scans filesystem directories defined by the entry of ENGINE_EXTENSION_PATH at the configuration file ovirt-engine.cof
 
 For example:
 

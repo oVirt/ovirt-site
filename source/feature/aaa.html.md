@@ -77,9 +77,9 @@ The following changes are introcued:
 
 For a domain user - the ID is now a hex representation of the ID of the user within the directory (as the directory may be a non LDAP now, it may not always be GUID). The domain users can be retrieved from /api/domains/<DOMAIN_IDENTIFIER>/users
 
-When a domain user is being added to the DB , by sending a POST reques to /api/users , Based on the user name and the domain provided, a query is run against the directory, and the user is retrieved from it, and added to the DB. When observing users in the DB, by issuing GET /api/users , the ID of the user in the directory is represented by <domain_user_id><HEX_VALUE></domain_user_id>
+When a domain user is being added to the DB , by sending a POST reques to /api/users , Based on the user name and the domain provided, a query is run against the directory, and the user is retrieved from it, and added to the DB. When observing users in the DB, by issuing GET /api/users , the ID of the user in the directory is represented by <domain_entry_id><HEX_VALUE></domain_entry_id>
 
-All of the above is correct for domain groups as well, with the relevant changes to URLs and the <domain_group_id> being the additional XML element.
+All of the above is correct for domain groups as well, with the relevant changes to URLs.
 
 ### Backend and extensions work
 

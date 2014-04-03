@@ -10,7 +10,7 @@ wiki_last_updated: 2014-04-03
 
 ### Summary
 
-Scale: Replace the use of a python process pool with ioprocess written in C.
+Scale: Replace the use of a process pool with ioprocess written in C.
 
 ### Owner
 

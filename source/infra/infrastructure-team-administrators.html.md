@@ -87,4 +87,10 @@ Project coordinator: Kiril Nesenko <knesenko@redhat.com>
 
     ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3lARddzwVFQu8WPibzkCz830OjzTztEOUE6uejgsqUTbd15VmAlUhm2UFZnElUVHk1cwpr7KYFWEmzFRzJ8w79j3AgfGqauvIXPfClsEfqp3UPPGDok7HakXnGj6zV4ePNzHsQfn38DxwLblyR9c+S2O4R4sL62J2BhESvZGG5RfzlJPZghgkuh8jjlWDqN4jTYISMOaZ+jOueFLanEEzOuqct5QhyA1ToseWTfotXm40PYQlfx2OP9ub9Wevb1Sj0b832KccP+xrrePuRqgpJdg0PZZb/HknIND44k5gm+sMvm8mX6R6YfDPZNli76kCGi8hqiKnUroCe2niRe8x knesenko@redhat.com
 
+*   misc (Michael Scherer) (apprentice)
+
+<!-- -->
+
+    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCcn358haGHznlVENXrWDdr25+aWUrDj+15fkg/7UhnrqBI3VvTC8tjr8RiuxY8CPJsvT6LMdmG/D/uXov3uErnWT0gyXSVj7C9giOWWev0KTODco/xhTQ53nK1qLajLN49qCJT+8w21PTXUGIRO6Hubx1U3CYlH1xvuV3xtyn9jCigM5HxWCb7y4JkSM8vaJU+RedTieyxdH0e+Gstbilu0gsKwSm9LJm4MoGf/6T+IkuTvSuDngUFKkVIb0+65s6a6hh4Wam5HYqG4MKkdFrrqbV+D+D6y8UugQ9byud59UDodPSALYXe9YJYfgj5X/6yJSKJk2MPBTS5OGyu5OCX misc@liliana
+
 <Category:Infrastructure>

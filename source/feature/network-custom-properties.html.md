@@ -121,10 +121,7 @@ When executing Setup Networks, the VdsNetworkInterface custom properties member 
 
 #### REST
 
-Add a custom_properties field to api.xsd for networks: <custom_properties>
-<custom_property value="wol m" name="eth_opts"/>
-<custom_property value="host-local" name="true"/>
-</custom_properties>
+Add a custom_properties field to api.xsd for the NIC type, and possibly for the Network type as well. There will also be a need to modify the Setup Networks command in rsdl_metadata.yaml, and maybe the add/update NIC commands as well. If the feature includes implementation of custom properties on logical networks, then the add/update network commands will need to be modified too. At last, mapping between the REST entities and the engine entities will have to be modified.
 
 #### Backwards Compatibility
 

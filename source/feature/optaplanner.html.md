@@ -113,6 +113,8 @@ There are three possible ways to implement the rules:
 
 This approach will use the existing ovirt-engine rpm on the OptaPlanner machine (just the files, no daemon or engine-setup necessary). The OptaPlanner service will then be implemented as Jboss module that requires some of the engine modules (rest mappers, common, bll, scheduling). The scheduling classes will be decoupled from the DbFacade using interface (DaoProviderInterface, see <http://gerrit.ovirt.org/#/c/26199/> and <http://gerrit.ovirt.org/#/c/26200/>) and so will be reusable in the scoring mechanism of OptaPlanner.
 
+We already have a template to base this on. Our engine-config and engine-manage-domains tools use this approach.
+
 Advantages are:
 
 *   scoring uses exactly the same code as the scheduling in engine and that guarantees that the solution is 100% valid in the engine as well
@@ -122,7 +124,7 @@ Advantages are:
 Disadvantages are:
 
 *   Users might be used to Drools rule language and might not be willing to use Java for extending the functionality
-*   A REST to common mapping will have to be done (already part of the engine though) to map Java SDK classes to Vds, Vm and other classes that are used in PolicyUnits
+*   A REST to common mapping will have to be prepared (already part of the engine though) to map Java SDK classes to Vds, Vm and other classes that are used in PolicyUnits
 *   Java modules have lower performance than drools' rule files
 *   Installing the ovirt-engine RPM file can pull unnecessary dependencies (yum install jboss-ass on CentOS 6 pulls 246MB and ovirt-engine additional 211MB of packages)
 

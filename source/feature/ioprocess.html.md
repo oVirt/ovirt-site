@@ -10,7 +10,7 @@ wiki_last_updated: 2014-04-03
 
 ### Summary
 
-cool ioprocess <https://github.com/ficoos/ioprocess/blob/master/src/exported-functions.c>
+Scale: Replace the use of a python process pool with ioprocess written in C.
 
 ### Owner
 
@@ -19,26 +19,22 @@ cool ioprocess <https://github.com/ficoos/ioprocess/blob/master/src/exported-fun
 
 ### Current status
 
-*   Target Release: 3.4
+*   Target Release: 3.5
 *   Status: work in progress
 *   Last updated: ,
 
 ### Benefit to oVirt
 
-none
+The advantage of this implementation is that it's lightweight and scalable.
 
 ### Detailed Description
 
-very cool
+Currently we use a single process ('Remote File Handler') for each io request to remote storage (NFS). We want to replace the use of 'remote File Handler' with ioprocess. ioprocess is a C implementation providing a single process that can serve multiple io requests.
 
 #### VDSM
 
-Already supported.
+The change is planned to occur in two phases.
 
-### Open Issues
+Phase 1: A single ioprocess will replace the existing process pool and storage side will be exposed to the same interface and configuration, only underlying implementation will change.
 
-### Testing
-
-### Comments and Discussion
-
-### Future Work
+Phase 2 (future work): A single ioprocess will serve a single storage domain (TBD). out of process interface to storage will change and expose the actual ioprocess and its new file handling functions implementation.

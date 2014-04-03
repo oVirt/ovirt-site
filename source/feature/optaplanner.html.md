@@ -87,7 +87,7 @@ All optimization tasks need to know how does a possible solution look like and h
 
 There are couple of options for us to consider when writing the rules. We might also allow the user to select the desired task from a list if we decide that more than one is useful:
 
-1.  score according to the currently selected cluster policy -- The rationale here is that when VMs are started one by one then the assignment might be suboptimal, because the scheduling algorithm has no knowledge about the VMs that are yet to start. ([Example](#ex1)) If we base our rules on the current cluster policy we might be able to compute a solution that takes all running VMs into account at once. This approach will then use:
+1.  score according to the currently selected cluster policy -- The rationale here is that when VMs are started one by one then the assignment might be suboptimal, because the scheduling algorithm has no knowledge about the VMs that are yet to start. ([Example](#Example_of_suboptimal_balancing_as_a_result_of_starting_VMs_one_by_one)) If we base our rules on the current cluster policy we might be able to compute a solution that takes all running VMs into account at once. This approach will then use:
     -   filters as source for hard constraint score
     -   weights for the soft constraint score
     -   balancers can be possibly added to the scoring system to detect if the solution is stable (no migration will be triggered in that state) or not (engine will want to migrate something)
@@ -157,6 +157,23 @@ Disadvantages:
 *   Code duplication again
 *   Decoupling the plugins from REST is not trivial, there is no API to pass the required information to the proxy together with the scheduling task
 *   Lower performance
+
+# Examples and demostrations
+
+### Example of suboptimal balancing as a result of starting VMs one by one
+
+This example uses just a single resource and evenly balanced policy. At the end all the Hosts should be providing the same amount of that resource to the VMs.
+
+There are 4 VMs and 2 hosts:
+
+1.  Vm_A: 330MB of memory
+2.  Vm_B: 330MB of memory
+3.  Vm_C: 330MB of memory
+4.  Vm_D: 1000MB of memory
+
+Now lets investigate what happens when the starting order is A,B,C,D:
+
+And as a second case D, C, B, A:
 
 # Comments and Discussion
 

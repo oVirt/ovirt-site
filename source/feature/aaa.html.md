@@ -97,6 +97,21 @@ attributes to users/groups
 
 ### Tools
 
+*   engine-manage-domains
+
+engine-manage-domains will be kept to support the "built-in" (AKA "legacy") providers.
+
+*   ovirt-engine-role
+
+This tool will be used in order to assign role to an entry of a user from an authorization provider (AKA directory). In order to run the tool, the user of the tool will have to provide the following parameters:
+
+*   a. user name
+*   b. provider
+*   c. id of user within the provider
+*   d. role (for example "SuperUser")
+
+The tool will create the user in the database and allocate a system permissions based on the role and the user .
+
 ### Open Issues
 
 *   Correctness of Extensions API

@@ -61,7 +61,7 @@ ovirt.engine.aaa.authn.profile.name - A profile is a combination of authenticato
 
 A developer of the extensions should work with the API defined at : <link to Alon's API> And pack the extensions developed as a jboss module.
 
-Once again starts, the directories containing configuration files are scanned, the extensions are created, and profiles are created for matching authenticaton and authorization extensions.
+Once engine starts, the directories containing configuration files are scanned, the extensions are created, and profiles are created for matching authenticaton and authorization extensions.
 
 #### UI
 

@@ -36,6 +36,7 @@ Introducing a new architecture to AAA.
     -   Introducing of other authentication mechanisms - it will be possible to authenticate not using kerberos
     -   Introducing non ldap providers for directories - for example, a JDBC provider can ease the definition of internal users
     -   Usage of configuration files and not the database for configuration of providers
+    -   Introduction of profiles will allow to associate different authentication mechanims with the same auhotization (directory) mechanism
 
 ### Detailed Description
 

@@ -77,7 +77,7 @@ When a domain user is being added to the DB , by sending a POST reques to /api/u
 
 All of the above is correct for domain groups as well, with the relevant changes to URLs and the <domain_group_id> being the additional XML element.
 
-#### Backend and extensions work
+### Backend and extensions work
 
 *   Changing existing (built-in) extensions to support the Extensions API
     -   The current LdapKerberos Authenticator/Directory code, and the Internal Authenticator/Code should be aligned with the new API.

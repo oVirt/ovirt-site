@@ -59,7 +59,7 @@ OPTIONAL: In addition, as part of the feature it might be a good idea to allow s
 
 ![](ethtool_networks.png "ethtool_networks.png")
 
-Above you can see that in the networks tab, in the dialog for creating a new logical network, it is possible to define custom network properties, which will include bridge and ethtool options by default. These custom properties will be applied upon any assignment of the network to a NIC on a host, unless overridden as described before.
+Above you can see that in the networks tab, in the dialog for creating a new logical network, it is possible to define custom network properties, which will include ethtool options (shown) and bridge options by default. These custom properties will be applied upon any assignment of the network to a NIC on a host, unless overridden as described before.
 
 ### Implementation
 

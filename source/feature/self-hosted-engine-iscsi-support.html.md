@@ -19,8 +19,8 @@ This feature enable the user to use iSCSI storage for Hosted Engine data domain.
 
 ### Owner
 
-*   Name: [ Sandro Bonazzola](User:SandroBonazzola)
-*   Email: <sbonazzo@redhat.com>
+*   Installation: [ Sandro Bonazzola](User:SandroBonazzola) e-mail: <sbonazzo@redhat.com>
+*   HA agent: [ Jiri Moskovcak](User:jmoskovc) e-mail: <jmoskovc@redhat.com>
 
 ### Current status
 

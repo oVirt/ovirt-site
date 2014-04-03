@@ -116,8 +116,9 @@ The tool will create the user in the database and allocate a system permissions 
 
 *   Correctness of Extensions API
 *   Format for generic ldap configuraton
-    -   Should be determined during the development
+    -   To be determined soon
 *   Format of generic ldap template file.
+    -   To be determined soon, the queries will look similar to the ones at org.ovirt.engine.extensions.aaa.builtin.kerberosldap.LdapQueryMetadataFactoryImpl
 
 ### Testing
 

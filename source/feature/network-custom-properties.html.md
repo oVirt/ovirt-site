@@ -117,7 +117,7 @@ VdsNetworkInterface should be extended to include a custom properties member (ei
 
 ##### Business Logic
 
-When executing Setup Networks, the VdsNetworkInterface custom properties member would have to be added as a map to a network's "custom" entry, as described in the VDSM section. If the feature is implemented so that VDSM reports network custom properties as part of getVdsCaps, then the member should be reconstructed in the VdsBrokerObjectBuilder class and persisted to the DB; otherwise, it should be persisted before the properties are passed to the VDSM (as is done today with network labels).
+When executing Setup Networks, the VdsNetworkInterface custom properties member would have to be added as a map to a network's "custom" entry, as described in the section on VDSM. If the feature is implemented so that VDSM reports network custom properties as part of getVdsCaps, then the member should be reconstructed in the VdsBrokerObjectBuilder class and persisted to the DB; otherwise, it should be persisted before the properties are passed to the VDSM (as is done today with network labels).
 
 #### REST
 

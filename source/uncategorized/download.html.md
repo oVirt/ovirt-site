@@ -108,10 +108,13 @@ Importing keys Automatically <kbd>
 
     install ovirt-release
     install ovirt package using yum
-    yum will prompt sysadmin to acknowedge import of key, make sure key id is FE590CB7.
 
 </kbd>
 
+<div class="alert alert-info">
+**Important:** yum will prompt sysadmin to acknowedge import of key, make sure key id is FE590CB7.
+
+</div>
 #### Verifying a package
 
 When using default configuration of yum package updating and installation tool in stable releases, signature of each package is verified before it is installed. Signature verification can be turned off and on globally or for specific repository with gpgcheck directive. Do not override the default setting of this directive unless you have a very good reason to do so. If you do not use yum, you can check the signature of the package using the following command

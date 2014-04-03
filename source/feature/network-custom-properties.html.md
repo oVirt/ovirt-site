@@ -79,6 +79,8 @@ Vdsm would pass the network definition and their custom properties to setupNetwo
 
 In setupNetwork hooks scripts, the properties would be passed as environment variables of the hook scripts being executed.
 
+Vdsm could either report the custom properties as part of getVdsCaps or not; it would probably be more consistent with other network properties to indeed report this information.
+
 ##### Bridge options format
 
 The proposed format consists on 'key=value key2=value2', i.e., pairs of option-value separated among themselves by an equality symbol and from other pairs by whitespace. E.g.:
@@ -101,27 +103,21 @@ In the bonding case, the UI/Engine/vdsm code may want to check that there is no 
 
 ##### Configuration
 
-TBD
+*   A configuration value will be added for the versions supporting the feature, whose value is 'false' for any version below 3.5 and 'true' otherwise.
+*   A configuration value will be added for the predefined properties, and will include "bridge_opts" and "ethtool_opts".
+*   A different configuration value will be added to hold user-defined properties, and should be initialized to be empty. It's better to distinguish between predefined and user-defined properties, to make it harder for users to accidentally overwrite predefined properties.
 
-##### CRUD
+##### DB
 
-TBD
+The vds_interface table should be extended to include a custom properties (text) column. Potentially, the network table should be similarly extended to facilitate uniform custom properties across an entire DC - if that is deemed part of the feature. Create and update operations in InterfaceDao and NetworkDao should be modified accordingly.
 
 ##### Business Entities
 
-TBD
-
-##### DAOs
-
-TBD
+VdsNetworkInterface should be extended to include a custom properties member (either String or Map<String, String>), and potentially the Network entity should as well. The CustomPropertiesUtils class could be used virtually as is, but might have to be extended slightly (via a subclass) to accommodate the difference between predefined and user-defined properties.
 
 ##### Business Logic
 
-TBD
-
-##### VdsBroker
-
-Update the setupNetwork VdsBroker commands to pass the custom properties into the options dictionary.
+When executing Setup Networks, the VdsNetworkInterface custom properties member would have to be added as a map to a network's "custom" entry, as described in the VDSM section. If the feature is implemented so that VDSM reports network custom properties as part of getVdsCaps, then the member should be reconstructed in the VdsBrokerObjectBuilder class and persisted to the DB; otherwise, it should be persisted before the properties are passed to the VDSM (as is done today with network labels).
 
 #### REST
 

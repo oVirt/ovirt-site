@@ -173,7 +173,25 @@ There are 4 VMs and 2 hosts:
 
 Now lets investigate what happens when the starting order is A,B,C,D:
 
+![](Abcd_1.png "Abcd_1.png")
+
+![](Abcd_2.png "Abcd_2.png")
+
+![](Abcd_3.png "Abcd_3.png")
+
+![](Abcd_4.png "Abcd_4.png")
+
 And as a second case D, C, B, A:
+
+![](Dcba_1.png "Dcba_1.png")
+
+![](Dcba_2.png "Dcba_2.png")
+
+![](Dcba_3.png "Dcba_3.png")
+
+![](Dcba_4.png "Dcba_4.png")
+
+Please notice that in both cases the solution is valid and the basic single step balancing policy is not able to rebalance the ABCD case, because it can only migrate a single VM at a time and that always makes things even worse.
 
 # Comments and Discussion
 

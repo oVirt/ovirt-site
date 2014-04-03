@@ -55,7 +55,7 @@ When assigning a network to a NIC it will be possible to click on "edit" (icon m
 
 Note that preset custom property keys will exist for ethtool options (shown) and bridge options.
 
-OPTIONAL: In addition, as part of the feature it might be a good idea to allow setting custom properties per logical network (on the DC level), and not only on the assignment of a network on a physical device. These custom properties on the logical network will serve as a "mold", to be used by default when assigning the network to a device.
+OPTIONAL: As part of the feature it might be a good idea to allow setting custom properties per logical network (on the DC level), and not only on the assignment of a network on a physical device. These custom properties on the logical network will serve as a "mold", to be used by default when assigning the network to a device.
 
 ![](ethtool_networks.png "ethtool_networks.png")
 

@@ -195,6 +195,6 @@ Please notice that in both cases the solution is valid and the basic single step
 
 # Comments and Discussion
 
-*   Refer to [Talk:Self Hosted Engine](Talk:Self Hosted Engine)
+*   Refer to <Talk:Optaplanner>
 
 <Category:Feature> <Category:SLA>

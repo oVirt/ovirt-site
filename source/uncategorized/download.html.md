@@ -81,6 +81,59 @@ Supported Hosts:
 
 *   [Duke University](http://archive.linux.duke.edu/ovirt/) ([Stable](http://archive.linux.duke.edu/ovirt/releases/stable/) | [Current](http://archive.linux.duke.edu/ovirt/releases/beta/) | [Future](http://archive.linux.duke.edu/ovirt/releases/updates-testing/))
 
+### GPG Keys used by oVirt
+
+How does oVirt Project use GPG keys to sign packages? Each stable RPM package that is published by oVirt Project is signed with a GPG signature. By default, yum and the graphical update tools will verify these signatures and refuse to install any packages that are not signed or have bad signatures. You should always verify the signature of a package before you install it. These signatures ensure that the packages you install are what was produced by the oVirt Project and have not been altered (accidentally or maliciously) by any mirror or website that is providing the packages. Nightly repositories wont be signed.
+
+#### Importing keys Manually
+
+For some repositories, such as repositories with stable in default configuration, yum is able to find a proper key for the repository and asks the user for confirmation before importing the key if the key is not already imported into the rpm database.
+
+To get the public key: <kbd>
+
+    $ gpg --recv-keys --keyserver keyserver.pgp.com FE590CB7
+    $ gpg --list-keys --with-fingerprint FE590CB7
+    ---
+    pub   2048R/FE590CB7 2014-03-30 [expires: 2016-04-02]
+          Key fingerprint = 31A5 D783 7FAD 7CB2 86CD  3469 AB8C 4F9D FE59 0CB7
+    uid                  oVirt <infra@ovirt.org>
+    sub   2048R/004BC303 2014-03-30
+    ---
+    $ gpg --export --armor FE590CB7 > ovirt-infra.pub
+    # rpm --import ovirt-infra.pub
+
+</kbd>
+
+Importing keys Automatically <kbd>
+
+    install ovirt-release
+    install ovirt package using yum
+    yum will prompt sysadmin to acknowedge import of key, make sure key id is FE590CB7.
+
+</kbd>
+
+#### Verifying a package
+
+When using default configuration of yum package updating and installation tool in stable releases, signature of each package is verified before it is installed. Signature verification can be turned off and on globally or for specific repository with gpgcheck directive. Do not override the default setting of this directive unless you have a very good reason to do so. If you do not use yum, you can check the signature of the package using the following command
+
+<kbd>
+
+    rpm {-K|--checksig} PACKAGE_FILE ...
+
+</kbd>
+
+#### Currently used keys
+
+<kbd>
+
+    rpm signature
+    pub   2048R/FE590CB7 2014-03-30 [expires: 2016-04-02]
+          Key fingerprint = 31A5 D783 7FAD 7CB2 86CD  3469 AB8C 4F9D FE59 0CB7
+    uid                  oVirt <infra@ovirt.org>
+    sub   2048R/004BC303 2014-03-30
+
+</kbd>
+
 ### Install oVirt
 
 oVirt release 3.4 is intended for production use and is available for the following platforms:

@@ -23,14 +23,11 @@ Define special parameters per network, and pass them down to Vdsm hooks when the
 *   Email: <lvernia@redhat.com>
 *   IRC: lvernia at #ovirt (irc.oftc.net)
 
-### Current Status
-
-*   To be proposed to oVirt-3.5
-*   Last updated: ,
-
 ### Detailed Description
 
-Just like we can define VM-wide and vNIC-profile-specific custom properties, we would like to set per-network ones. This would allow users to pass special parameters to tweak the way by which Vdsm sets up a network on a host.
+Just like we can define VM-wide and vNIC-profile-specific custom properties, we would like to set per-network ones. This would allow users to pass special parameters to tweak the way by which Vdsm sets up a network on a host. Preset property keys will exist for bridge options and for ethtool options.
+
+It should be noted that ethtool options do not really belong to the properties of a network, but rather to those of an interface. However, implementation-wise it would be simpler to include them as part of network custom properties. This might be remedied in the future, if it turns out to be too confusing for users.
 
 ### Benefit to oVirt
 
@@ -46,7 +43,23 @@ These extensions, and many others, can be made available by allowing per-network
 
 ### User Experience
 
-The Setup Network dialog would have a list of custom properties, to be set by the network administrator.
+The Setup Network dialog would have a list of custom properties for each assigned network (similarly to boot protocol and IP address configuration), to be set by the network administrator.
+
+![](Override_setupNetworks.png "fig:Override_setupNetworks.png") ![](Override setupNetworks 01.png "fig:Override setupNetworks 01.png")
+
+When assigning a network to a NIC it will be possible to click on "edit" (icon marked in red in the first of these two images) and:
+
+*   Add new custom properties,
+*   Edit the existing custom properties,
+*   Remove any custom properties.
+
+Note that preset custom property keys will exist for ethtool options (shown) and bridge options.
+
+OPTIONAL: In addition, as part of the feature it might be a good idea to allow setting custom properties per logical network (on the DC level), and not only on the assignment of a network on a physical device. These custom properties on the logical network will serve as a "mold", to be used by default when assigning the network to a device.
+
+![](ethtool_networks.png "ethtool_networks.png")
+
+Above you can see that in the networks tab, in the dialog for creating a new logical network, it is possible to define custom network properties, which will include bridge and ethtool options by default. These custom properties will be applied upon any assignment of the network to a NIC on a host, unless overridden as described before.
 
 ### Implementation
 
@@ -124,22 +137,6 @@ This feature provides a way for the administrator to specify ethtool options for
 Having a simple way for the network administrator to set ethtool options for the oVirt defined networks will allow oVirt to cover a wider range of configurations and tweakings that can make managing a datacenter network a much more enjoyable experience.
 
 Up until now, oVirt used to persist its network configuration in Fedora/EL specific files handled by the initscripts package. These files, known as ifcfg, contained a series of shell definitions that were read and applied by the ifup-eth executable. oVirt auto-generates and writes these ifcfg files and as such, if the network admin wanted to tweak the ETHTOOL_OPTS definition that precluded the continued care-free modification of the network, as some of the configuration would be living only in the hypervisor node and would not be exposed to oVirt for persistence.
-
-##### User experience
-
-With the proposed solution, ethtool options will be a property that can be set per logical network as well as be defined on the assignment of a network on a physical device, just like ip addressing.
-
-![](ethtool_networks.png "ethtool_networks.png")
-
-Above you can see that in the networks tab, in the dialog for creating a new logical network, it is possible to define custom network properties, one of which will be ethtool options. These ethtool options will apply to any assignment of the network to a NIC on a host unless overridden as in the next two images.
-
-![](Override_setupNetworks.png "fig:Override_setupNetworks.png") ![](Override setupNetworks 01.png "fig:Override setupNetworks 01.png")
-
-When assigning a network to a NIC it will be possible to click on "edit" (icon marked in red in the first of these two images) and:
-
-*   Add new ethtool opts,
-*   Edit the ethtool opts defined at the logical level,
-*   Remove any ethtool configuration.
 
 ##### Ethtool options format
 

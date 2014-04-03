@@ -93,7 +93,7 @@ There are couple of options for us to consider when writing the rules. We might 
     -   balancers can be possibly added to the scoring system to detect if the solution is stable (no migration will be triggered in that state) or not (engine will want to migrate something)
     -   Another metric we should use here is the necessary number of actions to change the current situation to the computed "optimal" solution.
 
-2.  find a place for new VM -- This should try to rebalance a cluster in such a way that a VM that is not running can be started. It is closely related to the first option except it needs to know what resources should be reserved or ideally what VM is supposed to be started.
+2.  find a place for new VM -- This should try to rebalance a cluster in such a way that a VM that is not running can be started. It is closely related to the first option except it needs to know what resources should be reserved or ideally what VM is supposed to be started (we may offer a list of stopped VMs for the user to select from).
 3.  consolidate the free resources -- This is again close to the previous task. It should do a defragmentation of free memory or spare cpu cycles so more or big VMs can be started. The extreme case is our Power Saving policy as its side-effect is that a lot of hosts end up totally free of VMs.
 
 There are two situations that should be avoided in the computed solutions:

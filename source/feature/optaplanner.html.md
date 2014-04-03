@@ -88,13 +88,15 @@ There are couple of options for us to consider when writing the rules. We might 
 1.  score according to the currently selected cluster policy -- The rationale here is that when VMs are started one by one then the assignment might be suboptimal, because the scheduling algorithm has no knowledge about the VMs that are yet to start. If we base our rules on the current cluster policy we might be able to compute a solution that takes all running VMs into account at once. This approach will then use:
     -   filters as source for hard constraint score
     -   weights for the soft constraint score
+    -   balancers can be possibly added to the scoring system to detect if the solution is stable (no migration will be triggered in that state) or not (engine will want to migrate something)
     -   Another metric we should use here is the necessary number of actions to change the current situation to the computed "optimal" solution.
 
 2.  find a place for new VM -- This should try to rebalance a cluster in such a way that a VM that is not running can be started. It is closely related to the first option except it needs to know what resources should be reserved or ideally what VM is supposed to be started.
+3.  consolidate the free resources -- This is again close to the previous task. It should do a defragmentation of free memory or spare cpu cycles so more or big VMs can be started. The extreme case is our Power Saving policy as its side-effect is that a lot of hosts end up totally free of VMs.
 
 There are two situations that should be avoided in the computed solutions:
 
-1.  Unstable cluster -- what I mean here is that once the user performs the changes to get the cluster to the "optimal" state, the engine's internal balancing kicks in and rearranges the cluster differently. It would mean that the output of the optimization algorithm was not as smart as we wanted it to be.
+1.  Unstable cluster -- what I mean here is that once the user performs the changes to get the cluster to the "optimal" state, the engine's internal balancing kicks in and rearranges the cluster differently. It would mean that the output of the optimization algorithm was not as smart as we wanted it to be. This might be mitigated a bit by using the result of balancer as part of the scoring mechanism.
 2.  Impossible solution -- if the user gets a solution from the optimization algorithm and then finds out that the cluster policy prevents him from reaching it, we will have an issue that the theoretical solution is totally useless for the user and this feature won't be thus useful to him at all
 
 In the case where no solution can be found (for example to the start VM case) we should inform the user that there is no solution with the current cluster policy rules, but that solution to the optimization can still be found if the rules are relaxed a bit.

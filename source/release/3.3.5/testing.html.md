@@ -26,4 +26,4 @@ If you're willing to participate, please add yourself to the table below:
 |-----------------------------------------------|---------------------------------------------------------|---------|------------|--------------|------|
 | [Simone Tiraboschi](User:stirabos) | engine-setup, clean install                             | NFS     | basic      | Fedora 19    | -    |
 | [Simone Tiraboschi](User:stirabos) | engine-setup, install -> remove all RPMs -> reinstall | NFS     | basic      | Fedora 19    | -    |
-| [Simone Tiraboschi](User:stirabos) | upgrade from 3.3.4 to 3.3.5-rc via engine-setup         | NFS     | basic      | Fedora 19    | -    |
+| [Simone Tiraboschi](User:stirabos) | engine-setup, upgrade from 3.3.4 to 3.3.5-rc            | NFS     | basic      | Fedora 19    | -    |

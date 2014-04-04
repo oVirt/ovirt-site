@@ -1,12 +1,12 @@
 ---
-title: OVirt 3.3.5 testing
-authors: sandrobonazzola
-wiki_title: Testing/OVirt 3.3.5 testing
-wiki_revision_count: 2
-wiki_last_updated: 2014-03-07
+title: oVirt 3.3.5 testing
+authors: sandrobonazzola, stirabos
+wiki_title: Testing/oVirt 3.3.5 testing
+wiki_revision_count: 3
+wiki_last_updated: 2014-04-04
 ---
 
-# OVirt 3.3.5 testing
+# oVirt 3.3.5 testing
 
 ## What to do as a participant
 
@@ -22,6 +22,8 @@ If you have your own setup, we will provide all the software packages and the re
 
 If you're willing to participate, please add yourself to the table below:
 
-| Name | part tested | Storage | Networking | Distribution | Bugs |
-|------|-------------|---------|------------|--------------|------|
-| -    | -           | -       | -          | -            | -    |
+| Name                                          | part tested                                             | Storage | Networking | Distribution | Bugs |
+|-----------------------------------------------|---------------------------------------------------------|---------|------------|--------------|------|
+| [Simone Tiraboschi](User:stirabos) | engine-setup, clean install                             | NFS     | basic      | Fedora 19    | -    |
+| [Simone Tiraboschi](User:stirabos) | engine-setup, install -> remove all RPMs -> reinstall | NFS     | basic      | Fedora 19    | -    |
+| [Simone Tiraboschi](User:stirabos) | upgrade from 3.3.4 to 3.3.5-rc via engine-setup         | NFS     | basic      | Fedora 19    | -    |

@@ -7,7 +7,7 @@ wiki_title: Features/Self Hosted Engine iSCSI Support
 wiki_revision_count: 22
 wiki_last_updated: 2015-01-16
 feature_name: Self Hosted Engine iSCSI Support
-feature_modules: ovirt-hosted-engine-setup
+feature_modules: ovirt-hosted-engine-setup,ovirt-hosted-engine-ha
 feature_status: Design
 ---
 

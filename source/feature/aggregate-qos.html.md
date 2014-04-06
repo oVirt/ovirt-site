@@ -51,7 +51,7 @@ Last updated: ,
 
 NOTE: the qos object will contain all limits from all types.
 
-*   PUT/DELETE methods are trivial.
+*   POST/PUT/DELETE methods are trivial.
 
 #### GUI
 

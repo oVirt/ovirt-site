@@ -63,7 +63,7 @@ This configuration value should be exposed to the engine-config tool.
 
 ### Documentation / External references
 
-[FeaturesPMHealthCheck](FeaturesPMHealthCheck)
+[Features/PMHealthCheck](Features/PMHealthCheck)
 
 ### Future Directions
 

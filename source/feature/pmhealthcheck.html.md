@@ -16,11 +16,13 @@ wiki_last_updated: 2014-05-04
 
 ### Owner
 
+*   Name: [ Eli Mesika](User:MyUser)
 *   Name: [ Arthur Berezin](User:MyUser)
 
 <!-- -->
 
 *   Email: aberezin@redhat.com
+*   Email: emesika@redhat.com
 
 ### Current status
 

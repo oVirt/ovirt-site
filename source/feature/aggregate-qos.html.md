@@ -34,7 +34,6 @@ Last updated: ,
 
 *   Introducing a new name space QoS, IQoS interface, and QoSType (network, cpu, storage).
 *   Data Base: extend netwok_qos, rename it to qos, have a type field (QoSType), all other limits wil be added here.
-*   [WiP/TBD] permissions: QoS Admin: includes all QoS action groups, and allowing to set permissions on QoS objects.
 
 #### RESTful API
 

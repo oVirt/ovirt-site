@@ -66,6 +66,10 @@ The command coordinator exposes two new methods persistCommand and retrieveComma
 
 Command entity DAO is the class object that deals with persisting the CommandEntity object. There are methods in this class to save/update/retrive and delete the command entity. New stored procedures will need to be added to support this functionality. Exisiting stored procedures in Async Tasks needs to be modified to reflect the removal of columns from the table.
 
+### How to test
+
+All the Async tasks need to work with the new code changes. Instead of commands being persisted into async tasks table, the command should be persisted in the new command_entities table.
+
 ### Dependencies / Related Features
 
 <http://www.ovirt.org/Features/Design/LiveMerge>

@@ -67,4 +67,14 @@ each view will show a separate table including its limit, in All we’ll have a 
 
 *   [WiP] mockups to follow.
 
+#### Open Issue
+
+2 options:
+
+*   Aggregate Profiles:
+
+1) 'vnic_profiles' to change to 'profiles', and include a type field. 2) separate table to each profile.
+
+Currently I'm going on #1 unless justified objections will arise. I perfectly aware of all the implications (even 'permission' wise). There is no need for separate flows (#2), needs just renaming and adding type to each flow (probably permissions will need some thinking, but IMO nothing serious). will update the wiki once it's resolved.
+
 <Category:Feature> <Category:SLA>

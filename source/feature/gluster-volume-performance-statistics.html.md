@@ -24,7 +24,7 @@ This feature provides the support for monitoring and measuring the performance o
 ## Current Status
 
 *   Status: In Progress
-*   Last updated date: Mon Oct 22 2012
+*   Last updated date: ,
 
 ## Detailed Description
 

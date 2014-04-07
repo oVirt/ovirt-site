@@ -58,9 +58,9 @@ In the VDSM we will be using the libvirt API of CPU tuning (http://libvirt.org/f
 
 To do that we will use the following algorithm:
 
-         1. pick a fixed number to be used as anchor [1000 - 1000000], we will use the minimum*100 (because we use percentage)   = 100000 =anchor.
+         1. pick a fixed number to be used as anchor [1000 - 1000000], we will use the minimum*100 (because we use percentage)   = 100000 = anchor.
          2. period = anchor / #NumOfCpuInHost
-         3. quota = anchor*(#userSelection/100)) / #numOfVcpusInVm
+         3. quota = (anchor*(#userSelection/100)) / #numOfVcpusInVm
 
 ## DB
 

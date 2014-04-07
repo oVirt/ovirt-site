@@ -8,7 +8,7 @@ wiki_revision_count: 28
 wiki_last_updated: 2014-12-22
 feature_name: Gluster tasks management
 feature_modules: engine,gluster
-feature_status: In Progress
+feature_status: Complete
 ---
 
 # Gluster Volume Asynchronous Tasks Management
@@ -28,7 +28,7 @@ This feature provide the support for managing the asynchronous tasks on Gluster 
 
 ## Current Status
 
-*   Status: Development in progress
+*   Status: Complete
 *   Last updated date: ,
 
 ## Detailed Description

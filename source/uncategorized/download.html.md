@@ -91,7 +91,7 @@ For some repositories, such as repositories with stable in default configuration
 
 To get the public key: <kbd>
 
-    $ gpg --recv-keys --keyserver keyserver.pgp.com FE590CB7
+    $ gpg --recv-keys --keyserver subkeys.pgp.net FE590CB7
     $ gpg --list-keys --with-fingerprint FE590CB7
     ---
     pub   2048R/FE590CB7 2014-03-30 [expires: 2016-04-02]

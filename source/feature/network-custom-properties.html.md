@@ -125,7 +125,7 @@ Add a custom_properties field to api.xsd for the NIC type, and possibly for the 
 
 #### Backwards Compatibility
 
-As this is a 3.5 feature, all 3.4 (and down) cluster related entities should not be allowed (at the GUI level) to customize network properties. Engine needs to take special care at canDoAction to disallow custom network properties for 3.4 and below.
+As this is a 3.5 feature, its related GUI widgets should not be shown for hosts that are part of cluster whose compatibility version is lower. The engine backend needs to take special care at the canDoAction() method of SetupNetworksCommand to disallow custom network properties for 3.4 and below, to also block such operations via REST. Similar care should be taken when hosts are attempted to be moved from a >= 3.5 cluster to a < 3.5 cluster; since there is currently no infrastructure to send a Setup Networks command to VDSM upon cluster change, any non-empty custom properties on the host can't be wiped, therefore it would probably be best to block the operation.
 
 ### Testing
 

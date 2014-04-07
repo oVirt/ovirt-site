@@ -30,6 +30,7 @@ This feature provide the support for managing the asynchronous tasks on Gluster 
 
 *   Status: Complete
 *   Last updated date: ,
+*   Requires : glusterfs >= 3.5
 
 ## Detailed Description
 

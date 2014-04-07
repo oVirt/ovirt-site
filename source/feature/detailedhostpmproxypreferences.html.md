@@ -174,6 +174,14 @@ Adding configuration values as described in [Configuration](http://wiki.ovirt.or
 The user may add other existing Host by pressing the ADD button, this will open a drop-down list of all available Hosts defined in the Data Center except the currently edited/added Host
  We are skipping that for the first phase since it has complexities when a Host is removed or moved to another Cluster etc.
 
+### oVirt 3.5
+
+This [RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1054778)is planned for oVirt 3.5
+ We will address for 3.5 only the option to look for proxy outside the DC where the host is located and try to use other DCs
+ This will be done by adding to the pm_proxy_preferences field which is defaulted now to "cluster,DC" another option named otherDC.
+(The pm_proxy_preferences value is available via the UI Host New/Edit PM TAB in the field named "source" , in the API it is under <pm_proxies>)
+ The default will stay "cluster,DC" and the admin can change this value per host using the API
+
 ### Open Issues
 
 #### pre-defined values

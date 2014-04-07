@@ -67,7 +67,7 @@ each view will show a separate table including its limit, in All we’ll have a 
 
 *   [WiP] mockups to follow.
 
-#### Open Issue
+#### Open Issue - profiles
 
 2 options:
 

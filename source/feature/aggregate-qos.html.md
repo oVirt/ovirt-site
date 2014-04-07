@@ -71,7 +71,7 @@ each view will show a separate table including its limit, in All we’ll have a 
 
 2 options:
 
-         1) Aggregate profiles: 'vnic_profiles' to change to 'profiles', and include a type field.
+         1) Aggregate profiles: 'vnic_profiles' to change to 'profiles', and include a type field  (sparse matrix).
          2) Separate flow for each profile.
 
 Currently I'm going on #1 unless justified objections will arise. I perfectly aware of all the implications (even 'permission' wise). There is no need for separate flows (#2), needs just renaming and adding type to each flow (probably permissions will need some thinking, but IMO nothing's serious). will update the wiki once it gets resolved.

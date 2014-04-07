@@ -67,10 +67,4 @@ each view will show a separate table including its limit, in All we’ll have a 
 
 *   [WiP] mockups to follow.
 
-#### Open issues
-
-*   Does changing qos_type allowed?
-*   What happens when non-relevant limit fields are included (IMO ignore).
-*   Having ALL qos_type (IMO will be added in the future, not required for now), anyway ALL will exist in UI subtab.
-
 <Category:Feature> <Category:SLA>

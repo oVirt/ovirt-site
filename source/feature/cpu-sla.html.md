@@ -55,7 +55,11 @@ In the VDSM we will be using the libvirt API of CPU tuning (http://libvirt.org/f
 
 ## DB
 
-The VM_STATIC will introduce a new field of CPU_PROFILE, this field will be a FK to the new table of CPU_PROFILES. CPU_PROFILES table will contain the following fields: id name qos(FK)
+The VM_STATIC will introduce a new field of CPU_PROFILE, this field will be a FK to the new table of CPU_PROFILES. CPU_PROFILES table will contain the following fields:
+id (PK)
+name
+qos_id (FK)
+cluster_id (FK)
 
 ## Benefit to oVirt
 

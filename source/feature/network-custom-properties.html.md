@@ -72,7 +72,7 @@ Above you can see that in the networks tab, in the dialog for creating a new log
 This feature affects the **setupNetwork** Vdsm verbs. setupNetwork accepts an **options** dictionary of type @SetupNetworkOptions beyond the dictionaries describing networks and bonds to be set up. A new optional key "custom" would be added to SetupNetworkOptions. Its value is a dictionary of custom properties and their string value. E.g. based on one of the usages described below:
 
     {'storagenet':
-        {'bonding': {'bond0', 'vlan': '10', 'bootproto': 'dhcp',
+        {'bonding': 'bond0', 'vlan': '10', 'bootproto': 'dhcp',
                      'custom': {'ethtool_opts': '--offload em2 rx on --offload em1 tx on'}}}
 
 Vdsm would pass the network definition and their custom properties to setupNetwork's hook scripts.

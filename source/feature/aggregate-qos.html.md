@@ -37,7 +37,7 @@ Last updated: ,
 
 #### RESTful API
 
-*   [WiP] GET: api/capabilities/<version>/qos_type
+*   GET: api/capabilities/<version>/qos_type
 *   GET: /api/datacenters/<datacenter_id>/qos #list of qos objects
 *   GET: /api/datacenters/<datacenter_id>/qos/<qos_id> #qos object
 

@@ -56,6 +56,12 @@ The administrator will allocate CPU profiles to be used in the Cluster at the Cl
 
 In the VDSM we will be using the libvirt API of CPU tuning (http://libvirt.org/formatdomain.html#elementsCPUTuning), The Qos entered by the user will be converted into the libvirt period and quota parameters, ensuring that the CPU limits are enforced.
 
+To do that we will use the following algorithm:
+
+         1. pick a fixed number to be used as anchor [1000 - 1000000], we will use the minimum*100 (because we use percentage)   = 100000 =anchor.
+         2. period = anchor / #NumOfCpuInHost
+         3. quota = anchor*(#userSelection/100)) / #numOfVcpusInVm
+
 ## DB
 
 The VM_STATIC will introduce a new field of CPU_PROFILE, this field will be a FK to the new table of CPU_PROFILES. CPU_PROFILES table will contain the following fields:

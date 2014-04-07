@@ -53,6 +53,10 @@ The administrator will allocate CPU profiles to be used in the Cluster at the Cl
 
 In the VDSM we will be using the libvirt API of CPU tuning (http://libvirt.org/formatdomain.html#elementsCPUTuning), The Qos entered by the user will be converted into the libvirt period and quota parameters, ensuring that the CPU limits are enforced.
 
+## DB
+
+The VM_STATIC will introduce a new field of CPU_PROFILE, this field will be a FK to the new table of CPU_PROFILES. CPU_PROFILES table will contain the following fields: id name qos(FK)
+
 ## Benefit to oVirt
 
 When running a VM, the VM should run as an independent unit and should be affected by other VMs as little as possible.

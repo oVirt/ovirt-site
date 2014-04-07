@@ -38,16 +38,19 @@ Last updated: ,
 #### RESTful API
 
 *   [WiP] GET: api/capabilities/<version>/qos_type
-*   GET: /api/qos/ #list of qos objects
-*   GET: /api/qos/xxx #qos object
+*   GET: /api/datacenters/<datacenter_id>/qos #list of qos objects
+*   GET: /api/datacenters/<datacenter_id>/qos/<qos_id> #qos object
 
-`   `<qos id=”xxx”>
+`   `<qos id=”qos_id”>
 `       `<name>`qos_network_object`</name>
+             `<data_center href="<datacenter_id>`"/>
 `       `<type>`network`</type>
 `       `<in..></>
 `       `<out..></>
              ….
-`   `<qos>
+`   `</qos>
+
+*   [TBD] ulimited: -1/"unlimited" (case insensitive)
 
 NOTE: the qos object will contain all limits from all types.
 

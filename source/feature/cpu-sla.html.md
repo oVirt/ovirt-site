@@ -47,7 +47,7 @@ Each CPU Profile will contain a Qos element. The Qos element will be defined in 
 The user will configure the CPU limitation at the VM popup, at the advance Resource Allocation section:
 ![](cpuLimit.png "fig:cpuLimit.png")
 
-The administrator will allocate CPU profiles to be used in the Cluster at the Cluster main tab, using the CPU Profile sub tab. [cpuLimitClusterSubTab.png](cpuLimitClusterSubTab.png)
+The administrator will allocate CPU profiles to be used in the Cluster at the Cluster main tab, using the CPU Profile sub tab. ![](CpuLimitClusterSubTab.png "fig:CpuLimitClusterSubTab.png")
 
 ## Benefit to oVirt
 

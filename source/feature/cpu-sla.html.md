@@ -36,6 +36,12 @@ On the other hand, customers expect that virtualized systems work as stably as t
 
 To provide same stability in virtualized environment, we need to limit cpu bandwidth of each guest and isolate each guest from others.
 
+To accomplish this target a CPU Profile element will be introduced. The CPU Profile will be selected by the end user from a predefined list in the Add VM popup window, and will be created in the Cluster level of the system.
+
+Each cluster will contain its own list of CPU Profile that are available for the use of the VMs running in that Cluster.
+
+Each CPU Profile will contain a Qos element. The Qos element will be defined in the DataCenter level of the system, and will be constructed out of a single field that represent the percentage of CPU power that is permitted for this VM out of the total CPU Processing capacity.
+
 ## GUI
 
 The user will configure the CPU limitation at the VM popup, at the advance Resource Allocation section:

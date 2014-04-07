@@ -125,7 +125,7 @@ Add a custom_properties field to api.xsd for the NIC type, and possibly for the 
 
 #### Backwards Compatibility
 
-As this is a 3.4 feature, all 3.3 (and down) cluster related entities should not be allowed (at the GUI level) to customize network properties. Engine needs to take special care at canDoAction to disallow custom network properties for 3.3 and below.
+As this is a 3.5 feature, all 3.4 (and down) cluster related entities should not be allowed (at the GUI level) to customize network properties. Engine needs to take special care at canDoAction to disallow custom network properties for 3.4 and below.
 
 ### Testing
 

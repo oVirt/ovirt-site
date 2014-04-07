@@ -127,6 +127,7 @@ Disadvantages are:
 *   A REST to common mapping will have to be prepared (already part of the engine though) to map Java SDK classes to Vds, Vm and other classes that are used in PolicyUnits
 *   Java modules have lower performance than drools' rule files
 *   Installing the ovirt-engine RPM file can pull unnecessary dependencies (yum install jboss-ass on CentOS 6 pulls 246MB and ovirt-engine additional 211MB of packages)
+*   If somebody renames the classes in the chain (Vds, VM, REST mappers, ...) the scoring app will have to be updated (but only if the ovirt-engine RPM changes on the Optaplanner machine)
 
 #### Writing the rules in the Drools rule language
 

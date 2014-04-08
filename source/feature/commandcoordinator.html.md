@@ -48,6 +48,8 @@ This feature lets NON Spm coomands like LiveMerge to be persisted into the datab
 
 <https://bugzilla.redhat.com/show_bug.cgi?id=1083769>
 
+![](Coco.png "Coco.png")
+
 #### Details of Command Entity Table
 
         CREATE TABLE command_entities
@@ -68,16 +70,27 @@ This feature lets NON Spm coomands like LiveMerge to be persisted into the datab
         CREATE INDEX idx_parent_command_id ON command_entities(parent_command_id) WHERE parent_command_id IS NOT NULL;
         CREATE INDEX idx_root_command_id ON command_entities(root_command_id) WHERE root_command_id IS NOT NULL;
 
-#### Methods to persist command
+#### Methods to persist/retrieve/delete command
 
 The command coordinator exposes two new methods persistCommand and retrieveCommand. Persist command can be invoked on any command by calling command.persistCommand(VdcActionType parentCommand). This calls Command Coordinator to persit the command into the database.
 
          public abstract void persistCommand(Guid commandId, Guid parentCommandId, Guid rootCommandId, VdcActionType actionType, VdcActionParametersBase params);
          public abstract CommandBase`<?>` retrieveCommand(Guid commandId);
+         public abstract void removeCommand(Guid commandId);
+         public abstract void removeAllCommandsBeforeDate(Date cutoff);
 
 #### Command Entity DAO
 
 Command entity DAO is the class object that deals with persisting the CommandEntity object. There are methods in this class to save/update/retrive and delete the command entity. New stored procedures will need to be added to support this functionality. Exisiting stored procedures in Async Tasks needs to be modified to reflect the removal of columns from the table.
+
+         void saveOrUpdate(CommandEntity commandEntity);
+         void remove(Guid commandId);
+         void removeAllBeforeDate(Date cutoff);
+         void updateStatus(Guid command, Status status);
+
+#### Command Entity Cleanup Manager
+
+A new cleanup manager similar to AuditLogCleanupManager that removes any old commands that have been persisted but not have not been cleaned up afetr they were marked completed.
 
 ### Testing
 

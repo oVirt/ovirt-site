@@ -180,7 +180,7 @@ This [RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1054778)is planned for oV
  We will address for 3.5 only the option to look for proxy outside the DC where the host is located and try to use other DCs
  This will be done by adding to the pm_proxy_preferences field which is defaulted now to "cluster,DC" another option named other_dc.
 (The pm_proxy_preferences value is available via the UI Host New/Edit PM TAB in the field named "source" , in the API it is under <pm_proxies>)
- example
+ Example of POST request to update Host pm proxy details :
 
 `  `<host>
 `    `<power_management type="apc_snmp">

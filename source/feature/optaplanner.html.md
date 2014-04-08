@@ -105,7 +105,7 @@ It is my opinion that the cluster policy rules reflect the actual user's require
 
 ### Implementing the rules
 
-There are three possible ways to implement the rules:
+We haven't decided yet on the implementation details and are evaluating there possible ways to implement the rules:
 
 #### Reusing the existing engine's PolicyUnits
 

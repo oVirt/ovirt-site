@@ -194,7 +194,7 @@ And as a second case D, C, B, A:
 
 ![](Dcba_4.png "Dcba_4.png")
 
-Please notice that in both cases the solution is valid and the basic single step balancing policy is not able to rebalance the ABCD case, because it can only migrate a single VM at a time and that always makes things even worse.
+Notice that the second case is much better with regards to equal balancing, but has less free space for a new VM. It is necessary to determine the priorities without guessing to select the proper solution according to user's needs.
 
 # Comments and Discussion
 

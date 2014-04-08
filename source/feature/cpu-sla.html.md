@@ -46,15 +46,15 @@ The Qos element will be defined in the DataCenter level of the system, and will 
 
 For representing the CPU qos we have three different approaches: 1. using a percentage number - currently this is the preferred approach
 
-Indented line This approach will be consistent over different hosts, when a VM migrate to host with different CPU capabilities.
+This approach will be consistent over different hosts, when a VM migrate to host with different CPU capabilities.
 
 2. using a fixed MHz number
 
-Indented line This is the old school approach, it will be clear to the user what exact input he is giving, but on different host this input could act slightly different.
+This is the old school approach, it will be clear to the user what exact input he is giving, but on different host this input could act slightly different.
 
 3. using bogomips
 
-Indented line This is an unscientific measurement of CPU speed (http://en.wikipedia.org/wiki/BogoMips)
+This is an unscientific measurement of CPU speed (http://en.wikipedia.org/wiki/BogoMips)
 
 ## GUI
 

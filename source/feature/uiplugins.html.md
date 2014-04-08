@@ -677,7 +677,7 @@ Following repository hosts sample UI plugins contributed by community:
 
 Feel free to submit patches that introduce new plugins (or update existing ones) in this repository.
 
-### Real-world UI plugins
+### Showcase
 
 #### oVirt Monitoring UI Plugin
 
@@ -689,6 +689,16 @@ This plugin brings integration with [Nagios](http://www.nagios.org/) or [Icinga]
 *   UI plugin source code: <https://labs.ovido.at/monitoring/wiki/ovirt-monitoring-ui-plugin:svn>
 
  ![](Ovirt-monitoring%20hosts%20graph.png "Monitoring Details sub tab")
+
+#### Docker UI Plugin
+
+This plugin allows you to create VM that runs a Docker image.
+
+*   Author: Oved Ourfali <<ovedo@redhat.com>></<ovedo@redhat.com>>
+*   Documentation: <http://ovedou.blogspot.co.il/2014/03/running-docker-container-in-ovirt.html>
+*   UI plugin source code: available from [sample UI plugin repository](#Sample_UI_plugins) as `docker-plugin`
+
+ ![](Create%20docker%20vm%20dialog.jpg "Create Docker VM dialog")
 
 #### Foreman UI Plugin
 

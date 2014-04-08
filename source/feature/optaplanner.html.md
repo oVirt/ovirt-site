@@ -42,7 +42,7 @@ This feature will allow the user to get a solution to his scheduling needs. Comp
 
 ### Getting the cluster situation to Optaplanner
 
-This will be based on REST API after some missing entities are implemented. Optimization will be done on per Cluster basis.
+This will be based on REST API after the missing entities for Cluster policy are implemented. Optimization will be done on per Cluster basis.
 
 The following information is needed:
 

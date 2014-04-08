@@ -114,7 +114,7 @@ A new element of cpu_profile will be added to the API, and the VM element will e
 
 When running a VM, the VM should run as an independent unit and should be affected by other VMs as little as possible.
 This feature enable the user to limit the CPU resources of a specific VM, this will ensure that in cases were several VMs are running on the same host, one VM will not cause performance decline in another VMs.
-Another good use for this feature is in cases a growth in the number of VMs is expected, the user can limit the CPU resource to a VM leaving enough CPU resources for the future VMs, this way users of the guest will not have an impact on performance once other VMs will join the host.
+Another good use for this feature is in cases a growth in the number of VMs is expected, the user can limit the CPU resource to a VM leaving enough CPU resources for the future VMs, this way users of the guests will not have an impact on performance once other VMs will join the host.
 
 ## Comments and Discussion
 

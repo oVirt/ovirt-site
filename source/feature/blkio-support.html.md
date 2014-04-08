@@ -28,6 +28,8 @@ Status: design
 
 Last updated: ,
 
+[RFE Reference](https://bugzilla.redhat.com/show_bug.cgi?id=1085049)
+
 ## Detailed Description
 
 ### QoS object

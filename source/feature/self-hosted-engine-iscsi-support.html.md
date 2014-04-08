@@ -118,4 +118,4 @@ TBD
 
 *   Refer to <Talk:Feature/Self_Hosted_Engine_iSCSI_Support>
 
-<Category:Feature>
+<Category:Feature> <Category:SLA>

@@ -29,7 +29,7 @@ wiki_last_updated: 2015-05-28
 
 Our users will get hints about how to utilize their hardware better.
 
-# **Goal**
+# **Goals**
 
 *   We want to write a service that takes a snapshot of a cluster (list of hosts and Vms) and computes an optimized Vm to Host assignment solution.
 *   Optimization will be done on per Cluster basis.

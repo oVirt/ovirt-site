@@ -35,6 +35,7 @@ Our users will get hints about how to utilize their hardware better.
 *   We intend to implement the service using rules on top of [Optaplanner](http://www.optaplanner.com) engine.
 *   The administrator should then be able to use that as a hint to tweak the situation in the cluster to better utilize resources.
 *   The idea is to have the service free-running in an infinite loop and improve the solution over time while adapting to changes in the cluster.
+*   The service will be separated from the ovirt-engine to not endanger the datacenter by using too much memory or cpu. It will talk to the engine using an API.
 
 # Detailed Description
 

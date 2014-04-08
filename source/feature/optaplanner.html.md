@@ -160,6 +160,7 @@ Disadvantages:
 *   Code duplication again
 *   Decoupling the plugins from REST is not trivial, there is no API to pass the required information to the proxy together with the scheduling task
 *   Lower performance
+*   If the user is not using Python modules only, then the optimization won't find the proper solution. This is an issue, because we need some information (pending memory) that is currently not exposed by the SDK
 
 # Examples and demostrations
 

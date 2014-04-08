@@ -91,7 +91,7 @@ A new element of cpu_profile will be added to the API, and the VM element will e
         <name>gold_profile</name>
         <link href="/ovirt-engine/api/cpuprofiles/dd806259-d121-4914-9b32-5998dd40b26f/permissions" rel="permissions"/>
         <cluster href="/ovirt-engine/api/clusters/3e9dacfa-65bf-4433-b584-07383c50aef6" id="3e9dacfa-65bf-4433-b584-07383c50aef6"/>
-    </vnic_profile>
+    </cpu_profile>
 
 ## Benefit to oVirt
 

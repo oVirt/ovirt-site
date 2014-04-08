@@ -87,6 +87,12 @@ cluster_id (FK)
 
 A new element of cpu_profile will be added to the API, and the VM element will extend to contain the new CPU profile property.
 
+    <cpu_profile href="/ovirt-engine/api/cpuprofiles/dd806259-d121-4914-9b32-5998dd40b26f" id="dd806259-d121-4914-9b32-5998dd40b26f">
+        <name>gold_profile</name>
+        <link href="/ovirt-engine/api/cpuprofiles/dd806259-d121-4914-9b32-5998dd40b26f/permissions" rel="permissions"/>
+        <cluster href="/ovirt-engine/api/clusters/3e9dacfa-65bf-4433-b584-07383c50aef6" id="3e9dacfa-65bf-4433-b584-07383c50aef6"/>
+    </vnic_profile>
+
 ## Benefit to oVirt
 
 When running a VM, the VM should run as an independent unit and should be affected by other VMs as little as possible.

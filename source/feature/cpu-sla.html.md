@@ -44,7 +44,8 @@ Each cluster will contain its own list of CPU Profile that are available for the
 Each CPU Profile will contain a Qos element.
 The Qos element will be defined in the DataCenter level of the system, and will be constructed out of a single field that represent the CPU processing power that is permitted for this VM out of the total CPU Processing capacity.
 
-For representing the CPU qos we have three different approaches: 1. using a percentage number - currently this is the preferred approach
+For representing the CPU qos we have three different approaches:
+1. using a percentage number - currently this is the preferred approach
 
 This approach will be consistent over different hosts, when a VM migrate to host with different CPU capabilities.
 

@@ -107,7 +107,7 @@ There are couple of other optimization tasks for us to consider in the future. W
 
 2.  find a place for new VM -- This should try to rebalance a cluster in such a way that a VM that is not running can be started. It is closely related to the first option except it needs to know what resources should be reserved or ideally what VM is supposed to be started (we may offer a list of stopped VMs for the user to select from).
 
-### Implementing the rules
+### Implementation details
 
 We haven't decided yet on the implementation details and are evaluating there possible ways to implement the rules:
 

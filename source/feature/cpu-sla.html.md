@@ -42,11 +42,24 @@ The CPU Profile will be selected by the end user from a predefined list in the A
 Each cluster will contain its own list of CPU Profile that are available for the use of the VMs running in that Cluster.
 
 Each CPU Profile will contain a Qos element.
-The Qos element will be defined in the DataCenter level of the system, and will be constructed out of a single field that represent the percentage of CPU power that is permitted for this VM out of the total CPU Processing capacity.
+The Qos element will be defined in the DataCenter level of the system, and will be constructed out of a single field that represent the CPU processing power that is permitted for this VM out of the total CPU Processing capacity.
+
+For representing the CPU qos we have three different approaches: 1. using a percentage number - currently this is the preferred approach
+
+Indented line This approach will be consistent over different hosts, when a VM migrate to host with different CPU capabilities.
+
+2. using a fixed MHz number
+
+Indented line This is the old school approach, it will be clear to the user what exact input he is giving, but on different host this input could act slightly different.
+
+3. using bogomips
+
+Indented line This is an unscientific measurement of CPU speed (http://en.wikipedia.org/wiki/BogoMips)
 
 ## GUI
 
-The user will configure the CPU limitation at the VM popup, at the advance Resource Allocation section:
+The user will configure the CPU limitation at the VM popup, our goal is to create a new side-bar for SLA and to place Cpu Profile in it.
+The following is a draft using the existing Resource Allocation side-bar, for getting the look and feel of using the CPU limits feature
 ![](cpuLimit.png "fig:cpuLimit.png")
 
 The administrator will allocate CPU profiles to be used in the Cluster at the Cluster main tab, using the CPU Profile sub tab.

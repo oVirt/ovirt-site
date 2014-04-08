@@ -47,8 +47,12 @@ Updating some fields is allowed, but might be confusing, as it will be applied o
 ### Detailed Description
 
 This feature will allow updating vm configuration on any vm status except 'Locked'.
-If change is not immediately applicable, some warning will be displayed to the user (UI only),
+\* Changes that doesn't affect the run of the vm, will be editable as today (for example: name, description, comment..)
+
+*   If change is not immediately applicable (memory, boot sequence), a warning will be displayed to the user (UI only),
+
 notifying him changes will be applied only on next run.
+\* If change affect running vm, and require special operation (like hot-plug cpu), the user could select if to apply immediately or only on the next run.
 All vm configuration, as it is returned to the user today (using search and queries,
 -> what is shown in the vm main tab) will always be the current configuration.
 If there is a different configuration for the next run for a vm, an icon will appear next to the VM in the grid

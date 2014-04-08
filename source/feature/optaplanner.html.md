@@ -31,8 +31,9 @@ Our users will get hints about how to utilize their hardware better.
 
 # **Goal**
 
-*   We want to write a service that takes a snapshot of a cluster (list of hosts and Vms) and computes an optimized Vm to Host assignment solution
-*   The administrator should then be able to use that as a hint to tweak the situation in the cluster to better utilize resources
+*   We want to write a service that takes a snapshot of a cluster (list of hosts and Vms) and computes an optimized Vm to Host assignment solution.
+*   We intend to implement the service on top of [Optaplanner](http://www.optaplanner.com) engine.
+*   The administrator should then be able to use that as a hint to tweak the situation in the cluster to better utilize resources.
 *   The idea is to have the service free-running in an infinite loop and improve the solution over time while adapting to changes in the cluster.
 
 # Detailed Description

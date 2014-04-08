@@ -93,6 +93,23 @@ A new element of cpu_profile will be added to the API, and the VM element will e
         <cluster href="/ovirt-engine/api/clusters/3e9dacfa-65bf-4433-b584-07383c50aef6" id="3e9dacfa-65bf-4433-b584-07383c50aef6"/>
     </cpu_profile>
 
+    <vm>
+        ...
+        ...
+        <memory>1073741824</memory>
+        <cpu>
+            <topology sockets="1" cores="1"/>
+            <architecture>X86_64</architecture>
+        </cpu>
+        <cpu_shares>0</cpu_shares>
+        <cpu_limit>25</cpu_limit>
+        <os type="other">
+            <boot dev="hd"/>
+        </os>
+        ...
+        ...
+    </vm>
+
 ## Benefit to oVirt
 
 When running a VM, the VM should run as an independent unit and should be affected by other VMs as little as possible.

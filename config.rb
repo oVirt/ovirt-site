@@ -37,10 +37,6 @@ set :markdown,
 
 set :markdown_engine, :redcarpet
 
-# Add an AsciiDoc filter to HAML
-# (Use ':asciidoc' for AsciiDoctor-powered blocks in HAML)
-Haml::Filters.register_tilt_filter "AsciiDoc"
-
 set :asciidoc_attributes, %w(source-highlighter=coderay imagesdir=images)
 
 set :asciidoctor,

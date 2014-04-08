@@ -84,7 +84,7 @@ There is also a question of how to represent the solution:
 
 All optimization tasks need to know how does a possible solution look like and how to select the best one. The main task we are trying to accomplish is:
 
-1.  consolidate the free resources -- It should do a defragmentation of free memory or spare cpu cycles so more or big VMs can be started. The extreme case is our Power Saving policy as its side-effect is that a lot of hosts end up totally free of VMs. But we do not want to load the hosts that much. The actual rules are that will describe this are yet to be determined, but we are currently looking into using only the hard constraints (filters) of the currently selected cluster policy.
+1.  consolidate the free resources -- It should do a defragmentation of free memory or spare cpu cycles so more or big VMs can be started. The extreme case is our Power Saving policy as its side-effect is that a lot of hosts end up totally free of VMs. But we do not want to load the hosts that much. The actual rules that will describe this are yet to be determined, but we are currently looking into using only the hard constraints (filters) of the currently selected cluster policy.
 
 There are two situations that should be avoided in the computed solution:
 

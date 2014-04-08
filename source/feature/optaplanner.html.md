@@ -68,15 +68,12 @@ The selected representation will depend on the way our Optaplanner service will 
 
 ### Reporting the result of optimization
 
-There are two major paths we can take:
-
-1.  Standalone application -- The advantage here is that we already have code we can base our solution on. The scheduling example of Optaplanner contains cluster balancing task with GUI vizualization. We could let the user start the App, select a cluster (using REST to provide the list) to optimize and start the computation. The disadvantage is obviously that it is a separate application.
-2.  UI plugin in the engine -- The advantage here is that the result will be available in a dialog window or a tab directly in the webadmin. That way the user will have comfortable access to the results from a UI he is used to. Also the authentication and access management will be provided by the webadmin. The disadvantage is that the UI plugin will have to use some kind of new protocol (REST, plain HTTP, …) to talk to the Optaplanner service. Also it will probably have to authenticate to that service.
+The result will be presented using an UI plugin in the engine's webadmin. That way the user will have comfortable access to the results from a UI he is used to. Also the authentication and access management to REST will be provided by the webadmin. The disadvantage is that the UI plugin will have to use some kind of new protocol (REST, plain HTTP, …) to talk to the Optaplanner service. Also the UI plugin will have to authenticate to the Optaplanner service, but we are probably not implementing that in the tech preview phase.
 
 There is also a question of how to represent the solution:
 
-*   We could show a table (graph, image) of the desired assignments
-*   or we could tell the user the order of steps he should perform (migrate A to B…) to reach the desired state
+*   The first prototype will just show a table (graph, image) of the "optimal" VM to Host assignments in a dialog window
+*   in the future we might be even able to tell the user the order of steps he should perform (migrate A to B…) to reach the state we are showing him
 
 ### Rules to select the optimal solution (high level overview)
 

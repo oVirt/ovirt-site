@@ -290,3 +290,27 @@ Add NUMA filter and weight module to oVirt's scheduler, and add those to all clu
 Scheduler generate virtual NUMA topology To be continue ...
 
 #### Interface and data structure in restful API
+
+*   host NUMA resource
+
+<!-- -->
+
+    /api/hosts/{host:id}/numas/{numa:id}
+
+*   -   Supported actions - GET returns a specific NUMA node information, CPU list, total memory, map of distance with other nodes.
+*   host NUMA statistics
+
+<!-- -->
+
+    /api/hosts/{host:id}/numas/{numa:id}/statistics
+
+*   -   Supported actions - GET returns a specific NUMA node statistics data, CPU usage, free memory.
+*   vm NUMA resource
+
+<!-- -->
+
+    /api/vms/{vm:id}/vnumas/{vnuma:id}
+
+*   -   Supported actions:
+        -   GET returns a specific virtual NUMA node information, CPU list, total memory.
+        -   POST attach a new virtual NUMA

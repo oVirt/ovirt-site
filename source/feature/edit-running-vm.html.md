@@ -68,12 +68,15 @@ when vm goes down, if 'running' snapshot exists, apply the configuration to the 
 Add to VM object and view an indicator if a 'running' snapshot exists, for UI and REST use.
 ** UI **
 On Edit Vm, if 'running' snapshot exists, load it to the edit dialog.
-for each field that is not immediately applicable, add an icon and tootip to mark that to the user.
+Show warning to the user if anything changed that require restart.
+Allow the user to choose if to apply now changes that can be applied.
+![](Edit_running_vm.png "fig:Edit_running_vm.png")
 On VM main grid, add an icon notifying there is a running configuration for each vm with this field true.
 ** REST API '''
 Add corresponding element for vm to notify for each vm if there is a running configuration for it.
 Add a way to get the 'running' configuration for a VM,
 this should probably be a url parameter on GET that will allow the user to get this configuration.
+On update vm, allow user to decide if to apply changes now for applicable changes.
 
 ### Open Issues
 

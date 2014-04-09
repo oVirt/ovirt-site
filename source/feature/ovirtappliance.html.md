@@ -23,6 +23,8 @@ The first step will be to create an image with the correct functionality, in a s
 
 *   Name: [ Fabian Deutsch](User:fabiand)
 *   Email: fabiand@redhat.com
+*   Tracker <https://bugzilla.redhat.com/show_bug.cgi?id=1053435>
+*   Gitweb: <http://gerrit.ovirt.org/gitweb?p=ovirt-appliance.git>
 
 # Current status
 

@@ -42,6 +42,8 @@ Once profiling is enabled, the profile info can be viewed at intervals and can b
 
 Once diagnosis is complete, profiling needs to be stopped on the volume.
 
+See [Gluster Volume Profile](http://gluster.org/community/documentation/index.php/Gluster_3.2:_Displaying_the_I/0_Information) for detailed information on gluster volume profile
+
 #### User Flows
 
 Volume profiling can be started from the Volumes tab, by selecting a volume

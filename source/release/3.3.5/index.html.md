@@ -112,12 +112,15 @@ will upgrade to latest 3.3.
  - On DB upgrade, readonly user and client custom users losses permissions to db views
  - Tasks are cleared while they are still running
  - The RSDL documentation of the cloud-init hostname property should be host.address
+ - [legacy upgrade 3.2->3.3] misleading information
  - Tracker: oVirt 3.3.5 release
  - [legacy upgrade 3.2->3.3] misleading information
  - RHEV 3.3 - Live Migration fails with ERROR: insert or update on table "step" violates foreign key constraint "fk_step_job"
  - Editing VM clears the VNIC profiles
  - setupNetworks: nic with dhcp cannot be bonded
  - Typo in encryptionvalidator.sh in RHEV > 3.2 prevents script from running
+ - SSH injection via cloud-init UI goes to root instead of creating cloud-user
+ - [TEXT] taskcleaner.sh has dangerously misleading help text
 
 ### VDSM
 

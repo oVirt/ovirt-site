@@ -156,9 +156,9 @@ using API.py `Global.getStats` function to get host NUMA statistics data
 
 <!-- -->
 
-    'autoNumaBalancing': true/false
-    'numaDistances': 'str'
-    'numaNodes': {'<nodeIndex>': {'cpus': [int], 'totalMemory': 'str'}, …}
+    'autoNumaBalancing': int
+    'numaDistances': {'<nodeIndex>': [int], ...}
+    'numaNodes': {'<nodeIndex>': {'cpus': [int], 'totalMemory': int}, …}
 
 *   I-2.2 Transfer data format of host CPU statistics and NUMA nodes memory information
 

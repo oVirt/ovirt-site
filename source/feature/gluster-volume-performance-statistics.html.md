@@ -59,6 +59,28 @@ To view the profile info, "Details" sub-menu of the Profiling menu needs to be c
 *   User can choose to export the data returned for the sampling interval using the "Export" button
 *   User can refresh the profile data using the "Refresh" icon
 
+#### REST API
+
+*   GET: /api/clusters/<cluster_id>/glustervolumes/<volume_id>/profilestatistics
+
+` `<profileinfo>
+`      `<profilestatstype>`CUMULATIVE|INTERVAL`</profilestatstype>
+`      `<duration>`..`</duration>
+`      `<totalbytesread>`..`<totalbytesread>
+`      `<totalbyteswrite>`..`<totalbyteswrite>
+`      `<blockinfo>
+`      `<blockstatistics>`../`</blockstatistics>
+`      `<blockstatistics>`../`</blockstatistics>
+`      `</blockinfo>
+`      `<fopinfo>
+            `<fopstatistics>`...`</fopstatistics>`  
+`      `<fopstatistics>`...`</fopstatistics>
+`      `</fopinfo>
+</profileinfo>
+
+*   POST: /api/clusters/<cluster_id>/glustervolumes/<volume_id>/startprofiling
+*   POST:/api/clusters/<cluster_id>/glustervolumes/<volume_id>/stopprofiling
+
 ## Design
 
 <Category:Feature>

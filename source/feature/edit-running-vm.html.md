@@ -74,9 +74,8 @@ Allow the user to choose if to apply now changes that can be applied.
 On VM main grid, add an icon notifying there is a running configuration for each vm with this field true.
 ** REST API '''
 Add corresponding element for vm to notify for each vm if there is a running configuration for it.
-Add a way to get the 'running' configuration for a VM,
-this should probably be a url parameter on GET that will allow the user to get this configuration.
-On update vm, allow user to decide if to apply changes now for applicable changes.
+Add a URL-parameter to get and put vm, in order to be able to get the 'running' configuration for a VM,
+and also in update vm, to allow the user to decide if to apply changes now for applicable changes.
 
 ### Open Issues
 

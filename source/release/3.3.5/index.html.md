@@ -10,7 +10,7 @@ wiki_last_updated: 2014-05-02
 
 # OVirt 3.3.5 release notes
 
-The oVirt Project is preparing oVirt 3.3.5 candidate release for testing. This page is still a work in progress.
+The oVirt Project is pleased to announce the availability of oVirt 3.3.5 release
 
 oVirt is an open source alternative to VMware vSphere, and provides an awesome KVM management interface for multi-node virtualization.
 
@@ -18,23 +18,15 @@ To find out more about features which were added in previous oVirt releases, che
 
 ## Install / Upgrade from previous versions
 
-### CANDIDATE RELEASE
-
-oVirt 3.3.5 candidate release is available. In order to install it you've to enable oVirt 3.3 pre release repository.
+oVirt 3.3.5 release is available. In order to install it you've to enable oVirt 3.3 stable repository.
 
 `# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release.noarch.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release.noarch.rpm)
-      # yum-config-manager --enable ovirt-3.3-prerelease
-
-If you're upgrading from a previous version of oVirt you must also ensure to have 3.3 stable repository enabled for rollback support:
-
       # yum-config-manager --enable ovirt-3.3-stable
 
-Since oVirt 3.4.0 has been released, in order to install 3.3.5 RC you need to disable latest stable and latest 3.4 repositories:
+Since oVirt 3.4.0 has been released, in order to install 3.3.5 instead of 3.4.0 you need to disable latest stable and latest 3.4 repositories:
 
       # yum-config-manager --disable ovirt-stable
       # yum-config-manager --disable ovirt-3.4-stable
-
-If you're going to test oVirt 3.3.5 development version, please add yourself to [Testing/oVirt 3.3.5 testing](Testing/oVirt 3.3.5 testing).
 
 ### Fedora / CentOS / RHEL
 

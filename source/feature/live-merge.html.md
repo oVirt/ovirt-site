@@ -28,7 +28,7 @@ Design and Development underway
 
 Patches:
 
-*   [LiveMerge: Add Image.getVolumeChain API](http://gerrit.ovirt.org/#/c/25918/)
+*   [vdsm series](http://gerrit.ovirt.org/#/q/status:open+project:vdsm+branch:master+topic:livemerge,n,z)
 
 <!-- -->
 

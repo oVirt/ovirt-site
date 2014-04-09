@@ -1,0 +1,50 @@
+---
+title: Node Hosted Engine
+category: node
+authors: dougsland, fabiand, jboggs
+wiki_category: Feature
+wiki_title: Node Hosted Engine
+wiki_revision_count: 3
+wiki_last_updated: 2014-12-05
+---
+
+# Node Hosted Engine
+
+### Summary
+
+This feature introduces the ability to setup a hosted engine on an ovirt-node instance
+
+### Owner
+
+*   Name: [ Joey Boggs](User:jboggs)
+
+<!-- -->
+
+*   Email: jboggs AT redhat DOT com
+*   IRC: jboggs
+
+### Current status
+
+In progress, some networking issues after reboot are blocking the engine vm from restarting. Otherwise the engine setup completes successfully. Will pickup work again with F20 node.
+
+*   Last updated: ,
+
+### Detailed Description
+
+This plugin will pull in ovirt-hosted-engine-setup and dependencies. A plugin page in the setup tui will be available to start the installation process. The screen package will also be pulled in to help with any possible installation disconnection issues.
+
+### Benefit to oVirt
+
+Lowers the bar for getting a engine/node setup up and running with the least amount of hardware
+
+### Dependencies / Related Features
+
+*   Affected Packages
+    -   ovirt-hosted-engine-setup
+    -   screen
+
+### Documentation / External references
+
+*   Coming Soon
+
+<Category:Feature> <Category:Template> <Category:Node>

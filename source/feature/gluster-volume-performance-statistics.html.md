@@ -97,8 +97,6 @@ This provides write throughput of files on a specific brick/brick-wise
 
 #### Entities
 
-=
-
 <File:TopClassDiagram.png>
 
 **\1**

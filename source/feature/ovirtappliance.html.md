@@ -40,4 +40,4 @@ In Development.
     -   Desktop environment including a webbrowser
     -   Sysprep'ed to be consumable as an appliance
 
-<Category:Feature> <Category:SLA>
+<Category:Feature> <Category:Node>

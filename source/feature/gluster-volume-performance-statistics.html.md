@@ -30,7 +30,91 @@ This feature provides the support for monitoring and measuring the performance o
 
 ### Top
 
-Display results of the 'gluster volume top' command on GUI
+Display results of the 'gluster volume top' command on GUI. GlusterFS Volume Top command allows you to view the glusterfs bricks’ performance metrics like read, write, file open calls, file read calls, file write calls, directory open calls, and directory read calls.
+
+[Gluster Volume Top](http://gluster.org/community/documentation/index.php/Gluster_3.2:_Running_GlusterFS_Volume_Top_Command) has further details on this
+
+#### VDSM Changes
+
+1. glusterVolumeTopOpen (volumeName, brickName=None, nfs=False, listCount=None/100?)
+
+This receives volume-name, brick-name, list-count as a input and executes gluster volume top open command and return a dictionary which contains a list of file names (top number of list-count items) and its call count values. List count is an optional numeric parameter which helps to filter the number of items to be returned. Brick-name is also an optional parameter. If brick-name is not given, it returns all bricks info of the volume.
+
+If nfs is True, then the top open output is per NFS server.
+
+        Output dictionary which contains open fd count and maximum fd count:
+         {'statusCode' : CODE,
+             'brickCount': BRICK-COUNT,
+             'bricks': {BRICK-NAME: {'count':FILE-COUNT,
+                                                   'currentOpenFds': CURRENT-OPEN-FDS-COUNT, 
+                                                             'maxOpen': MAX-OPEN, 
+                                                             'maxOpenTime': MAX-OPEN-TIME, 
+                                                             'files': [{FILE-NAME: FILE-OPEN-COUNT}, ...]
+                                                          }, ...} }
+
+2. glusterVolumeTopRead (volumeName,brickName=[ ], nfs=True/False?, listCount=None/100?)
+
+This gives an output dictionary of a list of highest read calls on each brick. If brick name or list count is not given it works with the default value (all bricks, 100 files). This will use gluster volume top read gluster cli command internally.
+
+*   We can get the list of values either for all bricks or a specific brick
+
+3. glusterVolumeTopWrite (volumeName,brickName=[ ], nfs=True/False?, listCount=None/100?)
+
+This provides the list of highest file write calls on a specific brick or the list of bricks based on the input request. This calls gluster volume top write gluster cli command internally to fetch the values.
+
+4. glusterVolumeTopOpenDir (volumeName, brickName=None, listCount=None)
+
+This returns list of files which has highest open calls on directories of each brick. If brick name is not specified, then the metrics of all the bricks belonging to that volume will be displayed. This uses gluster volume top opendir gluster cli command.
+
+5. glusterVolumeTopReadDir (volumeName, brickName=None, listCount=None)
+
+Uses gluster volume top readdir gluster cli command and returns the dictionary as below:
+
+             Output dictionary:
+             {'statusCode': CODE,
+                     'brickCount': BRICK-COUNT,
+                     'topOp': TOP-OP,
+                     'bricks': {BRICK-NAME: {  'count':READ-DIR-COUNT,
+                                                                  'files': [{DIR-NAME: DIR-READ-COUNT}, ...]
+                                                               }, ...} }
+
+6. glusterVolumeTopReadPerf (volumeName, blockSize=None, count=None, brickName=None, listCount=None)
+
+This functionality helps to identify disk performance based on specific block size
+
+*   if the block size and the count is not specified, it will give the output based on historical data.
+*   Proper validation is required before passing blockSize and count value to this function.
+
+the output will be dictionary which contains a list of read throughput of files on each brick. (What if the (dd) file size (blockSize \* count) exceeds the size limit of the brick?)
+
+*   The brick name parameeter is an optional one. This will not accept a list of brick names.
+
+Measure disk performance The values of blockSize and count will be passed to an appropriate gluster cli command and the gluster cli command will initiate a dd for the specified count and block size and measures the corresponding throughput.
+
+7. glusterVolumeTopWritePerf (volumeName, blockSize=None, count=None, brickName=[], listCount=100)
+
+This provides write throughput of files on a specific brick/brick-wise
+
+#### Entities
+
+=
+
+<File:TopClassDiagram.png>
+
+**\1**
+
+*   OPEN
+*   READ
+*   WRITE
+*   OPENDIR
+*   READDIR
+*   READ-PERF
+*   WRITE-PERF
+
+##### REST API
+
+*   GET: /api/clusters/<cluster-id>/glustervolumes/<volume-id>/top:<TopStatisticType>
+*   GET: /api/clusters/<cluster-id>/glustervolumes/<volume-id>/bricks/<brick-id>/top:<TopStatisticType>
 
 ### Profile
 

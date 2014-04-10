@@ -49,6 +49,10 @@ Style of entering mac pool ranges is hardly ideal, but it should suffice at firs
 
 ![](scopedMacPoolManager_UML.png "scopedMacPoolManager_UML.png")
 
+more detailed diagram ![](scopedMacPoolManager_UML-details.png "fig:scopedMacPoolManager_UML-details.png")
+
+## DB details
+
 In DB was added column 'mac_pool_ranges' into table 'storage_pool'.
 
 ## Code Examples

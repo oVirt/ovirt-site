@@ -87,9 +87,9 @@ This functionality helps to identify disk performance based on specific block si
 
 the output will be dictionary which contains a list of read throughput of files on each brick. (What if the (dd) file size (blockSize \* count) exceeds the size limit of the brick?)
 
-*   The brick name parameeter is an optional one. This will not accept a list of brick names.
+*   The brick name parameter is an optional one. This will not accept a list of brick names.
 
-Measure disk performance The values of blockSize and count will be passed to an appropriate gluster cli command and the gluster cli command will initiate a dd for the specified count and block size and measures the corresponding throughput.
+The values of blockSize and count will be passed to an appropriate gluster cli command and the gluster cli command will initiate a dd for the specified count and block size and measures the corresponding throughput.
 
 7. glusterVolumeTopWritePerf (volumeName, blockSize=None, count=None, brickName=[], listCount=100)
 

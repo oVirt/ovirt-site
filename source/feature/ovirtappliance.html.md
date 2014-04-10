@@ -39,3 +39,5 @@ In Development.
     -   Engine installed and preconfigured
     -   Desktop environment including a webbrowser
     -   Sysprep'ed to be consumable as an appliance
+
+<Category:Feature> <Category:SLA>

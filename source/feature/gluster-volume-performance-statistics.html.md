@@ -111,8 +111,12 @@ This provides write throughput of files on a specific brick/brick-wise
 
 ##### REST API
 
-*   GET: /api/clusters/<cluster-id>/glustervolumes/<volume-id>/top:<TopStatisticType>
-*   GET: /api/clusters/<cluster-id>/glustervolumes/<volume-id>/bricks/<brick-id>/top:<TopStatisticType>
+*   GET: /api/clusters/<cluster-id>/glustervolumes/<volume-id>/top;type=<TopStatisticType>
+    -   Other matrix parameters
+        -   nfs=true/false
+        -   blocksize
+        -   count
+*   GET: /api/clusters/<cluster-id>/glustervolumes/<volume-id>/bricks/<brick-id>/top;type=<TopStatisticType>
 
 ### Profile
 

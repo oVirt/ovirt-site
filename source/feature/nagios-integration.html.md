@@ -86,7 +86,10 @@ The oVirt REST API contact can be associated with the notification method that w
 
 Cluster and volume state is determined by the state of its constituents. Ovirt will get all alerts from Nagios, and use these alerts to show a consolidated status. On an external event, further action will be taken to update the status of Brick, Volume and Cluster.
 
-Brick is a logical entity, which provides basic storage facility for gluster-cluster. A brick can be in one of the following states **UP** – If Brick service is up and brick storage has not crossed the Critical threshold **DOWN** – If either Brick service is down or brick has consumed all the storage capacity of the brick
+Brick is a logical entity, which provides basic storage facility for gluster-cluster. A brick can be in one of the following states
+
+*   **UP** – If Brick service is up and brick storage has not crossed the Critical threshold
+*   **DOWN** – If either Brick service is down or brick has consumed all the storage capacity of the brick
 
 Volume is treated as a logical entity that serves data, and it's state needs to reflect this purpose. Volume can have the following states **UP** – Volume is operational and meeting all data serving requirements **UP-DEGRADED** – Volume is operational but not performing to full optimization. This is applicable to replicated volumes, when a replica brick is down **UP-PARTIAL** – Volume is operational but some parts of the file system could be inaccessible. This could happen when a sub-volume is down. Applicable for both Replicated and Distributed volumes. **DOWN** – Volume is crashed or all bricks are down. **STOPPED** – Volume is shut-down by the Admin intentionally ( Note : For a state change of this nature, no alerts should be generated and no notification needs to be sent. But the event should be generated )
 
@@ -151,11 +154,6 @@ If one or more of these services are down, this will have an effect on the clust
 
 *'Alternatively check_logfiles plugin can be executed from an external program as a passive check*
 
-## Plugins
-
-*   Nagios plugins needs to be developed to monitor specific scenarios of interest for Ovirt
-*   Nagios/External applications will execute these plugins periodically(Active/Passive checks) and update the status of monitored resources/services/operations
-
 ### Resources to be Monitored
 
 *   List of Physical Resources that need to be monitored :
@@ -193,10 +191,6 @@ If one or more of these services are down, this will have an effect on the clust
 <!-- -->
 
 *   Alerting mechanisms needed for spilt-brain
-
-**Below table has the details about the plugins that needs to be developed**
-
-![](plugin_details.png "plugin_details.png")
 
 ## Detailed Design
 

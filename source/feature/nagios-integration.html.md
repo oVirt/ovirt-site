@@ -91,13 +91,17 @@ Brick is a logical entity, which provides basic storage facility for gluster-clu
 *   **UP** – If Brick service is up and brick storage has not crossed the Critical threshold
 *   **DOWN** – If either Brick service is down or brick has consumed all the storage capacity of the brick
 
-Volume is treated as a logical entity that serves data, and it's state needs to reflect this purpose. Volume can have the following states **UP** – Volume is operational and meeting all data serving requirements **UP-DEGRADED** – Volume is operational but not performing to full optimization. This is applicable to replicated volumes, when a replica brick is down **UP-PARTIAL** – Volume is operational but some parts of the file system could be inaccessible. This could happen when a sub-volume is down. Applicable for both Replicated and Distributed volumes. **DOWN** – Volume is crashed or all bricks are down. **STOPPED** – Volume is shut-down by the Admin intentionally ( Note : For a state change of this nature, no alerts should be generated and no notification needs to be sent. But the event should be generated )
+Volume is treated as a logical entity that serves data, and it's state needs to reflect this purpose. Volume can have the following states
+
+*   **UP** – Volume is operational and meeting all data serving requirements
+*   **UP-DEGRADED** – Volume is operational but not performing to full optimization. This is applicable to replicated volumes, when a replica brick is down
+*   **UP-PARTIAL** – Volume is operational but some parts of the file system could be inaccessible. This could happen when a sub-volume is down. Applicable for both Replicated and Distributed volumes.
+*   **DOWN** – Volume is crashed or all bricks are down.
+*   **STOPPED** – Volume is shut-down by the Admin intentionally ( Note : For a state change of this nature, no alerts should be generated and no notification needs to be sent. But the event should be generated )
 
 The volume states are determined by the participating brick states.
 
 In a cluster, there are services that provide additional functionality like NFS – for NFS access SMB – for SMB access CTDB – for High availability of SMB and NFS SHD – Self Heal daemon Glusterd – Gluster management daemon Quota – Enforcing quota limits on volume Geo-replication – To geo-replicate volume across clusters
-
-If one or more of these services are down, this will have an effect on the cluster state. The cluster state can be thought of as one of: **\1**- All volumes and services in cluster are operational **UNHEALTHY** – Either one or more volumes are in UP-PARTIAL or DOWN state or one or more services are not functioning properly. An unhealthy state could also be caused because there are issues detected in the cluster: volume split brain detected quorum not met volume is reached maximum capacity **DOWN** – All nodes in cluster are down or all volumes in cluster are down. ( Need to close out : Whether a single node a cluster? )
 
 ### Nagios Dashboard and Trends
 

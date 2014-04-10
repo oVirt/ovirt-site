@@ -49,7 +49,9 @@ Style of entering mac pool ranges is hardly ideal, but it should suffice at firs
 
 ![](scopedMacPoolManager_UML.png "scopedMacPoolManager_UML.png")
 
-more detailed diagram ![](scopedMacPoolManager_UML-details.png "fig:scopedMacPoolManager_UML-details.png")
+Click for more detailed diagram
+
+<Media:scopedMacPoolManager_UML-details.png>
 
 ## DB details
 

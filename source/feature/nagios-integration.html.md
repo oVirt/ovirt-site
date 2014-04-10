@@ -99,7 +99,13 @@ In a cluster, there are services that provide additional functionality like NFS 
 
 If one or more of these services are down, this will have an effect on the cluster state. The cluster state can be thought of as one of: **\1**- All volumes and services in cluster are operational **UNHEALTHY** – Either one or more volumes are in UP-PARTIAL or DOWN state or one or more services are not functioning properly. An unhealthy state could also be caused because there are issues detected in the cluster: volume split brain detected quorum not met volume is reached maximum capacity **DOWN** – All nodes in cluster are down or all volumes in cluster are down. ( Need to close out : Whether a single node a cluster? )
 
+### Nagios Dashboard and Trends
+
+Dashboard and trends tabs will be added to the oVirt-UI through ui-plugins approach. All the alerts pushed from Nagios to oVirt will be shown in the dashboard. It will also show a summary of the entities currently being manged by oVirt like Hosts, Volumes and Bricks. Alerts will be shown for individual clusters as well.
+
 ![](Ovirt-dashboard.png "Ovirt-dashboard.png")
+
+![](Ovirt_Monitoring_Trends.png "Ovirt_Monitoring_Trends.png")
 
 ## Nagios Specific
 

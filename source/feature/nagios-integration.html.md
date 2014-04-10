@@ -105,6 +105,10 @@ Dashboard and trends tabs will be added to the oVirt-UI through ui-plugins appro
 
 ![](Ovirt-dashboard.png "Ovirt-dashboard.png")
 
+Trends tab will show the graphs from pnp4nagios. The graphs will be displayed based on the user selection in System Tree. If user has selected a particular cluster, the volume utilization graph will be shown for all the volumes in the cluster. In the same way, when a volume is selected in the system tree, brick utilization graph for all the bricks part of that volume will be shown.
+
+The graphs by default will be shown for last 24 hours. The user select a custom time range for displaying the graph data. Graphs shown in the page can be either printed directly or can be saved as a report in PDF format.
+
 ![](Ovirt_Monitoring_Trends.png "Ovirt_Monitoring_Trends.png")
 
 ## Nagios Specific

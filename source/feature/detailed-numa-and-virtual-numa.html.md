@@ -291,26 +291,39 @@ Scheduler generate virtual NUMA topology To be continue ...
 
 #### Interface and data structure in restful API
 
-*   host NUMA resource
+host NUMA sub-collection
 
-<!-- -->
+    /api/hosts/{host:id}/numas/
+
+*   Supported actions - **GET** returns a list of host NUMA nodes.
+
+host NUMA resource
 
     /api/hosts/{host:id}/numas/{numa:id}
 
-*   -   Supported actions - GET returns a specific NUMA node information, CPU list, total memory, map of distance with other nodes.
-*   host NUMA statistics
+*   Supported actions
+    -   **GET** returns a specific NUMA node information: CPU list, total memory, map of distance with other nodes.
 
-<!-- -->
+host NUMA statistics
 
     /api/hosts/{host:id}/numas/{numa:id}/statistics
 
-*   -   Supported actions - GET returns a specific NUMA node statistics data, CPU usage, free memory.
-*   vm NUMA resource
+*   Supported actions
+    -   **GET** returns a specific NUMA node statistics data: CPU usage, free memory.
 
-<!-- -->
+vm virtual NUMA sub-collection
+
+    /api/vms/{vm:id}/vnumas
+
+*   Supported actions:
+    -   **GET** returns a list of VM virtual NUMA nodes.
+    -   **POST** attach a new virtual NUMA node on VM.
+
+vm virtual NUMA resource
 
     /api/vms/{vm:id}/vnumas/{vnuma:id}
 
-*   -   Supported actions:
-        -   GET returns a specific virtual NUMA node information, CPU list, total memory.
-        -   POST attach a new virtual NUMA
+*   Supported actions:
+    -   **GET** returns a specific virtual NUMA node information, CPU list, total memory, pin to host NUMA nodes.
+    -   **PUT** update a virtual NUMA node configured on the VM.
+    -   **DELETE** removes a virtual NUMA node from the VM.

@@ -47,29 +47,33 @@ Style of entering mac pool ranges is hardly ideal, but it should suffice at firs
 
 ## Implementation details
 
-While we're just talking about data center "scopes", it's possible that fine grained "scope" will be requested, or user could decide which "scope" he/she/... wants. To allow that, data center "scope" manipulation is done like this:
+![](scopedMacPoolManager_UML.png "scopedMacPoolManager_UML.png")
 
-Notice that implementation of scopeFor() methods etc. can switch by configuration whether/which "scope" will be used.
+In DB was added column 'mac_pool_ranges' into table 'storage_pool'.
 
-### initialization of scope
+## Code Examples
+
+While we're just talking about data center "scopes", it's possible that fine grained "scope" will be requested, or user could decide which "scope" he/she/... wants. To allow that, data center "scope" manipulation is done like this. Call *ScopedMacPoolManager.scopeFor()* returns implementation of *Scope* given on system settings, depending what scope you're interrested in, you call related method on this instance and this implementation of Scope will process you request accordingly. Lets say, you want to use MAC pool for given virtual machine so you call *ScopedMacPoolManager.scopeFor().vm(...). ...*, but system is configured to use global MAC pools ONLY, so regardless of your request, you end up with global pool anyway.
+
+#### initialization of scope
 
 command adding new data center will contain following code
 
-      ScopedMacPoolManager.requireScopeFor().storagePool(storagePool)
+      ScopedMacPoolManager.scopeFor().storagePool(storagePool).createPool(storagePool.getMacPoolRanges());
 
 where storagePool is newly created storage pool.
 
-### modification of scope
+#### modification of scope
 
 let's say, that storage pool already exist, but without specified mac pool ranges, so after db is updated, new pool has to be created for it.
 
-      ScopedMacPoolManager.updateScopeFor().storagePool(storagePool)
+      ScopedMacPoolManager.scopeFor().storagePool(storagePool).modifyPool(storagePool.getMacPoolRanges());
 
-### removal of scope
+#### removal of scope
 
-      ScopedMacPoolManager.updateScopeFor().storagePool(storagePoolID)
+      ScopedMacPoolManager.scopeFor().storagePool(storagePoolID).removePool()
 
-### manipulating with pool
+#### manipulating with pool
 
 formerly code to remove macs was:
 
@@ -77,10 +81,18 @@ formerly code to remove macs was:
 
 now we have to specify from \*where\* we want them to be removed:
 
-      ScopedMacPoolManager.scopeFor().storagePool(storagePoolId).freeMacs(macsToRemove);
+      ScopedMacPoolManager.scopeFor().storagePool(storagePoolId).getPool().freeMacs(macsToRemove);
 
 which will decide which storagePool is appropriate for your request and frees macs from it. When you're super-sure you want to use default storagePool, you can use
 
-      ScopedMacPoolManager.defaultScope().storagePool(storagePoolId).freeMacs(macsToRemove); 
+      ScopedMacPoolManager.defaultScope().freeMacs(macsToRemove); 
+
+#### notes
+
+*   simple obtaining pool is rather verbose. This will be improved allowing to call
+
+      ScopedMacPoolManager.pollFor().vm(...);
+
+*   from statement "ScopedMacPoolManager.scopeFor().storagePool(storagePool).createPool(storagePool.getMacPoolRanges());" can be removed part "storagePool.getMacPoolRanges()", this should be also done in following commits.
 
 <Category:Api> <Category:Feature>

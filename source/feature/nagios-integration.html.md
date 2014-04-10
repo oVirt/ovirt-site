@@ -12,10 +12,10 @@ wiki_last_updated: 2014-06-27
 
 ## Summary
 
-Currently, administrators of gluster deployments have no easy mechanism to track the health of a Gluster installation - that is, when a brick goes down, split brain occurs, disk is full etc. oVirt only provides a poll based mechanism that uses the existing Gluster CLI to identify the volume's status and node status. This is not sufficient to get data about the network outages or issues like split-brain, un-synced entries etc. Also, there's a 5 min polling interval for brick status and hence the data displayed in oVirt may be considered stale. We need to provide an efficient way for:
+Currently, administrators of gluster deployments have no easy mechanism to track the health of a Gluster installation - that is, when a brick goes down, split brain occurs, disk is full etc. oVirt provides a poll based mechanism that uses the existing Gluster CLI to identify the volume's status and node status. This is not sufficient to get data about the issues like split-brain, quota exceeded etc. Also, there's a 5 min polling interval for brick status and hence the data displayed in oVirt may be considered stale. We need to provide an efficient way for:
 
 *   Monitoring of critical entities such as hosts, networking, volumes, clusters and services
-*   Alerting when critical infrastructure components fail and  recover, providing administrators with notice of important events.  Notification for Alerts can be delivered via email, SMS or SNMP. Alerts can be either seen on Nagios UI or on oVirt UI
+*   Alerting when critical infrastructure components fail and  recover, providing administrators with notice of important events.  Notification for Alerts can be delivered via email, SNMP. Alerts can be either seen on Nagios UI or on oVirt UI
 *   Reports providing a historical record of service outages, events and notifications for later review, through Nagios UI interface.
 *   Trending graphs and reports
 
@@ -27,14 +27,36 @@ Since most enterprises already have or are familiar with existing monitoring fra
 
 ## Current Status
 
-*   Status: Design
+*   Status: Development
 *   Last updated date: ,
 
 ## Detailed Description
 
 **The diagram below provides an overview about the proposed architecture**
 
-![](Setup.png "fig:Setup.png") Nagios monitors storage clusters to ensure clusters, hosts, volumes, and software services are functioning properly. In the event of a failure, Nagios can alert technical staff of the problem, allowing them to begin remediation processes before outages affect business processes, end-users, or customers. This is achieved through the checks(Active/Passive) and these checks executed on the monitored resources. Nagios Analyzes the check result and if there is any event that meets the Alert definition, it would be flagged as an Alert on the Nagios server or on oVirt (if it’s deployed) and the appropriate configured notifications (Email, SMS, SNMP Traps) will be sent. , In the proposed architecture, we have four main functional blocks- oVirt, Nagios, the Gluster nodes and the external management station like HP-OvpenView. Nagios server will have the Nagios core installed and a set of infrastructure plugins/addons to execute the checks, process the check result and generate notifications. Gluster nodes will have the infrastructure plugins/addons for check execution and also the plugins which implement the check logic. oVirt will implement (As a UI Plugin) the alert dashboard and the plugins for trending and reporting so that administrator gets a clear view of what is happening in the storage network. External management stations can subscribe for SNMP traps from Nagios so that they get alerted as and when something goes wrong. At a high-level, each functional block will have the following software components: 1. Nagios Server Nagios Core Installed NSCA Server NRPE Client Mk-Livestatus PNP4Nagios NetSnmp Plugins that implements the check logic and also process the check result(like custom event handlers) 2. Gluster Nodes NRPE Server NSCA Client Pugins that implements the check logic. 3. oVirt UI plugins for alert dashboard, trending, reporting and configuring the nagios 4. External Management Station like HP-OV Not in the scope of work
+![](Setup.png "fig:Setup.png") Nagios monitors storage clusters to ensure clusters, hosts, volumes, and software services are functioning properly. In the event of a failure, Nagios can alert technical staff of the problem, allowing them to begin remediation processes before outages affect business processes, end-users, or customers. This is achieved through the checks(Active/Passive) and these checks executed on the monitored resources. Nagios Analyzes the check result and if there is any event that meets the Alert definition, it would be flagged as an Alert on the Nagios server or on oVirt (if it’s deployed) and the appropriate configured notifications (Email, SNMP Traps) will be sent. , In the proposed architecture, we have three main functional blocks- oVirt, Nagios and the Gluster nodes. Nagios server will have the Nagios core installed and a set of infrastructure plugins/addons to execute the checks, process the check result and generate notifications. Gluster nodes will have the infrastructure plugins/addons for check execution and also the plugins which implement the check logic. oVirt will implement (As a UI Plugin) the alert dashboard and the plugins for trending and reporting so that administrator gets a clear view of what is happening in the storage network. External management stations can subscribe for SNMP traps from Nagios so that they get alerted as and when something goes wrong.
+
+At a high-level, each functional block will have the following software components:
+
+*' Nagios Server*'
+
+*   Nagios Core Installed
+*   NSCA Server
+*   NRPE Client
+*   Mk-Livestatus
+*   PNP4Nagios
+*   NetSnmp
+*   Plugins that implements the check logic and also process the check result(like custom event handlers)
+
+**\1**
+
+*   NRPE Server
+*   NSCA Client
+*   Pugins that implements the check logic.
+
+**\1**
+
+*   UI plugins for alert dashboard and trends
 
 ## Dependencies / Related Features
 
@@ -45,7 +67,7 @@ Since most enterprises already have or are familiar with existing monitoring fra
 
 ## Packaging
 
-*   Nagios core will not be packaged and installed along with Ovirt
+*   Nagios core will not be packaged and should be installed along with Ovirt
 *   Nagios addons and plugins will not be packaged and installed. This needs to done separately on the the monitoring nodes and the server
 
 ## User Flows
@@ -64,7 +86,7 @@ The oVirt REST API contact can be associated with the notification method that w
 
 Cluster and volume state is determined by the state of its constituents. Ovirt will get all alerts from Nagios, and use these alerts to show a consolidated status. On an external event, further action will be taken to update the status of Brick, Volume and Cluster.
 
-Brick is a logical entity, which provides basic storage facility for gluster-cluster. A brick can be in one of the following states **UP** – If Brick service is up and brick storage has not crossed the Critical threashold **DOWN** – If either Brick service is down or brick has consumed all the storage capacity of the brick
+Brick is a logical entity, which provides basic storage facility for gluster-cluster. A brick can be in one of the following states **UP** – If Brick service is up and brick storage has not crossed the Critical threshold **DOWN** – If either Brick service is down or brick has consumed all the storage capacity of the brick
 
 Volume is treated as a logical entity that serves data, and it's state needs to reflect this purpose. Volume can have the following states **UP** – Volume is operational and meeting all data serving requirements **UP-DEGRADED** – Volume is operational but not performing to full optimization. This is applicable to replicated volumes, when a replica brick is down **UP-PARTIAL** – Volume is operational but some parts of the file system could be inaccessible. This could happen when a sub-volume is down. Applicable for both Replicated and Distributed volumes. **DOWN** – Volume is crashed or all bricks are down. **STOPPED** – Volume is shut-down by the Admin intentionally ( Note : For a state change of this nature, no alerts should be generated and no notification needs to be sent. But the event should be generated )
 
@@ -149,32 +171,24 @@ If one or more of these services are down, this will have an effect on the clust
     1.  Cluster(Gluster specific)
     2.  Volume(Gluster specific)
     3.  Brick(Gluster specific)
-    4.  LVM
 
 <!-- -->
 
 *   Parameters that should be monitored for logical and physical resources :
     1.  Operational Status
     2.  Utilization
-    3.  Capacity
-    4.  Usage
 
 ### Services/Operations to be monitored
 
 *   Monitoring of Access Services such as:
-    1.  NFS
-    2.  Swift/Object
-    3.  SMB
-    4.  CTDB
+    1.  SMB
+    2.  CTDB
 
 <!-- -->
 
 *   Monitoring of background operations such as:
-    1.  Remove Brick(Gluster specific)
-    2.  Re-balance(Gluster specific)
-    3.  Self-Heal(Gluster specific)
-    4.  Geo-Replication(Gluster specific)
-    5.  Replace Brick(Gluster specific)
+    1.  Self-Heal(Gluster specific)
+    2.  Geo-Replication(Gluster specific)
 
 <!-- -->
 

@@ -78,7 +78,7 @@ Introducing new functionality of deleting a disk from a snapshot.
 
 <!-- -->
 
-*   GetAllSnapshotImagesByStorageDomainIdQuery:
+*   GetAllDiskSnapshotsByStorageDomainIdQuery:
     -   A new query for retrieving all snapshot disks that resides on a specified storage domain.
     -   Needed for fetching data of Storage -> Snapshots sub-tab.
 

@@ -363,7 +363,13 @@ You now know how to install a oVirt Node. In addition to hypervisor hosts, you c
 
        # yum install tar
 
+7. Check if NetworkManager is being used for the network interface that is going to be used between the engine and this host. If it is change it to No. NetworkManager interfers with the bridge setup later when deploying vdsm. This is atleast true for Fedora 19 but might work with Fedora >19.
+
 You have now successfully installed a Fedora host. As before, repeat this procedure if you wish to use more Linux hosts. Before you can start running virtual machines on your host, you have to manually add it to the oVirt Engine via the administration portal, which you will access in the next step.
+
+**To install a CentOS 6.5 host**
+
+Follow the instructions for a Fedora 19 host.
 
 ## Connect to oVirt Engine
 

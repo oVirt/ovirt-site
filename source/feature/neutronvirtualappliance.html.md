@@ -34,6 +34,74 @@ The feature designed to ease the neutron services provisioning from within ovirt
 For that purpose an image was created for a rapid provisioning, where the image contains all of the relevant services installed and configured with basic configuration that allows the ovirt-engine administrator with few (or more) steps to use the neutron services from ovirt.
 The neutron appliance for ovirt-engine 3.5 is based on the Havana-RDO which uses [Packstack](https://wiki.openstack.org/wiki/Packstack) for installing OpenStack.
 
+#### Steps for creating the image
+
+1.  Import CentOS-6.5 image as a template to 3.4 cluster from ovirt-glance repository
+2.  Create a vm from CentOS-6.5 template, configure via cloud-init:
+    1.  Set root password
+    2.  define network interface 'eth0' as dhcp and on-boot (could be static ip as well)
+    3.  Increase memory to 2048MB
+    4.  Create 2 nics: eth0 (connected to ovirtmgmt) and eth1 (connected to 'neutron' vm network on ovirt)
+
+<!-- -->
+
+1.  Set root authorized-keys to be able to access via ssh
+
+see <http://unix.stackexchange.com/questions/69314/automated-ssh-keygen-without-passphrase-how>
+
+1.  Install packstack:
+    1.  sudo yum install -y <http://rdo.fedorapeople.org/rdo-release.rpm>
+    2.  sudo yum install -y openstack-packstack
+    3.  sudo yum update -y python-backports
+
+2.  Generate answer file:
+    1.  packstack --gen-answer-file=/root/packstack-answers.txt (CONFIG_PROVISION_ALL_IN_ONE_OVS_BRIDGE=y)
+
+3.  Manipulate answer-file packstack-answers.txt
+
+       s/guest-ip-address/127.0.0.1 (sed -i 's/10.35.7.62/127.0.0.1/g' packstack-answers-20140401-041059.txt)
+       CONFIG_GLANCE_INSTALL=n
+       CONFIG_CINDER_INSTALL=n
+       CONFIG_NOVA_INSTALL=n
+       CONFIG_HORIZON_INSTALL=n
+       CONFIG_SWIFT_INSTALL=n
+       CONFIG_CEILOMETER_INSTALL=n
+       CONFIG_NAGIOS_INSTALL=n
+       
+       CONFIG_NEUTRON_OVS_TENANT_NETWORK_TYPE=vlan
+       CONFIG_NEUTRON_OVS_VLAN_RANGES=vmnet:1024:2048
+       CONFIG_NEUTRON_OVS_BRIDGE_MAPPINGS=vmnet:br-eth1
+       CONFIG_NEUTRON_OVS_BRIDGE_IFACES=br-eth1:eth1
+
+1.  packstack --answer-file=/root/packstack-answers.txt
+2.  change iptables rule:
+
+      replace:
+      -A INPUT -s 127.0.0.1/32 -p tcp -m multiport --dports 9696 -m comment --comment "001 neutron incoming 127.0.0.1" -j ACCEPT
+      with:
+      -A INPUT -p tcp -m multiport --dports 9696 -m comment --comment "001 neutron incoming all" -j ACCEPT
+
+and
+
+      -A INPUT -s 127.0.0.1/32 -p tcp -m multiport --dports 5671,5672 -m comment --comment "001 qpid incoming 127.0.0.1" -j ACCEPT
+      with
+      -A INPUT -p tcp -m multiport --dports 5671,5672 -m comment --comment "001 qpid incoming all" -j ACCEPT      
+      service iptables restart
+
+1.  yum install -y tcpdump
+2.  Stop the vm
+3.  Seal the vm's disk using [sysprep](http://libguestfs.org/virt-sysprep.1.html):
+
+      virt-sysprep -a b228993a-1d1b-4bcc-8158-56354172b089 -a f541c84c-5d8e-4217-a6fd-ffd3a38ab02a --enable net-hwaddr,dhcp-client-state,ssh-hostkeys,ssh-userdir,udev-persistent-net
+
+1.  Import into [glance](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/html/Getting_Started_Guide/ch09s02.html):
+
+      glance image-create --name "neutron-appliance" --is-public true --disk-format qcow2 --file 93b372dc-022e-4c49-a0aa-988cb1876c18 --container-format bare
+
+1.  Add 'glance' as external provider into ovirt
+2.  Import "neutron-appliance" as a template
+3.  Create a vm based on the "neutron-appliance" template with cloud-init (root password, nic as eth0)
+
 ### Benefit to oVirt
 
 There are two major benefits for having this feature:

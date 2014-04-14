@@ -295,35 +295,35 @@ host NUMA sub-collection
 
     /api/hosts/{host:id}/numanodes/
 
-*   Supported actions - **GET** returns a list of host NUMA nodes.
+*   Supported actions - **GET** returns a list of host NUMA nodes. (using query GetVdsNumaNodeByVdsId)
 
 host NUMA resource
 
-    /api/hosts/{host:id}/numanodes/{numa:id}
+    /api/hosts/{host:id}/numanodes/{numa:id} 
 
 *   Supported actions
-    -   **GET** returns a specific NUMA node information: CPU list, total memory, map of distance with other nodes.
+    -   **GET** returns a specific NUMA node information: CPU list, total memory, map of distance with other nodes. (using VdsNumaNode properties)
 
 host NUMA statistics
 
     /api/hosts/{host:id}/numanodes/{numa:id}/statistics
 
 *   Supported actions
-    -   **GET** returns a specific NUMA node statistics data: CPU usage, free memory.
+    -   **GET** returns a specific NUMA node statistics data: CPU usage, free memory. (using VdsNumaNode property NumaNodeStatistics)
 
 vm virtual NUMA sub-collection
 
-    /api/vms/{vm:id}/numanodes
+    /api/vms/{vm:id}/numanodes 
 
 *   Supported actions:
-    -   **GET** returns a list of VM virtual NUMA nodes.
-    -   **POST** attach a new virtual NUMA node on VM.
+    -   **GET** returns a list of VM virtual NUMA nodes. (using query GetVmNumaNodeByVmId)
+    -   **POST** attach a new virtual NUMA node on VM. (using action AddVmNumaNode)
 
 vm virtual NUMA resource
 
     /api/vms/{vm:id}/numanodes/{vnuma:id}
 
 *   Supported actions:
-    -   **GET** returns a specific virtual NUMA node information, CPU list, total memory, pin to host NUMA nodes.
-    -   **PUT** update a virtual NUMA node configured on the VM.
-    -   **DELETE** removes a virtual NUMA node from the VM.
+    -   **GET** returns a specific virtual NUMA node information, CPU list, total memory, pin to host NUMA nodes. (using VmNumaNode properties)
+    -   **PUT** update a virtual NUMA node configured on the VM. (using action UpdateVmNumaNode)
+    -   **DELETE** removes a virtual NUMA node from the VM. (using action DeleteVmNumaNode)

@@ -150,10 +150,12 @@ If you're using pre-release repo you'll need to run:
           # yum update "ovirt-engine-setup*"
           # engine-setup
 
-If you're upgrading from oVirt 3.3 you should just execute:
+If you're upgrading from oVirt 3.3.2 or later you should just execute:
 
           # yum update ovirt-engine-setup
           # engine-setup
+
+If you're upgrading from oVirt 3.3.0 or 3.3.1 you must first upgrade to a newer version of oVirt 3.3 (latest is 3.3.5)
 
 If you're upgrading from oVirt 3.2, you should read [oVirt 3.2 to 3.3 upgrade](oVirt 3.2 to 3.3 upgrade).
 

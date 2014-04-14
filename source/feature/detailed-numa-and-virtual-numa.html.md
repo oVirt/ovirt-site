@@ -293,27 +293,27 @@ Scheduler generate virtual NUMA topology To be continue ...
 
 host NUMA sub-collection
 
-    /api/hosts/{host:id}/numas/
+    /api/hosts/{host:id}/numanodes/
 
 *   Supported actions - **GET** returns a list of host NUMA nodes.
 
 host NUMA resource
 
-    /api/hosts/{host:id}/numas/{numa:id}
+    /api/hosts/{host:id}/numanodes/{numa:id}
 
 *   Supported actions
     -   **GET** returns a specific NUMA node information: CPU list, total memory, map of distance with other nodes.
 
 host NUMA statistics
 
-    /api/hosts/{host:id}/numas/{numa:id}/statistics
+    /api/hosts/{host:id}/numanodes/{numa:id}/statistics
 
 *   Supported actions
     -   **GET** returns a specific NUMA node statistics data: CPU usage, free memory.
 
 vm virtual NUMA sub-collection
 
-    /api/vms/{vm:id}/vnumas
+    /api/vms/{vm:id}/numanodes
 
 *   Supported actions:
     -   **GET** returns a list of VM virtual NUMA nodes.
@@ -321,7 +321,7 @@ vm virtual NUMA sub-collection
 
 vm virtual NUMA resource
 
-    /api/vms/{vm:id}/vnumas/{vnuma:id}
+    /api/vms/{vm:id}/numanodes/{vnuma:id}
 
 *   Supported actions:
     -   **GET** returns a specific virtual NUMA node information, CPU list, total memory, pin to host NUMA nodes.

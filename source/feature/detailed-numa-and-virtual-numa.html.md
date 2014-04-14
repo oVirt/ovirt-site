@@ -165,7 +165,7 @@ using API.py `Global.getStats` function to get host NUMA statistics data
 
 <!-- -->
 
-    'numaNodeMemFree': {'<nodeIndex>': {'memFree': 'str', 'memPercent': int}, …}
+    'numaNodeMemFree': {'<nodeIndex>': {'memFree': int, 'memPercent': int}, …}
     'cpuStatistics': {'<cpuId>': {'numaNodeIndex': int, 'cpuSys': 'str', 'cpuIdle': 'str', 'cpuUser': 'str'}, …}
 
 *   I-2.3 Transfer data format of set VM numatune and virtual NUMA topology

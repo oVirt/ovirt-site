@@ -242,6 +242,7 @@ We will do the following modifications:
 5.  Modify `org.ovirt.engine.core.searchbackend.VdsCrossRefAutoCompleter` to add auto complete entry NUMANODES.
 
 *   Cascade-delete
+    1.  
 
 #### Interface and data structure in engine core
 

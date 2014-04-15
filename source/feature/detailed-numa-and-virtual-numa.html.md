@@ -233,6 +233,8 @@ Currently, we plan to provide below search functions about NUMA feature, each fi
 
 NUMA tune mode support enum value relation, the others support the numeric relation.
 
+We will do the following modifications:
+
 #\* Modify `org.ovirt.engine.core.searchbackend.SearchObjects` to add new entry NUMANODES.
 
 #\* Add `org.ovirt.engine.core.searchbackend.NumaNodeConditionFieldAutoCompleter` to provide NUMA node related filters auto completion;

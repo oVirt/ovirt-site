@@ -87,6 +87,7 @@ Porting the ovirt-guest-agent to SLE (SuSE Linux Enterprise) 11 SP3
     -   kernel package and the ovirt-guest-agent-common package in the application list
     -   The FQDN in the general tab
     -   Logged-in User: in the Sessions tab should be filled if a user is logged in.
+    -   All IPs (IPv4 and IPv6) in the Network Interfaces tab in the Guest Agent Data section for each interface.
 *   Verification via on the VDSM side: \`vdsClient -s 0 getVmStats <VM UUID>\`
     -   Reported fields are non-empty:
         -   guestFQDN

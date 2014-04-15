@@ -4,6 +4,7 @@ authors: bruceshi, jasonliao
 wiki_title: Features/Detailed NUMA and Virtual NUMA
 wiki_revision_count: 56
 wiki_last_updated: 2014-05-06
+wiki_warnings: list-item?
 ---
 
 # NUMA and Virtual NUMA
@@ -235,13 +236,15 @@ NUMA tune mode support enum value relation, the others support the numeric relat
 
 We will do the following modifications:
 
-*   Modify `org.ovirt.engine.core.searchbackend.SearchObjects` to add new entry NUMANODES.
-*   Add `org.ovirt.engine.core.searchbackend.NumaNodeConditionFieldAutoCompleter` to provide NUMA node related filters auto completion;
-*   Modify `org.ovirt.engine.core.searchbackend.SearchObjectAutoCompleter` to add new joins, one is HOST joins NUMANODES on vds_id, the other is VM joins NUMANODES on vm_guid.
-*   Add new entries in entitySearchInfo accordingly. NUMANODES will use new added view vds_numa_node_view and view vm_numa_node_view.
-*   Modify `org.ovirt.engine.core.searchbackend.VdsCrossRefAutoCompleter` to add auto complete entry NUMANODES.
+    * Modify `org.ovirt.engine.core.searchbackend.SearchObjects` to add new entry NUMANODES.
 
-<!-- -->
+    * Add `org.ovirt.engine.core.searchbackend.NumaNodeConditionFieldAutoCompleter` to provide NUMA node related filters auto completion;
+
+    * Modify `org.ovirt.engine.core.searchbackend.SearchObjectAutoCompleter` to add new joins, one is HOST joins NUMANODES on vds_id, the other is VM joins NUMANODES on vm_guid.
+
+    * Add new entries in entitySearchInfo accordingly. NUMANODES will use new added view vds_numa_node_view and view vm_numa_node_view.
+
+    * Modify `org.ovirt.engine.core.searchbackend.VdsCrossRefAutoCompleter` to add auto complete entry NUMANODES.
 
 *   Cascade-delete
 

@@ -178,10 +178,12 @@ using API.py `Global.getStats` function to get host NUMA statistics data
 #### Interface between engine core and database (schema)
 
 1.  I-3.1 Schema modification of `vds_dynamic` table to include host's NUMA node count and automatic NUMA balancing status.
-2.  I-3.2 Add table `vds_cpu_statistics` to include host cpu statistics information (system, user, idle cpu time and used cpu percentage)
-3.  I-3.3 Schema modification of `vm_static` table to include numatune mode configuration and virtual NUMA node count
-4.  I-3.4 Add table `numa_node` to include host/vm NUMA node information (node index, total memory, cpu count of each node) and statistics information (system, user, idle cpu time, used cpu percentage, free memory and used memory percentage)
-5.  I-3.5 Add table `vm_vds_numa_node_map` to include the configuration of vm virtual NUMA nodes pinning to host NUMA nodes (this is a relationship table, store the map relations between `vm_numa_node` and `vds_numa_node`)
+2.  I-3.2 Add table `vds_cpu_statistics` to include host cpu statistics information (system, user, idle cpu time and used cpu percentage).
+3.  I-3.3 Schema modification of `vm_static` table to include numatune mode configuration and virtual NUMA node count.
+4.  I-3.4 Add table `numa_node` to include host/vm NUMA node information (node index, total memory, cpu count of each node) and statistics information (system, user, idle cpu time, used cpu percentage, free memory and used memory percentage).
+5.  I-3.5 Add table `vm_vds_numa_node_map` to include the configuration of vm virtual NUMA nodes pinning to host NUMA nodes (this is a nested relationship table, store the map relations between vm NUMA nodes and host NUMA nodes which are all in table numa_node).
+6.  I-3.6 Add table `numa_node_cpu_map` to include the cpu information that each host/vm NUMA node contains.
+7.  I-3.7 Add table `numa_node_distance` to include the distance information between the NUMA nodes.
 
 The above interfaces are defined with database design diagram ![](Database_design_diagram.png "fig:Database_design_diagram.png")
 

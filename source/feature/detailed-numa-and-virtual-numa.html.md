@@ -226,19 +226,17 @@ Currently, we plan to provide below search functions about NUMA feature, each fi
     -   NUMA node cpu usage
 
 2.  Search vms with the below NUMA related fields:
-    -   Manual NUMA binding
     -   NUMA tune mode
     -   Virtual NUMA node number
     -   Virtual NUMA node vcpu count
     -   Virtual NUMA node total memory
 
-3.  Manual NUMA binding and NUMA tune mode support enum value relation, the others support the numeric relation.
-    -   Modify `org.ovirt.engine.core.searchbackend.SearchObjects` to add new entry NUMANODES and VIRTUALNUMANODES.
+3.  NUMA tune mode support enum value relation, the others support the numeric relation.
+    -   Modify `org.ovirt.engine.core.searchbackend.SearchObjects` to add new entry NUMANODES.
     -   Add `org.ovirt.engine.core.searchbackend.NumaNodeConditionFieldAutoCompleter` to provide NUMA node related filters auto completion;
-    -   Add `org.ovirt.engine.core.searchbackend.VirtualNumaNodeConditionFieldAutoCompleter` to provide virtual NUMA node related filters auto completion.
-    -   Modify `org.ovirt.engine.core.searchbackend.SearchObjectAutoCompleter` to add new joins, one is HOST joins NUMANODES on vds_id, the other is VM joins VIRTUALNUMANODES on vm_guid.
-    -   Add new entries in entitySearchInfo accordingly. NUMANODES will use new added view vds_numa_node_view and VIRTUALNUMANODES will use new added view vm_numa_node_view.
-    -   Modify `org.ovirt.engine.core.searchbackend.VdsCrossRefAutoCompleter` to add auto complete entry NUMANODES; Modify `org.ovirt.engine.core.searchbackend.VmCrossRefAutoCompleter` to add auto complete entry VIRTUALNUMANODES.
+    -   Modify `org.ovirt.engine.core.searchbackend.SearchObjectAutoCompleter` to add new joins, one is HOST joins NUMANODES on vds_id, the other is VM joins NUMANODES on vm_guid.
+    -   Add new entries in entitySearchInfo accordingly. NUMANODES will use new added view vds_numa_node_view and view vm_numa_node_view.
+    -   Modify `org.ovirt.engine.core.searchbackend.VdsCrossRefAutoCompleter` to add auto complete entry NUMANODES.
 
 #### Interface and data structure in engine core
 

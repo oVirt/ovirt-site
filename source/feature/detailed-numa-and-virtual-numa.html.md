@@ -193,18 +193,16 @@ The above interfaces are defined with database design diagram ![](Database_desig
     3.  Modify the function of `InsertVdsDynamic`, `UpdateVdsDynamic` in `vds_sp.sql` to add new columns `auto_numa_banlancing` and `vds_numa_node_count`.
     4.  Modify the function of `InsertVmStatic`, `UpdateVmStatic` in `vms_sp.sql` to add two new columns `numatune_mode` and `vm_numa_node_count`.
     5.  Modify `create_views.sql` to add new columns `numatune_mode` and `vm_numa_node_count` in view `vms`; add new columns `auto_numa_banlancing` and `vds_numa_node_count` in view `vds`.
-    6.  Modify `create_views.sql` to add new views, including view `vds_numa_node_view` which joins `vds_static`, `vds_numa_node` and `vds_numa_node_statistics`; view `vm_numa_node_view` which joins `vm_static`, `vm_numa_node`; view `vm_numatune_nodeset_view` which joins `vm_static`, `vm_numatune_nodeset` and `vds_numa_node`; view `vm_vds_numa_node_view` which joins `vm_numa_node`, `vm_vds_numa_node_map` and `vds_numa_node`.
-    7.  Modify `upgrade/post_upgrade/0010_add_object_column_white_list_table.sql` to add new columns `auto_numa_banlancing`, `numa_node_distance_list` and `vds_numa_node_count`.
-    8.  Add one script under `upgrade/` to create tables - `vm_numa_node`, `vds_numa_node`, `vm_numatune_nodeset`, `vds_numa_node_statistics`, `vds_cpu_statistics`, `vm_vds_numa_node_map` and add columns in table `vds_dynamic` and `vm_static`.
-    9.  Create the following indexes in the script mentioned in point 8:
-        -   Index on column `vm_guid` of table `vm_numa_node`
-        -   Index on column `vds_numa_node_count` of table `vds_dynamic`
-        -   Indexes on each of the columns `vm_guid` and `vds_numa_node_id` of table `vm_numatune_nodeset`
-        -   Indexes on each of the columns `vds_id` and `cpu_count` of table `vds_numa_node`
-        -   Indexes on each of the columns `vds_id` and `vds_numa_node_id` of table `vds_cpu_statistics`
+    6.  Modify `create_views.sql` to add new column `auto_numa_balancing` in view `vds_with_tags`.
+    7.  Modify `create_views.sql` to add new views, including view `vds_numa_node_view` which joins `vds_dynamic` and `numa_node`; view `vm_numa_node_view` which joins `vm_static` and `numa_node`.
+    8.  Modify `upgrade/post_upgrade/0010_add_object_column_white_list_table.sql` to add new columns `auto_numa_banlancing` and `vds_numa_node_count`.
+    9.  Add one script under `upgrade/` to create tables - `numa_node`, `vds_cpu_statistics`, `vm_vds_numa_node_map`, `numa_node_cpu_map`, `numa_node_distance` and add columns in table `vds_dynamic` and `vm_static`.
+    10. Create the following indexes:
+        -   Index on column `vm_or_vds_guid` of table `numa_node`
+        -   Index on column `vds_id` of table `vds_cpu_statistics`
+        -   Index on column `numa_node_id` of table `numa_node_cpu_map`
+        -   Index on column `numa_node_id` of table `numa_node_distance`
         -   Indexes on each of the columns `vm_numa_node_id` and `vds_numa_node_id` of table `vm_vds_numa_node_map`
-
-    10. Modify `create_views.sql` to add new columns `auto_numa_balancing` and `numa_node_distance_list` in view `vds_with_tags`.
 
 <!-- -->
 

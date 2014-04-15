@@ -207,13 +207,10 @@ The above interfaces are defined with database design diagram ![](Database_desig
 <!-- -->
 
 *   Related DAO change:
-    1.  Add `VdsNumaNodeDAO` and related implemention to provide data save, update, delete and kinds of queries in table `vds_numa_node` and `vds_numa_node_statistics`. Add `VdsNumaNodeDAOTest` for `VdsNumaNodeDAO` meanwhile.
-    2.  Add `VmNumaNodeDAO` and related implemention to provide data save, update, delete and kinds of queries in table `vm_numa_node`. Add `VmNumaNodeDAOTest` for `VmNumaNodeDAO` meanwhile.
-    3.  Add `VmNumatuneNodesetDAO` and related implemention to provide data save, update, delete in table `vm_numatune_nodeset` and queries to get vm configured VDS NUMA node which needs to join table `vm_static`,` vm_numatune_nodeset` and `vds_numa_node`. Add `VmNumatuneNodesetDAOTest` for `VmNumatuneNodesetDAO` meanwhile.
-    4.  Add `VdsCpuStatisticsDao` and related implementation to provide data save, update, delete and kinds of queries in table `vds_cpu_statistics`. Add `VdsCpuStatisticsDAOTest` for `VdsCpuStatisticsDAO` meanwhile.
-    5.  Modify `VdsDynamicDAODbFacadeImpl` and `VdsDAODbFacadeImpl` to add the map of new columns `auto_numa_banlancing`, `numa_node_distance_list` and `vds_numa_node_count`. Run `VdsDynamicDAOTest` to verify the modification.
-    6.  Modify `VmStaticDAODbFacadeImpl` and `VmDAODbFacadeImpl` to add the map of new columns `numa_type`, `numatune_mode` and `numa_node_count`. Run `VmStaticDAOTest` to verify the modification.
-    7.  Add `VmNumaNodeMapDAO` and related implemention to provide data save, update, delete in table `vm_vds_numa_node_map` and queries about the relationship between `vm_numa_node` and `vds_numa_node` which needs to join table `vm_numa_node`, `vm_vds_numa_node_map` and `vds_numa_node`. Add `VmNumaNodeMapDAOTest` for `VmNumaNodeMapDAO` meanwhile.
+    1.  Add `NumaNodeDAO` and related implemention to provide data save, update, delete and kinds of queries in table `numa_node`, `numa_node_cpu_map`, `vm_vds_numa_node_map` and `numa_node_distance`. Add `NumaNodeDAOTest` for `NumaNodeDAO` meanwhile.
+    2.  Add `VdsCpuStatisticsDao` and related implementation to provide data save, update, delete and kinds of queries in table `vds_cpu_statistics`. Add `VdsCpuStatisticsDAOTest` for `VdsCpuStatisticsDAO` meanwhile.
+    3.  Modify `VdsDynamicDAODbFacadeImpl` and `VdsDAODbFacadeImpl` to add the map of new columns `auto_numa_banlancing` and `vds_numa_node_count`. Run `VdsDynamicDAOTest` to verify the modification.
+    4.  Modify `VmStaticDAODbFacadeImpl` and `VmDAODbFacadeImpl` to add the map of new columns `numatune_mode` and `numa_node_count`. Run `VmStaticDAOTest` to verify the modification.
 
 <!-- -->
 

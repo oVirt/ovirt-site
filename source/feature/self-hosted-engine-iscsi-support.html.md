@@ -62,6 +62,30 @@ The target name list can be obtained by the portal and a default can be set if o
 
 #### VDSM commands involved
 
+If device is not already attached / known:
+
+      discoverSendTargets(con={'connection': '192.168.1.105', 'password': '******', 'port': '3260', 'user': ''}, options=None)
+      discoverSendTargets, Return response: {'fullTargets': ['192.168.1.105:3260,1 iqn.2009-02.com.example:for.all'], 'targets': ['iqn.2009-02.com.example:for.all']}
+      connectStorageServer(domType=3, spUUID='00000000-0000-0000-0000-000000000000', conList=[{'connection': '192.168.1.105', 'iqn': 'iqn.2009-02.com.example:for.all', 'portal': '0', 'user': '', 'password': '******', 'id': '00000000-0000-0000-0000-000000000000', 'port': '3260'}], options=None)
+      connectStorageServer, Return response: {'statuslist': [{'status': 0, 'id': '00000000-0000-0000-0000-000000000000'}]}
+      getDeviceList(storageType=3, options={})
+      getDeviceList, Return response: {'devList': [{'status': 'free', 'vendorID': 'IET', 'capacity': '31457280000', 'fwrev': '0001', 'vgUUID': '', 'pathlist': [{'initiatorname': 'default', 'connection': '192.168.1.105', 'iqn': 'iqn.2009-02.com.example:for.all', 'portal': '1', 'password': '******', 'port': '3260'}], 'logicalblocksize': '512', 'pathstatus': [{'physdev': 'sdb', 'type': 'iSCSI', 'state': 'active', 'lun': '1'}], 'devtype': 'iSCSI', 'physicalblocksize': '4096', 'pvUUID': '', 'serial': 'SIET_VIRTUAL-DISK', 'GUID': '33000000100000001', 'productID': 'VIRTUAL-DISK'}]}
+      repoStats(options=None)
+      repoStats, Return response: {}
+      createVG(vgname='c2584832-b153-4653-8406-563938021849', devlist=['33000000100000001'], force=False, options=None)
+      createVG, Return response: {'uuid': 'kBndaS-Or6z-v25k-Kq8e-Dfk2-sExp-CejaBF'}
+      createStorageDomain(storageType=3, sdUUID='c2584832-b153-4653-8406-563938021849', domainName='iscsi', typeSpecificArg='kBndaS-Or6z-v25k-Kq8e-Dfk2-sExp-CejaBF', domClass=1, domVersion='3', options=None)
+      createStorageDomain, Return response: None
+      getStorageDomainStats(sdUUID='c2584832-b153-4653-8406-563938021849', options=None)
+      getStorageDomainStats, Return response: {'stats': {'mdasize': '134217728', 'mdathreshold': False, 'mdavalid': True, 'diskfree': '26977763328', 'disktotal': '31138512896', 'mdafree': '0'}}
+      getVGInfo(vgUUID='kBndaS-Or6z-v25k-Kq8e-Dfk2-sExp-CejaBF', options=None)
+      getVGInfo, Return response: {'info': {'state': 'OK', 'vgsize': '31138512896', 'name': 'c2584832-b153-4653-8406-563938021849', 'vgfree': '26977763328', 'vgUUID': 'kBndaS-Or6z-v25k-Kq8e-Dfk2-sExp-CejaBF', 'pvlist': [{'vendorID': 'IET', 'capacity': '31138512896', 'fwrev': '0000', 'vgUUID': 'kBndaS-Or6z-v25k-Kq8e-Dfk2-sExp-CejaBF', 'pathlist': [{'connection': '192.168.1.105', 'iqn': 'iqn.2009-02.com.example:for.all', 'portal': '1', 'port': '3260', 'initiatorname': 'default'}], 'pathstatus': [{'physdev': 'sdb', 'type': 'iSCSI', 'state': 'active', 'lun': '1'}], 'devtype': 'iSCSI', 'pvUUID': 'XsT0GW-NfZ4-jomf-SfWy-7feS-IvmJ-uzA1tK', 'serial': 'SIET_VIRTUAL-DISK', 'GUID': '33000000100000001', 'devcapacity': '31457280000', 'productID': 'VIRTUAL-DISK'}], 'type': 3, 'attr': {'allocation': 'n', 'partial': '-', 'exported': '-', 'permission': 'w', 'clustered': '-', 'resizeable': 'z'}}}
+      connectStorageServer(domType=3, spUUID='9bfe34ee-444c-4171-a69b-4b99da61ea39', conList=[{'connection': '192.168.1.105', 'iqn': 'iqn.2009-02.com.example:for.all', 'portal': '1', 'user': '', 'password': '******', 'id': '40362546-4363-40e8-ae9d-29f519a94573', 'port': '3260'}], options=None)
+      connectStorageServer, Return response: {'statuslist': [{'status': 465, 'id': '40362546-4363-40e8-ae9d-29f519a94573'}]}
+      createStoragePool(poolType=None, spUUID='9bfe34ee-444c-4171-a69b-4b99da61ea39', poolName='iscsi', masterDom='c2584832-b153-4653-8406-563938021849', domList=['c2584832-b153-4653-8406-563938021849'], masterVersion=1, lockPolicy=None, lockRenewalIntervalSec=5, leaseTimeSec=60, ioOpTimeoutSec=10, leaseRetries=3, options=None)
+
+If device is already attached / known
+
       getDeviceList(storageType=3, options={})
       getDeviceList, Return response: {'devList': [{'status': 'free', 'vendorID': 'IET', 'capacity': '33554432000', 'fwrev': '0001', 'vgUUID': '', 'pathlist': [{'initiatorname': 'default', 'connection': '192.168.1.105', 'iqn': 'iqn.2009-02.com.example:for.all', 'portal': '1', 'password': '******', 'port': '3260'}], 'logicalblocksize': '512', 'pathstatus': [{'physdev': 'sdb', 'type': 'iSCSI', 'state': 'active', 'lun': '1'}], 'devtype': 'iSCSI', 'physicalblocksize': '512', 'pvUUID': '', 'serial': 'SIET_VIRTUAL-DISK', 'GUID': '1IET_00010001', 'productID': 'VIRTUAL-DISK'}]}
       createVG(vgname='139ce2bb-e1dc-4757-add6-37ce8f410c4a', devlist=['1IET_00010001'], force=False, options=None)

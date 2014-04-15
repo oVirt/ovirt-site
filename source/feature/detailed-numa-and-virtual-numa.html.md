@@ -238,6 +238,8 @@ Currently, we plan to provide below search functions about NUMA feature, each fi
     -   Add new entries in entitySearchInfo accordingly. NUMANODES will use new added view vds_numa_node_view and view vm_numa_node_view.
     -   Modify `org.ovirt.engine.core.searchbackend.VdsCrossRefAutoCompleter` to add auto complete entry NUMANODES.
 
+*   Cascade-delete
+
 #### Interface and data structure in engine core
 
 ![](ARCH Class Diagram.png "ARCH Class Diagram.png")

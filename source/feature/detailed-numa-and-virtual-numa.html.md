@@ -177,7 +177,7 @@ using API.py `Global.getStats` function to get host NUMA statistics data
 
 #### Interface between engine core and database (schema)
 
-1.  I-3.1 Schema modification of `vds_dynamic` table to include host's NUMA node distance information, NUMA node count and automatic NUMA balancing support flag.
+1.  I-3.1 Schema modification of `vds_dynamic` table to include host's NUMA node count and automatic NUMA balancing status.
 2.  I-3.2 Add table `vds_cpu_statistics` to include host cpu statistics information (system, user, idle cpu time and used cpu percentage)
 3.  I-3.3 Add table `vds_numa_node_statistics` to include host NUMA node statistics information (system, user, idle cpu time, used cpu percentage, free memory and used memory percentage)
 4.  I-3.4 Schema modification of `vm_static` table to include NUMA type, numatune mode configuration and virtual NUMA node count

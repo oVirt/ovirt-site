@@ -136,7 +136,14 @@ Users will be able to use iSCSI storage as data domain for Hosted Engine.
 
 ### Testing
 
-TBD
+You can test experimental builds by installing RPM from the following Jenkins jobs:
+
+`* ovirt-hosted-engine-setup: `[`http://jenkins.ovirt.org/view/Packaging/job/ovirt-hosted-engine-setup_master_create_rpms/195/`](http://jenkins.ovirt.org/view/Packaging/job/ovirt-hosted-engine-setup_master_create_rpms/195/)
+`* ovirt-hosted-engine-ha: `[`http://jenkins.ovirt.org/view/Packaging/job/ovirt-hosted-engine-ha_create_rpms/108/`](http://jenkins.ovirt.org/view/Packaging/job/ovirt-hosted-engine-ha_create_rpms/108/)
+
+Above builds include also experimental support for tagged vlans and bond interfaces.
+
+Since this is an experimental development build, please don't open new BZ, just send an email to feature owners attaching vdsm, sanlock, libvirt, hosted-engine setup and ha logs.
 
 ### Comments and Discussion
 

@@ -36,13 +36,13 @@ Create `/etc/yum.repos.d/ovirt-snapshots.repo`, replace `@distro@` with `fc` for
 
       [ovirt-snapshots]
       name=local
-      baseurl=http://resources.ovirt.org/pub/ovirt-snapshot/rpm/@distro@$releasever
+      baseurl=http://resources.ovirt.org/pub/ovirt-master-snapshot/rpm/@distro@$releasever
       enabled=1
       gpgcheck=0
       priority=10
       [ovirt-snapshots-static]
       name=local
-      baseurl=http://resources.ovirt.org/pub/ovirt-snapshot-static/rpm/@distro@$releasever
+      baseurl=http://resources.ovirt.org/pub/ovirt-master-snapshot-static/rpm/@distro@$releasever
       enabled=1
       gpgcheck=0
       priority=10

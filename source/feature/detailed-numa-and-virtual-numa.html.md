@@ -242,8 +242,9 @@ We will do the following modifications:
 5.  Modify `org.ovirt.engine.core.searchbackend.VdsCrossRefAutoCompleter` to add auto complete entry NUMANODES.
 
 *   Cascade-delete
-    1.  When user remove a virtual NUMA node, the related rows in table `numa_node_cpu_map`, `vm_vds_numa_node_map`, `numa_node_distance`(maybe in future) and `numa_node` should be removed meanwhile.
-    2.  
+    1.  When user remove a virtual NUMA node, the related rows in table `numa_node_cpu_map`, `vm_vds_numa_node_map`, `numa_node_distance`(maybe in future, currently no distance information for virtual NUMA node) and `numa_node` should be removed meanwhile.
+    2.  When user remove a vm, all the virtual NUMA nodes of this vm should be removed, follow above item to do the cascade-delete.
+    3.  When user remove a host, the related rows in table `numa_node_cpu_map`, `vm_vds_numa_node_map`, `numa_node_distance`, `numa_node` and `vds_cpu_statistics` should be removed meanwhile.
 
 #### Interface and data structure in engine core
 

@@ -22,10 +22,10 @@ In oVirt, Gamification refers to the initiative that aims to increase awareness 
 
 ## Projects
 
-### ProgressBar UI plugin
+### ProgressBar plugin
 
 Summary  
-[UI plugin](Features/UIPlugins) that tracks the progress of using an oVirt system through achievements
+[UI plugin](Features/UIPlugins) that tracks the progress of using oVirt system through achievements
 
 Owner  
 [Vojtech Szocs](User:Vszocs) <vszocs@redhat.com>
@@ -57,10 +57,24 @@ ProgressBar is meant to encourage users to explore oVirt features through WebAdm
 
 *   achievements can be organized into levels
 
-### Space Shooter UI plugin
+### AngularJS Demo Plugin
 
 Summary  
-[UI plugin](Features/UIPlugins) that serves as demo/tutorial on writing simple plugin
+[UI plugin](Features/UIPlugins) that uses [AngularJS](http://angularjs.org/) to establish a Model-View-Controller architecture
+
+Owner  
+[Kanagaraj Mayilsamy](User:Kmayilsa) <kmayilsa@redhat.com> and [Vojtech Szocs](User:Vszocs) <vszocs@redhat.com>
+
+Current status  
+finished, code available from [sample UI plugin repository](Features/UIPlugins#Sample_UI_plugins) as `angular-demo-plugin`
+
+Notes  
+this plugin was developed while working on [ProgressBar plugin](#ProgressBar_plugin)
+
+### Space Shooter plugin
+
+Summary  
+[UI plugin](Features/UIPlugins) meant as tutorial on writing simple plugin incorporating HTML5 game
 
 Owner  
 [Vojtech Szocs](User:Vszocs) <vszocs@redhat.com>

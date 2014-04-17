@@ -13,8 +13,6 @@ wiki_warnings: list-item?
 
 # Quick Start Guide
 
-This quick start guide is adapted from the [RHEV 3.3 quick start guide](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Virtualization/3.3/html-single/Quick_Start_Guide/index.html). The fundamentals are the same between RHEV and oVirt, but this document could use more checking against oVirt 3.3.
-
 ## Introduction
 
 This document is a step-by-step guide for first-time users to install and configure a basic oVirt environment and create virtual machines.

@@ -33,6 +33,12 @@ The Neutron Virtual Appliance designed to provide an easy and simple deployment 
 The feature designed to ease the neutron services provisioning from within ovirt by reducing the overhead of installing and configuring OpenStack.
 For that purpose an image was created for a rapid provisioning, where the image contains all of the relevant services installed and configured with basic configuration that allows the ovirt-engine administrator with few (or more) steps to use the neutron services from ovirt.
 The neutron appliance for ovirt-engine 3.5 is based on the Havana-RDO which uses [Packstack](https://wiki.openstack.org/wiki/Packstack) for installing OpenStack.
+ The neutron node contains the following:
+
+1.  OVS plugin
+2.  L2 Agent
+3.  L3 Agent
+4.  DHCP Agent
 
 #### Steps for creating the image
 

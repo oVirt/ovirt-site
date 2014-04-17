@@ -57,24 +57,22 @@ Fence kdump will be inserted into current fencing flow just before hard fencing,
 
 ## Host configuration to enable fence_kdump
 
-There's fence_kdump support in package kexec-tools 2.0.4.18, but unfortunately this support is tightly bound to Pacemaker software. Bug [1078134](https://bugzilla.redhat.com/show_bug.cgi?id=1078134) was created, several patches has been proposed to kexec-tools package and you can found discussion about them in those threads:
+There's fence_kdump support in package kexec-tools 2.0.4.18 (Fedora 20) and 2.0.0-273 (RHEL 6.5), but unfortunately this support is tightly bound to Pacemaker software.
 
-*   [Adding support for manually configured fence_kdump](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000574.html)
-*   [Adding support for manually configured fence_kdump v2](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000583.html)
-*   [fence_kdump configuration should be in one directory](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000601.html)
-*   [Add fence_kdump support for generic cluster v3](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000676.html)
-*   [Rename FENCE_KDUMP_CONFIG to FENCE_KDUMP_CONFIG_FILE](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000679.html)
-*   [Rename FENCE_KDUMP_NODES to FENCE_KDUMP_NODES_FILE](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000680.html)
-*   [Move fence_kdump nodes filtering into separate function](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000681.html)
-*   [Rename is_fence_kdump to is_pcs_fence_kdump](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000682.html)
-*   [Rename check_fence_kdump to check_pcs_fence_kdump](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000683.html)
-*   [Add fence_kdump support for generic clusters](https://lists.fedoraproject.org/pipermail/kexec/2014-March/000684.html)
+Patches were sent to support fence_kdump configuration directly in */etc/kdump.conf* using these new options:
 
-If those patches from v3 will be accepted, fence_kdump will be configured automatically when executing `kdumpctl restart` if `fence_kdump_nodes` option in `kdump.conf` will contain at least one host to send notification to, for example:
+*   **fence_kdump_args**
+    -   Command line arguments for *fence_kdump_send* (it can contain all valid arguments except hosts to send notification to)
+*   **fence_kdump_nodes**
+    -   List of cluster node(s) separated by space to send fence_kdump notification to (this option is mandatory to enable fence_kdump)
+
+If option **fence_kdump_nodes** will contain at least one host to send notification to, for example:
 
       fence_kdump_nodes 192.168.1.10 10.34.63.155
 
-If required other `fence_kdump_send` arguments can be set using `fence_kdump_args` option in `kdump.conf`, for example:
+fence_kdump will be configured.
+
+If required, other *fence_kdump_send* arguments can be set using **fence_kdump_args** option, for example:
 
       fence_kdump_args -p 7410 -f auto -i 5"
 

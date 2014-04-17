@@ -13,7 +13,7 @@ wiki_last_updated: 2015-05-13
 
 # Summary
 
-This wiki provides the basic operational information needed to install and maintain the oVirt hosted engine.
+This wiki provides the basic operational information needed to install, upgrade and maintain the oVirt hosted engine.
 
 # **Contacts**
 
@@ -116,6 +116,21 @@ there is only one host available to run the engine VM. The way to maintain a hos
 To resume HA functionality, use:
 
          # hosted-engine --set-maintenance=none
+
+# **Upgrade Hosted Engine from 3.3 to 3.4**
+
+Assuming you have already installed Hosted Engine 3.3 on your host and also engine vm have Ovirt version 3.3
+
+        1) Set hosted engine maintenance mode to global(now ha agent stop monitoring engine-vm, you can see above how to activate it)
+        2) Upgrade hosts with new packages(changes repository to 3.4 and run yum update -y) on this stage appear vdsm-tool exception 
+`  `[`https://bugzilla.redhat.com/show_bug.cgi?id=1088805`](https://bugzilla.redhat.com/show_bug.cgi?id=1088805)
+        3) restart vdsm(# service vdsmd restart)
+        4) Restart ha-agent and broker services(# service ovirt-ha-broker restart && service ovirt-ha-agent restart)
+        5) Enter to engine-vm and upgrade ovirt packages to 3.4
+        6) Enter for example via UI to engine and change 'Default' cluster(where all your hosted hosts seats) compatibility version to 3.4
+        and activate you hosts(because after vdsm upgrade they in non-operational state)
+        7) Change hosted-engine maintenance to none, in 3.4 you can do it via UI(right click on engine vm,
+        and 'Disable Global HA Maintenance Mode')
 
 # **More info**
 

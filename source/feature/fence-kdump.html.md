@@ -111,7 +111,18 @@ There are currently several possible methods how to receive fence_kdump notifica
         -   UDP connection to port 7410 from all hosts to the host that listener is running on should be allowed
         -   We will need to implement API for communication between engine and standalone listener
 
-We decided to implement new standalone listener running on the same host as engine (option 4).
+We decided to implement new standalone listener running on the same host as engine (option 4) with these features:
+
+1.  Listener will receive message and checks if it's valid fence_kdump message (compares magic number and message version in the same way as in *fence_kdump* command)
+2.  If message is valid, write IP address and timestamp to **fence_kdump_messages** table in engine database
+
+For oVirt 3.5 we will rely on current fence_kdump capabilities, but for next oVirt version (3.6/4.0) we plan to send more patches to **fence-agents-kdump** and **kexec-tools** which will extend fence_kdump behaviour to be able:
+
+*   To send message sequence number
+*   To include unique host identification (host UUID) so we will not have to rely on DNS to pair incoming message with existing hosts
+*   To include HMAC signature to message
+*   To receive kdump status notification (STARTED, DUMPING, FINISHED, ERROR, ...) and send the status
+*   To use TCP protocol
 
 ## Open questions/issues
 

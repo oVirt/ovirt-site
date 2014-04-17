@@ -76,11 +76,11 @@ If required, other *fence_kdump_send* arguments can be set using **fence_kdump_a
 
       fence_kdump_args -p 7410 -f auto -i 5"
 
-Patches are managed using those bugs:
+Patches are managed using those RFEs:
 
-*   Fedora 20: [BZ1078134](http://bugzilla.redhat.com/1078134)
-*   RHEL 6.6: [BZ1083938](http://bugzilla.redhat.com/1083938)
-*   RHEL 7.1: [BZ1086988](http://bugzilla.redhat.com/1086988)
+*   Fedora 20: [BZ1078134](https://bugzilla.redhat.com/1078134)
+*   RHEL 6.6: [BZ1083938](https://bugzilla.redhat.com/1083938)
+*   RHEL 7.1: [BZ1086988](https://bugzilla.redhat.com/1086988)
 
 ## Receiving fence_kdump notifications
 

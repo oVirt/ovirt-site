@@ -641,11 +641,19 @@ The [oVirt Space Shooter](Tutorial/UIPlugins/CrashCourse) tutorial walks you thr
 
 ![](OVirt_Space_Shooter_3.png "oVirt Space Shooter")
 
+#### AngularJS Demo Plugin
+
+This sample UI plugin uses [AngularJS](http://angularjs.org/), Model-View-Controller framework for JavaScript.
+
+Plugin source code is available from [sample UI plugin repository](#Sample_UI_plugins) as `angular-demo-plugin`.
+
 ### Resources
 
-*   Presentation slides: ![](UI_Plugins_PoC_Overview_2012.pdf "UI Plugins PoC Overview") (October 2012)
-*   Presentation slides: ![](UI_Plugins_at_oVirt_Workshop_Sunnyvale_2013.pdf "UI Plugins at oVirt Workshop Sunnyvale") (January 2013)
-*   Miscellaneous: [Original Design Notes](Features/UIPluginsOriginalDesignNotes), ![](Ui-plugin-figures.tar.gz "UI Plugin Figures")
+*   ![](Writing-ui-plugin-with-angularjs.pdf "Writing UI plugin with AngularJS") + ![](Writing-ui-plugin-with-angularjs-demo-files.tar.gz "Sample Code") (April 2014)
+*   ![](UI_Plugins_at_oVirt_Workshop_Sunnyvale_2013.pdf "UI Plugins at oVirt Workshop Sunnyvale") (January 2013)
+*   ![](UI_Plugins_PoC_Overview_2012.pdf "UI Plugins PoC Overview") (October 2012)
+*   [Original Design Notes](Features/UIPluginsOriginalDesignNotes)
+*   ![](Ui-plugin-figures.tar.gz "UI Plugin Figures")
 
 ### UI plugin cheat sheet
 

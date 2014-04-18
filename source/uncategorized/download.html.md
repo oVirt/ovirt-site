@@ -80,6 +80,7 @@ Supported Hosts:
 ### Mirrors for oVirt Downloads
 
 *   [Duke University](http://archive.linux.duke.edu/ovirt/) ([Stable](http://archive.linux.duke.edu/ovirt/releases/stable/) | [Current](http://archive.linux.duke.edu/ovirt/releases/beta/) | [Future](http://archive.linux.duke.edu/ovirt/releases/updates-testing/))
+*   [Georgia Institute of Technology](http://www.gtlib.gatech.edu/pub/oVirt) ([Stable](http://www.gtlib.gatech.edu/pub/ovirt/releases/stable/) | [Current](http://www.gtlib.gatech.edu/pub/ovirt/releases/beta/) | [Future](http://www.gtlib.gatech.edu/pub/ovirt/releases/updates-testing/) | [FTP Site](ftp://ftp.gtlib.gatech.edu/pub/oVirt))
 *   [ibiblio](http://mirrors.ibiblio.org/ovirt/) ([Stable](http://mirrors.ibiblio.org/ovirt/releases/stable/) | [Current](http://mirrors.ibiblio.org/ovirt/releases/beta/) | [Future](http://mirrors.ibiblio.org/ovirt/releases/updates-testing/))
 
 ### GPG Keys used by oVirt

@@ -136,7 +136,7 @@ Add a custom_properties field to api.xsd for the NIC type:
         </custom_properties>
     </host_nic>
 
-and possibly for the Network type as well. There will also be a need to modify the Setup Networks command in rsdl_metadata.yaml, and maybe the add/update NIC commands as well. If the feature includes implementation of custom properties on logical networks, then the add/update network commands will need to be modified too. At last, mapping between the REST entities and the engine entities will have to be modified.
+If the extension to logical networks is implemented (which seems unlikely at the moment), then that entity will have be to extended as well. There will also be a need to modify the Setup Networks command in rsdl_metadata.yaml, but probably not the obsolete add/update NIC commands. Again, if the feature includes implementation of custom properties on logical networks, then the add/update network commands will need to be modified too. At last, mapping between the REST entities and the engine entities will have to be modified.
 
 #### Backwards Compatibility
 

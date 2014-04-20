@@ -121,7 +121,22 @@ When executing Setup Networks, the VdsNetworkInterface custom properties member 
 
 #### REST
 
-Add a custom_properties field to api.xsd for the NIC type, and possibly for the Network type as well. There will also be a need to modify the Setup Networks command in rsdl_metadata.yaml, and maybe the add/update NIC commands as well. If the feature includes implementation of custom properties on logical networks, then the add/update network commands will need to be modified too. At last, mapping between the REST entities and the engine entities will have to be modified.
+Add a custom_properties field to api.xsd for the NIC type:
+
+    <host_nic href="/api/hosts/517b98ee-386c-4538-8f9c-b3216663fb20/nics/e8c1764e-28bb-42a6-aa95-76ce73e944e2" id="e8c1764e-28bb-42a6-aa95-76ce73e944e2">
+        <name>em1</name>
+        <mac address="84:2b:2b:9f:29:b0"/>
+        <ip address="10.35.7.23" netmask="255.255.254.0" gateway="10.35.7.254"/>
+        <boot_protocol>dhcp</boot_protocol>
+        .
+        .
+        .
+        <custom_properties>
+           <custom_property name="forward_delay" value="1500"/>
+        </custom_properties>
+    </host_nic>
+
+and possibly for the Network type as well. There will also be a need to modify the Setup Networks command in rsdl_metadata.yaml, and maybe the add/update NIC commands as well. If the feature includes implementation of custom properties on logical networks, then the add/update network commands will need to be modified too. At last, mapping between the REST entities and the engine entities will have to be modified.
 
 #### Backwards Compatibility
 

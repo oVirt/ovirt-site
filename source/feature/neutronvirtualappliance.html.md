@@ -15,9 +15,9 @@ feature_status: Development
 
 ### Summary
 
-oVirt engine has integrated the OpenStack Neutron service as a [network provider](Features/OSN_Integration), providing the ovirt-engine administrator to leverage the neutron services to be consumed by oVirt.
-However, in order to provision neutron services, one needs to manually deploy a neutron and keystone services.
-The Neutron Virtual Appliance designed to provide an easy and simple deployment of the neutron service.
+oVirt engine has integrated the OpenStack Neutron service as a [network provider](Features/OSN_Integration). The OpenStack network provider enables ovirt-engine to consume Neutron services.
+However, in order to provision Neutron services, one needs to manually deploy Neutron and Keystone services.
+The Neutron Virtual Appliance designed to provide an easy and simple deployment of those services.
 
 ### Owner
 

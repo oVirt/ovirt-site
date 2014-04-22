@@ -153,20 +153,31 @@ For oVirt 3.5 we will rely on current fence_kdump capabilities, but for next oVi
 Host kdump flow detection will be inserted into automatic fencing flow just before execution of hard fencing:
 
 1.  On first network failure, host status will change to **Connecting**
-2.  If the host doesn't respond during time interval, execute SSH Soft Fencing. If command execution wasn't successful, proceed to hard fencing enabled check immediately.
-3.  If the host doesn't recover during time interval, proceed hard fencing enabled check.
-4.  If hard fencing is not enabled for host, set host status to *'Non Responsive* and exit fencing flow
-5.  If fence kdump is not enabled for the host, execute hard fencing immediately
-6.  If standalone fence_kdump listener is not alive, execute hard fencing immediately
+2.  If the host doesn't respond during time interval, execute SSH Soft Fencing. If command execution wasn't successful, proceed to hard fencing enabled check immediately (step 4).
+3.  If the host doesn't recover during time interval, proceed hard fencing enabled check (step 4).
+4.  If hard fencing is not enabled for host, set host status to **Non Responsive** and exit fencing flow
+5.  If fence kdump is not enabled for the host, execute hard fencing immediately (step 8)
+6.  If standalone fence_kdump listener is not alive, execute hard fencing immediately (step 8)
 7.  Execute fence_kdump detection
-    1.  Store current timestamp into variable
-    2.  Resolve host IP and get most recent record from **fence_kdump_messages** table
-    3.  If the record timestamp
+    1.  Store current timestamp into *kdump_timestamp* variable
+    2.  Resolve host IP
+    3.  Repeat following:
+        1.  Get most recent record from **fence_kdump_messages** table for resolved IP
+        2.  If *record timestamp >= kdump_timestamp* and record status is **FINISHED**, set host status to **Reboot** and exit fencing flow
+        3.  If *record timestamp >= kdump_timestamp* and record status is **STARTED** or **DUMPING**, wait **FenceKdumpMessageInterval** and continue the loop
+        4.  if *record timestamp < kdump_timestamp* and *current timestamp >= kdump_timestamp + FenceKdumpMessageTimeout*, continue with hard fencing (step 8)
+        5.  if no record returned, wait **FenceKdumpMessageInterval** and continue the loop
 
-      alivecheck if fence kdump message will be received. If message is received, set host status to `**`Reboot`**` and exit from fencing flow.
+8.  Execute hard fencing for host
 
-1.  If message from **Non responsive** host is not received in specified timeout (`FenceKdumpMessageTimeout`), proceed to hard fencing step.
-2.  If hard fencing is configured for host, execute it. Otherwise exit from fencing flow
+Following config values are used:
+
+*   **FenceKdumpMessageInterval**
+    -   Defines the interval between messages sent by *fence_kdump_send*
+    -   Default 5 seconds
+*   **FenceKdumpMessageTimeout**
+    -   Defines maximum timeout to wait until 1st message from kdumping host is received
+    -   Default 30 seconds
 
 ## Open questions/issues
 

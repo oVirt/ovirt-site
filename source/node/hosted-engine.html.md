@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Node Hosted Engine
 wiki_revision_count: 3
 wiki_last_updated: 2014-12-05
+feature_name: Node Hosted Engine
+feature_modules: node
+feature_status: In Progress
 ---
 
 # Node Hosted Engine

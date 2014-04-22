@@ -49,7 +49,7 @@ The neutron appliance for ovirt-engine 3.5 is based on the Havana-RDO which uses
 
 1.  Add new vm network (e.g. named 'neutron') named in the relevant data-center.
 2.  Edit the 'neutron' vnic profile of the 'neutron' network to include custom properties "mac-spoof=true"
-    1.  Instructions of adding the 'mac-spoof' property can be found [here](https://github.com/oVirt/vdsm/tree/master/vdsm_hooks/macspoof).
+    1.  Instructions for adding the 'mac-spoof' property can be found [here](https://github.com/oVirt/vdsm/tree/master/vdsm_hooks/macspoof).
 
 3.  Import the neutron-appliance image as a template (e.g. named 'neutron-appliance') from the glance.ovirt.org repository.
 4.  Add a new VM (i.e. named 'neutron-provider') with 4GB RAM based on 'neutron-appliance' template and with 2 vnics:

@@ -111,7 +111,11 @@ There are currently several possible methods how to receive fence_kdump notifica
         -   UDP connection to port 7410 from all hosts to the host that listener is running on should be allowed
         -   We will need to implement API for communication between engine and standalone listener
 
-We decided to implement new standalone listener running on the same host as engine (option 4) with these features:
+We decided to implement new standalone listener running on the same host as engine (option 4).
+
+## New standalone fence_kdump listener
+
+New standalone listener will be implemented with these features:
 
 1.  Listener will receive message and checks if it's valid fence_kdump message (compares magic number and message version (currently only *1*) in the same way as in *fence_kdump* command).
 2.  If message is valid, send IP address, timestamp and protocol version (*1*) to queue.

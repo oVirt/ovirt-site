@@ -228,7 +228,7 @@ A list of existing networks should appear.
 
 #### Test neutron services
 
-Specific scenarios will be added later, for now these test cases should be fine: [Testing ovirt-neutron integration](Features/OSN_Integration#Testing)
+More scenarios can be taken from [Testing ovirt-neutron integration](Features/OSN_Integration#Testing)
 
 ### Open Issues
 

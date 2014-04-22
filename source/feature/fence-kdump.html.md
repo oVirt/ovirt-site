@@ -150,15 +150,23 @@ For oVirt 3.5 we will rely on current fence_kdump capabilities, but for next oVi
 
 ## Fencing flow with fence_kdump
 
-Fencing flow in oVirt 3.5 will be defined as this:
+Host kdump flow detection will be inserted into automatic fencing flow just before execution of hard fencing:
 
 1.  On first network failure, host status will change to **Connecting**
-2.  Then engine will try 3 times more to ask vdsm for status (configuration: `VDSAttemptsToResetCount`) or wait an interval of time that depends on host's load (configured by the the config values `TimeoutToResetVdsInSeconds` + (`DelayResetPerVmInSeconds` \* (the count of running vms on host) + (`DelayResetForSpmInSeconds` \* (1 if host runs as SPM or 0 if not)).)
-3.  If the host doesn't respond during this time, execute VDSM restart using SSH connection. If command execution wasn't successful, proceed to fence kdump step immediately.
-4.  Wait if host recovers for previously specified time (ask 3 times VDSM for status or wait an interval of time that depends on host's load) If the host doesn't respond during this time, it's status will change to **Non responsive** and fence kdump step will be executed.
-5.  If fence kdump is enabled for the host, check if fence kdump message will be received. If message is received, set host status to **Reboot** and exit from fencing flow.
-6.  If message from **Non responsive** host is not received in specified timeout (`FenceKdumpMessageTimeout`), proceed to hard fencing step.
-7.  If hard fencing is configured for host, execute it. Otherwise exit from fencing flow
+2.  If the host doesn't respond during time interval, execute SSH Soft Fencing. If command execution wasn't successful, proceed to hard fencing enabled check immediately.
+3.  If the host doesn't recover during time interval, proceed hard fencing enabled check.
+4.  If hard fencing is not enabled for host, set host status to *'Non Responsive* and exit fencing flow
+5.  If fence kdump is not enabled for the host, execute hard fencing immediately
+6.  If standalone fence_kdump listener is not alive, execute hard fencing immediately
+7.  Execute fence_kdump detection
+    1.  Store current timestamp into variable
+    2.  Resolve host IP and get most recent record from **fence_kdump_messages** table
+    3.  If the record timestamp
+
+      alivecheck if fence kdump message will be received. If message is received, set host status to `**`Reboot`**` and exit from fencing flow.
+
+1.  If message from **Non responsive** host is not received in specified timeout (`FenceKdumpMessageTimeout`), proceed to hard fencing step.
+2.  If hard fencing is configured for host, execute it. Otherwise exit from fencing flow
 
 ## Open questions/issues
 

@@ -51,10 +51,6 @@ The tool has following limitations that should be considered when using it in oV
 2.  *fence_kdump* return success exit code only for one host at the time, messages from other hosts are ignored
 3.  Package **fence-agents-kdump** doesn't contain any scripts to integrate them into kdump kernel
 
-## Fencing flow with fence kdump
-
-Fence kdump will be inserted into current fencing flow just before hard fencing, details are in [Automatic Fencing in oVirt 3.5](Automatic_Fencing#Automatic_Fencing_in_oVirt_3.5).
-
 ## Host configuration to enable fence_kdump
 
 There's fence_kdump support in package kexec-tools 2.0.4.18 (Fedora 20) and 2.0.0-273 (RHEL 6.5), but unfortunately this support is tightly bound to Pacemaker software.
@@ -151,6 +147,10 @@ For oVirt 3.5 we will rely on current fence_kdump capabilities, but for next oVi
 *   To include HMAC signature to message
 *   To receive kdump status notification (STARTED, DUMPING, FINISHED, ERROR, ...) and send the status
 *   To use TCP protocol
+
+## Fencing flow with fence kdump
+
+Fence kdump will be inserted into current fencing flow just before hard fencing, details are in [Automatic Fencing in oVirt 3.5](Automatic_Fencing#Automatic_Fencing_in_oVirt_3.5).
 
 ## Open questions/issues
 

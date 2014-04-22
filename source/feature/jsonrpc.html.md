@@ -42,6 +42,10 @@ The engine uses XML-RPC over HTTP to make API requests.
 
 #### Phase 1
 
+This is an phase not meant to be released in any version. Instead it it is meant to be used in development so integration with the engine could start.
+
+VDSM would listen in a different port for each supported transport. Messages are parsed by the appropriate transport reactor and the message boydy is passed to the JSON-RPC Server. The Server than parses the json data and calls the appropriate method on the bridge that maps to the vdsm object responsible for performing the command.
+
 ![](jsonrpc_phase1.png "jsonrpc_phase1.png")
 
 ### See also

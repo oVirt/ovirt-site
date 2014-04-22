@@ -118,14 +118,16 @@ We decided to implement new standalone listener running on the same host as engi
 New standalone listener will be implemented with these features:
 
 1.  Listener will receive message and checks if it's valid fence_kdump message (compares magic number and message version (currently only *1*) in the same way as in *fence_kdump* command).
-2.  If message is valid, send IP address, timestamp and protocol version (*1*) to queue.
+2.  If message is valid, send IP address, timestamp and empty status (fence_kdump protocol version 1 doesn't provide status of host kdump flow) to queue.
 
 In another thread queue will be processed:
 
 1.  Get message from queue
-2.  Get most recent record from **fence_kdump_messages** table in engine database with proper IP
-3.  If no record is returned or *record timestamp + NextFenceKdumpTimeout < message timestamp*, set status to **STARTED**, otherwise set status to **DUMPING**
-4.  Write IP, message timestamp and status to **fence_kdump_messages** table
+2.  If the status is empty
+    1.  Get most recent record from **fence_kdump_messages** table in engine database with proper IP
+    2.  If no record is returned or *record timestamp + NextFenceKdumpTimeout < message timestamp*, set status to **STARTED**, otherwise set status to **DUMPING**
+
+3.  Write IP, message timestamp and status to **fence_kdump_messages** table
 
 Last thread will take care of finishing fence_kdump process status:
 
@@ -134,10 +136,10 @@ Last thread will take care of finishing fence_kdump process status:
 
 The listener will use two config values:
 
-*   NextFenceKdumpTimeout
+*   **NextFenceKdumpTimeout**
     -   Defines minimum timeout allowed between one kdump flow finished and new one started for one host
     -   Default 60 seconds
-*   FenceKdumpFinishedTimeout
+*   **FenceKdumpFinishedTimeout**
     -   Defines maximum timeout after last received message from kdumping hosts after which the host kdump flow is marked as FINISHED
     -   Default 30 seconds
 

@@ -115,24 +115,23 @@ We decided to implement new standalone listener running on the same host as engi
 
 ## New standalone fence_kdump listener
 
-New standalone listener will be implemented with these features:
+The new standalong listener will be implemented with these features:
 
-1.  Listener will receive message and checks if it's valid fence_kdump message (compares magic number and message version (currently only *1*) in the same way as in *fence_kdump* command).
-2.  If message is valid, send IP address, timestamp and empty status (fence_kdump protocol version 1 doesn't provide status of host kdump flow) to queue.
+*   The first listener thread will:
+    1.  Receive a message and check if it's valid fence_kdump message (compares magic number and message version (currently only *1*) in the same way as in *fence_kdump* command).
+    2.  If message is valid, send IP address, timestamp and empty status (fence_kdump protocol version 1 doesn't provide status of host kdump flow) to queue.
+*   In another thread queue will be processed:
+    1.  Get message from queue
+    2.  If the status is empty
+        1.  Get most recent record from **fence_kdump_messages** table in engine database with proper IP
+        2.  If no record is returned or *record timestamp + NextFenceKdumpTimeout < message timestamp*, set status to **STARTED**, otherwise set status to **DUMPING**
 
-In another thread queue will be processed:
-
-1.  Get message from queue
-2.  If the status is empty
-    1.  Get most recent record from **fence_kdump_messages** table in engine database with proper IP
-    2.  If no record is returned or *record timestamp + NextFenceKdumpTimeout < message timestamp*, set status to **STARTED**, otherwise set status to **DUMPING**
-
-3.  Write IP, message timestamp and status to **fence_kdump_messages** table
-
-Last thread will take care of finishing fence_kdump process status:
-
-1.  Select the most recent records from **fence_kdump_messages** table for all IP
-2.  For each IP if record status is not **FINISHED** and *record_timestamp + FenceKdumpFinishedTimeout < current timestamp*, write new record to **fence_kdump_messages** table with status **FINISHED**
+    3.  Write IP, message timestamp and status to **fence_kdump_messages** table
+*   Another thread (it will be scheduled to execute every 30 seconds) will take care of finishing fence_kdump process status:
+    1.  Select the most recent records from **fence_kdump_messages** table for all IP
+    2.  For each IP if record status is not **FINISHED** and *record_timestamp + FenceKdumpFinishedTimeout < current timestamp*, write new record to **fence_kdump_messages** table with status **FINISHED**
+*   Last thread will be scheduler to execute every 5 seconds and it will be used as a heartbeat status for engine, that fence_kdump listener is alive:
+    1.  It will store current timestamp into **fence_kdump_messages** table for IP *fence_kdump_listener*
 
 The listener will use two config values:
 

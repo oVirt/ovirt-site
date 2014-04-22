@@ -86,7 +86,7 @@ The neutron appliance for ovirt-engine 3.5 is based on the Havana-RDO which uses
 
     1. User name: neutron
 
-    1. Password: should be found by: 'grep CONFIG_NEUTRON_KS_PW /root/packstack-answers.txt' on the neutron server vm.
+    1. Password: should be found by: 'grep CONFIG_NEUTRON_KS_PW /root/packstack-answers\*.txt' on the neutron server vm.
 
     1. Tenant name: services Verify 'connectivity test' passes (by clicking the 'Test' button)
 

@@ -113,8 +113,31 @@ There are currently several possible methods how to receive fence_kdump notifica
 
 We decided to implement new standalone listener running on the same host as engine (option 4) with these features:
 
-1.  Listener will receive message and checks if it's valid fence_kdump message (compares magic number and message version in the same way as in *fence_kdump* command)
-2.  If message is valid, write IP address and timestamp to **fence_kdump_messages** table in engine database
+1.  Listener will receive message and checks if it's valid fence_kdump message (compares magic number and message version (currently only *1*) in the same way as in *fence_kdump* command).
+2.  If message is valid, send IP address, timestamp and protocol version (*1*) to queue.
+
+In another thread queue will be processed:
+
+1.  Get message from queue
+2.  Get most recent record from **fence_kdump_messages** table in engine database with proper IP
+3.  If no record is returned or *record timestamp + NextFenceKdumpTimeout < message timestamp*, set status to **STARTED**, otherwise set status to **DUMPING**
+4.  Write IP, message timestamp and status to **fence_kdump_messages** table
+
+Last thread will take care of finishing fence_kdump process status:
+
+1.  Select the most recent records from **fence_kdump_messages** table for all IP
+2.  For each IP if record status is not **FINISHED** and *record_timestamp + FenceKdumpFinishedTimeout < current timestamp*, write new record to **fence_kdump_messages** table with status **FINISHED**
+
+The listener will use two config values:
+
+*   NextFenceKdumpTimeout
+    -   Defines minimum timeout allowed between one kdump flow finished and new one started for one host
+    -   Default 60 seconds
+*   FenceKdumpFinishedTimeout
+    -   Defines maximum timeout after last received message from kdumping hosts after which the host kdump flow is marked as FINISHED
+    -   Default 30 seconds
+
+It's supposed that fence_kdump_send will send messages every 5 seconds.
 
 For oVirt 3.5 we will rely on current fence_kdump capabilities, but for next oVirt version (3.6/4.0) we plan to send more patches to **fence-agents-kdump** and **kexec-tools** which will extend fence_kdump behaviour to be able:
 

@@ -34,9 +34,9 @@ Definition of domains from which MAC addresses will be allocated for each "scope
 
 *   Specifying MAC pool ranges for given "scope" is optional, not required. If not specified, the default, engine-wide pool will be used.
 *   When specifying mac ranges for one pool, all potential MAC range overlaps/intersections are removed. But currently NO checks are done to detect duplicates among mac ranges related to different "scopes".
-*   All defined "scoped" pools are initialized during startup, just like default MAC pool. When creating new data center/updating/removing "scoped" MAC pool is created/altered/removed in respect to that.
-*   When updated mac ranges for given "scope", notice, that MAC addresses currently will not get reassigned. Used MACs assigned from previous range definition will be added as manually specified MACs
-*   When specified mac ranges for given "scope", where there wasn't any definition previously, allocated MAC from default pool will not be moved to "scoped" one until next engine restart. Other way, when removing "scoped" mac pool definition, all MACs from this pool will be moved to default one.
+*   All defined "scoped" pools are initialized during start-up, just like default MAC pool. When creating new data center/updating/removing "scoped" MAC pool is created/altered/removed in respect to that.
+*   When updated mac ranges for given "scope", notice, that MAC addresses of existing nics currently will not get reassigned. Used MACs assigned from previous range definition will be added as manually specified MACs if they are out of pool ranges.
+*   ~~When specified mac ranges for given "scope", where there wasn't any definition previously, allocated MAC from default pool will not be moved to "scoped" one until next engine restart. Other way, when removing "scoped" mac pool definition, all MACs from this pool will be moved to default one.~~ Allocated MACs now moves between data center related pools and global one back and forth as data center pool gets created/removed.
 *   While ranges definition may differ per "scope", other variables -- 'MaxMacsCountInPool' and 'AllowDuplicateMacAddresses' are still system wide.
 
 ## Gui

@@ -9,6 +9,7 @@ wiki_last_updated: 2014-09-22
 feature_name: Neutron Virtual Appliance
 feature_modules: network
 feature_status: Development
+wiki_warnings: list-item?
 ---
 
 # Neutron Virtual Appliance
@@ -33,14 +34,92 @@ The Neutron Virtual Appliance designed to provide an easy and simple deployment 
 The feature designed to ease the neutron services provisioning from within ovirt by reducing the overhead of installing and configuring OpenStack.
 For that purpose an image was created for a rapid provisioning, where the image contains all of the relevant services installed and configured with basic configuration that allows the ovirt-engine administrator with few (or more) steps to use the neutron services from ovirt.
 The neutron appliance for ovirt-engine 3.5 is based on the Havana-RDO which uses [Packstack](https://wiki.openstack.org/wiki/Packstack) for installing OpenStack.
- The neutron node contains the following:
+ The neutron node contains the following services:
 
-1.  OVS plugin
-2.  L2 Agent
-3.  L3 Agent
-4.  DHCP Agent
+1.  Neutron server
+2.  Neutron L3 Agent
+3.  Neutron DHCP Agent
+4.  Open vSwitch Agent
+5.  Open vSwitch
+6.  QPID (messaging)
 
-#### Steps for creating the image
+### Add OpenStack network external provider using the Neutron appliance
+
+#### Create a vm based on neutron-appliance image
+
+1.  Add new vm network (e.g. named 'neutron') named in the relevant data-center.
+2.  Edit the 'neutron' vnic profile of the 'neutron' network to include custom properties "mac-spoof=true"
+    1.  Instructions of adding the 'mac-spoof' property can be found [here](https://github.com/oVirt/vdsm/tree/master/vdsm_hooks/macspoof).
+
+3.  Import the neutron-appliance image as a template (e.g. named 'neutron-appliance') from the glance.ovirt.org repository.
+4.  Add a new VM (i.e. named 'neutron-provider') with 4GB RAM based on 'neutron-appliance' template and with 2 vnics:
+    1.  eth0 - connected to 'ovirtmgmt' (needs to communicate with ovirt-engine and with the compute nodes/hypervisors)
+    2.  eth1 - connected to 'neutron' network
+
+#### Run the neutron server vm
+
+1.  Install the no-macspoof hook on the host the vm is scheduled to be run on:
+    1.  yum -y install vdsm-hook-macspoof
+
+2.  Run the vm with cloud-init:
+    1.  Set a root password.
+    2.  Configure a static IP address (will be referred later as NEUTRON_SERVER_IP_ADDRESS) for eth0 (which is connected to 'ovirtmgmt')
+
+3.  Connect to the vm (ssh/console) and run the following to verify OpenStack services are active:
+
+       # . /root/keystonerc_admin
+       # openstack-status 
+
+#### Configure Neutron network provider on ovirt-engine
+
+1.  engine-config -s KeystoneAuthUrl=<http://NEUTRON_SERVER_IP_ADDRESS:35357/v2.0/>
+2.  Restart the ovirt-engine
+3.  Add external network provider with the following properties:
+
+    * On the general left tab:
+
+    1. Type: OpenStack Network
+
+    1. Networking Plugin: Open vSwitch
+
+    1. Provider URL: <http://NEUTRON_SERVER_IP_ADDRESS:9696>
+
+    1. User name: neutron
+
+    1. Password: should be found by: 'grep CONFIG_NEUTRON_KS_PW /root/packstack-answers.txt' on the neutron server vm.
+
+    1. Tenant name: services Verify 'connectivity test' passes (by clicking the 'Test' button)
+
+    * On the Agent Configuration left tab:
+
+    1. Bridge Mappings: vmnet:br-neutron
+
+    1. QPID:
+
+    1. Host: NEUTRON_SERVER_IP_ADDRESS
+
+    1. Port: 5672
+
+    1. Username: guest
+
+    1. Password: guest
+
+#### Install a Host with the network provider
+
+1.  Configure OpenStack repository on the host, i.e.: sudo yum install -y <http://rdo.fedorapeople.org/rdo-release.rpm>
+2.  Install the host with external network provider by clicking the 'Network Provider' left tab
+3.  Select the newly configured 'neutron' network provider and set:
+    1.  bridge_mappings = vmnet:br-neutron
+
+4.  Click 'OK' to engage the installation
+5.  After installation is successfully completed, install the no-macspoof hook:
+    1.  yum -y install vdsm-hook-macspoof
+
+6.  Configure 'neutron' network on the host using the 'Setup Networks' dialog
+7.  Run the following on the host, to connect neutron integration bridge to neutron network:
+    1.  ovs-vsctl add-port br-neutron neutron
+
+### Steps for creating the image
 
 1.  Import CentOS-6.5 image as a template to 3.4 cluster from ovirt-glance repository
 2.  Create a vm from CentOS-6.5 template, configure via cloud-init:

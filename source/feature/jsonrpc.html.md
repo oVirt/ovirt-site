@@ -1,0 +1,51 @@
+---
+title: JsonRpc
+category: feature
+authors: adahms, apuimedo, pkliczewski, sandrobonazzola, smizrahi, ybronhei
+wiki_category: Feature|JsonRpc
+wiki_title: Features/Design/JsonRpc
+wiki_revision_count: 34
+wiki_last_updated: 2015-06-10
+feature_name: Introduce Messaged communication to VDSM using JSON-RPC on top of various
+  transport protocols
+feature_modules: vdsm, engine
+feature_status: In Development
+---
+
+# Json Rpc
+
+## Introduce Messaged communication to VDSM using JSON-RPC on top of various transport protocols
+
+### Summary
+
+Using a phased approach we are going to move VDSM to a point where messaging is the main communication model between the engine and VDSM as well as the numerous VDSM subsystems.
+
+### Owner
+
+*   Name: [ Saggi Mizrahi](User:smizrahi)
+*   Email: <smizrahi@redhat.com>
+
+### Current status
+
+*   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
+*   Were currently in [Phase 1](#Phase_1)
+
+### Phases
+
+#### Phase 0
+
+The is how VDSM communicated with the engine before any messaging was implemented.
+
+![](jsonrpc_phase0.png "jsonrpc_phase0.png")
+
+The engine uses XML-RPC over HTTP to make API requests.
+
+#### Phase 1
+
+![](jsonrpc_phase1.png "jsonrpc_phase1.png")
+
+### See also
+
+*   [STOMP](http://stomp.github.io)
+*   [JSON-RPC](http://www.jsonrpc.org/)
+*   [AMQP](http://www.amqp.org/)

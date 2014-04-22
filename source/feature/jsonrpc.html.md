@@ -48,6 +48,12 @@ VDSM would listen in a different port for each supported transport. Messages are
 
 ![](jsonrpc_phase1.png "jsonrpc_phase1.png")
 
+#### Phase 2
+
+**in progress**
+
+![](jsonrpc_phase2.png "jsonrpc_phase2.png")
+
 ### See also
 
 *   [STOMP](http://stomp.github.io)

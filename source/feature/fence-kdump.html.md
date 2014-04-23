@@ -137,6 +137,12 @@ The listener will use two config values:
 *   **KdumpFinishedTimeout**
     -   Defines maximum timeout after last received message from kdumping hosts after which the host kdump flow is marked as FINISHED
     -   Default 30 seconds
+*   **FenceKdumpPort**
+    -   Defines the port for receiving fence_kdump messages
+    -   Default 7410
+*   **FenceKdumpListenerAliveTimeout**
+    -   Defines time interval from last heartbeat update of fence_kdump listener to consider him alive
+    -   Default 10 seconds
 
 It's supposed that fence_kdump_send will send messages every 5 seconds.
 

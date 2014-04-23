@@ -48,13 +48,16 @@ Treatment:
 
 ### Database blockage
 
-1. Verify that the disk quota is not full 2. Report issue to OpenShift to allow them to investigate (#openshift on freenode) 3. Restart app with command "ctl_app restart"
+1.  Verify that the disk quota is not full
+2.  Report issue to OpenShift to allow them to investigate (#openshift on freenode)
+3.  Restart app with command "ctl_app restart"
 
 ### Server down or very slow
 
 Occasionally, the site has slowed dramatically due to a gear on the same host (potentially ours) doing a lot of disk I/O. On circumstances like this, sometimes parts of a page will load while others will time out, and in the past, a restart has not been sufficient to get things to a normal state.
 
-1. Try to restart the app first, either by removing .openshift/markers/hot_deploy from your copy of the site source code, and pushing the result, or by running ctl_app restart on the openshift gear 2. If this does not work, then contact the OpenShift admins on #openshift on freenode, or (if you are with Red Hat) on the internal OpenShift Operators IRC channel #libra-ops - only an OpenShift operator can diagnose and clear up the problem.
+1.  Try to restart the app first, either by removing .openshift/markers/hot_deploy from your copy of the site source code, and pushing the result, or by running ctl_app restart on the openshift gear
+2.  If this does not work, then contact the OpenShift admins on #openshift on freenode, or (if you are with Red Hat) on the internal OpenShift Operators IRC channel #libra-ops - only an OpenShift operator can diagnose and clear up the problem.
 
 ### How to check if disk is full
 

@@ -98,6 +98,7 @@ which will decide which storagePool is appropriate for your request and frees ma
 
 *   ~~When specified mac ranges for given "scope", where there wasn't any definition previously, allocated MAC from default pool will not be moved to "scoped" one until next engine restart. Other way, when removing "scoped" mac pool definition, all MACs from this pool will be moved to default one.~~ Allocated MACs now moves between data center related pools and global one back and forth as data center pool gets created/removed. When given scoped pool is removed its content is moved to global pool. And vice versa. When scoped pool is created, then all MACs which should be present in this newly created pool is moved to it from global pool.
 *   **whatever you do with pool you get anyhow, happens on this pool only. You do not have code-control on what pool you get, like if system is configured to use single pool only, then request for datacenter-related pool still return that sole one, but once you have that pool, everything happen on this pool, and, unless datacenter configuration is altered, same request in future for pool should return same pool.**
+*   **you can use same MACs on multiple data centers. Currently no checks are done to find out whether pool definition for multiple data centers overlap or not. So if you define your pools in that way, that mac ranges overlaps, one MAC address can be used multiple times. I'd observe that as an error, since it's easier to stick with one global pool with allowed duplicates.**
 
 ### Gui
 

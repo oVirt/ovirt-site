@@ -165,7 +165,7 @@ Host kdump flow detection will be inserted into automatic fencing flow just befo
         1.  Get most recent record from **fence_kdump_messages** table for resolved IP
         2.  If *record timestamp >= kdump_timestamp* and record status is **FINISHED**, set host status to **Reboot** and exit fencing flow
         3.  If *record timestamp >= kdump_timestamp* and record status is **STARTED** or **DUMPING**, wait **FenceKdumpMessageInterval** and continue the loop
-        4.  if *record timestamp < kdump_timestamp* and *current timestamp >= kdump_timestamp + FenceKdumpMessageTimeout*, continue with hard fencing (step 8)
+        4.  if *record timestamp < kdump_timestamp* and *current timestamp >= kdump_timestamp + KdumpStartedTimeout*, continue with hard fencing (step 8)
         5.  if no record returned, wait **FenceKdumpMessageInterval** and continue the loop
 
 8.  Execute hard fencing for host
@@ -175,7 +175,7 @@ Following config values are used:
 *   **FenceKdumpMessageInterval**
     -   Defines the interval between messages sent by *fence_kdump_send*
     -   Default 5 seconds
-*   **FenceKdumpMessageTimeout**
+*   **KdumpStartedTimeout**
     -   Defines maximum timeout to wait until 1st message from kdumping host is received
     -   Default 30 seconds
 

@@ -209,12 +209,12 @@ Following config values are used:
 | Configure fence_kdump during host deploy                                               |                                            |
 |                                                                                         |
 | engine                                                                                  |
-| Display status of kdump configuration for host                                          | Patches on review                          |
-| Enable/disable kdump detection in Host Power Management configuration                   | Patches on review                          |
-| Add fence_kdump_send configuration to vdc_options                                    |                                            |
+| Display status of kdump configuration for host                                          | Done                                       |
+| Enable/disable kdump detection in Host Power Management configuration                   | Done                                       |
+| Add fence_kdump_send configuration to vdc_options                                    | Coding                                     |
 | Display warning when host kdump detection is enabled, but kdump not configured for host |                                            |
-| Implement standalone fence_kdump listener                                              |                                            |
-| Add fence_kdump handling to fencing flow                                               |                                            |
+| Implement standalone fence_kdump listener                                              | Coding                                     |
+| Add fence_kdump handling to fencing flow                                               | Coding                                     |
 |                                                                                         |
 | engine-setup                                                                            |
 | Configure fence_kdump listener port during setup                                       |                                            |

@@ -172,9 +172,6 @@ Host kdump flow detection will be inserted into automatic fencing flow just befo
 
 Following config values are used:
 
-*   **FenceKdumpPort**
-    -   Defines the port for receiving fence_kdump messages
-    -   Default 7410
 *   **FenceKdumpMessageInterval**
     -   Defines the interval between messages sent by *fence_kdump_send*
     -   Default 5 seconds

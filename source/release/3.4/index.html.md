@@ -98,21 +98,13 @@ oVirt 3.4 adds a preview of a [Hot-plug CPU](Hot_plug_cpu) feature that enables 
 
 oVirt 3.4 is now available for use. In order to install it on a clean system, you need to install
 
-`     # yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release.noarch.rpm)
+`     # yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm)
 
-If you already have ovirt-release package you need to update it to 10.0.1 or newer by running
+If you already have ovirt-release34 package you need to update it by running
 
-           # yum update ovirt-release
+           # yum update ovirt-release34
 
 If the above command doesn't work for you, try using a distribution-specific name:
-
-**CentOS:**
-
-          # yum update ovirt-release-el6
-
-**Fedora:**
-
-          # yum update ovirt-release-fedora
 
 *   **Note:** On CentOS and RHEL you'll need also [EPEL](http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm) repositories enabled.
 *   **Note:** On CentOS and RHEL for DWH you'll need also [jpackage 6](http://mirrors.dotsrc.org/jpackage/6.0/generic/free/RPMS/jpackage-release-6-3.jpp6.noarch.rpm) repositories enabled.
@@ -125,18 +117,18 @@ If you're updating from a pre release version and you want to have rollback supp
 
 **For CentOS / RHEL:**
 
-          [ovirt-3.4-prerelease]
-          name=Latest oVirt 3.4 Pre Releases (Beta to Release Candidate)
-`    baseurl=`[`http://resources.ovirt.org/releases/3.4_pre/rpm/EL/$releasever/`](http://resources.ovirt.org/releases/3.4_pre/rpm/EL/$releasever/)
+          [ovirt-3.4-rc]
+          name=Latest oVirt 3.4 RC
+`    baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/el6`](http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/el6)
           enabled=1
           skip_if_unavailable=1
           gpgcheck=0
 
 **For Fedora:**
 
-          [ovirt-3.4-prerelease]
-          name=Latest oVirt 3.4 Pre Releases (Beta to Release Candidate)
-`    baseurl=`[`http://resources.ovirt.org/releases/3.4_pre/rpm/Fedora/$releasever/`](http://resources.ovirt.org/releases/3.4_pre/rpm/Fedora/$releasever/)
+          [ovirt-3.4-rc]
+          name=Latest oVirt 3.4 RC
+`    baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/fc$releasever`](http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/fc$releasever)
           enabled=1
           skip_if_unavailable=1
           gpgcheck=0

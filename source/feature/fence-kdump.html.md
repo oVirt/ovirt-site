@@ -176,7 +176,7 @@ Following config values are used:
     -   Defines the interval between messages sent by *fence_kdump_send*
     -   Default 5 seconds
 *   **KdumpStartedTimeout**
-    -   Defines maximum timeout to wait until 1st message from kdumping host is received
+    -   Defines maximum timeout to wait until 1st message from kdumping host is received (host kdump flow started)
     -   Default 30 seconds
 
 ## Open questions/issues

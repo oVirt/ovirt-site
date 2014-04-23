@@ -37,7 +37,14 @@ Typical (thankfully not frequent) problems include slow response time, the serve
 
 Symptom: The site will stop working
 
-Treatment: 1. SSH into gear 2. Confirm quota issue with quota -s 3. cd into php/logs 4. Compress any uncompressed log files. 5. Delete old error logs (or transfer them to another host) 6. Restart app with command "ctl_app restart"
+Treatment:
+
+1.  SSH into gear
+2.  Confirm quota issue with quota -s
+3.  cd into php/logs
+4.  Compress any uncompressed log files.
+5.  Delete old error logs (or transfer them to another host)
+6.  Restart app with command "ctl_app restart"
 
 ### Database blockage
 

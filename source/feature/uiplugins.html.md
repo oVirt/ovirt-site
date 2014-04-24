@@ -262,7 +262,32 @@ Called after a user logs out of WebAdmin.
 
       arguments
 
-Called when item selection changes in the given main tab. Replace `{EntityType}` with name of desired entity. Refer to [entity types](#Entity_type_reference) for details on supported entity names and their object representations.
+Called when item selection changes in the given main tab. Replace `{EntityType}` with name of desired entity. Refer to [entity types](#Entity_type_reference) for details on supported entities and their object representations.
+
+    api.register({
+        DataCenterSelectionChange: function() {
+            var firstSelectedItem = (arguments.length > 0) ? arguments[0] : null;
+            var firstSelectedItemId = firstSelectedItem && firstSelectedItem.id;
+        }
+    });
+
+#### System tree node selection
+
+      SystemTreeSelectionChange
+
+      object selectedNode
+
+Called when node selection changes in the system tree. The `selectedNode` object contains two attributes: `string type` and `object entity` (optional, only if selected node has an entity associated). Refer to [entity types](#Entity_type_reference) for details on supported entities and their object representations.
+
+    api.register({
+        SystemTreeSelectionChange: function(selectedNode) {
+            // See SystemTreeItemType Java enum for all supported values
+            var nodeType = selectedNode.type;
+            // Defined only if selected node has an entity associated
+            var associatedEntity = selectedNode.entity;
+            var associatedEntityId = associatedEntity && associatedEntity.id;
+        }
+    });
 
 #### REST API integration
 

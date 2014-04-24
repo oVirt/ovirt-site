@@ -33,7 +33,7 @@ wiki_last_updated: 2015-04-11
         -   X of Failed counter X hours, default 24
         -   Lock duration in minutes - 0 infinite, default 60.
     -   Account Password
-        -   Hash function, default sha256
+        -   PBE algorithm, iterations, keysize, default PBKDF2WithHmacSHA1, 2000, 256
         -   Password expiration notice in days, 0 to disable, default 0.
         -   Password expiration in days, default 90.
         -   Restrict unique password for N last passwords, default 3.
@@ -162,5 +162,81 @@ Output should be easy to parse.
                  import
                  export
              --file=csv
+
+### PasswordStore
+
+`<pre>
+import java.nio.charset.*;
+import java.security.*;
+import java.util.*;
+import javax.crypto.*;
+import javax.crypto.spec.*;
+
+import org.apache.commons.codec.binary.Base64;
+
+public class PasswordStore {
+
+    private final String algorithm;
+    private final int length;
+    private final int iterations;
+    private final String randomProvider;
+
+    public PasswordStore(String algorithm, int length, int iterations, String randomProvider) {
+        this.algorithm = algorithm;
+        this.length = length;
+        this.iterations = iterations;
+        this.randomProvider = randomProvider;
+    }
+
+    public static boolean check(String current, String password) throws GeneralSecurityException {
+        String[] comps = current.split("\\|");
+        if (comps.length != 5 || !"1".equals(comps[0])) {
+            throw new IllegalArgumentException("Invalid current password");
+        }
+        byte[] salt = new Base64(0).decode(comps[2]);
+        return Arrays.equals(
+            new Base64(0).decode(comps[4]),
+            SecretKeyFactory.getInstance(comps[1]).generateSecret(
+                new PBEKeySpec(
+                    password.toCharArray(),
+                    salt,
+                    Integer.parseInt(comps[3]),
+                    salt.length*8
+                )
+            ).getEncoded()
+        );
+    }
+
+    public String encode(String password) throws GeneralSecurityException {
+        byte[] salt = new byte[length/8];
+        SecureRandom.getInstance(randomProvider == null ? "SHA1PRNG" : randomProvider).nextBytes(salt);
+        return String.format(
+            "1|%s|%s|%s|%s",
+            algorithm,
+            new Base64(0).encodeAsString(salt),
+            iterations,
+            new Base64(0).encodeAsString(
+                SecretKeyFactory.getInstance(algorithm).generateSecret(
+                    new PBEKeySpec(
+                        password.toCharArray(),
+                        salt,
+                        iterations,
+                        salt.length*8
+                    )
+                ).getEncoded()
+            )
+        );
+    }
+
+    public static void main(String... args) throws Exception {
+        for (String algo : new String[] { "PBEWithMD5AndDES", "PBEWithMD5AndTripleDES", "PBKDF2WithHmacSHA1" }) {
+            PasswordStore ph = new PasswordStore(algo, 256, 2000, null);
+            String p = ph.encode(args[0]);
+            System.out.println(p);
+            System.out.println(ph.check(p, args[0]));
+        }
+    }
+}
+</pre>`
 
 <Category:Feature> <Category:Security>

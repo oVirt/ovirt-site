@@ -36,6 +36,7 @@ wiki_last_updated: 2015-04-11
         -   Hash function, default sha256
         -   Password expiration notice in days, 0 to disable, default 0.
         -   Password expiration in days.
+        -   Restrict unique password for N last passwords.
         -   Support password self reset, default no
         -   Password complexity
             -   1.  of numbers (-1 not important)
@@ -47,6 +48,7 @@ wiki_last_updated: 2015-04-11
 *   Each user:
     -   User id (guid)
     -   Password encoded as base64(random1(8 bytes)||hash(random1, userid, password))
+    -   Last passwords, added each time password change, do not allow setting to password already in this list.
     -   Password valid to date
     -   Password self reset - password
     -   Password self reset - password expiration

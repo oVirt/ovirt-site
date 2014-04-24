@@ -49,7 +49,7 @@ Up until now, oVirt used to persist its network configuration in Fedora/EL speci
 
 The Setup Network dialog would have a list of custom properties for each assigned network (similarly to boot protocol and IP address configuration), to be set by the network administrator.
 
-![](Override_setupNetworks.png "fig:Override_setupNetworks.png") ![](Override setupNetworks 01.png "fig:Override setupNetworks 01.png")
+![](Override_setupNetworks.png "fig:Override_setupNetworks.png") ![](Override_bridge_options.png "fig:Override_bridge_options.png")
 
 When assigning a network to a NIC it will be possible to click on "edit" (icon marked in red in the first of these two images) and:
 
@@ -57,29 +57,27 @@ When assigning a network to a NIC it will be possible to click on "edit" (icon m
 *   Edit the existing custom properties,
 *   Remove any custom properties.
 
-Note that preset custom property keys will exist for ethtool options (shown) and bridge options (whenever the network is a VM network).
+Note that preset custom property keys will exist for bridge options (whenever the network is a VM network).
 
 OPTIONAL: As part of the feature it might be a good idea to allow setting custom properties per logical network (on the DC level), and not only on the assignment of a network on a physical device. These custom properties on the logical network will serve as a "mold", to be used by default when assigning the network to a device.
 
-![](ethtool_networks.png "ethtool_networks.png")
+![](bridge_opts_networks.png "bridge_opts_networks.png")
 
-Above you can see that in the networks tab, in the dialog for creating a new logical network, it is possible to define custom network properties, which will include ethtool options (shown) and bridge options (for VM networks) by default. These custom properties will be applied upon any assignment of the network to a NIC on a host, unless overridden as described before.
+Above you can see that in the networks tab, in the dialog for creating a new logical network, it is possible to define custom network properties, which will include bridge options (for VM networks) by default. These custom properties will be applied upon any assignment of the network to a NIC on a host, unless overridden as described before.
 
 ### Implementation
 
 #### Vdsm
 
-This feature affects the **setupNetwork** Vdsm verbs. setupNetwork accepts a dictionary accepting networks to be set up; a new optional key "custom" would be added to each network for which custom properties had been set. Its value is a dictionary of custom properties and their string value. E.g. based on one of the usages described below:
+This feature affects the **setupNetwork** Vdsm verbs. setupNetwork accepts an **options** dictionary of type @SetupNetworkOptions beyond the dictionaries describing networks and bonds to be set up. A new optional key "custom" would be added to SetupNetworkOptions. Its value is a dictionary of custom properties and their string value. E.g. based on one of the usages described below:
 
     {'storagenet':
-        {'bonding': 'bond0', 'vlan': '10', 'bootproto': 'dhcp',
+        {'bonding': {'bond0', 'vlan': '10', 'bootproto': 'dhcp',
                      'custom': {'ethtool_opts': '--offload em2 rx on --offload em1 tx on'}}}
 
 Vdsm would pass the network definition and their custom properties to setupNetwork's hook scripts.
 
 In setupNetwork hooks scripts, the properties would be passed as environment variables of the hook scripts being executed.
-
-Vdsm could either report the custom properties as part of getVdsCaps or not; it would probably be more consistent with other network properties to indeed report this information.
 
 ##### Bridge options format
 
@@ -103,44 +101,38 @@ In the bonding case, the UI/Engine/vdsm code may want to check that there is no 
 
 ##### Configuration
 
-*   A configuration value will be added for the versions supporting the feature, whose value is 'false' for any version below 3.5 and 'true' otherwise.
-*   A configuration value will be added for the predefined properties, and will include "bridge_opts" and "ethtool_opts".
-*   A different configuration value will be added to hold user-defined properties, and should be initialized to be empty. It's better to distinguish between predefined and user-defined properties, to make it harder for users to accidentally overwrite predefined properties.
+TBD
 
-##### DB
+##### CRUD
 
-The vds_interface table should be extended to include a custom properties (text) column. Potentially, the network table should be similarly extended to facilitate uniform custom properties across an entire DC - if that is deemed part of the feature. Create and update operations in InterfaceDao and NetworkDao should be modified accordingly.
+TBD
 
 ##### Business Entities
 
-VdsNetworkInterface should be extended to include a custom properties member (either String or Map<String, String>), and potentially the Network entity should as well. The CustomPropertiesUtils class could be used virtually as is, but might have to be extended slightly (via a subclass) to accommodate the difference between predefined and user-defined properties.
+TBD
+
+##### DAOs
+
+TBD
 
 ##### Business Logic
 
-When executing Setup Networks, the VdsNetworkInterface custom properties member would have to be added as a map to a network's "custom" entry, as described in the section on VDSM. If the feature is implemented so that VDSM reports network custom properties as part of getVdsCaps, then the member should be reconstructed in the VdsBrokerObjectBuilder class and persisted to the DB; otherwise, it should be persisted before the properties are passed to the VDSM (as is done today with network labels).
+TBD
+
+##### VdsBroker
+
+Update the setupNetwork VdsBroker commands to pass the custom properties into the options dictionary.
 
 #### REST
 
-Add a custom_properties field to api.xsd for the NIC type:
-
-    <host_nic href="/api/hosts/517b98ee-386c-4538-8f9c-b3216663fb20/nics/e8c1764e-28bb-42a6-aa95-76ce73e944e2" id="e8c1764e-28bb-42a6-aa95-76ce73e944e2">
-        <name>em1</name>
-        <mac address="84:2b:2b:9f:29:b0"/>
-        <ip address="10.35.7.23" netmask="255.255.254.0" gateway="10.35.7.254"/>
-        <boot_protocol>dhcp</boot_protocol>
-        .
-        .
-        .
-        <custom_properties>
-           <custom_property name="forward_delay" value="1500"/>
-        </custom_properties>
-    </host_nic>
-
-If the extension to logical networks is implemented (which seems unlikely at the moment), then that entity will have be to extended as well. There will also be a need to modify the Setup Networks command in rsdl_metadata.yaml, but probably not the obsolete add/update NIC commands. Again, if the feature includes implementation of custom properties on logical networks, then the add/update network commands will need to be modified too. At last, mapping between the REST entities and the engine entities will have to be modified.
+Add a custom_properties field to api.xsd for networks: <custom_properties>
+<custom_property value="wol m" name="eth_opts"/>
+<custom_property value="host-local" name="true"/>
+</custom_properties>
 
 #### Backwards Compatibility
 
-As this is a 3.5 feature, its related GUI widgets should not be shown for hosts that are part of cluster whose compatibility version is lower. The engine backend needs to take special care at the canDoAction() method of SetupNetworksCommand to disallow custom network properties for 3.4 and below, to also block such operations via REST. Similar care should be taken when hosts are attempted to be moved from a >= 3.5 cluster to a < 3.5 cluster; since there is currently no infrastructure to send a Setup Networks command to VDSM upon cluster change, any non-empty custom properties on the host can't be wiped, therefore it would probably be best to block the operation.
+As this is a 3.4 feature, all 3.3 (and down) cluster related entities should not be allowed (at the GUI level) to customize network properties. Engine needs to take special care at canDoAction to disallow custom network properties for 3.3 and below.
 
 ### Testing
 

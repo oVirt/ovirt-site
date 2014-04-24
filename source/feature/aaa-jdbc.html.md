@@ -35,14 +35,15 @@ wiki_last_updated: 2015-04-11
     -   Account Password
         -   Hash function, default sha256
         -   Password expiration notice in days, 0 to disable, default 0.
-        -   Password expiration in days.
-        -   Restrict unique password for N last passwords.
-        -   Support password self reset, default no
+        -   Password expiration in days, default 90.
+        -   Restrict unique password for N last passwords, default 3.
+        -   Support password self reset, default no.
         -   Password complexity
-            -   1.  of numbers (-1 not important)
-            -   1.  of upper letters (-1 not important)
-            -   1.  of lower letters (-1 not important)
-            -   1.  of signs (-1 not important)
+            -   Minimum length, default 6.
+            -   1.  of numbers (-1 not important), default -1.
+            -   1.  of upper letters (-1 not important), default -1.
+            -   1.  of lower letters (-1 not important), default -1.
+            -   1.  of signs (-1 not important), default -1.
 *   Dictionary for password strength
     -   Words
 *   Each user:

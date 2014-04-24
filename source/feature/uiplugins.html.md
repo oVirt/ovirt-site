@@ -277,13 +277,13 @@ Called when item selection changes in the given main tab. Replace `{EntityType}`
 
       object selectedNode
 
-Called when node selection changes in the system tree. The `selectedNode` object contains two attributes: `string type` and `object entity` (optional, only if selected node has an entity associated). Refer to [entity types](#Entity_type_reference) for details on supported entities and their object representations.
+Called when node selection changes in the system tree. The `selectedNode` object contains two attributes: `string type` and `object entity` (optional, only if selected node type has entity associated). Refer to [entity types](#Entity_type_reference) for details on supported entities and their object representations.
 
     api.register({
         SystemTreeSelectionChange: function(selectedNode) {
-            // See SystemTreeItemType Java enum for all supported values
+            // Refer to SystemTreeItemType Java enum for all supported values
             var nodeType = selectedNode.type;
-            // Defined only if selected node has an entity associated
+            // Defined only if selected node type has entity associated
             var associatedEntity = selectedNode.entity;
             var associatedEntityId = associatedEntity && associatedEntity.id;
         }

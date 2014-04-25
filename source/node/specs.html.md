@@ -62,3 +62,5 @@ The actual rootfs which is used at runtime.
 *   Early-boot-process changes are not possible
 *   Live plugins are hard
 *   Installation is custom
+
+[Category: Node](Category: Node)

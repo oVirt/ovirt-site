@@ -16,7 +16,7 @@ __NOTOC__
 <div class="span5 offset1" style="text-align: center">
 <iframe width="250" src="//youtube.com/embed/Aq3ctFhBIhk" frameborder="0" allowfullscreen="true"> </iframe>
 
-Installing oVirt on a single machine
+Installing Metao Daas on a single machine
 
 </div>
 <div class="span5" style="text-align: center">

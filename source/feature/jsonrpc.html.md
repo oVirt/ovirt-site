@@ -85,6 +85,10 @@ At this point Subsystems would start managing their own topics. There would stil
 
 #### Phase 5
 
+At this point the broker will be pulled out (if we are not already using a standard broker. We remove the XML-RPC interface entirely and more subsystems are being seperated.
+
+Hopefully some subsystems are even running in their own processes.
+
 ![](jsonrpc_phase5.png "jsonrpc_phase5.png")
 
 ### See also

@@ -54,6 +54,8 @@ VDSM would listen in a different port for each supported transport. Messages are
 
 For this phase the main addition is protocol detection. Instead of having a dedicated port per protocol the protocol detector handles SSL negotiation and peeks at the stream. After detecting the protocol it passes the socket to the correct part of the system.
 
+This is going to be released for 3.5
+
 ![](jsonrpc_phase2.png "jsonrpc_phase2.png")
 
 #### Phase 3

@@ -60,7 +60,26 @@ This is going to be released for 3.5
 
 #### Phase 3
 
+The main edition for this phase is the broker. Up until this point the messaging reactors "faked" having a brokering semantics. This change adds an actual entity with brokering semantics.
+
+Broker Features:
+
+*   Topics
+*   Subscriptions
+
+Low Priority Features:
+
+*   Queues
+*   Message acknowledgment\\settlement
+*   Retrying policy
+
+There is a possibility this phase would be skipped and we would just use a ready made broker.
+
 ![](jsonrpc_phase3.png "jsonrpc_phase3.png")
+
+#### Phase 4
+
+![](jsonrpc_phase4.png "jsonrpc_phase4.png")
 
 ### See also
 

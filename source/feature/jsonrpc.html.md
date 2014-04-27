@@ -79,6 +79,8 @@ There is a possibility this phase would be skipped and we would just use a ready
 
 #### Phase 4
 
+At this point Subsystems would start managing their own topics. There would still be the legacy interface but there will be a move towards a segmented and seperate task management per subsystem.
+
 ![](jsonrpc_phase4.png "jsonrpc_phase4.png")
 
 #### Phase 5

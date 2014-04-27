@@ -81,6 +81,10 @@ There is a possibility this phase would be skipped and we would just use a ready
 
 ![](jsonrpc_phase4.png "jsonrpc_phase4.png")
 
+#### Phase 5
+
+![](jsonrpc_phase5.png "jsonrpc_phase5.png")
+
 ### See also
 
 *   [STOMP](http://stomp.github.io)

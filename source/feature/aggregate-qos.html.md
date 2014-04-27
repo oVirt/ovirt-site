@@ -24,7 +24,7 @@ Email: <gchaplik@redhat.com>
 
 Target Version: 3.5
 
-Status: design
+Status: development (http://gerrit.ovirt.org/#/q/status:open+project:ovirt-engine+branch:master+topic:aggregate_qos,n,z)
 
 Last updated: ,
 

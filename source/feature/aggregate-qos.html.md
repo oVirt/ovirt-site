@@ -37,24 +37,36 @@ Last updated: ,
 
 #### RESTful API
 
-*   GET: api/capabilities/<version>/qos_type
-*   GET: /api/datacenters/<datacenter_id>/qos #list of qos objects
-*   GET: /api/datacenters/<datacenter_id>/qos/<qos_id> #qos object
+* POST: /ovirt-engine/api/datacenters/{datacenter:id}/qoss; body: qos; response: qos
 
-`   `<qos id=”qos_id”>
-`       `<name>`qos_network_object`</name>
-             `<data_center href="<datacenter_id>`"/>
-`       `<type>`network`</type>
-`       `<in..></>
-`       `<out..></>
-             ….
+`   `<qos type="network">
+`     `<name>`test_qos`</name>
+`     `<inbound_average>`10`</inbound_average>
+`     `<inbound_peak>`10`</inbound_peak>
+`     `<inbound_burst>`100`</inbound_burst>
+`     `<outbound_average>`-1`</outbound_average>
+`     `<outbound_peak>`-1`</outbound_peak>
+`     `<outbound_burst>`-1`</outbound_burst>
 `   `</qos>
 
-*   [TBD] ulimited: -1/"unlimited" (case insensitive)
+* GET: /ovirt-engine/api/datacenters/{datacenter:id}/qoss; response: qoss - DELETE: /ovirt-engine/api/datacenters/{datacenter:id}/qoss/{qos:id}; - GET: /ovirt-engine/api/datacenters/{datacenter:id}/qoss/{qos:id}; response: qos
+
+`   `<qos type="network" href="/ovirt-engine/api/datacenters/00000002-0002-0002-0002-000000000321/qoss/a66577ff-d5f1-40f7-aebb-0b350ad8bb8c" id="a66577ff-d5f1-40f7-aebb-0b350ad8bb8c">
+`       `<name>`test2`</name>
+`       `<data_center href="/ovirt-engine/api/datacenters/00000002-0002-0002-0002-000000000321" id="00000002-0002-0002-0002-000000000321"/>
+`       `<inbound_average>`10`</inbound_average>
+`       `<inbound_peak>`10`</inbound_peak>
+`       `<inbound_burst>`100`</inbound_burst>
+`       `<outbound_average>`-1`</outbound_average>
+`       `<outbound_peak>`-1`</outbound_peak>
+`       `<outbound_burst>`-1`</outbound_burst>
+`   `</qos>
+
+* PUT: /ovirt-engine/api/datacenters/{datacenter:id}/qoss/{qos:id}; body: qos; response: qos
+
+*   ulimited: -1.
 
 NOTE: the qos object will contain all limits from all types.
-
-*   POST/PUT/DELETE methods are trivial.
 
 #### GUI
 
@@ -67,13 +79,8 @@ each view will show a separate table including its limit, in All we’ll have a 
 
 *   [WiP] mockups to follow.
 
-#### Open Issue - profiles
+#### Profiles
 
-2 options:
-
-         1) Aggregate profiles: 'vnic_profiles' to change to 'profiles', and include a type field (sparse matrix).
-         2) Separate flow for each profile.
-
-Currently I'm going on #1 unless justified objections will arise. I perfectly aware of all the implications (even 'permission' wise). There is no need for separate flows (#2), needs just renaming and adding type to each flow (probably permissions will need some thinking, but IMO nothing's serious). will update the wiki once it gets resolved.
+Aggregate profiles: 'vnic_profiles' to change to 'profiles', and include a type field (sparse matrix). Same solution as for QoS, reuse all vnicProfiles flows/tests and stability. If will need it, Separating the table is easy.
 
 <Category:Feature> <Category:SLA>

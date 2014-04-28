@@ -122,7 +122,7 @@ This is the detailed design page for NUMA and Virtual NUMA
 MOM use the VDSM HypervisorInterface using API.py `Global.getCapabilities` function to get host NUMA topology data
 
     'autoNumaBalancing': int
-    'numaDistances': {'<nodeIndex>': [int], ...}
+    'numaNodeDistance': {'<nodeIndex>': [int], ...}
     'numaNodes': {'<nodeIndex>': {'cpus': [int], 'totalMemory': int}, …}
 
 using API.py `Global.getStats` function to get host NUMA statistics data

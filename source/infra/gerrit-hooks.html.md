@@ -20,15 +20,15 @@ The source code is hosted in the [gerrit-admin](http://gerrit.ovirt.org/gitweb?p
 
 ## Flow
 
-All the hooks execution starts on the hook-dispatcher, that's the script that will be called by gerrit itself when an event happens (you can control which events are handled by adding/removing links on $GERRIT_DIR/hooks directory to this script).
+All the hooks execution starts on the hook-dispatcher, that's the script that will be called by gerrit itself when an event happens (you can control which events are handled by adding/removing links on *$GERRIT_DIR/hooks* directory to this script).
 
-The hook-dispatcher then detects which type of event was triggered by, and by which project, and from the project's source directory (usually $GERRIT_SOURCE/$project.git) will look for a hooks directory and run all the hooks that match the event, that is, all the hooks that start with $event_name (see the event types below). They are ordered in alphanumeric order.
+The hook-dispatcher then detects which type of event was triggered by, and by which project, and from the project's source directory (usually *$GERRIT_SOURCE/$project.git*) will look for a hooks directory and run all the hooks that match the event, that is, all the hooks that start with $event_name (see the event types below). They are ordered in alphanumeric order.
 
 The hooks are run in chains, to know more about it, check the chaining section below. Right now we just need to know that a hook can succeed, fail silently, or break the execution completely.
 
-Each hook will be passed the same parameters that gerrit used to invoke the hook-dispatcher script. And each hook will be required to reply in a specific format (see the hook output section). From that output a Code REview (CR) value, and a Verified (VR) value will be extracted, along with a comment.
+Each hook will be passed the same parameters that gerrit used to invoke the hook-dispatcher script. And each hook will be required to reply in a specific format (see the hook output section). From that output a Code REview (**CR**) value, and a Verified (**VR**) value will be extracted, along with a comment.
 
-From all the hooks, a CR and a VR value will be calculated, this is done taking the lowest value that was explicitly specified. A hook can avoid influencing the vote by no passing any CR or VR value.
+From all the hooks, a **CR** and a **VR** value will be calculated, this is done taking the lowest value that was explicitly specified. A hook can avoid influencing the vote by no passing any **CR** or **VR** value.
 
 After that, all the messages will be aggregated (if the hook did not specify any message, a simple informative one will be generated for it) and the global review will be sent to gerrit.
 
@@ -47,7 +47,7 @@ The first two lines are optional, you can leave them blank or delete them, if on
       This is a simple
       multiline message
 
-This output will generate a CR of +1, a VR of +1, and everything else will be interpreted as message. If for example the next hook would return:
+This output will generate a **CR** of **+1**, a **VR** of **+1**, and everything else will be interpreted as message. If for example the next hook would return:
 
       0
       Second hook message
@@ -70,9 +70,9 @@ Chains are defined as the second point-separated string in the hooks name, for e
       patchset-created.independent_hook
       patchset-created.independent_hook_2
 
-Here we can see that we have 3 chains, 'chain1', 'independent_hook' and 'independent_hook_2', if, for example, 'patchset-created.chain1.1.first_hook' would return something different than 0 as it's return code, ' patchset-created.chain1.2.second_hook' would not be even executed and it will jump to 'patchset-created.independent_hook'.
+Here we can see that we have 3 chains, *chain1*, *independent_hook* and *independent_hook_2*, if, for example, *patchset-created.chain1.1.first_hook* would return something different than **0** as it's return code, *patchset-created.chain1.2.second_hook* would not be even executed and it will jump to *patchset-created.independent_hook*.
 
-Flow execution is controlled with the return codes of each hook execution, if the hook exited with a return code different than 0, the chain will be considered as broken and will jump to the next. The breakage of the chain does not imply that the review value must be negative, just that the execution was stopped, the CR and VR values will be extrapolated from the output of the hooks that were actually executed.
+Flow execution is controlled with the return codes of each hook execution, if the hook exited with a return code different than **0**, the chain will be considered as broken and will jump to the next. The breakage of the chain does not imply that the review value must be negative, just that the execution was stopped, the **CR** and **VR** values will be extrapolated from the output of the hooks that were actually executed.
 
 ### Event types
 
@@ -83,6 +83,6 @@ There is a limited set of events that gerrit will be able to trigger a hook by, 
 *   comment-added: Run when a new comment is sent to any patchset.
 *   change-abandoned: Run when a changeset is abandoned.
 
-You must note that all those hooks are run AFTER the even has taken place.
+You must note that all those hooks are run **AFTER** the even has taken place.
 
 [Category:Infrastructure documentation](Category:Infrastructure documentation)

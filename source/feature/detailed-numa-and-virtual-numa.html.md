@@ -128,7 +128,7 @@ MOM use the VDSM HypervisorInterface using API.py `Global.getCapabilities` funct
 using API.py `Global.getStats` function to get host NUMA statistics data
 
     'numaNodeMemFree': {'<nodeIndex>': {'memFree': int, 'memPercent': int}, …}
-    'cpuStatistics': {'<cpuId>': {'numaNodeIndex': int, 'cpuSys': 'str', 'cpuIdle': 'str', 'cpuUser': 'str'}, …}
+    'cpuStatistics': {'<cpuId>': {'nodeIndex': int, 'cpuSys': 'str', 'cpuIdle': 'str', 'cpuUser': 'str'}, …}
 
 *   I-1.7 libivirt API do not support to get NUMA distances information, so we use command `numactl` to get the distances information
 

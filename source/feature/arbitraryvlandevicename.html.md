@@ -27,9 +27,10 @@ Supporting vlan devices with names not in standard "dev.VLANID" (e.g. eth0.10-fc
 
 #### VDSM API
 
-'vlanid' entry will be added to vlans map on getVdsCaps command vlans =
+'vlanid' entry will be added to vlans map on getVdsCaps command
 
-         {'myvlan20': {'addr': '',
+      vlans =  {'myvlan20': {
+                                   'addr': '',
                                    'cfg': {},
 `                      `<b>`'iface': 'eth1',`</b>
                                    'ipv6addrs': [],

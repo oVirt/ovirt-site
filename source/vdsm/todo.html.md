@@ -143,7 +143,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   Define an API.VMState "enumeration" and use API.VMState.UP instead of the string 'Up'.
+*   ~~Define an API.VMState "enumeration" and use API.VMState.UP instead of the string 'Up'.~~
 
 <!-- -->
 

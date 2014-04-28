@@ -32,7 +32,7 @@ From all the hooks, a CR and a VR value will be calculated, this is done taking 
 
 After that, all the messages will be aggregated (if the hook did not specify any message, a simple informative one will be generated for it) and the global review will be sent to gerrit.
 
-### Hook Output
+### Hook Output Format
 
 Each hook output must fit a specific format, defined below (please, check the in-code documentation for the current format, as this wiki might be outdated).
 

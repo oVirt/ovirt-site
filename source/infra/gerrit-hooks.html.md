@@ -85,4 +85,38 @@ There is a limited set of events that gerrit will be able to trigger a hook by, 
 
 You must note that all those hooks are run **AFTER** the even has taken place.
 
+## Installation
+
+The hooks are actually manually installed, so I'll explain how is set up right now (it might change in the near future).
+
+=== Base Direcotry ==
+
+Under ''/home/gerrit2/review_site/hooks' you'll find a copy of the *hooks* folder that's in the source code repository. And also some soft-links (explained under Hook Dispatcher section) and a custom 'config' file.
+
+### Hook Dispatcher
+
+For gerrit to find the hook-dispatcher script, there are some soft-links under the base directory with the name of the default hooks that gerrit will execute, you can just delete or create more if you want to the hook-dispatcher to handle those events or not.
+
+### Custom Hooks
+
+Each custom hook that is written, is placed under $GERRIT_BASE/hooks/custom_hooks, and linked from each source repository that should run them, for example, if we wanted the hook 'patchset-created.myhook' to be run for the ovirt-engine project, we will create a link from $GERRIT_SRC/ovirt-engine.git/hooks/patchset-created.myhook to $GERRIT_BASE/hooks/custom_hooks/patchset-created.myhook, you can modify the links names to create chains or reorder the hooks.
+
+## Configuration
+
+All the hooks can be configured using configuration files, there's some hierarchy and inheritance that I'll explain below. Each configuration file is just a shell script where you declare bash variables, but if you want to be able to use those variables in the python scripts hooks, you'll have to make sure that they do not spawn more than one line, no bash ararays are used and no extra variable expansion is done in the value (that might be improved soon, but there's have been no need yet).
+
+### Global Configuration File
+
+There's a global configuration file that will be used by all the hooks, no matter what. That configuration file is located under $GERRIT_BASE/hooks/config.
+
+### Per Project Configuration File
+
+Each project can have it's own configuration file too, it must be located at $GERRIT_SRC/$project.git/hooks/config, and it will overwrite any value that was declared in the cglobal configuration file.
+
+## Libraries
+
+To ease the development of the hooks and avoid code duplication, some bash and python libraries are provided adding the $GERRIT_BASE/hooks/lib directory to poth the PATH and PYTHONPATH enviroment variables of the hooks when executing them.
+
+### Bugzilla
+
 [Category:Infrastructure documentation](Category:Infrastructure documentation)

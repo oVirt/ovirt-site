@@ -47,7 +47,7 @@ wiki_last_updated: 2015-04-11
     -   Words
 *   Each user:
     -   User id (guid)
-    -   Password encoded as base64(random1(8 bytes)||hash(random1, userid, password))
+    -   Encoded password (PBE)
     -   Last passwords, added each time password change, do not allow setting to password already in this list.
     -   Password valid to date
     -   Password self reset - password

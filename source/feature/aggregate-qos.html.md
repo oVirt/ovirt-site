@@ -32,8 +32,8 @@ Last updated: ,
 
 #### Engine Core
 
-*   Introducing a new name space QoS, IQoS interface, and QoSType (network, cpu, storage).
-*   Data Base: extend netwok_qos, rename it to qos, have a type field (QoSType), all other limits wil be added here (sparse matrix).
+*   Introducing a new name space QoS, BaseQos abstract class, QosType (network, cpu, storage).
+*   Data Base: qos table to hold all limits (sparse matrix), and include a type field (QoSType).
 
 #### RESTful API
 

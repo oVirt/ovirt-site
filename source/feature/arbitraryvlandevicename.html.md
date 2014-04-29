@@ -66,9 +66,14 @@ There are no ux visible changes. As before the user can see the vlanDevice on Ho
 
 #### Restrictions
 
-If the user adds manually a vlan device with non-standard name, he can't assign via the webadmin networks with the same vlan id as the vlan device to the base interface of the device. For example- 1. The user adds manually vlan device 'myVlanDevice10' on the host- ip link add dev eth1.1- link eth1 name myVlanDevice10 type vlan id 10 2. The user add 'net10' with vlan id 10 to the host's cluster. 3. The user tries to attach 'net10' to 'eth1' via setup networks dialog.
-
-Result- The user will get an error- "Error while executing action Setup Networks: Failed to bring interface up" The reason for this is that when attaching network with vlan id 10 to 'eth1' the vdsm tries to create a new standard device 'eth1.10', since a vlan device with the same vlan id already exists it fails.
+If the user adds manually a vlan device with non-standard name, he can't assign via the webadmin networks with the same vlan id as the vlan device to the base interface of the device.
+For example-
+1. The user adds manually vlan device 'myVlanDevice10' on the host- ip link add dev eth1.1- link eth1 name myVlanDevice10 type vlan id 10
+2. The user add 'net10' with vlan id 10 to the host's cluster.
+3. The user tries to attach 'net10' to 'eth1' via setup networks dialog.
+Result-
+The user will get an error- "Error while executing action Setup Networks: Failed to bring interface up"
+The reason for this is that when attaching network with vlan id 10 to 'eth1' the vdsm tries to create a new standard device 'eth1.10', since a vlan device with the same vlan id already exists it fails.
 
 ### Documentation / External references
 

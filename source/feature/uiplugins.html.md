@@ -297,6 +297,10 @@ Called when node selection changes in the system tree. The `selectedNode` object
 
 Called upon acquiring oVirt Engine [REST API](REST-Api) [persistent session](Features/RESTSessionManagement) after successful login. The `sessionId` maps to REST API session bound to current WebAdmin user, which means this value is shared between all plugins. The REST API session is acquired with timeout equal to oVirt Engine user session timeout. WebAdmin will try to keep the REST API session (and corresponding Engine user session) alive by sending heartbeat requests while user stays authenticated in WebAdmin UI. WebAdmin won't close the session upon logout, as there might be other systems still working with it.
 
+------------------------------------------------------------------------
+
+**Note:** the `sessionId` applies to oVirt Engine REST API service deployed at `/ovirt-engine/api`, not the legacy URL `/api`. UI plugins should always use `/ovirt-engine/api` to access the REST API service.
+
 #### Cross-window messaging
 
       MessageReceived

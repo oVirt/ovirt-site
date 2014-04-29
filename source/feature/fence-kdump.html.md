@@ -137,7 +137,7 @@ The listener will use two config values:
 *   **KdumpFinishedTimeout**
     -   Defines maximum timeout after last received message from kdumping hosts after which the host kdump flow is marked as FINISHED
     -   Default 30 seconds
-*   *'FenceKdumpListenerHost*
+*   **FenceKdumpListenerHost**
     -   Defines the IP address to receive fence_kdump messages on
     -   Default 7410
 *   **FenceKdumpListenerPort**

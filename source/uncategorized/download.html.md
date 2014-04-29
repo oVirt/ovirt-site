@@ -154,10 +154,7 @@ Our recommended method of installing oVirt is to use the pre-built packages for 
 <div class="alert alert-info">
 **Important:** If you're upgrading from a previous version, please update ovirt-release to the latest version (10) and verify you have the correct repositories enabled by running the following commands before upgrading with the usual procedure.
 
-          # yum update ovirt-release
-          # yum repolist enabled
-
-You should see the ovirt-3.4 and ovirt-stable repositories listed in the output of the repolist command.
+          # yum update ovirt-release34
 
 </div>
 #### <span class="mw-customtoggle-0" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Show/Hide]</span></span>Fedora Installation Instructions

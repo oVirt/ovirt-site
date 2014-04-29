@@ -68,7 +68,7 @@ Result- The user will get an error- "Error while executing action Setup Networks
 
 ### Documentation / External references
 
-Bugzilla - <https://bugzilla.redhat.com/840692>
+Bugzilla - <https://bugzilla.redhat.com/1091863>
 
 ### Comments and Discussion
 

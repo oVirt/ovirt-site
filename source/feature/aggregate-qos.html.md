@@ -73,7 +73,7 @@ NOTE: the qos object will contain all limits from all types.
 *   Remove network profile as a main tab.
 *   Add a splitter to network profiles subtab, and include permissions sub tab (UX RFE will be opened to enhance ‘splitter subtabs’ l&f).
 *   Network QoS sub tab under data centers will be renamed to QoS.
-*   QoS sub tab will contain a vertical tab control with 4 values: All, Network, Storage, CPU:
+*   QoS sub tab will contain a vertical tab control with 3 values: Network, Storage, CPU:
 
 each view will show a separate table including its limit, in All we’ll have a generic limit text, taken from IQoS, and the QoSType.
 

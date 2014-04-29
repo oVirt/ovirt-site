@@ -44,17 +44,22 @@ Supporting vlan devices with names not in standard "dev.VLANID" (e.g. eth0.10-fc
 
 ##### Old behaviour
 
-The engine assumed the format of the vlan device name is <i>baseIfaceName.vlanId</i>. On getVdsCaps (VdsBrokerObjectsBuilder.addHostVlanDevices) the engine extracted the vlanId from the vlan device name and set it on vdsNetworkInterface.vlanId field. If the engine needed the base interface name it extracted it over and over again from the device name.
+The engine assumed the format of the vlan device name is <i>baseIfaceName.vlanId</i>.
+On getVdsCaps (VdsBrokerObjectsBuilder.addHostVlanDevices) the engine extracted the vlanId from the vlan device name and set it on vdsNetworkInterface.vlanId field.
+If the engine needed the base interface name it extracted it over and over again from the vlan device name.
 
 ##### New behaviour
 
-On getVdsCaps (VdsBrokerObjectsBuilder.addHostVlanDevices) the engine checks if the new key 'vlanid' exists. If exists- sets the vdsNetworkInterface.vlanId according to its value. Otherwise- Preserves the old behavior- extracts the vlanId from the vlan device name and set in on vdsNetworkInterface.vlanId field. In both of the cases the vdsNetworkInterface.baseInterface is set according to the 'iface' key in the vlan map (The 'iface' isn't a new field, but previously was unused by the engine).
+On getVdsCaps (VdsBrokerObjectsBuilder.addHostVlanDevices) the engine checks if the new key 'vlanid' exists in the vlan map. If exists- sets the vdsNetworkInterface.vlanId according to its value. Otherwise- Preserves the old behaviour- extracts the vlanId from the vlan device name and set in on vdsNetworkInterface.vlanId field. In both of the cases the vdsNetworkInterface.baseInterface is set according to the 'iface' key in the vlan map (The 'iface' isn't a new field reported by the vdsm, but previously was unused by the engine).
 
 #### DB changes
 
 Adding new column to vds_interface- name - 'base_interface', type - varchar(50)
 
 #### Affected Flows
+
+There are some engine flows that have to be fixed- 1. NetworkUtils has a lot of methods regarding vlans. Most of the methods were refactored and the signature of some of them was changed. There are some flows that used those NetworkUtils methods. Since the signature was changed those flows needed some adjustments. 2. Using iface.getBaseInterface() and iface.getVlanId() instead of determining this values from the vlan device name.
+The effected flows are: MigrateVmCommand RemoveNetworksByLabelParametersBuilder (DetachNetworksFromClusterCommand, UnlabelNicCommand) DetachNetworkFromVdsInterfaceCommand DetachNetworkFromVdsInterfaceCommand DetachNetworkFromVdsInterfaceCommand LabelNicCommand RemoveBondCommand SetupNetworks UpdateNetworkToVdsInterfaceCommand VdsUpdateRunTimeInfo GetVlanParentQuery NetworkMonitoringHelper
 
 #### User Experience
 

@@ -54,7 +54,7 @@ wiki_last_updated: 2015-04-11
     -   Password self reset - password expiration
     -   validFrom date
     -   validTo date
-    -   Login time - 48 char string for each 30 minutes of the day 0 - not permitted, 1 - permitted.
+    -   Login time - 7 week days \* 48 char string for each 30 minutes of the day 0 - not permitted, 1 - permitted.
     -   Flags
         -   disabled
         -   no password

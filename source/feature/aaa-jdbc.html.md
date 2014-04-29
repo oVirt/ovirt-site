@@ -76,7 +76,7 @@ wiki_last_updated: 2015-04-11
         -   Name
         -   Display name
         -   Description
-        -   Group ids
+    -   Group ids
 
 ### Authn
 

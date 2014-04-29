@@ -67,9 +67,12 @@ This is an example for the API for this feature, the vm_paload element will work
          ...
            <payloads>
                <payload type='cdrom'>
-                   <file name='my.txt'>
-                      <content>some content</content>
-                   </file>
+                   <files>
+                       <file>
+                            <name>my.txt</name>
+                            <content>some content</content>
+                      </file>
+                   </files>
                </payload>
            </payloads>
         </vm>

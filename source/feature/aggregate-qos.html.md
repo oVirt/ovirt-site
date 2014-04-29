@@ -81,6 +81,6 @@ each view will show a separate table including its limit, in All we’ll have a 
 
 #### Profiles
 
-Aggregate profiles: 'vnic_profiles' to change to 'profiles', and include a type field (sparse matrix). Same solution as for QoS, reuse all vnicProfiles flows/tests and stability. If will need it, Separating the table is easy.
+Each profile will have its separate table and all will be connected to qos table.
 
 <Category:Feature> <Category:SLA>

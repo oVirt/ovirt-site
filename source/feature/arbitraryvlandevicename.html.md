@@ -44,7 +44,7 @@ Supporting vlan devices with names not in standard "dev.VLANID" (e.g. eth0.10-fc
 
 ##### Old behaviour
 
-The engine assumed the format of the vlan device name is baseIfaceName.vlanId. On getVdsCaps (VdsBrokerObjectsBuilder.addHostVlanDevices) the engine extracted the vlanId from the vlan device name and set it on vdsNetworkInterface.vlanId field. If the engine needed the base interface name it extracted it over and over again from the device name.
+The engine assumed the format of the vlan device name is <i>baseIfaceName.vlanId</i>. On getVdsCaps (VdsBrokerObjectsBuilder.addHostVlanDevices) the engine extracted the vlanId from the vlan device name and set it on vdsNetworkInterface.vlanId field. If the engine needed the base interface name it extracted it over and over again from the device name.
 
 ##### New behaviour
 

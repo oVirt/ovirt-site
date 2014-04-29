@@ -58,7 +58,19 @@ Adding new column to vds_interface- name - 'base_interface', type - varchar(50)
 
 There are some engine flows that have to be fixed-
 1. NetworkUtils has a lot of methods regarding vlans. Most of the methods were refactored and the signature of some of them was changed. There are some flows that used those NetworkUtils methods. Since the signature was changed those flows needed some adjustments. 2. Using iface.getBaseInterface() and iface.getVlanId() instead of determining this values from the vlan device name.
-The effected flows are: MigrateVmCommand RemoveNetworksByLabelParametersBuilder (DetachNetworksFromClusterCommand, UnlabelNicCommand) DetachNetworkFromVdsInterfaceCommand DetachNetworkFromVdsInterfaceCommand DetachNetworkFromVdsInterfaceCommand LabelNicCommand RemoveBondCommand SetupNetworks UpdateNetworkToVdsInterfaceCommand VdsUpdateRunTimeInfo GetVlanParentQuery NetworkMonitoringHelper
+The effected flows are:
+MigrateVmCommand
+RemoveNetworksByLabelParametersBuilder (DetachNetworksFromClusterCommand, UnlabelNicCommand)
+DetachNetworkFromVdsInterfaceCommand
+DetachNetworkFromVdsInterfaceCommand
+DetachNetworkFromVdsInterfaceCommand
+LabelNicCommand
+RemoveBondCommand
+SetupNetworks
+UpdateNetworkToVdsInterfaceCommand
+VdsUpdateRunTimeInfo
+GetVlanParentQuery
+NetworkMonitoringHelper
 
 #### User Experience
 

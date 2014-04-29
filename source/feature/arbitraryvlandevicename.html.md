@@ -10,8 +10,6 @@ wiki_last_updated: 2014-05-01
 
 # Arbitrary Vlan Device Name
 
-### Summary
-
 ### Owner
 
 *   Name: [ Alona Kaplan](User:alkaplan)

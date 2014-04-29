@@ -70,7 +70,7 @@ The administrator will allocate CPU profiles to be used in the Cluster at the Cl
 
 ## VDSM
 
-In the VDSM we will be using the libvirt API of CPU tuning (http://libvirt.org/formatdomain.html#elementsCPUTuning), The Qos entered by the user will be converted into the libvirt period and quota parameters, ensuring that the CPU limits are enforced.
+In the VDSM we will be using the libvirt API of CPU tuning (http://libvirt.org/formatdomain.html#elementsCPUTuning), and MOM. The Qos entered by the user will be picked by the engine's "Sync MOM Policy", and forward to Libvirt dom xml meta-data section, A MOM policy will convert Qos value into the libvirt period and quota parameters, and set the value to Libvirt throw a MOM controller, ensuring that the CPU limits are enforced.
 
 To do that we will use the following algorithm:
 

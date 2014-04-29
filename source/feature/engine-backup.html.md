@@ -11,26 +11,26 @@ wiki_warnings: references, table-style
 
 # Ovirt-engine-backup
 
-## Ovirt backup and restore utility
+## Summary
 
-### Summary
+A simple utility to backup and restore a complete ovirt-engine environment.
 
-A simple utility to create and restore a complete ovirt-engine environment.
-
-### Owner
+## Owner
 
 *   Name: [Ofer Schreiber](User:oschreib)
 *   Email: <oschreib@redhat.com>
 
-### Current status
+## Current status
 
 *   Last updated: ,
 
-#### Phase
+### Phase
 
 First version released in ovirt 3.3.
 
-#### Features
+DWH/Reports support added in ovirt 3.4.1.
+
+### Features
 
 | Feature | Existing implementation | Otopi implementation | Owner                                       | Priority | Target date |
 |---------|-------------------------|----------------------|---------------------------------------------|----------|-------------|
@@ -41,11 +41,28 @@ First version released in ovirt 3.3.
 [2]
 
 </references>
-### Howto
+## Howto
+
+### Backup
 
 Backup is strait-forward. See '--help' (also copied below) for details.
 
+### Restore
+
 Restore usually requires a bit more work, because it never creates the user and/or database for you. That's the main point to understand when trying to solve restore issues.
+
+Requirements:
+
+*   A clean machine
+*   oVirt installed but not set up
+*   An empty database
+
+To restore:
+
+*   Run restore ('--help' for details)
+*   Run engine-setup
+
+#### DB credentials
 
 If it happens that the credentials used during backup still work during restore, they can be used, and in this case restore is as simple as backup. Example scenarios where this is the case:
 
@@ -81,7 +98,21 @@ This "almost" works. engine-setup/engine-cleanup on machineB create a user/datab
 
        * instead of doing setup/cleanup to merely create a database, do that yourself manually, but instead of inventing a new password (and other credentials), use the ones found inside the backup file (as explained in the previous option "change the password"). This is a bit more work than running setup/cleanup, but is probably much faster (especially if scripted).
 
-### Detailed Description
+3. After running engine-setup and before engine-cleanup, check what random password was chosen by setup:
+
+      grep ENGINE_DB_PASSWORD /etc/ovirt-engine/engine.conf.d/10-setup-database.conf
+
+Then use this password on restore (after cleanup). Note that you must provide more credentials than just the password:
+
+      engine-backup --mode=restore --file=BACKUP_FILE --log=LOG_FILE --change-db-credentials --db-host=localhost --db-user=engine --db-name=engine --db-password
+
+## DWH/Reports
+
+The 3.4.1 release added support for DWH and Reports. On backup, whatever that's installed/setup - among engine, DWH and Reports - is backed up, and on restore, you should install whatever packages that were used during backup (engine/dwh/reports), then restore and setup. Running engine-setup is now mandatory after restore.
+
+The notes and discussion above about DB credentials apply also to the DWH and Reports databases - they are never created by restore but are expected to exist, and be usable with the credentials saved in the backup or passed using the various options.
+
+## Detailed Description
 
 Backup logic:
 
@@ -106,48 +137,81 @@ Phase two (??)
       * Gather all needed information from the backup
       *  Run otopi based ovirt-engine-setup with special parameters (use pg_dump, don't create new PKI)
 
-### Benefit to oVirt
+## Benefit to oVirt
 
 *   Easy to use backup utility
 *   Easy restore of existing environments.
 
-### Dependencies / Related Features
+## Dependencies / Related Features
 
 TBD
 
-### Documentation / External references
+## Documentation / External references
 
       # engine-backup --help
       engine-backup: backup and restore ovirt-engine environment
       USAGE:
           /usr/bin/engine-backup [--mode=MODE] [--scope=SCOPE] [--file=FILE] [--log=FILE]
        MODE is one of the following:
-          backup                  backup system into FILE
-          restore                 restore system from FILE
+          backup                          backup system into FILE
+          restore                         restore system from FILE
        SCOPE is one of the following:
-          all                     complete backup/restore (default)
-          db                      database only
-       --file=FILE                file to use during backup or restore
-       --log=FILE                 log file to use
-       --change-db-credentials    activate the following options, to restore
-                                  the database to a different location etc.
-                                  If used, existing credentials are ignored.
-       --db-host=host             set database host
-       --db-port=port             set database port
-       --db-user=user             set database user
-       --db-passfile=file         set database password - read from file
-       --db-password=pass         set database password
-       --db-password              set database password - interactively
-       --db-name=name             set database name
-       --db-secured               set a secured connection
-       --db-secured-validation    validate host
+          all                             complete backup/restore (default)
+          files                           files only
+          db                              engine database only
+          dwhdb                           dwh database only
+          reportsdb                       reports database only
+       --file=FILE                        file to use during backup or restore
+       --log=FILE                         log file to use
+       --change-db-credentials            activate the following options, to restore
+                                          the Engine database to a different location
+                                          etc. If used, existing credentials are ignored.
+       --db-host=host                     set database host
+       --db-port=port                     set database port
+       --db-user=user                     set database user
+       --db-passfile=file                 set database password - read from file
+       --db-password=pass                 set database password
+       --db-password                      set database password - interactively
+       --db-name=name                     set database name
+       --db-secured                       set a secured connection
+       --db-secured-validation            validate host
+       --change-dwh-db-credentials        activate the following options, to restore
+                                          the DWH database to a different location etc.
+                                          If used, existing credentials are ignored.
+       --dwh-db-host=host                 set dwh database host
+       --dwh-db-port=port                 set dwh database port
+       --dwh-db-user=user                 set dwh database user
+       --dwh-db-passfile=file             set dwh database password - read from file
+       --dwh-db-password=pass             set dwh database password
+       --dwh-db-password                  set dwh database password - interactively
+       --dwh-db-name=name                 set dwh database name
+       --dwh-db-secured                   set a secured connection for dwh
+       --dwh-db-secured-validation        validate host for dwh
+       --change-reports-db-credentials    activate the following options, to restore
+                                          the Reports database to a different location
+                                          etc. If used, existing credentials are ignored.
+       --reports-db-host=host             set reports database host
+       --reports-db-port=port             set reports database port
+       --reports-db-user=user             set reports database user
+       --reports-db-passfile=file         set reports database password - read from file
+       --reports-db-password=pass         set reports database password
+       --reports-db-password              set reports database password - interactively
+       --reports-db-name=name             set reports database name
+       --reports-db-secured               set a secured connection for reports
+       --reports-db-secured-validation    validate host for reports
        ENVIRONMENT VARIABLES
        OVIRT_ENGINE_DATABASE_PASSWORD
            Database password as if provided by --db-password=pass option.
+       OVIRT_DWH_DATABASE_PASSWORD
+           Database password as if provided by --dwh-db-password=pass option.
+       OVIRT_REPORTS_DATABASE_PASSWORD
+           Database password as if provided by --reports-db-password=pass option.
+       Wiki
+       See `[`http://www.ovirt.org/Ovirt-engine-backup`](http://www.ovirt.org/Ovirt-engine-backup)` for more info.
        To create a new user/database:
-       create user `<user>` password '`<password>`';
+       create role `<user>` with login encrypted password '`<password>`';
        create database `<database>` owner `<user>` template template0
-       encoding 'UTF8' lc_collate 'en_US.UTF-8 lc_ctype 'en_US.UTF-8';
+       encoding 'UTF8' lc_collate 'en_US.UTF-8' lc_ctype 'en_US.UTF-8';
        Open access in the firewall/iptables/etc. to the postgresql port,
        5432/tcp by default.
        Locate pg_hba.conf within your distribution,
@@ -159,8 +223,9 @@ TBD
        host    `<database>`      `<user>`          0.0.0.0/0               md5
        host    `<database>`      `<user>`          ::0/0                   md5
        Replace `<user>`, `<password>`, `<database>` with appropriate values.
+       Repeat for engine, dwh, reports as required.
 
-### Comments and Discussion
+## Comments and Discussion
 
 *   Refer to <Talk:Features/ovirt-engine-backup>
 

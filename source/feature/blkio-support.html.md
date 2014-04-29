@@ -91,6 +91,17 @@ merged: <http://gerrit.ovirt.org/#/c/14636>
 
 ### Engine Core
 
+#### DB
+
+qos: added limit fields to qos table:
+
+       max_throughput
+       max_read_throughput
+       max_write_throughput
+       max_iops
+       max_read_iops
+       max_write_iops
+
 #### MLA Permissions
 
 ### RESTful API

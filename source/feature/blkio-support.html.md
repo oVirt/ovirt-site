@@ -34,8 +34,6 @@ Last updated: ,
 
 ### QoS object
 
-Please refer to].
-
 There are two key metrics that libvirt can enable users to set limits on: Throughput (in Bytes/Second) and IO Operations (Input/Output Operations/Second).  There is a typical dynamic  is storage I/O that is often seen in which a smaller number of large files being read or written often consume fewer IOps, but operate at a higher throughput.  Conversely, when a large number of small files are being read or written, there are typically a higher number of IOps but noticeably slower total throughput.  It is strongly suggested that users thoroughly understand their workload characteristics in order to properly set limits on I/O at various levels, as a misconfiguration could cause potential downtime and outages to running workloads.
 
 For more details refer to:

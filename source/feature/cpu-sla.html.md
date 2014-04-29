@@ -57,7 +57,7 @@ This is the old school approach, it will be clear to the user what exact input h
 
 This is an unscientific measurement of CPU speed (http://en.wikipedia.org/wiki/BogoMips)
 
-The selected approach is the percentage (1).
+**The selected approach is the percentage (1).**
 
 ## GUI
 

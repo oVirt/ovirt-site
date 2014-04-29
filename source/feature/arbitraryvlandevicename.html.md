@@ -34,7 +34,7 @@ Supporting vlan devices with names not in standard "dev.VLANID" (e.g. eth0.10-fc
                             'ipv6addrs': [],
                             'mtu': '1500',
                             'netmask': '',
-`                      `<b>`'vlanid': 20}} `</b>
+                            `<b>`'vlanid': 20`</b>`}} 
 
 <b>notice:</b> The map already contained 'iface' key which represents the base interface name.
 

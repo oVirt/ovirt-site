@@ -18,7 +18,7 @@ A missing bounds check was found in the way OpenSSL handled TLS heartbeart exten
 
 ### Affected versions
 
-Only ovirt-node-iso images based on Red Hat Enterprise Linux 6.5 are affected. This includes ovirt-node-iso-3.4-20140410.0.el6.iso and ovirt-node-iso-3.4-20140423.0.el6.iso. A patched image is available here: <http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-node-iso-3.4-20140423.1.el6.iso>
+Only ovirt-node-iso images based on Red Hat Enterprise Linux 6.5 or Fedora 19 are affected. A patched image is available here: <http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-node-iso-3.4-20140423.1.el6.iso>
 
 ### Patch commit(s)
 

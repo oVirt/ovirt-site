@@ -114,8 +114,7 @@ To get the public key: <kbd>
 
 Importing keys Automatically <kbd>
 
-    install ovirt-release
-    install ovirt package using yum
+    yum install http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm
 
 </kbd>
 

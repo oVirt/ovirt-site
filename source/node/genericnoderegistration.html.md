@@ -43,7 +43,7 @@ Increased agility, easier integration into other projects.
 
 ### Documentation / External references
 
-The code for vdsm-reg and the [new Engine registration interface](http://gerrit.ovirt.org/#/c/20815/) describe the other end of the process.
+The code for vdsm-reg and the [Features/HostDeployProtocol](Features/HostDeployProtocol) describe the other end of the process.
 
 Draft spec is:
 

@@ -29,11 +29,11 @@ Supporting vlan devices with names not in standard "dev.VLANID" (e.g. eth0.10-fc
 
       vlans =  {'myvlan20': {
                             'addr': '',
-                             'cfg': {},
+                            'cfg': {},
 `                      `<b>`'iface': 'eth1',`</b>
-                             'ipv6addrs': [],
-                             'mtu': '1500',
-                             'netmask': '',
+                            'ipv6addrs': [],
+                            'mtu': '1500',
+                            'netmask': '',
 `                      `<b>`'vlanid': 20}} `</b>
 
 <b>notice:</b> The map already contained 'iface' key which represents the base interface name.

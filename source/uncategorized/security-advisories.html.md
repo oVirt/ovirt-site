@@ -10,6 +10,20 @@ wiki_last_updated: 2014-05-12
 
 This page lists all security vulnerabilities fixed in oVirt. Each vulnerability is assigned a security impact rating on a four-point scale (low, moderate, important and critical). The versions that are affected by each vulnerability are also listed.
 
+## [Important] CVE-2014-0160 (Heartbleed) ovirt-node-iso: OpenSSL exposes information disclosure in handling of TLS heartbeat extension packets
+
+### Description
+
+A missing bounds check was found in the way OpenSSL handled TLS heartbeart extension packets. This flaw could be used to reveal up to 64k of memory from a connected client or server. ovirt-node-iso included a vulnerable version of OpenSSL.
+
+### Affected versions
+
+Only ovirt-node-iso images based on Red Hat Enterprise Linux 6.5 are affected. This includes ovirt-node-iso-3.4-20140410.0.el6.iso and ovirt-node-iso-3.4-20140423.0.el6.iso. A patched image is available here: <http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-node-iso-3.4-20140423.1.el6.iso>
+
+### Patch commit(s)
+
+N/A
+
 ## [Moderate] CVE-2013-4367 ovirt-engine: some config files left world-writable due to improper use of os.chmod()
 
 ### Description

@@ -57,6 +57,8 @@ This is the old school approach, it will be clear to the user what exact input h
 
 This is an unscientific measurement of CPU speed (http://en.wikipedia.org/wiki/BogoMips)
 
+The selected approach is the percentage (1).
+
 ## GUI
 
 The user will configure the CPU limitation at the VM popup, our goal is to create a new side-bar for SLA and to place Cpu Profile in it.

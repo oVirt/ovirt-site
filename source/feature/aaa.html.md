@@ -125,8 +125,13 @@ All of the above is correct for domain groups as well, with the relevant changes
 
 *   Changing existing (built-in) extensions to support the Extensions API
     -   The current LdapKerberos Authenticator/Directory code, and the Internal Authenticator/Code should be aligned with the new API.
+    -   A separate jboss module containing the existing code (builtin.jar) is being introduced.
+    -   A clear separation between bll code that is not involved directly with authentication and authorization has been done.
+    -   The built in extensions are being initialized from the InitOnStartup bean (in order not to include configuration files for them).
+    -   All relevant code to search was changed to support passing a flag to enabled/disable recursive search for groups.
+    -   BLL code was changed to conform to new extensions API.
 
-This will also require changes at Engine code to call the extensions API properly.
+<!-- -->
 
 *   Introducing a generic LDAP provider
     -   A generic LDAP provider conforming to the new API is being developed.

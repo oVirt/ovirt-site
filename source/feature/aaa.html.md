@@ -110,6 +110,15 @@ Please notice this is not a recursive search - for principals (users) only the p
 2.  For each returned principal it is checked if its data matches the data of the corresponding user obtained from the database - if there is a change, the user is added to a list of users to be updated at the database
 3.  the database is updated with all the users that got changed.
 
+\*Session management Currently, when data is being retrieved from the session data container, a flag indicates whether the session should be refreshed or not.
+The UI/Rest-API can enabled/disabled the refresh flag in the query parameter they are sending when issuing a query to the engine.
+The introduced changes to the session management mechanism are:
+
+1.  Removal of the generation based mechanism (each session if not refreshed moved after 30 minutes (configurable) from a "new" to an "old" generation, and after another 30 minutes got expired).
+2.  Introducing a mechanism based on soft limit and hard limit -
+
+a. Every refresh of session a soft limit value that is attached on the session is set to the refresh time + the user session timeout interval configuration value. b. The hard limit is set at authentication - when the user is attached to the session. VALID_TO value is being read from the auth_record (this is an optional value indicating until what time the authentication record is valid) returned by the authentication, and being compared to the sum of the current time and configuration value of "UserSessionHardLimit" - the minimal value of these two values is being set as the hard limit and attached to the session. if non of these values exist, no value is set as the hard limit. c. Every minute, a check on all the sessions is invoked - for each session it is determined if hard limit exists and value is smaller than the current time - the session should be expired, otherwise - if the soft limit value exists an value is smaller than the current time - the session should be expired.
+
 #### UI
 
 The getDomainsList query that populates the "domains" in the login screen now receives a list of profiles.

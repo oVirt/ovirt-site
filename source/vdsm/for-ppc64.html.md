@@ -6,6 +6,9 @@ wiki_category: Feature|Vdsm_for_PPC64
 wiki_title: Features/Vdsm for PPC64
 wiki_revision_count: 34
 wiki_last_updated: 2015-02-05
+feature_name: VDSM for PPC64
+feature_modules: VDSM
+feature_status: Released
 ---
 
 # Vdsm for PPC64

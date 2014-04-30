@@ -79,7 +79,7 @@ A developer of the extensions should work with the API and packe the extensions 
 \* Login
 
 1.  GetDomainsListQuery presents the user the list of the profiles to select the profile to login with.
-2.  The profile is passed as parameter to the Login command.
+2.  The selected profile name is passed as parameter to the Login command.
 3.  The proper profile is obtained from the profiles repository.
 4.  It is checked that the authentication extension supports credentials based login - if it does, the login is carried out using the authentication extension.
 5.  The login returns an authentication record.

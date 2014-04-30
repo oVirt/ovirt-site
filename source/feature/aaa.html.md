@@ -160,6 +160,7 @@ The tool will create the user in the database and allocate a system permissions 
 ### Open Issues
 
 *   Introduction of accounting
+    -   Add relevant calls at BLL to the accounting API (Login, logout, session expiration)
 *   Format for generic ldap configuraton
     -   To be determined soon
 *   Format of generic ldap template file.

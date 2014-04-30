@@ -1,8 +1,10 @@
 ---
 title: Branding
-authors: awels, gshereme
-wiki_title: Feature/Branding
-wiki_revision_count: 20
+category: feature
+authors: awels
+wiki_category: Feature
+wiki_title: Features/Branding
+wiki_revision_count: 2
 wiki_last_updated: 2014-04-30
 ---
 

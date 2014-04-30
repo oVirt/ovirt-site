@@ -180,7 +180,7 @@ and
 2.  Stop the vm
 3.  Seal the vm's disk using [sysprep](http://libguestfs.org/virt-sysprep.1.html):
 
-      virt-sysprep -a PATH_TO_IMAGE --enable net-hwaddr,dhcp-client-state,ssh-hostkeys,ssh-userdir,udev-persistent-net --root-password disabled
+      virt-sysprep --add PATH_TO_IMAGE --enable net-hwaddr,dhcp-client-state,ssh-hostkeys,ssh-userdir,udev-persistent-net
 
 1.  Import into [glance](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/html/Getting_Started_Guide/ch09s02.html):
 

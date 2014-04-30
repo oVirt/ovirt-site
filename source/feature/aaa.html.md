@@ -67,7 +67,7 @@ In addition, specific entries per extension may be included. For authenticators 
 
 ovirt.engine.aaa.authn.profile.name - A profile is a combination of authentication and authorization(directory) extensions ovirt.engine.aaa.authn.authz.plugin - Name of the authorization extension to which the authentication is associated with.
 
-A developer of the extensions should work with the API defined at : <link to Alon's API> And pack the extensions developed as a jboss module.
+A developer of the extensions should work with the API and packe the extensions developed as a jboss module.
 
 #### Flows
 

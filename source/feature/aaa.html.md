@@ -107,7 +107,8 @@ Please notice this is not a recursive search - for principals (users) only the p
 # All users fetched from the database and are classified according to their authorization plugin.
 
 1.  For each authorization plugin, a search query structure that is based on the IDs of the relevant users is being constructed and invoked using the authorization extension, similar to the search flow. The search query is recursive - for each principal (user) the groups it is a member of are also being collected.
-2.  For each returned principal it is checked if its data matches the data of the corresponding user obtained from the database - if there is a change, the principal is added to a list of principcals to update the database.
+2.  For each returned principal it is checked if its data matches the data of the corresponding user obtained from the database - if there is a change, the user is added to a list of users to be updated at the database
+3.  the database is updated with all the users that got changed.
 
 #### UI
 

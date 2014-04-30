@@ -54,17 +54,12 @@ Extensions are software plugins that conform to the extensions API.
 Each extension has a configuration file.
 When engine starts it scans filesystem directories defined by the entry of ENGINE_EXTENSION_PATH
 at the configuration file ovirt-engine.conf
-
-For example:
-
+ For example:
 ovirt-engine.conf:ENGINE_EXTENSION_PATH="${ENGINE_USR}/extensions.d:${ENGINE_ETC}/extensions.d"
 
 Each configuration file will contain the following entries:
-
 ovirt.engine.extension.name - the name of the extension ovirt.engine.extension.class - the class implementing the extension ovirt.engine.extension.module - jboss module name containing the extension ovirt.engine.extension.enabled - whether the extension is enabled or not ovirt.engine.extension.sensitiveKeys - list of sensitive keys not to be logged. ovirt.engine.extension.provides - type of service that the extension provides (For example, in case of AAA - org.ovirt.engine.authentication, or org.ovirt.engine.authorization)
-
 In addition, specific entries per extension may be included. For authenticators (extensions dealing with authentication) the following keys also must be presented -
-
 ovirt.engine.aaa.authn.profile.name - A profile is a combination of authentication and authorization(directory) extensions ovirt.engine.aaa.authn.authz.plugin - Name of the authorization extension to which the authentication is associated with.
 
 A developer of the extensions should work with the API and packe the extensions developed as a jboss module.

@@ -69,7 +69,7 @@ Each configuration file will contain the following entries:
 In addition, specific entries per extension may be included. For authenticators (extensions dealing with authentication) the following keys also must be presented -
 ovirt.engine.aaa.authn.profile.name - A profile is a combination of authentication and authorization(directory) extensions ovirt.engine.aaa.authn.authz.plugin - Name of the authorization extension to which the authentication is associated with.
 
-A developer of the extensions should work with the API and packe the extensions developed as a jboss module.
+A developer of the extensions should work with the API and pack the extensions developed as a Jboss module.
 
 #### Flows
 

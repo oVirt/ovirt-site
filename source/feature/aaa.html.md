@@ -78,6 +78,7 @@ A developer of the extensions should work with the API and pack the extensions d
 1.  Once engine starts, the directories containing configuration files are scanned, the extensions are created, and profiles are created for matching authentication and authorization extensions (bare in mind that each authorization extension may be associated with more than one authentication extension).
 2.  All profiles are kept in a profiles repository.
 
+Used API commands: Base.InvokeCommands.Initialize - intializes the extension.
 \* Login
 
 1.  GetDomainsListQuery presents the user the list of the profiles to select the profile to login with.
@@ -89,10 +90,21 @@ A developer of the extensions should work with the API and pack the extensions d
 7.  If the principal is fetched, the ID of the principal record is used in order to retrieved the associated DB record (if does not exists - a new record is inserted to the users table).
 8.  The ID of the DB record is used in order to perform the MLA check.
 
-\* Logout
+Used API commands:
+
+1.  Authn.InvokeCommands.AUTHENTICATE_CREDENTIALS - perform credentials based authentication. Returns an Authentication record.
+2.  Authz.InvokeCommands.FETCH_PRINCIPAL_RECORDS - fetches a principal record based on the authentication record from the authorization extension.
+
+<BR<BR>
+
+*   Logout
 
 1.  The authentication extension is retrieved based on the command parameters.
 2.  If the authentication extension supports logout, logout is carried by the extension.
+
+Used API commands:
+
+1.  Authn.InvokeCommands.LOGOUT - performs logout.
 
 \*Search
 
@@ -103,14 +115,26 @@ A developer of the extensions should work with the API and pack the extensions d
 5.  The query is closed by the extension once there are no more results.
 
 Please notice this is not a recursive search - for principals (users) only the principal records are returned, without the groups that the principal is a member of.
-\*Sync Sync (AKA DbUserCacheManager) is configured to run once in an hour (configurable by changing the config option of 'UserRefreshRate')
+Used API commands:
+
+1.  Authz.InvokeCommands.QUERY_OPEN - opens a query, returns an opaque object
+2.  Authz.InvokeCommands.QUERY_EXECUTE - executes the query. This command should be called until there are no more results, and use the opaque object returned by QUERY_OPEN
+3.  Authz.InvokeCommands.QUERY_CLOSE - closes the query
+
+*   Sync
+
+Sync (AKA DbUserCacheManager) is configured to run once in an hour (configurable by changing the config option of 'UserRefreshRate')
 # All users fetched from the database and are classified according to their authorization plugin.
 
 1.  For each authorization plugin, a search query structure that is based on the IDs of the relevant users is being constructed and invoked using the authorization extension, similar to the search flow. The search query is recursive - for each principal (user) the groups it is a member of are also being collected.
 2.  For each returned principal it is checked if its data matches the data of the corresponding user obtained from the database - if there is a change, the user is added to a list of users to be updated at the database
 3.  the database is updated with all the users that got changed.
 
-\*Session management Currently, when data is being retrieved from the session data container, a flag indicates whether the session should be refreshed or not.
+Used API commands: Same as in search
+
+*   Session management
+
+Currently, when data is being retrieved from the session data container, a flag indicates whether the session should be refreshed or not.
 The UI/Rest-API can enabled/disabled the refresh flag in the query parameter they are sending when issuing a query to the engine.
 The introduced changes to the session management mechanism are:
 

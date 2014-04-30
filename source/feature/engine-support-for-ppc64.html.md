@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Features/Engine support for PPC64
 wiki_revision_count: 33
 wiki_last_updated: 2014-04-30
+feature_name: Engine support for PPC64
+feature_modules: Engine, REST, VDSM, UI
+feature_status: Released
 ---
 
 # Engine support for PPC64
@@ -23,9 +26,7 @@ Implement support in ovirt-engine to manage KVM on IBM POWER processor based hos
 
 ## Current status
 
-Status: Development in progress.
-
-Last updated: Sep 12, 2013
+Status: Released.
 
 ## Important notes about ppc64 support
 

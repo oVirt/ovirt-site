@@ -95,9 +95,7 @@ Used API commands:
 1.  Authn.InvokeCommands.AUTHENTICATE_CREDENTIALS - perform credentials based authentication. Returns an Authentication record.
 2.  Authz.InvokeCommands.FETCH_PRINCIPAL_RECORDS - fetches a principal record based on the authentication record from the authorization extension.
 
-<BR<BR>
-
-*   Logout
+\* Logout
 
 1.  The authentication extension is retrieved based on the command parameters.
 2.  If the authentication extension supports logout, logout is carried by the extension.

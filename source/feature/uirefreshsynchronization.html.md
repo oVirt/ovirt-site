@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Features/Design/UIRefreshSynchronization
 wiki_revision_count: 20
 wiki_last_updated: 2014-04-30
+feature_name: Refresh Synchronization
+feature_modules: webadmin,userportal
+feature_status: Released
 ---
 
 # UI Refresh Synchronization

@@ -152,10 +152,10 @@ engine-manage-domains will be kept to support the "built-in" (AKA "legacy") prov
 
 This tool will be used in order to assign role to an entry of a user from an authorization provider (AKA directory). In order to run the tool, the user of the tool will have to provide the following parameters:
 
-*   -   a. user name
-    -   b. provider
-    -   c. id of user within the provider
-    -   d. role (for example "SuperUser")
+1.  user name
+2.  provider
+3.  id of user within the provider
+4.  role (for example "SuperUser")
 
 The tool will create the user in the database and allocate a system permissions based on the role and the user .
 

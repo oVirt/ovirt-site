@@ -50,7 +50,10 @@ In order to change that we suggest to provide a mechanism that is based on the f
 
 #### Extensions
 
-Extensions are software plugins that conform to the extensions API. Each extension has a configuration file. When engine starts it scans filesystem directories defined by the entry of ENGINE_EXTENSION_PATH at the configuration file ovirt-engine.cof
+Extensions are software plugins that conform to the extensions API.
+Each extension has a configuration file.
+When engine starts it scans filesystem directories defined by the entry of ENGINE_EXTENSION_PATH
+at the configuration file ovirt-engine.conf
 
 For example:
 
@@ -60,13 +63,21 @@ Each configuration file will contain the following entries:
 
 ovirt.engine.extension.name - the name of the extension ovirt.engine.extension.class - the class implementing the extension ovirt.engine.extension.module - jboss module name containing the extension ovirt.engine.extension.enabled - whether the extension is enabled or not ovirt.engine.extension.sensitiveKeys - list of sensitive keys not to be logged. ovirt.engine.extension.provides - type of service that the extension provides (For example, in case of AAA - org.ovirt.engine.authentication, or org.ovirt.engine.authorization)
 
-In addition, specific entries per extension may be included. For authenticatos (extensions dealing with authentication) the following keys also must be presented -
+In addition, specific entries per extension may be included. For authenticators (extensions dealing with authentication) the following keys also must be presented -
 
-ovirt.engine.aaa.authn.profile.name - A profile is a combination of authenticaton and authorizaton(directory) extensions ovirt.engine.aaa.authn.authz.plugin - Name of the authorization extension to which the authentication is associated with.
+ovirt.engine.aaa.authn.profile.name - A profile is a combination of authentication and authorization(directory) extensions ovirt.engine.aaa.authn.authz.plugin - Name of the authorization extension to which the authentication is associated with.
 
 A developer of the extensions should work with the API defined at : <link to Alon's API> And pack the extensions developed as a jboss module.
 
-Once engine starts, the directories containing configuration files are scanned, the extensions are created, and profiles are created for matching authenticaton and authorization extensions
+#### Flows
+
+*   Engine starts
+
+1. Once engine starts, the directories containing configuration files are scanned, the extensions are created, and profiles are created for matching authentication and authorization extensions (bare in mind that each authorization extension may be associated with more than one authentication extension). 2. All profiles are kept in a profiles repository.
+
+*   Login
+
+1. GetDomainsListQuery presents the user the list of the profiles to select the profile to login with. 2. The profile is passed as parameter to the Login command. 3. The proper profile is obtained from the profiles repository. 4. It is checked that the authentication extension supports credentials based login - if it does, the login is carried out using the authentication extension. 5. The login returns an authentication record. 6. The record is used by the authorization extension in order to fetch a principal. 7. If the principal is fetched, the ID of the principal record is used in order to retrieved the associated DB record (if does not exists - a new record is inserted to the users table). 8. The ID of the DB record is used in order to perform the MLA check.
 
 #### UI
 

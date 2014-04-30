@@ -159,7 +159,7 @@ The tool will create the user in the database and allocate a system permissions 
 
 ### Open Issues
 
-*   Correctness of Extensions API
+*   Introduce of accounting
 *   Format for generic ldap configuraton
     -   To be determined soon
 *   Format of generic ldap template file.

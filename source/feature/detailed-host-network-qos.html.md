@@ -40,13 +40,6 @@ Generally speaking, network QoS (Quality of Service) in oVirt could be applied o
 
 The VM level was taken care of as part of the [VM Network QoS](Features/Network_QoS) feature in oVirt 3.3, whereas this feature aims to take care of the host level in a similar manner; it will be possible to cap bandwidth usage of a specific network on a specific network interface of a host, both for average usage and peak usage for a short period of time ("burst"), so that no single network could "clog" an entire physical interface.
 
-##### Host QoS important considerations
-
-*   The traffic shaping is done at the logical link level, i.e., a bond, for networks that do use link aggregation or a nic, for those networks that don't.
-*   The oVirt defined networks will each get a network traffic class to be shaped according to the limits (if any) set by the administrator (in a similar fashion as it is now for vNIC traffic) and there will be an extra network traffic class for traffic that does not belong to oVirt networks.
-*   The different network traffic classes set over a logical link will contend for the device sending queue in an egalitarian deficit round robin way, i.e., each network should get the same chance to send its traffic under normal conditions.
-*   Each logical network for which there are limits will have an enforced ceiling without borrowing from other networks.
-
 Cluster/DC-wide QoS remains to be handled in the future.
 
 Implementation-wise, two different approaches naturally arise from the existing state of QoS in oVirt:
@@ -57,6 +50,13 @@ Implementation-wise, two different approaches naturally arise from the existing 
 It is also possible to take on a hybrid approach, where users could EITHER configure an "anonymous" QoS on a host network OR attach a pre-existing QoS entity. This would probably be the preferred approach, as it provides users with flexibility and accommodates any use case. For the coming oVirt 3.4 feature, the plan is to make the existing paradigm - that of shareable, "named" QoS - a first priority; it is of the least risk to implement, and it draws upon the "already familiar" usage flows from oVirt 3.3.
 
 **Aftermath: the hybrid approach had been taken, where a QoS entity may be attached to the network on the DC level, but the QoS configuration on each host interface may be overridden from within the Setup Host Networks dialog.**
+
+#### Host QoS important considerations
+
+*   The traffic shaping is done at the logical link level, i.e., a bond, for networks that do use link aggregation or a nic, for those networks that don't.
+*   The oVirt defined networks will each get a network traffic class to be shaped according to the limits (if any) set by the administrator (in a similar fashion as it is now for vNIC traffic) and there will be an extra network traffic class for traffic that does not belong to oVirt networks.
+*   The different network traffic classes set over a logical link will contend for the device sending queue in an egalitarian deficit round robin way, i.e., each network should get the same chance to send its traffic under normal conditions.
+*   Each logical network for which there are limits will have an enforced ceiling without borrowing from other networks.
 
 ##### Entity Description
 

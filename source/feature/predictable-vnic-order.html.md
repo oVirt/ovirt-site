@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Feature/Predictable vNIC Order
 wiki_revision_count: 10
 wiki_last_updated: 2014-05-01
+feature_name: Predictable vNIC Order
+feature_modules: engine
+feature_status: Released
 ---
 
 # Predictable vNIC Order
@@ -19,11 +22,6 @@ Make the in-guest order of NICs predictable, given their visual order.
 *   Name: [ Dan Kenigsberg](User:danken)
 *   Email: <danken@redhat.com>
 *   IRC: danken at #ovirt (irc.oftc.net)
-
-### Current Status
-
-*   Part of oVirt-3.4
-*   Last updated: ,
 
 ### Background
 

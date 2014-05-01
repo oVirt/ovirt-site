@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Features/Nicless Network
 wiki_revision_count: 8
 wiki_last_updated: 2014-05-01
+feature_name: Nic-less Network
+feature_modules: engine,api
+feature_status: Dormant
 ---
 
 # Nic-less Network
@@ -21,11 +24,6 @@ Create an in-host-only network, with no external communication
 <!-- -->
 
 *   Email: <danken@redhat.com>
-
-### Current status
-
-*   Not yet scheduled to a specific release
-*   Last updated: ,
 
 ### Detailed Description
 

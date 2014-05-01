@@ -26,19 +26,26 @@ You may also refer to the [simple feature page](Features/Host_Network_QoS).
 
 #### Current Status
 
-*   Target Release: oVirt 3.4
+*   Target Release: oVirt 3.5
 *   Status: design
-*   Last updated: January 13th, 2014.
+*   Last updated: May 1st, 2014.
 
 #### Detailed Description
 
 Generally speaking, network QoS (Quality of Service) in oVirt could be applied on a variety of different levels:
 
-*   VM - control the traffic passing through a virtual NIC (virtual Network Interface Controller).
+*   VM - control the traffic passing through a vNIC (virtual Network Interface Controller).
 *   Host - control the traffic from a specific network passing through a physical NIC.
 *   Cluster/DC (Data Center) - control the traffic related to a specific logical network throughout the entire cluster/DC, including through its infrastructure (e.g. L2 switches).
 
 The VM level was taken care of as part of the [VM Network QoS](Features/Network_QoS) feature in oVirt 3.3, whereas this feature aims to take care of the host level in a similar manner; it will be possible to cap bandwidth usage of a specific network on a specific network interface of a host, both for average usage and peak usage for a short period of time ("burst"), so that no single network could "clog" an entire physical interface.
+
+##### Host QoS important considerations
+
+*   The traffic shaping is done at the logical link level, i.e., a bond, for networks that do use link aggregation or a nic, for those networks that don't.
+*   The oVirt defined networks will each get a network traffic class to be shaped according to the limits (if any) set by the administrator (in a similar fashion as it is now for vNIC traffic) and there will be an extra network traffic class for traffic that does not belong to oVirt networks.
+*   The different network traffic classes set over a logical link will contend for the device sending queue in an egalitarian deficit round robin way, i.e., each network should get the same chance to send its traffic under normal conditions.
+*   Each logical network for which there are limits will have an enforced ceiling without borrowing from other networks.
 
 Cluster/DC-wide QoS remains to be handled in the future.
 

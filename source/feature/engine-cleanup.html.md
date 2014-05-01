@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Features/engine-cleanup
 wiki_revision_count: 12
 wiki_last_updated: 2014-05-01
+feature_name: Engine
+feature_modules: "[nil]"
+feature_status: Partial
 ---
 
 # engine-cleanup
@@ -26,9 +29,9 @@ Include you email address that you can be reached should people want to contact 
 
 *   Email: TBD
 
-### Current status
+### Present
 
-(To be replaced to a link when a design page will be created)
+(To be replaced to a link when a design page is created)
 
       * Drop DB - works both on local and remote
       * Remove keystore (not perfect)
@@ -36,6 +39,8 @@ Include you email address that you can be reached should people want to contact 
       * stop services (jbossas, notifer)
       * non-interactive switch -u/--unattended, default is drop DB.
       * switch: -d/--dont-drop-db
+
+### Absent
 
 Missing to comply with the purpose definition:
 

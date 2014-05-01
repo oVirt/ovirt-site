@@ -77,7 +77,7 @@ NetworkMonitoringHelper
 #### REST Api
 
 base_interface property will be received on GET VdsNetworkInterface.
-Changed done in "setupnetworks" ACTION-
+Changes in "setupnetworks" ACTION-
 1. If the base_interface is specified, it will be used instead of determining it from the device name.
 2. If not, the base_interface name will be determined from the device name as before. (This should be done to keep backward compatibility).
 

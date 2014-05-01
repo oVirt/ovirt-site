@@ -74,9 +74,13 @@ VdsUpdateRunTimeInfo
 GetVlanParentQuery
 NetworkMonitoringHelper
 
+#### REST Api
+
+base_interface property will be received on GET VdsNetworkInterface. Changed done in "setupnetworks" ACTION- 1. If the base_interface is specified, it will be used instead of determining it from the device name. 2. If not, the base_interface name will be determined from the device name as before. (This should be done to keep backward compatibility).
+
 #### User Experience
 
-There are no ux visible changes. As before the user can see the vlanDevice on Host->Network Interface sub tab. And cannot see the devices on the Setup Networks dialog.
+The "vlan id" will be added to the VLAN column in the Network Interfaces sub tab under Host in the following format- "device name (vlan id)". The are no visual changes in setup networks dialog since the vlan devices are not shown there.
 
 #### Restrictions
 

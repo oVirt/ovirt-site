@@ -64,8 +64,8 @@ The effected flows are:
 MigrateVmCommand
 RemoveNetworksByLabelParametersBuilder (DetachNetworksFromClusterCommand, UnlabelNicCommand)
 DetachNetworkFromVdsInterfaceCommand
-DetachNetworkFromVdsInterfaceCommand
-DetachNetworkFromVdsInterfaceCommand
+GetAllChildVlanInterfacesQuery
+GetAllSiblingVlanInterfacesQuery
 LabelNicCommand
 RemoveBondCommand
 SetupNetworks

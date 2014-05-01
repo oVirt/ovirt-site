@@ -96,7 +96,7 @@ Example vdscli:
 
     from vdsm import vdscli
     connection = vdscli.connect()
-    connection.addNetwork('whatever', '', '', ['p1p4'], {'qosInbound':{'average': '10000', 'burst': '48000', 'peak':'12000' }})
+    connection.addNetwork('whatever', '', '', ['p1p4'], {'qosInbound':{'average': 10000, 'burst': 48000, 'peak':12000 }})
 
 It's possible to retrieve the QoS defined for an host's network with the following code:
 
@@ -120,7 +120,7 @@ the expected result should be something similar to:
      'mtu': '1500',
      'netmask': '',
      'ports': ['p1p2'],
-     'qosInbound': {'average': '10000' , 'burst': '48000', 'peak': '12000'},
+     'qosInbound': {'average': 10000 , 'burst': 48000, 'peak': 12000},
      'qosOutbound': '',
      'stp': 'off'}
 

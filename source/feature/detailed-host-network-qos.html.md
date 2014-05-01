@@ -124,6 +124,20 @@ the expected result should be something similar to:
      'qosOutbound': '',
      'stp': 'off'}
 
+###### Implementation
+
+![](Host_qos.png "Host_qos.png")
+
+As depicted in the picture, there are three oVirt networks (all the leaf nodes would have an stochastic fair queuing (sfq) qdics to prevent connections from taking all the bandwidth of a traffic class):
+
+*   Storage: Non-shaped network for the host to access nfs. This traffic class would just receive its fair amount from the deficit round robin scheduler without restriction.
+*   Databse: Shaped network with outbound traffic restrictions to 3mbps (ceiling 5mbps) that serves for the VMs that run postgresql instances. This class would be treated as the one above, but with a queue that would have shaping for an average and ceiling.
+*   Web servers: Shaped network with outbound traffic restrictions to 20mbps (ceiling 30mbps) that serves for VMs that run apache/nginx instances. The shaping would be just like in the database network but with different limits.
+
+Additionally, there is one extra traffic class for non-oVirt traffic which would have exactly the same restrictions as Storage.
+
+Additionally, there is a traffic class
+
 ##### RESTful API
 
 As part of the VM Network QoS feature, no API was defined for the DC-level QoS entities, for various reasons. If the "named" QoS entity paradigm is preserved in this feature, I do not see any reason to hurry the process and force the definition of that API. However, if the "anonymous" QoS is also implemented, the values that define the QoS entity could be passed in the Setup Networks command as part of the NIC properties, and doesn't have to rely upon the REST implementation of the DC-level Network QoS entitiyes. This hasn't been implemented for oVirt 3.4.

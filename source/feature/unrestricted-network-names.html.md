@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Features/Unrestricted Network Names
 wiki_revision_count: 18
 wiki_last_updated: 2014-07-22
+feature_name: Unrestricted Network Names
+feature_modules: engine,api
+feature_status: Proposed
 ---
 
 # Unrestricted Network Names
@@ -21,11 +24,6 @@ Let users give any name to their network
 <!-- -->
 
 *   Email: <danken@redhat.com>
-
-### Current status
-
-*   To be proposed for oVirt-3.5
-*   Last updated: ,
 
 ### Detailed Description
 

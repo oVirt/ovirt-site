@@ -123,10 +123,10 @@ The new standalong listener will be implemented with these features:
         2.  If no record is returned or *record timestamp + NextKdumpTimeout < message timestamp*, set status to **STARTED**, otherwise set status to **DUMPING**
 
     3.  Write IP, message timestamp and status to **fence_kdump_messages** table
-*   Another thread (it will be scheduled to execute every 30 seconds) will take care of finishing fence_kdump process status:
+*   Another thread, which will be scheduled to execute every *FenceKdumpFlowTerminatorInterval* (default 10) seconds, will take care of finishing fence_kdump process status:
     1.  Select the most recent records from **fence_kdump_messages** table for all IP
     2.  For each IP if record status is not **FINISHED** and *record_timestamp + KdumpFinishedTimeout < current timestamp*, write new record to **fence_kdump_messages** table with status **FINISHED**
-*   Last thread will be scheduler to execute every 5 seconds and it will be used as a heartbeat status for engine, that fence_kdump listener is alive:
+*   Last thread will be scheduler to execute every *FenceKdumpListenerHeartbeatInterval* (default 10 ) seconds and it will be used as a heartbeat status for engine, that fence_kdump listener is alive:
     1.  It will store current timestamp into **fence_kdump_messages** table for IP value *fence_kdump_listener*
 
 The listener will use two config values:
@@ -143,8 +143,11 @@ The listener will use two config values:
 *   **FenceKdumpListenerPort**
     -   Defines the port to receive fence_kdump messages on
     -   Default 7410
-*   **FenceKdumpListenerAliveTimeout**
+*   **FenceKdumpListenerHeartbeatInterval**
     -   Defines time interval from last heartbeat update of fence_kdump listener to consider him alive
+    -   Default 10 seconds
+*   **FenceKdumpFlowTerminatorInterval**
+    -   Defines time interval in which "finishing kdump flow" thread will be executed
     -   Default 10 seconds
 
 It's supposed that fence_kdump_send will send messages every 5 seconds.

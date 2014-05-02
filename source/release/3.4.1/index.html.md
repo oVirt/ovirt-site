@@ -32,21 +32,21 @@ And then manually add the release candidate repository for your distribution to 
 
 **For CentOS / RHEL:**
 
-         [ovirt-3.4-rc]
-         name=Latest oVirt 3.4 RC
-`   baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/el6`](http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/el6)
-         enabled=1
-         skip_if_unavailable=1
-         gpgcheck=0
+      [ovirt-3.4-rc]
+      name=Latest oVirt 3.4 RC
+`baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/el6`](http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/el6)
+      enabled=1
+      skip_if_unavailable=1
+      gpgcheck=0
 
 **For Fedora:**
 
-         [ovirt-3.4-rc]
-         name=Latest oVirt 3.4 RC
-`   baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/fc$releasever`](http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/fc$releasever)
-         enabled=1
-         skip_if_unavailable=1
-         gpgcheck=0
+      [ovirt-3.4-rc]
+      name=Latest oVirt 3.4 RC
+`baseurl=`[`http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/fc$releasever`](http://resources.ovirt.org/pub/ovirt-3.4-rc/rpm/fc$releasever)
+      enabled=1
+      skip_if_unavailable=1
+      gpgcheck=0
 
 If you're upgrading from a previous version you should have ovirt-release package already installed on your system. You can then install ovirt-release34.rpm as in a clean install side-by-side. If you're upgrading from oVirt 3.4.0 you can now remove ovirt-release package:
 

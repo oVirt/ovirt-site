@@ -27,10 +27,6 @@ The Neutron Virtual Appliance designed to provide an easy and simple deployment 
 *   Gitweb: <http://gerrit.ovirt.org/gitweb?p=ovirt-appliance.git>
     -   Pre-release development playground: <https://github.com/masayag/ovirt-appliance/>
 
-### Current status
-
-*   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
-
 ### Detailed Description
 
 The feature designed to ease the neutron services provisioning from within ovirt by reducing the overhead of installing and configuring OpenStack.

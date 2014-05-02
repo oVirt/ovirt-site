@@ -74,7 +74,11 @@ If you're upgrading from oVirt <= 3.3.1 you must first upgrade to oVirt 3.3.5. P
 *   Host deployment may fail on EL6 system due to a recent tuned regression (, ). Please downgrade tuned to previous version while waiting for a new tuned package solving this issue.
 *   ovirt-log-collector installation fails on Fedora 19 due to a conflict with sos 3.0 recently introduced also on release 19 () as workaround please downgrade sos before installing ovirt-engine:
 
-         # yum downgrade sos
+       # yum downgrade sos
+
+*   after installing ovirt-engine yum update will fail on Fedora 19 due to sos 3.0 conflict with ovirt-log-collector () as workaround please exclude sos from yum updates adding the following line in **/etc/yum.conf**:
+
+       exclude=sos
 
 ## Bugs fixed
 

@@ -20,7 +20,7 @@ To find out more about features which were added in previous oVirt releases, che
 
 ### CANDIDATE RELEASE
 
-oVirt 3.4.1 candidate release will be available on 2014-04-22. In order to install it you've to enable oVirt 3.4 pre release repository.
+oVirt 3.4.1 candidate release is available since 2014-04-22. In order to install it you've to enable oVirt 3.4 rc repository.
 
 ### Fedora / CentOS / RHEL
 

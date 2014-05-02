@@ -24,6 +24,8 @@ The Neutron Virtual Appliance designed to provide an easy and simple deployment 
 
 *   Name: [ Moti Asayag](User:Moti Asayag)
 *   Email: <masayag@redhat.com>
+*   Gitweb: <http://gerrit.ovirt.org/gitweb?p=ovirt-appliance.git>
+    -   Pre-release development playground: <https://github.com/fabiand/ovirt-appliance/>
 
 ### Current status
 

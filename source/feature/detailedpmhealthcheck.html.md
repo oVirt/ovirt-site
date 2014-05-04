@@ -40,9 +40,15 @@ This class will
 
 ### CRUD
 
+N/A
+
 #### DAO
 
+N/A
+
 #### Metadata
+
+N/A
 
 ### Configuration
 

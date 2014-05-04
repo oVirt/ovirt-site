@@ -99,4 +99,4 @@ Hopefully some subsystems are even running in their own processes.
 
 ### Attachments
 
-*   ![schema](schemas.dia.gz "fig:schema") ([dia](https://wiki.gnome.org/Apps/Dia/) file)
+*   ![schema](schemas.dia.gz "fig:schema") ([dia](https://wiki.gnome.org/Apps/Dia/) file containing the schema sources)

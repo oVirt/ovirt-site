@@ -15,7 +15,7 @@ wiki_last_updated: 2014-05-04
 ### Summary
 
 The requirement is to add a periodic health check of all Hosts with confifigured PM
-The schedulted job will try to send a status command to all PM enabled hosts periodically (once a hour by default) and raise alerts for failed operations
+The schedulted job will try to send a status command to all PM enabled hosts periodically (once anhour by default) and raise alerts for failed operations
 
 ### Owner
 

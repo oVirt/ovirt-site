@@ -87,6 +87,8 @@ See [Dismiss Alerts](https://bugzilla.redhat.com/show_bug.cgi?id=1090808)
 
 #### Affected oVirt projects
 
+See [RFE](https://bugzilla.redhat.com/show_bug.cgi?id=1090808)
+
 ### Documentation / External references
 
 [Features/PMHealthCheck](Features/PMHealthCheck)

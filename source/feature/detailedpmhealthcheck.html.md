@@ -28,7 +28,7 @@ Email: emesika@redhat.com
 
 *   Target Release: 3.5
 *   Status: Design
-*   Last updated date: APR 6 2012
+*   Last updated date: MAY 3 2014
 
 ### Detailed Description
 

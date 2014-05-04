@@ -15,6 +15,9 @@ wiki_warnings: list-item?
 
 ### Summary
 
+The requirement is to add a periodic health check of all Hosts with confifigured PM
+The schedulted job will try to send a status command to all PM enabled hosts periodically (once a hour by default) and raise alerts for failed operations
+
 ### Owner
 
 *   Feature owner: [ Eli Mesika](User:emesika)

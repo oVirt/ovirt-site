@@ -113,72 +113,9 @@ The neutron appliance for ovirt-engine 3.5 is based on the Havana-RDO which uses
 7.  Run the following on the host, to connect neutron integration bridge to neutron network:
     1.  ovs-vsctl add-port br-neutron neutron
 
-### Steps for creating the image
+### Creating the image
 
-1.  Import CentOS-6.5 image as a template to 3.4 cluster from ovirt-glance repository
-2.  Create a vm from CentOS-6.5 template, configure via cloud-init:
-    1.  Set root password
-    2.  define network interface 'eth0' as dhcp and on-boot (could be static ip as well)
-    3.  Increase memory to 2048MB
-    4.  Create 2 nics: eth0 (connected to ovirtmgmt) and eth1 (connected to 'neutron' vm network on ovirt)
-
-<!-- -->
-
-1.  Set root authorized-keys to be able to access via ssh
-
-see <http://unix.stackexchange.com/questions/69314/automated-ssh-keygen-without-passphrase-how>
-
-1.  Install packstack:
-    1.  sudo yum install -y <http://rdo.fedorapeople.org/rdo-release.rpm>
-    2.  sudo yum install -y openstack-packstack
-    3.  sudo yum update -y python-backports
-
-2.  Generate answer file:
-    1.  packstack --gen-answer-file=/root/packstack-answers.txt
-
-3.  Manipulate answer-file packstack-answers.txt
-
-       IP_ADDRESS=$(grep CONFIG_MYSQL_HOST /root/packstack-answers.txt | cut -d= -f2)
-       sed -i "s/$IP_ADDRESS/127.0.0.1/g" /root/packstack-answers.txt
-       
-       sed -i 's/CONFIG_PROVISION_ALL_IN_ONE_OVS_BRIDGE=n/CONFIG_PROVISION_ALL_IN_ONE_OVS_BRIDGE=y/' /root/packstack-answers.txt
-       sed -i 's/CONFIG_CINDER_INSTALL=y/CONFIG_CINDER_INSTALL=n/' /root/packstack-answers.txt
-       sed -i 's/CONFIG_NOVA_INSTALL=y/CONFIG_NOVA_INSTALL=n/' /root/packstack-answers.txt
-       sed -i 's/CONFIG_HORIZON_INSTALL=y/CONFIG_HORIZON_INSTALL=n/' /root/packstack-answers.txt
-       sed -i 's/CONFIG_SWIFT_INSTALL=y/CONFIG_SWIFT_INSTALL=n/' /root/packstack-answers.txt
-       sed -i 's/CONFIG_CEILOMETER_INSTALL=y/CONFIG_CEILOMETER_INSTALL=n/' /root/packstack-answers.txt
-       sed -i 's/CONFIG_NAGIOS_INSTALL=y/CONFIG_NAGIOS_INSTALL=n/' /root/packstack-answers.txt
-       sed -i 's/CONFIG_NEUTRON_OVS_TENANT_NETWORK_TYPE=local/CONFIG_NEUTRON_OVS_TENANT_NETWORK_TYPE=vlan/' /root/packstack-answers.txt
-       sed -i 's/CONFIG_NEUTRON_OVS_VLAN_RANGES=/CONFIG_NEUTRON_OVS_VLAN_RANGES=vmnet:1024:2048/' /root/packstack-answers.txt
-       sed -i 's/CONFIG_NEUTRON_OVS_BRIDGE_MAPPINGS=/CONFIG_NEUTRON_OVS_BRIDGE_MAPPINGS=vmnet:br-eth1/' /root/packstack-answers.txt
-       sed -i 's/CONFIG_NEUTRON_OVS_BRIDGE_IFACES=/CONFIG_NEUTRON_OVS_BRIDGE_IFACES=br-eth1:eth1/' /root/packstack-answers.txt
-
-1.  Create ssh keys to ease packstack installer
-    1.  ssh-keygen -f /root/.ssh/id_dsa -t dsa -q -N ""
-    2.  cat /root/.ssh/id_dsa.pub >> /root/.ssh/authorized_keys
-
-<!-- -->
-
-1.  packstack --answer-file=/root/packstack-answers.txt
-2.  change iptables rule:
-
-      replace:
-      -A INPUT -s 127.0.0.1/32 -p tcp -m multiport --dports 9696 -m comment --comment "001 neutron incoming 127.0.0.1" -j ACCEPT
-      with:
-      -A INPUT -p tcp -m multiport --dports 9696 -m comment --comment "001 neutron incoming all" -j ACCEPT
-
-and
-
-      -A INPUT -s 127.0.0.1/32 -p tcp -m multiport --dports 5671,5672 -m comment --comment "001 qpid incoming 127.0.0.1" -j ACCEPT
-      with
-      -A INPUT -p tcp -m multiport --dports 5671,5672 -m comment --comment "001 qpid incoming all" -j ACCEPT      
-      service iptables restart
-
-1.  yum install -y tcpdump
-2.  Stop the vm
-3.  Seal the vm's disk using [sysprep](http://libguestfs.org/virt-sysprep.1.html):
-
-      virt-sysprep --add PATH_TO_IMAGE --enable net-hwaddr,dhcp-client-state,ssh-hostkeys,ssh-userdir,udev-persistent-net
+Steps for creating the image and sealing it are described [here](https://github.com/masayag/ovirt-appliance#creating-the-image). Once the image is created, follow the next steps:
 
 1.  Import into [glance](https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/html/Getting_Started_Guide/ch09s02.html):
 

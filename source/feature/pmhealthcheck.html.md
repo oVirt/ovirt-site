@@ -30,12 +30,12 @@ wiki_last_updated: 2014-05-04
 
 ### Detailed Description
 
-The requirement is to add a periodic health check of all Hosts with confifigured PM
-The schedulted job will try to send a status command to all PM enabled hosts periodically (once a hour by default) and raise alerts for failed operations
+The requirement is to add a periodic health check of all Hosts with configured PM
+The scheduled job will try to send a status command to all PM enabled hosts periodically (once a hour by default) and raise alerts for failed operations
 
 ### Benefit to oVirt
 
-This feature will improve Host availability since once a Host fails the PM status command, the administratore will see the raised alert and will be able to address the problem ASAP
+This feature will improve Host availability since once a Host fails the PM status command, the administrator will see the raised alert and will be able to address the problem ASAP
 
 ### Dependencies / Related Features
 

@@ -91,6 +91,8 @@ See [Dismiss Alerts](https://bugzilla.redhat.com/show_bug.cgi?id=1090808)
 
 ### Enforcement
 
+Code should verify that PM Health Check cycle can not be run while another cycle is active, this is due the fact that in a general elecricity failure or shutdown, looping over all hosts and waiting for the communication timeouts may be time consuming
+
 ### Dependencies / Related Features and Projects
 
 #### Affected oVirt projects

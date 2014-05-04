@@ -6,7 +6,6 @@ wiki_category: Feature
 wiki_title: Features/Design/DetailedPMHealthCheck
 wiki_revision_count: 25
 wiki_last_updated: 2014-05-04
-wiki_warnings: list-item?
 ---
 
 # Detailed PM Health Check
@@ -20,13 +19,10 @@ The schedulted job will try to send a status command to all PM enabled hosts per
 
 ### Owner
 
-*   Feature owner: [ Eli Mesika](User:emesika)
-
-    * Engine Component owner: [ Eli Mesika](User:emesika)
-
-    * QA Owner: [ Pavel Stehlik](User:pstehlik)
-
-*   Email: emesika@redhat.com
+Feature owner: [ Eli Mesika](User:emesika)
+Engine Component owner: [ Eli Mesika](User:emesika)
+QA Owner: [ Pavel Stehlik](User:pstehlik)
+Email: emesika@redhat.com
 
 ### Current status
 

@@ -56,7 +56,7 @@ N/A
 The following configuration variabled will be added to vdc_options
 
         PMHealthCheckEnabled (boolean, false by default) - Enable/Diable the Pm Health Check scheduled job
-        PMHealtCheckIntervalInSec (int, default 3600) - Determines the number of seconds for scheduling the PM Healt Check operation
+        PMHealthCheckIntervalInSec (int, default 3600) - Determines the number of seconds for scheduling the PM Healt Check operation
 
 Those configuration value should be exposed to the engine-config tool.
 

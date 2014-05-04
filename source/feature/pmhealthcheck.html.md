@@ -35,6 +35,8 @@ The schedulted job will try to send a status command to all PM enabled hosts per
 
 ### Benefit to oVirt
 
+This feature will improve Host availability since once a Host fails the PM status command, the administratore will see the raised alert and will be able to address the problem ASAP
+
 ### Dependencies / Related Features
 
 ### Documentation / External references

@@ -26,7 +26,7 @@ wiki_last_updated: 2014-05-04
 
 ### Current status
 
-*   Last updated date: Nov 2, 2012
+*   Last updated date: MAY 4, 2014
 
 ### Detailed Description
 

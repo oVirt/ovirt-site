@@ -40,7 +40,12 @@ Email: emesika@redhat.com
 
 ### Configuration
 
-This configuration value should be exposed to the engine-config tool.
+The following configuration variabled will be added to vdc_options
+
+        PMHealthCheckEnabled (boolean, false by default) - Enable/Diable the Pm Health Check scheduled job
+        PMHealthCheckInSec (int, default 3600) - Determines the number of seconds for scheduling the PM Healt Check operation
+
+Those configuration value should be exposed to the engine-config tool.
 
 ### Business Logic
 

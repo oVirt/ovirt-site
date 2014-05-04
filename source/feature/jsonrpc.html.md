@@ -96,3 +96,7 @@ Hopefully some subsystems are even running in their own processes.
 *   [STOMP](http://stomp.github.io)
 *   [JSON-RPC](http://www.jsonrpc.org/)
 *   [AMQP](http://www.amqp.org/)
+
+### Attachments
+
+*   ![schema](schemas.dia.gz "fig:schema") ([dia](https://wiki.gnome.org/Apps/Dia/) file)

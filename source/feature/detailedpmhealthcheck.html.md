@@ -14,8 +14,8 @@ wiki_last_updated: 2014-05-04
 
 ### Summary
 
-The requirement is to add a periodic health check of all Hosts with confifigured PM
-The schedulted job will try to send a status command to all PM enabled hosts periodically (once anhour by default) and raise alerts for failed operations
+The requirement is to add a periodic health check of all Hosts with configured PM
+The scheduled job will try to send a status command to all PM enabled hosts periodically (once an-hour by default) and raise alerts for failed operations
 
 ### Owner
 
@@ -32,7 +32,7 @@ Email: emesika@redhat.com
 
 ### Detailed Description
 
-Add a class PmHealtCheckManager to handle the schedualed check
+Add a class PmHealtCheckManager to handle the scheduled check
 This class will
 
         Read the related configuration values(see Configuration) and if feature is enabled reads the

@@ -35,7 +35,8 @@ Email: emesika@redhat.com
 Add a class PmHealtCheckManager to handle the schedualed check
 This class will
 
-        Read the related configuration values(see Configuration) and if feature is enabled reads the PMHealtCheckIntervalInSec configurationvariable.
+        Read the related configuration values(see Configuration) and if feature is enabled reads the PMHealtCheckIntervalInSec
+        configurationvariable.   
         Create the Quartz job in it initialize() method which will be called from backend::initialize()
 
 ### CRUD

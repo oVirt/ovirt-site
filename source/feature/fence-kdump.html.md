@@ -210,9 +210,9 @@ Following config values are used:
 | engine                                                                                  |
 | Display status of kdump configuration for host                                          | Done                                       |
 | Enable/disable kdump detection in Host Power Management configuration                   | Done                                       |
-| Add fence_kdump_send configuration to vdc_options                                    | Coding                                     |
+| Add fence_kdump_send configuration to vdc_options                                    | Patch on review                            |
 | Display warning when host kdump detection is enabled, but kdump not configured for host |                                            |
-| Implement standalone fence_kdump listener                                              | Coding                                     |
+| Implement standalone fence_kdump listener                                              | Patch on review                            |
 | Add fence_kdump handling to fencing flow                                               | Coding                                     |
 |                                                                                         |
 | engine-setup                                                                            |

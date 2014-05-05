@@ -111,32 +111,19 @@ We decided to implement new standalone listener running on the same host as engi
 
 ## New standalone fence_kdump listener
 
-The new standalong listener will be implemented with these features:
+The new standalone listener will be implemented with these features:
 
-*   The first listener thread will:
-    1.  Receive a message and check if it's valid fence_kdump message (compares magic number and message version (currently only *1*) in the same way as in *fence_kdump* command).
-    2.  If message is valid, send IP address, timestamp and empty status (fence_kdump protocol version 1 doesn't provide status of host kdump flow) to queue.
-*   In another thread queue will be processed:
-    1.  Get message from queue
-    2.  If the status is empty
-        1.  Get most recent record from **fence_kdump_messages** table in engine database with proper IP
-        2.  If no record is returned or *record timestamp + NextKdumpTimeout < message timestamp*, set status to **STARTED**, otherwise set status to **DUMPING**
-
-    3.  Write IP, message timestamp and status to **fence_kdump_messages** table
-*   Another thread, which will be scheduled to execute every *FenceKdumpFlowTerminatorInterval* (default 10) seconds, will take care of finishing fence_kdump process status:
-    1.  Select the most recent records from **fence_kdump_messages** table for all IP
-    2.  For each IP if record status is not **FINISHED** and *record_timestamp + KdumpFinishedTimeout < current timestamp*, write new record to **fence_kdump_messages** table with status **FINISHED**
-*   Last thread will be scheduler to execute every *FenceKdumpListenerHeartbeatInterval* (default 10 ) seconds and it will be used as a heartbeat status for engine, that fence_kdump listener is alive:
-    1.  It will store current timestamp into **fence_kdump_messages** table for IP value *fence_kdump_listener*
+*   Base flow for received messages
+    1.  Receive a message and check if it's valid fence_kdump message (compare magic number and message version (currently only *1*) in the same way as in *fence_kdump* command).
+    2.  If message is valid, determine status of kdump flow (based on messages received in the past it's set to *started* or *dumping*)
+    3.  Store sender IP address, timestamp and status to database.
+*   Finish host's kdump flow
+    -   For all hosts with status *dumping* test if last received message in not older than *KdumpFinishedTimeout* (default 30 sec). If so, save record with status *finished* and current timestamp for the host to the database
+*   Listener heartbeat
+    -   Periodically every *FenceKdumpListenerHeartbeatInterval* (default 10 sec) save current timestamp to database for host *fence_kdump_listener* (this will be checked by engine to know that listener is alive)
 
 The listener will use two config values:
 
-*   **NextKdumpTimeout**
-    -   Defines minimum timeout allowed between one kdump flow finished and new one started for one host
-    -   Default 60 seconds
-*   **KdumpFinishedTimeout**
-    -   Defines maximum timeout after last received message from kdumping hosts after which the host kdump flow is marked as FINISHED
-    -   Default 30 seconds
 *   **FenceKdumpListenerHost**
     -   Defines the IP address to receive fence_kdump messages on
     -   Default 7410
@@ -146,11 +133,11 @@ The listener will use two config values:
 *   **FenceKdumpListenerHeartbeatInterval**
     -   Defines time interval from last heartbeat update of fence_kdump listener to consider him alive
     -   Default 10 seconds
-*   **FenceKdumpFlowTerminatorInterval**
-    -   Defines time interval in which "finishing kdump flow" thread will be executed
-    -   Default 10 seconds
+*   **KdumpFinishedTimeout**
+    -   Defines maximum timeout after last received message from kdumping hosts after which the host kdump flow is marked as FINISHED
+    -   Default 30 seconds
 
-It's supposed that fence_kdump_send will send messages every 5 seconds.
+It's supposed that fence_kdump_send will send messages every *FenceKdumpMessageInterval* (default 5) seconds.
 
 For oVirt 3.5 we will rely on current fence_kdump capabilities, but for next oVirt version (3.6/4.0) we plan to send more patches to **fence-agents-kdump** and **kexec-tools** which will extend fence_kdump behaviour to be able:
 

@@ -91,7 +91,7 @@ The hooks are actually manually installed, so I'll explain how is set up right n
 
 ### Base Direcotry
 
-Under ''/home/gerrit2/review_site/hooks' you'll find a copy of the *hooks* folder that's in the source code repository. And also some soft-links (explained under Hook Dispatcher section) and a custom 'config' file.
+Under */home/gerrit2/review_site/hooks* you'll find a copy of the *hooks* folder that's in the source code repository. And also some soft-links (explained under Hook Dispatcher section) and a custom 'config' file.
 
 ### Hook Dispatcher
 

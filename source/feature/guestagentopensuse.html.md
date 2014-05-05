@@ -117,6 +117,6 @@ It'll be easier to install the ovirt-guest-agent on OpenSUSE guests.
 
 ### Comments and Discussion
 
-*   Refer to [Talk:oVirt Guest Agent/OpenSUSE](Talk:oVirt Guest Agent/OpenSUSE)
+*   Refer to <Talk:Feature/GuestAgentOpenSUSE>
 
 <Category:Feature> <Category:Ovirt_guest_agent>

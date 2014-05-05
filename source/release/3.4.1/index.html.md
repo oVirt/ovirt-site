@@ -58,11 +58,6 @@ If you're going to test oVirt 3.4.1 development version, please add yourself to 
 
 ### Fedora / CentOS / RHEL
 
-Prior to upgrading or new installation, you should import the new gpg key which is used to sign the packages:
-
-`# wget -O ./RPM-GPG-ovirt `[`http://resources.ovirt.org/pub/keys/RPM-GPG-ovirt`](http://resources.ovirt.org/pub/keys/RPM-GPG-ovirt)
-      # rpm --import ./RPM-GPG-ovirt
-
 If you're installing oVirt 3.4.1 on a clean host you should read our [Quick Start Guide](Quick Start Guide)
 
 If you're upgrading from oVirt 3.4.0 or from oVirt >= 3.3.2 you should just execute:

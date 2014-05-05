@@ -117,6 +117,6 @@ Each project can have it's own configuration file too, it must be located at $GE
 
 To ease the development of the hooks and avoid code duplication, some bash and python libraries are provided adding the $GERRIT_BASE/hooks/lib directory to poth the PATH and PYTHONPATH enviroment variables of the hooks when executing them.
 
-### Bugzilla
+**NOTE**: For the latest docs, look the code, this wiki is not yet automatically updated, so it might be outdated.
 
 [Category:Infrastructure documentation](Category:Infrastructure documentation)

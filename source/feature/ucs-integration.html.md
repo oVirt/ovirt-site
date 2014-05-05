@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Features/UCS Integration
 wiki_revision_count: 10
 wiki_last_updated: 2015-05-20
+feature_name: Cisco UCS integration
+feature_modules: engine,network,vdsm
+feature_status: Partially Released
 ---
 
 # UCS Integration
@@ -45,7 +48,7 @@ This implies that the administrator must manually copy the port profile names fr
 
 ## Current status
 
-*   Design.
+Level IV completed and released.
 
 ## Integration levels
 
@@ -55,10 +58,50 @@ Considering the current level of integration (using the current vdsm-hook-vmfex)
 
 This level of integration consists of reworking the existing vdsm-hook-vmfex so that the oVirt administrator can set up the integration at the guest device level instead of at the VM level. The advantage of this is that only the port profile will need to be specified (since the MAC address is already part of the VM's NIC properties given by the Engine).
 
-Things to be done:
+Things done:
 
 *   [Filter out unused virtual functions from being reported as nics](http://gerrit.ovirt.org/#/c/22559/).
 *   [Clone and refactor the current hook to use custom device properties and to run "before_device_create" and "before_device_hotplug"](http://gerrit.ovirt.org/#/c/22529/).
+
+You can get the hook resulting from this integration level [here](http://plain.resources.ovirt.org/releases/3.4/rpm/el6/noarch/vdsm-hook-vmfex-dev-4.14.6-0.el6.noarch.rpm)
+
+#### Installation
+
+*   Use the engine-config to append the appropriate custom property:
+
+       sudo engine-config -s CustomDeviceProperties=
+       '{type=interface;prop={vmfex=^[a-zA-Z0-9_ ---]+$}}'
+
+*   Verify that the vmfex_dev custom device propertes were properly added:
+
+         sudo engine-config -g CustomDeviceProperties
+
+#### Usage
+
+*   Define an oVirt vNIC profile and set one of its custom properites to "vmfex" with the value of the name of UCS port profile. For instance:
+
+            vmfex: myPortProfileId
+
+*   Attach the oVirt vNIC profile to a VM vNIC. When the VM runs, the vNIC with the vmfex custom device, the xml definition of which might originally look like:
+
+<!-- -->
+
+    <interface type='bridge'>
+        <mac address='<mac>'/>
+        <model type='virtio'/>
+        <source bridge='<logical network>'/>
+    </interface>
+
+will be transformed into:
+
+    <interface type='network'>
+        <mac address='<mac>'/>
+        <source network='direct-pool'/>
+        <virtualport type='802.1Qbh'>
+            <parameters profileid='<Port Profile id>'/>
+        </virtualport>
+        <model type='virtio'/>
+    </interface>
 
 ### Level V: "The Network provider strikes back"
 

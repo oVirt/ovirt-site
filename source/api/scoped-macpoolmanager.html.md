@@ -119,6 +119,8 @@ What happens when we allocated mac in data-center related pool, then remove it, 
 
 ### DB details
 
-~~In DB was added column 'mac_pool_ranges' into table 'storage_pool'.~~ ![](erd "fig:erd")
+~~In DB was added column 'mac_pool_ranges' into table 'storage_pool'.~~
+
+![](Erd.png "Erd.png")
 
 <Category:Api> <Category:Feature>

@@ -10,6 +10,8 @@ wiki_warnings: conversion-fallback
 
 # vmfex
 
+**NOTE: There is a new hook with better integration to vNic profile management** [UCS Integration](UCS%20Integration)****
+
 This hook enables the use of Cisco VM Fabric Extender (VM-FEX) in oVirt.
 
 The hook receives a VM's virtual NIC's MAC adress as it is defined in the engine and a FEX Port Profile name, and reattaches that NIC to the FEX Port instead of the logical network it is assigned to in the Engine. This way the NIC MACs can be controlled in the Engine, but the NIC is actually running on FEX.

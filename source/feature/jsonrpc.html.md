@@ -32,13 +32,11 @@ Using a phased approach we are going to a point where messaging is the main comm
 
 ### Phases
 
-#### Phase 0
+### Phase 0
 
-The is how VDSM communicated with the engine before any messaging was implemented.
+Below is prior state to the messaging changes. The engine uses XML-RPC over HTTP to communicate with the VDSM. There are two connections active between the engine and a VDSM.
 
 ![](jsonrpc_phase0.png "jsonrpc_phase0.png")
-
-The engine uses XML-RPC over HTTP to make API requests.
 
 #### Phase 1
 

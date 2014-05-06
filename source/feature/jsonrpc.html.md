@@ -58,22 +58,23 @@ This is going to be released for 3.5
 
 ![](jsonrpc_phase2.png "jsonrpc_phase2.png")
 
-#### Phase 3
+### Phase 3
 
-The main edition for this phase is the broker. Up until this point the messaging reactors "faked" having a brokering semantics. This change adds an actual entity with brokering semantics.
+For VDSM the main addition in this phase is a broker. Up until this point protocol reactors ignored brokering semantics. This change adds an actual entity with brokering semantics.
+
+For the engine the main change is to reduce number of active connections to single VDSM. IRS and VDS will share a client using particular protocol.
 
 Broker Features:
 
-*   Topics
 *   Subscriptions
+*   Topics
 
 Low Priority Features:
 
 *   Queues
-*   Message acknowledgment\\settlement
-*   Retrying policy
+*   Message acknowledgment\\settlement (provided by AMQP 1.0)
 
-There is a possibility this phase would be skipped and we would just use a ready made broker.
+There is a possibility this phase would be skipped and we would just use existing broker implementation.
 
 ![](jsonrpc_phase3.png "jsonrpc_phase3.png")
 

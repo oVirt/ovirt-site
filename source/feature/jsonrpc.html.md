@@ -38,11 +38,13 @@ Below is prior state to the messaging changes. The engine uses XML-RPC over HTTP
 
 ![](jsonrpc_phase0.png "jsonrpc_phase0.png")
 
-#### Phase 1
+### Phase 1
 
-This is an phase not meant to be released in any version. Instead it it is meant to be used in development so integration with the engine could start.
+This phase is intermediate development milestone which is not meant to be released. It makes introduction of new protocols easier and it paves the way for engine/vdms asynchronous communication. VDSM would listen on a different port for each supported transport.
 
-VDSM would listen in a different port for each supported transport. Messages are parsed by the appropriate transport reactor and the message boydy is passed to the JSON-RPC Server. The Server than parses the json data and calls the appropriate method on the bridge that maps to the vdsm object responsible for performing the command.
+The engine sends messages by using one of the protocol reactors or apache http client for xml-rpc. VDSM parses messages using appropriate transport reactor and the message body is passed to the JSON-RPC Server for processing. The Server parses json data and calls the appropriate method on the bridge which is mapped to corresponding vdsm object responsible for performing the command.
+
+AMQP protocol is available but not usable due to instability of the protocol implementation used.
 
 ![](jsonrpc_phase1.png "jsonrpc_phase1.png")
 

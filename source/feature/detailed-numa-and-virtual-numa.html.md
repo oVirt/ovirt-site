@@ -159,13 +159,13 @@ using API.py `Global.getStats` function to get host NUMA statistics data
 
     'autoNumaBalancing': int
     'numaDistances': {'<nodeIndex>': [int], ...}
-    'numaNodes': {'<nodeIndex>': {'cpus': [int], 'totalMemory': int}, …}
+    'numaNodes': {'<nodeIndex>': {'cpus': [int], 'totalMemory': 'str'}, …}
 
 *   I-2.2 Transfer data format of host CPU statistics and NUMA nodes memory information
 
 <!-- -->
 
-    'numaNodeMemFree': {'<nodeIndex>': {'memFree': int, 'memPercent': int}, …}
+    'numaNodeMemFree': {'<nodeIndex>': {'memFree': 'str', 'memPercent': int}, …}
     'cpuStatistics': {'<cpuId>': {'numaNodeIndex': int, 'cpuSys': 'str', 'cpuIdle': 'str', 'cpuUser': 'str'}, …}
 
 *   I-2.3 Transfer data format of set VM numatune and virtual NUMA topology

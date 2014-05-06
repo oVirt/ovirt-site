@@ -216,8 +216,8 @@ Following config values are used:
 | Add fence_kdump handling to fencing flow                                               | Coding                                     |
 |                                                                                         |
 | engine-setup                                                                            |
-| Configure fence_kdump listener port during setup                                       |                                            |
-| Add firewall rule for fence_kdump listener                                             |                                            |
+| Configure fence_kdump listener host and port during setup                              | Coding                                     |
+| Add firewall rule for fence_kdump listener                                             | Coding                                     |
 |                                                                                         |
 | ovirt-node                                                                              |
 | Enable kdump support in kernel                                                          |                                            |

@@ -54,9 +54,9 @@ It is also possible to take on a hybrid approach, where users could EITHER confi
 #### Host QoS important considerations
 
 *   The traffic shaping is done at the logical link level, i.e., a bond, for networks that do use link aggregation or a nic, for those networks that don't.
-*   The oVirt defined networks will each get a network traffic class to be shaped according to the limits (if any) set by the administrator (in a similar fashion as it is now for vNIC traffic) and there will be an extra network traffic class for traffic that does not belong to oVirt networks.
+*   The oVirt-defined networks will each get a network [traffic class](http://www.tldp.org/HOWTO/html_single/Traffic-Control-HOWTO/#c-class) to be shaped according to the limits (if any) set by the administrator (in a similar fashion as it is now for vNIC traffic) and there will be an extra network traffic class for traffic that does not belong to oVirt networks.
 *   The different network traffic classes set over a logical link will contend for the device sending queue in an egalitarian deficit round robin way, i.e., each network should get the same chance to send its traffic under normal conditions.
-*   Each logical network for which there are limits will have an enforced ceiling without borrowing from other networks.
+*   Each logical network for which there are limits will have an enforced ceiling without borrowing from other networks. E.g., if you set a 100mbps limit on a network that is defined on top of a 1gbps connection, no more than 100mbps would be used even if the rest of the bandwidth is silent.
 
 ##### Entity Description
 

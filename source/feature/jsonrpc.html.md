@@ -84,11 +84,9 @@ In this phase VDSM subsystems would start using json-rpc communication and manag
 
 ![](jsonrpc_phase4.png "jsonrpc_phase4.png")
 
-#### Phase 5
+### Phase 5
 
-At this point the broker will be pulled out (if we are not already using a standard broker. We remove the XML-RPC interface entirely and more subsystems are being seperated.
-
-Hopefully some subsystems are even running in their own processes.
+In this phase internal broker will be pulled out (if we are not already using standalone broker implementation). We will remove the xml-rpc interface entirely and more subsystems are being separated. It is encouraged for VDSM subsustems to run in their own processes in this phase.
 
 ![](jsonrpc_phase5.png "jsonrpc_phase5.png")
 

@@ -75,3 +75,5 @@ gem "wikicloth"
 gem "redcarpet"
 
 gem 'open-uri-cached'
+
+gem 'font-awesome-middleman'

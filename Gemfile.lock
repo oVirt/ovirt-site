@@ -43,6 +43,8 @@ GEM
       docile (~> 1.1.3)
       mini_magick (~> 3.7)
     ffi (1.9.3)
+    font-awesome-middleman (4.0.3)
+      middleman (>= 3.0.0)
     fssm (0.2.10)
     haml (4.0.5)
       tilt
@@ -176,6 +178,7 @@ DEPENDENCIES
   asciidoctor
   bootstrap-sass (= 3.0.0)
   builder (~> 3.0)
+  font-awesome-middleman
   less
   middleman (~> 3.2)
   middleman-blog

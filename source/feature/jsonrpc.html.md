@@ -50,7 +50,7 @@ AMQP protocol is available but not usable due to instability of the protocol imp
 
 ### Phase 2
 
-**in progress**
+**In progress**
 
 For this phase the main addition is protocol detection. Instead of having a dedicated port per protocol there is single port used by protocol detector. It is responsible for performing SSL handshake and peeking at the first message to recognize which reactor should handle communication. After detecting the protocol it passes a socket to the correct reactor for further message processing.
 

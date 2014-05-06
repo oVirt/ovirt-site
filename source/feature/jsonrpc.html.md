@@ -90,7 +90,7 @@ In this phase internal broker will be pulled out (if we are not already using st
 
 ![](jsonrpc_phase5.png "jsonrpc_phase5.png")
 
-### See also
+## External links
 
 *   [STOMP](http://stomp.github.io)
 *   [JSON-RPC](http://www.jsonrpc.org/)

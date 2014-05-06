@@ -48,11 +48,11 @@ AMQP protocol is available but not usable due to instability of the protocol imp
 
 ![](jsonrpc_phase1.png "jsonrpc_phase1.png")
 
-#### Phase 2
+### Phase 2
 
 **in progress**
 
-For this phase the main addition is protocol detection. Instead of having a dedicated port per protocol the protocol detector handles SSL negotiation and peeks at the stream. After detecting the protocol it passes the socket to the correct part of the system.
+For this phase the main addition is protocol detection. Instead of having a dedicated port per protocol there is single port used by protocol detector. It is responsible for performing SSL handshake and peeking at the first message to recognize which reactor should handle communication. After detecting the protocol it passes a socket to the correct reactor for further message processing.
 
 This is going to be released for 3.5
 

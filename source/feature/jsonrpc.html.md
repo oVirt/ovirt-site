@@ -30,7 +30,7 @@ Using a phased approach we are going to a point where messaging is the main comm
 *   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 *   Were currently in [Phase 1](#Phase_1)
 
-### Phases
+## Phases
 
 ### Phase 0
 

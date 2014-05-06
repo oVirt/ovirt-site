@@ -14,7 +14,7 @@ feature_status: In Development
 
 # Json Rpc
 
-## Introduce Messaged communication to VDSM using JSON-RPC on top of various transport protocols
+## Introduction of messaged based communication using JSON-RPC on top of various transport protocols
 
 ### Summary
 

@@ -98,4 +98,4 @@ In this phase internal broker will be pulled out (if we are not already using st
 
 ## Attachments
 
-*   ![schema](schemas.tgz "fig:schema") ([dia](https://wiki.gnome.org/Apps/Dia/) file containing the schema sources)
+*   ![ schema ](schemas.tgz  "fig: schema ") ([dia](https://wiki.gnome.org/Apps/Dia/) file containing the schema sources)

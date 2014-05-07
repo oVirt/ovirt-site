@@ -3,7 +3,7 @@
     %h1
       = link_to "/" do
         - if data.site.logo
-          = image_tag data.site.logo, id: "rhlogo", class: "logo", alt: data.site.name
+          = image_tag data.site.logo, id: "logo", class: "logo", alt: data.site.name
         - else
           = data.site.name
 

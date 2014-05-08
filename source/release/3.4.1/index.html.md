@@ -53,7 +53,7 @@ A new oVirt Node ISO is available:
 
 A new oVirt Live ISO is available:
 
-[`http://resources.ovirt.org/plain/pub/ovirt-3.4/iso/ovirt-live-3.4.1.el6ev.iso`](http://resources.ovirt.org/plain/pub/ovirt-3.4/iso/ovirt-live-3.4.1.el6ev.iso)
+[`http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-live-3.4.1.el6ev.iso`](http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-live-3.4.1.el6ev.iso)
 
 ## What's New in 3.4.1?
 

@@ -24,17 +24,15 @@ In order to install it on a clean system, you need to install
 
 `# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm)
 
+You should read then our [Quick Start Guide](Quick Start Guide)
+
 If you're upgrading from a previous version you should have ovirt-release package already installed on your system. You can then install ovirt-release34.rpm as in a clean install side-by-side. If you're upgrading from oVirt 3.4.0 you can now remove ovirt-release package:
 
       # yum remove ovirt-release
+      # yum update "ovirt-engine-setup*"
+      # engine-setup
 
-If you're upgrading from 3.3.2 or later, keep ovirt-release rpm in place until the upgrade is completed. See [oVirt 3.4.0 Release Notes](oVirt 3.4.0 Release Notes) for upgrading from previous versions.
-
-If you're going to test oVirt 3.4.1 development version, please add yourself to [Testing/oVirt 3.4.1 testing](Testing/oVirt 3.4.1 testing).
-
-If you're installing oVirt 3.4.1 on a clean host you should read our [Quick Start Guide](Quick Start Guide)
-
-If you're upgrading from oVirt 3.4.0 or from oVirt >= 3.3.2 you should just execute:
+If you're upgrading from 3.3.2 or later, keep ovirt-release rpm in place until the upgrade is completed.
 
       # yum update "ovirt-engine-setup*"
       # engine-setup

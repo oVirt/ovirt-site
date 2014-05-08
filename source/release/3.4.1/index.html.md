@@ -273,6 +273,25 @@ If you're upgrading from oVirt <= 3.3.1 you must first upgrade to oVirt 3.3.5. P
  - db upgrade fails if there's a subscription to VDS_HIGH_NETWORK_USE event
  - [BUG] can't boot vm with cloud-init data submitted as json via REST api
 
+### oVirt Iso Uploader
+
+* [engine-iso-uploader] INFO: Use the -h option to see usage - when put incorrect iso domain
+ - The ISO uploader assumes that the storage domain uses NFS
+
+### oVirt Image Uploader
+
+* Man page for rhevm-image-uploader is missing options
+
+### oVirt Hosted Engine Setup
+
+* hosted-engine fails when cdrom is chosen as the source for the installation.
+ - hosted-engine-setup fails at "Waiting for cluster to become operational"
+ - hosted-engine script fails with Traceback when cluster doesn't return a CPU type
+
+### oVirt Hosted Engine HA
+
+* agent dies while monitoring the engine
+
 ### VDSM
 
 ### ovirt-node-plugin-vdsm

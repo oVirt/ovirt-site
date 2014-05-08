@@ -32,8 +32,6 @@ If you're upgrading from 3.3.2 or later, keep ovirt-release rpm in place until t
 
 If you're going to test oVirt 3.4.1 development version, please add yourself to [Testing/oVirt 3.4.1 testing](Testing/oVirt 3.4.1 testing).
 
-### Fedora / CentOS / RHEL
-
 If you're installing oVirt 3.4.1 on a clean host you should read our [Quick Start Guide](Quick Start Guide)
 
 If you're upgrading from oVirt 3.4.0 or from oVirt >= 3.3.2 you should just execute:

@@ -43,6 +43,12 @@ If you're upgrading from oVirt 3.4.0 or from oVirt >= 3.3.2 you should just exec
 
 If you're upgrading from oVirt <= 3.3.1 you must first upgrade to oVirt 3.3.5. Please see [oVirt 3.3.5 release notes](oVirt 3.3.5 release notes) for upgrading instructions.
 
+### oVirt Node
+
+A new oVirt Node ISO is available:
+
+[`http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-node-iso-3.4-20140508.2.el6.iso`](http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-node-iso-3.4-20140508.2.el6.iso)
+
 ## What's New in 3.4.1?
 
 ## Known issues

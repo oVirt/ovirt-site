@@ -8,11 +8,9 @@ wiki_revision_count: 3
 wiki_last_updated: 2014-06-17
 ---
 
-# Brussels Airport Case Study
-
 <div class="row">
 <div class="span7 offset1 pad-sides">
-## oVirt Flies the Friendly Skies
+## Brussels Airport Company Case Study
 
 You want to talk high traffic? Try these numbers on for size: 1.57 million travelers. 15,505 flights. 40,481 tons of cargo.
 

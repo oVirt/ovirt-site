@@ -60,7 +60,7 @@ oVirt is powered by the Open Source you know - KVM on Linux.
 </div>
 <div class="row">
 <div class="span4 pad-left pad-right-small">
-### oVirt 3.4 Released!
+### oVirt 3.4.1 Released!
 
 The oVirt development team is pleased to announce the general availability of oVirt 3.4.1 as of May 8th 2014.
 

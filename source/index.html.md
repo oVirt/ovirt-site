@@ -122,18 +122,16 @@ You're encouraged to [ join the oVirt community](Community), and help us bring o
 ### User Case Study
 
 <div class="text-center">
-![](It-novum.jpg‎ "It-novum.jpg‎")
+![](BrusselsAirportlogo.png "BrusselsAirportlogo.png")
 
 </div>
-[it-novum](IT_Novum_case_study) is a company that's very focused on delivering open source, so when they decided to build a product and solution set for their customers' datacenter needs, it made sense that oVirt was included.
+Find out how the [ Brussels Airport Company](Brussels_Airport_Case_Study) keeps a vital transportation and cargo center moving by managing their virtual machines with oVirt.
 
-"RHEV and oVirt are the most advanced KVM management solutions and the only ones we found that were up to par with what VMware provides. Since oVirt is closer to the development process and the community is always helpful in solving problems, we decided to go with oVirt."
-
-To date, the work has paid off very well, with nearly 1,100 VMware virtual machines successfully migrated to oVirt.
+Faced with an opportunity to take the approximately 150 virtual machines housed on 30 Solaris machines and manage them with another virtual datacenter management tool, the Brussels Airport IT team went with oVirt running atop CentOS.
 
 <div style="clear:both; display: inline-block;">
 <div class="pull-right">
-Read the full [ it-novum case study](IT_Novum_case_study)
+Read the full [ Brussels Airport case study](Brussels_Airport_Case_Study)
 
 </div>
 <div class="pull-right">

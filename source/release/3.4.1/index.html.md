@@ -26,7 +26,11 @@ In order to install it on a clean system, you need to install
 
 You should read then our [Quick Start Guide](Quick Start Guide)
 
-If you're upgrading from a previous version you should have ovirt-release package already installed on your system. You can then install ovirt-release34.rpm as in a clean install side-by-side. If you're upgrading from oVirt 3.4.0 you can now remove ovirt-release package:
+If you're upgrading from a previous version you should have ovirt-release package already installed on your system.
+
+You can then install ovirt-release34.rpm as in a clean install side-by-side.
+
+If you're upgrading from oVirt 3.4.0 you can now remove ovirt-release package:
 
       # yum remove ovirt-release
       # yum update "ovirt-engine-setup*"

@@ -42,19 +42,19 @@ The actual rootfs which is used at runtime.
 *   Size: Small
 *   Image: Deployment image (ISO)
 
-### Installation
+#### Installation
 
 *   iSCSI, EFI, multipath
 *   Partitioning
 *   Bootloader
 *   Image transfer
 
-### Upgrade + Rollback
+#### Upgrade + Rollback
 
 *   "Atomic" single image
 *   Rollback into previous image (boot into different LV)
 
-### Security
+#### Security
 
 *   SELinux
 *   Read-Only rootfs (because of squashfs)
@@ -75,5 +75,38 @@ The actual rootfs which is used at runtime.
 *   Early-boot-process changes are not possible
 *   Live plugins are hard
 *   Installation is custom
+
+# Implementation Comparison
+
+| Feature                                                      | Current                                                  | Atomic                                                                                              | LVM based                                                                             |
+|--------------------------------------------------------------|----------------------------------------------------------|-----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
+| **Build time**                                               |
+| *Build tool*                                                 | koji / livecd-tools                                      | [ostree-builder](http://www.projectatomic.io/blog/2014/04/build-your-own-atomic-host-on-fedora-20/) | koji / lorax (livemedia-creator) or imgfac                                            |
+| *Image specification*                                        | kickstart (recipe)                                       | kickstart (for installation) and `product.json` for tree                                            | kickstart (for installation) and kickstart (for tree compose)                         |
+| **Delivery**                                                 |
+| *Installation Media*                                         | LiveCD                                                   | LiveCD                                                                                              | LiveCD                                                                                |
+| *Upgrade delivery*                                           | LiveCD in RPM                                            | ostree in RPM or with "Atomic Manager"                                                              | LiveCD in RPM or yum                                                                  |
+| **Installation and Upgrade**                                 |
+| *Installer*                                                  | custom (ovirt-node-installer)                            | anaconda                                                                                            | anaconda                                                                              |
+| *Setup TUI*                                                  | custom (ovirt-node-installer)                            | custom (ovirt-node-installer)                                                                       | custom (ovirt-node-installer)                                                         |
+| *Upgrade*                                                    | Image based / One main, one fallback LV                  | Tree based/ Many (os)trees on a rootfs                                                              | Image or package based / Many images in a VG or yum update                            |
+| *Rollback*                                                   | Boot into other LV                                       | Boot into specific tree                                                                             | Boot into specific LV                                                                 |
+| **Plugins**                                                  |
+| *Plugin format*                                              | rpm                                                      | rpm                                                                                                 | rpm                                                                                   |
+| *Runtime plugin installation*                                | N/A                                                      | N/A (currently)                                                                                     | Using a package manager **Limitation: bootloader should be prevented to be upgraded** |
+| *Offline plugin installation*                                | Using edit-node, deploy new iso                          | Add package to (os)tree, build on server side, deploy new tree                                      | Using new libguestfs (or wrapper around it)                                           |
+| **Persistence**                                              |
+| *Data storage (for big files)*                               | Data LV                                                  | Writeable /var, mounted to another LV                                                               | Basically the whole fs, but /var should also be moutned to a separate LV              |
+| *Persistence (for individual/random files) between boots*    | Using writeable LV and bind-mounts into target           
+
+                                                                **Limitation: I.e. kernel modules can not be persisted**  | Writeable /etc                                                                                      
+
+                                                                                                                           **Limitation: I.e. kernel modules can not be persisted**                                             | Writeable filesystem                                                                  |
+| *Persistence (for individual/random files) between upgrades* | Using writeable LV and bind-mounts                       
+
+                                                                **Limitation: I.e. kernel modules can not be persisted**  | Copying /etc from N to N+1 and upgrade tree could be modified                                       
+
+                                                                                                                           **Limitation: I.e. kernel modules can only be persisted in modified tree**                           | Copying whitelisted/new/glob/\* / files from N to N+1 (hook based mechanism)          |
+| **\1**                                                      |                                                          |                                                                                                     |                                                                                       |
 
 [Category: Node](Category: Node)

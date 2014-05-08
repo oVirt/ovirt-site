@@ -62,20 +62,20 @@ oVirt is powered by the Open Source you know - KVM on Linux.
 <div class="span4 pad-left pad-right-small">
 ### oVirt 3.4 Released!
 
-The oVirt development team is very happy to announce the general availability of oVirt 3.4 as of March 27, 2014. This release features self-hosted engine, PPC64 support, and hot-plug CPUs.
+The oVirt development team is pleased to announce the general availability of oVirt 3.4.1 as of May 8th 2014.
+
+oVirt is available now for Fedora 19 and Red Hat Enterprise Linux 6.5 (or similar).This release includes numerous bug fixes.
 
 oVirt is available now for Fedora 19, Red Hat Enterprise Linux 6.5, and CentOS 6.5 (or similar to RHEL).
 
-This release of oVirt also includes numerous bug fixes. See the release notes for a complete list of the new features and bugs fixed.
-
-A new oVirt Node build will be available soon as well.
+See the 3.4.1 release notes for a complete list of the new features and bugs fixed, and the 3.4 release notes for more features in the 3.4 branch!
 
 <div class="pull-right">
-[ Read the 3.4 release notes »](OVirt_3.4_Release_Notes)
+[ Read the 3.4.1 release notes »](OVirt_3.4.1_release_notes)
 
 </div>
 <div class="pull-right">
-[ Read more about the 3.4 release »](OVirt_3.4_Release_Announcement)
+[ Read the 3.4 release notes »](OVirt_3.4_Release_Notes)
 
 </div>
 <div class="pull-right">

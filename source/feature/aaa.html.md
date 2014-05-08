@@ -90,6 +90,8 @@ Used API commands: Base.InvokeCommands.Initialize - intializes the extension.
 7.  If the principal is fetched, the ID of the principal record is used in order to retrieved the associated DB record (if does not exists - a new record is inserted to the users table).
 8.  The ID of the DB record is used in order to perform the MLA check.
 
+The following sequence diagram shows the interaction between the login base command and the used extensions:
+![](Login.jpg "fig:Login.jpg")
 Used API commands:
 
 1.  Authn.InvokeCommands.AUTHENTICATE_CREDENTIALS - perform credentials based authentication. Returns an Authentication record.

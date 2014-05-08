@@ -115,8 +115,8 @@ The new standalone listener will be implemented with these features:
 
 *   Base flow for received messages
     1.  Receive a message and check if it's valid fence_kdump message (compare magic number and message version (currently only *1*) in the same way as in *fence_kdump* command).
-    2.  If message is valid, determine status of kdump flow (based on messages received in the past it's set to *started* or *dumping*)
-    3.  Store sender IP address, timestamp and status to database.
+    2.  If message is valid, find host id and determine status of kdump flow (based on messages received in the past it's set to *started* or *dumping*)
+    3.  Store host id, timestamp, sender IP address:port and status to database.
 *   Finish host's kdump flow
     -   For all hosts with status *dumping* test if last received message in not older than *KdumpFinishedTimeout* (default 30 sec). If so, save record with status *finished* and current timestamp for the host to the database
 *   Listener heartbeat
@@ -124,7 +124,7 @@ The new standalone listener will be implemented with these features:
 
 The listener will use two config values:
 
-*   **FenceKdumpListenerHost**
+*   **FenceKdumpListenerAddress**
     -   Defines the IP address to receive fence_kdump messages on
     -   Default 7410
 *   **FenceKdumpListenerPort**

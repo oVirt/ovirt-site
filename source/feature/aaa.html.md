@@ -133,6 +133,8 @@ Sync (AKA DbUserCacheManager) is configured to run once in an hour (configurable
 2.  For each returned principal it is checked if its data matches the data of the corresponding user obtained from the database - if there is a change, the user is added to a list of users to be updated at the database
 3.  the database is updated with all the users that got changed.
 
+The following sequence diagfram shows interaction between BLL sync and the extensions:
+![](Aaa_sync(2).jpg "fig:Aaa_sync(2).jpg")
 Used API commands: Same as in search
 
 *   Session management

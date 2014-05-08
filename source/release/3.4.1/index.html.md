@@ -225,6 +225,53 @@ If you're upgrading from oVirt <= 3.3.1 you must first upgrade to oVirt 3.3.5. P
  - [engine-backend] [external-provider] NullPointerException for AddVmTemplate during importing an image from glance as a template
  - Cannot create template - not possible to submit the New Template dialog
  - VM remains locked after failing to migrate
+ Bugs fixed between RC and GA:
+
+* [Admin Portal] New VM ignores osinfo properties for network card, it is always VirtIO
+ - [ja_JP][Admin Portal] String 'Network Provider' broken into two lines in 'New Host' dailog.
+ - can't set a static network via Cloud-Init GUI in 3.3.1-2 beta
+ - [engine-backend] Engine copyImage request to vdsm is transmitted with sdUUID value of an inactive SD
+ - Balancing cluster doesn't add VM's Predicted CPU load into acceptable hosts load
+ - Failed to create data center with default version
+ - "too many" permissions needed for creating a VM pool
+ - [DWH-OTOPI-SETUP] - Backup handling was removed and restore is done automatically
+ - engine-config errors when used by non-root
+ - Move sparse raw disk from NFS to iSCSI domain is not supported
+ - "OK" button still has focus when editing user-data
+ - custom properties sheet: no '-' (remove) button in last row of sheet
+ - [backup] extend backup to dwh/reports
+ - External users unable to live migrate disks to new storage domain
+ - No domain is listed in New VM window: Domain drop down for Windows OS.
+ - [webadmin] DC subtabs - refreshes are visible
+ - REST API for hosted engine maintenance operations
+ - [host-deploy] ovirt-node upgrade results in null point exception if initial installation of node failed in past
+ - Labels should be filtered by product (RHEV/Neutron)
+ - VM's can't be started after fresh install
+ - [ovirt][webadmin] SessionID for REST API stores in browser Local Storage
+ - Can't configure vNIC QoS to "unlimited" once it had been set
+ - [ja_JP][de_DE][User Portal] String broken into two lines in 'Console Options' dialog.
+ - Tracker: oVirt 3.4.1 release
+ - [REST API] NullPointerException thrown when importing a template without specifying storage domain
+ - installation of rhev-h in webadmin failed due to wrong filename for version.txt
+ - manage domains FileNotFoundException exception
+ - Distinguish between manual fence resulted from user action and manual fence called internally by auto fence
+ - [RFE][notifier] Event Notifications List Text File
+ - Label reference missing under Network and HostNics in API XSD
+ - [engine-backend] Engine reports that disk resize had succeeded although it failed on vdsm
+ - [rhevm-cli]: update vmpool has no --description option
+ - rhevm creates glusterfs SD on unsupported datacenter versions (3.2..)
+ - Label reference missing under Network and HostNics in API XSD
+ - [ALL_LANG][Admin_Portal] Default Storage Domain drop down box is not aligned to the text
+ - [de_DE, pt_BR, es_ES, fr_FR][RHEVM-3.4.0.5] [Admin Portal] Help button overlap issue on clusters->New->Console tab.
+ - [RFE] 3.4 product translation: translation update 3
+ - [host-deploy] missing ssh fingerprint in registration protocol v1
+ - [dbscripts] engine-setup fails: ERROR: insert or update on table "tags_user_map" violates foreign key constraint "tags_user_map_user"
+ - HTTP 500 on expired session request
+ - Uprgrade from is35.1 to av7 fails on dbscript
+ - Guide me dialog got stuck(NPE) in DataCenter tab if exists pending approval host
+ - engine-config's manual should be updated regarding new command --merge
+ - db upgrade fails if there's a subscription to VDS_HIGH_NETWORK_USE event
+ - [BUG] can't boot vm with cloud-init data submitted as json via REST api
 
 ### VDSM
 

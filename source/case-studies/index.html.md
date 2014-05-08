@@ -26,6 +26,18 @@ Read the full [Alter Way case study](Alter Way case study)
 
 </div>
 <div class="span6 pad-left pad-right-small">
+### Brussels Airport Company
+
+![](BrusselsAirportlogo.png "BrusselsAirportlogo.png")
+
+Find out how the [ Brussels Airport Company](Brussels_Airport_Case_Study) keeps a vital transportation and cargo center moving by managing their virtual machines with oVirt.
+
+Faced with an opportunity to take the approximately 150 virtual machines housed on 30 Solaris machines and manage them with another virtual datacenter management tool, the Brussels Airport IT team went with oVirt running atop CentOS.
+
+Read the full [ Brussels Airport case study](Brussels_Airport_Case_Study)
+
+</div>
+<div class="span6 pad-left pad-right-small">
 ### it-novum
 
 ![](It-novum.jpg‎ "It-novum.jpg‎")

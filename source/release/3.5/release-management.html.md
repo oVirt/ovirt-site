@@ -17,20 +17,19 @@ wiki_last_updated: 2014-11-05
 *   General availability: **2014-08-04**
     -   RC Build: *' 2014-07-15*'
     -   oVirt 3.5 Second Test Day: **2014-07-01**
-    -   Beta release: **2014-06-16**
+    -   Branching - Beta release: **2014-06-16**
     -   oVirt 3.5 First Test Day: **2014-06-05**
-    -   Branching: **2014-05-30**
-    -   Alpha release: **2014-05-09**
-    -   Feature freeze: **2014-05-01**
+    -   Feature freeze - Second Alpha release: **2014-05-30**
+    -   Alpha release: **2014-05-16**
 
 **More details on test days, etc. to come in the next few weeks**
 
 ### Nightly Builds
 
-Nightly builds are available enabling the oVirt snapshots repositories:
+Nightly builds are available from oVirt snapshots repositories:
 
-      # yum-config-manager --enable ovirt-snapshot
-      # yum-config-manager --enable ovirt-snapshot-static
+[`http://resources.ovirt.org/pub/ovirt-master-snapshot-static/`](http://resources.ovirt.org/pub/ovirt-master-snapshot-static/)
+[`http://resources.ovirt.org/pub/ovirt-master-snapshot/`](http://resources.ovirt.org/pub/ovirt-master-snapshot/)
 
 ## Features Status Table
 

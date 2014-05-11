@@ -81,6 +81,10 @@ A new entity Disk Profile will be created by the same vnic profiles concepts [1]
 
 (Note: aggregate all profiles feature pages like for QoS).
 
+#### MLA
+
+Vnic Profiles is used to "hide" infra resource (network) from the user. Currently we will hold same roles and behavior for Disk Profiles as well (Disk Operator and Creator), this would be handled as a bug for 3.5 (not a big deal just need to decide).
+
 ## Implementation
 
 ### VDSM

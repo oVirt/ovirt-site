@@ -27,7 +27,7 @@ Define special parameters per network, and pass them down to Vdsm hooks when the
 
 Just like we can define VM-wide and vNIC-profile-specific custom properties, we would like to set per-network ones. This would allow users to pass special parameters to tweak the way by which Vdsm sets up a network on a host.
 
-Preset property keys will exist for bridge options and for ethtool options. These will provide a way for the network administrator to easily set options for bridges which implement oVirt VM networks and to specify ethtool options for any host interface to which an oVirt network is attached. It should be noted that ethtool options do not really "belong" to a network, but rather to an interface. However, implementation-wise it would be simpler to include them as part of network custom properties. This might be remedied in the future, if it turns out to be confusing for users.
+Preset property keys will exist for bridge options. These will provide a way for the network administrator to easily set options for bridges which implement oVirt VM networks. In addition, the feature could be used, along with a preset VDSM hook, to specify ethtool options for any host interface to which an oVirt network is attached. It should be noted that ethtool options do not really "belong" to a network, but rather to an interface, therefore the property doesn't display by default. In the future, it is possible custom properties could be supplied for host interfaces, thereby obviating the need to configure ethtool_opts on a network.
 
 ### Benefit to oVirt
 
@@ -41,7 +41,7 @@ Users want to allow funkier types of connection, or tighter control on the creat
 
 These extensions, and many others, can be made available by allowing per-network custom properties. Network custom properties are just like VM-wide device-specific ones, only that they are attached to a specific network, and can take effect when the network is set up.
 
-Concerning specifically the bridge and ethtool options preset properties, having a simple way for the network administrator to set bridge and ethtool options for the oVirt defined VM networks will allow oVirt to cover a wider range of configurations and fine tuning that will make oVirt networking a better fit for very tightly managed network setups.
+Concerning specifically bridge and ethtool options, having a simple way for the network administrator to set bridge and ethtool options for the oVirt defined VM networks will allow oVirt to cover a wider range of configurations and fine tuning that will make oVirt networking a better fit for very tightly managed network setups.
 
 Up until now, oVirt used to persist its network configuration in Fedora/EL specific files handled by the initscripts package. These files, known as ifcfg, contained a series of shell definitions that were read and applied by the ifup-eth executable. oVirt auto-generates and writes these ifcfg files and as such, if the network admin wanted to tweak the BRIDGING_OPTS and/or ETHTOOL_OPTS definition that precluded the continued care-free modification of the network, as some of the configuration would be living only in the hypervisor node and would not be exposed to oVirt for persistence.
 
@@ -59,7 +59,7 @@ When assigning a network to a NIC it will be possible to click on "edit" (icon m
 
 Note that preset custom property keys will exist for bridge options (whenever the network is a VM network).
 
-OPTIONAL: As part of the feature it might be a good idea to allow setting custom properties per logical network (on the DC level), and not only on the assignment of a network on a physical device. These custom properties on the logical network will serve as a "mold", to be used by default when assigning the network to a device.
+OPTIONAL: As part of the feature it might be a good idea to allow setting custom properties per logical network (on the DC level), and not only on the assignment of a network on a physical device. These custom properties on the logical network will serve as a "mold", to be used by default when assigning the network to a device. This ended up not being implemented for oVirt 3.5, but might be added in the future.
 
 ![](bridge_opts_networks.png "bridge_opts_networks.png")
 

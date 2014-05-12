@@ -16,7 +16,10 @@ wiki_last_updated: 2015-04-27
 
 ## oVirt Community Update - FISL 2014
 
-V2V - Migrating virtual machines to oVirt:![](Virt-v2v.odp "fig:Virt-v2v.odp") (ODP)
+*   oVirt Overview:![](OVirt-Overview.odp "fig:OVirt-Overview.odp") (ODP)
+*   oVirt Installation Process:![](OVirt-Installation.odp‎ "fig:OVirt-Installation.odp‎") (ODP)
+*   oVirt 3.4 New Features:![](OVirt34-NewFeatures.odp‎ "fig:OVirt34-NewFeatures.odp‎") (ODP)
+*   V2V - Migrating virtual machines to oVirt:![](Virt-v2v.odp "fig:Virt-v2v.odp") (ODP)
 
 ## oVirt Decks from FOSDEM 2012
 

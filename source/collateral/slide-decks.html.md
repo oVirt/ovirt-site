@@ -14,6 +14,10 @@ wiki_last_updated: 2015-04-27
 
 ~20 slides, pulled together from the Nov 2011 decks listed below: ![](Ovirt-generic.odp  "fig:Ovirt-generic.odp ") (ODP)
 
+## oVirt Community Update - FISL 2014
+
+V2V - Migrating virtual machines to oVirt:![](Virt-v2v.odp "fig:Virt-v2v.odp") (ODP)
+
 ## oVirt Decks from FOSDEM 2012
 
 Virtualization Management the oVirt way: ![](Fosdem2012-ovirt-clean.pdf "fig:Fosdem2012-ovirt-clean.pdf") (PDF)

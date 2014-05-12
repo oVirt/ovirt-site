@@ -76,7 +76,7 @@ The actual rootfs which is used at runtime.
 *   Live plugins are hard
 *   Installation is custom
 
-# Implementation Comparison
+# Comparison: Possible Implementations
 
 | Feature                                                      | Current                                                  | Atomic                                                                                              | LVM based                                                                             |
 |--------------------------------------------------------------|----------------------------------------------------------|-----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|

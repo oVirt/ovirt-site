@@ -6,7 +6,7 @@ wiki_revision_count: 3
 wiki_last_updated: 2014-05-12
 ---
 
-# Multiple Monitor Via Siignle PCI
+# Multiple Monitor Via Single PCI
 
 ### Summary
 

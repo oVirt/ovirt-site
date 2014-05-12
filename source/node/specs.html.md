@@ -88,7 +88,7 @@ The actual rootfs which is used at runtime.
 | *Upgrade delivery*                                           | LiveCD in RPM                                            | ostree in RPM or with "Atomic Manager"                                                              | LiveCD in RPM or yum                                                                  |
 | **Installation and Upgrade**                                 |
 | *Installer*                                                  | custom (ovirt-node-installer)                            | anaconda                                                                                            | anaconda                                                                              |
-| *Setup TUI*                                                  | custom (ovirt-node-installer)                            | custom (ovirt-node-installer)                                                                       | custom (ovirt-node-installer)                                                         |
+| *Setup TUI*                                                  | custom (ovirt-node-setup)                                | custom (ovirt-node-setup)                                                                           | custom (ovirt-node-setup)                                                             |
 | *Upgrade*                                                    | Image based / One main, one fallback LV                  | Tree based/ Many (os)trees on a rootfs                                                              | Image or package based / Many images in a VG or yum update                            |
 | *Rollback*                                                   | Boot into other LV                                       | Boot into specific tree                                                                             | Boot into specific LV                                                                 |
 | **Plugins**                                                  |
@@ -96,13 +96,13 @@ The actual rootfs which is used at runtime.
 | *Runtime plugin installation*                                | N/A                                                      | N/A (currently)                                                                                     | Using a package manager **Limitation: bootloader should be prevented to be upgraded** |
 | *Offline plugin installation*                                | Using edit-node, deploy new iso                          | Add package to (os)tree, build on server side, deploy new tree                                      | Using new libguestfs (or wrapper around it)                                           |
 | **Persistence**                                              |
-| *Data storage (for big files)*                               | Data LV                                                  | Writeable /var, mounted to another LV                                                               | Basically the whole fs, but /var should also be moutned to a separate LV              |
-| *Persistence (for individual/random files) between boots*    | Using writeable LV and bind-mounts into target           
+| *Data storage (for big files)*                               | /data is mounted to a Data LV                            | Writeable /var, mounted to another LV                                                               | Basically the whole fs, but /var should also be mounted to a separate LV              |
+| *Persistence (for individual/random files) between boots*    | Using writeable Config LV and bind-mounts into target    
 
                                                                 **Limitation: I.e. kernel modules can not be persisted**  | Writeable /etc                                                                                      
 
-                                                                                                                           **Limitation: I.e. kernel modules can not be persisted**                                             | Writeable filesystem                                                                  |
-| *Persistence (for individual/random files) between upgrades* | Using writeable LV and bind-mounts                       
+                                                                                                                           **Limitation: I.e. kernel modules can not be persisted**                                             | Writeable filesystem and/or Config LV                                                 |
+| *Persistence (for individual/random files) between upgrades* | Using writeable Config LV and bind-mounts                
 
                                                                 **Limitation: I.e. kernel modules can not be persisted**  | Copying /etc from N to N+1 and upgrade tree could be modified                                       
 

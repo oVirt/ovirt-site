@@ -10,6 +10,34 @@ wiki_last_updated: 2014-05-12
 
 This page lists all security vulnerabilities fixed in oVirt. Each vulnerability is assigned a security impact rating on a four-point scale (low, moderate, important and critical). The versions that are affected by each vulnerability are also listed.
 
+## [Moderate] CVE-2014-0153 ovirt-engine-api: session ID stored in HTML5 local storage
+
+### Description
+
+It was found that the oVirt REST API stored session IDs in HTML5 local storage. A remote attacker could provide a specially-crafted web page that, when visited by a user with a valid REST API session, would allow the attacker to read the session ID from local storage. This is possible because HTML5 local storage is not protected by same-origin policy (SOP).
+
+### Affected versions
+
+oVirt 3.4.0 is confirmed to be affected. Older releases of oVirt may also be affected.
+
+### Patch commit(s)
+
+<http://gerrit.ovirt.org/#/c/25987/>
+
+## [Moderate] CVE-2014-0152 ovirt-engine-webadmin: session fixation
+
+### Description
+
+It was found that the oVirt web admin interface did not generate a new session ID after authenticating a user. A remote attacker could use this flaw to perform session fixation attacks.
+
+### Affected versions
+
+oVirt 3.4.0 is confirmed to be affected. Older releases of oVirt may also be affected.
+
+### Patch commit(s)
+
+<http://gerrit.ovirt.org/#/c/25959/>
+
 ## [Important] CVE-2014-0160 (Heartbleed) ovirt-node-iso: OpenSSL exposes information disclosure in handling of TLS heartbeat extension packets
 
 ### Description

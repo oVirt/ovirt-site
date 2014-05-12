@@ -47,14 +47,14 @@ Up until now, oVirt used to persist its network configuration in Fedora/EL speci
 
 ### HOWTO: configure ethtool_opts on an interface
 
-1.  Using the engine-config utility, add an entry for a property called "ethtool_opts" in the configuration value "UserDefinedNetworkCustomProperties". Since the VDSM hook accepts the property value as the ethtool command line arguments (see details below), regular expression validation isn't very valuable. Don't forget to supply the cluster version in which you want the configuration to be applied. This snippet will work for 3.5 clusters:
+*   Using the engine-config utility, add an entry for a property called "ethtool_opts" in the configuration value "UserDefinedNetworkCustomProperties". Since the VDSM hook accepts the property value as the ethtool command line arguments (see details below), regular expression validation isn't very valuable. Don't forget to supply the cluster version in which you want the configuration to be applied. This snippet will work for 3.5 clusters:
 
 <!-- -->
 
     engine-config -s 'UserDefinedNetworkCustomProperties=ethtool_opts=.*' --cver='3.5'
 
-1.  Pick one of the networks attached to the interface whose ethtool options you want to configure. It'll work with ANY network attached to that interface (part of why this modelling is skewed).
-2.  Either via the webadmin console or via REST (see description how below), as part of a setup networks action, supply a custom property for the network of your choice, whose key is "ethtool_opts" and whose value is the arguments you'd like ethtool to apply.
+*   Pick one of the networks attached to the interface whose ethtool options you want to configure. It'll work with ANY network attached to that interface (part of why this modelling is skewed).
+*   Either via the webadmin console or via REST (see description how below), as part of a setup networks action, supply a custom property for the network of your choice, whose key is "ethtool_opts" and whose value is the arguments you'd like ethtool to apply.
 
 Voila, you should be done!
 

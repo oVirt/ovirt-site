@@ -46,6 +46,8 @@ The current (proposed) list of the software to be included in the ISO:
 
         * VirtIO-SCSI
 
+From <http://secondary.fedoraproject.org/pub/alt/virtio-win/latest/>
+
     * Spice drivers and agent
 
     * Qemu Guest Agent

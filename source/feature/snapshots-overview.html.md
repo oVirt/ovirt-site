@@ -57,17 +57,17 @@ The solution is being neglected in favor of the sub-tabs concept as removing sna
 
 Introducing new functionality of deleting a disk from a snapshot.
 
-#### Delete a snapshot disk:
-
-      DELETE /api/vms/{vm_id}/snapshots/{snapshot_id}/disks/{disk_id}
-
-#### [Future Work?] Get disk snapshots by storage domain
+#### Get disk snapshots by storage domain
 
       GET /api/storagedomains/{storage_id}/disksnapshots
 
-#### [Future Work?] Delete a disk snapshot from storage domain
+#### Delete a disk snapshot from storage domain
 
       DELETE /api/storagedomains/{storage_id}/disksnapshots/{image_id}
+
+#### Delete a snapshot disk:
+
+      DELETE /api/vms/{vm_id}/snapshots/{snapshot_id}/disks/{disk_id}
 
 ### Backend
 

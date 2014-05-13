@@ -39,7 +39,7 @@ The neutron appliance for ovirt-engine 3.5 is based on the Havana-RDO which uses
 3.  Neutron DHCP Agent
 4.  Open vSwitch Agent
 5.  Open vSwitch
-6.  QPID (messaging)
+6.  RabbitMQ (messaging)
 
 ### Add OpenStack network external provider using the Neutron appliance
 
@@ -48,9 +48,12 @@ The neutron appliance for ovirt-engine 3.5 is based on the Havana-RDO which uses
 1.  Add new vm network (e.g. named 'neutron') named in the relevant data-center.
 2.  Edit the 'neutron' vnic profile of the 'neutron' network to include custom properties "mac-spoof=true"
     1.  Instructions for adding the 'mac-spoof' property can be found [here](https://github.com/oVirt/vdsm/tree/master/vdsm_hooks/macspoof).
+    2.  Enabling mac-spoofing is required for the appliance specifically for dhcp agent which is connected to the networks bridge by a port (one or more dhcp agent per network). In order for packets not to be blocked by ebtable rules (introduced by [nwfilter](Features/Design/Network/NetworkFiltering)), mac-spoof should be enabled.
 
-3.  Import the neutron-appliance image as a template (e.g. named 'neutron-appliance') from the glance.ovirt.org repository.
-4.  Add a new VM (i.e. named 'neutron-provider') with 4GB RAM based on 'neutron-appliance' template and with 2 vnics:
+<!-- -->
+
+1.  Import the neutron-appliance image as a template (e.g. named 'neutron-appliance') from the glance.ovirt.org repository.
+2.  Add a new VM (i.e. named 'neutron-provider') with 4GB RAM based on 'neutron-appliance' template and with 2 vnics:
     1.  eth0 - connected to 'ovirtmgmt' (needs to communicate with ovirt-engine and with the compute nodes/hypervisors)
     2.  eth1 - connected to 'neutron' network
 

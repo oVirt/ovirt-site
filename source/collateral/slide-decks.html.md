@@ -22,6 +22,11 @@ wiki_last_updated: 2015-04-27
 *   oVirt 3.4 New Features:![](OVirt34-NewFeatures.odp‎ "fig:OVirt34-NewFeatures.odp‎") (ODP)
 *   V2V - Migrating virtual machines to oVirt:![](Virt-v2v.odp "fig:Virt-v2v.odp") (ODP)
 
+## FISL 2014 Presentations
+
+*   Elastic Overkill: Is Cloud Really The Be-All End-All for Everyone?:![](FISL15_ElasticOverkill.odp‎ "fig:FISL15_ElasticOverkill.odp‎") (ODP)
+*   oVirt: How to Connect with a Mature Open Source Project:![](FISL15_MatureCommunity.odp "fig:FISL15_MatureCommunity.odp") (ODP)
+
 ## oVirt Decks from FOSDEM 2012
 
 Virtualization Management the oVirt way: ![](Fosdem2012-ovirt-clean.pdf "fig:Fosdem2012-ovirt-clean.pdf") (PDF)

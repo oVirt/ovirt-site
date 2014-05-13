@@ -206,7 +206,7 @@ Following config values are used:
     -   Can be achieved by restarting kdump service, but this call should be added to VDSM module which is responsible for network configuration.
 
 5.  **We plan to update only fence_kdump options in kdump configuration, host admin will be responsible to configure other options and restart kdump service manually when done. In order to successfully report kdump status to engine this operation should be done only when host is in Maintenance.**
-6.  **Host from which fence_kdump message came is identified by IP address, but inside engine FQDN or IP of host is saved. Is it OK to resolve FQDN during kdump detection or do we need to save IP address of host in engine?**
+6.  **\1**
 7.  **We are able only to allow access to fence_kdump port, but we cannot easily identify which IPs can access this port. This is task for administrator to modify firewall rules for enhanced security**
 
 ## Implementation status

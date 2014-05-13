@@ -188,11 +188,11 @@ Host kdump flow detection will be inserted into automatic fencing flow just befo
 Following config values are used:
 
 *   **FenceKdumpMessageInterval**
-    -   Defines the interval between messages sent by *fence_kdump_send*
-    -   Default 5 seconds
+    -   Defines interval in seconds between messages sent by fence_kdump
+    -   Default: *5*
 *   **KdumpStartedTimeout**
-    -   Defines maximum timeout to wait until 1st message from kdumping host is received (host kdump flow started)
-    -   Default 30 seconds
+    -   Defines maximum timeout in seconds to wait until 1st message from kdumping host is received (to detect that host kdump flow started).
+    -   Default: *30*
 
 ## Open questions/issues
 

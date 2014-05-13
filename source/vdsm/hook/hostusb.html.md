@@ -4,6 +4,9 @@ authors: dyasny, herrold
 wiki_title: VDSM-Hooks/hostusb
 wiki_revision_count: 3
 wiki_last_updated: 2014-05-13
+feature_name: Expose Host attached USB to a Node
+feature_modules: "[Node(s) of feature]"
+feature_status: Released
 ---
 
 # hostusb
@@ -32,4 +35,6 @@ Note: The VM must be pinned to host and this hook will fail any migration attemp
 
 Host attached USB devices can be viewed with `lsusb`
 
-Download link: <http://ovirt.org/releases/nightly/rpm/EL/6/hooks/vdsm-hook-hostusb-4.10.0-0.442.git6822c4b.el6.noarch.rpm>
+N.B.: link to binary file is dead 2014 05 13
+
+*   ~~Download link: <http://ovirt.org/releases/nightly/rpm/EL/6/hooks/vdsm-hook-hostusb-4.10.0-0.442.git6822c4b.el6.noarch.rpm>~~

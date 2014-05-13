@@ -93,7 +93,9 @@ The neutron appliance for ovirt-engine 3.5 is based on the Havana-RDO which uses
 
     * On the Agent Configuration left tab:
 
-    1. Bridge Mappings: vmnet:br-neutron g:# Host: NEUTRON_SERVER_IP_ADDRESS
+    1. Bridge Mappings: vmnet:br-neutron
+
+    1. Host: NEUTRON_SERVER_IP_ADDRESS
 
     1. Port: 5672
 

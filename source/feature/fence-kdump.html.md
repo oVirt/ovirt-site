@@ -152,7 +152,7 @@ The listener will use these configuration options:
     -   Config value will be stored to *vdc_options* with name *KdumpStartedTimeout* on listener startup
 *   **KDUMP_FINISHED_TIMEOUT**
     -   Defines maximum timeout in seconds after last received message from kdumping hosts after which the host kdump flow is marked as FINISHED
-    -   Default *30*
+    -   Default *60*
     -   Config value will be stored to *vdc_options* with name *KdumpFinishedTimeout* on listener startup
 
 For oVirt 3.5 we will rely on current fence_kdump capabilities, but for next oVirt version (3.6/4.0) we plan to send more patches to **fence-agents-kdump** and **kexec-tools** which will extend fence_kdump behaviour to be able:

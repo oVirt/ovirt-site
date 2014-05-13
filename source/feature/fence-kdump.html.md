@@ -118,26 +118,42 @@ The new standalone listener will be implemented with these features:
     2.  If message is valid, find host id and determine status of kdump flow (based on messages received in the past it's set to *started* or *dumping*)
     3.  Store host id, timestamp, sender IP address:port and status to database.
 *   Finish host's kdump flow
-    -   For all hosts with status *dumping* test if last received message in not older than *KdumpFinishedTimeout* (default 30 sec). If so, save record with status *finished* and current timestamp for the host to the database
+    -   For all hosts with status *dumping* test if last received message in not older than *KDUMP_FINISHED_TIMEOUT* (default 30 sec). If so, save record with status *finished* and current timestamp for the host to the database
 *   Listener heartbeat
-    -   Periodically every *FenceKdumpListenerHeartbeatInterval* (default 10 sec) save current timestamp to database for host *fence_kdump_listener* (this will be checked by engine to know that listener is alive)
+    -   Periodically every *HEARTBEAT_INTERVAL* (default 10 sec) save current timestamp to database for host *fence_kdump_listener* (this will be checked by engine to know that listener is alive)
 
-The listener will use two config values:
+The listener will use these configuration options:
 
-*   **FenceKdumpListenerAddress**
+*   **LISTENER_ADDRESS**
     -   Defines the IP address to receive fence_kdump messages on
-    -   Default 7410
-*   **FenceKdumpListenerPort**
+    -   Default: *0.0.0.0*
+*   **LISTENER_PORT**
     -   Defines the port to receive fence_kdump messages on
-    -   Default 7410
-*   **FenceKdumpListenerHeartbeatInterval**
-    -   Defines time interval from last heartbeat update of fence_kdump listener to consider him alive
-    -   Default 10 seconds
-*   **KdumpFinishedTimeout**
-    -   Defines maximum timeout after last received message from kdumping hosts after which the host kdump flow is marked as FINISHED
-    -   Default 30 seconds
-
-It's supposed that fence_kdump_send will send messages every *FenceKdumpMessageInterval* (default 5) seconds.
+    -   Default: *7410*
+    -   The value will be stored to *vdc_options* with name *FenceKdumpDestinationPort* on listener startup
+*   **DESTINATION_ADDRESS**
+    -   Defines the IP address(es) to send fence_kdump messages to from hosts
+    -   Default: all IPs resolved from engine FQDN during engine-setup
+    -   Config value will be stored to *vdc_options* with name *FenceKdumpDestinationAddress* on listener startup
+*   **MESSAGE_INTERVAL**
+    -   Defines interval in seconds between messages sent by fence_kdump
+    -   Default: *5*
+    -   Config value will be stored to *vdc_options* with name *FenceKdumpMessageInterval* on listener startup
+*   **HEARTBEAT_INTERVAL**
+    -   Defines the interval in seconds of listener's heartbeat updates
+    -   Default: *5*
+*   **LISTENER_ALIVE_TIMEOUT**
+    -   Defines the max timeout for engine to detect if listener is alive
+    -   Default: *10*
+    -   Config value will be stored to *vdc_options* with name *FenceKdumpListenerAliveTimeout* on listener startup
+*   **KDUMP_STARTED_TIMEOUT**
+    -   Defines maximum timeout in seconds to wait until 1st message from kdumping host is received (to detect that host kdump flow started).
+    -   Default: *30*
+    -   Config value will be stored to *vdc_options* with name *KdumpStartedTimeout* on listener startup
+*   **KDUMP_FINISHED_TIMEOUT**
+    -   Defines maximum timeout in seconds after last received message from kdumping hosts after which the host kdump flow is marked as FINISHED
+    -   Default *30*
+    -   Config value will be stored to *vdc_options* with name *KdumpFinishedTimeout* on listener startup
 
 For oVirt 3.5 we will rely on current fence_kdump capabilities, but for next oVirt version (3.6/4.0) we plan to send more patches to **fence-agents-kdump** and **kexec-tools** which will extend fence_kdump behaviour to be able:
 

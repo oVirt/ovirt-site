@@ -17,6 +17,7 @@ wiki_last_updated: 2015-04-27
 ## oVirt Community Update - FISL 2014
 
 *   oVirt Overview:![](OVirt-Overview.odp "fig:OVirt-Overview.odp") (ODP)
+*   oVirt Community Status:![](Ovirt_Community_Update-2014-FISL.odp "fig:Ovirt_Community_Update-2014-FISL.odp") (ODP)
 *   oVirt Installation Process:![](OVirt-Installation.odp‎ "fig:OVirt-Installation.odp‎") (ODP)
 *   oVirt 3.4 New Features:![](OVirt34-NewFeatures.odp‎ "fig:OVirt34-NewFeatures.odp‎") (ODP)
 *   V2V - Migrating virtual machines to oVirt:![](Virt-v2v.odp "fig:Virt-v2v.odp") (ODP)

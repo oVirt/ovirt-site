@@ -48,9 +48,13 @@ The current (proposed) list of the software to be included in the ISO:
 
     * Spice drivers and agent From: <http://www.spice-space.org/download/binaries/spice-guest-tools/>
 
+Important Note: It seems that Spice installer (current is spice-guest-tools-0.74.exe [1](http://www.spice-space.org/download/binaries/spice-guest-tools/spice-guest-tools-0.74.exe)) installs not just Spice related components (QXL and Agent), but all VirtIO-Win drivers as well.
+
     * Qemu Guest Agent
 
-    * oVirt Guest Agent Current plan is to cross-compile it using Wine. Sources are available from the Git repo at: <http://gerrit.ovirt.org/ovirt-guest-agent>
+Need to check if this can be taken from Fedora or we'll need to compile it ourselves.
+
+    * oVirt Guest Agent Current plan is to cross-compile it using Wine. Sources are available from the Git repo at: <http://gerrit.ovirt.org/ovirt-guest-agent> Initial cross-compilation seems to be successful, but requires further testing on various versions of Windows.
 
 ### Benefit to oVirt
 

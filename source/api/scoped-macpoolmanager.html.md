@@ -49,6 +49,86 @@ Definition of domains from which MAC addresses will be allocated for each "scope
 
 ### REST API
 
+A new macpools top level collection will be added supporting the following operations:
+
+1. GET api/macpools
+
+*   Request: **None**
+*   Response:
+
+<mac_pools>
+`    `<mac_pool id="AAA">
+`        `<name>`Default`</name>
+`        `<description>`The default MAC addresses pool`</description>
+`        `<shared>`true`</shared>
+`        `<allow_duplicates>`false`</allow_duplicates>
+`        `<ranges>
+`            `<range>
+`                `<from>`00:1A:4A:01:00:00`</from>
+`                `<to>`00:1A:4A:FF:FF:FF`</to>
+`            `</range>
+`            `<range>
+`                `<from>`02:1A:4A:01:00:00`</from>
+`                `<to>`02:1A:4A:FF:FF:FF`</to>
+`            `</range>
+`        `</ranges>
+`    `</mac_pool>
+`    `<mac_pool id="BBB">
+              ...
+`    `</mac_pool>
+</mac_pools>
+
+2. POST api/macpools
+
+*   Request:
+
+<mac_pool id="AAA">
+`    `<name>`Default`</name>
+`    `<description>`The default MAC addresses pool`</description>
+`    `<shared>`true`</shared>
+`    `<allow_duplicates>`false`</allow_duplicates>
+`    `<ranges>
+`        `<range>
+`            `<from>`00:1A:4A:01:00:00`</from>
+`            `<to>`00:1A:4A:FF:FF:FF`</to>
+`        `</range>
+`        `<range>
+`            `<from>`02:1A:4A:01:00:00`</from>
+`            `<to>`02:1A:4A:FF:FF:FF`</to>
+`        `</range>
+`    `</ranges>
+</mac_pool>
+
+*   Response: **GUID on the new pool**
+
+3. POST api/macpools/AAA
+
+*   Request:
+
+<mac_pool>
+`    `<description>`The default MAC addresses pool - allows duplicates`</description>
+`    `<allow_duplicates>`true`</allow_duplicates>
+</mac_pool>
+
+*   Response:
+
+<mac_pool id="AAA">
+`    `<name>`Default`</name>
+`    `<description>`The default MAC addresses pool - allows duplicates`</description>
+`    `<shared>`true`</shared>
+`    `<allow_duplicates>`true`</allow_duplicates>
+`    `<ranges>
+`        `<range>
+`            `<from>`00:1A:4A:01:00:00`</from>
+`            `<to>`00:1A:4A:FF:FF:FF`</to>
+`        `</range>
+`        `<range>
+`            `<from>`02:1A:4A:01:00:00`</from>
+`            `<to>`02:1A:4A:FF:FF:FF`</to>
+`        `</range>
+`    `</ranges>
+</mac_pool>
+
 ## Implementation details
 
 ![](scopedMacPoolManager_UML.png "scopedMacPoolManager_UML.png")

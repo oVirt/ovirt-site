@@ -49,6 +49,8 @@ Definition of domains from which MAC addresses will be allocated for each "scope
 
 ### REST API
 
+#### New top level collection
+
 A new macpools top level collection will be added supporting the following operations:
 
 1. GET api/macpools
@@ -128,6 +130,11 @@ A new macpools top level collection will be added supporting the following opera
 `        `</range>
 `    `</ranges>
 </mac_pool>
+
+#### Changes to existing resources
+
+*   Data center resource will be added a link to the MAC pool resource it's using.
+*   POST of data center without specifying the link should \*succeed\*, using the default pool of the system.
 
 ## Implementation details
 

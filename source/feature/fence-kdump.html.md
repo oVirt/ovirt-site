@@ -187,6 +187,8 @@ Host kdump flow detection will be inserted into automatic fencing flow just befo
 
 8.  Execute hard fencing for host
 
+The whole flow is displayed in [ fencing flow with kdump detection](Media:Fencing-flow-with-kdump-detection.jpg).
+
 Following config values are used:
 
 *   **FenceKdumpMessageInterval**

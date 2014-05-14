@@ -45,6 +45,10 @@ Definition of domains from which MAC addresses will be allocated for each "scope
 *   Notice, that there is one *problem* in deciding which scope/pool to use. There are places in code, which requires pool related to given data center, identified by guid. For that request, only data center scope or something broader like global scope can be returned. So even if one want to use one pool per logical network, requests identified by data center id still can return only data center scope or broader, and there are no chance returning pool related to logical network (except for situation, where there is sole logical network in that data center).
 *   You should try to avoid to allocate MAC which is outside of ranges of configured mac pool(either global or scoped one). It's perfectly OK, to allocate specific MAC address from inside these ranges, actually is little bit more efficient than letting system pick one for you. But if you use one from outside of those ranges, your allocated MAC end up in less memory efficient storage(approx 100 times less efficient). So if you want to use user-specified MACs, you can, but tell system from which range those MACs will be(via mac pool configuration).
 
+## User Experience
+
+### REST API
+
 ## Implementation details
 
 ![](scopedMacPoolManager_UML.png "scopedMacPoolManager_UML.png")

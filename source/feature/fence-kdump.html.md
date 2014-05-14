@@ -122,6 +122,8 @@ The new standalone listener will be implemented with these features:
 *   Listener heartbeat
     -   Periodically every *HEARTBEAT_INTERVAL* (default 10 sec) save current timestamp to database for host *fence_kdump_listener* (this will be checked by engine to know that listener is alive)
 
+The whole flow of fence_kdump listener shows [ fence_kdump listener flow diagram](Media:Fence-kdump-listener-flow.jpg).
+
 The listener will use these configuration options:
 
 *   **LISTENER_ADDRESS**

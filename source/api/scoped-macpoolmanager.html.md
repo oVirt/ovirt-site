@@ -103,7 +103,7 @@ A new macpools top level collection will be added supporting the following opera
 
 *   Response: **GUID on the new pool**
 
-3. POST api/macpools/AAA
+3. PUT api/macpools/{macpool:id}
 
 *   Request:
 

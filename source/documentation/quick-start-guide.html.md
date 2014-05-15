@@ -31,8 +31,8 @@ The following requirements are typical for small- to medium-sized installations.
     -   For the oVirt Engine: minimum 3 GB RAM, 3 GB local disk space and 1-Gbps network controller bandwidth.
     -   If you wish to create an ISO domain on the Engine server, you need minimum 15 GB disk space.
 *   The oVirt Engine must be configured to receive updates from the oVirt project's software repository, as provided by the ovirt-release package matching your OS distribution:
-    -   [oVirt 3.3](http://plain.resources.ovirt.org/pub/yum-repo/ovirt-release33.rpm)
-    -   [oVirt 3.4](http://plain.resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm).
+    -   [oVirt 3.3](http://resources.ovirt.org/pub/yum-repo/ovirt-release33.rpm)
+    -   [oVirt 3.4](http://resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm).
 *   A client for connecting to oVirt Engine.
 
 #### For each Host (oVirt Node, Fedora Host, CentOS Host)

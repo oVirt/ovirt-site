@@ -158,3 +158,8 @@ wiki_last_updated: 2014-05-15
 **\1**
 
        The metadata has been added as volume groups "tags" in Ovirt 3.  Use 'vgs -o +tags' to check the metadata of storage domain.
+
+**\1**
+
+      You need to do "confirm host has been rebooted" since the host is not reachable and the engine can't connect to it and he doesn't know what's the status of the VMs that ran on it before rebooting.
+      After that manual fence for host will start. You'll be able to remove the host once fencing finishes, it may take ~ 5 minutes.

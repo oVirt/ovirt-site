@@ -328,9 +328,9 @@ You now know how to install a oVirt Node. In addition to hypervisor hosts, you c
 
 2. Log in to your Fedora host as the **root** user.
 
-3. Install the *ovirt-release* package using **yum**, this package configures your system to receive updates from the oVirt project's software repository:
+3. Install the *ovirt-release34* or "ovirt-release33" package using **yum**, this package configures your system to receive updates from the oVirt project's software repository:
 
-`   # yum localinstall `[`http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm`](http://ovirt.org/releases/ovirt-release-fedora.noarch.rpm)
+`   # yum localinstall `[`http://plain.resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm`](http://plain.resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm)
 
 4. The oVirt platform uses a number of network ports for management and other virtualization features. oVirt Engine can make the necessary firewall adjustments automatically while adding your host. Alternatively, you may adjust your Fedora host's firewall settings to allow access to the required ports by configuring iptables rules. Modify the /etc/sysconfig/iptables file so it resembles the following example:
 

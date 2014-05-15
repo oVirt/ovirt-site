@@ -85,9 +85,9 @@ oVirt Engine is the control center of the oVirt environment. It allows you to de
 
 Reboot your server for the updates to be applied.
 
-3. Subscribe the server to the oVirt project repository.
+3. Subscribe the server to the oVirt project repository. For oVirt 3.4 install ovirt-release34.rpm. For oVirt 3.3 install ovirt-release33.rpm
 
-`   # yum localinstall `[`http://resources.ovirt.org/releases/ovirt-release.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release.noarch.rpm)
+`   # yum install `[`http://plain.resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm`](http://plain.resources.ovirt.org/pub/yum-repo/ovirt-release34.rpm)
 
 4. You are now ready to install the oVirt Engine. Run the following command:
 

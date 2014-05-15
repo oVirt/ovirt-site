@@ -27,7 +27,7 @@ The following requirements are typical for small- to medium-sized installations.
 *   Recommended - Dual Sockets/Quad core server with 16 GB RAM, 50 GB free disk space on multiple disk spindles and 1-Gbps network interface.
     The breakdown of the server requirements are as below:
     -   For the Fedora 19 operating system: minimum 1 GB RAM and 10 GB local disk space.
-    -   For the CentOS 6.2 operating system: minimum 1 GB RAM and 5 GB local disk space.
+    -   For the CentOS 6.5 operating system: minimum 1 GB RAM and 5 GB local disk space.
     -   For the oVirt Engine: minimum 3 GB RAM, 3 GB local disk space and 1-Gbps network controller bandwidth.
     -   If you wish to create an ISO domain on the Engine server, you need minimum 15 GB disk space.
 *   The oVirt Engine must be configured to receive updates from the oVirt project's software repository, as provided by the ovirt-release package matching your OS distribution:

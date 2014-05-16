@@ -84,6 +84,8 @@ If you're upgrading from oVirt < 3.4.0 you must first upgrade to oVirt 3.4.1. Pl
 
 ### oVirt Log Collector
 
+* [engine-log-collector] problem with sos3 on rhel7 as general.all_logs no longer exist
+
 ### oVirt ISO Uploader
 
 ### oVirt Image Uploader

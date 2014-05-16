@@ -31,6 +31,43 @@ To find out more about features which were added in previous oVirt releases, che
 
 #### Networking
 
+##### Unified persistence
+
+Unified persistence is a way for the oVirt defined network configurations in the hosts to be set in a format that is distribution agnostic and that closely matches the oVirt network setup API. When configuring an oVirt network on a host, it will now create a file for the network definition in:
+
+         /var/run/vdsm/netconf/nets
+
+and another one for the bonding definition, if the network uses a bond, in:
+
+         /var/run/vdsm/netconf/bonds
+
+These files are in written in the quite human readable JSON format. However, they should not be manually edited as they are automatically generated and not read on change. **Networking changes and customizations should always be performed through the API**.
+
+When the network configuration is saved via the oVirt API, these network and bond definition files will be snapshotted to
+
+         /var/lib/vdsm/persistence/netconf/nets
+         /var/lib/vdsm/persistence/netconf/bonds
+
+It would be possible to alter there the network definitions and when rebooting the machine having the changes applied. That, however, would mean that the host network is unsynched with the oVirt engine network definition and is strongly discouraged and unsupported.
+
+While oVirt networking "unified persistence" has been available for a while, it was always disabled by default. With 3.5, it is made the default way of persisting networks in the hosts.
+
+###### What does this change mean for the admin?
+
+It means that any change done to the ifcfg files that have been created by vdsm will be ephemeral and will be lost the next time vdsmd restores its network configurations from the new file definitions (this typically happens at boot time but can be forced by doing "vdsm-tool restore-nets"). Thus, it is of utmost importance that **if you have ifcfg handmade customizations that you port those changes to be use custom network properties and write a hook to apply them**.
+
+If you have any manually created ifcfg file that should not be deleted by vdsm network restoring you should make sure that it does not have a header like:
+
+         # Generated by VDSM version 4.14.1-261.git4d9954e.el6
+
+Otherwise the ifcfg file will be removed at the next network restoration event.
+
+Finally, it is important to note that with the advent of this change, **any oVirt defined network will only be configured at boot if the vdsmd is enabled,** as vdsm is the network configuration agent for these networks. For the final release a special case will be made for the management network, so that it starts even when vdsmd is disabled. However, it is advised to handle with care vdsm disabling and restart, as **a host with vdsmd disabled and no non-vdsm networks would not have any network connectivity**.
+
+###### What advantage does it bring?
+
+Having unified persistence enabled means that from now on, one can switch the network configurator to iproute2 (which is still disabled by default) and enjoy the same network experience in a much faster, cross-distribution agnostic way. This is not just important for the debian/ubuntu port, but also makes porting to new distributions easier and highlights the importance of using the Hooks and Custom network properties API for your customization needs.
+
 #### Storage
 
 #### SLA & Scheduling

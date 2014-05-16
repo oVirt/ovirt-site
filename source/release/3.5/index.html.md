@@ -72,6 +72,7 @@ If you're upgrading from oVirt < 3.4.0 you must first upgrade to oVirt 3.4.1. Pl
 
 <div  id="mw-customcollapsible-0" class="mw-collapsible mw-collapsed">
 *   VDSM packages released with the first 3.5.0 alpha have version lower than the ones we had in 3.4.1 so they won't be updated.
+*   You can't add hosts to 3.5 clusters until a new VDSM build with 3.5 compatibility level will be released.
 
 </div>
 # <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed

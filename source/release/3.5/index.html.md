@@ -19,7 +19,7 @@ To find out more about features which were added in previous oVirt releases, che
 
 ### ALPHA RELEASE
 
-oVirt 3.5.0 Alpha release is available since 2014-05-16. In order to install it you've to enable oVirt 3.5 pre release repository. See below section on Install / Upgrade for having detailed instructions.
+The oVirt Project is working on oVirt 3.5.0 Alpha release. In order to install it you've to enable oVirt 3.5 pre release repository. See below section on Install / Upgrade for having detailed instructions. **PLEASE WAIT FOR OFFICIAL ANNOUNCEMENT BEFORE TRYING TO INSTALL IT**
 
 ### Feature #1
 
@@ -93,7 +93,7 @@ Note that some new **features in upcoming releases may very well be unavailable 
 
 ### ALPHA RELEASE
 
-oVirt 3.5.0 Alpha release is available since 2014-05-16. In order to install it you've to enable oVirt 3.5 pre release repository.
+The oVirt Project is working on oVirt 3.5.0 Alpha release. In order to install it you've to enable oVirt 3.5 pre release repository. **PLEASE WAIT FOR OFFICIAL ANNOUNCEMENT BEFORE TRYING TO INSTALL IT**
 
 ### Fedora / CentOS / RHEL
 

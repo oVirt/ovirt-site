@@ -99,5 +99,9 @@ If you're upgrading from oVirt < 3.4.0 you must first upgrade to oVirt 3.4.1. Pl
  - [RFE] [ovirt-hosted-engine-setup] add support for bonded interfaces
  - missing dependency
 
+### oVirt Hosted Engine HA
+
+* Time shift on host may cause ha to stop responding
+
 </div>
 <Category:Documentation> <Category:Releases>

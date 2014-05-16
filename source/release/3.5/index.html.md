@@ -39,7 +39,29 @@ To find out more about features which were added in previous oVirt releases, che
 
 # Install / Upgrade from previous versions
 
+### ALPHA RELEASE
+
+oVirt 3.5.0 Alpha release is available since 2014-05-16. In order to install it you've to enable oVirt 3.5 pre release repository.
+
 ### Fedora / CentOS / RHEL
+
+In order to install it on a clean system, you need to install
+
+`# yum localinstall `[`http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-release35.rpm)
+
+You should read then our [Quick Start Guide](Quick Start Guide)
+
+Please note that this is still a development release, installation on a production system is not recommended.
+
+If you're upgrading from a previous version you should have ovirt-release package already installed on your system. You can then install ovirt-release35.rpm as in a clean install side-by-side.
+
+If you're upgrading from oVirt 3.4.0 you can now remove ovirt-release package:
+
+      # yum remove ovirt-release
+      # yum update "ovirt-engine-setup*"
+      # engine-setup
+
+If you're upgrading from oVirt < 3.4.0 you must first upgrade to oVirt 3.4.1. Please see [oVirt 3.4.1 release notes](oVirt 3.4.1 release notes) for upgrading instructions.
 
 # <span class="mw-customtoggle-0" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Known Issues
 

@@ -66,7 +66,7 @@ If you're upgrading from oVirt < 3.4.0 you must first upgrade to oVirt 3.4.1. Pl
 # <span class="mw-customtoggle-0" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Known Issues
 
 <div  id="mw-customcollapsible-0" class="mw-collapsible mw-collapsed">
-*   bug
+*   VDSM packages released with the first 3.5.0 alpha have version lower than the ones we had in 3.4.1 so they won't be updated.
 
 </div>
 # <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed

@@ -74,6 +74,165 @@ If you're upgrading from oVirt < 3.4.0 you must first upgrade to oVirt 3.4.1. Pl
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
+* webadmin: after discovery of luns if we press the left side of the dialogue we move to the bottom of the list of luns
+ - mouse-cursor stuck on resize-image after closing a dialog while re-sizing it.
+ - [RFE] webadmin [TEXT]: unclear warning that template of linked vm does not exist in export domain
+ - storage allocation checks when cloning a snapshot
+ - [RFE] Allow guest serial number to be configurable
+ - Improve quota storage related details - disk column|list
+ - Escape single underscores in spice client foreign menu labels so that they aren't intepreted as hot keys
+ - webadmin [TEXT]: unclear warning when exporting a vm dependent on template without the template
+ - [Admin Portal] changing os type switches usb_policy to disabled
+ - engine: cannot deactivate a domain when it has an inactive disk attached to a running vm
+ - Password validity time related information is missing in "console.vv" for rhevm 3.2.
+ - SearchQuery generates slow query on vds_with_tags and storage_domains
+ - [RFE] [oVirt] [webadmin] Tree doesn't refresh
+ - [RFE] Ability to dismiss alerts and events from web-admin portal
+ - [RFE] Re-work engine ovirt-node host-deploy sequence
+ - [RFE] [User Portal] Right hand pane in user portal takes too much space
+ - If you try to create a storage connection with empty port, then it is set to 0
+ - New Template: comment is not saved when creating new template
+ - [RFE] rename gwt-extension.jar->ovirt-engine-gwt-extension.jar
+ - Adding a new VM and choosing the OS of any linux, prevents you from changing the time zone.
+ - Default route is not set properly for management network if downstream/upstream engine and VDSM are mixed
+ - [RFE] Search VMs based on MAC address from RHEVM web-admin portal
+ - [TEXT] Tell user to let engine know where keystone auth endpoint lives
+ - [RFE] [rhevm] Webadmin - RFE - Run Once from CD should Show ISO name
+ - Tools iso gets mounted to untooled VM even when CD is unchecked in "Run Once" dialog
+ - remove the use of health servlet
+ - [RHEVM][webadmin] adjust dimensions of Create New Bond dialog window
+ - VM has 1 network interface. Assign a profile to it. appers although a profile was selected
+ - [RFE] Save "domain related" OVFs on any data domain
+ - [Usability] mouse-cursor range for column resizing is too narrow and asymmetric
+ - Misleading message is displayed when VM image is locked and user tries to create VM via CLI
+ - [RFE] Add FreeBSD to the list of VM operating systems
+ - [Text] Event "State was set to Up for host <hostname>." is miss leading.
+ - Cannot obtain console.vv from a mobile device browser in User Portal
+ - Start service ovirt-websocket-proxy gives warning
+ - After deleting image failed ui display message: Disk gluster-test was successfully removed from domain gluster with storage failure
+ - Strange UI bug: tab "VM" unusable / oVirt 3.3.1+
+ - [RFE] support BIOS boot device menu
+ - [RHEVM][UI] redundant vertical scroll-bar in New Virtual Machine dialog
+ - [Neutron integration] Importing network should choose DC from which this action took place
+ - [Neutron integration] Hide incompatible Clusters when adding an external network
+ - pending memory not cleared when resuming paused VM after a minute
+ - [RHEVM] cannot put 3.3 host into maintenance after failed addition to 3.4 cluster
+ - Faulty storage check when adding a VM with disks
+ - Run Once - no way how to start without a CD if one is defined in Edit VM
+ - [RFE] Allow to perform fence operations from a host in another DC
+ - rhevm-manage-domains edit requires provider
+ - [oVirt] DiskMapper does not map the Description field
+ - there is no indication of failures in the external scheduler filters
+ - Clarify CPU labels on frontend
+ - [RHSC] Host does not move to non operational even after glusterd is made down .
+ - Optimized for field does not display correct value when creating a pool
+ - [RFE] Tree view and tabbed view are out of sync
+ - [RFE] add an explanation tool-tip to the 'Feedback' button (since button behavior may be unexpected/not-understandable in some browsers/clients)
+ - New/Edit VM dialog: VNC Keyboard Layout option is initially shown for SPICE protocol too
+ - PRD34 - [RFE] port reports installer to otopi
+ - [RFE] clone vm - support copy/duplicate virtual machines (without having to create a template)
+ - [RHSC] - Rebalance icon in the activities column chnages to unknown (?)
+ - engine is requesting service reports-ui & its config file
+ - [RFE] Description field in Virtual machines tab
+ - Remove the usage of dynamic queries from code
+ - Network label name should not be used when associated with the Neutron
+ - No tool-tips for truncated labels in general host info sub-tab
+ - Pending memory is always decreased from dedicated host on run vm
+ - Changing cluster policy to 'None' not clean properties
+ - Default OS is not selected correctly
+ - No pending mem & cpu is reserved on migrate to host
+ - display the actual CPU allocation of a VM to manage inconsistencies
+ - Potential NullPointerException at Entities.ObjectNames method
+ - [engine-config] no values for versions 3.2 and up for EnableMACAntiSpoofingFilterRules
+ - too long changePasswordMsg breaks the layout
+ - engine: clone vm from snapshot will not clone the template origin
+ - Empty properties panel for cluster policy None
+ - [Neutron Integration] Default Gateway and DNS are missing when creating Network on External Provider
+ - wrong boot order when trying to boot from CDROM while using cloud-init
+ - Cannot run VMs on host while VM is migrating to it
+ - We can not know from the DB, if VMs running with run once are using an ISO file.
+ - [RFE] host right click menu is missing 'reinstall' option
+ - [RFE] Maintenance operations on a VM would ask for an optional reason
+ - Tooltip descriptions for Console Invocation are vague
+ - [RFE] High Availability flag should be included for template when exporting/importing from Export Domain
+ - [RFE] UI plugin API - add SystemTreeSelectionChange callback
+ - [oVirt] [Fix] Changes in selected template does not update the OS list
+ - [oVirt] [AAA] ModuleNotFoundException: extension-manager is not found in local module loader
+ - [engine-backend] NullPointerException for CanDoAction failure of reconstruct master during re-initialize to a new DC from an unattached domain
+ - [RFE] RHEVM GUI - Add host uptime information to the "General" tab
+ - [RFE] Wipe after Delete flag modification while VM is Up
+ - CpuOverCommitDurationMinutes limited to a single digit value by regular expression in database scripts
+ - Misleading error message when user with ClusterAdmin role on cluster tries to add a disk to a VM without permissions on any storage domain
+ - [Admin Portal] Left-pane tree not uncollapsed (to previous width) after web page refresh with double-clicking on splitter-bar
+ - [Admin Portal] Left-pane tree not uncollapsed to previous width after web page refresh with button click
+ - [Admin Portal] Main tabs depiction is broken after refresh/relogin when left-pane is not default width
+ - [Admin Portal] Action bar broken and non existence of drop-down menu in areas with splitter-bar
+ - Remove VM in preview should be blocked in the CDA phase
+ - [Admin Portal] Refresh of left-pane tree collapses the tree
+ - Cloud-init is enabled in the UI for non-Linux hosts but it doesn't do anything
+ - [RFE] consider the event type while printing events to engine.log
+ - Restapi throws ClassCastException when search by unknow value
+ - [engine-webadmin] unclear error message for adding a POSIXFS domain to a 3.0 shared DC
+ - [engine-backend] [external-provider] failure to import a glance image (as a template) leaves image in LOCKED state
+ - Remember whether 'Show Advanced Options' is expanded or not
+ - [RFE] Expose bookmarks through REST API
+ - can't lower the compatibility version of the default cluster
+ - Search enable domain search for Vm and Template
+ - No error message is displayed, when creating several labels with the same name for the same NIC
+ - Host's Compatibility Version doesn't match the Cluster's Compatibility Version
+ - [RHEVM] default profile on rhevm network is named ovirtmgmt
+ - Internet Explorer - Console Client Resources window is too small to display whole content
+ - [Neutron integration] Incorrect error message when adding sunbet with wrong CIDR value
+ - deployments take more than 60 seconds
+ - User and System CPU Usage have values higher than 100%
+ - [notifier] Inconsistency of console event messages
+ - [vdsm] disk hotplug fails in case other disks were hotplugged while it was deactivated
+ - [RFE] Display of NIC Slave/Bond fault on Event Log
+ - AuditLog anti flooding mechanism could cause some messages to be missed.
+ - [RFE] Enable user defined Windows Sysprep file
+ - USB Support select box always shows "Disabled" choice.
+ - Wrong parameter is passed to GetDomainsList query during adding a group
+ - Minor typos found during translation
+ - [branding] engine-setup says "login into oVirt Engine"
+ - ovirt-node reinstall/approve should use root user
+ - [REST-API] Can't set display network if display=false and usages.usage is display
+ - Cant Assign Quotas to external groups
+ - [REST API] NullPointerException thrown when importing a template without specifying storage domain
+ - [engine] [RO-disk] Direct-LUN connected by Virt-IO-SCSI which is configured to be RO to a VM is writeable
+ - Run once vm with attached cd, not attach payload
+ - [RFE] add progress bar for VM migration
+ - Hot plug causes the breach in quota enforcement
+ - console.vv file does not display name of VM for VNC consoles
+ - The hosts max_scheduling_memory should be updated when a live migration starts.
+ - [RFE] Please add host count and guest count columns to "Clusters" tab in webadmin
+ - Break bond by detaching the network label cannot be done in one step
+ - template of thin provision NFS,can't be copied to block data domains
+ - [Network Label] Cannot break bond with Network label attached by break bond action
+ - "Failed to attach network to Cluster" error message when trying to create new network with label that used to be on Bond
+ - Engine should not send defaultRoute in clusterLevel <= 3.3
+ - [User Portal] Windows VNC-based VM are opened via RDP by default in User Portal
+ - red rectangle is not shown if user forgets to fill in password in Install Host dialogue
+ - Query GetStorageDomainByNameQuery failure: bad SQL
+ - Restapi throws NPE when POST action for end job step is sent.
+ - Cannot sysprep Windows VM with different time zone than the one set in VM dialog / System side-tab
+ - [slow webadmin portal] multiple calls to GetVmCustomProperties, should be cached
+ - SuperUser of DataCenter X cannot approve a host under this Data Center
+ - [RFE] History DB should sync user's first and last name for user usage tables.
+ - Null exception when unknown tag is posted
+ - Extending Preallocated Read Only Disk should fail
+ - Extending Thin provision Read Only Disk should block with canDoAction
+ - NullPointerException raised while perform REST API request api/vms/\*\*\*/applications for VM w/o installed applications
+ - New Power Savings Policy Parameters are not in Beta 3 Build
+ - Failed to commit custom preview of snapshot
+ - Unable to upgrade rhevh - Please select an ISO with major version 6.x
+ - timeout, install failed: Sending iso from ovirt-engine to ovirt-node during upgrade
+ - Neutron: Failed to install Host neseted_host_1. Failed to execute stage 'Misc configuration': list index out of range.
+ - [host-deploy] support more ciphers for ssh - upgrade apache-sshd to 0.11.0
+ - Block IDE disks and VirtIO-SCSI disks when attaching/updating
+ - Default cluster/Data center compatibility version should be 3.5 and not 3.4
+ - While executin rhsc-cleanup, it shows an error "[ ERROR ] Failed to execute stage 'Misc configuration': Command '/sbin/chkconfig' failed to execute"
+ - Engine all in one fails
+
 ### VDSM
 
 ### ovirt-node-plugin-vdsm

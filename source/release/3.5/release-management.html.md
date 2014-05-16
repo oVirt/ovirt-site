@@ -86,4 +86,15 @@ To try and improve 3.5 planning over the wiki approach in 3.3, this google doc <
 *   **SHOULD**: (scheduling API first) VM affinity
 *   **SHOULD**: (scheduling API first) VM not getting minimum guaranteed memory
 
+## Alpha Release Criteria (WIP)
+
+### General
+
+*   All sources must be available on ovirt.org
+
+### MUST
+
+*   It must be possible to install oVirt Engine on a clean host for supported OS
+*   It must be possible to run a VM on one host with supported OS
+
 <Category:Releases> [Category:Release management](Category:Release management)

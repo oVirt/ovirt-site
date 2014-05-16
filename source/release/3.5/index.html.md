@@ -70,6 +70,14 @@ Finally, it is important to note that with the advent of this change, **any oVir
 
 Having unified persistence enabled means that from now on, one can switch the network configurator to iproute2 (which is still disabled by default) and enjoy the same network experience in a much faster, cross-distribution agnostic way. This is not just important for the debian/ubuntu port, but also makes porting to new distributions easier and highlights the importance of using the Hooks and Custom network properties API for your customization needs.
 
+###### What to do if I don't want to deal with this
+
+If the admin decides to postpone the move to unified persistence, it is possible to go back to the deprecated "ifcfg" persistence by editing /etc/vdsm/vdsm.conf and setting:
+
+         net_persistence=ifcfg
+
+Note that some new **features in upcoming releases may very well be unavailable for the deprecated "ifcfg" persistence mode**.
+
 #### Storage
 
 #### SLA & Scheduling

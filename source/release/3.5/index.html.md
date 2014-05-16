@@ -90,5 +90,14 @@ If you're upgrading from oVirt < 3.4.0 you must first upgrade to oVirt 3.4.1. Pl
 
 ### oVirt Image Uploader
 
+### oVirt Hosted Engine Setup
+
+* hosted engine deployment always try to add hosts to cluster named "default". If the cluster name is different host won't be automatically added to RHEVM.
+ - If cluster=Default does not exist in hosted-engine it will fail and timeout
+ - hosted-engine setup fails when using VLAN tagged interfaces
+ - [RFE] Hosted Engine deploy should support VLAN-tagged interfaces
+ - [RFE] [ovirt-hosted-engine-setup] add support for bonded interfaces
+ - missing dependency
+
 </div>
 <Category:Documentation> <Category:Releases>

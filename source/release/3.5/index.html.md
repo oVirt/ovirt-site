@@ -86,10 +86,6 @@ If you're upgrading from oVirt < 3.4.0 you must first upgrade to oVirt 3.4.1. Pl
 
 * [engine-log-collector] problem with sos3 on rhel7 as general.all_logs no longer exist
 
-### oVirt ISO Uploader
-
-### oVirt Image Uploader
-
 ### oVirt Hosted Engine Setup
 
 * hosted engine deployment always try to add hosts to cluster named "default". If the cluster name is different host won't be automatically added to RHEVM.

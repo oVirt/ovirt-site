@@ -37,6 +37,11 @@ To find out more about features which were added in previous oVirt releases, che
 
 #### UX Enhancements
 
+#### Hosted Engine
+
+*   Added support for VLAN-tagged network interfaces
+*   Added support for bonded network interfaces
+
 # Install / Upgrade from previous versions
 
 ### ALPHA RELEASE

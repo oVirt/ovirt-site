@@ -71,17 +71,18 @@ Prerequisites:
 
 User-flow: ![](New-host-dialog-baremetal-provision.png "fig:New-host-dialog-baremetal-provision.png")
 
-1.  Add a host in oVirt, which will be selected from a list of discovered hosts taken from Foreman (show the hosts in a provider sub-tab)
-2.  select a host group for this host
-3.  set the proper configuration needed for it (location/environment/other relevant properties)
-4.  Press Okay
-5.  Now, the following system flow will occur:
+1.  Add new host form in oVirt shows new list of discovered hosts taken from Foreman
+2.  Select a host group for this host. all proper configuration needs to be declared in host group definition (part of Foreman setup)
+3.  Select compute resource to allow access back from Foreman to oVirt (part of Foreman setup)
+4.  All "discovered" information will filled out in the new host form, edit them as desired
+5.  Press Okay
+6.  Now, the following system flow will occur:
     1.  add the host to foreman using the API (Provision the discovered host)
     2.  Now there is a split:
         1.  oVirt-node hosts - the registration will occur through the oVirt-node (assuming the kernel parameters are configured for that Foreman template)
         2.  regular hosts- at first step won't do the registration by themselves, but foreman will do that using a plugin (plugin will send REST-API call to add the host , or could it just register it same like oVirt-node?
 
-6.  The host now appears in the oVirt UI, and when approving the host we can modify the host properties, and bootstrapping starts
+7.  The host now appears in the oVirt UI, and when approving the host we can modify the host properties, and bootstrapping starts
 
 Open issues:
 

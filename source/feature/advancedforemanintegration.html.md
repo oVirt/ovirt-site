@@ -37,15 +37,20 @@ The following use-cases assume you already have a Foreman provider in the system
 
 Prerequisites:
 
-*   Foreman admin has a designated host group(s) in foreman for that purpose
-*   Have the proper images for the OS installation
-*   That Host group has the relevant templates (PXE / kickstart files) associated with that host group for the relevant OSs
+*   Foreman admin has a designated host group(s) in foreman for that purpose to define full provision setup with default values
+*   Have the proper images for the OS installation setup in the foreman setup
+*   Correlate the defined Host group with relevant templates (PXE / kickstart files) associated to the relevant OSs
+
+* For oVirt Node provisioning also provide appropriate cmdline arguments inside the PXE provision template, such as:
+
+      append initrd=<%= @initrd %> ks=<%= foreman_url('provision')%> root=live:/[filename].iso BOOTIF=link storage_init rhevm_admin_password=123 adminpw=123 management_server=[ip]:[port] rootfstype=auto ro liveimg check RD_NO_LVM rd_NO_MULTIPATH rootflags=ro crashkernel=128M elevator=deadline quiet max_loop=256 rhgb rd_NO_LUKS rd_NO_MD rd_NO_DM ONERROR LOCALBOOT 0 
+
 *   oVirt needs proper permissions to view relevant bare-metal hosts and host groups
-*   The host group has all the required defaults needed to provision the host
+*   Set Foreman's compute resource that correlates to the required permissions (Availability to approve and add host by custom plugin. For more information about Foreman plugin see [3])
 
 User-flow:
 
-1.  add a host in oVirt, which will be selected from a list of discovered hosts taken from Foreman (show the hosts in a provider sub-tab)
+1.  Add a host in oVirt, which will be selected from a list of discovered hosts taken from Foreman (show the hosts in a provider sub-tab)
 2.  select a host group for this host
 3.  set the proper configuration needed for it (location/environment/other relevant properties)
 4.  Press Okay
@@ -87,6 +92,7 @@ I'd go with option "a", as it leaves the VM creation similar to what we have tod
 
 1.  Foreman homepage: <http://theforeman.org/>
 2.  Basic Foreman integration feature page : <http://ovirt.org/Features/ForemanIntegration>
+3.  Foreman plugin examples: <http://projects.theforeman.org/projects/foreman/wiki/How_to_Create_a_Plugin>
 
 ### Comments and Discussion
 

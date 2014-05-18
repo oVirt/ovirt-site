@@ -70,7 +70,7 @@ Prerequisites:
 
 }
 
-User-flow:
+User-flow: ![](New-host-dialog-baremetal-provision.png "fig:New-host-dialog-baremetal-provision.png")
 
 1.  Add a host in oVirt, which will be selected from a list of discovered hosts taken from Foreman (show the hosts in a provider sub-tab)
 2.  select a host group for this host

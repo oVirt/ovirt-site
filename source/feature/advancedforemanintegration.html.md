@@ -25,13 +25,18 @@ Today, there is basic Foreman integration, described in [2], which allows the ad
 
 ### Current Status
 
-Design phase
+*   Approving final design concepts and last curve of implementation phase for tech preview
+*   Using Foreman 1.6-develop version
 
 ### Detailed Description
 
 #### Use Cases
 
-The following use-cases assume you already have a Foreman provider in the system. For more information on adding Foreman providers have a look at [2].
+*   The following use-cases assume you already have a Foreman provider in the system. For more information on adding Foreman providers have a look at [2].
+*   Foreman setup must include the following plugins (for plugin installation guide follow [3]):
+
+      * `[`https://github.com/bronhaim/ovirt-provision-plugin`](https://github.com/bronhaim/ovirt-provision-plugin)` (>=0.0.1)- Allows full integration with oVirt after provisioning new host
+      * `[`https://github.com/theforeman/foreman_discovery`](https://github.com/theforeman/foreman_discovery)` (>=1.3.0.rc2)- Foreman pack for bare metal discovery feature
 
 ##### First phase - Bare-Metal provisioning
 
@@ -45,8 +50,25 @@ Prerequisites:
 
       append initrd=<%= @initrd %> ks=<%= foreman_url('provision')%> root=live:/[filename].iso BOOTIF=link storage_init rhevm_admin_password=123 adminpw=123 management_server=[ip]:[port] rootfstype=auto ro liveimg check RD_NO_LVM rd_NO_MULTIPATH rootflags=ro crashkernel=128M elevator=deadline quiet max_loop=256 rhgb rd_NO_LUKS rd_NO_MD rd_NO_DM ONERROR LOCALBOOT 0 
 
-*   oVirt needs proper permissions to view relevant bare-metal hosts and host groups
+*   oVirt needs proper permissions to view relevant bare-metal hosts, host groups, compute resources and execute provision request.
 *   Set Foreman's compute resource that correlates to the required permissions (Availability to approve and add host by custom plugin. For more information about Foreman plugin see [3])
+*   Define puppet class for installing oVirt-Engine public key to allow deploy oVirt on provisioned host
+
+* For example:
+
+      class ovirt-pk {                                                                
+             # create a directory                                                    
+             file { "/root/.ssh":                                                    
+                     ensure => "directory",                                          
+                     before => File['/root/.ssh/authorized_keys'],                   
+             }                                                                       
+             file { "/root/.ssh/authorized_keys":                                    
+                     path => '/root/.ssh/authorized_keys',                           
+                     ensure => file,                                                 
+                     source => "puppet:///modules/ovirt-pk/authorized_keys",         
+             }                                                                       
+
+}
 
 User-flow:
 
@@ -93,6 +115,10 @@ I'd go with option "a", as it leaves the VM creation similar to what we have tod
 1.  Foreman homepage: <http://theforeman.org/>
 2.  Basic Foreman integration feature page : <http://ovirt.org/Features/ForemanIntegration>
 3.  Foreman plugin examples: <http://projects.theforeman.org/projects/foreman/wiki/How_to_Create_a_Plugin>
+
+### Known issues for followup
+
+*   <http://projects.theforeman.org/issues/5781>
 
 ### Comments and Discussion
 

@@ -35,7 +35,7 @@ First, build Engine from source:
     -   `safari` - Safari & Google Chrome
     -   `opera` - Opera
 
-`-Dgwt.cssObfuscationStyle=pretty` causes GWT to compile with human-readable CSS names, for much easier development and debugging using Firebug or Developer Tools. `gwt.cssObfuscationStyle` defaults to `obs`, which means "obfuscated". `obs` should be used for production builds (and is the default if `-Dgwt.cssObfuscationStyle=pretty` if not specified.
+`-Dgwt.cssObfuscationStyle=pretty` causes GWT to compile with human-readable CSS names, for much easier development and debugging using Firebug or Developer Tools. `gwt.cssObfuscationStyle` defaults to `obf`, which means "obfuscated". `obf` should be used for production builds (and is the default if `-Dgwt.cssObfuscationStyle=pretty` if not specified.
 
 Tip: *Never use `ie6` with `gwt.userAgent`, Microsoft Internet Explorer 6 and 7 are **not** supported by oVirt web applications.*
 

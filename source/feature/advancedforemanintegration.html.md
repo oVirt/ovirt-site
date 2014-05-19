@@ -90,14 +90,6 @@ We have two options here: a. Add the VM through oVirt, and then add it to Forema
 
 I'd go with option "a", as it leaves the VM creation similar to what we have today. However, we don't really leverage oVirt templates with that approach.
 
-**\1**
-
-**API Design**
-
-*   Engine/Backend/DB
-
-**Additional changes**
-
 ### Benefit to oVirt
 
 *   Better integration with external host providers, that will ease the work for the administrator

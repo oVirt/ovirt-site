@@ -107,6 +107,12 @@ To compile oVirt web applications in draft mode, reducing the level of code opti
 
 Tip: *Use draft mode only when profiling or analyzing GWT application code, don't use it for regular Engine builds.*
 
+Note: To prevent CSS name obfuscation, use
+
+    DEV_EXTRA_BUILD_FLAGS_GWT_DEFAULTS="-Dgwt.cssObfuscationStyle=pretty"
+
+as explained above.
+
 ### Frequently asked questions
 
 *Q: My web browser doesn't prompt me to install GWT Developer Plugin.*

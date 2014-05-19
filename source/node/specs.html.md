@@ -80,7 +80,7 @@ The actual rootfs which is used at runtime.
 
 The following table compares how three different technologies could implement the Node specific features.
 
-| Feature                                                      | Current                                                  | Atomic                                                                                              | LVM based                                                                             |
+| Feature                                                      | Current                                                  | Atomic                                                                                              | [LVM based](https://github.com/fabiand/imgbased/)                                     |
 |--------------------------------------------------------------|----------------------------------------------------------|-----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **Build time**                                               |
 | *Build tool*                                                 | koji / livecd-tools                                      | [ostree-builder](http://www.projectatomic.io/blog/2014/04/build-your-own-atomic-host-on-fedora-20/) | koji / lorax (livemedia-creator) or imgfac                                            |

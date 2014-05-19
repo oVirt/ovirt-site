@@ -76,18 +76,13 @@ User-flow: ![](New-host-dialog-baremetal-provision.png "fig:New-host-dialog-bare
 3.  Select compute resource to allow access back from Foreman to oVirt (part of Foreman setup)
 4.  All "discovered" information will filled out in the new host form, edit them as desired
 5.  Press Okay
-6.  Now, the following system flow will occur:
+6.  the following system flow will occur:
     1.  add the host to foreman using the API (Provision the discovered host)
-    2.  Now there is a split:
-        1.  oVirt-node hosts - the registration will occur through the oVirt-node (assuming the kernel parameters are configured for that Foreman template)
-        2.  regular hosts- at first step won't do the registration by themselves, but foreman will do that using a plugin (plugin will send REST-API call to add the host , or could it just register it same like oVirt-node?
-
-7.  The host now appears in the oVirt UI, and when approving the host we can modify the host properties, and bootstrapping starts
+    2.  The host will be added and appear in the oVirt UI with status "Installing OS" util the following ends:
+        1.  For oVirt-node hosts - the registration will occur through the oVirt-node (assuming the kernel parameters are configured for that Foreman template), and the host will be approved automatically by Foreman
+        2.  For other OS - at first step won't do the registration by themselves, but foreman will do that using a plugin (plugin will send REST-API call to add or approve the host)
 
 Open issues:
-
-1.  How to register the host in case of a regular host? What would be the oVirt API for that? Is it the same as the oVirt-node one?
-2.  The proposal above assumes the operation is triggered from the Provider discovery sub-tab, which is different from the current way we add hosts. Need to verify that it is acceptable
 
 ##### Second phase - VM provisioning - add new VMs which will be configured by Foreman
 

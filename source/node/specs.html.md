@@ -78,6 +78,8 @@ The actual rootfs which is used at runtime.
 
 # Comparison: Possible Implementations
 
+The following table compares how three different technologies could implement the Node specific features.
+
 | Feature                                                      | Current                                                  | Atomic                                                                                              | LVM based                                                                             |
 |--------------------------------------------------------------|----------------------------------------------------------|-----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **Build time**                                               |

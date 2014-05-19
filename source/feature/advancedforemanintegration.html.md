@@ -82,6 +82,8 @@ User-flow: ![](New-host-dialog-baremetal-provision.png "fig:New-host-dialog-bare
         1.  For oVirt-node hosts - the registration will occur through the oVirt-node (assuming the kernel parameters are configured for that Foreman template), and the host will be approved automatically by Foreman
         2.  For other OS - at first step won't do the registration by themselves, but foreman will do that using a plugin (plugin will send REST-API call to add or approve the host)
 
+![](installingOSExample.png "installingOSExample.png")
+
 Open issues:
 
 ##### Second phase - VM provisioning - add new VMs which will be configured by Foreman

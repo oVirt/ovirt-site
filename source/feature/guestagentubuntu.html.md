@@ -52,10 +52,6 @@ It'll be easier to install the ovirt-guest-agent on Ubuntu guests.
 
 ### Repository
 
-#### 10.04
-
-*   URL: <http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/10.04/xUbuntu_10.04/>
-
 #### 12.04
 
 *   URL: <http://download.opensuse.org/repositories/home:/evilissimo:/ubuntu:/12.04/xUbuntu_12.04/>

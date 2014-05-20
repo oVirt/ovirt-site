@@ -133,7 +133,24 @@ On the vdsmd restart that happens when upgrading vdsm to the oVirt 3.5 release, 
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
-* webadmin: after discovery of luns if we press the left side of the dialogue we move to the bottom of the list of luns
+**Fixed in ovirt-engine-3.5.0_alpha1.1**
+ - [rhevm-dwh] History DB - Change Fields "Network Name" to "Logical Network Name"
+ - [Admin Portal] User $user@$domain attach to VM <UNKNOWN> in VM Pool test was initiated by $user.
+ - [RHEVM-RHS] iptables rules are not set on RHSS Nodes, when importing existing gluster cluster configurations
+ - novnc didn't connect because the clocks of websocket proxy and the host weren't in sync.
+ - Can't create network with empty VNIC profile
+ - [RFE] add Debian 7 to the list of operating systems when creating a new vm
+ - [RFE] Set 'save network configuration' default to 'true' on setup networks dialog
+ - Venezuela Standard Time not included in timezone list for Guests (GMT -04:30)
+ - Invalid target of --generate-answer option causes error indicating the entire installation has failed
+ - [RFE] Add periodic power management health check to detect/warn about link-down detection of power management
+ - Rename New Pool->"Pool" tab to "Type"
+ - [SCALE] - storage_domains_with_hosts_view generate slow query
+ - [engine-webadmin] Cannot create an export domain under local DC
+ - A movement operation of raw sparse disk from file to block domain results in Raw preallocated disk, but reports its type wrongly in the webadmin
+ - failed to create VM if no NUMA set is specified
+ **Fixed in ovirt-engine-3.5.0_alpha1**
+ - webadmin: after discovery of luns if we press the left side of the dialogue we move to the bottom of the list of luns
  - mouse-cursor stuck on resize-image after closing a dialog while re-sizing it.
  - [RFE] webadmin [TEXT]: unclear warning that template of linked vm does not exist in export domain
  - storage allocation checks when cloning a snapshot

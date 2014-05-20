@@ -24,7 +24,7 @@ This will provide a generic, extensible way for Node to register to management s
 
 ### Current status
 
-*   Development 0% complete
+*   Development 50% complete
 *   Link to feature page in a specific release. That release may complete the feature, or parts of it. The complete scope of this feature in this release will be described in the release feature page
 *   Last updated: ,
 

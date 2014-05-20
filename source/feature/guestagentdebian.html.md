@@ -110,6 +110,6 @@ Testing has to be executed on a Debian 7 system. Lower version do not fulfil the
 
 ### Comments and Discussion
 
-*   Refer to [Talk:oVirt Guest Agent/Debian](Talk:oVirt Guest Agent/Debian)
+*   Refer to <Talk:Feature/GuestAgentDebian>
 
 <Category:Feature> <Category:Ovirt_guest_agent>

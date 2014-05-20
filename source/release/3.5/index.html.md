@@ -21,8 +21,6 @@ To find out more about features which were added in previous oVirt releases, che
 
 The oVirt Project is working on oVirt 3.5.0 Alpha release. In order to install it you've to enable oVirt 3.5 pre release repository. See below section on Install / Upgrade for having detailed instructions.
 
-**PLEASE WAIT FOR OFFICIAL ANNOUNCEMENT BEFORE TRYING TO INSTALL IT**
-
 ### Feature #1
 
 <description>
@@ -96,8 +94,6 @@ Note that some new **features in upcoming releases may very well be unavailable 
 ### ALPHA RELEASE
 
 The oVirt Project is working on oVirt 3.5.0 Alpha release. In order to install it you've to enable oVirt 3.5 pre release repository.
-
-**PLEASE WAIT FOR OFFICIAL ANNOUNCEMENT BEFORE TRYING TO INSTALL IT**
 
 **Please note that mirror may take a couple of days in order to be updated**
 

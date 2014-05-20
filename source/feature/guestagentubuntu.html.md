@@ -88,7 +88,8 @@ It'll be easier to install the ovirt-guest-agent on Ubuntu guests.
 
 #### Installation
 
-      $REPOURL is any of the URLs listed in the `[[`http://www.ovirt.org/Feature/GuestAgentDebian#Repository`](http://www.ovirt.org/Feature/GuestAgentDebian#Repository)](Repository)` section
+$REPOURL is any of the URLs listed in the [Repository](Feature/GuestAgentDebian#Repository) section
+
       # echo "deb $REPOURL ./" >> /etc/apt/sources.list
       # gpg -v -a --keyserver $REPOURL/Release.key --recv-keys D5C7F7C373A1A299
       # gpg --export --armor 73A1A299 | apt-key add -

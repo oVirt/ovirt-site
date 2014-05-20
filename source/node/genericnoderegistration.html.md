@@ -51,7 +51,8 @@ Draft spec is:
       get_ca:
         action: get
         url: "http://{host}/url?cmd=get-ca-roots"
-        parameters: [host]
+        parameters:
+            host: engine.example.com
         filename: /etc/pki/ovirt-engine.key
       approve:
         action: ui
@@ -62,7 +63,8 @@ Draft spec is:
       get_ssh:
         action: get
         url: "http://{host}/url?=cmd=get-sshkey&type=manager"
-        parameters: [host]
+        parameters:
+            host: engine.example.com
         filename: /tmp/ovirt-engine.key
       authorize:
         action: exec
@@ -73,7 +75,12 @@ Draft spec is:
       finish:
         action: get
         url: "http://{host}/url?cmd=register&name={name}&ip={ip}&sshkeyfingerprint={fingerprint}&user={user}"
-        parameters: [host, name, ip, fingerprint, user]
+        parameters:
+            host: engine.example.com
+            name: node.example.com
+            ip: 10.0.0.1
+            fingerprint: DE:AD:BE:EF
+            user: admin
 
 ### Comments and Discussion
 

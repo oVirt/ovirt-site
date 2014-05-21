@@ -20,22 +20,17 @@ set :relative_links, true
 # It's important HAML outputs "ugly" HTML to not mess with code blocks
 set :haml, :format => :html5, :ugly => true
 
-# Set Markdown features for RedCarpet
-# (So our version of Markdown resembles GitHub's)
+# Set Markdown features for Kramdown
+# (So our version of Markdown resembles GitHub's w/ other nice stuff)
 set :markdown,
-  autolink: true,
-  fenced_code_blocks: true,
-  footnotes: true,
-  gh_blockcode: true,
-  highlight: true,
-  no_intra_emphasis: true,
-  quote: true,
-  smartypants: true,
-  strikethrough: true,
-  superscript: true,
-  tables: true
+  transliterated_header_ids: true,
+  parse_block_html: true,
+  parse_span_html: true,
+  tables: true,
+  hard_wrap: false,
+  input: 'GFM' # add in some GitHub-flavor (``` for fenced code blocks)
 
-set :markdown_engine, :redcarpet
+set :markdown_engine, :kramdown
 
 set :asciidoc_attributes, %w(source-highlighter=coderay imagesdir=images)
 

@@ -71,8 +71,11 @@ gem "asciidoctor"
 # mediawiki
 gem "wikicloth"
 
-# Markdown, with GitHub flavoring
-gem "redcarpet"
+gem "coderay"
+gem "stringex"
+
+# Markdown
+gem "kramdown"
 
 gem 'open-uri-cached'
 

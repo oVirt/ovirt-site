@@ -43,8 +43,8 @@ GEM
       docile (~> 1.1.3)
       mini_magick (~> 3.7)
     ffi (1.9.3)
-    font-awesome-middleman (4.0.3)
-      middleman (>= 3.0.0)
+    font-awesome-middleman (4.1.1)
+      middleman-core (>= 3.0.0)
     fssm (0.2.10)
     haml (4.0.5)
       tilt
@@ -136,7 +136,6 @@ GEM
       ffi (>= 0.5.0)
     rb-kqueue (0.2.2)
       ffi (>= 0.5.0)
-    redcarpet (3.1.1)
     ref (1.0.5)
     rinku (1.7.3)
     rouge (1.3.3)
@@ -153,6 +152,7 @@ GEM
     sprockets-sass (1.0.3)
       sprockets (~> 2.0)
       tilt (~> 1.1)
+    stringex (2.5.2)
     subexec (0.2.3)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
@@ -178,7 +178,9 @@ DEPENDENCIES
   asciidoctor
   bootstrap-sass (= 3.0.0)
   builder (~> 3.0)
+  coderay
   font-awesome-middleman
+  kramdown
   less
   middleman (~> 3.2)
   middleman-blog
@@ -192,8 +194,8 @@ DEPENDENCIES
   pry
   pry-debugger
   pry-stack_explorer
-  redcarpet
   ruby18_source_location
+  stringex
   therubyracer
   wdm (~> 0.1.0)
   wikicloth

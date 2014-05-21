@@ -104,7 +104,7 @@ Draft spec is:
                         "url": "http://{host}/url?cmd=register&name={name}&ip={ip}&sshkeyfingerprint={fingerprint}&user={user}",
                         "name": "node.example.com",
                         "ip": "10.0.0.1",
-                        "fingerprint": "DE: AD: BE: EF",
+                        "fingerprint": "DE:AD:BE:EF",
                         "user": "admin"
                     }
                 }

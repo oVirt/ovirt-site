@@ -19,8 +19,8 @@ We want to build from both a development repo and the master repo on all current
 #### Tools currently used
 
 1.  [Jenkins](https://jenkins.ovirt.org) for build and test automation
-2.  [Igor](https://gitorious.org/ovirt/igord) to run testsuites
-3.  [Cobbler](https://fedorahosted.org/cobbler/) to provision VMs for testing
+2.  [Igor](https://github.com/fabiand/igor/) to run testsuites
+3.  [Cobbler](https://www.cobblerd.org/) to provision VMs for testing
 
 ### Goals
 

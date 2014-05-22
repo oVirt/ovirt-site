@@ -54,6 +54,10 @@ This grid-based approach is becoming a de facto standard in responsive web desig
 
 Further, PatternFly uses this approach throughout, and since oVirt is adopting PatternFly, it makes very much sense for oVirt to adopt Bootstrap grids.
 
+Example:
+
+![](Bootstrap_grid_example.png "Bootstrap_grid_example.png")
+
 ### Benefit to oVirt
 
 At first glance, there is little benefit to end users. However, for users that use a smaller screen resolution or perhaps a mobile device, this paves the way for us to achieve full mobile compatibility. For code maintainers, this will save a lot of pain w/r/t layout nightmares that currently exist. We will worry much less about positioning things correctly by the pixel -- the grid takes care of it. (I know well about this pain while doing phase 1 of the PatternFly implementation. A few overall changes and everything is off by a few pixels. It is very time-consuming to find and adjust all these hardcoded values.)

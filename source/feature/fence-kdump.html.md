@@ -155,24 +155,28 @@ Host kdump flow detection will be inserted into automatic fencing flow just befo
 2.  If the host doesn't respond during time interval, execute SSH Soft Fencing. If command execution wasn't successful, proceed to hard fencing enabled check immediately (step 4).
 3.  If the host doesn't recover during time interval, proceed hard fencing enabled check (step 4).
 4.  If hard fencing is not enabled for host, set host status to **Non Responsive** and exit fencing flow
-5.  If fence kdump is not enabled for the host, execute hard fencing immediately (step 8)
-6.  If standalone fence_kdump listener is not alive, execute hard fencing immediately (step 8)
-7.  Execute fence_kdump detection
+5.  If fence kdump is not enabled for the host, execute hard fencing immediately (step 7)
+6.  Execute fence_kdump detection
     1.  Store current timestamp into *kdump_timestamp* variable
-    2.  Resolve host IP
-    3.  Repeat following:
-        1.  Get most recent record from **fence_kdump_messages** table for resolved IP
-        2.  If *record timestamp >= kdump_timestamp* and record status is **FINISHED**, set host status to **Reboot** and exit fencing flow
-        3.  If *record timestamp >= kdump_timestamp* and record status is **STARTED** or **DUMPING**, wait **FenceKdumpMessageInterval** and continue the loop
-        4.  if *record timestamp < kdump_timestamp* and *current timestamp >= kdump_timestamp + KdumpStartedTimeout*, continue with hard fencing (step 8)
+    2.  Repeat following:
+        1.  Get kdump status for host from database
+        2.  If status is **finished**, set host status to **Reboot** and exit fencing flow
+        3.  If status is **dumping**, wait **FenceKdumpMessageInterval** and continue the loop
+        4.  if no kdump status found for host and *current timestamp >= kdump_timestamp + KdumpStartedTimeout*, continue with hard fencing (step 7)
         5.  if no record returned, wait **FenceKdumpMessageInterval** and continue the loop
 
-8.  Execute hard fencing for host
+7.  Execute hard fencing for host
 
 The whole flow is displayed in [ fencing flow with kdump detection](Media:Fencing-flow-with-kdump-detection.jpg).
 
 Following config values are used:
 
+*   **FenceKdumpDestinationAddress**
+    -   Defines the hostname(s) or IP address(es) to send fence_kdump messages to. If empty, engine FQDN is used.
+    -   Default: empty string, so engine FQDN is used.
+*   **FenceKdumpDestinationPort**
+    -   Defines the port to send fence_kdump messages to.
+    -   Default: *7410*
 *   **FenceKdumpMessageInterval**
     -   Defines interval in seconds between messages sent by fence_kdump
     -   Default: *5*

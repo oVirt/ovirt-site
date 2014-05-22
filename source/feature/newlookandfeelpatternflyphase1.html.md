@@ -33,7 +33,7 @@ For Phase I of this project, we will apply the new look and feel to the followin
 
 ### Current status
 
-*   Currently in code review. <http://gerrit.ovirt.org/#/c/24594/>
+*   Merged. <http://gerrit.ovirt.org/#/c/24594/>
 *   Last updated: -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 
 ### Detailed Description

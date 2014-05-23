@@ -171,4 +171,8 @@ As debug purpose only, to increase the number of tty users logging into oVirt No
        *    -    maxlogins 3  
       # persist /etc/security/limits.conf
 
+### Cannot disable selinux setting /etc/selinux/config plus persist command
+
+       It's required to add kernel parameter during the boot, for example in pxe you could add enforcing=0
+
 [Category: Node](Category: Node)

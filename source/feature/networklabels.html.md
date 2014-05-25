@@ -131,9 +131,9 @@ There are certain configurations which aren't supported by the 'Setup Networks' 
 
 For managing labels on host level:
 
-*   In Network main tab ---> the 'Hosts sub-tab' will contain a 'labels' column.
+*   In Network main tab ---> the 'Hosts sub-tab', the 'Network Device' column will contain tag image if the network is attached to the host via label.
 *   In 'Setup Networks' dialog an option to adding the *labels* will be added, represented as a tag icon on the interface (left side of the setup networks dialog). Clicking the tag icon opens a new dialog for type the labels, in a drop-down/combo-box which will auto-complete the label name based on other labels that are in use in the same data-center (by hosts or by networks).
-*   In host interfaces sub-tab a column *labels* will present the labels.
+*   In host interfaces sub-tab, 'name' or 'bond' column will contain tag image if the interface have label. The tooltip of the tag image will contain the list of the labels on this interface.
 
 For managing labels on network level:
 

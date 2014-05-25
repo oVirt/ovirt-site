@@ -89,6 +89,21 @@ Note: preview only is not available from rest (restore = preview + commit).
 `   `</disks>
 ` `</action>
 
+##### oVirt 3.5
+
+##### Preview Snapshot: POST /api/vms/{vm_id}/preview_snapshot
+
+` `<action>
+`   `<snapshot id="{snapshot_id}"/>
+`   `<restore_memory>`true|false`</restore_memory>
+`   `<disks>
+`     `<disk id="{disk_id}">
+`       `<image_id>`{image_id}`</image_id>
+`       `<snapshot id="{snapshot_id}"/>
+`     `</disk>
+`   `</disks>
+` `</action>
+
 #### Backend
 
 *   CreateAllSnapshotsFromVmCommand

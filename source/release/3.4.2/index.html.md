@@ -63,6 +63,12 @@ If you're upgrading from 3.3.2 or later, keep ovirt-release rpm in place until t
 
 If you're going to test oVirt 3.4.2 development version, please add yourself to [Testing/oVirt 3.4.2 Testing](Testing/oVirt 3.4.2 Testing).
 
+### oVirt Live
+
+A new oVirt Live ISO is available:
+
+[`http://resources.ovirt.org/pub/ovirt-3.4-rc/iso/ovirt-live-el6-3.4.2_rc.iso`](http://resources.ovirt.org/pub/ovirt-3.4-rc/iso/ovirt-live-el6-3.4.2_rc.iso)
+
 ## What's New in 3.4.2?
 
 ## Known issues

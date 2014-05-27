@@ -108,6 +108,10 @@ If you're going to test oVirt 3.4.2 development version, please add yourself to 
  - A movement operation of raw sparse disk from file to block domain results in Raw preallocated disk, but reports its type wrongly in the webadmin
  - Batch updates might create a database deadlock
 
+### oVirt Log Collector
+
+* [engine-log-collector] problem with sos3 on rhel7 as general.all_logs no longer exist
+
 ### VDSM
 
 ### ovirt-node-plugin-vdsm

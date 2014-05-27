@@ -22,8 +22,6 @@ To find out more about features which were added in previous oVirt releases, che
 
 oVirt 3.4.2 candidate release is available since 2014-05-27. In order to install it you've to enable oVirt 3.4 rc repository.
 
-**PLEASE WAIT FOR OFFICIAL ANNOUNCE BEFORE TRYING TO INSTALL IT**
-
 ### Fedora / CentOS / RHEL
 
 In order to install it on a clean system, you need to install

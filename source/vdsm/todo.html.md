@@ -26,27 +26,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   ~~have a logrotate-dependent logrotate.conf that works on Fedora and EL equally well.~~ Our current 'sed' of the EL6-offensive line is good enough.
-
-<!-- -->
-
-*   ~~Configure vdsm to use syslog , but now we need to stop trashing the console~~ -- done by Mark Wu.
-
-<!-- -->
-
-*   ~~Simplify the SysV init script, split most of its code to a "[vdsm-tool](http://gerrit.ovirt.org/295)"~~. Mostly done by Zhou ZhengSheng & Co.
-
-<!-- -->
-
 *   vdsm-tool should assume responsibility on hairy stuff such as [configuring multipath](http://bugzilla.redhat.com/547424), which should not be the business of Vdsm proper.
-
-<!-- -->
-
-*   ~~running vdsClient from the project root dir ends with tears. Some PYTHONPATH games should fix this.~~ done.
-
-<!-- -->
-
-*   ~~require only what we actually use in libvirt, instead of the whole libvirt.rpm.~~ done in Vdsm and mom. <http://gerrit.ovirt.org/#/c/15760/>
 
 <!-- -->
 

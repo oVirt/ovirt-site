@@ -73,6 +73,41 @@ If you're going to test oVirt 3.4.2 development version, please add yourself to 
 
 ### oVirt Engine
 
+* 'list jobs' shows 'UNKNOWN' for target hosts when VMs are migrating
+ - [RHSC] Host does not move to non operational even after glusterd is made down .
+ - display the actual CPU allocation of a VM to manage inconsistencies
+ - User and System CPU Usage have values higher than 100%
+ - [branding] engine-setup says "login into oVirt Engine"
+ - [REST-API] Can't set display network if display=false and usages.usage is display
+ - [engine] [RO-disk] Direct-LUN connected by Virt-IO-SCSI which is configured to be RO to a VM is writeable
+ - Run once vm with attached cd, not attach payload
+ - Hot plug causes the breach in quota enforcement
+ - Break bond by detaching the network label cannot be done in one step
+ - template of thin provision NFS,can't be copied to block data domains
+ - [Network Label] Cannot break bond with Network label attached by break bond action
+ - Engine should not send defaultRoute in clusterLevel <= 3.3
+ - [User Portal] Windows VNC-based VM are opened via RDP by default in User Portal
+ - Cannot sysprep Windows VM with different time zone than the one set in VM dialog / System side-tab
+ - SuperUser of DataCenter X cannot approve a host under this Data Center
+ - [Network labels] Network label rename should be blocked while label is configured on hosts
+ - Extending Preallocated Read Only Disk should fail
+ - Extending Thin provision Read Only Disk should block with canDoAction
+ - NullPointerException raised while perform REST API request api/vms/\*\*\*/applications for VM w/o installed applications
+ - New Power Savings Policy Parameters are not in Beta 3 Build
+ - Failed to commit custom preview of snapshot
+ - Unable to upgrade rhevh - Please select an ISO with major version 6.x
+ - Neutron: Failed to install Host neseted_host_1. Failed to execute stage 'Misc configuration': list index out of range.
+ - Block IDE disks and VirtIO-SCSI disks when attaching/updating
+ - admin@internal can not log in to the Web admin portal if another admin user exists in an external directory
+ - rhevm failed to create "rhevm" bridge after add new host
+ - ovirt-engine failed to create management network during new host installation
+ - [Neutron integration] It's impossible to create network on Neutron from ovirt-engine
+ - [RHEVM-RHS] Host status is shown up in RHEVM UI, even when glusterd is stopped
+ - [engine] [RO-disk] Disbale read-only VirtIO-SCIS LUN disks in the GUI
+ - [engine-webadmin] Cannot create an export domain under local DC
+ - A movement operation of raw sparse disk from file to block domain results in Raw preallocated disk, but reports its type wrongly in the webadmin
+ - Batch updates might create a database deadlock
+
 ### VDSM
 
 ### ovirt-node-plugin-vdsm

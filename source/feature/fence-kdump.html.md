@@ -127,16 +127,22 @@ The whole flow of fence_kdump listener shows [ fence_kdump listener flow diagram
 The listener will use these configuration options:
 
 *   **LISTENER_ADDRESS**
-    -   Defines the IP address to receive fence_kdump messages on
+    -   Defines the IP address to receive fence_kdump messages on.
     -   Default: *0.0.0.0*
 *   **LISTENER_PORT**
-    -   Defines the port to receive fence_kdump messages on
+    -   Defines the port to receive fence_kdump messages on.
     -   Default: *7410*
 *   **HEARTBEAT_INTERVAL**
-    -   Defines the interval in seconds of listener's heartbeat updates
+    -   Defines the interval in seconds of listener's heartbeat updates.
+    -   Default: *30*
+*   **SESSION_SYNC_INTERVAL**
+    -   Defines the interval in seconds to synchronize listener's host kdumping sessions in memory to database.
     -   Default: *5*
+*   **REOPEN_DB_CONNECTION_INTERVAL**
+    -   Defines the interval in seconds to reopen database connection which was previously unavailable.
+    -   Default: *30*
 *   **KDUMP_FINISHED_TIMEOUT**
-    -   Defines maximum timeout in seconds after last received message from kdumping hosts after which the host kdump flow is marked as FINISHED
+    -   Defines maximum timeout in seconds after last received message from kdumping hosts after which the host kdump flow is marked as FINISHED.
     -   Default *60*
 
 For oVirt 3.5 we will rely on current fence_kdump capabilities, but for next oVirt version (3.6/4.0) we plan to send more patches to **fence-agents-kdump** and **kexec-tools** which will extend fence_kdump behaviour to be able:

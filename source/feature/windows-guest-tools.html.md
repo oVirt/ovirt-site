@@ -52,6 +52,8 @@ Important Note: It seems that Spice installer (current is spice-guest-tools-0.74
 
 Spice Agents for 32 and 64 bit Windows: <http://www.spice-space.org/download/windows/vdagent/vdagent-win-0.7.2/>
 
+Spice QXL for 32 and 64 bit Windows: <http://www.spice-space.org/download/windows/qxl/qxl-0.1-21/>
+
     * Qemu Guest Agent
 
 Need to check if this can be taken from Fedora or we'll need to compile it ourselves.

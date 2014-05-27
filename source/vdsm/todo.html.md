@@ -34,10 +34,6 @@ wiki_last_updated: 2015-05-29
 
 ### Testing
 
-*   ~~write an automatic script that runs on each and every new change to gerrit, and adds an insulting comment if `pyflakes` fails for the new change.~~ Thanks, Robert!
-
-<!-- -->
-
 *   enable coverage during Jenkins tests.
 
 <!-- -->
@@ -46,15 +42,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   extend the former script, so that it runs a complete `` `make distcheck && make install` `` in a confined environment (chroot, VM) and reports if there is an error.
-
-<!-- -->
-
-*   run unit and functional tests on reviewed patches (before submission).
-
-<!-- -->
-
-*   add more cases to vmTests.testBuildCmdLine: add more examplary vmParams and their domxml.
+*   Add `` `make distcheck` `` to Jenkins's jobs.
 
 <!-- -->
 
@@ -70,7 +58,7 @@ wiki_last_updated: 2015-05-29
 
 <!-- -->
 
-*   move qemuRebase to qemuimg and a unit test for it.
+*   add a unit test for qemuimg.rebase.
 
 ### Features
 

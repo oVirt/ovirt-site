@@ -112,6 +112,14 @@ If you're going to test oVirt 3.4.2 development version, please add yourself to 
 
 * [engine-log-collector] problem with sos3 on rhel7 as general.all_logs no longer exist
 
+### oVirt Hosted Engine HA
+
+* Could not start ha-agent with exception AttributeError: 'dict' object has no attribute 'engine_status'
+
+### oVirt Hosted Engine Setup
+
+* hosted-engine setup logs the temporary VM password
+
 ### VDSM
 
 ### ovirt-node-plugin-vdsm

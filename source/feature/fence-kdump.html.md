@@ -178,8 +178,11 @@ Following config values are used:
     -   Defines the port to send fence_kdump messages to.
     -   Default: *7410*
 *   **FenceKdumpMessageInterval**
-    -   Defines interval in seconds between messages sent by fence_kdump
+    -   Defines interval in seconds between messages sent by fence_kdump.
     -   Default: *5*
+*   **FenceKdumpListenerTimeout**
+    -   Defines max timeout in seconds since last heartbeat to consider fence_kdump listener alive.
+    -   Default: *90*
 *   **KdumpStartedTimeout**
     -   Defines maximum timeout in seconds to wait until 1st message from kdumping host is received (to detect that host kdump flow started).
     -   Default: *30*

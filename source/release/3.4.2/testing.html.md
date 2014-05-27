@@ -22,6 +22,7 @@ If you have your own setup, we will provide all the software packages and the re
 
 If you're willing to participate, please add yourself to the table below:
 
-| Name | part tested | Storage | Networking | Distribution | Bugs |
-|------|-------------|---------|------------|--------------|------|
-| -    | -           | -       | -          | -            | -    |
+| Name                                               | part tested        | Storage | Networking | Distribution | Bugs |
+|----------------------------------------------------|--------------------|---------|------------|--------------|------|
+| [SandroBonazzola](User:SandroBonazzola) | upgrade from 3.3.5 | NFS     | basic      | Fedora 19    |      |
+| [SandroBonazzola](User:SandroBonazzola) | AIO clean install  | NFS     | basic      | Fedora 19    |      |

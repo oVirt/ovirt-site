@@ -90,11 +90,10 @@ Prerequisites:
 1.  the following system flow will occur:
     1.  add the host to foreman using the API (Provision the discovered host)
     2.  The host will be added and appear in the oVirt UI with status "Installing OS" util the following ends:
+        1.  For oVirt-node hosts - the registration will occur through the oVirt-node (assuming the kernel parameters are configured for that Foreman template), and the host will be approved automatically by Foreman
+        2.  For other OS - at first step won't do the registration by themselves, but foreman will do that using a plugin (plugin will send REST-API call to add or approve the host)
 
 ![](installingOSExample.png "installingOSExample.png")
-
-1.  1.  For oVirt-node hosts - the registration will occur through the oVirt-node (assuming the kernel parameters are configured for that Foreman template), and the host will be approved automatically by Foreman
-    2.  For other OS - at first step won't do the registration by themselves, but foreman will do that using a plugin (plugin will send REST-API call to add or approve the host)
 
 Open issues:
 

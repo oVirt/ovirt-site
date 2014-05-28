@@ -8,13 +8,15 @@ wiki_last_updated: 2014-11-10
 
 # Advanced Foreman Integration
 
+![](Cover2.png "Cover2.png")
+
 ### Summary
 
 [Foreman](http://theforeman.org/) [1] The Foreman is a complete lifecycle management tool for physical and virtual servers. Through deep integration with configuration management, DHCP, DNS, TFTP, and PXE-based unattended installations, Foreman manages every stage of the lifecycle of your physical or virtual servers. The Foreman provides comprehensive, auditable interaction facilities including a web frontend and robust, RESTful API. [Cloud-init](https://launchpad.net/cloud-init/) [1] is a tool used to perform initial setup on cloud nodes, including networking, SSH keys, timezone, user data injection, and more. It is a service that runs on the guest, and supports various Linux distributions including Fedora, RHEL, and Ubuntu.
 
 Integrating Foreman with oVirt will help adding hypervisor hosts that are managed by Foreman to the oVirt engine (installed hosts, discovered hosts, etc.) VM configuration and etc.
- ![](Cover2.png "fig:Cover2.png")
- Today, there is basic Foreman integration, described in [2], which allows the administrator to see hosts installed in Foreman, and get their basic details. This feature aims to extend this integration to cover other aspects such as Bare-Metal provisioning, VM provisioning and Host configuration.
+
+Today, there is basic Foreman integration, described in [2], which allows the administrator to see hosts installed in Foreman, and get their basic details. This feature aims to extend this integration to cover other aspects such as Bare-Metal provisioning, VM provisioning and Host configuration.
 
 ### Owners
 
@@ -69,30 +71,24 @@ Prerequisites:
              }                                                                       
       }   
 
-User-flow: ![](Discover-1-phase.png "fig:Discover-1-phase.png") ![](Discover-2-phase.png "fig:Discover-2-phase.png") ![](Discover-3-phase.png "fig:Discover-3-phase.png") ![](Discover-4-phase.png "fig:Discover-4-phase.png") ![](Discover-5-phase.png "fig:Discover-5-phase.png")
-
-1.  Add new host form in oVirt shows new list of discovered hosts taken from Foreman
-
-![](Discover-6-phase.png "Discover-6-phase.png")
+<big>**User-flow:**</big>
+![](Discover-1-phase.png "fig:Discover-1-phase.png")
+![](Discover-2-phase.png "fig:Discover-2-phase.png")
+![](Discover-3-phase.png "fig:Discover-3-phase.png")
+# Add new host form in oVirt shows new list of discovered hosts taken from Foreman ![](Discover-4-phase.png "fig:Discover-4-phase.png")
 
 1.  Select a host group for this host. all proper configuration needs to be declared in host group definition (part of Foreman setup)
 2.  Select compute resource to allow access back from Foreman to oVirt (part of Foreman setup)
 3.  All "discovered" information will filled out in the new host form, edit them as desired
+4.  Press Okay
 
-![](Discover-7-phase.png "Discover-7-phase.png")
-
-1.  Press Okay
-
-![](Discover-8-phase.png "Discover-8-phase.png")
+![](Discover-5-phase.png "Discover-5-phase.png")
 
 1.  the following system flow will occur:
     1.  add the host to foreman using the API (Provision the discovered host)
     2.  The host will be added and appear in the oVirt UI with status "Installing OS" util the following ends:
-
-![](Discover-9-phase.png "Discover-9-phase.png")
-
-1.  1.  For oVirt-node hosts - the registration will occur through the oVirt-node (assuming the kernel parameters are configured for that Foreman template), and the host will be approved automatically by Foreman
-    2.  For other OS - at first step won't do the registration by themselves, but foreman will do that using a plugin (plugin will send REST-API call to add or approve the host)
+        1.  For oVirt-node hosts - the registration will occur through the oVirt-node (assuming the kernel parameters are configured for that Foreman template), and the host will be approved automatically by Foreman
+        2.  For other OS - at first step won't do the registration by themselves, but foreman will do that using a plugin (plugin will send REST-API call to add or approve the host)
 
 ![](installingOSExample.png "installingOSExample.png")
 

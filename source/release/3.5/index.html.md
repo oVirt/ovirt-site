@@ -321,6 +321,14 @@ A new oVirt Live ISO is available:
 
 ### ovirt-node-plugin-vdsm
 
+* engine_page: catch exception from vdscli.connect()
+ - engine_page: replace netinfo to xmlrpc
+ - engine_page: set password when no address is used
+ - spec: remove uneeded sed's
+ - engine_page: Display correctly proto for Manage by
+ - engine_page: Remove Retrieve Certificate button
+ - engine_page: network is required to register tab
+
 ### oVirt DWH
 
 ### oVirt Reports

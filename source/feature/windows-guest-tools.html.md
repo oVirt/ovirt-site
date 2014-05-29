@@ -36,6 +36,8 @@ At first stage the ISO will include a collection of tools usable for Windows VMs
 
 The installer itself maybe downloaded from: <http://resources.ovirt.org/pub/ovirt-master-snapshot-static/exe/ovirt-guest-tools/ovirt-guest-tools-3.5-1.exe>
 
+The installer is based on the Spice installer's source code, and was slightly modifed for this project's needs.
+
 The current (proposed) list of the software to be included in the ISO:
 
 :\*VirtIO-Win drivers:

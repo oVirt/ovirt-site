@@ -75,13 +75,13 @@ You need at least two physical servers to install and configure a basic yet comp
 *   [Unify maintenance path of Hosted Engine with host maintenance](Features/Self Hosted Engine Maintenance Flows)
 *   [Hosted Engine on NFS](Hosted Engine Howto)
 
-| Scenario                                                   | Bugs |
-|------------------------------------------------------------|------|
-| Setup oVirt Hosted Engine using a NFS storage domain       |      |
-| Setup oVirt Hosted Engine using a common network interface |      |
-| Setup oVirt Hosted Engine using a tagged VLAN interface    |      |
-| Setup oVirt Hosted Engine using a bonded interface         |      |
-| Migrate Hosted Engine VM on another host                   |      |
+|------------------------------------------------------------|-------------------|-----|---------|
+| Scenario                                                   | Tested By/ Distro | BZs | remarks |
+| Setup oVirt Hosted Engine using a NFS storage domain       |                   |     |         |
+| Setup oVirt Hosted Engine using a common network interface |                   |     |         |
+| Setup oVirt Hosted Engine using a tagged VLAN interface    |                   |     |         |
+| Setup oVirt Hosted Engine using a bonded interface         |                   |     |         |
+| Migrate Hosted Engine VM on another host                   |                   |     |         |
 
 ### Configuration
 

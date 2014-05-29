@@ -80,147 +80,144 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 ## Releases
 
+### oVirt Live 3.4.1 - May 8th 2014
+
+**Download**
+
+*   EL6 based: [Download oVirt Live 3.4.1](http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-live-3.4.1.el6ev.iso)
+
+**ChangeLog**
+
+*   Based on oVirt 3.4.1 final, see [oVirt 3.4.1 release notes](oVirt 3.4.1 release notes)
+
 ### oVirt-Live-3.4.iso - Mar 30 2013
 
-#### Download
+**Download**
 
 *   EL6 based: [Download oVirt Live 3.4](http://resources.ovirt.org/releases/3.4/iso/ovirt-live-3.4.0.el6ev.iso)
 
-#### change-log
+**ChangeLog**
 
-Based on oVirt 3.4 final
+*   Based on oVirt 3.4 final
 
 ### oVirt-Live-1.1.iso - Oct 14th 2013
 
-#### Download
+**Download**
 
 *   EL6 based: [Download oVirt Live 1.1](http://resources.ovirt.org/releases/3.3/tools/ovirt-live-el6.iso)
 
-#### change-log
+**ChangeLog**
 
-Based on oVirt 3.3 final
+*   Based on oVirt 3.3 final
 
 ### oVirt-Live-1.0.iso - Feb 21th 2013
 
-#### Download
+**Download**
 
 *   Fedora 18 based: [Download oVirt Live 1.0](http://resources.ovirt.org/releases/3.2/tools/ovirt-live-1.0.iso)
 *   EL6 based: [Download oVirt Live 1.0](http://resources.ovirt.org/releases/3.2/tools/ovirt-live-el6.iso)
 
-#### change-log
+**ChangeLog**
 
-Based on oVirt 3.2 final
+*   Based on oVirt 3.2 final
 
 ### oVirt-Live-0.97.iso - beta version Feb 1th 2013
 
-#### Download
+**Download**
 
-[Download oVirt Live 0.97](http://resources.ovirt.org/releases/3.2/tools/ovirt-live-0.97.iso)
+*   [Download oVirt Live 0.97](http://resources.ovirt.org/releases/3.2/tools/ovirt-live-0.97.iso)
 
-#### change-log
+**ChangeLog**
 
-Based on ovirt 3.2 beta
-
-Fedora 18
-
-workaround for <https://bugzilla.redhat.com/show_bug.cgi?id=878119>
+*   Based on ovirt 3.2 beta
+*   Fedora 18
+*   workaround for <https://bugzilla.redhat.com/show_bug.cgi?id=878119>
 
 ### oVirt-Live-0.9.iso - beta version Jan 9th 2013
 
-#### Download
+**Download**
 
-[Download oVirt Live 0.9](http://resources.ovirt.org/releases/3.2/tools/ovirt-live-0.9.iso)
+*   [Download oVirt Live 0.9](http://resources.ovirt.org/releases/3.2/tools/ovirt-live-0.9.iso)
 
-#### change-log
+**ChangeLog**
 
-Based on ovirt 3.2 nightly (git1a60fea) Fedora 18 beta
+*   Based on ovirt 3.2 nightly (git1a60fea)
+*   Fedora 18 beta
 
-### Known-Issues
+**Known-Issues**
 
-On some chipsets one could encounter the following bug: <https://bugzilla.redhat.com/show_bug.cgi?id=878119> which will cause the storage domain to fail. In case of a failure a workaround is to append "-w /dev/watchdog1" to WDMDOPTS in /etc/sysconfig/wdmd and run systemctl start wdmd.service
+*   On some chipsets one could encounter the following bug: which will cause the storage domain to fail. In case of a failure a workaround is to append "-w /dev/watchdog1" to WDMDOPTS in /etc/sysconfig/wdmd and run systemctl start wdmd.service
 
 ### oVirt-Live-0.8.iso - beta version Nov 15th 2012
 
-#### Download
+**Download**
 
-[download oVirt-Live-0.8.iso](http://ovirt.org/releases/3.1/tools/oVirt-Live.0.8.iso)
+*   [download oVirt-Live-0.8.iso](http://ovirt.org/releases/3.1/tools/oVirt-Live.0.8.iso)
 
-#### change-log
+**ChangeLog**
 
--mostly changes to make installation work when no Ethernet interface connected
+*   mostly changes to make installation work when no Ethernet interface connected
 
 ### oVirt-Live-0.7.iso - beta version Oct 23th 2012
 
-#### change-log
+**ChangeLog**
 
--changed wallpapers (thanks Garrett)
-
--oVirt-setup autostart added
-
--oVirt-enigne welcome screen (via firefox) after successful setup
-
--oVirt-setup terminal window stays open after setup (for debug needs)
-
--Disconnected installs - setup works without outside network connection (packages wouldn't be updated by vsdm-bootstrap, yum reinstall vdsm-bootstrap to workaround)
-
--wlan0 support in vdsm enabled (need someone to test it...)
+*   changed wallpapers (thanks Garrett)
+*   oVirt-setup autostart added
+*   oVirt-enigne welcome screen (via firefox) after successful setup
+*   oVirt-setup terminal window stays open after setup (for debug needs)
+*   Disconnected installs - setup works without outside network connection (packages wouldn't be updated by vsdm-bootstrap, yum reinstall vdsm-bootstrap to workaround)
+*   wlan0 support in vdsm enabled (need someone to test it...)
 
 ### oVirt-Live-0.6.iso - alpha version Oct 12th 2012
 
-#### change-log
+**ChangeLog**
 
--selinux disabled - workaround to sanlock problem
-
--added ovirt_live plugin - performs attachment of iso domain to the DC, and creating vm with disk and network - Thanks to Ofer
-
--changed ovirt-setup icons
-
--shorten host installation time by around 4 minutes
+*   selinux disabled - workaround to sanlock problem
+*   added ovirt_live plugin - performs attachment of iso domain to the DC, and creating vm with disk and network - Thanks to Ofer
+*   changed ovirt-setup icons
+*   shorten host installation time by around 4 minutes
 
 ### oVirt-Live-0.5.iso - alpha version Oct 10th 2012
 
-#### Status
+**Status**
 
-##### functionality/usage
+*   **functionality/usage**
+    -   system boots and performs auto-login to oVirtuser
+    -   ovirt setup needs to be run from gnome favourites
+    -   user can choose either automatic/interactive install
+    -   when setup is finished the user can open welcome page in firefox using ovirt-engine application from gnome favourites
 
--system boots and performs auto-login to oVirtuser
+<!-- -->
 
--ovirt setup needs to be run from gnome favourites
+*   **branding**
+    -   basic background is there
+    -   basic icons are there
 
--user can choose either automatic/interactive install
+<!-- -->
 
--when setup is finished the user can open welcome page in firefox using ovirt-engine application from gnome favourites
+*   **func**
+*   change vm boot order to cd - 0.8
 
-##### branding
+<!-- -->
 
--basic background is there
+*   **branding**
+    -   wide/normal background - v1.0
+    -   custom logos - v1.0
 
--basic icons are there
+<!-- -->
 
-##### ToDo
+*   **features/usage**
+    -   add a python IDE to play with sdk - v0.8
 
-###### func
+<!-- -->
 
--change vm boot order to cd - 0.8
+*   **maintenance**
+    -   git build env
 
-###### branding
+<!-- -->
 
--wide/normal background - v1.0
-
--custom logos - v1.0
-
-###### features/usage
-
--add a python IDE to play with sdk - v0.8
-
-###### maintenance
-
--git build env
-
-##### Problems/Bugs
-
--persistent storage is slow - bigger it gets - slower it does
-
--need to add all workarounds to ovirt code base.
-
--currently working with selinux in permissive - problem running vms (sanlock)
+*   **Problems/Bugs**
+    -   persistent storage is slow - bigger it gets - slower it does
+    -   need to add all workarounds to ovirt code base.
+    -   currently working with selinux in permissive - problem running vms (sanlock)

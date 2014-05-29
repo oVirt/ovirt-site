@@ -26,6 +26,9 @@ Results compared against same machine with master vdsm on it: (except for remove
   compare configuration files with master configured files.  | v (order changes)                                                             | v (order changes)                                               |
 | vdsm-tool is-configured                                    
  True expected                                               | v                                                                             | v                                                               |
+| upgrade from master vdsm                                   
+ test is-configured, validate-config                         
+  remove-config, configure --force and run vdsm              |                                                                               | v                                                               |
 
 <references/>
 

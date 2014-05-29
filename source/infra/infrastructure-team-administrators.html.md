@@ -19,7 +19,7 @@ Project coordinator: Kiril Nesenko <knesenko@redhat.com>
 *   Mailman - lists.ovirt.org: quaid
 *   MediaWiki - www.ovirt.org: quaid, DNeary, garrett
     -   OpenShift - www.ovirt.org: quaid, DNeary, garrett, rydekull
-*   Resources - resources.ovirt.org: mburns, eedri, quaid, rydekull
+*   Resources - resources.ovirt.org: mburns, eedri, quaid, rydekull, dcaro
 
 ## Public sshkeys used by each administrator
 

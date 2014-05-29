@@ -25,7 +25,7 @@ Following commands should be executed from within the Engine source directory, u
 
 First, build Engine from source:
 
-    $ make clean install-dev PREFIX="$OVIRT_OUT" DEV_EXTRA_BUILD_FLAGS_GWT_DEFAULTS="-Dgwt.userAgent=$GWT_USER_AGENT -Dgwt.cssObfuscationStyle=pretty" BUILD_GWT_WEBADMIN="1" BUILD_GWT_USERPORTAL="1" [extra makefile options if necessary]
+    $ make clean install-dev PREFIX="$OVIRT_OUT" DEV_EXTRA_BUILD_FLAGS_GWT_DEFAULTS="-Dgwt.userAgent=$GWT_USER_AGENT -Dgwt.cssResourceStyle=pretty" BUILD_GWT_WEBADMIN="1" BUILD_GWT_USERPORTAL="1" [extra makefile options if necessary]
 
 *   ` OVIRT_OUT` points to Engine build output directory
 *   `GWT_USER_AGENT` specifies web browser(s) for which to build GWT application(s), supported values:
@@ -35,7 +35,7 @@ First, build Engine from source:
     -   `safari` - Safari & Google Chrome
     -   `opera` - Opera
 
-`-Dgwt.cssObfuscationStyle=pretty` causes GWT to compile with human-readable CSS names, for much easier development and debugging using Firebug or Developer Tools. `gwt.cssObfuscationStyle` defaults to `obf`, which means "obfuscated". `obf` should be used for production builds (and is the default if `-Dgwt.cssObfuscationStyle=pretty` if not specified.
+`-Dgwt.cssResourceStyle=pretty` causes GWT to compile with human-readable CSS names, for much easier development and debugging using Firebug or Developer Tools. `gwt.cssResourceStyle` defaults to `obf`, which means "obfuscated". `obf` should be used for production builds (and is the default if `-Dgwt.cssResourceStyle=pretty` if not specified.
 
 Tip: *Never use `ie6` with `gwt.userAgent`, Microsoft Internet Explorer 6 and 7 are **not** supported by oVirt web applications.*
 
@@ -109,7 +109,7 @@ Tip: *Use draft mode only when profiling or analyzing GWT application code, don'
 
 Note: To prevent CSS name obfuscation, use
 
-    DEV_EXTRA_BUILD_FLAGS_GWT_DEFAULTS="-Dgwt.cssObfuscationStyle=pretty"
+    DEV_EXTRA_BUILD_FLAGS_GWT_DEFAULTS="-Dgwt.cssResourceStyle=pretty"
 
 as explained above.
 

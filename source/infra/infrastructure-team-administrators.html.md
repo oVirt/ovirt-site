@@ -15,7 +15,7 @@ This page lists administrator assignments of the Infrastructure team.
 Project coordinator: Kiril Nesenko <knesenko@redhat.com>
 
 *   Jenkins - jenkins.ovirt.org: eedri, dcaro, knesenko
-*   Gerrit - gerrit.ovirt.org: iheim, rydekull
+*   Gerrit - gerrit.ovirt.org: iheim, rydekull, dcaro
 *   Mailman - lists.ovirt.org: quaid
 *   MediaWiki - www.ovirt.org: quaid, DNeary, garrett
     -   OpenShift - www.ovirt.org: quaid, DNeary, garrett, rydekull

@@ -49,17 +49,19 @@ This is a [community services infrastructure](http://fedorahosted.org/csi/) team
 
 People who come to work on this project are *not* already experts, but they might be. You are welcome to learn with us.
 
-The issue tracker is in a 'trac' instance, [here](https://fedorahosted.org/ovirt/report/1)
+### Openning tickets to the Infra team
 
-To gain access to systems - think of them as keys to doors - we match your skill and the trust you have built with the project. This is part of being a [meritocracy](Governance).
+*   The issue tracker is in a 'trac' instance, [here](https://fedorahosted.org/ovirt/report/1)
+*   You can open a ticket to the infra team here [1](https://fedorahosted.org/ovirt/newticket)
 
-As this small team defines process, content will be added to this page.
+### Joining
 
-The main thing is, come [communicate with us](#Communication) if you have any questions, are interested in learning more, or what to participate in supporting oVirt infrastructure.
-
-Interested to join the Infrastructure Team ? [Click here](Becoming_an_Infrastructure_team_member)
+*   To gain access to systems - think of them as keys to doors - we match your skill and the trust you have built with the project. This is part of being a [meritocracy](Governance).
+*   Interested to join the Infrastructure Team ? [Click here](Becoming_an_Infrastructure_team_member)
 
 ### Communication
+
+The main thing is, come [communicate with us](#Communication) if you have any questions, are interested in learning more, or what to participate in supporting oVirt infrastructure.
 
 *   [Mailing list infra@ovirt.org](http://lists.ovirt.org/mailman/listinfo/infra)
 *   [IRC channel #ovirt on OFTC](irc://irc.oftc.net/#ovirt)
@@ -70,17 +72,15 @@ Interested to join the Infrastructure Team ? [Click here](Becoming_an_Infrastruc
 
 ### Decision process
 
-The Infra team generally follows the principle that if it didn't get discussed on the [mailing list](http://lists.ovirt.org/mailman/listinfo/infra), it didn't really happen.
+*   The Infra team generally follows the principle that if it didn't get discussed on the [mailing list](http://lists.ovirt.org/mailman/listinfo/infra), it didn't really happen.
+*   This means all important or broad-reaching decisions are discussed and decided on the mailing list.
+*   The team uses the same [collaborative decision process](https://blogs.apache.org/comdev/entry/how_apache_projects_use_consensus) that other oVirt teams use, with some lightweight elements added to move along minor votes.
 
-This means all important or broad-reaching decisions are discussed and decided on the mailing list.
-
-The team uses the same [collaborative decision process](https://blogs.apache.org/comdev/entry/how_apache_projects_use_consensus) that other oVirt teams use, with some lightweight elements added to move along minor votes.
-
-*   +1 is a vote in favor of a proposition
-*   -1 is a vote against a proposition, must be accompanied with an explanation of the negative vote.
-*   +/-0 is an abstention
-*   3 or more +1 votes are required for anything substantial, important, or far-reaching
-*   0 or more votes will pass a minor proposition - "If no one objects, it passes."
+      * +1 is a vote in favor of a proposition 
+      * -1 is a vote against a proposition, must be accompanied with an explanation of the negative vote.
+      * +/-0 is an abstention
+      * 3 or more +1 votes are required for anything substantial, important, or far-reaching
+      * 0 or more votes will pass a minor proposition - "If no one objects, it passes."
 
 ## Our Architecture
 

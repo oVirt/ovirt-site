@@ -30,6 +30,11 @@ Results compared against same machine with master vdsm on it: (except for remove
  test is-configured, validate-config                         
   remove-config, configure --force and run vdsm              |                                                                               | v                                                               |
 
+|                         | ovirt Node    |
+|-------------------------|---------------|
+| Create iso from source. | row 1, cell 2 |
+| row 2, cell 1           | row 2, cell 2 |
+
 <references/>
 
 [1] [root@dhcp-1-228 ~]# systemctl start vdsmd.service

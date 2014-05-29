@@ -43,7 +43,7 @@ Note that you can control GWT compilation using `BUILD_GWT_WEBADMIN` and `BUILD_
 
 For example, to build Engine with WebAdmin (excluding UserPortal) for Firefox and Chrome browsers:
 
-    $ make clean install-dev PREFIX="$HOME/ovirt-engine" DEV_EXTRA_BUILD_FLAGS_GWT_DEFAULTS="-Dgwt.userAgent=gecko1_8,safari" BUILD_GWT_WEBADMIN="1" BUILD_GWT_USERPORTAL="0"
+    $ make clean install-dev PREFIX="$HOME/ovirt-engine" DEV_EXTRA_BUILD_FLAGS_GWT_DEFAULTS="-Dgwt.userAgent=gecko1_8,safari  -Dgwt.cssResourceStyle=pretty" BUILD_GWT_WEBADMIN="1" BUILD_GWT_USERPORTAL="0"
 
 Tip: *To avoid problems with GWT permutation selector script `*.nocache.js` being optimized-out, always build Engine for at least two browsers.*
 
@@ -57,7 +57,7 @@ To start Development Mode, execute following commands:
 
 For example, to start Development Mode for debugging WebAdmin in Chrome browser:
 
-    $ make gwt-debug DEBUG_MODULE="webadmin" DEV_EXTRA_BUILD_FLAGS_GWT_DEFAULTS="-Dgwt.userAgent=safari"
+    $ make gwt-debug DEBUG_MODULE="webadmin" DEV_EXTRA_BUILD_FLAGS_GWT_DEFAULTS="-Dgwt.userAgent=safari  -Dgwt.cssResourceStyle=pretty"
 
 Development Mode will inform you that it's awaiting debug connection from your Java IDE:
 

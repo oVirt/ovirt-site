@@ -8,7 +8,7 @@ wiki_revision_count: 21
 wiki_last_updated: 2015-01-20
 feature_name: oVirt Windows Guest Tools ISO
 feature_modules: engine
-feature_status: Planning
+feature_status: Alpha
 wiki_warnings: list-item?
 ---
 
@@ -32,7 +32,7 @@ This feature will add an ISO image with required drivers and agents for Windows 
 
 At first stage the ISO will include a collection of tools usable for Windows VMs that run under KVM (oVirt). The second stage will be to package these within the installers, to make the tools installation as easy as possible.
 
-:\*IMPORTANT! First PoC release of oVirt 3.5 WGT is available: <http://resources.ovirt.org/pub/ovirt-master-snapshot-static/iso/ovirt-guest-tools/ovirt-guest-tools-3.5-1.iso> It currently includes the installer for most VirtIO-Win drivers (Serial, Balloon, Net and Block), Spice QXL and Agent as well as oVirt Guest Agent, as well as the binaries that went into the installer. VirtIO-SCSI currently needs to be installed manually (from the drivers directory) - hope to fix that in the next release.
+:\*IMPORTANT! First alpha release of oVirt 3.5 WGT is available: <http://resources.ovirt.org/pub/ovirt-master-snapshot-static/iso/ovirt-guest-tools/ovirt-guest-tools-3.5-1.iso> It currently includes the installer for most VirtIO-Win drivers (Serial, Balloon, Net and Block), Spice QXL and Agent as well as oVirt Guest Agent, as well as the binaries that went into the installer. VirtIO-SCSI currently needs to be installed manually (from the drivers directory) - hope to fix that in the next release.
 
 The installer itself maybe downloaded from: <http://resources.ovirt.org/pub/ovirt-master-snapshot-static/exe/ovirt-guest-tools/ovirt-guest-tools-3.5-1.exe>
 

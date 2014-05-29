@@ -35,11 +35,16 @@ Results compared against same machine with master vdsm on it: (except for remove
 | getVdsCaps should work well with/without ssl using -s or not in vdsClient |                                                                               | v                                                               |
 | remove vdsm rpm and check configuration files                             
   vdsm sections should be removed                                           |                                                                               | v                                                               |
+| connect to engine & run cross migration to/from patch configured hosts    | v - migration completes successfully                                          | cannot currently connect el6.4 due to an upstream bug           |
+
+| connect to engine & create snapshots                                      | v                                                                             | cannot currently connect el6.4 due to an upstream bug           |
+
+Currently there is an upstream bug preventing node installation. I'm am awaiting an ovirt-node 3.4 iso with my patches and will tests on it when it arrives. I do not think it should block the patch since currently installation on master is not working.
 
 |                         | ovirt Node              |
 |-------------------------|-------------------------|
 | Create iso from source. | v (By Douglas! Thanks!) |
-| row 2, cell 1           | row 2, cell 2           |
+|                         |                         |
 
 <references/>
 

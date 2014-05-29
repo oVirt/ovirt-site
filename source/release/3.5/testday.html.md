@@ -45,6 +45,14 @@ wiki_last_updated: 2014-09-17
 
 ## oVirt 3.5 New Features - Test Status Table
 
+Please report test results on the [first test day report etherpad](http://etherpad.ovirt.org/p/3.4-testday-1) or on the table below.
+
+|-----------------|----------------------------|-------|--------------|-----------|-------------------|-----|---------|
+| Functional team | Feature                    | Owner | Dev - Status | Test page | Tested By/ Distro | BZs | remarks |
+| General         | oVirt Live 3.5 (testing)   |       |              |           |                   |     |         |
+| General         | upgrade from 3.4 (testing) |       |              |           |                   |     |         |
+| General         | All in One setup (testing) |       |              |           |                   |     |         |
+
 ## Regression testing
 
 ### General

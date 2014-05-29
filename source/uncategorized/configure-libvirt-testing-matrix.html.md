@@ -37,7 +37,7 @@ Results compared against same machine with master vdsm on it: (except for remove
   vdsm sections should be removed                                           |                                                                               | v                                                               |
 | connect to engine & run cross migration to/from patch configured hosts    | v - migration completes successfully                                          | cannot currently connect el6.4 due to an upstream bug           |
 
-| connect to engine & create snapshots                                      | v                                                                             | cannot currently connect el6.4 due to an upstream bug           |
+| connect to engine & create snapshots                                      | v-snapshots created successfully                                              | cannot currently connect el6.4 due to an upstream bug           |
 
 Currently there is an upstream bug preventing node installation. I'm am awaiting an ovirt-node 3.4 iso with my patches and will tests on it when it arrives. I do not think it should block the patch since currently installation on master is not working.
 

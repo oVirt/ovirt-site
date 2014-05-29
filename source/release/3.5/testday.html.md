@@ -30,7 +30,18 @@ wiki_last_updated: 2014-09-17
 
 ## Installation notes
 
+*   Make sure you have one of the following distributions installed on your machine:
+    -   Fedora 19
+    -   Fedora 20
+    -   CentOS 6.5
+    -   Red Hat Enterprise Linux 6.5
+    -   Any other distribution based on Red Hat Enterprise Linux 6.5
+*   Follow installation instructions provided within [oVirt 3.5 Release Notes](OVirt_3.5_Release_Notes#Fedora_.2F_CentOS_.2F_RHEL)
+
 ### Known issues
+
+*   VDSM packages released with the first 3.5.0 alpha have version lower than the ones we had in 3.4.1 so they won't be updated.
+*   You can't add hosts to 3.5 clusters until a new VDSM build with 3.5 compatibility level will be released (All in One won't work).
 
 ## oVirt 3.5 New Features - Test Status Table
 

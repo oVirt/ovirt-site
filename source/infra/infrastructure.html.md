@@ -19,9 +19,10 @@ The oVirt Infra Team is a volunteer effort to provide community infrastructure s
 
 The maintainers of the Infrastructure project are:
 
-*   **Infrastructure Lead:** [Kiril Nesenko](User:Knesenko)
-*   **Release Manager:** [Mike Burns](User:Mburns)
+*   **Infrastructure Lead:** [David Caro](User:Dcaroest)
+*   **Release Manager:** [Sandro Bonazzola](User:Sbonazzo)
 *   **CI Leads:** [Eyal Edri](User:Eyal), [David Caro](User:Dcaroest)
+*   **Repositories/Build Lead:** [Kiril Nesenko](User:Knesenko)
 *   **Gerrit Admins:**[Itamar Heim](User:Iheim), [David Caro](User:Dcaroest)
 *   **Puppet and Foreman Lead:** [Ewoud Kohl van Wijngaarden](User:Ekohl), [David Caro](User:Dcaroest)
 *   **Mail Servers** [Karsten Wade](User:Quaid)
@@ -40,6 +41,7 @@ In addition to the maintainers, there are newer Infrastructure team members who 
 *   [Garrett Lesage](User:Garrett)
 *   [Brian Proffitt](User:Bproffitt)
 *   [Michael Scherer](User:Misc)
+*   [Paz Dangur](User:Pdangur)
 
 ## How we work
 

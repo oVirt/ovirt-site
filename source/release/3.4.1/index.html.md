@@ -284,10 +284,7 @@ A new oVirt Live ISO is available:
 
 ### ovirt-node-plugin-vdsm
 
-* engine_page: order imports
- - engine_page: use vdsm to detect mgmt interface
-* engine_page: remove unused app from ovirt.node
-* engine_page: remove unused import: exceptions
+* engine_page: use vdsm to detect mgmt interface
  - engine_page: display url/port only on available
 
 <Category:Documentation> <Category:Releases>

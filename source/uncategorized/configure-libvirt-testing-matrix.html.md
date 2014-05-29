@@ -33,6 +33,8 @@ Results compared against same machine with master vdsm on it: (except for remove
  validate-config should fail                                                
   configure --force and run vdsm should run ok                              |                                                                               | v                                                               |
 | getVdsCaps should work well with/without ssl using -s or not in vdsClient |                                                                               | v                                                               |
+| remove vdsm rpm and check configuration files                             
+  vdsm sections should be removed                                           |                                                                               | v                                                               |
 
 |                         | ovirt Node              |
 |-------------------------|-------------------------|

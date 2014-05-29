@@ -76,6 +76,35 @@ You need at least two physical servers to install and configure a basic yet comp
 
 ### Tools
 
+*   Basic operations on iso-uploader:
+
+`# `**`engine-iso-uploader` `list`**
+`# `**`engine-iso-uploader` `upload` <iso> `-i` <iso-domain-name> `-v` `-f`**
+
+*   Advanced operations on iso-uploader: try different arguments, see full list with
+
+`# `**`engine-iso-uploader` `--help`**
+
+*   Basic operations on log-collector:
+
+`# `**`engine-log-collector` `list`**
+`# `**`engine-log-collector` `collect`**
+
+*   Advanced operations on log-collector : try different arguments, see full list with
+
+`# `**`engine-log-collector` `--help`**
+
+*   Basic operation on image-uploader
+
+`# `**`engine-image-uploader` `list`**
+`# `**`engine-image-uploader` `--name=`<new name here> `-e` <domain> `upload` `my.ovf`**
+
+*   Advanced operations on image-uploader: try different arguments, see full list with
+
+`# `**`engine-image-uploader` `--help`**
+
+### Features from previous releases
+
 #### New to v3.1:
 
 #### New to v3.2:

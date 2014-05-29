@@ -90,7 +90,7 @@ create a vm with your favourite manager (ovirt ;) add the <cpu> output from virs
 
 *   Based on oVirt 3.4.1 final, see [oVirt 3.4.1 release notes](oVirt 3.4.1 release notes)
 
-### oVirt-Live-3.4.iso - Mar 30 2013
+### oVirt-Live-3.4.iso - Mar 30 2014
 
 **Download**
 

@@ -26,3 +26,4 @@ If you're willing to participate, please add yourself to the table below:
 |----------------------------------------------------|--------------------|---------|------------|--------------|------|
 | [SandroBonazzola](User:SandroBonazzola) | upgrade from 3.3.5 | NFS     | basic      | Fedora 19    |      |
 | [SandroBonazzola](User:SandroBonazzola) | AIO clean install  | NFS     | basic      | Fedora 19    |      |
+| [Simone Tiraboschi](User:stirabos)      |                    |         | basic      | Fedora 19    |      |

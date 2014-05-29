@@ -11,29 +11,32 @@ wiki_warnings: references
 
 Results compared against same machine with master vdsm on it: (except for remove-config which does not exist on master.)
 
-|                                                            | fedora20                                                                      | el6.4                                                           |
-|------------------------------------------------------------|-------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| Build source on machine                                    | v                                                                             
-                                                              (testMirroring, testMirroringWithDistraction and testReplacePrio are failing,  
-                                                               but they also fail on master in addition there are pep8 violation             
-                                                              also found on master (probably due to pep8 version version))                   | v                                                               
-                                                                                                                                              (testGetBondingOptions is failing, but it also fails on master)  |
-| rpm installation on machine                                | v                                                                             | v                                                               |
-| attempt to run vdsm after installation                     | v[1]                                                                          | v[2]                                                            |
-| vdsm-tool is-configured                                    
- False expected                                              | v                                                                             | v                                                               |
-| vdsm-tool configure --force                                
-  compare configuration files with master configured files.  | v (order changes)                                                             | v (order changes)                                               |
-| vdsm-tool is-configured                                    
- True expected                                               | v                                                                             | v                                                               |
-| upgrade from master vdsm                                   
- test is-configured, validate-config                         
-  remove-config, configure --force and run vdsm              |                                                                               | v                                                               |
+|                                                                | fedora20                                                                      | el6.4                                                           |
+|----------------------------------------------------------------|-------------------------------------------------------------------------------|-----------------------------------------------------------------|
+| Build source on machine                                        | v                                                                             
+                                                                  (testMirroring, testMirroringWithDistraction and testReplacePrio are failing,  
+                                                                   but they also fail on master in addition there are pep8 violation             
+                                                                  also found on master (probably due to pep8 version version))                   | v                                                               
+                                                                                                                                                  (testGetBondingOptions is failing, but it also fails on master)  |
+| rpm installation on machine                                    | v                                                                             | v                                                               |
+| attempt to run vdsm after installation                         | v[1]                                                                          | v[2]                                                            |
+| vdsm-tool is-configured                                        
+ False expected                                                  | v                                                                             | v                                                               |
+| vdsm-tool configure --force                                    
+  **compare configuration files with master configured files.**  | v (order changes)                                                             | v (order changes)                                               |
+| vdsm-tool is-configured                                        
+ True expected                                                   | v                                                                             | v                                                               |
+| upgrade from master vdsm                                       
+ test is-configured, validate-config                             
+  remove-config, configure --force and run vdsm                  |                                                                               | v                                                               |
+| change vdsm.conf ssl = false                                   
+ validate-config should fail                                     
+  configure --force and run vdsm should run ok                   |                                                                               | v                                                               |
 
-|                         | ovirt Node    |
-|-------------------------|---------------|
-| Create iso from source. | row 1, cell 2 |
-| row 2, cell 1           | row 2, cell 2 |
+|                         | ovirt Node              |
+|-------------------------|-------------------------|
+| Create iso from source. | v (By Douglas! Thanks!) |
+| row 2, cell 1           | row 2, cell 2           |
 
 <references/>
 

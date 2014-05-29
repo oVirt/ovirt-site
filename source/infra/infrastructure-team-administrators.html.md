@@ -23,7 +23,7 @@ Project coordinator: Kiril Nesenko <knesenko@redhat.com>
 
 ## Public sshkeys used by each administrator
 
-*   dcaro (apprentice)
+*   dcaro (maintainer)
 
 <!-- -->
 

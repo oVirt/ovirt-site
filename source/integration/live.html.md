@@ -17,9 +17,7 @@ oVirt Live is an unofficial [Fedora spin](http://spins.fedoraproject.org/about) 
 
 ## Why do we need it?
 
-This version can be used for POC or demos, and suppose to give a sneak preview for the working product operation.
-
-simplify the the installation for new users, and will allow users to experiment with oVirt before later installing it.
+oVirt Live can be used for POC or demos, and for giving a sneak preview on the working product operation. It simplifies the installation for new users, and will allow users to experiment with oVirt before installing it.
 
 ## How can I use it?
 

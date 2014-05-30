@@ -445,7 +445,7 @@ The Hypervisor you installed in [ Install oVirt Node](#Install_oVirt_Node) is au
 
 In contrast to the oVirt Node host, the Fedora host you installed “Install Fedora Host” is not automatically detected. It has to be manually attached to the oVirt platform before it can be used.
 
-**To attach a Fedora or CentOS host**
+**To attach a Fedora host**
 
 1. On the Tree pane, click Expand All and select Hosts under the Default cluster. On the Hosts tab, click New.
 
@@ -505,6 +505,10 @@ If you do not wish to configure power management, leave the Enable Power Managem
 4. Click OK. If you have not configured power management, a pop-up window prompts you to confirm if you wish to proceed without power management. Select OK to continue.
 
 5. The new host displays in the list of hosts with a status of Installing. Once installation is complete, the status will update to Reboot and then Awaiting. When the host is ready for use, its status changes to Up.
+
+**To attach a CentOS 6.5 host**
+
+Follow the instructions for a Fedora 19 host.
 
 You have now successfully configured your hosts to run virtual machines. The next step is to prepare data storage domains to house virtual machine disk images.
 

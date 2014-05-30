@@ -441,11 +441,11 @@ The Hypervisor you installed in [ Install oVirt Node](#Install_oVirt_Node) is au
 
 3. The host status will change from Non Operational to Up.
 
-#### Attach Fedora Host
+#### Attach Fedora or CentOS Host
 
 In contrast to the oVirt Node host, the Fedora host you installed “Install Fedora Host” is not automatically detected. It has to be manually attached to the oVirt platform before it can be used.
 
-**To attach a Fedora host**
+**To attach a Fedora or CentOS host**
 
 1. On the Tree pane, click Expand All and select Hosts under the Default cluster. On the Hosts tab, click New.
 

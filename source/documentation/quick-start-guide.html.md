@@ -318,7 +318,7 @@ e. Finally, select the Status tab. Select Restart and press Enter to reboot the 
 
 You have now successfully installed the oVirt Node. Repeat this procedure if you wish to use more hypervisors. The following sections will provide instructions on how to [ approve the hypervisors](#Approve_oVirt_Node_Host) for use with the oVirt Engine.
 
-#### Install Fedora Host
+#### Install Fedora or CentOS Host
 
 You now know how to install a oVirt Node. In addition to hypervisor hosts, you can also reconfigure servers which are running Fedora to be used as virtual machine hosts.
 

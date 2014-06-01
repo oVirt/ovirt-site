@@ -43,7 +43,7 @@ Note: **order-number** is a positive integer number that upgrade tool uses to re
 Example from ovirt-node-plugin-vdsm:
 
        /usr/libexec/ovirt-node/hooks/pre-upgrade/01-vdsm
-       /usr/libexec/ovirt-node/hooks/pre-upgrade/02-my-second-hook
+       /usr/libexec/ovirt-node/hooks/pre-upgrade/02-my-second-hook-to-be-executed
 
 ### Format of hook programs
 

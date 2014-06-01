@@ -25,7 +25,7 @@ ovirt-node-upgrade is a console tool to upgrade ovirt-node. It was developed to 
 
 Example:
 
-        # ovirt-node-upgrade --iso=/path/to/ovirt-node-iso --reboot=1
+        # ovirt-node-upgrade --iso=/path/to/ovirt-node-image.iso --reboot=1
 
 ## hooks
 

@@ -30,7 +30,9 @@ Example:
 ## hooks
 
 The new tool provides hooks schema, which users can specify scripts to run **before** or **after** the upgrade.
- Path to hooks are:
+These hooks are stored in the iso that will be used as parameter in ovirt-node-upgrade tool and executed during the upgrade process.
+
+Path to hooks are:
  /usr/libexec/ovirt-node/hooks/pre-upgrade/ (Run before the upgrade)
 
        /usr/libexec/ovirt-node/hooks/post-upgrade/''' (Run after the upgrade)

@@ -197,6 +197,4 @@ More scenarios can be taken from [Testing ovirt-neutron integration](Features/OS
       | subnet              | 10    |
       +---------------------+-------+
 
-*   Currently, the only supported plugin is Open vSwitch plugin. Is there any need for other plugin types ?
-
 <Category:Feature> <Category:Template>

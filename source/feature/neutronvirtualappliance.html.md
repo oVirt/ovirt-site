@@ -94,11 +94,13 @@ The neutron appliance for ovirt-engine 3.5 is based on the [IceHouse-RDO](http:/
 
     1. Password: should be found by: 'grep CONFIG_NEUTRON_KS_PW /root/packstack-answers\*.txt' on the neutron server vm.
 
-    1. Tenant name: services Verify 'connectivity test' passes (by clicking the 'Test' button)
-
+    1. Tenant name: services Verify 'connectivity test' passes (by clicking the 'Test' button).
+![](AddProvider.png "fig:AddProvider.png")
     * On the Agent Configuration left tab:
 
     1. Bridge Mappings: vmnet:br-neutron
+
+    1. Broker Type: RabbitMQ
 
     1. Host: NEUTRON_SERVER_IP_ADDRESS
 
@@ -106,7 +108,7 @@ The neutron appliance for ovirt-engine 3.5 is based on the [IceHouse-RDO](http:/
 
     1. Username: guest
 
-    1. Password: guest
+    1. Password: guest ![](AddProviderAmqp.png "fig:AddProviderAmqp.png")
 
 #### Install a Host with the network provider
 

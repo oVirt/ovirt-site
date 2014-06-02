@@ -67,14 +67,12 @@ The neutron appliance for ovirt-engine 3.5 is based on the [IceHouse-RDO](http:/
 1.  Install the no-macspoof hook on the host the vm is scheduled to be run on:
     1.  yum -y install vdsm-hook-macspoof
 
-2.  Run the vm with cloud-init:
-    1.  Set a root password.
-    2.  Configure a static IP address (will be referred later as NEUTRON_SERVER_IP_ADDRESS) for eth0 (which is connected to 'ovirtmgmt')
-
-3.  Connect to the vm (ssh/console) and run the following to verify OpenStack services are active:
+2.  Run the vm
+3.  VM IP address should be reported to ovirt-engine (due to ovirt-guest-agent installed on the vm)
+4.  Connect to the vm (ssh with the user complaint to the specified key) and run the following to verify OpenStack services are active:
 
        # . /root/keystonerc_admin
-       # openstack-status 
+       # openstack-status
 
 #### Configure Neutron network provider on ovirt-engine
 

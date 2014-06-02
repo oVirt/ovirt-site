@@ -11,6 +11,7 @@ gem "middleman-livereload"
 gem 'pry'
 gem 'pry-debugger'
 gem 'pry-stack_explorer'
+gem 'middleman-pry'
 
 # Cross-templating language block fix for Ruby 1.8
 platforms :mri_18 do

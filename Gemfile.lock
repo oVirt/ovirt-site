@@ -96,6 +96,9 @@ GEM
       middleman-core (~> 3.2)
       multi_json (~> 1.8.4)
       rack-livereload (~> 0.3.15)
+    middleman-pry (0.0.3)
+      middleman-core (>= 3.2.2)
+      pry (>= 0.9.12)
     middleman-sprockets (3.3.1)
       middleman-core (>= 3.2)
       sprockets (~> 2.1)
@@ -187,6 +190,7 @@ DEPENDENCIES
   middleman-deploy
   middleman-favicon-maker
   middleman-livereload
+  middleman-pry
   middleman-syntax
   nokogiri
   oj

@@ -57,10 +57,12 @@ The neutron appliance for ovirt-engine 3.5 is based on the [IceHouse-RDO](http:/
     1.  eth0 - connected to 'ovirtmgmt' (needs to communicate with ovirt-engine and with the compute nodes/hypervisors)
     2.  eth1 - connected to 'neutron' network
 
-3.  Edit "Initial Run" left-tab (cloud-init):
+3.  Edit "Initial Run" left-tab ([http://www.ovirt.org/Features/Cloud-Init_Integration integrated with cloud-init](http://www.ovirt.org/Features/Cloud-Init_Integration integrated with cloud-init)):
     1.  Set the "SSH Authorized Keys" to enable accessing the vm via ssh (root login is disabled).
     2.  Configure a static IP address (will be referred later as NEUTRON_SERVER_IP_ADDRESS) for eth0 (which is connected to 'ovirtmgmt')
     3.  Configure a static IP address (neutron network) for eth1 (ip address isn't required, but required for cloud-init to create initscripts - could be skipped if used from the api).
+
+![ 700px](EditVmInitialization.png  " 700px")
 
 #### Run the neutron server vm
 

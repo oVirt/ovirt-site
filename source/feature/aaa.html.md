@@ -71,6 +71,10 @@ ovirt.engine.aaa.authn.profile.name - A profile is a combination of authenticati
 
 A developer of the extensions should work with the API and pack the extensions developed as a Jboss module.
 
+#### Block diagram
+
+The following is a block diagram that describes the relatonship between the engine , ui and the extensions ![](Aaa_block_diagram.png "fig:Aaa_block_diagram.png")
+
 #### Flows
 
 *   Engine starts

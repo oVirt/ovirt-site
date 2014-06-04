@@ -43,6 +43,9 @@ The whole thing is a fragile hack, with plenty of stuff yet to be solved. The TO
 
 1.  virt/vm.py has strict assumptions on how each device is reported in libvirt's domain xml. However, Xen's devices do not have a bus address, or a driver, or even an alias. Vdsm should learn to identify devices without this information, or get libvirt-xl expose it.
 2.  Unknown libvirterror: ecode: 8 edom: 41 level: 2 message: unsupported flags (0x1) in function libxlDomainDestroyFlags
+3.  Xen does not support virtio-serial. Guests agents could be tweaked to use Xen paravirt consoles instead. Until then - virtio-serial devices should not be passed to libvirt
+4.  Xen's balloon is not implemented as a virtio-device. Vdsm should user the proper means to specify balloon existence and its size changes.
+5.  virtio-net and virtio-block are not supported. The hook converts them to Xen paravirt devices.
 
 #### libvirt xl driver
 

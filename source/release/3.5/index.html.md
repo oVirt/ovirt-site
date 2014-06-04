@@ -347,6 +347,10 @@ More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_
 
 ### oVirt Reports
 
+### oVirt Image Uploader
+
+* option insecure doesn't work
+
 ### oVirt ISO Uploader
 
 * option insecure doesn't work

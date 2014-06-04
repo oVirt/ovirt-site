@@ -83,3 +83,4 @@ The whole thing is a fragile hack, with plenty of stuff yet to be solved. The TO
 
 1.  When asked to start a domain with only 64MiB RAM, things break in an odd way. qemu dies, but libvirt reports the domain as running.
 2.  No CPU hot-plugging, and certainly not something compatible with oVirt's implementation (of starting a VM with 160 considerable CPUs, and setting the current number to 1).
+3.  No spice support

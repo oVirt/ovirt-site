@@ -372,6 +372,7 @@ More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_
 ### oVirt Hosted Engine HA
 
 * Time shift on host may cause ha to stop responding
+ - Hosted engine upgrade from 3.3 to 3.4, ovirt-ha-agent die after three errors
 
 </div>
 <Category:Documentation> <Category:Releases>

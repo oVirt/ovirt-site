@@ -57,24 +57,25 @@ The whole thing is a fragile hack, with plenty of stuff yet to be solved. The TO
 3.  Expose an alias per virtual device. Aliases are assigned by libvirt and are used to uniquely identify a device.
 4.  When a cdrom is specified with
 
-<!-- -->
+    <tt><disk device="cdrom" snapshot="no" type="file">
 
-                    <disk device="cdrom" snapshot="no" type="file">
-                            <source file="empty.iso" startupPolicy="optional"/>
-                            <target bus="ide" dev="hdc"/>
-                            <readonly/>
-                            <serial/>
-                    </disk>
+    <target bus="ide" dev="hdc"/>
 
-the VM does not attempt to boot from the following hard disk.
+    <readonly/>
 
-1.  When the above cdrom spec has file="", libvirt does a frightening null-pointer dereferencing, instead of interpreting this as an empty cdrom
-2.  On an occasion which I did not reproduce, `virsh dumpxml dom` reported a wrong vnc port. This made `virt-viewer` fail, while `xl vncviewer` worked fine.
-3.  Some consider this a Xen feature, but for me it is a bug: if for some reason qemu dies, the Xen domain may still live on, and libvirt does not report of any issue. That's usually bad of HVM guests - qemu was started for a reason (to emulate devices) and without it, the guest is not going to get very far along. I'd rather have a means to specify that I'd like such a VM to be shut down in this condition, or at least be told that it has lost its device emulation.
-4.  When VM fails to boot, `<on_crash>destroy</on_crash>` takes into actions and stops the VM. My attempts to change this to `preserve` proved futile.
-5.  No support for floppy, which is still (seldom) used by oVirt
-6.  `<interface><filterref>` is silently ignored
-7.  There is no `<link state="down">`.
+    <serial/>
+
+    </disk></tt>
+
+    the VM does not attempt to boot from its hard disk. Only complete removal of cdrom worked for me.
+
+5.  When the above cdrom spec has file="", libvirt does a frightening null-pointer dereferencing, instead of interpreting this as an empty cdrom
+6.  On an occasion which I did not reproduce, `virsh dumpxml dom` reported a wrong vnc port. This made `virt-viewer` fail, while `xl vncviewer` worked fine.
+7.  Some consider this a Xen feature, but for me it is a bug: if for some reason qemu dies, the Xen domain may still live on, and libvirt does not report of any issue. That's usually bad of HVM guests - qemu was started for a reason (to emulate devices) and without it, the guest is not going to get very far along. I'd rather have a means to specify that I'd like such a VM to be shut down in this condition, or at least be told that it has lost its device emulation.
+8.  When VM fails to boot, `<on_crash>destroy</on_crash>` takes into actions and stops the VM. My attempts to change this to `preserve` proved futile.
+9.  No support for floppy, which is still (seldom) used by oVirt
+10. `<interface><filterref>` is silently ignored
+11. There is no `<link state="down">`.
 
 #### Xen
 

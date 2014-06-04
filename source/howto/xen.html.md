@@ -49,6 +49,7 @@ The whole thing is a fragile hack, with plenty of stuff yet to be solved. The TO
 3.  Xen does not support virtio-serial. Guests agents could be tweaked to use Xen paravirt consoles instead. Until then - virtio-serial devices should not be passed to libvirt
 4.  Xen's balloon is not implemented as a virtio-device. Vdsm should user the proper means to specify balloon existence and its size changes.
 5.  virtio-net and virtio-block are not supported. The hook converts them to Xen paravirt devices.
+6.  I did not try spice, as I was told that it's broken on lower levels, but that's supposedly not exact.
 
 #### libvirt xl driver
 

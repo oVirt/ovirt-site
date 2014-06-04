@@ -33,6 +33,7 @@ This page describes the hacked solution, and tracks the known gaps to its fruiti
     EOF
 
 6.  Log into your Engine's admin portal, and add your dom0 to your cluster. Define a VM and start it up.
+7.  To actually have something running inside the VM, I've copied a Fedora image onto the VM's disk volume. I suppose that importing a VM would work, too.
 
 ### What's not Done
 

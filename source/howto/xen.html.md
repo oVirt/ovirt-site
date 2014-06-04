@@ -70,3 +70,4 @@ the VM does not attempt to boot from the following hard disk.
 #### Xen
 
 1.  When asked to start a domain with only 64MiB RAM, things break in an odd way. qemu dies, but libvirt reports the domain as running.
+2.  No CPU hot-plugging, and certainly not something compatible with oVirt's implementation (of starting a VM with 160 considerable CPUs, and setting the current number to 1).

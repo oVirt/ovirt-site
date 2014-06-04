@@ -78,6 +78,8 @@ The whole thing is a fragile hack, with plenty of stuff yet to be solved. The TO
 11. There is no `<link state="down">`.
 12. VNC password cannot be set `libvirtError: unsupported configuration: device type 'graphics' cannot be updated`
 13. I failed to connect to the VNC port from outside dom0; I have no idea why I get `unable connect to socket: Connection refused (111)` with iptables set to ACCEPT all.
+14. Live migration is in the works
+15. Migration cancellation is missing
 
 #### Xen
 

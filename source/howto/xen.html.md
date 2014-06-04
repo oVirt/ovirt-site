@@ -8,7 +8,7 @@ wiki_revision_count: 16
 wiki_last_updated: 2015-01-16
 ---
 
-## Xen
+# Xen
 
 oVirt uses libvirt to abstract access to its virtual machines. This makes it theoretically possible for oVirt to manage Xen hosts. Trying this out was a goal in [Xen hackathon 2014](http://wiki.xen.org/wiki/Hackathon/May2014#Libvirt_and_Xen_integration_.2F_co-operation).
 
@@ -48,8 +48,9 @@ The whole thing is a fragile hack, with plenty of stuff yet to be solved. The TO
 
 1.  Implement virConnectCompareCPU. At the moment, Vdsm connects to `qemu:///system` to use this API call.
 2.  Expose an alias per virtual device. Aliases are assigned by libvirt and are used to uniquely identify a device.
+3.  When a cdrom is specified with
 
-# When a cdrom is specified with
+<!-- -->
 
                     <disk device="cdrom" snapshot="no" type="file">
                             <source file="empty.iso" startupPolicy="optional"/>
@@ -63,7 +64,8 @@ the VM does not attempt to boot from the following hard disk.
 1.  When the above cdrom spec has file="", libvirt does a frightening null-pointer dereferencing, instead of interpreting this as an empty cdrom
 2.  On an occasion which I did not reproduce, `virsh dumpxml dom` reported a wrong vnc port. This made `virt-viewer` fail, while `xl vncviewer` worked fine.
 3.  Some consider this a Xen feature, but for me it is a bug: if for some reason qemu dies, the Xen domain may still live on, and libvirt does not report of any issue. That's usually bad of HVM guests - qemu was started for a reason (to emulate devices) and without it, the guest is not going to get very far along. I'd rather have a means to specify that I'd like such a VM to be shut down in this condition, or at least be told that it has lost its device emulation.
-4.  When VM fails to boot, ``<on_crash>destroy</on_crash></tt> takes into actions and stops the VM. My attempts to change this to `preserve` proved futile.
+4.  When VM fails to boot, `<on_crash>destroy</on_crash>` takes into actions and stops the VM. My attempts to change this to `preserve` proved futile.
+5.  No support for floppy, which is still (seldom) used by oVirt
 
 #### Xen
 

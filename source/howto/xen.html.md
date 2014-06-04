@@ -24,12 +24,15 @@ This page describes the hacked solution, and tracks the known gaps to its fruiti
 4.  Install Vdsm on your dom0. Do not forget to install vdsm-hook-xen.rpm, too.
 5.  On your Engine host,
 
-      # cat <`<EOF >`/etc/ovirt-host-deploy.conf.d/50-xen.conf 
-      [environment:enforce]
-      VDSM/checkVirtHardware=bool:False
-      EOF
+    1.  cat <<EOF >/etc/ovirt-host-deploy.conf.d/50-xen.conf
 
-1.  Log into your Engine's admin portal, and add your dom0 to your cluster. Define a VM and start it up.
+    [environment:enforce]
+
+    VDSM/checkVirtHardware=bool:False
+
+    EOF
+
+6.  Log into your Engine's admin portal, and add your dom0 to your cluster. Define a VM and start it up.
 
 ### What's not Done
 

@@ -49,9 +49,10 @@ The whole thing is a fragile hack, with plenty of stuff yet to be solved. The TO
 
 #### libvirt xl driver
 
-1.  Implement virConnectCompareCPU. At the moment, Vdsm connects to `qemu:///system` to use this API call.
-2.  Expose an alias per virtual device. Aliases are assigned by libvirt and are used to uniquely identify a device.
-3.  When a cdrom is specified with
+1.  I found no way to specify "qcow2" in libxl images. Only raw images can be used.
+2.  Implement virConnectCompareCPU. At the moment, Vdsm connects to `qemu:///system` to use this API call.
+3.  Expose an alias per virtual device. Aliases are assigned by libvirt and are used to uniquely identify a device.
+4.  When a cdrom is specified with
 
 <!-- -->
 
@@ -69,6 +70,8 @@ the VM does not attempt to boot from the following hard disk.
 3.  Some consider this a Xen feature, but for me it is a bug: if for some reason qemu dies, the Xen domain may still live on, and libvirt does not report of any issue. That's usually bad of HVM guests - qemu was started for a reason (to emulate devices) and without it, the guest is not going to get very far along. I'd rather have a means to specify that I'd like such a VM to be shut down in this condition, or at least be told that it has lost its device emulation.
 4.  When VM fails to boot, `<on_crash>destroy</on_crash>` takes into actions and stops the VM. My attempts to change this to `preserve` proved futile.
 5.  No support for floppy, which is still (seldom) used by oVirt
+6.  `<interface><filterref>` is silently ignored
+7.  There is no `<link state="down">`.
 
 #### Xen
 

@@ -347,6 +347,10 @@ More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_
 
 ### oVirt Reports
 
+### oVirt ISO Uploader
+
+* option insecure doesn't work
+
 ### oVirt Log Collector
 
 * [engine-log-collector] problem with sos3 on rhel7 as general.all_logs no longer exist

@@ -45,8 +45,13 @@ Example from ovirt-node-plugin-vdsm:
        /usr/libexec/ovirt-node/hooks/pre-upgrade/01-vdsm
        /usr/libexec/ovirt-node/hooks/pre-upgrade/02-my-second-hook-to-be-executed
 
-### Format of hook programs
+#### Format of hook programs
 
 These programs can be in python, bash, etc. and **permission must be 0755**
+
+#### Example hook implementation
+
+hooks: Adding hooks for ovirt-node-upgrade
+<http://gerrit.ovirt.org/#/c/28424/>
 
 <Category:Project>

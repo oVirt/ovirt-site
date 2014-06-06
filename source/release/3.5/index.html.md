@@ -155,6 +155,61 @@ More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
+**Fixed in ovirt-engine-3.5.0_alpha2**
+  - UserRole permission on System/DC/Cluster doesn't work as expected
+ - malformated guid's cause http 500
+ - webadmin: we can create a V1 format posix domain when selecting "None" option in Data Center
+ - [engine] Storage Domain that was destroyed from GUI did not get completely removed from DB
+ - [ja_JP][fr_FR][Admin Portal] Truncation string in the message of 'Tasks' pane.
+ - [rhevm] Webadmin - SearchBox "Template: childcount <1" doesn't work anymore
+ - [RHSC] Error message on failure to start remove-brick needs correction.
+ - [RHSC][RFE] Sort the host column in the Clusters Services tab, when 'Show All' is used.
+ - [engine-backend] Hotplug disk isn't blocked while VM is in illegal state for disk hotplug, when attaching a disk with active=true
+ - [RFE] A failure in a merge operation should fallback to a partial merge, not a broken snapshot
+ - [RFE] Restart HA VMs when power management reports host is in powered off state
+ - [webadmin] [network labels] missing Label information in In Network main tab ---> the 'Hosts sub-tab'
+ - OVIRT-CLI: async parameter counts any value except true as false when it should accept only true/false values
+ - [RHSC] - Skipped file count filed should be removed from the remove-brick status dialog as it is always going to be zero.
+ - [RHSC] - Rebalance icon in the activities column changes to unknown (?)
+ - Provide informations about fencing in RHEV-M
+ - [notifier] 'VM is down with error' event has mail subject 'VM $vmname is down. Exit message: $reason'
+ - bogus DB entry - VDS_INITIATED_RUN_VM_FAIL event_up_name
+ - Non operational host- audit log doesn't contain bond's name if there is also problematic nic
+ - Event ID 1200 (VM rename) does not record the initating User id
+ - Tool tip hovers permanently in the Virtual Machines - Disk Tab
+ - [RFE] NFS custom mountoptions
+ - Domain of group is not shown in general sub tab of users tab.
+ - [GUI/General sub-tab] Windows-based Template & Pool: Time Zone is blank when set to the global default
+ - Reboot button is not disabled for VM pools
+ - [TEXT] Attaching disk to vm in 'reboot in progress' state returns a confusing Operation failed message
+ - ;current should work for cdroms collection, not just for cdrom resources
+ - The Expect header is ignored
+ - [engine-backend] [iSCSI multipath] Internal engine error when vdsm fails to connect to storage server with IscsiNodeError
+ - misaligned arrow icon in footer bar
+ - Import VM fail on 3.3 "Cluster doesn't exist", though it does exist.
+ - [RFE] Support logging of commands parameters
+ - do not use com.google.gwt.user.client.Cookies in ReportModel
+ - iscsi storage dialog - alignment issues
+ - [RFE] Support single disk snapshot on preview snapshot action in REST-API
+ - Run once vm via REST with <pause>true</pause> parameter, save this parameter true also in next runs
+ - Cluster Compatibility Version should default to the latest version
+ - In webadmin, the newly introduced Console side tab in new/edit cluster dialog to configure a SPICE proxy for individual clusters is NOT required and should be removed
+ - GUI fields unaligned since Look&Feel patch
+ - [engine-backend] When committing a snapshot that contains disk and conf. of the 'Active VM', engine doesn't report about the result of the operation
+ - "CPU Architecture" should be removed from New/Edit Cluster dialog window
+ - [engine] [RO-disk] Disbale read-only VirtIO-SCIS LUN disks in the GUI
+ - Need warning message for moving sparse disk from file to block as it will become preallocated
+ - [Python/Java SDK]HostNICLabel.add and NetworkLabel.add methods lacks expect and correlation_id parameters
+ - After adding two power management agents to a host, impossible to remove/override second agent
+ - Creating vm from template Menu has options that are redundant
+ - [engine-backend] [external-provider] engine failure while createVolume task is running in vdsm (as part of importing an image from glance), leaves image in LOCKED state
+ - Cannot approve hosts using REST API
+ - [LOG] Ability to log org.ovirt.engine.core.common.businessentities.LUNs class
+ - Incorrect schema or REST API answer
+ - [REST API]: Missing VM statistics field.
+ - Performing Live Storage Migration when target domain equal to source domain will cause infinite loop of 'LiveMigrateDiskCommand'
+ - in the Sessions sub-tab of Virtual Machine press F5 to refresh the webpage failed(display blank page)
+
 **Fixed in ovirt-engine-3.5.0_alpha1.1**
  - [rhevm-dwh] History DB - Change Fields "Network Name" to "Logical Network Name"
  - [Admin Portal] User $user@$domain attach to VM <UNKNOWN> in VM Pool test was initiated by $user.

@@ -397,7 +397,7 @@ More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_
  - spec: remove uneeded sed's
  - engine_page: Display correctly proto for Manage by
  - engine_page: Remove Retrieve Certificate button
- - engine_page: network is required to register tab
+ - engine_page: network is required to register tab  - engine_page: add exception for ENETUNREACH  - hooks: Adding hooks for ovirt-node-upgrade  - engine_page: remove dep. from ovirt_config_setup.engine
 
 ### oVirt DWH
 

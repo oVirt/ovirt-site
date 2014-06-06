@@ -19,7 +19,7 @@ ovirt-node-upgrade is a console tool to upgrade ovirt-node. It was developed to 
         # ovirt-node-upgrade  --help
         Options:
         -h, --help            show this help message and exit
-        --reboot=REBOOT       Perform reboot after upgrade, argument is amount of delay in seconds (1 = yes, 0 = no)
+        --reboot=REBOOT       Perform reboot after upgrade, argument is amount of delay in seconds 
         --skip-existing-hooks Use only new hooks from provided iso
         --iso=FILE            Image to use for upgrade, use - to read from stdin
 

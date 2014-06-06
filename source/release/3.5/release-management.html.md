@@ -20,7 +20,7 @@ wiki_last_updated: 2014-11-05
     -   [oVirt 3.5 First Test Day](OVirt_3.5_TestDay): **2014-07-01** (Tue)
     -   Branching - Beta release: **2014-06-26** (Thu)
     -   Feature freeze: **2014-06-15** (Sun)
-    -   Second Alpha release: **2014-06-05** (Thu)
+    -   Second Alpha release: **2014-06-06** (Fri)
     -   Alpha release: **2014-05-20** (Tue)
 
 **More details on test days, etc. to come in the next few weeks**

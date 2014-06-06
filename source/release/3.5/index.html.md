@@ -9,21 +9,22 @@ wiki_revision_count: 127
 wiki_last_updated: 2015-01-06
 ---
 
+# OVirt 3.5 Release Notes
+
 DRAFT DRAFT DRAFT
 
-The oVirt development team is pleased to announce oVirt 3.5.0 Alpha release availability as of May 20th 2014. oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
+The oVirt development team is pleased to announce oVirt 3.5.0 Second Alpha release availability as of Jun 6th 2014. oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
 
 To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.4.1 release notes](oVirt 3.4.1 release notes), [oVirt 3.3.5 release notes](oVirt 3.3.5 release notes), [oVirt 3.2 release notes](oVirt 3.2 release notes) and [oVirt 3.1 release notes](oVirt 3.1 release notes). For a general overview of oVirt, read [ the oVirt 3.0 feature guide](oVirt 3.0 Feature Guide) and the [about oVirt](about oVirt) page.
 
-# oVirt 3.5.0 ALPHA Release Notes
+## oVirt 3.5.0 SECOND ALPHA Release Notes
 
 ### ALPHA RELEASE
 
-The oVirt Project is working on oVirt 3.5.0 Alpha release. In order to install it you've to enable oVirt 3.5 pre release repository. See below section on Install / Upgrade for having detailed instructions.
+The oVirt Project is working on oVirt 3.5.0 Second Alpha release. In order to install it you've to enable oVirt 3.5 pre release repository. See below section on Install / Upgrade for having detailed instructions.
 
 ### Known Issues
 
-*   VDSM packages released with the first 3.5.0 alpha have version lower than the ones we had in 3.4.1 so they won't be updated.
 *   You can't add hosts to 3.5 clusters until a new VDSM build with 3.5 compatibility level will be released (All in One won't work).
 
 ### Feature #1
@@ -94,11 +95,11 @@ Note that some new **features in upcoming releases may very well be unavailable 
 *   Added support for VLAN-tagged network interfaces
 *   Added support for bonded network interfaces
 
-# Install / Upgrade from previous versions
+## Install / Upgrade from previous versions
 
-### ALPHA RELEASE
+### SECOND ALPHA RELEASE
 
-The oVirt Project is working on oVirt 3.5.0 Alpha release. In order to install it you've to enable oVirt 3.5 pre release repository.
+The oVirt Project is working on oVirt 3.5.0 Second Alpha release. In order to install it you've to enable oVirt 3.5 pre release repository.
 
 **Please note that mirror may take a couple of days in order to be updated**
 
@@ -134,7 +135,7 @@ On the vdsmd restart that happens when upgrading vdsm to the oVirt 3.5 release, 
 
 A new oVirt Live ISO is available:
 
-[`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live-el6-3.5.0-alpha.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live-el6-3.5.0-alpha.iso)
+[`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live-el6-3.5.0-alpha2.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live-el6-3.5.0-alpha2.iso)
 
 ### oVirt Windows Guest Tools
 
@@ -150,7 +151,7 @@ The installer itself maybe downloaded from:
 
 More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_Windows_Guest_Tools) feature page.
 
-# <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed
+## <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed
 
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine

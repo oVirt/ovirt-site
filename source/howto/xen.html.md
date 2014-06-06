@@ -87,3 +87,10 @@ The whole thing is a fragile hack, with plenty of stuff yet to be solved. The TO
 
 1.  When asked to start a domain with only 64MiB RAM, things break in an odd way. qemu dies, but libvirt reports the domain as running.
 2.  No CPU hot-plugging, and certainly not something compatible with oVirt's implementation (of starting a VM with 160 considerable CPUs, and setting the current number to 1).
+
+#### Nested KVM
+
+If I could run HVM Xen guests within KVM L1 guests, development would have been easier. Unfortunately, with kernel-3.14.5-200.fc20.x86_64 and qemu-kvm-2.0.0-5.fc20.x86_64 on the host, the L1 dom0 \`xl dmesg\` complains about
+
+      (XEN) VMX: CPU0 has insufficient VMExit Control (000f6fff; requires 00008200)
+      (XEN) VMX: failed to initialise.

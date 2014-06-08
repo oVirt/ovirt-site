@@ -32,13 +32,15 @@ This feature will add an ISO image with required drivers and agents for Windows 
 
 At first stage the ISO will include a collection of tools usable for Windows VMs that run under KVM (oVirt). The second stage will be to package these within the installers, to make the tools installation as easy as possible.
 
-:\*IMPORTANT! First alpha release of oVirt 3.5 WGT is available: <http://resources.ovirt.org/pub/ovirt-master-snapshot-static/iso/ovirt-guest-tools/ovirt-guest-tools-3.5-2.iso> It currently includes the installer for most VirtIO-Win drivers (Serial, Balloon, Net and Block), Spice QXL and Agent as well as oVirt Guest Agent, as well as the binaries that went into the installer. VirtIO-SCSI currently needs to be installed manually (from the drivers directory) - hope to fix that in the next release.
+:\*IMPORTANT! Second alpha release of oVirt 3.5 WGT is available: <http://resources.ovirt.org/pub/ovirt-master-snapshot-static/iso/ovirt-guest-tools/ovirt-guest-tools-3.5-2.iso> It currently includes the installer for most VirtIO-Win drivers (Serial, Balloon, Net and Block), Spice QXL and Agent as well as oVirt Guest Agent, as well as the binaries that went into the installer. VirtIO-SCSI currently needs to be installed manually (from the drivers directory) - hope to fix that in the next release.
 
 The installer itself maybe downloaded from: <http://resources.ovirt.org/pub/ovirt-master-snapshot-static/exe/ovirt-guest-tools/ovirt-guest-tools-3.5-2.exe>
 
 The installer is based on the Spice installer's source code, and was slightly modifed for this project's needs.
 
 Note!: Currently you can't directly upgrade between the versions without either first stopping the services or performing an uninstall. (Another TODO point).
+
+This release fixes the issue with oVirt Guest Agent service being installed in the manual and not the auto start mode. ( <https://bugzilla.redhat.com/show_bug.cgi?id=1105624> )
 
 The current (proposed) list of the software to be included in the ISO:
 

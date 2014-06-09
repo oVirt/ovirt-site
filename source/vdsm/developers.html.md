@@ -63,9 +63,13 @@ or
 
       make NOSE_EXCLUDE=.* rpm  #(As development only, avoid the unittests validation)
 
-Note: To exclude a specific test (testStressTest):
+To exclude a specific test (testStressTest):
 
       make NOSE_EXCLUDE=testStressTest rpm
+
+To ignore unittests and avoid pep8:
+
+      make PEP8=true NOSE_EXCLUDE=.* rpm
 
 Vdsm automatically builds using the latest tagged version. If you want to explicitly define a version use
 

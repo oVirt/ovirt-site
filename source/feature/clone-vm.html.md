@@ -26,7 +26,7 @@ Allow to simply and directly clone the VM.
 
 ### Background
 
-Up until now there were the following ways to create make a copy of the VM:
+Up until now there were the following ways to create a copy of the VM:
 
 *   Make a template, make a new VM from this template
 *   Make a snapshot and clone the snapshot

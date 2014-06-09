@@ -51,6 +51,14 @@ After clicking OK the clone of the VM will be made.
 
 ### REST API
 
+A new action has been created on the VM called "clone". It takes only one parameter in the request body, the name. To clone a VM using the REST API send a POST request to:
+
+<engineUrl>/api/vms/<vm id>/clone
+
+with body containing:
+
+<action> <vm> <name>newName</name> </vm> </action>
+
 ### Testing
 
 ### Test Case 1

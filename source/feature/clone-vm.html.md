@@ -12,7 +12,7 @@ wiki_last_updated: 2015-05-15
 
 ### Summary
 
-Allow to simply clone the VM without.
+Allow to simply and directly clone the VM.
 
 ### Owner
 

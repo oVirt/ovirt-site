@@ -30,8 +30,8 @@ Until oVirt 3.4 the Storage Pool (Data Center) information was maintained in the
 *   refreshStoragePool is now useless (as there's no metadata on the storage anymore), on Data Center 3.4 connectStoragePool will be used also for refreshing
 *   Since it's not possible to periodically refresh the Storage Domains map from the storage anymore it's now mandatory that all the hosts will receive these information with the connectStoragePool command (especially on the activation/deactivation of the domains). The engine will include a new logic to synchronize the hosts sending connectStoragePool when required (analyzing the VdsStats).
 *   The new Storage Domain status MovingToMaintenance will be introduced in order to mark those domains that are in the process of being moved to maintenance but there are still some hosts reporting it as active (missed connectStoragePool command)
-*   reconstructMaster is now useless on Data Center 3.4
-*   full compatibility with the old connectStoragePool/refreshStoragePool/reconstructMaster will be maintained for Data Center 3.3 (and lower).
+*   reconstructMaster is now useless on Data Center 3.5
+*   full compatibility with the old connectStoragePool/refreshStoragePool/reconstructMaster will be maintained for Data Center 3.4 (and lower).
 
 ### Benefit to oVirt
 

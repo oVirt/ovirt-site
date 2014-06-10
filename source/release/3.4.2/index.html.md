@@ -123,6 +123,7 @@ A new oVirt Live ISO is available:
 ### oVirt Hosted Engine HA
 
 * Could not start ha-agent with exception AttributeError: 'dict' object has no attribute 'engine_status'
+ - Hosted engine upgrade from 3.3 to 3.4, ovirt-ha-agent die after three errors
 
 ### oVirt Hosted Engine Setup
 

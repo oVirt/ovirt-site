@@ -51,7 +51,7 @@ It is also possible to take on a hybrid approach, where users could EITHER confi
 
 **Aftermath: the hybrid approach had been taken, where a QoS entity may be attached to the network on the DC level, but the QoS configuration on each host interface may be overridden from within the Setup Host Networks dialog.**
 
-#### Host QoS important considerations
+##### Host QoS important considerations
 
 *   The traffic shaping is done at the logical link level, i.e., a bond, for networks that do use link aggregation or a nic, for those networks that don't.
 *   The oVirt-defined networks will each get a network [traffic class](http://www.tldp.org/HOWTO/html_single/Traffic-Control-HOWTO/#c-class) to be shaped according to the limits (if any) set by the administrator (in a similar fashion as it is now for vNIC traffic). They will be classified by vlan id or the lack of thereof.
@@ -200,7 +200,7 @@ In the "anonymous" QoS approach, the flow would be as follows:
 *   Edit the desired network.
 *   Directly configure average/peak/burst values for the network on the host's interface.
 
-#### Comments and Discussion
+### Comments and Discussion
 
 On the arch@ovirt.org and users@ovirt.org mailing lists.
 

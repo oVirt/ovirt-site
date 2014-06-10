@@ -111,6 +111,10 @@ A new oVirt Live ISO is available:
  - [engine-webadmin] Cannot create an export domain under local DC
  - A movement operation of raw sparse disk from file to block domain results in Raw preallocated disk, but reports its type wrongly in the webadmin
  - Batch updates might create a database deadlock
+ Bugs fixed between RC and GA:
+
+* Run once vm via REST with <pause>true</pause> parameter, save this parameter true also in next runs
+ - Tracker: oVirt 3.4.2 release
 
 ### oVirt Log Collector
 

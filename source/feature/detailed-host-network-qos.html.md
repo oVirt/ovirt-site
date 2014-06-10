@@ -162,6 +162,10 @@ class definition:
 
          tc class add dev eth2 parent 1: classid 1:5000 hfsc ls m1 40mbps d 1.5ms m2 20mbps ul rate 30mbps
 
+All the leaf classes have a Stochastic queuing discipline to guarantee fairness between different connections inside each network. For example for the database network it would look like:
+
+         tc qdisc add dev eth2 handle 20:0 parent 1:0 sfq perturb 10
+
 ##### RESTful API
 
 As part of the VM Network QoS feature, no API was defined for the DC-level QoS entities, for various reasons. If the "named" QoS entity paradigm is preserved in this feature, I do not see any reason to hurry the process and force the definition of that API. However, if the "anonymous" QoS is also implemented, the values that define the QoS entity could be passed in the Setup Networks command as part of the NIC properties, and doesn't have to rely upon the REST implementation of the DC-level Network QoS entitiyes. This hasn't been implemented for oVirt 3.4.

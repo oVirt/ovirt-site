@@ -42,7 +42,7 @@ If you're upgrading from 3.3.2 or later, keep ovirt-release rpm in place until t
 
 A new oVirt Live ISO is available:
 
-[`http://resources.ovirt.org/pub/ovirt-3.4-rc/iso/ovirt-live-el6-3.4.2_rc.iso`](http://resources.ovirt.org/pub/ovirt-3.4-rc/iso/ovirt-live-el6-3.4.2_rc.iso)
+[`http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-live-el6-3.4.2.iso`](http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-live-el6-3.4.2.iso)
 
 ## What's New in 3.4.2?
 

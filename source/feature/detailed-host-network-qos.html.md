@@ -126,15 +126,41 @@ the expected result should be something similar to:
 
 ###### Implementation
 
-![](Host_qos.png "Host_qos.png")
+![](Qos_hfsc.png "Qos_hfsc.png")
 
-As depicted in the picture, there are three oVirt networks (all the leaf nodes would have an stochastic fair queuing (sfq) qdics to prevent connections from taking all the bandwidth of a traffic class):
+As depicted in the picture, there are four oVirt networks.all the leaf nodes would have an stochastic fair queuing (sfq) qdics to prevent connections from taking all the bandwidth of a traffic class):
 
-*   Storage: Non-shaped network for the host to access nfs. This traffic class would just receive its fair amount from the deficit round robin scheduler without restriction.
-*   Databse: Shaped network with outbound traffic restrictions to 3mbps (ceiling 5mbps) that serves for the VMs that run postgresql instances. This class would be treated as the one above, but with a queue that would have shaping for an average and ceiling.
-*   Web servers: Shaped network with outbound traffic restrictions to 20mbps (ceiling 30mbps) that serves for VMs that run apache/nginx instances. The shaping would be just like in the database network but with different limits.
+*   Storage: Vlanned network with tag value 10. It is a non-shaped network for the host to access nfs. This traffic class has its fair share automatically set to the maximum of any shaped class and if extra bandwidth is available it just takes it. Filter to match it:
 
-Additionally, there is one extra traffic class for non-oVirt traffic which would have exactly the same restrictions as Storage.
+         tc filter add dev eth2 parent 1: prio 20 protocol 802.1q u32 match u16 10 0xFFF at -4 flowid 1:10
+
+class definition:
+
+         tc class add dev eth2 parent 1: classid 1:10 hfsc ls rate $(max_shaped_net)mbps
+
+*   Databse: Vlanned network with tag value 20. It is a shaped network with outbound traffic share of 3mbps (capped at 5mbps) that serves for the VMs that run postgresql instances. If there is extra bandwidth available it will take more than it's 3mbps share, but never more than 5mbps (on average). Filter to match it:
+
+         tc filter add dev eth2 parent 1: prio 20 protocol 802.1q u32 match u16 20 0xFFF at -4 flowid 1:20
+
+class definition:
+
+         tc class add dev eth2 parent 1: classid 1:20 hfsc ls rate 3mbps ul rate 5mbps
+
+*   Web servers: Vlanned network with tag value 30. It is a shaped network with outbound traffic share of 20mbps (capped at 30mbps) that serves for VMs that run apache/nginx instances. The shaping is just like that in the database network but with different limits. Filter to match it:
+
+         tc filter add dev eth2 parent 1: prio 30 protocol 802.1q u32 match u16 30 0xFFF at -4 flowid 1:30
+
+class definition:
+
+         tc class add dev eth2 parent 1: classid 1:30 hfsc ls rate 20mbps ul rate 30mbps
+
+*   Display: Non-vlanned network. It is shaped, just as in the case of the web servers network, but with a tweak. Since it is important that the latency of the network is low, after all, nobody wants a laggy display, we set a burst period 1.5ms during which the network is allowed to transmit up to 40mbps. Filter to match:
+
+         tc filter add dev eth2 parent 1: prio 5000 protocol all u32 match u32 0 0 flowid 1:5000  # Note that 5000 is chosen so that it is a catch all traffic of the device outside of the vlan range
+
+class definition:
+
+         tc class add dev eth2 parent 1: classid 1:5000 hfsc ls m1 40mbps d 1.5ms m2 20mbps ul rate 30mbps
 
 ##### RESTful API
 

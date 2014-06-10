@@ -143,4 +143,12 @@ A new oVirt Live ISO is available:
  - hooks: Adding hooks for ovirt-node-upgrade
  - engine_page: remove dep. from ovirt_config_setup.engine
 
+### oVirt ISO Uploader
+
+* option insecure doesn't work
+
+### oVirt Image Uploader
+
+* option insecure doesn't work
+
 <Category:Documentation> <Category:Releases>

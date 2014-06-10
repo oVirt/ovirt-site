@@ -215,7 +215,7 @@ Following config values are used:
 | kexec-tools                                                                             |
 | Patches for Fedora                                                                      | Done, included in kexec-tools >= 2.0.4-27  |
 | Patches for RHEL 6.6                                                                    | Done, included in kexec-tools >= 2.0.0-274 |
-| Patches for RHEL 7.1                                                                    | Merged, waiting for package creation        |
+| Patches for RHEL 7.1                                                                    | Done, included in kexec-tools >= 2.0.4-33  |
 |                                                                                         |
 | vdsm                                                                                    |
 | Detect status of kdump support for host                                                 | Done                                        |

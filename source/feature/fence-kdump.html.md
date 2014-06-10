@@ -221,7 +221,7 @@ Following config values are used:
 | Detect status of kdump support for host                                                 | Done                                        |
 |                                                                                         |
 | ovirt-host-deploy                                                                       |
-| Create plugin to configure fence_kdump during host deploy                              | Coding                                      |
+| Create plugin to configure fence_kdump during host deploy                              | Patch on review                             |
 |                                                                                         |
 | engine                                                                                  |
 | Display status of kdump configuration for host                                          | Done                                        |
@@ -229,7 +229,7 @@ Following config values are used:
 | Add fence_kdump_send configuration to vdc_options                                    | Patch on review                             |
 | Implement standalone fence_kdump listener                                              | Patch on review                             |
 | Add fence_kdump handling to fencing flow                                               | Patch on review                             |
-| Execute fence_kdump configuration during host deploy                                   | Coding                                      |
+| Execute fence_kdump configuration during host deploy                                   | Patch on review                             |
 | Display warning when host kdump detection is enabled, but kdump not configured for host | Coding                                      |
 |                                                                                         |
 | engine-setup                                                                            |

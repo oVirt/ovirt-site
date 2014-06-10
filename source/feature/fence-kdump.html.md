@@ -213,7 +213,7 @@ Following config values are used:
 | Area                                                                                    | Task                                        | Status |
 |-----------------------------------------------------------------------------------------|---------------------------------------------|--------|
 | kexec-tools                                                                             |
-| Patches for Fedora                                                                      | Done, included in kexec-tools >= 2.0.4-27  |
+| Patches for Fedora 20                                                                   | Done, included in kexec-tools >= 2.0.4-27  |
 | Patches for RHEL 6.6                                                                    | Done, included in kexec-tools >= 2.0.0-274 |
 | Patches for RHEL 7.1                                                                    | Done, included in kexec-tools >= 2.0.4-33  |
 |                                                                                         |

@@ -54,9 +54,14 @@ It is also possible to take on a hybrid approach, where users could EITHER confi
 #### Host QoS important considerations
 
 *   The traffic shaping is done at the logical link level, i.e., a bond, for networks that do use link aggregation or a nic, for those networks that don't.
-*   The oVirt-defined networks will each get a network [traffic class](http://www.tldp.org/HOWTO/html_single/Traffic-Control-HOWTO/#c-class) to be shaped according to the limits (if any) set by the administrator (in a similar fashion as it is now for vNIC traffic) and there will be an extra network traffic class for traffic that does not belong to oVirt networks.
-*   The different network traffic classes set over a logical link will contend for the device sending queue in an egalitarian deficit round robin way, i.e., each network should get the same chance to send its traffic under normal conditions.
-*   Each logical network for which there are limits will have an enforced ceiling without borrowing from other networks. E.g., if you set a 100mbps limit on a network that is defined on top of a 1gbps connection, no more than 100mbps would be used even if the rest of the bandwidth is silent.
+*   The oVirt-defined networks will each get a network [traffic class](http://www.tldp.org/HOWTO/html_single/Traffic-Control-HOWTO/#c-class) to be shaped according to the limits (if any) set by the administrator (in a similar fashion as it is now for vNIC traffic). They will be classified by vlan id or the lack of thereof.
+*   The different network traffic classes set over a logical link will contend for the device sending queue in a proportional manner to the bandwidth they are assigned (non-shaped networks will get a matching proportion to the fastest shaped network in the device). This means that if my bandwidth is 35mbps and I have network A assigned 3mbps, network B assigned 1 mbps and network C unshaped, what I should expect to see is:
+    -   A: 15mbps
+    -   B: 5mbps
+    -   C: 15mbps
+*   From the above it is easy to see that there is borrowing of extra bandwidth between the networks.
+*   Network bandwidths can be capped so that they do not exceed a certain consumption regardless of extra bandwidth being available.
+*   It is possible to define bursts to throttle some relatively latency insensitive networks (like storage) and favor highly latency sensitive networks (like VoIP or graphical consoles).
 
 ##### Entity Description
 

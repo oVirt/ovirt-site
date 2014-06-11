@@ -68,7 +68,7 @@ If the user want to register a VM to the setup, then the URL should indicate reg
 
 ##### UI
 
-###### Import VM/Template sub-tab
+###### Import VM/Template sub-tabs
 
 ![](import_vm_template_subtab.png "import_vm_template_subtab.png")
 

@@ -117,17 +117,17 @@ To resume HA functionality, use:
 
          # hosted-engine --set-maintenance=none
 
-# **Upgrade Hosted Engine from 3.3 to 3.4**
+# **Upgrade Hosted Engine**
 
-Assuming you have already installed Hosted Engine 3.3 on your host and also engine vm have Ovirt version 3.3
+Assuming you have already installed Hosted Engine on your host and also engine vm have the samve oVirt version
 
 1.  Set hosted engine maintenance mode to global(now ha agent stop monitoring engine-vm, you can see above how to activate it)
-2.  Enter to engine-vm and upgrade ovirt packages to 3.4
-3.  Upgrade hosts with new packages(changes repository to 3.4 and run yum update -y) on this stage appear vdsm-tool exception <https://bugzilla.redhat.com/show_bug.cgi?id=1088805>
+2.  Enter to engine-vm and upgrade oVirt packages to latest version
+3.  Upgrade hosts with new packages(changes repository to latest version and run yum update -y) on this stage may appear vdsm-tool exception <https://bugzilla.redhat.com/show_bug.cgi?id=1088805>
 4.  Restart vdsm(# service vdsmd restart)
 5.  Restart ha-agent and broker services(# service ovirt-ha-broker restart && service ovirt-ha-agent restart)
-6.  Enter for example via UI to engine and change 'Default' cluster(where all your hosted hosts seats) compatibility version to 3.4 and activate you hosts(to get features of 3.4)
-7.  Change hosted-engine maintenance to none, in 3.4 you can do it via UI(right click on engine vm, and 'Disable Global HA Maintenance Mode')
+6.  Enter for example via UI to engine and change 'Default' cluster(where all your hosted hosts seats) compatibility version to current version (for example 3.4) and activate your hosts(to get features of the new version)
+7.  Change hosted-engine maintenance to none, starting from 3.4 you can do it via UI(right click on engine vm, and 'Disable Global HA Maintenance Mode')
 
 # **More info**
 

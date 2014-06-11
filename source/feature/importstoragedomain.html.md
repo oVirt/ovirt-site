@@ -55,6 +55,16 @@ Only VMs'/Templates' OVF will be part of the Data Center on attach operation. Fo
 On detach of Storage Domain the VMs/Templates related to the Storage Domain should be deleted from the engine, but will still be part of the OVF disk in the Storage Domain.
 On attach the user will be able to choose the VMs/Templates/Disks he desire to assign to the Data Center and will pick the Cluster for those Vms/Templates.
 
+##### REST
+
+###### Get list of unregistered VM/Template
+
+![](unregisterVM2 "unregisterVM2")
+
+###### Register VM to a new cluster
+
+![](unregisterVM1 "unregisterVM1")
+
 ##### UI
 
 ###### Import VM/Template sub-tab

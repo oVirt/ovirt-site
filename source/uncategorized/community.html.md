@@ -52,9 +52,13 @@ oVirt is an [open source project](http://www.opensource.org) that is [ released 
 
 Interacting with the oVirt community is everything from giving feedback through jumping in and making oVirt even better.
 
-### Follow us on social networks
+### Get Social with oVirt
 
-Keep track of the latest happenings in the oVirt community, including new release announcements, and send your thoughts. Follow us on [Twitter](https://twitter.com/ovirt).
+Keep track of the latest happenings in the oVirt community, including new release announcements, and send your thoughts and links to virtualization-related topics. Follow us on:
+
+*   [Twitter](https://twitter.com/ovirt)
+*   [Google +](https://plus.google.com/u/0/communities/109346090491400112913)
+*   [Facebook](https://www.facebook.com/groups/ovirt.openvirtualization/)
 
 ### Chat with us on IRC
 

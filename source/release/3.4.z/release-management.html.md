@@ -8,7 +8,7 @@ wiki_last_updated: 2014-11-27
 
 # OVirt 3.4.z release-management
 
-## oVirt 3.4.2
+## oVirt 3.4.3
 
 ### Timeline
 

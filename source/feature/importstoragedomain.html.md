@@ -59,11 +59,11 @@ On attach the user will be able to choose the VMs/Templates/Disks he desire to a
 
 ###### Get list of unregistered VM/Template
 
-![](unregisterVM2 "unregisterVM2")
+![](UnregisterVM2.png "UnregisterVM2.png")
 
 ###### Register VM to a new cluster
 
-![](unregisterVM1 "unregisterVM1")
+![](UnregisterVM1.png "UnregisterVM1.png")
 
 ##### UI
 

@@ -44,6 +44,12 @@ A new oVirt Live ISO is available:
 
 [`http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-live-el6-3.4.2.iso`](http://resources.ovirt.org/pub/ovirt-3.4/iso/ovirt-live-el6-3.4.2.iso)
 
+### oVirt Hosted Engine
+
+If you're going to install oVirt as Hosted Engine on a clean system please follow [Hosted_Engine_Howto#Fresh_Install](Hosted_Engine_Howto#Fresh_Install) guide.
+
+If you're upgrading an existing Hosted Engine setup, please follow [Hosted_Engine_Howto#Upgrade_Hosted_Engine](Hosted_Engine_Howto#Upgrade_Hosted_Engine) guide.
+
 ## What's New in 3.4.2?
 
 ## Known issues

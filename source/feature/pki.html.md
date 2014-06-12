@@ -132,4 +132,8 @@ All files are relative to /etc/pki/ovirt-engine.
 *   vdsm does not validate peer certificate name, nor revocation.
 *   vdsClient does not validate peer certificate name nor revocation.
 
+### See Also
+
+*   [Features/PKIReduce](Features/PKIReduce)
+
 <Category:Feature> <Category:Security>

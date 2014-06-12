@@ -57,27 +57,29 @@ Full VM backup can be implemented for example by using the following oVirt capab
 
 #### Example for VM backup
 
-*   Use existing VM Snapshot/Create a vm snapshot by issuesing a POST request (example):
+*   Use existing VM Snapshot/Create a vm snapshot (example):
 
-       (with Content-Type:application/xml header)
        SERVER:PORT/api/vms/VM_ID/snapshots
+         Method = POST
+        (with Content-Type:application/xml header)
 ` `<snapshot>
 ` `<description>`Virtual Machine 1 - Snapshot For Backup`</description>
 ` `</snapshot>
 
-*   Grab the wanted vm configuration from the needed snapshot by issueing a GET request - it'll be under initialization/configuration/data
+*   Grab the wanted vm configuration from the needed snapshot - it'll be under initialization/configuration/data
 
-        (with All-Content:true header)
         SERVER:PORT/api/vms/VM_ID/snapshots/ID
+        Method = GET
 
 *   Navigate to the wanted disk snapshot by accessing: ([Example](Features/Backup-Restore_API_Integration#Get_disk_snapshot_data))
 
        SERVER:PORT/api/vms/GUID/snapshots/GUID/disks
 
-*   Attach the disk snapshot to the vm using POST request with the disk id and the snapshot id: ([Example](Features/Backup-Restore_API_Integration#Attach_disk_to_backup_VM))
+*   Attach the disk snapshot to the vm using the disk id and the snapshot id: ([Example](Features/Backup-Restore_API_Integration#Attach_disk_to_backup_VM))
 
-        (with Content-Type:application/xml header)
 `  `[`http://SERVER:PORT/api/vms/GUID/disks/`](http://SERVER:PORT/api/vms/GUID/disks/)
+        Method = POST
+        (with Content-Type:application/xml header)
 
 `  `<disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
 `   `<snapshot id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
@@ -85,10 +87,10 @@ Full VM backup can be implemented for example by using the following oVirt capab
 
 *   After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters ([Example](Features/Backup-Restore_API_Integration#Detach_disk_from_backup_VM)):
 
-      Method = DELETE
-      URL indicates to the specific disk in the VM: 
-`     `[`http://SERVER:PORT/api/vms/GUID/disks/GUID`](http://SERVER:PORT/api/vms/GUID/disks/GUID)
-`Body=`<action><detach>`true`</detach></action>
+       Method = DELETE
+       URL indicates to the specific disk in the VM: 
+`      `[`http://SERVER:PORT/api/vms/GUID/disks/GUID`](http://SERVER:PORT/api/vms/GUID/disks/GUID)
+` Body=`<action><detach>`true`</detach></action>
 
 ### Full VM restore
 

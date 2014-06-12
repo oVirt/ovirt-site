@@ -85,6 +85,13 @@ Full VM backup can be implemented for example by using the following oVirt capab
 `  `<disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
 `   `<snapshot id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
 `  `</disk>
+       note that you can attempt to plug the disk to the vm by adding `<active>`true`</active>` to the request body, otherwise you'll need to
+        plug/activate it manually so that the data will be available for the backup.
+
+*   if needed activate/plug the disk manually (depending on how the previous step was executed):
+
+`  URL = `[`http://SERVER:PORT/api/vms/VM_ID/disks/DISK_ID/activate`](http://SERVER:PORT/api/vms/VM_ID/disks/DISK_ID/activate)
+        Method = POST
 
 *   After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters ([Example](Features/Backup-Restore_API_Integration#Detach_disk_from_backup_VM)):
 

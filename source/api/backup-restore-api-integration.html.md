@@ -78,7 +78,7 @@ Full VM backup can be implemented for example by using the following oVirt capab
         (with Content-Type:application/xml header)
 `  `[`http://SERVER:PORT/api/vms/GUID/disks/`](http://SERVER:PORT/api/vms/GUID/disks/)
 
-When creating a disk you will have to pass the the disk id and the snapshot id such as the following example:
+When attaching the disk snapshot you will have to pass the the disk id and the snapshot id such as the following example:
 
 ` `<disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
 `   `<snapshot id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>

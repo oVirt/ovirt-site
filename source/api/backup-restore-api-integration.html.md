@@ -57,8 +57,9 @@ Full VM backup can be implemented for example by using the following oVirt capab
 
 #### Example for VM backup
 
-*   Use existing VM Snapshot/Create a vm snapshot by issuesing a POST request to SERVER:PORT/api/vms/VM_ID/snapshots (example):
+*   Use existing VM Snapshot/Create a vm snapshot by issuesing a POST request (example):
 
+       SERVER:PORT/api/vms/VM_ID/snapshots
        (with Content-Type:application/xml header)
 ` `<snapshot>
 ` `<description>`Virtual Machine 1 - Snapshot For Backup`</description>
@@ -77,9 +78,6 @@ Full VM backup can be implemented for example by using the following oVirt capab
 
         (with Content-Type:application/xml header)
 `  `[`http://SERVER:PORT/api/vms/GUID/disks/`](http://SERVER:PORT/api/vms/GUID/disks/)
-
-When attaching the disk snapshot you will have to pass the the disk id and the snapshot id such as the following example:
-
 ` `<disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
 `   `<snapshot id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
 ` `</disk>

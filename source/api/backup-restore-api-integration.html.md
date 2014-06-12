@@ -59,8 +59,8 @@ Full VM backup can be implemented for example by using the following oVirt capab
 
 *   Use existing VM Snapshot/Create a vm snapshot by issuesing a POST request (example):
 
-       SERVER:PORT/api/vms/VM_ID/snapshots
        (with Content-Type:application/xml header)
+       SERVER:PORT/api/vms/VM_ID/snapshots
 ` `<snapshot>
 ` `<description>`Virtual Machine 1 - Snapshot For Backup`</description>
 ` `</snapshot>
@@ -78,9 +78,10 @@ Full VM backup can be implemented for example by using the following oVirt capab
 
         (with Content-Type:application/xml header)
 `  `[`http://SERVER:PORT/api/vms/GUID/disks/`](http://SERVER:PORT/api/vms/GUID/disks/)
-` `<disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
+
+`  `<disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
 `   `<snapshot id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
-` `</disk>
+`  `</disk>
 
 *   After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters ([Example](Features/Backup-Restore_API_Integration#Detach_disk_from_backup_VM)):
 

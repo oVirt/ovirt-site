@@ -90,7 +90,8 @@ Full VM backup can be implemented for example by using the following oVirt capab
 
 ` URL =   `[`http://SERVER:PORT/api/vms/GUID/disks/GUID`](http://SERVER:PORT/api/vms/GUID/disks/GUID)
        Method = DELETE
-` Body=`<action><detach>`true`</detach></action>
+       Body=
+` `<action><detach>`true`</detach></action>
 
 ### Full VM restore
 

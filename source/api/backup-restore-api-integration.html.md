@@ -85,8 +85,8 @@ Full VM backup can be implemented for example by using the following oVirt capab
 `  `<disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
 `   `<snapshot id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
 `  `</disk>
-        note: you can attempt to plug the disk to the vm by adding `<active>`true`</active>` to the request body, otherwise you'll need to
-        plug/activate it manually so that the data will be available for the backup.
+        note: you can attempt to plug the disk to the vm by adding `<active>`true`</active>` to the request body, otherwise you'll 
+        need to plug/activate it manually so that the data will be available for the backup.
 
 *   if needed activate/plug the disk manually (depending on how the previous step was executed):
 

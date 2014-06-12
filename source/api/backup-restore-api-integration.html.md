@@ -60,8 +60,8 @@ Full VM backup can be implemented for example by using the following oVirt capab
 *   Use existing VM Snapshot/Create a vm snapshot (example):
 
        SERVER:PORT/api/vms/VM_ID/snapshots
-         Method = POST
-        (with Content-Type:application/xml header)
+       Method = POST
+       (with Content-Type:application/xml header)
 ` `<snapshot>
 ` `<description>`Virtual Machine 1 - Snapshot For Backup`</description>
 ` `</snapshot>

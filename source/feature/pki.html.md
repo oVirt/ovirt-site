@@ -129,5 +129,7 @@ All files are relative to /etc/pki/ovirt-engine.
 *   Certificate of database encryption should be separate certificate.
 *   Certificate of spice SSL should be separate certificate.
 *   Engine does not validate vdsm's certificate's name to match remote address.
+*   vdsm does not validate peer certificate name, nor revocation.
+*   vdsClient does not validate peer certificate name nor revocation.
 
 <Category:Feature> <Category:Security>

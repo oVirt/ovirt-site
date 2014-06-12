@@ -80,7 +80,6 @@ Full VM backup can be implemented for example by using the following oVirt capab
 `  `[`http://SERVER:PORT/api/vms/GUID/disks/`](http://SERVER:PORT/api/vms/GUID/disks/)
         Method = POST
         (with Content-Type:application/xml header)
-
 `  `<disk id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
 `   `<snapshot id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
 `  `</disk>

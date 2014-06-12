@@ -57,11 +57,23 @@ Full VM backup can be implemented for example by using the following oVirt capab
 
 #### Example for VM backup
 
-1. Navigate to the wanted disk snapshot from REST by accessing: ([Example](Features/Backup-Restore_API_Integration#Get_disk_snapshot_data))
-SERVER:PORT:/api/vms/GUID/snapshots/GUID/disks
+*   Use existing VM Snapshot/Create a vm snapshot by issuesing a POST request to SERVER:PORT/api/vms/VM_ID/snapshots (example):
 
-2. POST the copied disk with the disk id and the snapshot id: ([Example](Features/Backup-Restore_API_Integration#Attach_disk_to_backup_VM))
- [http://SERVER:PORT/api/vms/GUID/disks/](http://SERVER:PORT/api/vms/GUID/disks/)
+(with Content-Type:application/xml header) <snapshot> <description>Virtual Machine 1 - Snapshot For Backup</description> </snapshot>
+
+*   Grab the wanted vm configuration from the needed snapshotby issueing a GET request
+
+(with All-Content:true header) SERVER:PORT/api/vms/VM_ID/snapshots/ID
+
+*   Navigate to the wanted disk snapshot from REST by accessing: ([Example](Features/Backup-Restore_API_Integration#Get_disk_snapshot_data))
+
+SERVER:PORT/api/vms/GUID/snapshots/GUID/disks
+
+*   POST the copied disk with the disk id and the snapshot id: ([Example](Features/Backup-Restore_API_Integration#Attach_disk_to_backup_VM))
+
+(with Content-Type:application/xml header)
+
+`  `[`http://SERVER:PORT/api/vms/GUID/disks/`](http://SERVER:PORT/api/vms/GUID/disks/)
 
 When creating a disk you will have to pass the the disk id and the snapshot id such as the following example:
 
@@ -69,7 +81,7 @@ When creating a disk you will have to pass the the disk id and the snapshot id s
 `   `<snapshot id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"/>
 ` `</disk>
 
-3. After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters ([Example](Features/Backup-Restore_API_Integration#Detach_disk_from_backup_VM)):
+*   After copying the data from the disk detach the disk snapshot from the VM using the REST with the following parameters ([Example](Features/Backup-Restore_API_Integration#Detach_disk_from_backup_VM)):
 
       Method = DELETE
       URL indicates to the specific disk in the VM: 

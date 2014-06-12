@@ -226,15 +226,15 @@ Following config values are used:
 | engine                                                                                |
 | Display status of kdump configuration for host                                        | Done                                        |
 | Enable/disable kdump detection in Host Power Management configuration                 | Done                                        |
-| Add fence_kdump_send configuration to vdc_options                                  | Patch on review                             |
-| Implement standalone fence_kdump listener                                            | Patch on review                             |
-| Add fence_kdump handling to fencing flow                                             | Patch on review                             |
-| Execute fence_kdump configuration during host deploy                                 | Patch on review                             |
-| Display error when host kdump detection is enabled, but kdump not configured for host | Patch on review                             |
+| Add fence_kdump_send configuration to vdc_options                                  | Done                                        |
+| Implement standalone fence_kdump listener                                            | Done                                        |
+| Add fence_kdump handling to fencing flow                                             | Done                                        |
+| Execute fence_kdump configuration during host deploy                                 | Done                                        |
+| Display error when host kdump detection is enabled, but kdump not configured for host | Done                                        |
 |                                                                                       |
 | engine-setup                                                                          |
-| Configure fence_kdump listener host and port during setup                            | Patch on review                             |
-| Add firewall rule for fence_kdump listener                                           | Patch on review                             |
+| Configure fence_kdump listener host and port during setup                            | Done                                        |
+| Add firewall rule for fence_kdump listener                                           | Done                                        |
 |                                                                                       |
 | ovirt-node                                                                            |
 | Enable kdump support in kernel                                                        |                                             |

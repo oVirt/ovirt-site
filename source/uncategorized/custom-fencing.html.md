@@ -28,7 +28,7 @@ NOTES
 2) You should restart the engine for this to take place
 3) Custom definitions will be overridden in your next upgrade , for the long run please fill RFE so it will be part of the supported agents
 
-## oVirt3.5
+## oVirt 3.5
 
 In oVirt 3.5 we had added custom fence configuration keys :
 

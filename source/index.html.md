@@ -108,11 +108,14 @@ See the 3.4.1 release notes for a complete list of the bugs fixed, and the 3.4 r
 <div class="span4 pad-left pad-right-small">
 ### Community is Key
 
-Community is not just about software development--there are many excellent ways one can be a part of the community, from joining our helpful mailing lists to meeting us at fun events to sending us a note to tell us how you use the software!
+Everyone is encouraged to [ join the oVirt community](Community), and help us bring our open source software to virtual datacenters worldwide.
 
-oVirt, the first truly open and comprehensive data center virtualization management initiative, provides a venue for user and developer cooperation. The heart of the project is the open source code of oVirt, and the community is governed openly, modeled after the Apache Foundation, Eclipse, LVM, and many other well functioning Linux communities
+Community can be found in many places in the global community. Keep track of the latest happenings in the oVirt community, including new release announcements, and send your thoughts and links to virtualization-related topics on these social media channels:
 
-You're encouraged to [ join the oVirt community](Community), and help us bring open source software to virtual datacenters worldwide.
+*   [Twitter](//twitter.com/ovirt) <i class="icon-twitter"></i>
+*   [Google+](//plus.google.com/u/0/communities/109346090491400112913) <i class="icon-google-plus"></i>
+*   [Facebook](//www.facebook.com/groups/ovirt.openvirtualization/) <i class="icon-facebook"></i>
+*   [YouTube](//www.youtube.com/user/ovirtproject) <i class="icon-youtube"></i>
 
 </div>
 <div class="span4 pad-left-small pad-right">

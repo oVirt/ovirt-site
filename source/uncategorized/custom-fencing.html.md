@@ -10,6 +10,8 @@ wiki_last_updated: 2015-03-18
 
 Here are detailed instructions how to add a custom agent:
 
+## Pre oVirt 3.5 releases
+
 a) Add your new agent to VdsFenceType option_value in vdc_options table for the relevant cluster version
 b) Add agent options mappings to VdsFenceOptionMapping option_value in vdc_options table for the relevant cluster version
 c) If the agent maps actually to another agent , add that to FenceAgentMapping option_value in vdc_options
@@ -25,3 +27,22 @@ NOTES
 1) Please backup your database
 2) You should restart the engine for this to take place
 3) Custom definitions will be overridden in your next upgrade , for the long run please fill RFE so it will be part of the supported agents
+
+## oVirt3.5
+
+In oVirt 3.5 we had added custom fence configuration keys :
+
+        CustomFenceAgentMapping
+        CustomFenceAgentDefaultParams
+        CustomVdsFenceOptionMapping
+        CustomVdsFenceType
+
+Those keys are accessible from the engine-config-util
+
+Example : Adding zzz agent support for version 3.5 that maps internally to ipmi and have just port setting (from: port, slot, secure) that maps to the fencing script ipport
+
+        engine-config -s CustomVdsFenceType=zzz
+        engine-config -s CustomFenceAgentMapping=zzz=ipmilan
+        engine-config -s CustomVdsFenceOptionMapping=zzz:port=ipport
+
+In this case those changes remains valid after oVirt upgrades as well, so please use that me6thod from oVirt 3.5 and on.

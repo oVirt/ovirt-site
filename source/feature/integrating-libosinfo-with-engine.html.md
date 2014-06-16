@@ -36,7 +36,7 @@ Use the knowledge supplied by OS providers to set VM default values of CPU and R
 ### Current status
 
 *   status: deprectaed - Osinfo is a new backend component - see [OS info](OS info)
-*   Last updated date: March 3 2013
+*   Last updated date: June 2014
 
 ### Detailed Description
 

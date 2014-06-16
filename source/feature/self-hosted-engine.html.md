@@ -7,6 +7,9 @@ wiki_category: Feature|Self Hosted Engine
 wiki_title: Features/Self Hosted Engine
 wiki_revision_count: 48
 wiki_last_updated: 2015-01-16
+feature_name: Self Hosted Engine
+feature_modules: virt,storage
+feature_status: Released
 ---
 
 # Self Hosted Engine

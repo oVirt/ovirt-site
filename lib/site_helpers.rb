@@ -59,6 +59,44 @@ class SiteHelpers < Middleman::Extension
       end
     end
 
+    # Convert a Nokogiri fragment's H2s to a linked table of contents
+    def h2_to_toc nokogiri_fragment, filename
+      capture_haml do
+
+        haml_tag :ol do
+          nokogiri_fragment.css('h2').each do |heading|
+
+            haml_tag :li do
+              haml_tag :a, href: "#{filename}/##{heading.attr('id')}" do
+                #haml_content heading.content
+                haml_concat heading.content
+              end
+            end
+
+          end
+        end
+
+      end
+    end
+
+    # Pull in a Markdown document's ToC or generate one based on H2s
+    def doc_toc source_filename, someclass = ''
+      current_dir = current_page.source_file.sub(/[^\/]*$/, '')
+      tasks_md = File.read "#{current_dir}/#{source_filename}.html.md"
+      doc = Nokogiri::HTML(markdown_to_html(tasks_md))
+      toc = doc.css('#markdown-toc').attr(:id, '')
+
+      # Rewrite all links in the ToC (only done if ToC exists)
+      toc.css('li a').each do |link|
+        link[:href] = "#{source_filename}/#{link[:href]}"
+      end
+
+      # ToC: Either in-page or (otherwise) generated
+      toc = toc.any? ? toc : h2_to_toc(doc, source_filename)
+
+      toc.attr(:class, "toc-interpage #{someclass}")
+    end
+
   end
 end
 

@@ -37,7 +37,7 @@ In oVirt 3.5 we had added custom fence configuration keys :
         CustomVdsFenceOptionMapping
         CustomVdsFenceType
 
-Those keys are accessible from the engine-config-util
+Those keys are accessible from the engine-config util
 
 Example : Adding zzz agent support for version 3.5 that maps internally to ipmi and have just port setting (from: port, slot, secure) that maps to the fencing script ipport
 

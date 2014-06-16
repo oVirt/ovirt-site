@@ -45,4 +45,4 @@ Example : Adding zzz agent support for version 3.5 that maps internally to ipmi 
         engine-config -s CustomFenceAgentMapping="zzz=ipmilan"
         engine-config -s CustomVdsFenceOptionMapping="zzz:port=ipport"
 
-In this case those changes remains valid after oVirt upgrades as well, so please use that me6thod from oVirt 3.5 and on.
+In this case those changes remains valid after oVirt upgrades as well, so please use that method from oVirt 3.5 and on.

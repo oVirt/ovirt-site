@@ -41,8 +41,8 @@ Those keys are accessible from the engine-config util
 
 Example : Adding zzz agent support for version 3.5 that maps internally to ipmi and have just port setting (from: port, slot, secure) that maps to the fencing script ipport
 
-        engine-config -s CustomVdsFenceType=zzz
-        engine-config -s CustomFenceAgentMapping=zzz=ipmilan
-        engine-config -s CustomVdsFenceOptionMapping=zzz:port=ipport
+        engine-config -s CustomVdsFenceType="zzz"
+        engine-config -s CustomFenceAgentMapping="zzz=ipmilan"
+        engine-config -s CustomVdsFenceOptionMapping="zzz:port=ipport"
 
 In this case those changes remains valid after oVirt upgrades as well, so please use that me6thod from oVirt 3.5 and on.

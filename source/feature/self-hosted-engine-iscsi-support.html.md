@@ -8,7 +8,7 @@ wiki_revision_count: 22
 wiki_last_updated: 2015-01-16
 feature_name: Self Hosted Engine iSCSI Support
 feature_modules: ovirt-hosted-engine-setup,ovirt-hosted-engine-ha
-feature_status: Design
+feature_status: Completed
 ---
 
 # Self Hosted Engine iSCSI Support
@@ -24,7 +24,7 @@ This feature enable the user to use iSCSI storage for Hosted Engine data domain.
 
 ### Current status
 
-*   Status: Design
+*   Status: Completed
 *   Last updated on -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 
 ### Detailed Description
@@ -136,14 +136,10 @@ Users will be able to use iSCSI storage as data domain for Hosted Engine.
 
 ### Testing
 
-You can test experimental builds by installing RPM from the following Jenkins jobs:
+You can use nightly builds, available from oVirt snapshots repositories:
 
-`* ovirt-hosted-engine-setup: `[`http://jenkins.ovirt.org/view/Packaging/job/ovirt-hosted-engine-setup_master_create_rpms/195/`](http://jenkins.ovirt.org/view/Packaging/job/ovirt-hosted-engine-setup_master_create_rpms/195/)
-`* ovirt-hosted-engine-ha: `[`http://jenkins.ovirt.org/view/Packaging/job/ovirt-hosted-engine-ha_create_rpms/108/`](http://jenkins.ovirt.org/view/Packaging/job/ovirt-hosted-engine-ha_create_rpms/108/)
-
-Above builds include also experimental support for tagged vlans and bond interfaces.
-
-Since this is an experimental development build, please don't open new BZ, just send an email to feature owners attaching vdsm, sanlock, libvirt, hosted-engine setup and ha logs.
+[`http://resources.ovirt.org/pub/ovirt-master-snapshot-static/`](http://resources.ovirt.org/pub/ovirt-master-snapshot-static/)
+[`http://resources.ovirt.org/pub/ovirt-master-snapshot/`](http://resources.ovirt.org/pub/ovirt-master-snapshot/)
 
 ### Comments and Discussion
 

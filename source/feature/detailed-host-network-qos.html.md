@@ -86,7 +86,7 @@ As for the handling of permissions, it remains to be shown that the current perm
 
 ##### VDSM
 
-Proposed [vdsm api](http://gerrit.ovirt.org/#/c/15724/) allows to provide traffic shaping parameters as part of NetworkOptions or setupNetworkNetAttributes used respectively by the addNetwork and setupNetworks verbs. In order to apply the configuration on the host network the Engine should convert attributes' values from Mb to kb (Megabit to Kilobit). VDSM generates a similar libvirt xml definition.
+Proposed [vdsm api](http://gerrit.ovirt.org/#/c/15724/) allows to provide traffic shaping parameters as part of NetworkOptions or setupNetworkNetAttributes used respectively by the addNetwork and setupNetworks verbs. In order to apply the configuration on the host network the Engine should convert attributes' values from MiB to KiB. VDSM generates a similar libvirt xml definition.
 
         `<network>`                                          
 `    `<name>`vdsm-FinalAnswer`</name>

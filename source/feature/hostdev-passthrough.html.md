@@ -32,7 +32,11 @@ Structures
     vdsCapabilities 'hostDevices': [{'name': '...', 'capability': '...', 'vendor': '...', 'product': '...'}]
     VM: 'devices': [... {'type': 'hostdev', 'name': '...', 'capability': '...'} ...]
 
-Engine wil receive name, capability, vendor and product of the device - name: unique string containing physical address of the device, guaranteed to be host-unique - capability: type of the device (pci, usb, scsi and possibly more in the future - scsi targets, hosts etc.) - vendor, product: human-readable identifiers of the device, possibly not unique
+Engine wil receive name, capability, vendor and product of the device
+
+*   name: unique string containing physical address of the device, guaranteed to be host-unique
+*   capability: type of the device (pci, usb, scsi and possibly more in the future - scsi targets, hosts etc.)
+*   vendor, product: human-readable identifiers of the device, possibly not unique
 
 ### Migration
 

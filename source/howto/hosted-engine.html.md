@@ -27,7 +27,7 @@ Greg Padgett <gpadgett@redhat.com>, Martin Sivak <msivak@redhat.com>
 # **Requirements**
 
 *   Two hypervisors (hosts)
-*   NFS-based shared storage or [iSCSI storage](Feature/Self_Hosted_Engine_iSCSI_Support)
+*   NFS-based shared storage (since 3.4.0) or [iSCSI storage](Feature/Self_Hosted_Engine_iSCSI_Support) (since 3.5.0 beta)
 *   Access to the oVirt repository
 
 # **Fresh Install**

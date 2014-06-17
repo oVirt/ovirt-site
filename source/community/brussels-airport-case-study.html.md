@@ -24,7 +24,7 @@ To manage this mission-critical service, the Brussels Airport Company's solution
 
 That solution, Van Zeebroeck emphasized, is oVirt running atop CentOS.
 
-It was not, he added, the only solution the Brussels Airport Company examined. Initially, the team examined CloudStack and OpenStack as cloud-based solutions to their needs. But they found that CloudStack needed to much maintenance with the limited manpower and OpenStack proved to complex to setup. CloudStack, he added, did not have some of the feature sets the were looking for.
+It was not, he added, the only solution the Brussels Airport Company examined. Initially, the team examined CloudStack and OpenStack as cloud-based solutions to their needs. But they found that CloudStack needed to much maintenance with the limited manpower and OpenStack proved too complex to setup. CloudStack, he added, did not have some of the feature sets the were looking for.
 
 At this point, Van Zeebroeck and his colleague, Unix System Engineer Koen Vanoppen, started really looking at virtual datacenter tools based on Xen or KVM. oVirt, they found, fit the bill quite nicely.
 

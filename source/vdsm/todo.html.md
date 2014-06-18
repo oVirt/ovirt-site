@@ -60,6 +60,10 @@ wiki_last_updated: 2015-05-29
 
 *   add a unit test for qemuimg.rebase.
 
+<!-- -->
+
+*   test getVdsStats in network functional tests.
+
 ### Features
 
 *   ~~add hooks for network operations~~ - We now have a before/after setupNetworks hook BUT it receives no parameters! It should receive the nets, bonds and options received by the setupNetworks call and (maybe) the running config before the setupNetworks: <http://gerrit.ovirt.org/#/c/20330/>

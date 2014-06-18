@@ -21,7 +21,7 @@ If you are absolutely new to oVirt, try our [ Live version](OVirt_Live) where yo
 
 If you have some knowledge of installing packages on Linux, you can install [ oVirt](#Install_oVirt) directly on a host machine.
 
-Experienced users can also compile from source, using the guides for the [ oVirt engine](Building oVirt engine) and [ oVirt Node](Node Building).
+Experienced users can also compile from source, using the guides for the [ oVirt Engine](OVirt_Engine_Development_Environment) and [ oVirt Node](Node Building).
 
 </div>
 <div class="span6 pad-left-small pad-right">

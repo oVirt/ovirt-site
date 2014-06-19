@@ -17,12 +17,9 @@ There are many mailing lists in the oVirt project - mostly referenced on [the oV
 *   [Announce](http://lists.ovirt.org/mailman/listinfo/announce): Announcements about the oVirt project
 *   [Users](http://lists.ovirt.org/mailman/listinfo/users): The best place for oVirt user issues - installation, configuration, storage integration, use-cases
 
-### Developer-oriented lists
+### Developer-oriented list
 
-*   [Arch](http://lists.ovirt.org/mailman/listinfo/arch): Project-wide developer related issues. Anything which requires the feedback or awareness of developers on two or more of the Engine, Node and VDSM should go here.
-*   [Engine-devel](http://lists.ovirt.org/mailman/listinfo/engine-devel): Development list for oVirt [Engine](Engine)
-*   [node-devel](http://lists.ovirt.org/mailman/listinfo/node-devel): Development list for oVirt [Node](Node)
-*   [Vdsm-devel](http://lists.fedorahosted.org/mailman/listinfo/vdsm-devel): Development list for [VDSM](VDSM)
+*   [Devel](http://lists.ovirt.org/mailman/listinfo/devel): Project-wide developer-related issues. Anything which requires the feedback or awareness of developers within the oVirt project should go here.
 
 ### Project governance and management
 

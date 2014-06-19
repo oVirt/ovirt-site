@@ -54,7 +54,7 @@ Read the full [ it-novum case study](IT_Novum_case_study)
 
 ![](Keele logo.png "Keele logo.png")
 
-[ Keele University](Keele University case study) in Stafforshire has a small and dedicated IT staff handling all of the IT demands of the 10,000 students and 2,000 staff. To handle their virtualization needs, they have been using oVirt 3.2 since mid 2013.
+[ Keele University](Keele University case study) in Staffordshire has a small and dedicated IT staff handling all of the IT demands of the 10,000 students and 2,000 staff. To handle their virtualization needs, they have been using oVirt 3.2 since mid 2013.
 
 "Choosing oVirt has saved us tens of thousands of pounds over proprietary alternatives like VMware. Open source wins the philosophical debate for us." Cost, freedom and a robust consolidated management solution for their KVM virtualization were the main reasons they adopted oVirt.
 

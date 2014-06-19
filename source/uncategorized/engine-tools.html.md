@@ -43,7 +43,7 @@ In developer environment when not installing the engine via rpm, the uploader's 
  **How to configure the uploader:**
 1. First, make sure the ovirt-engine is running and that it has an export domain that is up.
 2. The uploader has several configuration options which can be seen by doing
-'man ovirt-image-uploader'
+'man engine-image-uploader'
 
 The basic/minimal parameters that need to be filled prior to running the uploader are user,password and host:port of the engine. Those parameters should be configured in:
 '/etc/ovirt-engine/imageuploader.conf'

@@ -26,7 +26,7 @@ Engine tools are mainly standlone java programs wrapped-up by scripts and mostly
 
 The ovirt-iso-uploader can be used to list the names of ISO storage domains (not the images stored in those domains) and upload files to storage domains. The upload operation supports multiple files (separated by spaces) and wildcarding. The engine-iso-uploader will, by default, attempt to interact with the REST API.
 
-### ovirt-image-upload
+### engine-image-uploader
 
 Using the engine-image-uploader command, you can list export storage domains and upload virtual machines in Open Virtualization Format (OVF) to a oVirt Engine. The tool only supports OVF files created by oVirt.
 

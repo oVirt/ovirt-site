@@ -125,16 +125,16 @@ Community can be found in many places in the global community. Keep track of the
 ### User Case Study
 
 <div class="text-center">
-![](BrusselsAirportlogo.png "BrusselsAirportlogo.png")
+![](Judici_Logo.jpg "Judici_Logo.jpg")
 
 </div>
-Find out how the [ Brussels Airport Company](Brussels_Airport_Case_Study) keeps a vital transportation and cargo center moving by managing their virtual machines with oVirt.
+Judici offers the public litigant information, criminal and civil court information, case minutes, and calendar data for hearings, and is rolling out the capability to e-file cases online for 68 of Illinois' 102 county courts. And it's making this happen with completely open source software.
 
-Faced with an opportunity to take the approximately 150 virtual machines housed on 30 Solaris machines and manage them with another virtual datacenter management tool, the Brussels Airport IT team went with oVirt running atop CentOS.
+Learn more how Judici has scaled from hardware virtualization to using KVM, Gluster, and oVirt to bring order to the Illinois court system.
 
 <div style="clear:both; display: inline-block;">
 <div class="pull-right">
-Read the full [ Brussels Airport case study](Brussels_Airport_Case_Study)
+Read the full [ Judici case study](Judici_Case_Study)
 
 </div>
 <div class="pull-right">

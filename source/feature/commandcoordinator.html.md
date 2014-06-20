@@ -99,6 +99,104 @@ Command entity DAO is the class object that deals with persisting the CommandEnt
 
 A new cleanup manager similar to AuditLogCleanupManager that removes any old commands that have been persisted but not have not been cleaned up afetr they were marked completed.
 
+### Command Executor Framework
+
+The command executor framework is build on top of the new methods introduced in command coordinator. A command can be submitted to the command executor to be run in a separate thread and the command can provide a CommandCallBack which as callback methods that the command executor will invoke at various points in the lifecycle of the command.
+
+#### Submiit a command to CommandExecutor
+
+To submit a command to the command executor framework the parent command can invoke the executeAsyncCommand providing the action type and the action parameters.
+
+         TaskManagerUtil.executeAsyncCommand(VdcActionType actionType, VdcActionParametersBase parameters)
+
+#### CommandCallBack
+
+The implementation of the command can override getCallBack methods to provide a custom command callback handler.
+
+         @Override
+         public CommandCallBack getCallBack() {
+             return new CustomCommandCallback();
+         }
+
+#### Parent CommandCallBack
+
+Below is a simple example of a CommandCallBack. The example shows the call back implementation for a parent command. The command call back on each doPolling, checks the status of the child commands. If all child commands have completed it executes the endAction and sets the status to succeeded/failed.
+
+         import org.ovirt.engine.core.bll.tasks.TaskManagerUtil;
+         import org.ovirt.engine.core.bll.tasks.interfaces.CommandCallBack;
+         import org.ovirt.engine.core.common.action.RemoveSnapshotParameters;
+         import org.ovirt.engine.core.compat.CommandStatus;
+         import org.ovirt.engine.core.compat.Guid;
+         import org.ovirt.engine.core.utils.log.Log;
+         import org.ovirt.engine.core.utils.log.LogFactory;
+         public class CustomCommandCallback extends CommandCallBack {
+             private static final Log log = LogFactory.getLog(CustomCommandCallback.class);
+             @Override
+             public void doPolling(Guid cmdId, List`<Guid>` childCmdIds) {
+                 boolean anyFailed = false;
+                 for (Guid childCmdId : childCmdIds) {
+                     switch (TaskManagerUtil.getCommandStatus(childCmdId)) {
+                     case ACTIVE:
+                     case ACTIVE_SYNC:
+                     case ACTIVE_ASYNC:
+                         log.info("Waiting on child commands to complete");
+                         return;
+                     case FAILED:
+                     case FAILED_RESTARTED:
+                     case UNKNOWN:
+                         anyFailed = true;
+                         break;
+                     default:
+                         break;
+                     }
+                 }
+                 CustomCommand`<CustomCommandParameters>` command =  (CustomCommand`<CustomCommandParameters>`) TaskManagerUtil.retrieveCommand(cmdId);
+                 command.getParameters().setTaskGroupSuccess(!anyFailed);
+                 command.setCommandStatus(anyFailed ? CommandStatus.FAILED : CommandStatus.SUCCEEDED);
+                 log.infoFormat("All child commands have completed, status {1}", command.getCommandStatus());
+             }
+             @Override
+             public void onSucceeded(Guid cmdId, List`<Guid>` childCmdIds) {
+                 getCommand(cmdId).endAction();
+                 TaskManagerUtil.removeAllCommandsInHierarchy(cmdId);
+             }
+             @Override
+             public void onFailed(Guid cmdId, List`<Guid>` childCmdIds) {
+                 getCommand(cmdId).endAction();
+                 TaskManagerUtil.removeAllCommandsInHierarchy(cmdId);
+             }
+         }
+
+#### Child CommandCallBack
+
+The command callback for the child command is much simpler, it just needs to monitor the status of the command and update the status with the CommandExeuctor using the TaskManagerUtil methods.
+
+         import org.ovirt.engine.core.bll.tasks.TaskManagerUtil;
+         import org.ovirt.engine.core.bll.tasks.interfaces.CommandCallBack;
+         import org.ovirt.engine.core.common.action.MergeParameters;
+         import org.ovirt.engine.core.common.businessentities.VmJob;
+         import org.ovirt.engine.core.compat.CommandStatus;
+         import org.ovirt.engine.core.compat.Guid;
+         import org.ovirt.engine.core.dal.dbbroker.DbFacade;
+         import org.ovirt.engine.core.utils.log.Log;
+         import org.ovirt.engine.core.utils.log.LogFactory;
+         public class ChildCommandCallback extends CommandCallBack {
+             private static final Log log = LogFactory.getLog(MergeCommandCallback.class); 
+             @Override
+             public void doPolling(Guid cmdId, List`<Guid>` childCmdIds) {
+                 // If the VM Job exists, the command is still active
+                 boolean isRunning = false;
+                 ChildCommand`<ChildCommandParameters>` command = (ChildCommand`<ChildCommandParameters>`) TaskManagerUtil.retrieveCommand(cmdId));
+`           boolean isDone = `<custom code to check if command is running, call to database etc.>
+                 if (isDone) {
+`               boolean succeeded = `<custom code to check if command has succeeded, call to database etc.>
+                     command.setSucceeded(succeeded);
+                     command.setCommandStatus(succeeded ? CommandStatus.SUCCEEDED : CommandStatus.FAILED);
+                     command.persistCommand(command.getParameters().getParentCommand(), true);
+                 }
+             }
+         }
+
 ### Testing
 
 All the Async tasks need to work with the new code changes. Instead of commands being persisted into async tasks table, the command should be persisted in the new command_entities table.

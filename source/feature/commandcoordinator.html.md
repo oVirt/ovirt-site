@@ -52,23 +52,24 @@ This feature lets NON Spm coomands like LiveMerge to be persisted into the datab
 
 #### Details of Command Entity Table
 
-        CREATE TABLE command_entities
-        (
-            command_id UUID NOT NULL,
-            command_type integer NOT NULL,
-            parent_command_id UUID DEFAULT NULL,
-            root_command_id UUID DEFAULT NULL,
-            action_parameters text,
-            action_parameters_class varchar(256),
-            created_at TIMESTAMP WITH TIME ZONE,
-            CONSTRAINT pk_command_entities PRIMARY KEY(command_id),
-            CONSTRAINT FK_parent_command_id FOREIGN KEY(parent_command_id)
-               REFERENCES command_entities(command_id) ON DELETE CASCADE,
-            CONSTRAINT FK_root_command_id FOREIGN KEY(root_command_id)
-               REFERENCES command_entities(command_id) ON DELETE CASCADE
-        );
-        CREATE INDEX idx_parent_command_id ON command_entities(parent_command_id) WHERE parent_command_id IS NOT NULL;
-        CREATE INDEX idx_root_command_id ON command_entities(root_command_id) WHERE root_command_id IS NOT NULL;
+CREATE TABLE command_entities (
+
+       command_id uuid NOT NULL,
+       command_type integer NOT NULL,
+       root_command_id uuid,
+       action_parameters text,
+       action_parameters_class character varying(256),
+       created_at timestamp with time zone,
+       status character varying(20) DEFAULT NULL::character varying,
+       callback_enabled boolean DEFAULT false,
+       callback_notified boolean DEFAULT false,
+       return_value text,
+       return_value_class character varying(256),
+       CONSTRAINT pk_command_entities PRIMARY KEY (command_id)
+
+)
+
+CREATE INDEX idx_root_command_id ON command_entities(root_command_id) WHERE root_command_id IS NOT NULL;
 
 #### Methods to persist/retrieve/delete command
 

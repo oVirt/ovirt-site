@@ -22,6 +22,26 @@ Engine tools are mainly standlone java programs wrapped-up by scripts and mostly
 
 ### Tools description
 
+### engine-manage-domains
+
+Using this tool it is possible to add new authentication domains to serve as resource for users authenticating to oVirt engine.
+
+How to get the tool: The tool is installed when engine is installed.
+
+How to configure the tool: You can edit the configuration located at /etc/ovirt-engine/engine-manage-domains/engine-manage-domains.conf
+
+How to run the tool; Running basic example: 'engine-manage-domains add --domain=<MY_DOMAIN> --provider=<ad/ipa/oldap/itds/rhds> --user=<USERNAME>'
+
+### engine-config
+
+Using this tool it is possible to alter engine's configuration
+
+How to get the tool: The tool is installed when engine is installed.
+
+How to configure the tool: You can edit the configuration located at /etc/ovirt-engine/engine-config/engine-config.conf
+
+How to run the tool; Running basic example: 'engine-config -l' - will show you list of properties that can be alttered 'engine-config-g <property_name>' - will show you the value of a property 'engine-config-s <property_name>=<property_value>' - will alter the value of a property
+
 ### ovirt-iso-uploader
 
 The ovirt-iso-uploader can be used to list the names of ISO storage domains (not the images stored in those domains) and upload files to storage domains. The upload operation supports multiple files (separated by spaces) and wildcarding. The engine-iso-uploader will, by default, attempt to interact with the REST API.

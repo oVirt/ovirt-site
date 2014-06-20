@@ -43,11 +43,11 @@ Using this tool it is possible to alter engine's configuration
 **How to get the tool:**
 The tool is installed when engine is installed.
 
-How to configure the tool:
+**How to configure the tool:**
 You can edit the configuration located at /etc/ovirt-engine/engine-config/engine-config.conf
 
 **How to run the tool:**
-**Running basic example:**
+Running basic example:'
 'engine-config -l' - will show you list of properties that can be alttered 'engine-config-g <property_name>' - will show you the value of a property 'engine-config-s <property_name>=<property_value>' - will alter the value of a property
 
 ### ovirt-iso-uploader

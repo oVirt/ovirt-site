@@ -218,6 +218,14 @@ The command callback for the child command is much simpler, it just needs to mon
              }
          }
 
+#### Persisting command return value
+
+If data in return value(VdcReturnValueBase) of a command needs to be passed from child command to the parent command, this can be achieved by persisting the return value in the database. Nothing special needs to be done to persist this data to the db, all that the child command needs to do is to execute persistCommand after setting the needed data in the return value. This is also useful after server restarts where the return value of the child commands can be looked up by the parent command from the database.
+
+#### Executing Synchronous and Asynchronous Command
+
+Synchronous and Asynchronous commands need to be handled differently during a server restart. Synchronous commands that are executed live and the results are retrieved synchronously need to be failed if the server is restarted while the command is executing. So it is the responsibility of the synchronous command to set the status to CommandStatus.ACTIVE_SYNC/CommandStatus.ACTIVE_ASYNC before executing the synchronous operation. If the server is restarted during the execution of an sync command the command is failed on restart. doPolling methods in not invoked on the call back for commands with status ACTIVE_SYNC.
+
 ### Testing
 
 All the Async tasks need to work with the new code changes. Instead of commands being persisted into async tasks table, the command should be persisted in the new command_entities table.

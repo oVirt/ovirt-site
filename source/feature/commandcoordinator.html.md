@@ -67,7 +67,6 @@ This feature lets NON Spm coomands like LiveMerge to be persisted into the datab
            return_value_class character varying(256),
            CONSTRAINT pk_command_entities PRIMARY KEY (command_id)
          )
-
          CREATE INDEX idx_root_command_id ON command_entities(root_command_id) WHERE root_command_id IS NOT NULL;
 
 #### Methods to persist/retrieve/delete command

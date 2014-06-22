@@ -17,7 +17,7 @@ The current repository of built hooks can be found at:
 
 Fedora: <http://resources.ovirt.org/releases/stable/rpm/Fedora/20/noarch/>
 
-EL6: <http://ovirt.org/releases/nightly/rpm/EL/6/noarch/>
+EL6: <http://resources.ovirt.org/releases/stable/rpm/el6/noarch/>
 
 The hooks reside on every host in /usr/libexec/vdsm/hooks/ A hook can be any executable (bash/python/perl/binary/etc).
 

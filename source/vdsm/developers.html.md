@@ -221,7 +221,9 @@ As developer you might need to add many hosts into your environment for tests. V
 
 **Problems adding the fake Host in the engine**
 
-The vdsm bootstrapper was deprecated and replaced by ovirt-host-deploy, the /usr/share/doc/ovirt-host-deploy-1.1.0/README file includes details about how to configure a fake host.
+The vdsm bootstrapper was deprecated and replaced by ovirt-host-deploy, the /usr/share/doc/ovirt-host-deploy-1.1.0/README, file includes details about how to configure a fake host.
+
+See see [ovirt-host-deploy/README](http://gerrit.ovirt.org/gitweb?p=ovirt-host-deploy.git;a=blob;f=README;hb=HEAD) for fake qemu support.
 
 **Failed: Server does not support virtualization**
 

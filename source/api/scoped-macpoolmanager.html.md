@@ -58,7 +58,6 @@ A new macpools top level collection will be added supporting the following opera
 `    `<mac_pool id="AAA">
 `        `<name>`Default`</name>
 `        `<description>`The default MAC addresses pool`</description>
-`        `<shared>`true`</shared>
 `        `<allow_duplicates>`false`</allow_duplicates>
 `        `<ranges>
 `            `<range>
@@ -83,7 +82,6 @@ A new macpools top level collection will be added supporting the following opera
 <mac_pool id="AAA">
 `    `<name>`Default`</name>
 `    `<description>`The default MAC addresses pool`</description>
-`    `<shared>`true`</shared>
 `    `<allow_duplicates>`false`</allow_duplicates>
 `    `<ranges>
 `        `<range>
@@ -113,7 +111,6 @@ A new macpools top level collection will be added supporting the following opera
 <mac_pool id="AAA">
 `    `<name>`Default`</name>
 `    `<description>`The default MAC addresses pool - allows duplicates`</description>
-`    `<shared>`true`</shared>
 `    `<allow_duplicates>`true`</allow_duplicates>
 `    `<ranges>
 `        `<range>

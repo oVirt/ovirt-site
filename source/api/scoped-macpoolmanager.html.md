@@ -148,6 +148,8 @@ A new macpools top level collection will be added supporting the following opera
 *   Data center resource will be added a link to the MAC pool resource it's using.
 *   POST of data center without specifying the link should \*succeed\*, using the default pool of the system.
 
+### Permissions
+
 ## Code Examples
 
 #### creation of new DataCenter specific pool

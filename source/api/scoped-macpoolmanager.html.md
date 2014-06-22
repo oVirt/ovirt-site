@@ -150,6 +150,26 @@ A new macpools top level collection will be added supporting the following opera
 
 ### Permissions
 
+The mac pool entity is a managed entity which its actions requrie permissions. The following action groups will be added:
+
+*   CREATE_MAC_POOL
+*   EDIT_MAC_POOL
+*   DELETE_MAC_POOL
+
+Those action groups will be part of a new predefined role named **MacPoolAdmin** (includes LOGIN).
+**MacPoolAdmin** will use to create, edit and delete mac pools from the system.
+The permission should be granted on system level for creating a pool and on a pool level for editing or removing a pool.
+ In order to use a mac pool from within the data-center, the following ActionGroup is added:
+
+*   CONFIGURE_MAC_POOL
+
+This action group allows the usage of a given mac pool by any resource at first by data-center only.
+Later-on it will be expanded for additional entities as engine supports (i.e. network, cluster, vm pool).
+ A new role will be added for usage purposes, named **MacPoolUser**. When granted on a mac pool, it will allow the data-center administrators to use the specific mac pool
+ By default, the mac pool will be created for 'public use', meaning each Data Center admin will be able to set its data center to use the specific mac pool. Specifically, it means that for each created mac pool, a **MacPoolUser** role will be granted on that mac pool to 'Everyone'. The 'public use' option could be unchecked (or set to false via api/sdk) in order to restrict the pool usage only to the permitted users.
+
+The permissions for mac pools will be managed from the 'Add mac pool' screen and on restpi via 'api/macpools/{macpool:id}/permissions
+
 ## Code Examples
 
 #### creation of new DataCenter specific pool

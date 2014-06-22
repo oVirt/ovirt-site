@@ -168,7 +168,7 @@ Later-on it will be expanded for additional entities as engine supports (i.e. ne
  A new role will be added for usage purposes, named **MacPoolUser**. When granted on a mac pool, it will allow the data-center administrators to use the specific mac pool
  By default, the mac pool will be created for 'public use', meaning each Data Center admin will be able to set its data center to use the specific mac pool. Specifically, it means that for each created mac pool, a **MacPoolUser** role will be granted on that mac pool to 'Everyone'. The 'public use' option could be unchecked (or set to false via api/sdk) in order to restrict the pool usage only to the permitted users.
 
-The permissions for mac pools will be managed from the 'Add mac pool' screen and on restpi via 'api/macpools/{macpool:id}/permissions
+The permissions for mac pools will be managed from the 'Add mac pool' screen and on restpi via *api/macpools/{macpool:id}/permissions*
 
 ## Code Examples
 

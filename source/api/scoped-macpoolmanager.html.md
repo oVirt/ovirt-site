@@ -43,6 +43,25 @@ Definition of domains from which MAC addresses will be allocated for each data c
 
 ## User Experience
 
+### GUI
+
+*   'private' pool are manipulated with from datacenter dialog, where also will be created new tab for pool.
+*   shared pools are managed from app config, where will be added new tab for pools. Private pools can be viewed here also, but not changed. Here you can find out, in which places is shared pool used.
+
+Below is three screenshots. 'New/edit MAC pool pane' is shared component used both in new tabs of datacenter dialog and systemconfig, which are remaining two screenshots.
+
+![](newMacPoolPane.png "newMacPoolPane.png")
+
+shared component for editing pool properties
+
+![](existingPools_newSharedPool.png "existingPools_newSharedPool.png")
+
+component for viewing all existing pools and for creating new shared ones.
+
+![](datacenterDialog.png "datacenterDialog.png")
+
+component for specifying datacenter related pool or for linking data center to shared pool
+
 ### REST API
 
 #### New top level collection
@@ -156,25 +175,6 @@ there are few methods for getting dc related pool based on various data you have
 ## Implementation details of DataCenterScope
 
 ### DataCenterScope comments
-
-### Gui
-
-*   'private' pool are manipulated with from datacenter dialog, where also will be created new tab for pool.
-*   shared pools are managed from app config, where will be added new tab for pools. Private pools can be viewed here also, but not changed. Here you can find out, in which places is shared pool used.
-
-Below is three screenshots. 'New/edit MAC pool pane' is shared component used both in new tabs of datacenter dialog and systemconfig, which are remaining two screenshots.
-
-![](newMacPoolPane.png "newMacPoolPane.png")
-
-shared component for editing pool properties
-
-![](existingPools_newSharedPool.png "existingPools_newSharedPool.png")
-
-component for viewing all existing pools and for creating new shared ones.
-
-![](datacenterDialog.png "datacenterDialog.png")
-
-component for specifying datacenter related pool or for linking data center to shared pool
 
 ### sample flow
 

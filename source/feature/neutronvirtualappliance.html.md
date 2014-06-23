@@ -112,7 +112,9 @@ The neutron appliance for ovirt-engine 3.5 is based on the [IceHouse-RDO](http:/
 
 #### Install a Host with the network provider
 
-1.  Configure OpenStack repository on the host, i.e.: sudo yum install -y <http://rdo.fedorapeople.org/rdo-release.rpm>
+1.  Configure OpenStack repository on the host (for ovirt-3.5 use rdo-release-icehouse-3):
+    1.  yum install -y <http://repos.fedorapeople.org/repos/openstack/openstack-icehouse/rdo-release-icehouse-3.noarch.rpm>
+
 2.  Install the host with external network provider by clicking the 'Network Provider' left tab
 3.  Select the newly configured 'neutron' network provider and set:
     1.  bridge_mappings = vmnet:br-neutron

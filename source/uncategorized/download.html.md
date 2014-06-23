@@ -83,6 +83,7 @@ Supported Hosts:
 
 #### Europe
 
+*   [NLUUG](http://ftp.nluug.nl/os/Linux/virtual/ovirt/) ([oVirt 3.4](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-3.4/) | [oVirt 3.4 Nightly](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-3.4-snapshot) | [oVirt 3.5 Nightly](http://ftp.nluug.nl/os/Linux/virtual/ovirt/ovirt-master-snapshot/))
 *   [SNT - University of Twente](http://ftp.snt.utwente.nl/pub/software/ovirt/) ([oVirt 3.4](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-3.4/) | [oVirt 3.4 Nightly](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-3.4-snapshot) | [oVirt 3.5 Nightly](http://ftp.snt.utwente.nl/pub/software/ovirt/ovirt-master-snapshot/))
 
 #### North America

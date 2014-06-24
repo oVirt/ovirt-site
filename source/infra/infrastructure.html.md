@@ -85,6 +85,8 @@ The main thing is, come [communicate with us](#Communication) if you have any qu
 ## Our Architecture
 
 An overview of our technical architecture is available [online](http://monitoring.ovirt.org). If you have a question or comment about our architecture please send an e-mail to **infra@ovirt.org** inbox or stop by the [IRC channel #ovirt on OFTC](irc://irc.oftc.net/#ovirt).
+As part of an effort to map all oVirt infra resources, an online pad was created [2](http://etherpad.ovirt.org/p/service_list_ovirt).
+once the list will be ready and finalized, we'll update the wiki accordingly.
 
 #### oVirt Instances
 

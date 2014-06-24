@@ -155,24 +155,6 @@ For oVirt 3.5 we will rely on current fence_kdump capabilities, but for next oVi
 
 ## Fencing flow with fence_kdump
 
-Host kdump flow detection will be inserted into automatic fencing flow just before execution of hard fencing:
-
-1.  On first network failure, host status will change to **Connecting**
-2.  If the host doesn't respond during time interval, execute SSH Soft Fencing. If command execution wasn't successful, proceed to hard fencing enabled check immediately (step 4).
-3.  If the host doesn't recover during time interval, proceed hard fencing enabled check (step 4).
-4.  If hard fencing is not enabled for host, set host status to **Non Responsive** and exit fencing flow
-5.  If fence kdump is not enabled for the host, execute hard fencing immediately (step 7)
-6.  Execute fence_kdump detection
-    1.  Store current timestamp into *kdump_timestamp* variable
-    2.  Repeat following:
-        1.  Get kdump status for host from database
-        2.  If status is **finished**, set host status to **Reboot** and exit fencing flow
-        3.  If status is **dumping**, wait **FenceKdumpMessageInterval** and continue the loop
-        4.  if no kdump status found for host and *current timestamp >= kdump_timestamp + KdumpStartedTimeout*, continue with hard fencing (step 7)
-        5.  if no record returned, wait **FenceKdumpMessageInterval** and continue the loop
-
-7.  Execute hard fencing for host
-
 The whole flow is displayed in [ fencing flow with kdump detection](Media:Fencing-flow-with-kdump-detection.jpg).
 
 Following config values are used:

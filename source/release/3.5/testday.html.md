@@ -146,6 +146,6 @@ You need at least two physical servers to install and configure a basic yet comp
 
 *   ovirt - <https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt>
 *   Spice - <https://bugs.freedesktop.org/> under Spice product
-*   VDSM - <https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt> with vdsm component
+*   VDSM - <https://bugzilla.redhat.com/enter_bug.cgi?product=oVirt&component=vdsm>
 
 Tracker bug for the release

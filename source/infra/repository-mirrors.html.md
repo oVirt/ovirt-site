@@ -28,7 +28,7 @@ We have a simple setup to allow mirroring of the oVirt repositories. Right now t
 
 ### Adding a mirror
 
-To add a mirror you just need to add it's public ssh key in *~mirror/.ssh/authorized_keys*, with the command restriction as the other entries. Then when the mirror is confirmed you can add it to the mirrorlist (*/var/www/html/pub/yum-repo/mirrorlist*) and to this wiki.
+To add a mirror you just need to add it's public ssh key in *~mirror/.ssh/authorized_keys*, with the command restriction as the other entries. Then when the mirror is confirmed you can add it to the mirrorlist (*resources.ovirt.org:/var/www/html/pub/yum-repo/mirrorlist*) and to this wiki.
 
 ## Current mirrors
 

@@ -176,7 +176,7 @@ activate :blog_helpers
 #
 configure :development do
   puts "\nUpdating git submodules..."
-  puts `git submodule init`
+  puts `git submodule init && git submodule sync`
   puts `git submodule foreach "git pull -qf origin master"`
   puts "\n"
 

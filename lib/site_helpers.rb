@@ -21,18 +21,6 @@ class SiteHelpers < Middleman::Extension
       sometime.to_time.strftime(format) rescue ""
     end
 
-    # Use the title from frontmatter metadata,
-    # or peek into the page to find the H1,
-    # or fallback to a filename-based-title
-    def discover_title(page = current_page)
-      return page.data.title unless page.data.title.nil?
-
-      page.render({layout: false}).match(/<h[1-2][^>]*>(.*?)<\/h[1-2]>/).first do |m|
-        puts m
-        m ? m[1] : page.url.split(/\//).last.titleize
-      end
-    end
-
     def word_unwrap content
       content.to_s.gsub(/\n\n/, '!ಠ_ಠ!').gsub(/\n/, ' ').squeeze(' ').gsub(/!ಠ_ಠ!/, "\n\n")
     end
@@ -47,6 +35,17 @@ class SiteHelpers < Middleman::Extension
 
     def markdown_to_plaintext content
       word_unwrap html_to_plaintext(markdown_to_html(content))
+    end
+
+    # Use the title from frontmatter metadata,
+    # or peek into the page to find the H1,
+    # or fallback to a filename-based-title
+    def discover_title(page = current_page)
+      return page.data.title unless page.data.title.nil?
+
+      page.render({layout: false}).match(/<h[1-2][^>]*>(.*?)<\/h[1-2]>/) do |m|
+        m ? html_to_plaintext(m[1]) : page.url.split(/\//).last.titleize
+      end
     end
 
     def demote_headings content

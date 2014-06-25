@@ -49,11 +49,16 @@ Please report test results on the [first test day report etherpad](http://etherp
 
 Following tests should be performed on all supported distributions.
 
-|-----------------|----------------------------|-------|--------------|-----------|-------------------|-----|---------|
-| Functional team | Feature                    | Owner | Dev - Status | Test page | Tested By/ Distro | BZs | remarks |
-| General         | oVirt Live 3.5 (testing)   |       |              |           |                   |     |         |
-| General         | upgrade from 3.4 (testing) |       |              |           |                   |     |         |
-| General         | All in One setup (testing) |       |              |           |                   |     |         |
+|-----------------|-----------------------------------------------------------------|----------|--------------|-----------------------------------------------------------|-------------------|-----|---------|
+| Functional team | Feature                                                         | Owner    | Dev - Status | Test page                                                 | Tested By/ Distro | BZs | remarks |
+| General         | oVirt Live 3.5 (testing)                                        |          |              |                                                           |                   |     |         |
+| General         | upgrade from 3.4 (testing)                                      |          |              |                                                           |                   |     |         |
+| General         | All in One setup (testing)                                      |          |              |                                                           |                   |     |         |
+| Network         | Neutron Appliance                                               | masayag  |              | <http://www.ovirt.org/Features/NeutronVirtualAppliance>   |                   |     |         |
+| Network         | Network Custom Properties (bridge_opts, ethtool_opts, custom) | lvernia  | Done         | <http://www.ovirt.org/Features/Network_Custom_Properties> |                   |     |
+| Network         | NIC errors in event log                                         | alkaplan | Done         |                                                           |                   |     |
+| Network         | Arbitrary VLAN-tagged network name                              | alkaplan | Done         |                                                           |                   |     |
+| Network         | Warning upon display network changes                            | yzaspits | Done         |                                                           |                   |     |
 
 ## Regression testing
 

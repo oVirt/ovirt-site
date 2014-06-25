@@ -12,7 +12,7 @@
 
     %title
       - page_title = discover_title
-      = "#{page_title} &mdash;" if page_title
+      = "#{page_title} &mdash;" unless page_title.to_s.empty?
       = data.site.name
 
     %meta(charset="utf-8")

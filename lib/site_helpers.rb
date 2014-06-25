@@ -25,7 +25,10 @@ class SiteHelpers < Middleman::Extension
     # or peek into the page to find the H1,
     # or fallback to a filename-based-title
     def discover_title(page = current_page)
-      page.data.title || page.render({layout: false}).match(/<h1>(.*?)<\/h1>/) do |m|
+      return page.data.title unless page.data.title.nil?
+
+      page.render({layout: false}).match(/<h[1-2][^>]*>(.*?)<\/h[1-2]>/).first do |m|
+        puts m
         m ? m[1] : page.url.split(/\//).last.titleize
       end
     end

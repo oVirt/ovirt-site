@@ -14,7 +14,7 @@ wiki_last_updated: 2014-06-27
 
 Do you want to become a mirror? Do you have some bandwidth to spare?
 
-Drop us a line at [mailtoinfra@ovirt.org infa] and tell us about yourself! You just need to pass us a public ssh key, and once set up you'll be able to rsync from our site with the following command:
+Drop us a line at [infa](mailto:infra@ovirt.org) and tell us about yourself! You just need to pass us a public ssh key, and once set up you'll be able to rsync from our site with the following command:
 
        rsync -rltHvvzP mirror@linode01.ovirt.org:/var/www/html destination/dir
 

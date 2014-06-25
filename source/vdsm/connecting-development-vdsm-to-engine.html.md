@@ -37,8 +37,8 @@ When automatic host installation is disabled, you also want to disable SSL on bo
 
 Disable SSLEnabled and UseSecureConnectionWithServers options:
 
-      su - postgres -c "psql engine -c "UPDATE vdc_options set option_value = 'false' where option_name = 'SSLEnabled'""
-      su - postgres -c "psql engine -c "UPDATE vdc_options set option_value = 'false' where option_name = 'UseSecureConnectionWithServers'""
+      psql -U engine engine -c "UPDATE vdc_options set option_value = 'false' where option_name = 'SSLEnabled';"
+      psql -U engine engine -c "UPDATE vdc_options set option_value = 'false' where option_name = 'EncryptHostCommunication';"
 
 And restart oVirt service if running:
 

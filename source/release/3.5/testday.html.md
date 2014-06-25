@@ -56,9 +56,9 @@ Following tests should be performed on all supported distributions.
 | General         | All in One setup (testing)                                      |          |              |                                                           |                   |     |         |
 | Network         | Neutron Appliance                                               | masayag  |              | <http://www.ovirt.org/Features/NeutronVirtualAppliance>   |                   |     |         |
 | Network         | Network Custom Properties (bridge_opts, ethtool_opts, custom) | lvernia  | Done         | <http://www.ovirt.org/Features/Network_Custom_Properties> |                   |     |
-| Network         | NIC errors in event log                                         | alkaplan | Done         |                                                           |                   |     |
-| Network         | Arbitrary VLAN-tagged network name                              | alkaplan | Done         |                                                           |                   |     |
-| Network         | Warning upon display network changes                            | yzaspits | Done         |                                                           |                   |     |
+| Network         | NIC errors in event log                                         | alkaplan | Done         |                                                           |                   |     |         |
+| Network         | Arbitrary VLAN-tagged network name                              | alkaplan | Done         |                                                           |                   |     |         |
+| Network         | Warning upon display network changes                            | yzaspits | Done         |                                                           |                   |     |         |
 
 ## Regression testing
 

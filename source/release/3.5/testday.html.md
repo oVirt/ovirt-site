@@ -96,6 +96,17 @@ You need at least two physical servers to install and configure a basic yet comp
 
 ### Network
 
+*   Important Note: Known Fedora 19 bug: If the ovirtmgmt bridge is not successfully installed during initial host-setup, manually click on the host, setup networks, and add the ovirtmgmt bridge.
+*   Base config - single NIC, bridge on top, VMs attached to NIC
+*   Advanced configurations:
+
+![](Vlan bonding.jpg "fig:Vlan bonding.jpg") Make sure each of the configs can:
+
+*   Survive a reboot
+*   Test network at both host and VM level
+*   Ping and transfer large amounts of data (2Gb size files should be enough)
+*   Remain operational over time (1hr of uptime should be sufficient for the basic testing)
+
 ### Tools
 
 *   Basic operations on iso-uploader:

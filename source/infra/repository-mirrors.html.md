@@ -12,9 +12,21 @@ wiki_last_updated: 2014-06-27
 
 ## Mirroring oVirt repositories
 
-We have a simple setup to allow mirroring of the oVirt repositories. Right now the mirroring is done through ssh with rsync. You'll find in **resources.ovirt.org** a user named **mirror**, that's the user that the mirrors should use, you'll see that it has a lot of entries under *~/.ssh/authorized_keys*, there each entry is restricted to run only a specific command that allows them to rsync the respo directory.
+Do you want to become a mirror? Do you have some bandwidth to spare?
 
-## Adding a mirror
+Drop us a line at [mailtoinfra@ovirt.org infa] and tell us about yourself! You just need to pass us a public ssh key, and once set up you'll be able to rsync from our site with the following command:
+
+       rsync -rltHvvzP mirror@linode01.ovirt.org:/var/www/html destination/dir
+
+After some validation we will add your site to this page and to the mirrorlist!
+
+**Thanks a lot for your bandwidth!**
+
+## For admins
+
+We have a simple setup to allow mirroring of the oVirt repositories. Right now the mirroring is done through ssh with rsync. You'll find in **resources.ovirt.org** a user named **mirror**, that's the user that the mirrors should use, you'll see that it has a lot of entries under *~/.ssh/authorized_keys*, there each entry is restricted to run only a specific command that allows them to rsync the repo directory.
+
+### Adding a mirror
 
 To add a mirror you just need to add it's public ssh key in *~mirror/.ssh/authorized_keys*, with the command restriction as the other entries. Then when the mirror is confirmed you can add it to the mirrorlist (*/var/www/html/pub/yum-repo/mirrorlist*) and to this wiki.
 

@@ -49,17 +49,17 @@ Please report test results on the [first test day report etherpad](http://etherp
 
 Following tests should be performed on all supported distributions.
 
-|-----------------|-----------------------------------------------------------------|----------|--------------|-----------------------------------------------------------|-------------------|-----|---------|
-| Functional team | Feature                                                         | Owner    | Dev - Status | Test page                                                 | Tested By/ Distro | BZs | remarks |
-| General         | oVirt Live 3.5 (testing)                                        |          |              |                                                           |                   |     |         |
-| General         | upgrade from 3.4 (testing)                                      |          |              |                                                           |                   |     |         |
-| General         | All in One setup (testing)                                      |          |              |                                                           |                   |     |         |
-| Network         | Neutron Appliance                                               | masayag  |              | <http://www.ovirt.org/Features/NeutronVirtualAppliance>   |                   |     |         |
-| Network         | Network Custom Properties (bridge_opts, ethtool_opts, custom) | lvernia  | Done         | <http://www.ovirt.org/Features/Network_Custom_Properties> |                   |     |
-| Network         | NIC errors in event log                                         | alkaplan | Done         |                                                           |                   |     |         |
-| Network         | Arbitrary VLAN-tagged network name                              | alkaplan | Done         |                                                           |                   |     |         |
-| Network         | Warning upon display network changes                            | yzaspits | Done         |                                                           |                   |     |         |
-| Network         | Allow big MAC pool ranges                                       | mmucha   | Done         |                                                           |                   |     |         |
+|-----------------|-----------------------------------------------------------------|----------|--------------|-----------------------------------------------------------|-------------------|------------------|---------|
+| Functional team | Feature                                                         | Owner    | Dev - Status | Test page                                                 | Tested By/ Distro | BZs              | remarks |
+| General         | oVirt Live 3.5 (testing)                                        |          |              |                                                           |                   |                  |         |
+| General         | upgrade from 3.4 (testing)                                      |          |              |                                                           |                   |                  |         |
+| General         | All in One setup (testing)                                      |          |              |                                                           |                   |                  |         |
+| Network         | Neutron Appliance                                               | masayag  |              | <http://www.ovirt.org/Features/NeutronVirtualAppliance>   |                   | 1078862          |         |
+| Network         | Network Custom Properties (bridge_opts, ethtool_opts, custom) | lvernia  | Done         | <http://www.ovirt.org/Features/Network_Custom_Properties> |                   | 1080984, 1080987 |         |
+| Network         | NIC errors in event log                                         | alkaplan | Done         |                                                           |                   | 1079719          |         |
+| Network         | Arbitrary VLAN-tagged network name                              | alkaplan | Done         |                                                           |                   | 1091863          |         |
+| Network         | Warning upon display network changes                            | yzaspits | Done         |                                                           |                   | 1078836          |         |
+| Network         | Allow big MAC pool ranges                                       | mmucha   | Done         |                                                           |                   | 1063064          |         |
 
 ## Regression testing
 

@@ -127,6 +127,6 @@ Explanation: a. When remote user login using public key will execute /usr/bin/vd
 
 ##### TODO
 
-*   Integrate fakecharoot as wrapper to socat.
+*   Integrate fakechroot as wrapper to socat.
 
 <Category:Feature>

@@ -15,11 +15,11 @@ wiki_last_updated: 2014-06-27
 Currently, administrators of gluster deployments have no easy mechanism to track the health of a Gluster installation - that is, when a brick goes down, split brain occurs, disk is full etc. oVirt provides a poll based mechanism that uses the existing Gluster CLI to identify the volume's status and node status. This is not sufficient to get data about the issues like split-brain, quota exceeded etc. Also, there's a 5 min polling interval for brick status and hence the data displayed in oVirt may be considered stale. We need to provide an efficient way for:
 
 *   Monitoring of critical entities such as hosts, networking, volumes, clusters and services
-*   Alerting when critical infrastructure components fail and  recover, providing administrators with notice of important events.  Notification for Alerts can be delivered via email, SNMP. Alerts can be either seen on Nagios UI or on oVirt UI
+*   Alerting when critical infrastructure components fail and recover, providing administrators with notice of important events. Notification for Alerts can be delivered via email, SNMP. Alerts can be either seen on Nagios UI or on oVirt UI
 *   Reports providing a historical record of service outages, events and notifications for later review, through Nagios UI interface.
 *   Trending graphs and reports
 
-Since most enterprises already have or are familiar with existing monitoring frameworks like Nagios, we plan to integrate our monitoring solution with these, so that adoption is easier and time to market is much lesser.
+Since most enterprises already have or are familiar with existing monitoring frameworks like Nagios, we plan to integrate our monitoring solution with these.
 
 ## Owner
 
@@ -56,13 +56,14 @@ At a high-level, each functional block will have the following software componen
 
 **\1**
 
-*   UI plugins for alert dashboard and trends
+*   UI plugins for alert dashboard and trends. The Trends UI plugin is planned for the first phase.
+*   The monitoring plugin [Features/UIPlugins#oVirt_Monitoring_UI_Plugin](Features/UIPlugins#oVirt_Monitoring_UI_Plugin) can also be used to view the Nagios plugin data within oVirt
 
 ## Dependencies / Related Features
 
 *   Nagios Core
 *   Nagios Addons - NRPE , NSCA, MK Livestatus, PNP4Nagios etc
-*   Nagios pluggins
+*   Nagios plugins
 *   Ovirt UI Monitoring Plugin
 
 ## Packaging
@@ -73,6 +74,8 @@ At a high-level, each functional block will have the following software componen
 ## User Flows
 
 ### External events from Nagios
+
+**\1**
 
 If oVirt is integrated with Nagios for monitoring, any alert/event detected by Nagios needs to be sent to oVirt. This can be done through notification methods.
 
@@ -105,11 +108,11 @@ In a cluster, there are services that provide additional functionality like NFS 
 
 ### Nagios Dashboard and Trends
 
-Dashboard and trends tabs will be added to the oVirt-UI through ui-plugins approach. All the alerts pushed from Nagios to oVirt will be shown in the dashboard. It will also show a summary of the entities currently being manged by oVirt like Hosts, Volumes and Bricks. Alerts will be shown for individual clusters as well.
+Dashboard and trends tabs will be added to the oVirt-UI through ui-plugins approach. All the alerts pushed from Nagios to oVirt will be shown in the dashboard. It will also show a summary of the entities currently being manged by oVirt like Hosts, Volumes and Bricks. Alerts will be shown for individual clusters as well. This is planned for a subsequent release.
 
 ![](Ovirt-dashboard.png "Ovirt-dashboard.png")
 
-Trends tab will show the graphs from pnp4nagios. The graphs will be displayed based on the user selection in System Tree. If user has selected a particular cluster, the volume utilization graph will be shown for all the volumes in the cluster. In the same way, when a volume is selected in the system tree, brick utilization graph for all the bricks part of that volume will be shown.
+Trends tab will show the graphs from pnp4nagios. The graphs will be displayed based on the user selection in System Tree. Available from 3.5 If user has selected a particular cluster, the volume utilization graph will be shown for all the volumes in the cluster. In the same way, when a volume is selected in the system tree, brick utilization graph for all the bricks part of that volume will be shown.
 
 The graphs by default will be shown for last 24 hours. The user select a custom time range for displaying the graph data. Graphs shown in the page can be either printed directly or can be saved as a report in PDF format.
 
@@ -159,16 +162,11 @@ The graphs by default will be shown for last 24 hours. The user select a custom 
 
 ![](syslog.png "syslog.png")
 
-*   Nagios server initiates the check by invoking the NRPE client.
-*   NRPE client passes the information to NRPE server running on the remote host, which in turn executes the check_logfiles plugin.
-*   If there is any matching pattern :
-    1.  Configured action scripts get executed, which will send traps/alerts to the Nagios server
-    2.  Status will be returned back to Nagios server.
-*   Nagios server will process the alerts/traps and invokes the event handler script to perform additional actions(SNMP traps, SMS, E-mail etc.).
+*   rsyslog's omprog filter is used to send passive checks to Nagios server whenever logs of interest appear in syslog.
+*   omprog allows for the execution of external scripts and this is used to send an NSCA check result
+*   Currently implemented for quorum and quota logs
 
-*'Alternatively check_logfiles plugin can be executed from an external program as a passive check*
-
-### Resources to be Monitored
+### Resources/Entities Monitored in the cluster
 
 *   List of Physical Resources that need to be monitored :
     1.  Hosts (Servers)
@@ -190,21 +188,122 @@ The graphs by default will be shown for last 24 hours. The user select a custom 
     1.  Operational Status
     2.  Utilization
 
-### Services/Operations to be monitored
+<!-- -->
 
 *   Monitoring of Access Services such as:
     1.  SMB
     2.  CTDB
+    3.  NFS
 
 <!-- -->
 
-*   Monitoring of background operations such as:
+*   Monitoring of gluster specific status such as:
     1.  Self-Heal(Gluster specific)
     2.  Geo-Replication(Gluster specific)
+    3.  Cluster Quorum
 
 <!-- -->
 
-*   Alerting mechanisms needed for spilt-brain
+*   TODO: Alerting mechanisms needed for spilt-brain
+
+## HOW TO
+
+This installation has been currently tested on Fedora20 / RHEL6
+
+Requirements:
+
+*   Fedora20/ RHEL 6 server to host Nagios server
+*   Two or more nodes in a gluster trusted pool. (Note: In a pinch for resources, Nagios server can also be installed on one of the nodes)
+
+### Installing Nagios plugins on the nodes
+
+Download the gluster-nagios-common and nagios-server-addons from download.gluster.org repository
+
+On Fedora 20
+
+    # yum install gluster-nagios-common gluster-nagios-addons
+
+On RHEL6
+
+RHEL users must add the EPEL yum repository to obtain the dependency packages
+
+    # yum install http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+
+    # yum install gluster-nagios-common gluster-nagios-addons
+
+Make sure that the node can receive nrpe requests from nagios server. You can do this by editing `/etc/nagios/nrpe.cfg` and adding the nagios server host ip/name to allowed_hosts
+
+    # service nrpe restart
+
+### Installing Nagios server addons for monitoring
+
+Download the gluster-nagios-common and nagios-server-addons from download.gluster.org repository
+
+On Fedora 20
+
+    # yum install gluster-nagios-common nagios-server-addons
+
+This will install dependencies like nrpe, nsca, mk_livestatus if not already installed
+
+On RHEL6
+
+RHEL users must add the EPEL yum repository to obtain the dependency packages
+
+    # yum install http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+
+    # yum install gluster-nagios-common nagios-server-addons
+
+Make sure the http/s ports are accessible
+
+    # iptables -I INPUT 4 -p tcp --dport 443 -m state --state NEW,ESTABLISHED -j ACCEPT
+    # service iptables save
+    # service iptables restart
+
+For mk_livestatus to work, SELinux needs to be in permissive mode.
+
+Change this using:
+
+    # setenforce 0
+
+Run configuration script to detect the nodes/volumes in the gluster trusted pool and to create Nagios services for these
+
+    # /usr/lib64/nagios/plugins/gluster/discovery.py -c <name for your cluster> -H <hostname/ip of any node in your cluster>
+
+This will configure monitoring for gluster services on nodes in your cluster. A sample screenshot is below
+
+![](Gluster-Nagios-screenshot.png "Gluster-Nagios-screenshot.png")
+
+### Instegrating with oVirt
+
+Nagios integration is done via 2 options
+
+Option 1. Trends plugin Checkout the samples-ui-plugins project from gerrit.ovirt.org - [sample-ui-plugins](http://gerrit.ovirt.org/gitweb?p=samples-uiplugins.git;a=summary)
+
+Create a symlink to gluster-nagios-monitoring/src and gluster-nagios-monitoring/gluster-nagios-monitoring.json under `/usr/share/ovirt-engine/ui-plugins`
+
+    # ln -s <path to sample-ui-plugins>/gluster-nagios-monitoring/src gluster-nagios-monitoring
+    # ln -s <path to sample-ui-plugins>/gluster-nagios-monitoring/gluster-nagios-monitoring.json gluster-nagios-monitoring.json
+
+Edit the `/usr/share/ovirt-engine/ui-plugins/gluster-nagios-monitoring.json` as below:
+
+    {
+        "name": "GlusterNagiosMonitoring",
+        "url": "plugin/GlusterNagiosMonitoring/start.html",
+        "resourcePath": "gluster-nagios-monitoring",
+        "config": {
+                        "showDashboard": "true",
+                        "messageOrigins":["http://ovirt-engine-hostname:80"], //path to ovirt-engine server
+                        "pnp4nagiosUrl" : "http://nagios-server" //path to nagios server
+                      }
+    }
+
+You should now see a Trends tab and a Dashboard tab once logged into oVirt like below
+
+Option 2 : Using the Monitoring-UI plugin
+
+Install the monitoring ui plugin as per [Features/UIPlugins#oVirt_Monitoring_UI_Plugin]
+
+The Gluster services will be available in a sub-tab under the cluster as well as each host.
 
 ## Detailed Design
 

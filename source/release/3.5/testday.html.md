@@ -59,6 +59,7 @@ Following tests should be performed on all supported distributions.
 | Network         | NIC errors in event log                                         | alkaplan | Done         |                                                           |                   |     |         |
 | Network         | Arbitrary VLAN-tagged network name                              | alkaplan | Done         |                                                           |                   |     |         |
 | Network         | Warning upon display network changes                            | yzaspits | Done         |                                                           |                   |     |         |
+| Network         | Allow big MAC pool ranges                                       | mmucha   | Done         |                                                           |                   |     |         |
 
 ## Regression testing
 

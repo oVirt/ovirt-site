@@ -301,7 +301,7 @@ You should now see a Trends tab and a Dashboard tab once logged into oVirt like 
 
 Option 2 : Using the Monitoring-UI plugin
 
-Install the monitoring ui plugin as per [Features/UIPlugins#oVirt_Monitoring_UI_Plugin]
+Install the monitoring ui plugin as per [Features/UIPlugins#oVirt_Monitoring_UI_Plugin](Features/UIPlugins#oVirt_Monitoring_UI_Plugin)
 
 The Gluster services will be available in a sub-tab under the cluster as well as each host.
 

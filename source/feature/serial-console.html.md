@@ -128,5 +128,6 @@ Explanation: a. When remote user login using public key will execute /usr/bin/vd
 ##### TODO
 
 *   Integrate fakechroot as wrapper to socat.
+*   Integrate with gate one html5 ssh client.
 
 <Category:Feature>

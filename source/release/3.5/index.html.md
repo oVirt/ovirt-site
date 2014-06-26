@@ -421,6 +421,13 @@ More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_
 
 ### oVirt Hosted Engine Setup
 
+Fixed in beta
+
+* OVIRT35 - [RFE] Allow setup of iSCSI based storage for hosted engine
+ - can't setup second host when using iscsi
+ - PRD35 - [RFE] At the end of the HE install wizard the default to install in "No", and if you choose it, it will forget all wizard settings.
+ Fixed in alpha
+
 * hosted engine deployment always try to add hosts to cluster named "default". If the cluster name is different host won't be automatically added to RHEVM.
  - If cluster=Default does not exist in hosted-engine it will fail and timeout
  - hosted-engine setup fails when using VLAN tagged interfaces

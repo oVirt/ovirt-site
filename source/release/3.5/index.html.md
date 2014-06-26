@@ -156,7 +156,76 @@ More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine
 
-**Fixed in ovirt-engine-3.5.0_alpha2**
+**Fixed in ovirt-engine-3.5.0_beta**
+  - PRD35 - [RFE] Mechanism for adding additional fence agents to mgr
+ - ovirt-engine-backend : uninformative error while trying to retrieve ISO list when ISO domain is inactive
+ - PRD35 - [RFE] rhevm-websocket-proxy - using as standalone service - automatic configuration
+ - PRD35 - [RFE] Need API to 'unlock' a running VM when connecting to it through the REST API
+ - stopping the engine service while fencing is in progress might result in powered-off hosts
+ - PRD35 - [RFE] Give notification to Admin User, when RHEV Storage Domain approaches the limit of 350 LVs
+ - New VM window | Add NIC | The NIC name can start from any number instead of nic1
+ - vm dialog -> boot order -> first device resets the second
+ - OVIRT35 - [RFE] Allow long running operations converging by vm stats monitoring
+ - VMs get stuck in 'Unknown' state when power management is not working.
+ - [oVirt] [Fix] Enable balloon by default
+ - RHEV 3.3 rhevm-shell can't change cluster policy to a custom policy
+ - [engine] exporting thin-provision vm and its template in parallel fails with deadlock in db
+ - When RHEV reports a problem with a storage domain, it should report \*\*which\*\* storage domain
+ - [User Portal] Three squares loading indication missing in Events subtab
+ - OVIRT35 - [RFE] Allow setup of ovirt-websocket-proxy on separate machine
+ - OVIRT35 - [RFE] replace XML-RPC communication (engine-vdsm) with json-rpc based on bidirectional transport
+ - notifier daemon is not keeping startup settings after upgrade to 3.3
+ - PRD35 - [RFE] - introduction of Command-Coordination infrastructure
+ - OVIRT35 - [RFE] using foreman provider to provision bare-metal hosts
+ - Override MTU keeps old MTU value when disabled
+ - [webadmin-ux] contextual helper window has no scroll bar
+ - compensation in removeStorageCommand fails
+ - Searching for objects that _do not_ have a tag in the search bar is not possible
+ - [engine-backend] [iSCSI multipath] Required cluster network shouldn't be allowed to be added to an iSCSI multipath bond
+ - [UI] Vmpool/cluster SPICE proxy address format info is missing.
+ - Importing an Export/ISO storage domain automatically activates the domain
+ - Inconsistent VirtIO direct lun disk attachment behaviour.
+ - The metadata of the move and copy disk operations is ignored
+ - Reduce blocking operations as part of hosts & VMs monitoring cycles
+ - Possible to create template from vm without disk via REST on cluster without hosts and storage domains
+ - [host-deploy] host-deploy should be able to work with (remote) /tmp as noexec
+ - Refresh capabilities is greyed out for non-operational Host
+ - [RHEVM] [neutron integration] change rpc_backend to neutron in neutron.conf
+ - PRD35 - [RFE] Drop Linux bridge plugin support from neutron integration
+ - AAA: User name contains domain name twice
+ - Deadlock detected when performing plug/unplug VNIC action
+ - application list database limit is too small (4000 chars)
+ - [RFE] Add column sorting to VM main tab
+ - Failed VM migrations do not release VM resource lock properly leading to failures in subsequent migration attempts
+ - Every SearchQuery is improperly evaluated as unsafe expression.
+ - improper exception handling
+ - VM Pools do not properly inherit admin roles in the admin portal
+ - Console USB configuration not persisted on Edit VM window
+ - RHEV needs to support 4,000 GB of Memory
+ - [RFE] Add column sorting to Template main tab
+ - [RFE] Add column sorting to Pools main tab
+ - the length of network QoS's name is inconsistent with the tooltip
+ - Issue / strange behavior with GlusterFS nodes
+ - [Neutron integration] Custom device properties are not passed to vdsm
+ - upgrade doesn't migrate correctly from jboss-as to ovirt-engine-jboss-as
+ - unable to create storage domain
+ - if getReturnValue().setSucceeded(true); is called before exception is thrown command is presented as successful.
+ - "e-mail" column header could use capitalization in Users tab
+ - Upgrades from 3.5 on should look for Command Coordinator related changes to Aysc Tasks
+ - Force remove storage domain from data center causes data corruption to remaining vm's which had disks on the removed domain
+ - [AAA] Not possible to add group via REST API.
+ - Custom Sysprep / Custom Script editor: Enter key appends new-line always at the end of the textarea
+ - NPE on generateOvfStoreDescription
+ - User fails to get attached to a prestarted pool in case messages parameter of canRunVm is null - NPE is throwed
+ - vdc_options' GuestToolsSetupIsoPrefix uses downstream value, prevents auto-attaching ovirt-guest-tools
+ - log is flooded with unclear message regarding vmjobs
+ - [upgrade/async-tasks] 'Plugin' object has no attribute 'queryBoolean'
+ - Disk image dynamic data is updated with stats reported by a vm that a snapshots of the disk is plugged to
+ - [engine-manage-domains] Engine tries connect to ldap servers which are not specified in --ldap-servers option
+ - Same connection is sent multiple times on ConnectStorageServer
+ - Spelling issues in several engine-config keys
+ - NPE on logging task with no vdsm task ID
+ **Fixed in ovirt-engine-3.5.0_alpha2**
   - UserRole permission on System/DC/Cluster doesn't work as expected
  - malformated guid's cause http 500
  - webadmin: we can create a V1 format posix domain when selecting "None" option in Data Center

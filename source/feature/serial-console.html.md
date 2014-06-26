@@ -125,4 +125,8 @@ Explanation: a. When remote user login using public key will execute /usr/bin/vd
       exec():
          socat -,raw,echo=0 UNIX-CONNECT:/path/to/usock
 
+##### TODO
+
+*   Integrate fakecharoot as wrapper to socat.
+
 <Category:Feature>

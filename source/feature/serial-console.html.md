@@ -98,7 +98,11 @@ VDSM will maintain ~vmconsole/.ssh/authorized_keys within the following format f
 
       command="/usr/bin/vdsm-vmconsole HASH(PUBLIC_KEY)",no-agent-forwarding,no-port-forwarding,no-user-rc,no-X11-forwarding PUBLIC_KEY
 
-Explanation: a. When remote user login using public key will execute /usr/bin/vdsm-vmconsole b. The vdsm-vmconsole utility will accept the public key hash as parameter to know what entity is trying to access. c. various of feature disable statement.
+Explanation:
+
+1.  When remote user login using public key will execute /usr/bin/vdsm-vmconsole
+2.  The vdsm-vmconsole utility will accept the public key hash as parameter to know what entity is trying to access.
+3.  various of feature disable statement.
 
 #### sshd separate daemon configuration
 

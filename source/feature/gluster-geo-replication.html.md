@@ -96,7 +96,7 @@ The below dialog fetches and lists the default values of all the configurations 
 
 #### Geo-Replication Session Details
 
-With the distributed geo-replication, when a geo-replication session is created for a volume, internally more than one session will be created depending on the type of the volume and where the bricks are residing. This view will list all the individual sessions, their status and Up time. Additionally this will also contain the detailed status of the geo-replication session.
+With the distributed geo-replication, when a geo-replication session is created for a volume, internally geo-rep process will be running on each of the nodes where the bricks are residing. This view will list all the individual nodes, their status and Up time. Additionally this will also contain the detailed status for each node
 
 ![](Georepsession4details.png "Georepsession4details.png")
 

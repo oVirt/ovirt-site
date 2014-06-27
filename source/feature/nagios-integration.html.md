@@ -217,7 +217,7 @@ This installation has been currently tested on Fedora20 / RHEL6
 
 ### Installing Nagios plugins on the nodes
 
-To download the `gluster-nagios-common` and `gluster-nagios-addons` packages add the repo at [download.gluster.org repository](http://download.gluster.org/pub/gluster/glusterfs-nagios)
+To download the `gluster-nagios-common` and `gluster-nagios-addons` packages, add the repo at [download.gluster.org repository](http://download.gluster.org/pub/gluster/glusterfs-nagios)
 
 On Fedora 20
 

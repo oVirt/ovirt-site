@@ -119,7 +119,7 @@ Explanation:
 2.  The vdsm-vmconsole utility will accept the public key hash as parameter to know what entity is trying to access.
 3.  various of feature disable statement.
 
-#### sshd separate daemon configuration
+#### Dedicated ssh daemon configuration
 
 Using system sshd has limitations:
 

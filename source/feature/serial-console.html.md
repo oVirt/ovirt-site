@@ -165,7 +165,7 @@ Performs rpc to vdsm or read registry to acquire authorized keys at same format 
 
 ##### TODO
 
-*   Integrate fakechroot as wrapper to socat.
+*   Integrate fakechroot as wrapper to socat, once program is ready as we can inherit the usock fd.
 *   Integrate with gate one html5 ssh client.
 
 <Category:Feature>

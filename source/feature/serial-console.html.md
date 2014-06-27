@@ -127,6 +127,7 @@ Using system sshd has limitations:
 *   Exposing potential shell access to host.
 *   Managing the authorized_keys file dynamically may lead to security issues, as leftovers may remain.
 *   Syncing configuration and file is redundant.
+*   vmconsole home directory can be owned by vdsm (unprivileged) user instead of root.
 
 Solving the above is possible by adding dedicated sshd instance that will run at different port under the vmconsole user.
 

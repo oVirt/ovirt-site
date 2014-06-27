@@ -111,7 +111,7 @@ This provides write throughput of files on a specific brick/brick-wise
 *   READ-PERF
 *   WRITE-PERF
 
-##### REST API
+#### REST API
 
 *   GET: /api/clusters/<cluster-id>/glustervolumes/<volume-id>/top;type=<TopStatisticType>
     -   Other matrix parameters

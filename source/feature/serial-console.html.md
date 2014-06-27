@@ -129,7 +129,7 @@ Solving the above is possible by adding dedicated sshd instance that will run at
       KbdInteractiveAuthentication no
       KerberosAuthentication no
       PasswordAuthentication no
-      Port 8080
+      Port 2222
       PubkeyAuthentication yes
       RSAAuthentication no
       X11Forwarding no

@@ -75,7 +75,7 @@ VDSM will have registry of public keys per VM, this can be modified throughout V
         ~vmconsole/registry
         Permissions: ro by vmconsole group.
 
-*   Alternative#2 use some RPC over usock into vdsm. Although looks promising we must maintain the authorized_keys file in sync, so file management will be done one way or the other, best to keep single interaction.
+*   Alternative#2 use some RPC over usock into vdsm.
 
 ##### Fields
 

@@ -259,9 +259,7 @@ Make sure the http/s ports are accessible
     # service iptables save
     # service iptables restart
 
-For `mk_livestatus` to work, SELinux needs to be in permissive mode.
-
-Change this using: Note: The below will not survive reboots
+For `mk_livestatus` to work, SELinux needs to be in permissive mode. Note: The below will not survive reboots
 
     # setenforce 0
 

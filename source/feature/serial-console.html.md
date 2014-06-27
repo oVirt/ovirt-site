@@ -55,7 +55,7 @@ wiki_last_updated: 2015-06-15
 
 #### vmconsole user/group
 
-A new os user and group will be created at vdsm installation: vmconsole, no password access is allowed, no shell, home directory at /var/lib/vmconsole.
+A new os user and group will be created at vdsm installation: vmconsole, no password access is allowed, no shell, home directory at /var/lib/vdsm-vmconsole.
 
       vmconsole:x:XX:XX:vmconsole:/var/lib/vdsm-vmconsole:/sbin/nologin
 

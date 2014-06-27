@@ -14,14 +14,14 @@ wiki_last_updated: 2015-06-15
 
 *   Implicit connection, single vm available
 
-      $ ssh -t vmconsole@host
+      $ ssh -p 2222 -t vmconsole@host
       Fedora release 19 (Schrödinger’s Cat)
       Kernel 3.13.5-101.fc19.x86_64 on an x86_64 (ttyS0)
       localhost login:
 
 *   Implicit connection, multiple vm available
 
-      $ ssh -t vmconsole@host
+      $ ssh -p 2222 -t vmconsole@host
       1. vm1
       2. vm2
       3. vm3
@@ -32,7 +32,7 @@ wiki_last_updated: 2015-06-15
 
 *   Explicit connection:
 
-      $ ssh -t vmconsole@host vm3
+      $ ssh -p 2222 -t vmconsole@host vm3
       Fedora release 19 (Schrödinger’s Cat)
       Kernel 3.13.5-101.fc19.x86_64 on an x86_64 (ttyS0)
       localhost login:

@@ -267,7 +267,7 @@ Run configuration script to detect the nodes/volumes in the gluster trusted pool
 
     # /usr/lib64/nagios/plugins/gluster/discovery.py -c <name for your cluster> -H <hostname/ip of any node in your cluster>
 
-This will configure monitoring for gluster services on nodes in your cluster. A sample screenshot is below
+This will configure monitoring for gluster services on nodes in your cluster. A sample screenshot from nagios server at <https://hostname/nagios> is below
 
 ![](Gluster-Nagios-screenshot.png "Gluster-Nagios-screenshot.png")
 

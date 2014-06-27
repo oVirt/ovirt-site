@@ -171,7 +171,10 @@ To view the profile info, "Details" sub-menu of the Profiling menu needs to be c
 
 ### HOW TO
 
-1. Create a gluster volume using the Volumes tab or you can use an existing volume 2. Start profiling on the volume by clicking on "Profiling" sub tab after selecting the volume 3. Mount the volume using NFS or any other client if not already mounted and perform some read/write operations on it 4. You can now view the profile statistics using "Profiling" sub tab or the API
+1.  Create a gluster volume using the Volumes tab or you can use an existing volume
+2.  Start profiling on the volume by clicking on "Profiling" sub tab after selecting the volume
+3.  Mount the volume using NFS or any other client if not already mounted and perform some read/write operations on it
+4.  You can now view the profile statistics using "Profiling" sub tab or the API
 
 ## Design
 

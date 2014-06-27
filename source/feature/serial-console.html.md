@@ -147,7 +147,7 @@ Performs rpc to vdsm or read registry to acquire authorized keys at same format 
 
 ##### Output
 
-*   /var/log/vdsm-console/access.log - audit log
+*   /var/log/vdsm-vmconsole/access.log - audit log
 *   Syslog
 
 ##### Logic

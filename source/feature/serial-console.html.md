@@ -10,6 +10,19 @@ wiki_last_updated: 2015-06-15
 
 # oVirt Serial Console
 
+### Mission
+
+Enable secure access to VM serial by users via ssh.
+
+### Outline
+
+*   Access to console will be performed using SSH protocol.
+*   Authentication is public key based only;
+    -   more secure than most alternatives.
+    -   avoid the need to perform user management at host side.
+*   Separate access to console subsystem using separate unprivileged ssh daemon.
+*   Proxy communication between ssh session and unix domain socket, at which vm serial is tunnelled.
+
 ### User Interaction Example
 
 *   Implicit connection, single vm available

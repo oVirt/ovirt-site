@@ -169,7 +169,7 @@ To view the profile info, "Details" sub-menu of the Profiling menu needs to be c
 *   POST: /api/clusters/<cluster_id>/glustervolumes/<volume_id>/startprofiling
 *   POST:/api/clusters/<cluster_id>/glustervolumes/<volume_id>/stopprofiling
 
-### HOW TO
+#### HOW TO
 
 1.  Create a gluster volume using the Volumes tab or you can use an existing volume
 2.  Start profiling on the volume by clicking on "Profiling" sub tab after selecting the volume

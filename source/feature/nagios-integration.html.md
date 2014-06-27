@@ -210,14 +210,14 @@ The graphs by default will be shown for last 24 hours. The user select a custom 
 
 This installation has been currently tested on Fedora20 / RHEL6
 
-Requirements:
+**Pre-requisites**:
 
 *   Fedora20/ RHEL 6 server to host Nagios server
 *   Two or more nodes in a gluster trusted pool. (Note: In a pinch for resources, Nagios server can also be installed on one of the nodes)
 
 ### Installing Nagios plugins on the nodes
 
-Download the gluster-nagios-common and nagios-server-addons from download.gluster.org repository
+Download the `gluster-nagios-common` and `gluster-nagios-addons` from [repository](http://download.gluster.org/pub/gluster/glusterfs-nagios)
 
 On Fedora 20
 
@@ -231,19 +231,19 @@ RHEL users must add the EPEL yum repository to obtain the dependency packages
 
     # yum install gluster-nagios-common gluster-nagios-addons
 
-Make sure that the node can receive nrpe requests from nagios server. You can do this by editing `/etc/nagios/nrpe.cfg` and adding the nagios server host ip/name to allowed_hosts
+Make sure that the node can receive nrpe requests from nagios server. You can do this by editing `/etc/nagios/nrpe.cfg` and adding the nagios server host ip/name to `allowed_hosts`
 
     # service nrpe restart
 
 ### Installing Nagios server addons for monitoring
 
-Download the gluster-nagios-common and nagios-server-addons from download.gluster.org repository
+Download the `gluster-nagios-common` and `nagios-server-addons` from [repository](http://download.gluster.org/pub/gluster/glusterfs-nagios)
 
 On Fedora 20
 
     # yum install gluster-nagios-common nagios-server-addons
 
-This will install dependencies like nrpe, nsca, mk_livestatus if not already installed
+This will install dependencies like nagios, nrpe, nsca, mk_livestatus if not already installed
 
 On RHEL6
 
@@ -261,7 +261,7 @@ Make sure the http/s ports are accessible
 
 For `mk_livestatus` to work, SELinux needs to be in permissive mode.
 
-Change this using:
+Change this using: Note: The below will not survive reboots
 
     # setenforce 0
 

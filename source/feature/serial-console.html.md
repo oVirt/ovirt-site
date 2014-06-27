@@ -72,6 +72,8 @@ A new os user and group will be created at vdsm installation: vmconsole, no pass
 
       vmconsole:x:XX:XX:vmconsole:/var/lib/vdsm-vmconsole:/sbin/nologin
 
+Home directory and all files are owned by root, to avoid modifications, readable to vmconsole group, if dedicated instance of sshd is used, directory is owned by vdsm user instead of root.
+
 #### VM console allocation
 
 For each VM that is serial console enabled a unix domain socket will be attached:

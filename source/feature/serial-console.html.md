@@ -153,7 +153,7 @@ Solving the above is possible by adding dedicated sshd instance that will run at
 
 ##### /bin/vdsm-vmconsole-authkeys utility
 
-Performs rpc to vdsm or read registry to acquire authorized keys at same format as outlined above.
+Performs rpc to vdsm or read registry to acquire authorized keys at same format as outlined above, and replaces the ~/.ssh/authorized_keys file functionality.
 
 #### vdsm-vmconsole utility
 

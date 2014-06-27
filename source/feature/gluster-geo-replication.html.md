@@ -30,7 +30,7 @@ To read more about GlusterFS geo-replication, see <http://gluster.org/community/
 ## Current Status
 
 *   Status: In Progress
-*   Last updated date: Thu Aug 14 2013
+*   Last updated date: ,
 
 ## Detailed Description
 

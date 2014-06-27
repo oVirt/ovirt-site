@@ -100,6 +100,44 @@ VDSM will maintain ~vmconsole/.ssh/authorized_keys within the following format f
 
 Explanation: a. When remote user login using public key will execute /usr/bin/vdsm-vmconsole b. The vdsm-vmconsole utility will accept the public key hash as parameter to know what entity is trying to access. c. various of feature disable statement.
 
+#### sshd separate daemon configuration
+
+Using system sshd has limitations:
+
+*   Sysadmin may configure sshd in a way it will not read ~/.ssh, but acquire it from external source.
+*   Exposing potential shell access to host.
+*   Managing the authorized_keys file dynamically may lead to security issues, as leftovers may remain.
+*   Syncing configuration and file is redundant.
+
+Solving the above is possible by adding dedicated sshd instance that will run at different port under the vmconsole user.
+
+##### sshd configuration
+
+~vmconsole/ssh/sshd_config
+
+      AllowAgentForwarding no
+      AllowTcpForwarding no
+      AllowUsers vmconsole
+      AuthorizedKeysCommand /usr/bin/vdsm-vmconsole-authkeys
+      AuthorizedKeysCommandUser vmconsole
+      AuthorizedKeysFile /dev/null
+      AuthorizedPrincipalsFile /dev/null
+      ChallengeResponseAuthentication no
+      GSSAPIAuthentication no
+      HostKey /var/lib/vdsm-vmconsole/ssh/ssh_host_rsa_key
+      HostbasedAuthentication no
+      KbdInteractiveAuthentication no
+      KerberosAuthentication no
+      PasswordAuthentication no
+      Port 8080
+      PubkeyAuthentication yes
+      RSAAuthentication no
+      X11Forwarding no
+
+##### /bin/vdsm-vmconsole-authkeys utility
+
+Performs rpc to vdsm or read registry to acquire authorized keys at same format as outlined above.
+
 #### vdsm-vmconsole utility
 
 ##### Input

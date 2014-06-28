@@ -163,7 +163,8 @@ Performs rpc to vdsm or read registry to acquire authorized keys at same format 
 ##### Input
 
 *   ENVIRONMENT(SSH_ORIGINAL_COMMAND) - explicit vm (optional).
-*   argv[1] - public key hash
+*   ENVIRONMENT(HOME) - home directory, where registry is.
+*   argv[1] - public key hash.
 
 ##### Output
 

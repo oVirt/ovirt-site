@@ -12,14 +12,14 @@ wiki_last_updated: 2015-04-12
 
 This page lists administrator assignments of the Infrastructure team.
 
-Project coordinator: Kiril Nesenko <knesenko@redhat.com>
+Project coordinator: David Caro <dcaroest@redhat.com>
 
 *   Jenkins - jenkins.ovirt.org: eedri, dcaro, knesenko
 *   Gerrit - gerrit.ovirt.org: iheim, rydekull, dcaro
-*   Mailman - lists.ovirt.org: quaid
-*   MediaWiki - www.ovirt.org: quaid, DNeary, garrett
-    -   OpenShift - www.ovirt.org: quaid, DNeary, garrett, rydekull
-*   Resources - resources.ovirt.org: mburns, eedri, quaid, rydekull, dcaro
+*   Mailman - lists.ovirt.org: quaid, misc
+*   MediaWiki - www.ovirt.org: quaid, DNeary, garrett, misc
+*   OpenShift - www.ovirt.org: quaid, DNeary, garrett, rydekull
+*   Resources - resources.ovirt.org: misc, eedri, quaid, rydekull, dcaro
 
 ## Public sshkeys used by each administrator
 
@@ -45,29 +45,11 @@ Project coordinator: Kiril Nesenko <knesenko@redhat.com>
 
     ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA0oQOkgks69qJkPIZeKC/uRGDyjkHHeULCdTtzs2I3ye0W0+Dg+Bl3rkhxX0S9xKanmhensvLfSXb01i6b5Qga9A8efVEgvQzDal456ahff64w+QPJ5IUPzfGYpGJAJp9MggjrgfOnIzfgC2Zo15rszOYuEmuLTsDs72kwvFVvZJJ9DPkaPvKCvoo3aykwbmJbVl7fDWPwvIKVOF+RwXeGqH2AsMwGyOVwn0Ik3ywcZhylkmoDg4RAS1n4F6gPk1GzHVcEYGMtwgVJQSi6FfEkkqwFfxRJUE562M0XwW5Zsy4FyiUsnHPMzIdcGQ1iSMGcV9z1506dSM0b/bN1guvgw== Ewoud Kohl van Wijngaarden
 
-*   mburns (maintainer)
-
-<!-- -->
-
-    ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA124a2/78sptq4NmxoFG6j+6StlMmWpqkbPCIBTnt3ACp7D7h8CdIRNVquBuuf5PicmrhGZ0yWLZpHQp5Eux8Eld4Kc4ZF/J0hDZU9BurBjRiJln+ikSjhABhudNo6255ZroUhI2hmsyerToR++NO/r8ilGihZdP/Mwm8++K/pDpM6jr0KUmtdDwgcIrv58NLgOkBl4q0shdJVvAZVobuEoctJ/CDaCtNiaPov1KetE/qCZ6EXn8ouZlxMS+yZtNyXzwfXx7znldajt3EoONDk2jUy1Ns4eC6ANE8HgnAw625HSL8neq8FcEp+YsIhT1Yc51574CCtK1ycJtFxbzsew== mburns@beelzebub
-
-*   oschreib (apprentice)
-
-<!-- -->
-
-    ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDJE0LoB7OoL811FiwvlDeAnRyXx8qVdw2QA4Rw6aK0F0aDcdOe8nYk9UljEVk1j6w4v6vQudzJr/k2WczU26W87pVpknqyz4LX8W1Qb8tQjR2rUz2Rxt4w7/mqVGsASWXfz+r06jjeXRiyHrk+ER9IcxbLYgNeFaFymm6TP33aHHWxG2Ml61cR00J7Ou+4OUlx2+n0XgKjD+k+tmaAmC4m0xp6YUwqZ45saG0CiXml85GRChtAsxnXhlfHiCl9RW/QFTw1ZBV7br54dixm6poDpKCPU4v8/rNDIeUfv5JfB0RVVLtKpxEJRhkGBpD5xdUQeG4tMDkeNGH753VBaw9B oschreib@majesty
-
 *   quaid (maintainer)
 
 <!-- -->
 
     ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCfjnxEmcpPFKjdn/swdAZkhQgVL8Ngc1AG4CLFpeiW3z2KnQoF17wnqTEe7fPDtPHTxJyvsHFEUZHetBe351e8zH2USBV3IcYnQBosTG2086TWjxCBQ2N9Zi8aXLXHnv4vNQhC0ZNRbCuJ7MseKryScnPK5sFhh9u6IyaDG7ClnWtWvmR7y8dCYLb0ZAIJtSxdGHou/7K1b07AZul3L9cvOkLjSPKrSanLgWIOUjgXKbP+s9hZuiO0T7hX1Va46hvu3fthDqs7gMRLwvSUmZKjwSzlCrm8ftNhjK1snyzkoYtgC6i/1MM62EJ32qsAvudbt5tTEiXb69hHP4cGp0Hn kwade@terpsichore.fairy-talefarm.com
-
-*   rmiddle (maintainer)
-
-<!-- -->
-
-    ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAviBZZMTdNLYUXj/gAr4dUz07MlEBHlwIwObpXpKu//A9J7jSCL+DwxdvAjxDpxYoA24GUqxyQRAzV3tvdnsiuh6owvtEqBtd7JEv3VL/mQDG5uaXoAZ0p2nKkWWO9gyp9XXbEfDX/oLYsS4kaaprZHwIhoc8XrAL5ZGXBcJmu0aotifvmW46o55hdg8tmKNT0/BbdiNlivocYgD+ZsE+V7unBs2rUSDTWqO25vLoMdVfEyiwnIAwToFCimHG7gfYpUQnHp+zC3ZGYhRG+a7k9fVvLNGEv8BgJhJHeiwElhl1RYA9uvlzwRLWUCOnfvEnWj0DyCpqOaChaakGxKaKbw== rmiddle@starfury
 
 *   rydekull (apprentice)
 
@@ -87,10 +69,13 @@ Project coordinator: Kiril Nesenko <knesenko@redhat.com>
 
     ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC3lARddzwVFQu8WPibzkCz830OjzTztEOUE6uejgsqUTbd15VmAlUhm2UFZnElUVHk1cwpr7KYFWEmzFRzJ8w79j3AgfGqauvIXPfClsEfqp3UPPGDok7HakXnGj6zV4ePNzHsQfn38DxwLblyR9c+S2O4R4sL62J2BhESvZGG5RfzlJPZghgkuh8jjlWDqN4jTYISMOaZ+jOueFLanEEzOuqct5QhyA1ToseWTfotXm40PYQlfx2OP9ub9Wevb1Sj0b832KccP+xrrePuRqgpJdg0PZZb/HknIND44k5gm+sMvm8mX6R6YfDPZNli76kCGi8hqiKnUroCe2niRe8x knesenko@redhat.com
 
-*   misc (Michael Scherer) (apprentice)
+*   misc (Michael Scherer) (maintainer)
 
 <!-- -->
 
     ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCcn358haGHznlVENXrWDdr25+aWUrDj+15fkg/7UhnrqBI3VvTC8tjr8RiuxY8CPJsvT6LMdmG/D/uXov3uErnWT0gyXSVj7C9giOWWev0KTODco/xhTQ53nK1qLajLN49qCJT+8w21PTXUGIRO6Hubx1U3CYlH1xvuV3xtyn9jCigM5HxWCb7y4JkSM8vaJU+RedTieyxdH0e+Gstbilu0gsKwSm9LJm4MoGf/6T+IkuTvSuDngUFKkVIb0+65s6a6hh4Wam5HYqG4MKkdFrrqbV+D+D6y8UugQ9byud59UDodPSALYXe9YJYfgj5X/6yJSKJk2MPBTS5OGyu5OCX misc@liliana
+
+</pre>
+*   rbarry (Rayn Barry) (apprentice)
 
 <Category:Infrastructure>

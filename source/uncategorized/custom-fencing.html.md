@@ -36,6 +36,7 @@ In oVirt 3.5 we had added custom fence configuration keys :
         CustomFenceAgentDefaultParams
         CustomVdsFenceOptionMapping
         CustomVdsFenceType
+        CustomFencePowerWaitParam
 
 Those keys are accessible from the engine-config util
 
@@ -44,5 +45,6 @@ Example : Adding zzz agent support for version 3.5 that maps internally to ipmi 
         engine-config -s CustomVdsFenceType="zzz"
         engine-config -s CustomFenceAgentMapping="zzz=ipmilan"
         engine-config -s CustomVdsFenceOptionMapping="zzz:port=ipport"
+        engine-config -s CustomFencePowerWaitParam="zzz=power_wait"
 
 In this case those changes remains valid after oVirt upgrades as well, so please use that method from oVirt 3.5 and on.

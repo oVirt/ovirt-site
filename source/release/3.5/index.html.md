@@ -9,23 +9,21 @@ wiki_revision_count: 127
 wiki_last_updated: 2015-01-06
 ---
 
-# OVirt 3.5 Release Notes
-
-DRAFT DRAFT DRAFT
-
-The oVirt development team is pleased to announce oVirt 3.5.0 Second Alpha release availability as of Jun 6th 2014. oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
+The oVirt development team is pleased to announce oVirt 3.5.0 Beta release availability as of Jun 30th 2014. oVirt is an open source alternative to VMware vSphere, and provides an excellent KVM management interface for multi-node virtualization.
 
 To find out more about features which were added in previous oVirt releases, check out the [oVirt 3.4.1 release notes](oVirt 3.4.1 release notes), [oVirt 3.3.5 release notes](oVirt 3.3.5 release notes), [oVirt 3.2 release notes](oVirt 3.2 release notes) and [oVirt 3.1 release notes](oVirt 3.1 release notes). For a general overview of oVirt, read [ the oVirt 3.0 feature guide](oVirt 3.0 Feature Guide) and the [about oVirt](about oVirt) page.
 
-## oVirt 3.5.0 SECOND ALPHA Release Notes
+# oVirt 3.5.0 BETA Release Notes
 
-### SECOND ALPHA RELEASE
+### BETA RELEASE
 
-The oVirt Project is working on oVirt 3.5.0 Second Alpha release. In order to install it you've to enable oVirt 3.5 pre release repository. See below section on Install / Upgrade for having detailed instructions.
+The oVirt Project is working on oVirt 3.5.0 Beta release. In order to install it you've to enable oVirt 3.5 pre release repository. See below section on Install / Upgrade for having detailed instructions.
 
 ### Known Issues
 
-*   You can't add hosts to 3.5 clusters until a new VDSM build with 3.5 compatibility level will be released (All in One won't work).
+*   if you're using f19 host, you'll need libvirt >= 1.0.1 to use cluster level 3.5
+*   (pkg will be provided from ovirt repo, but if it not there, you can update from f20 repo: : yum update --releasever=20 libvirt\\\* )
+*   You can't refresh iso file list after adding a host, see <https://bugzilla.redhat.com/show_bug.cgi?id=1114499> for a workarond.
 
 ### Feature #1
 
@@ -95,11 +93,11 @@ Note that some new **features in upcoming releases may very well be unavailable 
 *   Added support for VLAN-tagged network interfaces
 *   Added support for bonded network interfaces
 
-## Install / Upgrade from previous versions
+# Install / Upgrade from previous versions
 
 ### SECOND ALPHA RELEASE
 
-The oVirt Project is working on oVirt 3.5.0 Second Alpha release. In order to install it you've to enable oVirt 3.5 pre release repository.
+The oVirt Project is working on oVirt 3.5.0 Beta release. In order to install it you've to enable oVirt 3.5 pre release repository.
 
 **Please note that mirror may take a couple of days in order to be updated**
 
@@ -133,13 +131,13 @@ On the vdsmd restart that happens when upgrading vdsm to the oVirt 3.5 release, 
 
 ### oVirt Live
 
-A new oVirt Live ISO is available:
+A new oVirt Live ISO is available: (no update since the alpha, might be released seperatelly)
 
 [`http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live-el6-3.5.0-alpha2.iso`](http://resources.ovirt.org/pub/ovirt-3.5-pre/iso/ovirt-live-el6-3.5.0-alpha2.iso)
 
 ### oVirt Windows Guest Tools
 
-First alpha release of oVirt 3.5 WGT is available:
+First alpha release of oVirt 3.5 WGT is available: (no update since alpha)
 
 [`http://resources.ovirt.org/pub/ovirt-master-snapshot-static/iso/ovirt-guest-tools/ovirt-guest-tools-3.5-2.iso`](http://resources.ovirt.org/pub/ovirt-master-snapshot-static/iso/ovirt-guest-tools/ovirt-guest-tools-3.5-2.iso)
 
@@ -151,7 +149,7 @@ The installer itself maybe downloaded from:
 
 More information can be found in the [oVirt Windows Guest Tools](Features/oVirt_Windows_Guest_Tools) feature page.
 
-## <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed
+# <span class="mw-customtoggle-1" style="font-size:small; display:inline-block; float:right;"><span class="mw-customtoggletext">[Click to Show/Hide]</span></span>Bugs Fixed
 
 <div  id="mw-customcollapsible-1" class="mw-collapsible mw-collapsed">
 ### oVirt Engine

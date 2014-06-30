@@ -243,3 +243,16 @@ Following config values are used:
 3.  Progress of kdump flow on host can be seen on host's console with possible remote access using IPMI.
 
 ### Testing scenarios
+
+1.  Installation tests
+    1.  Adding a host with *Detect kdump flow* set to on and without *crashkernel* command line parameter
+        -   **Result**: host installation is OK, but warning message is displayed in Events tab and Audit log
+
+    2.  Adding a host with *Detect kdump flow* set to on, with *crashkernel* command line parameter, but without required version of *kexec-tools* package
+        -   **Result**: host installation is OK, but warning message is displayed in Events tab and Audit log
+
+    3.  Adding a host with *Detect kdump flow* set to on, with *crashkernel* command line parameter and with required version of *kexec-tools* package
+        -   **Result**: host installation is OK, in *General* tab of host detail view you should see *Kdump Status: Enabled*
+
+    4.  Adding a oVirt node host with *Detect kdump flow* set to on, with *crashkernel* command line parameter and with required version of *kexec-tools* package
+        -   **Result**: host installation is OK, in *General* tab of host detail view you should see *Kdump Status: Enabled*

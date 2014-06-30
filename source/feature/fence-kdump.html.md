@@ -221,3 +221,5 @@ Following config values are used:
 | ovirt-node                                                                            |
 | Enable kdump support in kernel                                                        |                                               |
 | Include kexec-tools package with fence_kdump configuration support                   |                                               |
+
+## Testing

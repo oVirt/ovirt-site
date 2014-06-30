@@ -81,9 +81,19 @@ This feature should make it easier to migrate from different environments to oVi
 
 #### Database
 
+No need for changes in the DB
+
 #### Backend
 
+*   Add provider from type "VMware"
+*   Add query for listing VMs from external provider
+*   Add command for import VM from external system into the export domain
+
 #### VDSM
+
+*   Add verb that returns VMs from external provider
+*   Add verb for the import operation, convert VM from the external system into the given storage domain
+*   The progress of the conversion should be reported in a similar way to how the progress of the live merge operation is made
 
 #### User Interface
 

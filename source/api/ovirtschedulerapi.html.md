@@ -358,10 +358,6 @@ Action Groups:
        ...
 ` `</cluster>
 
-### Packaging and Installation
-
-*   In Progress
-
 ### External Scheduler
 
 See [External Scheduler](Features/oVirt External Scheduler)

@@ -86,3 +86,9 @@ This feature should make it easier to migrate from different environments to oVi
 #### VDSM
 
 #### User Interface
+
+![](Add_provider.png "Add_provider.png")
+
+![](Import_vms_tab.png "Import_vms_tab.png")
+
+Conversion dialog - TBD

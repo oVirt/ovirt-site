@@ -215,4 +215,12 @@ Optional component that is capable of proxy connections, this component will run
 
 This requires key to be loaded into ssh-agent.
 
+#### Full wrapper
+
+Optional component that wraps ssh, not sure there is a value compared to previous methods.
+
+      ovirt-console vm1
+
+Problem: what credentials do we have to authenticate into the rest-api?
+
 <Category:Feature>

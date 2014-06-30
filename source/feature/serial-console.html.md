@@ -189,4 +189,30 @@ Performs rpc to vdsm or read registry to acquire authorized keys at same format 
 *   Integrate fakechroot as wrapper to socat, once program is ready as we can inherit the usock fd.
 *   Integrate with gate one html5 ssh client.
 
+### Client Side
+
+#### DNS proxy
+
+Optional component we can provide that is hosted at engine, and serve as resolver of VM location using rest-api, for example, the following will always be resolved into vm1's console:
+
+      ssh -p 2222 -t vmconsole@vm1.ovirt.net vm1
+
+The resolver will resolve vm1.ovirt.net into the host address on which vm1 is running.
+
+#### Locator utility
+
+Optional component to resolve VM host at client side using restapi, for example, the following will always be resolved into vm1's console:
+
+      ssh -p 2222 -t vmconsole@$(ovirt-engine-resolve-host by-vm --name=vm1) vm1
+
+Problem: what credentials do we have to authenticate into the rest-api?
+
+#### Proxy
+
+Optional component that is capable of proxy connections, this component will run on engine machine or any other, use the rest-api to resolve the VM, and ssh to remote host, for example, the following will always be resolved into vm1's console:
+
+      ssh -A -p 2222 -t vmproxy@engine vm1
+
+This requires key to be loaded into ssh-agent.
+
 <Category:Feature>

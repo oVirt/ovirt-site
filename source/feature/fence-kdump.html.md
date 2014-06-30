@@ -256,3 +256,5 @@ Following config values are used:
 
     4.  Adding a oVirt node host with *Detect kdump flow* set to on, with *crashkernel* command line parameter and with required version of *kexec-tools* package
         -   **Result**: host installation is OK, in *General* tab of host detail view you should see *Kdump Status: Enabled*
+
+2.  Kdump detection tests

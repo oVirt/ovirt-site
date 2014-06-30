@@ -263,7 +263,82 @@ Action Groups:
 
 ### REST
 
-*   In Progress
+*   methods:
+
+api/schedulingpolicies; add; POST; type: SchedulingPolicy; response: SchedulingPolicy api/schedulingpolicies; get; GET; response: SchedulingPolicies api/schedulingpolicies/{schedulingpolicie:id}; get; GET; response: SchedulingPolicy api/schedulingpolicies/{schedulingpolicie:id}: update: PUT; type: SchedulingPolicy; response: SchedulingPolicy api/schedulingpolicies/{schedulingpolicie:id}/balances: add: POST; type: BaseResource; response: BaseResource api/schedulingpolicies/{schedulingpolicie:id}/balances: get: GET; response: Balances api/schedulingpolicies/{schedulingpolicie:id}/balances/{balance:id}: delete: DELETE api/schedulingpolicies/{schedulingpolicie:id}/balances/{balance:id}: get: GET; response: Balance api/schedulingpolicies/{schedulingpolicie:id}/filters: add: POST; type: BaseResource; response: BaseResource api/schedulingpolicies/{schedulingpolicie:id}/filters: get: GET; response: Filters api/schedulingpolicies/{schedulingpolicie:id}/filters/{filter:id}: delete: DELETE api/schedulingpolicies/{schedulingpolicie:id}/filters/{filter:id}: get: GET; response: Filter api/schedulingpolicies/{schedulingpolicie:id}/weights: add: POST; type: BaseResource; response: BaseResource api/schedulingpolicies/{schedulingpolicie:id}/weights: get: GET; response: Weights api/schedulingpolicies/{schedulingpolicie:id}/weights/{weight:id}: delete: DELETE api/schedulingpolicies/{schedulingpolicie:id}/weights/{weight:id}: get: GET; response: Weight api/schedulingpolicyunits: get: GET; response: SchedulingPolicyUnits api/schedulingpolicyunits/{schedulingpolicyunit:id}: delete: DELETE api/schedulingpolicyunits/{schedulingpolicyunit:id}: get: GET; response: SchedulingPolicyUnit
+
+*   Elements (samples):
+
+` `<scheduling_policy_unit type="load_balancing" href="/ovirt-engine/api/schedulingpolicyunits/d58c8e32-44e1-418f-9222-52cd887bf9e0" id="d58c8e32-44e1-418f-9222-52cd887bf9e0">
+`   `<name>`OptimalForEvenGuestDistribution`</name>
+`   `<description>`Even VM count distribution policy`</description>
+`   `<internal>`true`</internal>
+`   `<enabled>`true`</enabled>
+`   `<properties>
+`       `<property>
+`           `<name>`HighVmCount`</name>
+`           `<value>`^([0-9]|[1-9][0-9]+)$`</value>
+`       `</property>
+`       `<property>
+`           `<name>`MigrationThreshold`</name>
+`           `<value>`^([2-9]|[1-9][0-9]+)$`</value>
+`       `</property>
+`       `<property>
+`           `<name>`SpmVmGrace`</name>
+`           `<value>`^([0-9]|[1-9][0-9]+)$`</value>
+`       `</property>
+`   `</properties>
+` `</scheduling_policy_unit>
+` `<scheduling_policy href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579" id="8d5d7bec-68de-4a67-b53e-0ac54686d579">
+`   `<name>`vm_evenly_distributed`</name>
+`   `<description/>
+`   `<link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/filters" rel="filters"/>
+`   `<link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/weights" rel="weights"/>
+`   `<link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/balances" rel="balances"/>
+`   `<link href="/ovirt-engine/api/schedulingpolicies/8d5d7bec-68de-4a67-b53e-0ac54686d579/clusters" rel="clusters"/>
+`   `<locked>`true`</locked>
+`   `<default_policy>`false`</default_policy>
+`   `<properties>
+`       `<property>
+`           `<name>`HighVmCount`</name>
+`           `<value>`10`</value>
+`       `</property>
+`       `<property>
+`           `<name>`MigrationThreshold`</name>
+`           `<value>`5`</value>
+`       `</property>
+`       `<property>
+`           `<name>`SpmVmGrace`</name>
+`           `<value>`5`</value>
+`       `</property>
+`   `</properties>
+` `</scheduling_policy>
+` `<filters>
+`   `<filter id="84e6ddee-ab0d-42dd-82f0-c297779db566">
+`       `<scheduling_policy_unit href="/ovirt-engine/api/schedulingpolicyunits/84e6ddee-ab0d-42dd-82f0-c297779db566" id="84e6ddee-ab0d-42dd-82f0-c297779db566"/>
+`       `<position>`0`</position>
+`   `</filter>
+         ...
+` `</filters>
+` `<cluster href="/ovirt-engine/api/clusters/00000001-0001-0001-0001-000000000086" id="00000001-0001-0001-0001-000000000086">
+       ...
+`   `<scheduling_policy href="/ovirt-engine/api/schedulingpolicies/20d25257-b4bd-4589-92a6-c4c5c5d3fd1a" id="20d25257-b4bd-4589-92a6-c4c5c5d3fd1a">
+`       `<name>`evenly_distributed`</name>
+`       `<policy>`evenly_distributed`</policy>
+`       `<thresholds high="80" duration="120"/>
+`       `<properties>
+`           `<property>
+`               `<name>`CpuOverCommitDurationMinutes`</name>
+`               `<value>`2`</value>
+`           `</property>
+`           `<property>
+`               `<name>`HighUtilization`</name>
+`               `<value>`80`</value>
+`           `</property>
+`       `</properties>
+`   `</scheduling_policy>
+       ...
+` `</cluster>
 
 ### Packaging and Installation
 

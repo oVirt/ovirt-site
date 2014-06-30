@@ -265,7 +265,25 @@ Action Groups:
 
 *   methods:
 
-api/schedulingpolicies; add; POST; type: SchedulingPolicy; response: SchedulingPolicy api/schedulingpolicies; get; GET; response: SchedulingPolicies api/schedulingpolicies/{schedulingpolicie:id}; get; GET; response: SchedulingPolicy api/schedulingpolicies/{schedulingpolicie:id}: update: PUT; type: SchedulingPolicy; response: SchedulingPolicy api/schedulingpolicies/{schedulingpolicie:id}/balances: add: POST; type: BaseResource; response: BaseResource api/schedulingpolicies/{schedulingpolicie:id}/balances: get: GET; response: Balances api/schedulingpolicies/{schedulingpolicie:id}/balances/{balance:id}: delete: DELETE api/schedulingpolicies/{schedulingpolicie:id}/balances/{balance:id}: get: GET; response: Balance api/schedulingpolicies/{schedulingpolicie:id}/filters: add: POST; type: BaseResource; response: BaseResource api/schedulingpolicies/{schedulingpolicie:id}/filters: get: GET; response: Filters api/schedulingpolicies/{schedulingpolicie:id}/filters/{filter:id}: delete: DELETE api/schedulingpolicies/{schedulingpolicie:id}/filters/{filter:id}: get: GET; response: Filter api/schedulingpolicies/{schedulingpolicie:id}/weights: add: POST; type: BaseResource; response: BaseResource api/schedulingpolicies/{schedulingpolicie:id}/weights: get: GET; response: Weights api/schedulingpolicies/{schedulingpolicie:id}/weights/{weight:id}: delete: DELETE api/schedulingpolicies/{schedulingpolicie:id}/weights/{weight:id}: get: GET; response: Weight api/schedulingpolicyunits: get: GET; response: SchedulingPolicyUnits api/schedulingpolicyunits/{schedulingpolicyunit:id}: delete: DELETE api/schedulingpolicyunits/{schedulingpolicyunit:id}: get: GET; response: SchedulingPolicyUnit
+1.  api/schedulingpolicies; add; POST; type: SchedulingPolicy; response: SchedulingPolicy
+2.  api/schedulingpolicies; get; GET; response: SchedulingPolicies
+3.  api/schedulingpolicies/{schedulingpolicie:id}; get; GET; response: SchedulingPolicy
+4.  api/schedulingpolicies/{schedulingpolicie:id}: update: PUT; type: SchedulingPolicy; response: SchedulingPolicy
+5.  api/schedulingpolicies/{schedulingpolicie:id}/balances: add: POST; type: BaseResource; response: BaseResource
+6.  api/schedulingpolicies/{schedulingpolicie:id}/balances: get: GET; response: Balances
+7.  api/schedulingpolicies/{schedulingpolicie:id}/balances/{balance:id}: delete: DELETE
+8.  api/schedulingpolicies/{schedulingpolicie:id}/balances/{balance:id}: get: GET; response: Balance
+9.  api/schedulingpolicies/{schedulingpolicie:id}/filters: add: POST; type: BaseResource; response: BaseResource
+10. api/schedulingpolicies/{schedulingpolicie:id}/filters: get: GET; response: Filters
+11. api/schedulingpolicies/{schedulingpolicie:id}/filters/{filter:id}: delete: DELETE
+12. api/schedulingpolicies/{schedulingpolicie:id}/filters/{filter:id}: get: GET; response: Filter
+13. api/schedulingpolicies/{schedulingpolicie:id}/weights: add: POST; type: BaseResource; response: BaseResource
+14. api/schedulingpolicies/{schedulingpolicie:id}/weights: get: GET; response: Weights
+15. api/schedulingpolicies/{schedulingpolicie:id}/weights/{weight:id}: delete: DELETE
+16. api/schedulingpolicies/{schedulingpolicie:id}/weights/{weight:id}: get: GET; response: Weight
+17. api/schedulingpolicyunits: get: GET; response: SchedulingPolicyUnits
+18. api/schedulingpolicyunits/{schedulingpolicyunit:id}: delete: DELETE
+19. api/schedulingpolicyunits/{schedulingpolicyunit:id}: get: GET; response: SchedulingPolicyUnit
 
 *   Elements (samples):
 

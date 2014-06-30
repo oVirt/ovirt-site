@@ -12,15 +12,15 @@ wiki_last_updated: 2014-09-17
 
 *   engage project users and stakeholders to a hands-on experiences with oVirt new release.
 *   improve the quality of oVirt.
-*   Introduce and validating new oVirt 3.5 features
+*   Introduce and validate new oVirt 3.5 features.
 
 ## What I should do
 
-*   If you already have the hardware, verify if it meets the hardware requirement, refer information detail section below
-*   Write down the configuration you used (HW, console, etc) and what you've tested in the [first test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-1)
-*   Go ahead and [ install ovirt ](oVirt_3.5_TestDay#Installation_notes)
+*   If you already have the hardware, verify if it meets the hardware requirement, refer to information detail section below.
+*   Write down the configuration you used (HW, console, etc) and what you've tested in the [first test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-1).
+*   Go ahead and [ install ovirt ](oVirt_3.5_TestDay#Installation_notes).
 *   Follow the documentation to setup your environment, and test drive the new features.
-*   Please remember we expect to see some issues, and anything you come up with will save a you when you'll install final release
+*   Please remember we expect to see some issues, and anything you come up with will save you when you'll install final release.
 *   Remember to try daily tasks you'd usually do in the engine, to see there are no regressions.
 *   Accomplish the goals set in objective section , run the tests, update the test matrix.
 *   Running into any issues?
@@ -40,8 +40,17 @@ wiki_last_updated: 2014-09-17
 
 ### Known issues
 
-*   VDSM packages released with the first 3.5.0 alpha have version lower than the ones we had in 3.4.1 so they won't be updated.
-*   You can't add hosts to 3.5 clusters until a new VDSM build with 3.5 compatibility level will be released (All in One won't work).
+*   Fedora 19 hosts: you'll need libvirt >= 1.0.1 to use cluster level 3.5
+
+pkg will be provided from ovirt repo, but if it is not there, you can update from f20 repo:
+
+      yum update --releasever=20 libvirt\*
+
+or add the virt-preview repo:
+
+      sudo yum-config-manager --enable fedora-virt-preview
+
+*   DWH/Reports setup is currently broken.
 
 ## oVirt 3.5 New Features - Test Status Table
 

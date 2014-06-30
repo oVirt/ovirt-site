@@ -40,22 +40,13 @@ wiki_last_updated: 2014-09-17
 
 ### Known issues
 
-*   Fedora 19 hosts: you'll need libvirt >= 1.0.1 to use cluster level 3.5
-
-pkg will be provided from ovirt repo, but if it is not there, you can update from f20 repo:
-
-      yum update --releasever=20 libvirt\*
-
-or add the virt-preview repo:
-
-      sudo yum-config-manager --enable fedora-virt-preview
-
+*   Fedora 19 hosts: you'll need libvirt >= 1.0.1 to use cluster level 3.5 . This is provided in the virt-preview repo, enabled automatically by installing the ovirt-release35.rpm as explained in the [oVirt 3.5 Release Notes](OVirt_3.5_Release_Notes#Fedora_.2F_CentOS_.2F_RHEL)
 *   DWH/Reports setup is currently broken.
 *   You can't refresh iso file list after adding a host, see <https://bugzilla.redhat.com/1114499> for a workaround.
 
 ## oVirt 3.5 New Features - Test Status Table
 
-Please report test results on the [first test day report etherpad](http://etherpad.ovirt.org/p/3.4-testday-1) or on the table below.
+Please report test results on the [first test day report etherpad](http://etherpad.ovirt.org/p/3.5-testday-1) or on the table below.
 
 Following tests should be performed on all supported distributions.
 

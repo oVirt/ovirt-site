@@ -251,16 +251,41 @@ Following config values are used:
 ### Testing scenarios
 
 1.  Installation tests
-    1.  Adding a host with *Detect kdump flow* set to on and without *crashkernel* command line parameter
-        -   **Result**: host installation is OK, but warning message is displayed in Events tab and Audit log
+    1.  **Adding a host with *Detect kdump flow* set to on and without *crashkernel* command line parameter**
+        -   **Result:** host installation is OK, but warning message is displayed in Events tab and Audit log
 
-    2.  Adding a host with *Detect kdump flow* set to on, with *crashkernel* command line parameter, but without required version of *kexec-tools* package
-        -   **Result**: host installation is OK, but warning message is displayed in Events tab and Audit log
+    2.  **Adding a host with *Detect kdump flow* set to on, with *crashkernel* command line parameter, but without required version of *kexec-tools* package**
+        -   **Result:** host installation is OK, but warning message is displayed in Events tab and Audit log
 
-    3.  Adding a host with *Detect kdump flow* set to on, with *crashkernel* command line parameter and with required version of *kexec-tools* package
-        -   **Result**: host installation is OK, in *General* tab of host detail view you should see *Kdump Status: Enabled*
+    3.  **Adding a host with *Detect kdump flow* set to on, with *crashkernel* command line parameter and with required version of *kexec-tools* package**
+        -   **Result:** host installation is OK, in *General* tab of host detail view you should see *Kdump Status: Enabled*
 
-    4.  Adding a oVirt node host with *Detect kdump flow* set to on, with *crashkernel* command line parameter and with required version of *kexec-tools* package
-        -   **Result**: host installation is OK, in *General* tab of host detail view you should see *Kdump Status: Enabled*
+    4.  **Adding a oVirt node host with *Detect kdump flow* set to on, with *crashkernel* command line parameter and with required version of *kexec-tools* package**
+        -   **Result:** host installation is OK, in *General* tab of host detail view you should see *Kdump Status: Enabled*
 
 2.  Kdump detection tests
+    1.  **Crashdumping a host with kdump detection disabled**
+        -   **Prerequisities:** host was successfully deployed with *Detect kdump flow* set to off, fence_kdump listener is running
+        -   **Result:** Host changes its status *Up* -> *Connecting* -> *Non Responsive* -> *Reboot* -> *Non Responsive* -> *Up*, hard fencing is executed
+
+    2.  **Crashdumping a host with kdump detection enabled**
+        -   **Prerequisities:** host was successfully deployed with *Detect kdump flow* set to on, fence_kdump listener is running
+        -   **Result:** Host changes its status *Up* -> *Connecting* -> *Non Responsive* -> *Kdumping* -> *Non Responsive* -> *Up*, hard fencing is not executed, there are messages in *Events* tab *Kdump flow detected on host* and *Kdump flow finished on host*
+
+    3.  **Crashdumping a host with kdump detection enabled but fence_kdump listener down**
+        -   **Prerequisities:** host was successfully deployed with *Detect kdump flow* set to on, fence_kdump listener is not running
+        -   **Result:** Host changes its status *Up* -> *Connecting* -> *Non Responsive* -> *Reboot* -> *Non Responsive* -> *Up*, hard fencing is executed, there's message in *Events* tab *Kdump detection for host had started, but fence_kdump listener is not running*
+
+    4.  **Host with kdump detection enabled, fence_kdump listener is running, but network between engine and host is down**
+        -   **Prerequisities:** host was successfully deployed with *Detect kdump flow* set to on, fence_kdump listener is running, alter firewall rules on engine to drop everything coming from host's IP address
+        -   **Result:** Host changes its status *Up* -> *Connecting* -> *Non Responsive* -> *Reboot* -> *Non Responsive* -> *Up*, hard fencing is executed, there's message in *Events* tab *Kdump flow not detected on host*
+
+    5.  **Crashdumping a host with kdump detection enabled, fence_kdump listener is running, stop fence_kdump listener during kdump**
+        -   **Prerequisities:** host was successfully deployed with *Detect kdump flow* set to on, fence_kdump listener is running
+        -   **Actions:** When host status is changed to *Kdumping*, stop fence_kdump listener
+        -   **Result:** Host changes its status *Up* -> *Connecting* -> *Non Responsive* -> *Kdumping* -> *Reboot* -> *Non Responsive* -> *Up*, hard fencing is executed, there are messages in *Events* tab *Kdump flow detected on host* and *Kdump detection for host had started, but fence_kdump listener is not running*
+
+    6.  **Crashdumping a host with kdump detection enabled, fence_kdump listener is running, restart engine listener during kdump**
+        -   **Prerequisities:** host was successfully deployed with *Detect kdump flow* set to on, fence_kdump listener is running
+        -   **Actions:** When host status is changed to *Kdumping*, restart engine
+        -   **Result:** Host changes its status *Up* -> *Connecting* -> *Non Responsive* -> *Kdumping*, hard fencing is not executed, there are messages in *Events* tab *Kdump flow detected on host*, after engine restart host stays in *Kdumping* status for the period of *DisableFenceAtStartupInSec* seconds, after that there are messages in *Events* tab *Kdump flow detected on host* and *Kdump flow finished on host* and changes status *Kdumping* -> *Non Responsive* -> *Up*

@@ -51,6 +51,7 @@ or add the virt-preview repo:
       sudo yum-config-manager --enable fedora-virt-preview
 
 *   DWH/Reports setup is currently broken.
+*   You can't refresh iso file list after adding a host, see <https://bugzilla.redhat.com/1114499> for a workaround.
 
 ## oVirt 3.5 New Features - Test Status Table
 

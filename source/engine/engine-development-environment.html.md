@@ -26,9 +26,9 @@ This page is mostly to absorb community experience into the certified procedures
 
 ###### Automatically
 
-`# yum install `[`http://resources.ovirt.org/releases/ovirt-release.noarch.rpm`](http://resources.ovirt.org/releases/ovirt-release.noarch.rpm)
+`# yum install `[`http://resources.ovirt.org/pub/yum-repo/ovirt-releaseXY.rpm`](http://resources.ovirt.org/pub/yum-repo/ovirt-releaseXY.rpm)
 
-Make sure to enable snapshots repos at: /etc/yum.repos.d/ovirt\*.repo
+This will not work for master, as it is available after release.
 
 ###### Manually
 

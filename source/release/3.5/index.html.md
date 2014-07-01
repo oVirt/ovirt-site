@@ -105,6 +105,11 @@ If the admin decides to postpone the move to unified persistence, it is possible
 
 Note that some new **features in upcoming releases may very well be unavailable for the deprecated "ifcfg" persistence mode**.
 
+##### Neutron Virtual Appliance
+
+A Neutron Virtual Appliance will be available from the oVirt Image Repository (glance.ovirt.org). For 3.5 the appliance is based on OpenStack IceHouse, listed as ""Neutron Appliance (CentOS X.X) - IceHouse-YYYY.X-XX" on the provided images list.
+The appliance reduces the need of a user to provide an installed and pre-configured keystone and neutron servers. Instead, the user can use the provided one, which is already configured with ml2 as the core plugin, openvSwitch as the mechanism driver and vlans.
+
 #### Storage
 
 #### SLA & Scheduling

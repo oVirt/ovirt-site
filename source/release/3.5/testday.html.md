@@ -159,7 +159,13 @@ You need at least two physical servers to install and configure a basic yet comp
 
 ### SLA
 
-#### Affinity Groups
+#### Numa support
+
+#### Opta planner integration
+
+#### HE on iscsi
+
+#### Scheduling policies rest-api
 
 ## Bug Reporting
 

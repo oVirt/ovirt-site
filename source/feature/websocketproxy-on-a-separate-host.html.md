@@ -38,9 +38,8 @@ It's currently already possible run the WebSocketProxy on a separate host but it
 
 Assumption:
 
-*   The user still needs to install the needed RPMs on both the machine; the user have to install only the required RPMs, installing a not required RPM on one of the two machine can broken the process
+*   The user still needs to install the needed RPMs on both the machine
 *   The user still need to run engine-setup on both the machine
-*   The user knows the root password of the first machine when on the second
 *   This process is relative to a new install but an upgrade of ovirt-engine-websocket-proxy should not be a problem
 *   The two hosts should be installed in strictly order:
     -   first the host with the engine to setup also the CA
@@ -49,37 +48,25 @@ Assumption:
 Under this assumptions it can works this way:
 
 *   On the first node:
-    1.  Via yum, the user installs the required RPMs on the first machine (the engine one) ensuring to don't install ovirt-engine-websocket-proxy (if so the engine-setup will run as for an installation with the engine and the websocket-proxy on a single node)
+    1.  Via yum, the user installs the required RPMs on the first machine (the engine one)
     2.  Then he can launch engine-setup
-    3.  Acknowledging that ovirt-engine-websocket-proxy RPM is not installed, the engine-setup asks to the user if he/she wants to install the WebSocketProxy on a different machine.
-    4.  If so, the engine-setup asks for a fqdn and and port of the machine that will run the WebSocketProxy
-    5.  engine-setup on the first machine generates and signs also the cert for the WebSocketProxy one storing them on a well defined path: having it running on a different host with a different fdqn requires an additional SSL cert
+    3.  engine-setup wil ask about engine configuration; the user should choose YES
 
 <!-- -->
 
 *   On the second node:
-    1.  Via yum user install only ovirt-engine-websocket-proxy being sure to not install ovirt-engine (if so the engine-setup will run as for an installation with the engine and the websocket-proxy on a single node)
+    1.  Via yum user install the required RPM
     2.  Then he can launch engine-setup
-    3.  Acknowledging that ovirt-engine-websocket-proxy RPM is installed but ovirt-egine not, the engine-setup asks:
-        -   The fqdn of the engine node
-        -   The fqdn of the WebSocketProxy (current) node
-        -   The port to bind on
+    3.  engine-setup wil ask about engine configuration; the user should choose NO
+    4.  acknowledging that the engine is not being configured, engine-setup show instruction to configure a remote engine to talk with the websocket proxy on this host, in particular:
+        1.  it generates a CSR showing it to the user
+        2.  it waits for the signed cert to be copied back
 
-    4.  engine-setup ask the user for the engine machine root password to download its own certs signed by the CA and also the private key with scp; if websocket proxy cert is not available engine-setup, running on the second machine, can:
-        1.  connect to the first via ssh (is root squash in place?) to generate them
-        2.  configure the engine on the first machine with websocket-proxy address
-
-    5.  Than engine-setup downloads CA and engine public cert for data validation over https
-    6.  engine-setup configures the service editing /etc/ovirt-engine/ovirt-websocket-proxy.conf.d/10-setup.conf
-    7.  engine-setup starts the WebSocketProxy service
+    5.  if the user is going to use the internal CA, he should connect also to the engine host to sign the CSR according to the shown instruction
 
 ### Benefit to oVirt
 
-The installation process will become easier for who needs to install the WebSocketProxy on a separate engine cause it will not require to manually:
-
-*   generate and sign the WebSocketProxy certs on the engine machine
-*   copy the certs on the websocketsproxy machine
-*   configure the websocketsproxy service editing a file on the websocketsproxy machine
+The installation process will become easier for who needs to install the WebSocketProxy on a separate engine cause it will require less manual actions
 
 ### Dependencies / Related Features
 

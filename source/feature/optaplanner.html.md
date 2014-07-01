@@ -17,7 +17,7 @@ wiki_last_updated: 2015-05-28
 
 ### Current status
 
-*   Initial design discussion
+*   First alpha release - 0.1
 *   Last updated: -- by [ WIKI}}](User:{{urlencode:{{REVISIONUSER}})
 *   Tracking BZs: [rhbz#1093051](https://bugzilla.redhat.com/show_bug.cgi?id=1093051)
 

@@ -55,6 +55,7 @@ There are four RPMs that are available at this moment:
 *   install ovirt-optimizer-jetty or ovirt-optimizer-jboss7 package depending on what application server you want to use
 *   edit the /etc/ovirt-optimizer/ovirt-optimizer.conf file and set the address of your ovirt-engine instance and credentials for the REST API.
 *   check if firewall allows external access to the port where your application server runs (8080/tcp if you are using jetty)
+*   if you installed fresh Jetty on F19 you have to remove the demo configuration file for Jetty to start - /usr/share/jetty/start.d/900-demo.ini
 *   start the application server - both Jetty and Jboss should pick up and deploy the ovirt-optimizer service automatically
 *   check the logs (depends on the application server configuration) and you should see that ovirt-optimizer detected some cluster and tries to compute a solution
 

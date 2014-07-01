@@ -223,6 +223,14 @@ Optional component that wraps ssh, not sure there is a value compared to previou
 
 Problem: what credentials do we have to authenticate into the rest-api?
 
+### Proxy Based solution
+
+Similar to host based solution, but move user management into proxy, while ssh using single key into hosts.
+
+Major advantage is that only single machine is managing the ACL (public key->vm), and of course single point of ssh.
+
+Disadvantage is a single machine that has the key to access all serial consoles of the network. It is much less secure and I believe it should not be applied.
+
 Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:25, 1 July 2014 (GMT)
 
 <Category:Feature>

@@ -84,4 +84,6 @@ Engine will be modified to be able to re-enroll these certificate without having
 
 Consider using libvirt with self-signed certificates as well, it should be possible as the migrationCreate can send the certificate for both side for vdsm to feed libvirt when communicating to the other party. Maybe it requires small change in libvirtd to be configured with certificate per connection, or have connection certificate validation callback.
 
+Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:24, 1 July 2014 (GMT)
+
 <Category:Feature> <Category:Security>

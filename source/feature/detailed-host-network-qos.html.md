@@ -88,7 +88,7 @@ As for the handling of permissions, it remains to be shown that the current perm
 
 The proposed engine-vdsm api is a very fine grained API that allows for more shaping options than will originally be provided. There are three service curves with three components each:
 
-*   Link share: Establishes a proportion between networks. If the sum of the network link share allocation matched the outbound capabilities, we'd see that the real traffic approximately matches what is set as link share.
+*   Link share: Establishes a proportion between networks. E.g., if the sum of the network link share allocation matched the outbound capabilities, we'd see that the real traffic approximately matches what is set as link share.
 *   Upper limit: SInce link share allows the networks to take more traffic if more capacity is available, this curve serves to put an absolute cap to what a network can take.
 *   Real time: Allows a network to steal the share of other networks in order to "guarantee" some amount of traffic for itself.
 

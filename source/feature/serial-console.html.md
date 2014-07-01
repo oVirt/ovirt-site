@@ -223,4 +223,6 @@ Optional component that wraps ssh, not sure there is a value compared to previou
 
 Problem: what credentials do we have to authenticate into the rest-api?
 
+Author: --[Alon Bar-Lev](User:Alonbl) ([talk](User talk:Alonbl)) 02:25, 1 July 2014 (GMT)
+
 <Category:Feature>

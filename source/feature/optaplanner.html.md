@@ -39,7 +39,35 @@ Our users will get hints about how to utilize their hardware better.
 *   The idea is to have the service free-running in an infinite loop and improve the solution over time while adapting to changes in the cluster.
 *   The service will be separated from the ovirt-engine to not endanger the datacenter by using too much memory or cpu. It will talk to the engine using an API.
 
-# Detailed Description
+# Deployment manual
+
+Two hosts (or VMs) are needed - one will host the ovirt-engine and the other will contain the ovirt-optimizer service. Your ovirt-engine should be already installed and configured before you execute the following steps.
+
+There are four RPMs that are available at this moment:
+
+*   ovirt-optimizer-0.1-1.fc19.noarch.rpm
+*   ovirt-optimizer-ui-0.1-1.fc19.noarch.rpm
+*   ovirt-optimizer-jboss7-0.1-1.fc19.noarch.rpm
+*   ovirt-optimizer-jetty-0.1-1.fc19.noarch.rpm
+
+### Installing ovirt-optimizer machine
+
+*   install ovirt-optimizer-jetty or ovirt-optimizer-jboss7 package depending on what application server you want to use
+*   edit the /etc/ovirt-optimizer/ovirt-optimizer.conf file and set the address of your ovirt-engine instance and credentials for the REST API.
+*   check if firewall allows external access to the port where your application server runs (8080/tcp if you are using jetty)
+*   start the application server - both Jetty and Jboss should pick up and deploy the ovirt-optimizer service automatically
+*   check the logs (depends on the application server configuration) and you should see that ovirt-optimizer detected some cluster and tries to compute a solution
+
+### Installing the UI
+
+*   switch to your ovirt-engine machine
+*   install the ovirt-optimizer-ui package
+*   configure the ui plugin by updating /etc/ovirt-engine/ui-plugins/ovirt-optimizer-config.json - you should put the address and port of the ovirt-optimizer service there
+*   restart the ovirt-engine and reload the webadmin
+*   log in to webadmin, go to Cluster main tab and select a cluster, you should see oVirt Optimizer subtab in the lower half of the page
+*   when you switch to the subtab, it should load some data (might take couple of secons)
+
+# Detailed Description - Internals
 
 This feature will allow the user to get a solution to his scheduling needs. Computing the solution might take a long time so an [Optaplanner](http://www.optaplanner.org) based service will run outside of the engine and will apply a set of rules to the current cluster's situation to get an optimized VM to Host assignments.
 

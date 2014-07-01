@@ -50,6 +50,10 @@ and pack the extension as a jboss module.
 
 The engine was refactored to use the API mentioned above - the existing implmenetations were packed as "built-in" jboss modules. A speration between authorization and authentication was introrduced at the code. The session management mechanism at engine was changed to rely on engine session Id. In addition, the authentication flows for the web applications (REST-API and GUI) were refactored using a set of servlet filters that can be reused for various web applications.
 
+##### Jsonrpc
+
+Jsonrpc over stomp was added to communication layer between the engine and vdsm. New protocol is design to be simple, do not require as much parsing as already implemented xmlrpc and it introduces asynchronous communication. Vdsm binds to single port and is able to detect which protocol is used when a connection is established and delegate connection handling to proper jsonrpc or xmlrpc layer.
+
 #### Generic LDAP provider
 
 The generic ldap provider is based on the extensions API as described above. The provider uses configuration files that provided the required information for authentication and authorization , including ldap vendor specific information , in case of authorization provider based on LDAP. The configuration files can be found at : /etc/ovirt-engine/extensions.d

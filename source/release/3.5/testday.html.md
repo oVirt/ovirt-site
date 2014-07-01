@@ -43,6 +43,7 @@ wiki_last_updated: 2014-09-17
 *   Fedora 19 hosts: you'll need libvirt >= 1.0.1 to use cluster level 3.5 . This is provided in the virt-preview repo, enabled automatically by installing the ovirt-release35.rpm as explained in the [oVirt 3.5 Release Notes](OVirt_3.5_Release_Notes#Fedora_.2F_CentOS_.2F_RHEL)
 *   DWH/Reports setup is currently broken.
 *   You can't refresh iso file list after adding a host, see <https://bugzilla.redhat.com/1114499> for a workaround.
+*   The beta RPM packages are not signed. Either use 'yum --nogpgcheck' or set 'gpgcheck=0' in the repo file.
 
 ## oVirt 3.5 New Features - Test Status Table
 

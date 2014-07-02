@@ -54,6 +54,10 @@ The engine was refactored to use the API mentioned above - the existing implmene
 
 Jsonrpc over stomp was added to communication layer between the engine and vdsm. New protocol is design to be simple, do not require as much parsing as already implemented xmlrpc and it introduces asynchronous communication. Vdsm binds to single port and is able to detect which protocol is used when a connection is established and delegate connection handling to proper jsonrpc or xmlrpc layer.
 
+##### Advanced Foreman Integration
+
+Integrating Foreman with oVirt provides the ability to add hypervisor hosts that are managed by Foreman to oVirt engine (installed hosts and discovered hosts). The feature includes UI changes to provide list of discovered host on the addHost popup view, with hardware information, host groups and compute resources info. On foreman side ovirt supplies new foreman plugin (https://github.com/theforeman/ovirt_provision_plugin) which automatically perform the deploy process after host is being provisioned. For more information please refer to <http://www.ovirt.org/Features/AdvancedForemanIntegration>.
+
 #### Generic LDAP provider
 
 The generic ldap provider is based on the extensions API as described above. The provider uses configuration files that provided the required information for authentication and authorization , including ldap vendor specific information , in case of authorization provider based on LDAP. The configuration files can be found at : /etc/ovirt-engine/extensions.d

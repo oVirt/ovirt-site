@@ -55,6 +55,10 @@ VirtIO is built into the Linux kernel so no additional installation is required 
 | VirtIO Drivers    | [Yes(1)](How_to_create_a_Windows_XP_Virtual_Machine#VirtIO) | [Yes](How_to_create_a_Windows_7_Virtual_Machine#Drivers)  | [Yes](How_to_create_a_Windows_8_Virtual_Machine#Drivers) | [Yes(1)](How_to_create_a_Windows_2003_Virtual_Machine#VirtIO)  | [Yes](How_to_create_a_Windows_2008_Virtual_Machine#VirtIO)     | [Yes](How_to_create_a_Windows_2012_Virtual_Machine#VirtIO)     |
 | Spice Drivers     | [Yes](How_to_create_a_Windows_XP_Virtual_Machine#Graphics)  | [Yes](How_to_create_a_Windows_7_Virtual_Machine#Graphics) | No(2)                                                               | [Yes](How_to_create_a_Windows_2003_Virtual_Machine#Graphics)   | [Yes](How_to_create_a_Windows_2008_Virtual_Machine#Graphics)   | No(2)                                                                     |
 
+*(1) XP Does not support VirtIO-SCSI[1](https://bugzilla.redhat.com/show_bug.cgi?id=1043198)*
+
+''(2) The spice drivers currently work with Windows 7 and below. ''
+
 ### Linux Guests
 
 |-------------------|-------------------------------------------------------------|-------------|-------------|-------------------------------------------------------------|

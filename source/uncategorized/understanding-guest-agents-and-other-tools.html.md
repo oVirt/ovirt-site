@@ -69,4 +69,4 @@ VirtIO is built into the Linux kernel so no additional installation is required 
 
 *(3) Supported in Kernel 2.6.35 and above*
 
-*(4) Install spice-vdagent*
+*(4) Install spice-vdagent, available in standard repositories*

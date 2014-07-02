@@ -38,6 +38,10 @@ Today, there is basic Foreman integration, described in [2], which allows the ad
       * `[`https://github.com/bronhaim/ovirt-provision-plugin`](https://github.com/bronhaim/ovirt-provision-plugin)` (>=0.0.1)- Allows full integration with oVirt after provisioning new host
       * `[`https://github.com/theforeman/foreman_discovery`](https://github.com/theforeman/foreman_discovery)` (>=1.3.0.rc2)- Foreman pack for bare metal discovery feature
 
+You can easily use:
+
+      yum install ruby193-rubygem-ovirt_provision_plugin ruby193-rubygem-foreman_discovery
+
 ##### First phase - Bare-Metal provisioning
 
 Prerequisites:

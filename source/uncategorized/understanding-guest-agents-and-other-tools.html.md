@@ -61,10 +61,12 @@ VirtIO is built into the Linux kernel so no additional installation is required 
 |                   | [Fedora](How_to_create_a_Fedora_Virtual_Machine) | RHEL        | CentOS      | [Ubuntu](How_to_create_a_Ubuntu_Virtual_Machine) |
 | oVirt Guest Agent | [Yes](How_to_install_the_guest_agent_in_Fedora)  | -           | -           | [Yes](How_to_install_the_guest_agent_in_Ubuntu)  |
 | VirtIO Drivers    | Built-in(3)                                                 | Built-in(3) | Built-in(3) | Built-in(3)                                                 |
-| Spice Drivers     | Yes                                                         | -           | -           | Yes                                                         |
+| Spice Agent       | Yes(4)                                                      | -           | -           | Yes(4)                                                      |
 
 *(1) XP Does not support VirtIO-SCSI[1](https://bugzilla.redhat.com/show_bug.cgi?id=1043198)*
 
 ''(2) The spice drivers currently work with Windows 7 and below. ''
 
 *(3) Supported in Kernel 2.6.35 and above*
+
+*(4) Install spice-vdagent*

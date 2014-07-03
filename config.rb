@@ -20,26 +20,17 @@ set :relative_links, true
 # It's important HAML outputs "ugly" HTML to not mess with code blocks
 set :haml, :format => :html5, :ugly => true
 
-# Set Markdown features for RedCarpet
-# (So our version of Markdown resembles GitHub's)
+# Set Markdown features for Kramdown
+# (So our version of Markdown resembles GitHub's w/ other nice stuff)
 set :markdown,
-  autolink: true,
-  fenced_code_blocks: true,
-  footnotes: true,
-  gh_blockcode: true,
-  highlight: true,
-  no_intra_emphasis: true,
-  quote: true,
-  smartypants: true,
-  strikethrough: true,
-  superscript: true,
-  tables: true
+  transliterated_header_ids: true,
+  parse_block_html: true,
+  parse_span_html: true,
+  tables: true,
+  hard_wrap: false,
+  input: 'GFM' # add in some GitHub-flavor (``` for fenced code blocks)
 
-set :markdown_engine, :redcarpet
-
-# Add an AsciiDoc filter to HAML
-# (Use ':asciidoc' for AsciiDoctor-powered blocks in HAML)
-Haml::Filters.register_tilt_filter "AsciiDoc"
+set :markdown_engine, :kramdown
 
 set :asciidoc_attributes, %w(source-highlighter=coderay imagesdir=images)
 
@@ -129,8 +120,8 @@ page "*.xml", :layout => false
 
 # Docs all have the docs layout
 with_layout :docs do
-  page "/documentation/*"
-  page "/documentation*"
+  #page "/documentation/*"
+  #page "/documentation*"
 end
 
 # Don't make these URLs have pretty URLs
@@ -184,6 +175,11 @@ activate :blog_helpers
 ###
 #
 configure :development do
+  puts "\nUpdating git submodules..."
+  puts `git submodule init && git submodule sync`
+  puts `git submodule foreach "git pull -qf origin master"`
+  puts "\n"
+
   activate :livereload
   #config.sass_options = {:debug_info => true}
   #config.sass_options = {:line_comments => true}
@@ -195,6 +191,11 @@ end
 
 # Build-specific configuration
 configure :build do
+  puts "\nUpdating git submodules..."
+  puts `git submodule init`
+  puts `git submodule foreach "git pull -qf origin master"`
+  puts "\n"
+
   ## Ignore Gimp source files
   ignore 'images/*.xcf*'
 
@@ -231,16 +232,16 @@ configure :build do
 
   # Favicon PNG should be 144×144 and in source/images/favicon_base.png
   # Note: You need ImageMagick installed for favicon_maker to work
-  #activate :favicon_maker do |f|
-    #f.template_dir  = File.join(root, 'source','images')
-    #f.output_dir    = File.join(root, 'build','images')
-    #f.icons = {
-        #"favicon_base.png" => [
-                #{ icon: "favicon.png", size: "16x16" },
-                #{ icon: "favicon.ico", size: "64x64,32x32,24x24,16x16" },
-        #]
-    #}
-  #end
+  activate :favicon_maker do |f|
+    f.template_dir  = File.join(root, 'source','images')
+    f.output_dir    = File.join(root, 'build','images')
+    f.icons = {
+        "favicon_base.png" => [
+                { icon: "favicon.png", size: "16x16" },
+                { icon: "favicon.ico", size: "64x64,32x32,24x24,16x16" },
+        ]
+    }
+  end
 end
 
 

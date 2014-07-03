@@ -12,7 +12,7 @@
 
     %title
       - page_title = discover_title
-      = "#{page_title} &mdash;" if page_title
+      = "#{page_title} &mdash;" unless page_title.to_s.empty?
       = data.site.name
 
     %meta(charset="utf-8")
@@ -38,7 +38,7 @@
     - if data.page.stylesheet
       = stylesheet_link_tag "global", data.page.stylesheet
 
-  %body{:class => (page_classes || 'page') + " source-#{current_page.source_file.split('.').last}" }
+  %body{:class => (current_page.data.page_classes || '') + " source-#{current_page.source_file.split('.').last}" }
 
     - unless data.page.hide_header
       = partial "header"

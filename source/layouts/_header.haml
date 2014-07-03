@@ -1,11 +1,38 @@
+:ruby
+  logo = data.site.logo
+
+  def graphic_exists file
+    sitemap.find_resource_by_path("images/#{file}")
+  end
+
+  def make_logo trySVG = false, file = data.site.logo
+    if graphic_exists file
+      isSVG = file[/.svg$/] ? 'is-svg' : 'not-svg'
+      image_tag file, id: "logo", class: "logo #{trySVG ? isSVG : ''}", alt: data.site.name
+    end
+  end
+
+
 %header#branding.masthead.hidden-print(role="banner")
   %section.hgroup
     %h1
-      = link_to "/" do
-        - if data.site.logo
-          = image_tag data.site.logo, id: "logo", class: "logo", alt: data.site.name
+      ~ link_to "/" do
+
+        - if logo
+
+          - if logo.match /.svg$/ and graphic_exists logo
+
+            - fallback = logo.gsub /.svg$/, '.png'
+            ~ make_logo 'svg'
+            ~ make_logo 'svg', fallback
+
+          - elsif
+
+            ~ make_logo
+
         - else
-          = data.site.name
+
+          ~ data.site.name
 
     - if data.site.subhead
       %h2#site-title

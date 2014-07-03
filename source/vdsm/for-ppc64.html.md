@@ -125,6 +125,13 @@ At the minimum following user interfaces will be affected
     yum-builddep *.src.rpm
     rpmbuild --rebuild *.src.rpm
 
+    cd ~/srpms
+    fedpkg co -a python-cpopen
+    cd python-cpopen
+    fedpkg srpm
+    yum-builddep *.src.rpm
+    rpmbuild --rebuild *.src.rpm
+
     cd ~/rpmbuild/RPMS/ppc64
     yum install *
 
@@ -135,13 +142,9 @@ At the minimum following user interfaces will be affected
     rpm -e --nodeps --justdb glibc.ppc64p7
     yum install glibc.ppc64
 
-*   Install python-cpopen, libguestfs and glusterfs from the Fedora updates repository, this can be done automatically using yum or manually, using the following commands:
+*   Install libguestfs and glusterfs from the Fedora updates repository, this can be done automatically using yum or manually, using the following commands:
 
 <!-- -->
-
-    mkdir ~/pkgs; cd ~/pkgs
-    wget http://mirrors.kernel.org/fedora-secondary/updates/20/ppc64/python-cpopen-1.3-1.fc20.ppc64.rpm
-    yum install python-cpopen-1.3-1.fc20.ppc64.rpm
 
     wget http://mirrors.kernel.org/fedora-secondary/updates/20/ppc64/libguestfs-1.24.6-1.fc20.ppc64.rpm http://mirrors.kernel.org/fedora-secondary/updates/20/ppc64/libguestfs-tools-c-1.24.6-1.fc20.ppc64.rpm
     yum install libguestfs-1.24.6-1.fc20.ppc64.rpm

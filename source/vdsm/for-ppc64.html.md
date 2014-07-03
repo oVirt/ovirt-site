@@ -96,7 +96,7 @@ At the minimum following user interfaces will be affected
 
     yum update
 
-*   Build and install RPMs for recent versions of libvirt, libvirt-python and QEMU
+*   Build and install RPMs for recent versions of python-cpopen, libvirt, libvirt-python and QEMU
 
 <!-- -->
 

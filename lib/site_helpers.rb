@@ -4,6 +4,7 @@ class SiteHelpers < Middleman::Extension
   end
 
   helpers do
+    require 'open-uri/cached'
 
     def normalize_url(dirty_URL)
       r = url_for Middleman::Util.normalize_path(dirty_URL)
@@ -101,6 +102,47 @@ class SiteHelpers < Middleman::Extension
       toc = toc.any? ? toc : h2_to_toc(doc, source_filename)
 
       toc.attr(:class, "toc-interpage #{someclass}")
+    end
+
+    # Fetch and return the entries of an Atom or RSS feed
+    def simple_feed feed_url, limit = 10
+      feed = Feedjira::Feed.parse(open(feed_url).read)
+
+      feed.entries.sort_by! {|e| e.updated}.reverse!
+
+      return feed.entries.take(limit)
+    end
+
+    # Build an unordered list based upon simple_feed
+    # (HAML in Ruby makes for crazy nesting)
+    def simple_feed_list feed_url, limit = 10, meta = "date"
+      capture_haml do
+        haml_tag :ul, class: "feed-list" do
+
+          simple_feed(feed_url, limit).each do |entry|
+            meta_data = meta[/date/] ? entry.updated : entry[meta]
+
+            haml_tag :li, class: "feed-entry" do
+              haml_tag :a, {href: entry.url, class: "feed-link"} do
+                haml_concat entry.title
+              end
+
+              unless meta.empty?
+                haml_tag :span, class: "feed-meta meta-#{meta}" do
+
+                  if defined? meta_data.strftime
+                    haml_tag :time, {datetime: entry.updated.iso8601, class: "published"} do
+                      haml_concat meta_data.strftime("%Y-%m-%d")
+                    end
+                  else
+                    haml_concat meta_data
+                  end
+                end
+              end
+            end
+          end
+        end
+      end
     end
 
   end

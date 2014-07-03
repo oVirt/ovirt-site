@@ -65,7 +65,7 @@ VirtIO is built into the Linux kernel so no additional installation is required 
 |                   | [Fedora](How_to_create_a_Fedora_Virtual_Machine) | RHEL        | CentOS      | [Ubuntu](How_to_create_a_Ubuntu_Virtual_Machine) | Debian                                     | openSuSE                                     | SuSE Linux Enterprise                    |
 | oVirt Guest Agent | [Yes](How_to_install_the_guest_agent_in_Fedora)  | Yes(5)      | Yes(5)      | [Yes](How_to_install_the_guest_agent_in_Ubuntu)  | [Yes](Feature/GuestAgentDebian) | [Yes](Feature/GuestAgentOpenSUSE) | [Yes](Feature/GuestAgentSLES) |
 | VirtIO Drivers    | Built-in(3)                                                 | Built-in(3) | Built-in(3) | Built-in(3)                                                 | Built-in(3)                                | Built-in(3)                                  | Built-in(3)                              |
-| Spice Agent       | Yes(4)                                                      | -           | -           | Yes(4)                                                      | -                                          | Yes(4)                                       | -                                        |
+| Spice Agent       | Yes(4)                                                      | Yes(4)      | Yes(4)      | Yes(4)                                                      | Yes(4)                                     | Yes(4)                                       | -                                        |
 
 *(3) Supported in Kernel 2.6.35 and above*
 

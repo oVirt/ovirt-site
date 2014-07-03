@@ -89,3 +89,6 @@ gem "kramdown"
 gem 'open-uri-cached'
 
 gem 'font-awesome-middleman'
+
+# RSS/Atom parsing
+gem "feedjira"

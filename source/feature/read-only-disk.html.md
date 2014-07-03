@@ -6,6 +6,9 @@ wiki_category: Feature
 wiki_title: Features/Read Only Disk
 wiki_revision_count: 41
 wiki_last_updated: 2014-07-03
+feature_name: Read-Only Disks
+feature_modules: storage
+feature_status: Released
 ---
 
 # Read Only Disk

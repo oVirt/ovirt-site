@@ -63,167 +63,19 @@ All other trademarks are the property of their respective owners.
 
 A comprehensive guide to installing oVirt.
 
-[Preface](#idm268261204256)
-
-[1. Document Conventions](#idm268249736560)
-
-[2. Getting Help and Giving Feedback](#sect_RedHat-Getting_Help_and_Giving_Feedback)
+[Preface](#idm268251665616)
 
 [I. Installing Red Hat Enterprise Virtualization](#part-Installing_Red_Hat_Enterprise_Virtualization)
 
-[1. Installing Red Hat Enterprise Virtualization](#chap-Installing_Red_Hat_Enterprise_Virtualization-1)
-
-[1.1. Workflow Progress - Installing Red Hat Enterprise Virtualization Manager](#Workflow_Progress_Installing_Red_Hat_Enterprise_Virtualization_Manager1)
-
-[1.2. Installing the Red Hat Enterprise Virtualization Manager](#Manager_Installation_Overview)
-
-[1.3. Installing the Red Hat Enterprise Virtualization Manager](#sect-Installing_the_Red_Hat_Enterprise_Virtualization_Manager)
-
-[2. The Self-Hosted Engine](#chap-The_Self-Hosted_Engine)
-
-[2.1. About the Self-Hosted Engine](#About_the_Self-Hosted_Engine)
-
-[2.2. Limitations of the Self-Hosted Engine](#Limitations_of_the_Self-Hosted_Engine)
-
-[2.3. Installing the Self-Hosted Engine](#Installing_the_Self-Hosted_Engine)
-
-[2.4. Configuring the Self-Hosted Engine](#Configuring_the_Self-Hosted_Engine)
-
-[2.5. Migrating to a Self-Hosted Environment](#Migrating_to_a_Self-Hosted_Environment)
-
-[2.6. Installing Additional Hosts to a Self-Hosted Environment](#Installing_Additional_Hosts_to_a_Self-Hosted_Environment)
-
-[2.7. Maintaining the Self-Hosted Engine](#Maintaining_the_Self-Hosted_Engine)
-
-[2.8. Upgrading the Self-Hosted Engine](#Upgrading_the_Self-Hosted_Engine)
-
-[2.9. Upgrading Additional Hosts in a Self-Hosted Environment](#Upgrading_Additional_Hosts_in_a_Self-Hosted_Environment)
-
-[3. History and Reports](#chap-History_and_Reports)
-
-[3.1. Workflow Progress - Data Collection Setup and Reports Installation](#Workflow_Progress_Data_Collection_Setup_and_Reports_Installation1)
-
-[3.2. Data Collection Setup and Reports Installation Overview](#Data_Collection_Setup_and_Reports_Installation_Overview)
-
-[3.3. Installing and Configuring the History Database and Red Hat Enterprise Virtualization Manager Reports](#Installing_and_Configuring_Red_Hat_Enterprise_Virtualization_Manager_Reports1)
-
 [II. Installing Hosts](#part-Installing_Hosts)
-
-[4. Introduction to Hosts](#chap-Introduction_to_Hosts)
-
-[4.1. Workflow Progress - Installing Virtualization Hosts](#Workflow_Progress_Installing_Virtualization_Hosts)
-
-[4.2. Introduction to Virtualization Hosts](#Introduction_to_Virtualization_Hosts)
-
-[5. Red Hat Enterprise Virtualization Hypervisor Hosts](#chap-Red_Hat_Enterprise_Virtualization_Hypervisor_Hosts)
-
-[5.1. Red Hat Enterprise Virtualization Hypervisor Installation Overview](#Installing_the_Red_Hat_Enterprise_Virtualization_Hypervisor)
-
-[5.2. Installing the Red Hat Enterprise Virtualization Hypervisor Disk Image](#Installing_the_Red_Hat_Enterprise_Virtualization_Hypervisor_Packages)
-
-[5.3. Preparing Installation Media](#sect-Preparing_Installation_Media)
-
-[5.4. Installation](#sect-Installation)
-
-[5.5. Configuration](#sect-Configuration)
-
-[5.6. Adding Hypervisors to Red Hat Enterprise Virtualization Manager](#sect-Adding_Hypervisors_to_Red_Hat_Enterprise_Virtualization_Manager)
-
-[6. Red Hat Enterprise Linux Hosts](#chap-Red_Hat_Enterprise_Linux_Hosts)
-
-[6.1. Red Hat Enterprise Linux Hosts](#Adding_Red_Hat_Enterprise_Linux_Hosts)
 
 [III. Basic Setup](#part-Basic_Setup)
 
-[7. Configuring Hosts](#chap-Configuring_Hosts)
-
-[7.1. Installing Red Hat Enterprise Linux](#Installing_Red_Hat_Enterprise_Linux1)
-
-[7.2. Configuring the Virtualization Host Firewall](#Configuring_Virtualization_Host_Firewall1)
-
-[7.3. Configuring Virtualization Host sudo](#Configuring_Virtualization_Host_sudo1)
-
-[7.4. Configuring Virtualization Host SSH](#Configuring_Virtualization_Host_SSH)
-
-[7.5. Adding a Red Hat Enterprise Linux Host](#Adding_a_Red_Hat_Enterprise_Linux_Host1)
-
-[7.6. Explanation of Settings and Controls in the New Host and Edit Host Windows](#sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows)
-
-[8. Configuring Data Centers](#chap-Configuring_Data_Centers)
-
-[8.1. Workflow Progress - Planning Your Data Center](#Workflow_Progress_Planning_your_Data_Center1)
-
-[8.2. Planning Your Data Center](#Planning_your_Data_Center1)
-
-[8.3. Data Centers in Red Hat Enterprise Virtualization](#Working_with_Data_Centers)
-
-[8.4. Creating a New Data Center](#Creating_a_New_Data_Center)
-
-[8.5. Changing the Data Center Compatibility Version](#Changing_the_Data_Center_Compatibility_Version)
-
-[9. Configuring Clusters](#chap-Configuring_Clusters)
-
-[9.1. Clusters in Red Hat Enterprise Virtualization](#Clusters_in_Red_Hat_Enterprise_Virtualization)
-
-[9.2. Creating a New Cluster](#Creating_a_New_Cluster)
-
-[9.3. Changing the Cluster Compatibility Version](#Changing_the_Cluster_Compatibility_Version)
-
-[10. Configuring Networking](#chap-Configuring_Networking)
-
-[10.1. Workflow Progress - Network Setup](#Workflow_Progress_Network_Setup1)
-
-[10.2. Networking in Red Hat Enterprise Virtualization](#Determine_Network_Requirements)
-
-[10.3. Creating Logical Networks](#sect-Creating_Logical_Networks)
-
-[10.4. Editing Logical Networks](#sect-Editing_Logical_Networks)
-
-[10.5. Removing Logical Networks](#sect-Removing_Logical_Networks)
-
-[11. Configuring Storage](#chap-Configuring_Storage)
-
-[11.1. Workflow Progress - Storage Setup](#Workflow_Progress_Storage_Setup)
-
-[11.2. Introduction to Storage in Red Hat Enterprise Virtualization](#Storage_Setup)
-
-[11.3. Preparing NFS Storage](#Preparing_NFS_Storage)
-
-[11.4. Attaching NFS Storage](#Attaching_NFS_Storage1)
-
-[11.5. Adding iSCSI Storage](#Adding_iSCSI_Storage1)
-
-[11.6. Adding FCP Storage](#Adding_FCP_Storage)
-
-[11.7. Preparing Local Storage](#Adding_Local_Storage)
-
-[11.8. Adding Local Storage](#Preparing_local_storage)
-
-[11.9. POSIX Compliant File System Storage in Red Hat Enterprise Virtualization](#POSIX_Compliant_File_System_Storage_in_Red_Hat_Enterprise_Virtualization)
-
-[11.10. Attaching POSIX Compliant File System Storage](#Attaching_POSIX_Compliant_Filesystem_Storage)
-
-[11.11. Enabling Gluster Processes on Red Hat Storage Nodes](#Enabling_Gluster_Processes_on_Red_Hat_Storage_Nodes)
-
-[11.12. Populating the ISO Storage Domain](#Populating_the_ISO_Storage_Domain1)
-
-[11.13. VirtIO and Guest Tool Image Files](#Uploading_the_VirtIO_and_Guest_Tool_Image_Files)
-
-[11.14. Uploading the VirtIO and Guest Tool Image Files to an ISO Storage Domain](#Uploading_the_VirtIO_and_Guest_Tool_Image_Files_to_an_ISO_Storage_Domain)
-
-[12. Compiler Output](#idm268250459632)
-
-[Compiler Glossary](#idm268246198032)
+[Compiler Glossary](#idm268262237872)
 
 [A. Revision History](#appe-Installation_Guide-Revision_History)
 
 ### ⁠1. Document Conventions
-
-[1.1. Typographic Conventions](#idm268249737536)
-
-[1.2. Pull-quote Conventions](#idm268239989952)
-
-[1.3. Notes and Warnings](#idm268265817760)
 
 This manual uses several conventions to highlight certain words and phrases and draw attention to specific pieces of information.
 
@@ -326,10 +178,6 @@ Warnings should not be ignored. Ignoring warnings will most likely cause data lo
 
 ### ⁠2. Getting Help and Giving Feedback
 
-[2.1. Do You Need Help?](#sect_RedHat-Do_You_Need_Help)
-
-[2.2. We Need Feedback!](#sect-RedHat-We_Need_Feedback)
-
 #### ⁠2.1. Do You Need Help?
 
 If you experience difficulty with a procedure described in this documentation, visit the Red Hat Customer Portal at [<http://access.redhat.com>](http://access.redhat.com). Through the customer portal, you can:
@@ -350,49 +198,7 @@ If you have a suggestion for improving the documentation, try to be as specific 
 
 **Table of Contents**
 
-[1. Installing Red Hat Enterprise Virtualization](#chap-Installing_Red_Hat_Enterprise_Virtualization-1)
-
-[1.1. Workflow Progress - Installing Red Hat Enterprise Virtualization Manager](#Workflow_Progress_Installing_Red_Hat_Enterprise_Virtualization_Manager1)
-
-[1.2. Installing the Red Hat Enterprise Virtualization Manager](#Manager_Installation_Overview)
-
-[1.3. Installing the Red Hat Enterprise Virtualization Manager](#sect-Installing_the_Red_Hat_Enterprise_Virtualization_Manager)
-
-[2. The Self-Hosted Engine](#chap-The_Self-Hosted_Engine)
-
-[2.1. About the Self-Hosted Engine](#About_the_Self-Hosted_Engine)
-
-[2.2. Limitations of the Self-Hosted Engine](#Limitations_of_the_Self-Hosted_Engine)
-
-[2.3. Installing the Self-Hosted Engine](#Installing_the_Self-Hosted_Engine)
-
-[2.4. Configuring the Self-Hosted Engine](#Configuring_the_Self-Hosted_Engine)
-
-[2.5. Migrating to a Self-Hosted Environment](#Migrating_to_a_Self-Hosted_Environment)
-
-[2.6. Installing Additional Hosts to a Self-Hosted Environment](#Installing_Additional_Hosts_to_a_Self-Hosted_Environment)
-
-[2.7. Maintaining the Self-Hosted Engine](#Maintaining_the_Self-Hosted_Engine)
-
-[2.8. Upgrading the Self-Hosted Engine](#Upgrading_the_Self-Hosted_Engine)
-
-[2.9. Upgrading Additional Hosts in a Self-Hosted Environment](#Upgrading_Additional_Hosts_in_a_Self-Hosted_Environment)
-
-[3. History and Reports](#chap-History_and_Reports)
-
-[3.1. Workflow Progress - Data Collection Setup and Reports Installation](#Workflow_Progress_Data_Collection_Setup_and_Reports_Installation1)
-
-[3.2. Data Collection Setup and Reports Installation Overview](#Data_Collection_Setup_and_Reports_Installation_Overview)
-
-[3.3. Installing and Configuring the History Database and Red Hat Enterprise Virtualization Manager Reports](#Installing_and_Configuring_Red_Hat_Enterprise_Virtualization_Manager_Reports1)
-
 ### ⁠Chapter 1. Installing Red Hat Enterprise Virtualization
-
-[1.1. Workflow Progress - Installing Red Hat Enterprise Virtualization Manager](#Workflow_Progress_Installing_Red_Hat_Enterprise_Virtualization_Manager1)
-
-[1.2. Installing the Red Hat Enterprise Virtualization Manager](#Manager_Installation_Overview)
-
-[1.3. Installing the Red Hat Enterprise Virtualization Manager](#sect-Installing_the_Red_Hat_Enterprise_Virtualization_Manager)
 
 ### ⁠1.1. Workflow Progress - Installing Red Hat Enterprise Virtualization Manager
 
@@ -476,20 +282,6 @@ Run `engine-setup --help` for a full list of parameters.
 Offline installation requires the creation of a software repository local to your Red Hat Enterprise Virtualization environment. This software repository must contain all of the packages required to install Red Hat Enterprise Virtualization Manager, Red Hat Enterprise Linux virtualization hosts, and Red Hat Enterprise Linux virtual machines. To create such a repository, see the *Installing Red Hat Enterprise Virtualization Offline* technical brief, available at [<https://access.redhat.com/knowledge/techbriefs/installing-red-hat-enterprise-virtualization-offline-rhev-30>](https://access.redhat.com/knowledge/techbriefs/installing-red-hat-enterprise-virtualization-offline-rhev-30).
 
 ### ⁠1.3. Installing the Red Hat Enterprise Virtualization Manager
-
-[1.3.1. Configuring an Offline Repository for Red Hat Enterprise Virtualization Manager Installation](#Configuring_an_Offline_Repository_for_Red_Hat_Enterprise_Virtualization_Manager_Installation)
-
-[1.3.2. Installing the Red Hat Enterprise Virtualization Manager Packages](#Installing_Red_Hat_Enterprise_Virtualization_Manager1)
-
-[1.3.3. Configuring the Red Hat Enterprise Virtualization Manager](#Red_Hat_Enterprise_Virtualization_Manager_Configuration_Overview)
-
-[1.3.4. Preparing a PostgreSQL Database for Use with Red Hat Enterprise Virtualization Manager](#Preparing_a_Postgres_Database_Server_for_use_with_Red_Hat_Enterprise_Virtualization_Manager)
-
-[1.3.5. Configuring the Manager to Use a Manually Configured Local or Remote PostgreSQL Database](#Manually_Configuring_a_Local_or_Remote_Engine_Database_During_Manager_Configuration)
-
-[1.3.6. Connecting to the Administration Portal](#Connecting_to_the_Administration_Portal)
-
-[1.3.7. Removing the Red Hat Enterprise Virtualization Manager](#Removing_Red_Hat_Enterprise_Virtualization_Manager)
 
 #### ⁠1.3.1. Configuring an Offline Repository for Red Hat Enterprise Virtualization Manager Installation
 
@@ -889,24 +681,6 @@ You can now safely remove the Red Hat Enterprise Virtualization packages using t
     # yum remove rhevm* vdsm-bootstrap
 
 ### ⁠Chapter 2. The Self-Hosted Engine
-
-[2.1. About the Self-Hosted Engine](#About_the_Self-Hosted_Engine)
-
-[2.2. Limitations of the Self-Hosted Engine](#Limitations_of_the_Self-Hosted_Engine)
-
-[2.3. Installing the Self-Hosted Engine](#Installing_the_Self-Hosted_Engine)
-
-[2.4. Configuring the Self-Hosted Engine](#Configuring_the_Self-Hosted_Engine)
-
-[2.5. Migrating to a Self-Hosted Environment](#Migrating_to_a_Self-Hosted_Environment)
-
-[2.6. Installing Additional Hosts to a Self-Hosted Environment](#Installing_Additional_Hosts_to_a_Self-Hosted_Environment)
-
-[2.7. Maintaining the Self-Hosted Engine](#Maintaining_the_Self-Hosted_Engine)
-
-[2.8. Upgrading the Self-Hosted Engine](#Upgrading_the_Self-Hosted_Engine)
-
-[2.9. Upgrading Additional Hosts in a Self-Hosted Environment](#Upgrading_Additional_Hosts_in_a_Self-Hosted_Environment)
 
 ### ⁠2.1. About the Self-Hosted Engine
 
@@ -1611,12 +1385,6 @@ You have updated an additional host in your self-hosted environment to Red Hat E
 
 ### ⁠Chapter 3. History and Reports
 
-[3.1. Workflow Progress - Data Collection Setup and Reports Installation](#Workflow_Progress_Data_Collection_Setup_and_Reports_Installation1)
-
-[3.2. Data Collection Setup and Reports Installation Overview](#Data_Collection_Setup_and_Reports_Installation_Overview)
-
-[3.3. Installing and Configuring the History Database and Red Hat Enterprise Virtualization Manager Reports](#Installing_and_Configuring_Red_Hat_Enterprise_Virtualization_Manager_Reports1)
-
 ### ⁠3.1. Workflow Progress - Data Collection Setup and Reports Installation
 
 ![](images/1192.png "images/1192.png")
@@ -1691,35 +1459,7 @@ Previously, the `admin` user name was `rhevm-admin`. If you are performing a cle
 
 **Table of Contents**
 
-[4. Introduction to Hosts](#chap-Introduction_to_Hosts)
-
-[4.1. Workflow Progress - Installing Virtualization Hosts](#Workflow_Progress_Installing_Virtualization_Hosts)
-
-[4.2. Introduction to Virtualization Hosts](#Introduction_to_Virtualization_Hosts)
-
-[5. Red Hat Enterprise Virtualization Hypervisor Hosts](#chap-Red_Hat_Enterprise_Virtualization_Hypervisor_Hosts)
-
-[5.1. Red Hat Enterprise Virtualization Hypervisor Installation Overview](#Installing_the_Red_Hat_Enterprise_Virtualization_Hypervisor)
-
-[5.2. Installing the Red Hat Enterprise Virtualization Hypervisor Disk Image](#Installing_the_Red_Hat_Enterprise_Virtualization_Hypervisor_Packages)
-
-[5.3. Preparing Installation Media](#sect-Preparing_Installation_Media)
-
-[5.4. Installation](#sect-Installation)
-
-[5.5. Configuration](#sect-Configuration)
-
-[5.6. Adding Hypervisors to Red Hat Enterprise Virtualization Manager](#sect-Adding_Hypervisors_to_Red_Hat_Enterprise_Virtualization_Manager)
-
-[6. Red Hat Enterprise Linux Hosts](#chap-Red_Hat_Enterprise_Linux_Hosts)
-
-[6.1. Red Hat Enterprise Linux Hosts](#Adding_Red_Hat_Enterprise_Linux_Hosts)
-
 ### ⁠Chapter 4. Introduction to Hosts
-
-[4.1. Workflow Progress - Installing Virtualization Hosts](#Workflow_Progress_Installing_Virtualization_Hosts)
-
-[4.2. Introduction to Virtualization Hosts](#Introduction_to_Virtualization_Hosts)
 
 ### ⁠4.1. Workflow Progress - Installing Virtualization Hosts
 
@@ -1745,18 +1485,6 @@ It is recommended that you install at least two virtualization hosts and attach 
 The Red Hat Enterprise Virtualization Hypervisor is a closed system. Use a Red Hat Enterprise Linux host if additional rpms are required for your environment.
 
 ### ⁠Chapter 5. Red Hat Enterprise Virtualization Hypervisor Hosts
-
-[5.1. Red Hat Enterprise Virtualization Hypervisor Installation Overview](#Installing_the_Red_Hat_Enterprise_Virtualization_Hypervisor)
-
-[5.2. Installing the Red Hat Enterprise Virtualization Hypervisor Disk Image](#Installing_the_Red_Hat_Enterprise_Virtualization_Hypervisor_Packages)
-
-[5.3. Preparing Installation Media](#sect-Preparing_Installation_Media)
-
-[5.4. Installation](#sect-Installation)
-
-[5.5. Configuration](#sect-Configuration)
-
-[5.6. Adding Hypervisors to Red Hat Enterprise Virtualization Manager](#sect-Adding_Hypervisors_to_Red_Hat_Enterprise_Virtualization_Manager)
 
 ### ⁠5.1. Red Hat Enterprise Virtualization Hypervisor Installation Overview
 
@@ -1804,16 +1532,6 @@ You have installed the Red Hat Enterprise Virtualization Hypervisor disk image a
 Red Hat Enterprise Linux 6.2 and later allows more than one version of the ISO image to be installed at one time. As such, `/usr/share/rhev-hypervisor/rhev-hypervisor.iso` is now a symbolic link to a uniquely-named version of the Hypervisor ISO image, such as `/usr/share/rhev-hypervisor/rhev-hypervisor-6.4-20130321.0.el6ev.iso`. Different versions of the image can now be installed alongside each other, allowing administrators to run and maintain a cluster on a previous version of the Hypervisor while upgrading another cluster for testing. Additionally, the symbolic link `/usr/share/rhev-hypervisor/rhevh-latest-6.iso`, is created. This links also targets the most recently installed version of the Red Hat Enterprise Virtualization ISO image.
 
 ### ⁠5.3. Preparing Installation Media
-
-[5.3.1. Preparing a USB Storage Device](#Preparing_a_Hypervisor_USB_Storage_Device)
-
-[5.3.2. Preparing USB Installation Media Using livecd-iso-to-disk](#Preparing_USB_Installation_Media_using_rhevh-iso-to-disk)
-
-[5.3.3. Preparing USB Installation Media Using dd](#Preparing_USB_Installation_Media_Using_dd)
-
-[5.3.4. Preparing USB Installation Media Using dd on Linux Systems](#Preparing_USB_Installation_Media_using_dd_on_Linux_Systems)
-
-[5.3.5. Preparing Optical Hypervisor Installation Media](#Preparing_Optical_Installation_Media)
 
 #### ⁠5.3.1. Preparing a USB Storage Device
 
@@ -1988,16 +1706,6 @@ Result
 You have written a Red Hat Enterprise Virtualization Hypervisor disk image to a CD-ROM or DVD.
 
 ### ⁠5.4. Installation
-
-[5.4.1. Booting the Hypervisor from USB Installation Media](#Booting_the_Hypervisor_from_USB_Installation_Media)
-
-[5.4.2. Booting the Hypervisor from Optical Installation Media](#Booting_the_Hypervisor_from_Optical_Installation_Media1)
-
-[5.4.3. Starting the Installation Program](#Booting_the_Hypervisor_from_Installation_Media)
-
-[5.4.4. Hypervisor Menu Actions](#Hypervisor_Menu_Actions1)
-
-[5.4.5. Installing the Hypervisor](#Hypervisor_Interactive_Installation)
 
 #### ⁠5.4.1. Booting the Hypervisor from USB Installation Media
 
@@ -2251,28 +1959,6 @@ Red Hat Enterprise Virtualization Hypervisors are able to use Storage Area Netwo
 Hypervisors are able to use multipath devices for installation. Multipath is often used for SANs or other networked storage. Multipath is enabled by default at install time. Any block device which responds to `scsi_id` functions with multipath. Devices where this is not the case include USB storage and some older ATA disks.
 
 ### ⁠5.5. Configuration
-
-[5.5.1. Logging Into the Hypervisor](#Logging_into_the_Hypervisor)
-
-[5.5.2. The Status Screen](#Viewing_Hypervisor_Status)
-
-[5.5.3. The Network Screen](#sect-The_Network_Screen)
-
-[5.5.4. The Security Screen](#Configuring_Hypervisor_Security1)
-
-[5.5.5. The Keyboard Screen](#Configuring_Hypervisor_Keyboard)
-
-[5.5.6. The SNMP Screen](#Configuring_Hypervisor_Simple_Network_Management_Protocol_SNMP1)
-
-[5.5.7. The CIM Screen](#Configuring_Hypervisor_Common_Information_Model_CIM1)
-
-[5.5.8. The Logging Screen](#Configuring_Hypervisor_Logging1)
-
-[5.5.9. The Kdump Screen](#Configuring_Hypervisor_Kernel_Dumps1)
-
-[5.5.10. The Remote Storage Screen](#Configuring_Hypervisor_Remote_Storage1)
-
-[5.5.11. Configuring Hypervisor Management Server](#Configuring_Hypervisor_Management_Server1)
 
 #### ⁠5.5.1. Logging Into the Hypervisor
 
@@ -2626,10 +2312,6 @@ The **oVirt Engine** configuration has been updated.
 
 ### ⁠5.6. Adding Hypervisors to Red Hat Enterprise Virtualization Manager
 
-[5.6.1. Using the Hypervisor](#Using_the_Hypervisor)
-
-[5.6.2. Approving a Hypervisor](#Approving_a_Hypervisor)
-
 #### ⁠5.6.1. Using the Hypervisor
 
 If the Hypervisor was configured with the address of the Red Hat Enterprise Virtualization Manager, the Hypervisor reboots and is automatically registered with the Manager. The Red Hat Enterprise Virtualization Manager interface displays the Hypervisor under the **Hosts** tab. To prepare the Hypervisor for use, it must be approved using Red Hat Enterprise Virtualization Manager.
@@ -2657,8 +2339,6 @@ The status in the **Hosts** tab changes to **Installing**, after a brief delay t
 
 ### ⁠Chapter 6. Red Hat Enterprise Linux Hosts
 
-[6.1. Red Hat Enterprise Linux Hosts](#Adding_Red_Hat_Enterprise_Linux_Hosts)
-
 ### ⁠6.1. Red Hat Enterprise Linux Hosts
 
 You can use a standard Red Hat Enterprise Linux 6 installation on capable hardware as a host. Red Hat Enterprise Virtualization supports hosts running Red Hat Enterprise Linux 6 Server AMD64/Intel 64 version.
@@ -2667,95 +2347,7 @@ Adding a host can take some time, as the following steps are completed by the pl
 
 **Table of Contents**
 
-[7. Configuring Hosts](#chap-Configuring_Hosts)
-
-[7.1. Installing Red Hat Enterprise Linux](#Installing_Red_Hat_Enterprise_Linux1)
-
-[7.2. Configuring the Virtualization Host Firewall](#Configuring_Virtualization_Host_Firewall1)
-
-[7.3. Configuring Virtualization Host sudo](#Configuring_Virtualization_Host_sudo1)
-
-[7.4. Configuring Virtualization Host SSH](#Configuring_Virtualization_Host_SSH)
-
-[7.5. Adding a Red Hat Enterprise Linux Host](#Adding_a_Red_Hat_Enterprise_Linux_Host1)
-
-[7.6. Explanation of Settings and Controls in the New Host and Edit Host Windows](#sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows)
-
-[8. Configuring Data Centers](#chap-Configuring_Data_Centers)
-
-[8.1. Workflow Progress - Planning Your Data Center](#Workflow_Progress_Planning_your_Data_Center1)
-
-[8.2. Planning Your Data Center](#Planning_your_Data_Center1)
-
-[8.3. Data Centers in Red Hat Enterprise Virtualization](#Working_with_Data_Centers)
-
-[8.4. Creating a New Data Center](#Creating_a_New_Data_Center)
-
-[8.5. Changing the Data Center Compatibility Version](#Changing_the_Data_Center_Compatibility_Version)
-
-[9. Configuring Clusters](#chap-Configuring_Clusters)
-
-[9.1. Clusters in Red Hat Enterprise Virtualization](#Clusters_in_Red_Hat_Enterprise_Virtualization)
-
-[9.2. Creating a New Cluster](#Creating_a_New_Cluster)
-
-[9.3. Changing the Cluster Compatibility Version](#Changing_the_Cluster_Compatibility_Version)
-
-[10. Configuring Networking](#chap-Configuring_Networking)
-
-[10.1. Workflow Progress - Network Setup](#Workflow_Progress_Network_Setup1)
-
-[10.2. Networking in Red Hat Enterprise Virtualization](#Determine_Network_Requirements)
-
-[10.3. Creating Logical Networks](#sect-Creating_Logical_Networks)
-
-[10.4. Editing Logical Networks](#sect-Editing_Logical_Networks)
-
-[10.5. Removing Logical Networks](#sect-Removing_Logical_Networks)
-
-[11. Configuring Storage](#chap-Configuring_Storage)
-
-[11.1. Workflow Progress - Storage Setup](#Workflow_Progress_Storage_Setup)
-
-[11.2. Introduction to Storage in Red Hat Enterprise Virtualization](#Storage_Setup)
-
-[11.3. Preparing NFS Storage](#Preparing_NFS_Storage)
-
-[11.4. Attaching NFS Storage](#Attaching_NFS_Storage1)
-
-[11.5. Adding iSCSI Storage](#Adding_iSCSI_Storage1)
-
-[11.6. Adding FCP Storage](#Adding_FCP_Storage)
-
-[11.7. Preparing Local Storage](#Adding_Local_Storage)
-
-[11.8. Adding Local Storage](#Preparing_local_storage)
-
-[11.9. POSIX Compliant File System Storage in Red Hat Enterprise Virtualization](#POSIX_Compliant_File_System_Storage_in_Red_Hat_Enterprise_Virtualization)
-
-[11.10. Attaching POSIX Compliant File System Storage](#Attaching_POSIX_Compliant_Filesystem_Storage)
-
-[11.11. Enabling Gluster Processes on Red Hat Storage Nodes](#Enabling_Gluster_Processes_on_Red_Hat_Storage_Nodes)
-
-[11.12. Populating the ISO Storage Domain](#Populating_the_ISO_Storage_Domain1)
-
-[11.13. VirtIO and Guest Tool Image Files](#Uploading_the_VirtIO_and_Guest_Tool_Image_Files)
-
-[11.14. Uploading the VirtIO and Guest Tool Image Files to an ISO Storage Domain](#Uploading_the_VirtIO_and_Guest_Tool_Image_Files_to_an_ISO_Storage_Domain)
-
 ### ⁠Chapter 7. Configuring Hosts
-
-[7.1. Installing Red Hat Enterprise Linux](#Installing_Red_Hat_Enterprise_Linux1)
-
-[7.2. Configuring the Virtualization Host Firewall](#Configuring_Virtualization_Host_Firewall1)
-
-[7.3. Configuring Virtualization Host sudo](#Configuring_Virtualization_Host_sudo1)
-
-[7.4. Configuring Virtualization Host SSH](#Configuring_Virtualization_Host_SSH)
-
-[7.5. Adding a Red Hat Enterprise Linux Host](#Adding_a_Red_Hat_Enterprise_Linux_Host1)
-
-[7.6. Explanation of Settings and Controls in the New Host and Edit Host Windows](#sect-Explanation_of_Settings_and_Controls_in_the_New_Host_and_Edit_Host_Windows)
 
 ### ⁠7.1. Installing Red Hat Enterprise Linux
 
@@ -3007,14 +2599,6 @@ You can view the progress of the installation in the details pane.
 
 ### ⁠7.6. Explanation of Settings and Controls in the New Host and Edit Host Windows
 
-[7.6.1. Host General Settings Explained](#Adding_a_host)
-
-[7.6.2. Host Power Management Settings Explained](#Host_Power_Management_settings_explained)
-
-[7.6.3. SPM Priority Settings Explained](#SPM_priority_settings_explained)
-
-[7.6.4. Host Console Settings Explained](#Host_Console_Settings_Explained)
-
 #### ⁠7.6.1. Host General Settings Explained
 
 These settings apply when editing the details of a host or adding new Red Hat Enterprise Linux hosts and Foreman host provider hosts.
@@ -3230,16 +2814,6 @@ The **Console** settings table details the information required on the **Console
 
 ### ⁠Chapter 8. Configuring Data Centers
 
-[8.1. Workflow Progress - Planning Your Data Center](#Workflow_Progress_Planning_your_Data_Center1)
-
-[8.2. Planning Your Data Center](#Planning_your_Data_Center1)
-
-[8.3. Data Centers in Red Hat Enterprise Virtualization](#Working_with_Data_Centers)
-
-[8.4. Creating a New Data Center](#Creating_a_New_Data_Center)
-
-[8.5. Changing the Data Center Compatibility Version](#Changing_the_Data_Center_Compatibility_Version)
-
 ### ⁠8.1. Workflow Progress - Planning Your Data Center
 
 ![](images/1194.png "images/1194.png")
@@ -3338,12 +2912,6 @@ Upgrading the compatibility will also upgrade all of the storage domains belongi
 
 ### ⁠Chapter 9. Configuring Clusters
 
-[9.1. Clusters in Red Hat Enterprise Virtualization](#Clusters_in_Red_Hat_Enterprise_Virtualization)
-
-[9.2. Creating a New Cluster](#Creating_a_New_Cluster)
-
-[9.3. Changing the Cluster Compatibility Version](#Changing_the_Cluster_Compatibility_Version)
-
 ### ⁠9.1. Clusters in Red Hat Enterprise Virtualization
 
 A cluster is a collection of physical hosts that share similar characteristics and work together to provide computing resources in a highly available manner. In Red Hat Enterprise Virtualization the cluster must contain physical hosts that share the same storage domains and have the same type of CPU. Because virtual machines can be migrated across hosts in the same cluster, the cluster is the highest level at which power and load-sharing policies can be defined. The Red Hat Enterprise Virtualization platform contains a `Default` cluster in the `Default` data center at installation time.
@@ -3419,16 +2987,6 @@ Upgrading the compatibility will also upgrade all of the storage domains belongi
 
 ### ⁠Chapter 10. Configuring Networking
 
-[10.1. Workflow Progress - Network Setup](#Workflow_Progress_Network_Setup1)
-
-[10.2. Networking in Red Hat Enterprise Virtualization](#Determine_Network_Requirements)
-
-[10.3. Creating Logical Networks](#sect-Creating_Logical_Networks)
-
-[10.4. Editing Logical Networks](#sect-Editing_Logical_Networks)
-
-[10.5. Removing Logical Networks](#sect-Removing_Logical_Networks)
-
 ### ⁠10.1. Workflow Progress - Network Setup
 
 ![](images/1195.png "images/1195.png")
@@ -3479,8 +3037,6 @@ This applies to all services, but you should be fully aware of the hazards of ru
 
 ### ⁠10.3. Creating Logical Networks
 
-[10.3.1. Creating a New Logical Network in a Data Center or Cluster](#To_create_a_new_logical_network_in_a_data_center_or_cluster)
-
 #### ⁠10.3.1. Creating a New Logical Network in a Data Center or Cluster
 
 Summary
@@ -3512,16 +3068,6 @@ You have defined a logical network as a resource required by a cluster or cluste
 When creating a new logical network or making changes to an existing logical network that is used as a display network, any running virtual machines that use that network must be rebooted before the network becomes available or the changes are applied.
 
 ### ⁠10.4. Editing Logical Networks
-
-[10.4.1. Editing Host Network Interfaces and Assigning Logical Networks to Hosts](#Editing_host_network_interfaces)
-
-[10.4.2. Logical Network General Settings Explained](#Logical_network_dialogue_entries)
-
-[10.4.3. Editing a Logical Network](#To_edit_a_logical_network)
-
-[10.4.4. Explanation of Settings in the Manage Networks Window](#Activating_a_Host)
-
-[10.4.5. Using the Networks Tab](#Using_the_Networks_Tab)
 
 #### ⁠10.4.1. Editing Host Network Interfaces and Assigning Logical Networks to Hosts
 
@@ -3707,8 +3253,6 @@ These functions are also accessible through each individual resource tab.
 
 ### ⁠10.5. Removing Logical Networks
 
-[10.5.1. Removing a Logical Network](#Removing_a_Logical_Network)
-
 #### ⁠10.5.1. Removing a Logical Network
 
 Summary
@@ -3730,34 +3274,6 @@ Result
 The logical network is removed from the Manager and is no longer available. If the logical network was provided by an external provider and you elected to remove the logical network from that external provider, it is removed from the external provider and is no longer available on that external provider as well.
 
 ### ⁠Chapter 11. Configuring Storage
-
-[11.1. Workflow Progress - Storage Setup](#Workflow_Progress_Storage_Setup)
-
-[11.2. Introduction to Storage in Red Hat Enterprise Virtualization](#Storage_Setup)
-
-[11.3. Preparing NFS Storage](#Preparing_NFS_Storage)
-
-[11.4. Attaching NFS Storage](#Attaching_NFS_Storage1)
-
-[11.5. Adding iSCSI Storage](#Adding_iSCSI_Storage1)
-
-[11.6. Adding FCP Storage](#Adding_FCP_Storage)
-
-[11.7. Preparing Local Storage](#Adding_Local_Storage)
-
-[11.8. Adding Local Storage](#Preparing_local_storage)
-
-[11.9. POSIX Compliant File System Storage in Red Hat Enterprise Virtualization](#POSIX_Compliant_File_System_Storage_in_Red_Hat_Enterprise_Virtualization)
-
-[11.10. Attaching POSIX Compliant File System Storage](#Attaching_POSIX_Compliant_Filesystem_Storage)
-
-[11.11. Enabling Gluster Processes on Red Hat Storage Nodes](#Enabling_Gluster_Processes_on_Red_Hat_Storage_Nodes)
-
-[11.12. Populating the ISO Storage Domain](#Populating_the_ISO_Storage_Domain1)
-
-[11.13. VirtIO and Guest Tool Image Files](#Uploading_the_VirtIO_and_Guest_Tool_Image_Files)
-
-[11.14. Uploading the VirtIO and Guest Tool Image Files to an ISO Storage Domain](#Uploading_the_VirtIO_and_Guest_Tool_Image_Files_to_an_ISO_Storage_Domain)
 
 ### ⁠11.1. Workflow Progress - Storage Setup
 
@@ -4162,7 +3678,7 @@ The example below demonstrates the command to upload the `virtio-win.iso`, `virt
 
     # engine-iso-uploader --iso-domain=[ISODomain] upload /usr/share/virtio-win/virtio-win.iso /usr/share/virtio-win/virtio-win_x86.vfd /usr/share/virtio-win/virtio-win_amd64.vfd /usr/share/rhev-guest-tools-iso/rhev-tools-setup.iso
 
-[Compiler Glossary](#idm268246198032)
+[Compiler Glossary](#idm268262237872)
 
 ⁠
 

@@ -187,7 +187,7 @@ Performs rpc to vdsm or read registry to acquire authorized keys at same format 
 ##### TODO
 
 *   Integrate fakechroot as wrapper to socat, once program is ready as we can inherit the usock fd.
-*   Integrate with gate one html5 ssh client.
+*   Integrate with gate one html5 ssh client[1](https://github.com/liftoff/GateOne) or wssh[2](https://github.com/aluzzardi/wssh/)
 
 ### Client Side
 

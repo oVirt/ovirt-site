@@ -38,9 +38,15 @@ Today, there is basic Foreman integration, described in [2], which allows the ad
       * `[`https://github.com/bronhaim/ovirt-provision-plugin`](https://github.com/bronhaim/ovirt-provision-plugin)` (>=0.0.1)- Allows full integration with oVirt after provisioning new host
       * `[`https://github.com/theforeman/foreman_discovery`](https://github.com/theforeman/foreman_discovery)` (>=1.3.0.rc2)- Foreman pack for bare metal discovery feature
 
-You can easily use:
+For yum installation perform:
 
-      yum install ruby193-rubygem-ovirt_provision_plugin ruby193-rubygem-foreman_discovery
+`* yum -y install `[`http://yum.theforeman.org/releases/1.5/el6/x86_64/foreman-release.rpm`](http://yum.theforeman.org/releases/1.5/el6/x86_64/foreman-release.rpm)
+      * Enable foreman-nightly and foreman-plugins-nightly repositories
+      * yum -y install ruby193-rubygem-ovirt_provision_plugin ruby193-rubygem-foreman_discovery
+
+      [TODO: remove this section when plugin gets to official repo] Currently you can use:
+[`http://yum.theforeman.org/plugins/nightly/el6/x86_64/ruby193-rubygem-ovirt_provision_plugin-0.0.1-1.el6.noarch.rpm`](http://yum.theforeman.org/plugins/nightly/el6/x86_64/ruby193-rubygem-ovirt_provision_plugin-0.0.1-1.el6.noarch.rpm)
+`The plugin requires also rbovirt updates, which can be found in: `[`http://yum.theforeman.org/nightly/el6/x86_64/ruby193-rubygem-rbovirt-0.0.28-1.el6.noarch.rpm`](http://yum.theforeman.org/nightly/el6/x86_64/ruby193-rubygem-rbovirt-0.0.28-1.el6.noarch.rpm)
 
 ##### First phase - Bare-Metal provisioning
 

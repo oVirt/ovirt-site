@@ -99,3 +99,53 @@ and
           public GetAllFromExportDomainQuery(P parameters, EngineContext engineContext) {
                 super(parameters, engineContext);
            }
+
+### Lock Mechanism changes
+
+In 3.5 the attribute LockIdNameAttribute has been removed and commands that need exclusive locking need to override a method defined in CommandBase. By default the lock scope has been set to none and the wait is set to false as shown below
+
+         @Override
+         protected LockProperties applyLockProperties(LockProperties lockProperties) {
+             return lockProperties.withScope(Scope.None).withWait(false);
+         }
+
+Any command that needs a different locking mechanism needs to override the above method to set the appropriate properties on the LockProperties object. Below is an example of the method overridden in a command that extends CommandBase. In the example the scope has been set to Execution, so the lock is released at the end of command execution. The code is equivalent to what was achieved using the annotation @LockIdNameAttribute.
+
+         @Override
+         protected LockProperties applyLockProperties(LockProperties lockProperties) {
+             return lockProperties.withScope(Scope.Execution);
+         }
+
+The scope defines when lock is released.
+
+         public static enum Scope {
+             /**
+              * Lock is release at the end of the command execution
+              */
+             Execution,
+             /**
+              * Lock is not release at the of command execution, used when
+              * child command uses the lock of the parent. Child should
+              * not release the lock, the parent will take care of releasing
+              * the lock
+              */
+             Command,
+             /**
+              * No lock is required for the command execution
+              */
+             None
+         }
+
+To obtain a lock with wait in 3.4 the command had to be annotated with @LockIdNameAttribute(isWait = true). In 3.5 the same can be achieved by calling the withWait method on the lock properties
+
+         @Override
+         protected LockProperties applyLockProperties(LockProperties lockProperties) {
+             return lockProperties.withScope(Scope.Execution).withWait(true);
+         }
+
+When a child command uses the lock passed by the parent and does not release the lock, the scope Command is used to specifiy the scope of the lock.
+
+         @Override
+         protected LockProperties applyLockProperties(LockProperties lockProperties) {
+             return lockProperties.withScope(Scope.Command);
+         }

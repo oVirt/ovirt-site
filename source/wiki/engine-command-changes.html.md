@@ -82,6 +82,8 @@ will clone the context, , set on it the runVM execution context, and reset both 
 
 It is also possible to use the CommandBase.cloneContextAndDetachFromParent in order to perform context cloning and "detach" from all the detachable components of the context which are the lock , the execution context and the compensation context.
 
+In the case a command context should be duplicated and should have an execution context for tasks monitoring it is possible to use the method CommandBase.runInternalActionWithTasksContext
+
 5. Propgate engine context to queries
 
 Similar to command context propgation it is required to propagate the engine context to internal queries.

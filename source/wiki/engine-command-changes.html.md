@@ -62,7 +62,7 @@ The CTOR of the internal action is:
              //....
          }
 
-4. Handle context propgation
+4. Handle command context propgation
 
 In order to properly propagate context , the command context should be duplicated when calling command.
 
@@ -81,3 +81,19 @@ for example -
 will clone the context, , set on it the runVM execution context, and reset both the lock and the compensation context.
 
 It is also possible to use the CommandBase.cloneContextAndDetachFromParent in order to perform context cloning and "detach" from all the detachable components of the context which are the lock , the execution context and the compensation context.
+
+5. Propgate engine context to queries
+
+Similar to command context propgation it is required to propagate the engine context to internal queries.
+
+CommandBase.runInternalQuery and QueriesCommandBase.runInternalQuery were introruced and can be used to run an internal query with the engine context associated with the current context.
+
+Internal queries that are invoked using these methods should have a CTOR with engine context. For example:
+
+          runInternalQuery(VdcQueryType.GetAllFromExportDomain, params);
+
+and
+
+          public GetAllFromExportDomainQuery(P parameters, EngineContext engineContext) {
+                super(parameters, engineContext);
+           }

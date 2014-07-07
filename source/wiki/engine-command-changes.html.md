@@ -38,7 +38,7 @@ For example:
 
                  VdcReturnValueBase returnValue = runInternalAction(VdcActionType.HotPlugDiskToVm, params);       
 
-3. In case a command is using a helper (a class that does not extend CommandBase, and usually holds some functionality that is shared for several commands who are not of the same inheritence sub tree) the syntax of
+3. Invoke internal commands properly from classes that are not commands In case a command is using a helper (a class that does not extend CommandBase, and usually holds some functionality that is shared for several commands who are not of the same inheritence sub tree) , or another class which is not a command - the syntax of
 
                  Backend.getInstance().runInternalAction(...) should be used. 
 
@@ -61,3 +61,23 @@ The CTOR of the internal action is:
              super(parameters, commandContext);
              //....
          }
+
+4. Handle context propgation
+
+In order to properly propagate context , the command context should be duplicated when calling command.
+
+This can be done either by using the clone method of the CommandContext object, or by calling CommandBase.cloneContext which will return a cloned context of the contet of the command.
+
+In some cases, we may want to alter fields of the duplicated context - for example, reset the compensation context (so the internal command will create its own compensation context).
+
+In order to perform this, the following withXXX and withoutXXX methods were introduced to commandContext - withLock(EngineLock), withExecutionContext(ExecutionContext), withCompensationContext(CompensationContext), withEngineContext(EngineContext),
+
+withoutLock(), withoutExecutionCOntext(, withoutCompensationContext()
+
+for example -
+
+         cloneContext().withExecutionContext(runVmContext).withoutLock().withoutCompensationContext());
+
+will clone the context, , set on it the runVM execution context, and reset both the lock and the compensation context.
+
+It is also possible to use the CommandBase.cloneContextAndDetachFromParent in order to perform context cloning and "detach" from all the detachable components of the context which are the lock , the execution context and the compensation context.

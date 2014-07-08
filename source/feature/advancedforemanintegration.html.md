@@ -35,7 +35,7 @@ Today, there is basic Foreman integration, described in [2], which allows the ad
 *   The following use-cases assume you already have a Foreman provider in the system. For more information on adding Foreman providers have a look at [2].
 *   Foreman setup must include the following plugins (for plugin installation guide follow [3]):
 
-      * `[`https://github.com/theforeman/ovirt-provision-plugin`](https://github.com/theforeman/ovirt-provision-plugin)` (>=0.0.1)- Allows full integration with oVirt after provisioning new host
+      * `[`https://github.com/theforeman/ovirt_provision_plugin`](https://github.com/theforeman/ovirt_provision_plugin)` (>=0.0.1)- Allows full integration with oVirt after provisioning new host
       * `[`https://github.com/theforeman/foreman_discovery`](https://github.com/theforeman/foreman_discovery)` (>=1.3.0.rc2)- Foreman pack for bare metal discovery feature
 
 For yum installation perform:

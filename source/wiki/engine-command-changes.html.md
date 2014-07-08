@@ -143,7 +143,7 @@ To obtain a lock with wait in 3.4 the command had to be annotated with @LockIdNa
              return lockProperties.withScope(Scope.Execution).withWait(true);
          }
 
-When a child command uses the lock passed by the parent and does not release the lock, the scope Command is used to specify the scope of the lock.
+When a child command uses the lock passed by the parent and does not release the lock, the scope "Command" is used to specify the scope of the lock.
 
          @Override
          protected LockProperties applyLockProperties(LockProperties lockProperties) {

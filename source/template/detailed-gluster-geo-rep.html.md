@@ -39,6 +39,8 @@ Includes the following:
 
 #### Entity Description
 
+![](Geo-rep-ClassDiagram.png "Geo-rep-ClassDiagram.png")
+
 #### CRUD
 
 #### Installation/Upgrade

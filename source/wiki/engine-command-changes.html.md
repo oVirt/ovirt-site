@@ -32,13 +32,13 @@ For example:
 2. From commands, instead of using getBackend().runInternalAction or Backend.getInstance().runInternalAction use
 
             runInternalAction       
-      This method was introduced at CommandBase, and is reposible for propagating the context.
+      This method was introduced at CommandBase, and is responsible for propagating the context.
 
 For example:
 
                  VdcReturnValueBase returnValue = runInternalAction(VdcActionType.HotPlugDiskToVm, params);       
 
-3. Invoke internal commands properly from classes that are not commands In case a command is using a helper (a class that does not extend CommandBase, and usually holds some functionality that is shared for several commands who are not of the same inheritence sub tree) , or another class which is not a command - the syntax of
+3. Invoke internal commands properly from classes that are not commands In case a command is using a helper (a class that does not extend CommandBase, and usually holds some functionality that is shared for several commands who are not of the same inheritance sub tree) , or another class which is not a command - the syntax of
 
                  Backend.getInstance().runInternalAction(...) should be used. 
 
@@ -46,7 +46,7 @@ In this case, the caller might or might not pass the command context as a parame
 
 If command context is not passed, the Command class should have a CTOR without a command context.
 
-If command context is passed, the Command class shoud have a CTOR with a command context.
+If command context is passed, the Command class should have a CTOR with a command context.
 
 For example: LiveSnapshotTaskHandler.execute invokes an internal action:
 
@@ -62,11 +62,11 @@ The CTOR of the internal action is:
              //....
          }
 
-4. Handle command context propgation
+4. Handle command context propagation
 
-In order to properly propagate context , the command context should be duplicated when calling command.
+In order to properly propagate context , the command context should be duplicated when calling a command.
 
-This can be done either by using the clone method of the CommandContext object, or by calling CommandBase.cloneContext which will return a cloned context of the contet of the command.
+This can be done either by using the clone method of the CommandContext object, or by calling CommandBase.cloneContext which will return a clone of the calling command's context.
 
 In some cases, we may want to alter fields of the duplicated context - for example, reset the compensation context (so the internal command will create its own compensation context).
 
@@ -84,7 +84,7 @@ It is also possible to use the CommandBase.cloneContextAndDetachFromParent in or
 
 In the case a command context should be duplicated and should have an execution context for tasks monitoring it is possible to use the method CommandBase.runInternalActionWithTasksContext
 
-5. Propgate engine context to queries
+5. Propagate engine context to queries
 
 Similar to command context propgation it is required to propagate the engine context to internal queries.
 
@@ -143,7 +143,7 @@ To obtain a lock with wait in 3.4 the command had to be annotated with @LockIdNa
              return lockProperties.withScope(Scope.Execution).withWait(true);
          }
 
-When a child command uses the lock passed by the parent and does not release the lock, the scope Command is used to specifiy the scope of the lock.
+When a child command uses the lock passed by the parent and does not release the lock, the scope Command is used to specify the scope of the lock.
 
          @Override
          protected LockProperties applyLockProperties(LockProperties lockProperties) {

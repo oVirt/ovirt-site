@@ -18,11 +18,9 @@ For summary of the feature, see [Features/Gluster_Geo_Replication](Features/Glus
 
 ### Owner
 
-This should link to your home wiki page so we know who you are
-
 *   Name: [ Sahina Bose](User:Sahina)
 
-Include you email address that you can be reached should people want to contact you about helping with your feature, status is requested, or technical issues need to be resolved
+<!-- -->
 
 *   Email: sabose at redhat.com
 

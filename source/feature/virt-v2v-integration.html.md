@@ -27,7 +27,7 @@ Integrate virt-v2v in oVirt for importing virtual machines from external environ
 
 ### Detailed Description
 
-virt-v2v is a tool which can be used to convert virtual machines from Xen and VMware hypervisors to run on KVM. If the output mode is set to 'rhev', the output of the conversion is like a VM which was exported by oVirt, i.e virtual machine which is located in the export domain. Such a virtual machine can be imported to oVirt using the regular import-vm operation.
+virt-v2v is a versatile tool for converting virtual machines from Xen and VMware hypervisors to run on KVM. If the output mode is set to 'rhev', the output of the conversion is like a VM which was exported by oVirt, i.e virtual machine which is located in the export domain. Such a virtual machine can be imported to oVirt using the regular import-vm operation.
 
 This feature aims to add external providers of virtual machines to oVirt which are based on virt-v2v tool:
 
@@ -48,7 +48,7 @@ While configuring such provider, the user will need to specify which host will s
 
 ![](V2v_1.png "V2v_1.png")
 
-Only a host which is installed with virt-v2v can be set as a proxy. TBD - installing v2v?
+Only a host which is installed with virt-v2v can be set as a proxy. (TBD - installing v2v?)
 
 VDSM will bridge the interaction between the engine and virt-v2v. The following diagram demonstrate the interaction between the different components in the process of import virtual machine from external system to oVirt:
 
@@ -69,11 +69,11 @@ To resolve this inconsistency, we will do the following changes:
 
 ### Benefit to oVirt
 
-This feature should make it easier to migrate from different environments to oVirt/RHEV. The import process of virtual machines will be based on the versatile virt-v2v tool, and will be improved by:
+This feature will make it easier to migrate virtual machines from different environments to oVirt/RHEV:
 
+*   Making it more managed - as the process will be executed and monitored by oVirt
 *   Making it easier to define - expose the relevant parameters in the UI
 *   Making it less error-prone - less configuration to set
-*   Making it more managed - the process will be executed and monitored by oVirt
 
 ### Dependencies / Related Features
 
@@ -85,15 +85,15 @@ No need for changes in the DB
 
 #### Backend
 
-*   Add provider from type "VMware"
-*   Add query for listing VMs from external provider
-*   Add command for import VM from external system into the export domain
+*   Add external providers of virtual machines: "Xen" & "VMware"
+*   Add query for listing VMs from those providers
+*   Add command for import VM from the external systems into the export domain
 
 #### VDSM
 
 *   Add verb that returns VMs from external provider
-*   Add verb for the import operation, convert VM from the external system into the given storage domain
-*   The progress of the conversion should be reported in a similar way to how the progress of the live merge operation is made
+*   Add verb for the import operation, i.e import VM from external system into the given storage domain
+*   VDSM will report the progress of the operation (we'll try to implement it in a similar way to the way the progress of live merge is reported)
 
 #### User Interface
 

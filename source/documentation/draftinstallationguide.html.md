@@ -3082,11 +3082,11 @@ The logical network is removed from the Manager and is no longer available. If t
 
 ## ⁠Chapter 11. Configuring Storage
 
-### ⁠11.1. Workflow Progress - Storage Setup
+### ⁠Workflow Progress - Storage Setup
 
 ![](images/1197.png "images/1197.png")
 
-### ⁠11.2. Introduction to Storage in Red Hat Enterprise Virtualization
+### ⁠Introduction to Storage in Red Hat Enterprise Virtualization
 
 Red Hat Enterprise Virtualization uses a centralized storage system for virtual machine disk images, ISO files and snapshots. Storage networking can be implemented using:
 
@@ -3119,7 +3119,7 @@ Only commence configuring and attaching storage for your Red Hat Enterprise Virt
 **Important:** To add storage domains you must be able to successfully access the Administration Portal, and there must be at least one host connected with a status of **Up**.
 
 </div>
-### ⁠11.3. Preparing NFS Storage
+### ⁠Preparing NFS Storage
 
 **Summary**
 
@@ -3185,7 +3185,7 @@ These steps must be taken to prepare an NFS file share on a server running Red H
 
 The NFS file share has been created, and is ready to be attached by the Red Hat Enterprise Virtualization Manager.
 
-### ⁠11.4. Attaching NFS Storage
+### ⁠Attaching NFS Storage
 
 **Summary**
 
@@ -3219,7 +3219,7 @@ NFS data domains can be added to NFS data centers. You can add NFS, ISO, and exp
 
 The new NFS data domain is displayed on the **Storage** tab with a status of `Locked` while the disk prepares. It is automatically attached to the data center upon completion.
 
-### ⁠11.5. Adding iSCSI Storage
+### ⁠Adding iSCSI Storage
 
 **Summary**
 
@@ -3275,7 +3275,7 @@ For information regarding the setup and configuration of iSCSI on Red Hat Enterp
 
 The new iSCSI storage domain displays on the storage tab. This can take up to 5 minutes.
 
-### ⁠11.6. Adding FCP Storage
+### ⁠Adding FCP Storage
 
 **Summary**
 
@@ -3316,7 +3316,7 @@ For information regarding the setup and configuration of FCP or multipathing on 
 
 The new FCP data domain displays on the **Storage** tab. It will remain with a `Locked` status while it is being prepared for use. When ready, it is automatically attached to the data center.
 
-### ⁠11.7. Preparing Local Storage
+### ⁠Preparing Local Storage
 
 **Summary**
 
@@ -3342,7 +3342,7 @@ A local storage domain can be set up on a host. When you set up host to use loca
 
 Your local storage is ready to be added to the Red Hat Enterprise Virtualization environment.
 
-### ⁠11.8. Adding Local Storage
+### ⁠Adding Local Storage
 
 **Summary**
 
@@ -3373,7 +3373,7 @@ Adding local storage to a host in this manner causes the host to be put in a new
 
 Your host comes online in a data center of its own.
 
-### ⁠11.9. POSIX Compliant File System Storage in Red Hat Enterprise Virtualization
+### ⁠POSIX Compliant File System Storage in Red Hat Enterprise Virtualization
 
 Red Hat Enterprise Virtualization 3.1 and higher supports the use of POSIX (native) file systems for storage. POSIX file system support allows you to mount file systems using the same mount options that you would normally use when mounting them manually from the command line. This functionality is intended to allow access to storage not exposed using NFS, iSCSI, or FCP.
 
@@ -3383,7 +3383,7 @@ Any POSIX compliant filesystem used as a storage domain in Red Hat Enterprise Vi
 **Important:** Do *not* mount NFS storage by creating a POSIX compliant file system Storage Domain. Always create an NFS Storage Domain instead.
 
 </div>
-### ⁠11.10. Attaching POSIX Compliant File System Storage
+### ⁠Attaching POSIX Compliant File System Storage
 
 **Summary**
 
@@ -3414,7 +3414,7 @@ You want to use a POSIX compliant file system that is not exposed using NFS, iSC
 
 You have used a supported mechanism to attach an unsupported file system as a storage domain.
 
-### ⁠11.11. Enabling Gluster Processes on Red Hat Storage Nodes
+### ⁠Enabling Gluster Processes on Red Hat Storage Nodes
 
 **Summary**
 
@@ -3435,7 +3435,7 @@ This procedure explains how to allow Gluster processes on Red Hat Storage Nodes.
 
 It is now possible to add Red Hat Storage nodes to the Gluster cluster, and to mount Gluster volumes as storage domains. **iptables** rules no longer block storage domains from being added to the cluster.
 
-### ⁠11.12. Populating the ISO Storage Domain
+### ⁠Populating the ISO Storage Domain
 
 **Summary**
 
@@ -3462,7 +3462,7 @@ The creation of ISO images from physical media is not described in this document
 
 The ISO image is uploaded and appears in the ISO storage domain specified. It is also available in the list of available boot media when creating virtual machines in the data center which the storage domain is attached to.
 
-### ⁠11.13. VirtIO and Guest Tool Image Files
+### ⁠VirtIO and Guest Tool Image Files
 
 The virtio-win ISO and Virtual Floppy Drive (VFD) images, which contain the VirtIO drivers for Windows virtual machines, and the rhev-tools-setup ISO, which contains the Red Hat Enterprise Virtualization Guest Tools for Windows virtual machines, are copied to an ISO storage domain upon installation and configuration of the domain.
 
@@ -3475,7 +3475,7 @@ These image files provide software that can be installed on virtual machines to 
 
 These image files must be manually uploaded to ISO storage domains that were not created locally by the installation process. Use the `engine-iso-uploader` command to upload these images to your ISO storage domain. Once uploaded, the image files can be attached to and used by virtual machines.
 
-### ⁠11.14. Uploading the VirtIO and Guest Tool Image Files to an ISO Storage Domain
+### ⁠Uploading the VirtIO and Guest Tool Image Files to an ISO Storage Domain
 
 The example below demonstrates the command to upload the `virtio-win.iso`, `virtio-win_x86.vfd`, `virtio-win_amd64.vfd`, and `rhev-tools-setup.iso` image files to the `ISODomain`.
 

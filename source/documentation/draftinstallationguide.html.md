@@ -1560,7 +1560,7 @@ Booting the Hypervisor from optical installation media requires the system to ha
 
 The Hypervisor boot screen will be displayed.
 
-#### 3. Starting the Installation Program
+#### Starting the Installation Program
 
 **Summary**
 

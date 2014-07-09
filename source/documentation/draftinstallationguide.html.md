@@ -2057,7 +2057,7 @@ The **Kdump** screen allows you to specify a location in which kernel dumps will
 
 You have configured a location in which kernel dumps will be stored in the event of a system failure.
 
-#### 10. The Remote Storage Screen
+#### The Remote Storage Screen
 
 **Summary**
 

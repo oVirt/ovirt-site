@@ -9,8 +9,6 @@ wiki_last_updated: 2014-07-10
 
 # Draft Installation Guide
 
-## Installing oVirt 3.4
-
 **Abstract**
 
 A comprehensive guide to installing oVirt 3.4.

@@ -21,7 +21,7 @@ A comprehensive guide to installing oVirt 3.4.
 
 ### Installing the Red Hat Enterprise Virtualization Manager
 
-*Overview*'
+**Overview**
 
 The Red Hat Enterprise Virtualization Manager can be installed under one of two arrangements - a standard setup in which the Manager is installed on an independent physical machine or virtual machine, or a self-hosted engine setup in which the Manager runs on a virtual machine that the Manager itself controls.
 

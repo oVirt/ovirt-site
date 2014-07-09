@@ -1798,16 +1798,16 @@ The **Status** screen provides an overview of the state of the Hypervisor such a
 *   **<Restart>**: Restarts the Hypervisor.
 *   **<Power Off>**: Turns the Hypervisor off.
 
-#### 3. The Network Screen
+#### The Network Screen
 
-##### 3.1. The Network Screen
+##### The Network Screen
 
 The **Network** screen is used to configure the host name of the hypervisor and the DNS servers, NTP servers and network interfaces that the hypervisor will use. The **Network** screen also provides a number of buttons for testing and configuring network interfaces:
 
 *   **<Ping>**: Allows you to ping a given IP address by specifying the address to ping and the number of times to ping that address.
 *   **<Create Bond>**: Allows you to create bonds between network interfaces.
 
-##### 3.2. Configuring the Host Name
+##### Configuring the Host Name
 
 *Summary*'
 
@@ -1824,7 +1824,7 @@ You can change the host name used to identify the hypervisor.
 
 You have changed the host name used to identify the hypervisor.
 
-##### 3.3. Configuring Domain Name Servers
+##### Configuring Domain Name Servers
 
 *Summary*'
 
@@ -1842,7 +1842,7 @@ You can specify up to two domain name servers that the hypervisor will use to re
 
 You have specified the primary and secondary domain name servers that the hypervisor will use to resolve network addresses.
 
-##### 3.4. Configuring Network Time Protocol Servers
+##### Configuring Network Time Protocol Servers
 
 *Summary*'
 
@@ -1864,7 +1864,7 @@ You can specify up to two network time protocol servers that the hypervisor will
 
 You have specified the primary and secondary NTP servers that the hypervisor will use to synchronize its system clock.
 
-##### 3.5. Configuring Network Interfaces
+##### Configuring Network Interfaces
 
 *Summary*'
 

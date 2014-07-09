@@ -29,7 +29,7 @@ The Red Hat Enterprise Virtualization Manager can be installed under one of two 
 **Important:** While the prerequisites for and basic configuration of the Red Hat Enterprise Virtualization Manager itself are the same for both standard and self-hosted engine setups, the process for setting up a self-hosted engine is different from that of a standard setup.
 
 </div>
-*Prerequisites*'
+**Prerequisites**
 
 Before installing the Red Hat Virtualization Manager, you must ensure that you meet all the prerequisites. To complete installation of the Red Hat Enterprise Virtualization Manager successfully, you must also be able to determine:
 
@@ -48,7 +48,7 @@ Before installing the Red Hat Virtualization Manager, you must ensure that you m
 7.  The path to use for the ISO share, if the Manager is being configured to provide one. The display name, which will be used to label the domain in the Red Hat Enterprise Virtualization Manager also needs to be provided.
 8.  The firewall rules, if any, present on the system that need to be integrated with the rules required for the Manager to function.
 
-*Configuration*'
+**Configuration**
 
 Before installation is completed the values selected are displayed for confirmation. Once the values have been confirmed they are applied and the Red Hat Enterprise Virtualization Manager is ready for use.
 
@@ -196,7 +196,7 @@ Now that your client systems have been configured to use your local repository, 
 </div>
 #### Installing the Red Hat Enterprise Virtualization Manager Packages
 
-*Summary*'
+**Summary**
 
 Before you can configure and use the Red Hat Enterprise Virtualization Manager, you must install the rhevm package and dependencies.
 
@@ -214,7 +214,7 @@ Before you can configure and use the Red Hat Enterprise Virtualization Manager, 
 
         # yum search rhevm-doc
 
-*Result*'
+**Result**
 
 You have installed the rhevm package and dependencies.
 
@@ -340,13 +340,13 @@ After you have installed the rhevm package and dependencies, you must configure 
         [ INFO  ] Stage: Termination
         [ INFO  ] Execution of setup completed successfully
 
-*Result*'
+**Result**
 
 The Red Hat Enterprise Virtualization Manager has been configured and is running on your server. You can log in to the Administration Portal as the `admin@internal` user to continue configuring the Manager. Furthermore, the `engine-setup` command saves your answers to a file that can be used to reconfigure the Manager using the same values.
 
 ####  Preparing a PostgreSQL Database for Use with Red Hat Enterprise Virtualization Manager
 
-*Summary*'
+**Summary**
 
 You can manually configure a database server to host the database used by the Red Hat Enterprise Virtualization Manager. The database can be hosted either locally on the machine on which the Red Hat Enterprise Virtualization Manager is installed, or remotely on another machine.
 
@@ -389,13 +389,13 @@ You can manually configure a database server to host the database used by the Re
 6.  Restart the `postgresql` service. This step is required on both local and remote manually configured database servers.
         # service postgresql restart
 
-*Result*'
+**Result**
 
 You have manually configured a PostgreSQL database to use with the Red Hat Enterprise Virtualization Manager.
 
 ####  Configuring the Manager to Use a Manually Configured Local or Remote PostgreSQL Database
 
-*Summary*'
+**Summary**
 
 During the database configuration stage of configuring the Red Hat Enterprise Virtualization Manager using the `engine-setup` script, you can choose to use a manually configured database. You can select to use a locally or remotely installed PostgreSQL database.
 
@@ -425,13 +425,13 @@ During the database configuration stage of configuring the Red Hat Enterprise Vi
 
     Using a secured connection to your database requires you to also have manually configured secured database connections.
 
-*Result*'
+**Result**
 
 You have configured the Red Hat Enterprise Virtualization Manager to use a manually configured database. The `engine-setup` command continues with the rest of your environment configuration.
 
 ####  Connecting to the Administration Portal
 
-*Summary*'
+**Summary**
 
 Access the Administration Portal using a web browser.
 
@@ -450,13 +450,13 @@ Access the Administration Portal using a web browser.
 5.  You can view the Administration Portal in multiple languages. The default selection will be chosen based on the locale settings of your web browser. If you would like to view the Administration Portal in a language other than the default, select your preferred language from the list.
 6.  Click **Login**.
 
-*Result*'
+**Result**
 
 You have logged into the Administration Portal.
 
 ####  Removing the Red Hat Enterprise Virtualization Manager
 
-*Summary*'
+**Summary**
 
 You can use the `engine-cleanup` command to remove specific components or all components of the Red Hat Enterprise Virtualization Manager. ⁠
 
@@ -483,7 +483,7 @@ You can use the `engine-cleanup` command to remove specific components or all co
 **Note:** A backup of the engine database and a compressed archive of the PKI keys and configuration are always automatically created. These files are saved under `/var/lib/ovirt-engine/backups/`, and include the date and `engine-` and `engine-pki-` in their file names, respectively.
 
 </div>
-*Result*'
+**Result**
 
 The configuration files of your environment have been removed according to your selections when you ran `engine-cleanup`.
 
@@ -520,7 +520,7 @@ Please review the compiler error for [Topic ID 25551](#TagErrorXRef25551) for mo
 
 ### Configuring the Self-Hosted Engine
 
-*Summary*'
+**Summary**
 
 When package installation is complete, the Red Hat Enterprise Virtualization Manager must be configured. The `hosted-engine` deployment script is provided to assist with this task. The script asks you a series of questions, and configures your environment based on your answers. When the required values have been provided, the updated configuration is applied and the Red Hat Enterprise Virtualization Manager services are started.
 
@@ -724,7 +724,7 @@ All steps in this procedure are to be conducted as the `root` user for the speci
         [ INFO  ] Stage: Pre-termination
         [ INFO  ] Stage: Termination
 
-*Result*'
+**Result**
 
 When the `hosted-engine` deployment script completes successfully, the Red Hat Enterprise Virtualization Manager is configured and running on your server. In contrast to a bare-metal Manager installation, the hosted engine Manager has already configured the data center, cluster, host (Host-HE1), storage domain, and virtual machine of the hosted engine (HostedEngine-VM). You can log in as the **admin@internal** user to continue configuring the Manager and add further resources.
 
@@ -734,7 +734,7 @@ The `ovirt-host-engine-setup` script also saves the answers you gave during conf
 
 ### Migrating to a Self-Hosted Environment
 
-*Summary*'
+**Summary**
 
 Deploy a hosted-engine environment and migrate an existing instance of Red Hat Enterprise Virtualization. The `hosted-engine` deployment script is provided to assist with this task. The script asks you a series of questions, and configures your environment based on your answers. When the required values have been provided, the updated configuration is applied and the Red Hat Enterprise Virtualization Manager services are started.
 
@@ -1055,13 +1055,13 @@ All steps in this procedure are to be conducted as the `root` user for the speci
         [ INFO  ] Stage: Pre-termination
         [ INFO  ] Stage: Termination
 
-*Result*'
+**Result**
 
 Your Red Hat Enterprise Virtualization engine has been migrated to a hosted-engine setup. The Manager is now operating on a virtual machine on Host-HE1, called HostedEngine-VM in the environment. As HostedEngine-VM is highly available, it is migrated to other hosts in the environment when applicable.
 
 ### Installing Additional Hosts to a Self-Hosted Environment
 
-*Summary*'
+**Summary**
 
 Adding additional nodes to a self-hosted environment is very similar to deploying the original host, though heavily truncated as the script detects the environment.
 
@@ -1132,7 +1132,7 @@ All steps in this procedure are to be conducted as the `root` user.
 
         Please confirm installation settings (Yes, No)[No]: 
 
-*Result*'
+**Result**
 
 After confirmation, the script completes installation of the host and adds it to the environment.
 
@@ -1158,7 +1158,7 @@ Please review the compiler error for [Topic ID 30615](#TagErrorXRef30615) for mo
 
 ### Upgrading Additional Hosts in a Self-Hosted Environment
 
-*Summary*'
+**Summary**
 
 It is recommended that all hosts in your self-hosted environment are upgraded at the same time. This prevents version 3.3 hosts from going into a **Non Operational** state. If this is not practical in your environment, follow this procedure to upgrade any additional hosts.
 
@@ -1190,7 +1190,7 @@ All commands in this procedure are as the `root` user.
 
 7.  Access the Red Hat Enterprise Virtualization Manager Administration Portal. Select the host and activate it by clicking the **Activate** button.
 
-*Result*'
+**Result**
 
 You have updated an additional host in your self-hosted environment to Red Hat Enterprise Virtualization 3.4.
 
@@ -1216,7 +1216,7 @@ The Red Hat Enterprise Virtualization Manager Reports functionality depends on t
 </div>
 ### Installing and Configuring the History Database and Red Hat Enterprise Virtualization Manager Reports
 
-*Summary*'
+**Summary**
 
 Use of the history database and reports is optional. To use the reporting capabilities of Red Hat Enterprise Virtualization Manager, you must install and configure rhevm-dwh and rhevm-reports.
 
@@ -1258,7 +1258,7 @@ Use of the history database and reports is optional. To use the reporting capabi
 
     Type **OK** and then press **Enter** to proceed. The `ovirt-engine` service will restart automatically later in the command.
 
-*Result*'
+**Result**
 
 The `ovirt_engine_history` database has been created. Red Hat Enterprise Virtualization Manager is configured to log information to this database for reporting purposes. Red Hat Enterprise Virtualization Manager Reports has been installed successfully. Access Red Hat Enterprise Virtualization Manager Reports at `http://[demo.redhat.com]/ovirt-engine-reports`, replacing `[demo.redhat.com]` with the fully-qualified domain name of the Red Hat Enterprise Virtualization Manager. If during Red Hat Enterprise Virtualization Manager installation you selected a non-default HTTP port then append `:`*[port]* to the URL, replacing *[port]* with the port that you chose.
 
@@ -1311,7 +1311,7 @@ Before commencing Hypervisor installation you must be aware that:
 </div>
 ### Installing the Red Hat Enterprise Virtualization Hypervisor Disk Image
 
-*Summary*'
+**Summary**
 
 Before you can set up a Red Hat Enterprise Virtualization Hypervisor, you must download the packages containing the Red Hat Enterprise Virtualization Hypervisor disk image and tools for writing that disk image to USB storage devices or preparing that disk image for deployment via PXE.
 
@@ -1332,7 +1332,7 @@ Before you can set up a Red Hat Enterprise Virtualization Hypervisor, you must d
 3.  Run the following command to install the livecd-tools package:
         # yum install livecd-tools
 
-*Result*'
+**Result**
 
 You have installed the Red Hat Enterprise Virtualization Hypervisor disk image and the **livecd-iso-to-disk** and **livecd-iso-to-pxeboot** utilities. By default, the Red Hat Enterprise Virtualization Hypervisor disk image is located in the `/usr/share/rhev-hypervisor/` directory.
 
@@ -1352,7 +1352,7 @@ You can write the Red Hat Enterprise Virtualization Hypervisor disk image to a U
 </div>
 ####  Preparing USB Installation Media Using livecd-iso-to-disk
 
-*Summary*'
+**Summary**
 
 You can use the **livecd-iso-to-disk** utility included in the livecd-tools package to write a hypervisor or other disk image to a USB storage device. You can then use that USB storage device to start systems that support booting via USB and install the Red Hat Enterprise Virtualization Hypervisor.
 
@@ -1434,7 +1434,7 @@ The *[device]* parameter is the path to the USB storage device on which to write
         /media/tgttmp.q6aZdS/syslinux is device /dev/sdc
         Target device is now set up with a Live image!
 
-*Result*'
+**Result**
 
 You have written a Red Hat Enterprise Virtualization Hypervisor disk image to a USB storage device. You can now use that USB storage device to start a system and install the Red Hat Enterprise Virtualization Hypervisor operating system.
 
@@ -1450,7 +1450,7 @@ The *[device]* parameter is the path to the USB storage device on which the disk
 
 ####  Preparing USB Installation Media Using dd on Linux Systems
 
-*Summary*'
+**Summary**
 
 You can use the **dd** utility to write a Red Hat Enterprise Virtualization Hypervisor disk image to a USB storage device.
 
@@ -1477,13 +1477,13 @@ You can use the **dd** utility to write a Red Hat Enterprise Virtualization Hype
 
     The **dd** utility will overwrite all data on the device specified by the *`of`* parameter. Ensure you have specified the correct device and that the device contains no valuable data before using the **dd** utility.
 
-*Result*'
+**Result**
 
 You have written a Red Hat Enterprise Virtualization Hypervisor disk image to a USB storage device.
 
 ####  Preparing Optical Hypervisor Installation Media
 
-*Summary*'
+**Summary**
 
 You can write a Red Hat Enterprise Virtualization Hypervisor disk image to a CD-ROM or DVD with the **wodim** utility. The **wodim** utility is provided by the wodim package.
 
@@ -1510,7 +1510,7 @@ You can write a Red Hat Enterprise Virtualization Hypervisor disk image to a CD-
 **Important:** The Hypervisor uses a program (**isomd5sum**) to verify the integrity of the installation media every time the hypervisor is booted. If media errors are reported in the boot sequence you have a bad CD-ROM. Follow the procedure above to create a new CD-ROM or DVD.
 
 </div>
-*Result*'
+**Result**
 
 You have written a Red Hat Enterprise Virtualization Hypervisor disk image to a CD-ROM or DVD.
 
@@ -1518,7 +1518,7 @@ You have written a Red Hat Enterprise Virtualization Hypervisor disk image to a 
 
 ####  Booting the Hypervisor from USB Installation Media
 
-*Summary*'
+**Summary**
 
 Booting a hypervisor from a USB storage device is similar to booting other live USB operating systems. Follow this procedure to boot a machine using USB installation media.
 
@@ -1534,13 +1534,13 @@ Booting a hypervisor from a USB storage device is similar to booting other live 
 2.  Insert the USB storage device that contains the hypervisor boot image.
 3.  Restart the system.
 
-*Result*'
+**Result**
 
 The hypervisor boot process commences automatically.
 
 ####  Booting the Hypervisor from Optical Installation Media
 
-*Summary*'
+**Summary**
 
 Booting the Hypervisor from optical installation media requires the system to have a correctly defined BIOS boot configuration.
 
@@ -1556,13 +1556,13 @@ Booting the Hypervisor from optical installation media requires the system to ha
 2.  Insert the Hypervisor CD-ROM in the CD-ROM or DVD-ROM drive.
 3.  Reboot the system.
 
-*Result*'
+**Result**
 
 The Hypervisor boot screen will be displayed.
 
 #### 3. Starting the Installation Program
 
-*Summary*'
+**Summary**
 
 When you start a system using the prepared boot media, the first screen that displays is the boot menu. From here, you can start the installation program for installing the hypervisor.
 
@@ -1658,7 +1658,7 @@ When you start a system using the prepared boot media, the first screen that dis
 **Note:** From the boot menu, you can also press the **Tab** key to edit the kernel parameters. Kernel parameters must be separated by a space, and once you have entered the preferred kernel parameters, you can boot the system using those kernel parameters by pressing the **Enter** key. To clear any changes you have made to the kernel parameters and return to the boot menu, press the **Esc** key. For a list of supported kernel parameters, see the *Red Hat Enterprise Linux - Hypervisor Deployment Guide*.
 
 </div>
-*Result*'
+**Result**
 
 You have started the hypervisor installation program.
 
@@ -1671,7 +1671,7 @@ You have started the hypervisor installation program.
 
 ####  Installing the Hypervisor
 
-*Summary*'
+**Summary**
 
 There are two methods for installing Red Hat Enterprise Virtualization Hypervisors:
 
@@ -1751,7 +1751,7 @@ This section outlines the procedure for installing a Hypervisor interactively. F
 
 6.  The Hypervisor requires a password be set to protect local console access to the `admin` user. The installation script prompts you to enter the preferred password in both the **Password** and **Confirm Password** fields. Use a strong password. Strong passwords comprise a mix of uppercase, lowercase, numeric, and punctuation characters. They are six or more characters long and do not contain dictionary words. Once a strong password has been entered, select **<Install>** and press **Enter** to install the Hypervisor on the selected disks.
 
-*Result*'
+**Result**
 
 Once installation is complete, the message `RHEV Hypervisor Installation Finished Successfully` will be displayed. Select the **<Reboot>** button and press **Enter** to reboot the system.
 
@@ -1771,7 +1771,7 @@ Once installation is complete, the message `RHEV Hypervisor Installation Finishe
 
 ####  Logging Into the Hypervisor
 
-*Summary*'
+**Summary**
 
 You can log into the hypervisor console locally to configure the hypervisor.
 
@@ -1783,7 +1783,7 @@ You can log into the hypervisor console locally to configure the hypervisor.
 2.  Enter the user name `admin` and press **Enter**.
 3.  Enter the password you set during installation and press **Enter**.
 
-*Result*'
+**Result**
 
 You have successfully logged into the hypervisor console as the `admin` user.
 
@@ -1809,7 +1809,7 @@ The **Network** screen is used to configure the host name of the hypervisor and 
 
 ##### Configuring the Host Name
 
-*Summary*'
+**Summary**
 
 You can change the host name used to identify the hypervisor.
 
@@ -1820,13 +1820,13 @@ You can change the host name used to identify the hypervisor.
 1.  Select the **Hostname** field on the **Network** screen and enter the new host name.
 2.  Select **<Save>** and press **Enter** to save the changes.
 
-*Result*'
+**Result**
 
 You have changed the host name used to identify the hypervisor.
 
 ##### Configuring Domain Name Servers
 
-*Summary*'
+**Summary**
 
 You can specify up to two domain name servers that the hypervisor will use to resolve network addresses.
 
@@ -1838,13 +1838,13 @@ You can specify up to two domain name servers that the hypervisor will use to re
 2.  To set or change the secondary DNS server, select the **DNS Server 2** field and enter the IP address of the new secondary DNS server.
 3.  Select **<Save>** and press **Enter** to save the changes.
 
-*Result*'
+**Result**
 
 You have specified the primary and secondary domain name servers that the hypervisor will use to resolve network addresses.
 
 ##### Configuring Network Time Protocol Servers
 
-*Summary*'
+**Summary**
 
 You can specify up to two network time protocol servers that the hypervisor will use to synchronize its system clock.
 
@@ -1860,13 +1860,13 @@ You can specify up to two network time protocol servers that the hypervisor will
 2.  To set or change the secondary NTP server, select the **NTP Server 2** field and enter the IP address or host name of the new secondary NTP server.
 3.  Select **<Save>** and press **Enter** to save changes to the NTP configuration.
 
-*Result*'
+**Result**
 
 You have specified the primary and secondary NTP servers that the hypervisor will use to synchronize its system clock.
 
 ##### Configuring Network Interfaces
 
-*Summary*'
+**Summary**
 
 After you have installed the Red Hat Enterprise Virtualization Hypervisor operating system, all network interface cards attached to the hypervisor are initially in an unconfigured state. You must configure at least one network interface to connect the hypervisor with the Red Hat Enterprise Virtualization Manager.
 
@@ -1904,13 +1904,13 @@ After you have installed the Red Hat Enterprise Virtualization Hypervisor operat
 4.  Select the **Use Bridge** option and press the space bar to enable this option.
 5.  Select the **<Save>** button and press **Enter** to save the network configuration.
 
-*Result*'
+**Result**
 
 The progress of configuration is displayed on screen. When configuration is complete, press the **Enter** key to close the progress window and return to the **Network** screen. The network interface is now listed as **Configured**.
 
 #### 4. The Security Screen
 
-*Summary*'
+**Summary**
 
 You can configure security-related options for the hypervisor such as SSH password authentication, AES-NI encryption, and the password of the `admin` user.
 
@@ -1924,13 +1924,13 @@ You can configure security-related options for the hypervisor such as SSH passwo
 4.  Enter a new password for the `admin` user in the **Password** field and **Confirm Password** to change the password used to log into the hypervisor console.
 5.  Select **<Save>** and press **Enter**.
 
-*Result*'
+**Result**
 
 You have updated the security-related options for the hypervisor.
 
 ####  The Keyboard Screen
 
-*Summary*'
+**Summary**
 
 The **Keyboard** screen allows you to configure the keyboard layout used inside the hypervisor console.
 
@@ -1956,13 +1956,13 @@ The **Keyboard** screen allows you to configure the keyboard layout used inside 
 
 2.  Select **Save** and press **Enter** to save the selection.
 
-*Result*'
+**Result**
 
 You have successfully configured the keyboard layout.
 
 ####  The SNMP Screen
 
-*Summary*'
+**Summary**
 
 The **SNMP** screen allows you to enable and configure a password for simple network management protocol.
 
@@ -1982,13 +1982,13 @@ The **SNMP** screen allows you to enable and configure a password for simple net
 2.  Enter a password in the **Password** and **Confirm Password** fields.
 3.  Select **<Save>** and press **Enter**.
 
-*Result*'
+**Result**
 
 You have enabled SNMP and configured a password that the hypervisor will use in SNMP communication.
 
 ####  The CIM Screen
 
-*Summary*'
+**Summary**
 
 The **CIM** screen allows you to configure a common information model for attaching the hypervisor to a pre-existing CIM management infrastructure and monitor virtual machines that are running on the hypervisor.
 
@@ -2002,13 +2002,13 @@ The **CIM** screen allows you to configure a common information model for attach
 2.  Enter a password in the **Password** field and **Confirm Password** field.
 3.  Select **Save** and press **Enter**.
 
-*Result*'
+**Result**
 
 You have configured the Hypervisor to accept CIM connections authenticated using a password. Use this password when adding the Hypervisor to your common information model object manager.
 
 ####  The Logging Screen
 
-*Summary*'
+**Summary**
 
 The **Logging** screen allows you to configure logging-related options such as a daemon for automatically exporting log files generated by the hypervisor to a remote server.
 
@@ -2027,13 +2027,13 @@ The **Logging** screen allows you to configure logging-related options such as a
 
 4.  Select **<Save>** and press **Enter**.
 
-*Result*'
+**Result**
 
 You have configured logging for the hypervisor.
 
 ####  The Kdump Screen
 
-*Summary*'
+**Summary**
 
 The **Kdump** screen allows you to specify a location in which kernel dumps will be stored in the event of a system failure. There are four options - **Disable**, which disables kernel dumping, **Local**, which stores kernel dumps on the local system, and **SSH** and **NFS**, which allow you to export kernel dumps to a remote location.
 
@@ -2053,13 +2053,13 @@ The **Kdump** screen allows you to specify a location in which kernel dumps will
 
 2.  Select **<Save>** and press **Enter**.
 
-*Result*'
+**Result**
 
 You have configured a location in which kernel dumps will be stored in the event of a system failure.
 
 #### 10. The Remote Storage Screen
 
-*Summary*'
+**Summary**
 
 You can use the **Remote Storage** screen to specify a remote iSCSI initiator or NFS share to use as storage.
 
@@ -2084,13 +2084,13 @@ You can use the **Remote Storage** screen to specify a remote iSCSI initiator or
 
 2.  Select **<Save>** and press **Enter**.
 
-*Result*'
+**Result**
 
 You have configured remote storage.
 
 #### 11. Configuring Hypervisor Management Server
 
-*Summary*'
+**Summary**
 
 You can attach the Hypervisor to the Red Hat Enterprise Virtualization Manager immediately if the address of the Manager is available. If the Manager has not yet been installed, you must instead set a password. This allows the Hypervisor to be added from the Administration Portal once the Manager has been installed. Both modes of configuration are supported from the **oVirt Engine** screen in the Hypervisor user interface.
 
@@ -2115,7 +2115,7 @@ You can attach the Hypervisor to the Red Hat Enterprise Virtualization Manager i
 2.  **Save Configuration**
     To save the configuration select **<Save>** and press **Enter**.
 
-*Result*'
+**Result**
 
 The **oVirt Engine** configuration has been updated.
 
@@ -2129,7 +2129,7 @@ If the Hypervisor was configured without the address of the Red Hat Enterprise V
 
 ####  Approving a Hypervisor
 
-*Summary*'
+**Summary**
 
 It is not possible to run virtual machines on a Hypervisor until the addition of it to the environment has been approved in Red Hat Enterprise Virtualization Manager.
 
@@ -2142,7 +2142,7 @@ It is not possible to run virtual machines on a Hypervisor until the addition of
 3.  Click the **Approve** button. The **Edit and Approve Hosts** dialog displays. You can use the dialog to set a name for the host, fetch its SSH fingerprint before approving it, and configure power management, where the host has a supported power management card. For information on power management configuration, refer to [Section 7.6.2, “Host Power Management Settings Explained”](#Host_Power_Management_settings_explained).
 4.  Click **OK**. If you have not configured power management you will be prompted to confirm that you wish to proceed without doing so, click **OK**.
 
-*Result*'
+**Result**
 
 The status in the **Hosts** tab changes to **Installing**, after a brief delay the host status changes to **Up**.
 
@@ -2158,7 +2158,7 @@ Adding a host can take some time, as the following steps are completed by the pl
 
 ### Installing Red Hat Enterprise Linux
 
-*Summary*'
+**Summary**
 
 You must install Red Hat Enterprise Linux 6.5 Server on a system to use it as a virtualization host in a Red Hat Enterprise Virtualization 3.4 environment.
 
@@ -2230,13 +2230,13 @@ You must install Red Hat Enterprise Linux 6.5 Server on a system to use it as a 
                     --- manager.example.redhat.com ping statistics ---
                     7 packets transmitted, 7 received, 0% packet loss, time 6267ms
 
-*Result*'
+**Result**
 
 You have installed Red Hat Enterprise Linux 6.5 Server. You must complete additional configuration tasks before adding the virtualization host to your Red Hat Enterprise Virtualization environment.
 
 ### Configuring the Virtualization Host Firewall
 
-*Summary*'
+**Summary**
 
 Red Hat Enterprise Virtualization requires a number of network ports to be open to support virtual machines and remote management of the virtualization host from the Red Hat Enterprise Virtualization Manager. You must follow this procedure to open the required network ports before attempting to add the virtualization host to the Manager.
 
@@ -2289,13 +2289,13 @@ All commands in this procedure must be run as the `root` user.
         # chkconfig iptables on
         # service iptables restart
 
-*Result*'
+**Result**
 
 You have configured the virtualization host's firewall to allow the network traffic required by Red Hat Enterprise Virtualization.
 
 ### Configuring Virtualization Host sudo
 
-*Summary*'
+**Summary**
 
 The Red Hat Enterprise Virtualization Manager uses **sudo** to perform operations as the `root` on the host. The default Red Hat Enterprise Linux configuration, stored in `/etc/sudoers`, contains values that allow this. If this file has been modified since Red Hat Enterprise Linux installation, then these values may have been removed. This procedure verifies that the required entry still exists in the configuration, and adds the required entry if it is not present.
 
@@ -2322,13 +2322,13 @@ The Red Hat Enterprise Virtualization Manager uses **sudo** to perform operation
 4.  **Exit editor**
     Exit `visudo` using the VIM `:q` command.
 
-*Result*'
+**Result**
 
 You have configured **sudo** to allow use by the `root` user.
 
 ### Configuring Virtualization Host SSH
 
-*Summary*'
+**Summary**
 
 The Red Hat Enterprise Virtualization Manager accesses virtualization hosts via SSH. To do this it logs in as the `root` user using an encrypted key for authentication. You must follow this procedure to ensure that SSH is configured to allow this.
 
@@ -2365,13 +2365,13 @@ All commands in this procedure must be run as the `root` user.
 
         # service sshd restart
 
-*Result*'
+**Result**
 
 You have configured the virtualization host to allow `root` access over SSH.
 
 ### Adding a Red Hat Enterprise Linux Host
 
-*Summary*'
+**Summary**
 
 A Red Hat Enterprise Linux host is based on a standard "basic" installation of Red Hat Enterprise Linux. The physical host must be set up before you can add it to the Red Hat Enterprise Virtualization environment.
 
@@ -2396,7 +2396,7 @@ The Red Hat Enterprise Virtualization Manager logs into the host to perform virt
 7.  You can configure the **Power Management** and **SPM** using the applicable tabs now; however, as these are not fundamental to adding a Red Hat Enterprise Linux host, they are not covered in this procedure.
 8.  Click **OK** to add the host and close the window.
 
-*Result*'
+**Result**
 
 The new host displays in the list of hosts with a status of `Installing`. When installation is complete, the status updates to `Reboot`. The host must be activated for the status to change to `Up`.
 
@@ -2663,7 +2663,7 @@ The system administrator, as the superuser, can manage all aspects of the platfo
 
 ### Creating a New Data Center
 
-*Summary*'
+**Summary**
 
 This procedure creates a data center in your virtualization environment. The data center requires a functioning cluster, host, and storage domain to operate.
 
@@ -2684,13 +2684,13 @@ If you set the **Compatibility Version** as **3.1**, it cannot be changed to **3
 5.  Click **OK** to create the data center and open the **New Data Center - Guide Me** window.
 6.  The **Guide Me** window lists the entities that need to be configured for the data center. Configure these entities or postpone configuration by clicking the **Configure Later** button; configuration can be resumed by selecting the data center and clicking the **Guide Me** button.
 
-*Result*'
+**Result**
 
 The new data center is added to the virtualization environment. It will remain **Uninitialized** until a cluster, host, and storage domain are configured for it; use **Guide Me** to configure these entities.
 
 ### Changing the Data Center Compatibility Version
 
-*Summary*'
+**Summary**
 
 Red Hat Enterprise Virtualization data centers have a compatibility version. The compatibility version indicates the version of Red Hat Enterprise Virtualization that the data center is intended to be compatible with. All clusters in the data center must support the desired compatibility level.
 
@@ -2709,7 +2709,7 @@ Red Hat Enterprise Virtualization data centers have a compatibility version. The
 5.  Change the **Compatibility Version** to the desired value.
 6.  Click **OK**.
 
-*Result*'
+**Result**
 
 You have updated the compatibility version of the data center.
 
@@ -2737,7 +2737,7 @@ At any given time, after a virtual machine runs on a specific host in the cluste
 </div>
 ### Creating a New Cluster
 
-*Summary*'
+**Summary**
 
 A data center can contain multiple clusters, and a cluster can contain multiple hosts. All hosts in a cluster must be of the same CPU type (Intel or AMD). It is recommended that you create your hosts before you create your cluster to ensure CPU type optimization. However, you can configure the hosts at a later time using the **Guide Me** button.
 
@@ -2758,13 +2758,13 @@ A data center can contain multiple clusters, and a cluster can contain multiple 
 11. Click **OK** to create the cluster and open the **New Cluster - Guide Me** window.
 12. The **Guide Me** window lists the entities that need to be configured for the cluster. Configure these entities or postpone configuration by clicking the **Configure Later** button; configuration can be resumed by selecting the cluster and clicking the **Guide Me** button.
 
-*Result*'
+**Result**
 
 The new cluster is added to the virtualization environment.
 
 ### Changing the Cluster Compatibility Version
 
-*Summary*'
+**Summary**
 
 Red Hat Enterprise Virtualization clusters have a compatibility version. The cluster compatibility version indicates the features of Red Hat Enterprise Virtualization supported by all of the hosts in the cluster. The cluster compatibility is set according to the version of the least capable host operating system in the cluster.
 
@@ -2784,7 +2784,7 @@ Red Hat Enterprise Virtualization clusters have a compatibility version. The clu
 6.  Click **OK** to open the **Change Cluster Compatibility Version** confirmation window.
 7.  Click **OK** to confirm.
 
-*Result*'
+**Result**
 
 You have updated the compatibility version of the cluster. Once you have updated the compatibility version of all clusters in a data center, then you are also able to change the compatibility version of the data center itself.
 
@@ -2846,7 +2846,7 @@ This applies to all services, but you should be fully aware of the hazards of ru
 
 #### ⁠10.3.1. Creating a New Logical Network in a Data Center or Cluster
 
-*Summary*'
+**Summary**
 
 Create a logical network and define its use in a data center, or in clusters in a data center.
 
@@ -2866,7 +2866,7 @@ Create a logical network and define its use in a data center, or in clusters in 
 10. From the **Profiles** tab, add vNIC profiles to the logical network as required.
 11. Click **OK**.
 
-*Result*'
+**Result**
 
 You have defined a logical network as a resource required by a cluster or clusters in the data center. If you entered a label for the logical network, it will be automatically added to all host network interfaces with that label.
 
@@ -2878,7 +2878,7 @@ You have defined a logical network as a resource required by a cluster or cluste
 
 #### ⁠10.4.1. Editing Host Network Interfaces and Assigning Logical Networks to Hosts
 
-*Summary*'
+**Summary**
 
 You can change the settings of physical host network interfaces, move the management network from one physical host network interface to another, and assign logical networks to physical host network interfaces.
 
@@ -2914,7 +2914,7 @@ You can change the settings of physical host network interfaces, move the manage
 7.  Select the **Save network configuration** check box to make the changes persistent when the environment is rebooted.
 8.  Click **OK**.
 
-*Result*'
+**Result**
 
 You have assigned logical networks to and configured a physical host network interface.
 
@@ -2979,7 +2979,7 @@ The table below describes the settings for the **General** tab of the **New Logi
 
 #### ⁠10.4.3. Editing a Logical Network
 
-*Summary*'
+**Summary**
 
 Edit the settings of a logical network.
 
@@ -2993,7 +2993,7 @@ Edit the settings of a logical network.
 4.  Edit the necessary settings.
 5.  Click **OK** to save the changes.
 
-*Result*'
+**Result**
 
 You have updated the settings of your logical network.
 
@@ -3062,7 +3062,7 @@ These functions are also accessible through each individual resource tab.
 
 #### ⁠10.5.1. Removing a Logical Network
 
-*Summary*'
+**Summary**
 
 Remove a logical network from the Manager.
 
@@ -3076,7 +3076,7 @@ Remove a logical network from the Manager.
 4.  Optionally, select the **Remove external network(s) from the provider(s) as well** check box to remove the logical network both from the Manager and from the external provider if the network is provided by an external provider.
 5.  Click **OK**.
 
-*Result*'
+**Result**
 
 The logical network is removed from the Manager and is no longer available. If the logical network was provided by an external provider and you elected to remove the logical network from that external provider, it is removed from the external provider and is no longer available on that external provider as well.
 
@@ -3121,7 +3121,7 @@ Only commence configuring and attaching storage for your Red Hat Enterprise Virt
 </div>
 ### ⁠11.3. Preparing NFS Storage
 
-*Summary*'
+**Summary**
 
 These steps must be taken to prepare an NFS file share on a server running Red Hat Enterprise Linux 6 for use with Red Hat Enterprise Virtualization.
 
@@ -3181,13 +3181,13 @@ These steps must be taken to prepare an NFS file share on a server running Red H
 
         # chmod 0755 /exports/iso
 
-*Result*'
+**Result**
 
 The NFS file share has been created, and is ready to be attached by the Red Hat Enterprise Virtualization Manager.
 
 ### ⁠11.4. Attaching NFS Storage
 
-*Summary*'
+**Summary**
 
 An NFS type **Storage Domain** is a mounted NFS share that is attached to a data center. It is used to provide storage for virtualized guest images and ISO boot media. Once NFS storage has been exported it must be attached to the Red Hat Enterprise Virtualization Manager using the Administration Portal.
 
@@ -3215,13 +3215,13 @@ NFS data domains can be added to NFS data centers. You can add NFS, ISO, and exp
 
 7.  Click **OK** to create the storage domain and close the window.
 
-*Result*'
+**Result**
 
 The new NFS data domain is displayed on the **Storage** tab with a status of `Locked` while the disk prepares. It is automatically attached to the data center upon completion.
 
 ### ⁠11.5. Adding iSCSI Storage
 
-*Summary*'
+**Summary**
 
 Red Hat Enterprise Virtualization platform supports iSCSI storage by creating a storage domain from a volume group made of pre-existing LUNs. Neither volume groups nor LUNs can be attached to more than one storage domain at a time.
 
@@ -3271,13 +3271,13 @@ For information regarding the setup and configuration of iSCSI on Red Hat Enterp
 9.  Select the check box for each LUN that you are using to create the storage domain.
 10. Click **OK** to create the storage domain and close the window.
 
-*Result*'
+**Result**
 
 The new iSCSI storage domain displays on the storage tab. This can take up to 5 minutes.
 
 ### ⁠11.6. Adding FCP Storage
 
-*Summary*'
+**Summary**
 
 Red Hat Enterprise Virtualization platform supports SAN storage by creating a storage domain from a volume group made of pre-existing LUNs. Neither volume groups nor LUNs can be attached to more than one storage domain at a time.
 
@@ -3312,13 +3312,13 @@ For information regarding the setup and configuration of FCP or multipathing on 
 7.  The **New Domain** window automatically displays known targets with unused LUNs when **Data / Fibre Channel** is selected as the storage type. Select the **LUN ID** check box to select all of the available LUNs.
 8.  Click **OK** to create the storage domain and close the window.
 
-*Result*'
+**Result**
 
 The new FCP data domain displays on the **Storage** tab. It will remain with a `Locked` status while it is being prepared for use. When ready, it is automatically attached to the data center.
 
 ### ⁠11.7. Preparing Local Storage
 
-*Summary*'
+**Summary**
 
 A local storage domain can be set up on a host. When you set up host to use local storage, the host automatically gets added to a new data center and cluster that no other hosts can be added to. Multiple host clusters require that all hosts have access to all storage domains, which is not possible with local storage. Virtual machines created in a single host cluster cannot be migrated, fenced or scheduled.
 
@@ -3338,13 +3338,13 @@ A local storage domain can be set up on a host. When you set up host to use loca
 
         # chmod 0755 /data /data/images
 
-*Result*'
+**Result**
 
 Your local storage is ready to be added to the Red Hat Enterprise Virtualization environment.
 
 ### ⁠11.8. Adding Local Storage
 
-*Summary*'
+**Summary**
 
 Storage local to your host has been prepared. Now use the Manager to add it to the host.
 
@@ -3369,7 +3369,7 @@ Adding local storage to a host in this manner causes the host to be put in a new
 7.  If applicable, select the **Optimization** tab to configure the memory optimization policy for the new local storage cluster.
 8.  Click **OK** to save the settings and close the window.
 
-*Result*'
+**Result**
 
 Your host comes online in a data center of its own.
 
@@ -3385,7 +3385,7 @@ Any POSIX compliant filesystem used as a storage domain in Red Hat Enterprise Vi
 </div>
 ### ⁠11.10. Attaching POSIX Compliant File System Storage
 
-*Summary*'
+**Summary**
 
 You want to use a POSIX compliant file system that is not exposed using NFS, iSCSI, or FCP as a storage domain.
 
@@ -3410,13 +3410,13 @@ You want to use a POSIX compliant file system that is not exposed using NFS, iSC
 9.  Enter additional **Mount Options**, as you would normally provide them to the `mount` command using the *`-o`* argument. The mount options should be provided in a comma-separated list. See `man mount` for a list of valid mount options.
 10. Click **OK** to attach the new Storage Domain and close the window.
 
-*Result*'
+**Result**
 
 You have used a supported mechanism to attach an unsupported file system as a storage domain.
 
 ### ⁠11.11. Enabling Gluster Processes on Red Hat Storage Nodes
 
-*Summary*'
+**Summary**
 
 This procedure explains how to allow Gluster processes on Red Hat Storage Nodes.
 
@@ -3431,13 +3431,13 @@ This procedure explains how to allow Gluster processes on Red Hat Storage Nodes.
 
 4.  Click **OK**.
 
-*Result*'
+**Result**
 
 It is now possible to add Red Hat Storage nodes to the Gluster cluster, and to mount Gluster volumes as storage domains. **iptables** rules no longer block storage domains from being added to the cluster.
 
 ### ⁠11.12. Populating the ISO Storage Domain
 
-*Summary*'
+**Summary**
 
 An ISO storage domain is attached to a data center, ISO images must be uploaded to it. Red Hat Enterprise Virtualization provides an ISO uploader tool that ensures that the images are uploaded into the correct directory path, with the correct user permissions.
 
@@ -3458,7 +3458,7 @@ The creation of ISO images from physical media is not described in this document
 
         # engine-iso-uploader --iso-domain=ISODomain upload RHEL6.iso
 
-*Result*'
+**Result**
 
 The ISO image is uploaded and appears in the ISO storage domain specified. It is also available in the list of available boot media when creating virtual machines in the data center which the storage domain is attached to.
 

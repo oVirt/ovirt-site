@@ -2588,7 +2588,7 @@ The **SPM** settings table details the information required on the **SPM** tab o
 </tbody>
 </table>
 
-#### 4. Host Console Settings Explained
+#### Host Console Settings Explained
 
 The **Console** settings table details the information required on the **Console** tab of the **New Host** or **Edit Host** window.
 

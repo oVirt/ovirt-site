@@ -22,7 +22,7 @@ Integrate virt-v2v in oVirt for importing virtual machines from external environ
 ### Current status
 
 *   Status: Design
-*   Targete Release: TBD
+*   Target Release: TBD
 *   Last updated: ,
 
 ### Detailed Description

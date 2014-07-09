@@ -2561,7 +2561,7 @@ The **Power Management** settings table contains the information required on the
 </tbody>
 </table>
 
-#### 3. SPM Priority Settings Explained
+#### SPM Priority Settings Explained
 
 The **SPM** settings table details the information required on the **SPM** tab of the **New Host** or **Edit Host** window.
 

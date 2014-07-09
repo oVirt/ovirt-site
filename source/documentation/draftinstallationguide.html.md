@@ -1908,7 +1908,7 @@ After you have installed the Red Hat Enterprise Virtualization Hypervisor operat
 
 The progress of configuration is displayed on screen. When configuration is complete, press the **Enter** key to close the progress window and return to the **Network** screen. The network interface is now listed as **Configured**.
 
-#### 4. The Security Screen
+#### The Security Screen
 
 **Summary**
 

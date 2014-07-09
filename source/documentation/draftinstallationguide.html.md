@@ -15,11 +15,11 @@ A comprehensive guide to installing oVirt 3.4.
 
 ## ⁠Chapter 1. Installing Red Hat Enterprise Virtualization
 
-### ⁠1.1. Workflow Progress - Installing Red Hat Enterprise Virtualization Manager
+### Workflow Progress - Installing Red Hat Enterprise Virtualization Manager
 
 ![](images/1191.png "images/1191.png")
 
-### ⁠1.2. Installing the Red Hat Enterprise Virtualization Manager
+### Installing the Red Hat Enterprise Virtualization Manager
 
 *Overview*'
 
@@ -96,9 +96,9 @@ Run `engine-setup --help` for a full list of parameters.
 **Note:** Offline installation requires the creation of a software repository local to your Red Hat Enterprise Virtualization environment. This software repository must contain all of the packages required to install Red Hat Enterprise Virtualization Manager, Red Hat Enterprise Linux virtualization hosts, and Red Hat Enterprise Linux virtual machines. To create such a repository, see the *Installing Red Hat Enterprise Virtualization Offline* technical brief, available at [<https://access.redhat.com/knowledge/techbriefs/installing-red-hat-enterprise-virtualization-offline-rhev-30>](https://access.redhat.com/knowledge/techbriefs/installing-red-hat-enterprise-virtualization-offline-rhev-30).
 
 </div>
-### ⁠1.3. Installing the Red Hat Enterprise Virtualization Manager
+### Installing the Red Hat Enterprise Virtualization Manager
 
-#### ⁠1.3.1. Configuring an Offline Repository for Red Hat Enterprise Virtualization Manager Installation
+#### Configuring an Offline Repository for Red Hat Enterprise Virtualization Manager Installation
 
 This task documents the creation of an offline repository containing all packages needed to install a Red Hat Enterprise Virtualization environment. Follow these steps to create a repository you can use to install Red Hat Enterprise Virtualization components on systems without a direct connection to Red Hat Network.
 
@@ -194,7 +194,7 @@ Now that your client systems have been configured to use your local repository, 
 **Note:** As updated packages are released to Red Hat Network - addressing security issues, fixing bugs, and adding enhancements - you must update your local repository. To do this, repeat the procedure for synchronizing and sharing the channels. Adding the *`--newest-only`* parameter to the `reposync` command ensures that it only retrieves the newest version of each available package. Once the repository is updated you must ensure it is available to each of your client systems and then run `yum update` on it.
 
 </div>
-#### ⁠1.3.2. Installing the Red Hat Enterprise Virtualization Manager Packages
+#### Installing the Red Hat Enterprise Virtualization Manager Packages
 
 *Summary*'
 
@@ -218,7 +218,7 @@ Before you can configure and use the Red Hat Enterprise Virtualization Manager, 
 
 You have installed the rhevm package and dependencies.
 
-#### ⁠1.3.3. Configuring the Red Hat Enterprise Virtualization Manager
+####  Configuring the Red Hat Enterprise Virtualization Manager
 
 After you have installed the rhevm package and dependencies, you must configure the Red Hat Enterprise Virtualization Manager using the `engine-setup` command. This command asks you a series of questions and, after you provide the required values for all questions, applies that configuration and starts the `ovirt-engine` service.
 
@@ -344,7 +344,7 @@ After you have installed the rhevm package and dependencies, you must configure 
 
 The Red Hat Enterprise Virtualization Manager has been configured and is running on your server. You can log in to the Administration Portal as the `admin@internal` user to continue configuring the Manager. Furthermore, the `engine-setup` command saves your answers to a file that can be used to reconfigure the Manager using the same values.
 
-#### ⁠1.3.4. Preparing a PostgreSQL Database for Use with Red Hat Enterprise Virtualization Manager
+####  Preparing a PostgreSQL Database for Use with Red Hat Enterprise Virtualization Manager
 
 *Summary*'
 
@@ -393,7 +393,7 @@ You can manually configure a database server to host the database used by the Re
 
 You have manually configured a PostgreSQL database to use with the Red Hat Enterprise Virtualization Manager.
 
-#### ⁠1.3.5. Configuring the Manager to Use a Manually Configured Local or Remote PostgreSQL Database
+####  Configuring the Manager to Use a Manually Configured Local or Remote PostgreSQL Database
 
 *Summary*'
 
@@ -429,7 +429,7 @@ During the database configuration stage of configuring the Red Hat Enterprise Vi
 
 You have configured the Red Hat Enterprise Virtualization Manager to use a manually configured database. The `engine-setup` command continues with the rest of your environment configuration.
 
-#### ⁠1.3.6. Connecting to the Administration Portal
+####  Connecting to the Administration Portal
 
 *Summary*'
 
@@ -454,7 +454,7 @@ Access the Administration Portal using a web browser.
 
 You have logged into the Administration Portal.
 
-#### ⁠1.3.7. Removing the Red Hat Enterprise Virtualization Manager
+####  Removing the Red Hat Enterprise Virtualization Manager
 
 *Summary*'
 
@@ -493,7 +493,7 @@ You can now safely remove the Red Hat Enterprise Virtualization packages using t
 
 ## ⁠Chapter 2. The Self-Hosted Engine
 
-### ⁠2.1. About the Self-Hosted Engine
+### About the Self-Hosted Engine
 
 A self-hosted engine is a virtualized environment in which the engine, or Manager, runs on a virtual machine on the hosts managed by that engine. The virtual machine is created as part of the host configuration, and the engine is installed and configured in parallel to that host configuration process, referred to in these procedures as the deployment.
 
@@ -503,14 +503,14 @@ The primary benefit of the self-hosted engine is that it requires less hardware 
 
 The self-hosted engine currently only runs on Red Hat Enterprise Linux 6.5 hosts. Red Hat Enterprise Virtualization Hypervisors and older versions of Red Hat Enterprise Linux are not recommended for use with a self-hosted engine.
 
-### ⁠2.2. Limitations of the Self-Hosted Engine
+### Limitations of the Self-Hosted Engine
 
 At present there are two main limitations of the self-hosted engine configuration:
 
 *   An NFS storage domain is required for the configuration. NFS is the only supported file system for the self-hosted engine.
 *   The host and hosted engine must use Red Hat Enterprise Linux 6.5 or above. Red Hat Enterprise Virtualization Hypervisors are not supported.
 
-### ⁠2.3. Installing the Self-Hosted Engine
+### Installing the Self-Hosted Engine
 
 **Error**
 
@@ -518,7 +518,7 @@ Topic 25551 failed Injection processing and is not included in this build.
 
 Please review the compiler error for [Topic ID 25551](#TagErrorXRef25551) for more detailed information.
 
-### ⁠2.4. Configuring the Self-Hosted Engine
+### Configuring the Self-Hosted Engine
 
 *Summary*'
 
@@ -732,7 +732,7 @@ Link your Red Hat Enterprise Virtualization Manager to a directory server so you
 
 The `ovirt-host-engine-setup` script also saves the answers you gave during configuration to a file, to help with disaster recovery. If a destination is not specified using the `--generate-answer=&lt;file&gt;` argument, the answer file is generated at `/etc/ovirt-hosted-engine/answers.conf`.
 
-### ⁠2.5. Migrating to a Self-Hosted Environment
+### Migrating to a Self-Hosted Environment
 
 *Summary*'
 
@@ -1059,7 +1059,7 @@ All steps in this procedure are to be conducted as the `root` user for the speci
 
 Your Red Hat Enterprise Virtualization engine has been migrated to a hosted-engine setup. The Manager is now operating on a virtual machine on Host-HE1, called HostedEngine-VM in the environment. As HostedEngine-VM is highly available, it is migrated to other hosts in the environment when applicable.
 
-### ⁠2.6. Installing Additional Hosts to a Self-Hosted Environment
+### Installing Additional Hosts to a Self-Hosted Environment
 
 *Summary*'
 
@@ -1136,7 +1136,7 @@ All steps in this procedure are to be conducted as the `root` user.
 
 After confirmation, the script completes installation of the host and adds it to the environment.
 
-### ⁠2.7. Maintaining the Self-Hosted Engine
+### Maintaining the Self-Hosted Engine
 
 Setting the engine to global maintenance enables you to start, stop, and modify the engine without interference from the high-availability agents. This must be applied to the engine for any setup or upgrade operations that require the engine to be stopped, for instance the installation of the rhevm-dwh and rhevm-reports packages necessary for the **Reports Portal**.
 
@@ -1148,7 +1148,7 @@ To resume the high-availability function of the engine, turn off global maintena
 
 Both of these commands are to be conducted as the `root` user.
 
-### ⁠2.8. Upgrading the Self-Hosted Engine
+### Upgrading the Self-Hosted Engine
 
 **Error**
 
@@ -1156,7 +1156,7 @@ Topic 30615 failed Injection processing and is not included in this build.
 
 Please review the compiler error for [Topic ID 30615](#TagErrorXRef30615) for more detailed information.
 
-### ⁠2.9. Upgrading Additional Hosts in a Self-Hosted Environment
+### Upgrading Additional Hosts in a Self-Hosted Environment
 
 *Summary*'
 
@@ -1196,11 +1196,11 @@ You have updated an additional host in your self-hosted environment to Red Hat E
 
 ## ⁠Chapter 3. History and Reports
 
-### ⁠3.1. Workflow Progress - Data Collection Setup and Reports Installation
+### Workflow Progress - Data Collection Setup and Reports Installation
 
 ![](images/1192.png "images/1192.png")
 
-### ⁠3.2. Data Collection Setup and Reports Installation Overview
+### Data Collection Setup and Reports Installation Overview
 
 The Red Hat Enterprise Virtualization Manager optionally includes a comprehensive management history database, which can be utilized by any application to extract a range of information at the data center, cluster, and host levels. As the database structure changes over time a number of database views are also included to provide a consistent structure to consuming applications. A view is a virtual table composed of the result set of a database query. The definition of a view is stored in the database as a `SELECT` statement. The result set of the `SELECT` statement populates the virtual table returned by the view. If the optional comprehensive management history database has been enabled, the history tables and their associated views are stored in the `ovirt_engine_history` database.
 
@@ -1214,7 +1214,7 @@ The Red Hat Enterprise Virtualization Manager Reports functionality depends on t
 **Note:** Detailed user, administration, and installation guides for JasperReports can be found in `/usr/share/jasperreports-server-pro/docs/`
 
 </div>
-### ⁠3.3. Installing and Configuring the History Database and Red Hat Enterprise Virtualization Manager Reports
+### Installing and Configuring the History Database and Red Hat Enterprise Virtualization Manager Reports
 
 *Summary*'
 
@@ -1270,11 +1270,11 @@ Use the user name `admin` and the password you set during reports installation t
 </div>
 ## ⁠Chapter 4. Introduction to Hosts
 
-### ⁠4.1. Workflow Progress - Installing Virtualization Hosts
+### Workflow Progress - Installing Virtualization Hosts
 
 ![](images/1193.png "images/1193.png")
 
-### ⁠4.2. Introduction to Virtualization Hosts
+### Introduction to Virtualization Hosts
 
 Red Hat Enterprise Virtualization supports both virtualization hosts which run the Red Hat Enterprise Virtualization Hypervisor, and those which run Red Hat Enterprise Linux. Both types of virtualization host are able to coexist in the same Red Hat Enterprise Virtualization environment.
 
@@ -1295,7 +1295,7 @@ Additionally you may have chosen to install the Red Hat Enterprise Virtualizatio
 </div>
 ## ⁠Chapter 5. Red Hat Enterprise Virtualization Hypervisor Hosts
 
-### ⁠5.1. Red Hat Enterprise Virtualization Hypervisor Installation Overview
+### Red Hat Enterprise Virtualization Hypervisor Installation Overview
 
 Before commencing Hypervisor installation you must be aware that:
 
@@ -1309,7 +1309,7 @@ Before commencing Hypervisor installation you must be aware that:
 **Note:** Red Hat Enterprise Virtualization Hypervisor installations can be automated or conducted without interaction. This type of installation is only recommended for advanced users. See the *Red Hat Enterprise Virtualization - Installation Guide* for more information.
 
 </div>
-### ⁠5.2. Installing the Red Hat Enterprise Virtualization Hypervisor Disk Image
+### Installing the Red Hat Enterprise Virtualization Hypervisor Disk Image
 
 *Summary*'
 
@@ -1340,9 +1340,9 @@ You have installed the Red Hat Enterprise Virtualization Hypervisor disk image a
 **Note:** Red Hat Enterprise Linux 6.2 and later allows more than one version of the ISO image to be installed at one time. As such, `/usr/share/rhev-hypervisor/rhev-hypervisor.iso` is now a symbolic link to a uniquely-named version of the Hypervisor ISO image, such as `/usr/share/rhev-hypervisor/rhev-hypervisor-6.4-20130321.0.el6ev.iso`. Different versions of the image can now be installed alongside each other, allowing administrators to run and maintain a cluster on a previous version of the Hypervisor while upgrading another cluster for testing. Additionally, the symbolic link `/usr/share/rhev-hypervisor/rhevh-latest-6.iso`, is created. This links also targets the most recently installed version of the Red Hat Enterprise Virtualization ISO image.
 
 </div>
-### ⁠5.3. Preparing Installation Media
+### Preparing Installation Media
 
-#### ⁠5.3.1. Preparing a USB Storage Device
+####  Preparing a USB Storage Device
 
 You can write the Red Hat Enterprise Virtualization Hypervisor disk image to a USB storage device such as a flash drive or external hard drive. You can then use that USB device to start the machine on which the Red Hat Enterprise Virtualization Hypervisor will be installed and install the Red Hat Enterprise Virtualization Hypervisor operating system.
 
@@ -1350,7 +1350,7 @@ You can write the Red Hat Enterprise Virtualization Hypervisor disk image to a U
 **Note:** Not all systems support booting from a USB storage device. Ensure the BIOS on the system on which you will install the Red Hat Enterprise Virtualization Hypervisor supports this feature.
 
 </div>
-#### ⁠5.3.2. Preparing USB Installation Media Using livecd-iso-to-disk
+####  Preparing USB Installation Media Using livecd-iso-to-disk
 
 *Summary*'
 
@@ -1438,7 +1438,7 @@ The *[device]* parameter is the path to the USB storage device on which to write
 
 You have written a Red Hat Enterprise Virtualization Hypervisor disk image to a USB storage device. You can now use that USB storage device to start a system and install the Red Hat Enterprise Virtualization Hypervisor operating system.
 
-#### ⁠5.3.3. Preparing USB Installation Media Using dd
+####  Preparing USB Installation Media Using dd
 
 The **dd** utility can also be used to write a Red Hat Enterprise Virtualization Hypervisor disk image to a USB storage device. The **dd** utility is available from the coreutils package, and versions of the **dd** utility are available on a wide variety of Linux and Unix operating systems. Windows users can obtain the **dd** utility by installing Red Hat Cygwin, a free Linux-like environment for Windows.
 
@@ -1448,7 +1448,7 @@ The basic syntax for the **dd** utility is as follows:
 
 The *[device]* parameter is the path to the USB storage device on which the disk image will be written. The *[image]* parameter is the path and file name of the disk image to write to the USB storage device. By default, the Red Hat Enterprise Virtualization Hypervisor disk image is located at `/usr/share/rhev-hypervisor/rhev-hypervisor.iso` on the machine on which the rhev-hypervisor6 package is installed. The **dd** command does not make assumptions as to the format of the device because it performs a low-level copy of the raw data in the selected image.
 
-#### ⁠5.3.4. Preparing USB Installation Media Using dd on Linux Systems
+####  Preparing USB Installation Media Using dd on Linux Systems
 
 *Summary*'
 
@@ -1481,7 +1481,7 @@ You can use the **dd** utility to write a Red Hat Enterprise Virtualization Hype
 
 You have written a Red Hat Enterprise Virtualization Hypervisor disk image to a USB storage device.
 
-#### ⁠5.3.5. Preparing Optical Hypervisor Installation Media
+####  Preparing Optical Hypervisor Installation Media
 
 *Summary*'
 
@@ -1514,9 +1514,9 @@ You can write a Red Hat Enterprise Virtualization Hypervisor disk image to a CD-
 
 You have written a Red Hat Enterprise Virtualization Hypervisor disk image to a CD-ROM or DVD.
 
-### ⁠5.4. Installation
+### Installation
 
-#### ⁠5.4.1. Booting the Hypervisor from USB Installation Media
+####  Booting the Hypervisor from USB Installation Media
 
 *Summary*'
 
@@ -1538,7 +1538,7 @@ Booting a hypervisor from a USB storage device is similar to booting other live 
 
 The hypervisor boot process commences automatically.
 
-#### ⁠5.4.2. Booting the Hypervisor from Optical Installation Media
+####  Booting the Hypervisor from Optical Installation Media
 
 *Summary*'
 
@@ -1560,7 +1560,7 @@ Booting the Hypervisor from optical installation media requires the system to ha
 
 The Hypervisor boot screen will be displayed.
 
-#### ⁠5.4.3. Starting the Installation Program
+#### 3. Starting the Installation Program
 
 *Summary*'
 
@@ -1662,14 +1662,14 @@ When you start a system using the prepared boot media, the first screen that dis
 
 You have started the hypervisor installation program.
 
-#### ⁠5.4.4. Hypervisor Menu Actions
+####  Hypervisor Menu Actions
 
 *   The directional keys (**Up**, **Down**, **Left**, **Right**) are used to select different controls on the screen. Alternatively the **Tab** key cycles through the controls on the screen which are enabled.
 *   Text fields are represented by a series of underscores (**_**). To enter data in a text field select it and begin entering data.
 *   Buttons are represented by labels which are enclosed within a pair of angle brackets (**<** and **>**). To activate a button ensure it is selected and press **Enter** or **Space**.
 *   Boolean options are represented by an asterisk (**\***) or a space character enclosed within a pair of square brackets (**[** and **]**). When the value contained within the brackets is an asterisk then the option is set, otherwise it is not. To toggle a Boolean option on or off press **Space** while it is selected.
 
-#### ⁠5.4.5. Installing the Hypervisor
+####  Installing the Hypervisor
 
 *Summary*'
 
@@ -1767,9 +1767,9 @@ Once installation is complete, the message `RHEV Hypervisor Installation Finishe
 **Note:** Hypervisors are able to use multipath devices for installation. Multipath is often used for SANs or other networked storage. Multipath is enabled by default at install time. Any block device which responds to `scsi_id` functions with multipath. Devices where this is not the case include USB storage and some older ATA disks.
 
 </div>
-### ⁠5.5. Configuration
+### Configuration
 
-#### ⁠5.5.1. Logging Into the Hypervisor
+####  Logging Into the Hypervisor
 
 *Summary*'
 
@@ -1787,7 +1787,7 @@ You can log into the hypervisor console locally to configure the hypervisor.
 
 You have successfully logged into the hypervisor console as the `admin` user.
 
-#### ⁠5.5.2. The Status Screen
+####  The Status Screen
 
 The **Status** screen provides an overview of the state of the Hypervisor such as the current status of networking, the location in which logs and reports are stored, and the number of virtual machines that are active on that hypervisor. The **Status** screen also provides the following buttons for viewing further details regarding the Hypervisor and for changing the state of the Hypervisor:
 
@@ -1798,16 +1798,16 @@ The **Status** screen provides an overview of the state of the Hypervisor such a
 *   **<Restart>**: Restarts the Hypervisor.
 *   **<Power Off>**: Turns the Hypervisor off.
 
-#### ⁠5.5.3. The Network Screen
+#### 3. The Network Screen
 
-##### ⁠5.5.3.1. The Network Screen
+##### 3.1. The Network Screen
 
 The **Network** screen is used to configure the host name of the hypervisor and the DNS servers, NTP servers and network interfaces that the hypervisor will use. The **Network** screen also provides a number of buttons for testing and configuring network interfaces:
 
 *   **<Ping>**: Allows you to ping a given IP address by specifying the address to ping and the number of times to ping that address.
 *   **<Create Bond>**: Allows you to create bonds between network interfaces.
 
-##### ⁠5.5.3.2. Configuring the Host Name
+##### 3.2. Configuring the Host Name
 
 *Summary*'
 
@@ -1824,7 +1824,7 @@ You can change the host name used to identify the hypervisor.
 
 You have changed the host name used to identify the hypervisor.
 
-##### ⁠5.5.3.3. Configuring Domain Name Servers
+##### 3.3. Configuring Domain Name Servers
 
 *Summary*'
 
@@ -1842,7 +1842,7 @@ You can specify up to two domain name servers that the hypervisor will use to re
 
 You have specified the primary and secondary domain name servers that the hypervisor will use to resolve network addresses.
 
-##### ⁠5.5.3.4. Configuring Network Time Protocol Servers
+##### 3.4. Configuring Network Time Protocol Servers
 
 *Summary*'
 
@@ -1864,7 +1864,7 @@ You can specify up to two network time protocol servers that the hypervisor will
 
 You have specified the primary and secondary NTP servers that the hypervisor will use to synchronize its system clock.
 
-##### ⁠5.5.3.5. Configuring Network Interfaces
+##### 3.5. Configuring Network Interfaces
 
 *Summary*'
 
@@ -1908,7 +1908,7 @@ After you have installed the Red Hat Enterprise Virtualization Hypervisor operat
 
 The progress of configuration is displayed on screen. When configuration is complete, press the **Enter** key to close the progress window and return to the **Network** screen. The network interface is now listed as **Configured**.
 
-#### ⁠5.5.4. The Security Screen
+#### 4. The Security Screen
 
 *Summary*'
 
@@ -1928,7 +1928,7 @@ You can configure security-related options for the hypervisor such as SSH passwo
 
 You have updated the security-related options for the hypervisor.
 
-#### ⁠5.5.5. The Keyboard Screen
+####  The Keyboard Screen
 
 *Summary*'
 
@@ -1960,7 +1960,7 @@ The **Keyboard** screen allows you to configure the keyboard layout used inside 
 
 You have successfully configured the keyboard layout.
 
-#### ⁠5.5.6. The SNMP Screen
+####  The SNMP Screen
 
 *Summary*'
 
@@ -1986,7 +1986,7 @@ The **SNMP** screen allows you to enable and configure a password for simple net
 
 You have enabled SNMP and configured a password that the hypervisor will use in SNMP communication.
 
-#### ⁠5.5.7. The CIM Screen
+####  The CIM Screen
 
 *Summary*'
 
@@ -2006,7 +2006,7 @@ The **CIM** screen allows you to configure a common information model for attach
 
 You have configured the Hypervisor to accept CIM connections authenticated using a password. Use this password when adding the Hypervisor to your common information model object manager.
 
-#### ⁠5.5.8. The Logging Screen
+####  The Logging Screen
 
 *Summary*'
 
@@ -2031,7 +2031,7 @@ The **Logging** screen allows you to configure logging-related options such as a
 
 You have configured logging for the hypervisor.
 
-#### ⁠5.5.9. The Kdump Screen
+####  The Kdump Screen
 
 *Summary*'
 
@@ -2057,7 +2057,7 @@ The **Kdump** screen allows you to specify a location in which kernel dumps will
 
 You have configured a location in which kernel dumps will be stored in the event of a system failure.
 
-#### ⁠5.5.10. The Remote Storage Screen
+#### 10. The Remote Storage Screen
 
 *Summary*'
 
@@ -2088,7 +2088,7 @@ You can use the **Remote Storage** screen to specify a remote iSCSI initiator or
 
 You have configured remote storage.
 
-#### ⁠5.5.11. Configuring Hypervisor Management Server
+#### 11. Configuring Hypervisor Management Server
 
 *Summary*'
 
@@ -2119,15 +2119,15 @@ You can attach the Hypervisor to the Red Hat Enterprise Virtualization Manager i
 
 The **oVirt Engine** configuration has been updated.
 
-### ⁠5.6. Adding Hypervisors to Red Hat Enterprise Virtualization Manager
+### Adding Hypervisors to Red Hat Enterprise Virtualization Manager
 
-#### ⁠5.6.1. Using the Hypervisor
+####  Using the Hypervisor
 
 If the Hypervisor was configured with the address of the Red Hat Enterprise Virtualization Manager, the Hypervisor reboots and is automatically registered with the Manager. The Red Hat Enterprise Virtualization Manager interface displays the Hypervisor under the **Hosts** tab. To prepare the Hypervisor for use, it must be approved using Red Hat Enterprise Virtualization Manager.
 
 If the Hypervisor was configured without the address of the Red Hat Enterprise Virtualization Manager, it must be added manually. To add the Hypervisor manually, you must have both the IP address of the machine upon which it was installed and the password that was set on the **oVirt Engine** screen during configuration.
 
-#### ⁠5.6.2. Approving a Hypervisor
+####  Approving a Hypervisor
 
 *Summary*'
 
@@ -2148,7 +2148,7 @@ The status in the **Hosts** tab changes to **Installing**, after a brief delay t
 
 ## ⁠Chapter 6. Red Hat Enterprise Linux Hosts
 
-### ⁠6.1. Red Hat Enterprise Linux Hosts
+### Red Hat Enterprise Linux Hosts
 
 You can use a standard Red Hat Enterprise Linux 6 installation on capable hardware as a host. Red Hat Enterprise Virtualization supports hosts running Red Hat Enterprise Linux 6 Server AMD64/Intel 64 version.
 
@@ -2156,7 +2156,7 @@ Adding a host can take some time, as the following steps are completed by the pl
 
 ## ⁠Chapter 7. Configuring Hosts
 
-### ⁠7.1. Installing Red Hat Enterprise Linux
+### Installing Red Hat Enterprise Linux
 
 *Summary*'
 
@@ -2234,7 +2234,7 @@ You must install Red Hat Enterprise Linux 6.5 Server on a system to use it as a 
 
 You have installed Red Hat Enterprise Linux 6.5 Server. You must complete additional configuration tasks before adding the virtualization host to your Red Hat Enterprise Virtualization environment.
 
-### ⁠7.2. Configuring the Virtualization Host Firewall
+### Configuring the Virtualization Host Firewall
 
 *Summary*'
 
@@ -2293,7 +2293,7 @@ All commands in this procedure must be run as the `root` user.
 
 You have configured the virtualization host's firewall to allow the network traffic required by Red Hat Enterprise Virtualization.
 
-### ⁠7.3. Configuring Virtualization Host sudo
+### Configuring Virtualization Host sudo
 
 *Summary*'
 
@@ -2326,7 +2326,7 @@ The Red Hat Enterprise Virtualization Manager uses **sudo** to perform operation
 
 You have configured **sudo** to allow use by the `root` user.
 
-### ⁠7.4. Configuring Virtualization Host SSH
+### Configuring Virtualization Host SSH
 
 *Summary*'
 
@@ -2369,7 +2369,7 @@ All commands in this procedure must be run as the `root` user.
 
 You have configured the virtualization host to allow `root` access over SSH.
 
-### ⁠7.5. Adding a Red Hat Enterprise Linux Host
+### Adding a Red Hat Enterprise Linux Host
 
 *Summary*'
 
@@ -2404,9 +2404,9 @@ The new host displays in the list of hosts with a status of `Installing`. When i
 **Note:** You can view the progress of the installation in the details pane.
 
 </div>
-### ⁠7.6. Explanation of Settings and Controls in the New Host and Edit Host Windows
+### Explanation of Settings and Controls in the New Host and Edit Host Windows
 
-#### ⁠7.6.1. Host General Settings Explained
+####  Host General Settings Explained
 
 These settings apply when editing the details of a host or adding new Red Hat Enterprise Linux hosts and Foreman host provider hosts.
 
@@ -2475,7 +2475,7 @@ The **General** settings table contains the information required on the **Genera
 </tbody>
 </table>
 
-#### ⁠7.6.2. Host Power Management Settings Explained
+####  Host Power Management Settings Explained
 
 The **Power Management** settings table contains the information required on the **Power Management** tab of the **New Host** or **Edit Host** windows.
 
@@ -2561,7 +2561,7 @@ The **Power Management** settings table contains the information required on the
 </tbody>
 </table>
 
-#### ⁠7.6.3. SPM Priority Settings Explained
+#### 3. SPM Priority Settings Explained
 
 The **SPM** settings table details the information required on the **SPM** tab of the **New Host** or **Edit Host** window.
 
@@ -2588,7 +2588,7 @@ The **SPM** settings table details the information required on the **SPM** tab o
 </tbody>
 </table>
 
-#### ⁠7.6.4. Host Console Settings Explained
+#### 4. Host Console Settings Explained
 
 The **Console** settings table details the information required on the **Console** tab of the **New Host** or **Edit Host** window.
 
@@ -2621,11 +2621,11 @@ The **Console** settings table details the information required on the **Console
 
 ## ⁠Chapter 8. Configuring Data Centers
 
-### ⁠8.1. Workflow Progress - Planning Your Data Center
+### Workflow Progress - Planning Your Data Center
 
 ![](images/1194.png "images/1194.png")
 
-### ⁠8.2. Planning Your Data Center
+### Planning Your Data Center
 
 Successful planning is essential for a highly available, scalable Red Hat Enterprise Virtualization environment.
 
@@ -2653,7 +2653,7 @@ High Availability
 
 The system requires at least two hosts to achieve high availability. This redundancy is useful when performing maintenance or repairs.
 
-### ⁠8.3. Data Centers in Red Hat Enterprise Virtualization
+### Data Centers in Red Hat Enterprise Virtualization
 
 The data center is the highest level container for all physical and logical resources within a managed virtual environment. The data center is a collection of clusters of hosts. It owns the logical network (that is, the defined subnets for management, guest network traffic, and storage network traffic) and the storage pool.
 
@@ -2661,7 +2661,7 @@ Red Hat Enterprise Virtualization contains a `Default` data center at installati
 
 The system administrator, as the superuser, can manage all aspects of the platform, that is, data centers, storage domains, users, roles, and permissions, by default; however, more specific administrative roles and permissions can be assigned to other users. For example, the enterprise may need a Data Center administrator for a specific data center, or a particular cluster may need an administrator. All system administration roles for physical resources have a hierarchical permission system. For example, a data center administrator will automatically have permission to manage all the objects in that data center - including storage domains, clusters, and hosts.
 
-### ⁠8.4. Creating a New Data Center
+### Creating a New Data Center
 
 *Summary*'
 
@@ -2688,7 +2688,7 @@ If you set the **Compatibility Version** as **3.1**, it cannot be changed to **3
 
 The new data center is added to the virtualization environment. It will remain **Uninitialized** until a cluster, host, and storage domain are configured for it; use **Guide Me** to configure these entities.
 
-### ⁠8.5. Changing the Data Center Compatibility Version
+### Changing the Data Center Compatibility Version
 
 *Summary*'
 
@@ -2719,7 +2719,7 @@ Upgrading the compatibility will also upgrade all of the storage domains belongi
 
 ## ⁠Chapter 9. Configuring Clusters
 
-### ⁠9.1. Clusters in Red Hat Enterprise Virtualization
+### Clusters in Red Hat Enterprise Virtualization
 
 A cluster is a collection of physical hosts that share similar characteristics and work together to provide computing resources in a highly available manner. In Red Hat Enterprise Virtualization the cluster must contain physical hosts that share the same storage domains and have the same type of CPU. Because virtual machines can be migrated across hosts in the same cluster, the cluster is the highest level at which power and load-sharing policies can be defined. The Red Hat Enterprise Virtualization platform contains a `Default` cluster in the `Default` data center at installation time.
 
@@ -2735,7 +2735,7 @@ At any given time, after a virtual machine runs on a specific host in the cluste
 **Note:** Red Hat Enterprise Virtualization supports **Memory Optimization** by enabling and tuning Kernel Same-page Merging (KSM) on the virtualization hosts in the cluster. For more information on KSM, see the *Red Hat Enterprise Linux 6 Virtualization Administration Guide*.
 
 </div>
-### ⁠9.2. Creating a New Cluster
+### Creating a New Cluster
 
 *Summary*'
 
@@ -2762,7 +2762,7 @@ A data center can contain multiple clusters, and a cluster can contain multiple 
 
 The new cluster is added to the virtualization environment.
 
-### ⁠9.3. Changing the Cluster Compatibility Version
+### Changing the Cluster Compatibility Version
 
 *Summary*'
 

@@ -2088,7 +2088,7 @@ You can use the **Remote Storage** screen to specify a remote iSCSI initiator or
 
 You have configured remote storage.
 
-#### 11. Configuring Hypervisor Management Server
+#### Configuring Hypervisor Management Server
 
 **Summary**
 

@@ -2794,11 +2794,11 @@ Upgrading the compatibility will also upgrade all of the storage domains belongi
 
 ## ⁠Chapter 10. Configuring Networking
 
-### ⁠10.1. Workflow Progress - Network Setup
+### ⁠Workflow Progress - Network Setup
 
 ![](images/1195.png "images/1195.png")
 
-### ⁠10.2. Networking in Red Hat Enterprise Virtualization
+### ⁠Networking in Red Hat Enterprise Virtualization
 
 Red Hat Enterprise Virtualization uses networking to support almost every aspect of operations. Storage, host management, user connections, and virtual machine connectivity, for example, all rely on a well planned and configured network to deliver optimal performance. Setting up networking is a vital prerequisite for a Red Hat Enterprise Virtualization environment because it is much simpler to plan for your projected networking requirements and implement your network accordingly than it is to discover your networking requirements through use and attempt to alter your network configuration retroactively.
 
@@ -2842,9 +2842,9 @@ This applies to all services, but you should be fully aware of the hazards of ru
 *   DNS
 *   Storage
 
-### ⁠10.3. Creating Logical Networks
+### ⁠Creating Logical Networks
 
-#### ⁠10.3.1. Creating a New Logical Network in a Data Center or Cluster
+#### ⁠Creating a New Logical Network in a Data Center or Cluster
 
 **Summary**
 
@@ -2874,9 +2874,9 @@ You have defined a logical network as a resource required by a cluster or cluste
 **Note:** When creating a new logical network or making changes to an existing logical network that is used as a display network, any running virtual machines that use that network must be rebooted before the network becomes available or the changes are applied.
 
 </div>
-### ⁠10.4. Editing Logical Networks
+### ⁠Editing Logical Networks
 
-#### ⁠10.4.1. Editing Host Network Interfaces and Assigning Logical Networks to Hosts
+#### ⁠Editing Host Network Interfaces and Assigning Logical Networks to Hosts
 
 **Summary**
 
@@ -2922,7 +2922,7 @@ You have assigned logical networks to and configured a physical host network int
 **Note:** If not all network interface cards for the host are displayed, click the **Refresh Capabilities** button to update the list of network interface cards available for that host.
 
 </div>
-#### ⁠10.4.2. Logical Network General Settings Explained
+#### ⁠Logical Network General Settings Explained
 
 The table below describes the settings for the **General** tab of the **New Logical Network** and **Edit Logical Network** window.
 
@@ -2977,7 +2977,7 @@ The table below describes the settings for the **General** tab of the **New Logi
 </tbody>
 </table>
 
-#### ⁠10.4.3. Editing a Logical Network
+#### ⁠Editing a Logical Network
 
 **Summary**
 
@@ -3001,7 +3001,7 @@ You have updated the settings of your logical network.
 **Note:** Multi-host network configuration is available on data centers with 3.1-or-higher compatibility, and automatically applies updated network settings to all of the hosts within the data center to which the network is assigned. Changes can only be applied when virtual machines using the network are down. You cannot rename a logical network that is already configured on a host. You cannot disable the **VM Network** option while virtual machines or templates using that network are running.
 
 </div>
-#### ⁠10.4.4. Explanation of Settings in the Manage Networks Window
+#### ⁠Explanation of Settings in the Manage Networks Window
 
 The table below describes the settings for the **Manage Networks** window.
 
@@ -3044,7 +3044,7 @@ The table below describes the settings for the **Manage Networks** window.
 </tbody>
 </table>
 
-#### ⁠10.4.5. Using the Networks Tab
+#### ⁠Using the Networks Tab
 
 The **Networks** resource tab provides a central location for users to perform network-related operations and search for networks based on each network's property or association with other resources.
 
@@ -3058,9 +3058,9 @@ Click on each network name and use the **Clusters**, **Hosts**, **Virtual Machin
 
 These functions are also accessible through each individual resource tab.
 
-### ⁠10.5. Removing Logical Networks
+### ⁠Removing Logical Networks
 
-#### ⁠10.5.1. Removing a Logical Network
+#### ⁠Removing a Logical Network
 
 **Summary**
 

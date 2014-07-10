@@ -40,7 +40,7 @@ To store the short term history the vm_statistics table has been enriched by the
 
 This fields are defined as TEXT and the values in them are stored as one comma separated string of values in percentage, for example: "19,20,34,0,0,1"
 
-The amount of values which are stored in this fields are regulated by **UsageHistoryLimit**' from **vdc_options**. For example, if the UsageHistoryLimit is 3 and the current value is "1,2,3" and the new value of 4 comes, the result will be "2,3,4".
+The amount of values which are stored in this fields are regulated by **UsageHistoryLimit** from **vdc_options**. For example, if the UsageHistoryLimit is 3 and the current value is "1,2,3" and the new value of 4 comes, the result will be "2,3,4".
 
 ### Frontend
 

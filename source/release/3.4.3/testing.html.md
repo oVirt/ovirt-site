@@ -25,3 +25,4 @@ If you're willing to participate, please add yourself to the table below:
 | Name     | part tested                                     | Storage | Networking            | Distribution | Bugs        |
 |----------|-------------------------------------------------|---------|-----------------------|--------------|-------------|
 | stirabos | engine-setup, iso-uploader, engine (all-in-one) | local   | plain, just ovirtmgmt | Fedora 19    | nothing new |
+| lveyde   | engine-setup, iso-uploader, engine              | nfs     | plain, just ovirtmgmt | Fedora 19    | nothing new |

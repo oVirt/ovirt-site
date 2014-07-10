@@ -91,7 +91,7 @@ Please see the mockup attached (please note that the line endings are random in 
 ### Test Case 6
 
 *   Have a VM running for some time so it has, say, 10 values shown in the CPU usage chart shown
-*   Make the CPU usage column as small as possible
+*   Make the CPU usage column very small
 *   Verify that only the number showing the actual usage is shown
 
 ### Test Case 7

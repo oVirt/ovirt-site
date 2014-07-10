@@ -57,4 +57,47 @@ Please see the mockup attached (please note that the line endings are random in 
 
 ![](ResourceUsageGraphMockup.png "ResourceUsageGraphMockup.png")
 
+### Testing
+
+### Test Case 1
+
+*   Have a VM which is turned off
+*   Verify the line charts reset to 0
+
+### Test Case 2
+
+*   Have a VM running some while so the charts are showing something
+*   Turn the VM off using webadmin
+*   Verify the charts are reset to 0
+
+### Test Case 3
+
+*   Have a VM running some while so the charts are showing something
+*   Kill the qemu process of the VM
+*   Verify the charts are reset to 0
+
+### Test Case 4
+
+*   Have a VM running for some time so it has, say, 10 values shown in the CPU usage chart shown
+*   Make the CPU usage column small that not all the values fit in
+*   Verify that only the subpart of the values are in
+
+### Test Case 5
+
+*   Have a VM running for some time so it has, say, 10 values shown in the CPU usage chart shown
+*   Make the CPU usage column large that all the values fit in
+*   Verify that all of the values are in
+
+### Test Case 6
+
+*   Have a VM running for some time so it has, say, 10 values shown in the CPU usage chart shown
+*   Make the CPU usage column as small as possible
+*   Verify that only the number showing the actual usage is shown
+
+### Test Case 7
+
+*   Have a VM running for some time and has a changing values in the CPU usage
+*   Verify that when the CPU usage is under 70%, the line chart ends with a triangle, if between 70 and 95 than orange square and if above 95 a red dot
+*   Also verify that if the current value is under 95% the number showing the actual value is not bold while when above 95 it is red and bold
+
 <Category:Feature> <Category:Template>

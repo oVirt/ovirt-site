@@ -97,7 +97,7 @@ Please see the mockup attached (please note that the line endings are random in 
 ### Test Case 7
 
 *   Have a VM running for some time and has a changing values in the CPU usage
-*   Verify that when the CPU usage is under 70%, the line chart ends with a triangle, if between 70 and 95 than orange square and if above 95 a red dot
+*   Verify that when the CPU usage is under 70%, the line chart ends with a green triangle, if between 70 and 95 than orange square and if above 95 a red dot
 *   Also verify that if the current value is under 95% the number showing the actual value is not bold while when above 95 it is red and bold
 
 <Category:Feature> <Category:Template>

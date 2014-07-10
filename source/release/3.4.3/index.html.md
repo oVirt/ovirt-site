@@ -101,6 +101,10 @@ If you're going to test oVirt 3.4.3 development version, please add yourself to 
  - CPU hot plug "tool tip", in VM edit dialogue, is not clear.
  - API: Interface name is not set via cloud-init api
 
+### oVirt ISO Uploader
+
+* option nossl does not work
+
 ### VDSM
 
 ### ovirt-node-plugin-vdsm
